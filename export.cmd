@@ -1,6 +1,7 @@
 
-xcopy "D:\TreeOfSavior Test\data\*.ipf" "D:\IPF_Export\data_copy" /y
-::xcopy /y "D:\IPF_Export\test_ipf\*.ipf" "D:\IPF_Export\data_copy"
+if not exist data_copy mkdir data_copy
+
+xcopy "D:\TreeOfSavior Test\data\*.ipf" ".\data_copy" /y
 
 cd data_copy
 dir /b > ..\filelist.txt
