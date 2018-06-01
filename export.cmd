@@ -1,7 +1,7 @@
 
 if not exist data_copy mkdir data_copy
 
-xcopy "D:\TreeOfSavior Test\data\*.ipf" ".\data_copy" /y
+xcopy "%1\data\*.ipf" ".\data_copy" /y
 
 cd data_copy
 dir /b > ..\filelist.txt
