@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_deathweaver_wlk" />
+    <Shockwave frame="13" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="13" particleName="F_smoke109" attachNode="Foot_Ctrl_006" scale="0.2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="13" particleName="F_stone005" attachNode="Foot_Ctrl_006" scale="0.1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="13" particleName="F_smoke109" attachNode="Foot_Ctrl_002" scale="0.2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="13" particleName="F_stone005" attachNode="Foot_Ctrl_002" scale="0.1" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="15" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="16" particleName="F_smoke109" attachNode="Foot_Ctrl_007" scale="0.2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="16" particleName="F_stone005" attachNode="Foot_Ctrl_007" scale="0.1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="16" particleName="F_smoke109" attachNode="Foot_Ctrl_003" scale="0.2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="16" particleName="F_stone005" attachNode="Foot_Ctrl_003" scale="0.1" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="17" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Sound frame="18.00" soundFile="mon_deathweaver_wlk" />
+    <Shockwave frame="19" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="19" particleName="F_smoke109" attachNode="Foot_Ctrl_008" scale="0.2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="19" particleName="F_stone005" attachNode="Foot_Ctrl_008" scale="0.1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="19" particleName="F_smoke109" attachNode="Foot_Ctrl_004" scale="0.2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="19" particleName="F_stone005" attachNode="Foot_Ctrl_004" scale="0.1" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="21" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Sound frame="21.00" soundFile="mon_big_footstep_3" />
+    <Particle frame="22" particleName="F_smoke109" attachNode="Foot_Ctrl_001" scale="0.2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="22" particleName="F_stone005" attachNode="Foot_Ctrl_001" scale="0.1" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="23" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+</ActionDesc>

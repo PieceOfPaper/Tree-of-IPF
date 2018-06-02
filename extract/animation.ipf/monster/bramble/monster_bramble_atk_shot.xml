@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by leedoyoung (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_bramble_atk_shot" />
+    <Shockwave frame="5" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="5.00" particleName="F_ground071_smoke" attachNode="Dummy_eff_atk" scale="1.2" useAttach="true" />
+    <HitAni frame="5.26" />
+    <Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="45" particleName="F_burstup017_smoke" attachNode="Dummy_eff_atk" scale="8" useAttach="true" />
+    <Particle frame="45" particleName="F_stone002" attachNode="Dummy_eff_atk" scale="3" useAttach="true" />
+</ActionDesc>

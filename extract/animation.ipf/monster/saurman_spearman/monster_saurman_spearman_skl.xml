@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by d (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="12" soundFile="mon_saurman_axeman_atk_shot" />
+    <Particle frame="12" particleName="F_circle017" attachNode="Dummy_emitter" scale="1" useAttach="true" hiddenObj="false" changeEffect="None" />
+    <Particle frame="12" particleName="F_mon_katynforest_zombie01_knockdown" attachNode="Dummy_emitter" scale="1" useAttach="true" hiddenObj="false" changeEffect="None" />
+    <Particle frame="12" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="Dummy_emitter" scale="1" useAttach="true" hiddenObj="false" changeEffect="None" />
+    <Particle frame="12" particleName="F_dash004" attachNode="Dummy_skl1_weapon" scale="1.5" useAttach="true" hiddenObj="false" changeEffect="None" />
+    <Sound frame="13" soundFile="spear_whoosh" />
+    <HitAni frame="13" />
+    <Sound frame="0.00" soundFile="mon_saurman_axeman_atk_cast" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_large_crossbow_cast"/>
+    <Sound frame="17.00" soundFile="skl_eff_large_crossbow_shot"/>
+    <Particle frame="18" attachNode="Dummy_force_start" particleName="I_burst_up_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_archer_skl_shot1"/>
+    <Shockwave frame="19" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

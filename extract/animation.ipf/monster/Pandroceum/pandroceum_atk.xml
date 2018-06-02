@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="10" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="11" R="150" G="120" B="60" A="50"/>
+	<BlendOn frame="12" R="130" G="100" B="40" A="50"/>
+	<BlendOff frame="13" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="8" term="30" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="12" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Sound frame="0.00" soundFile="mon_flower_blue_atk2_cast"/>
+	<Sound frame="8.00" soundFile="mon_flower_blue_atk1_shot"/>
+	<Sound frame="10.00" soundFile="skl_eff_hit_plants_5"/>
+</ActionDesc>

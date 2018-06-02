@@ -1,0 +1,1752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="G_TOWER_1" minLv="0" maxLv="0" startWaitSec="4">
+        <StageList>
+            <Stage Name="Set">
+                <ObjList/>
+            </Stage>
+            <Stage Name="Stage_Door">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57272" Pos="2759.38#267.83#-4109.02" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="2763.01#265.31#-4145.44" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="1" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="2961.60#267.83#-1801.66" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="2960.00#258.00#-1842.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="3" autoDestroy="0" propList="&apos;Name&apos; &apos;3층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_3&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="2860.53#269.10#449.53" genCount="1" genTime="20000" objectKey="4" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="2861.00#263.00#403.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="5" autoDestroy="0" propList="&apos;Name&apos; &apos;4층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_4&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="2868.70#268.00#2481.28" genCount="1" genTime="20000" objectKey="6" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="2870.00#261.00#2437.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="7" autoDestroy="0" propList="&apos;Name&apos; &apos;5층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_5&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="2788.14#268.00#4355.33" genCount="1" genTime="20000" objectKey="8" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="2788.00#262.00#4311.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="9" autoDestroy="0" propList="&apos;Name&apos; &apos;6층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_6&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="139.33#271.55#-4161.13" genCount="1" genTime="20000" objectKey="10" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="139.00#264.00#-4206.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="11" autoDestroy="0" propList="&apos;Name&apos; &apos;7층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_7&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="108.42#268.00#-1875.64" genCount="1" genTime="20000" objectKey="12" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="107.00#261.00#-1920.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="13" autoDestroy="0" propList="&apos;Name&apos; &apos;8층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_8&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="54.83#268.00#371.52" genCount="1" genTime="20000" objectKey="14" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="54.00#260.00#326.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="15" autoDestroy="0" propList="&apos;Name&apos; &apos;9층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_9&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="172.71#268.00#2397.44" genCount="1" genTime="20000" objectKey="16" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="172.00#260.00#2352.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="17" autoDestroy="0" propList="&apos;Name&apos; &apos;10층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_10&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="174.34#268.00#4374.26" genCount="1" genTime="20000" objectKey="18" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="172.00#257.00#4331.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="19" autoDestroy="0" propList="&apos;Name&apos; &apos;11층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_1&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="-2640.69#268.91#-4329.27" genCount="1" genTime="20000" objectKey="20" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="-2639.00#262.00#-4375.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="21" autoDestroy="0" propList="&apos;Name&apos; &apos;12층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_12&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="-2643.73#268.91#-1836.08" genCount="1" genTime="20000" objectKey="22" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="-2643.00#265.00#-1882.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="23" autoDestroy="0" propList="&apos;Name&apos; &apos;13층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_13&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="-2767.49#268.91#403.38" genCount="1" genTime="20000" objectKey="24" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="-2766.00#261.00#357.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="25" autoDestroy="0" propList="&apos;Name&apos; &apos;14층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_14&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="-2541.25#268.91#2393.81" genCount="1" genTime="20000" objectKey="26" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="-2540.00#262.00#2348.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="27" autoDestroy="0" propList="&apos;Name&apos; &apos;15층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_15&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="-2446.87#268.91#4311.75" genCount="1" genTime="20000" objectKey="28" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="-2445.00#262.00#4265.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="29" autoDestroy="0" propList="&apos;Name&apos; &apos;16층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_16&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="-5231.06#268.91#-4143.61" genCount="1" genTime="20000" objectKey="30" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="-5229.00#261.00#-4189.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="31" autoDestroy="0" propList="&apos;Name&apos; &apos;17층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_17&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="-5254.12#268.91#-1801.87" genCount="1" genTime="20000" objectKey="32" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="-5253.00#261.00#-1848.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="33" autoDestroy="0" propList="&apos;Name&apos; &apos;18층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_18&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="-4845.28#268.91#387.49" genCount="1" genTime="20000" objectKey="34" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="-4843.00#262.00#342.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="35" autoDestroy="0" propList="&apos;Name&apos; &apos;19층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_19&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="-4952.37#268.91#2390.18" genCount="1" genTime="20000" objectKey="36" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="-4952.00#260.00#2345.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="37" autoDestroy="0" propList="&apos;Name&apos; &apos;20층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_20&apos; &apos;Range&apos; &apos;15&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="-4870.59#268.91#4323.41" genCount="1" genTime="20000" objectKey="38" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="-4871.00#260.00#4278.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="39" autoDestroy="0" propList="&apos;Name&apos; &apos;로비&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_LOBBY2&apos; &apos;Range&apos; &apos;15&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="1F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="2F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="3F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/5"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="4F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/6"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/7"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="5F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/8"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/9"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage6"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="6F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/10"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/11"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage7"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="7F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/12"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/13"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="8F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/14"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/15"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage9"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="9F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/16"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/17"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="10F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/18"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/19"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage11"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="11F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/20"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/21"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage12"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="12F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/22"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/23"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage13"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="13F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/24"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/25"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage14"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="14F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/26"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/27"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage15"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="15F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/28"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/29"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage16"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="16F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/30"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/31"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage17"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="17F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/32"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/33"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage18"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="18F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/34"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/35"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage19"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="19F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/36"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/37"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage20"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="20F">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/38"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_Door/39"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage21"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage1">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="1층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910001" Pos="2424.99#233.98#-4495.26" angle="-10" genCount="1" genTime="1000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910001" Pos="2458.39#233.98#-4531.52" angle="68" genCount="1" genTime="1000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910001" Pos="3017.32#233.98#-4497.44" angle="169" genCount="1" genTime="1000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910001" Pos="3010.79#233.98#-4543.65" angle="132" genCount="1" genTime="1000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910001" Pos="2465.23#233.98#-4480.37" angle="-165" genCount="1" genTime="1000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2966.97#233.98#-4504.03" angle="10" genCount="1" genTime="1000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2964.05#233.98#-4463.20" angle="-43" genCount="1" genTime="1000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2417.25#233.98#-4524.75" angle="-87" genCount="1" genTime="1000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2962.74#233.98#-4535.18" angle="34" genCount="1" genTime="1000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2426.90#233.98#-4453.79" angle="167" genCount="1" genTime="1000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910001" Pos="2699.97#233.98#-4293.86" angle="33" genCount="1" genTime="1000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910001" Pos="2745.17#233.98#-4239.51" angle="-85" genCount="1" genTime="1000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910001" Pos="2794.58#233.98#-4283.15" angle="-170" genCount="1" genTime="1000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2687.22#233.98#-4246.07" angle="-150" genCount="1" genTime="1000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2749.29#233.98#-4303.61" angle="10" genCount="1" genTime="1000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2792.59#233.98#-4251.06" angle="44" genCount="1" genTime="1000" autoGen="0" objectKey="15" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2934.37#233.98#-4528.26" angle="34" genCount="1" genTime="1000" autoGen="0" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2939.27#233.98#-4495.17" angle="34" genCount="1" genTime="1000" autoGen="0" objectKey="17" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2935.18#233.98#-4463.42" angle="34" genCount="1" genTime="1000" autoGen="0" objectKey="18" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2968.18#233.98#-4713.09" angle="34" genCount="1" genTime="1000" autoGen="0" objectKey="19" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2560.36#233.98#-4703.76" angle="34" genCount="1" genTime="1000" autoGen="0" objectKey="20" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2740.40#233.98#-4516.87" angle="170" genCount="1" genTime="1000" autoGen="0" objectKey="21" tendency="1"/>
+                    <Obj Type="Monster" MonType="910002" Pos="2955.11#233.98#-4711.05" angle="-170" genCount="1" genTime="1000" autoGen="0" objectKey="22" tendency="1"/>
+                    <Obj Type="Monster" MonType="910001" Pos="2770.29#233.98#-4512.33" angle="-133" genCount="1" genTime="1000" autoGen="0" objectKey="23" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/0/Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20/Stage1/21/Stage1/22/Stage1/23"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/0/Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20/Stage1/21/Stage1/22/Stage1/23"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/0"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage2" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="2층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910004" Pos="3287.54#239.54#-2207.57" genCount="1" genTime="1000" autoGen="0" objectKey="0" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910004" Pos="2612.21#239.54#-2248.95" genCount="1" genTime="1000" autoGen="0" objectKey="1" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910004" Pos="2812.02#239.54#-1883.65" genCount="1" genTime="1000" autoGen="0" objectKey="2" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910004" Pos="3255.81#239.54#-2347.51" genCount="1" genTime="1000" autoGen="0" objectKey="3" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910005" Pos="3222.48#239.54#-2034.88" genCount="1" genTime="1000" autoGen="0" objectKey="4" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910005" Pos="3128.43#239.54#-2465.43" genCount="1" genTime="1000" autoGen="0" objectKey="5" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910005" Pos="2721.57#239.54#-2427.28" genCount="1" genTime="1000" autoGen="0" objectKey="6" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910005" Pos="2640.54#239.54#-2054.39" genCount="1" genTime="1000" autoGen="0" objectKey="7" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910003" Pos="2955.22#239.54#-2196.28" genCount="1" genTime="1000" autoGen="0" objectKey="8" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_WITH" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_ATTACK_HELP_NEAR_WITH" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="gtower_mon_buff"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                                    <Num Num="200"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910004" Pos="3088.25#239.54#-1893.35" genCount="1" genTime="1000" autoGen="0" objectKey="9" searchRange="1000" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage2/8"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Gen2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/0/Stage2/1/Stage2/2/Stage2/3/Stage2/4/Stage2/5/Stage2/6/Stage2/7/Stage2/8/Stage2/9/Stage2/10"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/2"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Gen2" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/8"/>
+                                <Num Num="50"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage2/0/Stage2/1/Stage2/2/Stage2/3/Stage2/4/Stage2/5/Stage2/6/Stage2/7/Stage2/9"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Gen3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event eventName="Gen3" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/0/Stage2/1/Stage2/2/Stage2/3/Stage2/4/Stage2/5/Stage2/6/Stage2/7/Stage2/8/Stage2/9"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage2/1/Stage2/2/Stage2/3/Stage2/4/Stage2/5/Stage2/6/Stage2/7/Stage2/8/Stage2/9"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage3" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="3층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910006" Pos="2648.93#240.80#48.95" angle="-173" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910006" Pos="2589.58#240.80#25.87" angle="6" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910006" Pos="3115.06#240.80#-9.78" angle="-35" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910006" Pos="2688.44#240.80#207.97" angle="36" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910007" Pos="3039.18#240.80#-125.44" angle="128" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910007" Pos="2856.74#240.80#45.19" angle="89" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910007" Pos="2672.43#240.80#-123.68" angle="129" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910007" Pos="2721.71#240.80#235.70" angle="-144" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910007" Pos="3072.63#240.80#139.19" angle="-50" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910008" Pos="2922.48#240.80#71.66" angle="142" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910008" Pos="2816.68#240.80#107.80" angle="-12" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910008" Pos="2904.33#240.80#98.48" angle="-156" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910008" Pos="2622.52#240.80#18.61" angle="111" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910008" Pos="2815.03#240.80#73.96" angle="22" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage3/0/Stage3/1/Stage3/2/Stage3/3/Stage3/4/Stage3/5/Stage3/6/Stage3/7/Stage3/8/Stage3/9/Stage3/10/Stage3/11/Stage3/12/Stage3/13"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage3/0/Stage3/1/Stage3/2/Stage3/3/Stage3/5/Stage3/6/Stage3/7/Stage3/8/Stage3/9/Stage3/9/Stage3/10/Stage3/11/Stage3/12/Stage3/13"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/4"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage4" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="4층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910009" Pos="2605.09#239.70#2061.82" angle="87" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910010" Pos="2876.76#239.70#2258.29" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910010" Pos="2872.42#239.70#2159.71" angle="84" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910010" Pos="2805.45#239.70#1981.91" angle="9" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910009" Pos="2940.46#239.70#2220.62" angle="-145" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910009" Pos="2812.60#239.70#2219.87" angle="2" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910009" Pos="3136.76#239.70#2082.87" angle="159" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910010" Pos="2945.12#239.70#1988.14" angle="113" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage4/0/Stage4/1/Stage4/2/Stage4/3/Stage4/4/Stage4/5/Stage4/6/Stage4/7"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage4/0/Stage4/1/Stage4/2/Stage4/3/Stage4/4/Stage4/5/Stage4/6/Stage4/7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/6"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage5" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="5층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="90001" Pos="2778.94#239.89#3960.06" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage5/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage5/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/8"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage6" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="6층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910101" Pos="-120.58#243.26#-4660.75" angle="4" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910101" Pos="-60.25#243.26#-4634.75" angle="3" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910101" Pos="106.49#243.26#-4474.16" angle="95" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910101" Pos="291.97#243.26#-4616.59" angle="159" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910101" Pos="181.79#243.26#-4470.84" angle="59" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910101" Pos="348.42#243.26#-4644.60" angle="157" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910101" Pos="404.67#243.26#-4665.35" angle="168" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910101" Pos="-3.80#243.26#-4614.33" angle="19" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910102" Pos="31.93#243.26#-4297.49" angle="-50" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910102" Pos="203.45#243.26#-4416.35" angle="-103" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910102" Pos="57.69#243.26#-4359.65" angle="-44" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910102" Pos="82.52#243.26#-4418.17" angle="-59" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910102" Pos="227.53#243.26#-4359.72" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910102" Pos="250.51#243.26#-4299.05" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910102" Pos="53.97#243.26#-4751.36" angle="-41" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910102" Pos="227.96#243.26#-4761.48" angle="-145" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage6/0/Stage6/1/Stage6/2/Stage6/3/Stage6/4/Stage6/5/Stage6/6/Stage6/7/Stage6/8/Stage6/9/Stage6/10/Stage6/11/Stage6/12/Stage6/13/Stage6/14/Stage6/15"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage6/0/Stage6/1/Stage6/2/Stage6/3/Stage6/4/Stage6/5/Stage6/6/Stage6/7/Stage6/8/Stage6/9/Stage6/10/Stage6/11/Stage6/12/Stage6/13/Stage6/14/Stage6/15"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/10"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage6"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage7" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="7층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910103" Pos="-155.89#239.70#-2383.62" angle="28" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910103" Pos="-106.52#239.70#-2391.78" angle="135" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910103" Pos="-105.44#239.70#-2342.81" angle="-122" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910103" Pos="375.61#239.70#-2369.85" angle="131" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910103" Pos="376.11#239.70#-2321.67" angle="-151" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910103" Pos="327.09#239.70#-2368.78" angle="40" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910103" Pos="326.56#239.70#-2323.13" angle="-41" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910103" Pos="-147.76#239.70#-2342.94" angle="-54" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910104" Pos="-60.32#239.70#-2124.02" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910104" Pos="30.05#239.70#-2470.54" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="25.31662" Y="239.70441" Z="-2086.6016"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="35.443424" Y="239.70441" Z="-2467.9534"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="gtower_mon_buff"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910104" Pos="108.25#239.70#-2117.18" genCount="1" genTime="20000" autoGen="0" objectKey="10" searchRange="100" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="108.19749" Y="239.70441" Z="-2115.7456"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="108.04466" Y="239.70441" Z="-2445.7495"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_ATTACK_HELP_NEAR_WITH" Client="NO" UseSleep="NO">
+                                    <Num Num="200"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="gtower_mon_buff"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910104" Pos="190.88#239.70#-2455.96" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_WITH" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="186.44481" Y="239.70441" Z="-2102.6724"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="190.87688" Y="239.70441" Z="-2455.9587"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="gtower_mon_buff"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910104" Pos="271.04#239.70#-2129.58" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage7/0/Stage7/1/Stage7/2/Stage7/3/Stage7/4/Stage7/5/Stage7/6/Stage7/7/Stage7/8/Stage7/9/Stage7/10/Stage7/11/Stage7/12"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage7/0/Stage7/1/Stage7/2/Stage7/3/Stage7/4/Stage7/5/Stage7/6/Stage7/7/Stage7/8/Stage7/9/Stage7/10/Stage7/11/Stage7/12"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/12"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage7"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage8" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="8층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910105" Pos="-129.14#239.70#-61.64" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910105" Pos="-131.48#239.70#-10.04" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910105" Pos="51.87#239.70#42.48" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_WITH" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_ATTACK_HELP_NEAR_WITH" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="gtower_mon_buff"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="910105" Pos="243.83#239.70#-13.05" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910105" Pos="244.06#239.70#-58.40" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910106" Pos="409.64#239.70#-45.75" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910106" Pos="349.41#239.70#-106.24" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910106" Pos="-267.18#239.70#20.03" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910106" Pos="-272.49#239.70#-114.52" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910106" Pos="347.47#239.70#-61.87" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910106" Pos="-277.35#239.70#-19.36" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910106" Pos="346.54#239.70#32.23" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910106" Pos="347.26#239.70#-17.43" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910106" Pos="-273.26#239.70#-62.66" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910106" Pos="405.73#239.70#-77.00" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910106" Pos="407.86#239.70#-11.25" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage8/0/Stage8/1/Stage8/2/Stage8/3/Stage8/4/Stage8/5/Stage8/6/Stage8/7/Stage8/8/Stage8/9/Stage8/10/Stage8/11/Stage8/12/Stage8/13/Stage8/14/Stage8/15"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage8/0/Stage8/1/Stage8/2/Stage8/3/Stage8/4/Stage8/5/Stage8/6/Stage8/7/Stage8/8/Stage8/9/Stage8/10/Stage8/11/Stage8/12/Stage8/13/Stage8/14/Stage8/15"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/14"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage9" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="9층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910107" Pos="-10.92#239.70#2255.68" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910107" Pos="17.09#239.70#2277.53" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910107" Pos="426.12#239.70#2166.50" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910107" Pos="319.58#239.70#2211.34" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910107" Pos="57.03#239.70#2241.78" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910107" Pos="23.24#239.70#2219.36" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910108" Pos="336.69#239.70#2155.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910108" Pos="-76.19#239.70#2175.68" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910108" Pos="-35.80#239.70#2140.97" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910108" Pos="154.98#239.70#2064.46" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910109" Pos="-11.07#239.70#1924.67" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910109" Pos="343.82#239.70#1915.31" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910109" Pos="398.01#239.70#2224.44" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910109" Pos="-106.46#239.70#2147.69" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910109" Pos="-67.40#239.70#2111.54" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910108" Pos="392.40#239.70#2135.36" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1"/>
+                    <Obj Type="Monster" MonType="910108" Pos="370.37#239.70#2191.16" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="910108" Pos="205.60#239.70#2066.07" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1"/>
+                    <Obj Type="Monster" MonType="910108" Pos="174.54#239.70#2103.50" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1"/>
+                    <Obj Type="Monster" MonType="910107" Pos="353.17#239.70#2244.54" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage9/0/Stage9/1/Stage9/2/Stage9/3/Stage9/5/Stage9/6/Stage9/7/Stage9/8/Stage9/9/Stage9/9/Stage9/10/Stage9/11/Stage9/12/Stage9/13/Stage9/14/Stage9/15/Stage9/16/Stage9/17/Stage9/18/Stage9/19"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage9/0/Stage9/1/Stage9/2/Stage9/3/Stage9/5/Stage9/6/Stage9/7/Stage9/8/Stage9/9/Stage9/9/Stage9/10/Stage9/11/Stage9/12/Stage9/13/Stage9/14/Stage9/15/Stage9/16/Stage9/17/Stage9/18/Stage9/19"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/16"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage9"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage10" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="10층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="90002" Pos="168.49#239.70#3981.82" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910110" Pos="307.23#239.70#4251.15" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910110" Pos="39.06#239.70#4266.73" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage10/0/Stage10/1/Stage10/2"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage10/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/18"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage11" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="11층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910201" Pos="-2329.90#240.61#-4752.04" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910201" Pos="-2622.80#240.61#-4739.75" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910201" Pos="-2807.39#240.61#-4504.54" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910201" Pos="-2841.70#240.61#-4914.18" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910201" Pos="-2474.33#240.61#-4950.80" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910202" Pos="-2965.21#240.61#-4772.95" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910202" Pos="-2903.51#240.61#-4746.87" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910202" Pos="-2904.49#240.61#-4803.48" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910202" Pos="-2964.33#240.61#-4644.96" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910202" Pos="-2901.67#240.61#-4687.73" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910202" Pos="-2967.34#240.61#-4831.18" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910202" Pos="-2829.29#240.61#-4770.23" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910203" Pos="-2370.98#240.61#-4693.42" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910203" Pos="-2374.82#240.61#-4743.56" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910203" Pos="-2374.39#240.61#-4798.74" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910203" Pos="-2367.25#240.61#-4648.80" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1"/>
+                    <Obj Type="Monster" MonType="910202" Pos="-2828.62#240.61#-4710.75" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="910202" Pos="-2969.96#240.61#-4710.47" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1"/>
+                    <Obj Type="Monster" MonType="910201" Pos="-2604.38#240.61#-4577.32" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1"/>
+                    <Obj Type="Monster" MonType="910201" Pos="-2482.93#240.61#-4806.20" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage11/0/Stage11/1/Stage11/2/Stage11/3/Stage11/5/Stage11/6/Stage11/7/Stage11/8/Stage11/9/Stage11/9/Stage11/10/Stage11/11/Stage11/12/Stage11/13/Stage11/14/Stage11/15/Stage11/16/Stage11/17/Stage11/18/Stage11/19"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage11/0/Stage11/1/Stage11/2/Stage11/3/Stage11/5/Stage11/6/Stage11/7/Stage11/8/Stage11/9/Stage11/9/Stage11/10/Stage11/11/Stage11/12/Stage11/13/Stage11/14/Stage11/15/Stage11/16/Stage11/17/Stage11/18/Stage11/19"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/20"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage11"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage12" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="12층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910204" Pos="-2599.96#241.48#-2157.11" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910204" Pos="-2635.16#241.48#-1992.72" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910204" Pos="-2551.45#241.48#-2287.71" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910204" Pos="-2551.56#241.48#-2212.27" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910205" Pos="-2684.67#241.48#-2146.07" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910205" Pos="-2827.08#240.98#-2237.09" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910205" Pos="-2745.98#241.48#-2290.88" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910205" Pos="-2744.82#241.48#-2211.26" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910206" Pos="-2397.49#241.48#-2245.16" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910206" Pos="-2454.78#241.48#-2040.76" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910206" Pos="-2836.02#241.48#-2056.00" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910206" Pos="-2665.50#241.48#-1955.46" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910206" Pos="-2914.93#241.48#-2245.08" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910206" Pos="-2619.48#241.48#-1953.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1"/>
+                    <Obj Type="Monster" MonType="910206" Pos="-2473.32#241.48#-2426.19" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="910206" Pos="-2827.53#241.48#-2433.04" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1"/>
+                    <Obj Type="Monster" MonType="910206" Pos="-2648.48#241.48#-2251.11" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage12/0/Stage12/1/Stage12/2/Stage12/3/Stage12/5/Stage12/6/Stage12/7/Stage12/8/Stage12/9/Stage12/9/Stage12/10/Stage12/11/Stage12/12/Stage12/13/Stage12/14/Stage12/15/Stage12/16"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage12/0/Stage12/1/Stage12/2/Stage12/3/Stage12/5/Stage12/6/Stage12/7/Stage12/8/Stage12/9/Stage12/9/Stage12/10/Stage12/11/Stage12/12/Stage12/13/Stage12/14/Stage12/15/Stage12/16"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/22"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage12"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage13" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="13층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910207" Pos="-2910.77#240.61#-154.86" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910207" Pos="-2971.49#240.61#-8.91" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910207" Pos="-2767.66#240.61#189.65" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910207" Pos="-2909.23#240.61#131.97" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910207" Pos="-2623.11#240.61#-154.22" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910207" Pos="-2565.74#240.61#-10.16" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910207" Pos="-2626.94#240.61#129.10" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910207" Pos="-2770.83#240.61#-215.56" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910208" Pos="-2940.24#240.61#167.27" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910208" Pos="-2606.59#240.61#-175.69" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910208" Pos="-2937.64#240.61#-176.80" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910208" Pos="-2762.70#240.61#232.57" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910209" Pos="-2607.88#240.61#153.73" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910209" Pos="-3014.60#240.61#-10.39" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910210" Pos="-2531.28#240.61#-11.58" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910210" Pos="-2769.71#240.61#-241.99" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1"/>
+                    <Obj Type="Monster" MonType="910211" Pos="-2763.78#240.61#4.33" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="910211" Pos="-2767.40#240.61#-8.56" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1"/>
+                    <Obj Type="Monster" MonType="910211" Pos="-2762.54#240.61#-17.54" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1"/>
+                    <Obj Type="Monster" MonType="910211" Pos="-2772.67#240.61#-13.76" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage13/0/Stage13/1/Stage13/2/Stage13/3/Stage13/5/Stage13/6/Stage13/7/Stage13/8/Stage13/9/Stage13/9/Stage13/10/Stage13/11/Stage13/12/Stage13/13/Stage13/14/Stage13/15/Stage13/16/Stage13/17/Stage13/18/Stage13/19"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage13/0/Stage13/1/Stage13/2/Stage13/3/Stage13/5/Stage13/6/Stage13/7/Stage13/8/Stage13/9/Stage13/9/Stage13/10/Stage13/11/Stage13/12/Stage13/13/Stage13/14/Stage13/15/Stage13/16/Stage13/17/Stage13/18/Stage13/19"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/24"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage13"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage14" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="14층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910212" Pos="-2724.66#237.98#1922.50" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910212" Pos="-2669.75#237.98#1925.73" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910212" Pos="-2604.48#237.98#1945.02" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910212" Pos="-2542.50#237.98#1903.11" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910213" Pos="-2495.24#237.98#1955.42" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910213" Pos="-2438.97#237.98#1931.51" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910213" Pos="-2391.79#237.98#1975.80" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910213" Pos="-2724.08#237.98#1992.91" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910214" Pos="-2661.36#237.98#1981.13" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910214" Pos="-2601.36#237.98#2029.62" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910214" Pos="-2549.63#237.98#1996.41" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910214" Pos="-2479.69#237.98#2031.54" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910215" Pos="-2412.74#237.98#2064.62" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910215" Pos="-2724.39#237.98#2091.20" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910215" Pos="-2643.63#237.98#2108.10" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910215" Pos="-2558.55#237.98#2175.00" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1"/>
+                    <Obj Type="Monster" MonType="910214" Pos="-2444.17#237.98#2117.65" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="910214" Pos="-2512.24#237.98#2100.49" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1"/>
+                    <Obj Type="Monster" MonType="910215" Pos="-2558.43#237.98#2073.62" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1"/>
+                    <Obj Type="Monster" MonType="910215" Pos="-2396.80#237.98#2150.16" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage14/0/Stage14/1/Stage14/2/Stage14/3/Stage14/5/Stage14/6/Stage14/7/Stage14/8/Stage14/9/Stage14/9/Stage14/10/Stage14/11/Stage14/12/Stage14/13/Stage14/14/Stage14/15/Stage14/16/Stage14/17/Stage14/18/Stage14/19"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage14/0/Stage14/1/Stage14/2/Stage14/3/Stage14/5/Stage14/6/Stage14/7/Stage14/8/Stage14/9/Stage14/9/Stage14/10/Stage14/11/Stage14/12/Stage14/13/Stage14/14/Stage14/15/Stage14/16/Stage14/17/Stage14/18/Stage14/19"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/26"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage14"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage15" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="15층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="90003" Pos="-2449.28#233.79#3904.62" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910216" Pos="-2624.74#233.79#3995.73" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910217" Pos="-2282.99#233.79#3980.40" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910218" Pos="-2440.18#233.79#4140.57" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage15/0/Stage15/1/Stage15/2/Stage15/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage15/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/28"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage16" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="16층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910301" Pos="-5403.93#239.93#-4404.36" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910301" Pos="-5454.86#239.93#-4729.91" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910301" Pos="-5432.68#239.93#-4766.59" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910301" Pos="-4943.16#239.93#-4569.29" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910302" Pos="-5024.14#239.93#-4754.10" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910302" Pos="-4940.66#239.93#-4527.09" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910302" Pos="-5514.30#239.93#-4542.71" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910302" Pos="-5039.95#239.93#-4332.29" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910302" Pos="-5437.79#239.93#-4355.72" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910303" Pos="-5010.66#239.93#-4381.11" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910303" Pos="-5490.10#239.93#-4581.78" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910303" Pos="-5376.39#239.93#-4380.80" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910301" Pos="-5084.45#239.93#-4326.91" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1"/>
+                    <Obj Type="Monster" MonType="910301" Pos="-5058.72#239.93#-4374.69" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage16/0/Stage16/1/Stage16/2/Stage16/3/Stage16/5/Stage16/6/Stage16/7/Stage16/8/Stage16/9/Stage16/9/Stage16/10/Stage16/11/Stage16/12/Stage16/13"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage16/0/Stage16/1/Stage16/2/Stage16/3/Stage16/5/Stage16/6/Stage16/7/Stage16/8/Stage16/9/Stage16/9/Stage16/10/Stage16/11/Stage16/12/Stage16/13"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/30"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage16"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage17" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="17층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910304" Pos="-5477.75#240.61#-2415.19" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910304" Pos="-5481.96#240.61#-2367.43" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910304" Pos="-5527.83#240.61#-2372.52" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910304" Pos="-5422.53#240.61#-2390.51" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910304" Pos="-5467.02#240.61#-2452.63" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910305" Pos="-5385.46#240.61#-2046.54" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910305" Pos="-5423.34#240.61#-2082.15" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910305" Pos="-5501.61#240.61#-2066.56" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910305" Pos="-5456.68#240.61#-2024.12" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910305" Pos="-5408.77#240.61#-1978.74" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910306" Pos="-5061.89#240.61#-2431.88" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910306" Pos="-5065.37#240.61#-2356.12" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910306" Pos="-5002.12#240.61#-2367.27" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910306" Pos="-5094.24#240.61#-2389.67" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910306" Pos="-5102.76#240.61#-2442.66" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910307" Pos="-5102.72#240.61#-1996.80" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1"/>
+                    <Obj Type="Monster" MonType="910307" Pos="-5093.79#240.61#-1958.81" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="910307" Pos="-5003.50#240.61#-2019.97" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1"/>
+                    <Obj Type="Monster" MonType="910307" Pos="-5089.28#240.61#-2060.83" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1"/>
+                    <Obj Type="Monster" MonType="910307" Pos="-5030.34#240.61#-2049.21" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage17/0/Stage17/1/Stage17/2/Stage17/3/Stage17/5/Stage17/6/Stage17/7/Stage17/8/Stage17/9/Stage17/9/Stage17/10/Stage17/11/Stage17/12/Stage17/13/Stage17/14/Stage17/15/Stage17/16/Stage17/17/Stage17/18/Stage17/19"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage17/0/Stage17/1/Stage17/2/Stage17/3/Stage17/5/Stage17/6/Stage17/7/Stage17/8/Stage17/9/Stage17/9/Stage17/10/Stage17/11/Stage17/12/Stage17/13/Stage17/14/Stage17/15/Stage17/16/Stage17/17/Stage17/18/Stage17/19"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/32"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage17"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage18" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="18층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910308" Pos="-5010.41#240.61#138.86" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910308" Pos="-4971.84#240.61#173.44" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910308" Pos="-5043.48#240.61#189.72" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910308" Pos="-5022.91#240.61#221.68" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910308" Pos="-5083.02#240.61#160.26" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910308" Pos="-5084.24#240.61#96.69" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910309" Pos="-4686.61#240.61#190.12" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910309" Pos="-4624.41#240.61#148.17" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910309" Pos="-4634.01#240.61#205.11" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910309" Pos="-4715.41#240.61#150.51" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910309" Pos="-4709.46#240.61#90.85" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910309" Pos="-4662.47#240.61#109.27" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910310" Pos="-4685.17#240.61#-117.78" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910310" Pos="-5065.31#240.61#-161.91" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910310" Pos="-5004.55#240.61#-190.68" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910310" Pos="-4646.48#240.61#-142.45" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1"/>
+                    <Obj Type="Monster" MonType="910310" Pos="-4672.82#240.61#-173.16" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="910310" Pos="-5045.13#240.61#-236.04" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1"/>
+                    <Obj Type="Monster" MonType="910310" Pos="-5078.27#240.61#-208.47" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1"/>
+                    <Obj Type="Monster" MonType="910310" Pos="-4710.88#240.61#-145.23" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage18/0/Stage18/1/Stage18/2/Stage18/3/Stage18/5/Stage18/6/Stage18/7/Stage18/8/Stage18/9/Stage18/9/Stage18/10/Stage18/11/Stage18/12/Stage18/13/Stage18/14/Stage18/15/Stage18/16/Stage18/17/Stage18/18/Stage18/19"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage18/0/Stage18/1/Stage18/2/Stage18/3/Stage18/5/Stage18/6/Stage18/7/Stage18/8/Stage18/9/Stage18/9/Stage18/10/Stage18/11/Stage18/12/Stage18/13/Stage18/14/Stage18/15/Stage18/16/Stage18/17/Stage18/18/Stage18/19"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/34"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage18"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage19" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="19층 클리어!{nl}문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="910311" Pos="-4986.40#240.61#1833.70" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910311" Pos="-5021.38#240.61#1823.07" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910311" Pos="-4947.34#240.61#1837.46" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910311" Pos="-4909.55#240.61#1838.54" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910312" Pos="-4722.07#240.61#2153.31" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="910312" Pos="-4768.58#240.61#1775.47" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="910312" Pos="-4708.69#240.61#1956.96" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="910312" Pos="-5183.11#240.61#1798.42" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="910313" Pos="-5051.62#240.61#1962.13" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="910313" Pos="-4998.07#240.61#1972.12" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="910313" Pos="-4942.45#240.61#1979.35" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="910313" Pos="-4881.93#240.61#1980.26" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="910314" Pos="-4851.77#240.61#2120.79" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="910314" Pos="-5056.53#240.61#2117.04" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="910314" Pos="-5013.05#240.61#2113.70" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="910314" Pos="-4971.55#240.61#2119.74" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1"/>
+                    <Obj Type="Monster" MonType="910314" Pos="-4890.96#240.61#2121.80" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="910314" Pos="-4933.63#240.61#2122.69" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1"/>
+                    <Obj Type="Monster" MonType="910312" Pos="-5215.38#240.61#1952.57" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1"/>
+                    <Obj Type="Monster" MonType="910312" Pos="-5209.89#240.61#2114.84" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage19/0/Stage19/1/Stage19/2/Stage19/3/Stage19/5/Stage19/6/Stage19/7/Stage19/8/Stage19/9/Stage19/9/Stage19/10/Stage19/11/Stage19/12/Stage19/13/Stage19/14/Stage19/15/Stage19/16/Stage19/17/Stage19/18/Stage19/19"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage19/0/Stage19/1/Stage19/2/Stage19/3/Stage19/5/Stage19/6/Stage19/7/Stage19/8/Stage19/9/Stage19/9/Stage19/10/Stage19/11/Stage19/12/Stage19/13/Stage19/14/Stage19/15/Stage19/16/Stage19/17/Stage19/18/Stage19/19"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/36"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage19"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage20" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="20층 클리어!{nl} 문을 부수고 다음 층으로 가세요!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="90004" Pos="-4867.52#231.83#3923.60" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="910315" Pos="-4987.54#231.83#3914.75" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="910316" Pos="-5143.86#231.83#3912.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="910317" Pos="-4620.46#231.83#3917.15" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="910315" Pos="-4779.25#231.83#3916.13" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage20/0/Stage20/1/Stage20/2/Stage20/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage20/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Door/38"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <WorldInitList>
+            <ToolScp Scp="MGAME_INIT_TOTAL_LIMIT_TIME" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </WorldInitList>
+    </Game>
+</GameList>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_fgt_stompingkick_1"/>
+    <BlendOn frame="6" R="150" G="150" B="100" A="30"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_warrior_stompingkick_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke090" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_warrior_stompingkick_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="mon_dionia_born" />
+    <Particle frame="0" attachNode="Dummy001" particleName="E_monster_dionia_born" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false" />
+    <Sound frame="0.00" soundFile="skl_eff_stone_underground_1" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

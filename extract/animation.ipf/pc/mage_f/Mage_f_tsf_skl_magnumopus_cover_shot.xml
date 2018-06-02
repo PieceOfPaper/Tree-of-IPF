@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <HeadRotBip frame="0" BipName="Bip01"/>
+    <CreateMonsterAnim frame="0" Key="magnumopus" Anim="COVER_SHOT"/>
+    <Sound frame="4.00" soundFile="skl_eff_alchemist_magnumopus_lid_shot"/>
+    <Sound frame="29.00" soundFile="skl_eff_alchemist_magnumopus_lid_boom"/>
+    <Particle frame="29" attachNode="Dummy_emitter" particleName="E_wizard_MAGNUMOPUS_COVER_SHOT_stone" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

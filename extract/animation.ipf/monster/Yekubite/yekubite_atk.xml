@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" particleName="I_force022" attachNode="B_tooth R1 02" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="0" particleName="I_force022" attachNode="B_tooth L1 02" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="I_dash009_mash" attachNode="Dummy_atk_effect" scale="3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="F_burstup012_blue_s" attachNode="Dummy_atk_effect" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="F_ground078_smoke" attachNode="None" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_flower_blue_atk2_cast"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_voice_rootopus_move_2"/>
+	<Sound frame="7.00" Value="1619" soundFile="skl_eff_blowgun_shot"/>
+	<Sound frame="8.00" Value="0" soundFile="mon_voice_bug_8"/>
+</ActionDesc>

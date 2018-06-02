@@ -1,0 +1,10 @@
+ClassID,ArgMin1,ArgMax1,Type,ClassName,Example,Name,ArgType1,ArgDefault1,ArgType2,ArgDefault2,Script
+1,0,0,"Cond","Cond_Say","특정 플레이어가 말을 함","%s 플레이어가 %s (이)라고 말함","String","아무","String","아무말","COND_SAY"
+2,0,0,"Cond","Cond_Dialog","특정 플레이어가 대화 요청","%s 플레이어가 대화요청","String","아무","","","COND_TRIGGER"
+3,0,0,"Cond","Cond_Enter","특정 플레이어가 근처로 접근","%s 플레이어가 근처에 접근","String","아무","","","COND_ENTER"
+4,0,0,"Cond","Cond_Leave","특정 플레이어가 근처에서 떠남","%s 플레이어가 근처에서 떠남","String","아무","","","COND_LEAVE"
+5,0,0,"Cond","Cond_Item","특정 플레이어가 아이템을 줌","%s 플레이어가 아이템을 줌","String","아무","","","COND_ITEM"
+101,0,0,"Act","Act_Say","플레이어에게 말하기","해당 플레이어에게 %s라고 말","String","안녕하세요.","","","ACT_SAY"
+103,0,0,"Act","Act_Atk","정면에 일반 공격","정면에 일반 공격","","","","","ACT_ATK"
+104,5,10,"Act","Act_Exp","특정 퍼센트의 경험치 주기","%s퍼센트의 경험치 주기","Number","","","","ACT_GIVEEXP"
+106,0,0,"Act","Act_Logout","로그아웃 PC를 제거","로그아웃 PC를 제거","","","","","ACT_SETZOMBIE"

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="questwarp" x="0" y="0" width="500" height="400">
+	<frame title="{@st44}돌아가기{/}" layout_gravity="center top" margin="0 150 0 0"/>
+	<skin frameskin="test_win_system"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<input moveable="false"/>
+	<layer topmostlayer="true" layerlevel="100"/>
+	<option closebutton="true" hideable="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+	<controls>
+		<richtext name="tip" rect="0 60 380 30" layout_gravity="center top" caption="어떤 퀘스트로 돌아가시겠습니까?" fixwidth="true" fontname="brown_18_b" textalign="center center"/>
+		<button name="warp0btn" rect="0 0 440 40" margin="30 100 0 0" layout_gravity="left top" LBtnDownArgNum="0" LBtnDownScp="QUESTWARP_QUESTID" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}퀘스트 클래스 네임{/}" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+		<button name="warp1btn" rect="0 0 440 40" margin="30 140 0 0" layout_gravity="left top" LBtnDownArgNum="1" LBtnDownScp="QUESTWARP_QUESTID" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}퀘스트 클래스 네임{/}" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+		<button name="warp2btn" rect="0 0 440 40" margin="30 180 0 0" layout_gravity="left top" LBtnDownArgNum="2" LBtnDownScp="QUESTWARP_QUESTID" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}퀘스트 클래스 네임{/}" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+		<button name="warp3btn" rect="0 0 440 40" margin="30 220 0 0" layout_gravity="left top" LBtnDownArgNum="3" LBtnDownScp="QUESTWARP_QUESTID" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}퀘스트 클래스 네임{/}" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+		<button name="warp4btn" rect="0 0 440 40" margin="30 260 0 0" layout_gravity="left top" LBtnDownArgNum="4" LBtnDownScp="QUESTWARP_QUESTID" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}퀘스트 클래스 네임{/}" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+		<button name="warp5btn" rect="0 0 440 40" margin="30 300 0 0" layout_gravity="left top" LBtnDownArgNum="5" LBtnDownScp="QUESTWARP_QUESTID" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}퀘스트 클래스 네임{/}" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+		<button name="warp6btn" rect="0 0 440 40" margin="30 340 0 0" layout_gravity="left top" LBtnDownArgNum="6" LBtnDownScp="QUESTWARP_QUESTID" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}퀘스트 클래스 네임{/}" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+		<button name="warp7btn" rect="0 0 440 40" margin="30 380 0 0" layout_gravity="left top" LBtnDownArgNum="7" LBtnDownScp="QUESTWARP_QUESTID" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}퀘스트 클래스 네임{/}" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+		<button name="warp8btn" rect="0 0 440 40" margin="30 420 0 0" layout_gravity="left top" LBtnDownArgNum="8" LBtnDownScp="QUESTWARP_QUESTID" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}퀘스트 클래스 네임{/}" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+		<button name="warp9btn" rect="0 0 440 40" margin="30 460 0 0" layout_gravity="left top" LBtnDownArgNum="9" LBtnDownScp="QUESTWARP_QUESTID" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}퀘스트 클래스 네임{/}" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+	</controls>
+</uiframe>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AttachModel frame="0" XAC="archer_f_arrow_01" node="Dummy_arrow" isAttach="true" autoDetach="false" index="0" anim="None"/>
+	<Sound frame="0.00" soundFile="skl_archer_avoid"/>
+	<Sound frame="0.00" soundFile="skl_archer_roundkick_shot"/>
+	<Sound frame="4.00" soundFile="voice_war_atk_medium"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="I_archer_somersaults_arrow" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_effect_run01" particleName="F_pc_run_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_effect_run01" particleName="F_pc_run_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_effect_run01" particleName="F_pc_run_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_effect_run01" particleName="F_pc_run_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="E_archer_somersaults" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shin Sang Hyup (IMCGames Co., Ltd) -->
+<uitile name="mcy_buyitem" x="-20" y="-50" width="300" height="140" bodycolor="#ffff 0" bodyalpha="0" create="open">
+    <frame fasthide="true" layout_gravity="right bottom"/>
+    <input maxwidth="1280" moveable="false" hittestframe="false"/>
+    <layer layerlevel="30"/>
+    <option closebutton="false" hideable="false"/>
+    <controls>
+        <picture name="COIN_icon" rect="0 0 32 32" margin="7 0 0 0" layout_gravity="left top" hittest="true" image="icon_item_gold" stretch="true" texttooltip="공성전 코인"/>
+        <richtext name="COIN_text" rect="0 0 50 20" margin="0 36 0 0" layout_gravity="left top" format="{@st50}%s" hittest="false" param1="@SessionObject@ssn_mission@Coin" param1_def="0" resizebytext="false" textalign="center top"/>
+        <picture name="ATK_Icon" rect="0 0 32 32" margin="57 0 0 0" layout_gravity="left top" LBtnDownArgNum="1" LBtnDownScp="SCR_MCY_BUY" changecursor="true" hittest="true" image="atk_icon" stretch="true" texttooltip="공격력 증가"/>
+        <richtext name="ATK_value" rect="0 0 32 20" margin="66 24 0 0" layout_gravity="left top" format="{@st42}+%s" hittest="false" param1="@SessionObject@ssn_mission@Buy1" param1_def="0" resizebytext="false" textalign="center top"/>
+        <richtext name="ATK_price" rect="0 0 55 20" margin="51 42 0 0" layout_gravity="left top" format="{img icon_item_gold 20 20}{@st42}%s" hittest="false" param1="@SessionObject@ssn_mission@Buy1_Price" param1_def="0" resizebytext="false" textalign="right center"/>
+        <picture name="DEF_Icon" rect="0 0 32 32" margin="122 0 0 0" layout_gravity="left top" LBtnDownArgNum="2" LBtnDownScp="SCR_MCY_BUY" changecursor="true" hittest="true" image="def_icon" stretch="true" texttooltip="방어력 증가"/>
+        <richtext name="DEF_VALUE" rect="0 0 32 20" margin="131 23 0 0" layout_gravity="left top" format="{@st42}+%s" hittest="false" param1="@SessionObject@ssn_mission@Buy2" param1_def="0" resizebytext="false" textalign="center top"/>
+        <richtext name="DEF_price" rect="0 0 55 20" margin="116 43 0 0" layout_gravity="left top" format="{img icon_item_gold 20 20}{@st42}%s" hittest="false" param1="@SessionObject@ssn_mission@Buy2_Price" param1_def="0" resizebytext="false" textalign="right center"/>
+    </controls>
+</uitile>

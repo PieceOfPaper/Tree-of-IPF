@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="socialtarget" x="600" y="0" width="600" height="450" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="pipwin_L"/>
+    <frame fullheight="true" fasthide="true" layout_gravity="right top" piptype="right"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <sound opensound="window_open" closesound="window_close"/>
+    <effect open="socialtargetOpen" close="socialtargetClose"/>
+    <controls>
+        <picture name="titlepicture" rect="-100 6 44 44" layout_gravity="left top" image="button_quest"/>
+        <richtext name="title" rect="0 13 200 30" layout_gravity="center top" caption="{@st43}생 활{/}" fontname="default" spacey="0"/>
+        <richtext name="descText" rect="0 65 200 20" layout_gravity="center top" caption="모두 보기" fontname="white_login_text" spacey="0"/>
+        <button name="close" rect="-15 7 44 44" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;socialtarget&apos;)" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}생활을 닫습니다{/}"/>
+        <button name="backButton" rect="10 13 30 30" layout_gravity="left top" LBtnUpScp="SOCIAL_VIEW_ALLVIEW" caption="{img white_left_arrow 18 18}" fontname="default" spacey="0"/>
+        <button name="backButton2" rect="65 16 90 24" layout_gravity="left top" LBtnUpScp="SOCIAL_VIEW_ALLVIEW" caption="{@st41}모두 보기{/}" fontname="default" spacey="0"/>
+        <groupbox name="bgGbox" rect="35 105 520 940" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg"/>
+        <richtext name="boardText" parent="bgGbox" rect="10 10 100 30" layout_gravity="left top" caption="{@st41}게시판{/}" fontname="default" spacey="0"/>
+        <labelbox name="boardLine" parent="bgGbox" rect="10 150 500 20" layout_gravity="left top" skin="mypage_bar" visible="true"/>
+        <groupbox name="mypageGbox" rect="35 105 520 940" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg"/>
+        <groupbox name="commentGbox" parent="mypageGbox" rect="5 150 500 615" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="true" skin="bg"/>
+        <richtext name="writeText" parent="mypageGbox" rect="15 -63 50 30" layout_gravity="left bottom" caption="{@st41b}글쓰기{/}" textalign="center center"/>
+        <edit name="writeEdit" parent="mypageGbox" rect="80 -55 350 40" layout_gravity="left bottom" OffsetForDraw="10 7" fontname="white_20" maxlen="128" resizeheightbytext="true" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" usetag="true"/>
+        <button name="writeReg" parent="mypageGbox" rect="-15 -60 70 30" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="MYPAGE_COMMENT_REGISTER" caption="{@st41}등록{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}글을 등록합니다{/}"/>
+        <button name="boardModeOn" parent="mypageGbox" rect="0 -15 200 30" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="MYPAGE_MODE_START" caption="{@st41}마이페이지 시작{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}마이페이지를 외부에 게시합니다{/}"/>
+        <groupbox name="guestbookGbox" rect="35 105 520 940" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg" visible="false"/>
+        <groupbox name="commentGbox" parent="guestbookGbox" rect="5 5 510 870" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="true" skin="bg"/>
+        <richtext name="writeText" parent="guestbookGbox" rect="15 -23 50 30" layout_gravity="left bottom" caption="{@st41b}글쓰기{/}" textalign="center center"/>
+        <edit name="writeEdit" parent="guestbookGbox" rect="80 -15 350 40" layout_gravity="left bottom" OffsetForDraw="10 7" fontname="white_20" maxlen="128" resizeheightbytext="true" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" usetag="true"/>
+        <button name="writeReg" parent="guestbookGbox" rect="-15 -20 70 30" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="QUESTBOOK_COMMENT_REGISTER" caption="{@st41}등록{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}안부를 등록합니다{/}"/>
+    </controls>
+</uiframe>

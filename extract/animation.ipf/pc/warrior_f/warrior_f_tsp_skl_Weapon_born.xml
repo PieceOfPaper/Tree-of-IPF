@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonster frame="0" MonName="pcskill_Weapon_sign" Key="sign" Angle="0" Dist="0" MonAngle="0"/>
+    <CreateMonster frame="0" MonName="pcskill_Weapon_stone" Key="stone" Angle="0" Dist="0" MonAngle="0"/>
+    <CreateMonsterAnim frame="1.5" Key="stone" Anim="born" Freeze="0"/>
+    <CreateMonsterAnim frame="3" Key="sign" Anim="born" Freeze="0"/>
+    <Sound frame="7.00" soundFile="skl_eff_alchemist_magnumopus_born"/>
+</ActionDesc>

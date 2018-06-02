@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="1500" soundFile="skl_eff_dash_1" />
+    <Sound frame="4.50" Value="1500" soundFile="skl_eff_two_spin_1" />
+    <Particle frame="6" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="Dummy_emitter" scale="1.2" useAttach="false" pause="false" targetPos="false" />
+    <Particle frame="6" particleName="F_spin017" attachNode="Dummy_skl_whir" scale="1.1" useAttach="false" pause="false" targetPos="false" />
+    <Sound frame="6.00" Value="1500" soundFile="mon_wood_spirit_atk_shot_move" />
+    <PostFix frame="10" ID="_height" />
+    <Particle frame="16" particleName="I_swordtrail002_orange" attachNode="Dummy_skl_effect01" scale="1.6" useAttach="false" pause="false" targetPos="false" />
+    <HitAni frame="16.32" damratio="100" />
+    <Particle frame="17.00" particleName="F_smoke107" attachNode="None" scale="2" useAttach="false" pause="false" targetPos="false" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

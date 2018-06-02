@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uitile name="layerscore" x="440" y="-220" width="440" height="220" bodycolor="#ffffff" bodyalpha="0" create="open">
+    <frame title="" layout_gravity="right top" piptype="top"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <draw drawframe="false"/>
+    <option closebutton="false"/>
+    <effect open="layerscoreOpen"/>
+    <script OpenScp="LAYER_SCORE_OPEN" CloseScp="LAYER_SCORE_CLOSE"/>
+    <controls>
+        <!--button name="toggle" rect="20 13 18 19" layout_gravity="left top" image="btn_zoomout" clicksound="button_zoom_out" oversound="button_over" LBtnUpScp="TOGGLE_LAYER_SCORE" texttooltip="최소/최대화"/-->
+        <advlistbox name="AdvBox" rect="50 60 340 121" heightperrow="20" maxrowcol="100 6" scroll="false" skin="bg" widthpercol="100"/>
+        <richtext name="time_limit" rect="75 28 80 20" caption="{@st42}제한 시간" hittest="false"/>
+        <advlistboxitem name="NAME" parent="AdvBox" rect="0 10 10 10" caption="{@st56}이름{/}" col="0" datatype="richtext" fontname="white_16_b" row="0"/>
+        <advlistboxitem name="KILL" parent="AdvBox" rect="0 10 10 10" caption="{@st56}킬{/}" col="1" datatype="richtext" fontname="white_16_b" row="0"/>
+        <advlistboxitem name="OVERKILL" parent="AdvBox" rect="0 10 10 10" caption="{@st56}오버킬{/}" col="2" datatype="richtext" fontname="white_16_b" row="0"/>
+        <advlistboxitem name="HIT" parent="AdvBox" rect="0 10 10 10" caption="{@st56}피격{/}" col="3" datatype="richtext" fontname="white_16_b" row="0"/>
+        <advlistboxitem name="DEAD" parent="AdvBox" rect="0 10 10 10" caption="{@st56}사망{/}" col="4" datatype="richtext" fontname="white_16_b" row="0"/>
+        <advlistboxsetting parent="AdvBox" col="0" colwidth="120" row="0" rowbgcolor="#4a443f" rowheight="20" startrow="1"/>
+        <advlistboxsetting parent="AdvBox" col="1" colwidth="50" row="0" rowbgcolor="#4a443f" rowheight="20" startrow="1"/>
+        <advlistboxsetting parent="AdvBox" col="2" colwidth="50" row="0" rowbgcolor="#4a443f" rowheight="20" startrow="1"/>
+        <advlistboxsetting parent="AdvBox" col="3" colwidth="50" row="0" rowbgcolor="#4a443f" rowheight="20" startrow="1"/>
+        <advlistboxsetting parent="AdvBox" col="4" colwidth="50" row="0" rowbgcolor="#4a443f" rowheight="20" startrow="1"/>
+        <picture name="m1time" rect="-52 20 28 38" layout_gravity="center top" caption="10분" image="time_2" visible="true"/>
+        <picture name="m2time" rect="-22 20 28 38" layout_gravity="center top" caption="분" image="time_4" visible="true"/>
+        <picture name="s1time" rect="12 20 28 38" layout_gravity="center top" caption="10초" image="time_5" visible="true"/>
+        <picture name="s2time" rect="42 20 28 38" layout_gravity="center top" caption="초" image="time_9" visible="true"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uitile>

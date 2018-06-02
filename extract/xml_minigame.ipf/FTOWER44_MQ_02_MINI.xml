@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="FTOWER44_MQ_02_MINI" minLv="0" maxLv="0" startWaitSec="130319392">
+        <StageList>
+            <Stage Name="stage1">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57050" Pos="429.03#398.53#99.23" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="176.91124" Y="440.06622" Z="209.91682" Random="30"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="1"/>
+                                    <Str_Arg Str="F_light003_red" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_ground102_fire" Arg="1.5"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57050" Pos="-193.50#398.27#107.94" range="50" genCount="1" genTime="20000" objectKey="1" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="75.133904" Y="440.03046" Z="97.730911" Random="40"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="gen">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage1/0/stage1/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage1/0/stage1/1"/>
+                                <Num Num="2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

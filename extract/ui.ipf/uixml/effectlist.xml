@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UIEffectList>
+	<Event name="PickItemOutLine">
+		<Layer width="180" height="50" type="OutLineRect">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>
+			<Moving>
+				<Property destobj="sysmenu inven" destmovetime="1.4" pausetime="1.5"/>
+				<Keyframe>
+				</Keyframe>
+			</Moving>
+			<Scale>
+				<Property endtimex="1.5" endtimey="1.5" pausetime="1.5"/>
+				<Keyframe>
+				</Keyframe>
+			</Scale>
+		</Layer>
+	</Event>
+	<Event name="PickItemReBound">
+		<Layer type="Object">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>			
+			<Moving>
+				<Property pausetime="0"/>
+				<Keyframe>
+					<velocity time="0.00" x="0.00" y="0.00"/>
+					<velocity time="0.05" x="0.00" y="1.00"/>
+					<velocity time="0.10" x="0.00" y="3.00"/>
+					<velocity time="0.15" x="0.00" y="6.00"/>
+					<velocity time="0.20" x="0.00" y="3.00"/>
+					<velocity time="0.25" x="0.00" y="1.00"/>
+					<velocity time="0.30" x="0.00" y="0.00"/>
+					<velocity time="0.35" x="0.00" y="-1.00"/>
+					<velocity time="0.40" x="0.00" y="-3.00"/>
+					<velocity time="0.45" x="0.00" y="-1.00"/>
+					<velocity time="0.50" x="0.00" y="0.00"/>
+					<velocity time="0.55" x="0.00" y="1.00"/>
+					<velocity time="0.60" x="0.00" y="0.00"/>					
+				</Keyframe>
+			</Moving>
+		</Layer>		
+	</Event>
+	<Event name="InventoryShake">
+		<Layer type="Object">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>			
+			<Moving>
+				<Property pausetime="0"/>
+				<Keyframe>					
+					<velocity time="0.00" x="0" y="0"/>
+					<velocity time="0.05" x="-3" y="-1"/>
+					<velocity time="0.10" x="0" y="-1"/>
+					<velocity time="0.15" x="3" y="-1"/>
+					<velocity time="0.20" x="0" y="-1"/>
+					<velocity time="0.25" x="-3" y="-1"/>
+					<velocity time="0.30" x="0" y="-1"/>
+					<velocity time="0.35" x="3" y="-1"/>
+					<velocity time="0.40" x="0" y="0"/>				
+				</Keyframe>
+			</Moving>
+			<Rotation>
+				<Property pausetime="0"/>
+				<Keyframe>					
+					<velocity time="0.00" angle="0"/>
+					<velocity time="0.05" angle="-10"/>
+					<velocity time="0.10" angle="0"/>
+					<velocity time="0.05" angle="10"/>
+					<velocity time="0.20" angle="0"/>
+					<velocity time="0.25" angle="-10"/>
+					<velocity time="0.30" angle="0"/>
+					<velocity time="0.35" angle="10"/>
+					<velocity time="0.40" angle="0"/>				
+				</Keyframe>			
+			</Rotation>
+		</Layer>		
+	</Event>
+</UIEffectList>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="None" particleName="None" useAttach="true" hiddenObj="false" scale="1.0" pause="true" targetPos="false" />
+    <Sound frame="9.00" Value="1133" soundFile="mon_voice5_l_4" />
+    <PostFix frame="10" ID="_height" />
+    <Particle frame="12" particleName="I_dash007_mash" attachNode="Dummy_atk1_shot" scale="1.5" useAttach="false" pause="true" targetPos="false" />
+    <Sound frame="13" soundFile="skl_eff_dash_1" />
+    <Particle frame="13" attachActor="None" attachNode="B_tree1_01" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="13" attachActor="None" attachNode="B_tree2_01" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="13" attachActor="None" attachNode="Bip001 L Thigh" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="13" attachActor="None" attachNode="Bip001 R Thigh" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="13" attachActor="None" attachNode="Bip001 Tail1" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="13.00" particleName="F_circle011_dark" attachNode="Dummy_emitter" scale="0.9" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="13" particleName="F_smoke107" attachNode="Dummy_emitter" scale="3" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="13" particleName="F_smoke107" attachNode="Dummy_emitter" scale="3" useAttach="false" pause="true" targetPos="false" />
+    <HitAni frame="14" damratio="100" />
+    <PostFix frame="20" ID="_height" />
+    <Particle frame="24" particleName="F_smoke107" attachNode="Dummy_emitter" scale="3" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="24" particleName="F_smoke107" attachNode="Dummy_emitter" scale="3" useAttach="true" pause="true" targetPos="false" />
+</ActionDesc>

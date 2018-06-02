@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_beadbird_2"/>
+    <Sound frame="0.00" soundFile="born_ground_1"/>
+    <Particle frame="1" attachNode="Bip001 R UpperArm" particleName="F_spark006_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="1" attachNode="Bip001 L UpperArm" particleName="F_spark006_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="1" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="5.17" soundFile="skl_eff_move_equip_4"/>
+</ActionDesc>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by leedoyoung (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_zombieboss_atk2_cast" />
+    <Sound frame="7.00" soundFile="mon_zombieboss_atk2_shot" />
+    <Sound frame="7.50" soundFile="skl_eff_crash_ground_l_4" />
+    <Sound frame="9.00" soundFile="skl_eff_bodyfall_l_1" />
+    <PostFix frame="10" ID="_height" />
+    <Particle frame="11.00" attachActor="None" attachNode="Dummy_born" particleName="F_ground081_smoke" scale="20" pause="true" targetPos="false" />
+    <Shockwave frame="11" type="2" intensity="10" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="11.00" particleName="F_smoke090" attachNode="Dummy_effect_atk" scale="2.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="13" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_effect_hand_R" particleName="I_wizard_compulsionlink_cast_pink" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_wiz_link1_cast_1"/>
+    <Particle frame="3" attachNode="Dummy_effect_link_magic" particleName="I_wizard_compulsionlink_cast_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="4.00" soundFile="skl_eff_wiz_link1_magic_star_1"/>
+    <Sound frame="11.00" soundFile="skl_eff_wiz_link1_cast_1"/>
+    <Sound frame="12.00" soundFile="skl_eff_wiz_link1_shot_1"/>
+    <Particle frame="16" attachNode="Dummy_effect_link_magic" particleName="F_wizard_compulsionlink_shot_spread_out" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2." pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

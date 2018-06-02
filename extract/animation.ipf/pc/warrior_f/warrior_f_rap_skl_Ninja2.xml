@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="21" attachNode="Dummy_effect_ninja" particleName="F_warrior_ninja_shot_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_warrior_ninja2_cast_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.7" pause="true" use2DEffect="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_ninja" particleName="F_warrior_ninja2_cast_blood" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="14" attachNode="Dummy_effect_ninja" particleName="F_warrior_ninja2_cast_blood" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="21" attachNode="Dummy_effect_ninja" particleName="F_warrior_ninja2_cast_blood" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+</ActionDesc>

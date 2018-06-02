@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActionDesc>
+  <Sound frame="13" eventType="Normal" soundFile="mus_atk_short" />
+  <Sound frame="7" eventType="Normal" soundFile="swd_attack2" />
+  <Sound frame="15" eventType="Normal" soundFile="swd_attack2" />
+  <HitTime frame="9" />
+  <HitTime frame="17" />
+  <Emitter frame="1" emitterName="pc_fgt_epeegrd_atk" attachNode="None" />
+</ActionDesc>

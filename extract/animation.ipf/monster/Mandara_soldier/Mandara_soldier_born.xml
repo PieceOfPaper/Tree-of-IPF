@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="0" soundFile="skl_eff_body_atk_10" />
+    <Sound frame="0.00" soundFile="mon_voice3_s_10" />
+    <Particle frame="1" particleName="F_ground078_smoke" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="1.25" Value="0" soundFile="skl_eff_bodyfall_s_1" />
+    <Particle frame="2" particleName="F_smoke107" attachNode="Dummy_emitter" scale="1.7" useAttach="true" pause="true" targetPos="false" />
+</ActionDesc>

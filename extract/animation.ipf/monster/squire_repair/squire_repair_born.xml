@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="11" type="2" intensity="1" frequency="70" duration="0.6" range="1000"/>
+	<Shockwave frame="16" type="2" intensity="1" frequency="70" duration="0.5" range="1000"/>
+	<Particle frame="11" attachNode="Dummy_sign" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="16" attachNode="Dummy_anvil" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="21" attachNode="Dummy_anvil2" particleName="F_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false"/>
+	<Particle frame="35" attachNode="Dummy_anvil3" particleName="F_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
+</ActionDesc>

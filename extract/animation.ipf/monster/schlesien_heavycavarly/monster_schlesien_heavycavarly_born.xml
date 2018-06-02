@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0" soundFile="None"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_goblin_warrior_atk_shot"/>
+	<Sound frame="4.00" Value="0" soundFile="mon_fantomrustning_born"/>
+	<Particle frame="7" particleName="F_ground078_smoke" attachNode="Dummy_emitter" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="7" Value="0" soundFile="mon_zombie_tumble"/>
+</ActionDesc>

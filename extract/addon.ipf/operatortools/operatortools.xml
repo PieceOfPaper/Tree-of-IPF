@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="operatortools" x="0" y="0" width="300" height="300" create="open">
+    <frame title="" layout_gravity="center center" fasthide="true"/>
+    <draw drawtitlebar="false" drawnotitlebar="true" drawframe="true"/>
+    <input moveintitlebar="false"/>
+    <option closebutton="true"/>
+    <script OpenScp="UPDATE_MAP_MAKE_TOOL"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <button name="mapFogTool" rect="20 20 120 24" LBtnUpScp="TEST_MAPFOG()" caption="맵 포그 툴" clicksound="button_click_big" oversound="button_over"/>
+        <button name="monDeadTool" rect="20 50 120 24" LBtnUpScp="ui.OpenFrame(&apos;mondeadtest&apos;)" caption="몬스터 죽이기 툴" clicksound="button_click_big" oversound="button_over"/>
+        <button name="mapMakeTool" rect="20 80 120 24" LBtnUpScp="ui.OpenFrame(&apos;mapmake&apos;)" caption="미니맵 만들기 툴" clicksound="button_click_big" oversound="button_over"/>
+        <button name="dialogEditTool" rect="20 110 120 24" LBtnUpScp="ui.OpenFrame(&apos;dialogedit&apos;)" caption="다이얼로그 툴" clicksound="button_click_big" oversound="button_over"/>
+    </controls>
+</uiframe>

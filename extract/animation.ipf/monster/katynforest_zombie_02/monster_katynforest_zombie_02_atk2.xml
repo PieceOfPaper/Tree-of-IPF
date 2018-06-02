@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="6" attachNode="eff_dummy_zombie03_atk1_03" particleName="F_spin019" useAttach="false" hiddenObj="false" scale="1.0"/>
+	<Particle frame="8" attachNode="eff_dummy_zombie03_atk1_04" particleName="I_zigri_atk001_mash" useAttach="false" hiddenObj="false" scale="1.0"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_smoke089" useAttach="false" hiddenObj="false" scale="5"/>
+	<Sound frame="1" soundFile="mon_katynforest_zombie_02_atk1_ready"/>
+	<Sound frame="6" soundFile="mon_katynforest_zombie_02_atk2_shot"/>
+</ActionDesc>

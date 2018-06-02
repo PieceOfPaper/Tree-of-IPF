@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="17" type="2" intensity="2" frequency="70" duration="0.4" range="1000"/>
+	<Shockwave frame="18" type="2" intensity="2" frequency="70" duration="0.6" range="1000"/>
+	<Particle frame="17" attachNode="Dummy_waterbottle_emitter" particleName="F_smoke037_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="17" attachNode="Dummy_effect_water" particleName="F_wizard_BRIQUETTING_BORN_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.25" pause="true" use2DEffect="true"/>
+	<Particle frame="18" attachNode="Dummy_workdesk_emitter" particleName="F_smoke037_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+</ActionDesc>

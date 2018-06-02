@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_archer_wideareashot_cast"/>
+    <Sound frame="1.00" soundFile="voice_atk_medium_war_f"/>
+    <Particle frame="2" attachNode="Bip01 L Hand" particleName="I_wizard_magneticforce_cast_rize" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="11.00" soundFile="arrow_shot"/>
+    <Sound frame="15.00" soundFile="skl_archer_sweepshot_shot"/>
+</ActionDesc>

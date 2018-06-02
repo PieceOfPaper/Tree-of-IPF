@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="0" soundFile="skl_eff_body_atk_2"/>
+	<Particle frame="0" attachNode="Dummy_head01" particleName="F_fire039" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_head02" particleName="F_fire039" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_hand01" particleName="F_fire039" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_hand02" particleName="F_fire039" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_born" particleName="F_light027_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_burstup027_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="80" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_voice3_s_20"/>
+</ActionDesc>

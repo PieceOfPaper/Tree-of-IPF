@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="FTOWER45_MQ_01_MINI_01" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="1st">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401623" Pos="-676.97#276.96#-1241.91" angle="-119" genCount="1" genTime="20000" objectKey="0" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401623" Pos="-686.91#283.94#-1266.67" angle="-134" genCount="1" genTime="20000" objectKey="1" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401623" Pos="-684.57#282.78#-1313.46" angle="-158" genCount="1" genTime="20000" objectKey="2" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401623" Pos="-632.27#270.24#-1221.99" angle="-133" genCount="1" genTime="20000" objectKey="3" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401623" Pos="-632.52#270.24#-1283.27" angle="-146" genCount="1" genTime="20000" objectKey="4" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="500" execCount="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1st/0/1st/1/1st/2/1st/3/1st/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2nd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2nd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47399" Pos="-686.86#283.32#-1183.09" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-641.94#270.45#-1183.80" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-581.13#270.53#-1205.40" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-525.71#273.44#-1183.79" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-477.10#282.48#-1162.61" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                </ObjList>
+                <ScrLockList>
+                    <Area/>
+                    <Area/>
+                    <Area/>
+                </ScrLockList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

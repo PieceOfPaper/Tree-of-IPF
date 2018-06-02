@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<HeadRotBip frame="0" BipName="Bip01"/>
+	<HeadRotBip frame="14" BipName="None"/>
+	<CreateMonsterAnim frame="0" Key="stone" Anim="finish" Freeze="0"/>
+	<CreateMonsterAnim frame="0" Key="sign" Anim="finish" Freeze="0"/>
+	<Particle frame="16" attachNode="Dummy_L_HAND" particleName="F_light077_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true"/>
+</ActionDesc>

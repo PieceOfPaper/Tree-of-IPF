@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Bip001 Pelvis" particleName="F_smoke059" attachActor="None" hiddenObj="false" useAttach="false" scale="0.7" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_maggot_born"/>
+    <Sound frame="0.00" soundFile="mon_voice_bug_2"/>
+    <Sound frame="2.00" soundFile="skl_eff_collect_move"/>
+    <Particle frame="2" attachNode="Bip001 Pelvis" particleName="F_smoke059" attachActor="None" hiddenObj="false" useAttach="false" scale="0.7" pause="true" targetPos="false"/>
+    <Particle frame="4" attachNode="Bip001 Pelvis" particleName="F_smoke059" attachActor="None" hiddenObj="false" useAttach="false" scale="0.7" pause="true" targetPos="false"/>
+    <Sound frame="4.00" soundFile="m_insect_move"/>
+    <Particle frame="6" attachNode="Bip001 Pelvis" particleName="F_smoke059" attachActor="None" hiddenObj="false" useAttach="false" scale="0.7" pause="true" targetPos="false"/>
+    <Particle frame="8" attachNode="Bip001 Pelvis" particleName="F_smoke059" attachActor="None" hiddenObj="false" useAttach="false" scale="0.7" pause="true" targetPos="false"/>
+</ActionDesc>

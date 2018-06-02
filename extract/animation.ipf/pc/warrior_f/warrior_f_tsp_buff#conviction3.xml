@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_l_17"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_warrior_provoke_shot_spread_out" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <BlendOn frame="1" R="0" G="0" B="0" A="0"/>
+    <Particle frame="3" attachNode="Dummy_effect_conviction" particleName="F_warrior_provoke_shot_lineup2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" targetPos="false"/>
+    <Sound frame="4.00" Value="0" soundFile="voice_atk_long_war_f"/>
+    <Particle frame="5" attachNode="Dummy_effect_conviction" particleName="F_warrior_provoke_shot_lineup" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" targetPos="false"/>
+    <Sound frame="6.00" soundFile="skl_fgt_rg_provoke"/>
+    <BlendOn frame="6" R="80" G="80" B="80" A="50"/>
+    <Sound frame="7.00" soundFile="skl_eff_boom_l_1"/>
+    <BlendOn frame="10" R="30" G="30" B="30" A="30"/>
+    <PostFix frame="10" ID="_height"/>
+    <BlendOn frame="13" R="0" G="0" B="0" A="0"/>
+    <Sound frame="14" soundFile="atk_swordswing_1"/>
+    <BlendOff frame="16" R="0" G="0" B="0" A="0"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

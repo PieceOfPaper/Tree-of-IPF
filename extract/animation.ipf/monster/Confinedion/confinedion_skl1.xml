@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="20" attachActor="None" attachNode="Bip001 R Finger11" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip001 L Finger11" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip001 R Finger0" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip001 L Finger0" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="55" attachActor="None" attachNode="Dummy_emitter" particleName="I_confinedion_skl1_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="59" attachActor="None" attachNode="Dummy_atk_effect" particleName="I_swordtrail029_dark" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="59" attachActor="None" attachNode="Dummy_skl1_effect" particleName="I_swordtrail029_dark" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="59" attachActor="None" attachNode="Bip001 R Finger0" particleName="F_explosion079_blood" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="59" attachActor="None" attachNode="Bip001 L Finger0" particleName="F_explosion079_blood" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="60" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke005_dark" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="6.00" soundFile="mon_confinedion_skl_cast"/>
+	<Sound frame="9.00" soundFile="skl_eff_atk_move_l_22"/>
+	<Sound frame="45.00" soundFile="skl_eff_atk_move_l_18"/>
+	<Sound frame="54.00" soundFile="mon_confinedion_atk"/>
+</ActionDesc>

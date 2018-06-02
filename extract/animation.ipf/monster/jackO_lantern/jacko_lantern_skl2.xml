@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="20" attachActor="None" attachNode="Dummy_candle004" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="62" attachActor="None" attachNode="Dummy_candle004" particleName="F_fire035" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="62" attachActor="None" attachNode="Dummy_eye_L" particleName="F_light052_yellow" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="62" attachActor="None" attachNode="Dummy_eye_R" particleName="F_light052_yellow" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="65" attachActor="None" attachNode="Dummy_emitter" particleName="E_jackO_skl2" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="30.00" soundFile="mon_jackO_lantern_skl_1"/>
+</ActionDesc>

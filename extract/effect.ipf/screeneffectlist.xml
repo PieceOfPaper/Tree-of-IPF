@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Psw (IMCGames Co., Ltd) -->
+<ScreenEffectList>
+	<Test name="se_test1" duration="0.0">
+		<Camera shakepower="4 4 4" duration="10.0" cycletime="0.05"/>
+		<Effect effectname="weather_snow" offset="0 0 50" billboard="true"/>
+	</Test>
+	<Test name="se_test2" duration="0.0">
+		<Effect effectname="weather_snow" offset="0 0 0" billboard="true"/>
+	</Test>
+	<Test name="se_test3" duration="0.0">
+		<Camera shakepower="1 1 1" duration="1.0" cycletime="0.02"/>
+	</Test>
+	<Test name="se_test4" duration="0.0">
+		<Camera shakepower="1 1 1" duration="1.0" cycletime="0.02"/>
+		<Effect effectname="weather_snow" offset="0 0 40" billboard="true"/>
+	</Test>
+</ScreenEffectList>

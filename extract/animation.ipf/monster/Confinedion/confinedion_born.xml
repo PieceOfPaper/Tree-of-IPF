@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="5" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="8" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="11" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="14" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="17" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="20" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="38" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="40" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="42" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_emitter" particleName="E_confinedion_born" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_22"/>
+	<Sound frame="9.00" soundFile="mon_confinedion_born"/>
+	<Sound frame="24.00" soundFile="skl_eff_atk_move_l_6"/>
+	<Sound frame="30.00" soundFile="skl_eff_atk_move_l_8"/>
+	<Sound frame="39.00" soundFile="skl_eff_bodyfall_l_1"/>
+</ActionDesc>

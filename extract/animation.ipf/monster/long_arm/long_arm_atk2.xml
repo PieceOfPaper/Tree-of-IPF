@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="8" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="10" type="2" intensity="0.8" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="12" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_voice_action"/>
+	<Sound frame="1.00" Value="0" soundFile="skl_fire_cast"/>
+	<Sound frame="5.00" Value="0" soundFile="fire_skill"/>
+	<Sound frame="7.00" Value="0" soundFile="skl_eff_ground_blow_m"/>
+	<Particle frame="1" particleName="F_fire002" attachNode="Bip001 L Finger2" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="1" particleName="F_fire002" attachNode="Bip001 R Finger2" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="1" particleName="I_spread_out006_fire" attachNode="Bip001 R Finger2" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="1" particleName="I_spread_out006_fire" attachNode="Bip001 L Finger2" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="8" particleName="F_ifrit_skl5_badak" attachNode="Dummy_eff_atk2_L" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="9" particleName="F_ifrit_skl5_badak" attachNode="Dummy_eff_atk2_R" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="6" particleName="E_long_arm_atk2" attachNode="Dummy_emitter" scale="0.4" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

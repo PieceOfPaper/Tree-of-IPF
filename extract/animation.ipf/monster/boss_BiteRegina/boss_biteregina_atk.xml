@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="1300" soundFile="mon_katyn_bug_atk_cast"/>
+	<Sound frame="0.00" Value="1300" soundFile="skl_eff_atk_move_l_7"/>
+	<Sound frame="30.00" Value="1300" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="36.00" Value="1300" soundFile="mon_katyn_bug_atk1_shot"/>
+	<Particle frame="37" attachActor="None" attachNode="Dummy_effect_atk_line" particleName="I_dash016_green" hiddenObj="false" useAttach="true" scale="8"/>
+	<Particle frame="3" attachActor="None" attachNode="Dummy_effect" particleName="F_burstup007_smoke1" hiddenObj="false" useAttach="false" scale="3"/>
+	<Particle frame="0" attachActor="None" attachNode="Bone005" particleName="I_smoke041" hiddenObj="false" useAttach="true" scale="6"/>
+	<Particle frame="5" attachActor="None" attachNode="Bone005" particleName="I_smoke039" hiddenObj="false" useAttach="true" scale="2"/>
+	<Particle frame="35" attachActor="None" attachNode="Bone005" particleName="I_smoke039" hiddenObj="false" useAttach="true" scale="2"/>
+	<Particle frame="41" attachActor="None" attachNode="Dummy_effect_atk2" particleName="F_explosion035_yellow" hiddenObj="false" useAttach="false" scale="8"/>
+	<Particle frame="41" attachActor="None" attachNode="Dummy_effect_atk2" particleName="F_smoke037" hiddenObj="false" useAttach="false" scale="4"/>
+</ActionDesc>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_nepenthes_turn"/>
+    <Particle frame="44" particleName="F_smoke109" attachNode="Dummy_foot_FR" scale="6" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="44" particleName="F_stone005" attachNode="Dummy_foot_FR" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="44" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="45.00" soundFile="mon_nepenthes_born"/>
+    <Shockwave frame="46" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="54" particleName="F_smoke109" attachNode="Dummy_foot_FL" scale="6" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="54" particleName="F_stone005" attachNode="Dummy_foot_FL" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="54" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="56" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="73" particleName="F_smoke109" attachNode="Dummy_foot_BR" scale="6" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="73" particleName="F_stone005" attachNode="Dummy_foot_BR" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="73" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="75" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="91" particleName="F_smoke109" attachNode="Dummy_foot_BL" scale="6" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="91" particleName="F_stone005" attachNode="Dummy_foot_BL" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="91" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="93" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

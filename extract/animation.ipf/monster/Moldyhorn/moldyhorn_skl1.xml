@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_moldyhorn_skl_1"/>
+    <Sound frame="15.00" soundFile="skl_eff_hit_base_4"/>
+    <Sound frame="30.00" soundFile="skl_eff_hit_base_8"/>
+    <Particle frame="65" attachNode="Dummy_skl1_effect" particleName="F_explosion001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by aura (IMCGames Co., Ltd) -->
+<WeaponTrail>
+	<Image>
+		<Image name="default" texturename="high_sword_trail" rect="128 0 128 128"/>
+		<Image name="blade_1" texturename="high_sword_trail" rect="0 192 64 64"/>
+		<Image name="blade_2" texturename="high_sword_trail" rect="0 0 128 128"/>
+		<Image name="blade_3" texturename="high_sword_trail" rect="256 128 256 112"/>
+		<Image name="blade_4" texturename="high_sword_trail" rect="0 192 64 64"/>
+		<Image name="blade_5" texturename="high_sword_trail" rect="192 192 64 64"/>
+		<Image name="blade_6" texturename="high_sword_trail" rect="128 192 64 64"/>
+		<Image name="blade_7" texturename="high_sword_trail" rect="128 128 64 64"/>
+		<Image name="Image_1" texturename="high_sword_trail" rect="0 192 64 64"/>
+		<Image name="Image_2" texturename="high_sword_trail" rect="64 192 64 64"/>
+	</Image>
+	<Action>
+		<Normal name="default" blendtype="ADDITIVE" shadertype="None" cycletime="0" spreadspeed="0" spreadaccel="0" holdduration="0.1" fadeduration="0.3" lengthoffset="0"/>
+		<Normal name="trail_blast1" blendtype="ADDITIVE" shadertype="Shake_1" cycletime="0" spreadspeed="0" spreadaccel="0" holdduration="1.2" fadeduration="1.4" lengthoffset="1.5"/>
+		<Normal name="trail_blast2" blendtype="ADDITIVE" shadertype="Blur_1" cycletime="0" spreadspeed="0" spreadaccel="0" holdduration="0.1" fadeduration="0.3" lengthoffset="1"/>
+		<Projection name="trail_projection1" blendtype="ADDITIVE" shadertype="None" cycletime="0.05" spreadspeed="0" spreadaccel="0" holdduration="0.0" fadeduration="0.4" lengthoffset="2" width="4"/>
+		<Projection name="trail_projection2" blendtype="ADDITIVE" shadertype="Shake_1" cycletime="0.05" spreadspeed="0" spreadaccel="0" holdduration="0.0" fadeduration="0.4" lengthoffset="2" width="4"/>
+	</Action>
+</WeaponTrail>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" particleName="F_mon_katynforest_zombie01_knockdown" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="0.00" Value="0" soundFile="mon_lesser_treant_hit" />
+    <Sound frame="0.00" Value="0" soundFile="skl_eff_born_wood_s" />
+    <Sound frame="2.00" Value="0" soundFile="mon_saurman_warrior_hit" />
+    <Particle frame="2" particleName="F_mon_katynforest_zombie01_knockdown" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="4" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="Dummy_emitter" scale="1.2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="5" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="Dummy_emitter" scale="1.2" useAttach="true" pause="true" targetPos="false" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

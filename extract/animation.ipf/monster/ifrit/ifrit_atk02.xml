@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_fire_cast"/>
+	<Sound frame="12.00" Value="1666" soundFile="mon_voice5_l_15"/>
+	<Sound frame="15.00" Value="1666" soundFile="mon_voice5_l_11"/>
+	<Particle frame="20" attachActor="None" attachNode="Dummy_emitter01" particleName="F_smoke116" useAttach="false" hiddenObj="false" scale="12" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Dummy_emitter01" particleName="F_circle011_dark" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="22" attachActor="None" attachNode="Dummy_emitter01" particleName="F_smoke116" useAttach="false" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+</ActionDesc>

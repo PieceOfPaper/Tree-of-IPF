@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonsterAnim frame="0" Key="briquetting" Anim="ADD_MATERIAL"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_wizard_BRIQUETTING_ADD_MATERIAL" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_alchemist_briquetting_add"/>
+    <Particle frame="16" attachNode="Dummy_effect_hand_R" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

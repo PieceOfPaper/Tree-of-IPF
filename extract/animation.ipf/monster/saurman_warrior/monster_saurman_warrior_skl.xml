@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by d (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="6" particleName="E_saurmanwarrior_skl1" attachNode="Dummy_emitter" scale="1" useAttach="true" />
+    <Particle frame="6" particleName="I_spin003" attachNode="Dummy_skl1" scale="1" useAttach="true" />
+    <Particle frame="6" particleName="F_spread_out020_circle" attachNode="Dummy_emitter" scale="6" useAttach="true" />
+    <Particle frame="6" particleName="F_smoke107" attachNode="Dummy_emitter" scale="6" useAttach="true" />
+    <Sound frame="6" soundFile="mon_saurman_warrior_atk2_shot" />
+    <HitAni frame="6" />
+    <Sound frame="7" soundFile="skl_wiz_fireball" />
+    <Particle frame="8" particleName="F_smoke107" attachNode="Dummy_emitter" scale="6" useAttach="true" />
+    <Sound frame="8" soundFile="skl_wiz_manasphere" />
+    <Particle frame="10" particleName="F_smoke107" attachNode="Dummy_emitter" scale="6" useAttach="true" />
+    <Sound frame="0" soundFile="mon_saurman_warrior_atk2_cast" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

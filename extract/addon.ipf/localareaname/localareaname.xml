@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="localareaname" x="0" y="200" width="310" height="240">
+    <frame title="localareaname" fullwidth="false" layout_gravity="center top"/>
+    <input hittest="false" moveable="false"/>
+    <layer layerlevel="51"/>
+    <option closebutton="false"/>
+    <sound opensound="win_open"/>
+    <draw drawtitlebar="false"/>
+    <skin image="localbackground"/>
+    <controls>
+        <richtext name="localname" rect="28 -34 228 44" layout_gravity="left bottom" caption="localname" fontname="area_name" textalign="left center"/>
+    </controls>
+</uiframe>

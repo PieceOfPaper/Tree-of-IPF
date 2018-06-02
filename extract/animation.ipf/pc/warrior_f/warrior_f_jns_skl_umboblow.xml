@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_umboblow_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="4" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="4" attachNode="Dummy_emitter" particleName="I_warrior_umboblow_shot_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
+    <ReadyAniFrame Value="4" frame="4"/>
+    <Shockwave frame="5" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_warrior_umboblow_shot_spread_out" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_warrior_umboblow_shot_circle" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_warrior_umboblow_shot_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_shieldblow_effect" particleName="I_warrior_umboblow_shot_circle" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
+    <HitAni Value="5" frame="5" damratio="100"/>
+    <HeadRotBip frame="5" BipName="Bip01"/>
+    <Shockwave frame="6" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="6" attachNode="Dummy_shieldblow_effect" particleName="I_warrior_umboblow_shot_circle" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.27" pause="true" use2DEffect="true" targetPos="false"/>
+    <Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="8" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <HeadRotBip frame="22.5" BipName="None"/>
+    <BlendOn frame="24" R="150" G="150" B="150" A="100"/>
+    <BlendOn frame="26" R="100" G="100" B="150" A="100"/>
+    <BlendOn frame="27" R="0" G="0" B="0" A="50"/>
+    <BlendOff frame="30" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

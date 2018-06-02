@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_bramble_skl_ready"/>
+	<Sound frame="81" soundFile="mon_bramble_skl_shot"/>
+	<Particle frame="0" particleName="E_bramble_skl" attachNode="Dummy_LOCK" scale="1" useAttach="true"/>
+	<Particle frame="36" particleName="F_spread_out014_smoke" attachNode="Dummy_LOCK" scale="3" useAttach="true"/>
+	<Particle frame="36" particleName="F_spread_out023_circle" attachNode="Dummy_LOCK" scale="2" useAttach="true"/>
+</ActionDesc>

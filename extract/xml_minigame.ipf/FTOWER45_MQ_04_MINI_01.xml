@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="FTOWER45_MQ_04_MINI_01" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="1st">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47395" Pos="-77.56#246.84#1048.81" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="47395" Pos="-91.59#246.84#997.16" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="47395" Pos="-80.89#246.84#1092.96" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="47395" Pos="-125.15#246.73#949.88" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="47395" Pos="-128.72#246.84#1043.20" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1st/0/1st/1/1st/2/1st/3/1st/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2nd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+                <ScrLockList>
+                    <Area>
+                        <Pos Value="-728.855652 467.000031 -620.171692"/>
+                        <Pos Value="-749.996094 466.999939 -615.362427"/>
+                        <Pos Value="-753.827087 466.999969 -622.077637"/>
+                        <Pos Value="-116.628143 377.476471 167.413712"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="-728.855652 467.000031 -620.171692"/>
+                        <Pos Value="-749.996094 466.999939 -615.362427"/>
+                        <Pos Value="-753.827087 466.999969 -622.077637"/>
+                        <Pos Value="-116.628143 377.476471 167.413712"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="-728.855652 467.000031 -620.171692"/>
+                        <Pos Value="-749.996094 466.999939 -615.362427"/>
+                        <Pos Value="-753.827087 466.999969 -622.077637"/>
+                        <Pos Value="-116.628143 377.476471 167.413712"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="-728.855652 467.000031 -620.171692"/>
+                        <Pos Value="-749.996094 466.999939 -615.362427"/>
+                        <Pos Value="-753.827087 466.999969 -622.077637"/>
+                        <Pos Value="-116.628143 377.476471 167.413712"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="-728.855652 467.000031 -620.171692"/>
+                        <Pos Value="-749.996094 466.999939 -615.362427"/>
+                        <Pos Value="-753.827087 466.999969 -622.077637"/>
+                        <Pos Value="-116.628143 377.476471 167.413712"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="-728.855652 467.000031 -620.171692"/>
+                        <Pos Value="-749.996094 466.999939 -615.362427"/>
+                        <Pos Value="-753.827087 466.999969 -622.077637"/>
+                        <Pos Value="-116.628143 377.476471 167.413712"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="-728.855652 467.000031 -620.171692"/>
+                        <Pos Value="-749.996094 466.999939 -615.362427"/>
+                        <Pos Value="-753.827087 466.999969 -622.077637"/>
+                        <Pos Value="-116.628143 377.476471 167.413712"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="-728.855652 467.000031 -620.171692"/>
+                        <Pos Value="-749.996094 466.999939 -615.362427"/>
+                        <Pos Value="-753.827087 466.999969 -622.077637"/>
+                        <Pos Value="-116.628143 377.476471 167.413712"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="-728.855652 467.000031 -620.171692"/>
+                        <Pos Value="-749.996094 466.999939 -615.362427"/>
+                        <Pos Value="-753.827087 466.999969 -622.077637"/>
+                        <Pos Value="-116.628143 377.476471 167.413712"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="-728.855652 467.000031 -620.171692"/>
+                        <Pos Value="-749.996094 466.999939 -615.362427"/>
+                        <Pos Value="-753.827087 466.999969 -622.077637"/>
+                        <Pos Value="-116.628143 377.476471 167.413712"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="-728.855652 467.000031 -620.171692"/>
+                        <Pos Value="-749.996094 466.999939 -615.362427"/>
+                        <Pos Value="-753.827087 466.999969 -622.077637"/>
+                        <Pos Value="-116.628143 377.476471 167.413712"/>
+                    </Area>
+                </ScrLockList>
+            </Stage>
+            <Stage Name="2nd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47399" Pos="-153.21#246.84#1126.99" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-162.64#246.84#1077.37" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-166.02#246.82#1029.02" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-208.40#246.48#981.80" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-267.15#246.48#944.62" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="2nd/0/2nd/3/2nd/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3rd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="3rd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401623" Pos="-161.30#246.84#1052.54" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="401623" Pos="-192.93#246.73#1132.27" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="401623" Pos="-227.18#246.48#957.17" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="401623" Pos="-305.13#246.48#940.82" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="401623" Pos="-158.97#246.75#994.04" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

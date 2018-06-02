@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="43" R="150" G="100" B="100" A="100"/>
+	<BlendOn frame="44" R="100" G="50" B="50" A="100"/>
+	<BlendOn frame="45" R="80" G="40" B="40" A="100"/>
+	<BlendOn frame="46" R="60" G="30" B="30" A="100"/>
+	<BlendOn frame="47" R="40" G="20" B="20" A="100"/>
+	<BlendOff frame="48" R="0" G="0" B="0" A="0"/>
+	<Particle frame="42" attachNode="Dummy_effect_atk" particleName="I_swordtrail019_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="41" attachNode="Dummy_emitter" particleName="F_ground093_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="12" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="7.00" soundFile="mon_voice_mushwort_9"/>
+	<Sound frame="55.00" soundFile="mon_voice_mushwort_3"/>
+	<Sound frame="55.00" soundFile="mon_minivern_kback"/>
+	<Sound frame="55.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="60.00" soundFile="skl_eff_atk_move_l_6"/>
+</ActionDesc>

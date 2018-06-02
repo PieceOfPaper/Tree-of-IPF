@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="20" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="30" R="70" G="70" B="30" A="50"/>
+	<BlendOn frame="50" R="100" G="100" B="50" A="100"/>
+	<BlendOn frame="80" R="50" G="50" B="20" A="30"/>
+	<BlendOn frame="120" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachActor="None" attachNode="Bip001 Spine" particleName="F_levitation006_smoke" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="15" attachActor="None" attachNode="Dummy_eye_R001" particleName="F_event_owl_skl1_light" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="60" attachActor="None" attachNode="Dummy_eye_R001" particleName="F_event_owl_skl1_light" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

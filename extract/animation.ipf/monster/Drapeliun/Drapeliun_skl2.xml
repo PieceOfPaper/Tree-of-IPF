@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="10" type="2" intensity="1" frequency="60" duration="3" range="1000"/>
+	<Shockwave frame="50" type="2" intensity="1" frequency="60" duration="3" range="1000"/>
+	<Shockwave frame="85" type="2" intensity="30" frequency="50" duration="0.3" range="1000"/>
+	<Shockwave frame="105" type="2" intensity="40" frequency="60" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="7" G="3" B="10" A="10"/>
+	<BlendOn frame="20" R="10" G="5" B="15" A="15"/>
+	<BlendOn frame="40" R="15" G="7" B="20" A="20"/>
+	<BlendOn frame="64" R="60" G="40" B="80" A="60"/>
+	<BlendOn frame="70" R="15" G="5" B="20" A="20"/>
+	<BlendOn frame="75" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="80" R="10" G="5" B="15" A="15"/>
+	<BlendOn frame="85" R="70" G="60" B="80" A="60"/>
+	<BlendOn frame="90" R="7" G="3" B="10" A="10"/>
+	<BlendOn frame="105" R="100" G="90" B="60" A="60"/>
+	<BlendOn frame="110" R="10" G="5" B="15" A="15"/>
+	<BlendOff frame="120" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0" soundFile="mon_drapeliun_skl2"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke127_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Dummy_effect_01" particleName="I_force076_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Dummy_effect_04" particleName="I_force076_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Dummy_effect_02" particleName="I_force076_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Dummy_effect_03" particleName="I_force076_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="80" attachNode="Dummy_effect_01" particleName="I_force076_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="80" attachNode="Dummy_effect_04" particleName="I_force076_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="80" attachNode="Dummy_effect_02" particleName="I_force076_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="80" attachNode="Dummy_effect_03" particleName="I_force076_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Dummy_effect_05" particleName="F_ground118_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true"/>
+	<Particle frame="85" attachNode="Dummy_effect_05" particleName="F_ground118_yellow2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="105" attachNode="Dummy_effect_05" particleName="F_ground118_yellow2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="90" attachNode="Dummy_bufficon" particleName="F_spread_out027_leaf_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true"/>
+	<Particle frame="112" attachNode="Dummy_bufficon" particleName="F_spread_out027_leaf_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true"/>
+</ActionDesc>

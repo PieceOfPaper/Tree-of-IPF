@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<uiframe name="tournament_gift" x="0" y="0" width="360" height="350" create="open" layout_gravity="left center">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="wiki_add"/>
+    <frame layout_gravity="center center" fasthide="true" margin="0 1 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <script CloseScp="CLOSE_TOURNAMENT_GIFT"/>
+    <controls>
+        <richtext name="name" rect="0 0 288 45" margin="0 30 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st43b}%s님에게 선물{/}" maxwidth="0" param1="value" param1_def="AAAAAAAAAAAAAAAAAA" resizebytext="true" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
+        <queue name="queue" rect="0 0 340 122" margin="3 136 0 0" layout_gravity="center top" skin=""/>
+        <button name="colse" rect="0 0 44 44" margin="8 8 6 0" layout_gravity="left top" LBtnUpScp="CLOSE_UI" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over"/>
+        <richtext name="mymoney" rect="0 0 330 23" margin="15 97 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="0" param1="text" param1_def="11111111111111" resizebytext="false" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+    </controls>
+</uiframe>

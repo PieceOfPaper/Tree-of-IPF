@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="79" attachNode="Dummy_effect_skl3_lip" particleName="F_explosion058_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="82" attachNode="Dummy_effect_skl3_lip" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="79" attachNode="Dummy_effect_skl3_lip" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="79" attachNode="Dummy_effect_eye_R" particleName="F_light047_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="79" attachNode="Dummy_effect_eye_L" particleName="F_light047_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_eye_R" particleName="F_light052_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_eye_L" particleName="F_light052_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke133_white_grey3" useAttach="true" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_02" particleName="F_spread_in010_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="3.00" soundFile="skl_archer_highanchoring_cast2"/>
+	<Sound frame="4.00" soundFile="mon_voice_mushwort_9"/>
+	<Sound frame="5.00" soundFile="skl_archer_concentrate_shot"/>
+	<Sound frame="5.00" soundFile="skl_eff_poison_3"/>
+	<Sound frame="20.00" soundFile="mon_voice_mushwort_10"/>
+	<Sound frame="69.00" soundFile="mon_rudas_loxodon_skl"/>
+	<Sound frame="72.00" soundFile="mon_voice_netherbovine_6"/>
+</ActionDesc>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="m_candle_spider_skl"/>
+    <Sound frame="1.00" soundFile="m_candle_spider_vo_2"/>
+    <Sound frame="11.00" soundFile="skl_eff_body_atk_11"/>
+    <Sound frame="11.00" soundFile="m_candle_spider_vo_1"/>
+    <Particle frame="11" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="Dummy_emitter" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="11" particleName="Candle_spider_skl" attachNode="Dummy_emitter" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+    <Sound frame="11.00" soundFile="skl_eff_atk_move_s_10"/>
+    <Sound frame="14.00" soundFile="skl_eff_hit_insect_4"/>
+    <Particle frame="16" particleName="F_circle017" attachNode="Dummy_emitter" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="16" particleName="F_smoke063" attachNode="Dummy_emitter" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="16" particleName="F_smoke033" attachNode="Dummy_emitter" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

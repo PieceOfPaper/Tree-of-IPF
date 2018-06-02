@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast_2"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="3.00" soundFile="skl_eff_special_shot_5"/>
+    <Sound frame="4.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="8.00" soundFile="cannon_whoosh_middle"/>
+    <Sound frame="12.00" soundFile="skl_fgt_execution_2"/>
+    <BlendOn frame="17" R="80" G="80" B="90" A="50"/>
+    <Particle frame="18" attachNode="Dummy_emitter" particleName="E_warrior_GaeBulg_dash2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false" sound="None"/>
+    <BlendOn frame="18" R="100" G="110" B="120" A="50"/>
+    <BlendOn frame="19" R="70" G="80" B="90" A="50"/>
+    <BlendOn frame="20" R="30" G="30" B="40" A="50"/>
+    <BlendOff frame="21" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uitile name="halloffame" x="600" y="0" width="600" height="649" bodycolor="#ffffff" bodyalpha="0">
+    <frame fullheight="true" fasthide="true" layout_gravity="right top" piptype="right"/>
+    <input moveable="false" maxwidth="1280"/>
+    <layer layerlevel="30"/>
+    <skin backgroundimage="mixer_back" layout_gravity="center center" rect="0 82 400 220"/>
+    <option closebutton="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <effect open="halloffameOpen" close="halloffameClose"/>
+    <script OpenScp="OPEN_FAME_FRAME" CloseScp="CLOSE_FAME_FRAME"/>
+    <controls>
+        <tab name="daytype" rect="170 115 600 30" layout_gravity="left top" ChangeOnDrag="true" LBtnDownScp="FAME_DROPLIST_SELECTED" itemspc="1" skin="tab"/>
+        <tabitem name="NORMAL" parent="daytype" caption="{@st42}전체{/}" width="100"/>
+        <tabitem name="DAILY" parent="daytype" caption="{@st42}오늘랭킹{/}" width="100"/>
+        <tabitem name="WEEKLY" parent="daytype" caption="{@st42}주간랭킹{/}" width="100"/>
+        <advlistbox name="AdvBox_0" rect="170 150 370 501" heightperrow="32" maxrowcol="100 5" scroll="false" skin="hof" widthpercol="100"/>
+        <advlistboxitem name="Rank" parent="AdvBox_0" rect="0 0 10 10" caption="{@st56}순위{/}" col="0" datatype="richtext" row="0"/>
+        <advlistboxitem name="Type" parent="AdvBox_0" rect="0 0 10 10" caption="{@st56}점수{/}" col="1" datatype="richtext" row="0"/>
+        <advlistboxitem name="Job" parent="AdvBox_0" rect="0 0 10 10" caption="{@st56}직업{/}" col="2" datatype="richtext" row="0"/>
+        <advlistboxitem name="Point" parent="AdvBox_0" rect="0 0 10 10" caption="{@st56}이름{/}" col="3" datatype="richtext" row="0"/>
+        <advlistboxsetting parent="AdvBox_0" col="0" colwidth="50" row="0" rowbgcolor="#4a443f" rowheight="25" startrow="1"/>
+        <advlistboxsetting parent="AdvBox_0" col="1" colwidth="50" row="0" rowbgcolor="#4a443f" rowheight="25" startrow="1"/>
+        <advlistboxsetting parent="AdvBox_0" col="2" colwidth="70" row="0" rowbgcolor="#4a443f" rowheight="25" startrow="1"/>
+        <advlistboxsetting parent="AdvBox_0" col="3" colwidth="150" row="0" rowbgcolor="#4a443f" rowheight="25" startrow="1"/>
+        <richtext name="title" rect="220 80 100 30" layout_gravity="left top" caption="{@st43}{/}" format="{@st43}%s{/}" param1="title"/>
+        <richtext name="fameList" rect="40 155 100 501" fixwidth="true" resizebytext="false"/>
+        <richtext name="loading" rect="40 155 100 501" caption="{@st41}Loading...{/}" fixwidth="true" resizebytext="false"/>
+        <richtext name="pagetext" rect="45 -87 30 24" layout_gravity="center bottom" caption="{@st49}10/10{/}" format="{@st49}%s/%s{/}" param1="curpage" param2="maxpage"/>
+        <button name="prevpage" rect="-15 -85 40 24" layout_gravity="center bottom" LBtnUpArgNum="-1" LBtnUpScp="FAME_SET_PAGE" caption="{img white_left_arrow 18 18}" clicksound="button_click_close" oversound="button_over" texttooltip="이전 페이지"/>
+        <button name="nextpage" rect="105 -85 40 24" layout_gravity="center bottom" LBtnUpArgNum="1" LBtnUpScp="FAME_SET_PAGE" caption="{img white_right_arrow 18 18}" clicksound="button_click_close" oversound="button_over" texttooltip="다음 페이지"/>
+        <button name="searchbutton" rect="180 -30 100 30" layout_gravity="center bottom" LBtnUpScp="FIND_FAME_BY_NAME" caption="{@st42}ID 검색{/}" clicksound="ui_click_button_4" oversound="button_over" texttooltip="입력한 ID를 검색합니다"/>
+        <button name="colse" rect="25 5 40 40" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;halloffame&apos;)" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="명예의 전당을 닫습니다"/>
+        <picture name="titlepicture" rect="170 70 44 44" layout_gravity="left top" image="button_ranking"/>
+        <edit name="searchinput" rect="45 -25 160 40" layout_gravity="center bottom" EnterKeyScp="FIND_FAME_BY_NAME" OffsetForDraw="10 3" fontname="white_14_ol" maxlen="128" texttooltip="검색할 ID를 입력합니다" usetag="true"/>
+    </controls>
+</uitile>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_effect_dead" particleName="F_levitation009_violet" useAttach="false" hiddenObj="false" scale="3.7" pause="true" targetPos="false"/>
+    <Sound frame="1" soundFile="mon_mirtis_born"/>
+    <Sound frame="2.00" soundFile="skl_wiz_firebreath"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+    <Particle frame="35" attachActor="None" attachNode="Dummy_effect_dead" particleName="I_bat008" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+</ActionDesc>

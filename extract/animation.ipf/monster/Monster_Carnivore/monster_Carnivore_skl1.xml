@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_effect_skl1" particleName="I_smoke048" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false" sound="skl_eff_poison_3"/>
+    <Particle frame="0" attachNode="Dummy_effect_skl1" particleName="I_smoke048" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_l_22"/>
+    <Sound frame="0.00" soundFile="mon_wood_spirit_atk_cast_move"/>
+    <Sound frame="10.00" soundFile="skl_eff_atk_move_l_23"/>
+    <Sound frame="20.00" soundFile="m_treemonster_skl"/>
+    <Sound frame="25.00" soundFile="mon_hydra_born"/>
+    <Sound frame="30.00" soundFile="skl_eff_atk_move_m_10"/>
+    <Sound frame="65.00" soundFile="skl_eff_atk_move_l_15"/>
+    <Particle frame="77" attachNode="Dummy_effect_skl1" particleName="F_explosion006_green" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

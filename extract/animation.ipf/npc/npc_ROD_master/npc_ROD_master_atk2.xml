@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<ReadyAniTime Value="100" frame="0"/>
+	<HitAni Value="11" damratio="100" frame="11"/>
+	<Sound frame="0.00" soundFile="atk_swordswing_1"/>
+	<Sound frame="7.00" soundFile="voice_war_atk_short"/>
+	<Particle frame="11" attachNode="Dummy_effect_atk2" particleName="I_swordtrail001_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

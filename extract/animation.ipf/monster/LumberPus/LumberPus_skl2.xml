@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_rootopus_atk_2"/>
+    <Particle frame="5" attachNode="Bone001" particleName="F_light088" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="5" attachNode="Bone002" particleName="F_drop_leaf004" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="70" attachNode="Bone002" particleName="F_drop_leaf004" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="6.00" soundFile="mon_colimencia_skl_1"/>
+	<Shockwave frame="10" type="2" intensity="1" frequency="70" duration="2" range="1000"/>
+	<Shockwave frame="40" type="2" intensity="2" frequency="60" duration="1" range="1000"/>
+	<Shockwave frame="65" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="10" frequency="30" duration="2" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="10" R="100" G="100" B="70" A="50"/>
+	<BlendOn frame="30" R="100" G="150" B="130" A="100"/>
+	<BlendOn frame="35" R="50" G="80" B="100" A="50"/>
+	<BlendOn frame="40" R="80" G="100" B="120" A="50"/>
+	<BlendOn frame="70" R="100" G="150" B="70" A="80"/>
+	<BlendOn frame="110" R="50" G="80" B="100" A="50"/>
+	<BlendOn frame="115" R="20" G="30" B="40" A="20"/>
+	<BlendOff frame="120" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_spread_in023_green" useAttach="false" hiddenObj="false" scale="1"/>
+</ActionDesc>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+	<Particle frame="0" attachNode="Dummy_effect_00" particleName="None" useAttach="true" hiddenObj="false"/>
+	<Sound frame="1" soundFile="barricade_butterfly_dead"/>
+	<ForkParticle frame="0" attachActor="None" attachNode="Dummy_effect_00" forkptcl="F_spark012_leaf" hiddenObj="false"/>
+	<ForkParticle frame="0" attachActor="None" attachNode="Dummy_effect_01" forkptcl="F_spark012_leaf" hiddenObj="false"/>
+	<ForkParticle frame="0" attachActor="None" attachNode="Dummy_effect_02" forkptcl="F_spark012_leaf" hiddenObj="false"/>
+	<ForkParticle frame="0" attachActor="None" attachNode="Dummy_effect_04" forkptcl="F_spark012_leaf" hiddenObj="false"/>
+	<ForkParticle frame="0" attachActor="None" attachNode="Dummy_effect_05" forkptcl="F_spark012_leaf" hiddenObj="false"/>
+	<ForkParticle frame="0" attachActor="None" attachNode="Dummy_effect_08" forkptcl="F_spark012_leaf" hiddenObj="false"/>
+	<ForkParticle frame="0" attachActor="None" attachNode="Dummy_effect_09" forkptcl="F_spark012_leaf" hiddenObj="false"/>
+	<ForkParticle frame="0" attachActor="None" attachNode="Dummy_effect_11" forkptcl="F_spark012_leaf" hiddenObj="false"/>
+	<ForkParticle frame="0" attachActor="None" attachNode="Dummy_effect_14" forkptcl="F_spark012_leaf" hiddenObj="false"/>
+</ActionDesc>

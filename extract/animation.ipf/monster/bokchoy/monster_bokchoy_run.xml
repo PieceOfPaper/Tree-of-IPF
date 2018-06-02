@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="3" attachNode="Bip01 L Foot" particleName="F_smoke109" useAttach="true" scale="1.0" hiddenObj="false" changeEffect="None" pause="true" targetPos="false" />
+    <Particle frame="4" attachNode="Bip01 L Foot" particleName="F_smoke109" useAttach="true" scale="1.0" hiddenObj="false" changeEffect="None" pause="true" targetPos="false" />
+    <Particle frame="4" attachNode="Bip01 L Foot" particleName="F_stone005" useAttach="true" scale="0.8" hiddenObj="false" changeEffect="None" pause="true" targetPos="false" />
+    <Particle frame="9" attachNode="Bip01 R Foot" particleName="F_smoke109" useAttach="true" scale="1.0" hiddenObj="false" changeEffect="None" pause="true" targetPos="false" />
+    <PostFix frame="10" ID="_height" />
+    <Particle frame="10" attachNode="Bip01 R Foot" particleName="F_smoke109" useAttach="true" scale="1.0" hiddenObj="false" changeEffect="None" pause="true" targetPos="false" />
+    <Particle frame="10" attachNode="Bip01 R Foot" particleName="F_stone005" useAttach="true" scale="0.8" hiddenObj="false" changeEffect="None" pause="true" targetPos="false" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

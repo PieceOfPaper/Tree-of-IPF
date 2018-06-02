@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="0" soundFile="mon_voice_hog_5"/>
+	<Sound frame="1.00" Value="0" soundFile="skl_eff_atk_move_s_4"/>
+	<HitAni frame="1.00" damratio="40"/>
+	<Particle frame="1.00" particleName="I_sword011_black" attachNode="Dummy_effect_atk1" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="1" particleName="F_smoke107" attachNode="Dummy_emitter" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="F_smoke107" attachNode="Dummy_emitter" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="5.00" Value="0" soundFile="skl_eff_atk_move_s_3"/>
+	<Particle frame="5.00" particleName="I_sword011_black" attachNode="Dummy_effect_atk1_1" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+	<HitAni frame="6.18" damratio="100"/>
+</ActionDesc>

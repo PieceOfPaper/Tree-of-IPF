@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActionDesc>
+  <HitTime frame="0" />
+  <AttackSound frame="0" handPos="Right" />
+  <WeaponTrail frame="7" keyFrameName="keyframe1" imageName="default" actionName="default" />
+  <Particle frame="23" attachActor="None" attachNode="" particleName="mon_zealot_dead_smoke" />
+  <Particle frame="1" attachActor="None" attachNode="" particleName="mon_zealot_dead_blood_f" />
+  <Sound frame="6" soundFile="m_zealot_die" />
+  <Sound frame="1" soundFile="m_bulgui_elite_dead2_body" />
+  <Sound frame="18" soundFile="m_bulgui_elite_dead3_body" />
+  <Particle frame="10" attachNode="" particleName="mon_zealot_dead_ground" useAttach="true" />
+  <Sound frame="38" soundFile="dead_effect_2" />
+  <Sound frame="28" soundFile="dead_effect_5" />
+  <Sound frame="1" soundFile="blood_critical" />
+</ActionDesc>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by 박선우 (EMBRACE) -->
+<uiframe name="guardgauge" x="0" y="0" width="150" height="30" create="open">
+    <frame title="캐스팅" layout_gravity="center center" margin="0 220 0 0"/>
+    <input hittest="false"/>
+    <option closebutton="false" hideable="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <controls>
+        <gauge name="gp" rect="0 0 146 14" margin="0 0 0 3" layout_gravity="center bottom" skin="guard_gauge"/>
+        <richtext name="text" rect="0 0 60 20" margin="0 0 0 0" layout_gravity="center top" caption="{@st42}GUARD{/}" hittest="false" textalign="center top"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_wepon" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_wepon" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="4" attachNode="Bip001 R Hand" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" soundFile="mon_voice_action"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_m_5"/>
+	<Sound frame="10" soundFile="mobgen_underground"/>
+	<Sound frame="10" soundFile="hand_blow_stone"/>
+	<Sound frame="10" soundFile="mon_voice_hogma_skl_cast"/>
+</ActionDesc>

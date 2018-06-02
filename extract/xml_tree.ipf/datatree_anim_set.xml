@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<idspace id="AnimSetList">
+	<Category>
+		<Class ClassID="1" ClassName="Misc_Common_Type01" Path="misc" Prefix="npc_" STD="_std" ASTD="_std" ARUN="_wlk" ATK="_std" ATK1="None" ATK2="None" ATK3="None" ATK4="None" ATK5="None" WLK="_wlk" RUN="_wlk" SKILL="_skl"/>
+		<Class ClassID="2" ClassName="NPC_Common_Type01" Path="npc" Prefix="npc_" STD="_std" ASTD="_astd" ARUN="_wlk" ATK="_std" ATK1="None" ATK2="None" ATK3="None" ATK4="None" ATK5="None" WLK="_wlk" RUN="_run" SKILL="_skl"/>
+		<Class ClassID="3" ClassName="Mon_Common_Type01" Path="monster" Prefix="monster_" STD="_astd" ASTD="_atk" ARUN="_run" ATK="_atk" ATK1="None" ATK2="None" ATK3="None" ATK4="None" ATK5="None" WLK="_wlk" RUN="_run" SKILL="_skl"/>
+		<Class ClassID="4" ClassName="Mon_Stance_Boss_Type" Path="monster" Prefix="monster_" STD="_astd" ASTD="_atk" ARUN="_wlk" ATK="_atk" ATK1="None" ATK2="None" ATK3="None" ATK4="None" ATK5="None" WLK="_wlk" RUN="_wlk" SKILL="_skl"/>
+		<Class ClassID="5" ClassName="Munsang" Path="monster" Prefix="monster_" STD="_std" ASTD="_std" ARUN="_wlk" ATK="_re" ATK1="None" ATK2="None" ATK3="None" ATK4="None" ATK5="None" WLK="_wlk" RUN="_wlk" SKILL="_skl"/>
+		<Class ClassID="6" ClassName="NPC_ATTACK_Type01" Path="npc" Prefix="npc_" STD="_atk" ASTD="_atk" ARUN="_atk" ATK="_atk" ATK1="None" ATK2="None" ATK3="None" ATK4="None" ATK5="None" WLK="_atk" RUN="_atk" SKILL="_atk"/>
+		<Class ClassID="7" ClassName="NPC_AS_Type01" Path="npc" Prefix="npc_" STD="_std" ASTD="_astd" ARUN="_run" ATK="_atk" ATK1="None" ATK2="None" ATK3="None" ATK4="None" ATK5="None" WLK="_wlk" RUN="_run" SKILL="_astd"/>
+		<Class ClassID="8" ClassName="ATK2" Path="monster" Prefix="monster_" STD="_astd" ASTD="_astd" ARUN="_run" ATK="_atk" ATK1="_atk1" ATK2="_atk2" ATK3="_atk3" ATK4="_atk4" ATK5="_atk5" WLK="_wlk" RUN="_run" SKILL="_skl"/>
+		<Class ClassID="9" ClassName="TEST" Path="monster" Prefix="monster_" STD="_astd" ASTD="_astd" ARUN="_astd" ATK="_astd" ATK1="_astd" ATK2="_astd" ATK3="_astd" ATK4="_astd" ATK5="_astd" WLK="_astd" RUN="_astd" SKILL="_astd"/>
+	</Category>
+</idspace>

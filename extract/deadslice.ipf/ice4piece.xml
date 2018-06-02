@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<DeadSlice>
+    <Option TYPE="KEYFRAME" />
+    <Layer Name="wholaarea">
+        <DeadBounce MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="40.000000" MinRadius="15.000000" MaxRadius="30.000000" OverKillAddDist="25.000000" OverKillMinRadius="50.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="150.000000" Gravity="1.000000" RotMinValue="0.100000" RotMaxValue="0.100000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Normal" />
+        <LayerOption TYPE="None" />
+        <Event Index="0.000000" Name="ice_badak" Type="IMC" LifeTime="0.600000" X="0.000000" Y="10.000000" Z="0.000000" Scale="0.320000" Attach="0" SizeToSprite="1" ForceDestroy="1" FixRotate="0" />
+        <Event Index="3.000000" Name="ShockWave" Type="CUSTOM" LifeTime="0.000000" X="0.000000" Y="0.000000" Z="0.000000" Scale="0.000000" Attach="0" SizeToSprite="0" ForceDestroy="1" FixRotate="0" />
+        <Event Index="6.000000" Name="ShockWave" Type="CUSTOM" LifeTime="0.000000" X="0.000000" Y="0.000000" Z="0.000000" Scale="1.000000" Attach="0" SizeToSprite="0" ForceDestroy="1" FixRotate="0" />
+        <Event Index="7.000000" Name="ColorAdjust" Type="CUSTOM" LifeTime="5.000000" X="0.000000" Y="0.000000" Z="0.000000" Scale="1.000000" Attach="0" SizeToSprite="0" ForceDestroy="1" FixRotate="0" />
+    </Layer>
+    <Layer Name="a8">
+        <DeadBounce MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="40.000000" MinRadius="15.000000" MaxRadius="30.000000" OverKillAddDist="25.000000" OverKillMinRadius="50.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="150.000000" Gravity="1.000000" RotMinValue="10.000000" RotMaxValue="10.000000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Normal" />
+        <LayerOption TYPE="None" />
+        <Event Index="7.000000" Name="Throw" Type="CUSTOM" LifeTime="0.000000" X="0.000000" Y="0.000000" Z="0.000000" Scale="1.000000" Attach="0" SizeToSprite="0" ForceDestroy="1" FixRotate="0" />
+        <Event Index="7.000000" Name="ice_badak" Type="IMC" LifeTime="0.000000" X="0.000000" Y="0.000000" Z="0.000000" Scale="0.030000" Attach="0" SizeToSprite="1" ForceDestroy="1" FixRotate="0" />
+        <Event Index="10.000000" Name="ColorAdjust" Type="CUSTOM" LifeTime="5.000000" X="0.000000" Y="0.000000" Z="0.000000" Scale="1.000000" Attach="0" SizeToSprite="0" ForceDestroy="1" FixRotate="0" />
+    </Layer>
+    <Layer Name="a1">
+        <DeadBounce MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="40.000000" MinRadius="15.000000" MaxRadius="30.000000" OverKillAddDist="25.000000" OverKillMinRadius="50.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="150.000000" Gravity="1.000000" RotMinValue="0.100000" RotMaxValue="0.100000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Normal" />
+        <LayerOption TYPE="None" />
+        <Event Index="7.000000" Name="Throw" Type="CUSTOM" LifeTime="0.000000" X="0.000000" Y="0.000000" Z="0.000000" Scale="1.000000" Attach="0" SizeToSprite="0" ForceDestroy="1" FixRotate="0" />
+        <Event Index="7.000000" Name="ice_badak" Type="IMC" LifeTime="0.000000" X="0.000000" Y="0.000000" Z="0.000000" Scale="0.030000" Attach="0" SizeToSprite="1" ForceDestroy="1" FixRotate="0" />
+    </Layer>
+    <Layer Name="a2">
+        <DeadBounce MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="40.000000" MinRadius="15.000000" MaxRadius="30.000000" OverKillAddDist="25.000000" OverKillMinRadius="50.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="150.000000" Gravity="1.000000" RotMinValue="0.100000" RotMaxValue="0.100000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Normal" />
+        <LayerOption TYPE="None" />
+    </Layer>
+    <Layer Name="a7">
+        <DeadBounce MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="40.000000" MinRadius="15.000000" MaxRadius="30.000000" OverKillAddDist="25.000000" OverKillMinRadius="50.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="150.000000" Gravity="1.000000" RotMinValue="0.100000" RotMaxValue="0.100000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Normal" />
+        <LayerOption TYPE="None" />
+    </Layer>
+</DeadSlice>

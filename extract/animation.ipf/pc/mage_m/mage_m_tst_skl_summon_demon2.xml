@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="F_wizard_obey_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="F_wizard_obey_shot_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_archer_avoid"/>
+	<Sound frame="2.47" soundFile="skl_eff_1inchpunch_cast"/>
+	<Sound frame="2.47" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="5.57" soundFile="skl_eff_atk_move_s_10"/>
+</ActionDesc>

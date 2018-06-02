@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <HeadRotBip frame="0" BipName="Bip01"/>
+    <CreateMonsterAnim frame="0" Key="stone" Anim="dead" Freeze="0"/>
+    <CreateMonsterAnim frame="0" Key="sign" Anim="dead" Freeze="0"/>
+    <Sound frame="10.00" soundFile="skl_eff_squire_armor_hand_1"/>
+    <Sound frame="11.00" soundFile="skl_eff_squire_armor_dead"/>
+    <HeadRotBip frame="110" BipName="None"/>
+</ActionDesc>

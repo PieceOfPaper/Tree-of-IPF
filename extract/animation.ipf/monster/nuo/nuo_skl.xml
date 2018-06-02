@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AfterImage frame="3" term="50" blendTime="400" r="130" g="130" b="150" a="120"/>
+	<AfterImage frame="6" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<BlendOn frame="3" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="4" R="200" G="130" B="120" A="80"/>
+	<BlendOn frame="5" R="180" G="130" B="120" A="50"/>
+	<BlendOff frame="7" R="0" G="0" B="0" A="0"/>
+	<Particle frame="4" attachNode="Dummy_effect_skl" particleName="I_swordtrail019_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" soundFile="mon_ghost_boy_hit"/>
+	<Sound frame="0.00" soundFile="atk_swordswing_1"/>
+	<Sound frame="0.00" soundFile="m_big_footstep_ghost2"/>
+	<Sound frame="4.00" soundFile="atk_swordthrust"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_s_8"/>
+</ActionDesc>

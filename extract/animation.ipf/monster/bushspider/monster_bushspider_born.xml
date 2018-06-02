@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="mon_bushspider_born"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_ground093_leaf" useAttach="true" hiddenObj="false" scale="1.0" pause="true"/>
+	<Sound frame="1.00" soundFile="mon_spine_dandel_atk"/>
+	<Particle frame="17" attachNode="Bip001 L Clavicle" particleName="F_spark009_green" useAttach="true" hiddenObj="false" scale="1.0" pause="true"/>
+	<Particle frame="18" attachNode="Bip001 R Clavicle" particleName="F_spark009_green" useAttach="true" hiddenObj="false" scale="1.0" pause="true"/>
+</ActionDesc>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="14.00" soundFile="skl_eff_atk_move_l_19"/>
+    <Sound frame="18.00" soundFile="mon_voice5_l_15"/>
+    <Particle frame="24" attachActor="None" attachNode="Dummy_effect_atk1" particleName="brarkaras_stone_event2" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+    <Particle frame="24" attachActor="None" attachNode="Dummy_effect_atk1" particleName="I_rootcrystal_dead_mash" useAttach="true" hiddenObj="false" scale="3.5" pause="true" targetPos="false" sound="mon_turret_die"/>
+    <Particle frame="25" attachActor="None" attachNode="Dummy_effect_atk1" particleName="I_rootcrystal_dead_mash" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Sound frame="50.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Particle frame="58" attachActor="None" attachNode="Dummy_effect_atk3" particleName="I_rootcrystal_dead_mash" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false" sound="skl_eff_crash_ground_l_2"/>
+    <Particle frame="59" attachActor="None" attachNode="Dummy_effect_atk3" particleName="I_rootcrystal_dead_mash" useAttach="true" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
+    <Particle frame="60" attachActor="None" attachNode="Dummy_effect_atk3" particleName="I_rootcrystal_dead_mash" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="88" attachActor="None" attachNode="Dummy_effect_atk2" particleName="F_explosion023" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="89" attachActor="None" attachNode="Dummy_effect_atk2" particleName="I_rootcrystal_dead_mash" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false" sound="skl_eff_stoneunderground_2"/>
+    <Particle frame="89" attachActor="None" attachNode="Dummy_effect_atk2" particleName="brarkaras_stone_event2" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="89" attachActor="None" attachNode="Dummy_effect_atk2" particleName="F_ground082_smoke" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+    <Sound frame="90.00" soundFile="mon_voice5_l_dead_2"/>
+</ActionDesc>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="5" A="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="I_warrior_leapattack_cast_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_cast_force"/>
+	<BlendOn frame="3" R="10" G="50" B="150" A="0"/>
+	<BlendOn frame="8" R="0" G="0" B="5" A="0"/>
+	<BlendOff frame="9" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

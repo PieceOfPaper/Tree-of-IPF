@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uitile name="repairitem_pop" x="210" y="0" width="450" height="340" bodycolor="#ffffff" bodyalpha="0" create="open">
+    <frame title="{@st44}아이템 정비{/}" layout_gravity="left top" fullheight="true" fasthide="true"/>
+    <input moveable="false" maxwidth="1280"/>
+    <option closebutton="false"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <controls>
+        <picture name="itemicon" rect="0 170 80 80" layout_gravity="center top" movepop="true" stretch="true"/>
+        <richtext name="t_item" rect="0 250 250 24" layout_gravity="center top" caption="" fontname="black_18_b" hittest="false"/>
+        <button name="OK" rect="-160 560 80 24" layout_gravity="right top" LBtnUpScp="REQ_ITEM_REPAIR" caption="{@st42}정비{/}" clicksound="button_click_big" oversound="button_over" skin="textbutton" tooltipcaption="{@st59}현재 내용으로 정비합니다.{/}" tooltipwidth="256"/>
+        <button name="CANCEL" rect="-70 560 80 24" layout_gravity="right top" LBtnUpScp="CLOSE_UI" caption="{@st42}닫기{/}" clicksound="button_click_big" oversound="button_over" skin="textbutton" tooltipcaption="{@st59}정비하지 않습니다.{/}" tooltipwidth="256"/>
+        <groupbox name="gbox" rect="80 280 300 270" draw="false" hittestbox="true" scrollbar="true"/>
+    </controls>
+</uitile>

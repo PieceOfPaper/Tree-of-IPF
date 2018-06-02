@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="32.00" soundFile="skl_eff_stone_rolling_3"/>
+    <Sound frame="35.00" soundFile="skl_eff_stone_rolling_1"/>
+    <Particle frame="48" attachNode="Dummy_effect01" particleName="F_pc_jump_smoke" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+    <Particle frame="52" attachNode="Dummy_effect02" particleName="F_pc_jump_smoke3" useAttach="false" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
+    <Particle frame="55" attachNode="Dummy_effect03" particleName="F_pc_jump_smoke2" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="56" attachNode="Dummy_effect04" particleName="F_pc_jump_smoke3" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+    <Particle frame="68" attachNode="Dummy_effect05" particleName="F_smoke008" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="81" attachNode="Dummy_effect06" particleName="F_pc_jump_smoke" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+    <Particle frame="91" attachNode="Dummy_effect07" particleName="F_pc_jump_smoke3" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Particle frame="104" attachNode="Dummy_effect08" particleName="F_pc_jump_smoke2" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Sound frame="105.00" soundFile="skl_eff_dead_boom_stone"/>
+    <Particle frame="106" attachNode="Dummy_effect09" particleName="F_pc_jump_smoke2" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="112" attachNode="Dummy_effect10" particleName="F_smoke008" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="4000" soundFile="skl_eff_atk_move_m_1"/>
+	<Sound frame="3.00" Value="4000" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="3.00" soundFile="mon_voice_screech_9"/>
+	<Sound frame="21.00" Value="3664" soundFile="skl_eff_atk_move_m_1"/>
+	<Sound frame="24.00" Value="4000" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="36.00" Value="3503" soundFile="skl_eff_atk_move_m_1"/>
+	<Sound frame="39.00" Value="4000" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="51.00" Value="4000" soundFile="skl_eff_atk_move_m_1"/>
+	<Sound frame="52.50" Value="4000" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="67.50" Value="4000" soundFile="skl_eff_atk_move_m_1"/>
+	<Sound frame="69.00" Value="4000" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="79.50" soundFile="mon_voice_screech_7"/>
+	<Sound frame="82.50" Value="4000" soundFile="skl_eff_atk_move_l_8"/>
+	<Sound frame="84.00" Value="4000" soundFile="skl_eff_atk_move_m_1"/>
+	<Particle frame="5" attachActor="None" attachNode="Dummy001" particleName="F_smoke038" hiddenObj="false" useAttach="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="25" attachActor="None" attachNode="Dummy_effect" particleName="F_spin009" hiddenObj="false" useAttach="false" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="50" attachActor="None" attachNode="Dummy_effect" particleName="F_spin009" hiddenObj="false" useAttach="false" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy001" particleName="F_burstup007_smoke1" hiddenObj="false" useAttach="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

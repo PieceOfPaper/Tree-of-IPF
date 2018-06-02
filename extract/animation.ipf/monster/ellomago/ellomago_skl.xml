@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ldy (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_ellomago_skl_cast" />
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_m_12" />
+    <Sound frame="15.00" soundFile="skl_eff_atk_move_m_5" />
+    <Sound frame="15.00" soundFile="skl_eff_two_spin_1" />
+    <Sound frame="15.00" soundFile="mon_ellomago_skl_shot" />
+    <Particle frame="15" particleName="I_spin007" attachNode="Eff_skl_01" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="15" particleName="F_spin018" attachNode="Eff_skl_002" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="16" particleName="I_ellomago_atk001_mash" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false" />
+</ActionDesc>

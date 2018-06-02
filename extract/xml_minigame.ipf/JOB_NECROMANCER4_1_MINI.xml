@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="JOB_NECROMANCER4_1_MINI" minLv="0" maxLv="0" startWaitSec="4">
+        <StageList>
+            <Stage Name="1st">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57371" Pos="1754.67#122.28#154.15" angle="168" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Name&apos; &apos;썩어가는 푸른 폰델&apos; &apos;Lv&apos; &apos;160&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57371" Pos="1693.34#122.28#-135.74" angle="136" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Name&apos; &apos;썩어가는 푸른 폰델&apos; &apos;Lv&apos; &apos;160&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57371" Pos="1583.20#122.28#-263.56" angle="124" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Name&apos; &apos;썩어가는 푸른 폰델&apos; &apos;Lv&apos; &apos;160&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57371" Pos="1758.22#122.28#-20.45" angle="153" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Name&apos; &apos;썩어가는 푸른 폰델&apos; &apos;Lv&apos; &apos;160&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57367" Pos="1730.84#122.28#-262.51" angle="175" genCount="1" genTime="20000" objectKey="4" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;Name&apos; &apos;썩어가는 푸른 스타울리트&apos; &apos;Lv&apos; &apos;157&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57367" Pos="1804.66#122.28#-132.38" angle="149" genCount="1" genTime="20000" objectKey="5" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;Name&apos; &apos;썩어가는 푸른 스타울리트&apos; &apos;Lv&apos; &apos;157&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57367" Pos="1847.67#122.28#115.57" angle="160" genCount="1" genTime="20000" objectKey="6" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;Name&apos; &apos;썩어가는 푸른 스타울리트&apos; &apos;Lv&apos; &apos;157&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="1-2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1st/0/1st/1/1st/2/1st/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="1st"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2nd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2nd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57371" Pos="1694.01#122.28#163.07" angle="-117" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Name&apos; &apos;썩어가는 푸른 폰델&apos; &apos;Lv&apos; &apos;160&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57371" Pos="1799.63#122.28#-107.85" angle="151" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Name&apos; &apos;썩어가는 푸른 폰델&apos; &apos;Lv&apos; &apos;160&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57371" Pos="1809.74#122.28#71.08" angle="-169" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Name&apos; &apos;썩어가는 푸른 폰델&apos; &apos;Lv&apos; &apos;160&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57367" Pos="1456.94#122.28#59.48" angle="-15" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;Name&apos; &apos;썩어가는 푸른 스타울리트&apos; &apos;Lv&apos; &apos;157&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57367" Pos="1718.02#122.28#-229.54" angle="145" genCount="1" genTime="20000" objectKey="4" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;Name&apos; &apos;썩어가는 푸른 스타울리트&apos; &apos;Lv&apos; &apos;157&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57367" Pos="1533.79#122.28#-238.59" angle="65" genCount="1" genTime="20000" objectKey="5" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;Name&apos; &apos;썩어가는 푸른 스타울리트&apos; &apos;Lv&apos; &apos;157&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="2-3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="2nd/0/2nd/1/2nd/2/2nd/3/2nd/4/2nd/5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="2nd"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3rd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="3rd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57370" Pos="1510.33#122.28#-255.71" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Name&apos; &apos;썩어가는 검은 폰드&apos; &apos;Lv&apos; &apos;159&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57370" Pos="1775.70#122.28#-198.86" angle="116" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Name&apos; &apos;썩어가는 검은 폰드&apos; &apos;Lv&apos; &apos;159&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57370" Pos="1900.31#122.28#87.74" angle="-84" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Name&apos; &apos;썩어가는 검은 폰드&apos; &apos;Lv&apos; &apos;159&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57367" Pos="1928.47#122.28#-301.04" angle="134" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;Name&apos; &apos;썩어가는 푸른 스타울리트&apos; &apos;Lv&apos; &apos;157&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57367" Pos="1759.49#122.28#-333.10" angle="77" genCount="1" genTime="20000" objectKey="4" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;Name&apos; &apos;썩어가는 푸른 스타울리트&apos; &apos;Lv&apos; &apos;157&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57367" Pos="1763.88#122.28#148.50" angle="-95" genCount="1" genTime="20000" objectKey="5" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;Name&apos; &apos;썩어가는 푸른 스타울리트&apos; &apos;Lv&apos; &apos;157&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57367" Pos="1494.10#122.28#24.74" angle="-17" genCount="1" genTime="20000" objectKey="6" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;Name&apos; &apos;썩어가는 푸른 스타울리트&apos; &apos;Lv&apos; &apos;157&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57367" Pos="1651.74#122.28#-322.82" angle="76" genCount="1" genTime="20000" objectKey="7" propList="&apos;BTree&apos; &apos;TrackMonster&apos; &apos;Name&apos; &apos;썩어가는 푸른 스타울리트&apos; &apos;Lv&apos; &apos;157&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="3-4">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="3rd/0/3rd/1/3rd/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="3rd"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="4th"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="JOB_NECROMANCER4_1_BGM_PLAY"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="4th" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57171" Pos="1717.77#122.28#-111.31" genCount="1" genTime="20000" objectKey="0" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;185&apos; " SimpleAI="JOB_NECROMANCER5_1_Harpia" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_ground014_fire" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="4th/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="4th"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="notice">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="하르피아가 나타났습니다!"/>
+                                <Str Str="!"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

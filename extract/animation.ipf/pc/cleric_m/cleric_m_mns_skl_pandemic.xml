@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="12" attachNode="Dummy_emitter" particleName="F_cleric_Pandemic_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_R_HAND" particleName="I_drop001_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="5"/>
+	<Particle frame="7" attachNode="Dummy_R_HAND" particleName="I_spread_out001_light_violet2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="5"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="3.00" soundFile="skl_eff_move_equip_1"/>
+	<Sound frame="10.00" soundFile="skl_fgt_tackle_shot"/>
+</ActionDesc>

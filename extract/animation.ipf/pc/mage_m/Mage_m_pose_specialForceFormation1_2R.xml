@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_warrior_SpecialForceFormation_pose_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_warrior_SpecialForceFormation_shot3" useAttach="true" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="voice_war_m_specialforceformation_shot_2"/>
+	<BlendOn frame="1" R="25" G="60" B="150" A="50"/>
+	<BlendOn frame="3" R="15" G="50" B="130" A="50"/>
+	<BlendOn frame="4" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="5" R="25" G="60" B="150" A="50"/>
+	<BlendOn frame="7" R="15" G="50" B="130" A="50"/>
+	<BlendOn frame="8" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="9" R="25" G="60" B="150" A="50"/>
+	<BlendOn frame="11" R="15" G="50" B="130" A="50"/>
+	<BlendOn frame="12" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="13" R="25" G="60" B="150" A="50"/>
+	<BlendOn frame="15" R="15" G="50" B="130" A="50"/>
+	<BlendOn frame="16" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="17" R="25" G="60" B="150" A="50"/>
+	<BlendOn frame="19" R="15" G="50" B="130" A="50"/>
+	<BlendOn frame="20" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="21" R="25" G="60" B="150" A="50"/>
+	<BlendOn frame="23" R="15" G="50" B="130" A="50"/>
+	<BlendOn frame="24" R="0" G="0" B="0" A="0"/>
+	<BlendOff frame="25" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

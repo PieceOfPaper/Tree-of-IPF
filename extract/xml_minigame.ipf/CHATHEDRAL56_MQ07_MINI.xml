@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="CHATHEDRAL56_MQ07_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="MON_GEN">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57371" Pos="-1825.65#0.00#-562.81" angle="-172" genCount="1" genTime="60000" autoGen="0" objectKey="1" searchRange="100" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="MON_GEN01">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="MON_GEN/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="MON_GEN/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

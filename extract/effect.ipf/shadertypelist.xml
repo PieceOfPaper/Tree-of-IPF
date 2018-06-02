@@ -1,0 +1,14 @@
+﻿<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by HeeHyun (IMCGames Co., Ltd) -->
+<ShaderType>
+	<Shake name="Shake_1" power="1"/>
+	<Shake name="Shake_2" power="2"/>
+	<Shake name="Shake_3" power="4"/>
+	<Blur name="Blur_1" power="1"/>
+	<Blur name="Blur_2" power="2"/>
+	<Blur name="Blur_3" power="4"/>
+	<Distortion name="Dist_1" power="1" frequency="10"/>
+	<Distortion name="Dist_2" power="2" frequency="600"/>
+	<Distortion name="Dist_3" power="2" frequency="1200"/>
+	<Noise name="Noise_1" power="5" frequency="600"/>
+	<Noise name="Noise_2" power="10" frequency="1200"/>
+</ShaderType>

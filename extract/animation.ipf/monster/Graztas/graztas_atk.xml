@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="treasurebox_open"/>
+	<Sound frame="0.00" soundFile="mon_voice2_s_14"/>
+	<Sound frame="8.00" soundFile="skl_eff_hit_base_7"/>
+	<Sound frame="8.00" soundFile="skl_eff_hit_base_4"/>
+	<Particle frame="8" attachNode="Dummy_effect_atk" particleName="F_explosion101_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+</ActionDesc>

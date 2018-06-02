@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="1233" soundFile="mon_spector_atk_cast" />
+    <Particle frame="7" attachActor="None" attachNode="dummy_emitter" particleName="I_deadbone_atk003_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Particle frame="12" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke107" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false" />
+    <Particle frame="12" attachActor="None" attachNode="dummy_emitter" particleName="F_circle011_dark" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false" />
+    <Particle frame="12" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke107" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false" />
+    <Sound frame="12.90" Value="1233" soundFile="skl_eff_atk_move_s_3" />
+    <Sound frame="13.50" Value="1233" soundFile="skl_eff_atk_move_l_4" />
+</ActionDesc>

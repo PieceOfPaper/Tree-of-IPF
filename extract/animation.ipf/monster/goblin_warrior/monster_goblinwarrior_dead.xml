@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_goblinwarrior_dead"/>
+	<Particle frame="6" attachActor="None" attachNode="Dummy_chim" particleName="F_smoke048_green" scale="7"/>
+	<Particle frame="13" attachActor="None" attachNode="Dummy_deadbadak" particleName="F_ground054" scale="5"/>
+	<Particle frame="24" attachActor="None" attachNode="Dummy_bighand" particleName="F_smoke049" scale="5"/>
+	<Particle frame="30" attachActor="None" attachNode="Dummy_deadbody" particleName="F_ground055_green" scale="3"/>
+	<Particle frame="37" attachActor="None" attachNode="Dummy_deadbody" particleName="F_smoke050" scale="3"/>
+	<Particle frame="37" attachActor="None" attachNode="Dummy_deadbody" particleName="F_ifrit_atk1_smoke" scale="15"/>
+	<Particle frame="39" attachActor="None" attachNode="Dummy_deadbody" particleName="F_ifrit_atk1_smoke" scale="12"/>
+</ActionDesc>

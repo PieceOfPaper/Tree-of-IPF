@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_golem_run_1"/>
+	<Shockwave frame="8" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="8" attachActor="None" attachNode="Bip001 R Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="8" attachActor="None" attachNode="Bip001 R Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Shockwave frame="10" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="15.00" soundFile="mon_golem_run_2"/>
+	<Shockwave frame="20" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip001 L Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip001 L Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Shockwave frame="22" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

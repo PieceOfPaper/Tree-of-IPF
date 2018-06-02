@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="jobchangenotice" x="0" y="0" width="400" height="230" create="open">
+    <frame layout_gravity="right center" margin="0 100 40 0"/>
+    <input moveable="false"/>
+    <draw drawtitlebar="false" drawnotitlebar="false"/>
+    <layer layerlevel="100"/>
+    <option closebutton="false"/>
+    <skin frameskin="test_win_system"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <richtext name="title" rect="0 60 340 20" layout_gravity="center top" fixwidth="true" hittest="true" resizebytext="true" textalign="center center" updateparent="true"/>
+        <richtext name="desc" rect="0 100 300 40" layout_gravity="center top" fixwidth="true" hittest="true" resizebytext="true" textalign="left top" updateparent="true"/>
+        <button name="ok" rect="0 -45 80 24" layout_gravity="center bottom" LBtnUpScp="ui.CloseFrame(&apos;jobchangenotice&apos;)" caption="{@st41}확 인{/}" clicksound="button_click_big_2" oversound="button_over" skin="textbutton"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="6333" soundFile="mon_golem_rumble"/>
+	<Sound frame="10" soundFile="mon_golem_born"/>
+	<Shockwave frame="14" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="18" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="22" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="26" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="30" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="34" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="23" particleName="F_smoke098" attachNode="Dummy_effect_born_hand_L" scale="12" useAttach="true" pause="true" targetPos="false"/>
+	<Shockwave frame="38" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="30" particleName="F_smoke097" attachNode="Dummy_effect_atk1" scale="8" useAttach="true" pause="true" targetPos="false"/>
+	<Shockwave frame="42" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="46" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="50" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="40" particleName="F_smoke098" attachNode="Dummy_effect_atk1" scale="20" useAttach="true" pause="true" targetPos="false"/>
+	<Shockwave frame="44" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="44" particleName="F_smoke098" attachNode="Dummy_effect_born_hand_R" scale="12" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="45" particleName="F_smoke098" attachNode="Dummy_effect_atk1" scale="20" useAttach="true" pause="true" targetPos="false"/>
+	<Shockwave frame="58" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="62" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="66" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="74" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="80" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="84" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="88" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="92" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="86" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="100" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="104" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="108" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="112" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="102" particleName="F_drop_smoke001" attachNode="Dummy_effect_born_1" scale="12" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="102" particleName="F_drop_smoke001" attachNode="Dummy_effect_born_2" scale="12" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="107" particleName="F_drop_smoke001" attachNode="Dummy_effect_born_3" scale="12" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="107" particleName="F_drop_smoke001" attachNode="Dummy_effect_born_4" scale="12" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="50" particleName="F_smoke035" attachNode="Dummy_effect_atk1" scale="13" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="80" particleName="F_smoke035" attachNode="Dummy_effect_atk1" scale="13" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

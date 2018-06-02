@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_smoke033" useAttach="false" hiddenObj="false" scale="1.6" pause="true" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_atk_effect" particleName="F_mon_dead_dark" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_12"/>
+	<Sound frame="9.00" soundFile="skl_eff_body_atk_1"/>
+	<Sound frame="9.00" soundFile="skl_eff_atk_move_m_1"/>
+</ActionDesc>

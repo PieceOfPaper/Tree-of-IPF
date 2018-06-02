@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="" attachNode="" particleName="" useAttach="" hiddenObj="" scale="1.0" />
+    <Sound frame="0.00" soundFile="mon_katynforest_zombie_03_dead" />
+    <Particle frame="5" attachActor="None" attachNode="eff_dummy_zombie3_dead_01" particleName="F_smoke_dead" scale="1.0" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

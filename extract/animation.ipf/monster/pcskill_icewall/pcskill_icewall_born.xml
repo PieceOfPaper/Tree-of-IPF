@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="0" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" attachNode="Dummy001" particleName="F_wizard_refrigerwaves_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy001" particleName="F_explosion080_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false"/>
+	<Sound frame="0" soundFile="None"/>
+</ActionDesc>

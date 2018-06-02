@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="95" attachNode="Bip001 Spine1" particleName="I_warrior_chargingattack_cast_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="80" attachNode="Dummy_effect_eye_L" particleName="I_warrior_chargingattack_cast_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="80" attachNode="Dummy_effect_eye_R" particleName="I_warrior_chargingattack_cast_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="50" attachNode="Bip001 R Finger0" particleName="I_smoke011_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="100" attachNode="Bip001 R Finger0" particleName="I_smoke011_smoke2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="30" attachNode="Bip002 Spine" particleName="I_warrior_leapattack_cast_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="80" attachNode="Bip002 Spine" particleName="I_warrior_leapattack_cast_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice_durahan_skl1"/>
+	<Sound frame="25.00" soundFile="mon_goblinwarrior_atk2_cast"/>
+	<Sound frame="49.00" soundFile="mon_voice_helgasercle_9"/>
+	<Sound frame="50.00" soundFile="mon_goblin_warrior_atk_shot"/>
+</ActionDesc>

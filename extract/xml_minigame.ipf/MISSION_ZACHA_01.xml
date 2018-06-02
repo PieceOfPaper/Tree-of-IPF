@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GameList>
+    <Game Name="MISSION_ZACHA_01" rankScript="RAID_RANK_SCP" mapName="gid_zachariel_01" checkSec="3600" checkSecStart="3600" checkScript="CHECK_MGAME_COMMON" minLv="80" maxLv="0" msgTxt="{@st41b}몬스터들의 침입으로 왕릉이 파괴되기 직전입니다. 당신의 도움이 꼭 필요합니다!" portrait="Dlg_port_Cyrenia_Odell">
+        <StageList>
+            <Stage Name="DefGroup" AutoStart="0">
+                <ObjList />
+            </Stage>
+            <Stage Name="stage_f_01" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47262" Pos="40.68#-20.13#-485.88" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;FixedLife&apos; &apos;9999&apos; ">
+                        <SelfAI UpdateMS="100">
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_FC_CUBE" />
+                                    <Num Num="-1.000000" />
+                                    <Str Str="MZACHA_CENTER_CUBE_10" />
+                                </ToolScp>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_FC_CUBE" />
+                                    <Num Num="1.000000" />
+                                    <Str Str="MZACHA_CENTER_CUBE_01" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47261" Pos="-150.01#-50.21#-287.36" angle="-45" genCount="1" genTime="20000" objectKey="1" propList="&apos;OnlyPCCheck&apos; &apos;NO&apos; &apos;Range&apos; &apos;100&apos; &apos;Level&apos; &apos;99&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Rotate&apos; &apos;NO&apos; &apos;FixedDefence&apos; &apos;9999&apos; &apos;HitType&apos; &apos;Melee&apos; &apos;NumOfAttack&apos; &apos;3&apos; &apos;FixedLife&apos; &apos;9999&apos; ">
+                        <SelfAI UpdateMS="1500">
+                            <List>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="150.000000" />
+                                    <Str Str="Moving_trap" />
+                                    <Str Str="S_AI_MZACHA_CUBE_01" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="125.000000" />
+                                    <Str Str="hogma_warrior" />
+                                    <Str Str="S_AI_MZACHA_CUBE_01" />
+                                </ToolScp>
+                                <ToolScp Scp="SAI_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_CUBE_01" />
+                                    <Str Str="MZACHA_CUBE_RUN" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47261" Pos="-150.88#-49.90#-654.85" angle="-45" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;FixedLife&apos; &apos;9999&apos; ">
+                        <SelfAI UpdateMS="1500">
+                            <List>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="150.000000" />
+                                    <Str Str="Moving_trap" />
+                                    <Str Str="S_AI_MZACHA_CUBE_02" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="125.000000" />
+                                    <Str Str="hogma_warrior" />
+                                    <Str Str="S_AI_MZACHA_CUBE_02" />
+                                </ToolScp>
+                                <ToolScp Scp="SAI_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_CUBE_02" />
+                                    <Str Str="MZACHA_CUBE_RUN" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47261" Pos="207.33#-54.19#-652.36" angle="-45" genCount="1" genTime="20000" objectKey="3" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;FixedLife&apos; &apos;9999&apos; ">
+                        <SelfAI UpdateMS="1500">
+                            <List>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="150.000000" />
+                                    <Str Str="Moving_trap" />
+                                    <Str Str="S_AI_MZACHA_CUBE_03" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="125.000000" />
+                                    <Str Str="hogma_warrior" />
+                                    <Str Str="S_AI_MZACHA_CUBE_03" />
+                                </ToolScp>
+                                <ToolScp Scp="SAI_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_CUBE_03" />
+                                    <Str Str="MZACHA_CUBE_RUN" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47261" Pos="208.60#-50.12#-288.75" angle="-45" genCount="1" genTime="20000" objectKey="4" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;FixedLife&apos; &apos;9999&apos; ">
+                        <SelfAI UpdateMS="1500">
+                            <List>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="150.000000" />
+                                    <Str Str="Moving_trap" />
+                                    <Str Str="S_AI_MZACHA_CUBE_04" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="125.000000" />
+                                    <Str Str="hogma_warrior" />
+                                    <Str Str="S_AI_MZACHA_CUBE_04" />
+                                </ToolScp>
+                                <ToolScp Scp="SAI_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_CUBE_04" />
+                                    <Str Str="MZACHA_CUBE_RUN" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="MZACHA_CUBE 값 세팅">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_01" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_02" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_03" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_04" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_FC_TOMB" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MZACHA_FC_TOMB">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_FC_TOMB" />
+                                <Str Str="==" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage_f_boss" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="MZACHA_FC_ACHAT">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_FC_ACHAT" />
+                                <Str Str="==" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage_f_02" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="CONTROL">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_01" />
+                                <Str Str="==" />
+                                <Num Num="6.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_02" />
+                                <Str Str="==" />
+                                <Num Num="6.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_03" />
+                                <Str Str="==" />
+                                <Num Num="6.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_04" />
+                                <Str Str="==" />
+                                <Num Num="6.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_FC_CUBE" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="UNCONTROL">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_04" />
+                                <Str Str="==" />
+                                <Num Num="-2.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_03" />
+                                <Str Str="==" />
+                                <Num Num="-2.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_02" />
+                                <Str Str="==" />
+                                <Num Num="-2.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_01" />
+                                <Str Str="==" />
+                                <Num Num="-2.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_FC_CUBE" />
+                                <Num Num="-1.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" isOr="1" eventName="UNICON">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_01" />
+                                <Str Str="==" />
+                                <Num Num="-2.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_02" />
+                                <Str Str="==" />
+                                <Num Num="-2.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_03" />
+                                <Str Str="==" />
+                                <Num Num="-2.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_CUBE_04" />
+                                <Str Str="==" />
+                                <Num Num="-2.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_f_01/4/stage_f_01/1/stage_f_01/2/stage_f_01/3" />
+                                <Str Str="MZACHA_FAILED" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="CHANGER">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_FINAL_SWITCH" />
+                                <Str Str="EQ" />
+                                <Num Num="2.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage_f_00" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_f_00" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401121" Pos="-315.18#-46.66#-479.54" maxStackCount="5" genTime="2000" objectKey="0" searchRange="200" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="200.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401121" Pos="396.78#-15.56#-481.45" angle="167" maxStackCount="1" genTime="2000" objectKey="1" searchRange="200" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="200.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41433" Pos="43.28#18.93#-65.15" angle="-88" genCount="1" genTime="20000" objectKey="2" propList="&apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="49.853302" Y="-20.130501" Z="-431.392700" Random="110.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="stage_f_02" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47377" Pos="27.09#-12.03#-145.24" angle="-42" genCount="1" genTime="20000" genReadyTime="10000" objectKey="0" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="stage_f_boss" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47408" Pos="44.25#-20.13#-481.42" genCount="1" genTime="20000" objectKey="0" propList="&apos;Scale&apos; &apos;0.6&apos; &apos;WlkMSPD&apos; &apos;0&apos; &apos;RunMSPD&apos; &apos;0&apos; &apos;Rotate&apos; &apos;NO&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;CustomDefence&apos; &apos;30&apos; &apos;CustomAttack&apos; &apos;20&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_f_00" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="stage_f_00" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="22">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_f_boss/0" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="SUCCESS" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_f_boss" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_g_00" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+                        <AbsPos X="808.859253" Y="13.307414" Z="385.401520" Random="40.000000" />
+                        <Str Str="STAGE_D_1" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+                        <AbsPos X="-761.007446" Y="62.144100" Z="378.001251" Random="50.000000" />
+                        <Str Str="STAGE_C_1" />
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47378" Pos="34.40#112.56#373.42" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;BTree&apos; &apos;None&apos; &apos;Tactics&apos; &apos;MON_DUMMY&apos; &apos;Faction&apos; &apos;Neutral&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;CustomDefence&apos; &apos;90&apos; &apos;CustomAttack&apos; &apos;10&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="200.000000" />
+                                    <Str Str="PC" />
+                                    <Str Str="MZACHA_G_BOSS_SAI" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="CD_STARTER">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_02" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_04" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="g_changer">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_03" />
+                                <Str Str="==" />
+                                <Num Num="2.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_01" />
+                                <Str Str="==" />
+                                <Num Num="2.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage_g_01" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_g_00" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="stage_g_00" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_gate">
+                <ObjList>
+                    <Obj Type="Monster" MonType="147303" Pos="41.32#18.93#-37.37" angle="-91" genCount="1" genTime="20000" objectKey="0">
+                        <SelfAI UpdateMS="1000">
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_05" />
+                                    <Num Num="2.000000" />
+                                    <Str Str="MZACHA_GATE_DOWN" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="147303" Pos="33.78#32.94#815.42" angle="-91" genCount="1" genTime="20000" objectKey="1">
+                        <SelfAI UpdateMS="1000">
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_00" />
+                                    <Num Num="2.000000" />
+                                    <Str Str="MZACHA_GATE_DOWN" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="40069" Pos="36.49#32.94#825.04" genCount="1" genTime="20000" objectKey="2">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_00" />
+                                    <Num Num="2.000000" />
+                                    <Str Str="MZACHA_GATE_BLOCK" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="40069" Pos="37.41#18.93#-33.31" genCount="1" genTime="20000" objectKey="3">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_05" />
+                                    <Num Num="2.000000" />
+                                    <Str Str="MZACHA_GATE_BLOCK" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="g_stater">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_00" />
+                                <Str Str="==" />
+                                <Num Num="2.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage_g_00" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="d_stater">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_02" />
+                                <Str Str="==" />
+                                <Num Num="2.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="stage_d_boss" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="c_stater">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_04" />
+                                <Str Str="==" />
+                                <Num Num="2.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage_c_boss" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="b_stater">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_06" />
+                                <Str Str="==" />
+                                <Num Num="2.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage_b_boss" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="a_stater">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_07" />
+                                <Str Str="==" />
+                                <Num Num="2.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage_a_boss" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_a_boss" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+                        <Str Str="STAGE_A_1" />
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47380" Pos="757.75#15.94#-483.62" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;BTree&apos; &apos;None&apos; &apos;CustomDefence&apos; &apos;20&apos; &apos;CustomAttack&apos; &apos;15&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="a_end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_a_boss/0" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_FINAL_SWITCH" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_a_boss" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage_a_boss" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_b_boss" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+                        <Str Str="STAGE_B_1" />
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47379" Pos="-730.76#-53.20#-485.92" genCount="1" genTime="20000" objectKey="0" propList="&apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;CustomDefence&apos; &apos;70&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="b_end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_b_boss/0" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_FINAL_SWITCH" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_b_boss" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_c_boss" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+                        <Str Str="STAGE_C_1" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="STAGE_C_1" />
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47407" Pos="-816.03#62.14#375.80" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;CustomDefence&apos; &apos;100&apos; &apos;CustomAttack&apos; &apos;15&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="c_end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_c_boss/0" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_03" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_c_boss" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage_c_boss" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_d_boss" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+                        <Str Str="STAGE_D_1" />
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47381" Pos="855.43#11.75#389.36" genCount="1" genTime="20000" objectKey="0" propList="&apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;CustomDefence&apos; &apos;90&apos; &apos;CustomAttack&apos; &apos;5&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="d_end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_boss/0" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_01" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_d_boss" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage_d_boss" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_start_01">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47261" Pos="0.54#32.94#891.26" angle="-68" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;FixedLife&apos; &apos;9999&apos; &apos;KDArmor&apos; &apos;999&apos; ">
+                        <SelfAI>
+                            <HitList>
+                                <ToolScp Scp="SAI_DAMAME_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_00" />
+                                    <Str Str="MZACHA_HIT_KEY" />
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="on_red" />
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47261" Pos="126.97#49.76#346.93" angle="-68" genCount="1" genTime="20000" objectKey="1" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;FixedLife&apos; &apos;9999&apos; &apos;KDArmor&apos; &apos;999&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_01" />
+                                    <Num Num="1.000000" />
+                                    <Str Str="MZACHA_AUTO_REDON" />
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_DAMAME_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_01" />
+                                    <Str Str="MZACHA_HIT_KEY" />
+                                </ToolScp>
+                            </HitList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47261" Pos="681.96#15.72#476.22" angle="-68" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;FixedLife&apos; &apos;9999&apos; &apos;KDArmor&apos; &apos;999&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_02" />
+                                    <Num Num="1.000000" />
+                                    <Str Str="MZACHA_AUTO_REDON" />
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_DAMAME_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_02" />
+                                    <Str Str="MZACHA_HIT_KEY" />
+                                </ToolScp>
+                            </HitList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47261" Pos="-2.69#49.76#297.48" angle="-179" genCount="1" genTime="20000" objectKey="3" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;FixedLife&apos; &apos;9999&apos; &apos;KDArmor&apos; &apos;999&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_03" />
+                                    <Num Num="1.000000" />
+                                    <Str Str="MZACHA_AUTO_REDON" />
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_DAMAME_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_03" />
+                                    <Str Str="MZACHA_HIT_KEY" />
+                                </ToolScp>
+                            </HitList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47261" Pos="-599.11#62.14#349.77" angle="-68" genCount="1" genTime="20000" objectKey="4" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;FixedLife&apos; &apos;9999&apos; &apos;KDArmor&apos; &apos;999&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_04" />
+                                    <Num Num="1.000000" />
+                                    <Str Str="MZACHA_AUTO_REDON" />
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_DAMAME_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_04" />
+                                    <Str Str="MZACHA_HIT_KEY" />
+                                </ToolScp>
+                            </HitList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47261" Pos="93.23#18.93#36.62" angle="-68" genCount="1" genTime="20000" objectKey="5" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;FixedLife&apos; &apos;9999&apos; &apos;KDArmor&apos; &apos;999&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_05" />
+                                    <Num Num="1.000000" />
+                                    <Str Str="MZACHA_AUTO_REDON" />
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_DAMAME_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_05" />
+                                    <Str Str="MZACHA_HIT_KEY" />
+                                </ToolScp>
+                            </HitList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47261" Pos="-571.78#-53.20#-429.32" angle="-68" genCount="1" genTime="20000" objectKey="6" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;FixedLife&apos; &apos;9999&apos; &apos;KDArmor&apos; &apos;999&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_06" />
+                                    <Num Num="1.000000" />
+                                    <Str Str="MZACHA_AUTO_REDON" />
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_DAMAME_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_06" />
+                                    <Str Str="MZACHA_HIT_KEY" />
+                                </ToolScp>
+                            </HitList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47261" Pos="572.92#15.94#-556.43" angle="-68" genCount="1" genTime="20000" objectKey="7" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;FixedLife&apos; &apos;9999&apos; &apos;KDArmor&apos; &apos;999&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_07" />
+                                    <Num Num="1.000000" />
+                                    <Str Str="MZACHA_AUTO_REDON" />
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_DAMAME_ONLY_MVALUE_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MZACHA_GATE_07" />
+                                    <Str Str="MZACHA_HIT_KEY" />
+                                </ToolScp>
+                            </HitList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="START_SETTING">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_01" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_02" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_03" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_04" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_05" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_06" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_07" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_00" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_FINAL_SWITCH" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_g_01" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+                        <AbsPos X="718.907043" Y="15.936300" Z="-496.262634" Random="60.000000" />
+                        <Str Str="STAGE_A_1" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+                        <AbsPos X="-696.481567" Y="-53.201698" Z="-489.442444" Random="50.000000" />
+                        <Str Str="STAGE_B_1" />
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47378" Pos="40.30#112.56#374.45" genCount="1" genTime="20000" objectKey="0" searchRange="250" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Tactics&apos; &apos;MON_DUMMY&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="400.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="63.302361" Y="112.556900" Z="362.691010" Random="200.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="g_end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_g_01/0" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage_f_01" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_05" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_06" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_07" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_g_01" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage_g_01" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="START" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                        <Str Str="붉은색 큐브를 타격하여 파란색으로 바꾸세요" />
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Trigger">
+                        <Area>
+                            <Pos Value="-7.323968 32.936501 921.002991" />
+                            <Pos Value="69.372498 32.936501 917.536804" />
+                            <Pos Value="73.629784 54.020191 966.938599" />
+                            <Pos Value="-6.367168 58.739895 971.243652" />
+                        </Area>
+                        <enterScpList>
+                            <ToolScp Scp="MGAME_TRG_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="START" />
+                            </ToolScp>
+                        </enterScpList>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="setpos">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+                                <AbsPosRange X="27.669968" Y="39.122993" Z="946.070557" Range="40.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_RAIDSSN_STARTTIME" Client="NO" UseSleep="NO">
+                                <Str Str="ZACHA_LASTSTART" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="MSG">
+                <ObjList />
+                <StageEvents>
+                    <Event execCount="1" eventName="FINAL_BOSS">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_FINAL_SWITCH" />
+                                <Str Str="==" />
+                                <Num Num="2.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="왕릉 큐브에 부우크를 희생시켜 중앙 툼로드를 소환하세요" />
+                                <Str Str="scroll" />
+                                <Num Num="5.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="CENTER_BOSS">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_01" />
+                                <Str Str="==" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MZACHA_GATE_03" />
+                                <Str Str="==" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="중앙의 왕릉큐브를 활성화시켜서 보스를 도발하세요!" />
+                                <Str Str="scroll" />
+                                <Num Num="5.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="SUCCESS" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="60.000000" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                        <Str Str="60초 후에 존으로 돌아갑니다." />
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="40030" Pos="41.97#-20.13#-486.02" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Dialog&apos; &apos;MISSION_ZACHA_TREASUREBOX_1&apos; &apos;Enter&apos; &apos;None&apos; &apos;Leave&apos; &apos;None&apos; " />
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="setpos">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_f_boss/0" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+                                <AbsPosRange X="77.299812" Y="-20.130501" Z="-521.132690" Range="70.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="SUCCESS/0" />
+                                <Num Num="1.000000" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_RAIDSSN_MODIFY" Client="NO" UseSleep="NO">
+                                <Str Str="MISSION_ZACHA_REWARD1" />
+                                <Num Num="0.000000" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO" />
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <WorldInitList>
+            <ToolScp Scp="MGAME_RECALL" Client="NO" UseSleep="NO">
+                <AbsPos X="33.057667" Y="60.094898" Z="1011.845398" Random="30.000000" />
+            </ToolScp>
+        </WorldInitList>
+    </Game>
+</GameList>

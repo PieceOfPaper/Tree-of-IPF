@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="4" particleName="I_sword011_black" attachNode="Dummy_effect_atk1" scale="0.6" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="4" particleName="F_smoke061" attachNode="Bip01 R Toe21" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="4" particleName="F_smoke061" attachNode="Bip01 L Toe21" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="4" particleName="F_smoke061" attachNode="Bip01 L Toe01" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="4" particleName="F_smoke061" attachNode="Bip01 R Toe01" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="4" particleName="F_spark007_leaf" attachNode="Dummy_effect01" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="4" particleName="F_stone005" attachNode="None" scale="1.2" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="4" Value="0" soundFile="m_siauliai_beetle_atk2_shot"/>
+	<Sound frame="6" Value="0" soundFile="mon_ridimed_hit"/>
+	<Particle frame="7" particleName="I_sword011_black" attachNode="Dummy_effect_atk1_1" scale="0.6" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_smoke061" attachNode="Bip01 R Toe21" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_smoke061" attachNode="Bip01 L Toe21" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_smoke061" attachNode="Bip01 L Toe01" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_smoke061" attachNode="Bip01 R Toe01" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_stone005" attachNode="None" scale="1.2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_spark007_leaf" attachNode="Dummy_effect02" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="8" Value="0" soundFile="m_siauliai_beetle_skl_shot"/>
+	<Sound frame="0.00" Value="0" soundFile="m_whip_vine_atk2_ready"/>
+</ActionDesc>

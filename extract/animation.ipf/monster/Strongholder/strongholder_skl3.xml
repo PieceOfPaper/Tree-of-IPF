@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice5_l_cast_3"/>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_l_1"/>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_effect_r_hand4" particleName="I_force033_dark" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false" sound="None"/>
+    <Particle frame="20" attachActor="None" attachNode="Dummy_effect" particleName="F_smoke017_red" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" sound="skl_eff_poison_1"/>
+    <Particle frame="30" attachActor="None" attachNode="Dummy_effect_r_hand4" particleName="I_force028_orange" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" sound="skl_eff_chapparition_dead_cast_eff"/>
+    <Particle frame="40" attachActor="None" attachNode="Dummy_effect_r_hand4" particleName="I_force028_orange" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false" sound="skl_fire_cast"/>
+    <Particle frame="50" attachActor="None" attachNode="Dummy_effect_r_hand4" particleName="I_force029_red" useAttach="true" hiddenObj="false" scale="4.5" pause="true" targetPos="false"/>
+    <Particle frame="60" attachActor="None" attachNode="Dummy_effect_r_hand4" particleName="I_spread_in003_red" useAttach="true" hiddenObj="false" scale="8" pause="true" targetPos="false" sound="skl_eff_forcespinner_1"/>
+    <Sound frame="72.00" soundFile="skl_eff_atk_move_l_6"/>
+</ActionDesc>

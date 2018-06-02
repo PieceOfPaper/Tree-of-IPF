@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="1" particleName="F_mushroom_ent_born" attachNode="None" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="1" particleName="F_smoke108" attachNode="None" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="1" particleName="F_smoke063" attachNode="None" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="m_new_desmodus_born"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

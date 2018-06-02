@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ROKAS28_MQ6_MINI" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47328" Pos="-542.59#1183.78#-546.04" angle="-85" genTime="20000" autoGen="0" genReadyTime="10000" objectKey="0" searchRange="500" SimpleAI="ROKAS28_MQ6_MINI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47328" Pos="-543.25#1183.92#-574.13" angle="-85" genTime="20000" autoGen="0" genReadyTime="10000" objectKey="1" searchRange="500" SimpleAI="ROKAS28_MQ6_MINI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47328" Pos="-565.22#1183.76#-550.58" angle="-85" genTime="20000" autoGen="0" genReadyTime="10000" objectKey="2" searchRange="500" SimpleAI="ROKAS28_MQ6_MINI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47328" Pos="-564.81#1183.90#-571.63" angle="-85" genTime="20000" autoGen="0" genReadyTime="10000" objectKey="3" searchRange="500" SimpleAI="ROKAS28_MQ6_MINI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="rokas28_MQ06_mini">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

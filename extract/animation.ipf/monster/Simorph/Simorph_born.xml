@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_simorph_born"/>
+    <Shockwave frame="2" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="2" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="2" attachNode="Feelers_L_01" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="2" attachNode="Leaf_R_01" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Shockwave frame="4" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="6" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="8" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="25" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="30" attachNode="Feelers_L_01" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="30" attachNode="Leaf_R_01" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

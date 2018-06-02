@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ldy (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Shockwave frame="0" type="2" intensity="0" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="0" attachNode="Dummy_effect_atk" particleName="I_swordtrail011_mint" useAttach="false" hiddenObj="false" scale="1.0" pause="true" targetPos="false" />
+    <Event time="0.000000" force="None" hspeed="270.000000" ctrlpt="0.500000" damratio="100" targetidx="1" accpower="0" offset="0.000000 24.000000 1.000000" frame="0" />
+    <Sound frame="0.00" soundFile="mon_voice_helgasercle_9" />
+    <Sound frame="1.00" soundFile="mon_spector_m_skl3_shot" />
+    <HitAni frame="3" damratio="100" />
+    <Particle frame="4" attachActor="None" attachNode="Dummy_effect_atk" useAttach="true" particleName="None" scale="1.0" pause="true" targetPos="false" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

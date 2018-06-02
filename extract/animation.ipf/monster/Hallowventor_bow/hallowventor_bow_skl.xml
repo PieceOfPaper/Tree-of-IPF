@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_skl2" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="7" attachNode="Dummy_effect_skl" particleName="I_breath014_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false"/>
+	<Particle frame="8" attachNode="Dummy_effect_skl" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="7" attachNode="Dummy_effect_skl" particleName="I_breath008_circle_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" soundFile="mon_banshee_hit"/>
+	<Sound frame="0.00" soundFile="mon_ghost_oldman_dead"/>
+	<Sound frame="4.00" soundFile="mon_banshee_atk2_shot"/>
+	<Sound frame="4.00" soundFile="mon_banshee_skl_shot"/>
+	<Sound frame="4.00" soundFile="wizard_normal_shot"/>
+	<Sound frame="4.00" soundFile="skl_eff_body_atk_2"/>
+</ActionDesc>

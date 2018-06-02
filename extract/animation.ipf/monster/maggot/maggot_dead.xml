@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_maggot_dead"/>
+    <Particle frame="10" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="0.7" pause="true" targetPos="false"/>
+    <Sound frame="14.00" soundFile="mon_maggot_dead_boom"/>
+    <Particle frame="15" attachActor="None" attachNode="Dummy_emitter" particleName="F_explosion079_blood" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false" sound="blow_blood_critical"/>
+    <Particle frame="15" attachActor="None" attachNode="Dummy_emitter" particleName="I_maggot_dead_mash" useAttach="false" hiddenObj="false" scale="0.7" pause="true" targetPos="false"/>
+</ActionDesc>

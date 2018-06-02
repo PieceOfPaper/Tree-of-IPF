@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<uiframe name="rt_test" x="0" y="0" width="600" height="500" create="open" layout_gravity="right top">
+    <frame title="" layout_gravity="right center" snapclient="true" snapframe="true" margin="0 -283 173 0" aero="false"/>
+    <skin backgroundimage="mixer_back" layout_gravity="center center" rect="0 82 220 220" frameskin="mainwindow"/>
+    <option hideable="true" closebutton="true" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <picture name="picture_1" rect="0 0 190 184" margin="41 -26 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="party_icon" mask="party_cha_slot" stretch="true"/>
+    </controls>
+</uiframe>

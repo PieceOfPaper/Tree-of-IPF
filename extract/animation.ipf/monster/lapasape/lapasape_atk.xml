@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="m_bumegoblin_archer_atk_ready"/>
+	<Sound frame="5.00" soundFile="mon_saurman_warrior_atk1_shot"/>
+	<Sound frame="5.00" soundFile="skl_eff_atk_move_s_10"/>
+	<AfterImage frame="4" term="100" blendTime="300" r="100" g="150" b="110" a="150"/>
+	<AfterImage frame="7" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

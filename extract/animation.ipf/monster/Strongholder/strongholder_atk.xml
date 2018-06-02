@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice5_l_12"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_1"/>
+	<Sound frame="19.50" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="21.60" soundFile="skl_eff_atk_move_m_2"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect_r_hand" particleName="I_force033_dark" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="22" attachActor="None" attachNode="Dummy_effect_atk" particleName="F_light017" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+</ActionDesc>

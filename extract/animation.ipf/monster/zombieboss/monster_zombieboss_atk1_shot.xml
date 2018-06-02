@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_atk1_smoke" particleName="F_smoke103" scale="1.0"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_atk1_smoke01" particleName="F_smoke103" scale="1.0"/>
+	<Particle frame="0" attachNode="Dummy_effect_center" particleName="I_ellaganos_atk002_mash" useAttach="true" hiddenObj="false" scale="1.0"/>
+	<Sound frame="1" soundFile="mon_zombieboss_atk1_shot"/>
+	<Particle frame="6" attachActor="None" attachNode="Dummy_atk1_smoke02" particleName="F_smoke103" scale="1.0"/>
+	<HitAni frame="7.42"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

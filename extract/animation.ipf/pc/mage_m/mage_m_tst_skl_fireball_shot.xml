@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_hand_R" particleName="I_force008_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="10" attachNode="Dummy_effect_hand_R" particleName="I_force008_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_hand_L" particleName="I_force008_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="10" attachNode="Dummy_effect_hand_L" particleName="I_force008_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Sound frame="0.00" soundFile="atk_cloth_s_r2"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_s_3"/>
+	<Sound frame="2.00" soundFile="skl_eff_atk_move_s_4"/>
+</ActionDesc>

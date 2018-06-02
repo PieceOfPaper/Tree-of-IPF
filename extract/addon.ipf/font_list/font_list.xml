@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<uiframe name="font_list" x="" y="0" width="300" height="675" create="open" layout_gravity="center center">
+    <frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="center center"/>
+    <draw drawtitlebar="true"/>
+    <skin frameskin="groupbox_2"/>
+    <option hideable="false" closebutton="true" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <script CloseScp="CLOSE_FONT_LIST"/>
+    <controls>
+        <advlistbox name="advlistbox" rect="28 28 259 583" LBtnDblClickScp="DBLCLICK_FONT_LIST" drawgrid="true" heightperrow="30" maxrowcol="500 5" scroll="true" widthpercol="100"/>
+        <advlistboxitem name="Type" parent="advlistbox" rect="0 0 10 10" caption="" col="0" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxsetting parent="advlistbox" col="0" colwidth="250" row="0" rowbgcolor="#4a443f" rowheight="30" startrow="1"/>
+        <edit name="input" rect="18 614 790 36" EnterKeyScp="SEARCH_FONT_LIST" fontname="white_16" maxlen="16" usetag="true"/>
+    </controls>
+</uiframe>

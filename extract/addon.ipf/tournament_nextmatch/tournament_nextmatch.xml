@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<uiframe name="tournament_nextmatch" x="0" y="0" width="1100" height="1000" create="open">
+    <frame fasthide="false" layout_gravity="center center" margin="0 -7 0 0"/>
+    <skin frameskin="pipwin"/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <layer layerlevel="79"/>
+    <option closebutton="false"/>
+    <sound opensound="skill_window_open" closesound="skill_window_close"/>
+    <effect/>
+    <controls>
+        <richtext name="richtext_1" rect="0 0 120 24" margin="8 32 0 0" layout_gravity="center top" caption="{@st55_a}다음 경기" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="richtext_1_1" rect="0 0 120 24" margin="5 249 0 0" layout_gravity="center top" caption="{@st55_a}VS" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+    </controls>
+</uiframe>

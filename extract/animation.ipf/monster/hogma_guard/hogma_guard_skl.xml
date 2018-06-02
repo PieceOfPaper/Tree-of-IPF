@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_hogma_skl_cast"/>
+	<Particle frame="2" particleName="F_spread_out005_orange" attachNode="Dummy_emiitter" scale="4" useAttach="true" pause="false" targetPos="false"/>
+	<Particle frame="32" particleName="I_stone009_mash" attachNode="eff_skl_badak_01" scale="1" useAttach="true" pause="false" targetPos="false"/>
+	<Particle frame="32" particleName="F_explosion012" attachNode="eff_skl_badak_01" scale="4" useAttach="true" pause="false" targetPos="false"/>
+	<Sound frame="22.00" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="29.00" soundFile="skl_eff_whirlwind_loop"/>
+	<Sound frame="29.00" soundFile="mon_voice_hogma_skl_shot"/>
+	<Sound frame="33.00" soundFile="blow_ground"/>
+	<Sound frame="35.00" soundFile="skl_eff_stone_blow_m"/>
+</ActionDesc>

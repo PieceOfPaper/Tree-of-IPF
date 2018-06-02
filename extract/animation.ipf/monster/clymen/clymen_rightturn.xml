@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_clymen_turn_1" />
+    <Shockwave frame="18" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="18" particleName="F_smoke109" attachNode="Bip001 L Toe0" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="18" particleName="F_stone005" attachNode="Bip001 L Toe0" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="18" particleName="F_smoke109" attachNode="Bip001 R Toe0" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="18" particleName="F_stone005" attachNode="Bip001 R Toe0" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="18" soundFile="mon_big_footstep_3" />
+    <Shockwave frame="20" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+</ActionDesc>

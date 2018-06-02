@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_debuff_1"/>
+	<Sound frame="2.0" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="9.0" soundFile="skl_fgt_tackle_shot"/>
+	<Particle frame="12" attachNode="Dummy_emitter" particleName="E_wizard_StoneCurse_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+</ActionDesc>

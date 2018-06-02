@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="itemguage" x="0" y="0" width="200" height="60" create="open">
+    <frame title="몬스터 체력게이지" layout_gravity="center center"/>
+    <option visible="false" closebutton="false" hideable="false" useimageitem="true"/>
+    <opencheck scp="UI_CHECK_PROP" strarg="monsterbaseinfo" numarg="1"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <input hittest="false"/>
+    <script fadeinArgStr="moncharinfo" fadeoutArgStr="moncharinfo"/>
+    <controls>
+        <gauge name="hp" rect="0 10 86 10" layout_gravity="center top" skin="hpgauge"/>
+        <richtext name="name" rect="0 20 160 16" layout_gravity="center top" caption="name" fixwidth="false" fontname="white_16_ol" hittest="false" sildeshow="false" textalign="left top" updateparent="false"/>
+    </controls>
+</uiframe>

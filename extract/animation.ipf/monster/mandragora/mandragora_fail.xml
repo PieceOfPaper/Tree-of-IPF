@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="18" G="23" B="30" A="50"/>
+	<BlendOn frame="10" R="35" G="40" B="50" A="50"/>
+	<BlendOn frame="15" R="70" G="85" B="100" A="100"/>
+	<BlendOn frame="20" R="18" G="23" B="30" A="50"/>
+	<BlendOff frame="25" R="0" G="0" B="0" A="0"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_smoke074" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="3" attachNode="mandra_hair" particleName="I_force076_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="22" attachNode="mandra_hair" particleName="F_explosion096_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+</ActionDesc>

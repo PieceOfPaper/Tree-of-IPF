@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="3333" soundFile="mon_voice_saltistter_6"/>
+    <Sound frame="0.00" Value="3333" soundFile="skl_eff_atk_move_l_2"/>
+    <Sound frame="30.00" Value="3333" soundFile="skl_eff_atk_move_l_16"/>
+    <Particle frame="15" attachNode="Dummy_effect_l_hand" particleName="F_wizard_attractpillar_shot_ice" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true"/>
+    <Particle frame="23" attachNode="Dummy_effect_r_hand" particleName="F_wizard_attractpillar_shot_ice" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true"/>
+    <Particle frame="30" attachNode="Dummy_effect_skl3_loot" particleName="F_ground117_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+</ActionDesc>

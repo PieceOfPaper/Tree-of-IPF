@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_wood_spirit_atk_cast"/>
+    <Sound frame="0.00" soundFile="mon_arburn_pokubu_atk_cast"/>
+    <Sound frame="4.00" soundFile="atk_rod"/>
+    <Sound frame="5.00" soundFile="skl_eff_born_wood_s"/>
+    <Sound frame="5.00" soundFile="hand_blow_wood"/>
+    <Particle frame="7" attachNode="Dummy_atk_effect" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

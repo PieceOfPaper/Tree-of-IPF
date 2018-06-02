@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast" />
+    <Particle frame="4" attachNode="Dummy_R_Forearm" particleName="I_warrior_berserk_cast_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" />
+    <Particle frame="4" attachNode="Dummy_L_Forearm" particleName="I_warrior_berserk_cast_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" />
+    <Particle frame="4" attachNode="Bip01 L Hand" particleName="F_warrior_berserk_shot_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" />
+    <Particle frame="4" attachNode="Bip01 R Hand" particleName="F_warrior_berserk_shot_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" />
+    <Sound frame="4.00" soundFile="voice_war_atk_long_shot" />
+    <Particle frame="6" attachNode="Dummy_effect_turn_R" particleName="F_warrior_berserk_shot_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" />
+    <Particle frame="6" attachNode="Dummy_effect_berserk" particleName="I_warrior_berserk_shot_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" targetPos="false" />
+    <Particle frame="6" attachNode="Bip01 Pelvis" particleName="F_warrior_berserk_shot_light2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false" />
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_warrior_berserk_shot_levitation" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" />
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_warrior_berserk_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" targetPos="false" />
+    <Sound frame="7.00" soundFile="skl_fgt_tackle_shot" />
+    <Sound frame="7.00" soundFile="skl_fgt_berserk" />
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_warrior_berserk_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false" />
+</ActionDesc>

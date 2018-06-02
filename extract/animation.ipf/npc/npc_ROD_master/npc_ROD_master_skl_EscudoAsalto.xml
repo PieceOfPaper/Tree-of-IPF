@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="3.00" Value="0" soundFile="voice_war_atk_medium"/>
+    <Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="E_warrior_escudoasalto" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

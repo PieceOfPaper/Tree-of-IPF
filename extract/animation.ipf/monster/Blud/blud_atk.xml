@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_throneweaver_1"/>
+	<Sound frame="25.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="25.00" soundFile="mon_voice_maggot_atk"/>
+	<Sound frame="25.00" soundFile="atk_rod"/>
+	<Sound frame="25.00" soundFile="atk_swordswing"/>
+	<Sound frame="25.00" soundFile="atk_hammerswing"/>
+	<Sound frame="25.00" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="30.00" soundFile="mon_voice_sparnicht_5"/>
+	<Particle frame="31" attachNode="Dummy_emitter" particleName="I_blud_atk_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false"/>
+	<Particle frame="33" attachNode="Dummy_effect_atk_hit" particleName="F_explosion058_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="32" attachNode="Dummy_effect_atk_hit" particleName="F_explosion028_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+</ActionDesc>

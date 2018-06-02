@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="1500" soundFile="atk_rod" />
+    <Sound frame="3.00" soundFile="skl_eff_born_stone_1" />
+    <Sound frame="6.00" Value="1500" soundFile="blow_ground" />
+    <Particle frame="7.00" particleName="F_light043_orange" attachNode="Dummy_atk_badak" scale="1.3" useAttach="false" pause="false" targetPos="false" />
+    <Particle frame="7.00" particleName="F_golem_atk2_hand" attachNode="Dummy_atk_badak" scale="10" useAttach="false" pause="false" targetPos="false" />
+    <Sound frame="7.50" Value="1500" soundFile="skl_eff_stone_blow_m" />
+    <Particle frame="8" particleName="I_swordtrail002_orange" attachNode="Dummy_atk_effect01" scale="1.3" useAttach="false" pause="false" targetPos="false" />
+    <HitAni frame="8" damratio="100" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_rudas_loxodon_skl"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_burstup003" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="13.33" soundFile="skl_eff_crash_ground_l_4"/>
+    <Particle frame="14" attachNode="Dummy_emitter" particleName="F_smoke014" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Shockwave frame="15" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="17" type="2" intensity="2.5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="19" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

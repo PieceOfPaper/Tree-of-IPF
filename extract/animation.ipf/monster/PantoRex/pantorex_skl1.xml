@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="4.00" soundFile="mon_chapparition_turn"/>
+    <Sound frame="4.00" soundFile="skl_eff_chapparition_dead_cast_eff"/>
+    <Particle frame="14" attachNode="Dummy_effect_skl1" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="14" attachNode="Dummy_effect_skl1" particleName="F_smoke082" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="14" attachNode="Dummy_effect_wepon001" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Shockwave frame="15" type="2" intensity="1" frequency="50" duration="2" range="1000"/>
+    <Particle frame="15" attachNode="Dummy_effect_eye_R" particleName="F_light052_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="15" attachNode="Dummy_effect_eye_L" particleName="F_light052_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="15.00" soundFile="mon_chapparition_skl_3"/>
+    <Particle frame="18" attachNode="Dummy_effect_wepon002" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="22" attachNode="Dummy_effect_wepon003" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="24" attachNode="Dummy_effect_wepon006" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="26" attachNode="Dummy_effect_wepon004" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_wepon005" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_wepon008" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="50" attachNode="Dummy_effect_wepon008" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="70" attachNode="Dummy_effect_eye_R" particleName="F_light047_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="70" attachNode="Dummy_effect_eye_L" particleName="F_light047_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="80" attachNode="Dummy_effect_wepon008" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="80.00" soundFile="skl_eff_atk_move_l_22"/>
+    <Sound frame="87.00" soundFile="skl_eff_stone_blow_m"/>
+    <Shockwave frame="89" type="2" intensity="5" frequency="60" duration="1" range="1000"/>
+    <Particle frame="89" attachNode="Dummy_effect_skl1_2" particleName="F_smoke082" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="89" attachNode="Dummy_effect_skl1_2" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="90.00" soundFile="skl_eff_skyline_spread"/>
+    <Particle frame="100" attachNode="Dummy_effect_wepon008" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="100.00" soundFile="skl_eff_atk_move_l_13"/>
+    <Particle frame="130" attachNode="Dummy_effect_wepon008" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="150" attachNode="Dummy_effect_wepon008" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="170" attachNode="Dummy_effect_wepon008" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+</ActionDesc>

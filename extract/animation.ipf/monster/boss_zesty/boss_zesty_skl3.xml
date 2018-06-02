@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+    <Sound frame="0.00" soundFile="mon_gesti_skl2_cast"/>
+    <Sound frame="0.00" soundFile="skl_eff_chargingattack_cast2"/>
+    <Particle frame="0" attachNode="Dummy_effect_r_hand" particleName="I_force034_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="10" R="40" G="15" B="15" A="5"/>
+    <Sound frame="11.00" soundFile="skl_eff_dark"/>
+    <BlendOn frame="12" R="80" G="30" B="30" A="10"/>
+    <BlendOn frame="14" R="130" G="30" B="30" A="20"/>
+    <BlendOn frame="16" R="100" G="40" B="45" A="30"/>
+    <Particle frame="16" attachNode="Dummy_effect_r_hand" particleName="F_levitation033_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="18" R="80" G="20" B="20" A="25"/>
+    <BlendOn frame="19" R="75" G="16" B="16" A="30"/>
+    <Sound frame="19.00" soundFile="skl_fgt_tackle_cast"/>
+    <BlendOn frame="20" R="70" G="13" B="13" A="20"/>
+    <Sound frame="26.00" soundFile="skl_eff_atk_move_l_22"/>
+    <BlendOn frame="27" R="65" G="12" B="12" A="20"/>
+    <BlendOn frame="28" R="60" G="10" B="10" A="10"/>
+    <Particle frame="28" attachNode="Dummy_effect_L_hand" particleName="I_force034_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="28" attachNode="Dummy_effect_r_hand" particleName="I_force034_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="29.00" soundFile="mon_gesti_skl1"/>
+    <BlendOn frame="30" R="40" G="15" B="15" A="5"/>
+    <Particle frame="31" attachNode="Dummy_emitter" particleName="F_levitation032_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="32" R="25" G="5" B="5" A="5"/>
+    <Particle frame="32" attachNode="Dummy_emitter" particleName="F_spread_in025_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="35" R="30" G="8" B="8" A="20"/>
+    <BlendOn frame="40" R="50" G="15" B="20" A="25"/>
+    <BlendOn frame="45" R="40" G="10" B="15" A="30"/>
+    <BlendOn frame="50" R="30" G="15" B="20" A="35"/>
+    <BlendOn frame="55" R="50" G="15" B="15" A="40"/>
+    <BlendOn frame="60" R="80" G="25" B="30" A="45"/>
+    <BlendOn frame="65" R="70" G="25" B="25" A="50"/>
+    <Particle frame="68" attachNode="Dummy_effect_body" particleName="F_spread_out029_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="70" R="60" G="20" B="20" A="55"/>
+    <BlendOn frame="74" R="200" G="150" B="150" A="100"/>
+    <BlendOn frame="80" R="200" G="120" B="120" A="80"/>
+    <BlendOn frame="81" R="140" G="60" B="70" A="30"/>
+    <BlendOn frame="82" R="80" G="30" B="30" A="10"/>
+    <BlendOn frame="83" R="40" G="15" B="15" A="5"/>
+    <BlendOff frame="84" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

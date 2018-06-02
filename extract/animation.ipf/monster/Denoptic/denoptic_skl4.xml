@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_denoptic_skl_4"/>
+    <Sound frame="3.00" soundFile="skl_eff_atk_move_l_16"/>
+    <Particle frame="20" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Sound frame="24.00" soundFile="skl_eff_debuff_2"/>
+    <Particle frame="25" attachNode="head_01" particleName="F_light009" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="25" attachNode="head_01" particleName="F_circle008" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_eye_effect001" particleName="F_light003_green1" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="25" attachNode="head_01" particleName="F_light034_blue" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+    <Sound frame="64.10" soundFile="skl_eff_atk_move_l_22"/>
+</ActionDesc>

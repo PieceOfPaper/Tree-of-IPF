@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jung (IMCGames Co., Ltd) -->
+<uiframe name="hotkey_emphasize" x="-28" y="-18" width="120" height="120" create="open">
+    <skin/>
+    <frame title="" fasthide="true" titlepos="0 -12" layout_gravity="center center" snapclient="true" snapframe="true" margin="-14 163 0 0"/>
+    <draw drawframe="false" drawtitlebar="false"/>
+    <layer layerlevel="100"/>
+    <input moveable="true"/>
+    <option closebutton="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <animpicture name="key" rect="0 0 100 120" margin="-2 1 0 0" layout_gravity="center center" animcount="2" hittest="false" image="beatkeyboard" imagechangescp="UPDATE_HOTKEY_EMPHASIZE" loop="true" playanim="true" spacex="1" spacey="1" texelheight="120" texelwidth="100" texelx="0" texely="0" ticktime="0.3"/>
+        <picture name="icon_img" rect="0 0 60 60" margin="28 33 0 0" layout_gravity="left top" image="icon_item_silver" stretch="true"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by plan0 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_effect_atk1_foot" particleName="F_smoke098" scale="1.0" pause="true" targetPos="false" />
+    <Sound frame="1.00" soundFile="mon_golem_atk01_shot" />
+    <HitAni frame="4.97" damratio="100" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

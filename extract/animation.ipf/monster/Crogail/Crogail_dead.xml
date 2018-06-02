@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="54" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="56" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="58" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="60" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="62" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="64" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="66" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="68" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="3" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="20" pause="true" targetPos="false"/>
+	<Particle frame="52" attachActor="None" attachNode="Bip001 Spine1" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="54" attachActor="None" attachNode="Dummy_effect" particleName="I_Crogail_dead_mash" useAttach="false" hiddenObj="false" scale="0.7" pause="true" targetPos="false"/>
+	<Particle frame="54" attachActor="None" attachNode="Bip001 Spine1" particleName="F_explosion082" useAttach="true" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

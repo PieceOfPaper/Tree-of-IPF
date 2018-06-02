@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="56" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="58" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="60" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="62" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="64" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="66" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="68" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="74" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="1" attachActor="None" attachNode="Point002" particleName="F_light001_yellow1" useAttach="true" hiddenObj="false" scale="40" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Point002" particleName="F_light001_yellow1" useAttach="true" hiddenObj="false" scale="60" pause="true" targetPos="false"/>
+	<Particle frame="56" attachActor="None" attachNode="Dummy_effect" particleName="I_Rajapearl_dead_mash" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="56" attachActor="None" attachNode="Point002" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
+	<Particle frame="56" attachActor="None" attachNode="Bip01 Spine1" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="56" attachActor="None" attachNode="Point002" particleName="F_explosion082" useAttach="true" hiddenObj="false" scale="14" pause="true" targetPos="false"/>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="skl_eff_hit_plants_5"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="0.00" soundFile="mon_voice_rootopus_move_1"/>
+	<Sound frame="6.00" soundFile="skl_eff_atk_move_m_11"/>
+	<Sound frame="12.00" soundFile="mon_voice_meduoliai_3"/>
+	<Sound frame="27.00" soundFile="mon_voice_vesper_m"/>
+	<Sound frame="48.00" soundFile="skl_eff_atk_move_l_10"/>
+	<Sound frame="51.00" soundFile="mon_voice_rootopus_move_4"/>
+	<Sound frame="60.00" soundFile="skl_eff_bodyfall_l_1"/>
+</ActionDesc>

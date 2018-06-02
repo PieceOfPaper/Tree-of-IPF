@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Min (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="mon_pokubu_atk2_cast"/>
+	<Particle frame="6" particleName="None" attachNode="None" scale="1" useAttach="true" pause="true"/>
+	<Sound frame="6" soundFile="mon_pokubu_atk2_shot"/>
+	<Particle frame="6" particleName="F_smoke107" attachNode="None" scale="1.5" useAttach="true" pause="true"/>
+	<HitAni frame="9.74"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

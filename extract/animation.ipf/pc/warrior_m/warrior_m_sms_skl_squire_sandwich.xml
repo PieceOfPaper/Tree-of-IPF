@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AttachModel frame="0" XAC="artefact_sandwich_bread_set" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="1" anim="none"/>
+	<AttachModel frame="0" XAC="artefact_salad_spoon_set" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="artefact_salad_spoon_ani.xsm"/>
+	<Sound frame="4.00" soundFile="skl_eff_squire_sandwich"/>
+	<AttachModel frame="26" XAC="artefact_sandwich_meat_set" node="Dummy_sandwich_meat" isAttach="true" autoDetach="true" index="2" anim="none"/>
+	<AttachModel frame="34" XAC="artefact_sandwich_cheese_set" node="Dummy_sandwich_cheese" isAttach="true" autoDetach="true" index="3" anim="none"/>
+	<AttachModel frame="42" XAC="artefact_sandwich_salad_set" node="Dummy_sandwich_salad" isAttach="true" autoDetach="true" index="4" anim="none"/>
+	<AttachModel frame="50" XAC="artefact_sandwich_bread_set" node="Dummy_sandwich_bread" isAttach="true" autoDetach="true" index="5" anim="none"/>
+	<Particle frame="4" attachNode="squire_sandwich" particleName="F_warrior_sandwich_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true"/>
+	<Particle frame="13" attachNode="squire_sandwich" particleName="F_warrior_sandwich_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+</ActionDesc>

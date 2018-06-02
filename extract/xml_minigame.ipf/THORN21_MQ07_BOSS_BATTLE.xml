@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="THORN21_MQ07_BOSS_BATTLE" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="Stage01">
+                <ObjList>
+                    <Obj Type="Monster" MonType="12080" Pos="5661.06#333.20#-315.42" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Tactics&apos; &apos;HIDDENTRIGGER_DEBUFF_TRIGGER&apos; &apos;Level&apos; &apos;62&apos; &apos;Dialog&apos; &apos;None&apos; &apos;Name&apos; &apos; &apos; &apos;Enter&apos; &apos;None&apos; &apos;Leave&apos; &apos;None&apos; "/>
+                    <Obj Type="Monster" MonType="12080" Pos="5663.11#333.20#-105.50" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Tactics&apos; &apos;HIDDENTRIGGER_DEBUFF_TRIGGER&apos; &apos;Level&apos; &apos;62&apos; &apos;Dialog&apos; &apos;None&apos; &apos;Name&apos; &apos; &apos; &apos;Enter&apos; &apos;None&apos; &apos;Leave&apos; &apos;None&apos; "/>
+                    <Obj Type="Monster" MonType="12080" Pos="5850.39#333.20#-319.12" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Tactics&apos; &apos;HIDDENTRIGGER_DEBUFF_TRIGGER&apos; &apos;Level&apos; &apos;62&apos; &apos;Dialog&apos; &apos;None&apos; &apos;Name&apos; &apos; &apos; &apos;Enter&apos; &apos;None&apos; &apos;Leave&apos; &apos;None&apos; "/>
+                    <Obj Type="Monster" MonType="12080" Pos="5934.21#333.20#-71.06" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Tactics&apos; &apos;HIDDENTRIGGER_DEBUFF_TRIGGER&apos; &apos;Level&apos; &apos;62&apos; &apos;Dialog&apos; &apos;None&apos; &apos;Name&apos; &apos; &apos; &apos;Enter&apos; &apos;None&apos; &apos;Leave&apos; &apos;None&apos; "/>
+                    <Obj Type="Monster" MonType="12080" Pos="5787.59#333.20#-182.31" range="50" genCount="1" genTime="20000" objectKey="4" propList="&apos;Tactics&apos; &apos;HIDDENTRIGGER_DEBUFF_TRIGGER&apos; &apos;Name&apos; &apos; &apos; &apos;Dialog&apos; &apos;None&apos; &apos;Enter&apos; &apos;None&apos; &apos;Leave&apos; &apos;None&apos; "/>
+                    <Obj Type="Monster" MonType="12080" Pos="5652.19#333.20#-276.71" genCount="1" genTime="20000" objectKey="5" propList="&apos;Name&apos; &apos; &apos; &apos;Level&apos; &apos;62&apos; &apos;Tactics&apos; &apos;HIDDENTRIGGER_DEBUFF_TRIGGER&apos; &apos;Dialog&apos; &apos;None&apos; &apos;Enter&apos; &apos;None&apos; &apos;Leave&apos; &apos;None&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="Gen_01">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage01/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage01/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Gen_02">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage01/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage01/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Gen_03">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage01/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage01/2"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Gen_04">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage01/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage01/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Gen_05">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage01/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage01/4"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

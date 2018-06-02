@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_skl_smoke" particleName="F_spread_out014_smoke" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Sound frame="0.00" Value="4266" soundFile="mon_voice5_l_dead_2"/>
+    <Sound frame="24.00" Value="0" soundFile="skl_ice_cast"/>
+    <Particle frame="59" attachActor="None" attachNode="Dummy_emitter" particleName="F_spread_out023_circle" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="59" attachActor="None" attachNode="Dummy_emitter" particleName="F_levitation010_smoke" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="59" attachActor="None" attachNode="Dummy_emitter" particleName="E_poata_skl" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="59" attachActor="None" attachNode="Dummy_skl_foot" particleName="F_burstup029_smoke" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+    <Sound frame="60.00" Value="4266" soundFile="mon_voice5_l_4"/>
+    <Particle frame="60" attachActor="None" attachNode="Dummy_skl_foot" particleName="I_stone006_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="84.00" Value="4266" soundFile="skl_fgt_endure"/>
+</ActionDesc>

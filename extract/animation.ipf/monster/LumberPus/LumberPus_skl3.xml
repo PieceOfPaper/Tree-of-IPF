@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_ground138_poison_bubble" useAttach="false" hiddenObj="false" changeEffect="None" scale="14" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_rootopus_atk_1"/>
+    <Particle frame="64" attachNode="Bone002" particleName="F_drop_leaf004" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="64" attachNode="Dummy_emitter" particleName="F_ground138_poison_bubble" useAttach="false" hiddenObj="false" changeEffect="None" scale="14" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="64" attachNode="Dummy_effect_skl3_hit_R2" particleName="F_ground138_poison_bubble2" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="64" attachNode="Dummy_effect_skl3_hit_L2" particleName="F_ground138_poison_bubble2" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="64" attachNode="Dummy_effect_skl3_hit_R" particleName="F_spark011_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="64" attachNode="Dummy_effect_skl3_hit_L" particleName="F_spark011_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="81" attachNode="Dummy_emitter" particleName="F_spread_out013_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="82" attachNode="Bone002" particleName="F_drop_leaf004" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="82" attachNode="Dummy_effect_skl3_hit_R2" particleName="F_ground138_poison_bubble2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="82" attachNode="Dummy_effect_skl3_hit_L2" particleName="F_ground138_poison_bubble2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="82" attachNode="Dummy_effect_skl3_hit_R" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="82" attachNode="Dummy_effect_skl3_hit_L" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

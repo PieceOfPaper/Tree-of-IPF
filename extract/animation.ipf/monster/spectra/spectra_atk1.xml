@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Event time="0.000000" force="None" hspeed="270.000000" ctrlpt="0.500000" damratio="100" targetidx="1" accpower="0" offset="0.000000 24.000000 1.000000" frame="0"/>
+    <Sound frame="5.00" soundFile="mon_spector_atk_cast"/>
+    <Particle frame="18" attachNode="Dummy_effect_atk" particleName="I_swordtrail011_mint" useAttach="false" hiddenObj="false" scale="1.0" pause="true" targetPos="false"/>
+</ActionDesc>

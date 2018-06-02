@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="7" particleName="F_ground065_smoke" attachNode="None" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_smoke107" attachNode="None" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="7" soundFile="m_siauliai_beetle_atk1_shot"/>
+	<Sound frame="0" soundFile="m_siauliai_beetle_atk1_cast"/>
+	<ReadyAniTime frame="0" Value="-1"/>
+</ActionDesc>

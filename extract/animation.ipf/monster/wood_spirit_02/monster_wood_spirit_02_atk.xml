@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="mon_wood_spirit_atk_cast"/>
+	<Sound frame="1" soundFile="mon_wood_spirit_atk_cast_move"/>
+	<Sound frame="24" soundFile="mon_wood_spirit_atk2_shot"/>
+	<Sound frame="25" soundFile="mon_wood_spirit_atk_shot_move"/>
+	<Sound frame="26" soundFile="skl_eff_tornado"/>
+	<Shockwave frame="25" type="2" intensity="1" frequency="70" duration="0.5" range="1000"/>
+	<Shockwave frame="35" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="38" type="2" intensity="5" frequency="70" duration="1" range="1000"/>
+	<Particle frame="35" attachActor="None" attachNode="Dummy0002" particleName="F_explosion084" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="38" attachActor="None" attachNode="Dummy_skl_01" particleName="F_spin026" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="40" attachActor="None" attachNode="Dummy_skl_02" particleName="F_spin026" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="42" attachActor="None" attachNode="Dummy_skl_03" particleName="F_spin026" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="44" attachActor="None" attachNode="Dummy_skl_04" particleName="F_spin026" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="46" attachActor="None" attachNode="Dummy_skl_05" particleName="F_spin026" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="48" attachActor="None" attachNode="Dummy_skl_06" particleName="F_spin026" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="50" attachActor="None" attachNode="Dummy_skl_07" particleName="F_spin026" scale="1" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

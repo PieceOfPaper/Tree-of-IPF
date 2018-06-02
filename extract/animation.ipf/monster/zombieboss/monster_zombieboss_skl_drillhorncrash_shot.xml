@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_center" particleName="I_ellaganos_atk001_mash" useAttach="true" hiddenObj="false" scale="1.0"/>
+	<Sound frame="1" soundFile="mon_zombieboss_skl_drillhorncrash_shot"/>
+	<HitAni frame="4.49"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+	<Particle frame="24" attachActor="None" attachNode="Dummy_drill_01" particleName="F_smoke103" scale="1.0"/>
+	<Particle frame="24" attachActor="None" attachNode="Dummy_drill_02" particleName="F_smoke103" scale="1.0"/>
+</ActionDesc>

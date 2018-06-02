@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="questend" x="0" y="0" width="420" height="592">
+    <frame title="임무 완료" snapclient="true" snapframe="true" layout_gravity="center top" margin="0 100 0 0"/>
+    <layer layerlevel="100"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+    <option closebutton="false" hideable="false"/>
+    <controls>
+        <textview name="questthanks" rect="10 10 350 542" layout_gravity="left top"/>
+        <button name="quest_agreement" rect="-85 -40 160 50" layout_gravity="center bottom" LBtnUpScp="control.DialogOk()" caption="{@st41}완료{/}" clicksound="button_click" oversound="button_over" skin="textbutton_nomal_joo"/>
+        <button name="quest_refusal" rect="85 -40 160 50" layout_gravity="center bottom" LBtnUpScp="control.DialogCancel()" caption="{@st41}취소{/}" clicksound="button_click" oversound="button_over" skin="textbutton_nomal_joo"/>
+    </controls>
+</uiframe>

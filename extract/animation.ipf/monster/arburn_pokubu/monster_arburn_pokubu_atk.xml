@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ppiac (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+	<HitAni frame="7" Value="250"/>
+	<Particle frame="9" attachNode="Bip01 R Foot" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" scale="1.0"/>
+	<Particle frame="9" attachNode="Bip01 L Foot" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" scale="1.0"/>
+	<Particle frame="13" attachNode="Bip01 R Hand" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" scale="1.0"/>
+	<Particle frame="13" attachNode="Bip01 L Hand" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" scale="1.0"/>
+	<Sound frame="7" soundFile="mon_arburn_pokubu_atk_shot"/>
+	<Sound frame="0" soundFile="mon_arburn_pokubu_atk_cast"/>
+</ActionDesc>

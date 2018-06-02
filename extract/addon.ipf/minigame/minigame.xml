@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="minigame" x="100" y="600" width="400" height="400" create="open">
+    <frame title="미니게임" layout_gravity="center center"/>
+    <layer layerlevel="100"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <script CloseScp="CLOSE_MINIGAME"/>
+    <controls>
+        <edit name="Input" rect="0 0 200 35" margin="10 100 0 0" layout_gravity="left top" EnterKeyScp="EXEC_MAKE_MINI" OffsetForDraw="10 5" fontname="white_16_ol" maxlen="20" usetag="true"/>
+        <richtext name="text" rect="0 0 200 80" margin="10 10 0 0" layout_gravity="center center" format="%s%s" param1="Font" param1_def="{#001100}{s18}" param2="Text"/>
+    </controls>
+</uiframe>

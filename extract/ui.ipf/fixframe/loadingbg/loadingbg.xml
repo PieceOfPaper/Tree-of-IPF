@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="loadingbg" x="0" y="0" width="1920" height="1080">
+	<frame title="로딩 배경" layout_gravity="center center" stretch="true" fullwidth="true" fullheight="true"/>
+	<skin layout_gravity="center center"/>
+	<input hittest="false"/>
+	<layer topmostlayer="true"/>
+	<option hideable="false" closebutton="false"/>
+	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
+	<controls>
+		<picture name="screenbg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="left top" hittest="false" image="fullblack" stretch="true"/>
+		<webpicture name="pic" rect="0 0 1920 1080" margin="0 0 0 0" check_pattern="false" image="fullblack" resizebyresolution="true" layout_gravity="center top"/>
+		<picture name="screenmask" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center top" resizebyresolution="true" stretch="true" image="directormode_2"/>
+		<picture name="game_violent" rect="0 0 100 116" margin="0 20 130 0" layout_gravity="right top" hittest="false" stretch="true" image="game_violent_mark" serviceNation="KOR"/>
+		<picture name="game_rating" rect="0 0 100 116" margin="0 20 20 0" layout_gravity="right top" hittest="false" stretch="true" image="game_rating_mark" serviceNation="KOR"/>
+		<picture name="ESRB_T" rect="0 0 120 168" margin="0 20 20 0" layout_gravity="right top" hittest="false" stretch="true" image="ESRB_T_mark" serviceNation="GLOBAL"/>
+		<groupbox name="tip" skin="shadow_box" layout_gravity="center bottom" rect="0 0 1000 50" caption="팁" scrollbar="false" margin="0 0 0 100" scale_align="center bottom" frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+		<richtext parent="tip" name="gametip" layout_gravity="center center" rect="0 0 960 40" textalign="left center" caption="게임팁" fixwidth="false" resizebytext="true" margin="0 0 0 0"/>
+		<groupbox name="faq" skin="shadow_box" layout_gravity="center top" rect="0 0 1400 240" caption="FAQ" scrollbar="false" margin="0 60 0 0" scale_align="center top" frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+		<richtext parent="faq" name="gamefaq" layout_gravity="center center" rect="0 0 1360 40" textalign="left center" caption="게임faq" fixwidth="false" resizebytext="true" margin="0 0 0 0"/>
+		<gauge name="gauge" margin="0 0 0 20" rect="0 0 1920 70" skin="bube_loading_gauge" inverse="false" point="0" layout_gravity="center bottom" scale_align="center top" frameOpenAnim="dialog_select_start" frameCloseAnim="dialog_select_end"/>
+		<animpicture name="animpic" blend="50" texelx="0" texely="0" texelwidth="110" texelheight="80" spacex="1" spacey="0" loop="true" ticktime="0.2" animcount="7" layout_gravity="left top" rect="0 0 110 80" margin="500 500 0 0" image="loading_bube" hittest="false" playanim="true" stretch="true"/>
+	</controls>
+</uiframe>

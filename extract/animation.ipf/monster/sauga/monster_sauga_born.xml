@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" particleName="monster_born" attachNode="None" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="F_smoke033" attachNode="Dummy_eff_dead" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="9" particleName="F_smoke033" attachNode="Dummy_eff_dead" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_smoke104" attachNode="Bone_spine" scale="3" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_smoke104" attachNode="Bone_head" scale="3" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="0.00" Value="0" soundFile="blunt_blow_stone"/>
+	<Sound frame="0.00" Value="0" soundFile="skl_wiz_icewall_dead"/>
+	<Sound frame="4.00" Value="0" soundFile="hand_blow_stone"/>
+	<Sound frame="10.00" Value="0" soundFile="blunt_blow_stone"/>
+	<Sound frame="11.00" Value="0" soundFile="hand_blow_stone"/>
+</ActionDesc>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ppiac (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="explosion_small"/>
+	<Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="8" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="5" particleName="F_mushroom_ent_born" attachNode="Dummy_eff_born" scale="1.5" useAttach="true" pause="true"/>
+	<Particle frame="5" particleName="F_ground078_smoke" attachNode="Dummy_eff_born" scale="3" useAttach="true" pause="true"/>
+	<Sound frame="6" soundFile="mon_arburn_pokubu_atk_shot"/>
+</ActionDesc>

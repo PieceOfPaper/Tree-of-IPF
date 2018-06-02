@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="5" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="16" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="18" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="5" attachNode="Bip01 R Toe1" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" sound="mon_big_footstep_5"/>
+	<Particle frame="5" attachNode="Bip01 R Toe1" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="16" attachNode="Bip01 L Toe1" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" sound="mon_big_footstep_5"/>
+	<Particle frame="16" attachNode="Bip01 L Toe1" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

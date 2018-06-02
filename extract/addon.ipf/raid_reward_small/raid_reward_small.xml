@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="raid_reward_small" x="-50" y="0" width="611" height="251" create="open">
+    <frame title="{@st41b}NewUI{/}" titlepos="0 -8" layout_gravity="center center"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="shadow_box 잠정제거"/>
+    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <controls>
+        <richtext name="desctext" rect="0 0 120 30" margin="0 5 0 0" layout_gravity="center top" caption="TEST" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <groupbox name="itemcontainer" rect="0 0 150 120" margin="0 25 0 0" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="None"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<idspace id="Controlset">
+	<Category Name="StatusInfo">
+		<Class ClassID="1" ClassName="Status">
+			<Node1 ClassID="1" ClassName="StatusInfo01" ControlSetName="Status_infoType01" EngName="JobName" Name="클래스" Value="JobName" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="2" ClassName="StatusInfo02" ControlSetName="Status_infoType01" EngName="Lv" Name="레벨" Value="Lv" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="4" ClassName="StatusInfo04" ControlSetName="Status_infoType02" EngName="ATK" Name="공격력" Value="ATK" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="5" ClassName="StatusInfo05" ControlSetName="Status_infoType02" EngName="DEF" Name="방어력" Value="DEF" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="6" ClassName="StatusInfo06" ControlSetName="Status_infoType02" EngName="HR" Name="명중률" Value="HR" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="9" ClassName="StatusInfo09" ControlSetName="Status_infoType02" EngName="RR" Name="저항력" Value="RR" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="10" ClassName="StatusInfo10" ControlSetName="Status_infoType02" EngName="TR" Name="위협성" Value="TR" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="11" ClassName="StatusInfo11" ControlSetName="Status_infoType01" EngName="CRTHR" Name="크리율" Value="CRTHR" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="12" ClassName="StatusInfo12" ControlSetName="Status_infoType01" EngName="CRTDR" Name="회피율" Value="CRTDR" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="13" ClassName="StatusInfo13" ControlSetName="Status_infoType01" EngName="ASPD" Name="공격속도" Value="Custom" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="14" ClassName="StatusInfo14" ControlSetName="Status_infoType01" EngName="MSPD" Name="이동속도" Value="Custom" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="15" ClassName="StatusInfo15" ControlSetName="Status_infoType01" EngName="HitRange" Name="사거리" Value="Custom" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="16" ClassName="StatusInfo16" ControlSetName="Status_infoType01" EngName="BLK" Name="블럭율" Value="BLK" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="17" ClassName="StatusInfo17" ControlSetName="Status_infoType01" EngName="CRTATK" Name="크리공격" Value="CRTATK" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="18" ClassName="StatusInfo18" ControlSetName="Status_infoType01" EngName="CRTDEF" Name="크리방어" Value="CRTDEF" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="19" ClassName="StatusInfo19" ControlSetName="Status_infoType01" EngName="RHP" Name="체력회복량" Value="RHP" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="20" ClassName="StatusInfo20" ControlSetName="Status_infoType01" EngName="RSP" Name="정신력회복량" Value="RSP" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="21" ClassName="StatusInfo21" ControlSetName="Status_infoType01" EngName="MHP" Name="최대체력" Value="MHP" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="22" ClassName="StatusInfo22" ControlSetName="Status_infoType01" EngName="MSP" Name="최대정신력" Value="MSP" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+			<Node1 ClassID="23" ClassName="StatusInfo23" ControlSetName="Status_infoType01" EngName="SR" Name="스플래쉬" Value="SR" NameFont="{s16}{#fff0db}" ValueFont="{s16}{#ffffff}"/>
+		</Class>
+	</Category>
+</idspace>

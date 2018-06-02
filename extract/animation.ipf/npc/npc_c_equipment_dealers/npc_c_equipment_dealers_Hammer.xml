@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="2" soundFile="skl_eff_wood_hammer"/>
+	<Particle frame="2" particleName="F_spark011_orange" attachNode="hammer_effect01" scale="1" useAttach="true"/>
+	<Particle frame="2" particleName="I_light013_spark" attachNode="hammer_effect01" scale="2" useAttach="true"/>
+</ActionDesc>

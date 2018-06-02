@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_golem_natk1_shot" />
+    <Shockwave frame="6" type="2" intensity="10" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="6" attachNode="Dummy_effect_atk2_1" particleName="golem_atk2_s" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="6" attachNode="Dummy_effect_atk2_2" particleName="golem_atk2_m" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="6" attachActor="None" attachNode="Dummy_effect_atk2_hand" particleName="F_ground090" scale="1.0" />
+    <Particle frame="6" attachActor="None" attachNode="Dummy_effect_atk2_hand" particleName="F_golem_atk2_hand" scale="1.0" />
+    <Particle frame="6" attachActor="None" attachNode="Dummy_effect_atk2_1" particleName="F_golem_atk2_badak" scale="1.0" />
+    <Particle frame="6" attachActor="None" attachNode="Dummy_effect_atk2_2" particleName="F_golem_atk2_badak" scale="1.0" />
+    <Particle frame="6" attachActor="None" attachNode="Dummy_effect_atk2_1" particleName="F_smoke096" scale="1.0" />
+    <Particle frame="6" attachActor="None" attachNode="Dummy_effect_atk2_2" particleName="F_smoke096" scale="1.0" />
+    <Shockwave frame="7" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="7" attachNode="Dummy_effect_atk2_3" particleName="golem_atk2_s_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="7" attachNode="Dummy_effect_atk2_4" particleName="golem_atk2_m_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="7" attachActor="None" attachNode="Dummy_effect_atk2_3" particleName="F_golem_atk2_badak" scale="1.0" />
+    <Particle frame="7" attachActor="None" attachNode="Dummy_effect_atk2_4" particleName="F_golem_atk2_badak" scale="1.0" />
+    <Particle frame="7" attachActor="None" attachNode="Dummy_effect_atk2_3" particleName="F_smoke096" scale="1.0" />
+    <Particle frame="7" attachActor="None" attachNode="Dummy_effect_atk2_4" particleName="F_smoke096" scale="1.0" />
+    <Shockwave frame="8" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="8" attachNode="Dummy_effect_atk2_5" particleName="golem_atk2_l" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="8" attachNode="Dummy_effect_atk2_6" particleName="golem_atk2_m" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="8" attachActor="None" attachNode="Dummy_effect_atk2_5" particleName="F_golem_atk2_badak" scale="1.0" />
+    <Particle frame="8" attachActor="None" attachNode="Dummy_effect_atk2_6" particleName="F_golem_atk2_badak" scale="1.0" />
+    <Particle frame="8" attachActor="None" attachNode="Dummy_effect_atk2_5" particleName="F_smoke096" scale="1.0" />
+    <Particle frame="8" attachActor="None" attachNode="Dummy_effect_atk2_6" particleName="F_smoke096" scale="1.0" />
+    <Shockwave frame="9" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="9" attachNode="Dummy_effect_atk2_7" particleName="golem_atk2_l_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="9" attachActor="None" attachNode="Dummy_effect_atk2_7" particleName="F_golem_atk2_badak" scale="1.0" />
+    <Particle frame="9" attachActor="None" attachNode="Dummy_effect_atk2_7" particleName="F_smoke096" scale="1.0" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+    <Particle frame="49" attachNode="Dummy_effect_atk2_1" particleName="golem_atk2_s_dead" useAttach="true" hiddenObj="false" changeEffect="golem_atk2_s" scale="1.0" />
+    <Particle frame="49" attachNode="Dummy_effect_atk2_2" particleName="golem_atk2_m_dead" useAttach="true" hiddenObj="false" changeEffect="golem_atk2_m" scale="1.0" />
+    <Particle frame="50" attachNode="Dummy_effect_atk2_3" particleName="golem_atk2_s_dead_1" useAttach="true" hiddenObj="false" changeEffect="golem_atk2_s_1" scale="1.0" />
+    <Particle frame="50" attachNode="Dummy_effect_atk2_4" particleName="golem_atk2_m_dead_1" useAttach="true" hiddenObj="false" changeEffect="golem_atk2_m_1" scale="1.0" />
+    <Particle frame="51" attachNode="Dummy_effect_atk2_5" particleName="golem_atk2_l_dead" useAttach="true" hiddenObj="false" changeEffect="golem_atk2_l" scale="1.0" />
+    <Particle frame="51" attachNode="Dummy_effect_atk2_6" particleName="golem_atk2_m_dead" useAttach="true" hiddenObj="false" changeEffect="golem_atk2_m" scale="1.0" />
+    <Shockwave frame="52" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="52" attachNode="Dummy_effect_atk2_7" particleName="golem_atk2_l_dead_1" useAttach="true" hiddenObj="false" changeEffect="golem_atk2_l_1" scale="1.0" />
+    <Particle frame="52" attachActor="None" attachNode="Dummy_effect_atk2_1" particleName="F_smoke095" scale="1.0" />
+    <Particle frame="52" attachActor="None" attachNode="Dummy_effect_atk2_2" particleName="F_smoke095" scale="1.0" />
+    <Shockwave frame="53" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="53" attachActor="None" attachNode="Dummy_effect_atk2_3" particleName="F_smoke095" scale="1.0" />
+    <Particle frame="53" attachActor="None" attachNode="Dummy_effect_atk2_4" particleName="F_smoke095" scale="1.0" />
+    <Shockwave frame="54" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="54" attachActor="None" attachNode="Dummy_effect_atk2_5" particleName="F_smoke095" scale="1.0" />
+    <Particle frame="54" attachActor="None" attachNode="Dummy_effect_atk2_6" particleName="F_smoke095" scale="1.0" />
+    <Particle frame="55" attachActor="None" attachNode="Dummy_effect_atk2_7" particleName="F_smoke095" scale="1.0" />
+</ActionDesc>

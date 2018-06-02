@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="PARTY_Q_040_MINI" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="f_huevillage_58_1" startWaitSec="0">
+        <StageList>
+            <Stage Name="STAGE01">
+                <ObjList>
+                    <Obj Type="Monster" MonType="11281" Pos="333.00#371.32#-449.39" angle="-82" genCount="1" genTime="20000" objectKey="3" searchRange="30" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " SimpleAI="NPC_ALPHABLANDER" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_SUSPICIOUS_GUY"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="10"/>
+                                    <Num Num="130"/>
+                                    <Num Num="255"/>
+                                    <Num Num="150"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11281" Pos="610.26#371.31#-544.62" angle="-129" genCount="1" genTime="20000" objectKey="2" searchRange="30" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " SimpleAI="NPC_ALPHABLANDER" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11283" Pos="617.42#371.31#-662.00" angle="-170" genCount="1" genTime="20000" objectKey="4" searchRange="30" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; " SimpleAI="NPC_ALPHABLANDER" tendency="1"/>
+                    <Obj Type="Monster" MonType="11283" Pos="152.53#330.95#-488.59" angle="-33" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " SimpleAI="NPC_ALPHABLANDER"/>
+                    <Obj Type="Monster" MonType="11283" Pos="466.30#371.31#-462.66" angle="-106" genCount="1" genTime="20000" objectKey="1" searchRange="30" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; " SimpleAI="NPC_ALPHABLANDER" tendency="1"/>
+                    <Obj Type="Monster" MonType="11283" Pos="422.80#371.31#-665.70" angle="-99" genCount="1" genTime="20000" objectKey="5" searchRange="30" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; " SimpleAI="NPC_ALPHABLANDER" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

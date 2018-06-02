@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="3.00" soundFile="mon_deathweaver_skl_2" />
+    <Particle frame="30" attachNode="Bip001 Spine" particleName="I_smoke013_dark" useAttach="false" hiddenObj="false" scale="2.5" pause="true" targetPos="false" />
+    <Particle frame="66" attachNode="Foot_Ctrl_004" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="0.3" pause="true" targetPos="false" />
+    <Particle frame="66" attachNode="Foot_Ctrl_004" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="0.2" pause="true" targetPos="false" />
+    <Particle frame="83" attachNode="Foot_Ctrl_002" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="0.3" pause="true" targetPos="false" />
+    <Particle frame="83" attachNode="Foot_Ctrl_002" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="0.2" pause="true" targetPos="false" />
+    <Sound frame="111.00" soundFile="skl_eff_earthquake_1" />
+    <Particle frame="111" attachNode="Dummy_emitter" particleName="F_ground092_dark" useAttach="false" hiddenObj="false" scale="4.5" pause="true" targetPos="false" />
+</ActionDesc>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_mineloader_16"/>
+	<Sound frame="15.00" soundFile="mon_voice_mineloader_4"/>
+	<Sound frame="27.00" soundFile="mon_voice_mineloader_3"/>
+	<Sound frame="45.00" soundFile="mon_voice_mineloader_8"/>
+	<Sound frame="48.00" soundFile="mon_voice_mineloader_6"/>
+	<Sound frame="51.00" soundFile="skl_eff_atk_move_m_6"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_004" particleName="F_levitation007_red" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_ray" particleName="I_force053_pink" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="30" attachActor="None" attachNode="Dummy_ray" particleName="I_force053_pink" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="45" attachActor="None" attachNode="Dummy_004" particleName="F_smoke037" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="0" soundFile="m_tontulia_skl_shot"/>
+	<Particle frame="1" particleName="F_smoke107" attachNode="Dummy_emitter" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="0" particleName="F_spin017" attachNode="Dummy_emitter" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="3" particleName="F_spin017" attachNode="Dummy_emitter" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="3" particleName="F_smoke107" attachNode="Dummy_emitter" scale="2.2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="F_smoke107" attachNode="Dummy_emitter" scale="2.4" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_katyn_bug_atk_cast"/>
+	<Sound frame="10.00" soundFile="mon_voice_rootopus_move_3"/>
+	<Sound frame="10.00" soundFile="mon_voice_throneweaver_4"/>
+	<Sound frame="30.00" soundFile="mon_voice_throneweaver_1"/>
+	<Sound frame="55.00" soundFile="skl_eff_mud_shot"/>
+	<Sound frame="57.00" soundFile="mon_voice_bug_10"/>
+	<Particle frame="33" attachNode="Dummy_effect_lip" particleName="F_ground118_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="36" attachNode="Dummy_effect_lip" particleName="F_ground118_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="64" attachNode="Dummy_effect_skl2" particleName="F_ground118_yellow2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+</ActionDesc>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_l_1"/>
+    <Sound frame="3.00" soundFile="mon_tomblord_skl_1"/>
+    <Sound frame="30.00" soundFile="skl_eff_atk_move_l_8"/>
+    <Particle frame="40" attachNode="Dummy_hand_ball" particleName="I_spread_out011_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_hand_ball" particleName="I_force071_mintdark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="20" attachNode="Dummy_hand_ball" particleName="I_force071_mintdark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="10" attachNode="Dummy_hand_ball" particleName="I_force071_mintdark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_hand_ball" particleName="I_force071_mintdark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_hand_R" particleName="I_spread_out011_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

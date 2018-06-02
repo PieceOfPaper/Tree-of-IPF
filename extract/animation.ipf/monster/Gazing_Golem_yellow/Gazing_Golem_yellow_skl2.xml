@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_ground_firepillar" />
+    <Sound frame="15.00" soundFile="skl_eff_fire_cast" />
+    <Particle frame="17" attachActor="None" attachNode="Dummy_R_effect" particleName="F_ifrit_skl3_body_false" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" />
+    <Particle frame="17" attachActor="None" attachNode="Dummy_L_effect" particleName="F_ifrit_skl3_body_false" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" />
+    <Particle frame="17" attachActor="None" attachNode="Eye_1" particleName="F_ifrit_skl3_body_false" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" />
+    <Particle frame="30" attachActor="None" attachNode="Dummy_R_effect" particleName="F_fire001" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false" />
+    <Particle frame="30" attachActor="None" attachNode="Dummy_L_effect" particleName="F_fire001" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false" />
+    <Particle frame="30" attachActor="None" attachNode="Eye_1" particleName="F_fire001" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false" />
+    <Sound frame="69.00" soundFile="skl_eff_firebreath" />
+    <Particle frame="70" attachActor="None" attachNode="Dummy_R_effect" particleName="F_ifrit_skl3_body_false" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" />
+    <Particle frame="70" attachActor="None" attachNode="Dummy_L_effect" particleName="F_ifrit_skl3_body_false" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" />
+    <Particle frame="70" attachActor="None" attachNode="Eye_1" particleName="F_ifrit_skl3_body_false" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" />
+    <Particle frame="70" attachActor="None" attachNode="Dummy_emitter" particleName="E_gazing_golem_skl2" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Particle frame="70" attachActor="None" attachNode="Dummy_emitter" particleName="F_ifrit_skl5_badak" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false" />
+    <Sound frame="72.00" soundFile="mon_voice_screech_10" />
+</ActionDesc>

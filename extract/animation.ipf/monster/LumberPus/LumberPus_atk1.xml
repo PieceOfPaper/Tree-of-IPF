@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_ground138_poison_bubble" useAttach="false" hiddenObj="false" changeEffect="None" scale="14" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_rootopus_atk_2"/>
+    <Sound frame="20.00" soundFile="mon_voice_rootopus_move_1"/>
+    <AfterImage frame="30" term="50" blendTime="300" r="160" g="160" b="160" a="255"/>
+    <Particle frame="37" attachNode="Dummy_effect_atk" particleName="F_explosion028_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="37" attachNode="Dummy_emitter" particleName="E_spread_out01_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="39" R="100" G="100" B="80" A="100"/>
+    <AfterImage frame="40" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+    <BlendOn frame="40" R="60" G="60" B="40" A="50"/>
+    <BlendOff frame="41" R="0" G="0" B="0" A="0"/>
+    <Particle frame="50" attachNode="Dummy_emitter" particleName="F_smoke043_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

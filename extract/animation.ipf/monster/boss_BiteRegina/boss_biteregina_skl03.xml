@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="3333" soundFile="mon_katyn_bug_atk_cast" />
+    <Sound frame="3.00" Value="3333" soundFile="skl_eff_atk_move_l_13" />
+    <Particle frame="5" attachActor="None" attachNode="Dummy_effect" particleName="F_burstup007_smoke1" hiddenObj="false" useAttach="true" scale="3" pause="true" targetPos="false" />
+    <Particle frame="10" attachActor="None" attachNode="Bone005" particleName="F_spread_in011_yellow" hiddenObj="true" useAttach="true" scale="3" pause="true" targetPos="false" />
+    <Particle frame="10" attachActor="None" attachNode="Bone005" particleName="I_smoke041" hiddenObj="true" useAttach="true" scale="3" pause="true" targetPos="false" />
+    <Sound frame="21.00" Value="3333" soundFile="mon_katyn_bug_skl_cast" />
+    <Particle frame="30" attachActor="None" attachNode="Bone005" particleName="I_smoke041" hiddenObj="true" useAttach="true" scale="3" pause="true" targetPos="false" />
+    <Sound frame="42.00" soundFile="mon_big_footstep_biteregina" />
+    <Particle frame="55" attachActor="None" attachNode="Bone005" particleName="I_smoke041" hiddenObj="true" useAttach="true" scale="3" pause="true" targetPos="false" />
+    <Sound frame="55.50" Value="3333" soundFile="mon_katyn_bug_atk2_shot" />
+    <Sound frame="63.00" Value="3333" soundFile="skl_eff_atk_move_l_9" />
+    <Sound frame="69.00" Value="3333" soundFile="skl_eff_atk_move_l_17" />
+</ActionDesc>

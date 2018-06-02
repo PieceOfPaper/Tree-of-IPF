@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="personal_shop_target" x="0" y="0" width="470" height="609" create="open">
+    <frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" piptype="left"/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin=" "/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <sound opensound="window_open" closesound="window_close"/>
+    <script CloseScp="CLOSE_PERSONAL_SHOP_TARGET"/>
+    <controls>
+        <groupbox name="bg" rect="0 0 470 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+        <groupbox name="pipwin_top" rect="0 0 470 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+        <richtext name="title" rect="0 0 100 30" margin="0 17 0 0" layout_gravity="center top" format="{@st43}%s" param1="value" param1_def="매입의뢰"/>
+        <button name="close" rect="0 0 44 44" margin="0 20 27 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}매입의뢰상점을 닫습니다"/>
+        <picture name="titlepicture" rect="0 0 44 44" margin="0 -500 8 0" layout_gravity="right top" image="button_portal"/>
+        <picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" image="testquesten_button" texttooltip="{@st59b}매입의뢰상점{nl}{@st59s} - 내가 가진 물건을 실버로 교환할 수 있습니다"/>
+        <groupbox name="gbox" rect="0 0 470 570" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
+        <groupbox name="items" parent="gbox" rect="0 0 460 510" margin="5 50 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
+        <groupbox name="sellbox" rect="0 0 450 360" margin="0 660 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
+        <richtext name="hostname" parent="gbox" rect="0 0 449 34" margin="25 10 0 0" layout_gravity="left top" caption="{@st41b}의뢰자 요청 아이템{/}" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+        <richtext name="toselltext" parent="sellbox" rect="0 0 416 36" margin="25 10 0 0" layout_gravity="left top" caption="{@st41b}판매 등록 아이템{/}" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+        <slotset name="sellslots" parent="sellbox" rect="0 0 343 -64" margin="0 50 0 0" layout_gravity="center top" DropScp="DROP_PERSONAL_SLOT" RBtnUpScp="CLEAR_PERSONAL_SLOT" col="7" cursoronresize="true" dropsound="icon_get_down" enableselect="true" hideindrag="true" maxselect="8" movepop="false" picksound="icon_pick_up" row="3" size="58 58" skin="invenslot2" spc="1 1"/>
+        <labelline name="labelline_1" parent="sellbox" rect="0 0 440 2" margin="9 270 0 0" layout_gravity="left top" skin="labelline"/>
+        <richtext name="toselltext_1" parent="sellbox" rect="0 0 150 30" margin="55 235 0 0" layout_gravity="left top" caption="{@st41b}총 수입" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+        <richtext name="t_totalprice" parent="sellbox" rect="0 0 250 30" margin="0 235 25 0" layout_gravity="right top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="value" param1_def="100000000000" resizebytext="false" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
+        <picture name="Zeny_Img" parent="sellbox" rect="0 0 24 24" margin="25 238 0 0" layout_gravity="left top" image="icon_item_silver" oversound="button_over" stretch="true"/>
+        <button name="btn_exec" parent="sellbox" rect="0 0 160 55" margin="0 0 0 15" layout_gravity="center bottom" LBtnUpScp="SELL_PERSONALSHOP_TARGET" caption="{@st41b}판매" skin="test_red_button" texttooltip="{@st59}등록한 아이템을 판매합니다{/}"/>
+    </controls>
+</uiframe>

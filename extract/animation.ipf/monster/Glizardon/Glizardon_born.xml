@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_hog_4"/>
+	<Shockwave frame="11" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="13" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="15" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="11" attachNode="Dummy_emitter" particleName="F_smoke052_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_landing_m"/>
+	<Particle frame="11" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_stone_blow_m"/>
+</ActionDesc>

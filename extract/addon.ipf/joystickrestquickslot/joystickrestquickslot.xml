@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="joystickrestquickslot" x="0" y="0" width="1920" height="170">
+    <frame title="조이스틱 휴식 퀵슬롯" layout_gravity="center bottom" margin="0 0 0 0" scale_align="center bottom"/>
+    <layer layerlevel="91"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <option visible="false" hideable="false" closebutton="false"/>
+    <input hittestframe="false"/>
+    <animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+    <script CloseScp="CLOSE_JOYSTICK_QUICKSLOT"/>
+    <userconfig PADSLOT_ONSKIN="padslot_onskin" PADSLOT_OFFSKIN="padslot_offskin" SET_BUTTON_ONSKIN="padslot_onskin2" SET_BUTTON_OFFSKIN="padslot_offskin2"/>
+    <controls>
+        <picture name="rest_R2" rect="0 0 150 110" margin="280 0 0 -2009" layout_gravity="center bottom" hittest="false" image="rest_R2"/>
+        <picture name="rest_L1" rect="0 0 150 110" margin="-275 0 0 -2009" layout_gravity="center bottom" hittest="false" image="rest_L1"/>
+        <button name="restmode" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center top" LBtnUpScp="None" caption="{@st41b}휴식모드" skin="padslot_onskin3"/>
+        <groupbox name="Set1" rect="0 0 690 110" margin="0 0 0 25" layout_gravity="center bottom" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" skin=""/>
+        <groupbox name="L1_slot_Set1" parent="Set1" rect="0 0 148 105" margin="0 0 0 0" layout_gravity="left bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="padslot_offskin"/>
+        <groupbox name="L2_slot_Set1" parent="Set1" rect="0 0 148 105" margin="135 0 0 0" layout_gravity="left bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="padslot_offskin"/>
+        <groupbox name="L1R1_slot_Set1" parent="Set1" rect="0 0 148 105" margin="270 0 0 0" layout_gravity="left bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="padslot_offskin"/>
+        <groupbox name="R1_slot_Set1" parent="Set1" rect="0 0 148 105" margin="540 0 0 0" layout_gravity="left bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="padslot_offskin"/>
+        <groupbox name="R2_slot_Set1" parent="Set1" rect="0 0 148 105" margin="405 0 0 0" layout_gravity="left bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="padslot_offskin"/>
+        <slot name="slot1" parent="L1_slot_Set1" rect="0 0 40 40" margin="-42 10 0 0" layout_gravity="center center" index="0" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot2" parent="L1_slot_Set1" rect="0 0 40 40" margin="0 27 0 0" layout_gravity="center center" index="1" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot3" parent="L1_slot_Set1" rect="0 0 40 40" margin="0 -15 0 0" layout_gravity="center center" index="2" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot4" parent="L1_slot_Set1" rect="0 0 40 40" margin="42 10 0 0" layout_gravity="center center" index="3" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot5" parent="L2_slot_Set1" rect="0 0 40 40" margin="-42 10 0 0" layout_gravity="center center" index="4" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot6" parent="L2_slot_Set1" rect="0 0 40 40" margin="0 27 0 0" layout_gravity="center center" index="5" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot7" parent="L2_slot_Set1" rect="0 0 40 40" margin="0 -15 0 0" layout_gravity="center center" index="6" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot8" parent="L2_slot_Set1" rect="0 0 40 40" margin="42 10 0 0" layout_gravity="center center" index="7" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot9" parent="L1R1_slot_Set1" rect="0 0 40 40" margin="-42 10 0 0" layout_gravity="center center" index="8" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot10" parent="L1R1_slot_Set1" rect="0 0 40 40" margin="0 27 0 0" layout_gravity="center center" index="9" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot11" parent="L1R1_slot_Set1" rect="0 0 40 40" margin="0 -15 0 0" layout_gravity="center center" index="10" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot12" parent="L1R1_slot_Set1" rect="0 0 40 40" margin="42 10 0 0" layout_gravity="center center" index="11" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot13" parent="R1_slot_Set1" rect="0 0 40 40" margin="-42 10 0 0" layout_gravity="center center" index="12" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot14" parent="R1_slot_Set1" rect="0 0 40 40" margin="0 27 0 0" layout_gravity="center center" index="13" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot15" parent="R1_slot_Set1" rect="0 0 40 40" margin="0 -15 0 0" layout_gravity="center center" index="14" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot16" parent="R1_slot_Set1" rect="0 0 40 40" margin="42 10 0 0" layout_gravity="center center" index="15" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot17" parent="R2_slot_Set1" rect="0 0 40 40" margin="-42 10 0 0" layout_gravity="center center" index="16" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot18" parent="R2_slot_Set1" rect="0 0 40 40" margin="0 27 0 0" layout_gravity="center center" index="17" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot19" parent="R2_slot_Set1" rect="0 0 40 40" margin="0 -15 0 0" layout_gravity="center center" index="18" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <slot name="slot20" parent="R2_slot_Set1" rect="0 0 40 40" margin="42 10 0 0" layout_gravity="center center" index="19" layout_height="40" layout_width="40" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+        <richtext name="L1_Set1" parent="L1_slot_Set1" rect="0 0 120 24" margin="20 10 0 0" layout_gravity="left top" fontname="yellow_16_ol" format="L1"/>
+        <richtext name="L2_Set1" parent="L2_slot_Set1" rect="0 0 120 24" margin="20 10 0 0" layout_gravity="left top" fontname="yellow_16_ol" format="L2"/>
+        <richtext name="L1+R1_Set1" parent="L1R1_slot_Set1" rect="0 0 120 24" margin="9 11 0 0" layout_gravity="left top" fontname="yellow_14_ol" format="L1+R1"/>
+        <richtext name="R2_Set1" parent="R2_slot_Set1" rect="0 0 120 24" margin="20 10 0 0" layout_gravity="left top" fontname="yellow_16_ol" format="R2"/>
+        <richtext name="R1_Set1" parent="R1_slot_Set1" rect="0 0 120 24" margin="20 10 0 0" layout_gravity="left top" fontname="yellow_16_ol" format="R1"/>
+        <timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
+        <timer name="jungtantimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
+        <timer name="jungtandeftimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
+        <timer name="dispeldebufftimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="64" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="7" G="3" B="10" A="10"/>
+	<BlendOn frame="20" R="10" G="5" B="15" A="15"/>
+	<BlendOn frame="40" R="15" G="7" B="20" A="20"/>
+	<BlendOn frame="64" R="60" G="40" B="80" A="60"/>
+	<BlendOn frame="70" R="15" G="5" B="20" A="20"/>
+	<BlendOff frame="80" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0" soundFile="mon_drapeliun_atk"/>
+	<Particle frame="64" attachNode="Dummy_effect_atk" particleName="I_bramble_obj_atk001_mash2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="64" attachNode="Dummy_effect_atk" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="70" attachNode="Dummy_effect_atk" particleName="F_smoke001" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="110" attachNode="Dummy_effect_atk" particleName="F_smoke001" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="110" attachNode="Dummy_effect_atk" particleName="F_smoke033" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Bone_Tail_LD10" particleName="I_force074_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Bone_Tail_RD10" particleName="I_force074_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="60" attachNode="Bone_Tail_LD10" particleName="I_force074_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="60" attachNode="Bone_Tail_RD10" particleName="I_force074_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="70" attachNode="Dummy_bufficon" particleName="F_spread_out027_leaf_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true"/>
+</ActionDesc>

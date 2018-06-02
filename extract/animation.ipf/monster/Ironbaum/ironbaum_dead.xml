@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="m_ironbaum_dead"/>
+	<Sound frame="9.00" soundFile="skl_eff_spread_1"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_ironbaum_dead" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_fire014" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Bip001 Spine2" particleName="F_fire004" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Bone138" particleName="F_fire004" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="12" attachNode="Bip001 L UpperArm" particleName="F_fire004" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="14" attachNode="Bip001 R UpperArm" particleName="F_fire004" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="15" attachNode="Bip001 R Forearm" particleName="F_fire004" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="15" attachNode="Bone137" particleName="F_fire004" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="16" attachNode="Bip001 L Forearm" particleName="F_fire004" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="18" attachNode="Bip001" particleName="F_fire004" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="20" attachNode="Bip001 Head" particleName="F_fire004" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="78" attachNode="Dummy_emitter" particleName="F_explosion006_orange1" useAttach="true" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="78" attachNode="Dummy_emitter" particleName="F_explosion050_fire" useAttach="true" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
+	<Particle frame="79" attachNode="Dummy_emitter" particleName="F_ground102_fire" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="79" attachNode="Dummy_emitter" particleName="I_ironbaum_dead_mash" useAttach="true" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="83" attachNode="Dummy_emitter" particleName="F_fire011" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="125" attachNode="Dummy_emitter" particleName="F_smoke088" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="125" attachNode="Dummy_emitter" particleName="F_smoke033" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="15" R="170" G="120" B="100" A="150"/>
+	<BlendOn frame="40" R="200" G="150" B="130" A="200"/>
+	<BlendOff frame="80" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="79" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="81" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="83" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="85" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="87" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="89" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="91" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="93" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="95" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="97" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

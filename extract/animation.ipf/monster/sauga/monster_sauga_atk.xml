@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="0" soundFile="skl_eff_two_spin_1"/>
+	<Sound frame="2.00" Value="0" soundFile="skl_eff_two_spin_2"/>
+	<Sound frame="12" Value="0" soundFile="mon_mushroom_boy_skl_shot"/>
+	<Particle frame="11" particleName="F_smoke063" attachNode="None" scale="0.3" useAttach="false" pause="true" targetPos="false"/>
+	<HitAni frame="14" damratio="100"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_ninja_cast"/>
+    <Sound frame="2.67" soundFile="skl_eff_lethargy_ground"/>
+    <Particle frame="3" attachNode="Dummy_emitter" particleName="F_smoke109_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_archer_burrow_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_warrior_upperslash_shot_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="13" attachNode="Dummy_emitter" particleName="F_smoke137_white2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="13" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="13.67" soundFile="skl_eff_big_dust_1"/>
+</ActionDesc>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="110" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="115" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="120" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="125" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="130" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="135" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="140" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="145" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_candle001" particleName="F_bg_fire004_1" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_candle002" particleName="F_bg_fire004_1" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_candle003" particleName="F_bg_fire004_1" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_emitter" particleName="E_jackO_born" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="110" attachActor="None" attachNode="Dummy_eye_L" particleName="F_light052_yellow" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="110" attachActor="None" attachNode="Dummy_eye_R" particleName="F_light052_yellow" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="110" attachActor="None" attachNode="Dummy_candle004" particleName="F_fire035" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="110" attachActor="None" attachNode="Dummy_emitter" particleName="F_spread_out008_smoke" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_jackO_lantern_born"/>
+</ActionDesc>
