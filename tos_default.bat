@@ -1,1 +1,1 @@
-export.cmd C:\Nexon\TreeOfSavior
+export.cmd C:\Nexon\TreeOfSavior\data
