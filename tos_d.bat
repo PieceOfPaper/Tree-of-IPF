@@ -1,1 +1,1 @@
-export.cmd D:\TreeOfSavior\data
+export.cmd D:\TreeOfSavior
