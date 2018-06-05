@@ -28,7 +28,7 @@ for /f %%a in (ipflist_data.txt) do (
 	git commit -m "%%a"
 	
 	cd %RootPath%
-	rmdir extract
+	del /s /q extract
 )
 pause
 
@@ -36,6 +36,6 @@ pause
 
 ::====== temp data clear
 cd %RootPath%
-del Temp
-del extract
+del /s /q Temp
+del /s /q extract
 pause
