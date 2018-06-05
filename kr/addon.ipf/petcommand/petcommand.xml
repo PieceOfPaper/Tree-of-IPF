@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="petcommand" width="600" height="600" create="open">
+    <frame title="캐스팅" layout_gravity="left top" margin="500 400 0 0" scale_align="center center"/>
+    <input hittest="true" hittestframe="false"/>
+    <option closebutton="false" hideable="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+    <controls>
+        <groupbox name="bg" rect="0 0 600 600" margin="-26 -3 0 20" layout_gravity="left top" draw="false" hittest="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="tooltip1"/>
+    </controls>
+</uiframe>

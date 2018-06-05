@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="bosslist" x="0" y="0" width="700" height="450" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="pipwin"/>
+    <frame fullheight="true" fasthide="true" layout_gravity="right top" piptype="right"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="70"/>
+    <option closebutton="false"/>
+    <sound opensound="window_open" closesound="window_close"/>
+    <effect open="bosslistOpen" close="bosslistClose"/>
+    <controls>
+        <advlistbox name="AdvBox" rect="20 80 620 900" drawgrid="true" heightperrow="200" maxrowcol="2000 3" scroll="true" widthpercol="200"/>
+        <advlistboxitem name="Type" parent="AdvBox" rect="0 0 10 10" caption="" col="0" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxsetting parent="AdvBox" col="0" colwidth="200" row="0" rowbgcolor="#4a443f" rowheight="30" startrow="1"/>
+    </controls>
+</uiframe>

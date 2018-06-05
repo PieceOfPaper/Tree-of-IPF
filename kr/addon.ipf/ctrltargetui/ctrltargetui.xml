@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="ctrltargetui" x="" y="0" width="150" height="40">
+    <frame fasthide="true" margin="-380 0 0 140" layout_gravity="center bottom" skin="notice_more"/>
+    <layer layerlevel="1"/>
+    <input moveable="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <option visible="false" closebutton="false" autoopen="false" hideable="false" alwaysVisible="false"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <script OpenScp="CTRLTARGETUI_OPEN" CloseScp="CTRLTARGETUI_CLOSE"/>
+    <controls>
+        <groupbox name="gBox" rect="0 2 120 26" margin="0 0 0 0" layout_gravity="left center" draw="true" hittest="false" scrollbar="false" skin="left_gradient" updateparent="true"/>
+        <richtext name="texttext" rect="0 2 350 40" margin="40 0 0 0" layout_gravity="left center" caption="{@st42}{s14}{#ffff00}타겟 고정{/}"/>
+        <picture name="titlepicture" rect="0 0 40 40" margin="0 0 0 0" layout_gravity="left center" image="Ctrl" stretch="true" texttooltip="{@st59}거리나 방향 전환에 관계없이 타겟을 고정합니다"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="sequentialnotice" x="0" y="0" width="200" height="90" create="open">
+    <frame layout_gravity="center bottom" margin="0 0 0 100"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <option hideable="false" closebutton="false"/>
+    <script fadeoutArgStr="pickitem" fadeoutArgNum="6" CloseScp=""/>
+    <input hittest="false"/>
+    <script OpenScp="SEQUENTIALNOTICE_OPEN" CloseScp="SEQUENTIALNOTICE_CLOSE"/>
+    <animation frameOpenAnim="" frameCloseAnim=""/>
+    <userconfig POPUP_DURATION="0.5" PUSHUP_ANIM_NAME="sequentialnotice_pushup"/>
+    <controls>
+        <groupbox name="mainbox" rect="0 0 200 90" margin="0 0 0 0" layout_gravity="center buttom" hittestbox="false" skin="notice_more"/>
+    </controls>
+</uiframe>

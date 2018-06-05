@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="raidassemble_ready" x="0" y="0" width="240" height="170" create="open">
+    <skin frameskin="shadow_box"/>
+    <frame title="{@st43}{s22}게임설정{/}" titlepos="0 -12" margin="0 0 0 150" layout_gravity="center bottom" snapclient="true" snapframe="true"/>
+    <draw drawframe="true" drawtitlebar="false"/>
+    <layer layerlevel="100"/>
+    <input moveable="true"/>
+    <option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <controls>
+        <!--picture name="picture_1" rect="0 0 80 80" hittest="false" image="icon_item_sword_10" stretch="true" margin="0 10 20 0" layout_gravity="right top" texttooltip="{@st59}참가 대기 중" changecursor="false"/-->
+        <richtext name="richtext_1" rect="0 0 220 24" margin="0 90 0 0" layout_gravity="center top" caption="{@sti7}레이드파티 검색중..{/}" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <animpicture name="start_anim" rect="0 0 80 80" margin="0 10 0 0" layout_gravity="center top" LBtnUpScp="BARRACK_TO_GAME" animcount="6" hittest="false" image="None" loop="true" spacex="1" spacey="1" stretch="true" texelheight="100" texelwidth="100" texelx="0" texely="0" ticktime="0.07"/>
+        <button name="button_1" rect="0 0 120 25" margin="0 0 0 20" layout_gravity="center bottom" LBtnUpScp="RAID_EX_CANCEL" caption="{@st41b}참가 취소" clicksound="button_click_3" oversound="button_over"/>
+    </controls>
+</uiframe>

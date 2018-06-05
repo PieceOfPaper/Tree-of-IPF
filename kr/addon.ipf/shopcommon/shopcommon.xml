@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<uiframe name="shopcommon" x="-550" y="0" width="550" height="609" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="pipwin"/>
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" piptype="left"/>
+    <input moveable="false" maxwidth="1280"/>
+    <layer layerlevel="60" topmostlayer="true"/>
+    <option closebutton="false" autoopen="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <effect open="shopOpen" close="shopClose"/>
+    <script OpenScp="SHOPCOMMON_UI_OPEN" CloseScp="SHOPCOMMON_UI_CLOSE"/>
+    <controls>
+        <picture name="titlepicture" rect="-100 6 44 44" layout_gravity="left top" image="button_inven"/>
+        <groupbox name="shop" rect="30 100 480 712" draw="true" rateheight="true" ratewidth="true" scrollbar="false" skin="bg"/>
+        <button name="close" rect="-15 7 44 44" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;shopcommon&apos;)" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}상점을 닫습니다{/}"/>
+        <button name="pagestart" rect="-100 -230 40 30" layout_gravity="center bottom" LBtnUpArgNum="1" LBtnUpScp="SHOP_PAGE_LEFT" caption="{img white_left_arrow 18 18}{img white_left_arrow 18 18}" clicksound="button_click_close" oversound="button_cursor_over_2" skin="textbutton" textalign="center center" texttooltip="{@st59}처음 페이지{/}"/>
+        <button name="pageleft" rect="-55 -230 40 30" layout_gravity="center bottom" LBtnUpScp="SHOP_PAGE_LEFT" caption="{img white_left_arrow 18 18}" clicksound="button_click_close" oversound="button_cursor_over_2" skin="textbutton" textalign="center center" texttooltip="{@st59}이전 페이지{/}"/>
+        <button name="pageright" rect="55 -230 40 30" layout_gravity="center bottom" LBtnUpScp="SHOP_PAGE_RIGHT" caption="{img white_right_arrow 18 18}" clicksound="button_click_close" oversound="button_cursor_over_2" skin="textbutton" textalign="center center" texttooltip="{@st59}다음 페이지{/}"/>
+        <button name="pageend" rect="100 -230 40 30" layout_gravity="center bottom" LBtnUpArgNum="1" LBtnUpScp="SHOP_PAGE_RIGHT" caption="{img white_right_arrow 18 18}{img white_right_arrow 18 18}" clicksound="button_click_close" oversound="button_cursor_over_2" skin="textbutton" textalign="center center" texttooltip="{@st59}마지막 페이지{/}"/>
+        <button name="slotinit" rect="0 -190 120 30" layout_gravity="center bottom" LBtnUpScp="SHOPCOMMON_ITEM_SLOT_INIT" caption="{@st41}슬롯 비우기{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="textbutton" textalign="center center" texttooltip="{@st59}장바구니를 비웁니다{/}"/>
+        <button name="sell" rect="-30 -35 140 60" layout_gravity="right bottom" LBtnUpScp="SHOPCOMMON_BUTTON_BUYSELL" caption="{@st43}정산{/}" clicksound="button_click_big" oversound="button_over" skin="btn_lv3" textalign="center center" texttooltip="{@st59}거래를 결정합니다{/}"/>
+        <richtext name="title" rect="0 13 100 30" layout_gravity="center top" caption="{@st43}상점{/}" spacey="0"/>
+        <richtext name="desc" rect="-20 8 0 0" layout_gravity="right top" spacey="0"/>
+        <richtext name="pagetxt" rect="0 -233 35 20" layout_gravity="center bottom" caption="{@st41}1 / 2{/}" spacey="0"/>
+        <richtext name="tradePrice" rect="35 -70 64 20" layout_gravity="left bottom" caption="{@st41}거래 정산{/}"/>
+        <richtext name="inven_Zenytext" rect="35 -40 78 20" layout_gravity="left bottom" caption="{@st41}예상 잔액{/}"/>
+        <richtext name="pricetxt" rect="175 -70 220 20" layout_gravity="left bottom" caption="TOTAL_PRICE_AAAAAAAAA" spacey="0"/>
+        <richtext name="finalprice" rect="175 -40 214 20" layout_gravity="left bottom" caption="FINAL_PRICE_AAAAAAAAA" spacey="0"/>
+        <richtext name="buy_itemtext" rect="35 -160 92 20" layout_gravity="left bottom" caption="{@st41}구입 아이템{/}" spacey="0"/>
+        <richtext name="buy_price" rect="175 -160 88 20" layout_gravity="left bottom" caption="{@st41}10,000,000{/}" spacey="0"/>
+        <picture name="buy_Zeny_Img" rect="150 -162 18 18" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>
+        <slotset name="buyitemslot" rect="50 -112 336 42" layout_gravity="left bottom" col="10" dropsound="inven_equip" enableselect="true" image="slot" maxselect="10" oversound="button_cursor_over_3" picksound="icon_pick_up" size="42 42" skin="shopslot" spc="0 -42"/>
+        <picture name="Zeny_Img" rect="150 -74 18 18" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>
+        <picture name="Zeny_Img2" rect="150 -44 18 18" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>
+    </controls>
+</uiframe>

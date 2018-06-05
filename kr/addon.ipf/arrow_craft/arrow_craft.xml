@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jung (IMCGames Co., Ltd) -->
+<uiframe name="arrow_craft" x="0" y="0" width="400" height="170" create="open">
+    <frame title="{@st41}어떤 종류의 화살을 제작하겠습니까?{/}" titlepos="0 0" layout_gravity="center top" snapclient="true" snapframe="true" margin="0 150 0 0"/>
+    <option closebuttonpos="0 40"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <draw drawtitlebar="true"/>
+    <script OpenScp="INIT_ARROW_CRAFT" CloseScp="INIT_ARROW_CRAFT"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+    <layer layerlevel="80"/>
+    <controls>
+        <droplist name="arrowlist" rect="0 0 300 70" margin="0 -30 00 0" layout_gravity="center top" SelectScp="ARROW_TYPE_CHANGE" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="5 0" visibleline="11"/>
+        <slot name="invItem" rect="0 0 60 60" margin="-110 10 0 0" layout_gravity="center top" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up"/>
+        <slot name="targetItem" rect="0 0 60 60" margin="110 10 0 0" layout_gravity="center top" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up"/>
+        <button name="create_arrow_one" rect="0 0 80 30" margin="-100 90 0 0" layout_gravity="center top" LBtnUpScp="CREATE_ARROW_CRAFT_ONE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}한번만{/}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="create_arrow_all" rect="0 0 80 30" margin="0 90 0 0" layout_gravity="center top" LBtnUpScp="CREATE_ARROW_CRAFT_ALL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}모두{/}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="create_arrow_cancel" rect="0 0 80 30" margin="100 90 0 0" layout_gravity="center top" LBtnUpScp="CANCEL_ARROW_CRAFT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}중단{/}" clicksound="button_click_big" oversound="button_over"/>
+        <gauge name="casting" rect="0 0 140 25" margin="10 20 0 0" layout_gravity="center top"/>
+    </controls>
+</uiframe>

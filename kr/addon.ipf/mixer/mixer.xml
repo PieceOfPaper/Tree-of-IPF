@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="mixer" x="-250" y="50" width="230" height="380" create="open">
+    <frame title="{@st44}아이템 조합기{/}" layout_gravity="center top" snapclient="true" snapframe="true"/>
+    <option hideable="true" closebuttonpos="235 5" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <richtext name="name" rect="0 0 160 20" layout_gravity="center top" fixwidth="false" hittest="false" updateparent="true"/>
+        <richtext name="title_lis" rect="0 25 160 20" layout_gravity="center top" caption="{s16}{#FFcc66}{ol}제작할 아이템을 선택하세요{/}{/}"/>
+        <groupbox name="list" rect="0 45 170 40" layout_gravity="center top"/>
+        <richtext name="warn" rect="0 -26 120 24" layout_gravity="center center" caption="{s16}{#FFcc66}{ol}재료 아이템을 슬롯에 드래그 하세요"/>
+        <button name="execute" rect="-100 -15 80 24" layout_gravity="right bottom" LBtnUpScp="EXECUTE_MIX_MSGBOX" caption="{@st42}제작{/}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="cancle" rect="-13 -15 80 24" layout_gravity="right bottom" LBtnUpScp="ui.CloseFrame(&apos;mixer&apos;)" caption="{@st42}취소{/}" clicksound="button_click_big" oversound="button_over"/>
+        <slotset name="slotlist" rect="0 90 220 220" layout_gravity="center center" col="0" dropsound="item_equip" enableselect="true" maxselect="5" movepop="false" picksound="icon_pick_up" row="0" size="42 42" spc="0 0"/>
+    </controls>
+</uiframe>

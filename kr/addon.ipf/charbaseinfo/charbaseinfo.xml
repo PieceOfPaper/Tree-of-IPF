@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="charbaseinfo" x="0" y="0" width="1920" height="400">
+    <frame layout_gravity="center bottom" scale_align="center bottom" keyboardselectframe="false"/>
+    <input maxwidth="1280" moveable="false" hittestframe="false"/>
+    <layer layerlevel="92"/>
+    <option visible="true" hideable="false" closebutton="false" alwaysVisible="true"/>
+    <draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+    <animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
+    <controls>
+        <gauge name="exp" rect="0 0 795 30" margin="0 0 0 -10" layout_gravity="left bottom" inverse="" skin="gauge_exp" usepostooltip="520 -30"/>
+        <gauge name="skillexp" rect="0 0 795 30" margin="0 0 0 -10" layout_gravity="right bottom" inverse="true" skin="gauge_skillexp" usepostooltip="250 -30"/>
+        <picture name="sysmenu" rect="0 0 1920 59" margin="0 0 0 0" layout_gravity="center bottom" hittest="false" image="sysmenu"/>
+        <richtext name="levelexp_text" rect="0 0 120 20" margin="-102 0 0 1" layout_gravity="center bottom" caption="{@sti7}{s14}캐릭터{/}" fixwidth="true" font="white_16_ol" hittest="false" spacey="0" textalign="left center"/>
+        <richtext name="joblevel_text" rect="0 0 100 20" margin="52 0 0 1" layout_gravity="center bottom" caption="{@sti8}{s14}클래스{/}" fixwidth="true" font="white_16_ol" hittest="false" spacey="0" textalign="left center"/>
+        <richtext name="levelexp" rect="0 0 40 20" margin="-25 0 0 1" layout_gravity="center bottom" caption="{@sti9}{s16}Level{/}" fixwidth="true" font="white_16_ol" hittest="false" spacey="0" textalign="right center" textalign1="right center"/>
+        <richtext name="joblevel" rect="0 0 40 20" margin="138 0 0 1" layout_gravity="center bottom" caption="{@sti8}{s16}Class{/}" fixwidth="true" font="white_16_ol" hittest="false" spacey="0" textalign="right center" textalign1="right center"/>
+        <richtext name="levelexppercent" rect="0 0 60 20" margin="0 0 0 -100" layout_gravity="center bottom" caption="{s14}{#FFFFFF}%v{/}" font="GD_digit_font" hittest="false" spacey="0" textalign1="center center"/>
+        <richtext name="skillexppercent" rect="0 0 60 20" margin="0 0 0 -100" layout_gravity="center bottom" caption="{s14}{#FFFFFF}%v{/}" font="GD_digit_font" hittest="false" spacey="0" textalign1="center center"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by LEE (EMBRACE) -->
+<uiframe name="questinfoset" x="-20" y="40" width="220" height="40">
+    <frame title="{s18}{ol}퀘스트 정보" fontname="right top" layout_gravity="right top"/>
+    <option visible="false" closebutton="false" hideable="false"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <draw drawtitlebar="true"/>
+    <layer layerlevel="10"/>
+    <input hittest="false"/>
+    <controls>
+        <richtext name="name" rect="0 5 220 30" layout_gravity="center top" caption="{s18}AAAAAAAAAAAAAAAAAAAAAAAAAAAAA" fixwidth="true" textalign="center center"/>
+        <richtext name="timer" rect="20 37 80 30" layout_gravity="left top" caption="{s16}남은 시간" textalign="left top"/>
+        <picture name="m1time" rect="-113 30 28 38" layout_gravity="right top" caption="10분"/>
+        <picture name="m2time" rect="-83 30 28 38" layout_gravity="right top" caption="분"/>
+        <picture name="s1time" rect="-52 30 28 38" layout_gravity="right top" caption="10초"/>
+        <picture name="s2time" rect="-24 30 28 38" layout_gravity="right top" caption="초"/>
+        <richtext name="addinfo" rect="20 90 200 30" layout_gravity="left top" caption="TESTADDINFO" textalign="left top"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uiframe>

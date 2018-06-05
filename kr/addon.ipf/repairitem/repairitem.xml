@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="repairitem" x="-400" y="0" width="400" height="700" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="pipwin"/>
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" piptype="left"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="50"/>
+    <option closebutton="false"/>
+    <sound opensound="character_item_window_open" closesound="character_item_window_close"/>
+    <effect open="repairitemOpen" close="repairitemClose"/>
+    <script OpenScp="OPEN_REPAIRITEM" CloseScp="CLOSE_REPAIRITEM"/>
+    <controls>
+        <button name="colse" rect="-15 7 44 44" layout_gravity="right top" LBtnUpScp="CLOSE_UI" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}아이템 정비를 닫습니다{/}"/>
+        <picture name="titlepicture" rect="6 6 44 44" layout_gravity="left top" image="button_inven"/>
+        <richtext name="title" rect="0 13 100 30" layout_gravity="center top" caption="{@st43}아이템 정비{/}"/>
+        <richtext name="title_list" rect="0 60 46 20" layout_gravity="center top" caption="{@st41}정비 필요 아이템 목록{/}" hittest="false"/>
+        <advlistbox name="AdvBox" rect="30 90 330 500" LBtnUpScp="SELECT_REPAIRITEM" heightperrow="20" maxrowcol="1000 1" skin="bg" widthpercol="140"/>
+        <advlistboxsetting parent="AdvBox" col="0" colwidth="260" row="0" rowbgcolor="#4a443f" rowheight="20" startrow="0"/>
+    </controls>
+</uiframe>

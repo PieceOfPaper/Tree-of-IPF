@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="helpmsgbox" x="0" y="0" width="480" height="710">
+    <frame title="{@st43}{s22}도움말{/}" titlepos="0 0" margin="300 -80 0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
+    <draw drawtitlebar="true" drawframe="true"/>
+    <layer layerlevel="100"/>
+    <skin frameskin="mainwindow"/>
+    <option autoopen="false" closebuttonpos="0 40"/>
+    <input moveable="true"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <controls>
+        <richtext name="helpName" rect="0 0 340 30" layout_gravity="center top" caption="{@st47_b}{b}도움말 제목{/}"/>
+        <richtext name="simple_explain" rect="0 40 340 30" layout_gravity="center top" caption="{@st42b}심플 도움말내용{/}" fixwidth="true"/>
+		<button name="isDetailBtn" rect="0 0 120 30" margin="0 0 0 40" layout_gravity="center bottom" LBtnUpScp="HELP_MSG_SHOW_DETAIL_POPUP" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}상세 보기 {img red_down_arrow 16 16}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}자세하게 보기{/}"/>
+        <groupbox name="detail_explain" rect="0 0 400 480" margin="0 80 0 0" layout_gravity="center top" draw="true" resizebyparent="false" scrollbar="true" skin="bg" visible="false"/>
+    </controls>
+</uiframe>

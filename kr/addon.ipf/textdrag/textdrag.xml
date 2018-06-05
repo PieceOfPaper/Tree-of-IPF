@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="textdrag" x="0" y="0" width="300" height="85" create="open">
+    <frame title="" layout_gravity="center center" fasthide="true"/>
+    <draw drawtitlebar="false" drawnotitlebar="false" drawframe="true"/>
+    <input hittestframe="false" moveintitlebar="false"/>
+    <option hideable="true" closebutton="false" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <richtext name="title" rect="0 0 250 20" margin="0 0 0 0" caption="개수를 입력하세요." fixwidth="true" hittest="false" resizebytext="false" usetag="true"/>
+    </controls>
+</uiframe>

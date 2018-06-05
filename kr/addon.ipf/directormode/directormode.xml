@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="directormode" x="0" y="0" width="1920" height="1080">
+	<frame title="" stretch="true" fullwidth="true" fullheight="true" aero="false"/>
+	<draw drawframe="false" drawtitlebar="false"/>
+	<script OpenScp="DIRECTORMODE_OPEN"/>
+	<option closebutton="false" hideable="false" autoopen="false"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<layer layerlevel="0"/>
+	<input moveable="false" hittestframe="false"/>
+	<controls>
+		<picture name="screenmask" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="none none" hittest="false" image="directormode" stretch="true"/>
+		<richtext name="caption" rect="0 0 500 100" margin="0 0 0 50" layout_gravity="center bottom" caption=" " textalign="center center"/>
+		<picture name="isntlayer0" rect="0 0 64 64" margin="25 10 0 0" layout_gravity="center top" hittest="false" image="NOTICE_Dm_directormode2" stretch="true"/>
+	</controls>
+</uiframe>

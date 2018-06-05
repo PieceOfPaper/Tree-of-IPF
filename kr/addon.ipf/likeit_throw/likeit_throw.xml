@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="likeit_throw" x="0" y="0" width="100" height="100">
+    <frame title="FPS" layout_gravity="center bottom" margin="0 0 0 0"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <input moveintitlebar="false" hittestframe="false"/>
+    <layer layerlevel="10"/>
+    <option closebutton="false" hideable="false" visible="false" alwaysVisible="false"/>
+    <controls>
+        <picture name="titlepicture" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="left top" image="friend_play" stretch="true" visible="false"/>
+    </controls>
+</uiframe>

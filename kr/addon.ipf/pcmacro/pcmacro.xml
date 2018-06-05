@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="pcmacro" x="0" y="0" width="330" height="440" create="open">
+    <frame title="{s18}{ol}{gr gradation1}헬퍼 규칙{/}" layout_gravity="center center"/>
+    <option closebuttonpos="-7 3" hideable="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <script CloseScp="CLOSE_PC_MACRO"/>
+    <controls>
+        <advlistbox name="AdvBox" rect="20 10 290 106" drawgrid="true" heightperrow="20" maxrowcol="100 2" widthpercol="100"/>
+        <advlistboxitem name="Type" parent="AdvBox" rect="0 0 10 10" caption="" col="0" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxitem name="Name" parent="AdvBox" rect="0 0 10 10" caption="{ol}규칙 적용 조건" col="1" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxsetting parent="AdvBox" col="0" colwidth="30" row="0" rowbgcolor="#111111" rowheight="25" startrow="1"/>
+        <advlistboxsetting parent="AdvBox" col="1" colwidth="260" row="0" rowbgcolor="#111111" rowheight="25" startrow="1"/>
+        <advlistbox name="AdvBox2" rect="20 130 290 106" drawgrid="true" heightperrow="20" maxrowcol="100 2" widthpercol="100"/>
+        <advlistboxitem name="Type" parent="AdvBox2" rect="0 0 10 10" caption="" col="0" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxitem name="Name" parent="AdvBox2" rect="0 0 10 10" caption="{ol}규칙 적용 동작" col="1" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxsetting parent="AdvBox2" col="0" colwidth="30" row="0" rowbgcolor="#111111" rowheight="25" startrow="1"/>
+        <advlistboxsetting parent="AdvBox2" col="1" colwidth="260" row="0" rowbgcolor="#111111" rowheight="25" startrow="1"/>
+        <edit name="input" rect="15 -13 120 27" layout_gravity="left bottom" OffsetForDraw="3 1" fontname="white_16" maxlen="128" texttooltip="규칙의 이름을 입력합니다"/>
+        <scrolltext name="result" rect="0 250 300 140" layout_gravity="center top" hittest="true"/>
+        <button name="register" rect="-98 -15 80 24" layout_gravity="right bottom" LBtnUpScp="REGISTER_MACRO_SET" caption="{gr gradation1}등록{/}" clicksound="button_click_big" oversound="button_over" texttooltip="규칙을 등록합니다"/>
+        <button name="cancel" rect="-13 -15 80 24" layout_gravity="right bottom" LBtnUpScp="CLOSE_UI" caption="{gr gradation1}취소{/}" clicksound="button_click_big" oversound="button_over" texttooltip="작업을 취소합니다"/>
+    </controls>
+</uiframe>

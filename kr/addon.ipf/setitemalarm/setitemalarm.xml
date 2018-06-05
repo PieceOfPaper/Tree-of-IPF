@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="setitemalarm" x="-300" y="50" width="300" height="350" create="open">
+    <frame title="{@st44}세트 아이템 획득!{/}" layout_gravity="center center" snapclient="true" snapframe="true"/>
+    <skin frameskin="setitemalarm"/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <option closebutton="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <richtext name="title" rect="0 50 400 20" layout_gravity="center top" caption="아이템을 선택해주세요" hittest="false"/>
+    </controls>
+</uiframe>

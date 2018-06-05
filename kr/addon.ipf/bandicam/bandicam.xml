@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="bandicam" x="0" y="0" width="150" height="50" create="open">
+    <frame title="FPS" layout_gravity="left top" margin="470 50 0 0"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <input moveintitlebar="false" hittestframe="false"/>
+    <layer layerlevel="10"/>
+    <option closebutton="false" hideable="false" visible="true"/>
+    <controls>
+        <richtext name="bandi" rect="0 0 300 40" layout_gravity="left top" format="{ol}{#00FF00}{s18}%s" hittest="true" param1="bandi"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uiframe>

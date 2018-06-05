@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="oblation_sell" x="0" y="0" width="470" height="609" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin=" "/>
+    <frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="100"/>
+    <option closebutton="false"/>
+    <sound opensound="window_open" closesound="window_close"/>
+    <script OpenScp="OBLATION_SELL_OPEN" CloseScp="OBLATION_SELL_CLOSE"/>
+    <controls>
+        <groupbox name="gbox_bg" rect="0 0 472 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyresolution="false" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="gbox" rect="0 0 472 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="gbox_slotset" parent="gbox" rect="0 0 455 610" margin="0 70 0 0" layout_gravity="left top" hittestbox="false" scrollbar="true" skin="none"/>
+		<groupbox name="pipwin_top" rect="0 0 470 88" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_cleric"/>
+        <richtext name="richtext_1" rect="0 0 120 24" margin="0 13 0 0" layout_gravity="center top" caption="{@st43}봉헌함" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="richtext_1_1" parent="gbox_open" rect="0 0 120 24" margin="20 -22 0 0" layout_gravity="left top" caption="{@st41}봉헌함 이름" drawbackground="false" fixwidth="false" fontname="white_18_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <button name="regbtn" parent="gbox" rect="0 0 160 60" margin="-2 0 0 29" layout_gravity="center bottom" LBtnUpScp="OBLATION_SELL_EXEC" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_skill_up_OK" format="{@st41b}%s" oversound="button_over" param1="value" param1_def="봉헌하기" skin="test_red_button"/>
+        <button name="close" rect="0 0 44 44" margin="0 10 10 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}매입의뢰상점을 닫습니다{/}"/>
+        <richtext name="richtext_2_1" parent="gbox" rect="0 0 141 26" margin="40 770 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="value" param1_def="거래 정산" resizebytext="true" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+        <richtext name="richtext_2_1_1" parent="gbox" rect="0 0 141 26" margin="40 800 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="value" param1_def="예상 잔액" resizebytext="true" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+        <richtext name="expectsilver" parent="gbox" rect="0 0 261 30" margin="170 770 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="value" param1_def="0" resizebytext="true" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
+        <richtext name="mysilver" parent="gbox" rect="0 0 261 30" margin="170 800 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="value" param1_def="0" resizebytext="true" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
+        <controlset name="ctrlset_box_count" rect="0 0 150 120" margin="28 755 0 0" layout_gravity="left top" hittest="true" type="oblation_count"/>
+        <richtext name="richtext_3" parent="gbox" rect="0 0 236 26" margin="22 27 0 0" layout_gravity="left top" caption="{@st45tw}봉헌함" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <button name="button_1" parent="gbox" rect="0 0 120 45" margin="311 19 18 0" layout_gravity="right top" LBtnUpScp="OBLATION_SELL_CLEAR" skin="test_pvp_btn" caption="{@st66b}비우기"/>
+        <slotset name="slotset" parent="gbox_slotset" rect="0 0 420 610" margin="20 3 0 0" layout_gravity="left top" RBtnDownScp="OBLATION_SELL_SLOT_RBTN" col="0" cursoronresize="true" dropsound="icon_get_down" enableselect="true" hideindrag="true" maxselect="8" movepop="false" picksound="icon_pick_up" row="100" size="57 57" skin="invenslot2" spc="1 1"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="temp_tool" x="0" y="0" width="400" height="70">
+  <frame fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
+  <draw drawframe="true" drawnotitlebar="false" drawtitlebar="false"/>
+  <layer layerlevel="80"/>
+  <skin frameskin=""/>
+  <option closebutton="false"/>
+  <sound opensound="skill_window_open" closesound="skill_window_close"/>
+  <controls>
+    <slot name="slot" rect="0 0 70 70" margin="11 1 0 0" layout_gravity="left top"/>
+    <richtext name="itemname" rect="0 0 292 27" margin="88 9 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="0" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+    <richtext name="count" rect="0 0 292 27" margin="88 37 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="0" param1="value" param1_def="110 Count" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+  </controls>
+</uiframe>
