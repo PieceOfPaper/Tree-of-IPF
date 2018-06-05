@@ -22,6 +22,8 @@ for /f %%a in (ipflist_data.txt) do (
 	.\ipf_unpack.exe %TempPath%\data\%%a decrypt
 	.\ipf_unpack.exe %TempPath%\data\%%a extract xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3
 	
+	cd %ExportPath%
+	if not exist %%a mkdir %%a
 	echo D|xcopy /y "%ExtractPath%\%%a" "%ExportPath%\%%a"
 	
 	cd "%ExportPath%\%%a"
