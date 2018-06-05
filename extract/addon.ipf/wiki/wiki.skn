@@ -1,0 +1,34 @@
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<skinset name="wiki">
+	<skinlist>
+		<skin name="frame" texture="\skin\mainframe_A.tga">
+			<img name="topleft" imgrect="844 296 60 58"/>
+			<img name="topcore" imgrect="905 296 58 58"/>
+			<img name="topright" imgrect="964 296 60 58"/>
+			<img name="bodyleft" imgrect="844 355 60 1"/>
+			<img name="bodycore" imgrect="905 355 58 1"/>
+			<img name="bodyright" imgrect="964 355 60 1"/>
+			<img name="bottomleft" imgrect="844 357 60 59"/>
+			<img name="bottomcore" imgrect="905 357 58 59"/>
+			<img name="bottomright" imgrect="964 357 60 59"/>
+		</skin>
+		<skin name="bg" texture="\skin\mainframe_03.tga">
+			<img name="topleft" imgrect="401 822 60 60"/>
+			<img name="topcore" imgrect="462 822 80 60"/>
+			<img name="topright" imgrect="543 822 60 60"/>
+			<img name="bodyleft" imgrect="401 883 60 80"/>
+			<img name="bodycore" imgrect="462 883 80 80"/>
+			<img name="bodyright" imgrect="543 883 60 80"/>
+			<img name="bottomleft" imgrect="401 964 60 60"/>
+			<img name="bottomcore" imgrect="462 964 80 60"/>
+			<img name="bottomright" imgrect="543 964 60 60"/>
+		</skin>
+	</skinlist>
+	<imagelist>
+		<image name="button_wiki" file="\skin\button.tga" imgrect="334 122 44 44" Caption="wiki"/>
+		<image name="button_wiki_cursoron" file="\skin\button.tga" imgrect="379 122 44 44"/>
+		<image name="button_wiki_clicked" file="\skin\button.tga" imgrect="424 122 44 44"/>
+		<image name="wiki_bg" file="\skin\wiki_bg.tga" imgrect="0 0 420 860"/>
+	</imagelist>
+</skinset>

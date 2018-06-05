@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="worldmap" x="0" y="0" width="1920" height="1080">
+	<frame title="지도" stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
+	<skin frameskin="property_screenbg"/>
+	<draw blend="100" drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="200"/>
+	<option closebutton="false" visible="false" useimageitem="true"/>
+	<input resize="false" minwidth="128" minheight="128" hittestframe="false" hittesttitlebar="false"/>
+	<sound opensound="sys_map_open" closesound="sys_map_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
+	<script OpenScp="OPEN_WORLDMAP"/>
+	<controls>
+		<picture name="pic" rect="0 0 3480 3870" margin="0 0 0 0" layout_gravity="left top" LBtnDownScp="WORLDMAP_LBTNDOWN" MouseWheelScp="WORLDMAP_MOUSEWHEEL" changecursor="false" hittest="true" image="worldmap_bg" stretch="false"/>
+		<button name="close_map" rect="0 0 44 44" margin="0 18 18 0" layout_gravity="right top" LBtnDownScp="" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;worldmap&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" image="testclose_button" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 닫습니다 (M){/}"/>
+		<button name="btn_north" rect="0 0 50 60" margin="0 100 11 0" layout_gravity="right top" LBtnUpScp="WORLDMAP_SHOW_DIRECTION" LBtnUpArgStr="n" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{img red_up_arrow 20 20}{nl}{@st66b}N{/}" skin="test_pvp_btn" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}북쪽 지역을 봅니다{/}"/>
+		<button name="btn_south" rect="0 0 50 60" margin="0 160 11 0" layout_gravity="right top" LBtnUpScp="WORLDMAP_SHOW_DIRECTION" LBtnUpArgStr="s" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}S{nl}{img green_down_arrow 20 20}{/}" skin="test_pvp_btn" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}남쪽 지역을 봅니다{/}"/>
+		<button name="open_map" rect="0 0 120 40" margin="0 18 80 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_AND_OPEN_UI" LBtnUpArgStr="map" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}지역{/}" skin="test_pvp_btn" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 엽니다{/}"/>
+	</controls>
+</uiframe>

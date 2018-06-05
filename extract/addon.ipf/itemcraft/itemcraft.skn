@@ -1,0 +1,42 @@
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<skinset name="journal">
+	<skinlist>
+		<skin name="frame" texture="\skin\mainframe_A.tga">
+			<img name="topleft" imgrect="844 296 60 58"/>
+			<img name="topcore" imgrect="905 296 58 58"/>
+			<img name="topright" imgrect="964 296 60 58"/>
+			<img name="bodyleft" imgrect="844 355 60 1"/>
+			<img name="bodycore" imgrect="905 355 58 1"/>
+			<img name="bodyright" imgrect="964 355 60 1"/>
+			<img name="bottomleft" imgrect="844 357 60 59"/>
+			<img name="bottomcore" imgrect="905 357 58 59"/>
+			<img name="bottomright" imgrect="964 357 60 59"/>
+		</skin>
+		<skin name="bg" texture="\skin\HUD.tga">
+			<img name="topleft" imgrect="0 72 200 100"/>
+			<img name="topcore" imgrect="201 72 100 100"/>
+			<img name="topright" imgrect="302 72 200 100"/>
+			<img name="bodyleft" imgrect="0 273 200 112"/>
+			<img name="bodycore" imgrect="201 273 100 112"/>
+			<img name="bodyright" imgrect="302 273 200 112"/>
+			<img name="bottomleft" imgrect="0 386 200 130"/>
+			<img name="bottomcore" imgrect="201 386 100 130"/>
+			<img name="bottomright" imgrect="302 386 200 130"/>
+		</skin>
+		<skin name="gauge_sta" texture="\skin\mainframe_06.tga">
+			<img name="bgtop" imgrect="955 637 50 1"/>
+			<img name="bgmiddle" imgrect="955 638 50 71"/>
+			<img name="bgbottom" imgrect="955 637 50 1"/>
+			<img name="bartop" imgrect="955 564 50 1"/>
+			<img name="barmiddle" imgrect="955 565 50 71"/>
+			<img name="barbottom" imgrect="955 564 50 1"/>
+		</skin>
+	</skinlist>
+	<imagelist>
+		<image name="button_wiki" file="\skin\button.tga" imgrect="334 122 44 44" Caption="wiki"/>
+		<image name="button_wiki_cursoron" file="\skin\button.tga" imgrect="379 122 44 44"/>
+		<image name="button_wiki_clicked" file="\skin\button.tga" imgrect="424 122 44 44"/>
+		<image name="wiki_bg" file="\skin\wiki_bg.tga" imgrect="0 0 420 860"/>
+	</imagelist>
+</skinset>

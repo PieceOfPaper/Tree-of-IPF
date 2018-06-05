@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="bossresult" x="0" y="0" width="550" height="450" create="open">
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 160 0 0" piptype="left"/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="pipwin"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="70"/>
+    <option closebutton="false"/>
+    <sound opensound="window_open" closesound="window_close"/>
+    <effect open="bossresultOpen" close="bossresultClose"/>
+    <controls>
+        <richtext name="title" rect="0 13 100 30" layout_gravity="center top" caption="{@st43}스코어{/}" fontname="default" spacey="0"/>
+        <button name="close" rect="-15 7 44 44" layout_gravity="right top" LBtnUpScp="CLOSE_UI" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over"/>
+        <richtext name="desc" rect="5 60 250 95" autowiki="true" fixwidth="false" fontname="white_20_ol"/>
+        <groupbox name="statusGbox" rect="35 310 470 745" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="true" skin="bg"/>
+        <picture name="p_port" parent="statusGbox" rect="10 10 100 200" hittest="false" image="Char1_1_F"/>
+        <richtext name="title_damage" parent="statusGbox" rect="120 30 50 20" caption="받은 데미지" fontname="yellow_24_ol" hittest="false" spacey="0"/>
+        <richtext name="Title_technic" parent="statusGbox" rect="120 60 50 20" caption="테크닉 보너스" fontname="yellow_24_ol" hittest="false" spacey="0"/>
+        <richtext name="Title_flee" parent="statusGbox" rect="120 90 50 20" caption="회피 보너스" fontname="yellow_24_ol" hittest="false" spacey="0"/>
+        <richtext name="Title_clear" parent="statusGbox" rect="120 120 50 20" caption="클리어 시간" fontname="yellow_24_ol" hittest="false" spacey="0"/>
+        <richtext name="t_eq" parent="statusGbox" rect="-20 150 50 20" layout_gravity="right top" caption="=" fontname="white_22_ol" hittest="false" spacey="0"/>
+        <richtext name="Title_total" parent="statusGbox" rect="120 180 50 20" caption="총 점수" fontname="yellow_24_ol" hittest="false" spacey="0"/>
+        <richtext name="Title_rank" parent="statusGbox" rect="120 230 50 20" caption="랭크" fontname="yellow_24_ol" hittest="false" spacey="0"/>
+        <richtext name="v_damage" parent="statusGbox" rect="-20 30 50 20" layout_gravity="right top" caption="100 * -10 = 100" fontname="white_22_ol" hittest="false" spacey="0"/>
+        <richtext name="v_technic" parent="statusGbox" rect="-20 60 50 20" layout_gravity="right top" caption="427" fontname="white_22_ol" hittest="false" spacey="0"/>
+        <richtext name="v_flee" parent="statusGbox" rect="-20 90 50 20" layout_gravity="right top" caption="4101" fontname="white_22_ol" hittest="false" spacey="0"/>
+        <richtext name="v_time" parent="statusGbox" rect="-20 120 50 20" layout_gravity="right top" caption="1110" fontname="white_22_ol" hittest="false" spacey="0"/>
+        <richtext name="v_total" parent="statusGbox" rect="-20 180 50 20" layout_gravity="right top" caption="100001" fontname="white_22_ol" hittest="false" spacey="0"/>
+        <richtext name="v_rank" parent="statusGbox" rect="60 230 50 20" layout_gravity="center top" caption="{s99}A" fontname="white_12_ol" hittest="false" spacey="0"/>
+    </controls>
+</uiframe>

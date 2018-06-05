@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="sysmsg" x="0" y="0" width="300" height="280">
+    <frame title="도움말(F1)" layout_gravity="left top" snapclient="true" snapframe="true" margin="80 220 0 0"/>
+    <layer layerlevel="25"/>
+    <option closebutton="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <groupbox name="sysgropubox" rect="10 10 280 240" layout_gravity="left top" draw="false"/>
+        <richtext name="sysmsginfo" parent="sysgropubox" rect="10 10 260 0" caption="내용" fixwidth="true" textalign="true" updateparent="true"/>
+        <button name="closeBtn" rect="-10 -10 70 25" layout_gravity="right bottom" LBtnUpScp="ui.CloseFrame(&apos;sysmsg&apos;)" caption="닫기" clicksound="button_click" oversound="button_over"/>
+        <button name="Location" rect="-90 -10 70 25" layout_gravity="right bottom" LBtnUpScp="ui.OpenFrame(&apos;questlist&apos;)" caption="상세보기" clicksound="button_click" oversound="button_over"/>
+    </controls>
+</uiframe>

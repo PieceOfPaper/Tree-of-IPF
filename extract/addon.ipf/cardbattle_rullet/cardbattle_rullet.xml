@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="cardbattle_rullet" x="0" y="100" width="550" height="360" create="open">
+	<frame title="" layout_gravity="center top" snapclient="true" snapframe="true" margin="0 129 0 0"/>
+	<skin backgroundimage="mixer_back" layout_gravity="left top" rect="0 82 220 220" frameskin="none"/>
+	<option hideable="false" closebutton="true" useimageitem="true"/>
+	<sound opensound="sys_card_battle_roulette_born" closesound="sys_card_battle_roulette_dead"/>
+	<draw drawtitlebar="false"/>
+	<option closebutton="false"/>
+	<animation frameOpenAnim="open_cardbattle_rullet" frameCloseAnim="dialog_end"/>
+	<layer layerlevel="150"/>
+	<userconfig PIN_SOUND="button_zoom_out" RULLET_END_EFT="None" RULLET_END_EFT_SCALE="6.5"/>
+	<controls>
+		<picture name="pic_bg" rect="0 0 440 150" margin="0 148 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="test_card_roulette_ribbon"/>
+		<picture name="pic_rullet" rect="0 0 244 244" margin="0 49 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="test_card_roulette"/>
+		<picture name="pic_pin" rect="0 0 50 70" margin="0 3 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="test_card_roulette_arrow"/>
+		<richtext name="txt_nowcondition" rect="0 0 273 56" margin="0 296 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st50_big}%s{/}" param1="value" param1_def="LongerNameS ADasdasdsad sdsadsadKPOASDKPOASDKOPASDKPASODKOPSADASIODKJSAIDJASIDAS" resizebytext="false" slideshow="false" textalign="center center" updateparent="false"/>
+		<richtext name="score_1" rect="0 0 136 75" margin="1 282 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st55_a}%s%s{/}" maxwidth="0" param1="color" param1_def="{#FF0000}" param2="value" param2_def="1031" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<richtext name="score_2" rect="0 0 136 75" margin="411 282 0 0" layout_gravity="right top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st55_a}%s%s{/}" maxwidth="0" param1="color" param1_def="{#FF0000}" param2="value" param2_def="1031" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+	</controls>
+</uiframe>

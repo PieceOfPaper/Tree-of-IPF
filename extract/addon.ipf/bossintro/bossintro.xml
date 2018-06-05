@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by LEE (EMBRACE) -->
+<uiframe name="bossintro" x="0" y="0" width="600" height="160" create="open">
+    <frame title="알림" margin="0 160 0 0" layout_gravity="center top"/>
+    <option visible="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <layer layerlevel="60"/>
+    <input hittest="false"/>
+    <controls>
+        <picture name="boss_battle" rect="0 0 100 100" layout_gravity="center top" hittest="false" image="NOTICE_Dm_levelup_skill" stretch="true"/>
+        <richtext name="text" rect="0 -30 600 30" layout_gravity="center bottom" fixwidth="true" format="{@st47}%s 등장!!" param1="BossName" resizebytext="false" textalign="center top"/>
+        <richtext name="text2" rect="0 0 600 30" layout_gravity="center bottom" fixwidth="true" format="{@st41}%s" param1="BossIntroMsg" resizebytext="false" textalign="center top"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uiframe>

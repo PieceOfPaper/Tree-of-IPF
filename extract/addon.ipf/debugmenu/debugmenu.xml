@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="debugmenu" x="0" y="-64" width="94" height="130" create="open">
+    <frame title="Debug UI" layout_gravity="right bottom" snapclient="true" snapframe="true"/>
+    <input resize="false" hittestframe="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <option visible="false" hideable="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <button name="JumpTest" rect="-4 -102 86 24" layout_gravity="right bottom" LBtnUpScp="ui.ToggleFrame(&apos;debugjump&apos;)" caption="Property" clicksound="button_click" oversound="button_over"/>
+        <button name="ItemCreate" rect="-4 -78 86 24" layout_gravity="right bottom" LBtnUpScp="ui.ToggleFrame(&apos;createitem&apos;)" caption="Item" clicksound="button_click" oversound="button_over"/>
+        <button name="MonsterCreate" rect="-4 -54 86 24" layout_gravity="right bottom" LBtnUpScp="ui.ToggleFrame(&apos;createmonster&apos;)" caption="Monster" clicksound="button_click" oversound="button_over"/>
+        <button name="CheatList" rect="-4 -30 86 24" layout_gravity="right bottom" LBtnUpScp="ui.ToggleFrame(&apos;cheatlist&apos;)" caption="Cheat" clicksound="button_click" oversound="button_over"/>
+        <button name="MentBtn" rect="-4 -4 86 24" layout_gravity="right bottom" LBtnUpScp="DEBUGMENU_OPENCLOSE" caption="Debug" clicksound="button_click" oversound="button_over"/>
+    </controls>
+</uiframe>

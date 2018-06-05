@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="achieve" x="0" y="0" width="600" height="500" create="open">
+    <frame title="나의 업적" layout_gravity="center center" snapclient="true" snapframe="true"/>
+    <skin backgroundimage="mixer_back" layout_gravity="center center" rect="0 82 220 220"/>
+    <option hideable="true" closebutton="true" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <button name="viewrank" rect="0 0 80 24" margin="0 2 20 0" layout_gravity="right top" LBtnUpScp="ui.ToggleFrame(&apos;halloffame&apos;)" caption="서버 랭킹" clicksound="button_click" oversound="button_over"/>
+        <advlistbox name="AdvBox_0" rect="0 0 280 400" margin="20 40 0 0" layout_gravity="left top" drawgrid="true" heightperrow="40" maxrowcol="100 2" scroll="false" selectgroup="achieve" widthpercol="100"/>
+        <advlistboxitem name="Type" parent="AdvBox_0" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top" caption="" col="0" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxsetting parent="AdvBox_0" layout_gravity="left top" col="0" colwidth="290" row="0" rowbgcolor="#4a443f" rowheight="40" startrow="1"/>
+        <advlistbox name="AdvBox_1" rect="0 0 280 400" margin="300 40 0 0" layout_gravity="left top" drawgrid="true" heightperrow="40" maxrowcol="100 2" scroll="false" selectgroup="achieve" widthpercol="100"/>
+        <advlistboxitem name="Type" parent="AdvBox_1" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top" caption="" col="0" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxsetting parent="AdvBox_1" layout_gravity="left top" col="0" colwidth="290" row="0" rowbgcolor="#4a443f" rowheight="40" startrow="1"/>
+    </controls>
+</uiframe>

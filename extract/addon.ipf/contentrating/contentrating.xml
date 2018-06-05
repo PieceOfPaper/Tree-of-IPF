@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="contentrating" x="0" y="0" width="1920" height="1080" create="open">
+	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="true" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
+	<skin frameskin="property_screenbg"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="100"/>
+	<controls>
+		<picture name="screenmask" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="left top" hittest="false" image="fullgray" stretch="true"/>
+		<picture name="rim_stroke" rect="0 0 1200 600" margin="100 30 0 0" layout_gravity="center center" imagealign="center bottom" hittest="false" image="rim_stroke" stretch="true" frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+		<picture name="npcimage" rect="0 0 700 799" margin="-550 0 0 0" layout_gravity="center bottom" imagealign="center bottom" hittest="false" image="Dlg_port_HENRIKA" frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+		<picture name="game_violent" rect="0 0 100 116" margin="0 20 130 0" layout_gravity="right top" hittest="false" image="game_violent_mark" stretch="true" frameOpenAnim="fade_in" frameCloseAnim="fade_out" serviceNation="KOR"/>
+		<picture name="game_rating" rect="0 0 100 116" margin="0 20 20 0" layout_gravity="right top" hittest="false" image="game_rating_mark" stretch="true" frameOpenAnim="fade_in" frameCloseAnim="fade_out" serviceNation="KOR"/>
+		<richtext name="title" rect="0 0 400 20" margin="100 0 0 0" layout_gravity="center center" textalign="left center" caption="{@st41b}{s56}이 게임은 {#0066FF}'12세 이용가'{#FFFFFF}입니다.{nl}{s40} {nl}장시간의 게임 이용은 건강을 해칠 수 있습니다.{/}"/>
+	</controls>
+</uiframe>

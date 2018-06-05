@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="btreeinfo" x="0" y="0" width="500" height="380" create="open">
+    <frame title="정보" layout_gravity="center center" snapclient="true" snapframe="true"/>
+    <skin backgroundimage="mixer_back" layout_gravity="center center" rect="0 82 220 220"/>
+    <option hideable="false" useimageitem="true" closebutton="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <script OpenScp="OPEN_BTREE"/>
+    <controls>
+        <button name="close" rect="0 0 40 40" margin="0 40 5 0" layout_gravity="right top" LBtnUpScp="CLOSE_BTREEINFO" image="btn_close"/>
+        <groupbox name="gbox" rect="0 0 480 360" margin="10 10 0 0" layout_gravity="left top" draw="false" hittestbox="true" scrollbar="true"/>
+        <button name="button_1" rect="0 0 260 214" margin="114 30 0 205" layout_gravity="left bottom" caption="{@st41}해약" image="btn_up2top" skin="stat_up_btn"/>
+    </controls>
+</uiframe>

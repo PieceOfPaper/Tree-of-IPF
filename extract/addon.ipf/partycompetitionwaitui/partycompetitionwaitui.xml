@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="partycompetitionwaitui" x="0" y="0" width="700" height="100" create="open">
+    <frame layout_gravity="center top" margin="-15 62 19 0"/>
+    <input moveable="false"/>
+    <draw drawtitlebar="false" drawnotitlebar="false"/>
+    <layer layerlevel="30"/>
+    <option closebutton="false" hideable="false"/>
+    <skin frameskin="none"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <controls>
+        <groupbox name="gbox" margin="0 0 0 0" rect="0 0 700 100" hittestbox="false" skin="Item_tooltip_unique" layout_gravity="left top"/>
+        <richtext name="txt" margin="0 0 0 0" rect="0 0 658 82" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center" format="{@sti1c}%s{/}" param1="value" param1_def="tower defence will be stated after 15:49"/>
+    </controls>
+</uiframe>

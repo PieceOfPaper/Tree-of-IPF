@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="map_aos" x="-0" y="0" width="384" height="384" create="open">
+    <frame title="지도" snapclient="true" snapframe="true" layout_gravity="right top"/>
+    <option visible="false" useimageitem="true" hideable="false"/>
+    <layer layerlevel="10"/>
+    <skin frameskin="map_aos_bg" layout_gravity="center center" draw="true" rect="0 0 640 540"/>
+    <draw blend="70" drawtitlebar="false" drawframe="true"/>
+    <input resize="false" minwidth="128" minheight="128" hittestframe="false" hittesttitlebar="false"/>
+    <controls>
+        <picture name="map" rect="30 0 384 384" layout_gravity="right top" hittest="false" image="map_mission_test" stretch="true"/>
+        <picture name="my" rect="64 64 48 48" layout_gravity="left top" hittest="false" image="minimap_leader" stretch="true"/>
+        <timer name="addontimer" rect="0 0 10 10" hideupdate="true"/>
+    </controls>
+</uiframe>

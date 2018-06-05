@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by alexel (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="map" x="0" y="0" width="1920" height="1080" create="open">
+	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
+	<skin frameskin="property_screenbg"/>
+	<draw blend="85" drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="99"/>
+	<option closebutton="false" visible="false" useimageitem="true"/>
+	<opencheck scp="UI_CHECK_PROP" strarg="map" numarg="1"/>
+	<input resize="false" minwidth="128" minheight="128" hittestframe="false" hittesttitlebar="false"/>
+	<sound opensound="sys_map_open" closesound="sys_map_close"/>
+	<script OpenScp="MAP_OPEN" CloseScp="MAP_CLOSE"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="property_screenbg" stretch="true"/>
+		<picture name="map" rect="0 0 1024 1024" layout_gravity="center center" hittest="false" stretch="true"/>
+		<picture name="my" rect="64 64 84 84" layout_gravity="left top" hittest="false" image="minimap_leader" stretch="true"/>
+		<richtext name="title" rect="0 25 200 30" layout_gravity="center top" caption="지역 지도" format="{@st43}%s{/}" param1="mapname"/>
+		<richtext name="monlv" parent="map" rect="0 80 200 30" layout_gravity="center top" caption="Lv" fontname="yellow_24_ol" format="{ds}권장 레벨 : %s" hittest="false" param1="text" spacey="0"/>
+		<richtext name="mapRank" parent="map" rect="0 48 200 30" layout_gravity="center top" caption="" fontname="white_20" hittest="false" spacey="0"/>
+		<richtext name="rate" rect="0 55 200 30" layout_gravity="center top" caption="탐사율 : 50.0%" format="{@st45tw}[탐사율 %s%]{/}" param1="rate"/>
+		<button name="close_map" rect="0 0 44 44" margin="0 18 18 0" layout_gravity="right top" LBtnDownScp="" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;map&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" image="testclose_button" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 닫습니다 (M){/}"/>
+		<button name="open_map" rect="0 0 120 40" margin="0 18 80 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_AND_OPEN_UI" LBtnUpArgStr="worldmap" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}전체 지도{/}" skin="test_pvp_btn" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}전체 지도를 엽니다{/}"/>
+	</controls>
+</uiframe>

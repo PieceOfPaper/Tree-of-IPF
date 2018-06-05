@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by LEE (EMBRACE) -->
+<uiframe name="notice_tutorial" x="0" y="0" width="1920" height="600" create="open">
+	<frame title="조작 튜토리얼" layout_gravity="center top" margin="0 200 0 0" scale_align="center top"/>
+	<option hideable="false" closebutton="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="99"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="launch_open" frameCloseAnim="launch_close"/>
+	<input hittest="false"/>
+	<controls>
+		<richtext name="comment" rect="0 20 1920 100" layout_gravity="center top" fixwidth="true" hittest="false" resizebytext="false" textalign="center top"/>
+		<richtext name="control" rect="0 -30 1920 30" layout_gravity="center bottom" caption="{@st41}조이패드나 마우스 조작을 원할 경우, 시스템 메뉴의 게임 설정에서 선택할 수 있습니다.{/}" fixwidth="true" hittest="false" resizebytext="false" textalign="center center"/>
+		<groupbox name="MoveKey" rect="0 0 400 480" margin="360 60 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg2"/>
+		<groupbox name="AtkKey" rect="0 0 260 480" margin="-560 60 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg2"/>
+		<groupbox name="JumpKey" rect="0 0 260 480" margin="-290 60 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg2"/>
+		<groupbox name="MoveKey2" rect="0 0 400 480" margin="360 60 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg2"/>
+		<groupbox name="SpaceKey" rect="0 0 340 160" margin="0 50 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false"/>
+		<groupbox name="LKey" rect="0 0 340 160" margin="0 50 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false"/>
+		<groupbox name="BackSpace" rect="0 0 340 160" margin="0 50 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false"/>
+		<groupbox name="ExpCard" rect="0 0 340 160" margin="0 50 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false"/>
+		<picture name="img_atk" parent="AtkKey" rect="0 0 200 200" margin="0 65 0 0" layout_gravity="center top" hittest="false" image="tutr_img_atk" stretch="true"/>
+		<picture name="img_jump" parent="JumpKey" rect="0 0 200 200" margin="0 65 0 0" layout_gravity="center top" hittest="false" image="tutr_img_jump" stretch="true"/>
+		<picture name="img_move" parent="MoveKey" rect="0 0 200 200" margin="0 65 0 0" layout_gravity="center top" hittest="false" image="tutr_img_move" stretch="true"/>
+		<picture name="img_move2" parent="MoveKey2" rect="0 0 200 200" margin="0 65 0 0" layout_gravity="center top" hittest="false" image="tutr_img_move2" stretch="true"/>
+		<richtext name="MoveText" parent="MoveKey" rect="0 0 200 50" margin="0 30 0 0" layout_gravity="center top" hittest="false"/>
+		<richtext name="AtkText" parent="AtkKey" rect="0 0 200 50" margin="0 30 0 0" layout_gravity="center top" hittest="false"/>
+		<richtext name="JumpText" parent="JumpKey" rect="0 0 200 50" margin="0 30 0 0" layout_gravity="center top" hittest="false"/>
+		<richtext name="MoveText2" parent="MoveKey2" rect="0 0 100 50" margin="0 30 0 0" layout_gravity="center top" hittest="false"/>
+		<richtext name="MoveText3" parent="MoveKey2" rect="0 0 20 30" margin="-50 300 0 0" layout_gravity="center top" hittest="false"/>
+		<richtext name="MoveText4" parent="MoveKey2" rect="0 0 100 50" margin="70 300 0 0" layout_gravity="center top" hittest="false"/>
+		<richtext name="SpaceText" parent="SpaceKey" rect="0 0 100 50" margin="0 30 0 0" layout_gravity="center top" hittest="false"/>
+		<richtext name="LText" parent="LKey" rect="0 0 100 50" margin="0 0 0 0" layout_gravity="center center" hittest="false"/>
+		<richtext name="BackSpaceText" parent="BackSpace" rect="0 0 100 50" margin="0 0 0 0" layout_gravity="center center" hittest="false"/>
+		<richtext name="ExpCardText" parent="ExpCard" rect="0 0 100 50" margin="0 0 0 0" layout_gravity="center center" hittest="false"/>
+		<picture name="move_l" parent="MoveKey" rect="0 0 60 60" margin="90 280 0 0" layout_gravity="center top" hittest="false" image="arrowkey_left" stretch="true"/>
+		<picture name="move_r" parent="MoveKey" rect="0 0 60 60" margin="30 280 0 0" layout_gravity="center top" hittest="false" image="arrowkey_right" stretch="true"/>
+		<picture name="move_u" parent="MoveKey" rect="0 0 60 60" margin="-30 280 0 0" layout_gravity="center top" hittest="false" image="arrowkey_up" stretch="true"/>
+		<picture name="move_d" parent="MoveKey" rect="0 0 60 60" margin="-90 280 0 0" layout_gravity="center top" hittest="false" image="arrowkey_down" stretch="true"/>
+		<picture name="atk" parent="AtkKey" rect="0 0 60 60" margin="0 280 0 0" layout_gravity="center top" hittest="false" image="Z" stretch="true"/>
+		<picture name="jump" parent="JumpKey" rect="0 0 60 60" margin="0 280 0 0" layout_gravity="center top" hittest="false" image="X" stretch="true"/>
+		<picture name="move_uu" parent="MoveKey2" rect="0 0 60 60" margin="-90 280 0 0" layout_gravity="center top" hittest="false" image="arrowkey_up" stretch="true"/>
+		<picture name="move_rr" parent="MoveKey2" rect="0 0 60 60" margin="-10 280 0 0" layout_gravity="center top" hittest="false" image="arrowkey_right" stretch="true"/>
+		<picture name="space" parent="SpaceKey" rect="0 0 128 64" margin="0 70 0 0" layout_gravity="center top" hittest="false" image="space_big" stretch="true"/>
+		<picture name="l_key" parent="LKey" rect="0 0 80 80" margin="0 45 0 0" layout_gravity="center top" hittest="false" image="L" stretch="true"/>
+		<picture name="backspace" parent="BackSpace" rect="0 0 80 80" margin="0 45 0 0" layout_gravity="center top" hittest="false" image="backSpace" stretch="true"/>
+		<picture name="expcard" parent="ExpCard" rect="0 0 80 80" margin="0 45 0 0" layout_gravity="center top" hittest="false" image="None" stretch="true"/>
+		<richtext name="Move_desc" parent="MoveKey" rect="0 0 320 60" margin="0 360 0 0" layout_gravity="center top" caption="{@st42b}캐릭터가 상하좌우 4방향으로  이동합니다{/}" fixwidth="true" hittest="false"/>
+		<richtext name="Move_desc2" parent="MoveKey" rect="0 0 320 60" margin="0 400 0 0" layout_gravity="center top" caption="{@st42b}전사 계열은 방향을 빠르게 두번 입력하여 질주할 수 있습니다{/}" fixwidth="true" hittest="false"/>
+		<richtext name="Atk_desc" parent="AtkKey" rect="0 0 200 60" margin="0 360 0 0" layout_gravity="center top" caption="{@st42b}캐릭터가 기본 공격을 합니다{/}" fixwidth="true" hittest="false"/>
+		<richtext name="Jump_desc" parent="JumpKey" rect="0 0 200 60" margin="0 360 0 0" layout_gravity="center top" caption="{@st42b}캐릭터가 제자리 또는 이동시 점프를 합니다{/}" fixwidth="true" hittest="false"/>
+		<richtext name="Move2_desc" parent="MoveKey2" rect="0 0 320 60" margin="0 360 0 0" layout_gravity="center top" caption="{@st42b}인접한 방향키 2개를 동시에 입력해 대각선으로 이동합니다{/}" fixwidth="true" hittest="false"/>
+		<timer name="addontimer" rect="0 0 10 10"/>
+	</controls>
+</uiframe>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by L (IMCGames Co., Ltd) -->
+<uiframe name="dragrecipe_dialog" x="250" y="0" width="300" height="260" create="open">
+    <frame title="{@st41}아이템 제조{/}" titlepos="0 -10" fasthide="true" layout_gravity="center center"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="90"/>
+    <draw drawtitlebar="true" drawframe="true"/>
+    <option closebutton="false" hideable="true"/>
+    <sound opensound="item_window_open" closesound="item_window_close"/>
+    <controls>
+        <slot name="item" rect="0 5 60 60" layout_gravity="center top" enabledrop="false" enablepop="false"/>
+        <richtext name="t_itemName" rect="0 75 150 24" layout_gravity="center top" format="{@st45tw2}%s{/}" param1="name" textalign="center center"/>
+        <richtext name="t_cnt" rect="0 -110 100 24" layout_gravity="center top" caption="{@st45tw2}수량 {/}" textalign="right top"/>
+        <numupdown name="cnt" rect="0 105 100 30" layout_gravity="center top" clicksound="button_click_big" fontname="white_20" incrvalue="1" keypad="false" minvalue="1" oversound="button_over"/>
+        <richtext name="title" rect="0 150 100 24" layout_gravity="center top" caption="{@st45tw2}아이템을 만드시겠습니까?"/>
+        <button name="ok" rect="-45 -40 80 30" layout_gravity="center bottom" LBtnUpScp="START_DRAG_RECIPE_TIMER" caption="{@st41}결정{/}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="cancel" rect="45 -40 80 30" layout_gravity="center bottom" LBtnUpScp="CLOSE_UI" caption="{@st41}취소{/}" clicksound="button_click_big" oversound="button_over"/>
+    </controls>
+</uiframe>

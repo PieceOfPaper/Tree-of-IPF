@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="ringcommand" x="0" y="0" width="100" height="400" create="open">
+    <frame title="캐스팅" layout_gravity="right bottom" margin="0 0 0 70" scale_align="center bottom"/>
+    <input hittest="true" hittestframe="false"/>
+    <option closebutton="false" hideable="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+    <controls>
+        <groupbox name="bg" rect="0 0 70 300" margin="0 0 0 20" layout_gravity="center bottom" draw="true" hittest="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="tooltip1"/>
+        <picture name="pet_pic" rect="0 0 70 70" margin="-1 0 0 -2" layout_gravity="center bottom" image="companion_Velhider" mask="minimap_mask" stretch="true"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="worldpvp_ready" x="0" y="0" width="452" height="240" create="open">
+    <frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 0 0 0"/>
+    <option margin="-3 174 0 0" closebutton="false" hideable="false"/>
+    <sound opensound="win_open" closesound="win_close" margin="-3 174 0 0"/>
+    <skin frameskin="false"/>
+    <draw drawtitlebar="false" margin="-3 174 0 0"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-3 174 0 0"/>
+    <layer layerlevel="80" margin="-3 174 0 0"/>
+    <controls>
+        <groupbox name="bg" rect="0 0 450 240" margin="0 0 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false" skin="test_win_pvp"/>
+        <richtext name="richtext_1" rect="0 0 403 45" margin="4 50 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="value" param1_def="게임을 찾았습니다. 잠시 후 게임에 입장합니다." resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
+        <groupbox name="gbox" rect="0 0 360 41" margin="0 128 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false" skin=""/>
+        <button name="reject" rect="0 0 159 55" margin="150 170 0 0" layout_gravity="left top" LBtnUpScp="PVP_READY_REJECT" caption="{@st41}거절" skin="test_gray_button"/>
+        <gauge name="gauge" rect="0 0 373 21" margin="46 100 0 0" layout_gravity="left top" inverse="false" point="100" skin="gauge_barrack_difficult"/>
+    </controls>
+</uiframe>

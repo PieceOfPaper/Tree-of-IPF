@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="castingbar" x="0" y="0" width="400" height="65" create="open">
+    <frame title="캐스팅" layout_gravity="center center" margin="0 200 0 0"/>
+    <input hittest="false"/>
+    <option closebutton="false" hideable="false"/>
+    <draw drawtitlebar="false"/>
+    <controls>
+        <picture name="skill-charge_gauge_L" rect="0 0 45 30" margin="-136 -7 0 0" layout_gravity="center center" hittest="false" image="skill-charge_gauge_L"/>
+        <picture name="skill-charge_gauge_R" rect="0 0 45 30" margin="136 -7 0 0" layout_gravity="center center" hittest="false" image="skill-charge_gauge_R"/>
+        <picture name="skill-name_bg" rect="0 0 290 55" margin="0 0 0 0" layout_gravity="center center" hittest="false" image="skill-name_bg"/>
+        <gauge name="casting" rect="0 0 140 19" margin="0 10 0 0" layout_gravity="center top" text1="{s20}{ol}%r" textalign1="right center" textoffset1="-5 0"/>
+        <gauge name="dynamic_casting" rect="0 0 227 30" margin="0 10 0 0" layout_gravity="center top"/>
+        <animpicture name="animpic" parent="casting" rect="0 0 50 15" margin="0 6 0 0" layout_gravity="left top" animcount="7" blend="50" hittest="false" image="gauge_light3" loop="true" playanim="true" spacex="1" spacey="0" stretch="true" texelheight="15" texelwidth="50" texelx="0" texely="0" ticktime="0.08"/>
+        <animpicture name="dynamic_animpic" parent="dynamic_casting" rect="0 0 50 15" margin="10 6 0 0" layout_gravity="left top" animcount="7" blend="50" hittest="false" image="gauge_light3" loop="true" playanim="true" spacex="1" spacey="0" stretch="true" texelheight="15" texelwidth="50" texelx="0" texely="0" ticktime="0.08"/>
+        <timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
+        <richtext name="skillName" margin="0 10 0 0" rect="0 0 120 24" format="%s" param1="name" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+    </controls>
+</uiframe>

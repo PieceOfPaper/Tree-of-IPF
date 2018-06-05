@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="targetspray" x="-150" y="-150" width="320" height="320" create="open">
+    <frame title="" layout_gravity="center bottom" snapclient="true" snapframe="true"/>
+    <skin frameskin="configskin" backgroundimage="mixer_back" layout_gravity="center center" rect="0 82 220 220"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <layer layerlevel="100"/>
+    <option hideable="true" closebutton="true" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <richtext name="title" rect="80 10 64 64" caption="{@st46}IMC님의 그림" format="{@st46}%s님의 그림" param1="ownername"/>
+        <richtext name="liker" rect="20 40 180 64" caption=""/>
+        <groupbox name="btns" rect="0 60 320 300" draw="false" hittest="false" scrollbar="false" updateparent="true"/>
+        <groupbox name="my_btns" rect="0 160 320 300" draw="false" hittest="false" scrollbar="false" updateparent="true"/>
+        <picture name="btn_1" parent="btns" rect="10 10 40 40" image="key1" stretch="true"/>
+        <richtext name="text_1" parent="btns" rect="80 10 40 40" caption="{@st46}좋아요"/>
+        <picture name="btn_2" parent="btns" rect="10 60 40 40" image="key2" stretch="true"/>
+        <richtext name="text_2" parent="btns" rect="80 60 40 40" caption="{@st46}신고"/>
+        <picture name="btn_3" parent="my_btns" rect="10 10 40 40" image="key3" stretch="true"/>
+        <richtext name="text_3" parent="my_btns" rect="80 10 40 40" caption="{@st46}보존제 사용"/>
+        <picture name="btn_4" parent="my_btns" rect="10 60 40 40" image="key4" stretch="true"/>
+        <richtext name="text_4" parent="my_btns" rect="80 60 40 40" caption="{@st46}그림 제거"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+        <timer name="keychecker" rect="0 0 10 10"/>
+    </controls>
+</uiframe>

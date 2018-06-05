@@ -1,4 +1,8 @@
 
+
+git pull
+
+
 if not exist Temp mkdir Temp
 cd Temp
 if not exist data mkdir data
@@ -7,11 +11,14 @@ cd ..
 
 if not exist %2 mkdir %2
 
+
+
 set TosPath=%1
 set RootPath=%cd%
 set TempPath=%cd%\Temp
 set ExtractPath=%cd%\extract
 set ExportPath=%cd%\%2
+
 
 
 

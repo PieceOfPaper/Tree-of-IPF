@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="pickitem" x="0" y="0" width="500" height="90" create="open">
+    <frame layout_gravity="center center" margin="450 200 0 0"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <option hideable="false" closebutton="false"/>
+    <script fadeoutArgStr="pickitem" fadeoutArgNum="6" CloseScp="END_PICKITEM"/>
+    <input hittest="false"/>
+    <controls>
+		<groupbox name="pickitem" rect="0 0 500 90" layout_gravity="left top" container="true" draw="true" scrollbar="false" skin="shadow_box"/>
+    </controls>
+</uiframe>

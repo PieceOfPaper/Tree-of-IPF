@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="garacursor" x="0" y="0" width="32" height="32" create="open">
+    <frame title="" layout_gravity="center center" fasthide="true"/>
+    <input hittestframe="false"/>
+    <option hideable="false" closebutton="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <controls>
+        <picture name="cursor" rect="0 0 32 32" hittest="false" image="cursor_fighter"/>
+    </controls>
+</uiframe>

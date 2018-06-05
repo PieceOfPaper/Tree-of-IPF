@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="ineedparty" x="0" y="0" width="400" height="30" create="open">
+    <frame margin="373 366 0 0"/>
+    <input maxwidth="1280" moveable="false" hittestframe="false"/>
+	<layer layerlevel="0"/>
+    <option hideable="false" closebutton="false"/>
+    <draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+    <controls>
+        <richtext name="text" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="center top" caption="파티 조건 일치!" drawbackground="false" fixwidth="false" fontname="white_18_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+    </controls>
+</uiframe>

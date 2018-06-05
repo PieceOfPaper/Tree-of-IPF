@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="plantwater" x="-28" y="-18" width="140" height="50" create="open">
+    <frame title="{@st43}게임설정{/}" titlepos="0 -12" layout_gravity="left top" snapclient="true" snapframe="true" margin="600 600 0 0" fasthide="true"/>
+    <draw drawframe="false" drawtitlebar="false"/>
+    <layer layerlevel="100"/>
+    <input moveable="true"/>
+    <option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <gauge name="watergauge" rect="0 0 75 40" margin="49 5 0 0" layout_gravity="left top" inverse="false" point="50" skin="pcinfo_gauge_sp"/>
+        <picture name="pic" margin="0 2 0 0" rect="0 0 45 44" hittest="false" image="icon_item_wateringcan" stretch="true" changecursor="false" layout_gravity="left top"/>
+    </controls>
+</uiframe>

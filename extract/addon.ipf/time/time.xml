@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="time" x="0" y="0" width="310" height="230">
+    <userconfig AMPM_TEXT_FONT="{s18}{ol}" TIME_TEXT_FONT="{s30}{ol}"/>
+    <frame title="FPS" layout_gravity="right top" margin="0 70 -100 0"/>
+    <draw blend="80" drawtitlebar="false" drawframe="false"/>
+    <input moveintitlebar="false" hittestframe="false"/>
+    <layer layerlevel="21"/>
+    <option closebutton="false" hideable="false" visible="true" alwaysVisible="true"/>
+    <controls>
+        <richtext name="timeText" rect="0 0 80 30" margin="100 5 0 0" layout_gravity="left top" fixheight="true" fixwidth="false" format="{s22}{ol}%s:%s{/}" hittest="false" param1="hour" param1_def="22" param2="minute" param2_def="22" resizebytext="false" textalign="left center"/>
+        <richtext name="ampmText" rect="0 0 50 25" margin="48 5 0 0" layout_gravity="left top" fixheight="true" fixwidth="false" format="{s18}{ol}%s{/}" hittest="false" param1="ampm" param1_def="am" resizebytext="false" textalign="right center"/>
+    </controls>
+</uiframe>
