@@ -22,14 +22,14 @@ for /f %%a in (ipflist_data.txt) do (
 	.\ipf_unpack.exe %TempPath%\data\%%a decrypt
 	.\ipf_unpack.exe %TempPath%\data\%%a extract xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3
 	
-	cd %ExportPath%
-	if not exist %%a mkdir %%a
-	xcopy /y "%ExtractPath%\%%a" "%ExportPath%\%%a"
+	xcopy /y %ExtractPath% %ExportPath%
 	
-	cd "%ExportPath%\%%a"
+	cd "%ExportPath%"
 	
 	git add --all
 	git commit -m "%%a"
+	
+	rmdir extract
 )
 cd %RootPath%
 pause
