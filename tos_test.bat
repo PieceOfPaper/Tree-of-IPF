@@ -1,1 +1,0 @@
-export.cmd .\test_ipf
