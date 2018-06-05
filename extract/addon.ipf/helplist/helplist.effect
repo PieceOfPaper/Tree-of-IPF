@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<UIEffectList>
+	<event name="helplist_listOpen">
+		<Layer name="MoveAnimation" type="Object">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>
+			<Moving>
+				<Property destpos="0 0" destmovetime="0.5" pausetime="0.0" movesound="UI_card_move"/>
+				<Keyframe>
+				</Keyframe>
+			</Moving>
+		</Layer>
+	</event>
+	<event name="helplist_listClose">
+		<Layer name="MoveAnimation" type="Object">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>
+			<Moving>
+				<Property destpos="-450 0" destmovetime="0.5" pausetime="0.0" movesound="UI_card_move"/>
+				<Keyframe>
+				</Keyframe>
+			</Moving>
+		</Layer>
+	</event>
+</UIEffectList>

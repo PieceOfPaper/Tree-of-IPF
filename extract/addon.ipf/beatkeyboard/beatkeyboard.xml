@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by L (IMCGames Co., Ltd) -->
+<uitile name="beatkeyboard" x="0" y="-550" width="400" height="150" bodycolor="#ffff 0" bodyalpha="0" create="open">
+    <frame fasthide="true" layout_gravity="center bottom" piptype="top"/>
+    <input maxwidth="1280" moveable="false" hittestframe="false"/>
+    <layer layerlevel="30"/>
+    <option closebutton="false" hideable="false"/>
+    <sound opensound="item_window_open" closesound="item_window_close"/>
+    <effect open="beatkeyboardOpen" close="beatkeyboardClose"/>
+    <controls>
+        <animpicture name="right" rect="-100 0 100 120" layout_gravity="center center" animcount="2" hittest="false" image="beatkeyboard_left" loop="true" spacex="1" spacey="1" texelheight="120" texelwidth="100" texelx="0" texely="0" ticktime="0.1"/>
+        <animpicture name="left" rect="100 0 100 120" layout_gravity="center center" animcount="2" hittest="false" image="beatkeyboard_right" loop="true" spacex="1" spacey="1" texelheight="120" texelwidth="100" texelx="0" texely="0" ticktime="0.1"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uitile>

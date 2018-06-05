@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="monster" x="50" y="0" width="680" height="740" create="open">
+    <frame title="{@st41}{상세정보}" titlepos="0 -10" fasthide="true" layout_gravity="left center"/>
+    <input maxwidth="1280" moveable="true"/>
+    <layer layerlevel="90"/>
+    <draw drawtitlebar="true" drawframe="true"/>
+    <option closebuttonpos="5 20" hideable="true"/>
+    <sound opensound="item_window_open" closesound="item_window_close"/>
+    <script OpenScp="MONSTER_DETAIL_OPEN"/>
+    <controls>
+        <groupbox name="descbox" rect="45 0 260 250" layout_gravity="left top" draw="false"/>
+        <richtext name="desc" parent="descbox" rect="10 100 240 150" layout_gravity="left top" caption="{s20}{#050505}몬스터 설명 내용 몬스터 설명 내용 몬스터 설명 내용 몬스터 설명 내용" fixwidth="true" hittest="false" textalign="left top"/>
+        <groupbox name="category" rect="-45 0 320 250" layout_gravity="right top" draw="false" skin="bg"/>
+        <tab name="tab1" rect="-45 270 320 30" layout_gravity="right top" LBtnDownScp="STATISTICS_MONSTER_TAB_CHANGE" clicksound="button_click_3" fixwidth="true" itemspc="1" oversound="button_cursor_over_2"/>
+        <tabitem name="totalkilltab" parent="tab1" caption="{@st41} 킬 {/}" width="40"/>
+        <tabitem name="overkilltab" parent="tab1" caption="{@st41} 오버킬 {/}" width="40"/>
+        <tabitem name="nomlkilltab" parent="tab1" caption="{@st41} 일반킬 {/}" width="40"/>
+        <tabitem name="mapkilltab" parent="tab1" caption="{@st41} 지역 {/}" width="40"/>
+        <groupbox name="totalkill" rect="-45 305 320 390" layout_gravity="right top" draw="true" skin="bg"/>
+        <groupbox name="overkill" rect="-45 305 320 390" layout_gravity="right top" draw="true" skin="bg"/>
+        <groupbox name="nomlkill" rect="-45 305 320 390" layout_gravity="right top" draw="true" skin="bg"/>
+        <groupbox name="mapkill" rect="-45 305 320 390" layout_gravity="right top" draw="true" skin="bg"/>
+        <tab name="tab2" rect="45 270 260 30" layout_gravity="left top" LBtnDownScp="STATISTICS_MONSTER_TAB_CHANGE" clicksound="button_click_3" fixwidth="true" itemspc="1" oversound="button_cursor_over_2"/>
+        <tabitem name="itembox" parent="tab2" caption="{@st41} 아이템 {/}" width="40"/>
+        <tabitem name="achievebox" parent="tab2" caption="{@st41} 업적 {/}" width="40"/>
+        <groupbox name="item" rect="45 305 260 390" layout_gravity="left top" draw="true" skin="bg"/>
+        <groupbox name="achieve" rect="45 305 260 390" layout_gravity="left top" draw="true" skin="bg"/>
+    </controls>
+</uiframe>

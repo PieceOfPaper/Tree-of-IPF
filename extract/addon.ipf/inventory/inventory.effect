@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<UIEffectList>
+	<event name="inventoryClose">
+		<Layer name="MoveAnimation" type="Object">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>
+			<Moving>
+				<Property destpos="1920 0" destmovetime="0.5" pausetime="0.0" movesound="UI_card_move"/>
+				<Keyframe>
+				</Keyframe>
+			</Moving>
+		</Layer>
+	</event>
+	<event name="inventoryOpen">
+		<Layer name="MoveAnimation" type="Object">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>
+			<Moving>
+				<Property destpos="1420 0" destmovetime="0.5" pausetime="0.0" movesound="UI_card_move"/>
+				<Keyframe>
+				</Keyframe>
+			</Moving>
+		</Layer>
+	</event>
+</UIEffectList>

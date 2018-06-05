@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="monsterskilluse_normalmon" x="400" y="200" width="300" height="50" create="open">
+	<frame title="" layout_gravity="left center" fasthide="true"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<layer layerlevel="105"/>
+	<skin frameskin="monster_skill_bg"/>
+	<input moveable="false" hittestframe="false" hittest="false"/>
+	<draw drawtitlebar="false" drawnotitlebar="false" blend="90"/>
+	<animation frameOpenAnim="monskl_in" frameCloseAnim="monskl_out"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+		<richtext name="text" rect="0 0 300 30" margin="0 0 0 0 " layout_gravity="center center" drawbackground="false" fixwidth="true" fontname="monskl" format="{@st41monskl}%s{/}" hittest="false" maxwidth="0" param1="value" param1_def="Pyromancer_FirePillar" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+	</controls>
+</uiframe>

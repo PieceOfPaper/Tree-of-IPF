@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="propertyCompare" x="0" y="0" width="400" height="200" create="open">
+    <frame title="비교" layout_gravity="center center" margin="0 -500 0 0" open="bezier" begin="-1 -1"/>
+    <input moveable="false"/>
+    <skin frameskin="textballoon_npc" layout_gravity="center center" rect="0 0 340 200"/>
+    <draw drawtitlebar="false" drawnotitlebar="false"/>
+    <layer topmostlayer="true" layerlevel="100"/>
+    <sound opensound="quest_ui_alarm_1" closesound="win_close"/>
+    <option hideable="false" closebutton="false" autoopen="false"/>
+    <controls>
+        <richtext name="title" rect="0 0 100 30" margin="-150 15 0 0" layout_gravity="center top" caption="{@st43}항목{/}"/>
+        <richtext name="me" rect="0 0 100 30" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}나{/}"/>
+        <richtext name="target" rect="0 0 130 30" margin="130 15 0 0" layout_gravity="center top" caption="{@st43}대상{/}" fixwidth="true" resizebytext="false" textalign="center center"/>
+        <richtext name="level" rect="0 0 100 30" margin="-150 50 0 0" layout_gravity="center top" caption="{@st43}레벨{/}"/>
+        <richtext name="my_level" rect="0 0 100 30" margin="0 50 0 0" layout_gravity="center top" caption="{@st43}0{/}"/>
+        <richtext name="target_level" rect="0 0 130 30" margin="130 50 0 0" layout_gravity="center top" caption="{@st43}0{/}" fixwidth="true" resizebytext="false" textalign="center center"/>
+        <richtext name="money" rect="0 0 100 30" margin="-150 85 0 0" layout_gravity="center top" caption="{@st43}소지금{/}"/>
+        <richtext name="my_money" rect="0 0 100 30" margin="0 85 0 0" layout_gravity="center top" caption="{@st43}0{/}"/>
+        <richtext name="target_money" rect="0 0 130 30" margin="130 85 0 0" layout_gravity="center top" caption="{@st43}0{/}" fixwidth="true" resizebytext="false" textalign="center center"/>
+        <richtext name="grade" rect="0 0 100 30" margin="-150 120 0 0" layout_gravity="center top" caption="{@st43}등급{/}"/>
+        <richtext name="my_grade" rect="0 0 100 30" margin="0 120 0 0" layout_gravity="center top" caption="{@st43}-{/}"/>
+        <richtext name="target_grade" rect="0 0 130 30" margin="130 120 0 0" layout_gravity="center top" caption="{@st43}-{/}" fixwidth="true" resizebytext="false" textalign="center center"/>
+        <richtext name="pvp" rect="0 0 100 30" margin="-150 155 0 0" layout_gravity="center top" caption="{@st43}PvP승률{/}"/>
+        <gauge name="rating" rect="0 0 200 30" margin="180 155 0 0" layout_gravity="left top" hittest="false" text1="%v / %m" textalign1="center top" textfont1="white_12_ol" textoffset1="0 -1"/>
+    </controls>
+</uiframe>

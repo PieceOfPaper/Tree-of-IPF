@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by 박선우 (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="targetbuff" x="0" y="0" width="280" height="130">
+    <frame title="타겟버프창" layout_gravity="center top" margin="25 130 0 0"/>
+    <option visible="true" hideable="false" closebutton="false"/>
+    <input hittestframe="false" moveable="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <controls>
+        <slotset name="buffcountslot" rect="0 0 36 36" col="8" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="32 32" spc="2 2"/>
+        <slotset name="buffslot" rect="0 43 36 36" col="8" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="32 32" spc="2 2"/>
+        <slotset name="debuffslot" rect="0 86 36 36" col="8" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="32 32" spc="2 2"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="dialogballoon" x="0" y="0" width="540" height="90" create="open">
+    <frame title="비교" layout_gravity="center center" margin="0 -250 0 0"/>
+    <input moveable="false"/>
+    <skin frameskin="shadow_box"/>
+    <draw drawtitlebar="false" drawnotitlebar="false"/>
+    <layer topmostlayer="true" layerlevel="100"/>
+    <sound opensound="quest_ui_alarm_1" closesound="win_close"/>
+    <option hideable="false" closebutton="false"/>
+    <controls>
+        <richtext name="text" rect="0 0 120 24" margin="0 0 0" layout_gravity="center center" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st55_a}{s20}%s{/}" maxwidth="0" param1="value" param1_def="AAAA AAAAA AAAA" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+    </controls>
+</uiframe>

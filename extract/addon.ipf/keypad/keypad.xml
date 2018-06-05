@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="keypad" x="0" y="0" width="110" height="140" create="open">
+    <frame title="{@st44}키패드{/}" layout_gravity="left top"/>
+    <skin frameskin="tooltip1"/>
+    <draw drawframe="true" drawtitlebar="false"/>
+    <layer layerlevel="100" topmostlayer="true"/>
+    <input moveable="false" hittest="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <script OpenScp="KEYPAD_OPEN" CloseScp="KEYPAD_CLOSE"/>
+    <controls>
+        <picture name="key7" rect="10 10 30 30" layout_gravity="left top" LBtnUpArgStr="7" LBtnUpScp="KEYPAD_LBTN_UP" hittest="true" image="key7" stretch="true"/>
+        <picture name="key8" rect="40 10 30 30" layout_gravity="left top" LBtnUpArgStr="8" LBtnUpScp="KEYPAD_LBTN_UP" hittest="true" image="key8" stretch="true"/>
+        <picture name="key9" rect="70 10 30 30" layout_gravity="left top" LBtnUpArgStr="9" LBtnUpScp="KEYPAD_LBTN_UP" hittest="true" image="key9" stretch="true"/>
+        <picture name="key4" rect="10 40 30 30" layout_gravity="left top" LBtnUpArgStr="4" LBtnUpScp="KEYPAD_LBTN_UP" hittest="true" image="key4" stretch="true"/>
+        <picture name="key5" rect="40 40 30 30" layout_gravity="left top" LBtnUpArgStr="5" LBtnUpScp="KEYPAD_LBTN_UP" hittest="true" image="key5" stretch="true"/>
+        <picture name="key6" rect="70 40 30 30" layout_gravity="left top" LBtnUpArgStr="6" LBtnUpScp="KEYPAD_LBTN_UP" hittest="true" image="key6" stretch="true"/>
+        <picture name="key1" rect="10 70 30 30" layout_gravity="left top" LBtnUpArgStr="1" LBtnUpScp="KEYPAD_LBTN_UP" hittest="true" image="key1" stretch="true"/>
+        <picture name="key2" rect="40 70 30 30" layout_gravity="left top" LBtnUpArgStr="2" LBtnUpScp="KEYPAD_LBTN_UP" hittest="true" image="key2" stretch="true"/>
+        <picture name="key3" rect="70 70 30 30" layout_gravity="left top" LBtnUpArgStr="3" LBtnUpScp="KEYPAD_LBTN_UP" hittest="true" image="key3" stretch="true"/>
+        <picture name="key0" rect="10 100 30 30" layout_gravity="left top" LBtnUpArgStr="0" LBtnUpScp="KEYPAD_LBTN_UP" hittest="true" image="key0" stretch="true"/>
+        <picture name="backspace" rect="70 100 30 30" layout_gravity="left top" LBtnUpArgNum="-1" LBtnUpScp="KEYPAD_LBTN_UP" hittest="true" image="←" stretch="true"/>
+    </controls>
+</uiframe>

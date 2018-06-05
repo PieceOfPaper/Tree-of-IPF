@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="companionbaseinfo" x="0" y="0" width="400" height="110">
+    <frame title="character" layout_gravity="center center" outside="true" useothercountryframe="false"/>
+    <option visible="false" closebutton="false" hideable="false" useimageitem="true"/>
+    <layer layerlevel="30"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <input hittest="true" hittestframe="false"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+    <controls>
+        <groupbox name="mycompinfo" rect="0 0 400 110" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false"/>
+        <gauge name="HpGauge" parent="mycompinfo" rect="0 0 104 10" margin="0 20 0 0" layout_gravity="center top" hittest="false" skin="pcinfo_gauge_hp2"/>
+        <gauge name="StGauge" parent="mycompinfo" rect="0 0 104 10" margin="0 27 0 0" layout_gravity="center top" hittest="false" skin="pcinfo_gauge_sta2"/>
+        <picture name="pcinfo_bg_L" parent="mycompinfo" rect="0 0 8 19" margin="-56 -26 0 0" layout_gravity="center center" image="pcinfo_bg"/>
+        <picture name="pcinfo_bg_R" parent="mycompinfo" rect="0 0 8 19" margin="56 -26 0 0" layout_gravity="center center" image="pcinfo_bg2"/>
+        <richtext name="myname" parent="mycompinfo" rect="0 0 400 24" margin="0 40 0 0" layout_gravity="center top" caption="None" fixwidth="true" fontname="white_20_ol" hittest="false" sildeshow="false" textalign="center center" updateparent="true"/>
+        <groupbox name="otherscompinfo" rect="0 0 400 110" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false"/>
+        <richtext name="othername" parent="otherscompinfo" rect="0 0 400 24" margin="0 10 0 0" layout_gravity="center top" caption="None" fixwidth="true" fontname="white_20_ol" hittest="false" sildeshow="false" textalign="center center" updateparent="true"/>
+    </controls>
+</uiframe>

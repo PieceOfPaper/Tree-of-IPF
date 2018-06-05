@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="monweakinfo" x="0" y="0" width="120" height="100">
+    <frame title="대상" layout_gravity="center bottom" margin="0 -60 0 0"/>
+    <draw drawframe="false" drawtitlebar="false"/>
+    <input hittest="false" moveable="false"/>
+    <layer layerlevel="5"/>
+    <option hideable="false" closebutton="false"/>
+    <script fadeinScp="None" fadeoutScp="None"/>
+    <controls>
+        <picture name="weak_img" rect="0 0 40 40" margin="0 0 0 0" layout_gravity="center center" hittest="false"/>
+        <richtext name="weak_desc" rect="0 0 120 20" margin="0 40 0 0" layout_gravity="center center" fixwidth="true" fontname="white_16_ol" text_align="center center"/>
+    </controls>
+</uiframe>

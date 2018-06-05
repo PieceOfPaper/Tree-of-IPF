@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="sprayliker" x="200" y="-200" width="200" height="200" create="open">
+    <frame title="" layout_gravity="center bottom" snapclient="true" snapframe="true" fasthide="true"/>
+    <skin frameskin="configskin" backgroundimage="mixer_back" layout_gravity="center center" rect="0 82 220 220"/>
+    <draw drawtitlebar="false"/>
+    <layer layerlevel="100"/>
+    <option hideable="true" closebutton="true" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <richtext name="title" rect="20 10 90 24" caption="{@st49}좋아하는 사람들{/}"/>
+        <scrolltext name="likers" rect="20 30 160 150" caption="{@st49}좋아하는 사람들{/}"/>
+    </controls>
+</uiframe>

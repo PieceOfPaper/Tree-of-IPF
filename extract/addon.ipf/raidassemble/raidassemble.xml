@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="raidassemble" x="0" y="0" width="640" height="160" create="open" layout_gravity="left top">
+    <skin frameskin="mainwindow"/>
+    <frame title="{@st43}{s22}레이드 소집!" titlepos="0 -12" layout_gravity="left top" snapclient="true" snapframe="true" margin="0 20 0 0"/>
+    <draw drawframe="true" drawtitlebar="true"/>
+    <layer layerlevel="100"/>
+    <input moveable="true" hittestframe="false"/>
+    <option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+    <sound opensound="sys_raid_alarm" closesound="win_close"/>
+    <controls>
+        <richtext name="msgtext" rect="0 0 550 56" margin="50 10 0 0" layout_gravity="left top" caption="{@st41b}도시 외곽 성곽에 몬스터들이 몰려들고 있습니다. 당신만이 문제를 해결할 수 있습니다." drawbackground="false" fixwidth="true" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <gauge name="gauge" rect="0 0 550 32" margin="50 80 0 0" layout_gravity="left top" inverse="false" point="0" skin="gauge_exp"/>
+    </controls>
+</uiframe>

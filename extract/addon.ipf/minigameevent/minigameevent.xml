@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by _¤¿_¿_ (IMCGames Co., Ltd) -->
+<uiframe name="minigameevent" x="-40" y="0" width="310" height="210" create="open">
+    <frame title="{s18}{ol}{gr gradation1}얼음 땡 미니게임{/}" layout_gravity="right center" snapclient="true" snapframe="true"/>
+    <draw drawframe="true" drawtitlebar="true"/>
+    <option closebuttonpos="-7 3"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <script CloseScp="CLOSE_MINIGAMEEVENT"/>
+    <controls>
+        <richtext name="gametitle" rect="-20 20 400 20" layout_gravity="right top" caption="{s16}미니게임에 참가하시겠습니까?" fixwidth="true" fontname="white_16_ol"/>
+        <richtext name="people" rect="-20 40 400 20" layout_gravity="right top" caption="{s16}참가 인원 : (0/5)" fixwidth="true" fontname="white_16_ol" format="{s16}참가 인원 : (%s/%s)" param1="CurPlayer" param2="MaxPlayer"/>
+        <richtext name="autostart" rect="-20 100 200 40" layout_gravity="right top" caption="{s16}1초 후 게임이 시작됩니다." fixwidth="true" fontname="white_16_ol" format="{s16}%s초 후 게임이 시작됩니다." param1="remainSec" resizebytext="false" textalign="right center"/>
+        <button name="btn_join" rect="-150 -20 120 24" layout_gravity="right bottom" LBtnUpScp="JOIN_MINIGAME_EVENT" caption="게임 참여" clicksound="button_click_big" oversound="button_over" texttooltip="플레이어들과 게임을 시작합니다."/>
+        <button name="btn_cancel" rect="-20 -20 120 24" layout_gravity="right bottom" LBtnUpScp="CLOSE_UI" caption="닫기" clicksound="button_click_big" oversound="button_over" texttooltip="게임 참여를 하지 않습니다."/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uiframe>

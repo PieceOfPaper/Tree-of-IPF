@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="raid_reward" x="0" y="0" width="540" height="300" create="open">
+    <frame title="{@st41b}NewUI{/}" titlepos="0 -8" margin="0 -300 0 0" layout_gravity="center center"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="notice_bg"/>
+    <option hideable="false" closebutton="false" closebuttonpos="-5 22" useimageitem="true"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <controls>
+        <richtext name="t_sel_reward" rect="0 0 120 24" margin="0 20 0 0" layout_gravity="center top" caption="{@sti7}{s24}레이드 보상 선택{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <richtext name="t_sec" rect="0 0 140 24" margin="0 20 30 0" layout_gravity="right top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st42b}남은 시간 {@st43}%s{@st42b} 초{/}" maxwidth="0" param1="remainSec" param1_def="10" resizebytext="true" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
+        <slot name="slot_1" rect="0 0 120 120" margin="-160 70 0 0" layout_gravity="center top" DropScp="None" LBtnUpArgNum="1" LBtnUpScp="R_REWARD_SEL" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="rh" texttooltip=""/>
+        <slot name="slot_2" rect="0 0 120 120" margin="0 70 0 0" layout_gravity="center top" DropScp="None" LBtnUpArgNum="2" LBtnUpScp="R_REWARD_SEL" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="rh" texttooltip=""/>
+        <slot name="slot_3" rect="0 0 120 120" margin="160 70 0 0" layout_gravity="center top" DropScp="None" LBtnUpArgNum="3" LBtnUpScp="R_REWARD_SEL" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="rh" texttooltip=""/>
+        <picture name="picture_1" rect="0 0 80 80" margin="-160 90 0 0" layout_gravity="center top" LBtnUpArgNum="1" LBtnUpScp="R_REWARD_SEL" changecursor="true" hittest="false" image="icon_item_nothing" stretch="true"/>
+        <picture name="picture_2" rect="0 0 80 80" margin="0 90 0 0" layout_gravity="center top" LBtnUpArgNum="2" LBtnUpScp="R_REWARD_SEL" changecursor="true" hittest="false" image="icon_item_nothing" stretch="true"/>
+        <picture name="picture_3" rect="0 0 80 80" margin="160 90 0 0" layout_gravity="center top" LBtnUpArgNum="3" LBtnUpScp="R_REWARD_SEL" changecursor="true" hittest="false" image="icon_item_nothing" stretch="true"/>
+        <button name="b_add_count" rect="0 0 300 30" margin="0 0 0 30" layout_gravity="center bottom" LBtnUpScp="R_REWARD_ADD_CNT" caption="{@st41b}선택 횟수 늘리기"/>
+        <richtext name="t_able_count" rect="0 0 120 24" margin="0 0 0 65" layout_gravity="center bottom" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@43b}{s22}선택 가능 횟수 : {@st43}%s{/}" maxwidth="0" param1="opValue" param1_def="1" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <slot name="itemslot_1" rect="0 0 80 80" margin="-160 80 0 0" layout_gravity="center top" DropScp="None" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="slot_empty" texttooltip=""/>
+        <slot name="itemslot_2" rect="0 0 80 80" margin="0 80 0 0" layout_gravity="center top" DropScp="None" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="slot_empty" texttooltip=""/>
+        <slot name="itemslot_3" rect="0 0 80 80" margin="160 80 0 0" layout_gravity="center top" DropScp="None" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="slot_empty" texttooltip=""/>
+        <richtext name="itemtext_1" rect="0 0 100 24" margin="-160 160 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42b}%s{/}" maxwidth="0" param1="txt" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
+        <richtext name="itemtext_2" rect="0 0 100 24" margin="0 160 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42b}%s{/}" maxwidth="0" param1="txt" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
+        <richtext name="itemtext_3" rect="0 0 100 24" margin="160 160 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42b}%s{/}" maxwidth="0" param1="txt" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
+    </controls>
+</uiframe>

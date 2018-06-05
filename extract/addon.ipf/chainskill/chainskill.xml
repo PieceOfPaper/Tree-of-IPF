@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by L (IMCGames Co., Ltd) -->
+<uitile name="chainskill" x="-320" y="-180" width="150" height="60" bodycolor="#ffff 0" bodyalpha="0" create="open">
+    <frame fasthide="true" layout_gravity="center bottom"/>
+    <input maxwidth="1280" moveable="false" hittestframe="false"/>
+    <layer layerlevel="10"/>
+    <option closebutton="false"/>
+    <userconfig IconSize="60"/>
+    <controls>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uitile>

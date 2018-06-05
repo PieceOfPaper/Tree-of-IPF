@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="raidassemble_sel" x="0" y="0" width="650" height="1080" create="open" layout_gravity="left bottom">
+    <frame title="" titlepos="0 -12" layout_gravity="left bottom" snapclient="true" snapframe="true" margin="20 0 0 0"/>
+    <skin frameskin="tree"/>
+    <draw drawframe="false" drawtitlebar="false"/>
+    <layer layerlevel="100"/>
+    <input moveable="true" hittestframe="false"/>
+    <option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <controls>
+        <picture name="port" rect="0 0 558 584" margin="10 0 0 0" layout_gravity="left bottom" hittest="false" image="dlg_port_peltasta_master" stretch="true"/>
+        <groupbox name="groupbox_1" rect="0 0 470 170" margin="50 300 0 0" layout_gravity="left top" hittestbox="false" skin="help_window"/>
+        <button name="btn_no" parent="groupbox_1" rect="0 0 380 30" margin="0 60 0 0" layout_gravity="center top" LBtnUpScp="RA_ASSEM_OK" caption="{@st41b}제가 해결해보겠습니다!" clicksound="sys_raid_ok" oversound="button_over"/>
+        <button name="btn_ok" parent="groupbox_1" rect="0 0 380 30" margin="0 100 0 0" layout_gravity="center top" LBtnUpScp="RA_ASSEM_NO" caption="{@st41b}저는 힘들 것 같아요..." clicksound="button_click_big" oversound="button_over"/>
+        <picture name="picture_1" rect="0 0 64 64" margin="127 53 0 0" layout_gravity="left top" hittest="false" image="mainpc_crown" stretch="true"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="quitmask" x="0" y="0" width="240" height="90">
+    <frame title="{@st44}메뉴{/}" layout_gravity="center center" fullwidth="true" fullheight="true"/>
+    <skin image="quit_mask"/>
+    <draw drawtitlebar="false"/>
+    <layer layerlevel="98"/>
+    <input moveable="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls/>
+</uiframe>

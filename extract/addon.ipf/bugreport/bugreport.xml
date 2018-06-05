@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="bugreport" x="0" y="0" width="160" height="40">
+    <frame title="" snapclient="true" snapframe="true" layout_gravity="right top" margin="0 35 359 0"/>
+    <option closebutton="false" useimageitem="true" piptype="right" alwaysVisible="true"/>
+    <input hittestframe="false"/>
+    <layer layerlevel="79"/>
+    <draw blend="90" drawtitlebar="false" drawframe="false"/>
+    <controls>
+      <!--button name="btn" rect="0 0 120 40" margin="0 0 0 0" layout_gravity="right center" LBtnDownScp="REPORT_REPLAY" caption="{@st41b}버그 제보" clicksoud="button_click_2" oversound="button_over" skin="textbutton_nomal_joo" textalign="center center" texttooltip="{@st59}문제가 있는 사항을 알립니다{/}"/-->
+    </controls>
+</uiframe>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="keypress" x="-28" y="-18" width="200" height="120" create="open">
+    <skin/>
+    <frame title="" fasthide="true" titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 240 0 0"/>
+    <draw drawframe="false" drawtitlebar="false"/>
+    <layer layerlevel="100"/>
+    <input moveable="true"/>
+    <option closebutton="false" hideable ="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <script CloseScp="END_KEY_PRESS"/>
+    <controls>
+        <animpicture name="key" rect="0 0 100 120" margin="-2 1 0 0" layout_gravity="center center" animcount="2" hittest="false" image="beatkeyboard" imagechangescp="UPDATE_KEY_PRESS" loop="true" playanim="true" spacex="1" spacey="1" texelheight="120" texelwidth="100" texelx="0" texely="0" ticktime="0.1"/>
+        <richtext name="keytext" rect="0 0 200 40" margin="0 45 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="black_18_b" format="{@st41b}{s28}%s{/}" maxwidth="0" param1="key" param1_def="F7" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+    </controls>
+</uiframe>

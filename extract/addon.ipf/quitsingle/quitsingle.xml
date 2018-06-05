@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="quitsingle" x="0" y="0" width="240" height="210" create="open">
+    <frame title="{@st44}메뉴{/}" layout_gravity="center center"/>
+    <layer layerlevel="100"/>
+    <input moveable="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <button name="endSingle" rect="0 10 150 24" layout_gravity="center top" LBtnUpScp="app.SkipTutorial()" caption="{@st41}튜토리얼 건너뛰기{/}" clicksound="button_click_big" image="button_normal" oversound="button_over"/>
+        <button name="GO_BARRACKMODE" rect="0 45 150 24" layout_gravity="center top" LBtnUpScp="app.GameToBarrack()" caption="{@st41}캐릭터 선택{/}" clicksound="button_click_big" image="button_normal" oversound="button_over"/>
+        <button name="LOG_OUT" rect="0 80 150 24" layout_gravity="center top" LBtnUpScp="app.GameToLogin()" caption="{@st41}로그아웃{/}" clicksound="button_click_big" image="button_normal" oversound="button_over"/>
+        <button name="EXITAPP" rect="0 115 150 24" layout_gravity="center top" LBtnUpScp="app.Quit()" caption="{@st41}게임 종료{/}" clicksound="button_click_big" image="button_normal" oversound="button_over"/>
+        <button name="CloseBtn" rect="0 150 150 24" layout_gravity="center top" LBtnUpScp="ui.CloseFrame(&apos;quit&apos;)" caption="{@st41}돌아가기{/}" clicksound="button_click_big" image="button_normal" oversound="button_over"/>
+    </controls>
+</uiframe>

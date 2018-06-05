@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="skillqueue" x="240" y="70" width="250" height="50" create="open">
+    <frame title="" layout_gravity="center bottom" margin="-330 0 0 260"/>
+    <option visible="true" hideable="false" closebutton="false"/>
+    <input hittestframe="false" moveable="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <controls>
+        <slotset name="slots" rect="0 0 48 48" col="5" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="48 48" skin="slot_inv" spc="4 4"/>
+    </controls>
+</uiframe>

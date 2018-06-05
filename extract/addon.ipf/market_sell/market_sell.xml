@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="market_sell" x="-400" y="0" width="1300" height="1000" create="open">
+	<frame title="{@st43}{s22}판매 등록" titlepos="0 0" layout_gravity="left center" snapclient="true" snapframe="true" scale_align="center top" margin="30 -20 0 0"/>
+	<option closebutton="false"/>
+	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
+	<script OpenScp="MARKET_SELL_OPEN"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<layer layerlevel="99"/>
+	<controls>
+		<groupbox name="market_low" rect="0 0 1300 900" margin="0 95 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="market_low"/>
+		<groupbox name="market_minititle" rect="0 0 1300 96" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="market_minititle"/>
+		<richtext name="t" rect="0 0 100 30" margin="0 33 0 0" layout_gravity="center top" caption="{@st43}{s24}마켓{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<labelline name="labelline" parent="market_low" rect="0 0 1250 2" margin="0 150 0 0 " layout_gravity="center top" skin="None"/>
+		<groupbox name="groupbox" rect="0 0 1220 100" margin="10 145 0 0" layout_gravity="center top" hittestbox="false" skin=""/>
+		<button name="button_1" rect="0 0 200 50" margin="50 110 0 0" layout_gravity="left top" LBtnUpScp="MARKET_BUYMODE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}판매중인 아이템" clicksound="button_click" oversound="button_over" skin="textbutton_nomal_joo"/>
+		<button name="close" rect="0 0 44 44" margin="0 0 0 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;market_sell&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}마켓 창을 닫습니다{/}"/>
+		<slot name="slot_item" parent="groupbox" rect="0 0 80 80" margin="0 15 0 0" layout_gravity="left top" DropScp="DROP_MARKET_SELL_SLOT" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="slotfolder" texttooltip=""/>
+		<richtext name="itemname" parent="groupbox" rect="0 0 300 30" margin="100 20 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="0" param1="name" param1_def="AAAAAAAAAAAAAAAAAAAAAAAA" resizebytext="true" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+		<richtext name="richtext_2" parent="groupbox" rect="0 0 80 26" margin="80 56 0 0" layout_gravity="left top" caption="{@st42b}개수" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
+		<richtext name="richtext_2_1" parent="groupbox" rect="0 0 80 26" margin="390 56 0 0" layout_gravity="left top" caption="{@st42b}가격" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
+		<groupbox name="edit_count_bg" parent="groupbox" rect="0 0 220 38" margin="170 50 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="bg2"/>
+		<groupbox name="edit_price_bg" parent="groupbox" rect="0 0 290 38" margin="480 50 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="bg2"/>
+		<edit name="edit_count" parent="groupbox" rect="0 0 210 30" margin="175 54 0 0" layout_gravity="left top" EnterKeyScp="None" OffsetForDraw="0 -2" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="16" numbermode="true" oversound="button_over" skin="None" textalign="right center" usetag="true"/>
+		<edit name="edit_price" parent="groupbox" rect="0 0 280 30" margin="485 54 0 0" layout_gravity="left top" EnterKeyScp="None" OffsetForDraw="0 -2" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="16" numbermode="true" oversound="button_over" skin="None" textalign="right center" usetag="true"/>
+		<checkbox name="isPrivate" parent="groupbox" rect="0 0 200 24" margin="800 56 0 0" layout_gravity="left top" caption="{@st42b}판매자 비공개{/}" clicksound="button_click_big" oversound="button_over"/>
+		<detaillist name="itemlist" rect="0 0 1220 650" margin="0 245 0 0" layout_gravity="center top" skin=""/>
+		<pagecontroller name="pagecontrol" rect="0 0 1200 30" margin="0 0 0 30" layout_gravity="none bottom" image="{@st42b}{#999999} {@st41}{b}" nextScp="MARKET_SELL_SELECT_NEXT" prevScp="MARKET_SELL_SELECT_PREV" selectScp="MARKET_SELL_SELECT" slot="35 25" space="33 0 0 33" type="richtext">
+			<prev size="60 30" margin="10 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
+			<next size="60 30" margin="0 0 10 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
+		</pagecontroller>
+		<button name="button_1_1" parent="groupbox" rect="0 0 180 50" margin="0 45 0 0" layout_gravity="right top" LBtnUpScp="MARKET_SELL_REGISTER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}등록" clicksound="button_click" oversound="button_over" skin="textbutton_nomal_joo"/>
+		<button name="button_1_2" rect="0 0 200 50" margin="260 110 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}판매 등록" clicksound="button_click" oversound="button_over" skin="textbutton_market_joo"/>
+		<button name="button_1_2_1" rect="0 0 200 50" margin="465 110 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_MODE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}아이템 수령함" clicksound="button_click" oversound="button_over" skin="textbutton_nomal_joo"/>
+	</controls>
+</uiframe>

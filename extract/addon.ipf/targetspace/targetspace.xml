@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="targetspace" x="0" y="0" width="100" height="100">
+    <frame title="대상" layout_gravity="center bottom" margin="0 0 0 0"/>
+    <draw drawframe="false" drawtitlebar="false"/>
+    <input hittest="false" moveable="false"/>
+    <layer layerlevel="5"/>
+    <option hideable="false" closebutton="false"/>
+    <script fadeinScp="None" fadeoutScp="None"/>
+    <controls>
+        <animpicture name="space" rect="0 0 100 100" margin="0 0 0 0" layout_gravity="center bottom" animcount="2" hittest="false" image="space_1" loop="true" spacex="1" spacey="0" stretch="true" texelheight="100" texelwidth="100" texelx="0" texely="0" ticktime="0.50"/>
+    <picture name="mouseLbtn" margin="18 14 0 0" rect="0 0 100 100" hittest="false" image="mouseclick_left" stretch="false" changecursor="false" layout_gravity="center center"/>
+        <picture name="joyBbtn" margin="29 18 0 0" rect="0 0 100 100" hittest="false" image="red_B_btn" stretch="false" changecursor="false" layout_gravity="center center"/>
+    </controls>
+</uiframe>
