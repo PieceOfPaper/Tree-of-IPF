@@ -24,7 +24,7 @@ for /f %%a in (ipflist_data.txt) do (
 	
 	cd %ExportPath%
 	if not exist %%a mkdir %%a
-	echo D|xcopy /y "%ExtractPath%\%%a" "%ExportPath%\%%a"
+	xcopy /y "%ExtractPath%\%%a" "%ExportPath%\%%a"
 	
 	cd "%ExportPath%\%%a"
 	
