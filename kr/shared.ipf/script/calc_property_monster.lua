@@ -969,7 +969,19 @@ end
 
 function SCR_Get_MON_Magic_Res(self)
 	local value = 0;
-	value = value + self.Magic_Res + self.Magic_Def_BM;
+	
+	local magicRes = TryGetProp(self, "Magic_Res")
+	if magicRes == nil then
+		magicRes = 0;
+	end
+
+	local magicDefBM = TryGetProp(self, "Magic_Def_BM")
+	if magicDefBM == nil then
+		magicDefBM = 0;
+	end
+
+	value = value + magicRes + magicDefBM;
+
 	return value;
 end
 
