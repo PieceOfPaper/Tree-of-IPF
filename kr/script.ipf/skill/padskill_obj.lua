@@ -270,7 +270,7 @@ function PAD_TGT_BUFF_HEAL(self, skl, pad, target, tgtRelation, consumeLife, use
 	if IS_PC(target) == false and GetRelation(self, target) ~= "ENEMY" then
         local targetOwner = GetOwner(target);
         local relation = GetRelation(self, targetOwner)
-        if relation == tgtRelation then
+        if IS_APPLY_RELATION(self, targetOwner, tgtRelation) then
             isSummon = 1;
         end
     end

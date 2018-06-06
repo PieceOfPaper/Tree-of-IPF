@@ -1145,10 +1145,10 @@ end
 -- Fluting_Buff
 function SCR_BUFF_ENTER_Fluting_Buff(self, buff, arg1, arg2, over)
     local lv = arg1;
-    local mspdadd = self.MSPD * 0.6;
+    local mspdadd = (self.MSPD - self.MSPD_BM) * 0.6;
     local abilPiedPiper4 = GetAbility(self, "PiedPiper4")
     if abilPiedPiper4 ~= nil and abilPiedPiper4.ActiveState == 1 then
-    	mspdadd = self.MSPD * (0.6 - (abilPiedPiper4.Level * 0.01))
+    	mspdadd = (self.MSPD - self.MSPD_BM) * (0.6 - (abilPiedPiper4.Level * 0.01))
     end
     
     self.MSPD_BM = self.MSPD_BM - mspdadd;
@@ -2857,10 +2857,10 @@ function SCR_BUFF_ENTER_Zhendu_Buff(self, buff, arg1, arg2, over)
         local skillLv = skl.Level;
         PoisonATK = math.floor(40 + (skillLv - 1) * 7) + ((skillLv/4)* ((STR * 0.6) ^ 0.9))
         SetExProp(buff, "PoisonDadak", PATK)
-        
+	
         self.Poison_Atk_BM = self.Poison_Atk_BM + PoisonATK
         SetExProp(self, "add_Zhendu", PoisonATK)
-    end
+end
 end
 
 function SCR_BUFF_LEAVE_Zhendu_Buff(self, buff, arg1, arg2, over)

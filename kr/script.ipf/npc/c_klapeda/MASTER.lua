@@ -814,10 +814,12 @@ end
 
 --EXORCIST
 function SCR_JOB_DIEVDIRBYS2_NPC_NORMAL_5_PRE(pc)
-    local sObj = GetSessionObject(pc, "SSN_NAKMUAY_UNLOCK")
     local _hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20')
     if _hidden_prop <= 133 then
-        return 'YES'
+        local item = GetInvItemCount(pc, "EXORCIST_MSTEP33_ITEM2")
+        if item < 1 then
+            return 'YES'
+        end
     end
     return 'NO'
 end
