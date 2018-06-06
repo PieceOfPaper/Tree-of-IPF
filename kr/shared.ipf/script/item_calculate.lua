@@ -426,7 +426,7 @@ function GET_BASIC_ATK(item)
     end
     
     if slot == "RH" then
-        if classType == 'THSpear' then
+        if classType == 'THSpear' or classType == 'Musket' then
             itemATK = itemATK * 1.3;
         elseif classType == 'Spear' then
             itemATK = itemATK * 1.1;
@@ -2067,3 +2067,62 @@ function SCR_GET_ITEM_GRADE_RATIO(grade, prop)
     
     return value;
 end
+
+
+function SCR_CHECK_ADD_SOCKET(item)
+    --예외처리
+    if item == nil then
+		return false;
+	end
+    -- 미감정
+    local isNeedAppraisal = TryGetProp(item, "NeedAppraisal");
+    
+    if isNeedAppraisal ~= nil and isNeedAppraisal == 1 and ENABLE_APPRAISAL_ITEM_MOVE ~= 1 then        
+        return false;
+    end
+    
+    local isNeedRandomOption = TryGetProp(item, "NeedRandomOption");
+    
+    if isNeedRandomOption ~= nil and isNeedRandomOption == 1 then        
+        return false;
+    end
+    
+	-- 템 타입
+	local itemType = TryGetProp(item, "ItemType");
+	if itemType ~= 'Equip' then    
+		return false;
+	end
+
+	-- 남은 포텐셜
+	local itemPr = TryGetProp(item, "PR");
+	if itemPr == nil or itemPr ~= 0  then    
+		return false;
+	end
+
+	
+	local nowSocketCount= 0;
+    local itemMaxSocket = TryGetProp(item, "MaxSocket");
+    if itemMaxSocket == nil then
+        return false;
+    end
+    
+    for i = 0, itemMaxSocket - 1 do
+		local nowsockettype = item['Socket_' .. i]
+
+		if nowsockettype ~= 0 then
+			nowSocketCount= nowSocketCount+ 1
+		end
+	end
+	-- 남은 맥스 소켓
+	if itemMaxSocket - nowSocketCount <= 0 then
+		return false;
+	end
+	
+	return true;
+end
+
+function GET_SOCKET_ADD_PRICE_BY_TICKET(item)
+    local curSocketCount = GET_SOCKET_CNT(item);
+    return GET_MAKE_SOCKET_PRICE(item.UseLv, item.ItemGrade, curSocketCount) * 3;
+end
+

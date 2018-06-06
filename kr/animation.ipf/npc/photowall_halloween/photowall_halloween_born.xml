@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Particle frame="25" attachNode="Dummy001" particleName="I_bat014" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="false" targetPos="false"/>
-	<Particle frame="0" attachNode="Dummy_eff01" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="false" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_eff01" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_photowall_landing"/>
+    <Sound frame="18.00" soundFile="skl_eff_bat_1"/>
+    <Sound frame="20.00" soundFile="skl_eff_photowall_open"/>
+    <Particle frame="25" attachNode="Dummy001" particleName="I_bat014" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="false" targetPos="false"/>
 </ActionDesc>

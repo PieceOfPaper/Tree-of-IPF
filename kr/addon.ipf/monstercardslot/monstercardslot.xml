@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="monstercardslot" x="0" y="0" width="600" height="345" create="open">
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="monstercardslot" x="0" y="0" width="600" height="715" create="open">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
 	<frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 0 0 0"/>
@@ -11,7 +11,7 @@
 	<option closebutton="false"/>
 	<sound opensound="window_open" closesound="window_close"/>
 	<controls>
-		<groupbox name="bg" rect="0 0 550 344" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_frame_low"/>
+		<groupbox name="bg" rect="0 0 550 380" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_frame_low"/>
 		<groupbox name="pip4" rect="0 0 550 80" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_frame_top"/>
 		<groupbox name="mainGbox" rect="0 0 600 300" margin="0 50 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="true" resizebyresolution="false" scrollbar="false" skin="pipwin_low"/>
 		<groupbox name="ATKcardGbox" parent="mainGbox" rect="0 0 200 120" margin="-155 -70 0 0" layout_gravity="center center" draw="false" hittestbox="false" resizebyparent="true" resizebyresolution="false"/>

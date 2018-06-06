@@ -632,19 +632,13 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     
     local pc = GetMyPCObject();
 
-    if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
-        coolTime = coolTime * 0.8;
-    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-        coolTime = coolTime * 1.2;
-    end
-
     -- data setting
     lvText:SetText(lvFont.."Lv."..tostring(lv));
     spText:SetText(SP_ICON..lvFont.." "..math.floor(sp))
     spText:SetUserValue('SPEND_SP_VALUE', math.floor(sp));
     if coolTime == 0 then
         coolText:SetText(lvFont..ScpArgMsg("{Sec}","Sec", 0))        
-    else        
+    else
         coolText:SetText(lvFont..GET_TIME_TXT_TWO_FIGURES(coolTime))        
     end
     

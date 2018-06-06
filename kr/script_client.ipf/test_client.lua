@@ -25,3 +25,7 @@ function TEST_CLIENT_CHAT_PET_EXP()
     local say = curExp..'/'..totalExp;
     ui.Chat(say);
 end
+
+function SCR_CLIENT_PRINT(...)
+	print(...);
+end

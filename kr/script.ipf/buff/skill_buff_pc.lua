@@ -532,23 +532,12 @@ end
 
 
 function SCR_BUFF_ENTER_BattleOrders_Buff(self, buff, arg1, arg2, over)
-    
-    local mspdadd = 62 - self.MSPD 
-    
-    if IsPVPServer(self) == 1 then
-        mspdadd = math.floor(mspdadd * 0.5)
-    end
-    
-    self.MSPD_BM = self.MSPD_BM + mspdadd;
-    SetExProp(buff, "ADD_MSPD", mspdadd);
 
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 
 end
 
 function SCR_BUFF_LEAVE_BattleOrders_Buff(self, buff, arg1, arg2, over, isLastEnd)
-    local mspdadd = GetExProp(buff, "ADD_MSPD")
-    self.MSPD_BM = self.MSPD_BM - mspdadd
     
 end
 
@@ -613,7 +602,7 @@ function SCR_BUFF_ENTER_Stop_Debuff(self, buff, arg1, arg2, over)
         end
     end
     
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     SetExProp(buff, 'DEFENCED_BM', defencedBM);
     self.MaxDefenced_BM = self.MaxDefenced_BM + defencedBM;
@@ -644,7 +633,7 @@ end
 
 -- Maze_Debuff
 function SCR_BUFF_ENTER_Maze_Debuff(self, buff, arg1, arg2, over)
-    --SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    --SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     SetExProp(self, 'ImmuneBuff', 1);
 end
 
@@ -776,7 +765,7 @@ end
 
 
 function SCR_BUFF_ENTER_Exorcise_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local caster = GetBuffCaster(buff);
     if caster ~= nil then
         local damage = GET_SKL_DAMAGE(caster, self, 'Priest_Exorcise');
@@ -1031,7 +1020,7 @@ function SCR_BUFF_ENTER_Quicken_Buff(self, buff, arg1, arg2, over)
     
     local Name = GetName(caster)
     if self.Name ~= Name then
-        SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+        SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     end
 end
 
@@ -1145,10 +1134,6 @@ end
 function SCR_BUFF_ENTER_Trot_Buff(self, buff, arg1, arg2, over)
     local lv = arg1
     local mspdadd = 5 + arg1 * 1
-    
-    if IsPVPServer(self) == 1 then
-        mspdadd = math.floor(mspdadd * 0.5)
-    end
     
     self.MSPD_BM = self.MSPD_BM + mspdadd
     
@@ -1319,7 +1304,7 @@ end
 
 
 function SCR_BUFF_ENTER_Retrieve_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local defadd = 0;
     
     local pet = GetBuffCaster(buff);
@@ -1449,7 +1434,7 @@ end
 
 
 function SCR_BUFF_ENTER_Hounding_Buff(self, buff, arg1, arg2, over)
-  SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+  SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local owner = GetOwner(self);
     local skl = GetSkill(owner, "Hunter_Hounding");
     SetExProp(self, "Hounding_Count", skl.Level);
@@ -1465,7 +1450,7 @@ end
 
 
 function SCR_BUFF_ENTER_Growling_Buff(self, buff, arg1, arg2, over)
-  SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     RunSimpleAIOnly(self, "companion_growling") 
 end
 
@@ -1483,7 +1468,7 @@ function SCR_BUFF_ENTER_Growling_Return_Debuff(self, buff, arg1, arg2, over)
         SetTendency(self, "None")
     
         MoveEx(self, self.CreateX, self.CreateY, self.CreateZ, 1);
-        SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+        SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     end
 end
 
@@ -1508,7 +1493,7 @@ end
 
 function SCR_BUFF_ENTER_Growling_fear_Debuff(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_fear', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     if IS_PC(self) == false then
         HoldMonScp(self)
@@ -1546,7 +1531,7 @@ end
 
 
 function SCR_BUFF_ENTER_TimeBombArrow_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local caster = GetBuffCaster(buff)
     local skill = GET_MON_SKILL(caster, "Ranger_TimeBombArrow");
     local damage = GET_SKL_DAMAGE(caster, self, "Ranger_TimeBombArrow");
@@ -1611,7 +1596,7 @@ end
 
 
 function SCR_BUFF_ENTER_Singijeon_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local caster = GetBuffCaster(buff)
     local Fletcher7_abil = GetAbility(caster, "Fletcher7")
     
@@ -1861,7 +1846,7 @@ end
 function SCR_BUFF_ENTER_Blind(self, buff, arg1, arg2, over)
 
     --ShowEmoticon(self, 'I_emo_blind', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 
     if self.ClassName ~= 'PC' then
         CancelMonsterSkill(self);
@@ -1905,7 +1890,7 @@ function SCR_BUFF_ENTER_Bodkin_Debuff(self, buff, arg1, arg2, over)
     self.DEF_RATE_BM = self.DEF_RATE_BM - defrate
     SetExProp(buff, "ADD_DEF", defrate);
     
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 
 end
 
@@ -2017,7 +2002,7 @@ function SCR_BUFF_ENTER_Cleric_HolyBaptism_Buff(self, buff, arg1, arg2, over)
 
     local Name = GetName(caster)
     if self.Name ~= Name then
-        SkillTextEffect(ret, self, caster, "SHOW_HOLY_BAPTISM", buff.ClassID, nil, Name);
+        SkillTextEffect(nil, self, caster, "SHOW_HOLY_BAPTISM", buff.ClassID, nil, Name);
     end
 
 end
@@ -2061,7 +2046,7 @@ function SCR_BUFF_ENTER_Cleric_Limitation_Buff(self, buff, arg1, arg2, over)
 
     local Name = GetName(caster)
     if self.Name ~= Name then
-        SkillTextEffect(ret, self, caster, "SHOW_LIMITATION", buff.ClassID, nil, Name);
+        SkillTextEffect(nil, self, caster, "SHOW_LIMITATION", buff.ClassID, nil, Name);
     end
 
 end
@@ -2156,7 +2141,7 @@ end
 
 
 function SCR_BUFF_ENTER_HeadShot_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local caster = GetBuffCaster(buff);
     
@@ -2272,7 +2257,7 @@ end
 --Empowering_Buff
 function SCR_BUFF_ENTER_Empowering_Buff(self, buff, arg1, arg2, over)
 
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "EMPOWERING_LEVEL_TEXT", arg1);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "EMPOWERING_LEVEL_TEXT", arg1);
     if GetObjType(self) ~= OT_PC then
         return;
     end
@@ -2346,7 +2331,7 @@ function SCR_BUFF_ENTER_EnchantFire_Buff(self, buff, arg1, arg2, over)
 
     local Name = GetName(caster)
     if self.Name ~= Name then
-        SkillTextEffect(ret, self, caster, "SHOW_FIRE_DETONATION", buff.ClassID, nil, Name);
+        SkillTextEffect(nil, self, caster, "SHOW_FIRE_DETONATION", buff.ClassID, nil, Name);
     end
 
     SetBuffArgs(buff, lv, casterMATK, 0);
@@ -2589,7 +2574,7 @@ end
 
 -- BroadHead
 function SCR_BUFF_ENTER_BroadHead_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     --ShowEmoticon(self, 'I_emo_infection', 0)
     local caster = GetBuffCaster(buff);
     
@@ -2676,7 +2661,7 @@ end
 
 
 --function SCR_BUFF_ENTER_DeathVerdict_Buff(self, buff, arg1, arg2, over)
---    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+--    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 --    local caster = GetBuffCaster(buff);
 --    if GetObjType(caster) == OT_MONSTERNPC then
 --        SetExProp(buff, "AUTO_DELETE", 1);
@@ -2734,7 +2719,7 @@ end
 --end
 
 function SCR_BUFF_ENTER_DeathVerdict_Buff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local skillLevel = arg1;
     local mspdadd = 0;
@@ -2792,7 +2777,7 @@ function SCR_BUFF_LEAVE_DeathVerdict_Buff(self, buff, arg1, arg2, over, isLastEn
 end
 
 function SCR_BUFF_ENTER_Circling_Buff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 	self.FixedMinSDR_BM = self.FixedMinSDR_BM + 1;
 end
 
@@ -2815,7 +2800,7 @@ end
 -- Archer_BlowGunPoison_Debuff
 function SCR_BUFF_ENTER_Archer_BlowGunPoison_Debuff(self, buff, arg1, arg2, over)
     ShowEmoticon(self, 'I_emo_poison', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local caster = GetBuffCaster(buff);
     
@@ -2863,7 +2848,7 @@ end
 
 
 function SCR_BUFF_ENTER_Zhendu_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local caster = GetExArgObject(GetBuffCaster(buff), "ZHENDU_OWNER");
     local resposadd = 0;
@@ -2939,7 +2924,7 @@ function SCR_BUFF_ENTER_Bewitch_Debuff(self, buff, arg1, arg2, over)
     local debuff = GetBuffByProp(self, 'Keyword', 'Poison')
         
     if debuff ~= nil and debuff.Group1 == "Debuff" then
-        SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+        SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
         RemoveBuff(self, 'Bewitch_Debuff');
         --PlayEffect(self, 'I_sys_caution_UI', 1, 1, 'TOP');
         PlayEffect(self, 'F_archer_wugu3_shot', 0.5, 1, 'BOT');
@@ -2954,7 +2939,7 @@ end
 
 -- Archer_VerminPot_Debuff
 function SCR_BUFF_ENTER_Archer_VerminPot_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local caster = GetBuffCaster(buff);
     if caster == nil then
@@ -3056,7 +3041,7 @@ function SCR_ADD_CASTER_BUFF_REMAINTIME(self, fromBuffName, toBuffName, setReami
 end
 
 function SCR_BUFF_ENTER_DiscernEvil_Buff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local caster = GetBuffCaster(buff);
     if caster == nil then
         caster = buff;
@@ -3131,7 +3116,7 @@ end
 -- Fire
 function SCR_BUFF_ENTER_Fire(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_flame', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 end
 
 function SCR_BUFF_UPDATE_Fire(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -3485,7 +3470,7 @@ end
 
 --Rain_Debuff
 function SCR_BUFF_ENTER_Rain_Debuff(self, buff, arg1, arg2, over)
-  SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+  SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
   local mspdadd = self.MSPD * 0.1
     self.MSPD_BM = self.MSPD_BM - mspdadd
     SetExProp(buff, "ADD_MSPD", mspdadd);
@@ -3845,12 +3830,12 @@ end
 
 
 function SCR_BUFF_ENTER_JincanGu_Debuff(self, buff, arg1, arg2, over)
-SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
-  local caster = GetBuffCaster(buff);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    local caster = GetBuffCaster(buff);
 --  ChangeScale(self, 2, 60)
-  ObjectColorBlend(self, 100, 100, 100, 255, 1, 10)
-  SetExProp(self, 'JINCAN_COUNT', 1);
-  SetExProp(buff, "Wugushi_JincanGu_COUNT", 0)
+    ObjectColorBlend(self, 100, 100, 100, 255, 1, 10)
+    SetExProp(self, 'JINCAN_COUNT', 1);
+    SetExProp(buff, "Wugushi_JincanGu_COUNT", 0)
 end
 
 function SCR_BUFF_UPDATE_JincanGu_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -4092,7 +4077,7 @@ end
 --Warrior_Provoke_Debuff
 function SCR_BUFF_ENTER_SwashBuckling_Debuff(self, buff, arg1, arg2, over)
     
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     ObjectColorBlend(self, 255, 160, 150, 255, 1, 1.5)
 
 end
@@ -4391,7 +4376,7 @@ end
 end
 
 function CAN_REMAINCOOL_TIME_FOR_PASS_BUFF(downList, skl)
-    if skl.ClassName == "Chronomancer_Pass" then
+    if skl.ClassName == "Chronomancer_Pass" or skl.ClassName == "Musketeer_PrimeAndLoad" then
         return "NO"
     end
 
@@ -4846,7 +4831,7 @@ end
 
 -- Sleep_Debuff
 function SCR_BUFF_ENTER_Sleep_Debuff(self, buff, arg1, arg2, over)
-SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     --ShowEmoticon(self, 'I_emo_sleep', 0)
     
     local lv = arg1;
@@ -5292,7 +5277,7 @@ end
 
 
 function SCR_BUFF_ENTER_Lachrymator_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     if self.ClassName ~= 'PC' then
         CancelMonsterSkill(self);
         StopMove(self);
@@ -5342,7 +5327,7 @@ end
 
 -- Lethargy_Debuff
 function SCR_BUFF_ENTER_Lethargy_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local lv = arg1;
     local patkadd = 0
@@ -5421,7 +5406,7 @@ end
 
 -- Slow_Debuff
 function SCR_BUFF_ENTER_Slow_Debuff(self, buff, arg1, arg2, over)
-SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local lv = arg1;
 
     local caster = GetBuffCaster(buff);
@@ -5547,7 +5532,7 @@ end
 
 
 function SCR_BUFF_ENTER_Feint_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local caster = GetBuffCaster(buff);
     if caster ~= nil then
@@ -6152,7 +6137,7 @@ end
 
 -- Hexing_Debuff
 function SCR_BUFF_ENTER_Hexing_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local caster = GetBuffCaster(buff);
     local mdefadd = 0;
@@ -6236,7 +6221,7 @@ function SCR_BUFF_ENTER_SwellLeftArm_Buff(self, buff, arg1, arg2, over)
         patkadd = math.floor(addValue)
         matkadd = math.floor(addValue)
         
-        self.PATK_BM = self.PATK_BM + patkadd;
+        self.PATK_MAIN_BM = self.PATK_MAIN_BM + patkadd;
         self.MATK_BM = self.MATK_BM + matkadd;
     end
     
@@ -6248,7 +6233,7 @@ function SCR_BUFF_LEAVE_SwellLeftArm_Buff(self, buff, arg1, arg2, over)
 
     local patkadd = GetExProp(buff, "ADD_PATK");
     local matkadd = GetExProp(buff, "ADD_MATK");
-    self.PATK_BM = self.PATK_BM - patkadd;
+    self.PATK_MAIN_BM = self.PATK_MAIN_BM - patkadd;
     self.MATK_BM = self.MATK_BM - matkadd;
 
 end
@@ -6317,8 +6302,7 @@ function UPDATE_USER_ADD_PROPERTY(self, buff, arg1)
             addtype = 1;
             Invalidate(self, 'DEF');
         elseif item.AttachType == 'dagger' or item.AttachType == 'Pistol' or item.AttachType == 'Sword' or item.AttachType == 'Cannon' then
-            self.PATK_BM = self.PATK_BM + addValue;
-            self.MATK_BM = self.MATK_BM + addValue;
+            self.PATK_SUB_BM  = self.PATK_SUB_BM  + addValue;
             addtype = 2;
             Invalidate(self, 'MAXPATK');
             Invalidate(self, 'MINPATK');
@@ -6357,8 +6341,7 @@ function UPDATE_USER_MINER_PROPERTY(self, buff)
         Invalidate(self, 'DEF');
 --        Invalidate(self, 'MDEF');
     elseif addtype == 2 then
-        self.PATK_BM = self.PATK_BM - addValue;
-        self.MATK_BM = self.MATK_BM - addValue;
+        self.PATK_SUB_BM  = self.PATK_SUB_BM  - addValue;
         Invalidate(self, 'MAXPATK');
         Invalidate(self, 'MINPATK');
         Invalidate(self, 'MAXMATK');
@@ -6387,7 +6370,19 @@ end
 function SCR_BUFF_UPDATE_SwellRightArm_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
     local item = GetEquipItem(self, 'LH');
     if nil == item then
-        UPDATE_USER_MINER_PROPERTY(self, buff);
+--        UPDATE_USER_MINER_PROPERTY(self, buff);
+        local caster = GetBuffCaster(buff);
+        if caster == nil then
+            return 0;
+        end
+        
+        RemainTime = RemainTime - 1000;
+        if RemainTime <= 0 then
+            return 0;
+        end
+        
+        AddBuff(caster, self, buff.ClassName, arg1, arg2, RemainTime, 1);
+        
         return 1;
     end
 
@@ -6395,9 +6390,21 @@ function SCR_BUFF_UPDATE_SwellRightArm_Buff(self, buff, arg1, arg2, RemainTime, 
     local guid = GetExProp_Str(buff, "ItemGUID");
 
     if nowGuid ~= guid then
-        UPDATE_USER_MINER_PROPERTY(self, buff);
-        -- ?????
-        UPDATE_USER_ADD_PROPERTY(self, buff, arg1);
+--        UPDATE_USER_MINER_PROPERTY(self, buff);
+--        UPDATE_USER_ADD_PROPERTY(self, buff, arg1);
+        local caster = GetBuffCaster(buff);
+        if caster == nil then
+            return 0;
+        end
+        
+        RemainTime = RemainTime - 1000;
+        if RemainTime <= 0 then
+            return 0;
+        end
+        
+        AddBuff(caster, self, buff.ClassName, arg1, arg2, RemainTime, 1);
+        
+        return 1;
     end
     return 1;
 end
@@ -6598,7 +6605,7 @@ end
 -- Freeze
 function SCR_BUFF_ENTER_Freeze(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_freeze', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     LeaveEffect(self, GetBuffRemainTime(buff), 'Freeze',buff.ClassName);
 end
 
@@ -6609,7 +6616,7 @@ end
 -- Cryomancer_Freeze
 function SCR_BUFF_ENTER_Cryomancer_Freeze(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_freeze', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     LeaveEffect(self, GetBuffRemainTime(buff), 'Freeze',buff.ClassName);
     
     local caster = GetBuffCaster(buff);
@@ -6626,7 +6633,7 @@ end
 -- Cryomancer_FrostPillar
 function SCR_BUFF_ENTER_Cryomancer_FrostPillar(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_freeze', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     LeaveEffect(self, GetBuffRemainTime(buff), 'Freeze',buff.ClassName);
     
     local caster = GetBuffCaster(buff);
@@ -6752,7 +6759,7 @@ function SCR_BUFF_ENTER_ReflectShield_Buff(self, buff, arg1, arg2, over)
     SetExProp(buff, "ATTACKED_COUNT", 0);
     
     if self.Name ~= Name then
-        SkillTextEffect(ret, self, caster, "SHOW_ICE_SHIELD", buff.ClassID, nil, Name);
+        SkillTextEffect(nil, self, caster, "SHOW_ICE_SHIELD", buff.ClassID, nil, Name);
     end
 end
 
@@ -6891,7 +6898,7 @@ function HIDE_FROM_GOBLINE(self, attacker)
 end
 
 function SCR_BUFF_ENTER_FluFlu_Buff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local caster = GetBuffCaster(buff);
     if caster == nil then
         caster = buff;
@@ -7579,9 +7586,6 @@ function SCR_BUFF_ENTER_CarveLaima_MSPD_Debuff(self, buff, arg1, arg2, over)
     end
     
     local mspdadd = lv * 1;
-    if IsPVPServer(self) == 1 then
-        mspdadd = mspdadd * 0.5
-    end
     
     self.MSPD_BM = self.MSPD_BM - mspdadd
     SetExProp(buff, "ADD_MSPD", mspdadd);
@@ -7622,7 +7626,7 @@ end
 function SCR_BUFF_ENTER_CarveAustrasKoks_Debuff(self, buff, arg1, arg2, over)
 
     -- ShowEmoticon(self, 'I_emo_silence', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     if IS_PC(self) == false then
         AddBuff(self, self, 'Silence_Debuff', 1, 0, 0);
@@ -7671,7 +7675,7 @@ function SCR_BUFF_ENTER_Cleric_Bless_Buff(self, buff, arg1, arg2, over)
 
     local Name = GetName(caster)
     if self.Name ~= Name then
-        SkillTextEffect(ret, self, caster, "SHOW_BLESS", buff.ClassID, nil, Name);
+        SkillTextEffect(nil, self, caster, "SHOW_BLESS", buff.ClassID, nil, Name);
     end
 
 end
@@ -7767,7 +7771,7 @@ end
 
 -- Zalciai_Debuff
 function SCR_BUFF_ENTER_Zalciai_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     Invalidate(self, "CRTDR");
     
     local addCrtDr = 0;
@@ -7806,7 +7810,7 @@ function SCR_BUFF_ENTER_DeprotectedZone_Debuff(self, buff, arg1, arg2, over)
         return
     end
     
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     Invalidate(self, "DEF");
     
     local defadd = 0;
@@ -7861,7 +7865,7 @@ end
 
 -- Monstrance_Debuff
 function SCR_BUFF_ENTER_Monstrance_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     Invalidate(self, "DEF");
     Invalidate(self, "DR");
     
@@ -8110,10 +8114,6 @@ function SCR_BUFF_ENTER_Haste_Buff(self, buff, arg1, arg2, over)
     local mspdadd = 5 + lv * 1
     local dradd = 0;
     
-    if IsPVPServer(self) == 1 then
-        mspdadd = math.floor(mspdadd * 0.5)
-    end
-    
     self.MSPD_BM = self.MSPD_BM + mspdadd;
     SetExProp(buff, "ADD_MSPD", mspdadd);
     
@@ -8132,7 +8132,7 @@ function SCR_BUFF_ENTER_Haste_Buff(self, buff, arg1, arg2, over)
     
     local Name = GetName(caster)
     if self.Name ~= Name then
-        SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+        SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     end
     
 
@@ -8262,7 +8262,7 @@ end
 
 -- DivineStigma_Debuff
 function SCR_BUFF_ENTER_DivineStigma_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 
     local arg3, arg4, arg5 = GetBuffArgs(buff);
     if arg3 == 0 then
@@ -8690,7 +8690,7 @@ end
 
 
 function SCR_BUFF_ENTER_Coursing_Debuff(self, buff, arg1, arg2, over)    
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local sklLevel = 1;
     local pet = GetBuffCaster(buff);
@@ -8869,7 +8869,7 @@ end
 
 
 function SCR_BUFF_ENTER_Suppress_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local lv = arg1;
     local caster = GetBuffCaster(buff);
     if caster ~= nil then
@@ -8971,7 +8971,7 @@ end
 
 -- Crown_Buff
 function SCR_BUFF_ENTER_Crown_Buff(self, buff, arg1, arg2, over)
-SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
   --  ShowEmoticon(self, 'I_emo_lmpact', 0)
 
     local caster = GetBuffCaster(buff);
@@ -9093,7 +9093,7 @@ end
 
 
 function SCR_BUFF_ENTER_Warcry_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     --ShowEmoticon(self, 'I_emo_deprotect', 0)
     
     local defadd = 0.1
@@ -9182,7 +9182,7 @@ function SCR_BUFF_ENTER_SwellBody_Debuff(self, buff, arg1, arg2, over)
     
     SetExProp(self, "ADD_HP", hpadd);
 
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local caster = GetBuffCaster(buff);
 
     if GetExProp(self, "ReSizeFlag") ~= 1 then
@@ -9288,7 +9288,7 @@ end
 -- ShrinkBody_Debuff
 function SCR_BUFF_ENTER_ShrinkBody_Debuff(self, buff, arg1, arg2, over)
 
-  SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+  SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local caster = GetBuffCaster(buff);
     if GetExProp(self, "ReSizeFlag") ~= 1 then
         SetExProp_Str(self, "DefaultSize", self.Size)
@@ -9627,7 +9627,7 @@ end
 -- Stun
 function SCR_BUFF_ENTER_Stun(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_stun', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 end
 
 function SCR_BUFF_LEAVE_Stun(self, buff, arg1, arg2, over)
@@ -9638,7 +9638,7 @@ end
 -- Petrification
 function SCR_BUFF_ENTER_Petrification(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_petrify', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     PlaySound(self, 'skl_eff_debuff_stone')
     LeaveEffect(self, GetBuffRemainTime(buff), 'Stonize',buff.ClassName);
       if IS_PC(self) == true then
@@ -9698,7 +9698,7 @@ function SCR_BUFF_LEAVE_Fear(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_Virus_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     --ShowEmoticon(self, 'I_emo_infection', 0)
     local caster = GetBuffCaster(buff);
 
@@ -9733,7 +9733,7 @@ end
 
 function SCR_BUFF_ENTER_Virus_Spread_Debuff(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_infection', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local caster = GetBuffCaster(buff);
 
     local atk = 0
@@ -11196,10 +11196,6 @@ function SCR_BUFF_ENTER_murmillo_helmet(self, buff, arg1, arg2, over)
     
     local addmaspd = 5
     
-    if IsPVPServer(self) == 1 then
-        addmaspd = addmaspd - 3
-    end
-    
     self.MSPD_BM = self.MSPD_BM - addmaspd
     
     SetExProp(buff, "ADD_MSPD", addmaspd)
@@ -11441,7 +11437,7 @@ end
 
 --1InchPunch_Debuff
 function SCR_BUFF_ENTER_1InchPunch_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local caster = GetBuffCaster(buff);
         local Monk6_abil = GetAbility(caster, "Monk6")
@@ -12154,7 +12150,7 @@ end
 
 function SCR_BUFF_ENTER_ScullSwing_Debuff(self, buff, arg1, arg2, over)
 
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     --ShowEmoticon(self, 'I_emo_armorbreak', 0)
     
     local defrate = 0.12
@@ -12215,7 +12211,7 @@ end
 
 
 function SCR_BUFF_ENTER_Arrest(self, buff, arg1, arg2, over)    
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local caster = GetBuffCaster(buff);
     local abil = GetAbility(caster, "Squire9")
     local defadd = 0;
@@ -12320,7 +12316,7 @@ end
 
 -- CrossFire_Debuff
 function SCR_BUFF_ENTER_CrossFire_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 end
 
 function SCR_BUFF_UPDATE_CrossFire_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -12343,7 +12339,7 @@ end
 
 -- Cleric_Collision_Debuff
 function SCR_BUFF_ENTER_Cleric_Collision_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local adddef = 0.1
 
@@ -12367,7 +12363,7 @@ function SCR_BUFF_ENTER_Web_FlyObject(self, buff, arg1, arg2, over)
         return 0;
     end
     if self.MoveType == "Flying" then
-        SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+        SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
         local caster = GetBuffCaster(buff);
         if caster ~= nil then
             local owner = GetOwner(caster)
@@ -12409,7 +12405,7 @@ end
 function SCR_BUFF_ENTER_ShootDown_Debuff(self, buff, arg1, arg2, over)
     if IS_PC(self) ~= true then
         if self.MoveType == "Flying" then
-            SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+            SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
         end
     end
 end
@@ -12421,7 +12417,7 @@ end
 
 -- ShieldShoving_Debuff
 function SCR_BUFF_ENTER_ShieldShoving_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local caster = GetBuffCaster(buff);
     if caster ~= nil and self.MonRank ~= 'Boss' then
@@ -12453,7 +12449,7 @@ end
 
 -- ShieldBash_Debuff
 function SCR_BUFF_ENTER_ShieldBash_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 
 --  local beforeCon = self.CON;
     local beforeInt = self.INT;
@@ -12524,7 +12520,7 @@ function SCR_BUFF_LEAVE_UmboBlow_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_CrossCut_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 end
 
 function SCR_BUFF_UPDATE_CrossCut_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -12552,7 +12548,7 @@ function SCR_BUFF_ENTER_VerticalSlash_Debuff(self, buff, arg1, arg2, over)
         return ;
     end
     
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local defadd = 0;
     
@@ -12616,7 +12612,7 @@ end
 
 function SCR_BUFF_ENTER_Conviction_Debuff(self, buff, arg1, arg2, over)
 
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local resiceadd = 0;
     local resfireadd = 0;
@@ -13030,7 +13026,7 @@ end
 -- Blistering_Debuff_Abil
 function SCR_BUFF_ENTER_Blistering_Debuff_Abil(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_confuse', 0)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local atkadd = 0.02 * arg1
     local defadd = 0.02 * arg1
@@ -13255,7 +13251,7 @@ end
 
 
 function SCR_BUFF_ENTER_IronMaiden_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     ObjectColorBlend(self, 255,255,255,0,1)
 end
 
@@ -13280,7 +13276,7 @@ end
 
 function SCR_BUFF_ENTER_HereticsFork_Debuff(self, buff, arg1, arg2, over)
     local caster = GetBuffCaster(buff);
-    SkillTextEffect(ret, self, caster, "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, caster, "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local damage = GET_SKL_DAMAGE(caster, self, 'Inquisitor_HereticsFork');
     
@@ -13307,7 +13303,7 @@ function SCR_BUFF_LEAVE_HereticsFork_Debuff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_IronBoots_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local mspdadd = 10 + arg1
     
@@ -13338,7 +13334,7 @@ function SCR_BUFF_LEAVE_IronBoots_Debuff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_PearofAnguish_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 end
 
 function SCR_BUFF_LEAVE_PearofAnguish_Debuff(self, buff, arg1, arg2, over)
@@ -13351,7 +13347,7 @@ function SCR_BUFF_LEAVE_PearofAnguish_Debuff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_CatherineWheel_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 end
 
 function SCR_BUFF_LEAVE_CatherineWheel_Debuff(self, buff, arg1, arg2, over)
@@ -13374,7 +13370,7 @@ function SCR_DARKSIGH_COLORBLEND(self)
 end
 
 function SCR_BUFF_ENTER_Entrenchment_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 end
 
 function SCR_BUFF_LEAVE_Entrenchment_Debuff(self, buff, arg1, arg2, over)
@@ -13383,9 +13379,9 @@ end
 
 function SCR_SHOW_HIDDENPOTENTIAL_TEXT(ret, self, buff, patkadd, matkadd)
     sleep(400)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), 'SHOW_SKILL_BONUS', math.floor(patkadd), nil, "Melee_Atk");
+    SkillTextEffect(nil, self, GetBuffCaster(buff), 'SHOW_SKILL_BONUS', math.floor(patkadd), nil, "Melee_Atk");
     sleep(400)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), 'SHOW_SKILL_BONUS', math.floor(matkadd), nil, "Magic_Atk");
+    SkillTextEffect(nil, self, GetBuffCaster(buff), 'SHOW_SKILL_BONUS', math.floor(matkadd), nil, "Magic_Atk");
 end
 
 function SCR_BUFF_ENTER_HiddenPotential_Buff(self, buff, arg1, arg2, over)
@@ -13497,7 +13493,7 @@ function SCR_BUFF_LEAVE_EvasiveAction_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_Savior_Buff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local shieldValue = 800 + 100 * arg1;
     GIVE_BUFF_SHIELD(self, buff, shieldValue)
@@ -13508,7 +13504,7 @@ function SCR_BUFF_LEAVE_Savior_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_Foretell_Buff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
 --    local shieldValue = math.floor(self.MHP * 0.2 * arg1);
 --    GIVE_BUFF_SHIELD(self, buff, shieldValue)
@@ -13527,7 +13523,7 @@ function SCR_BUFF_ENTER_PlagueVapours_Debuff(self, buff, arg1, arg2, over)
 		end
 	end
 	
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 end
 
 function SCR_BUFF_UPDATE_PlagueVapours_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -13553,7 +13549,7 @@ function SCR_BUFF_LEAVE_PlagueVapours_Debuff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_LegShot_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local rate = 0.5
     local caster = GetBuffCaster(buff)
@@ -14265,7 +14261,7 @@ end
 
 function SCR_BUFF_ENTER_CannonBlast_Debuff(self, buff, arg1, arg2, over)
     
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local defadd = 0.5
     self.DEF_RATE_BM = self.DEF_RATE_BM + defadd;
@@ -14313,6 +14309,8 @@ function SCR_BUFF_LEAVE_Firstblow_Buff(self, buff, arg1, arg2, over)
     if GetObjType(self) == OT_PC then
 		local fistBlowMonID = GetExProp(self, "FirstBlowMonID");
 		local fistBlowMonName = GetExProp(self, "FirstBlowMonName");
+
+		print("Try BuffRemoveFirstblow Lob");
 
 		CustomMongoLog(self, "FieldBoss", "Type", "BuffRemoveFirstblow", "MonClsID", fistBlowMonID, "MonClsName", fistBlowMonName);
     end
@@ -14494,7 +14492,7 @@ function SCR_BUFF_LEAVE_ShieldCharger_Check_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_BattleOrders_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local lv = arg1;
     
     local caster = GetBuffCaster(buff);
@@ -14873,6 +14871,11 @@ function SCR_BUFF_ENTER_Capote_Buff(self, buff, arg1, arg2, over, skill)
         end
         
         local tauntCount = 5;
+        local abilMatador13 = GetAbility(self, "Matador13")
+        if abilMatador13 ~= nil and abilMatador13.ActiveState == 1 then
+        	tauntCount = tauntCount + abilMatador13.Level
+        end
+        
         if #monList < tauntCount then
             tauntCount = #monList;
         end
@@ -14892,9 +14895,9 @@ function SCR_BUFF_LEAVE_Capote_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_Capote_Debuff(self, buff, arg1, arg2, over)
-    SkillTextEffect(ret, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     ObjectColorBlend(self, 255, 160, 150, 255, 1, 1.5)
-    --�������߱�� --
+    
     local buffCaster = GetBuffCaster(buff)
     if IS_PC(self) == false then
         SetFociblyHater(self, buffCaster)
@@ -14926,7 +14929,7 @@ end
 
 function SCR_BUFF_LEAVE_Capote_Debuff(self, buff, arg1, arg2, over)
     ObjectColorBlend(self, 255, 255, 255, 255, 1, 1)
-    --�������� ���� ���--
+    
     local buffCaster = GetBuffCaster(buff)
     if IS_PC(self) == false then
         local currentTarget = GetFociblyHater(self)
@@ -15035,9 +15038,9 @@ function SCR_BUFF_ENTER_SnipersSerenity_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_UPDATE_SnipersSerenity_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
-    if (GetMoveState(self)) == "MS_MOVE_DIR" then
-        return 0;
-    end
+--    if (GetMoveState(self)) == "MS_MOVE_DIR" then
+--        return 0;
+--    end
 
     local rItem = GetEquipItem(self, 'RH')
     if rItem == nil or rItem.AttachType ~= "Musket" then
@@ -15047,10 +15050,14 @@ function SCR_BUFF_UPDATE_SnipersSerenity_Buff(self, buff, arg1, arg2, RemainTime
     return 1;
 end
 
-function SCR_BUFF_LEAVE_SnipersSerenity_Buff(self, buff, arg1, arg2, over)
+function SCR_BUFF_LEAVE_SnipersSerenity_Buff(self, buff, arg1, arg2, over, isLast)
     local addATK = GetExProp(buff, 'SNIPERS_SERENITY_MINATK');
     
     self.MINPATK_BM = self.MINPATK_BM - addATK;
+    
+    if isLast == 1 then
+    	AddCoolDown(self, 'SnipersSerenity', 1000);
+    end
 end
 
 function SCR_BUFF_ENTER_Enervation_Debuff(self, buff, arg1, arg2, over)
@@ -15376,4 +15383,121 @@ end
 
 function SCR_BUFF_LEAVE_BuildRoost_Buff(self, buff, arg1, arg2, over)
 	
+end
+
+
+
+function SCR_BUFF_ENTER_Muleta_Buff(self, buff, arg1, arg2, over)
+	local skillLevel = arg1;
+	
+	local skill = GetSkill(self, 'Matador_Muleta')
+	if skill ~= nil then
+		local muletaLevel = TryGetProp(skill, 'Level');
+		if muletaLevel ~= nil then
+			skillLevel = muletaLevel;
+		end
+	end
+	
+	local addCRTHR = skillLevel * 10;
+	
+	SetExProp(buff, 'ADD_CRTHR', addCRTHR);
+	
+	self.CRTHR_BM = self.CRTHR_BM + addCRTHR;
+end
+
+function SCR_BUFF_LEAVE_Muleta_Buff(self, buff, arg1, arg2, over)
+	local addCRTHR = GetExProp(buff, 'ADD_CRTHR');
+	
+	self.CRTHR_BM = self.CRTHR_BM - addCRTHR;
+end
+
+
+
+function SCR_BUFF_ENTER_Muleta_Cast_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_LEAVE_Muleta_Cast_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+
+
+function SCR_BUFF_ENTER_Skill_NoDamage_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_LEAVE_Skill_NoDamage_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_ENTER_Skill_SuperArmor_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_LEAVE_Skill_SuperArmor_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_ENTER_Skill_MomentaryEvasion_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_LEAVE_Skill_MomentaryEvasion_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+
+function SCR_BUFF_ENTER_GroovingMuzzle_Buff(self, buff, arg1, arg2, over)
+	local addHR = 100;
+	
+	SetExProp(buff, 'ADD_HR', addHR);
+	
+	self.HR = self.HR + addHR;
+end
+
+function SCR_BUFF_UPDATE_GroovingMuzzle_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    local rItem = GetEquipItem(self, 'RH');
+    if TryGetProp(rItem, "ClassType") ~= "Musket" then
+    	return 0;
+	end
+	
+	return 1;
+end
+
+function SCR_BUFF_LEAVE_GroovingMuzzle_Buff(self, buff, arg1, arg2, over)
+	local addHR = GetExProp(buff, 'ADD_HR');
+	
+	self.HR = self.HR - addHR;
+end
+
+
+
+
+function SCR_BUFF_ENTER_MusketAttack_CoolDown_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_LEAVE_MusketAttack_CoolDown_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_ENTER_EquipDesrption_Debeff(self, buff, arg1, arg2, over)
+    local equipAddDef = 500 + arg1 * 100
+    if IS_PC(self) == false then
+        self.DEF_BM = self.DEF_BM - equipAddDef
+        SetExProp(buff, "EQUIPDESRPTION_DEF", equipAddDef)
+    else
+       UnEquipItemSpot(self, "SHIRT")
+--       local DesrptionItem = GetEquipItem(self, "LH");
+--       if DesrptionItem.ClassType == "Shield" then 
+--          UnEquipItemSpot(self, "LH")
+--       end
+    end
+end
+
+function SCR_BUFF_LEAVE_EquipDesrption_Debeff(self, buff, arg1, arg2, over)
+    if IS_PC(self) == false then
+        self.DEF_BM = self.DEF_BM + GetExProp(buff, "EQUIPDESRPTION_DEF")
+    end
 end

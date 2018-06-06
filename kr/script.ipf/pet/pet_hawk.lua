@@ -951,11 +951,13 @@ function _HAWK_PHEASANT(self, owner, pheasant, skill)
     local goTime = 1;
     local backTime = 1;
     local syncKey = GenerateSyncKey(self);
-
+    
     CollisionAndBack(self, pheasant, syncKey, "HOVERING_SHOT", goTime, 7.0, backTime, 0.7, 20, 1);
-
-    StartSyncPacket(self, syncKey);
-
+	
+    sleep(1000)
+	
+--    StartSyncPacket(self, syncKey);
+	
     local damageRange = 100;
     local list, cnt = SelectObjectPos(owner, x, y, z, damageRange, 'ENEMY');
     if cnt > 15 then
@@ -972,24 +974,24 @@ function _HAWK_PHEASANT(self, owner, pheasant, skill)
             if stun_ratio <= Falconer12_abil.Level * 10 then
                 AddBuff(self, damageTarget, 'Stun', 1, 0, 3000, 1);
             end
-        else
-	        local kdPower = 150;
-	        local hAngle = GetAngleFromPos(damageTarget, x, z);
-	        local abilFalconer18hAngle = GetAngleToPos(damageTarget, x, z);
-	        local abilFalconer18 = GetAbility(owner, "Falconer18")
-	        if GetPropType(damageTarget, 'KDArmor') ~= nil and damageTarget.KDArmor < 900 then
-	        	if abilFalconer18 ~= nil and abilFalconer18.ActiveState == 1 then
-	        		KnockDown(damageTarget, self, kdPower, abilFalconer18hAngle, 80, 1);
-	        	else
-	            	KnockDown(damageTarget, self, kdPower, hAngle, 80, 1);
-	            end
-	        end
-	    end
+        end
+        
+        local kdPower = 150;
+        local hAngle = GetAngleFromPos(damageTarget, x, z);
+        local abilFalconer18hAngle = GetAngleToPos(damageTarget, x, z);
+        local abilFalconer18 = GetAbility(owner, "Falconer18")
+        if GetPropType(damageTarget, 'KDArmor') ~= nil and damageTarget.KDArmor < 900 then
+        	if abilFalconer18 ~= nil and abilFalconer18.ActiveState == 1 then
+        		KnockDown(damageTarget, self, kdPower, abilFalconer18hAngle, 80, 1);
+        	elseif Falconer12_abil == nil or Falconer12_abil.ActiveState ~= 1 then
+            	KnockDown(damageTarget, self, kdPower, hAngle, 80, 1);
+            end
+        end
     end
 
     PlayEffectToGround(self, "F_archer_caltrop_hit_explosion", x, y, z, 1.0);
     BroadcastShockWave(self, 2, 99999, 7, 0.5, 50, 0)
-    EndSyncPacket(self, syncKey);
+--    EndSyncPacket(self, syncKey);
 
     sleep(goTime * 1000);
     Dead(pheasant);

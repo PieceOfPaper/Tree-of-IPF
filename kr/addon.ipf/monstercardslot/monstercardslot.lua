@@ -75,19 +75,9 @@ function CARD_SLOT_CREATE(monsterCardSlotFrame, cardGroupName, slotIndex)
 end
 
 function CARD_OPTION_OPEN(monsterCardSlotFrame)
-
 	local frame = monsterCardSlotFrame;
 	if frame == nil then
 		frame = ui.GetFrame('monstercardslot')
-	end
-
-	local temp = GET_CHILD_RECURSIVELY(frame, 'optionGbox')
-	temp:ShowWindow(0)
-	local temp2 = GET_CHILD_RECURSIVELY(frame, 'optionBtn')
-	temp2:ShowWindow(0)
-	
-	if 1 == 1 then
-		return;
 	end
 
 	local isOpen = frame:GetUserIValue("CARD_OPTION_OPENED");	
@@ -120,14 +110,6 @@ function CARD_OPTION_CLOSE(monsterCardSlotFrame)
 		frame = ui.GetFrame('monstercardslot')
 	end
 
-		local temp = GET_CHILD_RECURSIVELY(frame, 'optionGbox')
-		temp:ShowWindow(0)
-		local temp2 = GET_CHILD_RECURSIVELY(frame, 'optionBtn')
-		temp2 : ShowWindow(0)
-
-		if 1 == 1 then
-			return;
-	end
 	local optionGbox = GET_CHILD_RECURSIVELY(frame, "option_bg")
 	if optionGbox ~= nil then
 		optionGbox:RemoveAllChild();
@@ -147,15 +129,6 @@ function CARD_OPTION_CREATE(monsterCardSlotFrame)
 		frame = ui.GetFrame('monstercardslot')
 	end
 
-		local temp = GET_CHILD_RECURSIVELY(frame, 'optionGbox')
-		temp:ShowWindow(0)
-		local temp2 = GET_CHILD_RECURSIVELY(frame, 'optionBtn')
-		temp2 : ShowWindow(0)
-
-
-		if 1 == 1 then
-			return;
-	end
 	local optionGbox = GET_CHILD_RECURSIVELY(frame, "option_bg")
 	if optionGbox ~= nil then
 		optionGbox:RemoveAllChild();

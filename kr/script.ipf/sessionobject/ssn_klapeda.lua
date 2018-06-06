@@ -21,6 +21,13 @@ function SCR_REENTER_SSN_KLAPEDA(self, sObj)
         SetTimeSessionObject(self, sObj, 1, 30000, 'SCR_SSN_KLAPEDA_SETTIME_1')
     end
     
+    --EVENT_1712_SECOND
+    SetTimeSessionObject(self, sObj, 2, 60000, 'SCR_SSN_KLAPEDA_EVENT_1712_SECOND','YES')
+
+    --EVENT_1712_XMAS
+    SetTimeSessionObject(self, sObj, 3, 60000, 'SCR_SSN_KLAPEDA_EVENT_1712_XMAS','YES')
+    
+    
     --EVENT_1705_CORSAIR
 --    SetTimeSessionObject(self, sObj, 1, 60000, 'SCR_EVENT_1705_CORSAIR_ALARM','YES')
     
@@ -494,7 +501,7 @@ function SCR_SSN_KLAPEDA_SetLayer(self, sObj, msg, argObj, argStr, beforeLayer)
 				-- ????????5??????? ???????????? 
 				local checkTime = imcTime.GetAppTime() - beforeTime;
 				if checkTime < 5 then
-					-- ????? SetLayer???琯?????? ???????? ?慣?? ?????
+					-- ????? SetLayer???ε?????? ???????? ?α?? ?????
 					local funcName = GetExProp_Str(self, "SET_LAYER_FUNC");
 					local eventName = GetExProp_Str(self, "LayerEventName");
 					QuestStateMongoLog(self, 'None', eventName, "TRACE", "Func", funcName, "ElapsedTime", tostring(checkTime));
@@ -2122,6 +2129,104 @@ end
 --        end
 --    end
 --end
+
+function SCR_SSN_KLAPEDA_EVENT_1712_XMAS(self, sObj, remainTime)
+    RunScript("SCR_EVENT_1712_XMAS_COUNTTING", self, sObj, remainTime)
+end
+
+function SCR_EVENT_1712_XMAS_COUNTTING(self, sObj, remainTime)
+    sleep(5000)
+    local now_time = os.date('*t')
+    local year = now_time['year']
+    local month = now_time['month']
+    local yday = now_time['yday']
+    local wday = now_time['wday']
+    local day = now_time['day']
+    local hour = now_time['hour']
+    local nowDay = year..'/'..month..'/'..day
+
+    local aObj = GetAccountObj(self)
+    local rewardTime = {1,30,60}
+    local rewardCount = {1,1,1}
+    local giveItem = 'EVENT_1712_XMAS_FIRE'
+    
+    if aObj.EVENT_1712_XMAS_DATE == nowDay and aObj.EVENT_1712_XMAS_MIN_ITEM_GIVE >= #rewardTime then
+        return
+    else
+        local giveItemFlag = 0 
+        local tx = TxBegin(self);
+    	TxEnableInIntegrate(tx);
+    	
+    	local nowMinTime = aObj.EVENT_1712_XMAS_MIN + 1
+    	local nowItemTime = aObj.EVENT_1712_XMAS_MIN_ITEM_GIVE + 1
+    	if aObj.EVENT_1712_XMAS_DATE ~= nowDay then
+    	    TxSetIESProp(tx, aObj, "EVENT_1712_XMAS_DATE", nowDay)
+	        nowItemTime = 1
+	        nowMinTime = 1
+	    end
+        TxSetIESProp(tx, aObj, "EVENT_1712_XMAS_MIN", nowMinTime)
+    	if nowMinTime >= rewardTime[nowItemTime] then
+        	TxSetIESProp(tx, aObj, "EVENT_1712_XMAS_MIN_ITEM_GIVE", nowItemTime)
+    	    TxGiveItem(tx, giveItem, rewardCount[nowItemTime], "EVENT_1712_XMAS_MIN_ITEM_"..nowItemTime)
+    	    giveItemFlag = 1
+    	end
+    	local ret = TxCommit(tx);
+    	if ret == 'SUCCESS' and giveItemFlag == 1 then
+    	    local itemKorName = GetClassString('Item', giveItem, 'Name')
+        	SendAddOnMsg(self, "NOTICE_Dm_GetItem", ScpArgMsg("EVENT_1712_XMAS_MSG1","ITEM",itemKorName,"COUNT",rewardCount[nowItemTime]), 10)
+    	end
+    end
+end
+
+
+function SCR_SSN_KLAPEDA_EVENT_1712_SECOND(self, sObj, remainTime)
+    RunScript("SCR_EVENT_1712_SECOND_COUNTTING", self, sObj, remainTime)
+end
+
+function SCR_EVENT_1712_SECOND_COUNTTING(self, sObj, remainTime)
+    local now_time = os.date('*t')
+    local year = now_time['year']
+    local month = now_time['month']
+    local yday = now_time['yday']
+    local wday = now_time['wday']
+    local day = now_time['day']
+    local hour = now_time['hour']
+    local nowDay = year..'/'..month..'/'..day
+
+    local aObj = GetAccountObj(self)
+    local rewardTime = {1,10,20,30,40,50,60}
+    local rewardCount = {100,25,25,25,25,25,25}
+    local giveItem = 'EVENT_1712_SECOND_MIN_ITEM'
+    
+    
+    if aObj.EVENT_1712_SECOND_DATE == nowDay and aObj.EVENT_1712_SECOND_MIN_ITEM_GIVE >= #rewardTime then
+        return
+    else
+        local giveItemFlag = 0 
+        local tx = TxBegin(self);
+    	TxEnableInIntegrate(tx);
+    	local nowMinTime = aObj.EVENT_1712_SECOND_MIN + 1
+    	local nowItemTime = aObj.EVENT_1712_SECOND_MIN_ITEM_GIVE + 1
+    	if aObj.EVENT_1712_SECOND_DATE ~= nowDay then
+    	    TxSetIESProp(tx, aObj, "EVENT_1712_SECOND_DATE", nowDay)
+	        nowItemTime = 1
+	        nowMinTime = 1
+    	end
+    	
+    	TxSetIESProp(tx, aObj, "EVENT_1712_SECOND_MIN", nowMinTime)
+    	
+    	if nowMinTime >= rewardTime[nowItemTime] then
+        	TxSetIESProp(tx, aObj, "EVENT_1712_SECOND_MIN_ITEM_GIVE", nowItemTime)
+    	    TxGiveItem(tx, giveItem, rewardCount[nowItemTime], "EVENT_1712_SECOND_MIN_ITEM_"..nowItemTime)
+    	    giveItemFlag = 1
+    	end
+    	local ret = TxCommit(tx);
+    	if ret == 'SUCCESS' and giveItemFlag == 1 then
+    	    local itemKorName = GetClassString('Item', giveItem, 'Name')
+        	SendAddOnMsg(self, "NOTICE_Dm_GetItem", ScpArgMsg("EVENT_1712_SECOND_MSG1","ITEM",itemKorName,"COUNT",rewardCount[nowItemTime]), 10)
+    	end
+    end
+end
 
 --function SCR_SSN_KLAPEDA_PLAYTIMEEVENT(self, sObj, remainTime)
 --    RunScript("SCR_PLAYTIMEEVENT_COUNTTING", self, sObj, remainTime)

@@ -349,6 +349,14 @@ function PET_SKILL_PRE_CHECK_C(self, skill)
         return 0;
     end
     
+	local companionClass = GetClass('Companion', pet.ClassName);
+	if companionClass ~= nil then
+		if TryGetProp(companionClass, 'RidingOnly') == 'YES' then
+	        SendSysMsg(self, 'ThisCompanionIs NotPossible');
+	        return 0;
+		end
+	end
+    
 --    local job_id = 0;
 --    
 --    local petList = GetSummonedPetList(self);

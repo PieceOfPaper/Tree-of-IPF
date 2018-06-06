@@ -484,6 +484,11 @@ function AUCTION_TOOLTIP_SET_REMAINTIME(frame, aucItem)
 end
 
 function TOGGLE_CARD_REINFORCE(frame)
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
 	local rframe = ui.GetFrame("reinforce_by_mix");
 	if rframe:IsVisible() == 1 then
 		rframe:ShowWindow(0);
@@ -496,6 +501,11 @@ end
 
 
 function TOGGLE_CERTIFICATE_REINFORCE(frame)		-- This is registered in restquickslotinfo.xml
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
 	local rframe = ui.GetFrame("reinforce_by_mix_certificate");
 	if rframe:IsVisible() == 1 then
 		rframe:ShowWindow(0);
@@ -507,6 +517,11 @@ function TOGGLE_CERTIFICATE_REINFORCE(frame)		-- This is registered in restquick
 end
 
 function TOGGLE_GEM_REINFORCE(frame)
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
 	local rframe = ui.GetFrame("reinforce_by_mix");
 	if rframe:IsVisible() == 1 then
 		rframe:ShowWindow(0);

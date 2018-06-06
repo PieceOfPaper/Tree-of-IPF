@@ -667,7 +667,7 @@ function SCR_Get_MINPATK(self)
     value = value - leftMinAtk - throwItemMinAtk;
     
     local byBuff = 0;
-    local byBuffList = { "PATK_BM", "MINPATK_BM" };
+    local byBuffList = { "PATK_BM", "MINPATK_BM", "PATK_MAIN_BM", "MINPATK_MAIN_BM" };
     for i = 1, #byBuffList do
         local byBuffTemp = TryGetProp(self, byBuffList[i]);
         if byBuffTemp == nil then
@@ -678,7 +678,7 @@ function SCR_Get_MINPATK(self)
     end
     
     local byRateBuff = 0;
-    local byRateBuffList = { "PATK_RATE_BM", "MINPATK_RATE_BM" };
+    local byRateBuffList = { "PATK_RATE_BM", "MINPATK_RATE_BM", "PATK_MAIN_RATE_BM", "MINPATK_MAIN_RATE_BM" };
     for i = 1, #byRateBuffList do
         local byRateBuffTemp = TryGetProp(self, byRateBuffList[i]);
         if byRateBuffTemp == nil then
@@ -745,7 +745,7 @@ function SCR_Get_MAXPATK(self)
     value = value - leftMaxAtk - throwItemMaxAtk;
     
     local byBuff = 0;
-    local byBuffList = { "PATK_BM", "MAXPATK_BM" };
+    local byBuffList = { "PATK_BM", "MAXPATK_BM", "PATK_MAIN_BM", "MAXPATK_MAIN_BM" };
     for i = 1, #byBuffList do
         local byBuffTemp = TryGetProp(self, byBuffList[i]);
         if byBuffTemp == nil then
@@ -756,7 +756,7 @@ function SCR_Get_MAXPATK(self)
     end
     
     local byRateBuff = 0;
-    local byRateBuffList = { "PATK_RATE_BM", "MAXPATK_RATE_BM" };
+    local byRateBuffList = { "PATK_RATE_BM", "MAXPATK_RATE_BM", "PATK_MAIN_RATE_BM", "MAXPATK_MAIN_RATE_BM" };
     for i = 1, #byRateBuffList do
         local byRateBuffTemp = TryGetProp(self, byRateBuffList[i]);
         if byRateBuffTemp == nil then
@@ -812,7 +812,7 @@ function SCR_Get_MINPATK_SUB(self)
     value = value - rightMinAtk;
     
     local byBuff = 0;
-    local byBuffList = { "PATK_BM", "MINPATK_SUB_BM" };
+    local byBuffList = { "PATK_BM", "MINPATK_BM", "PATK_SUB_BM", "MINPATK_SUB_BM" };
     for i = 1, #byBuffList do
         local byBuffTemp = TryGetProp(self, byBuffList[i]);
         if byBuffTemp == nil then
@@ -823,7 +823,7 @@ function SCR_Get_MINPATK_SUB(self)
     end
     
     local byRateBuff = 0;
-    local byRateBuffList = { "PATK_RATE_BM", "MINPATK_SUB_RATE_BM" };
+    local byRateBuffList = { "PATK_RATE_BM", "MINPATK_RATE_BM", "PATK_SUB_RATE_BM", "MINPATK_SUB_RATE_BM" };
     for i = 1, #byRateBuffList do
         local byRateBuffTemp = TryGetProp(self, byRateBuffList[i]);
         if byRateBuffTemp == nil then
@@ -884,7 +884,7 @@ function SCR_Get_MAXPATK_SUB(self)
     value = value - rightMaxAtk;
     
     local byBuff = 0;
-    local byBuffList = { "PATK_BM", "MAXPATK_SUB_BM" };
+    local byBuffList = { "PATK_BM", "MAXPATK_BM", "PATK_SUB_BM", "MAXPATK_SUB_BM" };
     for i = 1, #byBuffList do
         local byBuffTemp = TryGetProp(self, byBuffList[i]);
         if byBuffTemp == nil then
@@ -895,7 +895,7 @@ function SCR_Get_MAXPATK_SUB(self)
     end
     
     local byRateBuff = 0;
-    local byRateBuffList = { "PATK_RATE_BM", "MAXPATK_SUB_RATE_BM" };
+    local byRateBuffList = { "PATK_RATE_BM", "MAXPATK_RATE_BM", "PATK_SUB_RATE_BM", "MAXPATK_SUB_RATE_BM" };
     for i = 1, #byRateBuffList do
         local byRateBuffTemp = TryGetProp(self, byRateBuffList[i]);
         if byRateBuffTemp == nil then
@@ -1167,6 +1167,10 @@ function SCR_CALC_BASIC_MDEF(self)
 end
 
 function SCR_Get_BLKABLE(self)
+    local abilMatador3 = GetAbility(self, "Matador3");
+    if abilMatador3 ~= nil and abilMatador3.ActiveState == 1 then
+    	return 0;
+    end
     
     local equipLH = GetEquipItem(self, 'LH');
     local isShield = TryGetProp(equipLH, 'ClassType');
@@ -1839,7 +1843,15 @@ function SCR_Get_MSPD(self)
         return fixMSPDBuff;
     end
     
+    if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then
+    	return 10;
+    end
+    
     local value = 30.0;
+    
+    if IsBuffApplied(self, "BattleOrders_Buff") == "YES" then
+        value =  60;
+    end
     
     if self.ClassName == 'PC' then
         local byItem = GetSumOfEquipItem(self, 'MSPD');
@@ -1850,6 +1862,9 @@ function SCR_Get_MSPD(self)
         local byBuff = TryGetProp(self, "MSPD_BM");
         if byBuff == nil then
             byBuff = 0;
+        end
+        if IsPVPServer(self) == 1 then
+            byBuff = byBuff * 0.5
         end
         
         value = value + byItem + byBuff;
@@ -1904,7 +1919,12 @@ function SCR_Get_MSPD(self)
     end
     
     if isDashRun > 0 then    -- 대시 런 --
-        value = value + 10;
+        local dashRunAddValue = 10
+        if IsPVPServer(self) == 1 then
+            dashRunAddValue = 5
+        end
+        
+        value = value + dashRunAddValue;
         if isDashRun == 2 then  -- 인보 특성이 있으면 속도 +1 --
             value = value + 1;
         end
@@ -2117,6 +2137,10 @@ end
 
 
 function SCR_PC_MOVINGSHOTABLE(pc)
+    if IsBuffApplied(pc, 'SnipersSerenity_Buff') == 'YES' then
+    	return 0;
+    end
+    
     local jobObj = GetJobObject(pc);
     if jobObj == nil then
         return 0;
