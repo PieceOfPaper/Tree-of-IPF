@@ -22,6 +22,12 @@ function CHECK_ABILITY_LOCK(pc, ability)
 		
 			local abilGroupClass = GetClass("Ability_"..jobCls.EngName, ability.ClassName);
 
+			if abilGroupClass == nil then
+				IMC_NORMAL_INFO("abilGroupClass is nil!!  jobCls.EngName : "..jobCls.EngName.."  ability.ClassName : "..ability.ClassName)
+				return "UNLOCK"
+			end
+
+
 			local unlockFuncName = abilGroupClass.UnlockScr;
 
 			if abilGroupClass.UnlockScr == "None" then

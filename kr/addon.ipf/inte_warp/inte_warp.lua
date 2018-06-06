@@ -192,9 +192,13 @@ function ON_INTE_WARP(frame, changeDirection)
 				gbox:SetEventScript(ui.MOUSEWHEEL, "WORLDMAP_MOUSEWHEEL");
 				gbox:SetEventScript(ui.LBUTTONDOWN, "WORLDMAP_LBTNDOWN");
 				gbox:SetSkinName("downbox");
+				gbox = tolua.cast(gbox, "ui::CGroupBox");
+				gbox:EnableScrollBar(0)
 				gbox:ShowWindow(1);
+			end
+
 			
-				if  tonumber(index) <= 1 then
+			
 					local setName = "WARP_CTRLSET_0"
 					local set = gbox:CreateOrGetControlSet('warpAreaName', setName, 0, 0);
 					set = tolua.cast(set, "ui::CControlSet");
@@ -233,8 +237,8 @@ function ON_INTE_WARP(frame, changeDirection)
 							local brushY = pictureStartY - y * spaceY;
 							ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
 						end
-				end
-			end
+				
+			
 		end
 	end
 

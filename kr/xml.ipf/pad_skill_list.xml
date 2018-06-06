@@ -7065,6 +7065,45 @@ return 10000 + obj.Level * 2000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
+    <PadSkill Name="RuneCaster_Algiz" CheckerType="0" Range="40" EnableSearch="0">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_wizard_Isa_shot_ground" Arg="0.69999999"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000"/>
+                <Num Num="98990"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
+                <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Algiz_Buff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="120000" UseFunc="1" FuncTxt="return obj.Level * 30000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-8000"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
     <PadSkill Name="RuneCaster_Isa" CheckerType="0" Range="40" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -7100,6 +7139,49 @@ return 10000 + obj.Level * 2000"/>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-8000"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="RuneCaster_Thurisaz" CheckerType="1" PadHeight="10" Range="10" InnerRange="10" UpdateTerm="400">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_heal_loop_ground" Arg="0.40000001"/>
+                <Pos Angle="0.51941401" Dist="0.95115697"/>
+                <Num Num="0"/>
+                <Str_Arg Str="F_cleric_heal_active_ground" Arg="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="40000"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="C_EFFECT_REMOVE_KEY" Client="YES" UseSleep="NO">
+                <Str Str="newbless"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+                <Num Num="0"/>
+                <Num Num="-1"/>
+                <Str Str="Thurisaz_Buff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="30000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ACTIVATE" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-400"/>
                 <Num Num="0"/>
             </ToolScp>
         </updateEvent>

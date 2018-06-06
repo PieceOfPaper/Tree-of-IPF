@@ -34,6 +34,7 @@ function MARKET_TREE_CLICK(parent, ctrl, str, num)
 			local gBox = oldObj:GetChild("group");
 			gBox:SetSkinName("base_btn");
 			tree:CloseTreeNode(htreeitem);
+			imcSound.PlaySoundEvent("button_click_roll_close");
 		end
 	end
 	if nil ~= obj then
@@ -52,6 +53,9 @@ function MARKET_TREE_CLICK(parent, ctrl, str, num)
 	local categoryName = "";
 	if 2 <= #sList then
 		categoryName = sList[2];
+		imcSound.PlaySoundEvent("button_click_4");
+	else
+		imcSound.PlaySoundEvent("button_click_roll_open");
 	end
 
 	local frame = parent:GetTopParentFrame();
@@ -318,15 +322,14 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 			numUpDown:MakeButtons("btn_numdown", "btn_numup", "editbox");
 			numUpDown:ShowWindow(1);
 			numUpDown:SetMaxValue(marketItem.count);
+			numUpDown:SetMinValue(1);
 			numUpDown:SetNumChangeScp("MARKET_CHANGE_COUNT");
+			numUpDown:SetClickSound('button_click_chat');
+			numUpDown:SetNumberValue(1)
 
 			local totalPrice = ctrlSet:GetChild("totalPrice");
-			totalPrice:SetTextByKey("value", 0);
-			if IS_EQUIP(itemObj) == true then
 				totalPrice:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
 				totalPrice:SetUserValue("Price", marketItem.sellPrice);
-				numUpDown:SetNumberValue(1)
-			end 
 		end		
 	end
 

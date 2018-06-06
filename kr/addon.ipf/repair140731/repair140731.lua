@@ -226,7 +226,8 @@ function EXECUTE_REPAIR140731(frame)
 	end
 
 	local msg = ScpArgMsg('ReallyRepair',"Price",totalprice)
-	ui.MsgBox(msg, 'EXECUTE_REPAIR_COMMIT', "None");
+	local msgBox = ui.MsgBox(msg, 'EXECUTE_REPAIR_COMMIT', "None");
+	msgBox:SetYesButtonSound("button_click_repair");
 end
 
 function EXECUTE_REPAIR_COMMIT()
