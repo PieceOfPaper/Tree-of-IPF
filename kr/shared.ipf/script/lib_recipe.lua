@@ -140,3 +140,4 @@ function IS_ALL_MATERIAL_CHECKED(checkList, numCheckList)
     end
     return true;
 end
+

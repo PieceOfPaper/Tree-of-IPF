@@ -495,4 +495,5 @@
 	<Code Code="ERROR_NULLPTR_REFCOUNT_ZERO" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="참조 수가 0인 이미 지워진 객체입니다."/>
 	<Code Code="STEAM_CHARGE_BACK_ERROR" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 차지백 에러"/>
 	<Code Code="INFO_ZONE_ENTER_DEBUG" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 계정 존 입장 안되는 문제 추적용"/>
+	<Code Code="INFO_SKILL_PASS_DECREASED_TIME" Team="SYSTEMDESIGN" Category="INFO" SubCategory="SKILL" Logger="root" Enabled="YES" CallStack="NO" Desc="패스로 줄어든 쿨타임"/>
 </imcErrorCode>

@@ -22,6 +22,6 @@
 		<richtext name="effect_info" margin="0 50 0 0" rect="0 0 15 300" format="{@st41b}{s16}%s{/}" param1="RemovedEffect" param1_def="없음." textalign="left top" resizebytext="true" spacey="0" maxwidth="320" fontname="white_22_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" parent="bg" layout_gravity="center top"/>
 		<button name="button_1" margin="-87 0 0 30" rect="0 0 175 55" format="{@st41b}해제하기{/}" skin="test_gray_button" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="EQUIP_CARDSLOT_BTN_REMOVE"/>
 		<button name="button_2" margin="87 0 0 30" rect="0 0 175 55" format="{@st41b}취소{/}" skin="test_gray_button" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="EQUIP_CARDSLOT_BTN_CANCLE"/>
-		<button name="button_3" margin="0 0 0 90" rect="0 0 350 110" format="{img icon_item_tospoint 24 24}{@st41b}0TP 소모{nl}별 감소없이 카드 해제하기{/}" skin="test_red_button" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="EQUIP_CARDSLOT_BTN_REMOVE_WITHOUT_EFFECT" texttooltip="1레벨 카드는 5TP가 소모되지 않습니다."/>
+		<button name="button_3" margin="0 0 0 90" rect="0 0 350 110" format="{img icon_item_tospoint 24 24}{@st41b}5TP 소모{nl}별 감소없이 카드 해제하기{/}" skin="test_red_button" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="EQUIP_CARDSLOT_BTN_REMOVE_WITHOUT_EFFECT" texttooltip="1레벨 카드는 5TP가 소모되지 않습니다."/>
 	</controls>
 </uiframe>

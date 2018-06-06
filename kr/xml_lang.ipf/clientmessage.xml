@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -175,6 +175,7 @@
 		<Class ClassID="3042" ClassName="RecipeGroup_Dagger" Data="단검"/>
 		<Class ClassID="3043" ClassName="RecipeGroup_Musket" Data="머스킷"/>
 		<Class ClassID="3044" ClassName="CannotUseLifeTimeOverItem" Data="사용기간이 만료된 아이템은 재료로 사용할 수 없습니다."/>
+		<Class ClassID="3045" ClassName="RecipeGroup_THMace" Data="양손둔기"/>
 	</Category>
 	<Category Name="ItemPuzzle">
 		<Class ClassID="3501" ClassName="WouldYouSelectThisCombinationAsAlchemystryTarget?" Data="이 조합을 연금 대상으로 선택합니까?"/>
@@ -322,8 +323,10 @@
 		<Class ClassID="4139" ClassName="{Item}UnlockSuccess" Data="{Item} 아이템의 잠금이 해제되었습니다."/>
 		<Class ClassID="4140" ClassName="YouDontHaveEquipAbility" Data="착용할 수 있는 특성이 없습니다."/>
 		<Class ClassID="4141" ClassName="ThisIsEndedEvent" Data="종료 기한이 지난 이벤트입니다."/>
+		<Class ClassID="4142" ClassName="THMace" Data="양손둔기"/>
 		<Class ClassID="4143" ClassName="Event_Select_Acc_Box_Title" Data="슈페리어 브레이슬릿(15일) 상자"/>
 		<Class ClassID="4144" ClassName="LeticiaGacha{CONSUME}" Data="큐브 개봉시{nl}{CONSUME}{nl}소모됩니다.{nl}정말 개봉하시겠습니까?"/>
+		<Class ClassID="4145" ClassName="SelectCostume{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}코스튬을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 코스튬으로{nl}교환할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -4322,6 +4325,16 @@
 		<Class ClassID="27534" ClassName="EVENT_1707_COMPASS_MSG15" Data="확인해본다"/>
 		<Class ClassID="27535" ClassName="EVENT_1707_COMPASS_MSG16" Data="클라페다 조사원에게 돌아가 조사내용을 전하고 보상을 받으세요"/>
 		<Class ClassID="27540" ClassName="EVENT_1707_USERWEDDING_MSG1" Data="받는다"/>
+		<Class ClassID="27550" ClassName="EVENT_1708_JURATE_MSG1" Data="도와준다"/>
+		<Class ClassID="27551" ClassName="EVENT_1708_JURATE_MSG2" Data="{COUNT}회 누적보상 : "/>
+		<Class ClassID="27552" ClassName="EVENT_1708_JURATE_MSG3" Data="버프(30분동안 경험치 +50%)"/>
+		<Class ClassID="27553" ClassName="EVENT_1708_JURATE_MSG4" Data="주말 참여 횟수 +1"/>
+		<Class ClassID="27554" ClassName="EVENT_1708_JURATE_MSG5" Data="1회 참여 후에 참여 횟수를 추가할 수 있습니다"/>
+		<Class ClassID="27555" ClassName="EVENT_1708_JURATE_MSG6" Data="주말 참여 횟수 +1이 적용되었습니다"/>
+		<Class ClassID="27556" ClassName="EVENT_1708_JURATE_MSG7" Data="주말에만 사용하실 수 있습니다."/>
+		<Class ClassID="27557" ClassName="EVENT_1708_JURATE_MSG8" Data="큐폴의 선물{nl}{TEXT}"/>
+		<Class ClassID="27558" ClassName="EVENT_1708_JURATE_MSG9" Data="누적 미션 완료횟수 : {COUNT}회"/>
+		<Class ClassID="27565" ClassName="TradSelectItemMsg1" Data="{#FF0000}{ITEM}{/} 코스튬을 정말 선택하시겠습니까?{nl}선택 후에는 다른 코스튬으로 교환할 수 없습니다."/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -6286,6 +6299,7 @@
 		<Class ClassID="113036" ClassName="RapierAndArtefact" Data="레이피어 보조 장착"/>
 		<Class ClassID="113037" ClassName="BowAndPistol" Data="쇠뇌 권총 장착"/>
 		<Class ClassID="113038" ClassName="BowAndCannon" Data="쇠뇌 캐논 장착"/>
+		<Class ClassID="113039" ClassName="TwoHandMace" Data="양손 둔기 장착"/>
 	</Category>
 	<Category Name="MonsterReceName">
 		<Class ClassID="114001" ClassName="None" Data="없음"/>
@@ -9093,6 +9107,7 @@
 		<Class ClassID="138392" ClassName="Need_Item" Data="가 필요합니다."/>
 		<Class ClassID="138393" ClassName="Klapeda_book_list_20" Data="카듀멜 국왕의 기념비 - 수정본"/>
 		<Class ClassID="138394" ClassName="Auto_{#050505}{s22}{b}JangBi_KangWhaSi" Data="{#050505}{s22}{b}장비 강화시"/>
+		<Class ClassID="138395" ClassName="Auto_TMace" Data="양손 둔기류"/>
 	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
@@ -9122,6 +9137,7 @@
 		<Class ClassID="200025" ClassName="NotExistEquippedAccessory" Data="착용 중인 악세서리가 없어 사용할 수 없습니다. "/>
 		<Class ClassID="200026" ClassName="OverEstimate" Data="과대평가"/>
 		<Class ClassID="200027" ClassName="Devaluation" Data="평가절하"/>
+		<Class ClassID="200028" ClassName="NotYetAvailable" Data="아직 사용할 수 없습니다."/>
 	</Category>
 	<Category Name="HotKey">
 		<Class ClassID="201001" ClassName="Minimap_-" Data="미니맵 -"/>

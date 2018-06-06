@@ -116,9 +116,9 @@ function INIT_GRAPHIC_CONFIG(frame)
 	fxaa:SetCheck(config.GetUseFXAA());
 	end;
 
-	local glow = GET_CHILD_RECURSIVELY(frame, "check_Glow", "ui::CCheckBox");
+	local glow = GET_CHILD_RECURSIVELY(frame, "check_HitGlow", "ui::CCheckBox");
 	if nil ~= glow then
-	glow:SetCheck(config.GetUseGlow());
+	glow:SetCheck(config.GetUseHitGlow());
 	end;
 
 	local depth = GET_CHILD_RECURSIVELY(frame, "check_Depth", "ui::CCheckBox");
@@ -409,10 +409,10 @@ function ENABLE_FXAA(parent, ctrl)
 	config.SaveConfig();
 end
 
-function ENABLE_GLOW(parent, ctrl)
-	local value = config.GetUseGlow();
+function ENABLE_HITGLOW(parent, ctrl)
+	local value = config.GetUseHitGlow();
 
-	graphic.EnableGlow(1- value);
+	graphic.EnableHitGlow(1- value);
 	config.SaveConfig();
 end
 

@@ -2790,7 +2790,7 @@
 			<richtext name="txt_dealmount" margin="618 0 0 0" rect="0 0 141 44" format="{@st45tw2}%s{/}" param1="value" param1_def="1311111" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" hittest="true"/>
 			<picture name="achieve" margin="37 5 0 0" rect="0 0 32 31" hittest="false" image="" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<richtext name="txt_achieve" margin="731 -1 0 0" rect="0 0 81 41" format="{@sti9}%s{/}" param1="value" param1_def="" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center"/>
-			<richtext name="txt_getpoint" margin="491 1 0 0" rect="0 0 112 45" format="{@st45tw2}+%s{/}" param1="value" param1_def="1311111" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" hittest="true"/>
+			<richtext name="txt_getpoint" margin="491 1 0 0" rect="0 0 112 45" format="{@st45tw2}%s{/}" param1="value" param1_def="1311111" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" hittest="true"/>
 		</controls>
 	</controlset>
 	<controlset name="pvp_ranking_page" hittest="true" width="500" height="1000" hittestset="false" draw="false" skin="none">
@@ -3427,17 +3427,17 @@
 			<richtext name="richtext_1_1_1" margin="0 15 15 0" rect="0 0 100 60" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" format="%s" param1="value" param1_def="점수"/>
 		</controls>
 	</controlset>
-	<controlset name="leticia_cube_list" toggle="false" hittest="true" width="370" height="80" skin="test_skin_01_btn">		
+	<controlset name="leticia_cube_list" toggle="false" hittest="true" width="360" height="84" skin="test_skin_01_btn">
+		<userconfig TP_IMG="icon_item_tpBox_30"/>
 		<controls>
 			<picture name="iconPic" rect="0 0 60 60" margin="10 0 0 0" layout_gravity="left center" image="icon_item_randombox" stretch="true" hittest="false"/>
-			<richtext name="itemNameText" rect="0 0 300 40" margin="90 10 0 0" layout_gravity="left top" caption="아이템 이름" fontname="black_18" hittest="false"/>
+			<richtext name="itemNameText" rect="0 0 300 40" margin="77 15 0 0" layout_gravity="left top" caption="아이템 이름" fontname="black_16_b" hittest="false"/>
 			<groupbox name="tpBox" rect="0 0 270 30" margin="0 0 10 10" layout_gravity="right bottom" skin="test_weight_skin" hittest="false"/>
-      <richtext name="tpText" rect="0 0 50 30" parent="tpBox" margin="5 0 0 0" layout_gravity="left center" format="{img %s 24 24}%s" fontname="white_16_b_ol" param1="consumeType" param1_def="icon_item_tpBox_30" param2="typeName" param2_def="TP" hittest="false"/>
-      <richtext name="priceText" rect="0 0 100 30" parent="tpBox" margin="0 0 5 0" layout_gravity="right center" caption="0" fontname="white_16_b_ol" hittest="false"/>
+			<richtext name="tpText" rect="0 0 50 30" parent="tpBox" margin="5 0 0 0" layout_gravity="left center" format="{img %s 24 24}%s" fontname="white_16_b_ol" param1="consumeType" param1_def="icon_item_tpBox_30" param2="typeName" param2_def="TP" hittest="false"/>
+			<richtext name="priceText" rect="0 0 100 30" parent="tpBox" margin="0 0 5 0" layout_gravity="right center" caption="0" fontname="white_16_b_ol" hittest="false"/>
 		</controls>
 	</controlset>
-
-<controlset name="monsterRaceSet" width="60" height="60" draw="false" skin="">
+	<controlset name="monsterRaceSet" width="60" height="60" draw="false" skin="">
 		<userconfig IMG_RACE_INSECT="monster_insect" IMG_RACE_WILD="monster_wild" IMG_RACE_DEVIL="monster_devil" IMG_RACE_PLANT="monster_plant" IMG_RACE_VARIATION="monster_variation"/>
 		<controls>
 			<picture name="racePic" rect="0 0 55 55" margin="0 0 0 0" layout_gravity="center top" image="monster_insect" stretch="true"/>
@@ -3453,15 +3453,6 @@
 		<controls>
 			<animpicture name="animpic" blend="100" texelx="0" texely="0" texelwidth="200" texelheight="200" spacex="1" spacey="0" loop="true" ticktime="0.02" animcount="14" layout_gravity="left top" rect="0 0 200 200" margin="0 0 0 0" image="notice_pos" hittest="false" playanim="true" stretch="true" hideAnimEnd="true"/>
 		</controls>
-	</controlset>
-	<controlset name="leticia_cube_list" toggle="false" hittest="true" width="360" height="84" skin="test_skin_01_btn">
-		<userconfig TP_IMG="icon_item_tpBox_30"/>
-		<controls>
-			<picture name="iconPic" rect="0 0 60 60" margin="10 0 0 0" layout_gravity="left center" image="icon_item_randombox" stretch="true" hittest="false"/>
-			<richtext name="itemNameText" rect="0 0 300 40" margin="77 15 0 0" layout_gravity="left top" caption="아이템 이름" fontname="black_16_b" hittest="false"/>
-			<groupbox name="tpBox" rect="0 0 270 30" margin="0 0 10 10" layout_gravity="right bottom" skin="test_weight_skin" hittest="false"/>
-			<richtext name="tpText" rect="0 0 50 30" parent="tpBox" margin="5 0 0 0" layout_gravity="left center" format="{img %s 24 24}%s" fontname="white_16_b_ol" param1="consumeType" param1_def="icon_item_tpBox_30" param2="typeName" param2_def="TP" hittest="false"/>
-			<richtext name="priceText" rect="0 0 100 30" parent="tpBox" margin="0 0 5 0" layout_gravity="right center" caption="0" fontname="white_16_b_ol" hittest="false"/>
-		</controls>
-	</controlset>
+	</controlset>	
+
 </controlsetlist>

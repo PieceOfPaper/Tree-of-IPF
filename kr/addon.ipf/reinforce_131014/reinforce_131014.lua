@@ -74,7 +74,7 @@ function REINFORCE_131014_UPDATE_MORU_COUNT(frame)
 --	if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
 --	    msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
 --	end
-	hitPriceDesc:SetTextByKey("price", msg);
+    	hitPriceDesc:SetTextByKey("price", msg);
 
 end
 

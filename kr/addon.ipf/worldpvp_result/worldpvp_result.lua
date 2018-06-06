@@ -81,7 +81,7 @@ local frame = ui.GetFrame("worldpvp_result");
 	local mvpChar = nil;
 	local mvpTeam = nil;
 	local maxScore = -1;
-	local tokenPerChar = 11;
+	local tokenPerChar = 13;
 	local startIndex = 2;
 	local charCount = (#stringList - startIndex) / tokenPerChar;
 	local lastTeam = -1;
@@ -94,10 +94,12 @@ local frame = ui.GetFrame("worldpvp_result");
 		local iconStr = stringList[indexBase + 5];
 		local famName = stringList[indexBase + 6];
 		local charName = stringList[indexBase + 7];
-		local killCnt = stringList[indexBase + 8];
-		local deathCnt = stringList[indexBase + 9];
-		local dealAmount = tonumber(stringList[indexBase + 10]);
-		local skillDeals = stringList[indexBase + 11];
+		local winPoint = stringList[indexBase + 8];
+		local losePoint = stringList[indexBase + 9];
+		local killCnt = stringList[indexBase + 10];
+		local deathCnt = stringList[indexBase + 11];
+		local dealAmount = tonumber(stringList[indexBase + 12]);
+		local skillDeals = stringList[indexBase + 13];
 		
 		local iconInfo = ui.GetPCIconInfoByString(iconStr);
 		local iconName = ui.CaptureModelHeadImage_IconInfo(iconInfo);
@@ -121,9 +123,9 @@ local frame = ui.GetFrame("worldpvp_result");
 			txt_getpoint:SetTextByKey("value", 0);
 		else
 			if winTeam == tonumber(teamID) then
-				txt_getpoint:SetTextByKey("value", math.min(WORLDPVP_WIN_GET_POINT));
+				txt_getpoint:SetTextByKey("value", winPoint);
 			else
-				txt_getpoint:SetTextByKey("value", math.min(WORLDPVP_LOSE_GET_POINT));
+				txt_getpoint:SetTextByKey("value", losePoint);
 			end
 		end
 
