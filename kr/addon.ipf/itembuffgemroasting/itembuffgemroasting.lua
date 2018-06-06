@@ -104,7 +104,7 @@ function GEMROASTING_SLOT_DROP(parent, ctrl)
 	local checkFunc = _G["ITEMBUFF_NEEDITEM_" .. frame:GetUserValue("SKILLNAME")];
 	local name, cnt = checkFunc(pc, obj);
 
-	SET_SLOT_ITEM_IMANGE(slot, invItem);
+	SET_SLOT_ITEM_IMAGE(slot, invItem);
 	slot:SetUserValue("GEM_IESID", iconInfo:GetIESID());
 	local roastingbox = frame:GetChild("roasting");
 	local slotNametext = roastingbox:GetChild("slotName");

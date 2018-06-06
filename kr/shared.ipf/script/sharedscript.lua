@@ -775,6 +775,34 @@ function SCR_STRING_TO_TABLE(a)
     return ret
 end
 
+function SCR_DATE_TO_YMIN_BASIC_2000(yy, mm, dd, hh, min)
+    local days, monthdays, leapyears, nonleapyears, nonnonleapyears
+
+    monthdays= { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
+
+    leapyears=math.floor((yy-2000)/4);
+    nonleapyears=math.floor((yy-2000)/100)
+    nonnonleapyears=math.floor((yy-1600)/400)
+
+    if ((math.mod(yy,4)==0) and mm<3) then
+      leapyears = leapyears - 1
+    end
+
+    days= 365 * (yy-2000) + leapyears - nonleapyears + nonnonleapyears - 1
+    
+    local c=1
+    while (c<mm) do
+      days = days + monthdays[c]
+    c=c+1
+    end
+
+    days=days+dd+1
+    
+    ymin = days * 1440 + hh * 60 + min
+
+    return ymin
+end
+
 function SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
     local days, monthdays, leapyears, nonleapyears, nonnonleapyears
 
@@ -790,7 +818,7 @@ function SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
 
     days= 365 * (yy-2000) + leapyears - nonleapyears + nonnonleapyears - 1
     
-    c=1
+    local c=1
     while (c<mm) do
       days = days + monthdays[c]
     c=c+1

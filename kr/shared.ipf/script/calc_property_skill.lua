@@ -5241,11 +5241,7 @@ end
 
 function SCR_GET_Limacon_Ratio2(skill)
     local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Schwarzereiter13");
-    local value = 30 + (skill.Level -1) * 5;
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = value + abil.Level * 0.5
-    end
+    local value = 50 + (skill.Level - 1) * 10;
     
     return value;
 end
@@ -11086,7 +11082,7 @@ end
 
 function SCR_GET_Effigy_Ratio(skill)
 
-    local value = (160 + 7 * (skill.Level-1)) / 100
+    local value = 1.60 + 0.07 * (skill.Level-1);
 
     return value
 
@@ -11094,7 +11090,7 @@ end
 
 function SCR_GET_Effigy_Ratio2(skill)
 
-    local value = (230 + 9 * (skill.Level-1)) / 100
+    local value = 2.3 + 0.09 * (skill.Level-1)
 
     return value
 
@@ -11222,7 +11218,7 @@ function SCR_GET_God_Finger_Flicking_Ratio2(skill)
 end
 
 function SCR_GET_DiscernEvil_Ratio(skill)
-    local value = skill.Level * 2
+    local value = 25 + skill.Level * 5
     return value
 end
 
@@ -13519,7 +13515,7 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 --  local sklFactor = skill.SklFactor;
 --  if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
 --      local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo14');
---      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ??�?무르밀??리밸????????????--
+--      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ??�?무르밀??리밸????????????--
 --  end
     
     local def = lhEquipWeapon.DEF;
@@ -13709,7 +13705,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
     if skill.GemLevel_BM > 0 then
-        value = value + 1;  -- 몬스????????�?????중첩?????무조??+1??????????
+        value = value + 1;  -- 몬스????????�?????중첩?????무조??+1??????????
     end
 
     if skill.LevelByDB == 0 then

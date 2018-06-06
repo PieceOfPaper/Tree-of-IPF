@@ -182,7 +182,7 @@ function ENCHANTAROMOROPEN_SLOT_DROP(frame, ctrl)
 		return;
 	end
 
-	SET_SLOT_ITEM_IMANGE(slot, invItem);
+	SET_SLOT_ITEM_IMAGE(slot, invItem);
 	local repairbox = frame:GetChild("repair");
 	repairbox:SetUserValue('ITEMNAME', obj.Name);
 	repairbox:SetUserValue('ITEMIES', invItem:GetIESID());

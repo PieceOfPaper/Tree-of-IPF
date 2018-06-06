@@ -344,7 +344,7 @@
 						<Str Str="Warrior_EnableMovingShot_Buff"/>
 						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
 						<Num Num="0"/>
-						<Num Num="3000" UseFunc="1" FuncTxt="local sklLevel = GET_SKILL_LEVEL(self, 'Doppelsoeldner_Cyclone');return 2000 + sklLevel * 500"/>
+						<Num Num="5500"/>
 						<Num Num="1"/>
 						<Num Num="100"/>
 						<Num Num="-1"/>

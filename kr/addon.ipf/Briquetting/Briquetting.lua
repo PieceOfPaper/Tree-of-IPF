@@ -62,7 +62,7 @@ function BRIQUETTING_SLOT_DROP(parent, ctrl)
 	-- 슬롯 박스에 이미지를 넣고
 	local itemCls = GetClassByType("Item", invItem.type);
 	
-	SET_SLOT_ITEM_IMANGE(slot, invItem);
+	SET_SLOT_ITEM_IMAGE(slot, invItem);
 	
 	-- 원래 공격력, 마공을 가진 object를 만든다.
 	local tempObj = CreateIESByID("Item", itemCls.ClassID);
@@ -161,7 +161,7 @@ function BRIQUETTING_SPEND_DROP(parent, ctrl)
 	end
 
 	-- 슬롯 박스에 이미지를 넣고
-	SET_SLOT_ITEM_IMANGE(slot, invItem);
+	SET_SLOT_ITEM_IMAGE(slot, invItem);
 	local frame = parent:GetTopParentFrame();
 	local slotNametext = GET_CHILD_RECURSIVELY(frame, "spendName");
 
