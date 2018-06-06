@@ -523,4 +523,5 @@
 	<Code Code="WARNING_GUILD_EVENT" Team="PROGRAM" Category="GUILD" SubCategory="GUILD_EVENT" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 이벤트 경고"/>
 	<Code Code="INFO_GUILD_EVENT" Team="PROGRAM" Category="GUILD" SubCategory="GUILD_EVENT" Logger="root" Enabled="NO" CallStack="NO" Desc="길드 이벤트 정보"/>
 	<Code Code="ANYONE_SKILL" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="AnyoneSkill 로 없는 스킬을 배워버리는 문제 확인용 로그"/>	<Code Code="WARNING_PACKET_LEN" Team="PROGRAM" Category="SYSTEM" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 길이 관련 예외처리함"/>
+	<Code Code="WARNING_REDIS" Team="PROGRAM" Category="REDIS" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="레디스 경고"/>
 </imcErrorCode>

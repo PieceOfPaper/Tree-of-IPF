@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
-	<Category ID="204">
+	<Category ID="144">
+<Effect Name="F_pc_CardBook_ground_dark"/>
+</Category>
+
+    <Category ID="204">
 		<Effect Name="MISSION_EVENT_BLUEORB"/>
 	</Category>
 	<Category ID="142">
@@ -4015,7 +4019,11 @@
 		<Effect Name="I_cleric_hamaya_arrow"/>
 		<Effect Name="I_cleric_hamaya_arrow#Dummy_effect_FingerFlickir"/>
 		<Effect Name="I_cleric_hamaya_arrow#Dummy_force_hamaya"/>
-	</Category>
+	<Effect Name="F_pc_CardBook_ground_red"/>
+        <Effect Name="F_pc_CardBook_ground_blue"/>
+        <Effect Name="F_pc_CardBook_ground_green"/>
+        <Effect Name="F_pc_CardBook_ground_violet"/>
+    </Category>
 	<Category ID="27">
 		<Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
 		<Effect Name="I_laser005_blue"/>
