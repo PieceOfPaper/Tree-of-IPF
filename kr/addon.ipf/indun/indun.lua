@@ -15,9 +15,16 @@ end
 function INDUN_VIEW(frame, curtabIndex)
 	if curtabIndex == 0 then
 		OPEN_DUNGEON(frame);
-	else
+	elseif curtabIndex == 1 then
 		OPEN_REQUEST(frame);
+	elseif curtabIndex == 2 then
+		OPEN_ABBEY(frame);
+	elseif curtabIndex == 3 then
+		OPEN_EARTH(frame);
+	elseif curtabIndex == 4 then
+		OPEN_UPHILL(frame);
 	end
+
 end
 
 function ON_INDUN_COUNT_RESET(frame)
@@ -49,9 +56,15 @@ function DRAW_INDUN_UI(frame, type)
 
 	local pCls = nil;
 	if 100 == type then
-		pCls = GetClass("Indun", "Indun_startower"); -- ÀÎ´ø
-	else
-		pCls = GetClass("Indun", "Request_Mission1"); -- ÀÇ·Ú¼Ò
+		pCls = GetClass("Indun", "Indun_startower"); -- ï¿½Î´ï¿½
+	elseif 200 == type then
+		pCls = GetClass("Indun", "Request_Mission1"); -- ï¿½Ç·Ú¼ï¿½
+	elseif 300 == type then
+		pCls = GetClass("Indun", "Request_Mission7"); -- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	elseif 400 == type then
+		pCls = GetClass("Indun", "M_GTOWER_1"); -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¾
+	elseif 500 == type then
+		pCls = GetClass("Indun", "Request_Mission10"); -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½æ½º ï¿½Ì¼ï¿½
 	end
 
 	if nil == pCls then
@@ -72,13 +85,26 @@ function DRAW_INDUN_UI(frame, type)
 		SHOW_INDUN_DAY_COUNT(count);
 		count:RunUpdateScript("SHOW_INDUN_DAY_COUNT", 0.1);
 	else
-		text = ScpArgMsg("MaxCountExplain{COUNT}", "COUNT", pCls.PlayPerReset);
-		countStr = string.format("%d / %d", etcObj[etcType], pCls.PlayPerReset);
+		local maxPlayCnt = pCls.PlayPerReset;
+		if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then 
+			maxPlayCnt = maxPlayCnt + pCls.PlayPerReset_Token;
+		end
+		
+		text = ScpArgMsg("MaxCountExplain{COUNT}", "HOUR", INDUN_RESET_TIME, "COUNT", maxPlayCnt);
+		countStr = string.format("%d / %d", etcObj[etcType], maxPlayCnt);
 		count:StopUpdateScript("SHOW_INDUN_DAY_COUNT");
 	end
 
 	local indunText = textGbox:GetChild("indunText");
 	indunText:SetTextByKey("value", text);
+
+	if 0 < pCls.PlayPerReset_Token and true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+		text = text .."{nl}" .. "{#003300}"..ScpArgMsg("IndunMore{COUNT}ForTOKEN", "COUNT", pCls.PlayPerReset_Token);
+		indunText:SetTextByKey("value", text);
+		textGbox:Resize(textGbox:GetWidth(), 60);
+	else
+		textGbox:Resize(textGbox:GetWidth(), 35);
+	end
 
 	count:SetTextByKey("value", countStr);
 	local gbox = frame:GetChild("gbox");
@@ -98,9 +124,9 @@ function DRAW_INDUN_UI(frame, type)
 			name:SetTextByKey("value", pCls.Name);
 			lv:SetTextByKey("value", pCls.Level);
 			
-			if tonumber(pCls.Level) < mylevel then -- ¿¬µÎ¶óÀÎ
+			if tonumber(pCls.Level) < mylevel then -- ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
 				button:SetColorTone("FFC4DFB8");	
-			elseif tonumber(pCls.Level) > mylevel then -- »¡°£¶óÀÎ
+			elseif tonumber(pCls.Level) > mylevel then -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				button:SetColorTone("FFFFCA91");
 			else
 				button:SetColorTone("FFFFFFFF");	
@@ -108,7 +134,7 @@ function DRAW_INDUN_UI(frame, type)
 		end
 	end
 
-	GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, false);
+	GBOX_AUTO_ALIGN(gbox, 0, -6, 0, true, false);
 end
 
 function OPEN_DUNGEON(frame, ctrl)
@@ -117,6 +143,17 @@ end
 
 function OPEN_REQUEST(frame, ctrl)
 	DRAW_INDUN_UI(frame, 200);
+end
+
+function OPEN_ABBEY(frame, ctrl)
+	DRAW_INDUN_UI(frame, 300);
+end
+
+function OPEN_EARTH(frame, ctrl)
+	DRAW_INDUN_UI(frame, 400);
+end
+function OPEN_UPHILL(frame, ctrl)
+	DRAW_INDUN_UI(frame, 500);
 end
 
 function INDUN_CANNOT_YET(msg)

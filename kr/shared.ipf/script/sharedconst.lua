@@ -57,7 +57,7 @@ PLAYTIMEEVENT_REWARD_ACC = nil
 --                                    {2016,6,12,22,'Head_fish'}
 --                                    }
                                     
-FLASHMOB_EVENT_REWARD_TABLE = {{{'Premium_tpBox_10',1}}}
+FLASHMOB_EVENT_REWARD_TABLE = {{{'Premium_eventTpBox_5_3',1}}}
 
 
 WORLD_SIZE = 10240;

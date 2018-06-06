@@ -1,4 +1,4 @@
-
+﻿
 
 
 function ON_CUSTOM_QUEST_DELETE(frame, msg, keyName, argNum)
@@ -15,18 +15,18 @@ function ON_CUSTOM_QUEST_DELETE(frame, msg, keyName, argNum)
 end
 
 function ON_CUSTOM_QUEST_UPDATE(frame, msg, keyName, argNum)
-	
+
 	local customQuest = geQuest.GetCustomQuest(keyName);
 	if customQuest == nil then
 		return;
 	end
 
 	local groupbox = frame:GetChild('questGbox');
-	local frame2 = ui.GetFrame("questinfoset_2");
+	local frame2 = ui.GetFrame("questinfoset_2");	
 	if customQuest.useMainUI == 1 then
 		local key = customQuest:GetKey();
 		local ctrlName = "_Q_CUSTOM_" .. key;
-		local quest_ctrl = groupbox:CreateOrGetControlSet('quest_list', ctrlName, 45, 0);
+		local quest_ctrl = groupbox:CreateOrGetControlSet('custom_quest_list', ctrlName, 45, 0);
 		local ret = CUSTOM_CONTROLSET_UPDATE(quest_ctrl, customQuest);
 		if ret == -1 then
 			groupbox:RemoveChild(ctrlName);
@@ -56,7 +56,9 @@ function QUESTINFOSET_2_MAKE_CUSTOM(frame, updateSize)
 		local customQuest = geQuest.GetCustomQuestByIndex(i);
 		local key = customQuest:GetKey();
 		local ctrlName = "_Q_CUSTOM_" .. key;
-		local ctrlset = GroupCtrl:CreateOrGetControlSet('emptyset2', ctrlName, 0, 0);
+		-- 여기서 같은 이름으로 찾고 생성하니 덮어씌어짐
+		--local ctrlset = GroupCtrl:CreateOrGetControlSet('emptyset2', ctrlName, 0, 0);
+		local ctrlset = GroupCtrl:CreateOrGetControlSet('emptyset2', ctrlName.."_"..i, 0, 0);
 		ctrlset:Resize(GroupCtrl:GetWidth() - 20, ctrlset:GetHeight());
 		CUSTOM_CONTROLSET_UPDATE(ctrlset, customQuest)
 	end
@@ -127,37 +129,49 @@ function MGAME_QUEST_UPDATE(ctrlset)
 			local monList = stageInfo:GetMonsterList();
 			local timeOut = stageInfo.timeOut;
 
-			local titleName = stageInfo:GetTitleName();
-			if titleName ~= "" then
-				y = ATTACH_QUEST_CTRLSET_TEXT(ctrlset, "ITEM_TITLE_" .. j, "{@st41_yellow} ".. titleName, 10, y);
-			end
-
+			local ignoreThisControl = false;
 			if timeOut > 0 and stageInstInfo ~= nil then
 				local serverTime = GetServerAppTime();
 				local remainSec = timeOut - serverTime;
-				y = ATTACH_TIME_CTRL_EX(ctrlset, "ITEM_TIME_" .. j , remainSec, 10, y);
-			end
-
-			for i = 0 ,  monList:size() - 1 do
-				local monInfo = monList:at(i);
-				local monTypes = monInfo:GetMonTypes();
-				if monTypes:size() > 0 then
-					local monName = GetClassByType("Monster", monTypes:at(0));
-					local txt = string.format("%s (%d/%d)", monName.Name, monInfo.curCount ,monInfo.count);
-					y = ATTACH_QUEST_CTRLSET_TEXT(ctrlset, "ITEM_MON_" .. j .. "_".. i, "{@st42} ".. txt, startx, y);
+				if remainSec < 3 then
+					ignoreThisControl = true;
 				end
 			end
 
-			local privList = stageInfo:GetPrivateQuestList();
-			for i = 0 , privList:size() - 1 do
-				local pQuest = privList:at(i);
-				if true == pQuest.enabled then
-					if pQuest:GetQuestType() == geMGame.QUEST_SOBJ then
-						pQuest = tolua.cast(pQuest, "geMGame::PRIVATE_QUEST_SOBJ");					
-						local titleValue = GET_SOBJ_QUEST_TITLE(pQuest);
-						if titleValue ~= nil then
-							y = ATTACH_QUEST_CTRLSET_TEXT(ctrlset, "ITEM_SOBJ_" .. j .. "_".. i, titleValue, startx, y);
-							y = y + 10;
+			if ignoreThisControl == false then
+
+				local titleName = stageInfo:GetTitleName();
+				if titleName ~= "" then
+					y = ATTACH_QUEST_CTRLSET_TEXT(ctrlset, "ITEM_TITLE_" .. j, "{@st41_yellow} ".. titleName, 10, y);
+				end
+
+				if timeOut > 0 and stageInstInfo ~= nil then
+					local serverTime = GetServerAppTime();
+					local remainSec = timeOut - serverTime;
+					y = ATTACH_TIME_CTRL_EX(ctrlset, "ITEM_TIME_" .. j , remainSec, 10, y);
+				end
+
+				for i = 0 ,  monList:size() - 1 do
+					local monInfo = monList:at(i);
+					local monTypes = monInfo:GetMonTypes();
+					if monTypes:size() > 0 then
+						local monName = GetClassByType("Monster", monTypes:at(0));
+						local txt = string.format("%s (%d/%d)", monName.Name, monInfo.curCount ,monInfo.count);
+						y = ATTACH_QUEST_CTRLSET_TEXT(ctrlset, "ITEM_MON_" .. j .. "_".. i, "{@st42} ".. txt, startx, y);
+					end
+				end
+
+				local privList = stageInfo:GetPrivateQuestList();
+				for i = 0 , privList:size() - 1 do
+					local pQuest = privList:at(i);
+					if true == pQuest.enabled then
+						if pQuest:GetQuestType() == geMGame.QUEST_SOBJ then
+							pQuest = tolua.cast(pQuest, "geMGame::PRIVATE_QUEST_SOBJ");					
+							local titleValue = GET_SOBJ_QUEST_TITLE(pQuest);
+							if titleValue ~= nil then
+								y = ATTACH_QUEST_CTRLSET_TEXT(ctrlset, "ITEM_SOBJ_" .. j .. "_".. i, titleValue, startx, y);
+								y = y + 10;
+							end
 						end
 					end
 				end

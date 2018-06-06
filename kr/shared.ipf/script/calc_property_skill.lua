@@ -6885,7 +6885,7 @@ end
 function SCR_GET_Bunshin_no_jutsu_BuffTime(skill)
 
 
-	local value = skill.Level
+	local value = skill.Level * 10
 
  return value
 

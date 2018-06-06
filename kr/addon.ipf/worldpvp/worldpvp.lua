@@ -93,6 +93,7 @@ function OPEN_WORLDPVP(frame)
 		loadingtext:ShowWindow(1);
 		charinfo:ShowWindow(0);
 	end
+
 	UPDATE_WORLDPVP(frame);
 	ON_PVP_STATE_CHANGE(frame);
 end

@@ -635,7 +635,6 @@ function UPDATE_GUILD_EVENT_INFO(frame, pcparty, partyObj)
 		if locInfo ~= nil then
 			local mapCls = GetClassByType("Map", locInfo.mapID);
 			local pos = geClientPartyQuest.GetLocInfoPos(locInfo);
-			geClientGuildEvent.RunGuildEventAssembleCheck(true);
 			local mapprop = session.GetCurrentMapProp();
 			if locInfo.mapID == mapprop.type then
 				session.minimap.AddIconInfo("GuildBossSummon", "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
@@ -646,7 +645,6 @@ function UPDATE_GUILD_EVENT_INFO(frame, pcparty, partyObj)
 		if locInfo ~= nil then
 			local mapCls = GetClassByType("Map", locInfo.mapID);
 			local pos = geClientPartyQuest.GetLocInfoPos(locInfo);
-			--geClientGuildEvent.RunGuildEventAssembleCheck(true);
 			local mapprop = session.GetCurrentMapProp();
 			if locInfo.mapID == mapprop.type then
 				session.minimap.AddIconInfo("GuildIndun", "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
@@ -665,7 +663,6 @@ function UPDATE_GUILD_EVENT_INFO(frame, pcparty, partyObj)
 			local pos = geClientGuildEvent.GetStagePos(pcparty)
 			local raidStage = string.format("raidStage%d", partyObj["GuildRaidStage"]);
 			session.minimap.AddIconInfo(raidStage, "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
-			geClientGuildEvent.RunGuildEventRaidFieldCheck(true);
 		end
 	end
 end

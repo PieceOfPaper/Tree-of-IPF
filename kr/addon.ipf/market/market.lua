@@ -93,7 +93,7 @@ function MARGET_FIND_PAGE(frame, page)
 	local rein_min = GET_CHILD_NUMBER_VALUE(gBox, "edit_2");
 	local rein_max = GET_CHILD_NUMBER_VALUE(gBox, "edit_2_1");
 	
-	-- µðÆúÆ®·Î ÃÖ±Ù	
+	-- ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö±ï¿½	
 	local sortype = 2;
 	if 1 == chip:IsChecked() then
 		sortype = 0;
@@ -300,8 +300,10 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 		if cid == marketItem:GetSellerCID() then
 			local button_1 = ctrlSet:GetChild("button_1");
 			button_1:SetEnable(0);
+			local button_report = ctrlSet:GetChild("button_report");
+			button_report:SetEnable(0);
 
-			local btn = ctrlSet:CreateControl("button", "DETAIL_ITEM_" .. i, 639, 8, 100, 50);
+			local btn = ctrlSet:CreateControl("button", "DETAIL_ITEM_" .. i, 720, 8, 100, 50);
 			btn = tolua.cast(btn, "ui::CButton");
 			btn:ShowWindow(1);
 			btn:SetText("{@st41b}" .. ClMsg("Cancel"));
@@ -318,7 +320,7 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 			local totalPrice = ctrlSet:GetChild("totalPrice");
 			totalPrice:SetTextByKey("value", 0);
 		else
-			local numUpDown = ctrlSet:CreateControl("numupdown", "DETAIL_ITEM_" .. i, 639, 20, 100, 30);
+			local numUpDown = ctrlSet:CreateControl("numupdown", "DETAIL_ITEM_" .. i, 560, 20, 100, 30);
 			numUpDown = tolua.cast(numUpDown, "ui::CNumUpDown");
 			numUpDown:SetFontName("white_18_ol");
 			numUpDown:MakeButtons("btn_numdown", "btn_numup", "editbox");
@@ -419,6 +421,32 @@ function BUY_MARKET_ITEM(parent, ctrl)
 	end
 
 	ui.MsgBox(txt, string.format("_BUY_MARKET_ITEM(%d)", row+1), "None");
+end
+
+function _REPORT_MARKET_ITEM(row)
+
+	if row == nil then
+		return
+	end
+
+	local marketItem = session.market.GetItemByIndex(row-1);
+
+	if marketItem == nil then
+		return;
+	end
+
+	
+	local scpString = string.format("/marketreport %s",  marketItem:GetMarketGuid());
+	ui.Chat(scpString);
+end
+
+function REPORT_MARKET_ITEM(parent, ctrl)
+	local row = parent:GetUserIValue("DETAIL_ROW");
+	local marketItem = session.market.GetItemByIndex(row);
+	local itemObj = GetIES(marketItem:GetObject());
+	local txt = ScpArgMsg("ReallyReport");
+
+	ui.MsgBox(txt, string.format("_REPORT_MARKET_ITEM(%d)", row+1), "None");
 end
 
 function MARKET_SELLMODE(frame)

@@ -33,6 +33,7 @@ function ON_PVP_PLAYING_UPDATE(frame)
 			break;
 		end
 	end
+
 		local gbox = frame:GetChild("gbox");
 		local gbox_mission = frame:GetChild("gbox_mission");
 		if cnt == 0 then
@@ -47,7 +48,7 @@ function ON_PVP_PLAYING_UPDATE(frame)
 		else
 			if 0 == session.worldPVP.GetRemainSecondToNextSeason() then
 				worldPVP.RequestPVPInfo();
-				worldPVP.RequestGuildBattlePrevSeasonTop(200);
+				worldPVP.RequestGuildBattlePrevSeasonRanking(200);
 			end
 			pic:SetEventScript(ui.LBUTTONUP, "OPEN_GUILDBATTLE_FRAME");
 			pic:SetImage('journal_guild_icon');
@@ -101,7 +102,9 @@ function OPEN_GUILDBATTLE_FRAME(frame)
 	local worldpvp =  ui.GetFrame("worldpvp");
 	worldpvp:ShowWindow(0);
 	
-	OPEN_GUILDBATTLE_RANKING_FRAME();
+	local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");
+	GUILDBATTLE_RANKING_TAB_CHANGE(guildbattle_ranking);
+
 	local pvpFrame = ui.GetFrame("guildbattle_league");
 	local tab = GET_CHILD(pvpFrame, "tab");
 	if tab ~= nil then

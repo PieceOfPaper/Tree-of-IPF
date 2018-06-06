@@ -367,6 +367,7 @@
 		<image name="icon_item_pants_nobleLeather_yellow" file="\icon\equip\pants_nobleLeather_yellow.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_gloves_nobleLeather_yellow" file="\icon\equip\gloves_nobleLeather_yellow.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_boots_nobleLeather_yellow" file="\icon\equip\boots_nobleLeather_yellow.png" imgrect="0 0 256 256"/>
+	<image name="icon_item_gloves_intathurta" file="\icon\equip\gloves_intathurta.png" imgrect="0 0 256 256" CMM_Caption="블러드배쓰장갑"/>
 	</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
@@ -2055,6 +2056,10 @@
 		<image name="item_necklace_19" file="\icon\acc\item_necklace_19.png" imgrect="0 0 256 256"/>
 		<image name="item_necklace_20" file="\icon\acc\item_necklace_20.png" imgrect="0 0 256 256"/>
 		<image name="item_necklace_21" file="\icon\acc\item_necklace_21.png" imgrect="0 0 256 256"/>
+		<image name="item_necklace_21_black" file="\icon\acc\item_necklace_21_black.png" imgrect="0 0 256 256"/>
+		<image name="item_necklace_21_blue" file="\icon\acc\item_necklace_21_blue.png" imgrect="0 0 256 256"/>
+		<image name="item_necklace_21_red" file="\icon\acc\item_necklace_21_red.png" imgrect="0 0 256 256"/>
+		<image name="item_necklace_21_yellow" file="\icon\acc\item_necklace_21_yellow.png" imgrect="0 0 256 256"/>
 		<image name="item_NECK_PILGRIM_01_PWR" file="\icon\acc\item_NECK_PILGRIM_01_PWR.png" imgrect="0 0 256 256"/>
 		<image name="item_NECK_PILGRIM_02_AGT" file="\icon\acc\item_NECK_PILGRIM_02_AGT.png" imgrect="0 0 256 256"/>
 		<image name="item_NECK_PILGRIM_03_SPR" file="\icon\acc\item_NECK_PILGRIM_03_SPR.png" imgrect="0 0 256 256"/>
@@ -3455,6 +3460,8 @@
 		<image name="icon_item_eventbox_gem" file="\icon\item\icon_item_eventbox_gem.png" imgrect="0 0 128 128" CMM_Caption="젬박스"/>
 		<image name="icon_item_eventbox_QM" file="\icon\item\icon_item_eventbox_QM.png" imgrect="0 0 128 128" CMM_Caption="물음표박스"/>
 		<image name="icon_item_eventbox_potion" file="\icon\item\icon_item_eventbox_potion.png" imgrect="0 0 128 128" CMM_Caption="포션박스"/>
+		<image name="icon_item_ironhammer" file="\icon\item\icon_item_ironhammer.png" imgrect="0 0 128 128" CMM_Caption="해머"/>
+		<image name="icon_item_ironbundle" file="\icon\item\icon_item_ironbundle.png" imgrect="0 0 128 128" CMM_Caption="해머윗부분"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -3602,8 +3609,15 @@
 		<image name="icon_item_archer_school_f" file="\icon\payment\archer_school_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_cleric_school_m" file="\icon\payment\cleric_school_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_cleric_school_f" file="\icon\payment\cleric_school_f.png" imgrect="0 0 256 256"/>
-	<image name="icon_item_mage_bunny_f" file="\icon\payment\mage_bunny_f.png" imgrect="0 0 256 256" CMM_Caption="바니걸_코스튬"/>
+		<image name="icon_item_mage_bunny_f" file="\icon\payment\mage_bunny_f.png" imgrect="0 0 256 256" CMM_Caption="바니걸_코스튬"/>
 		<image name="hairacc_hat_whitebunny" file="\icon\payment\hairacc_hat_whitebunny.png" imgrect="0 0 256 256" CMM_Caption="바니걸_헤어"/>
+		<image name="icon_item_cleric_maid_m" file="\icon\payment\cleric_maid_m.png" imgrect="0 0 256 256" CMM_Caption="메이드코스튬"/>
+		<image name="icon_item_cleric_maid_f" file="\icon\payment\cleric_maid_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_lens_gray" file="\icon\payment\lens_gray.png" imgrect="0 0 256 256" CMM_Caption="렌즈아이콘_그레이"/>
+		<image name="hair_featherfootA" file="\icon\payment\hair_featherfootA.png" imgrect="0 0 256 256" CMM_Caption="페더풋헤어"/>
+		<image name="hair_silvia" file="\icon\payment\hair_silvia.png" imgrect="0 0 256 256" CMM_Caption="실비아헤어"/>
+	<image name="icon_item_warrior_swordman01_3_m" file="\icon\payment\warrior_swordman01_3_m.png" imgrect="0 0 256 256" CMM_Caption="소드맨3랭크코스튬"/>
+		<image name="icon_item_warrior_swordman01_3_f" file="\icon\payment\warrior_swordman01_3_f.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

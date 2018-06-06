@@ -77,6 +77,44 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="HAND03_117">
+		<TriggerList Act="AfterHitScript_Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_USE_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Featherfoot_BloodSucking"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_VAMP" Client="NO" UseSleep="NO">
+						<Num Num="0.15000001"/>
+					</ToolScp>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Forester"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_USE_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Featherfoot_BloodSucking"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_VAMP" Client="NO" UseSleep="NO">
+						<Num Num="0.15000001"/>
+					</ToolScp>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Paramune"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="BRC02_121">
 		<TriggerList Act="UnEquip">
 			<Trigger>

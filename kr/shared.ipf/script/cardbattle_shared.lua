@@ -14,14 +14,12 @@ function GET_CARDBATTLE_DECISION_DESC(randValue)
 	elseif randValue == 2 then
 		return "ManyStars";
 	elseif randValue == 3 then
-		return "LittleStars";
-	elseif randValue == 4 then
 		return "ManyLegs";
-	elseif randValue == 5 then
+	elseif randValue == 4 then
 		return "LittleLegs";
-	elseif randValue == 6 then
+	elseif randValue == 5 then
 		return "HeavyWeight";
-	elseif randValue == 7 then
+	elseif randValue == 6 then
 		return "TallerHeight";
 	end
 end
@@ -40,14 +38,12 @@ function GET_CARDBATTLE_SCORE(targetItem, randValue)
 	elseif randValue == 2 then
 		return GET_ITEM_LEVEL_EXP(targetItem), 0;
 	elseif randValue == 3 then
-		return GET_ITEM_LEVEL_EXP(targetItem), 1;
-	elseif randValue == 4 then
 		return cls.LegCount, 0;
-	elseif randValue == 5 then
+	elseif randValue == 4 then
 		return cls.LegCount, 1;
-	elseif randValue == 6 then
+	elseif randValue == 5 then
 		return cls.BodyWeight, 0;
-	elseif randValue == 7 then
+	elseif randValue == 6 then
 		return cls.Height, 0;
 	end
 	
@@ -55,7 +51,7 @@ end
 
 function CALC_CARD_BATTLE_RESULT(item, targetItem)
 	
-	local randValue = IMCRandom(0, 7);
+	local randValue = IMCRandom(0, 6);
 	local itemScore, smallerWin = GET_CARDBATTLE_SCORE(item, randValue);
 	local targetScore = GET_CARDBATTLE_SCORE(targetItem, randValue);
 
