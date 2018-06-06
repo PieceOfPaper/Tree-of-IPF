@@ -6715,6 +6715,28 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
+    <PadSkill Name="INVINCIBILITY_BREAK" CheckerType="0" PadHeight="0" AllowOverlap="1" Range="150" UpdateTerm="400" AutoPos="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_INVINCIBILITY_BREAK" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-100"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
     <PadSkill Name="IceWall_Force" CheckerType="0" AllowOverlap="1" Range="10" ApplyFlyMon="1" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">

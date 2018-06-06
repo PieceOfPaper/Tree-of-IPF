@@ -981,3 +981,15 @@ function CHECK_CONCURRENT_USE_COUNT(pad, userValue) -- userValue: 패드에 현�
 
 	return true; -- ConCurrentUseCount 안쓰는 경우에도 return true;
 end
+
+function PAD_TGT_INVINCIBILITY_BREAK(self, skl, pad, target)
+    local buffList = GetBuffList(target);
+    for j = 1 , #buffList do
+        local buff = buffList[j];
+        local buffKeyword = TryGetProp(buff, "Keyword");
+        if buffKeyword == "Invincibility" then
+            local buffClassName = TryGetProp(buff, "ClassName");
+            RemoveBuff(target, buffClassName);
+        end
+    end
+end

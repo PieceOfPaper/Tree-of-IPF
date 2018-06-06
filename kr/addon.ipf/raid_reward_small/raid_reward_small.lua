@@ -15,7 +15,7 @@ function ITEM_BALLOON_CLEAR(handle)
 	end
 end
 
-function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, skinName, msgText)
+function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, skinName, msgText, isShowText)
   if world.GetLayer() ~= 0 then --
 		return 0;
 	end
@@ -80,7 +80,11 @@ function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, s
 		widthCnt = widthCnt-3;
 	end
 
-	descText:SetText(msgText);
+	if isShowText == 1 then
+		descText:SetText(msgText);
+	else
+		descText:SetText("");
+	end
 	local ctrlSet = itemcontainer:CreateControlSet(skinName, "BOX_" .. cnt, widthCnt * ctrlSetWidth, descText:GetHeight() + ctrlSetHeight * heightCnt);
 	local slot = GET_CHILD(ctrlSet, "slot", "ui::CSlot");
 	local itemSlot = GET_CHILD(ctrlSet, "itemslot", "ui::CSlot");

@@ -303,7 +303,31 @@ function SCR_TX_NO_TRADE_CNT(self, item, value, isWareHouse)
 	end
 end
 
-function SCR_USE_EXTEND_ACCOUNT_WAREHOUSE(self, aObj, price)
+function SCR_USE_EXTEND_ACCOUNT_WAREHOUSE(self, aObj)
+    local aObj = GetAccountObj(self);
+	if nil == aObj then
+		return;
+	end
+
+	local slotDiff = aObj.AccountWareHouseExtend;
+	local price = ACCOUNT_WAREHOUSE_EXTEND_PRICE;
+	if slotDiff > 0 then
+		if slotDiff >= tonumber(ACCOUNT_WAREHOUSE_MAX_EXTEND_COUNT) then
+			return;
+		end
+		if slotDiff < 4 then
+		    price = price*(math.pow(2, slotDiff))
+		else
+		    --Form the fifth slot, it will be fixde at 2000000 silver
+		    price = price * 10
+		end
+	end
+
+	local count = GetInvItemCount(self, 'Vis')
+	if price > count then
+		return
+	end
+
 	local tx = TxBegin(self);
 	if nil == tx then
 		return;
@@ -314,7 +338,6 @@ function SCR_USE_EXTEND_ACCOUNT_WAREHOUSE(self, aObj, price)
 		TxRollBack(tx);
 		return;
 	end
-
 	TxAddIESProp(tx, aObj, 'AccountWareHouseExtend', 1);
 	TxTakeItem(tx, MONEY_NAME, price, 'EXTEND_ACCOUNT_WAREHOUSE_'..currentCount + 1);
 	

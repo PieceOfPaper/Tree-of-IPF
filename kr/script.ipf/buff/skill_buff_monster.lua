@@ -2731,3 +2731,44 @@ function SCR_FIELD_BOSS_AWAKE_SIMPLE(self)
         end
     end
 end
+
+function SCR_BUFF_ENTER_FIELD_BOSS_AWAKE_UP_VERSION_TWO(self, buff, arg1, arg2, over)
+    local addATKRate = 1.5
+    
+    self.PATK_RATE_BM = self.PATK_RATE_BM + addATKRate
+    SetExProp(buff,'addATKRate', addATKRate)
+end
+
+function SCR_BUFF_UPDATE_FIELD_BOSS_AWAKE_UP_VERSION_TWO(self, buff, arg1, arg2, RemainTime, ret, over)
+    local maxHP = self.MHP
+    local nowHP = self.HP
+    local healHP = maxHP * 0.15
+    local prop = GetExProp(buff, 'useHeal')
+    if prop ~= 1 then
+        if nowHP < maxHP then
+            Heal(self, math.floor(healHP) , 0);
+            return 1;
+        end
+        SetExProp(buff, 'useHeal', 1)
+    end
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_FIELD_BOSS_AWAKE_UP_VERSION_TWO(self, buff, arg1, arg2, over)
+    addATKRate = GetExProp(buff, 'addATKRate')
+    
+    self.PATK_RATE_BM = self.PATK_RATE_BM - addATKRate
+end
+
+function SCR_FIELD_BOSS_AWAKE_VERSION_TWO_SIMPLE(self)
+    local nowHP = self.HP
+    local maxHP = self.MHP
+    local awakeCnt = GetExProp(self, "AWAKE_COUNT")
+    if awakeCnt < 1 and awakeCnt == 0 then
+        if maxHP * 0.1 >= nowHP then
+            AddBuff(self, self, 'FIELD_BOSS_AWAKE_UP_VERSION_TWO', 1, 0, 0, 1)
+            AddBuff(self, self, 'GM_Invincible_Buff', 1, 0, 5000, 1)
+            SetExProp(self, "AWAKE_COUNT", 1)
+        end
+    end
+end

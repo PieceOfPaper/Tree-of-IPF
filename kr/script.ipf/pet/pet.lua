@@ -122,6 +122,10 @@ function INIT_PET(pet)
     	AddBuff(pet, pc, 'pet_rocksodon_buff');
 	end
 	
+	if pet.ClassName == "Pet_Golddog" then
+    	AddBuff(pet, pc, 'PET_GOLD_DOG_BUFF');
+	end
+	
 	SetHookMsgOwner(pet, pc);
 	SetCompanionInfo(pc, pet, pet.ClassName);
 	

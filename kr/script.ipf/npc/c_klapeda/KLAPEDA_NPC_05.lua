@@ -1084,6 +1084,16 @@ function SCR_TUTO_JOURNAL_NPC_ENTER(self, pc)
 	end
 
     AddHelpByName(pc, "TUTO_JOURNAL")
+
+    local journalMapFogRewardAll = GetExProp(pc, 'JourneyQusetRewardAll')
+    if journalMapFogRewardAll ~= 300 then
+        local list, cnt = SCR_JOURNEY_QUEST_REWARD_CHECK(pc)
+        if list ~= nil and #list > 0 then
+            SetExProp(pc,'JourneyQusetRewardAll',300)
+            SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("JourneyQusetRewardAll"), 10);
+        end
+    end
+    
 end
 
 --function SCR_JOURNAL_MON_REWARD_CHECK(pc)
@@ -1238,4 +1248,131 @@ function SCR_JOURNAL_MAP_REWARD_GIVE(pc, mapList, select)
 	end
 
 	SendProperty(pc, pcetc);	
+end
+
+
+function SCR_JOURNEY_SHOP_NORMAL_8(self, pc)
+
+    local list, cnt = SCR_JOURNEY_QUEST_REWARD_CHECK(pc)
+    if list ~= nil and #list > 0 then
+        local select = SCR_SEL_LIST(pc, cnt, 'RENA_NORMAL8_SELECT1', 1)
+        if select ~= nil and select >= 1 and select <= #list then
+            SCR_JOURNEY_QUEST_REWARD_GIVE(self, pc, list, select)
+        end
+    else
+        ShowOkDlg(pc, 'RENA_NORMAL8_NULL1', 1)
+    end
+    
+end
+
+function SCR_JOURNEY_QUEST_REWARD_CHECK(pc)
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local questList = {}
+    local questSelList = {}
+    if sObj == nil and IsServerObj(pc) == 0 then
+        local pc = GetMyPCObject()
+        sObj = GetSessionObject(pc, 'ssn_klapeda')
+    end
+
+    if sObj ~= nil then
+        local list, cnt = GetClassList("reward_property");
+        for i = 0, cnt -1 do
+            local cls = GetClassByIndexFromList(list, i);
+            if cls ~= nil then
+                local clsName = TryGetProp(cls, "ClassName")
+                local check_word = "JS_Quest_Reward"
+                if string.find(clsName, check_word) ~= nil then
+                    if sObj[clsName] ~= 300 then
+                        local sLength = string.len(clsName)
+                        local sStart, sEnd = string.find(clsName, check_word.."_")
+                        local questClassName = string.sub(clsName, sEnd+1, sLength)
+                        local questIES = GetClass("QuestProgressCheck", questClassName)
+                        if questIES ~= nil then
+                            local questName = TryGetProp(questIES, "Name")
+                            local result = SCR_QUEST_CHECK(pc, questClassName)
+                            if result == 'COMPLETE' then
+                                questList[#questList + 1] = {}
+                                questList[#questList][1] = questClassName
+                                questSelList[#questSelList + 1] = questName
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    
+	if #questList >= 2 then
+	    table.insert(questList, 1, {'ALL'})
+	    table.insert(questSelList, 1, ScpArgMsg('MONKILLREWARDALL', "COUNT",#questList - 1))
+	end
+
+    return questList, questSelList
+end
+
+
+
+function SCR_JOURNEY_QUEST_REWARD_GIVE(self, pc, questList, select)
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local questClassName = questList[select][1]
+    if sObj ~= nil then
+        local check_word = "JS_Quest_Reward"
+        if questClassName == 'ALL' then
+            local tx = TxBegin(pc);
+            for i = 2, #questList do
+                questClassName = questList[i][1]
+                local rewardIES = GetClass('reward_property', check_word.."_"..questClassName)
+                if rewardIES ~= nil then
+                    local clsName = TryGetProp(rewardIES, "ClassName")
+                    local result = SCR_QUEST_CHECK(pc, questClassName)
+                    if result == 'COMPLETE' and sObj[clsName] ~= 300 then
+                        for j = 1, 5 do
+                            local item = TryGetProp(rewardIES, 'RewardItem'..j)
+                            local cnt = TryGetProp(rewardIES, 'RewardCount'..j)
+                            if item ~= "None" and cnt ~= 0 then
+                                TxGiveItem(tx, item, cnt, clsName);
+                            end
+                        end
+                        TxSetIESProp(tx, sObj, clsName, 300)
+                    end
+                end
+            end
+            local ret = TxCommit(tx);
+            if ret == "SUCCESS" then
+                local npcName = TryGetProp(self, "ClassName")
+                if npcName == 'npc_rena' then
+                    ShowOkDlg(pc, 'RENA_NORMAL8_SUCCESS_ALL', 1)
+                else
+                    ShowOkDlg(pc, 'ORSHA_JOURNEY_SHOP_NORMAL7_SUCCESS_ALL', 1)
+                end
+            end
+        else
+            local tx = TxBegin(pc);
+            local rewardIES = GetClass('reward_property', check_word.."_"..questClassName)
+            if rewardIES ~= nil then
+                local clsName = TryGetProp(rewardIES, "ClassName")
+                local result = SCR_QUEST_CHECK(pc, questClassName)
+                if result == 'COMPLETE' and sObj[clsName] ~= 300 then
+                    for i = 1, 5 do
+                        local item = TryGetProp(rewardIES, 'RewardItem'..i)
+                        local cnt = TryGetProp(rewardIES, 'RewardCount'..i)
+                        if item ~= "None" and cnt ~= 0 then
+                            TxGiveItem(tx, item, cnt, clsName);
+                        end
+                    end
+                    TxSetIESProp(tx, sObj, clsName, 300)
+                end
+            end
+            local ret = TxCommit(tx);
+            if ret == "SUCCESS" then
+                local ran = IMCRandom(1,2)
+                local npcName = TryGetProp(self, "ClassName")
+                if npcName == 'npc_rena' then
+                    ShowOkDlg(pc, 'RENA_NORMAL8_SUCCESS'..ran, 1)
+                else
+                    ShowOkDlg(pc, 'ORSHA_JOURNEY_SHOP_NORMAL7_SUCCESS'..ran, 1)
+                end
+            end
+        end
+    end
 end

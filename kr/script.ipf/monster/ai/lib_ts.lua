@@ -1,4 +1,4 @@
-﻿-- lib_ts.lua
+-- lib_ts.lua
 
 function SCR_LIB_AI_BORN_ENTER(self)
     -- Initialize properties
@@ -1013,7 +1013,12 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
             return 0;
         end
     end
-
+    
+    local isShowBalloon = 1;
+    if rewardGrade == "FirstBlow" or rewardGrade == "LastBlow" then
+        isShowBalloon = 0;
+    end
+    
 	if rewardGrade == nil then
 		rewardGrade = "None";
 	end
@@ -1149,7 +1154,7 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
     if dropListCreated == 1 then    -- 미리 보기면 그 아이템만 드랍한다.
         local pre_droplist = GetPrecreatedDropList(self)
         for i = 1, #pre_droplist do            
-            BOSS_SEL_ITEM_DROP(self, attacker, pre_droplist[i], false, isFieldBoss);
+            BOSS_SEL_ITEM_DROP(self, attacker, pre_droplist[i], false, isFieldBoss, isShowBalloon);
         end
     else
         for i = 1 , #retList do
@@ -1161,7 +1166,7 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
             elseif epikMin > 0 then
                 RunZombieScript("EPIK_BOSS_SEL_ITEM_DROP", self, attacker, dropItemList, ldrop.ClassID, dpkMin, drop.EPIK_Max, isFieldBoss);
             else
-                BOSS_SEL_ITEM_DROP(self, attacker, drop, false, isFieldBoss);                
+                BOSS_SEL_ITEM_DROP(self, attacker, drop, false, isFieldBoss, isShowBalloon);                
             end
         end
     end
@@ -1223,10 +1228,10 @@ function PICK_DROP_CLS_INDEX(itemList)
     return nil;
 end
 
-function BOSS_SEL_ITEM_DROP(self, attacker, itemCls, isPayItem, isFieldBoss)    
+function BOSS_SEL_ITEM_DROP(self, attacker, itemCls, isPayItem, isFieldBoss, isShowBalloon)    
     --필드 보스 드랍
     if isFieldBoss == 1 or isFieldBoss == true then
-        local item = FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
+        local item = FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem, isShowBalloon)
         return item;
     else
     --일반 보스 드랍
@@ -1373,39 +1378,12 @@ function NORMAL_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
     return nil
 end
 
-function FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)    
+function FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem, isShowBalloon)    
     if CAN_DROP_CONSIDERING_PENALTY(attacker) == true then
         local itemName = itemCls.ItemClassName;
         local itemCount = 1;
 
         local monID = geItemTable.GetItemMonsterByName(itemName);
-        --180201 필보 보상 추가 이벤트 로직 --
-        local evepropDropCheck = TryGetProp(self, "DropItemList");
-        local bossDropList, cnt = GetClassList("MonsterDropItemList_"..evepropDropCheck);
-        local evegiveItem = nil
-        local everewardItem = nil
-        
-        for i = 0, cnt-1 do
-            local cls = GetClassByIndexFromList(bossDropList,i)
-            if cls == nil then
-                return;
-            end
-            everewardItem = TryGetProp(cls , "RewardGrade")
-            
-            if everewardItem == nil then
-                return;
-            end
-            
-            if everewardItem == "Add" then
-                local eveitemCheck = TryGetProp(cls, "ItemClassName")
-                if eveitemCheck == nil then
-                    return;
-                end
-                evegiveItem = eveitemCheck
-            break;
-            end
-        end
-        --180201 필보 이벤트 로직 종료 --
 
         if GetClassByType("Monster", monID) == nil then
             return nil;
@@ -1418,10 +1396,9 @@ function FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
         -- 이 함수를 호출하는 부분에서는 아이템 리스트를 가지고 루프를 돌기 때문에 내부에서 tx를 여러개 사용할 수 있다고 생각할 수 있음
         -- 하지만 우리 필드보스 드랍 시스템은 무조건 큐브를 1개 주고, 그 큐브를 까서 아이템이 나오는 시스템이기 때문에
         -- 위 룰이 잘 지켜진다면 tx는 무조건 1번으로 보장이 된다.
-            
+        
         local tx = TxBegin(attacker);
         cmdIdx = TxGiveItem(tx, itemCls.ItemClassName, 1, "FieldBossReward");
-        TxGiveItem(tx, evegiveItem, 1, "FieldBossEventReward"); -- 필보 이벤트 보상 지급--
         resultGUID = TxGetGiveItemID(tx, cmdIdx);
         local ret = TxCommit(tx);
     
@@ -1432,11 +1409,16 @@ function FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
             AddBossDropInfo(attacker, self, itemName, itemCount);
 
             local rank = GetExProp(attacker, "BOSS_KILL_RANK");
-            ShowItemBalloon(attacker, "{@st43}", "Rank_{Number}", tostring(rank), item, 4, 2, "reward_itembox");
-            return item;
+            if isShowBalloon == 0 then
+                ShowItemBalloon(attacker, "{@st43}", "Rank_{Number}", tostring(rank), item, 4, 2, "reward_itembox", 0);
+                return item;
+            elseif isShowBalloon == 1 then
+                ShowItemBalloon(attacker, "{@st43}", "Rank_{Number}", tostring(rank), item, 4, 2, "reward_itembox", 1);
+                return item;
+            end
         else
             local name = GetTeamName(attacker)
-            IMC_LOG("INFO_NORMAL", "[FIELD_BOSS_ITEM_DROP ERROR] UserTeamName : "..name.." ItemName : "..itemName)
+            IMC_NORMAL_INFO("[FIELD_BOSS_ITEM_DROP ERROR] UserTeamName : "..name.." ItemName : "..itemName)
             --혹시 모르니 남겨놓자
             CustomMongoLog(attacker, "RewardItemOnmission", "Type", "FieldBossReward", "ItemName", itemName, "itemCount", itemCount)
         end

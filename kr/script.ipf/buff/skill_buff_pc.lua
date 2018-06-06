@@ -14273,6 +14273,8 @@ function SCR_BUFF_LEAVE_Firstblow_Buff(self, buff, arg1, arg2, over)
 		print("Try BuffRemoveFirstblow Lob");
 
 		CustomMongoLog(self, "FieldBoss", "Type", "BuffRemoveFirstblow", "MonClsID", fistBlowMonID, "MonClsName", fistBlowMonName);
+	else
+		CustomMongoLog(self, "FieldBoss", "Type", "BuffRemoveFirstblow");
     end
 end
 

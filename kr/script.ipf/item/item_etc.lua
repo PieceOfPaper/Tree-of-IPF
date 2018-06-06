@@ -3471,3 +3471,22 @@ function SCR_USE_PREMIUM_SOCEKT_GIVE_ITEM(pc, target, string1, arg1, arg2, itemI
     TxGiveItem(tx, string1, arg1, 'PREMIUM_SOCEKT_GIVE_ITEM'..item.ClassName);    
     local ret = TxCommit(tx);
 end
+
+
+function SCR_USE_PREMIUM_GOLDARMOR_GIVE_ITEM(pc, target, string1, arg1, arg2, itemID)
+    local item = GetInvItemByType(pc, itemID);
+    local tx = TxBegin(pc);
+      TxGiveItem(tx, 'Gold_Armor', 1, 'GOLDARMOR_COSTUME_GIVE_ITEM_'..item.ClassName); 
+    TxGiveItem(tx, string1, arg1, 'GOLDARMOR_COSTUME_GIVE_ITEM_'..item.ClassName);    
+    TxGiveItem(tx, 'Gacha_golddog', 2, 'GOLDARMOR_COSTUME_GIVE_ITEM_'..item.ClassName);    
+    local ret = TxCommit(tx);
+end
+
+
+function SCR_USE_PREMIUM_GOLDDOG_GIVE_ITEM(pc, target, string1, arg1, arg2, itemID)
+    local item = GetInvItemByType(pc, itemID);
+    local tx = TxBegin(pc);
+      TxGiveItem(tx, 'helmet_golddog01', 1, 'GOLDDOG_COSTUME_GIVE_ITEM_'..item.ClassName); 
+    TxGiveItem(tx, string1, arg1, 'GOLDDOG_COSTUME_GIVE_ITEM_'..item.ClassName);    
+    local ret = TxCommit(tx);
+end

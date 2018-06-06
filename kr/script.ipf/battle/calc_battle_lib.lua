@@ -1,4 +1,4 @@
--- calc_battle_lib.lua
+﻿-- calc_battle_lib.lua
 
 HIT_BASIC = 0;
 HIT_MOTION = 1;
@@ -592,7 +592,7 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
             rateTable.AddJobAtkRate = jobAtkRate;
         end
     end
-    
+
     if IS_PC(self) == true then
         local JobDefRate = GetPCJobDefRate(self);
         if rateTable.JobDefRate ~= nil then
@@ -758,8 +758,7 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
     local atkDefResult = (atkDefResultTemp[1] * addCriticalDamageRate) + atkDefResultTemp[2];
     -- ★ 여기까지 --
     
-    local addDamage = 0;
-    
+    local addDamage = 0;   
     if skill.ClassType == 'TrueDamage' then
         if atk < 1 then
             atkDefResult = 0;
@@ -2542,6 +2541,7 @@ function SCR_ADD_DAMAGE_CALC(self, from, skill, rateTable)
         end
         
         local addAttributeDamage = rateTable["AddAttributeDamage"..attrList[i]];
+        
         attrAtk = attrAtk + addAttributeDamage;
         
         if attrAtk > 0 then

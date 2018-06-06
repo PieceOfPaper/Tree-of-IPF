@@ -3231,3 +3231,11 @@ end
 function SCR_BUFF_LEAVE_SNOW_FLOWER_EFFECT(self, buff, arg1, arg2, over)
     OverrideSurfaceType(self, 'None')
 end
+
+function SCR_BUFF_ENTER_PET_GOLD_DOG_BUFF(self, buff, arg1, arg2, over)
+    self.Holy_Atk_BM = self.Holy_Atk_BM + 120;
+end
+
+function SCR_BUFF_LEAVE_PET_GOLD_DOG_BUFF(self, buff, arg1, arg2, over)
+    self.Holy_Atk_BM = self.Holy_Atk_BM - 120;
+end

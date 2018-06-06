@@ -154,7 +154,7 @@ function TEST_ADVENTURE_BOOK_FAIL(pc) -- 모험일지 RDB, 레디스 점수 갱�
     Chat(pc, 'TEST_ADVENTURE_BOOK_FAIL END!!')
 end
 
-function TEST_GET_CURRENT_RANKING_POINT(pc)
+function TEST_GET_CURRENT_RANKING_POINT(pc) -- 현재 모험일지 포인트 확인용 치트
     local initial = INITIALIZATION_ADVENTURE_BOOK_POINT(pc);
     local consume = GET_ITEM_CONSUME_POINT(pc);
 
@@ -198,12 +198,64 @@ function TEST_SIMULATE_ADVENTURE_BOOK(pc)
         --sleep(sleepTerm[IMCRandom(1, 3)]);
     end
 
-    Chat(pc, 'TEST_ADVENTURE_BOOK_FAIL END!!')
+    Chat(pc, 'TEST_SIMULATE_ADVENTURE_BOOK END!!')
+end
+
+function TEST_ADVENTURE_BOOK_DUMP(pc) -- 현재 pc의 모험일지 상태를 json으로 덤프해주는 치트
+    TestDumpAdventureBookData(pc);
+end
+
+function TEST_ADVENTURE_BOOK_MAKE_JSON_DATA(pc)
+    local _date = 0;
+    local resultData = {};
+    local lines = {};
+    local filePaths = {};
+
+    for line in io.lines('C:/ProjectR1_trunk/bin/test_simulator/test_simulator.csv') do
+        local strings = StringSplit(line, ',');
+        local date = tonumber(strings[1]);
+        local cmd = strings[2];
+        local id = tonumber(strings[3]);
+        local count = tonumber(strings[4]);
+        local filePath = 'C:/ProjectR1_trunk/bin/test_simulator/simulate_json/SimulateData_'.._date..'.json';
+        if _date ~= date then
+            -- save
+            if _date > 0 then
+                WRITE_DATA(filePath, resultData);
+                WRITE_TAIL(filePath);
+                filePaths[#filePaths + 1] = _date;
+            end
+
+            -- new
+            _date = date;            
+            filePath = 'C:/ProjectR1_trunk/bin/test_simulator/simulate_json/SimulateData_'.._date..'.json';
+            resultData = {};
+            WRITE_HEAD(filePath);
+        end
+        ADVENTURE_BOOK_SIMULATOR_ADD_DATA_INTO_LIST(resultData, cmd, id, count);        
+    end
+    filePath = 'C:/ProjectR1_trunk/bin/test_simulator/simulate_json/SimulateData_'.._date..'.json';
+    WRITE_DATA(filePath, resultData);
+    WRITE_TAIL(filePath);
+
+    -- file paths
+    local file = io.open('C:/ProjectR1_trunk/bin/test_simulator/simulate_json/file_paths.txt', 'a');
+    io.output(file);
+    for i = 1, #filePaths do
+        io.write(filePaths[i]..'\n');
+    end
+    io.close(file);
+
+    Chat(pc, 'TEST_ADVENTURE_BOOK_MAKE_JSON_DATA END!!')
 end
 
 function TEST_ADVENTURE_BOOK_FISHING_CNT(pc, fishingCnt)
     for i = 1, fishingCnt do
         AddAdventureBookFishingInfo(pc, 730801, 1);
     end
+end
+
+function TEST_SEND_ADVENTURE_BOOK_DATA_TO_MAIL_SERVER(pc)
+    TestSendAdventureBookDataToMailServer(pc);
 end
 --- 테스트함수 끝!

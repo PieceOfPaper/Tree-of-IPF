@@ -281,249 +281,211 @@ function SCR_BLUEORB_MONLVUP_DIALOG(self,pc)
         SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('EVENT_1801_ORB_MSG8','LV',30), 10)
         return
     end
-    local moncls_info = {
-        {'EVENT_MYMON01', 'EVENT_MYMON01_LV'},
-        {'EVENT_MYMON02', 'EVENT_MYMON02_LV'},
-        {'EVENT_MYMON03', 'EVENT_MYMON03_LV'}
-    }
-    local mon_sel = 0;
-    local mon_name = { 'None', 'None', 'None' }
-    local aObj = GetAccountObj(pc)
-    
-     if aObj.EVENT_VALUE_AOBJ01 ~= 171121 then -- basic item
-        local tx = TxBegin(pc)
-        TxSetIESProp(tx, aObj, 'EVENT_VALUE_AOBJ01', 171121);
-        TxSetIESProp(tx, aObj, 'EVENT_MYMON01_LV', 1);
-        TxSetIESProp(tx, aObj, 'EVENT_MYMON02_LV', 1);
-        TxSetIESProp(tx, aObj, 'EVENT_MYMON03_LV', 1);
-        TxSetIESProp(tx, aObj, 'EVENT_MYMON01', 'None');
-        TxSetIESProp(tx, aObj, 'EVENT_MYMON02', 'None');
-        TxSetIESProp(tx, aObj, 'EVENT_MYMON03', 'None');
-        TxSetIESProp(tx, aObj, 'BLUEORB_MISSION_CLEAR', 0);
-        TxGiveItem(tx, 'Event_Special_Blueorb', 1, "BLUEORB_REWARD");
-        TxGiveItem(tx, 'Event_Special_Trap', 1, "BLUEORB_REWARD");
-    	local ret = TxCommit(tx)
-    end
-
-    if aObj.EVENT_VALEN_R1 ~= 171123 then
-        local tx = TxBegin(pc)
-        TxSetIESProp(tx, aObj, 'EVENT_VALEN_R1', 171123);
-        TxSetIESProp(tx, aObj, 'EVENT_VALEN_R2', 3);
-    	local ret = TxCommit(tx)
-    end
-
-    local now_time = os.date('*t')
-    local yday = now_time['yday']
-    
-    if aObj.EVENT_VALUE_AOBJ02 ~= yday then -- event indun enter count reset
-        local tx = TxBegin(pc)
-        TxSetIESProp(tx, aObj, 'EVENT_VALUE_AOBJ02', yday);
-        TxSetIESProp(tx, aObj, 'BLUEORB_MISSION_COUNT', 0);
-    	local ret = TxCommit(tx)
-    end
-    
---    local select = ShowSelDlg(pc, 0, 'EVENT_1801_ORB_DLG3', ScpArgMsg("Cancel"), ScpArgMsg("Event_Steam_Together_Master_1"), ScpArgMsg("EVENT_SELECT_BOSSLV_SEL1"), ScpArgMsg("EVENT_SELECT_BOSSLV_SEL4"), ScpArgMsg("EventShop"), ScpArgMsg("EVENT_1708_JURATE_MSG9", "COUNT", aObj.BLUEORB_MISSION_CLEAR))
-    local select = ShowSelDlg(pc, 0, 'EVENT_1801_ORB_DLG3', ScpArgMsg("Cancel"), ScpArgMsg("Event_Steam_Together_Master_1"), ScpArgMsg("EVENT_SELECT_BOSSLV_SEL1"), ScpArgMsg("EVENT_SELECT_BOSSLV_SEL4"), ScpArgMsg("EventShop"), ScpArgMsg('EVENT_1801_ORB_MSG3'))
-    
-    if select == 1 or select == nil then
-        return;
-    elseif select == 2 then
-        if GetMyCompanion(pc) == nil then
-            AUTOMATCH_INDUN_DIALOG(pc, nil, 'c_firemage_event')
-        else
-            SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('EVENT_1801_ORB_MSG7'), 10)
-        end
---        local induncount = 2
---        
---        if IsBuffApplied(pc, 'Premium_Token') == 'YES' then
---            induncount = 3
---        end
---        
---        if aObj.BLUEORB_MISSION_COUNT >= induncount then
---            ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_07', 1)
---        else
---            local pcetc = GetETCObject(pc);
+--    local moncls_info = {
+--        {'EVENT_MYMON01', 'EVENT_MYMON01_LV'},
+--        {'EVENT_MYMON02', 'EVENT_MYMON02_LV'},
+--        {'EVENT_MYMON03', 'EVENT_MYMON03_LV'}
+--    }
+--    local mon_sel = 0;
+--    local mon_name = { 'None', 'None', 'None' }
+--    local aObj = GetAccountObj(pc)
+--    
+--     if aObj.EVENT_VALUE_AOBJ01 ~= 171121 then -- basic item
+--        local tx = TxBegin(pc)
+--        TxSetIESProp(tx, aObj, 'EVENT_VALUE_AOBJ01', 171121);
+--        TxSetIESProp(tx, aObj, 'EVENT_MYMON01_LV', 1);
+--        TxSetIESProp(tx, aObj, 'EVENT_MYMON02_LV', 1);
+--        TxSetIESProp(tx, aObj, 'EVENT_MYMON03_LV', 1);
+--        TxSetIESProp(tx, aObj, 'EVENT_MYMON01', 'None');
+--        TxSetIESProp(tx, aObj, 'EVENT_MYMON02', 'None');
+--        TxSetIESProp(tx, aObj, 'EVENT_MYMON03', 'None');
+--        TxSetIESProp(tx, aObj, 'BLUEORB_MISSION_CLEAR', 0);
+--        TxGiveItem(tx, 'Event_Special_Blueorb', 1, "BLUEORB_REWARD");
+--        TxGiveItem(tx, 'Event_Special_Trap', 1, "BLUEORB_REWARD");
+--    	local ret = TxCommit(tx)
+--    end
 --
---            local tx = TxBegin(pc)
---            TxSetIESProp(tx, pcetc, 'InDunCountType_1100', aObj.BLUEORB_MISSION_COUNT);
---            local ret = TxCommit(tx)
+--    if aObj.EVENT_VALEN_R1 ~= 171123 then
+--        local tx = TxBegin(pc)
+--        TxSetIESProp(tx, aObj, 'EVENT_VALEN_R1', 171123);
+--        TxSetIESProp(tx, aObj, 'EVENT_VALEN_R2', 3);
+--    	local ret = TxCommit(tx)
+--    end
 --
---            if ret == 'SUCCESS' then
---                AUTOMATCH_INDUN_DIALOG(pc, nil, 'c_firemage_event')
---            end
---        end
-    elseif select == 3 then
-        
-        local result = 0;
-        
-        for i = 1, table.getn(moncls_info) do
-            if aObj[moncls_info[i][1]] ~= 'None' then
-                result = result + 1;
-            end
-        end
-        local mon_name_KOR = {}
-        if result == 0 then
-            ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_02', 1)
-        else
-            if aObj[moncls_info[1][1]] ~= 'None' then
-                mon_name[1] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME", GetClassString('Monster', aObj.EVENT_MYMON01, 'Name')..' Lv'..aObj[moncls_info[1][2]])
-                mon_name_KOR[1] = GetClassString('Monster', aObj.EVENT_MYMON01, 'Name')
-            else
-                mon_name[1] = nil
-            end
-            if aObj[moncls_info[2][1]] ~= 'None' then
-                mon_name[2] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME", GetClassString('Monster', aObj.EVENT_MYMON02, 'Name')..' Lv'..aObj[moncls_info[2][2]])
-                mon_name_KOR[2] = GetClassString('Monster', aObj.EVENT_MYMON02, 'Name')
-            else
-                mon_name[2] = nil
-            end
-            if aObj[moncls_info[3][1]] ~= 'None' then
-                mon_name[3] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME",GetClassString('Monster', aObj.EVENT_MYMON03, 'Name')..' Lv'..aObj[moncls_info[3][2]])
-                mon_name_KOR[3] = GetClassString('Monster', aObj.EVENT_MYMON03, 'Name')
-            else
-                mon_name[3] = nil
-            end
-            if aObj[moncls_info[1][1]] == 'None' and aObj[moncls_info[2][1]] == 'None' and aObj[moncls_info[3][1]] == 'None' then
-                ShowOkDlg(pc, 'EVENT_1801_ORB_DLG4', 1)
-                return
-            end
-            mon_sel = ShowSelDlg(pc, 0, 'EVENT_SELECT_BOSSLV_03', ScpArgMsg("Cancel"), mon_name[1],  mon_name[2], mon_name[3] )
-        end
-        
-        if mon_sel == nil or mon_sel == 0 or aObj[moncls_info[mon_sel - 1][1]] == 'None' then
-            return;
-        end
-
-        if mon_sel ~= 0 then
-            if aObj[moncls_info[mon_sel-1][2]] >= 300 then
-                ShowOkDlg(pc, 'EVENT_1801_ORB_DLG1', 1)
-                return
-            end
-            local lvup_input = ShowTextInputDlg(pc, 0, 'EVENT_SELECT_BOSSLV_03\\'..ScpArgMsg("EVENT_SELECT_BOSSLV_SEL3", "NAME", mon_name_KOR[mon_sel - 1], "LV", aObj[moncls_info[mon_sel-1][2]]))
-            local lvup = tonumber(lvup_input)
-            if lvup == nil or lvup <= 0 then
-                return;
-            end
-            
-            if GetInvItemCount(pc, 'Event_Special_Etcitem') < lvup then
-                ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_04', 1)
-                return;
-            end
-            
-            local targetLv = 0
-            local targetCount = 0
-            local lastCount = 0
-            for i = aObj[moncls_info[mon_sel-1][2]] + 1, 300 do
-                local lvTakeCount = math.floor(i / 5) + 1
-                lastCount = lvTakeCount
-                if targetCount + lvTakeCount <= lvup then
-                    targetCount = targetCount + lvTakeCount
-                    targetLv = i
-                else
-                    break
-                end
-            end
-            
-            if targetLv > 0 and targetLv > aObj[moncls_info[mon_sel-1][2]] then
-                local tx = TxBegin(pc)
-                TxSetIESProp(tx, aObj, moncls_info[mon_sel - 1][2], targetLv);
-                TxTakeItem(tx, 'Event_Special_Etcitem', targetCount, 'blueorb_event');
-            	local ret = TxCommit(tx)
-            	if ret == 'SUCCESS' then
-            	    PlayEffect(pc, "F_buff_basic025_white_line", 1)
-            	    SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('EVENT_1801_ORB_MSG1','COUNT', targetCount,'NAME', mon_name_KOR[mon_sel - 1],'LV', targetLv), 10)
-            	end
-            else
-                SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('EVENT_1801_ORB_MSG2','COUNT', lastCount), 10)
-                return;
-            end
-        end
-    elseif select == 4 then
-        if aObj[moncls_info[1][1]] ~= 'None' then
-            mon_name[1] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME", GetClassString('Monster', aObj.EVENT_MYMON01, 'Name')..' Lv'..aObj[moncls_info[1][2]])
-        else
-            mon_name[1] = nil
-        end
-        if aObj[moncls_info[2][1]] ~= 'None' then
-            mon_name[2] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME", GetClassString('Monster', aObj.EVENT_MYMON02, 'Name')..' Lv'..aObj[moncls_info[2][2]])
-        else
-            mon_name[2] = nil
-        end
-        if aObj[moncls_info[3][1]] ~= 'None' then
-            mon_name[3] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME", GetClassString('Monster', aObj.EVENT_MYMON03, 'Name')..' Lv'..aObj[moncls_info[3][2]])
-        else
-            mon_name[3] = nil
-        end
-        if aObj[moncls_info[1][1]] == 'None' and aObj[moncls_info[2][1]] == 'None' and aObj[moncls_info[3][1]] == 'None' then
-            ShowOkDlg(pc, 'EVENT_1801_ORB_DLG4', 1)
-            return
-        end
-            
-        local sel = ShowSelDlg(pc, 0, 'EVENT_1801_ORB_DLG5', ScpArgMsg("Cancel"), mon_name[1], mon_name[2], mon_name[3] )
-        
-        if sel == 1 or sel == nil then
-            return;
-        else
-            local sel2 = ShowSelDlg(pc, 0, 'EVENT_1801_ORB_DLG6', ScpArgMsg("Cancel"), ScpArgMsg('NUMBER_MIXING_VALUE_MSG1') )
-            if sel2 == 2 then
-                if aObj[moncls_info[sel-1][1]] == 'None' then
-                    ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_02', 1)
-                    return;
-                end
-                
-                if GetInvItemCount(pc, 'Event_Special_Etcitem') < 30 then
-                    ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_04', 1)
-                    return;
-                end
-    
-                local tx = TxBegin(pc)
-                TxSetIESProp(tx, aObj, moncls_info[sel - 1][1], 'None');
-                TxTakeItem(tx, 'Event_Special_Etcitem', 30, 'blueorb_event_reset');
-            	local ret = TxCommit(tx)
-            	
-            	if ret == 'SUCCESS' then
-            	    ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_06', 1)
-            	    PlayEffect(pc, "F_buff_basic025_white_line", 1)
-            	end
-            end
-        end
-    elseif select == 5 then
+--    local now_time = os.date('*t')
+--    local yday = now_time['yday']
+--    
+--    if aObj.EVENT_VALUE_AOBJ02 ~= yday then -- event indun enter count reset
+--        local tx = TxBegin(pc)
+--        TxSetIESProp(tx, aObj, 'EVENT_VALUE_AOBJ02', yday);
+--        TxSetIESProp(tx, aObj, 'BLUEORB_MISSION_COUNT', 0);
+--    	local ret = TxCommit(tx)
+--    end
+    local select = ShowSelDlg(pc, 0, 'EVENT_1801_ORB_DLG3', ScpArgMsg("Cancel"), ScpArgMsg("EventShop"))
+    if select == 2 then
         ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP2_OPEN()")
-    elseif select == 6 then
-        local year = now_time['year']
-        local month = now_time['month']
-        local day = now_time['day']
-        local nowDate = year..'/'..month..'/'..day
-        if aObj.EVENT_1801_ORB_GIVE_DATE ~= nowDate then
-            local tx = TxBegin(pc)
-            TxSetIESProp(tx, aObj, 'EVENT_1801_ORB_GIVE_DATE', nowDate);
-            TxGiveItem(tx, 'EVENT_1801_ORB_MISSION_KEY', 12, 'blueorb_event');
-        	local ret = TxCommit(tx)
-        else
-            ShowOkDlg(pc, 'EVENT_1801_ORB_DLG2', 1)
-        end
---    elseif select == 6 then
---        local clear_reward = {
---            {10, 'Premium_boostToken02_event01'},
---            {20, 'Premium_boostToken03_event01'},
---            {30, 'Premium_indunReset_14d'},
---            {40, 'Moru_Gold_14d'},
---            {50, 'Hat_628078'},
---        }
---
---        for i = 1, 5 do
---            if (clear_reward[i][1] <= aObj.BLUEORB_MISSION_CLEAR) and (i == aObj.BLUEORB_CLEAR_REWARD + 1) then
---                local tx = TxBegin(pc)
---                TxGiveItem(tx, clear_reward[i][2], 1, "BLUEORB_CLEAR_REWARD");
---                TxAddIESProp(tx, aObj, 'BLUEORB_CLEAR_REWARD', 1)
---                local ret = TxCommit(tx)
---                if ret == 'SUCCESS' then
---                    SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('JP_Event_Daily'), 5)
---                end
---                break;
+    end
+--    local select = ShowSelDlg(pc, 0, 'EVENT_1801_ORB_DLG3', ScpArgMsg("Cancel"), ScpArgMsg("Event_Steam_Together_Master_1"), ScpArgMsg("EVENT_SELECT_BOSSLV_SEL1"), ScpArgMsg("EVENT_SELECT_BOSSLV_SEL4"), ScpArgMsg("EventShop"), ScpArgMsg('EVENT_1801_ORB_MSG3'))
+--    
+--    if select == 1 or select == nil then
+--        return;
+--    elseif select == 2 then
+--        if GetMyCompanion(pc) == nil then
+--            AUTOMATCH_INDUN_DIALOG(pc, nil, 'c_firemage_event')
+--        else
+--            SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('EVENT_1801_ORB_MSG7'), 10)
+--        end
+--    elseif select == 3 then
+--        
+--        local result = 0;
+--        
+--        for i = 1, table.getn(moncls_info) do
+--            if aObj[moncls_info[i][1]] ~= 'None' then
+--                result = result + 1;
 --            end
 --        end
-    end
+--        local mon_name_KOR = {}
+--        if result == 0 then
+--            ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_02', 1)
+--        else
+--            if aObj[moncls_info[1][1]] ~= 'None' then
+--                mon_name[1] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME", GetClassString('Monster', aObj.EVENT_MYMON01, 'Name')..' Lv'..aObj[moncls_info[1][2]])
+--                mon_name_KOR[1] = GetClassString('Monster', aObj.EVENT_MYMON01, 'Name')
+--            else
+--                mon_name[1] = nil
+--            end
+--            if aObj[moncls_info[2][1]] ~= 'None' then
+--                mon_name[2] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME", GetClassString('Monster', aObj.EVENT_MYMON02, 'Name')..' Lv'..aObj[moncls_info[2][2]])
+--                mon_name_KOR[2] = GetClassString('Monster', aObj.EVENT_MYMON02, 'Name')
+--            else
+--                mon_name[2] = nil
+--            end
+--            if aObj[moncls_info[3][1]] ~= 'None' then
+--                mon_name[3] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME",GetClassString('Monster', aObj.EVENT_MYMON03, 'Name')..' Lv'..aObj[moncls_info[3][2]])
+--                mon_name_KOR[3] = GetClassString('Monster', aObj.EVENT_MYMON03, 'Name')
+--            else
+--                mon_name[3] = nil
+--            end
+--            if aObj[moncls_info[1][1]] == 'None' and aObj[moncls_info[2][1]] == 'None' and aObj[moncls_info[3][1]] == 'None' then
+--                ShowOkDlg(pc, 'EVENT_1801_ORB_DLG4', 1)
+--                return
+--            end
+--            mon_sel = ShowSelDlg(pc, 0, 'EVENT_SELECT_BOSSLV_03', ScpArgMsg("Cancel"), mon_name[1],  mon_name[2], mon_name[3] )
+--        end
+--        
+--        if mon_sel == nil or mon_sel == 0 or aObj[moncls_info[mon_sel - 1][1]] == 'None' then
+--            return;
+--        end
+--
+--        if mon_sel ~= 0 then
+--            if aObj[moncls_info[mon_sel-1][2]] >= 300 then
+--                ShowOkDlg(pc, 'EVENT_1801_ORB_DLG1', 1)
+--                return
+--            end
+--            local lvup_input = ShowTextInputDlg(pc, 0, 'EVENT_SELECT_BOSSLV_03\\'..ScpArgMsg("EVENT_SELECT_BOSSLV_SEL3", "NAME", mon_name_KOR[mon_sel - 1], "LV", aObj[moncls_info[mon_sel-1][2]]))
+--            local lvup = tonumber(lvup_input)
+--            if lvup == nil or lvup <= 0 then
+--                return;
+--            end
+--            
+--            if GetInvItemCount(pc, 'Event_Special_Etcitem') < lvup then
+--                ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_04', 1)
+--                return;
+--            end
+--            
+--            local targetLv = 0
+--            local targetCount = 0
+--            local lastCount = 0
+--            for i = aObj[moncls_info[mon_sel-1][2]] + 1, 300 do
+--                local lvTakeCount = math.floor(i / 5) + 1
+--                lastCount = lvTakeCount
+--                if targetCount + lvTakeCount <= lvup then
+--                    targetCount = targetCount + lvTakeCount
+--                    targetLv = i
+--                else
+--                    break
+--                end
+--            end
+--            
+--            if targetLv > 0 and targetLv > aObj[moncls_info[mon_sel-1][2]] then
+--                local tx = TxBegin(pc)
+--                TxSetIESProp(tx, aObj, moncls_info[mon_sel - 1][2], targetLv);
+--                TxTakeItem(tx, 'Event_Special_Etcitem', targetCount, 'blueorb_event');
+--            	local ret = TxCommit(tx)
+--            	if ret == 'SUCCESS' then
+--            	    PlayEffect(pc, "F_buff_basic025_white_line", 1)
+--            	    SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('EVENT_1801_ORB_MSG1','COUNT', targetCount,'NAME', mon_name_KOR[mon_sel - 1],'LV', targetLv), 10)
+--            	end
+--            else
+--                SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('EVENT_1801_ORB_MSG2','COUNT', lastCount), 10)
+--                return;
+--            end
+--        end
+--    elseif select == 4 then
+--        if aObj[moncls_info[1][1]] ~= 'None' then
+--            mon_name[1] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME", GetClassString('Monster', aObj.EVENT_MYMON01, 'Name')..' Lv'..aObj[moncls_info[1][2]])
+--        else
+--            mon_name[1] = nil
+--        end
+--        if aObj[moncls_info[2][1]] ~= 'None' then
+--            mon_name[2] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME", GetClassString('Monster', aObj.EVENT_MYMON02, 'Name')..' Lv'..aObj[moncls_info[2][2]])
+--        else
+--            mon_name[2] = nil
+--        end
+--        if aObj[moncls_info[3][1]] ~= 'None' then
+--            mon_name[3] = ScpArgMsg("EVENT_SELECT_BOSSLV_SEL2", "NAME", GetClassString('Monster', aObj.EVENT_MYMON03, 'Name')..' Lv'..aObj[moncls_info[3][2]])
+--        else
+--            mon_name[3] = nil
+--        end
+--        if aObj[moncls_info[1][1]] == 'None' and aObj[moncls_info[2][1]] == 'None' and aObj[moncls_info[3][1]] == 'None' then
+--            ShowOkDlg(pc, 'EVENT_1801_ORB_DLG4', 1)
+--            return
+--        end
+--            
+--        local sel = ShowSelDlg(pc, 0, 'EVENT_1801_ORB_DLG5', ScpArgMsg("Cancel"), mon_name[1], mon_name[2], mon_name[3] )
+--        
+--        if sel == 1 or sel == nil then
+--            return;
+--        else
+--            local sel2 = ShowSelDlg(pc, 0, 'EVENT_1801_ORB_DLG6', ScpArgMsg("Cancel"), ScpArgMsg('NUMBER_MIXING_VALUE_MSG1') )
+--            if sel2 == 2 then
+--                if aObj[moncls_info[sel-1][1]] == 'None' then
+--                    ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_02', 1)
+--                    return;
+--                end
+--                
+--                if GetInvItemCount(pc, 'Event_Special_Etcitem') < 30 then
+--                    ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_04', 1)
+--                    return;
+--                end
+--    
+--                local tx = TxBegin(pc)
+--                TxSetIESProp(tx, aObj, moncls_info[sel - 1][1], 'None');
+--                TxTakeItem(tx, 'Event_Special_Etcitem', 30, 'blueorb_event_reset');
+--            	local ret = TxCommit(tx)
+--            	
+--            	if ret == 'SUCCESS' then
+--            	    ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_06', 1)
+--            	    PlayEffect(pc, "F_buff_basic025_white_line", 1)
+--            	end
+--            end
+--        end
+--    elseif select == 5 then
+--        ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP2_OPEN()")
+--    elseif select == 6 then
+--        local year = now_time['year']
+--        local month = now_time['month']
+--        local day = now_time['day']
+--        local nowDate = year..'/'..month..'/'..day
+--        if aObj.EVENT_1801_ORB_GIVE_DATE ~= nowDate then
+--            local tx = TxBegin(pc)
+--            TxSetIESProp(tx, aObj, 'EVENT_1801_ORB_GIVE_DATE', nowDate);
+--            TxGiveItem(tx, 'EVENT_1801_ORB_MISSION_KEY', 12, 'blueorb_event');
+--        	local ret = TxCommit(tx)
+--        else
+--            ShowOkDlg(pc, 'EVENT_1801_ORB_DLG2', 1)
+--        end
+--    end
 end
 
 function SCR_BLUEORB_REWARD(cmd, curStage, eventInst, obj)
@@ -642,17 +604,17 @@ function SCR_BLUEORB_CLEAR_DIALOG(self,pc)
     end
 end
 
-function SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
-    if IMCRandom(1, 100) <= 9 then
-        local curMap = GetZoneName(self);
-        local mapCls = GetClass("Map", curMap);
-        
-        if self.Lv >= 30 and (mapCls.WorldMap ~= 'None' and mapCls.MapType ~= 'City' and IsPlayingDirection(self) ~= 1 and IsIndun(self) ~= 1 and IsPVPServer(self) ~= 1 and IsMissionInst(self) ~= 1) and argObj.MonRank == 'Normal' then
-            if self.Lv <= argObj.Lv + 20 then
-                local x, y, z = GetPos(argObj);
-                local itemObj = CreateGCIES('Monster', 'Event_Special_Etcitem');
-                CreateItem(self, itemObj, x, y, z, 0, 5);
-            end
-        end
-    end
-end
+--function SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
+--    if IMCRandom(1, 100) <= 9 then
+--        local curMap = GetZoneName(self);
+--        local mapCls = GetClass("Map", curMap);
+--        
+--        if self.Lv >= 30 and (mapCls.WorldMap ~= 'None' and mapCls.MapType ~= 'City' and IsPlayingDirection(self) ~= 1 and IsIndun(self) ~= 1 and IsPVPServer(self) ~= 1 and IsMissionInst(self) ~= 1) and argObj.MonRank == 'Normal' then
+--            if self.Lv <= argObj.Lv + 20 then
+--                local x, y, z = GetPos(argObj);
+--                local itemObj = CreateGCIES('Monster', 'Event_Special_Etcitem');
+--                CreateItem(self, itemObj, x, y, z, 0, 5);
+--            end
+--        end
+--    end
+--end

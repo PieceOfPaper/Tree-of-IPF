@@ -93,6 +93,13 @@ function SCR_AUSIRINE_HOVER(self, skl, pad, obj)
 			SetExProp(self, 'AUSIRINE_'..id, i);
 		end
 	end
+	
+	local owner = GetTopOwner(self); 
+	if IS_APPLY_RELATION(owner, obj, "PARTY") == false then
+        return
+	end
+    	
+	
 	local padID = GetPadID(pad);
 	local beforePadID = GetExProp(obj, 'PAD_ID');
 	SetExProp(obj, 'PAD_ID', padID);

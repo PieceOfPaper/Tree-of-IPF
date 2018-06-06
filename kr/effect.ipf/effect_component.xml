@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ComponentList>
 	<Particle name="login_line003" texture="login_line003" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="1024" texel_height="256"/>
 	<Particle name="login_line002" texture="login_line002" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="512" texel_height="128"/>
@@ -426,6 +426,7 @@
 	<Particle name="circle018" texture="circle018" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="circle017" texture="circle017" width="4.00" height="4.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="160" texel_height="160"/>
 	<Particle name="line001" texture="line001" width="10.00" height="10.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Texture name="texture_ripple006" texture="ripple006" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="texture_login_line002" texture="login_line002" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="512" texel_height="128"/>
 	<Texture name="texture_login_line001" texture="login_line001" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="512" texel_height="128"/>
 	<Texture name="texture_smoke002" texture="smoke002" width="5.00" height="5.00" pivot_x="0.50" pivot_y="1.00" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
@@ -587,6 +588,12 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="sphere005_hexa" model="sphere005_hexa.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
+	<Model name="sphere004_rize_hexa3" model="sphere004_rize_hexa3.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
+	<Model name="sphere004_rize_hexa2" model="sphere004_rize_hexa2.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
+	<Model name="sphere004_rize_hexa" model="sphere004_rize_hexa.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
+	<Model name="sphere003_blue" model="sphere003_blue.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
+	<Model name="sphere002_dark_smoke" model="sphere002_dark_smoke.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
 	<Model name="warrior_netdraw_2" model="warrior_netdraw_2.xac" motion="warrior_netdraw_2_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="warrior_netdraw_1" model="warrior_netdraw_1.xac" motion="warrior_netdraw_1_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="warrior_fishingnet_2" model="warrior_fishingnet_2.xac" motion="warrior_fishingnet_2_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
@@ -658,6 +665,7 @@
 	<Model name="kucarry_balzermancer_dead" model="kucarry_balzermancer_dead.xac" motion="kucarry_balzermancer_dead_ani.xsm" texturepath="char_texture\monster\kucarry_balzermancer\" overlap="false" AlphaType="TEST"/>
 	<Model name="PearofAnguish" model="PearofAnguish.xac" motion="None" texturepath="char_texture\monster\pear_of_anquish\" overlap="false" AlphaType="TEST"/>
 	<Model name="Hengestone_dead" model="Hengestone_dead.xac" motion="Hengestone_dead_ani.xsm" texturepath="char_texture\monster\Hengestone\" overlap="false" AlphaType="TEST"/>
+	<Model name="velcoffer_gimmick_prop_dead" model="velcoffer_gimmick_prop_dead.xac" motion="velcoffer_gimmick_prop_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="maple_25_supplemants_event_dead" model="maple_25_supplemants_event_dead.xac" motion="maple_25_supplemants_event_dead_ani.xsm" texturepath="char_texture\npc\maple_25_supplemants\" overlap="false" AlphaType="TEST"/>
 	<Model name="greenwood_dead" model="greenwood_dead.xac" motion="greenwood_dead_ani.xsm" texturepath="char_texture\npc\skill\" overlap="false" AlphaType="TEST"/>
 	<Model name="statue_velcofer_dead" model="statue_velcofer_dead.xac" motion="statue_velcofer_dead_ani.xsm" texturepath="char_texture\npc\statue_velcofer\" overlap="false" AlphaType="TEST"/>

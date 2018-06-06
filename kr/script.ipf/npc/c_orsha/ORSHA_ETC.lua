@@ -848,3 +848,17 @@ function SCR_ORSHA_BOOK02_DIALOG (self, pc)
         return
     end
 end
+
+function SCR_ORSHA_JOURNEY_SHOP_NORMAL_7(self, pc)
+
+    local list, cnt = SCR_JOURNEY_QUEST_REWARD_CHECK(pc)
+    if list ~= nil and #list > 0 then
+        local select = SCR_SEL_LIST(pc, cnt, 'ORSHA_JOURNEY_SHOP_NORMAL7_SELECT1', 1)
+        if select ~= nil and select >= 1 and select <= #list then
+            SCR_JOURNEY_QUEST_REWARD_GIVE(self, pc, list, select)
+        end
+    else
+        ShowOkDlg(pc, 'ORSHA_JOURNEY_SHOP_NORMAL7_NULL1', 1)
+    end
+    
+end

@@ -28,6 +28,10 @@ function TX_EVENT_ITEM_SHOP_TREAD2(pc, argList, strArgList)
 	TX_ITEM_TRADE_SHOP_THREAD(pc, argList, strArgList, 'EventShop2')
 end
 
+function TX_EVENT_ITEM_SHOP_TREAD3(pc, argList, strArgList)
+	TX_ITEM_TRADE_SHOP_THREAD(pc, argList, strArgList, 'EventShop3')
+end
+
 function TX_KEYQUESTSHOP1_SHOP_TREAD(pc, argList, strArgList)
 	TX_ITEM_TRADE_SHOP_THREAD(pc, argList, strArgList, 'KeyQuestShop1')
 end
