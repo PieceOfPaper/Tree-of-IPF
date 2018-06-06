@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -2545,16 +2545,16 @@
 			<img name="bottomcore" imgrect="888 102 100 50"/>
 			<img name="bottomright" imgrect="989 102 50 50"/>
 		</skin>
-		<skin name="testbosscard_tooltip" texture="\skin\pip_test_item.tga">
-			<img name="topleft" imgrect="1039 0 1 596"/>
-			<img name="topcore" imgrect="1040 0 370 596"/>
-			<img name="topright" imgrect="1410 0 1 596"/>
-			<img name="bodyleft" imgrect="1039  597 1 50"/>
-			<img name="bodycore" imgrect="1040 597 370 50"/>
-			<img name="bodyright" imgrect="1410 597 1 50"/>
-			<img name="bottomleft" imgrect="1039 648 1 50"/>
-			<img name="bottomcore" imgrect="1040 648 370 50"/>
-			<img name="bottomright" imgrect="1410 648 1 50"/>
+		<skin name="testbosscard_tooltip" texture="\skin\PVP_skin.tga">
+			<img name="topleft" imgrect="1027 368 1 596"/>
+			<img name="topcore" imgrect="1028 368 370 596"/>
+			<img name="topright" imgrect="1398 368 1 596"/>
+			<img name="bodyleft" imgrect="1398 368 1 50"/>
+			<img name="bodycore" imgrect="1399 368 370 50"/>
+			<img name="bodyright" imgrect="1769 368 1 50"/>
+			<img name="bottomleft" imgrect="1398 419 1 50"/>
+			<img name="bottomcore" imgrect="1399 419 370 50"/>
+			<img name="bottomright" imgrect="1769 419 1 50"/>
 		</skin>
 		<skin name="test_Item_tooltip_normal" texture="\skin\pip_test_item.tga">
 			<img name="topleft" imgrect="837 345 50 60"/>
@@ -5336,6 +5336,8 @@
 		<image name="tradecondition_off" file="\skin\keynbet.tga" imgrect="130 995 130 20"/>
 		<image name="indun_readycheck" file="\skin\indun_skin.tga" imgrect="811 58 57 57" CMM_Caption="인던 4인 이하 준비표시"/>
 		<image name="tooltip_speedofatk" file="\skin\tooltip_skin_3.tga" imgrect="743 111 18 18" CMM_Caption="공격속도 아이콘"/>
+		<image name="LimitedPeriod_bg" file="\skin\pip_test_item.tga" imgrect="1040 0 243 167" CMM_Caption="한정판매"/>
+		<image name="LimitedPeriod_timebg" file="\skin\pip_test_item.tga" imgrect="1508 60 159 25"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
