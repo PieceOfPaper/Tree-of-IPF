@@ -2299,7 +2299,13 @@ function TPSHOP_SELECTED_SPECIALGOODS_BANNER(tpSubgbox, control, strArg, numArg)
 	specialGoods:Invalidate();
 	
 	local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
+
+	if imgAddress ~= "495080" then
 	buyBtn:ShowWindow(1);									
+	else
+		buyBtn:ShowWindow(0);									
+	end
+		
 	buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, numArg);
 	buyBtn:SetEventScriptArgString(ui.LBUTTONUP, strArg);
 	buyBtn:SetUserValue("LISTINDEX", listIndex);

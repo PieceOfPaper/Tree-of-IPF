@@ -21,7 +21,7 @@ function INIT_HAIR_GACHA_RET_TABLE(itemliststr)
 
 	local myTable = itemliststr:split("&")
 		
-	for i = 1, #myTable - 1 do -- ÀÏºÎ·¯ -1 ÇÑ°ÅÀÓ
+	for i = 1, #myTable - 1 do -- ï¿½ÏºÎ·ï¿½ -1 ï¿½Ñ°ï¿½ï¿½ï¿½
 		if i % 2 ~= 0 then
 			table.insert(itemnametable, myTable[i])
 		else
@@ -93,7 +93,8 @@ end
 
 
 function GACHA_POPUP_MSG(frame, msg, itemname, itemcnt)
-
+	IMC_NORMAL_INFO("============start============")
+	IMC_NORMAL_INFO(msg, itemname, itemcnt)
 	local type = nil 
 
 	if msg == "HAIR_GACHA_POPUP" or msg == "HAIR_GACHA_POPUP_10"  then
@@ -111,7 +112,8 @@ function GACHA_POPUP_MSG(frame, msg, itemname, itemcnt)
 
 		local grade = math.floor(itemcnt / 1000)
 		local cnt = itemcnt % 1000
-
+		IMC_NORMAL_INFO(itemname, grade, cnt)
+		IMC_NORMAL_INFO("============end============")
 		g_hairgacharresult[11] = {}
 		g_hairgacharresult[11]["name"] = itemname
 		g_hairgacharresult[11]["grade"] = grade

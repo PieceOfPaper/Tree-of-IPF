@@ -35,6 +35,12 @@ function HAIR_GACHA_START_1()
 	
 end
 
+function HAIR_GACHA_START_1_1()
+	
+	GACHA_START("hair1_1")
+	
+end
+
 function HAIR_GACHA_START_11()
 	
 	GACHA_START("hair11")
@@ -63,7 +69,7 @@ function GACHA_START(type)
 
 	local cnt = 0;
 
-	if type == "hair1" or type == "rbox1" or type == "rbox100" then
+	if type == "hair1" or type == "rbox1" or type == "rbox100" or type == "hair1_1" then
 		cnt = 1
 	elseif type == "hair11" or type == "rbox11" then
 		cnt = 11
@@ -78,8 +84,7 @@ function GACHA_START(type)
 	local frame = ui.GetFrame("hair_gacha_start")
 	frame:ShowWindow(0)
 	frame:SetUserValue("TYPE", type);
-
-	if type == "hair1" or type == "hair11" then
+	if type == "hair1" or type == "hair11" or type == "hair1_1" then
 		
 		local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
 		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")

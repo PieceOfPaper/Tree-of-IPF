@@ -41,6 +41,61 @@ end
 function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
 	-- UIâ�� ȣ���� ť�� ���� ������
 	local cubeItem = GetClassByType("Item", invItemClsID);
+	
+	if cubeItem == nil and btnVisible == '0' then
+    	local CubeNameFrame = frame:GetChild("richtext_1");	
+    	local sucName = string.format("{@st41b}%s", ScpArgMsg(invItemClsID));	
+    	CubeNameFrame:SetTextByKey("value", sucName);
+    	
+    	-- ���� ��ǰ �̸����� ������Ʈ ���� ã��
+    	local reward = GetClass("Item", rewardItem);
+    		
+    	-- ���� ���� ���Կ� ����
+    	local slot  = frame:GetChild("slot");
+    	SET_SLOT_ITEM_OBJ(slot, reward);							-- ������ �̸����� ������ ����
+    	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), reward.ClassID);	-- ������ ���� Ÿ������ ����
+    	
+    	-- ���� �� �̸� ����
+    	local rewardNameFrame = frame:GetChild("itemName");
+    	rewardNameFrame:SetTextByKey("value", reward.Name);	
+    	
+    	if reward.ItemType ~= 'Equip' then
+    		imcSound.PlaySoundEvent('sys_cube_open_normal');
+    	else
+    		imcSound.PlaySoundEvent('sys_cube_open_jackpot');	
+    	end
+    	
+    	local richText2  = frame:GetChild("richtext_2");
+    	local richText3  = frame:GetChild("richtext_3");
+    	local richText4  = frame:GetChild("richtext_4");
+    	local richText5  = frame:GetChild("richtext_5");
+    	local BtnFrame = frame:GetChild("button_1");	
+    	richText2:ShowWindow(0);
+    	richText3:ShowWindow(0);
+    	richText4:ShowWindow(0);
+    	BtnFrame:ShowWindow(0);
+    	richText5:ShowWindow(1);
+    	
+    	richText5:SetTextByKey("value", reward.Name);	
+    	
+    	-- AnimPicture ����
+    	local startAnim = GET_CHILD(frame, 'animpic', 'ui::CAnimPicture');
+    	startAnim:PlayAnimation();	
+    	
+    	-- ������ ���� UIâ ���̱�
+    	frame:ShowWindow(1);
+    	return
+	end
+	local richText2  = frame:GetChild("richtext_2");
+	local richText3  = frame:GetChild("richtext_3");
+	local richText4  = frame:GetChild("richtext_4");
+	local richText5  = frame:GetChild("richtext_5");
+	local BtnFrame = frame:GetChild("button_1");	
+	richText2:ShowWindow(1);
+	richText3:ShowWindow(1);
+	richText4:ShowWindow(1);
+	BtnFrame:ShowWindow(1);
+	richText5:ShowWindow(0);
 
 	-- UIâ�� ��ġ ����
 	local invframe = ui.GetFrame("inventory");
