@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="3966" soundFile="skl_eff_spread_6"/>
+	<Sound frame="3.00" soundFile="mon_voice_netherbovine_2"/>
+	<Particle frame="5" attachActor="None" attachNode="Bip001 Neck" particleName="F_spin027_stone" useAttach="false" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="5" attachActor="None" attachNode="Dummy_emitter" particleName="F_spread_in019_smoke" useAttach="false" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Sound frame="54.00" Value="3966" soundFile="skl_eff_apple"/>
+	<Sound frame="60.00" Value="0" soundFile="skl_eff_yonazolem_1"/>
+	<Particle frame="60" attachActor="None" attachNode="Dummy_emitter" particleName="F_spin028_stone" useAttach="false" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="60" attachActor="None" attachNode="Dummy_emitter" particleName="F_spin029_smoke" useAttach="false" hiddenObj="false" scale="9" pause="true" targetPos="false"/>
+	<Particle frame="62" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke116" useAttach="false" hiddenObj="false" scale="14" pause="true" targetPos="false"/>
+	<Particle frame="64" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke116" useAttach="false" hiddenObj="false" scale="12" pause="true" targetPos="false"/>
+	<Particle frame="66" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke116" useAttach="false" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+</ActionDesc>

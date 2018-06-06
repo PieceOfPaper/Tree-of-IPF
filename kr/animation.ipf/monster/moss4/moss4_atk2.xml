@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="1333" soundFile="mon_rafflesia_atk" />
+    <Particle frame="14" particleName="I_hepatica_king_atk001_mash" attachNode="Dummy_emiitter" scale="1" useAttach="false" pause="true" targetPos="false" />
+    <Sound frame="15" soundFile="skl_eff_poison_2" />
+    <Particle frame="18.00" particleName="F_smoke057_green" attachNode="Dummy_eff_atk2" scale="4" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="18.00" particleName="I_explosion013_green" attachNode="Dummy_eff_atk2" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="18.00" particleName="F_explosion001_green2" attachNode="Dummy_eff_atk22" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <HitAni frame="18.02" damratio="100" />
+</ActionDesc>

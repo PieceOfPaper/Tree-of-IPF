@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" particleName="F_light026_yellow" attachNode="Bip001 Spine" scale="1" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="0" particleName="I_fallen_statue_dead002_mash" attachNode="Dummy_emitter" scale="1.3" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="0" particleName="I_force064" attachNode="Bip001 R Finger0" scale="4" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="0" particleName="I_force064" attachNode="Bip001 L Finger0" scale="4" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="0" particleName="I_force064" attachNode="Bip001 R Forearm" scale="3" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="0" particleName="I_force064" attachNode="Bip001 L Forearm" scale="3" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="1" particleName="F_light026_yellow" attachNode="Bip001 Spine" scale="1.5" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="2" particleName="F_light026_yellow" attachNode="Bip001 Spine" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="3" particleName="F_ground078_smoke" attachNode="Dummy_emitter" scale="10" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="6" particleName="F_explosion004_yellow2" attachNode="Dummy_skl_badak" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="6" particleName="F_smoke107" attachNode="Dummy_emitter" scale="10" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="6.00" soundFile="mon_voice_screech_2" />
+    <Particle frame="7" particleName="I_fallen_statue_dead001_mash" attachNode="Dummy_emitter" scale="1.2" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="8" particleName="F_light025_yellow" attachNode="Bip001 Spine" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <Sound frame="12.00" soundFile="skl_eff_dead_boom_stone" />
+    <Sound frame="15.00" soundFile="m_lecifer_dead" />
+    <Sound frame="15.00" soundFile="skl_eff_stone_rolling_1" />
+</ActionDesc>

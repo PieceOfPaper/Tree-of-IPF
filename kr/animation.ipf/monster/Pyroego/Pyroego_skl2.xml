@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Bip001 R Finger2" particleName="I_smoke047_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 L Finger2" particleName="I_smoke047_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 R Finger21" particleName="I_spread_out012_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 L Finger21" particleName="I_spread_out012_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_voice5_l_dead_13"/>
+    <Sound frame="0.00" soundFile="skl_eff_prominence_fire"/>
+    <Sound frame="3.00" soundFile="skl_wiz_lightning"/>
+    <Sound frame="16.00" soundFile="mon_voice5_l_dead_9"/>
+    <BlendOn frame="33" R="150" G="150" B="200" A="100"/>
+    <BlendOn frame="35" R="0" G="0" B="0" A="0"/>
+    <BlendOff frame="35" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="40" R="150" G="150" B="150" A="100"/>
+    <BlendOn frame="45" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="49" R="150" G="150" B="120" A="100"/>
+    <BlendOn frame="52" R="0" G="0" B="0" A="0"/>
+    <Sound frame="54.00" soundFile="mon_voice5_l_dead_12"/>
+    <Sound frame="54.00" soundFile="mon_voice5_l_dead_10"/>
+    <BlendOn frame="55" R="150" G="150" B="100" A="100"/>
+    <Sound frame="57.00" soundFile="skl_eff_explosion"/>
+    <Sound frame="58.00" soundFile="skl_eff_dead_boom_m"/>
+    <BlendOn frame="60" R="150" G="150" B="100" A="100"/>
+    <BlendOn frame="65" R="150" G="150" B="100" A="100"/>
+    <Particle frame="68" attachNode="Bip001 L Finger21" particleName="I_explosion009_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="68" attachNode="Bip001 R Finger21" particleName="I_explosion009_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="77" R="0" G="0" B="0" A="0"/>
+    <BlendOff frame="80" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

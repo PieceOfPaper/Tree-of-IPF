@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_molich_atk_ready"/>
+    <Sound frame="38" soundFile="mon_molich_atk_shot"/>
+    <Particle frame="38" attachNode="Dummy_emiitter" particleName="F_smoke033" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" targetPos="false"/>
+    <Particle frame="38" attachNode="Dummy_emiitter" particleName="F_smoke076" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" targetPos="false"/>
+    <Particle frame="38" attachNode="Dummy_emiitter" particleName="F_smoke063" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" targetPos="false"/>
+    <Particle frame="38" attachNode="Dummy_emiitter" particleName="I_molich_atk002_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+</ActionDesc>

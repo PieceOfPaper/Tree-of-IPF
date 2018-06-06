@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Bip001" particleName="I_ground004_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" Value="3766" soundFile="mon_dionia_atk_cast"/>
+	<Sound frame="30.00" Value="3766" soundFile="mon_voice5_l_9"/>
+	<Sound frame="33.00" Value="3766" soundFile="skl_eff_dash_1"/>
+	<Particle frame="33" attachActor="None" attachNode="Dummy_event" particleName="F_toadalijus_skl2_badak" useAttach="false" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
+	<Shockwave frame="35" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="36.00" soundFile="skl_eff_ground_blow_m"/>
+	<Shockwave frame="37" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="37" attachActor="None" attachNode="Bip001 Neck" particleName="F_smoke034" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Shockwave frame="39" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="41" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="43" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="45" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="54.00" Value="3766" soundFile="skl_eff_crash_ground_l_2"/>
+</ActionDesc>

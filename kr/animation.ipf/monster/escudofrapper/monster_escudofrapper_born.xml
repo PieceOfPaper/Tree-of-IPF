@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActionDesc>
+  <Scp frame="1" funcName="SCR_ESCUDOFRAPPER_BORN" />
+  <Sound frame="0" eventType="Normal" soundFile="None" />
+  <HitTime frame="0" />
+  <AttackSound frame="0" handPos="Right" />
+  <Emitter frame="15" emitterName="None" attachNode="None" />
+  <WeaponTrail frame="7" keyFrameName="keyframe1" imageName="default" actionName="default" />
+  <Sound frame="1" soundFile="m_escudofrapper_born" />
+  <Particle frame="45" attachActor="None" attachNode="Bip01 R Toe0" particleName="mon_foot_smoke_3" />
+</ActionDesc>

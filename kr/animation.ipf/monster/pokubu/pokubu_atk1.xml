@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="mon_pokubu_atk1_cast"/>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="F_ground078_smoke" scale="1" useAttach="false" hiddenObj="false" changeEffect="None"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="F_ground078_smoke" scale="1.5" useAttach="false" hiddenObj="false" changeEffect="None"/>
+	<Particle frame="9" particleName="F_mon_katynforest_zombie01_knockdown" attachNode="Dummy_emitter" scale="1.5" useAttach="false"/>
+	<Sound frame="5" soundFile="mon_pokubu_atk1_shot"/>
+	<HitAni frame="4"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

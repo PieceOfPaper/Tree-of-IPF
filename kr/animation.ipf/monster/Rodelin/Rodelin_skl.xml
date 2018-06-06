@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" particleName="I_smoke013_dark" attachNode="Bip01 L Finger2" scale="1" useAttach="true" pause="true" targetPos="false" sound="skl_eff_yuche_cast"/>
+    <Particle frame="0" particleName="I_smoke013_dark" attachNode="Bip01 R Finger2" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_ghost_1"/>
+    <Particle frame="6.00" particleName="F_explosion065_violet" attachNode="Dummy_skl_effect01" scale="1" useAttach="true" pause="true" targetPos="false" sound="skl_eff_energy_bolt_shot"/>
+    <Sound frame="7.00" soundFile="mon_banshee_hit"/>
+    <Particle frame="7" particleName="F_explosion065_violet" attachNode="Dummy_skl_effect02" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="9" particleName="F_explosion065_violet" attachNode="Dummy_skl_effect01" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="9" particleName="F_explosion065_violet" attachNode="Dummy_skl_effect02" scale="1" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

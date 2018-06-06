@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="89" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="91" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="93" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="95" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="97" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="99" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="101" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="103" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="105" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="107" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="40" attachActor="None" attachNode="Dummy001" particleName="F_light001_yellow1" useAttach="true" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="89" attachActor="None" attachNode="Dummy_Effect" particleName="I_RytaSwort_dead_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="89" attachActor="None" attachNode="Dummy001" particleName="F_explosion004_yellow" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="89" attachActor="None" attachNode="Dummy001" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="89" attachActor="None" attachNode="Dummy001" particleName="F_explosion082" useAttach="false" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="90" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_11"/>
+	<Sound frame="0.00" soundFile="skl_eff_wood_move"/>
+	<Sound frame="21.00" soundFile="skl_eff_atk_move_m_9"/>
+	<Sound frame="36.00" soundFile="mon_voice5_l_16"/>
+	<Sound frame="40.50" soundFile="mon_voice_hog_10"/>
+	<Sound frame="52.50" soundFile="skl_eff_atk_move_l_1"/>
+</ActionDesc>

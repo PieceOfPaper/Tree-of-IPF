@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by aura (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="10" attachActor="None" attachNode="Bone_jaw02" particleName="mon_jaw_smoke_2"/>
+	<Particle frame="0" attachActor="None" attachNode="" particleName="I_bomb005_dark"/>
+	<Particle frame="1" attachActor="None" attachNode="" particleName="I_light010"/>
+	<Sound frame="3" soundFile="m_vordoi_skl_shot"/>
+	<Sound frame="1" soundFile="shot_verb_1"/>
+	<Sound frame="5" soundFile="shot_verb_2"/>
+	<RimLight frame="5" power="2" duration="0.1" color="252;176;92;255"/>
+	<RimLight frame="11" power="2" duration="0.1" color="252;176;92;255"/>
+	<RimLight frame="17" power="2" duration="0.1" color="252;176;92;255"/>
+	<RimLight frame="23" power="2" duration="0.1" color="252;176;92;255"/>
+	<RimLight frame="29" power="2" duration="0.1" color="252;176;92;255"/>
+	<RimLight frame="35" power="2" duration="0.1" color="252;176;92;255"/>
+</ActionDesc>

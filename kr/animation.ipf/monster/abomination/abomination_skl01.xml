@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="6.00" Value="2000" soundFile="skl_eff_atk_move_l_5"/>
+	<Sound frame="12.00" Value="2000" soundFile="mon_voice_saltistter_2"/>
+	<Sound frame="15.90" Value="2000" soundFile="skl_eff_stone_blow_m"/>
+	<Shockwave frame="17" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="17" attachActor="None" attachNode="Dummy_effect_skl1_cast_R" particleName="F_smoke089" scale="20" pause="true" targetPos="false"/>
+	<Shockwave frame="18" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="27.00" Value="2000" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="36.00" Value="2000" soundFile="skl_eff_stone_blow_m"/>
+	<Shockwave frame="38" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="38" attachActor="None" attachNode="Dummy_effect_skl1_cast_L" particleName="F_smoke089" scale="20" pause="true" targetPos="false"/>
+	<Shockwave frame="39" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="60" Value="5000" soundFile="mon_voice_saltistter_3"/>
+	<Sound frame="63" Value="5000" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="84" Value="5000" soundFile="skl_eff_atk_move_l_4"/>
+	<Shockwave frame="90" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="69" attachActor="None" attachNode="Dummy_effect_atk" particleName="F_smoke063" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="69" attachActor="None" attachNode="Dummy_effect_atk" particleName="F_stone005" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_effect_skl1_shot_2" particleName="F_ground088_smoke" scale="7" pause="true" targetPos="false"/>
+	<Sound frame="90" Value="5000" soundFile="skl_eff_ground_blow_m"/>
+	<Shockwave frame="91" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="92" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="120" Value="0" soundFile="skl_eff_stoneunderground_1"/>
+	<Sound frame="129" Value="5000" soundFile="skl_eff_atk_move_l_8"/>
+	<Sound frame="132" Value="5000" soundFile="mon_voice_saltistter_4"/>
+	<Shockwave frame="138" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="138" attachActor="None" attachNode="Dummy_effect_skl1_shot_3" particleName="F_smoke090" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="138" attachActor="None" attachNode="Dummy_effect_skl1_shot_3" particleName="F_ground108_smoke" scale="3" pause="true" targetPos="false"/>
+	<Shockwave frame="139" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="140" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="141" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

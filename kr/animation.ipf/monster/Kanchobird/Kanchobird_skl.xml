@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_body_atk_33"/>
+    <Sound frame="0.00" soundFile="mon_bavon_cast_2"/>
+    <Sound frame="10.00" soundFile="mon_mallardu_atk"/>
+    <Sound frame="10.00" soundFile="mon_bavon_shot_2"/>
+    <Particle frame="10" attachNode="Dummy_effect_skl" particleName="I_breath009" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="10" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="10" attachNode="Dummy_emitter" particleName="F_spread_out008_smoke" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false" sound="mon_onion_atk_gas"/>
+    <Sound frame="11.00" soundFile="born_ground_1"/>
+</ActionDesc>

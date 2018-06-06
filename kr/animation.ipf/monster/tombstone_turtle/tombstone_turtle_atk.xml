@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="0" soundFile="mon_katynforest_zombie_03_atk2_ready"/>
+    <Sound frame="1.00" Value="0" soundFile="mon_saurman_axeman_atk_cast"/>
+    <Sound frame="2.00" soundFile="skl_eff_body_atk_9"/>
+    <Particle frame="5" particleName="F_smoke033" attachNode="Dummy_atk_effect" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Sound frame="10.00" soundFile="skl_eff_body_atk_12"/>
+    <Sound frame="10.00" Value="0" soundFile="move_dash"/>
+    <Particle frame="10" particleName="F_smoke063" attachNode="Dummy_atk_effect" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Sound frame="11.00" Value="0" soundFile="mon_turret_hit_1"/>
+</ActionDesc>

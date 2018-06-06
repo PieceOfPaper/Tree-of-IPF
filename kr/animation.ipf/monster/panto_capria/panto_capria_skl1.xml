@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_panto_javelin_elite_skl1_cast"/>
+    <Particle frame="20" attachNode="Dummy_emitter" particleName="F_spread_out008_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="75.00" soundFile="mon_panto_javelin_elite_skl1_shot"/>
+    <Particle frame="76" attachNode="Dummy_skl1_effect_weapon" particleName="I_swordtrail024_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" targetPos="false" sound="skl_fgt_execution"/>
+    <Particle frame="77" attachNode="Dummy_skl1_effect_ground" particleName="F_burstup003" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="77" attachNode="Dummy_emitter" particleName="F_smoke022" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

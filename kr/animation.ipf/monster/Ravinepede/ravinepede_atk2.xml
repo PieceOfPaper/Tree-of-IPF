@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_ravinelerva_11"/>
+    <Sound frame="0.00" soundFile="mon_voice_rootopus_atk_1"/>
+    <Sound frame="6.00" soundFile="skl_eff_poison_1"/>
+    <Particle frame="10" particleName="I_smoke048" attachNode="Dummy_effect_head" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="10" particleName="I_smoke048_true" attachNode="Dummy_effect_head" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="15.00" soundFile="skl_eff_bite_m"/>
+    <Sound frame="27.00" soundFile="skl_eff_bite_m"/>
+    <Sound frame="42.00" soundFile="skl_eff_atk_move_m_9"/>
+    <Sound frame="60.00" soundFile="skl_eff_atk_move_s_8"/>
+    <Sound frame="64.50" soundFile="skl_eff_dead_boom_s"/>
+    <Particle frame="67" particleName="F_ground057" attachNode="Dummy_effect_head" scale="2" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="67" particleName="F_ground057" attachNode="Dummy_effect_head" scale="2" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="67" particleName="F_explosion006_orange" attachNode="Dummy_effect_head" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="67" particleName="F_smoke090" attachNode="Dummy_effect_head" scale="2" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="69" particleName="F_explosion044" attachNode="Dummy_effect_head" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

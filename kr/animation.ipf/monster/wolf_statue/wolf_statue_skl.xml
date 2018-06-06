@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="0" soundFile="skl_fgt_ultimatedash_cast"/>
+    <Sound frame="0.00" soundFile="mon_voice_hogma_skl_cast"/>
+    <Particle frame="2.00" particleName="I_spread_in002_orange" attachNode="Dummy_eff_skl_ready_02" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="13" particleName="I_swordtrail006_red" attachNode="Dummy_eff_skl" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="13" particleName="I_light008_orange" attachNode="Dummy_eff_skl_shot" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="13" Value="0" soundFile="atk_hammerground"/>
+    <Sound frame="14.00" soundFile="mon_voice_hogma_skl_shot"/>
+    <Sound frame="14" Value="0" soundFile="skl_eff_ground_blow_m"/>
+    <Shockwave frame="14" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="14" particleName="F_explosion059_ground" attachNode="Dummy_eff_skl_shot" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+    <Shockwave frame="16" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="18" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="20" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

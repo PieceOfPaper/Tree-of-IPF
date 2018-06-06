@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="2.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="6.00" soundFile="rap_attack"/>
+    <BlendOn frame="6" R="90" G="80" B="70" A="100"/>
+    <BlendOn frame="7" R="50" G="40" B="30" A="50"/>
+    <Sound frame="8.00" soundFile="skl_fgt_tackle_shot"/>
+    <BlendOn frame="9" R="0" G="0" B="0" A="0"/>
+    <Sound frame="12.00" soundFile="rap_attack"/>
+    <BlendOn frame="14" R="70" G="60" B="50" A="100"/>
+    <BlendOn frame="15" R="50" G="40" B="30" A="50"/>
+    <BlendOff frame="16" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

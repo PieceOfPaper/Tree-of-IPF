@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="m_medium_flap"/>
+	<Sound frame="10.00" soundFile="mon_voice_succubus_atk_cast_1"/>
+	<Sound frame="13.00" soundFile="npc_potap_whoosh"/>
+	<Sound frame="15.00" soundFile="skl_eff_slow_body"/>
+	<Sound frame="52.00" soundFile="mon_voice_succubus_atk_2"/>
+	<Sound frame="53.00" soundFile="skl_eff_lightning_3"/>
+	<Sound frame="54.00" soundFile="skl_eff_whip_1"/>
+	<Sound frame="60.00" soundFile="skl_eff_dark_hit"/>
+	<Sound frame="66.00" soundFile="swd_blow_flesh1--"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="68" R="250" G="120" B="100" A="100"/>
+	<BlendOn frame="71" R="60" G="50" B="70" A="60"/>
+	<BlendOn frame="84" R="250" G="150" B="255" A="100"/>
+	<BlendOn frame="88" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="89" R="0" G="0" B="0" A="0"/>
+	<Particle frame="13" attachNode="Bip001 Spine1" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="70" attachNode="Bip001 Spine1" particleName="F_spread_out031_fether_black" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="92" attachNode="Bip001 Spine1" particleName="F_spread_out031_fether_black" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="92" attachNode="Dummy_bufficon" particleName="F_spread_out031_fether_black" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="20" attachNode="Control_ChainKnot_5" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="60" attachNode="Bone_Chain_5" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="13" attachNode="Bip001 Spine" particleName="I_drop001_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+</ActionDesc>

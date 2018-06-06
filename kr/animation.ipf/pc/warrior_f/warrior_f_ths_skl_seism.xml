@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="14" R="150" G="150" B="100" A="50"/>
+	<BlendOn frame="15" R="100" G="100" B="60" A="50"/>
+	<BlendOff frame="17" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_Seism_swordtrail" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_Seism_hit" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="F_smoke062" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.45" pause="true" use2DEffect="false"/>
+	<Particle frame="14" attachNode="Dummy_emitter" particleName="F_smoke031" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false"/>
+	<Sound frame="3.00" soundFile="skl_eff_murmillo_jump"/>
+</ActionDesc>

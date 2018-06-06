@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_jukopus_atk2_cast"/>
+	<Sound frame="5" soundFile="mon_jukopus_atk2_shot"/>
+	<Particle frame="5" attachNode="dummy_eff_born" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" scale="0.5"/>
+	<Particle frame="10" attachNode="Dummy_eff_atk2" particleName="monster_knockdown" useAttach="true" hiddenObj="false" scale="2.3"/>
+	<Particle frame="10" attachNode="Dummy_eff_atk2" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" scale="1.5"/>
+</ActionDesc>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_body_atk_3"/>
+    <Particle frame="7" attachNode="Dummy_skl_effect" particleName="F_spin034" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.6" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_two_spin_1"/>
+    <Particle frame="8" attachNode="Bip001 Head" particleName="F_explosion055_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="8" attachNode="Wing_R_02" particleName="F_explosion055_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="8" attachNode="Wing_L_01" particleName="F_explosion055_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_effect" particleName="F_smoke059" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="8.20" soundFile="mon_footstep_bug_wing_short_1"/>
+    <Sound frame="8.20" soundFile="mon_footstep_bug_wing_short_2"/>
+    <Sound frame="8.20" soundFile="mon_voice8_s_random"/>
+    <Sound frame="8.20" soundFile="skl_eff_body_atk_12"/>
+    <Particle frame="13" attachNode="Bip001 Head" particleName="F_explosion055_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="13" attachNode="Wing_R_02" particleName="F_explosion055_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="13" attachNode="Wing_L_01" particleName="F_explosion055_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="13" attachNode="Dummy_effect" particleName="F_smoke059" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

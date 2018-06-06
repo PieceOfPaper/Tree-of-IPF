@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_fgt_rg_provoke"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="8.00" soundFile="voice_war_atk_long_shot"/>
+    <Sound frame="8.00" soundFile="skl_fgt_ultimatedash_shot"/>
+    <BlendOn frame="8" R="80" G="80" B="40" A="50"/>
+    <Particle frame="8" attachActor="None" attachNode="Dummy_effect_shoulder" particleName="I_warrior_shouldercharge_shot_mash" hiddenObj="false" changeEffect="None" useAttach="true" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="8" attachActor="None" attachNode="Bip01 R Toe0" particleName="F_warrior_shouldercharge_shot_smoke" hiddenObj="false" changeEffect="None" useAttach="false" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="9" type="2" intensity="5" frequency="30" duration="0.4" range="1000"/>
+    <Shockwave frame="11" type="2" intensity="1" frequency="20" duration="0.2" range="1000"/>
+    <BlendOn frame="11" R="0" G="0" B="0" A="0"/>
+    <BlendOff frame="14" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

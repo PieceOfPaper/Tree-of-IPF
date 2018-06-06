@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActionDesc>
+  <Emitter frame="40" attachNode="None" emitterName="mon_bioman_atk1" useAttach="true" />
+  <Particle frame="0" attachNode="effect_Dummy01" particleName="mon_bioman_atk_steam" useAttach="true" />
+  <Particle frame="0" attachNode="Dummy05" particleName="mon_bioman_atk_gun" useAttach="true" />
+  <Material frame="40" param="50" blendTime="0.5" partType="-1" itemType="-2" mtrlOption="0" duration="0.3" />
+</ActionDesc>

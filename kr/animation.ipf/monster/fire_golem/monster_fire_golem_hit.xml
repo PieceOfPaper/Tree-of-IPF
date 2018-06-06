@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_golem_hit" />
+    <PostFix frame="10" ID="_height" />
+    <Particle frame="17" attachNode="Dummy_effect02" particleName="3D_golem_dead" useAttach="true" hiddenObj="true" scale="1.0" />
+    <PostFix frame="20" ID="_height" />
+    <Particle frame="20" attachActor="None" attachNode="Dummy_effect02" particleName="F_smoke107" scale="1.0" />
+</ActionDesc>

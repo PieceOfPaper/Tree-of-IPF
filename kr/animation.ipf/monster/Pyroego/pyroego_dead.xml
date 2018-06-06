@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="100" G="50" B="50" A="50"/>
+	<BlendOn frame="15" R="170" G="120" B="100" A="150"/>
+	<BlendOn frame="40" R="200" G="150" B="130" A="200"/>
+	<Particle frame="10" attachNode="Bip001 Neck" particleName="F_fire005" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Bip001 L Hand" particleName="F_fire005" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="12" attachNode="Bip001 R Forearm" particleName="F_fire005" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="14" attachNode="Bip001 L Forearm" particleName="F_fire005" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="15" attachNode="Bip001 Head" particleName="F_fire005" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="15" attachNode="Bip001 R Hand" particleName="F_fire005" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="16" attachNode="Bip001 Pelvis" particleName="F_fire005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="20" attachNode="Bip001 Spine1" particleName="F_fire005" useAttach="false" hiddenObj="false" scale="1.7" pause="true" targetPos="false"/>
+	<Particle frame="60" attachNode="Dummy_emitter" particleName="F_explosion050_fire" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="60" attachNode="Dummy_emitter" particleName="F_ground102_fire" useAttach="false" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="60" attachNode="Dummy_emitter" particleName="I_magburk_dead_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="65" attachNode="Dummy_emitter" particleName="F_fire011" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<BlendOff frame="80" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="60" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="62" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="64" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="66" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="68" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="74" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="76" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="78" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="mon_colimencia_dead"/>
+	<Sound frame="30.00" soundFile="mon_ghost_oldman_dead"/>
+	<Sound frame="35.00" soundFile="mon_voice_hog_12"/>
+</ActionDesc>

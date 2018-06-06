@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="0" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="10" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="12" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" attachNode="Bip001 R Finger11" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Bip001 R Finger11" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="2" attachNode="Bip001 L Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true"/>
+	<Particle frame="2" attachNode="Bip001 L Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="10" attachNode="Bip001 L Finger11" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true"/>
+	<Particle frame="10" attachNode="Bip001 L Finger11" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="12" attachNode="Bip001 R Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true"/>
+	<Particle frame="12" attachNode="Bip001 R Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="8" attachNode="Dummy_effect_atk_trail" particleName="I_swordtrail026_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_effect_atk" particleName="F_ground062_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_effect_atk" particleName="F_explosion059_ground_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_smoke126" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice11_cast"/>
+	<Sound frame="8.00" soundFile="skl_eff_atk_move_s_1"/>
+	<Sound frame="8.00" soundFile="skl_eff_atk_move_s_3"/>
+	<Sound frame="8.00" soundFile="mon_voice11_shot"/>
+</ActionDesc>

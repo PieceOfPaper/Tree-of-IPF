@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="atk_cloth_s_r1"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="4.00" soundFile="skl_fgt_tackle_shot"/>
+    <Particle frame="9" attachNode="Dummy_R_HAND" particleName="F_light063_spark_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="14.00" soundFile="skl_eff_move_equip_4"/>
+    <Sound frame="15.00" soundFile="skl_fgt_tackle_cast"/>
+</ActionDesc>

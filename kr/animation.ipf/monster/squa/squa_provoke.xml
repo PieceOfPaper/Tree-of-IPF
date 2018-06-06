@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_effect" particleName="F_ground036_violet" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false" />
+    <Particle frame="0" attachNode="Dummy_effect_aura" particleName="I_spread_in009_violet" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false" />
+    <Particle frame="0" attachNode="Dummy_effect_aura" particleName="I_bat011_smoke" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false" />
+    <Sound frame="0.00" soundFile="mon_voice_hog_2" />
+    <Sound frame="0.00" soundFile="skl_fire_cast" />
+    <Sound frame="7.00" soundFile="skl_fgt_ultimatedash_cast" />
+    <Particle frame="15" attachNode="Dummy_effect_aura" particleName="I_spread_in009_violet" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false" />
+    <Sound frame="17.00" soundFile="skl_fgt_ultimatedash_cast" />
+    <Particle frame="25" attachNode="Dummy_effect" particleName="F_ground036_violet" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false" />
+    <Particle frame="50" attachNode="Dummy_effect_aura" particleName="I_bat008" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false" />
+    <Particle frame="50" attachNode="Dummy_effect_aura" particleName="I_smoke032_spread_out" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false" />
+    <Particle frame="55" attachNode="Dummy_effect_aura" particleName="F_explosion074_violet" useAttach="true" hiddenObj="false" scale="15" pause="true" targetPos="false" />
+</ActionDesc>

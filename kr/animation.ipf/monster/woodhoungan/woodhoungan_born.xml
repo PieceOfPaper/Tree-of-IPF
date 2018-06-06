@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="2" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="3" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="5" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="F_smoke089" useAttach="true" hiddenObj="false" changeEffect="None" scale="30" pause="true" use2DEffect="false"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+</ActionDesc>

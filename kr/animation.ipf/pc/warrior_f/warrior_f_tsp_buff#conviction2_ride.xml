@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_parrying"/>
+    <Sound frame="4.00" soundFile="voice_atk_medium_war_f"/>
+    <Particle frame="5" attachNode="Dummy_effect_conviction" particleName="F_warrior_parrying_shot_lineup" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <Sound frame="9.00" Value="0" soundFile="skl_wiz_telekinesis_circle"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

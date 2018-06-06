@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_ground036_violet" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Bip001 Spine1" particleName="I_bat011_smoke" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Bip001 Spine1" particleName="I_spread_in009_violet" useAttach="true" hiddenObj="false" scale="0.4" pause="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Bip001 Spine1" particleName="I_spread_in009_violet" useAttach="true" hiddenObj="false" scale="0.6" pause="true" targetPos="false"/>
+	<Particle frame="20" attachNode="Dummy_emitter" particleName="F_ground036_violet" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_effect_aura" particleName="F_explosion074_violet" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+</ActionDesc>

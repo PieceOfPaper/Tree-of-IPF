@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_hogma_skl_cast"/>
+	<Sound frame="35.00" soundFile="mon_voice_hog_8"/>
+	<Shockwave frame="36" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="38" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="40" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="42" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="44" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="36" attachNode="Dummy_emitter" particleName="F_spin011" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_two_spin_3"/>
+	<Particle frame="36" attachNode="Dummy_skl1_effect" particleName="F_spin017" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" sound="None"/>
+	<Particle frame="36" attachNode="Dummy_emitter" particleName="F_spread_out008_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_stab_earth_boom_1"/>
+</ActionDesc>

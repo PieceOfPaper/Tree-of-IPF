@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="20" type="2" intensity="5" frequency="50" duration="1.5" range="1000"/>
+	<Shockwave frame="63" type="2" intensity="10" frequency="60" duration="0.5" range="1000"/>
+	<Shockwave frame="147" type="2" intensity="30" frequency="60" duration="0.5" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="10" R="20" G="4" B="25" A="50"/>
+	<BlendOn frame="20" R="50" G="10" B="80" A="100"/>
+	<BlendOn frame="35" R="80" G="20" B="100" A="200"/>
+	<BlendOn frame="59" R="150" G="100" B="150" A="200"/>
+	<BlendOn frame="110" R="80" G="20" B="100" A="200"/>
+	<BlendOn frame="130" R="50" G="10" B="80" A="100"/>
+	<BlendOn frame="150" R="20" G="4" B="20" A="50"/>
+	<BlendOff frame="160" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0" soundFile="m_malletwyvern_skl_4"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_levitation007_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="30" attachNode="Dummy_R_eye" particleName="F_light054_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="30" attachNode="Dummy_L_eye" particleName="F_light054_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="50" attachNode="Dummy_R_eye" particleName="F_light054_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="50" attachNode="Dummy_L_eye" particleName="F_light054_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="80" attachNode="Dummy_R_eye" particleName="F_light054_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="true"/>
+	<Particle frame="80" attachNode="Dummy_L_eye" particleName="F_light054_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="true"/>
+	<Particle frame="110" attachNode="Dummy_R_eye" particleName="F_light054_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="110" attachNode="Dummy_L_eye" particleName="F_light054_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="58" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="146" attachNode="Dummy_emitter" particleName="F_ground077_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="147" attachNode="Dummy_emitter" particleName="F_spread_out013_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="70" attachNode="Bip01 Head" particleName="spread_in011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="B_b" particleName="I_force074_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true"/>
+	<Particle frame="66" attachNode="Dummy_effect_breath" particleName="I_breath024_fire_purple_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false"/>
+</ActionDesc>

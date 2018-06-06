@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ppiac (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_born_swell_eff"/>
+    <Sound frame="1.00" soundFile="mon_voice2_s_15"/>
+    <Sound frame="13.00" soundFile="skl_eff_atk_move_s_4"/>
+    <Particle frame="14" attachNode="Dummy_head" particleName="F_bg_leaf004" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false" sound="skl_eff_body_atk_22"/>
+    <Sound frame="18.00" soundFile="skl_eff_atk_move_s_1"/>
+    <Particle frame="18" attachNode="Dummy_head" particleName="F_bg_leaf004" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false" sound="skl_eff_body_atk_22"/>
+    <Sound frame="24.00" soundFile="skl_eff_hit_base_4"/>
+    <Sound frame="24.00" soundFile="mon_voice4_s_random"/>
+    <Sound frame="24.00" soundFile="skl_eff_atk_move_s_9"/>
+    <Particle frame="25" attachNode="Dummy_head" particleName="F_bg_leaf004" useAttach="false" hiddenObj="false" scale="7" pause="true" targetPos="false" sound="skl_eff_body_atk_17"/>
+</ActionDesc>

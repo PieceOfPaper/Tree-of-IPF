@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="11" particleName="F_smoke109" attachNode="Bip01 L Hand" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="11" particleName="F_smoke109" attachNode="Bip01 R Hand" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_smoke109" attachNode="Bone03(mirrored)" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_smoke109" attachNode="Bone03" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_smoke109" attachNode="Bip01 R Foot" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="13" particleName="F_smoke109" attachNode="Bip01 L Foot" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="11" soundFile="m_siauliai_beetle_skl_shot"/>
+	<Sound frame="0.00" soundFile="m_siauliai_beetle_skl_cast"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

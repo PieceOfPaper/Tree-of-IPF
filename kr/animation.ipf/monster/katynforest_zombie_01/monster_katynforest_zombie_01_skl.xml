@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="6" attachNode="Dummy_skl" particleName="I_puragi_atk001_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_circle018" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="6" attachNode="Dummy_skl" particleName="F_mon_katynforest_zombie01_skl_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="6" attachNode="Dummy_skl" particleName="F_mon_katynforest_zombie01_skl_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="6" attachNode="Dummy_skl" particleName="F_mon_katynforest_zombie01_skl_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Sound frame="6" soundFile="mon_katynforest_zombie_01_skl_shot"/>
+	<HitAni frame="6" Value="233"/>
+	<Particle frame="0" attachNode="Dummy_skl" particleName="I_spread_in007_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Sound frame="0.00" soundFile="mon_katynforest_zombie_01_skl_ready"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

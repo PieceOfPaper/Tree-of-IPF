@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonsterAnim frame="0" Key="magnumopus" Anim="DEAD"/>
+    <Sound frame="8.00" soundFile="skl_eff_alchemist_tincturing_dead_boom"/>
+    <DeleteMonster frame="17" Key="magnumopus"/>
+    <CreateMonster frame="20" MonName="None" Key="magnumopus" Angle="0" ist="0" MonAngle="0"/>
+</ActionDesc>

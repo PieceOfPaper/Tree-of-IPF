@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_body_atk_30"/>
+    <Sound frame="0.00" soundFile="mon_mallardu_dead"/>
+    <Particle frame="2" particleName="F_spread_out008_smoke" attachNode="Dummy_emitter" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="18.00" soundFile="skl_eff_two_spin_3"/>
+    <Sound frame="18.00" soundFile="skl_eff_body_atk_12"/>
+    <Sound frame="20.00" soundFile="mon_mallardu_atk"/>
+    <Particle frame="21" particleName="I_mallardu_skl_mash" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="21" particleName="F_spin033" attachNode="Dummy_skl_effect" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="34" particleName="F_smoke088" attachNode="Dummy_emitter" scale="2" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

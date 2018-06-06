@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="14" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="16" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="20" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="22" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="25" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="27" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="32" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="34" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="37" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="39" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="14" particleName="F_smoke109" attachNode="Bone021" scale="2" useAttach="true"/>
+	<Particle frame="14" particleName="F_stone005" attachNode="Bone021" scale="1" useAttach="true"/>
+	<Particle frame="16" particleName="F_smoke109" attachNode="Bone018" scale="2" useAttach="true"/>
+	<Particle frame="16" particleName="F_stone005" attachNode="Bone018" scale="1" useAttach="true"/>
+	<Particle frame="20" particleName="F_smoke109" attachNode="Bone016" scale="2" useAttach="true"/>
+	<Particle frame="20" particleName="F_stone005" attachNode="Bone016" scale="1" useAttach="true"/>
+	<Particle frame="21" particleName="F_smoke109" attachNode="Bone020" scale="2" useAttach="true"/>
+	<Particle frame="21" particleName="F_stone005" attachNode="Bone020" scale="1" useAttach="true"/>
+	<Particle frame="25" particleName="F_smoke109" attachNode="Bone017" scale="2" useAttach="true"/>
+	<Particle frame="25" particleName="F_stone005" attachNode="Bone017" scale="1" useAttach="true"/>
+	<Particle frame="27" particleName="F_smoke109" attachNode="Bone019" scale="2" useAttach="true"/>
+	<Particle frame="27" particleName="F_stone005" attachNode="Bone019" scale="1" useAttach="true"/>
+	<Particle frame="32" particleName="F_smoke109" attachNode="Bone021" scale="2" useAttach="true"/>
+	<Particle frame="32" particleName="F_stone005" attachNode="Bone021" scale="1" useAttach="true"/>
+	<Particle frame="34" particleName="F_smoke109" attachNode="Bone018" scale="2" useAttach="true"/>
+	<Particle frame="34" particleName="F_stone005" attachNode="Bone018" scale="1" useAttach="true"/>
+	<Particle frame="37" particleName="F_smoke109" attachNode="Bone020" scale="2" useAttach="true"/>
+	<Particle frame="37" particleName="F_stone005" attachNode="Bone020" scale="1" useAttach="true"/>
+	<Particle frame="37" particleName="F_smoke109" attachNode="Bone019" scale="2" useAttach="true"/>
+	<Particle frame="37" particleName="F_stone005" attachNode="Bone019" scale="1" useAttach="true"/>
+	<Particle frame="37" particleName="F_smoke109" attachNode="Bone017" scale="2" useAttach="true"/>
+	<Particle frame="37" particleName="F_stone005" attachNode="Bone017" scale="1" useAttach="true"/>
+	<Particle frame="37" particleName="F_smoke109" attachNode="Bone016" scale="2" useAttach="true"/>
+	<Particle frame="37" particleName="F_stone005" attachNode="Bone016" scale="1" useAttach="true"/>
+	<Sound frame="3.00" soundFile="mon_big_footstep_spider"/>
+	<Sound frame="24.00" soundFile="mon_big_footstep_spider"/>
+</ActionDesc>

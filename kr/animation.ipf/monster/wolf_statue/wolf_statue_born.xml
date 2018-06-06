@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" particleName="F_smoke065" attachNode="Dummy_emitter" scale="0.7" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke071_stone" attachNode="Dummy_born_1" scale="1" useAttach="true" pause="true" targetPos="false" sound="npc_rootcrystal_born"/>
+    <Particle frame="0" particleName="F_smoke066" attachNode="Dummy_born_1" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="0.00" Value="0" soundFile="npc_rootcrystal_born"/>
+    <Sound frame="0.00" Value="0" soundFile="mon_voice5_l_7"/>
+    <Sound frame="5.00" Value="0" soundFile="skl_eff_born_1"/>
+    <Particle frame="5" particleName="F_smoke071_stone" attachNode="Dummy_born_2" scale="1" useAttach="true" pause="true" targetPos="false" sound="npc_rootcrystal_born"/>
+    <Particle frame="5" particleName="F_smoke066" attachNode="Dummy_born_2" scale="0.5" useAttach="true" pause="true" targetPos="false" sound="skl_eff_born_underground_1"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

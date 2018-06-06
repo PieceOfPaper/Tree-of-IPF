@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="voice_archer_f_atk"/>
+    <Sound frame="0.00" soundFile="move_block_1"/>
+    <AttachModel frame="2" XAC="artefact_archer_stone" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="None"/>
+    <Particle frame="2" attachNode="Dummy_R_HAND" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="2" attachNode="Dummy_R_HAND" particleName="F_drop_stone002" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="4.00" soundFile="pickup"/>
+</ActionDesc>

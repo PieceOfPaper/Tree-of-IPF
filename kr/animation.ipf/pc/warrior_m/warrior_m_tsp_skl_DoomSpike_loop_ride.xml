@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="25" G="20" B="10" A="10"/>
+	<BlendOn frame="2" R="50" G="40" B="20" A="30"/>
+	<BlendOn frame="4" R="80" G="40" B="30" A="30"/>
+	<BlendOn frame="6" R="50" G="40" B="20" A="30"/>
+	<BlendOn frame="8" R="25" G="20" B="10" A="10"/>
+	<BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+	<a frame="5" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+</ActionDesc>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="0" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="1" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="3" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="5" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="37" particleName="F_smoke109" attachNode="Circle001" scale="3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="74" particleName="F_smoke109" attachNode="Circle001" scale="3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="111" particleName="F_smoke109" attachNode="Circle001" scale="3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="19" particleName="F_smoke109" attachNode="Circle002" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="56" particleName="F_smoke109" attachNode="Circle002" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="93" particleName="F_smoke109" attachNode="Circle002" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="111" particleName="F_smoke109" attachNode="Circle002" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="25" particleName="F_smoke109" attachNode="Circle003" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="62" particleName="F_smoke109" attachNode="Circle003" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="99" particleName="F_smoke109" attachNode="Circle003" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="19" particleName="F_smoke109" attachNode="Circle005" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="56" particleName="F_smoke109" attachNode="Circle005" scale="3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="93" particleName="F_smoke109" attachNode="Circle005" scale="3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="111" particleName="F_smoke109" attachNode="Circle005" scale="3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="37" particleName="F_smoke109" attachNode="Circle004" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="74" particleName="F_smoke109" attachNode="Circle004" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="111" particleName="F_smoke109" attachNode="Circle004" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="28" particleName="F_smoke109" attachNode="Circle006" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="65" particleName="F_smoke109" attachNode="Circle006" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="102" particleName="F_smoke109" attachNode="Circle006" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="93" particleName="F_smoke109" attachNode="Dummy001" scale="5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="96" particleName="F_smoke109" attachNode="Dummy001" scale="7" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="0.00" Value="600" soundFile="skl_eff_atk_move_l_13"/>
+	<Sound frame="0.00" Value="600" soundFile="skl_eff_ground_blow_s"/>
+	<Sound frame="6.00" Value="600" soundFile="mon_voice_throneweaver_8"/>
+</ActionDesc>

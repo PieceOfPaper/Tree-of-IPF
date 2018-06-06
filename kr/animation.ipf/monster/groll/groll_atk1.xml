@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ppiac (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_groll_atk_cast"/>
+	<Sound frame="5" soundFile="skl_eff_gas_1"/>
+	<Sound frame="5" soundFile="mon_groll_atk_shot"/>
+	<Particle frame="5" particleName="I_breath022_green" attachNode="eff_atk_01" scale="1" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

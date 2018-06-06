@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by leedoyoung (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_molich_skl_ready" />
+    <Sound frame="44.00" soundFile="mon_molich_skl_shot" />
+    <Shockwave frame="45" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="45" particleName="I_dash012_mash" attachNode="Dummy_eff_skl" scale="4" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="45" particleName="I_molich_atk001_mash" attachNode="Dummy_eff_smoke" scale="5" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="45" particleName="F_ground066_smoke" attachNode="Dummy_eff_smoke" scale="6" useAttach="false" pause="true" targetPos="false" />
+    <Shockwave frame="48" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="48" particleName="F_ground066_smoke" attachNode="Dummy_eff_smoke" scale="6" useAttach="false" pause="true" targetPos="false" />
+    <Shockwave frame="51" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="51" particleName="F_ground066_smoke" attachNode="Dummy_eff_smoke" scale="6" useAttach="false" pause="true" targetPos="false" />
+    <Shockwave frame="54" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="54" particleName="F_ground066_smoke" attachNode="Dummy_eff_smoke" scale="6" useAttach="false" pause="true" targetPos="false" />
+    <Shockwave frame="57" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="62" particleName="3D_pc_warrior_dash" attachNode="Bip001 L Foot" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="64" particleName="3D_pc_warrior_dash" attachNode="Bip001 L Foot" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="66" particleName="3D_pc_warrior_dash" attachNode="Bip001 L Foot" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="66" particleName="3D_pc_warrior_dash" attachNode="Bip001 R Foot" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="67" particleName="3D_pc_warrior_dash" attachNode="Bip001 L Foot" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="68" particleName="3D_pc_warrior_dash" attachNode="Bip001 R Foot" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="70" particleName="3D_pc_warrior_dash" attachNode="Bip001 R Foot" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="71" particleName="3D_pc_warrior_dash" attachNode="Bip001 R Foot" scale="2" useAttach="false" pause="true" targetPos="false" />
+</ActionDesc>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="10" G="15" B="12" A="20"/>
+	<BlendOn frame="20" R="50" G="50" B="30" A="20"/>
+	<BlendOn frame="34" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="38" R="50" G="80" B="50" A="30"/>
+	<BlendOn frame="40" R="10" G="15" B="12" A="20"/>
+	<BlendOff frame="43" R="0" G="0" B="0" A="0"/>
+	<Particle frame="34" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true"/>
+	<Sound frame="4.50" soundFile="mon_colimencia_atk"/>
+</ActionDesc>

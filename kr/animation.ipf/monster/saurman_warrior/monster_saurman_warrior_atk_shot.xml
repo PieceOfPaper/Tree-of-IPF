@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" particleName="F_swordtrail001_red" attachNode="Dummy_atk1_weapon" scale="1.2" useAttach="true" />
+    <Sound frame="0" soundFile="mon_saurman_warrior_atk1_shot" />
+    <Particle frame="1" particleName="axeman_atk_spark" attachNode="Dummy_atk1_badak" scale="1.5" useAttach="true" />
+    <Particle frame="1" particleName="F_light043_orange" attachNode="Dummy_atk1_badak" scale="1.5" useAttach="true" />
+    <Particle frame="1" particleName="F_ground070" attachNode="Dummy_atk1_badak" scale="1.5" useAttach="true" />
+    <Sound frame="1" soundFile="atk_swordswing" />
+    <HitAni frame="1.84" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

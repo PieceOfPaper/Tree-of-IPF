@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="53" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="55" R="130" G="130" B="100" A="200"/>
+	<BlendOn frame="57" R="90" G="90" B="70" A="200"/>
+	<BlendOn frame="60" R="70" G="70" B="50" A="200"/>
+	<BlendOn frame="61" R="40" G="40" B="30" A="200"/>
+	<BlendOn frame="62" R="30" G="30" B="20" A="200"/>
+	<BlendOn frame="63" R="20" G="20" B="10" A="200"/>
+	<BlendOn frame="64" R="10" G="10" B="5" A="200"/>
+	<BlendOff frame="65" R="0" G="0" B="0" A="0"/>
+	<Particle frame="51" attachNode="Dummy_effect_atk_dash" particleName="I_dash013_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="41" attachNode="Bip001 R Toe0" particleName="I_smoke014" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="41" attachNode="Bip001 L Toe0" particleName="I_smoke014" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="41" attachNode="Bip001 R Hand" particleName="I_smoke014" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="41" attachNode="Bip001 L Hand" particleName="I_smoke014" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="65" attachNode="Dummy_effect_smoke1" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="47" attachNode="Dummy_effect_smoke1" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="45" attachNode="Dummy_effect_smoke1" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="65" attachNode="Dummy_effect_smoke1" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bone025" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip001 Pelvis" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip001 Spine2" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip001 Head" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_chapparition_born"/>
+	<Sound frame="37.00" soundFile="mon_wood_spirit_skl_shot"/>
+	<Sound frame="38.00" soundFile="mon_voice_saltistter_8"/>
+</ActionDesc>

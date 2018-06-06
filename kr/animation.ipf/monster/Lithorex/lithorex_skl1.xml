@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_genmagnus_atk"/>
+    <Sound frame="0.00" soundFile="skl_eff_cast_smoke_1"/>
+    <Sound frame="0.00" soundFile="skl_eff_chapparition_dead_cast_eff"/>
+    <Particle frame="0" attachNode="Dummy_emitter2" particleName="F_light089_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="15.00" soundFile="skl_archer_aimingshot_cast_2"/>
+    <Particle frame="50" attachNode="Dummy_emitter2" particleName="F_light089_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="53.00" soundFile="mon_voice_saltistter_4"/>
+    <Sound frame="53.00" soundFile="mon_voice5_l_dead_10"/>
+    <Sound frame="53.00" soundFile="mon_voice_genmagnus_skl"/>
+    <Sound frame="55.00" soundFile="skl_eff_gyulge_shot"/>
+</ActionDesc>

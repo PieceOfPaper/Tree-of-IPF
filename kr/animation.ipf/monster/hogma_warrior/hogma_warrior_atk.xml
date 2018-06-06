@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_hogma_atk" />
+    <Sound frame="3.00" soundFile="skl_fgt_tackle_cast" />
+    <Particle frame="5" particleName="I_swordtrail002_orange" attachNode="Dummy_atk_effect" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="5" particleName="F_smoke063" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="6.00" soundFile="skl_fgt_tackle_shot" />
+    <Sound frame="6.00" soundFile="swd_attack2" />
+</ActionDesc>

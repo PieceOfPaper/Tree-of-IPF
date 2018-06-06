@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="3.00" soundFile="mon_minotaurs_born"/>
+    <Sound frame="58.47" soundFile="skl_eff_atk_move_l_3"/>
+    <Particle frame="67" particleName="F_ground079_smoke" attachNode="Dummy_emitter" scale="3" useAttach="false" pause="true" targetPos="false"/>
+    <Shockwave frame="67" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="69.00" soundFile="skl_eff_bodyfall_l_2"/>
+    <Shockwave frame="69" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="71" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="73" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_hogma_skl_cast"/>
+	<Particle frame="2" particleName="F_spread_out005_orange" attachNode="Dummy_emiitter" scale="4" useAttach="true" pause="false" targetPos="false"/>
+	<Particle frame="32" particleName="F_burstup029_smoke" attachNode="eff_skl_badak_01" scale="1" useAttach="true" pause="false" targetPos="false"/>
+	<Particle frame="32" particleName="F_explosion012" attachNode="eff_skl_badak_01" scale="4" useAttach="true" pause="false" targetPos="false"/>
+	<Sound frame="22.00" soundFile="skl_eff_body_atk_1"/>
+	<Sound frame="27.00" soundFile="atk_swordthrust"/>
+	<Sound frame="29.00" soundFile="mon_voice_hogma_skl_shot"/>
+	<Sound frame="33.00" soundFile="shield_block"/>
+	<Sound frame="33.00" soundFile="blow_ground"/>
+</ActionDesc>

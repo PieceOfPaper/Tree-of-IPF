@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="mon_truffle_atk2_cast"/>
+    <Sound frame="5" soundFile="mon_truffle_atk2_shot"/>
+    <Particle frame="6.33" attachNode="Dummy_truffle_atk2_001" particleName="F_burstup022_smoke_s" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" targetPos="false" sound="skl_eff_body_atk_12"/>
+    <Particle frame="7" attachNode="Dummy_truffle_atk2_001" particleName="F_stone002" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="8.00" soundFile="mon_voice2_s_random"/>
+    <Particle frame="8" attachNode="Dummy_truffle_atk2_002" particleName="F_burstup022_smoke_s" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" targetPos="false" sound="skl_eff_born_1"/>
+    <Particle frame="8" attachNode="Dummy_truffle_atk2_002" particleName="F_stone002" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="8.00" attachNode="Dummy_truffle_atk2_003" particleName="F_burstup022_smoke_s" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" targetPos="false" sound="skl_eff_bite_s_2"/>
+    <Particle frame="9" attachNode="Dummy_truffle_atk2_002" particleName="F_stone002" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="14" attachNode="Dummy_emitter" particleName="F_smoke107" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" targetPos="false"/>
+</ActionDesc>

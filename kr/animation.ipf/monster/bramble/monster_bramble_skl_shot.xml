@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by leedoyoung (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_bramble_skl_shot" />
+    <Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="9" particleName="F_ground069_stone" attachNode="Dummy_bramble_skl" scale="3" useAttach="true" />
+    <Particle frame="9" particleName="F_ground069_stone" attachNode="Dummy_bramble_skl001" scale="3" useAttach="true" />
+    <HitAni frame="10.42" />
+    <Shockwave frame="13" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="17" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="21" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="25" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="29" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="33" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="53" particleName="F_ground069_stone" attachNode="Dummy_bramble_skl" scale="3" useAttach="true" />
+    <Particle frame="53" particleName="F_ground069_stone" attachNode="Dummy_bramble_skl001" scale="3" useAttach="true" />
+</ActionDesc>

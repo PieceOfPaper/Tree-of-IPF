@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="17" type="2" intensity="2" frequency="70" duration="0.4" range="1000"/>
+	<Shockwave frame="18" type="2" intensity="2" frequency="70" duration="0.6" range="1000"/>
+	<Particle frame="11" attachNode="Dummy_workdesk_emitter2" particleName="F_wizard_MAGNUMOPUS_SHOVEL_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="12" attachNode="Dummy_workdesk_emitter" particleName="F_smoke137_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="13" attachNode="Dummy_waterbottle_emitter" particleName="F_smoke137_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+</ActionDesc>

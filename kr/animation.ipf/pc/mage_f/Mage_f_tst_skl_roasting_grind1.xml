@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AttachModel frame="0" XAC="artefact_bowlhead_set" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="none"/>
+	<CreateMonsterAnim frame="0" Key="roasting" Anim="grind1" Freeze="0"/>
+	<Sound frame="0.00" soundFile="skl_eff_alchemist_roasting_hit_1"/>
+	<Sound frame="4.00" soundFile="skl_eff_alchemist_roasting_hit_1"/>
+	<Sound frame="8.00" soundFile="skl_eff_alchemist_roasting_hit_1"/>
+	<Sound frame="11.00" soundFile="skl_eff_alchemist_roasting_hit_1"/>
+	<Sound frame="14.00" soundFile="skl_eff_alchemist_roasting_hit_1"/>
+	<Sound frame="18.00" soundFile="skl_eff_alchemist_roasting_hit_2"/>
+	<Sound frame="22.00" soundFile="skl_eff_alchemist_roasting_hit_2"/>
+	<Sound frame="27.00" soundFile="skl_eff_alchemist_roasting_hit_2"/>
+	<Sound frame="31.00" soundFile="skl_eff_alchemist_roasting_hit_1"/>
+	<Sound frame="35.00" soundFile="skl_eff_alchemist_roasting_hit_1"/>
+	<Sound frame="38.00" soundFile="skl_eff_alchemist_roasting_hit_2"/>
+	<Sound frame="42.00" soundFile="skl_eff_alchemist_roasting_hit_2"/>
+	<Sound frame="48.00" soundFile="skl_eff_alchemist_roasting_hit_2"/>
+	<Sound frame="51.00" soundFile="skl_eff_alchemist_roasting_hit_1"/>
+	<Sound frame="59.00" soundFile="skl_eff_alchemist_roasting_hit_1"/>
+	<HeadRotBip frame="0" BipName="Bip01"/>
+</ActionDesc>

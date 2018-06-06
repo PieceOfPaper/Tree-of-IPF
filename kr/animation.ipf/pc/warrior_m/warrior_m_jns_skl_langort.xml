@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="4.00" soundFile="skl_fgt_tackle_shot"/>
+    <BlendOn frame="8" R="130" G="70" B="150" A="100"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="E_warrior_langort_dash_shield" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="E_warrior_langort_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Sound frame="8.00" soundFile="skl_fgt_execution"/>
+    <BlendOn frame="9" R="110" G="50" B="140" A="100"/>
+    <Particle frame="9" attachNode="Dummy_emitter" particleName="E_warrior_langort_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <BlendOn frame="10" R="70" G="30" B="90" A="100"/>
+    <BlendOn frame="11" R="40" G="25" B="60" A="100"/>
+    <BlendOn frame="12" R="20" G="15" B="30" A="100"/>
+    <BlendOff frame="13" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

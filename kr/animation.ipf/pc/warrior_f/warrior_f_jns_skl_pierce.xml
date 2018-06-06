@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<Sound frame="0.00" soundFile="skl_eff_cast_force"/>
+	<Sound frame="4.00" soundFile="skl_eff_body_atk_2"/>
+	<Sound frame="12.00" soundFile="skl_fgt_horizontalcrasher_shot"/>
+	<Sound frame="12.00" soundFile="skl_fgt_execution"/>
+	<BlendOn frame="14" R="80" G="80" B="20" A="50"/>
+	<Particle frame="5" attachNode="Bip01 L Foot" particleName="I_smoke004_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="5" attachNode="Bip01 R Foot" particleName="I_smoke004_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="12" attachNode="Dummy_jns_pierce_effect" particleName="I_warrior_florysh_shot_dash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="13" attachNode="Dummy_effect_left_foot" particleName="F_smoke037" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="14" attachNode="Dummy_emitter" particleName="E_warrior_pierce" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Sound frame="15.00" soundFile="voice_atk_medium_war_f"/>
+	<BlendOn frame="16" R="255" G="255" B="255" A="0"/>
+	<BlendOff frame="16" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

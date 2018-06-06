@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="10" attachNode="Bip01 R Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="25" attachNode="Bip01 R Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip01 R Finger2" particleName="I_spread_out009_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="25" attachNode="Dummy001" particleName="F_ground071_fire" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="25" attachNode="Dummy001" particleName="F_fire011" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy001" particleName="F_levitation007_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="26" R="30" G="20" B="10" A="40"/>
+	<BlendOn frame="27" R="60" G="40" B="20" A="60"/>
+	<BlendOn frame="28" R="100" G="80" B="50" A="80"/>
+	<BlendOn frame="29" R="200" G="160" B="100" A="100"/>
+	<BlendOn frame="30" R="160" G="130" B="80" A="80"/>
+	<BlendOn frame="31" R="130" G="100" B="60" A="60"/>
+	<BlendOn frame="32" R="100" G="70" B="35" A="40"/>
+	<BlendOn frame="34" R="60" G="40" B="25" A="40"/>
+	<BlendOn frame="35" R="50" G="35" B="20" A="40"/>
+	<BlendOn frame="36" R="40" G="30" B="15" A="40"/>
+	<BlendOn frame="37" R="30" G="20" B="10" A="40"/>
+	<BlendOff frame="38" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="10" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="40" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Sound frame="3.00" soundFile="mon_voice_genmagnus_skl"/>
+	<Sound frame="20.00" soundFile="mon_clymen_skl1_voice"/>
+	<Sound frame="20.00" soundFile="atk_rod"/>
+	<Sound frame="21.00" soundFile="mon_clymen_skl1_shot"/>
+	<Sound frame="21.00" soundFile="swd_hit_good_backup"/>
+</ActionDesc>

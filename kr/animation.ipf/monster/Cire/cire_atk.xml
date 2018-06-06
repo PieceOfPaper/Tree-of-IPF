@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke088" useAttach="false" hiddenObj="false" scale="2" pause="true"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_yonazolem_wlk_stone" useAttach="false" hiddenObj="false" scale="1.5" pause="true"/>
+	<Particle frame="6" attachNode="Dummy001" particleName="F_spark009_violet" useAttach="false" hiddenObj="false" scale="1" pause="true"/>
+	<Particle frame="6" attachNode="Dummy002" particleName="F_spark009_violet" useAttach="false" hiddenObj="false" scale="1" pause="true"/>
+	<Sound frame="0.00" soundFile="mon_ridimed_burrow"/>
+	<Sound frame="5.00" soundFile="mon_voice3_s_10"/>
+	<Sound frame="6.00" soundFile="skl_eff_atk_move_s_10"/>
+</ActionDesc>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="47" R="150" G="130" B="40" A="100"/>
+	<BlendOn frame="48" R="150" G="110" B="30" A="200"/>
+	<BlendOn frame="49" R="110" G="80" B="25" A="200"/>
+	<BlendOn frame="50" R="80" G="60" B="20" A="200"/>
+	<BlendOn frame="51" R="50" G="40" B="15" A="200"/>
+	<BlendOn frame="52" R="30" G="20" B="10" A="200"/>
+	<BlendOff frame="53" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="45" term="30" blendTime="550" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="51" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_chest" particleName="I_smoke_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="46" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="46" attachNode="Dummy_atk" particleName="I_dash003_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip001 Spine" particleName="I_smoke_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="44" attachNode="Bip001 Spine" particleName="I_smoke_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="3.00" soundFile="mon_voice_netherbovine_4"/>
+	<Sound frame="37.00" soundFile="skl_eff_atk_sperad"/>
+	<Sound frame="37.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="38.00" soundFile="mon_voice_netherbovine_2"/>
+</ActionDesc>

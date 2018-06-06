@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Dummy_effect_shieldpush" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="7" R="80" G="70" B="50" A="50"/>
+    <Particle frame="7.00" attachNode="Dummy_emitter" particleName="F_spread_out006_shieldpush" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="8" type="2" intensity="3" frequency="70" duration="0.2" range="500"/>
+    <BlendOn frame="8" R="60" G="50" B="30" A="50"/>
+    <Particle frame="8" attachNode="Dummy_effect_shieldpush_root" particleName="I_sphere001_mash_reverse2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="9" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="20" soundFile="skl_eff_jumplanding_1"/>
+	<PostFix frame="10" ID="_height"/>
+	<Shockwave frame="20" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<HitAni frame="20" damratio="100"/>
+	<PostFix frame="20" ID="_height"/>
+	<Shockwave frame="21" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="22" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="21" attachActor="None" attachNode="B_tree1_01" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true"/>
+	<Particle frame="21" attachActor="None" attachNode="B_tree2_01" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true"/>
+	<Particle frame="21" attachActor="None" attachNode="Bip001 L Thigh" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true"/>
+	<Particle frame="21" attachActor="None" attachNode="Bip001 R Thigh" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true"/>
+	<Particle frame="21" attachActor="None" attachNode="Bip001 Tail1" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true"/>
+	<Particle frame="20" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke090" scale="2" useAttach="false" pause="true"/>
+</ActionDesc>

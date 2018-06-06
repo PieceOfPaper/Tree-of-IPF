@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="m_thornball_hit" />
+    <Sound frame="2.00" soundFile="skl_eff_body_atk_3" />
+    <Sound frame="2.00" soundFile="mon_voice_bug_3" />
+    <Particle frame="4" attachNode="None" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="0.3" pause="true" targetPos="false" />
+    <Particle frame="4" attachNode="None" particleName="F_smoke033" useAttach="false" hiddenObj="false" scale="0.4" pause="true" targetPos="false" />
+    <Particle frame="5.00" particleName="3D_F_mon_skl_gust_sand" attachNode="Dummy_atk_R" scale="0.4" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="5.00" particleName="3D_F_mon_skl_gust_sand" attachNode="Dummy_atk_L" scale="0.4" useAttach="false" pause="true" targetPos="false" />
+</ActionDesc>

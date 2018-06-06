@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_voice_rootopus_skl_1"/>
+    <Sound frame="5.00" soundFile="mon_voice_rootopus_move_3"/>
+    <Particle frame="50" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="62" R="100" G="100" B="40" A="100"/>
+    <Particle frame="62" attachNode="Bone002" particleName="F_drop_leaf004" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="62" attachNode="Dummy_effect_skl1_1" particleName="F_ground138_poison_bubble2" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="63" R="60" G="60" B="20" A="50"/>
+    <BlendOn frame="64" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="80" R="100" G="100" B="40" A="100"/>
+    <Particle frame="80" attachNode="Bone002" particleName="F_drop_leaf004" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="80" attachNode="Dummy_effect_skl1_2" particleName="F_ground138_poison_bubble2" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="81" R="60" G="60" B="20" A="50"/>
+    <BlendOn frame="82" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="97" R="100" G="100" B="40" A="100"/>
+    <Particle frame="97" attachNode="Bone002" particleName="F_drop_leaf004" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="97" attachNode="Dummy_effect_skl1_3" particleName="F_ground138_poison_bubble2" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="98" R="60" G="60" B="20" A="50"/>
+    <BlendOff frame="99" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

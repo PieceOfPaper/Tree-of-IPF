@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_siaulav_atk"/>
+    <Sound frame="0.00" soundFile="mon_wood_spirit_atk_cast"/>
+    <Sound frame="4.00" soundFile="hand_blow_wood"/>
+    <Sound frame="4.00" soundFile="atk_rod"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="9.00" soundFile="mon_saurman_priest_atk_cast"/>
+    <Sound frame="10.00" soundFile="arw_blow_wood1"/>
+    <Sound frame="10.00" soundFile="atk_swordswing"/>
+    <Particle frame="13" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

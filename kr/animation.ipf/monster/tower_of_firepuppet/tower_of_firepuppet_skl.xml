@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" particleName="I_smoke013_dark" attachNode="B_horn 01" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice1_s_13"/>
+    <Sound frame="2.00" soundFile="skl_eff_atk_move_s_12"/>
+    <Sound frame="19.00" soundFile="skl_eff_body_atk_5"/>
+    <Sound frame="19.00" soundFile="skl_eff_body_atk_12"/>
+    <Particle frame="21" particleName="F_smoke107" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="21.00" soundFile="mon_voice2_s_random"/>
+    <Sound frame="24.00" soundFile="mon_hit_bad"/>
+    <Sound frame="24.00" soundFile="skl_eff_hit_base_4"/>
+    <Particle frame="24" particleName="I_tower_of_firepuppet_atk001_mash" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="27" particleName="E_tower_of_the_puppet_skl" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ActionDesc>
+    <Sound frame="0.00" Value="0" soundFile="mon_zombie_archer_born" />
+    <Sound frame="0.70" Value="0" soundFile="skl_eff_landing_s" />
+    <Sound frame="1.00" Value="0" soundFile="skl_eff_ground_blow_s" />
+    <Particle frame="1.00" particleName="F_smoke085" attachNode="Dummy_born" scale="7" useAttach="true" pause="true" targetPos="false" />
+</ActionDesc>

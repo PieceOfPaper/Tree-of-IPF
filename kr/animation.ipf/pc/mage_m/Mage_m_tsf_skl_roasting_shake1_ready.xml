@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by d (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<CreateMonsterAnim frame="0" Key="roasting" Anim="shake1_ready" Freeze="0"/>
+	<AttachModel frame="0" XAC="artefact_ladle_set" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="0" anim="none"/>
+	<HeadRotBip frame="0" BipName="Bip01"/>
+</ActionDesc>

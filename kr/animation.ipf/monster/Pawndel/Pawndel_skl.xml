@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_Kepari_atk_cast"/>
+	<Particle frame="6" particleName="F_spin032" attachNode="Dummy_skl_effect" scale="3.2" useAttach="true" pause="true" targetPos="false" sound="skl_eff_two_spin_1"/>
+	<Sound frame="7.39" soundFile="mon_Kepari_atk_shot"/>
+	<Particle frame="12" particleName="F_smoke005_dark" attachNode="Dummy_emitter" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

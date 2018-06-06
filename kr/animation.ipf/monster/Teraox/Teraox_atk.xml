@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="6.00" soundFile="mon_voice_hog_4"/>
+	<Sound frame="30.00" soundFile="skl_eff_chain_shot"/>
+	<Particle frame="11" attachNode="Dummy_effect_atk_r_foot_front" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+	<Particle frame="16" attachNode="Dummy_effect_atk_l_foot_front" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+	<Particle frame="24" attachNode="Dummy_effect_atk_l_foot_back" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+	<Particle frame="17" attachNode="Dummy_effect_atk_r_foot_back" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+	<Particle frame="40" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="33" attachNode="Dummy_effect_atk" particleName="F_explosion079_blood" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="32" attachNode="Dummy_emitter" particleName="F_warrior_rimblow_shot_spread_out" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+</ActionDesc>

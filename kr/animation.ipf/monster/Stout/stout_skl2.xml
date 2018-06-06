@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_goblin_warrior_idle"/>
+    <Sound frame="6.00" soundFile="skl_wiz_meltdown"/>
+    <Sound frame="53.87" soundFile="skl_eff_atk_move_l_4"/>
+    <Sound frame="54.00" soundFile="skl_eff_dead_boom_s"/>
+    <Sound frame="55.00" soundFile="mon_goblin_warrior_hit"/>
+    <Particle frame="0" attachActor="None" attachNode="Bip001 R Finger12" particleName="I_force034_red" hiddenObj="false" useAttach="ture" scale="2" pause="true" targetPos="false"/>
+    <Particle frame="57" attachActor="None" attachNode="Dummy_effect" particleName="F_smoke022" hiddenObj="false" useAttach="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="57" attachActor="None" attachNode="Dummy_effect_atk" particleName="F_explosion030_red" hiddenObj="false" useAttach="false" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="57" attachActor="None" attachNode="Dummy_effect_atk" particleName="F_explosion032_red" hiddenObj="false" useAttach="false" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="69.00" soundFile="skl_eff_dead_boom_s"/>
+    <Sound frame="69.31" soundFile="mon_goblinwarrior_atk1_shot"/>
+    <Sound frame="69.69" soundFile="skl_eff_atk_move_l_8"/>
+    <Particle frame="72" attachActor="None" attachNode="Dummy_effect" particleName="F_smoke063" hiddenObj="false" useAttach="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="72" attachActor="None" attachNode="Dummy_effect_atk" particleName="F_explosion030_red" hiddenObj="false" useAttach="false" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="72" attachActor="None" attachNode="Dummy_effect_atk" particleName="F_explosion032_red" hiddenObj="false" useAttach="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

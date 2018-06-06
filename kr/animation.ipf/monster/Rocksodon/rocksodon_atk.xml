@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AfterImage frame="59" term="30" blendTime="250" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="65" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="59" R="50" G="70" B="100" A="100"/>
+	<BlendOn frame="60" R="50" G="70" B="90" A="100"/>
+	<BlendOn frame="62" R="40" G="50" B="70" A="100"/>
+	<BlendOn frame="64" R="30" G="35" B="50" A="100"/>
+	<BlendOn frame="66" R="15" G="20" B="30" A="100"/>
+	<BlendOn frame="68" R="10" G="10" B="20" A="100"/>
+	<BlendOn frame="69" R="5" G="7" B="10" A="100"/>
+	<BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+	<Particle frame="15" attachNode="Dummy_effect_lip" particleName="F_smoke141_darkblue_spread_out" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="56" attachNode="Dummy_effect_atk_hit" particleName="F_explosion035_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="57" attachNode="Dummy_run03" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="72" attachNode="Dummy_emitter" particleName="F_ground068_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="72" attachNode="Dummy_effect01" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Sound frame="10.00" soundFile="mon_rudas_loxodon_born"/>
+	<Sound frame="41.00" soundFile="mon_rudas_loxodon_skl"/>
+	<Sound frame="45.00" soundFile="skl_eff_atk_move_m_2"/>
+</ActionDesc>

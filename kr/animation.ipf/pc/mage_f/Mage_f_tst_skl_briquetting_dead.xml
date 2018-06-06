@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonsterAnim frame="0" Key="briquetting" Anim="DEAD"/>
+    <CreateMonsterAlphaBlend frame="0" Key="briquetting" Alpha="0" BlendTime="2"/>
+    <Sound frame="0.00" soundFile="skl_eff_alchemist_briquetting_dead"/>
+    <Sound frame="13.00" soundFile="skl_eff_groundgas"/>
+    <Sound frame="14.00" soundFile="skl_eff_resizing_boom"/>
+    <DeleteMonster frame="20" Key="briquetting"/>
+</ActionDesc>

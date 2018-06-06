@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_chupaluka_atk_cast"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_s_3"/>
+	<Sound frame="6.00" soundFile="skl_eff_atk_move_s_4"/>
+	<Sound frame="6.00" soundFile="mon_voice2_s_random"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="true" hiddenObj="false" scale="0.7" pause="true" targetPos="false"/>
+	<Particle frame="6" attachNode="B_teeth L 01" particleName="F_mon_dead_dark" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="6" attachNode="B_teeth R 01" particleName="F_mon_dead_dark" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="7.00" soundFile="skl_eff_atk_move_s_10"/>
+</ActionDesc>

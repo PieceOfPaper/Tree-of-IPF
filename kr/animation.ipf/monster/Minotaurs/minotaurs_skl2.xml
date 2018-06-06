@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="6.00" soundFile="skl_eff_atk_move_l_5"/>
+    <Sound frame="9.00" soundFile="mon_minotaurs_skl_2"/>
+    <Particle frame="10" attachNode="None" particleName="F_smoke063" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="15.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Particle frame="86" attachNode="Dummy_skl2_effect" particleName="F_ifrit_skl3_body_true" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+    <Particle frame="88" attachNode="Dummy_emitter" particleName="E_minotaurs_skl2" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_skl2_effect" particleName="I_breath013_fire" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="147.00" particleName="F_ground079_smoke" attachNode="None" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="152.23" soundFile="mon_big_footstep_4"/>
+</ActionDesc>

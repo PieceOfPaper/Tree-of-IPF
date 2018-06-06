@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="0" soundFile="mon_voice2_s_10"/>
+	<Particle frame="5" particleName="F_smoke104" attachNode="Dummy_skl_1" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="4" particleName="F_spark006_leaf" attachNode="Bip01 Spine" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="6" particleName="F_smoke104" attachNode="Dummy_skl_2" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_spark006_leaf" attachNode="Bip01 Spine" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_explosion001_dark" attachNode="B_mouth_u" scale="0.3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_smoke104" attachNode="Dummy_skl_3" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="8" particleName="F_smoke104" attachNode="Dummy_skl_4" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="I_dandel_skl_mash" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="5" Value="0" soundFile="skl_eff_body_atk_8"/>
+	<Sound frame="5" Value="0" soundFile="mon_voice2_s_2"/>
+	<Sound frame="6" Value="0" soundFile="skl_eff_bite_s_1"/>
+	<Sound frame="7" Value="0" soundFile="mon_tooth_dandel_bite"/>
+</ActionDesc>

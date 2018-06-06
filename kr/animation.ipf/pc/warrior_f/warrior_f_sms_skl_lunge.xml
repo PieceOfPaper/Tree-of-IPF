@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="2.00" soundFile="rap_attack"/>
+	<Sound frame="7.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="8.00" soundFile="rap_attack"/>
+	<Sound frame="14.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="14.00" soundFile="skl_eff_debuff_9"/>
+	<Sound frame="17.00" soundFile="rap_attack_thrust"/>
+	<Particle frame="0" attachNode="Bip01 L Toe0" particleName="F_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="2" attachNode="Bip01 R Toe0" particleName="I_smoke014_5" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="10" attachNode="Bip01 L Toe0" particleName="I_smoke014_5" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="18" attachNode="Dummy_emitter" particleName="E_warrior_Lunge_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="18" attachNode="Bip01 R Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="18" attachNode="Bip01 L Foot" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="18" attachNode="Bip01 L Toe0Nub" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="18" attachNode="Bip01 R Toe0Nub" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="18" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="anim" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Sound frame="19.00" soundFile="rap_attack_special_1"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="18" R="60" G="50" B="20" A="50"/>
+	<BlendOn frame="19" R="60" G="50" B="20" A="50"/>
+	<BlendOff frame="21" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="5" type="2" intensity="5" frequency="70" duration="0.3" range="500"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="100" G="40" B="0" A="50"/>
+	<BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+	<Sound frame="4" Value="0" soundFile="voice_atk_long_war_f"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="E_warrior_Clipping_swrodtrail" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_warrior_clipping_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Bip01 R Hand" particleName="F_warrior_clipping_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+</ActionDesc>

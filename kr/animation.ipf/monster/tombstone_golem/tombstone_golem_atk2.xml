@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="7.00" Value="0" soundFile="mon_wood_spirit_atk_shot_move"/>
+	<Sound frame="9" Value="0" soundFile="skl_eff_stone_blow_m"/>
+	<Particle frame="7" particleName="Tombstone_Golem_atk_2" attachNode="Dummy_eff_atk2_02" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="Tombstone_Golem_atk_2" attachNode="Dummy_eff_atk2_01" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="Tombstone_Golem_atk2" attachNode="Dummy_emiitter" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_explosion061_smoke" attachNode="Dummy_eff_atk2" scale="2" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

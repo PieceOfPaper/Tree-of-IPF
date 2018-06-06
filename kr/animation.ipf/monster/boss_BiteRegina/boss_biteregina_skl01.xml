@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="2966" soundFile="mon_katyn_bug_skl_cast" />
+    <Sound frame="0.00" Value="2966" soundFile="skl_eff_atk_move_l_2" />
+    <Particle frame="0" attachActor="None" attachNode="Dummy_L_hand_effect" particleName="I_smoke041" hiddenObj="false" useAttach="true" scale="3" pause="true" targetPos="false" />
+    <Particle frame="0" attachActor="None" attachNode="Dummy_R_hand_effect" particleName="I_smoke041" hiddenObj="false" useAttach="true" scale="3" pause="true" targetPos="false" />
+    <Sound frame="6.00" soundFile="mon_big_footstep_biteregina" />
+    <Particle frame="30" attachActor="None" attachNode="Dummy_L_hand_effect" particleName="I_smoke041" hiddenObj="false" useAttach="true" scale="3" pause="true" targetPos="false" />
+    <Particle frame="30" attachActor="None" attachNode="Dummy_R_hand_effect" particleName="I_smoke041" hiddenObj="false" useAttach="true" scale="3" pause="true" targetPos="false" />
+    <Sound frame="45.00" Value="2966" soundFile="skl_eff_atk_move_l_4" />
+    <Sound frame="48.00" Value="2736" soundFile="mon_katyn_bug_skl_shot" />
+    <Particle frame="51" attachActor="None" attachNode="Dummy_effect_atk3" particleName="F_smoke037" hiddenObj="false" useAttach="false" scale="4" pause="true" targetPos="false" />
+    <Particle frame="51" attachActor="None" attachNode="Dummy_effect_atk3" particleName="F_explosion035_yellow" hiddenObj="false" useAttach="false" scale="8" pause="true" targetPos="false" />
+    <Sound frame="69.00" soundFile="mon_big_footstep_biteregina" />
+</ActionDesc>

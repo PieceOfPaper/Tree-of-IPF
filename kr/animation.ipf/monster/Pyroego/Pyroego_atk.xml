@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Bip001 R Finger2" particleName="I_smoke047_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 L Finger2" particleName="I_smoke047_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 R Finger21" particleName="I_spread_out012_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 L Finger21" particleName="I_spread_out012_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="TOP_01" particleName="I_smoke046_levitation" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_voice_hog_3"/>
+    <Sound frame="3.00" soundFile="skl_eff_firewall"/>
+    <Sound frame="28.00" soundFile="skl_eff_fire"/>
+    <Sound frame="30.00" soundFile="mon_voice_hogma_born"/>
+    <Particle frame="33" attachNode="Dummy_effect_atk1" particleName="I_swordtrail027_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="33" R="150" G="150" B="100" A="100"/>
+    <BlendOn frame="35" R="0" G="0" B="0" A="0"/>
+    <BlendOff frame="35" R="0" G="0" B="0" A="0"/>
+    <Sound frame="40.00" soundFile="mon_voice_hogma_knockback"/>
+    <Sound frame="40.00" soundFile="blunt_blow_stone"/>
+    <Sound frame="44.00" soundFile="skl_eff_fire"/>
+    <BlendOn frame="45" R="0" G="0" B="0" A="0"/>
+    <Particle frame="48" attachNode="Dummy_effect_atk2" particleName="I_swordtrail027_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="49" R="150" G="150" B="100" A="100"/>
+    <BlendOff frame="52" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="1000" soundFile="mon_voice_bird_6" />
+    <Sound frame="0.00" Value="1000" soundFile="skl_eff_atk_move_l_4" />
+    <Sound frame="0.00" soundFile="skl_eff_acidburn" />
+    <Shockwave frame="2" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="2" particleName="monster_born" attachNode="None" scale="2.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="3" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="3" particleName="F_smoke097" attachNode="None" scale="2.5" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="3.00" soundFile="skl_eff_salti" />
+    <Shockwave frame="4" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="5" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="6" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+</ActionDesc>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="m_matsum_born_move"/>
+	<Sound frame="3.00" soundFile="m_matsum_born_voice"/>
+	<Sound frame="6.00" soundFile="born_ground_1"/>
+	<Particle frame="0" particleName="F_smoke063" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="8" particleName="F_ground078_smoke" attachNode="Dummy_emitter" scale="1.3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="14" particleName="F_smoke107" attachNode="Dummy_emitter" scale="2" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

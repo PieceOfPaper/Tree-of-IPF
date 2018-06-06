@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_ridimed_burrow"/>
+	<Sound frame="8" soundFile="skl_eff_born_1"/>
+	<Sound frame="9" soundFile="mon_voice1_s_9"/>
+	<Particle frame="0" particleName="F_ground078_smoke" attachNode="Dummy_emitter" scale="0.7" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_smoke107" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

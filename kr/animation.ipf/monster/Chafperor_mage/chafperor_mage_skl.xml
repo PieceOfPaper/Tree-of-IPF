@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AfterImage frame="18" term="100" blendTime="400" r="130" g="130" b="150" a="120"/>
+	<AfterImage frame="23" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="100" G="80" B="120" A="60"/>
+	<BlendOn frame="6" R="80" G="60" B="100" A="40"/>
+	<BlendOn frame="7" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="9" R="100" G="80" B="120" A="60"/>
+	<BlendOn frame="10" R="80" G="60" B="100" A="40"/>
+	<BlendOn frame="11" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="18" R="100" G="80" B="120" A="60"/>
+	<BlendOn frame="19" R="150" G="140" B="110" A="50"/>
+	<BlendOn frame="20" R="80" G="60" B="100" A="40"/>
+	<BlendOn frame="21" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="22" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_bug_1"/>
+	<Sound frame="0.00" soundFile="skl_eff_cast_force"/>
+	<Sound frame="3.00" soundFile="mon_voice_bug_5"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_m_3"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="4.00" soundFile="mon_voice_bug_10"/>
+	<Sound frame="9.00" soundFile="mon_voice_bug_3"/>
+	<Sound frame="14.67" soundFile="mon_hit_bad_fire"/>
+	<Sound frame="14.67" soundFile="skl_eff_atk_move_m_5"/>
+</ActionDesc>

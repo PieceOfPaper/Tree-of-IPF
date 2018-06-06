@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActionDesc>
+  <Particle frame="1" attachActor="None" attachNode="Bone_jaw02" particleName="mon_jaw_smoke_2" />
+  <Particle frame="1" attachActor="None" attachNode="Bip01" particleName="bulgui_boss_dead_body" />
+  <Particle frame="1" attachNode="Bip01" particleName="mon_kingdomougu_dead" useAttach="true" />
+  <Particle frame="1" attachNode="Bip01 R Foot" particleName="mon_kingdomougu_dead_s" useAttach="true" />
+  <Particle frame="1" attachNode="Bip01 L Foot" particleName="mon_kingdomougu_dead_s" useAttach="true" />
+  <Particle frame="1" attachNode="Bip01 L Hand" particleName="mon_kingdomougu_dead_s" useAttach="true" />
+  <Particle frame="1" attachNode="Bip01 R Hand" particleName="mon_kingdomougu_dead_s" useAttach="true" />
+  <Particle frame="1" attachNode="Bip01" particleName="MON_etc_dead_ash_sprark" useAttach="true" />
+  <Particle frame="1" attachNode="Bip01 L Hand" particleName="MON_etc_dead_ash_sprark" useAttach="true" />
+  <Particle frame="1" attachNode="Bip01 R Hand" particleName="MON_etc_dead_ash_sprark" useAttach="true" />
+  <Particle frame="1" attachNode="Bip01 R Hand" particleName="MON_etc_dead_ash_sprark" useAttach="true" />
+  <Particle frame="1" attachNode="" particleName="MON_etc_dead_ash" useAttach="true" />
+  <Sound frame="1" soundFile="m_vordoi_dead" />
+  <RimLight frame="15" power="4" duration="5" color="252;115;41;255" />
+  <Sound frame="3" soundFile="dead_effect_7" />
+  <Sound frame="11" soundFile="dead_effect_5" />
+  <Sound frame="55" soundFile="dead_effect_6" />
+</ActionDesc>

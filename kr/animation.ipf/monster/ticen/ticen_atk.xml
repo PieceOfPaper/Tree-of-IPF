@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="m_goblin_miner_atk1_ready"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="4" R="130" G="110" B="70" A="100"/>
+	<BlendOn frame="5" R="110" G="90" B="55" A="100"/>
+	<BlendOff frame="6" R="0" G="0" B="0" A="0"/>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="4.00" soundFile="skl_eff_body_atk_9"/>
+	<Sound frame="4.00" soundFile="mon_voice3_s_atk"/>
+</ActionDesc>

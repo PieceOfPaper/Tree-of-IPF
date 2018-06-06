@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_big_footstep_3"/>
+	<Sound frame="27.00" soundFile="mon_big_footstep_4"/>
+	<Particle frame="13" particleName="F_smoke109" attachNode="Bip001 R Toe2" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="13" particleName="F_stone005" attachNode="Bip001 R Toe2" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="13" particleName="F_smoke109" attachNode="Bip001 L Toe2" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="13" particleName="F_stone005" attachNode="Bip001 L Toe2" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Shockwave frame="13" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="15" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="17" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

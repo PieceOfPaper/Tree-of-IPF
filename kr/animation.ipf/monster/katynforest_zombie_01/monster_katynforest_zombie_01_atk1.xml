@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+	<HitAni frame="7" Value="1066"/>
+	<Particle frame="7" attachNode="Dummy_gum_R" particleName="I_swordtrail006_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="7" attachNode="Dummy_gum_L" particleName="I_swordtrail006_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="7" attachNode="Dummy_spark" particleName="F_light033_circle" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Sound frame="1" soundFile="mon_katynforest_zombie_01_atk2_ready"/>
+	<Sound frame="5" soundFile="mon_katynforest_zombie_01_atk2_shot"/>
+</ActionDesc>

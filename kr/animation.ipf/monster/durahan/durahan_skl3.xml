@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_hog_1"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<Sound frame="0.00" soundFile="skl_fgt_doomspike_cast"/>
+	<Particle frame="5" attachNode="Bip002 Spine" particleName="I_warrior_chargingattack_cast_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="5" attachNode="Bone_Wp" particleName="I_warrior_chargingattack_cast_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_effect_wepon" particleName="I_warrior_chargingattack_cast_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_effect_wepon" particleName="I_warrior_chargingattack_cast_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="47.00" soundFile="mon_voice_durahan_skl3"/>
+	<Sound frame="48.00" soundFile="mon_voice_hog_12"/>
+	<Particle frame="50" attachNode="Bip001 Spine1" particleName="I_warrior_chargingattack_cast_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="55" attachNode="Dummy_effect_eye_L" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="55" attachNode="Dummy_effect_eye_R" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="60.00" soundFile="skl_eff_spread_4"/>
+	<Sound frame="60.00" soundFile="atk_hammerswing"/>
+	<Sound frame="60.00" soundFile="atk_swordswing"/>
+	<Sound frame="60.00" soundFile="atk_rod"/>
+	<Sound frame="60.00" soundFile="atk_hammerground"/>
+	<Sound frame="60.00" soundFile="skl_eff_dark"/>
+	<Sound frame="60.00" soundFile="mon_voice_helgasercle_7"/>
+	<Sound frame="60.00" soundFile="skl_eff_atk_move_m_6"/>
+	<Sound frame="60.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="60.00" soundFile="skl_eff_lightning_3"/>
+	<Particle frame="61" attachNode="Bip001 R Finger0" particleName="I_smoke011_smoke2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<BlendOn frame="65" R="130" G="130" B="150" A="100"/>
+	<BlendOn frame="68" R="150" G="150" B="200" A="50"/>
+	<BlendOn frame="71" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="72" R="0" G="0" B="0" A="0"/>
+	<Particle frame="73" attachNode="Dummy_effect_skl3_swordtrail" particleName="I_swordtrail035_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="90" attachNode="Bip001 L Toe0" particleName="I_smoke035_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

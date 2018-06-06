@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by minwoo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <HitAni frame="0" Value="0" damratio="100" />
+    <Sound frame="0.00" soundFile="atk_cloth_s_r2" />
+    <Sound frame="3.00" soundFile="atk_rod" />
+    <Particle frame="3" attachNode="None" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false" />
+    <Sound frame="5.00" soundFile="voice_wiz_f_atk_short" />
+    <PostFix frame="10" ID="_height" />
+    <ReadyAniTime frame="10" Value="500" />
+    <PostFix frame="20" ID="_height" />
+    <ReadyAniFrame Value="1" frame="1" />
+</ActionDesc>

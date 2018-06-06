@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_stone_rolling_2" />
+    <Sound frame="6.00" soundFile="skl_eff_stone_rolling_1" />
+    <Sound frame="9.00" soundFile="m_fallen_statue_born_event" />
+    <Sound frame="18.00" soundFile="skl_eff_atk_move_l_10" />
+    <Particle frame="40" particleName="I_force063" attachNode="Dummy_effect" scale="4" useAttach="false" pause="true" targetPos="false" />
+    <Sound frame="45.00" soundFile="mon_voice_ghost_1" />
+    <Particle frame="80" particleName="I_force063" attachNode="Dummy_effect" scale="5" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="100" particleName="I_force064" attachNode="Dummy_effect" scale="6" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="110" particleName="F_levitation012" attachNode="Dummy_effect" scale="1" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="110" particleName="F_levitation012" attachNode="Dummy_effect" scale="1" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="110" particleName="F_levitation012" attachNode="Dummy_effect" scale="1" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="110" particleName="F_levitation012" attachNode="Dummy_effect" scale="1" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="110" particleName="F_light026_yellow" attachNode="Dummy_effect" scale="0.5" useAttach="false" pause="true" targetPos="false" />
+</ActionDesc>

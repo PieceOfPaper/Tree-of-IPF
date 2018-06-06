@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_buff_5"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_telekinesis_cast" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_wepon" particleName="I_wizard_wepon_smoke001_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<BlendOn frame="5" R="15" G="30" B="50" A="30"/>
+	<Sound frame="6.00" soundFile="skl_eff_buff_8"/>
+	<Sound frame="6.00" soundFile="skl_eff_atk_move_l_6"/>
+	<BlendOn frame="10" R="60" G="100" B="200" A="100"/>
+	<Particle frame="10" attachNode="Dummy_effect_wepon2" particleName="F_light028_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+	<BlendOn frame="15" R="0" G="0" B="0" A="0"/>
+	<BlendOff frame="16" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

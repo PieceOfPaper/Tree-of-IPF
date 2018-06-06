@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_mineloader_14"/>
+    <Sound frame="4.00" soundFile="skl_eff_body_atk_32"/>
+    <Particle frame="7" particleName="F_explosion024_rize" attachNode="B_center" scale="1" useAttach="false" pause="true" targetPos="false" sound="skl_eff_stone_whale_lighting"/>
+    <Sound frame="15.00" soundFile="skl_eff_body_atk_1"/>
+    <Sound frame="17.00" soundFile="skl_eff_body_atk_8"/>
+    <Sound frame="26.00" soundFile="skl_eff_bodyfall_s_1"/>
+    <Sound frame="27.00" soundFile="mon_voice_mineloader_9"/>
+    <Particle frame="27" particleName="F_smoke089" attachNode="Dummy_emiitter" scale="15" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="33" particleName="I_grinender_atk" attachNode="Dummy_emitter" scale="1" useAttach="true"/>
+    <Particle frame="10" particleName="F_fire001" attachNode="Bip001 L Forearm" scale="3" useAttach="true"/>
+    <Particle frame="10" particleName="F_fire001" attachNode="Bip001 L Finger0" scale="3" useAttach="true"/>
+    <Particle frame="10" particleName="F_fire001" attachNode="Bip001 L Finger2" scale="3" useAttach="true"/>
+    <Particle frame="20" particleName="I_spread_out006_fire" attachNode="Bip001 L Forearm" scale="3" useAttach="true"/>
+    <Particle frame="36" particleName="F_smoke063" attachNode="Dummy_emitter" scale="3" useAttach="true"/>
+    <Particle frame="34" particleName="F_explosion023" attachNode="Dummy_atk_effect01" scale="3" useAttach="true"/>
+    <Sound frame="0" soundFile="mon_grinender_skl_1"/>
+</ActionDesc>

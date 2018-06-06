@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_L_HAND" particleName="I_pc_upgradeGem_rize" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_wiz_skl_cast_1"/>
+    <Particle frame="0" attachNode="Dummy_R_HAND" particleName="I_pc_upgradeGem_rize" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" sound="crystal_red"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_upgradeGem" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="39.00" soundFile="skl_eff_blessing_cast"/>
+    <Particle frame="50" attachNode="Dummy_R_dagger" particleName="I_force059_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" sound="system_craft_potion_succes"/>
+</ActionDesc>

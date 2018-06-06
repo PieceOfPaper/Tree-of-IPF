@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="1" R="5" G="5" B="5" A="5"/>
+	<BlendOn frame="2" R="10" G="10" B="10" A="10"/>
+	<BlendOn frame="3" R="15" G="15" B="15" A="15"/>
+	<BlendOn frame="4" R="20" G="20" B="20" A="20"/>
+	<BlendOn frame="5" R="25" G="25" B="25" A="25"/>
+	<BlendOn frame="6" R="30" G="30" B="30" A="30"/>
+	<BlendOn frame="7" R="35" G="35" B="35" A="35"/>
+	<BlendOn frame="8" R="40" G="40" B="40" A="40"/>
+	<BlendOn frame="9" R="45" G="45" B="45" A="45"/>
+	<BlendOn frame="11" R="50" G="50" B="50" A="50"/>
+	<BlendOn frame="12" R="55" G="55" B="55" A="55"/>
+	<BlendOn frame="13" R="110" G="110" B="110" A="110"/>
+	<BlendOn frame="15" R="70" G="70" B="70" A="70"/>
+	<BlendOn frame="16" R="60" G="60" B="60" A="60"/>
+	<BlendOn frame="17" R="50" G="50" B="50" A="50"/>
+	<BlendOn frame="18" R="40" G="40" B="40" A="40"/>
+	<BlendOn frame="19" R="20" G="20" B="20" A="20"/>
+	<BlendOn frame="20" R="10" G="10" B="10" A="10"/>
+	<BlendOff frame="22" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_L_hand" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+	<Particle frame="10" attachNode="Bip01" particleName="I_cleric_carnivory_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="8.00" soundFile="skl_fgt_tackle_shot"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_s_5"/>
+    <Sound frame="0.00" soundFile="skl_wiz_wild_head"/>
+    <Particle frame="0" attachNode="Dummy_effect_hand_L" particleName="I_wizard_spiritlink_shot_linkchain" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_hand_R" particleName="I_wizard_spiritlink_shot_linkchain" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="3.00" soundFile="skl_eff_hit_base_4"/>
+    <Sound frame="10.00" soundFile="skl_eff_atk_move_m_4"/>
+    <Sound frame="11.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Particle frame="12" attachNode="Dummy_emitter" particleName="F_wizard_spiritlink_shot_lineup" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

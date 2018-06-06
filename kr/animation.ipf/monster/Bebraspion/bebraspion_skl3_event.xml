@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="3333" soundFile="skl_eff_atk_move_l_1" />
+    <Sound frame="0" Value="3333" soundFile="mon_spector_atk_cast" />
+    <Particle frame="0" attachActor="None" attachNode="Dummy_effect" particleName="E_bebraspion_skl3_event" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Sound frame="19.50" Value="3333" soundFile="skl_eff_ground_blow_m" />
+    <Sound frame="22" Value="3333" soundFile="atk_hammerground" />
+    <Shockwave frame="22" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="24" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="28" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="30" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Sound frame="30.00" soundFile="skl_eff_ground_blow_m" />
+    <Sound frame="31" Value="3333" soundFile="mon_voice_lepus_skl2" />
+    <Particle frame="32" attachActor="None" attachNode="B_ tail 01" particleName="F_smoke034" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false" />
+    <Sound frame="34" Value="3333" soundFile="atk_hammerground" />
+    <Shockwave frame="34" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="36" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Sound frame="40" Value="3333" soundFile="atk_hammerground" />
+    <Shockwave frame="40" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="42" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="42" attachActor="None" attachNode="Bip001 R Foot" particleName="F_smoke034" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false" />
+    <Sound frame="42.00" Value="0" soundFile="skl_eff_crash_ground_l_2" />
+    <Shockwave frame="46" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="48" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="50" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="52" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="52" attachActor="None" attachNode="Bip001 Spine1" particleName="F_smoke034" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false" />
+</ActionDesc>

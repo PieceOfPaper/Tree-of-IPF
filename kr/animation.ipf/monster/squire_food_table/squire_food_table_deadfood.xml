@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_table_M" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="3" attachNode="Dummy_table_M" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="10" attachNode="Dummy_table_M" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true"/>
+	<Particle frame="17" attachNode="Dummy_pot_fire" particleName="None" useAttach="false" hiddenObj="false" changeEffect="F_wizard_BRIQUETTING_STEP1_fire_loop" scale="0.8" pause="true" use2DEffect="true"/>
+	<Particle frame="17" attachNode="Dummy_pot_soup" particleName="None" useAttach="false" hiddenObj="false" changeEffect="F_bg_smoke006" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="18" attachNode="Dummy_table_emitter2" particleName="F_smoke137_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="20" attachNode="Dummy_pot_emitter" particleName="F_smoke137_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+</ActionDesc>

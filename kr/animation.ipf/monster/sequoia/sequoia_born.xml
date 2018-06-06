@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="866" soundFile="mon_voice5_l_13" />
+    <Sound frame="1.50" Value="866" soundFile="skl_eff_crash_ground_l_2" />
+    <Particle frame="2" particleName="F_ground078_smoke" attachNode="Dummy_emitter" scale="2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="2" particleName="F_smoke107" attachNode="Dummy_emitter" scale="3" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="4" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="5" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="6" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

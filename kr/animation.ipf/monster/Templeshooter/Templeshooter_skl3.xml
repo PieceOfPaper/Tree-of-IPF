@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="None"/>
+    <Sound frame="0.00" soundFile="mon_voice5_l_cast_4"/>
+    <Sound frame="10.00" soundFile="mon_voice5_l_cast_3"/>
+    <Sound frame="25.00" soundFile="skl_eff_atk_move_l_22"/>
+    <Particle frame="25" particleName="I_smoke013_dark1" attachNode="Dummy_effect_R" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="27" particleName="I_smoke013_dark1" attachNode="Dummy_effect_R" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="65.00" soundFile="mon_voice_onion_the_great_3"/>
+    <Sound frame="65.00" soundFile="skl_eff_dark"/>
+    <Particle frame="72" particleName="F_explosion001_dark" attachNode="Dummy_effect_R" scale="4" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="72" particleName="F_smoke005_dark" attachNode="Dummy_emitter" scale="6" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="72" particleName="F_ground040" attachNode="Dummy_emitter" scale="4" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="72" particleName="E_templeshooter_skl3" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

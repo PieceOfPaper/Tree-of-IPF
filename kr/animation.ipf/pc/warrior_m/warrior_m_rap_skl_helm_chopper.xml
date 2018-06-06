@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="120" G="100" B="50" A="50"/>
+	<BlendOn frame="7" R="100" G="70" B="30" A="50"/>
+	<BlendOn frame="8" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="15" R="120" G="100" B="50" A="50"/>
+	<BlendOn frame="16" R="100" G="70" B="30" A="50"/>
+	<BlendOff frame="17" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_HelmChopper_sowrdtrail" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke008" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="15" attachNode="Dummy_emitter" particleName="F_smoke008" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_s_5"/>
+	<Sound frame="13.00" soundFile="skl_eff_atk_move_s_2"/>
+</ActionDesc>

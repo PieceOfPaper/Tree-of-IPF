@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_genmagnus_atk"/>
+	<Sound frame="0.00" soundFile="skl_eff_lethargy_ground"/>
+	<Sound frame="0.00" soundFile="skl_eff_cast_smoke_1"/>
+	<Sound frame="10.00" soundFile="skl_eff_fireball_cast_loop"/>
+	<Sound frame="48.00" soundFile="mon_voice_genmagnus_skl"/>
+	<Sound frame="50.00" soundFile="mon_voice5_l_dead_14"/>
+	<Sound frame="53.00" soundFile="skl_eff_light_shot"/>
+	<Sound frame="53.00" soundFile="skl_eff_lightning_3"/>
+	<Particle frame="0" attachNode="Dummy_emitter2" particleName="F_light089_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+	<Particle frame="50" attachNode="Dummy_emitter2" particleName="F_light089_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false"/>
+	<Particle frame="82" attachNode="Bone002" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false"/>
+</ActionDesc>

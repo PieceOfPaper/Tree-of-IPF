@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_ravinelerva_11"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_UP_lip_effect" particleName="I_force043" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_UP_lip_effect" particleName="I_force043" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_down_lip_effect" particleName="I_force043" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="15.00" soundFile="mon_voice_ravinelerva_1"/>
+	<Sound frame="24.00" soundFile="mon_voice_ravinelerva_6"/>
+	<Sound frame="54.00" soundFile="mon_voice_screech_9"/>
+	<Sound frame="60.00" soundFile="blow_blood_critical"/>
+	<Particle frame="62" attachActor="None" attachNode="Dummy_down_lip_effect" particleName="F_burstup012_violet" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="65" attachActor="None" attachNode="Dummy_down_lip_effect" particleName="F_burstup012_violet" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="70" attachActor="None" attachNode="Dummy_down_lip_effect" particleName="F_burstup012_violet" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="75" attachActor="None" attachNode="Dummy_down_lip_effect" particleName="F_burstup012_violet" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="80" attachActor="None" attachNode="Dummy_down_lip_effect" particleName="F_burstup012_violet" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Sound frame="81.00" soundFile="blow_blood_critical"/>
+	<Sound frame="87.00" soundFile="blow_blood_critical"/>
+</ActionDesc>

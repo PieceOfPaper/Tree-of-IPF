@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="3966" soundFile="mon_voice5_l_2"/>
+	<Particle frame="5" attachActor="None" attachNode="Dummy_effect_01_R" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="5" attachActor="None" attachNode="Dummy_effect_01_L" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="5" attachActor="None" attachNode="Dummy_effect_01_RB01" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="5" attachActor="None" attachNode="Dummy_effect_01_LB01" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="7" attachActor="None" attachNode="Dummy_effect_03_R" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="1.1" pause="true" targetPos="false"/>
+	<Particle frame="7" attachActor="None" attachNode="Dummy_effect_03_L" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="1.1" pause="true" targetPos="false"/>
+	<Particle frame="7" attachActor="None" attachNode="Dummy_effect_01_RB03" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="2.1" pause="true" targetPos="false"/>
+	<Particle frame="7" attachActor="None" attachNode="Dummy_effect_01_LB03" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="2.1" pause="true" targetPos="false"/>
+	<Sound frame="15.00" Value="3966" soundFile="move_dash_2"/>
+	<Particle frame="16" attachActor="None" attachNode="Dummy_emitter01" particleName="I_salamander_atk001_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="37.50" soundFile="skl_eff_crash_ground_l_1"/>
+	<Sound frame="39.00" soundFile="skl_eff_explosion"/>
+	<Particle frame="42" attachActor="None" attachNode="Dummy_emitter01" particleName="F_ground102_fire" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="47" attachActor="None" attachNode="Dummy_emitter01" particleName="F_spread_out022_fire" useAttach="false" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+	<Sound frame="57.00" Value="3966" soundFile="mon_voice5_l_9"/>
+	<Sound frame="69.00" soundFile="skl_eff_fire_cast"/>
+	<Particle frame="69" attachActor="None" attachNode="Dummy_effect_01_R" particleName="F_fire031" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="69" attachActor="None" attachNode="Dummy_effect_01_L" particleName="F_fire031" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="70" attachActor="None" attachNode="Dummy_effect_02_R" particleName="F_fire031" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="70" attachActor="None" attachNode="Dummy_effect_02_L" particleName="F_fire031" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="71" attachActor="None" attachNode="Dummy_effect_03_R" particleName="F_fire031" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="71" attachActor="None" attachNode="Dummy_effect_03_L" particleName="F_fire031" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+</ActionDesc>

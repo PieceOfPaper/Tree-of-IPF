@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="70" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="74" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="76" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="78" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="80" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="82" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="84" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="86" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="88" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="3" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="20" pause="true" targetPos="false"/>
+	<Particle frame="70" attachActor="None" attachNode="Dummy_effect" particleName="I_lithorex_dead_mash" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="66" attachActor="None" attachNode="Bip001 Spine1" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="68" attachActor="None" attachNode="Bip001 Spine1" particleName="F_explosion082" useAttach="true" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_genmagnus_dead"/>
+	<Sound frame="0.00" soundFile="skl_eff_dead_boom_m"/>
+	<Sound frame="73.00" soundFile="mon_voice5_l_dead_10"/>
+	<Sound frame="76.00" soundFile="skl_eff_dead_boom_l"/>
+	<Sound frame="76.00" soundFile="skl_eff_dead_wood_s"/>
+</ActionDesc>

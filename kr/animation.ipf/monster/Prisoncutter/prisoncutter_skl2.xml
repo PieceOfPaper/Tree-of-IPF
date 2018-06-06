@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="100" attachNode="Dummy_effect_spin" particleName="F_spin019" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="81" attachNode="Dummy_effect_spin" particleName="F_spin032_reverse2" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="91" attachNode="Dummy_effect_spin" particleName="F_spin032_reverse2" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="101" attachNode="Dummy_effect_spin" particleName="F_spin032_reverse2" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Bip001 Xtra01Nub" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Bip001 Prop2" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Bip001 Prop1" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Bip001 Xtra01Nub" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Bip001 Prop2" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Bip001 Prop1" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_move_prisoncutter_skl2"/>
+	<Sound frame="10.00" soundFile="mon_tomblord_skl_3"/>
+	<Sound frame="60.00" soundFile="skl_eff_forcespinner_1"/>
+</ActionDesc>

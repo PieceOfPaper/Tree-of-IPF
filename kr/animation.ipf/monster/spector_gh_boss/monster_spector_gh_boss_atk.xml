@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ldy (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_spector_atk_cast"/>
+	<Sound frame="13" soundFile="mon_spector_atk01_shot"/>
+	<Particle frame="14" particleName="I_line001_red" attachNode="Dummy_eff_atkl_light_02" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="14" particleName="I_line001_red" attachNode="Dummy_eff_atkl_light_03" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="14" particleName="I_line001_red" attachNode="Dummy_eff_atkl_light_04" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="14" particleName="I_line001_red" attachNode="Dummy_eff_atkl_light_01" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="13" particleName="I_swordtrail012_red" attachNode="Dummy_eff_atk" scale="3" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="13" particleName="I_swordtrail012_red" attachNode="Dummy_eff_atk2" scale="3" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="13" particleName="I_swordtrail012_red" attachNode="Dummy_eff_atk3" scale="3" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="13" particleName="I_swordtrail012_red" attachNode="Dummy_eff_atk4" scale="3" useAttach="false" pause="true" targetPos="false"/>
+	<HitAni frame="16.76" damratio="100"/>
+</ActionDesc>

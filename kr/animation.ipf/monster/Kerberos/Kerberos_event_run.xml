@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="16.62" soundFile="skl_eff_atk_move_l_1"/>
+    <Sound frame="21.12" soundFile="mon_big_footstep_6"/>
+    <Particle frame="25" attachNode="Dummy_effect_01" particleName="F_smoke037_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_02" particleName="F_smoke037_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" targetPos="false"/>
+    <Sound frame="33.51" soundFile="skl_eff_atk_move_l_2"/>
+    <Particle frame="38" attachNode="Dummy_effect_03" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="38.02" soundFile="mon_big_footstep_6"/>
+    <Sound frame="42.00" soundFile="skl_eff_metalchain"/>
+    <Particle frame="45" attachNode="Dummy_effect_04" particleName="F_smoke037_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" targetPos="false"/>
+    <Sound frame="48.72" soundFile="skl_eff_atk_move_l_1"/>
+    <Particle frame="53" attachNode="Dummy_effect_05" particleName="F_smoke129_spreadout" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="55.20" soundFile="mon_big_footstep_6"/>
+    <Particle frame="60" attachNode="Dummy_effect_06" particleName="F_smoke037_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="64.21" soundFile="skl_eff_atk_move_l_2"/>
+    <Particle frame="67" attachNode="Dummy_effect_07" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" targetPos="false"/>
+    <Sound frame="69.84" soundFile="mon_big_footstep_6"/>
+    <Particle frame="72" attachNode="Dummy_effect_08" particleName="F_smoke129_spreadout" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="80" attachNode="Dummy_effect_09" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>
