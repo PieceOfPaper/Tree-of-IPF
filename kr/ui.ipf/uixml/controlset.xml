@@ -1852,16 +1852,16 @@
 			<slot name="RH" texttooltip="{@st59}왼손{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 190 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="rh">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="45 -130" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="LH" texttooltip="{@st59}오른손{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 180 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lh">
+			<slot name="LH" texttooltip="{@st59}오른손{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 190 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lh">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="-45 -120" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
 			<slot name="SHIRT" texttooltip="{@st59}상의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 60 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="shirt">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="125 -30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="GLOVES" texttooltip="{@st59}장갑{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 20 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="gloves">
+			<slot name="GLOVES" texttooltip="{@st59}장갑{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 60 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="gloves">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="-60 40" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="BOOTS" texttooltip="{@st59}신발{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 100 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="boots">
+			<slot name="BOOTS" texttooltip="{@st59}신발{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 125 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="boots">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="-95 90" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
 			<slot name="PANTS" texttooltip="{@st59}하의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 125 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="pants">
@@ -1882,6 +1882,9 @@
 			<slot name="LENS" texttooltip="{@st59}렌즈{/}" layout_gravity="center top" rect="0 0 50 50" margin="-100 5 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lens_slot">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
+      <slot name="WING" texttooltip="{@st59}날개{/}" layout_gravity="center top" rect="0 0 50 50" margin="100 5 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lens_slot">
+        <uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
+      </slot>
 		</controls>
 	</controlset>
 	<controlset name="itemslotset" hittest="true" hittestset="false" draw="false" width="420" height="320">
