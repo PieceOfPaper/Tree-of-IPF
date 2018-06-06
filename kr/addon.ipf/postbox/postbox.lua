@@ -116,6 +116,7 @@ function POSTBOX_SET_LETTER_DETAIL(msgInfo, ctrlSet)
 			slot:GetIcon():SetGrayStyle(0);
 			slot:SetEventScript(ui.RBUTTONUP, "REQ_GET_POSTBOX_ITEM");
 			slot:SetUserValue("ITEM_INDEX", i);
+			slot:SetUserValue("ITEM_TYPE", itemInfo.itemType);
 		end
 	end
 
@@ -163,6 +164,8 @@ function REQ_GET_POSTBOX_ITEM(parent, slot)
 	local selectFrame = OPEN_BARRACK_SELECT_PC_FRAME("EXEC_SELECT_POSTBOX_ITEM_PC", "SelectCharacterToGetItem");
 	local itemIndex = slot:GetUserIValue("ITEM_INDEX");
 	selectFrame:SetUserValue("ITEM_INDEX", itemIndex);
+	local itemType = slot:GetUserIValue("ITEM_TYPE");
+	selectFrame:SetUserValue("ITEM_TYPE", itemType);
 	
 end
 
@@ -170,6 +173,15 @@ function SELECT_POSTBOX_ITEM_PC(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local pcName = ctrl:GetUserValue("PC_NAME");
 	local msgBoxString = ScpArgMsg("ReallyGiveItemTo{PC}", "PC", pcName);
+
+
+	local selectFrame = ui.GetFrame("postbox_itemget");
+	local itemType = selectFrame:GetUserIValue("ITEM_TYPE");
+	local itemCls = GetClassByType("Item", itemType);
+	if itemCls ~= nil and itemCls.GroupName == 'Premium' then
+		msgBoxString = ScpArgMsg("ReallyGivePremiumItemTo{PC}", "PC", pcName);
+	end
+
 	local execScript = frame:GetUserValue("EXECSCRIPT");
 	local scpString = string.format("%s(\"%s\")", execScript, pcName);
 	ui.MsgBox(msgBoxString, scpString, "None");
@@ -255,7 +267,7 @@ function UPDATE_POSTBOX_MSG_READ(frame, msgID)
 	
 	local gbox_new = frame:GetChild("gbox_new");
 	gbox_new:RemoveChild("ITEM_" ..msgID);
-	GBOX_AUTO_ALIGN(gbox_new, 0, 1, 0, true, false);
+	--GBOX_AUTO_ALIGN(gbox_new, 0, 1, 0, true, false);
 
 end
 

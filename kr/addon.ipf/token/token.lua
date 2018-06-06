@@ -4,6 +4,11 @@ end
 
 function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	local frame = ui.GetFrame("token");
+	if invItem.isLockState then 
+		frame:ShowWindow(0)
+		return;
+	end
+
 	if 0 == frame:IsVisible() then
 		frame:ShowWindow(1)
 	end
@@ -69,9 +74,11 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	endTxt:SetTextByKey("value", endTime); 
 
 	local endTxt2 = frame:GetChild("endTime2");
-	endTxt2:SetTextByKey("value", endTime); 
-	endTxt2:SetTextByKey("value1", ClMsg(itemobj.ClassName)); 
 
+	endTxt2:SetTextByKey("value2", endTime); 
+	endTxt2:SetTextByKey("value", ClMsg(itemobj.ClassName)..ScpArgMsg("Premium_itemEun")); 
+    endTxt2:SetTextByKey("value3", ScpArgMsg("Premium_team")); 
+    
 	local strTxt = frame:GetChild("str");
 	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
 
@@ -84,6 +91,11 @@ end
 
 function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	local frame = ui.GetFrame("token");
+	if invItem.isLockState then 
+		frame:ShowWindow(0)
+		return;
+	end
+
 	if 0 == frame:IsVisible() then
 		frame:ShowWindow(1)
 	end
@@ -104,7 +116,7 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_1",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
-	prop:SetTextByKey("value", ClMsg("toekn_staup")); 
+	prop:SetTextByKey("value", ClMsg("token_staup")); 
 	local value = ctrlSet:GetChild("value");
 	value:ShowWindow(0);
 
@@ -116,7 +128,8 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	endTxt:SetTextByKey("value", endTime); 
 	local endTxt2 = frame:GetChild("endTime2");
 	endTxt2:SetTextByKey("value2", endTime); 
-	endTxt2:SetTextByKey("value1", ClMsg(itemobj.ClassName)); 
+	endTxt2:SetTextByKey("value", ClMsg(itemobj.ClassName)..ScpArgMsg("Premium_itemEun"));
+	endTxt2:SetTextByKey("value3", ScpArgMsg("Premium_character")); 
 
 	local strTxt = frame:GetChild("str");
 	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 

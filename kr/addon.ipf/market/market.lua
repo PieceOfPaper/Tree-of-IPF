@@ -399,9 +399,14 @@ function _BUY_MARKET_ITEM(row)
 end
 
 function BUY_MARKET_ITEM(parent, ctrl)
-	
 	local row = parent:GetUserIValue("DETAIL_ROW");
+	local marketItem = session.market.GetItemByIndex(row);
+	local itemObj = GetIES(marketItem:GetObject());
+	if itemObj.GroupName == "Premium" then
+		ui.MsgBox(ScpArgMsg("CannotSoldAnyMore"), string.format("_BUY_MARKET_ITEM(%d)", row+1), "None");
+	else
 	ui.MsgBox(ScpArgMsg("ReallyBuy?"), string.format("_BUY_MARKET_ITEM(%d)", row+1), "None");
+	end
 
 end
 

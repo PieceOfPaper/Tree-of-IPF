@@ -318,6 +318,9 @@ function ON_PARTY_PROPERTY_UPDATE(frame, msg, str, num)
 	UPDATE_PARTY_EVENT(frame, msg, str, num);
 
 	local pcparty = session.party.GetPartyInfo();
+	if pcparty == nil then
+		return;
+	end
 	local partyObj = GetIES(pcparty:GetObject());
 	
 	local isLeader = 0;
@@ -642,15 +645,16 @@ end
 function UPDATE_PARTY_TICKET(frame, msg, propName, propValue)
 	
 	local pcparty = session.party.GetPartyInfo();
+	if pcparty == nil then
+		return;
+	end
 	local partyObj = GetIES(pcparty:GetObject());
 	
 	local gbox = frame:GetChild("gbox");
 	local quest_gbox = GET_CHILD(gbox, "quest_gbox");
 	DESTROY_CHILD_BY_USERVALUE(quest_gbox, "PARTY_QUEST_CTRL", "YES");
 	-- quest_gbox:RemoveAllChild();
-	if pcparty == nil then
-		return;
-	end
+
 
 	local clsList, cnt = GetClassList("PartyQuest");
 	for i = 0 , cnt - 1 do

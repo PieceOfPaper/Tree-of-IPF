@@ -85,6 +85,9 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 	end
 	local userType = session.loginInfo.GetPremiumState();
 	local maxCount = GetCashValue(userType, "abilityMax");
+	if maxCount == 1 then
+		maxCount = 2;
+	end
 	
 	local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
 	local abilLv = 1;
@@ -274,6 +277,9 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 
 	local userType = session.loginInfo.GetPremiumState();
 	local maxCount = GetCashValue(userType, "abilityMax");
+	if maxCount == 1 then
+		maxCount = 2;
+	end
 	if runCnt+1 > maxCount then	
 		return;
 	end

@@ -131,19 +131,20 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 
 		local button_1 = ctrlSet:GetChild("button_1");
 		button_1:ShowWindow(0);
+		local btnData = "None";
 		if numArg ~= HISTORY_TP then
 			
 			if info.isFree == true then
 				preValue:ShowWindow(1);
-				local data = ClMsg("IsFree");
-				preValue:SetTextByKey("value", data);
+				btnData = ClMsg("IsFree");
+				preValue:SetTextByKey("value", btnData);
 			else
 				if 0 == rollbackCnt then
 					rollbackCnt = 1;
 				end
-				local data = string.format("%d", rollbackCnt) .. "TP";
+				btnData = string.format("%d", rollbackCnt) .. "TP";
 				preValue:ShowWindow(1);
-				preValue:SetTextByKey("value", data);
+				preValue:SetTextByKey("value", btnData);
 				rollbackCnt = rollbackCnt+1;
 			end
 
@@ -154,7 +155,7 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 			button_1:SetUserValue("value", info.preValue);
 			button_1:SetUserValue("RollBackCnt", rollbackCnt);
 			button_1:SetUserValue("saveTime", info:GetSaveTime());
-				button_1:SetTextByKey("value", data);
+				button_1:SetTextByKey("value", btnData);
 			end
 		end
 	end

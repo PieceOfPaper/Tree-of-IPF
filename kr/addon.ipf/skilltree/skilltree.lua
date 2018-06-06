@@ -1002,8 +1002,9 @@ function UPDATE_LEARING_ABIL_INFO(frame)
 			--frame:SetUserValue("LEARN_ABIL_NAME", abilClass.Name);
 			--frame:SetUserValue("LEARN_ABIL_CLASSNAME", abilClass.ClassName);
 
-		end
-	else	
+				ctr:SetUserValue("PROP_INDEX", i);
+			end
+		else
 			local ctr = nowLearingGBox:GetChild("CTRLSET_" .. i);
 			if nil ~= ctr then
 				nowLearingGBox:RemoveChild("CTRLSET_" .. i);
@@ -1032,3 +1033,18 @@ function INSERT_SKILL_TREE(frame, jobid)
 		session.SetUserConfig("SELECT_SKLTREE", 0);
 end
 
+
+function REQ_ROLL_BACK_LEARING_ABIL(frame, btn)
+
+	local propIndex = frame:GetUserValue("PROP_INDEX");
+	if propIndex ~= 'None' then
+
+		local yesScp = string.format("EXC_ROLL_BACK_LEARING_ABIL(%d)", tonumber(propIndex));
+		local txt = ScpArgMsg("REQ_CANCEL_LEARING_ABIL");
+		ui.MsgBox(txt, yesScp, "None");
+	end
+end
+
+function EXC_ROLL_BACK_LEARING_ABIL(propIndex)
+	control.CustomCommand("REQUEST_CANCEL_LEARNING_ABIL", propIndex);
+end

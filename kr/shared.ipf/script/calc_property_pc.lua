@@ -88,7 +88,7 @@ function SCR_GET_ADDSTAT(self, stat)
     elseif stat < 501 then
         addStat = 50 / 5 + 100 / 4 + 150 / 3 + (stat - 300) / 2;
     else
-        addStat = 50 / 5 + 100 / 4 + 150 / 3 + 200 / 2 + stat;
+        addStat = 50 / 5 + 100 / 4 + 150 / 3 + 200 / 2 + (stat - 500);
     end
 
     return math.floor(addStat);

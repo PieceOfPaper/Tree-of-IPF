@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -27,6 +27,7 @@
 		<Class ClassID="23" ClassName="DataError" Data="데이터 응답을 받지 못했습니다. 잠시후 다시 시도해 주세요."/>
 		<Class ClassID="24" ClassName="TooManyDataInThisPC_PleaseInquireToGameCustomerCenter" Data="이 플레이어에 데이터량이 너무 많습니다. 게임 고객센터에 문의해주세요."/>
 		<Class ClassID="25" ClassName="PCBangMessage1" Data="넥슨 PC방 정량제 잔여시간이 약 {Time}분 남았습니다."/>
+		<Class ClassID="26" ClassName="ErrorWhileLoadingCharacter_TryAgainAndWhenFailPleaseInquireToGameCustomerCenter" Data="플레이어 로딩 중 에러가 발생했습니다. 재 접속 이후에도 문제 발생시 게임 고객센터에 문의해주세요."/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="301" ClassName="CantWhisperToSelf" Data="자기자신에겐 귓속말을 할 수 없습니다."/>
@@ -249,7 +250,7 @@
 		<Class ClassID="10301" ClassName="{Month}" Data="{Month}개월"/>
 		<Class ClassID="10302" ClassName="{Year}" Data="{Year}년"/>
 		<Class ClassID="10303" ClassName="ChannelIsFull" Data="채널이 가득 찼습니다."/>
-		<Class ClassID="10304" ClassName="CantUseSkillOnRiding" Data="컴패니언 탑승중 사용 할 수 없는 스킬입니다."/>
+		<Class ClassID="10304" ClassName="CantUseSkillOnRiding" Data="스킬중엔 컴패니언 탑승을 해제 할 수 없습니다."/>
 		<Class ClassID="10305" ClassName="CantUseSkill_NeedRiding" Data="컴패니언 탑승중에만 사용 할 수 있는 스킬입니다."/>
 		<Class ClassID="10306" ClassName="PCNameMustLongerThen{LEN}" Data="{LEN}자 이상이어야 합니다."/>
 		<Class ClassID="10307" ClassName="PCNameMustNotLongerThen{LEN}" Data="{LEN}자 이하이어야 합니다."/>
@@ -340,6 +341,7 @@
 		<Class ClassID="10402" ClassName="WillYouSeeOpeningAgain?" Data="오프닝을 다시 보시겠습니까?"/>
 		<Class ClassID="10403" ClassName="ThatCurrentPosition" Data="현재 위치 입니다."/>
 		<Class ClassID="10404" ClassName="CanTakeItemFromPostBox" Data="현재 습득하지 않은 아이템이 존재합니다.{nl}모든 아이템 수령 후 삭제가 가능합니다."/>
+		<Class ClassID="10405" ClassName="ReallyGivePremiumItemTo{PC}" Data="{PC}으로 아이템을 받으시겠습니까? 수령 시 청약철회가 불가능해 집니다."/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="210401" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -458,7 +460,7 @@
 		<Class ClassID="10738" ClassName="Boots" Data="신발"/>
 		<Class ClassID="10739" ClassName="Shirt" Data="상의"/>
 		<Class ClassID="10740" ClassName="Shield" Data="방패"/>
-		<Class ClassID="10741" ClassName="Hat" Data="모자"/>
+		<Class ClassID="10741" ClassName="Hat" Data="헤어 악세서리"/>
 		<Class ClassID="10742" ClassName="Pants" Data="하의"/>
 		<Class ClassID="10743" ClassName="Gloves" Data="장갑"/>
 		<Class ClassID="10744" ClassName="THSpear" Data="양손창"/>
@@ -505,6 +507,9 @@
 		<Class ClassID="10785" ClassName="SelectCharacterToGetItem" Data="아이템을 수령할 캐릭터를 선택해주세요."/>
 		<Class ClassID="10786" ClassName="Premium" Data="프리미엄"/>
 		<Class ClassID="10787" ClassName="selectItemUsed" Data="사용중인 아이템은 잠금 기능을 사용할 수 없습니다."/>
+		<Class ClassID="10788" ClassName="OnlyMale" Data="남성 전용"/>
+		<Class ClassID="10789" ClassName="OnlyFemale" Data="여성 전용"/>
+		<Class ClassID="10790" ClassName="CanNotEquip" Data="착용 불가능한 상품입니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="10801" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -1618,7 +1623,7 @@
 		<Class ClassID="120089" ClassName="ROKAS_25_HQ01_PASSWORD04" Data="네 번째 자리 "/>
 		<Class ClassID="120091" ClassName="BONFIRE_NAME" Data="장작더미"/>
 		<Class ClassID="120092" ClassName="KATYN10_CHANGE_SOLDIER" Data="여신께 인도해주세요."/>
-		<Class ClassID="120093" ClassName="ZACHA2F_SQ_01_COMPLETE" Data="수호자의 기운을 흡수하세요!"/>
+		<Class ClassID="120093" ClassName="ZACHA2F_SQ_01_COMPLETE" Data="수호자의 기운을 흡수했습니다!"/>
 		<Class ClassID="120094" ClassName="WS_ZACHA2F_01_TO_02_ANSWER_GO" Data="이동한다"/>
 		<Class ClassID="120095" ClassName="WS_ZACHA2F_01_TO_02_ANSWER_NO" Data="이동하지 않는다"/>
 		<Class ClassID="120096" ClassName="MNA_UI_MSG1" Data="{@st59}SP최대량 증가, SP회복력 증가, 블럭 관통 증가, 마법 방어력 증가{/}"/>
@@ -2266,6 +2271,7 @@
 		<Class ClassID="130198" ClassName="PRISON621_MQ_05_KILL_MSG1" Data="숨겨진 방 입구 포탈을 타고 이동하세요!"/>
 		<Class ClassID="130199" ClassName="DELIVERY_CHARGES_REWARD_MSG5" Data="{need}회 더 충전해야 합니다"/>
 		<Class ClassID="130200" ClassName="PILGRIM311_SQ_02_ITEM_MSG1" Data="신호탄 쏘는 중"/>
+		<Class ClassID="130201" ClassName="JOB_2_BARBARIAN4_ISBUFF_MSG1" Data="아무런 강화효과가 없는 기본 상태에서 처치해야 합니다!"/>
 		<Class ClassID="120194" ClassName="SEARCH_DONE" Data="더 이상 나크티스와 관련된 내용은 없어보입니다"/>
 		<Class ClassID="120195" ClassName="BOOK_GET" Data="사제의 책 회수 중"/>
 		<Class ClassID="120196" ClassName="CHATHEDRAL56_MQ04_KEY_GET" Data="메이번의 열쇠 회수 중"/>
@@ -3762,6 +3768,8 @@
 		<Class ClassID="31025" ClassName="PolicyMsgAlram{TimeStr}" Data="셧다운제에 의해 {TimeStr}시에 게임이용이 제한됩니다."/>
 		<Class ClassID="31026" ClassName="DelibarationMsg1" Data="과도한 게임이용은 정상적인 일상생활에 지장을 줄 수 있습니다."/>
 		<Class ClassID="31027" ClassName="DelibarationMsg2" Data="게임을 시작한 지 {Time}시간이 지났습니다."/>
+		<Class ClassID="31028" ClassName="REQ_CANCEL_LEARING_ABIL" Data="특성배우기를 취소하시겠습니까? 사용한 실버는 회수되지 않습니다. "/>
+		<Class ClassID="31029" ClassName="CANCEL_LEARING_ABIL" Data="특성배우기가 취소되었습니다."/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="32001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
@@ -4776,7 +4784,7 @@
 		<Class ClassID="90896" ClassName="Auto_HyeonJae_Jon_Junge_KeomSaeg_KyeolKwaKa_eopSeupNiDa." Data="현재 존 중에 검색 결과가 없습니다."/>
 		<Class ClassID="90897" ClassName="Auto_SeonTaeg_Kapi_eopSeupNiDa." Data="선택 값이 없습니다."/>
 		<Class ClassID="90898" ClassName="Auto_KeomSaegHal_DaneoKa_eopeoSeo_Jon_Nae_MoDeun_GenType_PyoSi" Data="검색할 단어가 없어서 존 내 모든 GenType 표시"/>
-		<Class ClassID="90899" ClassName="Auto_ClassType,_Name,_Tactics,_Dialog,_Enter,_Leave_Junge_KeomSaeg_KyeolKwaKa_eopSeupNiDa." Data="ClassType, Name, Tactics, Dialog, Enter, Leave 중에 검색 결과가 없습니다."/>
+		<Class ClassID="90899" ClassName="Auto_ClassType,_Name,_Tactics,_Dialog,_Enter,_Leave_Junge_KeomSaeg_KyeolKwaKa_eopSeupNiDa." Data="ClassType, Name, Tactics, SimpleAI, Dialog, Enter, Leave 중에 검색 결과가 없습니다."/>
 		<Class ClassID="90901" ClassName="Auto_Kae_SagJe." Data="개"/>
 		<Class ClassID="90902" ClassName="Auto_KweSeuTeu_KwonJangLeBelDae_ipLyeogKapeul_SusJaLo_ipLyeogHaSipSiyo." Data="퀘스트 권장레벨대 입력값을 숫자로 입력하십시요."/>
 		<Class ClassID="90903" ClassName="Auto_HaeDang_LeBelDaeeNeun_KweSeuTeuKa_eopSeupNiDa." Data="해당 레벨대에는 퀘스트가 없습니다."/>
@@ -6682,8 +6690,8 @@
 		<Class ClassID="550017" ClassName="NeedPremiunState" Data="해당 기능을  사용 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550018" ClassName="{Target}DontHavePremiumState" Data="{Target}님이 거래를 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550019" ClassName="CantTradeAbility" Data="거래/매입상점 사용가능"/>
-		<Class ClassID="550020" ClassName="token_expup" Data="경험치 30% 추가획득"/>
-		<Class ClassID="550021" ClassName="token_setup" Data="스테미너회복 2배"/>
+		<Class ClassID="550020" ClassName="token_expup" Data=" 몬스터 경험치 {img green_up_arrow 16 16}30% 증가"/>
+		<Class ClassID="550021" ClassName="token_setup" Data=" 스태미나 회복 {img green_up_arrow 16 16}100% 증가"/>
 		<Class ClassID="550022" ClassName="marketUpMax{COUNT}" Data="마켓 물품 등록 개수 {COUNT}개로 증가"/>
 		<Class ClassID="550023" ClassName="abilityMax{COUNT}" Data="특성 동시 수련 가능 개수 {COUNT} 증가"/>
 		<Class ClassID="550024" ClassName="speedUp{COUNT}" Data="이동 속도 +{COUNT} 증가"/>
@@ -6693,18 +6701,30 @@
 		<Class ClassID="550028" ClassName="CashPurchaseGmMsg" Data="유료상품이 숙소에 도착하였습니다. 숙소에서 상품을 수령하세요."/>
 		<Class ClassID="550029" ClassName="PremiumToken_1d" Data="토큰:1일[증정용]"/>
 		<Class ClassID="550030" ClassName="PremiumToken_5d" Data="토큰:5일[증정용]"/>
+		<Class ClassID="550031" ClassName="Premium_itemEun" Data=" 아이템 은"/>
+		<Class ClassID="550032" ClassName="Premium_character" Data="캐릭터"/>
+		<Class ClassID="550033" ClassName="Premium_team" Data="서버의 팀"/>
+		<Class ClassID="550034" ClassName="CannotSoldAnyMore" Data="해당 아이템은 구입하시면 캐릭터에 귀속이 됩니다. 그래도 구입하시겠습니까?"/>
+		<Class ClassID="550035" ClassName="DoyouRegMarket" Data="해당 아이템을 정말로{nl}마켓에 등록하시겠습니까?"/>
+		<Class ClassID="550036" ClassName="CannoTradeToNPC" Data="해당 아이템은 NPC에게 판매하실 수 없습니다."/>
+		<Class ClassID="550037" ClassName="token_staup" Data=" 스태미나 회복 {img green_up_arrow 16 16}100% 증가"/>
+<Class ClassID="550038" ClassName="{TP}UseAndGo{INDUN}" Data="무료 입장 횟수를 전부 사용하셨습니다.{nl}{TP}TP를 소비해 {INDUN}에 입장하시겠습니까?"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="600001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
 		<Class ClassID="600002" ClassName="hirePC" Data="용병 고용"/>
-		<Class ClassID="600003" ClassName="NpcShop" Data="TP상점"/>
-		<Class ClassID="600004" ClassName="InitStat" Data="스텟 초기화"/>
+		<Class ClassID="600003" ClassName="NpcShop" Data="TP상점 구매"/>
+		<Class ClassID="600004" ClassName="InitStat" Data="스텟 되돌리기"/>
 		<Class ClassID="600005" ClassName="REQUEST_SELECT" Data="요청하기"/>
 		<Class ClassID="600006" ClassName="WarpSkill" Data="순간이동"/>
-		<Class ClassID="600007" ClassName="TPSHOP_BUY" Data="TP상점"/>
-		<Class ClassID="600008" ClassName="Change Name" Data="팀명 변경"/>
+		<Class ClassID="600007" ClassName="TPSHOP_BUY" Data="TP상점 구매"/>
+		<Class ClassID="600008" ClassName="Change Name" Data="캐릭터명 변경"/>
 		<Class ClassID="600009" ClassName="RandomItem" Data="랜덤 상자"/>
-		<Class ClassID="600010" ClassName="BuySlot" Data="슬롯 구매"/>
-		<Class ClassID="600011" ClassName="StatRollBack" Data="히스토리 롤백"/>
+		<Class ClassID="600010" ClassName="StatRollBack" Data="스텟 롤백"/>
+		<Class ClassID="600011" ClassName="EXTEND_WAREHOUSE" Data="창고 확장"/>
+		<Class ClassID="600012" ClassName="Thema Buy" Data="숙소 스킨 구매"/>
+		<Class ClassID="600013" ClassName="Family Name" Data="팀명 변경"/>
+		<Class ClassID="600014" ClassName="SkillRollBack" Data="스킬 되돌리기"/>
+		<Class ClassID="600015" ClassName="BuySlot" Data="팀 슬롯 구매"/>
 	</Category>
 </idspace>

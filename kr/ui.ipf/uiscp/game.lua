@@ -1909,6 +1909,11 @@ function SCR_SKILLSCROLL(invItem)
 		return;
 	end
 
+	if true == invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+
 	local sklType = obj.SkillType;
 	spcitem.CreateScrollSkill(sklType, invItem:GetIESID(), obj.SkillLevel, true);
 	control.Skill(sklType, obj.SkillLevel, true);

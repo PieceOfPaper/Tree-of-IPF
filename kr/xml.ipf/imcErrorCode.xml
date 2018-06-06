@@ -53,6 +53,8 @@
 		<Code Code="ERRCODE_LOGIC_NEXON_NOT_IMPLEMENTED_SYNC_TYPE" CallStack="NO" Desc="세션 정보와 넥슨 세션 서버와의 동기화가 실패하였습니다. 알 수 없는 싱크 타입입니다."/>
 		<Code Code="ERRCODE_LOGIC_GETPOS_NEAR_FROM_TARGET" CallStack="NO" Desc="MaxLoopCount내에 유효좌표를 얻지 못했습니다."/>
 		<Code Code="ERRCODE_LOGIN_TOO_MANY_DB_RESULT" CallStack="NO" Desc="DB의 결과값이 너무 많습니다."/>
+		<Code Code="ERRCODE_LOGIC_PARTY_NAME_ALREDY_EXIST" CallStack="NO" Desc="이미 존재하는 파티 이름입니다."/>
+		<Code Code="ERRCODE_LOGIC_BAD_LEXICAL_CAST" CallStack="NO" Desc="형변환 실패했습니다. 다음 에러 정보를 참조하세요."/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>

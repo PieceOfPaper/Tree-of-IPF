@@ -12,6 +12,9 @@ function BARRACK_CHARLIST_ON_INIT(addon, frame)
 	addon:RegisterMsg("SET_BARRACK_MODE", "SELECTTEAM_ON_MSG");
 	addon:RegisterMsg("UPDATE_SELECT_BTN_TITLE", "SELECTTEAM_ON_MSG");
 	addon:RegisterMsg("NOT_HANDLED_ENTER", "SELECTTEAM_OPEN_CHAT");
+	
+	addon:RegisterMsg("BARRACK_NAME_CHANGE_RESULT", "SELECTTEAM_ON_MSG");
+
 
 	frame:SetUserValue("BarrackMode", "Barrack");
 	SET_CHILD_USER_VALUE(frame, "upgrade", "Barrack", "YES");
@@ -61,7 +64,13 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 	local buySlot = frame:GetChild("buySlot");
 	local buySlotCnt = session.loginInfo.GetBuySlotCount();
 	buySlot:SetTextByKey("value", tostring(buySlotCnt));
-	CREATE_SCROLL_CHAR_LIST(frame, actor);
+	if actor ~= nil then
+		CREATE_SCROLL_CHAR_LIST(frame, actor);
+	end
+	
+	local tpText = frame:GetChild("tpText");
+	tpText:SetTextByKey("value", tostring(GET_CASH_TOTAL_POINT_C()));
+
 end
 
 function CREATE_SCROLL_CHAR_LIST(frame, actor)
@@ -399,6 +408,11 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 
 	elseif msg == "UPDATE_SELECT_BTN_TITLE" then
 		SELECTTEAM_UPDATE_BTN_TITLE(frame);	
+	elseif msg == "BARRACK_NAME_CHANGE_RESULT" then
+		
+		-- tp표시갱신
+		SELECTTEAM_NEW_CTRL(frame, ud);
+		BARRACK_THEMA_UPDATE(ui.GetFrame("barrackthema"))
 	end
 
 	SELECTCHAR_RE_ALIGN(frame);

@@ -1,4 +1,4 @@
--- util
+ï»¿-- util
 function GET_MON_STAT_CON(self, lv, statStr)
     local conRate = self["CON_Rate"]
 	local conMain = conRate * (24+lv)/ 50.0;
@@ -33,7 +33,7 @@ function SCR_GET_MON_ADDSTAT(self, stat)
     elseif stat < 501 then
         addStat = 50 / 5 + 100 / 4 + 150 / 3 + (stat - 300) / 2;
     else
-        addStat = 50 / 5 + 100 / 4 + 150 / 3 + 200 / 2 + stat;
+        addStat = 50 / 5 + 100 / 4 + 150 / 3 + 200 / 2 + (stat - 500);
     end
     
     return math.floor(addStat);
@@ -890,7 +890,7 @@ function SCR_GET_MON_LIMIT_BUFF_COUNT(self)
 	return count;
 end
 
--- hardskill_sorcerer.lua ÀÌ ½ºÅ©¸³Æ®µµ shared·Î º¸³»±â ¹¹ÇÏ°í... Å¬¶ó¿¡µµ ÇÊ¿äÇØ¼­ ±×´ë·Î º¹ºÙ
+-- hardskill_sorcerer.lua ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ sharedï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½... Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Ø¼ï¿½ ï¿½×´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 function CLIENT_SORCERER_SUMMONING_MON(self, caster, skl, item)
 
 	if nil == self then

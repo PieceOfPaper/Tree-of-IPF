@@ -12,12 +12,17 @@ function SHOW_REMAIN_NEXT_TIME_GET_CABINET(ctrl)
 		return 0;
 	end
 	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
-	if 0 >= elapsedSec then
-		ctrl:SetTextByKey("value", ClMsg("Receieve"));
-		return 0;
-	end
 	local startSec = ctrl:GetUserIValue("REMAINSEC");
 	startSec = startSec - elapsedSec;
+
+	if 0 >= startSec then
+		local frame = ctrl:GetParent();
+		local btn = frame:GetChild("btn");
+		btn:SetEnable(1);
+		ctrl:SetTextByKey("value", ClMsg("Receieve"));
+		ctrl:StopUpdateScript("SHOW_REMAIN_NEXT_TIME_GET_CABINET");
+		return 0;
+	end
 	local timeTxt = GET_TIME_TXT(startSec);
 	ctrl:SetTextByKey("value", "{s16}{#ffffcc}(" .. timeTxt..")");
 	return 1;

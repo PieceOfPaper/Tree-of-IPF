@@ -59,6 +59,9 @@ function GET_USEJOB_TOOLTIP(invitem)
 	if usejob == nil then
 		return '';
 	end
+
+	local usegender = TryGetProp(invitem,'UseGender')
+
 	local resultstr = ''	
 
 	if usejob == "All" then
@@ -100,11 +103,24 @@ function GET_USEJOB_TOOLTIP(invitem)
 	end
 
 	if resultstr ~= '' then
+		
 		if usejob == "All" then
-			return resultstr .. ScpArgMsg('EquipPossible')
+			resultstr =  resultstr .. ScpArgMsg('EquipPossible')
 		else
-			return resultstr .. ScpArgMsg('EquipPossible')
+			resultstr =  resultstr .. ScpArgMsg('EquipPossible')
 		end
+
+		if usegender ~= nil then
+			resultstr = resultstr..', '
+				
+			if usegender == "Male" then
+				resultstr = resultstr .. ScpArgMsg("OnlyMale")
+			else
+				resultstr = resultstr .. ScpArgMsg("OnlyFemale")
+			end
+		end
+
+		return resultstr
 	else
 		return "ERROR! check invitem.usejob column";
 	end

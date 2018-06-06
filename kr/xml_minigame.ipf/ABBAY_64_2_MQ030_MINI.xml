@@ -4,7 +4,7 @@
         <StageList>
             <Stage Name="ST01">
                 <ObjList>
-                    <Obj Type="Monster" MonType="103026" Pos="-60.00#981.50#-1031.00" angle="-98" genCount="3" genTime="15000" objectKey="0" searchRange="400" tendency="1">
+                    <Obj Type="Monster" MonType="103026" Pos="-18.48#981.50#-1040.95" angle="-98" genCount="3" genTime="15000" objectKey="0" searchRange="400" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -16,7 +16,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="103026" Pos="-21.71#982.54#-944.71" angle="-94" genCount="3" genTime="15000" objectKey="1" searchRange="400" tendency="1">
+					<Obj Type="Monster" MonType="103026" Pos="49.33#981.50#-1017.27" angle="-94" genCount="3" genTime="15000" objectKey="1" searchRange="400" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -28,31 +28,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="103026" Pos="-113.00#981.50#-1031.00" angle="-92" genCount="3" genTime="15000" objectKey="2" searchRange="400" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="400"/>
-                    </ToolScp>
-								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-									<AbsPos X="-16.350609" Y="982.53711" Z="-1241.1725"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="103026" Pos="38.18#982.54#-974.43" angle="-78" genCount="3" genTime="15000" objectKey="3" searchRange="400" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="400"/>
-								</ToolScp>
-								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-									<AbsPos X="-16.350609" Y="982.53711" Z="-1241.1725"/>
-                </ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-				</ObjList>
+					</ObjList>
                 <StageEvents>
                     <Event eventName="ST_EV01">
                         <condList>
@@ -70,7 +46,7 @@
             </Stage>
             <Stage Name="ST02" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="103026" Pos="-75.00#981.50#-1031.00" angle="-110" genCount="2" genTime="20000" objectKey="0" searchRange="400" tendency="1">
+                    <Obj Type="Monster" MonType="103026" Pos="-12.14#981.50#-1044.64" angle="-110" genCount="2" genTime="20000" objectKey="0" searchRange="400" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -82,7 +58,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="103026" Pos="35.37#982.54#-1005.93" angle="-116" genCount="2" genTime="20000" objectKey="1" searchRange="400" tendency="1">
+					<Obj Type="Monster" MonType="57674" Pos="22.04#981.50#-967.85" angle="-85" genCount="2" genTime="20000" objectKey="2" searchRange="400" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -94,31 +70,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="57674" Pos="-37.00#981.50#-936.00" angle="-85" genCount="2" genTime="20000" objectKey="2" searchRange="400" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="400"/>
-                    </ToolScp>
-								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-									<AbsPos X="-16.350609" Y="982.53711" Z="-1241.1725"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="57674" Pos="17.26#982.54#-902.67" angle="-101" genCount="2" genTime="20000" objectKey="3" searchRange="400" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="400"/>
-								</ToolScp>
-								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-									<AbsPos X="-16.350609" Y="982.53711" Z="-1241.1725"/>
-                </ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-				</ObjList>
+					</ObjList>
             </Stage>
         </StageList>
     </Game>

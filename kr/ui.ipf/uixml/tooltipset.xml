@@ -63,7 +63,7 @@
 		<controls>
 			<picture name="picture_minimap" margin="0 10 0 0" rect="0 0 150 150" hittest="false" image="" stretch="true" layout_gravity="center top"/>
 			<picture name="picture_statue" margin="0 10 0 0" rect="0 0 15 15" hittest="false" image="" stretch="true" layout_gravity="center top"/>
-			<richtext name="richtext_mapname" margin="0 0 0 40" rect="0 0 280 24" format="{@st41b}%s{/}" param1="mapname" param1_def="사울레이 어쩌고" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
+			<richtext name="richtext_mapname" margin="0 0 0 40" rect="0 0 280 24" format="{@st41b}%s{/}" param1="mapname" param1_def="DefVal" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
 			<richtext name="richtext_cost" margin="0 0 0 10" rect="0 0 280 24" format="{img Silver 24 24} {@st41b}%s{/}" param1="costname" param1_def="zzzzzzzzz" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
 		</controls>
 	</tooltip>

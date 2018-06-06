@@ -308,6 +308,7 @@ function SHOP_SELL(invitem, sellCount, setTotalCount)
 
 	local itemobj = GetIES(invitem:GetObject());
 	if itemobj.ShopTrade ~= 'YES' then
+		ui.SysMsg(ClMsg("CannoTradeToNPC"));
 		return;
 	end
 

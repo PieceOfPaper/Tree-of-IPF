@@ -48,7 +48,35 @@ function ON_CHAT_INDUN_UI_OPEN(frame, msg, argStr, argNum)
 	end
 end
 
-
 function GID_CANTFIND_MGAME(msg)
 	ui.SysMsg(ScpArgMsg(msg));
+end
+
+function INDUN_COUNT_BUY(indunName)
+	local pCls = GetClass("Indun", indunName);
+	if pCls == nil then
+		return;
+	end
+	local etc = GetMyEtcObject();
+	local indunCount = etcObj["InDunCountType_" .. pCls.PlayPerResetType];
+	local count = indunCount - pCls.PlayPerReset
+	local tp = NEED_INDUN_MIN_TP;
+	if count == 0 then
+		count = 1;
+	end
+
+	tp = tp * count;
+
+	local yesScp = string.format("CHECK_TP_AND_GO(%d, \"%s\")", tp, indunName);
+	local msg = ScpArgMsg("{TP}UseAndGo{INDUN}","TP", tostring(tp), "INDUN", pCls.Name);
+	ui.MsgBox(msg, yesScp,"None");
+end
+
+function CHECK_TP_AND_GO(needTP, indunName)
+	if 0 > GET_CASH_TOTAL_POINT_C() - needTP then
+		ui.SysMsg(ClMsg("NotEnoughMedal"));
+		return;
+	end
+	
+	packet.UseTPAndEnterIndun(indunName)
 end

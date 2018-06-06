@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="barracksetting" x="0" y="0" width="400" height="200">
-	<frame title="{@st43}숙소 설정{/}" titlepos="0 -7" fasthide="true" layout_gravity="center top" margin="0 50 0 0" scale_align="center center"/>
+	<frame title="{@st43}팀명 변경{/}" titlepos="0 -7" fasthide="true" layout_gravity="center top" margin="0 50 0 0" scale_align="center center"/>
 	<draw drawnotitlebar="false" drawtitlebar="true"/>
 	<skin frameskin="mainwindow"/>
 	<input moveable="true" maxwidth="1280"/>
@@ -22,6 +22,6 @@
 		<richtext name="barrackNameTxt" margin="50 0 0 0" rect="0 0 200 30" caption="팀 이름" layout_gravity="left top" fontname="brown_18_b"/>
 		<groupbox name="input_name_skin" margin="0 35 0 0" rect="0 0 300 50" skin="test_weight_skin" draw="true" hittestbox="true" layout_gravity="center top" scrollbar="false" resizebyparent="false"/>
 		<edit name="barrackNameEdit" margin="0 40 0 0" skin="None" rect="0 0 290 36" OffsetForDraw="0 0" texttooltip="{@st59}원하는 팀 이름을 입력하세요{/}" textalign="center center" layout_gravity="center top" usetag="true" fontname="white_login_text" clicksound="button_click" oversound="button_over" drawbackground="false" createscript="INIT_TEAMNAME_EDIT" maxlen="8" createscriptarg="save"/>
-		<button name="save" caption="{@st41b}저장{/}" texttooltip="{@st59}숙소 설정을 저장합니다{/}" layout_gravity="center bottom" margin="0 0 0 40" rect="0 0 160 50" textalign="center center" skin="test_red_button" clicksound="button_click_big" oversound="button_over" textoffset="0 0" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="BARRACK_SETTING_SAVE"/>
+		<button name="save" caption="{@st41b}저장{/}" texttooltip="{@st59}팀명을 변경합니다{/}" layout_gravity="center bottom" margin="0 0 0 40" rect="0 0 160 50" textalign="center center" skin="test_red_button" clicksound="button_click_big" oversound="button_over" textoffset="0 0" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="BARRACK_SETTING_SAVE"/>
 	</controls>
 </uiframe>

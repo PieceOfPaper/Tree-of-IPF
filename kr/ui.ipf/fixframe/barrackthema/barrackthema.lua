@@ -18,10 +18,13 @@ function THEMA_BUY_SUCCESS()
 end
 
 function BARRACK_THEMA_UPDATE(frame)
+	if frame == nil then
+		return;
+	end
 	local bg = frame:GetChild("nxp_bg");
 	local account = GetMyAccountObj();
 	local mynxp = bg:GetChild("mynxp");
-	mynxp:SetTextByKey("value", GET_CASH_TOTAL_POINT_C());
+	mynxp:SetTextByKey("value", tostring(GET_CASH_TOTAL_POINT_C()));
 	local curID = account.SelectedBarrack;
 	local bg_mid = frame:GetChild("bg_mid");
 	local advBox = GET_CHILD(bg_mid, "AdvBox", "ui::CAdvListBox");
@@ -30,7 +33,7 @@ function BARRACK_THEMA_UPDATE(frame)
 
 	local preViewName = barrack.GetPreViewName();
 	for i = 0 , cnt - 1 do
-		local ctrlSet = advBox:CreateControlSet("barrackList", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local ctrlSet = advBox:CreateOrGetControlSet("barrackList", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local cls = GetClassByIndexFromList(clsList, i);
 
 		local skinImage = GET_CHILD(ctrlSet,"image");
@@ -86,6 +89,13 @@ function BARRACK_THEMA_UPDATE(frame)
 		else
 			local buyScp = string.format("BARRACK_BUY(\'%s\')", cls.ClassName);
 			buyBtn:SetEventScript(ui.LBUTTONUP, buyScp);
+		end
+
+
+		if cls.Price == 0 or have then
+			nxpBox:ShowWindow(0);
+		else
+			nxpBox:ShowWindow(1);
 		end
 	end
 	

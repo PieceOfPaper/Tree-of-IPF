@@ -5,7 +5,7 @@
             <Stage Name="DefGroup">
                 <ObjList>
                     <Obj Type="Monster" MonType="57010" Pos="-1269.98#311.94#1222.93" range="40" genTime="20000" autoGen="0" objectKey="0" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " tendency="1">
-                        <SelfAI>
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="100"/>
@@ -17,7 +17,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="57010" Pos="-1297.82#308.45#1088.94" range="40" genTime="20000" autoGen="0" objectKey="1" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " tendency="1">
-                        <SelfAI>
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="100"/>
@@ -29,20 +29,8 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="57010" Pos="-1163.44#311.94#1079.55" range="40" genTime="20000" autoGen="0" objectKey="2" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " tendency="1">
-                        <SelfAI>
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1161.5853" Y="309.6181" Z="1156.5212" Random="250"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57010" Pos="-1365.95#284.23#1175.19" range="40" maxStackCount="3" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " tendency="1">
-                        <SelfAI>
-                            <List>
+                        <SelfAI ActiveMessageMapInBattle="1">
+                        <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="100"/>
                                 </ToolScp>
@@ -53,7 +41,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="57010" Pos="-1125.79#311.94#1214.05" range="40" genTime="20000" autoGen="0" objectKey="5" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " tendency="1">
-                        <SelfAI>
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="100"/>

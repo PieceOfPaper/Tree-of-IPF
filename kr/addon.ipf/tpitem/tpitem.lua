@@ -1,4 +1,4 @@
-
+ï»¿
 -- tpitem.lua : (tp shop)
 g_firstValue = nil
 
@@ -7,13 +7,10 @@ function TPITEM_ON_INIT(addon, frame)
 	addon:RegisterMsg('TP_SHOP_UI_OPEN', 'TP_SHOP_DO_OPEN');
 	addon:RegisterMsg("TPSHOP_BUY_SUCCESS", "ON_TPSHOP_BUY_SUCCESS");
 
-end
-
-function TPITEM_FIRST_OPEN()
-
-	MAKE_CATEGORY_TREE();
+	MAKE_CATEGORY_TREE()
 
 end
+
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	
@@ -107,10 +104,21 @@ end
 
 function TPITEM_OPEN(frame)
 
+	local tpitemtree = GET_CHILD_RECURSIVELY(frame, "tpitemtree")
+	local basketslotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
+	local previewslotset = GET_CHILD_RECURSIVELY(frame,"previewslotset")
+
+	local basketTP = GET_CHILD_RECURSIVELY(frame,"basketTP")
+	
+
+	previewslotset:ClearIconAll();
+	basketslotset:ClearIconAll();
+	
 	UPDATE_PREVIEW_APC_IMAGE_N_MONEY(frame)
 	UPDATE_BASKET_MONEY(frame)
 
-	local tpitemtree = GET_CHILD_RECURSIVELY(frame, "tpitemtree")
+	basketTP:SetText(tostring(0))
+	
 
 	if g_firstValue ~= nil  then
 
@@ -118,7 +126,7 @@ function TPITEM_OPEN(frame)
 
 		if #sList <= 0 then
 			return;
-		elseif #sList == 1 then -- ¼­ºêÄ«Å×°í¸® ¾øÀ½. ±×³É ¿­¾î¶ó.
+		elseif #sList == 1 then -- ì„œë¸Œì¹´í…Œê³ ë¦¬ ì—†ìŒ. ê·¸ëƒ¥ ì—´ì–´ë¼.
 			local htreeitem = tpitemtree:FindByValue(g_firstValue);
 			
 			if tpitemtree:IsExist(htreeitem) == 1 then
@@ -130,7 +138,7 @@ function TPITEM_OPEN(frame)
 				end
 			end
 		elseif #sList == 2 then
-			-- ¼­ºêÄ«Å×°í¸® Æ÷ÇÔÇØ¼­ ¿­¾î¶ó
+			-- ì„œë¸Œì¹´í…Œê³ ë¦¬ í¬í•¨í•´ì„œ ì—´ì–´ë¼
 			TPITEM_DRAW_ITEM(frame, sList[1], sList[2])
 		end
 	end
@@ -171,9 +179,9 @@ function TPITEM_SELECT_TREENODE(uiobejct, value)
 	if #sList <= 0 then
 		return;
 	elseif #sList == 1 then
-		TPITEM_DRAW_ITEM(frame, sList[1], "None") -- ¼­ºêÄ«Å×°í¸® ¾øÀ½. ±×³É ¿­¾î¶ó.
+		TPITEM_DRAW_ITEM(frame, sList[1], "None") -- ì„œë¸Œì¹´í…Œê³ ë¦¬ ì—†ìŒ. ê·¸ëƒ¥ ì—´ì–´ë¼.
 	elseif #sList == 2 then
-		-- ¼­ºêÄ«Å×°í¸® Æ÷ÇÔÇØ¼­ ¿­¾î¶ó
+		-- ì„œë¸Œì¹´í…Œê³ ë¦¬ í¬í•¨í•´ì„œ ì—´ì–´ë¼
 		TPITEM_DRAW_ITEM(frame, sList[1], sList[2])
 	end
 
@@ -217,7 +225,23 @@ function IS_ITEM_WILL_CHANGE_APC(type)
 		return 0
 	end
 
-	if defaultEqpSlot == "RH" or defaultEqpSlot == "LH" or defaultEqpSlot == "HAT_L" or defaultEqpSlot == "HAT" or defaultEqpSlot ==  "OUTER" or defaultEqpSlot ==  "ARMBAND" then
+	local pc = GetMyPCObject();
+	if pc == nil then
+		return 0
+	end
+
+	local useGender = TryGetProp(item,'UseGender')
+
+	if useGender =="Male" and pc.Gender ~= 1 then
+		return 0
+	end
+
+	if useGender =="Female" and pc.Gender ~= 2 then
+		return 0
+	end
+	
+
+	if defaultEqpSlot == "RH" or defaultEqpSlot == "LH" or defaultEqpSlot == "HAT_L" or defaultEqpSlot == "HAT_T" or defaultEqpSlot == "HAIR" or defaultEqpSlot == "HAT" or defaultEqpSlot ==  "OUTER" or defaultEqpSlot ==  "ARMBAND" then
 		return 1
 	end
 
@@ -257,7 +281,6 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 
 			index = index + 1
 			x = ( (index-1) % 2) * ui.GetControlSetAttribute("tpshop_item", 'width')
-			--y = (math.ceil( (index / 2) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1.1) -- ±×·ì¹Ú½º ½ºÅ©·ÑÀÌ ¾È³ª¿È. 120À¸·Î ÇØµµ ¾È³ª¿È
 			y = (math.ceil( (index / 2) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
 	
 			local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
@@ -289,12 +312,17 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 				desc:SetText("{#990000}"..GET_USEJOB_TOOLTIP(itemobj).."{/}")
 			end
 			
+			local tradeable = GET_CHILD_RECURSIVELY(itemcset,"tradeable")
 
+			if itemobj.UserTrade == "YES" then
+				tradeable:ShowWindow(0)
+			else
+				tradeable:ShowWindow(1)
+			end
 
 			local previewbtn = GET_CHILD_RECURSIVELY(itemcset, "previewBtn");
 
-
-			if itemobj.ItemType  ~= 'Equip' or result ~= "OK" or IS_ITEM_WILL_CHANGE_APC(itemobj.ClassID) ~= 1 then -- ±×¸®°í ÆêÀÌ ¾Æ´Ï¶ó¸é
+			if itemobj.ItemType  ~= 'Equip' or result ~= "OK" or IS_ITEM_WILL_CHANGE_APC(itemobj.ClassID) ~= 1 then
 				previewbtn:ShowWindow(0)
 			else
 				previewbtn:SetEventScriptArgNumber(ui.LBUTTONUP, itemobj.ClassID);
@@ -324,7 +352,7 @@ function TPSHOP_ITEM_PREVIEW(parent, control, tpitemname, classid)
 	local slotset = GET_CHILD_RECURSIVELY(frame,"previewslotset")
 	local slotCount = slotset:GetSlotCount();
 
-	if item.ItemType  == 'Equip' then -- ±×¸®°í Æêµµ ÇØ¾ßÇÔ. ±×¸®°í Çì¾îµµ ÇØ¾ßÇÔ
+	if item.ItemType  == 'Equip' then -- ê·¸ë¦¬ê³  íŽ«ë„ í•´ì•¼í•¨. ê·¸ë¦¬ê³  í—¤ì–´ë„ í•´ì•¼í•¨
 
 		for i = 0, slotCount - 1 do
 			local slotIcon	= slotset:GetIconByIndex(i);
@@ -525,6 +553,36 @@ end
 function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)	
 
 	local item = GetClassByType("Item", classid)
+
+	local lv = GETMYPCLEVEL();
+	local job = GETMYPCJOB();
+	local gender = GETMYPCGENDER();
+	local prop = geItemTable.GetProp(classid);
+	local result = prop:CheckEquip(lv, job, gender);
+
+	if result ~= "OK" then
+		ui.MsgBox(ScpArgMsg("CanNotEquip"))
+		return;
+	end
+
+	local pc = GetMyPCObject();
+	if pc == nil then
+		return;
+	end
+
+	local useGender = TryGetProp(item,'UseGender')
+
+	if useGender =="Male" and pc.Gender ~= 1 then
+		ui.MsgBox(ScpArgMsg("CanNotEquip"))
+		return;
+	end
+
+	if useGender =="Female" and pc.Gender ~= 2 then
+		ui.MsgBox(ScpArgMsg("CanNotEquip"))
+		return;
+	end
+
+
 	local frame = parent:GetTopParentFrame()
 	local slotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
 	local slotCount = slotset:GetSlotCount();

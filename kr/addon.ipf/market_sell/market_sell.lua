@@ -230,7 +230,6 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		ui.SysMsg(ClMsg("Auto_SilBeoKa_BuJogHapNiDa."));
 		return;
 	end
-
 	-- 장비그룹만 buffValue가 있다.
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
@@ -242,9 +241,12 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	else
 		if obj.GroupName == "Premium" then
 			if tonumber(price) < tonumber(TOKEN_MARKET_REG_LIMIT_PRICE) then
-				ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", TOKEN_MARKET_REG_LIMIT_PRICE * count));		
+				ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", TOKEN_MARKET_REG_LIMIT_PRICE));		
 				return;
 			end
+			local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, selecIndex);
+			ui.MsgBox(ScpArgMsg("DoyouRegMarket"), yesScp, "None");
+			return;
 		end
 		market.ReqRegisterItem(itemGuid, price, count, 1, selecIndex);
 	end

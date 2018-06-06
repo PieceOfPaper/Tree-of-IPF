@@ -1295,7 +1295,9 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	end
 	
 	local frame     = ui.GetFrame("shop");
-	if frame:IsVisible() == 1 then
+	if frame:IsVisible() == 0 then
+		return;
+	end
 		local groupName = itemobj.GroupName;
 		if groupName == 'Money' then
 			return;
@@ -1312,18 +1314,15 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 		local Itemclass		= GetClassByType("Item", invitem.type);
 		local ItemType		= Itemclass.ItemType;
 		if Itemclass.ShopTrade == 'YES' then
-			
 				if IS_SHOP_SELL(invitem, Itemclass.MaxStack) == 1 then
-		
+			slot:SetUserValue("SLOT_ITEM_ID", invitem:GetIESID());
 					-- 상점 Sell Slot으로 다 넘긴다.
 					SHOP_SELL(invitem, invitem.count);
 					return;
 				end
 			end
-			slot:SetUserValue("SLOT_ITEM_ID", invitem:GetIESID());
-		return;
-	end
 	
+	ui.SysMsg(ClMsg("CannoTradeToNPC"));
 end
 
 function EXEC_SHOP_SELL(frame, cnt)
