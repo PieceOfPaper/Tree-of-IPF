@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shin Sang Hyup (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by ofcbj (EMBRACE) -->
+<DecalList>
+	<Option offset="0.01"/>
+	<Decal name="arc_target_meter" size="50.0 50.0 50.0" texturename="arc_target_meter" instant="NO" texel_x="0" texel_y="0" texel_width="512" texel_height="512" lifetime="0" blendtime="0"/>
+	<Decal name="boss_cast_skill_meter" size="50.0 50.0 50.0" fixsizeup="10.0" texturename="arc_target_meter_red" instant="NO" texel_x="0" texel_y="0" texel_width="512" texel_height="512" lifetime="2" blendtime="0" pausetime="1.0"/>
+	<Decal name="protect_zone" size="250.0 50.0 250.0" texturename="protect_zone" addrotate="0.3" instant="NO" texel_x="0" texel_y="0" texel_width="400" texel_height="400" lifetime="40" blendtime="38" pausetime="0.0"/>
+	<Decal name="skillquest_magiccircle" size="60.0 50.0 60.0" texturename="protect_zone" addrotate="0.3" instant="NO" texel_x="0" texel_y="0" texel_width="400" texel_height="400" lifetime="20" blendtime="19" pausetime="0.0"/>
+	<Decal name="test" size="50.0 50.0 50.0" texturename="test" instant="NO" texel_x="0" texel_y="0" texel_width="1024" texel_height="768" lifetime="0" blendtime="0"/>
+	<Decal name="flashtest" size="60.0 60.0 60.0" texturename="test" instant="NO" texel_x="0" texel_y="0" texel_width="1024" texel_height="768" lifetime="0"/>
+	<Decal name="staytest" size="150.0 150.0 150.0" texturename="test1" instant="NO" texel_x="0" texel_y="0" texel_width="1024" texel_height="1024" lifetime="0"/>
+	<Decal name="select_circle_yellow" size="15 15 20" texturename="select_circle" instant="NO" texel_x="0" texel_y="0" texel_width="256" texel_height="256" lifetime="0"/>
+	<Decal name="select_circle_green" size="15 15 20" texturename="select_circle" instant="NO" texel_x="256" texel_y="0" texel_width="256" texel_height="256" lifetime="0"/>
+	<Decal name="select_circle_red" size="15 15 20" texturename="select_circle" instant="NO" texel_x="0" texel_y="256" texel_width="256" texel_height="256" lifetime="0"/>
+	<Decal name="select_circle_blue" size="15 15 20" texturename="select_circle" instant="NO" texel_x="256" texel_y="256" texel_width="256" texel_height="256" lifetime="0"/>
+	<Decal name="decal_blood01_1" size="10 10 10" texturename="decal_blood01" instant="NO" texel_x="0" texel_y="0" texel_width="128" texel_height="128" lifetime="10" blendtime="5"/>
+	<Decal name="decal_blood01_2" size="10 10 10" texturename="decal_blood01" instant="NO" texel_x="128" texel_y="0" texel_width="128" texel_height="128" lifetime="5"/>
+	<Decal name="decal_magiccircle" size="100 100 100" texturename="decal_magiccircle" instant="NO" texel_x="0" texel_y="0" texel_width="512" texel_height="512" lifetime="0" rad="75"/>
+	<Decal name="decal_magiccircle2" size="100 500 100" texturename="decal_magiccircle" instant="NO" texel_x="0" texel_y="0" texel_width="512" texel_height="512" lifetime="0"/>
+	<Decal name="skl_target_circle" size="15 15 20" texturename="select_circle" instant="NO" texel_x="0" texel_y="256" texel_width="256" texel_height="256" lifetime="0"/>
+	<Decal name="skl_target_circle_i" size="15 15 20" texturename="select_circle_i" instant="YES" texel_x="0" texel_y="0" texel_width="256" texel_height="256" lifetime="0"/>
+	<Decal name="spray_frame" size="15 15 20" texturename="spray_frame" instant="NO" texel_x="0" texel_y="0" texel_width="128" texel_height="128" lifetime="0"/>
+	<Decal name="skl_target_square" size="15 15 20" texturename="select_square" instant="NO" texel_x="0" texel_y="256" texel_width="256" texel_height="256" lifetime="0"/>
+	<SpriteDecal name="sys_target_area" size="50.0 50.0 50.0" texturename="test1" lifetime="0" texel_x="640" texel_y="64" texel_width="64" texel_height="64" loop="true" count="1" ticktime="0.1"/>
+	<SpriteDecal name="spritetest" size="100.0 100.0 100.0" texturename="test2" lifetime="100" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="16" ticktime="0.03"/>
+	<SpriteDecal name="spritetest2" size="100.0 100.0 100.0" texturename="test2" lifetime="3.0" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="16" ticktime="0.04"/>
+</DecalList>
