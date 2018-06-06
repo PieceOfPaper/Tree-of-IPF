@@ -326,7 +326,7 @@ function SCR_REFRESH_WEAPON(item)
 	-- 강화 �??�켓 ?��? ?�용
 	APPLY_OPTION_SOCKET(item);
 	APPLY_AWAKEN(item);
-
+	APPLY_ENCHANTCHOP(item);
 	if item.MINATK < 0 then
 		item.MINATK = 0;
 	end
@@ -412,6 +412,7 @@ function SCR_REFRESH_ARMOR(item)
 	item.MHR = mhr;
 	item.MDEF = mdef;
 	APPLY_AWAKEN(item);
+	APPLY_ENCHANTCHOP(item);
 	MakeItemOptionByOptionSocket(item);
 
 end
@@ -452,6 +453,8 @@ function SCR_REFRESH_ACC(item)
 	item.MHR = mhr;
 	item.MDEF = mdef;
 	
+	APPLY_AWAKEN(item);
+	APPLY_ENCHANTCHOP(item);
 	APPLY_OPTION_SOCKET(item);
 	MakeItemOptionByOptionSocket(item);
 
@@ -519,6 +522,19 @@ function APPLY_OPTION_SOCKET(item)
 				local optionscp = _G[scpname];
 				optionscp(item, OptValue);
 			end
+		end
+	end
+end
+
+function APPLY_ENCHANTCHOP(item)
+	for i = 1, 3 do
+		local propName = "HatPropName_"..i;
+		local propValue = "HatPropValue_"..i;
+		local getProp = TryGetProp(item, propName);
+		if getProp ~= nil and item[propValue] ~= 0 and item[propName] ~= "None" then
+			local prop = item[propName];
+			local propData = item[prop]
+			item[prop] = propData + item[propValue];
 		end
 	end
 end
@@ -1260,3 +1276,168 @@ function GET_KEYWORD_PROP_NAME(idx)
 end
 
 
+function SCR_GET_MAXPROP_ENCHANT_DEF(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = 280;
+    
+    value = value * 0.1 * 0.4;
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end 
+
+function SCR_GET_MAXPROP_ENCHANT_DEFATTRIBUTE(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = 280;
+    
+    value = value * 0.1;
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_ENCHANT_ATK(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = 280;
+    
+    value = value * 0.15;
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_ENCHANT_CRTATK(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = 280;
+    
+    value = value * 0.225;
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+    end
+    
+function SCR_GET_MAXPROP_ENCHANT_ATTRIBUTEATK(item)
+    
+    local value = 280;
+    
+    value = math.floor(value * 0.12);
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_ENCHANT_STAT(item)
+    
+    local value = 280;
+    
+    value = math.floor(value * 0.1 * 0.5);
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_ENCHANT_MHP(item)
+    
+    local value = 280;
+    
+    value = math.floor(value * 0.08 * 34);
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_ENCHANT_MSP(item)
+    
+    local value = 280;
+    
+    value = math.floor(value * 0.08 * 6.7);
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_ENCHANT_RHP(item)
+    
+    local value = 280;
+    
+    value = math.floor(value * 0.2);
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_ENCHANT_RSP(item)
+    
+    local value = 280;
+    
+    value = math.floor(value * 0.15);
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+function SCR_GET_MAXPROP_ENCHANT_MSPD(item)
+    return 1;
+end
+
+function SCR_GET_MAXPROP_ENCHANT_SR(item)
+    return 1;
+end
+function SCR_GET_MAXPROP_ENCHANT_SDR(item)
+    return 1;
+end
