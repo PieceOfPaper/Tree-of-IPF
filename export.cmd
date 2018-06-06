@@ -1,8 +1,4 @@
 
-
-git pull
-
-
 if not exist Temp mkdir Temp
 cd Temp
 if not exist data mkdir data
@@ -34,7 +30,6 @@ for /f %%a in (ipflist_data.txt) do (
 	
 	git add --all
 	git commit -m "%%a"
-	::git push
 	
 	cd %RootPath%
 	del /s /q extract
