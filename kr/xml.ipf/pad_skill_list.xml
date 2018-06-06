@@ -177,7 +177,7 @@ return obj.Level;"/>
     <PadSkill Name="Archer_VerminPot" CheckerType="0" Range="40" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="10000"/>
+                <Num Num="6000"/>
                 <Num Num="9999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -194,7 +194,7 @@ return obj.Level;"/>
                 <Pos Angle="0" Dist="0"/>
                 <Angle Angle="0"/>
                 <Num Num="0"/>
-                <Num Num="5"/>
+                <Num Num="6"/>
                 <MonProp/>
                 <Str_Arg Str="None" Arg="1"/>
                 <Num Num="1"/>

@@ -21,7 +21,7 @@
 		<controlset name="keyboard" type="keyconfig_tree" margin="0 0 0 0" rect="0 0 180 120" hittest="true" layout_gravity="left top" parent="tree" treeattach="tree#endspace#20"/>
 		<controlset name="mouse" type="keyconfig_tree" margin="0 0 0 0" rect="0 0 180 120" hittest="true" layout_gravity="left top" parent="tree" treeattach="tree#endspace#20"/>
 		<controlset name="joypad" type="keyconfig_tree" margin="0 0 0 0" rect="0 0 180 120" hittest="true" layout_gravity="left top" parent="tree" treeattach="tree#endspace#20"/>
-		<groupbox name="bg_key" rect="0 0 479 890" margin="311 115 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="none"/>
+		<groupbox name="bg_key" rect="0 0 479 890" margin="311 115 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="none"/>
 		<groupbox name="bg_ac_key" rect="0 0 479 40" margin="311 76 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="market_listbase"/>
 		<groupbox name="bg_cate_key" rect="0 0 292 40" margin="13 75 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="market_listbase"/>
 		<richtext name="txt_action" margin="0 4 0 0" rect="0 0 261 33" format="{@st45tw2}%s" param1="value" param1_def="액션" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="bg_ac_key"/>
