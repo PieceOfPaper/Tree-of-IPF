@@ -3177,9 +3177,6 @@
                 <Str_Arg Str="F_cleric_owl_loop" Arg="1"/>
                 <Str Str="BOT"/>
             </ToolScp>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_OWL_BORNSCRIPT"/>
-            </ToolScp>
         </StartList>
     </AI>
     <AI Name="Dievdirbys_Owl_2" ActiveMessageMapInBattle="1">
@@ -18780,13 +18777,6 @@ return GET_HP_RATE(self) * 0.5"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
-            </ToolScp>
-        </StartList>
-    </AI>
-    <AI Name="pavise_ai" ActiveMessageMapInBattle="1">
-        <StartList>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_PAVISE_BORNSCRIPT"/>
             </ToolScp>
         </StartList>
     </AI>

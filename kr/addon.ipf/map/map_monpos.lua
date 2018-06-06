@@ -19,8 +19,10 @@ end
 
 function MAP_MON_MINIMAP(frame, msg, argStr, argNum, info)
 
-	if frame:GetName() == "minimap" then
+	local isMinimap = false;
+	if frame:GetTopParentFrame():GetName() == "minimap" then
 		frame = GET_CHILD(frame, 'npclist', 'ui::CGroupBox');
+		isMinimap = true;
 	end
 
 	local ctrlName = "_MONPOS_" .. info.handle;
@@ -41,15 +43,15 @@ function MAP_MON_MINIMAP(frame, msg, argStr, argNum, info)
 	local width;
 	local height;
 	if isPC then
-		width = 80;
-		height = 80;
+		width = 40;
+		height = 40;
 	else
 		if monCls.MonRank == "Boss" then
 			width = 200;
 			height = 200;
 		else
-			width = 15;
-			height = 15;
+			width = 40;
+			height = 40;
 		end
 	end
 
@@ -65,6 +67,14 @@ function MAP_MON_MINIMAP(frame, msg, argStr, argNum, info)
 	monPic:SetUserValue("HANDLE", info.handle);
 	monPic:SetUserValue("EXTERN", "YES");
 	monPic:SetUserValue("EXTERN_PIC", "YES");
+
+	if isMinimap == true then
+		local cursize = GET_MINIMAPSIZE();
+		local dd = (100 + cursize) / 100;
+		dd = 1 / dd;
+		dd = CLAMP(dd, 0.5, 1.5);
+		monPic:SetScale(dd, dd);
+	end
 	
 	if isPC then
 		monPic:SetEnableStretch(1);
@@ -78,7 +88,8 @@ function MAP_MON_MINIMAP(frame, msg, argStr, argNum, info)
 			outLineColor = "CCCC0000";
 		end
 
-		local imgName = ui.CaptureModelHeadImage_BGColor(info.gender, outLineColor);
+
+		local imgName = GET_JOB_ICON(info.job);
 		monPic:SetImage(imgName);
 		monPic:ShowWindow(1);
 
@@ -95,12 +106,16 @@ function MAP_MON_MINIMAP(frame, msg, argStr, argNum, info)
 			--textC:SetUserValue("EXTERN", "YES");
 		else
 			local myTeam = GET_MY_TEAMID();
-			if info.teamID == 0 then
-				monPic:SetImage("fullyellow");
-			elseif info.teamID ~= myTeam then
-				monPic:SetImage("fullred");
+			if info.useIcon == true then
+				monPic:SetImage(monCls.Icon);
 			else
-				monPic:SetImage("fullblue");
+				if info.teamID == 0 then
+					monPic:SetImage("fullyellow");
+				elseif info.teamID ~= myTeam then
+					monPic:SetImage("fullred");
+				else
+					monPic:SetImage("fullblue");
+				end
 			end
 			
 			monPic:SetEnableStretch(1);
@@ -141,6 +156,14 @@ function _MAP_MON_MINIMAP_SETPOS(frame, handle, x, z)
 	if textC ~= nil then
 		textC:SetOffset(XC + 0, YC + 0);
 		textC:Resize(sx, sy);
+	end
+
+	if frame:GetTopParentFrame():GetName() == "minimap" then
+		local cursize = GET_MINIMAPSIZE();
+		local dd = (100 + cursize) / 100;
+		dd = 1 / dd;
+		dd = CLAMP(dd, 0.5, 1.5);
+		monPic:SetScale(dd, dd);
 	end
 
 end

@@ -49,6 +49,12 @@ function PUT_ITEM_TO_WAREHOUSE(parent, slot)
 		return;
 	end
 	
+	if itemCls.LifeTime > 0 then
+		ui.MsgBox(ScpArgMsg("IsItemLifeTime"));
+		return;
+	end
+
+	
 	AUTO_CAST(slot);
 
 	local fromFrame = liftIcon:GetTopParentFrame();
