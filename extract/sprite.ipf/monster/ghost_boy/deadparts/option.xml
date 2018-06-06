@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<DeadParts>
+	<Effect Name="None"/>
+	<ForkParticle Name="ghost_boy_dead"/>
+	<Anim Play="1" HideTime="1.300000"/>
+	<DeadParts Play="1"/>
+	<Parts SprName="ghostboy9_obj_Layer1F01L1obj" MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="0.000000" MinRadius="35.000000" MaxRadius="40.000000" OverKillAddDist="0.500000" OverKillMinRadius="3.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="100.000000" Gravity="1.000000" RotMinValue="2.000000" RotMaxValue="5.000000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Random"/>
+	<Parts SprName="ghostboy8_obj_Layer1F01L1obj" MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="0.000000" MinRadius="35.000000" MaxRadius="40.000000" OverKillAddDist="0.500000" OverKillMinRadius="3.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="130.000000" Gravity="1.000000" RotMinValue="2.000000" RotMaxValue="5.000000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Random"/>
+	<Parts SprName="ghostboy7_obj_Layer1F01L1obj" MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="0.000000" MinRadius="35.000000" MaxRadius="40.000000" OverKillAddDist="0.500000" OverKillMinRadius="3.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="170.000000" Gravity="1.000000" RotMinValue="2.000000" RotMaxValue="5.000000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Random"/>
+	<Parts SprName="ghostboy6_obj_Layer1F01L1obj" MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="0.000000" MinRadius="35.000000" MaxRadius="40.000000" OverKillAddDist="0.500000" OverKillMinRadius="3.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="150.000000" Gravity="1.000000" RotMinValue="2.000000" RotMaxValue="5.000000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Random"/>
+</DeadParts>
