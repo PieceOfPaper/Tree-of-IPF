@@ -58,8 +58,78 @@ function GET_QUEST_RET_POS(pc, questIES, inputNpcState)
 	return nil;
 end
 
+function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC(pc)
+    local itemList = DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
+    if #itemList > 0 then
+        return 'YES'
+    end
+    return 'NO'
+end
 
-
+function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
+    local pcLv = pc.Lv
+    local minRange = 5
+    local maxRange = 7
+    local zoneClassNameList = {}
+    local class_count = GetClassCount('Map')
+    local itemList = {}
+    
+    for i = 0, class_count -1 do
+        local mapIES = GetClassByIndex('Map', i)
+        if mapIES ~= nil then
+            if mapIES.MapType == 'Field' or mapIES.MapType == 'Dungeon' then
+                if mapIES.QuestLevel >= pcLv - minRange and mapIES.QuestLevel <= pcLv + maxRange then
+                    zoneClassNameList[#zoneClassNameList + 1] = mapIES.ClassName
+                end
+            end
+        end
+    end
+    
+    if #zoneClassNameList > 0 then
+        for y = 1, #zoneClassNameList do
+            local targetZone = zoneClassNameList[y]
+            local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(targetZone, 'Monster', 'Normal/Material/Elite')
+            local accMax = 0
+            if #targetMonList > 0 then
+                for i = 1, #targetMonList do
+                    local droplist = targetMonList[i][4]
+                    local dropID = 'MonsterDropItemList_'..droplist
+                    local dropClassCount = GetClassCount(dropID)
+                    if dropClassCount ~= nil and dropClassCount > 0 then
+                        for c = 0, dropClassCount - 1 do
+                            local dropIES = GetClassByIndex(dropID, c)
+                            if dropIES.GroupName == 'Item' then
+                                local itemIES = GetClass('Item', dropIES.ItemClassName)
+                                if itemIES ~= nil then
+                                    if itemIES.ItemType == 'Etc' and itemIES.GroupName == 'Material' then
+                                        local basicTime = 30
+                                        local genTiem = 2
+                                        local maxPop = targetMonList[i][2]
+                                        local ratio = dropIES.DropRatio / 10000
+                                        local anotherPC = 5
+                                        if dropIES.DPK_Min > 0 and dropIES.DPK_Max > 0 then
+                                            ratio = 1/((dropIES.DPK_Min + dropIES.DPK_Max)/2) * ratio
+                                        end
+                                        local maxMonCount =  basicTime / genTiem * maxPop
+                                        local maxDropCount =  math.floor(maxMonCount * ratio / anotherPC)
+                                        if maxDropCount > 0 then
+                                            accMax = accMax + maxDropCount
+                                            itemList[#itemList + 1] = {}
+                                            itemList[#itemList][1] = dropIES.ItemClassName
+                                            itemList[#itemList][2] = maxDropCount
+                                            itemList[#itemList][3] = targetZone
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return itemList
+end
 
 
 function SCR_JOB_PROPERTYQUESTCHECK(pc, questname, scriptInfo)

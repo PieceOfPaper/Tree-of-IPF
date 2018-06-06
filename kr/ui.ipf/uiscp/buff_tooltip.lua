@@ -7,14 +7,12 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 
 	if ITEM_TOKEN == numarg1 then
 		type:SetTextByKey("value", ClMsg("tokenItem"));
-		token_expup:SetTextByKey("value", ClMsg("CantTradeAbility"));
-		token_staup:ShowWindow(0);
+		token_expup:SetTextByKey("value", ScpArgMsg("Token_ExpUp{PER}", "PER", "20%"));
+		token_staup:SetTextByKey("value", ClMsg("AllowPremiumPose"));
 	elseif NEXON_PC == numarg1 then
 		type:SetTextByKey("value", ClMsg("nexon")); 
-		token_expup:SetTextByKey("value", ClMsg("token_expup"));
 		token_staup:SetTextByKey("value", ClMsg("token_setup"));
-		token_staup:ShowWindow(1);
-		token_expup:ShowWindow(1);
+		token_expup:SetTextByKey("value", ClMsg("token_expup"));
 	end
 	
 	for i = 0, 3 do 

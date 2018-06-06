@@ -36,9 +36,6 @@
         <richtext name="JAEDDURY_DPK_text" rect="0 0 120 24" margin="53 480 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
         <edit name="JAEDDURY_DPK_edit" rect="0 0 120 24" margin="200 480 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
         <slidebar name="JAEDDURY_DPK" rect="0 0 350 20" margin="53 505 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
-        <richtext name="JAEDDURY_MON_JOBEXP_RATE_text" rect="0 0 120 24" margin="53 540 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
-        <edit name="JAEDDURY_MON_JOBEXP_RATE_edit" rect="0 0 120 24" margin="200 540 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
-        <slidebar name="JAEDDURY_MON_JOBEXP_RATE" rect="0 0 350 20" margin="53 565 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
 		<richtext name="TOKEN_MARKET_REG_LIMIT_PRICE_text" rect="0 0 120 24" margin="52 612 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
 		<edit name="TOKEN_MARKET_REG_LIMIT_PRICE_edit" rect="0 0 120 24" margin="199 612 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
 		<slidebar name="TOKEN_MARKET_REG_LIMIT_PRICE" rect="0 0 350 20" margin="52 637 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SILVER_RESET" SlideScp="PARAM_CONTROL_SILVER_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>

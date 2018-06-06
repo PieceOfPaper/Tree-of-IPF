@@ -140,8 +140,8 @@ function ON_INTE_WARP(frame, changeDirection)
 
 
 	local imgSize = ui.GetSkinImageSize("worldmap_" .. currentDirection .. "_bg");
-	local startX = - 40;
-	local startY = bottomY - 15;
+	local startX = - 80;
+	local startY = bottomY - 0;
 	local pictureStartY = imgSize.y - 15;
 
 	local spaceX = 65.25;

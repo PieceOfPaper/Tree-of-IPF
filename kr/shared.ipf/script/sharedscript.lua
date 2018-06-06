@@ -17,7 +17,7 @@ function IMC_INFO(code, stringinfo)
 end
 
 function IMC_NORMAL_INFO(stringinfo)
-	imclog("ERRCODE_INFO_NORMAL", stringinfo)
+	imclog("Info","ERRCODE_INFO_NORMAL", stringinfo)
 end
 
 
@@ -78,7 +78,7 @@ function GET_LAST_UI_OPEN_POS(etc)
 end
 
 
-function IS_NO_EQUIPITEM(equipItem) -- No_~ ?�리�??�이?�인지.
+function IS_NO_EQUIPITEM(equipItem) -- No_~ 시리즈 아이템인지.
 
 	local clsName = equipItem.ClassName;
 
@@ -155,7 +155,7 @@ function GET_GEM_TYPE_NUMBER(GemType)
 	return -1;
 end
 
--- ?�정 �??�커 �??�덤?�로 1�?IES�?리턴?��??
+-- 특정 존 앵커 중 랜덤으로 1개 IES를 리턴해준다
 function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     local idspace = 'Anchor_'..zoneName
     local class_count = GetClassCount(idspace)
@@ -174,7 +174,7 @@ function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     
 end
 
--- ?�이블에???�정 컬럼??검?�해??리턴?��??
+-- 테이블에서 특정 컬럼을 검색해서 리턴해준다
 function SCR_TABLE_SEARCH_ITEM(list, target)
     local result = 'NO'
     local keyList = {}
@@ -264,7 +264,7 @@ function SCR_Q_SUCCESS_REWARD_JOB_GENDER_CHECK(pc, list, target1, target2, targe
 end
 
 
--- ?�개??IES 리스?��? ?�쳐준?
+-- 두개의 IES 리스트를 합쳐준다
 function SCR_IES_ADD_IES(IES_list1, IES_list2)
     if IES_list1 == nil and IES_list2 == nil then
         return nil
@@ -285,7 +285,7 @@ function SCR_IES_ADD_IES(IES_list1, IES_list2)
     return IES_list1
 end
 
--- ?�정 ?�스???�션?�브?�트 ?�료 조건 �?index 번째 조건 만족 ?�인
+-- 특정 퀘스트 세션오브젝트 완료 조건 중 index 번째 조건 만족 확인
 function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     local sObj_quest = GetSessionObject(pc, sObj_name)
     if sObj_quest ~= nil then
@@ -301,7 +301,7 @@ function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     end
 end
 
--- ?�정 존에 ?�는 ?�브?�트??좌표 IES 리스?��? 찾아�
+-- 특정 존에 있는 오브젝트의 좌표 IES 리스트를 찾아줌
 function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
     local result2 = SCR_GET_XML_IES('GenType_'..zone_name, column, value)
     if  result2 ~= nil and #result2 > 0 then
@@ -313,7 +313,7 @@ function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
 end
 
 
--- xml �??�정 컬럼??값과 ?�치/?�사 ??IES 리스?��? 찾아�?(option 1?�면 ?�사 �? ?�니�??�치)
+-- xml 중 특정 컬럼의 값과 일치/유사 한 IES 리스트를 찾아줌 (option 1이면 유사 값, 아니면 일치)
 function SCR_GET_XML_IES(idspace, column_name, target_value, option)
     if idspace == nil then
 		return;
@@ -395,7 +395,6 @@ function SCR_DUPLICATION_SOLVE_TABLE(tb)
         end
     end
     
-
     for index3 = 1, #tb do
         if tb[index3] ~= 'None' then
             temp_tb[#temp_tb + 1] = tb[index3]
@@ -927,13 +926,13 @@ function GET_MAP_ACHI_NAME(mapCls)
 
 	local name = ScpArgMsg("Auto_{Auto_1}_TamSaJa","Auto_1", mapCls.Name);
 	local desc = ScpArgMsg("Auto_{Auto_1}_Jiyeogeul_MoDu_TamSaHayeossSeupNiDa.","Auto_1", mapCls.Name);
-	local desctitle = name -- ?�시. ?�중??�??�적 ?�성??보상�?�?��???�???�이???�팅 ?�루??지�?바꾸??
+	local desctitle = name -- 임시. 나중에 맵 업적 달성시 보상및 칭호에 대한 데이터 세팅 이루어 지면 바꾸자.
 	local reward = "None"
 	return desc, name, desctitle, reward;
 
 end
 
--- hgihLv : ?�티?�중 가???��? ?�벨, ?�티가 ?�니거나 1???�티�?0?
+-- hgihLv : 파티원중 가장 높은 레벨, 파티가 아니거나 1인 파티면 0임
 function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     local pcLv = myLevel;
     local monLv = monLevel;
@@ -1169,9 +1168,9 @@ function SCR_DIALOG_NPC_ANIM(animName)
 	control.DestTgtPlayDialogAnim(animName);
 end
 
-									-- 공용 ?�이브러�
+									-- 공용 라이브러리
 --------------------------------------------------------------------------------------
--- ?�정 문자�?기�??�로 문자?�을 ?�라 ?�이블로 반환
+-- 특정 문자를 기준으로 문자열을 잘라 테이블로 반환
 function StringSplit(str, delimStr)
 	local _tempStr = str;
 	local _result = {};
@@ -1222,13 +1221,13 @@ function IsEnableEffigy(self, skill)
 		return 0;
 	end
 
-	-- 거리 체크?�는�?추�??�야?�듯?
-	-- 근데 그럼 ?�능??��?�디???
+	-- 거리 체크하는거 추가해야할듯?
+	-- 근데 그럼 성능낭비인디???
 	return 1;
 end
 
 
--- 보스 ?�랍 리스??교체 바인???�수
+-- 보스 드랍 리스트 교체 바인딩 함수
 function CHANGE_BOSSDROPLIST(self, equipDropList)
 	ChangeClassValue(self, 'EquipDropType', equipDropList);
 end
@@ -1246,10 +1245,10 @@ function GET_RECIPE_REQITEM_CNT(cls, propname)
 
 end
 
--- ?�직가??조건체크?�는 ?�수. skilltree.lua ui?�드?�에???�용?�고 ?�버?�서??조건체크?�때 ?�용.
+-- 전직가능 조건체크하는 함수. skilltree.lua ui애드온에서 사용하고 서버에서도 조건체크할때 사용.
 function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
 	
-	-- ?��? 가지고있??직업?�면 바로 true리턴
+	-- 이미 가지고있는 직업이면 바로 true리턴
 	for i = 0, #haveJobNameList do		
 		if haveJobNameList[i] ~= nil then
 			if haveJobNameList[i] == cls.ClassName then
@@ -1258,29 +1257,29 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
 		end
 	end
 	
-	-- ?�래???�로??직업?��???조건 체크
+	-- 아래는 새로운 직업에대한 조건 체크
 	local i = 1;
 	
 	while 1 do
 	
-			-- 조건체크?�는 칼럼?????�요?�면 xml?�서 �??�리면됨. ?�ㅋ?	
+			-- 조건체크하는 칼럼이 더 필요하면 xml에서 걍 늘리면됨. ㅇㅋ?	
 		if GetPropType(cls, "ChangeJobCondition" .. i) == nil then
 			break;
 		end
 
 
-		-- ChangeJobCondition???��? 'None'?�면 ?�스?��? ?�해???�직?�는거임. UI?�서???�보?�줌.
+		-- ChangeJobCondition이 전부 'None'이면 퀘스트를 통해서 전직하는거임. UI에서는 안보여줌.
 		if cls["ChangeJobCondition" .. i] == 'None' then
 			return false;
 		end
 		
 
 		local sList = StringSplit(cls["ChangeJobCondition" .. i], ";");
-		local conditionCount = #sList / 2;	-- ?�당직업 ?�직조건 체크�?��
+		local conditionCount = #sList / 2;	-- 해당직업 전직조건 체크갯수
 		
-		local completeCount = 0;			-- ?�직조건??몇개??만족?�는지
+		local completeCount = 0;			-- 전직조건에 몇개나 만족하는지
 		for j = 1, conditionCount do
-			-- 직업가지고있�??�구?�벨보다 ?��?지 체크
+			-- 직업가지고있고 요구레벨보다 높은지 체크
 			for n=0, #haveJobNameList do
 							
 				if sList[j*2-1] == haveJobNameList[n] and tonumber(sList[j*2]) <= tonumber(haveJobGradeList[n]) then
@@ -1289,7 +1288,7 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
 			end
 		end
 
-			-- ?�직조건??모두 만족?�면 ?�직가?�하?�고 ?�팅?�줌
+			-- 전직조건에 모두 만족하면 전직가능하다고 셋팅해줌
 		if conditionCount == completeCount then
 			return true;
 		end
@@ -1361,6 +1360,7 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES)
     
     return ret
 end
+
 function SCR_GET_ZONE_FACTION_OBJECT(zoneClassName, factionList, monRankList)
     local zoneGentype = 'GenType_'..zoneClassName
     local classCount = GetClassCount(zoneGentype)
@@ -1393,6 +1393,7 @@ function SCR_GET_ZONE_FACTION_OBJECT(zoneClassName, factionList, monRankList)
                         monList[#monList][1] = gentypeIES.ClassType
                         monList[#monList][2] = gentypeIES.MaxPop
                         monList[#monList][3] = monIES.MonRank
+                        monList[#monList][4] = monIES.DropItemList
                     end
                 end
             end

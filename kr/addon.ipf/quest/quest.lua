@@ -818,6 +818,8 @@ function QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sObj_main)
         if trackInfo[1] == 'SPossible' or (trackInfo[1] == 'SProgress' and questAutoIES.Possible_NextNPC == 'PROGRESS') or (trackInfo[1] == 'SSuccess' and questAutoIES.Possible_NextNPC == 'SUCCESS') then
             --???? ???????? ???? ????????? ??????? ???
             result = 'ABANDON/NOTLIST'
+        elseif questIES.ClassName == 'DROPITEM_COLLECTINGQUEST' or questIES.ClassName == 'DROPITEM_REQUEST1' then
+            result = 'NOTABANDON'
         else
             result = 'ABANDON/LIST'
         end

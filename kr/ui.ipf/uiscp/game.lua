@@ -217,12 +217,9 @@ end
 	
 function TEST_AYASE()
 	
-	
+	session.ReqAchieveReward(101004);
 	
 	print("TEST_AYASE")
-	
-
-	MAKE_ALL_DEFAULT_HAIR()
 	
 end
 

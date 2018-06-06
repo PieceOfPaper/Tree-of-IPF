@@ -4094,6 +4094,7 @@
 		<image name="2multiply_image" file="\skin\paid_skin.tga" imgrect="524 590 55 45" CMM_Caption="x2"/>
 		<image name="30percent_image" file="\skin\paid_skin.tga" imgrect="747 212 55 45" CMM_Caption="30%"/>
 		<image name="paid_pose_image" file="\skin\paid_skin.tga" imgrect="922 0 55 45" CMM_Caption="유료포즈"/>
+    <image name="20percent_image" file="\skin\paid_skin.tga" imgrect="747 557 55 45" CMM_Caption="20%"/>
 		<image name="67percent_image2" file="\skin\paid_skin.tga" imgrect="187 0 100 45"/>
 		<image name="50percent_image2" file="\skin\paid_skin.tga" imgrect="187 46 100 45"/>
 		<image name="4plus_image2" file="\skin\paid_skin.tga" imgrect="187 92 100 45"/>
@@ -4102,9 +4103,12 @@
 		<image name="2plus_image2" file="\skin\paid_skin.tga" imgrect="803 166 100 45"/>
 		<image name="2multiply_image2" file="\skin\paid_skin.tga" imgrect="580 589 100 45"/>
 		<image name="30percent_image2" file="\skin\paid_skin.tga" imgrect="803 212 100 45"/>
+    <image name="20percent_image2" file="\skin\paid_skin.tga" imgrect="803 557 100 45"/>
 		<image name="arrow_red_image" file="\skin\paid_skin.tga" imgrect="131 230 55 15" CMM_Caption="빨간화살표"/>
 		<image name="token_middle" file="\skin\paid_skin.tga" imgrect="288 0 316 165" CMM_Caption="토큰중간이미지"/>
 	<image name="expup_middle" file="\skin\paid_skin.tga" imgrect="605 0 316 165" CMM_Caption="경험의서이미지"/>
+		<image name="resetSkill_middle" file="\skin\paid_skin.tga" imgrect="419 636 316 165" CMM_Caption="스킬초기화"/>
+		<image name="indunFreeEnter_middle" file="\skin\paid_skin.tga" imgrect="419 802 316 165" CMM_Caption="인던3일무제한"/>
 		<image name="market_sell_updown" file="\skin\paid_skin.tga" imgrect="675 439 328 115" CMM_Caption="마켓상하한가표"/>
 	</imagelist>
 	<imagelist category="tutorial_img">

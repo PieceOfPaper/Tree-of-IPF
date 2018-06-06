@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -346,6 +346,8 @@
 		<Class ClassID="10406" ClassName="EscapeDisabled" Data="지금은 귀환석을 사용할 수 없습니다."/>
 		<Class ClassID="10407" ClassName="HasFobiddenWord" Data="사용할 수 없는 단어가 포함되어 있습니다."/>
 		<Class ClassID="10408" ClassName="CanDelChrBecauseDummyPC" Data="상점을 개설한 상태에서는 캐릭터 삭제를 할 수 없습니다."/>
+		<Class ClassID="10409" ClassName="IndunFreeTImeText" Data="3일간 인던 무제한"/>
+		<Class ClassID="10410" ClassName="IndunRestText" Data="  인스턴스 던전과 의뢰소 미션의 입장 회수 초기화"/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="210401" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -643,6 +645,8 @@
 		<Class ClassID="11183" ClassName="Hit" Data="피격"/>
 		<Class ClassID="11184" ClassName="Death" Data="사망"/>
 		<Class ClassID="11185" ClassName="ThisItemIsNotForCompanion" Data="컴패니언이 착용할 수 없는 장비입니다."/>
+		<Class ClassID="11186" ClassName="DonUseItemOnRIde" Data="해당 아이템은 현재 상태에서 사용하실 수 없습니다."/>
+		<Class ClassID="11187" ClassName="ChangeModeThenDontRide" Data="변신 중엔 컴패니언탑승을 하실 수 없습니다."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="11200" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -3899,6 +3903,16 @@
 	<Category Name="Indun">
 		<Class ClassID="36500" ClassName="CannotJoinIndunYet" Data="오늘의 인던 참여 회수를 초과하였습니다."/>
 		<Class ClassID="36501" ClassName="YourLevelIsLowThenIndun" Data="인던 제한 레벨보다 낮습니다"/>
+		<Class ClassID="36502" ClassName="MaxCountExplain{COUNT}" Data="하루 {COUNT}번 입장할 수 있습니다."/>
+		<Class ClassID="36503" ClassName="NextEnterNeed" Data="인던 무제한 입장권을 사용중에 있습니다."/>
+	</Category>
+	<Category Name="AchieveReward">
+		<Class ClassID="37000" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
+		<Class ClassID="37001" ClassName="GainAchieveHairBlack" Data="하나밍 박멸! 업적 보상을 받았습니다."/>
+		<Class ClassID="37002" ClassName="GainAchieveHairWhite" Data="제작 입문 업적 보상을 받았습니다."/>
+		<Class ClassID="37003" ClassName="GainAchieveHairPink" Data="뜻밖의 시험 업적 보상을 받았습니다."/>
+		<Class ClassID="37004" ClassName="GainAchieveHairBlue" Data="파티 퀘스트 업적 보상을 받았습니다."/>
+		<Class ClassID="37005" ClassName="GainAchieveGimmick3" Data="능수능란한 모험가 업적 보상을 받았습니다."/>
 	</Category>
 	<Category Name="AutoAdded">
 		<Class ClassID="90000" ClassName="TestTestTest" Data="임시공간"/>
@@ -6736,6 +6750,18 @@
 		<Class ClassID="550044" ClassName="PremiumToken_6h" Data="토큰:6시간[증정용]"/>
 		<Class ClassID="550045" ClassName="PremiumToken_12h" Data="토큰:12시간[증정용]"/>
 		<Class ClassID="550046" ClassName="PremiumToken_3d" Data="토큰:3일[증정용]"/>
+		<Class ClassID="550047" ClassName="AllowPremiumPose" Data="프리미엄 제스쳐 사용 가능"/>
+		<Class ClassID="550048" ClassName="Premium_indunFreeEnter" Data="인던 무한입장권"/>
+		<Class ClassID="550049" ClassName="IsAppliedIndunFreeEnter" Data="이미 인던 무한입장권 아이템이 활성화 중에 있습니다."/>
+		<Class ClassID="550050" ClassName="Premium_indunReset" Data="인던 입장 횟수 초기화권"/>
+		<Class ClassID="550051" ClassName="IsApplied_indunReset" Data="현재 입장 횟수가 0입니다."/>
+		<Class ClassID="550052" ClassName="indunReset_tooltip" Data="사용한 인던 입장 횟수 초기화권은 인벤토리에서 사라지며 현재 캐릭터에만 적용됩니다."/>
+		<Class ClassID="550052" ClassName="Premium_SkillReset" Data="스킬 초기화"/>
+		<Class ClassID="550053" ClassName="Premium_SkillResetLng" Data="  전체 스킬 포인트 초기화"/>
+		<Class ClassID="550054" ClassName="Premium_SkillReset" Data="스킬 초기화 포션"/>
+		<Class ClassID="550052" ClassName="Premium_SkillReset" Data="스킬 초기화"/>
+		<Class ClassID="550055" ClassName="Token_ExpUp{PER}" Data="몬스터 처치 시 획득 경험치 증가 "/>
+		<Class ClassID="550056" ClassName="EquipPremiumItem" Data="현재 장착중인 헤어는 구입하실 수 없습니다."/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="600001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

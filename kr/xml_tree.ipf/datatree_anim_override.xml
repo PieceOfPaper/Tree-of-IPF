@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ppiac (IMCGames Co., Ltd) -->
 <idspace id="AnimOverrideList">
 	<Category>
 		<Class ClassID="1" ClassName="mon_zealot">
@@ -3411,6 +3411,7 @@
 			<Node1 ClassID="8" ClassName="EVENT_WLK" FileName="npc\Laima\Laima_event_wlk"/>
 			<Node1 ClassID="9" ClassName="EVENT_STANDUP" FileName="npc\Laima\Laima_event_standup"/>
 			<Node1 ClassID="10" ClassName="EVENT_LOOP" FileName="npc\Laima\Laima_event_loop"/>
+			<Node1 ClassID="11" ClassName="EVENT_IDLE" FileName="npc\Laima\Laima_event_idle"/>
 		</Class>
 		<Class ClassID="40129" ClassName="npc_sculptor">
 			<Node1 ClassID="1" ClassName="STD" FileName="npc\sculptor\sculptor_std"/>

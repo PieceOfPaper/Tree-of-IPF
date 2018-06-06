@@ -225,7 +225,7 @@ function SCR_GET_MON_EXP(self)
 	end
 
 	value = value * expValue / 100;
-	value = value * JAEDDURY_MON_EXP_RATE;		-- JAEDDURY
+	value = value;
 	
 	return math.floor(value);
 end
@@ -257,7 +257,7 @@ function SCR_GET_MON_JOBEXP(self)
 		value = value * self.JEXP_Rate / mul;
 	end
 
-	value = value * JAEDDURY_MON_JOBEXP_RATE;		-- JAEDDURY
+	value = value;
 
 	return math.floor(value);
 end

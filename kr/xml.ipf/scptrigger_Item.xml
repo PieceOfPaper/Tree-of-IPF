@@ -944,6 +944,23 @@ return self.MNA;"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="TBW03_109">
+		<TriggerList Act="AfterHitScript_Attack">
+			<Trigger>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+						<Str Str="TBW03_109_Debuff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="20000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="TSF03_109">
 		<TriggerList Act="BeforeAttack">
 			<Trigger>

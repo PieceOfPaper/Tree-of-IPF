@@ -9,6 +9,7 @@ function STATUS_ON_INIT(addon, frame)
 	addon:RegisterMsg('RESET_STAT_UP', 'RESERVE_RESET');
 	addon:RegisterMsg('STAT_AVG', 'STATUS_ON_MSG');
 	addon:RegisterOpenOnlyMsg('ACHIEVE_POINT', 'ACHIEVE_RESET');
+	addon:RegisterOpenOnlyMsg('ACHIEVE_REWARD', 'ACHIEVE_RESET');
 	addon:RegisterMsg("GAME_START", "STATUS_ON_GAME_START");
 	addon:RegisterMsg("PC_COMMENT_CHANGE", "STATUS_ON_PC_COMMENT_CHANGE");
 	addon:RegisterMsg("MYPC_CHANGE_SHAPE", "ACHIEVE_RESET");
@@ -111,9 +112,17 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 	end
 
 	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 5,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img 20percent_image %d %d}", 55, 45) 
+	prop:SetTextByKey("value", imag.. ScpArgMsg("Token_ExpUp{PER}", "PER", " ")); 
+    local value = ctrlSet:GetChild("value");
+	imag = string.format("{img 20percent_image2 %d %d}", 100, 45) 
+    value:SetTextByKey("value", imag);
+
+	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
-	local imag = string.format("{img dealok_image %d %d}", 55, 45) 
-	prop:SetTextByKey("value", imag..ClMsg("CantTradeAbility")); 
+    local imag = string.format("{img paid_pose_image %d %d}", 55, 45) 
+    prop:SetTextByKey("value", imag..ClMsg("AllowPremiumPose")); 
 	local value = ctrlSet:GetChild("value");
 	value:ShowWindow(0);
 	
@@ -1294,7 +1303,7 @@ function STATUS_ACHIEVE_INIT(frame)
 	local internalBox = achieveGbox:GetChild("internalBox");
 
 	local clslist, clscnt = GetClassList("Achieve");
-	
+	local etcObj = GetMyEtcObject();
 	local x = 10;
 	local y = 10;
 
@@ -1314,6 +1323,8 @@ function STATUS_ACHIEVE_INIT(frame)
 			local eachAchiveCSet = internalBox:CreateOrGetControlSet('each_achieve', 'ACHIEVE_RICHTEXT_'..i, x, y);
 			tolua.cast(eachAchiveCSet, "ui::CControlSet");
 
+			eachAchiveCSet:SetUserValue('ACHIEVE_ID', cls.ClassID);
+
 			local NORMAL_SKIN = eachAchiveCSet:GetUserConfig("NORMAL_SKIN")
 			local HAVE_SKIN= eachAchiveCSet:GetUserConfig("HAVE_SKIN")
 
@@ -1324,7 +1335,8 @@ function STATUS_ACHIEVE_INIT(frame)
 			local eachAchiveStaticDesc = GET_CHILD_RECURSIVELY(eachAchiveCSet,'achieve_static_desc')
 			local eachAchiveDesc = GET_CHILD_RECURSIVELY(eachAchiveCSet,'achieve_desc')
 			local eachAchiveName = GET_CHILD_RECURSIVELY(eachAchiveCSet,'achieve_name')
-
+			local eachAchiveReqBtn = GET_CHILD_RECURSIVELY(eachAchiveCSet,'req_reward_btn')
+			eachAchiveReqBtn:ShowWindow(0);
 			eachAchiveDesc:SetOffset(eachAchiveStaticDesc:GetX() + eachAchiveStaticDesc:GetWidth() + 10, eachAchiveDesc:GetY() )
 			eachAchiveGauge:SetOffset(eachAchiveStaticDesc:GetX() + eachAchiveStaticDesc:GetWidth() + 10, eachAchiveGauge:GetY() )
 			eachAchiveGauge:Resize(eachAchiveGBox:GetWidth() - eachAchiveStaticDesc:GetWidth() - 50, eachAchiveGauge:GetHeight() )
@@ -1356,10 +1368,14 @@ function STATUS_ACHIEVE_INIT(frame)
 			eachAchiveReward:SetTextByKey('reward', cls.Reward);
 
 			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 then
-				eachAchiveGauge:ShowWindow(0)				
+				eachAchiveGauge:ShowWindow(0)
 				--eachAchiveCSet:SetEventScript(ui.LBUTTONDOWN, "ACHIEVE_EQUIP");
 				--eachAchiveCSet:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
 				--eachAchiveCSet:SetTextTooltip(ScpArgMsg('YouCanEquipAchieve'));
+
+				if etcObj['AchieveReward_' .. cls.ClassName] == 0 then
+					eachAchiveReqBtn:ShowWindow(1);
+				end
 			else
 				eachAchiveGauge:ShowWindow(1)
 				--eachAchiveDesc:SetText(' ' .. cls.Desc);
@@ -1485,6 +1501,12 @@ function STATUS_ACHIEVE_INIT(frame)
 
 	frame:Invalidate();
 
+end
+
+function REQ_ACHIEVE_REWARD(frame, ctrl)
+
+	local achieveID = frame:GetUserIValue('ACHIEVE_ID');
+	session.ReqAchieveReward(achieveID);
 end
 
 function REQ_CHANGE_HAIR_COLOR(frame, ctrl, hairColorName)

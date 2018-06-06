@@ -47,6 +47,22 @@ function MAP_ON_INIT(addon, frame)
 
 end
 
+function MAP_OPEN(frame)
+	local ratio = option.GetClientHeight()/option.GetClientWidth();
+	local width = frame:GetWidth();
+	local beforeWidth = width;
+	frame:Resize(width,width*ratio);
+
+	if ui.GetSceneHeight() / ui.GetSceneWidth() <= ui.GetClientInitialHeight() / ui.GetClientInitialWidth() then
+		frame:Resize(ui.GetSceneWidth() * ui.GetClientInitialHeight() / ui.GetSceneHeight() ,ui.GetClientInitialHeight())
+	end
+	
+	if beforeWidth ~= frame:GetWidth() then
+		UPDATE_MAP(frame, 0);
+	end
+
+end
+
 -- 해상도 변경되면 실행시켜줘야됨.
 function INIT_MAPUI_INFO(frame)
 	
@@ -59,6 +75,9 @@ function INIT_MAPUI_INFO(frame)
 	tolua.cast(myposition, "ui::CPicture");
 
 	INIT_MAPUI_PTR(frame);
+	local mapClassName = session.GetMapName();
+	MAKE_MAP_AREA_INFO(frame, mapClassName)
+	
     
 end
 
@@ -66,23 +85,15 @@ function INIT_MAPUI_PTR(frame)
 	map_picture = frame:GetChild('map');
 	tolua.cast(map_picture, "ui::CPicture");
 
+	frame:UpdateData();
+	frame:Update();
+
 	m_offsetX = map_picture:GetX();
 	m_offsetY = map_picture:GetY();
 	m_mapWidth = map_picture:GetWidth();
 	m_mapHeight = map_picture:GetHeight();
-end
 
-function MAP_SIZE_UPDATE(frame)
-	
-	if ui.GetSceneHeight() / ui.GetSceneWidth() <= ui.GetClientInitialHeight() / ui.GetClientInitialWidth() then
-		frame:Resize(ui.GetSceneWidth() * ui.GetClientInitialHeight() / ui.GetSceneHeight() ,ui.GetClientInitialHeight())
-	end
-	frame:Invalidate();
-end
-
-function MAP_OPEN(frame)	
-
-	MAP_SIZE_UPDATE(frame)
+	MAP_CHAR_UPDATE(frame, msg, argStr, session.GetMyHandle());
 
 end
 
@@ -941,20 +952,6 @@ function UPT_ANGLE(frame, msg, argStr, argNum)
 	myposition:SetAngle(angle);
 	frame:Invalidate();
 end
-
-
- function MAP_UDATEMAPSIZE(frame)
-
-	local mapName = session.GetMapName();
-
-	map_offsetx = MAP_GETOFFSETX();
-	map_offsety = MAP_GETOFFSETY();
-	map_picture:SetOffset(map_offsetx, map_offsety);
-	local width = map_picture:GetImageWidth() / 1;
-	local height = map_picture:GetImageHeight() / 1;
-	map_picture:SetImageSize(width, height);
-
- end
 
  function MAP_ON_CHECKBLEND(frame, obj, argStr, argNum)
 

@@ -112,9 +112,11 @@
         <Effect Name="F_bg_fire001_2##10"/>
         <Effect Name="F_ground071_fire"/>
         <Effect Name="ORCHARD_324_MQ_01_AFTER"/>
-    <Effect Name="F_light096_red_loop2"/>
         <Effect Name="F_light096_red_loop2"/>
-    <Effect Name="event_stop"/>
+        <Effect Name="F_light096_red_loop2"/>
+        <Effect Name="event_stop"/>
+    <Effect Name="I_pilgrim_shrine_dead"/>
+    <Effect Name="F_smoke006_1 "/>
     </Category>
     <Category ID="72">
         <Effect Name="std4_1"/>
@@ -425,6 +427,10 @@
         <Effect Name="F_sys_TPBOX_open"/>
         <Effect Name="F_sys_TPBOX_great"/>
         <Effect Name="F_sys_TPBOX_normal"/>
+        <Effect Name="F_sys_TPBOX_normal_30"/>
+        <Effect Name="F_sys_TPBOX_normal_100"/>
+        <Effect Name="F_sys_TPBOX_great_200"/>
+        <Effect Name="F_sys_TPBOX_great_300"/>
     </Category>
     <Category ID="59">
         <Effect Name="F_hit_star"/>
@@ -1522,6 +1528,7 @@
         <Effect Name="Mirtis_line_time"/>
         <Effect Name="F_spread_in002_green#Bip01 Spine"/>
         <Effect Name="F_spread_in002_green#Bip01 Spine#1"/>
+        <Effect Name="F_spread_in020_dark##0.5"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -2021,7 +2028,7 @@
         <Effect Name="F_explosion006_orange1#Bip001 Neck"/>
         <Effect Name="F_ground140_orange_circle"/>
         <Effect Name="I_Lapene_skl2_gasi_mash"/>
-    <Effect Name="F_ground140_orange_circle##1"/>
+        <Effect Name="F_ground140_orange_circle##1"/>
         <Effect Name="I_Lapene_skl2_gasi_red_mash"/>
     </Category>
     <Category ID="27">
@@ -2198,6 +2205,7 @@
         <Effect Name="GR_SAMPLE_1_P6_MINI"/>
         <Effect Name="GR_SAMPLE_1_P5_MINI"/>
         <Effect Name="Templer_ReduceCraftTime"/>
+        <Effect Name="RoundMaxTime"/>
     </Category>
     <Category ID="49">
         <Effect Name="JOB_CENTURION5_1_MINI"/>

@@ -1204,10 +1204,7 @@
             <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="CATACOMB_33_2_UNHOLY_DETACH"/>
             </ToolScp>
-            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="CATACOMB_33_2_UNHOLY_DEAD"/>
-            </ToolScp>
-        </DeadList>
+            </DeadList>
         <HitList>
             <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
                 <Str Str="CATACOMB_33_2_UNHOLY_DAM"/>

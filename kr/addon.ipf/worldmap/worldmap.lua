@@ -176,8 +176,8 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 	
 	local imgSize = ui.GetSkinImageSize("worldmap_" .. currentDirection .. "_bg");
 
-	local startX = - 40;
-	local startY = bottomY - 15;
+	local startX = - 120;
+	local startY = bottomY - 40;
 	local pictureStartY = imgSize.y - 15;
 
 	local spaceX = 65.25;

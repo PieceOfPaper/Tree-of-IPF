@@ -3649,7 +3649,8 @@ function SCR_PRE_CATACOMB_33_2_SQ_SYMBOL(self, argstring, argnum1, argnum2)
                     if list[i].ClassName ~= 'PC' then
                         if list[i].ClassName == 'npc_pilgrim_shrine' then
                                 if list[i].HP > 0 then
-                            if IsBuffApplied(self, 'SoulDuel_ATK') == 'NO' then
+                                    if IsBuffApplied(list[i], 'Invincible') == 'NO' then
+                                        if IsBuffApplied(list[i], 'SoulDuel_DEF') == 'YES' then
                                 return GetHandle(list[i])
                             end
                         end
@@ -3657,6 +3658,7 @@ function SCR_PRE_CATACOMB_33_2_SQ_SYMBOL(self, argstring, argnum1, argnum2)
                 end
             end
         end
+    end
     end
     end
     end
@@ -4637,6 +4639,16 @@ end
 
 --GIMMICK_TRANSFORM_JUKOPUS
 function SCR_PRE_GIMMICK_TRANSFORM_JUKOPUS(self, argstring, argnum1, argnum2)
+    local ride = GetVehicleState(self);
+	if 1 == ride then
+		SendSysMsg(self, "DonUseItemOnRIde");
+		return 0;
+	end
+	local isSit = IsRest(self);
+	if 1 == isSit then
+		SendSysMsg(self, "DonUseItemOnRIde");
+		return 0;
+	end
     local zone = GetZoneName(self)
     local city = GetClass("Map", zone)
     if GetLayer(self) == 0 then 
