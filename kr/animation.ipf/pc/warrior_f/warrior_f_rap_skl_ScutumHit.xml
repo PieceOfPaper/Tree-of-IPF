@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="5.00" soundFile="skl_eff_scutumhit_whoosh"/>
+	<Sound frame="8.00" soundFile="skl_eff_big_whoosh_1"/>
+	<Sound frame="11.00" soundFile="skl_eff_big_whoosh_2"/>
+	<Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.1" range="1000"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_special_hit_2"/>
+	<Particle frame="8" attachNode="Dummy_effect_ScutumHit_sword002" particleName="I_swordtrail040_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_effect_ScutumHit_sword002" particleName="I_swordtrail040_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_effect_ScutumHit_sword002" particleName="I_swordtrail040_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_effect_ScutumHit_sword002" particleName="I_swordtrail040_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="9" R="150" G="100" B="100" A="100"/>
+	<BlendOn frame="10" R="200" G="150" B="150" A="100"/>
+	<BlendOn frame="11" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="13" R="150" G="100" B="100" A="100"/>
+	<BlendOn frame="14" R="200" G="150" B="150" A="100"/>
+	<BlendOn frame="15" R="150" G="100" B="100" A="100"/>
+	<BlendOn frame="16" R="100" G="65" B="65" A="100"/>
+	<BlendOn frame="20" R="70" G="40" B="40" A="100"/>
+	<BlendOn frame="21" R="30" G="20" B="20" A="100"/>
+	<BlendOn frame="22" R="30" G="20" B="20" A="100"/>
+	<BlendOff frame="23" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

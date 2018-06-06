@@ -179,8 +179,6 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 
 	if IS_SEASON_SERVER(nil) == "YES" then
 		price = price - (price * 0.4)
-	else
-		price = price - (price * 0.2)
 	end
 
 	price = math.floor(price);
@@ -332,8 +330,6 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 
 	if IS_SEASON_SERVER(nil) == "YES" then
 		price = price - (price * 0.4)
-	else
-		price = price - (price * 0.2)
 	end
 
 	price = math.floor(price);

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="4.00" soundFile="skl_eff_evadethrust"/>
+    <Sound frame="4.00" soundFile="skl_eff_body_atk_1"/>
+    <Sound frame="5.00" soundFile="skl_eff_sinobi_kunai_shot_3"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="E_warrior_EvadeThrust_shot_shield" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="7.00" soundFile="skl_eff_atk_move_s_11"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="E_warrior_EvadeThrust_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="11.00" soundFile="move_block_1"/>
+</ActionDesc>

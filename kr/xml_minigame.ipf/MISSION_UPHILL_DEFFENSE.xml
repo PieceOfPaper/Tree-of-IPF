@@ -4038,7 +4038,7 @@
             </Stage>
             <Stage Name="BossGen">
                 <ObjList>
-                    <Obj Type="Monster" MonType="156044" Pos="182.70#80.12#-120.47" range="240" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_UPHILL_GIMMICKOBJ1&apos; &apos;Name&apos; &apos;화염 보주&apos; &apos;DialogRotate&apos; &apos;0&apos; &apos;Rotate&apos; &apos;NO&apos; &apos;Scale&apos; &apos;0.3&apos; " SimpleAI="MISSION_UPHILL_GIMMICKOBJ1"/>
+                    <Obj Type="Monster" MonType="156044" Pos="182.70#80.12#-120.47" range="240" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_UPHILL_GIMMICKOBJ1&apos; &apos;Name&apos; &apos;화염 보주&apos; &apos;DialogRotate&apos; &apos;0&apos; &apos;Rotate&apos; &apos;NO&apos; &apos;Scale&apos; &apos;0.3&apos; &apos;MaxDialog&apos; &apos;1&apos; " SimpleAI="MISSION_UPHILL_GIMMICKOBJ1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="bossGenL1">

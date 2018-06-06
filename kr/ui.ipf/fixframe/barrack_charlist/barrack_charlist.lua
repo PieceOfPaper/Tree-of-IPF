@@ -54,7 +54,7 @@ function INIT_BARRACK_NAME(frame)
 	end
 
 	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
-	local buySlot = session.loginInfo.GetBuySlotCount();
+	local buySlot = myaccount:GetBuySlotCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
 	pccount:SetTextByKey("curpc", tostring(myCharCont));
 	local maxpcCount = barrackCls.BaseSlot + buySlot;
@@ -135,7 +135,7 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 	nameCtrl:SetPos(teamlevel:GetX() + teamlevel:GetWidth() + 20,nameCtrl:GetY());
 
 	teamlevel:SetTextByKey("value", account:GetTeamLevel());
-	local buySlot = session.loginInfo.GetBuySlotCount();
+	local buySlot = myaccount:GetBuySlotCount();
 	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
 	local pccount = frame:GetChild("pccount");
@@ -194,10 +194,23 @@ end
 
 function SELECT_BARRACK_LAYER(frame, ctrl, arg, layer)
 	local before = frame:GetUserValue("SelectBarrackLayer");
+	local isMoving = frame:GetUserValue("MovingBarrackLayer");
 	if tostring(before) == tostring(layer) then
+		return;
+	end	
+	if tostring(isMoving) == '1' then
 		return;
 	end
 	
+	-- 숙소 방문 중일 때에는 상대방 숙소의 레이어를 변경시켜야하는데 내 숙소로 변경시키는 문제가 있음.
+	-- 일단 숙소 방문중 레이어 변경 막아버림.
+	local barrackMode = frame:GetUserValue("BarrackMode");
+	if barrackMode == "Visit" then
+		return;
+	end
+	
+	frame:SetUserValue("MovingBarrackLayer", 1);
+
 	local pccount = GET_CHILD(frame, "pccount", "ui::CRichText");
 	local layerCtrl_1 = GET_CHILD(frame, "changeLayer1", "ui::CButton");
 	local layerCtrl_2 = GET_CHILD(frame, "changeLayer2", "ui::CButton");
@@ -443,7 +456,7 @@ end
 
 function DELETE_CHAR_SCROLL(ctrl, btn, cid, argNum)
 
-	-- ????? ĳ???? ???? ???
+	-- 스크롤 캐릭터 삭제 버튼
 	local acc = session.barrack.GetMyAccount();
 	local petVec = acc:GetPetVec();
 
@@ -475,7 +488,7 @@ function DELETE_CHAR_SCROLL(ctrl, btn, cid, argNum)
 			if eqpObj ~= nil then
 				local obj = GetIES(eqpObj);			
 				if 0 == item.IsNoneItem(obj.ClassID) then
-					--???????? ???????? ????	
+					--착용중인 아이템이 있음	
 					isHaveEquipItem = 1;
 					break;
 				end
@@ -592,7 +605,7 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 		UPDATE_BARRACK_PET_BTN_LIST()
 	elseif msg == "BARRACK_NAME_CHANGE_RESULT" then
 		
-		-- tp??ð???
+		-- tp표시갱신
 		SELECTTEAM_NEW_CTRL(frame, ud);
 		BARRACK_THEMA_UPDATE(ui.GetFrame("barrackthema"))
 	elseif msg == "BARRACK_ACCOUNT_PROP_UPDATE" then
@@ -616,9 +629,8 @@ function BARRACK_GO_CREATE_RETRY()
 	
 	local accountInfo = session.barrack.GetMyAccount();
 	if accountInfo ~= nil then
-		local petCnt = session.pet.GetPetTotalCount();
-		local myCharCont = accountInfo:GetPCCount() + petCnt;
-		local buySlot = session.loginInfo.GetBuySlotCount();
+		local myCharCont = accountInfo:GetTotalSlotCount();
+		local buySlot = myaccount:GetBuySlotCount();
 		local barrackCls = GetClass("BarrackMap", accountInfo:GetThemaName());
 		if barrackCls ~= nil then
 			local baseSlot = barrackCls.BaseSlot;
@@ -674,7 +686,7 @@ function SELECTCHARINFO_DELETE_CTRL(frame, obj, argStr, argNum)
 	local barrackName = ui.GetFrame("barrack_charlist");
 	local pccount = barrackName:GetChild("pccount");
 	pccount:ShowWindow(1);
-	local buySlot = session.loginInfo.GetBuySlotCount();
+	local buySlot = myaccount:GetBuySlotCount();
 	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
 	pccount:SetTextByKey("curpc", tostring(myCharCont));
@@ -742,7 +754,7 @@ function UPDATE_BARRACK_MODE(frame)
 		SELECTCHAR_RE_ALIGN(frame);
 
 	elseif argStr == "Visit" then
-		-- ??? ???? ?湮??? ĳ?????????? ????? ?????.
+		-- 다른 숙소 방문할땐 캐릭생성관련 버튼은 숨긴다.
 		SHOW_CHILD_BY_USERVALUE(frame, "MY_CTRL", "YES", 0);
 		SHOW_CHILD_BY_USERVALUE(frame, "Barrack", "YES", 0);
 		local barrack_nameUI = ui.GetFrame("barrack_name");
@@ -801,7 +813,7 @@ function SET_BARRACK_MODE(frame, argStr)
 		channels:ShowWindow(0);
 	end
 	
-	
+	frame:SetUserValue("MovingBarrackLayer", 0);
 end
 
 function START_GAME_SET_MAP(frame, slotID, mapID, channelID)
@@ -851,7 +863,7 @@ function BARRACK_TO_GAME()
 	end
 	local myCharCount = myaccount:GetTotalSlotCount();
 	
-	local buySlot = session.loginInfo.GetBuySlotCount();
+	local buySlot = myaccount:GetBuySlotCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
 	local maxCharCount = barrackCls.BaseSlot + buySlot;
 	

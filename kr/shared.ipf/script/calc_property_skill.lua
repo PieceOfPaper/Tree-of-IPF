@@ -3045,7 +3045,7 @@ function SCR_GET_EpeeGarde_Ratio(skill)
 end
 
 function SCR_GET_EpeeGarde_Bufftime(skill)
-	local value = 30 + skill.Level * 3
+	local value = 15 + skill.Level * 3
 	return value
 
 end
@@ -12817,9 +12817,15 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 		leftHandAttribute = lhEquipWeapon.Attribute;
 	end
 	
+	local sklAtkAdd = skill.SkillAtkAdd;
+	if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
+	    local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo14');
+	    sklAtkAdd = sklAtkAdd + math.floor(sklAtkAdd * abilLevel * 0.28);
+	end
+	
 	local def = lhEquipWeapon.DEF;
-	local strikeDamage = def * 5 + skill.SkillAtkAdd
-	local ariesDamage = rhDamage + skill.SkillAtkAdd;
+	local strikeDamage = def * 5 + sklAtkAdd
+	local ariesDamage = rhDamage + sklAtkAdd;
 	
 	local abil = GetAbility(from, 'Hoplite7');
 	if abil ~= nil then

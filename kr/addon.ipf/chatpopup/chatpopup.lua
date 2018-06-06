@@ -22,12 +22,12 @@ function RESIZE_POPUP_CHAT(frame)
 					if chatCtrl:GetClassName() == "controlset" then
 							local label = chatCtrl:GetChild('bg');
 							if textVer == 0 then
-								--Ç³¼± ¹öÁ¯
+								--Ç³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								local txt = GET_CHILD(label, "text", "ui::CRichText");
 								local timeBox = GET_CHILD(chatCtrl, "timebox");
 								RESIZE_CHAT_CTRL(1, frame, chatCtrl, label, txt, timeBox, offsetX)				
 							else
-								--°£·«È­ ¹öÁ¯
+								--ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
 								local txt = GET_CHILD(chatCtrl, "text", "ui::CRichText");
 								local timeBox = GET_CHILD(chatCtrl, "time");
 								RESIZE_CHAT_CTRL(0, frame, chatCtrl, label, txt, timeBox, offsetX)
@@ -110,8 +110,6 @@ function _PROCESS_MOVING_RESIZE_FRAME(frame)
 	local by = frame:GetUserIValue("MOUSE_Y");
 	local dx = (mx - bx);
 	local dy = (my - by);
-	dy = dy / ratio;
-	
 	local wndX = frame:GetX();
 	local wndY = frame:GetUserIValue("BEFORE_Y");
 	local width = frame:GetUserIValue("BEFORE_W");
@@ -204,7 +202,7 @@ function _PROCESS_MOVE_POPUPCHAT_FRAME(frame)
 	local by = frame:GetUserIValue("MOUSE_Y");
 	local dx = (mx - bx);
 	local dy = (my - by);
-	dy = dy / ratio;
+
 	local width = frame:GetUserIValue("BEFORE_W");
 	local height = frame:GetUserIValue("BEFORE_H");
 	width = width + dx;

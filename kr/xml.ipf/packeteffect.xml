@@ -156,6 +156,8 @@
         <Effect Name="F_wizard_SummonServant_buff2"/>
         <Effect Name="F_wizard_Kurdaitcha_ground_loop"/>
         <Effect Name="I_light004_red2##0.5"/>
+    <Effect Name="I_circle003_spin_loop_red"/>
+        <Effect Name="I_smoke013_dark4"/>
     </Category>
     <Category ID="75">
         <Effect>knockdown_bounce</Effect>
@@ -773,6 +775,7 @@
         <Effect Name="f_castle_20_2_elt2"/>
         <Effect Name="d_firetower_69_2_elt"/>
         <Effect Name="Mon_PoleofAgony"/>
+    <Effect Name="voice_cleric_m_pearofanguish_shot"/>
     </Category>
     <Category ID="60">
         <Effect Name="SETPOS"/>
@@ -1119,6 +1122,7 @@
         <Effect Name="FOODTABLE_TAKEN"/>
         <Effect Name="JOB_CANNONEER_8_1_MINI"/>
         <Effect Name="M_PAST_FLIBRARY_1"/>
+    <Effect Name="E_ground001_light"/>
     </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
@@ -2017,6 +2021,14 @@
         <Effect Name="I_ice005_mash##0.1"/>
         <Effect Name="boss_Neop_PoisonFillar"/>
         <Effect Name="boss_froster_lord"/>
+    <Effect Name="Priest_Dodola"/>
+        <Effect Name="voice_cleric_m_pearofanguish_shot"/>
+        <Effect Name="CallOfDeities"/>
+        <Effect Name="voice_wiz_m_alchemisticmissile_shot"/>
+        <Effect Name="F_item_drop_light_violet"/>
+        <Effect Name="voice_cleric_m_tridisaster_shot"/>
+        <Effect Name="I_force051_dark#Bip001"/>
+        <Effect Name="boss_firewall_red"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -2794,6 +2806,23 @@
         <Effect Name="F_spread_out026_dark"/>
         <Effect Name="F_spread_out023_circle_alpha"/>
         <Effect Name="F_ground138_poison_bubble"/>
+    <Effect Name="I_force033_dark3"/>
+        <Effect Name="I_smoke014_8"/>
+        <Effect Name="I_force057_dark"/>
+    <Effect Name="I_force054_fire#Bip001 R Finger2"/>
+        <Effect Name="I_force030_orange#Bip001 R Finger2"/>
+    <Effect Name="I_force019_pink#Bip001 L Finger21"/>
+        <Effect Name="F_explosion098_dark_red"/>
+    <Effect Name="I_laser004_violet"/>
+        <Effect Name="F_rize004_blue"/>
+        <Effect Name="I_dash001_yellow"/>
+        <Effect Name="I_smoke034_white#Bone011"/>
+        <Effect Name="I_smoke034_white"/>
+    <Effect Name="I_smoke004_4_grey#Bip001 R Finger0Nub "/>
+        <Effect Name="I_smoke004_4_grey#Dummy_effect_hand_L"/>
+    <Effect Name="F_spread_in010_orange"/>
+        <Effect Name="I_smoke026_spread_out_orange"/>
+        <Effect Name="F_pattern007_white##2.3"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -4015,6 +4044,14 @@
         <Effect Name="stage4_3"/>
         <Effect Name="stage5_1"/>
         <Effect Name="I_force023_fire#Dummy_head"/>
+    <Effect Name="stage7_1"/>
+        <Effect Name="stage7_2"/>
+        <Effect Name="VALDOVAS"/>
+        <Effect Name="F_ground071_fire"/>
+        <Effect Name="I_fantasylibrary_brickfloor_dead"/>
+        <Effect Name="F_ground071_fire"/>
+        <Effect Name="I_fantasylibrary_brickfloor_dead"/>
+        <Effect Name="stage7_3"/>
     </Category>
     <Category ID="180">
         <Effect Name="I_ice005_mash###1"/>

@@ -122,6 +122,11 @@ function MY_AUTOSELL_HISTORY(groupName, sellType)
 		local enchantarmoropen = ui.GetFrame("enchantarmoropen");
 		ENCHANTARMOROPEN_UPDATE_HISTORY(enchantarmoropen);
 		return;
+
+	elseif sellType == AUTO_SELL_ORACLE_SWITCHGENDER then
+		local switchgender = ui.GetFrame("switchgender");
+		SWITCHGENDER_UPDATE_HISTORY(switchgender);
+		return;
 	end
 
 	local frame = ui.GetFrame("buffseller_my");

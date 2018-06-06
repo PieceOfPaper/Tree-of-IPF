@@ -305,3 +305,33 @@ function SWITCHGENDER_STORE_OPEN_EXCUTE(frame, ctrl)
 	dummyInfo.level = obj.Level;
 	session.autoSeller.RequestRegister(groupName, groupName, titleInput:GetText(), groupName);
 end
+
+function SWITCHGENDER_UPDATE_HISTORY(frame)
+	local groupName = frame:GetUserValue("GroupName");	
+	local cnt = session.autoSeller.GetHistoryCount(groupName);
+
+	local gboxctrl = frame:GetChild("log");
+	local log_gbox = gboxctrl:GetChild("log_gbox");
+	log_gbox:RemoveAllChild();
+
+	for i = cnt -1 , 0, -1 do
+		local info = session.autoSeller.GetHistoryByIndex(groupName, i);
+		local ctrlSet = log_gbox:CreateControlSet("switchgender_history", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local sList = StringSplit(info:GetHistoryStr(), "#");
+		local desc = ctrlSet:GetChild("desc");
+		desc:SetTextByKey("text", sList[1]);
+		local nowGender = ScpArgMsg("Auto_NamSeong");
+		local befroe = ScpArgMsg("Auto_yeoSeong");
+		if sList[2] == '2' then
+			nowGender = ScpArgMsg("Auto_yeoSeong")
+			befroe = ScpArgMsg("Auto_NamSeong");
+		end
+		desc:SetTextByKey("before", befroe);
+		desc:SetTextByKey("after", nowGender);
+
+		local time = ctrlSet:GetChild("time");
+		time:SetTextByKey("value", sList[3]);
+	end
+
+	GBOX_AUTO_ALIGN(log_gbox, 20, 3, 10, true, false);
+end

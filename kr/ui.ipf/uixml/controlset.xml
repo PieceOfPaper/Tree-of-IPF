@@ -838,6 +838,14 @@
 			<button name="btn_invite" margin="0 0 40 0" rect="0 0 30 30" texttooltip="{@59}초대하기{/}" layout_gravity="right center" image="button_whisper_talk_invite"/>
 		</controls>
 	</controlset>
+  <controlset name="switchgender_history" hittest="false" hittestset="false" draw="false" skin="ccc" width="450" height="80">
+    <controls>
+      <labelline name="hideline" rect="0 0 420 3" margin="0 0 0 0" layout_gravity="left bottom" skin="None"/>
+			<picture name="hideline2" margin="25 0 0 0" rect="0 0 400 50" hittest="false" image="test_partyquest_slot" stretch="true" layout_gravity="left top"/>
+			<richtext name="desc" margin="40 5 0 0" rect="0 0 400 25" hittest="false" format="{@st66e}%s{nl} %s에서 {@st66d_y}%s{/}으로 변경{/}" param1="text" param1_def="ZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" param2="before" param3="after"/>
+      <richtext name="time" margin="45 55 0 0" rect="0 0 400 24" format="{@st66b}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+    </controls>
+  </controlset>
 	<controlset name="partyhistoryinfo" toggle="false" hittest="true" width="400" height="120">
 		<controls>
 			<richtext name="name_text" rect="80 10 150 30" caption="케릭터 이름" spacey="0" fontname="white_16_ol" layout_gravity="left top" hittest="false" textalign="center center"/>

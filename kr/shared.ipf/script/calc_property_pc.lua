@@ -874,7 +874,7 @@ function SCR_Get_KDArmorType(self)
     	armor = 1;
 	end
 	
-	if IsBuffApplied(self, 'Safe') == 'YES' or IsBuffApplied(self, 'PainBarrier_Buff') == 'YES' then
+	if IsBuffApplied(self, 'Safe') == 'YES' or IsBuffApplied(self, 'PainBarrier_Buff') == 'YES' or IsBuffApplied(self, 'Lycanthropy_Buff') == 'YES' then
 		armor = 99999;
 	end
 

@@ -67,7 +67,7 @@ function TPITEM_PACKAGE_SETUI(frame, clsid)
 			cautionIndex = cautionIndex + 1;
 		end
 
-		if cls.TradeCount == 1 then
+		if cls.PackageTradeCount == 1 then
 			y = SETCAUTION_MEMO_TOPURCHASE(frame, y, ScpArgMsg("ITEM_IsPurchased_CAUTION_TRADECNT1"), cautionIndex);
 			cautionIndex = cautionIndex + 1;
 		end

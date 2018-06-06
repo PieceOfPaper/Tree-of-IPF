@@ -483,7 +483,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 			objIsClone= true;
 		end
 	else
-	--존 이동시 아이템에 의한 스킬레벨이 툴팁에 적용되지 않음
+	--�??�동???�이?�에 ?�한 ?�킬?�벨???�팁???�용?��? ?�음
 		obj = GetIES(abil:GetObject());
 		tooltipStartLevel = obj.Level;
 	end
@@ -590,18 +590,16 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 		end
 	end
 
-	local currLvCtrlSet = nil
-
 	if totalLevel == 0 and lvDescStart ~= nil then	-- no have skill case
 		skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
 		lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
 		if lvDescStart ~= nil then	
 			local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);
 			skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + 2	, string.len(skillLvDesc));
-			ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
+			ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText, true);
 		else -- max skill level = 1
 			local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));
-			ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
+			ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText, true);
 		end
 	
 	elseif lvDescStart ~= nil and totalLevel ~= 0 then
@@ -625,7 +623,11 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 			end
 			local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);
 			skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + levelvalue, string.len(skillLvDesc));
-			ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
+			if abil == nil then
+				ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, stateLevel, lvDesc, ypos, originalText, true);
+			else			
+				ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
+			end
 			lv = lv + 1;
 		end
 	end
@@ -763,9 +765,13 @@ end
 	return caption;
  end
 
-function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext)
+function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext, noHave)
 	if totalLevel ~= lv and totalLevel + 1 ~= lv then
 		return ypos;
+	end
+
+	if noHave == nil then
+		noHave = false -- default
 	end
 
 	local lvDescCtrlSet = frame:CreateOrGetControlSet("skilllvdesc", "SKILL_CAPTION_"..tostring(lv), 0, ypos);
@@ -803,7 +809,7 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
 	end
 
 	-- font and data setting
-	if totalLevel == lv then
+	if totalLevel == lv and noHave == false then
 		lvDescCtrlSet:SetDraw(1);
 		lvFont = LEVEL_FONTNAME
 		descFont = DESC_FONTNAME
@@ -814,9 +820,14 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
 		descFont = DESC_NEXTLV_FONTNAME
 	end
 	
-	if TryGetProp(obj, 'SpendSP') ~= nil and TryGetProp(obj, 'LvUpSpendSp') ~= nil and TryGetProp(obj, 'Level') ~= nil then
-		sp = obj.SpendSP + math.floor(obj.LvUpSpendSp * (lv - obj.Level))
+	if TryGetProp(obj, 'BasicSP') ~= nil and TryGetProp(obj, 'LvUpSpendSp') ~= nil and TryGetProp(obj, 'Level') ~= nil and TryGetProp(obj, 'SpendSP') ~= nil then
+		if noHave == true then
+			sp = obj.BasicSP + obj.LvUpSpendSp * (lv - obj.Level)
+		else
+			sp = obj.BasicSP + obj.LvUpSpendSp * (obj.Level-1 + (lv - obj.Level))
+		end
 	end
+	sp = math.floor(sp)
 	if TryGetProp(obj, 'CoolDown') ~= nil then
 		coolTime = obj.BasicCoolDown * 0.001
 	end
@@ -962,7 +973,7 @@ function ADD_SPEND_SKILL_LV_DESC_TOOLTIP(ctrlSet, pcAbilList, pcAbilCnt)
 		if pcAbilList[i].ActiveState == 1 and addSpendStr ~= 'None' then
 			local addSpendList = GET_ADD_SPEND_LIST(addSpendStr)
 
-			for i = 0, #addSpendList, 2 do	-- AddSpendStr은 prop/value pair
+			for i = 0, #addSpendList, 2 do	-- AddSpendStr?� prop/value pair
 				local addValueStr = addSpendList[i + 1]
 				local addValue = tonumber(addValueStr)
 		

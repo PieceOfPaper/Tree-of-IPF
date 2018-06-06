@@ -930,6 +930,9 @@ function TX_SCR_SET_ABIL_HEADSHOT_OPTION(pc, tx, active)
 	if active == 1 then
 		sklValue = 20000;
 		overValue = 20000;
+	else -- no active state: no overheat 
+		sklValue = 0;
+		overValue = 0;
 	end
 	TxSetIESProp(tx, skl, "SklUseOverHeat", sklValue);
 	TxSetIESProp(tx, skl, "OverHeatDelay", overValue);

@@ -55,6 +55,8 @@ function TPITEM_SELECTED_PICKUP(parent, control, orderNo, productNo)
 	local orderPrice = tpitem_selected:GetUserValue("OrderPrice");
 	ui.PickUpCashItem(orderNo, productNo, orderQuantity, orderPrice);
 	tpitem_selected:ShowWindow(0);	
+	
+	UPDATE_BASKET_MONEY(frame);
 end
 
 function TPITEM_SELECTED_DEFER(parent, control)
