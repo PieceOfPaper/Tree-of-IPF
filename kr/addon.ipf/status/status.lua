@@ -642,6 +642,7 @@ function SETEXP_SLOT(gbox)
 	local index = 0;
 	local percSum = 0;
 	
+	--[[
 	if IS_SEASON_SERVER(nil) == "YES" then
 		local cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
 		local val1 = cls1.Value;
@@ -653,6 +654,7 @@ function SETEXP_SLOT(gbox)
 		end
 	end
 	end
+	]]--
 
 	if 1 == session.loginInfo.GetPremiumState() then	
 		local cls2 = GetClass("SharedConst","JAEDDURY_NEXON_PC_EXP_RATE");
@@ -666,6 +668,7 @@ function SETEXP_SLOT(gbox)
 	end
 	end
 	
+		--[[
 	--일반 파티 경험치 계산
 	local retParty = false;
 	local partyMember, addValue1 =	GET_ONLINE_PARTY_MEMBER_N_ADDEXP();	
@@ -697,6 +700,7 @@ function SETEXP_SLOT(gbox)
 	if retParty == true then
 		index = index + 1;
 	end
+	]]--
 	if slotcount ~= nil and slotcount >= 0 then
     	for i = 0, slotcount - 1 do
     		local slot		= slotlist[i];
@@ -729,6 +733,7 @@ function SETEXP_SLOT(gbox)
 									end
 								end	
 						end,
+						--[[
 						['PartyIndunExpBuff'] = function() 
 										local cls = GetClass("SharedConst","INDUN_AUTO_FIND_EXP_BONUS");
 										local val = cls.Value;
@@ -739,6 +744,7 @@ function SETEXP_SLOT(gbox)
 											end
 										end
 						end,
+						]]--
 						default = function() end,
 						}	
 					end
@@ -780,10 +786,12 @@ function SETSLOTCTRL_EXP(cls, strIcon, parent, index, sum, perc)
 			if nil ~= buff then
 				newicon:SetTooltipType('premium');		
 				newicon:SetTooltipArg(handle, cls.ClassID, buff.arg1);
+				newicon:SetTooltipOverlap(1);
 			end
 		else
 			newicon:SetTooltipType('buff');
 			newicon:SetTooltipArg(handle, cls.ClassID, "");
+			newicon:SetTooltipOverlap(1);
 		end
 	end
 	

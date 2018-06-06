@@ -1,4 +1,4 @@
-
+-- journal_monster.lua
 
 function CREATE_JOURNAL_ARTICLE_MONSTER(frame, grid, key, text, iconImage, callback)
 
@@ -61,11 +61,12 @@ function GET_MON_ILLUST(monCls)
 		return name;
 	end
 
-	--¾ÆÀÌÄÜÀº ÀÌÁ¦ ¾²Áö ¾ÊÀ»²¨¶ó°í ÇØ¼­ ÀÏ´Ü ÁÖ¼®À» ÇÕ½Ã´Ù.
-	--name = monCls.Icon;
-	--if ui.IsImageExist(name) == 1 then
-	--	return name;
-	--end
+	--ì•„ì´ì½˜ì€ ì´ì œ ì“°ì§€ ì•Šì„êº¼ë¼ê³  í•´ì„œ ì¼ë‹¨ ì£¼ì„ì„ í•©ì‹œë‹¤.
+	--ì£¼ì—°ì”¨ê»˜ì„œ ì¤‘ë³µìœ¼ë¡œ ì•„ì´ì½˜ ë“±ë¡í•´ì•¼ í•´ì„œ ì‚´ë ¤ë“œë¦¼ 16.10.10
+	name = monCls.Icon;
+	if ui.IsImageExist(name) == 1 then
+		return name;
+	end
 	
 	return "unknown_monster";
 end
@@ -199,7 +200,7 @@ function UPDATE_ARTICLE_Monster(ctrlset)
 	if topAtkPropValue > 0 then
 		local sklCls = GetClassByType("Skill", topAtkPropValue);
 		skillName:SetTextByKey("value", sklCls.Name);
-		skillValue:SetTextByKey("value", "ÇÇÇØ·® " .. topAtkPropCount);
+		skillValue:SetTextByKey("value", "í”¼í•´ëŸ‰ " .. topAtkPropCount);
 		skillicon:SetImage("Icon_" .. sklCls.Icon);
 
 		skillValue:ShowWindow(1);
