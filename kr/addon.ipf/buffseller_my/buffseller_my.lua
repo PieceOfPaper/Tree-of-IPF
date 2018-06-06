@@ -23,7 +23,10 @@ function UPDATE_BUFFSELLER_SLOT_MY(ctrlSet, info)
 	ctrlSet:GetChild("skillname"):SetTextByKey("value", sklObj.Name);
 	ctrlSet:GetChild("skilllevel"):SetTextByKey("value", info.level);
 	ctrlSet:GetChild("remaincount"):SetTextByKey("value", info.remainCount);
-	ctrlSet:GetChild("price"):SetTextByKey("value", info.price);
+--	ctrlSet:GetChild("price"):SetTextByKey("value", info.price);
+
+	local priceStr = GET_COMMA_SEPARATED_STRING(info.price);
+	ctrlSet:GetChild("price"):SetTextByKey("value", priceStr);
 end
 
 function MY_AUTOSELL_LIST(groupName, sellType)

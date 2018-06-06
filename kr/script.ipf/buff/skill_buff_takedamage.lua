@@ -125,7 +125,7 @@ end
 
 function SCR_BUFF_TAKEDMG_Sleep_Debuff(self, buff, sklID, damage, attacker)
 	 local count = GetExProp(self, "TAKEDMG_COUNT")
-	if count <= 1 then
+    if count < 1 then
 	    return 0;
 	end
 	
@@ -271,19 +271,24 @@ function SCR_BUFF_TAKEDMG_item_set_013pre_buff(self, buff, sklID, damage, attack
 end
 
 function SCR_BUFF_TAKEDMG_ReflectShield_Buff(self, buff, sklID, damage, attacker)
-
 	if damage <= 0 then
 		return 1;
 	end
-
+    
+    local spendSP = GetExProp(self, "REFLECTSHIELD_SPENDSP")
+    local currentSP = GetExProp(self, "REFLECTSHIELD_CURRENTSP")
+    if currentSP <= spendSP then
+        return 1;
+    end
+    
 	if IsBuffApplied(self, 'ReflectShield_Buff') == 'YES' and IsSameActor(self, attacker) == "NO" then
-	
 		local shieldLv = GetBuffArg(buff);
-		local count = 1 + shieldLv * 0.5;
+        local count = shieldLv
 
 		local attackedCount = tonumber( GetExProp(buff, "ATTACKED_COUNT") );
 		SetExProp(buff, "ATTACKED_COUNT", attackedCount + 1);
-
+        
+        AddSP(self, -spendSP)
 		if count <= attackedCount + 1 then
 			return 0;
 		end

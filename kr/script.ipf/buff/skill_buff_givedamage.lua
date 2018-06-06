@@ -81,6 +81,14 @@ function SCR_BUFF_GIVEDMG_Cloaking_Buff(self, buff, sklID, damage, target, ret)
     return 1;
 end
 
+function SCR_BUFF_GIVEDMG_ShinobiCloaking_Buff(self, buff, sklID, damage, target, ret)
+    if damage > 0 then
+        return 0;
+    end
+
+    return 1;
+end
+
 function SCR_BUFF_GIVEDMG_Double_pay_earn_Buff(self, buff, sklID, damage, target, ret)
     if damage <= 0 then
         return 1;
@@ -305,8 +313,10 @@ function SCR_BUFF_GIVEDMG_EnchantFire_Buff(self, buff, sklID, damage, target, re
     if damage <= 0 then
         return 1;
     end
-
-    if sklID < DEFAULT_SKILL_CLASSID and target.RaceType ~= 'Item' then     
+	
+	local skill = GetClassByType("Skill", sklID);
+	
+    if sklID < DEFAULT_SKILL_CLASSID or skill.ClassName == "Wizard_EnergyBolt" and target.RaceType ~= 'Item' then     
         local enchantFireLv, casterMATK = GetBuffArgs(buff);
         if enchantFireLv > 0 then
             local stat = casterMATK * 0.1;
@@ -347,8 +357,10 @@ function SCR_BUFF_GIVEDMG_Sacrament_Buff(self, buff, sklID, damage, target, ret)
     if damage <= 0 then
         return 1;
     end
-    
-    if sklID < DEFAULT_SKILL_CLASSID and target.RaceType ~= 'Item' then
+	
+	local skill = GetClassByType("Skill", sklID);
+	
+    if sklID < DEFAULT_SKILL_CLASSID or skill.ClassName == "Wizard_EnergyBolt" and target.RaceType ~= 'Item' then
         
         local holyAddAttack = GetBuffArgs(buff);
 		

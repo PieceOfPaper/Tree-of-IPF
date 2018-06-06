@@ -1018,7 +1018,7 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
 		rewardGrade = "None";
 	end
 
-    local cnt, dropType, goldCount, minMoney, maxMoney, itemList, dropItemList, getCnt, payItemList, cardName, cardRatio = CalcBossDropItem(self, rewardGrade);
+    local cnt, dropType, goldCount, minMoney, maxMoney, itemList, dropItemList, getCnt, payItemList, cardName, cardRatio, reinforceCardDrop = CalcBossDropItem(self, rewardGrade);
     if cnt == 0 then
         IMC_LOG("INFO_NORMAL"," cnt is 0");
         CustomMongoLog(attacker, "RewardBossItemFailed", "Type", "NoneBossReward", "MobID", self.ClassID, "MobName", self.ClassName);
@@ -1055,7 +1055,7 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
 		end
 		
 		if cardName ~= nil then
-			BOSS_CARD_DROP(self, attacker, cardName, cardRatio)
+			BOSS_CARD_DROP(self, attacker, cardName, cardRatio, reinforceCardDrop)
 		end
 	end
 	
@@ -1168,9 +1168,14 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
     return 1;
 end
 
-function BOSS_CARD_DROP(self, attacker, cardName, cardRatio)    
+function BOSS_CARD_DROP(self, attacker, cardName, cardRatio, reinforceCardDrop)
+
     if CAN_DROP_CONSIDERING_PENALTY(attacker) == true then
         local randNum = IMCRandom(1, 10000);
+        
+        if reinforceCardDrop == 'YES' and randNum > 4000 then
+            cardName = 'card_Xpupkit01_100'
+        end
 
         if cardRatio >= randNum then
             local obj = CreateGCIES('Monster', cardName);  
@@ -1268,12 +1273,16 @@ function NORMAL_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
         if TryGetProp(itemCls, 'PCEtcPropertyAdd') ~= nil then
             local pcetcProp = TryGetProp(itemCls, 'PCEtcPropertyAdd')
             if pcetc ~= nil and TryGetProp(pcetc, pcetcProp) ~= nil then
-                local addValue = pcetc[pcetcProp] + 1 + multipleCnt;
-                useTX[#useTX + 1] = {'property',pcetc, pcetcProp, addValue}
-                if string.find(pcetcProp,'InDunRewardCountType_') ~= nil then
-                    local initProp = 'InDunCountType_'..string.gsub(pcetcProp, 'InDunRewardCountType_', '')
-                    if pcetc[initProp] ~= addValue then
-                        useTX[#useTX + 1] = {'property',pcetc, initProp, addValue}
+                local samsara = GetExProp(self, "CREATE_SAMSARA")
+                if samsara == 1 then
+                else
+                    local addValue = pcetc[pcetcProp] + 1 + multipleCnt;
+                    useTX[#useTX + 1] = {'property',pcetc, pcetcProp, addValue}
+                    if string.find(pcetcProp,'InDunRewardCountType_') ~= nil then
+                        local initProp = 'InDunCountType_'..string.gsub(pcetcProp, 'InDunRewardCountType_', '')
+                        if pcetc[initProp] ~= addValue then
+                            useTX[#useTX + 1] = {'property',pcetc, initProp, addValue}
+                        end
                     end
                 end
             end
@@ -1502,7 +1511,9 @@ function CalcBossDropItem(self, rewardGrade)
     if nil ~= DropCount then
         dropCnt = tonumber(DropCount);
     end
-    return listCnt, type, dropCnt, minMoney, maxMoney, itemList, dropItemListName, itemCnt, payItemList, TryGetProp(prop, "Cardlist"), TryGetProp(prop, "CardDropRatio");
+    local ReinforceCardDrop = TryGetProp(prop, "ReinforceCardDrop")
+
+    return listCnt, type, dropCnt, minMoney, maxMoney, itemList, dropItemListName, itemCnt, payItemList, TryGetProp(prop, "Cardlist"), TryGetProp(prop, "CardDropRatio"), ReinforceCardDrop;
 end
 
 -- 드랍 실버(Vis) 금액에따른 종류/크기 설정

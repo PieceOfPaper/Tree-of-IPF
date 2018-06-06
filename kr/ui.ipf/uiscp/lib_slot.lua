@@ -63,6 +63,18 @@ function SET_SLOT_INVITEM(slot, invItem, cnt, font, hor, ver, stateX, stateY)
 	SET_SLOT_COUNT_TEXT(slot, cnt, font, hor, ver, stateX, stateY);
 end
 
+function SET_SLOT_INVITEM_NOT_COUNT(slot, invItem, cnt, font, hor, ver, stateX, stateY)
+	if cnt == nil then
+		cnt = invItem.count;
+	end
+
+	local obj = GetIES(invItem:GetObject());
+	local icon = CreateIcon(slot);
+	icon:Set(obj.Icon, 'None', invItem.type, invItem.count, invItem:GetIESID(), cnt);
+	
+	SET_ITEM_TOOLTIP_ALL_TYPE(icon, invItem, invItem.ClassName, 'None', invItem.type, invItem:GetIESID());
+end
+
 function SET_SLOT_ITEM_INV(slot, itemCls)
 		local type = itemCls.ClassID;
 	local img = itemCls.Icon;

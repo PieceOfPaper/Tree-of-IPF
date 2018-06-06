@@ -433,22 +433,175 @@ function ZONE_ENTER(pc)
 		RunScript("SCR_UPDATE_SAGE_SKL_CHECK", pc);
 	end
 
-	local accObj = GetAccountObj(pc);	
-	local guildObj = GetGuildObj(pc);
+    GUILD_EVENT_POPUP(pc);
 
-	if accObj ~= nil and guildObj ~= nil then
-		if guildObj.GuildInDunFlag == 1 then
-			local userSelectTime = accObj.GuildEventSelectTime;
-			local userJoinEvent = tonumber(accObj.GuildEventSeq) or 0;
+    local iscolonywarmap = IsJoinColonyWarMap(pc)
+    local colonywarstate = GetColonyWarState()
+    if iscolonywarmap == 1 and colonywarstate == 2 then
+    else
+        local levelmsgType = {"WeaponChange","ArmorChange","IndunStart","RequestMission","RequestQuest","RequestParty","NunneryMission","UphillDeffense","ChallengeStart","Uniqueraid","CardEquip"}
+        local idList = {}
+        local pcLv = pc.Lv
+        local pcEtc = GetETCObject(pc)
+        local pcEtcSet = {}
+        local viewIndex = 0
+        local maxlv = 50
+        if pcEtc ~= nil then
+            for i = 1, #levelmsgType do
+                local iesList = SCR_GET_XML_IES('levelinformmessage', 'Type', levelmsgType[i])
+                if #iesList > 0 then
+                    local id = 0
+                    local level = 0
+                    for i2 = 1, #iesList do
+                        local viewProp = TryGetProp(iesList[i2], 'ViewPorp', 'None')
+                        local viewCount = TryGetProp(iesList[i2], 'ViewCount', 0)
+                        local iesLevel = TryGetProp(iesList[i2], 'Level', 99999)
+                        local funcProp = TryGetProp(iesList[i2], 'FuncCheck', 'None')
+                        local propFlag = 0
+                        local funcFlag = 0
+                        local nowCount
+                        if viewProp == 'None' then
+                            propFlag = 1
+                        else
+                            nowCount = TryGetProp(pcEtc, viewProp, 0)
+                            if nowCount < viewCount then
+                                propFlag = 1
+                            end
+                        end
+                        if propFlag == 1 then
+                            if iesLevel <= pcLv and iesLevel + maxlv > pcLv then
+                                if funcProp == 'None' then
+                                    funcFlag = 1
+                                else
+                                    funcProp = SCR_STRING_CUT(funcProp)
+                                    local func = _G[funcProp[1]]
+                                    if func ~= nil then
+                                        local result = func(pc,funcProp)
+                                        if result == 'YES' then
+                                            funcFlag = 1
+                                        else
+                                            pcEtcSet[#pcEtcSet + 1] = {}
+                                            pcEtcSet[#pcEtcSet][1] = viewProp
+                                            pcEtcSet[#pcEtcSet][2] = nowCount + 1
+                                        end
+                                    end
+                                end
+                            else
+                                if iesLevel + maxlv <= pcLv then
+                                    pcEtcSet[#pcEtcSet + 1] = {}
+                                    pcEtcSet[#pcEtcSet][1] = viewProp
+                                    pcEtcSet[#pcEtcSet][2] = nowCount + 1
+                                end
+                            end
+                        end
+                        if funcFlag == 1 then
+                            if viewProp ~= 'None' and nowCount < viewCount then
+                                pcEtcSet[#pcEtcSet + 1] = {}
+                                pcEtcSet[#pcEtcSet][1] = viewProp
+                                pcEtcSet[#pcEtcSet][2] = nowCount + 1
+                            end
+                            if level < iesLevel then
+                                id = TryGetProp(iesList[i2], 'ClassID')
+                                level = iesLevel
+                            end
+                        end
+                    end
+                    
+                    if id > 0 then
+                        viewIndex = viewIndex + 1
+                        idList[#idList + 1] = id
+                    end
+                end
+                if viewIndex >= 3 then
+                    break
+                end
+            end
+            if #pcEtcSet > 0 then
+                local tx = TxBegin(pc);
+                for i = 1, #pcEtcSet do
+                    TxSetIESProp(tx, pcEtc, pcEtcSet[i][1], pcEtcSet[i][2])
+                end
+                local ret = TxCommit(tx);
+            end
+            if #idList > 0 then
+    --            print('HHHHH',table.concat(idList,'/'))
+                local input = '"'..table.concat(idList,'/')..'"'
+                
+                ExecClientScp(pc, 'LEVEL_LINFORM_MESSAGE_CLIENT('..input..')')
+            end
+        end
+    end
+    
+    local hiddenJobList = {{'Char1_13',{'SHINOBI_MASTER'}}
+                            ,{'Char1_19',{'MATADOR_MASTER'}}
+                            ,{'Char1_20',{'CHAR120_MASTER'}}
+                            ,{'Char2_17',{'RUNECASTER_MASTER'}}
+                            ,{'Char2_19',{'JOB_SHADOWMANCER_MASTER'}}
+                            ,{'Char3_13',{'FEDIMIAN_APPRAISER_NPC'},{'FEDIMIAN_APPRAISER'}}
+                            ,{'Char3_18',{'BULLETMARKER_MASTER'}}
+                            ,{'Char4_12',{'CHAPLAIN_MASTER'}}
+                            ,{'Char4_18',{'MIKO_MASTER'}}
+                            ,{'Char4_19',{'ZEALOT_MASTER'}}
+                            }
+    for i = 1, #hiddenJobList do
+        local jobName = hiddenJobList[i][1]
+        local unhideList = hiddenJobList[i][2]
+        local hideList = hiddenJobList[i][3]
+        if SCR_HIDDEN_JOB_IS_UNLOCK(pc, jobName) == 'YES' then
+            for i2 = 1, #unhideList do
+                local npc = unhideList[i2]
+                if isHideNPC(pc, npc) == 'YES' then
+                    UnHideNPC(pc, npc)
+                end
+            end
+            if hideList ~= nil then
+                for i2 = 1, #hideList do
+                    local npc = hideList[i2]
+                    if isHideNPC(pc, npc) ~= 'YES' then
+                        HideNPC(pc, npc)
+                    end
+                end
+            end
+        end
+    end
 
-			local guildStartTime = guildObj.GuildEventBroadCastTime;
-			local guildJoinEvent = tonumber(guildObj.GuildEventSeq) or 0;
+    
+    
+    
+end
 
-			if userJoinEvent == guildJoinEvent and IsLaterOrSameStrByStr(userJoinEvent, guildJoinEvent) == 1 then
-				GUILD_EVENT_INDUN_START(pc);
-			end
-		end
-	end
+function GUILD_EVENT_POPUP(pc) 
+    local guildObj = GetGuildObj(pc);
+    local guildEventState, changedTime = GetGuildEventState(guildObj)
+    if guildEventState == nil or guildEventState == "None" then
+        GUILD_EVENT_PROPERTY_RESET(pc, guildObj)
+        return;
+    end
+
+    local isParticipant = IsGuildEventParticipant(pc)        
+    local guildEventID = GetGuildEventID(guildObj)
+
+    if guildEventState == "Recruiting" then
+        SendAddOnMsg(pc, "GUILD_EVENT_RECRUITING_START", changedTime, guildEventID);
+        SendGuildEventParticipants(pc)
+        
+        local str, mapID = GUILD_EVENT_START_MAP_ON_LOCATION(pc, guildObj)
+        BroadcastAddOnMsgToParty(guildObj, "GUILD_EVENT_WAITING_LOCATION", str, mapID, 0);
+         if isParticipant == 1 then
+            GUILD_EVENT_IN_START_MAP_ON_WAITING(pc, guildEventID)
+            SendAddOnMsg(pc, "GUILD_EVENT_RECRUITING_IN", "", 0);
+        end
+    elseif guildEventState == "Waiting" or guildEventState == "Started" then
+        if isParticipant == 1 then
+            local guildEventCls = GetClassByType("GuildEvent", guildEventID);
+            local mapCls = GetClass("Map", guildEventCls.StartMap);
+
+            GUILD_EVENT_IN_START_MAP_ON_WAITING(pc, guildEventID)
+            
+            local str, mapID = GUILD_EVENT_START_MAP_ON_LOCATION(pc, guildObj)
+            BroadcastAddOnMsgToParty(guildObj, "GUILD_EVENT_WAITING_LOCATION", str, mapID, 0);
+        end
+    end
 
     --EVENT_1712_ACHIEVE
 --    if GetAchievePoint(pc, 'EVENT_1712_ACHIEVE') < 1 then
@@ -515,4 +668,92 @@ function CHECK_START_HAIR_NAME(pc, tx)
 	end
 
 	
+end
+
+function LEVELINFORM_WEAPONCHANGE(pc, argTable)
+    local target = argTable[2]
+    
+    local rItem = GetEquipItem(pc, 'RH');
+    local sItem = GetEquipItem(pc, "SHIRT")
+    local bItem = GetEquipItem(pc, "BOOTS")
+    local pItem = GetEquipItem(pc, "PANTS")
+    local gItem = GetEquipItem(pc, "GLOVES")
+    
+    if rItem == nil or rItem.UseLv < target then
+        if sItem == nil or sItem.UseLv < target then
+            if bItem == nil or bItem.UseLv < target then
+                if pItem == nil or pItem.UseLv < target then
+                    if gItem == nil or gItem.UseLv < target then
+                        return 'YES'
+                    end
+                end
+            end
+        end
+    end
+end
+
+function LEVELINFORM_INDUNSTART(pc)
+    local pcEtc = GetETCObject(pc)
+    if pcEtc.InDunCountType_100 == 0 then
+        return 'YES'
+    end
+end
+
+function LEVELINFORM_REQUESTMISSION(pc)
+    local pcEtc = GetETCObject(pc)
+    if pcEtc.InDunCountType_200 == 0 then
+        return 'YES'
+    end
+end
+
+function LEVELINFORM_REQUESTQUEST(pc)
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    if sObj.DROPITEM_REQUEST1 == 0 and sObj.DROPITEM_REQUEST1_R == 0 then
+        return 'YES'
+    end
+end
+
+function LEVELINFORM_REQUESTPARTY(pc)
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    if sObj.PARTY_Q_COUNT1 == 0 then
+        return 'YES'
+    end
+end
+
+function LEVELINFORM_NUNNERYMISSION(pc)
+    local pcEtc = GetETCObject(pc)
+    if pcEtc.InDunCountType_300 == 0 then
+        return 'YES'
+    end
+end
+
+function LEVELINFORM_UPHILLDEFFENSE(pc)
+    local pcEtc = GetETCObject(pc)
+    if pcEtc.InDunCountType_500 == 0 then
+        return 'YES'
+    end
+end
+
+function LEVELINFORM_CHALLENGESTART(pc)
+    local isHasBuff = IsBuffApplied(pc, 'ChallengeMode_Completed')
+    if isHasBuff ~= 'YES' then
+        return 'YES'
+    end
+end
+
+function LEVELINFORM_UNIQUERAID(pc)
+    local pcEtc = GetETCObject(pc)
+    if pcEtc.InDunCountType_10000 == 0 then
+        return 'YES'
+    end
+end
+
+function LEVELINFORM_CARDEQUIP(pc)
+    local pcEtc = GetETCObject(pc)
+    for i = 1, MAX_NORMAL_MONSTER_CARD_SLOT_COUNT + LEGEND_CARD_SLOT_COUNT do
+        if pcEtc["EquipCardID_Slot"..i] ~= 0 then
+            return
+        end
+    end
+    return 'YES'
 end

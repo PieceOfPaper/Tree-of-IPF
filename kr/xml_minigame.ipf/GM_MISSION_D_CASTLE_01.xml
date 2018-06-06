@@ -162,10 +162,15 @@
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
+                    <Event execCount="1" eventName="success">
+                        <execList>
+                            <ToolScp Scp="RAID_END_REWARD" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
                     <Event execCount="1" eventName="reward">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
+                                <Num Num="10"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -346,7 +351,7 @@
                     <Obj Type="Monster" MonType="57915" Pos="1320.59#95.56#-233.87" genCount="1" genTime="20000" objectKey="10" propList="&apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
                     <Obj Type="Monster" MonType="57915" Pos="1036.01#92.96#-561.93" genCount="1" genTime="20000" objectKey="14" propList="&apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
                     <Obj Type="Monster" MonType="57915" Pos="1236.86#85.52#-368.53" genCount="1" genTime="20000" objectKey="15" propList="&apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
-                    <Obj Type="Monster" MonType="705008" Pos="1393.30#85.52#-401.26" angle="180" genCount="1" genTime="20000" objectKey="2" propList="&apos;Level&apos; &apos;380&apos; "/>
+                    <Obj Type="Monster" MonType="705008" Pos="1393.30#85.52#-401.26" angle="180" genCount="1" genTime="20000" objectKey="2" propList="&apos;Level&apos; &apos;380&apos; &apos;StatType&apos; &apos;902&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="stageSetting"/>

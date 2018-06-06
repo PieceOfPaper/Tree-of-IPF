@@ -177,6 +177,16 @@
                 <StageEvents>
                     <Event execCount="1" eventName="success">
                         <execList>
+                            <ToolScp Scp="RAID_END_REWARD" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="reward">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
                             <ToolScp Scp="MGAME_GUILD_REWARD" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>

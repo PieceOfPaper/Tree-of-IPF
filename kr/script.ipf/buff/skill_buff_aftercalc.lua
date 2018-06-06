@@ -133,12 +133,6 @@ function SCR_BUFF_AFTERCALC_HIT_todal_shield(self, from, skill, atk, ret, buff)
     if IsBuffApplied(from, 'ReflectShield_Buff') == 'NO' then
         local dmg = ret.Damage * 0.25;
         DamageReflect(self, from, "None", dmg, "Melee", "Melee", "TrueDamage", HIT_REFLECT, HITRESULT_BLOW);
-        
-        --?? ?κ??? ?????? ?????? ??? ???????, ????? ??????? ?????? ??????? ?????? ????? ??찡 ??? ?????? ??? ????
-        --local key = GetSkillSyncKey(self, ret);
-        --StartSyncPacket(self, key);
-        --TakeDamage(self, from, "None", dmg, "Melee", "Melee", "TrueDamage", HIT_REFLECT, HITRESULT_BLOW);
-        --EndSyncPacket(self, key)
     end
 end
 
@@ -157,34 +151,35 @@ end
 
 
 function SCR_BUFF_AFTERCALC_HIT_ReflectShield_Buff(self, from, skill, atk, ret, buff)
-    if IsBuffApplied(from, 'todal_shield') == 'NO' and IsSameActor(self, from) == "NO" and ret.Damage > 0 then
-        local damReflect = finalDamage;
-        local dmg = 5;
-
-        local shieldLv, abilLv, casterMNA = GetBuffArgs(buff);
-        if shieldLv > 0 then
-            dmg = dmg + (shieldLv - 1) * 5
+    local spendSP = TryGetProp(self, "MSP") * 0.01
+    local currentSP = TryGetProp(self, "SP")
+    
+    local abilWizard2 = GetAbility(self, "Wizard2")
+    if abilWizard2 ~= nil and TryGetProp(abilWizard2, "ActiveState") == 1 then
+        local reduceSP = TryGetProp(self, "MNA") * (TryGetProp(abilWizard2, "Level") * 0.01)
+        spendSP = spendSP - reduceSP
+        if spendSP <= 1 then
+            spendSP = 1
         end
-
-        if abilLv > 0 then
-            dmg = dmg + abilLv;
+    end
+    
+    SetExProp(self, "REFLECTSHIELD_SPENDSP", spendSP)
+    SetExProp(self, "REFLECTSHIELD_CURRENTSP", currentSP)
+    
+    if currentSP > spendSP then
+        if IsBuffApplied(from, 'todal_shield') == 'NO' and IsSameActor(self, from) == "NO" and ret.Damage > 0 then
+          	ret.Damage = ret.Damage * 0.8;
+            
+            if ret.Damage < 1 then
+                ret.Damage = 1;
+            end
+            
+            ret.KDPower = 0;
+            ret.HitType = HIT_SAFETY;
+            ret.HitDelay = 0;
+            SetExProp(from, "CHECK_SKL_KD_PROP", 1);
+    --        RunScript("Reflect_Sync", self, from, skill, dmg, ret)
         end
-
-        if self.MNA > 0 then
-            dmg = math.floor(dmg + self.MNA);
-        end
-      
-        ret.Damage = ret.Damage - dmg;
-        if ret.Damage < 1 then
-            ret.Damage = 1;
-        end
-        
-        ret.KDPower = 0;
-        ret.HitType = HIT_SAFETY;
-        ret.HitDelay = 0;
-        SetExProp(from, "CHECK_SKL_KD_PROP", 1);
-        
-        RunScript("Reflect_Sync", self, from, skill, dmg, ret)
     end
 end
 
@@ -241,39 +236,44 @@ function SCR_BUFF_AFTERCALC_HIT_RevengedSevenfold_Buff(self, from, skill, atk, r
 end
 
 function SCR_BUFF_AFTERCALC_HIT_Subzero_Buff(self, from, skill, atk, ret, buff)
-       local dmg = ret.Damage / 2
-       local caster = GetBuffCaster(buff);
-       local sklLv = GetBuffArg(buff)
-       local rate = 10 + sklLv * 5
-       local random = IMCRandom(1, 100)
-       if skill.ClassType == "Melee" and 
-       skill.ClassName ~= 'Hoplite_ThrouwingSpear' and skill.ClassName ~= 'Peltasta_ShieldLob' and
-       skill.ClassName ~= 'Shinobi_Kunai' and skill.ClassName ~= 'Dragoon_Gae_Bulg' and skill.ClassName ~= 'Monk_EnergyBlast' and
-       skill.ClassName ~= 'Monk_God_Finger_Flicking' and
-       rate >= random and ret.Damage > 0 then
-         ret.Damage = dmg
-         ret.KDPower = 0;
-         ret.HitType = HIT_SAFETY;
-         ret.HitDelay = 0;
-         SetExProp(from, "CHECK_SKL_KD_PROP", 1);
-         
-         local addDamage = 0;
-         local Cryomancer10_abil = GetAbility(caster, "Cryomancer10")
-         if Cryomancer10_abil ~= nil then
-          local shield = GetEquipItem(self, 'LH')
-          if shield ~= nil and shield.ClassType == "Shield" then
-              addDamage = shield.DEF * Cryomancer10_abil.Level * 0.5
-          end
-         end
-       
-         RunScript("SubzeroShield_sync", self, from, skill, dmg + addDamage, ret, caster)
-       else
-         ret.Damage = ret.Damage
-         ret.KDPower = 0;
-         ret.HitType = HIT_BASIC;
-         ret.HitDelay = 0;
-         SetExProp(from, "CHECK_SKL_KD_PROP", 1);
-       end
+    local dmg = ret.Damage / 2
+    local caster = GetBuffCaster(buff);
+    local sklLv = GetBuffArg(buff)
+    local FreezeRating = 10 + sklLv * 5
+    local abilCryomancer9 = GetAbility(caster, "Cryomancer9");
+    if abilCryomancer9 ~= nil and TryGetProp(abilCryomancer9, "ActiveState") == 1 then
+        FreezeRating = math.floor(FreezeRating * (1 + abilCryomancer9.Level * 0.05));
+    end
+    
+    local random = IMCRandom(1, 100)
+    if skill.ClassType == "Melee" and 
+        skill.ClassName ~= 'Hoplite_ThrouwingSpear' and skill.ClassName ~= 'Peltasta_ShieldLob' and
+        skill.ClassName ~= 'Shinobi_Kunai' and skill.ClassName ~= 'Dragoon_Gae_Bulg' and skill.ClassName ~= 'Monk_EnergyBlast' and
+        skill.ClassName ~= 'Monk_God_Finger_Flicking' and
+        FreezeRating >= random and ret.Damage > 0 then
+        ret.Damage = dmg
+        ret.KDPower = 0;
+        ret.HitType = HIT_SAFETY;
+        ret.HitDelay = 0;
+        SetExProp(from, "CHECK_SKL_KD_PROP", 1);
+    
+        local addDamage = 0;
+        local Cryomancer10_abil = GetAbility(caster, "Cryomancer10")
+        if Cryomancer10_abil ~= nil then
+            local shield = GetEquipItem(self, 'LH')
+            if shield ~= nil and shield.ClassType == "Shield" then
+            addDamage = shield.DEF * Cryomancer10_abil.Level * 0.5
+        end
+    end
+    
+    RunScript("SubzeroShield_sync", self, from, skill, dmg + addDamage, ret, caster)
+else
+ ret.Damage = ret.Damage
+ ret.KDPower = 0;
+ ret.HitType = HIT_BASIC;
+ ret.HitDelay = 0;
+ SetExProp(from, "CHECK_SKL_KD_PROP", 1);
+end
 end
 
 function SCR_BUFF_AFTERCALC_ATK_Invocation_Debuff(self, from, skill, atk, ret, buff)
@@ -421,13 +421,6 @@ function SCR_BUFF_AFTERCALC_ATK_EnchantLightning_Buff(self, from, skill, atk, re
 
     local pCls = GetClass("Skill", skill.ClassName)
     skill.Attribute = pCls.Attribute;
-end
-
-function SCR_BUFF_AFTERCALC_ATK_Drain_Buff(self, from, skill, atk, ret, buff)
-    if IsBuffApplied(from, 'Drain_Buff') == 'YES' then
-        local dmg = GetExProp(buff, "ATK_BM");
-        ret.Damage = ret.Damage + dmg;
-    end
 end
 
 function SCR_BUFF_AFTERCALC_HIT_PatronSaint(self, from, skill, atk, ret, buff)

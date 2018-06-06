@@ -9,6 +9,21 @@ function GET_MORE_EXP_BOOST_TOKEN(pc)
 	return sumExp;
 end
 
+function GET_MORE_LEGEND_EXP_UP_CARD(pc)
+	local sumExp = 0.0;
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV1');	-- 레전드 카드 ---
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV2');	-- 레전드 카드 ---
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV3');	-- 레전드 카드 ---
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV4');	-- 레전드 카드 ---
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV5');	-- 레전드 카드 ---
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV6');	-- 레전드 카드 ---
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV7');	-- 레전드 카드 ---
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV8');	-- 레전드 카드 ---
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV9');	-- 레전드 카드 ---
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV10');	-- 레전드 카드 ---
+	return sumExp;
+end
+
 function GET_MORE_EVENT_EXP(pc)
 	local sumExp = 0.0;
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_LargeSongPyeon');	-- 대왕송편

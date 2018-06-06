@@ -1011,7 +1011,6 @@ function SCR_MON_ATTRACT_MAGNETIC_TS_BORN_UPDATE(self)
     local acPropName = "ATTR_ACT_" .. handle;
 
     local skill_Lv = GetExProp(self, "SKILL_LV");
-    local skill_SR = GetExProp(self, "SKILL_SR");   
     local caster = GetExArgObject(self, "SKILL_OWNER");
     
     local damage = GetExProp(self, "DAMAGE");
@@ -1021,9 +1020,11 @@ function SCR_MON_ATTRACT_MAGNETIC_TS_BORN_UPDATE(self)
     local tickCount = lifeTime / tickTime;
     
     local objList, objCount = SelectObjectNear(GetOwner(self), self, range, 'ENEMY', 0, 1, 1);
-    for i = 1, objCount do
+    for i = 1, 10 do
         local obj = objList[i];
-
+		if obj == nil then
+			return
+		end
         -- 보스는 끌려들어가지 않게 처리
         if obj.MonRank ~= 'Boss' then       
           local moveType = "None";
@@ -1055,14 +1056,10 @@ function SCR_MON_ATTRACT_MAGNETIC_TS_BORN_UPDATE(self)
             local sizeRank = obj.SizeRank;
             atRank = atRank + sizeRank;
 
-            if atRank <= 4 then
+--            if atRank <= 4 then
                 local attrTime = GET_ELAPSED_TIME(obj, timePropName);
                 local attractAccel = 0.0;
                 
-                if skill_SR <= 0 then
-                    break;
-                end
-                skill_SR = skill_SR - obj.SDR;
                 SkillCancel(obj);
                 if 0 == attrTime then
                     ActorVibrate(obj, lifeTime/2, 0.5, 30, 0.1);
@@ -1087,7 +1084,7 @@ function SCR_MON_ATTRACT_MAGNETIC_TS_BORN_UPDATE(self)
                         end
                     end
                 end
-            end
+--            end
                 
           end
         end

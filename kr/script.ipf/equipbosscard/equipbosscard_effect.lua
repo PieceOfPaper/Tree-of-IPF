@@ -309,7 +309,7 @@ function SCR_CARDEFFECT_AS_BACK_ATTACK(self, target, obj, TypeValue, arg1, arg2,
     SetExProp(self, "IS_BACKATTACK", 1);
 end
 
---????Î¸? ???????? ?????? arg1?? ???????? ?????? ??Â´?.
+--????¥è? ???????? ?????? arg1?? ???????? ?????? ??¢¥?.
 function SCR_CARDEFFECT_DEAD_PART_GET(self, target, obj, TypeValue, arg1, arg2, arg3)
     
     local totalCount = 300;
@@ -732,3 +732,82 @@ function SCR_CARDEFFECT_ADD_BUFF_PC_STAT(self, target, obj, TypeValue, arg1, arg
     end
 end
 
+function SCR_CARDEFFECT_CRITICAL_ATTACK(self, target, obj, TypeValue, arg1, arg2, arg3)
+    if TypeValue ~= nil then
+        if arg3 == 'None' then
+            arg3 = 1;
+        end
+        
+        local ratio = TypeValue * 2
+        local maxRatio = IMCRandom(1, 100);
+        
+        if ratio >= maxRatio then
+            SetExProp(self, "IS_CRITICAL", 1)
+        end
+    end
+end
+
+function SCR_CARDEFFECT_BE_FIXED_RECOVER_SP_LEGEND(self, target, obj, TypeValue, arg1, arg2, arg3)
+    if TypeValue ~= nil then
+        if arg3 == 'None' then
+            arg3 = 1;
+        end
+        
+        local healSP = math.floor(TypeValue * arg3);
+        AddSP(self, healSP, 0)
+    end
+end
+
+function SCR_CARDEFFECT_ATTRIBUTE_PENALTY_REDUCTION(self, target, obj, TypeValue, arg1, arg2, arg3)
+    if TypeValue ~= nil then
+        if arg3 == 'None' then
+            arg3 = 1;
+        end
+        
+        local reduction = math.floor(TypeValue * arg3);
+        local attributePenaltyReductionRate = GetExProp(self, 'CARD_ATTRIBUTE_PENALTY_REDUCTION');
+        SetExProp(self, 'CARD_ATTRIBUTE_PENALTY_REDUCTION', attributePenaltyReductionRate + reduction);
+    end
+end
+
+function SCR_CARDEFFECT_ADD_NO_TIME_BUFF_PC(self, target, obj, TypeValue, arg1, arg2, arg3) 
+    if TypeValue == 10 or TypeValue == -10 then
+        arg1 = arg1.."LV10"
+    elseif TypeValue == 9 or TypeValue == -9 then
+        arg1 = arg1.."LV9"
+    elseif TypeValue == 8 or TypeValue == -8 then
+        arg1 = arg1.."LV8"
+    elseif TypeValue == 7 or TypeValue == -7 then
+        arg1 = arg1.."LV7"
+    elseif TypeValue == 6 or TypeValue == -6 then
+        arg1 = arg1.."LV6"
+    elseif TypeValue == 5 or TypeValue == -5 then
+        arg1 = arg1.."LV5"
+    elseif TypeValue == 4 or TypeValue == -4 then
+        arg1 = arg1.."LV4"
+    elseif TypeValue == 3 or TypeValue == -3 then
+        arg1 = arg1.."LV3"
+    elseif TypeValue == 2 or TypeValue == -2 then
+        arg1 = arg1.."LV2"
+    elseif TypeValue == 1 or TypeValue == -1 then
+        arg1 = arg1.."LV1"
+    end
+    
+    if TypeValue > 0 then
+        AddBuff(self, self, arg1, 1, arg2, 0, 1);
+    else
+        RemoveBuff(self, arg1)
+    end
+end
+
+function SCR_CARDEFFECT_DAMAGE_REDUCTION_RATE_FROM_PC(self, target, obj, TypeValue, arg1, arg2, arg3)
+    if TypeValue ~= 0 then
+        if arg3 == "None" then
+            arg3 = 0;
+        end
+        
+        local reduction = math.floor(TypeValue * arg3);
+        local damageReductionRateFromPC = GetExProp(self, "DAMAGE_REDUCTION_RATE_FROM_PC");
+        SetExProp(self, "DAMAGE_REDUCTION_RATE_FROM_PC", damageReductionRateFromPC + reduction);
+    end
+end

@@ -361,8 +361,8 @@ function IS_HAVE_INDUN_TICKET(pc, indunName)
     
     local admissionItemName = TryGetProp(pCls, "AdmissionItemName");
     local admissionItemCls = GetClass('Item', admissionItemName);
-    local admissionItemCount = TryGetProp(pCls, "AdmissionItemCount");
-    if admissionItemName == "None" or admissionItemName == nil or admissionItemCount == 0 then    
+    local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
+    if admissionItemName == "None" or admissionItemName == nil then
         local indunCount = etcObj["InDunCountType_" .. pCls.PlayPerResetType];
         local maxPlayCnt = pCls.PlayPerReset;
         if IsPremiumState(pc, ITEM_TOKEN) == 1 then
@@ -387,8 +387,9 @@ end
 
 function GET_ADMISSION_ITEM_TAKE_COUNT(pc, indunCls)
     local etc = GetETCObject(pc);
-    local nowEnteredCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
     local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
+    local admissionPlayAddItemCount = TryGetProp(indunCls, "AdmissionPlayAddItemCount");
+    local nowEnteredCount = math.floor(TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")), 0) * admissionPlayAddItemCount);
     local isTokenState = IsPremiumState(pc, ITEM_TOKEN)
     
     if isTokenState > 0 then
@@ -575,7 +576,7 @@ function REQ_MOVE_TO_INDUN(pc, indunName, joinMethod, randomMission)
 			end
 		end
     
-        if admissionItemName == "None" or admissionItemName == nil or admissionItemCount == 0 then
+        if admissionItemName == "None" or admissionItemName == nil then
             if haveIndunTicket == 0 then
                 local scp = string.format("INDUN_CANNOT_YET(\'%s\')", "CannotJoinIndunYet");
                 ExecClientScp(pc, scp);
@@ -593,7 +594,7 @@ function REQ_MOVE_TO_INDUN(pc, indunName, joinMethod, randomMission)
     end
 
     if joinMethod == 3 then -- 파티원과 자동 매칭하기
-        if admissionItemName == "None" or admissionItemName == nil or admissionItemCount == 0 then
+        if admissionItemName == "None" or admissionItemName == nil then
             if haveIndunTicket == 0 then
                 local scp = string.format("INDUN_CANNOT_YET(\'%s\')", "CannotJoinIndunYet");
                 ExecClientScp(pc, scp);
@@ -637,7 +638,7 @@ function REQ_MOVE_TO_INDUN(pc, indunName, joinMethod, randomMission)
     end
 
     openedMission, alreadyJoin, mGameType, missionInstID = OpenPartyMission(pc, pc, randomMission, indunCls.MGame, "", haveIndunTicket);
-    if admissionItemName == "None" or admissionItemName == nil or admissionItemCount == 0 then
+    if admissionItemName == "None" or admissionItemName == nil then
         if haveIndunTicket == 0 and openedMission == 0 then
             local scp = string.format("INDUN_CANNOT_YET(\'%s\')", "CannotJoinIndunYet");
             ExecClientScp(pc, scp);
@@ -667,7 +668,7 @@ function REQ_MOVE_TO_INDUN(pc, indunName, joinMethod, randomMission)
         ExecClientScp(pc, scp);
         return;
     end
-    if admissionItemName == "None" or admissionItemName == nil or admissionItemCount == 0 then 
+    if admissionItemName == "None" or admissionItemName == nil then 
         if haveIndunTicket == 0 and alreadyJoin == 0 then
             local scp = string.format("INDUN_CANNOT_YET(\'%s\')", "CannotJoinIndunYet");
             ExecClientScp(pc, scp);

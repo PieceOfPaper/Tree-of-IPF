@@ -284,6 +284,35 @@ function LEAVE_PAD_TGT_BUFF(self, skl, pad, target, tgtRelation, consumeLife, us
 	end
 end
 
+
+function LEAVE_PAD_TGT_ABIL_BUFF(self, skl, pad, target, abilname, tgtRelation, consumeLife, useCount, buffName, lv, arg2, applyTime, over, rate, saveHandle)
+	local abil = GetAbility(self, abilname);
+	if abil == nil then
+		return;
+	end
+	
+	if IS_APPLY_RELATION(self, target, tgtRelation) then
+		if over == 0 and GetBuffByName(target, buffName) ~= nil then
+			return;
+		end
+		
+		if skl.ClassName == "Sapper_Cover" and target.ClassName == "PC" then
+			return;
+		end
+	
+		if 1 == saveHandle then
+			SetExArgObject(self, "SaveOwner", GetOwner(self));
+		end
+		ADDPADBUFF(self, target, pad, buffName, lv, arg2, applyTime, over, rate);
+		if tgtRelation == "PARTY" and IS_PC(self) == true and IS_PC(target) == true then
+			PartyBuffAdd(target, buffName)
+		end	
+		AddPadLife(pad, consumeLife);
+		AddPadUseCount(pad, useCount);
+	end
+end
+
+
 function PAD_TGT_BUFF_MON(self, skl, pad, target, tgtRelation, consumeLife, useCount, buffName, lv, arg2, applyTime, over, rate)
 
 	if GetPadLife(pad) <= 0 or GetPadUseCount(pad) <= 0 then
@@ -760,6 +789,25 @@ function PAD_TGT_ZOMBIE_REMOVE_BUFF(self, skl, pad, target, buffName)
 end
 
 
+function PAD_TGT_SUMMON_BUFF(self, skl, pad, target, abilName, consumeLife, useCount, buffName, lv, arg2, applyTime, over, rate)
+	local abil = GetAbility(self, abilName);
+	if abil == nil then
+		return;
+	end
+	
+	if GetPadLife(pad) <= 0 or GetPadUseCount(pad) <= 0 then
+		return;
+	end
+	
+    local list, cnt = GetAliveFolloweList(self);
+    for i = 1, cnt do
+        local from = list[i];
+		
+		ADDPADBUFF(self, from, pad, buffName, lv, arg2, applyTime, over, rate);
+		AddPadLife(pad, consumeLife);
+		AddPadUseCount(pad, useCount);
+	end
+end
 
 
 function PAD_ADD_MONSTER_WALL(self, skl, pad, obj, monName)

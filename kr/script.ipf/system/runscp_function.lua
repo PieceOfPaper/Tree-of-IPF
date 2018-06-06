@@ -960,6 +960,9 @@ function npcmove(pc, search_word, zonename, pos_option, search_allmatch)
     else
         MoveZone(pc, zonename, anchor_list[select1][3], anchor_list[select1][4] + 100, anchor_list[select1][5])
     end
+
+    ExecClientScp(gm, scp);
+
 end
 
 function npcmove_anchorlist(zonename, gentypeID)
@@ -1274,6 +1277,11 @@ function SCR_GM_QUEST_UI_QUEST_CHEAT(pc, qusetClassID)
     end
 end
 function SCR_QUESTSTATE_MODIFY(pc, questlv, search_word, gm)
+    if string.find(search_word, '/') ~= nil then
+        search_word = string.gsub(search_word, '/', ' ')
+    end
+    search_word = string.upper(search_word)
+    
 
     if tonumber(questlv) == nil or questlv == 'None' then
         questlv = -100
@@ -1295,7 +1303,7 @@ function SCR_QUESTSTATE_MODIFY(pc, questlv, search_word, gm)
 
     for i = 0, quest_index -1 do
         if questlv >= 0 and search_word ~= nil and type(search_word) ~= 'number' then
-            if questlv <= GetClassNumberByIndex('QuestProgressCheck', i, 'Level') and GetClassNumberByIndex('QuestProgressCheck', i, 'Level') < questlv + level_interval and GetClassStringByIndex('QuestProgressCheck', i, 'ClassName') ~= 'None' and ( string.find(GetClassStringByIndex('QuestProgressCheck', i, 'ClassName'), search_word) ~= nil or string.find(GetClassStringByIndex('QuestProgressCheck', i, 'Name'), search_word) ~= nil)then
+            if questlv <= GetClassNumberByIndex('QuestProgressCheck', i, 'Level') and GetClassNumberByIndex('QuestProgressCheck', i, 'Level') < questlv + level_interval and GetClassStringByIndex('QuestProgressCheck', i, 'ClassName') ~= 'None' and ( string.find(string.upper(GetClassStringByIndex('QuestProgressCheck', i, 'ClassName')), search_word) ~= nil or string.find(string.upper(GetClassStringByIndex('QuestProgressCheck', i, 'Name')), search_word) ~= nil)then
                 quest_list[x] = {}
                 quest_list[x][1] = GetClassStringByIndex('QuestProgressCheck', i, 'ClassName');
                 quest_list[x][2] = GetClassStringByIndex('QuestProgressCheck', i, 'Name');
@@ -1317,7 +1325,7 @@ function SCR_QUESTSTATE_MODIFY(pc, questlv, search_word, gm)
             local tempclassname = GetClassStringByIndex('QuestProgressCheck', i, 'Name')
             tempclassname = dictionary.ReplaceDicIDInCompStr(tempclassname);
     
-            if string.find(GetClassStringByIndex('QuestProgressCheck', i, 'ClassName'), search_word) ~= nil or string.find(tempclassname, search_word) ~= nil then
+            if string.find(string.upper(GetClassStringByIndex('QuestProgressCheck', i, 'ClassName')), search_word) ~= nil or string.find(string.upper(tempclassname), search_word) ~= nil then
                 quest_list[x] = {}
                 quest_list[x][1] = GetClassStringByIndex('QuestProgressCheck', i, 'ClassName');
                 quest_list[x][2] = GetClassStringByIndex('QuestProgressCheck', i, 'Name');

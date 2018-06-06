@@ -89,18 +89,26 @@ function GET_STAR_TXT(imgSize, count, obj, isEquiped)
 	    if obj ~= nil and transcend > 0 then
 	        gradeString = gradeString .. string.format("{img star_mark3 %d %d}", imgSize, imgSize);
 		else
-		gradeString = gradeString .. string.format("{img star_mark %d %d}", imgSize, imgSize);
-	end
+			if obj ~= nil and obj.ToolTipScp == 'LEGEND_BOSSCARD' then
+				gradeString = gradeString .. string.format("{img mon_legendstar %d %d}", imgSize, imgSize);
+			else
+				gradeString = gradeString .. string.format("{img star_mark %d %d}", imgSize, imgSize);
+			end
+		end
 	end
 
 	return gradeString;
 end
 
-function GET_STAR_TXT_REDUCED(imgSize, count, removeCount)
+function GET_STAR_TXT_REDUCED(imgSize, obj, count, removeCount)
     local transcend = 0;        
 	local gradeString = "";
 	for i = 1 , count - removeCount do
-    	gradeString = gradeString .. string.format("{img star_mark %d %d}", imgSize, imgSize);
+		if obj ~= nil and obj.ToolTipScp == 'LEGEND_BOSSCARD' then
+			gradeString = gradeString .. string.format("{img mon_legendstar %d %d}", imgSize, imgSize);
+		else
+			gradeString = gradeString .. string.format("{img star_mark %d %d}", imgSize, imgSize);
+		end
 	end	
 	for i = 1 , removeCount do
 	   gradeString = gradeString .. string.format("{img star_mark2 %d %d}", imgSize, imgSize);

@@ -392,13 +392,79 @@ function SCR_ORSHA_COLLECTION_SHOP_DIALOG(self, pc)
 --    local select = ShowSelDlg(pc, 0, 'ORSHA_COLLECTION_SHOP_basic01', ScpArgMsg('COLLECTION_SHOP_OPEN'), ScpArgMsg('CHUSEOK_EVENT_MSG1'), msgBig, ScpArgMsg('Auto_DaeHwa_JongLyo'))
 --    local select = ShowSelDlg(pc, 0, 'ORSHA_COLLECTION_SHOP_basic01', ScpArgMsg('COLLECTION_SHOP_OPEN'), ev160929, ScpArgMsg('Auto_DaeHwa_JongLyo'))
 --    local select = ShowSelDlg(pc, 0, 'ORSHA_COLLECTION_SHOP_basic01', ScpArgMsg('COLLECTION_SHOP_OPEN'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
-    local select = ShowSelDlg(pc, 0, 'ORSHA_COLLECTION_SHOP_basic01', ScpArgMsg('COLLECTION_SHOP_OPEN'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
-    if select == 1 then
-        SendAddOnMsg(pc, "COLLECTION_UI_OPEN", "", 0);
-		REGISTERR_LASTUIOPEN_POS_SERVER(pc,"collection")
-	end
+--    local select = ShowSelDlg(pc, 0, 'ORSHA_COLLECTION_SHOP_basic01', ScpArgMsg('COLLECTION_SHOP_OPEN'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
+--    if select == 1 then
+--        SendAddOnMsg(pc, "COLLECTION_UI_OPEN", "", 0);
+--		REGISTERR_LASTUIOPEN_POS_SERVER(pc,"collection")
+--	else select == 2 then
+--	    local select2 = ShowSelDlg(pc, 0, 'COLLECT_REWARD_ITEM_CHECK', ScpArgMsg('YES'), ScpArgMsg('NO'))
+--	    if select2 == 1 then
+--	        
+--	end
+    COMMON_QUEST_HANDLER(self,pc)
 end
 
+function SCR_ORSHA_COLLECTION_SHOP_NORMAL_1(self,pc)
+    SendAddOnMsg(pc, "COLLECTION_UI_OPEN", "", 0);
+	REGISTERR_LASTUIOPEN_POS_SERVER(pc,"collection")
+end
+
+
+function SCR_ORSHA_COLLECTION_SHOP_NORMAL_2(self,pc)
+    local select2 = ShowSelDlg(pc, 0, 'COLLECT_REWARD_ITEM_FLOANA', ScpArgMsg('Yes'), ScpArgMsg('No'))
+    if select2 == 1 then
+        local col_List, col_Cnt = GetClassList("Collection")
+        local aObj = GetAccountObj(pc)
+        if col_Cnt ~= 0 then
+            local i
+            local list = {} -- Column l
+            local reward_List = {}
+            local reward_Index = {}
+            local collection_Name
+            for i = 1, col_Cnt do
+                list[i] = GetClassByIndexFromList(col_List, i-1) 
+                if IsCollectionVitality(pc, list[i].ClassName) == 1 then
+                    local rewardItem = TryGetProp(list[i], "AccGiveItemList");
+                    if rewardItem ~= "None" then
+                        local accList = SCR_STRING_CUT(rewardItem) -- acclist = AccGiveItemList
+                        if aObj[accList[1]] ~= accList[2] then
+                            reward_Index[#reward_Index +1] = list[i].Name -- add list in collect name
+                            reward_List[#reward_List +1] = list[i].ClassName -- add list in collect name
+                        end
+                    end
+                end
+            end
+            if #reward_Index == 0 then
+                ShowOkDlg(pc, "COLLECT_REWARD_ITEM_NOTHING_FLOANA")
+            elseif #reward_Index ~= 0 then
+                local j
+                local sel
+                for j = 0, math.floor(#reward_Index/10) do
+                    if j ~= math.floor(#reward_Index/10) then
+                        sel = ShowSelDlg(pc, 0, 'COLLECT_REWARD_CHOOSE_COLLECTION_FLOANA', reward_Index[10*j+1], reward_Index[10*j+2], reward_Index[10*j+3], reward_Index[10*j+4], reward_Index[10*j+5], reward_Index[10*j+6], reward_Index[10*j+7], reward_Index[10*j+8], reward_Index[10*j+9], reward_Index[10*j+10], ScpArgMsg('COLLECT_REWARD_ITEM_NEXT_PAGE'))
+                        if sel < 11 then
+                            collection_Name = reward_List[10*j+sel]
+                        elseif sel == nil then
+                            return
+                        end
+                    else
+                        sel = ShowSelDlg(pc, 0, 'COLLECT_REWARD_CHOOSE_COLLECTION_FLOANA', reward_Index[10*j+1], reward_Index[10*j+2], reward_Index[10*j+3], reward_Index[10*j+4], reward_Index[10*j+5], reward_Index[10*j+6], reward_Index[10*j+7], reward_Index[10*j+8], reward_Index[10*j+9], reward_Index[10*j+10], ScpArgMsg('COLLECT_REWARD_END'))
+                        if sel < 11 then
+                            collection_Name = reward_List[10*j+sel]
+                        elseif sel == nil then
+                            return
+                        end
+                    end
+                end
+                if sel < 11 and sel ~= nil then
+                    SCR_COLLECTION_REWARD_CHECK(self, pc, collection_Name)
+                elseif j == math.floor(#reward_List/10) and sel2 == 11 then
+                    return
+                end
+            end
+        end
+    end
+end
 
 --	elseif select == 2 then
 --	    SCR_EV161215_SEED_NPC_DIALOG(self, pc)
@@ -426,6 +492,10 @@ end
 --	    SCR_CHUSEOK_EVENT_EXCHANGE2(pc)
 --    end
 --end
+
+function SCR_ORSHA_COLLECTION_SHOP_NORMAL_3(self,pc)
+    ShowTradeDlg(pc, 'Magic_Society', 5);
+end
 
 function SCR_ORSHA_JOURNEY_SHOP_DIALOG(self, pc)
     COMMON_QUEST_HANDLER(self, pc)

@@ -101,6 +101,7 @@ function SET_RATE_TABLE()
     
     rateTable.AddAtkDamage = 0.0;
     rateTable.DamageRate = 0.0;
+    rateTable.DamageReductionRate = { };	-- 피해 감소, AddDamageReductionRate(rateTable, value)로 사용
     rateTable.MultipleHitDamageRate = 0.0;
     rateTable.addDamageRate = 0.0;	-- DamageRate를 바꾸는 것이 아니라, True대미지나, 속성 대미지와 같은 고정 대미지를 줄이는 기능 --
     rateTable.AddTrueDamage = 0.0;
@@ -171,6 +172,7 @@ function RESET_RATE_TABLE(rateTable)
     
     rateTable.AddAtkDamage = 0.0;
     rateTable.DamageRate = 0.0;
+    rateTable.DamageReductionRate = { };	-- 피해 감소, AddDamageReductionRate(rateTable, value)로 사용
     rateTable.MultipleHitDamageRate = 0.0;
     rateTable.addDamageRate = 0.0;	-- DamageRate를 바꾸는 것이 아니라, True대미지나, 속성 대미지와 같은 고정 대미지를 줄이는 기능 --
     rateTable.AddTrueDamage = 0.0;
@@ -229,6 +231,14 @@ function RESET_RATE_TABLE(rateTable)
     
     -- Skill Factor
     rateTable.AddSkillFator = 0;
+end
+
+function AddDamageReductionRate(rateTable, value)
+	if rateTable == nil then
+		return;
+	end
+	
+	table.insert(rateTable.DamageReductionRate, value);
 end
 
 function IS_PC(actor)
@@ -434,10 +444,9 @@ end
 
 function GetMinMaxATK(self, skill)
     local skillOwner = self;
-    if IsBuffApplied(self, 'Bunshin_Buff') == 'YES' then -- 시노비 분신의 경우 주인의 최대/최소 공격력을 따라가게
-        skillOwner = GetTopOwner(self);
-    end
-
+--    if IsBuffApplied(self, 'Bunshin_Buff') == 'YES' then -- 시노비 분신의 경우 주인의 최대/최소 공격력을 따라가게
+--    end
+    
     if skill.ClassType == 'Melee' or skill.ClassType == 'Missile'  then
         return skillOwner.MINPATK , skillOwner.MAXPATK;
     else
@@ -726,7 +735,22 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
             atkDefResult = 0;
         else
             local trueRateSum = 1 + rateTable.AttributeRate + rateTable.AttackTypeRate;
-            atkDefResult = atk * trueRateSum;
+            
+            -- 상태이상에 따른 기본 증댐 처리 --
+            local conditionRate = SCR_CONDITION_RATE_CALC(self, form, skill);
+            
+            -- 속성상성 증/감댐과 상태이상에 따른 증/감댐이 복리 연산 --
+            local attributeConditionRate = trueRateSum * conditionRate;
+            if attributeConditionRate > 2 then
+            	attributeConditionRate = 2;	-- 속성상성과 상태이상 증/감댐은 복리지만 최대 200% 제한 --
+            end
+            
+            if attributeConditionRate < 0.5 then
+            	attributeConditionRate = 0.5	-- 속성상성과 상태이상 증/감댐은 복리지만 최소 50% 제한 --
+            end
+            
+            atkDefResult = atkDefResult * attributeConditionRate;
+            
             addDamage = addDamage + rateTable.AddTrueDamage;
         end
     else
@@ -780,12 +804,39 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
             end
             
             local cardDamageRateBM = GetExProp(from, "CARD_DAMAGE_RATE_BM") / 100
-            local rateSum = 1 + rateTable.AttributeRate + rateTable.DamageRate + armorAbilRate + abilRateDamage + itemRateDamage + cardDamageRateBM;
+--            local rateSum = 1 + rateTable.AttributeRate + rateTable.DamageRate + armorAbilRate + abilRateDamage + itemRateDamage + cardDamageRateBM;
+            local rateSum = 1 + rateTable.DamageRate + armorAbilRate + abilRateDamage + itemRateDamage + cardDamageRateBM;
             if rateSum < 0.1 then
                 rateSum = 0.1;
             end
 			
-            atkDefResult = atkDefResult * rateSum;
+            atkDefResult = atkDefResult * rateSum;	-- 기본 증댐 처리 --
+            
+            if rateTable.DamageReductionRate ~= nil and #rateTable.DamageReductionRate > 0 then
+            	for i = 1, #rateTable.DamageReductionRate do
+	            	atkDefResult = atkDefResult - (atkDefResult * rateTable.DamageReductionRate[i]);	-- 감댐 복리 계산 --
+	            	
+			        if atkDefResult < 1 then
+			            atkDefResult = 0;
+			        end
+	            end
+            end
+            
+            -- 상태이상에 따른 기본 증댐 처리 --
+            local conditionRate = SCR_CONDITION_RATE_CALC(self, form, skill);
+            
+            -- 속성상성 증/감댐과 상태이상에 따른 증/감댐이 복리 연산 --
+            local attributeConditionRate = (1 + rateTable.AttributeRate) * conditionRate;
+            if attributeConditionRate > 2 then
+            	attributeConditionRate = 2;	-- 속성상성과 상태이상 증/감댐은 복리지만 최대 200% 제한 --
+            end
+            
+            if attributeConditionRate < 0.5 then
+            	attributeConditionRate = 0.5	-- 속성상성과 상태이상 증/감댐은 복리지만 최소 50% 제한 --
+            end
+            
+            atkDefResult = atkDefResult * attributeConditionRate;
+            
             addDamage = addDamage + rateTable.AddTrueDamage + itemAddDamage;
         end
     end
@@ -851,13 +902,20 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
     ret.Damage = math.floor(finalDamage);
     
     --TOP오너가 PC 일 때, 팩션 체크해서 데미지 반타작해주자    
-    local attackerTopOwner = GetTopOwner(from)
-    local TopOwner = GetTopOwner(self)
+    local attackerTopOwner = GetTopOwner(from);
+    local TopOwner = GetTopOwner(self);
     
     if IS_PC(attackerTopOwner) == true and IS_PC(TopOwner) == true then
         if IsSameActor(self, from) == 'NO' then
             if skill.ClassType ~= 'AbsoluteDamage' then
-                finalDamage = math.ceil(finalDamage * 0.2);
+                local reducedDamageRateByPC = 0.8;
+                local cardReductionRate = GetExProp(self, "DAMAGE_REDUCTION_RATE_FROM_PC");
+                if cardReductionRate == nil then
+                    cardReductionRate = 0;
+                end
+                
+                reducedDamageRateByPC = (1 - reducedDamageRateByPC) * (1 - (cardReductionRate/100));
+                finalDamage = math.ceil(finalDamage * reducedDamageRateByPC);
                 ret.Damage = math.floor(finalDamage);
             end
         end
@@ -981,6 +1039,29 @@ function SCR_ABIL_DAMAGE_CALC(self, from, skill, rateTable, ret)
 	    end
     end
     
+	local abilPyromancer8 = GetAbility(from, "Pyromancer8")
+    if abilPyromancer8 ~= nil then
+        local rItem = GetEquipItem(from, 'RH');
+        if rItem ~= nil and rItem.ClassType == "THStaff" then
+            local attribute = TryGetProp(skill, "Attribute");
+            if attribute == "Fire" then
+            	local abilAddDamage = abilPyromancer8.Level * 0.05
+                abilRateDamage = abilRateDamage + abilAddDamage;
+            end
+        end
+    end
+    
+	local abilCryomancer5 = GetAbility(from, "Cryomancer5")
+    if abilCryomancer5 ~= nil then
+        local rItem = GetEquipItem(from, 'RH');
+        if rItem ~= nil and rItem.ClassType == "Staff" then
+            local attribute = TryGetProp(skill, "Attribute");
+            if attribute == "Ice" then
+            	local abilAddDamage = abilCryomancer5.Level * 0.05
+                abilRateDamage = abilRateDamage + abilAddDamage;
+            end
+        end
+    end
     
     
     return abilRateDamage;
@@ -1338,6 +1419,10 @@ end
 function GET_LIMIT_MAX_DAMAGE(self, attacker, skill, ret)
     -- PC : 777,777, 오라클의 트위스트 오브 페이트는 1,555,555
     -- MON : 777,777
+    
+    if GetExProp(self, 'UNLIMIT_MAX_DAMAGE') == 1 then
+    	return 2147483647;	-- 표현 가능한 최대값 인트 범위 --
+    end
     
     local defaultMaxDamage = 777777;
     local overMaxDamage = 1555555;
@@ -1871,9 +1956,6 @@ end
 function Reflect_Sync(self, from, skill, dmg, ret)
     sleep(250)
     DamageReflect(self, from, 'Wizard_ReflectShield', dmg, "Melee", "Magic", "TrueDamage", HIT_REFLECT, HITRESULT_BLOW);
---    TakeDamage(self, from, 'Wizard_ReflectShield', dmg, "Melee", "Magic", "TrueDamage", HIT_REFLECT, HITRESULT_BLOW);
-    --PlaySound(self, "shield_block")
-    --SkillTextEffect(from, self, from, "SHOW_REFLECTION", nil);
 end
 
 function CARD_REFLECT_SYNC(self, from, skill, dmg, ret)
@@ -2174,9 +2256,6 @@ function SCR_ATTRIBUTE_DAMAGE_CALC(self, from, ret, skill, rateTable)
             end
         end
         
-        if IsBuffApplied(from, "Drain_Buff") == "YES" then
-            atkAttribute = 'Dark';
-        end
     end
     
     local addDamage = 0;
@@ -2198,6 +2277,17 @@ function SCR_ATTRIBUTE_DAMAGE_CALC(self, from, ret, skill, rateTable)
             end
         end
         
+        if rate < 0 then
+	        local attributePenaltyReductionRate = GetExProp(from, 'CARD_ATTRIBUTE_PENALTY_REDUCTION');
+	        if attributePenaltyReductionRate == nil then
+	        	attributePenaltyReductionRate = 0;
+	        end
+	        
+	        rate = rate - (rate * (attributePenaltyReductionRate / 100));
+	    end
+        
+        
+        
         rateTable.AttributeRate = (rate / 100);
         addDamage = rate * ret.Damage / 100;
         if addDamage ~= 0 then
@@ -2208,33 +2298,31 @@ function SCR_ATTRIBUTE_DAMAGE_CALC(self, from, ret, skill, rateTable)
     cls = GetClass('skill_attribute', atkType);
     ret.AtkType = cls.ClassID;
     if cls ~= nil and armorMaterial ~= 'None' and cls[armorMaterial] ~= 0 then
---        if skill.ClassType ~= 'Missile' then
-            local clsRate = cls[armorMaterial]
-            local rate = 0;
-            
-            rate = clsRate;
-            
-            if rate > 0 then
-                if IS_PC(self) then
-                    local atkTypeDefense = TryGetProp(self, 'Def'..atkType);
-                    if atkTypeDefense == nil then
-                        atkTypeDefense = 0;
-                    end
-                    
-                    rate = rate - (atkTypeDefense / 2);
-                    if rate < 0 then
-                        rate = 0;
-                    end
+        local clsRate = cls[armorMaterial]
+        local rate = 0;
+        
+        rate = clsRate;
+        
+        if rate > 0 then
+            if IS_PC(self) then
+                local atkTypeDefense = TryGetProp(self, 'Def'..atkType);
+                if atkTypeDefense == nil then
+                    atkTypeDefense = 0;
+                end
+                
+                rate = rate - (atkTypeDefense / 2);
+                if rate < 0 then
+                    rate = 0;
                 end
             end
-            rateTable.AttackTypeRate = (rate / 100);
-            addDamage = (rate * ret.Damage / 100);
-            
-            if addDamage ~= 0 then
-                SkillTextEffect(nil, self, from, 'SHOW_SKILL_ATTRIBUTE', rate, nil, atkType);
-                ret.EffectType = HITEFT_NICE;
-            end
---        end
+        end
+        rateTable.AttackTypeRate = (rate / 100);
+        addDamage = (rate * ret.Damage / 100);
+        
+        if addDamage ~= 0 then
+            SkillTextEffect(nil, self, from, 'SHOW_SKILL_ATTRIBUTE', rate, nil, atkType);
+            ret.EffectType = HITEFT_NICE;
+        end
     end
     
 --    cls = GetClass('skill_attribute', clsType);
@@ -2693,24 +2781,7 @@ function SCR_SKILL_SPECIAL_CALC(self, from, ret, skill, rateTable)
     if IsBuffApplied(self, 'Cleric_Bless_Debuff') == 'YES' and skill.Attribute == 'Holy' then
         ret.Damage = ret.Damage + (ret.Damage * 0.4);
     end
-    
-    
-    if GetBuffByProp(self, 'Keyword', 'Freeze') ~= nil then
-        if skill.AttackType == 'Strike' then
-            --ret.Damage = ret.Damage + (ret.Damage * 0.4);
-            rateTable.DamageRate = rateTable.DamageRate + 0.4;
-        elseif IS_PC(from) == true and IsUsingNormalSkill(from) == 1 then
-            local equipWeapon = GetEquipItem(from, 'RH');
-            
-                if equipWeapon ~= nil and IS_NO_EQUIPITEM(equipWeapon) == 0 then
-                    if equipWeapon.AttackType == 'Strike' then
-                        --ret.Damage = ret.Damage + (ret.Damage * 0.4);
-                        rateTable.DamageRate = rateTable.DamageRate + 0.4;
-                    end
-                end
-        end
-    end
-        
+	
     if self.ClassName == 'pavise' then
         ret.ResultType = HITRESULT_BLOCK;
         self.HPCount = self.HPCount - 1
@@ -3247,6 +3318,33 @@ function SCR_ADD_PC_SKLFACTOR_CALC(self, from, skill, rateTable, ret)
     end
     
     return addFactor;
+end
+
+function SCR_CONDITION_RATE_CALC(self, form, skill)
+	local conditionRate = 1.0;
+	
+	local attackType = GET_SKILL_ATTACKTYPE(skill);
+	local attribute = TryGetProp(skill, 'Attribute');
+	
+	if GetBuffByProp(self, 'Keyword', 'Freeze') ~= nil then
+		if attribute == 'Lightning' then
+			conditionRate = conditionRate + 0.5;
+		end
+	end
+	
+	if GetBuffByProp(self, 'Keyword', 'Petrify') ~= nil then
+		if attribute == 'Fire' then
+			conditionRate = conditionRate + 0.5;
+		end
+	end
+	
+	if GetBuffByProp(self, 'Keyword', 'Curse') ~= nil then
+		if attribute == 'Dark' then
+			conditionRate = conditionRate + 0.5;
+		end
+	end
+	
+	return conditionRate;
 end
 
 function SCR_RESET_SKILL_AFTER_HIT_PROP(attacker)

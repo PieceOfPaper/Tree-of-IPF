@@ -213,7 +213,7 @@ end
 function SCR_CARDCHECK_ATTACKTYPE_EQUIP(self, target, obj, TypeValue, arg1, arg2, arg3, arg4)
     if self ~= nil and TypeValue ~= nil then
         local equipitem = GetEquipItem(self, 'RH')
-        local atktype = TryGetProp(equipitem, "AttackType")
+        local equipType = TryGetProp(equipitem, "EqpType")
 
         if tonumber(arg2) ~= nil then
             arg2 = tonumber(arg2)
@@ -222,7 +222,8 @@ function SCR_CARDCHECK_ATTACKTYPE_EQUIP(self, target, obj, TypeValue, arg1, arg2
         if arg2 == 'None' then
             arg2 = TypeValue;
         end
-        if arg1 == atktype then
+        
+        if arg1 == equipType then
             arg2 = math.floor(arg2)
             if arg2 >= IMCRandom(1, 100) then
                 return 1;
@@ -392,6 +393,28 @@ function SCR_CARDCHECK_MONSIZE_COOLDOWN(self, target, obj, TypeValue, arg1, arg2
             end
             
             if TryGetProp(target, 'Size') == arg1 then
+                if arg2 >= IMCRandom(1, 100) then
+                    return 1;
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+function SCR_CARDCHECK_MONRACE_DUAL(self, target, obj, TypeValue, arg1, arg2, arg3, arg4)
+    local arg1List = StringSplit(arg1, "/");
+    if self ~= nil and target ~= nil and TypeValue ~= nil and arg1 ~= nil then
+        if tonumber(arg2) ~= nil then
+            arg2 = tonumber(arg2)
+        end
+            
+        if arg2 == 'None' then
+            arg2 = TypeValue;
+        end
+        
+        for i = 1, #arg1List do     
+            if TryGetProp(target, 'MonRank') == arg1List[i] or TryGetProp(target, 'Size') == arg1List[i]then
                 if arg2 >= IMCRandom(1, 100) then
                     return 1;
                 end

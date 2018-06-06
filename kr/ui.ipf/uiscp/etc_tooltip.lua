@@ -103,7 +103,8 @@ function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	
 	--무게
 	local weightRichtext = GET_CHILD(CSet, "weight_text", "ui::CRichText");
-	weightRichtext:SetTextByKey('weight',invitem.Weight);
+	local weightString = string.format("%.1f", invitem.Weight)
+	weightRichtext:SetTextByKey('weight', weightString);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight())
 	return CSet:GetHeight();

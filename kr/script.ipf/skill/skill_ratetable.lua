@@ -1,21 +1,5 @@
--- skill_ratetable.lua
+﻿-- skill_ratetable.lua
 -- FINAL_DAMAGECALC() -> SCR_SKILL_RATETABLE_UPDATE(self, from, skill, atk, ret, rateTable);
-
-function SCR_SKILL_RATETABLE_Magic_Attack(self, from, skill, atk, ret, rateTable)
-    if IsBuffApplied(from, 'Drain_Buff') == 'YES' then
-        local skl = GetSkill(from, 'Warlock_Drain')
-        local sklLv = skl.Level
-        rateTable.DamageRate = rateTable.DamageRate + sklLv * 0.05;
-    end
-end
-
-function SCR_SKILL_RATETABLE_Magic_Attack_TH(self, from, skill, atk, ret, rateTable)
-    if IsBuffApplied(from, 'Drain_Buff') == 'YES' then
-        local skl = GetSkill(from, 'Warlock_Drain')
-        local sklLv = skl.Level
-        rateTable.DamageRate = rateTable.DamageRate + sklLv * 0.05;
-    end
-end
 
 function SCR_SKILL_RATETABLE_Ranger_SpiralArrow(self, from, skill, atk, ret, rateTable)
 
@@ -178,6 +162,10 @@ function SCR_SKILL_RATETABLE_Wizard_EarthQuake(self, from, skill, atk, ret, rate
         local hitCount = 2
         rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 1;
         SetMultipleHitCount(ret, hitCount);
+    end
+    
+	if TryGetProp(self, 'MoveType') == 'Normal' or TryGetProp(self, 'MoveType') == 'Holding' or IS_PC(self) == true then
+    	rateTable.DamageRate = rateTable.DamageRate + 1;
     end
 end
 
@@ -421,6 +409,8 @@ end
 
 
 function SCR_SKILL_RATETABLE_Peltasta_RimBlow(self, from, skill, atk, ret, rateTable)
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
     
     if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
         local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo8');
@@ -444,8 +434,8 @@ function SCR_SKILL_RATETABLE_Peltasta_RimBlow(self, from, skill, atk, ret, rateT
 end
 
 function SCR_SKILL_RATETABLE_Peltasta_ShieldLob(self, from, skill, atk, ret, rateTable)
-    
---  rateTable.DamageRate = rateTable.DamageRate - 0.2;
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
     
     if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
         local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo8');
@@ -456,6 +446,8 @@ function SCR_SKILL_RATETABLE_Peltasta_ShieldLob(self, from, skill, atk, ret, rat
 end
 
 function SCR_SKILL_RATETABLE_Peltasta_ButterFly(self, from, skill, atk, ret, rateTable)
+    local addRate = 1;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
     
     if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
         local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo13');
@@ -466,6 +458,8 @@ function SCR_SKILL_RATETABLE_Peltasta_ButterFly(self, from, skill, atk, ret, rat
 end
 
 function SCR_SKILL_RATETABLE_Peltasta_UmboThrust(self, from, skill, atk, ret, rateTable)
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
     
     if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
         local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo8');
@@ -476,6 +470,8 @@ function SCR_SKILL_RATETABLE_Peltasta_UmboThrust(self, from, skill, atk, ret, ra
 end
 
 function SCR_SKILL_RATETABLE_Rodelero_ShieldCharge(self, from, skill, atk, ret, rateTable)
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
     
     if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
         local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo12');
@@ -486,7 +482,9 @@ function SCR_SKILL_RATETABLE_Rodelero_ShieldCharge(self, from, skill, atk, ret, 
 end
 
 function SCR_SKILL_RATETABLE_Rodelero_TargeSmash(self, from, skill, atk, ret, rateTable)
-
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
+    
     if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
         local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo12');
         local addDamageRate = abilLevel * 0.15;
@@ -511,6 +509,8 @@ function SCR_SKILL_RATETABLE_Rodelero_TargeSmash(self, from, skill, atk, ret, ra
 end
 
 function SCR_SKILL_RATETABLE_Rodelero_ShieldPush(self, from, skill, atk, ret, rateTable)
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
     
     if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
         local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo12');
@@ -521,6 +521,8 @@ function SCR_SKILL_RATETABLE_Rodelero_ShieldPush(self, from, skill, atk, ret, ra
 end
 
 function SCR_SKILL_RATETABLE_Rodelero_ShootingStar(self, from, skill, atk, ret, rateTable)
+    local addRate = 1;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
     
     if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
         local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo13');
@@ -531,6 +533,8 @@ function SCR_SKILL_RATETABLE_Rodelero_ShootingStar(self, from, skill, atk, ret, 
 end
 
 function SCR_SKILL_RATETABLE_Rodelero_ShieldShoving(self, from, skill, atk, ret, rateTable)
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
     
     if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
         local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo12');
@@ -541,6 +545,8 @@ function SCR_SKILL_RATETABLE_Rodelero_ShieldShoving(self, from, skill, atk, ret,
 end
 
 function SCR_SKILL_RATETABLE_Rodelero_ShieldBash(self, from, skill, atk, ret, rateTable)
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
     
     if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
         local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo12');
@@ -561,7 +567,9 @@ function SCR_SKILL_RATETABLE_Rogue_Vendetta(self, from, skill, atk, ret, rateTab
 end
 
 function SCR_SKILL_RATETABLE_Peltasta_UmboBlow(self, from, skill, atk, ret, rateTable)
-
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
+    
     if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
         local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo8');
         local addDamageRate = abilLevel * 0.15;
@@ -1657,6 +1665,51 @@ function SCR_SKILL_RATETABLE_Falconer_Pheasant(self, from, skill, atk, ret, rate
 	end
 end
 
+function SCR_SKILL_RATETABLE_Psychokino_PsychicPressure(self, from, skill, atk, ret, rateTable)
+	if IS_PC(self) == false then
+		if self.RaceType == "Paramune" then
+			rateTable.DamageRate = rateTable.DamageRate + 0.5
+		end
+	end
+end
+
+
+function SCR_SKILL_RATETABLE_Psychokino_Telekinesis(self, from, skill, atk, ret, rateTable)
+	if IS_PC(self) == false then
+		if self.RaceType == "Paramune" then
+			rateTable.DamageRate = rateTable.DamageRate + 0.5
+		end
+	end
+end
+
+
+function SCR_SKILL_RATETABLE_Psychokino_MagneticForce(self, from, skill, atk, ret, rateTable)
+	if IS_PC(self) == false then
+		if self.RaceType == "Paramune" then
+			rateTable.DamageRate = rateTable.DamageRate + 0.5
+		end
+	end
+end
+
+
+function SCR_SKILL_RATETABLE_Psychokino_GravityPole(self, from, skill, atk, ret, rateTable)
+	if IS_PC(self) == false then
+		if self.RaceType == "Paramune" then
+			rateTable.DamageRate = rateTable.DamageRate + 0.5
+		end
+	end
+end
+
+
+function SCR_SKILL_RATETABLE_Psychokino_HeavyGravity(self, from, skill, atk, ret, rateTable)
+	if IS_PC(self) == false then
+		if self.RaceType == "Paramune" then
+			rateTable.DamageRate = rateTable.DamageRate + 0.5
+		end
+	end
+end
+
+
 function SCR_SKILL_RATETABLE_NakMuay_Attack(self, from, skill, atk, ret, rateTable)
     SetMultipleHitCount(ret, 2)
 end
@@ -1674,3 +1727,70 @@ function SCR_SKILL_RATETABLE_NakMuay_KhaoLoi(self, from, skill, atk, ret, rateTa
         rateTable.DamageRate = rateTable.DamageRate + 0.5
     end
 end
+
+function SCR_SKILL_RATETABLE_RuneCaster_Tiwaz(self, from, skill, atk, ret, rateTable)
+    if TryGetProp(self, "RaceType") == "Velnias" then
+        rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 1;
+		SetMultipleHitCount(ret, 2);
+    end
+end
+
+function SCR_SKILL_RATETABLE_Shinobi_Kunai(self, from, skill, atk, ret, rateTable)
+    local addCrt = from.CRTHR
+    local abilShinobi9 = GetAbility(from, "Shinobi9")
+    if abilShinobi9 ~= nil and TryGetProp(abilShinobi9, "ActiveState") == 1 then
+        rateTable.AddCrtHR = rateTable.AddCrtHR + addCrt
+    end
+    
+    if IS_REAL_PC(from) == "NO" then
+        if GetExProp(from, "BUNSIN") == 1 then
+            rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 1;
+    		SetMultipleHitCount(ret, 2);
+        end
+    end
+end
+
+function SCR_SKILL_RATETABLE_Rodelero_Slithering(self, from, skill, atk, ret, rateTable)
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
+end
+
+function SCR_SKILL_RATETABLE_Corsair_DustDevil(self, from, skill, atk, ret, rateTable)
+    local addLHRate = 0.6;
+    local addRhRate = -0.2;
+    SCR_ADD_ATK_BY_SUBWEAPON(self, from, skill, atk, ret, rateTable, addLHRate, addRhRate);
+end
+
+function SCR_SKILL_RATETABLE_Murmillo_ScutumHit(self, from, skill, atk, ret, rateTable)
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
+end
+
+function SCR_SKILL_RATETABLE_Murmillo_ShieldTrain(self, from, skill, atk, ret, rateTable)
+    local addRate = 0.3;
+    SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);
+end
+
+function SCR_SKILL_RATETABLE_Rancer_Joust(self, from, skill, atk, ret, rateTable)
+    local hitCount = 2
+    rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + (hitCount - 1);
+    SetMultipleHitCount(ret, hitCount);
+end
+
+function SCR_SKILL_RATETABLE_Corsair_HexenDropper(self, from, skill, atk, ret, rateTable)
+    local addLHRate = 0.6;
+    local addRhRate = -0.2;
+    SCR_ADD_ATK_BY_SUBWEAPON(self, from, skill, atk, ret, rateTable, addLHRate, addRhRate);
+end
+
+function SCR_SKILL_RATETABLE_Corsair_PistolShot(self, from, skill, atk, ret, rateTable)
+    if ret.Damage >= 1 then
+        local maxRatio = IMCRandom(1, 100);
+        local ratio = 15
+        if ratio >= maxRatio then
+            SetExProp(self, "IS_TAKE_CRITICAL", 1)
+        end
+    end
+end
+
+

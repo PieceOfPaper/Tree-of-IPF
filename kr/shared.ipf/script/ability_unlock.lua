@@ -105,3 +105,55 @@ function UNLOCK_FALCONER20(pc, sklName, limitLevel, abilIES)
 	
 	return "LOCK_GRADE";
 end
+
+function UNLOCK_SORCERER16(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char2_6');
+	local sklSummoning = GetSkill(pc, "Sorcerer_Summoning")
+	if sklSummoning ~= nil and sklSummoning.LevelByDB >= 11 and jobGrade ~= nil and jobGrade >= 3 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
+
+
+function UNLOCK_NECROMANCER24(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char2_9');
+	local sklEnchantFire = GetSkill(pc, "Pyromancer_EnchantFire")
+	if sklEnchantFire ~= nil and sklEnchantFire.LevelByDB >= 6 and jobGrade ~= nil and jobGrade >= 2 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
+
+
+function UNLOCK_NECROMANCER25(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char2_9');
+	local sklIceBolt = GetSkill(pc, "Cryomancer_IceBolt")
+	if sklIceBolt ~= nil and sklIceBolt.LevelByDB >= 6 and jobGrade ~= nil and jobGrade >= 3 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
+
+function UNLOCK_PELTASTA30(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char1_3');
+	local sklIceBolt = GetSkill(pc, "Peltasta_SwashBuckling")
+	if sklIceBolt ~= nil and sklIceBolt.LevelByDB >= 6 and jobGrade ~= nil and jobGrade >= 2 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
+
+function UNLOCK_WIZARD25(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char2_1');
+	local skillSleep = GetSkill(pc, "Wizard_Sleep")
+	if skillSleep ~= nil and skillSleep.LevelByDB >= 6 and jobGrade ~= nil and jobGrade >= 2 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end

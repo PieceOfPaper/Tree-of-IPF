@@ -1,7 +1,7 @@
 --item_custom_tx.lua
 
 
-function GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add, achieveInfo, giveWay, sObjInfo_set, exp, jexp, dungeoncount)
+function GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add, achieveInfo, giveWay, sObjInfo_set, exp, jexp, dungeoncount, tokenBonus)
     local ret
     local pcetc
     if dungeoncount == 'YES' then
@@ -65,6 +65,11 @@ function GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add,
         	for i = 1,#giveItem do
         	    if giveItem[i][2] > 0 then
         	        local giveItemCount = giveItem[i][2]
+        	        if tokenBonus ~= nil and tokenBonus > 0 then
+        	            if IsPremiumState(self, ITEM_TOKEN) == 1 then
+            	            giveItemCount = giveItemCount + tokenBonus
+            	        end
+        	        end
         	        if dungeoncount == 'YES' and pcetc ~= nil then
         	            giveItemCount = giveItemCount * (pcetc.IndunMultipleRate + 1)
         	        end
@@ -105,7 +110,7 @@ function GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add,
     return ret
 end
 
-function GIVE_TAKE_SOBJ_ACHIEVE_TX(self, give_list, take_list, sobj_list_add, achieve_list, giveWay, sobj_list_set, exp, jexp, dungeoncount)
+function GIVE_TAKE_SOBJ_ACHIEVE_TX(self, give_list, take_list, sobj_list_add, achieve_list, giveWay, sobj_list_set, exp, jexp, dungeoncount, tokenBonus)
     local giveItem_temp = SCR_STRING_CUT(give_list)
     local takeItem_temp = SCR_STRING_CUT(take_list)
     local sObjInfo_add_temp = SCR_STRING_CUT(sobj_list_add)
@@ -155,7 +160,7 @@ function GIVE_TAKE_SOBJ_ACHIEVE_TX(self, give_list, take_list, sobj_list_add, ac
         end
     end
     
-    return GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add, achieveInfo, giveWay, sObjInfo_set, exp, jexp, dungeoncount)
+    return GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add, achieveInfo, giveWay, sObjInfo_set, exp, jexp, dungeoncount, tokenBonus)
 end
 
 function GIVE_TAKE_ITEMTABLE_TX(self, giveItem, takeItem, giveWay)
@@ -2535,122 +2540,85 @@ function GIVE_REWARD_MONEY(self, owner, amount, count, range)
 end
 
 function TAKE_GUILD_EVENT_REWARD(pc)
-	
 	local guildObj = GetGuildObj(pc);
-	local eventID = 0;
-
 	if guildObj == nil then
 		SendSysMsg(pc, "DataErrorWithErrorCode{ErrorCode}", 0, "ErrorCode", 'GuildObj');
 		return;
 	end
 
-	if guildObj.GuildInDunFlag == 1 then
-		eventID = guildObj.GuildInDunSelectInfo
-	elseif guildObj.GuildBossSummonFlag == 1 then
-		eventID = guildObj.GuildBossSummonSelectInfo
-	elseif guildObj.GuildRaidFlag == 1 then
-		eventID = guildObj.GuildRaidSelectInfo
-	else
-		SendSysMsg(pc, "DataErrorWithErrorCode{ErrorCode}", 0, "ErrorCode", 'flag');
-		return 0;
+    local isExistEvent = IsExistGuildEvent(guildObj) 
+    if isExistEvent == nil or isExistEvent == 0 then    --길드 이벤트가 등록되어 있는지 확인
+        return;
+    end
+    
+    if GetGuildEventState(guildObj) ~= "Started" then
+        return;
+    end
+
+    local eventID = GetGuildEventID(guildObj)
+    if eventID == nil then
+		SendSysMsg(pc, "DataErrorWithErrorCode{ErrorCode}", 0, "ErrorCode", 'GuildEventID');
+        return;
+    end
+    
+    local eventCls = GetClassByType("GuildEvent", eventID);
+    if eventCls == nil then
+        SendSysMsg(pc, "DataErrorWithErrorCode{ErrorCode}", 0, "ErrorCode", 'List');
+        return;
+    end
+      
+    local eventName = TryGetProp(eventCls, "ClassName");
+    if  eventName == nil then
+        SendSysMsg(pc, "DataErrorWithErrorCode{ErrorCode}", 0, "ErrorCode", 'ClassName');
+        return;        
+    end
+
+    local addExp = 0;
+    local clslist, cnt = GetClassList("reward_guildevent");
+    for i = 0, cnt-1 do
+        local rewardcls = GetClassByIndexFromList(clslist, i)
+        if TryGetProp(rewardcls, "ClassName") == eventCls.ClassName then
+            addExp = TryGetProp(rewardcls, "GiveGuildExp")
+        end
+    end
+
+    if addExp == nil then
+        addExp = 0;
+    end
+    
+    local curLevel = guildObj.Level;
+    if curLevel >= GUILD_MAX_LEVEL then
+        addExp = 0;
+	end
+    
+    local curExp = guildObj.Exp;
+    local nextExp = curExp + addExp;
+	local nextLevel = GET_GUILD_LEVEL_BY_EXP(nextExp);
+    
+    local itemlist, itemcount = SCR_GUILD_EVENT_GIVE_ITEM_LIST(pc, eventCls)
+
+    local tx = TxBegin(pc);
+
+	TxSetPartyProp(tx, PARTY_GUILD, "Exp", nextExp);
+	if curLevel ~= nextLevel then
+		TxSetPartyProp(tx, PARTY_GUILD, "Level", nextLevel);
 	end
 
-	local cls = GetClassByType("GuildEvent", eventID)
-
-	if cls == nil then
-		SendSysMsg(pc, "DataErrorWithErrorCode{ErrorCode}", 0, "ErrorCode", 'List');
-		return;
-	end
-
-	local rewardList ={};
-	local rewardCnt = {};
-	local ratioList = {};
-	local listIndex = 0;
-	local totalRatio = 0;
-	local clslist, cnt = GetClassList("reward_guildevent");
-	
-	for i = 0, cnt-1 do
-		local rewardcls = GetClassByIndexFromList(clslist, i)
-
-		if TryGetProp(rewardcls, "Group") == cls.ClassName then
-
-	        rewardList[listIndex] = rewardcls.ItemName;
-		    rewardCnt[listIndex] = rewardcls.Count;
-			ratioList[listIndex] = rewardcls.Ratio;
-			listIndex = listIndex + 1;
-			totalRatio = totalRatio + rewardcls.Ratio;
-		end
-	end
-	
-	local max = 1
-	
-	if cls.EventType == 'FBOSS' then
-	    max = IMCRandom(1, cls.Cost)
-	end
-	
-	local tx = TxBegin(pc);
-	local rName = 'None';
-	local rCnt = 0;
-	for j = 1, max do
-	    local result = IMCRandom(1, totalRatio)
-    	for i = 0, #ratioList do
-    	    if result <= ratioList[i] then
-    			TxGiveItemToPartyWareHouse(tx, pc, PARTY_GUILD, rewardList[i], rewardCnt[i], 'GuildEvent', 0, nil);
-				rName = rewardList[i];
-				rCnt = rewardCnt[i];
-				listIndex = 0;
-				
-				for i = 0, cnt-1 do
-            		local rewardcls = GetClassByIndexFromList(clslist, i)
-            		
-            		if TryGetProp(rewardcls, "Group") == cls.ClassName then
-            			ratioList[listIndex] = rewardcls.Ratio;
-            			listIndex = listIndex + 1;
-            		end
-            	end
-    			break;
-    		else
-    			ratioList[i+1] = ratioList[i+1] + ratioList[i];
-    		end
-    	end
-	end
+    for l = 1, #itemlist do
+        _TxGiveItemToPartyWareHouse(tx, PARTY_GUILD, itemlist[l], itemcount[l], "GuildEventReward", 0, nil);
+    end
+    
+    TxSetPartyProp(tx, PARTY_GUILD, "UsedTicketCount", guildObj.UsedTicketCount + 1);
+    
 	local ret = TxCommit(tx);
 	
 	if ret ~= "SUCCESS" then
 		return;
 	end
-	-- 길드이벤트 수령관련 로그
-	local pcGuildID = GetGuildID(pc);
-	IMC_LOG("INFO_NORMAL", '1. GEVENT GIDX : ' ..pcGuildID .. ' ItemName : '.. rName .. ' rCnt : '..rCnt);
-	local zoneID = GetZoneInstID(pc);
-	local layer = GetLayer(pc);
-	local nowZoneName = GetZoneName(pc)
-	local mapCls = GetClass("Map", nowZoneName)
-	
-	local list, cnt = GetLayerPCList(zoneID, layer);
-	for i = 1 , cnt do
-		local pcObj = list[i];
-
-		if pc ~= nil then
-			if IsPVPServer(pcObj) then
-				IMC_LOG("INFO_NORMAL", "Real???")
-			end
-			GuildEventMongoLogo(pcObj, "Success", cls.EventType, cls.Name, rName, rCnt)		
-		end	
-	end
-	
-	sleep(5000);
-
-	list, cnt = GetLayerPCList(zoneID, layer);
-	for i = 1 , cnt do
-		local pcObj = list[i];
-	
-	
-		PlayMusicQueueLocal(pcObj, mapCls.BgmPlayList)
-		SetLayer(pcObj, 0)
-	end
-
-	GUILD_EVENT_PROPERTY_RESET(pc, guildObj)
+    
+    SuccessGuildEvent(guildObj)
+    GuildEventMongoLog(pc, eventID, "Success")
+    GuildEventRewardMongoLog(pc, eventID, itemlist, itemcount)
 end
 
 
@@ -2953,6 +2921,10 @@ function SCR_IS_ENABLE_ITEM_LOCK(pc, item, isIndunPlaying)
 			return 0;
 		end
 	end
+
+    if (IsIndun(pc) == 1 or IsPVPServer(pc) == 1) and item ~= nil then
+        return 0;
+    end
 
 	return 1;
 end

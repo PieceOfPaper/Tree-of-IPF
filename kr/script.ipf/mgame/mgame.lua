@@ -1323,7 +1323,7 @@ function MGAME_EVT_GIVE_ITEM(cmd, curStage, eventInst, obj, itemName, giveway)
 	end
 end
 
-function MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst, obj, preCheck, giveList, takeList, setList, addList, giveway, dungeoncount)
+function MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst, obj, preCheck, giveList, takeList, setList, addList, giveway, dungeoncount, tokenBonus)
     local func
     if preCheck ~= 'None' then
         func = _G[preCheck]
@@ -1348,12 +1348,12 @@ function MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst,
 	        result = func(list[i])
 	    end
 	    if result ~= 'NO' then
-    		RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX', list[i], giveList, takeList, addList, nil,giveway, setList, nil, nil, dungeoncount)
+    		RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX', list[i], giveList, takeList, addList, nil,giveway, setList, nil, nil, dungeoncount, tokenBonus)
     	end
 	end
 end
 
-function MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst, obj, giveList, takeList, setList, addList, giveway, dungeoncount)
+function MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst, obj, giveList, takeList, setList, addList, giveway, dungeoncount, tokenBonus)
     if giveList == 'None' then
         giveList = nil
     end
@@ -1369,7 +1369,7 @@ function MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst, obj, giv
     
 	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 	for i = 1 , cnt do
-		RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX', list[i], giveList, takeList, addList, nil,giveway, setList, nil, nil, dungeoncount)
+		RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX', list[i], giveList, takeList, addList, nil,giveway, setList, nil, nil, dungeoncount, tokenBonus)
 	end
 end
 
@@ -1551,11 +1551,11 @@ end
 
 function RAID_END_REWARD(cmd, curStage, eventInst, obj)
 	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
-	
+
 	local pc = CHOOSE_ACTOR_TO_CHANGE_PARTY_PROPERTY(list, cnt);
 	if pc ~= nil then
 		ChangePartyProp(pc, PARTY_GUILD, "RewardBidState", 1)
-		CREATE_REWARD_BID_ITEM(pc)
+		RunScript('CREATE_REWARD_BID_ITEM', pc)
 	else
 		ErrorLog("RAID_END_REWARD() can not find guild member.");
 	end
@@ -2113,7 +2113,7 @@ function MGAME_GUILD_INDUN_EXIT(cmd, curStage, eventInst, obj)
 		local pcGuildID = GetGuildID(pc);
 		local pcGuildObj = GetPartyObjByIESID(PARTY_GUILD, pcGuildID);
 
-        GUILD_EVENT_PROPERTY_RESET(pc, pcGuildObj)
+        GUILD_EVENT_PROPERTY_RESET(pc, GuildObj)
 
 		local cls = GetClassByType("GuildEvent", pcGuildObj["GuildInDunSelectInfo"])
 		local list, cnt = GetPartyMemberList(pc, PARTY_GUILD);
@@ -2472,11 +2472,11 @@ function SCR_INDUN_CONTRIBUTION_REWARD(bossMon)
 		local pc = pcList[i];
 		
 		local levelRatio = GET_EXP_RATIO(pc.Lv, indunLevel, 0, nil);
-		
+		local siverlRatio = GET_INDUN_SILVER_RATIO(pc.Lv, indunLevel);
 		if IsIndun(pc) == 1 then
 			bonusRate = INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(pcCount);
 		end
-
+		local mySilver = rewardSilver * siverlRatio
 		local myExp = totalMonExp * (rewardExpRate * 0.01);	-- Indun Clear rate Calc
 		myExp = myExp * bonusRate;	-- Party EXP Bonus Calc
 		myExp = myExp * levelRatio;	-- Level difference Exp rate Calc
@@ -2504,8 +2504,8 @@ function SCR_INDUN_CONTRIBUTION_REWARD(bossMon)
             local x, y, z = GetPos(bossMon)
             SetPos(pc, x, y, z);
         end
-        
-		RunScript("_SCR_INDUN_CONTRIBUTION_REWARD", pc, rewardSilver, myExp, myJobExp, rewardItemName, rewardItemCount, contribution, multipleRate, rank, clsIndun.ClassID, pcetc.IndunMultipleRate, mGameName);
+
+		RunScript("_SCR_INDUN_CONTRIBUTION_REWARD", pc, mySilver, myExp, myJobExp, rewardItemName, rewardItemCount, contribution, multipleRate, rank, clsIndun.ClassID, pcetc.IndunMultipleRate, mGameName);
 	end
 end
 
@@ -2653,9 +2653,9 @@ function _SCR_INDUN_CONTRIBUTION_REWARD(pc, silver, exp, jobExp, itemName, itemC
 			local pcetcProp = "InDunRewardCountType_" .. tostring(indunResetType);
 
 			if etcObj ~= nil then
-				indunCount = etcObj[pcetcProp] + 1;
+				indunCount = 1;
         		if multipleError == false then
-        			indunCount = indunCount * (etcObj.IndunMultipleRate + 1);
+        			indunCount = indunCount * (etcObj.IndunMultipleRate + 1) + etcObj[pcetcProp];
 				end
 
 				TxSetIESProp(tx, etcObj, pcetcProp, indunCount);
@@ -2688,4 +2688,40 @@ function _SCR_INDUN_CONTRIBUTION_REWARD(pc, silver, exp, jobExp, itemName, itemC
             etcObj.IndunMultipleRate_Reserve = 0;
 		end
 	end
+end
+
+function MGAME_GUILD_MINIGAME_EXIT(cmd, curStage, eventInst, obj)
+    local partyID = cmd:GetPartyIDStr()
+    local guildObj = GetPartyObjByIESID(PARTY_GUILD, partyID)
+    local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+	if cnt ~= nil and cnt > 0 then
+	    for i = 1, cnt do
+	        local pc = list[i];
+            RunScript('SCR_GUILD_EVENT_STAYED_MONGOLOG', pc, guildObj)
+        end
+    end
+	if guildObj ~= nil then
+	    RunScript('SCR_GUILD_EVENT_FAIL_MONGOLOG', guildObj)
+    	return 1;
+	end
+	return 0;
+end
+
+function MGAME_PCLIST_LAYER_CHANGE(cmd, curStage, eventInst, obj, layer)
+    local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+    if list == nil then
+        return;
+    end
+    
+    if cnt > 0 then
+        local i
+        for i = 1, cnt  do
+            SetLayer(list[i], layer, 0)
+        end
+    end
+end
+
+function TEST_MGAME_CRASH(pc)
+	local pcGuildID = GetGuildID(nil);
+	local pcGuildObj = GetPartyObjByIESID(PARTY_GUILD, pcGuildID);
 end

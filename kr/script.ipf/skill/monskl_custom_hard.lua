@@ -1,4 +1,4 @@
-﻿-- monskl_custom_hard.lua
+-- monskl_custom_hard.lua
 
 function SKL_SET_TARGET_CLIENT_TARGETTING(self, skl)
 
@@ -248,12 +248,12 @@ function SKL_SET_TGT_PAD_SUMMON(self, skl, padName, monName)
     end
 end
 
-function SKL_SET_TGT_SUMMON(self, skl, monName)
+function SKL_SET_TGT_SUMMON(self, skl, monName1, monName2, monName3, monName4, monName5, monName6)
     ClearHardSkillTarget(self);
     local list , cnt  = GetAliveFolloweList(self);
     for i = 1 , cnt do
         local obj = list[i];
-        if monName == "ALL" or obj.ClassName == monName then
+        if monName == "ALL" or obj.ClassName == monName1 or obj.ClassName == monName2 or obj.ClassName == monName3 or obj.ClassName == monName4 or obj.ClassName == monName5 or obj.ClassName == monName6 then
             AddHardSkillTarget(self, obj);
         end
     end
@@ -470,6 +470,11 @@ function SKL_TGT_COLOR(self, skl, r, g, b, a, setChangeObjMon)
     for i = 1 , #tgtList do
         local obj = tgtList[i];
         if obj ~= nil then
+            if GetExProp(obj, "LEGEND_CARD") == 1 then
+                r = 128
+                g = 96
+                b = 96
+            end
             ObjectColorBlend(obj, r, g, b, a, 1, 0, 0, 0, setChangeObjMon);
         end
     end
@@ -495,6 +500,22 @@ function SKL_TGT_EFFECT(self, skl, eftName, scl, sorcerer)
         local obj = tgtList[i];
         PlayEffect(obj, eftName, scl, 0, 'BOT');
     end
+end
+
+function SKL_TGT_EFFECT_SORCERER(self, skl, eftName, scl)
+    local tgtList = GetHardSkillTargetList(self); 
+    local etc = GetETCObject(self);
+    for i = 1, #tgtList do
+        local obj = tgtList[i];
+        if GetExProp(obj, "LEGEND_CARD") == 1 then
+            if etc.Sorcerer_bosscardName1 == obj.ClassName 
+            or etc.Sorcerer_bosscardName2 == obj.ClassName then
+                PlayEffect(obj, eftName, scl, 0, 'BOT');
+            end
+        end
+    end
+
+    return;
 end
 
 function SKL_TGT_EFFECT_CLIENT_TARGETTING(self, skl, eftName, scl)
@@ -1080,7 +1101,6 @@ function SKL_TGT_BUFFREMOVE(self, skl, buffName)
 end
 
 function SKL_TGT_BUFF_ABIL(self, skl, abilName, buffName, lv, arg2, applyTime, addAbilTime, over, rate)
-
     local abil = GetAbility(self, abilName);
     if abil ~= nil then
         local tgtList = GetHardSkillTargetList(self);
@@ -1090,6 +1110,44 @@ function SKL_TGT_BUFF_ABIL(self, skl, abilName, buffName, lv, arg2, applyTime, a
                 arg2 = abil.Level;
             end
             ADDBUFF(self, target, buffName, lv, arg2, applyTime + addAbilTime * abil.Level, over, rate);
+        end
+    end
+end
+
+function SKL_TGT_BUFF_IF_NOBUFF(self, skl, appliedBuff, buffName, lv, arg2, applyTime, over, rate, checkBuff)
+    if nil == checkBuff then
+        checkBuff = 0;
+    end
+    local tgtList = GetHardSkillTargetList(self);
+    for i = 1 , #tgtList do
+        local target = tgtList[i];
+        local addbuff = true;
+        if checkBuff == 1 and IsBuffApplied(target, buffName) == 'YES' then
+            addbuff = false;
+        end
+        
+        if IsBuffApplied(target, appliedBuff) == "YES" then
+            addbuff = false;
+        end
+
+        if true == addbuff then
+            local buff = ADDBUFF(self, target, buffName, lv, arg2, applyTime, over, rate);
+            if buff ~= nil then
+                CHECK_SHAREBUFF_BUFF(target, buff, lv, arg2, applyTime, over, rate);
+            else
+                local cancelSkill = true;
+                local alreadyBuff = GetBuffByName(self, buffName);
+                if alreadyBuff ~= nil then
+                    local fromWho = BuffFromWho(alreadyBuff);
+                    if fromWho == BUFF_FROM_AUTO_SELLER then
+                        cancelSkill = false;
+                    end
+                end
+
+                if cancelSkill == true then
+                    SkillCancel(self)
+                end
+            end
         end
     end
 end
@@ -1116,27 +1174,27 @@ function SKL_TGT_ATTRACT_SQUARE(self, skl, x, y, z, angle, dist, width, time, ea
     local cnt = 1
     for i = 1 , #tgtList do
         local target = tgtList[i];
-        if IS_PC(target) == false or skl.ClassName ~= "Psychokino_GravityPole" then
-            tgtList2[cnt] = tgtList[i];
-            cnt = cnt + 1;
-        end
+        tgtList2[cnt] = tgtList[i];
+        cnt = cnt + 1;
     end
     
     for i = 1 , #tgtList2 do
         local target = tgtList2[i];
         local delay = IMCRandomFloat(minDelay, maxDelay);
         local moveType = TryGetProp(target, "MoveType");
-        if target.Size ~= "XL" and moveType ~= "Holding" then
-            if target.MonRank ~= "MISC" and target.MonRank ~= "NPC" then
-                if delay == 0 then
-                    InsertHate(target, self, 1);
-                    AttractBySquare(self, target, skl.ClassID, x, y, z, ex, ey, ez, width, time, easing);
-                else
-                    RunScript("RUN_ATTACT_SQUARE", delay * 1000, self, target, skl.ClassID, x, y, z, ex, ey, ez, time, easing);
-                end
+        if TryGetProp(target, "Size") ~= "XL" and moveType ~= "Holding" then
+            if TryGetProp(target, "MonRank") ~= "MISC" and TryGetProp(target, "MonRank") ~= "NPC" then
+            	if IS_PC(target) == false then
+	                if delay == 0 then
+	                    InsertHate(target, self, 1);
+	                    AttractBySquare(self, target, skl.ClassID, x, y, z, ex, ey, ez, width, time, easing);
+	                else
+	                    RunScript("RUN_ATTACT_SQUARE", delay * 1000, self, target, skl.ClassID, x, y, z, ex, ey, ez, time, easing);
+	                end
+	            end
             end
         end
-        
+		
         local Psychokino5_abil = GetAbility(self, 'Psychokino5');
         if Psychokino5_abil ~= nil then
             AddBuff(self, target, 'GravityPole_Def_Debuff', 1, Psychokino5_abil.Level, (time + 1) * 1000, 1);

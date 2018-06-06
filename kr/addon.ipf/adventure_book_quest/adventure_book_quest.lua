@@ -14,10 +14,10 @@ function ADVENTURE_BOOK_QUEST_INIT_DETAIL(questID)
    local regionText = frame:GetChild('regionText');
    local startMapCls = GetClass('Map', questCls.StartMap);
    regionText:SetTextByKey('region', startMapCls.Name);
-
+    
    local rewardBox = frame:GetChild('rewardBox');
    _ADVENTURE_BOOK_QUST_INIT(rewardBox, pc, questCls, cls, sObj);
-        
+    
    frame:ShowWindow(1);
 end
 
@@ -46,7 +46,70 @@ function _ADVENTURE_BOOK_QUST_INIT(rewardBox, pc, questCls, cls, sObj)
         y = MAKE_BASIC_REWARD_RANDOM_CTRL(rewardBox, questCls, cls, y + 20);    
 	    y = MAKE_BASIC_REWARD_REPE_CTRL(rewardBox, questCls, cls, y + 20);
     end
+    
+    local frame = rewardBox:GetTopParentFrame();
+    local rewardBox = frame:GetChild('rewardBox');
+    local bottomY = y + 110
+    local preQuestHeight = 0
+    if y == 0 then
+        bottomY = bottomY + 30
+        preQuestHeight = preQuestHeight + 30
+    end
+    
+    local result1, result2  = SCR_QUEST_CHECK(pc, questCls.ClassName)
+    local nowpreCount = 0
+    if result1 == 'IMPOSSIBLE' and table.find(result2, 'Check_QuestCount') > 0 then
+        local t1, t2, t3 = SCR_QUEST_LINK_FIRST(pc,questCls.ClassName)
+        if #t2 > 0 then
+            bottomY = BOX_CREATE_RICHTEXT(frame, "preQuestTitle", bottomY, 50, ScpArgMsg('adventure_book_quest_prequest_MSG1'), 20);
+            bottomY = bottomY + 7
+            preQuestHeight = preQuestHeight + 20
+            for i = 1, #t2 do
+                local preQuestIES = GetClass('QuestProgressCheck', t2[i]);
+                bottomY = BOX_CREATE_RICHTEXT(frame, "preQuest"..i..'_'..1, bottomY, 50, '{@st42}{s18}'..preQuestIES.Name..'{/}', 40);
+                bottomY = bottomY + 5
+                local zoneName = preQuestIES.StartMap
+                if zoneName == 'None' then
+                    zoneName = ScpArgMsg('IndunRewardItem_Empty')
+                else
+                    local zoneIES = GetClass('Map', zoneName)
+                    if zoneIES ~= nil then
+                        zoneName = zoneIES.Name
+                    else
+                        zoneName = ScpArgMsg('IndunRewardItem_Empty')
+                    end
+                end
+                bottomY = BOX_CREATE_RICHTEXT(frame, "preQuest"..i..'_'..2, bottomY, 50, ScpArgMsg('QuestZoneBasicTxt')..zoneName, 60);
+                local zone = frame:GetChild("preQuest"..i..'_'..2);
+                zone:SetFontName('white_16_ol')
+                bottomY = bottomY + 5
+                nowpreCount = nowpreCount + 1
+                preQuestHeight = preQuestHeight + 45
+            end
+        end
+    end
+    
+    frame:SetUserValue('PREQUESTHEIGHT',preQuestHeight)
+    
+        
+    local lastpreCount = tonumber(frame:GetUserValue('PREQUESTCOUNT'))
+    if lastpreCount ~= nil and lastpreCount > nowpreCount then
+        if nowpreCount == 0 then
+            frame:RemoveChild('preQuestTitle')
+        end
+        for i = nowpreCount + 1, lastpreCount do
+            frame:RemoveChild('preQuest'..i..'_'..1)
+            frame:RemoveChild('preQuest'..i..'_'..2)
+        end
+    end
+    
+    frame:SetUserValue('PREQUESTCOUNT',nowpreCount)
+    
+    
     ADVENTURE_BOOK_QUEST_AUTO_RESIZE(rewardBox, y);
+    
+    
+    rewardBox:SetUserValue('CURRENTY',y)
 end
 
 function ADVENTURE_BOOK_QUEST_AUTO_RESIZE(rewardBox, y)
@@ -58,14 +121,18 @@ function ADVENTURE_BOOK_QUEST_AUTO_RESIZE(rewardBox, y)
     local totalHeight = topY + bottomY + y;
 
     local diff = option.GetClientHeight() - topFrame:GetY() + totalHeight;
+    local preQuestHeight = tonumber(topFrame:GetUserValue('PREQUESTHEIGHT'))
+    if preQuestHeight == nil then
+        preQuestHeight = 0
+    end
     if diff > 0 then
         rewardBox:Resize(rewardBox:GetWidth(), y);
-        topFrame:Resize(topFrame:GetWidth(), totalHeight);
+        topFrame:Resize(topFrame:GetWidth(), totalHeight + preQuestHeight);
     else
         local rewardHeight = y - diff;
         rewardBox:SetScrollBar(rewardHeight);
         rewardBox:Resize(rewardBox:GetWidth(), rewardHeight);
-        topFrame:Resize(topFrame:GetWidth(), totalHeight - diff);
+        topFrame:Resize(topFrame:GetWidth(), totalHeight - diff + preQuestHeight);
     end
 end
 

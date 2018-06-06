@@ -507,12 +507,13 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     local countItemData = GET_CHILD_RECURSIVELY(frame, 'countItemData');
     local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");
     local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
+    local admissionPlayAddItemCount = TryGetProp(indunCls, "AdmissionPlayAddItemCount");
     local admissionItemCls = GetClass('Item', admissionItemName);
     local admissionItemIcon = TryGetProp(admissionItemCls, "Icon");
     local indunAdmissionItemImage = admissionItemIcon
     local etc = GetMyEtcObject();
     local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
-
+    local addCount = math.floor(nowCount * admissionPlayAddItemCount)
     
     if admissionItemCount == nil then
         admissionItemCount = 0;
@@ -520,7 +521,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     
     admissionItemCount = math.floor(admissionItemCount);
     
-    if admissionItemName == "None" or admissionItemName == nil or admissionItemCount == 0 then
+    if admissionItemName == "None" or admissionItemName == nil then
     
         if isTokenState == true then
             tokenStatePic:SetImage(TOKEN_STATE_IMAGE);
@@ -546,7 +547,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
             tokenStatePic:SetImage(NOT_TOKEN_STATE_IMAGE);
             tokenStatePic:SetTextTooltip(ScpArgMsg('YouCanLittleIndunAdmissionItemWithToken', 'COUNT', indunCls.PlayPerReset_Token, 'TOKEN_STATE', ClMsg('NotApplied')));
         end
-        local nowAdmissionItemCount = admissionItemCount + nowCount - isTokenState
+        local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
         countItemData:SetTextByKey('admissionitem', '  {img '..indunAdmissionItemImage..' 30 30}  '..nowAdmissionItemCount..'')
         local countBox = GET_CHILD_RECURSIVELY(frame, 'countBox');
         local countText = GET_CHILD_RECURSIVELY(countBox, 'countText');

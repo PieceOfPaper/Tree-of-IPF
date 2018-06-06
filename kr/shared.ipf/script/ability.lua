@@ -263,47 +263,24 @@ function SCR_ABIL_STAFFMASTERY_INACTIVE(self, ability)
 end
 
 
-
-function SCR_ABIL_PYROMANCER8_ACTIVE(self, ability)
-
-    local rItem  = GetEquipItem(self, 'RH');
-    local addValue = 0;
-    
-    if rItem.ClassType == "THStaff" then
-        addValue = ability.Level * 3
-    end
-    
-    self.Fire_Atk_BM = self.Fire_Atk_BM + addValue;
-    SetExProp(ability, "ADD_FIRE", addValue);
-
-end
-
-function SCR_ABIL_PYROMANCER8_INACTIVE(self, ability)
-
-    local addValue = GetExProp(ability, "ADD_FIRE");
-    self.Fire_Atk_BM = self.Fire_Atk_BM - addValue;
-    
-end
-
-
 function SCR_ABIL_CRYOMANCER5_ACTIVE(self, ability)
 
-    local rItem  = GetEquipItem(self, 'RH');
-    local addValue = 0;
-    local MINMATK = TryGetProp(self, "MINMATK")
-    if rItem.ClassType == "Staff" then
-        addValue = math.floor(MINMATK * ability.Level * 0.03)
-    end
- 
-    self.Ice_Atk_BM = self.Ice_Atk_BM + addValue;
-    SetExProp(ability, "ADD_ICE", addValue);
+--    local rItem  = GetEquipItem(self, 'RH');
+--    local addValue = 0;
+--    local MINMATK = TryGetProp(self, "MINMATK")
+--    if rItem.ClassType == "Staff" then
+--        addValue = math.floor(MINMATK * ability.Level * 0.03)
+--    end
+-- 
+--    self.Ice_Atk_BM = self.Ice_Atk_BM + addValue;
+--    SetExProp(ability, "ADD_ICE", addValue);
 
 end
 
 function SCR_ABIL_CRYOMANCER5_INACTIVE(self, ability)
 
-    local addValue = GetExProp(ability, "ADD_ICE");
-    self.Ice_Atk_BM = self.Ice_Atk_BM - addValue;
+--    local addValue = GetExProp(ability, "ADD_ICE");
+--    self.Ice_Atk_BM = self.Ice_Atk_BM - addValue;
     
 end
 
@@ -1007,4 +984,22 @@ function SCR_ABIL_KABBALIST22_INACTIVE(self, ability)
 	
 	DelExProp(self, "ABIL_KABBALIST22_MSPD");
 	DelExProp(self, "ABIL_KABBALIST22_ON");
+end
+
+function SCR_ABIL_WIZARD23_ACTIVE(self, ability)
+
+    local skl = GetSkill(self, "Wizard_EarthQuake")
+    if skl ~= nil then
+        skl.KnockDownHitType = 1
+    end
+    
+end
+
+function SCR_ABIL_WIZARD23_INACTIVE(self, ability)
+
+    local skl = GetSkill(self, "Wizard_EarthQuake")
+    if skl ~= nil then
+        skl.KnockDownHitType = 4
+    end
+
 end

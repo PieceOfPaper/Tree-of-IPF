@@ -2621,7 +2621,8 @@ end
 
 function SCR_BUFF_RATETABLE_BATTLE_BUFF_01_DRUG(self, from, skill, atk, ret, rateTable, buff)
     if IsBuffApplied(self, "BATTLE_BUFF_01_DRUG") == "YES" then
-        rateTable.DamageRate = rateTable.DamageRate - 0.05
+--    	rateTable.DamageRate = rateTable.DamageRate - 0.05
+        AddDamageReductionRate(rateTable, 0.05)
     end
 end
 
@@ -2644,7 +2645,8 @@ end
 function SCR_BUFF_RATETABLE_Cotume_DMG_Rate_Down_3(self, from, skill, atk, ret, rateTable, buff)
     if IsPVPServer(self) == 1 then
         if IsBuffApplied(self, "Cotume_DMG_Rate_Down_3") == "YES" then
-            rateTable.DamageRate = rateTable.DamageRate - 0.03
+--            rateTable.DamageRate = rateTable.DamageRate - 0.03
+            AddDamageReductionRate(rateTable, 0.03)
         end
     end
 end 
@@ -2652,7 +2654,8 @@ end
 function SCR_BUFF_RATETABLE_Cotume_DMG_Rate_Down_5(self, from, skill, atk, ret, rateTable, buff)
     if IsPVPServer(self) == 1 then
         if IsBuffApplied(self, "Cotume_DMG_Rate_Down_5") == "YES" then
-            rateTable.DamageRate = rateTable.DamageRate - 0.05
+--            rateTable.DamageRate = rateTable.DamageRate - 0.05
+			AddDamageReductionRate(rateTable, 0.05)
         end
     end
 end
@@ -2667,7 +2670,8 @@ end
 
 function SCR_BUFF_RATETABLE_CARD_DMG_Rate_Down_10(self, from, skill, atk, ret, rateTable, buff)
     if IsBuffApplied(self, "CARD_DMG_Rate_Down_10") == "YES" then
-        rateTable.DamageRate = rateTable.DamageRate - 0.1
+--        rateTable.DamageRate = rateTable.DamageRate - 0.1
+		AddDamageReductionRate(rateTable, 0.1)
     end
 end
 
@@ -3217,4 +3221,19 @@ function SCR_BUFF_LEAVE_DRUG_LOOTINGCHANCE(self, buff, arg1, arg2, over)
 
     self.LootingChance_BM = self.LootingChance_BM - arg1;
 
+end
+function SCR_BUFF_ENTER_STATUE_LOOTINGCHANCE(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM + 100;
+end
+
+function SCR_BUFF_LEAVE_STATUE_LOOTINGCHANCE(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM - 100;
+end
+
+function SCR_BUFF_ENTER_SNOW_FLOWER_EFFECT(self, buff, arg1, arg2, over)
+    OverrideSurfaceType(self, 'snow_flower')
+end
+
+function SCR_BUFF_LEAVE_SNOW_FLOWER_EFFECT(self, buff, arg1, arg2, over)
+    OverrideSurfaceType(self, 'None')
 end

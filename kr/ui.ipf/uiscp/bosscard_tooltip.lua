@@ -14,6 +14,70 @@ function ITEM_TOOLTIP_BOSSCARD(tooltipframe, invitem, strarg)
 	ypos = DRAW_BOSSCARD_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
 end
 
+function ITEM_TOOLTIP_LEGEND_BOSSCARD(tooltipframe, invitem, strarg)
+
+	tolua.cast(tooltipframe, "ui::CTooltipFrame");
+
+	local mainframename = 'bosscard'
+
+	local ypos = DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 보스 카드라면 공통적으로 그리는 툴팁들
+	ypos = DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, ypos, mainframename);
+--	ypos = DRAW_BOSSCARD_EXP_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 경험치 바
+    ypos = DRAW_BOSSCARD_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 
+	ypos = DRAW_BOSSCARD_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
+end
+
+function ITEM_TOOLTIP_REINFORCE_CARD(tooltipframe, invitem, strarg)
+
+	tolua.cast(tooltipframe, "ui::CTooltipFrame");
+
+	local mainframename = 'bosscard'
+
+	local ypos = DRAW_REINFORCE_CARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 강화용 카드 툴팁
+	ypos = DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, ypos, mainframename);
+	ypos = DRAW_BOSSCARD_EXP_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 경험치 바
+    ypos = DRAW_BOSSCARD_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 
+	ypos = DRAW_BOSSCARD_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
+end
+
+
+function DRAW_REINFORCE_CARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
+	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+	gBox:RemoveAllChild()
+	
+	local CSetBg = gBox : CreateControlSet('tooltip_bosscard_bg', 'boss_bg_cset', 0, 200);
+
+	local CSet = gBox:CreateControlSet('tooltip_bosscard_common', 'boss_common_cset', 0, 50);
+	tolua.cast(CSet, "ui::CControlSet");
+
+	local GRADE_FONT_SIZE = CSet:GetUserConfig("GRADE_FONT_SIZE"); -- 등급 나타내는 별 크기
+	
+
+	-- 카드 테두리 세팅
+	SET_CARD_EDGE_TOOLTIP(CSet, invitem);
+
+	-- 아이템 이미지
+	local itemPicture = GET_CHILD(CSet, "itempic");
+	itemPicture:SetImage(invitem.TooltipImage);
+
+	-- 별 그리기
+	SET_GRADE_TOOLTIP(CSet, invitem, GRADE_FONT_SIZE);
+
+	-- 아이템 이름 세팅
+	local fullname = GET_FULL_NAME(invitem, true);
+	local nameChild = GET_CHILD(CSet, "name");
+	nameChild:SetText(fullname);
+
+	local typeRichtext = GET_CHILD(CSet, "type_text");
+	typeRichtext:SetText("");
+    
+	local BOTTOM_MARGIN = CSet:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	CSet:Resize(CSet:GetWidth(),typeRichtext:GetY() + typeRichtext:GetHeight() + BOTTOM_MARGIN);
+	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight() + 50)
+	return CSet:GetHeight()+50;
+end
+
+
 
 function DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')

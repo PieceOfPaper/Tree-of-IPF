@@ -527,10 +527,11 @@ function SCR_ITEM_GACHA_ID_WHITETREES(pc, Group, cubeID, btnVisible, bEnableDupl
 	
 	-- 가챠 Grade 우선 확률 계산 시작 --
 	local basicGradeList = {
-	                        { "C", 8500 },
-    	                    { "B", 1000 },
-	                        { "A", 450  },
-	                        { "S", 50   }
+	                        { "C", 8480    },
+    	                    { "B", 1000    },
+	                        { "A", 450     },
+	                        { "S", 50      },
+	                        { "LegCard", 20}
 	                       };
     
     local gradeList = { };

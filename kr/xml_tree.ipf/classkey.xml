@@ -1191,6 +1191,20 @@
         <Key Name="REWARD_5DAY_COUNT" Value="101964"/>
         <Key Name="REWARD_5DAY_NEXT" Value="101965"/>
         <Key Name="REWARD_5DAY_SELECT" Value="101966"/>
+        <Key Name="EVENT_1801_ORB_GIVE_DATE" Value="101979"/>
+        <Key Name="EVENT_1801_ORB_SHOP1" Value="101980"/>
+        <Key Name="EVENT_1801_ORB_SHOP2" Value="101981"/>
+        <Key Name="EVENT_1801_ORB_SHOP3" Value="101982"/>
+        <Key Name="EVENT_1801_ORB_SHOP4" Value="101983"/>
+        <Key Name="EVENT_1801_ORB_SHOP5" Value="101984"/>
+        <Key Name="EVENT_1801_ORB_SHOP6" Value="101985"/>
+        <Key Name="EV180123_BUFFCOUNT" Value="102023"/>
+        <Key Name="EV180123_BUFFDAY" Value="102024"/>
+        <Key Name="EV180123_DAY" Value="102026"/>
+        <Key Name="EV180123_MAPNAME" Value="102025"/>
+        <Key Name="EV180123_MONCOUNT" Value="102022"/>
+        <Key Name="EV180123_REWARDCOUNT" Value="102021"/>
+        <Key Name="LEGEND_CARD_LIFT_TEAM_COMPLETE_COUNT" Value="102027"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -8320,7 +8334,7 @@
         <Key Name="HadVisited_525" Value="101807"/>
         <Key Name="HiddenJob_Char2_18" Value="33058"/>
         <Key Name="Hide_2585" Value="101452"/>
-        <Key Name="Hide_2647" Value="101796"/>
+        <Key Name="Hide_2647" Value="102015"/>
         <Key Name="InDunCountType_1" Value="4751"/>
         <Key Name="InDunCountType_10" Value="5837"/>
         <Key Name="InDunCountType_1000" Value="100995"/>
@@ -8469,6 +8483,36 @@
         <Key Name="HaveEmoticon_51" Value="101958"/>
         <Key Name="HaveEmoticon_52" Value="101959"/>
         <Key Name="Reward_id_catacomb_04_event" Value="101963"/>
+        <Key Name="EquipCardBelongingCount_Slot13" Value="102014"/>
+        <Key Name="EquipCardExp_Slot13" Value="101986"/>
+        <Key Name="EquipCardID_Slot13" Value="102012"/>
+        <Key Name="EquipCardLv_Slot13" Value="102016"/>
+        <Key Name="IS_LEGEND_CARD_OPEN" Value="102013"/>
+        <Key Name="Kill_Pc_summon_Legend_card_Blud" Value="101998"/>
+        <Key Name="Kill_Pc_summon_Legend_card_Helgasercle" Value="101996"/>
+        <Key Name="Kill_Pc_summon_Legend_card_Lecifer" Value="102005"/>
+        <Key Name="Kill_Pc_summon_Legend_card_Marnoks" Value="102006"/>
+        <Key Name="Kill_Pc_summon_Legend_card_Mirtis" Value="102004"/>
+        <Key Name="Kill_Pc_summon_Legend_card_Nuaelle" Value="101997"/>
+        <Key Name="Kill_Pc_summon_Legend_card_Zawra" Value="102007"/>
+        <Key Name="LEVELINFORM_CARDEQUIP" Value="101993"/>
+        <Key Name="LEVELINFORM_CHALLENGESTART" Value="101995"/>
+        <Key Name="LEVELINFORM_INDUNSTART" Value="101989"/>
+        <Key Name="LEVELINFORM_NUNNERYMISSION" Value="101990"/>
+        <Key Name="LEVELINFORM_REQUESTMISSION" Value="102010"/>
+        <Key Name="LEVELINFORM_REQUESTPARTY" Value="102002"/>
+        <Key Name="LEVELINFORM_REQUESTQUEST" Value="101994"/>
+        <Key Name="LEVELINFORM_UNIQUERAID" Value="102003"/>
+        <Key Name="LEVELINFORM_UPHILLDEFFENSE" Value="102011"/>
+        <Key Name="LEVELINFORM_WEAPONCHANGE1" Value="101999"/>
+        <Key Name="LEVELINFORM_WEAPONCHANGE2" Value="101987"/>
+        <Key Name="LEVELINFORM_WEAPONCHANGE3" Value="102008"/>
+        <Key Name="LEVELINFORM_WEAPONCHANGE4" Value="101991"/>
+        <Key Name="LEVELINFORM_WEAPONCHANGE5" Value="102000"/>
+        <Key Name="LEVELINFORM_WEAPONCHANGE6" Value="101988"/>
+        <Key Name="LEVELINFORM_WEAPONCHANGE7" Value="102009"/>
+        <Key Name="LEVELINFORM_WEAPONCHANGE8" Value="101992"/>
+        <Key Name="LEVELINFORM_WEAPONCHANGE9" Value="102001"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -15926,6 +15970,10 @@
         <Key Name="MG_Last_GM_MISSION_D_CASTLE_01" Value="101942"/>
         <Key Name="String6" Value="101941"/>
         <Key Name="EV180109_STEAM_BEGINNER_SESSION_CHECK" Value="101967"/>
+        <Key Name="EVENT_1801_SHINOBI_DATE" Value="102018"/>
+        <Key Name="EVENT_1801_WIZARD_DATE" Value="102019"/>
+        <Key Name="LEGEND_CARD_LIFT" Value="102017"/>
+        <Key Name="TUTO_REGEND_CARD" Value="102020"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

@@ -263,6 +263,10 @@ function SCR_PRECHECK_CONSUME_SUMMONORB(self)
         return 0;
     end
     
+    if mapCls.ClassName == 'c_firemage_event' then -- steam event
+        return 0;
+    end
+    
     return 1;
 end
 
@@ -271,6 +275,10 @@ function SCR_PRECHECK_CONSUME_ZOMBIECAPSUL(self)
     local mapCls = GetClass("Map", curMap);
     if mapCls.MapType == 'City' then
         SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("NotAllowedInTown"), 3);
+        return 0;
+    end
+    
+    if mapCls.ClassName == 'c_firemage_event' then -- steam event
         return 0;
     end
     
@@ -717,6 +725,16 @@ end
 
 
 
+function SCR_PRE_FREE_EXTEND_TEAM_WAREHOUSE(self, string1, arg1, arg2, itemID)
+--    local aObj = GetAccountObj(self);
+--    local account_Warehouse_Cnt = GET_ACCOUNT_WAREHOUSE_SLOT_COUNT(self, aObj)
+--    local currentCount = aObj.AccountWareHouseExtend;
+--    if currentCount >= ACCOUNT_WAREHOUSE_MAX_EXTEND_COUNT then
+--        return;
+--    end
+    return 1;
+end
+
 function SCR_PRE_ITEM_SUMMON_BOSS(self, string1, arg1, arg2, itemID)
 	local mapcheck = GetClassString('Map', GetZoneName(self), 'MapType')
 	if IsMyPCFriendlyFighting(self) == 0 then
@@ -772,14 +790,7 @@ function SCR_PRE_ITEM_SUMMON_BOSS(self, string1, arg1, arg2, itemID)
         return 0;
     end
 end
-function SCR_PRE_FREE_EXTEND_TEAM_WAREHOUSE(self, string1, arg1, arg2, itemID)
---    local aObj = GetAccountObj(self);
---    local currentCount = aObj.AccountWareHouseExtend;
---    if currentCount >= ACCOUNT_WAREHOUSE_MAX_EXTEND_COUNT then
---        return;
---    end
-    return 1;
-end
+
 function SCR_PRE_ChallengeModeReset(self)
     if IS_BASIC_FIELD_DUNGEON(self) == 'YES' or GetClassString('Map', GetZoneName(self), 'MapType') == 'City' then
         local isHasBuff = IsBuffApplied(self, 'ChallengeMode_Completed')

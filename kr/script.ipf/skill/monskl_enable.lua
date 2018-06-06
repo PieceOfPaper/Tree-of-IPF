@@ -95,6 +95,14 @@ function SKL_CHECK_CHECK_BUFF(self, skl, buffName)
     return 1;
 end
 
+function SKL_CHECK_CHECK_NOBUFF(self, skl, buffName)
+    if GetBuffByName(self, buffName) == nil then
+        return 1;
+    end
+    
+    return 0;
+end
+
 function CHECK_IS_VILLAGE(self, skl)
     if IsVillage(self) == "YES" then
         return 0;

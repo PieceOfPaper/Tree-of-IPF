@@ -375,15 +375,15 @@ function SCR_BUFF_ENTER_UC_poison_Weak(self, buff, arg1, arg2, over)
 
     --ShowEmoticon(self, 'I_emo_poison', 0)
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
-	
+    
     local totalDamage = math.floor((self.MHP * 0.01) * arg1 + arg2);
     local dot = totalDamage / 10
     local curDamage = 0
-	
-	SetExProp(self, 'POISON_TOTAL', totalDamage)
-	SetExProp(self, 'POISON_DOT', dot)
-	SetExProp(self, 'POISON_CURRENT', curDamage)
-	
+    
+    SetExProp(self, 'POISON_TOTAL', totalDamage)
+    SetExProp(self, 'POISON_DOT', dot)
+    SetExProp(self, 'POISON_CURRENT', curDamage)
+    
 end
 
 function SCR_BUFF_UPDATE_UC_poison_Weak(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -392,12 +392,12 @@ function SCR_BUFF_UPDATE_UC_poison_Weak(self, buff, arg1, arg2, RemainTime, ret,
     local dot = GetExProp(self, 'POISON_DOT');
     local curDamage = GetExProp(self, 'POISON_CURRENT')
     
-     local from = GetBuffCaster(buff);
+    local from = GetBuffCaster(buff);
     if from == nil then
         from = self;
-	end
+    end
 
-	TakeDamage(from, self, "None", dot, "Poison", "None", "TrueDamage", HIT_POISON, HITRESULT_BLOW);
+    TakeDamage(from, self, "None", dot, "Poison", "None", "TrueDamage", HIT_POISON, HITRESULT_BLOW);
     
     curDamage = curDamage + dot
     SetExProp(self, 'POISON_CURRENT', curDamage)
@@ -406,7 +406,7 @@ function SCR_BUFF_UPDATE_UC_poison_Weak(self, buff, arg1, arg2, RemainTime, ret,
         return 0;
     end
     
-	return 1;
+    return 1;
 end
 
 function SCR_BUFF_LEAVE_UC_poison_Weak(self, buff, arg1, arg2, over)
@@ -2616,4 +2616,118 @@ end
 
 function SCR_BUFF_LEAVE_UC_Cloaking_Buff(self, buff, arg1, arg2, over)
 
+end
+
+function SCR_BUFF_ENTER_UC_Diffusion_Curse_DeBuff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_UC_Diffusion_Curse_DeBuff(self, buff, arg1, arg2, over)
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        local objList, objCount = SelectObjectNear(caster, self, 60, 'ENEMY');
+        if objCount > 0  and IMCRandom(1, 10000) < 9000  then
+            local rand = IMCRandom(1, objCount)
+            AddBuff(caster, objList[rand], 'UC_Diffusion_Curse', arg1, arg2, RemainTime, over);
+        end
+    end
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_UC_Diffusion_Curse_DeBuff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_ENTER_GM_Invincible_Buff(self, buff, arg1, arg2, over)
+    SetNoDamage(self, 1);
+end
+
+function SCR_BUFF_UPDATE_GM_Invincible_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        return 0;
+    end
+    return 1;
+
+end
+
+function SCR_BUFF_LEAVE_GM_Invincible_Buff(self, buff, arg1, arg2, over)
+    SetNoDamage(self, 0);
+end
+
+function SCR_BUFF_ENTER_UC_Focusing_Buff(self, buff, arg1, arg2, over)
+    
+    local lv = arg1
+    local addHR = lv * 100
+    local addCRT = lv * 100
+    
+    self.HR_BM = self.HR_BM + addHR
+    self.CRTHR_BM = self.CRTHR_BM + addCRT
+    
+    SetExProp(buff, "ADD_CRIHR", addCRT);
+    SetExProp(buff, "ADD_HR", addHR);
+    
+end
+
+function SCR_BUFF_LEAVE_UC_Focusing_Buff(self, buff, arg1, arg2, over)
+    
+    local addCRT = GetExProp(buff, "ADD_CRIHR");
+    local addHR = GetExProp(buff, "ADD_HR");
+
+    self.HR_BM = self.HR_BM - addHR
+    self.CRTHR_BM = self.CRTHR_BM - addCRT
+
+end
+
+function SCR_BUFF_ENTER_FIELD_BOSS_AWAKE_UP(self, buff, arg1, arg2, over)
+    local addATKRate = 1.5
+    local addDEFRate = 2
+    local addMDEFRate = 2
+    
+    self.PATK_RATE_BM = self.PATK_RATE_BM + addATKRate
+    self.DEF_RATE_BM = self.DEF_RATE_BM + addDEFRate
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM + addMDEFRate
+    SetExProp(buff,'addATKRate', addATKRate)
+    SetExProp(buff,'addDEFRate', addDEFRate)
+    SetExProp(buff, 'addMDEFRate', addMDEFRate)
+end
+
+function SCR_BUFF_UPDATE_FIELD_BOSS_AWAKE_UP(self, buff, arg1, arg2, RemainTime, ret, over)
+    local maxHP = self.MHP
+    local nowHP = self.HP
+    local healHP = maxHP * 0.15
+    local prop = GetExProp(buff, 'useHeal')
+    
+    if prop ~= 1 then
+        if nowHP < maxHP then
+            Heal(self, math.floor(healHP) , 0);
+            return 1;
+        end
+        SetExProp(buff, 'useHeal', 1)
+    end
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_FIELD_BOSS_AWAKE_UP(self, buff, arg1, arg2, over)
+    addATKRate = GetExProp(buff, 'addATKRate')
+    addDEFRate = GetExProp(buff,'addDEFRate')
+    addMDEFRate = GetExProp(buff, 'addMDEFRate')
+    
+    self.PATK_RATE_BM = self.PATK_RATE_BM - addATKRate
+    self.DEF_RATE_BM = self.DEF_RATE_BM - addDEFRate
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM - addMDEFRate
+end
+
+function SCR_FIELD_BOSS_AWAKE_SIMPLE(self)
+    local nowHP = self.HP
+    local maxHP = self.MHP
+    local awakeCnt = GetExProp(self, "AWAKE_COUNT")
+    if awakeCnt < 1 and awakeCnt == 0 then
+        if maxHP * 0.1 >= nowHP then
+            AddBuff(self, self, 'FIELD_BOSS_AWAKE_UP', 1, 0, 0, 1)
+            AddBuff(self, self, 'GM_Invincible_Buff', 1, 0, 5000, 1)
+            SetExProp(self, "AWAKE_COUNT", 1)
+        end
+    end
 end

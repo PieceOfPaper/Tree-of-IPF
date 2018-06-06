@@ -69,20 +69,18 @@ function SCR_BUFF_RATETABLE_Cleave_Debuff(self, from, skill, atk, ret, rateTable
 end
 
 function SCR_BUFF_RATETABLE_Ability_buff_SlashDEF(self, from, skill, atk, ret, rateTable, buff)
-
-  if IsBuffApplied(self, 'Ability_buff_SlashDEF') == 'YES' then
-    local attackType = skill.AttackType;
-      if IS_PC(from) == true and skill.ClassID < 10000 then
-        local rightHand = GetEquipItem(from, 'RH');
-        attackType = rightHand.AttackType
-      end
-        
-      if attackType == 'Slash' then
-        rateTable.DamageRate = rateTable.DamageRate - 0.7
-  
-        end
-  end
-
+	if IsBuffApplied(self, 'Ability_buff_SlashDEF') == 'YES' then
+		local attackType = skill.AttackType;
+		if IS_PC(from) == true and skill.ClassID < 10000 then
+			local rightHand = GetEquipItem(from, 'RH');
+			attackType = rightHand.AttackType
+		end
+		
+		if attackType == 'Slash' then
+--    		rateTable.DamageRate = rateTable.DamageRate - 0.7
+    		AddDamageReductionRate(rateTable, 0.7)
+		end
+	end
 end
 
 
@@ -431,8 +429,8 @@ end
 
 function SCR_BUFF_RATETABLE_Isa_Buff(self, from, skill, atk, ret, rateTable, buff)
     if IsBuffApplied(from, 'Isa_Buff') == 'YES' then
-        if skill.Attribute == 'Ice' and skill.HitType ~= "Pad" then
-            rateTable.DamageRate = rateTable.DamageRate + 1.5
+        if skill.Attribute == 'Ice' then
+            rateTable.DamageRate = rateTable.DamageRate + 0.5
         end
         
         if IS_PC(from) == true and IsNormalSKillBySkillID(from, skill.ClassID) == 1 then
@@ -601,11 +599,17 @@ function SCR_BUFF_RATETABLE_AttaqueCoquille_Debuff(self, from, skill, atk, ret, 
 end
 
 function SCR_BUFF_RATETABLE_Petrification(self, from, skill, atk, ret, rateTable, buff)
-
-    if IsBuffApplied(self, 'Petrification') == 'YES' and (skill.ClassType == 'Missile' or skill.ClassType == 'Magic') then
-        rateTable.DamageRate = rateTable.DamageRate - 0.9;
+    if IsBuffApplied(self, 'Petrification') == 'YES' then
+    	if skill.Attribute == 'Fire' or skill.Attribute == 'Soul' then
+    	local hitCount = 2
+    	
+    	rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 0.5
+    	SetMultipleHitCount(ret, hitCount);
+    	elseif skill.ClassType == 'Missile' or skill.ClassType == 'Magic' then
+	        AddDamageReductionRate(rateTable, 0.9)
+	    end
     end
-end 
+end
 
 function SCR_BUFF_RATETABLE_Camouflage_Buff(self, from, skill, atk, ret, rateTable, buff)
     
@@ -682,18 +686,8 @@ function SCR_BUFF_RATETABLE_QuickCast_Buff(self, from, skill, atk, ret, rateTabl
             rateTable.DamageRate = rateTable.DamageRate + (0.1 * abil.Level);
         end
     end
-end 
+end
 
-function SCR_BUFF_RATETABLE_Cryomancer_Freeze(self, from, skill, atk, ret, rateTable, buff)
-    
-    if IsBuffApplied(self, 'Cryomancer_Freeze') == 'YES' and skill.Attribute == 'Lightning' then
-        
-        local Cryomancer9_abilLv = GetBuffArgs(buff);
-        if Cryomancer9_abilLv > 0 then
-            rateTable.DamageRate = rateTable.DamageRate + (0.1 * Cryomancer9_abilLv);
-        end
-    end
-end 
 
 function SCR_BUFF_RATETABLE_Link_Enemy(self, from, skill, atk, ret, rateTable, buff)
     
@@ -730,6 +724,12 @@ function SCR_BUFF_RATETABLE_SwellLeftArm_Buff(self, from, skill, atk, ret, rateT
         if Thaumaturge7_abilLv > 0 and IsBuffApplied(self, 'SwellBody_Debuff') == 'YES' then
             AddBuff(from, self, 'UC_debrave', 1, 0, 8000 * Thaumaturge7_abilLv, 1);
         end
+        
+        if skill.ClassName == "Wizard_MagicMissile" then
+            local hitCount = 2
+            rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 1
+            AddMultipleHitCount(ret, hitCount);
+        end
     end
 end
 
@@ -747,7 +747,6 @@ end
 
 
 function SCR_BUFF_RATETABLE_Lethargy_Debuff(self, from, skill, atk, ret, rateTable, buff)
-    
     if IsBuffApplied(self, 'Lethargy_Debuff') == 'YES' then
         local attackType = skill.AttackType
         if (IS_PC(from) == true and GetJobObject(from).CtrlType ~= 'Wizard') and skill.ClassID < 10000 then
@@ -758,6 +757,16 @@ function SCR_BUFF_RATETABLE_Lethargy_Debuff(self, from, skill, atk, ret, rateTab
         local Wizard7_abilLv = GetBuffArgs(buff);
         if Wizard7_abilLv > 0 and attackType == 'Strike' then
             rateTable.DamageRate = rateTable.DamageRate + (0.1 * Wizard7_abilLv);
+        end
+        
+        if skill.HitType == "Pad" then
+        	rateTable.DamageRate = rateTable.DamageRate + 0.2
+        end
+        
+        local abilWizard24 = GetAbility(from, "Wizard24");
+        if abilWizard24 ~= nil and abilWizard24.ActiveState == 1 and skill.HitType == "Pad" then
+        	local abilDamageRate = 0.03 * abilWizard24.Level
+        	rateTable.DamageRate = rateTable.DamageRate + abilDamageRate;
         end
     end
 end
@@ -804,7 +813,8 @@ function SCR_BUFF_RATETABLE_ResistElements_Buff(self, from, skill, atk, ret, rat
             end
         end
         
-        rateTable.DamageRate = rateTable.DamageRate - damageRate
+--        rateTable.DamageRate = rateTable.DamageRate - damageRate
+		AddDamageReductionRate(rateTable, damageRate)
         rateTable.missRating = rateTable.missRating + missAdd;
     end
 end
@@ -1126,7 +1136,8 @@ function SCR_BUFF_RATETABLE_EvadeThrust_Buff(self, from, skill, atk, ret, rateTa
     end
     
     if IsBuffApplied(self, 'EvadeThrust_Buff') == 'YES' and skill.ClassType == 'Magic' then
-        rateTable.DamageRate = rateTable.DamageRate - 0.3;
+--        rateTable.DamageRate = rateTable.DamageRate - 0.3;
+        AddDamageReductionRate(rateTable, 0.3)
     end
 end
 
@@ -1290,24 +1301,6 @@ function SCR_BUFF_RATETABLE_FeverTime(self, from, skill, atk, ret, rateTable, bu
     end
 end
 
-function SCR_BUFF_RATETABLE_Algiz_Buff(self, from, skill, atk, ret, rateTable, buff)
-    if IsBuffApplied(self, 'Algiz_Buff') == 'YES' then
-        local addkd = GetExProp(buff, "ADD_KD")
-        if addkd ~= nil then
-            if IsPVPServer(self) == 1 then
-                addkd = math.floor(addkd / 2);
-            end
-            
-            if addkd >= IMCRandom(1, 10000) then
-                ret.KDPower = 0;
-                ret.ResultType = HITRESULT_BLOW;
-                ret.HitType = HIT_ENDURE;
-                ret.HitDelay = 0;
-            end
-        end
-    end
-end
-
 function SCR_BUFF_RATETABLE_Archer_Kneelingshot(self, from, skill, atk, ret, rateTable, buff)
     local abil = GetAbility(from, "Cannoneer14");
     if abil ~= nil then
@@ -1342,7 +1335,8 @@ end
 
 function SCR_BUFF_RATETABLE_Sorcerer_Obey_PC_DEF_Buff(self, from, skill, atk, ret, rateTable, buff)
     if IsBuffApplied(self, 'Sorcerer_Obey_PC_DEF_Buff') == 'YES' then
-        rateTable.DamageRate = rateTable.DamageRate - 0.2;
+--        rateTable.DamageRate = rateTable.DamageRate - 0.2;
+        AddDamageReductionRate(rateTable, 0.2)
     end
 end
 
@@ -1383,7 +1377,8 @@ function SCR_BUFF_RATETABLE_StoneSkin_Buff(self, from, skill, atk, ret, rateTabl
             local skillLv = GetBuffArgs(buff);
             local buffValue = (10 + math.floor((skillLv - 1) * 2.5)) / 100;
             
-            rateTable.DamageRate = rateTable.DamageRate - buffValue;
+--            rateTable.DamageRate = rateTable.DamageRate - buffValue;
+            AddDamageReductionRate(rateTable, buffValue)
         end
     end
 end
@@ -1434,6 +1429,11 @@ function SCR_BUFF_RATETABLE_Hexing_Debuff(self, from, skill, atk, ret, rateTable
             SetExProp(buff, propName, 0);
         else
             SetExProp(buff, propName, hitCount + 1);
+        end
+        
+        local abilBokor2 = GetAbility(from, "Bokor2")
+        if abilBokor2 ~= nil and IMCRandom(1,9999) < abilBokor2.Level * 500 then
+            AddBuff(from, self, 'Blind', 1, 0, 5000, 1);
         end
     end
     
@@ -1789,5 +1789,200 @@ function SCR_BUFF_RATETABLE_Muleta_Cast_End_Buff(self, from, skill, atk, ret, ra
 		if skill.ClassType == "Melee" then
 			rateTable.blkResult = 1
 		end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Drain_Buff(self, from, skill, atk, ret, rateTable, buff)
+    local darkTheurageCount = GetExProp(from, "DARKTHEURAGE_COUNT")
+    if IsBuffApplied(from, "Drain_Buff") == "YES" then
+        if TryGetProp(skill, "Attribute") == "Dark" and TryGetProp(skill, "ClassType") == "Magic" then
+        local addRate = darkTheurageCount * 0.1
+        rateTable.DamageRate = rateTable.DamageRate + addRate
+    end
+end
+end
+
+function SCR_BUFF_RATETABLE_Sleep_Debuff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, 'Sleep_Debuff') == 'YES' then
+    	local caster = GetBuffCaster(buff)
+    	if caster ~= nil then
+	    	local abilWizard25 = GetAbility(caster, "Wizard25")
+	    	if abilWizard25 ~= nil then
+				if skill.Attribute == "Melee" or skill.Attribute == "Soul" then
+					rateTable.DamageRate = rateTable.DamageRate + 1;
+				end
+			end
+		end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Gust_Debuff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, 'Gust_Debuff') == 'YES' then
+		if skill.Attribute == "Ice" then
+			rateTable.DamageRate = rateTable.DamageRate + 0.1
+		end
+    end
+end
+
+
+function SCR_BUFF_RATETABLE_Raise_Debuff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, 'Raise_Debuff') == 'YES' then
+		rateTable.EnableDodge = 0
+    end
+end
+
+function SCR_BUFF_RATETABLE_Link_Party(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "Link_Party") == "YES" then
+    	local caster = GetBuffCaster(buff)
+    	if caster ~= nil then
+	    	local abilLinker12 = GetAbility(caster, "Linker12")
+			if abilLinker12 ~= nil and skill.ClassType == "Magic" then
+				local spiritualChainSkill = GetSkill(caster, "Linker_SpiritualChain")
+				local abilAddDamage = spiritualChainSkill.Level * 0.03
+				rateTable.DamageRate = rateTable.DamageRate + abilAddDamage
+			end
+		end
+    end
+end
+
+function SCR_BUFF_RATETABLE_FirePillar_Debuff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "FirePillar_Debuff") == "YES" then
+		if IsBuffApplied(self, "StormDust_Debuff") == "YES" then
+			local hitCount = 2
+			
+			rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 1
+			AddMultipleHitCount(ret, hitCount);
+		end
+    end
+end
+
+function SCR_BUFF_RATETABLE_FireWall_Debuff(self, from, skill, atk, ret, rateTable, buff)
+	local abilElementalist30 = GetAbility(from, "Elementalist30")
+	if abilElementalist30 ~= nil and abilElementalist30.ActiveState == 1 then
+	    if IsBuffApplied(self, "FireWall_Debuff") == "YES" then
+			if skill.ClassName == "Elementalist_Meteor" then
+				local hitCount = 5
+				
+				rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 0.5
+				AddMultipleHitCount(ret, hitCount);
+			end
+	    end
+	end
+end
+
+function SCR_BUFF_RATETABLE_SubWeaponCancel_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "SubWeaponCancel_Buff") == "YES" then
+        if skill.ClassName == "War_JustFramePistol" or skill.ClassName == "War_JustFrameAttack" or skill.ClassName == "War_JustFrameDagger" then
+            local subWeaponCancelSkill = GetSkill(from, "Corsair_SubweaponCancel");
+            if subWeaponCancelSkill ~= nil then
+                local skillLevel = TryGetProp(subWeaponCancelSkill, "Level");
+                local addRate = skillLevel * 0.05 + 0.3;
+                if addRate >= 0 then
+                    rateTable.DamageRate = rateTable.DamageRate + addRate;
+                end
+            end
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_SpiritShock_Debuff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "SpiritShock_Debuff") == "YES" then
+    	local caster = GetBuffCaster(buff)
+    	if caster ~= nil then
+    		if skill.ClassName == "Linker_SpiritShock" and IsSameActor(from, caster) == "YES" then
+				local abilLinker15 = GetAbility(from, "Linker15")
+				if abilLinker15 ~= nil and abilLinker15.ActiveState == 1 then
+					local pcMNA = TryGetProp(from, "MNA")
+					if pcMNA < 1 then
+						pcMNA = 1
+					end
+					
+					local enemyMNA = TryGetProp(self, "MNA")
+					if enemyMNA < 1 then
+						enemyMNA = 1
+					end
+					
+					local abilDamageRate = (1 + ((pcMNA + 100) / ((enemyMNA + 100) * 2)))
+					if abilDamageRate > 2 then
+						abilDamageRate = 2
+					end
+					
+					rateTable.DamageRate = rateTable.DamageRate + abilDamageRate;
+				end
+			end
+		end
+    end
+end
+
+function SCR_BUFF_RATETABLE_SwashBucklingReduceDamage_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "SwashBucklingReduceDamage_Buff") == "YES" then
+        local abilPeltasta1 = GetAbility(self, "Peltasta1");
+        if abilPeltasta1 ~= nil and TryGetProp(abilPeltasta1, "ActiveState") == 1 then
+            local abilLv = TryGetProp(abilPeltasta1, "Level");
+            if abilLv ~= nil then
+                reductionRate = abilLv * 0.05;
+                AddDamageReductionRate(rateTable, reductionRate);
+            end
+        end
+    end
+end
+
+
+function SCR_BUFF_RATETABLE_SwellLeftArm_Abil_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "SwellLeftArm_Abil_Buff") == "YES" then
+		local caster = GetBuffCaster(buff)
+		if caster ~= nil then
+			local abilThaumaturge17 = GetAbility(caster, "Thaumaturge17")
+			if abilThaumaturge17 ~= nil then
+				local abilDamageRate = abilThaumaturge17.Level * 0.01
+				
+				rateTable.DamageRate = rateTable.DamageRate + abilDamageRate;
+			end
+		end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Sabbath_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "Sabbath_Buff") == "YES" then
+        if TryGetProp(skill, "ClassName") == "Warlock_DarkTheurge" or TryGetProp(skill, "ClassName") == "Warlock_Invocation" then
+            local sabbath = GetSkill(from, "Warlock_Sabbath");
+            local sabbathLv = TryGetProp(sabbath, "Level");
+            local sabbathAddDamage = sabbathLv * 0.1;
+            rateTable.DamageRate = rateTable.DamageRate + sabbathAddDamage
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_StormDust_Debuff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "StormDust_Debuff") == "YES" then
+    	if GetBuffByProp(self, "Keyword", "Position") == nil then
+			if IS_PC(self) == false then
+				if TryGetProp(self, "MoveType") == "Flying" then
+					local reductionRate = 0.5
+					
+					AddDamageReductionRate(rateTable, reductionRate);
+				end
+	        end
+	    end
+    end
+end
+
+function SCR_BUFF_RATETABLE_EnchantLightning_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "EnchantLightning_Buff") == "YES" then
+        if skill.ClassType == "Melee" or skill.ClassType == "Missile" then
+    	    skill.Attribute = 'Lightning';
+    	end
+    	
+    	local buffCaster = GetBuffCaster(buff);
+    	local abilEnchanter4 = GetAbility(buffCaster, "Enchanter4");
+    	if abilEnchanter4 ~= nil and TryGetProp(abilEnchanter4, "ActiveState") == 1 then
+    	    if skill.ClassName == "Psychokino_PsychicPressure" then
+    	        skill.Attribute = 'Lightning';
+    	    end
+    	    
+    	    if skill.ClassName == "Psychokino_GravityPole" then
+    	        skill.Attribute = 'Lightning';
+    	    end
+    	end
     end
 end
