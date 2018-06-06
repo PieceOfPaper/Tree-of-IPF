@@ -18,6 +18,7 @@ end
 -- ��ư Ŭ�� (2, 3��° �̱�)
 function GACHA_CUBE_OK_BTN(frame, ctrl)
 	item.DoPremiumItemGachaCube();	-- 1��°�� �ٸ��� ������ null�� ���� ����
+	DISABLE_BUTTON_DOUBLECLICK("gacha_cube",ctrl:GetName())
 end
 
 -- �̱� ���� ��, ��� UIâ �����Ͽ� ���� 
