@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<GameList>
+	<Game Name="PARTY_Q_061_MINI" rankScript="RAID_RANK_SCP" minLv="1" maxLv="0" mapName="d_thorn_20" startWaitSec="0">
+		<StageList>
+			<Stage Name="STAGE01">
+				<ObjList>
+					<Obj Type="Monster" MonType="41445" Pos="1451.04#433.43#-1148.85" angle="-33" genCount="2" genTime="20000" objectKey="0" searchRange="500" propList="&apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41445" Pos="1386.00#433.43#-1136.00" angle="-26" genCount="2" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41445" Pos="1392.46#433.43#-1258.98" angle="-47" genCount="2" genTime="20000" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41445" Pos="1472.23#433.43#-1195.20" angle="-41" genCount="2" genTime="20000" objectKey="3" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1301.56#429.65#-1221.89" genCount="2" genTime="20000" objectKey="4" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1393.11#433.43#-1206.75" genCount="2" genTime="20000" objectKey="5" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="ST01_EV_END">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="60"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="STAGE01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE02"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE02" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="41440" Pos="2004.18#435.13#-1426.85" angle="177" genCount="3" genTime="20000" objectKey="0" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="2019.49#440.12#-1321.03" angle="-166" genCount="3" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41445" Pos="1447.07#433.43#-1176.51" angle="-46" genTime="20000" autoGen="0" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41445" Pos="1449.87#433.43#-1270.00" angle="-26" genTime="20000" autoGen="0" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="2019.50#438.51#-1371.51" angle="-179" genCount="3" genTime="20000" objectKey="4" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1437.67#433.43#-1227.15" genCount="3" genTime="20000" objectKey="5" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="3" isOr="1" eventName="ST02_EV01">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE02/2"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="STAGE02/2"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="ST02_EV_END">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="70"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="STAGE02"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE03"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="3" isOr="1" eventName="ST02_EV02">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE02/3"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="STAGE02/3"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE03" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="57598" Pos="2051.32#442.38#-1355.84" angle="164" genCount="3" genTime="18000" objectKey="0" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57598" Pos="1421.52#433.43#-1266.87" angle="-9" genCount="3" genTime="18000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57598" Pos="1410.36#433.43#-1169.44" angle="-23" genCount="3" genTime="18000" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57598" Pos="2035.95#437.14#-1440.38" angle="156" genCount="3" genTime="18000" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="2031.92#439.08#-1394.96" angle="176" genCount="3" genTime="18000" objectKey="4" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1361.88#433.43#-1202.29" genCount="3" genTime="18000" objectKey="5" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41445" Pos="2038.90#442.80#-1301.46" angle="177" genCount="3" genTime="18000" objectKey="6" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1490.43#433.43#-1231.78" genCount="3" genTime="18000" objectKey="7" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="3" isOr="1" eventName="ST03_EV01">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE03/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="STAGE03/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="3" eventName="ST03_EV02">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE03/1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="STAGE03/1"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="ST03_EV_END">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="60"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="STAGE03"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE04"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="3" eventName="ST03_EV03">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE03/2"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="STAGE03/2"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="3" eventName="ST03_EV04">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE03/3"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="STAGE03/3"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE04" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="57598" Pos="1393.21#433.43#-1251.89" angle="-5" genCount="5" genTime="20000" autoGen="0" objectKey="0" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="40"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57598" Pos="2088.09#446.22#-1343.61" angle="169" genCount="5" genTime="20000" autoGen="0" objectKey="1" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="40"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57598" Pos="1472.74#433.43#-1175.30" angle="-19" genCount="5" genTime="20000" objectKey="2" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="40"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41268" Pos="2089.85#441.82#-1429.73" angle="-157" genCount="4" genTime="20000" objectKey="6" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41268" Pos="1422.98#433.43#-1208.38" genCount="4" genTime="20000" objectKey="7" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="5" isOr="1" eventName="ST04_EV_01">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE04/6"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="15"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="STAGE04/6"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="5" isOr="1" eventName="ST04_EV_02">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE04/7"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="15"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="STAGE04/7"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="ST03_EV_END">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="120"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="STAGE04"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE06"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="ST03_EV_03">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE05"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE05" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="41445" Pos="2050.75#442.89#-1337.95" angle="166" genCount="4" genTime="20000" objectKey="0" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41445" Pos="1504.79#433.43#-1292.67" genCount="4" genTime="20000" objectKey="2" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="2089.22#443.42#-1398.32" angle="-167" genCount="4" genTime="20000" objectKey="1" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1488.99#433.43#-1235.79" genCount="4" genTime="20000" objectKey="3" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="ST05_EV_END">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="100"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="STAGE05"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE06" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="41268" Pos="2013.93#438.09#-1366.31" angle="178" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41268" Pos="2024.97#436.36#-1439.24" angle="165" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1511.04#433.43#-1217.59" angle="-14" genCount="5" genTime="20000" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1513.04#433.43#-1317.98" angle="3" genCount="5" genTime="20000" autoGen="0" objectKey="4" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41445" Pos="1468.06#433.43#-1235.17" genCount="5" genTime="20000" objectKey="5" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41445" Pos="1472.70#433.43#-1276.83" genCount="5" genTime="20000" objectKey="6" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57598" Pos="2080.33#442.51#-1402.78" angle="-170" genCount="5" genTime="20000" objectKey="7" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57598" Pos="2088.16#446.08#-1346.34" angle="176" genCount="5" genTime="20000" objectKey="8" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="ST06_EV_END">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="120"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="STAGE06"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE07"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="5" isOr="1" eventName="ST06_EV_01">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE06/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="15"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="STAGE06/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="5" isOr="1" eventName="ST06_EV_02">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE06/1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="15"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="STAGE06/1"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="ST06_EV_03">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE07"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE07" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="41266" Pos="2064.42#444.29#-1339.67" angle="-177" genCount="4" genTime="19000" objectKey="1" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41266" Pos="2002.82#439.20#-1294.39" angle="172" genCount="4" genTime="19000" objectKey="2" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41266" Pos="2012.21#435.77#-1431.95" angle="167" genCount="4" genTime="19000" objectKey="0" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41268" Pos="2110.20#446.28#-1374.58" angle="160" genCount="4" genTime="19000" objectKey="4" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41268" Pos="2070.87#440.01#-1436.60" angle="-165" genCount="4" genTime="19000" objectKey="5" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1496.26#433.43#-1239.21" genCount="4" genTime="19000" objectKey="6" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1488.44#433.43#-1323.30" genCount="4" genTime="19000" objectKey="7" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1429.35#433.43#-1258.96" genCount="4" genTime="19000" objectKey="8" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="ST07_EV_END">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="100"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="STAGE07"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE08"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE08" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="41290" Pos="1423.36#440.23#-1546.67" genCount="3" genTime="20000" objectKey="0" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41290" Pos="1379.09#436.81#-1435.84" genCount="3" genTime="15000" objectKey="1" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41290" Pos="1400.81#438.49#-1491.18" genCount="3" genTime="20000" objectKey="2" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;RunMSPD&apos; &apos;56&apos; &apos;WlkMSPD&apos; &apos;32&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41290" Pos="1465.69#434.99#-1488.02" genCount="3" genTime="20000" objectKey="3" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="ST08_EV_ING">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE09"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE09" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="41266" Pos="2051.28#441.18#-1385.81" angle="-179" genCount="3" genTime="20000" objectKey="0" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41266" Pos="2019.34#435.51#-1447.29" angle="144" genCount="3" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41266" Pos="2032.51#441.46#-1322.30" angle="153" genCount="3" genTime="20000" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41445" Pos="1438.44#433.43#-1222.97" angle="-22" genCount="3" genTime="20000" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41445" Pos="1484.32#433.43#-1200.67" angle="-26" genCount="3" genTime="20000" objectKey="5" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1418.55#433.43#-1153.43" genCount="3" genTime="20000" objectKey="6" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41440" Pos="1369.63#433.43#-1238.89" genCount="3" genTime="20000" objectKey="7" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="ST09_EV_ING"/>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

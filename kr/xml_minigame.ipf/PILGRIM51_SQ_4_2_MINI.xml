@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="PILGRIM51_SQ_4_2_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41315" Pos="1596.77#143.80#-1507.43" angle="-98" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41315" Pos="1659.67#143.80#-1548.41" angle="-95" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41315" Pos="1716.47#143.80#-1605.40" angle="-136" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41315" Pos="1716.31#143.80#-1690.26" angle="172" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41315" Pos="1686.69#143.80#-1757.65" angle="153" genCount="1" genTime="20000" objectKey="4" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41315" Pos="1633.45#143.80#-1790.23" angle="104" genCount="1" genTime="20000" objectKey="5" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/2"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="4">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/4"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="5">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/5"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

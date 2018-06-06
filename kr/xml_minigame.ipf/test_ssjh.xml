@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<GameList>
+    <Game Name="test_ssjh">
+        <StageList>
+            <Stage Name="DefGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+                        <AbsPos X="19.108612" Z="-622.688965" />
+                        <Str Str="aa" />
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Trigger">
+                        <Area>
+                            <Pos Value="-210.615860 0.000000 -1008.487915" />
+                            <Pos Value="263.634766 0.000000 -1048.960205" />
+                            <Pos Value="229.625992 0.000000 -560.067200" />
+                            <Pos Value="-220.012222 0.000000 -579.998352" />
+                        </Area>
+                        <enterScpList>
+                            <ToolScp Scp="MGAME_TRG_START_STAGE" Client="NO" UseSleep="NO">
+                                <Str Str="room_1" />
+                            </ToolScp>
+                        </enterScpList>
+                    </Obj>
+                    <Obj Type="Monster" MonType="40207" Pos="0.24#0.00#-460.08" angle="-86" genCount="1" genTime="20000" objectKey="1" />
+                </ObjList>
+            </Stage>
+            <Stage Name="room_1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+                        <Str Str="aa" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_QUEST_MON" Client="NO" UseSleep="NO">
+                        <Str Str="Goblin_Spear" />
+                        <Num Num="1.000000" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="600.000000" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
+                        <AbsPos X="-57.981003" Z="-702.233887" />
+                        <Num Num="3.000000" />
+                        <Num Num="1.000000" />
+                        <Num Num="0.500000" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SHOCKWAVE" Client="YES" UseSleep="NO">
+                        <Num Num="5.000000" />
+                        <Num Num="1.000000" />
+                        <Num Num="45.000000" />
+                        <Num Num="999.000000" />
+                    </ToolScp>
+                </StartScpList>
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="DefGroup" />
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="11120" Pos="-107.21#0.00#-652.16" genCount="1" genTime="20000" objectKey="0">
+                        <PosList>
+                            <Gen Pos="-107.21#0.00#-652.16" />
+                            <Gen Pos="-107.21#0.00#-652.16" />
+                            <Gen Pos="-107.21#0.00#-652.16" />
+                        </PosList>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="-126.46#0.00#-765.94" genCount="1" genTime="20000" objectKey="1">
+                        <PosList>
+                            <Gen Pos="-126.46#0.00#-765.94" />
+                            <Gen Pos="-126.46#0.00#-765.94" />
+                            <Gen Pos="-126.46#0.00#-765.94" />
+                        </PosList>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="-23.21#0.00#-869.02" genCount="1" genTime="20000" objectKey="2" />
+                </ObjList>
+            </Stage>
+            <Stage Name="to_room2" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="40207" Pos="0.02#0.00#521.11" angle="-83" genCount="1" genTime="20000" objectKey="0" />
+                    <Obj Type="Trigger">
+                        <Area>
+                            <Pos Value="-190.776825 0.000000 -29.836830" />
+                            <Pos Value="269.139038 0.000000 -54.317287" />
+                            <Pos Value="257.573303 0.000000 429.753540" />
+                            <Pos Value="-220.612091 0.000000 408.180664" />
+                        </Area>
+                        <enterScpList>
+                            <ToolScp Scp="MGAME_TRG_START_STAGE" Client="NO" UseSleep="NO">
+                                <Str Str="room" />
+                            </ToolScp>
+                        </enterScpList>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event />
+                </StageEvents>
+            </Stage>
+            <Stage Name="room" AutoStart="0">
+                <ObjList />
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

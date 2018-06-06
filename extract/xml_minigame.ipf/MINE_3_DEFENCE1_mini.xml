@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="MINE_3_DEFENCE1_mini" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47456" Pos="-433.68#183.88#-531.70" angle="-93" genTime="20000" genReadyTime="7000" objectKey="0" SimpleAI="MINE_3_DEFENCE1_mini" tendency="1"/>
+                    <Obj Type="Monster" MonType="47456" Pos="-756.09#184.55#-918.98" angle="19" genTime="20000" genReadyTime="7000" objectKey="1" SimpleAI="MINE_3_DEFENCE1_mini" tendency="1"/>
+                    <Obj Type="Monster" MonType="47456" Pos="-439.88#183.93#-1478.49" angle="77" genTime="20000" genReadyTime="7000" objectKey="2" SimpleAI="MINE_3_DEFENCE1_mini" tendency="1"/>
+                    <Obj Type="Monster" MonType="47456" Pos="-170.82#183.93#-1254.84" angle="152" genTime="20000" genReadyTime="7000" objectKey="3" SimpleAI="MINE_3_DEFENCE1_mini" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47456" Pos="-462.40#183.87#-539.90" angle="-85" genTime="20000" genReadyTime="7000" objectKey="4" SimpleAI="MINE_3_DEFENCE1_mini" tendency="1"/>
+                    <Obj Type="Monster" MonType="47456" Pos="-771.01#184.64#-874.00" angle="-14" genTime="20000" genReadyTime="7000" objectKey="5" SimpleAI="MINE_3_DEFENCE1_mini" tendency="1"/>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

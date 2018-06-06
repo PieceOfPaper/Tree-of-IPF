@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="CATACOMB_38_1_SQ_06_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57701" Pos="-886.66#118.87#247.65" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57701" Pos="-815.75#118.87#340.83" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57701" Pos="-467.75#118.87#-7.10" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57701" Pos="-568.76#118.87#-73.91" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="6">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

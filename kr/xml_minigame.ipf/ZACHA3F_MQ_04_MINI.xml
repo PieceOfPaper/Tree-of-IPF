@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ZACHA3F_MQ_04_MINI" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400842" Pos="-2666.55#296.89#70.40" angle="-55" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400842" Pos="-2825.47#296.89#-22.34" angle="-55" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Change">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="덴옵틱에 의해 오염된 휠렌이 일어납니다!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1"/>
+                                <Str Str="D_ZACHA_34_Q04_AI"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400842" Pos="-2911.78#296.89#-55.49" angle="115" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400842" Pos="-2872.70#296.89#-38.55" angle="-100" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400842" Pos="-2907.25#296.89#311.08" angle="-128" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400842" Pos="-2850.15#296.89#315.03" angle="-75" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="change">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="덴옵틱에 의해 오염된 휠렌이 일어납니다!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="2/0/2/1/2/2/2/3"/>
+                                <Str Str="D_ZACHA_34_Q04_AI"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="3">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400842" Pos="-2732.21#296.89#-45.71" angle="107" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400842" Pos="-2682.92#296.89#-54.43" angle="117" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400842" Pos="-2678.81#296.89#-12.71" angle="149" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400842" Pos="-2744.90#296.89#202.16" angle="-71" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400842" Pos="-2728.67#296.89#313.07" angle="-97" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400842" Pos="-2671.66#296.89#317.32" angle="-94" genCount="1" genTime="20000" objectKey="5" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400842" Pos="-3218.33#296.89#172.66" angle="-55" genCount="1" genTime="20000" objectKey="6" propList="&apos;Name&apos; &apos;휠렌&apos; &apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_spread_out011_dark" Arg="1.5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="KNOCKDOWN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="덴옵틱에 의해 오염된 휠렌이 일어납니다!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="3/0/3/1/3/2/3/3/3/4/3/5/3/6"/>
+                                <Str Str="D_ZACHA_34_Q04_AI"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

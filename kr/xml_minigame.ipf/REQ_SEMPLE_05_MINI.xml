@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="REQ_SEMPLE_05_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="600"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="11123" Pos="-739.66#453.87#251.38" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Lv&apos; &apos;109&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;WlkMSPD&apos; &apos;70&apos; " SimpleAI="MON_DUMMY" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-100.69614" Y="453.87399" Z="589.4386"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="EnableAIOutOfPC"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11162" Pos="-501.78#453.87#-192.96" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Lv&apos; &apos;109&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;WlkMSPD&apos; &apos;70&apos; " SimpleAI="MON_DUMMY" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-100.69614" Y="453.87399" Z="589.4386"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="EnableAIOutOfPC"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400204" Pos="-398.03#453.87#-395.29" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Lv&apos; &apos;109&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;WlkMSPD&apos; &apos;70&apos; " SimpleAI="MON_DUMMY" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-100.69614" Y="453.87399" Z="589.4386"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="EnableAIOutOfPC"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400304" Pos="-807.14#453.87#-399.59" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Lv&apos; &apos;109&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; " SimpleAI="MON_DUMMY" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-100.69614" Y="453.87399" Z="589.4386"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="EnableAIOutOfPC"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400324" Pos="570.97#343.75#985.72" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Lv&apos; &apos;109&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;WlkMSPD&apos; &apos;70&apos; " SimpleAI="MON_DUMMY" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-100.69614" Y="453.87399" Z="589.4386"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="EnableAIOutOfPC"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400344" Pos="-134.05#453.87#-382.37" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Lv&apos; &apos;109&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;WlkMSPD&apos; &apos;70&apos; " SimpleAI="MON_DUMMY" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-100.69614" Y="453.87399" Z="589.4386"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="EnableAIOutOfPC"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20026" Pos="-82.97#453.87#607.93" genCount="1" genTime="20000" objectKey="6" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="REQ_SEMPLE_05_DEAD"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                    <Str Str="shrine_bot"/>
+                                    <Str Str="REQ_SEMPLE_05_COPY_RUN"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="EnableAIOutOfPC"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="gen">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0/DefGroup/1/DefGroup/3/DefGroup/4/DefGroup/5"/>
+                                <Num Num="5"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="gen2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
+                                <Num Num="180"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/2"/>
+                                <Num Num="2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="timelimit">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/6"/>
+                                <Str Str="REQ_SEMPLE_05_CREATESSN"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="fail">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="REQ_SEMPLE_05_DEAD"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="의뢰 실패"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/6"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Setting">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="REQ_SEMPLE_05_DEAD"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="msg">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_RANGE" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/6"/>
+                                <Str Str="제단 방어 의뢰가 시작되었습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="3"/>
+                                <Num Num="300"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Success" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event>
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="120"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/6"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="msg">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_RANGE" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/6"/>
+                                <Str Str="제단 방어 의뢰가 성공했습니다!{nl}잠시 동안 제단의 힘을 부여받을 수 있습니다"/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                                <Num Num="100"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

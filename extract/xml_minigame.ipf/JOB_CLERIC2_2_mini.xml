@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="JOB_CLERIC2_2_mini" minLv="0" maxLv="0" startWaitSec="315351224">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47472" Pos="-83.32#145.23#-702.01" angle="121" genCount="4" genTime="20000" objectKey="0" searchRange="400" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="400"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47479" Pos="-26.27#148.15#-754.89" angle="81" genCount="4" genTime="20000" objectKey="2" searchRange="400" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="400"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47479" Pos="-122.87#148.15#-729.99" angle="-143" genCount="4" genTime="30000" objectKey="1" searchRange="400" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="400"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

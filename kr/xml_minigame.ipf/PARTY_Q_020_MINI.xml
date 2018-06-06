@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="PARTY_Q_020_MINI" rankScript="RAID_RANK_SCP" minLv="1" maxLv="0" mapName="f_gele_57_4" startWaitSec="0">
+        <StageList>
+            <Stage Name="BOSS_STAGE01">
+                <ObjList>
+                    <Obj Type="Monster" MonType="103004" Pos="1456.12#63.01#-1324.76" angle="96" genCount="1" genTime="20000" objectKey="0" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="400"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

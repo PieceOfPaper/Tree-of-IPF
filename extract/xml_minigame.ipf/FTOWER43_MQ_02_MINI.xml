@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="FTOWER43_MQ_02_MINI" minLv="0" maxLv="0" startWaitSec="4">
+        <StageList>
+            <Stage Name="stage1">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47394" Pos="-1621.58#554.52#733.08" range="120" genCount="1" genTime="100" autoGen="0" objectKey="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_archer_highanchoring_hit_splash" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57053" Pos="-1601.28#549.66#661.58" range="120" genCount="1" genTime="100" autoGen="0" objectKey="1" SimpleAI="MON_DUMMY" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="200"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47394" Pos="-1553.73#550.65#704.72" range="120" genCount="1" genTime="100" autoGen="0" objectKey="2" SimpleAI="MON_DUMMY" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="200"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="gen">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage1/0/stage1/1/stage1/2"/>
+                                <Num Num="2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="regen">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage1/0/stage1/1/stage1/2"/>
+                                <Num Num="2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

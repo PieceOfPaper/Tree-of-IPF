@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ZACHA5F_MQ_04_MINI" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="our_force" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400841" Pos="-2488.69#363.57#-1417.94" angle="98" maxStackCount="1" genTime="3000" objectKey="0" searchRange="100" propList="&apos;Faction&apos; &apos;Mon_Our_Forces&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400821" Pos="-2402.24#363.57#-1436.19" angle="71" maxStackCount="1" genTime="3000" objectKey="1" searchRange="100" propList="&apos;Faction&apos; &apos;Mon_Our_Forces&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400821" Pos="-2782.48#363.57#-1197.86" maxStackCount="1" genTime="3000" objectKey="7" searchRange="100" propList="&apos;Faction&apos; &apos;Mon_Our_Forces&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="monster_force" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41433" Pos="-2471.88#363.57#-835.93" angle="-69" genCount="2" maxStackCount="1" genTime="10000" objectKey="0" searchRange="180" propList="&apos;Faction&apos; &apos;Mon_Enemy&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="180"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-2454.3274" Y="363.56769" Z="-1113.6071" Random="230"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41434" Pos="-2476.52#370.35#-725.74" angle="-81" genCount="2" maxStackCount="1" genTime="10000" objectKey="8" searchRange="180" propList="&apos;Faction&apos; &apos;Mon_Enemy&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="180"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-2454.3274" Y="363.56769" Z="-1113.6071" Random="230"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47308" Pos="-2562.21#363.57#-775.19" angle="-69" genCount="2" maxStackCount="1" genTime="10000" objectKey="10" searchRange="180" propList="&apos;Faction&apos; &apos;Mon_Enemy&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="180"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-2454.3274" Y="363.56769" Z="-1113.6071" Random="230"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47309" Pos="-2333.78#363.57#-801.43" angle="-94" genCount="2" maxStackCount="1" genTime="10000" objectKey="11" searchRange="180" propList="&apos;Faction&apos; &apos;Mon_Enemy&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="180"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-2454.3274" Y="363.56769" Z="-1113.6071" Random="230"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="stage_start">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="minigame_start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="our_force"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="monster_force"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

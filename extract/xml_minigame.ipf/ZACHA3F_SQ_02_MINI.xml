@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ZACHA3F_SQ_02_MINI" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400821" Pos="-333.67#288.53#364.03" angle="-80" genCount="3" maxStackCount="2" genTime="20000" objectKey="0" searchRange="200" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="200"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400821" Pos="-175.14#288.53#216.79" genCount="3" genTime="20000" objectKey="1" searchRange="200" tendency="1"/>
+                    <Obj Type="Monster" MonType="400821" Pos="-319.44#288.53#42.66" genCount="3" genTime="20000" objectKey="2" searchRange="200" tendency="1"/>
+                    <Obj Type="Monster" MonType="400821" Pos="-500.96#288.53#218.85" genCount="3" genTime="20000" objectKey="3" searchRange="200" tendency="1"/>
+                    <Obj Type="Monster" MonType="400821" Pos="-428.99#288.53#87.78" genCount="3" genTime="20000" objectKey="4" searchRange="200" tendency="1"/>
+                    <Obj Type="Monster" MonType="400821" Pos="-241.26#286.26#301.85" genCount="3" genTime="20000" objectKey="5" searchRange="200" tendency="1"/>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

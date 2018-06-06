@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<GameList>
+    <Game Name="tournament" eloScript="TOURNAMENT_GET_ELO" chatType="Nico" mapName="pvp_tournament" playerCnt="2048" >
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList />
+                <StageEvents>
+                    <Event execMS="5000" execCount="1" eventName="start" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="M_TOURNA_START" Client="NO" UseSleep="NO" />
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Tournament_End" AutoStart="0">
+                <ObjList />
+                <StageEvents>
+                    <Event execCount="1" eventName="msg">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="10초후 존으로 돌아갑니다." />
+                                <Num Num="5.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="15000" eventName="zone" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO" />
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <WorldInitList>
+            <ToolScp Scp="MGAME_TOURNAMENT" Client="NO" UseSleep="NO">
+                <Num Num="2.000000" />
+                <Num Num="4.000000" />
+                <Str Str="t_pvp" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_RECALL" Client="NO" UseSleep="NO">
+                <AbsPos X="-308.660156" Y="12.738441" Z="102.921387" Random="20.000000" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_INIT_CHANGE_VIEW" Client="NO" UseSleep="NO">
+                <Num Num="600.000000" />
+            </ToolScp>
+        </WorldInitList>
+    </Game>
+</GameList>

@@ -1,0 +1,4591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<GameList>
+	<Game Name="G_TOWER_2" minLv="0" maxLv="0" startWaitSec="4">
+		<StageList>
+			<Stage Name="Set">
+				<ObjList/>
+			</Stage>
+			<Stage Name="Stage1">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 1층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="2763.01#265.31#-4145.44" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="2575.34#233.98#-4575.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2630.25#233.98#-4572.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2695.52#233.98#-4552.98" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2757.50#233.98#-4594.88" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2804.76#233.98#-4542.58" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2861.03#233.98#-4566.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2908.21#233.98#-4522.19" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2575.92#233.98#-4505.09" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2638.64#233.98#-4516.86" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2698.64#233.98#-4468.39" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2750.37#233.98#-4501.59" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2820.31#233.98#-4466.47" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2887.26#233.98#-4433.38" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2575.61#233.98#-4406.80" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2656.37#233.98#-4389.90" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2741.45#233.98#-4323.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2855.83#233.98#-4380.35" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2787.76#233.98#-4397.51" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2741.57#233.98#-4424.38" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2903.20#233.98#-4347.84" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage2" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 2층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="2960.00#258.00#-1842.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;3층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_3&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="2775.34#233.98#-2267.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2830.25#233.98#-2264.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2895.52#233.98#-2244.98" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2957.50#233.98#-2286.88" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3004.76#233.98#-2234.58" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3061.03#233.98#-2258.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3108.21#233.98#-2214.19" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2775.92#233.98#-2197.09" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2838.64#233.98#-2208.86" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2898.64#233.98#-2160.39" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2950.37#233.98#-2193.59" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3020.31#233.98#-2158.47" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3087.26#233.98#-2125.38" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2775.61#233.98#-2098.80" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2856.37#233.98#-2081.90" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2941.45#233.98#-2015.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3055.83#233.98#-2072.35" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2987.76#233.98#-2089.51" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2941.57#233.98#-2116.38" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3103.20#233.98#-2039.84" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage2/1/Stage2/2/Stage2/3/Stage2/4/Stage2/5/Stage2/6/Stage2/7/Stage2/8/Stage2/9/Stage2/10/Stage2/11/Stage2/12/Stage2/13/Stage2/14/Stage2/15/Stage2/16/Stage2/17/Stage2/18/Stage2/19/Stage2/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear2"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage2/1/Stage2/2/Stage2/3/Stage2/4/Stage2/5/Stage2/6/Stage2/7/Stage2/8/Stage2/9/Stage2/10/Stage2/11/Stage2/12/Stage2/13/Stage2/14/Stage2/15/Stage2/16/Stage2/17/Stage2/18/Stage2/19/Stage2/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage2"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage2/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage3" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 3층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="2861.00#263.00#403.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;4층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_4&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="2676.34#238.98#-22.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2731.25#238.98#-19.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2796.52#238.98#0.02" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2858.50#238.98#-41.88" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2905.76#238.98#10.42" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2962.03#238.98#-13.48" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3009.21#238.98#30.81" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2676.92#238.98#47.90" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2739.64#238.98#36.14" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2799.64#238.98#84.60" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2851.37#238.98#51.40" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2921.31#238.98#86.53" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2988.26#238.98#119.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2676.61#238.98#146.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2757.37#238.98#163.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2842.45#238.98#230.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2956.83#238.98#172.65" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2888.76#238.98#155.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2842.57#238.98#128.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3004.20#238.98#205.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage3/1/Stage3/2/Stage3/3/Stage3/4/Stage3/5/Stage3/6/Stage3/7/Stage3/8/Stage3/9/Stage3/10/Stage3/11/Stage3/12/Stage3/13/Stage3/14/Stage3/15/Stage3/16/Stage3/17/Stage3/18/Stage3/19/Stage3/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage3"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage3/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage4" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 4층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="2870.00#261.00#2437.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;5층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_5&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="2685.34#236.98#2011.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2740.25#236.98#2014.73" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2805.52#236.98#2034.02" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2867.50#236.98#1992.12" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2914.76#236.98#2044.42" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2971.03#236.98#2020.51" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3018.21#236.98#2064.81" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2685.92#236.98#2081.91" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2748.64#236.98#2070.14" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2808.64#236.98#2118.61" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2860.37#236.98#2085.41" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2930.31#236.98#2120.53" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2997.26#236.98#2153.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2685.61#236.98#2180.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2766.37#236.98#2197.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2851.45#236.98#2264.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2965.83#236.98#2206.65" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2897.76#236.98#2189.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2851.57#236.98#2162.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3013.20#236.98#2239.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage4/1/Stage4/2/Stage4/3/Stage4/4/Stage4/5/Stage4/6/Stage4/7/Stage4/8/Stage4/9/Stage4/10/Stage4/11/Stage4/12/Stage4/13/Stage4/14/Stage4/15/Stage4/16/Stage4/17/Stage4/18/Stage4/19/Stage4/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear4"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage4/1/Stage4/2/Stage4/3/Stage4/4/Stage4/5/Stage4/6/Stage4/7/Stage4/8/Stage4/9/Stage4/10/Stage4/11/Stage4/12/Stage4/13/Stage4/14/Stage4/15/Stage4/16/Stage4/17/Stage4/18/Stage4/19/Stage4/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage4"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage4/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage5" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 5층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="2788.00#262.00#4311.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;6층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_6&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="2603.34#237.98#3885.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2658.25#237.98#3888.73" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2723.52#237.98#3908.02" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2785.50#237.98#3866.12" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2832.76#237.98#3918.42" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2889.03#237.98#3894.51" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2936.21#237.98#3938.81" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2603.92#237.98#3955.91" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2666.64#237.98#3944.14" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2726.64#237.98#3992.61" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2778.37#237.98#3959.41" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2848.31#237.98#3994.53" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2915.26#237.98#4027.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2603.61#237.98#4054.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2684.37#237.98#4071.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2769.45#237.98#4138.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2883.83#237.98#4080.65" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2815.76#237.98#4063.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2769.57#237.98#4036.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="2931.20#237.98#4113.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage5/1/Stage5/2/Stage5/3/Stage5/4/Stage5/5/Stage5/6/Stage5/7/Stage5/8/Stage5/9/Stage5/10/Stage5/11/Stage5/12/Stage5/13/Stage5/14/Stage5/15/Stage5/16/Stage5/17/Stage5/18/Stage5/19/Stage5/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage5/1/Stage5/2/Stage5/3/Stage5/4/Stage5/5/Stage5/6/Stage5/7/Stage5/8/Stage5/9/Stage5/10/Stage5/11/Stage5/12/Stage5/13/Stage5/14/Stage5/15/Stage5/16/Stage5/17/Stage5/18/Stage5/19/Stage5/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage5"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage5/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage6" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 6층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="139.00#264.00#-4206.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-45.66#239.98#-4631.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="9.25#239.98#-4628.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="74.52#239.98#-4608.98" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="136.50#239.98#-4650.88" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="183.76#239.98#-4598.58" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="240.03#239.98#-4622.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="287.21#239.98#-4578.19" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-45.08#239.98#-4561.09" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="17.64#239.98#-4572.86" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="77.64#239.98#-4524.39" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="129.37#239.98#-4557.59" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="199.31#239.98#-4522.47" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="266.26#239.98#-4489.38" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-45.39#239.98#-4462.80" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="35.37#239.98#-4445.90" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="120.45#239.98#-4379.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="234.83#239.98#-4436.35" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="166.76#239.98#-4453.51" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="120.57#239.98#-4480.38" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="282.20#239.98#-4403.84" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage7" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 7층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="107.00#261.00#-1920.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-77.66#236.98#-2345.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-22.75#236.98#-2342.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="42.52#236.98#-2322.98" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="104.50#236.98#-2364.88" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="151.76#236.98#-2312.58" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="208.03#236.98#-2336.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="255.21#236.98#-2292.19" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-77.08#236.98#-2275.09" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-14.36#236.98#-2286.86" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="45.64#236.98#-2238.39" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="97.37#236.98#-2271.59" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="167.31#236.98#-2236.47" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="234.26#236.98#-2203.38" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-77.39#236.98#-2176.80" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="3.37#236.98#-2159.90" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="88.45#236.98#-2093.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="202.83#236.98#-2150.35" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="134.76#236.98#-2167.51" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="88.57#236.98#-2194.38" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="250.20#236.98#-2117.84" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage8" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 8층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="54.00#260.00#326.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-130.66#235.98#-99.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-75.75#235.98#-96.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-10.48#235.98#-76.98" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="51.50#235.98#-118.88" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="98.76#235.98#-66.58" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="155.03#235.98#-90.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="202.21#235.98#-46.20" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-130.08#235.98#-29.10" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-67.36#235.98#-40.87" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-7.36#235.98#7.62" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="44.37#235.98#-25.60" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="114.31#235.98#9.54" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="181.26#235.98#42.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-130.39#235.98#69.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-49.63#235.98#86.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="35.45#235.98#153.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="149.83#235.98#95.66" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="81.76#235.98#78.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="35.57#235.98#51.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="197.20#235.98#128.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage9" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 9층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="172.00#260.00#2352.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-12.66#235.98#1926.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="42.25#235.98#1929.73" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="107.52#235.98#1949.02" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="169.50#235.98#1907.12" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="216.76#235.98#1959.42" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="273.03#235.98#1935.51" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="320.21#235.98#1979.80" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-12.08#235.98#1996.90" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="50.64#235.98#1985.13" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="110.64#235.98#2033.62" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="162.37#235.98#2000.40" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="232.31#235.98#2035.54" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="299.26#235.98#2068.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-12.39#235.98#2095.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="68.37#235.98#2112.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="153.45#235.98#2179.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="267.83#235.98#2121.66" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="199.76#235.98#2104.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="153.57#235.98#2077.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="315.20#235.98#2154.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage10" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 10층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="172.00#257.00#4331.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-12.66#232.98#3905.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="42.25#232.98#3908.73" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="107.52#232.98#3928.02" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="169.50#232.98#3886.12" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="216.76#232.98#3938.42" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="273.03#232.98#3914.51" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="320.21#232.98#3958.80" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-12.08#232.98#3975.90" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="50.64#232.98#3964.13" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="110.64#232.98#4012.62" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="162.37#232.98#3979.40" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="232.31#232.98#4014.54" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="299.26#232.98#4047.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-12.39#232.98#4074.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="68.37#232.98#4091.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="153.45#232.98#4158.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="267.83#232.98#4100.66" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="199.76#232.98#4083.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="153.57#232.98#4056.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="315.20#232.98#4133.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage11" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 11층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="-2639.00#262.00#-4375.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-2823.66#237.98#-4800.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2768.75#237.98#-4797.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2703.48#237.98#-4777.98" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2641.50#237.98#-4819.88" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2594.24#237.98#-4767.58" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2537.97#237.98#-4791.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2490.79#237.98#-4747.19" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2823.08#237.98#-4730.09" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2760.36#237.98#-4741.86" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2700.36#237.98#-4693.39" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2648.63#237.98#-4726.59" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2578.69#237.98#-4691.47" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2511.74#237.98#-4658.38" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2823.39#237.98#-4631.80" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2742.63#237.98#-4614.90" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2657.55#237.98#-4548.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2543.17#237.98#-4605.35" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2611.24#237.98#-4622.51" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2657.43#237.98#-4649.38" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2495.80#237.98#-4572.84" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage12" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 12층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="-2643.00#265.00#-1882.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-2827.66#240.98#-2307.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2772.75#240.98#-2304.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2707.48#240.98#-2284.98" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2645.50#240.98#-2326.88" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2598.24#240.98#-2274.58" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2541.97#240.98#-2298.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2494.79#240.98#-2254.19" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2827.08#240.98#-2237.09" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2764.36#240.98#-2248.86" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2704.36#240.98#-2200.39" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2652.63#240.98#-2233.59" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2582.69#240.98#-2198.47" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2515.74#240.98#-2165.38" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2827.39#240.98#-2138.80" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2746.63#240.98#-2121.90" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2661.55#240.98#-2055.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2547.17#240.98#-2112.35" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2615.24#240.98#-2129.51" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2661.43#240.98#-2156.38" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2499.80#240.98#-2079.84" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage13" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 13층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="-2766.00#261.00#357.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-2950.66#236.98#-68.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2895.75#236.98#-65.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2830.48#236.98#-45.98" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2768.50#236.98#-87.89" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2721.24#236.98#-35.58" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2664.97#236.98#-59.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2617.79#236.98#-15.20" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2950.08#236.98#1.91" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2887.36#236.98#-9.87" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2827.36#236.98#38.62" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2775.63#236.98#5.41" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2705.69#236.98#40.54" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2638.74#236.98#73.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2950.39#236.98#100.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2869.63#236.98#117.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2784.55#236.98#184.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2670.17#236.98#126.65" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2738.24#236.98#109.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2784.43#236.98#82.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2622.80#236.98#159.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage14" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 14층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="-2540.00#262.00#2348.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-2724.66#237.98#1922.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2669.75#237.98#1925.73" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2604.48#237.98#1945.02" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2542.50#237.98#1903.11" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2495.24#237.98#1955.42" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2438.97#237.98#1931.51" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2391.79#237.98#1975.80" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2724.08#237.98#1992.91" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2661.36#237.98#1981.13" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2601.36#237.98#2029.62" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2549.63#237.98#1996.41" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2479.69#237.98#2031.54" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2412.74#237.98#2064.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2724.39#237.98#2091.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2643.63#237.98#2108.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2558.55#237.98#2175.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2444.17#237.98#2117.65" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2512.24#237.98#2100.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2558.43#237.98#2073.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2396.80#237.98#2150.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage15" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 15층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="-2445.00#262.00#4265.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-2629.66#237.98#3839.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2574.75#237.98#3842.73" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2509.48#237.98#3862.02" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2447.50#237.98#3820.11" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2400.24#237.98#3872.42" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2343.97#237.98#3848.51" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2296.79#237.98#3892.80" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2629.08#237.98#3909.91" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2566.36#237.98#3898.13" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2506.36#237.98#3946.62" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2454.63#237.98#3913.41" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2384.69#237.98#3948.54" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2317.74#237.98#3981.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2629.39#237.98#4008.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2548.63#237.98#4025.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2463.55#237.98#4092.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2349.17#237.98#4034.65" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2417.24#237.98#4017.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2463.43#237.98#3990.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-2301.80#237.98#4067.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage16" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 16층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="-5229.00#261.00#-4189.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-5413.66#236.98#-4614.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5358.75#236.98#-4611.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5293.48#236.98#-4591.98" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5231.50#236.98#-4633.88" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5184.24#236.98#-4581.58" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5127.97#236.98#-4605.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5080.79#236.98#-4561.19" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5413.08#236.98#-4544.09" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5350.36#236.98#-4555.86" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5290.36#236.98#-4507.39" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5238.63#236.98#-4540.59" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5168.69#236.98#-4505.47" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5101.74#236.98#-4472.38" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5413.39#236.98#-4445.80" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5332.63#236.98#-4428.90" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5247.55#236.98#-4362.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5133.17#236.98#-4419.35" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5201.24#236.98#-4436.51" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5247.43#236.98#-4463.38" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5085.80#236.98#-4386.84" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage17" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 17층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="-5253.00#261.00#-1848.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-5437.66#236.98#-2273.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5382.75#236.98#-2270.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5317.48#236.98#-2250.98" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5255.50#236.98#-2292.88" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5208.24#236.98#-2240.58" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5151.97#236.98#-2264.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5104.79#236.98#-2220.19" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5437.08#236.98#-2203.09" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5374.36#236.98#-2214.86" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5314.36#236.98#-2166.39" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5262.63#236.98#-2199.59" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5192.69#236.98#-2164.47" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5125.74#236.98#-2131.38" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5437.39#236.98#-2104.80" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5356.63#236.98#-2087.90" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5271.55#236.98#-2021.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5157.17#236.98#-2078.35" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5225.24#236.98#-2095.51" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5271.43#236.98#-2122.38" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5109.80#236.98#-2045.84" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage18" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 18층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="-4843.00#262.00#342.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-5027.66#237.98#-83.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4972.75#237.98#-80.27" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4907.48#237.98#-60.98" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4845.50#237.98#-102.88" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4798.24#237.98#-50.58" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4741.97#237.98#-74.49" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4694.79#237.98#-30.20" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5027.08#237.98#-13.10" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4964.36#237.98#-24.87" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4904.36#237.98#23.62" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4852.63#237.98#-9.60" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4782.69#237.98#25.54" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4715.74#237.98#58.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5027.39#237.98#85.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4946.63#237.98#102.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4861.55#237.98#169.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4747.17#237.98#111.65" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4815.24#237.98#94.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4861.43#237.98#67.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4699.80#237.98#144.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage19" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 19층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="-4952.00#260.00#2345.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-5136.66#235.98#1919.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5081.75#235.98#1922.73" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5016.48#235.98#1942.02" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4954.50#235.98#1900.12" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4907.24#235.98#1952.42" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4850.97#235.98#1928.51" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4803.79#235.98#1972.80" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5136.08#235.98#1989.90" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5073.36#235.98#1978.13" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5013.36#235.98#2026.62" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4961.63#235.98#1993.40" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4891.69#235.98#2028.54" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4824.74#235.98#2061.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5136.39#235.98#2088.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5055.63#235.98#2105.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4970.55#235.98#2172.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4856.17#235.98#2114.65" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4924.24#235.98#2097.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4970.43#235.98#2070.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4808.80#235.98#2147.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage20" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="10초 후 20층의 몬스터들이 등장합니다!"/>
+						<Str Str="!"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="-4871.00#260.00#4278.00" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;2층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_2&apos; &apos;Range&apos; &apos;15&apos; "/>
+					<Obj Type="Monster" MonType="11120" Pos="-5055.66#235.98#3852.50" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5000.75#235.98#3855.73" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4935.48#235.98#3875.02" genCount="1" genTime="20000" autoGen="0" objectKey="3" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4873.50#235.98#3833.12" genCount="1" genTime="20000" autoGen="0" objectKey="4" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4826.24#235.98#3885.42" genCount="1" genTime="20000" autoGen="0" objectKey="5" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4769.97#235.98#3861.51" genCount="1" genTime="20000" autoGen="0" objectKey="6" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4722.79#235.98#3905.80" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5055.08#235.98#3922.90" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4992.36#235.98#3911.13" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4932.36#235.98#3959.62" genCount="1" genTime="20000" autoGen="0" objectKey="10" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4880.63#235.98#3926.40" genCount="1" genTime="20000" autoGen="0" objectKey="11" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4810.69#235.98#3961.54" genCount="1" genTime="20000" autoGen="0" objectKey="12" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4743.74#235.98#3994.62" genCount="1" genTime="20000" autoGen="0" objectKey="13" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-5055.39#235.98#4021.20" genCount="1" genTime="20000" autoGen="0" objectKey="14" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4974.63#235.98#4038.10" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4889.55#235.98#4105.00" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4775.17#235.98#4047.65" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4843.24#235.98#4030.49" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4889.43#235.98#4003.62" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="11120" Pos="-4727.80#235.98#4080.16" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="Clear1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear1" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

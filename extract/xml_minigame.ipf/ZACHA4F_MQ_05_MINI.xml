@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ZACHA4F_MQ_05_MINI" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="boss">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57081" Pos="-576.32#-27.55#1104.74" genCount="1" genTime="20000" objectKey="0" SimpleAI="ZACHA4F_MQ_05_00" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="1_1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="boss/1"/>
+                                <Str Str="Force_Hit"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="badack/3"/>
+                                <Str Str="Our_Forces"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="badack/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="boss/1"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="badack/1/badack/2/badack/0"/>
+                                <Str Str="Neutral"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="badack/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="badack/2/badack/1"/>
+                                <Str Str="Neutral"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="boss/1"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="badack/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="badack/1"/>
+                                <Str Str="Neutral"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="boss/1"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="2_2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="40"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="boss/1"/>
+                                <Str Str="Force_Hit"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="badack/0"/>
+                                <Str Str="Our_Forces"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="3_3">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="40"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="boss/0"/>
+                                <Str Str="Force_Hit"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="badack/2"/>
+                                <Str Str="Our_Forces"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="4_4">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="boss/0"/>
+                                <Str Str="Force_Hit"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="badack/1"/>
+                                <Str Str="Our_Forces"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="4">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="badack/0/badack/1/badack/2/badack/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="boss/0"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="badack">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47106" Pos="-476.62#-27.55#1201.41" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;베아카라스 억제기&apos; &apos;Level&apos; &apos;78&apos; &apos;HPCount&apos; &apos;5&apos; ">
+                        <SelfAI>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion041_smoke" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+                                    <Str Str="ZACHA4F_MQ_05"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_FUNC_LAYER_ACTOR" Client="NO" UseSleep="NO">
+                                    <Str Str="BOSSBUFF_STRAT_PC_NOTICE"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47106" Pos="-648.89#-27.55#1019.82" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;베아카라스 억제기&apos; &apos;Level&apos; &apos;78&apos; &apos;HPCount&apos; &apos;5&apos; ">
+                        <SelfAI>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion041_smoke" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+                                    <Str Str="ZACHA4F_MQ_05"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_FUNC_LAYER_ACTOR" Client="NO" UseSleep="NO">
+                                    <Str Str="BOSSBUFF_STRAT_PC_NOTICE"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47106" Pos="-452.99#-27.55#1026.02" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;베아카라스 억제기&apos; &apos;Level&apos; &apos;78&apos; &apos;HPCount&apos; &apos;5&apos; ">
+                        <SelfAI>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO" CondFunc="">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion041_smoke" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+                                    <Str Str="ZACHA4F_MQ_05"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_FUNC_LAYER_ACTOR" Client="NO" UseSleep="NO">
+                                    <Str Str="BOSSBUFF_STRAT_PC_NOTICE"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47106" Pos="-681.07#-27.55#1204.58" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;베아카라스 억제기&apos; &apos;Level&apos; &apos;78&apos; &apos;HPCount&apos; &apos;5&apos; ">
+                        <SelfAI>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion041_smoke" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+                                    <Str Str="ZACHA4F_MQ_05"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_FUNC_LAYER_ACTOR" Client="NO" UseSleep="NO">
+                                    <Str Str="BOSSBUFF_STRAT_PC_NOTICE"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event/>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

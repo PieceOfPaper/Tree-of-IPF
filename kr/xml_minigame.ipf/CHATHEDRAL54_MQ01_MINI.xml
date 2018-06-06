@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="CHATHEDRAL54_MQ01_MINI" minLv="0" maxLv="0" startWaitSec="613324304">
+        <StageList>
+            <Stage Name="MON_GEN">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57367" Pos="-796.60#3.85#-572.35" angle="-101" genCount="5" genTime="35000" objectKey="0" searchRange="300" propList="&apos;Lv&apos; &apos;0&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57367" Pos="-1675.88#3.85#-550.64" angle="-4" genCount="5" genTime="35000" objectKey="1" searchRange="300" propList="&apos;Lv&apos; &apos;0&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="OBJ_GEN">
+                <ObjList>
+                    <Obj Type="Monster" MonType="147458" Pos="-1238.00#3.85#-888.73" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;15&apos; &apos;Dialog&apos; &apos;CHATHEDRAL54_MQ01_HINT03&apos; "/>
+                    <Obj Type="Monster" MonType="147458" Pos="-1194.88#3.85#-924.52" genCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;15&apos; &apos;Dialog&apos; &apos;CHATHEDRAL54_MQ01_HINT03&apos; "/>
+                    <Obj Type="Monster" MonType="147458" Pos="-1191.28#3.85#-857.35" genCount="1" genTime="20000" objectKey="2" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;15&apos; &apos;Dialog&apos; &apos;CHATHEDRAL54_MQ01_HINT03&apos; "/>
+                    <Obj Type="Monster" MonType="147458" Pos="-1274.72#3.85#-926.75" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;성당 의자&apos; &apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;15&apos; &apos;Dialog&apos; &apos;CHATHEDRAL54_MQ01_HINT03&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="OBJ_GEN1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="OBJ_GEN/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="OBJ_GEN/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="OBJ_GEN2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="OBJ_GEN/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="OBJ_GEN/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="OBJ_GEN3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="OBJ_GEN/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="OBJ_GEN/2"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="OBJ_GEN4">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="OBJ_GEN/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="OBJ_GEN/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

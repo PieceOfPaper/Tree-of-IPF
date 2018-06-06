@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="SIAULIAI50_MINI02" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="STAGE01">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400563" Pos="-1107.97#0.21#-1497.84" angle="158" range="50" genCount="5" genTime="30000" objectKey="0" searchRange="200" SimpleAI="SIAULIAI50_MON_WILD02" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400563" Pos="-930.30#0.21#-1283.05" angle="151" range="50" genCount="5" genTime="30000" objectKey="1" searchRange="200" SimpleAI="SIAULIAI50_MON_WILD02" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="stage01_gen01">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="40"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE02"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="STAGE02" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57353" Pos="-884.60#0.21#-1395.99" angle="-178" range="50" genCount="4" genTime="20000" objectKey="0" SimpleAI="SIAULIAI50_MON_WILD02" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57353" Pos="-946.28#0.21#-1499.73" angle="142" range="50" genCount="4" genTime="20000" objectKey="1" SimpleAI="SIAULIAI50_MON_WILD02" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

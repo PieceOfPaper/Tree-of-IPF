@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<GameList>
+    <Game Name="ROKAS26_QUEST02_MINI">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47107" Pos="-52.12#1836.60#643.73" angle="-75" genCount="1" genTime="20000" objectKey="0" propList="&apos;FixedLife&apos; &apos;1600&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;지누테카스 소환석&apos; " />
+                    <Obj Type="Monster" MonType="47107" Pos="0.62#1836.60#546.77" genCount="1" genTime="20000" objectKey="1" propList="&apos;FixedLife&apos; &apos;1600&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;지누테카스 소환석&apos; " />
+                    <Obj Type="Monster" MonType="47107" Pos="101.60#1836.60#546.58" genCount="1" genTime="20000" objectKey="2" propList="&apos;FixedLife&apos; &apos;1600&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;지누테카스 소환석&apos; " />
+                    <Obj Type="Monster" MonType="401301" Pos="-21.37#1836.60#649.78" genTime="15000" genReadyTime="2000" objectKey="3" searchRange="100" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " SimpleAI="ROKAS26_QUEST02_zinu" />
+                    <Obj Type="Monster" MonType="401301" Pos="17.62#1836.60#564.64" angle="41" genTime="15000" genReadyTime="2000" objectKey="4" searchRange="100" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " SimpleAI="ROKAS26_QUEST02_zinu" />
+                    <Obj Type="Monster" MonType="401301" Pos="97.60#1836.60#572.05" angle="80" genTime="15000" genReadyTime="2000" objectKey="5" searchRange="100" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " SimpleAI="ROKAS26_QUEST02_zinu" />
+                </ObjList>
+                <StageEvents>
+                    <Event>
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="ROKAS26_QUEST02_MINI01">
+                <ObjList />
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

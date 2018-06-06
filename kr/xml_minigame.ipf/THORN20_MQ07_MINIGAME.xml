@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="THORN20_MQ07_MINIGAME" minLv="0" maxLv="0" startWaitSec="14557180">
+        <StageList>
+            <Stage Name="STAGE_01">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41266" Pos="2483.97#488.92#557.99" genCount="1" genTime="20000" autoGen="0" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="41266" Pos="2638.32#488.75#521.95" genCount="1" genTime="20000" autoGen="0" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="41266" Pos="2649.37#488.80#728.08" genCount="1" genTime="20000" autoGen="0" objectKey="2" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="GEN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="STAGE_01/0/STAGE_01/1/STAGE_01/2"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

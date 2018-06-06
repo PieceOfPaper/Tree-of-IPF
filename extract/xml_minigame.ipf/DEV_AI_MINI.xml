@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="DEV_AI_MINI" minLv="0" maxLv="0" startWaitSec="4">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400001" Pos="-203.75#-0.02#-440.97" genCount="1" genTime="20000" objectKey="0" propList="&apos;Level&apos; &apos;10&apos; &apos;BTree&apos; &apos;None&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN_UPDATE"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400001" Pos="-80.05#-0.02#-436.78" genCount="1" genTime="20000" objectKey="1" propList="&apos;Level&apos; &apos;10&apos; &apos;BTree&apos; &apos;None&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN_UPDATE"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400001" Pos="-230.48#-0.02#-536.98" genCount="1" genTime="20000" objectKey="2" propList="&apos;Level&apos; &apos;10&apos; &apos;BTree&apos; &apos;None&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN_UPDATE"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400001" Pos="-140.29#-0.02#-602.25" genCount="1" genTime="20000" objectKey="3" propList="&apos;Level&apos; &apos;10&apos; &apos;BTree&apos; &apos;None&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN_UPDATE"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400001" Pos="-60.15#-0.02#-579.47" genCount="1" genTime="20000" objectKey="4" propList="&apos;Level&apos; &apos;10&apos; &apos;BTree&apos; &apos;None&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN_UPDATE"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400001" Pos="-19.89#-0.02#-533.13" genCount="1" genTime="20000" objectKey="5" propList="&apos;Level&apos; &apos;10&apos; &apos;BTree&apos; &apos;None&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN_UPDATE"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400001" Pos="-11.58#-0.02#-457.84" genCount="1" genTime="20000" objectKey="6" propList="&apos;Level&apos; &apos;10&apos; &apos;BTree&apos; &apos;None&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN_UPDATE"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="MODPAT_AI_GROUP_RUN"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

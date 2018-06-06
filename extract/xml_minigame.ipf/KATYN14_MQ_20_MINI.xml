@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<GameList>
+    <Game Name="KATYN14_MQ_20_MINI">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400463" Pos="-2611.43#420.87#369.24" range="50" genTime="15000" genReadyTime="15000" objectKey="0" searchRange="600" propList="&apos;Lv&apos; &apos;35&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="200.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-2797.014160" Y="420.872498" Z="427.459229" Random="40.000000" Height="3.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400463" Pos="-2608.62#420.87#562.20" range="50" genTime="15000" genReadyTime="15000" objectKey="1" searchRange="600" propList="&apos;Lv&apos; &apos;35&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="200.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-2797.014160" Y="420.872498" Z="427.459229" Random="40.000000" Height="3.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400442" Pos="-2647.03#420.87#475.25" range="50" genCount="6" maxStackCount="3" genTime="8000" objectKey="2" searchRange="300" propList="&apos;Lv&apos; &apos;35&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="200.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-2793.926270" Y="420.872498" Z="449.852051" Random="50.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400442" Pos="-2673.34#420.87#613.58" range="50" genCount="6" maxStackCount="3" genTime="8000" objectKey="3" searchRange="300" propList="&apos;Lv&apos; &apos;35&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="200.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-2793.926270" Y="420.872498" Z="449.852051" Random="50.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400442" Pos="-2662.00#420.87#327.00" range="50" genCount="6" maxStackCount="3" genTime="8000" objectKey="4" searchRange="300" propList="&apos;Lv&apos; &apos;35&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="200.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-2793.926270" Y="420.872498" Z="449.852051" Random="50.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

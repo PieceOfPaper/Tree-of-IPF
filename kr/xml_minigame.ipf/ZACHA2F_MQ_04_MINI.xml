@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ZACHA2F_MQ_04_MINI" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401301" Pos="-323.75#717.02#319.51" range="40" genCount="5" maxStackCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401301" Pos="-302.93#713.42#155.84" range="40" genCount="5" maxStackCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401301" Pos="-130.54#717.02#80.54" range="40" genCount="5" maxStackCount="1" genTime="20000" objectKey="2" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401301" Pos="21.72#717.02#204.97" range="40" genCount="5" maxStackCount="1" genTime="20000" objectKey="3" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401301" Pos="-36.13#717.02#351.65" range="40" genCount="5" maxStackCount="1" genTime="20000" objectKey="4" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="another">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41274" Pos="8.15#717.02#96.42" range="40" genCount="5" maxStackCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41274" Pos="-164.84#713.78#238.89" range="40" genCount="5" maxStackCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; " tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41274" Pos="-233.21#717.02#56.75" range="40" genCount="5" maxStackCount="1" genTime="20000" objectKey="2" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41274" Pos="-350.77#717.02#262.27" range="40" genCount="5" maxStackCount="1" genTime="20000" objectKey="3" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41274" Pos="-23.25#717.04#365.03" range="40" genCount="5" maxStackCount="1" genTime="20000" objectKey="4" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; " tendency="1"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="hidden">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41275" Pos="-15.06#717.02#262.20" maxStackCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41275" Pos="-268.65#713.50#214.15" range="110" maxStackCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Monster_Chaos4&apos; " SimpleAI="ZACHA2F_MQ04_MONAI" tendency="1">
+                        <SelfAI UpdateMS="1000"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41275" Pos="-67.39#717.02#59.47" range="120" maxStackCount="1" genTime="20000" genReadyTime="40000" objectKey="2" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; " SimpleAI="ZACHA2F_MQ04_MONAI" tendency="1">
+                        <SelfAI UpdateMS="1000"/>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<GameList>
+    <Game Name="flag_team" useTeam="1">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="40201" Pos="89.45#117.00#-177.42" angle="134" team="0" genCount="1" genTime="20000" objectKey="0" />
+                    <Obj Type="Monster" MonType="40201" Pos="-44.29#194.91#598.89" angle="-77" team="0" genCount="1" genTime="20000" objectKey="1" />
+                    <Obj Type="Monster" MonType="40201" Pos="-690.05#196.67#-60.82" angle="-17" team="0" genCount="1" genTime="20000" objectKey="2" />
+                    <Obj Type="Monster" MonType="40110" Pos="-543.02#148.80#-235.30" angle="63" genCount="1" genTime="20000" objectKey="3" />
+                    <Obj Type="Monster" MonType="40110" Pos="119.38#148.80#510.18" angle="-144" genCount="1" genTime="20000" objectKey="4" />
+                    <Obj Type="Monster" MonType="40201" Pos="42.47#148.81#628.49" angle="-81" team="0" genCount="1" genTime="20000" objectKey="5" />
+                </ObjList>
+            </Stage>
+            <Stage Name="game_stage">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400941" Pos="-124.81#148.83#22.47" genCount="1" genTime="20000" objectKey="0" />
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="0" execCount="1" eventName="freeze" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_FREEZEZONE" Client="NO" UseSleep="NO">
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="FLAG_TEAM_ASSEMBLE" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" execCount="1" eventName="unfreeze" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_FREEZEZONE" Client="NO" UseSleep="NO">
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="0" execCount="1" eventName="5" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="5" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="4" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="4" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="2000" execCount="1" eventName="3" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="3" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="3000" execCount="1" eventName="2" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="2" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="4000" execCount="1" eventName="1" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="1" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" execCount="1" eventName="Start" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="Start!!!" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CHANGE_TO_TEMP_PC" Client="NO" UseSleep="NO">
+                <Str Str="MCy" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_CRE_SOBJ" Client="NO" UseSleep="NO">
+                <Num Num="2.000000" />
+                <Str Str="ssn_mission" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_RANDOM_SET_TEAM" Client="NO" UseSleep="NO" />
+            <ToolScp Scp="MGAME_RESUR_DLG" Client="NO" UseSleep="NO">
+                <Num Num="0.000000" />
+            </ToolScp>
+          <ToolScp Scp="MGAME_PC_LIST_UPDATE" Client="NO" UseSleep="NO">
+            <Num Num="1.000000" />
+          </ToolScp>
+          <ToolScp Scp="MGAME_C_OPEN_UI" Client="YES" UseSleep="NO">
+                <Str Str="mcy_buyitem" />
+            <Num Num="1.000000" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_OPEN_UI" Client="YES" UseSleep="NO">
+                <Str Str="flaggame_score" />
+              <Num Num="1.000000" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_OPEN_UI" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+              <Num Num="1.000000" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_RESET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_1" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_1" />
+                <Num Num="1.000000" />
+                <Num Num="0.000000" />
+                <Num Num="250.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Name" />
+                <Str Str="{@st42}이름{/}" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_1" />
+                <Num Num="1.000000" />
+                <Num Num="1.000000" />
+                <Num Num="100.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Kill" />
+                <Str Str="{@st42}골" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_1" />
+                <Num Num="1.000000" />
+                <Num Num="2.000000" />
+                <Num Num="100.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Point" />
+                <Str Str="{@st42}점수" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_2" />
+                <Num Num="2.000000" />
+                <Num Num="0.000000" />
+                <Num Num="250.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Name" />
+                <Str Str="{@st42}이름{/}" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_2" />
+                <Num Num="2.000000" />
+                <Num Num="1.000000" />
+                <Num Num="100.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Kill" />
+                <Str Str="{@st42}골" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_2" />
+                <Num Num="2.000000" />
+                <Num Num="2.000000" />
+                <Num Num="100.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Point" />
+                <Str Str="{@st42}점수" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_UPDATE_ADVBOX" Client="YES" UseSleep="NO" />
+        </EnterList>
+        <WorldInitList>
+            <ToolScp Scp="MGAME_INIT_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission" />
+            </ToolScp>
+        </WorldInitList>
+    </Game>
+</GameList>

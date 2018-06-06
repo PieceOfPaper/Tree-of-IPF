@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="" minLv="0" maxLv="0" startWaitSec="51">
+        <StageList>
+            <Stage Name="stage_1">
+                <ObjList>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="401221" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-94" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-96" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-25" genCount="1" genTime="20000" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="401221" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="6" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="8" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-96" genCount="1" genTime="20000" objectKey="9" tendency="1"/>
+                    <Obj Type="Monster" MonType="401221" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="10" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-25" genCount="1" genTime="20000" objectKey="11" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-98" genCount="1" genTime="20000" objectKey="12" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="26" genCount="1" genTime="20000" objectKey="13" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-122" genCount="1" genTime="20000" objectKey="14" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="15" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-124" genCount="1" genTime="20000" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="17" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="25" genCount="1" genTime="20000" objectKey="18" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-109" genCount="1" genTime="20000" objectKey="19" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-56" genCount="1" genTime="20000" objectKey="21" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="171" genCount="1" genTime="20000" objectKey="22" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-131" genCount="1" genTime="20000" objectKey="24" tendency="1"/>
+                    <Obj Type="Monster" MonType="401221" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="25" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-164" genCount="1" genTime="20000" objectKey="27" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-41" genCount="1" genTime="20000" objectKey="20" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="16" genCount="1" genTime="20000" objectKey="23" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" range="30" genCount="1" genTime="20000" objectKey="26" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="28" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="29" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-82" genCount="1" genTime="20000" objectKey="30" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="31" tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="188.00#32.26#145.00" angle="-88" genCount="1" genTime="20000" objectKey="32" tendency="1"/>
+                    <Obj Type="Monster" MonType="401221" Pos="188.00#32.26#145.00" genCount="1" genTime="20000" objectKey="33" tendency="1"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="stage_2">
+                <ObjList>
+                    <Obj Type="Trigger" triggerName="Trigger">
+                        <Area/>
+                        <enterScpList>
+                            <ToolScp Scp="MGAME_TRG_START_STAGE" Client="NO" UseSleep="NO">
+                                <Str Str="stage_3"/>
+                            </ToolScp>
+                        </enterScpList>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="stage_3" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="minigame_end">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_4">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400721" Pos="663.82#599.02#2019.17" genTime="20000" objectKey="0" searchRange="50" tendency="1"/>
+                    <Obj Type="Monster" MonType="400721" Pos="810.86#604.63#2117.55" genTime="20000" objectKey="1" searchRange="50" tendency="1"/>
+                    <Obj Type="Monster" MonType="400721" Pos="828.69#604.89#2037.16" genTime="20000" objectKey="2" searchRange="50" tendency="1"/>
+                    <Obj Type="Monster" MonType="400721" Pos="660.44#598.24#1945.10" genTime="20000" objectKey="3" searchRange="50" tendency="1"/>
+                    <Obj Type="Monster" MonType="400881" Pos="718.20#601.21#2075.39" genTime="20000" objectKey="4" searchRange="50" tendency="1"/>
+                    <Obj Type="Monster" MonType="400881" Pos="798.72#604.43#1942.01" genTime="20000" objectKey="5" searchRange="50" tendency="1"/>
+                    <Obj Type="Monster" MonType="400881" Pos="750.88#602.30#2017.13" genTime="20000" objectKey="6" searchRange="50" tendency="1"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="as">
+                <ObjList>
+                    <Obj Type="Trigger" triggerName="Triggerasdasd">
+                        <Area>
+                            <Pos Value="113.884216 0.249800 -60.264755"/>
+                            <Pos Value="126.481003 0.249800 -146.099564"/>
+                            <Pos Value="176.735077 0.249800 -154.431015"/>
+                            <Pos Value="185.134201 0.249800 -44.813126"/>
+                        </Area>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

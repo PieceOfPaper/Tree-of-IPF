@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ROKAS24_KILL3_MINI" minLv="0" maxLv="0" startWaitSec="658860728">
+        <StageList>
+            <Stage Name="1st">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401181" Pos="-277.83#687.89#2344.14" angle="-105" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="401181" Pos="-305.34#687.89#2257.87" angle="-90" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="401181" Pos="-183.98#687.89#2378.60" angle="-96" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="401181" Pos="-7.93#687.89#2285.99" angle="-120" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="401181" Pos="-15.30#687.89#2199.69" angle="-125" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="401181" Pos="-114.45#687.89#2121.50" angle="-134" genCount="1" genTime="20000" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="401181" Pos="-60.85#687.89#2342.70" angle="-95" genCount="1" genTime="20000" objectKey="6" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="1-2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2nd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2nd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401101" Pos="-259.54#687.89#2316.57" angle="-122" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="401101" Pos="-148.01#687.89#2375.77" angle="57" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="401101" Pos="-62.34#687.89#2346.14" angle="-123" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="401101" Pos="-4.14#687.89#2282.83" angle="-158" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="401101" Pos="-4.07#687.89#2179.33" angle="57" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="401101" Pos="-74.58#687.89#2118.98" angle="-145" genCount="1" genTime="20000" objectKey="5" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="2-3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="2nd/0/2nd/1/2nd/2/2nd/3/2nd/4/2nd/5"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3rd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="3rd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401401" Pos="-252.83#687.89#2314.99" angle="-41" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="401401" Pos="-138.43#687.89#2376.77" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="401401" Pos="-29.60#687.89#2296.57" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="401401" Pos="-37.88#687.89#2185.00" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="401401" Pos="-384.99#687.89#2144.03" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                    <Obj Type="Monster" MonType="401401" Pos="-342.02#687.89#2022.98" genCount="1" genTime="20000" objectKey="5" tendency="1"/>
+                    <Obj Type="Monster" MonType="401401" Pos="-121.28#687.89#2065.96" genCount="1" genTime="20000" objectKey="6" tendency="1"/>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<GameList>
+    <Game Name="THORN19_GATEWAY_5_MINI">
+        <StageList>
+            <Stage Name="DefGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                        <Str Str="부엉이 조각상에 빛이 반짝일 때{nl} 힘을 전송해 시간을 줄일 수 있습니다!" />
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="400362" Pos="722.43#604.44#2219.06" angle="93" range="50" maxStackCount="5" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;47&apos; &apos;Name&apos; &apos;빅 그리바&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="684.231140" Y="603.205383" Z="2398.017334" Random="70.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400361" Pos="792.40#604.75#2310.07" range="50" maxStackCount="5" genTime="20000" objectKey="1" propList="&apos;Lv&apos; &apos;47&apos; &apos;Name&apos; &apos;그리바&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="684.231140" Y="603.205383" Z="2398.017334" Random="70.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400361" Pos="792.62#602.27#2418.38" range="50" maxStackCount="5" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;47&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="684.231140" Y="603.205383" Z="2398.017334" Random="70.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400382" Pos="749.91#602.17#2516.99" range="50" maxStackCount="5" genTime="20000" genReadyTime="10000" objectKey="3" propList="&apos;Lv&apos; &apos;47&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="684.231140" Y="603.205383" Z="2398.017334" Random="70.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400381" Pos="783.78#602.21#2598.15" range="50" maxStackCount="5" genTime="20000" genReadyTime="10000" objectKey="4" propList="&apos;Lv&apos; &apos;47&apos; " tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250.000000" />
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="684.231140" Y="603.205383" Z="2398.017334" Random="70.000000" />
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>
