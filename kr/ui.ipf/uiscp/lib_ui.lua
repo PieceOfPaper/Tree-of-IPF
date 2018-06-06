@@ -185,6 +185,24 @@ function DESTROY_CHILD_BYNAME_EXCEPT(frame, searchname, exceptName)
 
 end
 
+function ADDYPOS_CHILD_BYNAME(frame, searchname, addpos)
+	local index = 0;
+	while 1 do
+		if index >= frame:GetChildCount() then
+			break;
+		end
+
+		local childObj = frame:GetChildByIndex(index);
+		local name = childObj:GetName();
+
+		if string.find(name, searchname) ~= nil then
+			childObj:SetOffset(childObj:GetX(),childObj:GetY() + addpos)
+		end
+
+		index = index + 1;
+	end
+end
+
 function DESTROY_CHILD_BYNAME(frame, searchname)
 	local index = 0;
 	while 1 do
