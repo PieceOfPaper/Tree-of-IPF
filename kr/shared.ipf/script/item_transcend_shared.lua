@@ -108,7 +108,7 @@ function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
     local itemCls = GetClass("Item", itemObj.ClassName);
     local itemMPR = 0;
         if itemCls ~= nil then
-    	itemMPR = itemCls.PR;
+    	itemMPR = itemObj.MaxPR;
         end
 
     local itemPR = TryGetProp(itemObj, "PR")
@@ -121,7 +121,11 @@ function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
         if giveCnt <= 0 then
         	giveCnt = 1;
         end
-
+    
+    if itemObj.Transcend == 1 then
+        giveCnt = 0;
+    end
+    
     return giveCnt;
 	end
 
