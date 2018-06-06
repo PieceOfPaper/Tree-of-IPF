@@ -172,6 +172,7 @@ function GUILDINFO_MEMBER_ONLINE_CLICK(parent, checkBox)
         end
     end
     GBOX_AUTO_ALIGN(memberCtrlBox, 0, 0, 0, true, false, true);
+    ui.CloseFrame('guild_authority_popup');
 end
 
 function POPUP_GUILD_MEMBER(parent, ctrl)

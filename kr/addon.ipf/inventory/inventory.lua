@@ -1285,11 +1285,10 @@ end
 
 
 function CHECK_INV_LBTN(frame, object, argStr, argNum)
-
-	local frame		 = ui.GetFrame('inventory');
+	local frame = ui.GetFrame('inventory');
 	local targetItem = item.HaveTargetItem();
 
-	local curLBtn = frame:GetUserValue("LBTN_SCP");
+	local curLBtn = frame:GetUserValue("LBTN_SCP");    
 	if curLBtn ~= "None" then
 		local invitem = session.GetInvItem(argNum);
 		if invitem ~= nil then
@@ -1310,7 +1309,7 @@ function CHECK_INV_LBTN(frame, object, argStr, argNum)
 		MIX_LBTN(frame, object);
 		return;
 	end
-	
+
 	if targetItem == 1 then
 		local luminItemIndex = item.GetTargetItem();
 
@@ -1336,16 +1335,6 @@ function CHECK_INV_LBTN(frame, object, argStr, argNum)
 		end
 	end
 	
-
-	--[[ 아이템 나누기 기능. 지금은 작동하지 않는다.
-	if keyboard.IsPressed(KEY_SHIFT) == 1 then
-		local invitem = session.GetInvItem(argNum);
-		if invitem ~= nil and invitem.count > 1 then
-			SHOW_ITEMDIVISION_FRAME(invitem, object:GetGlobalX(), object:GetGlobalY());
-		end
-		return;
-	end]]
-	
 	if keyboard.IsPressed(KEY_CTRL) == 1 then
 		local invitem = session.GetInvItem(argNum);
 		LINK_ITEM_TEXT(invitem);
@@ -1358,7 +1347,6 @@ function CHECK_INV_LBTN(frame, object, argStr, argNum)
 	end
 	
 	item.UseTargetItem(argNum);
-
 end
 
 function SLOT_ITEMUSE_BY_TYPE(frame, object, argStr, type)
@@ -2621,8 +2609,7 @@ function CURSOR_CHECK_IN_LOCK(slot)
 	return 0;
 end
 
-function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
-	
+function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)	
 	local itemType = object.ItemType;
 	if nil == itemType then
 		local obj = GetIES(selectItem:GetObject());

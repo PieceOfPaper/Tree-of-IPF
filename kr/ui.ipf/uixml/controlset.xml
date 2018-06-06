@@ -47,29 +47,31 @@
 			<richtext name="level" rect="0 0 90 24" parent="mainBox" layout_gravity="left top" margin="95 28 0 0 " hittest="false" fontname="white_16" textalign="center center" caption="asddsasad" fixwidth="true"/>
 			<richtext name="job" rect="0 0 150 24" parent="mainBox" layout_gravity="left top" margin="195 28 0 0" hittest="false" fontname="white_16" textalign="center center" caption="AAAAAA" fixwidth="true"/>
 			<richtext name="name" rect="0 0 280 24" parent="mainBox" layout_gravity="left top" margin="92 60 0 0" hittest="false" fontname="white_16" textalign="center center" caption="11" fixwidth="true"/>
-			<groupbox name="detailBox" margin="50 95 0 0" rect="0 0 330 300" hittestbox="false" skin="test_frame_low" layout_gravity="left top"/>
-			<!-- Left -->
-			<slot name="HAT" margin="-110 45 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}헤어 코스튬1{/}" layout_gravity="center top"/>
-			<slot name="HAT_T" margin="-110 93 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}헤어 코스튬2{/}" layout_gravity="center top"/>
-			<slot name="HAT_L" margin="-110 141 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}헤어 코스튬3{/}" layout_gravity="center top"/>
-			<slot name="HAIR" margin="-110 189 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wig_slot" DropScp="None" texttooltip="{@st59}헤어{/}" layout_gravity="center top"/>
-			<slot name="RING1" margin="-110 238 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring" DropScp="None" texttooltip="{@st59}팔찌1{/}" layout_gravity="center top"/>
-			<!-- Middle Left -->
-			<slot name="LENS" margin="-40 50 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lens_slot" DropScp="None" texttooltip="{@st59}렌즈{/}" layout_gravity="center top"/>
-			<slot name="SHIRT" margin="-40 110 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="shirt" DropScp="None" texttooltip="{@st59}상의{/}" layout_gravity="center top"/>
-			<slot name="PANTS" margin="-40 170 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="pants" DropScp="None" texttooltip="{@st59}하의{/}" layout_gravity="center top"/>
-			<slot name="RH" margin="-40 230 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="rh" DropScp="None" texttooltip="{@st59}왼손{/}" layout_gravity="center top"/>
+			<groupbox name="detailBox" margin="50 95 0 0" rect="0 0 330 330" hittestbox="false" skin="test_frame_low" layout_gravity="left top"/>
+			<!--1 line-->
+			<slot name="HAT" margin="-96 47 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}헤어 코스튬1{/}" layout_gravity="center top"/>
+			<slot name="HAT_T" margin="-48 47 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}헤어 코스튬2{/}" layout_gravity="center top"/>
+			<slot name="HAT_L" margin="0 47 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}헤어 코스튬3{/}" layout_gravity="center top"/>
+			<slot name="HAIR" margin="48 47 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wig_slot" DropScp="None" texttooltip="{@st59}헤어{/}" layout_gravity="center top"/>
+			<slot name="LENS" margin="96 47 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lens_slot" DropScp="None" texttooltip="{@st59}렌즈{/}" layout_gravity="center top"/>
+			<!--2 line-->
+			<slot name="SHIRT" margin="-30 96 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="shirt" DropScp="None" texttooltip="{@st59}상의{/}" layout_gravity="center top"/>
+			<slot name="GLOVES" margin="30 96 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="gloves" DropScp="None" texttooltip="{@st59}장갑{/}" layout_gravity="center top"/>
 			<!-- Middle Right-->
-			<slot name="OUTER" margin="40 50 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="outer" DropScp="None" texttooltip="{@st59}코스튬{/}" layout_gravity="center top"/>
-			<slot name="GLOVES" margin="40 110 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="gloves" DropScp="None" texttooltip="{@st59}장갑{/}" layout_gravity="center top"/>
-			<slot name="BOOTS" margin="40 170 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="boots" DropScp="None" texttooltip="{@st59}신발{/}" layout_gravity="center top"/>
-			<slot name="LH" margin="40 230 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lh" DropScp="None" texttooltip="{@st59}오른손{/}" layout_gravity="center top"/>
-			<!-- Right-->
-			<slot name="SPECIALCOSTUME" margin="110 45 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="decal_slot" DropScp="None" texttooltip="{@st59}스페셜 코스튬{/}" layout_gravity="center top"/>
-			<slot name="WING" margin="110 93 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wing_slot" DropScp="None" texttooltip="{@st59}날개{/}" layout_gravity="center top"/>
-			<slot name="ARMBAND" margin="110 141 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="armband" DropScp="None" texttooltip="{@st59}암밴드{/}" layout_gravity="center top"/>
-			<slot name="NECK" margin="110 189 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="necklace" DropScp="None" texttooltip="{@st59}목걸이{/}" layout_gravity="center top"/>
-			<slot name="RING2" margin="110 238 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring" DropScp="None" texttooltip="{@st59}팔찌2{/}" layout_gravity="center top"/>
+			<slot name="BOOTS" margin="30 154 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="boots" DropScp="None" texttooltip="{@st59}신발{/}" layout_gravity="center top"/>
+			<slot name="NECK" margin="84 158 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="necklace" DropScp="None" texttooltip="{@st59}목걸이{/}" layout_gravity="center top"/>
+			<slot name="PANTS" margin="-30 155 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="pants" DropScp="None" texttooltip="{@st59}하의{/}" layout_gravity="center top"/>
+			<!--3 line-->
+			<slot name="RH" margin="-30 214 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="rh" DropScp="None" texttooltip="{@st59}왼손{/}" layout_gravity="center top"/>
+			<slot name="LH" margin="30 214 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lh" DropScp="None" texttooltip="{@st59}오른손{/}" layout_gravity="center top"/>
+			<slot name="RING1" margin="-84 217 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring" DropScp="None" texttooltip="{@st59}팔찌1{/}" layout_gravity="center top"/>
+			<slot name="RING2" margin="84 217 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring" DropScp="None" texttooltip="{@st59}팔찌2{/}" layout_gravity="center top"/>
+			<!--4 line-->
+			<slot name="ARMBAND" margin="-96 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="armband" DropScp="None" texttooltip="{@st59}암밴드{/}" layout_gravity="center top"/>
+			<slot name="OUTER" margin="-48 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="outer" DropScp="None" texttooltip="{@st59}코스튬{/}" layout_gravity="center top"/>
+			<slot name="SPECIALCOSTUME" margin="0 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="spcostume_slot" DropScp="None" texttooltip="{@st59}스페셜 코스튬{/}" layout_gravity="center top"/>
+			<slot name="WING" margin="48 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wing_slot" DropScp="None" texttooltip="{@st59}날개{/}" layout_gravity="center top"/>
+			<slot name="EFFECTCOSTUME" margin="96 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="effect_slot" DropScp="None" texttooltip="{@st59}이펙트 코스튬{/}" layout_gravity="center top"/>
 			<labelline name="labelline" margin="0 40 0 0" rect="0 0 300 4" skin="None" layout_gravity="center top" parent="detailBox"/>
 			<richtext name="mapName" margin="0 15 0 0" rect="0 0 120 30" caption="{@st42}텍스트{/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" parent="detailBox"/>
 			<button name="menu_btn" layout_gravity="left top" rect="0 0 20 20" margin="-5 5 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox"/>
@@ -1853,9 +1855,9 @@
 			<richtext name="recipeName" margin="60 6 0 0" layout_gravity="left top" rect="0 0 120 24" format="{@st66b}%s{/}" param1="name" param1_def="제작서" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
 		</controls>
 	</controlset>
-	<controlset name="itemslotset_compare" hittest="true" hittestset="false" draw="false" width="420" height="300" skin="">
+	<controlset name="itemslotset_compare" hittest="true" hittestset="false" draw="false" width="420" height="315" skin="">
 		<controls>
-			<picture name="shihouette" parent="equip" rect="0 0 180 330" margin="0 -10  0 0" layout_gravity="center top" image="inventory_F" hittest="true" stretch="true" oversound="button_cursor_over_3"/>
+			<picture name="shihouette" parent="equip" rect="0 0 160 283" margin="0 -10  0 0" layout_gravity="center top" image="inventory_F" hittest="true" stretch="true" oversound="button_cursor_over_3"/>
 			<slot name="HAT" texttooltip="{@st59}머리{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="120 -10" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
@@ -1868,26 +1870,26 @@
 			<slot name="HAIR" texttooltip="{@st59}헤어{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 156 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wig_slot">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="120 -10" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="OUTER" texttooltip="{@st59}코스튬{/}" layout_gravity="center top" rect="0 0 60 60" margin="175 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="cloths">
+			<slot name="OUTER" texttooltip="{@st59}코스튬{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 55 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="cloths">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="-110 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="RH" texttooltip="{@st59}왼손{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 190 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="rh">
+			<slot name="RH" texttooltip="{@st59}왼손{/}" layout_gravity="center top" rect="0 0 60 60" margin="-31 230 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="rh">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="45 -130" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="LH" texttooltip="{@st59}오른손{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 190 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lh">
+			<slot name="LH" texttooltip="{@st59}오른손{/}" layout_gravity="center top" rect="0 0 60 60" margin="31 230 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lh">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="-45 -120" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="SHIRT" texttooltip="{@st59}상의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 60 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="shirt">
+			<slot name="SHIRT" texttooltip="{@st59}상의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 80 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="shirt">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="125 -30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="GLOVES" texttooltip="{@st59}장갑{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 60 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="gloves">
+			<slot name="PANTS" texttooltip="{@st59}하의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 145 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="pants">
+				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="130 -60" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
+			</slot>
+			<slot name="GLOVES" texttooltip="{@st59}장갑{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 120 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="gloves">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="-60 40" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="BOOTS" texttooltip="{@st59}신발{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 125 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="boots">
+			<slot name="BOOTS" texttooltip="{@st59}신발{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 185 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="boots">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="-95 90" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
-			</slot>
-			<slot name="PANTS" texttooltip="{@st59}하의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 125 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="pants">
-				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="130 -60" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
 			<slot name="RING1" texttooltip="{@st59}왼팔찌{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 208 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="120 -130" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
@@ -1895,16 +1897,22 @@
 			<slot name="RING2" texttooltip="{@st59}오른팔찌{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 208 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="-120 -120" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="NECK" texttooltip="{@st59}목걸이{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 80 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="necklace">
+			<slot name="NECK" texttooltip="{@st59}목걸이{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 104 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="necklace">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="ARMBAND" texttooltip="{@st59}암밴드{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 135 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="armband">
+			<slot name="ARMBAND" texttooltip="{@st59}암밴드{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 156 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="armband">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="LENS" texttooltip="{@st59}렌즈{/}" layout_gravity="center top" rect="0 0 50 50" margin="-100 5 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lens_slot">
+			<slot name="LENS" texttooltip="{@st59}렌즈{/}" layout_gravity="center top" rect="0 0 50 50" margin="-100 25 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lens_slot">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="WING" texttooltip="{@st59}날개{/}" layout_gravity="center top" rect="0 0 50 50" margin="100 5 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wing_slot">
+			<slot name="WING" texttooltip="{@st59}날개{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 52 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wing_slot">
+				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
+			</slot>
+			<slot name="SPECIALCOSTUME" texttooltip="{@st59}스페셜 코스튬{/}" layout_gravity="center top" rect="0 0 50 50" margin="100 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="spcostume_slot">
+				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
+			</slot>
+			<slot name="EFFECTCOSTUME" texttooltip="{@st59}이펙트 코스튬{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="effect_slot">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
 		</controls>
@@ -2575,7 +2583,7 @@
 			<picture name="EventNameBG" margin="7 7 0 0" rect="0 0 520 37" hittest="false" image="test_com_namebg" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<button name="StartButton" margin="196 150 0 7" rect="0 0 110 44" layout_gravity="center top" caption="" skin="test_red_button" LBtnUpScp="ACCEPT_GUILD_EVENT"/>
 			<picture name="StartButtonImg" margin="5 0 0 0" rect="0 0 40 35" hittest="false" image="guild_event_start" stretch="true" changecursor="false" parent="StartButton" layout_gravity="center center"/>
-			<richtext name="EventName" margin="13 11 0 0" rect="0 0 120 24" format="{@st66d}%s{/}" param1="value" param1_def="길드 이벤트" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="EventName" margin="13 11 0 0" rect="0 0 120 24" format="{@st66d}%s{/}" param1="value" param1_def="길드 퀘스트" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<picture name="UserCountImg" margin="7 45 0 0" rect="0 0 30 30" hittest="false" image="house_change_man" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<picture name="TimeLimitImg" margin="117 47 0 0" rect="0 0 30 30" hittest="false" image="test_cooltime" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<richtext name="UserCount" margin="35 50 0 0" rect="0 0 150 24" format="{@st41c}%s명{/}" param1="value" param1_def="10" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
@@ -3886,8 +3894,9 @@
 	</controlset>
 	<controlset name="guild_auth" hittest="true" width="320" height="32" draw="false" hittestset="false">
 		<controls>
-			<checkbox name="inviteCheck" rect="0 0 20 20" margin="-80 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
-			<checkbox name="outCheck" rect="0 0 20 20" margin="80 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
+			<checkbox name="inviteCheck" rect="0 0 20 20" margin="-105 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
+			<checkbox name="outCheck" rect="0 0 20 20" margin="0 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
+			<checkbox name="eventCheck" rect="0 0 20 20" margin="110 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
 			<picture name="line" rect="0 0 320 2" margin="0 0 0 0" layout_gravity="center bottom" stretch="true" image="guild_line_h2"/>
 		</controls>
 	</controlset>

@@ -1,4 +1,4 @@
-﻿function SCR_GET_JOB_STR(pc)
+function SCR_GET_JOB_STR(pc)
     local jobObj = GetJobObject(pc);
     if jobObj ~= nil then
         return jobObj.STR;
@@ -697,6 +697,10 @@ function SCR_Get_MINPATK(self)
         value = maxPATK;
     end
     
+    if value < 1 then
+    	value = 1;
+    end
+    
     return math.floor(value);
 end
 
@@ -770,6 +774,10 @@ function SCR_Get_MAXPATK(self)
     
     value = value + byBuff + byRateBuff;
     
+    if value < 1 then
+    	value = 1;
+    end
+    
     return math.floor(value);
 end
 
@@ -842,6 +850,10 @@ function SCR_Get_MINPATK_SUB(self)
         value = maxPATK_SUB;
     end
     
+    if value < 1 then
+    	value = 1;
+    end
+    
     return math.floor(value);
 end
 
@@ -908,6 +920,10 @@ function SCR_Get_MAXPATK_SUB(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byBuff + byRateBuff;
+    
+    if value < 1 then
+    	value = 1;
+    end
     
     return math.floor(value);
 end
@@ -981,6 +997,10 @@ function SCR_Get_MINMATK(self)
         value = maxMATK;
     end
     
+    if value < 1 then
+    	value = 1;
+    end
+    
     return math.floor(value);
 end
 
@@ -1047,6 +1067,10 @@ function SCR_Get_MAXMATK(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byBuff + byRateBuff;
+    
+    if value < 1 then
+    	value = 1;
+    end
     
     return math.floor(value);
 end
@@ -3268,35 +3292,29 @@ function SCR_GET_PC_LIMIT_BUFF_COUNT(self)
 end
 
 function GET_MAXHATE_COUNT(self)
+	local maxHateCount = 100;
+	
     local owner = GetTopOwner(self);
-    if IS_PC(owner) == true and IS_PC(self) == false then
-        return 100;
+    if IS_PC(self) == true or IS_PC(owner) == true or TryGetProp(self, "Faction") == "Summon" then
+	    local mapID = GetMapID(self);
+	    local cls = GetClassByType('Map', mapID);
+	    if cls ~= nil then
+	        local defaultMaxHateCount = cls.MaxHateCount;
+	        
+	        if defaultMaxHateCount == nil then
+	            defaultMaxHateCount = 100;
+	        end
+	        
+	        local byBuff = TryGetProp(self, "MaxHateCount_BM");
+	        if byBuff == nil then
+	            byBuff = 0;
+	        end
+	        
+	        maxHateCount = defaultMaxHateCount + byBuff;
+	    end
     end
     
-    if TryGetProp(self, "Faction") == "Summon" then
-        return 100;
-    end
-    
-    local mapID = GetMapID(self);
-    local cls = GetClassByType('Map', mapID);
-    if cls ~= nil then
-        local defaultMaxHateCount = cls.MaxHateCount;
-        
-        if defaultMaxHateCount == nil then
-            defaultMaxHateCount = 100;
-        end
-        
-        local byBuff = TryGetProp(self, "MaxHateCount_BM");
-        if byBuff == nil then
-            byBuff = 0;
-        end
-        
-        local value = defaultMaxHateCount + byBuff;
-        
-        return math.floor(value);
-    end
-    
-    return 100;
+    return maxHateCount;
 end
 
 function GET_ArmorMaterial_ID(self)
