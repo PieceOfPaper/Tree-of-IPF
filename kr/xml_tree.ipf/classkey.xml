@@ -152,6 +152,8 @@
         <Key Name="ActiveState" Value="139"/>
         <Key Name="Script" Value="140"/>
         <Key Name="Desc2" Value="141"/>
+        <Key Name="ScriptTX" Value="33967"/>
+        <Key Name="IsEquipItemAbil" Value="33968"/>
     </KeyIDSpc>
     <KeyIDSpc Name="SessionObject">
         <Key Name="PosX" Value="142"/>
@@ -12416,6 +12418,7 @@
         <Key Name="Hide_2264" Value="33962"/>
         <Key Name="Hide_2265" Value="33963"/>
         <Key Name="HadVisited_19" Value="33964"/>
+        <Key Name="Reward_bubbe_mage_normal" Value="33966"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Account">
         <Key Name="MaxPVPGrade" Value="6299"/>
@@ -13087,6 +13090,11 @@
         <Key Name="BackHitRange" Value="6861"/>
         <Key Name="GemLevel_BM" Value="8864"/>
         <Key Name="Skill_Delay" Value="8901"/>
+        <Key Name="ReinforceAtk" Value="33969"/>
+        <Key Name="ReinforceAtkAdd" Value="33970"/>
+        <Key Name="AutoPreset" Value="33971"/>
+        <Key Name="ReinforceAtkAddByLevel" Value="33972"/>
+        <Key Name="UseSubweaponDamage" Value="33973"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PC">
         <Key Name="Name" Value="6862"/>
