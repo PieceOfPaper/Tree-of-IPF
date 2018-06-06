@@ -29,6 +29,6 @@
 		<picture name="remainZeny_Img" parent="remainMoneyGbox" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" image="icon_item_silver" oversound="button_over" stretch="true"/>
 		<richtext name="remainInvenzenytext" parent="remainMoneyGbox" rect="0 0 60 20" margin="40 1 0 0" layout_gravity="left center" caption="{@st41b}예상 잔액{/}"/>
 		<richtext name="remainInvenZeny" parent="remainMoneyGbox" rect="0 0 200 20" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
-		<button name="repairBtn" parent="bodyGbox" rect="0 0 200 55" margin="0 0 0 20" layout_gravity="center bottom" LBtnUpScp="APPRAISAL_EXECUTE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}감정 하기{/}" clicksound="button_click_stats_OK" oversound="button_over" skin="test_red_button" texttooltip="선택한 장비를 수리합니다."/>
+		<button name="repairBtn" parent="bodyGbox" rect="0 0 200 55" margin="0 0 0 20" layout_gravity="center bottom" LBtnUpScp="APPRAISAL_EXECUTE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}감정 하기{/}" clicksound="button_click_stats_OK" oversound="button_over" skin="test_red_button" texttooltip="선택한 장비를 감정합니다."/>	
 	</controls>
 </uiframe>

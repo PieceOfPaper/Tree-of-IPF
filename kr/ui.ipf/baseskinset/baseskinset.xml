@@ -871,6 +871,28 @@
 			<img name="bottomcore" imgrect="417 68 21 45"/>
 			<img name="bottomright" imgrect="439 68 45 45"/>
 		</skin>
+		<skin name="Appariser_Positive" texture="\skin\mainframe_04.tga">
+			<img name="topleft" imgrect="605 0 45 30"/>
+			<img name="topcore" imgrect="651 0 21 30"/>
+			<img name="topright" imgrect="673 0 45 30"/>
+			<img name="bodyleft" imgrect="605 31 45 21"/>
+			<img name="bodycore" imgrect="651 31 21 21"/>
+			<img name="bodyright" imgrect="673 31 45 21"/>
+			<img name="bottomleft" imgrect="605 53 45 30"/>
+			<img name="bottomcore" imgrect="651 53 21 30"/>
+			<img name="bottomright" imgrect="673 53 45 30"/>
+		</skin>
+		<skin name="Appariser_negative" texture="\skin\mainframe_04.tga">
+			<img name="topleft" imgrect="605 114 45 30"/>
+			<img name="topcore" imgrect="651 114 21 30"/>
+			<img name="topright" imgrect="673 114 45 30"/>
+			<img name="bodyleft" imgrect="605 145 45 21"/>
+			<img name="bodycore" imgrect="651 145 21 21"/>
+			<img name="bodyright" imgrect="673 145 45 21"/>
+			<img name="bottomleft" imgrect="605 167 45 30"/>
+			<img name="bottomcore" imgrect="651 167 21 30"/>
+			<img name="bottomright" imgrect="673 167 45 30"/>
+		</skin>
 		<skin name="comparisonballoon_positive_left" texture="\skin\mainframe_04.tga">
 			<img name="topleft" imgrect="371 0 45 45"/>
 			<img name="topcore" imgrect="417 0 21 45"/>
@@ -5198,6 +5220,9 @@
 		<image name="map_complet_img" file="\skin\mainframe_03.tga" imgrect="0 864 340 160" CMM_Caption="맵완료나오는이미지"/>
 		<image name="event_img_box" file="\skin\missionFail_skin.tga" imgrect="0 300 170 100" CMM_Caption="이벤트_박스"/>
 		<image name="combo_light" file="\skin\mainframe_03.tga" imgrect="251 821 149 30" CMM_Caption="콤보_라이트"/>
+		<image name="Appariser_my" file="\skin\Appraiser_skin.tga" imgrect="0 0 155 172" CMM_Caption="내아이템"/>
+		<image name="Appariser_arrow" file="\skin\Appraiser_skin.tga" imgrect="157 0 70 60" CMM_Caption="감정사_화살표"/>
+		<image name="Appariser_item" file="\skin\Appraiser_skin.tga" imgrect="228 0 155 172" CMM_Caption="감정사"/>
 	</imagelist>
 	<imagelist category="testji_image">
 		<image name="test_deathX" file="\skin\keynbet.tga" imgrect="363 272 47 47" CMM_Caption="파티 사망자표시"/>

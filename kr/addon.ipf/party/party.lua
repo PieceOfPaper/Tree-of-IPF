@@ -204,8 +204,6 @@ end
 
 function CREATE_PARTY_BTN(control)
 
-	local myfname = info.GetFamilyName(session.GetMyHandle());
-
 	local partyName = nil
 	local partyNameCls = GetClass("DefPartyName", config.GetServiceNation());
 	if partyNameCls ~= nil then
@@ -218,6 +216,7 @@ function CREATE_PARTY_BTN(control)
 	end
 
 	if partyName ~= nil then
+		local partyName = dictionary.ReplaceDicIDInCompStr(partyName); 
 		party.ReqPartyMake(partyName);
 	end
 

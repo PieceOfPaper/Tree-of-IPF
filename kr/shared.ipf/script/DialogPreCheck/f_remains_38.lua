@@ -1,3 +1,12 @@
+function SCR_REMAINS38_RP_1_OBJ_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc,'REMAINS38_RP_1')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+
 function SCR_REMAIN38_SQ_CORPSE1_PRE_DIALOG(pc, dialog)
     local result = SCR_QUEST_CHECK(pc,'REMAIN37_MQ02')
     if result == 'IMPOSSIBLE' or result == 'POSSIBLE' or result == 'PROGRESS' then
@@ -45,6 +54,14 @@ end
 function SCR_REMAIN38_SQ02_PRE_DIALOG(pc, dialog)
     local result = SCR_QUEST_CHECK(pc,'REMAIN38_SQ02')
     if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+function SCR_HIDDEN_WATER_REMAINS_PRE_DIALOG(pc, dialog)
+    --print(IsBuffApplied(pc, "HIDDEN_APPRAISER_BUFF1"))
+    if IsBuffApplied(pc, "HIDDEN_APPRAISER_BUFF1") == "NO" then
         return 'YES'
     end
     return 'NO'

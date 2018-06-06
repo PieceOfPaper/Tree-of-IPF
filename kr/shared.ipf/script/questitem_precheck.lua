@@ -548,9 +548,9 @@ end
 
 function SCR_PRE_ZACHA3F_MQ_02_ITEM(self, argstring, argnum1, argnum2)
     if GetZoneName(self) == "d_zachariel_34" then
-    local fndList, fndCount = SelectObject(self, 40, 'ALL');
-	local i
-    local result = SCR_QUEST_CHECK(self, 'ZACHA3F_MQ_03')
+        local fndList, fndCount = SelectObject(self, 40, 'ALL');
+    	local i
+        local result = SCR_QUEST_CHECK(self, 'ZACHA3F_MQ_03')
         if result == 'PROGRESS' then
             for i = 1, fndCount do
                 if fndList[i].ClassName == "wolf_statue_mage_pollution" then
@@ -3824,7 +3824,7 @@ function SCR_PRE_THORN39_1_MQ03_BOWL(self, argstring, argnum1, argnum2)
         if GetZoneName(self) == 'd_thorn_39_1' then
             if GetLayer(self) == 0 then
                 local itemCnt = GetInvItemCount(self, 'THORN39_1_MQ05_ITEM')
-                if itemCnt <= 4 then
+                if itemCnt <= 6 then
                     local list, cnt = SelectObject(self, 30, 'ALL', 1)
                     local i
                     for i = 1, cnt do
@@ -6905,7 +6905,7 @@ function SCR_PRE_ORSHA_HIDDENQ3_ITEM1(self, strArg, num1, num2, itemType)
         		if petObj.Lv >= 300 then
             		local petCls = GetClassByStrProp("Companion", "ClassName", petObj.ClassName)
             		local foodGroup = 0;
-            
+                    
             		if petCls ~= nil and petCls.FoodGroup ~= "None" then
             			foodGroup = tonumber(petCls.FoodGroup);
             		end
@@ -7019,7 +7019,7 @@ function SCR_PRE_THORN39_1_SQ04_ITEM1(self, argObj, argstring, arg1, arg2)
                 local i 
                 for i = 1, Cnt do
                     if list[i].ClassName == 'Pandroceum' then
-                        if GetHpPercent(list[i]) <= 0.3 then
+                        if GetHpPercent(list[i]) <= 0.5 then
                             return GetHandle(list[i])
                         end
                     end

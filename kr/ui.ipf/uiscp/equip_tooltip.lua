@@ -5,12 +5,14 @@ function ITEM_TOOLTIP_WEAPON(tooltipframe, invitem, strarg, usesubframe)
 	ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 end
 
-function ITEM_TOOLTIP_ARMOR(tooltipframe, invitem, strarg, usesubframe)
-
-	ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe) 
+function ITEM_TOOLTIP_ARMOR(tooltipframe, invitem, strarg, usesubframe, isForgery)
+	ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForgery) ;
 end
 
-function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
+function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForgery)
+	if isForgery == nil then
+		isForgery = false;
+	end
 
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");
 
@@ -25,6 +27,10 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 		mainframename = 'equip_sub'
 		addinfoframename = 'equip_sub_addinfo'
 		drawnowequip = 'false'
+	end
+
+	if isForgery == true then
+		drawnowequip = 'forgery';
 	end
 
 	local ypos = DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnowequip); -- 장비라면 공통적으로 그리는 툴팁들
@@ -149,6 +155,15 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 		itemNowEquip:ShowWindow(0)
 	end
 
+	-- 모조품
+	local forgeryEquip = GET_CHILD_RECURSIVELY(equipCommonCSet, 'forgeryequip');
+	if mainframename == 'equip_main' and drawnowequip == 'forgery' and tooltipframe:GetTopParentFrameName() == 'inventory' then
+		forgeryEquip:ShowWindow(1);
+		itemNowEquip:ShowWindow(0);
+		APPRAISER_FORGERY_TOOLTIP_SET_BUFFTIME(forgeryEquip:GetChild('forgeryequip_text'));
+	else
+		forgeryEquip:ShowWindow(0);
+	end
 	
 	-- 거래불가 아이콘 (일단 거래불가 아이콘 표시하지 않음)
 	local itemCantSoldPicture = GET_CHILD(equipCommonCSet, "cantsold", "ui::CPicture");
@@ -183,10 +198,14 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	SET_GRADE_TOOLTIP(equipCommonCSet, invitem, GRADE_FONT_SIZE);
 
 	-- 아이템 이름 세팅
-	local fullname = GET_FULL_NAME(invitem, true);
+	local itemGuid = tooltipframe:GetUserValue('TOOLTIP_ITEM_GUID');
+	local isEquipedItem = 0;
+	if session.GetEquipItemByGuid(itemGuid) ~= nil then
+		isEquipedItem = 1;
+	end
+	local fullname = GET_FULL_NAME(invitem, true, isEquipedItem);
 	local nameChild = GET_CHILD(equipCommonCSet, "name", "ui::CRichText");
 	nameChild:SetText(fullname);
-
 	nameChild:AdjustFontSizeByWidth(gBox:GetWidth());		-- 폰트 사이즈를 조정
 	nameChild:SetTextAlign("center","center");				-- 중앙 정렬
 	
@@ -196,7 +215,6 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 
 	return retypos;
 end
-
 
 --아이템 타입 및 무게
 function DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, yPos, mainframename)
@@ -243,17 +261,36 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 	
 	-- 무기 타입 아이콘
 	local basicProp = invitem.BasicTooltipProp;
+	local pc = GetMyPCObject();
+	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
+	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
+	local itemGuid = tooltipframe:GetUserValue('TOOLTIP_ITEM_GUID');
+	local isEquiped = 1;
+	if session.GetEquipItemByGuid(itemGuid) == nil then
+		isEquiped = 0
+	end
+	if TryGetProp(invitem, 'EquipGroup') ~= 'SubWeapon' or isEquiped == 0 then
+		bonusReinf = 0;
+	end
+	if isEquiped == 0 then
+		ignoreReinf = 0;
+	end
+	local refreshScpStr = TryGetProp(invitem, 'RefreshScp');
+	if refreshScpStr ~= nil and refreshScpStr ~= 'None' then
+		local refreshScp = _G[refreshScpStr];
+		refreshScp(invitem, nil, ignoreReinf);
+	end
 	
 	if basicProp == 'ATK' then
 	    typeiconname = 'test_sword_icon'
 		typestring = ScpArgMsg("Melee_Atk")
-		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem) )
+		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf) )
 		arg1 = invitem.MINATK - reinforceaddvalue
 		arg2 = invitem.MAXATK - reinforceaddvalue
 	elseif basicProp == 'MATK' then
 	    typeiconname = 'test_sword_icon'
 		typestring = ScpArgMsg("Magic_Atk")
-		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem) )
+		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf) )
 		arg1 = invitem.MATK - reinforceaddvalue
 		arg2 = invitem.MATK - reinforceaddvalue
 	else
@@ -266,7 +303,7 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 			end
 		end
 		
-		reinforceaddvalue = GET_REINFORCE_ADD_VALUE(basicProp, invitem);
+		reinforceaddvalue = GET_REINFORCE_ADD_VALUE(basicProp, invitem, ignoreReinf, bonusReinf);
 		arg1 = TryGetProp(invitem, basicProp) - reinforceaddvalue;
 	    arg2 = TryGetProp(invitem, basicProp) - reinforceaddvalue;
 	end
@@ -276,9 +313,9 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 	
 	yPos = SET_BUFF_TEXT(gBox, invitem, yPos, strarg);
 	
-	yPos = SET_REINFORCE_TEXT(gBox, invitem, yPos);
+	yPos = SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped);
 
-	yPos = SET_TRANSCEND_TEXT(gBox, invitem, yPos);
+	yPos = SET_TRANSCEND_TEXT(gBox, invitem, yPos, ignoreReinf);
 
 	yPos = SET_REINFORCE_BUFF_TEXT(gBox, invitem, yPos);
 	

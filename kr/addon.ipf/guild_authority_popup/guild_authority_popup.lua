@@ -81,8 +81,8 @@ function GUILD_AUTHO_POPUP_DO_OPEN(frame, ctrl, argStr, argNum)
 			local partyMemberInfo = plist:Element(j);
 
 			if (showOnlyConnected == 0) or (partyMemberInfo:GetMapID() > 0) then
+
 				local aid = partyMemberInfo:GetAID();
-				local strAID = string.format("%u", aid);
 					
 				local checkbox_member = bg_checkgroup:CreateOrGetControl('checkbox', 'CHECK_'..j ..'_'..i, 4 + wndX + midleX - 15, subY, 20, 20);
 				checkbox_member = tolua.cast(checkbox_member, "ui::CCheckBox");
@@ -97,7 +97,7 @@ function GUILD_AUTHO_POPUP_DO_OPEN(frame, ctrl, argStr, argNum)
 				end
 
 				checkbox_member:SetEventScript(ui.LBUTTONUP, 'SET_AUTHO_MEMBER_CONFIG');
-				checkbox_member:SetEventScriptArgString(ui.LBUTTONUP, strAID);		
+				checkbox_member:SetEventScriptArgString(ui.LBUTTONUP, aid);		
 				checkbox_member:SetEventScriptArgNumber(ui.LBUTTONUP, i);	
 				
 				if (i == numCount) then

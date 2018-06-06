@@ -447,6 +447,16 @@ end
 ]]
 
 function ITEMTRANSCEND_EXEC(frame)
+	-- 특정 버프 사용 중에는 강화/초월 막아달라고 하셨음.
+	local buffState = IS_ENABLE_BUFF_STATE_TO_REINFORCE_OR_TRANSCEND_C();
+	if buffState ~= 'YES' then
+		local buffCls = GetClass('Buff', buffState);
+		if buffCls ~= nil then
+			ui.SysMsg(ScpArgMsg("CannotReinforceAndTranscendBy{BUFFNAME}","BUFFNAME", buffCls.Name));
+		end
+		return;
+	end
+
 	frame = frame:GetTopParentFrame();
 	local slot = GET_CHILD(frame, "slot");
 	local invItem = GET_SLOT_ITEM(slot);
@@ -703,4 +713,25 @@ function TIMEWAIT_STOP_ITEMTRANSCEND()
 	
 	frame:StopUpdateScript("TIMEWAIT_STOP_ITEMTRANSCEND");
 	return 1;
+end
+
+function ITEMTRANSCEND_FAIL_TO_TRANSCEND()
+	ui.SetHoldUI(false);
+end
+
+function IS_ENABLE_BUFF_STATE_TO_REINFORCE_OR_TRANSCEND_C()
+	local myHandle = session.GetMyHandle();	
+	if info.GetBuffByName(myHandle, 'Forgery_Buff') ~= nil then
+		return 'Forgery_Buff';
+	end
+
+	if info.GetBuffByName(myHandle, 'OverEstimate_Buff') ~= nil then
+		return 'OverEstimate_Buff';
+	end
+
+	if info.GetBuffByName(myHandle, 'Devaluation_Debuff') ~= nil then
+		return 'Devaluation_Debuff';
+	end
+
+	return 'YES';
 end

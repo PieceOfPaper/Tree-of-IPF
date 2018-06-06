@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<CreateMonster frame="0" MonName="apprise_table" Key="forgery" Angle="0" Dist="17" MonAngle="0"/>
+	<CreateMonsterAnim frame="0" Key="forgery" Anim="born" Freeze="0"/>
+	<DeleteMonster frame="30" Key="forgery"/>
+</ActionDesc>

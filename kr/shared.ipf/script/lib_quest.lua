@@ -69,3 +69,16 @@ function GET_MARK_TAIL(questies)
 	return "_sub", 0;
 
 end
+
+function GET_PROGRESS_VALUE_BY_STRING(progressStr)
+	if progressStr == 'POSSIBLE' then
+		return 1;
+	elseif progressStr == 'SUCCESS' then
+		return 2;
+	elseif progressStr == 'PROGRESS' then
+		return 3;
+	elseif progressStr == 'COMPLETE' then
+		return 4;
+	end
+	return 0;
+end

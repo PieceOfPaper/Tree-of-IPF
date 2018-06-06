@@ -1,5 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <PadSkills>
+	<PadSkill Name="Appraiser_Devaluation" CheckerType="0" Range="100" UpdateTerm="100" EnableSearch="0">
+		<createEvent>
+			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+				<Str_Arg Str="None" Arg="0.40000001"/>
+				<Pos Angle="0" Dist="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="None" Arg="1"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="10000"/>
+				<Num Num="10"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
+				<Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</createEvent>
+		<destroyEvent>
+			<ToolScp Scp="C_EFFECT_REMOVE_KEY" Client="YES" UseSleep="NO">
+				<Str Str="newbless"/>
+				<Num Num="0.5"/>
+			</ToolScp>
+		</destroyEvent>
+		<enterEvent>
+			<ToolScp Scp="PAD_CHECK_ACTIVATE" Client="NO" UseSleep="NO">
+				<Str Str="ENEMY"/>
+				<Num Num="1"/>
+				<Str Str="None"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+				<Str Str="ENEMY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="Devaluation_Debuff"/>
+				<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+				<Num Num="0"/>
+				<Num Num="120000"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</enterEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-9000"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
+	<PadSkill Name="Appraiser_OverEstimate" CheckerType="0" Range="100" UpdateTerm="100" EnableSearch="0">
+		<createEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="10000"/>
+				<Num Num="10"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
+				<Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</createEvent>
+		<enterEvent>
+			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+				<Str Str="PARTY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="OverEstimate_Buff"/>
+				<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+				<Num Num="0"/>
+				<Num Num="40000" UseFunc="1" FuncTxt="local pc = GetSkillOwner(obj)
+
+local abil = GetAbility(pc, &apos;Appraiser1&apos;)
+
+local time = 40000
+
+if abil ~= nil and abil.ActiveState == 1 then
+
+time = time + (abil.Level * 1000)
+
+end
+
+return time;"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</enterEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-9000"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
 	<PadSkill Name="ApproachPad" CheckerType="1" Dist="0.20079" Angle="1.044166" Range="15" InnerRange="15">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">

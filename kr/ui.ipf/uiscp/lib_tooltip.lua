@@ -71,13 +71,19 @@ function BALLOON_FRAME_SET_TEXT(tframe, text)
 	tframe:Resize(width, height);
 end
 
-function GET_STAR_TXT(imgSize, count, obj)
+function GET_STAR_TXT(imgSize, count, obj, isEquiped)
     local transcend = 0;
     
     if obj ~= nil and obj.ItemType == "Equip" then
         transcend = TryGetProp(obj, "Transcend");
     end
 	
+	local pc = GetMyPCObject();
+	local ignoreTranscend = TryGetProp(pc, 'IgnoreReinforce');
+	if isEquiped == 1 and ignoreTranscend == 1 then
+		transcend = 0;
+	end
+    
 	local gradeString = "";
 	for i = 1 , count do
 	    if obj ~= nil and transcend > 0 then
@@ -103,9 +109,8 @@ function GET_STAR_TXT_REDUCED(imgSize, count, removeCount)
 	return gradeString;
 end
 
-function GET_ITEM_GRADE_TXT(obj, imgSize)
-
-	return GET_ITEM_STAR_TXT(obj, imgSize)
+function GET_ITEM_GRADE_TXT(obj, imgSize, isEquiped)
+	return GET_ITEM_STAR_TXT(obj, imgSize, isEquiped)
 
 	--[[ 이제 별과 그레이드는 관계 없어졌다. 스펙 확정되면 이 함수 날리고 GET_ITEM_STAR_TXT만 쓰면 됨
 	local grade = obj.ItemGrade;	
@@ -118,18 +123,15 @@ function GET_ITEM_GRADE_TXT(obj, imgSize)
 end
 
 
-function GET_ITEM_STAR_TXT(obj, imgSize)
-
+function GET_ITEM_STAR_TXT(obj, imgSize, isEquiped)
 	local star = nil
-
 	if obj.GroupName == "Gem" or  obj.GroupName == "Card"  then
 		local lv = GET_ITEM_LEVEL_EXP(obj);
 		star = lv
 	else
 		star = obj.ItemStar;
 	end
-	
-	return GET_STAR_TXT(imgSize, star, obj);
+	return GET_STAR_TXT(imgSize, star, obj, isEquiped);
 end
 
 function SET_MOUSE_FOLLOW_BALLOON(msg, autoPos, x, y)

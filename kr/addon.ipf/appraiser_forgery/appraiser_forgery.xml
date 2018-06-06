@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="appraiser_forgery" x="0" y="0" width="500" height="1100" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="-450 0 0 0" open="pip" piptype="left"/>
+	<skin frameskin=" "/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="98"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="skilltreeOpen" close="skilltreeClose"/>
+	<userconfig FORGERY_ITEM_ICON_SKIN="chat_window_2" FORGERY_ITEM_ICON_TIMER_TEXT_STYLE="{@st66d_y}"/>
+	<controls>
+		<groupbox name="bgBox" rect="0 0 500 1030" margin="0 0 0 0" layout_gravity="left top" draw="true" skin="test_frame_low" resizebyparent="true" resizebyresolution="true"/>
+		<groupbox name="headerBox" parent="bgBox" rect="0 0 500 60" margin="0 0 0 0" layout_gravity="left top" draw="true" skin="test_frame_top"/>
+		<richtext name="headerText" parent="headerBox" rect="0 0 100 20" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}모조품{/}"/>
+		<button name="forgeryBtn" parent="bgBox" rect="0 0 160 50" margin="-80 0 0 30" layout_gravity="center bottom" caption="{@st41b}변경하기" skin="test_red_button" LBtnUpScp="APPRAISER_FORGERY_REQUEST"/>
+		<button name="cancelBtn" parent="bgBox" rect="0 0 160 50" margin="90 0 0 30" layout_gravity="center bottom" caption="{@st41b}취소" skin="test_gray_button" LBtnUpScp="APPRAISER_FORGERY_CLOSE"/>
+		<groupbox name="itemBox" rect="0 0 500 830" margin="-10 100 0 0" layout_gravity="left top" draw="false" resizebyresolution="true"/>
+	</controls>
+</uiframe>
