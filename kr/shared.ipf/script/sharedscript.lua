@@ -1,4 +1,4 @@
-
+﻿
 
 function IMC_FATAL(code, stringinfo)
 	imclog("Fatal",code,stringinfo)
@@ -78,7 +78,7 @@ function GET_LAST_UI_OPEN_POS(etc)
 end
 
 
-function IS_NO_EQUIPITEM(equipItem) -- No_~ ?�리�??�이?�인지.
+function IS_NO_EQUIPITEM(equipItem) -- No_~ ?�리�??�이?�인지.
 
 	local clsName = equipItem.ClassName;
 
@@ -155,7 +155,7 @@ function GET_GEM_TYPE_NUMBER(GemType)
 	return -1;
 end
 
--- ?�정 �??�커 �??�덤?�로 1�?IES�?리턴?��??
+-- ?�정 �??�커 �??�덤?�로 1�?IES�?리턴?��??
 function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     local idspace = 'Anchor_'..zoneName
     local class_count = GetClassCount(idspace)
@@ -174,7 +174,7 @@ function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     
 end
 
--- ?�이블에???�정 컬럼??검?�해??리턴?��??
+-- ?�이블에???�정 컬럼??검?�해??리턴?��??
 function SCR_TABLE_SEARCH_ITEM(list, target)
     local result = 'NO'
     local keyList = {}
@@ -264,7 +264,7 @@ function SCR_Q_SUCCESS_REWARD_JOB_GENDER_CHECK(pc, list, target1, target2, targe
 end
 
 
--- ?�개??IES 리스?��? ?�쳐준?
+-- ?�개??IES 리스?��? ?�쳐준?
 function SCR_IES_ADD_IES(IES_list1, IES_list2)
     if IES_list1 == nil and IES_list2 == nil then
         return nil
@@ -285,7 +285,7 @@ function SCR_IES_ADD_IES(IES_list1, IES_list2)
     return IES_list1
 end
 
--- ?�정 ?�스???�션?�브?�트 ?�료 조건 �?index 번째 조건 만족 ?�인
+-- ?�정 ?�스???�션?�브?�트 ?�료 조건 �?index 번째 조건 만족 ?�인
 function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     local sObj_quest = GetSessionObject(pc, sObj_name)
     if sObj_quest ~= nil then
@@ -301,7 +301,7 @@ function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     end
 end
 
--- ?�정 존에 ?�는 ?�브?�트??좌표 IES 리스?��? 찾아�
+-- ?�정 존에 ?�는 ?�브?�트??좌표 IES 리스?��? 찾아�
 function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
     local result2 = SCR_GET_XML_IES('GenType_'..zone_name, column, value)
     if  result2 ~= nil and #result2 > 0 then
@@ -313,7 +313,7 @@ function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
 end
 
 
--- xml �??�정 컬럼??값과 ?�치/?�사 ??IES 리스?��? 찾아�?(option 1?�면 ?�사 �? ?�니�??�치)
+-- xml �??�정 컬럼??값과 ?�치/?�사 ??IES 리스?��? 찾아�?(option 1?�면 ?�사 �? ?�니�??�치)
 function SCR_GET_XML_IES(idspace, column_name, target_value, option)
     if idspace == nil then
 		return;
@@ -927,13 +927,13 @@ function GET_MAP_ACHI_NAME(mapCls)
 
 	local name = ScpArgMsg("Auto_{Auto_1}_TamSaJa","Auto_1", mapCls.Name);
 	local desc = ScpArgMsg("Auto_{Auto_1}_Jiyeogeul_MoDu_TamSaHayeossSeupNiDa.","Auto_1", mapCls.Name);
-	local desctitle = name -- ?�시. ?�중??�??�적 ?�성??보상�?�?��???�???�이???�팅 ?�루??지�?바꾸??
+	local desctitle = name -- ?�시. ?�중??�??�적 ?�성??보상�?�?��???�???�이???�팅 ?�루??지�?바꾸??
 	local reward = "None"
 	return desc, name, desctitle, reward;
 
 end
 
--- hgihLv : ?�티?�중 가???��? ?�벨, ?�티가 ?�니거나 1???�티�?0?
+-- hgihLv : ?�티?�중 가???��? ?�벨, ?�티가 ?�니거나 1???�티�?0?
 function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     local pcLv = myLevel;
     local monLv = monLevel;
@@ -945,6 +945,15 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     if (pcLv - 4) > monLv then
         local lvRatio = 1 - ((pcLv - monLv - 4) * 0.05);
         value = value * lvRatio;
+    end
+    
+    if monLv > (pcLv + 10) then
+        local lvRatio = 1 - ((monLv - pcLv - 10) * 0.05);
+        value = value * lvRatio;
+        
+        if value < 0.2 then
+            value = 0.2;
+        end
     end
 	
     if value < 0 then
@@ -1160,9 +1169,9 @@ function SCR_DIALOG_NPC_ANIM(animName)
 	control.DestTgtPlayDialogAnim(animName);
 end
 
-									-- 공용 ?�이브러�
+									-- 공용 ?�이브러�
 --------------------------------------------------------------------------------------
--- ?�정 문자�?기�??�로 문자?�을 ?�라 ?�이블로 반환
+-- ?�정 문자�?기�??�로 문자?�을 ?�라 ?�이블로 반환
 function StringSplit(str, delimStr)
 	local _tempStr = str;
 	local _result = {};
@@ -1213,13 +1222,13 @@ function IsEnableEffigy(self, skill)
 		return 0;
 	end
 
-	-- 거리 체크?�는�?추�??�야?�듯?
-	-- 근데 그럼 ?�능??��?�디???
+	-- 거리 체크?�는�?추�??�야?�듯?
+	-- 근데 그럼 ?�능??��?�디???
 	return 1;
 end
 
 
--- 보스 ?�랍 리스??교체 바인???�수
+-- 보스 ?�랍 리스??교체 바인???�수
 function CHANGE_BOSSDROPLIST(self, equipDropList)
 	ChangeClassValue(self, 'EquipDropType', equipDropList);
 end
@@ -1237,10 +1246,10 @@ function GET_RECIPE_REQITEM_CNT(cls, propname)
 
 end
 
--- ?�직가??조건체크?�는 ?�수. skilltree.lua ui?�드?�에???�용?�고 ?�버?�서??조건체크?�때 ?�용.
+-- ?�직가??조건체크?�는 ?�수. skilltree.lua ui?�드?�에???�용?�고 ?�버?�서??조건체크?�때 ?�용.
 function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
 	
-	-- ?��? 가지고있??직업?�면 바로 true리턴
+	-- ?��? 가지고있??직업?�면 바로 true리턴
 	for i = 0, #haveJobNameList do		
 		if haveJobNameList[i] ~= nil then
 			if haveJobNameList[i] == cls.ClassName then
@@ -1249,29 +1258,29 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
 		end
 	end
 	
-	-- ?�래???�로??직업?��???조건 체크
+	-- ?�래???�로??직업?��???조건 체크
 	local i = 1;
 	
 	while 1 do
 	
-			-- 조건체크?�는 칼럼?????�요?�면 xml?�서 �??�리면됨. ?�ㅋ?	
+			-- 조건체크?�는 칼럼?????�요?�면 xml?�서 �??�리면됨. ?�ㅋ?	
 		if GetPropType(cls, "ChangeJobCondition" .. i) == nil then
 			break;
 		end
 
 
-		-- ChangeJobCondition???��? 'None'?�면 ?�스?��? ?�해???�직?�는거임. UI?�서???�보?�줌.
+		-- ChangeJobCondition???��? 'None'?�면 ?�스?��? ?�해???�직?�는거임. UI?�서???�보?�줌.
 		if cls["ChangeJobCondition" .. i] == 'None' then
 			return false;
 		end
 		
 
 		local sList = StringSplit(cls["ChangeJobCondition" .. i], ";");
-		local conditionCount = #sList / 2;	-- ?�당직업 ?�직조건 체크�?��
+		local conditionCount = #sList / 2;	-- ?�당직업 ?�직조건 체크�?��
 		
-		local completeCount = 0;			-- ?�직조건??몇개??만족?�는지
+		local completeCount = 0;			-- ?�직조건??몇개??만족?�는지
 		for j = 1, conditionCount do
-			-- 직업가지고있�??�구?�벨보다 ?��?지 체크
+			-- 직업가지고있�??�구?�벨보다 ?��?지 체크
 			for n=0, #haveJobNameList do
 							
 				if sList[j*2-1] == haveJobNameList[n] and tonumber(sList[j*2]) <= tonumber(haveJobGradeList[n]) then
@@ -1280,7 +1289,7 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
 			end
 		end
 
-			-- ?�직조건??모두 만족?�면 ?�직가?�하?�고 ?�팅?�줌
+			-- ?�직조건??모두 만족?�면 ?�직가?�하?�고 ?�팅?�줌
 		if conditionCount == completeCount then
 			return true;
 		end
