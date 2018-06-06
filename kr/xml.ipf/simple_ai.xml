@@ -884,17 +884,17 @@
     </AI>
     <AI Name="BRACKEN631_MQ3_DOG01_AI" ActiveMessageMapInBattle="1">
         <List>
-            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="BRACKEN631_MQ3_DOG01_KILLNPC"/>
             </ToolScp>
-            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="BRACKEN631_MQ3_DOG01_AI_UPDATE"/>
             </ToolScp>
         </List>
         <StartList>
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
             <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
+                <Num Num="1"/>
             </ToolScp>
         </StartList>
     </AI>
@@ -5408,6 +5408,25 @@
             <ToolScp Scp="SAI_DEAD_SET_MGAME_V_NAME" Client="NO" UseSleep="NO">
                 <Str Str="M_PAST_FLIBRARY_1"/>
                 <Str Str="MFL_STAGE9_BOSS_1"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="FLIBRARY_VALDOVAS_AI_1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="500"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_SET_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                <Str Str="M_PAST_FLIBRARY_1"/>
+                <Str Str="Stage7_boss_cnt"/>
                 <Num Num="1"/>
             </ToolScp>
         </DeadList>
@@ -18770,6 +18789,16 @@ return GET_HP_RATE(self) * 0.5"/>
                 <Str Str="SCR_PAVISE_BORNSCRIPT"/>
             </ToolScp>
         </StartList>
+    </AI>
+    <AI Name="raid_siauliai1_ST3" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="400"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-71.25061" Y="1.8263" Z="113.54411" Random="60"/>
+            </ToolScp>
+        </List>
     </AI>
     <AI Name="remains_minigame_cockat" ActiveMessageMapInBattle="1">
         <List>

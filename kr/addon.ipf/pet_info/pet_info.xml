@@ -8,7 +8,7 @@
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<effect open="skilltreeOpen" close="skilltreeClose"/>
-	<userconfig TREE_GROUP_FONT="white_20_ol" TREE_TAB_WIDTH="0" TREE_SLOT_SIZE="58" TREE_COL_COUNT="7"/>
+	<userconfig TREE_GROUP_FONT="white_20_ol" TREE_TAB_WIDTH="0" TREE_SLOT_SIZE="58" TREE_COL_COUNT="7" TOGGLE_ATK_ON="ability_on" TOGGLE_ATK_OFF="ability_off"/>
 	<script OpenScp="PET_INFO_OPEN" CloseScp="PET_INFO_CLOSE"/>
 	<controls>
 		<groupbox name="bg_test" rect="0 0 500 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
@@ -37,5 +37,7 @@
 		<picture name="icon" parent="bg_Icon" rect="0 0 100 117" margin="0 20 0 0" layout_gravity="center top" MouseOnAnim="btn_mouseover" image="test_companion_01"/>
 		<richtext name="t_lifetime" parent="bg" rect="0 0 80 30" margin="25 159 0 0" layout_gravity="left top" caption="수명" drawbackground="false" fixwidth="true" fontname="brown_16_b" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
 		<gauge name="gauge_lifetime" parent="bg" rect="0 0 340 30" margin="110 156 0 0" layout_gravity="left top" inverse="false" point="50" skin="gauge_barrack_difficult" text1="{@st42b}{b}%v/%m H" textalign1="center center" textfont1="GD_digit_font" textoffset1="0 0"/>
+		<richtext name="text_atkActive" parent="bg_stat" rect="0 0 300 30" margin="15 450 0 0" layout_gravity="left top" caption="{@st41}자동 공격 활성화" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<picture name="atkActiveImg" parent="bg_stat" layout_gravity="right top" rect="0 0 70 30" margin="0 450 20 0" hittest="true" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="ability_on" oversound="button_over" clicksound="button_click_big" LBtnUpScp="TOGGLE_PET_ATTACK" />
 	</controls>
 </uiframe>

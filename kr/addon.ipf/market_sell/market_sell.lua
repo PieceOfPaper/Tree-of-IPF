@@ -398,8 +398,16 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 
 	if obj.GroupName == "Premium" and iPrice < tonumber(TOKEN_MARKET_REG_LIMIT_PRICE) then
+	    if obj.ClassName == "PremiumToken" then
 		ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", TOKEN_MARKET_REG_LIMIT_PRICE));		
 		return;
+    	elseif obj.ClassName == "Premium_Enchantchip" then
+        	ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", SCROLL_MARKET_REG_LIMIT_PRICE));
+    		return;
+    	else
+   			ui.SysMsg(ClMsg("ThisMessgeIsError"));
+    	    return false;
+    	end
 	end
 
 
@@ -448,7 +456,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
-			-- Àåºñ±×·ì¸¸ buffValue°¡ ÀÖ´Ù.
+			-- ï¿½ï¿½ï¿½×·ì¸¸ buffValueï¿½ï¿½ ï¿½Ö´ï¿½.
 			ui.MsgBox(ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
 		else
 			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", tostring(commission)), yesScp, "None");			

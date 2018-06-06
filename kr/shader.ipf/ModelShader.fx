@@ -406,7 +406,7 @@ float4 freezeHead(float4 outcolor, float3 worldpos, float falloff)
 	return outcolor;
 }
 
-float4 freeze(float4 outcolor, float3 worldpos, float falloff)
+float4 freeze(float4 outcolor, float2 uv, float falloff)
 {
 	outcolor.rgb = (outcolor.r + outcolor.g + outcolor.b) / 3;
 
@@ -1752,11 +1752,10 @@ float4 PS_HeightRender(VS_OUT In) : COLOR
 }
 
 #ifdef ENABLE_DEPTH_MRT
-OUT_COLOR 
+OUT_COLOR PS_TEST(VS_OUT In)
 #else
-float4 
+float4 PS_TEST(VS_OUT In) : COLOR
 #endif
-PS_TEST(VS_OUT In) : COLOR
 {
 	float4 Out;
 	Out.rgba = 0.0f;

@@ -826,7 +826,7 @@ function STATUS_SLOT_RBTNDOWN(frame, slot, argStr, equipSpot)
 	if true == BEING_TRADING_STATE() then
 		return;
 	end
-	-- �κ��� �ڸ��ִ��� ���� Ȯ��
+
 	local isEmptySlot = false;
 
 	local invItemList = session.GetInvItemList();
@@ -1561,6 +1561,10 @@ function GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(engname)
 	
 	if engname == 'lightsalmon' then
 		return "lightsalmon_color"
+	end
+	
+	if engname == 'purple' then
+		return "purple_color"
 	end
 	return "basic_color"
 

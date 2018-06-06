@@ -1,7 +1,15 @@
--- pc_clinet.lua
+ï»¿-- pc_clinet.lua
 
 function GET_CASH_TOTAL_POINT_C()
 	local aobj = GetMyAccountObj();
-	-- PremiumMedal : À¯Àú ±¸¸Å TP, Medal : ¹«·áTP, GiftMedal : ³Ø½¼ service TP
+	-- PremiumMedal : ìœ ì € êµ¬ë§¤ TP, Medal : ë¬´ë£ŒTP, GiftMedal : ë„¥ìŠ¨ service TP
 	return aobj.Medal + aobj.GiftMedal + aobj.PremiumMedal;
+end
+-- pcì˜ partymember ì˜¤ë¸Œì íŠ¸ë¥¼ ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜
+function GET_MY_PARTY_INFO_C()
+	local myInfo = session.party.GetMyPartyObj(PARTY_NORMAL);
+	if myInfo == nil then
+		return;
+	end	
+	return GetIES(myInfo:GetObject());	
 end

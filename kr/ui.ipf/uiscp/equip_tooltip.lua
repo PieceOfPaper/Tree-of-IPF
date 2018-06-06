@@ -735,13 +735,13 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 		if (classtype == "Outer") 
 		or (classtype == "Hat") 
 		or (classtype == "Hair") 
-		or (itemClass.PR == 0) then
+		or ((itemClass.PR == 0) and (invitem.MaxDur <= 0)) then
 			return yPos;
 		end
 		
 		local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
 		if isHaveLifeTime ~= nil then
-			if isHaveLifeTime > 0 then
+			if ((isHaveLifeTime > 0) and (invitem.MaxDur <= 0))  then
 				return yPos;
 			end;
 		end
@@ -764,11 +764,38 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 		dur_gauge:SetPoint(temparg1, temparg2);
 	end
 
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
-	CSet:Resize(CSet:GetWidth(),CSet:GetHeight() + BOTTOM_MARGIN);
+	local extraMarginY = 0;
 
-	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight())
-	return CSet:GetHeight() + CSet:GetY();
+	local dur_text = GET_CHILD(CSet,'dur_text');
+	local pr_text = GET_CHILD(CSet,'pr_text');
+
+	if invitem.MaxDur <= 0 then
+		dur_text:ShowWindow(0);
+		dur_gauge:ShowWindow(0);
+		pr_gauge:SetPos(pr_gauge:GetOffsetX(), 10);
+		pr_text:SetPos(pr_text:GetOffsetX(), 20);
+		extraMarginY = 15;
+	else
+		dur_text:ShowWindow(1);
+		dur_gauge:ShowWindow(1);
+	end
+	
+	if itemClass.PR <= 0 then
+		pr_text:ShowWindow(0);
+		pr_gauge:ShowWindow(0);
+		dur_gauge:SetPos(dur_gauge:GetOffsetX(), 10);
+		dur_text:SetPos(dur_text:GetOffsetX(), 20);
+		extraMarginY = 15;
+	else
+		pr_text:ShowWindow(1);
+		pr_gauge:ShowWindow(1);
+	end
+
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	CSet:Resize(CSet:GetWidth(),CSet:GetHeight() + BOTTOM_MARGIN - extraMarginY);
+
+	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight()- extraMarginY)
+	return CSet:GetHeight() + CSet:GetY() - extraMarginY;
 end
 
 --악세서리 등 포텐만 존재하는 녀석 들

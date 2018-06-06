@@ -24,7 +24,7 @@ function INIT_KEYBOARD_TUTORIAL(frame)
 	frame:GetChild('ExpCard'):ShowWindow(0);
 end
 
--- °æÇèÄ¡ Ä«µå
+-- ê²½í—˜ì¹˜ ì¹´ë“œ
 function ON_EXPCARD_USE_TUTORIAL(frame, msg, argStr, argNum)
 	INIT_KEYBOARD_TUTORIAL(frame);
 	local comment = frame:GetChild('comment');
@@ -50,12 +50,12 @@ function ON_EXPCARD_USE_TUTORIAL_END(frame, msg, argStr, argNum)
     local groupBox = frame:GetChild('ExpCard');
 
 	local time = imcTime.GetAppTime() + 0.8;
-	frame:SetUserValue("EXPCARD_END", time);	-- ±×·ì¹Ú½º ´İÈ÷´Â½Ã°£ ¼ÂÆÃ
+	frame:SetUserValue("EXPCARD_END", time);	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«íˆëŠ”ì‹œê°„ ì…‹íŒ…
 
-	-- ±×·ì¹Ú½º ´İ±â
+	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«ê¸°
 		groupBox:ShowWindow(0);
 
-	-- ±×·ì¹Ú½º ²¨Á®ÀÖÀ¸¸é frame Á¾·á
+	-- ê·¸ë£¹ë°•ìŠ¤ êº¼ì ¸ìˆìœ¼ë©´ frame ì¢…ë£Œ
 	
 		END_KEYBOARD_TUTORIAL(frame);
 
@@ -63,28 +63,28 @@ end
 
 function UPDATE_EXPCARD_USE_TUTORIAL(frame)
 	local groupBox = frame:GetChild('ExpCard');
-	-- ¹é½ºÆäÀÌ½º Å°
+	-- ë°±ìŠ¤í˜ì´ìŠ¤ í‚¤
 --	if keyboard.IsKeyDown("EXPCARD_END") == 1 then
 --		local key = groupBox:GetChild('expcard');
 --		UI_PLAYFORCE(key, "gmsemf");
 --
 --		local time = imcTime.GetAppTime() + 0.8;
---		frame:SetUserValue("EXPCARD_END", time);	-- ±×·ì¹Ú½º ´İÈ÷´Â½Ã°£ ¼ÂÆÃ
+--		frame:SetUserValue("EXPCARD_END", time);	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«íˆëŠ”ì‹œê°„ ì…‹íŒ…
 --	end
 
-	-- ±×·ì¹Ú½º ´İ±â
+	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«ê¸°
 	if tonumber(frame:GetUserValue("EXPCARD_END")) < imcTime.GetAppTime() then
 		groupBox:ShowWindow(0);
 	end
 
-	-- ±×·ì¹Ú½º ²¨Á®ÀÖÀ¸¸é frame Á¾·á
+	-- ê·¸ë£¹ë°•ìŠ¤ êº¼ì ¸ìˆìœ¼ë©´ frame ì¢…ë£Œ
 	if groupBox:IsVisible() == 0 then
 		END_KEYBOARD_TUTORIAL(frame);
 	end
 end
 
 
--- µÇµ¹¾Æ°¡±â
+-- ë˜ëŒì•„ê°€ê¸°
 function ON_RETURN_KEY_TUTORIAL(frame, msg, argStr, argNum)
 	INIT_KEYBOARD_TUTORIAL(frame);
 
@@ -113,28 +113,28 @@ function UPDATE_DIALOG_RETURN_TUTORIAL(frame)
 
 	local groupBox = frame:GetChild('BackSpace');
 
-	-- ¹é½ºÆäÀÌ½º Å°
+	-- ë°±ìŠ¤í˜ì´ìŠ¤ í‚¤
 	if keyboard.IsKeyDown("BACKSPACE") == 1 then
 		local key = groupBox:GetChild('backspace');
 		UI_PLAYFORCE(key, "gmsemf");
 
 		local time = imcTime.GetAppTime() + 0.8;
-		frame:SetUserValue("BACKSPACE_END", time);	-- ±×·ì¹Ú½º ´İÈ÷´Â½Ã°£ ¼ÂÆÃ
+		frame:SetUserValue("BACKSPACE_END", time);	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«íˆëŠ”ì‹œê°„ ì…‹íŒ…
 	end
 
-	-- ±×·ì¹Ú½º ´İ±â
+	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«ê¸°
 	if tonumber(frame:GetUserValue("BACKSPACE_END")) < imcTime.GetAppTime() then
 		groupBox:ShowWindow(0);
 	end
 
-	-- ±×·ì¹Ú½º ²¨Á®ÀÖÀ¸¸é frame Á¾·á
+	-- ê·¸ë£¹ë°•ìŠ¤ êº¼ì ¸ìˆìœ¼ë©´ frame ì¢…ë£Œ
 	if groupBox:IsVisible() == 0 then
 		END_KEYBOARD_TUTORIAL(frame);
 	end
 end
 
 
--- Lkey ´©¸£±â Æ©Åä¸®¾ó
+-- Lkey ëˆ„ë¥´ê¸° íŠœí† ë¦¬ì–¼
 function ON_L_KEY_TUTORIAL(frame, msg, argStr, argNum)
 	INIT_KEYBOARD_TUTORIAL(frame);
 
@@ -161,27 +161,27 @@ function UPDATE_DIALOG_LKEY_TUTORIAL(frame)
 
 	local groupBox = frame:GetChild('LKey');
 
-	-- ½ºÆäÀÌ½º Å°
+	-- ìŠ¤í˜ì´ìŠ¤ í‚¤
 	if keyboard.IsKeyDown("L") == 1 then
 		local key = groupBox:GetChild('l_key');
 		UI_PLAYFORCE(key, "gmsemf");
 
 		local time = imcTime.GetAppTime() + 0.8;
-		frame:SetUserValue("LKEY_END", time);	-- ±×·ì¹Ú½º ´İÈ÷´Â½Ã°£ ¼ÂÆÃ
+		frame:SetUserValue("LKEY_END", time);	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«íˆëŠ”ì‹œê°„ ì…‹íŒ…
 	end
 
-	-- ±×·ì¹Ú½º ´İ±â
+	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«ê¸°
 	if tonumber(frame:GetUserValue("LKEY_END")) < imcTime.GetAppTime() then
 		groupBox:ShowWindow(0);
 	end
 
-	-- ±×·ì¹Ú½º ²¨Á®ÀÖÀ¸¸é frame Á¾·á
+	-- ê·¸ë£¹ë°•ìŠ¤ êº¼ì ¸ìˆìœ¼ë©´ frame ì¢…ë£Œ
 	if groupBox:IsVisible() == 0 then
 		END_KEYBOARD_TUTORIAL(frame);
 	end
 end
 
--- npc´ëÈ­ space Æ©Åä¸®¾ó
+-- npcëŒ€í™” space íŠœí† ë¦¬ì–¼
 function ON_DIALOG_SPACE_TUTORIAL(frame, msg, argStr, argNum)
 
 	INIT_KEYBOARD_TUTORIAL(frame);
@@ -210,27 +210,27 @@ function UPDATE_DIALOG_SPACE_TUTORIAL(frame)
 
 	local groupBox = frame:GetChild('SpaceKey');
 
-	-- ½ºÆäÀÌ½º Å°
+	-- ìŠ¤í˜ì´ìŠ¤ í‚¤
 	if keyboard.IsKeyDown("SPACE") == 1 then
 		local space = groupBox:GetChild('space');
 		UI_PLAYFORCE(space, "gmsemf");
 
 		local time = imcTime.GetAppTime() + 0.8;
-		frame:SetUserValue("SPACE_END", time);	-- ±×·ì¹Ú½º ´İÈ÷´Â½Ã°£ ¼ÂÆÃ
+		frame:SetUserValue("SPACE_END", time);	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«íˆëŠ”ì‹œê°„ ì…‹íŒ…
 	end
 	
-	-- ±×·ì¹Ú½º ´İ±â
+	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«ê¸°
 	if tonumber(frame:GetUserValue("SPACE_END")) < imcTime.GetAppTime() then
 		groupBox:ShowWindow(0);
 	end
 
-	-- ±×·ì¹Ú½º ²¨Á®ÀÖÀ¸¸é frame Á¾·á
+	-- ê·¸ë£¹ë°•ìŠ¤ êº¼ì ¸ìˆìœ¼ë©´ frame ì¢…ë£Œ
 	if groupBox:IsVisible() == 0 then
 		END_KEYBOARD_TUTORIAL(frame);
 	end
 end
 
--- Å°º¸µå Á¶ÀÛ Æ©Åä¸®¾ó (¹æÇâÅ°, ÀÏ¹İ°ø°İ, Á¡ÇÁ)
+-- í‚¤ë³´ë“œ ì¡°ì‘ íŠœí† ë¦¬ì–¼ (ë°©í–¥í‚¤, ì¼ë°˜ê³µê²©, ì í”„)
 function ON_KEYBOARD_TUTORIAL(frame, msg, argStr, argNum)
 
 	INIT_KEYBOARD_TUTORIAL(frame);
@@ -256,7 +256,7 @@ function ON_KEYBOARD_TUTORIAL(frame, msg, argStr, argNum)
 	atkGroupBox:ShowWindow(1);
 	jumpGroupBox:ShowWindow(1);
 	
-	-- ´ë°¢¼±ÀÌµ¿ Æ©Åä¸®¾óÀº ÀÏ´Ü ²¨µÎ±â
+	-- ëŒ€ê°ì„ ì´ë™ íŠœí† ë¦¬ì–¼ì€ ì¼ë‹¨ êº¼ë‘ê¸°
 	local moveGroupBox2 = frame:GetChild('MoveKey2');
 	moveGroupBox2:ShowWindow(0);
 
@@ -292,15 +292,15 @@ function UPDATE_KEYBOARD_TUTORIAL(frame)
 	if world.GetLayer() ~= 0 then
         END_KEYBOARD_TUTORIAL(frame);
     end
-	-- ¹æÇâÅ°
+	-- ë°©í–¥í‚¤
 	if keyboard.IsKeyDown("LEFT") == 1 then
 		frame:SetUserValue("move1", 'off')
-		local img = moveGroupBox:GetChild('move_l');
+		local img = GET_CHILD_RECURSIVELY(moveGroupBox, 'move_l');
 		img:SetBlink(0, 1, '0xFF000000');
 	end
 	if keyboard.IsKeyDown("RIGHT") == 1 then
 		frame:SetUserValue("move2", 'off')
-		local img = moveGroupBox:GetChild('move_r');
+		local img = GET_CHILD_RECURSIVELY(moveGroupBox, 'move_r');
 		img:SetBlink(0, 1, '0xFF000000');
 	end
 	if keyboard.IsKeyDown("UP") == 1 then
@@ -310,7 +310,7 @@ function UPDATE_KEYBOARD_TUTORIAL(frame)
 	end
 	if keyboard.IsKeyDown("DOWN") == 1 then
 		frame:SetUserValue("move4", 'off')
-		local img = moveGroupBox:GetChild('move_d');
+		local img = GET_CHILD_RECURSIVELY(moveGroupBox, 'move_d');
 		img:SetBlink(0, 1, '0xFF000000');
 	end
 
@@ -322,22 +322,22 @@ function UPDATE_KEYBOARD_TUTORIAL(frame)
 	end
 
 	if moveKeyDown == 4 and frame:GetUserValue("MOVE_GROUPBOX_USING") == 'on' then
-		local move1 = moveGroupBox:GetChild('move_l');
+		local move1 = GET_CHILD_RECURSIVELY(moveGroupBox, 'move_l');
 		UI_PLAYFORCE(move1, "gmsemf");
-		local move2 = moveGroupBox:GetChild('move_r');
+		local move2 = GET_CHILD_RECURSIVELY(moveGroupBox, 'move_r');
 		UI_PLAYFORCE(move2, "gmsemf");
-		local move3 = moveGroupBox:GetChild('move_u');
+		local move3 = GET_CHILD_RECURSIVELY(moveGroupBox, 'move_u');
 		UI_PLAYFORCE(move3, "gmsemf");
-		local move4 = moveGroupBox:GetChild('move_d');
+		local move4 = GET_CHILD_RECURSIVELY(moveGroupBox, 'move_d');
 		UI_PLAYFORCE(move4, "gmsemf");
 
 		local time = imcTime.GetAppTime() + 0.8;
-		frame:SetUserValue("MOVE_END", time);	-- ±×·ì¹Ú½º ´İÈ÷´Â½Ã°£ ¼ÂÆÃ
+		frame:SetUserValue("MOVE_END", time);	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«íˆëŠ”ì‹œê°„ ì…‹íŒ…
 		frame:SetUserValue("MOVE_GROUPBOX_USING", 'off');
 	end
 
 
-	-- ´ë°¢¼± ÀÌµ¿Å°
+	-- ëŒ€ê°ì„  ì´ë™í‚¤
 	if moveGroupBox2:IsVisible() == 1 and keyboard.IsKeyPressed("RIGHT") == 1 and keyboard.IsKeyPressed("UP") == 1 and frame:GetUserValue("MOVE2_GROUPBOX_USING") == 'on' then
 
 		local img1 = moveGroupBox2:GetChild('move_uu');
@@ -347,34 +347,34 @@ function UPDATE_KEYBOARD_TUTORIAL(frame)
 		UI_PLAYFORCE(img2, "gmsemf");
 
 		local time = imcTime.GetAppTime() + 0.8;
-		frame:SetUserValue("MOVE2_END", time);	-- ±×·ì¹Ú½º ´İÈ÷´Â½Ã°£ ¼ÂÆÃ
+		frame:SetUserValue("MOVE2_END", time);	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«íˆëŠ”ì‹œê°„ ì…‹íŒ…
 		frame:SetUserValue("MOVE2_GROUPBOX_USING", 'off');
 	end
 
 
-	-- °ø°İÅ°
+	-- ê³µê²©í‚¤
 	if keyboard.IsKeyDown("Z") == 1 then
 		local atk = atkGroupBox:GetChild('atk');
 		UI_PLAYFORCE(atk, "gmsemf");
 		local time = imcTime.GetAppTime() + 0.8;
-		frame:SetUserValue("ATK_END", time);	-- ±×·ì¹Ú½º ´İÈ÷´Â½Ã°£ ¼ÂÆÃ
+		frame:SetUserValue("ATK_END", time);	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«íˆëŠ”ì‹œê°„ ì…‹íŒ…
 	end
 
-	-- Á¡ÇÁÅ°
+	-- ì í”„í‚¤
 	if keyboard.IsKeyDown("X") == 1 then
 		local jump = jumpGroupBox:GetChild('jump');
 		UI_PLAYFORCE(jump, "gmsemf");
 
 		local time = imcTime.GetAppTime() + 0.8;
-		frame:SetUserValue("JUMP_END", time);	-- ±×·ì¹Ú½º ´İÈ÷´Â½Ã°£ ¼ÂÆÃ
+		frame:SetUserValue("JUMP_END", time);	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«íˆëŠ”ì‹œê°„ ì…‹íŒ…
 	end
 
 
-	-- ±×·ì¹Ú½º ´İ±â
+	-- ê·¸ë£¹ë°•ìŠ¤ ë‹«ê¸°
 	if tonumber(frame:GetUserValue("MOVE_END")) < imcTime.GetAppTime() then
 		moveGroupBox:ShowWindow(0);
 
-		-- ±âº»ÀÌµ¿°ü·Ã ±×·ì¹Ú½º°¡ ²¨Á³À¸¸é ´ë°¢¼±ÀÌµ¿ ±×·ì¹Ú½º ÄÑ±â
+		-- ê¸°ë³¸ì´ë™ê´€ë ¨ ê·¸ë£¹ë°•ìŠ¤ê°€ êº¼ì¡Œìœ¼ë©´ ëŒ€ê°ì„ ì´ë™ ê·¸ë£¹ë°•ìŠ¤ ì¼œê¸°
 		moveGroupBox2:GetChild("MoveText2"):SetText(ScpArgMsg("Auto_{@st41}DaeKagSeon_iDongKi_{/}"));
 		moveGroupBox2:GetChild("MoveText3"):SetText("{@st41}+{/}");
 		moveGroupBox2:GetChild("MoveText4"):SetText(ScpArgMsg("Auto_{@st41}DongSi_ipLyeog!{/}"));
@@ -393,7 +393,7 @@ function UPDATE_KEYBOARD_TUTORIAL(frame)
 
 
 
-	-- ±×·ì¹Ú½º ÀüºÎ ²¨Á®ÀÖÀ¸¸é frame Á¾·á
+	-- ê·¸ë£¹ë°•ìŠ¤ ì „ë¶€ êº¼ì ¸ìˆìœ¼ë©´ frame ì¢…ë£Œ
 	if atkGroupBox:IsVisible() == 0 and jumpGroupBox:IsVisible() == 0 and moveGroupBox:IsVisible() == 0 and moveGroupBox2:IsVisible() == 0 then
 		END_KEYBOARD_TUTORIAL(frame);
 	end

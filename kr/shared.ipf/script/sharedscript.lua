@@ -3,7 +3,6 @@
 	if pc ~= nil then
 		if IsServerObj(pc) == 1 then
 			if IsIndun(pc) == 1 then
-				print(pc.Name.." 님은 ".."인던이넹?")
 				local etc = GetETCObject(pc)
 				local serverGroupID = TryGetProp(etc, "MyWorldID");
 
@@ -15,15 +14,12 @@
 				--end
 
 				--Live Server
-				if GetServerNation() == "KOR" and serverGroupID == 3001 then
-					print(pc.Name.."님은 서버 네이션이 "..GetServerNation().." 이거고 그룹 아이디는 "..serverGroupID.." 이거임 그래서 YES")
+				if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
 					return "YES";
 				else
-					print(pc.Name.."님은 서버 네이션이 "..GetServerNation().." 이거고 그룹 아이디는 "..serverGroupID.." 이거임 그래서 NO")
 					return "NO";
 				end
 			else
-				print("인던이 아님 여기들어오면 망한다.")
 				--Test Server
 				--if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
 				--	return "YES"
@@ -32,7 +28,7 @@
 				--end
     
 				--Live Server
-				if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
+				if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
 					return "YES"
 				else
 					return "NO"
@@ -52,7 +48,7 @@
 				--end
 
 				--Live Server
-				if GetServerNation() == "KOR" and serverGroupID == 3001 then
+				if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
 					return "NO";
 				else
 					return "YES";
@@ -64,7 +60,7 @@
 				--end
 	 
 				--Live Server
-			    if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
+			    if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
 					return "YES"
 				else
 					return "NO"
@@ -78,21 +74,21 @@
 		--end
     
 		--Live Server
-		if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
+		if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
 			return 'YES'
 		end			
 	end
 
 
     --Test Server
---    if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
---        return 'YES'
---    end
+	--if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+	--	return 'YES'
+	--end
     
     --Live Server
-    if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
-        return 'YES'
-    end
+    --if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
+    --   return 'YES'
+    --end
     
     return 'NO'
 end

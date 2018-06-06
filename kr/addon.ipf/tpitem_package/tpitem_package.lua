@@ -96,6 +96,7 @@ function TPITEM_PACKAGE_SETUI(frame, clsid)
 
 		innerBox:Resize(innerBox:GetWidth(), contents:GetHeight() + (contents:GetY() * 2));
 end
+
 function SETCAUTION_MEMO_TOPURCHASE(frame, y, text, index)
 	local cautionText = frame:CreateControl("richtext", "cautionText_".. index, 40, y, 200, 10);
 	cautionText:SetFontName("black_16_b");

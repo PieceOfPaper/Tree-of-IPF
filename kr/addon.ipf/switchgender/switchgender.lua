@@ -256,7 +256,8 @@ function SWITCHGENDER_BUFF_EXCUTE_BTN(frame, ctrl)
 
 	local skillName = frame:GetUserValue("GroupName");
 	session.autoSeller.Buy(handle, 1, 1, AUTO_SELL_ORACLE_SWITCHGENDER);
-	DISABLE_BUTTON_DOUBLECLICK("switchgender",ctrl:GetName())
+	DISABLE_BUTTON_DOUBLECLICK("switchgender", ctrl:GetName())
+	DISABLE_BUTTON_DOUBLECLICK("switchgender", 'btn_cencel')
 end
 
 function SWITCHGENDER_STORE_CLOSE(frame, ctrl)

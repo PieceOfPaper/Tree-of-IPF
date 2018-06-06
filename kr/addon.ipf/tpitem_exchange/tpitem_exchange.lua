@@ -2,6 +2,9 @@
 -- tpitem_package.lua : (tp shop)
 
 function TPITEM_EXCHANGE_OPEN()		
+	local tpframe = ui.GetFrame("tpitem");
+	local screenbgTemp = tpframe:GetChild('screenbgTemp');	
+	screenbgTemp:ShowWindow(1);	
 
 		local frame = ui.GetFrame("tpitem_exchange");				
 		local strURL = ui.ExcNCurl();
@@ -16,7 +19,7 @@ function TPITEM_EXCHANGE_OPEN()
 	local MaxWidth = ui.GetSceneWidth() / ui.GetRatioWidth();
 	local MaxHeight = MaxWidth * ratio;
 
-	frame:Resize(10,10,MaxWidth - 20, MaxHeight - 20);
+	frame:Resize(MaxWidth/4, MaxHeight/6, MaxWidth/2, MaxHeight*2/3);
 	TPITEM_EXCHANGE_RESIZE(frame);
 end
 
@@ -25,6 +28,10 @@ function TPITEM_EXCHANGE_CLOSE(parent, control)
 		local webB = GET_CHILD_RECURSIVELY(frame,'webB');
 		webB:ShowBrowser(false);
 		frame:ShowWindow(0);
+
+	local tpframe = ui.GetFrame("tpitem");
+	local screenbgTemp = tpframe:GetChild('screenbgTemp');	
+	screenbgTemp:ShowWindow(0);	
 end
 
 function TPITEM_EXCHANGE_BACK(parent, control)		

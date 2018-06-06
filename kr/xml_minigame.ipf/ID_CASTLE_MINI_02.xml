@@ -150,6 +150,9 @@
                                 <Str Str="마법진이 열렸습니다.!"/>
                                 <Num Num="5"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="실패조건"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO" CondFunc="">
                                 <Str Str="마법진1"/>
                             </ToolScp>
@@ -158,28 +161,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Stage2"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="실패조건" execWithStart="0">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="Stage1/92/Stage3/56"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="마법진 생성"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="마법진2"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="실패조건"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -258,7 +239,7 @@
                     <Event execCount="1" eventName="마법진2" execWithStart="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="10"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage2/65/Stage3/55"/>
@@ -268,6 +249,9 @@
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="실패조건"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="마법진2"/>
@@ -361,7 +345,7 @@
                                 <Str Str="End"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="10초 후 입구로 돌아갑니다."/>
+                                <Str Str="60초 후 입구로 돌아갑니다."/>
                                 <Num Num="5"/>
                             </ToolScp>
                         </execList>
@@ -374,7 +358,7 @@
                     <Event execCount="1" eventName="존으로 돌아가기">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
+                                <Num Num="60"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -410,14 +394,14 @@
                                 <Str Str="End"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="10초 후 입구로 돌아갑니다."/>
+                                <Str Str="60초 후 입구로 돌아갑니다."/>
                                 <Num Num="5"/>
                             </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
             </Stage>
-            <Stage Name="실패조건" AutoStart="0">
+            <Stage Name="실패조건완료" AutoStart="0">
                 <ObjList/>
                 <StageEvents>
                     <Event execCount="1" eventName="End조건" execWithStart="0">
@@ -434,10 +418,50 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="End"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="60초 후 입구로 돌아갑니다"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="실패조건">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="실패조건" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/92/Stage3/56"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="감시구 조작에 실패 하였습니다 모든 몬스터를 처치 하시기 바랍니다!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="실패조건완료"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
             </Stage>
         </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="Indun_Castle2"/>
+            </ToolScp>
+        </EnterList>
     </Game>
 </GameList>

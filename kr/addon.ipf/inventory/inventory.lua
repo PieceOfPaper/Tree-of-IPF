@@ -97,7 +97,6 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 
 							--슬롯셋 없으면 만들기
 							local slotsetname = GET_SLOTSET_NAME(invItem.invIndex)
-
 							local slotsetnode = tree:FindByValue(treegroup, slotsetname);
 							if tree:IsExist(slotsetnode) == 0 then
 								MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls);
@@ -1286,7 +1285,13 @@ end
 function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 
 	-- 워프 주문서 예외처리. 실제 워프가 이루어질때 아이템이 소비되도록.
-	if itemobj.ClassName == 'Scroll_WarpKlaipe' or itemobj.ClassName == 'Scroll_Warp_quest' or itemobj.ClassName == 'Premium_WarpScroll'  then
+	local warpscrolllistcls = GetClass("warpscrolllist", itemobj.ClassName);
+	if warpscrolllistcls ~= nil then
+
+		if itemobj.LifeTime > 0 and itemobj.ItemLifeTimeOver > 0 then
+			ui.SysMsg(ScpArgMsg("LessThanItemLifeTime"));
+			return 1;
+		end
 
 		if true == invitem.isLockState then
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
@@ -1412,7 +1417,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	else
 		RUN_CLIENT_SCP(invitem);
 		local groupName = itemobj.ItemType;
-		if groupName == 'Consume' or groupName == 'Quest' then
+		if groupName == 'Consume' or groupName == 'Quest' or groupName == 'Cube' then
 			if itemobj.Usable == 'ITEMTARGET' then
 				local invFrame = ui.GetFrame('inventory');
 				USE_ITEMTARGET_ICON(invFrame, itemobj, argNum);

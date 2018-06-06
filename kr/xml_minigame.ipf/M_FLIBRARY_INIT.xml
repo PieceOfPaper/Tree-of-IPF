@@ -43,6 +43,17 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
+                <Obj Type="Monster" MonType="154079" Pos="-1064.03#26.72#242.29" angle="-116" genCount="1" genTime="20000" objectKey="1" autoDestroy="0">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_pattern009_orange_loop" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="time">
@@ -75,7 +86,7 @@
             </Stage>
             <Stage Name="AGAILA" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="147449" Pos="-1011.87#13.92#428.66" angle="-46" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Name&apos; &apos;아가일라 플러리&apos; &apos;Dialog&apos; &apos;MFL_FLURRY_NPC&apos; &apos;HitProof&apos; &apos;NO&apos; ">
+                    <Obj Type="Monster" MonType="154087" Pos="-1011.87#13.92#428.66" angle="-46" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Dialog&apos; &apos;MFL_FLURRY_NPC&apos; &apos;HitProof&apos; &apos;NO&apos; ">
                         <SelfAI UpdateMS="5000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -191,6 +202,9 @@
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="HAUBERK/1/AGAILA/0"/>
                             </ToolScp>
+                        <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="INIT/1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="make_pre">
@@ -222,5 +236,10 @@
                 </StageEvents>
             </Stage>
         </StageList>
+    <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="M_Past_FantasyLibrary_1"/>
+            </ToolScp>
+        </EnterList>
     </Game>
 </GameList>

@@ -838,14 +838,14 @@
 			<button name="btn_invite" margin="0 0 40 0" rect="0 0 30 30" texttooltip="{@59}초대하기{/}" layout_gravity="right center" image="button_whisper_talk_invite"/>
 		</controls>
 	</controlset>
-  <controlset name="switchgender_history" hittest="false" hittestset="false" draw="false" skin="ccc" width="450" height="80">
-    <controls>
-      <labelline name="hideline" rect="0 0 420 3" margin="0 0 0 0" layout_gravity="left bottom" skin="None"/>
+	<controlset name="switchgender_history" hittest="false" hittestset="false" draw="false" skin="ccc" width="450" height="80">
+		<controls>
+			<labelline name="hideline" rect="0 0 420 3" margin="0 0 0 0" layout_gravity="left bottom" skin="None"/>
 			<picture name="hideline2" margin="25 0 0 0" rect="0 0 400 50" hittest="false" image="test_partyquest_slot" stretch="true" layout_gravity="left top"/>
 			<richtext name="desc" margin="40 5 0 0" rect="0 0 400 25" hittest="false" format="{@st66e}%s{nl} %s에서 {@st66d_y}%s{/}으로 변경{/}" param1="text" param1_def="ZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" param2="before" param3="after"/>
-      <richtext name="time" margin="45 55 0 0" rect="0 0 400 24" format="{@st66b}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-    </controls>
-  </controlset>
+			<richtext name="time" margin="45 55 0 0" rect="0 0 400 24" format="{@st66b}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		</controls>
+	</controlset>
 	<controlset name="partyhistoryinfo" toggle="false" hittest="true" width="400" height="120">
 		<controls>
 			<richtext name="name_text" rect="80 10 150 30" caption="케릭터 이름" spacey="0" fontname="white_16_ol" layout_gravity="left top" hittest="false" textalign="center center"/>
@@ -2071,12 +2071,12 @@
 		</controls>
 	</controlset>
 	<controlset name="partyquestfolder" toggle="false" hittest="true" width="400" height="200" skin="listbox" stateskin="false" draw="false">
-		<controls>
-			<richtext name="name" rect="0 0 453 31" format="{@sti9}파티원 퀘스트 (%s){/}" margin="64 5 0 0" layout_gravity="left top" textalign="left top" param1="value" param1_def="99" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" hittest="false"/>
-			<button name="btn" margin="26 6 0 83" rect="0 0 25 25" layout_gravity="left top" image="btn_plus" stretch="false" LBtnUpScp="TOGGLE_PARTY_QUEST_FOLDER"/>
-			<groupbox name="bg" margin="30 31 0 0" rect="0 0 370 371" hittestbox="false" skin="bg" layout_gravity="left top" draw="false"/>
-		</controls>
-	</controlset>
+	<controls>
+		<richtext name="name" rect="0 0 453 31" format="{@sti9}파티원 퀘스트 (%s){/}" margin="64 5 0 0" layout_gravity="left top" textalign="left top" param1="value" param1_def="99" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" hittest="false"/>
+		<button name="btn" margin="26 6 0 83" rect="0 0 25 25" layout_gravity="left top" image="btn_plus" stretch="false" LBtnUpScp="TOGGLE_PARTY_QUEST_FOLDER"/>
+		<groupbox name="bg" margin="30 31 0 0" rect="0 0 370 371" hittestbox="false" skin="bg" layout_gravity="left top" draw="false" scrollbar="false"/>
+	</controls>
+</controlset>
 	<controlset name="beforereturnbtn" toggle="false" hittest="true" width="250" height="50" skin="listbox" stateskin="false" draw="false">
 		<controls>
 			<richtext name="name" rect="0 0 453 31" format="{@sti9}%s{/}" margin="41 14 0 0" layout_gravity="left top" textalign="left top" param1="value" param1_def="aaaaaaaaaa" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" hittest="false"/>
@@ -2248,8 +2248,8 @@
 	<controlset name="propertyshop_item" toggle="false" hittest="true" width="250" height="60" skin="slot_empty">
 		<controls>
 			<picture name="pic" margin="0 0 0 0" rect="0 0 60 60" hittest="true" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left top"/>
-			<richtext name="count" margin="5 39 0 0" rect="0 0 55 19" hittest="false" format="{#000000}X %s{/}" param1="value" param1_def="13131" textalign="right center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="name" margin="75 0 0 0" rect="0 0 167 45" hittest="true" format="{#000000}%s{/}" param1="value" param1_def="AAAAAAAAAAAAAAAAAAAA" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center"/>
+			<richtext name="count" margin="5 39 0 0" rect="0 0 55 19" hittest="false" format="X %s" param1="value" param1_def="13131" textalign="right center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="name" margin="75 0 0 0" rect="0 0 167 45" hittest="true" format="{#000000}%s{/}" param1="value" param1_def="AAAAAAAAAAAAAAAAAAAA" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center"/>
 		</controls>
 	</controlset>
 	<controlset name="party_quest" toggle="false" hittest="true" width="420" height="260" skin="test_skin_01" stateskin="false">
@@ -2794,7 +2794,7 @@
 			<picture name="pic_tower" margin="20 523 0 0" rect="0 0 102 101" hittest="false" image="icon_item_guildtower" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<richtext name="txt_guildtowercount" margin="126 538 0 0" rect="0 0 120 24" format="{#000000}%s{/}" param1="value" param1_def="GuildTower" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="txt_guildtowerposition" margin="125 562 0 0" rect="0 0 175 50" format="{#000000}%s {#000000}(%s){/}" param1="value" param1_def="GuildTower" param2="remaintime" param2_def="aaa" paramtextalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<button name="guildwarehouse" parent="gBox" rect="0 0 120 40" margin="0 63 21 0" layout_gravity="right top" LBtnUpScp="OPEN_GUILDBATTLE_RANKING_FRAME" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" format="{@st66b}%s{/}" param1="value" param1_def="길드 배틀 랭킹" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+			<button name="guildwarehouse" parent="gBox" rect="0 0 120 40" margin="0 63 21 0" layout_gravity="right top" LBtnUpScp="OPEN_GUILDBATTLE_RANKING_TAB" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" format="{@st66b}%s{/}" param1="value" param1_def="길드 배틀 랭킹" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
 			<checkbox name="neutrality" margin="448 17 0 0" rect="0 0 120 24" fontname="black_16_b" caption="중립 선언" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" LBtnUpScp="ON_GUILD_SET_NEUTRALITY"/>
 			<richtext name="neutralityTime" margin="111 21 0 0" rect="0 0 120 50" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<groupbox name="sklgBox" margin="23 663 0 0" rect="0 0 540 130" hittestbox="false" skin="test_frame_midle" layout_gravity="left top"/>

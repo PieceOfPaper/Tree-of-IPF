@@ -280,6 +280,8 @@
 		<Class ClassID="4112" ClassName="ChangeNameConsumeItem" Data="이름을 변경하면 아이템이 소모 됩니다."/>
 		<Class ClassID="4113" ClassName="HairColorExist" Data="이미 가지고 있는 색 입니다."/>
 		<Class ClassID="4114" ClassName="NeedSameEquipClassType" Data="같은 종류의 장비 아이템으로만 외형 선택이 가능합니다."/>
+		<Class ClassID="4115" ClassName="ThisLocalUseNot" Data="해당 지역에서는 사용이 불가능 합니다."/>
+    <Class ClassID="4116" ClassName="ThisWorldExistIndunClear" Data="이미 해당 지역에서는 인스턴스 소탕권이 사용중입니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -1006,6 +1008,7 @@
 		<Class ClassID="21228" ClassName="ITEM_IsPurchased_CAUTION_TRADEABLE_0" Data="{#FF0000}※ 패키지 포함 구성물은 모두 거래가 불가능합니다.{/}"/>
 		<Class ClassID="21229" ClassName="ITEM_IsPurchased_CAUTION_TRADEABLE_1" Data="{#0054FF}※ 패키지 포함 구성물은 모두 거래가 가능합니다.{/}"/>
 		<Class ClassID="21231" ClassName="ITEM_IsPurchased_CAUTION_TRADECNT1" Data="{#FF0000}※ 본 상품은 계정 당 1회만 구매 가능합니다.{/}"/>
+	<Class ClassID="21232" ClassName="MAX_CASHINVAN" Data="캐시 인벤토리에 여유 공간이 없습니다. "/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -1121,7 +1124,7 @@
 		<Class ClassID="24080" ClassName="ALPHABET_EVENT_EXCHANGE_SAVIOR1" Data="SAVIOR 한 세트를 건네준다 ({COUNT}/{MAX})"/>
 		<Class ClassID="24081" ClassName="ALPHABET_EVENT_EXCHANGE_SAVIOR5" Data="SAVIOR 다섯 세트를 건네준다 ({COUNT}/{MAX})"/>
 		<Class ClassID="24082" ClassName="ALPHABET_EVENT_EXCHANGE_TREEOFSAVIOR1" Data="TREE OF SAVIOR 를 건네준다 ({COUNT}/{MAX})"/>
-		<Class ClassID="24083" ClassName="ALPHABET_EVENT_NOTICE1" Data="{TEXT} 를 획득하셨습니다!"/>
+		<Class ClassID="24083" ClassName="ALPHABET_EVENT_NOTICE1" Data="{TEXT} 아이템을 획득하셨습니다!"/>
 		<Class ClassID="24084" ClassName="QuestRewardPCPropertyText1" Data="{ol}{@st45w3}{s18}{Auto_1} {Auto_2} 증가"/>
 		<Class ClassID="24085" ClassName="myKillScoreText" Data="횟수 : "/>
 		<Class ClassID="24086" ClassName="MONKILLREWARDALL" Data="보상 모두 받기(대상 : {COUNT} 종)"/>
@@ -4045,6 +4048,10 @@
 		<Class ClassID="27051" ClassName="HANGEUL_EVENT_MSG2" Data="한글 아이템을 보여준다"/>
 		<Class ClassID="27052" ClassName="HANGEUL_EVENT_MSG3" Data="{ITEM2} {COUNT1} 누적:{COUNT2}"/>
 		<Class ClassID="27053" ClassName="HANGEUL_EVENT_MSG4" Data="트,리,오,브,세,이,비,어 교환 누적 횟수 : {COUNT}"/>
+		<Class ClassID="27070" ClassName="JOURNAL_SUCC_MONKILL" Data="모험일지: "/>
+		<Class ClassID="27080" ClassName="CHUSEOK_EVENT_MSG1" Data="'제작서 - 송편'을 구매한다"/>
+		<Class ClassID="27081" ClassName="CHUSEOK_EVENT_MSG2" Data="'제작서 - 대왕 송편'을 받는다"/>
+		<Class ClassID="27082" ClassName="CHUSEOK_EVENT_MON_NAME" Data="황금 부베"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5077,6 +5084,7 @@
 		<Class ClassID="107009" ClassName="UseingSomeoneToStore" Data="다른 캐릭터가 상점을 사용중에 있습니다. 잠시 후에 다시 시도해 주세요."/>
 		<Class ClassID="107010" ClassName="DonnotOpenautoseller" Data="아직 상점을 열지 않았습니다."/>
 		<Class ClassID="107011" ClassName="ReqAllItemUnEquip" Data="모든 아이템의 장비를 해제 하셔야 합니다.{nl}또한 헤어 컬러도 기본으로 설정해야 합니다."/>
+	<Class ClassID="107012" ClassName="ThisMessgeIsError" Data="이 메세지가 보이면 문의해주시기 바랍니다."/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="108001" ClassName="GetOut!WeMustTransportStones!" Data="비켜주십시오! 빨리 돌을 운반해야 합니다."/>
@@ -8148,7 +8156,7 @@
 		<Class ClassID="201016" ClassName="PartyHistory" Data="파티정보"/>
 		<Class ClassID="201017" ClassName="Friends" Data="친구"/>
 		<Class ClassID="201018" ClassName="Pose" Data="포즈"/>
-		<Class ClassID="201019" ClassName="FriendShip" Data="친구"/>
+		<Class ClassID="201019" ClassName="FriendShip" Data="컴패니언"/>
 		<Class ClassID="201020" ClassName="QuestItemUse" Data="퀘스트 아이템 사용"/>
 		<Class ClassID="201021" ClassName="DefaultMove" Data="기본 동작"/>
 		<Class ClassID="201022" ClassName="Battle" Data="전투"/>
@@ -8633,6 +8641,7 @@
 		<Class ClassID="300116" ClassName="SUMMERHAIR6" Data="물안경"/>
 		<Class ClassID="300117" ClassName="SUMMERHAIR7" Data="해변용 밀짚모자"/>
 		<Class ClassID="300118" ClassName="SUMMERHAIR8" Data="알로하 화관"/>
+	<Class ClassID="300122" ClassName="FAILED_PURCHASED_1001100" Data="구매 조건이 맞지 않습니다."/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

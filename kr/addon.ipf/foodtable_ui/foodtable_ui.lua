@@ -158,16 +158,11 @@ function ON_OPEN_FOOD_TABLE_UI(frame, msg, handle, forceOpenUI)
 		for i = 0 , cnt - 1 do
 			local cls = GetClassByIndexFromList(clslist, i);
 			
-			local skillInfo = session.GetSkill(tableInfo:GetSkillType());
-			if skillInfo ~= nil then
-				local sklObj = GetIES(skillInfo:GetObject());
-
-				-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ pcï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿?
-				if cls.SkillLevel <= sklObj.Level then
-					local ctrlSet = gbox_make:CreateControlSet('camp_food_register', "FOOD_" .. cls.ClassName, 0, 0);
-					SET_FOOD_TABLE_BASE_INFO(ctrlSet, cls, tableInfo);
-					SET_FOOD_TABLE_MATAERIAL_INFO(ctrlSet, cls);		
-				end
+			-- À½½Ä Á¦ÀÛÀÇ ÇÊ¿ä ½ºÅ³·¹º§ÀÌ pcÀÇ ½ºÅ³ ·¹º§ ÀÌÇÏÀÏ¶§ Ãâ·Â
+			if cls.SkillLevel <= tableInfo:GetSkillLevel() then
+				local ctrlSet = gbox_make:CreateControlSet('camp_food_register', "FOOD_" .. cls.ClassName, 0, 0);
+				SET_FOOD_TABLE_BASE_INFO(ctrlSet, cls, tableInfo);
+				SET_FOOD_TABLE_MATAERIAL_INFO(ctrlSet, cls);		
 			end
 		end
 

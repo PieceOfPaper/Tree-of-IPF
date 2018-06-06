@@ -432,11 +432,13 @@ function REINF_MIX_CHECK_ICON(slot, reinfItemObj, invItem, itemobj)
 	slot:EnableDrop(0);
 
 	local icon = slot:GetIcon();
-	if itemobj ~= nil and reinfItemObj ~= nil then
+	if itemobj ~= nil and reinfItemObj ~= nil and TryGetProp(reinfItemObj, 'Reinforce_Type') ~= nil then
 		local reinforceCls = GetClass("Reinforce", reinfItemObj.Reinforce_Type);
-				if 1 == _G[reinforceCls.MaterialScript](reinfItemObj, itemobj) then			
-			--slot:PlayUIEffect("I_sys_item_slot_loop_yellow", 1.7, "Reinforce");
-			if 0 == slot:GetUserIValue("REINF_MIX_SELECTED") then
+		local materialScp = TryGetProp(reinforceCls, 'MaterialScript')
+		if materialScp ~= nil then
+			if 1 == _G[materialScp](reinfItemObj, itemobj) then
+				--slot:PlayUIEffect("I_sys_item_slot_loop_yellow", 1.7, "Reinforce");
+				if 0 == slot:GetUserIValue("REINF_MIX_SELECTED") then
 						icon:SetColorTone("FFFFFFFF");
 					else
 						icon:SetColorTone("33000000");
@@ -444,6 +446,7 @@ function REINF_MIX_CHECK_ICON(slot, reinfItemObj, invItem, itemobj)
 					return;
 				end
 			end
+		end
 	
 	--slot:StopUIEffect("Reinforce", true, 0.0);
 	if icon ~= nil then

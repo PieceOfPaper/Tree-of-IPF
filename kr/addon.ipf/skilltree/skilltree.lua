@@ -151,7 +151,7 @@ function MAKE_CLASS_INFO_LIST(frame)
 		upCtrl:SetClickSound("button_click_skill_up");
 		--upCtrl:ShowWindow(0);
 
-		-- Ŭ���� ������ �����ϸ� upCtrl�����ֱ�. �׽�Ʈ��
+		-- 클래스 렙업이 가능하면 upCtrl보여주기. 테스트용
 		local curLv = session.GetUserConfig("CLASSUP_" .. cls.ClassName, 0);
 		if canChangeJob == false or curLv >= cls.MaxLevel * classLv then
 			upCtrl:ShowWindow(0);
@@ -160,11 +160,11 @@ function MAKE_CLASS_INFO_LIST(frame)
 		end
 		upCtrl:ShowWindow(0);
 
-		-- Ŭ���� �̸�
+		-- 클래스 이름
 		local nameCtrl = GET_CHILD(classCtrl, "name", "ui::CRichText");
 		nameCtrl:SetText("{@st41}".. cls.Name);
 
-		-- Ŭ���� ���� (�ڷ� ǥ��)
+		-- 클래스 레벨 (★로 표시)
 		local levelCtrl = GET_CHILD(classCtrl, "level", "ui::CRichText");
 		local levelFont = frame:GetUserConfig("Font_Normal");
 		session.SetUserConfig("CLASSUP_" .. cls.ClassName, classLv);
@@ -180,7 +180,7 @@ function MAKE_CLASS_INFO_LIST(frame)
 
 		levelCtrl:SetText(startext);
 
-		-- �Ʒ����� ���������� Ŭ���� �׸��� �̹� ���Ŭ������ ����ó���Ϸ��� haveJobNameList �߰���
+		-- 아래에서 전직가능한 클래스 그릴때 이미 배운클래스는 예외처리하려고 haveJobNameList 추가함
 		haveJobNameList[#haveJobNameList+1] = cls.ClassName;
 		haveJobGradeList[#haveJobGradeList+1] = classLv;
 
@@ -193,12 +193,12 @@ function MAKE_CLASS_INFO_LIST(frame)
 	detail:SetOffset(detail:GetOriginalX(),grid:GetY() + detailypos)
 end
 
--- ������ ���� ��û
+-- 서버에 전직 요청
 function SCR_CHANGE_JOB(jobID)
 	packet.ReqChangeJob(jobID);
 end
 
--- Ŭ������ ���� or ����
+-- 클래스렙 업글 or 배우기
 function CLASS_PTS_UP(frame, control, clsID, level)
 
 	local clslist, cnt  = GetClassList("Job");
@@ -231,7 +231,7 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 		return;
 	end
 
-	-- �ִϸ��̼� ��� �־�����ϴµ� �װ� UI��� �������� ���߿�...
+	-- 애니메이션 기능 넣어줘야하는데 그건 UI기능 정리된후 나중에...
 	session.SetUserConfig("SELECT_SKLTREE", jobID);
 	if isSkillInfoRollBack ~= 0 then
 		ROLLBACK_SKILL(frame);
@@ -243,7 +243,7 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 
 	local grid = GET_CHILD_RECURSIVELY(parentFrame, "skill", "ui::CGrid");
 	
-	-- ������ ���� �Ʒ� ȭ��ǥ �׷��ֱ�
+	-- 선택한 직업 아래 화살표 그려주기
 	local pcSession = session.GetSessionByCID(cid);
 	local pcJobInfo = pcSession.pcJobInfo;
 	local clslist, cnt  = GetClassList("Job");
@@ -283,7 +283,7 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 
 	local posY = 0
 	for i = 1 , #treelist do
-		-- �������� ������� ���� ���� ���� 1, 2�� ��ų
+		-- 서버에서 사람들이 가장 많이 찍은 1, 2등 스킬
 		local topSkillName1 = ui.GetRedisHotSkillByRanking(jobName, 1);		
 		local topSkillName2 = ui.GetRedisHotSkillByRanking(jobName, 2);
 		posY = MAKE_SKILLTREE_ICON(detail, jobName, treelist, i, topSkillName1, topSkillName2);
@@ -298,7 +298,7 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 	abilitysRtext:SetText(ScpArgMsg('JustAbility'))
 
 	-- Ability
-	-- Ư�� ������ ����ٰ� ���м� �ϳ� �߰��� ��
+	-- 특성 있으면 여기다가 구분선 하나 추가할 것
 	local abilList = pcSession.abilityList;
 	local abilListCnt = 0;
 	if abilList ~= nil then
@@ -349,7 +349,7 @@ end
 
 function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 
-	local row = (listindex-1) % 1; -- �������� ���ٿ� �ΰ��� �������. /1�� 2�� �ٲٸ� �ٽ� ������
+	local row = (listindex-1) % 1; -- 예전에는 한줄에 두개씩 보여줬다. /1을 2로 바꾸면 다시 복구됨
 	local col = math.floor((listindex-1) / 1);
 
 	local skilltreeframe = ui.GetFrame('skilltree')
@@ -361,9 +361,9 @@ function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 	local classCtrl = detail:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass.ClassName, 10 + (CTL_WIDTH + xBetweenMargin) * row, posY + 20 + (CTL_HEIGHT + yBetweenMargin) * col);
 	classCtrl:ShowWindow(1);
 	
-    -- �׻� Ȱ��ȭ �� Ư���� Ư�� Ȱ��ȭ ��ư�� �Ⱥ����ش�.
+    -- 항상 활성화 된 특성은 특성 활성화 버튼을 안보여준다.
 	if abilClass.AlwaysActive == 'NO' then
-		-- Ư�� Ȱ��ȭ ��ư
+		-- 특성 활성화 버튼
 		local activeImg = GET_CHILD(classCtrl, "activeImg", "ui::CPicture");
 	    activeImg:EnableHitTest(1);
 	    activeImg:SetEventScript(ui.LBUTTONUP, "TOGGLE_ABILITY_ACTIVE");
@@ -380,7 +380,7 @@ function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 	    activeImg:ShowWindow(1);
 	end
 	
-	-- Ư�� ������
+	-- 특성 아이콘
 	local classSlot = GET_CHILD(classCtrl, "slot", "ui::CSlot");
 	local icon = CreateIcon(classSlot);	
 	icon:SetImage(abilClass.Icon);
@@ -390,11 +390,11 @@ function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 	local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
 	icon:SetTooltipIESID(GetIESGuid(abilIES));
 
-	-- Ư�� �̸�
+	-- 특성 이름
 	local nameCtrl = GET_CHILD(classCtrl, "abilName", "ui::CRichText");
 	nameCtrl:SetText("{@st41}{s16}".. abilClass.Name);
 
-	-- Ư�� ����
+	-- 특성 레벨
 	local abilLv = abilIES.Level;
 
 	local levelCtrl = GET_CHILD(classCtrl, "abilLevel", "ui::CRichText");
@@ -431,7 +431,7 @@ function TOGGLE_ABILITY_ACTIVE(frame, control, abilName, abilID)
 		return;
 	end
 
-	-- ��Ư���� �ش� ��ų�� �������̸� on/off�� ���� ���ϰ� �Ѵ�.
+	-- 이특성에 해당 스킬을 시전중이면 on/off를 하지 못하게 한다.
 	if abilName == "Corsair7" and 1 == geClientSkill.MyActorHasCmd('HOOKEFFECT') then
 		return;
 	end
@@ -535,8 +535,8 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
 	for i = 0, stancecnt -1 do
 		local stance = GetClassByIndexFromList(stancelist, i)
 		local index = string.find(reqstance, stance.ClassName)
-		--���Ľ��� TwoHandBow�ε�.. ����̸��� Bow�� ���� ��Ʈ�����ε忡 �ɸ�..
-		--����̸��� �����ϸ� �������۾��ڵ��� ���뽺�����.. ���ܸ� �д�.. ��¥ ���� ������..
+		--스탠스는 TwoHandBow인데.. 쇠뇌이름이 Bow라서 위에 스트링파인드에 걸림..
+		--쇠뇌이름을 변경하면 데이터작업자들이 고통스러우니.. 예외를 둔다.. 진짜 망한 구조임..
 		
 		if (reqstance == "TwoHandBow") and (stance.ClassName == "Bow") then
 			index = nil;
@@ -624,7 +624,7 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 	local maxlv = GET_SKILLTREE_MAXLV(pc, jobName, cls);
 	local remainstat = GET_REMAIN_SKILLTREE_PTS(treelist);
 
-	local row = (listindex-1) % 1; -- �������� ���ٿ� �ΰ��� �������. /1�� 2�� �ٲٸ� �ٽ� ������
+	local row = (listindex-1) % 1; -- 예전에는 한줄에 두개씩 보여줬다. /1을 2로 바꾸면 다시 복구됨
 	local col = math.floor((listindex-1) / 1);
 
 	local skilltreeframe = ui.GetFrame('skilltree')
@@ -644,7 +644,7 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 	local iconname = "icon_" .. typeclass.Icon;
 	icon:SetImage(iconname);
 	
-	--��ũ���� �� ������ �ȿ������� ������ϴ�.
+	--스크롤이 이 위에서 안움직여서 해줬습니다.
 	local bggroupbox = GET_CHILD(skillCtrl, "slot_bg", "ui::CGroupBox");
 	
 	bggroupbox:EnableScrollBar(0);
@@ -681,7 +681,12 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 		if session.GetUserConfig("SKLUP_" .. cls.SkillName) == 0 then
 			sp:SetText("{@st66b}{s18}"..obj["SpendSP"].."{/}");
 		else
-			local spendSP = obj["SpendSP"] + (math.floor(session.GetUserConfig("SKLUP_" .. cls.SkillName) * obj.LvUpSpendSp))
+			-- lvUpSpendSP의 루아에서의 float 정밀도를 수정하기위해 소수 5자리에서 반올림한다.
+			-- 값을 print로 찍어보면 원래 값과 같지만.. 서버와 계산값을 맞출려면 이렇게 해야 한다.
+			local lvUpSpendSpRound = math.floor((obj.LvUpSpendSp * 10000) + 0.5)/10000; 
+			
+			local spendSP = obj["BasicSP"] + ((lv-1) + session.GetUserConfig("SKLUP_" .. cls.SkillName)) * lvUpSpendSpRound
+			spendSP = math.floor(spendSP)
 			sp:SetText("{@st66b}{s18}"..spendSP.."{/}");
 		end
 		sptxt:SetText("{@st66b}".."SP.".."{/}");
@@ -702,11 +707,16 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 		sptxt:ShowWindow(1);
 		
 		local spendSP = 0;
+		-- lvUpSpendSP의 루아에서의 float 정밀도를 수정하기위해 소수 5자리에서 반올림한다.
+		-- 값을 print로 찍어보면 원래 값과 같지만.. 서버와 계산값을 맞출려면 이렇게 해야 한다.
+		local lvUpSpendSpRound = math.floor((dummyObj.LvUpSpendSp * 10000) + 0.5)/10000; 
+		
 		if session.GetUserConfig("SKLUP_" .. cls.SkillName) >= 1 then
-			spendSP = dummyObj["BasicSP"] + math.floor((session.GetUserConfig("SKLUP_" .. cls.SkillName) - 1) * dummyObj.LvUpSpendSp)
+			spendSP = dummyObj["BasicSP"] + (session.GetUserConfig("SKLUP_" .. cls.SkillName) - 1) * lvUpSpendSpRound 
 		else
-			spendSP =dummyObj["BasicSP"] +  math.floor((session.GetUserConfig("SKLUP_" .. cls.SkillName)) * dummyObj.LvUpSpendSp)
+			spendSP =dummyObj["BasicSP"] +  session.GetUserConfig("SKLUP_" .. cls.SkillName) * lvUpSpendSpRound
 		end
+		spendSP = math.floor(spendSP)
 		sp:SetText("{@st66b}{s18}"..spendSP.."{/}");
 		sptxt:SetText("{@st66b}".."SP.".."{/}");
 

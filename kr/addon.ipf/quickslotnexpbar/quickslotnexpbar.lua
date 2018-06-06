@@ -1,5 +1,4 @@
-
---�ֵ�¸�� �޸� expbar�� charbaseinfo�� �ű�.
+-- quickslotnexpbar.lua
 
 MAX_QUICKSLOT_CNT = 40;
 QUICKSLOT_OVERHEAT_GAUGE = "overheat_gauge";
@@ -14,24 +13,20 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('KEYBOARD_INPUT', 'KEYBOARD_INPUT');
 	
-	-- ����ġ ���� �޽���
 	addon:RegisterMsg('SKILL_LIST_GET', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('REGISTER_QUICK_SKILL', 'QUICKSLOT_REGISTER_Skill');
 	addon:RegisterMsg('REGISTER_QUICK_ITEM', 'QUICKSLOT_REGISTER_Item');
 
-	-- �κ��丮 ���� �޽���
 	addon:RegisterMsg('INV_ITEM_ADD', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_POST_REMOVE', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_CHANGE_COUNT', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('BUFF_ADD', 'QUICKSLOT_BUFF_UPDATE');
 	addon:RegisterMsg('BUFF_REMOVE', 'QUICKSLOT_BUFF_UPDATE');
 
-	-- �������ͽ� ���� �޽���
 	addon:RegisterMsg('EQUIP_ITEM_LIST_GET', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('PC_PROPERTY_UPDATE', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('PET_SELECT', 'ON_PET_SELECT');
 
-	-- ��ź���� ����
 	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JUNGTAN_SLOT_ON_MSG');
 
 
@@ -310,7 +305,6 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 			end
 
 			local skill_scroll = 910001;
-			-- ��ų ��ũ���϶�, �ش� ��ų type�� level�� ������ Ȯ������� �ҵ�.
 			if invenItemInfo == nil then
 				if skill_scroll ~= type then
 					invenItemInfo = session.GetInvItemByType(type);
@@ -399,7 +393,6 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 			icon:SetTooltipIESID(iesID);		
 		end
 
-		-- ����¸� üũ�ؼ� ���̾��ٸ� disableDrag�ؾ��Ѵ�.
 		local quickSlotList = session.GetQuickSlotList();
 		local isLockState = quickSlotList:GetQuickSlotLockState();	
 		if isLockState == 1 then
@@ -470,7 +463,6 @@ function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
 	JOYSTICK_QUICKSLOT_ON_MSG(joystickquickslotFrame, msg, argStr, argNum)
 	
 	
-	-- ��ų�� �κ��丮 ������ ������ �´�.
 	local skillList 		= session.GetSkillList();
 	local skillCount 		= skillList:Count();
 	local invItemList 		= session.GetInvItemList();
@@ -602,7 +594,6 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 		return;
 	end
 
-	-- �ŷ��Ҷ� ������ ������ ������ ����
 	if true == BEING_TRADING_STATE() then
 		return;
 	end
@@ -615,7 +606,6 @@ function QUICKSLOTNEXPBAR_ICON_COUNT(frame, icon, argStr, argNum)
 end
 
 function QUICKSLOTNEXPBAR_SLOT_RBTNDOWN(frame, control, argStr, argNum)
-	-- ���Կ��� ������ ����
 	local slot	= tolua.cast(control, 'ui::CSlot');
 	CLEAR_QUICKSLOT_SLOT(slot, 1, true);
 
@@ -623,7 +613,6 @@ end
 
 function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 
-	-- ������ ��
 	-- imcSound.PlaySoundItem('ui_item_drop');
 
 	local liftIcon 					= ui.GetLiftIcon();
@@ -664,7 +653,6 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 	end
 
 	if iconParentFrame:GetName() == 'quickslotnexpbar' then
-		-- NOTE : ���������� ���� �˵� �������� ��� ���� �����ܰ� ��ȯ �մϴ�.
 		local popSlotObj 		  = liftIcon:GetParent();
 		if popSlotObj:GetName()  ~=  slot:GetName() then
 			local popSlot = tolua.cast(popSlotObj, "ui::CSlot");
@@ -676,7 +664,7 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 				end
 			end
 			local sklCnt = frame:GetUserIValue('SKL_MAX_CNT');
-			if sklCnt >= slot:GetSlotIndex() then
+			if sklCnt > 0 and sklCnt >= slot:GetSlotIndex() then
 				return;
 			end
 			QUICKSLOTNEXPBAR_SETICON(popSlot, oldIcon, 1, false);
@@ -687,16 +675,13 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 	end
 
 	--QUICKSLOTNEXPBAR_SETICON(slot, liftIcon, 1, true);
-	-- ��ȯ�ϸ鼭 ���� ������ ���������Ф�
 	QUICKSLOTNEXPBAR_NEW_SETICON(slot, iconCategory, iconType, iconGUID);
 end
 
--- �����Կ� ������ �������� ����մϴ�.
 function QUICKSLOTNEXPBAR_NEW_SETICON(slot, category, type, guid)
 	SET_QUICK_SLOT(slot, category, type, guid, 1, true);
 end
 
--- �����Կ� ������ �������� ����մϴ�.
 function QUICKSLOTNEXPBAR_SETICON(slot, icon, makeLog, sendSavePacket)
 	if icon  ~=  nil then
 		local iconInfo = icon:GetInfo();
@@ -821,7 +806,6 @@ function QUICKSLOTNEXPBAR_EXECUTE(slotIndex)
 		return;
 	end
 
-	-- �޽ĸ�� ?���� ó��
 	local restFrame = ui.GetFrame('restquickslot')
 	if restFrame:IsVisible() == 1 then
 		REST_SLOT_USE(restFrame, slotIndex);

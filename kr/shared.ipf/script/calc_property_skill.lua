@@ -88,8 +88,11 @@ function SCR_Get_SpendSP(skill)
 	end
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
+	-- lvUpSpendSP??ë£¨ì•„?ì„œ??float ?•ë??„ë? ?˜ì •?˜ê¸°?„í•´ ?Œìˆ˜ 5?ë¦¬?ì„œ ë°˜ì˜¬ë¦¼í•œ??
+	-- ?´ë ‡ê²?ê³„ì‚°?´ì¤˜???´ë¼?´ì–¸?¸ì? ê³„ì‚° ê°’ì´ ë§ë‹¤. ?„ë§ˆ???Œìˆ˜?ì˜ 10?ë¦¬ì¯¤ì´ ?€ë¦¬ì? ?Šì„ê¹?.
+	local lvUpSpendSpRound = math.floor((lvUpSpendSp * 10000) + 0.5)/10000;
 	
-	value = basicsp + (lv - 1) * lvUpSpendSp + abilAddSP;
+	value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
 	value = value - decsp;
 	
 	if value < 1 then
@@ -9464,6 +9467,13 @@ function SCR_Get_Praise_Ratio(skill)
     return value;
 end
 
+function SCR_Get_Praise_Ratio2(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 0.3 * skill.Level
+    
+    return value;
+end
+
 function SCR_Get_Pointing_Ratio(skill)
     
     return 15 + 2 * (skill.Level - 1)
@@ -11894,7 +11904,7 @@ function SCR_GET_HighGuard_Ratio2(skill)
 
 	local pc = GetSkillOwner(skill);
 	
-	local value = skill.Level * 10
+	local value = skill.Level * 6
 	
 	return math.floor(value)
 
@@ -11904,7 +11914,7 @@ function SCR_GET_HighGuard_AtkDown(skill)
 	
 	local pc = GetSkillOwner(skill);
 	
-	local value = 15
+	local value = 7
 	
 	return math.floor(value)
 
@@ -12923,7 +12933,7 @@ function SCR_GET_USEOVERHEAT(skill)
 	local pc = GetSkillOwner(skill);
 	--local reduce_OH_value = SCR_GET_ADDOVERHEAT(pc, skill);
 	--skill.	
-	local skillScale = 0.4; -- ????-- skill.xml????????
+	local skillScale = 0.4; -- ?„ì‹œ -- skill.xml?ì„œ ?…ë ¥	
 --	local byStat = math.pow(math.log(pc.MNA + 2.718282), skillScale);
 
 	local value = skill.SklUseOverHeat;	
@@ -12987,7 +12997,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
 	if skill.GemLevel_BM > 0 then
-		value = value + 1;	-- ?????? ?????????? ??Ã¸????? ?????? +1?? ????????.
+		value = value + 1;	-- ëª¬ìŠ¤?°ì ¬ ?¤í‚¬ë³´ë„ˆ?¤ëŠ” ì¤‘ì²©?œì¼œ??ë¬´ì¡°ê±?+1ë§??œí‚¨?¤ê³ ??
 	end
 
 	if skill.HitType == 'Pad' then

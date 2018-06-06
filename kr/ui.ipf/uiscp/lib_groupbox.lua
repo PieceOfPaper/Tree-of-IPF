@@ -1,12 +1,19 @@
 -- lib_groupbox.lua
 
-function QUEST_GBOX_AUTO_ALIGN(frame, GroupCtrl, starty, spacey, gboxaddy)
-	GBOX_AUTO_ALIGN(GroupCtrl, 0, 3, 100);
-	frame:Resize(frame:GetWidth(), GroupCtrl:GetHeight());
+function QUEST_GBOX_AUTO_ALIGN(frame, GroupCtrl, starty, spacey, gboxaddy) -- questinfoset_2
+	local height = GroupCtrl:GetHeight()
+	local needResize = true
+	if height >= GroupCtrl:GetOriginalHeight() then
+		needResize = false
+	end
 
-	-- 왜 한번하면 Resize가 안대지? 짱나게? 지금 시간도 없어 죽겠는데.... ㅜㅜ
-	GBOX_AUTO_ALIGN(GroupCtrl, 0, 3, 100);
-	frame:Resize(frame:GetWidth(), GroupCtrl:GetHeight());
+	if needResize then
+		GBOX_AUTO_ALIGN(GroupCtrl, starty, spacey, gboxaddy);
+		frame:Resize(frame:GetWidth(), height);
+	else
+		GroupCtrl:SetScrollBar(GroupCtrl:GetOriginalHeight())
+		GBOX_AUTO_ALIGN(GroupCtrl, starty, spacey, gboxaddy, false, false);
+	end
 end
 
 function GBOX_AUTO_ALIGN(gbox, starty, spacey, gboxaddy, alignByMargin, autoResizeGroupBox)

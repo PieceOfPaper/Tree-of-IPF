@@ -205,8 +205,7 @@ function GUILD_GAME_START_3SEC(frame)
 	for i = 0 , cnt - 1 do
 		local enemyInfo = pcparty.info:GetEnemyPartyByIndex(i);
 		local serverTime = geTime.GetServerFileTime();
-		local difSec = imcTime.GetIntDifSecByTime(serverTime, enemyInfo:GetStartTime());
-		local remainSec = GUILD_WAR_AUTO_END_MINUTE * 60 - difSec;
+		local remainSec = imcTime.GetIntDifSecByTime(enemyInfo:GetEndTime(), serverTime);
 		if remainSec > 0 then
 			local msg = ScpArgMsg("WarWith{Name}GuildRemain{Time}", "Name", enemyInfo:GetPartyName(), "Time", GET_TIME_TXT_DHM(remainSec));
 			ui.SysMsg(msg);
@@ -529,10 +528,11 @@ function GUILD_UPDATE_ENEMY_PARTY(frame, pcparty)
 		t_guildname:SetTextByKey("value", enemyInfo:GetPartyName());
 		
 		local serverTime = geTime.GetServerFileTime();
-		local difSec = imcTime.GetIntDifSecByTime(serverTime, enemyInfo:GetStartTime());
-		local remainSec = GUILD_WAR_AUTO_END_MINUTE * 60 - difSec;
+		local warEndTime = enemyInfo:GetEndTime();
+		local remainSec = imcTime.GetIntDifSecByTime(warEndTime, serverTime);
+
 		if remainSec <= 0 then
-			local remainRemoveSec = (GUILD_WAR_REST_MINUTE + GUILD_WAR_AUTO_END_MINUTE) * 60 - difSec;
+			local remainRemoveSec = (GUILD_WAR_REST_MINUTE * 60 + remainSec)
 			local remainTimeText = GET_TIME_TXT_DHM(remainRemoveSec);
 			t_remainTime:SetTextByKey("value", ScpArgMsg("NextDeclareWarAbleTime") .. " " .. remainTimeText);
 		else
@@ -578,7 +578,7 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 	local context = ui.CreateContextMenu("PC_CONTEXT_MENU", name, 0, 0, 170, 100);
 	if isLeader == 1 and aid ~= myAid then
 		ui.AddContextMenuItem(context, ScpArgMsg("ChangeDuty"), string.format("GUILD_CHANGE_DUTY('%s')", name));
-		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", name));
+		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", aid));
 		local mapName = session.GetMapName();
 		if mapName == 'guild_agit_1' then
 			ui.AddContextMenuItem(context, ScpArgMsg("GiveGuildLeaderPermission"), string.format("SEND_REQ_GUILD_MASTER('%s')", name));
@@ -641,7 +641,7 @@ end
 
 function GUILD_BAN(name)
 
-	ui.Chat("/partyban " .. PARTY_GUILD.. " " .. name);	
+	ui.Chat("/partybanByAID " .. PARTY_GUILD.. " " .. name);	
 
 end
 

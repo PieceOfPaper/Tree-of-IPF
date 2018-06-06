@@ -12,8 +12,15 @@ end
 
 function RESTART_ON_RESSURECT_HERE(frame)
 	local cristal = GetClass("Item", "RestartCristal");
+	local cristal_14d = GetClass("Item", "RestartCristal_14d");
 	local item = session.GetInvItemByName(cristal.ClassName);
-	if item == nil then
+
+	local item_14d = nil
+	if cristal_14d ~= nil then
+		item_14d = session.GetInvItemByName(cristal_14d.ClassName);
+	end
+
+	if (item == nil) and (item_14d == nil) then
 		ui.SysMsg(ScpArgMsg("NotEnough{ItemName}Item","ItemName", cristal.Name));
 		return;
 
@@ -84,7 +91,7 @@ function AUTORESIZE_RESTART(frame)
 		return;
 	end
 	campGroup:RemoveAllChild();
-	-- ��Ƽ���� ���� �� ��
+	-- 파티원이 존재 할 때
 	if 0 < count then
 		local y = 0;
 		for i = 0 , count - 1 do

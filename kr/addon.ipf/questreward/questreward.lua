@@ -187,6 +187,7 @@ function QUEST_REWARD_TEST(frame, questID)
 		box:InvalidateScrollBar();
 		frame:Resize(frame:GetWidth() + 10, margin);
 	else
+		box:SetCurLine(0) -- scroll init
 		box:EnableScrollBar(0);
 		box:Resize(box:GetWidth(), y);
 		frame:Resize(frame:GetWidth() + 10, maxSizeHeightFrame);

@@ -15,6 +15,11 @@ function PUZZLECRAFT_CLEAR_ALL_SLOT(frame)
 end
 
 function PUZZLECRAFT_OPEN(frame)
+	if frame:GetUserIValue("ANI_DOING") == 1 then
+		ui.SysMsg(ClMsg("prosessItemCraft"));
+		frame:ShowWindow(0);
+		return;
+	end
 	ui.OpenFrame("inventory");
 end
 
@@ -58,7 +63,10 @@ function PUZZLECRAFT_DROP(frame, slot, argStr, argNum)
 	local liftIcon 				= ui.GetLiftIcon();
 	local FromFrame 			= liftIcon:GetTopParentFrame();
 	frame = frame:GetTopParentFrame();
-	
+	if frame:GetUserIValue("ANI_DOING") == 1 then
+		ui.SysMsg(ClMsg("prosessItemCraft"));
+		return;
+	end
 	local iconInfo = liftIcon:GetInfo();
 	local guid = iconInfo:GetIESID();
 	local invItem = GET_ITEM_BY_GUID(guid);
@@ -90,9 +98,15 @@ function PUZZLECRAFT_DROP(frame, slot, argStr, argNum)
 end
 
 function PUZZLECRAFT_SLOT_RBTN(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	if frame:GetUserIValue("ANI_DOING") == 1 then
+		ui.SysMsg(ClMsg("prosessItemCraft"));
+		return;
+	end
+
 	ctrl = tolua.cast(ctrl, "ui::CSlot");
 	CLEAR_SLOT_ITEM_INFO(ctrl);
-	local frame = parent:GetTopParentFrame();
+
 	local normalSlot = frame:GetUserConfig("NormalSlot");
 	ctrl:SetSkinName(normalSlot);
 	ctrl:SetUserValue("SELECTED", 0);
@@ -225,8 +239,19 @@ function UPDATE_PUZZLECRAFT_TARGETS()
 
 end
 
+function PUZZLE_ANIM_EXCUTE()
+	local frame = ui.GetFrame("puzzlecraft");
+	frame:SetUserValue("ANI_DOING", 1);
+end
+
 function PUZZLECRAFT_EXEC(frame)
 	frame = frame:GetTopParentFrame();
+
+	if frame:GetUserIValue("ANI_DOING") == 1 then
+		ui.SysMsg(ClMsg("prosessItemCraft"));
+		return;
+	end
+
 	local bg = frame:GetChild("bg");
 	local slotset = GET_CHILD(bg, "slotset", "ui::CSlotSet");
 	for i = 0 , slotset:GetSlotCount() - 1 do
@@ -255,8 +280,12 @@ function _PUZZLECRAFT_EXEC()
 	frame:ShowWindow(0);
 end
 
-function PUZZLE_WAIT_END()
-	geItemPuzzle.ExecCombination(false);
+function PUZZLE_WAIT_END(result)
+	if 1 == tonumber(result) then
+		geItemPuzzle.ExecCombination(false);
+	end
+	local frame = ui.GetFrame("puzzlecraft");
+	frame:SetUserValue("ANI_DOING", 0);
 end
 
 function PUZZLE_COMPLETE()
