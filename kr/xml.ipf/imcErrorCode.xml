@@ -515,4 +515,5 @@
 	<Code Code="ERROR_PADSKILL_OVERRIDE_CLONE_FAIL" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="패드 스킬 프로퍼티 오버라이드 중 클론 생성 실패"/>
 	<Code Code="ERROR_ATTENDANCE" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="출석 시스템 관련 에러"/>
 	<Code Code="ERROR_RANK_RESET" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랭크 초기화 관련 에러"/>
+<Code Code="INFO_ETC_PROP_SEND" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="간헐적으로 인던 카운트 보이지 않는 문제 추적용"/>
 </imcErrorCode>
