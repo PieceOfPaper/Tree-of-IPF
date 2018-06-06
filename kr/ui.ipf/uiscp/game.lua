@@ -1271,7 +1271,7 @@ function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal)
 
 	if needAppraisal == 1 then
 		pic = pic..'2';
-end
+	end
 	return pic;
 end
 
@@ -4128,16 +4128,7 @@ function ON_RIDING_VEHICLE(onoff)
 		end
 
 		local ret = control.RideCompanion(onoff);
-
-		local isSit = control.IsRestSit();
-
-		if onoff == 1 and isSit == true then
-			ui.SysMsg(ClMsg('SitState_Vehicle'));
-			return;
-		end
-
-		if onoff == 1 and ret == false then
-			--ui.SysMsg(ClMsg('DistanceIsTooFar'));
+		if ret == false then
 			return;
 		end
 	else

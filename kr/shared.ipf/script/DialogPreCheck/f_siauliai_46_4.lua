@@ -25,3 +25,27 @@ function SCR_SIAULIAI_46_4_MEADBOX_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+function SCR_SIAULIAI462_HIDDENQ2_CANDLE1_PRE_DIALOG(pc, dialog)
+    local result1 = SCR_QUEST_CHECK(pc, 'SIAULIAI462_HQ2')
+    if result1 == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+function SCR_SIAULIAI462_HIDDENQ2_CANDLE2_PRE_DIALOG(pc, dialog)
+    local result1 = SCR_QUEST_CHECK(pc, 'SIAULIAI462_HQ2')
+    if result1 == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+function SCR_SIAULIAI462_HIDDENQ2_CANDLE3_PRE_DIALOG(pc, dialog)
+    local result1 = SCR_QUEST_CHECK(pc, 'SIAULIAI462_HQ2')
+    if result1 == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end

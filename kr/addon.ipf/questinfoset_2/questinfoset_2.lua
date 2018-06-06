@@ -1415,7 +1415,7 @@ function MAKE_QUESTINFO_ITEM_BY_IES(ctrlset, questIES, startx, s_obj, y)
         			end
 					
 					local contentOffsetX = startx + ctrlset:GetX();
-        			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, contentOffsetX, y, ctrlset:GetWidth() - contentOffsetX - IES_CTRL_OFFSET, 10);
+        			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, startx, y, ctrlset:GetWidth() - contentOffsetX - IES_CTRL_OFFSET, 10);
         			tolua.cast(content, "ui::CRichText");
         			content:EnableSplitBySpace(0);
         			content:EnableHitTest(0);
@@ -1462,7 +1462,7 @@ function MAKE_QUESTINFO_ITEM_BY_IES(ctrlset, questIES, startx, s_obj, y)
             			end
             
 						local contentOffsetX = startx + ctrlset:GetX();
-            			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, contentOffsetX, y, ctrlset:GetWidth() - contentOffsetX - IES_CTRL_OFFSET, 10);
+            			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, startx, y, ctrlset:GetWidth() - contentOffsetX - IES_CTRL_OFFSET, 10);
             			tolua.cast(content, "ui::CRichText");
             			content:EnableSplitBySpace(0);
             			content:EnableHitTest(0);

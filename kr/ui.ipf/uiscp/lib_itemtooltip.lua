@@ -1,6 +1,6 @@
 -- lib_itemtooltip.lua
 
-function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType)
+function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType, gender)
 	if 'TooltipImage' == imageType then
 		local changeItemcls = nil;
 		local faceID = TryGetProp(invitem, 'BriquettingIndex');
@@ -17,7 +17,7 @@ function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType)
 			return tostring(imageName)
 		end
 	elseif 'Icon' == imageType then
-		return GET_ITEM_ICON_IMAGE(invitem);
+		return GET_ITEM_ICON_IMAGE(invitem, gender);
 	end
 
 	return 'None'

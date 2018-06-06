@@ -20,7 +20,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 29,29,0,40,40,0,30,0,0,0,0,0,0,"Toothrikon","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 30,30,1,40,1,60000,1,0,0,0,0,0,0,"HiddenTrigger4","","","","","MON_DUMMY","","","BRACKEN431_SUBQ6_SEED","","","NO","YES","NO","Neutral","EffectLocal2/BRACKEN43_1_SQ7/F_ground051_blue:0.3:2:BOT:SUCCESS","EffectLocal2/BRACKEN43_1_SQ8/F_ground051_blue:0.3:2:BOT:POSSIBLE:PROGRESS:SUCCESS","",""
 31,31,1,40,1,60000,1,1,0,0,0,0,0,"Warp_arrow","펠케 신전터","","","","","","","","BRACKEN43_1_3CMLAKE83","","NO","YES","NO","Neutral","","","",""
-32,32,1,40,1,60000,1,0,0,0,0,0,0,"npc_rytaswort","UnvisibleName","","","","MON_DUMMY","","","BRACKEN431_SUBQ7_NPC","","","NO","YES","NO","Neutral","EffectLocal2/BRACKEN43_1_SQ7/F_ground051_blue:0.5:2:BOT:POSSIBLE:PROGRESS","","",""
+32,32,1,40,1,60000,1,0,0,0,0,0,0,"npc_rytaswort","UnvisibleName","","","","MON_DUMMY","","","BRACKEN431_SUBQ7_NPC","","","NO","YES","NO","Neutral","EffectLocal2/BRACKEN43_1_SQ7/F_ground051_blue:0.5:2:BOT:POSSIBLE:PROGRESS","AttachAnimLocal/0:event_loop","NPCStateLocal/0:BRACKEN43_1_SQ7:IMPOSSIBLE:POSSIBLE:PROGRESS",""
 33,33,0,40,100,0,10,0,0,0,0,0,0,"horn_golem","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 34,34,0,40,9999,0,30,0,0,0,0,0,0,"Rakon","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 35,35,1,40,40,40000,12,0,0,0,1,0,0,"Rakon","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""

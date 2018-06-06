@@ -409,7 +409,7 @@ function SET_STAT_TEXT(frame, ctrlname, pc, propname, pointprop, addprop, consum
 	
 	bgPic:SetTooltipType("status_detail");
 	bgPic:SetTooltipArg(base, point, add);
-
+		
 	btnUp:SetEventScript(ui.LBUTTONUP, "REQ_STAT_UP");
 	btnUp:SetEventScriptArgString(ui.LBUTTONUP, propname);
 	btnUp:SetClickSound("button_click_stats");
@@ -437,6 +437,9 @@ function UPDATE_STATUS_DETAIL_TOOLTIP(frame, base, point, add)
 	baseValue:SetTextByKey("value", base);
 	pointValue:SetTextByKey("value", point);
 	addValue:SetTextByKey("value", add);
+
+	local desc = GET_CHILD(frame, "desc", "ui::CRichText");
+	desc:SetTextByKey("value", ScpArgMsg("StatusTooltipDesc"));
 end
 
 function REQ_STAT_UP(frame, control, argstr, argnum)

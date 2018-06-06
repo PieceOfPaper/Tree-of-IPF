@@ -503,8 +503,7 @@ function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, ItemType, 
 	end
 end
 
-function SET_ITEM_TOOLTIP_TYPE(prop, itemID, itemCls, tooltipType)
-	
+function SET_ITEM_TOOLTIP_TYPE(prop, itemID, itemCls, tooltipType)	
 	local customTooltipScp = TryGetProp(itemCls, "CustomToolTip");
 	if customTooltipScp ~= nil and customTooltipScp ~= "None" then
 		customTooltipScp = _G[customTooltipScp];
@@ -573,9 +572,10 @@ function ICON_SET_INVENTORY_TOOLTIP(icon, invitem, strarg, itemCls)
 
 end
 
-function ICON_SET_EQUIPITEM_TOOLTIP(icon, equipitem)
-
+function ICON_SET_EQUIPITEM_TOOLTIP(icon, equipitem, topParentFrameName)
 	SET_ITEM_TOOLTIP_TYPE(icon, equipitem.type);
 	icon:SetTooltipArg('equip', equipitem.type, equipitem:GetIESID());
-
+	if topParentFrameName ~= nil then
+		icon:SetTooltipTopParentFrame(topParentFrameName);
+	end
 end

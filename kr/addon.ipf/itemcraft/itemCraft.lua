@@ -1223,7 +1223,11 @@ end
 function REMOVE_TAG(str)
 	local pattern = "\{[^\}]*\}";
 	local clean = str:gsub(pattern, "");
-	return clean
+	
+	pattern = "\}[^\{]*\{";  -- "}{" 도 제거.
+	clean = clean:gsub(pattern, "");
+
+	return clean;
 end
 
 function RECIPE_TYPING_NAME(frame, ctrl)

@@ -36,6 +36,13 @@
         <Effect Name="F_smoke144_dark2"/>
         <Effect Name="I_smoke058_blue"/>
     <Effect Name="ani"/>
+    <Effect Name="f_bracken_43_4_elt"/>
+        <Effect Name="cklaipe_sit"/>
+        <Effect Name="f_bracken_42_1_elt"/>
+        <Effect Name="0:std"/>
+        <Effect Name="F_light094_blue_loop2"/>
+        <Effect Name="F_light062_red"/>
+        <Effect Name="f_bracken_42_1_elt2"/>
     </Category>
     <Category ID="201">
         <Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
@@ -113,7 +120,11 @@
 		<Effect Name="F_spin006"/>
 		<Effect Name="F_spin032_reverse_blue"/>
 		<Effect Name="Nuodai_Poison_Remove"/>
-	</Category>
+	<Effect Name="F_explosion98_light"/>
+        <Effect Name="F_explosion99_decal"/>
+        <Effect Name="F_explosion98_red_dark"/>
+        <Effect Name="F_hit010"/>
+    </Category>
     <Category ID="124">
         <Effect Name="rope_pad_abil"/>
         <Effect Name="punji_stake_abil"/>
@@ -383,7 +394,9 @@
         <Effect Name="F_smoke109"/>
         <Effect Name="LOWLV_BOASTER_SQ_50_MINI"/>
     <Effect Name="F_light074_yellow"/>
-	</Category>
+	<Effect Name="f_bracken_43_4_elt"/>
+        <Effect Name="f_bracken_42_1_elt"/>
+    </Category>
     <Category ID="75">
         <Effect>knockdown_bounce</Effect>
         <Effect Name="f_orchard_34_2_elevator"/>
@@ -1383,7 +1396,11 @@
 		<Effect Name="I_spread_out001_light#Dummy001"/>
 		<Effect Name="F_cleric_Ayin_sof_loop_ground"/>
 		<Effect Name="f_whitetrees_23_1_elt"/>
-	</Category>
+	<Effect Name="f_bracken_42_1_elt"/>
+        <Effect Name="d_limestonecave_55_1_elt"/>
+        <Effect Name="f_bracken_42_1_elt2"/>
+        <Effect Name="F_cleric_MassHeal_spread_out"/>
+    </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
         <Effect Name="Centurion_Winged_Formation"/>
@@ -1770,6 +1787,10 @@
         <Effect Name="I_emoticon004"/>
         <Effect Name="I_emoticon005"/>
         <Effect Name="I_emoticon006"/>
+        <Effect Name="f_bracken_43_4_elt"/>
+    <Effect Name="f_bracken_42_1_elt"/>
+        <Effect Name="F_ground135_2"/>
+        <Effect Name="I_light010_2"/>
     </Category>
     <Category ID="52">
         <Effect Name="I_smoke011##1"/>
@@ -3251,7 +3272,11 @@
 		<Effect Name="F_light122_white_loop"/>
 		<Effect Name="I_ignas_ArrowRain_hit2_mash"/>
 		<Effect Name="I_ignas_ArrowRain_hit_mash"/>
-	</Category>
+	<Effect Name="I_ignas_ArrowRain_trail"/>
+        <Effect Name="f_bracken_43_2_elt2"/>
+        <Effect Name="f_bracken_43_2_elt"/>
+    <Effect Name="I_ground013_vine_mash"/>
+    </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
         <Effect Name="I_laser005_blue"/>
@@ -4513,6 +4538,11 @@
         <Effect Name="live_glu"/>
         <Effect Name="live_moth"/>
         <Effect Name="Suc_out"/>
+    <Effect Name="f_bracken_42_1_elt"/>
+        <Effect Name="d_limestonecave_55_1_elt"/>
+        <Effect Name="cklaipe_sit"/>
+        <Effect Name="F_spread_in005_mint"/>
+        <Effect Name="BOOM"/>
     </Category>
     <Category ID="180">
         <Effect Name="I_ice005_mash###1"/>

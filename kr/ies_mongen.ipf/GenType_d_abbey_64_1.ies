@@ -43,7 +43,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 36,36,0,40,300,0,7,0,0,0,0,0,0,"Sec_Spector_Gh","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","Attack"
 37,37,1,40,1,60000,3,0,0,0,1,0,0,"workdesk_01","UnvisibleName","","","","","","","","","","NO","YES","NO","Neutral","","","COPY",""
 38,38,1,40,1,60000,3,0,0,0,1,0,0,"alchemist_table_1","UnvisibleName","","","","","","","","","","NO","YES","NO","Neutral","","","COPY",""
-47,47,1,40,1,60000,1,1,0,0,0,0,0,"id_gate_npc","성당 지하 던전","","","","","","","INSTANCE_DUNGEON_CHAPLE_03","","","NO","YES","NO","Neutral","","","",""
+47,47,1,100,1,60000,1,1,0,0,0,0,0,"id_gate_npc","성당 지하 던전","","","","","","","INSTANCE_DUNGEON_CHAPLE_03","TUTO_INSTANT_DUNGEON_CHECK","","NO","YES","NO","Neutral","","","",""
 48,48,1,40,1,60000,1,0,0,0,0,0,0,"HiddenTrigger_CantGen100","","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 49,49,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_229:1","",""
 50,50,1,40,1,60000,1,0,0,0,0,0,0,"monument_05_small","UnvisibleName","","","","","","","ABBEY64_2_HIDDENQ2_STONE1","","","NO","YES","NO","Neutral","","","",""

@@ -163,3 +163,130 @@ function PILGRIM31_3_HIDDENQ1_PRECHECK(pc)
         end
     end
 end
+
+--PILGRIMROAD362_HQ1 condition check
+function PILGRIMROAD362_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_PILGRIMROAD362_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end
+
+--PILGRIM48_HQ1 condition check
+function PILGRIM48_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_PILGRIM48_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end
+
+--REMAINS38_HQ1 condition check
+function REMAINS38_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_REMAINS38_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end
+
+--THORN22_HQ1 condition check
+function THORN22_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_THORN22_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end
+
+
+--CHATHEDRAL54_HQ1 condition check
+function CHATHEDRAL54_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_CHATHEDRAL54_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end
+
+--SIAULIAI462_HQ1 condition check
+function SIAULIAI462_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_SIAULIAI462_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end
+
+--REMAINS373_HQ1 condition check
+function REMAINS373_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_REMAINS373_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end
+
+--CATHEDRAL1_HQ1 condition check
+function CATHEDRAL1_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_CATHEDRAL1_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end
+
+--CATACOMB38_2_HQ1 condition check
+function CATACOMB38_2_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_CATACOMB382_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end
+
+--FLASH29_1_HQ1 condition check
+function FLASH29_1_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_FLASH29_1_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end
+
+--SIAULIAI_351_HQ1 condition check
+
+
+--ABBEY353_HQ1 condition check
+
+
+--ORCHARD343_HQ1 condition check
+function ORCHARD343_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_ORCHARD343_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end
+
+--TABLELAND70_HQ1 condition check
+function TABLELAND70_HIDDENQ1_PRECHECK(pc)
+    local sObj = GetSessionObject(pc, "SSN_TABLELAND70_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Goal1 >= 1 then
+            return "YES"
+        end
+    end
+end

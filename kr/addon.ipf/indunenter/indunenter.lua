@@ -607,7 +607,7 @@ function INDUNENTER_AUTOMATCH_TYPE(indunType)
 		if frame:GetUserValue('FRAME_MODE') == "SMALL" then
 			INDUNENTER_SMALL(frame, smallBtn);
 		end
-	else
+	elseif frame:GetUserValue('AUTOMATCH_MODE') ~= 'YES' then
 		frame:SetUserValue('AUTOMATCH_MODE', 'YES');
 		frame:SetUserValue('EXCEPT_CLOSE_TARGET', 'YES');
 		autoMatchText:ShowWindow(0);
@@ -713,10 +713,12 @@ function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
 	withPartyBtn:SetEnable(withParty);
 	INDUNENTER_SET_ENABLE_MULTI(multi);
 
-	-- multi btn
+	-- multi btn: 배수토큰 있어야 사용 가능. 인던/의뢰소 미션만 사용가능
+	local indunCls = GetClassByType('Indun', frame:GetUserIValue('INDUN_TYPE'));
+	local resetType = TryGetProp(indunCls, 'PlayPerResetType');
 	local invItem = session.GetInvItemByName(g_indunMultipleItem);
 	local invItem2 = session.GetInvItemByName(g_indunMultipleItem2);
-	if invItem == nil and invItem2 == nil then
+	if (invItem == nil and invItem2 == nil) or (resetType ~= 100 and resetType ~= 200) then
 		INDUNENTER_SET_ENABLE_MULTI(0);
 	end
 end

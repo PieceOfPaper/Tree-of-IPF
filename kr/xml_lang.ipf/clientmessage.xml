@@ -3318,8 +3318,8 @@
 		<Class ClassID="26234" ClassName="UNDER68_MQ1_SEARCH" Data="초록 인프로홀더의 알 수집 중"/>
 		<Class ClassID="26235" ClassName="UNDER68_MQ1_MONSTER" Data="몬스터가 튀어나왔습니다!"/>
 		<Class ClassID="26236" ClassName="UNDER68_MQ1_GETITEM" Data="초록 인프로홀더의 알을 획득했습니다!"/>
-		<Class ClassID="26237" ClassName="UNDER68_MQ3_SETUP" Data="흡수의 보주 설치하는 중"/>
-		<Class ClassID="26238" ClassName="UNDER68_MQ3_NAME" Data="흡수의 보주"/>
+		<Class ClassID="26237" ClassName="UNDER68_MQ3_SETUP" Data="마력이 깃든 뼈 설치"/>
+		<Class ClassID="26238" ClassName="UNDER68_MQ3_NAME" Data="마력이 깃든 뼈"/>
 		<Class ClassID="26239" ClassName="UNDER68_MQ4_ITEM_USE" Data="속박의 증표 사용 중"/>
 		<Class ClassID="26240" ClassName="UNDER68_MQ4_ITEM_CHAT01" Data="안돼, 제발 그러지마!"/>
 		<Class ClassID="26241" ClassName="UNDER68_MQ4_ITEM_CHAT02" Data="그는.. 안돼!!"/>
@@ -3715,8 +3715,8 @@
 		<Class ClassID="26631" ClassName="TABLELAND_73_SUBQ1_MSG" Data="신성력이 미약합니다"/>
 		<Class ClassID="26632" ClassName="TABLELAND_73_SUBQ3_MSG1" Data="장치를 건드릴 수 없습니다"/>
 		<Class ClassID="26633" ClassName="TABLELAND_73_SUBQ3_MSG2" Data="모든 장치들이 꺼졌습니다"/>
-		<Class ClassID="26634" ClassName="TABLELAND_73_SUBQ3_MSG3" Data="장치들이 처음 상태로 되돌아갔습니다"/>
-		<Class ClassID="26635" ClassName="TABLELAND_73_SUBQ4_MSG1" Data="보호막이 점점 약해지고 있습니다"/>
+		<Class ClassID="26634" ClassName="TABLELAND_73_SUBQ3_MSG3" Data="장치들이 처음 상태로 되돌아갔습니다."/>
+		<Class ClassID="26635" ClassName="TABLELAND_73_SUBQ4_MSG1" Data="보호막이 점점 약해지는 것 같다"/>
 		<Class ClassID="26636" ClassName="TABLE73_SUBQ8_MSG1" Data="신성한 보구 놓는 중"/>
 		<Class ClassID="26637" ClassName="TABLE73_SUBQ8_MSG2" Data="사악한 기운 덩어리가 제거됐습니다"/>
 		<Class ClassID="26638" ClassName="TABLE73_SUBQ8_MSG3" Data="신성력이 깃든 물건만이{nl}사악한 기운 덩어리를 제거할 수 있습니다"/>
@@ -4469,23 +4469,6 @@
 		<Class ClassID="40412" ClassName="HT4_HUEVILLAGE_58_3_KLAIPEDA_NPC_SEL02" Data="리리아나와는 상관없는 것이라고 한다"/>
 		<Class ClassID="40413" ClassName="HT4_HUEVILLAGE_58_3_KLAIPEDA_NPC_SEL03" Data="안데일 마을에서 있었던 일들을 이야기 해 준다"/>
 		<Class ClassID="40414" ClassName="HT4_HUEVILLAGE_58_3_KLAIPEDA_NPC_SEL04" Data="잠깐 자리를 피하는 게 좋겠다"/>
-		<Class ClassID="40415" ClassName="HTA_REMAINS_40_WATERPOT_SEL01" Data="찾아 본다"/>
-		<Class ClassID="40416" ClassName="HTA_REMAINS_40_WATERPOT_SEL02" Data="지저분해서 만지기 싫으니 관둔다"/>
-		<Class ClassID="40417" ClassName="HTA_REMAINS_40_WATERPOT_MSG01" Data="뭐가 있는지 찾아보는 중"/>
-		<Class ClassID="40418" ClassName="HTA_REMAINS_40_SMOKE_MSG01" Data="물 뿌리는 중"/>
-		<Class ClassID="40419" ClassName="HTA_REMAINS_40_SMOKE_SEL01" Data="뿌려 본다"/>
-		<Class ClassID="40420" ClassName="HTA_REMAINS_40_SMOKE_SEL02" Data="어차피 달라질 것은 없다"/>
-		<Class ClassID="40421" ClassName="HTA_FLASH_29_1_KUPOLE_MEILE_SEL01" Data="아직 말하지 않은 이야기를 해달라고 한다"/>
-		<Class ClassID="40422" ClassName="HTA_FLASH_29_1_KUPOLE_MEILE_SEL02" Data="궁금하지 않으니 그냥 가겠다고 한다"/>
-		<Class ClassID="40423" ClassName="HTA_REMAIN37_RAYMOND_SEL01" Data="루클리스의 반란은 누명이었음을 알려준다"/>
-		<Class ClassID="40424" ClassName="HTA_REMAIN37_RAYMOND_SEL02" Data="신경쓰지 않는다"/>
-		<Class ClassID="40425" ClassName="HTA_REMAIN37_RAYMOND_MSG01" Data="루클리스의 일을 설명하는 중"/>
-		<Class ClassID="40426" ClassName="HTA_REMAIN38_HUNTER_SEL01" Data="루클리스의 반란은 누명이었음이 밝혀졌다고 알려 준다"/>
-		<Class ClassID="40427" ClassName="HTA_REMAIN38_HUNTER_SEL02" Data="그냥 이렇게 살게 내버려 둔다"/>
-		<Class ClassID="40428" ClassName="HTA_KATYN_14_OWL_SEL01" Data="관심있다고 한다"/>
-		<Class ClassID="40429" ClassName="HTA_KATYN_14_OWL_SEL02" Data="무시한다"/>
-		<Class ClassID="40430" ClassName="HTA_KATYN_14_OWL_SEL03" Data="이런 곳에서 뭘 하고 있는지 물어본다"/>
-		<Class ClassID="40431" ClassName="HTA_KATYN_14_OWL_SEL04" Data="무시한다"/>
 		<Class ClassID="50001" ClassName="UNDER30_2_CHECK_MSG2" Data="유독가스에 중독되어 비석을 확인하는데 힘듭니다"/>
 		<Class ClassID="50002" ClassName="UNDER301_MONSTER_PAIR_ERROR_1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT} 회를 모두 진행하셨습니다."/>
 		<Class ClassID="50003" ClassName="BRACKEN431_SUB_NPC_NAME" Data="사제 개러티"/>
@@ -4763,21 +4746,6 @@
 		<Class ClassID="50275" ClassName="CATACOMB38_2_HIDDENQ1_MSG9" Data="만져본다"/>
 		<Class ClassID="50276" ClassName="CATACOMB38_2_HIDDENQ1_MSG10" Data="불안감이 느껴지니 그냥 간다"/>
 		<Class ClassID="50277" ClassName="SIAULIAI351_HIDDENQ1_MSG4" Data="카너버의 잔해를 획득했습니다"/>
-		<Class ClassID="50278" ClassName="BRACKEN631_ROZE_MSG1" Data="작은 스태미나 알약이 없습니다"/>
-		<Class ClassID="50279" ClassName="BRACKEN631_ROZE_MSG2" Data="스태미나 알약이 없습니다"/>
-		<Class ClassID="50280" ClassName="BRACKEN631_ROZE_MSG3" Data="큰 스태미나 알약이 없습니다"/>
-		<Class ClassID="50281" ClassName="BRACKEN631_ROZE_MSG4" Data="보급용 작은 스태미나 알약이 없습니다"/>
-		<Class ClassID="50282" ClassName="BRACKEN631_ROZE_MSG5" Data="보급용 스태미나 알약이 없습니다"/>
-		<Class ClassID="50283" ClassName="BRACKEN631_ROZE_MSG6" Data="보급용 큰 스태미나 알약이 없습니다"/>
-		<Class ClassID="50284" ClassName="BRACKEN632_ITEM_MSG1" Data="이미 바스러진 바꽃입니다"/>
-		<Class ClassID="50285" ClassName="ABBEY641_SQ1_MSG1" Data="작은 HP포션이 없습니다"/>
-		<Class ClassID="50286" ClassName="ABBEY641_SQ1_MSG2" Data="HP포션이 없습니다"/>
-		<Class ClassID="50287" ClassName="ABBEY641_SQ1_MSG3" Data="큰 HP포션이 없습니다"/>
-		<Class ClassID="50288" ClassName="ABBEY641_SQ1_MSG4" Data="보급용 작은 HP 포션이 없습니다"/>
-		<Class ClassID="50289" ClassName="ZACHA3F_MQ_02_ITEM_MSG1" Data="이미 응축된 마력원에 의해 깨어난 비카라스 메이지입니다"/>
-		<Class ClassID="50290" ClassName="THORN23_OWL4_DIALOG" Data="이 주문만 완성되면 병사들을 도울 수 있어{nl}내가 해낼 수 있을까?"/>
-		<Class ClassID="50291" ClassName="THORN23_OWL5_DIALOG" Data="내가 제대로 해내지 못하면 병사들은 아마 다 전멸할 거야{nl}힘낼 거야."/>
-		<Class ClassID="50292" ClassName="THORN23_OWL6_DIALOG" Data="할 수 있어{nl}이번엔 가이갈라스를 반드시 처치할 수 있어."/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>
@@ -9211,7 +9179,6 @@
 		<Class ClassID="300144" ClassName="Premium_SkillReset_14d" Data="스킬 초기화 포션(14일)"/>
 		<Class ClassID="300145" ClassName="Premium_boostToken02_1d" Data="x4 경험의 서 (1일)"/>
 		<Class ClassID="300146" ClassName="Premium_indunReset_TA" Data="인던 입장 횟수 초기화권"/>
-		<Class ClassID="300147" ClassName="Premium_Emoticon_Desc1" Data="해당 이모티콘은 이미 보유하고 있습니다."/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

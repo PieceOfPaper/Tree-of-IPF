@@ -8,26 +8,34 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 	if isOn == 1 then
 		-- 라이칸스트로피 거나 쉐잎쉬ㅍ프팅, 트랜스폼이면
 		-- monsterquickslot을 사용하지 않겠다.
+		local monsterQuickslotNotUse = false;
 		if buffType == 6012 or buffType == 6026 then
-			QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType);
-			frame:SetUserValue('BUFFTYPE', buffType);
-			return;
+			monsterQuickslotNotUse = true;
 		end
+
+		-- 기본 퀵슬롯
 		local beforeframe = ui.GetFrame("quickslotnexpbar")
-		
 		if beforeframe:IsVisible() == 1 then
-			beforeframe:ShowWindow(0)
 			frame:SetUserValue("BEFORE_FRAME", "quickslotnexpbar");
+			if monsterQuickslotNotUse == true then
+				QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
+				frame:SetUserValue('BUFFTYPE', buffType);
+				return;
+			end
+			beforeframe:ShowWindow(0)
 		end
 
-
+		-- 조이패드 퀵슬롯
 		local isjoystick = false;
-
 		beforeframe = ui.GetFrame("joystickquickslot")
-		
 		if beforeframe:IsVisible() == 1 then
-			beforeframe:ShowWindow(0)
 			frame:SetUserValue("BEFORE_FRAME", "joystickquickslot");
+			if monsterQuickslotNotUse == true then
+				JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
+				frame:SetUserValue('BUFFTYPE', buffType);
+				return;
+			end
+			beforeframe:ShowWindow(0)
 			isjoystick = true;
 		end
 
@@ -75,11 +83,7 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 
 					
 					-- 이 땜빵을 어찌해아 하나? 제일 좋은건 hotkey_joystic.xml의 Key, PressedKey를 예쁘게 정리하는 것이다.
-					hotKey = string.gsub(hotKey, "JOY_BTN_1", "X");
-					hotKey = string.gsub(hotKey, "JOY_BTN_2", "A");
-					hotKey = string.gsub(hotKey, "JOY_BTN_3", "Y");
-					hotKey = string.gsub(hotKey, "JOY_BTN_4", "B");
-					hotKey = string.gsub(hotKey, "JOY_BTN_5", "L1");
+					hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(true, hotKey);
 					
 					slot:SetText('{s14}{ol}{b}'..hotKey, 'count', 'left', 'top', 2, 1);
 					slot:EnableDrag(0);
@@ -102,24 +106,24 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 			hotKey = hotKeyTable.GetHotKeyString(slotString, 1);	
 		end
 
-		hotKey = string.gsub(hotKey, "JOY_BTN_1", "X");
-		hotKey = string.gsub(hotKey, "JOY_BTN_2", "A");
-		hotKey = string.gsub(hotKey, "JOY_BTN_3", "Y");
-		hotKey = string.gsub(hotKey, "JOY_BTN_4", "B");
-		hotKey = string.gsub(hotKey, "JOY_BTN_5", "L1");
+		hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(true, hotKey);
 
 		lastSlot:SetText('{s14}{ol}{b}'..hotKey, 'count', 'left', 'top', 2, 1);
 		lastSlot:EnableDrag(0);
 
 	else
+		local beforeframename = frame:GetUserValue("BEFORE_FRAME");
 
 		local preBuff = frame:GetUserIValue('BUFFTYPE');
 		if preBuff == 6012 or preBuff == 6026 then
-			QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType);
+			if	beforeframename == "joystickquickslot" then
+				JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType);
+			else
+				QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType);
+			end
 			frame:SetUserValue('BUFFTYPE', 0);
 			return;
 		end
-		local beforeframename = frame:GetUserValue("BEFORE_FRAME");
 
 		if beforeframename ~= "None" then
 			ui.OpenFrame(beforeframename);

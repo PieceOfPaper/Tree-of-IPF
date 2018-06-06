@@ -411,6 +411,8 @@ function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, 
 		Quest_Ctrl:SetSkinName('test_mainquest_skin');
 	elseif questIES.QuestMode == 'SUB' then
 		Quest_Ctrl:SetSkinName('test_subquest_skin');
+	elseif questIES.PeriodInitialization ~= "None" then -- 일일 퀘스트
+		Quest_Ctrl:SetSkinName('test_dayquest_skin');
 	elseif questIES.QuestMode == 'REPEAT' then
 		Quest_Ctrl:SetSkinName('test_repeatquest_skin');
 	elseif questIES.QuestMode == 'PARTY' then

@@ -135,6 +135,11 @@ function INIT_GRAPHIC_CONFIG(frame)
 	if nil ~= highTexture then
 	highTexture:SetCheck(config.GetHighTexture());
 	end;
+
+	local otherPCDamage = GET_CHILD(frame, "check_ShowOtherPCDamageEffect", "ui::CCheckBox");
+	if nil ~= otherPCDamage then
+		otherPCDamage:SetCheck(config.GetOtherPCDamageEffect());
+	end;
 end
 
 function CONFIG_FIRST_OPEN(frame)
@@ -204,12 +209,16 @@ function APPLY_PERFMODE(frame)
 	
 	local parent = frame:GetTopParentFrame();
 	local highTexture = GET_CHILD(parent, "check_highTexture", "ui::CCheckBox");
+	local otherPCDamage = GET_CHILD(parent, "check_ShowOtherPCDamageEffect", "ui::CCheckBox");
 	if 0 == perfType then
 		graphic.EnableHighTexture(0);
+		config.EnableOtherPCDamageEffect(0);
 	else
 		graphic.EnableHighTexture(1);
+		config.EnableOtherPCDamageEffect(1);
 	end
 	highTexture:SetCheck(config.GetHighTexture());
+	otherPCDamage:SetCheck(config.GetOtherPCDamageEffect());
 
 	config.SetAutoAdjustLowLevel(perfType)
 	config.SaveConfig();

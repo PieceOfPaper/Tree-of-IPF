@@ -280,12 +280,12 @@ local camfireitem = session.GetInvItemByName('misc_campfireKit');
 		ui.AlarmMsg("NotCampfireKit");
 	return
 	end
-
-item.CellSelect(30, "F_sys_select_ground_blue", "EXEC_CAMPFIRE", "CHECK_CAMPFIRE_ENABLE", "WhereToMakeCampFire?", "{@st64}");
+	
+	item.CellSelect(30, "F_sys_select_ground_blue", "EXEC_CAMPFIRE", "CHECK_CAMPFIRE_ENABLE", "WhereToMakeCampFire?", "{@st64}", "F_sys_select_gorund_red"); 
 end
 
 function CLOSE_REST_QUICKSLOT(frame)
-	item.CellSelect(0, "F_sys_select_ground_blue", "EXEC_CAMPFIRE", "CHECK_CAMPFIRE_ENABLE", "WhereToMakeCampFire?", "{@st64}");
+	item.CellSelect(0, "F_sys_select_ground_blue", "EXEC_CAMPFIRE", "CHECK_CAMPFIRE_ENABLE", "WhereToMakeCampFire?", "{@st64}", "None");
 end
 
 function EXEC_CAMPFIRE(x, y, z)

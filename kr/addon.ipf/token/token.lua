@@ -151,6 +151,7 @@ function TOKEN_GET_IMGNAME2()
 end
 
 function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)	
+	
 	local obj = GetIES(invItem:GetObject());
 	
 	if obj.ItemLifeTimeOver > 0 then
@@ -280,7 +281,7 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_INDUNFREE",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
 
-	if obj.ClassName == 'Premium_indunReset_1add' then
+	if obj.ClassName == 'Premium_indunReset_1add' or obj.ClassName == 'Premium_indunReset_1add_14d' then
 	    prop:SetTextByKey("value", ClMsg('Indun1AddText'));
 	else
 	    prop:SetTextByKey("value", ClMsg('IndunRestText'));

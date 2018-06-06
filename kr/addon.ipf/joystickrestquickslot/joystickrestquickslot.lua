@@ -1,18 +1,16 @@
 --joystickrestquickslot.lua
 
 MAX_JOYSTICK_RESTSLOT_CNT = 20;
---æ»µÈæÓøÕº≠ ¿œ¥‹ ¡÷ºÆ√≥∏Æ..
---[[
-function JOYSTICK_RESTQUICKSLOT_ON_INIT(addon, frame)
---print("ø÷æ»µÂ∑Ø§øæÓæ∆")
 
-	--addon:RegisterMsg('JOYSTICK_RESTQUICKSLOT_OPEN', 'JOYSTICK_ON_RESTQUICKSLOT_OPEN');
-	--addon:RegisterMsg('JOYSTICK_RESTQUICKSLOT_CLOSE', 'ON_JOYSTICK_RESTQUICKSLOT_CLOSE');
+--ÏïàÎì§Ïñ¥ÏôÄÏÑú ÏùºÎã® Ï£ºÏÑùÏ≤òÎ¶¨.. Ïù¥Î¶ÑÏù¥ ÏûòÎ™ªÎêòÏñ¥ÏûàÏùå. Ïù¥Ï†ú Îì§Ïñ¥Ïò¥
+function JOYSTICKRESTQUICKSLOT_ON_INIT(addon, frame)
+
+	addon:RegisterMsg('JOYSTICK_RESTQUICKSLOT_OPEN', 'JOYSTICK_ON_RESTQUICKSLOT_OPEN');
+	addon:RegisterMsg('JOYSTICK_RESTQUICKSLOT_CLOSE', 'ON_JOYSTICK_RESTQUICKSLOT_CLOSE');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_ADD', 'JOYSTICK_RESTQUICKSLOT_ON_ITEM_CHANGE');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_POST_REMOVE', 'JOYSTICK_RESTQUICKSLOT_ON_ITEM_CHANGE');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_CHANGE_COUNT', 'JOYSTICK_RESTQUICKSLOT_ON_ITEM_CHANGE');
-
-
+	
 	for i = 0, MAX_JOYSTICK_RESTSLOT_CNT-1 do
 		local slot 			= frame:GetChildRecursively("slot"..i+1);
 		tolua.cast(slot, "ui::CSlot");
@@ -36,11 +34,13 @@ function JOYSTICK_RESTQUICKSLOT_ON_INIT(addon, frame)
 
 		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..string, 'default', 'left', 'top', 2, 1);
 	end
+	
 end
-]]--
+
 function JOYSTICK_RESTQUICKSLOT_ON_ITEM_CHANGE(frame)
-	-- øÏº± ∞¡¥Ÿ æ˜µ•¿Ã∆Æ «œ¥¬∞≈∑Œ
-	JOYSTICK_ON_RESTQUICKSLOT_OPEN(frame);
+	if frame:IsVisible() == 1 then
+		JOYSTICK_ON_RESTQUICKSLOT_OPEN(frame);
+	end
 end
 
 function JOYSTICK_ON_RESTQUICKSLOT_OPEN(frame, msg, argStr, argNum)
@@ -49,30 +49,6 @@ function JOYSTICK_ON_RESTQUICKSLOT_OPEN(frame, msg, argStr, argNum)
 
 	padslot_onskin = frame:GetUserConfig("PADSLOT_ONSKIN")
 	padslot_offskin = frame:GetUserConfig("PADSLOT_OFFSKIN")
-
-	for i = 0, MAX_JOYSTICK_RESTSLOT_CNT-1 do
-		local slot 			= frame:GetChildRecursively("slot"..i+1);
-		tolua.cast(slot, "ui::CSlot");
-		local slotString 	= 'QuickSlotExecute'..(i+1);
-		
-		local string = "";
-
-		if SLOT_NAME_INDEX == 0 then
-			string = "X";
-			SLOT_NAME_INDEX = 1;
-		elseif SLOT_NAME_INDEX  == 1 then
-			string = "A";
-			SLOT_NAME_INDEX = 2;
-		elseif SLOT_NAME_INDEX == 2 then
-			string = "Y";
-			SLOT_NAME_INDEX = 3;
-		elseif SLOT_NAME_INDEX == 3 then
-			string = "B";
-			SLOT_NAME_INDEX = 0;
-		end
-
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..string, 'default', 'left', 'top', 2, 1);
-	end
 
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_JOYSTICK_REST_INPUT");
@@ -122,7 +98,7 @@ function ON_JOYSTICK_RESTQUICKSLOT_CLOSE(frame, msg, argStr, argNum)
 		joystickQuickFrame:ShowWindow(1);
 	end
 	ui.CloseFrame('reinforce_by_mix')
-	item.CellSelect(0, "F_sys_select_ground_blue", "EXEC_CAMPFIRE", "CHECK_CAMPFIRE_ENABLE", "WhereToMakeCampFire?", "{@st64}");
+	item.CellSelect(0, "F_sys_select_ground_blue", "EXEC_CAMPFIRE", "CHECK_CAMPFIRE_ENABLE", "WhereToMakeCampFire?", "{@st64}","None");
 end
 
 function SET_JOYSTICK_REST_QUICK_SLOT(slot, cls)
@@ -180,7 +156,7 @@ function REST_JOYSTICK_SLOT_USE(frame, slotIndex)
 end
 
 function CLOSE_JOYSTICK_REST_QUICKSLOT(frame)
-	item.CellSelect(0, "F_sys_select_ground_blue", "EXEC_CAMPFIRE", "CHECK_CAMPFIRE_ENABLE", "WhereToMakeCampFire?", "{@st64}");
+	item.CellSelect(0, "F_sys_select_ground_blue", "EXEC_CAMPFIRE", "CHECK_CAMPFIRE_ENABLE", "WhereToMakeCampFire?", "{@st64}","None");
 end
 
 
@@ -227,7 +203,7 @@ function UPDATE_JOYSTICK_REST_INPUT(frame)
 		local gbox = frame:GetChildRecursively("L2_slot_Set1");
 		if joystick.IsKeyPressed("JOY_L1L2") == 0 then
 ---------------------------------------------------------------------
--- sysmenu ¡∂¿€ ≥¢øˆ≥÷¿Ω
+-- sysmenu Ï°∞Ïûë ÎÅºÏõåÎÑ£Ïùå
 			if SYSMENU_JOYSTICK_IS_OPENED() == 1 then
 				SYSMENU_JOYSTICK_MOVE_LEFT();
 			end
@@ -243,7 +219,7 @@ function UPDATE_JOYSTICK_REST_INPUT(frame)
 		local gbox = frame:GetChildRecursively("R2_slot_Set1");
 		if joystick.IsKeyPressed("JOY_R1R2") == 0 then
 ---------------------------------------------------------------------
--- sysmenu ¡∂¿€ ≥¢øˆ≥÷¿Ω
+-- sysmenu Ï°∞Ïûë ÎÅºÏõåÎÑ£Ïùå
 			if SYSMENU_JOYSTICK_IS_OPENED() == 1 then
 				SYSMENU_JOYSTICK_MOVE_RIGHT();
 			end

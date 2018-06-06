@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ComponentList>
+	<Particle name="circle042" texture="circle042" width="15.00" height="15.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Particle name="minimap_icon_keyquest_progress" texture="minimap_icon_keyquest_progress" width="15.00" height="15.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Particle name="minimap_icon_keyquest_possible" texture="minimap_icon_keyquest_possible" width="15.00" height="15.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Particle name="minimap_icon_keyquest" texture="minimap_icon_keyquest" width="15.00" height="15.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Particle name="light026" texture="light026" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="light028" texture="light028" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="light025_orange2" texture="light025_orange2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
+	<Particle name="light025_puple2" texture="light025_puple2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
+	<Particle name="light025_red2" texture="light025_red2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
+	<Particle name="light025_blue2" texture="light025_blue2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
+	<Particle name="light030" texture="light030" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Particle name="light029" texture="light029" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Particle name="light024_orange" texture="light024_orange" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="32" texel_height="32"/>
+	<Particle name="light024_puple" texture="light024_puple" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="32" texel_height="32"/>
+	<Particle name="light027_orange" texture="light027_orange" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="light027_puple" texture="light027_puple" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="light027_red" texture="light027_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="light027" texture="light027" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="hit001_blue" texture="hit001_blue" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Particle name="hit001_red" texture="hit001_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Particle name="fire010_3_red" texture="fire010_3_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="fire010_2_red" texture="fire010_2_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="fire010_red" texture="fire010_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="fire010_3" texture="fire010_3" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="fire010_2" texture="fire010_2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="fire010" texture="fire010" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="txt_fever002" texture="txt_fever002" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Particle name="txt_fever001" texture="txt_fever001" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Particle name="txt_combo003" texture="txt_combo003" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
@@ -351,6 +377,8 @@
 	<Texture name="texture_fire001" texture="fire001" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="texture_test_1" texture="fire004" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="texture_test_2" texture="fire004" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Sprite name="sprite023" texture="sprite023" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="8" pitch="4" ticktime="0.02"/>
+	<Sprite name="sprite022" texture="sprite022" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="8" pitch="4" ticktime="0.02"/>
 	<Sprite name="sprit019_3" texture="sprite019_3" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="96" texel_height="192" loop="false" count="8" pitch="4" ticktime="0.02"/>
 	<Sprite name="sprite002_red" texture="sprite002_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.03"/>
 	<Sprite name="sprite002_puple" texture="sprite002_puple" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.03"/>
@@ -426,6 +454,11 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="i_spiral003_mesh" model="i_spiral003_mesh.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="fire_wing" model="fire_wing.xac" motion="fire_wing_ani.xsm" texturepath="char_texture\monster\Harpeia" overlap="fales" AlphaType="BLEND"/>
+	<Model name="ignas_atk" model="ignas_atk.xac" motion="ignas_atk_ani.xsm" texturepath="char_texture\monster\ignas\" overlap="fales" AlphaType="BLEND"/>
+	<Model name="spiral_mesh002" model="spiral_mesh002.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="tornado_mesh002" model="tornado_mesh002.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
 	<Model name="arrow006_ignas_mon" model="arrow006_ignas_mon.xac" motion="None" texturepath="char_texture\monster\ignas\" overlap="false" AlphaType="TEST"/>
 	<Model name="porahound_skl3_mesh" model="porahound_skl3.xac" motion="None" texturepath="char_texture\monster\PoraHound\" overlap="false" AlphaType="TEST"/>
 	<Model name="tooth_mesh" model="tooth_mesh.xac" motion="tooth_mesh_ani.xsm" texturepath="char_texture\monster\PoraHound\" overlap="false" AlphaType="TEST"/>
@@ -438,6 +471,7 @@
 	<Model name="circle_half2" model="circle_half2.xac" motion="None" texturepath="\effect\high\texture\" overlap="false" AlphaType="TEST"/>
 	<Model name="circle_half" model="circle_half.xac" motion="None" texturepath="\effect\high\texture\" overlap="false" AlphaType="TEST"/>
 	<Model name="slash_glowing" model="slash_glowing.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
+	<Model name="I_tornado001_mesh" model="tornado_mesh001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
 	<Model name="I_thorn001_mesh" model="I_thorn001_mesh.xac" motion="I_thorn001_mesh.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="I_stone001_mesh" model="I_stone001_mesh.xac" motion="I_stone001_mesh.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="I_stone003_mesh" model="I_stone003_mesh.xac" motion="I_stone003_mesh_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
@@ -1145,12 +1179,12 @@
 	<Model name="monster_ridimed_atk_c4" model="monster_ridimed_atk_c4.xac" motion="monster_ridimed_atk_c4_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="monster_ridimed_atk_c3" model="monster_ridimed_atk_c3.xac" motion="monster_ridimed_atk_c3_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="monster_ridimed_atk_c2" model="monster_ridimed_atk_c2.xac" motion="monster_ridimed_atk_c2_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
-	<Model name="monster_ridimed_atk_c1" model="monster_ridimed_atk_c1.xac" motion="monster_ridimed_atk_c1_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
+	<Model name="monster_ridimed_atk_c1" model="monster_ridimed_atk_c1.xac" motion="monster_ridimed_atk_c1_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="BLEND"/>
 	<Model name="turret_dummy" model="turret_dummy.xac" motion="turret_dummy_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="turret_ball" model="turret_ball.xac" motion="turret_ball_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="bat_ani_helix" model="bat_helix_set.xac" motion="bat_helix_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="bat_ani_circle" model="bat_circle_set.xac" motion="bat_circle_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
-	<Model name="mirtis_atk1" model="mirtis_atk1.xac" motion="mirtis_atk1_ani.xsm" texturepath="char_texture\monster\mirtis\" overlap="false" AlphaType="BLEND"/>
+	<Model name="mirtis_atk1" model="mirtis_atk1.xac" motion="mirtis_atk1_ani.xsm" texturepath="char_texture\monster\mirtis\" overlap="false" AlphaType="TEST"/>
 	<Model name="mirtis_bat" model="bat_set.xac" motion="bat_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="goblinwarrior_atk1" model="monster_goblinwarrior_set.xac" motion="goblinwarrior_atk1_ani.xsm" texturepath="char_texture\monster\goblin_warrior\" overlap="false" AlphaType="TEST"/>
 	<Model name="badak_obj" model="badak_obj.xac" motion="badak_obj_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>

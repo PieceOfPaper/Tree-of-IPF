@@ -1612,7 +1612,14 @@
 			</ToolScp>
 		</DeadList>
 	</AI>
-	<AI Name="CATHEDRAL53_SQ_02_OBJ" ActiveMessageMapInBattle="1">
+	<AI Name="CATHEDRAL1_HIDDEN_NPC_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="CATHEDRAL1_HIDDEN_NPC_AI_UPDATE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="CATHEDRAL53_SQ_02_OBJ" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
@@ -3696,10 +3703,7 @@
 			<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
 				<Num Num="100"/>
 			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="FARM49_3_SQ06_DIS"/>
-			</ToolScp>
-		</List>
+			</List>
 	</AI>
 	<AI Name="FARM49_3_SQ06_S" ActiveMessageMapInBattle="1">
 		<List>
@@ -9826,11 +9830,11 @@ if self.HP == 0 then return 1; else return 0; end;">
 		</StartList>
 	</AI>
 	<AI Name="PILGRIM51_STATUE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+		<HitList>
+			<ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
 				<Str Str="PILGRIM51_STATUE_AI_ACT_01"/>
 			</ToolScp>
-		</List>
+		</HitList>
 	</AI>
 	<AI Name="PILGRIM51_VINE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
@@ -10145,8 +10149,8 @@ if self.HP == 0 then return 1; else return 0; end;">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
-				<Str_Arg Str="I_emo_stun" Arg="2"/>
-				<Str Str="MID"/>
+				<Str_Arg Str="I_emo_stun" Arg="4"/>
+				<Str Str="TOP"/>
 			</ToolScp>
 		</StartList>
 	</AI>
@@ -10527,12 +10531,12 @@ if self.HP == 0 then return 1; else return 0; end;">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
-				<Str_Arg Str="I_sys_trigger_point_yellow_mash" Arg="4"/>
+				<Str_Arg Str="I_sys_trigger_point_yellow_mash" Arg="2"/>
 				<Str Str="BOT"/>
 			</ToolScp>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
-				<Str_Arg Str="F_sys_trigger_point_blue" Arg="4"/>
+				<Str_Arg Str="F_sys_trigger_point_blue" Arg="2"/>
 				<Str Str="BOT"/>
 			</ToolScp>
 		</StartList>

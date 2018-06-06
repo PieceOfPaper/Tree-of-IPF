@@ -4515,7 +4515,9 @@ function SCR_PRE_PILGRIM_48_SQ_030_ITEM_1(self, argObj, argstring, arg1, arg2)
             local i
             for i = 1, pc_cnt do
                 if pc_list[i].ClassName == 'PC' then
-                    if pc_list[i].Lv >= 1 and  pc_list[i].Lv <= 25 then
+                
+                    if pc_list[i].Lv <= 25 and pc_list[i].Lv >= 1 then
+                        --print(pc_list[i].Name, pc_list[i].Lv)
 
 --                        local pc_sObj = GetSessionObject(pc_list[i], "ssn_klapeda")
 --                        if pc_sObj.PILGRIM_48_SQ_030_BUFF ~= 300 then
@@ -7092,3 +7094,77 @@ function SCR_PRE_THORN39_3_SQ07_ITEM(self, argObj, argstring, arg1, arg2)
     return 0;
 end
 
+--PILGRIMROAD362_HIDDENQ1_ITEM3
+function SCR_PRE_PILGRIMROAD362_HIDDENQ1_ITEM3(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_pilgrimroad_36_2' then
+        if GetLayer(self) == 0  then
+            return 1;
+        end
+    end
+    return 0
+end
+
+--SCR_PRE_PILGRIM48_HIDDENQ1_PREITEM
+function SCR_PRE_PILGRIM48_HIDDENQ1_PREITEM(self, argObj, argstring, arg1, arg2)
+    if GetLayer(self) == 0  then
+        return 1;
+    end
+    return 0
+end
+
+
+--SCR_PRE_PILGRIM48_HIDDENQ1_ITEM3
+function SCR_PRE_PILGRIM48_HIDDENQ1_ITEM3(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'PILGRIM48_HQ1')
+    if result == 'PROGRESS' then
+        if GetZoneName(self) == 'f_pilgrimroad_49' then
+            if GetLayer(self) == 0 then
+                return 1;
+            end
+        end
+    end
+    return 0;
+end
+
+--SCR_PRE_CATHEDRAL1_HIDDENQ1_ITEM1
+function SCR_PRE_CATHEDRAL1_HIDDENQ1_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_remains_39' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'CATHEDRAL1_HQ1')
+            if result == 'PROGRESS' then
+                local list, Cnt = SelectObject(self, 100, 'ALL', 1)
+                for i = 1, Cnt do
+                    if list[i].ClassName == 'noshadow_npc_8' then
+--                        if list[i].Dialog == 'CATHEDRAL1_HIDDEN_NPC_CHAT' then
+                            return GetHandle(list[i])
+--                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--SCR_PRE_CATACOMB38_2_HIDDENQ1_ITEM1
+function SCR_PRE_CATACOMB38_2_HIDDENQ1_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'id_catacomb_38_2' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'CATACOMB38_2_HQ1')
+            if result == 'PROGRESS' then
+                local list, Cnt = SelectObject(self, 100, 'ALL', 1)
+                for i = 1, Cnt do
+                    if list[i].ClassName == 'Hiddennpc_move' then
+--                        if IsServerSection(self) == 1 then
+--                            if list[i].Dialog == 'CATACOMB382_HIDDENQ1_SPIRIT' then
+--                            if list[i].Faction == "Neutral" then
+                                return GetHandle(list[i])
+--                            end
+--                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end

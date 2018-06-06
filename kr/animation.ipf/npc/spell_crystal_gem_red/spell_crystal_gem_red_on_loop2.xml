@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
 	<BlendOn frame="0" R="0" G="0" B="0" A="20"/>
 	<BlendOn frame="1" R="15" G="10" B="3" A="20"/>
@@ -61,5 +61,5 @@
 	<BlendOn frame="57" R="30" G="20" B="5" A="20"/>
 	<BlendOn frame="58" R="15" G="10" B="3" A="20"/>
 	<BlendOn frame="59" R="7" G="5" B="1" A="20"/>
-	<Particle frame="0" attachNode="Dummy_effect" particleName="F_light069_red3" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_effect" particleName="F_light069_red3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false"/>
 </ActionDesc>

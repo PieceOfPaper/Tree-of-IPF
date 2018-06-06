@@ -71,7 +71,6 @@ end
 
 -- 기본 정보
 function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnowequip)
-
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveAllChild()
 	
@@ -114,6 +113,12 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
             else
                 gender = barrack.GetSelectedCharacterGender();
             end
+
+			-- 살펴보기 중에는 살펴보기 중인 아이의 성별을 보자
+			if tooltipframe:GetTopParentFrameName() == 'compare' then
+				local compare = ui.GetFrame('compare');
+				gender = compare:GetUserIValue('COMPARE_PC_GENDER');
+			end
 
 			local tempiconname = string.sub(invitem.TooltipImage,string.len(invitem.TooltipImage)-1);
 
