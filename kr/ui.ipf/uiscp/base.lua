@@ -1330,3 +1330,6 @@ end
 
 
 
+function IMC_NORMAL_INFO(string)
+	-- deprecated
+end
