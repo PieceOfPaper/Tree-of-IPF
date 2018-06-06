@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<uiframe name="tournament" x="0" y="0" width="450" height="590" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="pipwin"/>
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-450 0 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <sound opensound="character_item_window_open" closesound="character_item_window_close"/>
+    <script OpenScp="TOURNAMENT_UI_OPEN"/>
+    <controls>
+        <button name="colse" rect="0 0 44 44" margin="0 6 6 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;tournament&apos;)" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}캐릭터 정보를 닫습니다{/}"/>
+        <picture name="titlepicture" rect="0 0 44 44" margin="10 6 0 0" layout_gravity="left top" image="button_tournament"/>
+        <groupbox name="groupbox_1" rect="0 0 415 1008" margin="21 62 0 0" layout_gravity="left top" hittestbox="false" skin="wiki_add"/>
+        <picture name="myPic" rect="0 0 100 100" margin="43 118 0 0" layout_gravity="left top" hittest="false" image="mainpc_crown" stretch="true"/>
+        <richtext name="name" rect="0 0 120 24" margin="167 112 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="0" param1="name" param1_def="ABCDEEEEEEFFA" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="rp" rect="0 0 120 24" margin="167 138 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st53b}RP : %s" maxwidth="0" param1="value" param1_def="13131" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="winlose" rect="0 0 120 24" margin="168 168 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st53b}%s 승 %s 패" maxwidth="0" param1="win" param1_def="13131" param2="lose" param2_def="1031" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <button name="btn" rect="0 0 203 33" margin="45 30 0 814" layout_gravity="left bottom" LBtnUpScp="TOURNAMENT_JOIN" format="{@st41}%s" param1="value" param1_def="AABBCCDD"/>
+        <richtext name="richtext_1" rect="0 0 120 24" margin="50 296 0 0" layout_gravity="left top" caption="{@st42}오늘의 스케쥴" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <queue name="q_schedule" rect="0 0 364 243" margin="0 345 0 0" layout_gravity="center top" skin=""/>
+        <richtext name="remaintime" rect="0 0 120 24" margin="46 279 39 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st53}%s" maxwidth="0" param1="value" param1_def="3:00" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+        <richtext name="t_remainTime" rect="0 0 120 24" margin="237 279 123 0" layout_gravity="right top" caption="{@st53}시작까지 :" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+        <richtext name="gift" rect="0 0 120 24" margin="166 200 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st53b}받은선물 : %s개" maxwidth="0" param1="count" param1_def="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+    </controls>
+</uiframe>

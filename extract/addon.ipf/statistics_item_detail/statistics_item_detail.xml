@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by L (IMCGames Co., Ltd) -->
+<uiframe name="statistics_item_detail" x="250" y="0" width="600" height="900" create="open">
+    <frame title="{@st41}{상세정보}" titlepos="0 -10" fasthide="true" layout_gravity="center center"/>
+    <input maxwidth="1280" moveable="true"/>
+    <layer layerlevel="90"/>
+    <draw drawtitlebar="true" drawframe="true"/>
+    <option closebutton="false" hideable="true"/>
+    <sound opensound="item_window_open" closesound="item_window_close"/>
+    <script OpenScp="STATISTIICS_ITEM_DETAIL_OPEN"/>
+    <controls>
+        <richtext name="desc" rect="30 0 600 20" layout_gravity="center top" caption="{s20}{#050505}뭐가되었든 설명" fixwidth="true" hittest="false" textalign="left top"/>
+        <groupbox name="category" rect="50 170 500 160" layout_gravity="left top" draw="true"/>
+        <tab name="tab1" rect="50 330 400 30" layout_gravity="left top" LBtnDownScp="STATISTICS_ITEM_TAB_CHANGE" clicksound="button_click_3" fixwidth="true" itemspc="1" oversound="button_cursor_over_2"/>
+        <tabitem name="itemtotaltab" parent="tab1" caption="{@st41} 전체 {/}"/>
+        <tabitem name="itemmaptab" parent="tab1" caption="{@st41} 지역 {/}"/>
+        <tabitem name="itempartytab" parent="tab1" caption="{@st41} 파티 {/}"/>
+        <groupbox name="itemtotal" rect="50 360 500 250" layout_gravity="left top" draw="true"/>
+        <groupbox name="itemparty" rect="50 360 500 250" layout_gravity="left top" draw="true"/>
+        <groupbox name="itemmap" rect="50 360 500 250" layout_gravity="left top" draw="true"/>
+        <tab name="tab2" rect="50 620 400 30" layout_gravity="left top" LBtnDownScp="STATISTICS_ITEM_TAB_CHANGE" clicksound="button_click_3" fixwidth="true" itemspc="1" oversound="button_cursor_over_2"/>
+        <tabitem name="monstertab" parent="tab2" caption="{@st41} 몬스터 {/}"/>
+        <tabitem name="achievetab" parent="tab2" caption="{@st41} 업적 {/}"/>
+        <groupbox name="monster" rect="50 650 500 200" layout_gravity="left top" draw="true"/>
+        <groupbox name="achieve" rect="50 650 500 200" layout_gravity="left top" draw="true"/>
+        <button name="close" rect="-10 -55 44 44" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;monster&apos;)" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip=""/>
+    </controls>
+</uiframe>

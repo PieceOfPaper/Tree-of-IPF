@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="wholikeme" x="0" y="0" width="400" height="90" create="open">
+    <frame layout_gravity="left bottom" margin="10 0 0 300"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <option hideable="false" closebutton="false"/>
+    <script fadeoutArgStr="pickitem" fadeoutArgNum="6" CloseScp=""/>
+    <input hittest="false"/>
+    <script OpenScp="WHOLIKEME_OPEN" CloseScp="WHOLIKEME_CLOSE"/>
+    <animation frameOpenAnim="" frameCloseAnim=""/>
+    <userconfig POPUP_DURATION="0.5" PUSHUP_ANIM_NAME="sequentialnotice_pushup"/>
+    <controls>
+        <groupbox name="mainbox" rect="0 0 350 90" margin="0 0 0 0" layout_gravity="center buttom" hittestbox="false" skin="notice_more"/>
+        <richtext name="context" parent="mainbox" rect="0 0 800 30" margin="0 0 0 0" layout_gravity="center top" format="%s가 나를 좋아합니다" param1="fname" param1_def="Default" textalign="center center"/>
+    </controls>
+</uiframe>

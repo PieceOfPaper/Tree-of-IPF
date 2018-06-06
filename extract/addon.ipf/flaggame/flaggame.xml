@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<uiframe name="flaggame" x="0" y="0" width="386" height="561" create="open" layout_gravity="center center">
+    <frame title="{@st41}NewUI{/}" fasthide="true" titlepos="0 -8" layout_gravity="left center"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="groupbox_2"/>
+    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <advlistbox name="advBox_1" rect="0 0 352 514" margin="17 21 0 0" layout_gravity="left top" drawgrid="true" heightperrow="50" maxrowcol="100 5" widthpercol="200"/>
+    </controls>
+</uiframe>

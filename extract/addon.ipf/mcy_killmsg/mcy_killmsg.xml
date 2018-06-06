@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="mcy_killmsg" x="0" y="500" width="200" height="120" create="open">
+    <frame title="" snapclient="true" snapframe="true" layout_gravity="center top" margin="0 273 0 0"/>
+    <option visible="false" useimageitem="true" hideable="false" closebutton="false"/>
+    <layer layerlevel="10"/>
+    <skin frameskin="map_aos_bg" layout_gravity="center center" draw="true" rect="0 0 640 540"/>
+    <draw blend="70" drawtitlebar="false" drawframe="false"/>
+    <input hittestframe="false" hittesttitlebar="false"/>
+    <controls>
+        <picture name="d1" rect="0 0 42 60" margin="0 8 0 0" layout_gravity="left top" hittest="false" image="1" stretch="true"/>
+        <picture name="d2" rect="0 0 42 60" margin="42 8 0 0" layout_gravity="left top" hittest="false" image="2" stretch="true"/>
+        <richtext name="text" rect="0 0 120 20" margin="90 18 0 0" layout_gravity="left top" format="{@st55}%s" hittest="false" param1="text" param1_def="KILL" textalign="right top"/>
+    </controls>
+</uiframe>

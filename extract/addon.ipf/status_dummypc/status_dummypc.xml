@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
+<uiframe name="status_dummypc" x="0" y="0" width="450" height="590" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="pipwin"/>
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-450 0 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="true"/>
+    <sound opensound="character_item_window_open" closesound="character_item_window_close"/>
+    <effect open="status_dummypcOpen" close="status_dummypcClose"/>
+    <script OpenScp="STATUS_DUMMYPC_OPEN"/>
+    <userconfig STAT_FONT="{@st41}"/>
+    <controls>
+        <button name="colse" rect="-15 7 44 44" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}캐릭터 정보를 닫습니다{/}"/>
+        <richtext name="title" rect="0 13 200 30" layout_gravity="center top" format="{@st43}%s{/}" param1="Name" param1_def="PC이름"/>
+        <labelbox name="CharDsc" rect="30 80 110 45" layout_gravity="left top" skin="textview"/>
+        <richtext name="level" rect="40 90 100 20" format="{@st41_yellow}레벨: {@st41}%s{/}" param1="Level" param1_def="60"/>
+        <picture name="p_port" rect="0 0 100 200" margin="30 130 0 0" hittest="false" image="Char1_1_F"/>
+        <labelbox name="skill_label" rect="150 80 260 250" skin="textview"/>
+        <labelbox name="skill_label_line" rect="150 120 240 20" skin="mypage_bar" visible="true"/>
+        <richtext name="skill" rect="240 100 100 20" caption="{@st41_yellow}헬퍼 스킬" textalign="center top"/>
+        <!--    <button name="givefriendpoint" rect="30 340 150 30" caption="{@st41}우정포인트 주기"  clicksound="button_click" oversound="button_over" LBtnUpScp="ui.ToggleFrame('halloffame')"/>
+    <button name="itemexchange" rect="190 340 150 30" caption="{@st41}상점 이용"  clicksound="button_click" oversound="button_over" LBtnUpScp="ui.ToggleFrame('halloffame')"/>
+    <button name="letter" rect="30 375 150 30" caption="{@st41}편지쓰기"  clicksound="button_click" oversound="button_over" LBtnUpScp="ui.ToggleFrame('halloffame')"/>
+    <button name="barrack" rect="190 375 150 30" caption="{@st41}숙소 방문"  clicksound="button_click" oversound="button_over" LBtnUpScp="ui.ToggleFrame('halloffame')"/>
+ -->
+        <groupbox name="statusGbox" rect="35 685 370 340" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="true" skin="bg"/>
+        <richtext name="Title_MHP" parent="statusGbox" rect="20 10 50 20" caption="HP" fontname="yellow_20_ol" hittest="false" spacey="0"/>
+        <richtext name="Title_MSP" parent="statusGbox" rect="20 30 50 20" caption="SP" fontname="yellow_20_ol" hittest="false" spacey="0"/>
+        <richtext name="MHP" parent="statusGbox" rect="-20 10 50 20" layout_gravity="right top" caption="100" fontname="white_20_ol" hittest="false" spacey="0" textalign="left top"/>
+        <richtext name="MSP" parent="statusGbox" rect="-20 30 50 20" layout_gravity="right top" caption="100" fontname="white_20_ol" hittest="false" spacey="0" textalign="left top"/>
+        <richtext name="physics" parent="statusGbox" rect="15 60 50 22" caption="{@st43}공격 효과{/}" hittest="false" spacey="0"/>
+        <richtext name="Title_ATK" parent="statusGbox" rect="20 90 50 20" caption="공격력" fontname="yellow_20_ol" hittest="false" spacey="0"/>
+        <richtext name="MAXATK" parent="statusGbox" rect="-20 90 50 20" layout_gravity="right top" caption="100" fontname="white_20_ol" hittest="false" spacey="0" textalign="left top"/>
+        <richtext name="MAXMATK" parent="statusGbox" rect="-20 110 50 20" layout_gravity="right top" caption="100" fontname="white_20_ol" hittest="false" spacey="0" textalign="left top"/>
+        <richtext name="defend" parent="statusGbox" rect="15 140 50 22" caption="{@st43}방어 효과{/}" hittest="false" spacey="0"/>
+        <richtext name="Title_DEF" parent="statusGbox" rect="20 170 50 20" caption="방어력" fontname="yellow_20_ol" hittest="false" spacey="0"/>
+        <richtext name="Title_MDEF" parent="statusGbox" rect="20 190 50 20" caption="마법 저항력" fontname="yellow_20_ol" hittest="false" spacey="0"/>
+        <richtext name="DEF" parent="statusGbox" rect="-20 170 50 20" layout_gravity="right top" caption="100" fontname="white_20_ol" hittest="false" spacey="0" textalign="left top"/>
+        <richtext name="MDEF" parent="statusGbox" rect="-20 190 50 20" layout_gravity="right top" caption="100" fontname="white_20_ol" hittest="false" spacey="0" textalign="left top"/>
+        <richtext name="stat" parent="statusGbox" rect="15 220 50 22" caption="{@st43}스탯{/}" hittest="false" spacey="0"/>
+        <richtext name="Title_STR" parent="statusGbox" rect="20 250 50 20" caption="힘" fontname="yellow_20_ol" hittest="false" spacey="0"/>
+        <richtext name="Title_CON" parent="statusGbox" rect="20 270 50 20" caption="체력" fontname="yellow_20_ol" hittest="false" spacey="0"/>
+        <richtext name="Title_INT" parent="statusGbox" rect="20 290 50 20" caption="지능" fontname="yellow_20_ol" hittest="false" spacey="0"/>
+        <richtext name="Title_DEX" parent="statusGbox" rect="20 310 50 20" caption="민첩" fontname="yellow_20_ol" hittest="false" spacey="0"/>
+        <richtext name="STR_STAT" parent="statusGbox" rect="-20 250 50 20" layout_gravity="right top" caption="100" fontname="white_20_ol" hittest="false" spacey="0" textalign="left top"/>
+        <richtext name="CON_STAT" parent="statusGbox" rect="-20 270 50 20" layout_gravity="right top" caption="100" fontname="white_20_ol" hittest="false" spacey="0" textalign="left top"/>
+        <richtext name="INT_STAT" parent="statusGbox" rect="-20 290 50 20" layout_gravity="right top" caption="100" fontname="white_20_ol" hittest="false" spacey="0" textalign="left top"/>
+        <richtext name="DEX_STAT" parent="statusGbox" rect="-20 310 50 20" layout_gravity="right top" caption="100" fontname="white_20_ol" hittest="false" spacey="0" textalign="left top"/>
+    </controls>
+</uiframe>

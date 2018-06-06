@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="beauty_hair" x="0" y="0" width="400" height="130" create="open">
+    <frame title="{@st43}{s22}미용실{/}" titlepos="0 0" layout_gravity="center top" snapclient="true" snapframe="true" margin="0 150 0 0"/>
+    <option closebuttonpos="0 40"/>
+    <draw drawtitlebar="true"/>
+    <script OpenScp="BEAUTY_HAIR_OPEN" CloseScp="BEAUTY_HAIR_CLOSE"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+    <layer layerlevel="80"/>
+    <controls>
+        <button name="prev" rect="0 0 140 30" margin="-75 0 0 0" layout_gravity="center top" LBtnUpScp="PREV_HAIR_BTN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{img white_left_arrow 18 18}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}이전 머리{/}"/>
+        <button name="next" rect="0 0 140 30" margin="75 0 0 0" layout_gravity="center top" LBtnUpScp="NEXT_HAIR_BTN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{img white_right_arrow 18 18}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}다음 머리{/}"/>
+        <button name="choice" rect="0 0 290 30" margin="0 45 0 0" layout_gravity="center top" LBtnUpScp="SELECT_HAIR_BTN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}변경{s18}(TP 100 필요){/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}선택한 헤어로 변경합니다.{/}"/>
+        <button name="button_1" rect="0 0 63 57" margin="20 30 0 141" layout_gravity="left bottom" caption="{@st41}해약" image="btn_up2top" skin="stat_up_btn" stretch="false"/>
+    </controls>
+</uiframe>

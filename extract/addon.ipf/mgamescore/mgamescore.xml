@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="mgamescore" x="0" y="0" width="700" height="85">
+    <frame layout_gravity="center top" margin="0 170 0 0"/>
+    <input maxwidth="600" moveable="false" hittestframe="false"/>
+    <layer layerlevel="20"/>
+    <option visible="false" hideable="false" closebutton="false"/>
+    <draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+    <controls>
+        <groupbox name="score_bg" rect="0 0 500 50" margin="0 -5 0 0" layout_gravity="center center" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="score_bg_skin"/>
+        <richtext name="mt" rect="0 0 260 20" margin="0 0 0 0" layout_gravity="center top" caption="{@st42}MISSION SCORE{/}" fontname="white_20_ol" hittest="false" textalign="center center"/>
+        <richtext name="scoreText" parent="score_bg" rect="0 0 600 30" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}{s32}0{/}" fontname="white_20_ol" hittest="false" textalign="center center"/>
+        <richtext name="timeText" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center bottom" caption="{@st41b}00:00:00{/}" fontname="white_20_ol" hittest="false" textalign="center center"/>
+        <timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
+    </controls>
+</uiframe>

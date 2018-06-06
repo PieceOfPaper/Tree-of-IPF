@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by LEE (EMBRACE) -->
+<uiframe name="notice_screen" x="0" y="0" width="600" height="100">
+    <frame title="알림" margin="center top" layout_gravity="0 150 0 0"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="notice_bg"/>
+    <layer layerlevel="99"/>
+    <input hittest="false"/>
+    <controls>
+        <richtext name="text" rect="0 -20 600 50" layout_gravity="center bottom" caption="{@st64}내용{/}" fixwidth="true" resizebytext="false" textalign="center top"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uiframe>

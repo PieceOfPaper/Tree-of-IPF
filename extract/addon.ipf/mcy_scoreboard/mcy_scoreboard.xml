@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<uiframe name="mcy_scoreboard" x="-50" y="0" width="500" height="55" create="open">
+    <frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="left top" margin="258 8 0 0"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="wiki_add"/>
+    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <richtext name="text" rect="0 0 480 70" margin="30 26 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st47}%s" maxwidth="0" param1="killer" param1_def="" param2="killed" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="richtext_1" rect="0 0 121 24" margin="216 1 0 0" layout_gravity="left top" caption="{@st55_a}VS{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="richtext_2" rect="0 0 60 27" margin="147 6 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st64}%s{/}" maxwidth="0" param1="@ZoneObject@ZoneObject@Kill_1" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
+        <richtext name="richtext_3" rect="0 0 64 26" margin="280 7 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st64}%s{/}" maxwidth="0" param1="@ZoneObject@ZoneObject@Kill_2" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+        <gauge name="hp_1" rect="0 0 138 42" margin="25 4 0 0" layout_gravity="left top" inverse="true" point="100" skin="gauge_hp"/>
+        <gauge name="hp_2" rect="0 0 140 38" margin="341 7 0 0" layout_gravity="left top" inverse="false" point="100" skin="gauge_hp"/>
+    </controls>
+</uiframe>

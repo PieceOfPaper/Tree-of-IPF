@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="authchange" x="0" y="0" width="400" height="200" create="open">
+    <frame title="{@st44}권한설정{/}" layout_gravity="center center"/>
+    <draw drawtitlebar="true" drawframe="true"/>
+    <option closebutton="false" hideable="true"/>
+    <controls>
+        <richtext name="t_title" rect="20 10 200 30" layout_gravity="left top" format="{@st45}이름:%s{/}" param1="Name"/>
+        <richtext name="t_item" rect="20 35 100 30" layout_gravity="left top" caption="{@st45}파티 창고{/}"/>
+        <radiobutton name="item_0" rect="20 55 90 20" caption="{@st49}없음" group="item"/>
+        <radiobutton name="item_1" rect="110 55 90 20" caption="{@st49}넣기" group="item"/>
+        <radiobutton name="item_2" rect="200 55 90 20" caption="{@st49}가져오기" group="item"/>
+        <richtext name="t_survey" rect="20 80 100 30" layout_gravity="left top" caption="{@st45}설문{/}"/>
+        <radiobutton name="survey_0" rect="20 100 90 20" caption="{@st49}없음" group="survey"/>
+        <radiobutton name="survey_1" rect="110 100 90 20" caption="{@st49}작성" group="survey"/>
+        <radiobutton name="survey_2" rect="200 100 90 20" caption="{@st49}삭제" group="survey"/>
+        <button name="ok" rect="-130 -20 100 24" layout_gravity="right bottom" LBtnUpScp="REQ_SAVE_MEMBER_AUTH" caption="{@st44}저장{/}"/>
+        <button name="cancel" rect="-20 -20 100 24" layout_gravity="right bottom" LBtnUpScp="CLOSE_UI" caption="{@st44}취소{/}"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by alexel (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="mousetutorial" x="0" y="0" width="1460" height="830">
+	<frame title="마우스 튜토리얼" stretch="true" fullwidth="false" fullheight="false" fasthide="false" hideprocess="true" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true" width="1460" height="830"/>
+	<skin frameskin="none"/>
+	<draw blend="85" drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="99"/>
+	<option closebutton="false" visible="false" useimageitem="true"/>
+	<opencheck scp="UI_CHECK_PROP" strarg="map" numarg="1"/>
+	<input resize="false" minwidth="128" minheight="128" hittestframe="false" hittesttitlebar="false"/>
+	<sound opensound="sys_map_open" closesound="sys_map_close"/>
+	<script OpenScp="" CloseScp=""/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
+	<controls>
+		<picture name="map" image="mouse_tuto" rect="0 0 1460 830" layout_gravity="center center" stretch="true" hittest="false"/>
+		<!--		<picture name="login_bg" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="button_property" stretch="false"/>-->
+		<button name="close_map" image="testclose_button" margin="0 44 55 0" rect="0 0 44 44" layout_gravity="right top" caption="" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" texttooltip="{@st59}마우스 설명을 닫습니다.{/}" LBtnUpScp="ui.CloseFrame('mousetutorial')" LBtnUpArgNum="" LBtnDownScp=""/>
+	</controls>
+</uiframe>

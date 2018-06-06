@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="tsv_showrefstring" x="0" y="0" width="750" height="350">
+    <frame layout_gravity="center top" scale_align="center top" margin="0 100 0 0" keyboardselectframe="false"/>
+    <input maxwidth="1280" moveable="false" hittestframe="false"/>
+    <layer layerlevel="100"/>
+    <option visible="false" hideable="false" closebutton="false" alwaysVisible="false"/>
+    <draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+    <animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
+    <controls>
+        <groupbox name="gBox" rect="0 0 750 300" margin="0 0 0 0" draw="true" hittestbox="true" scrollbar="true" skin="bg" updateparent="true"/>
+        <richtext name="refid" parent="gBox" rect="0 0 700 40" margin="0 20 0 0" layout_gravity="center top" caption="idtemp" fixwidth="true" fontname="yellow_20_ol"/>
+        <richtext name="refpath" parent="gBox" rect="0 0 700 40" margin="0 50 0 0" layout_gravity="center top" caption="idtemp" fixwidth="true" fontname="yellow_18"/>
+        <richtext name="refstring" parent="gBox" rect="0 0 700 250" margin="0 90 0 0" layout_gravity="center top" caption="strtemp" fixwidth="true" fontname="white_20"/>
+        <richtext name="copied" parent="gBox" rect="0 0 380 150" margin="0 0 5 5" layout_gravity="right bottom" caption="The original text was copied to the clipboard." fixwidth="true" fontname="white_16"/>
+        <button name="colse" parent="gBox" rect="-7 7 44 44" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;tsv_showrefstring&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over"/>
+    </controls>
+</uiframe>

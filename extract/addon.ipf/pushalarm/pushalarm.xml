@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="pushalarm" x="0" y="0" width="470" height="50" create="open">
+    <frame layout_gravity="left top" margin="5 740 0 0"/>
+    <input moveable="false"/>
+    <draw drawtitlebar="false" drawnotitlebar="false"/>
+    <layer layerlevel="70"/>
+    <option closebutton="false" hideable="false"/>
+    <skin frameskin="tutorial_skin"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <controls/>
+</uiframe>

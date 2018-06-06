@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="channel" x="0" y="0" width="310" height="40">
+    <frame title="" snapclient="true" snapframe="true" layout_gravity="right top" margin="0 30 35 0"/>
+    <option visible="true" closebutton="false" useimageitem="true" piptype="right" alwaysVisible="true"/>
+    <input hittestframe="false"/>
+    <layer layerlevel="79"/>
+    <draw blend="90" drawtitlebar="false" drawframe="false"/>
+    <controls>
+        <groupbox name="equip" rect="0 0 310 30" margin="0 0 0 0" layout_gravity="center center" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="chat_window"/>
+        <richtext name="curchannel" rect="0 0 120 24" margin="0 0 45 0" layout_gravity="right center" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42b}%s{/}" maxwidth="0" param1="value" param1_def="CHANNEL 7 (●●●●○)" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+        <button name="btn" rect="0 0 30 30" margin="0 0 5 0" layout_gravity="right center" LBtnDownScp="POPUP_CHANNEL_LIST" caption="" image="count_down_btn" stretch="false"/>
+    </controls>
+</uiframe>

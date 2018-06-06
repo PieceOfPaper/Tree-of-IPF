@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="worldpvp_observer_chat" x="-50" y="0" width="400" height="300" create="open" layout_gravity="left bottom">
+    <frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="right bottom" margin="43 -184 12 89"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <skin frameskin="pip_simple_frame"/>
+    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <groupbox name="gbox_1" rect="0 0 379 75" margin="6 5 0 0" layout_gravity="left top" hittestbox="false" skin="test_skin_01"/>
+        <groupbox name="gbox_2" rect="0 0 379 75" margin="5 117 0 0" layout_gravity="left top" hittestbox="false" skin="test_skin_01"/>
+        <richtext name="richtext_1" rect="0 0 190 34" margin="104 82 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st64}%s{/}" maxwidth="0" param1="value" param1_def="VS" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <edit name="mainchat" rect="0 0 377 41" margin="5 190 0 0" layout_gravity="left top" EnterKeyScp="WORLDPVP_NICO_CHAT" OffsetForDraw="10 0" border="0 0 0 0" drawbackground="true" fontname="white_20" maxlen="150" maxlenfunc="CHAT_MAXLEN_MSG" resizebytext="false" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" typingsound="chat_typing" usetag="true"/>
+        <button name="button_1" rect="0 0 250 50" margin="70 230 0 0" layout_gravity="left top" LBtnUpScp="END_PVP_OBSERVER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}관전 종료" skin="test_normal_button" textalign="center center"/>
+    </controls>
+</uiframe>

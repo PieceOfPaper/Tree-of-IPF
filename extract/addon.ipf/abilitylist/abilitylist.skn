@@ -1,0 +1,209 @@
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<skinset name="skilltree">
+	<skinlist>
+		<skin name="bg_full" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="619 822 60 60"/>
+			<img name="topcore" imgrect="680 822 80 60"/>
+			<img name="topright" imgrect="761 822 60 60"/>
+			<img name="bodyleft" imgrect="619 883 60 80"/>
+			<img name="bodycore" imgrect="680 883 80 80"/>
+			<img name="bodyright" imgrect="543 883 60 80"/>
+			<img name="bottomleft" imgrect="619 964 60 60"/>
+			<img name="bottomcore" imgrect="680 964 80 60"/>
+			<img name="bottomright" imgrect="761 964 60 60"/>
+		</skin>
+		<skin name="bg_full_cursoron" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="619 822 60 60"/>
+			<img name="topcore" imgrect="680 822 80 60"/>
+			<img name="topright" imgrect="761 822 60 60"/>
+			<img name="bodyleft" imgrect="619 883 60 80"/>
+			<img name="bodycore" imgrect="680 883 80 80"/>
+			<img name="bodyright" imgrect="543 883 60 80"/>
+			<img name="bottomleft" imgrect="619 964 60 60"/>
+			<img name="bottomcore" imgrect="680 964 80 60"/>
+			<img name="bottomright" imgrect="761 964 60 60"/>
+		</skin>
+		<skin name="bg_full_clicked" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="619 822 60 60"/>
+			<img name="topcore" imgrect="680 822 80 60"/>
+			<img name="topright" imgrect="761 822 60 60"/>
+			<img name="bodyleft" imgrect="619 883 60 80"/>
+			<img name="bodycore" imgrect="680 883 80 80"/>
+			<img name="bodyright" imgrect="543 883 60 80"/>
+			<img name="bottomleft" imgrect="619 964 60 60"/>
+			<img name="bottomcore" imgrect="680 964 80 60"/>
+			<img name="bottomright" imgrect="761 964 60 60"/>
+		</skin>
+		<skin name="bg_active" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="822 822 60 60"/>
+			<img name="topcore" imgrect="883 822 80 60"/>
+			<img name="topright" imgrect="964 822 60 60"/>
+			<img name="bodyleft" imgrect="822 883 60 80"/>
+			<img name="bodycore" imgrect="883 883 80 80"/>
+			<img name="bodyright" imgrect="964 883 60 80"/>
+			<img name="bottomleft" imgrect="822 964 60 60"/>
+			<img name="bottomcore" imgrect="883 964 80 60"/>
+			<img name="bottomright" imgrect="964 964 60 60"/>
+		</skin>
+		<skin name="bg_active_cursoron" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="822 822 60 60"/>
+			<img name="topcore" imgrect="883 822 80 60"/>
+			<img name="topright" imgrect="964 822 60 60"/>
+			<img name="bodyleft" imgrect="822 883 60 80"/>
+			<img name="bodycore" imgrect="883 883 80 80"/>
+			<img name="bodyright" imgrect="964 883 60 80"/>
+			<img name="bottomleft" imgrect="822 964 60 60"/>
+			<img name="bottomcore" imgrect="883 964 80 60"/>
+			<img name="bottomright" imgrect="964 964 60 60"/>
+		</skin>
+		<skin name="bg_active_clicked" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="822 822 60 60"/>
+			<img name="topcore" imgrect="883 822 80 60"/>
+			<img name="topright" imgrect="964 822 60 60"/>
+			<img name="bodyleft" imgrect="822 883 60 80"/>
+			<img name="bodycore" imgrect="883 883 80 80"/>
+			<img name="bodyright" imgrect="964 883 60 80"/>
+			<img name="bottomleft" imgrect="822 964 60 60"/>
+			<img name="bottomcore" imgrect="883 964 80 60"/>
+			<img name="bottomright" imgrect="964 964 60 60"/>
+		</skin>
+		<skin name="bg" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="0 408 60 60"/>
+			<img name="topcore" imgrect="61 408 80 60"/>
+			<img name="topright" imgrect="142 408 60 60"/>
+			<img name="bodyleft" imgrect="0 469 60 80"/>
+			<img name="bodycore" imgrect="61 469 80 80"/>
+			<img name="bodyright" imgrect="142 469 60 80"/>
+			<img name="bottomleft" imgrect="0 550 60 60"/>
+			<img name="bottomcore" imgrect="61 550 80 60"/>
+			<img name="bottomright" imgrect="142 550 60 60"/>
+		</skin>
+		<skin name="bg_cursoron" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="0 408 60 60"/>
+			<img name="topcore" imgrect="61 408 80 60"/>
+			<img name="topright" imgrect="142 408 60 60"/>
+			<img name="bodyleft" imgrect="0 469 60 80"/>
+			<img name="bodycore" imgrect="61 469 80 80"/>
+			<img name="bodyright" imgrect="142 469 60 80"/>
+			<img name="bottomleft" imgrect="0 550 60 60"/>
+			<img name="bottomcore" imgrect="61 550 80 60"/>
+			<img name="bottomright" imgrect="142 550 60 60"/>
+		</skin>
+		<skin name="bg_clicked" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="0 408 60 60"/>
+			<img name="topcore" imgrect="61 408 80 60"/>
+			<img name="topright" imgrect="142 408 60 60"/>
+			<img name="bodyleft" imgrect="0 469 60 80"/>
+			<img name="bodycore" imgrect="61 469 80 80"/>
+			<img name="bodyright" imgrect="142 469 60 80"/>
+			<img name="bottomleft" imgrect="0 550 60 60"/>
+			<img name="bottomcore" imgrect="61 550 80 60"/>
+			<img name="bottomright" imgrect="142 550 60 60"/>
+		</skin>
+		<skin name="passive_bg_full" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="213 822 60 60"/>
+			<img name="topcore" imgrect="274 822 80 60"/>
+			<img name="topright" imgrect="355 822 60 60"/>
+			<img name="bodyleft" imgrect="213 883 60 80"/>
+			<img name="bodycore" imgrect="274 883 80 80"/>
+			<img name="bodyright" imgrect="355 883 60 80"/>
+			<img name="bottomleft" imgrect="213 964 60 60"/>
+			<img name="bottomcore" imgrect="274 964 80 60"/>
+			<img name="bottomright" imgrect="355 964 60 60"/>
+		</skin>
+		<skin name="passive_bg_full_cursoron" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="213 822 60 60"/>
+			<img name="topcore" imgrect="274 822 80 60"/>
+			<img name="topright" imgrect="355 822 60 60"/>
+			<img name="bodyleft" imgrect="213 883 60 80"/>
+			<img name="bodycore" imgrect="274 883 80 80"/>
+			<img name="bodyright" imgrect="355 883 60 80"/>
+			<img name="bottomleft" imgrect="213 964 60 60"/>
+			<img name="bottomcore" imgrect="274 964 80 60"/>
+			<img name="bottomright" imgrect="355 964 60 60"/>
+		</skin>
+		<skin name="passive_bg_full_clicked" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="213 822 60 60"/>
+			<img name="topcore" imgrect="274 822 80 60"/>
+			<img name="topright" imgrect="355 822 60 60"/>
+			<img name="bodyleft" imgrect="213 883 60 80"/>
+			<img name="bodycore" imgrect="274 883 80 80"/>
+			<img name="bodyright" imgrect="355 883 60 80"/>
+			<img name="bottomleft" imgrect="213 964 60 60"/>
+			<img name="bottomcore" imgrect="274 964 80 60"/>
+			<img name="bottomright" imgrect="355 964 60 60"/>
+		</skin>
+		<skin name="passive_bg_active" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="416 822 60 60"/>
+			<img name="topcore" imgrect="477 822 80 60"/>
+			<img name="topright" imgrect="558 822 60 60"/>
+			<img name="bodyleft" imgrect="416 883 60 80"/>
+			<img name="bodycore" imgrect="477 883 80 80"/>
+			<img name="bodyright" imgrect="558 883 60 80"/>
+			<img name="bottomleft" imgrect="416 964 60 60"/>
+			<img name="bottomcore" imgrect="477 964 80 60"/>
+			<img name="bottomright" imgrect="558 964 60 60"/>
+		</skin>
+		<skin name="passive_bg_active_cursoron" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="416 822 60 60"/>
+			<img name="topcore" imgrect="477 822 80 60"/>
+			<img name="topright" imgrect="558 822 60 60"/>
+			<img name="bodyleft" imgrect="416 883 60 80"/>
+			<img name="bodycore" imgrect="477 883 80 80"/>
+			<img name="bodyright" imgrect="558 883 60 80"/>
+			<img name="bottomleft" imgrect="416 964 60 60"/>
+			<img name="bottomcore" imgrect="477 964 80 60"/>
+			<img name="bottomright" imgrect="558 964 60 60"/>
+		</skin>
+		<skin name="passive_bg_active_clicked" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="416 822 60 60"/>
+			<img name="topcore" imgrect="477 822 80 60"/>
+			<img name="topright" imgrect="558 822 60 60"/>
+			<img name="bodyleft" imgrect="416 883 60 80"/>
+			<img name="bodycore" imgrect="477 883 80 80"/>
+			<img name="bodyright" imgrect="558 883 60 80"/>
+			<img name="bottomleft" imgrect="416 964 60 60"/>
+			<img name="bottomcore" imgrect="477 964 80 60"/>
+			<img name="bottomright" imgrect="558 964 60 60"/>
+		</skin>
+		<skin name="passive_bg" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="10 822 60 60"/>
+			<img name="topcore" imgrect="71 822 80 60"/>
+			<img name="topright" imgrect="152 822 60 60"/>
+			<img name="bodyleft" imgrect="10 883 60 80"/>
+			<img name="bodycore" imgrect="71 883 80 80"/>
+			<img name="bodyright" imgrect="152 883 60 80"/>
+			<img name="bottomleft" imgrect="10 964 60 60"/>
+			<img name="bottomcore" imgrect="71 964 80 60"/>
+			<img name="bottomright" imgrect="152 964 60 60"/>
+		</skin>
+		<skin name="passive_bg_cursoron" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="10 822 60 60"/>
+			<img name="topcore" imgrect="71 822 80 60"/>
+			<img name="topright" imgrect="152 822 60 60"/>
+			<img name="bodyleft" imgrect="10 883 60 80"/>
+			<img name="bodycore" imgrect="71 883 80 80"/>
+			<img name="bodyright" imgrect="152 883 60 80"/>
+			<img name="bottomleft" imgrect="10 964 60 60"/>
+			<img name="bottomcore" imgrect="71 964 80 60"/>
+			<img name="bottomright" imgrect="152 964 60 60"/>
+		</skin>
+		<skin name="passive_bg_clicked" texture="\skin\mainframe_02.tga">
+			<img name="topleft" imgrect="10 822 60 60"/>
+			<img name="topcore" imgrect="71 822 80 60"/>
+			<img name="topright" imgrect="152 822 60 60"/>
+			<img name="bodyleft" imgrect="10 883 60 80"/>
+			<img name="bodycore" imgrect="71 883 80 80"/>
+			<img name="bodyright" imgrect="152 883 60 80"/>
+			<img name="bottomleft" imgrect="10 964 60 60"/>
+			<img name="bottomcore" imgrect="71 964 80 60"/>
+			<img name="bottomright" imgrect="152 964 60 60"/>
+		</skin>
+	</skinlist>
+	<imagelist>
+		<image name="button_skillvan" file="\skin\button.tga" imgrect="190 392 44 44" Caption="skill"/>
+		<image name="button_skillvan_cursoron" file="\skin\button.tga" imgrect="235 392 44 44"/>
+		<image name="button_skillvan_clicked" file="\skin\button.tga" imgrect="280 392 44 44"/>
+	</imagelist>
+</skinset>

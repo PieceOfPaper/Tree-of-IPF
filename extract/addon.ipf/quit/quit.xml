@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="quit" x="0" y="-100" width="240" height="88">
+    <frame title="{@st44}메뉴{/}" layout_gravity="center bottom" fullwidth="true"/>
+    <skin frameskin="quitskin"/>
+    <draw drawtitlebar="false"/>
+    <layer layerlevel="99"/>
+    <input moveable="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <script OpenScp="QUIT_OPEN" CloseScp="CLOSE_QUIT_FRAME"/>
+    <controls>
+        <button name="GO_BARRACKMODE" rect="-200 -10 44 44" layout_gravity="center center" LBtnUpScp="app.GameToBarrack()" clicksound="button_click_big" image="barrack_button_normal" oversound="button_over"/>
+        <button name="LOG_OUT" rect="-100 -10 44 44" layout_gravity="center center" LBtnUpScp="app.GameToLogin()" clicksound="button_click_big" image="logout_button_normal" oversound="button_over"/>
+        <button name="EXITAPP" rect="0 -10 44 44" layout_gravity="center center" LBtnUpScp="app.Quit()" clicksound="button_click_big" image="exit_button_normal" oversound="button_over"/>
+        <button name="Config" rect="100 -10 44 44" layout_gravity="center center" LBtnUpScp="OPEN_CONFIG_FRAME" clicksound="button_click_big" image="config_button_normal" oversound="button_over"/>
+        <button name="CloseBtn" rect="200 -10 44 44" layout_gravity="center center" LBtnUpScp="CLOSE_QUIT_FRAME" clicksound="button_click_big" image="close_button_normal" oversound="button_over"/>
+        <richtext name="barrack_text" rect="-200 -10 18 20" layout_gravity="center bottom" caption="{@st60}캐릭터선택{/}" hittest="false" spacey="0"/>
+        <richtext name="logout_text" rect="-100 -10 18 20" layout_gravity="center bottom" caption="{@st60}로그아웃{/}" hittest="false" spacey="0"/>
+        <richtext name="exit_text" rect="0 -10 18 20" layout_gravity="center bottom" caption="{@st60}게임종료{/}" hittest="false" spacey="0"/>
+        <richtext name="config_text" rect="100 -10 18 20" layout_gravity="center bottom" caption="{@st60}게임설정{/}" hittest="false" spacey="0"/>
+        <richtext name="close_text" rect="200 -10 18 20" layout_gravity="center bottom" caption="{@st60}돌아가기{/}" hittest="false" spacey="0"/>
+    </controls>
+</uiframe>

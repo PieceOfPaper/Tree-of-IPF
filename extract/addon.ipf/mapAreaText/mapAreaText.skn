@@ -1,0 +1,36 @@
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<skinset name="charbaseinfo">
+	<skinlist>
+		<skin name="gauge_hp" texture="\skin\mainframe_06.tga">
+			<img name="bgleft" imgrect="812 449 10 62"/>
+			<img name="bgmiddle" imgrect="822 449 150 62"/>
+			<img name="bgright" imgrect="972 449 10 62"/>
+			<img name="barleft" imgrect="812 386 10 62"/>
+			<img name="barmiddle" imgrect="822 386 150 62"/>
+			<img name="barright" imgrect="972 386 10 62"/>
+		</skin>
+		<skin name="gauge_sp" texture="\skin\mainframe_06.tga">
+			<img name="bgleft" imgrect="812 323 10 62"/>
+			<img name="bgmiddle" imgrect="822 323 150 62"/>
+			<img name="bgright" imgrect="972 323 10 62"/>
+			<img name="barleft" imgrect="812 260 10 62"/>
+			<img name="barmiddle" imgrect="822 260 150 62"/>
+			<img name="barright" imgrect="972 260 10 62"/>
+		</skin>
+		<skin name="gauge_sta" texture="\skin\mainframe_06.tga">
+			<img name="bgtop" imgrect="955 637 50 1"/>
+			<img name="bgmiddle" imgrect="955 638 50 71"/>
+			<img name="bgbottom" imgrect="955 637 50 1"/>
+			<img name="bartop" imgrect="955 564 50 1"/>
+			<img name="barmiddle" imgrect="955 565 50 71"/>
+			<img name="barbottom" imgrect="955 564 50 1"/>
+		</skin>
+	</skinlist>
+	<imagelist category="sta_ani">
+		<image name="sta_ani" file="\skin\mainframe_03.tga" imgrect="0 813 245 40"/>
+	</imagelist>
+	<imagelist>
+		<image name="board" file="\skin\mainframe_06.tga" imgrect="602 475 124 96" Caption="charbaseinfo"/>
+	</imagelist>
+</skinset>

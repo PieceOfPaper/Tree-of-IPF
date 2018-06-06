@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="balloon_gauge" x="1000" y="200" width="200" height="15" create="open">
+    <frame layout_gravity="left top" fasthide="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <layer layerlevel="1"/>
+    <skin frameskin="none"/>
+    <input moveable="false" hittestframe="false"/>
+    <draw drawtitlebar="false" drawnotitlebar="false"/>
+    <option hideable="false" closebutton="false"/>
+    <controls>
+        <gauge name="gauge" rect="0 0 200 15" margin="0 0 0 0" layout_gravity="left top" inverse="false" point="50" skin="gauge"/>
+    </controls>
+</uiframe>

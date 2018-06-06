@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="createchat" x="0" y="0" width="280" height="250" create="open">
+    <frame title="설정" layout_gravity="center center" snapclient="true" snapframe="true"/>
+    <skin frameskin="configskin" backgroundimage="mixer_back" layout_gravity="center center" rect="0 82 220 220"/>
+    <draw drawtitlebar="false"/>
+    <layer layerlevel="100"/>
+    <option hideable="true" closebutton="true" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <script CloseScp="CLOSE_CREATECHAT" EnterKeyScp="EXEC_MAKE_CHAT"/>
+    <controls>
+        <edit name="tabTitle" rect="9 8 100 32" layout_gravity="left top" EnterKeyScp="EXEC_MAKE_CHAT" OffsetForDraw="10 5" fontname="white_16_ol" maxlen="10" texttooltip="탭 제목을 지우고 확인하면 탭이 삭제됩니다" usetag="true"/>
+        <checkbox name="sel_Chat" rect="20 50 90 24" LBtnDownScp="CHECK_ALL_CATEGORY_CHATPROP" caption="{@st49}전체{/}" checked="true" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="sel_Sys" rect="20 75 90 24" LBtnDownScp="CHECK_ALL_CATEGORY_CHATPROP" caption="{@st49}시스템{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="sel_Sys_Normal" rect="40 100 90 24" LBtnDownScp="CHECK_ALL_CATEGORY_CHATPROP" caption="{@st49}대화{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="sel_Sys_Battle" rect="40 125 90 24" LBtnDownScp="CHECK_ALL_CATEGORY_CHATPROP" caption="{@st49}전투{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="sel_Sys_Item" rect="40 150 90 24" LBtnDownScp="CHECK_ALL_CATEGORY_CHATPROP" caption="{@st49}아이템{/}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="makeChat" rect="-55 -15 100 24" layout_gravity="center bottom" LBtnUpScp="EXEC_MAKE_CHAT" caption="확인"/>
+        <button name="cancelMake" rect="55 -15 100 24" layout_gravity="center bottom" LBtnUpScp="CLOSE_UI" caption="취소"/>
+    </controls>
+</uiframe>

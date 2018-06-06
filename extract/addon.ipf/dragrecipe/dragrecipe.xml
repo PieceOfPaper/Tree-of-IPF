@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by L (IMCGames Co., Ltd) -->
+<uiframe name="dragrecipe" x="250" y="0" width="300" height="260" create="open">
+    <frame title="{@st41}아이템 제조{/}" titlepos="0 -10" fasthide="true" layout_gravity="center center" piptype="top"/>
+    <input maxwidth="1280" moveable="false" hittestframe="false"/>
+    <layer layerlevel="30"/>
+    <option closebutton="false" hideable="true"/>
+    <draw drawtitlebar="true" drawframe="true"/>
+    <sound opensound="item_window_open" closesound="item_window_close"/>
+    <effect open="dragrecipeOpen" close="dragrecipeClose"/>
+    <controls>
+        <richtext name="title" rect="0 155 200 30" layout_gravity="center top" caption="{@st45tw2}아이템 제작 중..."/>
+        <richtext name="count" rect="0 130 200 30" layout_gravity="center top" caption="{@st45tw2}1 / 10"/>
+        <slot name="item1" rect="-40 30 60 60" layout_gravity="center top"/>
+        <slot name="item2" rect="40 30 60 60" layout_gravity="center top"/>
+        <gauge name="timegauge" rect="0 100 200 30" layout_gravity="center top" text1="%r 초" textalign1="center center" textfont1="white_18_ol" textoffset1="0 -3"/>
+        <button name="cancel" rect="0 -40 100 30" layout_gravity="center bottom" LBtnUpScp="CANCEL_DRAG_RECIPE" caption="{@st41}취소{/}" clicksound="button_click_big" oversound="button_over"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uiframe>

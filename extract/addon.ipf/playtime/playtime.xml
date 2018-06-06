@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="playtime" x="0" y="0" width="200" height="20">
+    <frame title="FPS" layout_gravity="right top" margin="0 200 380 0"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <input moveintitlebar="false" hittestframe="false"/>
+    <layer layerlevel="10"/>
+    <option closebutton="false" hideable="false" visible="true"/>
+    <controls>
+        <richtext name="txt" rect="0 0 200 20" layout_gravity="left top" format="{ol}{#AAAA00}{s16}진행시간 : %s" hittest="false" param1="time" textalign="left center"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uiframe>
