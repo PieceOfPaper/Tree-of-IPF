@@ -1,7 +1,7 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
-1,1,0,40,25,30000,15,0,0,0,0,0,0,"Templeslave_sword_blue","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","Attack"
-2,2,0,40,25,30000,40,0,0,0,0,0,0,"Wendigo_bow_white","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","Attack"
-3,3,0,40,25,30000,13,0,0,0,0,0,0,"Templeslave_mage_blue","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","Attack"
+1,1,0,40,25,0,15,0,0,0,0,0,0,"Templeslave_sword_blue","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","Attack"
+2,2,0,40,25,0,40,0,0,0,0,0,0,"Wendigo_bow_white","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","Attack"
+3,3,0,40,25,0,13,0,0,0,0,0,0,"Templeslave_mage_blue","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","Attack"
 4,4,1,40,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","작업장","","","","MON_DUMMY","","","","PRISON82_PRISON81","","NO","YES","NO","Neutral","","","",""
 5,5,1,40,90,60000,15,0,0,0,1,0,0,"rootcrystal_05","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
 6,6,1,40,1,60000,1,0,0,1,0,0,0,"HiddenTrigger6","UnvisibleName","","","","","","MANA_WAR_GAME_AI","","","","NO","YES","NO","Neutral","PRISON_82_mana_war","","",""
@@ -9,4 +9,4 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 8,8,1,40,1,60000,1,0,0,1,0,0,0,"HiddenTrigger6","UnvisibleName","","","","GIMMICK_DEFENSE_HIDE","","","","","","NO","YES","NO","Neutral","PRISON_82_defense","","",""
 9,9,1,40,-1,60000,1,0,0,1,1,0,0,"HiddenTrigger6","UnvisibleName","","","","NUMBER_NEXTNUMBER_HIDE","","","","","","NO","YES","NO","Neutral","Gimmick6","n23","",""
 10,10,1,40,1,60000,1,0,0,1,1,0,0,"HiddenTrigger6","UnvisibleName","","","","NUMBER_NEXTNUMBER_HIDE","","","","","","NO","YES","NO","Neutral","Gimmick6","n24","",""
-11,11,0,40,9999,60000,30,0,0,0,0,0,0,"Wendigo_bow_white","","","","","","","","","","","NO","YES","NO","Monster","","","","Attack"
+11,11,0,40,9999,0,30,0,0,0,0,0,0,"Wendigo_bow_white","","","","","","","","","","","NO","YES","NO","Monster","","","","Attack"

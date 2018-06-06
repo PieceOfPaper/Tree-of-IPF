@@ -6,6 +6,7 @@ function TPITEM_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('TP_SHOP_UI_OPEN', 'TP_SHOP_DO_OPEN');
 	addon:RegisterMsg("TPSHOP_BUY_SUCCESS", "ON_TPSHOP_BUY_SUCCESS");
+	addon:RegisterMsg("TPSHOP_BUY_FAILED", "ON_TPSHOP_BUY_FAILED");
 
 	MAKE_CATEGORY_TREE()
 
@@ -33,6 +34,21 @@ function ON_TPSHOP_BUY_SUCCESS(frame)
 
 end
 
+function ON_TPSHOP_BUY_FAILED(frame, msg, argStr, argNum)
+	local tpitem = GetClassByType("TPitem", argNum);
+	if tpitem == nil then
+		return
+	end
+		
+	local needJobClassName = TryGetProp(tpitem, "Job");
+	local needJobGrade = TryGetProp(tpitem, "JobGrade");
+
+	if needJobGrade ~= nil and needJobClassName ~= nil then
+		local jobinfoclass = GetClass('Job', needJobClassName);
+		ui.MsgBox(ScpArgMsg("CanNotEquipLow{Job}{Grade}", "Job", jobinfoclass.Name, "Grade", needJobGrade));
+		return;
+	end
+end
 
 function MAKE_CATEGORY_TREE()
 
@@ -85,6 +101,8 @@ function MAKE_CATEGORY_TREE()
 		if tpitemtree:IsExist(hsubtreeitem) == 0 and subcategory ~= "None" then
 
 			local added = tpitemtree:Add(htreeitem, "{@st66}"..ScpArgMsg(subcategory), category.."#"..subcategory, "{#000000}");
+			
+			tpitemtree:SetFitToChild(true,10);
 			tpitemtree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
 			local foldimg = GET_CHILD(categoryCset,"foldimg");
 			foldimg:ShowWindow(1);
@@ -236,13 +254,11 @@ end
 function TPITEM_DRAW_ITEM(frame, category, subcategory)
 
 	local mainText = GET_CHILD_RECURSIVELY(frame,"mainText")
-
 	if subcategory ~= "None" then
 		mainText:SetText(ScpArgMsg(category).." > "..ScpArgMsg(subcategory))
 	else
 		mainText:SetText(ScpArgMsg(category))
 	end
-	
 	
 	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"mainSubGbox")
 	DESTROY_CHILD_BYNAME(mainSubGbox, "eachitem_");
@@ -255,13 +271,20 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 	local index = 0
 	local x, y;
 
+	-- 해당 카테고리의 노드들의 프레임을 만들기.
 	for i = 0, cnt - 1 do
 	
 		local obj = GetClassByIndexFromList(clsList, i);
 
 		local itemobj = GetClass("Item", obj.ItemClassName)
+		local IsPremiumCase = 0;
 
 		if obj.Category == category and obj.SubCategory == subcategory then
+
+			-- 프리미엄 아이템 확인
+			if itemobj.ItemGrade == 0 then
+				IsPremiumCase = 1;
+			end
 
 			index = index + 1
 			x = ( (index-1) % 2) * ui.GetControlSetAttribute("tpshop_item", 'width')
@@ -269,16 +292,49 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 	
 			local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
 
-			local title = GET_CHILD_RECURSIVELY(itemcset,"title")
-			title:SetText(itemobj.Name)
-
+			-- 프리미엄 여부에 따라 분류되느 UI를 일괄적으로 받아오고
+			local title = GET_CHILD_RECURSIVELY(itemcset,"title");
 			local nxp = GET_CHILD_RECURSIVELY(itemcset,"nxp")
-
-			nxp:SetText(obj.Price)
-
 			local slot = GET_CHILD_RECURSIVELY(itemcset, "icon");
+			local pre_Line = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_1");
+			local pre_Box = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_2");
+			local pre_Text = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_3");
+			local state_Text = GET_CHILD_RECURSIVELY(itemcset,"textState");
+			local state_Text_BG = GET_CHILD_RECURSIVELY(itemcset,"textStateBG");
+
+			if 1 == IsPremiumCase then	--프리미엄일 경우
+				local sucValue = string.format("{@st41b}%s", itemobj.Name);
+				title:SetText(sucValue);
+				pre_Line:SetVisible(1);
+				pre_Box:SetVisible(1);
+				pre_Text:SetVisible(1);
+			else						--프리미엄이 아닐 경우
+				title:SetText(itemobj.Name);
+				pre_Line:SetVisible(0);
+				pre_Box:SetVisible(0);
+				pre_Text:SetVisible(0);
+			end			
+
+			-- 구매 여부와 착용 여부를 검사한다.
+			local clsID = itemobj.ClassID;
+			local sucValue = string.format("");		
+			if session.GetEquipItemByType(clsID) ~= nil then	-- 장비 작용중
+				sucValue = string.format("{@st41b}%s", ScpArgMsg("ITEM_IsEquiped"));
+				state_Text:SetTextByKey("value", sucValue);	
+				state_Text_BG:SetGrayStyle(1);		
+				pre_Text:SetVisible(0);
+			elseif session.GetInvItemByType(clsID) ~= nil then	-- 구매한 물품.
+				sucValue = string.format("{@st41b}%s", ScpArgMsg("ITEM_IsPurchased"));
+				state_Text:SetTextByKey("value", sucValue);		
+				state_Text_BG:SetGrayStyle(1);		
+				pre_Text:SetVisible(0);	
+			else	-- 비구매 품목.
+				state_Text_BG:SetVisible(0);
+			end
 			
+			nxp:SetText(obj.Price);
 			SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(itemobj));
+			
 			local icon = slot:GetIcon();
 			icon:SetTooltipType('wholeitem');
 			icon:SetTooltipArg('', itemobj.ClassID, 0);
@@ -312,7 +368,9 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 				previewbtn:SetEventScriptArgNumber(ui.LBUTTONUP, itemobj.ClassID);
 				previewbtn:SetEventScriptArgString(ui.LBUTTONUP, obj.ClassName);
 			end
-
+			if obj.SubCategory == 'TP_Costume_Hairacc' then
+				previewbtn:ShowWindow(0)
+			end
 			local buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");
 			buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, itemobj.ClassID);
 			buyBtn:SetEventScriptArgString(ui.LBUTTONUP, obj.ClassName);
@@ -454,7 +512,7 @@ function TPSHOP_PREVIEWSLOT_REMOVE(parent, control, strarg, classid)
 
 end
 
-function UPDATE_PREVIEW_APC_IMAGE_N_MONEY(frame)
+function UPDATE_PREVIEW_APC_IMAGE_N_MONEY(frame, rotDir)
 
 	local slotset = GET_CHILD_RECURSIVELY(frame,"previewslotset")
 	local slotCount = slotset:GetSlotCount();
@@ -499,8 +557,13 @@ function UPDATE_PREVIEW_APC_IMAGE_N_MONEY(frame)
 
 		end
 	end
+
+	if rotDir == nil then
+		rotDir = 0;
+	end
+
 	local shihouette = GET_CHILD_RECURSIVELY(frame,"shihouette")
-	local imgName = ui.CaptureMyFullStdImageByAPC(apc);
+	local imgName = ui.CaptureMyFullStdImageByAPC(apc, rotDir);
 	shihouette:SetImage(imgName)
 
 	local previewTP = GET_CHILD_RECURSIVELY(frame,"previewTP")
@@ -525,6 +588,16 @@ function TPSHOP_ITEM_BASKET_BUY(parent)
 
 	DISABLE_BUTTON_DOUBLECLICK("tpitem","basketBuyBtn")
 
+end
+
+function TPSHOP_HAIR_ROT_PREV(parent)
+
+	UPDATE_PREVIEW_APC_IMAGE_N_MONEY(parent:GetTopParentFrame(), 2)
+end
+
+function TPSHOP_HAIR_ROT_NEXT(parent)
+	
+	UPDATE_PREVIEW_APC_IMAGE_N_MONEY(parent:GetTopParentFrame(), 1)
 end
 
 function EXEC_BUY_MARKET_ITEM(slotsettype)
@@ -613,6 +686,35 @@ function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)
 		end
 	end
 
+	local tpitem = GetClass("TPitem", tpitemname);
+	if tpitem == nil then
+		ui.MsgBox(ScpArgMsg("DataError"))
+		return
+	end
+
+	if tpitem.SubCategory == "TP_Costume_Color" then
+		local etc = GetMyEtcObject();
+		if nil == etc then
+			ui.MsgBox(ScpArgMsg("DataError"))
+			return;
+		end
+
+		local nowAllowedColor = etc['AllowedHairColor']
+		if string.find(nowAllowedColor, item.StringArg) ~= nil then
+			ui.MsgBox(ScpArgMsg("AlearyEquipColor"))
+			return;
+		end
+
+		if session.GetInvItemByType(classid) ~= nil then
+			ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
+			return;
+		end
+		if session.GetWarehouseItemByType(classid) ~= nil then
+			ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
+			return;
+		end
+	end
+
 	if IS_EQUIP(item) == true then
 		local lv = GETMYPCLEVEL();
 		local job = GETMYPCJOB();
@@ -624,10 +726,25 @@ function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)
 			ui.MsgBox(ScpArgMsg("CanNotEquip"))
 			return;
 		end
-
 		local pc = GetMyPCObject();
 		if pc == nil then
 			return;
+		end
+
+		local needJobClassName = TryGetProp(tpitem, "Job");
+		local needJobGrade = TryGetProp(tpitem, "JobGrade");		
+
+		if needJobGrade ~= nil and needJobClassName ~= nil then
+			local jobGrade, jobTotal = GetJobGradeByName(pc, needJobClassName);
+			if jobGrade == nil then
+				return;
+			end
+
+			if jobGrade < needJobGrade then
+				local jobinfoclass = GetClass('Job', needJobClassName);
+				ui.MsgBox(ScpArgMsg("CanNotEquipLow{Job}{Grade}", "Job", jobinfoclass.Name, "Grade", needJobGrade));
+				return;
+			end
 		end
 
 		local useGender = TryGetProp(item,'UseGender')
@@ -664,6 +781,11 @@ function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)
 				local item = GetClass("Item", alreadyItem.ItemClassName)
 				local allowDup = TryGetProp(item,'AllowDuplicate')
 				
+				if tpitem.SubCategory == "TP_Costume_Color" and  tpitemname == classname then
+					ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
+					return;
+				end
+
 				if allowDup == "NO" then
 		
 					if nodupliItems[classname] == nil then
@@ -672,7 +794,6 @@ function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)
 						ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
 						return;
 					end
-
 				end
 			
 			end

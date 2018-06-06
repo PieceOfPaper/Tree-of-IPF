@@ -1,7 +1,7 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
-1,1,0,40,25,30000,60,0,0,0,0,0,0,"nuo_purple","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","PRISON_79_hidenseek","","Attack"
-2,2,0,40,25,30000,25,0,0,0,0,0,0,"Socket_bow_red","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","PRISON_79_hidenseek","","Attack"
-3,3,0,40,25,30000,25,0,0,0,0,0,0,"TerraNymph_mage_blue","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","PRISON_79_hidenseek","","Attack"
+1,1,0,40,25,0,60,0,0,0,0,0,0,"nuo_purple","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","PRISON_79_hidenseek","","Attack"
+2,2,0,40,25,0,25,0,0,0,0,0,0,"Socket_bow_red","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","PRISON_79_hidenseek","","Attack"
+3,3,0,40,25,0,25,0,0,0,0,0,0,"TerraNymph_mage_blue","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","PRISON_79_hidenseek","","Attack"
 4,4,1,40,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","칼레이마스 접견소","","","","MON_DUMMY","","","","PRISON79_PRISON78","","NO","YES","NO","Neutral","","","",""
 5,5,1,40,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","독방구역","","","","MON_DUMMY","","","","PRISON79_PRISON80","","NO","YES","NO","Neutral","","","",""
 6,6,1,40,100,60000,20,0,0,0,1,0,0,"rootcrystal_05","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
@@ -9,4 +9,4 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 8,8,1,40,1,60000,1,0,0,1,0,0,0,"monument_02","UnvisibleName","","","","","","","PRISON_79_NUMBER_HI_LOW","","","NO","YES","NO","Neutral","PRISON_79_number_hilow","","",""
 9,9,1,40,1,60000,1,0,0,1,1,0,0,"HiddenTrigger6","UnvisibleName","","","","NUMBER_NEXTNUMBER_HIDE","","","","","","NO","YES","NO","Neutral","Gimmick6","n17","",""
 10,10,1,40,1,60000,1,0,0,1,1,0,0,"HiddenTrigger6","UnvisibleName","","","","NUMBER_NEXTNUMBER_HIDE","","","","","","NO","YES","NO","Neutral","Gimmick6","n18","",""
-11,11,0,40,9999,60000,45,0,0,0,0,0,0,"Socket_bow_red","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","","PRISON_79_hidenseek","","Attack"
+11,11,0,40,9999,0,45,0,0,0,0,0,0,"Socket_bow_red","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","","PRISON_79_hidenseek","","Attack"

@@ -74,14 +74,14 @@ function MIC_PUSH(frame, mic)
 	--local txt = string.format("{@st41}{img %s 20 20}[%s] : %s", imgName, mic:GetName(), mic:GetText());
 	
 	local micText = mic:GetText();
-	local slflag = string.find(micText,'a SL')
+	local slflag = string.find(micText,'a SL%a')
 	if slflag ~= nil then
 		micText = CHANGE_LINKTEXT_COLOR(micText, "{#CCCCFF}");
 	end
 
 	local txt = string.format("{s20}{ol}{#FFFFFF}[%s] : %s", mic:GetName(), micText);
 
-	local slflag = string.find(txt,'a SL')
+	local slflag = string.find(txt,'a SL%a')
 	if slflag == nil then
 		ctrl:EnableHitTest(0)
 	else
