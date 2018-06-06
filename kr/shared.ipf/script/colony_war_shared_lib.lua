@@ -35,14 +35,10 @@ function IS_COLONY_SPOT(mapClassName)
         local colonyCls = GetClassByIndexFromList(colonyClsList, i);
         local mapClsName = TryGetProp(colonyCls, 'ZoneClassName');
         if mapClsName ~= nil and mapClsName == mapClassName then
---            --스팀 콜로니전 일부 지역만 개최시, 그외 지역 이미지 표시 안뜨도록 처리
---            if GetServerNation() ~= 'KOR' then
---                if GetServerNation() == 'GLOBAL' then
---                    if TryGetProp(colonyCls, "ID") ~= 0 then
-                        return true;
---                    end
---                end
---            end
+            --콜로니전 미개최 지역은 이미지 표시 안뜨도록 처리(ID 값이 0인 경우)
+            if TryGetProp(colonyCls, "ID") ~= 0 then
+                return true;
+            end
         end
     end
     return false;

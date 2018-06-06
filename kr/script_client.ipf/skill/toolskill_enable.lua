@@ -286,7 +286,7 @@ function SKL_CHK_CLAYMORE(self, skill)
         return 1;
     end
 
-    local invItem = session.GetInvItemByName("misc_claymore");
+    local invItem = session.GetInvItemByName("misc_trapkit");
     if nil == invItem then
         return 0;
     end

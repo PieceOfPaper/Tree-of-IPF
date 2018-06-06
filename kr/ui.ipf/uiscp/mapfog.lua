@@ -2,7 +2,11 @@
 
 function DRAW_MAPFOG_TO_PICTURE(mapname)
 	local frame = ui.GetTooltipFrame("texthelp");
-	local pic = frame:CreateControl("picture", "MAPPICTURE_" ..mapname, 0, 0, 1024, 1024);
+	
+	local width = ui.GetImageWidth(mapname .. "_fog");
+	local height = ui.GetImageHeight(mapname .. "_fog");
+
+	local pic = frame:CreateControl("picture", "MAPPICTURE_" ..mapname, 0, 0, width, height);
 	pic = tolua.cast(pic, "ui::CPicture");
 	pic:SetImage(mapname .. "_fog");
 	MAKE_MAP_FOG_PICTURE(mapname, pic);
@@ -28,8 +32,8 @@ function MAKE_MAP_FOG_PICTURE(mapName, mapPicture, enableFog)
 	local borderOffset = 3;
 	local offsetX = mapPicture:GetOffsetX();
 	local offsetY = mapPicture:GetOffsetY();
-
-	local mapZoom = mapPicture:GetWidth() / 1024;
+	
+	local mapZoom = mapPicture:GetWidth() / ui.GetImageWidth(mapName .. "_fog");
 
 	local parentFrame = mapPicture:GetParent();
 

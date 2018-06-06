@@ -877,3 +877,34 @@ function SCR_BUFF_AFTERCALC_HIT_Mergaite_Enter_Buff(self, from, skill, atk, ret,
     ret.HitDelay = 0;
     ret.Damage = 0;
 end
+
+function SCR_BUFF_AFTERCALC_HIT_Marschierendeslied_Buff(self, from, skill, atk, ret, buff)
+    ret.KDPower = 0;
+    if ret.ResultType ~= HITRESULT_CRITICAL then
+        ret.ResultType = HITRESULT_BLOW;
+    end
+    ret.HitType = HIT_ENDURE;
+    ret.HitDelay = 0;
+end
+
+function SCR_BUFF_AFTERCALC_HIT_Friedenslied_Buff(self, from, skill, atk, ret, buff)
+	local caster = GetBuffCaster(buff)
+	if caster ~= nil then
+		local abilPiedPiper10 = GetAbility(caster, "PiedPiper10")
+		if abilPiedPiper10 ~= nil and TryGetProp(abilPiedPiper10, "ActiveState") == 1 then
+			ret.Damage = 0;
+			ret.ResultType = HITRESULT_NONE;
+			ret.HitType = HIT_NOHIT;
+			ret.EffectType = HITEFT_NO;
+			ret.HitDelay = 0;
+		end
+    end
+end
+
+function SCR_BUFF_AFTERCALC_ATK_CriticalShot_Buff(self, from, skill, atk, ret, buff)
+    if IsBuffApplied(from, 'CriticalShot_Buff') == 'YES' and ret.ResultType == HITRESULT_CRITICAL then
+        local buffOver = GetBuffOver(from, buff.ClassName);
+        local addDamageRate = buffOver * 0.1;
+        ret.Damage = ret.Damage + math.floor(ret.Damage * addDamageRate);
+    end
+end

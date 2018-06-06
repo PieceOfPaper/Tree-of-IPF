@@ -1055,7 +1055,11 @@ function SCR_DATE_TO_YDAY_BASIC_2000_REVERSE(yday)
     
     return yy,mm,dd
 end
-
+function SCR_DATE_TO_YWEEK_BASIC_2000(yy, mm, dd, firstWday)
+    local yday2000 = SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
+    local result = math.floor((yday2000+6-firstWday)/7) + 1
+    return result
+end
 function SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
     local days, monthdays, leapyears, nonleapyears, nonnonleapyears
 
@@ -2330,7 +2334,7 @@ function SCR_TEXT_HIGHLIGHT(dialogClassName, text)
     return text
 end
 
-function GET_DATE_BY_DATE_STRING(dateString) -- yyyy-mm-ddThh:mm:ss
+function GET_DATE_BY_DATE_STRING(dateString) -- yyyy-mm-dd hh:mm:ss
     local tIndex = string.find(dateString, ' ');
     if tIndex == nil then
         return -1;

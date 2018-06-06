@@ -1222,7 +1222,44 @@ function lchs_test2(pc, str)
     AttachEffect(pc, 'I_cleric_zemina_mash_loop_blue_1', 0.5, 'BOT')
 end
 function lchs(pc, anim_name)
-    local result = DOTIMEACTION_R(pc, ScpArgMsg("KATYN14_SUB_08_MSG03"), 'WORSHIP', 5)
+    DOTIMEACTION_R(pc, "AAA", "BURY", 2, nil)
+--    print('AAAAAAAAA',GetTeamName(pc),GetPartyID(pc))
+--    PlayDirection(pc, 'DRESS_TRACK_1')
+--    local obj, cnt = GetWorldObjectList(pc, "PC", 300)
+--    if cnt > 0 then
+--        for i = 1, cnt do
+--            local npc = obj[i]
+--            PlayPose(pc, 38)
+--        end
+--    end
+
+--    local tx = TxBegin(pc);
+--    TxAddAchievePoint(tx, 'PlayCBT1', 1)
+--    local ret = TxCommit(tx);
+--    PlayDirection(pc, 'BARBER_TRACK_2')
+--    local aObj = GetAccountObj(pc)
+--    local teamNameFirstSet = TryGetProp(aObj, 'TeamNameFirstSet')
+--    print('XXXXXXX',teamNameFirstSet)
+--    SetHide(pc, 1)
+--    RemoveBuff(pc, 'MISSION_SURVIVAL_EVENT2')
+--    print('AAAAAAAA',IsBuffApplied(pc,'MISSION_SURVIVAL_EVENT2'),pc.MHP_BM)
+--    AttachEffect(pc, 'I_force018_trail_black_800', 1, 'BOT')
+--    AttachEffect(pc, 'F_pattern013_ground_white', 1, 'BOT')
+--    PlayEffect(pc, "F_explosion054_green", 1.5)
+--    local obj, cnt = GetWorldObjectList(pc, "MON", 200)
+--    if cnt > 0 then
+--        for i = 1, cnt do
+--            local npc = obj[i]
+--                InsertHate(npc, pc, 100)
+--                TakeDamage(pc, npc, "None", 10, nil, nil, 'AbsoluteDamage');
+----            ClearEffect(npc)
+----            AttachEffect(npc, 'I_smoke001_dark_loop', 1, 'BOT')
+--            print('AAAAA')
+--        end
+--    end
+    
+    
+--    local result = DOTIMEACTION_R(pc, ScpArgMsg("KATYN14_SUB_08_MSG03"), 'WORSHIP', 5)
 --    print(GetAccountPCCount(pc))
 --    local list, Cnt = SelectObject(pc, 50, 'ALL')
 --    local i
@@ -2738,20 +2775,21 @@ function DOTIMEACTION_SANI(pc, target, sani, msg, second)
 end
 
 
-function DOTIMEACTION_SANI_R(pc, target, sani, msg, second, sobjName)
+function DOTIMEACTION_SANI_R(pc, target, sani, msg, second, sobjName, ridingAnim)
 
-	local ret = DOTIMEACTION_SANI(pc, target, sani, msg, second);
-	if ret == 0 then
-		return 0;
-	end
-	
-	return DOTIMEACTION_R(pc, msg, "", second, sobjName);
+    local ret = DOTIMEACTION_SANI(pc, target, sani, msg, second);
+    if ret == 0 then
+        return 0;
+    end
+    
+    return DOTIMEACTION_R(pc, msg, "", second, sobjName, ridingAnim);
 
 end
 
-function DOTIMEACTION_GUILDBATTLE(pc, msg, anim, second, buffObj)
+function DOTIMEACTION_GUILDBATTLE(pc, msg, anim, second, buffObj, ridingAnim)
     CancelMouseMove(pc)
 	PlayAnim(buffObj, 'EVENT_LOOP');
+    anim = DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
 
 	local result = DoTimeAction(pc, msg, anim, second);
 	if result == 0.0 then
@@ -2775,7 +2813,21 @@ function DOTIMEACTION_GUILDBATTLE(pc, msg, anim, second, buffObj)
 	
 end
 
-function DOTIMEACTION(pc, msg, anim, second)
+function DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
+    local ridingCompanion = GetRidingCompanion(pc);
+    if ridingCompanion ~= nil then
+        if ridingAnim ~= nil and ridingAnim ~= 'None' then
+            return ridingAnim
+        else
+            return 'ABSORB'
+        end
+    else
+        return anim
+    end
+end
+
+function DOTIMEACTION(pc, msg, anim, second, ridingAnim)
+    anim = DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
 
 	local result = DoTimeAction(pc, msg, anim, second);
 	if result == 0.0 then
@@ -2796,9 +2848,9 @@ function DOTIMEACTION(pc, msg, anim, second)
 	
 end
 
-function DOTIMEACTION_R_FAILTIME_SET(pc, questName, msg, sec, animName, addSObj)
+function DOTIMEACTION_R_FAILTIME_SET(pc, questName, msg, sec, animName, addSObj, ridingAnim)
     local animTime, before_time = DOTIMEACTION_R_BEFORE_CHECK(pc, sec, questName)
-    local result = DOTIMEACTION_R(pc, msg, animName, animTime, addSObj)
+    local result = DOTIMEACTION_R(pc, msg, animName, animTime, addSObj, ridingAnim)
     DOTIMEACTION_R_AFTER(pc, result, animTime, before_time, questName)
     return result
 end
@@ -2839,8 +2891,10 @@ function DOTIMEACTION_R_AFTER(pc, result, animTime, before_time, questname)
     end
 end
 
-function DOTIMEACTION_R(pc, msg, anim, second, sObj_name, add_time)
+function DOTIMEACTION_R(pc, msg, anim, second, sObj_name, add_time, ridingAnim)
     CancelMouseMove(pc)
+    anim = DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
+    
     local add_timer
     if add_time == nil then
         add_timer = 0
@@ -2931,31 +2985,32 @@ function DOTIMEACTION_ONLY_TARGET(seller, target, msg, anim, second, skillType)
 	end
 end
 
-function DOTIMEACTION_ONLY_ACTION(pc, msg, anim, second)
-	
-	local result = DoTimeAction(pc, msg, anim, second);
-	
-	if result == 0.0 then
-		StopScript();
-		sleep(10);
-		return 0;
-	end
-	
-	while 1 do		
-		result = GetTimeActionResult(pc, 1);
-		if result == 1 then
-			if IsRest(pc) == 1 then
-				PlayAnim(pc, 'REST')
-			else
-				PlayAnim(pc, 'STD')  
-			end
-			return 1;
-		end
-		
-		if result == 0 then
-			if IsRest(pc) == 1 then
-				PlayAnim(pc, 'REST')
-			end
+function DOTIMEACTION_ONLY_ACTION(pc, msg, anim, second, ridingAnim)
+    anim = DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
+    
+    local result = DoTimeAction(pc, msg, anim, second);
+    
+    if result == 0.0 then
+        StopScript();
+        sleep(10);
+        return 0;
+    end
+    
+    while 1 do      
+        result = GetTimeActionResult(pc, 1);
+        if result == 1 then
+            if IsRest(pc) == 1 then
+                PlayAnim(pc, 'REST')
+            else
+                PlayAnim(pc, 'STD')  
+            end
+            return 1;
+        end
+        
+        if result == 0 then
+            if IsRest(pc) == 1 then
+                PlayAnim(pc, 'REST')
+            end
 
 			return 0;
 		end
@@ -2965,8 +3020,9 @@ function DOTIMEACTION_ONLY_ACTION(pc, msg, anim, second)
 end
 
 --self?? Dialog NPC
-function DOTIMEACTION_B(pc, msg, anim, second, sObj_name, eff_name, self)
+function DOTIMEACTION_B(pc, msg, anim, second, sObj_name, eff_name, self, ridingAnim)
     CancelMouseMove(pc)
+    anim = DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
     local xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
 	if xac_ssn == nil then
     	CreateSessionObject(pc, 'SSN_EV_STOP', 1)
@@ -3014,14 +3070,16 @@ function DOTIMEACTION_B(pc, msg, anim, second, sObj_name, eff_name, self)
 end
 
 
-function DOTIMEACTION_R_DUMMY_ITEM(pc, msg, anim, second, sObj_name, add_time, itemNumber, spot)
+function DOTIMEACTION_R_DUMMY_ITEM(pc, msg, anim, second, sObj_name, add_time, itemNumber, spot, ridingAnim)
     CancelMouseMove(pc)
-	local add_timer
-	if add_time == nil then
-		add_timer = 0
-	else
-		add_timer = add_time*1000
-	end
+    anim = DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
+    
+    local add_timer
+    if add_time == nil then
+        add_timer = 0
+    else
+        add_timer = add_time*1000
+    end
 
 	local xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
 
@@ -7663,3 +7721,53 @@ end
 	  AddBuff(pc, pc, 'SCR_USE_ITEM_HasteBuff', 2, 0, 3600000, 1);
 	  ExecClientScp(gm, scp);
   end
+
+  function TEST_VERTICAL_ON(self)
+	local mon = TEST_GET_OBJ(self, 500, "Monster");
+    if mon == nil then
+        return;
+    end
+
+	local isOn = 1;
+	local maxHeight = 20;
+	local speed = 1;
+	SetVerticalMotion(mon, isOn, maxHeight, speed);
+end
+
+function TEST_VERTICAL_OFF(self)
+	local mon = TEST_GET_OBJ(self, 500, "Monster");
+    if mon == nil then
+        return;
+    end
+    
+	local isOn = 0;
+	SetVerticalMotion(mon, isOn);
+end
+
+function TEST_GET_OBJ(self, dist, type)
+	local objList, objCount = SelectObject(self, dist, type)
+	for i = 1, objCount do
+		local mon = objList[i];
+		return mon;
+	end
+	return nil;	
+end
+
+function TEST_PLAY_FLUTING(pc)
+    local octave = 1;
+    local isSharp = 0;
+    print('E')
+    PlayFluting(pc, 'E', octave, isSharp);
+    sleep(600)
+    StopFluting(pc, 'E', octave, isSharp);
+
+    print('D')
+    PlayFluting(pc, 'D', octave, isSharp);
+    sleep(300)
+    StopFluting(pc, 'D', octave, isSharp);
+
+    print('C')
+    PlayFluting(pc, 'C', octave, isSharp);
+    sleep(300)
+    StopFluting(pc, 'C', octave, isSharp);
+end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
 	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
 	<BlendOn frame="11" R="80" G="80" B="50" A="100"/>
@@ -26,7 +26,7 @@
 	<Particle frame="5" attachNode="Dummy_arrow_effect" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20"/>
 	<Particle frame="15" attachNode="Dummy_arrow_effect" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20"/>
 	<Particle frame="7" attachNode="Dummy_effect_body" particleName="I_warrior_dash_run_line" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_archer_jumpshot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_archer_jumpshot_ground2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
 	<Particle frame="0" attachNode="Dummy_emitter_pet3" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
 	<AttachModel frame="0" XAC="archer_f_arrow_01" node="Dummy_arrow" isAttach="true" autoDetach="false" index="0" anim="None"/>
 	<Sound frame="0.00" soundFile="skl_eff_murmillo_jump"/>

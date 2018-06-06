@@ -41,11 +41,18 @@ function CONVERT_DATESTR_TO_TIME_STAMP(dateString)
 	local runyear, runmonth, runday, runhour, runminute, runseconds = dateString:match(pattern)
 	local convertedTimestamp = os.time({year = runyear, month = runmonth, day = runday, hour = runhour, min = runminute, sec = runseconds})
 
-	return convertedTimestamp;
+	return convertedTimestamp, runyear, runmonth, runday, runhour, runminute, runseconds;
 end
 
-function GET_CURRENT_DB_TIME_STAMP()
-	local curTime = GetDBTime()
+function GET_CURRENT_SYSTEMTIME(isClient)
+	if isClient == true then
+		return geTime.GetServerSystemTime();
+	end
+	return GetDBTime();
+end
+
+function GET_CURRENT_DB_TIME_STAMP(isClient)
+	local curTime = GET_CURRENT_SYSTEMTIME(isClient);
 	local curSysTimeStr = string.format("%04d-%02d-%02d %02d:%02d:%02d", curTime.wYear, curTime.wMonth, curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wSecond)
 	return CONVERT_DATESTR_TO_TIME_STAMP(curSysTimeStr)
 end
@@ -114,12 +121,17 @@ function GET_BEAUTYSHOP_HAIR_PRICE(pc, info, hairCouponItem, dyeCouponItem)
 			-- 쿠폰 적용 : 쿠폰은 헤어와 염색에만 적용된다는것을 명심해야 한다.
 			local couponDiscountPer = GET_COUPON_DISCOUNT_PERCENT(info, hairCouponItem);
 			-- 1차 기본 할인율 적용
-			hairPrice = hairPrice - (price * priceRatioPer)			
+            local priceRatioAppliedValue = (price * priceRatioPer);
+			hairPrice = hairPrice - priceRatioAppliedValue;
 			-- 2차 쿠폰 할인율 적용
             hairDiscountValue = (hairPrice * couponDiscountPer);
 			hairPrice = hairPrice - hairDiscountValue;
 			-- 모두 계산하고나서 floor
 			hairPrice = math.floor(hairPrice)
+
+            hairDiscountValue = math.floor(hairDiscountValue);
+            local diff = price - (hairPrice + math.floor(priceRatioAppliedValue) + hairDiscountValue); -- 할인가 보정해줍니다..
+            hairDiscountValue = hairDiscountValue + diff;
 		end
 	end
 
@@ -158,12 +170,19 @@ function GET_BEAUTYSHOP_HAIR_PRICE(pc, info, hairCouponItem, dyeCouponItem)
 				local couponDiscountPer = GET_COUPON_DISCOUNT_PERCENT(info, dyeCouponItem) 
 
 				-- 1차 기본 할인율 적용
-				colorDyePrice = colorDyePrice - (price * priceRatioPer)
+                local priceRatioAppliedValue = (price * priceRatioPer);
+				colorDyePrice = colorDyePrice - priceRatioAppliedValue;
 				-- 2차 쿠폰 할인율 적용
                 dyeDiscountValue = (colorDyePrice * couponDiscountPer);
 				colorDyePrice = colorDyePrice - dyeDiscountValue;
 				-- 모두 계산하고나서 floor
-				colorDyePrice = math.floor(colorDyePrice)
+				colorDyePrice = math.floor(colorDyePrice);
+
+                -- for log: 할인을 두 단계로 적용해두고 마지막에만 floor 처리를 하니까.. 정밀도 문제가 발생해요.. 끔찍해요..
+                dyeDiscountValue = math.floor(dyeDiscountValue);
+                local diff = price - (colorDyePrice + math.floor(priceRatioAppliedValue) + dyeDiscountValue); -- 할인가 보정해줍니다..
+                dyeDiscountValue = dyeDiscountValue + diff;
+
 			end
 		end
 	end
@@ -275,4 +294,14 @@ function BEAUTYSHOP_MAKE_HAIR_COLOR_CACHELIST(ItemClassName)
 	end
 
 	return cacheList
+end
+
+function IS_CURREUNT_IN_PERIOD(startDateString, endDateString, isClient)
+	local startTimeStamp = CONVERT_DATESTR_TO_TIME_STAMP(startDateString);
+	local endTimeStamp = CONVERT_DATESTR_TO_TIME_STAMP(endDateString);
+	local currentTimeStamp = GET_CURRENT_DB_TIME_STAMP(isClient);
+	if startTimeStamp > currentTimeStamp or currentTimeStamp > endTimeStamp then
+		return false;
+	end
+	return true;
 end

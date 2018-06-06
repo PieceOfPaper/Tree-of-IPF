@@ -59,8 +59,8 @@ function SCR_BUFF_ENTER_Burrow_Rogue(self, buff, arg1, arg2, over)
 		AddLimitationSkillList(self, "Scout_FlareShot")
 		AddLimitationSkillList(self, "Scout_SplitArrow")
 		AddLimitationSkillList(self, "DoubleGun_Attack")
+		AddLimitationSkillList(self, "PiedPiper_Dissonanz")
 		AddIgnoreSkillCoolTime(self, 'Rogue_Burrow');
-			
 	    self.Jumpable = self.Jumpable - 1;
 	end
 end

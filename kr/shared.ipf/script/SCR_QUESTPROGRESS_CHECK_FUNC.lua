@@ -705,3 +705,46 @@ function SCR_ZEALOT_QUEST_COSTUME_START_CHECK(pc, questname)
     
     return 'YES'
 end
+
+function SCR_JOB_EXORCIST1_PRE_FUNC(pc, questname, scriptInfo)
+    local result1, result2 = SCR_STEPREWARD_QUEST_REMAINING_CHECK(pc, questname)
+    if result1 == 'YES' and #result2 == 0 then
+        return 'NO'
+    end
+    
+    return 'YES'
+end
+
+
+function SCR_JOB_EXORCIST1_REWARD1(self)
+    local sObj = GetSessionObject(self, 'SSN_JOB_EXORCIST1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 400 then
+            return 'YES'
+        end
+    end
+    
+    return 'NO'
+end
+
+function SCR_JOB_EXORCIST1_REWARD2(self)
+    local sObj = GetSessionObject(self, 'SSN_JOB_EXORCIST1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 450 then
+            return 'YES'
+        end
+    end
+    
+    return 'NO'
+end
+
+function SCR_JOB_EXORCIST1_REWARD3(self)
+    local sObj = GetSessionObject(self, 'SSN_JOB_EXORCIST1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 500 then
+            return 'YES'
+        end
+    end
+    
+    return 'NO'
+end

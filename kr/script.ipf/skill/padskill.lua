@@ -53,6 +53,20 @@ function SCR_PAD_USEABLE_RELATION_FRIEND_CHECK(self, pad, target)
     return 0;
 end
 
+function PAD_USEABLE_MONSTER(self, skl, pad)
+    SetUseableCheckFunc(pad, "SCR_PAD_USEABLE_MONSTER_CHECK");
+end
+
+function SCR_PAD_USEABLE_MONSTER_CHECK(self, pad, target)
+	if IS_PC(target) == false then
+	    if GetObjType(target) == OT_MONSTERNPC then
+	        return 1;
+	    end
+	end
+    
+    return 0;
+end
+
 function PAD_USEABLE_PC(self, skl, pad)
     SetUseableCheckFunc(pad, "SCR_PAD_USEABLE_PC_CHECK");
 end

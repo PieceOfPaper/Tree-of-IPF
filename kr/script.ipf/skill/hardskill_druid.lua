@@ -48,6 +48,78 @@ function TRANSFORM_BY_MONNAME(self, skl, buffName, buffTime, monName)
     end
 end
 
+function TRANSFORM_TO_LYCANTHROPY(self, skill)
+	local buffName = 'Lycanthropy_Buff';
+	local buffTime = 30000;
+	
+    local ret = 0;
+    
+    local abilDruid14 = GetAbility(self, 'Druid14');
+    if abilDruid14 ~= nil and abilDruid14.ActiveState == 1 then
+    	SetExProp(self, "DRUID_LYCANTHROPY_HALF", 1);
+    	buffTime = 60000
+    	SCR_DRUID_LYCANTHROPY_HALF_ENTER(self);
+    	ret = 1;
+    	AddBuff(self, self, "Lycanthropy_Half_Buff", skill.Level, 1, buffTime)
+    else
+		local monName = 'pcskill_lycanthropy';
+	    local monCls = GetClass('Monster', monName);
+	    if monCls == nil then
+	        return;
+	    end
+    	ret = TransformToMonster(self, monName, buffName)
+    	AddBuff(self, self, "Lycanthropy_hpup_Buff", 1, 0, buffTime)
+    	AddBuff(self, self, "Lycanthropy_Safety_Buff", 1, 0, 3000)
+    	local list, cnt = SelectObject(self, 100, "ENEMY")
+    	for i = 1, cnt do
+    		AddBuff(self, list[i], "Lycanthropy_Debuff", 1, 0, 5000)
+    	end
+    	
+	    if ret == 1 then
+	        AddBuff(self, self, buffName, 1, 1, buffTime);
+	    end
+    end
+end
+
+function SCR_DRUID_LYCANTHROPY_HALF_ENTER(self)
+	local lycanHat = 'Hat_700000';
+	local lycanHair = 'HAIR_M_10000';
+	local lycanOuter = 'costume_lycan';
+	
+	local pcGender = TryGetProp(self, 'Gender');
+	if pcGender == nil then
+		return;
+	end
+	
+	if pcGender == 2 then
+		lycanHair = 'HAIR_F_10000';
+	end
+	
+--	EquipDummyItemSpotByName(self, self, lycanHat, "HAT", 0, 1);
+--	EquipDummyItemSpotByName(self, self, lycanHair, "HAIR", 0, 1);
+--	EquipDummyItemSpotByName(self, self, lycanOuter, "OUTER", 0, 1);
+
+	EquipDummyItemSpotByName(self, self, lycanHat, "HAT", 0, 0);
+	EquipDummyItemSpotByName(self, self, lycanHair, "HAIR", 0, 0);
+	EquipDummyItemSpotByName(self, self, lycanOuter, "OUTER", 0, 0);
+
+--	EquipDummyItemSpotByName(self, self, "pumkin_helmet", "HELMET", 0, 1);
+	
+--	BroadcastShape(self)
+end
+
+function SCR_DRUID_LYCANTHROPY_HALF_LEAVE(self)
+	EquipDummyItemSpotByName(self, self, "", "HAT", 0);
+	EquipDummyItemSpotByName(self, self, "", "HAIR", 0);
+	EquipDummyItemSpotByName(self, self, "", "OUTER", 0);
+	
+--	EquipDummyItemSpot(self, self, 0, "HAIR", 0);
+--	EquipDummyItemSpot(self, self, 0, "HAT", 0);
+--	EquipDummyItemSpot(self, self, 0, "OUTER", 0);
+
+--	EquipDummyItemSpot(self, self, 0, "HELMET", 0);
+end
+
 function TGT_TRANSFORM(self, skl, buffName, buffTime, eft, eftScale)
 
     local tgt = GetHardSkillFirstTarget(self);
@@ -112,16 +184,16 @@ function SCR_BUFF_ENTER_transform(self, buff, arg1, arg2, over)
 --    local addpatk = 0
 --    local addmatk = 0
     
-    local isHengeStone = GetExProp(self, 'HENGE_STONE_SATE');
-    if isHengeStone > 0 then
+--    local isHengeStone = GetExProp(self, 'HENGE_STONE_SATE');
+--    if isHengeStone > 0 then
 --      addpatk = self.MINPATK - self.PATK_BM;
 --      addmatk = self.MINMATK - self.MATK_BM;
 --        addpatk = 0.05;
 --        addmatk = 0.05;
-        addcrthr = 100
-        SetExProp(buff, "WITH_HENGE_STONE", 1)
-        addmhp = 1;
-    end
+--        addcrthr = 100
+--        SetExProp(buff, "WITH_HENGE_STONE", 1)
+--        addmhp = 1;
+--    end
     
     local Druid2_abil = GetAbility(self, "Druid2")
     local Druid3_abil = GetAbility(self, "Druid3")
@@ -218,27 +290,40 @@ function SCR_BUFF_LEAVE_transform(self, buff, arg1, arg2, over, isLastEnd)
 end
 
 function SCR_BUFF_ENTER_Lycanthropy_Buff(self, buff, arg1, arg2, over)
-    AddLockSkillList(self, 'Druid_Telepath');
-    
-    local addCrt = 100;
-    local addmhp = 0;
-    
-    local isHengeStone = GetExProp(self, 'HENGE_STONE_SATE');
-    if isHengeStone > 0 then
-        addCrt = 200;
-        addmhp = self.MHP - self.MHP_BM;
-        SetExProp(buff, "WITH_HENGE_STONE", 1)
-    end
-    
+    local addCrt = 0
+    local addRateMhp = 1
+    local addMspd = 10
+    local addRateDef = 0.5
+    local addBlkBreak = 400
+	local lycanSkill = GetSkill(self, "Druid_Lycanthropy")
+	if lycanSkill ~= nil then
+		addCrt = TryGetProp(lycanSkill, "Level") * 40
+	end
+	
     self.CRTHR_BM = self.CRTHR_BM + addCrt;
-    self.MHP_BM = self.MHP_BM + addmhp;
+    self.MHP_RATE_BM = self.MHP_RATE_BM + addRateMhp;
+    self.MSPD_BM = self.MSPD_BM + addMspd
+    self.DEF_RATE_BM = self.DEF_RATE_BM + addRateDef
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM + addRateDef
+	self.BLK_BREAK_BM = self.BLK_BREAK_BM + addBlkBreak
     
     SetExProp(buff, "ADD_CRTHR", addCrt);
-    SetExProp(buff, "ADD_MHP", addmhp);
+    SetExProp(buff, "ADD_MHP", addRateMhp);
+    SetExProp(buff, "ADD_MSPD", addMspd)
+    SetExProp(buff, "ADD_RATE_DEF", addRateDef)
+    SetExProp(buff, "ADD_BLOCK_BREAK", addBlkBreak)
+    
+    AddLimitationSkillList(self, "Mon_pcskill_boss_werewolf_Skill_1")
+    AddLimitationSkillList(self, "Mon_pcskill_boss_werewolf_Skill_3")
+	AddLimitationSkillList(self, "Mon_pcskill_boss_werewolf_Skill_4")
+	AddLimitationSkillList(self, "Mon_pcskill_boss_werewolf_Skill_5")
+	
+--	local selfMHP = TryGetProp(self, "MHP")
+--	AddHP(self, selfMHP)
 end
 
 function SCR_BUFF_UPDATE_Lycanthropy_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
-    local consumeSP = 70;
+    local consumeSP = 91;
     
     if self.SP > consumeSP then
         AddSP(self, -consumeSP)
@@ -249,15 +334,139 @@ function SCR_BUFF_UPDATE_Lycanthropy_Buff(self, buff, arg1, arg2, RemainTime, re
 end
 
 function SCR_BUFF_LEAVE_Lycanthropy_Buff(self, buff, arg1, arg2, over, isLastEnd)
-    ClearLimitationSkillList(self);
-    TransformToMonster(self, "None", "None");
+    local halfLycanthropy = GetExProp(self, "DRUID_LYCANTHROPY_HALF");
+    if halfLycanthropy == 1 then
+    	SCR_DRUID_LYCANTHROPY_HALF_LEAVE(self);
+    	DelExProp(self, "DRUID_LYCANTHROPY_HALF");
+    else
+    	TransformToMonster(self, "None", "None");
+	end
+    
     PlayEffect(self, "F_cleric_ShapeShifting_shot_smoke3", 0.5, 0, "MID");
     
     local addCrt = GetExProp(buff, "ADD_CRTHR");
-    local addmhp = GetExProp(buff, "ADD_MHP");
+    local addRateMhp = GetExProp(buff, "ADD_MHP");
+    local addMspd = GetExProp(buff, "ADD_MSPD")
+    local addRateDef = GetExProp(buff, "ADD_RATE_DEF")
+    local addBlkBreak = GetExProp(buff, "ADD_BLOCK_BREAK")
     
     self.CRTHR_BM = self.CRTHR_BM - addCrt;
-    self.MHP_BM = self.MHP_BM - addmhp;
+    self.MHP_RATE_BM = self.MHP_RATE_BM - addRateMhp;
+    self.MSPD_BM = self.MSPD_BM - addMspd
+    self.DEF_RATE_BM = self.DEF_RATE_BM - addRateDef
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM - addRateDef
+    self.BLK_BREAK_BM = self.BLK_BREAK_BM - addBlkBreak
+    
+    ClearLimitationSkillList(self);
+    
+    AddBuff(self, self, "Lycanthropy_Safety_Buff", 1, 0, 3000)
+end
+
+
+function SCR_BUFF_ENTER_Lycanthropy_Debuff(self, buff, arg1, arg2, over)
+    ObjectColorBlend(self, 255, 160, 150, 255, 1, 1.5)
+    local spdAdd = 10
+    local buffCaster = GetBuffCaster(buff);
+    if IS_PC(self) == false then
+        SetFociblyHater(self, buffCaster);
+        AddBuff(buffCaster, self, "ProvocationImmunity_Debuff", 0, 0, 30000, 1);
+        if self.MonRank ~= "BOSS" then
+            self.MSPD_BM = self.MSPD_BM + spdAdd
+            SetExProp(self, "LYCAN_SWASHBUCKLING_SPD", spdAdd);
+        end
+    end
+end
+
+function SCR_BUFF_LEAVE_Lycanthropy_Debuff(self, buff, arg1, arg2, over)
+    ObjectColorBlend(self, 255, 255, 255, 255, 1, 1);
+    local buffCaster = GetBuffCaster(buff);
+    if buffCaster ~= nil then
+        if IS_PC(self) == false then
+            if self.MonRank ~= "BOSS" then
+                self.MSPD_BM = self.MSPD_BM - GetExProp(self, "LYCAN_SWASHBUCKLING_SPD")
+            end
+            
+            local currentTarget = GetFociblyHater(self)
+            if currentTarget ~= nil then
+                if IsSameActor(currentTarget, buffCaster) == "YES" then
+                    RemoveFociblyHater(self)
+                end
+            end
+        end
+    end
+end
+
+
+function SCR_BUFF_ENTER_Lycanthropy_Half_Buff(self, buff, arg1, arg2, over)
+    local addCrt = 0
+    local patkRate = 0
+    local matkRate = 0
+    local lycanSkill = GetSkill(self, "Druid_Lycanthropy")
+    if lycanSkill ~= nil then
+    	local lycanLevel = TryGetProp(lycanSkill, "Level")
+    	
+    	addCrt = lycanLevel * 40
+    end
+    
+
+    self.CRTHR_BM = self.CRTHR_BM + addCrt;
+    
+    SetExProp(buff, "ADD_LYCAN_HALF_CRTHR", addCrt);
+    
+    ChangeNormalAttack(self, "Lycan_Half_Attack");
+end
+
+function SCR_BUFF_UPDATE_Lycanthropy_Half_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    local addHP = TryGetProp(self, "MHP") * 0.02;
+    
+	AddHP(self, addHP)
+	
+	return 1;
+end
+
+function SCR_BUFF_LEAVE_Lycanthropy_Half_Buff(self, buff, arg1, arg2, over, isLastEnd)
+    local halfLycanthropy = GetExProp(self, "DRUID_LYCANTHROPY_HALF");
+    if halfLycanthropy == 1 then
+    	SCR_DRUID_LYCANTHROPY_HALF_LEAVE(self);
+    	DelExProp(self, "DRUID_LYCANTHROPY_HALF");
+    else
+    	TransformToMonster(self, "None", "None");
+	end
+    
+    PlayEffect(self, "F_cleric_ShapeShifting_shot_smoke3", 0.5, 0, "MID");
+    
+    local addCrt = GetExProp(buff, "ADD_LYCAN_HALF_CRTHR");
+    self.CRTHR_BM = self.CRTHR_BM - addCrt;
+    
+    ChangeNormalAttack(self, "None");
+end
+
+
+function SCR_BUFF_ENTER_Lycanthropy_hpup_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_UPDATE_Lycanthropy_hpup_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    local addHP = TryGetProp(self, "MHP") * 0.02;
+    
+    if IsBuffApplied(self, "Lycanthropy_Buff") == "YES" then
+		AddHP(self, addHP)
+		return 1;
+	else
+		return 0;
+	end
+end
+
+function SCR_BUFF_LEAVE_Lycanthropy_hpup_Buff(self, buff, arg1, arg2, over, isLastEnd)
+	
+end
+
+function SCR_BUFF_AFTERCALC_HIT_Lycanthropy_Safety_Buff(self, from, skill, atk, ret, buff)
+	ret.Damage = 0;
+    ret.KDPower = 0;
+    ret.ResultType = HITRESULT_BLOW;
+    ret.HitType = HIT_ENDURE;
+    ret.HitDelay = 0;
 end
 
 function SCR_BUFF_AFTERCALC_HIT_Lycanthropy_Buff(self, from, skill, atk, ret, buff)
@@ -268,28 +477,45 @@ function SCR_BUFF_AFTERCALC_HIT_Lycanthropy_Buff(self, from, skill, atk, ret, bu
 end
 
 function SCR_BUFF_RATETABLE_Lycanthropy_Buff(self, from, skill, atk, ret, rateTable, buff)
-    if IsBuffApplied(from, 'Lycanthropy_Buff') == 'YES' then
-        local addDamageRate = 0.1;
+	local addDamageRate = 0
+	local lycanSkill = GetSkill(from, "Druid_Lycanthropy")
+	if lycanSkill ~= nil then
+		local lycanLevel = TryGetProp(lycanSkill, "Level")
+		
+		addDamageRate = lycanLevel * 0.1
+	end
+	
+	rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
+end
+
+function SCR_BUFF_RATETABLE_transform(self, from, skill, atk, ret, rateTable, buff)
+--    if IsBuffApplied(from, 'transform') == 'YES' then
+--        local addDamageRate = 0;
+--        local isHengeStone = GetExProp(buff, "WITH_HENGE_STONE");
+--        if isHengeStone > 0 then 
+--            addDamageRate = 0.2;
+--        end
+--        
+--        rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
+--    end
+end
+
+function SCR_BUFF_RATETABLE_HengeStone_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, 'HengeStone_Buff') == 'YES' then
+        local addDamageRate = 0;
         local isHengeStone = GetExProp(buff, "WITH_HENGE_STONE");
-        if isHengeStone > 0 then 
-            addDamageRate = 0.3;
+        if isHengeStone > 0 then
+            addDamageRate = 0.1;
+        end
+		
+        if GetClassByStrProp("Job", "CtrlType", "Cleric") ~= nil and TryGetProp(skill, "ClassType") == "Magic" then
+			addDamageRate = 0.2;
         end
         
         rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
     end
 end
 
-function SCR_BUFF_RATETABLE_transform(self, from, skill, atk, ret, rateTable, buff)
-    if IsBuffApplied(from, 'transform') == 'YES' then
-        local addDamageRate = 0;
-        local isHengeStone = GetExProp(buff, "WITH_HENGE_STONE");
-        if isHengeStone > 0 then 
-            addDamageRate = 0.2;
-        end
-        
-        rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
-    end
-end
 
 function SCR_BUFF_ENTER_telepath(self, buff, arg1, arg2, over)
     

@@ -1741,7 +1741,7 @@ function SHOW_MONSTER_HELP(monsterID)
 	txt:SetText(strarg);
 
 	local imgname = "npc_icon_" .. moncls.ClassName;
-	if ui.IsImageExist(imgname) == 1 then
+	if ui.IsImageExist(imgname) == true then
 		local img = tooltipframe:GetChild("img");
 		tolua.cast(img, "ui::CPicture");
 		img:SetImage(imgname);
@@ -3608,11 +3608,14 @@ function SCR_TREASURE_MARK_BYMAP(zoneClassName, xPos, yPos, zPos)
 
 	local mappicturetemp = GET_CHILD(newframe,'map','ui::CPicture')	
 	mappicturetemp:SetImage(zoneClassName);
+	
+	local width = ui.GetImageWidth(zoneClassName .. "_fog");
+	local height = ui.GetImageHeight(zoneClassName .. "_fog");
 
 	local treasureMarkPic = newframe:CreateOrGetControl('picture', 'treasuremark', 0, 0, 32, 32);
 	tolua.cast(treasureMarkPic, "ui::CPicture");
 	treasureMarkPic:SetImage('trasuremapmark');
-	local MapPos = mapprop:WorldPosToMinimapPos(xPos, zPos, 1024, 1024);
+	local MapPos = mapprop:WorldPosToMinimapPos(xPos, zPos, width, height);
 	treasureMarkPic:SetEnableStretch(1);
 
 	local offsetX = mappicturetemp:GetX();
@@ -3653,6 +3656,9 @@ function SCR_TREASURE_MARK_LIST_MAP(zoneClassName, posVec)
 	local mappicturetemp = GET_CHILD(newframe,'map','ui::CPicture')	
 	mappicturetemp:SetImage(zoneClassName);
 	
+	local width = ui.GetImageWidth(zoneClassName .. "_fog");
+	local height = ui.GetImageHeight(zoneClassName .. "_fog");
+
 	local cnt = GetLuaPosCount(posVec);
 	for i = 0 , cnt - 1 do
 		local pos = GetLuaPosByIndex(posVec, i);
@@ -3664,7 +3670,8 @@ function SCR_TREASURE_MARK_LIST_MAP(zoneClassName, posVec)
 		treasureMarkPic:SetImage('trasuremapmark');
 		local mappicturetemp = GET_CHILD(newframe,'map','ui::CPicture')	
 		mappicturetemp:SetImage(zoneClassName);
-		local MapPos = mapprop:WorldPosToMinimapPos(xPos, zPos, 1024, 1024);
+
+		local MapPos = mapprop:WorldPosToMinimapPos(xPos, zPos, width, height);
 		treasureMarkPic:SetEnableStretch(1);
 	
 		local offsetX = mappicturetemp:GetX();
@@ -3761,20 +3768,6 @@ function DIALOG_TEXT_VOICE(flowTextObj)
 		end
 	end
 end
-
--- function COMMON_SHOP_TOGGLE()
-
-
-	-- local shopCommonFrame = ui.GetFrame("shop");
-
-
-	-- if shopCommonFrame:IsVisible() == 1 then
-		-- shopCommonFrame:ShowWindow(0);
-	-- else
-		-- ui.CommonShopToggle();
-	-- end
-
--- end
 
 function GET_RADIOBTN_NUMBER(radioBtn)
 
@@ -4006,6 +3999,7 @@ function UI_MODE_CHANGE(index)
 	local restquickslot = ui.GetFrame('restquickslot')
 	local joystickQuickFrame = ui.GetFrame('joystickquickslot')
 	local joystickrestquickslot = ui.GetFrame('joystickrestquickslot')
+	local flutingFrame = ui.GetFrame('fluting_keyboard')
 	local monQuickslot = ui.GetFrame("monsterquickslot")
 	if joystickQuickFrame == nil then
 		return;
@@ -4035,8 +4029,13 @@ function UI_MODE_CHANGE(index)
 			Set2:ShowWindow(0);	
 		elseif IsJoyStickMode() == 0 then
 			if control.IsRestSit() == true then	
-				quickFrame:ShowWindow(0);
-				restquickslot:ShowWindow(1);
+				if flutingFrame:IsVisible() ~= 1 then
+					quickFrame:ShowWindow(0);
+					restquickslot:ShowWindow(1);
+				else
+					quickFrame:ShowWindow(0);
+					restquickslot:ShowWindow(0);
+				end
 			else
 				quickFrame:ShowWindow(1);
 				restquickslot:ShowWindow(0);
@@ -4091,6 +4090,7 @@ function KEYBOARD_INPUT()
 	local quickFrame = ui.GetFrame('quickslotnexpbar')
 	local restquickslot = ui.GetFrame('restquickslot')
 	local joystickrestquickslot = ui.GetFrame('joystickrestquickslot')
+	local flutingFrame = ui.GetFrame('fluting_keyboard')
 	local monsterquickslot = ui.GetFrame('monsterquickslot')
 	local summoncontrol = ui.GetFrame('summoncontrol')
 	SetJoystickMode(0)
@@ -4113,7 +4113,11 @@ function KEYBOARD_INPUT()
 		if monsterquickslot:IsVisible() ~= 1 then
 			if control.IsRestSit() == true then
 				quickFrame:ShowWindow(0);
-				restquickslot:ShowWindow(1);
+				if flutingFrame:IsVisible() ~= 1 then
+					restquickslot:ShowWindow(1);
+				else
+					restquickslot:ShowWindow(0);
+				end
 			else
 				quickFrame:ShowWindow(1);
 				restquickslot:ShowWindow(0);
@@ -4142,6 +4146,7 @@ function JOYSTICK_INPUT()
 	local joystickQuickFrame = ui.GetFrame('joystickquickslot')
 	local joystickrestquickslot = ui.GetFrame('joystickrestquickslot')
 	local restquickslot = ui.GetFrame('restquickslot')
+	local flutingFrame = ui.GetFrame('fluting_keyboard')
 	local monsterquickslot = ui.GetFrame('monsterquickslot')
 	local summoncontrol = ui.GetFrame('summoncontrol')
 	SetJoystickMode(1)
@@ -4162,8 +4167,13 @@ function JOYSTICK_INPUT()
 		
 		if monsterquickslot:IsVisible() ~= 1 then
 			if control.IsRestSit() == true then
-				joystickQuickFrame:ShowWindow(0);
-				joystickrestquickslot:ShowWindow(1);
+				if flutingFrame:IsVisible() ~= 1 then
+					joystickQuickFrame:ShowWindow(0);
+					joystickrestquickslot:ShowWindow(1);
+				else
+					joystickQuickFrame:ShowWindow(0);
+					joystickrestquickslot:ShowWindow(0);
+				end
 			else
 				joystickQuickFrame:ShowWindow(1);
 				joystickrestquickslot:ShowWindow(0);

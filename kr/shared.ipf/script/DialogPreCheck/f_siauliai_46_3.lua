@@ -41,3 +41,143 @@ function SCR_SIAULIAI_46_3_SQ_04_FARM_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+function SCR_CHAR312_MSTEP1_OBJ1_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ2_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ3_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ4_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ5_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ6_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ7_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ8_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ9_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ10_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ11_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ12_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ13_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR312_MSTEP1_OBJ14_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end

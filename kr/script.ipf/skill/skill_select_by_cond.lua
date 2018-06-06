@@ -79,6 +79,16 @@ function SKL_SELECT_BUFF(self, skill, buffName)
 	end
 end
 
+function SKL_SELECT_SKILL(self, skill, skillName)
+
+	local skl = GetSkill(self, skillName);
+	if skl ~= nil then
+		return 1;
+	else
+		return 0;
+	end
+end
+
 function SKL_SELECT_ABIL(self, skill, abilName)
 
 	local abil = GetAbility(self, abilName);

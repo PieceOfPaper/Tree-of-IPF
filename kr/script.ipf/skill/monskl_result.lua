@@ -124,14 +124,9 @@ function S_R_EXPLODE_KNOCKDOWN(self, target, skill, ret, knockType, range, power
     EndSyncPacket(self, key, delaySec); 
 end
 
-function S_R_EXPLODE_DAMAGE_AR(self, target, skill, ret, eft, eftScale, area, damRate, delaySec)
+function S_R_EXPLODE_DAMAGE_AR(self, target, skill, ret, eft, eftScale, dist, width, maxCount, damRate, delaySec, randomTargetList)
     if GetVisitIndex(ret) ~= 0 then
         return;
-    end
-    
-    local Fletcher5_abil = nil;
-    if skill.ClassName == 'Fletcher_CrossFire' then
-        Fletcher5_abil = GetAbility(self, 'Fletcher5');
     end
     
     local damage = SCR_LIB_ATKCALC_RH(self, skill);
@@ -147,26 +142,39 @@ function S_R_EXPLODE_DAMAGE_AR(self, target, skill, ret, eft, eftScale, area, da
     local key = GetSkillSyncKey(self, ret);
     StartSyncPacket(self, key);
     
-    local objList, cnt = SelectObjectByArea(self, target, area, "ENEMY", 0, 0);
-    if cnt >= 10 then
-        cnt = 10
+    local x, y, z = GetPos(target);
+    local angle = { 0, 90, 180, 270 }
+    
+    AddScpObjectList(self, "SCP_S_R_EXPLODE_DAMAGE_AR_LIST", target);
+    for j = 1 , #angle do
+        SKL_SET_TARGET_SQUARE(self, skill, x, y, z, angle[j], dist, width, maxCount, "ENEMY", 0, 0, 0)
+        local tgtList = GetHardSkillTargetList(self);
+        if #tgtList >= 1 then
+            for k = 1, #tgtList do
+                local tgt = tgtList[k];
+                AddScpObjectList(self, "SCP_S_R_EXPLODE_DAMAGE_AR_LIST", tgt);
+            end
+        end
+        ClearHardSkillTarget(self);
+    end
+    
+    local objList = GetScpObjectList(self, "SCP_S_R_EXPLODE_DAMAGE_AR_LIST");
+    local cnt = #objList;
+    if cnt > maxCount then
+        cnt = maxCount;
     end
     
     if cnt >= 1 then
+        if randomTargetList ~= nil and randomTargetList == 1 then
+		    objList = SCR_ARRAY_SHUFFLE(objList);
+	    end
         for i = 1 , cnt do
             local obj = objList[i];
             local spciRate = GetExProp(self, "SPCI_RATE_DAM");
             SetExProp(self, "SPCI_RATE_DAM", spciRate + damRate);
-            
             SetExProp(obj, 'S_R_EXPLODE_DAMAGE', 1);
-    --        TakeDamage(self, obj, "None", damage);
             TakeDamage(self, obj, skill.ClassName, damage, skill.Attribute, "Melee", skill.ClassType, skill.HitType, HITRESULT_NO_HITSCP);
             DelExProp(obj, 'S_R_EXPLODE_DAMAGE');
-            if Fletcher5_abil ~= nil then
-                if IMCRandom(0, 9999) < Fletcher5_abil.Level * 1000 then
-                    AddBuff(self, objList[i], 'CrossFire_Debuff', (self.MAXPATK + self.MINPATK)/20, 0, 6000, 0);
-                end
-            end
         end
     end
     
@@ -175,6 +183,8 @@ function S_R_EXPLODE_DAMAGE_AR(self, target, skill, ret, eft, eftScale, area, da
     PlayEffectToGround(self, eft, x, y, z, eftScale, 0.0, 0.0, GetDirectionByAngle(self));
     EndSyncPacket(self, key, delaySec); 
     DelExProp(target, 'S_R_EXPLODE_DAMAGE');
+    
+    ClearScpObjectList(self, "SCP_S_R_EXPLODE_DAMAGE_AR_LIST");
 end
 
 -- ??스 반사
@@ -679,15 +689,7 @@ function S_R_ADD_DROP_WOOD(self, target, skill, ret, itemCount, probability)
     for i = 1 , itemCount do
         local random_item = IMCRandom(0, 100)
         if random_item <= probability then
-            local itemName = "wood_01";
-            local woodrand = IMCRandom(0,3)
-            if woodrand == 1 then
-                itemName = "wood_02";
-            elseif woodrand == 2 then
-                itemName = "wood_03";
-            elseif woodrand == 3 then
-                itemName = "wood_04";
-            end
+            local itemName = "wood_06";
             
             CREATE_DROP_ITEM(self, itemName, self)
         end

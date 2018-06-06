@@ -28,7 +28,7 @@ end
 function SCR_ACT_SMOM_NORMAL_1(self,pc)
 	local item1 = GetInvItemCount(pc, "CHAR120_MSTEP5_1_ITEM")
 	local item2 = GetInvItemCount(pc, "food_029")
-	if item1 >= 130 and item2 >= 100 then
+	if item1 >= 100 and item2 >= 100 then
 	    local sel = ShowSelDlg(pc, 0, 'CHAR120_MSTEP5_1_DLG1', ScpArgMsg("HIDDEN_CHAR120_MSTEP5_1_COMP_MSG"))
 	    if sel == 1 then
 	        local sObj = GetSessionObject(pc, "SSN_NAKMUAY_UNLOCK")

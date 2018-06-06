@@ -210,6 +210,12 @@ function BEAUTYSHOP_SIMPLELIST_DRAW_ITEM_DETAIL(ctrlset, itemCls, info)
     if hairPrice ~= nil then
       rtNxp:SetText(hairPrice..' + '..dyePrice..' TP');
       totalPrice = hairPrice + dyePrice;
+
+      local frame = ctrlSet:GetTopParentFrame();
+      frame:SetUserValue('PRICE_INFO_IDSPACE', priceInfo.IDSpace);
+      frame:SetUserValue('PRICE_INFO_CLASSNAME', priceInfo.ClassName);
+      frame:SetUserValue('PRICE_INFO_COLORCLASSNAME', priceInfo.ColorClassName);
+      frame:SetUserValue('PRICE_INFO_COLORENGNAME', priceInfo.ColorEngName);
     else
       rtNxp:SetText(price..' TP');
       totalPrice = price;
@@ -419,8 +425,23 @@ function BEAUTYSHOP_SIMPLELIST_APPLY_COUPON(frame, slotsetName)
   if slot == nil then -- cancel
     textCtrl:SetTextByKey('value', '0');    
   else -- apply
-    local rtBasketTP = GET_CHILD_RECURSIVELY(frame, 'rtBasketTP');
+
+    local pc = GetMyPCObject();
+    local priceInfo = {
+      IDSpace = frame:GetUserValue('PRICE_INFO_IDSPACE'),
+      ClassName = frame:GetUserValue('PRICE_INFO_CLASSNAME'),
+      ColorClassName = frame:GetUserValue('PRICE_INFO_COLORCLASSNAME'),
+      ColorEngName = frame:GetUserValue('PRICE_INFO_COLORENGNAME'),
+    };
     local couponCls = GetClass('Item', slot:GetUserValue('COUPON_CLASS_NAME'));
+    local hairCoupon, dyeCoupon;
+    if type == 'HAIR' then
+      hairCoupon = couponCls;
+    else
+      dyeCoupon = couponCls;
+    end    
+    local dummy1, dummy2, dummy3, hairDiscountValue, dyeDiscountValue = GET_BEAUTYSHOP_ITEM_PRICE(pc, priceInfo, hairCoupon, dyeCoupon);
+    local rtBasketTP = GET_CHILD_RECURSIVELY(frame, 'rtBasketTP');
     local price = GET_TOTAL_ITEM_PRICE_BY_TYPE(frame, type);
     if price < 1 then
       ui.SysMsg(ClMsg('NotExistApplyTargetTP'));
@@ -428,7 +449,13 @@ function BEAUTYSHOP_SIMPLELIST_APPLY_COUPON(frame, slotsetName)
       return;
     end
 
-    textCtrl:SetTextByKey('value', '-'..math.floor( (price / 100 * couponCls.NumberArg1) + 0.5));
+    local discountValue = 0;
+    if type == 'HAIR' then
+      discountValue = hairDiscountValue;
+    else
+      discountValue = dyeDiscountValue;
+    end
+    textCtrl:SetTextByKey('value', '-'..discountValue);
     useCouponGuid = slot:GetUserValue('COUPON_GUID');
   end
   slotset:SetUserValue('USE_COUPON_GUID', useCouponGuid);

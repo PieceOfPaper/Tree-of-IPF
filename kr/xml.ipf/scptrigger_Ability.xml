@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jung (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <SpcItemList>
 	<SpcItem Name="HPPOSIONBOOST">
 		<TriggerList Act="Consume">
@@ -486,37 +486,6 @@
 						<Num Num="0"/>
 						<Num Num="2"/>
 						<Num Num="2"/>
-					</ToolScp>
-				</TgtExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Priest10">
-		<TriggerList Act="Attack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_ITEM_CLASSTYPE" Client="NO" UseSleep="NO">
-						<Str Str="Mace"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-						<Str Str="ENEMY"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Hammer_Attack"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
-						<Str Str="Priest10"/>
-					</ToolScp>
-				</CondList>
-				<TgtExecList>
-					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
-						<Str Str="Stun"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="2000"/>
-						<Num Num="1"/>
-						<Num Num="100" UseFunc="1" FuncTxt="return obj.Level * 2;"/>
-						<Num Num="-1"/>
 					</ToolScp>
 				</TgtExecList>
 			</Trigger>

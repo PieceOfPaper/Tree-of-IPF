@@ -8,7 +8,7 @@
     <option visible="false" hideable="false" closebutton="false"/>
     <input hittestframe="false"/>
     <animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
-    <script CloseScp="CLOSE_REST_QUICKSLOT"/>
+    <script OpenScp="OPEN_REST_QUICKSLOT" CloseScp="CLOSE_REST_QUICKSLOT"/>
     <controls>
         <picture name="slot_bg" rect="0 0 410 120" margin="0 0 0 -300" layout_gravity="center bottom" hittest="false" image="slot_bg"/>
         <picture name="rest_R2" rect="0 0 150 110" margin="280 0 0 -2009" layout_gravity="center bottom" hittest="false" image="rest_R2"/>

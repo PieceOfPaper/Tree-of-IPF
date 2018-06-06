@@ -530,7 +530,8 @@ function ITEMOPTIONEXTRACT_EXEC(frame)
 		clmsg = ScpArgMsg("ItemOptionExtractMessage_3")
 	end
 
-	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMOPTIONEXTRACT_EXEC", "_ITEMOPTIONEXTRACT_CANCEL");
+--	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMOPTIONEXTRACT_EXEC", "_ITEMOPTIONEXTRACT_CANCEL");
+	WARNINGMSGBOX_FRAME_OPEN(clmsg, "_ITEMOPTIONEXTRACT_EXEC", "_ITEMOPTIONEXTRACT_CANCEL")
 end
 
 function _ITEMOPTIONEXTRACT_CANCEL()

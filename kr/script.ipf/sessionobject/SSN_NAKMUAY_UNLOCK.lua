@@ -45,15 +45,17 @@ function SCR_NAKMUAY_UNLOCK_KillMonster(self, sObj, msg, argObj, argStr, argNum)
             if argObj.ClassName == "jellyfish_red" then
                 local item = GetInvItemCount(self, "CHAR120_MSTEP5_1_ITEM")
                 local ran = IMCRandom(1, 1000)
-                if item < 130 then
+                if item < 100 then
                     sObj.Goal1 = sObj.Goal1 + 1
-                    if sObj.Goal1 >= 55 then
-                        RunZombieScript("GIVE_ITEM_TX", self, "CHAR120_MSTEP5_1_ITEM", 1, "Quest_HIDDEN_NAKMUAY")
+                    if sObj.Goal1 >= 15 then
+                        local item_cnt = SCR_JELLYFISH_RED_GIVE(self)
+                        RunZombieScript("GIVE_ITEM_TX", self, "CHAR120_MSTEP5_1_ITEM", item_cnt, "Quest_HIDDEN_NAKMUAY")
                         sObj.Goal1 = 0
                         return
                     end
-                    if ran <= 19 then
-                        RunZombieScript("GIVE_ITEM_TX", self, "CHAR120_MSTEP5_1_ITEM", 1, "Quest_HIDDEN_NAKMUAY")
+                    if ran <= 90 then
+                        local item_cnt = SCR_JELLYFISH_RED_GIVE(self)
+                        RunZombieScript("GIVE_ITEM_TX", self, "CHAR120_MSTEP5_1_ITEM", item_cnt, "Quest_HIDDEN_NAKMUAY")
                         sObj.Goal1 = 0
                     end
                 else
@@ -68,7 +70,6 @@ function SCR_NAKMUAY_UNLOCK_KillMonster(self, sObj, msg, argObj, argStr, argNum)
                 local item = GetInvItemCount(self, "CHAR120_MSTEP5_3_ITEM1")
                 if item < 100 then
                     sObj.Goal2 = sObj.Goal2 + 1
-                    --print(sObj.Goal2)
                     if sObj.Goal2 >= 72 then
                         RunZombieScript("GIVE_ITEM_TX", self, "CHAR120_MSTEP5_3_ITEM1", 1, "Quest_HIDDEN_NAKMUAY")
                         sObj.Goal2 = 0
@@ -89,7 +90,6 @@ function SCR_NAKMUAY_UNLOCK_KillMonster(self, sObj, msg, argObj, argStr, argNum)
                 if argObj.ClassName == "Repusbunny" or argObj.ClassName == "Lemuria" or argObj.ClassName == "Rubabos" then
                     local ran = IMCRandom(1, 1000)
                     local item = GetInvItemCount(self, "CHAR120_MSTEP5_4_ITEM3")
-                    --print("1111111111111", item, ran)
                     if item < 3 then
                         sObj.Goal3 = sObj.Goal3 + 1
                         if sObj.Goal3 >= 72 then
@@ -163,7 +163,6 @@ function NAKMUAY_DANDELION_TIME_CHECK(self, sObj, _String1, _String2, _Goal)
                         local mon = CREATE_MONSTER_EX(self, 'farm47_dandelion_01', string_cut_list2[1], string_cut_list2[2], string_cut_list2[3], 0, 'Neutral', 0, SCR_NAKMUAY_DANDELION_SET)
                         AddVisiblePC(mon, self, 1)
                         mon.StrArg1 = "sObj.".._Goal
-                        --print(mon.StrArg1)
                         AddScpObjectList(self, "CHAR120_DANDELION".._Goal, mon);
                     end
                     if #flower >= 2 then
@@ -211,4 +210,13 @@ function SCR_NAKMUAY_DANDEL_DLG_DIALOG(self, pc)
             end
         end
     end
+end
+
+function SCR_JELLYFISH_RED_GIVE(pc)
+    local ran2 = IMCRandom(1, 100)
+    local itemcnt = 1
+    if ran2 <= 8 then
+        itemcnt = 3
+    end
+    return itemcnt
 end

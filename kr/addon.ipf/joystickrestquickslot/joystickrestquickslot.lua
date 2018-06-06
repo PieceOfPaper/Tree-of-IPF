@@ -240,3 +240,9 @@ function UPDATE_JOYSTICK_REST_INPUT(frame)
 	end
 
 end
+
+function OPEN_JOYSTICK_REST_QUICKSLOT(frame)
+end
+
+function CLOSE_JOYSTICK_REST_QUICKSLOT(frame)
+end

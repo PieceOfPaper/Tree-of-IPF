@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClaimCodes Name="ClaimCodes">  
+  <Class Code="1" Desc="길드 해산"/>
+  <Class Code="2" Desc="마스터 운영권 이양"/>
+  <Class Code="3" Desc="직급에 권한 부여"/>
+  <Class Code="4" Desc="직급 신설/삭제"/>
+  <Class Code="5" Desc="길드명 변경"/>
+  <Class Code="6" Desc="콜로니전 참가/미참가 설정"/>
+
+  <Class Code="10" Desc="길드원 추방"/>
+  <Class Code="11" Desc="길드원 초대"/>
+  <Class Code="12" Desc="길드 성장"/>
+  <Class Code="13" Desc="길드 특성 설정"/>
+  <Class Code="14" Desc="길드 타워 철거"/>
+  <Class Code="15" Desc="엠블렘 교체"/>
+  <Class Code="16" Desc="배너 교체"/>
+  <Class Code="17" Desc="직급 임명"/>
+  <Class Code="19" Desc="길드 가입 신청서 수락"/>
+
+  <!-- don't delate and modify (default) string -->
+  <Class Code="103" Desc="길드 자금 입금(default)"/>
+  
+  <Class Code="202" Desc="공지 쓰기"/>
+  <Class Code="203" Desc="홍보글 쓰기"/>
+  <Class Code="204" Desc="커뮤니티 글 보기(default)"/>
+  <Class Code="205" Desc="커뮤니티 글 작성"/>
+
+  <Class Code="301" Desc="전쟁 선포/해제"/>
+  <Class Code="302" Desc="길드 전쟁 중십 설정/해제"/>
+  <Class Code="303" Desc="전쟁 중인 상대 길드 목록 보기"/>
+  
+  <Class Code="401" Desc="길드 퀘스트 시작"/>
+  <Class Code="402" Desc="길드 아지트 외부인 입장 설정"/>
+  <Class Code="403" Desc="아지트 농장 사용"/>
+  <Class Code="404" Desc="아지트 컴패니언 육성"/>
+</ClaimCodes>

@@ -779,6 +779,13 @@ function BEAUTYSHOP_UPDATE_ITEM_LIST(itemList, itemCount)
   end
 
   function IS_NEED_TO_SHOW_BEAUTYSHOP_ITEM(frame, item, beautyItemInfo)
+	local beautyShopCls = GetClass(beautyItemInfo.IDSpace, beautyItemInfo.ClassName);
+    if beautyShopCls.SellStartTime ~= 'None' and beautyShopCls.SellEndTime ~= 'None' then
+    	if IS_CURREUNT_IN_PERIOD(beautyShopCls.SellStartTime, beautyShopCls.SellEndTime, true) == false then
+    		return false;
+    	end
+    end
+
 	local editInput = GET_CHILD_RECURSIVELY(frame, 'editInput');
 	local searchText = editInput:GetText();
 	if searchText ~= nil and searchText ~= '' then
@@ -791,8 +798,7 @@ function BEAUTYSHOP_UPDATE_ITEM_LIST(itemList, itemCount)
 
 	local selectedCategory = frame:GetUserValue('SELECTED_CATEGORY');
 	if selectedCategory ~= 'None' then
-		local beautyshopCls = GetClass(beautyItemInfo.IDSpace, beautyItemInfo.ClassName);
-		if beautyshopCls.Category ~= selectedCategory then
+		if beautyShopCls.Category ~= selectedCategory then
 			return false;
 		end
 	end
@@ -1436,11 +1442,43 @@ function BEAUTYSHOP_DETAIL_TAG(ctrlset, itemCls, beautyShopCls)
 	local isHot_mark = GET_CHILD(ctrlset, 'isHot_mark');
 	local isRec_mark = GET_CHILD(ctrlset, 'isRec_mark');
 	local isSale_mark = GET_CHILD(ctrlset, 'isSale_mark');
+	local isLimit_mark = GET_CHILD(ctrlset, 'isLimit_mark');
 
 	isNew_mark:ShowWindow(IS_NEED_TO_SHOW_BEAUTYSHOP_NEW_MARK(beautyShopCls));
 	isHot_mark:ShowWindow(IS_NEED_TO_SHOW_BEAUTYSHOP_HOT_MARK(beautyShopCls));
 	isRec_mark:ShowWindow(IS_NEED_TO_SHOW_BEAUTYSHOP_RECOMMEND_MARK(beautyShopCls));
 	isSale_mark:ShowWindow(IS_NEED_TO_SHOW_BEAUTYSHOP_SALE_MARK(beautyShopCls));
+	isLimit_mark:ShowWindow(IS_NEED_TO_SHOW_BEAUTYSHOP_LIMIT_MARK(beautyShopCls));
+	BEAUTYSHOP_DETAL_TIME_LIMIT(ctrlset, isLimit_mark, beautyShopCls.SellEndTime);
+end
+
+function BEAUTYSHOP_DETAL_TIME_LIMIT(ctrlset, isLimit_mark, limitTimeStr)
+	local time_limited_bg = GET_CHILD(ctrlset, 'time_limited_bg');
+	local time_limited_text = GET_CHILD(ctrlset, 'time_limited_text');
+	time_limited_bg:ShowWindow(isLimit_mark:IsVisible());
+	time_limited_text:ShowWindow(isLimit_mark:IsVisible());
+
+	if isLimit_mark:IsVisible() == 1 then
+		local convertedTimestamp, runyear, runmonth, runday, runhour, runminute, runseconds = CONVERT_DATESTR_TO_TIME_STAMP(limitTimeStr);
+		local targetTimeStr = string.format('%04d%02d0%02d%02d%02d%02d', runyear, runmonth, runday, runhour, runminute, runseconds);
+		time_limited_text:SetUserValue('TARGET_TIME', targetTimeStr);		
+		time_limited_text:RunUpdateScript('SHOW_REMAIN_BEAUTYSHOP_SALE_TIME');
+	end
+end
+
+function SHOW_REMAIN_BEAUTYSHOP_SALE_TIME(ctrl)
+	local targetTimeStr = ctrl:GetUserValue('TARGET_TIME');
+	local targetSysTime = imcTime.GetSysTimeByStr(targetTimeStr);
+	local curSysTime = GET_CURRENT_SYSTEMTIME(true);
+	local remainEndTime = imcTime.GetDifSec(targetSysTime, curSysTime);		
+	if remainEndTime == nil or 0 > remainEndTime then		
+		BEAUTYSHOP_UPDATE_ITEM_LIST_BY_SHOP(ctrl:GetTopParentFrame());
+		return 0;
+	end
+
+	local timeTxt = GET_TIME_TXT(remainEndTime);
+	ctrl:SetTextByKey("remainTime", timeTxt);
+	return 1;
 end
 
 LIMIT_NEW_ITEM_SEC = 60 * 60 * 24 * 14; -- 2주
@@ -1482,6 +1520,13 @@ end
 
 function IS_NEED_TO_SHOW_BEAUTYSHOP_SALE_MARK(beautyShopCls)
 	if beautyShopCls.PriceRatio > 0 then
+		return 1;
+	end
+	return 0;
+end
+
+function IS_NEED_TO_SHOW_BEAUTYSHOP_LIMIT_MARK(beautyShopCls)	
+	if beautyShopCls.SellStartTime ~= 'None' and beautyShopCls.SellEndTime ~= 'None' and IS_CURREUNT_IN_PERIOD(beautyShopCls.SellStartTime, beautyShopCls.SellEndTime, true) == true then		
 		return 1;
 	end
 	return 0;

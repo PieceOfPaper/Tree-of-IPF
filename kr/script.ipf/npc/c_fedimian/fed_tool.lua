@@ -23,7 +23,61 @@ function SCR_FED_TOOL_NORMAL_1(self,pc)
 	ShowTradeDlg(pc, 'Fedimian_Misc', 5);
 end
 
+function SCR_FED_TOOL_NORMAL_2_PRE(pc)
+    --PIED_PIPER_HIDDEN
+    if IS_KOR_TEST_SERVER() then
+        return 'NO'
+    else
+        local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+        if prop <= 100 then
+            return 'YES'
+        end
+    end
+end
 
+function SCR_FED_TOOL_NORMAL_2(self, pc)
+    --PIED_PIPER_HIDDEN
+    if IS_KOR_TEST_SERVER() then
+        return
+    else
+        local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char3_12')
+        if is_unlock == "NO" then
+            local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+            if prop < 10 then
+                local sel1 = ShowSelDlg(pc, 1, "CHAR312_PRE_MSTEP1_DLG1", ScpArgMsg("CHAR312_PRE_MSTEP1_TXT1"), ScpArgMsg("CHAR312_PRE_MSTEP1_TXT3"))
+                if sel1 == 1 then
+                    local sel2 = ShowSelDlg(pc, 1, "CHAR312_PRE_MSTEP1_DLG2", ScpArgMsg("CHAR312_PRE_MSTEP1_TXT2"), ScpArgMsg("CHAR312_PRE_MSTEP1_TXT3"))
+                    if sel2 == 1 then
+                        local tx = TxBegin(pc)
+                        if isHideNPC(pc, "CHAR312_PRE_MSTEP1_SOLDIER1") == "YES" then
+                            TxUnHideNPC(tx, 'CHAR312_PRE_MSTEP1_SOLDIER1')
+                        end
+                        local ret = TxCommit(tx)
+                        if ret == "SUCCESS" then
+                            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char3_12', 10)
+                            ShowOkDlg(pc, "CHAR312_PRE_MSTEP1_DLG3", 1)
+                            sleep(500)
+                            ShowBalloonText(pc, 'CHAR312_PRE_MSTEP1_DLG_START', 7)
+                        else
+                            return
+                        end
+        	        else
+        	            ShowOkDlg(pc, "CHAR312_PRE_MSTEP1_DLG_CANCLE", 1)
+        	        end
+                else
+                    ShowOkDlg(pc, "CHAR312_PRE_MSTEP1_DLG_CANCLE", 1)
+                end
+            else
+                ShowOkDlg(pc, "CHAR312_PRE_MSTEP1_DLG4", 1)
+                sleep(500)
+                ShowBalloonText(pc, 'CHAR312_PRE_MSTEP1_DLG_START', 7)
+            end
+        else
+            return
+        end
+    end
+
+end
 
 function SCR_BLACKSMITH_FEDIMIAN_DIALOG(self,pc,isQuest)
    COMMON_QUEST_HANDLER(self,pc);

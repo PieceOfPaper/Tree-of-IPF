@@ -529,7 +529,8 @@ function ITEMTRANSCEND_EXEC(frame)
 	end	
 
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_BTN_OK_SOUND"));
-	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL");			
+	--ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL");	
+	WARNINGMSGBOX_FRAME_OPEN(clmsg, "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL")		
 end
 
 function _ITEMTRANSCEND_CANCEL()

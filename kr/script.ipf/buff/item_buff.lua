@@ -3465,3 +3465,11 @@ function SCR_BUFF_LEAVE_BEAUTY_HAIR_BUY_BUFF(self, buff, arg1, arg2, over)
     self.LootingChance_BM = self.LootingChance_BM - 50;
 end
 
+
+function SCR_BUFF_ENTER_PET_WEDDING_BIRD_BUFF(self, buff, arg1, arg2, over)
+    self.Fire_Atk_BM = self.Fire_Atk_BM + 120;
+end
+
+function SCR_BUFF_LEAVE_PET_WEDDING_BIRD_BUFF(self, buff, arg1, arg2, over)
+    self.Fire_Atk_BM = self.Fire_Atk_BM - 120;
+end

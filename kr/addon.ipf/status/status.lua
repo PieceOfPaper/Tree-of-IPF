@@ -894,6 +894,10 @@ function STATUS_INFO()
     if returnY ~= y then
         y = returnY + 3;
     end
+    returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "HEAL_PWR", y);
+    if returnY ~= y then
+        y = returnY + 3;
+    end
     returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "SR", y);
     if returnY ~= y then
         y = returnY + 3;

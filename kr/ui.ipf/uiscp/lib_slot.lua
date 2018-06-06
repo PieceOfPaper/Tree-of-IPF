@@ -19,10 +19,13 @@ function SET_SLOT_ITEM_INFO(slot, itemCls, count, style)
 	end
     local iconImageName = GET_EQUIP_ITEM_IMAGE_NAME(itemCls, 'Icon');
     if style == nil then
-        style = '{s12}{ol}{b}'
+        style = '{s20}{ol}{b}'
     end
 	icon:Set(iconImageName, "item", itemCls.ClassID, count);
-	slot:SetText(style..count, 'count', 'right', 'bottom', -2, 1);
+	if itemCls.ItemType ~= "Equip" then
+		slot:SetText(style..count, 'count', 'right', 'bottom', -2, 1);
+	end
+
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
 	return icon;
 end
@@ -117,7 +120,7 @@ end
 function SET_SLOT_ITEM(slot, invItem, count)
 
 	local itemCls = GetClassByType("Item", invItem.type);
-
+print("SET_SLOT_ITEM")
 	local type = itemCls.ClassID;
 	local obj = GetIES(invItem:GetObject());
 	local img = GET_ITEM_ICON_IMAGE(obj);
@@ -231,6 +234,131 @@ function SET_SLOT_COUNT_TEXT(slot, cnt, font, hor, ver, stateX, stateY)
 		end
 		
 		slot:SetText(font..cnt, 'count', hor, ver, stateX, stateY);
+end
+
+function SET_SLOT_STYLESET(slot, itemCls)
+	if slot == nil then
+		return
+	end
+
+	if itemCls == nil then
+		return
+	end
+
+	SET_SLOT_BG_BY_ITEMGRADE(slot, itemCls.ItemGrade)
+	SET_SLOT_TRANSCEND_LEVEL(slot, TryGetProp(itemCls, 'Transcend'))
+	local needAppraisal = nil
+	local needRandomOption = nil
+	if itemCls ~= nil then
+		needAppraisal = TryGetProp(itemCls, "NeedAppraisal");
+		needRandomOption = TryGetProp(itemCls, "NeedRandomOption");
+	end
+
+	SET_SLOT_NEED_APPRAISAL(slot, needAppraisal, needRandomOption)
+	SET_SLOT_REINFORCE_LEVEL(slot, TryGetProp(itemCls, 'Reinforce_2'))
+end
+
+
+function SET_SLOT_TRANSCEND_LEVEL(slot, transcendLv)
+	if slot == nil then
+		return
+	end 
+
+	DESTROY_CHILD_BYNAME(slot, "styleset_transcend")
+	
+	if transcendLv == nil or transcendLv == 0 then
+		return
+	end
+
+	local icon = slot:GetIcon()
+	if icon == nil then
+		return
+	end
+
+	local styleSet = slot:CreateOrGetControlSet('itemslot_transcend_styleset', "styleset_transcend", 0, 0)
+
+	local imgName = "itemslot_star_icon_" .. transcendLv
+	local starIcon = GET_CHILD_RECURSIVELY(styleSet, "starIcon")
+	if starIcon == nil then
+		return
+	end
+
+	starIcon:SetImage(imgName)
+	
+end
+
+function SET_SLOT_BG_BY_ITEMGRADE(slot, itemgrade)
+	local skinName = "invenslot_nomal"
+	if slot == nil then
+		return
+	end
+	if itemgrade == nil or itemgrade == 0 or itemgrade == 1 or itemgrade == "None" then
+		slot:SetSkinName(skinName)
+		return
+	end
+		
+	if itemgrade == 2 then
+		skinName = "invenslot_magic"
+	elseif itemgrade == 3 then
+		skinName = "invenslot_rare"
+	elseif itemgrade == 4 then
+		skinName = "invenslot_unique"
+	elseif itemgrade == 5 then
+		skinName = "invenslot_legend"
+	end
+
+	slot:SetSkinName(skinName)
+	
+end
+
+function SET_SLOT_NEED_APPRAISAL(slot, needAppraisal, needRandomOption)
+	if slot == nil then
+		return
+	end
+
+	DESTROY_CHILD_BYNAME(slot, "styleset_appraisal")
+
+	if needAppraisal == nil and needRandomOption == nil then
+		return
+	end
+
+	local icon = slot:GetIcon()
+	if icon == nil then
+		return
+	end
+
+	if needAppraisal == 1 or needRandomOption == 1 then
+		local styleSet = slot:CreateOrGetControlSet('itemslot_appraisal_styleset', "styleset_appraisal", 0, 0)
+		icon:SetColorTone("FFFF0000")
+		local temp = GET_CHILD_RECURSIVELY(slot, "styleset_appraisal")
+	else
+		DESTROY_CHILD_BYNAME(slot, "styleset_appraisal")
+	end
+end
+
+function SET_SLOT_REINFORCE_LEVEL(slot, reinforceLv)
+	if slot == nil then
+		return
+	end
+
+	DESTROY_CHILD_BYNAME(slot, "styleset_reinforce")
+
+	if reinforceLv == nil or reinforceLv == 0 then
+		return
+	end
+
+	local icon = slot:GetIcon()
+	if icon == nil then
+		return
+	end
+
+	local styleSet = slot:CreateOrGetControlSet('itemslot_reinforce_styleset', "styleset_reinforce", 0, 0)
+	local levelText = GET_CHILD_RECURSIVELY(styleSet, "levelText")
+	if levelText == nil then
+		return
+	end
+
+	levelText:SetTextByKey("level", reinforceLv)
 end
 
 function SET_SLOT_ITEM_TEXT(slot, invItem, obj)

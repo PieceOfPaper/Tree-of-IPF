@@ -149,6 +149,10 @@ function SCR_JOB_2_KRIVIS_NPC_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Kriwi")
 end
 
+function SCR_JOB_2_KRIVIS_NPC_NORMAL_2(self,pc)
+    ShowTradeDlg(pc, 'Master_Kriwi', 5);
+end
+
 function SCR_JOB_2_PRIEST_NPC_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Priest")
 end
@@ -181,9 +185,9 @@ function SCR_JOB_2_PALADIN_NPC_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Paladin")
 end
 
-
-
-
+function SCR_JOB_2_PALADIN_NPC_NORMAL_2(self,pc)
+    ShowTradeDlg(pc, 'Master_Paladin', 5);
+end
 
 function SCR_JOB_2_WIZARD_MASTER_DIALOG(self,pc)
 	COMMON_QUEST_HANDLER(self,pc)
@@ -427,6 +431,10 @@ end
 
 function SCR_JOB_2_QUARRELSHOOTER_MASTER_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_QuarrelShooter")
+end
+
+function SCR_JOB_2_QUARRELSHOOTER_MASTER_NORMAL_2(self,pc)
+    ShowTradeDlg(pc, 'Master_QuarrelShooter', 5);
 end
 
 function SCR_JOB_2_SAPPER_MASTER_NORMAL_1(self,pc)

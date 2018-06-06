@@ -288,7 +288,7 @@ function SCR_KABBALLIST_MULTIPLE_HITS_DAMAGE(self, from, skl, damage, ret)
     end
     local arg1, arg2 = GetBuffArg(buff);
     
-    arg1 = arg1 * 0.1;
+    arg1 = arg1 * 0.08;
     
     ret.Damage = 0;
     local val = GetExProp(self, "CAVAL_VALUE");

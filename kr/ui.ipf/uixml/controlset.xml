@@ -4218,6 +4218,9 @@
 			<picture name="isHot_mark" margin="0 94 0 0" rect="0 0 72 34" hittest="false" image="hot_mark_K" changecursor="false" layout_gravity="left top"/>
 			<picture name="isRec_mark" margin="0 128 0 0" rect="0 0 72 34" hittest="false" image="barbershop_couponbook_stamp" changecursor="false" layout_gravity="left top"/>
 			<picture name="isSale_mark" margin="0 162 0 0" rect="0 0 72 34" hittest="false" image="sale_mark_K" changecursor="false" layout_gravity="left top"/>
+			<picture name="isLimit_mark" margin="0 60 0 0" rect="0 0 72 34" hittest="false" image="limit_mark_K" changecursor="false" layout_gravity="left top"/>
+			<picture name="time_limited_bg" margin="0 60 2 0" rect="0 0 150 25 " layout_gravity="right top" hittest="false" image="LimitedPeriod_timebg"/>
+			<richtext name="time_limited_text" format="{img test_cooltime 20 20}%s{/}" param1="remainTime" param1_def="일시분" margin="0 62 6 0 " rect="0 0 140 25 " layout_gravity="right top" hittest="false" fontname="limitedsale"/>
 		</controls>
 	</controlset>
 	<controlset name="beautyshop_list_item" hittest="true" width="400" height="88">
@@ -4252,6 +4255,21 @@
 			<richtext name="couponText" rect="0 0 300 30" margin="170 0 0 0" layout_gravity="left center" format="{@st41b}{S16}%s% 할인 쿠폰" param1="percentage" param1_def="0" fontname="white_16_b_ol"/>
 			<button name="exchangeBtn" rect="0 0 90 33" margin="0 0 10 0" layout_gravity="right center" skin="test_red_button" caption="{@st41b}{s16}{nl}교환" LBtnUpScp="BEAUTY_COUPON_EXCHANGE_BTN_CLICK"/>
 			<labelline name="line" rect="0 0 360 2" margin="-4 0 0 0" layout_gravity="center bottom" skin="labelline_def_2"/>
+		</controls>
+	</controlset>
+	<controlset name="itemslot_transcend_styleset" hittest="false" width="60" height="60" hittestset="false">
+		<controls>
+			<picture name="starIcon" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center center" stretch="false" draw="false" image="itemslot_star_icon"/>
+		</controls>
+	</controlset>
+	<controlset name="itemslot_appraisal_styleset" hittest="false" width="60" height="60" hittestset="false">
+		<controls>
+			<picture name="appraisalMark" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="right bottom" stretch="false" draw="false" image="itemslot_unconceded_icon"/>
+		</controls>
+	</controlset>
+	<controlset name="itemslot_reinforce_styleset" hittest="false" width="60" height="60" hittestset="false">
+		<controls>
+			<richtext name="levelText" parent="starIcon" rect="0 0 30 20" margin="0 0 4 4" layout_gravity="right bottom" textalign="center center" format="+%s" param1="level" param1_def="0" fontname="white_14_b_ds_ol"/>
 		</controls>
 	</controlset>
 </controlsetlist>

@@ -211,7 +211,7 @@
                     <Obj Type="Monster" MonType="58815" Pos="-483.89#331.96#274.23" genCount="1" genTime="20000" objectKey="108"/>
                     <Obj Type="Monster" MonType="58815" Pos="421.97#331.96#152.86" genCount="1" genTime="20000" objectKey="109"/>
                     <Obj Type="Monster" MonType="58815" Pos="-450.70#331.96#230.01" genCount="1" genTime="20000" objectKey="110"/>
-                    <Obj Type="Monster" MonType="152076" Pos="-122.95#331.57#-135.76" angle="92" genCount="1" genTime="20000" objectKey="111" propList="&apos;Range&apos; &apos;40&apos; &apos;Enter&apos; &apos;ID_WHITETREES1_NOTICE&apos; &apos;SimpleAI&apos; &apos;Hidden_door_Effect&apos; "/>
+                    <Obj Type="Monster" MonType="152076" Pos="-119.14#331.62#-140.76" angle="92" genCount="1" genTime="20000" objectKey="111" propList="&apos;Range&apos; &apos;40&apos; &apos;Enter&apos; &apos;ID_WHITETREES1_NOTICE&apos; &apos;SimpleAI&apos; &apos;Hidden_door_Effect&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="1번 기믹" execWithStart="0">
@@ -551,7 +551,7 @@
                     </Event>
                 </StageEvents>
             </Stage>
-            <Stage Name="stage6">
+            <Stage Name="stage6" AutoStart="0">
                 <ObjList>
                     <Obj Type="Monster" MonType="157046" Pos="-1585.70#284.82#359.11" angle="-131" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;ID_WHITETREES1_GIMMICK_END&apos; "/>
                     <Obj Type="Monster" MonType="157049" Pos="-1044.75#284.82#84.93" angle="-72" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_ALTER&apos; &apos;Dialog&apos; &apos;ID_WHITETREES1_GIMMICK4&apos; &apos;MaxDialog&apos; &apos;1&apos; "/>
@@ -636,6 +636,24 @@
                                 <Str Str="Stage/stage_boss_start"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Boss_Open">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage5/28/stage2/111/stage3/116"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage6"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

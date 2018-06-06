@@ -56,6 +56,9 @@ function GET_MORE_EVENT_EXP(pc)
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_1802_weekend'); --3월 주말 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1804_ARBOR_BUFF_7'); --2018년 식목일 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1805_CHILDREN'); --2018년 트린이날 폭죽 이벤트
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1805_WEEKEND_BUFF'); --EVENT_1805_WEEKEND
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1805_NEWUSER_BUFF_1'); --너, 내 동료가 돼라 이벤트 1
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1805_NEWUSER_BUFF_2'); --너, 내 동료가 돼라 이벤트 2
 	return sumExp; 
 end
 

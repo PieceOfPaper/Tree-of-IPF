@@ -96,6 +96,9 @@ end
 function SCR_DYNCAST_SKILL_Pyromancer_HellBreath(self, skill)
     return 0;
 end
+function SCR_DYNCAST_SKILL_Exorcist_Rubric(self, skill)
+    return 0;
+end
 
 
 -------------------------- Buff 관련 설정 시작 --------------------------

@@ -36,7 +36,7 @@ function ON_RESTQUICKSLOT_OPEN(frame, msg, argStr, argNum)
 		if cls ~= nil then
 			if cls.VisibleScript == "None" or _G[cls.VisibleScript]() == 1 then
 				if scp ~= "None" then
-					local slot 			  = GET_CHILD(frame, "slot"..slotIndex, "ui::CSlot");
+					local slot = GET_CHILD(frame, "slot"..slotIndex, "ui::CSlot");
 					if slot ~= nil then
 						slot:ReleaseBlink();
 						slot:ClearIcon();
@@ -58,6 +58,11 @@ function ON_RESTQUICKSLOT_OPEN(frame, msg, argStr, argNum)
 		local joystickQuickFrame = ui.GetFrame('joystickquickslot')
 		joystickQuickFrame:ShowWindow(0);
 	end
+
+	OPEN_REST_QUICKSLOT(frame);
+end
+
+function OPEN_REST_QUICKSLOT(frame)
 end
 
 function QSLOT_ENABLE_ENCHANT_CRAFT()
@@ -96,6 +101,12 @@ function QSLOT_ENABLE_OMAMORI_CRAFT()
 	return 0;
 end
 
+function QSLOT_ENABLE_FLUTING_KEYBOARD()
+	if IS_EXIST_JOB_IN_HISTORY(3012) == true then
+		return 1;
+	end
+	return 0;
+end
 
 function QSLOT_VISIBLE_ARROW_CRAFT()
 	local pc = GetMyPCObject();
@@ -110,6 +121,10 @@ end
 
 function ON_RESTQUICKSLOT_CLOSE(frame, msg, argStr, argNum)
 
+	local flutFrame = ui.GetFrame("fluting_keyboard");
+	if flutFrame:IsVisible() == 1 then
+		flutFrame:ShowWindow(0);
+	end
 	frame:ShowWindow(0);
 
 	if IsJoyStickMode() == 0 then
@@ -184,6 +199,10 @@ function REST_SLOT_USE(frame, slotIndex)
 	local cls = GetClassByType("restquickslotinfo", type);	
 	
 	if QSLOT_ENABLE_INDUN(cls) == false then
+		return;
+	end
+
+	if cls == nil then
 		return;
 	end
 
@@ -273,6 +292,19 @@ function OPEN_OMAMORI_CRAFT()
 	
 end
 
+function OPEN_FLUTING_KEYBOARD()
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
+	if IS_EXIST_JOB_IN_HISTORY(3012) ~= true then
+		return;
+	end
+	
+	local frame = ui.GetFrame("fluting_keyboard");
+	ON_FLUTING_KEYBOARD_OPEN(frame);
+end
 
 function OPEN_DISPELLER_CRAFT()
     if GetCraftState() == 1 then
@@ -349,6 +381,13 @@ function QSLOT_VISIBLE_DISPELLER_CRAFT()
 		return 1;
 	end
 
+	return 0;
+end
+
+function QSLOT_VISIBLE_FLUTING_KEYBOARD()
+	if IS_EXIST_JOB_IN_HISTORY(3012) == true then
+		return 1;
+	end
 	return 0;
 end
 

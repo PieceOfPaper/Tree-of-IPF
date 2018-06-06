@@ -4,36 +4,55 @@ function SCR_GUILD_COLONY_ALREADY_END_MSG(self)
     SendAddOnMsg(self, 'NOTICE_Dm_!', ScpArgMsg('GUILD_COLONY_MSG_ALREADY_END'), 5)
 end
 
-
+--콜로니전 채널 입장 로그 함수
+function SCR_GUILD_COLONY_ENTER_LOG(self)
+    ColonyEquipmentLog(self);
+    ColonySkillLog(self);
+end
 -- 콜로니전 채널 입장 체크 스크립트
 function SCR_GUILD_COLONY_ENTER_CHECK(self, pc)
---    --스팀 콜로니전 일부 지역만 개최시, 그외 지역 입장 스크립트 안돌도록 처리
---    if GetServerNation() ~= 'KOR' then
---        if GetServerNation() == 'GLOBAL' then
---            local warp_clsList = GetClassList("Warp");
---            local enterCls = self.Enter
---            if self.Enter == "None" then
---                enterCls = self.Dialog
---            end
---            local warpCls = GetClassByNameFromList(warp_clsList, enterCls); --warp.xml에 저장된 워프화살표의 class obj
---            local next_ZoneClsName = nil
---            if warpCls ~= nil then
---                next_ZoneClsName = warpCls.TargetZone;
---            end
---            local clsList = GetClassList("guild_colony")
---            local colonyCls = GetClassByNameFromList(clsList, "GuildColony_"..next_ZoneClsName);
---            if colonyCls ~= nil then
---                if TryGetProp(colonyCls, "ID") == 0 then
---                    return "NORMAL"
---                end
---            end
---        end
---    end
+    --콜로니전 미개최 지역은 입장 스크립트 돌지 않도록 처리(ID 값이 0인 경우)
+    local warp_clsList = GetClassList("Warp");
+    local enterCls = self.Enter
+    if self.Enter == "None" then
+        enterCls = self.Dialog
+    end
+    local warpCls = GetClassByNameFromList(warp_clsList, enterCls); --warp.xml에 저장된 워프화살표의 class obj
+    local next_ZoneClsName = nil
+    if warpCls ~= nil then
+        next_ZoneClsName = warpCls.TargetZone;
+    end
+    local clsList = GetClassList("guild_colony")
+    local colonyCls = GetClassByNameFromList(clsList, "GuildColony_"..next_ZoneClsName);
+    if colonyCls ~= nil then
+        if TryGetProp(colonyCls, "ID") == 0 then
+            return "NORMAL"
+        end
+    end
+
     local select = ShowSelDlg(pc,0, 'GUILD_COLONY_DLG', ScpArgMsg('GUILD_COLONY_MSG_ENTER_COLONY'), ScpArgMsg('GUILD_COLONY_MSG_ENTER_NORMAL'))
     if select == 2 then --일반 채널 입장을 선택했다면,
         return "NORMAL"
     elseif select == 1 then --콜로니전 채널 입장을 선택했다면,
-
+     	local warp_clsList = GetClassList("Warp");
+    	local enterCls = self.Enter
+    	if self.Enter == "None" then
+    	    enterCls = self.Dialog
+    	end
+    	local warpCls = GetClassByNameFromList(warp_clsList, enterCls); --warp.xml에 저장된 워프화살표의 class obj
+        local next_ZoneClsName = nil
+        if warpCls ~= nil then
+            next_ZoneClsName = warpCls.TargetZone;
+        end
+        local clsList = GetClassList("guild_colony")
+        local colonyCls = GetClassByNameFromList(clsList, "GuildColony_"..next_ZoneClsName);
+        local zoneClsName = nil
+        if colonyCls ~= nil then
+            zoneClsName = TryGetProp(colonyCls, "ZoneClassName")
+        end
+        if IsGM(pc) > 0 then --GM은 바로 입장
+            return "COLONY", zoneClsName, enterCls
+        end
         local guildObj = GetGuildObj(pc)
         if guildObj == nil then --만약 길드가 없다면,
             SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg('GUILD_COLONY_MSG_ENTER_FAIL1'), 5);
@@ -43,22 +62,6 @@ function SCR_GUILD_COLONY_ENTER_CHECK(self, pc)
                 SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg('GUILD_COLONY_MSG_ENTER_FAIL2'), 5);
                 return "FAIL"
             else --만약 콜로니전에 참가했다면,
-            	local warp_clsList = GetClassList("Warp");
-            	local enterCls = self.Enter
-            	if self.Enter == "None" then
-            	    enterCls = self.Dialog
-            	end
-            	local warpCls = GetClassByNameFromList(warp_clsList, enterCls); --warp.xml에 저장된 워프화살표의 class obj
-                local next_ZoneClsName = nil
-                if warpCls ~= nil then
-                    next_ZoneClsName = warpCls.TargetZone;
-                end
-                local clsList = GetClassList("guild_colony")
-                local colonyCls = GetClassByNameFromList(clsList, "GuildColony_"..next_ZoneClsName);
-                local zoneClsName = nil
-                if colonyCls ~= nil then
-                    zoneClsName = TryGetProp(colonyCls, "ZoneClassName")
-                end
                 local state = GetColonyWarState()
                 if state == 4 or state == 5 then
                     SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg('GUILD_COLONY_MSG_ENTER_FAIL4'), 5);
@@ -196,7 +199,21 @@ function SCR_GUILD_COLONY_TOWER_START(self)
         range = 150
     end
     AttachEffect(self, 'F_pattern017_blue', (range*0.065), 'BOT', 0, height, 0, 1) --점령 경계선 이펙트 블루
-    SCR_GUILD_COLONY_ENHANCER_SUMMON_RUN(self, zoneClsName)
+    local enhancerSummonOwner = GetExArgObject(self, "COLONY_ENHANCER_SUMMON_OWNER")
+    if enhancerSummonOwner == nil then
+        local list, cnt = GetLayerAliveMonList(GetZoneInstID(self), GetLayer(self));
+        if cnt > 0 then
+            for  i = 1, cnt do
+                if list[i].ClassName == "Hiddennpc_move" then
+                    if list[i].SimpleAI == "GUILD_COLONY_SUMMON_ENHANCER_AI" then
+                        SetExArgObject(self, "COLONY_ENHANCER_SUMMON_OWNER", list[i])
+                        SCR_GUILD_COLONY_ENHANCER_SUMMON(list[i], 0)
+                    end
+                end
+            end
+        end
+    end
+
 end
 
 
@@ -205,6 +222,20 @@ end
 --self.NumArg2 : 경계선 이펙트 변경 여부(0 : 무반응, 1 : 반응)
 function SCR_GUILD_COLONY_TOWER_RUN(self) --타워 프랍 simpleAI 1000msec
 
+    local enhancerSummonOwner = GetExArgObject(self, "COLONY_ENHANCER_SUMMON_OWNER")
+    if enhancerSummonOwner == nil then
+        local list, cnt = GetLayerAliveMonList(GetZoneInstID(self), GetLayer(self));
+        if cnt > 0 then
+            for  i = 1, cnt do
+                if list[i].ClassName == "Hiddennpc_move" then
+                    if list[i].SimpleAI == "GUILD_COLONY_SUMMON_ENHANCER_AI" then
+                        SetExArgObject(self, "COLONY_ENHANCER_SUMMON_OWNER", list[i])
+                        SCR_GUILD_COLONY_ENHANCER_SUMMON(list[i], 0)
+                    end
+                end
+            end
+        end
+    end
     local state = GetColonyWarState()  --콜로니전 진행 상태 체크 (1 = ready, 2 = start, 3 = delay, 4 = end, 5 = close)
     if state == 1 or state == 3 then --콜로니전이 시작대기, 또는 종료후 지연 상태라면,
         return
@@ -243,7 +274,7 @@ function SCR_GUILD_COLONY_TOWER_RUN(self) --타워 프랍 simpleAI 1000msec
             fourPoint = 9;
         end
         if addPoint == nil then
-            addPoint = 2;
+            addPoint = 5;
         end
 
         local zoneClsName = GetZoneName(self)
@@ -259,22 +290,26 @@ function SCR_GUILD_COLONY_TOWER_RUN(self) --타워 프랍 simpleAI 1000msec
         local zone_list, zone_cnt = GetLayerPCList(GetZoneInstID(self), GetLayer(self))
         if zone_cnt > 0 then --존 내 pc가 한명이상 있다면,
             for i = 1, zone_cnt do
-                local guildObj = GetGuildObj(zone_list[i])
-                table.insert(guildObjList_zone, guildObj)
+                if IsGM(zone_list[i]) == 0 then --GM은 예외처리
+                    local guildObj = GetGuildObj(zone_list[i])
+                    table.insert(guildObjList_zone, guildObj)
+                end
             end
             local area_list, area_cnt = GetWorldObjectList(self, "PC", range)
             if area_cnt > 0 then --타워 범위 안에 pc가 한명이상 있다면,
                 local num = 0
                 for i = 1, area_cnt do
-                    if IsDead(area_list[i]) == 0 then
-                        local guildObj = GetGuildObj(area_list[i])
-                        if IsSameObject(OccupationGuild, guildObj) == 0 then --점령 길드가 아니라면,
-                            local buff_apply_check = SCR_GUILD_COLONY_RESTRICTION_CHECK(area_list[i], "GuildColony_Restricted_Buff_OccupationPoint")
-                            if buff_apply_check == "NO" then
-                                table.insert(guildObjList_area, guildObj)
+                    if IsGM(area_list[i]) == 0 then --GM은 예외처리
+                        if IsDead(area_list[i]) == 0 then
+                            local guildObj = GetGuildObj(area_list[i])
+                            if IsSameObject(OccupationGuild, guildObj) == 0 then --점령 길드가 아니라면,
+                                local buff_apply_check = SCR_GUILD_COLONY_RESTRICTION_CHECK(area_list[i], "GuildColony_Restricted_Buff_OccupationPoint")
+                                if buff_apply_check == "NO" then
+                                    table.insert(guildObjList_area, guildObj)
+                                end
+                            elseif IsSameObject(OccupationGuild, guildObj) == 1 then --점령 길드라면,
+                                num = num + 1
                             end
-                        elseif IsSameObject(OccupationGuild, guildObj) == 1 then --점령 길드라면,
-                            num = num + 1
                         end
                     end
                 end
@@ -349,11 +384,15 @@ function SCR_GUILD_COLONY_OCCUPATION_POINT_UP_RUN(self, zoneClsName, guildObjLis
 
         local g_list, g_cnt = GetEnhancerDestroyGuildList(zoneClsName)
         local enhancer_destroy_num = 0
-        for j = 1, g_cnt do
-            if IsSameObject(guildObjList_type[back_i], g_list[j]) == 1 then
-                enhancer_destroy_num = enhancer_destroy_num + 1
+        if g_cnt > 0 then
+            for j = 1, g_cnt do
+            
+                if IsSameObject(guildObjList_type[back_i], g_list[j]) == 1 then
+                    enhancer_destroy_num = enhancer_destroy_num + 1
+                end
             end
         end
+
         if enhancer_destroy_num ~= 0 then
             addPoint = addPoint * enhancer_destroy_num
             onePoint = onePoint + addPoint
@@ -492,9 +531,12 @@ function SCR_GUILD_COLONY_OCCUPATION_POINT_UP_RUN(self, zoneClsName, guildObjLis
                     end
                 end
             end
-            
-            SCR_GUILD_COLONY_ENHANCER_SUMMON_RUN(self, zoneClsName)
-            
+
+            local enhancerSummonOwner = GetExArgObject(self, "COLONY_ENHANCER_SUMMON_OWNER")
+            if enhancerSummonOwner ~= nil then
+                SCR_GUILD_COLONY_ENHANCER_SUMMON(enhancerSummonOwner, 0)
+            end
+
             SetFixAnim(self, "on_loop2")
             PlayAnim(self, 'on', 1, 0) --점령 시, 애니, noloop형태(단발성)
             ReserveAnim(self, "on_loop2", 1, 0) --점령 후, 애니, loop형태(큰불)
@@ -534,16 +576,18 @@ end
 --점령 경계선 이펙트 스크립트
 function SCR_GUILD_COLONY_DIVIDING_LINE_EFFECT_RUN(self, range, num)
     local height = 2
-    
+
     if num == 0 then
         if self.NumArg2 ~= 0 then --점령 경계선 이펙트가 반응한 상태였다면,
             DetachEffect(self, 'F_pattern017_red')
+            DetachEffect(self, 'F_pattern017_blue')
             AttachEffect(self, 'F_pattern017_blue', (range*0.065), 'BOT', 0, height, 0, 1) --반응하지 않는 점령 경계선 이펙트
             self.NumArg2 = 0
         end
     elseif num == 1 then
         if self.NumArg2 == 0 then --점령 경계선 이펙트가 반응하지 않는 상태였다면,
             DetachEffect(self, 'F_pattern017_blue')
+            DetachEffect(self, 'F_pattern017_red')
             AttachEffect(self, 'F_pattern017_red', (range*0.065), 'BOT', 0, height, 0, 1) --반응하는 점령 경계선 이펙트
             self.NumArg2 = 1
         end
@@ -581,7 +625,7 @@ function SCR_GUILD_COLONY_OCCUPATION_BUFF_RUN(self) --히든 오브젝트 프랍
     	if pcCount > 0 then
     	    for i = 1, pcCount do
                 if OccupationGuild == nil or OccupationGuild == "None" then
-                else        	    
+                else     
         	        if IsSameObject(OccupationGuild, GetGuildObj(pcList[i])) == 1 then --현재 존 내 인원이 점령 길드라면,
                         if IsBuffApplied(pcList[i], "GuildColony_OccupationBuff") == 'NO' then  --점령 버프를 받지 않았다면,
                             local diff = GetColonyOccupationTimeDiff(zoneClsName)
@@ -617,15 +661,23 @@ function SCR_GUILD_COLONY_OCCUPATION_BUFF_RUN(self) --히든 오브젝트 프랍
                 end
 
         	    if IsBuffApplied(pcList[i], "GuildColony_EnhancerDestroyBuff_1") == 'NO' then  --포인트 버프를 받지 않았다면,
+                    local rule = GetClass("guild_colony_rule", "GuildColony_Rule_Default"); --GuildColonyRule.xml에 저장된 콜로니전 룰 칼럼값
+                    local enhancerDestroyLimitCount = TryGetProp(rule, "GuildColonyEnhancer_DestroyLimitCount") --콜로니 증폭기 파괴 최대 개수
             	    local list, cnt = GetEnhancerDestroyGuildList(zoneClsName)
             	    local over = 0
-            	    for j = 1, cnt do
-            	        if IsSameObject(list[j], GetGuildObj(pcList[i])) == 1 then
-            	            over = over + 1
-            	        end
-            	    end
-            	    if over ~= 0 then
-                        AddBuff(self, pcList[i], 'GuildColony_EnhancerDestroyBuff_1', 1, 0, 0, over)
+            	    if cnt > 0 then
+                	    for j = 1, cnt do
+                	        if IsSameObject(list[j], GetGuildObj(pcList[i])) == 1 then
+                	            over = over + 1
+                	        end
+                	    end
+                	    if over ~= 0 then
+                	        if over > enhancerDestroyLimitCount then
+                	            over = enhancerDestroyLimitCount
+                	        end
+                            AddBuff(self, pcList[i], 'GuildColony_EnhancerDestroyBuff_1', 1, 0, 0, over)
+                            AddBuff(self, pcList[i], 'GuildColony_EnhancerDestroyBuff_2', 1, 0, 0, 1)
+                        end
                     end
                 end
             end
@@ -634,63 +686,63 @@ function SCR_GUILD_COLONY_OCCUPATION_BUFF_RUN(self) --히든 오브젝트 프랍
 end
 
 --길드 콜로니전 증폭기 이속 버프 스크립트
-function SCR_GUILD_COLONY_ENHANCER_SPEED_UP_BUFF_RUN(self)
-    local state = GetColonyWarState()  --콜로니전 진행 상태 체크 (1 = ready, 2 = start, 3 = delay, 4 = end, 5 = close)
-    if state == 2 then --콜로니전이 시작 상태라면,
-        local rule = GetClass("guild_colony_rule", "GuildColony_Rule_Default"); --GuildColonyRule.xml에 저장된 콜로니전 룰 칼럼값
-        local enhancerCount = TryGetProp(rule, "GuildColonyEnhancerCount") --콜로니 증폭기 개수
-        local zoneClsName = GetZoneName(self)
-    	local pcList, pcCount = GetLayerPCList(GetZoneInstID(self), GetLayer(self))
-       	if pcCount > 0 then
-    	    for i = 1, pcCount do
-    	        local guildObj = GetGuildObj(pcList[i])
-        	    local list, cnt = GetEnhancerDestroyGuildList(zoneClsName)
-        	    local over = 0
-        	    if cnt > 0 then
-        	        for j = 1, cnt do
-        	            if IsSameObject(list[j], guildObj) == 1 then --증폭기를 파괴한 길드라면,
-        	                over = over + 1
-        	            end
-        	        end
-        	    end
-        	    if over ~= 0 then
-             	    if IsBuffApplied(pcList[i], "GuildColony_EnhancerDestroyBuff_2") == 'NO' then  --이속 버프를 받지 않았다면,
-                	    local guildID = GetIESID(guildObj)
-                        local recentEnhancerDestroyTime = 0
-                        local check_time = "0".."/".."0"
-                        for j = 1, enhancerCount do
-                            if tostring(guildID) == GetExProp_Str(self, "ENHANCER_DESTROY_GUILD_"..j) then
-                                local time = GetExProp_Str(self, "ENHANCER_DESTROY_TIME_"..j)
-                                local string_cut_list1 = SCR_STRING_CUT(time, '/')
-                                local string_cut_list2 = SCR_STRING_CUT(check_time, '/')
-                                if tonumber(string_cut_list1[1]) > tonumber(string_cut_list2[1]) then
-                                    check_time = time
-                                    string_cut_list2 = SCR_STRING_CUT(check_time, '/')
-                                    recentEnhancerDestroyTime = tonumber(string_cut_list2[2])
-                                else
-                                    if tonumber(string_cut_list1[1]) == tonumber(string_cut_list2[1]) then
-                                        if tonumber(string_cut_list1[2]) < tonumber(string_cut_list2[2]) then
-                                            recentEnhancerDestroyTime = tonumber(string_cut_list2[2])
-                                        end
-                                    end
-                                end
-                            end
-                        end
-                        local now_time = os.date('*t')
-                        local hour = now_time['hour']
-                        local min = now_time['min']
-                        local sec = now_time['sec']
-                        local time_diff = ((hour*3600) + (min*60) + sec) - recentEnhancerDestroyTime
-                        if time_diff <= 600 then
-                            local apply_time = (600 - time_diff)*1000
-                            AddBuff(self, pcList[i], 'GuildColony_EnhancerDestroyBuff_2', 1, 0, apply_time, 1)
-                        end
-                    end
-                end
-            end
-        end
-    end
-end
+--function SCR_GUILD_COLONY_ENHANCER_SPEED_UP_BUFF_RUN(self)
+--    local state = GetColonyWarState()  --콜로니전 진행 상태 체크 (1 = ready, 2 = start, 3 = delay, 4 = end, 5 = close)
+--    if state == 2 then --콜로니전이 시작 상태라면,
+--        local rule = GetClass("guild_colony_rule", "GuildColony_Rule_Default"); --GuildColonyRule.xml에 저장된 콜로니전 룰 칼럼값
+--        local enhancerCount = TryGetProp(rule, "GuildColonyEnhancerCount") --콜로니 증폭기 개수
+--        local zoneClsName = GetZoneName(self)
+--    	local pcList, pcCount = GetLayerPCList(GetZoneInstID(self), GetLayer(self))
+--       	if pcCount > 0 then
+--    	    for i = 1, pcCount do
+--    	        local guildObj = GetGuildObj(pcList[i])
+--        	    local list, cnt = GetEnhancerDestroyGuildList(zoneClsName)
+--        	    local over = 0
+--        	    if cnt > 0 then
+--        	        for j = 1, cnt do
+--        	            if IsSameObject(list[j], guildObj) == 1 then --증폭기를 파괴한 길드라면,
+--        	                over = over + 1
+--        	            end
+--        	        end
+--        	    end
+--        	    if over ~= 0 then
+--             	    if IsBuffApplied(pcList[i], "GuildColony_EnhancerDestroyBuff_2") == 'NO' then  --이속 버프를 받지 않았다면,
+--                	    local guildID = GetIESID(guildObj)
+--                        local recentEnhancerDestroyTime = 0
+--                        local check_time = "0".."/".."0"
+--                        for j = 1, enhancerCount do
+--                            if tostring(guildID) == GetExProp_Str(self, "ENHANCER_DESTROY_GUILD_"..j) then
+--                                local time = GetExProp_Str(self, "ENHANCER_DESTROY_TIME_"..j)
+--                                local string_cut_list1 = SCR_STRING_CUT(time, '/')
+--                                local string_cut_list2 = SCR_STRING_CUT(check_time, '/')
+--                                if tonumber(string_cut_list1[1]) > tonumber(string_cut_list2[1]) then
+--                                    check_time = time
+--                                    string_cut_list2 = SCR_STRING_CUT(check_time, '/')
+--                                    recentEnhancerDestroyTime = tonumber(string_cut_list2[2])
+--                                else
+--                                    if tonumber(string_cut_list1[1]) == tonumber(string_cut_list2[1]) then
+--                                        if tonumber(string_cut_list1[2]) < tonumber(string_cut_list2[2]) then
+--                                            recentEnhancerDestroyTime = tonumber(string_cut_list2[2])
+--                                        end
+--                                    end
+--                                end
+--                            end
+--                        end
+--                        local now_time = os.date('*t')
+--                        local hour = now_time['hour']
+--                        local min = now_time['min']
+--                        local sec = now_time['sec']
+--                        local time_diff = ((hour*3600) + (min*60) + sec) - recentEnhancerDestroyTime
+--                        if time_diff <= 600 then
+--                            local apply_time = (600 - time_diff)*1000
+--                            AddBuff(self, pcList[i], 'GuildColony_EnhancerDestroyBuff_2', 1, 0, apply_time, 1)
+--                        end
+--                    end
+--                end
+--            end
+--        end
+--    end
+--end
 
 
 --길드 콜로니전 보스몬스터 소환 스크립트
@@ -702,7 +754,7 @@ function SCR_GUILD_COLONY_SUMMON_MONSTER_RUN(self) --히든 오브젝트 프랍 
         local rule = GetClass("guild_colony_rule", "GuildColony_Rule_Default"); --GuildColonyRule.xml에 저장된 콜로니전 룰 칼럼값
         local remainTime = TryGetProp(rule, "BossMonster_SummonTime") --콜로니전 시작 또는 몬스터 처치 후, 몬스터가 등장하는 시간
         if remainTime == nil then
-            remainTime = 1200
+            remainTime = 600
         end
         local zoneClsName = GetZoneName(self)
         local diff = GetColonyWarBossKillTimeDiff(zoneClsName)
@@ -796,9 +848,11 @@ function SCR_GUILD_COLONY_MON_DEAD(self)
                             SendAddOnMsg(pcList[P], 'NOTICE_Dm_Bell', ScpArgMsg("GUILD_COLONY_MSG_BOSSMONSTER_KILL{partyName}{name}", "partyName", partyName, "name", name), 15) --보스몬스터 처치한 마지막 타격자의 팀명, 길드명 알림 메시지(존 내 인원)
                 	    end
                 	end
-                else
+                else --마지막 타격자의 길드가 점령 길드라면,
             	    for P = 1, pcCount do
-                        if IsSameObject(guildObj, GetGuildObj(pcList[P])) == 0 then --마지막 타격자와 같은 길드가 아니라라면,
+                        if IsSameObject(guildObj, GetGuildObj(pcList[P])) == 1 then --마지막 타격자와 같은 길드라면,
+                            SendAddOnMsg(pcList[P], 'NOTICE_Dm_raid_clear', ScpArgMsg("GUILD_COLONY_MSG_BOSSMONSTER_KILL2{name}", "name", name), 15) --보스몬스터 처치한 마지막 타격자의 팀명, 길드명 알림 메시지(존 내 인원)
+                        else
                             SendAddOnMsg(pcList[P], 'NOTICE_Dm_Bell', ScpArgMsg("GUILD_COLONY_MSG_BOSSMONSTER_KILL{partyName}{name}", "partyName", partyName, "name", name), 15) --보스몬스터 처치한 마지막 타격자의 팀명, 길드명 알림 메시지(존 내 인원)
                         end
                     end
@@ -849,17 +903,17 @@ function SCR_COLONY_TOWER_EFFECT_OFF(self)
 end
 
 
---콜로니전 지역 입장 시, 무적 버프
-function SCR_GUILD_COLONY_ENTER_INVINCIBLE_BUFF(self)
-    local state = GetColonyWarState()  --콜로니전 진행 상태 체크 (1 = ready, 2 = start, 3 = delay, 4 = end, 5 = close)
-    if state == 1 or state == 2 then --콜로니전이 시작대기, 또는 종료후 지연 상태라면,
-        local x, y, z = GetPos(self)
-        local list = GetMyPadList(self, "Guild_Colony_Invinciblation")
-        if #list == 0 then --패드가 없다면,
-            RunPad(self, "Guild_Colony_Invinciblation", nil, x, y, z, 1, 1);	
-        end
-    end
-end
+--콜로니전 지역 입장 시, 무적 버프(안전 지대 제거로 인해 제외)
+--function SCR_GUILD_COLONY_ENTER_INVINCIBLE_BUFF(self)
+--    local state = GetColonyWarState()  --콜로니전 진행 상태 체크 (1 = ready, 2 = start, 3 = delay, 4 = end, 5 = close)
+--    if state == 1 or state == 2 then --콜로니전이 시작대기, 또는 종료후 지연 상태라면,
+--        local x, y, z = GetPos(self)
+--        local list = GetMyPadList(self, "Guild_Colony_Invinciblation")
+--        if #list == 0 then --패드가 없다면,
+--            RunPad(self, "Guild_Colony_Invinciblation", nil, x, y, z, 1, 1);	
+--        end
+--    end
+--end
 
 
 
@@ -888,7 +942,7 @@ function SCR_GUILD_COLONY_OCCUPATION_POINT_OTHER_GUILD_CHECK(self, zoneClsName, 
         fourPoint = 9;
     end
     if addPoint == nil then
-        addPoint = 2;
+        addPoint = 5;
     end
     for i = 1, #guildObjList_type do
         if IsSameObject(guildObj, guildObjList_type[i]) == 0 then
@@ -903,9 +957,11 @@ function SCR_GUILD_COLONY_OCCUPATION_POINT_OTHER_GUILD_CHECK(self, zoneClsName, 
 
             local g_list, g_cnt = GetEnhancerDestroyGuildList(zoneClsName)
             local enhancer_destroy_num = 0
-            for j = 1, g_cnt do
-                if IsSameObject(guildObjList_type[i], g_list[j]) == 1 then
-                    enhancer_destroy_num = enhancer_destroy_num + 1
+            if g_cnt > 0 then
+                for j = 1, g_cnt do
+                    if IsSameObject(guildObjList_type[i], g_list[j]) == 1 then
+                        enhancer_destroy_num = enhancer_destroy_num + 1
+                    end
                 end
             end
             if enhancer_destroy_num ~= 0 then
@@ -941,95 +997,187 @@ function SCR_GUILD_COLONY_MUSIC_PLAY(self)
     PlayBGM(self, 'battle_colony')
 end
 
---입장 화살표 태어날 때 동작 스크립트
-function SCR_GUILD_COLONY_ENTER_START(self)
-    local height = 0
-    local zonename = GetZoneName(self)
-    if zonename == "f_castle_20_3" then
-        height = 15
-    else
-        height = 2
-    end
+--입장 화살표 태어날 때 동작 스크립트(안전 지대 제거로 인해 제외)
+--function SCR_GUILD_COLONY_ENTER_START(self)
+--    local height = 0
+--    local zonename = GetZoneName(self)
+--    if zonename == "f_castle_20_3" then
+--        height = 15
+--    else
+--        height = 2
+--    end
+--
+--    local name = TryGetProp(self, "Enter")
+--    if name == "PILGRIM_49_TO_PILGRIM_47" then
+--        height = 15
+--    elseif name == "CASTLE_20_3_CASTLE_20_2" then
+--        height = 25
+--    elseif name == "CASTLE_20_3_TABLELAND74" then
+--        height = 60
+--    end
+--    AttachEffect(self, 'F_pattern017_green', 29.7, 'BOT', 0, height, 0, 1) --안전지대 경계선 이펙트 그린
+--end
 
-    local name = TryGetProp(self, "Enter")
-    if name == "PILGRIM_49_TO_PILGRIM_47" then
-        height = 15
-    elseif name == "CASTLE_20_3_CASTLE_20_2" then
-        height = 25
-    elseif name == "CASTLE_20_3_TABLELAND74" then
-        height = 60
-    end
-    AttachEffect(self, 'F_pattern017_green', 29.7, 'BOT', 0, height, 0, 1) --안전지대 경계선 이펙트 그린
-end
-
---입장 화살표 이펙트 삭제
-function SCR_GUILD_COLONY_ENTER_EFFECT_OFF(self)
-    local list = GetMyPadList(self, "Guild_Colony_Invinciblation")
-    if #list ~= 0 then --패드가 있다면,
-        for i = 1, #list do
-            local pad = list[i];
-            KillPad(pad);
-        end
-    end
-    DetachEffect(self, 'F_pattern017_green')
-end
+----입장 화살표 이펙트 삭제(안전 지대 제거로 인해 제외)
+--function SCR_GUILD_COLONY_ENTER_EFFECT_OFF(self)
+--    local list = GetMyPadList(self, "Guild_Colony_Invinciblation")
+--    if #list ~= 0 then --패드가 있다면,
+--        for i = 1, #list do
+--            local pad = list[i];
+--            KillPad(pad);
+--        end
+--    end
+--    DetachEffect(self, 'F_pattern017_green')
+--end
 
 function SCR_GUILD_COLONY_ZONE_WARP_OUT(self)
-    DelyReturnCityZone(self)
-    sleep(2000)
-    PlaySoundLocal(self, 'battle_zone_warp_out')
+    if IsGM(self) == 0 then --GM은 예외 처리
+        DelyReturnCityZone(self)
+        sleep(2000)
+        PlaySoundLocal(self, 'battle_zone_warp_out')
+    end
 end
 
+
+--길드 콜로니전 콜로니 증폭기 소환 스크립트(매초마다)
+function SCR_GUILD_COLONY_ENHANCER_SUMMON_RUN(self)
+    SCR_GUILD_COLONY_ENHANCER_SUMMON(self, 1)
+end
+
+-- num(0 : 콜로니전 시작, 점령 시, 1 : 상시 (1초))
 --길드 콜로니전 콜로니 증폭기 소환 스크립트
-function SCR_GUILD_COLONY_ENHANCER_SUMMON_RUN(self, zoneClsName) -- 증폭기 소환 스크립트
-    local rule = GetClass("guild_colony_rule", "GuildColony_Rule_Default"); --GuildColonyRule.xml에 저장된 콜로니전 룰 칼럼값
-    local enhancerName = TryGetProp(rule, "GuildColonyEnhancerClassName") --콜로니 증폭기 이름
-    local enhancerCount = TryGetProp(rule, "GuildColonyEnhancerCount") --콜로니 증폭기 개수
-	local clsList = GetClassList("guild_colony"); --GuildColonyRanking.xml에 저장된 콜로니전 점령 관련 칼럼값
-    local colonyCls = GetClassByNameFromList(clsList, "GuildColony_"..zoneClsName); --GuildColonyRanking.xml에 저장된 해당 스팟지역의 class obj
+function SCR_GUILD_COLONY_ENHANCER_SUMMON(self, num)
 
-    if colonyCls ~= nil then
-        local pos_list = {}
-        for i = 1, enhancerCount do
-            local pos_x = TryGetProp(colonyCls, "Enhancer_Pos"..i.."_X")
-            local pos_y = TryGetProp(colonyCls, "Enhancer_Pos"..i.."_Y")
-            local pos_z = TryGetProp(colonyCls, "Enhancer_Pos"..i.."_Z")
-            pos_list[i] = {pos_x, pos_y, pos_z}
-        end
-
-        if #pos_list == 3 then
+        local rule = GetClass("guild_colony_rule", "GuildColony_Rule_Default"); --GuildColonyRule.xml에 저장된 콜로니전 룰 칼럼값
+        local enhancerName = TryGetProp(rule, "GuildColonyEnhancerClassName") --콜로니 증폭기 이름
+        local enhancerCount = TryGetProp(rule, "GuildColonyEnhancerCount") --콜로니 증폭기 개수
+        local enhancerGenTime = TryGetProp(rule, "GuildColonyEnhancer_GenTime") --콜로니 증폭기 생성 시간
+    	local clsList = GetClassList("guild_colony"); --GuildColonyRanking.xml에 저장된 콜로니전 점령 관련 칼럼값
+        local zoneClsName = GetZoneName(self)
+        local colonyCls = GetClassByNameFromList(clsList, "GuildColony_"..zoneClsName); --GuildColonyRanking.xml에 저장된 해당 스팟지역의 class obj
+        local occupationGuildObj = GetColonyOccupationGuild(zoneClsName)
+        
+        if colonyCls ~= nil then
+            local pos_list = {}
             for i = 1, enhancerCount do
-                local obj = GetExArgObject(self, "COLONY_ENHANCER_"..i)
-                if obj ~= nil then
-                    if IsDead(obj) == 0 then
-                        Kill(obj)
+                local pos_x = TryGetProp(colonyCls, "Enhancer_Pos"..i.."_X")
+                local pos_y = TryGetProp(colonyCls, "Enhancer_Pos"..i.."_Y")
+                local pos_z = TryGetProp(colonyCls, "Enhancer_Pos"..i.."_Z")
+                pos_list[i] = {pos_x, pos_y, pos_z}
+            end
+
+        if num == 0 then
+            if #pos_list == 3 then
+                for i = 1, enhancerCount do
+                    local obj_check = GetExArgObject(self, "COLONY_ENHANCER_"..i)
+                    if obj_check ~= nil then
+                        if IsDead(obj_check) == 0 then
+                            Kill(obj_check)
+                        end
                     end
                 end
-                if GetExProp_Str(self, "ENHANCER_DESTROY_GUILD_"..i) ~= "None" then
-                    DelExProp(self, "ENHANCER_DESTROY_GUILD_"..i)
+            
+                self.NumArg1 = 0
+                self.NumArg2 = 0
+                self.NumArg3 = 0
+            
+                DeleteEnhancerDestroyGuildList(zoneClsName)
+                local partyID = 0
+                if occupationGuildObj ~= nil then
+                    partyID = GetIESID(occupationGuildObj)
                 end
-                if GetExProp_Str(self, "ENHANCER_DESTROY_TIME_"..i) ~= "None" then
-                    DelExProp(self, "ENHANCER_DESTROY_TIME_"..i)
+                for i = 1, enhancerCount do
+                    local obj = CREATE_MONSTER_EX(self, enhancerName, pos_list[i][1], pos_list[i][2],pos_list[i][3], -45, 'Monster', nil, SCR_GUILD_COLONY_ENHANCER_SET); --콜로니 증폭기 소환
+                    SetMonsterPartyID(obj, PARTY_GUILD, partyID)
+                    SetExArgObject(self, "COLONY_ENHANCER_"..i, obj)
+                    SetExArgObject(obj, "COLONY_ENHANCER_"..i, self)
+                    SetFixAnim(obj, 'on_loop_left')
+                    CreateEnhancerMongo(obj)
                 end
             end
-
-            DeleteEnhancerDestroyGuildList(zoneClsName)
-            local occupationGuildObj = GetColonyOccupationGuild(zoneClsName)
-            local partyID = 0
-            if occupationGuildObj ~= nil then
-                partyID = GetIESID(occupationGuildObj)
-            end
-            for i = 1, enhancerCount do
-                local obj = CREATE_MONSTER_EX(self, enhancerName, pos_list[i][1], pos_list[i][2],pos_list[i][3], -45, 'Monster', nil, SCR_GUILD_COLONY_ENHANCER_SET); --콜로니 증폭기 소환
-                SetMonsterPartyID(obj, PARTY_GUILD, partyID)
-                SetExArgObject(self, "COLONY_ENHANCER_"..i, obj)
-                SetExArgObject(obj, "COLONY_ENHANCER_"..i, self)
-                SetFixAnim(obj, 'on_loop_left')
-                CreateEnhancerMongo(obj)
+        elseif num == 1 then
+            local state = GetColonyWarState()  --콜로니전 진행 상태 체크 (1 = ready, 2 = start, 3 = delay, 4 = end, 5 = close)
+            if state == 2 then --콜로니전이 시작 상태라면,
+                if #pos_list == 3 then
+                    for i = 1, enhancerCount do
+                        local obj_check = GetExArgObject(self, "COLONY_ENHANCER_"..i)
+                        if obj_check ~= nil then
+                            if i == 1 then
+                                if self.NumArg1 ~= 0 then
+                                    self.NumArg1 = 0
+                                end
+                            elseif i == 2 then
+                                if self.NumArg2 ~= 0 then
+                                    self.NumArg2 = 0
+                                end
+                            elseif i == 3 then
+                                if self.NumArg3 ~= 0 then
+                                    self.NumArg3 = 0
+                                end
+                            end
+                        else
+                            if i == 1 then
+                                if self.NumArg1 < enhancerGenTime then
+                                    self.NumArg1 = self.NumArg1 + 1
+                                end
+                            elseif i == 2 then
+                                if self.NumArg2 < enhancerGenTime then
+                                    self.NumArg2 = self.NumArg2 + 1
+                                end
+                            elseif i == 3 then
+                                if self.NumArg3 < enhancerGenTime then
+                                    self.NumArg3 = self.NumArg3 + 1
+                                end
+                            end
+                        end
+                    end
+            
+                    for i = 1, enhancerCount do
+                        local obj_check = GetExArgObject(self, "COLONY_ENHANCER_"..i)
+                        if obj_check == nil then
+                            local partyID = 0
+                            if occupationGuildObj ~= nil then
+                                partyID = GetIESID(occupationGuildObj)
+                            end
+                            if i == 1 then
+                                if self.NumArg1 >= enhancerGenTime then
+                                    local obj = CREATE_MONSTER_EX(self, enhancerName, pos_list[i][1], pos_list[i][2],pos_list[i][3], -45, 'Monster', nil, SCR_GUILD_COLONY_ENHANCER_SET); --콜로니 증폭기 소환
+                                    SetMonsterPartyID(obj, PARTY_GUILD, partyID)
+                                    SetExArgObject(self, "COLONY_ENHANCER_"..i, obj)
+                                    SetExArgObject(obj, "COLONY_ENHANCER_"..i, self)
+                                    SetFixAnim(obj, 'on_loop_left')
+                                    CreateEnhancerMongo(obj)
+                                    self.NumArg1 = 0
+                                end
+                            elseif i == 2 then
+                                if self.NumArg2 >= enhancerGenTime then
+                                    local obj = CREATE_MONSTER_EX(self, enhancerName, pos_list[i][1], pos_list[i][2],pos_list[i][3], -45, 'Monster', nil, SCR_GUILD_COLONY_ENHANCER_SET); --콜로니 증폭기 소환
+                                    SetMonsterPartyID(obj, PARTY_GUILD, partyID)
+                                    SetExArgObject(self, "COLONY_ENHANCER_"..i, obj)
+                                    SetExArgObject(obj, "COLONY_ENHANCER_"..i, self)
+                                    SetFixAnim(obj, 'on_loop_left')
+                                    CreateEnhancerMongo(obj)
+                                    self.NumArg2 = 0
+                                end
+                            elseif i == 3 then
+                                if self.NumArg3 >= enhancerGenTime then
+                                    local obj = CREATE_MONSTER_EX(self, enhancerName, pos_list[i][1], pos_list[i][2],pos_list[i][3], -45, 'Monster', nil, SCR_GUILD_COLONY_ENHANCER_SET); --콜로니 증폭기 소환
+                                    SetMonsterPartyID(obj, PARTY_GUILD, partyID)
+                                    SetExArgObject(self, "COLONY_ENHANCER_"..i, obj)
+                                    SetExArgObject(obj, "COLONY_ENHANCER_"..i, self)
+                                    SetFixAnim(obj, 'on_loop_left')
+                                    CreateEnhancerMongo(obj)
+                                    self.NumArg3 = 0
+                                end
+                            end
+                        end
+                    end
+                end
             end
         end
     end
 end
+
 
 function SCR_GUILD_COLONY_ENHANCER_SET(obj)
     local rule = GetClass("guild_colony_rule", "GuildColony_Rule_Default"); --GuildColonyRule.xml에 저장된 콜로니전 룰 칼럼값
@@ -1058,31 +1206,23 @@ function SCR_GUILD_COLONY_ENHANCER_DEAD(self)
         DetachEffect(self, 'F_bg_statu_blue')
         local zoneClsName = GetZoneName(self)
         local guildObj = GetGuildObj(lastattacker)
-        AddEnhancerDestroyGuildList(zoneClsName, guildObj) --증폭기 파괴 길드 리스트 추가 필요
+        local g_list, g_cnt = GetEnhancerDestroyGuildList(zoneClsName)
+        local enhancer_destroy_num = 0
+        if g_cnt > 0 then
+            for i = 1, g_cnt do
+                if IsSameObject(guildObj, g_list[i]) == 1 then
+                    enhancer_destroy_num = enhancer_destroy_num + 1
+                end
+            end
+        end
+
+        if enhancer_destroy_num < 10 then
+            AddEnhancerDestroyGuildList(zoneClsName, guildObj) --증폭기 파괴 길드 리스트 추가 필요
+        end
         DestroyEnhancerMongo(self, lastattacker)
         local rule = GetClass("guild_colony_rule", "GuildColony_Rule_Default"); --GuildColonyRule.xml에 저장된 콜로니전 룰 칼럼값
         local enhancerCount = TryGetProp(rule, "GuildColonyEnhancerCount") --콜로니 증폭기 개수
-        local owner = nil
-        local enhancer_num
-        for i = 1, enhancerCount do
-            if GetExArgObject(self, "COLONY_ENHANCER_"..i) ~= nil then
-                owner = GetExArgObject(self, "COLONY_ENHANCER_"..i)
-                enhancer_num = i
-            end
-        end
-        if owner ~= nil then
-            local guildID = GetIESID(guildObj)
-            local now_time = os.date('*t')
-            local year = now_time['year']
-            local month = now_time['month']
-            local day = now_time['day']
-            local hour = now_time['hour']
-            local min = now_time['min']
-            local sec = now_time['sec']
-            local time = tostring(year..month..day).."/"..tostring(((hour*3600) + (min*60) + sec))
-            SetExProp_Str(owner, "ENHANCER_DESTROY_GUILD_"..enhancer_num, guildID)
-            SetExProp_Str(owner, "ENHANCER_DESTROY_TIME_"..enhancer_num, time)
-        end
+        local enhancerDestroyLimitCount = TryGetProp(rule, "GuildColonyEnhancer_DestroyLimitCount") --콜로니 증폭기 파괴 최대 개수
 
         local pcList, pcCount = GetLayerPCList(GetZoneInstID(self), GetLayer(self))
         if pcCount > 0 then
@@ -1091,20 +1231,193 @@ function SCR_GUILD_COLONY_ENHANCER_DEAD(self)
             local occupationGuildObj = GetColonyOccupationGuild(zoneClsName)
     	    for P = 1, pcCount do
                 if IsSameObject(guildObj, GetGuildObj(pcList[P])) == 1 then --마지막 타격자와 같은 길드라면,
-                    local buff = GetBuffByName(pcList[P], 'GuildColony_EnhancerDestroyBuff_1')
-                    if buff == nil then --포인트 버프를 받고있지 않다면,
+                    local point_buff = GetBuffByName(pcList[P], 'GuildColony_EnhancerDestroyBuff_1')
+                    if point_buff == nil then --포인트 버프를 받고있지 않다면,
                         AddBuff(self, pcList[P], 'GuildColony_EnhancerDestroyBuff_1', 1, 0, 0, 1) --포인트 버프 추가
+                        local buff = GetBuffByName(pcList[P], 'GuildColony_EnhancerDestroyBuff_1')
+                        SendAddOnMsg(pcList[P], 'NOTICE_Dm_raid_clear', ScpArgMsg("GUILD_COLONY_MSG_ENHANCER_DESTROY_BUFF{name}{buff}", "name", name, "buff", buff.Name), 15) --증폭기 파괴 및 버프 획득 알림메시지(존 내 인원)
+                        PlayEffect(pcList[P], 'F_lineup002_blue', 1, 'BOT')
                     else
-                        AddBuff(self, pcList[P], 'GuildColony_EnhancerDestroyBuff_1', 1, 0, 0, 1) --포인트 버프 중첩 추가
+                        local point_buff_over = GetBuffOver(pcList[P], 'GuildColony_EnhancerDestroyBuff_1')
+                        local buff = GetBuffByName(pcList[P], 'GuildColony_EnhancerDestroyBuff_1')
+                        if point_buff_over < enhancerDestroyLimitCount then
+                            AddBuff(self, pcList[P], 'GuildColony_EnhancerDestroyBuff_1', 1, 0, 0, 1) --포인트 버프 중첩 추가
+                            SendAddOnMsg(pcList[P], 'NOTICE_Dm_raid_clear', ScpArgMsg("GUILD_COLONY_MSG_ENHANCER_DESTROY_BUFF{name}{buff}", "name", name, "buff", buff.Name), 15) --증폭기 파괴 및 버프 획득 알림메시지(존 내 인원)
+                            PlayEffect(pcList[P], 'F_lineup002_blue', 1, 'BOT')
+                        else
+                            SendAddOnMsg(pcList[P], 'NOTICE_Dm_raid_clear', ScpArgMsg("GUILD_COLONY_MSG_ENHANCER_DESTROY_BUFF2{name}{buff}", "name", name, "buff", buff.Name), 15) --증폭기 파괴 및 버프 중첩 최대치 알림메시지(존 내 인원)
+                        end
                     end
-                    AddBuff(self, pcList[P], 'GuildColony_EnhancerDestroyBuff_2', 1, 0, 600000, 1) --이속 증가 버프(10분) 추가
-                    buff = GetBuffByName(pcList[P], 'GuildColony_EnhancerDestroyBuff_1')
-                    SendAddOnMsg(pcList[P], 'NOTICE_Dm_raid_clear', ScpArgMsg("GUILD_COLONY_MSG_ENHANCER_DESTROY_BUFF{name}{buff}", "name", name, "buff", buff.Name), 15) --증폭기 파괴한 마지막 타격자의 팀명, 길드명 알림 메시지(존 내 인원)
-                    PlayEffect(pcList[P], 'F_lineup002_blue', 1, 'BOT')
+                    local pvp_buff = GetBuffByName(pcList[P], 'GuildColony_EnhancerDestroyBuff_2')
+                    if pvp_buff == nil then --pvp 버프를 받고있지 않다면,
+                        AddBuff(self, pcList[P], 'GuildColony_EnhancerDestroyBuff_2', 1, 0, 0, 1) --pvp 버프 추가
+                    end
                 else
-                    SendAddOnMsg(pcList[P], 'NOTICE_Dm_Bell', ScpArgMsg("GUILD_COLONY_MSG_ENHANCER_DESTROY{partyName}{name}", "partyName", partyName, "name", name), 15) --증폭기 파괴한 마지막 타격자의 팀명, 길드명 알림 메시지(존 내 인원)
+                    SendAddOnMsg(pcList[P], 'NOTICE_Dm_Bell', ScpArgMsg("GUILD_COLONY_MSG_ENHANCER_DESTROY{partyName}{name}", "partyName", partyName, "name", name), 15) --증폭기 파괴 알림 메시지(존 내 인원)
         	    end
         	end
+        end
+    end
+end
+
+
+
+--길드 콜로니전 나무뿌리 수정 소환 스크립트
+function SCR_GUILD_COLONY_SUMMON_ROOTCRYSTAL_RUN(self) --히든 오브젝트 프랍 simpleAI 1000msec
+    local state = GetColonyWarState()  --콜로니전 진행 상태 체크 (1 = ready, 2 = start, 3 = delay, 4 = end, 5 = close)
+    if state == 1 or state == 3 then --콜로니전이 시작대기, 또는 종료후 지연 상태라면,
+        return
+    elseif state == 2 then --콜로니전이 시작 상태라면,
+        local rule = GetClass("guild_colony_rule", "GuildColony_Rule_Default"); --GuildColonyRule.xml에 저장된 콜로니전 룰 칼럼값
+        local objList = {'rootcrystal_01', 
+                        'rootcrystal_04',
+                        'rootcrystal_05',
+                        'rootcrystal_02'
+                        }
+        local range = 50
+        local remainTime = TryGetProp(rule, "RootCrystal_GenTime") --콜로니전 시작 또는 나무뿌리 수정 파괴 후, 재등장하는 시간
+        if remainTime == nil then
+            remainTime = 120
+        end
+
+        local obj = GetScpObjectList(self, "COLONY_SUMMON_ROOTCRYSTAL")
+        if #obj ~= 0 then --나무뿌리 수정이 필드에 있다면,
+            if self.NumArg1 ~= 0 then
+                self.NumArg1 = 0
+            end
+    	    return
+    	else --나무뿌리 수정이 필드에 없다면,
+            if self.NumArg1 < remainTime then
+                self.NumArg1 = self.NumArg1 + 1
+                return
+            else
+                local pos_x, pos_y, pos_z = GetPos(self)
+                local ran = IMCRandom(1, #objList) --나무뿌리 수정 종류를 랜덤하게 선정
+                local objClassName = objList[ran]
+                if objClassName ~= nil then
+                    if pos_x ~= nil and pos_y ~= nil and pos_z ~= nil then
+                        local mon = CREATE_MONSTER_EX(self, objClassName, pos_x+IMCRandom(-range, range), pos_y, pos_z+IMCRandom(-range, range), 0, 'RootCrystal', nil, SCR_GUILD_COLONY_ROOTCRYSTAL_RUN); --나무뿌리 수정 소환
+                        AddScpObjectList(self, "COLONY_SUMMON_ROOTCRYSTAL", mon) --나무뿌리 수정이 필드에 있는지 없는지 체크하기 위해 설정
+                    	AddScpObjectList(mon, "COLONY_SUMMON_ROOTCRYSTAL", self)
+                    	self.NumArg1 = 0
+                    end
+                end
+            end
+        end
+    end
+end
+
+
+function SCR_GUILD_COLONY_ROOTCRYSTAL_RUN(mon)
+    local monList = { {'rootcrystal_01', ScpArgMsg("COLONY_ROOTCRYSTAL_NAME_1")},
+                        {'rootcrystal_04', ScpArgMsg("COLONY_ROOTCRYSTAL_NAME_2")},
+                        {'rootcrystal_05', ScpArgMsg("COLONY_ROOTCRYSTAL_NAME_3")},
+                        {'rootcrystal_02', ScpArgMsg("COLONY_ROOTCRYSTAL_NAME_4")}
+                    }
+    local monName
+    for i = 1, #monList do
+        if table.find(monList[i], mon.ClassName) ~= 0 then
+            monName = monList[i][2]
+        end
+    end
+
+    if monName ~= nil then
+        mon.Name = monName
+    end
+    mon.Tactics = "MON_COLONY_TORCH"
+end
+
+
+--나무뿌리 수정 tactics
+function SCR_MON_COLONY_TORCH_TS_BORN_ENTER(self)
+end
+
+function SCR_MON_COLONY_TORCH_TS_BORN_UPDATE(self)
+end
+
+function SCR_MON_COLONY_TORCH_TS_BORN_LEAVE(self)
+end
+
+function SCR_MON_COLONY_TORCH_TS_DEAD_ENTER(self)
+    local attacker = GetTopContributionAttacker(self)
+    if attacker ~= nil then
+    	RunScript('SCR_MON_COLONY_TORCH_DEAD_NORMAL_BUFF_FUNC', self, attacker)
+    	RunScript('SCR_MON_COLONY_TORCH_DEAD_BUFF_FUNC', self, attacker, self.ClassName)
+    	if attacker.Lv <= 200 then
+        	local buffArg1 = 1
+        	if attacker.Lv <= 150 then
+        	    buffArg1 = 3
+        	end
+    	    AddBuff(attacker, attacker, 'RootCrystalMoveSpeed', buffArg1, 0, 600000, 1);
+    	end
+    end
+
+    local fndList, fndCount = SelectObject(self, 100, 'ALL', 1);
+    for i = 1, fndCount do
+    	if fndList[i].ClassName == 'PC' then
+    	    local flag = true
+    	    if attacker == nil then
+    	        flag = false
+    	    end
+    	    if flag == false or IsSameActor(attacker,fndList[i]) == 'NO' then
+    	        RunScript('SCR_MON_COLONY_TORCH_DEAD_NORMAL_BUFF_FUNC', self, fndList[i])
+            	if fndList[i].Lv <= 200 then
+                	local buffArg1 = 1
+                	if fndList[i].Lv <= 150 then
+                	    buffArg1 = 3
+                	end
+            	    AddBuff(fndList[i], fndList[i], 'RootCrystalMoveSpeed', buffArg1, 0, 600000, 1);
+            	end
+            end
+    	end
+    end
+    local obj = GetScpObjectList(self, "COLONY_SUMMON_ROOTCRYSTAL")
+    if #obj > 0 then
+        for i = 1, #obj do
+            RemoveScpObjectList(obj[i], "COLONY_SUMMON_ROOTCRYSTAL", self)
+        end
+    end
+end
+
+function SCR_MON_COLONY_TORCH_TS_DEAD_UPDATE(self)
+end
+
+function SCR_MON_COLONY_TORCH_TS_DEAD_LEAVE(self)
+end
+
+function SCR_MON_COLONY_TORCH_DEAD_NORMAL_BUFF_FUNC(self, pc)
+    sleep(200)
+    PlayExpEffect(self, pc, 'stamina', 75)
+	GiveStamina(self, pc, 30 * 100000)
+	sleep(800)
+	PlayEffect(pc, 'F_staup', 1, 1, 'TOP')
+end
+
+
+function SCR_MON_COLONY_TORCH_DEAD_BUFF_FUNC(self, pc, className)
+    sleep(200)
+	local buff_list = { {'rootcrystal_01', 'GuildColony_rootcrystal_Buff_spd', 5, 'F_buff_basic031_green_line'},
+	                    {'rootcrystal_04', 'GuildColony_rootcrystal_Buff_hpsp', 30, 'F_buff_basic026_pink_line'},
+	                    {'rootcrystal_05', 'GuildColony_rootcrystal_Buff_atk', 30, 'F_buff_basic029_red_line'},
+	                    {'rootcrystal_02', 'GuildColony_rootcrystal_Buff_def', 30, 'F_buff_basic032_blue_line'}
+                        }
+
+    for i = 1, #buff_list do
+        local check = IsBuffApplied(pc, buff_list[i][2])
+        if check == "YES" then
+            return
+        end
+    end
+    for i = 1, #buff_list do
+    	if table.find(buff_list[i], className) ~= 0 then
+        	local buff_name = buff_list[i][2]
+        	local buff_time = buff_list[i][3] * 1000
+        	local buff_effect = buff_list[i][4]
+
+        	AddBuff(self, pc, buff_name, 1, 0, buff_time, 1);
+        	PlayEffect(pc, buff_effect, 0.5, 'BOT')
+            sleep(800)
+            return
         end
     end
 end

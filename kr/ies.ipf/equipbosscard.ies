@@ -130,7 +130,7 @@ ClassID,ConditionArg4,ClassName,UseType,ValueType,PropertyType,ConditionScp,Cond
 129,0,"card_Lapene","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","CON_ITEM_BM/MNA_ITEM_BM/INT_ITEM_BM/DEX_ITEM_BM/STR_ITEM_BM","CON_ITEM_BM/MNA_ITEM_BM/INT_ITEM_BM/DEX_ITEM_BM/STR_ITEM_BM","0.34/0.34/0.34/0.34/0.34","힘, 체력, 지능, 정신, 민첩 + {@st66d_y}{s16}[%d]{/}{/}","0.34"
 130,0,"card_Rambandgad","UseItem","StarCount","","SCR_CARDCHECK_POTION_USE","SPPOTION","100","","SCR_CARDEFFECT_ADD_BUFF_PC_STAT","CARD_MNA","MNA_ITEM_BM","10000","SP 포션 사용 시 10초간 정신 +{@st66d_y}{s16}[%d]{/}{/}","1.5"
 131,0,"card_SwordBallista","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_PLUS","LootingChance_BM","LootingChance","5","루팅 찬스 +{@st66d_y}{s16}[%d]{/}{/}","5"
-132,0,"card_FrosterLord","Attack","StarCount","","SCR_CARDCHECK_ATTACK_RATE","","2","","SCR_CARDEFFECT_ADD_BUFF_MONSTER","Freeze","","4000","공격 시 {@st66d_y}{s16}[%d]{/}{/}%% 확률로 상대방에게 4초간 빙결 효과","0.5"
+132,0,"card_FrosterLord","Attack","StarCount","","SCR_CARDCHECK_ATTACK_RATE","","2","","SCR_CARDEFFECT_ADD_BUFF_MONSTER","Frostbite_DeBuff","","4000","공격 시 {@st66d_y}{s16}[%d]{/}{/}%% 확률로 상대방에게 4초간 동상 효과","0.5"
 133,0,"Legend_card_Marnoks","Attack","StarCount","","","","","","SCR_CARDEFFECT_CRITICAL_ATTACK","","","2","최소 치명타 확률 +{@st66d_y}{s16}[%d]{/}{/}%% 증가","2"
 134,0,"Legend_card_Blud","Always","StarCount","","","","","","SCR_CARDEFFECT_DAMAGE_REDUCTION_RATE_FROM_PC","DAMAGE_REDUCTION_RATE_FROM_PC","","3","캐릭터에게 받는 대미지 {@st66d_y}{s16}[%d]{/}{/}%% 감소","3"
 135,0,"Legend_card_Zawra","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_RATE","DEF_RATE_BM","DEF","10","물리 방어력 +{@st66d_y}{s16}[%d]{/}{/}%% 증가","10"

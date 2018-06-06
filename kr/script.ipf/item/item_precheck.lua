@@ -1,3 +1,14 @@
+function SCR_PRE_ACHIEVE_BOX(self, argstring, argnum1, argnum2)
+    local value = GetAchievePoint(self, argstring)
+    if value == 0 then
+        return 1
+    else
+        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1802_NEWYEAR_MSG2"), 5);
+    end
+    
+    return 0;
+end
+
 function SCR_PRECHECK_CONSUME(self)
     if OnKnockDown(self) == 'NO' then
         return 1;

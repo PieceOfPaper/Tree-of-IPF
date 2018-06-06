@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="fluting_keyboard" x="0" y="0" width="1920" height="200">
+	<frame title="fluting_keyboard" layout_gravity="center bottom" margin="0 0 0 0" scale_align="center bottom"/>
+	<layer layerlevel="91"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<option visible="false" hideable="false" closebutton="false"/>
+	<input hittestframe="false"/>
+	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+	<script OpenScp="ON_FLUTING_KEYBOARD_OPEN" CloseScp="ON_FLUTING_KEYBOARD_CLOSE"/>
+	<userconfig CLOSE_ICON="icon_rest_back" CLOSE_INDEX="10"/>
+	<controls>
+		<picture name="slot_bg" rect="0 0 410 120" margin="0 0 0 -300" layout_gravity="center bottom" hittest="false" image="slot_bg"/>
+		<picture name="rest_R2" rect="0 0 150 110" margin="280 0 0 -2009" layout_gravity="center bottom" hittest="false" image="rest_R2"/>
+		<picture name="rest_L1" rect="0 0 150 110" margin="-275 0 0 -2009" layout_gravity="center bottom" hittest="false" image="rest_L1"/>
+		<slot name="slot1" rect="0 0 48 48" margin="-225 0 0 25" layout_gravity="center bottom" index="0" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot2" rect="0 0 48 48" margin="-175 0 0 25" layout_gravity="center bottom" index="1" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot3" rect="0 0 48 48" margin="-125 0 0 25" layout_gravity="center bottom" index="2" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot4" rect="0 0 48 48" margin="-75 0 0 25" layout_gravity="center bottom" index="3" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot5" rect="0 0 48 48" margin="-25 0 0 25" layout_gravity="center bottom" index="4" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot6" rect="0 0 48 48" margin="25 0 0 25" layout_gravity="center bottom" index="5" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot7" rect="0 0 48 48" margin="75 0 0 25" layout_gravity="center bottom" index="6" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot8" rect="0 0 48 48" margin="125 0 0 25" layout_gravity="center bottom" index="7" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot9" rect="0 0 48 48" margin="175 0 0 25" layout_gravity="center bottom" index="8" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot10" rect="0 0 48 48" margin="225 0 0 25" layout_gravity="center bottom" index="9" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<labelbox name="Line" rect="0 0 500 3" margin="0 0 0 75" layout_gravity="center bottom" skin="label_3pxl" visible="true"/>
+		<slot name="slot11" rect="0 0 48 48" margin="-225 0 0 80" layout_gravity="center bottom" index="10" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot12" rect="0 0 48 48" margin="-175 0 0 80" layout_gravity="center bottom" index="11" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot13" rect="0 0 48 48" margin="-125 0 0 80" layout_gravity="center bottom" index="12" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot14" rect="0 0 48 48" margin="-75 0 0 80" layout_gravity="center bottom" index="13" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot15" rect="0 0 48 48" margin="-25 0 0 80" layout_gravity="center bottom" index="14" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot16" rect="0 0 48 48" margin="25 0 0 80" layout_gravity="center bottom" index="15" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot17" rect="0 0 48 48" margin="75 0 0 80" layout_gravity="center bottom" index="16" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot18" rect="0 0 48 48" margin="125 0 0 80" layout_gravity="center bottom" index="17" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot19" rect="0 0 48 48" margin="175 0 0 80" layout_gravity="center bottom" index="18" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+		<slot name="slot20" rect="0 0 48 48" margin="225 0 0 80" layout_gravity="center bottom" index="19" layout_height="48" layout_width="48" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="quickslot"/>
+	</controls>
+</uiframe>

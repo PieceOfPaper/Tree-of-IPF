@@ -300,3 +300,17 @@ function SAVE_GUILD_NOTICE(parent, ctrl)
 	end
 	noticeEdit:ReleaseFocus();
 end
+
+function IS_EXIST_GUILD_TOWER()
+    local guildObj = GET_MY_GUILD_OBJECT();    
+    if guildObj == nil then
+        return false;
+    end
+
+    local towerPosition = guildObj.HousePosition;
+    local sList = StringSplit(towerPosition, '#');
+    if #sList ~= 6 then
+        return false;
+    end
+    return true;
+end
