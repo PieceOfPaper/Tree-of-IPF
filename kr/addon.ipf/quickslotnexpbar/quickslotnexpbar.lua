@@ -575,6 +575,10 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 		return;
 	end
 
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
 	tolua.cast(slot, "ui::CSlot");
 	local icon = slot:GetIcon();
 	if icon == nil then

@@ -140,7 +140,6 @@ function GUILDINFO_INIT_PROFILE(frame)
     local openText = GET_CHILD_RECURSIVELY(profileBox, 'openText');
     local openDate = imcTime.ImcTimeToSysTime(guild.info.createTime);
     local openDateStr = string.format('%04d.%02d.%02d', openDate.wYear, openDate.wMonth, openDate.wDay); -- yyyy.mm.dd
-    print(openDateStr)
     openText:SetTextByKey('date', openDateStr);
 
     -- member
@@ -304,9 +303,8 @@ function UI_TOGGLE_GUILD()
     if app.IsBarrackMode() == true then
 		return;
 	end
-
-    local myActor = GetMyActor();
-    if myActor == nil or myActor:IsGuildExist() == false then
+    local guildinfo = session.GetGuildInfo();
+    if guildinfo == nil then
         return;
     end
     g_ENABLE_GUILD_MEMBER_SHOW = true;

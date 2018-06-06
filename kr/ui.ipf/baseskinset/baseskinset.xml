@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -6031,10 +6031,17 @@
 		<image name="notice_br_solution" file="\skin\notice_p_skin.tga" imgrect="23 92 21 21"/>
 		<image name="notice_br_link" file="\skin\notice_p_skin.tga" imgrect="46 92 21 21"/>
 		<image name="notice_br_ydot" file="\skin\notice_p_skin.tga" imgrect="1 114 6 6"/>
+		<image name="guild_banner_btn" file="\skin\guild_skin.tga" imgrect="510 0 512 202" CMM_Caption="길드 배너 버튼"/>
+		<image name="guild_banner_btn_cursoron" file="\skin\guild_skin.tga" imgrect="510 203 512 202"/>
+		<image name="guild_banner_btn_clicked" file="\skin\guild_skin.tga" imgrect="510 203 512 202"/>
+		<image name="name_box_beige" file="\skin\guild_skin.tga" imgrect="307 250 140 29"/>
 		<image name="card_reinforce_SUCCESS" file="\skin\monstercard.tga" imgrect="1 781 330 133" CMM_Caption="레전드 카드 합성 결과"/>
 		<image name="card_reinforce_FAIL" file="\skin\monstercard.tga" imgrect="332 781 330 133"/>
 		<image name="card_reinforce_DESTROY" file="\skin\monstercard.tga" imgrect="663 781 330 133"/>
 		<image name="lvup_guide_banner" file="\skin\lvup_guide_banner.jpg" imgrect="0 0 360 180" CMM_Caption="팁 레벨업 가이드 배너"/>
+		<image name="guild_banner_menu_btn" file="\skin\guild_skin.tga" imgrect="690 406 48 50" CMM_Caption="길드 배너 메뉴 버튼"/>
+		<image name="guild_banner_menu_btn_cursoron" file="\skin\guild_skin.tga" imgrect="739 406 48 50"/>
+		<image name="guild_banner_menu_btn_clicked" file="\skin\guild_skin.tga" imgrect="739 406 48 50"/>
 		<image name="attribute_fire" file="\skin\attribute_icon.tga" imgrect="1 1 37 37" CMM_Caption="속성 아이콘"/>
 		<image name="attribute_ice" file="\skin\attribute_icon.tga" imgrect="39 1 37 37"/>
 		<image name="attribute_poison" file="\skin\attribute_icon.tga" imgrect="77 1 37 37"/>
@@ -6051,13 +6058,11 @@
 		<image name="itemlink_skin" file="\skin\itemlink_skin.tga" imgrect="0 0 507 707" CMM_Caption="아이템 링크 bg"/>
 		<image name="itemlink_skin2" file="\skin\itemlink_skin2.tga" imgrect="0 0 507 707" CMM_Caption="레전드 아이템 분해 bg"/>
 		<image name="transcendence_scroll_skin" file="\skin\transcendence_scroll_skin.tga" imgrect="0 0 506 715" CMM_Caption="초월 스크롤 bg"/>
-		<image name="guild_banner_btn" file="\skin\guild_skin.tga" imgrect="510 0 512 202" CMM_Caption="길드 배너 버튼"/>
-		<image name="guild_banner_btn_cursoron" file="\skin\guild_skin.tga" imgrect="510 203 512 202"/>
-		<image name="guild_banner_btn_clicked" file="\skin\guild_skin.tga" imgrect="510 203 512 202"/>
-		<image name="name_box_beige" file="\skin\guild_skin.tga" imgrect="307 250 140 29"/>
-		<image name="guild_banner_menu_btn" file="\skin\guild_skin.tga" imgrect="690 406 48 50" CMM_Caption="길드 배너 매뉴 버튼"/>
-		<image name="guild_banner_menu_btn_cursoron" file="\skin\guild_skin.tga" imgrect="739 406 48 50"/>
-		<image name="guild_banner_menu_btn_clicked" file="\skin\guild_skin.tga" imgrect="739 406 48 50"/>
+		<image name="guildbanner_slot" file="\skin\guild_skin.tga" imgrect="194 513 510 200" CMM_Caption="배너 빈 슬롯"/>
+		<image name="guild_comment_on" file="\skin\guild_skin.tga" imgrect="654 466 26 26" CMM_Caption="길드 커뮤니티 코멘트"/>
+		<image name="guild_comment_off" file="\skin\guild_skin.tga" imgrect="627 466 26 26"/>
+		<image name="impossible_red" file="\skin\market_skin.tga" imgrect="0 130 17 17" CMM_Caption="금지불가 표시 빨강"/>
+		<image name="impossible_yellow" file="\skin\market_skin.tga" imgrect="18 130 17 17" CMM_Caption="금지불가 표시 노랑"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>

@@ -95,7 +95,11 @@ function DRAW_LEGENDEXPPOTION_DESC_TOOLTIP(tooltipframe, invitem, yPos, mainfram
 end
 
 function GET_LEGENDEXPPOTION_EXP(itemObj)
-	local curExpStr, maxExp = itemObj.ItemExpString, itemObj.NumberArg1;
+	local curExpStr = TryGetProp(itemObj, 'ItemExpString', 'None');
+    if curExpStr == 'None' then
+        curExpStr = '0';
+    end
+    local maxExp = itemObj.NumberArg1;    
 	local curExp = tonumber(curExpStr);
 	if curExp == nil then
 		curExp = 0;

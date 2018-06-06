@@ -109,7 +109,6 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
     		showAppraisalPic = true;
 		end
 	end
-	
 	-- 비교?�팁
 	-- ?�팁 비교??무기?� ?�비?�만 ?�당?�다. (미감???�외)
 
@@ -174,9 +173,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 			end
 
 			local equitSpot = item.GetEquipSpotNum(equiptype);
-
 			local item = session.GetEquipItemBySpot(equitSpot);
-
 			if item ~= nil then
 				local equipItem = GetIES(item:GetObject());
 
@@ -386,7 +383,7 @@ function DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, yPos, mainframename)
 	
 	local height = gBox:GetHeight() + tooltip_lifeTimeinfo_CSet:GetHeight();
 	gBox:Resize(gBox:GetWidth(), height);
-	return height;
+	return tooltip_lifeTimeinfo_CSet:GetY() + tooltip_lifeTimeinfo_CSet:GetHeight()
 end;
 
 function SHOW_REMAIN_LIFE_TIME(ctrl)
@@ -442,7 +439,7 @@ function GET_ITEM_PROP_NAME_LIST(obj)
 			propNameList[#propNameList]["PropName"] = propName;
 
             local propValue = math.floor(obj[propName]);
-            if propName == 'CoolDown' and propValue == 0 then -- 인벤토리가 아닌 아이템의 경우 CP계산을 못해요
+            if propName == 'CoolDown' and propValue == 0 then -- ?�벤?�리가 ?�닌 ?�이?�의 경우 CP계산??못해?
                 propValue = obj.ItemCoolDown;
             end
 
@@ -609,7 +606,7 @@ function ICON_SET_EQUIPITEM_TOOLTIP(icon, equipitem, topParentFrameName)
 	end
 end
 
--- 옵션 추출 아이템 툴팁
+-- ?�션 추출 ?�이???�팁
 function ITEM_TOOLTIP_EXTRACT_OPTION(tooltipframe, invitem, mouseOverFrameName)
 	local targetItem = GetClass('Item', invitem.InheritanceItemName);
 	if targetItem == nil then

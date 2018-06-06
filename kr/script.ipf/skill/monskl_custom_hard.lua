@@ -1084,7 +1084,7 @@ function SKL_THROW_EQUIP_OBJECT(self, skl, xacHeadName, handType, x, y, z, endEf
     monObj.Name = "skill_equip_object" .. tostring(GetHandle(self))
     
     local angle = GetAngleToPos(self, x, z);
-    local mon = CreateMonster(self, monObj, x, y, 100, angle - 90, 0, 0, GetLayer(self));
+    local mon = CreateMonster(self, monObj, x, y, z, angle - 90, 0, 0, GetLayer(self));
     if mon == nil then
         CancelMonsterSkill(self);
         RemoveBuff(self, 'Warrior_ThrowItem_Debuff_'..handType);
@@ -1092,9 +1092,8 @@ function SKL_THROW_EQUIP_OBJECT(self, skl, xacHeadName, handType, x, y, z, endEf
     end
     
     SetExArgObject(self, "THROW_ITEM_OBJ_"..handType, mon);
-    
-    ChangeApcItemBodyPT(mon, self, xacHeadName, handType);
-    DelayEnterWorld(mon);
+    ChangeThrowItemBodyPT(mon, self, xacHeadName, handType);
+    DelayEnterWorld(mon, 1);
 
     local startRotateBillboard = 0;
     local endRotateBillboard = 0;
@@ -1117,7 +1116,7 @@ function SKL_THROW_EQUIP_OBJECT(self, skl, xacHeadName, handType, x, y, z, endEf
         end
     end
     
-    ThrowItem(self, mon, xacHeadName, handType, x, y, z, flyTime, delayTime, gravity, 1, endEftName, endScale, startRotateBillboard, endRotateBillboard);
+    ThrowItem(self, mon, xacHeadName, handType, x, y, z, flyTime, delayTime, gravity, easing, endEftName, endScale, startRotateBillboard, endRotateBillboard);
     
     KnockDown(mon, self, 30, angle, 70, 3);
     

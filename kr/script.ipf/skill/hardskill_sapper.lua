@@ -284,16 +284,14 @@ end
 
 function SCR_PAD_TGT_DAMAGE_BroomTrap(self, skill, pad, target)
 	local atkRate = 1;
-    
 	if GetPadLife(pad) <= 0 or GetPadUseCount(pad) <= 0 then
 		return false;
 	end
 	
 	if IS_APPLY_RELATION(self, target, 'ENEMY') then
-
-	  local MINPATK = self.MINPATK
-	  local MAXPATK = self.MAXPATK
-	  local damage = IMCRandom(MINPATK, MAXPATK);
+		local MINPATK = self.MINPATK
+		local MAXPATK = self.MAXPATK
+		local damage = IMCRandom(MINPATK, MAXPATK);
 
 --		local damage = SCR_LIB_ATKCALC_RH(self, skill);
 		local divineAtkAdd = skill.SkillAtkAdd;
@@ -317,14 +315,12 @@ function SCR_PAD_TGT_DAMAGE_BroomTrap(self, skill, pad, target)
 		    divineAtkAdd = 0;
 		end
 		
-		--Power Abil
---		local abil_34_AtkAdd = 0;
---        if pad ~= nil then
---            local pad_ratio = GetExProp(pad, 'PAD_SAPPER34_RATIO')
---            if pad_ratio ~= nil and pad_ratio ~= 0 then
---                abil_34_AtkAdd = skill.SkillAtkAdd * pad_ratio;
---            end
---        end
+		local abilSapper37 = GetAbility(self, "Sapper37")
+		if abilSapper37 ~= nil and abilSapper37.ActiveState == 1 then
+			MINPATK = self.MINPATK_SUB
+			MAXPATK = self.MAXPATK_SUB
+			damage = IMCRandom(MINPATK, MAXPATK);
+		end
 		
 		TakeDamage(self, target, skill.ClassName, damage);
 

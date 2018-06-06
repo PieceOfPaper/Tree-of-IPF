@@ -1,35 +1,35 @@
-function SCR_PRE_NPC_EVENT_1803_NEWCHARACTER(pc)
-    local sObj = GetSessionObject(pc, 'ssn_klapeda')
-    local aObj = GetAccountObj(pc)
-    if sObj ~= nil and aObj ~= nil then
-        if sObj.EVENT_1803_NEWCHARACTER_CHECK == 1 and aObj.EVENT_1803_NEWCHARACTER_REWARD_COUNT < 1 then
-            return 'YES'
-        end
-    end
-    
-end
+--function SCR_PRE_NPC_EVENT_1803_NEWCHARACTER(pc)
+--    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+--    local aObj = GetAccountObj(pc)
+--    if sObj ~= nil and aObj ~= nil then
+--        if sObj.EVENT_1803_NEWCHARACTER_CHECK == 1 and aObj.EVENT_1803_NEWCHARACTER_REWARD_COUNT < 1 then
+--            return 'YES'
+--        end
+--    end
+--    
+--end
 
-function SCR_KLAPEDA_USKA_NORMAL_7(self,pc)
-    local selectlog = ShowSelDlg(pc, 0, 'EVENT_1710_NEWCHARACTER_DLG1', ScpArgMsg('Yes'), ScpArgMsg('No'))
-    if selectlog == 1 then
-        local aObj = GetAccountObj(pc)
-        local sObj = GetSessionObject(pc, 'ssn_klapeda')
-        if sObj ~= nil and aObj ~= nil then
-            local tx = TxBegin(pc)
-            TxGiveItem(tx, 'EVENT_1710_NEWCHARACTER_BOX_1', 1, 'EVENT_1803_NEWCHARACTER')
-            TxGiveItem(tx, 'EVENT_1803_NEWCHARACTER_ABILITY_BOX', 1, 'EVENT_1803_NEWCHARACTER')
-            
-            TxSetIESProp(tx, aObj, 'EVENT_1803_NEWCHARACTER_REWARD_COUNT', aObj.EVENT_1803_NEWCHARACTER_REWARD_COUNT + 1)
-            TxSetIESProp(tx, sObj, 'EVENT_1803_NEWCHARACTER_CHECK', sObj.EVENT_1803_NEWCHARACTER_CHECK + 1)
-            
-            TxAddAchievePoint(tx, 'Event_1704_LvUp_Achieve1', 1)
-            local ret = TxCommit(tx)
-            if ret == 'SUCCESS' then
-                ShowOkDlg(pc, 'EVENT_1710_NEWCHARACTER_DLG2', 1)
-            end
-        end
-    end
-end
+--function SCR_KLAPEDA_USKA_NORMAL_7(self,pc)
+--    local selectlog = ShowSelDlg(pc, 0, 'EVENT_1710_NEWCHARACTER_DLG1', ScpArgMsg('Yes'), ScpArgMsg('No'))
+--    if selectlog == 1 then
+--        local aObj = GetAccountObj(pc)
+--        local sObj = GetSessionObject(pc, 'ssn_klapeda')
+--        if sObj ~= nil and aObj ~= nil then
+--            local tx = TxBegin(pc)
+--            TxGiveItem(tx, 'EVENT_1710_NEWCHARACTER_BOX_1', 1, 'EVENT_1803_NEWCHARACTER')
+--            TxGiveItem(tx, 'EVENT_1803_NEWCHARACTER_ABILITY_BOX', 1, 'EVENT_1803_NEWCHARACTER')
+--            
+--            TxSetIESProp(tx, aObj, 'EVENT_1803_NEWCHARACTER_REWARD_COUNT', aObj.EVENT_1803_NEWCHARACTER_REWARD_COUNT + 1)
+--            TxSetIESProp(tx, sObj, 'EVENT_1803_NEWCHARACTER_CHECK', sObj.EVENT_1803_NEWCHARACTER_CHECK + 1)
+--            
+--            TxAddAchievePoint(tx, 'Event_1704_LvUp_Achieve1', 1)
+--            local ret = TxCommit(tx)
+--            if ret == 'SUCCESS' then
+--                ShowOkDlg(pc, 'EVENT_1710_NEWCHARACTER_DLG2', 1)
+--            end
+--        end
+--    end
+--end
 
 
 function SCR_USE_EVENT_1710_NEWCHARACTER_BOX_1(pc)

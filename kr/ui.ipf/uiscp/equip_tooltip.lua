@@ -1499,7 +1499,7 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 		dur_gauge:ShowWindow(0);
 		pr_gauge:SetPos(pr_gauge:GetOffsetX(), 10);
 		pr_text:SetPos(pr_text:GetOffsetX(), 20);
-		extraMarginY = 15;
+		extraMarginY = 0;
 	else
 		dur_text:ShowWindow(1);
 		dur_gauge:ShowWindow(1);
@@ -1510,7 +1510,7 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 		pr_gauge:ShowWindow(0);
 		dur_gauge:SetPos(dur_gauge:GetOffsetX(), 10);
 		dur_text:SetPos(dur_text:GetOffsetX(), 20);
-		extraMarginY = 15;
+		extraMarginY = 0;
 	else
 		pr_text:ShowWindow(1);
 		pr_gauge:ShowWindow(1);

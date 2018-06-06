@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="tpitem_popupmsg" x="0" y="0" width="550" height="700">
+	<frame fullheight="false" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center"/>
+	<skin frameskin="test_pvp_skin"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="1000"/>
+	<input moveable="false"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<effect open="character_item_window_open" close="character_item_window_close"/>
+	<userconfig LIMIT_EQUIP_ICON="impossible_red" LIMIT_COUNT_ICON="impossible_yellow" ICON_SIZE="17" MAX_ITEM_BOX_HEIGHT="300"/>
+	<controls>
+		<richtext name="title" margin="0 10 0 0" rect="0 0 100 50" caption="{@st43}구매 목록{/}" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<groupbox name="itemBox" rect="0 0 450 320" margin="0 85 0 0" layout_gravity="center top" draw="false" scrollbar="false"/>
+		<richtext name="probText" rect="0 0 100 30" parent="itemBox" margin="0 0 0 0" layout_gravity="center top" caption="{@st66d_y}{s18}[확률형 아이템]"/>
+		<groupbox name="probBox" rect="0 0 450 100" parent="itemBox" margin="0 30 0 0" layout_gravity="center top" scrollbar="false" skin="bg2"/>
+		<richtext name="notProbText" rect="0 0 100 30" parent="itemBox" margin="0 0 0 0" layout_gravity="center top" caption="{@st66d}{s18}[비확률형 아이템]"/>
+		<groupbox name="notProbBox" rect="0 0 450 150" parent="itemBox" margin="0 0 0 0" layout_gravity="center top" scrollbar="true" fixheight="true" skin="bg2"/>
+		<!-- bottom -->
+		<groupbox name="bottomBox" rect="0 0 550 300" margin="0 0 0 0" layout_gravity="center bottom" draw="false"/>
+		<richtext name="equipLimitText" rect="0 0 100 30" parent="bottomBox" margin="50 0 0 0" layout_gravity="left top" caption="{img impossible_red 17 17} 착용 제한" fontname="brown_16_b"/>
+		<richtext name="countLimitText" rect="0 0 100 30" parent="bottomBox" margin="200 0 0 0" layout_gravity="left top" caption="{img impossible_yellow 17 17} 구매 횟수 1회 제한" fontname="brown_16_b"/>
+		<labelline name="labelline_1" rect="0 0 450 2" parent="bottomBox" margin="0 30 0 0" skin="labelline_def_2" layout_gravity="center top"/>
+		<richtext name="askText" rect="0 0 300 100" parent="bottomBox" margin="0 50 0 0" layout_gravity="center top" format="{img icon_item_tpBox_30 36 36}%s TP가 소모됩니다." fontname="brown_18_b" param1="tp" param1_def="0"/>
+		<richtext name="staticAskText" rect="0 0 300 100" parent="bottomBox" margin="0 80 0 0" layout_gravity="center top" caption="구매하시겠습니까?" fontname="brown_18_b"/>
+		<richtext name="probInfoText" rect="0 0 550 100" parent="bottomBox" margin="0 125 0 0" layout_gravity="center top" format="{#85070a}{b}%s" param1="msg" param1_def="확률형 메세지" textalign="center center" fixwidth="true"/>
+		<button name="button_ok" margin="-70 0 0 43" rect="0 0 140 45" parent="bottomBox" caption="{@st66b}예{/}" skin="test_pvp_btn" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="EXEC_BUY_MARKET_ITEM"/>
+		<button name="button_cancel" margin="70 0 0 43" rect="0 0 140 45" parent="bottomBox" caption="{@st66b}아니오{/}" skin="test_pvp_btn" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="TPSHOP_ITEM_BASKET_BUY_CANCEL"/>
+	</controls>
+</uiframe>

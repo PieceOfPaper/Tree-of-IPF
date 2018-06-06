@@ -2555,8 +2555,10 @@ function TAKE_GUILD_EVENT_REWARD(pc)
 	end
 
     local isExistEvent = IsExistGuildEvent(guildObj) 
-    if isExistEvent == nil or isExistEvent == 0 then    --길드 이벤트가 등록되어 있는지 확인
+    if isExistEvent == nil or isExistEvent == 0 then
         IMC_LOG("ERROR_GUILD_EVENT", "isExistEvent")
+        local guildState = GetGuildEventState(guildObj)
+        GuildEventMongoLog(pc, eventID, "IsExistEvent", "State", guildState, 'isExistEvent', isExistEvent)
         return;
     end
     
@@ -3015,7 +3017,7 @@ function TX_SAVE_EXP_ORB(pc, invItem, fillingExp, maxExp, changeExpOrbAfterSaved
 		return;
 	end
 
-	local curExp = TryGetProp(invItem, "ItemExpString");
+	local curExp = TryGetProp(invItem, "ItemExpString", 'None');
 	if curExp == "None" then
 		curExp = 0;
 	else

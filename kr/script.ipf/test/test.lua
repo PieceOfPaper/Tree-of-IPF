@@ -6396,6 +6396,11 @@ function ITEM_COPY_TEST(pc)
 	local ret = TxCommit(tx);
 end
 
+function TEST_MOVE_TO_BOSS(pc)
+    SetPosToFieldBoss(pc);
+end
+
+
 function TEST_RESET_BUY_TPITEM_LIMIT(pc, itemClassID)
 	if pc == nil then
 		return
@@ -7509,4 +7514,22 @@ end
 function TEST_OPTIONEXTRACT_FAIL(pc)
 	SendAddOnMsg(pc, "MSG_FAIL_ITEM_OPTION_EXTRACT", "", 0)
 
+end
+
+function TEST_GET_ENEMY_OBJ(pc, dist)
+	local objList, objCount = SelectObject(pc, dist, 'Enemy')
+	for i = 1, objCount do
+		local mon = objList[i];
+		return mon;
+	end
+	return nil;	
+end
+
+function TEST_CHECK_FIND_PATH_TO_PC(pc, dist)
+	local mon = TEST_GET_ENEMY_OBJ(pc, dist)
+	if mon ~= nil then
+        local isFound = IsEnableMoveCloseToTarget(mon, pc);
+        Chat(mon, isFound)
+        print(mon.ClassName, isFound)
+	end
 end

@@ -624,3 +624,38 @@ function BT_ACT_SELF_RUNAWAY(self, state, btree, prop)
         ChangeMoveSpdType(self, "RUN");
         RunAwayFrom(self, topHater, numArg)
 end
+
+--/**
+--* @Function    BT_COND_SELF_MOVE_CHECK
+--* @Type   Cond
+--* @NumArg    시간
+--* @Description    자신이 이동이 가능한지 여부 체크
+--**/
+
+function BT_COND_SELF_MOVE_CHECK(self, state, btree, prop)
+    local numArg = GetLeafNumArg(prop);
+    local target = GetReservedTarget(btree);
+    local targetMissingCheck = IsEnableMoveCloseToTarget(self, target, 100)
+    local nowSec = math.floor(os.clock())
+    local propSave = GetExProp(self, 'firsttime')
+    if targetMissingCheck == 0 and propSave == 0 then
+        SetExProp(self, 'firsttime', nowSec)
+    end
+    
+    if targetMissingCheck ~= 0 then
+        SetExProp(self, 'firsttime', 0)
+    end
+    
+    local missingTime = nowSec - propSave
+    if propSave == 0 then
+        missingTime = 0
+    end
+    if missingTime >= numArg then
+        SetExProp(self, 'firsttime', 0)
+        return BT_SUCCESS;
+    else
+        return BT_FAILED;
+    end    
+    
+    return BT_FAILED;
+end

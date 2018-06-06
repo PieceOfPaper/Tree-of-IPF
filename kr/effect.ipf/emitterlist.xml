@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <EmitterList>
+	<battle name="E_matador_costume_M" filename="E_matador_costume_M" loop="false" nodecount="2" xml="E_matador_costume_M.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_buff_snake" filename="E_buff_snake" loop="true" nodecount="4" xml="E_buff_snake.xml" paused="NO" is2D="FALSE" softParticleFactor="5" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_wizard_GenbuArmor_velcoffer" filename="E_wizard_GenbuArmor_velcoffer" loop="false" nodecount="4" xml="E_wizard_GenbuArmor_velcoffer.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_FishingNet_debuff" filename="E_warrior_FishingNet_debuff" loop="false" nodecount="10" xml="E_warrior_FishingNet_debuff.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_wizard_GreenwoodShikigami_ground_vine" filename="E_wizard_GreenwoodShikigami_ground_vine" loop="false" nodecount="10" xml="E_wizard_GreenwoodShikigami_ground_vine.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>

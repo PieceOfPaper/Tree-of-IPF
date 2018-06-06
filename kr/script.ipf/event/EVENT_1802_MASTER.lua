@@ -80,22 +80,6 @@ end
 
 
 function SCR_EVENT_1802_MASTER_NPC_DIALOG(self,pc)
-    local select = ShowSelDlg(pc, 0, 'EVENT_1802_MASTER_NPC_DLG1', ScpArgMsg('EVENT_1802_MASTER_MSG8'), ScpArgMsg("Cancel"))
-    if select == 1 then
-        local pieceCount = GetInvItemCount(pc, 'EVENT_1802_MASTER_REWARD_PIECE')
-        if pieceCount < 5 then
-            ShowOkDlg(pc, 'EVENT_1802_MASTER_NPC_DLG5', 1)
-            return
-        end
-        local cubeCount = math.floor(pieceCount/5)
-        if cubeCount > 0 then
-            local tx = TxBegin(pc)
-            TxTakeItem(tx, 'EVENT_1802_MASTER_REWARD_PIECE', cubeCount*5, 'EVENT_1802_MASTER')
-            TxGiveItem(tx, 'EVENT_1802_MASTER_REWARD_CUBE', cubeCount, 'EVENT_1802_MASTER');
-        	local ret = TxCommit(tx)
-        end
-    end
-    
 --    if pc.Lv < 100 then
 --        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('EVENT_1801_ORB_MSG8','LV',100), 10)
 --        return

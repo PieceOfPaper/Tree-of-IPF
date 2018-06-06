@@ -1,4 +1,4 @@
-
+local json = require "json"
 function COLONY_POINT_INFO_ON_INIT(addon, frame)
     addon:RegisterMsg('UPDATE_COLONY_POINT', 'ON_UPDATE_COLONY_POINT');
     addon:RegisterMsg('OPEN_COLONY_POINT', 'OPEN_COLONY_POINT_UI');
@@ -50,19 +50,39 @@ function COLONY_POINT_INFO_INIT_OCCUPATION(frame)
     local occupyInfo = session.colonywar.GetOccupationInfoByMapID(mapCls.ClassID);
     if occupyInfo ~= nil then
         local occupyGuildNameText = GET_CHILD_RECURSIVELY(frame, 'occupyGuildNameText');
-        local occupyGuildEmblemPic = GET_CHILD_RECURSIVELY(frame, 'occupyGuildEmblemPic');
         local guildID = occupyInfo:GetGuildID();
-        local worldID = session.party.GetMyWorldIDStr();
-        local emblemImgName = guild.GetEmblemImageName(guildID,worldID);
-        if emblemImgName ~= 'None' then
-            occupyGuildEmblemPic:SetImage(emblemImgName);
-        else
-            local worldID = session.party.GetMyWorldIDStr();
-            guild.ReqEmblemImage(guildID,worldID);
-        end
+        GetGuildEmblemImage("COLONY_EMBLEM_IMAGE_GET", guildID)
+       
         frame:SetUserValue('OCCUPATION_GUILD_ID', guildID);
         occupyGuildNameText:SetText(occupyInfo:GetGuildName());
     end
+end
+
+function COLONY_EMBLEM_IMAGE_GET(code, return_json)
+    local frame = ui.GetFrame("colony_point_info")
+    local occupyGuildEmblemPic = GET_CHILD_RECURSIVELY(frame, 'occupyGuildEmblemPic');
+    occupyGuildEmblemPic:SetImage("");
+    if code ~= 200 then
+        if code == 400 or code == 404 then
+            return
+        else
+            SHOW_GUILD_HTTP_ERROR(code, return_json, "COLONY_EMBLEM_IMAGE_GET")
+            return
+        end
+    end
+    local mapClassName = GetZoneName();
+    local mapCls = GetClass('Map', mapClassName);
+    local occupyInfo = session.colonywar.GetOccupationInfoByMapID(mapCls.ClassID);
+    if occupyInfo ~= nil then
+        
+        local guildID = occupyInfo:GetGuildID();
+        local worldID = session.party.GetMyWorldIDStr();
+        local emblemImgName = guild.GetEmblemImageName(guildID,worldID);
+      
+        occupyGuildEmblemPic:SetFileName(emblemImgName);
+        
+    end
+  
 end
 
 function COLONY_POINT_INFO_RESET(frame)
@@ -94,11 +114,11 @@ function ON_UPDATE_COLONY_POINT(frame, msg, argStr, argNum)
             local worldID = session.party.GetMyWorldIDStr();
             local emblemPic = GET_CHILD(rankingBox, 'emblemPic');
             local emblemImgName = guild.GetEmblemImageName(guildID,worldID);
+            emblemPic:SetImage("")
             if emblemImgName ~= 'None' then
-                emblemPic:SetImage(emblemImgName);
+                emblemPic:SetFileName(emblemImgName);
             else
-                local worldID = session.party.GetMyWorldIDStr();
-                guild.ReqEmblemImage(guildID,worldID);
+                GetGuildEmblemImage("OPEN_COLONY_POINT_EMBLEM_GET", guildID);
             end
             frame:SetUserValue('RANKING_GUILD_ID_'..i, guildID);
             rankingBox:ShowWindow(1);
@@ -106,7 +126,16 @@ function ON_UPDATE_COLONY_POINT(frame, msg, argStr, argNum)
     end
     COLONY_POINT_INFO_INIT_MY_GUILD(frame, maxPoint);
 end
-
+function OPEN_COLONY_POINT_EMBLEM_GET(code, ret_json)
+    if code ~= 200 then
+        if code == 400 or code == 404 then
+            return
+        else
+            SHOW_GUILD_HTTP_ERROR(code, return_json, "OPEN_COLONY_POINT_EMBLEM_GET")
+            return
+        end
+    end
+end
 function COLONY_POINT_INFO_UPDATE_EMBLEM(frame, msg, argStr, argNum)
     local emblemCtrl = nil;
     local rankingBox = nil;
@@ -127,12 +156,24 @@ function COLONY_POINT_INFO_UPDATE_EMBLEM(frame, msg, argStr, argNum)
     if emblemCtrl ~= nil then
         local worldID = session.party.GetMyWorldIDStr();
         local emblemImgName = guild.GetEmblemImageName(argStr,worldID);
-         IMC_LOG("INFO_NORMAL", "COLONY_POINT_INFO_UPDATE_EMBLEM info" .. "imageName:" .. emblemImgName);
-        if emblemImgName ~= 'None' then
-            emblemCtrl:SetImage(emblemImgName);
-        end     
+        emblemCtrl:SetImage("");
+        if emblemImgName ~= 'None' then   
+            emblemCtrl:SetFileName(emblemImgName);
+        else
+            GetGuildEmblemImage("COLONY_POINT_INFO_UPDATE_EMBLEM_GET_IMAGE", argStr)
+        end
     end
      IMC_LOG("INFO_NORMAL", "COLONY_POINT_INFO_UPDATE_EMBLEM ED");
+end
+function COLONY_POINT_INFO_UPDATE_EMBLEM_GET_IMAGE(code, ret_json)
+    if code ~= 200 then
+        if code == 400 or code == 404 then
+            return
+        else
+            SHOW_GUILD_HTTP_ERROR(code, return_json, "COLONY_POINT_INFO_UPDATE_EMBLEM_GET_IMAGE")
+            return
+        end
+    end
 end
 
 function COLONY_POINT_INFO_INIT_MY_GUILD(frame, maxPoint)

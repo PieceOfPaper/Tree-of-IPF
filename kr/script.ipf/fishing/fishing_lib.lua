@@ -669,6 +669,81 @@ function SCR_GOLDEN_FISH_END(eventName)
     RemoveBuffToAllServerPC('GoldenFishEvent', 'UPDATE_EXP_UP');
 end
 
+--탁본 동상 버프
+function SCR_FISH_RUBBING_BUFF_100_START(eventName, self, argStr, argNum)
+	
+    local name = "Unknown";
+	local buffName = "None";
+    if self ~= nil then
+        if IS_PC(self) == true then
+            name = GetTeamName(self);
+        end
+
+		local time = 120;
+		local LootingChance = 100;
+
+        ToAll(ScpArgMsg("{Name}FishRubbingBuff", "Name", name, "Time", time, "LootingChance", LootingChance));
+        --CustomMongoLog(self, "Fishing", "Type", "StartGoldenFishEvent");
+    end
+    
+    AddBuffToAllServerPC(nil, 'STATUE_LOOTINGCHANCE_1');
+end
+
+function SCR_FISH_RUBBING_BUFF_100_END(eventName)
+    --local eventCls = GetClass('EventTableProperty', eventName);
+    RemoveBuffToAllServerPC('STATUE_LOOTINGCHANCE_1');
+end
+
+--탁본 동상 버프
+function SCR_FISH_RUBBING_BUFF_300_START(eventName, self, argStr, argNum)
+	
+    local name = "Unknown";
+	local buffName = "None";
+    if self ~= nil then
+        if IS_PC(self) == true then
+            name = GetTeamName(self);
+        end
+
+		local time = 40;
+		local LootingChance = 300;
+        ToAll(ScpArgMsg("{Name}FishRubbingBuff", "Name", name, "Time", time, "LootingChance", LootingChance));
+        --CustomMongoLog(self, "Fishing", "Type", "StartGoldenFishEvent");
+    end
+    
+    AddBuffToAllServerPC(nil, 'STATUE_LOOTINGCHANCE_2');
+end
+
+function SCR_FISH_RUBBING_BUFF_300_END(eventName)
+    --local eventCls = GetClass('EventTableProperty', eventName);
+    RemoveBuffToAllServerPC('STATUE_LOOTINGCHANCE_2');
+end
+
+--탁본 동상 버프
+function SCR_FISH_RUBBING_BUFF_500_START(eventName, self, argStr, argNum)
+	
+    local name = "Unknown";
+	local buffName = "None";
+    if self ~= nil then
+        if IS_PC(self) == true then
+            name = GetTeamName(self);
+        end
+
+		local time = 20;
+		local LootingChance = 500;
+
+        ToAll(ScpArgMsg("{Name}FishRubbingBuff", "Name", name, "Time", time, "LootingChance", LootingChance));
+        --CustomMongoLog(self, "Fishing", "Type", "StartGoldenFishEvent");
+    end
+    
+    AddBuffToAllServerPC(nil, 'STATUE_LOOTINGCHANCE_3');
+end
+
+function SCR_FISH_RUBBING_BUFF_500_END(eventName)
+    --local eventCls = GetClass('EventTableProperty', eventName);
+    RemoveBuffToAllServerPC('STATUE_LOOTINGCHANCE_3');
+end
+
+
 
 -------- 여기서부터 테스트 --------
 

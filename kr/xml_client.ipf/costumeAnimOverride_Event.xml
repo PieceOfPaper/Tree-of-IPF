@@ -258,6 +258,98 @@
 				</Job>
 			</Motion>
 		</Class>
+		<Class Costume="shadowmancer04_sp">
+			<Motion Name="WLK_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="4" attachNode="Bone_cloak_B06" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="Bone_cloak_L12" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="2" attachNode="Bone_cloak_R12" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="2" attachNode="Bone_cloak_L11" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="4" attachNode="Bone_cloak_R11" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="4" attachNode="Bone_cloak_B06" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="Bone_cloak_L12" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="2" attachNode="Bone_cloak_R12" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="2" attachNode="Bone_cloak_L11" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="4" attachNode="Bone_cloak_R11" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STUN_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WLK">
+				<Job Name="All">
+					<Event>
+						<Particle frame="4" attachNode="Bone_cloak_B06" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="Bone_cloak_L12" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="2" attachNode="Bone_cloak_R12" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="2" attachNode="Bone_cloak_L11" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="4" attachNode="Bone_cloak_R11" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="4" attachNode="Bone_cloak_B06" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="Bone_cloak_L12" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="2" attachNode="Bone_cloak_R12" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="2" attachNode="Bone_cloak_L11" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="4" attachNode="Bone_cloak_R11" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
 		<Class Costume="bulletmarker01_sp">
 			<Motion Name="STUN_RIDE">
 				<Job Name="All">
@@ -325,7 +417,7 @@
 			<Motion Name="STD">
 				<Job Name="All">
 					<Event>
-						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -463,6 +555,108 @@
 			</Motion>
 		</Class>
 		<Class Costume="bulletmarker03_sp">
+			<Motion Name="STUN_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WLK_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WLK">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="bulletmarker04_sp">
 			<Motion Name="STUN_RIDE">
 				<Job Name="All">
 					<Event>
@@ -938,53 +1132,53 @@
 				</Job>
 			</Motion>
 		</Class>
-		<Class Costume="matador04">
+		<Class Costume="matador04_sp">
 			<Motion Name="WALK">
 				<Job Name="All" LoopTime="200">
 					<Event>
-						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume" useAttach="false" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume_M" useAttach="false" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="ARUN">
 				<Job Name="All" LoopTime="200">
 					<Event>
-						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume_M" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="RUN">
 				<Job Name="All" LoopTime="200">
 					<Event>
-						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume_M" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="WALK_RIDE">
 				<Job Name="All" LoopTime="200">
 					<Event>
-						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume_M" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="RUN_RIDE">
 				<Job Name="All" LoopTime="200">
 					<zosemf>
-						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume_M" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
 					</zosemf>
 				</Job>
 			</Motion>
 			<Motion Name="STD">
 				<Job Name="All" LoopTime="200">
 					<Event>
-						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume_M" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="Default">
 				<Job Name="All" LoopTime="200">
 					<Event>
-						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_matador_costume_M" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -1461,6 +1655,140 @@
 				</Job>
 			</Motion>
 		</Class>
+		<Class Costume="shadowmancer04_sp">
+			<Motion Name="WLK_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy001" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy002" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy003" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy004" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy001" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy002" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy003" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy004" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STUN_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WLK">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy001" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy002" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy003" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy004" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy001" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy002" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy003" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="3" attachNode="effdummy004" particleName="I_spread_out001_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="8" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="effdummy001" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy002" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy003" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+						<Particle frame="0" attachNode="effdummy004" particleName="F_wizard_ShadowMancer_costume_light_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
 		<Class Costume="bulletmarker01_sp">
 			<Motion Name="STUN_RIDE">
 				<Job Name="All">
@@ -1666,6 +1994,108 @@
 			</Motion>
 		</Class>
 		<Class Costume="bulletmarker03_sp">
+			<Motion Name="STUN_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WLK_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WLK">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="bulletmarker04_sp">
 			<Motion Name="STUN_RIDE">
 				<Job Name="All">
 					<Event>
@@ -2122,7 +2552,7 @@
 				</Job>
 			</Motion>
 		</Class>
-		<Class Costume="matador04">
+		<Class Costume="matador04_sp">
 			<Motion Name="WALK">
 				<Job Name="All" LoopTime="200">
 					<Event>

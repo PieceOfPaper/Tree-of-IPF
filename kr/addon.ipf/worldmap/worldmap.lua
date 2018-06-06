@@ -522,7 +522,7 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                 local worldID = session.party.GetMyWorldIDStr();            
                 local emblemImgName = guild.GetEmblemImageName(guildID, worldID);                        
                 if emblemImgName ~= 'None' then
-                    emblemPic:SetImage(emblemImgName);
+                    emblemPic:SetFileName(emblemImgName);
                 else            
                     local worldID = session.party.GetMyWorldIDStr();    
                     guild.ReqEmblemImage(guildID,worldID);
@@ -1409,7 +1409,7 @@ function ON_UPDATE_OTHER_GUILD_EMBLEM(frame, msg, argStr, argNum)
         local worldID = session.party.GetMyWorldIDStr();
         local emblemImgName = guild.GetEmblemImageName(argStr,worldID);
         if emblemImgName ~= 'None' then
-            emblemPic:SetImage(emblemImgName);
+            emblemPic:SetFileName(emblemImgName);
         end
     end
 end

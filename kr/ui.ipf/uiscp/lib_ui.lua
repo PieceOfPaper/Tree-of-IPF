@@ -508,21 +508,21 @@ function SHOW_GUILD_HTTP_ERROR(code, msg, funcName)
 	local errName = errNamePrefix;
 	if code == nil then
 		local splitmsg = StringSplit(msg, " ");
-		code = splitmsg[1];		
-		errName = errName .. code		
+		code = splitmsg[1];
+		errName = errName .. code
 		local errString = "code:" .. code .. ", msg:" .. msg .. ", funcName:" .. funcName .. " errName:" ..  ClMsg(errName);
-		IMC_LOG("INFO_NORMAL", errString)
+		IMC_LOG("ERROR_WEBSERVICE_SCRIPT", errString)
 		ShowErrorInfoMsg('CannotConnectWebServer');
 		return
 	end
 	local splitStr = StringSplit(msg, " ");
 	errName = errName .. splitStr[1];
 	local errString = "code:" .. code .. ", msg:" .. msg .. ", funcName:" .. funcName .. " errName:" ..  ClMsg(errName);
-	IMC_LOG("INFO_NORMAL", errString)
-
+	IMC_LOG("ERROR_WEBSERVICE_SCRIPT", errString)
+	
 	if errName == errNamePrefix then
 		ShowErrorInfoMsg('CannotConnectWebServer');
 	else
-		ui.MsgBox(ClMsg(errName));
-	end
+	ui.MsgBox(ClMsg(errName));
+end
 end

@@ -2468,6 +2468,9 @@ end
 s_dropDeleteItemIESID = '';
 
 function INVENTORY_DELETE(itemIESID, itemType)
+	if GetCraftState() == 1 then
+		return;
+	end
 	if true == BEING_TRADING_STATE() then
 		return;
 	end

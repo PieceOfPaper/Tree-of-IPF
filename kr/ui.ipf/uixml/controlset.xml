@@ -3604,8 +3604,9 @@
 			<slotset name="slotset" rect="0 0 300 60" margin="40 0 0 0" layout_gravity="left top" row="1" col="5" size="50 50" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
 		</controls>
 	</controlset>
-	<controlset name="adventure_book_text_elem" toggle="false" hittest="true" width="500" height="30">
+	<controlset name="adventure_book_text_elem" toggle="false" hittest="false" width="500" height="30">
 		<controls>
+			<groupbox name="bg" rect="0 0 500 30" margin="0 0 0 0" layout_gravity="left top" skin="chat_window_2" draw="false"/>
 			<richtext name="text" rect="0 0 500 30" margin="0 0 0 0" layout_gravity="left top" textalign="left top" fontname="white_16_ol" format="%s" param1="value" param1_def="텍스트"/>
 			<richtext name="timeText" rect="0 0 300 30" margin="0 0 0 0" layout_gravity="right top" fontname="white_16_ol" format="%s" param1="time" param1_def="fd"/>
 		</controls>
@@ -4047,7 +4048,7 @@
 	</controlset>
 	<controlset name="guild_emblem_set" hittest="true" width="70" height="70" skin="test_frame_midle" hittestset="true" draw="true" stateskin="false">
 		<controls>
-			<picture name="emblemPic" rect="0 0 64 64" margin="0 0 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true" hittest="false" resizebyparent="true"/>
+			<picture name="emblemPic" rect="0 0 64 64" margin="0 0 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true" hittest="false" resizebyparent="true" forceupdate="true"/>
 		</controls>
 	</controlset>
 	<controlset name="attendance_reward" hittest="true" width="115" height="115" hittestset="true" draw="false" stateskin="false">

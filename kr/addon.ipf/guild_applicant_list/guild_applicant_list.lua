@@ -5,6 +5,7 @@ local selected_applicant = nil
 local textBox = nil
 local acceptBtn = nil
 local declineBtn = nil
+
 function GUILD_APPLICANT_INIT(addon, frame)
     local frame = ui.GetFrame("guild_applicant_list");
     textBox = GET_CHILD_RECURSIVELY(frame, "textBox");
@@ -17,6 +18,7 @@ function GUILD_APPLICANT_INIT(addon, frame)
 end
 
 function ON_GUILD_APPLICANT_GET(_code, ret_json)
+
     selected_applicant = nil
     local splitmsg = StringSplit(ret_json, " ");
     local errorCode = splitmsg[1];
