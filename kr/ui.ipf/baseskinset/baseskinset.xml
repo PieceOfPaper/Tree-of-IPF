@@ -2292,6 +2292,17 @@
 			<img name="bottomcore" imgrect="606 725 110 50"/>
 			<img name="bottomright" imgrect="717 725 150 50"/>
 		</skin>
+		<skin name="test_skill_skin2" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1805 87 66 35"/>
+			<img name="topcore" imgrect="1872 87 110 35"/>
+			<img name="topright" imgrect="1983 87 65 35"/>
+			<img name="bodyleft" imgrect="1805 123 66 50"/>
+			<img name="bodycore" imgrect="1872 123 110 50"/>
+			<img name="bodyright" imgrect="1983 123 65 50"/>
+			<img name="bottomleft" imgrect="1805 174 66 35"/>
+			<img name="bottomcore" imgrect="1872 174 110 35"/>
+			<img name="bottomright" imgrect="1983 174 65 35"/>
+		</skin>
 		<skin name="test_mainquest_skin" texture="\skin\pip_test.tga">
 			<img name="topleft" imgrect="0 253 110 90"/>
 			<img name="topcore" imgrect="111 253 180 90"/>
@@ -2900,6 +2911,39 @@
 			<img name="bottomleft" imgrect="0 161 220 99"/>
 			<img name="bottomcore" imgrect="221 161 48 99"/>
 			<img name="bottomright" imgrect="270 161 220 99"/>
+		</skin>
+		<skin name="tooltip_nextskill" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1803 213 120 30"/>
+			<img name="topcore" imgrect="1924 213 95 30"/>
+			<img name="topright" imgrect="2020 213 28 30"/>
+			<img name="bodyleft" imgrect="1803 244 120 30"/>
+			<img name="bodycore" imgrect="1924 244 95 30"/>
+			<img name="bodyright" imgrect="2020 244 28 30"/>
+			<img name="bottomleft" imgrect="1803 285 120 30"/>
+			<img name="bottomcore" imgrect="1924 285 95 30"/>
+			<img name="bottomright" imgrect="2020 285 28 30"/>
+		</skin>
+	<skin name="market_coupon_skin" texture="\skin\market_skin.tga">
+			<img name="topleft" imgrect="903 425 30 20"/>
+			<img name="topcore" imgrect="934 425 100 20"/>
+			<img name="topright" imgrect="1035 425 30 20"/>
+			<img name="bodyleft" imgrect="903 446 30 30"/>
+			<img name="bodycore" imgrect="934 446 100 30"/>
+			<img name="bodyright" imgrect="1035 446 30 30"/>
+			<img name="bottomleft" imgrect="903 477 30 20"/>
+			<img name="bottomcore" imgrect="934 477 100 20"/>
+			<img name="bottomright" imgrect="1035 477 30 20"/>
+		</skin>
+		<skin name="barrack_group_skin" texture="\skin\barrack.tga">
+			<img name="topleft" imgrect="0 0 30 30"/>
+			<img name="topcore" imgrect="31 0 222 30"/>
+			<img name="topright" imgrect="254 0  30 30"/>
+			<img name="bodyleft" imgrect="0 31 30 199"/>
+			<img name="bodycore" imgrect="31 31 222 199"/>
+			<img name="bodyright" imgrect="254 31 30 199"/>
+			<img name="bottomleft" imgrect="0 231 30 287"/>
+			<img name="bottomcore" imgrect="31 231 222 287"/>
+			<img name="bottomright" imgrect="254 231 30 287"/>
 		</skin>
 	</skinlist>
 	<skinlist category="buttons">
@@ -4340,6 +4384,9 @@
 		<image name="test_companion_09" file="\icon\companion.tga" imgrect="404 246 100 122" CMM_Caption="펭귄_탭버튼"/>
 		<image name="test_companion_09_cursoron" file="\icon\companion.tga" imgrect="404 369 100 122"/>
 		<image name="test_companion_09_clicked" file="\icon\companion.tga" imgrect="404 369 100 122"/>
+		<image name="test_companion_10" file="\icon\companion.tga" imgrect="404 0 100 122" CMM_Caption="뱁새_탭버튼"/>
+		<image name="test_companion_10_cursoron" file="\icon\companion.tga" imgrect="404 123 100 122"/>
+		<image name="test_companion_10_clicked" file="\icon\companion.tga" imgrect="404 123 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -4518,7 +4565,7 @@
 		<image name="market_view_bg" file="\skin\market_view_bg.tga" imgrect="0 0 380 330" CMM_Caption="마켓뷰배경"/>
 		<image name="transcendence_bg" file="\skin\transcendence_skin.tga" imgrect="0 0 408 707" CMM_Caption="초월배경"/>
 		<image name="transcendence_bg2" file="\skin\transcendence_skin2.tga" imgrect="0 0 415 707" CMM_Caption="분해배경"/>
-		<image name="transcendence_bg3" file="\skin\transcendence_skin copy3.tga" imgrect="0 0 415 707" CMM_Caption="제거배경"/>
+		<image name="transcendence_bg3" file="\skin\transcendence_skin_copy3.tga" imgrect="0 0 415 707" CMM_Caption="제거배경"/>
 		<image name="moncard_inven_image" file="\skin\pip_test.tga" imgrect="1515 836 157 35" CMM_Caption="몬스터카드_장착배경"/>
 		<image name="moncard_inven_up" file="\skin\pip_test.tga" imgrect="1515 872 10 10" CMM_Caption="몬스터카드_업"/>
 		<image name="moncard_inven_down" file="\skin\pip_test.tga" imgrect="1526 872 10 10" CMM_Caption="몬스터카드_다운"/>
@@ -4535,6 +4582,8 @@
 		<image name="deal_changearrow" file="\skin\deal_skin.tga" imgrect="0 260 45 63" CMM_Caption="화살표"/>
 		<image name="in_arrow" file="\skin\pip_test.tga" imgrect="439 625 14 14" CMM_Caption="입금화살표"/>
 		<image name="chul_arrow" file="\skin\pip_test.tga" imgrect="439 640 14 14" CMM_Caption="출금화살표"/>
+		<image name="tooltip_spicon" file="\skin\pip_test_item.tga" imgrect="415 546 20 20" CMM_Caption="sp아이콘"/>
+		<image name="tooltip_charging" file="\skin\pip_test_item.tga" imgrect="438 546 20 20" CMM_Caption="챠징아이콘"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -4599,6 +4648,7 @@
 		<image name="companion_Guineapig" file="\icon\companion_Velhider.tga" imgrect="80 160 80 80"/>
 		<image name="companion_barn_owl" file="\icon\companion_Velhider.tga" imgrect="160 160 80 80"/>
 		<image name="companion_penguin" file="\icon\companion_Velhider.tga" imgrect="160 0 80 80"/>
+		<image name="companion_parrotbil" file="\icon\companion_Velhider.tga" imgrect="240 160 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -4819,6 +4869,27 @@
 		<image name="barrack_message_btn" file="\skin\barrack.tga" imgrect="949 600 90 50" CMM_Caption="메시지버튼"/>
 		<image name="barrack_message_btn_cursoron" file="\skin\barrack.tga" imgrect="949 651 90 50"/>
 		<image name="barrack_message_btn_clicked" file="\skin\barrack.tga" imgrect="949 702 90 50"/>
+	<image name="barrack_menu_btn" file="\skin\barrack.tga" imgrect="1276 772 50 50" CMM_Caption="메뉴버튼"/>
+		<image name="barrack_menu_btn_cursoron" file="\skin\barrack.tga" imgrect="1276 823 50 50"/>
+		<image name="barrack_menu_btn_clicked" file="\skin\barrack.tga" imgrect="1276 874 50 50"/>
+		<image name="barrack_move_btn" file="\skin\barrack.tga" imgrect="1327 772 50 50" CMM_Caption="이동버튼"/>
+		<image name="barrack_move_btn_cursoron" file="\skin\barrack.tga" imgrect="1327 823 50 50"/>
+		<image name="barrack_move_btn_clicked" file="\skin\barrack.tga" imgrect="1327 874 50 50"/>
+		<image name="barrack_delete_btn" file="\skin\barrack.tga" imgrect="1378 772 50 50" CMM_Caption="삭제버튼"/>
+		<image name="barrack_delete_btn_cursoron" file="\skin\barrack.tga" imgrect="1378 823 50 50"/>
+		<image name="barrack_delete_btn_clicked" file="\skin\barrack.tga" imgrect="1378 874 50 50"/>
+		<image name="barrack_on_one_btn" file="\skin\barrack.tga" imgrect="1429 772 52 58" CMM_Caption="레이어1버튼"/>
+		<image name="barrack_on_one_btn_cursoron" file="\skin\barrack.tga" imgrect="1429 831 52 58"/>
+		<image name="barrack_on_one_btn_clicked" file="\skin\barrack.tga" imgrect="1429 831 52 58"/>
+		<image name="barrack_on_two_btn" file="\skin\barrack.tga" imgrect="1482 772 52 58" CMM_Caption="레이어2버튼"/>
+		<image name="barrack_on_two_btn_cursoron" file="\skin\barrack.tga" imgrect="1482 831 52 58"/>
+		<image name="barrack_on_two_btn_clicked" file="\skin\barrack.tga" imgrect="1482 831 52 58"/>
+		<image name="barrack_off_one_btn" file="\skin\barrack.tga" imgrect="1535 772 40 58" CMM_Caption="레이어1버튼_비활성"/>
+		<image name="barrack_off_one_btn_cursoron" file="\skin\barrack.tga" imgrect="1535 890 40 58"/>
+		<image name="barrack_off_one_btn_clicked" file="\skin\barrack.tga" imgrect="1535 890 40 58"/>
+		<image name="barrack_off_two_btn" file="\skin\barrack.tga" imgrect="1535 831 40 58" CMM_Caption="레이어2버튼_비활성"/>
+		<image name="barrack_off_two_btn_cursoron" file="\skin\barrack.tga" imgrect="1535 949 40 58"/>
+		<image name="barrack_off_two_btn_clicked" file="\skin\barrack.tga" imgrect="1535 949 40 58"/>
 	</imagelist>
 	<imagelist category="hair_color">
 		<image name="basic_color" file="\skin\barrack.tga" imgrect="949 492 35 35" CMM_Caption="기본컬러"/>

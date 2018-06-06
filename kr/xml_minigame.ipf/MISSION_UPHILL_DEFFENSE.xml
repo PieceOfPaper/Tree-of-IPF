@@ -99,7 +99,7 @@
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="1단계가 시작됩니다!"/>
+                                <Str Str="1단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -140,7 +140,7 @@
                         <Str Str="업힐 디펜스 1단계"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList/>
@@ -196,7 +196,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -205,7 +205,7 @@
                                 <Str Str="State/Step2"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="2단계가 시작됩니다!"/>
+                                <Str Str="2단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -232,7 +232,7 @@
                         <Str Str="업힐 디펜스 2단계"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList/>
@@ -336,7 +336,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -345,7 +345,7 @@
                                 <Str Str="State/Step3"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="3단계가 시작됩니다!"/>
+                                <Str Str="3단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -381,7 +381,7 @@
             <Stage Name="Step3" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 3단계"/>
@@ -488,7 +488,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -497,7 +497,7 @@
                                 <Str Str="State/Step4"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="4단계가 시작됩니다!"/>
+                                <Str Str="4단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -533,7 +533,7 @@
             <Stage Name="Step4" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 4단계"/>
@@ -640,7 +640,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -649,7 +649,7 @@
                                 <Str Str="State/Step5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="5단계가 시작됩니다!"/>
+                                <Str Str="5단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -685,7 +685,7 @@
             <Stage Name="Step5" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 5단계"/>
@@ -792,7 +792,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -801,7 +801,7 @@
                                 <Str Str="State/Step6"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="6단계가 시작됩니다!"/>
+                                <Str Str="6단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -837,7 +837,7 @@
             <Stage Name="Step6" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 6단계"/>
@@ -992,7 +992,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1001,7 +1001,7 @@
                                 <Str Str="State/Step7"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="7단계가 시작됩니다!"/>
+                                <Str Str="7단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -1037,7 +1037,7 @@
             <Stage Name="Step7" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 7단계"/>
@@ -1192,7 +1192,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1201,7 +1201,7 @@
                                 <Str Str="State/Step8"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="8단계가 시작됩니다!"/>
+                                <Str Str="8단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -1237,7 +1237,7 @@
             <Stage Name="Step8" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 8단계"/>
@@ -1392,7 +1392,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1401,7 +1401,7 @@
                                 <Str Str="State/Step9"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="9단계가 시작됩니다!"/>
+                                <Str Str="9단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -1437,7 +1437,7 @@
             <Stage Name="Step9" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 9단계"/>
@@ -1592,7 +1592,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1601,7 +1601,7 @@
                                 <Str Str="State/Step10"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="10단계가 시작됩니다!"/>
+                                <Str Str="10단계가 시작됩니다!{nl}60초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -1801,7 +1801,7 @@
                                 <Str Str="State/Step11"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="11단계가 시작됩니다!"/>
+                                <Str Str="11단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -1837,7 +1837,7 @@
             <Stage Name="Step11" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 11단계"/>
@@ -1875,7 +1875,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1884,7 +1884,7 @@
                                 <Str Str="State/Step12"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="12단계가 시작됩니다!"/>
+                                <Str Str="12단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -1920,7 +1920,7 @@
             <Stage Name="Step12" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 12단계"/>
@@ -1958,7 +1958,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1967,7 +1967,7 @@
                                 <Str Str="State/Step13"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="13단계가 시작됩니다!"/>
+                                <Str Str="13단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2003,7 +2003,7 @@
             <Stage Name="Step13" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 13단계"/>
@@ -2041,7 +2041,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2050,7 +2050,7 @@
                                 <Str Str="State/Step14"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="14단계가 시작됩니다!"/>
+                                <Str Str="14단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2086,7 +2086,7 @@
             <Stage Name="Step14" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 14단계"/>
@@ -2124,7 +2124,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2133,7 +2133,7 @@
                                 <Str Str="State/Step15"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="15단계가 시작됩니다!"/>
+                                <Str Str="15단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2169,7 +2169,7 @@
             <Stage Name="Step15" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 15단계"/>
@@ -2207,7 +2207,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2216,7 +2216,7 @@
                                 <Str Str="State/Step16"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="16단계가 시작됩니다!"/>
+                                <Str Str="16단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2252,7 +2252,7 @@
             <Stage Name="Step16" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 16단계"/>
@@ -2290,7 +2290,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2299,7 +2299,7 @@
                                 <Str Str="State/Step17"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="17단계가 시작됩니다!"/>
+                                <Str Str="17단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2335,7 +2335,7 @@
             <Stage Name="Step17" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 17단계"/>
@@ -2373,7 +2373,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2382,7 +2382,7 @@
                                 <Str Str="State/Step18"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="18단계가 시작됩니다!"/>
+                                <Str Str="18단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2418,7 +2418,7 @@
             <Stage Name="Step18" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 18단계"/>
@@ -2456,7 +2456,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2465,7 +2465,7 @@
                                 <Str Str="State/Step19"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="19단계가 시작됩니다!"/>
+                                <Str Str="19단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2501,7 +2501,7 @@
             <Stage Name="Step19" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 19단계"/>
@@ -2539,7 +2539,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2548,7 +2548,7 @@
                                 <Str Str="State/Step20"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="20단계가 시작됩니다!"/>
+                                <Str Str="20단계가 시작됩니다!{nl}60초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2631,7 +2631,7 @@
                                 <Str Str="State/Step21"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="21단계가 시작됩니다!"/>
+                                <Str Str="21단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2667,7 +2667,7 @@
             <Stage Name="Step21" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 21단계"/>
@@ -2705,7 +2705,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2714,7 +2714,7 @@
                                 <Str Str="State/Step22"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="22단계가 시작됩니다!"/>
+                                <Str Str="22단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2750,7 +2750,7 @@
             <Stage Name="Step22" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 22단계"/>
@@ -2788,7 +2788,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2797,7 +2797,7 @@
                                 <Str Str="State/Step23"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="23단계가 시작됩니다!"/>
+                                <Str Str="23단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2833,7 +2833,7 @@
             <Stage Name="Step23" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 23단계"/>
@@ -2871,7 +2871,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2880,7 +2880,7 @@
                                 <Str Str="State/Step24"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="24단계가 시작됩니다!"/>
+                                <Str Str="24단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2916,7 +2916,7 @@
             <Stage Name="Step24" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 24단계"/>
@@ -2954,7 +2954,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2963,7 +2963,7 @@
                                 <Str Str="State/Step25"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="25단계가 시작됩니다!"/>
+                                <Str Str="25단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -2999,7 +2999,7 @@
             <Stage Name="Step25" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 25단계"/>
@@ -3037,7 +3037,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -3046,7 +3046,7 @@
                                 <Str Str="State/Step26"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="26단계가 시작됩니다!"/>
+                                <Str Str="26단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -3082,7 +3082,7 @@
             <Stage Name="Step26" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 26단계"/>
@@ -3120,7 +3120,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -3129,7 +3129,7 @@
                                 <Str Str="State/Step27"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="27단계가 시작됩니다!"/>
+                                <Str Str="27단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -3165,7 +3165,7 @@
             <Stage Name="Step27" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 27단계"/>
@@ -3203,7 +3203,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -3212,7 +3212,7 @@
                                 <Str Str="State/Step28"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="28단계가 시작됩니다!"/>
+                                <Str Str="28단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -3248,7 +3248,7 @@
             <Stage Name="Step28" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 28단계"/>
@@ -3286,7 +3286,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -3295,7 +3295,7 @@
                                 <Str Str="State/Step29"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="29단계가 시작됩니다!"/>
+                                <Str Str="29단계가 시작됩니다!{nl}40초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -3331,7 +3331,7 @@
             <Stage Name="Step29" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 29단계"/>
@@ -3369,7 +3369,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -3378,7 +3378,7 @@
                                 <Str Str="State/Step30"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="30단계가 시작됩니다!"/>
+                                <Str Str="30단계가 시작됩니다!{nl}120초간 신성의 횃불을 지켜내세요."/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
                             </ToolScp>
@@ -3414,7 +3414,7 @@
             <Stage Name="Step30" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="120"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="업힐 디펜스 30단계"/>
@@ -3452,7 +3452,7 @@
                     <Event execCount="1" eventName="nextStep">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="120"/>
                             </ToolScp>
                         </condList>
                         <execList>

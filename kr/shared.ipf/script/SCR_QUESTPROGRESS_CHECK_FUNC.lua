@@ -89,7 +89,7 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
     if #zoneClassNameList > 0 then
         for y = 1, #zoneClassNameList do
             local targetZone = zoneClassNameList[y]
-            local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(targetZone, 'Monster', 'Normal/Material/Elite')
+            local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(targetZone, 'Monster', 'Normal/Material/Elite', 120000)
             local accMax = 0
             if #targetMonList > 0 then
                 for i = 1, #targetMonList do
@@ -146,10 +146,10 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
     
     
     if #zoneClassNameList > 0 then
-        local removeMonList = {"Silvertransporter_Qm"}
+        local removeMonList = {"Silvertransporter_Qm", "Treasure_Goblin"}
         for y = 1, #zoneClassNameList do
             local targetZone = zoneClassNameList[y]
-            local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(targetZone, 'Monster', 'Normal/Material/Elite')
+            local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(targetZone, 'Monster', 'Normal/Material/Elite', 120000)
             local accMax = 0
             if #targetMonList > 0 then
                 for i = 1, #targetMonList do
@@ -259,6 +259,19 @@ function IS_SELECTED_JOB(pc, questname, scriptInfo)
 	end
 
 
+    if IS_SEASON_SERVER(pc) == 'YES' then
+        local temp
+        local totalRank
+        if IsServerSection(pc) == 1 then
+            temp, totalRank = GetJobGradeByName(pc, pc.JobName);
+        else
+            totalRank = session.GetPcTotalJobGrade()
+        end
+        if totalRank >= 7 then
+            return 'NO'
+        end
+    end
+
 	local jobclassid = 0
 
 	local clslist, cnt  = GetClassList("Job");
@@ -309,6 +322,55 @@ function IS_SELECTED_JOB(pc, questname, scriptInfo)
 
 	return 'NO'
 end
+
+
+
+---- Is it possible to hidden class?
+--IS_POSSIBLE_HIDDEN_JOB/job_ClassName
+function IS_POSSIBLE_HIDDEN_JOB(pc, questname, scriptInfo)
+--    local etcObj
+--    if IsServerSection(pc) == 1 then
+--        etcObj = GetETCObject(pc);
+--    else
+--        etcObj = GetMyEtcObject();
+--    end
+--    
+--    local clslist, cnt  = GetClassList("QuestProgressCheck_Auto");
+--    local cls = GetClassByNameFromList(clslist, questname)
+--    
+--    if cls.Success_ChangeJob ~= nil then
+--        local _hidden_job = cls.Success_ChangeJob;
+--        
+--        if etcObj["HiddenJob_".._hidden_job] == 300 then
+--            return "YES"
+--        end
+--    end
+--    return 'NO'
+
+
+
+    local etcObj
+    if IsServerSection(pc) == 1 then
+        etcObj = GetETCObject(pc);
+    else
+        etcObj = GetMyEtcObject();
+    end
+    
+    if scriptInfo[2] ~= nil then
+        local classlist, class_cnt = GetClassList("Job")
+        local selct_classlist = GetClassByNameFromList(classlist, scriptInfo[2])
+        if selct_classlist ~= nil then
+            if selct_classlist.HiddenJob == "YES" then
+                if etcObj["HiddenJob_"..scriptInfo[2]] == 300 then
+                    return "YES"
+                end
+            end
+        end
+    end
+    return 'NO'
+end
+
+
 
 function SCR_TUT_COLLECT_01_PRE_FUNC(pc, questname, scriptInfo)
     local zoneName = GetZoneName(pc)

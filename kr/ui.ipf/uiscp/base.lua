@@ -325,6 +325,10 @@ function CURRENCY(count)
 
 function ITEM_DROP(object)
 
+	if true == BEING_TRADING_STATE() then
+		return;
+	end
+
 	local slot = tolua.cast(object, 'ui::CSlot');
 	local iconPt = slot:GetIcon();
 	if iconPt  ~=  nil then
@@ -416,6 +420,10 @@ function ITEM_DROP(object)
 
  --Item Dump
 function ICON_DUMP(frame, object, argStr, argNum)	
+	if true == BEING_TRADING_STATE() then
+		return;
+	end
+
 	local icon = tolua.cast(object, 'ui::CIcon');
 	local info = icon:GetInfo();
 	
@@ -471,6 +479,15 @@ function ICON_UPDATE_SKILL_COOLDOWN(icon)
 		return ret;
 	end
 end
+
+ function MONSTER_ICON_UPDATE_SKILL_ENABLE(icon)		
+	local iconInfo = icon:GetInfo();
+	if iconInfo ~= nil then
+		local ret = control.IsMonSkillIconUsable(iconInfo.type);	
+		return ret;
+	end
+end
+
 
 
 function RETURN_DATATABLE(data, IESName, searchData)

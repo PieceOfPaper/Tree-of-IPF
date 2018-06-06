@@ -4640,9 +4640,9 @@
 	<Category Name="BarrackMsg">
 		<Class ClassID="118001" ClassName="BarrackThemaChanged" Data="숙소 테마가 변경되었습니다."/>
 		<Class ClassID="118002" ClassName="TeamNameChanged" Data="팀 이름 변경에 성공했습니다."/>
-		<Class ClassID="118003" ClassName="TeamNameChangeFailed" Data="이미 사용 중이거나, 사용할 수 없는 팀 이름입니다."/>
+		<Class ClassID="118003" ClassName="TeamNameChangeFailed" Data="팀 이름 변경에 실패했습니다."/>
 		<Class ClassID="118004" ClassName="InputTeamNameFirst" Data="우선 팀 이름을 설정해주세요. 팀 이름은 남들에게 보여지는 이름입니다."/>
-		<Class ClassID="118005" ClassName="TheTeamNameAlreadyExist" Data="이미 사용 중이거나, 사용할 수 없는 팀 이름입니다."/>
+		<Class ClassID="118005" ClassName="TheTeamNameAlreadyExist" Data="해당 팀 이름이 이미 존재합니다."/>
 		<Class ClassID="118006" ClassName="IsApplied" Data="적용중"/>
 		<Class ClassID="118007" ClassName="IsHaved" Data="보유중"/>
 		<Class ClassID="118008" ClassName="{TP}ReqSlotBuy" Data="{TP}TP를 사용해 캐릭터/컴패니언 슬롯을{nl}구입하시겠습니까?"/>
@@ -4650,8 +4650,6 @@
 		<Class ClassID="118010" ClassName="DontHaveSlot" Data="캐릭터/컴패니언 슬롯이 부족합니다.{nl}"/>
 		<Class ClassID="118011" ClassName="{TP}ReqChangeCharName" Data="{TP}TP를 사용해 캐릭터명을 변경하도록 하시겠습니까?"/>
 		<Class ClassID="118011" ClassName="MoveBarrackLayer" Data="숙소 레이어를 변경했습니다."/>
-		<Class ClassID="118012" ClassName="ThisWorldExistFamilyName" Data="이미 사용 중이거나, 사용할 수 없는 팀 이름입니다."/>
-		<Class ClassID="118013" ClassName="KorAnotherWorldExistFamilyName" Data="이미 사용 중이거나, 사용할 수 없는 팀 이름입니다."/>
 	</Category>
 	<Category Name="Collection">
 		<Class ClassID="119001" ClassName="CollectionEffect" Data="콜렉션 효과"/>

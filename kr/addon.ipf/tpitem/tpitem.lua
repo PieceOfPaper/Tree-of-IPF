@@ -287,10 +287,10 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 			end
 
 			index = index + 1
-			x = ( (index-1) % 2) * ui.GetControlSetAttribute("tpshop_item", 'width')
-			y = (math.ceil( (index / 2) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+			x = ( (index-1) % 2) * ui.GetControlSetAttribute("tpshop_item2", 'width')
+			y = (math.ceil( (index / 2) ) - 1) * (ui.GetControlSetAttribute("tpshop_item2", 'height') * 1)
 	
-			local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+			local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item2', 'eachitem_'..index, x, y);
 
 			-- 프리미엄 여부에 따라 분류되느 UI를 일괄적으로 받아오고
 			local title = GET_CHILD_RECURSIVELY(itemcset,"title");

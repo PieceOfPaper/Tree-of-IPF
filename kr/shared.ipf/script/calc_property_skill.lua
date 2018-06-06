@@ -9215,7 +9215,8 @@ end
 
 function SCR_GET_Frenzy_Ratio(skill)
     local pc = GetSkillOwner(skill)
-    local value = 10 + skill.Level;
+    local statValue = math.floor(pc.STR * 0.025)
+    local value = statValue + 10 + skill.Level;
 
 	return math.floor(value)
 

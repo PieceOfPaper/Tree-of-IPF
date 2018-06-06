@@ -58,7 +58,7 @@ function ITEM_TRANSEND_DROP(frame, icon, argStr, argNum)
 	local FromFrame 			= liftIcon:GetTopParentFrame();
 	local toFrame				= frame:GetTopParentFrame();
 
-	-- µå·¹±× µå·ÓÀÌ ÀÎº¥Åä¸®¿¡¼­¸¸ °¡´ÉÇÏ°Ô
+	-- ï¿½å·¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
 	if FromFrame:GetName() == 'inventory' then
 		local iconInfo = liftIcon:GetInfo();
 		ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());
@@ -90,7 +90,7 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 	UPDATE_TRANSCEND_ITEM(frame);	
 end
 
--- ¾È³»¸Þ¼¼Áö·Î ÇÊ¿äÇÑ ¾ÆÀÌÅÛÀ» º¸¿©ÁÖ±â À§ÇÔ. 
+-- ï¿½È³ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½. 
 function ITEM_TRANSCEND_NEED_GUIDE(frame, obj)
 	local mtrlName = GET_TRANSCEND_MATERIAL_ITEM(obj);	
 	if string.len(mtrlName) <= 0 then
@@ -111,7 +111,7 @@ function ITEM_TRANSCEND_NEED_GUIDE(frame, obj)
 	SETTEXT_GUIDE(frame, 1, needTxt);
 end;
 
--- ÃÊ¿ù ¼º°ø·ü 100%¿¡ ÇÊ¿äÇÑ °¹¼ö ¾ò±â
+-- ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 100%ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 function GET_TRANSCEND_MAXCOUNT(obj)
 	local transcend = obj.Transcend;
 	local transcendCls = GetClass("ItemTranscend", transcend + 1);
@@ -122,7 +122,7 @@ function GET_TRANSCEND_MAXCOUNT(obj)
 	return transcendCls.ItemCount;
 end;
 
--- ÃÊ¿ù ¼º°ø·ü 100%¿¡ ÇÊ¿äÇÑ °¹¼ö Ç¥½Ã
+-- ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 100%ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 function GET_TRANSCEND_MAXCOUNT_TXT(obj)
 	local numColor = "{#FFE400}";
 	local mtrl_num = ScpArgMsg("ITEMTRANSCEND_MTRL_NUM{color}{num}", "num", GET_TRANSCEND_MAXCOUNT(obj), "color", numColor);
@@ -130,7 +130,7 @@ function GET_TRANSCEND_MAXCOUNT_TXT(obj)
 	return guideTxt;
 end;
 
--- ÃÊ¿ù ¾ÆÀÌÅÛ ¿¡ ´ëÇÑ ¾È³»¸Þ¼¼Áö.
+-- ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È³ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½.
 function SETTEXT_GUIDE(frame, type, text)
 	local title_result = frame:GetChildRecursively("title_result");
 	local txt_result = frame:GetChildRecursively("txt_result");
@@ -155,7 +155,7 @@ function SETTEXT_GUIDE(frame, type, text)
 	txt_result:ShowWindow(1);
 end;
 
--- ÃÊ¿ù ¾ÆÀÌÅÛ Á¦°Å½Ã
+-- ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å½ï¿½
 function REMOVE_TRANSCEND_TARGET_ITEM(frame)
 	
 	if ui.CheckHoldedUI() == true then
@@ -175,7 +175,7 @@ function REMOVE_TRANSCEND_TARGET_ITEM(frame)
 	popupFrame:ShowWindow(0);	
 end
 
--- Àç·á ½½·Ô°ú ¼º°ø·ü, ¹öÆ°À» ÃÊ±âÈ­ ½ÃÅ´.
+-- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Å´.
 function SET_TRANSCEND_RESET(frame)
 	local slot_material = GET_CHILD(frame, "slot_material");
 	slot_material:SetUserValue("MTRL_COUNT", 0);
@@ -191,7 +191,7 @@ function SET_TRANSCEND_RESET(frame)
 	reg:ShowWindow(0);
 end;
 
--- ¿Ã·ÁÁ®ÀÖ´Â Àç·á ¾ÆÀÌÅÛ Å¬¸¯½Ã 
+-- ï¿½Ã·ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ 
 function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 	local materialItem = GET_SLOT_ITEM(slot);	
 	if materialItem == nil then
@@ -221,7 +221,7 @@ function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 	EXEC_INPUT_CNT_TRANSCEND_MATERIAL(materialItem:GetIESID(), count);
 end;
 
--- Àç·á¿¡ µû¸¥ ¼º°ø·ü°ú ¾ÆÀÌÅÛÀÇ ÃÊ¿ù ´Ü°è ¾÷µ¥ÀÌÆ®
+-- ï¿½ï¿½á¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 function UPDATE_TRANSCEND_ITEM(frame)
 
 	local slot = GET_CHILD(frame, "slot");
@@ -278,8 +278,8 @@ function UPDATE_TRANSCEND_ITEM(frame)
 	end
 end
 
--- ¼º°ø·ü¿¡ µû¸¥ ±ÛÀÚ »ö º¯È¯
--- ¼öÁ¤ ÇÊ¿ä (»ö»ó°ªÀÌ Á¤ÇØÁöÁö ¾Ê¾Æ¼­ ¾ÆÁ÷ ¾Ë¸ÂÀº °è»ê½ÄÀ» ¸ø ¼¼¿ì°ÚÀ½. ¿ì¼± ÇÏµåÄÚµù ÇØ³õ°ÚÀ½.)
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯
+-- ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½ì¼± ï¿½Ïµï¿½ï¿½Úµï¿½ ï¿½Ø³ï¿½ï¿½ï¿½ï¿½ï¿½.)
 function GET_RATIO_FONT_COLOR(ratio)	
 	local color1 = 0xFF0000;
 	local color2 = 0xFFBB00;
@@ -302,7 +302,7 @@ function GET_RATIO_FONT_COLOR(ratio)
 	return color1, color2;		
 end
 
--- Àç·á ¾ÆÀÌÅÛÀ» ³ÖÀ»¶§
+-- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 
 	local invItem = GET_PC_ITEM_BY_GUID(itemID);
@@ -355,25 +355,25 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 
 	EXEC_INPUT_CNT_TRANSCEND_MATERIAL(invItem:GetIESID(), count);
 	--[[	
-	-- ¸Þ¼¼Áö¹Ú½º·Î ¼ö·®À¸·Î ³Ö´Â ¹æ¹ý
+	-- ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 	INPUT_NUMBER_BOX(frame, string.format("%s(%d ~ %d)", ScpArgMsg("InputCount"), 1, maxItemCount), "EXEC_INPUT_CNT_TRANSCEND_MATERIAL", maxItemCount, 1, maxItemCount, nil, tostring(invItem:GetIESID()));
 	]]
 end
 
--- Àç·á¸¦ µå·¹±× µå·ÓÇßÀ» °æ¿ì
+-- ï¿½ï¿½á¸¦ ï¿½å·¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 function DROP_TRANSCEND_MATERIAL(frame, icon, argStr, argNum)
 
 	local liftIcon 				= ui.GetLiftIcon();
 	local FromFrame 			= liftIcon:GetTopParentFrame();
 	local iconInfo = liftIcon:GetInfo();
 	
-	-- µå·¹±× µå·ÓÀÌ ÀÎº¥Åä¸®¿¡¼­¸¸ °¡´ÉÇÏ°Ô
+	-- ï¿½å·¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
 	if FromFrame:GetName() == 'inventory' then
 		ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());
 	end
 end
 
--- Àç·á¸¦ ¼ö·®¿¡ µû¶ó ½½·Ô¿¡ ³Ö±â
+-- ï¿½ï¿½á¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½Ö±ï¿½
 function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 
 	local invItem = GET_PC_ITEM_BY_GUID(iesID);
@@ -384,7 +384,7 @@ function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 
 
 	local slot_material = GET_CHILD(frame, "slot_material");
-	-- ¼ö·®Ç¥½Ã¸¦ ½½·ÔÀÇ À§ºÎºÐÀ¸·Î ¼öÁ¤ 
+	-- ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	SET_SLOT_INVITEM(slot_material, invItem, count);
 	slot_material:SetUserValue("MTRL_COUNT", count);
 	slot_material:StopActiveUIEffect();
@@ -416,7 +416,7 @@ function EXEC_INPUT_CNT_TRANSCEND_MATERIAL(iesid, count)
 end
 
 --[[
--- ¸Þ¼¼Áö¹Ú½º·Î ¼ö·®À¸·Î ³Ö´Â ¹æ¹ý
+-- ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 function EXEC_INPUT_CNT_TRANSCEND_MATERIAL(frame, count, inputframe, fromFrame)
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
@@ -490,7 +490,7 @@ function _ITEMTRANSCEND_EXEC()
 	SETTEXT_GUIDE(frame, 0, nil);
 end
 
--- ÀÎº¥¿¡¼­ ¿À¸¥ÂÊ Å¬¸¯½Ã 
+-- ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ 
 function ITEMTRANSCEND_INV_RBTN(itemObj, slot)
 	
 	local frame = ui.GetFrame("itemtranscend");
@@ -515,14 +515,14 @@ function ITEMTRANSCEND_INV_RBTN(itemObj, slot)
 
 	if slotInvItem ~= nil then
 		if ("Premium_itemUpgradeStone_Weapon" == obj.ClassName) or ("Premium_itemUpgradeStone_Armor" == obj.ClassName) or ("Premium_itemUpgradeStone_Acc" == obj.ClassName) then
-		ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());	-- Àç·áÀÏ °æ¿ì
+		ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());	-- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			return;
 		end;
 	end;
-		ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());  -- Àç·á°¡ ¾Æ´Ò °æ, ÃÊ¿ù ´çÇÏ´Â ¾ÆÀÌÅÛ
+		ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());  -- ï¿½ï¿½á°¡ ï¿½Æ´ï¿½ ï¿½ï¿½, ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	end
 	
--- ¾Ö´ÏÇÈÃÄÀÇ ¾Ö´Ï¸ÞÀÌ¼Ç Æ½¿¡ µû¸¥ °á°ú UIeffect ¼³Á¤
+-- ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ Æ½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ UIeffect ï¿½ï¿½ï¿½ï¿½
 function ITEMTRANSCEND_BG_ANIM_TICK(ctrl, str, tick)
 
 	if tick == 14 then
@@ -552,7 +552,7 @@ function UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 	end;
 end
 
--- ¼­¹öÀÇ ¼º°ø¿©ºÎ¿¡ µû¸¥ UIÀÌÆåÆ®¿Í °á°ú ¾÷µ¥ÀÌÆ® 
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® 
 function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)			
 	local slot = GET_CHILD(frame, "slot");
 
@@ -604,13 +604,13 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 
 	local resultTxt = "";
 	local afterNames, afterValues = GET_ITEM_TRANSCENDED_PROPERTY(obj);
-	local upfont = "{@st43_green}";
+	local upfont = "{@st43_green}{s18}";
 	local operTxt = " + ";	
 	local text_itemtranscend = frame:GetChild("text_itemtranscend");
 	local text_color1 = 0xFF1DDB16;
 	local text_color2 = 0xFF22741C;
 	if isSuccess == 0 then
-		upfont = "{@st43_red}";
+		upfont = "{@st43_red}{s18}";
 		text_color1 = 0xFFFF0000;
 		text_color2 = 0xFFFFBB00;
 	end;
@@ -628,10 +628,10 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 		local addedValue = afterValues[i];
 
 		if resultTxt ~= "" then
-			resultTxt = resultTxt .. "{nl}";
+			resultTxt = resultTxt .. "{nl}{/}";
 		end
 
-		resultTxt = string.format("%s%s%s%s%s", upfont, resultTxt, ScpArgMsg(propName), operTxt, addedValue);
+		resultTxt = string.format("%s%s%s%s%s", resultTxt, upfont, ScpArgMsg(propName), operTxt, addedValue);
 		resultTxt = resultTxt .. "%{/}";
 		local ctrlSet = gbox:CreateControlSet("transcend_result_text", "RV_" .. propName, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local text = ctrlSet:GetChild("text");
@@ -654,8 +654,8 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 end
 
 -------------------------
--- °á°ú¿¡ µû¸¥ UIeffect°¡ ÆË¾÷ °á°ú UI¸¦ °¡¸®´Â ÀÌÀ¯·Î 
--- ½Ã°£Â÷·Î ÆË¾÷ °á°ú UI¸¦ ¶ç¿öÁÖ±â À§ÇÑ UpdateScript.
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UIeffectï¿½ï¿½ ï¿½Ë¾ï¿½ ï¿½ï¿½ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+-- ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½ ï¿½ï¿½ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ UpdateScript.
 function TIMEWAIT_STOP_ITEMTRANSCEND()
 	local frame = ui.GetFrame("itemtranscend");
 	local slotTemp = GET_CHILD(frame, "slotTemp");

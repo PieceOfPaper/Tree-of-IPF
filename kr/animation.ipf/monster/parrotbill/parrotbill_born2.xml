@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonster frame="0" MonName="pet_egg" Key="pet_egg" Angle="0" Dist="0" MonAngle="0"/>
+    <CreateMonsterAnim frame="0" Key="pet_egg" Anim="born" Freeze="0"/>
+    <Particle frame="65" attachNode="None" particleName="pet_egg_dead" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="66" attachNode="None" particleName="F_smoke150_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="71.00" soundFile="mon_voice_pet_parrotbill_born"/>
+</ActionDesc>

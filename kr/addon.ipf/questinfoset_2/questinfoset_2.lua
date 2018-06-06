@@ -646,7 +646,7 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg)
 	if result == "COMPLETE" or result == "IMPOSSIBLE" then
 		GroupCtrl:RemoveChild(ctrlname);
 		return nil;
-	elseif  result == 'POSSIBLE' and SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES) == "HIDE" then
+	elseif  result == 'POSSIBLE' and SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, nil, 'Set2') == "HIDE" then
 		GroupCtrl:RemoveChild(ctrlname);
 	    return nil;
 	elseif result == 'POSSIBLE' and questIES.QuestStartMode ~= 'NPCDIALOG' then
@@ -818,7 +818,7 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg)
 
 	if result == "COMPLETE" or result == "IMPOSSIBLE" then
 		return nil;
-	elseif  result == 'POSSIBLE' and SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES) == "HIDE" then
+	elseif  result == 'POSSIBLE' and SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, nil, 'Set2') == "HIDE" then
 	    return nil
 	elseif result == 'POSSIBLE' and questIES.QuestStartMode ~= 'NPCDIALOG' then
 	    return nil;
@@ -1052,7 +1052,7 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
     					picture:SetAngleLoop(-3);
     					picture:SetUserValue("RETURN_QUEST_NAME", questIES.ClassName);
                     else
-                        ErrorLog("Error : Quest", questIES.ClassID.." : "..questIES.ClassName.." : "..questnpc_state..'Map'.." : "..questnpc_state..'NPC'.." search data null")
+                        ErrorLog("Error : Quest ".. questIES.ClassID.." : "..questIES.ClassName.." : "..questnpc_state..'Map'.." : "..questnpc_state..'NPC'.." search data null")
                     end
     			end
     		end
@@ -1070,7 +1070,7 @@ function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
 	if world.GetLayer() ~= 0 then
 		return;
 	end
-	
+
 	local cls = GetClassList('Map');
     local mapClassName = session.GetMapName();
 
@@ -1170,7 +1170,7 @@ end
 function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQuestDetail)
     local questautoIES = GetClass('QuestProgressCheck_Auto', questIES.ClassName);
 	if questautoIES == nil then
-		ErrorLog('ERROR : questautoIES is nil', questIES.ClassName)
+		ErrorLog('ERROR : questautoIES is nil :'.. questIES.ClassName)
 		return y;
 	end
     

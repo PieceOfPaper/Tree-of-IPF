@@ -22,7 +22,13 @@ function ITEMTRASCEND_REMOVE_OPEN(frame)
 	UPDATE_TRANSCEND_REMOVE_ITEM(frame);
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMTRANSCEND_REMOVE_INV_RBTN")	
 	ui.OpenFrame("inventory");
+	
+	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_REMOVE_GUIDE_FIRST"));	
+	SETTEXT_GUIDE(frame, 3, needTxt);
 
+	local gbox = frame:GetChild("gbox");
+	local reg = GET_CHILD(gbox, "reg");
+	reg:ShowWindow(0);
 end
 
 function ITEMTRASCEND_REMOVE_CLOSE(frame)
@@ -50,17 +56,10 @@ function ITEMTRASCEND_REMOVE_CLOSE(frame)
 		ITEM_TRANSCEND_REMOVE_REG_MATERIAL(frame, iconInfo:GetIESID());
 	else
 		ITEM_TRANSCEND_REMOVE_REG_TARGETITEM(frame, iconInfo:GetIESID());
-	end
-	
-	
+	end		
 end
 
 function REMOVE_TRANSCEND_REMOVE_TARGET_ITEM(frame)
-
-	local bProg_wip = frame:GetUserIValue("ANIMETION_PROG_WIP");
-	if bProg_wip == 1 then
-		return;
-	end
 	frame:SetUserValue("ANIMETION_PROG_WIP", 0);
 
 	frame = frame:GetTopParentFrame();
@@ -70,7 +69,13 @@ function REMOVE_TRANSCEND_REMOVE_TARGET_ITEM(frame)
 	slot_material:ClearIcon();
 	slot_material:SetText("");
 	UPDATE_TRANSCEND_REMOVE_ITEM(frame);
+	
+	local gbox = frame:GetChild("gbox");
+	local reg = GET_CHILD(gbox, "reg");
+	reg:ShowWindow(0);
 
+	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_BREAK_GUIDE_FIRST"));	
+	SETTEXT_GUIDE(frame, 3, needTxt);
 end
 
  function ITEM_TRANSEND_REMOVE_DROP(frame, icon, argStr, argNum)
@@ -118,11 +123,23 @@ function ITEM_TRANSCEND_REMOVE_REG_TARGETITEM(frame, itemID)
 	slot_material:ClearIcon();
 	slot_material:SetText("");
 
-	UPDATE_TRANSCEND_REMOVE_ITEM(frame);	
+	UPDATE_TRANSCEND_REMOVE_ITEM(frame, 0);	
 	
+	
+		local mtrlCls = GetClass("Item", "Premium_deleteTranscendStone");
+		if mtrlCls == nil then
+			return;
+		end
+		local needTxt = "";	
+		needTxt = string.format("{img %s 30 30}{/}{@st43_green}{s16}%s{/}{@st42b}{s16}{/}{@st42b}{s16}%s{/}", mtrlCls.Icon, mtrlCls.Name, ScpArgMsg("Need_Item"));			
+		SETTEXT_GUIDE(frame, 1, needTxt);
+
+	local gbox = frame:GetChild("gbox");
+	local reg = GET_CHILD(gbox, "reg");
+	reg:ShowWindow(0);
 end
 
-function UPDATE_TRANSCEND_REMOVE_ITEM(frame)
+function UPDATE_TRANSCEND_REMOVE_ITEM(frame, isResult)
 
 	local slot = GET_CHILD(frame, "slot");
 	local invItem = GET_SLOT_ITEM(slot);
@@ -145,7 +162,11 @@ function UPDATE_TRANSCEND_REMOVE_ITEM(frame)
 		text_itemstar:ShowWindow(1);
 		text_itemstar:SetTextByKey("value", starTxt);
 
-		text_itemtranscend:SetTextByKey("value", targetObj.Transcend);
+		if isResult == 1 then			
+			text_itemtranscend:SetTextByKey("value", "{@st43_red}{s20}".. targetObj.Transcend);
+		else
+			text_itemtranscend:SetTextByKey("value", "{s20}"..targetObj.Transcend);
+		end;
 		text_itemtranscend:ShowWindow(1);
 
 		text_material:SetTextByKey("value", GET_FULL_NAME(targetObj));
@@ -207,8 +228,13 @@ function ITEM_TRANSCEND_REMOVE_REG_MATERIAL(frame, itemID)
 
 	local slot_material = GET_CHILD(frame, "slot_material");
 	SET_SLOT_INVITEM(slot_material, invItem, 1);
-	UPDATE_TRANSCEND_REMOVE_ITEM(frame);
+	UPDATE_TRANSCEND_REMOVE_ITEM(frame, 0);
+			
+	SETTEXT_GUIDE(frame, 0, nil);
 
+	local gbox = frame:GetChild("gbox");
+	local reg = GET_CHILD(gbox, "reg");
+	reg:ShowWindow(1);
 end
 
 function ITEMTRANSCEND_REMOVE_EXEC(frame)
@@ -269,9 +295,15 @@ function _ITEMTRANSCEND_REMOVE_EXEC()
 
 	slot_material:ClearIcon();
 	slot_material:SetText("");
-	UPDATE_TRANSCEND_REMOVE_ITEM(frame);
+	UPDATE_TRANSCEND_REMOVE_ITEM(frame , 0);
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_CAST"));
-
+	
+	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_BREAK_GUIDE_FIRST"));	
+	SETTEXT_GUIDE(frame, 3, needTxt);
+	
+	local gbox = frame:GetChild("gbox");
+	local reg = GET_CHILD(gbox, "reg");
+	reg:ShowWindow(0);
 end
 
 function TRANSCEND_REMOVE_UPDATE()
@@ -305,7 +337,7 @@ function TRANSCEND_EFFECT_REMOVE()
 end
 
 function _UPDATE_TRANSCEND_RESULT_REMOVE(frame)				
-	UPDATE_TRANSCEND_REMOVE_ITEM(frame);
+	UPDATE_TRANSCEND_REMOVE_ITEM(frame, 1);
 	local slot = GET_CHILD(frame, "slot");	
 	slot:PlayActiveUIEffect();
 end

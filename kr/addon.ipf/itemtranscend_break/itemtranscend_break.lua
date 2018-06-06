@@ -19,13 +19,17 @@ function ITEMTRASCEND_BREAK_OPEN(frame)
 	slot:SetText("");
 	slot_material:ClearIcon();
 	slot_material:SetText("");
-	local txt_result = frame:GetChildRecursively("txt_result");
-	txt_result:ShowWindow(0);
-
+	
 	UPDATE_TRANSCEND_BREAK_ITEM(frame);
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMTRANSCEND_BREAK_INV_RBTN")	
 	ui.OpenFrame("inventory");
-
+	
+	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_BREAK_GUIDE_FIRST"));	
+	SETTEXT_GUIDE(frame, 3, needTxt);
+	
+	local gbox = frame:GetChild("gbox");
+	local reg = GET_CHILD(gbox, "reg");
+	reg:ShowWindow(0);
 end
 
 function ITEMTRASCEND_BREAK_CLOSE(frame)
@@ -74,7 +78,13 @@ function REMOVE_TRANSCEND_BREAK_TARGET_ITEM(frame)
 	slot_material:ClearIcon();
 	slot_material:SetText("");
 	UPDATE_TRANSCEND_BREAK_ITEM(frame);
-
+	
+	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_BREAK_GUIDE_FIRST"));	
+	SETTEXT_GUIDE(frame, 3, needTxt);
+	
+	local gbox = frame:GetChild("gbox");
+	local reg = GET_CHILD(gbox, "reg");
+	reg:ShowWindow(0);
 end
 
  function ITEM_TRANSEND_BREAK_DROP(frame, icon, argStr, argNum)
@@ -130,7 +140,6 @@ function ITEM_TRANSCEND_BREAK_REG_TARGETITEM(frame, itemID)
 
 	local txt_result = frame:GetChildRecursively("txt_result");
 	txt_result:ShowWindow(0);
-
 	UPDATE_TRANSCEND_BREAK_ITEM(frame);	
 	
 end
@@ -147,14 +156,12 @@ function UPDATE_TRANSCEND_BREAK_ITEM(frame)
 	local text_itemstar = frame:GetChild("text_itemstar");
 	local text_itemtranscend = frame:GetChild("text_itemtranscend");	
 	local text_breakresult = frame:GetChild("text_breakresult");	
-	local reg = frame:GetChildRecursively("reg");
 
 	if invItem == nil then
 		text_itemstar:ShowWindow(0);
 		text_material:ShowWindow(0);
 		text_itemtranscend:ShowWindow(0);		
 		text_breakresult:ShowWindow(0);
-		reg:SetTextByKey("value", "");
 	else
 		local targetObj = GetIES(invItem:GetObject());
 		text_itemstar:ShowWindow(1);
@@ -178,9 +185,16 @@ function UPDATE_TRANSCEND_BREAK_ITEM(frame)
 		end
 
 		text_breakresult:ShowWindow(1);
-
+		
+	
+		local mtrlCls = GetClass("Item", "Premium_itemDissassembleStone");
+		if mtrlCls == nil then
+			return;
+		end
+		local needTxt = "";	
 		local sil = GET_TRANSCEND_BREAK_SILVER(targetObj);
-		reg:SetTextByKey("value", GET_MONEY_IMG(24) .. " " .. GetCommaedText(sil));
+		needTxt = string.format("{img %s 30 30}{/}{@st43_green}{s16}%s{/}{@st42b}{s16}, {/}{@st43_red}{s16}%s  {/}{@st42b}{s16}%s{/}", mtrlCls.Icon, mtrlCls.Name, GET_MONEY_IMG(24) .. " " .. GetCommaedText(sil), ScpArgMsg("Need_Item"));			
+		SETTEXT_GUIDE(frame, 1, needTxt);
 	end
 
 
@@ -238,7 +252,10 @@ function ITEM_TRANSCEND_BREAK_REG_MATERIAL(frame, itemID)
 	local slot_material = GET_CHILD(frame, "slot_material");
 	SET_SLOT_INVITEM(slot_material, invItem, 1);
 	UPDATE_TRANSCEND_BREAK_ITEM(frame);
-
+	
+	local gbox = frame:GetChild("gbox");
+	local reg = GET_CHILD(gbox, "reg");
+	reg:ShowWindow(1);
 end
 
 function ITEMTRANSCEND_BREAK_EXEC(frame)
@@ -261,16 +278,16 @@ function ITEMTRANSCEND_BREAK_EXEC(frame)
 		ui.MsgBox(msgString);
 		return;
 	end
+	ui.SetHoldUI(false);
 	
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_BTN_OK_SOUND"));
-	ui.SetHoldUI(true);
 	ui.MsgBox_NonNested(ScpArgMsg("ItemWillBeDeleted_Continue?"), frame:GetName(), "_ITEMTRANSCEND_BREAK_EXEC_MSG", "_ITEMTRANSCEND_BREAK_CANCEL");		
 	
-	frame:SetUserValue("ANIMETION_PROG_WIP", 1);
 end
 
 function _ITEMTRANSCEND_BREAK_EXEC_MSG()
 	ui.MsgBox(ScpArgMsg("ReallyBreakTransendedItem?"), "_ITEMTRANSCEND_BREAK_EXEC", "_ITEMTRANSCEND_BREAK_CANCEL");		
+	ui.SetHoldUI(false);
 end
 
 function _ITEMTRANSCEND_BREAK_CANCEL()
@@ -298,6 +315,8 @@ function _ITEMTRANSCEND_BREAK_EXEC()
 		return;
 	end
 
+	ui.SetHoldUI(true);
+	frame:SetUserValue("ANIMETION_PROG_WIP", 1);
 	session.ResetItemList();	
 	session.AddItemID(invItem:GetIESID());
 	session.AddItemID(materialItem:GetIESID());	
@@ -355,7 +374,7 @@ function _UPDATE_TRANSCEND_RESULT_BREAK(frame)
 	slot:ClearIcon();
 	slot:SetText("");
 	SET_SLOT_ITEM_CLS(slot, itemCls);
-	SET_SLOT_COUNT_TEXT(slot, count);
+	SET_SLOT_COUNT_TEXT(slot, count, "{@st43}{s22}{ol}{b}");
 	
 	local slot_material = GET_CHILD(frame, "slot_material");
 	slot_material:ClearIcon();
@@ -376,5 +395,11 @@ function _UPDATE_TRANSCEND_RESULT_BREAK(frame)
 
 	local resultTxt = GET_FULL_NAME(itemCls) .. " " .. count .. ScpArgMsg("CountOfThings");
 	txt_result:SetTextByKey("value", resultTxt);
-
+	
+	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_BREAK_GUIDE_FIRST"));	
+	SETTEXT_GUIDE(frame, 3, needTxt);
+	
+	local gbox = frame:GetChild("gbox");
+	local reg = GET_CHILD(gbox, "reg");
+	reg:ShowWindow(0);
 end

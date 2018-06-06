@@ -1,4 +1,4 @@
-
+﻿
 
 
 function GET_GELE_MODELITEM(seedCls, obj)
@@ -49,7 +49,7 @@ function GET_SEED004_MODELITEM(seedCls, obj)
 		return "Default_Sprout";
 	end
 
-	return "icon_item_Jonazole_farm";
+	return "food_008";
 
 end
 
@@ -62,7 +62,7 @@ function GET_SEED005_MODELITEM(seedCls, obj)
 		return "Default_Sprout";
 	end
 
-	return "icon_item_Mairunas_farm";
+	return "food_009";
 
 end
 
@@ -75,7 +75,7 @@ function GET_SEED006_MODELITEM(seedCls, obj)
 		return "Default_Sprout";
 	end
 
-	return "icon_item_Rosemary_farm";
+	return "food_036";
 
 end
 
@@ -88,7 +88,7 @@ function GET_SEED007_MODELITEM(seedCls, obj)
 		return "Default_Sprout";
 	end
 
-	return "icon_item_Lavender_farm";
+	return "food_037";
 
 end
 
@@ -190,7 +190,6 @@ function GET_GUILD_EXPUP_ITEM_INFO()
 end
 
 function GET_GUILD_LEVEL_BY_EXP(exp)
-
 	local lv = 1;
 	local clsList, cnt = GetClassList("GuildExp");
 	for i = 0 , cnt - 1 do
@@ -199,7 +198,6 @@ function GET_GUILD_LEVEL_BY_EXP(exp)
 			lv = cls.ClassID;
 		end
 	end
-
 	return lv;
 
 end
@@ -215,6 +213,11 @@ function GET_GUILD_ABILITY_LEVEL(guildObj, abilName)
 end
 
 function GET_GUILD_MAKE_PRICE()
+
+	local isSeasonServer = IS_SEASON_SERVER(nil);
+	if isSeasonServer == "YES" then
+		return 1000000 - (1000000 * 0.9)
+	end
 
 	return 1000000;
 

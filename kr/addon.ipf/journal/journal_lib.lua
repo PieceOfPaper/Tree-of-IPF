@@ -22,15 +22,15 @@ function JOURNALTREE_CLICK(parent, ctrl, str, num)
 		group = sList[2]; -- monrank
 	end
 	if #sList >= 3 then
-		groupValue = sList[3]; -- ÀÏ¹İ?º¸½º
+		groupValue = sList[3]; -- ì¼ë°˜?ë³´ìŠ¤
 	end
 	if #sList >= 4 then
 		cate = sList[4]; -- category
 	end
 	if #sList >= 5 then
-		cateValue = sList[5]; -- ½Ä¹°?¾Ç¸¶?
+		cateValue = sList[5]; -- ì‹ë¬¼?ì•…ë§ˆ?
 	end
-
+	
 	local frame = parent:GetParent(); -- gbox
 	frame = frame:GetParent(); -- ctrlset?
 	frame:SetUserValue("SELECT_CATEGORY", selValue);
@@ -151,7 +151,17 @@ function JOURNAL_DETAIL_LIST_RENEW(ctrlset, idSpace, group, groupValue, cate, ca
 
 	gbox:SetChildShownScript("UPDATE_JOURNAL_CTRLSET");
 	GBOX_AUTO_ALIGN(gbox, 10, 0, 10);
-	gbox:Resize(gbox:GetWidth(),gbox:GetOriginalHeight())
+		
+	local gBox_category = GET_CHILD(ctrlset, "categoryGbox");
+	if gBox_category ~= nil then
+		local tree = GET_CHILD(gBox_category, "tree", 'ui::CTreeControl');
+		if tree ~= nil then
+			gbox:Resize(gbox:GetWidth(),gBox_category:GetHeight());
+			return;
+		end;
+	end;
+	gbox:Resize(gbox:GetWidth(),gbox:GetOriginalHeight());
+
 end
 
 function SET_ITEM_CATEGORY_BY_PROP(tree)
@@ -167,35 +177,36 @@ function SET_ITEM_CATEGORY_BY_PROP(tree)
 			cls = GetClassByIndexFromList(clslist, i);
 			iesPropName = cls.ClassName;
 		end
+		if iesPropName ~= "Recipe" then
+			local subCateList = {};
+			if nil ~= cls and cls.SubCategory ~= "None" then
+				subCateList = StringSplit(cls.SubCategory, "/");
+			end
+			local title = ClMsg(iesPropName);
+			local ctrlSet = tree:CreateControlSet("journal_tree", "CTRLSET_" .. i, ui.LEFT, 0, 0, 0, 0, 0);
+			local part = ctrlSet:GetChild("part");
+			part:SetTextByKey("value", title);
 
-		local subCateList = {};
-		if nil ~= cls and cls.SubCategory ~= "None" then
-			subCateList = StringSplit(cls.SubCategory, "/");
-		end
-		local title = ClMsg(iesPropName);
-		local ctrlSet = tree:CreateControlSet("journal_tree", "CTRLSET_" .. i, ui.LEFT, 0, 0, 0, 0, 0);
-		local part = ctrlSet:GetChild("part");
-		part:SetTextByKey("value", title);
+			local data = "Item#GroupName#"..iesPropName.."#ClassType";
 
-		local data = "Item#GroupName#"..iesPropName.."#ClassType";
-
-		if 0 >= #subCateList then
-			local foldimg = ctrlSet:GetChild("foldimg");
-			foldimg:ShowWindow(0);
-			tree:Add(ctrlSet,  data);
-		else
-			tree:Add(ctrlSet, data);
-			local htreeitem = tree:FindByName(ctrlSet:GetName());
-			tree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
-			for j = 1 , #subCateList do
-				local cate = subCateList[j]
-		    	if cate ~= 'None' then
-					tree:Add(htreeitem, "{ol}"..ClMsg(cate), data.."#"..cate, "{#FFCC33}{ds}");
-		    	end
+			if 0 >= #subCateList then
+				local foldimg = ctrlSet:GetChild("foldimg");
+				foldimg:ShowWindow(0);
+				tree:Add(ctrlSet,  data);
+			else
+				tree:Add(ctrlSet, data);
+				local htreeitem = tree:FindByName(ctrlSet:GetName());
+				tree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
+				for j = 1 , #subCateList do
+					local cate = subCateList[j]
+			    	if cate ~= 'None' then
+						tree:Add(htreeitem, "{ol}"..ClMsg(cate), data.."#"..cate, "{#FFCC33}{ds}");
+			    	end
+				end
 			end
 		end
 	end
-
+	
 	if clMsgHeader == nil then
 		GBOX_AUTO_ALIGN(tree, 10, 10, 0)
 	else
@@ -203,8 +214,8 @@ function SET_ITEM_CATEGORY_BY_PROP(tree)
 	end
 end
 
-function SET_CATEGORY_BY_PROP(tree, idSpace, groupName, classType, clMsgHeader, list)
-
+function SET_CATEGORY_BY_PROP(tree, idSpace, groupName, classType, clMsgHeader, list, marginY)
+	
 	tree:Clear();
 	local typeList = nil;
 	local typeCnt = 0;
@@ -244,7 +255,7 @@ function SET_CATEGORY_BY_PROP(tree, idSpace, groupName, classType, clMsgHeader, 
 
 			local data = idSpace .."#"..groupName.."#"..iesPropName.."#"..classType;
 			if typeList ~= nil and 0 < typeCnt and i > 0 then
-				tree:Add(ctrlSet);
+				tree:Add(ctrlSet, data);
 				local htreeitem = tree:FindByName(ctrlSet:GetName());
 				tree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
 				for j = 1 , typeCnt do
@@ -256,6 +267,12 @@ function SET_CATEGORY_BY_PROP(tree, idSpace, groupName, classType, clMsgHeader, 
 					else
 						propName = typeList[j];
 					end
+
+					if "Monster" == idSpace then
+						if ("Item" == propName) or ("Cloth" == propName) then
+							propName = 'None';
+						end;	
+					end;
 
 					if propName ~= 'None' then
 						tree:Add(htreeitem, "{ol}"..ClMsg(propName), data.."#"..propName, "{#FFCC33}{ds}");
@@ -273,6 +290,7 @@ function SET_CATEGORY_BY_PROP(tree, idSpace, groupName, classType, clMsgHeader, 
 			end
 		end
 	end
+	tree:SetFitToChild(true,marginY);
 
 	if clMsgHeader == nil then
 		GBOX_AUTO_ALIGN(tree, 10, 10, 0)
@@ -353,7 +371,13 @@ function JOURNAL_CHECK_FILTER(cls, filterName1, filterValue1, filterName2, filte
 		if val ~= filterValue1 then
 			return false;
 		end
+	else
+		local val = TryGetProp(cls, filterName1);
+		if val == 'Material' and filterName1=='MonRank' then
+			return false;
+		end
 	end
+
 
 	if filterValue2 ~= "All" then
 		local val = TryGetProp(cls, filterName2);
@@ -391,9 +415,12 @@ function JOURNAL_UPDATE_SCORE(frame, monsterGroup, category)
 	local rate = myCount / cnt;
 
 	local pc = GetMyPCObject();
-	-- °»½ÅÀÌ ¾ÈµÈ´Ù´Â ¹ö±×Ã³·³ Á¦º¸µÊ...¿ì¼± UIÇ¥±â´Â ±×³É °»½ÅÁ¡¼ö·Î ÇÏÀÚ.
-	-- ±âÈ¹ÀÌ °è¼Ó ¹Ù²î´Ùº¸´Ï ¹¹°¡¹ö±×°í ¾Æ´ÑÁö ºĞ°£µµ ¾È°¡°í... ¿ì¼± ¾Æ·¡Ã³·³ ÇØ³õÀÚ.
+	-- ê°±ì‹ ì´ ì•ˆëœë‹¤ëŠ” ë²„ê·¸ì²˜ëŸ¼ ì œë³´ë¨...ìš°ì„  UIí‘œê¸°ëŠ” ê·¸ëƒ¥ ê°±ì‹ ì ìˆ˜ë¡œ í•˜ì.
+	-- ê¸°íšì´ ê³„ì† ë°”ë€Œë‹¤ë³´ë‹ˆ ë­ê°€ë²„ê·¸ê³  ì•„ë‹Œì§€ ë¶„ê°„ë„ ì•ˆê°€ê³ ... ìš°ì„  ì•„ë˜ì²˜ëŸ¼ í•´ë†“ì.
 	local score = session.GetUpdatedWikiScore(GetWikiCategoryEnum(category));
+	if score < session.GetMyWikiScore(GetWikiCategoryEnum(category)) then
+		score = session.GetMyWikiScore(GetWikiCategoryEnum(category))
+	end
 
 	local ctrlSet = monsterGroup:GetChild("ctrlset");
 	if ctrlSet ~= nil then
@@ -515,8 +542,16 @@ function JOURNAL_UPDATE_LIST_RENEW(groupBox, insertWikiType)
 
 	gbox:SetChildShownScript("UPDATE_JOURNAL_CTRLSET");
 	GBOX_AUTO_ALIGN(gbox, 10, 0, 10);
-	gbox:Resize(gbox:GetWidth(),gbox:GetOriginalHeight())
 
+	local gBox_category = GET_CHILD(ctrlset, "categoryGbox");
+	if gBox_category ~= nil then
+		local tree = GET_CHILD(gBox_category, "tree", 'ui::CTreeControl');
+		if tree ~= nil then
+			gbox:Resize(gbox:GetWidth(),gBox_category:GetHeight());
+			return;
+		end;
+	end;
+	gbox:Resize(gbox:GetWidth(),gbox:GetOriginalHeight());
 end
 
 function JOURNAL_INSERT_ITEM(gbox, cls, category)

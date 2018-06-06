@@ -24,3 +24,17 @@ function GET_XM_HM_BY_SYSTIME(sysTime)
 	return string.format("%s %d:%02d", timeStr, hour, sysTime.wMinute);
 
 end
+
+function TW_NO_TOKEN_CONNECT_ABLE() -- 대만 통행증 체크 함수
+
+	if "06/24/16 15:00:00" <= os.date() and os.date() < "06/24/16 21:00:00" then
+		return 1
+	end
+
+	if "06/25/16 00:00:00" <= os.date() and os.date() < "07/12/16 23:59:59" and os.date("%H") == "20" then
+		return 1
+	end
+
+	return 0
+
+end

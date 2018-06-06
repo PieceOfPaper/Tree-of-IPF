@@ -219,7 +219,7 @@ function STATUS_ONLOAD(frame, obj, argStr, argNum)
 	ACHIEVE_RESET(frame);
 
 	STATUS_TAB_CHANGE(frame);
-	STATUS_INFO(frame);
+	STATUS_INFO();
 
 	--local invenFrame = ui.GetFrame('inventory');
 	--invenFrame:ShowWindow(1);
@@ -285,9 +285,8 @@ function STATUS_UPDATE(frame)
 		STAT_RESET(frame, 1);
 		g_reserve_reset = 0;
 	else
-		STATUS_INFO(frame);
+		DebounceScript("STATUS_INFO", 0.1);
 	end
-
 end
 
 function RESERVE_RESET(frame)
@@ -306,7 +305,7 @@ function STAT_RESET(frame, update)
 	end
 
 	if changed == 1 then
-		STATUS_INFO(frame);
+		STATUS_INFO();
 	end
 end
 
@@ -454,8 +453,7 @@ function REQ_STAT_UP(frame, control, argstr, argnum)
 
 	session.SetUserConfig(configName, curstat + 1);
 	frame = frame:GetTopParentFrame();
-	STATUS_INFO(frame);
-
+	STATUS_INFO();
 end
 
 function OPERATOR_REQ_STAT_UP(frame, control, argstr, argnum)
@@ -480,8 +478,7 @@ function OPERATOR_REQ_STAT_UP(frame, control, argstr, argnum)
 	end
 	session.SetUserConfig(configName, curstat + increase + remainder);
 	frame = frame:GetTopParentFrame();
-	STATUS_INFO(frame);
-
+	STATUS_INFO();
 end
 
 function GET_REMAIN_STAT_PTS()
@@ -562,8 +559,8 @@ function STATUS_BTN_UP_VISIBLE(frame, controlsetName, pc, visible)
 	btnUp:ShowWindow(visible);
 end
 
-function STATUS_INFO(frame)	
-
+function STATUS_INFO()
+	local frame = ui.GetFrame('status');
 	local MySession		= session.GetMyHandle()
 	local CharName		= info.GetName(MySession);
 --	local CharProperty	= GetProperty(MySession);

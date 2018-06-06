@@ -683,7 +683,7 @@ function SHOP_ON_MSG(frame, msg, argStr, argNum)
 		
 		SHOP_ITEM_LIST_GET(frame);
 		SHOP_ITEM_SLOT_INIT(frame);
-		--UPDATE_SOLD_ITEM_LIST(frame);
+		UPDATE_SOLD_ITEM_LIST(frame);
 
 		frame:ShowWindow(1);
 		ui.CloseFrame('notice');
@@ -1098,7 +1098,7 @@ function SOLD_SLOT_SET(slot, index, info)
 
 	local icon = CreateIcon(slot);
 	icon:EnableHitTest(0);
-	icon:SetImage(obj.Icon);
+	icon:Set(obj.Icon, 'SOLDITEMITEM', 0, 0, info:GetIESID());
 
 	--SET_ITEM_TOOLTIP_TYPE(icon, obj.ClassID, obj);
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, info, obj.ClassName, 'soldItem', info.type, index);

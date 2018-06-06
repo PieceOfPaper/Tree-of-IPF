@@ -21,6 +21,27 @@ function INIT_MAP_PICTURE_UI(pic, mapName, hitTest)
 
 end
 
+function DISABLE_BUTTON_DOUBLECLICK_WITH_CHILD(framename,childname,buttonname)
+
+	local frame = ui.GetFrame(framename)
+	local child = GET_CHILD_RECURSIVELY(frame,childname)
+	local btn = GET_CHILD_RECURSIVELY(child,buttonname)
+
+	local strScp = string.format("ENABLE_BUTTON_DOUBLECLICK_WITH_CHILD(\"%s\",\"%s\", \"%s\")", framename, childname, buttonname);
+
+	ReserveScript(strScp, 5);
+	btn:SetEnable(0)
+end
+
+function ENABLE_BUTTON_DOUBLECLICK_WITH_CHILD(framename,childname,buttonname)
+
+	local frame = ui.GetFrame(framename)
+	local child = GET_CHILD_RECURSIVELY(frame,childname)
+	local btn = GET_CHILD_RECURSIVELY(child,buttonname)
+	btn:SetEnable(1)
+
+end
+
 function DISABLE_BUTTON_DOUBLECLICK(framename,buttonname)
 
 	local frame = ui.GetFrame(framename)
@@ -445,6 +466,7 @@ function GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESList, questPro
 	local pc = GetMyPCObject();
 	local questIES = nil;
 	local cnt = GetClassCount('QuestProgressCheck')
+	local subQuestCount = 0
 	for i = 0, cnt - 1 do
 		questIES = GetClassByIndex('QuestProgressCheck', i);
 		if questIES.ClassName ~= 'None' then
@@ -466,8 +488,9 @@ function GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESList, questPro
     				    flag = 1
     				end
     		    end
-    		    
-    		    if result == "POSSIBLE" and SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES) == "HIDE" then
+    		    local result2
+    		    result2, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount, 'ZoneMap')
+    		    if result == "POSSIBLE" and result2 == "HIDE" then
     		        flag = 0
     		    end
     		    

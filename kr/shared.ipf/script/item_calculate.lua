@@ -1514,3 +1514,29 @@ end
 function SCR_GET_MAXPROP_ENCHANT_SDR(item)
     return 1;
 end
+
+function IS_SAME_TYPE_GEM_IN_ITEM(invItem, gemType, sckCnt)
+
+	if TryGetProp(invItem, "ItemType") ~= 'Equip' then
+		return false
+	end
+
+	for i = 0 , sckCnt - 1 do
+		if TryGetProp(invItem, "Socket_Equip_"..i) == gemType then
+			return true
+		end
+	end
+
+	return false
+
+end
+
+function GET_EMPTY_SOCKET_CNT(socketCnt, invItem)
+	local emptyCnt = 0
+	for i = 0, socketCnt - 1 do
+		if TryGetProp(invItem, "Socket_Equip_"..i) == 0 then
+			emptyCnt = emptyCnt + 1
+		end
+	end
+	return emptyCnt
+end

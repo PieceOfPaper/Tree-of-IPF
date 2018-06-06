@@ -177,9 +177,20 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 		totalTime = groupClass["Time" .. abilLv];
 	end
 
+	if IS_SEASON_SERVER(nil) == "YES" then
+		price = price - (price * 0.4)
+	else
+		price = price - (price * 0.2)
+	end
+
+	price = math.floor(price);
+
 	local priceCtrl = GET_CHILD(classCtrl, "abilPrice", "ui::CRichText");	
 	priceCtrl:SetText("{img Silver 24 24} {@st42b}{s16}".. price ..ScpArgMsg("Auto__{@st42b}SilBeo"));
 	classCtrl:SetUserValue("PRICE_"..abilClass.ClassName, price);
+	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+		totalTime = 0;
+	end
 	
 	local timeCtrl = GET_CHILD(classCtrl, "abilTime", "ui::CRichText");	
 	local hour = math.floor( totalTime / 60 );
@@ -309,6 +320,15 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 
 	-- 구입가능한지 실버 체크하기
 	local price = tonumber( control:GetUserValue("PRICE_"..abilName) );
+
+	if IS_SEASON_SERVER(nil) == "YES" then
+		price = price - (price * 0.4)
+	else
+		price = price - (price * 0.2)
+	end
+
+	price = math.floor(price);
+
 	if GET_TOTAL_MONEY() < price then
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
 		return;

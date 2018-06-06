@@ -53,16 +53,34 @@ end
 function INTE_WARP_OPEN_BY_NPC()
 
    	local frame = ui.GetFrame('inte_warp');
+	
+	frame:SetUserValue("Type", "NPC");
+
 	frame:ShowWindow(1);
 	frame:Invalidate();
 
 	RUN_CHECK_LASTUIOPEN_POS(frame)
+
 
 end
 
 function INTE_WARP_OPEN_NORMAL()
 
    	local frame = ui.GetFrame('inte_warp');
+	
+	frame:SetUserValue("Type", "Normal");
+
+	frame:ShowWindow(1);
+	frame:Invalidate();
+	
+end
+
+function INTE_WARP_OPEN_DIB()
+
+   	local frame = ui.GetFrame('inte_warp');
+	
+	frame:SetUserValue("Type", "Dievdirbys");
+
 	frame:ShowWindow(1);
 	frame:Invalidate();
 
@@ -117,6 +135,8 @@ function WARP_INFO_ZONE(zoneName)
 end
 
 function ON_INTE_WARP(frame, changeDirection)
+
+	local type = frame:GetUserValue("Type");
 
 	frame:SetUserValue("Mode", "InteWarp");
 	local pc = GetMyPCObject();
@@ -209,7 +229,7 @@ function ON_INTE_WARP(frame, changeDirection)
 			local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
 			nameRechText:SetTextByKey("mapname","{#ffff00}"..ScpArgMsg('Auto_(woPeuJuMunSeo)'));
 			set:SetEventScript(ui.LBUTTONUP, 'WARP_TO_AREA')
-			if warpInfo ~= nil then --¿©½Å»ó ÀÖ´Â Áö¿ªÀÎ °æ¿ì.
+			if warpInfo ~= nil then --ï¿½ï¿½ï¿½Å»ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				set:SetEventScriptArgString(ui.LBUTTONUP, warpInfo.ClassName);
 			else
 				set:SetEventScriptArgString(ui.LBUTTONUP, mapCls.ClassName);
@@ -221,7 +241,7 @@ function ON_INTE_WARP(frame, changeDirection)
 			warpcost = 0
 
 			set:SetTooltipType('warpminimap');
-			if warpInfo ~= nil then  --¿©½Å»ó ÀÖ´Â Áö¿ªÀÎ °æ¿ì.
+			if warpInfo ~= nil then  --ï¿½ï¿½ï¿½Å»ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				set:SetTooltipStrArg(warpInfo.ClassName);
 			else
 				set:SetTooltipStrArg(mapCls.ClassName);
@@ -245,6 +265,40 @@ function ON_INTE_WARP(frame, changeDirection)
 	local result = GET_INTE_WARP_LIST();
 	local mapList, mapCnt = GetClassList('Map')
 	if result ~= nil then
+		if type == 'Dievdirbys' then
+			for index = 1, #result do
+				local info = result[index];
+				local mapCls = GetClass("Map", info.Zone);
+
+				local warpcost = 0;
+
+				if mapCls.WorldMap ~= "None" then
+					local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
+				
+					if currentDirection == dir then
+						local picX = startX + x * spaceX * sizeRatio;
+						local picY = startY - y * spaceY * sizeRatio;
+						local searchRate = session.GetMapFogSearchRate(mapCls.ClassName);
+						local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
+
+						if (warpcost < 1000000) then
+							local brushX = startX + x * spaceX;
+							local brushY = pictureStartY - y * spaceY;
+							if pic:GetChild(gBoxName) == nil then 
+								local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
+								gbox:SetSkinName("downbox");
+								gbox:ShowWindow(1);
+							end
+							
+							ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, false, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, 1);
+
+							local gbox = pic:GetChild(gBoxName)
+							GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
+						end				
+					end
+				end
+			end
+		else
 		for index = 1, #result do
 			local info = result[index];
 			local mapCls = GetClass("Map", info.Zone);
@@ -278,20 +332,16 @@ function ON_INTE_WARP(frame, changeDirection)
 							local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
 							gbox:SetSkinName("downbox");
 							gbox:ShowWindow(1);
-											
-							if  tonumber(index) <= 1 then
-								ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY)
-							else
-								ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY)
 							end
-						else			
-							ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY)
-						end
+
+							ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, 1)
+											
 						local gbox = pic:GetChild(gBoxName)
 						GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
 					end				
 				end
 			end
+		end
 		end
 
 		if makeWorldMapImage == true then
@@ -309,9 +359,10 @@ function ON_INTE_WARP(frame, changeDirection)
 
 end
 
-function ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY)
+function ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, bySkill)
 	local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
 	local setName = "WARP_CTRLSET_" .. index;
+
 	if calcOnlyPosition == false or gbox:GetChild(setName) == nil then
 		local set = gbox:CreateOrGetControlSet('warpAreaName', setName, 0, 0);
 		set = tolua.cast(set, "ui::CControlSet");
@@ -332,6 +383,10 @@ function ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, ca
 		if makeWorldMapImage == true then
 			ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
 		end
+	else
+		local set = gbox:CreateOrGetControlSet('warpAreaName', setName, 0, 0);
+		set = tolua.cast(set, "ui::CControlSet");
+		set:SetTooltipNumArg(warpcost)
 	end
 end
 
@@ -361,7 +416,7 @@ function CREATE_WARP_CTRL(gbox, setName, info, warpcost)
 end
 
 function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
-	-- ¿öÇÁ ½ºÅ©·Ñ »ç¿ëÁßÀÌ¸é °¡°ÝÇ¥½Ã¾ÈÇÔ.
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½Ã¾ï¿½ï¿½ï¿½.
 	local warpFrame = ui.GetFrame('inte_warp');
 	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');
 	local costRichText = GET_CHILD(tooltipframe, "richtext_cost", "ui::CRichText");
@@ -373,7 +428,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	end
 
 	local camp_warp_class = GetClass('camp_warp', strarg)
-	--¿©½Å»ó ÀÖ´Â Áö¿ªÀÎ °æ¿ì.
+	--ï¿½ï¿½ï¿½Å»ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if camp_warp_class ~= nil then
 		local nameRichText = GET_CHILD(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);
@@ -427,7 +482,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	end
 	
 	camp_warp_class = GetClass("Map", strarg)
-	-- ¿©½Å»ó ¾ø´Â Áö¿ª.
+	-- ï¿½ï¿½ï¿½Å»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if camp_warp_class ~= nil then 
 		local nameRichText = GET_CHILD(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);
@@ -483,8 +538,9 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 	local nowZoneName = GetZoneName(pc);
 
 	local myMoney = GET_TOTAL_MONEY();
-	local warpcost
-	local targetMapName;
+	local warpcost = 0;
+	local targetMapName = 0;
+	local type = frame:GetUserValue("Type");
 	if camp_warp_class ~= nil then
 		targetMapName = camp_warp_class.Zone;
     	warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), camp_warp_class.Zone);
@@ -493,9 +549,6 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 		targetMapName = argStr;
     end
 	
-	print('warp cost: ', warpcost)
-
-
 	if targetMapName == nowZoneName then
 		ui.SysMsg(ScpArgMsg("ThatCurrentPosition"));
 		return;
@@ -514,6 +567,10 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 		end	
 	end
 
+	if type ~= "Dievdirbys" then
+		warpcost = 0
+	end
+	
 	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');	
 	if (warpitemname == 'NO' or warpitemname == 'None') and myMoney < warpcost then
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
@@ -552,7 +609,6 @@ function RUN_INTE_WARP(actor)
 end
 
 function INTEWARP_SHOW_DIRECTION(frame, ctrl, str, num)
-
 	config.SetConfig("INTEWARP_DIRECTION", str);
 	ON_INTE_WARP(frame, true);
 
@@ -560,8 +616,8 @@ end
 
 function AMMEND_NOW_ZONE_NAME(nowZoneName)
 
-	-- pc°¡ ÀÖ´Â Á¸ÀÇ PhysicalLink = "None"ÀÌ¸é ¿öÇÁÄÚ½ºÆ® °è»ê ¸øÇÔ.(¸î¸î ÀÎ´øÀÇ Æ¯¼º)
-	-- ÀÌ °æ¿ì ÀÌÀü¿¡ ÀÖ´ø ¸Ê(´øÀüÀÌ Á¾·áµÇ¸é ³ª°¡°Ô µÇ´Â ¸Ê)À» nowZoneÀ¸·Î ¼³Á¤
+	-- pcï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ PhysicalLink = "None"ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.(ï¿½ï¿½ï¿½ ï¿½Î´ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½)
+	-- ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½)ï¿½ï¿½ nowZoneï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local nowMapCls = GetClass('Map', nowZoneName)
 	local mapList, mapCnt = GetClassList('Map')
 	local etc = GetMyEtcObject()
@@ -569,13 +625,10 @@ function AMMEND_NOW_ZONE_NAME(nowZoneName)
 	if nowMapCls ~= nil and TryGetProp(nowMapCls, 'PhysicalLinkZone') ~= nil then
 		if nowMapCls.PhysicalLinkZone == 'None' then
 						
-			print('before map id: ', etc.LobbyMapID)			
-					
 			for i = 0, mapCnt - 1 do
 				local cls = GetClassByIndexFromList(mapList, i)
 				if cls.ClassID == etc.LobbyMapID then 
 							
-					print("after map name:", cls.ClassName)
 					return cls.ClassName
 
 				end

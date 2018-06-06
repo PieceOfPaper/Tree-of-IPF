@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="nodlcinfo" x="0" y="0" width="1276" height="691">
+  <frame title="" margin="0 0 0 0" layout_gravity="center center" scale_align="center center"/>
+  <draw drawnotitlebar="false" drawtitlebar="false"/>
+  <skin frameskin="None"/>
+  <layer layerlevel="100"/>
+  <controls>
+    <picture name="dlcinfo" rect="0 0 1276 691" hittest="false" image="dlcinfo" stretch="true"/>
+    <button name="closebtn" rect="0 0 170 50" margin="0 0 0 35" layout_gravity="center bottom" LBtnUpScp="ui.ToggleFrame('nodlcinfo')" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" format="{@st66b}%s" param1="value" param1_def="OK"/>
+  </controls>
+</uiframe>

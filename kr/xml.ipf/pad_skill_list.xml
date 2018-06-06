@@ -10000,14 +10000,28 @@ return obj.Level"/>
                 <Str Str="NEUTRAL"/>
                 <Num Num="0"/>
                 <Num Num="-1"/>
-                <Str Str="Cloaking_Buff"/>
+                <Str Str="Cover_Buff"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="60000" UseFunc="1" FuncTxt="return 60000 * obj.Level"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
             </ToolScp>
-        </enterEvent>
+        <ToolScp Scp="PAD_BUFF_MONRANK_SET_TIME" Client="NO" UseSleep="NO">
+                <Str Str="Cover_Buff"/>
+                <Str Str="MISC"/>
+                <Num Num="5000" UseFunc="1" FuncTxt="
+                
+return math.min(7000, obj.Level * 1500)"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_BUFF_MONRANK_SET_TIME" Client="NO" UseSleep="NO">
+                <Str Str="Cover_Buff"/>
+                <Str Str="NPC"/>
+                <Num Num="5000" UseFunc="1" FuncTxt="
+
+return math.min(7000, obj.Level * 1500)"/>
+            </ToolScp>
+		</enterEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-500"/>

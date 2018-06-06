@@ -218,6 +218,8 @@ end
 function TEST_AYASE()
 	
 
+	print("qweqw")
+	control.CustomCommand("CLICK_CHANGEJOB_BUTTON", 1013) -- 서버에서 jobid를 jobChanging에 저장
 		
 
 
@@ -884,7 +886,7 @@ function ADD_EX_TOOLTIP(GroupCtrl, txt, yPos, ySize)
 	ControlSetCtrl:SetGravity(ui.LEFT, ui.TOP);
 	richText:SetGravity(ui.LEFT, ui.TOP);
 	richText:SetFontName(ITEM_TOOLTIP_TEXT_FONT);
-	ControlSetCtrl:Resize(255, ySize);		-- 3??����????���??�� 7~8??����?? ??��
+	ControlSetCtrl:Resize(255, ySize);
 	ControlSetCtrl:SetTextByKey('text', txt);
 	GroupCtrl:ShowWindow(1)
 	return ControlSetCtrl:GetHeight() + ControlSetCtrl:GetOffsetY();
@@ -1342,6 +1344,12 @@ function GET_FULL_NAME(item, useNewLine)
 	local ownName = GET_NAME_OWNED(item);
 
 	local reinforce_2 = TryGetProp(item, "Reinforce_2");
+	local isHaveLifeTime = TryGetProp(item, "LifeTime");
+	
+	if 0 ~= isHaveLifeTime then
+		ownName = string.format("{img test_cooltime 30 30 }%s", ownName);
+	end
+	
 	if reinforce_2 ~= nil and reinforce_2 > 0 then
 		ownName = string.format("+%d %s", reinforce_2, ownName);
 	end
@@ -1459,7 +1467,9 @@ function IS_RECIPE_ITEM(itemCls)
 end
 
 function SCR_MAGICAMULET_EQUIP(fromitem, toitem)
-
+	if nil == fromitem or nil == toitem then
+		return;
+	end
 	local fromobj = GetIES(fromitem:GetObject());
 	local toobj = GetIES(toitem:GetObject());
 
@@ -1499,7 +1509,7 @@ function SCR_GEM_EQUIP(fromitem, toitem)
 	local socketindex = GET_GEM_SOCKET_CNT(toobj,fromobj_gemtype);
 
 	if socketindex == -1 then
-		socketindex = GET_GEM_SOCKET_CNT(toobj,5); -- ?¸®?T
+		socketindex = GET_GEM_SOCKET_CNT(toobj,5);
 	end
 
 	if socketindex == -1 then
@@ -1930,7 +1940,7 @@ end
 
 
 
--- ON_WORLD_MSG_%d (WORLD_MESSAGE_ACHIEVE_ADD == 0)   : ?????��?????? º???
+-- ON_WORLD_MSG_%d (WORLD_MESSAGE_ACHIEVE_ADD == 0)
 function ON_WORLD_MSG_0(name, type, pointType, point)
 
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
@@ -2073,6 +2083,10 @@ end
 function ITEM_EQUIP_MSG(item, slotName)
 
 	if 1 ~= ITEM_EQUIP_EXCEPTION(item) then
+		return;
+	end
+	
+	if true == BEING_TRADING_STATE() then
 		return;
 	end
 
@@ -2552,7 +2566,7 @@ end
 function GET_MONEY_TAG_TXT(itemCnt)
 
 	itemCnt = math.abs(itemCnt);
-	return ScpArgMsg("Auto_{ol}{@st45}BatKe_Doel_SilBeo_:_{Auto_1}_{img_Zeny_20_20}","Auto_1", itemCnt)
+	return ScpArgMsg("Auto_{ol}{@st45}BatKe_Doel_SilBeo_:_{Auto_1}_{img_Zeny_20_20}","Auto_1", GetCommaedText(itemCnt))
 
 end
 
@@ -2567,6 +2581,34 @@ function GET_BUFF_TAG_TXT(buffName)
 
 	return ScpArgMsg("Auto_{img_{Auto_1}_20_20}{ol}{@st45}_{Auto_2}_BeoPeu","Auto_1", 'icon_'..cls.Icon,"Auto_2", cls.Name)
 
+end
+function GET_PCPROPERTY_TAG_TXT(propertyName, value)
+    local ret, propertyTxt
+    if propertyName == 'STR' then
+        propertyTxt = ScpArgMsg("STR")
+    elseif propertyName == 'DEX' then
+        propertyTxt = ScpArgMsg("DEX")
+    elseif propertyName == 'CON' then
+        propertyTxt = ScpArgMsg("CON")
+    elseif propertyName == 'INT' then
+        propertyTxt = ScpArgMsg("INT")
+    elseif propertyName == 'MSTA' then
+        propertyTxt = ScpArgMsg("MSTA")
+    elseif propertyName == 'MHP' then
+        propertyTxt = ScpArgMsg("MHP")
+    elseif propertyName == 'MSP' then
+        propertyTxt = ScpArgMsg("MSP")
+    elseif propertyName == 'MaxWeight' then
+        propertyTxt = ScpArgMsg("MaxWeight")
+	elseif propertyName == 'MNA' then
+        propertyTxt = ScpArgMsg("MNA")
+    else
+        propertyTxt = propertyName
+    end
+    
+    ret = ScpArgMsg("QuestRewardPCPropertyText1","Auto_1", propertyTxt,"Auto_2", value)
+    
+    return ret
 end
 
 function GET_HONOR_TAG_TXT(honor, point_value)
@@ -3039,10 +3081,8 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 		local itemCount = session.GetInvItemList():Count();
 
 		local cnt = 0;
-
 		for i = 0, itemCount - 1 do
 			local invItem = invItemList:Element(index);
-			
 			if invItem ~= nil and false == geItemTable.IsMoney(invItem.type) then
 			
 				local slot = INV_GET_SLOT_BY_ITEMGUID(invItem:GetIESID())
@@ -3127,50 +3167,84 @@ function SCR_ITEM_USE_TARGET_RELEASE()
 end
 
 function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
-	local invitem;
-	if frameName == 'inventory' then
-		invitem = session.GetInvItem(argNum);
-		if invitem == nil then
-			return;
-		end
 
-		local itemobj = GetIES(invitem:GetObject());
-		local socketCnt = GET_SOCKET_CNT(itemobj);
-		if socketCnt == 0 then
-			return;
-		end
+	-- get inventory item
+	local invitem = nil;
+	if frameName == 'inventory' then
+		invitem = session.GetInvItem(argNum);		
 	else
 		invitem = session.GetEquipItemBySpot(argNum);
-		if invitem == nil then
-			return;
-		end
+	end
+	if invitem == nil then
+		return;
+	end
 
-		if invitem ~= nil then
-			local itemobj = GetIES(invitem:GetObject());
-			local socketCnt = GET_SOCKET_CNT(itemobj);
-			if socketCnt == 0 then
-				return;
+	-- get item object
+	local itemobj = GetIES(invitem:GetObject());
+	if itemobj == nil then
+		return
+	end
+
+	-- get total / empty socket count
+	local socketCnt = GET_SOCKET_CNT(itemobj);
+	if socketCnt == 0 then
+		ui.SysMsg(ScpArgMsg("NOT_HAVE_SOCKET_SPACE"))
+		return;
+	end
+	local emptyCnt = GET_EMPTY_SOCKET_CNT(socketCnt, itemobj)
+	if emptyCnt < 1 then
+		ui.SysMsg(ScpArgMsg("Auto_SoKaeseopKeoNa_JeonBu_SayongJungiDa"))
+		return
+	end
+
+	-- 몬스터젬만 중복검사
+	local gemClass = GetClassByType("Item", luminItem.type)
+	if gemClass ~= nil then
+		local gemEquipGroup = TryGetProp(gemClass, "EquipXpGroup")
+		if gemEquipGroup == 'Gem_Skill' then
+			if IS_SAME_TYPE_GEM_IN_ITEM(itemobj, luminItem.type, socketCnt) then
+				local ret = true
+				local invFrame = ui.GetFrame(frameName)
+				invFrame:SetUserValue("GEM_EQUIP_ITEM_ID", luminItem:GetIESID())
+				invFrame:SetUserValue("GEM_EQUIP_TARGET_ID", invitem:GetIESID())
+
+				if frameName == 'inventory' then
+					ui.MsgBox(ScpArgMsg("GEM_EQUIP_SAME_TYPE"), "GEM_EQUIP_TRY", "None")
+				elseif frameName == 'status' then
+					ui.MsgBox(ScpArgMsg("GEM_EQUIP_SAME_TYPE"), "GEM_EQUIP_TRY_STATUS", "None")
+				end
+				return
 			end
 		end
 	end
-
-	local itemobj = GetIES(invitem:GetObject());
-	local socketCnt = GET_SOCKET_CNT(itemobj);
 
 	local cnt = 0;
 	for i = 0 , socketCnt - 1 do
 		local socketName = "SOCKET_" .. i;
 		local skttype = itemobj["Socket_" .. i];
 		local socketCls = GetClassByType('Socket', skttype);
+
 		if socketCls ~= nil then
 			break;
 		else
-
 			cnt = cnt + 1;
 		end
 	end
-
 	item.UseItemToItem(luminItem:GetIESID(), invitem:GetIESID(), cnt);
+end
+
+function GEM_EQUIP_TRY_STATUS()
+	local invFrame = ui.GetFrame('status')
+	local fromItem = invFrame:GetUserValue("GEM_EQUIP_ITEM_ID")
+	local toItem = invFrame:GetUserValue('GEM_EQUIP_TARGET_ID')
+	item.UseItemToItem(fromItem, toItem, 0);
+end
+
+function GEM_EQUIP_TRY()
+	local invFrame = ui.GetFrame('inventory')
+	local fromItem = invFrame:GetUserValue("GEM_EQUIP_ITEM_ID")
+	local toItem = invFrame:GetUserValue('GEM_EQUIP_TARGET_ID')
+	item.UseItemToItem(fromItem, toItem, 0);
 end
 
 function ENABLE_CTRL(ctrl, isEnable)
@@ -3559,7 +3633,19 @@ function SCR_QUEST_CHECK_T(pc, questname)
 end
 
 function SCR_QUEST_CHECK_C(pc, questname)
-	return GetQuestState(questname);
+	local questState = GetQuestState(questname);
+	if "PROGRESS" == questState then -- ¸??O¶§, ¼¼¼?:끧?´ μ쿲?®N?º¸μμ·??Z.
+	-- ¸¶¹??½º?°¡ °≫½??μ???±?¹®¿¡
+		local questIES = GetClass('QuestProgressCheck', questname);
+		local sObj_quest = GetSessionObject(pc, questIES.Quest_SSN);
+		if nil ~= sObj_quest then
+			local Succ_req_SSNInvItem, ssnInvItemCheck = SCR_QUEST_SUCC_CHECK_MODULE_SSNINVITEM(pc, questIES, sObj_quest);
+			if 'YES' == Succ_req_SSNInvItem then
+				return SCR_QUEST_CHECK(pc, questname);
+			end
+		end
+	end
+	return questState;
 end
 
 
@@ -4019,7 +4105,7 @@ function ON_RIDING_VEHICLE(onoff)
 
 		if 1 == onoff then
 			local abil = GetAbility(GetMyPCObject(), "CompanionRide");
-			if nil == abil then
+			if nil == abil and control.IsPremiumCompanion() == false then
 				ui.SysMsg(ClMsg('PetHasNotAbility'));
 				return
 			end
@@ -4099,8 +4185,7 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 
 	frame = tolua.cast(frame, "ui::CObject");
 
-	local petguid  = session.pet.GetPetGuidByHandle(handle)
-
+	local petguid  = session.pet.GetPetGuidByHandle(handle);
 
 	local mycompinfoBox = GET_CHILD_RECURSIVELY(frame, "mycompinfo");
 	if mycompinfoBox == nil then
@@ -4128,18 +4213,17 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 
 		local mynameRtext = GET_CHILD_RECURSIVELY(frame, "myname");
 		local gauge_stamina = GET_CHILD_RECURSIVELY(frame, "StGauge");
-		local hp_stamina = GET_CHILD_RECURSIVELY(frame, "HpGauge");
+		local gauge_HP = GET_CHILD_RECURSIVELY(frame, "HpGauge");
 
-		local petInfo = session.pet.GetPetByGUID(petguid);	
+		local pet = session.pet.GetPetByGUID(petguid);
+		mynameRtext:SetText(pet:GetName())
 
-		local obj = GetIES(petInfo:GetObject());
-		gauge_stamina:SetPoint(obj.Stamina, obj.MaxStamina);
-		hp_stamina:SetPoint(obj.HP, obj.MHP);
-		mynameRtext:SetText(petInfo:GetName())
-
+		local petObj = GetIES(pet:GetObject());
+		gauge_stamina:SetPoint(petObj.Stamina, petObj.MaxStamina);
+		
+		local petInfo = info.GetStat(handle); --IESObject 정보 사용시 HP는 실시간으로 동기화 되지 않는다.
+		gauge_HP:SetPoint(petInfo.HP, petInfo.maxHP);		
 	end
-
-
 
 	frame:Invalidate()
 
@@ -4170,7 +4254,7 @@ end
 function TEST_TIARUA()
 
 ReloadHotKey()
---print("����??��??)
+--print("由щ줈?쒗빂??)
 --ui.OpenFrame("joystickrestquickslot");
 --[[
 local quickFrame = ui.GetFrame('quickslotnexpbar')
@@ -4260,7 +4344,7 @@ function UI_MODE_CHANGE(index)
 
 		Set1:ShowWindow(1);
 		Set2:ShowWindow(0);	
-	elseif index == 2 then	
+	elseif index == 2 then
 		if control.IsRestSit() == true then	
 			quickFrame:ShowWindow(0);
 			restquickslot:ShowWindow(1);
@@ -4305,12 +4389,14 @@ function KEYBOARD_INPUT()
 		local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
 		local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');
 
-		if control.IsRestSit() == true then
-			quickFrame:ShowWindow(0);
-			restquickslot:ShowWindow(1);
-		else
-			quickFrame:ShowWindow(1);
-			restquickslot:ShowWindow(0);
+		if monsterquickslot:IsVisible() ~= 1 then
+			if control.IsRestSit() == true then
+				quickFrame:ShowWindow(0);
+				restquickslot:ShowWindow(1);
+			else
+				quickFrame:ShowWindow(1);
+				restquickslot:ShowWindow(0);
+			end
 		end
 
 		joystickQuickFrame:ShowWindow(0);
@@ -4349,13 +4435,15 @@ function JOYSTICK_INPUT()
 		local quickFrame = ui.GetFrame('quickslotnexpbar')
 		local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
 		local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');
-
-		if control.IsRestSit() == true then
-			joystickQuickFrame:ShowWindow(0);
-			joystickrestquickslot:ShowWindow(1);
-		else
-			joystickQuickFrame:ShowWindow(1);
-			joystickrestquickslot:ShowWindow(0);
+		
+		if monsterquickslot:IsVisible() ~= 1 then
+			if control.IsRestSit() == true then
+				joystickQuickFrame:ShowWindow(0);
+				joystickrestquickslot:ShowWindow(1);
+			else
+				joystickQuickFrame:ShowWindow(1);
+				joystickrestquickslot:ShowWindow(0);
+			end
 		end
 
 		quickFrame:ShowWindow(0);

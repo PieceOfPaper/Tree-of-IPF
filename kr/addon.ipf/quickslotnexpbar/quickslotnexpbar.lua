@@ -399,7 +399,14 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 			icon:SetTooltipIESID(iesID);		
 		end
 
+		-- 락상태를 체크해서 락이었다면 disableDrag해야한다.
+		local quickSlotList = session.GetQuickSlotList();
+		local isLockState = quickSlotList:GetQuickSlotLockState();	
+		if isLockState == 1 then
+			slot:EnableDrag(0);
+		else
 		slot:EnableDrag(1);
+		end
 
 		INIT_QUICKSLOT_SLOT(slot, icon);
 		local sendPacket = 1;
@@ -433,7 +440,8 @@ function QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME(frame)
 	end
 end
 
-function QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT(frame)
+function QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT()
+	local frame = ui.GetFrame('quickslotnexpbar');
 	local quickSlotList = session.GetQuickSlotList();
 	for i = 0, MAX_QUICKSLOT_CNT-1 do
 		local quickSlotInfo 	= quickSlotList:Element(i);			
@@ -445,7 +453,6 @@ function QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT(frame)
 end
 
 function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
-
 	local joystickquickslotFrame = ui.GetFrame('joystickquickslot');
 	JOYSTICK_QUICKSLOT_ON_MSG(joystickquickslotFrame, msg, argStr, argNum)
 	
@@ -464,24 +471,14 @@ function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
 		ON_PET_SELECT(frame);
 	end
 
-	if msg == 'QUICKSLOT_LIST_GET' or msg == 'GAME_START' or msg == 'EQUIP_ITEM_LIST_GET' or msg == 'PC_PROPERTY_UPDATE' then
-		QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT(frame);
+	if msg == 'QUICKSLOT_LIST_GET' or msg == 'GAME_START' or msg == 'EQUIP_ITEM_LIST_GET' or msg == 'PC_PROPERTY_UPDATE' 
+	or msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT'
+	then
+		DebounceScript("QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT", 0.1);
 	end
-
+	
 	-- 아이템 슬롯 비활성에 대해서 체크 한다
-	if msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT'then
-		-- 퀵슬롯의 Icon 정보를 확인하고 Category가 'Item'인 목록을 찾아 개수를 파악 한다.
-		local quickSlotList = session.GetQuickSlotList();		-- 퀵슬롯 리스트 정보를 가지고 온다
-		for i = 0, MAX_QUICKSLOT_CNT-1 do
-			local quickSlotInfo 	= quickSlotList:Element(i);	-- 퀵슬롯 정보를 가지고 온다
-			if quickSlotInfo.category  ~=  'NONE' then
-				local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
-				tolua.cast(slot, "ui::CSlot");
-				SET_QUICK_SLOT(slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, 0);
-			end
-		end
-	end
-
+	
 	local quickSlotList = session.GetQuickSlotList();
 	local curCnt = quickSlotList:GetQuickSlotActiveCnt();	
 		
@@ -508,7 +505,6 @@ function QUICKSLOTNEXPBAR_CHANGE_INVINDEX(quickslot, quickIndex, changeIndex)
 end
 
 function QUICKSLOT_ON_CHANGE_INVINDEX(fromIndex, toIndex)
-print("ZZZZZ");
 	local frame = ui.GetFrame("quickslotnexpbar");
 		local toInvIndex = toIndex;
 		local fromInvIndex = fromIndex;
@@ -567,7 +563,9 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 	--		return;
 	--	end
 		ICON_USE(icon, 'reAction');
-	else
+		return;
+	end
+
 		local invenItemInfo = session.GetInvItem(iconInfo.ext);
 		if invenItemInfo == nil then
 			invenItemInfo = session.GetInvItemByType(iconInfo.type);
@@ -576,6 +574,10 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 		end
 
 		if invenItemInfo == nil then
+		if iconInfo.category == 'Item' then
+			icon:SetColorTone("FFFF0000");
+			icon:SetText('0', 'quickiconfont', 'right', 'bottom', -2, 1);
+		end
 			return;
 		end
 
@@ -584,21 +586,18 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 			return;
 		end
 
-
-		if invenItemInfo ~= nil then
 			if invenItemInfo.count == 0 then
 				icon:SetColorTone("FFFF0000");
 				icon:SetText(invenItemInfo.count, 'quickiconfont', 'right', 'bottom', -2, 1);
-			else
-				ICON_USE(icon, 'reAction');
-			end
-		else
-			if iconInfo.category == 'Item' then
-				icon:SetColorTone("FFFF0000");
-				icon:SetText('0', 'quickiconfont', 'right', 'bottom', -2, 1);
-			end
+		return;
 		end
+
+	-- 거래할땐 퀵슬롯 아이템 못쓰게 해줘
+	if true == BEING_TRADING_STATE() then
+		return;
 	end
+	
+	ICON_USE(icon, 'reAction');
 end
 
 function QUICKSLOTNEXPBAR_ICON_COUNT(frame, icon, argStr, argNum)
@@ -778,6 +777,12 @@ function QUICKSLOTNEXPBAR_DUMPICON(frame, control, argStr, argNum)
 end
 
 function QUICKSLOTNEXPBAR_EXECUTE(slotIndex)
+
+	local chatFrame = ui.GetFrame("chat");
+
+	if chatFrame:IsVisible() == 1 then
+		return;
+	end
 
 	-- 휴식모드 ?슬롯 처리
 	local restFrame = ui.GetFrame('restquickslot')

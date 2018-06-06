@@ -53,7 +53,7 @@ function POPUP_CHANNEL_LIST(parent)
 		local cnt = zoneInsts:GetZoneInstCount();
 		for i = 0  , cnt - 1 do
 			local zoneInst = zoneInsts:GetZoneInstByIndex(i);
-			local str, gaugeString = GET_CHANNEL_STRING(zoneInst);
+			local str, gaugeString = GET_CHANNEL_STRING(zoneInst, true);
 			ui.AddDropListItem(str, gaugeString, zoneInst.channel);
 		end
 	end
