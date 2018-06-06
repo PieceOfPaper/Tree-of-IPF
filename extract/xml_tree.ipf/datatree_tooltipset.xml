@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<idspace id="Tooltipset">
+	<Category Name="ToolTip">
+		<Class ClassID="1" ClassName="Attack" NameFont="{ol}" ValueFont="{ol}{ds}" Value="None" WriteValue="{#ffffff}{s20}{gr gradation1}[arg1]{/} Lv {#ffffff}{s30}[arg2]" Arg1="Name" Arg2="Level" Arg3="None" Arg4="None">
+			<Node1 ClassID="12" ClassName="Caption" Name="설명" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Caption" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+		</Class>
+		<Class ClassID="2" ClassName="ActiveSkill" NameFont="{@sti1b}" ValueFont="None" Value="None" WriteValue="[arg1]{/} Lv[arg2] Type[TitleValue1] " Arg1="Name" Arg2="Level" Arg3="None" Arg4="None">
+			<Node1 ClassID="1" ClassName="SkillType" Name="스킬 타입" NameFont="{#050505}" ValueFont="{#050505}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="YES" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="스킬 타입용" Value="None" WriteValue="[arg1]" CheckCase="'[arg2]' ~= 'Buff'" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Tooltip_Attr" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<!--MultiValue = ArgType 값 하나가 여러개의 값을 가지고 있을 때 YES로 변경-->
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'Attack'" reValue="'공격형 기술'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node402" Compare="'[Arg]' == 'Recover'" reValue="'{#00ff06}회복'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node403" Compare="'[Arg]' == 'Defense'" reValue="'{#000cff}방어'" else="None"/>
+						<Node4 ClassID="4" ClassName="Node404" Compare="'[Arg]' == 'Gathering'" reValue="'{#fcff00}수집'" else="None"/>
+						<Node4 ClassID="5" ClassName="Node405" Compare="'[Arg]' == 'Buff'" reValue="'{#fcff00}버프'" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Tooltip_Attr" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value002" Caption="버프용" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<!--MultiValue = ArgType 값 하나가 여러개의 값을 가지고 있을 때 YES로 변경-->
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'Negative'" reValue="'{#050505}해로운 효과 부여 기술'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node402" Compare="'[Arg]' == 'Positive'" reValue="'{#050505}이로운 효과 부여 기술'" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="2" ClassName="AtkRange" Name="사거리" NameFont="{#050505}" ValueFont="{#050505}" Caption="사거리 [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="최소 ~ 최대 사거리 출력" Value="None" WriteValue="[arg1] ~ [arg2]" CheckCase="[arg1] &gt;= 1 and '[arg3]' ~= 'None'" nullCheck="[arg2] &lt;= 3" ValueFont="{#050505}" preFix="None" sufFix="m">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="MinR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="WaveLength" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="None"/>
+					</Node3>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value002" Caption="최대 사거리 출력" Value="None" WriteValue="[arg1]" CheckCase="[arg1] &gt;= 1 and '[arg2]' ~= 'None'" nullCheck="None" ValueFont="{#050505}" preFix="None" sufFix="m">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="WaveLength" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="'null'"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="3" ClassName="Damage" Name="공격력" NameFont="{#050505}" ValueFont="{#050505}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="math.floor((([arg1] * [arg10]) + [arg2] + [arg3] + [arg4] + [arg5] + [arg6] + [arg7] + [arg8] +  [arg9]) / [arg10])" WriteValue="[arg12][Value] x [arg10]" CheckCase="[arg10] &gt; 1" nullCheck="'[arg11]' == 'None'" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="MyHandle" Column="MAXATK" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="SklATK1" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="SklATK2" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="4" ClassName="Node304" IES="None" Column="SklATK3" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="5" ClassName="Node305" IES="None" Column="SklATK4" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="6" ClassName="Node306" IES="None" Column="SklATK5" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="7" ClassName="Node307" IES="None" Column="SklATK6" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="8" ClassName="Node308" IES="None" Column="SklATK7" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="9" ClassName="Node309" IES="None" Column="SklATK8" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="10" ClassName="Node310" IES="None" Column="HitTime" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="YES" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="#([Arg]);" else="None"/>
+					</Node3>
+					<Node3 ClassID="11" ClassName="Node308" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="12" ClassName="Node301" IES="None" Column="Tooltip_Attr" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'Attack'" reValue="'{#050505}공격력 {#050505}'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node402" Compare="'[Arg]' == 'Recover'" reValue="'{#050505}회복력 {#050505}'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node403" Compare="'[Arg]' == 'Defense'" reValue="'{#050505}방어력 {#050505}'" else="None"/>
+					</Node3>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value001" Caption="None" Value="math.floor(([arg1] + [arg2]) / 2)" WriteValue="[arg4][Value]" CheckCase="None" nullCheck="'[arg3]' == 'None' or [arg1] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Value" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Value2" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node308" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="4" ClassName="Node301" IES="None" Column="Tooltip_Attr" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'Attack'" reValue="'{#050505}공격력 증가 {#050505}'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node402" Compare="'[Arg]' == 'Recover'" reValue="'{#050505}회복력 {#050505}'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node403" Compare="'[Arg]' == 'Defense'" reValue="'{#050505}방어력 {#050505}'" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="4" ClassName="AtkRange" Name="범위" NameFont="{#050505}" ValueFont="{#050505}" Caption="범위 [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="스플래시 출력" Value="None" WriteValue="[arg2][arg3] [arg4][arg5][arg7]" CheckCase="None" nullCheck="None" ValueFont="{#050505}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="'자신'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="'[Arg]' == 'Enemy'" reValue="'자신'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node401" Compare="'[Arg]' == 'Ground'" reValue="'자신'" else="None"/>
+						<Node4 ClassID="4" ClassName="Node401" Compare="'[Arg]' == 'Actor'" reValue="'자신'" else="None"/>
+						<Node4 ClassID="5" ClassName="Node401" Compare="'[Arg]' == 'Wave'" reValue="'전방'" else="None"/>
+						<Node4 ClassID="6" ClassName="Node401" Compare="'[Arg]' == 'Front'" reValue="'전방'" else="None"/>
+					</Node3>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="SplRange" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg] &gt; 1" reValue="' 반경'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="[Arg] &lt;= 1" reValue="'에게 적용'" else="None"/>
+					</Node3>
+					<Node3 ClassID="4" ClassName="Node304" IES="None" Column="SplRange" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg] &gt; 1" reValue="[Arg] / 10" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="[Arg] &lt;= 1" reValue="''" else="None"/>
+					</Node3>
+					<Node3 ClassID="5" ClassName="Node305" IES="None" Column="SplRange" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg] &gt; 1" reValue="'m내'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="[Arg] &lt;= 1" reValue="''" else="None"/>
+					</Node3>
+					<Node3 ClassID="6" ClassName="Node306" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="7" ClassName="Node307" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg] == 0" reValue="''" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="[Arg] &lt;= 20" reValue="', 대상 추가 [Arg]명'" else="None"/>
+					</Node3>
+					<Node3 ClassID="7" ClassName="Node307" IES="None" Column="Value" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value002" Caption="전방 돌진 공격" Value="math.floor([arg6] * [arg7])" WriteValue="폭[arg3]m x 전방[Value]m[arg5]" CheckCase="None" nullCheck="None" ValueFont="{#00ff06}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="'None'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="'[Arg]' == 'Actor'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node401" Compare="'[Arg]' == 'Ground'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="4" ClassName="Node401" Compare="'[Arg]' == 'Wave'" reValue="'전방'" else="None"/>
+						<Node4 ClassID="5" ClassName="Node401" Compare="'[Arg]' == 'Front'" reValue="'전방'" else="None"/>
+					</Node3>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="SplRange" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10 * 2" else="None"/>
+					</Node3>
+					<Node3 ClassID="4" ClassName="Node304" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="5" ClassName="Node305" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg] &gt; 20" reValue="'모든 대상'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="[Arg] &lt;= 20" reValue="'[Arg]명'" else="None"/>
+					</Node3>
+					<Node3 ClassID="6" ClassName="Node305" IES="None" Column="Value" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 1000" else="None"/>
+					</Node3>
+					<Node3 ClassID="7" ClassName="Node305" IES="None" Column="Value2" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="5" ClassName="ApplyTarget" Name="적용대상" NameFont="{#050505}" ValueFont="{#050505}" Caption="[Value]에게 적용" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="적용대상출력" Value="None" WriteValue="모든대상" CheckCase="'[arg1]' == 'None' and '[arg2]' == 'YES' and '[arg3]' == 'YES' and '[arg4]' == 'YES'" nullCheck="None" ValueFont="{#050505}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="1" ClassName="Node302" IES="None" Column="OnEnemy" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="1" ClassName="Node302" IES="None" Column="OnFriend" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="1" ClassName="Node302" IES="None" Column="OnNeutral" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value002" Caption="적용대상출력" Value="None" WriteValue="[arg1][arg2][arg3][arg4]" CheckCase="None" nullCheck="'[arg5]' == 'None'" ValueFont="{#050505}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="'{#050505}자신'" else="''"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="OnEnemy" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'YES'" reValue="'{#050505}적'" else="''"/>
+					</Node3>
+					<Node3 ClassID="3" ClassName="Node302" IES="None" Column="OnFriend" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'YES'" reValue="'{#050505}아군'" else="''"/>
+					</Node3>
+					<Node3 ClassID="4" ClassName="Node302" IES="None" Column="OnNeutral" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'YES'" reValue="'{#050505}중립'" else="''"/>
+					</Node3>
+					<Node3 ClassID="5" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="6" ClassName="Node302" IES="None" Column="OnEnemy" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="7" ClassName="Node302" IES="None" Column="OnFriend" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="8" ClassName="Node302" IES="None" Column="OnNeutral" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="7" ClassName="coolTime" Name="재사용 시간" NameFont="{#050505}" ValueFont="{#050505}" Caption="쿨타임 : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="초" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="[arg1] / 1000" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="{#00ff06}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="CoolDown" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="9" ClassName="SpendHP" Name="소모HP" NameFont="{#050505}" ValueFont="{#050505}" Caption="소모HP : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="[arg1]" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="SpendHP" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="10" ClassName="SpendSP" Name="소모SP" NameFont="{#050505}" ValueFont="{#050505}" Caption="소모SP : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="[arg1]" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="SpendSP" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="12" ClassName="Caption" Name="설명" NameFont="{#050505}" ValueFont="{#050505}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Caption" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="12" ClassName="Buff" Name="특수 효과" NameFont="{#050505}" ValueFont="{#050505}" Caption="특수효과 [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="NO">
+				<Node2 ClassID="1" ClassName="Value001" Caption="아군대상" Value="None" WriteValue="None" CheckCase="[arg1] == 100 and '[arg4]' == 'YES'" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffFreq" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node302" IES="None" Column="OnEnemy" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="4" ClassName="Node302" IES="None" Column="OnFriend" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value002" Caption="아군 확률표기" Value="None" WriteValue="[arg1]%% 확률로" CheckCase="'[arg4]' == 'YES'" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffFreq" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node302" IES="None" Column="OnEnemy" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="4" ClassName="Node302" IES="None" Column="OnFriend" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="3" ClassName="Value003" Caption="적군대상" Value="None" WriteValue="[arg1]%% 확률로" CheckCase="'[arg3]' == 'YES'" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffFreq" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node302" IES="None" Column="OnEnemy" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="4" ClassName="Node302" IES="None" Column="OnFriend" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="12" ClassName="Buff2" Name="특수 효과2" NameFont="{#050505}" ValueFont="{#050505}" Caption="[Value1]초 동안 [Value2] [Value3]" ToolTipType="multiValue" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="적용시간" Value="string.format('%%.1f', ( [arg1] / 1000 ) )" WriteValue="[Value]" CheckCase="None" nullCheck="[arg2] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffApplyTime" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="BuffFreq" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value002" Caption="적용대상" Value="None" WriteValue="[arg1]" CheckCase="[arg2] ~= 'NO' or [arg3] ~= 'NO'" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="OnFriend" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'YES'" reValue="'{#050505}자신에게'" else="'{#050505}적에게'"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="OnFriend" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node302" IES="None" Column="OnEnemy" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="3" ClassName="Value003" Caption="적용버프" Value="None" WriteValue="[arg1][arg2]" CheckCase="None" nullCheck="None" ValueFont="{#050505}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="Buff" Column="SelfBuff" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="''" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="Buff" Column="TargetBuff" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="''" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="16" ClassName="BuffToolTip" Name="버프용 툴팁" NameFont="{#050505}" ValueFont="{#050505}" Caption="{#050505}[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="{#050505}[arg2]" CheckCase="'[arg1]' ~= 'None'" nullCheck="None" ValueFont="{#050505}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="SelfBuff" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node303" IES="Buff" Column="SelfBuff" SubColumn="ToolTip" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value001" Caption="None" Value="None" WriteValue="{#050505}[arg2]" CheckCase="'[arg1]' ~= 'None'" nullCheck="None" ValueFont="{#050505}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="TargetBuff" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node303" IES="Buff" Column="TargetBuff" SubColumn="ToolTip" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+		</Class>
+		<Class ClassID="3" ClassName="PassiveSkill" NameFont="{ol}" ValueFont="{ol}{ds}" Value="None" WriteValue="{#c9b385}{s20}{gr gradation1}[arg1]{/} Lv {#ffffff}{s30}[arg2] Type[TitleValue1] " Arg1="Name" Arg2="Level" Arg3="None" Arg4="None">
+			<Node1 ClassID="1" ClassName="SkillType" Name="스킬 타입" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="YES" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="스킬 타입용" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Tooltip_Attr" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<!--MultiValue = ArgType 값 하나가 여러개의 값을 가지고 있을 때 YES로 변경-->
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'Attack'" reValue="'{#ff3300}공격'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node402" Compare="'[Arg]' == 'Recover'" reValue="'{#00ff06}회복'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node403" Compare="'[Arg]' == 'Defense'" reValue="'{#000cff}방어'" else="None"/>
+						<Node4 ClassID="4" ClassName="Node404" Compare="'[Arg]' == 'Gathering'" reValue="'{#fcff00}수집'" else="None"/>
+						<Node4 ClassID="5" ClassName="Node405" Compare="'[Arg]' == 'Buff'" reValue="'{#fcff00}버프'" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="2" ClassName="AtkRange" Name="사거리" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="사거리 : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value003" Caption="최소 ~ 최대 사거리 출력" Value="None" WriteValue="[arg1] ~ [arg2]" CheckCase="[arg1] &gt;= 1 and '[arg3]' ~= 'None' and '[arg4]' ~= 'MELEE'" nullCheck="None" ValueFont="{#00ff06}" preFix="None" sufFix="m">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="MinR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="MaxR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="None"/>
+					</Node3>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="4" ClassName="Node304" IES="None" Column="UseType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value004" Caption="최대 사거리 출력" Value="None" WriteValue="[arg1]" CheckCase="[arg1] == 0 and '[arg2]' ~= 'None' and '[arg3]' ~= 'MELEE'" nullCheck="None" ValueFont="{#00ff06}" preFix="None" sufFix="m">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="MaxR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="'null'"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="UseType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="3" ClassName="AtkRange" Name="범위" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="범위 : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="스플래시 출력" Value="None" WriteValue="[arg2] [arg3]m내, [arg5]" CheckCase="'[arg1]' ~= 'None' and [arg3] &gt; 0 and [arg4] &gt; 0  and [arg6] == 0" nullCheck="None" ValueFont="{#00ff06}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="'[Arg]' == 'Enemy'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node401" Compare="'[Arg]' == 'Ground'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="4" ClassName="Node401" Compare="'[Arg]' == 'Actor'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="5" ClassName="Node401" Compare="'[Arg]' == 'Wave'" reValue="'전방'" else="None"/>
+					</Node3>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="SplRange" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="None"/>
+					</Node3>
+					<Node3 ClassID="4" ClassName="Node304" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="5" ClassName="Node305" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg] &gt; 20" reValue="'모든 대상'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="[Arg] &lt;= 20" reValue="'[Arg]명'" else="None"/>
+					</Node3>
+					<Node3 ClassID="6" ClassName="Node305" IES="None" Column="Value" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value002" Caption="전방 돌진 공격" Value="math.floor([arg6] * [arg7])" WriteValue="폭[arg3]m x 전방[Value]m, [arg5]" CheckCase="'[arg1]' ~= 'None' and [arg3] &gt; 0 and [arg4] &gt; 0 and [arg6] &gt; 0" nullCheck="None" ValueFont="{#00ff06}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="'None'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="'[Arg]' == 'Actor'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node401" Compare="'[Arg]' == 'Ground'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="4" ClassName="Node401" Compare="'[Arg]' == 'Wave'" reValue="'전방'" else="None"/>
+					</Node3>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="SplRange" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10 * 2" else="None"/>
+					</Node3>
+					<Node3 ClassID="4" ClassName="Node304" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="5" ClassName="Node305" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg] &gt; 20" reValue="'모든 대상'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="[Arg] &lt;= 20" reValue="'[Arg]명'" else="None"/>
+					</Node3>
+					<Node3 ClassID="6" ClassName="Node305" IES="None" Column="Value" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 1000" else="None"/>
+					</Node3>
+					<Node3 ClassID="7" ClassName="Node305" IES="None" Column="Value2" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="6" ClassName="Damage" Name="공격력" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="공격력 : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="math.floor((([arg1] * [arg10]) + [arg2] + [arg3] + [arg4] + [arg5] + [arg6] + [arg7] + [arg8] +  [arg9]) / [arg10])" WriteValue="[Value] x [arg10]" CheckCase="[arg10] &gt; 1" nullCheck="'[arg11]' == 'None'" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="MyHandle" Column="MAXATK" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="SklATK1" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="SklATK2" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="4" ClassName="Node304" IES="None" Column="SklATK3" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="5" ClassName="Node305" IES="None" Column="SklATK4" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="6" ClassName="Node306" IES="None" Column="SklATK5" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="7" ClassName="Node307" IES="None" Column="SklATK6" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="8" ClassName="Node308" IES="None" Column="SklATK7" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="9" ClassName="Node309" IES="None" Column="SklATK8" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="10" ClassName="Node310" IES="None" Column="HitTime" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="YES" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="#([Arg]);" else="None"/>
+					</Node3>
+					<Node3 ClassID="11" ClassName="Node308" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value001" Caption="None" Value="[arg1] + [arg2]" WriteValue="[Value]" CheckCase="None" nullCheck="'[arg3]' == 'None' or [arg2] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="MyHandle" Column="MAXATK" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="SklATK1" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node308" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="7" ClassName="coolTime" Name="재사용 시간" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="쿨타임 : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="초" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="[arg1] / 1000" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="{#00ff06}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="CoolDown" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="9" ClassName="SpendHP" Name="소모HP" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="소모HP : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="[arg1]" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="SpendHP" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="10" ClassName="SpendSP" Name="소모SP" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="소모SP : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="[arg1]" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="SpendSP" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="12" ClassName="Caption" Name="설명" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Caption" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="13" ClassName="Buff" Name="특수 효과" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="특수효과: [Value2]확률로 [Value3] [Value5]" ToolTipType="multiValue" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="'[arg2]' == 'None'" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'Positive'" reValue="'버프'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="'[Arg]' == 'Negative'" reValue="'디버프'" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="UseType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value002" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="%%">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffFreq" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="3" ClassName="Value003" Caption="None" Value="string.format('%%.2f', ( [arg1] / 1000 ) )" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="초간">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffApplyTime" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="4" ClassName="Value004" Caption="None" Value="None" WriteValue="[arg1][arg2]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="OnFriend" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'YES'" reValue="'{#0006ff}나에게'" else="''"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="OnEnemy" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'YES'" reValue="'{#ff3300}적에게'" else="''"/>
+					</Node3>
+				</Node2>
+				<Node2 ClassID="5" ClassName="Value005" Caption="None" Value="None" WriteValue="[arg1][arg2]" CheckCase="None" nullCheck="None" ValueFont="{#de5b6a}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="Buff" Column="SelfBuff" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="''" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="Buff" Column="TargetBuff" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="''" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="14" ClassName="Buff_self" Name="나자신에게 효과" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="특수효과: [Value2] [Value3]" ToolTipType="multiValue" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="'[arg2]' == 'None'" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'Positive'" reValue="'버프'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="'[Arg]' == 'Negative'" reValue="'디버프'" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="UseType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value003" Caption="None" Value="string.format('%%.2f', ( [arg1] / 1000 ) )" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="초간">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffApplyTime" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="3" ClassName="Value005" Caption="None" Value="None" WriteValue="[arg1][arg2]" CheckCase="None" nullCheck="None" ValueFont="{#5d95f2}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="Buff" Column="SelfBuff" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="''" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="Buff" Column="TargetBuff" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="''" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="16" ClassName="BuffToolTip" Name="버프용 툴팁" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg2]" CheckCase="'[arg1]' ~= 'None'" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="SelfBuff" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node303" IES="Buff" Column="SelfBuff" SubColumn="ToolTip" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg2]" CheckCase="'[arg1]' ~= 'None'" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="TargetBuff" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node303" IES="Buff" Column="TargetBuff" SubColumn="ToolTip" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+		</Class>
+		<Class ClassID="4" ClassName="SummonsSkill" NameFont="{ol}" ValueFont="{ol}{ds}" Value="None" WriteValue="{#c9b385}{s20}{gr gradation1}[arg1]{/} Lv {#ffffff}{s30}[arg2] Type[TitleValue1] " Arg1="Name" Arg2="Level" Arg3="None" Arg4="None">
+			<Node1 ClassID="1" ClassName="SkillType" Name="스킬 타입" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="YES" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="스킬 타입용" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Tooltip_Attr" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<!--MultiValue = ArgType 값 하나가 여러개의 값을 가지고 있을 때 YES로 변경-->
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'Attack'" reValue="'{#ff3300}공격'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node402" Compare="'[Arg]' == 'Recover'" reValue="'{#00ff06}회복'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node403" Compare="'[Arg]' == 'Defense'" reValue="'{#000cff}방어'" else="None"/>
+						<Node4 ClassID="4" ClassName="Node404" Compare="'[Arg]' == 'Gathering'" reValue="'{#fcff00}수집'" else="None"/>
+						<Node4 ClassID="5" ClassName="Node405" Compare="'[Arg]' == 'Buff'" reValue="'{#fcff00}버프'" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="2" ClassName="AtkRange" Name="사거리" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="사거리 : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value003" Caption="최소 ~ 최대 사거리 출력" Value="None" WriteValue="[arg1] ~ [arg2]" CheckCase="[arg1] &gt;= 1 and '[arg3]' ~= 'None' and '[arg4]' ~= 'MELEE'" nullCheck="None" ValueFont="{#00ff06}" preFix="None" sufFix="m">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="MinR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="MaxR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="None"/>
+					</Node3>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="4" ClassName="Node304" IES="None" Column="UseType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value004" Caption="최대 사거리 출력" Value="None" WriteValue="[arg1]" CheckCase="[arg1] == 0 and '[arg2]' ~= 'None' and '[arg3]' ~= 'MELEE'" nullCheck="None" ValueFont="{#00ff06}" preFix="None" sufFix="m">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="MaxR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="'null'"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="UseType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="3" ClassName="AtkRange" Name="범위" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="범위 : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="스플래시 출력" Value="None" WriteValue="[arg2] [arg3]m내, [arg5]" CheckCase="'[arg1]' ~= 'None' and [arg3] &gt; 0 and [arg4] &gt; 0  and [arg6] == 0" nullCheck="None" ValueFont="{#00ff06}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="'[Arg]' == 'Enemy'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node401" Compare="'[Arg]' == 'Ground'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="4" ClassName="Node401" Compare="'[Arg]' == 'Actor'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="5" ClassName="Node401" Compare="'[Arg]' == 'Wave'" reValue="'전방'" else="None"/>
+					</Node3>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="SplRange" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="None"/>
+					</Node3>
+					<Node3 ClassID="4" ClassName="Node304" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="5" ClassName="Node305" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg] &gt; 20" reValue="'모든 대상'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="[Arg] &lt;= 20" reValue="'[Arg]명'" else="None"/>
+					</Node3>
+					<Node3 ClassID="6" ClassName="Node305" IES="None" Column="Value" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value002" Caption="전방 돌진 공격" Value="math.floor([arg6] * [arg7])" WriteValue="폭[arg3]m x 전방[Value]m, [arg5]" CheckCase="'[arg1]' ~= 'None' and [arg3] &gt; 0 and [arg4] &gt; 0 and [arg6] &gt; 0" nullCheck="None" ValueFont="{#00ff06}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="'None'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="'[Arg]' == 'Actor'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node401" Compare="'[Arg]' == 'Ground'" reValue="'자신 반경'" else="None"/>
+						<Node4 ClassID="4" ClassName="Node401" Compare="'[Arg]' == 'Wave'" reValue="'전방'" else="None"/>
+					</Node3>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="SplRange" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10 * 2" else="None"/>
+					</Node3>
+					<Node3 ClassID="4" ClassName="Node304" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="5" ClassName="Node305" IES="None" Column="SR" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg] &gt; 20" reValue="'모든 대상'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="[Arg] &lt;= 20" reValue="'[Arg]명'" else="None"/>
+					</Node3>
+					<Node3 ClassID="6" ClassName="Node305" IES="None" Column="Value" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 1000" else="None"/>
+					</Node3>
+					<Node3 ClassID="7" ClassName="Node305" IES="None" Column="Value2" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="[Arg] / 10" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="6" ClassName="Damage" Name="공격력" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="공격력 : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="math.floor((([arg1] * [arg10]) + [arg2] + [arg3] + [arg4] + [arg5] + [arg6] + [arg7] + [arg8] +  [arg9]) / [arg10])" WriteValue="[Value] x [arg10]" CheckCase="[arg10] &gt; 1" nullCheck="'[arg11]' == 'None'" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="MyHandle" Column="MAXATK" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="SklATK1" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="SklATK2" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="4" ClassName="Node304" IES="None" Column="SklATK3" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="5" ClassName="Node305" IES="None" Column="SklATK4" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="6" ClassName="Node306" IES="None" Column="SklATK5" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="7" ClassName="Node307" IES="None" Column="SklATK6" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="8" ClassName="Node308" IES="None" Column="SklATK7" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="9" ClassName="Node309" IES="None" Column="SklATK8" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="10" ClassName="Node310" IES="None" Column="HitTime" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="YES" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="[Arg]" reValue="#([Arg]);" else="None"/>
+					</Node3>
+					<Node3 ClassID="11" ClassName="Node308" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value001" Caption="None" Value="[arg1] + [arg2]" WriteValue="[Value]" CheckCase="None" nullCheck="'[arg3]' == 'None' or [arg2] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="MyHandle" Column="MAXATK" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="SklATK1" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node308" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="7" ClassName="coolTime" Name="재사용 시간" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="쿨타임 : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="초" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="[arg1] / 1000" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="{#00ff06}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="CoolDown" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="9" ClassName="SpendHP" Name="소모HP" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="소모HP : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="[arg1]" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="SpendHP" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="10" ClassName="SpendSP" Name="소모SP" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="소모SP : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="[arg1]" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="SpendSP" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="12" ClassName="Caption" Name="설명" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Caption" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="13" ClassName="Buff" Name="특수 효과" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="특수효과: [Value2]확률로 [Value3] [Value5]" ToolTipType="multiValue" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="'[arg2]' == 'None'" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'Positive'" reValue="'버프'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="'[Arg]' == 'Negative'" reValue="'디버프'" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="UseType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value002" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="%%">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffFreq" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="3" ClassName="Value003" Caption="None" Value="string.format('%%.2f', ( [arg1] / 1000 ) )" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="초간">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffApplyTime" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="4" ClassName="Value004" Caption="None" Value="None" WriteValue="[arg1][arg2]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="OnFriend" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'YES'" reValue="'{#0006ff}나에게'" else="''"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="OnEnemy" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'YES'" reValue="'{#ff3300}적에게'" else="''"/>
+					</Node3>
+				</Node2>
+				<Node2 ClassID="5" ClassName="Value005" Caption="None" Value="None" WriteValue="[arg1][arg2]" CheckCase="None" nullCheck="None" ValueFont="{#de5b6a}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="Buff" Column="SelfBuff" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="''" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="Buff" Column="TargetBuff" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="''" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="14" ClassName="Buff_self" Name="나자신에게 효과" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="특수효과: [Value2] [Value3]" ToolTipType="multiValue" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="'[arg2]' == 'None'" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'Positive'" reValue="'버프'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node401" Compare="'[Arg]' == 'Negative'" reValue="'디버프'" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="None" Column="Target" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="3" ClassName="Node303" IES="None" Column="UseType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value003" Caption="None" Value="string.format('%%.2f', ( [arg1] / 1000 ) )" WriteValue="[Value]" CheckCase="None" nullCheck="[arg1] == 0" ValueFont="None" preFix="None" sufFix="초간">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="BuffApplyTime" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="3" ClassName="Value005" Caption="None" Value="None" WriteValue="[arg1][arg2]" CheckCase="None" nullCheck="None" ValueFont="{#5d95f2}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="Buff" Column="SelfBuff" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="''" else="None"/>
+					</Node3>
+					<Node3 ClassID="2" ClassName="Node302" IES="Buff" Column="TargetBuff" SubColumn="Name" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'None'" reValue="''" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="16" ClassName="BuffToolTip" Name="버프용 툴팁" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg2]" CheckCase="'[arg1]' ~= 'None'" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="SelfBuff" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node303" IES="Buff" Column="SelfBuff" SubColumn="ToolTip" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+				<Node2 ClassID="2" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg2]" CheckCase="'[arg1]' ~= 'None'" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="TargetBuff" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+					<Node3 ClassID="2" ClassName="Node303" IES="Buff" Column="TargetBuff" SubColumn="ToolTip" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+		</Class>
+		<Class ClassID="5" ClassName="Item" NameFont="{ol}" ValueFont="{#c9b385}{s20}{ol}" Value="None" WriteValue="{#ffffff}{s20}[arg1]" Arg1="Name" Arg2="None" Arg3="None" Arg4="None">
+			<Node1 ClassID="1" ClassName="Node1001" Name="아이템의 종류" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="종류 : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="CategoryName" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="2" ClassName="Node1002" Name="착용부위" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="착용부위 : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="{s16}{#ff3300}" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="EqpType" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="YES">
+						<Node4 ClassID="1" ClassName="Node401" Compare="'[Arg]' == 'BACK'" reValue="'등'" else="None"/>
+						<Node4 ClassID="2" ClassName="Node402" Compare="'[Arg]' == 'UPPERBODY'" reValue="'상의'" else="None"/>
+						<Node4 ClassID="3" ClassName="Node403" Compare="'[Arg]' == 'LOWERBODY'" reValue="'하의'" else="None"/>
+						<Node4 ClassID="4" ClassName="Node404" Compare="'[Arg]' == 'BOOTS'" reValue="'신발'" else="None"/>
+						<Node4 ClassID="5" ClassName="Node405" Compare="'[Arg]' == 'EARING'" reValue="'악세서리'" else="None"/>
+						<Node4 ClassID="6" ClassName="Node405" Compare="'[Arg]' == 'HAT'" reValue="'모자'" else="None"/>
+						<Node4 ClassID="7" ClassName="Node405" Compare="'[Arg]' == 'MASK'" reValue="'가면'" else="None"/>
+						<Node4 ClassID="8" ClassName="Node405" Compare="'[Arg]' == 'EARING'" reValue="'목걸이'" else="None"/>
+						<Node4 ClassID="9" ClassName="Node405" Compare="'[Arg]' == 'PARTS1'" reValue="'방어구 파츠 1'" else="None"/>
+						<Node4 ClassID="10" ClassName="Node405" Compare="'[Arg]' == 'PARTS2'" reValue="'방어구 파츠 2'" else="None"/>
+						<Node4 ClassID="11" ClassName="Node405" Compare="'[Arg]' == 'PARTS3'" reValue="'방어구 파츠 3'" else="None"/>
+						<Node4 ClassID="12" ClassName="Node405" Compare="'[Arg]' == 'PARTS4'" reValue="'방어구 파츠 4'" else="None"/>
+						<Node4 ClassID="13" ClassName="Node405" Compare="'[Arg]' == 'RING'" reValue="'귀걸이'" else="None"/>
+						<Node4 ClassID="14" ClassName="Node405" Compare="'[Arg]' == 'SH'" reValue="'오른손'" else="None"/>
+						<Node4 ClassID="15" ClassName="Node405" Compare="'[Arg]' == 'LH'" reValue="'왼손'" else="None"/>
+					</Node3>
+				</Node2>
+			</Node1>
+		</Class>
+		<Class ClassID="6" ClassName="Action" NameFont="{ol}" ValueFont="{#c9b385}{s20}{ol}" Value="None" WriteValue="{#ffffff}{s20}[arg1]" Arg1="Name" Arg2="None" Arg3="None" Arg4="None">
+			<Node1 ClassID="1" ClassName="Node1001" Name="간단 설명" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Explain" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+		</Class>
+		<Class ClassID="7" ClassName="Cheat" NameFont="{ol}" ValueFont="{#c9b385}{s20}{ol}" Value="None" WriteValue="{#ffffff}{s20}[arg1]" Arg1="Name" Arg2="None" Arg3="None" Arg4="None">
+			<Node1 ClassID="1" ClassName="Node1001" Name="간단 설명" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="[Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Scp" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+		</Class>
+		<Class ClassID="8" ClassName="CreateMon" NameFont="{ol}" ValueFont="{#c9b385}{s20}{ol}" Value="None" WriteValue="{#ffffff}{s20}[arg1]" Arg1="Name" Arg2="None" Arg3="None" Arg4="None">
+			<Node1 ClassID="1" ClassName="Node1001" Name="모델 셋" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="Model SET : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="SET" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+			<Node1 ClassID="2" ClassName="Node1002" Name="사이즈" NameFont="{s14}{#ffffff}{ol}" ValueFont="{s14}{#c9b385}{ol}" Caption="Model Size : [Value]" ToolTipType="CaseByType" preFix="None" sufFix="None" joinFix="None" TitleArg="NO" NextLine="YES">
+				<Node2 ClassID="1" ClassName="Value001" Caption="None" Value="None" WriteValue="[arg1]" CheckCase="None" nullCheck="None" ValueFont="None" preFix="None" sufFix="None">
+					<Node3 ClassID="1" ClassName="Node301" IES="None" Column="Size" SubColumn="None" preFix="None" sufFix="None" joinFix="None" joinOr="None" joinAnd="None" MultiValue="NO" replace="NO"/>
+				</Node2>
+			</Node1>
+		</Class>
+	</Category>
+</idspace>
