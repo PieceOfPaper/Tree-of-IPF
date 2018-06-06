@@ -2945,6 +2945,58 @@ function SCR_GET_BASE_WEAPON_DEF(pc)
     return 0;
 end
 
+
+
+function SCR_GET_ATK_ARIES(pc)
+    local byItem = GetSumOfEquipItem(pc, "Aries");
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(pc, "Aries_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+    
+    return math.floor(value);
+end
+
+function SCR_GET_ATK_SLASH(pc)
+    local byItem = GetSumOfEquipItem(pc, "Slash");
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(pc, "Slash_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+    
+    return math.floor(value);
+end
+
+function SCR_GET_ATK_STRIKE(pc)
+    local byItem = GetSumOfEquipItem(pc, "Strike");
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(pc, "Strike_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+	
+    return math.floor(value);
+end
+
+
+
 function SCR_GET_DEF_ARIES(pc)
     local byItem = GetSumOfEquipItem(pc, "AriesDEF");
     if byItem == nil then

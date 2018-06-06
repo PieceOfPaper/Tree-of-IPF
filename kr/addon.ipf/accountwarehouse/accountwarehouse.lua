@@ -141,7 +141,7 @@ function EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE(frame, count, inputframe)
 end
 
 function ACCOUNT_WAREHOUSE_SLOT_RESET(frame, slot)
-	slot:Select(0, 1);
+	slot:SelectBySlotset(false);
 end
 
 function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
@@ -265,7 +265,7 @@ function ACCOUNT_WAREHOUSE_RECEIVE_ITEM(parent, slot)
 		slotset = GET_CHILD_RECURSIVELY(frame, "slotset");
 	end
 	session.ResetItemList();
-	AUTO_CAST(slotset);
+	AUTO_CAST(slotset);    
 	for i = 0, slotset:GetSelectedSlotCount() -1 do
 		local slot = slotset:GetSelectedSlot(i)
 		local Icon = slot:GetIcon();

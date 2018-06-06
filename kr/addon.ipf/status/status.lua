@@ -1021,6 +1021,21 @@ function STATUS_INFO()
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResDark", y);
 	y = returnY + 10;
 	
+	
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Aries_Atk", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
+	
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Slash_Atk", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
+	
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Strike_Atk", y);
+	y = returnY + 10;
+	
+	
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "DefAries", y);
 	if returnY ~= y then
 		y = returnY + 3;
@@ -1391,6 +1406,7 @@ function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
 	tolua.cast(controlSet, "ui::CControlSet");
 	local title = GET_CHILD(controlSet, "title", "ui::CRichText");
 	title:SetText(ScpArgMsg(attibuteName));
+	
 	if attibuteName == 'SR' then
     	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg2"))
 	elseif attibuteName == 'SDR' then
@@ -1404,7 +1420,6 @@ function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
 	stat:SetUseOrifaceRect(true)
 
 	--stat:SetText('120');
-
 	local grayStyle, value = SET_VALUE_ZERO(pc[attibuteName]);
 	
 	if 1 == grayStyle then

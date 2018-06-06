@@ -87,7 +87,7 @@ function GUILDINFO_OPTION_INIT_EMBLEM(optionBox)
     registerBtn:ShowWindow(1);
 
 	local isRegisteredEmblem = session.party.IsRegisteredEmblem();	 
-	local isPossibleRegistGuildEmblem = session.party.IsPossibleRegistGuildEmblem();
+	
 	
 	local frame = ui.GetFrame('guildinfo')
 	local impossible_color = "FF777777"
@@ -101,6 +101,14 @@ function GUILDINFO_OPTION_INIT_EMBLEM(optionBox)
 
 	if isRegisteredEmblem == true then
     	registerBtn:SetTextByKey('register', ClMsg("GuildEmblemChange"));
+
+		local changeItem = false;
+		local invItem = session.GetInvItemByName("Premium_Change_Guild_Emblem");
+		if invItem ~= nil then
+		 	changeItem = true;
+		end
+		-- 인벤에 변경권이 없고, 길드 엠블럼 등록 가능한 상태가 아닐 때 회색톤으로 변경한다.
+		local isPossibleRegistGuildEmblem = session.party.IsPossibleRegistGuildEmblem(changeItem);
 		if isPossibleRegistGuildEmblem == false then
 			-- 회색 톤으로 바꾸긴 하지만 창은 뜨게 한다. 이미지 확인용.
 			 registerBtn:SetColorTone(impossible_color)

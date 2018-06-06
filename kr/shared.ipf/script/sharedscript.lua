@@ -1,3 +1,19 @@
+function JOB_CHAPLAIN_PRE_CHECK(pc)
+    local jobCircle = 0
+    if IsServerSection(pc) == 1 then
+        jobCircle = GetJobGradeByName(pc, 'Char4_2');
+    else
+        local jobIES = GetClass('Job', 'Char4_2')
+        jobCircle = session.GetJobGrade(jobIES.ClassID);
+    end
+    
+    if jobCircle >= 3 then
+        return 'YES'
+    end
+    
+    return 'NO'
+end
+
 function IS_KOR_JOB_EXEMPTION_PERIOD(jobClassName)
     local jobList = {'Char1_19','Char2_19','Char3_18','Char4_19'}
     if GetServerNation() == 'KOR' then
@@ -138,6 +154,15 @@ function IMCLOG_INFO(logger,code, stringinfo)
 end
 function IMCLOG_DEBUG(logger,code, stringinfo)
 	ImcScriptLog(logger, "DEBUG",code,stringinfo)
+end
+
+function IMCLOG_CONTENT(tag, ...)
+    local logMsg = "";
+    for i, v in ipairs{...} do
+        logMsg = logMsg..tostring(v);
+    end
+
+    ImcContentLog(tag,logMsg)
 end
 
 function IS_REINFORCEABLE_ITEM(item)
@@ -1138,11 +1163,19 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
 		end
 	end
     
+    local standardLevel = 30;
     local levelGap = math.abs(pcLv - monLv);
     
     
-    if levelGap > 30 then
-        local lvRatio = 1 - ((levelGap - 30) * 0.05);
+    if levelGap > standardLevel then
+    	local penaltyRatio = 0.0;
+    	if pcLv < monLv then
+	        penaltyRatio = 0.05;	-- 고레벨 몬스터 사냥 시 페널티
+	    else
+	    	penaltyRatio = 0.02;	-- 저레벨 몬스터 사냥 시 페널티
+	    end
+	    
+	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
         value = value * lvRatio;
     end
     
@@ -1894,7 +1927,7 @@ function SCR_TABLE_TYPE_SEPARATE(inputTable, typeTable)
 end
 
 function IS_IN_EVENT_MAP(pc)
-    if GetZoneName(pc) == 'c_Klaipe_event' then
+    if GetZoneName(pc) == 'd_castle_agario' then
         return true;
     end
 

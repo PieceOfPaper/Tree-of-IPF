@@ -814,10 +814,10 @@
     <AI Name="AGARIO_MINE1" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="-838.85895" Y="241.05203" Z="317.21912"/>
+                <AbsPos X="1504.2261" Y="85.515976" Z="-384.7594"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="-841.24658" Y="241.05203" Z="85.177719"/>
+                <AbsPos X="1032.2172" Y="85.515976" Z="-376.99362"/>
             </ToolScp>
             <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
         </List>
@@ -833,10 +833,22 @@
     <AI Name="AGARIO_MINE2" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="64.66169" Y="-1.1565475" Z="-783.60437"/>
+                <AbsPos X="832.6062" Y="92.442093" Z="-1075.7053"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="-160.63905" Y="-1.1574606" Z="-806.04138"/>
+                <AbsPos X="544.14484" Y="92.442093" Z="-1066.6649"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="266.99255" Y="93.153152" Z="-1065.3298"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-27.034119" Y="105.31911" Z="-1219.2931"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="298.17865" Y="94.754745" Z="-1056.1348"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="547.23633" Y="92.442093" Z="-1054.193"/>
             </ToolScp>
             <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
         </List>
@@ -852,10 +864,28 @@
     <AI Name="AGARIO_MINE3" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="687.25586" Y="-1.1565448" Z="-146.8215"/>
+                <AbsPos X="-35.725231" Y="105.3191" Z="-1225.7057"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="673.44043" Y="-1.1565444" Z="135.05357"/>
+                <AbsPos X="-260.34998" Y="93.153152" Z="-1042.1786"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-457.26459" Y="93.153152" Z="-826.51257"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-506.97421" Y="85.457458" Z="-637.94507"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-797.06073" Y="85.457458" Z="-732.61786"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-494.40189" Y="85.457458" Z="-661.73242"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-476.93567" Y="93.153152" Z="-803.03033"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-242.01334" Y="93.153152" Z="-1061.8649"/>
             </ToolScp>
             <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
         </List>
@@ -871,10 +901,16 @@
     <AI Name="AGARIO_MINE4" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="-483.35498" Y="241.05203" Z="821.10516"/>
+                <AbsPos X="705.60425" Y="86.711258" Z="443.90784"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="-236.99025" Y="241.05203" Z="820.66168"/>
+                <AbsPos X="456.52814" Y="93.589973" Z="505.2377"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="379.41098" Y="79.352432" Z="335.28055"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="648.56036" Y="88.089958" Z="256.64648"/>
             </ToolScp>
             <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
         </List>
@@ -1498,11 +1534,11 @@
 		</List>
 		<StartList>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_JOB_SHADOWMANCER1_SHADOW_BORN_AI"/>
+                <Str Str="SCR_JOB_SHADOWMANCER_UNLOCK_SHADOW_BORN_AI"/>
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="BRACKEN_42_1_JOB_SHADOW_OBJECT" ActiveMessageMapInBattle="1">
+    <AI Name="BRACKEN_42_1_JOB_SHADOW_OBJECT" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_BRACKEN_42_1_JOB_SHADOW_OBJECT_UPDATE_AI"/>
@@ -1540,7 +1576,7 @@
 		</List>
 		<StartList>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_JOB_SHADOWMANCER1_SHADOW_BORN_AI"/>
+                <Str Str="SCR_JOB_SHADOWMANCER_UNLOCK_SHADOW_BORN_AI"/>
 			</ToolScp>
 		</StartList>
 	</AI>
@@ -1565,7 +1601,7 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="BRACKEN_43_3_JOB_SHADOW_OBJECT" ActiveMessageMapInBattle="1">
+    <AI Name="BRACKEN_43_3_JOB_SHADOW_OBJECT" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_BRACKEN_43_3_JOB_SHADOW_OBJECT_UPDATE_AI"/>
@@ -3661,6 +3697,13 @@
 			</ToolScp>
 		</List>
 	</AI>
+    <AI Name="DCAPITAL_103_SHADOW_DEVICE" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_DCAPITAL_103_SHADOW_DEVICE_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
 	<AI Name="DCAPITAL_20_5_SQ_30_AI" UpdateMS="5000" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
@@ -8933,7 +8976,7 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="JOB_SHADOWMANCER_MON" ActiveMessageMapInBattle="1">
+    <AI Name="JOB_SHADOWMANCER_MON" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<DeadList>
 			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_JOB_SHADOWMANCER_MON_DEAD_AI"/>
@@ -9953,7 +9996,7 @@
 		</List>
 		<StartList>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_JOB_SHADOWMANCER1_SHADOW_BORN_AI"/>
+                <Str Str="SCR_JOB_SHADOWMANCER_UNLOCK_SHADOW_BORN_AI"/>
 			</ToolScp>
 		</StartList>
 	</AI>
@@ -9983,7 +10026,7 @@
 		</List>
 		<StartList>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_JOB_SHADOWMANCER1_SHADOW_BORN_AI"/>
+                <Str Str="SCR_JOB_SHADOWMANCER_UNLOCK_SHADOW_BORN_AI"/>
 			</ToolScp>
 		</StartList>
 	</AI>
@@ -10012,11 +10055,11 @@
 		</List>
 		<StartList>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_JOB_SHADOWMANCER1_SHADOW_BORN_AI"/>
+                <Str Str="SCR_JOB_SHADOWMANCER_UNLOCK_SHADOW_BORN_AI"/>
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="MAPLE_25_3_JOB_SHADOW_LAYER_OBJECT" ActiveMessageMapInBattle="1">
+    <AI Name="MAPLE_25_3_JOB_SHADOW_LAYER_OBJECT" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_MAPLE_25_3_JOB_SHADOW_LAYER_OBJECT_UPDATE_AI"/>
@@ -10033,7 +10076,7 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="MAPLE_25_3_JOB_SHADOW_OBJECT" ActiveMessageMapInBattle="1">
+    <AI Name="MAPLE_25_3_JOB_SHADOW_OBJECT" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_MAPLE_25_3_JOB_SHADOW_OBJECT_UPDATE_AI"/>
@@ -12567,7 +12610,7 @@ if self.HP == 0 then return 1; else return 0; end;">
 		</List>
 		<StartList>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_JOB_SHADOWMANCER1_SHADOW_BORN_AI"/>
+                <Str Str="SCR_JOB_SHADOWMANCER_UNLOCK_SHADOW_BORN_AI"/>
 			</ToolScp>
 		</StartList>
 	</AI>
@@ -12593,11 +12636,11 @@ if self.HP == 0 then return 1; else return 0; end;">
 		</List>
 		<StartList>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_JOB_SHADOWMANCER1_SHADOW_BORN_AI"/>
+                <Str Str="SCR_JOB_SHADOWMANCER_UNLOCK_SHADOW_BORN_AI"/>
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="REMAINS_37_2_JOB_SHADOW_OBJECT" ActiveMessageMapInBattle="1">
+    <AI Name="REMAINS_37_2_JOB_SHADOW_OBJECT" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_REMAINS_37_2_JOB_SHADOW_OBJECT_UPDATE_AI"/>

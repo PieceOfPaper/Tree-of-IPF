@@ -4,7 +4,7 @@
     <Particle frame="0" attachNode="None" particleName="E_BloodyOverdrive" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="false" use2DEffect="false" soft2DValue="20" targetPos="false"/>
     <Particle frame="0" attachNode="Dummy_emitter" particleName="E_BloodyOverdrive2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="false" use2DEffect="true" soft2DValue="0" targetPos="false"/>
     <HeadRotBip frame="0" BipName="Dummy_head"/>
-    <Sound frame="0.00" soundFile="skl_eff_bloodyoverdrive_cast"/>
+    <Sound frame="0.00" soundFile="skl_eff_bloodyoverdrive_shot"/>
     <Sound frame="2.00" soundFile="skl_eff_rifle_cast_move"/>
     <Particle frame="3" attachNode="None" particleName="F_explosion128_shine" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="false" use2DEffect="false" soft2DValue="0" targetPos="false"/>
     <Shockwave frame="3" type="2" intensity="2" frequency="60" duration="4" range="1000"/>

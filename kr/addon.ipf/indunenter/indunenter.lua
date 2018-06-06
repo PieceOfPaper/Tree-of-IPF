@@ -621,18 +621,18 @@ end
 
 function INDUNENTER_ENTER(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
-	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
-	if useCount > 0 then
-		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
-		for i = 1, #multipleItemList do
-			local itemName = multipleItemList[i];
-			local invItem = session.GetInvItemByName(itemName);
-			if invItem ~= nil and invItem.isLockState then
-				ui.SysMsg(ClMsg("MaterialItemIsLock"));
-				return;
-			end
-		end
-	end
+    local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+    if useCount > 0 then
+        local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+        for i = 1, #multipleItemList do
+            local itemName = multipleItemList[i];
+            local invItem = session.GetInvItemByName(itemName);
+            if invItem ~= nil and invItem.isLockState then
+                ui.SysMsg(ClMsg("MaterialItemIsLock"));
+                return;
+            end
+        end
+    end
     
     local topFrame = frame:GetTopParentFrame();
     if INDUNENTER_CHECK_ADMISSION_ITEM(topFrame) == false then
@@ -646,18 +646,18 @@ end
 
 function INDUNENTER_AUTOMATCH(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
-	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
-	if useCount > 0 then
-		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
-		for i = 1, #multipleItemList do
-			local itemName = multipleItemList[i];
-			local invItem = session.GetInvItemByName(itemName);
-			if invItem ~= nil and invItem.isLockState then
-				ui.SysMsg(ClMsg("MaterialItemIsLock"));
-				return;
-			end
-		end
-	end
+    local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+    if useCount > 0 then
+        local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+        for i = 1, #multipleItemList do
+            local itemName = multipleItemList[i];
+            local invItem = session.GetInvItemByName(itemName);
+            if invItem ~= nil and invItem.isLockState then
+                ui.SysMsg(ClMsg("MaterialItemIsLock"));
+                return;
+            end
+        end
+    end
     
     local topFrame = frame:GetTopParentFrame();
     if INDUNENTER_CHECK_ADMISSION_ITEM(topFrame) == false then
@@ -674,18 +674,18 @@ end
 
 function INDUNENTER_PARTYMATCH(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
-	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
-	if useCount > 0 then
-		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
-		for i = 1, #multipleItemList do
-			local itemName = multipleItemList[i];
-			local invItem = session.GetInvItemByName(itemName);
-			if invItem ~= nil and invItem.isLockState then
-				ui.SysMsg(ClMsg("MaterialItemIsLock"));
-				return;
-			end
-		end
-	end
+    local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+    if useCount > 0 then
+        local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+        for i = 1, #multipleItemList do
+            local itemName = multipleItemList[i];
+            local invItem = session.GetInvItemByName(itemName);
+            if invItem ~= nil and invItem.isLockState then
+                ui.SysMsg(ClMsg("MaterialItemIsLock"));
+                return;
+            end
+        end
+    end
     
     if session.party.GetPartyInfo(PARTY_NORMAL) == nil then 
         ui.SysMsg(ClMsg('HadNotMyParty'));
@@ -1280,18 +1280,18 @@ end
 
 function INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW(parent, ctrl)
     local topFrame = parent:GetTopParentFrame();
-	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
-	if useCount > 0 then
-		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
-		for i = 1, #multipleItemList do
-			local itemName = multipleItemList[i];
-			local invItem = session.GetInvItemByName(itemName);
-			if invItem ~= nil and invItem.isLockState then
-				ui.SysMsg(ClMsg("MaterialItemIsLock"));
-				return;
-			end
-		end
-	end
+    local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+    if useCount > 0 then
+        local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+        for i = 1, #multipleItemList do
+            local itemName = multipleItemList[i];
+            local invItem = session.GetInvItemByName(itemName);
+            if invItem ~= nil and invItem.isLockState then
+                ui.SysMsg(ClMsg("MaterialItemIsLock"));
+                return;
+            end
+        end
+    end
 
     local withMatchMode = topFrame:GetUserValue('WITHMATCH_MODE');
     if topFrame:GetUserValue('AUTOMATCH_MODE') ~= 'YES' and withMatchMode == 'NO' then
@@ -1357,14 +1357,43 @@ function INDUNENTER_CHECK_UNDERSTAFF_MODE_WITH_PARTY(frame)
 end
 
 function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
+    local user = GetMyPCObject();
     local indunType = frame:GetUserIValue('INDUN_TYPE');
     local indunCls = GetClassByType('Indun', indunType);
+    local etc = GetMyEtcObject();
+    local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
+    if isTokenState == true then
+        isTokenState = TryGetProp(indunCls, "PlayPerReset_Token")
+    else
+        isTokenState = 0
+    end
+    
+    local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
+    
     if indunCls ~= nil and indunCls.AdmissionItemName ~= 'None' then
+        local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");
+        local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
+        
+        local nowAdmissionItemCount = admissionItemCount + nowCount - isTokenState
+        
+        local cnt = GetInvItemCount(user, admissionItemName)
         local invItem = session.GetInvItemByName(indunCls.AdmissionItemName);
+        if cnt == nil or cnt < nowAdmissionItemCount then
+            ui.MsgBox_NonNested(ClMsg('CannotJoinIndunItemScarcity'), 0x00000000);
+            return false;
+        end
+        
         if invItem == nil or invItem.isLockState == true then
             ui.MsgBox_NonNested(ClMsg('AdmissionItemLockMsg'), 0x00000000);
             return false;
         end        
+    else
+        local indunPlayCount = TryGetProp(indunCls, "PlayPerReset");
+        indunPlayCount = indunPlayCount + isTokenState;
+        if nowCount >= indunPlayCount then
+            ui.MsgBox_NonNested(ClMsg('NotEnoughIndunEnterCount'), 0x00000000);
+            return false;
+        end
     end
     return true;
 end
