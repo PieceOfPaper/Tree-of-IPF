@@ -162,8 +162,7 @@ function BUFFSELLER_REG_EXEC(frame)
 	end
 	
 	if groupName == "PersonalShop" then
-		local accountObj = GetMyAccountObj();
-		if "None" == accountObj.TokenTime then
+		if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
 			return;
 		end
 	end

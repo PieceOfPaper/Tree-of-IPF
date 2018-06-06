@@ -2167,11 +2167,12 @@ function GET_ITEM_EQUIP_INDEX(item)
 end
 
 function ITEM_REASON_MSG(msg)
-
 	if msg == "LV" then
 		return ScpArgMsg("Auto_LeBeli_BuJogHapNiDa._aiTem_SeolMyeongeSeo_JangChag_KaNeungHan_LeBeleul_HwaginHaSeyo");
 	elseif msg == "JOB" then
 		return ScpArgMsg("Auto_Chagyong_Hal_Su_issNeun_Jigeopi_aNipNiDa");
+	elseif msg == "NOEQUIP" then
+		return ScpArgMsg("CanNotItemEquip");
 	elseif msg == "GENDER" then
 		local gender = GETMYPCGENDER();
 		if gender == 1 then

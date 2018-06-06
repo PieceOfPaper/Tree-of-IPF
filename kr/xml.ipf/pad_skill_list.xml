@@ -1061,7 +1061,7 @@ return obj.Level;"/>
             </ToolScp>
         </leaveEvent>
     </PadSkill>
-    <PadSkill Name="Chaplain_BuildCappella" CheckerType="0" Range="100" UpdateTerm="250" AutoPos="1" EnableSearch="0" IsMineType="0">
+    <PadSkill Name="Chaplain_BuildCappella" CheckerType="0" Range="90" UpdateTerm="250" AutoPos="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="60000" UseFunc="1" FuncTxt="
@@ -3441,7 +3441,7 @@ return 60000 + obj.Level * 10000"/>
     <PadSkill Name="Cleric_Summonghede" CheckerType="0" Range="20" UpdateTerm="100">
         <createEvent>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
-                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level * 2"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level * 3"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_summon_ghede" Arg="0.34999999"/>
@@ -5226,7 +5226,7 @@ return 20000 + obj.Level * 3000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Moldyhorn_spd_down" CheckerType="0" Dist="3.15343" Angle="-0.43075699" Range="27.5" UpdateTerm="100">
+    <PadSkill Name="Moldyhorn_spd_down" CheckerType="0" Dist="3.15343" Angle="-0.43075699" Range="30" UpdateTerm="100">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="3000"/>
@@ -5258,12 +5258,13 @@ return 20000 + obj.Level * 3000"/>
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="Moldy_skill"/>
+                <Str Str="UC_mspblood"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
+            <Num Num="0"/>
             </ToolScp>
         </enterEvent>
         <leaveEvent>
@@ -5271,7 +5272,7 @@ return 20000 + obj.Level * 3000"/>
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="Moldy_skill"/>
+                <Str Str="UC_mspblood"/>
             </ToolScp>
         </leaveEvent>
         <updateEvent>
@@ -5735,7 +5736,7 @@ end"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="15000"/>
-                <Num Num="10" UseFunc="1" FuncTxt="99999"/>
+                <Num Num="10"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_cleric_zaibas_ground" Arg="1.6"/>
@@ -7082,6 +7083,45 @@ return 10000 + obj.Level * 2000"/>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-39999"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="RuneCaster_Isa" CheckerType="0" Range="40" EnableSearch="0">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_wizard_enchantfire_shot_ground" Arg="0.69999999"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000"/>
+                <Num Num="98990"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
+                <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Isa_Buff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="120000" UseFunc="1" FuncTxt="return obj.Level * 30000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-8000"/>
                 <Num Num="0"/>
             </ToolScp>
         </updateEvent>

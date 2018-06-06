@@ -111,7 +111,11 @@ function GET_SLOT_OBLATION_SELL_PRICE(slot)
 	local slotCount = iconInfo.count;
 	local itemCls = GetIES(invItem:GetObject());
 	local itemProp = geItemTable.GetPropByName(itemCls.ClassName);
-	return math.floor(geItemTable.GetSellPrice(itemProp) * GET_OBLATION_PRICE_PERCENT()) * slotCount;
+	local price = math.floor(geItemTable.GetSellPrice(itemProp) * GET_OBLATION_PRICE_PERCENT());
+	if 0 >= price then
+		price = 1;
+	end
+	return price* slotCount;
 
 end
 

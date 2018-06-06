@@ -138,8 +138,7 @@ function PS_REGISTER_ITEM(parent, ctrl)
 end
 
 function OPEN_PERSONAL_SHOP_REGISTER()
-	local accountObj = GetMyAccountObj();
-	if "None" == accountObj.TokenTime then
+	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
 		ui.SysMsg(ClMsg("NeedPremiunState"));
 		return;
 	end

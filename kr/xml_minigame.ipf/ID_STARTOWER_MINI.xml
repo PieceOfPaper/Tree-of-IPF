@@ -555,7 +555,6 @@
                     <Event eventName="startcheckdead" execWithStart="0">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
-                                <Str Str="all"/>
                                 <Num Num="0"/>
                             </ToolScp>
                         </condList>

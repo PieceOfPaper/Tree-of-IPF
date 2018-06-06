@@ -163,6 +163,7 @@ function WAREHOUSE_SORT()
 end
 
 function WAREHOUSE_EXTEND(frame, slot)
+	
 	local aObj = GetMyAccountObj();
 	local etcObj = GetMyEtcObject();
 	if nil == etcObj or nil == aObj then
@@ -196,6 +197,7 @@ function CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE(price)
 		return;
 	end
 
+	DISABLE_BUTTON_DOUBLECLICK("warehouse","extend")
 	item.ExtendWareHouse();
 end
 

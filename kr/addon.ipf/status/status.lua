@@ -59,11 +59,12 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 	local tokenList = gToken:GetChild("tokenList");
 	tokenList:RemoveAllChild();
 
-	if accountObj.TokenTime ~= "None " then
-		time:ShowWindow(1);
 		local sysTime = geTime.GetServerSystemTime();
-		local endTime = imcTime.GetSysTimeByStr(accountObj.TokenTime);
+	local endTime = session.loginInfo.GetTokenTime();
 		local difSec = imcTime.GetDifSec(endTime, sysTime);
+		
+	if 0 < difSec then
+		time:ShowWindow(1);
 		time:SetUserValue("REMAINSEC", difSec);
 		time:SetUserValue("STARTSEC", imcTime.GetAppTime());
 		SHOW_TOKEN_REMAIN_TIME(time);
@@ -73,9 +74,10 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 		time:StopUpdateScript("SHOW_TOKEN_REMAIN_TIME");
 	end
 	
-	if argNum ~= ITEM_TOKEN or "No" == argStr then
+	if argNum ~= ITEM_TOKEN or "NO" == argStr then
 		return;
 	end
+
 	for i = 0 , 3 do
 		local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local str = GetCashTypeStr(ITEM_TOKEN, i)

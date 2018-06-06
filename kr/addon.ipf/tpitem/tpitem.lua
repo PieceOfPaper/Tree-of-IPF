@@ -636,34 +636,35 @@ function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)
 		end
 	end
 
-	local lv = GETMYPCLEVEL();
-	local job = GETMYPCJOB();
-	local gender = GETMYPCGENDER();
-	local prop = geItemTable.GetProp(classid);
-	local result = prop:CheckEquip(lv, job, gender);
+	if IS_EQUIP(item) == true then
+		local lv = GETMYPCLEVEL();
+		local job = GETMYPCJOB();
+		local gender = GETMYPCGENDER();
+		local prop = geItemTable.GetProp(classid);
+		local result = prop:CheckEquip(lv, job, gender);
 
-	if result ~= "OK" then
-		ui.MsgBox(ScpArgMsg("CanNotEquip"))
-		return;
+		if result ~= "OK" then
+			ui.MsgBox(ScpArgMsg("CanNotEquip"))
+			return;
+		end
+
+		local pc = GetMyPCObject();
+		if pc == nil then
+			return;
+		end
+
+		local useGender = TryGetProp(item,'UseGender')
+
+		if useGender =="Male" and pc.Gender ~= 1 then
+			ui.MsgBox(ScpArgMsg("CanNotEquip"))
+			return;
+		end
+
+		if useGender =="Female" and pc.Gender ~= 2 then
+			ui.MsgBox(ScpArgMsg("CanNotEquip"))
+			return;
+		end
 	end
-
-	local pc = GetMyPCObject();
-	if pc == nil then
-		return;
-	end
-
-	local useGender = TryGetProp(item,'UseGender')
-
-	if useGender =="Male" and pc.Gender ~= 1 then
-		ui.MsgBox(ScpArgMsg("CanNotEquip"))
-		return;
-	end
-
-	if useGender =="Female" and pc.Gender ~= 2 then
-		ui.MsgBox(ScpArgMsg("CanNotEquip"))
-		return;
-	end
-
 
 	local frame = parent:GetTopParentFrame()
 	local slotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
