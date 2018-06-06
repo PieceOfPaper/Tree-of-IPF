@@ -197,3 +197,13 @@ function GUILD_GAME_START_3SEC(frame)
         end
     end	
 end
+
+function WAR_BEGIN_MSG(partyName)
+	local msg = ScpArgMsg("WarStartedWith{GuildName}", "GuildName", partyName);
+	ui.SysMsg(msg);		
+end
+
+function WAR_END_MSG(partyName)
+	local msg = ScpArgMsg("WarEndedWith{GuildName}", "GuildName", partyName);
+	ui.SysMsg(msg);
+end

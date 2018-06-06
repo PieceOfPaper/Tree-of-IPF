@@ -325,6 +325,11 @@ function IS_QUEST_NEED_TO_SHOW(frame, questCls, mapName, searchText)
         return false;
     end
 
+    local questMode = questCls.QuestMode;
+    if questMode == 'KEYITEM' or questMode == 'PARTY' then
+        return false;
+    end
+
     local questCateDrop = GET_CHILD_RECURSIVELY(frame, 'questCateDrop');
     local cateIndex = questCateDrop:GetSelItemIndex();
     if cateIndex == 1 and questCls.QuestMode ~= 'MAIN' then -- main

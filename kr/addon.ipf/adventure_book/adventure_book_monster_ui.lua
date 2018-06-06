@@ -98,7 +98,8 @@ function ADVENTURE_BOOK_MONSTER.FILL_MONSTER_INFO()
 	local monster_attr4 = GET_CHILD(info_box, "monster_attr4", "ui::CControlSet");
 	local kill_count_gauge = GET_CHILD(info_box, "kill_count_gauge", "ui::CGauge");
 	local monster_info_place_gb = GET_CHILD(info_box, "monster_info_place_gb");
-	
+	local drop_item_slotset = GET_CHILD(info_box, "drop_item_slotset");
+
 	if ADVENTURE_BOOK_MONSTER.SELECTED_MONSTER == "" then
 		return;
 	end
@@ -163,14 +164,10 @@ function ADVENTURE_BOOK_MONSTER.FILL_MONSTER_INFO()
 	end
 	ADVENTURE_BOOK_MONSTER_DETAIL_GUAGE_AND_POINT(info_box, ADVENTURE_BOOK_MONSTER.SELECTED_MONSTER);
 	ADVENTURE_BOOK_MONSTER.INFO_SLOT_INDEX = 1
-	ADVENTURE_BOOK_MONSTER.FILL_MONSTER_INFO_SLOT()
+	ADVENTURE_BOOK_MONSTER.FILL_MONSTER_INFO_SLOT(drop_item_slotset, ADVENTURE_BOOK_MONSTER.SELECTED_MONSTER)
 end
 
-function ADVENTURE_BOOK_MONSTER.FILL_MONSTER_INFO_SLOT()
-	local frame = ui.GetFrame('adventure_book');
-	local page = GET_CHILD(frame, "page_monster", "ui::CGroupBox");
-	local info_box = GET_CHILD(page, "monster_info_gb", "ui::CGroupBox");
-	local drop_item_slotset = GET_CHILD(info_box, "drop_item_slotset");
+function ADVENTURE_BOOK_MONSTER.FILL_MONSTER_INFO_SLOT(drop_item_slotset, selectedMonsterClsID)
 	local left_btn = GET_CHILD(drop_item_slotset, "left_btn");
 	local right_btn = GET_CHILD(drop_item_slotset, "right_btn");
 	local slotset = GET_CHILD(drop_item_slotset, "slotset");
@@ -179,7 +176,7 @@ function ADVENTURE_BOOK_MONSTER.FILL_MONSTER_INFO_SLOT()
 	right_btn:SetEventScriptArgString(ui.LBUTTONUP, "Monster");
 
 	local drop_item_func = ADVENTURE_BOOK_MONSTER_CONTENT["MONSTER_DROP_ITEM"];
-	local dropInfo = drop_item_func(ADVENTURE_BOOK_MONSTER.SELECTED_MONSTER)
+	local dropInfo = drop_item_func(selectedMonsterClsID)
 
 	local slotCount = slotset:GetSlotCount();
 	local startIndex = (ADVENTURE_BOOK_MONSTER.INFO_SLOT_INDEX-1) * slotCount + 1

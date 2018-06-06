@@ -21,8 +21,6 @@ function GUILDINFO_INVENTORY_DEPOSIT_CLICK(parent, ctrl)
     if nowGuildAsset == 'None' then
         nowGuildAsset = 0;
     end
-    nowGuildAsset = tonumber(nowGuildAsset);
-
     local sumStr = SumForBigNumber(depositMoney, nowGuildAsset);    
 	if IsGreaterThanForBigNumber(sumStr, MONEY_MAX_STACK) == 1 then
 		ui.SysMsg(ScpArgMsg("Money{MAX}OverAtAcc", "MAX", GET_COMMAED_STRING(MONEY_MAX_STACK)));

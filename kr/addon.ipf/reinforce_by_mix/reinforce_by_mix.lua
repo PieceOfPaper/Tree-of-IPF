@@ -633,8 +633,12 @@ function _REINFORCE_BY_MIX_EXECUTE()
 		end
 	end
 	local frame = ui.GetFrame("reinforce_by_mix");
+	local reinforceButton = GET_CHILD_RECURSIVELY(frame, "exec_mixreinf");
+	if reinforceButton ~= nil then
+	  reinforceButton:EnableHitTest(0);
+    end
 	
-    frame:SetUserValue("EXECUTE_REINFORCE", 1);
+    frame:SetUserValue("EXECUTE_REINFORCE", 1)
 
 	session.ResetItemList();
 
@@ -678,6 +682,10 @@ end
 function REINFORCE_MIX_ITEM_EXP_STOP()	
 	local frame = ui.GetFrame("reinforce_by_mix");
 	frame:SetUserValue("EXECUTE_REINFORCE", 0);
+    local reinforceButton = GET_CHILD_RECURSIVELY(frame, "exec_mixreinf");
+	if reinforceButton ~= nil then
+	  reinforceButton:EnableHitTest(1);
+    end
 end;
 
 function REINFORCE_MIX_FORCE(slot, resultText, x, y)
@@ -691,7 +699,11 @@ function REINFORCE_MIX_FORCE(slot, resultText, x, y)
 
 end
 
-function REINFORCE_MIX_ITEM_EXPUP_END(frame, msg, multiPly, totalPoint)        
+function REINFORCE_MIX_ITEM_EXPUP_END(frame, msg, multiPly, totalPoint)     
+	local reinforceButton = GET_CHILD_RECURSIVELY(frame, "exec_mixreinf");
+	if reinforceButton ~= nil then
+	  reinforceButton:EnableHitTest(1);
+    end   
 	imcSound.PlaySoundEvent("sys_jam_mix_whoosh");
 		
 	local box_item = frame:GetChild("box_item");
@@ -810,7 +822,10 @@ function REINF_FORCE_END()
 	if exp == 0 then
 		return;
 	end
-
+    local reinforceButton = GET_CHILD_RECURSIVELY(frame, "exec_mixreinf");
+	if reinforceButton ~= nil then
+	  reinforceButton:EnableHitTest(1);
+    end
 	frame:SetUserValue("_FORCE_SHOOT_EXP", "0");
 	frame:SetUserValue("_EXP_UP_VALUE", exp);
 	

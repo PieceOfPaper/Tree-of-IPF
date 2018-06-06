@@ -802,7 +802,7 @@
             <Stage Name="ADD_POINT" AutoStart="0">
                 <ObjList/>
                 <StageEvents>
-                    <Event execCount="1" eventName="MINUS">
+                    <Event execMS="5000" execCount="6" eventName="MINUS">
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="SETTING/0"/>

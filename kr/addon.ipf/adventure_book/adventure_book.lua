@@ -28,22 +28,18 @@ function ADVENTURE_BOOK_RENEW_SELECTED_TAB()
 	
 	if selectedTabName == "tab_monster" then
 		ADVENTURE_BOOK_RENEW_MONSTER()
-	elseif selectedTabName == "tab_indun" then
-		ADVENTURE_BOOK_RENEW_INDUN()
+	elseif selectedTabName == "tab_item" then
+		ADVENTURE_BOOK_RENEW_ITEM()
 	elseif selectedTabName == "tab_craft" then
 		ADVENTURE_BOOK_RENEW_CRAFT()
 	elseif selectedTabName == "tab_living" then
 		ADVENTURE_BOOK_LIVING_INIT()
-	elseif selectedTabName == "tab_monster" then
-		ADVENTURE_BOOK_RENEW_MONSTER()
-	elseif selectedTabName == "tab_item" then
-		ADVENTURE_BOOK_RENEW_ITEM()
-	elseif selectedTabName == "tab_explore" then
-		ADVENTURE_BOOK_RENEW_QUEST_ACHIEVE()
-	elseif selectedTabName == "tab_living" then
-		ADVENTURE_BOOK_RENEW_SELLER()
+	elseif selectedTabName == "tab_indun" then
+		ADVENTURE_BOOK_RENEW_INDUN()
 	elseif selectedTabName == "tab_grow" then
 		ADVENTURE_BOOK_RENEW_GROW()
+	elseif selectedTabName == "tab_explore" then
+		ADVENTURE_BOOK_RENEW_QUEST_ACHIEVE()
 	end
 end
 
@@ -259,11 +255,11 @@ function ADVENTURE_BOOK_BTN_SLOT_LEFT(ctrl, btn, argStr, argNum)
 	if argStr == "Monster" then
 		ADVENTURE_BOOK_MONSTER['INFO_SLOT_INDEX'] = ADVENTURE_BOOK_MONSTER['INFO_SLOT_INDEX'] - 1
 		ADVENTURE_BOOK_MONSTER['ADJUST_SLOT_INDEX']()
-		ADVENTURE_BOOK_MONSTER['FILL_MONSTER_INFO_SLOT']()
+		ADVENTURE_BOOK_MONSTER['FILL_MONSTER_INFO_SLOT'](ctrl, ADVENTURE_BOOK_MONSTER.SELECTED_MONSTER)
 	elseif argStr == "Item" then
 		ADVENTURE_BOOK_ITEM['INFO_SLOT_INDEX'] = ADVENTURE_BOOK_ITEM['INFO_SLOT_INDEX'] - 1
 		ADVENTURE_BOOK_ITEM['ADJUST_SLOT_INDEX'](ctrl, ADVENTURE_BOOK_ITEM.SELECTED_ITEM)
-		ADVENTURE_BOOK_ITEM['FILL_ITEM_INFO_SLOT'](ctrl)
+		ADVENTURE_BOOK_ITEM['FILL_ITEM_INFO_SLOT'](ctrl, ADVENTURE_BOOK_ITEM.SELECTED_ITEM)
 	elseif argStr == "Craft" then
 
 	end	
@@ -273,11 +269,11 @@ function ADVENTURE_BOOK_BTN_SLOT_RIGHT(ctrl, btn, argStr, argNum)
 	if argStr == "Monster" then
 		ADVENTURE_BOOK_MONSTER['INFO_SLOT_INDEX'] = ADVENTURE_BOOK_MONSTER['INFO_SLOT_INDEX'] + 1
 		ADVENTURE_BOOK_MONSTER['ADJUST_SLOT_INDEX']()
-		ADVENTURE_BOOK_MONSTER['FILL_MONSTER_INFO_SLOT']()
+		ADVENTURE_BOOK_MONSTER['FILL_MONSTER_INFO_SLOT'](ctrl, ADVENTURE_BOOK_MONSTER.SELECTED_MONSTER)
 	elseif argStr == "Item" then
 		ADVENTURE_BOOK_ITEM['INFO_SLOT_INDEX'] = ADVENTURE_BOOK_ITEM['INFO_SLOT_INDEX'] + 1
 		ADVENTURE_BOOK_ITEM['ADJUST_SLOT_INDEX'](ctrl, ADVENTURE_BOOK_ITEM.SELECTED_ITEM)
-		ADVENTURE_BOOK_ITEM['FILL_ITEM_INFO_SLOT'](ctrl)
+		ADVENTURE_BOOK_ITEM['FILL_ITEM_INFO_SLOT'](ctrl, ADVENTURE_BOOK_ITEM.SELECTED_ITEM)
 	elseif argStr == "Craft" then
 
 	end

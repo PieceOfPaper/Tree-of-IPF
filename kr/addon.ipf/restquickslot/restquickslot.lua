@@ -182,7 +182,7 @@ function REST_SLOT_USE(frame, slotIndex)
 	local slot = GET_CHILD(frame, "slot"..slotIndex+1, "ui::CSlot");	
 	local type = slot:GetUserValue("REST_TYPE");
 	local cls = GetClassByType("restquickslotinfo", type);	
-
+	
 	if QSLOT_ENABLE_INDUN(cls) == false then
 		return;
 	end
@@ -325,7 +325,8 @@ end
 function QSLOT_ENABLE_INDUN(cls)
 	if  session.world.IsIntegrateServer() == true or
 		session.world.IsIntegrateIndunServer() == true or
-	    session.IsMissionMap() == true then    
+	    session.IsMissionMap() == true or 
+		session.world.IsDungeon() == true then    
 	    if cls.IndunEnabled == "true" then
 			return true;
 		else

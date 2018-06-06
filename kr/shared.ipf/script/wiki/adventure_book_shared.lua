@@ -325,7 +325,7 @@ function GET_ADVENTURE_BOOK_FISHING_POINT(pc, isInitSectionInfo)
     end
 --    print("낚시 점수: ", adv_fishing_point);
     UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, 'Fishing', 0, isInitSectionInfo, section, adv_fishing_point);
-    return  math.floor(adv_fishing_point)
+    return  math.ceil(adv_fishing_point)
 end
 
 --ADVENTURE_BOOK INDUN score

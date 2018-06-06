@@ -183,7 +183,6 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 	
 	if isLeader == 1 and aid ~= myAid then
 		ui.AddContextMenuItem(context, ScpArgMsg("ChangeDuty"), string.format("GUILD_CHANGE_DUTY('%s')", name));
-	  ui.AddContextMenuItem(context, ScpArgMsg("DeleteDuty"), string.format("GUILD_DELETE_DUTY('%s')", name));
 	end
 
 	if (isLeader == 1 or IS_GUILD_AUTHORITY(2) == 1) and aid ~= myAid then
@@ -412,4 +411,8 @@ function EXEC_GUILD_CHANGE_DUTY(frame, ctrl)
 	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);		
 	party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID());
 	frame:ShowWindow(0);
+end
+
+function GUILD_BAN(name)
+	ui.Chat("/partybanByAID " .. PARTY_GUILD.. " " .. name);	
 end
