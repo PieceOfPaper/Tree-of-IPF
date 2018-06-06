@@ -88,8 +88,8 @@ function SCR_Get_SpendSP(skill)
 	end
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
-	-- lvUpSpendSP??루아?�서??float ?��??��? ?�정?�기?�해 ?�수 5?�리?�서 반올림한??
-	-- ?�렇�?계산?�줘???�라?�언?��? 계산 값이 맞다. ?�마???�수?�의 10?�리쯤이 ?�리�? ?�을�?.
+	-- lvUpSpendSP??루아?�서??float ?��??��? ?�정?�기?�해 ?�수 5?�리?�서 반올림한??
+	-- ?�렇�?계산?�줘???�라?�언?��? 계산 값이 맞다. ?�마???�수?�의 10?�리쯤이 ?�리�? ?�을�?.
 	local lvUpSpendSpRound = math.floor((lvUpSpendSp * 10000) + 0.5)/10000;
 	
 	value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
@@ -317,13 +317,13 @@ function SCR_GET_SKL_COOLDOWN(skill)
 	local basicCoolDown = skill.BasicCoolDown;
 	local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
 	basicCoolDown = basicCoolDown + abilAddCoolDown;
-		
+	
 	if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
 		basicCoolDown = basicCoolDown * 0.8;
 	elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
 	    basicCoolDown = basicCoolDown * 1.2;
 	end
-	
+
 	if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
 	    basicCoolDown = basicCoolDown * 0.9;
 	end
@@ -4975,7 +4975,7 @@ function SCR_GET_Limacon_Ratio(skill)
 end
 
 function SCR_GET_Limacon_BuffTime(skill)
-    local value = 15 + skill.Level * 2
+    local value = 13 + skill.Level * 2
     return value
 end
 
@@ -8084,6 +8084,11 @@ function SCR_GET_Possession_Ratio(skill)
         return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
     end
 
+end
+
+function SCR_GET_Possession_Ratio2(skill)
+    local value = skill.Level * 1 + 4;
+    return math.floor(value)
 end
 
 function SCR_Get_SklAtkAdd_EctoplasmAttack(skill)
@@ -13021,7 +13026,7 @@ function SCR_GET_USEOVERHEAT(skill)
 	local pc = GetSkillOwner(skill);
 	--local reduce_OH_value = SCR_GET_ADDOVERHEAT(pc, skill);
 	--skill.	
-	local skillScale = 0.4; -- ?�시 -- skill.xml?�서 ?�력	
+	local skillScale = 0.4; -- ?�시 -- skill.xml?�서 ?�력	
 --	local byStat = math.pow(math.log(pc.MNA + 2.718282), skillScale);
 
 	local value = skill.SklUseOverHeat;	
@@ -13085,7 +13090,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
 	if skill.GemLevel_BM > 0 then
-		value = value + 1;	-- 몬스?�젬 ?�킬보너?�는 중첩?�켜??무조�?+1�??�킨?�고??
+		value = value + 1;	-- 몬스?�젬 ?�킬보너?�는 중첩?�켜??무조�?+1�??�킨?�고??
 	end
 
     if skill.LevelByDB == 0 then

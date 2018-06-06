@@ -6,6 +6,7 @@ function MAKE_BALLOON_FRAME(text, x, y, linkText, customName, font, isFixWidth)
 	if tframe == nil then
 		return nil;
 	end
+	tframe:SetLayerLevel(75);
 
 	local setText;
 	if linkText ~= nil then

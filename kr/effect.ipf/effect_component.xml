@@ -1,6 +1,10 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ComponentList>
+	<Particle name="halfcircle010" texture="halfcircle010" width="5" height="5" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="64"/>
+	<Particle name="blood002_alpha" texture="blood002_alpha" width="0.8" height="0.8" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="32" texel_height="32"/>
+	<Particle name="leaf001_green" texture="leaf001_green" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="32" texel_height="32"/>
+	<Particle name="particle001_yellow" texture="particle001_yellow" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="fire009" texture="fire009" width="3.00" height="5.00" pivot_x="0.50" pivot_y="0.4" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="pattern024_5" texture="pattern024_5" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="pattern024_4" texture="pattern024_4" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>

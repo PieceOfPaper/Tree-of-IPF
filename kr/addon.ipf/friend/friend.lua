@@ -471,9 +471,10 @@ function UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, channel, info, drawN
 		end
 
 		if job_text ~= nil then
-			local jobid = info:GetIconInfo().job
+			local jobid = info:GetIconInfo().job;
+			local gender = info:GetIconInfo().gender;
 			local jobCls = GetClassByType("Job", jobid);
-			job_text:SetText(jobCls.Name);
+			job_text:SetText(GET_JOB_NAME(jobCls, gender));
 			job_text:ShowWindow(1);
 		end
 
@@ -652,6 +653,13 @@ function ON_FRIEND_SESSION_CHANGE(frame, msg, aid, listType)
 	local page = tree:GetChild(pageCtrlName);
 
 	local ctrlSet = page:GetChild("FR_" .. listType .. "_" .. f:GetInfo():GetACCID());
+	
+	if nil == ctrlSet then	
+		ctrlSet = page:CreateOrGetControlSet(GET_FRIEND_CTRLSET_NAME(listType), "FR_" .. listType .. "_" .. f:GetInfo():GetACCID(), 0, 0);
+		if listType == FRIEND_LIST_COMPLETE then
+			ctrlSet:Resize(ctrlSet:GetOriginalWidth(),FRIEND_MINIMIZE_HEIGHT)
+		end;		
+	end;
 	UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, f);
 end
 

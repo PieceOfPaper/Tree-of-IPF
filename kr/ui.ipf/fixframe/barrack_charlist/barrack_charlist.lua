@@ -300,9 +300,8 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 	local nameCtrl = GET_CHILD(mainBox, "name", "ui::CRichText");
 	nameCtrl:SetText("{@st42b}{b}".. name);
 	local jobCls = GetClassByType("Job", jobid);
-	local jobName 					= jobCls.Name;
 	local jobCtrl = GET_CHILD(mainBox, "job", "ui::CRichText");
-	jobCtrl:SetText("{@st42b}".. jobName);
+	jobCtrl:SetText("{@st42b}".. GET_JOB_NAME(jobCls, gender));
 	local levelCtrl = GET_CHILD(mainBox, "level", "ui::CRichText");
 	levelCtrl:SetText("{@st42b}Lv.".. actor:GetLv());
 

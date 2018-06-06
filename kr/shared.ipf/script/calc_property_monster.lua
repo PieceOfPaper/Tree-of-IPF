@@ -661,6 +661,13 @@ function SCR_Get_MON_ADD_LIGHTNING(self)
 	return math.floor(value);
 end
 
+function SCR_Get_MON_ADD_SOUL(self)
+
+	local value = 0;
+	value = value + self.ADD_SOUL_BM;
+	return math.floor(value);
+end
+
 function SCR_Get_MON_ADD_EARTH(self)
 
 	local value = 0;
@@ -846,44 +853,50 @@ function SCR_MON_COMBOABLE(mon)
 end
 
 function SCR_GET_MON_FIRE_DEF(self)
-    local value = 0;
-    value = self.Fire_Def_BM;
+    local value = self.Fire_Res;
+    value = value + self.Fire_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_ICE_DEF(self)
-    local value = 0;
-    value = self.Ice_Def_BM;
+    local value = self.Ice_Res;
+    value = value + self.Ice_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_POISON_DEF(self)
-    local value = 0;
-    value = self.Poison_Def_BM;
+    local value = self.Poison_Res;
+    value = value + self.Poison_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_LIGHTNING_DEF(self)
-    local value = 0;
-    value = self.Lightning_Def_BM;
+    local value = self.Lightning_Res;
+    value = value + self.Lightning_Def_BM;
+	return value;
+end
+
+function SCR_GET_MON_SOUL_DEF(self)
+    local value = self.Soul_Res;
+    value = value + self.Soul_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_EARTH_DEF(self)
-    local value = 0;
-    value = self.Earth_Def_BM;
+    local value = self.Earth_Res;
+    value = value + self.Earth_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_HOLY_DEF(self)
-    local value = 0;
-    value = self.Holy_Def_BM;
+    local value = self.Holy_Res;
+    value = value + self.Holy_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_DARK_DEF(self)
-    local value = 0;
-    value = self.Dark_Def_BM;
+    local value = self.Dark_Res;
+    value = value + self.Dark_Def_BM;
 	return value;
 end
 
@@ -933,5 +946,47 @@ function SCR_GET_MON_SKILLFACTORRATE(self)
 		end
 	end
 	
+	return value;
+end
+
+function SCR_Get_MON_Slash_Res(self)
+	local value = 0;
+	value = value + self.Slash_Res + self.Slash_Def_BM;
+	return value;
+end
+
+function SCR_Get_MON_Aries_Res(self)
+	local value = 0;
+	value = value + self.Aries_Res + self.Aries_Def_BM;
+	return value;
+end
+
+function SCR_Get_MON_Strike_Res(self)
+	local value = 0;
+	value = value + self.Strike_Res + self.Strike_Def_BM;
+	return value;
+end
+
+function SCR_Get_MON_Magic_Res(self)
+	local value = 0;
+	value = value + self.Magic_Res + self.Magic_Def_BM;
+	return value;
+end
+
+function SCR_Get_MON_Arrow_Res(self)
+	local value = 0;
+	value = value + self.Arrow_Res + self.Arrow_Def_BM;
+	return value;
+end
+
+function SCR_Get_MON_Gun_Res(self)
+	local value = 0;
+	value = value + self.Gun_Res + self.Gun_Def_BM;
+	return value;
+end
+
+function SCR_Get_MON_Cannon_Res(self)
+	local value = 0;
+	value = value + self.Cannon_Res + self.Cannon_Def_BM;
 	return value;
 end

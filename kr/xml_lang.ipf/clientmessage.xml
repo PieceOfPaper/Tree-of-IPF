@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -52,6 +52,7 @@
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
 		<Class ClassID="1101" ClassName="Caster" Data="시전자"/>
 		<Class ClassID="1102" ClassName="RemainTime" Data="남은 시간"/>
+		<Class ClassID="1103" ClassName="Kannushi" Data="칸누시"/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="2001" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -114,6 +115,7 @@
 		<Class ClassID="2058" ClassName="ITEMTRANSCEND_MTRL_NUM_TOOLTIP{font}" Data="{font}{#00D8FF}Shift키{/}{font}+ {#00D8FF}클릭{/}{font} : 5개씩{/}{nl}{font}{#00D8FF}Alt키{/}{font}+ {#00D8FF}클릭{/}{font} : 모두 한번에{/}  "/>
 		<Class ClassID="2059" ClassName="ITEMTRANSCEND_BREAK_GUIDE_FIRST" Data="축복석 추출을 하시려면 먼저 위의 원 안에 {nl}장비를 올려둬야 합니다. 축복석 추출은 초월 아이템에서 축복석을 추출하고 아이템이 제거됩니다."/>
 		<Class ClassID="2060" ClassName="ITEMTRANSCEND_REMOVE_GUIDE_FIRST" Data="아이템 추출을 하시려면 먼저 위의 원 안에 {nl}장비를 올려둬야 합니다. 아이템 추출은 초월 아이템에서 아이템을 추출하고 초월효과는 제거됩니다."/>
+	<Class ClassID="2061" ClassName="GOLDMORUdontbrokenitemProcessReinforce?" Data="현재 사용한 모루로 강화를 시도하는 경우, 장비가 파괴되지 않습니다. 실패시 강화 단계가 하락 할 수 있습니다. 강화를 진행하시겠습니까?"/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -322,6 +324,7 @@
 		<Class ClassID="5035" ClassName="MHPTranscendBy{Count}" Data="초월 {Count}단계 체력 증가"/>
 		<Class ClassID="5036" ClassName="MDEFTranscendBy{Count}" Data="초월 {Count}단계 마법 방어력 증가"/>
 		<Class ClassID="5037" ClassName="CanNotTradeTranscendedItem" Data="초월된 아이템은 거래할 수 없습니다."/>
+	<Class ClassID="5038" ClassName="Soul_Atk_BM" Data="염속성 공격력"/>
 	</Category>
 	<Category Name="PeriodicTitle">
 		<Class ClassID="6001" ClassName="TournamentChampion" Data="토너먼트 챔피언"/>
@@ -426,6 +429,8 @@
 		<Class ClassID="8090" ClassName="CantUseThisEgg" Data="해당 캐릭터는 이 컴패니언의 알을 사용할 수 있는 직업이 아닙니다."/>
 		<Class ClassID="8091" ClassName="MoveBarrackLayer" Data="숙소를 이동합니다."/>
 		<Class ClassID="8092" ClassName="Auto_{/}{nl}{s22}MoveBarrackLayer?" Data="{/}{nl}{s22}숙소를 이동하겠습니까?"/>
+	<Class ClassID="8093" ClassName="Pet_ADD_SOUL" Data="염 속성 공격력"/>
+		<Class ClassID="8094" ClassName="Pet_Soul_Def" Data="염 속성 저항력"/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="9001" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -771,6 +776,7 @@
 		<Class ClassID="10449" ClassName="SeasonServerNotBuySlot" Data="해당 서버에서는 캐릭터 슬롯을 늘릴 수 없습니다."/>
 		<Class ClassID="10450" ClassName="SeasonServerNotEatCardLv280" Data="시즌 서버에서는 280 레벨 이상으로 올릴 수 없습니다."/>
 		<Class ClassID="10451" ClassName="InvalidGender" Data="착용할 수 있는 성별이 아닙니다."/>
+		<Class ClassID="10452" ClassName="Indun1AddText" Data="  인스턴스 던전과 의뢰소 미션에 1회 더 입장 가능"/>
 		<Class ClassID="10453" Data="중복으로 장착할 수 없는 아이템입니다."/>
 	</Category>
 	<Category Name="FoodTable">
@@ -1013,6 +1019,10 @@
 		<Class ClassID="21232" ClassName="MAX_CASHINVAN" Data="캐시 인벤토리에 여유 공간이 없습니다. "/>
     <Class ClassID="21235" ClassName="ItemNameNCnt" Data="{Name} {#FFCC00}x{Cnt}{/}"/>
     <Class ClassID="21236" ClassName="CantEquipItem" Data="장착할 수 없는 아이템입니다."/>
+    <Class ClassID="21237" ClassName="NeedItemCount" Data="{Cnt}개 단위로 사용 가능한 아이템입니다."/>
+    <Class ClassID="21238" ClassName="CanNotSellDuplicateItem" Data="이미 판매 리스트에 등록된 아이템입니다."/>
+    <Class ClassID="21239" ClassName="MoreNeedRecycleMedal" Data="소유중인 리사이클 메달이 부족합니다."/>
+    <Class ClassID="21240" ClassName="YouCanChargeOnWeb" Data="넥슨캐시 충전은 홈페이지에서 가능합니다."/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -4231,6 +4241,40 @@
 		<Class ClassID="30169" ClassName="FTOWER_69_2_G1_2_CORE_MSG1" Data="마력 억제구 밀어내는 중"/>
 		<Class ClassID="30170" ClassName="FTOWER_69_2_G4_2_BOOK_MSG1" Data="마법서 읽는 중"/>
 		<Class ClassID="30171" ClassName="FTOWER_69_2_G4_3_GAP_MSG1" Data="마법서의 마력이 부족하여 공간의 틈이 사라져버렸습니다"/>
+		<Class ClassID="30172" ClassName="WTREES_21_2_SQ_1_ITEM_MSG1" Data="치료제 마시는 중"/>
+		<Class ClassID="30173" ClassName="WTREES_21_2_SQ_1_ITEM_MSG2" Data="치료제를 전부 마셨습니다{nl}유그리나스에게 말해주세요"/>
+		<Class ClassID="30174" ClassName="WTREES_21_2_SQ_2_MSG1" Data="시험액 담는 중"/>
+		<Class ClassID="30175" ClassName="WTREES_21_2_SQ_2_MSG2" Data="통이 비어있습니다"/>
+		<Class ClassID="30176" ClassName="WTREES_21_2_SQ_3_ITEM_MSG1" Data="역병 감지석 설치 중"/>
+		<Class ClassID="30177" ClassName="WTREES_21_2_SQ_4_MSG1" Data="표본채집 도구 찾는 중"/>
+		<Class ClassID="30178" ClassName="WTREES_21_2_SQ_4_MSG2" Data="아무것도 발견하지 못했습니다{nl}다른 짐을 찾아보세요"/>
+		<Class ClassID="30179" ClassName="WTREES_21_2_SQ_5_MSG1" Data="식물 표본 채집 중"/>
+		<Class ClassID="30180" ClassName="WTREES_21_2_SQ_6_MSG1" Data="살펴보는 중"/>
+		<Class ClassID="30181" ClassName="WTREES_21_2_SQ_6_MSG2" Data="아무것도 발견하지 못했습니다"/>
+		<Class ClassID="30182" ClassName="WTREES_21_2_SQ_6_MSG3" Data="이미 도구를 꺼내 비어있습니다{nl}다른 곳을 살펴보세요"/>
+		<Class ClassID="30183" ClassName="WTREES_21_2_SQ_6_ITEM_1_MSG1" Data="특수 용액 사용 중"/>
+		<Class ClassID="30184" ClassName="WTREES_21_2_SQ_6_ITEM_1_MSG2" Data="이미 특수 용액이 묻은 몬스터가 있습니다"/>
+		<Class ClassID="30185" ClassName="WTREES_21_2_SQ_9_MSG1" Data="역병 감지석 회수 중"/>
+		<Class ClassID="30186" ClassName="WTREES_21_1_SQ_1_MSG1" Data="예언의 석탑에 확인 중"/>
+		<Class ClassID="30187" ClassName="WTREES_21_1_SQ_1_MSG2" Data="이미 확인한 예언의 석탑입니다"/>
+		<Class ClassID="30188" ClassName="WTREES_21_1_SQ_2_MSG1" Data="운명의 힘 흡수 중"/>
+		<Class ClassID="30189" ClassName="WTREES_21_1_SQ_3_MSG1" Data="봉인의 빛에 운명의 힘 사용 중"/>
+		<Class ClassID="30190" ClassName="WTREES_21_1_SQ_3_MSG2" Data="봉인 마법이 풀렸습니다{nl}서약의 봉인을 확인해보세요"/>
+		<Class ClassID="30191" ClassName="WTREES_21_1_SQ_3_MSG3" Data="이미 봉인의 빛이 나타나있습니다{nl}봉인의 빛에 운명의 힘을 사용하세요"/>
+		<Class ClassID="30192" ClassName="WTREES_21_1_SQ_3_MSG4" Data="봉인의 빛이 나타났습니다{nl}봉인의 빛에 운명의 힘을 사용해서 다른 빛으로 변경하세요"/>
+		<Class ClassID="30193" ClassName="WTREES_21_1_SQ_8_MSG1" Data="여신의 신뢰석으로 비석 읽는 중"/>
+		<Class ClassID="30194" ClassName="WTREES_21_1_SQ_8_MSG2" Data="이미 봉인을 해제한 비석입니다"/>
+		<Class ClassID="30195" ClassName="WTREES_21_1_SQ_8_MSG3" Data="아무런 반응이 없습니다"/>
+		<Class ClassID="30196" ClassName="WTREES_21_1_SQ_8_MSG4" Data="봉인 하나가 풀렸습니다"/>
+		<Class ClassID="30197" ClassName="WTREES_21_1_SQ_8_MSG5" Data="모든 봉인이 풀렸습니다{nl}여신의 서약을 획득하세요"/>
+		<Class ClassID="30198" ClassName="WTREES_21_1_OBJ_6_MSG1" Data="가비야"/>
+		<Class ClassID="30199" ClassName="WTREES_21_1_OBJ_6_MSG2" Data="바카리네"/>
+		<Class ClassID="30200" ClassName="WTREES_21_1_OBJ_6_MSG3" Data="제미나"/>
+		<Class ClassID="30201" ClassName="WTREES_21_1_SQ_10_MSG1" Data="보관함 여는 중"/>
+		<Class ClassID="30202" ClassName="WTREES_21_1_SQ_10_MSG2" Data="보관함이 열리지 않습니다{nl}다른 보관함을 찾아보세요"/>
+		<Class ClassID="30203" ClassName="WTREES_21_1_SQ_10_MSG3" Data="서약의 석판을 찾았습니다{nl}유데이안 성소 건너편에서 기다리는 큐폴 레냐를 찾아가세요"/>
+		<Class ClassID="30204" ClassName="WTREES_21_1_SQ_7_MSG1" Data="여신의 신뢰석 찾는 중"/>
+		<Class ClassID="30205" ClassName="WTREES_21_1_SQ_1_ITEM_MSG1" Data="아무 내용도 적혀있지 않습니다"/>
 		<Class ClassID="40001" ClassName="LIMESTONE_52_2_MQ_6_MSG01" Data="시간 내에 장치를 부수지 못했습니다"/>
 		<Class ClassID="40002" ClassName="MAPLE_25_1_SQ_30_MSG01" Data="리시우 약초 캐는 중"/>
 		<Class ClassID="40003" ClassName="MAPLE_25_3_SQ_30_MSG01" Data="낙엽을 모으는 중"/>
@@ -4505,6 +4549,12 @@
 		<Class ClassID="60275" ClassName="GT_shortfallMember_1" Data="대지의 탑 솔미키 구간에 도전할 수 없습니다!{nl}파티 구성원이 도전 조건을 충족하지 못 했습니다{nl}(레벨조건 미달)"/>
 		<Class ClassID="60276" ClassName="GT_ENTRACE_SELECT_1" Data="대지의 탑 : 롤로팬서 구간"/>
 		<Class ClassID="60277" ClassName="GT_ENTRACE_SELECT_2_TOLL" Data="대지의 탑 : 솔미키 구간"/>
+<Class ClassID="60282" ClassName="GROUNDTOWER_ENTER_EVT_SEL_1" Data="제미나의 목걸이 수령"/>
+		<Class ClassID="60283" ClassName="GT_ENTRACE_SELECT_1_MSG01" Data="롤로팬서 구간 입장"/>
+		<Class ClassID="60284" ClassName="GT_ENTRACE_SELECT_1_MSG02" Data="솔미키 구간 입장"/>
+		<Class ClassID="60285" ClassName="GT_LUTHA_NPC_SEL_KEEP_FLOOR_1" Data="바로 이동한다"/>
+		<Class ClassID="60286" ClassName="GT_LUTHA_NPC_SEL_KEEP_FLOOR_2" Data="종료"/>
+		<Class ClassID="60287" ClassName="GT_LUTHA_NPC_TOLL_SAVE_1" Data="동료들이 {FLOOR}층에서 당신을 기다리고 있어요.{nl}이동하시겠어요?"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
 		<Class ClassID="70003" ClassName="FARM49_2_MQ06_ALREADY" Data="이미 우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
@@ -4987,6 +5037,10 @@
 		<Class ClassID="102139" ClassName="GuildMakeIng" Data="생성중 입니다."/>
 		<Class ClassID="102140" ClassName="DestoryBuilding" Data="이미 설치된 구조물이 스킬 레벨보다 많습니다. 구조물을 제거해야만 올릴 수 있습니다."/>
 		<Class ClassID="102141" ClassName="CantJoinGuildBattleNeedMoreThan{Number}MemberOnline" Data="최소 {Number}명 이상의 길드원이 접속 중이어야 길드배틀을 신청할 수 있습니다."/>
+	<Class ClassID="102142" ClassName="Guild_Authority_ADD" Data="가입"/>
+		<Class ClassID="102143" ClassName="Guild_Authority_REMOVE" Data="추방"/>
+		<Class ClassID="102144" ClassName="Guild_Authority_INVEN" Data="창고"/>
+		<Class ClassID="102145" ClassName="Guild_Authority_EVENT" Data="길드이벤트"/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -5159,7 +5213,7 @@
 		<Class ClassID="111042" ClassName="ATK_Up" Data="베기류 범위 증가"/>
 		<Class ClassID="111043" ClassName="SkillRange" Data="공격 범위"/>
 		<Class ClassID="111044" ClassName="SkillAngle" Data="공격 각도"/>
-		<Class ClassID="111045" ClassName="BlockRate" Data="블럭율"/>
+		<Class ClassID="111045" ClassName="BlockRate" Data="최종블럭율"/>
 		<Class ClassID="111046" ClassName="HitCount" Data="연타"/>
 		<Class ClassID="111047" ClassName="BackHit" Data="후방 공격 범위"/>
 		<Class ClassID="111048" ClassName="SkillName" Data="특정 스킬 사용"/>
@@ -5307,6 +5361,11 @@
 		<Class ClassID="111190" ClassName="EnchantOption" Data="인챈트 옵션"/>
 		<Class ClassID="111191" ClassName="ReinforceOption" Data="모루에 의한 강화효율이"/>
 		<Class ClassID="111192" ClassName="ReinforceOptionAtk" Data="로 향상됨"/>
+	<Class ClassID="111193" ClassName="ADD_SOUL" Data="염 속성 공격력"/>
+		<Class ClassID="111194" ClassName="RES_SOUL" Data="염 속성 저항력"/>
+		<Class ClassID="111195" ClassName="ResSoul_BM" Data="염 속성 저항력"/>
+		<Class ClassID="111196" ClassName="Soul_Atk" Data="염 속성 공격력"/>
+		<Class ClassID="111197" ClassName="ResSoul" Data="염 속성 저항력"/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="112001" ClassName="VeryEasy" Data="매우 쉬움"/>
@@ -5383,6 +5442,7 @@
 		<Class ClassID="115006" ClassName="Attr_Ice" Data="얼음속성"/>
 		<Class ClassID="115007" ClassName="Attr_Dark" Data="암흑속성"/>
 		<Class ClassID="115008" ClassName="Attr_Holy" Data="성속성"/>
+	<Class ClassID="115009" ClassName="Attr_Soul" Data="염속성"/>
 	</Category>
 	<Category Name="ArmorMaterial">
 		<Class ClassID="116001" ClassName="Cloth" Data="천"/>
@@ -5709,6 +5769,7 @@
 		<Class ClassID="132043" ClassName="MonInfo_MonRank_Elite" Data="엘리트"/>
 		<Class ClassID="132044" ClassName="MonInfo_MonRank_Boss" Data="보스"/>
 		<Class ClassID="132045" ClassName="MonInfo_None" Data="없음"/>
+	<Class ClassID="132046" ClassName="MonInfo_Attribute_Soul" Data="염"/>
 	</Category>
 	<Category Name="Time">
 		<Class ClassID="133001" ClassName="{Year}Ago" Data="로그아웃 : {Year}년 전"/>
@@ -5721,14 +5782,27 @@
 		<Class ClassID="133008" ClassName="PM" Data="오후"/>
 	</Category>
 	<Category Name="Indun">
-		<Class ClassID="134001" ClassName="CannotJoinIndunYet" Data="오늘의 인던 참여 회수를 초과하였습니다."/>
+		<Class ClassID="134001" ClassName="CannotJoinIndunYet" Data="오늘의 인던 참여 횟수를 초과하였습니다."/>
 		<Class ClassID="134002" ClassName="YourLevelIsLowThenIndun" Data="인던 제한 레벨보다 낮습니다"/>
 		<Class ClassID="134003" ClassName="MaxCountExplain{COUNT}" Data="매일 {HOUR}시에 초기화되며 {COUNT}회 입장할 수 있습니다."/>
 		<Class ClassID="134004" ClassName="NextEnterNeed" Data="인던 무제한 입장권을 사용중에 있습니다."/>
 		<Class ClassID="134005" ClassName="IndunMore{COUNT}ForTOKEN" Data="(토큰 혜택으로 {COUNT}회 추가 입장 하실 수 있습니다.)"/>
 		<Class ClassID="134006" ClassName="ReEnterAutoMatchIndun" Data="자동파티찾기 재입장"/>
 		<Class ClassID="134007" ClassName="FailLevelMatching" Data="레벨에 맞는 파티를 찾지 못했습니다.{nl}다시 시도합니다."/>
-	</Category>
+		<Class ClassID="134008" ClassName="MatchWithParty" Data="파티원과 자동 매칭"/>
+		<Class ClassID="134009" ClassName="WaitingPartyMemeber" Data="파티원의 참여를 기다리고 있습니다.{nl}"/>
+		<Class ClassID="134010" ClassName="CancelMatching" Data="파티원이 매칭을 취소하였습니다."/>
+		<Class ClassID="134011" ClassName="PartyMatching" Data="현재 {MEMBER}님이 {INDUN}을 매칭 신청중입니다."/>
+		<Class ClassID="134012" ClassName="CannotPartyOutDuringMatching" Data="파티 입장 신청 중에는 탈퇴할 수 없습니다."/>
+		<Class ClassID="134013" ClassName="AutoMatchIng" Data="자동매칭 중"/>
+		<Class ClassID="134014" ClassName="AutoMatchComplete" Data="자동매칭 완료"/>
+		<Class ClassID="134015" ClassName="AutoMatch" Data="자동매칭"/>
+		<Class ClassID="134016" ClassName="EnableWhenAutoMatching" Data="자동매칭 중에 이용 가능합니다."/>
+		<Class ClassID="134017" ClassName="EnterRightNow" Data="바로 입장하시겠습니까?"/>
+		<Class ClassID="134018" ClassName="NotEnoughIndunMultipleItem" Data="인스턴스 던전 배수 토큰 아이템이 부족합니다."/>
+    <Class ClassID="134019" ClassName="NotEnoughIndunEnterCount" Data="인스턴스 던전 입장 횟수가 부족합니다."/>
+    <Class ClassID="134020" ClassName="IndunMultipleMAX" Data="현재 사용할 수 있는 배수 모드의 최대값 입니다."/>
+  </Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
 		<Class ClassID="135002" ClassName="GainAchieveHairBlack" Data="하나밍 박멸! 업적 보상을 받았습니다."/>

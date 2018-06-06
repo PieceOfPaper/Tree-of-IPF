@@ -362,6 +362,8 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 	local shopType = frame:GetUserValue("SHOP_TYPE");
 	if shopType == 'EarthTower' then
 		item.DialogTransaction("EARTH_TOWER_SHOP_TREAD", resultlist, cntText);
+	elseif shopType == 'EarthTower2' then
+		item.DialogTransaction("EARTH_TOWER_SHOP_TREAD2", resultlist, cntText);
 	elseif shopType == 'EventShop' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD", resultlist, cntText);
 	end

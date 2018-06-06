@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_zombie_m_atk_shot"/>
-    <Sound frame="0.00" soundFile="skl_eff_rifle_cast_move"/>
-    <Sound frame="8.00" soundFile="skl_eff_snipe"/>
-    <Sound frame="11.00" soundFile="skl_eff_snipe"/>
-    <Sound frame="16.00" soundFile="skl_eff_coveringfire"/>
+	<Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.1" range="400"/>
+	<Shockwave frame="13" type="2" intensity="2" frequency="70" duration="0.1" range="400"/>
+	<Shockwave frame="17" type="2" intensity="2" frequency="70" duration="0.3" range="400"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="9" R="120" G="90" B="150" A="100"/>
+	<BlendOn frame="10" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="13" R="120" G="90" B="150" A="100"/>
+	<BlendOn frame="14" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="17" R="120" G="90" B="150" A="100"/>
+	<BlendOff frame="18" R="0" G="0" B="0" A="0"/>
+	<Particle frame="8" attachNode="Dummy_effect_skl" particleName="I_archer_pistol_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="8" attachNode="Dummy_effect_skl" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="9" attachNode="Dummy_effect_skl" particleName="I_hit002_pistol" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Bone003" particleName="I_archer_pistol_atk_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="12" attachNode="Dummy_effect_skl" particleName="I_archer_pistol_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="12" attachNode="Dummy_effect_skl" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="13" attachNode="Dummy_effect_skl" particleName="I_hit002_pistol" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="14" attachNode="Bone003" particleName="I_archer_pistol_atk_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="16" attachNode="Dummy_effect_skl" particleName="I_archer_pistol_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="17" attachNode="Dummy_effect_skl" particleName="I_archer_pistol_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="16" attachNode="Dummy_effect_skl" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="17" attachNode="Dummy_effect_skl" particleName="I_hit002_pistol" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="18" attachNode="Bone003" particleName="I_archer_pistol_atk_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_zombie_m_atk_shot"/>
+	<Sound frame="0.00" soundFile="skl_eff_rifle_cast_move"/>
+	<Sound frame="8.00" soundFile="skl_eff_snipe"/>
+	<Sound frame="11.00" soundFile="skl_eff_snipe"/>
+	<Sound frame="16.00" soundFile="skl_eff_coveringfire"/>
 </ActionDesc>

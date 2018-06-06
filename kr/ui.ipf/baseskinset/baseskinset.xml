@@ -2970,6 +2970,50 @@
 			<img name="bottomcore" imgrect="150 311 162 150"/>
 			<img name="bottomright" imgrect="312 311 150 150"/>
 		</skin>
+		<skin name="normal_item_tootip_skin" texture="\skin\normal_item_tootip.tga">
+			<img name="topleft" imgrect="0 0 130 70"/>
+			<img name="topcore" imgrect="131 0 109 70"/>
+			<img name="topright" imgrect="241 0 130 70"/>
+			<img name="bodyleft" imgrect="0 71 130 76"/>
+			<img name="bodycore" imgrect="131 71 109 76"/>
+			<img name="bodyright" imgrect="241 71 130 76"/>
+			<img name="bottomleft" imgrect="0 148 130 30"/>
+			<img name="bottomcore" imgrect="131 148 109 30"/>
+			<img name="bottomright" imgrect="241 148 130 30"/>
+		</skin>
+		<skin name="indun_skin" texture="\skin\indun_skin.tga">
+			<img name="topleft" imgrect="0 0 200 60"/>
+			<img name="topcore" imgrect="201 0 280 60"/>
+			<img name="topright" imgrect="482 0 200 60"/>
+			<img name="bodyleft" imgrect="0 61 200 200"/>
+			<img name="bodycore" imgrect="201 61 280 200"/>
+			<img name="bodyright" imgrect="482 61 200 200"/>
+			<img name="bottomleft" imgrect="0 262 200 60"/>
+			<img name="bottomcore" imgrect="201 262 280 60"/>
+			<img name="bottomright" imgrect="482 262 200 60"/>
+		</skin>
+		<skin name="indun_bottom_skin" texture="\skin\indun_skin.tga">
+			<img name="topleft" imgrect="684 120 60 115"/>
+			<img name="topcore" imgrect="745 120 200 115"/>
+			<img name="topright" imgrect="946 120 60 115"/>
+			<img name="bodyleft" imgrect="684 236 60 55"/>
+			<img name="bodycore" imgrect="745 236 200 55"/>
+			<img name="bodyright" imgrect="946 236 60 55"/>
+			<img name="bottomleft" imgrect="684 292 60 30"/>
+			<img name="bottomcore" imgrect="745 292 200 30"/>
+			<img name="bottomright" imgrect="946 292 60 30"/>
+		</skin>
+		<skin name="indunbeasoo_skin" texture="\skin\indun_skin.tga">
+			<img name="topleft" imgrect="0 323 60 60"/>
+			<img name="topcore" imgrect="61 323 110 60"/>
+			<img name="topright" imgrect="172 323 60 60"/>
+			<img name="bodyleft" imgrect="0 384 60 115"/>
+			<img name="bodycore" imgrect="61 384 110 115"/>
+			<img name="bodyright" imgrect="172 384 60 115"/>
+			<img name="bottomleft" imgrect="0 500 60 150"/>
+			<img name="bottomcore" imgrect="61 500 110 150"/>
+			<img name="bottomright" imgrect="172 500 60 150"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -3254,6 +3298,10 @@
 		<skin name="radiobutton_2" texture="\skin\button.tga">
 			<img name="on" imgrect="451 7 27 27"/>
 			<img name="off" imgrect="422 7 27 27"/>
+		</skin>
+		<skin name="MCC_checkbox" texture="\skin\MCC_skin.tga">
+			<img name="on" imgrect="439 28 25 27"/>
+			<img name="off" imgrect="439 0 25 27"/>
 		</skin>
 		<skin name="checkbox" texture="\skin\mainframe_A.tga">
 			<img name="on" imgrect="452 918 24 24"/>
@@ -4340,6 +4388,34 @@
 		<image name="weapon_All" file="\icon\wearing_weapon.tga" imgrect="84 21 28 20" CMM_Caption="전체"/>
 		<image name="weapon_companion" file="\icon\wearing_weapon.tga" imgrect="126 21 20 20" CMM_Caption="컴패니언"/>
 	</imagelist>
+	<imagelist category="indunmapimage">
+		<image name="Map_random" file="\skin\indunmap\Map_random.png" imgrect="0 0 295 450" CMM_Caption="맵랜덤일때"/>
+		<image name="Map_Indun_castle" file="\skin\indunmap\Map_Indun_castle.png" imgrect="0 0 295 450" CMM_Caption="푸른요새던전"/>
+		<image name="Map_Indun_Castle2" file="\skin\indunmap\Map_Indun_Castle2.png" imgrect="0 0 295 450" CMM_Caption="캐슬 던전"/>
+		<image name="Map_Indun_Catacom" file="\skin\indunmap\Map_Indun_Catacom.png" imgrect="0 0 295 450" CMM_Caption="카타콤지하던전"/>
+		<image name="Map_Indun_Chaple" file="\skin\indunmap\Map_Indun_Chaple.png" imgrect="0 0 295 450" CMM_Caption="성당지하던전"/>
+		<image name="Map_Indun_FireTower" file="\skin\indunmap\Map_Indun_FireTower.png" imgrect="0 0 295 450" CMM_Caption="대마법사의타워"/>
+		<image name="Map_Indun_Remains" file="\skin\indunmap\Map_Indun_Remains.png" imgrect="0 0 295 450" CMM_Caption="폐허유적지"/>
+		<image name="Map_Indun_Remains2" file="\skin\indunmap\Map_Indun_Remains2.png" imgrect="0 0 295 450" CMM_Caption="무너진저택가"/>
+		<image name="Map_Indun_Remains3" file="\skin\indunmap\Map_Indun_Remains3.png" imgrect="0 0 295 450" CMM_Caption="염원의 비석로 던전"/>
+		<image name="Map_Indun_startower" file="\skin\indunmap\Map_Indun_startower.png" imgrect="0 0 295 450" CMM_Caption="쇠락한 르귄가문의 던전"/>
+		<image name="Map_Indun_Thorn" file="\skin\indunmap\Map_Indun_Thorn.png" imgrect="0 0 295 450" CMM_Caption="가시 덩굴 숲"/>
+		<image name="Map_Indun_thorn2" file="\skin\indunmap\Map_Indun_thorn2.png" imgrect="0 0 295 450" CMM_Caption="공허의 가시숲"/>
+		<image name="Map_Indun_Underfortress" file="\skin\indunmap\Map_Indun_Underfortress.png" imgrect="0 0 295 450" CMM_Caption="깊숙한 지하감옥 던전"/>
+		<image name="Map_M_GTOWER_1" file="\skin\indunmap\Map_M_GTOWER_1.png" imgrect="0 0 295 450" CMM_Caption="롤로팬서 구간"/>
+		<image name="Map_M_GTOWER_2" file="\skin\indunmap\Map_M_GTOWER_2.png" imgrect="0 0 295 450" CMM_Caption="솔미키 구간"/>
+		<image name="Map_Request_Mission1" file="\skin\indunmap\Map_Request_Mission1.png" imgrect="0 0 295 450" CMM_Caption="샤울레이 미션"/>
+		<image name="Map_Request_Mission2" file="\skin\indunmap\Map_Request_Mission2.png" imgrect="0 0 295 450" CMM_Caption="겔리 고원 미션"/>
+		<image name="Map_Request_Mission4" file="\skin\indunmap\Map_Request_Mission4.png" imgrect="0 0 295 450" CMM_Caption="수정광산 미션"/>
+		<image name="Map_Request_Mission5" file="\skin\indunmap\Map_Request_Mission5.png" imgrect="0 0 295 450" CMM_Caption="칠채곡 미션"/>
+		<image name="Map_Request_Mission6" file="\skin\indunmap\Map_Request_Mission6.png" imgrect="0 0 295 450" CMM_Caption="카타콤 미션"/>
+		<image name="Map_Request_Mission7" file="\skin\indunmap\Map_Request_Mission7.png" imgrect="0 0 295 450" CMM_Caption="협곡지대 미션"/>
+		<image name="Map_Request_Mission8" file="\skin\indunmap\Map_Request_Mission8.png" imgrect="0 0 295 450" CMM_Caption="왕릉 미션"/>
+		<image name="Map_Request_Mission9" file="\skin\indunmap\Map_Request_Mission9.png" imgrect="0 0 295 450" CMM_Caption="유적지대 미션"/>
+		<image name="Map_Request_Mission10" file="\skin\indunmap\Map_Request_Mission10.png" imgrect="0 0 295 450" CMM_Caption="업힐 디펜스 미션"/>
+		<image name="Map_Request_Mission13" file="\skin\indunmap\Map_Request_Mission13.png" imgrect="0 0 295 450" CMM_Caption="수도원 미션"/>
+		<image name="Map_Request_Mission14" file="\skin\indunmap\Map_Request_Mission14.png" imgrect="0 0 295 450" CMM_Caption="호수미션"/>
+	</imagelist>
 	<imagelist category="jootest_image">
 		<image name="ok_button" file="\skin\pip_test.tga" imgrect="1797 0 125 50" CMM_Caption="ok버튼"/>
 		<image name="ok_button_cursoron" file="\skin\pip_test.tga" imgrect="1797 51 125 50"/>
@@ -4535,6 +4611,7 @@
 		<image name="guild_offline" file="\skin\pip_test.tga" imgrect="1799 589 20 20" CMM_Caption="길드_오프라인"/>
 		<image name="v_mark" file="\skin\barrack.tga" imgrect="1067 330 84 84" CMM_Caption="브이마크"/>
 		<image name="guild_talt" file="\skin\pip_test_item.tga" imgrect="1612 87 190 190" CMM_Caption="길드탈트넣는곳"/>
+		<image name="market_event_test" file="\skin\market_event_test.png" imgrect="0 0 520 250" CMM_Caption="마켓배너준비(테스트)"/>
 		<image name="market_default" file="\skin\market_default.png" imgrect="0 0 520 250" CMM_Caption="마켓배너준비(작은거)"/>
 		<image name="market_default2" file="\skin\market_default2.png" imgrect="0 0 1230 400" CMM_Caption="마켓배너준비(큰거)"/>
 		<image name="market_default3" file="\skin\market_default3.png" imgrect="0 0 512 246" CMM_Caption="마켓닫기버튼으로쓸이미지"/>
@@ -4640,15 +4717,44 @@
 		<image name="market_lens" file="\skin\market_skin.tga" imgrect="1988 383 60 60" CMM_Caption="마켓_렌즈"/>
 		<image name="market_F_gender" file="\skin\market_skin.tga" imgrect="1746 0 50 50" CMM_Caption="마켓_여자성별"/>
 		<image name="market_M_gender" file="\skin\market_skin.tga" imgrect="1797 0 50 50" CMM_Caption="마켓_남자성별"/>
+		<image name="market_re_M" file="\skin\market_skin.tga" imgrect="1719 246 65 65" CMM_Caption="메달로바꾸기"/>
+		<image name="market_re_I" file="\skin\market_skin.tga" imgrect="1719 312 65 65" CMM_Caption="아이템으로바꾸기"/>
+		<image name="market_rightarrow" file="\skin\market_skin.tga" imgrect="1277 350 30 20" CMM_Caption="오른쪽으로화살표"/>
+		<image name="market_bottomarrow" file="\skin\market_skin.tga" imgrect="1181 344 22 24" CMM_Caption="밑으로화살표"/>
 		<image name="indun_line_img" file="\skin\pip_test.tga" imgrect="1548 872 100 14" CMM_Caption="인던맵구분선"/>
-	<image name="gacha_big_01" file="\skin\gacha_big_one.tga" imgrect="0 0 758 508" CMM_Caption="가챠_좋은거_큰거"/>
+		<image name="gacha_big_01" file="\skin\gacha_big_one.tga" imgrect="0 0 758 508" CMM_Caption="가챠_좋은거_큰거"/>
 		<image name="gacha_big_02" file="\skin\gacha_big_two.tga" imgrect="0 0 758 508" CMM_Caption="가챠_그냥저냥_큰거"/>
 		<image name="gacha_big_03" file="\skin\gacha_big_three.tga" imgrect="0 0 758 508" CMM_Caption="가챠_노말_큰거"/>
-		<image name="gacha_01" file="\skin\gacha_ui.tga" imgrect="0 78 170 170" CMM_Caption="가챠_좋은거"/>
-		<image name="gacha_02" file="\skin\gacha_ui.tga" imgrect="171 78 170 170" CMM_Caption="가챠_그냥저냥"/>
-		<image name="gacha_03" file="\skin\gacha_ui.tga" imgrect="342 78 170 170" CMM_Caption="가챠_노말"/>
-	<image name="gacha_skin" file="\skin\gacha_skin.tga" imgrect="0 0 450 580" CMM_Caption="가챠_팝업"/>
-	<image name="expup_img" file="\skin\pip_test.tga" imgrect="868 544 70 62" CMM_Caption="expup_이미지"/>
+		<image name="gacha_01" file="\skin\gacha_ui.tga" imgrect="0 171 170 170" CMM_Caption="가챠_좋은거"/>
+		<image name="gacha_02" file="\skin\gacha_ui.tga" imgrect="171 171 170 170" CMM_Caption="가챠_그냥저냥"/>
+		<image name="gacha_03" file="\skin\gacha_ui.tga" imgrect="342 171 170 170" CMM_Caption="가챠_노말"/>
+		<image name="gacha_bonus" file="\skin\gacha_ui.tga" imgrect="0 0 170 170" CMM_Caption="가챠_보너스"/>
+		<image name="gacha_skin" file="\skin\gacha_skin.tga" imgrect="0 0 450 480" CMM_Caption="가챠_팝업"/>
+		<image name="random_big_01" file="\skin\random_big_one.tga" imgrect="0 0 758 508" CMM_Caption="랜덤_좋은거_큰거"/>
+		<image name="random_big_02" file="\skin\random_big_two.tga" imgrect="0 0 758 508" CMM_Caption="랜덤_그냥저냥_큰거"/>
+		<image name="random_big_03" file="\skin\random_big_three.tga" imgrect="0 0 758 508" CMM_Caption="랜덤_노말_큰거"/>
+		<image name="random_01" file="\skin\gacha_ui.tga" imgrect="0 342 170 170" CMM_Caption="랜덤_좋은거"/>
+		<image name="random_02" file="\skin\gacha_ui.tga" imgrect="171 342 170 170" CMM_Caption="랜덤_그냥저냥"/>
+		<image name="random_03" file="\skin\gacha_ui.tga" imgrect="342 342 170 170" CMM_Caption="랜덤_노말"/>
+		<image name="randombox_skin" file="\skin\randombox_skin.tga" imgrect="0 0 450 480" CMM_Caption="랜덤_팝업"/>
+		<image name="expup_img" file="\skin\pip_test.tga" imgrect="868 544 70 62" CMM_Caption="expup_이미지"/>
+		<image name="indun_people_loading" file="\skin\indun_skin.tga" imgrect="753 58 57 57" CMM_Caption="인던_파티기다리는동안"/>
+		<image name="indun_people_img" file="\skin\indun_skin.tga" imgrect="927 54 30 45" CMM_Caption="인던_파티원이미지"/>
+		<image name="indun_entrance" file="\skin\indun_skin.tga" imgrect="927 0 26 26" CMM_Caption="인던_입장횟수아이콘"/>
+		<image name="indun_entrance_level" file="\skin\indun_skin.tga" imgrect="954 0 26 26" CMM_Caption="인던_입장레벨"/>
+		<image name="indun_bossmonster" file="\skin\indun_skin.tga" imgrect="927 27 26 26" CMM_Caption="인던_보스몬스터"/>
+		<image name="indun_item" file="\skin\indun_skin.tga" imgrect="954 27 26 26" CMM_Caption="인던_대표장비"/>
+		<image name="indun_partyline" file="\skin\indun_skin.tga" imgrect="981 0 26 26" CMM_Caption="인던_파티같이하는사람"/>
+		<image name="indun_arrow" file="\skin\indun_skin.tga" imgrect="981 27 40 26" CMM_Caption="인던_배수권화살표표시"/>
+		<image name="indun_x5" file="\skin\indun_skin.tga" imgrect="233 323 150 110" CMM_Caption="x5"/>
+		<image name="indun_x4" file="\skin\indun_skin.tga" imgrect="384 434 150 110" CMM_Caption="x4"/>
+		<image name="indun_x3" file="\skin\indun_skin.tga" imgrect="535 434 150 110" CMM_Caption="x3"/>
+		<image name="indun_x2" file="\skin\indun_skin.tga" imgrect="535 323 150 110" CMM_Caption="x2"/>
+		<image name="indun_x1" file="\skin\indun_skin.tga" imgrect="384 323 150 110" CMM_Caption="x1"/>
+		<image name="indun_info" file="\skin\indun_skin.tga" imgrect="233 434 150 110" CMM_Caption="올라가는거_kor"/>
+		<image name="indun_silverbox_bg" file="\skin\indun_skin.tga" imgrect="0 651 204 324" CMM_Caption="배수권실버박스이미지"/>
+		<image name="indun_slide_bg" file="\skin\indun_skin.tga" imgrect="686 323 338 65" CMM_Caption="슬라이드박스_배경"/>
+		<image name="indun_bossrandom" file="\skin\indun_skin.tga" imgrect="958 54 65 65" CMM_Caption="인던_보스랜덤"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -4991,9 +5097,21 @@
 		<image name="market_number2_btn" file="\skin\market_skin.tga" imgrect="1812 51 35 38" CMM_Caption="마켓_번호버튼2"/>
 		<image name="market_number2_btn_cursoron" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
 		<image name="market_number2_btn_clicked" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
-	<image name="gachaskip_btn" file="\skin\gacha_ui.tga" imgrect="0 0 124 50" CMM_Caption="스킵버튼"/>
-		<image name="gachaskip_btn_cursoron" file="\skin\gacha_ui.tga" imgrect="125 0 124 50"/>
-		<image name="gachaskip_btn_clicked" file="\skin\gacha_ui.tga" imgrect="250 0 124 50"/>
+		<image name="gachaskip_btn" file="\skin\gacha_ui.tga" imgrect="171 0 124 50" CMM_Caption="스킵버튼"/>
+		<image name="gachaskip_btn_cursoron" file="\skin\gacha_ui.tga" imgrect="171 51 124 50"/>
+		<image name="gachaskip_btn_clicked" file="\skin\gacha_ui.tga" imgrect="171 102 124 50"/>
+		<image name="gachanext_btn" file="\skin\normal_item_tootip.tga" imgrect="0 198 124 50" CMM_Caption="가챠 다음버튼"/>
+		<image name="gachanext_btn_cursoron" file="\skin\normal_item_tootip.tga" imgrect="125 198 124 50"/>
+		<image name="gachanext_btn_clicked" file="\skin\normal_item_tootip.tga" imgrect="250 198 124 50"/>
+		<image name="indun_small_btn" file="\skin\indun_skin.tga" imgrect="683 0 34 34" CMM_Caption="인던_최소화버튼"/>
+		<image name="indun_small_btn_cursoron" file="\skin\indun_skin.tga" imgrect="683 35 34 34"/>
+		<image name="indun_small_btn_clicked" file="\skin\indun_skin.tga" imgrect="683 70 34 34"/>
+		<image name="indun_close_btn" file="\skin\indun_skin.tga" imgrect="718 0 34 34" CMM_Caption="인던_취소버튼"/>
+		<image name="indun_close_btn_cursoron" file="\skin\indun_skin.tga" imgrect="718 35 34 34"/>
+		<image name="indun_close_btn_clicked" file="\skin\indun_skin.tga" imgrect="718 70 34 34"/>
+		<image name="indun_people_btn" file="\skin\indun_skin.tga" imgrect="753 0 57 57" CMM_Caption="인던_파티원초대버튼"/>
+		<image name="indun_people_btn_cursoron" file="\skin\indun_skin.tga" imgrect="811 0 57 57"/>
+		<image name="indun_people_btn_clicked" file="\skin\indun_skin.tga" imgrect="869 0 57 57"/>
 	</imagelist>
 	<imagelist category="hair_color">
 		<image name="basic_color" file="\skin\barrack.tga" imgrect="949 492 35 35" CMM_Caption="기본컬러"/>
@@ -6426,7 +6544,7 @@
 		<image name="icon_L_Songpyeon" file="\icon\buff_icon.tga" imgrect="384 1280 128 128" CMM_Caption="대왕송편버프"/>
 		<image name="icon_Songpyeon" file="\icon\buff_icon.tga" imgrect="512 1280 128 128" CMM_Caption="송편버프"/>
 		<image name="icon_L_H_Songpyeon" file="\icon\buff_icon.tga" imgrect="640 1280 128 128" CMM_Caption="꿀떡버프"/>
-	<image name="icon_nexonpc2" file="\icon\buff_icon.tga" imgrect="768 1280 128 128" CMM_Caption="넥슨피시방"/>
+		<image name="icon_nexonpc2" file="\icon\buff_icon.tga" imgrect="768 1280 128 128" CMM_Caption="넥슨피시방"/>
 		<image name="icon_expup_total" file="\icon\buff_icon.tga" imgrect="896 1280 128 128" CMM_Caption="경험치버프토탈"/>
 		<image name="icon_eventbuff" file="\icon\buff_icon.tga" imgrect="0 1408 128 128" CMM_Caption="이벤트버프"/>
 	</imagelist>

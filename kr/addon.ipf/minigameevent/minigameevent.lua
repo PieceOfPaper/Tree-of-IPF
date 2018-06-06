@@ -84,10 +84,6 @@ function SET_EVENT_PC_CTRL_INFO(ctrl, info)
 	
 end
 
-function GET_JOB_NAME(job)
-
-end
-
 function ON_MINIGAME_EVENT_LIST(frame, msg, joinCount)
 
 	frame:SetTextByKey("CurPlayer", math.floor(joinCount));

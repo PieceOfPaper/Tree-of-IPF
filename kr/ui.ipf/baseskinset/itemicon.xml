@@ -539,6 +539,8 @@
 		<image name="icon_item_ranger_costume01_3_m" file="\icon\equip\icon_item_ranger_costume01_3_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_miko_f" file="\icon\equip\icon_item_miko.png" imgrect="0 0 256 256" CMM_Caption="미코"/>
 		<image name="icon_item_miko_m" file="\icon\equip\icon_item_kannushi.png" imgrect="0 0 256 256" CMM_Caption="칸누시"/>
+		<image name="icon_item_Cleric_monk_f" file="\icon\equip\icon_item_Cleric_monk_f.png" imgrect="0 0 256 256" CMM_Caption="3랭크 유료 몽크 코스튬"/>
+		<image name="icon_item_Cleric_monk_m" file="\icon\equip\icon_item_Cleric_monk_m.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_weapone_icons">
 		<image name="icon_item_artefact_210011" file="\icon\weapon\icon_item_artefact_210011.png" imgrect="0 0 256 256" CMM_Caption="요령"/>
@@ -3770,10 +3772,15 @@
 		<image name="icon_item_misc04_108" file="\icon\item\icon_item_misc04_108.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 제피 장식"/>
 		<image name="icon_item_misc04_109" file="\icon\item\icon_item_misc04_109.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 토트 목걸이"/>
 		<image name="icon_item_misc04_110" file="\icon\item\icon_item_misc04_110.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 토트 열매"/>
+		<image name="icon_item_vow_goddess" file="\icon\item\icon_item_vow_goddess.png" imgrect="0 0 128 128" CMM_Caption="여신의서약"/>
+		<image name="icon_item_vow_demon" file="\icon\item\icon_item_vow_demon.png" imgrect="0 0 128 128" CMM_Caption="마족의서약"/>
+		<image name="icon_item_vow_tablet" file="\icon\item\icon_item_vow_tablet.png" imgrect="0 0 128 128" CMM_Caption="서약의성서"/>
 		<image name="icon_item_omarmori" file="\icon\item\icon_item_omarmori.png" imgrect="0 0 128 128" CMM_Caption="오마모리"/>
 		<image name="icon_item_eventcube1" file="\icon\item\icon_item_eventcube1.png" imgrect="0 0 128 128" CMM_Caption="블랙큐브"/>
 		<image name="icon_item_eventcube2" file="\icon\item\icon_item_eventcube2.png" imgrect="0 0 128 128" CMM_Caption="실버큐브"/>
 		<image name="icon_item_eventcube3" file="\icon\item\icon_item_eventcube3.png" imgrect="0 0 128 128" CMM_Caption="골드큐브"/>
+		<image name="icon_item_indunexmode" file="\icon\item\icon_item_indunexmode.png" imgrect="0 0 256 256" CMM_Caption="배수권"/>
+		<image name="icon_item_recyclemedal" file="\icon\item\icon_item_recyclemedal.png" imgrect="0 0 256 256" CMM_Caption="리사이클 메달"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -3904,6 +3911,7 @@
 		<image name="icon_item_lens_heart" file="\icon\payment\lens_heart.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_lens_lens_star" file="\icon\payment\lens_star.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_lens_orange" file="\icon\payment\lens_orange.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_lens_brown" file="\icon\payment\lens_brown.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_package_penguin" file="\icon\payment\icon_item_package_penguin.png" imgrect="0 0 256 256" CMM_Caption="펭귄패키지"/>
 		<image name="icon_item_tospoint500" file="\icon\payment\icon_item_tospoint500.png" imgrect="0 0 256 256" CMM_Caption="TP 500개"/>
 		<image name="icon_item_tospoint900" file="\icon\payment\icon_item_tospoint900.png" imgrect="0 0 256 256" CMM_Caption="TP 900개"/>
@@ -3997,6 +4005,12 @@
 		<image name="icon_item_warrior_uniform_f" file="\icon\payment\icon_item_warrior_uniform_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_uniform_m" file="\icon\payment\icon_item_warrior_uniform_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_hairgacha" file="\icon\payment\icon_item_hairgacha.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_randombox" file="\icon\payment\icon_item_randombox.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archer_armor_m" file="\icon\payment\icon_item_archer_armor_m.png" imgrect="0 0 256 256" CMM_Caption="아처"/>
+		<image name="icon_item_Mage_gothloli_f" file="\icon\payment\icon_item_Mage_gothloli_f.png" imgrect="0 0 256 256" CMM_Caption="고스로리"/>
+		<image name="icon_item_Mage_gothloli_m" file="\icon\payment\icon_item_Mage_gothloli_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_whiteKnight_f" file="\icon\payment\icon_item_warrior_whiteKnight_f.png" imgrect="0 0 256 256" CMM_Caption="백기사"/>
+		<image name="icon_item_warrior_whiteKnight_m" file="\icon\payment\icon_item_warrior_whiteKnight_m.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

@@ -545,9 +545,94 @@ function STATUS_BTN_UP_VISIBLE(frame, controlsetName, pc, visible)
 	btnUp:ShowWindow(visible);
 end
 
+function GET_ONLINE_PARTY_MEMBER_N_ADDEXP()
+	local pcparty = session.party.GetPartyInfo();
+	if pcparty == nil then
+		return 0, 0;	
+	end
+
+	local partyInfo = pcparty.info;
+	local obj = GetIES(pcparty:GetObject());
+	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
+	local count = list:Count();
+	local memberIndex = 0;
+	local addValue = 0;
+	local matchCount = 0;
+	local jobNumList = {};
+	jobNumList['Warrior'] = 0;
+	jobNumList['Wizard'] = 0;
+	jobNumList['Archer'] = 0;
+	jobNumList['Cleric'] = 0;
+		
+	local myAid = session.loginInfo.GetAID();
+	for i = 0 , count - 1 do
+		local partyMemberInfo = list:Element(i)
+		if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then			
+			local stat = partyMemberInfo:GetInst();
+			local pos = stat:GetPos();
+			local myHandle		= session.GetMyHandle();
+			local dist = info.GetDestPosDistance(pos.x, pos.y, pos.z, myHandle);
+			local sharedcls = GetClass("SharedConst",'PARTY_SHARE_RANGE');
+
+			local mymapname = session.GetMapName();
+			local partymembermapName = GetClassByType("Map", partyMemberInfo:GetMapID()).ClassName;			
+						
+			if dist < sharedcls.Value and mymapname == partymembermapName then
+				memberIndex = memberIndex + 1;
+								
+				local iconinfo = partyMemberInfo:GetIconInfo();
+				local jobCls  = GetClassByType("Job", iconinfo.job);	
+				jobNumList[jobCls.CtrlType] = jobNumList[jobCls.CtrlType] + 1;		
+			end		
+		end
+	end	
+
+	if memberIndex >= 3 then
+		matchCount = jobNumList['Warrior']
+		if matchCount < 3 then
+			matchCount = jobNumList['Wizard']
+			if matchCount < 3 then
+				matchCount = jobNumList['Archer']
+				if matchCount < 3 then
+					matchCount = jobNumList['Cleric']
+				end
+			end
+		end
+		local tempStr = "";
+		SWITCH(math.floor(matchCount)) {				
+			[3] = function() tempStr = "PARTY_EXP_JOB_BALANCE_BONUS_COUNT_THREE"; end,
+			[4] = function() tempStr = "PARTY_EXP_JOB_BALANCE_BONUS_COUNT_FOUR"; end,	
+			default = function() end,
+			}	
+		
+		if string.len(tempStr) > 0 then
+			local cls = GetClass("SharedConst",tempStr);
+			local val = cls.Value;	
+			if val ~= nil then
+				addValue = val;
+			end	
+		end
+	end
+
+	return memberIndex, addValue;
+end
+
+function SETEXP_SLOT_PARTY(expupBuffBox, addValue, index, entireSum)	
+		local cls = GetClass("SharedConst","PARTY_EXP_BONUS");
+		local percSum = sum;
+		local val = cls.Value;
+		if val ~= nil then
+			local sum = val + addValue;
+			local class  = GetClassByType('Buff', 4542);
+			percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, entireSum, sum * 100);
+			return true, percSum;
+		end
+		return false, percSum;
+end
+
 function SETEXP_SLOT(gbox)
 	local expupBuffBox = gbox:GetChild('expupBuffBox');	
-	DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_");
+	DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_");			--EXP_Rate
 	
 	-- s_buff_ui : cf) buff.lua 
 	local slotlist = s_buff_ui["slotlist"][1];
@@ -557,28 +642,61 @@ function SETEXP_SLOT(gbox)
 	local index = 0;
 	local percSum = 0;
 	
-	local cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
-	local val1 = cls1.Value;
+	if IS_SEASON_SERVER(nil) == "YES" then
+		local cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
+		local val1 = cls1.Value;
+	if val1 ~= nil then
 	if val1 > 0.0 then
 		local class  = GetClassByType('Buff', 4540);	
 		percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val1 * 100);
 		index = index + 1;
-	else
-		DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_EventBuff");
+		end
+	end
 	end
 
 	if 1 == session.loginInfo.GetPremiumState() then	
-	local cls2 = GetClass("SharedConst","JAEDDURY_NEXON_PC_EXP_RATE");
-local val2 = cls2.Value;	
+		local cls2 = GetClass("SharedConst","JAEDDURY_NEXON_PC_EXP_RATE");
+		local val2 = cls2.Value;	
+		if val2 ~= nil then
 	if val2 > 0.0 then
 		local class  = GetClassByType('Buff', 4541);	
 		percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val2 * 100);
 		index = index + 1;
-	else
-		DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_nexonpc2");
+			end
 	end
 	end
 	
+	--일반 파티 경험치 계산
+	local retParty = false;
+	local partyMember, addValue1 =	GET_ONLINE_PARTY_MEMBER_N_ADDEXP();	
+	SWITCH(math.floor(partyMember)) {				
+		[0] = function() end,
+		[1] = function() end,	
+		[4] = function() -- 4인 260 -> 280
+			local addValue2 = 0;
+			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FOUR");
+			local val = cls.Value;	
+			if val ~= nil then
+				addValue2 = val;
+			end	
+			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
+		end,
+		[5] = function() -- 5인 300 -> 350
+			local addValue2 = 0;
+			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FIVE");
+			local val = cls.Value;	
+			if val ~= nil then
+				addValue2 = val;
+			end	
+			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
+		end,
+		default = function() --		1인 100. 2인 180, 3인 220
+			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue1, index, percSum);
+		end,
+		}	
+	if retParty == true then
+		index = index + 1;
+	end
 	if slotcount ~= nil and slotcount >= 0 then
     	for i = 0, slotcount - 1 do
     		local slot		= slotlist[i];
@@ -608,8 +726,6 @@ local val2 = cls2.Value;
 									if expT > 0.0 then
 										percSum = SETSLOTCTRL_EXP(class, "teamexpup", expupBuffBox, index, percSum, expT);
 										index = index + 1;
-									else
-										DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_teamexpup");
 									end
 								end	
 						end,
@@ -617,10 +733,10 @@ local val2 = cls2.Value;
 										local cls = GetClass("SharedConst","INDUN_AUTO_FIND_EXP_BONUS");
 										local val = cls.Value;
 										if val > 0.0 then
-											percSum = SETSLOTCTRL_EXP(class, "cler_daino", expupBuffBox, index, percSum, val * 100);
+											if partyMember > 1 then
+												percSum = SETSLOTCTRL_EXP(class, "cler_daino", expupBuffBox, index, percSum, val * 100);
 										index = index + 1;
-										else
-											DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_teamexpup");
+											end
 										end
 						end,
 						default = function() end,
@@ -633,13 +749,14 @@ local val2 = cls2.Value;
 			
 	local expupTextBox = gbox:GetChild('expupTextBox');	
 	local expUP_Dyn = expupTextBox:GetChild('expUP_Dyn');	
-	expUP_Dyn:SetTextByKey("perc", percSum);
+		
+	expUP_Dyn:SetTextByKey("perc", math.floor(percSum));
 	
 	expupTextBox:Invalidate();	
 end
 
 function SETSLOTCTRL_EXP(cls, strIcon, parent, index, sum, perc)
-	local slotbox = parent:CreateOrGetControl('groupbox', 'expBuffslot_'..strIcon, 42, 70, ui.LEFT, ui.TOP, 42 * index, 0, 0, 0);												
+	local slotbox = parent:CreateOrGetControl('groupbox', 'expBuffslot_'.. cls.ClassID, 42, 70, ui.LEFT, ui.TOP, 42 * index, 0, 0, 0);												
 	tolua.cast(slotbox, "ui::CGroupBox");	
 	slotbox:EnableDrawFrame(0);
 
@@ -678,11 +795,10 @@ function SETSLOTCTRL_EXP(cls, strIcon, parent, index, sum, perc)
 	local percText = slotbox:CreateOrGetControl('richtext', 'staticExptext_'..index, 10, 10, ui.CENTER_HORZ, ui.TOP, 0, 42, 0, 0);	
 	tolua.cast(percText, "ui::CRichText");
 	
-	local strCaption = string.format("{s13}%d", perc);
+	local strCaption = string.format("{s13}%d", math.floor(perc));
 	strCaption = strCaption .. "%{/}";		
 	percText:SetFontName("white_18_ol");
 	percText:SetText(strCaption);
-	
 	return sum + perc;
 end
 
@@ -697,7 +813,10 @@ function STATUS_INFO()
 
     local lv = info.GetLevel(session.GetMyHandle());
     local job = info.GetJob(session.GetMyHandle());
-	local jName = GetClassString('Job', job, 'Name');
+    local gender = info.GetGender(session.GetMyHandle());
+    local jobCls = GetClassByType("Job", job);
+	local jName = GET_JOB_NAME(jobCls, gender);	
+	
 	local lvText = jName;
 
 	NameObj:SetText('{@st53}'..CharName)
@@ -816,6 +935,10 @@ function STATUS_INFO()
 	if returnY ~= y then
 		y = returnY + 3;
 	end
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Soul_Atk", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Earth_Atk", y);
 	if returnY ~= y then
 		y = returnY + 3;
@@ -843,7 +966,15 @@ function STATUS_INFO()
 	if returnY ~= y then
 		y = returnY + 3;
 	end
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResSoul", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResEarth", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResSoul", y);
 	if returnY ~= y then
 		y = returnY + 3;
 	end
@@ -939,6 +1070,7 @@ function STATUS_INFO()
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResFire");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResIce");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResLightning");
+	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResSoul");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResPoison");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResHoly");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResDark");
@@ -1712,6 +1844,10 @@ function GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(engname)
 	
 	if engname == 'purple' then
 		return "purple_color"
+	end
+	
+	if engname == 'orange' then
+		return "orange_color"
 	end
 	return "basic_color"
 

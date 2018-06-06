@@ -20,7 +20,7 @@ function ON_PARTYINFO_INST_UPDATE(frame, msg, argStr, argNum)
 	local count = list:Count();
 
 	local myAid = session.loginInfo.GetAID();
-	-- Á¢¼ÓÁß ÆÄÆ¼¿ø
+	-- ì ‘ì†ì¤‘ íŒŒí‹°ì›
 	for i = 0 , count - 1 do
 		local partyMemberInfo = list:Element(i);
 		if partyMemberInfo:GetMapID() > 0 then
@@ -54,16 +54,16 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 		local partyMemberInfo = list:Element(i);	
 		if partyMemberInfo:GetAID() ~= myAid then
 			local ret = nil;		
-			-- Á¢¼ÓÁß ÆÄÆ¼¿ø
+			-- ì ‘ì†ì¤‘ íŒŒí‹°ì›
 			if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
 				ret = SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, false);
-			else-- Á¢¼Ó¾ÈÇÑ ÆÄÆ¼¿ø
+			else-- ì ‘ì†ì•ˆí•œ íŒŒí‹°ì›
 				ret = SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType);
 			end
-		else -- ³»Á¤º»µ¥
+		else -- ë‚´ì •ë³¸ë°
 			local headsup = ui.GetFrame("headsupdisplay");
 			local leaderMark = GET_CHILD(headsup, "Isleader", "ui::CPicture");
-			if partyInfo:GetLeaderAID() ~= myAid then-- ¸¸¾à ³»°¡ ¾Æ´Ï¸é
+			if partyInfo:GetLeaderAID() ~= myAid then-- ë§Œì•½ ë‚´ê°€ ì•„ë‹ˆë©´
 				leaderMark:SetImage('None_Mark');
 			else
 				leaderMark:SetImage('party_leader_mark');
@@ -107,7 +107,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 
 	local myInfo = session.party.GetMyPartyObj();
 
-	-- Á¢¼ÓÁß ÆÄÆ¼¿ø ¹öÇÁ¸®½ºÆ®
+	-- ì ‘ì†ì¤‘ íŒŒí‹°ì› ë²„í”„ë¦¬ìŠ¤íŠ¸
 	for i = 0 , count - 1 do
 		local partyMemberInfo = list:Element(i);
 		if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
@@ -119,7 +119,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 				local buffListSlotSet = GET_CHILD(partyInfoCtrlSet, "buffList", "ui::CSlotSet");
 				local debuffListSlotSet = GET_CHILD(partyInfoCtrlSet, "debuffList", "ui::CSlotSet");
 				
-				-- ÃÊ±âÈ­
+				-- ì´ˆê¸°í™”
 				for j=0, buffListSlotSet:GetSlotCount() - 1 do
 					local slot = buffListSlotSet:GetSlotByIndex(j);
 					slot:SetKeyboardSelectable(false);
@@ -137,7 +137,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 					slot:ShowWindow(0);				
 				end
 
-				-- ¾ÆÀÌÄÜ ¼ÂÆÃ
+				-- ì•„ì´ì½˜ ì…‹íŒ…
 				if buffCount > 0 then
 					local buffIndex = 0;
 					local debuffIndex = 0;
@@ -206,6 +206,13 @@ function OUT_PARTY()
 		return;
 	end
 
+	-- í†µí•©ë§¤ì¹­ íŒŒí‹° ì…ì¥ ì‹ ì²­ ì¤‘ì—ëŠ” íŒŒí‹° íƒˆí‡´ ëª»í•¨
+	local indunenter = ui.GetFrame('indunenter');
+	if indunenter ~= nil and indunenter:IsVisible() == 1 and indunenter:GetUserValue('WITHMATCH_MODE') == 'YES' then
+		ui.SysMsg(ScpArgMsg("CannotPartyOutDuringMatching"));
+		return;
+	end
+
 	ui.Chat("/partyout");	
 	local headsup = ui.GetFrame("headsupdisplay");
 	local leaderMark = GET_CHILD(headsup, "Isleader", "ui::CPicture");
@@ -256,11 +263,11 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		return;
 	end
 	if aid == myAid then
-		-- 1. ´©±¸µç ÀÚ±â ÀÚ½Å.
+		-- 1. ëˆ„êµ¬ë“  ìê¸° ìì‹ .
 		ui.AddContextMenuItem(context, ScpArgMsg("WithdrawParty"), "OUT_PARTY()");			
 	elseif iamLeader == true then
-		-- 2. ÆÄÆ¼ÀåÀÌ ÆÄÆ¼¿ø ¿ìÅ¬¸¯
-		-- ´ëÈ­ÇÏ±â. ¼¼ºÎÁ¤º¸º¸±â. ÆÄÆ¼Àå À§ÀÓ. Ãß¹æ.
+		-- 2. íŒŒí‹°ì¥ì´ íŒŒí‹°ì› ìš°í´ë¦­
+		-- ëŒ€í™”í•˜ê¸°. ì„¸ë¶€ì •ë³´ë³´ê¸°. íŒŒí‹°ì¥ ìœ„ì„. ì¶”ë°©.
 		ui.AddContextMenuItem(context, ScpArgMsg("WHISPER"), string.format("ui.WhisperTo('%s')", memberInfo:GetName()));	
 		local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", memberInfo:GetName());
 		ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
@@ -271,8 +278,8 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 			ui.AddContextMenuItem(context, ScpArgMsg("RequestItemDungeon"), string.format("Alchemist.RequestItemDungeon('%s')", memberInfo:GetName()));	
 		end
 	else
-		-- 3. ÆÄÆ¼¿øÀÌ ÆÄÆ¼¿ø ¿ìÅ¬¸¯
-		-- ´ëÈ­ÇÏ±â. ¼¼ºÎ Á¤º¸ º¸±â.
+		-- 3. íŒŒí‹°ì›ì´ íŒŒí‹°ì› ìš°í´ë¦­
+		-- ëŒ€í™”í•˜ê¸°. ì„¸ë¶€ ì •ë³´ ë³´ê¸°.
 		ui.AddContextMenuItem(context, ScpArgMsg("WHISPER"), string.format("ui.WhisperTo('%s')", memberInfo:GetName()));	
 		local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", memberInfo:GetName());
 		ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
@@ -288,7 +295,7 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 end
 
 function UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo)
--- ÆÄÆ¼¿ø hp / sp Ç¥½Ã --
+-- íŒŒí‹°ì› hp / sp í‘œì‹œ --
 	local hpGauge = GET_CHILD(partyInfoCtrlSet, "hp", "ui::CGauge");
 	local spGauge = GET_CHILD(partyInfoCtrlSet, "sp", "ui::CGauge");
 	
@@ -299,7 +306,7 @@ function UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo)
 	local hpRatio = stat.hp / stat.maxhp;
 
 	if  hpRatio <= 0.3 and hpRatio > 0 then
-		hpGauge:SetBlink(0.0, 1.0, 0xffff3333); -- (duration, ì£¼ê¸°, ?‰ìƒ)
+		hpGauge:SetBlink(0.0, 1.0, 0xffff3333); -- (duration, ì£¼ê¸°, ?ï¿½ìƒ)
 	else
 		hpGauge:ReleaseBlink();
 	end
@@ -355,7 +362,7 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	leaderMark:SetImage('None_Mark');
 	leaderMark:ShowWindow(0)
 	
-	-- ¸Ó¸®
+	-- ë¨¸ë¦¬
 	local jobportraitImg = GET_CHILD(partyInfoCtrlSet, "jobportrait_bg", "ui::CPicture");
 	local nameObj = partyInfoCtrlSet:GetChild('name_text');
 	local nameRichText = tolua.cast(nameObj, "ui::CRichText");	
@@ -372,8 +379,9 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 			
 			
 		local tooltipID = jobIcon:GetTooltipIESID();		
-		if nil == tooltipID then		
-			jobIcon:SetTextTooltip(jobCls.name);
+		if nil == tooltipID then	
+			jobName = GET_JOB_NAME(jobCls, iconinfo.gender);	
+			jobIcon:SetTextTooltip(jobName);
 		end
 
 		local stat = partyMemberInfo:GetInst();
@@ -436,7 +444,7 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 		spGauge:SetStatFont(0, 'white_12_ol');
 	end
 			
-	-- ÆÄÆ¼¿ø ·¹º§ Ç¥½Ã -- 
+	-- íŒŒí‹°ì› ë ˆë²¨ í‘œì‹œ -- 
 	local lvbox = partyInfoCtrlSet:GetChild('lvbox');
 	local levelObj = partyInfoCtrlSet:GetChild('lvbox');
 	local levelRichText = tolua.cast(levelObj, "ui::CRichText");
@@ -471,7 +479,7 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 	-- able ban logout pc;
 	--partyInfoCtrlSet:EnableHitTestSet(0);
 		
-	-- ÆÄÆ¼¿ø hp / sp Ç¥½Ã --
+	-- íŒŒí‹°ì› hp / sp í‘œì‹œ --
 	local hpObject 				= partyInfoCtrlSet:GetChild('hp');
 	local hpGauge 				= tolua.cast(hpObject, "ui::CGauge");
 	local spObject 				= partyInfoCtrlSet:GetChild('sp');
@@ -498,7 +506,7 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 		end	
 	end
 				
-	-- ¸Ó¸®
+	-- ë¨¸ë¦¬
 	local jobportraitImg = GET_CHILD(partyInfoCtrlSet, "jobportrait_bg", "ui::CPicture");
 	if jobportraitImg ~= nil then
 		jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
@@ -509,7 +517,7 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 		end
 	end
 		
-	-- ÆÄÆ¼¿ø ·¹º§ Ç¥½Ã -- 
+	-- íŒŒí‹°ì› ë ˆë²¨ í‘œì‹œ -- 
 	local lvbox = partyInfoCtrlSet:GetChild('lvbox');
 	local levelObj = partyInfoCtrlSet:GetChild('lvbox');
 	local levelRichText = tolua.cast(levelObj, "ui::CRichText");
@@ -674,6 +682,7 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
 	local otherpcinfo = session.otherPC.GetByStrCID(cid);
 
 	local jobhistory = otherpcinfo.jobHistory;
+	local gender = otherpcinfo:GetIconInfo().gender;
 	local clslist, cnt  = GetClassList("Job");
 	
 	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
@@ -696,19 +705,19 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
 			end
 		end
 	end
-	
+
 	local startext = ("");
 	for jobid, grade in pairs(OTHERPCJOBS) do
-		-- Å¬·¡½º ÀÌ¸§{@st41}
+		-- í´ë˜ìŠ¤ ì´ë¦„{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
 
 		if cls.Name == nowjobcls.Name then
-			startext = startext .. ("{@st41_yellow}").. cls.Name;		
+			startext = startext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
 		else
-			startext = startext .. ("{@st41}").. cls.Name;				
+			startext = startext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
 		end
 		
-		-- Å¬·¡½º ·¹º§ (¡Ú·Î Ç¥½Ã)				
+		-- í´ë˜ìŠ¤ ë ˆë²¨ (â˜…ë¡œ í‘œì‹œ)				
 		for i = 1 , 3 do
 			if i <= grade then
 				startext = startext ..('{img star_in_arrow 20 20}');

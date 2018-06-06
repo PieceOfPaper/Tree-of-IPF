@@ -1,7 +1,7 @@
 -- gacha_cube.lua --
 
 function GACHA_CUBE_ON_INIT(addon, frame)
-
+	addon:RegisterMsg('CLOSE_GACHA_CUBE', 'CANCEL_GACHA_CUBE');
 end
 
 -- ť�� �̱� ��� ��� �κ�
@@ -18,7 +18,7 @@ end
 -- ��ư Ŭ�� (2, 3��° �̱�)
 function GACHA_CUBE_OK_BTN(frame, ctrl)
 	item.DoPremiumItemGachaCube();	-- 1��°�� �ٸ��� ������ null�� ���� ����
-	DISABLE_BUTTON_DOUBLECLICK("gacha_cube",ctrl:GetName())
+	DISABLE_BUTTON_DOUBLECLICK("gacha_cube",ctrl:GetName(), 2);
 end
 
 -- �̱� ���� ��, ��� UIâ �����Ͽ� ���� 

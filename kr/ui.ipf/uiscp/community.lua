@@ -112,7 +112,7 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			strScp = string.format("PARTY_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
 			ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
 
-			if AM_I_LEADER(PARTY_GUILD) == 1 then
+			if AM_I_LEADER(PARTY_GUILD) == 1 or IS_GUILD_AUTHORITY(1) then
 				strScp = string.format("GUILD_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
 				ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
 			end

@@ -196,7 +196,7 @@
                     <Obj Type="Monster" MonType="20053" Pos="575.54#2.64#182.46" angle="-80" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; " SimpleAI="HUEVILLAGE_58_4_MQ01_WALL01">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="47472" Pos="70.02#2.64#215.58" range="80" genCount="10" maxStackCount="5" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47472" Pos="70.02#2.64#215.58" range="80" genCount="10" maxStackCount="5" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -205,7 +205,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47480" Pos="198.68#2.64#120.72" range="80" genCount="15" maxStackCount="5" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47480" Pos="198.68#2.64#120.72" range="80" genCount="15" maxStackCount="5" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -214,7 +214,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47479" Pos="204.77#2.64#318.72" range="80" genCount="15" maxStackCount="5" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47479" Pos="204.77#2.64#318.72" range="80" genCount="15" maxStackCount="5" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -418,7 +418,7 @@
                             </ToolScp>
                         </enterScpList>
                     </Obj>
-                    <Obj Type="Monster" MonType="47465" Pos="869.49#33.63#235.86" range="200" genCount="5" maxStackCount="5" genTime="1" objectKey="11" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47465" Pos="869.49#33.63#235.86" range="200" genCount="5" maxStackCount="5" genTime="1" objectKey="11" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -427,7 +427,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47465" Pos="1243.11#81.59#587.98" range="300" genCount="15" maxStackCount="10" genTime="1" objectKey="12" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47465" Pos="1243.11#81.59#587.98" range="300" genCount="15" maxStackCount="10" genTime="1" objectKey="12" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -522,10 +522,10 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47465" Pos="1639.60#171.43#1115.16" angle="-34" range="110" genCount="20" maxStackCount="3" genTime="8000" objectKey="1" searchRange="200" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="47465" Pos="1798.65#170.11#1247.19" angle="-122" range="120" genCount="20" maxStackCount="3" genTime="8000" objectKey="2" searchRange="200" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="47472" Pos="1864.68#171.80#1033.81" angle="-121" range="140" genCount="25" maxStackCount="5" genTime="7000" objectKey="3" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="47472" Pos="1779.04#170.94#948.18" angle="133" range="160" genCount="25" maxStackCount="5" genTime="7000" objectKey="4" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47465" Pos="1639.60#171.43#1115.16" angle="-34" range="110" genCount="20" maxStackCount="3" genTime="8000" objectKey="1" searchRange="200" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47465" Pos="1798.65#170.11#1247.19" angle="-122" range="120" genCount="20" maxStackCount="3" genTime="8000" objectKey="2" searchRange="200" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47472" Pos="1864.68#171.80#1033.81" angle="-121" range="140" genCount="25" maxStackCount="5" genTime="7000" objectKey="3" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47472" Pos="1779.04#170.94#948.18" angle="133" range="160" genCount="25" maxStackCount="5" genTime="7000" objectKey="4" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="check" execWithStart="0" isEnabled="0">

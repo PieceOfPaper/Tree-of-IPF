@@ -7,7 +7,7 @@ function INPUT_NUMBER_BOX(cbframe, titleName, strscp, defNumber, minNumber, maxN
 	edit:SetNumberMode(1);
 	edit:SetMaxNumber(maxNumber);
 	edit:SetMinNumber(minNumber);
-
+	edit:AcquireFocus();
 end
 
 function INPUT_STRING_BOX_CB(fromFrame, titleName, strscp, defText, numarg, strarg, maxLen, isNumber)

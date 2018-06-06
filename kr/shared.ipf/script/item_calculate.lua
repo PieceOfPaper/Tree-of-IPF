@@ -70,6 +70,7 @@ function INIT_WEAPON_PROP(item, class)
     item.ADD_ICE = class.ADD_ICE;
     item.ADD_POISON = class.ADD_POISON;
     item.ADD_LIGHTNING = class.ADD_LIGHTNING;
+    item.ADD_SOUL = class.ADD_SOUL;
     item.ADD_EARTH = class.ADD_EARTH;
     item.ADD_HOLY = class.ADD_HOLY;
     item.ADD_DARK = class.ADD_DARK;
@@ -77,6 +78,7 @@ function INIT_WEAPON_PROP(item, class)
     item.RES_ICE = class.RES_ICE;
     item.RES_POISON = class.RES_POISON;
     item.RES_LIGHTNING = class.RES_LIGHTNING;
+    item.RES_SOUL = class.RES_SOUL;
     item.RES_EARTH = class.RES_EARTH;
     item.RES_HOLY = class.RES_HOLY;
     item.RES_DARK = class.RES_DARK;
@@ -152,6 +154,7 @@ function INIT_ARMOR_PROP(item, class)
     item.ADD_ICE = class.ADD_ICE;
     item.ADD_POISON = class.ADD_POISON;
     item.ADD_LIGHTNING = class.ADD_LIGHTNING;
+    item.ADD_SOUL = class.ADD_SOUL;
     item.ADD_EARTH = class.ADD_EARTH;
     item.ADD_HOLY = class.ADD_HOLY;
     item.ADD_DARK = class.ADD_DARK;
@@ -159,6 +162,7 @@ function INIT_ARMOR_PROP(item, class)
     item.RES_ICE = class.RES_ICE;
     item.RES_POISON = class.RES_POISON;
     item.RES_LIGHTNING = class.RES_LIGHTNING;
+    item.RES_SOUL = class.RES_SOUL;
     item.RES_EARTH = class.RES_EARTH;
     item.RES_HOLY = class.RES_HOLY;
     item.RES_DARK = class.RES_DARK;
@@ -536,50 +540,38 @@ function SCR_REFRESH_ACC(item)
 	local lv = item.ItemLv;
 	local star = item.ItemStar;
 
-	local def=0;
-	local hr =0;
-	local dr =0;
-	local mhr=0;
-	local mdef=0;
-	local fireAtk=0;
-	local iceAtk=0;
-	local lightningAtk=0;	
-	local defRatio = 0;
-	local mdefRatio = 0;
+
+	local PropName = {"DEF", "MDEF", "HR", "DR",  "MHR", "ADD_FIRE", "ADD_ICE", "ADD_LIGHTNING", "DefRatio", "MDefRatio"};
+	local changeProp = {};
     
     local basicProp = item.BasicTooltipProp;
     
     if basicProp == 'DEF' then
-        def =  math.floor((lv + 5) * 4 / 11.0) + GET_REINFORCE_ADD_VALUE(basicProp, item)
-
-		defRatio = math.floor(item.Reinforce_2 * 0.1);
+        changeProp["DEF"] =  math.floor((lv + 5) * 4 / 11.0) + GET_REINFORCE_ADD_VALUE(basicProp, item)
+		changeProp["DefRatio"] = math.floor(item.Reinforce_2 * 0.1);
     elseif basicProp == 'MDEF' then
-        mdef =  math.floor(((lv + 5) * 4 / 11.0) * 0.8) + GET_REINFORCE_ADD_VALUE(basicProp, item)
+		changeProp["MDEF"] = math.floor(((lv + 5) * 4 / 11.0) * 0.8) + GET_REINFORCE_ADD_VALUE(basicProp, item)
     elseif basicProp == 'HR' then
-        hr =  math.floor((4 + lv)/2 + GET_REINFORCE_ADD_VALUE(basicProp, item))
+		changeProp["HR"] =  math.floor((4 + lv)/2 + GET_REINFORCE_ADD_VALUE(basicProp, item))
     elseif basicProp == 'DR' then
-        dr =  math.floor((4 + lv)/2 + GET_REINFORCE_ADD_VALUE(basicProp, item))
+		changeProp["DR"] =  math.floor((4 + lv)/2 + GET_REINFORCE_ADD_VALUE(basicProp, item))
     elseif basicProp == 'MHR' then
-        mhr = math.floor((lv / 4) + GET_REINFORCE_ADD_VALUE(basicProp, item))
+		changeProp["MHR"] = math.floor((lv / 4) + GET_REINFORCE_ADD_VALUE(basicProp, item))
     elseif basicProp == 'ADD_FIRE' then
-        fireAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
+		changeProp["ADD_FIRE"] = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
     elseif basicProp == 'ADD_ICE' then
-        iceAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
+		changeProp["ADD_ICE"] = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
     elseif basicProp == 'ADD_LIGHTNING' then
-        lightningAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
+		changeProp["ADD_LIGHTNING"] = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
     end
 
-	item.HR = hr;
-	item.DR = dr;
-	item.DEF = def;
-	item.MHR = mhr;
-	item.MDEF = mdef;
-	item.ADD_FIRE = fireAtk;
-	item.ADD_ICE = iceAtk;
-	item.ADD_LIGHTNING = lightningAtk;
-	item.DefRatio = defRatio;
-	item.MDefRatio = mdefRatio;
-
+	for i = 1, #PropName do
+		if changeProp[PropName[i]] ~= nil then
+			if changeProp[PropName[i]] ~= 0 then
+				item[PropName[i]] = changeProp[PropName[i]];
+			end
+		end
+	end
 
 	local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(item);
 	for i = 1 , #propNames do
@@ -835,12 +827,20 @@ function SCR_OPT_RESICE(item, optvalue)
 	item.RES_ICE = item.RES_ICE + optvalue;
 end
 
-function SCR_OPT_ADDWIND(item, optvalue)
-	item.ADD_WIND = item.ADD_WIND + optvalue;
+function SCR_OPT_ADDLIGHTNING(item, optvalue)
+	item.ADD_LIGHTNING = item.ADD_LIGHTNING + optvalue;
 end
 
-function SCR_OPT_RESWIND(item, optvalue)
+function SCR_OPT_RESLIGHTNING(item, optvalue)
 	item.RES_LIGHTNING = item.RES_LIGHTNING + optvalue;
+end
+
+function SCR_OPT_ADDSOUL(item, optvalue)
+	item.ADD_SOUL = item.ADD_SOUL + optvalue;
+end
+
+function SCR_OPT_RESSOUL(item, optvalue)
+	item.RES_SOUL = item.RES_SOUL + optvalue;
 end
 
 function SCR_OPT_ADDEARTH(item, optvalue)
@@ -1411,12 +1411,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_DEF(item)
     
-    local star = item.ItemStar;
-    local grade = item.ItemGrade;
-    local value = 280;
-    
-    value = value * 0.1 * 0.4;
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(41, 110)
     
     if result < 1 then
         result = 1;
@@ -1427,12 +1422,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_DEFATTRIBUTE(item)
     
-    local star = item.ItemStar;
-    local grade = item.ItemGrade;
-    local value = 280;
-    
-    value = value * 0.1;
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(40, 84)
     
     if result < 1 then
         result = 1;
@@ -1443,13 +1433,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_ATK(item)
     
-    local star = item.ItemStar;
-    local grade = item.ItemGrade;
-    local value = 280;
-    
-    value = value * 0.15;
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(61, 126)
     
     if result < 1 then
         result = 1;
@@ -1460,13 +1444,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_CRTATK(item)
     
-    local star = item.ItemStar;
-    local grade = item.ItemGrade;
-    local value = 280;
-    
-    value = value * 0.225;
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(91, 189)
     
     if result < 1 then
         result = 1;
@@ -1477,11 +1455,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_ATTRIBUTEATK(item)
 
-    local value = 280;
-    
-    value = math.floor(value * 0.12);
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(46, 99)
     
     if result < 1 then
         result = 1;
@@ -1507,11 +1481,8 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_MHP(item)
     
-    local value = 280;
     
-    value = math.floor(value * 0.08 * 34);
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(1138, 2283)
     
     if result < 1 then
         result = 1;
@@ -1522,11 +1493,8 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_MSP(item)
     
-    local value = 280;
     
-    value = math.floor(value * 0.08 * 6.7);
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(223, 450)
     
     if result < 1 then
         result = 1;
@@ -1537,11 +1505,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_RHP(item)
     
-    local value = 280;
-    
-    value = math.floor(value * 0.2);
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(28, 56)
     
     if result < 1 then
         result = 1;
@@ -1552,11 +1516,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_RSP(item)
     
-    local value = 280;
-    
-    value = math.floor(value * 0.15);
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(21, 42)
     
     if result < 1 then
         result = 1;
@@ -1573,7 +1533,7 @@ function SCR_GET_MAXPROP_ENCHANT_SR(item)
     return 1;
 end
 function SCR_GET_MAXPROP_ENCHANT_SDR(item)
-    return 1;
+    return 4;
 end
 
 function IS_SAME_TYPE_GEM_IN_ITEM(invItem, gemType, sckCnt)

@@ -6101,6 +6101,29 @@
         <Key Name="CHUSEOK_MON_KILL_TIEM" Value="33982"/>
         <Key Name="CHUSEOK_CURRENTZONE" Value="33983"/>
         <Key Name="MG_Last_ID_REMAINS_MINI_02" Value="33987"/>
+        <Key Name="MG_Last_MISSION_NUNNERY_01" Value="34040"/>
+        <Key Name="WTREES_21_2_SQ_1" Value="34045"/>
+        <Key Name="WTREES_21_2_SQ_2" Value="34046"/>
+        <Key Name="WTREES_21_2_SQ_3" Value="34047"/>
+        <Key Name="WTREES_21_2_SQ_4" Value="34048"/>
+        <Key Name="WTREES_21_2_SQ_5" Value="34049"/>
+        <Key Name="WTREES_21_2_SQ_6" Value="34050"/>
+        <Key Name="WTREES_21_2_SQ_7" Value="34051"/>
+        <Key Name="WTREES_21_2_SQ_8" Value="34052"/>
+        <Key Name="WTREES_21_2_SQ_9" Value="34053"/>
+        <Key Name="WTREES_21_2_SQ_10" Value="34054"/>
+        <Key Name="WTREES_21_1_SQ_1" Value="34055"/>
+        <Key Name="WTREES_21_1_SQ_2" Value="34056"/>
+        <Key Name="WTREES_21_1_SQ_3" Value="34057"/>
+        <Key Name="WTREES_21_1_SQ_4" Value="34058"/>
+        <Key Name="WTREES_21_1_SQ_5" Value="34059"/>
+        <Key Name="WTREES_21_1_SQ_6" Value="34060"/>
+        <Key Name="WTREES_21_1_SQ_7" Value="34061"/>
+        <Key Name="WTREES_21_1_SQ_8" Value="34062"/>
+        <Key Name="WTREES_21_1_SQ_9" Value="34063"/>
+        <Key Name="WTREES_21_1_SQ_10" Value="34064"/>
+        <Key Name="WTREES_21_1_SQ_11" Value="34065"/>
+        <Key Name="EV_JOIN_GROUNDTOWER_1" Value="34153"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="FromMission" Value="3907"/>
@@ -12461,6 +12484,35 @@
         <Key Name="Reward_RavineLerva_cave" Value="34023"/>
         <Key Name="Reward_Sec_bubbe_chaser" Value="34024"/>
         <Key Name="Reward_Sec_banshee_purple" Value="34025"/>
+        <Key Name="HadVisited_4330" Value="34041"/>
+        <Key Name="NexonPCAddExpRate" Value="34042"/>
+        <Key Name="Kill_boss_Grimreaper_Q1" Value="34066"/>
+        <Key Name="WTREES_21_2_SQ_8_TRACK" Value="34067"/>
+        <Key Name="WTREES_21_1_SQ_6_TRACK" Value="34068"/>
+        <Key Name="WTREES_21_1_SQ_11_TRACK" Value="34069"/>
+        <Key Name="Hide_2272" Value="34070"/>
+        <Key Name="Hide_2278" Value="34071"/>
+        <Key Name="Kill_boss_Kerberos_Q2" Value="34072"/>
+        <Key Name="Hide_2266" Value="34073"/>
+        <Key Name="Hide_2267" Value="34074"/>
+        <Key Name="Hide_2268" Value="34075"/>
+        <Key Name="Hide_2270" Value="34076"/>
+        <Key Name="IndunMultipleState" Value="34077"/>
+        <Key Name="Hide_2271" Value="34078"/>
+        <Key Name="Hide_2273" Value="34079"/>
+        <Key Name="IndunMultipleZoneID" Value="34080"/>
+        <Key Name="Hide_2274" Value="34081"/>
+        <Key Name="Hide_2275" Value="34082"/>
+        <Key Name="Hide_2277" Value="34083"/>
+        <Key Name="Hide_2276" Value="34084"/>
+        <Key Name="WTREES_21_2_SQ_10_TRACK" Value="34085"/>
+        <Key Name="Hide_2269" Value="34086"/>
+        <Key Name="IndunMultipleRate" Value="34087"/>
+        <Key Name="IndunMultipleMGameName" Value="34088"/>
+        <Key Name="HairColor_orange" Value="34112"/>
+        <Key Name="CollectionRead_307" Value="34154"/>
+        <Key Name="IndunMultipleIndunType" Value="34155"/>
+        <Key Name="IndunMultipleRate_Reserve" Value="34156"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Account">
         <Key Name="MaxPVPGrade" Value="6299"/>
@@ -12572,6 +12624,8 @@
         <Key Name="GuildBattleWeeklyPlayReset" Value="34032"/>
         <Key Name="GuildBattleWeeklyPlayReward" Value="34033"/>
         <Key Name="Ghacha_Count" Value="34034"/>
+        <Key Name="GroundTower_Enter_EVT" Value="34043"/>
+        <Key Name="GroundTower_Enter_EVT_GetItem" Value="34044"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MonDmgRate" Value="6305"/>
@@ -12966,6 +13020,21 @@
         <Key Name="SkillFactorRate" Value="9944"/>
         <Key Name="AlwaysShowHP" Value="12558"/>
         <Key Name="AutoModeTarget" Value="12896"/>
+        <Key Name="Lightning_Res" Value="34089"/>
+        <Key Name="Fire_Res" Value="34090"/>
+        <Key Name="Earth_Res" Value="34091"/>
+        <Key Name="Holy_Res" Value="34092"/>
+        <Key Name="Dark_Res" Value="34093"/>
+        <Key Name="Soul_Res" Value="34094"/>
+        <Key Name="Slash_Res" Value="34095"/>
+        <Key Name="Aries_Res" Value="34096"/>
+        <Key Name="Strike_Res" Value="34097"/>
+        <Key Name="Magic_Res" Value="34098"/>
+        <Key Name="Arrow_Res" Value="34099"/>
+        <Key Name="Gun_Res" Value="34100"/>
+        <Key Name="Cannon_Res" Value="34101"/>
+        <Key Name="Ice_Res" Value="34102"/>
+        <Key Name="Poison_Res" Value="34103"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Skill">
         <Key Name="Level" Value="6689"/>
@@ -13607,6 +13676,14 @@
         <Key Name="Res_Wound_Debuff_BM" Value="13533"/>
         <Key Name="LastExp" Value="33965"/>
         <Key Name="MoveGuildAgitID" Value="34020"/>
+        <Key Name="SoulDefFactor_PC" Value="34104"/>
+        <Key Name="ResSoul_BM" Value="34105"/>
+        <Key Name="SoulDefFactor_PC_BM" Value="34106"/>
+        <Key Name="Soul_Atk" Value="34107"/>
+        <Key Name="SoulAtkFactor_PC_BM" Value="34108"/>
+        <Key Name="ResSoul" Value="34109"/>
+        <Key Name="SoulAtkFactor_PC" Value="34110"/>
+        <Key Name="Soul_Atk_BM" Value="34111"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PartyMember">
         <Key Name="Name" Value="7220"/>
@@ -13930,6 +14007,8 @@
         <Key Name="RES_SOUL" Value="34027"/>
         <Key Name="ADD_SOUL" Value="34028"/>
         <Key Name="Desc_Sub" Value="34029"/>
+        <Key Name="JobOnly" Value="34038"/>
+        <Key Name="RingGroup" Value="34039"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Guild">
         <Key Name="MaxCount" Value="7691"/>
@@ -14060,6 +14139,46 @@
         <Key Name="GuildBattleWeeklyJoinCnt" Value="34035"/>
         <Key Name="GuildBattleWeeklyJoinReward" Value="34036"/>
         <Key Name="LastGuildPVPRewardSeason" Value="34037"/>
+        <Key Name="GuildAuthority_36" Value="34113"/>
+        <Key Name="GuildAuthority_37" Value="34114"/>
+        <Key Name="GuildAuthority_38" Value="34115"/>
+        <Key Name="GuildAuthority_39" Value="34116"/>
+        <Key Name="GuildAuthority_40" Value="34117"/>
+        <Key Name="GuildAuthority_4" Value="34118"/>
+        <Key Name="GuildAuthority_5" Value="34119"/>
+        <Key Name="GuildAuthority_6" Value="34120"/>
+        <Key Name="GuildAuthority_7" Value="34121"/>
+        <Key Name="GuildAuthority_8" Value="34122"/>
+        <Key Name="GuildAuthority_9" Value="34123"/>
+        <Key Name="GuildAuthority_10" Value="34124"/>
+        <Key Name="GuildAuthority_11" Value="34125"/>
+        <Key Name="GuildAuthority_1" Value="34126"/>
+        <Key Name="GuildAuthority_12" Value="34127"/>
+        <Key Name="GuildAuthority_2" Value="34128"/>
+        <Key Name="GuildAuthority_13" Value="34129"/>
+        <Key Name="GuildAuthority_3" Value="34130"/>
+        <Key Name="GuildAuthority_14" Value="34131"/>
+        <Key Name="GuildAuthority_15" Value="34132"/>
+        <Key Name="GuildAuthority_16" Value="34133"/>
+        <Key Name="GuildAuthority_17" Value="34134"/>
+        <Key Name="GuildAuthority_18" Value="34135"/>
+        <Key Name="GuildAuthority_19" Value="34136"/>
+        <Key Name="GuildAuthority_20" Value="34137"/>
+        <Key Name="GuildAuthority_21" Value="34138"/>
+        <Key Name="GuildAuthority_22" Value="34139"/>
+        <Key Name="GuildAuthority_23" Value="34140"/>
+        <Key Name="GuildAuthority_24" Value="34141"/>
+        <Key Name="GuildAuthority_25" Value="34142"/>
+        <Key Name="GuildAuthority_26" Value="34143"/>
+        <Key Name="GuildAuthority_27" Value="34144"/>
+        <Key Name="GuildAuthority_28" Value="34145"/>
+        <Key Name="GuildAuthority_29" Value="34146"/>
+        <Key Name="GuildAuthority_30" Value="34147"/>
+        <Key Name="GuildAuthority_34" Value="34148"/>
+        <Key Name="GuildAuthority_35" Value="34149"/>
+        <Key Name="GuildAuthority_31" Value="34150"/>
+        <Key Name="GuildAuthority_32" Value="34151"/>
+        <Key Name="GuildAuthority_33" Value="34152"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>

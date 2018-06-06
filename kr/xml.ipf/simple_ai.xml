@@ -8108,6 +8108,16 @@ if self.HP == 0 then return 1; else return 0; end;">
             <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
         </List>
     </AI>
+    <AI Name="MISSION_NUNNERY_01_AI1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-63.412392" Y="0.66627055" Z="-311.53839" Random="60" Height="1"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="MISSION_UPHILL_DEFFENSE_L1" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">

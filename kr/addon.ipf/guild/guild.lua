@@ -11,6 +11,9 @@ function GUILD_ON_INIT(addon, frame)
 	addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
 	addon:RegisterMsg("GUILD_EVENT_UPDATE", "ON_GUILD_INFO_UPDATE");
 	addon:RegisterMsg("UPDATE_GUILD_ONE_SAY", "ON_GUILD_ONE_SAY");
+	
+	AUTHORITY_GUILD_INVITE = 1
+	AUTHORITY_GUILD_BAN = 2
 end
 
 function ON_GUILD_ONE_SAY(frame, msg, argStr, argNum)
@@ -179,8 +182,11 @@ function ON_MYPC_GUILD_JOIN(frame)
 end
 
 function GUILD_TAB_CHANGE(parent, ctrl)
-
-
+	local curtabIndex	    = ctrl:GetSelectItemIndex();
+	if curtabIndex ~= 0 then
+		local guild_authority_popup = ui.GetFrame("guild_authority_popup");	
+		guild_authority_popup:ShowWindow(0);
+	end
 end
 
 function ON_GUILD_INFO_UPDATE(frame, msg)
@@ -192,6 +198,11 @@ end
 function ON_GUILD_PROPERTY_UPDATE(frame, msg)
 	UPDATE_GUILDINFO(frame);
 
+end
+
+function GUILD_UI_CLOSE(frame)
+	local guild_authority_popup = ui.GetFrame("guild_authority_popup");	
+	guild_authority_popup:ShowWindow(0);
 end
 
 function GUILD_GAME_START_3SEC(frame)
@@ -306,7 +317,6 @@ function GUILD_UPDATE_SKL_OBJ_INFO(frame, guildObj)
 end
 
 function UPDATE_GUILDINFO(frame)
-
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcparty == nil then
 		frame:ShowWindow(0);
@@ -389,10 +399,23 @@ function UPDATE_GUILDINFO(frame)
 
 			txt_location:SetTextByKey("value", locationText);
 			txt_location:SetTextTooltip(locationText);
-
 			SET_EVENT_SCRIPT_RECURSIVELY(ctrlSet, ui.RBUTTONDOWN, "POPUP_GUILD_MEMBER");
 		end
 	end		
+
+	gbox_list:SetEventScript(ui.SCROLL, 'SET_AUTHO_MEMBERS_SCROLL');
+	
+	local guild_authority_popup = ui.GetFrame("guild_authority_popup");	
+	if guild_authority_popup:IsVisible() == 1 then
+		local authority_count = guild_authority_popup:GetUserIValue("AUTHO_S_ROW");	
+		local maxCount = count;
+		if showOnlyConnected == 1 then
+			maxCount = connectionCount;
+		end
+		if authority_count ~= maxCount then
+			guild_authority_popup:ShowWindow(0);
+		end
+	end
 
 	GBOX_AUTO_ALIGN(gbox_list, 0, 0, 0, true, false);
 
@@ -562,7 +585,6 @@ function UPDATE_REMAIN_GUILD_ENEMY_TIME(frame)
 end
 
 function POPUP_GUILD_MEMBER(parent, ctrl)
-
 	local aid = parent:GetUserValue("AID");
 	if aid == "None" then
 		aid = ctrl:GetUserValue("AID");
@@ -576,9 +598,17 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 
 	local contextMenuCtrlName = string.format("{@st41}%s{/}", name);
 	local context = ui.CreateContextMenu("PC_CONTEXT_MENU", name, 0, 0, 170, 100);
+	
 	if isLeader == 1 and aid ~= myAid then
 		ui.AddContextMenuItem(context, ScpArgMsg("ChangeDuty"), string.format("GUILD_CHANGE_DUTY('%s')", name));
+	end
+
+	if (isLeader == 1 or IS_GUILD_AUTHORITY(2) == 1) and aid ~= myAid then
 		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", aid));
+	end
+
+	
+	if isLeader == 1 and aid ~= myAid then
 		local mapName = session.GetMapName();
 		if mapName == 'guild_agit_1' then
 			ui.AddContextMenuItem(context, ScpArgMsg("GiveGuildLeaderPermission"), string.format("SEND_REQ_GUILD_MASTER('%s')", name));
@@ -619,7 +649,8 @@ function GUILD_CHANGE_DUTY(name)
 	local grade = memberInfo.grade;
 	local dutyName = pcparty:GetDutyName(grade);
 
-	local inputFrame = INPUT_STRING_BOX("", "EXEC_GUILD_CHANGE_DUTY", dutyName);
+	local inputFrame = INPUT_STRING_BOX("", "EXEC_GUILD_CHANGE_DUTY", dutyName, nil, 9); -- 받침쓰여지지 않는 문제
+	inputFrame:SetUserValue("InputType", "InputNameForChange");
 	inputFrame:SetUserValue("NAME", name);
 	
 end
@@ -723,6 +754,8 @@ function GUILD_SHOW_ONLY_CONNECTED(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	UPDATE_GUILDINFO(frame);
 
+	local guild_authority_popup = ui.GetFrame("guild_authority_popup");	
+	guild_authority_popup:ShowWindow(0);
 end
 
 function CHANGE_AGIT_ENTER_OPTION(parnet, ctrl)

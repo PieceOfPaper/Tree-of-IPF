@@ -7,6 +7,7 @@
 	<input maxwidth="1280" moveable="false"/>
 	<layer layerlevel="80"/>
 	<option closebutton="false"/>
+	<script CloseScp="GUILD_UI_CLOSE"/>
 	<sound opensound="inven_win_open" closesound="inven_win_close"/>
 	<opencheck scp="UI_CHECK_GUILD_UI_OPEN"/>
 	<userconfig NOT_HAVE_COLOR="BB000000" BLANK_ITEM_COLOR="FF000000" ITEM_EXIST_COLOR="FF333300" TITLE_FONT="{@st43b}" TITLE_COUNT_FONT="{@sti7}" DETAIL_ITEM_FONT="{@st45tw2}" DISABLE_EFFECT_FONT="{@st45tw2}" ENABLE_EFFECT_FONT="{@st45tw2}" ENABLE_SKIN="help_bg" DISABLE_SKIN="bg2" SOUND_COLLECTION="statsup"/>

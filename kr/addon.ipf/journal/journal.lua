@@ -560,7 +560,9 @@ function JOURNAL_UPDATE_RANK_INFO(frame, msg)
 	name:SetTextByKey("family", teamName);
 
 	local job = info.GetJob(session.GetMyHandle());
-	local jName = GetClassString('Job', job, 'Name');
+	local gender = info.GetGender(session.GetMyHandle());
+	local jobCls = GetClassByType(job);
+	local jName = GET_JOB_NAME(jobCls, gender);
 	local nowMyJobName = GET_CHILD_RECURSIVELY(frame, "nowMyJobName", "ui::CRichText");
 	nowMyJobName:SetTextByKey("job", jName);	
 

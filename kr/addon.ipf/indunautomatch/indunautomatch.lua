@@ -1,4 +1,9 @@
+-- indunautomatch.lua
 
+
+function INDUNAUTOMATCH_ON_INIT(addon, frame)
+
+end
 
 function INDUN_AUTOMATCH_TYPE(indunType)
 

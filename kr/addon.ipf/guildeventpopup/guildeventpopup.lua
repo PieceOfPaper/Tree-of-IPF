@@ -314,7 +314,7 @@ function GUILDEVENTPOPUP_SET_UICONTROLSET(partyObj, propName, MEMBER_FACE_COLORT
 			local jobCls  = GetClassByType("Job", iconinfo.job);
 			if nil ~= jobCls then						
 				jobIcon:SetImage(jobCls.Icon);
-				jobIcon:SetTextTooltip(jobCls.Name);
+				jobIcon:SetTextTooltip(GET_JOB_NAME(jobCls, iconinfo.gender));
 			end											
 			jobIcon:SetColorTone(MEMBER_FACE_COLORTONE)
 			local nameText = string.format("%s%s", MEMBER_NAME_FONT_TAG, partyMemberName);

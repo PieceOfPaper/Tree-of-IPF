@@ -876,7 +876,7 @@ function WORLDPVP_OBSERVER_GET_TEAM_STR(teamName, jobID)
 		return teamName;
 	end
 
-	return string.format("%s (%s)", teamName, jobCls.Name);
+	return string.format("%s (%s)", teamName, GET_JOB_NAME(jobCls));
 end
 
 function WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox, teamVec, teamID)

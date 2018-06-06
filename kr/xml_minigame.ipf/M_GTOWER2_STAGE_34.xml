@@ -475,7 +475,7 @@
                     <Event execCount="1" eventName="Next">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
+                                <Num Num="60"/>
                             </ToolScp>
                         </condList>
                         <execList>

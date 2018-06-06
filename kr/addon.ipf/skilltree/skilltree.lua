@@ -88,10 +88,11 @@ function MAKE_CLASS_INFO_LIST(frame)
 
 
 	local nowjob = info.GetJob(session.GetMyHandle());
-	local nowjName = GetClassString('Job', nowjob, 'Name');
+	local nowjCls = GetClassByType('Job', nowjob);
+	local nowGender = info.GetGender(session.GetMyHandle());
 
 	local nowjNameRtxt = GET_CHILD_RECURSIVELY(frame, 'nowJobName', 'ui::CRichText')
-	local nowjNametext = nowjName;
+	local nowjNametext = GET_JOB_NAME(nowjCls, nowGender);
 	nowjNameRtxt:SetText('{@st41}{s20}'..nowjNametext)
 
 	local grid = GET_CHILD_RECURSIVELY(frame, 'skill', 'ui::CGrid')
@@ -101,6 +102,7 @@ function MAKE_CLASS_INFO_LIST(frame)
 	local cid = frame:GetUserValue("TARGET_CID");
 	local pcSession = session.GetSessionByCID(cid);
 	local pcJobInfo = pcSession.pcJobInfo;
+	local gender = pcSession:GetPCApc():GetGender();
 
 	local lastclassCtrlcount = 0
 	local cnt = pcJobInfo:GetJobCount();
@@ -162,7 +164,7 @@ function MAKE_CLASS_INFO_LIST(frame)
 
 		-- 클래스 이름
 		local nameCtrl = GET_CHILD(classCtrl, "name", "ui::CRichText");
-		nameCtrl:SetText("{@st41}".. cls.Name);
+		nameCtrl:SetText("{@st41}".. GET_JOB_NAME(cls, gender));
 
 		-- 클래스 레벨 (★로 표시)
 		local levelCtrl = GET_CHILD(classCtrl, "level", "ui::CRichText");
@@ -200,7 +202,7 @@ end
 
 -- 클래스렙 업글 or 배우기
 function CLASS_PTS_UP(frame, control, clsID, level)
-
+	-- gender 밖에서 받아와야함.
 	local clslist, cnt  = GetClassList("Job");
 	local cls = GetClassByTypeFromList(clslist, clsID);
 	if cls == nil then
@@ -214,9 +216,9 @@ function CLASS_PTS_UP(frame, control, clsID, level)
 	local yesScp = string.format("SCR_CHANGE_JOB(%d)", clsID);
 	local txt = "";
 	if level > 0 then
-		txt = cls.Name.. ScpArgMsg("Auto__KeulLaeSeuLeul_LeBeleopHaSiKessSeupNiKka?");
+		txt = GET_JOB_NAME(cls) .. ScpArgMsg("Auto__KeulLaeSeuLeul_LeBeleopHaSiKessSeupNiKka?");
 	else
-		txt = cls.Name .. ScpArgMsg("Auto__KeulLaeSeuLeul_BaeuSiKessSeupNiKka?");
+		txt = GET_JOB_NAME(cls) .. ScpArgMsg("Auto__KeulLaeSeuLeul_BaeuSiKessSeupNiKka?");
 	end
 	ui.MsgBox(txt, yesScp, "None");
 
@@ -1051,6 +1053,7 @@ function UPDATE_LEARING_ABIL_INFO(frame)
 
 	local cid = frame:GetUserValue("TARGET_CID");
 	local pc = GetPCObjectByCID(cid);
+	local gender = TryGetProp(pc, "Gender");
 	for i = 0, RUN_ABIL_MAX_COUNT do
 		local prop = "None";
 		if 0 == i then
@@ -1082,7 +1085,7 @@ function UPDATE_LEARING_ABIL_INFO(frame)
 					if clslist ~= nil then
 						local foundabilcls = GetClassByNameFromList(clslist, abilClass.ClassName);
 						if foundabilcls ~= nil then
-							ctr:SetTextByKey('clsName',cls.Name)
+							ctr:SetTextByKey('clsName', GET_JOB_NAME(cls, gender))
 						end
 					end
 				end

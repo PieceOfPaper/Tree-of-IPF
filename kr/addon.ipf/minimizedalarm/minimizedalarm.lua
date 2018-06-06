@@ -114,6 +114,7 @@ function OPEN_GUILDBATTLE_RANKING_TAB()
 	local worldpvp =  ui.GetFrame("worldpvp");
 	worldpvp:ShowWindow(0);
 
+	worldPVP.RequestPVPInfo();
 	local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");
 	GUILDBATTLE_RANKING_TAB_CHANGE(guildbattle_ranking);
 end

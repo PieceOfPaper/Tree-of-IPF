@@ -46,7 +46,6 @@ function GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "RSP";
     list[#list+1] = "SR";
     list[#list+1] = "SDR";
-    list[#list+1] = "BlockRate";
     list[#list+1] = "BLK";
     list[#list+1] = "BLK_BREAK";
     list[#list+1] = "ADD_FORESTER";
@@ -120,7 +119,6 @@ function GET_ATK_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "RSP";
     list[#list+1] = "BlockRate";
     list[#list+1] = "BLK";
-    list[#list+1] = "BLK_BREAK";
     list[#list+1] = "ADD_FORESTER";
     list[#list+1] = "ADD_WIDLING";
     list[#list+1] = "ADD_VELIAS";
@@ -195,7 +193,6 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "RSP";
     list[#list+1] = "SR";
     list[#list+1] = "SDR";
-    list[#list+1] = "BlockRate";
     list[#list+1] = "BLK";
     list[#list+1] = "BLK_BREAK";
     list[#list+1] = "ADD_FORESTER";
@@ -273,7 +270,6 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "MSPD";
     list[#list+1] = "RHP";
     list[#list+1] = "RSP";
-    list[#list+1] = "BlockRate";
     list[#list+1] = "BLK";
     list[#list+1] = "BLK_BREAK";
     list[#list+1] = "ADD_FORESTER";

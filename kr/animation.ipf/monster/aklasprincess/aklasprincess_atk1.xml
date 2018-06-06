@@ -1,19 +1,4 @@
-<?xml version="1.0" encoding="EUC-KR"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<?xml version="1.0" encoding="UTF-8"?>
 <ActionDesc>
-	<Shockwave frame="58" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="60" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="57" R="150" G="150" B="100" A="100"/>
-	<BlendOn frame="60" R="150" G="80" B="110" A="100"/>
-	<BlendOff frame="62" R="0" G="0" B="0" A="0"/>
-	<Particle frame="0" attachNode="Dummy_deadbody" particleName="F_light110_pink_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="58" attachNode="Dummy_deadbody" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="58" attachNode="Dummy_deadbody" particleName="F_spread_out032_pink" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="58" attachNode="Dummy_deadbody" particleName="F_spread_out004_dark2" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="68" attachNode="Dummy_deadbody" particleName="F_spread_out004_dark2" useAttach="false" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="78" attachNode="Dummy_deadbody" particleName="F_spread_out004_dark2" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="58" attachNode="Dummy_deadbody" particleName="I_smoke032_spread_out" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="58" attachNode="Dummy_deadbody" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="58" attachNode="Dummy_deadbody" particleName="F_spread_out029_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+    <Sound frame="0.00" soundFile="mon_aklasprincess_atk"/>
 </ActionDesc>

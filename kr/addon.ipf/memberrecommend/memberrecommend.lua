@@ -18,7 +18,13 @@ end
 function SHOW_MEMBER_RECOMMEND(cid, recommendType)
 
 	--팝업프레임 세팅
+	local frame = ui.GetFrame("memberrecommend");
 	local popupframe = ui.GetFrame("memberrecommend_popup");
+	
+	if (frame:IsVisible() == 1) and (recommendType ~= 0) then	
+		return
+	end
+
 	if popupframe:IsVisible() == 1 then
 		return
 	end
@@ -53,10 +59,9 @@ function SHOW_MEMBER_RECOMMEND(cid, recommendType)
 
 	local jobhistory = otherpcinfo.jobHistory;
 	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
-	local clslist, cnt  = GetClassList("Job");
-	local nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
 	local jobRank		= nowjobinfo.grade
-	local jobName		= nowjobcls.Name
+	local jobCls		= GetClassByType("Job", nowjobinfo.jobID);
+	local jobName		= GET_JOB_NAME(jobCls, otherpcinfo:GetAppearance():GetGender());
 	local jobtext = GET_CHILD_RECURSIVELY(popupframe,"job")
 	jobtext:SetTextByKey("jobname",jobName);
 	jobtext:SetTextByKey("jobrank",jobRank);
@@ -64,10 +69,6 @@ function SHOW_MEMBER_RECOMMEND(cid, recommendType)
 	popupframe:SetUserValue("RECOMMEND_TYPE",recommendType);
 	popupframe:SetUserValue("RECOMMEND_FNAME", fname);
 	
-
-
-	local frame = ui.GetFrame("memberrecommend");
-
 	local description = GET_CHILD_RECURSIVELY(frame,"description")
 
 	if recommendType ~= 0 then

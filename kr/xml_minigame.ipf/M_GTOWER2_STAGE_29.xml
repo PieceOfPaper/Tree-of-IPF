@@ -633,7 +633,7 @@
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
-                                    <Str_Arg Str="I_smoke037_yellow2" Arg="5"/>
+                                    <Str_Arg Str="I_smoke037_yellow2" Arg="3.5"/>
                                     <Str Str="MID"/>
                                 </ToolScp>
                             </StartList>
@@ -656,7 +656,7 @@
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
-                                    <Str_Arg Str="I_smoke037_yellow2" Arg="5"/>
+                                    <Str_Arg Str="I_smoke037_yellow2" Arg="3.5"/>
                                     <Str Str="MID"/>
                                 </ToolScp>
                             </StartList>
@@ -679,7 +679,7 @@
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
-                                    <Str_Arg Str="I_smoke037_yellow2" Arg="5"/>
+                                    <Str_Arg Str="I_smoke037_yellow2" Arg="3.5"/>
                                     <Str Str="MID"/>
                                 </ToolScp>
                             </StartList>
@@ -702,7 +702,7 @@
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
-                                    <Str_Arg Str="I_smoke037_yellow2" Arg="5"/>
+                                    <Str_Arg Str="I_smoke037_yellow2" Arg="3.5"/>
                                     <Str Str="MID"/>
                                 </ToolScp>
                             </StartList>
@@ -725,7 +725,7 @@
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
-                                    <Str_Arg Str="I_smoke037_yellow2" Arg="5"/>
+                                    <Str_Arg Str="I_smoke037_yellow2" Arg="3.5"/>
                                     <Str Str="MID"/>
                                 </ToolScp>
                             </StartList>
@@ -748,7 +748,7 @@
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
-                                    <Str_Arg Str="I_smoke037_yellow2" Arg="5"/>
+                                    <Str_Arg Str="I_smoke037_yellow2" Arg="3.5"/>
                                     <Str Str="MID"/>
                                 </ToolScp>
                             </StartList>
@@ -771,7 +771,7 @@
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
-                                    <Str_Arg Str="I_smoke037_yellow2" Arg="5"/>
+                                    <Str_Arg Str="I_smoke037_yellow2" Arg="3.5"/>
                                     <Str Str="MID"/>
                                 </ToolScp>
                             </StartList>
@@ -794,7 +794,7 @@
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
-                                    <Str_Arg Str="I_smoke037_yellow2" Arg="5"/>
+                                    <Str_Arg Str="I_smoke037_yellow2" Arg="3.5"/>
                                     <Str Str="MID"/>
                                 </ToolScp>
                             </StartList>
@@ -817,7 +817,7 @@
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
-                                    <Str_Arg Str="I_smoke037_yellow2" Arg="5"/>
+                                    <Str_Arg Str="I_smoke037_yellow2" Arg="3.5"/>
                                     <Str Str="MID"/>
                                 </ToolScp>
                             </StartList>
@@ -840,7 +840,7 @@
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
-                                    <Str_Arg Str="I_smoke037_yellow2" Arg="5"/>
+                                    <Str_Arg Str="I_smoke037_yellow2" Arg="3.5"/>
                                     <Str Str="MID"/>
                                 </ToolScp>
                             </StartList>
@@ -1002,7 +1002,7 @@
                     <Event execMS="5000" execCount="6" eventName="MINUS">
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="SETTING/0"/>
+                                <MGameObj List="SETTING/1"/>
                                 <Str Str="GT_STAGE_29_POINT_MINUS"/>
                             </ToolScp>
                         </execList>

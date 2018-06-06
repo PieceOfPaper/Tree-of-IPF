@@ -42,14 +42,17 @@ function ENABLE_BUTTON_DOUBLECLICK_WITH_CHILD(framename,childname,buttonname)
 
 end
 
-function DISABLE_BUTTON_DOUBLECLICK(framename,buttonname)
-
+function DISABLE_BUTTON_DOUBLECLICK(framename,buttonname, sec)
+	local delay = 5;
+	if sec ~= nil then
+		delay = sec;
+	end
 	local frame = ui.GetFrame(framename)
 	local btn = GET_CHILD_RECURSIVELY(frame,buttonname)
 
 	local strScp = string.format("ENABLE_BUTTON_DOUBLECLICK(\"%s\", \"%s\")", framename, buttonname);
 
-	ReserveScript(strScp, 5);
+	ReserveScript(strScp, delay);
 	btn:SetEnable(0)
 end
 

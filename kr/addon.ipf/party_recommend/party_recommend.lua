@@ -106,8 +106,10 @@ function SHOW_PARTY_RECOMMEND(recommendType)
 
 			otherinfoTxt:SetTextByKey('level',eachpartymember:GetLevel())
 
-			local jobcls = GetClassByType("Job", eachpartymember:GetIconInfo().job);
-			otherinfoTxt:SetTextByKey('job',jobcls.Name)
+			local jobType = eachpartymember:GetIconInfo().job;
+			local jobCls = GetClassByType(jobType);
+			local gender = eachpartymember:GetIconInfo().gender;
+			otherinfoTxt:SetTextByKey('job', GET_JOB_NAME(jobCls, gender))
 			otherinfoTxt:ShowWindow(1)
 			nameTxt:SetColorTone("FFFFFFFF")
 		else
@@ -122,6 +124,7 @@ function SHOW_PARTY_RECOMMEND(recommendType)
 
 	popupframe:SetUserValue("RECOMMEND_TYPE",recommendType);
 	popupframe:SetUserValue("RECOMMEND_LEADER_FNAME", partyInfo.info.leaderName);
+	popupframe:SetUserValue("RECOMMEND_LEADER_AID", partyInfo.info:GetLeaderAID());
 	popupframe:SetUserValue("IS_ACK", "false");
 	
 

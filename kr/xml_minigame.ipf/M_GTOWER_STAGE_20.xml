@@ -158,7 +158,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="OUT"/>
+                                <Str Str="CHECK"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE_1_PROG"/>
@@ -181,8 +181,8 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="CNT"/>
                             </ToolScp>
-                            <ToolScp Scp="REWARD_EARTH_TOWER" Client="NO" UseSleep="NO">
-                                <Str Str="GT_SELECT_STAGE_20"/>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="GT_STAGE20_TOLL_GIVE_CK"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -818,7 +818,20 @@
                         <Str Str="Success"/>
                     </ToolScp>
                 </StartScpList>
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="40001" Pos="-4871.91#268.91#4303.40" angle="91" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;대지의 탑 : 솔미키 구간&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_SECOND&apos; &apos;Range&apos; &apos;50&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Str Str="g_tower_door"/>
+                                    <Str Str="GT_GATE_OPEN_ANIM"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57272" Pos="-5229.09#268.91#-4146.50" angle="90" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;BTree&apos; &apos;None&apos; "/>
+                </ObjList>
             </Stage>
             <Stage Name="OUT" AutoStart="0">
                 <StartScpList>
@@ -847,6 +860,13 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                <Event execCount="1" eventName="Reward">
+                        <execList>
+                            <ToolScp Scp="REWARD_EARTH_TOWER" Client="NO" UseSleep="NO">
+                                <Str Str="GT_SELECT_STAGE_20"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

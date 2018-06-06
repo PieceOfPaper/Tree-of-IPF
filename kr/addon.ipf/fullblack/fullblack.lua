@@ -8,13 +8,7 @@ function FULLBLACK_FIRST_OPEN(frame)
 end
 
 function FULLBLACK_RESIZE(frame)
-	local width, height = FRAME_FULLSCREEN(frame);
-
+	DIRECTORMODE_SIZE_UPDATE(frame);
 	local picture = frame:GetChild('screenmask');
-	if picture ~= nil then
-		picture:Resize(width, height);
-	end
-	
-	frame:Invalidate();
+	DIRECTORMODE_SIZE_UPDATE(picture);
 end
-

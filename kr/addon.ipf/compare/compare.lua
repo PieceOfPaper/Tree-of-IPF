@@ -27,10 +27,16 @@ end
 function REQUEST_LIKE_STATE(familyName)
 	local otherpcinfo = session.otherPC.GetByFamilyName(familyName);
 	
+	local frame = ui.GetFrame("compare");
+	local likeCheck = GET_CHILD_RECURSIVELY(frame,"likeCheck")
 	if session.likeit.AmILikeYou(familyName) == false then
-		geClientInteraction.RequestLikeIt(otherpcinfo:GetAID(), otherpcinfo:GetCID())
+		if false == geClientInteraction.RequestLikeIt(otherpcinfo:GetAID(), otherpcinfo:GetCID()) then
+			likeCheck:ToggleCheck();
+		end
 	else
-		geClientInteraction.RequestUnlikeIt(otherpcinfo:GetAID(), otherpcinfo:GetCID())
+		if false == geClientInteraction.RequestUnlikeIt(otherpcinfo:GetAID(), otherpcinfo:GetCID()) then
+			likeCheck:ToggleCheck();
+		end
 	end
 end
 
@@ -68,6 +74,7 @@ function SHOW_PC_COMPARE(cid)
 
 	local charName		= otherpcinfo:GetAppearance():GetName()
 	local teamName		= otherpcinfo:GetAppearance():GetFamilyName()
+	local gender		= otherpcinfo:GetAppearance():GetGender()
 
 	local infoGbox = frame:GetChild("groupbox_1");
 
@@ -99,7 +106,7 @@ function SHOW_PC_COMPARE(cid)
 	local nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
 
 	local jobRank		= nowjobinfo.grade
-	local jobName		= nowjobcls.Name
+	local jobName		= GET_JOB_NAME(nowjobcls, gender);
 	local level			= obj.Lv
 
 	jobInfoRTxt:SetTextByKey("rank",jobRank);

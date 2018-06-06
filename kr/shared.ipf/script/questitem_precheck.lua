@@ -3512,6 +3512,115 @@ end
 
 
 
+--WTREES_21_2_SQ_1_ITEM
+function SCR_PRE_WTREES_21_2_SQ_1_ITEM(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+	    if GetZoneName(self) == 'f_whitetrees_21_2' then
+            local result1 = SCR_QUEST_CHECK(self, 'WTREES_21_2_SQ_1')
+            if result1 == 'PROGRESS' then
+                return 1;
+            end
+        end
+    end
+    return 0;
+end
+
+
+
+--WTREES_21_2_SQ_3_ITEM
+function SCR_PRE_WTREES_21_2_SQ_3_ITEM(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+	    if GetZoneName(self) == 'f_whitetrees_21_2' then
+            local result1 = SCR_QUEST_CHECK(self, 'WTREES_21_2_SQ_3')
+            if result1 == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 50, 'ALL', 1)
+                if cnt >= 1 then
+                    local _hidelist = { 'WTREES_21_2_OBJ_2_1', 'WTREES_21_2_OBJ_2_2', 'WTREES_21_2_OBJ_2_3' }
+                    for i = 1, cnt do
+                        for j = 1, 3 do
+--                            if IsServerSection(self) == 1 then
+--                                if list[i].Dialog == 'WTREES_21_2_OBJ_2_1_DUMMY'
+--                                or list[i].Dialog == 'WTREES_21_2_OBJ_2_2_DUMMY'
+--                                or list[i].Dialog == 'WTREES_21_2_OBJ_2_3_DUMMY' then
+--                                    return GetHandle(list[i]);
+--                                end
+--                            else
+--                                if GetDialogByObject(list[i]) == 'WTREES_21_2_OBJ_2_1_DUMMY'
+--                                or GetDialogByObject(list[i]) == 'WTREES_21_2_OBJ_2_2_DUMMY'
+--                                or GetDialogByObject(list[i]) == 'WTREES_21_2_OBJ_2_3_DUMMY' then
+--                                    return 1;
+--                                end
+--                            end
+                            
+                            if IsServerSection(self) == 1 then
+                                if list[i].Dialog == _hidelist[j]..'_DUMMY' then
+                                    if isHideNPC(self, _hidelist[j]) == 'YES' then
+                                        return GetHandle(list[i]);
+                                    end
+                                end
+                            else
+                                if GetDialogByObject(list[i]) == _hidelist[j]..'_DUMMY' then
+                                    if isHideNPC(self, _hidelist[j]) == 'YES' then
+                                        return 1;
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+
+
+--WTREES_21_2_SQ_6_ITEM_1
+function SCR_PRE_WTREES_21_2_SQ_6_ITEM_1(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+	    if GetZoneName(self) == 'f_whitetrees_21_2' then
+            local result1 = SCR_QUEST_CHECK(self, 'WTREES_21_2_SQ_7')
+            if result1 == 'PROGRESS' then
+    	        local list, cnt = SelectObject(self, 100, 'ENEMY')
+    	        if cnt >= 1 then
+        	        for i = 1, cnt do
+        	            if list[i].ClassName == 'kucarry_symbani'
+        	            or list[i].ClassName == 'kucarry_balzer'
+        	            or list[i].ClassName == 'kucarry_Zeffi' then
+            	            if IsServerSection(self) == 1 then
+                                local buff1 = GetBuffByName(list[i], 'WTREES_21_2_SQ_7_BUFF')
+                                if buff1 == nil then
+                	                return GetHandle(list[i]);
+                	            end
+            	            else
+            	                return 1;
+                	        end
+            	        end
+        	        end
+        	    end
+        	    
+                if IsServerSection(self) == 1 then
+                    SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("WTREES_21_2_SQ_6_ITEM_1_MSG2"), 5);
+        	    end
+            end
+        end
+    end
+    return 0;
+end
+
+
+
+--WTREES_21_1_SQ_1_ITEM
+function SCR_PRE_WTREES_21_1_SQ_1_ITEM(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == 'f_whitetrees_21_1' then
+        return 1;
+    end
+    return 0;
+end
+
+
+
 
 
 
