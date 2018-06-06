@@ -1664,13 +1664,6 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         if invItem == nil or invItem.isLockState == true then
             ui.MsgBox_NonNested(ClMsg('AdmissionItemLockMsg'), 0x00000000);
             return false;
-        end        
-    else
-        local indunPlayCount = TryGetProp(indunCls, "PlayPerReset");
-        indunPlayCount = indunPlayCount + isTokenState;
-        if nowCount >= indunPlayCount then
-            ui.MsgBox_NonNested(ClMsg('NotEnoughIndunEnterCount'), 0x00000000);
-            return false;
         end
     end
     return true;

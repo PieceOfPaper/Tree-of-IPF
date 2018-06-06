@@ -451,12 +451,12 @@ function ZONE_ENTER(pc)
 	end
 
     --EVENT_1712_ACHIEVE
-    if GetAchievePoint(pc, 'EVENT_1712_ACHIEVE') < 1 then
-        local tx = TxBegin(pc);
-        TxEnableInIntegrate(tx);
-        TxAddAchievePoint(tx, 'EVENT_1712_ACHIEVE', 1)
-        local ret = TxCommit(tx);
-    end
+--    if GetAchievePoint(pc, 'EVENT_1712_ACHIEVE') < 1 then
+--        local tx = TxBegin(pc);
+--        TxEnableInIntegrate(tx);
+--        TxAddAchievePoint(tx, 'EVENT_1712_ACHIEVE', 1)
+--        local ret = TxCommit(tx);
+--    end
 end
 
 function REARRANGE_BALLOON(pc, pcetc, mapclass)
