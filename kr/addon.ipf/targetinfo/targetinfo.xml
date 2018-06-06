@@ -19,9 +19,9 @@
 		<picture name="target_info_gauge_image" rect="0 0 84 90" margin="-102 15 0 0" layout_gravity="center top" image="target_info_gauge_image"/>
 		<picture name="elitetarget_info_gauge_image" rect="0 0 75 80" margin="30 15 0 0" layout_gravity="left top" image="elitetarget_info_gauge_image"/>
 		<picture name="attr" rect="0 0 100 100" margin="15000 13 0 0" layout_gravity="center top" image="attri_fire"/>
-		<richtext name="level" rect="0 0 0 0" margin="50 80 0 0" layout_gravity="left top" caption="{@st41}1" fixwidth="false" fontname="" hittest="false" resizebytext="true" sildeshow="false" textalign="center center" updateparent="true"/>
+		<richtext name="level" rect="0 0 0 0" margin="45 80 0 0" layout_gravity="left top" caption="{@st41}1" fixwidth="false" fontname="" hittest="false" resizebytext="true" sildeshow="false" textalign="center center" updateparent="true"/>
     <richtext name="elitelevel" rect="0 0 0 0" margin="50 80 0 0" layout_gravity="left top" caption="{@st41}1" fixwidth="false" fontname="" hittest="false" resizebytext="true" sildeshow="false" textalign="center center" updateparent="true"/>
-		<richtext name="name" rect="0 0 200 40" margin="5 35 0 0" layout_gravity="center center" caption="type" fixwidth="false" hittest="false" resizebytext="true" textalign="left center" updateparent="false"/>
+		<richtext name="name" rect="0 0 200 40" margin="115 80 0 0" layout_gravity="left top" caption="type" fixwidth="false" hittest="false" resizebytext="true" textalign="left top" updateparent="false"/>
     <richtext name="elitename" rect="0 0 200 40" margin="43 35 0 0" layout_gravity="center center" caption="type" fixwidth="false" hittest="false" resizebytext="true" textalign="left center" updateparent="false"/>
 		<richtext name="dist" rect="0 0 300 20" margin="1000 1000 0 0" layout_gravity="center top" caption="{@st41}name{/}" fixwidth="false" fontname="" hittest="false" resizebytext="true" sildeshow="false" textalign="left center" updateparent="true"/>
 		<timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>

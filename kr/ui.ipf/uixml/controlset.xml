@@ -2748,7 +2748,7 @@
 	<controlset name="journal_rank_page" hittest="true" width="530" height="810" hittestset="false" draw="false" skin="none">
 		<controls>
 			<groupbox name="bg4" rect="0 0 530 700" margin="0 50 0 0" layout_gravity="center top" draw="true" resizebyparent="false" scrollbar="false" skin="test_frame_midle"/>
-			<groupbox name="bg_ctrls" rect="0 0 530 840" margin="0 50 0 0" layout_gravity="center top" draw="false" resizebyresolution="false" skin="pipwin_low"stretch="true"/>
+			<groupbox name="bg_ctrls" rect="0 0 530 840" margin="0 50 0 0" layout_gravity="center top" draw="false" resizebyresolution="false" skin="pipwin_low" stretch="true"/>
 			<pagecontroller name="control" rect="0 0 500 30" margin="0 0 0 10" layout_gravity="center bottom" hittest="true" image="{@st41b}{#444444} {@st41b}{b}" selectScp="JOURNALRANK_SELECT" slot="35 25" space="50 0 0 50" type="richtext">
 				<prev size="40 26" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
 				<next size="40 26" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>

@@ -304,6 +304,10 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 	local memberBox = GET_CHILD_RECURSIVELY(frame, 'memberBox');
 	local memberCnt = #memberTable / 3;
 
+	if pcCount < 1 then -- member초기화해주자
+		memberCnt = 0;
+	end
+
 	if memberCnt > 1 then 
 		partyLine:Resize(58 * (memberCnt - 1), 15);
 		partyLine:ShowWindow(1);
@@ -504,7 +508,7 @@ function INDUNENTER_PARTYMATCH_CANCEL()
 	local indunType = frame:GetUserIValue("INDUN_TYPE");
 	local indunCls = GetClassByType('Indun', indunType);
 	if frame ~= nil and indunCls ~= nil then
-		packet.SendCancelIndunPartyMatching(indunCls.Name);
+		packet.SendCancelIndunPartyMatching();
 	end
 	local withTime = GET_CHILD_RECURSIVELY(frame, 'withTime');
 	withTime:SetText(ClMsg('MatchWithParty'));

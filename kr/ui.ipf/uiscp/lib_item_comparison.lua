@@ -63,6 +63,7 @@ function GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "ADD_FIRE";
     list[#list+1] = "ADD_ICE";
     list[#list+1] = "ADD_POISON";
+    list[#list+1] = "ADD_SOUL";
     list[#list+1] = "ADD_LIGHTNING";
     list[#list+1] = "ADD_EARTH";
     list[#list+1] = "ADD_HOLY";
@@ -72,6 +73,7 @@ function GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "Strike";
     list[#list+1] = "RES_FIRE";
     list[#list+1] = "RES_ICE";
+    list[#list+1] = "RES_SOUL";
     list[#list+1] = "RES_POISON";
     list[#list+1] = "RES_LIGHTNING";
     list[#list+1] = "RES_EARTH";
@@ -133,6 +135,7 @@ function GET_ATK_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "ADD_GHOST";
     list[#list+1] = "ADD_FIRE";
     list[#list+1] = "ADD_ICE";
+    list[#list+1] = "ADD_SOUL";
     list[#list+1] = "ADD_POISON";
     list[#list+1] = "ADD_LIGHTNING";
     list[#list+1] = "ADD_EARTH";
@@ -143,6 +146,7 @@ function GET_ATK_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "Strike";
     list[#list+1] = "RES_FIRE";
     list[#list+1] = "RES_ICE";
+    list[#list+1] = "RES_SOUL";
     list[#list+1] = "RES_POISON";
     list[#list+1] = "RES_LIGHTNING";
     list[#list+1] = "RES_EARTH";
@@ -209,6 +213,7 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "ADD_GHOST";
     list[#list+1] = "ADD_FIRE";
     list[#list+1] = "ADD_ICE";
+    list[#list+1] = "ADD_SOUL";
     list[#list+1] = "ADD_POISON";
     list[#list+1] = "ADD_LIGHTNING";
     list[#list+1] = "ADD_EARTH";
@@ -219,6 +224,7 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "Strike";
     list[#list+1] = "RES_FIRE";
     list[#list+1] = "RES_ICE";
+    list[#list+1] = "RES_SOUL";
     list[#list+1] = "RES_POISON";
     list[#list+1] = "RES_LIGHTNING";
     list[#list+1] = "RES_EARTH";
@@ -286,6 +292,7 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "ADD_GHOST";
     list[#list+1] = "ADD_FIRE";
     list[#list+1] = "ADD_ICE";
+    list[#list+1] = "ADD_SOUL";
     list[#list+1] = "ADD_POISON";
     list[#list+1] = "ADD_LIGHTNING";
     list[#list+1] = "ADD_EARTH";
@@ -296,6 +303,7 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "Strike";
     list[#list+1] = "RES_FIRE";
     list[#list+1] = "RES_ICE";
+    list[#list+1] = "RES_SOUL";
     list[#list+1] = "RES_POISON";
     list[#list+1] = "RES_LIGHTNING";
     list[#list+1] = "RES_EARTH";

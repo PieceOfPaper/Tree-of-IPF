@@ -125,6 +125,7 @@
 			<groupbox name="equip_sub_addinfo" margin="0 0 0 0" rect="0 0 410 0" skin="test_Item_tooltip_equip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="bosscard" margin="820 0 0 0" rect="0 0 370 0" skin="testbosscard_tooltip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="gem" margin="820 0 0 0" rect="0 0 330 0" skin="test_Item_tooltip_equip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
+      <groupbox name="appraisal" margin="940 -58 0 0" rect="0 0 160 54" skin="" hittest="false" draw="true" updateparent="false" scrollbar="false" layout_gravity="left top"/>
 			<button name="closebtn" image="testclose_button" margin="825 5 0 0" rect="0 0 44 44" layout_gravity="left top" caption="" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="CLOSE_LINK_TOOLTIP"/>
 		</controls>
 	</tooltip>
