@@ -483,6 +483,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 			objIsClone= true;
 		end
 	else
+	--존 이동시 아이템에 의한 스킬레벨이 툴팁에 적용되지 않음
 		obj = GetIES(abil:GetObject());
 		tooltipStartLevel = obj.Level;
 	end
@@ -813,8 +814,8 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
 		descFont = DESC_NEXTLV_FONTNAME
 	end
 	
-	if TryGetProp(obj, 'BasicSP') ~= nil and TryGetProp(obj, 'LvUpSpendSp') ~= nil then
-		sp = obj.BasicSP + obj.LvUpSpendSp * (lv - 1)
+	if TryGetProp(obj, 'SpendSP') ~= nil and TryGetProp(obj, 'LvUpSpendSp') ~= nil and TryGetProp(obj, 'Level') ~= nil then
+		sp = obj.SpendSP + math.floor(obj.LvUpSpendSp * (lv - obj.Level))
 	end
 	if TryGetProp(obj, 'CoolDown') ~= nil then
 		coolTime = obj.BasicCoolDown * 0.001

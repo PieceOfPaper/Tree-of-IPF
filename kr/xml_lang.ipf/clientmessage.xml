@@ -518,7 +518,7 @@
 		<Class ClassID="10086" Data="결투신청을 할 수 없습니다"/>
 		<Class ClassID="10087" Data="결투신청을 받아들일 수 없습니다"/>
 		<Class ClassID="10088" Data="새로운 패치가 이루어졌습니다{nl}게임을 종료한 후에 다시 실행하여{nl}패치를 받아주세요 CODE({Auto_1})"/>
-		<Class ClassID="10089" Data="착용 할 수 있는 직업이 아닙니다"/>
+		<Class ClassID="10089" Data="착용 할 수 있는 클래스가 아닙니다"/>
 		<Class ClassID="10090" Data="이동 중에는 사용할 수 없습니다"/>
 		<Class ClassID="10091" Data="시야에서 벗어났습니다"/>
 		<Class ClassID="10092" Data="체력이 부족합니다"/>
@@ -766,6 +766,8 @@
 		<Class ClassID="10447" ClassName="BarrackDeleteCharBtn" Data="캐릭터 삭제"/>
 		<Class ClassID="10448" ClassName="CurChar{CharCnt}CurSlot{SlotCnt}" Data="이용가능한 슬롯이 없습니다.{nl}(현재 캐릭터 수:{CharCnt}, 현재 슬롯수:{SlotCnt})"/>
 		<Class ClassID="10449" ClassName="SeasonServerNotBuySlot" Data="해당 서버에서는 캐릭터 슬롯을 늘릴 수 없습니다."/>
+		<Class ClassID="10450" ClassName="SeasonServerNotEatCardLv280" Data="시즌 서버에서는 280 레벨 이상으로 올릴 수 없습니다."/>
+		<Class ClassID="10451" ClassName="InvalidGender" Data="착용할 수 있는 성별이 아닙니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -5559,9 +5561,11 @@
 		<Class ClassID="124035" ClassName="CanNotEquipLow{Job}{Grade}" Data="{Job} {Grade}서클만 구매 가능합니다."/>
 		<Class ClassID="124036" ClassName="CanNotItemCraftInDialog" Data="아이템 제작중 입니다."/>
 		<Class ClassID="124037" ClassName="CardLvisMax" Data="카드 레벨이 한계치에 도달했습니다."/>
-		<Class ClassID="124038" ClassName="DonotUseMySelf" Data="자신에 캐릭터에게 사용할 수 없습니다."/>
+		<Class ClassID="124038" ClassName="DonotUseMySelf" Data="자신에게 사용할 수 없습니다."/>
 		<Class ClassID="124039" ClassName="DeathPenaltyGemSilverCardETC" Data="현재 지역에서 전투 불능 시, 소지 중인 젬, 카드, 축복석, 실버등의 일부를 유실할 수 있습니다."/>
-		<Class ClassID="124040" ClassName="ServerIsEnd" Data="유라테 서버에 오신 것을 환영합니다.{nl} {nl}유라테 서버는 7/28~10/20까지 운영되는 시즌 서버로 10/20 이후부터는{nl}더 이상 유라테 서버 이용이 불가합니다.{nl} {nl}서버의 캐릭터 통합에 대한 자세한 내용은 {nl}홈페이지 공지사항을 참고해주세요.{/}"/>
+    <Class ClassID="124040" ClassName="ServerIsEnd" Data="유라테 서버에 오신 것을 환영합니다.{nl} {nl}유라테 서버는 7/28~10/20까지 운영되는 시즌 서버로 10/20 이후부터는{nl}더 이상 유라테 서버 이용이 불가합니다.{nl} {nl}서버의 캐릭터 통합에 대한 자세한 내용은 {nl}홈페이지 공지사항을 참고해주세요.{/}"/>
+		<Class ClassID="124041" ClassName="AlertDuplicatedKeys{Key1}And{Key2}Are{Key}" Data="[{Key1}]키와 [{Key2}]키가 동일한 키 [{Key}]로 설정되었습니다."/>
+		<Class ClassID="124042" ClassName="NotClearChar" Data="대지의 탑을 클리어 하지 않은 캐릭터는 보상을 받을 수 없습니다."/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="130001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
