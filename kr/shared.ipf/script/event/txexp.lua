@@ -28,7 +28,7 @@ function treasureBox_event_act(self, pc, argNum, evt, itemname, moneycount)
 
     	xac_ssn.Step1 = 3500
     else
-        SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("Auto_JamSi_Hu_DaSi_SiDoHae_JuSeyo."), 1);
+        SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("TryLater"), 1);
         return;
     end
     
@@ -115,12 +115,7 @@ end
 
 function GIVE_EVENTEXPUP_ITEM_TX(self, pc, item, count, giveWay)
 	local tx = TxBegin(pc);
-	if GetClass('Recipe', item) ~= nil then
-        TxAddWiki(tx, item)
-    else
-    	TxGiveItem(tx, item, count, giveWay);
-    end
-    
+    TxGiveItem(tx, item, count, giveWay);    
     SCR_EVENTEXPUP(self, pc, tx)
     
 	local ret = TxCommit(tx);

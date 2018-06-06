@@ -75,22 +75,17 @@
             </Stage>
             <Stage Name="boss_1" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_QUEST_MON" Client="NO" UseSleep="NO">
-                        <Str Str="M_boss_Golem_gray"/>
-                        <Num Num="1"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_QUEST_MON" Client="NO" UseSleep="NO">
-                        <Str Str="M_boss_Carapace"/>
-                        <Num Num="1"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                        <Str Str="회색 골렘과 캐러페이스를 처치하세요!"/>
+                        <Str Str="보스 몬스터를 모두 처치하세요!"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SHOCKWAVE" Client="YES" UseSleep="NO">
                         <Num Num="5"/>
                         <Num Num="1"/>
                         <Num Num="45"/>
                         <Num Num="999"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="보스 몬스터를 모두 처치하세요!"/>
                     </ToolScp>
                 </StartScpList>
                 <CompleteScpList>
@@ -104,9 +99,6 @@
                         <AbsPos X="22.743607" Z="386.47302"/>
                         <Str Str="secondRoom"/>
                     </ToolScp>
-                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="tosecondroom"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
                         <Str Str="DefGroup"/>
                     </ToolScp>
@@ -115,7 +107,7 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47353" Pos="-144.92#0.00#-802.98" angle="-85" range="30" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos;  " tendency="1">
+                    <Obj Type="Monster" MonType="47353" Pos="-144.92#0.00#-802.98" angle="-85" range="30" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_MISSION_CMINE_01_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -124,7 +116,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47357" Pos="5.56#0.00#-799.36" angle="-82" range="20" genCount="1" genTime="20000" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos;  " tendency="1">
+                    <Obj Type="Monster" MonType="47357" Pos="5.56#0.00#-799.36" angle="-82" range="20" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_MISSION_CMINE_01_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -134,6 +126,36 @@
                         </SelfAI>
                     </Obj>
                 </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="bossGen">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="boss_1/0/boss_1/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="stageSuccessCheck"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="stageSuccessCheck" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="boss_1/0/boss_1/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="tosecondroom"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="boss_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
             </Stage>
             <Stage Name="secondroom" AutoStart="0">
                 <StartScpList>
@@ -163,12 +185,12 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47358" Pos="-33.10#-0.54#-61.59" angle="-40" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos;  " tendency="1"/>
-                    <Obj Type="Monster" MonType="57143" Pos="-1.49#-0.55#99.77" angle="-93" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos;  " tendency="1"/>
+                    <Obj Type="Monster" MonType="47358" Pos="-33.10#-0.54#-61.59" angle="-40" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_MISSION_CMINE_01_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57143" Pos="-1.49#-0.55#99.77" angle="-93" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_MISSION_CMINE_01_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="47230" Pos="-1.47#2.03#534.54" angle="-89" genCount="1" genTime="20000" objectKey="2"/>
-                    <Obj Type="Monster" MonType="47414" Pos="120.90#-0.52#50.56" angle="-83" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos;  " tendency="1"/>
-                    <Obj Type="Monster" MonType="41255" Pos="18.58#-0.52#48.32" range="190" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="11160" Pos="41.12#-0.54#83.27" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;scab&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47414" Pos="120.90#-0.52#50.56" angle="-83" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_MISSION_CMINE_01_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41255" Pos="18.58#-0.52#48.32" range="190" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="11160" Pos="41.12#-0.54#83.27" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;scab&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="5minevent">
@@ -199,7 +221,7 @@
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
-                    <Event execMS="240000" eventName="min_gen">
+                    <Event execMS="240000" execCount="1" eventName="min_gen">
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="secondroom/0/secondroom/1/secondroom/3"/>
@@ -228,7 +250,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="min_gen2" execWithStart="0">
+                    <Event execCount="1" eventName="min_gen2" execWithStart="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="160"/>
@@ -304,12 +326,12 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="41254" Pos="-511.17#-58.85#847.33" range="80" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;-200&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41254" Pos="538.83#-58.85#679.95" angle="148" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41255" Pos="549.22#-58.85#796.58" angle="156" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41254" Pos="-511.17#-58.85#847.33" range="80" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;-200&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41254" Pos="538.83#-58.85#679.95" angle="148" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41255" Pos="549.22#-58.85#796.58" angle="156" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="47150" Pos="-586.80#-58.85#761.18" angle="-12" genCount="1" genTime="20000" objectKey="3" propList="&apos;HPCount&apos; &apos;100&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
                     <Obj Type="Monster" MonType="47150" Pos="616.69#-58.85#733.33" angle="190" genCount="1" genTime="20000" objectKey="4" propList="&apos;HPCount&apos; &apos;100&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
-                    <Obj Type="Monster" MonType="41253" Pos="-559.54#-58.85#707.21" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41253" Pos="-559.54#-58.85#707.21" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execMS="15000" execCount="15" eventName="15sec_gen_1">
@@ -517,7 +539,7 @@
                         <Str Str="4room"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="섀도게일러 처치!"/>
+                        <Str Str="최종 보스 몬스터 처치!"/>
                     </ToolScp>
                 </StartScpList>
                 <CompleteScpList>
@@ -529,9 +551,9 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47415" Pos="-9.76#-6.44#1218.46" angle="-58" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos;  " tendency="1"/>
-                    <Obj Type="Monster" MonType="47359" Pos="96.68#-6.44#1237.06" angle="-116" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos;  " tendency="1"/>
-                    <Obj Type="Monster" MonType="47360" Pos="57.39#-6.44#1165.25" angle="-91" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos;  " tendency="1"/>
+                    <Obj Type="Monster" MonType="47415" Pos="-9.76#-6.44#1218.46" angle="-58" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_MISSION_CMINE_01_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47359" Pos="96.68#-6.44#1237.06" angle="-116" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_MISSION_CMINE_01_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47360" Pos="57.39#-6.44#1165.25" angle="-91" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_MISSION_CMINE_01_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="firstboss">
@@ -629,6 +651,9 @@
             </Stage>
             <Stage Name="clear" AutoStart="0">
                 <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Request_Mission4"/>
+                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="미션 성공 : 약 1분 후 원래 존으로 돌아갑니다"/>
                     </ToolScp>
@@ -668,6 +693,18 @@
                                 <Str Str="ssn_klapeda"/>
                                 <Str Str="REQUESTMISSION_CLEAR4"/>
                                 <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="giveItem">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+                                <Str Str="Gacha_E_001/1"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="Request_Mission4_SUCCESS"/>
+                                <Str Str="YES"/>
                             </ToolScp>
                         </execList>
                     </Event>

@@ -1,25 +1,2 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
-<uitile name="wikipage" x="-370" y="0" width="370" height="480" bodycolor="#ffffff" bodyalpha="0">
-    <frame title="{@st44}위키페이지{/}" layout_gravity="right center" fasthide="true"/>
-    <input moveable="true"/>
-    <option closebutton="false"/>
-    <layer layerlevel="100"/>
-    <sound opensound="win_open" closesound="win_close"/>
-    <controls>
-        <button name="cbtn_m_1" rect="-63 140 40 24" layout_gravity="center top" LBtnUpArgNum="0" LBtnUpScp="WIKIPAGE_VIEW_TYPE" caption="{@st42}정보{/}" clicksound="button_click" oversound="button_over" tabname="Itembox2"/>
-        <button name="cbtn_m_2" rect="-21 140 40 24" layout_gravity="center top" LBtnUpArgNum="1" LBtnUpScp="WIKIPAGE_VIEW_TYPE" caption="{@st42}상세{/}" clicksound="button_click" oversound="button_over" tabname="Itembox2"/>
-        <button name="cbtn_m_3" rect="21 140 40 24" layout_gravity="center top" LBtnUpArgNum="2" LBtnUpScp="WIKIPAGE_VIEW_TYPE" caption="{@st42}전투{/}" clicksound="button_click" oversound="button_over" tabname="Itembox2"/>
-        <button name="cbtn_m_4" rect="63 140 40 24" layout_gravity="center top" LBtnUpArgNum="3" LBtnUpScp="WIKIPAGE_VIEW_TYPE" caption="{@st42}획득{/}" clicksound="button_click" oversound="button_over" tabname="Itembox2"/>
-        <button name="cbtn_i_1" rect="-21 140 40 24" layout_gravity="center top" LBtnUpArgNum="0" LBtnUpScp="WIKIPAGE_VIEW_TYPE" caption="{@st42}정보{/}" clicksound="button_click" oversound="button_over" tabname="Itembox1"/>
-        <button name="cbtn_i_2" rect="21 140 40 24" layout_gravity="center top" LBtnUpArgNum="1" LBtnUpScp="WIKIPAGE_VIEW_TYPE" caption="{@st42}상세{/}" clicksound="button_click" oversound="button_over" tabname="Itembox1"/>
-        <richtext name="i_name" rect="0 110 300 20" layout_gravity="center top" autowiki="false" fixwidth="false" fontname="black_20_b" hittest="false"/>
-        <scrolltext name="i_desc" rect="0 170 300 230" layout_gravity="center top" autowiki="true" drawbackground="false" fixwidth="true" fontname="black_20"/>
-        <richtext name="m_name" rect="0 110 300 20" layout_gravity="center top" autowiki="false" fixwidth="false" fontname="black_20_b" hittest="false" updateparent="true"/>
-        <scrolltext name="m_desc" rect="0 170 300 230" layout_gravity="center top" autowiki="true" drawbackground="false" fixwidth="true" fontname="black_20" resizebytext="false"/>
-        <groupbox name="gbox" rect="0 200 300 190" layout_gravity="center top" draw="false" hittest="true" hittestbox="true" scrollbar="false"/>
-        <picture name="i_image" rect="0 35 64 64" layout_gravity="center top" hittest="false" stretch="true"/>
-        <picture name="m_image" rect="0 35 64 64" layout_gravity="center top" hittest="false" stretch="true"/>
-        <button name="colse" rect="-20 11 40 40" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;wikipage&apos;)" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}페이지를 닫습니다{/}"/>
-    </controls>
-</uitile>
+<uiframe name="wikipage" x="0" y="0" width="0" height="0" create="open">
+</uiframe>

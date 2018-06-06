@@ -259,6 +259,4 @@ function MAP_DRAW_EVENT(picasa, idspace)
 
 	local mapEventCls = GetClass("Map_Event_Reward", mapCls.ClassName);
 	if mapEventCls == nil then return end
-
-	--MAP_EVENT_GBOX_ADD(400, GroupBox, mapCls, mapEventCls);
 end

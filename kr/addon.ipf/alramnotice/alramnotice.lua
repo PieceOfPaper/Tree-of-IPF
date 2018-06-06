@@ -36,3 +36,10 @@ function ALRAMNOTICE_LIST_HELP(frame)
 		end
 	end
 end
+
+function HELP_ALRAMNOTICE_LBTNUP(frame, ctrl, argStr, argNum)
+	ctrl:ShowWindow(0);
+	frame:Invalidate();
+
+	packet.ReqHelpReadType(argNum);
+end

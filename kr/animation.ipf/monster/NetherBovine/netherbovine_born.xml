@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<Particle frame="0" attachActor="None" attachNode="Dummy_emitter" particleName="F_spread_out008_smoke" useAttach="true" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
-	<Particle frame="0" attachActor="None" attachNode="Dummy_emitter" particleName="F_burstup001_smoke" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
-	<Sound frame="9.00" soundFile="mon_voice_netherbovine_6"/>
-	<Sound frame="44.70" soundFile="mon_big_footstep_4"/>
-	<Sound frame="45.00" soundFile="skl_eff_bodyfall_l_1"/>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_emitter" particleName="F_spread_out008_smoke" useAttach="true" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_emitter" particleName="F_burstup001_smoke" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false" sound=""/>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_l_20"/>
+    <Sound frame="9.00" soundFile="mon_voice_netherbovine_6"/>
+    <Sound frame="44.70" soundFile="mon_big_footstep_4"/>
+    <Sound frame="45.00" soundFile="skl_eff_bodyfall_l_1"/>
 </ActionDesc>

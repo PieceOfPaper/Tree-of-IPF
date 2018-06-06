@@ -150,7 +150,6 @@ function GUILDGROWTH_OPEN(frame)
 
 	GUILDGROWTH_UPDATE_CONTRIBUTION(frame, guildObj)
 	GUILDGROWTH_UPDATE_ABILITY(frame, guildObj);
-	GUILDGROWTH_UPDATE_SKIL(frame, guildObj);
 end
 
 function GUILD_SKILL_UP(frame, ctrl)
@@ -194,54 +193,6 @@ function _EXEC_GUILD_SKILL_UP(sklName)
 	local scpString = string.format("/learnguildskl %s", sklName);
 	ui.Chat(scpString);
 
-end
-
-function GUILDGROWTH_UPDATE_SKIL(frame, guildObj)
-	local ctrlset_growth = frame:GetChild("abilities");
-	local sklgBox = ctrlset_growth:GetChild("sklgBox");
-	local skl_list = sklgBox:GetChild("skl_list");
-	skl_list:RemoveAllChild();
-	local sklLIst = GET_TEMPLAR_GUILD_SKIL_LIST();
-
-	for i = 1 , #sklLIst do
-		local ctrlSet = skl_list:CreateControlSet("guild_skl_ctrl", "CTRLSET_" .. sklLIst[i],  ui.LEFT, ui.TOP, 0, 0, 0, 0);
-		local skl = session.GetSkillByName(sklLIst[i])		
-		local learnsklgBox = ctrlSet:GetChild("learnsklgBox");
-
-		 if nil ~= skl then
-			learnsklgBox:ShowWindow(0);
-			local level = TryGetProp(guildObj, sklLIst[i] .. '_Lv');
-			if nil == level then
-				level = 0;
-			end
-
-			local t_level = ctrlSet:GetChild("t_level");
-			t_level:SetTextByKey('value', level);
-			
-			local obj = GetIES(skl:GetObject());	
-			local t_skl_name = ctrlSet:GetChild("t_skl_name");
-			t_skl_name:SetTextByKey('value', obj.Name);
-
-			local t_skl_desc = ctrlSet:GetChild("t_skl_desc");
-			t_skl_desc:SetTextByKey('value', PARSE_TOOLTIP_CAPTION(obj, obj.Caption)); 
-			local pic = GET_CHILD(ctrlSet, "pic");
-			pic:SetImage( "icon_"..obj.Icon);
-			
-			ctrlSet:SetUserValue('SKLNAME', obj.ClassName);
-		 else
-			local cls = GetClass('Skill', sklLIst[i]);		
-			learnsklgBox:SetTextByKey('value', cls.Name);
-			local pic = ctrlSet:GetChild("pic");
-			pic:ShowWindow(0);
-
-			local t_level = ctrlSet:GetChild("t_level");
-			t_level:ShowWindow(0); 
-			local btn= ctrlSet:GetChild("btn");
-			btn:ShowWindow(0);
-		 end
-	end
-
-	GBOX_AUTO_ALIGN(skl_list, 10, 10, 10, true, false);
 end
 
 function GUILDGROWTH_UPDATE_CONTRIBUTION(frame, guildObj)

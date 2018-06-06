@@ -8,7 +8,7 @@ function ON_CUSTOM_QUEST_DELETE(frame, msg, keyName, argNum)
 	groupbox:RemoveChild(ctrlName);
 	ALIGN_QUEST_CTRLS(groupbox);
 
-	local frame2 = ui.GetFrame("questinfoset_2");
+	local frame2 = ui.GetFrame("questinfoset_2");    
 	local GroupCtrl = GET_CHILD(frame2, "member", "ui::CGroupBox");
 	GroupCtrl:RemoveChild(ctrlName);
 	QUESTINFOSET_2_MAKE_CUSTOM(frame2, true);
@@ -36,7 +36,7 @@ function ON_CUSTOM_QUEST_UPDATE(frame, msg, keyName, argNum)
 		end
 	end
 
-	ALIGN_QUEST_CTRLS(groupbox);
+	ALIGN_QUEST_CTRLS(groupbox);    
 	QUESTINFOSET_2_MAKE_CUSTOM(frame2, true);
 	frame2:ShowWindow(1);
 

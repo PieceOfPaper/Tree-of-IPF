@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <imcErrorCode>
 	<Code Code="FATAL_ASSERT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다."/>
 	<Code Code="FATAL_ASSERT_EX" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 다음 정보를 참조하세요."/>
@@ -110,6 +111,12 @@
 	<Code Code="ERROR_DIDNT_DESTROYED" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
 	<Code Code="ERROR_OVERFLOW_FIXED_LIST" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
 	<Code Code="FATAL_INIT_TABLE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
+
+<Code Code="ERROR_NXA_LOGIN_FAILED" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 로그인 실패"/>
+	<Code Code="INFO_NXA_LOGIN" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 로그인 정보"/>
+	
+<Code Code="ERROR_NXA_BILLING" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 에러"/>
+	<Code Code="INFO_NXA_BILLING" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 정보"/>
 	<Code Code="FATAL_INVALID_IES" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존재하지 않는 IES입니다. 해당하는 ipspace를 담고 있는 xml이 존재하는지, 정상적으로 불러왔는지 확인하세요."/>
 	<Code Code="FATAL_INVALID_CLASS_IN_IES" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 IES에 존재하지 않는 클래스입니다.  해당 정보를 담고 있는 xml 파일을 확인하세요."/>
 	<Code Code="FATAL_FILE_LOAD" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 파일을 불러오는데 실패하였습니다."/>
@@ -216,7 +223,7 @@
 	<Code Code="FATAL_NISMS_MSG_INIT_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
 	<Code Code="ERROR_ABNORMAL_MESH_COUNT" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
 	<Code Code="ERROR_NOT_EXIST_CLIENT_MSG" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
-	<Code Code="ERROR_DATA_NULL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="ERROR_DATA_NULL" Team="SYSTEMDESIGN" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="XML 데이타가 잘못되었습니다."/>
 	<Code Code="ERROR_IES_CANT_SUSPEND_MAIN_THREAD" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="메인 쓰레드는 sleep, tx등으로 중단시킬 수 없습니다. 해당 함수 내용을 확인하세요."/>
 	<Code Code="ERROR_LUA_SCRIPT" Team="PROGRAM" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="루아 스크립트에서 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
 	<Code Code="ERROR_LUA_SCRIPT_CONTENTDESIGN" Team="CONTENTDESIGN" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="컨텐츠기획 스크립트에서 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
@@ -491,9 +498,19 @@
 	<Code Code="ALERT_Report_AutoChannelCommandAddSend" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 추가 명령 전송 "/>
 	<Code Code="ALERT_Report_AutoChannelCommandDeleteRecv" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 삭제 결과 수신"/>
 	<Code Code="ALERT_Report_AutoChannelCommandDeleteSend" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 삭제 명령 전송 "/>
+
+<Code Code="ERRCODE_LOGIC_CHN_COMMANDLINE_PARSING_FAIL" 
+Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" 
+CallStack="NO" Desc="런처 커맨드라인으로 온 정보의 파싱이 실패했습니다."/>
+		<Code Code="ERRCODE_LOGIC_CHN_MACHINECODE_GAIN_FAIL" 
+Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc="머신코드 획득 실패."/>
+		<Code Code="ERRCODE_LOGIC_CYOU_LOGIN_FAIL" 
+Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc="AID 획득 실패."/>
 	<Code Code="ERROR_FAIL_DLL_LOAD" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DLL 을 로드하지 못했습니다."/>
 	<Code Code="ERROR_NULLPTR_REFCOUNT_ZERO" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="참조 수가 0인 이미 지워진 객체입니다."/>
 	<Code Code="STEAM_CHARGE_BACK_ERROR" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 차지백 에러"/>
 	<Code Code="INFO_ZONE_ENTER_DEBUG" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 계정 존 입장 안되는 문제 추적용"/>
 	<Code Code="INFO_SKILL_PASS_DECREASED_TIME" Team="SYSTEMDESIGN" Category="INFO" SubCategory="SKILL" Logger="root" Enabled="YES" CallStack="NO" Desc="패스로 줄어든 쿨타임"/>
+	<Code Code="INFO_TEST_REPLAY" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="리플레이 테스트"/>
+	<Code Code="INFO_ADVENTURE_BOOK" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 정보"/>
 </imcErrorCode>

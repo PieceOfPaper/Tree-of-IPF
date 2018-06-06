@@ -530,7 +530,11 @@ function SCR_SMARTGEN_QUESTMON_CREATE_CLIENT_SUB1(self, questIES)
 end
 
 function SCR_SMARTGEN_MON_CREATE_CLIENT(myActor, sObj, DuplCreatePass_OPT, AccruePass_OPT)
-    
+	
+	if session.colonywar.GetIsColonyWarMap() == true then
+		return;
+	end
+
 	local mapProp = session.GetCurrentMapProp();
     local zone_name = mapProp:GetClassName();
 	local myFaction = myActor:GetFactionStr();

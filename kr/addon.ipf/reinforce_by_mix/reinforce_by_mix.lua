@@ -565,6 +565,15 @@ function REINFORCE_BY_MIX_SLOT_RBTN(parent, slot)
 end
 
 function REINFORCE_BY_MIX_EXECUTE(parent)
+  
+  if  session.world.IsIntegrateServer() == true or
+	    session.world.IsIntegrateIndunServer() == true or
+	    session.IsMissionMap() == true then      
+	      ui.SysMsg(ClMsg("CannotCraftInIndun"));
+        return
+    end
+
+
 	local frame = parent:GetTopParentFrame();
 
 	local slots = GET_MAT_SLOT(frame);

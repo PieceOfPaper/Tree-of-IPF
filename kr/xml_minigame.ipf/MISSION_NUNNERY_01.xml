@@ -1,393 +1,397 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
-    <Game Name="MISSION_NUNNERY_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_d_abbey_35_3">
-        <StageList>
-            <Stage Name="st1" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="120"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                        <Str Str="2분간 여신상을 지키세요!"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="2분간 여신상을 지키세요!"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="41250" Pos="-74.41#0.65#-374.14" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;BornScript&apos; &apos;@GET_NUNNERY_01_NORMALMON_CHANGE_1&apos; " SimpleAI="MISSION_NUNNERY_01_AI1" tendency="1"/>
-                    <Obj Type="Monster" MonType="41295" Pos="-29.95#0.75#-316.94" range="280" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;BornScript&apos; &apos;@GET_NUNNERY_01_NORMALMON_CHANGE_1&apos; " SimpleAI="MISSION_NUNNERY_01_AI1" tendency="1"/>
-                    <Obj Type="Monster" MonType="41248" Pos="-69.44#-0.00#-258.95" range="250" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;BornScript&apos; &apos;@GET_NUNNERY_01_NORMALMON_CHANGE_1&apos; " SimpleAI="MISSION_NUNNERY_01_AI1" tendency="1"/>
-                </ObjList>
-                <StageEvents>
-                    <Event eventName="keyNPCGen">
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
-                                <MGameObj List="Ready/0"/>
-                                <Str Str="HOLD"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="15" eventName="normalGen">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="st1/2/st1/3/st1/4"/>
-                                <Num Num="0.40000001"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="st1/2/st1/3/st1/4"/>
-                                <Num Num="0.40000001"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="15" eventName="normalGen2" isEnabled="0">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
-                                <Num Num="15"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="st1/2/st1/3/st1/4"/>
-                                <Num Num="0.5"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="normalGen2_before">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="50"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="normalGen2"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event eventName="stSuccess" execWithStart="0">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="120"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
-                                <MGameObj List="Ready/0"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="stFail"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="st1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="st1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="success"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event isOr="1" eventName="stFail">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="Ready/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="st1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="st1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="fail"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event eventName="flagCheck1">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
-                                <MGameObj List="Ready/0"/>
-                                <Num Num="70"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="1"/>
-                                <Str Str="OVER"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="HP : 70%"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event eventName="flagCheck2">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
-                                <MGameObj List="Ready/0"/>
-                                <Num Num="50"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="1"/>
-                                <Str Str="OVER"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="HP : 50%"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="flagCheck3">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
-                                <MGameObj List="Ready/0"/>
-                                <Num Num="30"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="1"/>
-                                <Str Str="OVER"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="HP : 30%"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="flagCheck4">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
-                                <MGameObj List="Ready/0"/>
-                                <Num Num="10"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="1"/>
-                                <Str Str="OVER"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="횃불 HP : 10%"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="success" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="미션 성공 : 약 1분 후 원래 존으로 돌아갑니다"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event eventName="returnZone">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="success"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="reward">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_GIVE_ITEM" Client="NO" UseSleep="NO">
-                                <Str Str="Gacha_E_003/1/Gacha_E_019/1"/>
-                                <Str Str="MISSION_NUNNERY_01"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="fail" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                        <Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="30"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event eventName="returnZone">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="fail"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="Ready">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="30초 뒤 미션이 시작됩니다"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="40110" Pos="-82.86#0.62#-326.32" angle="-42" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;200&apos; &apos;Faction&apos; &apos;Law&apos; "/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="20s">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="20초 뒤 미션이 시작됩니다."/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="5s">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="25"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="5초 뒤 미션이 시작됩니다."/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="10s">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="10초 뒤 미션이 시작됩니다."/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Start">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="st1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="Ready"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="TimeOver">
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="Warning1">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3000"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="10분 뒤 미션이 종료됩니다"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Warning2">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3300"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="5분 뒤 미션이 종료됩니다"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="TimeOver">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3600"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="allDie">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
-                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
-                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="TimeOver"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="fail"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-        </StageList>
-        <EnterList>
-            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
-                <Str Str="Request_Mission15"/>
-            </ToolScp>
-        </EnterList>
-    </Game>
+	<Game Name="MISSION_NUNNERY_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_d_abbey_35_3">
+		<StageList>
+			<Stage Name="st1" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="120"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+						<Str Str="2분간 여신상을 지키세요!"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="2분간 여신상을 지키세요!"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="41250" Pos="-74.41#0.65#-374.14" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;BornScript&apos; &apos;@GET_NUNNERY_01_NORMALMON_CHANGE_1&apos; &apos;Journal&apos; &apos;None&apos; " SimpleAI="MISSION_NUNNERY_01_AI1" tendency="1"/>
+					<Obj Type="Monster" MonType="41295" Pos="-29.95#0.75#-316.94" range="280" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;BornScript&apos; &apos;@GET_NUNNERY_01_NORMALMON_CHANGE_1&apos; &apos;Journal&apos; &apos;None&apos; " SimpleAI="MISSION_NUNNERY_01_AI1" tendency="1"/>
+					<Obj Type="Monster" MonType="41248" Pos="-69.44#-0.00#-258.95" range="250" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;BornScript&apos; &apos;@GET_NUNNERY_01_NORMALMON_CHANGE_1&apos; &apos;Journal&apos; &apos;None&apos; " SimpleAI="MISSION_NUNNERY_01_AI1" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="keyNPCGen">
+						<execList>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+								<MGameObj List="Ready/0"/>
+								<Str Str="HOLD"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="15" eventName="normalGen">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="st1/2/st1/3/st1/4"/>
+								<Num Num="0.40000001"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="st1/2/st1/3/st1/4"/>
+								<Num Num="0.40000001"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="15" eventName="normalGen2" isEnabled="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
+								<Num Num="15"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="st1/2/st1/3/st1/4"/>
+								<Num Num="0.5"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="normalGen2_before">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="50"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="normalGen2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event eventName="stSuccess" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="120"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="Ready/0"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="stFail"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="st1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="st1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="success"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event isOr="1" eventName="stFail">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Ready/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="st1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="st1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="fail"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event eventName="flagCheck1">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Ready/0"/>
+								<Num Num="70"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="HP : 70%"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event eventName="flagCheck2">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Ready/0"/>
+								<Num Num="50"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="HP : 50%"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="flagCheck3">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Ready/0"/>
+								<Num Num="30"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="HP : 30%"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="flagCheck4">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="Ready/0"/>
+								<Num Num="10"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="횃불 HP : 10%"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="success" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+						<Str Str="Request_Mission15"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="60"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="미션 성공 : 약 1분 후 원래 존으로 돌아갑니다"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event eventName="returnZone">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="60"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="success"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="reward">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_GIVE_ITEM" Client="NO" UseSleep="NO">
+								<Str Str="Gacha_E_003/1/Gacha_E_019/1"/>
+								<Str Str="MISSION_NUNNERY_01"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="fail" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+						<Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="30"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event eventName="returnZone">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="fail"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Ready">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="30초 뒤 미션이 시작됩니다"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40110" Pos="-82.86#0.62#-326.32" angle="-42" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;200&apos; &apos;Faction&apos; &apos;Law&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="20s">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="20초 뒤 미션이 시작됩니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="5s">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="25"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="5초 뒤 미션이 시작됩니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="10s">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="10초 뒤 미션이 시작됩니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Start">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="st1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Ready"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="TimeOver">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="Warning1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="10분 뒤 미션이 종료됩니다"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Warning2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3300"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="5분 뒤 미션이 종료됩니다"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="TimeOver">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3600"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="allDie">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+								<Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+								<Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="TimeOver"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="fail"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+		<EnterList>
+			<ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+				<Str Str="Request_Mission15"/>
+			</ToolScp>
+		</EnterList>
+	</Game>
 </GameList>

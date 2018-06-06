@@ -403,6 +403,11 @@
                 </ObjList>
             </Stage>
             <Stage Name="END" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Indun_thorn2"/>
+                    </ToolScp>
+                </StartScpList>
                 <ObjList/>
                 <StageEvents>
                     <Event execCount="1" eventName="입구로 돌아가기">

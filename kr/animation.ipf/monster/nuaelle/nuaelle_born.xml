@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<AfterImage frame="0" term="50" blendTime="400" r="160" g="160" b="160" a="160"/>
-	<AfterImage frame="30" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
-	<Shockwave frame="2" type="2" intensity="15" frequency="50" duration="0.3" range="1000"/>
-	<Shockwave frame="4" type="2" intensity="15" frequency="50" duration="0.3" range="1000"/>
-	<Shockwave frame="6" type="2" intensity="15" frequency="50" duration="0.3" range="1000"/>
-	<Shockwave frame="8" type="2" intensity="15" frequency="50" duration="0.3" range="1000"/>
-	<Particle frame="0" particleName="F_burstup029_smoke_grey" attachNode="None" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
-	<Particle frame="0" particleName="F_ground068_smoke_white" attachNode="None" scale="2" useAttach="false" pause="true" targetPos="false"/>
-	<Particle frame="0" particleName="F_circle011_dark" attachNode="None" scale="1" useAttach="false" pause="true" targetPos="false"/>
-	<Sound frame="0.00" soundFile="mon_voice_helgasercle_7"/>
-	<Sound frame="0.00" soundFile="mon_voice_helgasercle_8"/>
-	<Sound frame="0.00" soundFile="mon_voice_bird_10"/>
-	<Sound frame="0.00" soundFile="skl_eff_force_whoosh_1"/>
-	<Sound frame="0.00" soundFile="skl_eff_whirlwind_smoke"/>
+    <AfterImage frame="0" term="50" blendTime="400" r="160" g="160" b="160" a="160"/>
+    <Particle frame="0" particleName="F_burstup029_smoke_grey" attachNode="None" scale="1.5" useAttach="false" pause="true" targetPos="false" sound=""/>
+    <Particle frame="0" particleName="F_ground068_smoke_white" attachNode="None" scale="2" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_circle011_dark" attachNode="None" scale="1" useAttach="false" pause="true" targetPos="false" sound=""/>
+    <Sound frame="0.00" soundFile="mon_voice_helgasercle_7"/>
+    <Sound frame="0.00" soundFile="mon_voice_helgasercle_8"/>
+    <Sound frame="0.00" soundFile="mon_voice_bird_10"/>
+    <Sound frame="0.00" soundFile="skl_eff_force_whoosh_1"/>
+    <Sound frame="0.00" soundFile="skl_eff_whirlwind_smoke"/>
+    <Sound frame="0.00" soundFile="skl_eff_big_dust_1"/>
+    <Shockwave frame="2" type="2" intensity="15" frequency="50" duration="0.3" range="1000"/>
+    <Shockwave frame="4" type="2" intensity="15" frequency="50" duration="0.3" range="1000"/>
+    <Shockwave frame="6" type="2" intensity="15" frequency="50" duration="0.3" range="1000"/>
+    <Shockwave frame="8" type="2" intensity="15" frequency="50" duration="0.3" range="1000"/>
+    <AfterImage frame="30" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
 </ActionDesc>

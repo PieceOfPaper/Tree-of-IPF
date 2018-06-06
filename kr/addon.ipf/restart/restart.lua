@@ -54,6 +54,11 @@ function RESTART_ON_RESSURECT_RETRY(frame)
 
 end
 
+function RESTART_ON_COLONY_WAR_RETURN_CITY(frame)
+	restart.Send(12);
+	frame:ShowWindow(0);
+end
+
 
 function MOVE_TO_CAMP_WHEN_DED(frame, control, aid)
 	restart.SendRestartCampMsg(aid);
@@ -165,8 +170,7 @@ function RESTART_ON_MSG(frame, msg, argStr, argNum)
 	local minigameover = ui.GetFrame('minigameover');	
 	if minigameover:IsVisible() == 1 then
 		return;
-	end;
-
+	end
 
 	if msg == 'RESTART_HERE' then
 		for i = 1 , 5 do
@@ -175,6 +179,17 @@ function RESTART_ON_MSG(frame, msg, argStr, argNum)
 			local isBit = BitGet(argNum, i);
 			
 			resButtonObj:ShowWindow(isBit);
+		end
+
+		--콜로니전 부활용
+		local resButtonObj	= GET_CHILD(frame, "restart6btn", 'ui::CButton');
+		resButtonObj:ShowWindow(0);
+		if 1 == BitGet(argNum, 12) then
+			local btnName = "restart6btn";
+			local resButtonObj	= GET_CHILD(frame, btnName, 'ui::CButton');
+			resButtonObj:ShowWindow(1);
+			frame:RunUpdateScript("COLONY_WAR_RESTART_UPDATE",1,0,0,1);
+			frame:SetUserValue("COUNT", 30);
 		end
 
 		AUTORESIZE_RESTART(frame);
@@ -208,4 +223,16 @@ function RESTARTSELECT_ITEM_SELECT(frame)
 
 	mouse.SetPos(x,y);
 	mouse.SetHidable(0);
+end
+
+
+--frame:RunUpdateScript("ASDAFSASD",1,0,0,1);
+function COLONY_WAR_RESTART_UPDATE(frame)
+	local btnName = "restart6btn";
+	local resButtonObj	= GET_CHILD(frame, btnName, 'ui::CButton');
+	local sec = frame:GetUserIValue("COUNT")
+	frame:SetUserValue("COUNT",  sec - 1);
+	local text = "{@st66b}"..ScpArgMsg("ReturnCity{SEC}", "SEC", sec).."{/}"
+	resButtonObj:SetText(text);
+	return 1;
 end

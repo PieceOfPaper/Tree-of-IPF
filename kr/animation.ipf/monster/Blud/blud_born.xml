@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Shockwave frame="3" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
-	<Shockwave frame="23" type="2" intensity="20" frequency="50" duration="0.5" range="1000"/>
-	<Particle frame="3" particleName="F_burstup007_smoke2" attachNode="None" scale="2" useAttach="true" pause="true" targetPos="false"/>
-	<Particle frame="3" particleName="F_burstup029_smoke" attachNode="None" scale="5" useAttach="true" pause="true" targetPos="false"/>
-	<Particle frame="23" particleName="F_smoke117" attachNode="Dummy_effect_Rhand" scale="1" useAttach="true" pause="true" targetPos="false"/>
-	<Sound frame="0.00" soundFile="skl_eff_born_stone_1"/>
-	<Sound frame="20.00" soundFile="mon_voice_throneweaver_4"/>
-	<Sound frame="30.00" soundFile="mon_voice_bug_10"/>
-	<Sound frame="50.00" soundFile="m_siauliai_beetle_idle"/>
+    <Shockwave frame="3" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+    <Particle frame="3" particleName="F_burstup007_smoke2" attachNode="None" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="3" particleName="F_burstup029_smoke" attachNode="None" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="20.00" soundFile="mon_voice_throneweaver_4"/>
+    <Shockwave frame="23" type="2" intensity="20" frequency="50" duration="0.5" range="1000"/>
+    <Particle frame="23" particleName="F_smoke117" attachNode="Dummy_effect_Rhand" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="30.00" soundFile="mon_voice_bug_10"/>
+    <Sound frame="50.00" soundFile="m_siauliai_beetle_idle"/>
 </ActionDesc>

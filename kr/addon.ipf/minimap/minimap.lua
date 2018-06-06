@@ -73,6 +73,7 @@ function MINIMAP_ON_INIT(addon, frame)
 	
 	addon:RegisterMsg('MON_MINIMAP', 'MAP_MON_MINIMAP');
 	addon:RegisterMsg('MON_MINIMAP_END', 'ON_MON_MINIMAP_END');
+    addon:RegisterMsg('COLONY_MONSTER', 'MINIMAP_COLONY_MONSTER');
 
 	mini_pos = GET_CHILD(frame, "my");
 	mini_pos:SetOffset(frame:GetWidth() / 2 - mini_pos:GetImageWidth() / 2 , frame:GetHeight() / 2 - mini_pos:GetImageHeight() / 2);
@@ -217,7 +218,7 @@ function UPDATE_MINIMAP(frame, isFirst)
 
 				local miniX = MapPos.x - RangeX / 2;
 				local miniY = MapPos.y - RangeY / 2;
-
+                
 				local ctrlname = "_NPC_MON_MARK" .. quemoninfo.QuestType.. "_" .. i .. "_" ..quemoninfo.MonsterType;
 				local PictureC = npcList:CreateOrGetControl('picture', ctrlname, miniX, miniY, miniX, miniY);
 				SET_MAP_CIRCLE_MARK_UI(PictureC);
@@ -672,4 +673,38 @@ function M_MAP_UPDATE_GUILD(frame, msg, a, b, c)
 	tolua.cast(npcList, 'ui::CGroupBox');
 	MAP_UPDATE_GUILD(npcList, msg, a, b, c);
 
+end
+
+function MINIMAP_COLONY_MONSTER(frame, msg, posStr, monID)
+    local mappicturetemp = GET_CHILD(frame, 'npclist', 'ui::CPicture');  
+    mappicturetemp:RemoveChild('colonyMonPic_'..monID);
+
+    local mapFrame = ui.GetFrame('map');
+    local COLONY_MON_IMG = GET_COLONY_MONSTER_IMG(mapFrame, monID);
+    local MONSTER_SIZE = tonumber(mapFrame:GetUserConfig('COLONY_MON_SIZE'));
+    local MONSTER_EFFECT_SIZE = tonumber(mapFrame:GetUserConfig('COLONY_MON_EFFECT_SIZE'));
+
+    local x, z = GET_COLONY_MONSTER_POS(posStr);  
+    local colonyMonPic = mappicturetemp:CreateControl('picture', 'colonyMonPic_'..monID, 0, 0, MONSTER_SIZE, MONSTER_SIZE);    
+    colonyMonPic = AUTO_CAST(colonyMonPic);    
+    colonyMonPic:SetImage(COLONY_MON_IMG);
+
+    local zoneClassName = GetZoneName();
+    local mapprop = geMapTable.GetMapProp(zoneClassName);    
+    local MapPos = mapprop:WorldPosToMinimapPos(x, z, minimapw, minimaph);    
+    local _x = MapPos.x - MONSTER_SIZE / 2;
+	local _y = MapPos.y - MONSTER_SIZE / 2;
+
+    colonyMonPic:SetOffset(_x, _y);
+	colonyMonPic:SetEnableStretch(1);
+
+    if IS_COLONY_MONSTER(monID) == true then
+        frame:RemoveChild('colonyMonEffectPic');
+        local colonyMonEffectPic = frame:CreateControl('picture', 'colonyMonEffectPic', 0, 0, MONSTER_EFFECT_SIZE, MONSTER_EFFECT_SIZE);
+        colonyMonEffectPic = AUTO_CAST(colonyMonEffectPic);
+        _x = MapPos.x - MONSTER_EFFECT_SIZE / 2;
+	    _y = MapPos.y - MONSTER_EFFECT_SIZE / 2;
+        colonyMonEffectPic:SetOffset(_x, _y);
+        SET_PICTURE_QUESTMAP(colonyMonEffectPic);
+    end
 end

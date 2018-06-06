@@ -467,10 +467,6 @@ function IS_DRAG_RECIPE_ITEM(itemObj)
 		return 0;
 	end
 
-	if GetWiki(recipeProp.needWikiID) == nil then
-		return 0;
-	end
-
 	local liftIcon = ui.GetLiftIcon();
 	if liftIcon == nil then
 		return 0;

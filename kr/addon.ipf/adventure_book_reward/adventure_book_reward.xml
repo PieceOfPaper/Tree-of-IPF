@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="adventure_book_reward" x="0" y="0" width="500" height="800" create="open">
+	<frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 0 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option margin="-100 -100 0 0" closebutton="false" hideable="true"/>
+	<sound opensound="win_open" closesound="win_close" margin="-100 -100 0 0"/>
+	<skin frameskin="adventure_paper2"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+	<layer layerlevel="102" margin="-100 -100 0 0"/>
+	<userconfig REWARD_INTERVAL="-5" ENABLE_LEVEL_STYLE="{@st42}" ALREADY_GET_SKIN="test_skin_01_btn_clicked" REWARD_DETAIL_INTERVAL="-20"/>
+	<controls>
+		<button name="closeBtn" rect="0 0 60 60" margin="0 15 10 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('adventure_book_reward')"/>
+		<richtext name="titleText" rect="0 0 300 30" margin="0 25 0 0" layout_gravity="center top" format="[%s] 보상리스트" fontname="black_18_b" param1="category" param1_def=""/>
+		<labelline name="line1" rect="0 0 440 4" margin="0 55 0 0" layout_gravity="center top" skin="lableline_def2"/>
+		<richtext name="infoText" rect="0 0 500 30" margin="0 70 0 0" layout_gravity="center top" caption="ⓘ 바이보라 날개에게서 보상 아이템을 획득하실 수 있습니다." fontname="black_16_b"/>
+		<checkbox name="allCheck" rect="0 0 100 30" margin="0 100 20 0" layout_gravity="right top" caption="모두보기" fontname="black_18" checked="true" LBtnUpScp="ADVENTURE_BOOK_REWARD_FILTER"/>
+		<groupbox name="listBox" rect="0 0 460 590" margin="0 0 0 80" layout_gravity="center bottom" skin="test_frame_midle" fixheight="true" scrollbar="true"/>
+		<button name="reqBtn" rect="0 0 200 60" margin="0 0 0 15" layout_gravity="center bottom" skin="test_red_button" caption="모두 받기" fontname="white_16_b_ol" LBtnUpScp="ADVENTURE_BOOK_REQ_REWARD"/>
+	</controls>
+</uiframe>

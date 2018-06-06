@@ -92,8 +92,6 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 		return
 	end
 
-	local wiki = GetWikiByName(class.ClassName);
-
 	SEQUENTIALPICKITEM_openCount = SEQUENTIALPICKITEM_openCount + 1;
 	local frameName = "SEQUENTIAL_PICKITEM_"..tostring(SEQUENTIALPICKITEM_openCount);
 
@@ -111,9 +109,9 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 
 
 	local PickItemGropBox	= GET_CHILD(frame,'pickitem')
-	--PickItemGropBox:RemoveAllChild();  -- ø©±‚º≠ ¿⁄ΩƒµÈ¿ª ¡◊ø©º≠ ¿⁄Ωƒ¿∏∑Œ ≥÷¿∫ «»√ƒ∞° æ»≥™ø‘¿Ω.
+	--PickItemGropBox:RemoveAllChild();  -- Ïó¨Í∏∞ÏÑú ÏûêÏãùÎì§ÏùÑ Ï£ΩÏó¨ÏÑú ÏûêÏãùÏúºÎ°ú ÎÑ£ÏùÄ ÌîΩÏ≥êÍ∞Ä ÏïàÎÇòÏôîÏùå.
 
-	-- ControlSet ¿Ã∏ß º≥¡§
+	-- ControlSet Ïù¥Î¶Ñ ÏÑ§Ï†ï
 	local img = GET_ITEM_ICON_IMAGE(class);
 
 	local PickItemCountObj		= PickItemGropBox:CreateControlSet('pickitemset_Type', 'pickitemset', 0, 0);
@@ -128,7 +126,7 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	icon:Set(iconName, 'PICKITEM', itemCount, 0);
 
 
-	-- æ∆¿Ã≈€ ¿Ã∏ß∞˙ »πµÊ∑Æ √‚∑¬
+	-- ÏïÑÏù¥ÌÖú Ïù¥Î¶ÑÍ≥º ÌöçÎìùÎüâ Ï∂úÎ†•
 	local printName	 = '{@st41}' ..GET_FULL_NAME(class);
 	local printCount = '{@st41b}'..ScpArgMsg("GetByCount{Count}", "Count", itemCount);
 
@@ -137,11 +135,10 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	
 	local AddWiki = GET_CHILD(PickItemCountCtrl,'AddWiki')
 	if addMsg == nil then
-		if wiki ~= nil and false == fromWareHouse then	
+		if IsExistItemInAdventureBook(pc, class.ClassID) == 'YES' and false == fromWareHouse then
 
-			local total = GetWikiIntProp(wiki, "Total");
+			local total = GetItemObtainCount(pc, class.ClassID);
 			if total ~= nil then
-
 				local totalCount = total;
 
 				if totalCount > 1 then
@@ -162,9 +159,9 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 		AddWiki:ShowWindow(1);
 	end
 
-	-- æ∆¿Ã≈€¿Ã∏ß ≥ π´±Ê∂ß ¬©∑¡º≠ resize ¿œ¥‹ º¬∆√.
+	-- ÏïÑÏù¥ÌÖúÏù¥Î¶Ñ ÎÑàÎ¨¥Í∏∏Îïå Ïß§Î†§ÏÑú resize ÏùºÎã® ÏÖãÌåÖ.
 	local itemName = GET_CHILD(PickItemCountCtrl,'ItemName');
-	-- ∏ÆªÁ¿Ã¡Ó «œ∑¡¥¬ ªÁ¿Ã¡Ó∞° ø¯∑° «¡∑π¿” ªÁ¿Ã¡Ó∫∏¥Ÿ ¿€¿∏∏È ∏ÆªÁ¿Ã¡Ó «œ¡ˆ æ ¿Ω.
+	-- Î¶¨ÏÇ¨Ïù¥Ï¶à ÌïòÎ†§Îäî ÏÇ¨Ïù¥Ï¶àÍ∞Ä ÏõêÎûò ÌîÑÎ†àÏûÑ ÏÇ¨Ïù¥Ï¶àÎ≥¥Îã§ ÏûëÏúºÎ©¥ Î¶¨ÏÇ¨Ïù¥Ï¶à ÌïòÏßÄ ÏïäÏùå.
 	local newWidth =itemName:GetX()+itemName:GetTextWidth()+ 20;
 	if newWidth > frame:GetOriginalWidth() then
 		frame:Resize(newWidth,  frame:GetOriginalHeight());
@@ -175,7 +172,7 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	PickItemGropBox:UpdateData();
 	PickItemGropBox:Invalidate();
 
-	--≥ªøÎ ≥°
+	--ÎÇ¥Ïö© ÎÅù
 
 	frame:ShowWindow(1);
 	frame:SetDuration(duration);

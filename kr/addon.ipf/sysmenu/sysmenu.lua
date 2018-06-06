@@ -90,7 +90,7 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 	local offsetX = status:GetX() - extraBag:GetX();
 	local rightMargin = extraBag:GetMargin().right + offsetX;
 
-	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guild", "guild", "sysmenu_guild", rightMargin, offsetX, "Guild");
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "necronomicon", "necronomicon", "sysmenu_card", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "grimoire", "grimoire", "sysmenu_neacro", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "poisonpot", "poisonpot", "sysmenu_wugushi", rightMargin, offsetX);	
@@ -306,16 +306,20 @@ function NOTICE_CTRL_SET(parentCtrl, noticeName, point)
 		notice:ShowWindow(1);        
 		noticeText:ShowWindow(1);
 		noticeText:SetText('{ol}{b}{s14}'..tostring(point));
-		if point >= 10 and point < 100 then
-			notice:Resize(30, 22);
-		elseif point >= 100 and point < 1000 then
-			notice:Resize(40, 22);
-		else
-			notice:Resize(22, 22);			
-		end
+        SYSMENU_NOTICE_TEXT_RESIZE(notice, point);
 	elseif point == 0 then
 		notice:ShowWindow(0);
 		noticeText:ShowWindow(0);
+	end
+end
+
+function SYSMENU_NOTICE_TEXT_RESIZE(box, point)
+    if point >= 10 and point < 100 then
+		box:Resize(30, 22);
+	elseif point >= 100 and point < 1000 then
+		box:Resize(40, 22);
+	else
+		box:Resize(22, 22);			
 	end
 end
 
@@ -326,7 +330,6 @@ end
 function SYSMENU_BTN_LCLICK(frame, btnCtrl, argStr, argNum)
 	ui.OpenFrame("apps");
 end
-
 
 function SYSMENU_BTN_LOST_FOCUS(frame, btnCtrl, argStr, argNum)
 

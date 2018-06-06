@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="piphelp" x="0" y="0" width="460" height="590" create="open">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-450 0 0 0"/>
 	<input maxwidth="1280" moveable="false"/>
-	<layer layerlevel="80"/>
+	<layer layerlevel="93"/>
 	<option closebutton="false"/>
 	<sound opensound="window_open" closesound="window_close"/>
 	<controls>
@@ -13,7 +13,7 @@
 		<groupbox name="pipwin_top" rect="0 0 460 130" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<groupbox name="detail_bg" rect="0 0 440 790" margin="10 220 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>
 		<groupbox name="mainGbox" rect="0 0 460 930" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
-		<button name="close" rect="-10 0 44 44" margin="0 20 18 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;piphelp&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}도움말 창을 닫습니다{/}"/>		
+		<button name="close" rect="-10 0 44 44" margin="0 20 18 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;piphelp&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}도움말 창을 닫습니다{/}"/>
 		<picture name="question" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" image="testquesten_button" texttooltip="{@st59}도움말{nl} - 도움말 상세 보기{nl} - 다른 항목을 보려면 도움말 목록에서 선택{/}" oversound="button_over"/>
 		<richtext name="richtext_1" rect="0 0 120 24" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}도움말{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="helpName" parent="mainGbox" rect="0 0 380 30" margin="0 10 0 0" layout_gravity="center top" caption="도움말 제목" fontname="brown_24"/>

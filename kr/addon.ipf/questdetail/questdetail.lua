@@ -20,32 +20,13 @@ function QUESTDETAIL_INFO(questID, xPos)
 	local questCls = GetClassByType("QuestProgressCheck", questID);
 	local cls = GetClassByType("QuestProgressCheck_Auto", questID);
 
-	local titleText
 	local titleStory = 'None';
 	local pc = GetMyPCObject();
 	local result = SCR_QUEST_CHECK_C(pc, questCls.ClassName);
 	local State = CONVERT_STATE(result);
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
-    
-	if questCls.QuestMode == 'REPEAT' then
-		if sObj ~= nil then
-			if questCls.Repeat_Count ~= 0 then
-				titleText = questCls.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/{Auto_2})","Auto_1", sObj[questCls.QuestPropertyName..'_R'] + 1, "Auto_2",questCls.Repeat_Count)
-			else
-				titleText = questCls.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/MuHan)","Auto_1", sObj[questCls.QuestPropertyName..'_R'])
-			end
-		end
-	elseif questCls.QuestMode == 'PARTY' then
-	    if sObj ~= nil then
-	        titleText = questCls.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/{Auto_2})","Auto_1", sObj.PARTY_Q_COUNT1 + 1, "Auto_2",CON_PARTYQUEST_DAYMAX1)
-	    end
-	end
+	local titleText = GET_QUEST_DETAIL_TITLE(questCls, sObj);    
 	
-	if titleText == nil then
-	    titleText = questCls.Name
-	end
-	
-	titleText = "["..ScpArgMsg("Level{Level}","Level",questCls.Level).."] "..titleText;
 	titleStory = questCls[State..'Story'];
 
 	y = BOX_CREATE_RICHTEXT(box, "title", y, 20, "{@st41}"..titleText);
@@ -141,6 +122,30 @@ function QUESTDETAIL_INFO(questID, xPos)
 	box:Resize(box:GetWidth(), y);
 	frame:Resize(xPos, frame:GetY(), frame:GetWidth(), y + 100);
 	frame:Invalidate()
+end
+
+function GET_QUEST_DETAIL_TITLE(questCls, sObj)
+    local titleText = nil;
+    if questCls.QuestMode == 'REPEAT' then
+		if sObj ~= nil then
+			if questCls.Repeat_Count ~= 0 then
+				titleText = questCls.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/{Auto_2})","Auto_1", sObj[questCls.QuestPropertyName..'_R'] + 1, "Auto_2",questCls.Repeat_Count);
+			else
+				titleText = questCls.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/MuHan)","Auto_1", sObj[questCls.QuestPropertyName..'_R'])
+			end
+		end
+	elseif questCls.QuestMode == 'PARTY' then
+	    if sObj ~= nil then
+	        titleText = questCls.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/{Auto_2})","Auto_1", sObj.PARTY_Q_COUNT1 + 1, "Auto_2",CON_PARTYQUEST_DAYMAX1)
+	    end
+	end
+	
+	if titleText == nil then
+	    titleText = questCls.Name;
+	end
+	
+	titleText = "["..ScpArgMsg("Level{Level}","Level",questCls.Level).."] "..titleText;    
+    return titleText;
 end
 
 function MAKE_DETAIL_TAKE_CTRL(box, cls, y)

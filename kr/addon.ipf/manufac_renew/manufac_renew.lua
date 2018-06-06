@@ -432,4 +432,127 @@ function MANU_FORCE_COLLISION(slot)
 
 end
 
+function DRAW_RECIPE_MATERIAL(exinfoGroupBox, recipecls, ypos, drawStartIndex)
 
+	if drawStartIndex == nil then
+		drawStartIndex = 0;
+	end
+
+	local index = 0;
+	local groupboxYPos = 5;
+	local recipeItemPicSize = 40;
+	local recipeItemPicHorzCount = 3;
+	local recipeItemTitleTextHeight = 0;
+	local recipeItemXPosInit = (250 - recipeItemPicSize * 3) / (recipeItemPicHorzCount+1);
+	local recipeItemXPos = (250 - recipeItemPicSize * 3) / (recipeItemPicHorzCount+1);
+
+	local drawIndex = 0;
+	local recipeType = recipecls.RecipeType;
+
+	local row = 1;
+	while 1 do
+		local col = 1;
+		local propCnt = 0;
+		while 1 do
+			local propname = "Item_" .. row .. "_" .. col;
+			local propvalue = recipecls[propname];
+			local prop = GetPropType(recipecls, propname);
+			if prop == nil or propvalue == "None" then
+				break;
+			end
+
+			if drawIndex >= drawStartIndex then
+				local rem = index % recipeItemPicHorzCount;
+				if index ~= 0 and rem == 0 then
+					groupboxYPos = groupboxYPos + recipeItemPicSize + 5 + recipeItemTitleTextHeight;
+					recipeItemXPos = recipeItemXPosInit * (rem+1) + recipeItemPicSize * rem;
+				else
+					recipeItemXPos = recipeItemXPosInit * (index+1) + recipeItemPicSize * index;
+				end
+
+				local recipeItem = propvalue;
+				local recipeItemCls = nil;
+				local recipeImageName;
+				local recipeItemName;
+				if propname == 'NeedWiki' then
+					recipeItemCls = GetClass('Wiki', recipeItem);
+					recipeImageName = recipeItemCls.Illust;
+					recipeItemName = recipeItemCls.Name;
+				else
+					recipeItemCls = GetClass('Item', recipeItem);
+					recipeImageName = recipeItemCls.TooltipImage;
+					recipeItemName = recipeItemCls.Name;
+				end
+
+				local recipeItemCnt, recipeItemLv = 0, 0;
+				if propname == 'FromItem' or propname == 'NeedWiki' then
+					recipeItemCnt = 1;
+				else
+					recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, propname);
+				end
+
+				local itemRecipePicCtrl = exinfoGroupBox:CreateOrGetControl('picture', recipeItem, recipeItemXPos, groupboxYPos, recipeItemPicSize, recipeItemPicSize);
+				tolua.cast(itemRecipePicCtrl, 'ui::CPicture');
+				itemRecipePicCtrl:SetEnableStretch(1);
+				itemRecipePicCtrl:SetImage(recipeImageName);
+
+				local itemRecipeNameCtrl = exinfoGroupBox:CreateOrGetControl('richtext', recipeItem..'itemName', recipeItemXPos, groupboxYPos + recipeItemPicSize, 70, 20);
+				tolua.cast(itemRecipeNameCtrl, 'ui::CRichText');
+				itemRecipeNameCtrl:EnableResizeByText(1);
+				itemRecipeNameCtrl:SetTextFixWidth(1);
+				itemRecipeNameCtrl:SetLineMargin(-2);
+				itemRecipeNameCtrl:SetTextAlign("center", "top");
+
+				local invItem = session.GetInvItemByType(recipeItemCls.ClassID);
+				local invCnt = 0;
+				if invItem == nil then
+					if propname == 'NeedWiki' and recipeItemCls ~= nil then
+						invCnt = 1;
+					end
+				else
+					invCnt = GET_PC_ITEM_COUNT_BY_LEVEL(recipeItemCls.ClassID, recipeItemLv);
+				end
+			
+				itemRecipeNameCtrl:SetText('{s18}{#050505}'.. GET_RECIPE_ITEM_TXT(recipeType, recipeItemName, recipeItemCnt, recipeItemLv, invCnt));
+				local itemTitleXPos = (itemRecipeNameCtrl:GetWidth() - recipeItemPicSize) / 2;
+				itemRecipeNameCtrl:SetOffset(recipeItemXPos - itemTitleXPos, groupboxYPos + recipeItemPicSize);
+
+				recipeItemTitleTextHeight = math.max(recipeItemTitleTextHeight, itemRecipeNameCtrl:GetHeight());
+				index = index + 1;
+			end
+
+			drawIndex = drawIndex + 1;
+
+			propCnt = propCnt + 1;
+			col = col + 1;
+		end
+
+		if propCnt == 0 then
+			break;
+		end
+		row = row + 1
+	end
+
+	if index ~= 0 then
+		groupboxYPos = groupboxYPos + recipeItemPicSize + recipeItemTitleTextHeight;
+	end
+
+	ypos = ypos + groupboxYPos;
+	return ypos;
+end
+
+function GET_RECIPE_ITEM_TXT(recipeType, name, cnt, lv, invcnt)
+
+	local color = '{b}{#003366}';
+
+	if invcnt < cnt then
+		color = '{b}{#880000}';
+	end
+
+	if lv == 0 then
+		return string.format("%s {nl}%s(%d/%d)", name, color, invcnt, cnt);
+	else
+		return string.format("%s{nl}{#0000FF}(Lv%d){/}{nl}%s(%d/%d)", name, lv, color, invcnt, cnt);
+	end
+
+end

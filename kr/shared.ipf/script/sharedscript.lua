@@ -1286,22 +1286,6 @@ function SCR_GET_MCY_BUY_PRICE(itemIndex, curValue)
 
 end
 
-function GET_WIKI_ITEM_SET_COUNT(wiki)
-
-    local setProp = geItemTable.GetSetByName( GetWikiTargetClassName(wiki) );
-    local setCnt = setProp:GetItemCount();
-    local curCnt = 0;        
-    for j = 0 , setCnt - 1 do
-        local isGetItem = GetWikiBoolProp(wiki, "Get_" .. j);
-        if isGetItem == 1 then
-            curCnt = curCnt + 1;
-        end
-    end
-    
-    return curCnt, setCnt;
-end
-
-
 function GET_ABIL_LEVEL(self, abilName)
 
     local abil = GetAbility(self, abilName);
@@ -1583,6 +1567,10 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
         subQuestFlag = 3
     end
     
+    if subQuestZoneList == nil then
+        subQuestZoneList = {}
+    end
+    
     local zonecheckFun = _G['LINKZONECHECK'];
     if chType == 'Set2' then
         ret = "OPEN"
@@ -1753,6 +1741,65 @@ function PUSH_BACK_IF_NOT_EXIST(list, element)
     return list;
 end
 
+function SCR_REINFORCE_COUPON()
+    local couponList = {'Event_Reinforce_100000coupon'}
+    return couponList
+end
+
+function SCR_REINFORCE_COUPON_PRECHECK(pc, price)
+    local retCouponList = {}
+    
+    local couponList = SCR_REINFORCE_COUPON()
+    local couponValueList = {}
+    for i = 1, #couponList do
+        local itemIES = GetClass('Item',couponList[i])
+        if itemIES ~= nil then
+            local value = TryGetProp(itemIES, 'NumberArg1')
+            if value ~= nil then
+                local itemCount = GetInvItemCount(pc, couponList[i])
+                if itemCount > 0 then
+                    couponValueList[#couponValueList + 1] = {couponList[i], value, itemCount}
+                end
+            end
+        end
+    end
+    
+    for i = 1, #couponValueList - 1 do
+        for x = i + 1, #couponValueList do
+            if couponValueList[i][2] < couponValueList[x][2] then
+                local temp = {couponValueList[i][1],couponValueList[i][2],couponValueList[i][3]}
+                couponValueList[i] = {couponValueList[x][1],couponValueList[x][2],couponValueList[x][3]}
+                couponValueList[x] = temp
+            end
+        end
+    end
+    if #couponValueList > 0 then
+        for i = 1, #couponValueList do
+            for x = 1, couponValueList[i][3] do
+                if price >= couponValueList[i][2] then
+                    price = price - couponValueList[i][2]
+                    if #retCouponList > 0 then
+                        local flag = 0
+                        for y = 1, #retCouponList do
+                            if retCouponList[y][1] == couponValueList[i][1] then
+                                retCouponList[y][3] = retCouponList[y][3] + 1
+                                flag = 1
+                                break
+                            end
+                        end
+                        if flag == 0 then
+                            retCouponList[#retCouponList + 1] = {couponValueList[i][1],couponValueList[i][2], 1}
+                        end
+                    else
+                        retCouponList[#retCouponList + 1] = {couponValueList[i][1],couponValueList[i][2], 1}
+                    end
+                end
+            end
+        end
+    end
+    
+    return price, retCouponList
+end
 
 --function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
 --    if GetServerNation() ~= "KOR" then

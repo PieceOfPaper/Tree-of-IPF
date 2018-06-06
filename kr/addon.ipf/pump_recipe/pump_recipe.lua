@@ -11,7 +11,7 @@ function _PUMP_RECIPE_OPEN(frame, recipeType, itemName)
 		return;
 	end
 	
-	if recipeCls.NeedWiki == 1 and GetWikiByName(recipeCls.ClassName) == nil then
+	if session.GetInvItemByName(recipeCls.ClassName) == nil then
 		return;
 	end
 

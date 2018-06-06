@@ -2,7 +2,7 @@
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="dialogselect" x="0" y="0" width="400" height="200">
-	<frame title="대화 선택" layout_gravity="center bottom" margin="0 0 0 200" scale_align="center bottom"/>
+	<frame title="대화 선택" layout_gravity="center bottom" margin="0 0 0 200" snapframe="true" snapclient="true" scale_align="center bottom"/>
 	<input moveable="false"/>
 	<skin frameskin="test_win_mypage" layout_gravity="center center" rect="0 0 340 200"/>
 	<draw drawtitlebar="false" drawnotitlebar="false"/>
@@ -24,6 +24,6 @@
 		<button name="item10Btn" rect="0 390 540 40" layout_gravity="center top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" caption="Item10" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
 		<button name="item11Btn" rect="0 425 540 40" layout_gravity="center top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" caption="Item11" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
 		<richtext name="numberHelp" rect="20 45 30 20" layout_gravity="center top" caption="텍스트 헬프" hittest="false" spacey="0"/>
-		<edit name="numberEdit" rect="0 45 70 40" layout_gravity="center top" EnterKeyScp="DIALOGSELECT_NUMBER_ENTER" OffsetForDraw="0 0" fontname="white_20_ol" maxlen="4" skin="test_weight_skin" oversound="button_over" numbermode="true" textalign="center center" typingsound="chat_typing"/>
+		<edit name="numberEdit" rect="0 45 70 40" layout_gravity="center top" EnterKeyScp="DIALOGSELECT_NUMBER_ENTER" OffsetForDraw="0 0" fontname="white_20_ol" maxlen="32" skin="test_weight_skin" oversound="button_over" numbermode="true" textalign="center center" typingsound="chat_typing"/>
 	</controls>
 </uiframe>

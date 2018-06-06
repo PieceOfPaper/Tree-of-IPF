@@ -1,21 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
-<uiframe name="filefind" x="-70" y="-100" width="500" height="400" create="open">
-    <frame title="스프레이 프리셋" layout_gravity="right bottom" snapclient="true" snapframe="true" margin="0 0 8 8"/>
-    <skin frameskin="configskin" backgroundimage="mixer_back" layout_gravity="center center" rect="0 82 220 220"/>
-    <draw drawtitlebar="false"/>
-    <layer layerlevel="100"/>
-    <option hideable="true" closebutton="true" useimageitem="true"/>
-    <sound opensound="win_open" closesound="win_close"/>
-    <controls>
-        <richtext name="t_path" rect="0 0 150 24" margin="30 25 0 0" layout_gravity="left top" caption="{@st49}FullDirName{/}" format="{@st49}%s{/}" param1="curDir"/>
-        <advlistbox name="AdvBox" rect="0 0 441 255" margin="30 55 0 0" layout_gravity="left top" LBtnDblClickScp="SELECT_FILE_PATH_ITEM" SelectScp="CLICK_FILE_PATH_ITEM" drawgrid="true" heightperrow="20" maxrowcol="5000 3" scroll="true" widthpercol="100"/>
-        <advlistboxitem name="Kor" parent="AdvBox" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top" caption="" col="0" datatype="richtext" fontname="white_16" row="0"/>
-        <advlistboxsetting parent="AdvBox" layout_gravity="left top" col="0" colwidth="340" row="0" rowbgcolor="#4a443f" rowheight="20" startrow="1"/>
-        <button name="t_end" rect="0 0 80 24" margin="175 0 0 30" layout_gravity="center bottom" LBtnUpScp="SELECT_FILEFIND" caption="{@st49}선택{/}"/>
-        <button name="t_cancel" rect="0 0 80 24" margin="85 0 0 30" layout_gravity="center bottom" LBtnUpScp="CLOSE_UI" caption="{@st49}취소{/}"/>
-        <button name="t_delete" rect="0 0 80 24" margin="175 0 0 30" layout_gravity="center bottom" LBtnUpScp="DELETE_FILEFIND" caption="{@st49}삭제{/}"/>
-        <edit name="input" rect="0 0 180 30" margin="0 20 23 0" layout_gravity="right top" EnterKeyScp="ENTER_FILE_FIND" OffsetForDraw="20 3" fontname="white_14_ol" maxlen="128" texttooltip="저장할 파일의 이름을 입력합니다."/>
-    </controls>
+<uiframe name="filefind" x="-70" y="-100" width="640" height="400" create="open">
+	<frame title="스프레이 프리셋" layout_gravity="right bottom" snapclient="true" snapframe="true" margin="0 0 8 8"/>
+	<skin frameskin="test_skin_01" backgroundimage="mixer_back" layout_gravity="center center" rect="0 82 220 220"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="100"/>
+	<option hideable="true" closebutton="true" useimageitem="true"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<controls>
+		<richtext name="t_path" rect="0 0 150 24" margin="30 25 0 0" layout_gravity="left top" caption="{@st49}FullDirName{/}" format="{@st49}%s{/}" param1="curDir"/>
+		<advlistbox name="AdvBox" rect="0 0 600 255" margin="30 55 0 0" layout_gravity="left top" LBtnDblClickScp="SELECT_FILE_PATH_ITEM" SelectScp="CLICK_FILE_PATH_ITEM" drawgrid="true" heightperrow="20" maxrowcol="5000 3" scroll="true" widthpercol="100"/>
+		<advlistboxitem name="Kor" parent="AdvBox" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top" caption="" col="0" datatype="richtext" fontname="white_16" row="0"/>
+		<advlistboxsetting parent="AdvBox" layout_gravity="left top" col="0" colwidth="520" row="0" rowbgcolor="#4a443f" rowheight="20" startrow="1"/>
+		<button name="t_end" rect="0 0 80 24" margin="85 0 0 30" layout_gravity="center bottom" LBtnUpScp="SELECT_FILEFIND" caption="{@st49}선택{/}"/>
+		<button name="t_cancel" rect="0 0 80 24" margin="260 0 0 30" layout_gravity="center bottom" LBtnUpScp="CLOSE_UI" caption="{@st49}닫기{/}"/>
+		<button name="t_delete" rect="0 0 80 24" margin="175 0 0 30" layout_gravity="center bottom" LBtnUpScp="DELETE_FILEFIND" caption="{@st49}삭제{/}"/>
+		<edit name="input" rect="0 0 180 30" margin="0 20 23 0" layout_gravity="right top" EnterKeyScp="ENTER_FILE_FIND" OffsetForDraw="20 3" fontname="white_14_ol" maxlen="128" texttooltip="저장할 파일의 이름을 입력합니다."/>
+	</controls>
 </uiframe>

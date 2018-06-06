@@ -74,7 +74,24 @@ function REINFORCE_131014_UPDATE_MORU_COUNT(frame)
 --	if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
 --	    msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
 --	end
+    
+    local retPrice, retCouponList = SCR_REINFORCE_COUPON_PRECHECK(pc, price)
+    
+    if price == retPrice then
     	hitPriceDesc:SetTextByKey("price", msg);
+    else
+        msg = GET_COMMAED_STRING(retPrice)
+    	hitPriceDesc:SetTextByKey("price", msg..ScpArgMsg('EVENT_REINFORCE_COUPON_MSG1','VALUE',GET_COMMAED_STRING(price-retPrice)));
+    	local msgBoxText
+    	for i = 1, #retCouponList do
+    	    if msgBoxText == nil then
+    	        msgBoxText = ScpArgMsg('EVENT_REINFORCE_COUPON_MSG2')..'{nl}'..ScpArgMsg('EVENT_REINFORCE_COUPON_MSG3','ITEM',GetClassString('Item',retCouponList[i][1],'Name'),'COUNT',retCouponList[i][3])
+    	    else
+    	        msgBoxText = msgBoxText..'{nl}'..ScpArgMsg('EVENT_REINFORCE_COUPON_MSG3','ITEM',GetClassString('Item',retCouponList[i][1],'Name'),'COUNT',retCouponList[i][3])
+    	    end
+    	end
+        ui.MsgBox_NonNested(msgBoxText,0x00000000)
+    end
 
 end
 
@@ -98,18 +115,19 @@ function REINFORCE_131014_MSGBOX(frame)
 	local pc = GetMyPCObject()
 	local price = GET_REINFORCE_131014_PRICE(fromItemObj, moruObj, pc)
 	local hadmoney = GET_TOTAL_MONEY();
-
-	if hadmoney < price then
+	local retPrice, retCouponList = SCR_REINFORCE_COUPON_PRECHECK(pc, price)
+	
+	if hadmoney < retPrice then
 		ui.AddText("SystemMsgFrame", ScpArgMsg('NotEnoughMoney'));
 		return;
 	end
 	
 	local classType = TryGetProp(fromItemObj,"ClassType");
     
-    if moruObj.ClassName ~= "Moru_Potential" and moruObj.ClassName ~= "Moru_Potential14d" then
+    --if moruObj.ClassName ~= "Moru_Potential" and moruObj.ClassName ~= "Moru_Potential14d" then
     if fromItemObj.GroupName == 'Weapon' or (fromItemObj.GroupName == 'SubWeapon' and  classType ~='Shield') then
     	if curReinforce >= 5 then
-               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA"or moruObj.ClassName == "Moru_Gold_TA_NR" then
+               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" or moruObj.ClassName == "Moru_Gold_Team_Trade" then
                     ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
                    	return;
                	else
@@ -119,7 +137,7 @@ function REINFORCE_131014_MSGBOX(frame)
         	end
     else
         if curReinforce >= 3 then
-               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" then
+               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" or moruObj.ClassName == "Moru_Gold_Team_Trade" then
                     ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
                    	return;
                	else
@@ -128,7 +146,7 @@ function REINFORCE_131014_MSGBOX(frame)
     	end
     end
 	end
-	end
+	--end
 	
 	REINFORCE_131014_EXEC();
 end

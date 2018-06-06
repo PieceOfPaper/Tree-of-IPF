@@ -1,4 +1,4 @@
-
+﻿
 function MAP_ON_INIT(addon, frame)
 	map_offsetx = 0;
 	map_offsety = 0;
@@ -34,6 +34,7 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('MON_MINIMAP_END', 'ON_MON_MINIMAP_END');
 			
 	addon:RegisterMsg('CHANGE_CLIENT_SIZE', 'FIRST_UPDATE_MAP');
+    addon:RegisterMsg('COLONY_MONSTER', 'MAP_COLONY_MONSTER');
 
 	frame = ui.GetFrame("map");
 	INIT_MAPUI_INFO(frame);
@@ -522,7 +523,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 				local YC = offsetY + MapPos.y - iconH / 2;
 
 				local ctrlname = GET_GENNPC_NAME(frame, MonProp);
-				local PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);
+				local PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);                
 				tolua.cast(PictureC, "ui::CPicture");
 				local idx, Icon = SET_MAP_MONGEN_NPC_INFO(PictureC, mapprop, WorldPos, MonProp, mapNpcState, npclist, statelist, questIESlist);
 			end
@@ -1199,6 +1200,9 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 	newframe:EnableHide(1);
 	newframe:EnableCloseButton(1);
 	newframe:SetLayerLevel(100);
+	
+	local originCloseBtn = GET_CHILD(newframe, "close_map");
+	originCloseBtn:ShowWindow(0);
 
 	DESTORY_MAP_PIC(newframe);
 	local mapprop = geMapTable.GetMapProp(zoneClassName);
@@ -1245,3 +1249,49 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 		
 end
 
+function GET_COLONY_MONSTER_POS(posStr)
+    local list = StringSplit(posStr, '#');
+    return list[1], list[2];
+end
+
+function GET_COLONY_MONSTER_IMG(frame, monID)
+    if IS_COLONY_MONSTER(monID) == true then
+        return frame:GetUserConfig('COLONY_MON_IMG');
+    end
+    return frame:GetUserConfig('COLONY_TOWER_IMG');
+end
+
+function MAP_COLONY_MONSTER(frame, msg, posStr, monID)        
+    frame:RemoveChild('colonyMonPic_'..monID);
+
+    local mapFrame = ui.GetFrame('map');
+    local COLONY_MON_IMG = GET_COLONY_MONSTER_IMG(mapFrame, monID);
+    local MONSTER_SIZE = tonumber(mapFrame:GetUserConfig('COLONY_MON_SIZE'));
+    local MONSTER_EFFECT_SIZE = tonumber(mapFrame:GetUserConfig('COLONY_MON_EFFECT_SIZE'));
+
+    local x, z = GET_COLONY_MONSTER_POS(posStr);    
+    local colonyMonPic = frame:CreateControl('picture', 'colonyMonPic_'..monID, 0, 0, MONSTER_SIZE, MONSTER_SIZE);    
+    colonyMonPic = AUTO_CAST(colonyMonPic);    
+    colonyMonPic:SetImage(COLONY_MON_IMG);
+
+    local zoneClassName = GetZoneName();
+    local mapprop = geMapTable.GetMapProp(zoneClassName);
+    local MapPos = mapprop:WorldPosToMinimapPos(x, z, 1024, 1024);
+    local mappicturetemp = GET_CHILD(frame, 'map', 'ui::CPicture');
+    local offsetX = mappicturetemp:GetX();
+	local offsetY = mappicturetemp:GetY();
+    local _x = offsetX + MapPos.x - MONSTER_SIZE / 2;
+	local _y = offsetY + MapPos.y - MONSTER_SIZE / 2;
+    colonyMonPic:SetOffset(_x, _y);
+	colonyMonPic:SetEnableStretch(1);
+
+    if IS_COLONY_MONSTER(monID) == true then
+        frame:RemoveChild('colonyMonEffectPic');
+        local colonyMonEffectPic = frame:CreateControl('picture', 'colonyMonEffectPic', 0, 0, MONSTER_EFFECT_SIZE, MONSTER_EFFECT_SIZE);
+        colonyMonEffectPic = AUTO_CAST(colonyMonEffectPic);
+        _x = offsetX + MapPos.x - MONSTER_EFFECT_SIZE / 2;
+	    _y = offsetY + MapPos.y - MONSTER_EFFECT_SIZE / 2;
+        colonyMonEffectPic:SetOffset(_x, _y);
+        SET_PICTURE_QUESTMAP(colonyMonEffectPic);
+    end
+end

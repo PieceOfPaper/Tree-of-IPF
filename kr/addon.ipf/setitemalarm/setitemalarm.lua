@@ -28,10 +28,8 @@ function SETITEM_CHECK(frame, itemType)
 	if set == nil then
 		return;
 	end
-	
-	local wikiIndex = session.GetWikiIndex(itemType);
-	
-	if wikiIndex == -1 then		
+		
+	if IsExistItemInAdventureBook(nil, itemType) == 'NO' then		
 		UPDATE_SETITEMALARM(frame, set, itemType);			
 	end
 end

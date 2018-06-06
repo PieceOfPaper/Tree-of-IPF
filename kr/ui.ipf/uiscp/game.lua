@@ -564,17 +564,6 @@ function RELOAD_MAP()
 
 end
 
-function UI_TOGGLE_GUILD()
-
-	local guildinfo = session.GetGuildInfo();
-	if guildinfo == nil then
-		return;
-	end
-
-	ui.ToggleFrame('guild');
-
-end
-
 function OPEN_CHAT_MENU(frame, control, commname, text, x, y)
 
 	OPEN_CHAT_CONTEXT(commname);
@@ -2282,7 +2271,7 @@ function ON_RULLET_LIST()
 end
 
 function UI_CHECK_NOT_PVP_MAP()
-	if world.IsPVPMap() then
+	if world.IsPVPMap() or session.colonywar.GetIsColonyWarMap() == true then
 		return 0;
 	end
 

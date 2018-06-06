@@ -100,9 +100,6 @@ function ITEMCRAFT_CLOSE(frame)
 end
 
 function CRAFT_OPEN(frame)
-
-	INV_CRAFT_CHECK();
-	
 	local f = ui.GetFrame(g_itemCraftFrameName);
 
 	CREATE_CRAFT_ARTICLE(f)
@@ -138,7 +135,7 @@ function SET_CRAFT_IDSPACE(frame, idSpace, arg1, arg2)
 end
 
 function CRAFT_CHECK_Recipe(cls, arg1, arg2)
-	if cls.NeedWiki == 0 or GetWikiByName(cls.ClassName) ~= nil then
+	if session.GetInvItemByName(cls.ClassName) ~= nil then
 		return true;
 	end
 
@@ -550,6 +547,14 @@ function SORT_INVITEM_BY_WORTH(a,b)
 end
 
 function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)	
+
+	if session.world.IsIntegrateServer() == true or
+	 session.world.IsIntegrateIndunServer() == true or
+	 session.IsMissionMap() == true then      
+	  ui.SysMsg(ClMsg("CannotCraftInIndun"));
+      return
+    end
+
 	local frame = ctrlset:GetTopParentFrame();
 	local parentcset = ctrlset:GetParent()
 	local idSpace = frame:GetUserValue("IDSPACE");
@@ -963,69 +968,82 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 	local recipecls = GetClassByType(idSpace, recipeType);
 	local resultlist = session.GetTempItemIDList();--session.GetItemIDList();
 	local cntText = string.format("%s %s", recipecls.ClassID, totalCount);
-    
+    local targetItem = GetClass("Item", recipecls.TargetItem);
+	
     local validRecipeMaterial = GET_MATERIAL_VALIDATION_SCRIPT(recipecls);
-    local IsValidRecipeMaterial = _G[validRecipeMaterial];
-
-    local map = {}  -- 제작에 필요한 아이템 목록
+    local IsValidRecipeMaterial = _G[validRecipeMaterial];    
+    local map_classname = {}  -- 제작에 필요한 아이템 목록
     local map_classID = {}
     local map_cnt = {}  -- 제작에 필요한 아이템별 필요 개수
     local item_count = 0
         
 	for index=1, 5 do        
 		local clsName = "Item_"..index.."_1";        
-		local itemName = recipecls[clsName];
+		local itemName = recipecls[clsName];        
 		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName);        
-
+        
         if recipeItemCnt ~= 0 then
             item_count = item_count + 1
+            map_classname[item_count] = itemName            
+            map_cnt[item_count] = recipeItemCnt
         end
-        
-		local invItem = session.GetInvItemByName(itemName);            
-        
-        if invItem ~= nil and recipeItemCnt ~= 0 then        
-            map[item_count] = GetIES(invItem:GetObject()).ClassName             
-            map_classID[item_count] = invItem.type
-            map_cnt[item_count] = recipeItemCnt                
-        end
-
-        if 0 ~= recipeItemCnt and 0 == IS_EQUIPITEM(itemName) then             
-			if nil ~= invItem and invItem.count < (recipeItemCnt * totalCount) then
-				ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
-				CLEAR_CRAFT_QUEUE(queueFrame);
-				frame:SetUserValue("MANUFACTURING", 0);
-				SetCraftState(0)
-				return
-			end
-		end
 	end
-    
+
     local extralist = {}    -- 중복 체크용 셋
     local ordered_list = {}
     local ordered_cnt = 1
     
     for i = 1, item_count do -- 제작에 필요한 아이템을 인벤에서 가져온다.
-        local classname = map[i]    -- item ClassName
-        local classid = map_classID[i]        
-        local candidate_list = GET_SORTED_INV_ITEMLIST()
-        for j = 1, #candidate_list do                        
-            local candidate_item_classname = GetIES(candidate_list[j]:GetObject()).ClassName
-            if IsValidRecipeMaterial(classname, GetIES(candidate_list[j]:GetObject())) then
-                if geItemTable.IsStack(classid) == 1 then
-                    extralist[candidate_list[j]:GetIESID()] = candidate_list[j]:GetIESID()                
-                    ordered_list[ordered_cnt] = candidate_list[j]:GetIESID()                
-                    ordered_cnt = ordered_cnt + 1                    
-                    break
-                else                
-                    if map[candidate_list[j]:GetIESID()] == nil and extralist[candidate_list[j]:GetIESID()] == nil then
-                        extralist[candidate_list[j]:GetIESID()] = candidate_list[j]:GetIESID()                    
-                        ordered_list[ordered_cnt] = candidate_list[j]:GetIESID()                
-                        ordered_cnt = ordered_cnt + 1                        
-                        break
-                    end
+        print('index = ' , i)
+        local classname = map_classname[i]    -- item ClassName
+        
+        local start, e = string.find(classname, 'R_')
+        if start == 1 then
+            local invItem = session.GetInvItemByName(classname);
+            if invItem == nil then
+                session.ResetItemList()
+                ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
+		        CLEAR_CRAFT_QUEUE(queueFrame);
+		        frame:SetUserValue("MANUFACTURING", 0);
+		        SetCraftState(0)                
+                return
+            else    -- 레시피 아이템이 존재하면
+                if invItem.isLockState == false then
+                    local invItemObj = GetIES(invItem:GetObject())
+                    ordered_list[ordered_cnt] = invItem:GetIESID()
+                    ordered_cnt = ordered_cnt + 1
+                else
+                    session.ResetItemList()
+                    ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
+		            CLEAR_CRAFT_QUEUE(queueFrame);
+		            frame:SetUserValue("MANUFACTURING", 0);
+		            SetCraftState(0)                
+                    return
                 end
             end
+        else
+            local candidate_list = GET_SORTED_INV_ITEMLIST()        
+            for j = 1, #candidate_list do
+                local candidate_item_classname = GetIES(candidate_list[j]:GetObject()).ClassName
             
+                if session.GetInvItemByGuid(candidate_list[j]:GetIESID()).isLockState == false then
+                    if IsValidRecipeMaterial(classname, GetIES(candidate_list[j]:GetObject())) then                        
+                        if geItemTable.IsStack(GetIES(candidate_list[j]:GetObject()).ClassID) == 1 then -- stack 형 아이템이라면
+                            extralist[candidate_list[j]:GetIESID()] = candidate_list[j]:GetIESID()                
+                            ordered_list[ordered_cnt] = candidate_list[j]:GetIESID()
+                            ordered_cnt = ordered_cnt + 1                    
+                            break
+                        else                
+                            if extralist[candidate_list[j]:GetIESID()] == nil and extralist[candidate_list[j]:GetIESID()] == nil then
+                                extralist[candidate_list[j]:GetIESID()] = candidate_list[j]:GetIESID()
+                                ordered_list[ordered_cnt] = candidate_list[j]:GetIESID()                                
+                                ordered_cnt = ordered_cnt + 1
+                                break
+                            end
+                        end
+                    end            
+                end            
+            end
         end
     end
 
@@ -1054,10 +1072,13 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
     end 
 
     local nameList = NewStringList();
-    local name = frame:GetUserValue('customize_name')
-    local memo = frame:GetUserValue('customize_memo')
-    nameList:Add(name)
-	nameList:Add(memo)
+
+    if IS_EQUIP(targetItem) then
+        local name = frame:GetUserValue('customize_name')
+        local memo = frame:GetUserValue('customize_memo')
+        nameList:Add(name)
+	    nameList:Add(memo)
+    end
 
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText, nameList)
 end
@@ -1231,7 +1252,7 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
                 if tempinvitem ~= nil then
                     invItemObj = GetIES(tempinvitem:GetObject());
                 end
-				if invItemObj~= nil and IsValidRecipeMaterial(eachcset:GetUserValue('ClassName'), invItemObj) and iconInfo.count >= needcount  then
+				if invItemObj~= nil and IsValidRecipeMaterial(eachcset:GetUserValue('ClassName'), invItemObj) and iconInfo.count >= needcount  then                    
 					if true == tempinvitem.isLockState then
 						ui.SysMsg(ClMsg("MaterialItemIsLock"));
 						return;
@@ -1521,24 +1542,6 @@ function CRAFT_EXIT(frame, msg, argStr, argNum)
 	ui.CloseFrame("timeaction");
 	ui.CloseFrame(frame:GetUserValue("UI_NAME"))
 	ui.CloseFrame(g_itemCraftFrameName);
-end
-
-function INV_CRAFT_CHECK()
-	local invItemList 		= session.GetInvItemList();
-	local index = invItemList:Head();
-	while index ~= invItemList:InvalidIndex() do
-		local invItem			= invItemList:Element(index);
-		if invItem ~= nil then
-			local recipeCls = GetClass('Recipe', invItem.ClassName);
-			if recipeCls ~= nil then
-				if GetWikiByName(invItem.ClassName) == nil then
-					packet.ReqWikiRecipeUpdate();
-					return;
-				end
-			end
-		end
-		index = invItemList:Next(index);
-	end
 end
 
 function SORT_PURE_INVITEMLIST(a,b)
@@ -1838,5 +1841,196 @@ function REGISTER_EQUIP(itemObj)
 	end
 
 	return 0
+
+end
+
+function MAKE_DETAIL_REQITEMS(ctrlset)
+	local recipecls = GetClass("Recipe", ctrlset:GetName());
+	local x = 90;
+	local startY = 85;
+	local y = startY;
+
+	local labelBox = ctrlset:CreateControl("groupbox", "LABEL", 80, startY, ctrlset:GetWidth() - 95, 0);
+	JOURNAL_DETAIL_CTRL_INIT(labelBox);
+	labelBox:ShowWindow(1);
+	labelBox:SetSkinName(" ");
+	ctrlset:SetSkinName("test_skin_01");
+	y = y + 10;
+
+	local itemHeight = ui.GetControlSetAttribute("journalRecipe_detail_item", 'height');
+	for i = 1 , 5 do
+		if recipecls["Item_"..i.."_1"] ~= "None" then
+			local recipeItemCnt, invItemCnt, dragRecipeItem = GET_RECIPE_MATERIAL_INFO(recipecls, i);
+
+			local itemSet = ctrlset:CreateOrGetControlSet("journalRecipe_detail_item", "ITEM_" .. i, x, y);
+			JOURNAL_DETAIL_CTRL_INIT(itemSet);
+			local slot = GET_CHILD(itemSet, "slot", "ui::CSlot");
+			local gauge = GET_CHILD(itemSet, "gauge", "ui::CGauge");
+			SET_SLOT_ITEM_CLS(slot, dragRecipeItem);
+			gauge:SetPoint(invItemCnt, recipeItemCnt);
+
+			y = y + itemHeight + 5;
+		end
+	end
+
+	y = y + 10;
+	local gboxHeight = y - startY;
+	labelBox:Resize(labelBox:GetWidth(), gboxHeight);
+	y = y + 0;
+
+	local targetItem = GetClass("Item", recipecls.TargetItem);
+	if IS_EQUIP(targetItem) == true then
+		local memoSet = ctrlset:CreateControlSet("journalRecipe_detail_memo", "MEMO", 20, y);
+		JOURNAL_DETAIL_CTRL_INIT(memoSet);
+		JOURNAL_INIT_MEMO_SET(memoSet);
+		y = y;
+	end
+
+
+	ctrlset:MergeControlSet("journalRecipe_makeBtn", ctrlset:GetWidth() - 320, y + 0);
+	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, "journalRecipe_makeBtn", JOURNAL_DETAIL_CTRL_INIT);
+	y = y + ui.GetControlSetAttribute("journalRecipe_makeBtn", 'height') + 0;
+	local make = GET_CHILD(ctrlset, "make", "ui::CButton");
+	
+	local myActor = GetMyActor();
+
+	if myActor:IsSit() == 1 then -- ¾?? UI°¡ ¹?? ¶§¹®¿¡(¸¸??´?½þ? [μ¿ ¾?? ¹??°¡·s??? ±??f[: ?½ĸ???§¸¸ ?¸???sª 140922.
+		--make:ShowWindow(1)
+		make:ShowWindow(0)
+	else
+		make:ShowWindow(0)
+	end
+
+	return y - startY;
+end
+
+function JOURNAL_INIT_MEMO_SET(memoSet)
+	local name = GET_CHILD(memoSet, "name", "ui::CEditControl");
+	local memo = GET_CHILD(memoSet, "memo", "ui::CEditControl");
+	name:SetMaxLen(ITEM_MEMO_LEN);
+	memo:SetMaxLen(RECIPE_ITEM_NAME_LEN);
+	local frame = memoSet:GetTopParentFrame();
+	local before_name = frame:GetUserValue("EQP_NAME");
+	local before_memo = frame:GetUserValue("EQP_MEMO");
+	if before_name ~= "None" then
+		name:SetText(before_name);
+	end
+	if before_memo ~= "None" then
+		memo:SetText(before_memo);
+	end
+
+end
+
+function JOURNAL_CRAFT_OPTION(frame, ctrl)
+	frame = frame:GetTopParentFrame();
+	JOURNAL_REMAKE_CRAFT(frame);
+end
+
+function JOURNAL_REMAKE_CRAFT(frame)
+
+	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
+	local grid = GET_CHILD_RECURSIVELY(frame, "article");
+	
+	CREATE_JOURNAL_ARTICLE_CRAFT(frame, grid, 'Recipe', ScpArgMsg('Auto_JeJag'), 'journal_craet_icon', 'JOURNAL_OPEN_CRAFT_ARTICLE');
+end
+
+function CREATE_JOURNAL_ARTICLE_CRAFT(frame, grid, key, text, iconImage, callback)
+
+
+	CREATE_JOURNAL_ARTICLE(frame, grid, key, text, iconImage, callback);
+
+	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
+
+	local ctrlset = GET_CHILD(group, "ctrlset");
+	local slotHeight = ui.GetControlSetAttribute("journalRecipe", 'height') + 5;
+
+	local tree_box = GET_CHILD(ctrlset, 'recipetree_Box','ui::CGroupBox')
+	local tree = GET_CHILD(tree_box, 'recipetree','ui::CTreeControl')
+
+	tree:Clear();
+	tree:EnableDrawTreeLine(false)
+	tree:EnableDrawFrame(false)
+	tree:SetFitToChild(true,100)
+	tree:SetFontName("white_20_ol");
+	tree:SetTabWidth(5);
+
+	
+	local clslist = GetClassList("Recipe");
+	if clslist == nil then 
+		return 
+	end
+
+	local i = 0;
+	local cls = GetClassByIndexFromList(clslist, i);
+
+	local showonlyhavemat = GET_CHILD(ctrlset, "showonlyhavemat", "ui::CCheckBox");
+	showonlyhavemat:ShowWindow(0);
+	local checkHaveMaterial = showonlyhavemat:IsChecked();
+
+	while cls ~= nil do
+		if checkHaveMaterial == 1 then
+			if JOURNAL_HAVE_MATERIAL(cls) == 1 then
+				JOURNAL_INSERT_CRAFT(cls, tree, slotHeight);
+			end
+		else
+			JOURNAL_INSERT_CRAFT(cls, tree, slotHeight);
+		end
+
+		i = i + 1;
+		cls = GetClassByIndexFromList(clslist, i);
+	end
+
+	tree:OpenNodeAll();	
+end
+
+function JOURNAL_HAVE_MATERIAL(recipecls)
+
+	for i = 1 , 5 do
+		if recipecls["Item_"..i.."_1"] ~= "None" then
+			local dragRecipeItem = GetClass('Item', recipecls["Item_"..i.."_1"]);
+			local invItem = session.GetInvItemByType(dragRecipeItem.ClassID);
+			if invItem ~= nil then
+				return 1;
+			end
+		end
+	end
+
+	return 0;
+end
+
+function JOURNAL_INSERT_CRAFT(cls, tree, slotHeight)
+
+	local item = GetClass('Item', cls.TargetItem);
+	local groupName = item.GroupName;
+	local classType = nil;
+	if GetPropType(item, "ClassType") ~= nil then
+		classType = item.ClassType;
+	end
+
+	local page = JOURNAL_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType);
+	
+	local app = page:CreateOrGetControlSet("journalRecipe", cls.ClassName, 10, 10);
+
+	local titleText = GET_CHILD(app, "name", "ui::CRichText");
+	titleText:SetText("{@st48}{s18}"..item.Name.."{/}{/}");
+
+	local difficulty = GET_CHILD(app, "difficulty", "ui::CRichText");
+	local difficultyText = GET_ITEM_GRADE_TXT(item, 24);
+	difficulty:SetText(difficultyText);
+
+	local icon = GET_CHILD(app, "icon", "ui::CPicture");
+	icon:SetImage(item.Icon);
+	icon:SetEnableStretch(1)
+
+	SET_ITEM_TOOLTIP_ALL_TYPE(icon, item, item.ClassName, '', item.ClassID, 0);
+
+	local titleText = GET_CHILD(app, "count", "ui::CRichText");
+	titleText:SetText('');
+
+	local gauge = GET_CHILD(app, 'progress', "ui::CGauge");
+	gauge:ShowWindow(0);
+
+	app:SetEventScript(ui.LBUTTONUP, 'JORNAL_RECIPE_FOCUS');
+	page:Resize(page:GetWidth(), app:GetY() + app:GetHeight() + 20);
 
 end
