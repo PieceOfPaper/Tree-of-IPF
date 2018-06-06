@@ -1,4 +1,14 @@
-﻿function IS_KOR_TEST_SERVER()
+function IS_KOR_JOB_EXEMPTION_PERIOD(jobClassName)
+    local jobList = {'Char1_19','Char2_19','Char3_18','Char4_19'}
+    if GetServerNation() == 'KOR' then
+        if table.find(jobList, jobClassName) > 0 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function IS_KOR_TEST_SERVER()
     if GetServerNation() == 'KOR' and GetServerGroupID() == 9001 then
         return true
     end
