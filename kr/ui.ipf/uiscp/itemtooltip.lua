@@ -203,13 +203,32 @@ function ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe)
 	local cvalueGBox = GET_CHILD(tooltipframe, 'changevalue','ui::CGroupBox')
 	local cvalueGBoxheight = cvalueGBox:GetHeight()
 	local childCnt = tooltipframe:GetChildCount();
+	local minY = option.GetClientHeight();
+	local arrange = false;
 	for i = 0 , childCnt - 1 do
 		local chld = tooltipframe:GetChildByIndex(i);
 		if chld:GetName() ~= 'changevalue' then
-			chld:SetOffset(chld:GetX(), chld:GetY() + cvalueGBoxheight)
+			local targetY = chld:GetY() + cvalueGBoxheight;
+
+			
+			local diff = targetY + chld:GetHeight() - option.GetClientHeight();
+			if diff > 0 then
+				arrange = true;
+				targetY = targetY - diff;
+			end
+
+			chld:SetOffset(chld:GetX(), targetY);
+
+			if minY > targetY then
+				minY = targetY;
+			end
 		end
 	end
 
+	if arrange == true then
+		local changevalue = tooltipframe:GetChild('changevalue');
+		changevalue:SetOffset(changevalue:GetX(), minY - cvalueGBoxheight);
+	end
 end
 
 function INIT_ITEMTOOLTIPFRAME_CHILDS(tooltipframe)
