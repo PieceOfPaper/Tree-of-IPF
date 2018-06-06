@@ -11,11 +11,24 @@ function BARRACK_SETTING_OPEN(frame, ctrl, argStr, argNum)
 end
 
 function BARRACK_SETTING_SAVE(frame, btnCtrl, argStr, argNum)
+	local str = ScpArgMsg('{TP}ReqChangeFamilyName', "TP", CHANGE_FAMILY_NAME_TP);
+	if nil == str then
+		return;
+	end
 	local editCtrl = GET_CHILD(frame, "barrackNameEdit", "ui::CEditControl");
 	local barrackName = editCtrl:GetText();
+	local yesScp = string.format("BARRACk_SETTING_CHECK_TP(\"%s\")", barrackName);
+	ui.MsgBox(str, yesScp, "None");
+end
+
+function BARRACk_SETTING_CHECK_TP(barrackName)
+	if 0 > GET_CASH_POINT_C() - CHANGE_FAMILY_NAME_TP then
+		ui.MsgBox(ClMsg("NotEnoughMedal"));
+		return;
+	end
+
 	if barrackName ~= nil or barrackName == "" then
 		barrack.ChangeBarrackName(barrackName);
-		btnCtrl:SetEnable(0);
 	end	
 end
 

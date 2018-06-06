@@ -8326,7 +8326,7 @@ function SCR_GET_StereaTrofh_Ratio(skill)
 end
 
 function SCR_GET_Chortasmata_Bufftime(skill)
-    local value = 10 + skill.Level
+    local value = 10
     
     local pc = GetSkillOwner(skill)
     local Druid1_abil = GetAbility(pc, "Druid1")
@@ -10476,8 +10476,9 @@ end
 
 function SCR_GET_SKILLLV_WITH_BM(skill)
     local value = skill.LevelByDB + skill.Level_BM;
+    
 	if skill.GemLevel_BM > 0 then
-		value = value + 1;	-- 몬스터젬 스킬보너스는 중첩시켜도 무조건 +1만 시킨다고함.
+		value = value + 1
 	end
 
     if skill.LevelByDB == 0 then
@@ -10487,7 +10488,6 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
     if value < 1 then
         value = 1;
     end
-
 	return value;
 end
 

@@ -21,7 +21,7 @@ function BARRACK_THEMA_UPDATE(frame)
 	local bg = frame:GetChild("nxp_bg");
 	local account = GetMyAccountObj();
 	local mynxp = bg:GetChild("mynxp");
-	mynxp:SetTextByKey("value", account.Medal);
+	mynxp:SetTextByKey("value", GET_CASH_POINT_C());
 	local curID = account.SelectedBarrack;
 	local bg_mid = frame:GetChild("bg_mid");
 	local advBox = GET_CHILD(bg_mid, "AdvBox", "ui::CAdvListBox");
@@ -105,7 +105,6 @@ end
 
 function BARRACK_BUY(buyMap)
 	local cls = GetClass("BarrackMap", buyMap);
-	local accountObj = GetMyAccountObj();
 
 	local msgBoxStr = ClMsg("ReallyBuy?") .. "{nl}" .. cls.Price .. " " .. ScpArgMsg("iCoin");
 	if config.GetServiceNation() == "KOR" then
@@ -115,7 +114,7 @@ function BARRACK_BUY(buyMap)
 	end
 
 	local yesScp = string.format("EXEC_BUY_BARRACK(\"%s\")", buyMap);
-	if accountObj.Medal < cls.Price then
+	if GET_CASH_POINT_C() < cls.Price then
 		ui.MsgBox(ClMsg("NotEnoughMedal"));		
 	else
 		ui.MsgBox(msgBoxStr, yesScp, "None");

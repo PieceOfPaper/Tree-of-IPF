@@ -523,12 +523,8 @@ function APPLY_AWAKEN(item)
 		return;
 	end
 
-		local hiddenProp = item.HiddenProp;
-	local getProp = TryGetProp(item, hiddenProp);
-	if nil ~= getProp then
-		local hiddenProp = item.HiddenProp;
-		item[hiddenProp] = item[hiddenProp] + item.HiddenPropValue;
-	end
+	local hiddenProp = item.HiddenProp;
+	item[hiddenProp] = item[hiddenProp] + item.HiddenPropValue;
 end
 
 function SCR_ENTER_AQUA(item, arg1, arg2)
@@ -1048,10 +1044,6 @@ end
 
 
 function IS_PERSONAL_SHOP_TRADABLE(itemCls)
-	if nil ~= string.find(itemCls.ClassName, "PremiumToken") then
-		return 0;
-	end
-
 	if itemCls.UserTrade == "NO" or itemCls.ItemType == "Equip" then
 		return 0;
 	end

@@ -566,16 +566,6 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 			invenItemInfo = session.GetInvItemByType(iconInfo.type);
 		end
 
-		if invenItemInfo == nil then
-			return;
-		end
-
-		local itemobj = GetIES(invenItemInfo:GetObject());
-		if TRY_TO_USE_WARP_ITEM(invenItemInfo, itemobj) == 1 then
-			return;
-		end
-
-
 		if invenItemInfo ~= nil then
 			if invenItemInfo.count == 0 then
 				icon:SetColorTone("FFFF0000");

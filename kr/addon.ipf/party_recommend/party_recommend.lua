@@ -52,7 +52,7 @@ function SHOW_PARTY_RECOMMEND(recommendType)
 		
 			if geMapTable.GetMapName(eachpartymember:GetMapID()) ~= 'None' then		
 				mapname = geMapTable.GetMapName(eachpartymember:GetMapID())
-				channel = eachpartymember:GetChannel() + 1
+				channel = eachpartymember:GetChannel()
 				break;
 			end
 		end

@@ -9,6 +9,7 @@
 	<option closebutton="false"/>
 	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
 	<sound opensound="character_item_window_open" closesound="character_item_window_close"/>
+	<script OpenScp="OPEN_PUB_CREATECHAR" CloseScp="CLOSE_PUB_CREATECHAR"/>
 	<controls>
 		<groupbox name="bg" margin="5 30 0 0" rect="0 0 524 1050" hittestbox="false" draw="true" skin="test_frame_low" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="true"/>
 		<groupbox name="bg_mid" margin="17 396 0 0" rect="0 0 500 300" hittestbox="false" draw="true" skin="test_frame_midle" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="true"/>

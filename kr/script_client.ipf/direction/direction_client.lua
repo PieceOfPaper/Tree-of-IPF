@@ -223,18 +223,9 @@ end
 
 
 function DRT_C_GOTO_BARRACK(self)
-	if GetBarrackPub():IsEnablePlayOpening() == 1 then
-		GetBarrackPub():PlayOpening(true);
-	else
-		GetBarrackPub():GoToBarrack();
-	end
-end
-
-
-function END_OPENING(actor, cmd)
-	GetBarrackPub():PlayOpening(false);
 	GetBarrackPub():GoToBarrack();
 end
+
 
 
 function DRT_SHAKE_C(self, cmd, time, power, freq, verticalSpeed)
@@ -295,11 +286,3 @@ function DRT_C_HIDE_MY_CHAR(pc, cmd, isHide)
 	
 
 end
-
-function DRT_FUNC_RUNSCRIPT_C(pc, cmd, funcName)
-
-	local func = _G[funcName];
-	func(pc ,cmd);
-
-end
-

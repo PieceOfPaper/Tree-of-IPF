@@ -1,4 +1,39 @@
 -- buff_tooltip.lua
+function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
+	local type = tooltipframe:GetChild("richtext_1");
+	local typeStr = "None";
+	if ITEM_TOKEN == numarg1 then
+		type:SetTextByKey("value", ClMsg("tokenItem"));
+	elseif NEXON_PC == numarg1 then
+		type:SetTextByKey("value", ClMsg("nexon")); 
+	end
+	
+	for i = 0, 4 do 
+		local str = GetCashTypeStr(numarg1, i)
+		if nil ~= str then
+			type = tooltipframe:GetChild(str);
+			type:SetTextByKey("value", ClMsg(str)); 
+	
+			local normal = GetCashValue(0, str);
+			local value = GetCashValue(numarg1,str);
+			local txt = "None"
+			if str == "marketSellCom" then
+				normal = normal + 0.01;
+				value = value + 0.01;
+				txt = math.floor(normal*100).. "% ->".. math.floor(value*100) .."%";
+			elseif str == "marketUpCom" then
+				txt = math.floor(normal*100).. "% ->".. math.floor(value*100) .."%";
+			elseif str =="abilityMax"then
+				txt = normal.. " -> +"..value;
+			else
+				txt = normal..ClMsg("Piece").." ->"..value .. ClMsg("Piece");
+			end		
+	
+			local data = tooltipframe:GetChild(str.."1");	
+			data:SetTextByKey("value", txt); 
+		end
+	end
+end
 
 function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
 

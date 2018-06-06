@@ -15,7 +15,7 @@
 		<richtext name="partyNote" rect="0 0 340 80" margin="15 35 0 0" layout_gravity="left top" fixwidth="true" fontname="white_16_ol" format="파티소개 : %s" param1="partymemo" param1_def="DefaultPartyMemo" textalign="left top"/>
 		<richtext name="createdTime" rect="0 0 340 80" margin="15 90 0 0" layout_gravity="left top" fixwidth="true" fontname="white_16_ol" format="결성시간 : %s 전" param1="createtime" param1_def="DefTime DefMin" textalign="left top"/>
 		<richtext name="memberCount" rect="0 0 340 80" margin="15 110 0 0" layout_gravity="left top" fixwidth="true" fontname="white_16_ol" format="인원구성 : %s/5" param1="memcount" param1_def="-1" textalign="left top"/>
-		<button name="invite" rect="0 0 120 50" margin="140 0 0 10" layout_gravity="left bottom" LBtnUpScp="PARTY_RECOMMEND_INVITE_ACCEPT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}가입" hittest="true" skin="test_red_button"/>
-		<button name="close" rect="0 0 120 50" margin="265 0 0 10" layout_gravity="left bottom" LBtnUpScp="ui.CloseFrame(&apos;party_recommend_popup&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}닫기" hittest="true" skin="test_gray_button"/>
+		<button name="invite" rect="0 0 120 50" margin="140 0 0 10" layout_gravity="left bottom" LBtnUpScp="PARTY_RECOMMEND_INVITE_ACCEPT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="가입" hittest="true" skin="test_red_button"/>
+		<button name="close" rect="0 0 120 50" margin="265 0 0 10" layout_gravity="left bottom" LBtnUpScp="ui.CloseFrame(&apos;party_recommend_popup&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="닫기" hittest="true" skin="test_gray_button"/>
 	</controls>
 </uiframe>

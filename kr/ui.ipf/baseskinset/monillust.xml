@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
-	<imagelist category="Monster_icon_boss_01">
+	<imagelist category="Monster_icon_boss_02">
 		<image name="M_boss_Golem_gray" file="\icon\monster\boss\boss_Golem.png" imgrect="0 0 80 80"/>
 		<image name="M_boss_poata" file="\icon\monster\boss\boss_poata.png" imgrect="0 0 80 80"/>
 		<image name="M_boss_Glass_mole" file="\icon\monster\boss\boss_Glass_mole.png" imgrect="0 0 80 80"/>
@@ -33,6 +33,21 @@
 		<image name="FD_boss_Glackuman" file="\icon\monster\boss\boss_Glackuman.png" imgrect="0 0 80 80"/>
 		<image name="FD_boss_Abomination" file="\icon\monster\boss\boss_Abomination.png" imgrect="0 0 80 80"/>
 		<image name="FD_boss_kubas" file="\icon\monster\boss\boss_kubas.png" imgrect="0 0 80 80"/>
+	<image name="boss_FerretMarauder" file="\icon\monster\boss\boss_FerretMarauder.png" imgrect="0 0 80 80"/>
+		<image name="boss_Flammidus" file="\icon\monster\boss\boss_Flammidus.png" imgrect="0 0 80 80"/>
+		<image name="boss_Foculus" file="\icon\monster\boss\boss_Foculus.png" imgrect="0 0 80 80"/>
+		<image name="boss_Gosal" file="\icon\monster\boss\boss_Gosal.png" imgrect="0 0 80 80"/>
+		<image name="boss_Gosarius" file="\icon\monster\boss\boss_Gosarius.png" imgrect="0 0 80 80"/>
+		<image name="boss_hauberk" file="\icon\monster\boss\boss_hauberk.png" imgrect="0 0 80 80"/>
+		<image name="boss_Lapedame" file="\icon\monster\boss\boss_Lapedame.png" imgrect="0 0 80 80"/>
+		<image name="boss_Lapene" file="\icon\monster\boss\boss_Lapene.png" imgrect="0 0 80 80"/>
+		<image name="boss_Marnoks" file="\icon\monster\boss\boss_Marnoks.png" imgrect="0 0 80 80"/>
+		<image name="boss_PantoRex" file="\icon\monster\boss\boss_PantoRex.png" imgrect="0 0 80 80"/>
+		<image name="boss_Pinscher" file="\icon\monster\boss\boss_Pinscher.png" imgrect="0 0 80 80"/>
+		<image name="boss_Prisoncutter" file="\icon\monster\boss\boss_Prisoncutter.png" imgrect="0 0 80 80"/>
+		<image name="boss_Rambandgad" file="\icon\monster\boss\boss_Rambandgad.png" imgrect="0 0 80 80"/>
+		<image name="boss_Rocksodon" file="\icon\monster\boss\boss_Rocksodon.png" imgrect="0 0 80 80"/>
+		<image name="boss_Zawra" file="\icon\monster\boss\boss_Zawra.png" imgrect="0 0 80 80"/>
 	</imagelist>
 	<imagelist category="Monster_icon_boss_01">
 		<image name="boss_mushwort" file="\icon\monster\boss\boss_mushwort.png" imgrect="0 0 80 80"/>
@@ -652,5 +667,206 @@
 		<image name="mon_wolf_statue_bow" file="\icon\monster\mon\mon_wolf_statue_bow.png" imgrect="0 0 80 80"/>
 		<image name="mon_wolf_statue_magician" file="\icon\monster\mon\mon_wolf_statue_magician.png" imgrect="0 0 80 80"/>
 		<image name="mon_wood_lwa" file="\icon\monster\mon\mon_wood_lwa.png" imgrect="0 0 80 80"/>
+	<image file="\icon\monster\mon\.png" imgrect="0 0 80 80"/>
+		<image file="\icon\monster\mon\.png" imgrect="0 0 80 80"/>
+		<image file="\icon\monster\mon\.png" imgrect="0 0 80 80"/>
+		<image name="mon_beeterineas" file="\icon\monster\mon\mon_beeterineas.png" imgrect="0 0 80 80"/>
+		<image name="mon_beeteros_blue" file="\icon\monster\mon\mon_beeteros_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_beeteroxia" file="\icon\monster\mon\mon_beeteroxia.png" imgrect="0 0 80 80"/>
+		<image name="mon_beeto" file="\icon\monster\mon\mon_beeto.png" imgrect="0 0 80 80"/>
+		<image name="mon_Chafperor_mage_purple" file="\icon\monster\mon\mon_Chafperor_mage_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_Chafperor_purple" file="\icon\monster\mon\mon_Chafperor_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_charcoal_walker" file="\icon\monster\mon\mon_charcoal_walker.png" imgrect="0 0 80 80"/>
+		<image name="mon_charog" file="\icon\monster\mon\mon_charog.png" imgrect="0 0 80 80"/>
+		<image name="mon_chupacabra_green" file="\icon\monster\mon\mon_chupacabra_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Colifly_bow_black" file="\icon\monster\mon\mon_Colifly_bow_black.png" imgrect="0 0 80 80"/>
+		<image name="mon_Colifly_mage_black" file="\icon\monster\mon\mon_Colifly_mage_black.png" imgrect="0 0 80 80"/>
+		<image name="mon_Colifly_yellow" file="\icon\monster\mon\mon_Colifly_yellow.png" imgrect="0 0 80 80"/>
+		<image name="mon_colimen_blue" file="\icon\monster\mon\mon_colimen_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_colimen_brown" file="\icon\monster\mon\mon_colimen_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_colimen_mage_brown" file="\icon\monster\mon\mon_colimen_mage_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_Conuts" file="\icon\monster\mon\mon_Conuts.png" imgrect="0 0 80 80"/>
+		<image name="mon_Corpse_Flower_green" file="\icon\monster\mon\mon_Corpse_Flower_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Crocoman" file="\icon\monster\mon\mon_Crocoman.png" imgrect="0 0 80 80"/>
+		<image name="mon_Cronewt_blue" file="\icon\monster\mon\mon_Cronewt_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Cronewt_bow_blue" file="\icon\monster\mon\mon_Cronewt_bow_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Cronewt_mage_blue" file="\icon\monster\mon\mon_Cronewt_mage_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_dandel_white" file="\icon\monster\mon\mon_dandel_white.png" imgrect="0 0 80 80"/>
+		<image name="mon_Deadbornscab_mage_red" file="\icon\monster\mon\mon_Deadbornscab_mage_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Deadbornscab_red" file="\icon\monster\mon\mon_Deadbornscab_red.png" imgrect="0 0 80 80"/>
+	</imagelist>
+	<imagelist category="Monster_icon_nor_06">
+		<image name="mon_defender_spider_blue" file="\icon\monster\mon\mon_defender_spider_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_defender_spider_red" file="\icon\monster\mon\mon_defender_spider_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_digo" file="\icon\monster\mon\mon_digo.png" imgrect="0 0 80 80"/>
+		<image name="mon_Dumaro_blue" file="\icon\monster\mon\mon_Dumaro_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Dumaro_yellow" file="\icon\monster\mon\mon_Dumaro_yellow.png" imgrect="0 0 80 80"/>
+		<image name="mon_Elet_blue" file="\icon\monster\mon\mon_Elet_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Elma_blue" file="\icon\monster\mon\mon_Elma_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Elma_red" file="\icon\monster\mon\mon_Elma_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_blok_archer" file="\icon\monster\mon\mon_FD_blok_archer.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_blok_wizard" file="\icon\monster\mon\mon_FD_blok_wizard.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_Flak" file="\icon\monster\mon\mon_FD_Flak.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_Flamag" file="\icon\monster\mon\mon_FD_Flamag.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_Flamil" file="\icon\monster\mon\mon_FD_Flamil.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_Flamme_archer" file="\icon\monster\mon\mon_FD_Flamme_archer.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_Flamme_mage" file="\icon\monster\mon\mon_FD_Flamme_mage.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_Flamme_priest" file="\icon\monster\mon\mon_FD_Flamme_priest.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_kenol" file="\icon\monster\mon\mon_FD_kenol.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_Stoulet_mage_blue" file="\icon\monster\mon\mon_FD_Stoulet_mage_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_Stoulet_mage_green" file="\icon\monster\mon\mon_FD_Stoulet_mage_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_ferret_archer" file="\icon\monster\mon\mon_ferret_archer.png" imgrect="0 0 80 80"/>
+		<image name="mon_ferret_bearer_elite" file="\icon\monster\mon\mon_ferret_bearer_elite.png" imgrect="0 0 80 80"/>
+		<image name="mon_ferret_folk" file="\icon\monster\mon\mon_ferret_folk.png" imgrect="0 0 80 80"/>
+		<image name="mon_ferret_loader" file="\icon\monster\mon\mon_ferret_loader.png" imgrect="0 0 80 80"/>
+		<image name="mon_ferret_patter" file="\icon\monster\mon\mon_ferret_patter.png" imgrect="0 0 80 80"/>
+		<image name="mon_ferret_searcher" file="\icon\monster\mon\mon_ferret_searcher.png" imgrect="0 0 80 80"/>
+		<image name="mon_ferret_slinger" file="\icon\monster\mon\mon_ferret_slinger.png" imgrect="0 0 80 80"/>
+		<image name="mon_ferret_vendor" file="\icon\monster\mon\mon_ferret_vendor.png" imgrect="0 0 80 80"/>
+		<image name="mon_Ferrot" file="\icon\monster\mon\mon_Ferrot.png" imgrect="0 0 80 80"/>
+		<image name="mon_Fisherman_blue" file="\icon\monster\mon\mon_Fisherman_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_flask_blue" file="\icon\monster\mon\mon_flask_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Folibu" file="\icon\monster\mon\mon_Folibu.png" imgrect="0 0 80 80"/>
+		<image name="mon_Goblin_Miners_Blue" file="\icon\monster\mon\mon_Goblin_Miners_Blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Gosaru" file="\icon\monster\mon\mon_Gosaru.png" imgrect="0 0 80 80"/>
+		<image name="mon_Greentoshell" file="\icon\monster\mon\mon_Greentoshell.png" imgrect="0 0 80 80"/>
+		<image name="mon_groll_white" file="\icon\monster\mon\mon_groll_white.png" imgrect="0 0 80 80"/>
+		<image name="mon_Harugal_blue" file="\icon\monster\mon\mon_Harugal_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Harugal_brown" file="\icon\monster\mon\mon_Harugal_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_hohen_barkle_blue" file="\icon\monster\mon\mon_hohen_barkle_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_hohen_barkle_green" file="\icon\monster\mon\mon_hohen_barkle_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Hohen_gulak_blue" file="\icon\monster\mon\mon_Hohen_gulak_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Hohen_mage_blue" file="\icon\monster\mon\mon_Hohen_mage_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Hohen_mage_red" file="\icon\monster\mon\mon_Hohen_mage_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Hohen_mane_brown" file="\icon\monster\mon\mon_Hohen_mane_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_Hohen_mane_purple" file="\icon\monster\mon\mon_Hohen_mane_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_Hohen_orben_green" file="\icon\monster\mon\mon_Hohen_orben_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Hohen_orben_red" file="\icon\monster\mon\mon_Hohen_orben_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Hohen_ritter_green" file="\icon\monster\mon\mon_Hohen_ritter_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Hohen_ritter_purple" file="\icon\monster\mon\mon_Hohen_ritter_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_hook_old" file="\icon\monster\mon\mon_hook_old.png" imgrect="0 0 80 80"/>
+		<image name="mon_humming_bud_purple" file="\icon\monster\mon\mon_humming_bud_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_Infroholder_bow_red" file="\icon\monster\mon\mon_Infroholder_bow_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Infroholder_green" file="\icon\monster\mon\mon_Infroholder_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Infroholder_mage_green" file="\icon\monster\mon\mon_Infroholder_mage_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Infroholder_red" file="\icon\monster\mon\mon_Infroholder_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_K-001" file="\icon\monster\mon\mon_K-001.png" imgrect="0 0 80 80"/>
+		<image name="mon_Kanchobird" file="\icon\monster\mon\mon_Kanchobird.png" imgrect="0 0 80 80"/>
+		<image name="mon_Kepari_green" file="\icon\monster\mon\mon_Kepari_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Kepari_mage_green" file="\icon\monster\mon\mon_Kepari_mage_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Kepari_purple" file="\icon\monster\mon\mon_Kepari_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_kodomor_purple" file="\icon\monster\mon\mon_kodomor_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_lapasape_blue" file="\icon\monster\mon\mon_lapasape_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_lapasape_bow_blue" file="\icon\monster\mon\mon_lapasape_bow_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_lapasape_bow_brown" file="\icon\monster\mon\mon_lapasape_bow_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_lapasape_brown" file="\icon\monster\mon\mon_lapasape_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_lapasape_mage_blue" file="\icon\monster\mon\mon_lapasape_mage_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_lapasape_mage_brown" file="\icon\monster\mon\mon_lapasape_mage_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_Lapeman" file="\icon\monster\mon\mon_Lapeman.png" imgrect="0 0 80 80"/>
+		<image name="mon_Lapemiter" file="\icon\monster\mon\mon_Lapemiter.png" imgrect="0 0 80 80"/>
+		<image name="mon_Lapezard" file="\icon\monster\mon\mon_Lapezard.png" imgrect="0 0 80 80"/>
+		<image name="mon_Lapfighter" file="\icon\monster\mon\mon_Lapfighter.png" imgrect="0 0 80 80"/>
+		<image name="mon_Lapflammer" file="\icon\monster\mon\mon_Lapflammer.png" imgrect="0 0 80 80"/>
+		<image name="mon_Loktanun" file="\icon\monster\mon\mon_Loktanun.png" imgrect="0 0 80 80"/>
+		<image name="mon_minos_bow_green" file="\icon\monster\mon\mon_minos_bow_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_minos_bow_orange" file="\icon\monster\mon\mon_minos_bow_orange.png" imgrect="0 0 80 80"/>
+		<image name="mon_Minos_green" file="\icon\monster\mon\mon_Minos_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_minos_mage_green" file="\icon\monster\mon\mon_minos_mage_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Minos_orange" file="\icon\monster\mon\mon_Minos_orange.png" imgrect="0 0 80 80"/>
+		<image name="mon_NightMaiden_bow_red" file="\icon\monster\mon\mon_NightMaiden_bow_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_NightMaiden_mage_red" file="\icon\monster\mon\mon_NightMaiden_mage_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Nuka_blue" file="\icon\monster\mon\mon_Nuka_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Nuka_brown" file="\icon\monster\mon\mon_Nuka_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_nuo_purple" file="\icon\monster\mon\mon_nuo_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_nuo_red" file="\icon\monster\mon\mon_nuo_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Onion_green" file="\icon\monster\mon\mon_Onion_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_operor_blue" file="\icon\monster\mon\mon_operor_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_PagAmpullar" file="\icon\monster\mon\mon_PagAmpullar.png" imgrect="0 0 80 80"/>
+		<image name="mon_Pagclamper" file="\icon\monster\mon\mon_Pagclamper.png" imgrect="0 0 80 80"/>
+		<image name="mon_PagEmitter" file="\icon\monster\mon\mon_PagEmitter.png" imgrect="0 0 80 80"/>
+		<image name="mon_Paggnat" file="\icon\monster\mon\mon_Paggnat.png" imgrect="0 0 80 80"/>
+		<image name="mon_PagNanny" file="\icon\monster\mon\mon_PagNanny.png" imgrect="0 0 80 80"/>
+		<image name="mon_PagNurse" file="\icon\monster\mon\mon_PagNurse.png" imgrect="0 0 80 80"/>
+		<image name="mon_PagSawyer" file="\icon\monster\mon\mon_PagSawyer.png" imgrect="0 0 80 80"/>
+		<image name="mon_PagWheeler" file="\icon\monster\mon\mon_PagWheeler.png" imgrect="0 0 80 80"/>
+		<image name="mon_Papayam" file="\icon\monster\mon\mon_Papayam.png" imgrect="0 0 80 80"/>
+		<image name="mon_pappus_kepa" file="\icon\monster\mon\mon_pappus_kepa.png" imgrect="0 0 80 80"/>
+		<image name="mon_pappus_kepa_purple" file="\icon\monster\mon\mon_pappus_kepa_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_Ponpon" file="\icon\monster\mon\mon_Ponpon.png" imgrect="0 0 80 80"/>
+		<image name="mon_puragi_red" file="\icon\monster\mon\mon_puragi_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Rajapearlite_purple" file="\icon\monster\mon\mon_Rajapearlite_purple.png" imgrect="0 0 80 80"/>
+		<image file="\icon\monster\mon\.png" imgrect="0 0 80 80"/>
+	</imagelist>
+	<imagelist category="Monster_icon_nor_07">
+		<image name="mon_Rajatadpole" file="\icon\monster\mon\mon_Rajatadpole.png" imgrect="0 0 80 80"/>
+		<image name="mon_Rambear_bow_brown" file="\icon\monster\mon\mon_Rambear_bow_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_Rambear_brown" file="\icon\monster\mon\mon_Rambear_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_Rambear_mage_brown" file="\icon\monster\mon\mon_Rambear_mage_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_Repusbunny_bow_green" file="\icon\monster\mon\mon_Repusbunny_bow_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Repusbunny_bow_purple" file="\icon\monster\mon\mon_Repusbunny_bow_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_Repusbunny_bow_red" file="\icon\monster\mon\mon_Repusbunny_bow_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Repusbunny_green" file="\icon\monster\mon\mon_Repusbunny_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Repusbunny_mage_green" file="\icon\monster\mon\mon_Repusbunny_mage_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Repusbunny_red" file="\icon\monster\mon\mon_Repusbunny_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_rondo_red" file="\icon\monster\mon\mon_rondo_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Rubabos_red" file="\icon\monster\mon\mon_Rubabos_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_saltisdaughter_bow_green" file="\icon\monster\mon\mon_saltisdaughter_bow_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_saltisdaughter_green" file="\icon\monster\mon\mon_saltisdaughter_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_saltisdaughter_mage_red" file="\icon\monster\mon\mon_saltisdaughter_mage_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_saltisdaughter_red" file="\icon\monster\mon\mon_saltisdaughter_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Sec_arburn_pokubu" file="\icon\monster\mon\mon_Sec_arburn_pokubu.png" imgrect="0 0 80 80"/>
+		<image name="mon_Sec_goblin_archer_blue" file="\icon\monster\mon\mon_Sec_goblin_archer_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Siaulav_blue" file="\icon\monster\mon\mon_Siaulav_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Siaulav_bow_blue" file="\icon\monster\mon\mon_Siaulav_bow_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Siaulav_bow_orange" file="\icon\monster\mon\mon_Siaulav_bow_orange.png" imgrect="0 0 80 80"/>
+		<image name="mon_Siaulav_mage_blue" file="\icon\monster\mon\mon_Siaulav_mage_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Siaulav_orange" file="\icon\monster\mon\mon_Siaulav_orange.png" imgrect="0 0 80 80"/>
+		<image name="mon_slime_dark_blue" file="\icon\monster\mon\mon_slime_dark_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_slime_dark_green" file="\icon\monster\mon\mon_slime_dark_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Socket_bow_purple" file="\icon\monster\mon\mon_Socket_bow_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_Socket_bow_red" file="\icon\monster\mon\mon_Socket_bow_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Socket_green" file="\icon\monster\mon\mon_Socket_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Socket_mage_green" file="\icon\monster\mon\mon_Socket_mage_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Socket_mage_red" file="\icon\monster\mon\mon_Socket_mage_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Socket_purple" file="\icon\monster\mon\mon_Socket_purple.png" imgrect="0 0 80 80"/>
+		<image name="mon_Socket_red" file="\icon\monster\mon\mon_Socket_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Spector_gh_red" file="\icon\monster\mon\mon_Spector_gh_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Spion_blue" file="\icon\monster\mon\mon_Spion_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Spion_bow_blue" file="\icon\monster\mon\mon_Spion_bow_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Spion_bow_red" file="\icon\monster\mon\mon_Spion_bow_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Spion_mage_blue" file="\icon\monster\mon\mon_Spion_mage_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Spion_mage_white" file="\icon\monster\mon\mon_Spion_mage_white.png" imgrect="0 0 80 80"/>
+		<image name="mon_Spion_red" file="\icon\monster\mon\mon_Spion_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Spion_white" file="\icon\monster\mon\mon_Spion_white.png" imgrect="0 0 80 80"/>
+		<image name="mon_Stoulet_bow_blue" file="\icon\monster\mon\mon_Stoulet_bow_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Stoulet_gray" file="\icon\monster\mon\mon_Stoulet_gray.png" imgrect="0 0 80 80"/>
+		<image name="mon_Templeslave_blue" file="\icon\monster\mon\mon_Templeslave_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Templeslave_mage_blue" file="\icon\monster\mon\mon_Templeslave_mage_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Templeslave_sword_blue" file="\icon\monster\mon\mon_Templeslave_sword_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_TerraNymph_blue" file="\icon\monster\mon\mon_TerraNymph_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_TerraNymph_bow_brown" file="\icon\monster\mon\mon_TerraNymph_bow_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_TerraNymph_brown" file="\icon\monster\mon\mon_TerraNymph_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_TerraNymph_mage_blue" file="\icon\monster\mon\mon_TerraNymph_mage_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_ticen_blue" file="\icon\monster\mon\mon_ticen_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_ticen_bow_blue" file="\icon\monster\mon\mon_ticen_bow_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_ticen_bow_red" file="\icon\monster\mon\mon_ticen_bow_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_ticen_mage_blue" file="\icon\monster\mon\mon_ticen_mage_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_ticen_mage_red" file="\icon\monster\mon\mon_ticen_mage_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_ticen_red" file="\icon\monster\mon\mon_ticen_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Tiny_bow_blue" file="\icon\monster\mon\mon_Tiny_bow_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Tiny_bow_green" file="\icon\monster\mon\mon_Tiny_bow_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Tiny_brown" file="\icon\monster\mon\mon_Tiny_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_Tiny_mage_brown" file="\icon\monster\mon\mon_Tiny_mage_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_Tiny_mage_green" file="\icon\monster\mon\mon_Tiny_mage_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_truffle_blue" file="\icon\monster\mon\mon_truffle_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Wendigo_archer_blue" file="\icon\monster\mon\mon_Wendigo_archer_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Wendigo_archer_gray" file="\icon\monster\mon\mon_Wendigo_archer_gray.png" imgrect="0 0 80 80"/>
+		<image name="mon_wendigo_blue" file="\icon\monster\mon\mon_wendigo_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Wendigo_bow_white" file="\icon\monster\mon\mon_Wendigo_bow_white.png" imgrect="0 0 80 80"/>
+		<image name="mon_Wendigo_magician_blue" file="\icon\monster\mon\mon_Wendigo_magician_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_rootcrystal_02" file="\icon\monster\mon\mon_rootcrystal_02.png" imgrect="0 0 80 80"/>
+		<image name="mon_rootcrystal_03" file="\icon\monster\mon\mon_rootcrystal_03.png" imgrect="0 0 80 80"/>
+		<image name="mon_rootcrystal_04" file="\icon\monster\mon\mon_rootcrystal_04.png" imgrect="0 0 80 80"/>
+		<image name="mon_rootcrystal_05" file="\icon\monster\mon\mon_rootcrystal_05.png" imgrect="0 0 80 80"/>
 	</imagelist>
 </skinset>

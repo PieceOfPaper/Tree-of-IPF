@@ -69,7 +69,7 @@ function MAKE_CATEGORY_TREE()
 			foldimg:ShowWindow(0);
 		end
 
-	
+
 		local htreeitem = tpitemtree:FindByValue(category);
 	
 		local tempFirstValue = nil
@@ -77,7 +77,6 @@ function MAKE_CATEGORY_TREE()
 		if tpitemtree:IsExist(htreeitem) == 0 then
 			htreeitem = tpitemtree:Add(categoryCset, category);
 			tempFirstValue = tpitemtree:GetItemValue(htreeitem)
-	
 		end
 
 		local hsubtreeitem = tpitemtree:FindByCaption("{@st42b}"..ScpArgMsg(subcategory));
@@ -90,12 +89,10 @@ function MAKE_CATEGORY_TREE()
 			foldimg:ShowWindow(1);
 
 			tempFirstValue = tpitemtree:GetItemValue(added)
-			
 		end
 
 		if g_firstValue == nil then
 			g_firstValue = tempFirstValue
-			
 		end
 
 	end
@@ -112,19 +109,13 @@ function TPITEM_OPEN(frame)
 	if g_firstValue ~= nil  then
 
 		local sList = StringSplit(g_firstValue, "#");
-
+	
 		if #sList <= 0 then
 			return;
-		elseif #sList == 1 then -- 서브카테고리 없음. 그냥 열어라.
-			local htreeitem = tpitemtree:FindByValue(g_firstValue);
-			
-			if tpitemtree:IsExist(htreeitem) == 1 then
-				
-
-				if tpitemtree:GetChildItemCount(htreeitem) < 1 then
-
-					TPITEM_DRAW_ITEM(frame, sList[1], "None")
-				end
+		elseif #sList == 1 then
+			if tree:GetChildItemCount(tree:FindByValue(selValue)) == 0 then
+				-- 서브카테고리 없음. 그냥 열어라.
+				TPITEM_DRAW_ITEM(frame, sList[1], "None")
 			end
 		elseif #sList == 2 then
 			-- 서브카테고리 포함해서 열어라
@@ -168,7 +159,10 @@ function TPITEM_SELECT_TREENODE(uiobejct, value)
 	if #sList <= 0 then
 		return;
 	elseif #sList == 1 then
-		TPITEM_DRAW_ITEM(frame, sList[1], "None") -- 서브카테고리 없음. 그냥 열어라.
+		if tree:GetChildItemCount(tree:FindByValue(selValue)) == 0 then
+			-- 서브카테고리 없음. 그냥 열어라.
+			TPITEM_DRAW_ITEM(frame, sList[1], "None")
+		end
 	elseif #sList == 2 then
 		-- 서브카테고리 포함해서 열어라
 		TPITEM_DRAW_ITEM(frame, sList[1], sList[2])

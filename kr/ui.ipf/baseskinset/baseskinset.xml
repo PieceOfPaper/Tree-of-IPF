@@ -1575,6 +1575,17 @@
 			<img name="bottomcore" imgrect="1939 449 78 15"/>
 			<img name="bottomright" imgrect="2018 449 30 15"/>
 		</skin>
+		<skin name="fullblack_bg" texture="\icon\fullblack.bmp">
+			<img name="topleft" imgrect="0 0 64 64"/>
+			<img name="topcore" imgrect="0 0 64 64"/>
+			<img name="topright" imgrect="0 0 64 64"/>
+			<img name="bodyleft" imgrect="0 0 64 64"/>
+			<img name="bodycore" imgrect="0 0 64 64"/>
+			<img name="bodyright" imgrect="0 0 64 64"/>
+			<img name="bottomleft" imgrect="0 0 64 64"/>
+			<img name="bottomcore" imgrect="0 0 64 64"/>
+			<img name="bottomright" imgrect="0 0 64 64"/>
+		</skin>
 	</skinlist>
 	<skinlist category="testjoo_buttons">
 		<skin name="test_skin_01_btn" texture="\skin\pip_test.tga">
@@ -4010,6 +4021,7 @@
 		<image name="guild_offline" file="\skin\pip_test.tga" imgrect="1799 589 20 20" CMM_Caption="길드_오프라인"/>
 		<image name="v_mark" file="\skin\barrack.tga" imgrect="1067 330 84 84" CMM_Caption="브이마크"/>
 		<image name="guild_talt" file="\skin\pip_test_item.tga" imgrect="1612 87 190 190" CMM_Caption="길드탈트넣는곳"/>
+	<image name="tpshop_image" file="\skin\market_skin.tga" imgrect="0 344 1180 80" CMM_Caption="마켓임시"/>
 	</imagelist>
 	<imagelist category="tutorial_img">
 		<image name="tutr_img_btn_left" file="\skin\mainframe_04.tga" imgrect="371 448 44 44"/>
@@ -4073,6 +4085,7 @@
 		<image name="companion_nomal" file="\skin\barrack.tga" imgrect="660 19 20 19"/>
 		<image name="companion_bad" file="\skin\barrack.tga" imgrect="660 38 20 19"/>
 		<image name="loading_bube" file="\skin\loading_gauge.tga" imgrect="7 183 790 80"/>
+		<image name="notice_pos" file="\skin\notice_pos.tga" imgrect="0 0 2800 200"/>
 		<image name="collection_new" file="\skin\HUD.tga" imgrect="559 521 55 55"/>
 		<image name="collection_com" file="\skin\HUD.tga" imgrect="503 521 55 55"/>
 		<image name="collection_com_light" file="\skin\HUD.tga" imgrect="754 897 104 104"/>
@@ -4975,11 +4988,15 @@
 		<image name="btn_up_clicked" file="\skin\mainframe_A.tga" imgrect="686 704 18 18"/>
 	</imagelist>
 	<imagelist category="worldmap_imgs">
-		<image name="worldmap_bg" file="\skin\worldmap_bg.jpg" imgrect="0 0 1920 3600"/>
-		<image name="worldmap_n_bg" file="\skin\worldmap_n_bg.jpg" imgrect="0 0 3480 3480"/>
-		<image name="worldmap_n_fog" file="\skin\worldmap_n_fog.jpg" imgrect="0 0 3480 3480"/>
-		<image name="worldmap_s_bg" file="\skin\worldmap_s_bg.jpg" imgrect="0 0 3480 3870"/>
-		<image name="worldmap_s_fog" file="\skin\worldmap_s_fog.jpg" imgrect="0 0 3480 3870"/>
+		<image name="btn_worldmap_zoomin" file="\skin\button.tga" imgrect="190 167 44 44"/>
+		<image name="btn_worldmap_zoomin_cursoron" file="\skin\button.tga" imgrect="235 167 44 44"/>
+		<image name="btn_worldmap_zoomin_clicked" file="\skin\button.tga" imgrect="280 167 44 44"/>
+		<image name="btn_worldmap_zoomout" file="\skin\button.tga" imgrect="190 212 44 44"/>
+		<image name="btn_worldmap_zoomout_cursoron" file="\skin\button.tga" imgrect="235 212 44 44"/>
+		<image name="btn_worldmap_zoomout_clicked" file="\skin\button.tga" imgrect="280 212 44 44"/>
+		<image name="worldmap_mark" file="\skin\worldmap_mark.png" imgrect="0 0 360 300"/>
+		<image name="worldmap_s_fog" file="\skin\worldmap_overall_fog.jpg" imgrect="0 0 3480 7250"/>
+		<image name="worldmap_s_bg" file="\skin\worldmap_overall_bg.jpg" imgrect="0 0 3480 7250"/>
 	</imagelist>
 	<imagelist category="minimap_imgs">
 		<image name="jilgam" file="\minimap\jilgam.png" imgrect="0 0 1024 1024"/>
@@ -5386,7 +5403,7 @@
 		<image name="Dlg_port_Zanas" file="\npcimg\Zanas.png" imgrect="0 0 700 800" CMM_Caption="Zanas"/>
 		<image name="Dlg_port_Helga_Cercle" file="\npcimg\Helga_Cercle.png" imgrect="0 0 700 800" CMM_Caption="Helga_Cercle"/>
 		<image name="Dlg_port_owlseer" file="\npcimg\owlseer.png" imgrect="0 0 700 800" CMM_Caption="owlseer"/>
-		<image name="Dlg_port_Raima" file="\npcimg\Raima.png" imgrect="0 0 1000 1200" CMM_Caption="Godness Raima"/>
+		<image name="Dlg_port_Raima" file="\npcimg\Raima.png" imgrect="0 0 1000 1100" CMM_Caption="Godness Raima"/>
 		<image name="Dlg_port_Giltine" file="\npcimg\Giltine.png" imgrect="0 0 1000 1200" CMM_Caption="Giltine"/>
 		<image name="Dlg_port_Gesti" file="\npcimg\Gesti.png" imgrect="0 0 880 1050" CMM_Caption="Gesti"/>
 		<image name="Dlg_port_Saule" file="\npcimg\Saule.png" imgrect="0 0 880 1050" CMM_Caption="Godness Saule"/>
@@ -5415,7 +5432,7 @@
 		<image name="Dlg_port_Anna" file="\npcimg\Anna.png" imgrect="0 0 700 900" CMM_Caption="페미디안_대장장이"/>
 		<image name="Dlg_port_Muras" file="\npcimg\Muras.png" imgrect="0 0 700 950" CMM_Caption="페미디안_도구상인"/>
 		<image name="Dlg_port_rosie" file="\npcimg\rosie.png" imgrect="0 0 700 1000" CMM_Caption="마켓관리인"/>
-		<image name="Dlg_port_vakarine" file="\npcimg\vakarine.png" imgrect="0 0 1000 1200" CMM_Caption="여신바카리네"/>
+		<image name="Dlg_port_vakarine" file="\npcimg\vakarine.png" imgrect="0 0 1000 1050" CMM_Caption="여신바카리네"/>
 		<image name="Dlg_port_Yoana" file="\npcimg\Yoana.png" imgrect="0 0 700 900" CMM_Caption="페미디안_악세사리상인"/>
 		<image name="Dlg_port_Yorgis" file="\npcimg\Yorgis.png" imgrect="0 0 700 1000" CMM_Caption="페미디안_장비상인"/>
 		<image name="Dlg_port_Hauberk" file="\npcimg\Hauberk.png" imgrect="0 0 900 1000" CMM_Caption="하우벅"/>
@@ -5446,16 +5463,22 @@
 		<image name="Dlg_port_Yurrs" file="\npcimg\Yurrs.png" imgrect="0 0 800 1000" CMM_Caption="오르샤 악세사리상인"/>
 		<image name="Dlg_port_Mardas" file="\npcimg\Mardas.png" imgrect="0 0 700 900" CMM_Caption="카틴숲정찰병"/>
 		<image name="Dlg_port_Saule2" file="\npcimg\Saule2.png" imgrect="0 0 880 1050" CMM_Caption="샤울레여신2"/>
-		<image name="Dlg_port_vakarine2" file="\npcimg\vakarine2.png" imgrect="0 0 1000 1200" CMM_Caption="바카리네여신2"/>
+		<image name="Dlg_port_vakarine2" file="\npcimg\vakarine2.png" imgrect="0 0 1000 1050" CMM_Caption="바카리네여신2"/>
 		<image name="Dlg_port_Austeja2" file="\npcimg\Austeja2.png" imgrect="0 0 780 800" CMM_Caption="아우스테자여신2"/>
-		<image name="Dlg_port_Raima2" file="\npcimg\Raima2.png" imgrect="0 0 1000 1200" CMM_Caption="라이마여신2"/>
+		<image name="Dlg_port_Raima2" file="\npcimg\Raima2.png" imgrect="0 0 1000 1100" CMM_Caption="라이마여신2"/>
 		<image name="Dlg_port_ziaurah" file="\npcimg\ziaurah.png" imgrect="0 0 1000 1000" CMM_Caption="마군주_자우라"/>
-		<image name="Dlg_port_Marnoks" file="\npcimg\Marnoks.png" imgrect="0 0 1000 1200" CMM_Caption="마군주_마르녹스"/>
+		<image name="Dlg_port_Marnoks" file="\npcimg\Marnoks.png" imgrect="0 0 850 1000" CMM_Caption="마군주_마르녹스"/>
 		<image name="Dlg_port_Hauberk_dark" file="\npcimg\Hauberk_dark.png" imgrect="0 0 900 1000" CMM_Caption="하우벅_다크"/>
 		<image name="Dlg_port_Letizia" file="\npcimg\Letizia.png" imgrect="0 0 1000 1000" CMM_Caption="레티샤"/>
 		<image name="Dlg_port_Roze" file="\npcimg\Roze.png" imgrect="0 0 700 800" CMM_Caption="로제"/>
 		<image name="Dlg_port_aisah" file="\npcimg\aisah.png" imgrect="0 0 800 900" CMM_Caption="아이샤"/>
 		<image name="Dlg_port_Floana" file="\npcimg\Floana.png" imgrect="0 0 700 900" CMM_Caption="플로아나"/>
+	<image name="Dlg_port_WinonaEnde" file="\npcimg\WinonaEnde.png" imgrect="0 0 700 900" CMM_Caption="링커마스터"/>
+		<image name="Dlg_port_LoretaNimbus" file="\npcimg\LoretaNimbus.png" imgrect="0 0 800 1000" CMM_Caption="네크로멘서마스터"/>
+		<image name="Dlg_port_Gema" file="\npcimg\Gema.png" imgrect="0 0 700 900" CMM_Caption="로그마스터"/>
+		<image name="Dlg_port_Guerra" file="\npcimg\Guerra.png" imgrect="0 0 800 1000" CMM_Caption="도펠쥘트너마스터"/>
+		<image name="Dlg_port_OlfasGrimm" file="\npcimg\OlfasGrimm.png" imgrect="0 0 900 1100" CMM_Caption="몽크마스터"/>
+	<image name="Dlg_port_Toras" file="\npcimg\Toras.png" imgrect="0 0 700 1000" CMM_Caption="몽크마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -5545,6 +5568,8 @@
 		<image name="icon_owl2" file="\icon\buff_icon.tga" imgrect="128 1152 128 128" CMM_Caption="부엉이비활성화"/>
 		<image name="icon_rotten" file="\icon\buff_icon.tga" imgrect="256 1152 128 128" CMM_Caption="부패"/>
 		<image name="icon_armorbreak" file="\icon\buff_icon.tga" imgrect="384 1152 128 128" CMM_Caption="아머브레이크"/>
+	<image name="icon_token" file="\icon\buff_icon.tga" imgrect="512 1152 128 128" CMM_Caption="토큰"/>
+		<image name="icon_nexonpc" file="\icon\buff_icon.tga" imgrect="640 1152 128 128" CMM_Caption="넥슨피시방"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
@@ -5558,6 +5583,14 @@
 		<image name="enchantmax_indi_icon" file="\skin\mainframe_A.tga" imgrect="857 643 42 42"/>
 	</imagelist>
 	<imagelist category="dungeon_msg">
+		<image name="NOTICE_Dm_raid_fail" file="\skin\dungeon_message.tga" imgrect="909 707 100 100" CMM_Caption="raid_fail"/>
+		<image name="NOTICE_Dm_reward_box" file="\skin\dungeon_message.tga" imgrect="808 707 100 100" CMM_Caption="reward_box"/>
+		<image name="NOTICE_Dm_raid_clear" file="\skin\dungeon_message.tga" imgrect="707 707 100 100" CMM_Caption="raid_clear"/>
+		<image name="NOTICE_Dm_stage_clear" file="\skin\dungeon_message.tga" imgrect="606 707 100 100" CMM_Caption="stage_clear"/>
+		<image name="NOTICE_Dm_stage_start" file="\skin\dungeon_message.tga" imgrect="505 707 100 100" CMM_Caption="stage_start"/>
+		<image name="NOTICE_Dm_stage_ready" file="\skin\dungeon_message.tga" imgrect="404 707 100 100" CMM_Caption="stage_ready"/>
+		<image name="NOTICE_Dm_move_to_point" file="\skin\dungeon_message.tga" imgrect="303 707 100 100" CMM_Caption="move_to_point"/>
+		<image name="NOTICE_Dm_guildevent_join_complete" file="\skin\dungeon_message.tga" imgrect="202 707 100 100" CMM_Caption="guildevent_join_complete"/>
 		<image name="NOTICE_Dm_quest_complete" file="\skin\dungeon_message.tga" imgrect="101 707 100 100" CMM_Caption="quest_complete"/>
 		<image name="NOTICE_Dm_levelup_base" file="\skin\dungeon_message.tga" imgrect="101 606 100 100" CMM_Caption="levelup_base"/>
 		<image name="NOTICE_Dm_levelup_skill" file="\skin\dungeon_message.tga" imgrect="0 606 100 100" CMM_Caption="levelup_skill"/>

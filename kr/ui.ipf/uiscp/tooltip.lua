@@ -642,3 +642,37 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj, no
 	return ypos + lvDescCtrlSet:GetHeight() + 5;
  end
 
+function SET_TOOLTIP_ZOMBIECAPSULE_DESC(obj)
+
+	local retString = "";
+	local keyWordIndex = 1;
+	while 1 do
+		local keyWord = TryGetProp(obj, GET_KEYWORD_PROP_NAME(keyWordIndex));
+		if keyWord == nil or keyWord == "None" then
+			break;
+		end
+
+		local monList = TokenizeByChar(keyWord, "@");
+		for j = 1 , #monList do
+			local monInfo = monList[j];
+			local info = TokenizeByChar(monInfo, "#");
+			local monType = info[1];
+			local lv = info[2];
+			local zombieType = tonumber(info[3]);
+			local hp = info[4];
+			
+			if retString ~= "" then
+				retString = retString .. "{nl}";
+			end
+
+			local monCls = GetClass("Monster", GET_SUMMON_ZOMBIE_NAME(zombieType));
+			retString = retString  .. monCls.Name .. " (Lv." .. lv .. " , HP:" .. hp .. "%)";
+		end
+		
+		keyWordIndex = keyWordIndex + 1;
+	end
+	
+	return retString;
+end
+
+

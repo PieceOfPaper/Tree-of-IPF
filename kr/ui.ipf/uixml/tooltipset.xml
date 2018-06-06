@@ -248,4 +248,21 @@
 			<richtext name="text" margin="-1 21 0 0" rect="0 0 120 24" format="{@st53}제조 중인 아이템" textalign="center center" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" layout_gravity="center top"/>
 		</controls>
 	</tooltip>
+    <tooltip name="premium" x="0" y="0" width="300" height="200" frameskin="pipwin_low" UpdateScp="UPDATE_PREMIUM_TOOLTIP" lifetime="90000" blendtime="1500" skin="socket_gem_titlebar_baseskin">
+        <controls>
+            <groupbox name="gbox" margin="0 1 0 0" rect="0 0 320 230" hittestbox="false" skin="bg_active" layout_gravity="center top"/>
+            <labelline name="labelline_1" margin="-3 29 0 0" rect="0 0 500 5" skin="labelline_def" layout_gravity="left top"/>
+            <richtext name="richtext_1" margin="9 5 0 0" rect="0 0 120 24" format="{@st42}%s{/} 혜택적용" param1="value" param1_def="혜택" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+            <richtext name="marketSellCom" margin="10 44 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+            <richtext name="marketUpCom" margin="10 74 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+            <richtext name="marketUpMax" margin="10 104 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+            <richtext name="abilityMax" margin="10 134 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+            <richtext name="speedUp" margin="10 164 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+            <richtext name="marketSellCom1" margin="210 42 9 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="30%-&gt;30$" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+            <richtext name="marketUpCom1" margin="210 72 9 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="30%-&gt;30$" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+            <richtext name="marketUpMax1" margin="212 102 9 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="30%-&gt;30$" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+            <richtext name="abilityMax1" margin="215 132 9 0" rect="0 0 134 24" format="{@st42}%s{/}" param1="value" param1_def="30%-&gt;30$" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+            <richtext name="speedUp1" margin="216 162 9 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="30%-&gt;30$" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+        </controls>
+    </tooltip>
 </tooltipset>

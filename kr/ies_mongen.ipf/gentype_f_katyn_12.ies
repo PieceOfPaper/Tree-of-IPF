@@ -21,7 +21,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 20,20,1,40,1,60000,1,0,0,0,0,0,0,"LOST_PAPER","바닥에 떨어진 편지","","","","","","","KATYN_12_SQ_NPC_01","","","NO","YES","NO","Neutral","","","","",""
 21,21,1,40,1,60000,1,0,0,0,0,0,0,"Altar1","레타스 제단","","","","MON_DUMMY","","","KATYN_12_SQ_NPC_02","","","NO","YES","NO","Neutral","AttachAnimLocal/0:ON_Y/5:ON_G","NPCStateLocal/0:KATYN_12_SQ_02:IMPOSSIBLE:POSSIBLE:PROGRESS/5:KATYN_12_SQ_02:SUCCESS:COMPLETE","","",""
 22,22,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:JOB_SHINOBI_HIDDEN_ITEM_2:1","","",""
-23,23,1,40,-1,60000,6,0,0,0,1,1,0,"npc_thorn_flower_yellow","마카지 꽃","","","","","","","3CMLAKE_84_HERB2","","","NO","YES","NO","Neutral","","","","",""
+23,23,1,40,-1,60000,6,0,0,0,0,1,0,"npc_thorn_flower_yellow","마카지 꽃","","","","","","","3CMLAKE_84_HERB2","","","NO","YES","NO","Neutral","","","","",""
 24,24,1,100,-1,60000,1,1,0,0,0,1,0,"statue_vakarine","여신 바카리네의 상","","","","STOUP_CAMP","","","WARP_F_KATYN_12","STOUP_CAMP","STOUP_CAMP","NO","YES","NO","Neutral","","","","",""
 25,25,0,40,30,60000,35,0,0,0,0,0,0,"puragi","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","",""
 26,26,0,40,200,60000,60,0,0,0,0,0,0,"Sec_zombiegirl2_chpel","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","",""
@@ -30,4 +30,3 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 29,29,0,40,40,60000,45,0,0,0,0,0,0,"chupacabra_green","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","",""
 30,30,0,40,40,60000,45,0,0,0,0,0,0,"operor_blue","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","",""
 31,31,0,40,30,60000,20,0,0,0,0,0,0,"operor_blue","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","",""
-32,32,1,40,1,1,1,0,0,0,0,0,0,"BOOK_01","UnvisibleName","","","","","","","KATYN_12_BOOK_01","","","NO","YES","NO","Neutral","","","","",""

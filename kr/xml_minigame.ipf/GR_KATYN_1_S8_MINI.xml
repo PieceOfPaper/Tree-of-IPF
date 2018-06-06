@@ -45,19 +45,14 @@
                 <StageEvents>
                     <Event execCount="1" eventName="END">
                         <condList>
-                            <ToolScp Scp="RAID_END_REWARD_CHECK" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_GUILD_RAID_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Num Num="7"/>
+                                <Num Num="1"/>
                             </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="reward">
-                        <execList>
-                            <ToolScp Scp="RAID_END_REWARD" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -127,7 +122,7 @@
                         <Num Num="180"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_START_CHANGE_BGM" Client="NO" UseSleep="NO">
-                        <Str Str="m_guild_eventraid_a"/>
+                        <Str Str="A"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -536,11 +531,6 @@
                 <StartScpList>
                     <ToolScp Scp="MGAME_START_CHANGE_BGM" Client="NO" UseSleep="NO">
                         <Str Str="m_boss_guild_hunting"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="세콰이아를 처치하세요!"/>
-                        <Str Str="stage_start"/>
-                        <Num Num="10"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>

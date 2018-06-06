@@ -9,10 +9,9 @@ function UI_TOGGLE_HISTORY()
 		return;
 	end
 	
---	session.playHistory.ReqPlayHistory(HISTORY_STAT, 1);
+	session.playHistory.ReqPlayHistory(HISTORY_STAT, 1);
 end
 
---[[
 function PLAY_HISTORY_ON_MSG(frame, msg, strArg, numArg)
 	if "UPDATE_PLAY_HISTORY" == msg then
 		UPDATE_PLAY_HISTORY(frame, numArg);
@@ -155,7 +154,7 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 		end
 	end
 
-	GBOX_AUTO_ALIGN(gBox, 5, 3, 10, true, false);
+	GBOX_AUTO_ALIGN(gBox, 20, 3, 10, true, false);
 
 	-- 페이지 셋팅
 
@@ -245,4 +244,4 @@ end
 function HISTORY_REQ_ROLL_BACK_BTN_ENALBE()
 	local frame = ui.GetFrame("history")
 	frame:SetUserValue("Enable", 0);
-end]]--
+end

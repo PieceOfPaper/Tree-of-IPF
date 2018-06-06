@@ -369,7 +369,7 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 		local account = session.barrack.GetMyAccount();
 		local bpc = account:GetBySlot(argNum);
 		local gameStartFrame = ui.GetFrame('barrack_gamestart')
-		if argNum == 0 then
+		if argNum == 0 or bpc == nil then
 			gameStartFrame:ShowWindow(0);
 		else
 			START_GAME_SET_MAP(gameStartFrame, argNum, bpc:GetApc().mapID, bpc:GetApc().channelID);

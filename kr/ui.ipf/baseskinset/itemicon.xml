@@ -304,7 +304,7 @@
 		<image name="icon_item_boots_pilgrim_gray" file="\icon\equip\boots_pilgrim_gray.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_gloves_pilgrim_gray" file="\icon\equip\gloves_pilgrim_gray.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_gloves_bubewarrior" file="\icon\equip\icon_item_gloves_bubewarrior.png" imgrect="0 0 256 256" CMM_Caption="부베투사장갑"/>
-	<image name="icon_item_shirts_mage" file="\icon\equip\shirts_mage.png" imgrect="0 0 256 256" CMM_Caption="천방어구세트01"/>
+		<image name="icon_item_shirts_mage" file="\icon\equip\shirts_mage.png" imgrect="0 0 256 256" CMM_Caption="천방어구세트01"/>
 		<image name="icon_item_pants_mage" file="\icon\equip\pants_mage.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_gloves_mage" file="\icon\equip\gloves_mage.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_boots_mage" file="\icon\equip\boots_mage.png" imgrect="0 0 256 256"/>
@@ -490,13 +490,13 @@
 		<image name="icon_item_mage_shadowmancer_f" file="\icon\equip\mage_f_shadowmancer.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_mage_runecaster_m" file="\icon\equip\mage_m_runecaster.png" imgrect="0 0 256 256" CMM_Caption="룬캐스터"/>
 		<image name="icon_item_mage_runecaster_f" file="\icon\equip\mage_f_runecaster.png" imgrect="0 0 256 256"/>
-	<image name="icon_item_archer_musketeer_m" file="\icon\equip\archer_musketeer_m.png" imgrect="0 0 256 256" CMM_Caption="머스킷티어"/>
+		<image name="icon_item_archer_musketeer_m" file="\icon\equip\archer_musketeer_m.png" imgrect="0 0 256 256" CMM_Caption="머스킷티어"/>
 		<image name="icon_item_archer_musketeer_f" file="\icon\equip\archer_musketeer_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_mage_featherfoot_m" file="\icon\equip\mage_featherfoot_m.png" imgrect="0 0 256 256" CMM_Caption="페더풋"/>
 		<image name="icon_item_mage_featherfoot_f" file="\icon\equip\mage_featherfoot_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_templar_m" file="\icon\equip\warrior_templar_m.png" imgrect="0 0 256 256" CMM_Caption="템플러"/>
 		<image name="icon_item_warrior_templar_f" file="\icon\equip\warrior_templar_f.png" imgrect="0 0 256 256"/>
-	<image name="icon_item_warrior_dragoon_m" file="\icon\equip\warrior_dragoon_m.png" imgrect="0 0 256 256" CMM_Caption="드라군"/>
+		<image name="icon_item_warrior_dragoon_m" file="\icon\equip\warrior_dragoon_m.png" imgrect="0 0 256 256" CMM_Caption="드라군"/>
 		<image name="icon_item_warrior_dragoon_f" file="\icon\equip\warrior_dragoon_f.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_weapone_icons">
@@ -1066,6 +1066,41 @@
 		<image name="icon_item_cap_3" file="\icon\item\icon_item_cap_3.png" imgrect="0 0 256 256" CMM_Caption="고양이귀"/>
 		<image name="icon_item_cap_4" file="\icon\item\icon_item_cap_4.png" imgrect="0 0 256 256" CMM_Caption="선장모자"/>
 		<image name="hairacc_wuguBand" file="\icon\hairacc\hairacc_wuguBand.png" imgrect="0 0 256 256" CMM_Caption="무고사헤어"/>
+		<image name="hairacc_hat001" file="\icon\hairacc\accessory_hat_001.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat002" file="\icon\hairacc\accessory_hat_002.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat003" file="\icon\hairacc\accessory_hat_003.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat004" file="\icon\hairacc\accessory_hat_004.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat005" file="\icon\hairacc\accessory_hat_005.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat006" file="\icon\hairacc\accessory_hat_006.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat007" file="\icon\hairacc\accessory_hat_007.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat008" file="\icon\hairacc\accessory_hat_008.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat009" file="\icon\hairacc\accessory_hat_009.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat010" file="\icon\hairacc\accessory_hat_010.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat011" file="\icon\hairacc\accessory_hat_011.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat012" file="\icon\hairacc\accessory_hat_012.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat013" file="\icon\hairacc\accessory_hat_013.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat014" file="\icon\hairacc\accessory_hat_014.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat015" file="\icon\hairacc\accessory_hat_015.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat016" file="\icon\hairacc\accessory_hat_016.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat017" file="\icon\hairacc\accessory_hat_017.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat018" file="\icon\hairacc\accessory_hat_018.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat019" file="\icon\hairacc\accessory_hat_019.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat021" file="\icon\hairacc\accessory_hat_021.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat022" file="\icon\hairacc\accessory_hat_022.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat023" file="\icon\hairacc\accessory_hat_023.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat024" file="\icon\hairacc\accessory_hat_024.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat025" file="\icon\hairacc\accessory_hat_025.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat028" file="\icon\hairacc\accessory_hat_028.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat029" file="\icon\hairacc\accessory_hat_029.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat030" file="\icon\hairacc\accessory_hat_030.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat031" file="\icon\hairacc\accessory_hat_031.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat033" file="\icon\hairacc\accessory_hat_033.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat034" file="\icon\hairacc\accessory_hat_034.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat037" file="\icon\hairacc\accessory_hat_037.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat039" file="\icon\hairacc\accessory_hat_039.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat047" file="\icon\hairacc\accessory_hat_047.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat069" file="\icon\hairacc\accessory_hat_069.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_hat070" file="\icon\hairacc\accessory_hat_070.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -2136,6 +2171,87 @@
 		<image name="icon_item_Academy" file="\icon\item\icon_item_Academy.png" imgrect="0 0 128 128" CMM_Caption="아카데미"/>
 		<image name="icon_item_ShieldCharge" file="\icon\item\icon_item_ShieldCharge.png" imgrect="0 0 128 128" CMM_Caption="실드챠지"/>
 		<image name="icon_item_Forge" file="\icon\item\icon_item_Forge.png" imgrect="0 0 128 128" CMM_Caption="포지"/>
+		<image name="icon_item_3cmdisk" file="\icon\item\icon_item_3cmdisk.png" imgrect="0 0 128 128" CMM_Caption="수상한원판"/>
+		<image name="icon_item_liquid" file="\icon\item\icon_item_liquid.png" imgrect="0 0 128 128" CMM_Caption="갈색허밍버드의점액"/>
+		<image name="icon_item_leaf_Papayam" file="\icon\item\icon_item_leaf_Papayam.png" imgrect="0 0 128 128" CMM_Caption="파파얌의 잎"/>
+		<image name="icon_item_mushroom_truffle_red" file="\icon\item\icon_item_mushroom_truffle_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 트리펠리 버섯"/>
+		<image name="icon_item_stem_bassmell" file="\icon\item\icon_item_stem_bassmell.png" imgrect="0 0 128 128" CMM_Caption="악취나는 줄기"/>
+		<image name="icon_item_staff_hohen" file="\icon\item\icon_item_staff_hohen.png" imgrect="0 0 128 128" CMM_Caption="부러진 호헨 스태프"/>
+		<image name="icon_item_flag_hohen" file="\icon\item\icon_item_flag_hohen.png" imgrect="0 0 128 128" CMM_Caption="호헨 깃발 조각"/>
+		<image name="icon_item_mane_hohen_green" file="\icon\item\icon_item_mane_hohen_green.png" imgrect="0 0 128 128" CMM_Caption="초록 호헨 갈기"/>
+		<image name="icon_item_horn_hohen_green" file="\icon\item\icon_item_horn_hohen_green.png" imgrect="0 0 128 128" CMM_Caption="초록 호헨의 뿔"/>
+		<image name="icon_item_hoof_minos_orange" file="\icon\item\icon_item_hoof_minos_orange.png" imgrect="0 0 128 128" CMM_Caption="주황 미노스 발굽"/>
+		<image name="icon_item_flower_colimen_blue" file="\icon\item\icon_item_flower_colimen_blue.png" imgrect="0 0 128 128" CMM_Caption="갈색 콜리멘 꽃"/>
+		<image name="icon_item_flower_colimen_brown" file="\icon\item\icon_item_flower_colimen_brown.png" imgrect="0 0 128 128" CMM_Caption="푸른 콜리멘 꽃"/>
+		<image name="icon_item_nail" file="\icon\item\icon_item_nail.png" imgrect="0 0 128 128" CMM_Caption="대못"/>
+		<image name="icon_item_crystalball_hohen_green" file="\icon\item\icon_item_crystalball_hohen_green.png" imgrect="0 0 128 128" CMM_Caption="초록 호헨 올벤의 수정구"/>
+		<image name="icon_item_crystalball_hohen_red" file="\icon\item\icon_item_crystalball_hohen_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 호헨 올벤의 수정구"/>
+		<image name="icon_item_stamen_colifly_yellow" file="\icon\item\icon_item_stamen_colifly_yellow.png" imgrect="0 0 128 128" CMM_Caption="노란 콜리플라이 수술"/>
+		<image name="icon_item_stamen_colifly_black" file="\icon\item\icon_item_stamen_colifly_black.png" imgrect="0 0 128 128" CMM_Caption="검은 콜리플라이 수술"/>
+		<image name="icon_item_fur_wendigo_blue" file="\icon\item\icon_item_fur_wendigo_blue.png" imgrect="0 0 80 80" CMM_Caption="푸른 웬디고 털"/>
+		<image name="icon_item_tail_repusbunny_red" file="\icon\item\icon_item_tail_repusbunny_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 레푸스버니 꼬리"/>
+		<image name="icon_item_leather_cronewt_blue" file="\icon\item\icon_item_leather_cronewt_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 크로뉴트 가죽"/>
+		<image name="icon_item_needle_cronewt_blue" file="\icon\item\icon_item_needle_cronewt_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 크로뉴트 독침"/>
+		<image name="icon_item_claw_hohen" file="\icon\item\icon_item_claw_hohen.png" imgrect="0 0 128 128" CMM_Caption="푸른 호헨 손톱"/>
+		<image name="icon_item_horn_tiny_blue" file="\icon\item\icon_item_horn_tiny_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 티니의 뿔"/>
+		<image name="icon_item_horn_tiny_brown" file="\icon\item\icon_item_horn_tiny_brown.png" imgrect="0 0 128 128" CMM_Caption="갈색 티니의 뿔"/>
+		<image name="icon_item_tail_tiny_green" file="\icon\item\icon_item_tail_tiny_green.png" imgrect="0 0 128 128" CMM_Caption="초록 티니 꼬리"/>
+		<image name="icon_item_bow_wendigo_white" file="\icon\item\icon_item_bow_wendigo_white.png" imgrect="0 0 128 128" CMM_Caption="하얀 웬디고 활대"/>
+		<image name="icon_item_horn_hohenGulak_blue" file="\icon\item\icon_item_horn_hohenGulak_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 호헨 굴락의 뿔"/>
+		<image name="icon_item_mane_harugal_blue" file="\icon\item\icon_item_mane_harugal_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 하루갈 갈기"/>
+		<image name="icon_item_helm_stoulet" file="\icon\item\icon_item_helm_stoulet.png" imgrect="0 0 128 128" CMM_Caption="갈색 스타울리트 투구 파편"/>
+		<image name="icon_item_straw_red" file="\icon\item\icon_item_straw_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 짚단"/>
+		<image name="icon_item_piece_pappusKepa_purple" file="\icon\item\icon_item_piece_pappusKepa_purple.png" imgrect="0 0 80 80" CMM_Caption="검은 늙은 케파 껍질"/>
+		<image name="icon_item_tentaclel_green" file="\icon\item\icon_item_tentaclel_green.png" imgrect="0 0 80 80" CMM_Caption="초록 미듀쟈 촉수"/>
+		<image name="icon_item_horn_nuo_red" file="\icon\item\icon_item_horn_nuo_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 누오의 뿔"/>
+		<image name="icon_item_horn_nuo_blue" file="\icon\item\icon_item_horn_nuo_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 누오의 뿔"/>
+		<image name="icon_item_armor_nuka_blue" file="\icon\item\icon_item_armor_nuka_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 누카 갑옷 파편"/>
+		<image name="icon_item_hair_elma" file="\icon\item\icon_item_hair_elma.png" imgrect="0 0 128 128" CMM_Caption="엘마 머리카락"/>
+		<image name="icon_item_brokenSword_nuo_blue" file="\icon\item\icon_item_brokenSword_nuo_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 누오의 검 파편"/>
+		<image name="icon_item_mask_elet_blue" file="\icon\item\icon_item_mask_elet_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 엘렛의 마스크"/>
+		<image name="icon_item_staff_elma_red" file="\icon\item\icon_item_staff_elma_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 엘마의 부러진 스태프"/>
+		<image name="icon_item_horn_ticen_red" file="\icon\item\icon_item_horn_ticen_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 티켄의 뿔"/>
+		<image name="icon_item_feather_cockatries_red" file="\icon\item\icon_item_feather_cockatries_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 코카트 깃털"/>
+		<image name="icon_item_comb_cockatries_red" file="\icon\item\icon_item_comb_cockatries_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 코카트 벼슬"/>
+		<image name="icon_item_beard_blue" file="\icon\item\icon_item_beard_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 수염"/>
+		<image name="icon_item_leg_defenderSpider_blue" file="\icon\item\icon_item_leg_defenderSpider_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 수호 거미 다리"/>
+		<image name="icon_item_eye_defenderSpider_red" file="\icon\item\icon_item_eye_defenderSpider_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 수호 거미의 눈"/>
+		<image name="icon_item_horn_socket_red" file="\icon\item\icon_item_horn_socket_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 소켓의 뿔"/>
+		<image name="icon_item_wig_socket_red" file="\icon\item\icon_item_wig_socket_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 소켓의 날개"/>
+		<image name="icon_item_fur_spion_red" file="\icon\item\icon_item_fur_spion_red.png" imgrect="0 0 128 128" CMM_Caption="붉은 스피온 털"/>
+		<image name="icon_item_fur_spion_white" file="\icon\item\icon_item_fur_spion_white.png" imgrect="0 0 128 128" CMM_Caption="하얀 스피온 털"/>
+		<image name="icon_item_hood_templeslave_blue" file="\icon\item\icon_item_hood_templeslave_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른 템플슬레이브의 두건"/>
+		<image name="icon_item_leaves_lapasape_brown" file="\icon\item\icon_item_leaves_lapasape_brown.png" imgrect="0 0 128 128" CMM_Caption="갈색 라프세이프 잎"/>
+		<image name="icon_item_twilightCrystal" file="\icon\item\icon_item_twilightCrystal.png" imgrect="0 0 128 128" CMM_Caption="황혼 결정"/>
+		<image name="icon_item_darkCrystal" file="\icon\item\icon_item_darkCrystal.png" imgrect="0 0 128 128" CMM_Caption="어둠 결정"/>
+		<image name="icon_item_twilightCrystal_piece" file="\icon\item\icon_item_twilightCrystal_piece.png" imgrect="0 0 128 128" CMM_Caption="어둠 결정 파편"/>
+		<image name="icon_item_darkCrystal_piece" file="\icon\item\icon_item_darkCrystal_piece.png" imgrect="0 0 128 128" CMM_Caption="황혼 결정 파편"/>
+		<image name="icon_item_egg_guineapig" file="\icon\item\icon_item_egg_guineapig.png" imgrect="0 0 128 128" CMM_Caption="기니피그 알"/>
+		<image name="icon_item_egg_piggy" file="\icon\item\icon_item_egg_piggy.png" imgrect="0 0 128 128" CMM_Caption="돼지 알"/>
+		<image name="icon_item_egg_lesserPanda" file="\icon\item\icon_item_egg_lesserPanda.png" imgrect="0 0 128 128" CMM_Caption="래서판다 알"/>
+		<image name="icon_item_egg_toucan" file="\icon\item\icon_item_egg_toucan.png" imgrect="0 0 128 128" CMM_Caption="투칸 알"/>
+		<image name="icon_item_egg_barnOwl" file="\icon\item\icon_item_egg_barnOwl.png" imgrect="0 0 128 128" CMM_Caption="올빼미 알"/>
+	</imagelist>
+	<imagelist category="payment">
+		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
+		<image name="icon_item_hpPotionPremium_bundle" file="\icon\payment\icon_item_hpPotionPremium_bundle.png" imgrect="0 0 256 256" CMM_Caption="HP포션 묶음"/>
+		<image name="icon_item_spPotionPremium" file="\icon\payment\icon_item_spPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="SP포션"/>
+		<image name="icon_item_spPotionPremium_bundle" file="\icon\payment\icon_item_spPotionPremium_bundle.png" imgrect="0 0 256 256" CMM_Caption="SP포션 묶음"/>
+		<image name="icon_item_tpBox_30" file="\icon\payment\icon_item_tpBox_30.png" imgrect="0 0 256 256" CMM_Caption="TP 30개"/>
+		<image name="icon_item_tpBox_100" file="\icon\payment\icon_item_tpBox_100.png" imgrect="0 0 256 256" CMM_Caption="TP 100개"/>
+		<image name="icon_item_tpBox_220" file="\icon\payment\icon_item_tpBox_220.png" imgrect="0 0 256 256" CMM_Caption="TP 220개"/>
+		<image name="icon_item_tpBox_360" file="\icon\payment\icon_item_tpBox_360.png" imgrect="0 0 256 256" CMM_Caption="TP 360개"/>
+		<image name="icon_item_Mike_bundle" file="\icon\payment\icon_item_Mike_bundle.png" imgrect="0 0 256 256" CMM_Caption="마이크 묶음"/>
+		<image name="icon_item_token" file="\icon\payment\icon_item_token.png" imgrect="0 0 256 256" CMM_Caption="토큰"/>
+		<image name="icon_item_premiumPackage_1" file="\icon\payment\icon_item_premiumPackage_1.png" imgrect="0 0 256 256" CMM_Caption="패키지A"/>
+		<image name="icon_item_premiumPackage_2" file="\icon\payment\icon_item_premiumPackage_2.png" imgrect="0 0 256 256" CMM_Caption="패키지B"/>
+		<image name="icon_item_warpPremium_bundle" file="\icon\payment\icon_item_warpPremium_bundle.png" imgrect="0 0 256 256" CMM_Caption="워프주문서 묶음"/>
+		<image name="icon_item_soulCrystal" file="\icon\payment\icon_item_soulCrystal.png" imgrect="0 0 256 256" CMM_Caption="소울크리스탈"/>
+		<image name="icon_item_soulCrystal_bundle" file="\icon\payment\icon_item_soulCrystal_bundle.png" imgrect="0 0 256 256" CMM_Caption="소울크리스탈 묶음"/>
+		<image name="icon_item_giftBox_1" file="\icon\payment\icon_item_giftBox_1.png" imgrect="0 0 256 256" CMM_Caption="선물상자1"/>
+		<image name="icon_item_giftBox_2" file="\icon\payment\icon_item_giftBox_2.png" imgrect="0 0 256 256" CMM_Caption="선물상자2"/>
+		<image name="icon_item_giftBox_3" file="\icon\payment\icon_item_giftBox_3.png" imgrect="0 0 256 256" CMM_Caption="선물상자3"/>
+		<image name="icon_item_giftBox_4" file="\icon\payment\icon_item_giftBox_4.png" imgrect="0 0 256 256" CMM_Caption="선물상자4"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

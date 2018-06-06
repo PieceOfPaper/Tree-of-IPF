@@ -10,6 +10,21 @@
 			<richtext name="name" rect="0 0 100 24" parent="mainBox" layout_gravity="center top" margin="0 75 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}%s" param1="value" fixwidth="true" param1_def="ASDASASD"/>
 		</controls>
 	</controlset>
+	<controlset name="skill_stat_his" toggle="false" hittest="true" width="460" height="25" skin="">
+		<controls>
+			<richtext name="PropName" margin="1 1 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="PropName" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="preValue" margin="425 1 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="preValue" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="value" margin="150 1 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="value" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="saveTime" margin="270 1 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="saveTime" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<button name="button_1" margin="0 0 0 0" rect="0 0 10 25" layout_gravity="right top" LBtnUpScp="HISTORY_REQ_ROLL_BACK" format="%s" param1="value" param1_def="text"/>
+		</controls>
+	</controlset>
+	<controlset name="skill_stat_resCnt" toggle="false" hittest="true" width="230" height="30" skin="">
+		<controls>
+			<richtext name="text" margin="5 3 0 0" rect="0 0 120 24" caption="{@st42}초기화 횟수" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="resCnt" margin="0 3 0 -10" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="saveTime" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+		</controls>
+	</controlset>
 	<controlset name="moninfobyskill_param" toggle="false" hittest="true" width="350" height="40">
 		<controls>
 			<richtext name="paramName" layout_gravity="left top" rect="0 0 330 50" margin="20 10 0 0" hittest="false" fontname="white_18_ol" textalign="left center" format="%s" param1="paramname" param1_def="체력이라던가"/>
@@ -1226,6 +1241,26 @@
 		</controls>
 	</controlset>
 	<!-- ayase 작업 영역 : 이 영역 내부에 새 컨트롤셋 추가하시면 커밋 시 충돌나는 저주가 걸려 있습니다. -->
+	<controlset name="tpshop_tree" hittest="true" width="335" height="50" hittestset="false" draw="false" skin="none">
+		<controls>
+			<groupbox name="group" margin="0 0 0 " rect="0 0 335 55" hittestbox="false" skin="base_btn" layout_gravity="left top" parent="tree" treeattach="tree"/>
+			<picture name="foldimg" margin="12 17 0 0" rect="0 0 20 20" hittest="false" image="viewunfold" stretch="true" changecursor="false" layout_gravity="left top"/>
+			<richtext name="part" margin="44 17 0 0" rect="0 0 120 24" format="{@st66b}%s{/}" param1="value" param1_def="ZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		</controls>
+	</controlset>
+	<controlset name="tpshop_item" hittest="true" width="398" height="130" hittestset="true" draw="true" skin="test_skin_01_btn" stateskin="false">
+		<controls>
+			<richtext name="title" margin="10 10 0 0" rect="0 0 120 24" caption="ZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<slot name="icon" margin="10 35 0 0" rect="0 0 70 70" layout_gravity="left top" enabledrop="false" skin="invenslot2" enablepop="false" hittest="true"/>
+			<richtext name="nxpStatic" margin="90 35 0 0" rect="0 0 120 24" caption="TP" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<picture name="tpicon" margin="115 36 0 0" rect="0 0 20 20" hittest="false" image="icon_item_nxp" stretch="true" changecursor="false" layout_gravity="left top"/>
+			<richtext name="nxp" margin="0 35 10 0" rect="0 0 120 24" caption="999" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+			<richtext name="desc" margin="90 60 0 0" rect="0 0 320 24" caption="XXXXXXXXXXXXXXXXXXXXXXXXX" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<labelline name="labelline" margin="85 80 0 0" rect="0 0 300 2" skin="labelline_def_2" layout_gravity="left top"/>
+			<button name="previewBtn" rect="0 0 120 40" margin="0 0 155 7" layout_gravity="right bottom" skin="test_gray_button" scrollbar="false" hittest="true" caption="{@st49}미리보기{/}" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_ITEM_PREVIEW"/>
+			<button name="buyBtn" rect="0 0 150 40" margin="0 0 7 7" layout_gravity="right bottom" skin="test_red_button" scrollbar="false" hittest="true" caption="{@st49}담기{/}" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_ITEM_TO_BASKET"/>
+		</controls>
+	</controlset>
 	<controlset name="nearparty_each_member_info" toggle="false" hittest="true" width="400" height="30" skin="none" stateskin="false" draw="false">
 		<controls>
 			<picture name="classicon" layout_gravity="left center" rect="0 0 20 20" margin="0 3 0 0" hittest="false"/>
@@ -1252,6 +1287,7 @@
 			<picture name="shihouette" rect="0 0 140 250" margin="0 -15 0 0" layout_gravity="left top" image="inventory_F" stretch="true"/>
 			<richtext name="cname" rect="0 0 220 80" margin="145 10 0 0" layout_gravity="left top" caption="WWWWWWWW" fixwidth="true" fontname="white_18_ol" textalign="left top"/>
 			<richtext name="fname" rect="0 0 220 80" margin="295 10 0 0" layout_gravity="left top" caption="WWWWWWWW" fixwidth="true" fontname="yellow_16_ol" textalign="left top"/>
+			<richtext name="mapname" rect="0 0 220 80" margin="295 35 0 0" layout_gravity="left top" format="%s (%s 채널)" fixwidth="true" fontname="brown_16" textalign="left top" param1="map" parma1_def="defmap" param2="channel" parma2_def="defchannel"/>
 			<richtext name="lv" rect="0 0 220 80" margin="145 35 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_16" format="%s 레벨" param1="level" param1_def="9999" textalign="left top"/>
 			<richtext name="job" rect="0 0 220 80" margin="145 55 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_16" format="%s (%s 랭크)" param1="jobname" param1_def="직업이름" param2="jobrank" param2_def="9999" textalign="left top"/>
 			<richtext name="description" rect="0 0 350 80" margin="145 80 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_16" textalign="left top"/>
@@ -1519,20 +1555,19 @@
 			<richtext name="petname" rect="0 0 150 30" format="{@st41b}%s{/}" param1="petname" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" margin="110 15 0 0" layout_gravity="left top" param1_def="펫이름"/>
 		</controls>
 	</controlset>
-	<controlset name="deck" hittest="true" hittestset="false" draw="false" width="160" height="220">
+	<controlset name="deck" hittest="true" hittestset="false" draw="false" width="170" height="220">
 		<controls>
-			<groupbox name="items" margin="20 30 0 0" rect="0 0 120 120" hittestbox="true" LBtnDownScp="OPEN_DECK_DETAIL" changecursor="true" skin="tooltip1" layout_gravity="left top" scrollbar="false"/>
+			<groupbox name="items" margin="25 30 0 0" rect="0 0 120 120" hittestbox="true" LBtnDownScp="OPEN_DECK_DETAIL" changecursor="true" skin="tooltip1" layout_gravity="left top" scrollbar="false"/>
 			<picture name="outline" rect="0 0 98 98" image="collection_com_light" stretch="true" margin="30 40 0 0" layout_gravity="left top" hittest="false"/>
 			<picture name="newicon" rect="0 0 55 55" image="collection_new" stretch="true" margin="0 10 10 0" layout_gravity="right top"/>
 			<picture name="compicon" rect="0 0 55 55" image="collection_com" stretch="true" margin="0 10 10 0" layout_gravity="right top"/>
-			<richtext name="collec_name" rect="0 0 160 30" format="{@st66b}{s18}%s{/}" param1="name" param1_def="잡화상 묶음" textalign="center top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" margin="0 172 0 0" layout_gravity="center top"/>
-			<richtext name="collec_count" rect="0 0 160 25" format="{@sti7}%s/%s{/}" param1="curcount" param1_def="1" textalign="center top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" margin="0 195 0 0" layout_gravity="center top" param2="maxcount" param2_def="9"/>
+			<richtext name="collec_name" rect="0 0 160 30" format="{@st66b}{s16}%s{/}" param1="name" param1_def="잡화상 묶음" textalign="center top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" margin="0 172 0 0" layout_gravity="center top"/>
+			<richtext name="collec_count" rect="0 0 160 25" format="{@sti7}{s18}%s/%s{/}" param1="curcount" param1_def="1" textalign="center top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" margin="0 195 0 0" layout_gravity="center top" param2="maxcount" param2_def="9"/>
 		</controls>
 	</controlset>
 	<controlset name="warpAreaName" toggle="false" hittest="true" width="130" height="26" skin="">
 		<controls>
-			<richtext name="areaname" rect="0 0 120 18" hittest="false" textalign="left center" format="{@st41b}{s14}%s{/}" resizebytext="false" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" margin="5 5 0 0" layout_gravity="left top" scrollbar="false" param1="mapname" param1_def="서쪽숲등"/>
-			<richtext name="dotname" rect="0 0 30 18" hittest="false" textalign="right center" format="{@st41b}{s14}%s{/}" resizebytext="true" spacey="0" maxwidth="0" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" margin="0 5 5 0" layout_gravity="right top" scrollbar="false" param1="mapname" param1_def=".."/>
+			<richtext name="areaname" rect="0 0 120 18" hittest="false" textalign="left center" format="{@st41b}{s14}%s{/}" resizebytext="false" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" margin="5 5 0 0" layout_gravity="left top" scrollbar="false" param1="mapname" omitbywidth="true" param1_def="서쪽숲등"/>
 		</controls>
 	</controlset>
 	<controlset name="helplist_category" toggle="false" hittest="true" width="400" height="35">
@@ -1644,6 +1679,7 @@
 			<richtext name="team_name_text" rect="0 0 160 24" margin="100 12 0 0" fontname="brown_16_b" layout_gravity="left top" hittest="false" textalign="left top" format="%s" param1="name" param1_def="ZZZZZZZZZZZZZZAAAAA" fixwidth="true"/>
 			<richtext name="pc_name_text" rect="0 0 160 24" margin="100 35 0 0" fontname="brown_16_b" layout_gravity="left top" hittest="false" textalign="left top" format="%s" param1="name" param1_def="ZZZZZZZZZZZZZZAAAAA" fixwidth="true"/>
 			<labelline name="labelline" margin="60 60 0 0" rect="0 0 310 4" skin="None" layout_gravity="left top"/>
+			<richtext name="map_name_channel_text" rect="0 0 200 24" margin="100 67 0 0" layout_gravity="left top" hittest="false" fontname="brown_16_b" textalign="left top" format="%s (%s 채널)" param1="name" param1_def="ZZZZZZZZZZZZZZAAAAA" param2="channel" param2_def="ZZZZZZZZZZZZZZAAAAA" fixwidth="true"/>
 			<richtext name="map_name_text" rect="0 0 200 24" margin="100 67 0 0" layout_gravity="left top" hittest="false" fontname="brown_16_b" textalign="left top" format="%s" param1="name" param1_def="ZZZZZZZZZZZZZZAAAAA" fixwidth="true"/>
 			<richtext name="job_text" rect="0 0 110 24" margin="0 12 10 0" caption="쇼드뮨" spacey="0" updateparent="false" layout_gravity="right top" hittest="false" fontname="brown_16_b" textalign="left center"/>
 			<richtext name="level_text" rect="0 0 110 24" margin="0 35 10 0" spacey="0" updateparent="false" layout_gravity="right top" hittest="false" fontname="brown_16_b" textalign="left center" format="%s 레벨" param1="lv" param1_def="131"/>
@@ -1822,9 +1858,14 @@
 			<numupdown name="upDown" rect="0 0 120 30" layout_gravity="right top" clicksound="button_click_big" oversound="button_over" minvalue="0" incrvalue="1" fontname="white_20_ol" keypad="false" margin="0 0 35 0"/>
 		</controls>
 	</controlset>
-	<controlset name="worldmap_zone" hittest="true" width="130" height="120" skin="">
+  <controlset name="worldmap_zone" hittest="true" width="130" height="120" skin="">
+    <controls>
+      <richtext name="text" hittest="false" margin="0 0 0 0" rect="0 0 130 120" format="%s%s{/}" param1="font" param1_def="{@st42}" param2="value" param2_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" fixheight="true"/>
+    </controls>
+  </controlset>
+	<controlset name="worldmap_emphasize" hittest="true" width="200" height="200" skin="">
 		<controls>
-			<richtext name="text" hittest="false" margin="0 0 0 0" rect="0 0 130 120" format="%s%s{/}" param1="font" param1_def="{@st42}" param2="value" param2_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" fixheight="true"/>
+			<animpicture name="animpic" blend="100" texelx="0" texely="0" texelwidth="200" texelheight="200" spacex="1" spacey="0" loop="false" ticktime="0.02" animcount="14" layout_gravity="left top" rect="0 0 200 200" margin="0 0 0 0" image="notice_pos" hittest="false" playanim="true" stretch="true" hideAnimEnd="true"/>
 		</controls>
 	</controlset>
 	<controlset name="puzzlecraft_tooltip_set" toggle="false" hittest="true" width="400" height="90" skin="no">
@@ -1903,11 +1944,15 @@
 			<button name="btn" margin="0 0 0 0" rect="0 0 45 35" layout_gravity="right center" image="test_com_ability" stretch="false" LBtnUpScp="PET_ABIL_UP"/>
 		</controls>
 	</controlset>
-	<controlset name="market_item_detail" toggle="false" hittest="true" width="500" height="70" skin="tool_window" stateskin="false" draw="false">
+	<controlset name="market_item_detail" toggle="false" hittest="true" width="1030" height="65" skin="market_listbase" stateskin="false" draw="true">
 		<controls>
-			<richtext name="name" margin="100 7 0 0" rect="0 0 100 15" hittest="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@st45ty}%s" param1="value" param1_def="STR"/>
-			<richtext name="value" margin="100 30 0 10" rect="0 0 800 20" hittest="false" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="STR"/>
-			<picture name="pic" margin="15 0 0 0" rect="0 0 60 60" hittest="false" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left center"/>
+			<richtext name="name" margin="100 24 0 0" rect="0 0 100 15" hittest="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="Name"/>
+			<richtext name="level" margin="400 24 0 10" rect="0 0 20 20" hittest="false" textalign="right center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="Lv"/>
+			<picture name="pic" margin="15 0 0 0" rect="0 0 55 55" hittest="false" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left center"/>
+			<richtext name="count" margin="49 40 0 10" rect="0 0 30 20" hittest="false" textalign="right center" resizebytext="ture" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="Cnt"/>
+			<richtext name="price" margin="495 24 0 10" rect="0 0 100 20" hittest="false" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="price"/>
+			<richtext name="totalPrice" margin="820 24 0 10" rect="0 0 100 20" hittest="false" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="totalPrice"/>
+			<button name="button_1" margin="960 0 0 0" rect="10 10 50 50" layout_gravity="left top" image="marketbuy_btn" caption="{@st41}" LBtnUpScp="BUY_MARKET_ITEM" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
 		</controls>
 	</controlset>
 	<controlset name="market_sell_item_detail" toggle="false" hittest="true" width="1380" height="65" skin="market_listbase" stateskin="false" draw="true">
@@ -2064,9 +2109,7 @@
 		<controls>
 			<richtext name="richtext_1" margin="20 20 0 0" rect="0 0 200 24" caption="캐릭터 인사말" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="pccomment" margin="170 40 0 0" rect="0 0 240 70" format="%s" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="richtext_1_1" margin="20 120 0 0" rect="0 0 200 24" caption="매입의뢰상점" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<button name="btn_pccomment" margin="20 50 0 0" skin="test_gray_button" rect="0 0 120 50" layout_gravity="left top" caption="{@st41b}변경" clicksound="button_click" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" texttooltip="{@st59}캐릭터 인사말을 변경합니다{/}" LBtnUpScp="REQ_CHANGE_PC_COMMENT"/>
-			<button name="button_1" margin="20 150 0 0" skin="test_gray_button" rect="0 0 120 50" layout_gravity="left top" caption="{@st41b}설정" clicksound="button_click" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" texttooltip="{@st59}매입의뢰상점을 설정합니다{/}" LBtnUpScp="OPEN_PERSONAL_SHOP_REGISTER"/>
 			<!--<checkbox name="makelogoutpc" margin="18 203 0 0" rect="0 0 43 32" format="{@st63}로그아웃시 PC남겨놓기 (%s)" param1="value" clicksound="button_click_big" oversound="button_over" ConfigName="MakeLogoutPC" layout_gravity="left top" texttooltip="3서클 이상 전직시 사용 가능합니다."/>-->
 		</controls>
 	</controlset>
@@ -2502,7 +2545,7 @@
 			<richtext name="t_remainTime" margin="236 0 0 0" rect="0 0 200 34" format="{#FF0000}%s" param1="value" param1_def="6Day 23Hour 59Minute" textalign="right center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
 		</controls>
 	</controlset>
-	<controlset name="learing_abil_ctrl" toggle="false" hittest="true" width="530" height="50" skin="test_skin_01" stateskin="false" draw="true">
+	<controlset name="learing_abil_ctrl" toggle="false" hittest="true" width="530" height="50" stateskin="false" draw="true">
 		<controls>
 			<picture name="learningAbilPic" parent="nowLearingGBox" rect="0 0 44 44" margin="15 0 0 0" layout_gravity="left center" stretch="true"/>
 			<labelline name="labelline" rect="0 0 560 4" margin="0 0 0 187" layout_gravity="center bottom" skin="None"/>
@@ -2516,6 +2559,13 @@
 			<richtext name="txt_teamname" rect="0 0 215 27" margin="10 10 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" maxwidth="120" slideshow="false" spacey="0" textalign="left center" updateparent="false" format="{#000000}{s16}%s" param1="value" param1_def="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" resizebytext="false" omitbywidth="true" hittest="true"/>
 			<richtext name="txt_location" rect="0 0 240 28" margin="225 10 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" maxwidth="120" slideshow="false" spacey="0" textalign="left center" updateparent="false" format="{#000000}{s16}%s" param1="value" param1_def="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" resizebytext="false" omitbywidth="true" hittest="true"/>
 			<checkbox name="checkbox" margin="465 10 0 0" rect="0 0 30 30" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" LBtnUpScp="GUILDMEMBER_GO_CTRLSET_UPDATE"/>
+		</controls>
+	</controlset>
+	<controlset name="tokenDetail" hittest="true" width="500" height="50" hittestset="false" draw="false" skin="none">
+		<controls>
+			<groupbox name="groupbox_1" margin="0 0 0 0" rect="0 0 500 200" hittestbox="false" skin="wiki_add" layout_gravity="left top"/>
+			<richtext name="prop" margin="79 10 0 0" rect="0 0 120 24" format="{@st53}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="value" margin="0 10 20 0" rect="0 0 120 24" format="{@st53}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
 		</controls>
 	</controlset>
 </controlsetlist>

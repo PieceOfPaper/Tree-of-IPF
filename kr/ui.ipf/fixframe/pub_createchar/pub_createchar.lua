@@ -47,10 +47,19 @@ function PUB_CHARFRAME_UPDATE(frame, actor)
 	--SET_HEAD_COLOR_NAME(frame, gender, headType);
 
 
-	local KlaipeBtn_mark = GET_CHILD_RECURSIVELY(frame, "KlaipeBtn_mark", "ui::CPicture");
-	local OrshaBtn_mark = GET_CHILD_RECURSIVELY(frame, "OrshaBtn_mark", "ui::CPicture");
-	KlaipeBtn_mark:ShowWindow(0);
-	OrshaBtn_mark:ShowWindow(0);
+	if selectMap == 0 then
+		local KlaipeBtn_mark = GET_CHILD_RECURSIVELY(frame, "KlaipeBtn_mark", "ui::CPicture");
+		local OrshaBtn_mark = GET_CHILD_RECURSIVELY(frame, "OrshaBtn_mark", "ui::CPicture");
+		KlaipeBtn_mark:ShowWindow(0);
+		OrshaBtn_mark:ShowWindow(0);
+
+		local klaipeBtn = GET_CHILD_RECURSIVELY(frame, "KlaipeBtn")
+		local orshaBtn = GET_CHILD_RECURSIVELY(frame, "OrshaBtn")
+		klaipeBtn:SetEnable(1);
+		orshaBtn:SetEnable(1);
+	end
+
+	
 end
 
 function SET_HEAD_COLOR_NAME(frame, gender, headType)
@@ -322,6 +331,26 @@ function PUB_BARRACK_NEWCHARACTER(frame)
 end
 selectMap = 0;
 
+function OPEN_PUB_CREATECHAR(frame)
+
+	local OrshaBtn_mark = GET_CHILD_RECURSIVELY(frame, "OrshaBtn_mark")
+	local KlaipeBtn_mark = GET_CHILD_RECURSIVELY(frame, "KlaipeBtn_mark")
+
+	KlaipeBtn_mark:ShowWindow(0);
+	OrshaBtn_mark:ShowWindow(0);
+
+	local klaipeBtn = GET_CHILD_RECURSIVELY(frame, "KlaipeBtn")
+	local orshaBtn = GET_CHILD_RECURSIVELY(frame, "OrshaBtn")
+	klaipeBtn:SetEnable(1);
+	orshaBtn:SetEnable(1);
+	selectMap = 0;
+
+end
+
+function CLOSE_PUB_CREATECHAR(frame)
+
+end
+
 function PUB_EXEC_CREATECHAR(parent, ctrl)
 
 	if selectMap == 0 then
@@ -336,7 +365,6 @@ function PUB_EXEC_CREATECHAR(parent, ctrl)
 
 	local actor = GetBarrackPub():GetSelectedActor();
 	barrack.RequestCreateCharacter(text, actor, selectMap);
-	selectMap = 0;
 end
 
 function SELECT_START_MAP_KLAIPE(parent, ctrl)

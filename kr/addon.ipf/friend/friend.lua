@@ -438,17 +438,7 @@ function UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, channel, info, drawN
 		if map_name_text ~= nil then
 			map_name_text:SetColorTone("FF1f100b");
 			--map_name_text:SetTextByKey("name", ScpArgMsg("Logout"));
-
-			local diffsec = imcTime.GetDiffSecFromNow(info.logoutTime)
-
-			if diffsec < 0 or diffsec > 315360000 then
-				map_name_text:ShowWindow(0)
-			else
-				map_name_text:SetTextByKey("name", GET_DIFF_TIME_TXT(diffsec));
-				map_name_text:ShowWindow(1)
-			end
-
-			
+			map_name_text:SetTextByKey("name", GET_DIFF_TIME_TXT(sysTime,info.logoutTime));
 
 			map_name_channel_text:ShowWindow(0)
 			map_name_text:ShowWindow(1)

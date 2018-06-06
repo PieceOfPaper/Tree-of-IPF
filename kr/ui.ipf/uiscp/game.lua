@@ -2101,11 +2101,16 @@ function CHECK_EQUIPABLE(type)
 	local prop = geItemTable.GetProp(type);
 	
 	local ret = prop:CheckEquip(lv, job, gender);
+	local haveAbil =  session.IsEquipWeaponAbil(type);
 	if ret == 'OK' then
-		if 1 == session.IsEquipWeaponAbil(type) then
+		if 0 ~= haveAbil then
 			return ret;
 		else
 			return 'ABIL'
+		end
+	else
+		if 0 ~= haveAbil then
+			return 'OK'
 		end
 	end
 
@@ -2124,6 +2129,7 @@ function ITEM_EQUIP_EXCEPTION(item)
 	end
 
 	local result = CHECK_EQUIPABLE(item.type);
+	print(item.type, result, item.ClassName);
 	if result ~= "OK" then
 		ui.MsgBox(ITEM_REASON_MSG(result));
 		return 0

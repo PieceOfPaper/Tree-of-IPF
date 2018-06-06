@@ -96,15 +96,11 @@ function SHOW_PC_CONTEXT_MENU(handle)
 
 
 
-		local strScp = string.format("exchange.RequestChange(%d)", pcObj:GetHandleVal());
-		local strWhisperScp = string.format("ui.WhisperTo('%s')", pcObj:GetPCApc():GetFamilyName());
-		ui.AddContextMenuItem(context, ClMsg("Exchange"), strScp);
+	--local strScp = string.format("exchange.RequestChange(%d)", pcObj:GetHandleVal());
+	--local strWhisperScp = string.format("ui.WhisperTo('%s')", pcObj:GetPCApc():GetFamilyName());
+	--ui.AddContextMenuItem(context, ClMsg("Exchange"), strScp);
 		ui.AddContextMenuItem(context, ClMsg("WHISPER"), strWhisperScp);
 
---		strscp = string.format("MYPAGE_INIT(%d)", handle);
---		ui.AddContextMenuItem(context, ClMsg("MyPage"), strscp);
-		strscp = string.format("GIVE_MEDAL_BOX(%d)", handle);
---		ui.AddContextMenuItem(context, ClMsg("GiveMedal"), strscp);
 	--if partyinfo ~= nil then
 		local strScp = string.format("PARTY_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
 		ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
@@ -177,13 +173,6 @@ end
 
 function SEND_PC_INFO(handle)
 	ui.PropertyCompare(handle, 0, 1);
-end
-
-function GIVE_MEDAL_BOX(handle)
-
-	local pc = GetMyPCObject();
-	local medalCnt = 1;	
-	control.CustomCommand("TryGiveMedal", handle, medalCnt);
 end
 
 function CHAT_SYSTEM()
