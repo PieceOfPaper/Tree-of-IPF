@@ -77,7 +77,8 @@ function SCR_PVP_MINE_ENTER_NPC_DIALOG_CHANNEL_INIT(pc)
         local itemCount = GetInvItemCount(pc, "misc_pvp_mine1");
         TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', 0);
         TxSetIESProp(tx, aObj, 'PVP_MINE_RESET', current_hour);
-        
+        TxSetIESProp(tx, aObj, 'PVP_MINE_POINT', 0);
+
         if itemCount > 0 then
             TxTakeItem(tx, 'misc_pvp_mine1', itemCount, 'PVP_MINE_STONE');
         end
@@ -85,7 +86,7 @@ function SCR_PVP_MINE_ENTER_NPC_DIALOG_CHANNEL_INIT(pc)
     local ret = TxCommit(tx)
 
     if ret == "SUCCESS" then
-        MoveZone(pc, 'pvp_Mine', 0, 0, 0, nil, 1)        
+        MoveZone(pc, 'pvp_Mine', 0, 0, 0, nil, goChannel)        
     end
 end
 
@@ -107,7 +108,7 @@ function SCR_PVP_MINE_ENTER_NPC_DIALOG_CHANNEL_SEARCH(pc)
     end
     
     local rand = IMCRandom(1, #lessthanList)
-    
+
     return lessthanList[rand]
 end
 
@@ -121,6 +122,17 @@ function SCR_PVP_MINE_GETBUFF(pc)
         return;
     end
 
+    local aObj = GetAccountObj(pc)
+    if aObj.PVP_MINE_POINT == 0 then
+        local tx = TxBegin(pc)
+        TxSetIESProp(tx, aObj, 'PVP_MINE_POINT', GetChannelID(pc));
+        local ret = TxCommit(tx)
+    elseif aObj.PVP_MINE_POINT >= 1 then
+        if GetChannelID(pc) ~= aObj.PVP_MINE_POINT then
+            return;
+        end
+    end
+    
     ExecClientScp(pc, "SHOW_MINEPVP_SCOREBOARD()")
     local mgame = IsPlayingMGame(pc, "PVP_MINE")
     if mgame == 0 then
@@ -252,24 +264,28 @@ function SCR_PVP_MINE_START_ALARAM_TS_BORN_ENTER(self)
 end
 
 function SCR_PVP_MINE_START_ALARAM_TS_BORN_UPDATE(self)
-    local now_time = os.date('*t')
-    local hour = now_time['hour']
-    local min = now_time['min']
-    local sec = now_time['sec']
+    local channel = GetChannelID(self)
 
-    if hour == 9 or hour == 13 or hour == 17 or hour == 21 then
-        if min == 30 and self.NumArg1 == 0 then
-            BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_30m"), "");
-            self.NumArg1 = 1
-        elseif min == 50 and self.NumArg1 == 1 then
-            BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_10m"), "");
-            self.NumArg1 = 2
-        elseif min == 55 and self.NumArg1 == 2 then
-            BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_5m"), "");
-            self.NumArg1 = 3
-        elseif min == 59 and self.NumArg1 == 3 and sec == 58 then
-            BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_start"), "");
-            self.NumArg1 = 0
+    if channel == 1 then
+        local now_time = os.date('*t')
+        local hour = now_time['hour']
+        local min = now_time['min']
+        local sec = now_time['sec']
+
+        if hour == 9 or hour == 13 or hour == 17 or hour == 21 then
+            if min == 30 and self.NumArg1 == 0 then
+                BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_30m"), "");
+                self.NumArg1 = 1
+            elseif min == 50 and self.NumArg1 == 1 then
+                BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_10m"), "");
+                self.NumArg1 = 2
+            elseif min == 55 and self.NumArg1 == 2 then
+                BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_5m"), "");
+                self.NumArg1 = 3
+            elseif min == 59 and self.NumArg1 == 3 and sec == 58 then
+                BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_start"), "");
+                self.NumArg1 = 0
+            end
         end
     end
 end
@@ -399,6 +415,7 @@ function SCR_PVP_MINE_REWARD_RUN(pc)
     local tx = TxBegin(pc)
     TxEnableInIntegrate(tx);
     TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', 0);
+    TxSetIESProp(tx, aObj, 'PVP_MINE_POINT', 0);
     
     if itemCount > 0 then
         TxTakeItem(tx, 'misc_pvp_mine1', itemCount, 'PVP_MINE_END');
@@ -1156,7 +1173,7 @@ function SCR_PVP_MINE_SOUND_BOSS(cmd, curStage, eventInst, obj)
     local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 
     for i = 1, cnt do
-        if GetServerNation() == 'KOR' then --보스몬스터 등장 사운드 출력
+        if GetServerNation() == 'KOR' then
             PlaySoundLocal(list[i], "battle_bossmonster_appear")
         else
             PlaySoundLocal(list[i], "S1_battle_bossmonster_appear")
