@@ -1056,15 +1056,19 @@ end
 
 function SCR_Get_Sta_Recover(self)
 
+    local value = 0;
+
 	if GetBuffByProp(self, 'Keyword', 'Curse') ~= nil then
 		return 0;
 	end
 
-	if IsBuffApplied(self, 'SitRest') == 'YES' then	
-	    return (500 + self.REST_BM + self.RSta_BM) * 2;
-	end
+    value = 400 + self.REST_BM + self.RSta_BM;
 
-    return 500 + self.REST_BM + self.RSta_BM;
+	if IsBuffApplied(self, 'SitRest') == 'YES' then	
+	    return value * 2;
+	end
+	
+    return value;
 
 end
 

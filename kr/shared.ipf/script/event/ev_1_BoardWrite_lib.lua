@@ -42,7 +42,7 @@ function SCR_ev_1_BoardWrite_act(self, pc, argNum, evt)
     local sObj = GetSessionObject(pc, ssn_name) 
     if sObj == nil then
         CreateSessionObject(pc, ssn_name, 1)
-        TAKE_ITEM_TX(pc, 'BoardWriteChalk', 1)
+        TAKE_ITEM_TX(pc, 'BoardWriteChalk', 1, 'ev_1_BoardWrite')
         SCR_NPCSTATE_CHANGE(pc, self, 1)
         ChatLocal(self, pc, ScpArgMsg("Auto_ChaeTingChange_NagSeo_Naeyong_JeogKi"))
         

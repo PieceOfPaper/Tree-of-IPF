@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="60.00" soundFile="mon_wood_spirit_born"/>
+    <Sound frame="90.00" soundFile="mon_wood_spirit_atk_shot"/>
+    <Particle frame="110" attachNode="Dummy_eff_dead" particleName="F_spread_out014_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="110" attachNode="Dummy_eff_dead" particleName="F_levitation010_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+    <Sound frame="120.00" soundFile="mon_goblinwarrior_wlk_voice"/>
+    <Particle frame="130" attachNode="Dummy_eff_born" particleName="F_spread_in002_yellow1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.9" pause="true" targetPos="false"/>
+    <Particle frame="133" attachNode="Dummy_eff_dead" particleName="F_smoke076" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="150" attachNode="Dummy_eff_born" particleName="F_explosion025" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" targetPos="false"/>
+    <Sound frame="150.00" soundFile="mon_wood_spirit_atk_shot"/>
+    <Particle frame="160" attachNode="Dummy_eff_dead" particleName="F_spread_out013_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+    <Sound frame="175.00" soundFile="mon_voice_onion_the_great_5"/>
+</ActionDesc>

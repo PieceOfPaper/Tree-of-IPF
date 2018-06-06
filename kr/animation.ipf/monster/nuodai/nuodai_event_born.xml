@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ppiac (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<AfterImage frame="15" term="20" blendTime="400" r="160" g="160" b="160" a="160"/>
+	<Particle frame="13" particleName="F_burstup022_smoke" attachNode="None" scale="0.7" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="13" particleName="F_ground071_smoke" attachNode="None" scale="0.7" useAttach="true" pause="true" targetPos="false"/>
+	<Shockwave frame="13" type="2" intensity="5" frequency="80" duration="1" range="1000"/>
+	<Sound frame="13" soundFile="skl_eff_hit_ground_poison_bubble"/>
+	<Sound frame="13" soundFile="skl_eff_drapeliun_atk_hit_ground"/>
+	<Particle frame="13" particleName="F_smoke117" attachNode="Dummy_effect_L" scale="0.8" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="13" particleName="F_smoke117" attachNode="Dummy_effect_R" scale="0.8" useAttach="true" pause="true" targetPos="false"/>
+	<Shockwave frame="13" type="2" intensity="3" frequency="60" duration="1" range="1000"/>
+</ActionDesc>

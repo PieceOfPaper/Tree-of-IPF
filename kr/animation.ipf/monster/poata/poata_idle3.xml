@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" particleName="I_chain_dead_mash" attachNode="Dummy_emitter" scale="1.3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_burstup001_yellow" attachNode="Dummy_emitter" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_explosion004_yellow2" attachNode="Dummy_emitter" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice5_l_dead_12"/>
+    <Sound frame="37.00" soundFile="skl_eff_bodyfall_l_2"/>
+    <Sound frame="44.00" soundFile="skl_eff_bodyfall_l_2"/>
+    <Sound frame="51.00" soundFile="skl_eff_bodyfall_l_2"/>
+    <Sound frame="58.00" soundFile="skl_eff_bodyfall_l_2"/>
+</ActionDesc>

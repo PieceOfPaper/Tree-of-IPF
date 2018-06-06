@@ -6,6 +6,7 @@
 	<option visible="true" hideable="false" closebutton="false" alwaysVisible="true"/>
 	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
 	<animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
+  <script OpenScp="OPEN_NEARPARTYLIST"/>
 	<controls>
 		<groupbox name="mainGbox" margin="0 130 0 0" rect="0 0 250 470" scrollbar="false" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false"/>
 		<richtext name="titleText" parent="mainGbox" rect="0 0 250 20" margin="5 0 0 0" layout_gravity="left top" caption="주변 파티 정보" fixwidth="true" fontname="white_18_ol" hittest="false" spacey="0" textalign="left center"/>

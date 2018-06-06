@@ -529,7 +529,7 @@ function SCR_PRE_ROKAS27_QB_6(self, argstring, argnum1, argnum2)
             end
         end
     else
-        RunScript('TAKE_ITEM_TX', self, 'ROKAS27_QB_6', 1, "Quest")
+        RunScript('TAKE_ITEM_TX', self, 'ROKAS27_QB_6', 1, "Q_ROKAS27_QB_6")
         SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("Auto_aMuKeosDo_BalKyeonHaJi_Mos_HaessSeupNiDa."), 3);
     end
     return 0
@@ -3549,22 +3549,20 @@ end
 
 --CATACOMB_33_2_SQ_02_ORB
 function SCR_PRE_CATACOMB_33_2_SQ_02_ORB(self, argObj, argstring, arg1, arg2)
-    local list, cnt = SelectObject(self, 120, 'ALL')
-    local i
-    if cnt > 0 then
-    for i = 1, cnt do
-        if list[i].ClassName ~= 'Altarcrystal_P1' then
             if GetZoneName(self) == "id_catacomb_33_2" then
                 if GetLayer(self) == 0 then
                     local result2 = SCR_QUEST_CHECK(self, 'CATACOMB_33_2_SQ_02')
                     if result2 == 'PROGRESS' then
-                        return 1
-                    end
+                local list, cnt = SelectObject(self, 120, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName == 'Altarcrystal_P1' then
+                            return 0
                 end
             end
         end
-        if list[i].ClassName == 'Altarcrystal_P1' then
-            return 0
+                return 1
         end
     end
     end
@@ -3670,6 +3668,7 @@ function SCR_PRE_CATACOMB_33_2_SQ_SYMBOL(self, argstring, argnum1, argnum2)
                 for i = 1, cnt do
                     if list[i].ClassName ~= 'PC' then
                         if list[i].ClassName == 'npc_pilgrim_shrine' then
+                                if list[i].HP > 0 then
                             if IsBuffApplied(self, 'SoulDuel_ATK') == 'NO' then
                                 return GetHandle(list[i])
                             end
@@ -3678,6 +3677,7 @@ function SCR_PRE_CATACOMB_33_2_SQ_SYMBOL(self, argstring, argnum1, argnum2)
                 end
             end
         end
+    end
     end
     end
     return 0
@@ -3811,7 +3811,7 @@ end
 function SCR_PRE_CATACOMB_33_2_SQ_DOC(self, argObj, argstring, arg1, arg2)
     local result = SCR_QUEST_CHECK(self, 'CATACOMB_33_2_SQ_09')
     if result == 'PROGRESS' then
-        local list, cnt = SelectObject(self, 40, 'ALL')
+        local list, cnt = SelectObject(self, 10, 'ALL')
         local i
         if cnt > 0 then
         for i = 1, cnt do
@@ -4054,7 +4054,7 @@ function SCR_PRE_ORCHARD_342_SQ_04_ITEM(self, argObj, argstring, arg1, arg2)
         if GetLayer(self) == 0 then 
             local result = SCR_QUEST_CHECK(self, 'ORCHARD_342_SQ_04')
             if result == 'PROGRESS' then
-                local list, cnt = SelectObject(self, 20, 'ALL')
+                local list, cnt = SelectObject(self, 10, 'ALL')
                 local i
                 if cnt > 0 then
                 for i = 1, cnt do
@@ -4574,6 +4574,7 @@ function SCR_PRE_GIMMICK_TRANSFORM_POPOLION(self, argstring, argnum1, argnum2)
     end
     return 0
 end
+
 --GIMMICK_TRANSFORM_FERRET
 function SCR_PRE_GIMMICK_TRANSFORM_FERRET(self, argstring, argnum1, argnum2)
     local zone = GetZoneName(self)

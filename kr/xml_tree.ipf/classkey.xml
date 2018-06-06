@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ClassKey>
 	<KeyIDSpc Name="Party">
 		<Key Name="UseLevelLimit" Value="0"/>
@@ -8232,6 +8232,11 @@
 		<Key Name="Hide_1623" Value="9735"/>
 		<Key Name="Kill_F_boss_lecifer" Value="9736"/>
 		<Key Name="Kill_F_boss_mirtis" Value="9737"/>
+		<Key Name="StartHairName" Value="10022"/>
+		<Key Name="CurHairName" Value="10023"/>
+		<Key Name="CurHairColorName" Value="10024"/>
+		<Key Name="BaseHairType" Value="10025"/>
+<Key Name="BoostToken" Value="10028"/>
 	</KeyIDSpc>
 	<KeyIDSpc Name="Account">
 		<Key Name="MaxPVPGrade" Value="6299"/>
@@ -8243,6 +8248,7 @@
 		<Key Name="ChatStopTime" Value="8476"/>
 		<Key Name="TradeStopTime" Value="8477"/>
 		<Key Name="TokenTime" Value="9048"/>
+		<Key Name="PremiumMedal" Value="10021"/>
 	</KeyIDSpc>
 	<KeyIDSpc Name="Monster">
 		<Key Name="MonDmgRate" Value="6305"/>

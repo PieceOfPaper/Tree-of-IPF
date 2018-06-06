@@ -115,26 +115,34 @@ function PUB_NEXT_HEAD(parent, ctrl)
 	local Selectclasslist = Selectclass:GetSubClassList();
 	local cnt		      = Selectclasslist:Count();
 	
-	for i = headType+1, cnt do
-		local nextCls = Selectclasslist:GetByIndex(i);
-		local currCls = Selectclasslist:GetByIndex(headType);
 	
-		if cnt <= i then
-			for j = 0, headType do
-				  nextCls = Selectclasslist:GetByIndex(j);
-				if imcIES.GetString(nextCls, 'Type') ~= imcIES.GetString(currCls, 'Type') and
-				   imcIES.GetString(nextCls, 'ColorE') ==  'default' then
-				   headType = j + 1;
-				   break;
+
+	for i = headType, cnt do
+		local nextCls = Selectclasslist:GetByIndex(i);
+		local currCls = Selectclasslist:GetByIndex(headType-1);
+		if nextCls == nil then
+			if cnt <= i then
+				for j = 0, headType do
+					nextCls = Selectclasslist:GetByIndex(j);
+					if nextCls ~= nil then
+						if imcIES.GetString(nextCls, 'Type') ~= imcIES.GetString(currCls, 'Type') and
+						   imcIES.GetString(nextCls, 'UseableBarrack') ==  'YES' then
+						   headType = j + 1;
+						   break;
+						end
+					end
 				end
 			end
-		elseif imcIES.GetString(nextCls, 'Type') ~= imcIES.GetString(currCls, 'Type') and
-		   imcIES.GetString(nextCls, 'ColorE') ==  'default' then
-			headType = i + 1;
-			break;
+		else
+			if imcIES.GetString(nextCls, 'Type') ~= imcIES.GetString(currCls, 'Type') and
+			   imcIES.GetString(nextCls, 'UseableBarrack') ==  'YES' then
+				headType = i + 1;
+				break;
+			end
 		end
 	end
 
+	
 	GetBarrackPub():ChangeHair(headType);
 	local frame = parent:GetTopParentFrame();
 	SET_HEAD_NAME(frame, apc:GetGender(), headType);
@@ -151,35 +159,29 @@ function PUB_PREV_HEAD(parent, ctrl)
 	local Selectclasslist = Selectclass:GetSubClassList();
 	local cnt		      = Selectclasslist:Count();
     
-    for i = headType-1, 0, -1 do
-    	local nextCls = Selectclasslist:GetByIndex(i);
-		local currCls = Selectclasslist:GetByIndex(headType);
-    	-- i가 0과 같아 진다면 다시 확인
-    	if i == 0 then
-			if  imcIES.GetString(nextCls, 'Type') ~= imcIES.GetString(currCls, 'Type') and
-				imcIES.GetString(nextCls, 'ColorE') ==  'default' then
-    				headType = i + 1;
-    				break;
-			else
-				for j = cnt-1, headType, -1 do
-    				nextCls = Selectclasslist:GetByIndex(j);
-					if imcIES.GetString(nextCls, 'Type') ~= imcIES.GetString(currCls, 'Type') and
-					   imcIES.GetString(nextCls, 'ColorE') ==  'default' then
-						  headType = j + 1;
-						  break;
-					end
-    			end
-    		end
+	if headType-2 < 0 then
+		for I = cnt-1, 0, -1 do
+			local nextCls = Selectclasslist:GetByIndex(I);
+			local currCls = Selectclasslist:GetByIndex(headType-1);
     		
-    	else
-    		if  imcIES.GetString(nextCls, 'Type') ~= imcIES.GetString(currCls, 'Type') and
-				imcIES.GetString(nextCls, 'ColorE') ==  'default' then
+			if imcIES.GetString(nextCls, 'Type') ~= imcIES.GetString(currCls, 'Type') and
+				imcIES.GetString(nextCls, 'UseableBarrack') ==  'YES' then
+					headType = I + 1;
+					break;
+			end
+    	end
+	else
+		for i = headType-2, 0, -1 do
+    		local nextCls = Selectclasslist:GetByIndex(i);
+			local currCls = Selectclasslist:GetByIndex(headType-1);
+
+			if  imcIES.GetString(nextCls, 'Type') ~= imcIES.GetString(currCls, 'Type') and
+				imcIES.GetString(nextCls, 'UseableBarrack') ==  'YES' then
     				headType = i + 1;
     				break;
     		end
-    	end
+		end
     end
-    
 
     GetBarrackPub():ChangeHair(headType);
     local frame = parent:GetTopParentFrame();
@@ -358,13 +360,29 @@ function PUB_EXEC_CREATECHAR(parent, ctrl)
 		return;
 	end
 
-	local frame = parent:GetTopParentFrame();
+	local accountInfo = session.barrack.GetMyAccount();
+	if accountInfo:GetPCCount() > 0 then
+		
+		local msg = ScpArgMsg("WillYouSeeOpeningAgain?");
+		ui.MsgBox(msg, "_PUB_EXEC_CREATECHAR(1)", "_PUB_EXEC_CREATECHAR(0)");
+
+	else
+		_PUB_EXEC_CREATECHAR(1)
+	end
+end
+
+function _PUB_EXEC_CREATECHAR(viewOpening)
+
+	local frame = ui.GetFrame("pub_createchar");
 
 	local input_name = GET_CHILD(frame, "input_name", "ui::CEditControl");
 	local text = input_name:GetText();
 
 	local actor = GetBarrackPub():GetSelectedActor();
 	barrack.RequestCreateCharacter(text, actor, selectMap);
+	GetBarrackPub():EnablePlayOpening(viewOpening, selectMap);
+	selectMap = 0;
+
 end
 
 function SELECT_START_MAP_KLAIPE(parent, ctrl)

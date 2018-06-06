@@ -83,6 +83,7 @@ function SHOW_PC_CONTEXT_MENU(handle)
 	end
 	
 	local partyinfo = session.party.GetPartyInfo();
+	local accountObj = GetMyAccountObj();
 	if pcObj:IsMyPC() == 0 and info.IsPC(pcObj:GetHandleVal()) == 1 then
 		if targetInfo.IsDummyPC == 1 then
 			packet.DummyPCDialog(handle);
@@ -91,14 +92,12 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			
 		local contextMenuCtrlName = string.format("{@st41}%s (%d){/}", pcObj:GetPCApc():GetFamilyName(), handle);
 		local context = ui.CreateContextMenu("PC_CONTEXT_MENU", pcObj:GetPCApc():GetFamilyName(), 0, 0, 170, 100);
-
 		-- 여기에 캐릭터 정보보기, 로그아웃PC관련 메뉴 추가하면됨
-
-
-
-	--local strScp = string.format("exchange.RequestChange(%d)", pcObj:GetHandleVal());
-	--local strWhisperScp = string.format("ui.WhisperTo('%s')", pcObj:GetPCApc():GetFamilyName());
-	--ui.AddContextMenuItem(context, ClMsg("Exchange"), strScp);
+		local strWhisperScp = string.format("ui.WhisperTo('%s')", pcObj:GetPCApc():GetFamilyName());
+		if "None" ~= accountObj.TokenTime then
+			local strScp = string.format("exchange.RequestChange(%d)", pcObj:GetHandleVal());
+			ui.AddContextMenuItem(context, ClMsg("Exchange"), strScp);
+		end
 		ui.AddContextMenuItem(context, ClMsg("WHISPER"), strWhisperScp);
 
 	--if partyinfo ~= nil then

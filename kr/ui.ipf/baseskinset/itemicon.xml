@@ -968,11 +968,21 @@
 		<image name="item_bracelet_19" file="\icon\acc\item_bracelet_19.png" imgrect="0 0 256 256"/>
 		<image name="item_bracelet_20" file="\icon\acc\item_bracelet_20.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_cloth" file="\icon\acc\icon_item_armband_cloth.png" imgrect="0 0 256 256" CMM_Caption="완장"/>
-		<image name="icon_item_armband_clothlong" file="\icon\acc\icon_item_armband_clothlong.png" imgrect="0 0 256 256" CMM_Caption="완장"/>
-		<image name="icon_item_armband_feather" file="\icon\acc\icon_item_armband_feather.png" imgrect="0 0 256 256" CMM_Caption="완장"/>
-		<image name="icon_item_armband_tassel" file="\icon\acc\icon_item_armband_tassel.png" imgrect="0 0 256 256" CMM_Caption="완장"/>
-		<image name="icon_item_artefact_armband" file="\icon\acc\icon_item_artefact_armband.png" imgrect="0 0 256 256" CMM_Caption="완장"/>
-		<image name="icon_item_artefact_armband_cbt1" file="\icon\acc\icon_item_artefact_armband_cbt1.png" imgrect="0 0 256 256" CMM_Caption="완장"/>
+		<image name="icon_item_armband_clothlong" file="\icon\acc\icon_item_armband_clothlong.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_feather" file="\icon\acc\icon_item_armband_feather.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_tassel" file="\icon\acc\icon_item_armband_tassel.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_artefact_armband" file="\icon\acc\icon_item_artefact_armband.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_artefact_armband_cbt1" file="\icon\acc\icon_item_artefact_armband_cbt1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_dia" file="\icon\acc\icon_item_armband_dia.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_dragonfly1" file="\icon\acc\icon_item_armband_dragonfly1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_exclamationMark_icon" file="\icon\acc\icon_item_armband_exclamationMark_icon.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_gold" file="\icon\acc\icon_item_armband_gold.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_leaf" file="\icon\acc\icon_item_armband_leaf.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_orient" file="\icon\acc\icon_item_armband_orient.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_shaman" file="\icon\acc\icon_item_armband_shaman.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_silver" file="\icon\acc\icon_item_armband_silver.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_singleTassel" file="\icon\acc\icon_item_armband_singleTassel.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_chief" file="\icon\acc\icon_item_armband_chief.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -1101,6 +1111,10 @@
 		<image name="hairacc_hat047" file="\icon\hairacc\accessory_hat_047.png" imgrect="0 0 256 256"/>
 		<image name="hairacc_hat069" file="\icon\hairacc\accessory_hat_069.png" imgrect="0 0 256 256"/>
 		<image name="hairacc_hat070" file="\icon\hairacc\accessory_hat_070.png" imgrect="0 0 256 256"/>
+		<image name="hair_GM_female" file="\icon\hairacc\hair_GM_female.png" imgrect="0 0 256 256" CMM_Caption="가발"/>
+		<image name="hair_lancer_female" file="\icon\hairacc\hair_lancer_female.png" imgrect="0 0 256 256"/>
+		<image name="hair_lancer_male" file="\icon\hairacc\hair_lancer_male.png" imgrect="0 0 256 256"/>
+		<image name="hair_puppeteer_male" file="\icon\hairacc\hair_puppeteer_male.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -2231,6 +2245,26 @@
 		<image name="icon_item_egg_lesserPanda" file="\icon\item\icon_item_egg_lesserPanda.png" imgrect="0 0 128 128" CMM_Caption="래서판다 알"/>
 		<image name="icon_item_egg_toucan" file="\icon\item\icon_item_egg_toucan.png" imgrect="0 0 128 128" CMM_Caption="투칸 알"/>
 		<image name="icon_item_egg_barnOwl" file="\icon\item\icon_item_egg_barnOwl.png" imgrect="0 0 128 128" CMM_Caption="올빼미 알"/>
+		<image name="icon_item_amulet_claw" file="\icon\item\icon_item_amulet_claw.png" imgrect="0 0 128 128" CMM_Caption="매직어뮬렛"/>
+		<image name="icon_item_amulet_tiny" file="\icon\item\icon_item_amulet_tiny.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_bid" file="\icon\item\icon_item_amulet_bid.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_crescent" file="\icon\item\icon_item_amulet_crescent.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_crossMedal" file="\icon\item\icon_item_amulet_crossMedal.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_crystal" file="\icon\item\icon_item_amulet_crystal.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_divine" file="\icon\item\icon_item_amulet_divine.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_fortune" file="\icon\item\icon_item_amulet_fortune.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_gem" file="\icon\item\icon_item_amulet_gem.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_hornNetherbovine" file="\icon\item\icon_item_amulet_hornNetherbovine.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_lure" file="\icon\item\icon_item_amulet_lure.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_platus" file="\icon\item\icon_item_amulet_platus.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_pumkin" file="\icon\item\icon_item_amulet_pumkin.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_ritual" file="\icon\item\icon_item_amulet_ritual.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_rose" file="\icon\item\icon_item_amulet_rose.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_shaman" file="\icon\item\icon_item_amulet_shaman.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_sharp" file="\icon\item\icon_item_amulet_sharp.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_snowflake" file="\icon\item\icon_item_amulet_snowflake.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_sun" file="\icon\item\icon_item_amulet_sun.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_amulet_talisman" file="\icon\item\icon_item_amulet_talisman.png" imgrect="0 0 128 128"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -2252,6 +2286,9 @@
 		<image name="icon_item_giftBox_2" file="\icon\payment\icon_item_giftBox_2.png" imgrect="0 0 256 256" CMM_Caption="선물상자2"/>
 		<image name="icon_item_giftBox_3" file="\icon\payment\icon_item_giftBox_3.png" imgrect="0 0 256 256" CMM_Caption="선물상자3"/>
 		<image name="icon_item_giftBox_4" file="\icon\payment\icon_item_giftBox_4.png" imgrect="0 0 256 256" CMM_Caption="선물상자4"/>
+		<image name="icon_item_awakeningstone" file="\icon\payment\icon_item_awakeningstone.png" imgrect="0 0 128 128" CMM_Caption="어웨이크닝스톤"/>
+		<image name="icon_item_boostertoken" file="\icon\payment\icon_item_boostertoken.png" imgrect="0 0 256 256" CMM_Caption="부스터토큰"/>
+		<image name="icon_item_tospoint" file="\icon\payment\icon_item_tospoint.png" imgrect="0 0 256 256" CMM_Caption="TP"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

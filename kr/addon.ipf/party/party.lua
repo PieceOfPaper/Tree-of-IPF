@@ -18,6 +18,7 @@ end
 function PARTY_MSG_UPDATE(frame, msg, str, num)
 	REQ_I_NEED_PARTY(frame, msg, str, num);
 	ON_PARTY_UPDATE(frame, msg, str, num);
+	ON_PARTY_PROPERTY_UPDATE(frame, msg, str, num);
 end
 
 function ON_PARTY_INST_UPDATE(frame)

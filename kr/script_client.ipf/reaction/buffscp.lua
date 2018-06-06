@@ -36,7 +36,7 @@ end
 
 function Petrification_ENTER(actor, obj, buff)
 
-	-- actor:GetEffect():EnableVibrate(1, 0.5, 0.5, 50.0); -- �� ������ �� ������ �ӽ÷� �ּ�.
+	-- actor:GetEffect():EnableVibrate(1, 0.5, 0.5, 50.0); -- 얼굴 깨지는 것 때문에 임시로 주석.
 	-- imcSound.PlaySoundItem(cls.Sound);
 	-- actor:PlaySound("SOUNDNAME");
 
@@ -350,25 +350,38 @@ function Medusa_LEAVE(actor, obj, buff)
 end
 
 
--- ��������Ʈ ũ�⼳��
+-- 버프이펙트 크기설정
 function CalcBuffEffScale(radius)
-	local scale = 1;		-- ����. ���� m_radius = 12
+	local scale = 1;		-- 기준. 스몰 m_radius = 12
 
 	if radius >= 50 then
-		scale = 2.5;		-- ��������
+		scale = 2.5;		-- 엑스라지
 	elseif radius >= 20 then
-		scale = 2;			-- ����
+		scale = 2;			-- 라지
 	elseif radius >= 15 then
-		scale = 1.5;		-- �̵�
+		scale = 1.5;		-- 미들
 	end
 	return scale;
 end
 
--- �ڷ�Ű�׽ý�ó�� FSM���δ� ASTD������ �����δ� ��ųĳ������ �ΰ͵� ���. (������ ĳ�������ΰ� Ȯ��)
+-- 텔레키네시스처럼 FSM으로는 ASTD이지만 실제로는 스킬캐스팅중 인것들 등록. (버프로 캐스팅중인것 확인)
 function IsSkillStateByBuff()
 
-  -- �ڷ�Ű�׽ý�
+  -- 텔레키네시스
   if info.GetMyPcBuff('TeleCast') ~= nil then
+    return 1;
+  end
+
+  return 0;
+end
+
+function IsSkillStateOnCompanionByBuff()
+	-- 텔레키네시스
+  if info.GetMyPcBuff('TeleCast') ~= nil then
+    return 1;
+  end
+
+  if info.GetMyPcBuff('Impaler_Buff') ~= nil then
     return 1;
   end
 
@@ -393,7 +406,7 @@ function PlantGuard_LEAVE(actor, obj, buff)
 	geGrassEffect.EnablePlantSurround(actor, 0);
 end
 
--- ��
+-- 독
 function PoisonBlink_ENTER(actor, obj, buff)
   imcSound.PlaySoundEvent("monster_state_2")
     actor:GetEffect():SetColorBlink(0,0.1,0,0,0.05,0.3,0,0, 1.5, 1);
@@ -403,7 +416,7 @@ function PoisonBlink_LEAVE(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,0,0.2,0,1, 0, 1);
 end
 
--- ����
+-- 출혈
 function WoundBlink_ENTER(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,0.5,0,0,1, 2.5, 1);
 end
@@ -412,7 +425,7 @@ function WoundBlink_LEAVE(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,0.5,0,0,1, 0 , 1);
 end
 
--- ȭ��
+-- 화염
 function FireBlink_ENTER(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,76,50,0,1, 2.5, 1);
 end
@@ -421,7 +434,7 @@ function FireBlink_LEAVE(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,0.5,0.2,0,1, 0 , 1);
 end
 
--- ��м�
+-- 목둔술
 function Mokuton_ENTER(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,0.1,0.11,0.1,0.15, 2.5, 1);
 end
@@ -432,7 +445,7 @@ end
 
 
 
--- ��ڹ���
+-- 대박버프
 function SuperDrop_Client_ENTER(actor, obj, buff)
 	if buff.arg2 == 1 then
 		actor:GetEffect():SetColorBlink(0,0,0,0,1,0.8,0.07,1, 1.5, 1);
@@ -450,7 +463,7 @@ function SuperDrop_Client_LEAVE(actor, obj, buff)
 	
 end
 
---��¦�� ����: ��� ����ó�� ��¦�Ÿ��⸸ �ϴ� �뵵
+--반짝이 버프: 대박 버프처럼 반짝거리기만 하는 용도
 function TwinkleBuff_Client_ENTER(actor, obj, buff)
 	if buff.arg2 == 1 then
 		actor:GetEffect():SetColorBlink(0,0,0,0,1,0.8,0.07,1, 1.5, 1);
@@ -468,7 +481,7 @@ function TwinkleBuff_Client_LEAVE(actor, obj, buff)
 	
 end
 
--- ����ν�Ƽ�׸� ����� ���ũ
+-- 디바인스티그마 디버프 블링크
 function DivineStigma_ENTER(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 1.5, 1);
 end
@@ -476,7 +489,7 @@ end
 function DivineStigma_LEAVE(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
---���
+--흰색
 function WhiteBlink_ENTER(actor, obj, buff)
   imcSound.PlaySoundEvent("monster_state_1")
 	actor:GetEffect():SetColorBlink(0.1,0.1,0.1,0.1,0.3,0.3,0.3,0.3, 1.5, 1);
@@ -486,7 +499,7 @@ function WhiteBlink_LEAVE(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
 
---������
+--빨간색
 function RedBlink_ENTER(actor, obj, buff)
 imcSound.PlaySoundEvent("monster_state_1")
 	actor:GetEffect():SetColorBlink(0.2,0,0,0,0.45,0.05,0,0, 1.5, 1);
@@ -496,7 +509,7 @@ function RedBlink_LEAVE(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
 
---�Ķ���
+--파란색
 function BlueBlink_ENTER(actor, obj, buff)
 imcSound.PlaySoundEvent("monster_state_1")
 	actor:GetEffect():SetColorBlink(0,0,0.1,0,0,0.1,0.4,0, 1.5, 1);
@@ -506,7 +519,7 @@ function BlueBlink_LEAVE(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
 
---�����
+--노란색
 function YellowBlink_ENTER(actor, obj, buff)
 imcSound.PlaySoundEvent("monster_state_1")
 	actor:GetEffect():SetColorBlink(0.2,0.17,0.05,0,0.5,0.4,0.15,0, 1.5, 1);
@@ -516,7 +529,7 @@ function YellowBlink_LEAVE(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
 
--- ������ ����� ���ũ
+-- 포인팅 디버프 블링크
 function Pointing_ENTER(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 3.0, 1);
 end

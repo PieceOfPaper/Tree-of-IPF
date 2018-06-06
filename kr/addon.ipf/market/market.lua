@@ -80,16 +80,10 @@ function MARGET_FIND_PAGE(frame, page)
 		page = 0;
 	end
 
-	local groupName, classType = MARKET_SEARCH_GROUP_AND_CLASSTYPE(frame);
-	market.ReqMarketList(page, "", groupName, classType, -1, -1, -1, -1, 0);
-end
-
-function SEARCH_ITEM_MARKET()
-	local frame = ui.GetFrame("market");
 	local gBox = GET_CHILD(frame, "detailOption");
+	local find_name = GET_CHILD(gBox, "find_edit");
 	local expesive = GET_CHILD(gBox, "expensive", "ui::CCheckBox");
 	local chip = GET_CHILD(gBox, "chip", "ui::CCheckBox");
-	local find_name = GET_CHILD(gBox, "find_edit");
 	local lv_min = GET_CHILD_NUMBER_VALUE(gBox, "edit_1");
 	local lv_max = GET_CHILD_NUMBER_VALUE(gBox, "edit_1_1");
 	local rein_min = GET_CHILD_NUMBER_VALUE(gBox, "edit_2");
@@ -98,13 +92,18 @@ function SEARCH_ITEM_MARKET()
 	-- 디폴트로 최근	
 	local sortype = 2;
 	if 1 == chip:IsChecked() then
-		sortype = 1;
+		sortype = 0;
 	elseif 1 == expesive:IsChecked() then
-		sortype = 2;
+		sortype = 1;
 	end
 
 	local groupName, classType = MARKET_SEARCH_GROUP_AND_CLASSTYPE(frame);
-	market.ReqMarketList(0, find_name:GetText(), groupName, classType, lv_min, lv_max, rein_min, rein_max, sortype);
+	market.ReqMarketList(page, find_name:GetText(), groupName, classType, lv_min, lv_max, rein_min, rein_max, sortype);
+end
+
+function SEARCH_ITEM_MARKET()
+	local frame = ui.GetFrame("market");
+	MARGET_FIND_PAGE(frame, 0);
 end
 
 function MARKET_OPTION_CHECK(frame, ctrl)
@@ -160,7 +159,7 @@ function MARKET_FIRST_OPEN(frame)
 				for j = 1 , #subCateList do
 					local cate = subCateList[j]
 		    	if cate ~= 'None' then
-					tree:Add(htreeitem, "{@st42b}"..ClMsg(cate), group.."#"..cate, "{#000000}");
+						tree:Add(htreeitem, "{@st66}"..ClMsg(cate), group.."#"..cate, "{#000000}");
 		    	end
 			end
 		end
@@ -170,7 +169,7 @@ function MARKET_FIRST_OPEN(frame)
 	frame:SetUserValue("Group", "ShowAll");
 	frame:SetUserValue("ClassType", "ShowAll");
 
-	GBOX_AUTO_ALIGN(tree, 0, 0, 100, true, true);
+	GBOX_AUTO_ALIGN(tree, 0, 0, 300, true, true);
 end
 
 function MARKET_SELECT_SORTTYPE(parent, ctrl)
@@ -294,7 +293,8 @@ function ON_MARKET_ITEM_LIST(frame)
 		level:SetTextByKey("value", itemObj.UseLv);
 
 		local price = ctrlSet:GetChild("price");
-		price:SetTextByKey("value", marketItem.sellPrice);
+		price:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
+		price:SetUserValue("Price", marketItem.sellPrice);
 		
 		if familyname == marketItem:GetSeller() then
 			local button_1 = ctrlSet:GetChild("button_1");
@@ -328,7 +328,8 @@ function ON_MARKET_ITEM_LIST(frame)
 			local totalPrice = ctrlSet:GetChild("totalPrice");
 			totalPrice:SetTextByKey("value", 0);
 			if IS_EQUIP(itemObj) == true then
-				totalPrice:SetTextByKey("value", marketItem.sellPrice);
+				totalPrice:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
+				totalPrice:SetUserValue("Price", marketItem.sellPrice);
 				numUpDown:SetNumberValue(1)
 			end 
 		end		
@@ -358,7 +359,7 @@ function MARKET_CHANGE_COUNT(ctrl)
 	local priceFrame = GET_CHILD(frame, "price");
 	ctrl = tolua.cast(ctrl, "ui::CNumUpDown");
 
-	local prcie = priceFrame:GetTextByKey("value");
+	local prcie = priceFrame:GetUserIValue("Price");
 	local totalPrice = GET_CHILD(frame, "totalPrice");
 	totalPrice:SetTextByKey("value", GetCommaedText(tonumber(prcie) * ctrl:GetNumber()));
 end

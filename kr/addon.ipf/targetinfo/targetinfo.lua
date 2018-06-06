@@ -20,6 +20,35 @@ function TARGETINFO_ON_INIT(addon, frame)
 
  end
 
+ function UPDATE_BOSS_SCORE_TIME(frame)
+
+	local sObj = session.GetSessionObjectByName("ssn_mission");
+	if sObj == nil then
+		return;
+	end
+
+	local obj = GetIES(sObj:GetIESObject());
+	local startTime = obj.Step25;
+	local curTime = GetServerAppTime() - startTime;
+	
+	local m1time = frame:GetChild('m1time');
+	local m2time = frame:GetChild('m2time');
+	local s1time = frame:GetChild('s1time');
+	local s2time = frame:GetChild('s2time');
+
+	tolua.cast(m1time, "ui::CPicture");
+	tolua.cast(m2time, "ui::CPicture");
+	tolua.cast(s1time, "ui::CPicture");
+	tolua.cast(s2time, "ui::CPicture");	
+	
+	local min, sec = GET_QUEST_MIN_SEC(curTime);
+	
+	SET_QUESTINFO_TIME_TO_PIC(min, sec, m1time, m2time, s1time, s2time);			
+	frame:Invalidate();
+
+end
+
+
 function TARGET_UPDATE_SDR(frame, msg, argStr, SDR)
 	local imagename = "dice_" .. SDR;
 	local animpic = GET_CHILD(frame, "spl", "ui::CAnimPicture");

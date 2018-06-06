@@ -1,5 +1,5 @@
 function SCR_CATACOMB_33_2_BOOK_1_PRE_DIALOG(pc, dialog, handle)
-    local result = SCR_QUEST_CHECK(pc, 'ORCHARD_342_SQ_02')
+    local result = SCR_QUEST_CHECK(pc, 'CATACOMB_33_2_SQ_08')
     if result == 'PROGRESS' then
         return 'YES'
     end

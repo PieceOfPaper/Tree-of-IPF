@@ -450,7 +450,7 @@ end
 function SORT_INVITEM_BY_WORTH(a,b)
 
 	-- 같은 ClassID를 가진 템일 경우 쓸모 없는 템부터 합성 하도록 정렬하는 함수. 
-	-- 정렬순위 : 매직어뮬렛 > 총 젬 경험치 > 젬 갯수 > 뚫린 소켓 수 > 현재 강화 횟수 > 남은 포텐셜
+	-- 정렬순위 : 매직어뮬렛 > 총 젬 경험치 > 젬 개수 > 뚫린 소켓 수 > 현재 강화 횟수 > 남은 포텐셜
 
 	local itemobj_a = GetIES(a:GetObject());
 	local itemobj_b = GetIES(b:GetObject());

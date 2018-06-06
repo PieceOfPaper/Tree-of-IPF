@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="chat_option" x="0" y="0" width="270" height="230" create="open">
+<uiframe name="chat_option" x="0" y="0" width="270" height="290" create="open">
     <skin frameskin="chat_optionwin"/>
     <frame title="chat_optionwin" titlepos="0 -12" layout_gravity="left top" snapclient="true" snapframe="true" margin="0 0 0 0" scale_align="left bottom"/>
     <draw drawframe="true" drawtitlebar="false"/>
@@ -16,7 +15,11 @@
         <richtext name="richtext_2" rect="0 0 120 24" margin="22 53 0 0" layout_gravity="left top" caption="{@st42}투명도" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
         <richtext name="richtext_2_1" rect="0 0 120 24" margin="35 100 0 0" layout_gravity="left top" caption="0" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
         <richtext name="richtext_2_1_1" rect="0 0 120 24" margin="208 100 0 10" layout_gravity="left top" caption="100" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-        <checkbox name="showchatballoon" rect="0 0 120 24" margin="30 140 0 0" layout_gravity="left top" ConfigName="ShowChatBalloon" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="말풍선 표시" clicksound="button_click_big" fontname="white_16_ol" oversound="button_over"/>
-        <checkbox name="showMicFrame" rect="0 0 120 24" margin="30 170 0 0" layout_gravity="left top" ConfigName="ShowMicFrame" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="화면 상단에 외치기 내용 표시" clicksound="button_click_big" fontname="white_16_ol" oversound="button_over"/>
+        <checkbox name="showchatballoon" rect="0 0 120 24" margin="30 207 0 0" layout_gravity="left top" ConfigName="ShowChatBalloon" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="말풍선 표시" clicksound="button_click_big" fontname="white_16_ol" oversound="button_over"/>
+        <checkbox name="showMicFrame" rect="0 0 120 24" margin="30 237 0 0" layout_gravity="left top" ConfigName="ShowMicFrame" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="화면 상단에 외치기 내용 표시" clicksound="button_click_big" fontname="white_16_ol" oversound="button_over"/>
+        <slidebar name="slide_fontsize" rect="0 0 235 27" margin="30 152 0 0" layout_gravity="left top" SlideScp="CHATOPTION_FONTSIZE" maxlevel="200" minlevel="0" skin="slidebar"/>
+        <richtext name="richtext_2_2" rect="0 0 120 24" margin="22 125 0 0" layout_gravity="left top" caption="{@st42}글자 크기" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="richtext_2_1_2" rect="0 0 120 24" margin="35 172 0 0" layout_gravity="left top" caption="0" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="richtext_2_1_1_1" rect="0 0 120 24" margin="208 172 0 10" layout_gravity="left top" caption="100" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
     </controls>
 </uiframe>

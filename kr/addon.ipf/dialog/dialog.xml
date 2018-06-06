@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="dialog" x="250" y="-50" width="1000" height="240">
+<uiframe name="dialog" x="250" y="-50" width="1000" height="240" barrackuse="true">
     <frame title="엔피씨이름" layout_gravity="center bottom" margin="200 0 0 40" scale_align="center bottom"/>
     <draw drawtitlebar="true" titlebarfixwidth="false" titlebarpos="30 30"/>
     <input moveable="false"/>

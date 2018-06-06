@@ -66,7 +66,7 @@ function CURSOR_CHECK_REINF(slot)
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
 	local moruObj = GetIES(fromMoru:GetObject());
 	local obj = GetIES(item:GetObject());
-	if moruObj.ClassName == "Moru_W_02" then -- 황금모루 오브젝트면
+	if moruObj.ClassName == "Moru_Premium" then -- 황금모루 오브젝트면
 		if 1 == REINFORCE_ABLE_131014(obj) 
 			and obj.PR == 0 then  -- 내구도가 0 이어야
 			return 1;
@@ -114,7 +114,7 @@ function MORU_LBTN_CLICK(frame, invItem)
 
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
 	local moruObj = GetIES(fromMoru:GetObject());
-	if moruObj.ClassName == "Moru_W_02" and obj.PR > 0 then
+	if moruObj.ClassName == "Moru_Premium" and obj.PR > 0 then
 		return;
 	end
 
@@ -134,8 +134,8 @@ function _CHECK_MORU_TARGET_ITEM(slot)
 
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
 	local moruObj = GetIES(fromMoru:GetObject());
-		local obj = GetIES(item:GetObject());
-	if moruObj.ClassName == "Moru_W_02" then
+	local obj = GetIES(item:GetObject());
+	if moruObj.ClassName == "Moru_Premium" then
 		if REINFORCE_ABLE_131014(obj) == 1 and obj.PR == 0 then
 			slot:GetIcon():SetGrayStyle(0);
 			slot:SetBlink(60000, 2.0, "FFFFFF00", 1);
@@ -146,12 +146,12 @@ function _CHECK_MORU_TARGET_ITEM(slot)
 		return;
 	end
 
-		if REINFORCE_ABLE_131014(obj) == 1 then
-			slot:GetIcon():SetGrayStyle(0);
-			slot:SetBlink(60000, 2.0, "FFFFFF00", 1);
-		else
-			slot:GetIcon():SetGrayStyle(1);
-			slot:ReleaseBlink();
-		end
+	if REINFORCE_ABLE_131014(obj) == 1 then
+		slot:GetIcon():SetGrayStyle(0);
+		slot:SetBlink(60000, 2.0, "FFFFFF00", 1);
+	else
+		slot:GetIcon():SetGrayStyle(1);
+		slot:ReleaseBlink();
+	end
 
 end

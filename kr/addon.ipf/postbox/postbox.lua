@@ -210,8 +210,13 @@ end
 function POSTBOX_DELETE(parent, ctrl)
 
 	local id = parent:GetUserValue("LETTER_ID");
-	local msgInfo = session.postBox.GetMessageByID(id);
+	local itemCnt = session.postBox.GetMessageRemainItemCountByID(id);
+	if 0 < itemCnt then
+		ui.SysMsg(ClMsg("CanTakeItemFromPostBox"));
+		return;
+	end
 
+	local msgInfo = session.postBox.GetMessageByID(id);
 	if msgInfo == nil then
 		return;
 	end

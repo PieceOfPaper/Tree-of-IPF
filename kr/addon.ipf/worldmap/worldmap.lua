@@ -502,7 +502,9 @@ function WORLDMAP_LOCATE_LASTWARP(parent, ctrl)
 
 	local etcObj = GetMyEtcObject();
 	local mapCls = GetClassByType("Map", etcObj.LastWarpMapID);
+	if mapCls ~= nil then
 	LOCATE_WORLDMAP_POS(parent:GetTopParentFrame(), mapCls.ClassName);
+	end
 	
 end
 
@@ -521,6 +523,11 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 	local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 
 	local childCtrl = gBox:GetChild(gBoxName);
+
+	if childCtrl == nil then
+		return; -- 등록된 여신상이 없으면 nil인가?
+	end
+
 	local x = childCtrl:GetX();
 	local y = childCtrl:GetY();
 
@@ -544,6 +551,7 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 	y = y + 0.5 * childCtrl:GetHeight() + 5;
 	
 	local emphasize = gBox:CreateOrGetControlSet('worldmap_emphasize', "EMPHASIZE", x, y);
+	emphasize:EnableHitTest(0);
 	x = x - emphasize:GetWidth() / 2;
 	y = y - emphasize:GetHeight() / 2;
 

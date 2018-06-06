@@ -4,14 +4,36 @@
         <StageList>
             <Stage Name="Stage01">
                 <ObjList>
-                    <Obj Type="Monster" MonType="155094" Pos="-731.61#0.55#367.18" angle="135" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;Lv&apos; &apos;87&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                    <Obj Type="Monster" MonType="155094" Pos="-731.61#0.55#367.18" angle="135" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;Lv&apos; &apos;87&apos; &apos;DialogRotate&apos; &apos;0&apos; ">
+                        <SelfAI UpdateMS="2000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE65_3_MQ03_P_A"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_PLAYANI_OP" Client="NO" UseSleep="NO">
+                                    <Str Str="look"/>
+                                    <Num Num="1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE65_3_MQ03_FAIL"/>
+                                </ToolScp>
+                            </DeadList>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE65_3_MQ03_P_A"/>
+                                </ToolScp>
+                            </HitList>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_MGAME_PC_OWNER" Client="NO" UseSleep="NO">
                                     <Num Num="1"/>
                                 </ToolScp>
                                 <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
-                                    <Str Str="sland"/>
+                                    <Str Str="look"/>
                                 </ToolScp>
                             </StartList>
                         </SelfAI>

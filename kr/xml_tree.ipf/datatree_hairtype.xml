@@ -3,118 +3,145 @@
 <idspace id="HairType">
 	<Category>
 		<Class ClassID="1">
-			<Node Index="1" Type="숏 컷" EngName="Shortcut" ColorE="default" Color="기본"/>
-			<Node Index="2" Type="숏 컷" EngName="Shortcut" ColorE="black" Color="검은색"/>
-			<Node Index="3" Type="숏 컷" EngName="Shortcut" ColorE="blue" Color="파란색"/>
-			<Node Index="4" Type="숏 컷" EngName="Shortcut" ColorE="pink" Color="분홍색"/>
-			<Node Index="5" Type="숏 컷" EngName="Shortcut" ColorE="white" Color="흰색"/>
-			<Node Index="6" Type="비대칭 숏 컷" EngName="UnbalancedShortcut" ColorE="default" Color="기본"/>
-			<Node Index="7" Type="비대칭 숏 컷" EngName="UnbalancedShortcut" ColorE="black" Color="검은색"/>
-			<Node Index="8" Type="비대칭 숏 컷" EngName="UnbalancedShortcut" ColorE="blue" Color="파란색"/>
-			<Node Index="9" Type="비대칭 숏 컷" EngName="UnbalancedShortcut" ColorE="pink" Color="분홍색"/>
-			<Node Index="10" Type="비대칭 숏 컷" EngName="UnbalancedShortcut" ColorE="white" Color="흰색"/>
-			<Node Index="11" Type="리젠트" EngName="Regent" ColorE="default" Color="기본"/>
-			<Node Index="12" Type="리젠트" EngName="Regent" ColorE="black" Color="검은색"/>
-			<Node Index="13" Type="리젠트" EngName="Regent" ColorE="blue" Color="파란색"/>
-			<Node Index="14" Type="리젠트" EngName="Regent" ColorE="pink" Color="분홍색"/>
-			<Node Index="15" Type="리젠트" EngName="Regent" ColorE="white" Color="흰색"/>
-			<Node Index="16" Type="숏 샤기" EngName="ShortShaggy" ColorE="default" Color="기본"/>
-			<Node Index="17" Type="숏 샤기" EngName="ShortShaggy" ColorE="black" Color="검은색"/>
-			<Node Index="18" Type="숏 샤기" EngName="ShortShaggy" ColorE="blue" Color="파란색"/>
-			<Node Index="19" Type="숏 샤기" EngName="ShortShaggy" ColorE="pink" Color="분홍색"/>
-			<Node Index="20" Type="숏 샤기" EngName="ShortShaggy" ColorE="white" Color="흰색"/>
-			<Node Index="21" Type="넘긴 머리" EngName="SlickedBack" ColorE="default" Color="기본"/>
-			<Node Index="22" Type="넘긴 머리" EngName="SlickedBack" ColorE="black" Color="검은색"/>
-			<Node Index="23" Type="넘긴 머리" EngName="SlickedBack" ColorE="blue" Color="파란색"/>
-			<Node Index="24" Type="넘긴 머리" EngName="SlickedBack" ColorE="pink" Color="분홍색"/>
-			<Node Index="25" Type="넘긴 머리" EngName="SlickedBack" ColorE="white" Color="흰색"/>
-			<Node Index="26" Type="베이비펌" EngName="Baby" ColorE="default" Color="기본"/>
-			<Node Index="27" Type="베이비펌" EngName="Baby" ColorE="black" Color="검은색"/>
-			<Node Index="28" Type="베이비펌" EngName="Baby" ColorE="blue" Color="파란색"/>
-			<Node Index="29" Type="베이비펌" EngName="Baby" ColorE="pink" Color="분홍색"/>
-			<Node Index="30" Type="베이비펌" EngName="Baby" ColorE="white" Color="흰색"/>
-			<Node Index="31" Type="댄디" EngName="Dandy" ColorE="default" Color="기본"/>
-			<Node Index="32" Type="댄디" EngName="Dandy" ColorE="black" Color="검은색"/>
-			<Node Index="33" Type="댄디" EngName="Dandy" ColorE="blue" Color="파란색"/>
-			<Node Index="34" Type="댄디" EngName="Dandy" ColorE="pink" Color="분홍색"/>
-			<Node Index="35" Type="댄디" EngName="Dandy" ColorE="white" Color="흰색"/>
-			<Node Index="36" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="default" Color="기본"/>
-			<Node Index="37" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="black" Color="검은색"/>
-			<Node Index="38" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="blue" Color="파란색"/>
-			<Node Index="39" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="pink" Color="분홍색"/>
-			<Node Index="40" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="white" Color="흰색"/>
-			<Node Index="41" Type="노블 웨이브" EngName="NovelWave" ColorE="default" Color="기본"/>
-			<Node Index="42" Type="노블 웨이브" EngName="NovelWave" ColorE="black" Color="검은색"/>
-			<Node Index="43" Type="노블 웨이브" EngName="NovelWave" ColorE="blue" Color="파란색"/>
-			<Node Index="44" Type="노블 웨이브" EngName="NovelWave" ColorE="pink" Color="분홍색"/>
-			<Node Index="45" Type="노블 웨이브" EngName="NovelWave" ColorE="white" Color="흰색"/>
-			<Node Index="46" Type="쉐도우펌" EngName="ShadowPerm" ColorE="default" Color="기본"/>
-			<Node Index="47" Type="쉐도우펌" EngName="ShadowPerm" ColorE="black" Color="검은색"/>
-			<Node Index="48" Type="쉐도우펌" EngName="ShadowPerm" ColorE="blue" Color="파란색"/>
-			<Node Index="49" Type="쉐도우펌" EngName="ShadowPerm" ColorE="pink" Color="분홍색"/>
-			<Node Index="50" Type="쉐도우펌" EngName="ShadowPerm" ColorE="white" Color="흰색"/>
+			<Node Index="1" Type="숏 컷" EngName="Shortcut" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="2" Type="숏 컷" EngName="Shortcut" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="3" Type="숏 컷" EngName="Shortcut" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="4" Type="숏 컷" EngName="Shortcut" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="5" Type="숏 컷" EngName="Shortcut" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="6" Type="비대칭 숏 컷" EngName="UnbalancedShortcut" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="7" Type="비대칭 숏 컷" EngName="UnbalancedShortcut" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="8" Type="비대칭 숏 컷" EngName="UnbalancedShortcut" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="9" Type="비대칭 숏 컷" EngName="UnbalancedShortcut" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="10" Type="비대칭 숏 컷" EngName="UnbalancedShortcut" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="11" Type="리젠트" EngName="Regent" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="12" Type="리젠트" EngName="Regent" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="13" Type="리젠트" EngName="Regent" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="14" Type="리젠트" EngName="Regent" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="15" Type="리젠트" EngName="Regent" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="16" Type="숏 샤기" EngName="ShortShaggy" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="17" Type="숏 샤기" EngName="ShortShaggy" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="18" Type="숏 샤기" EngName="ShortShaggy" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="19" Type="숏 샤기" EngName="ShortShaggy" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="20" Type="숏 샤기" EngName="ShortShaggy" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="21" Type="넘긴 머리" EngName="SlickedBack" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="22" Type="넘긴 머리" EngName="SlickedBack" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="23" Type="넘긴 머리" EngName="SlickedBack" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="24" Type="넘긴 머리" EngName="SlickedBack" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="25" Type="넘긴 머리" EngName="SlickedBack" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="26" Type="베이비펌" EngName="Baby" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="27" Type="베이비펌" EngName="Baby" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="28" Type="베이비펌" EngName="Baby" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="29" Type="베이비펌" EngName="Baby" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="30" Type="베이비펌" EngName="Baby" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="31" Type="댄디" EngName="Dandy" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="32" Type="댄디" EngName="Dandy" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="33" Type="댄디" EngName="Dandy" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="34" Type="댄디" EngName="Dandy" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="35" Type="댄디" EngName="Dandy" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="36" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="37" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="38" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="39" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="40" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="41" Type="노블 웨이브" EngName="NovelWave" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="42" Type="노블 웨이브" EngName="NovelWave" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="43" Type="노블 웨이브" EngName="NovelWave" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="44" Type="노블 웨이브" EngName="NovelWave" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="45" Type="노블 웨이브" EngName="NovelWave" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="46" Type="쉐도우펌" EngName="ShadowPerm" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="47" Type="쉐도우펌" EngName="ShadowPerm" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="48" Type="쉐도우펌" EngName="ShadowPerm" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="49" Type="쉐도우펌" EngName="ShadowPerm" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="50" Type="쉐도우펌" EngName="ShadowPerm" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="51" Type="테리우스" EngName="Terius" ColorE="default" Color="기본" UseableBarrack="NO"/>
+			<Node Index="52" Type="정체불명1" EngName="Hair_M12" ColorE="default" Color="기본" UseableBarrack="NO"/>
+			<Node Index="53" Type="댄디 웨이브컬" EngName="DandyWaveCurl" ColorE="default" Color="기본" UseableBarrack="NO"/>
+			<Node Index="54" Type="정체불명3" EngName="Hair_M14" ColorE="default" Color="기본" UseableBarrack="NO"/>
+			<Node Index="55" Type="정체불명4" EngName="Hair_M15" ColorE="default" Color="기본" UseableBarrack="NO"/>
+			<Node Index="56" Type="테리우스" EngName="Terius" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="57" Type="테리우스" EngName="Terius" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="58" Type="테리우스" EngName="Terius" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="59" Type="테리우스" EngName="Terius" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="60" Type="댄디 웨이브컬" EngName="DandyWaveCurl" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="61" Type="댄디 웨이브컬" EngName="DandyWaveCurl" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="62" Type="댄디 웨이브컬" EngName="DandyWaveCurl" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="63" Type="댄디 웨이브컬" EngName="DandyWaveCurl" ColorE="white" Color="흰색" UseableBarrack="NO"/>
 		</Class>
 		<Class ClassID="2">
-			<Node Index="1" Type="숏 컷" EngName="Shortcut" ColorE="default" Color="기본"/>
-			<Node Index="2" Type="숏 컷" EngName="Shortcut" ColorE="Black" Color="검은색"/>
-			<Node Index="3" Type="숏 컷" EngName="Shortcut" ColorE="Blue" Color="파란색"/>
-			<Node Index="4" Type="숏 컷" EngName="Shortcut" ColorE="Pink" Color="분홍색"/>
-			<Node Index="5" Type="숏 컷" EngName="Shortcut" ColorE="White" Color="흰색"/>
-			<Node Index="6" Type="롱 샤기" EngName="LongShaggy" ColorE="default" Color="기본"/>
-			<Node Index="7" Type="롱 샤기" EngName="LongShaggy" ColorE="Black" Color="검은색"/>
-			<Node Index="8" Type="롱 샤기" EngName="LongShaggy" ColorE="Blue" Color="파란색"/>
-			<Node Index="9" Type="롱 샤기" EngName="LongShaggy" ColorE="Pink" Color="분홍색"/>
-			<Node Index="10" Type="롱 샤기" EngName="LongShaggy" ColorE="White" Color="흰색"/>
-			<Node Index="11" Type="볼륨 컬" EngName="Volume" ColorE="default" Color="기본"/>
-			<Node Index="12" Type="볼륨 컬" EngName="Volume" ColorE="Black" Color="검은색"/>
-			<Node Index="13" Type="볼륨 컬" EngName="Volume" ColorE="Blue" Color="파란색"/>
-			<Node Index="14" Type="볼륨 컬" EngName="Volume" ColorE="Pink" Color="분홍색"/>
-			<Node Index="15" Type="볼륨 컬" EngName="Volume" ColorE="White" Color="흰색"/>
-			<Node Index="16" Type="롱 포니테일" EngName="LongPonyTail" ColorE="default" Color="기본"/>
-			<Node Index="17" Type="롱 포니테일" EngName="LongPonyTail" ColorE="Black" Color="검은색"/>
-			<Node Index="18" Type="롱 포니테일" EngName="LongPonyTail" ColorE="Blue" Color="파란색"/>
-			<Node Index="19" Type="롱 포니테일" EngName="LongPonyTail" ColorE="Pink" Color="분홍색"/>
-			<Node Index="20" Type="롱 포니테일" EngName="LongPonyTail" ColorE="White" Color="흰색"/>
-			<Node Index="21" Type="트윈테일" EngName="TwinTail" ColorE="default" Color="기본"/>
-			<Node Index="22" Type="트윈테일" EngName="TwinTail" ColorE="Black" Color="검은색"/>
-			<Node Index="23" Type="트윈테일" EngName="TwinTail" ColorE="Blue" Color="파란색"/>
-			<Node Index="24" Type="트윈테일" EngName="TwinTail" ColorE="Pink" Color="분홍색"/>
-			<Node Index="25" Type="트윈테일" EngName="TwinTail" ColorE="White" Color="흰색"/>
-			<Node Index="26" Type="레게포니테일" EngName="RPonyTail" ColorE="default" Color="기본"/>
-			<Node Index="27" Type="레게포니테일" EngName="RPonyTail" ColorE="Black" Color="검은색"/>
-			<Node Index="28" Type="레게포니테일" EngName="RPonyTail" ColorE="Blue" Color="파란색"/>
-			<Node Index="29" Type="레게포니테일" EngName="RPonyTail" ColorE="Pink" Color="분홍색"/>
-			<Node Index="30" Type="레게포니테일" EngName="RPonyTail" ColorE="White" Color="흰색"/>
-			<Node Index="31" Type="더블 번" EngName="DoubleBurn" ColorE="default" Color="기본"/>
-			<Node Index="32" Type="더블 번" EngName="DoubleBurn" ColorE="Black" Color="검은색"/>
-			<Node Index="33" Type="더블 번" EngName="DoubleBurn" ColorE="Blue" Color="파란색"/>
-			<Node Index="34" Type="더블 번" EngName="DoubleBurn" ColorE="Pink" Color="분홍색"/>
-			<Node Index="35" Type="더블 번" EngName="DoubleBurn" ColorE="White" Color="흰색"/>
-			<Node Index="36" Type="롱 레이어드" EngName="LongLayered" ColorE="default" Color="기본"/>
-			<Node Index="37" Type="롱 레이어드" EngName="LongLayered" ColorE="Black" Color="검은색"/>
-			<Node Index="38" Type="롱 레이어드" EngName="LongLayered" ColorE="Blue" Color="파란색"/>
-			<Node Index="39" Type="롱 레이어드" EngName="LongLayered" ColorE="Pink" Color="분홍색"/>
-			<Node Index="40" Type="롱 레이어드" EngName="LongLayered" ColorE="White" Color="흰색"/>
-			<Node Index="41" Type="숏 트윈테일" EngName="ShortTwinTail" ColorE="default" Color="기본"/>
-			<Node Index="42" Type="숏 트윈테일" EngName="ShortTwinTail" ColorE="Black" Color="검은색"/>
-			<Node Index="43" Type="숏 트윈테일" EngName="ShortTwinTail" ColorE="Blue" Color="파란색"/>
-			<Node Index="44" Type="숏 트윈테일" EngName="ShortTwinTail" ColorE="Pink" Color="분홍색"/>
-			<Node Index="45" Type="숏 트윈테일" EngName="ShortTwinTail" ColorE="White" Color="흰색"/>
-			<Node Index="46" Type="묶은 롱 웨이브" EngName="TiedLongWave" ColorE="default" Color="기본"/>
-			<Node Index="47" Type="묶은 롱 웨이브" EngName="TiedLongWave" ColorE="Black" Color="검은색"/>
-			<Node Index="48" Type="묶은 롱 웨이브" EngName="TiedLongWave" ColorE="Blue" Color="파란색"/>
-			<Node Index="49" Type="묶은 롱 웨이브" EngName="TiedLongWave" ColorE="Pink" Color="분홍색"/>
-			<Node Index="50" Type="묶은 롱 웨이브" EngName="TiedLongWave" ColorE="White" Color="흰색"/>
-			<Node Index="51" Type="롱 웨이브 트윈테일" EngName="LongWaveTwinTail" ColorE="default" Color="기본"/>
-			<Node Index="52" Type="롱 웨이브 트윈테일" EngName="LongWaveTwinTail" ColorE="Black" Color="검은색"/>
-			<Node Index="53" Type="롱 웨이브 트윈테일" EngName="LongWaveTwinTail" ColorE="Blue" Color="파란색"/>
-			<Node Index="54" Type="롱 웨이브 트윈테일" EngName="LongWaveTwinTail" ColorE="Pink" Color="분홍색"/>
-			<Node Index="55" Type="롱 웨이브 트윈테일" EngName="LongWaveTwinTail" ColorE="White" Color="흰색"/>
-			<Node Index="56" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="default" Color="기본"/>
-			<Node Index="57" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="Black" Color="검은색"/>
-			<Node Index="58" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="Blue" Color="파란색"/>
-			<Node Index="59" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="Pink" Color="분홍색"/>
-			<Node Index="60" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="White" Color="흰색"/>
+			<Node Index="1" Type="숏 컷" EngName="Shortcut" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="2" Type="숏 컷" EngName="Shortcut" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="3" Type="숏 컷" EngName="Shortcut" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="4" Type="숏 컷" EngName="Shortcut" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="5" Type="숏 컷" EngName="Shortcut" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="6" Type="롱 샤기" EngName="LongShaggy" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="7" Type="롱 샤기" EngName="LongShaggy" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="8" Type="롱 샤기" EngName="LongShaggy" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="9" Type="롱 샤기" EngName="LongShaggy" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="10" Type="롱 샤기" EngName="LongShaggy" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="11" Type="볼륨 컬" EngName="Volume" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="12" Type="볼륨 컬" EngName="Volume" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="13" Type="볼륨 컬" EngName="Volume" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="14" Type="볼륨 컬" EngName="Volume" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="15" Type="볼륨 컬" EngName="Volume" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="16" Type="롱 포니테일" EngName="LongPonyTail" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="17" Type="롱 포니테일" EngName="LongPonyTail" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="18" Type="롱 포니테일" EngName="LongPonyTail" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="19" Type="롱 포니테일" EngName="LongPonyTail" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="20" Type="롱 포니테일" EngName="LongPonyTail" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="21" Type="트윈테일" EngName="TwinTail" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="22" Type="트윈테일" EngName="TwinTail" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="23" Type="트윈테일" EngName="TwinTail" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="24" Type="트윈테일" EngName="TwinTail" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="25" Type="트윈테일" EngName="TwinTail" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="26" Type="레게포니테일" EngName="RPonyTail" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="27" Type="레게포니테일" EngName="RPonyTail" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="28" Type="레게포니테일" EngName="RPonyTail" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="29" Type="레게포니테일" EngName="RPonyTail" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="30" Type="레게포니테일" EngName="RPonyTail" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="31" Type="더블 번" EngName="DoubleBurn" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="32" Type="더블 번" EngName="DoubleBurn" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="33" Type="더블 번" EngName="DoubleBurn" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="34" Type="더블 번" EngName="DoubleBurn" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="35" Type="더블 번" EngName="DoubleBurn" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="36" Type="롱 레이어드" EngName="LongLayered" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="37" Type="롱 레이어드" EngName="LongLayered" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="38" Type="롱 레이어드" EngName="LongLayered" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="39" Type="롱 레이어드" EngName="LongLayered" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="40" Type="롱 레이어드" EngName="LongLayered" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="41" Type="숏 트윈테일" EngName="ShortTwinTail" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="42" Type="숏 트윈테일" EngName="ShortTwinTail" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="43" Type="숏 트윈테일" EngName="ShortTwinTail" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="44" Type="숏 트윈테일" EngName="ShortTwinTail" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="45" Type="숏 트윈테일" EngName="ShortTwinTail" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="46" Type="묶은 롱 웨이브" EngName="TiedLongWave" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="47" Type="묶은 롱 웨이브" EngName="TiedLongWave" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="48" Type="묶은 롱 웨이브" EngName="TiedLongWave" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="49" Type="묶은 롱 웨이브" EngName="TiedLongWave" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="50" Type="묶은 롱 웨이브" EngName="TiedLongWave" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="51" Type="롱 웨이브 트윈테일" EngName="LongWaveTwinTail" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="52" Type="롱 웨이브 트윈테일" EngName="LongWaveTwinTail" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="53" Type="롱 웨이브 트윈테일" EngName="LongWaveTwinTail" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="54" Type="롱 웨이브 트윈테일" EngName="LongWaveTwinTail" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="55" Type="롱 웨이브 트윈테일" EngName="LongWaveTwinTail" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="56" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="57" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="58" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="59" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="60" Type="숏 포니테일" EngName="ShortPonyTail" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="61" Type="볼륨웨이브 트윈테일" EngName="VolumeWaveTwinTail" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="62" Type="볼륨웨이브" EngName="VolumeWave" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="63" Type="헤어15" EngName="Hair_F15" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="64" Type="헤어16" EngName="Hair_F16" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="65" Type="헤어17" EngName="Hair_F17" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="66" Type="헤어18" EngName="Hair_F18" ColorE="default" Color="기본" UseableBarrack="YES"/>
+			<Node Index="67" Type="볼륨웨이브 트윈테일" EngName="VolumeWaveTwinTail" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="68" Type="볼륨웨이브 트윈테일" EngName="VolumeWaveTwinTail" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="69" Type="볼륨웨이브 트윈테일" EngName="VolumeWaveTwinTail" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="70" Type="볼륨웨이브 트윈테일" EngName="VolumeWaveTwinTail" ColorE="white" Color="흰색" UseableBarrack="NO"/>
+			<Node Index="71" Type="볼륨웨이브" EngName="VolumeWave" ColorE="black" Color="검은색" UseableBarrack="NO"/>
+			<Node Index="72" Type="볼륨웨이브" EngName="VolumeWave" ColorE="blue" Color="파란색" UseableBarrack="NO"/>
+			<Node Index="73" Type="볼륨웨이브" EngName="VolumeWave" ColorE="pink" Color="분홍색" UseableBarrack="NO"/>
+			<Node Index="74" Type="볼륨웨이브" EngName="VolumeWave" ColorE="white" Color="흰색" UseableBarrack="NO"/>
 		</Class>
 	</Category>
 </idspace>

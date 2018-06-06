@@ -494,12 +494,6 @@ function GET_PVP_POINT_C()
 	return pvpObj:GetPropIValue("ShopPoint", 0);
 end
 
-
-function GET_CASH_POINT_C()
-	local aobj = GetMyAccountObj();
-	return aobj.Medal -- + aobj.GiftMedal + aobj.ReceiveGiftMedal;
-end
-
 function WORLDPVP_READY_STATE_CHANGE(state)
 	if state == PVP_STATE_NONE then
 		ui.CloseFrame("worldpvp_ready");

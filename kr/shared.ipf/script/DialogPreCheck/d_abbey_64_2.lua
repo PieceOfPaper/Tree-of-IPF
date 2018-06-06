@@ -126,3 +126,7 @@ function SCR_ABBEY642_LOSTBAG02_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+function SCR_ABBEY642_EDMONDAS_PRE_DIALOG(pc, dialog)
+    return 'YES'
+end

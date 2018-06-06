@@ -142,7 +142,7 @@ function DIALOG_ON_MSG(frame, msg, argStr, argNum)
 	frame:Invalidate();
 
 	local appsFrame = ui.GetFrame('apps');
-	if appsFrame:IsVisible() == 1 then
+	if appsFrame ~= nil and appsFrame:IsVisible() == 1 then
 		ui.CloseUI(1);
 	end
 

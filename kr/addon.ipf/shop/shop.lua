@@ -805,7 +805,7 @@ function SHOP_ITEM_LIST_GET(frame)
 	shopgrid:SetSlotSize(460, 50)
 	shopgrid:SetSlotSpace(0, 0)
 
-	-- 상점에 파는 아이템 갯수 파악
+	-- 상점에 파는 아이템 개수 파악
 	local shopItemList = session.GetShopItemList();
 	if shopItemList == nil then
 		return;
@@ -871,7 +871,9 @@ end
 
 function IS_SHOPITEM_BUYABLE(shopItem)
 	if shopItem:GetIDSpace() == "Item" then
+		if shopItem.ItemType == "Equip" then
 		return CHECK_EQUIPABLE(shopItem.type);
+	end
 	end
 
 	return "OK";
@@ -890,7 +892,7 @@ function SET_SHOP_ITEM_TOOLTIP(icon, shopItem)
 end
 
 function SHOP_ITEM_LIST_UPDATE(frame, ShopItemData, ShopItemCount)
-	-- 상점에 파는 아이템 갯수 파악
+	-- 상점에 파는 아이템 개수 파악
 	local shopItemList = session.GetShopItemList();
 
 	local shopItemList = session.GetShopItemList();

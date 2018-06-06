@@ -25,7 +25,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	GROUP_NAMELIST = {};
 	
 	SHOP_SELECT_ITEM_LIST = {};
-	
+
 	--검색 용 변수
 	searchEnterCount = 1
 	beforekeyword = "None"
@@ -238,7 +238,7 @@ function INVENTORY_WEIGHT_UPDATE(frame)
 end
 
 
---내가 멍청하게 만들었음. 아이템 갯수 측정을 잘못.
+--내가 멍청하게 만들었음. 아이템 개수 측정을 잘못.
 --문제점 : 인벤토리 변화가 있을 때마다 이 트리를 새로 그린다.
 --해결책 : GAME_START 메시지 받았을 때만 한번만 통으로 그림. 나머지는 ADD,DEL,UPDATE에 맞춰서 해당 슬롯만 바꾸도록.
 --TEMP_INV_ADD는 ADD 부분 그렇게 짜본 함수. 사실 해보면 생각보다는 간단하게 바꿀 수 있었다.
@@ -466,7 +466,8 @@ function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
 		local invItem = GET_PC_ITEM_BY_GUID(itemGuid);
 		AUTO_CAST(itemSlot);
 		local icon = itemSlot:GetIcon();
-		SET_EQUIP_SLOT_BY_SPOT(frame, invItem, _INV_EQUIP_LIST_SET_ICON);
+		local eqpItemList = session.GetEquipItemList();
+		SET_EQUIP_SLOT_BY_SPOT(frame, invItem, eqpItemList, _INV_EQUIP_LIST_SET_ICON);
 		frame:Invalidate();
 		return;
 	end
@@ -507,7 +508,7 @@ function INVENTORY_UPDATE_ITEM_BY_GUID(frame, itemGuid)
 		INV_SLOT_UPDATE(frame, invItem, itemSlot);
 	end
 	
-
+	
 end
 
 ----- 아이템 조합 컨텐츠 (inventory_mix.lua에서 복사해옴)
@@ -577,7 +578,7 @@ function INVENTORY_SLOTSET_INIT(frame, slotSet, slotCount)
 	end
 end
 
--- 거래슬롯에 올려두었으면 인벤토리에 카운트 차이만큼만 표시되도록 체크
+-- 거래슬롯에 올려두었으면 인벤토리에 카운트 차이만큼만 표시되도록 체크 
 function CHECK_EXCHANGE_ITEM_LIST(invItem, remaincount)
 
 	local itemCount = exchange.GetExchangeItemCount(0);	
@@ -812,7 +813,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 	if nil == isIgnorelifticon then
 		isIgnorelifticon = "NO";
 	end
-
+	
 	if isIgnorelifticon ~= "NO" and liftIcon ~= nil then
 		return
 	end
@@ -877,18 +878,18 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 					local itemCls = GetIES(invItem:GetObject());	
 					local makeSlot = true;
 					if cap ~= "" then
-                                                local itemname = string.lower(dictionary.ReplaceDicIDInCompStr(itemCls.Name));		
+						local itemname = string.lower(dictionary.ReplaceDicIDInCompStr(itemCls.Name));		
 						local tempcap = string.lower(cap)
 						
 						local a = string.find(itemname, cap);
 						if a == nil then
-					        	makeSlot = false;
-					        end
+							makeSlot = false;
+						end
 
-        				end				
+					end				
 					if makeSlot == true then
 						local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
-
+						
 				
 					local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invItem.invIndex)
 				
@@ -1140,6 +1141,26 @@ function SLOT_ITEMUSE_BY_TYPE(frame, object, argStr, type)
 
 end
 
+function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
+
+	-- 워프 주문서 예외처리. 실제 워프가 이루어질때 아이템이 소비되도록.
+	if itemobj.ClassName == 'Scroll_WarpKlaipe' or itemobj.ClassName == 'Scroll_Warp_quest' or itemobj.ClassName == 'Premium_WarpScroll'  then
+
+		if true == invitem.isLockState then
+			ui.SysMsg(ClMsg("MaterialItemIsLock"));
+			return 1;
+		end
+		local pc = GetMyPCObject();
+		local warpFrame = ui.GetFrame('inte_warp');
+		warpFrame:SetUserValue('SCROLL_WARP', itemobj.ClassName)
+		warpFrame:ShowWindow(1);
+		return 1;
+	end
+
+	return 0;
+
+end
+
 --아이템의 사용
 function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	local invitem = GET_SLOT_ITEM(object);
@@ -1217,15 +1238,10 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		return;
 	end
 	
-	-- 워프 주문서 예외처리. 실제 워프가 이루어질때 아이템이 소비되도록.
-	if itemobj.ClassName == 'Scroll_WarpKlaipe' or itemobj.ClassName == 'Scroll_Warp_quest' then
-		local pc = GetMyPCObject();
-		local warpFrame = ui.GetFrame('inte_warp');
-		warpFrame:SetUserValue('SCROLL_WARP', 'YES')
-		warpFrame:ShowWindow(1);
+
+	if TRY_TO_USE_WARP_ITEM(invitem, itemobj) == 1 then
 		return;
 	end
-
 
 	local equip = IS_EQUIP(itemobj);
 	if equip == true then
@@ -1336,7 +1352,7 @@ function DRAW_MEDAL_COUNT(frame)
 	local medalGbox				= bottomGbox:GetChild('medalGbox');
 	local medalText				= GET_CHILD(medalGbox, 'medalText', 'ui::CRichText');
 	local medalFreeTime			= GET_CHILD(medalGbox, 'medalFreeTime', 'ui::CRichText');
-
+	
 	local accountObj = GetMyAccountObj();
     medalText:SetTextByKey("medal", GET_CASH_POINT_C());
 	if "None" ~= accountObj.Medal_Get_Date then
@@ -1351,7 +1367,7 @@ function DRAW_MEDAL_COUNT(frame)
 		medalFreeTime:SetUserValue("REMAINSEC", 0);
 		medalFreeTime:SetUserValue("STARTSEC", 0);
 		medalFreeTime:StopUpdateScript("SHOW_REMAIN_NEXT_TP_GET_TIME");
-		medalFreeTime:SetTextByKey("medal", "{#004123}MAX");
+		medalFreeTime:SetTextByKey("medal", "{s16}{b}{#ff9900}MAX");
 	end
 end
 
@@ -1360,7 +1376,7 @@ function SHOW_REMAIN_NEXT_TP_GET_TIME(ctrl)
 	local startSec = ctrl:GetUserIValue("REMAINSEC");
 	startSec = startSec - elapsedSec;
 	local timeTxt = GET_TIME_TXT(startSec);
-	ctrl:SetTextByKey("medal", "{#004123}" .. timeTxt);
+	ctrl:SetTextByKey("medal", "{s16}{#ffffcc}(" .. timeTxt..")");
 	return 1;
 end
 
@@ -1674,7 +1690,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	if customFunc ~= nil then
 		customFunc(slot, scriptArg, invItem, itemobj);
 	end
-
+	
 	if itemobj.GroupName == 'Quest' then		
 		slot:SetFrontImage('quest_indi_icon');
 	elseif invItem.isLockState == true then
@@ -1724,13 +1740,13 @@ function _INV_EQUIP_LIST_SET_ICON(slot, icon, equipItem)
 	local frame = slot:GetTopParentFrame();
 	ICON_SET_EQUIPITEM_TOOLTIP(icon, equipItem);
 	if frame:GetName() ~= "compare" then
-	icon:SetDumpScp('STATUS_DUMP_SLOT_SET');
-	slot:SetEventScript(ui.LBUTTONDOWN, 'CHECK_EQP_LBTN');
-	slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, equipItem.equipSpot);
+		icon:SetDumpScp('STATUS_DUMP_SLOT_SET');
+		slot:SetEventScript(ui.LBUTTONDOWN, 'CHECK_EQP_LBTN');
+		slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, equipItem.equipSpot);
 
-	slot:SetEventScript(ui.RBUTTONDOWN, 'STATUS_SLOT_RBTNDOWN');
-	slot:SetEventScriptArgNumber(ui.RBUTTONDOWN, equipItem.equipSpot);
-	slot:Select(0);
+		slot:SetEventScript(ui.RBUTTONDOWN, 'STATUS_SLOT_RBTNDOWN');
+		slot:SetEventScriptArgNumber(ui.RBUTTONDOWN, equipItem.equipSpot);
+		slot:Select(0);
 	end
 
 	slot:SetOverSound('button_over');
@@ -1751,36 +1767,65 @@ function _INV_EQUIP_LIST_SET_ICON(slot, icon, equipItem)
 	end
 end
 
-function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, iconFunc, ...)
+function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 
 	local spotName = item.GetEquipSpotName(equipItem.equipSpot);
 	if  spotName  ==  nil  then
 		return;
 	end
 
-		local child = frame:GetChild(spotName);			
+	local child = frame:GetChild(spotName);			
 	if  child  ==  nil  then
 		return;
 	end
-			local slot = tolua.cast(child, 'ui::CSlot');
+	local slot = tolua.cast(child, 'ui::CSlot');
 	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
-			controlset:ShowWindow(0);
+	controlset:ShowWindow(0);
 
-			if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
+	if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
+		local icon = CreateIcon(slot);
+		local obj = GetIES(equipItem:GetObject());
+		local imageName = obj.Icon
+
+		-- 코스튬은 남녀공용, 남자PC는 남자 코스튬 아이콘, 여자PC는 여자 코스튬 아이콘이 보임
+		if obj.ItemType == 'Equip' and obj.ClassType == 'Outer' then
+				local pc = GetMyPCObject();
+    			if pc.Gender == 1 then
+    				imageName = obj.Icon.."_m"
+    			else
+    				imageName = obj.Icon.."_f"			
+    			end
+		end
+		
+		if IS_DUR_ZERO(obj) == true  then
+			icon:SetColorTone("FF990000");
+		elseif IS_DUR_UNDER_10PER(obj) == true  then
+			icon:SetColorTone("FF999900");
+		else
+			icon:SetColorTone("FFFFFFFF");
+		end
+
+		icon:Set(imageName, 'Item', equipItem.type, equipItem.equipSpot, equipItem:GetIESID());
+		iconFunc(slot, icon, equipItem, ...);
+
+	else
+		slot:ClearIcon();
+		slot:SetEventScript(ui.RBUTTONDOWN, 'None');
+		slot:SetOverSound('button_cursor_over_3');
+		slot:SetText("");
+	end
+
+	-- LH아이콘은 RH에 양손무기가 장착중인지 확인후 아이콘 셋팅
+	if spotName == 'LH' then		
+		local checkRH = frame:GetChild('RH');
+		if checkRH ~= nil then
+			local slotNum = item.GetEquipSpotNum("RH");	
+
+			local rhItem = eqpItemList:GetEquipItem(slotNum);
+			local obj = GetIES(rhItem:GetObject());
+
+			if obj.DBLHand == 'YES' then
 				local icon = CreateIcon(slot);
-				local obj = GetIES(equipItem:GetObject());
-				local imageName = obj.Icon
-
-				-- 코스튬은 남녀공용, 남자PC는 남자 코스튬 아이콘, 여자PC는 여자 코스튬 아이콘이 보임
-				if obj.ItemType == 'Equip' and obj.ClassType == 'Outer' then
-						local pc = GetMyPCObject();
-    					if pc.Gender == 1 then
-        					imageName = obj.Icon.."_m"
-        				else
-        					imageName = obj.Icon.."_f"			
-        				end
-				end
-				
 				if IS_DUR_ZERO(obj) == true  then
 					icon:SetColorTone("FF990000");
 				elseif IS_DUR_UNDER_10PER(obj) == true  then
@@ -1789,61 +1834,33 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, iconFunc, ...)
 					icon:SetColorTone("FFFFFFFF");
 				end
 
-				icon:Set(imageName, 'Item', equipItem.type, equipItem.equipSpot, equipItem:GetIESID());
-				iconFunc(slot, icon, equipItem, ...);
+				icon:Set(obj.Icon, 'Item', rhItem.type, rhItem.equipSpot, rhItem:GetIESID());
+				iconFunc(slot, icon, rhItem, ...);
 
-			else
-				slot:ClearIcon();
-				slot:SetEventScript(ui.RBUTTONDOWN, 'None');
-				slot:SetOverSound('button_cursor_over_3');
-				slot:SetText("");
-			end
-
-			-- LH아이콘은 RH에 양손무기가 장착중인지 확인후 아이콘 셋팅
-			if spotName == 'LH' then
-				local checkRH = frame:GetChild('RH');
-				if checkRH ~= nil then
-			local slotNum = item.GetEquipSpotNum("RH");
-			local rhItem = session.GetEquipItemBySpot(slotNum);
-					local obj = GetIES(rhItem:GetObject());
-
-					if obj.DBLHand == 'YES' then
-						local icon = CreateIcon(slot);
-						if IS_DUR_ZERO(obj) == true  then
-							icon:SetColorTone("FF990000");
-						elseif IS_DUR_UNDER_10PER(obj) == true  then
-							icon:SetColorTone("FF999900");
-						else
-							icon:SetColorTone("FFFFFFFF");
-						end
-
-						icon:Set(obj.Icon, 'Item', rhItem.type, rhItem.equipSpot, rhItem:GetIESID());
-						iconFunc(slot, icon, rhItem, ...);
-
-						if rhItem.isLockState == true then
-							controlset:ShowWindow(1);
-						end
-					end
+				if rhItem.isLockState == true then
+					controlset:ShowWindow(1);
 				end
 			end
-
-			if equipItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_MORU') then
-				slot:SetFrontImage('item_Lock');
-			elseif equipItem.isLockState == true then
-				controlset:ShowWindow(1);			
-			else
-				slot:SetFrontImage('None');
-			end
 		end
+	end
+
+	if equipItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_MORU') then
+		slot:SetFrontImage('item_Lock');
+	elseif equipItem.isLockState == true then
+		controlset:ShowWindow(1);			
+	else
+		slot:SetFrontImage('None');
+	end
+end
 
 function SET_EQUIP_SLOT(frame, i, equipItemList, iconFunc, ...)
 	
 	if equipItemList == nil then
 		equipItemList = session.GetEquipItemList();
-	end	
+	end
 
 	local equipItem = equipItemList:Element(i);
-	SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, iconFunc, ...);
+	SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, equipItemList, iconFunc, ...);
 	
 	frame:Invalidate();
 end
@@ -1893,7 +1910,7 @@ function STATUS_EQUIP_SLOT_SET_ANIM(frame)
 end
 
 function GET_SLOT_BY_ITEMID(slotSet, itemID)
-
+	
 	for i = 0 , slotSet:GetSlotCount() - 1 do
 		local slot = slotSet:GetSlotByIndex(i );
 		local icon = slot:GetIcon();
@@ -1958,16 +1975,16 @@ function INVENTORY_DELETE(itemIESID, itemType)
 
 	local itemProp = geItemTable.IsDestroyable(itemType);
 	if cls.Destroyable == 'NO' or geItemTable.IsDestroyable(itemType) == false then
-			ui.AlarmMsg("ItemIsNotDestroy");
-			return;
-		end
-
-		--if cls.UserTrade == 'YES' or cls.ShopTrade == 'YES' then
-			s_dropDeleteItemIESID = itemIESID;
-			local yesScp = string.format("EXEC_DELETE_ITEMDROP()");
-			ui.MsgBox(ScpArgMsg("Auto_JeongMal_[")..cls.Name..ScpArgMsg("Auto_]_eul_BeoLiSiKessSeupNiKka?"), yesScp, "None");
-		--end
+		ui.AlarmMsg("ItemIsNotDestroy");
+		return;
 	end
+
+	--if cls.UserTrade == 'YES' or cls.ShopTrade == 'YES' then
+		s_dropDeleteItemIESID = itemIESID;
+		local yesScp = string.format("EXEC_DELETE_ITEMDROP()");
+		ui.MsgBox(ScpArgMsg("Auto_JeongMal_[")..cls.Name..ScpArgMsg("Auto_]_eul_BeoLiSiKessSeupNiKka?"), yesScp, "None");
+	--end
+end
 
 function EXEC_DELETE_ITEMDROP()
 	item.DropDelete(s_dropDeleteItemIESID);
@@ -2139,7 +2156,7 @@ function _CANCEL_INV_ITEM_LOCK(isChange)
 	if true == session.inventory.GetInventoryLock() then
 		return;
 	end
-	
+
 	ui.RemoveGuideMsg("SelectItem");
 	ui.SetEscapeScp("");
 	local frame = ui.GetFrame("inventory");
@@ -2152,20 +2169,20 @@ function CURSOR_CHECK_IN_LOCK(slot)
 	if item == nil then
 		return 0;
 	end
-
+	
 	local obj = GetIES(item:GetObject());
 	if obj.ItemType ~= "Quest" then
 		return 1;
 	end
-
+	
 	return 0;
 end
 
-function INV_ITEM_LOCK_LBTN_CLICK(frame, item, object)
+function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	
 	local itemType = object.ItemType;
 	if nil == itemType then
-		local obj = GetIES(item:GetObject());
+		local obj = GetIES(selectItem:GetObject());
 		itemType = obj.ItemType;
 	end
 
@@ -2173,17 +2190,28 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, item, object)
 		return;
 	end
 
+	--디스펠러 관련 처리
+	local obj = GetIES(selectItem:GetObject());
+	if obj.ClassName == "Dispeller_1" then
+		if false == selectItem.isLockState then
+			if true == item.useToggleDispelDebuff() then
+				ui.SysMsg(ClMsg("selectItemUsed"));
+				return;
+			end
+		end
+	end
+
 	local state = 1;
 	local slot = tolua.cast(object, "ui::CSlot");
 	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
-	if true == item.isLockState then
+	if true == selectItem.isLockState then
 		state = 0;
 		controlset:ShowWindow(0);
 	else
 		controlset:ShowWindow(1);
 	end
-	
-	session.inventory.SendLockItem(item:GetIESID(), state);
+
+	session.inventory.SendLockItem(selectItem:GetIESID(), state);
 end
 
 function INV_ITEM_LOCK_SAVE_FAIL()

@@ -30,6 +30,38 @@ function SCR_3CMLAKE_83_OBJ1_PRE_DIALOG(pc, dialog)
     return 'NO'
 end
 
+function SCR_3CMLAKE_84_WORKBENCH3_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE_84_SQ_03')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+function SCR_3CMLAKE_84_WORKBENCH1_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE_84_MQ_01')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+function SCR_3CMLAKE_83_WORKBENCH2_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE_83_SQ_03')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+function SCR_3CMLAKE_83_WORKBENCH1_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE_83_MQ_02')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
 function SCR_3CMLAKE_84_OBJ2_PRE_DIALOG(pc, dialog)
     local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE_84_SQ_03')
     if result == 'PROGRESS' then
@@ -39,6 +71,38 @@ function SCR_3CMLAKE_84_OBJ2_PRE_DIALOG(pc, dialog)
 end
 
 function SCR_3CMLAKE_83_OBJ2_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE_84_SQ_03')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+function SCR_3CMLAKE_83_OBJ3_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE_84_SQ_03')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+function SCR_3CMLAKE_83_OBJ4_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE_84_SQ_03')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+function SCR_3CMLAKE_84_OBJ3_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE_84_SQ_03')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+function SCR_3CMLAKE_84_OBJ4_PRE_DIALOG(pc, dialog)
     local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE_84_SQ_03')
     if result == 'PROGRESS' then
         return 'YES'

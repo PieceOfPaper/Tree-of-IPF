@@ -160,6 +160,13 @@ function BUFFSELLER_REG_EXEC(frame)
 	if "" == inputname:GetText() then
 		return;
 	end
+	
+	if groupName == "PersonalShop" then
+		local accountObj = GetMyAccountObj();
+		if "None" == accountObj.TokenTime then
+			return;
+		end
+	end
 	session.autoSeller.RequestRegister(groupName, serverGroupName, inputname:GetText(), nil);
 end
 

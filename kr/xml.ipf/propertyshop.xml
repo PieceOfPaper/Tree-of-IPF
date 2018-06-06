@@ -2,8 +2,9 @@
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <PropertyShop>
 	<Shop Name="CashShop" PointScript="GET_CASH_POINT">
-		<Item Name="Artefact_630012" Count="1" Price="5"/>
 		<Item Name="RestartCristal" Count="1" Price="2"/>
+		<Item Name="Mic" Count="1" Price="1"/>
+		<Item Name="Scroll_WarpKlaipe" Count="1" Price="1"/>
 	</Shop>
 	<Shop Name="TestCashShop" PointScript="GET_CASH_POINT">
 		<Item Name="Artefact_630012" Count="1" Price="5"/>

@@ -56,14 +56,19 @@
                 <StageEvents>
                     <Event execCount="1" eventName="END">
                         <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
+                            <ToolScp Scp="RAID_END_REWARD_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_GUILD_RAID_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Num Num="8"/>
                             </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="reward">
+                        <execList>
+                            <ToolScp Scp="RAID_END_REWARD" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -112,7 +117,7 @@
                         <Num Num="10"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_START_CHANGE_BGM" Client="NO" UseSleep="NO">
-                        <Str Str="A"/>
+                        <Str Str="m_guild_eventraid_a"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
                         <Num Num="120"/>

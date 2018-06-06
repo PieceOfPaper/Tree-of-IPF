@@ -1048,6 +1048,10 @@ end
 
 
 function IS_PERSONAL_SHOP_TRADABLE(itemCls)
+	if nil ~= string.find(itemCls.ClassName, "PremiumToken") then
+		return 0;
+	end
+
 	if itemCls.UserTrade == "NO" or itemCls.ItemType == "Equip" then
 		return 0;
 	end

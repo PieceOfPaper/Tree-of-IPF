@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="chatpopup" x="0" y="0" width="500" height="500" create="open">
+    <frame title="{@st41}일반 대화{/}" fasthide="true" layout_gravity="left top" margin="500 500 0 0" scale_align="center bottom"/>
+    <draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
+    <input moveable="true" minwidth="150" minheight="150" hittestframe="false" resizerange="150 150 1200 1010"/>
+    <option visible="false" hideable="falsec" useimageitem="true" closebutton="false"/>
+    <layer layerlevel="79"/>
+    <script/>
+    <controls>
+        <richtext name="name" hittest="false" rect="0 0 400 24" margin="7 2 0 0" layout_gravity="left top" fixheight="true" fixwidth="true" format="{@st42}%s{/}" param1="title" param1_def="전체" resizebytext="false" textalign="left center"/>
+        <groupbox name="group_titlebar" rect="0 0 491 30" margin="0 0 0 0" layout_gravity="center top" LBtnDownScp="MOVE_FRAME" autoresize="1 0" border="0 0 0 0" draw="true" skin="chat_window" visiblevector="true" hittest="true"/>
+        <groupbox name="chat_box" rect="0 0 491 422" margin="-2 35 37 -28" layout_gravity="center top" autoresize="1 1" border="0 0 0 0" draw="true" leftscroll="true" skin="chat_window" visiblevector="true" hittest="true" hittestbox="false"/>
+        <button name="reheight" rect="0 0 57 40" margin="40 0 0 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_chat_scale" oversound="button_over" texttooltip="{@st59}채팅창 크기 조절{/}" LBtnDownScp="RESIZE_FRAME"/>
+        <groupbox name="edit_bg" rect="0 0 490 36" margin="5 219 0 0" layout_gravity="left bottom" draw="true" frameOpenAnim="pip_simbol_ani_3" hittestbox="false" scrollbar="false" skin="inventory_serch" autoresize="1 0"/>
+        <edit name="mainchat" rect="0 0 467 30" margin="16 107 0 2" layout_gravity="left bottom" OffsetForDraw="5 0" border="0 0 0 0" drawbackground="false" fontname="white_20" maxlen="512" maxlenfunc="CHAT_MAXLEN_MSG" resizebytext="false" skin="None" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" typingsound="chat_typing" usetag="true" autoresize="1 0" EnterKeyScp="SEND_POPUP_FRAME_CHAT"/>
+        <button name="btn_exit" margin="0 -236 30 0" rect="0 0 30 30" texttooltip="{@59}종료하기{/}" layout_gravity="right center" image="button_whisper_talk_exit" LBtnUpScp="CLOSE_UI"/>
+    </controls>
+</uiframe>

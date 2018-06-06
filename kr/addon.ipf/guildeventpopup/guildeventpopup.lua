@@ -77,12 +77,12 @@ function ON_UPDATE_GUILDEVENT_POPUP(frame)
 	local isLeader = AM_I_LEADER(PARTY_GUILD);
 	if isLeader == 1 then
 		REQ_JOIN_GUILDEVENT(nil, nil)
-		return;
+			--return;
 	end
 
 		local etcObj = GetMyEtcObject();
 		if etcObj.GuildEventSeq == partyObj.GuildEventSeq then
-			frame:ShowWindow(0);
+			--frame:ShowWindow(0);
 		else
 	frame:ShowWindow(1);
 		end
@@ -98,14 +98,18 @@ function ON_UPDATE_GUILDEVENT_POPUP(frame)
 
 	local btn_join = GET_CHILD(frame, "btn_join");
 		local btn_close = GET_CHILD(frame, "btn_close");
-		--if etcObj.GuildEventSeq == partyObj.GuildEventSeq then
-		--	btn_join:ShowWindow(0);
-		--else
+		
+		if isLeader == 1 then
+			btn_join:ShowWindow(0);
+			btn_close:ShowWindow(0);
+		elseif etcObj.GuildEventSeq == partyObj.GuildEventSeq then
+			btn_join:ShowWindow(0);
+		else
 		btn_join:SetTextByKey("value", ScpArgMsg("Join"));
 		btn_join:ShowWindow(1);
 			btn_close:SetTextByKey("value", ScpArgMsg("GuildEventAgree"));
 			btn_close:ShowWindow(1);
-		--end	
+		end	
 	
 	elseif GuildRaidFlag == 1 then
 		local sList = StringSplit(LocInfo, " ");
@@ -118,12 +122,12 @@ function ON_UPDATE_GUILDEVENT_POPUP(frame)
 
 		if isLeader == 1 then
 			REQ_JOIN_GUILDEVENT(nil, nil)
-			return;
+			--return;
 		end
 		
 		local etcObj = GetMyEtcObject();
 		if etcObj.GuildEventSeq == partyObj.GuildEventSeq then
-			frame:ShowWindow(0);
+			--frame:ShowWindow(0);
 		else
 			frame:ShowWindow(1);
 		end
@@ -140,15 +144,18 @@ function ON_UPDATE_GUILDEVENT_POPUP(frame)
 
 		local btn_join = GET_CHILD(frame, "btn_join");
 		local btn_close = GET_CHILD(frame, "btn_close");
-		--if etcObj.GuildEventSeq == partyObj.GuildEventSeq then
-		--	btn_join:ShowWindow(0);
-		--else
+		if isLeader == 1 then
+			btn_join:ShowWindow(0);
+			btn_close:ShowWindow(0);
+		elseif etcObj.GuildEventSeq == partyObj.GuildEventSeq then
+			btn_join:ShowWindow(0);
+			btn_close:ShowWindow(0);
+		else
 			btn_join:SetTextByKey("value", ScpArgMsg("Join"));
 			btn_join:ShowWindow(1);
 			btn_close:SetTextByKey("value", ScpArgMsg("GuildEventAgree"));
 			btn_close:ShowWindow(1);
-		--end		
-		
+		end		
 	end
 
 end

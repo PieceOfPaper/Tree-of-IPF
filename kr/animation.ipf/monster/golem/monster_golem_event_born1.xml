@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ppiac (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="6333" soundFile="mon_golem_rumble"/>
+    <Sound frame="10" soundFile="mon_golem_born"/>
+    <Shockwave frame="14" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="18" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="22" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="23" particleName="F_smoke098" attachNode="Dummy_effect_born_hand_L" scale="12" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="26" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="30" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="34" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="38" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="42" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="44" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="44" particleName="F_smoke098" attachNode="Dummy_effect_born_hand_R" scale="12" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="46" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="50" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="58" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="62" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="66" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="68" particleName="F_drop_stone001_1" attachNode="Dummy023" scale="0.6" useAttach="false" pause="true" targetPos="false" sound=""/>
+    <Particle frame="69" particleName="F_drop_stone001_1" attachNode="Dummy022" scale="0.6" useAttach="false" pause="true" targetPos="false" sound=""/>
+    <Shockwave frame="70" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="74" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="80" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="84" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="85" particleName="F_drop_stone001_1" attachNode="Dummy018" scale="0.6" useAttach="false" pause="true" targetPos="false" sound=""/>
+    <Shockwave frame="86" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="88" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="92" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="100" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="101" particleName="F_drop_stone001_1" attachNode="Dummy019" scale="0.6" useAttach="false" pause="true" targetPos="false" sound=""/>
+    <Particle frame="108" particleName="F_drop_stone001_1" attachNode="Dummy017" scale="0.6" useAttach="false" pause="true" targetPos="false" sound=""/>
+    <Particle frame="111" particleName="F_drop_stone001_1" attachNode="Dummy021" scale="0.4" useAttach="false" pause="true" targetPos="false" sound=""/>
+    <Particle frame="120" particleName="F_cleric_palmstrike_light" attachNode="Dummy_eye_R" scale="1" useAttach="true" pause="true" targetPos="false" sound="mon_golem_atk01_shot"/>
+    <Particle frame="120" particleName="F_cleric_palmstrike_light" attachNode="Dummy_eye_L" scale="1" useAttach="true" pause="true" targetPos="false" sound="mon_golem_natk1_shot"/>
+    <Sound frame="130.00" soundFile="skl_eff_palmstrike_cast"/>
+</ActionDesc>

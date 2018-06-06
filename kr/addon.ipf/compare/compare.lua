@@ -26,7 +26,8 @@ end
 
 function REQUEST_LIKE_STATE(familyName)
 	local otherpcinfo = session.otherPC.GetByFamilyName(familyName);
-	if session.likeit.AmILikeYou(fname) == false then
+	
+	if session.likeit.AmILikeYou(familyName) == false then
 		geClientInteraction.RequestLikeIt(otherpcinfo:GetAID(), otherpcinfo:GetCID())
 	else
 		geClientInteraction.RequestUnlikeIt(otherpcinfo:GetAID(), otherpcinfo:GetCID())

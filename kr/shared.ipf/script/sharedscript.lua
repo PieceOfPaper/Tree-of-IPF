@@ -78,7 +78,7 @@ function IS_NO_EQUIPITEM(equipItem) -- No_~ ?œë¦¬ì¦??„ì´?œì¸ì§€.
 
 	local clsName = equipItem.ClassName;
 
-	if clsName == 'NoWeapon' or clsName == "NoHat" or clsName == "NoBody" or clsName == "NoOuter" or clsName == 'NoShirt' or clsName == 'NoArmband' then
+	if clsName == 'NoWeapon' or clsName == "NoHat" or clsName == "NoBody" or clsName == "NoOuter" or clsName == 'NoShirt' or clsName == 'NoArmband' or clsName == 'NoHair' then
 		return 1;
 	elseif clsName == 'NoPants' or clsName == "NoGloves" or clsName == "NoBoots" or clsName == "NoRing" or clsName == 'NoHelmet' or clsName == 'NoNeck'then
 		return 1;
@@ -391,6 +391,7 @@ function SCR_DUPLICATION_SOLVE_TABLE(tb)
         end
     end
     
+
     for index3 = 1, #tb do
         if tb[index3] ~= 'None' then
             temp_tb[#temp_tb + 1] = tb[index3]
@@ -961,11 +962,6 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
         value = 0;
     end
 
-	    -- ¶óÀÌºê »çÀüÄ³¸¯ÅÍ¿ë 14·¹º§ °æÇèÄ¡ 0
-    if pcLv > 10 then
-        value = value * 0;
-    end
-
     return value;
 
 end
@@ -1308,6 +1304,10 @@ end
 
 
 function GET_2D_DIS(x1,y1,x2,y2)
+
+	if x1 == nil or y1 == nil or x2 == nil or y2 == nil then
+		return 0
+	end
 
 	local x = x1 - x2
 	local y = y1 - y2

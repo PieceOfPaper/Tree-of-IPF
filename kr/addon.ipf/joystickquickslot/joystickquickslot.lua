@@ -30,7 +30,6 @@ function JOYSTICKQUICKSLOT_ON_INIT(addon, frame)
 	for i = 0, MAX_SLOT_CNT-1 do
 		local slot 			= frame:GetChildRecursively("slot"..i+1);
 		tolua.cast(slot, "ui::CSlot");
-		local slotString 	= 'QuickSlotExecute'..(i+1);
 		
 		local string = "";
 

@@ -68,8 +68,8 @@ function MINIMAP_ON_INIT(addon, frame)
 
 	addon:RegisterOpenOnlyMsg('NPC_STATE_UPDATE', 'UPDATE_MINIMAP_NPC_STATE');
 	addon:RegisterMsg('PARTY_INST_UPDATE', 'M_MAP_UPDATE_PARTY_INST');
-	addon:RegisterMsg('PARTY_MOVEZONE', 'M_MAP_PARTY_MOVE_ZONE');
 	addon:RegisterMsg('PARTY_UPDATE', 'M_MAP_UPDATE_PARTY');
+	addon:RegisterMsg('GUILD_INFO_UPDATE', 'M_MAP_UPDATE_GUILD');
 	
 	addon:RegisterMsg('MON_MINIMAP', 'MAP_MON_MINIMAP');
 	addon:RegisterMsg('MON_MINIMAP_END', 'ON_MON_MINIMAP_END');
@@ -377,6 +377,7 @@ function UPDATE_MINIMAP(frame, isFirst)
 	frame:SetValue(1);
 
 	M_MAP_UPDATE_PARTY(frame, nil, nil, 0);
+	M_MAP_UPDATE_GUILD(frame, nil, nil, 0);
 	MAKE_MY_CURSOR_TOP(frame);
 
 	frame:Invalidate();
@@ -653,14 +654,6 @@ function M_MAP_UPDATE_PARTY_INST(frame, msg, a, b, c)
 	
 end
 
-function M_MAP_PARTY_MOVE_ZONE(frame, msg, a, b, c)
-
-	local npcList = frame:GetChild('npclist')
-	tolua.cast(npcList, 'ui::CGroupBox');
-	MAP_PARTY_MOVE_ZONE(npcList, msg, a, b, c);
-
-end
-
 function M_MAP_UPDATE_PARTY(frame, msg, a, b, c)
 
 	if a == 'RELATIONGRADE' then
@@ -671,4 +664,12 @@ function M_MAP_UPDATE_PARTY(frame, msg, a, b, c)
 	tolua.cast(npcList, 'ui::CGroupBox');
 	MAP_UPDATE_PARTY(npcList, msg, a, b, c);
 	
+end
+
+function M_MAP_UPDATE_GUILD(frame, msg, a, b, c)
+
+	local npcList = frame:GetChild('npclist')
+	tolua.cast(npcList, 'ui::CGroupBox');
+	MAP_UPDATE_GUILD(npcList, msg, a, b, c);
+
 end

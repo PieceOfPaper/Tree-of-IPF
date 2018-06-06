@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="1" soundFile="mon_mirtis_born"/>
+    <Sound frame="4.00" soundFile="skl_eff_shoggoth_cast"/>
+    <PostFix frame="10" ID="_height"/>
+    <Particle frame="15" attachActor="None" attachNode="Dummy_effect_dead" particleName="F_ground091_violet" useAttach="false" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
+    <Sound frame="16.00" soundFile="skl_eff_gas_2"/>
+    <PostFix frame="20" ID="_height"/>
+    <Sound frame="20.00" soundFile="skl_eff_groundgas"/>
+    <Sound frame="25.00" soundFile="skl_eff_gas_2"/>
+    <Particle frame="43" attachActor="None" attachNode="Bip01 R Hand" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="Bip01 L Hand" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="Bip01 R Forearm" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="Bip01 L Forearm" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="Bip01 Spine1" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="Bip01 Spine" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="skirt_R_Bone15" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="skirt_R_Bone23" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="Bone22(mirrored)" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="skirt_F_Bone06" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="skirt_L_Bone26" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="skirt_L_Bone15" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="skirt_L_Bone08" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="skirt_F_Bone14" particleName="I_smoke028_spread_out" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

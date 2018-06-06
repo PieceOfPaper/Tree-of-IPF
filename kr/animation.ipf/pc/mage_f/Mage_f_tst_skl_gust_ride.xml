@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by minwoo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <HitAni frame="0" Value="0" damratio="100"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast_2"/>
+    <Sound frame="2.00" soundFile="skl_eff_debuff_1"/>
+    <ReadyAniTime frame="9" Value="500"/>
+    <Sound frame="9" soundFile="atk_rod"/>
+    <PostFix frame="10" ID="_height"/>
+    <Particle frame="10" attachNode="Dummy_effect_gust_smoke" particleName="wiz_skl_gust" useAttach="false" hiddenObj="false" scale="0.35" changeEffect="None" pause="true" targetPos="false"/>
+    <Sound frame="13.00" soundFile="skl_eff_gust_spread_1"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

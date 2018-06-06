@@ -83,16 +83,24 @@ function IS_JOINABLE_PARTY(eachpartyinfo, eachpartymemberlist)
 	return true
 end
 
+function OPEN_NEARPARTYLIST(frame)
+	
+end
+
 function UPDATE_NEAR_PARTY_LIST(frame, msg, str, page)
 
 	local showNearParty = config.GetXMLConfig("ShowNearParty");
 	local myPartyInfo = session.party.GetPartyInfo();	
 	local nearPartyList = session.party.GetNearPartyList();
 
+	local titleText = GET_CHILD_RECURSIVELY(frame,"titleText")
+
 	if myPartyInfo == nil and showNearParty ~= 0 and nearPartyList:Count() > 0 then
 		frame:ShowWindow(1)
+		titleText:ShowWindow(1)
 	else
 		frame:ShowWindow(0)
+		titleText:ShowWindow(0)
 	end
 
 	if msg == "NEAR_PARTY_UPDATE" then
@@ -104,6 +112,10 @@ function UPDATE_NEAR_PARTY_LIST(frame, msg, str, page)
 		DESTROY_CHILD_BYNAME(mainGbox, 'nearpartylist_');
 
 		local startYmargin = 30;
+	
+		if listcount > 5 then
+			listcount = 5;
+		end
 	
 		for i = 0, listcount-1 do
 

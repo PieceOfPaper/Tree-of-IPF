@@ -126,7 +126,7 @@ function UPDATE_NECRONOMICON_UI(frame)
 	local MAX_CARD_COUNT = 4; -- 설마 이 숫자가 늘어나려나. 끼우는 카드 수. 1은 메인 카드.(소환) 2,3,4는 서브카드
 
 
-	--데드파츠갯수 업데이트
+	--데드파츠개수 업데이트
 	-- 네크로 파츠 1종
 	local deadPartsCnt = etc_pc.Necro_DeadPartsCnt
 

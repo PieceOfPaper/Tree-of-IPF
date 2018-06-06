@@ -25,8 +25,8 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('NPC_STATE_UPDATE', 'UPDATE_MAP_NPC_STATE');
 
 	addon:RegisterOpenOnlyMsg('PARTY_INST_UPDATE', 'MAP_UPDATE_PARTY_INST');
-	addon:RegisterOpenOnlyMsg('PARTY_MOVEZONE', 'MAP_PARTY_MOVE_ZONE');
 	addon:RegisterOpenOnlyMsg('PARTY_UPDATE', 'MAP_UPDATE_PARTY');
+	addon:RegisterOpenOnlyMsg('GUILD_INFO_UPDATE', 'MAP_UPDATE_GUILD');
 
 	addon:RegisterMsg('MON_MINIMAP_START', 'MAP_MON_MINIMAP_START');
 	addon:RegisterMsg('MON_MINIMAP', 'MAP_MON_MINIMAP');
@@ -189,17 +189,7 @@ function INIT_MAP_UI_COMMON(frame, mapName)
 	mapRankObj:SetText(GET_STAR_TXT(20,mapCls.MapRank))
 end
 
-function INIT_MAP_PICTURE_UI(pic, mapName, hitTest)
 
-	if hitTest == 1 then
-		pic:EnableHitTest(hitTest);
-	end
-
-	pic:SetUserValue("MAP_NAME", mapName);
-	pic:ShowWindow(1);
-	pic:SetEventScript(ui.LBUTTONDOWN, "MAP_LBTN_DOWN");
-
-end
 
 function MAP_LBTN_DOWN(parent, ctrl)
 
@@ -270,180 +260,10 @@ function GET_QUEST_IDX(questmoncls, questlist)
 	return -1
 end
 
-function GET_NPC_STATE(npcname, statelist, npclist, questIESList)
-	if npcname == 'SKILLPOINTUP' then
-		return -3;
-	end
-
-	if npcname == "None" then
-		return -2;
-	end
-
-	local returnIDX = -2;
-	local selectedQuestMode = 100;
-	local stateToNumber = 100;
-
-	local cnt = #npclist;
-	for i = 1 , cnt do
-		local name = npclist[i];
-		local state = statelist[i];
-		if name == npcname and IS_STATE_PRINT(state) == 1 then
-			local questIES = questIESList[i];
-			local questmode_icon = questIES.QuestMode;
-			
-			if state == "SUCCESS" then
-			    if stateToNumber == 3 then
-    			    if selectedQuestMode > QUESTMODE_TONUMBER(questmode_icon) then
-    			        stateToNumber = STATE_TONUMBER(state)
-    					returnIDX = i;
-    					selectedQuestMode = QUESTMODE_TONUMBER(questmode_icon);
-    				end
-    			else
-    			    stateToNumber = STATE_TONUMBER(state)
-					returnIDX = i;
-					selectedQuestMode = QUESTMODE_TONUMBER(questmode_icon);
-    			end
-		    elseif stateToNumber ~= 3 then
-		        if stateToNumber > STATE_TONUMBER(state) then
-		            stateToNumber = STATE_TONUMBER(state)
-					returnIDX = i;
-					selectedQuestMode = QUESTMODE_TONUMBER(questmode_icon);
-		        elseif stateToNumber == STATE_TONUMBER(state) and selectedQuestMode > QUESTMODE_TONUMBER(questmode_icon) then
-		            stateToNumber = STATE_TONUMBER(state)
-					returnIDX = i;
-					selectedQuestMode = QUESTMODE_TONUMBER(questmode_icon);
-		        end
-		    end
-		end
-	end
-	
-	return returnIDX;
-end
-
-function IS_STATE_PRINT(state)
-
-	if state == 'COMPLETE' or state == 'IMPOSSIBLE' then
-		return 0;
-	end
-
-	return 1;
-
-end
-
-function STATE_TONUMBER(state)
-	if state == "POSSIBLE" then
-		return 1;
-	elseif state == "PROGRESS" then
-		return 2;
-	elseif state == "SUCCESS" then
-		return 3;
-	end
-
-	return 0;
-end
-
-function QUESTMODE_TONUMBER(state)
-	if state == "MAIN" then
-		return 1;
-	elseif state == "SUB" then
-		return 2;
-	elseif state == "REPEAT" then
-		return 3;
-	elseif state == "PARTY" then
-		return 4;
-	end
-
-	return 0;
-end
-
-function GET_NPC_ICON(i, statelist, questIESlist)
-	if i == -3 then
-		return "minimap_goddess", "", 0, 0;
-	end
-
-	if i == -2 then
-		return "minimap_0", "", 0, 0;
-	end
-
-	local state;
-	local questmode_icon;
-	local questID;
-	local iconState;
-	local questies
-
-	if i ~= -1 then
-		state = statelist[i];
-		questies = questIESlist[i];
-		questID = questies.ClassID;
-		questmode_icon = questies.QuestMode;
-		iconState = 2;
-	end
-	return GET_ICON_BY_STATE_MODE(state, questies), state, questID, iconState;
-end
 
 
 
-function SET_NPC_STATE_ICON(PictureC, iconName, state, questID, worldPos)
-	PictureC:SetSValue(state);
-	PictureC:SetValue(questID);
-	PictureC:SetImage(iconName);
-	PictureC:SetEnableStretch(1);
-	--local xFix = math.floor((iconW - ) / 2);
-	--local yFix = math.floor((iconH - PictureC:GetImageHeight()) / 2);
-	--PictureC:Resize(PictureC:GetOffsetX() + xFix, PictureC:GetOffsetY() + yFix, PictureC:GetImageWidth(), PictureC:GetImageHeight());
 
-end
-
-function GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESList, questPropList)
-
-	local idx = 1;
-	local pc = GetMyPCObject();
-	local questIES = nil;
-	local cnt = GetClassCount('QuestProgressCheck')
-	for i = 0, cnt - 1 do
-		questIES = GetClassByIndex('QuestProgressCheck', i);
-		if questIES.ClassName ~= 'None' then
-    		local result = SCR_QUEST_CHECK_C(pc,questIES.ClassName);
-
-    		if result ~= 'IMPOSSIBLE' then
-    		    local flag = 0
-    		    
-    		    if questIES.PossibleUI_Notify == 'UNCOND' or result ~= 'POSSIBLE' then
-    		        flag = 1
-    		    end
-    		    
-    		    if flag == 0 then
-    		        if questIES.QuestStartMode == 'NPCENTER_HIDE' 
-    		        or questIES.QuestStartMode == 'GETITEM' 
-    		        or questIES.QuestStartMode == 'USEITEM'
-    		        or questIES.PossibleUI_Notify == 'NO' then
-    				else
-    				    flag = 1
-    				end
-    		    end
-    		    
-    		    if result == "POSSIBLE" and SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES) == "HIDE" then
-    		        flag = 0
-    		    end
-    		    
-    		    if flag == 1 then
-    		        local State = CONVERT_STATE(result);
-        			local questMap = questIES[State .. 'Map'];
-					local npcname = questIES[State .. 'NPC'];
-                    
-					--if npcname ~= 'None' then
-						npclist[idx] = npcname;
-						statelist[idx] = result;
-						questIESList[idx] = questIES;
-						questPropList[idx] = geQuestTable.GetPropByIndex(i);
-						idx = idx + 1;
-					--end
-    		    end
-    		end
-		end
-	end
-
-end
 
 function SHOW_QUEST_NPC(mapname, npcname)
 
@@ -589,33 +409,6 @@ function UPDATE_MAP_NPC_STATE(frame)
 	UPDATE_NPC_STATE_COMMON(frame);	
 end
 
-function MAKE_TOP_QUEST_ICONS(frame)
-
-	for i = 0 , frame:GetChildCount() - 1 do
-		local child = frame:GetChildByIndex(i);
-		local value = child:GetValue2();
-		if value == 1 then
-			child:MakeTopBetweenChild();
-		end
-	end
-
-	for i = 0 , frame:GetChildCount() - 1 do
-		local child = frame:GetChildByIndex(i);
-		local value = child:GetValue2();
-		if value == 2 then
-			child:MakeTopBetweenChild();
-		end
-	end
-
-end
-
-function MAKE_MY_CURSOR_TOP(frame)
-	local my = frame:GetChild('my');
-	if my ~= nil and my:IsVisible() == 1 then
-		my:MakeTopBetweenChild();
-	end
-end
-
 function SET_PICTURE_QUESTMAP(PictureC, alpha)
 
 	PictureC:SetEnable(1);
@@ -625,12 +418,6 @@ function SET_PICTURE_QUESTMAP(PictureC, alpha)
 	PictureC:ShowWindow(1);
 	PictureC:SetAngleLoop(-3);
 	
-end
-
-function SET_PICTURE_BUTTON(picture)
-		picture:SetEnable(1);
-		--picture:SetEnableStretch(1);
-		picture:EnableChangeMouseCursor(1);
 end
 
 function SET_MAP_CTRLSET_TXT(qstctrl, CurState, Icon, iconW, iconH, mylevel, questIES)
@@ -655,102 +442,7 @@ function SET_MAP_CTRLSET_TXT_BY_NAME(qstctrl, CurState, Icon, iconW, iconH, myle
 
 end
 
-function SET_MONGEN_NPC_VISIBLE(picture, mapprop, mapNpcState, MonProp)
-	if mapprop.NotUseHide == 1 then
-		picture:ShowWindow(1);
-	elseif mapNpcState == nil then
-		picture:ShowWindow(0);
-	else
-		local dlg = MonProp:GetDialog();
-		local hidnpcCls = GetClass("HideNPC", dlg);
-		local hide = false;
-		local pc = GetMyEtcObject();
-		if hidnpcCls ~= nil then
-			if 1 == pc["Hide_" .. hidnpcCls.ClassID] then
-				hide = true;
-			end
-		end
-        
-
-		if hide == true then
-			picture:ShowWindow(0);
-		elseif MonProp.GenType == 0 then
-			picture:ShowWindow(1);
-		else
-			local curState = mapNpcState:FindAndGet(MonProp.GenType);
-			if curState > 0 and picture:GetUserIValue("IsHide") == 0 then
-				picture:ShowWindow(1);
-			else
-				picture:ShowWindow(0);
-			end
-		end
-	end
-end
-
-function SET_MAP_MONGEN_NPC_INFO(picture, mapprop, WorldPos, MonProp, mapNpcState, npclist, statelist, questIESlist)
-
-	SET_PICTURE_BUTTON(picture);
-
-	local cheat = string.format("//setpos %d %d %d", WorldPos.x, WorldPos.y, WorldPos.z);
-	local scpstr = string.format( "ui.Chat(\"%s\")", cheat);
-	picture:SetEventScript(ui.LBUTTONUP, scpstr);
-
-	local idx = GET_NPC_STATE(MonProp:GetDialog(), statelist, npclist, questIESlist);
-	local Icon, state, questclsid, iconState = GET_NPC_ICON(idx, statelist, questIESlist);
-	local Icon_copy
-	local Icon_basic
-	local iconOverride = MonProp:GetMinimapIcon();
 	
-    if iconOverride ~= "None" then
-		Icon_basic = iconOverride;
-	else
-	    Icon_basic = 'minimap_0'
-	end
-	
-	Icon_copy = Icon_basic
-	
-	if Icon ~= nil and Icon ~= "None" then
-    	Icon_copy = Icon
-    end
-	
-	
-	if questIESlist[idx] ~= nil then
-	    if state == 'PROGRESS' and questIESlist[idx].StartNPC == questIESlist[idx].ProgNPC then
-	        Icon_copy = Icon_basic
-	    end
-	else
-	    Icon_copy = Icon_basic
-	end
-	
-
-	local pc = GetMyPCObject();
-	local mongenprop = tolua.cast(MonProp, "geMapTable::MAP_NPC_PROPERTY");
-	local questclsIdStr = '';
-	local cnt = #npclist;
-	for i = 1 , cnt do
-		local name = npclist[i];
-		if  MonProp:IsHaveDialog(name) then
-			local questIES = questIESlist[i];
-			local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
-			if questclsIdStr == '' then
-				questclsIdStr = result..'/'..tostring(questIES.ClassID);
-			else
-				questclsIdStr = questclsIdStr ..'/'.. result..'/'..tostring(questIES.ClassID);
-			end
-		end
-	end
-	
-	SET_NPC_STATE_ICON(picture, Icon_copy, state, questclsid, WorldPos);
-	picture:SetTooltipType('minimap');
-	picture:SetTooltipArg(questclsIdStr, questclsid, "", MonProp);
-	picture:ShowWindow(1);
-	picture:SetValue2(iconState);
-
-	SET_MONGEN_NPC_VISIBLE(picture, mapprop, mapNpcState, MonProp);
-
-	return idx, Icon;
-
-end
 
 function SET_RIGHT_QUESTLIST(groupCtrl, idx, MonProp, list_y, statelist, questIESlist, Icon, iconW, iconH, mylevel)
 
@@ -1193,10 +885,7 @@ function UPDATE_MINIMAP_TOOLTIP(tooltipframe, strarg, questclassID, numarg1, mon
 
 end
 
-function GET_GENNPC_NAME(frame, monProp)
-	local name = string.format( "_NPC_GEN_%d", monProp.GenType);
-	return name;	
-end
+
 
 function MAP_CHAR_UPDATE(frame, msg, argStr, argNum)
 
@@ -1286,33 +975,6 @@ function SET_MAP_CIRCLE_MARK_UI(PictureC)
 	PictureC:SetSValue("PROGRESS");
 end
 
-function MAP_PARTY_MOVE_ZONE(frame, msg, arg, type, info)
-
-	info = tolua.cast(info, "COMMUNITY_COMMANDER_INFO");
-	local mapprop = session.GetCurrentMapProp();
-	CREATE_PM_PICTURE(frame, info, type, mapprop);
-
-end
-
-function MAP_UPDATE_PARTY(frame, msg, arg, type, info)
-
-	DESTROY_CHILD_BYNAME(frame, 'PM_');
-
-	local mapprop = session.GetCurrentMapProp();
-	local list = session.party.GetPartyMemberList();
-	local count = list:Count();
-	
-	if count == 1 then
-		return;
-	end
-
-	for i = 0 , count - 1 do
-		local pcInfo = list:Element(i);
-		CREATE_PM_PICTURE(frame, pcInfo, type, mapprop);
-	end
-
-end
-
 
 function CREATE_PM_PICTURE(frame, pcInfo, type, mapprop)
 
@@ -1328,10 +990,25 @@ function CREATE_PM_PICTURE(frame, pcInfo, type, mapprop)
 		return;
 	end
 
-	local name = "PM_" .. pcInfo:GetName();
+	local header = "PM_";
+	if type == PARTY_GUILD then
+		header = "GM_";
+	end
+
+	local name = header .. pcInfo:GetAID();
 	if pcInfo:GetMapID() == 0 then
 		frame:RemoveChild(name);
 		return;
+	end
+
+	if type == PARTY_GUILD then
+		if frame:GetChild("PM_" .. pcInfo:GetAID()) ~= nil then
+			return;
+		end
+	else
+		if frame:GetChild("GM_" .. pcInfo:GetAID()) ~= nil then
+			return;
+		end
 	end
 
 	local instInfo = pcInfo:GetInst();
@@ -1354,6 +1031,8 @@ function SET_PM_MINIMAP_ICON(map_partymember_iconset, pcHP, pcJobID)
 	if pcHP > 0 then
 		if nil ~= jobCls then
 			pm_icon:SetImage(jobCls.CtrlType.."_party");
+		else
+			pm_icon:SetImage('die_party');
 		end
 	else
 		pm_icon:SetImage('die_party');
@@ -1365,19 +1044,24 @@ function SET_PM_MAPPOS(frame, controlset, instInfo, mapprop)
 end
 
 
-function MAP_UPDATE_PARTY_INST(frame)
+function MAP_UPDATE_PARTY_INST(frame, msg, str, partyType)
 
 	local mapprop = session.GetCurrentMapProp();
-	local myInfo = session.party.GetMyPartyObj(0);
+	local myInfo = session.party.GetMyPartyObj(partyType);
 
-	local list = session.party.GetPartyMemberList();
+	local list = session.party.GetPartyMemberList(partyType);
 	local count = list:Count();
+
+	local header = "PM_";
+	if partyType == PARTY_GUILD then
+		header = "GM_";
+	end
 
 	for i = 0 , count - 1 do
 		local pcInfo = list:Element(i);
 		if myInfo ~= pcInfo then
 			local instInfo = pcInfo:GetInst();
-			local name = "PM_" .. pcInfo:GetName();
+			local name = header .. pcInfo:GetAID();
 			local pic = frame:GetChild(name);
 			if pic ~= nil then
 				local iconinfo = pcInfo:GetIconInfo();
@@ -1386,7 +1070,11 @@ function MAP_UPDATE_PARTY_INST(frame)
 				SET_PM_MAPPOS(frame, pic, instInfo, mapprop);
 			else
 				local mapFrame = ui.GetFrame('map');
-				MAP_UPDATE_PARTY(mapFrame, 'PARTY_UPDATE', nil, 0);
+				if partyType == PARTY_GUILD then
+					MAP_UPDATE_GUILD(mapFrame, "GUILD_UPDATE", nil, 0);
+				else
+					MAP_UPDATE_PARTY(mapFrame, "PARTY_UPDATE", nil, 0);
+				end
 				return;							
 			end
 		end

@@ -41,7 +41,9 @@ function BARRACK_THEMA_UPDATE(frame)
 
 		local charCntBox = ctrlSet:GetChild("charCnt");
 		local charCnt = charCntBox:GetChild("count");
-		charCnt:SetTextByKey("value", cls.MaxPC);
+		charCnt:SetTextByKey("value", cls.BaseSlot);
+		local cashCnt = charCntBox:GetChild("cashCnt");
+		cashCnt:SetTextByKey("value", cls.MaxCashPC);
 
 		local nxpBox = ctrlSet:GetChild("nxp");
 		local nxpCnt = nxpBox:GetChild("nxpCnt");
@@ -100,7 +102,27 @@ function BARRACKTHEMA_APPLIED(themaName)
 end
 
 function BARRACKTHEMA_CANCEL_PREVIEW(parent, ctrl)
-	barrack.ToMyBarrack();
+	if barrack.isPreviewMode() == true then
+		barrack.ToMyBarrack();
+	else
+		ui.CloseFrame("barrackthema")
+	end
+end
+
+function BARRACKTHEMA_REQ_SLOT_PRICE()
+	local scp = ClMsg("DoyouBuySlotInBarrack");
+	ui.MsgBox(scp, "barrack.ReqSlotPrice()", "None");
+end
+
+function BARRACKTHEMA_ASK_BUY_SLOT(price)
+	local str = ScpArgMsg('{TP}ReqSlotBuy', "TP", price);
+	if nil == str then
+		ui.MsgBox(ClMsg("DataError"));
+		return;
+	end
+
+	local yesScp = string.format("barrack.ReqBuyCharSlot(%d)", price);
+	ui.MsgBox(str, yesScp, "None");
 end
 
 function BARRACK_BUY(buyMap)

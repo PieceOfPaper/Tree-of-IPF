@@ -46,6 +46,9 @@ function GET_QUEST_RET_POS(pc, questIES, inputNpcState)
     			elseif npcFunc == 'ABBEY642_ROZE01' then
     			    retX = genPos.x - xDir * 10.0
     			    retZ = genPos.z + yDir * 10.0
+    			elseif npcFunc == 'ABBEY641_MONK03' then
+    			    retX = genPos.x - xDir * 30.0
+    			    retZ = genPos.z - yDir * 30.0
     			end
 				return questIES[questnpc_state..'Map'], retX, genPos.y + s_warpDestYPos, retZ
 			end
