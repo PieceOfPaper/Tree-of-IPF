@@ -8,10 +8,10 @@
 	<script fadeinScp="None" fadeoutScp="None"/>
 	<option hideable="false" closebutton="false"/>
 	<controls>
-		<picture name="bgbg" rect="0 0 6000 3000" margin="0 0 0 0" layout_gravity="center center" image="bg_w" stretch="true"/>
-		<picture name="login_bg" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="login_bg" stretch="false"/>
-		<picture name="r1_logo1" rect="0 0 688 363" margin="0 -230 0 0" layout_gravity="center center" image="login2" stretch="true"/>
-		<picture name="r1_logo_title_kor" rect="0 0 300 45" margin="0 -55 0 0" layout_gravity="center center" image="login1" serviceNation="KOR" stretch="true"/>
+		<picture name="bgbg" rect="0 0 0 0" margin="0 0 0 0" layout_gravity="center center" image="bg_w" stretch="true"/>
+		<picture name="login_bg" rect="0 0 0 0" margin="0 0 0 0 " layout_gravity="center center" image="login_bg" stretch="false"/>
+		<picture name="r1_logo1" rect="0 0 900 480" margin="0 -220 0 0" layout_gravity="center center" image="login2" stretch="true"/>
+		<picture name="r1_logo_title_kor" rect="0 0 380 75" margin="0 0 0 0" layout_gravity="center center" image="login1" serviceNation="KOR" stretch="true"/>
 		<picture name="r1_logo_title_tw" rect="0 0 300 45" margin="0 -55 0 0" layout_gravity="center center" image="login3" serviceNation="TAIWAN" stretch="true"/>
 	</controls>
 </uiframe>

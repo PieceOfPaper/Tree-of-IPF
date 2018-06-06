@@ -149,6 +149,25 @@ function CJ_JOB_PROPERTYQUESTCHECK()
 	return 1
 end
 
+function CJ_JOB_GENDERCHECK(jobid)
+	local jobinfo = GetClassByType('Job', jobid);
+	local jobGender = TryGetProp(jobinfo, 'Gender');
+	local myGender = GETMYPCGENDER();	
+
+	if myGender == nil or jobGender == nil then
+		return 0;
+	end
+	if jobGender == 'Male' then
+		if myGender ~= 1 then
+			return 0;
+		end		
+	elseif jobGender == 'Female' then
+		if myGender ~= 2 then
+			return 0;
+		end
+	end	
+	return 1;
+end
 
 function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)	
 
@@ -240,9 +259,8 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 	for i = 0 , cnt - 1 do
 		local cls = GetClassByIndexFromList(clslist, i);
 
-		local tempstr  = string.sub(cls.ClassName,1,string.len(cls.ClassName)-2)
-	
-		if tempstr == jobinfo.ClassName and cls.UnlockGrade < jobcircle+1 then
+		local checkJobName = jobinfo.ClassName .. '_';
+		if string.find(cls.ClassName, checkJobName) ~= nil and cls.UnlockGrade < jobcircle+1 then
 			jobskills[#jobskills+1] = cls.SkillName
 		end
 	end
@@ -253,7 +271,7 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 	local margin_y = 0;
 	local margin_x_per_eachpic = 4;
 	local margin_y_per_eachpic = 5;
-	local skillsPerALine = 5
+	local skillsPerALine = 6
 	for i = 1, #jobskills do
 
 		local skillClass = GetClass("Skill", jobskills[i])
@@ -296,13 +314,17 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 			jobchangebutton:ShowWindow(0);
 		else
 			if CJ_JOB_PROPERTYQUESTCHECK() == 1 then
-				if session.GetPcTotalJobGrade() <= JOB_CHANGE_MAX_RANK then
-					jobchangebutton:SetEventScript(ui.LBUTTONDOWN, 'CJ_CLICK_CHANGEJOBBUTTON')
-					jobchangebutton:SetEventScriptArgNumber(ui.LBUTTONDOWN, jobid);	
-					jobchangebutton:ShowWindow(1);
+				if CJ_JOB_GENDERCHECK(jobid) == 1 then
+					if session.GetPcTotalJobGrade() <= JOB_CHANGE_MAX_RANK then
+						jobchangebutton:SetEventScript(ui.LBUTTONDOWN, 'CJ_CLICK_CHANGEJOBBUTTON')
+						jobchangebutton:SetEventScriptArgNumber(ui.LBUTTONDOWN, jobid);	
+						jobchangebutton:ShowWindow(1);
+					else
+						jobchangebutton:ShowWindow(0);
+						ui.SysMsg(ScpArgMsg('Auto_aJig_KuHyeonDoeJi_aneun_JeonJig_KweSeuTeuipNiDa.'));
+					end
 				else
 					jobchangebutton:ShowWindow(0);
-					ui.SysMsg(ScpArgMsg('Auto_aJig_KuHyeonDoeJi_aneun_JeonJig_KweSeuTeuipNiDa.'));
 				end
 			else
 				jobchangebutton:ShowWindow(0);
@@ -454,10 +476,10 @@ function UPDATE_CHANGEJOB(frame)
 			end
 
 		else -- 갖고 있지는 않으나 전직은 가능한 얘들
-		
+
 			if cls.CtrlType == pcCtrlType then
 				--[[
-				local totaljobcount = session.GetPcTotalJobGrade()
+			local totaljobcount = session.GetPcTotalJobGrade()
 				local stringtest = 'ChangeJobQuest'..totaljobcount
 				local changejobquestname = cls[stringtest]
 				local flag = 1
@@ -472,12 +494,12 @@ function UPDATE_CHANGEJOB(frame)
 				-- 히든 직업 체크는 나중에 여기에 끼워두면 된다
 					if clsRank <= session.GetPcTotalJobGrade() then
 						if cls.HiddenJob == "NO" then 						
-							local subindex = #hadjobarray + 1
-							hadjobarray[subindex] = {}
-							hadjobarray[subindex][1] = cls.ClassID	
-							hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE_NOT -- 새로 출현은 아니나 한번도 안찍은 얘들이라고 마크;	
-							hadjobarray[subindex][3] = cls.Name
-							hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);	
+						local subindex = #hadjobarray + 1
+						hadjobarray[subindex] = {}
+						hadjobarray[subindex][1] = cls.ClassID	
+						hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE_NOT -- 새로 출현은 아니나 한번도 안찍은 얘들이라고 마크;	
+						hadjobarray[subindex][3] = cls.Name
+						hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);						
 							hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]			
 						elseif cls.HiddenJob == "YES" then
 							local pcEtc = GetMyEtcObject();
@@ -498,7 +520,7 @@ function UPDATE_CHANGEJOB(frame)
 							hadjobarray[subindex][1] = cls.ClassID
 							hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- 새로운얘들이라고 마크;	
 							hadjobarray[subindex][3] = cls.Name
-							hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);			
+							hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);							
 							hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]				
 						end
 					--히든 직업 관련 처리 && 랭크와 관계 있는 애임. 랭크와 관계없는 히든 직업이 나온다면 추가 수정해야함
@@ -511,7 +533,7 @@ function UPDATE_CHANGEJOB(frame)
 								hadjobarray[subindex][1] = cls.ClassID
 								hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- 새로운얘들이라고 마크;	
 								hadjobarray[subindex][3] = cls.Name
-								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);		
+								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);			
 								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]					
 							end
 						end
@@ -561,7 +583,7 @@ function UPDATE_CHANGEJOB(frame)
 	local sum_margin_y = 40
 	local margin_x_per_eachpic = 20
 	local margin_y_per_eachpic = 10
-	
+
 	local  drawnewjobcnt = 0
 	for i = 1, #hadjobarray do
 		if hadjobarray[i][2] ~= CHANGE_JOB_TYPE_HAVE then
@@ -587,7 +609,7 @@ function UPDATE_CHANGEJOB(frame)
 
 		if hadjobarray[i][2] ~= CHANGE_JOB_TYPE_HAVE then
 			--직업 컨트롤 셋 생성
-			--이미 3써클을 찍었을 땐, 보여주지 말자.
+			--이미 3써클을 찍었을 땐, 보여주지 말자.	
 
 			if session.GetJobGrade(hadjobarray[i][1]) <= 2 and hadjobarray[i][5] ~= "None" then
 				local row = math.floor((index - 1) / jobsPerALine);

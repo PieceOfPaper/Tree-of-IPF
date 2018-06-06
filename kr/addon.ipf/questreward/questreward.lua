@@ -131,6 +131,7 @@ function QUEST_REWARD_TEST(frame, questID)
     	y = MAKE_BASIC_REWARD_MONEY_CTRL(box, cls, y);
     	y = MAKE_BASIC_REWARD_BUFF_CTRL(box, cls, y);
     	y = MAKE_BASIC_REWARD_HONOR_CTRL(box, cls, y);
+    	y = MAKE_BASIC_REWARD_PCPROPERTY_CTRL(box, cls, y);
     end
     
 	local succExp = cls.Success_Exp;
@@ -164,11 +165,33 @@ function QUEST_REWARD_TEST(frame, questID)
     	y = MAKE_BASIC_REWARD_REPE_CTRL(box, questCls, cls, y + 20);
 --    	y = y + 20
     end
-    
+
+	
+	local cancelBtn = frame:GetChild('CancelBtn');
+	local useBtn = frame:GetChild('UseBtn');
+
+	    --[[
 	box:Resize(box:GetWidth(), y);
 
 	frame:ShowWindow(1);
 	frame:Resize(frame:GetWidth(), box:GetY()+ box:GetHeight() + 20);
+		]]
+	box:Resize(box:GetWidth(), y);
+	local maxSizeHeightFrame = box:GetY() + box:GetHeight() + 20;
+	local maxSizeHeightWnd = ui.GetSceneHeight();
+	if maxSizeHeightWnd < (maxSizeHeightFrame + 50) then 
+		local margin = maxSizeHeightWnd/2;
+		box:EnableScrollBar(1);
+		box:Resize(box:GetWidth() + 15, margin - useBtn:GetHeight() - 40);
+		box:SetScrollBar(margin - useBtn:GetHeight() - 40);
+		box:InvalidateScrollBar();
+		frame:Resize(frame:GetWidth() + 10, margin);
+	else
+		box:EnableScrollBar(0);
+		box:Resize(box:GetWidth(), y);
+		frame:Resize(frame:GetWidth() + 10, maxSizeHeightFrame);
+	end;
+	frame:ShowWindow(1);
 
 	
 	local selectExist = 0;
@@ -179,12 +202,7 @@ function QUEST_REWARD_TEST(frame, questID)
 		if string.find(name, "REWARD_") ~= nil then
 			selectExist = 1;
 		end 
-	end
-
-
-	local cancelBtn = frame:GetChild('CancelBtn');
-	local useBtn = frame:GetChild('UseBtn');
-    
+	end    
     
     local flag = false
     
@@ -344,15 +362,15 @@ function MAKE_ITEM_TAG_TEXT_CTRL(y, box, ctrlNameHead, itemName, itemCount, inde
 	if itemCount < 0 then
 		local invItem = session.GetInvItemByName(itemName);
 		if invItem ~= nil then
-		    itemText = ScpArgMsg("{Auto_1}ItemName{Auto_2}NeedCount", "Auto_1", itemCls.Name, "Auto_2", invItem.count);
+		    itemText = ScpArgMsg("{Auto_1}ItemName{Auto_2}NeedCount", "Auto_1", itemCls.Name, "Auto_2", GetCommaedText(invItem.count));
 		else
 		    itemText = '{@st45w3}{s18}'..itemCls.Name..'{/}'
 		end
 	else
 	    if itemName ~= 'Vis' then
-			itemText = ScpArgMsg("{Auto_1}ItemName{Auto_2}NeedCount","Auto_1", itemCls.Name, "Auto_2",itemCount);
+			itemText = ScpArgMsg("{Auto_1}ItemName{Auto_2}NeedCount","Auto_1", itemCls.Name, "Auto_2",GetCommaedText(itemCount));
 		else
-    		itemText = ScpArgMsg("QuestRewardMoneyText", "Auto_1", itemCount);
+    		itemText = ScpArgMsg("QuestRewardMoneyText", "Auto_1", GetCommaedText(itemCount));
     	end
     end
 	itemNameCtrl:SetText(itemText);
@@ -439,13 +457,23 @@ function MAKE_BUFF_TAG_TEXT_CTRL(y, box, ctrlNameHead, buffName, index)
 	return y;
 end
 
+function MAKE_PCPROPERTY_TAG_TEXT_CTRL(y, box, ctrlNameHead, propertyName, value, index)
+
+	local txt = GET_PCPROPERTY_TAG_TXT(propertyName, value);
+	local richTxt;
+	y = y + 10
+	y, richTxt = BOX_CREATE_RICH_CONTROLSET(box, ctrlNameHead .. index, y, 20, txt, index);
+	richTxt:EnableHitTest(1);
+
+	return y;
+end
+
 function MAKE_HONOR_TAG_TEXT_CTRL(y, box, ctrlNameHead, honorName, point_value, index)
 
 	local txt = GET_HONOR_TAG_TXT(honorName, point_value);
 	local richTxt;
 	y, richTxt = BOX_CREATE_RICH_CONTROLSET(box, ctrlNameHead .. index, y, 20, txt, index);
 	richTxt:EnableHitTest(1);
---	SET_BUFF_TOOLTIP_BY_NAME(richTxt, honorName);
 
 	return y;
 end
@@ -513,6 +541,15 @@ function MAKE_TAKEITEM_CTRL(box, cls, y)
 		end
 	end
 	
+	return y;
+end
+
+function MAKE_BASIC_REWARD_PCPROPERTY_CTRL(box, cls, y)
+    local pcProperty = GetClass('reward_property', cls.ClassName)
+    if pcProperty ~= nil then
+        y = MAKE_PCPROPERTY_TAG_TEXT_CTRL(y, box, "reward_PcProperty", pcProperty.Property, pcProperty.Value, 1);
+    end
+    
 	return y;
 end
 
@@ -1076,6 +1113,11 @@ function QUEST_REWARD_CHECK(questname)
 
     if cls.Success_HonorPoint ~= 'None' then
         result[#result + 1] = 'HonorPoint'
+    end
+    
+    local pcProperty = GetClass('reward_property', questname)
+    if pcProperty ~= nil then
+        result[#result + 1] = 'PCProperty'
     end
 
     return result

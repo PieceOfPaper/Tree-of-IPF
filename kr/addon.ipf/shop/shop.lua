@@ -308,7 +308,8 @@ function SHOP_SELL(invitem, sellCount, setTotalCount)
 	end
 
 	local itemobj = GetIES(invitem:GetObject());
-	if itemobj.ShopTrade ~= 'YES' then
+	local itemProp = geItemTable.GetPropByName(itemobj.ClassName);
+	if itemProp:IsTradable() == false then
 		ui.SysMsg(ClMsg("CannoTradeToNPC"));
 		return;
 	end
@@ -319,7 +320,7 @@ function SHOP_SELL(invitem, sellCount, setTotalCount)
 	local slot = GET_USABLE_SLOTSET(frame, invitem);
 	slot:SetUserValue("SLOT_ITEM_ID", invitem:GetIESID());
 	local icon = CreateIcon(slot);
-	local imageName = itemobj.Icon;
+	local imageName = GET_EQUIP_ITEM_IMAGE_NAME(itemobj, 'Icon')
 	icon:Set(imageName, 'SELLITEMITEM', 0, 0, invitem:GetIESID());
 
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, itemobj.ClassName,'buy', invitem.type, invitem:GetIESID());
@@ -691,6 +692,7 @@ function SHOP_ON_MSG(frame, msg, argStr, argNum)
 
 	if msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT' then
 		SHOP_ITEM_LIST_GET(frame);
+		UPDATE_SOLD_ITEM_LIST(frame);
 	end
 
 	if  msg == 'DIALOG_CLOSE' or msg == 'ESCAPE_PRESSED' then
@@ -726,7 +728,7 @@ function SHOP_ON_MSG(frame, msg, argStr, argNum)
 			end
 		end
 		sellslotSet:ClearIconAll();
-
+		
 		frame:ShowWindow(0);
 		
 		RIGHT_PAGEBUTTON_ENABLE(frame, 1);
@@ -862,8 +864,8 @@ end
 function IS_SHOPITEM_BUYABLE(shopItem)
 	if shopItem:GetIDSpace() == "Item" then
 		if shopItem.ItemType == "Equip" then
-		return CHECK_EQUIPABLE(shopItem.type);
-	end
+			return CHECK_EQUIPABLE(shopItem.type);
+		end
 	end
 
 	return "OK";
@@ -953,7 +955,6 @@ function SHOP_ITEM_LIST_UPDATE(frame, ShopItemData, ShopItemCount)
 	end
 
 	SET_SHOP_ITEM_TOOLTIP(icon, shopItem);
-
 	-- 착용 불가는 색 마스크 처리
 	local result = IS_SHOPITEM_BUYABLE(shopItem);
 
@@ -1098,7 +1099,8 @@ function SOLD_SLOT_SET(slot, index, info)
 
 	local icon = CreateIcon(slot);
 	icon:EnableHitTest(0);
-	icon:Set(obj.Icon, 'SOLDITEMITEM', 0, 0, info:GetIESID());
+	local imageName = GET_EQUIP_ITEM_IMAGE_NAME(obj, 'Icon')
+	icon:Set(imageName, 'SOLDITEMITEM', 0, 0, info:GetIESID());
 
 	--SET_ITEM_TOOLTIP_TYPE(icon, obj.ClassID, obj);
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, info, obj.ClassName, 'soldItem', info.type, index);

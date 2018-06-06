@@ -159,7 +159,8 @@ end
 function EQP_APPLY_TO_ALL_SLOT(func, ...)
 
 	local frame = ui.GetFrame("inventory");
-	for i = 0 , item.GetEquipSpotCount() - 1 do
+	local spotCount = item.GetEquipSpotCount() - 1;
+	for i = 0 , spotCount do
 		local spotName = item.GetEquipSpotName(i);
 		if  spotName  ~=  nil  then
 			local slot = GET_CHILD(frame, spotName, "ui::CSlot");
@@ -179,8 +180,9 @@ end
 function PC_APPLY_TO_ALL_ITEM(func, ...)
 
 	INV_APPLY_TO_ALL_SLOT(func, ...)
-
-	for i = 0 , item.GetEquipSpotCount() - 1 do
+	
+	local spotCount = item.GetEquipSpotCount() - 1;
+	for i = 0 , spotCount do
 		local spotName = item.GetEquipSpotName(i);
 		if  spotName  ~=  nil  then
 			local slot = GET_CHILD(frame, spotName, "ui::CSlot");
@@ -493,28 +495,34 @@ end
 function GET_ITEM_ICON_IMAGE(itemCls, gender)
 
 	local iconImg = itemCls.Icon;
-			
-		-- costume icon is decided by PC's gender
-    	if itemCls.ItemType == 'Equip' and itemCls.ClassType == 'Outer' then
+		
+	-- costume icon is decided by PC's gender
+    if itemCls.ItemType == 'Equip' and itemCls.ClassType == 'Outer' then
 
-			local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
+		local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
 
-			if tempiconname ~= "_m" and tempiconname ~= "_f" then
-				if gender == nil then
-					gender = GetMyPCObject().Gender;
-				end
-
-    			if gender == 1 then
-        			iconImg = itemCls.Icon.."_m"
-        		else
-        			iconImg = itemCls.Icon.."_f"
-        		end
+		if tempiconname ~= "_m" and tempiconname ~= "_f" then
+			if gender == nil then
+				gender = GetMyPCObject().Gender;
 			end
 
-
-        end
-
-		return iconImg;
+    		if gender == 1 then
+    			iconImg = itemCls.Icon.."_m"
+    		else
+    			iconImg = itemCls.Icon.."_f"
+    		end
+		end
+	else
+		local faceID = TryGetProp(itemCls, 'BriquettingIndex');
+		if nil ~= faceID and tonumber(faceID) > 0 then
+			faceID = tonumber(faceID);
+			 local cls = GetClassByType('Item', faceID)
+			 if nil ~= cls then
+				iconImg = cls.Icon;
+			 end
+		end
+    end
+	return iconImg;
 
 end
 

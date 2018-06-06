@@ -5,7 +5,7 @@ function PET_INFO_ON_INIT(addon, frame)
 	addon:RegisterMsg("COMPANION_UI_OPEN", "COMPANION_UI_OPEN_DO");
 	
 	local frame = ui.GetFrame("pet_info");
-	frame:SetUserValue("IS_OPEN_BY_NPC","NO")
+	frame:SetUserValue("IS_OPEN_BY_NPC","NO")	
 end
 
 g_use_pet_friendly_point = 0;
@@ -207,7 +207,7 @@ function PET_INFO_SHOW(petGuid)
 	newslotset:ShowWindow(1);
 	PET_INFO_BUILD_EQUIP(frame, newslotset, petInfo);
 	tree:Add(equips, newslotset);
-	
+		
 	tree:OpenNodeAll();
 	frame:ShowWindow(1);
 	PET_INFO_UPDATE_ACTIVATED(frame, true);
@@ -337,10 +337,6 @@ function EXEC_PET_ABIL(guid, clsName)
 end
 
 function DROP_PET_EQUIP(parent, slot, str, num)
-
-	if 1 == 1 then
-		return;
-	end
 
 	local liftIcon = ui.GetLiftIcon():GetInfo();
 	local frame = parent:GetTopParentFrame();

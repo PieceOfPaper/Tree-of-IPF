@@ -46,7 +46,13 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 	ypos = DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, ypos, mainframename) -- 장착제한, 거래제한, 소켓, 레벨 제한 등등
 	ypos = DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, ypos, mainframename) -- 포텐셜 및 내구도
 	ypos = DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, ypos, mainframename) -- 포텐셜 만 있는 애들은 여기서 그림 (그릴 아이템인지 검사는 내부에서)
-	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
+	
+	local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
+	if 0 == isHaveLifeTime then
+		ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
+	else
+		ypos = DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, ypos, mainframename);
+	end
 
 	local subframeypos = 0
 
@@ -68,7 +74,7 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveAllChild()
-
+	
     if invitem.ItemGrade == 0 then -- 유료 프리미엄 아이템 등급: 2~3만원 헤어
         local SkinName  = GET_ITEM_TOOLTIP_SKIN(invitem);
     	gBox:SetSkinName('premium_skin');
@@ -92,8 +98,10 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	if invitem.TooltipImage ~= nil and invitem.TooltipImage ~= 'None' then
 	
     	if invitem.ClassType ~= 'Outer' then
-    		itemPicture:SetImage(invitem.TooltipImage);
+			imageName = GET_EQUIP_ITEM_IMAGE_NAME(invitem, "TooltipImage")
+    		itemPicture:SetImage(imageName);
     		itemPicture:ShowWindow(1);
+
     	else -- 코스튬은 남녀공용, 남자PC는 남자 코스튬 툴팁이미지, 여자PC는 여자 코스튬 툴팁이미지가 보임
             local gender = 0;
             if GetMyPCObject() ~= nil then
@@ -106,13 +114,13 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 			local tempiconname = string.sub(invitem.TooltipImage,string.len(invitem.TooltipImage)-1);
 
 			if tempiconname ~= "_m" and tempiconname ~= "_f" then
-    	    if gender == 1 then
-        	    tooltipImg = invitem.TooltipImage.."_m"
-        		itemPicture:SetImage(tooltipImg);
-        	else
-        	    tooltipImg = invitem.TooltipImage.."_f"
-        		itemPicture:SetImage(tooltipImg);
-        	end
+				if gender == 1 then
+        			tooltipImg = invitem.TooltipImage.."_m"
+        			itemPicture:SetImage(tooltipImg);
+        		else
+        			tooltipImg = invitem.TooltipImage.."_f"
+        			itemPicture:SetImage(tooltipImg);
+        		end
 			else
 				itemPicture:SetImage(invitem.TooltipImage);
 			end
@@ -136,7 +144,14 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	-- 거래불가 아이콘 (일단 거래불가 아이콘 표시하지 않음)
 	local itemCantSoldPicture = GET_CHILD(equipCommonCSet, "cantsold", "ui::CPicture");
 	local itemCantSoldText = GET_CHILD(equipCommonCSet, "cantsold_text", "ui::CRichText");
-	if invitem.UserTrade == "NO" then
+
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+	local blongProp = TryGetProp(invitem, "BelongingCount");
+	local blongCnt = 0;
+	if blongProp ~= nil then
+		blongCnt = tonumber(blongProp);
+	end
+	if itemProp:IsExchangeable() == false or GetTradeLockByProperty(invitem) ~= "None" or 0 <  blongCnt then
 		itemCantSoldPicture:ShowWindow(1);
 		itemCantSoldText:ShowWindow(1);
 	else
@@ -203,53 +218,57 @@ end
 
 --공격력 및 방어력
 function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg)
-
+	
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_atk_n_def');
 	local tooltip_equip_atk_n_def_Cset = gBox:CreateOrGetControlSet('tooltip_equip_atk_n_def', 'tooltip_equip_atk_n_def', 0, yPos);
-    
+	
 	local typeiconname = nil
 	local typestring = nil
 	local arg1 = nil
 	local arg2 = nil
 	local reinforceaddvalue = 0
-
+	
 	-- 무기 타입 아이콘
 	local basicProp = invitem.BasicTooltipProp;
 	
 	if basicProp == 'ATK' then
-        typeiconname = 'test_sword_icon'
-    	typestring = ScpArgMsg("Melee_Atk")
-    	reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem) )
-    	arg1 = invitem.MINATK - reinforceaddvalue
-    	arg2 = invitem.MAXATK - reinforceaddvalue
-    elseif basicProp == 'MATK' then
-        typeiconname = 'test_sword_icon'
-    	typestring = ScpArgMsg("Magic_Atk")
-    	reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem) )
-    	arg1 = invitem.MATK - reinforceaddvalue
-    	arg2 = invitem.MATK - reinforceaddvalue
-    else
-    	typeiconname = 'test_shield_icon'
-    	typestring = ScpArgMsg(basicProp);
-	if invitem.RefreshScp ~= 'None' then
-		local scp = _G[invitem.RefreshScp];
-		if scp ~= nil then
-			scp(invitem);
+	    typeiconname = 'test_sword_icon'
+		typestring = ScpArgMsg("Melee_Atk")
+		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem) )
+		arg1 = invitem.MINATK - reinforceaddvalue
+		arg2 = invitem.MAXATK - reinforceaddvalue
+	elseif basicProp == 'MATK' then
+	    typeiconname = 'test_sword_icon'
+		typestring = ScpArgMsg("Magic_Atk")
+		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem) )
+		arg1 = invitem.MATK - reinforceaddvalue
+		arg2 = invitem.MATK - reinforceaddvalue
+	else
+		typeiconname = 'test_shield_icon'
+		typestring = ScpArgMsg(basicProp);
+		if invitem.RefreshScp ~= 'None' then
+			local scp = _G[invitem.RefreshScp];
+			if scp ~= nil then
+				scp(invitem);
+			end
 		end
-	end
 		
-    	reinforceaddvalue = GET_REINFORCE_ADD_VALUE(basicProp, invitem);
-    	arg1 = TryGetProp(invitem, basicProp) - reinforceaddvalue;
-        arg2 = TryGetProp(invitem, basicProp) - reinforceaddvalue;
-    end
+		reinforceaddvalue = GET_REINFORCE_ADD_VALUE(basicProp, invitem);
+		arg1 = TryGetProp(invitem, basicProp) - reinforceaddvalue;
+	    arg2 = TryGetProp(invitem, basicProp) - reinforceaddvalue;
+	end
 	
 	SET_DAMAGE_TEXT(tooltip_equip_atk_n_def_Cset, typestring, typeiconname, arg1, arg2, 1, reinforceaddvalue);
 	yPos = yPos + tooltip_equip_atk_n_def_Cset:GetHeight();
-
+	
 	yPos = SET_BUFF_TEXT(gBox, invitem, yPos, strarg);
-
+	
 	yPos = SET_REINFORCE_TEXT(gBox, invitem, yPos);
+
+	yPos = SET_TRANSCEND_TEXT(gBox, invitem, yPos);
+
+	yPos = SET_REINFORCE_BUFF_TEXT(gBox, invitem, yPos);
 	
 	gBox:Resize(gBox:GetWidth(),  yPos);
 	return yPos;
@@ -313,10 +332,12 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 		end
 	end
 
-	if cnt <= 0 and (invitem.OptDesc == nil or invitem.OptDesc == "None") then -- 일단 그릴 프로퍼티가 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
-		return yPos
+	if cnt <= 0 and (invitem.OptDesc == nil or invitem.OptDesc == "None" ) then -- 일단 그릴 프로퍼티가 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
+		if invitem.ReinforceRatio == 100 then
+    		return yPos
+    	end
 	end
-	
+
 	local tooltip_equip_property_CSet = gBox:CreateOrGetControlSet('tooltip_equip_property', 'tooltip_equip_property', 0, yPos);
 	local property_gbox = GET_CHILD(tooltip_equip_property_CSet,'property_gbox','ui::CGroupBox')
 
@@ -386,6 +407,12 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 	end
 
+	if invitem.ReinforceRatio > 100 then
+		local opName = ClMsg("ReinforceOption");
+		local strInfo = ABILITY_DESC_PLUS(opName, math.floor(10 * invitem.ReinforceRatio/100), ClMsg("ReinforceOption"));
+		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo.."0%"..ClMsg("ReinforceOptionAtk"), 0, inner_yPos);
+	end
+
 	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
 	tooltip_equip_property_CSet:Resize(tooltip_equip_property_CSet:GetWidth(),tooltip_equip_property_CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY() + BOTTOM_MARGIN);
 
@@ -403,7 +430,7 @@ function DRAW_EQUIP_MEMO(tooltipframe, invitem, yPos, mainframename)
 	if memo == "None" then -- 일단 메모가 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
 		return yPos
 	end
-	
+
 	memo = ScpArgMsg("ItIsMemo") ..memo
 	
 	local tooltip_equip_property_CSet = gBox:CreateOrGetControlSet('tooltip_equip_memo', 'tooltip_equip_memo', 0, yPos);
@@ -705,8 +732,18 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 
 	local classtype = TryGetProp(invitem, "ClassType"); -- 코스튬은 안뜨도록
 	if classtype ~= nil then
-		if classtype == "Outer" or classtype == "Hat" or classtype == "Hair" then
+		if (classtype == "Outer") 
+		or (classtype == "Hat") 
+		or (classtype == "Hair") 
+		or (itemClass.PR == 0) then
 			return yPos;
+		end
+		
+		local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
+		if isHaveLifeTime ~= nil then
+			if isHaveLifeTime > 0 then
+				return yPos;
+			end;
 		end
 	end
 	
@@ -743,14 +780,17 @@ function DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, yPos, mainframename)
 	local itemClass = GetClassByType("Item", invitem.ClassID);
 
 	local classtype = TryGetProp(invitem, "ClassType"); -- 코스튬은 안뜨도록
+		
 	if classtype ~= nil then
-		if classtype == "Outer" or classtype == "Hat" or invitem.BasicTooltipProp == "None" then
-			
-		else
+		if (classtype ~= "Hat" and invitem.BasicTooltipProp ~= "None")
+		or (itemClass.PR == 0) 
+		or (classtype == "Outer")
+		or (itemClass.ItemGrade == 0 and classtype == "Hair") then
 			return yPos;
-		end
+		end;
 	end
-	
+
+
 	local CSet = gBox:CreateControlSet('tooltip_only_pr', 'tooltip_only_pr', 0, yPos);
 	tolua.cast(CSet, "ui::CControlSet");
 

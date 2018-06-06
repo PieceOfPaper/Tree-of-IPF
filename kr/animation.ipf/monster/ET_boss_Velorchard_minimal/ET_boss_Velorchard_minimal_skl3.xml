@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="0" soundFile="m_velorchard_skl_4"/>
+	<Sound frame="20.00" soundFile="skl_eff_stone_blow_m"/>
+	<Particle frame="23" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke107" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="23" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="23" attachActor="None" attachNode="Dummy_emitter" particleName="F_yonazolem_wlk_stone" useAttach="true" hiddenObj="false" scale="3.5" pause="true" targetPos="false"/>
+	<Particle frame="93" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke107" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+</ActionDesc>

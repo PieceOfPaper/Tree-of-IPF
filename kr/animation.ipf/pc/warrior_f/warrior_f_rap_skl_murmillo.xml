@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="EUC-KR"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<Shockwave frame="19" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="21" type="2" intensity="20" frequency="40" duration="0.5" range="1000"/>
-	<Particle frame="18" attachNode="Bip01 L Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
-	<Particle frame="21" attachNode="Dummy_emitter" particleName="F_smoke062_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
-	<Particle frame="21" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
-	<Particle frame="12" attachNode="Dummy_emitter" particleName="E_warrior_murmillo1_trail" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true"/>
-	<Particle frame="0" attachNode="Dummy_L_HAND" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
-	<Particle frame="0" attachNode="Dummy_R_HAND" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
-	<Particle frame="0" attachNode="Dummy_effect_wepon" particleName="I_force080_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
-	<Particle frame="0" attachNode="Dummy_effect_wepon2" particleName="I_force080_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
-	<Particle frame="0" attachNode="Dummy_effect_wepon3" particleName="I_force080_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
-	<Particle frame="21" attachNode="Dummy_emitter" particleName="F_smoke089" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false"/>
-	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="5" R="50" G="100" B="80" A="50"/>
-	<BlendOn frame="8" R="60" G="120" B="90" A="80"/>
-	<BlendOn frame="12" R="80" G="150" B="120" A="100"/>
-	<BlendOn frame="20" R="50" G="100" B="80" A="50"/>
-	<BlendOn frame="27" R="10" G="30" B="25" A="20"/>
-	<BlendOff frame="30" R="0" G="0" B="0" A="0"/>
-	<Sound frame="0" soundFile="skl_eff_murmillo_cast"/>
-	<Sound frame="3" soundFile="skl_eff_murmillo_jump"/>
-	<Sound frame="5" soundFile="skl_fgt_horizontalcrasher_shot"/>
-	<Sound frame="18" soundFile="skl_eff_murmillo_landing"/>
+    <Particle frame="0" attachNode="Dummy_L_HAND" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_R_HAND" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_wepon" particleName="I_force080_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_wepon2" particleName="I_force080_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_wepon3" particleName="I_force080_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0" soundFile="skl_eff_murmillo_cast"/>
+    <Sound frame="3" soundFile="skl_eff_murmillo_jump"/>
+    <BlendOn frame="5" R="50" G="100" B="80" A="50"/>
+    <Sound frame="5" soundFile="skl_fgt_horizontalcrasher_shot"/>
+    <Sound frame="5.00" soundFile="skl_eff_special_shot_5"/>
+    <BlendOn frame="8" R="60" G="120" B="90" A="80"/>
+    <Particle frame="12" attachNode="Dummy_emitter" particleName="E_warrior_murmillo1_trail" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="12" R="80" G="150" B="120" A="100"/>
+    <Particle frame="18" attachNode="Bip01 L Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="18" soundFile="skl_eff_murmillo_landing"/>
+    <Sound frame="18.00" soundFile="skl_eff_HandKnife_shot_ground"/>
+    <Shockwave frame="19" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <BlendOn frame="20" R="50" G="100" B="80" A="50"/>
+    <Shockwave frame="21" type="2" intensity="20" frequency="40" duration="0.5" range="1000"/>
+    <Particle frame="21" attachNode="Dummy_emitter" particleName="F_smoke062_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_stone_blow_m"/>
+    <Particle frame="21" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="21" attachNode="Dummy_emitter" particleName="F_smoke089" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="27" R="10" G="30" B="25" A="20"/>
+    <BlendOff frame="30" R="0" G="0" B="0" A="0"/>
 </ActionDesc>

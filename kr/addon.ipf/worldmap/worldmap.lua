@@ -266,19 +266,19 @@ function MAPNAME_FONT_CHECK(mapLvValue)
     local pcLv = pc.Lv
     local mapNameFont = ''
 
-	-- ï¿½ï¿½ï¿½ï¿½
+	-- ê²€ì •
 	if mapLvValue > pcLv + 80 then 
 	    mapNameFont = '{@st66e}{#646464}{b}'
-	-- »¡°­
+	-- ë¹¨ê°•
 	elseif mapLvValue > pcLv + 60 then 
 	    mapNameFont = '{@st66e}{#e72100}{b}'
-	-- ³ë¶û
+	-- ë…¸ëž‘
 	elseif mapLvValue > pcLv + 40 then 
 	    mapNameFont = '{@st66e}{#ffc000}{b}'
-	-- ÃÊ·Ï
+	-- ì´ˆë¡
 	elseif mapLvValue > pcLv + 20 then
 	    mapNameFont = '{@st66e}{#00c01b}{b}'
-	-- ÆÄ¶û
+	-- íŒŒëž‘
 	elseif mapLvValue > pcLv then 
 	    mapNameFont = '{@st66e}{#00a2ff}{b}'
 	else
@@ -334,13 +334,13 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
         if #nowGetTypeIES > 0 then
 		warpGoddessIcon_now = '{img minimap_goddess 24 24}'
 	end
-					
+	
 	local getTypeIES = SCR_GET_XML_IES('camp_warp','Zone', mapCls.ClassName)
 	local warpGoddessIcon = ''
-        if #getTypeIES > 0 then
+    if #getTypeIES > 0 then
 		warpGoddessIcon = '{img minimap_goddess 24 24}'
 	end
-
+	
 	local mapType = TryGetProp(mapCls, 'MapType');
 	local dungeonIcon = ''
     if mapType == 'Dungeon' then
@@ -366,7 +366,7 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 	end
 	
 	local mapNameFont = MAPNAME_FONT_CHECK(mapLvValue)
-	
+
 	if mainName ~= "None" then
 		text:SetTextByKey("value", dungeonIcon..'{nl}'..mapNameFont..mainName..'{nl}'..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge..'{/}{nl}'..GET_STAR_TXT(20,mapCls.MapRank));
 	else
@@ -619,6 +619,10 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 
 	local gBox = GET_WORLDMAP_GROUPBOX(frame);
 	local mapCls = GetClass("Map", mapName);
+	if mapCls == nil then
+		
+		return
+	end
 	if mapCls.WorldMap == "None" then
 		return;
 	end
@@ -629,7 +633,7 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 	local childCtrl = gBox:GetChild(gBoxName);
 
 	if childCtrl == nil then
-		return; -- ï¿½ï¿½Ïµï¿?ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nilï¿½Î°ï¿½?
+		return; -- ï¿½ï¿½Ïµï¿½?ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nilï¿½Î°ï¿½?
 	end
 
 	local x = childCtrl:GetX();
@@ -668,6 +672,48 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 
 end
 
+function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 
+	local inputSearch = frame:GetChild('input_search')
+	local searchText = inputSearch:GetText()
+	local oldSearchText = frame:GetUserValue('SEARCH_TEXT')
+	local oldSearchIdx = frame:GetUserValue('SEARCH_IDX')
+
+	if searchText == "" then
+		return
+	end
+
+	local etc = GetMyEtcObject();    
+	local mapList, cnt = GetClassList('Map')
+	if etc == nil or mapList == nil or cnt < 1 then -- valid check
+		return
+	end
+
+    local targetMap = {}
+	local targetCnt = 0
+	for i=0, cnt-1 do
+		local mapCls = GetClassByIndexFromList(mapList, i);
+		if mapCls ~= nil and mapCls.WorldMap ~= "None" and (etc['HadVisited_' .. mapCls.ClassID] == 1 or FindCmdLine("-WORLDMAP") > 0)then
+			local tempname = string.lower(dictionary.ReplaceDicIDInCompStr(mapCls.Name));		
+			local tempinputtext = string.lower(searchText)
+			if tempinputtext == "" or true == ui.FindWithChosung(tempinputtext, tempname) then
+				targetMap[targetCnt] = mapCls.ClassName
+				targetCnt = targetCnt + 1
+			end
+		end
+	end
+
+	local showIdx = 0
+	if oldSearchText == searchText then
+		showIdx = tonumber(oldSearchIdx) + 1
+		if showIdx >= targetCnt then
+			showIdx = showIdx - targetCnt
+		end
+	else
+		frame:SetUserValue('SEARCH_TEXT', searchText)
+	end
+	frame:SetUserValue('SEARCH_IDX', tostring(showIdx))
+	LOCATE_WORLDMAP_POS(frame, targetMap[showIdx]);
+end
 
 

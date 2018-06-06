@@ -20,6 +20,44 @@ function SET_MONB_ALWAYS_VISIBLE(handle, enable)
 
 end
 
+function DRAW_DEBUFF_UI_EFECT(handle, buffType)
+	local frame= ui.GetFrame("monb_"..handle);	
+	if frame == nil then
+		if handle == session.GetMyHandle() then
+			frame= ui.GetFrame("charbaseinfo1_my");	
+		else
+			frame= ui.GetFrame("charbaseinfo1_"..handle);	
+		end
+
+		if frame == nil then
+			return;
+		end
+	end
+
+	local pCls = GetClassByType("Buff", buffType)
+	if nil == pCls then
+		return;
+	end
+
+	local pic =frame:GetChild('desenchant');
+	local gx, gy = GET_UI_FORCE_POS(pic);
+	local delayTime = 0.1;
+	local curTime = math.floor(imcTime.GetAppTime());
+	if curTime <= pic:GetUserIValue('LASTTIME') then
+		local beforDelay = pic:GetUserValue('LAST_DELAY_TIME');
+		delayTime = tonumber(beforDelay) + 0.1;
+		pic:SetUserValue('LAST_DELAY_TIME', delayTime);
+	else
+		pic:SetUserValue('LASTTIME', 0);
+		pic:SetUserValue('LAST_DELAY_TIME', delayTime);
+	end
+	UI_FORCE("skill_disenchant", gx, gy, 0, 0, delayTime, 'Icon_'..pCls.Icon);
+	pic:SetUserValue('LASTTIME', curTime);
+
+	-- 사라질때마다 사운드 소리가 나야한단다.
+	imcSound.PlaySoundEvent("skl_eff_disenchant_icon");
+end
+
 function MONBASE_GAUGE_SET(frame, targetinfo)
 	local nameRichText = GET_CHILD(frame, "name", "ui::CRichText");
 	local stat = targetinfo.stat;
@@ -41,7 +79,6 @@ function MONBASE_GAUGE_SET(frame, targetinfo)
 		shield:SetPoint(stat.shield, stat.maxHP);
 		shield:ShowWindow(1);
 	end		
-
 end
 
 function HIDE_MONBASE_INFO(frame)
@@ -70,7 +107,6 @@ function UPDATE_MONB(handle)
 end
 
 function SHOW_MONB_TARGET(handle, duration)
-
 	local frameName = "monb_" .. handle;
 	local cFrame = ui.GetFrame(frameName);
 	if cFrame == nil then
@@ -114,7 +150,7 @@ function ON_TARGET_CLEAR(msgFrame, msg, argStr, handle)
 
 		local targetInfo = info.GetTargetInfo(handle);
 		if targetInfo.showHP == 1 then
-			visible = false; -- Ÿ�������� �ƴ� ���� �̸�����
+			visible = false; -- 타게팅중이 아닌 적은 이름제거
 		end
 		if visible == false then
 			frame:ShowWindow(0);
@@ -127,7 +163,7 @@ function UPDATE_MONB_HP(frame, handle)
 		return;
 	end
 
-	-- ������ ����HP UI���� ���� ������. �̰Ŷ��� ����hp, name ����Ÿ�
+	-- 보스는 보스HP UI에서 따로 보여줌. 이거땜시 빨간hp, name 깜빡거림
 	local targetInfo = info.GetTargetInfo(handle);
 	if targetInfo ~= nil and targetInfo.isBoss == true and targetInfo.isSummonedBoss ~= 1 then
 		frame:ShowWindow(0);
@@ -209,6 +245,4 @@ function MONSTERBASEINFO_CHECK_CTRL_OPENCONDITION(frame, ctrlName, frameName)
 	hpGauge:ShowWindow(targetInfoOpen);
 	frame:Invalidate();
 end
-
-
 

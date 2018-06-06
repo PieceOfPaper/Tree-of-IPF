@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="53" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="74" attachNode="Dummy_Emitter" particleName="F_spin029_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="75" attachNode="Dummy_Emitter001" particleName="F_spin029_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="76" attachNode="Dummy_Emitter002" particleName="F_spin029_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="51" R="150" G="100" B="100" A="100"/>
+	<BlendOn frame="52" R="130" G="80" B="80" A="100"/>
+	<BlendOn frame="53" R="90" G="70" B="70" A="100"/>
+	<BlendOn frame="54" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="81" R="200" G="150" B="150" A="100"/>
+	<BlendOn frame="80" R="150" G="100" B="100" A="100"/>
+	<BlendOn frame="79" R="130" G="100" B="100" A="100"/>
+	<BlendOn frame="78" R="100" G="70" B="70" A="100"/>
+	<BlendOff frame="82" R="0" G="0" B="0" A="0"/>
+	<Sound frame="6.00" soundFile="mon_bramble_atk_ready"/>
+	<Sound frame="46.00" soundFile="mon_bramble_skl_ready"/>
+	<Sound frame="63.00" soundFile="skl_eff_atk_sperad"/>
+</ActionDesc>

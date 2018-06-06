@@ -324,7 +324,7 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 				state_Text_BG:SetGrayStyle(1);		
 				pre_Text:SetVisible(0);
 			elseif session.GetInvItemByType(clsID) ~= nil then	-- 구매한 물품.
-				sucValue = string.format("{@st41b}%s", ScpArgMsg("ITEM_IsPurchased"));
+				sucValue = string.format("{@st41b}%s", ScpArgMsg("ITEM_IsPurchased1"));
 				state_Text:SetTextByKey("value", sucValue);		
 				state_Text_BG:SetGrayStyle(1);		
 				pre_Text:SetVisible(0);	

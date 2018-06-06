@@ -1,3 +1,4 @@
+-- buffseller_ballon.lua
 
 function BUFFSELLER_BALLOON_ON_INIT(addon, frame)
 
@@ -6,32 +7,28 @@ end
 
 function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 	if title == "" then
+		local frame = nil;
 		if AUTO_SELL_BUFF == sellType then
-			local frame = ui.GetFrame("buffseller_target");
-			local ownerHandle = frame:GetUserIValue("HANDLE");
-			if ownerHandle == handle then
-				ui.CloseFrame("buffseller_target");
-			end
+			 frame = ui.GetFrame("buffseller_target");
 		elseif  sellType == AUTO_SELL_PERSONAL_SHOP then
-			local frame = ui.GetFrame("personal_shop_register");
-			local ownerHandle = frame:GetUserIValue("HANDLE");
-			if ownerHandle == handle then
-				ui.CloseFrame("personal_shop_register");
-			end
+			frame = ui.GetFrame("personal_shop_register");
 		elseif sellType == AUTO_TITLE_FOOD_TABLE then
 		elseif sellType == AUTO_SELL_OBLATION then
-			local frame = ui.GetFrame("oblation_sell");
-			local ownerHandle = frame:GetUserIValue("HANDLE");
-			
-			if ownerHandle == handle then
-				ui.CloseFrame("oblation_sell");
-			end
+			frame = ui.GetFrame("oblation_sell");
+		elseif sellType == AUTO_SELL_ORACLE_SWITCHGENDER then
+			frame = ui.GetFrame("switchgender")
+		elseif sellType == AUTO_SELL_ENCHANTERARMOR then
+			frame = ui.GetFrame("enchantarmor");
 		else
 			CLOSE_SQUIRE_STORE(handle, skillID);
 		end
-
+		if nil ~= frame then
+			local ownerHandle = frame:GetUserIValue("HANDLE");
+			if ownerHandle == handle then
+				ui.CloseFrame(frame:GetName());
+			end
+		end
 		ui.DestroyFrame("SELL_BALLOON_" .. handle);
-		CLOSE_SQUIRE_STORE(handle, skillID);
 		return;
 	end
 
@@ -51,6 +48,14 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 		pic:SetImage("sign_fix");
 	elseif sellType == AUTO_SELL_OBLATION then
 		pic:SetImage("sign_bong");
+	elseif sellType == AUTO_SELL_ORACLE_SWITCHGENDER then
+		pic:SetImage("sign_gender");
+  elseif sellType == AUTO_ENCHANTAROR_STORE_OPEN then
+		pic:SetImage("sign_gender");
+	elseif sellType == AUTO_SELL_ENCHANTERARMOR then
+		pic:SetImage("sign_enchant");
+  elseif sellType == AUTO_SELL_ORACLE_SWITCHGENDER then
+		pic:SetImage("sign_gender");
 	else
 		pic:SetImage("sign_buy");
 	end
@@ -58,10 +63,10 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 	frame:SetUserValue("SELL_TYPE", sellType);
 	frame:SetUserValue("HANDLE", handle);
 
-	-- level을 표시해야 하는 경우 레벨과 타이틀이 함께 있는 ui를 보여주고, 아니면 이름만 보여줌
+	-- level???�시?�야 ?�는 경우 ?�벨�??�?��????�께 ?�는 ui�?보여주고, ?�니�??�름�?보여�?
 	local lvBox = frame:GetChild("withLvBox")
 	local text = frame:GetChild("text");
-	if sellType == AUTO_SELL_BUFF or sellType == AUTO_SELL_GEM_ROASTING or sellType == AUTO_SELL_SQUIRE_BUFF then		
+	if sellType == AUTO_SELL_BUFF or sellType == AUTO_SELL_GEM_ROASTING or sellType == AUTO_SELL_SQUIRE_BUFF or sellType == AUTO_SELL_ENCHANTERARMOR then
 		local lvText = lvBox:GetChild("lv_text")
 		local lvTitle = lvBox:GetChild('lv_title')
 		lvText:SetTextByKey("value", skillLv)
@@ -90,8 +95,8 @@ function BUFFSELLER_OPEN(parent, ctrl)
 		local frame = ui.GetFrame("foodtable_ui");
 		session.camp.RequestOpenFoodTable(handle);
 	else
-	session.autoSeller.RequestOpenShop(handle, sellType);
-end
+		session.autoSeller.RequestOpenShop(handle, sellType);
+	end
 end
 
 function CLOSE_SQUIRE_STORE(handle, skillID)
@@ -100,7 +105,7 @@ function CLOSE_SQUIRE_STORE(handle, skillID)
 	end
 
 	local skillName = GetClassByType("Skill", skillID).ClassName;
-	 -- GetUserIValue 는 string, GetUserIValue inter!
+	 -- GetUserIValue ??string, GetUserIValue inter!
 
 	if "Squire_Repair" == skillName then
 		local repair = ui.GetFrame("itembuffrepair");

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_hydra_skl_4"/>
+    <Particle frame="19" particleName="F_smoke082" attachNode="Bip01 R Finger0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOn frame="20" R="7" G="15" B="13" A="10"/>
+    <Particle frame="20" particleName="I_force073_mint" attachNode="Bip01 Tail4" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="24" particleName="F_smoke082" attachNode="Bip01 L Finger0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="25" particleName="F_smoke082" attachNode="Bip01 L Toe0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="28" particleName="F_smoke082" attachNode="Bip01 R Toe0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOn frame="30" R="15" G="30" B="25" A="25"/>
+    <BlendOn frame="40" R="30" G="60" B="50" A="50"/>
+    <BlendOn frame="50" R="35" G="70" B="58" A="60"/>
+    <Particle frame="50" particleName="I_force073_mint" attachNode="Bip01 Tail4" scale="4" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="60.00" soundFile="skl_eff_spread_4"/>
+    <Particle frame="62" particleName="hydra_skl2" attachNode="Dummy_emiitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="63" particleName="E_hydra_skl2" attachNode="Dummy_emiitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="63" particleName="E_hydra_skl2" attachNode="Dummy_emiitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="64" particleName="E_hydra_skl2" attachNode="Dummy_emiitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="64" particleName="E_hydra_skl2" attachNode="Dummy_emiitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="65" particleName="E_hydra_skl2" attachNode="Dummy_emiitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="65" particleName="E_hydra_skl2" attachNode="Dummy_emiitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="65" particleName="F_smoke079" attachNode="eff_skl02_trail" scale="4" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="66.00" soundFile="skl_eff_dash_1"/>
+    <Particle frame="66" particleName="E_hydra_skl2" attachNode="Dummy_emiitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="66" particleName="E_hydra_skl2" attachNode="Dummy_emiitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="66.47" soundFile="skl_eff_tornado"/>
+    <BlendOn frame="67" R="100" G="150" B="145" A="100"/>
+    <Particle frame="72" particleName="I_swordtrail018_white" attachNode="eff_skl02_trail" scale="1.8" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="72" particleName="I_swordtrail018_white" attachNode="eff_skl02_trail" scale="1.8" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOn frame="85" R="60" G="130" B="110" A="70"/>
+    <BlendOn frame="95" R="30" G="60" B="50" A="50"/>
+    <BlendOn frame="105" R="15" G="30" B="25" A="25"/>
+    <Particle frame="105" particleName="F_smoke082" attachNode="Bip01 L Toe0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="115" particleName="I_smoke035" attachNode="Bip01 Tail4" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="115" particleName="I_smoke035" attachNode="Bip01 Tail4" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="115" particleName="F_smoke082" attachNode="Bip01 R Toe0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="118" particleName="F_smoke082" attachNode="Bip01 R Finger0" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOff frame="120" R="0" G="0" B="0" A="0"/>
+    <Particle frame="129" particleName="F_smoke082" attachNode="Bip01 L Finger0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="130" particleName="F_smoke082" attachNode="Bip01 R Toe0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="135" particleName="F_smoke082" attachNode="Bip01 L Finger0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="141" particleName="F_smoke082" attachNode="Bip01 L Toe0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="141" particleName="F_smoke082" attachNode="Bip01 R Finger0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

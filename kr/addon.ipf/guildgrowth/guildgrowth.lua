@@ -1,11 +1,10 @@
-
+﻿
 function GUILDGROWTH_ON_INIT(addon, frame)
 	
 	addon:RegisterMsg("OPEN_DLG_GUILDGROWTH", "ON_OPEN_DLG_GUILDGROWTH");		
 	addon:RegisterOpenOnlyMsg("GUILD_PROPERTY_UPDATE", "GUILDGROWTH_GUILD_PROPERTY_UPDATE");
+	addon:RegisterOpenOnlyMsg("GUILD_SKILL_UPDATE", "GUILDGROWTH_UPDATE_SKIL");
 	addon:RegisterOpenOnlyMsg("GUILD_MEMBER_PROP_UPDATE", "GUILDGROWTH_GUILD_PROPERTY_UPDATE");
-	
-
 end
 
 function ON_OPEN_DLG_GUILDGROWTH(frame)
@@ -15,15 +14,14 @@ end
 function GUILDGROWTH_UPDATE_ABILITY(frame, guildObj)
 
 	local abilities = GET_CHILD(frame, "abilities");
-
-	local txt_current_point = GET_CHILD(abilities, "txt_current_point");
+	local gbox_ability = GET_CHILD(abilities, 'gbox_ability');
+	local txt_current_point = GET_CHILD(gbox_ability, "txt_current_point");
 	local used = guildObj.UsedAbilStat;
 	local current = GET_GUILD_ABILITY_POINT(guildObj);
 	local ablePoint = current - used;
 	local ablePointText = ScpArgMsg("UsableAbilityPoint") .. " : " .. ablePoint;	
 	txt_current_point:SetTextByKey("value", ablePointText);
-	
-	local gbox_ability = abilities:GetChild("gbox_ability");
+
 	local gbox_list = gbox_ability:GetChild("gbox_list");
 	gbox_list:RemoveAllChild();
 	
@@ -35,8 +33,6 @@ function GUILDGROWTH_UPDATE_ABILITY(frame, guildObj)
 	end
 
 	GBOX_AUTO_ALIGN(gbox_list, 10, 10, 10, true, false);
-	
-
 end
 
 function UPDATE_GUILD_ABILITY_CTRLSET(ctrlSet, cls, guildObj)
@@ -73,6 +69,12 @@ end
 
 function GUILD_ABILITY_UP(parent, ctrl)
 
+	local isLeader = AM_I_LEADER(PARTY_GUILD);
+	if isLeader == 0 then
+		ui.MsgBox(ScpArgMsg("OnlyGuildLeader"));
+		return;
+	end
+
 	local clsID = parent:GetUserIValue("CLASSID");
 	local yesScp = string.format("_EXEC_GUILD_ABILITY_UP(%d)", clsID);
 	ui.MsgBox( ScpArgMsg("ExecLearnAbility"), yesScp, "None");
@@ -98,7 +100,9 @@ function _EXEC_GUILD_ABILITY_UP(clsID)
 end
 
 function GUILDGROWTH_OPEN(frame)
-
+	if frame == nil then
+		frame = ui.GetFrame('guildgrowth');
+	end
 	local pcGuild = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcGuild == nil then
 		--frame:ShowWindow(0);
@@ -146,7 +150,98 @@ function GUILDGROWTH_OPEN(frame)
 
 	GUILDGROWTH_UPDATE_CONTRIBUTION(frame, guildObj)
 	GUILDGROWTH_UPDATE_ABILITY(frame, guildObj);
+	GUILDGROWTH_UPDATE_SKIL(frame, guildObj);
+end
 
+function GUILD_SKILL_UP(frame, ctrl)
+	local isLeader = AM_I_LEADER(PARTY_GUILD);
+	if isLeader == 0 then
+		ui.MsgBox(ScpArgMsg("OnlyGuildLeader"));
+		return;
+	end
+
+	local sklName = frame:GetUserValue("SKLNAME");
+	local yesScp = string.format("_EXEC_GUILD_SKILL_UP(\'%s\')", sklName);
+	ui.MsgBox( ScpArgMsg("LearnGuildSKil"), yesScp, "None");
+end
+
+function _EXEC_GUILD_SKILL_UP(sklName)
+	local skl = session.GetSkillByName(sklName)
+	if skl == nil then
+		ui.MsgBox(ScpArgMsg("NotEnoughPoint"));
+		return;
+	end
+
+	local pcGuild = session.party.GetPartyInfo(PARTY_GUILD);
+	local guildObj = GetIES(pcGuild:GetObject());
+
+	local obj = GetIES(skl:GetObject());	
+	local level = TryGetProp(guildObj, sklName .. '_Lv');
+	if nil == level then
+		level = 0;
+	end
+
+	if level > obj.Level then
+		ui.MsgBox(ScpArgMsg("NotEnoughPoint"));
+		return;
+	end
+
+	if false == HAS_GUILDGROWTH_SKL_OBJ(guildObj, sklName, obj.Level) then
+		ui.MsgBox(ScpArgMsg("DestoryBuilding"));
+		return;
+	end
+
+	local scpString = string.format("/learnguildskl %s", sklName);
+	ui.Chat(scpString);
+
+end
+
+function GUILDGROWTH_UPDATE_SKIL(frame, guildObj)
+	local ctrlset_growth = frame:GetChild("abilities");
+	local sklgBox = ctrlset_growth:GetChild("sklgBox");
+	local skl_list = sklgBox:GetChild("skl_list");
+	skl_list:RemoveAllChild();
+	local sklLIst = GET_TEMPLAR_GUILD_SKIL_LIST();
+
+	for i = 1 , #sklLIst do
+		local ctrlSet = skl_list:CreateControlSet("guild_skl_ctrl", "CTRLSET_" .. sklLIst[i],  ui.LEFT, ui.TOP, 0, 0, 0, 0);
+		local skl = session.GetSkillByName(sklLIst[i])		
+		local learnsklgBox = ctrlSet:GetChild("learnsklgBox");
+
+		 if nil ~= skl then
+			learnsklgBox:ShowWindow(0);
+			local level = TryGetProp(guildObj, sklLIst[i] .. '_Lv');
+			if nil == level then
+				level = 0;
+			end
+
+			local t_level = ctrlSet:GetChild("t_level");
+			t_level:SetTextByKey('value', level);
+			
+			local obj = GetIES(skl:GetObject());	
+			local t_skl_name = ctrlSet:GetChild("t_skl_name");
+			t_skl_name:SetTextByKey('value', obj.Name);
+
+			local t_skl_desc = ctrlSet:GetChild("t_skl_desc");
+			t_skl_desc:SetTextByKey('value', PARSE_TOOLTIP_CAPTION(obj, obj.Caption)); 
+			local pic = GET_CHILD(ctrlSet, "pic");
+			pic:SetImage( "icon_"..obj.Icon);
+			
+			ctrlSet:SetUserValue('SKLNAME', obj.ClassName);
+		 else
+			local cls = GetClass('Skill', sklLIst[i]);		
+			learnsklgBox:SetTextByKey('value', cls.Name);
+			local pic = ctrlSet:GetChild("pic");
+			pic:ShowWindow(0);
+
+			local t_level = ctrlSet:GetChild("t_level");
+			t_level:ShowWindow(0); 
+			local btn= ctrlSet:GetChild("btn");
+			btn:ShowWindow(0);
+		 end
+	end
+
+	GBOX_AUTO_ALIGN(skl_list, 10, 10, 10, true, false);
 end
 
 function GUILDGROWTH_UPDATE_CONTRIBUTION(frame, guildObj)
@@ -232,6 +327,14 @@ end
 
 function EXEC_GUILD_GROWTH_TALT(parent, ctrl)
 
+	local pic = GET_CHILD(parent, "pic");
+
+	local item = GET_SLOT_ITEM(pic);
+	if nil == item then
+		ui.SysMsg(ClMsg('NoTaltinTheSlot'));
+		return;
+	end;
+
 	local yesScp = "_EXEC_GUILD_GROWTH_TALT()";
 	ui.MsgBox(ScpArgMsg('REALLY_DO'), yesScp, "None");
 
@@ -257,8 +360,3 @@ function GUILDGROWTH_GUILD_PROPERTY_UPDATE(frame)
 	GUILDGROWTH_OPEN(frame);	
 
 end
-
-
-
-
-

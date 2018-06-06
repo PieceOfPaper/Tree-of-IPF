@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="7" attachNode="Dummy_effect_hand_L" particleName="I_wizard_Enchantment_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_effect_hand_L" particleName="I_force087_trail_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_LF_armband" particleName="I_force087_trail_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="15" attachNode="Dummy_effect_hand_L" particleName="I_force087_trail_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="15" attachNode="Dummy_LF_armband" particleName="I_force087_trail_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="3.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="9.00" soundFile="skl_fgt_tackle_cast_2"/>
+	<Sound frame="20.00" soundFile="step_marble_land"/>
+	<Sound frame="22.00" soundFile="jump_landing"/>
+</ActionDesc>

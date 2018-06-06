@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="58" particleName="I_swordtrail016_white" attachActor="None" attachNode="Dummy_skl3_effect_R" scale="1" useAttach="false" hiddenObj="false" pause="true" targetPos="false"/>
+	<Particle frame="62" particleName="I_swordtrail016_white" attachActor="None" attachNode="Dummy_skl3_effect_L" scale="1" useAttach="false" hiddenObj="false" pause="true" targetPos="false"/>
+	<Particle frame="68" particleName="F_smoke063" attachActor="None" attachNode="Dummy_emitter" scale="1" useAttach="false" hiddenObj="false" pause="true" targetPos="false"/>
+	<Particle frame="68" particleName="F_ground065_smoke" attachActor="None" attachNode="Dummy_emitter" scale="1" useAttach="false" hiddenObj="false" pause="true" targetPos="false"/>
+	<Particle frame="68" particleName="F_stone005" attachActor="None" attachNode="Dummy_emitter" scale="1" useAttach="false" hiddenObj="false" pause="true" targetPos="false"/>
+	<Particle frame="53" particleName="F_smoke109" attachActor="None" attachNode="Bip001 L Toe01" scale="2" useAttach="false" hiddenObj="false" pause="true" targetPos="false"/>
+	<Particle frame="53" particleName="F_stone005" attachActor="None" attachNode="Bip001 L Toe01" scale="1" useAttach="false" hiddenObj="false" pause="true" targetPos="false"/>
+	<Particle frame="53" particleName="F_smoke109" attachActor="None" attachNode="Bip001 R Toe01" scale="2" useAttach="false" hiddenObj="false" pause="true" targetPos="false"/>
+	<Particle frame="53" particleName="F_stone005" attachActor="None" attachNode="Bip001 R Toe01" scale="1" useAttach="false" hiddenObj="false" pause="true" targetPos="false"/>
+	<Sound frame="12.00" soundFile="mon_voice_bird_13"/>
+	<Sound frame="18.00" soundFile="mon_voice_ravinelerva_10"/>
+	<Sound frame="27.00" soundFile="mon_voice_ravinelerva_5"/>
+	<Sound frame="48.00" soundFile="mon_voice_bird_1"/>
+	<Sound frame="60.00" soundFile="skl_eff_bite_s_2"/>
+	<Sound frame="61.50" soundFile="skl_eff_dead_boom_s"/>
+</ActionDesc>

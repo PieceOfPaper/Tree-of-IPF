@@ -52,7 +52,7 @@ end
 function CONTEXT_MY_INFO(frame, ctrl)
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
 	local count = list:Count();
-	-- ?Œí‹°?ì´ ì¡´ì¬ ????
+	-- ÆÄÆ¼¿øÀÌ Á¸Àç ÇÒ ¶§
 	if 0 < count then
 		local context = ui.CreateContextMenu("CONTEXT_PARTY", "", 0, 0, 170, 100);
 		local campCount = 0;
@@ -116,7 +116,7 @@ function HEADSUPDISPLAY_ON_MSG(frame, msg, argStr, argNum)
 		local levelRichText = GET_CHILD(frame, "level_text", "ui::CRichText");
 		local level = GETMYPCLEVEL();
 
-        levelRichText:SetText('{@st41}Lv.'..level);
+        levelRichText:SetText('{@st41}Lv. '..level);
 
 		local MySession		= session.GetMyHandle()
 		local CharName		= info.GetFamilyName(MySession);
@@ -146,7 +146,7 @@ function HEADSUPDISPLAY_ON_MSG(frame, msg, argStr, argNum)
 		local hpRatio = stat.HP / stat.maxHP;
 
 		if  hpRatio <= 0.3 and hpRatio > 0 then
-            --hpGauge:SetBlink(0.0, 1.0, 0xffff3333); -- (duration, ì£¼ê¸°, ?‰ìƒ) -- ê²Œì´ì§€ ???ì— ?ë©¸?˜ëŠ” ë²„ê·¸ ?¡ê³  ?¨ì•¼??
+            --hpGauge:SetBlink(0.0, 1.0, 0xffff3333); -- (duration, ÁÖ±â, »ö»ó) -- °ÔÀÌÁö ¾ç ³¡¿¡ Á¡¸êµÇ´Â ¹ö±× Àâ°í ½á¾ßÇÔ.
 		else
 			hpGauge:ReleaseBlink();
 		end
@@ -172,12 +172,12 @@ function STAMINA_UPDATE(frame, msg, argStr, argNum)
 	local stamanaValue = stat.Stamina;
 
 	if stamanaValue > 0 then
-		stamanaValue = stamanaValue + 999;		-- ui?ì„œ 0?¸ë° ?¤ì œë¡œëŠ” ?„ì§ staê°€ ?¨ì•„?ˆì–´??uiì¶œë ¥? ë•Œ 999?”í•´??ì¶œë ¥?? 1000?¼ë¡œ?˜ë©´ maxë³´ë‹¤ ?¬ë¼ê°€ë¯€ë¡?999ë¡?
+		stamanaValue = stamanaValue + 999;		-- ui¿¡¼­ 0ÀÎµ¥ ½ÇÁ¦·Î´Â ¾ÆÁ÷ sta°¡ ³²¾ÆÀÖ¾î¼­ uiÃâ·ÂÇÒ¶§ 999´õÇØ¼­ Ãâ·ÂÇÔ. 1000À¸·ÎÇÏ¸é maxº¸´Ù ¿Ã¶ó°¡¹Ç·Î 999·Î.
 	end
 
 	stGauge:SetPoint(stamanaValue  / 1000 , stat.MaxStamina / 1000);
 	stGauge:SetTextTooltip(string.format("{@st42b}%d / %d{/}", stamanaValue / 1000, stat.MaxStamina / 1000));
-	
+
 	local stamina_text = GET_CHILD_RECURSIVELY(frame, "stamina_text");
 	stamina_text:SetTextByKey("nowVal",math.floor(stamanaValue / 1000))
 	stamina_text:SetTextByKey("maxVal",math.floor(stat.MaxStamina / 1000))

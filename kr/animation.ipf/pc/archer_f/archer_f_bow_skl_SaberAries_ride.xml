@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="0.00" soundFile="skl_eff_saberaries_light"/>
+    <Shockwave frame="6" type="2" intensity="10" frequency="70" duration="0.1" range="1000"/>
+    <BlendOn frame="6" R="160" G="200" B="230" A="100"/>
+    <Particle frame="6" attachNode="Dummy_emitter_pet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_emitter_pet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_arrow_effect_sword" particleName="I_archer_StormBolt_shot_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="7" R="120" G="100" B="180" A="50"/>
+    <Shockwave frame="8" type="2" intensity="1" frequency="70" duration="1" range="1000"/>
+    <BlendOn frame="8" R="30" G="40" B="60" A="100"/>
+    <BlendOn frame="9" R="0" G="0" B="0" A="50"/>
+    <Particle frame="10" attachNode="Dummy_arrow_effect_sword001" particleName="I_rize009_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="10" attachNode="Dummy_arrow_effect_sword002" particleName="I_rize009_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="10" attachNode="Dummy_arrow_effect_sword003" particleName="I_rize009_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="13" attachNode="Dummy_arrow_effect_sword001" particleName="I_rize009_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="13" attachNode="Dummy_arrow_effect_sword002" particleName="I_rize009_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="13" attachNode="Dummy_arrow_effect_sword003" particleName="I_rize009_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

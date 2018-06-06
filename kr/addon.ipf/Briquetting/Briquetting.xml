@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="briquetting" x="0" y="0" width="450" height="1200" create="open">
     <frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
     <skin frameskin=" "/>
@@ -9,8 +8,8 @@
     <effect open="skilltreeOpen" close="skilltreeClose"/>
     <controls>
         <groupbox name="bg" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
-        <groupbox name="bg_mid" rect="0 0 430 590" margin="0 350 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
-        <groupbox name="bodyGbox" rect="0 0 450 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+        <groupbox name="bg_mid" rect="0 0 430 590" margin="1 338 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="test_frame_midle"/>
+        <groupbox name="bodyGbox" rect="0 0 450 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="gem_socket_bg"/>
         <groupbox name="reqitem_slot" parent="bodyGbox" rect="0 0 78 78" margin="30 600 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
         <groupbox name="pip4" rect="0 0 450 70" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
         <labelline name="repairLine1_1" rect="0 0 420 2" margin="0 650 0 0" layout_gravity="conter top" skin="None"/>
@@ -36,5 +35,10 @@
         <richtext name="materiaICount" parent="bodyGbox" rect="0 0 120 24" margin="0 635 30 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
         <richtext name="metarialName" parent="bodyGbox" rect="0 0 120 24" margin="122 612 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
         <richtext name="materiaIimage" parent="bodyGbox" rect="0 0 120 24" margin="37 612 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+        <labelline name="repairLine1_1_1" rect="0 0 420 2" margin="0 759 0 0" layout_gravity="conter top" skin="None"/>
+        <richtext name="spendMainStr_1" parent="bodyGbox" rect="0 0 120 24" margin="33 710 0 0" layout_gravity="left top" caption="외형 변경" drawbackground="false" fixwidth="false" fontname="white_18_ol" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+        <checkbox name="checkbox_2" margin="40 797 0 0" rect="0 0 120 24" caption="{@st45tw2}재료 무기{/}" clicksound="button_click_big" oversound="button_over" ConfigName="ViewServerFPS" layout_gravity="left top" LBtnUpScp="BRIQUETTING_SELECT_WEAPON"/>
+
+        <richtext name="check2Name" margin="214 827 17 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
     </controls>
 </uiframe>

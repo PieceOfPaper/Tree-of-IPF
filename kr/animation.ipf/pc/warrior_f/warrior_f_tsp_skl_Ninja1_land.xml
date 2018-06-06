@@ -4,7 +4,7 @@
     <Sound frame="0" Value="0" soundFile="skl_eff_ninja_landing"/>
     <Sound frame="0.00" soundFile="skl_eff_body_atk_2"/>
     <Particle frame="3.33" attachNode="Dummy_emitter" particleName="F_smoke062_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
-    <Particle frame="4" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="4" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_murmillo_landing"/>
     <Particle frame="5" attachNode="Dummy_emitter" particleName="F_warrior_ninja_shot_smoke2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
     <Sound frame="6.00" soundFile="skl_eff_landing_s"/>
 </ActionDesc>

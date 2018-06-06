@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="28" R="60" G="60" B="80" A="80"/>
+	<BlendOn frame="29" R="30" G="30" B="60" A="50"/>
+	<BlendOn frame="30" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="31" R="60" G="60" B="80" A="80"/>
+	<BlendOn frame="32" R="30" G="30" B="60" A="50"/>
+	<BlendOn frame="33" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="34" R="60" G="60" B="80" A="80"/>
+	<BlendOn frame="35" R="30" G="30" B="60" A="50"/>
+	<BlendOn frame="36" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="37" R="60" G="60" B="80" A="80"/>
+	<BlendOn frame="38" R="30" G="30" B="60" A="50"/>
+	<BlendOn frame="39" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="40" R="60" G="60" B="80" A="80"/>
+	<BlendOn frame="41" R="30" G="30" B="60" A="50"/>
+	<BlendOn frame="42" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="43" R="60" G="60" B="80" A="80"/>
+	<BlendOn frame="44" R="30" G="30" B="60" A="50"/>
+	<BlendOn frame="45" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="46" R="60" G="60" B="80" A="80"/>
+	<BlendOn frame="47" R="30" G="30" B="60" A="50"/>
+	<BlendOn frame="48" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="49" R="60" G="60" B="80" A="80"/>
+	<BlendOn frame="50" R="30" G="30" B="60" A="50"/>
+	<BlendOn frame="51" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="52" R="60" G="60" B="80" A="80"/>
+	<BlendOn frame="53" R="30" G="30" B="60" A="50"/>
+	<BlendOn frame="54" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="55" R="60" G="60" B="80" A="80"/>
+	<BlendOn frame="56" R="30" G="30" B="60" A="50"/>
+	<BlendOn frame="57" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="58" R="60" G="60" B="80" A="80"/>
+	<BlendOn frame="59" R="30" G="30" B="60" A="50"/>
+	<BlendOn frame="60" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="26" R="0" G="0" B="0" A="0"/>
+	<Particle frame="30" attachNode="Bip01 Spine" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Bip01 Spine" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Bip01 Spine" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_wing_R2" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_wing_R1" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_wing_L2" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_wing_L1" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Dummy_wing_R2" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Dummy_wing_R1" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Dummy_wing_L2" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Dummy_wing_L1" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Dummy_wing_R2" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Dummy_wing_R1" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Dummy_wing_L2" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Dummy_wing_L1" particleName="I_smoke058_violet3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="28" attachNode="Dummy_wepon" particleName="I_bomb008_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="50" attachNode="Dummy_wepon" particleName="I_bomb008_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Dummy_wepon" particleName="I_bomb008_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="root1" particleName="F_spin016_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="26" attachNode="Bip01 Spine" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_voice_lapene_skl1_cast"/>
+	<Sound frame="0.00" soundFile="mon_voice_mushwort_8"/>
+	<Sound frame="0.00" soundFile="mon_tomblord_skl_2"/>
+	<Sound frame="12.00" soundFile="mon_voice_lapene_skl3_shot"/>
+</ActionDesc>

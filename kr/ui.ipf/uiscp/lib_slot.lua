@@ -23,7 +23,6 @@ function SET_SLOT_ITEM_INFO(slot, itemCls, count)
 	icon:Set(itemCls.Icon, "item", itemCls.ClassID, count);
 	slot:SetText('{s12}{ol}{b}'..count, 'count', 'right', 'bottom', -2, 1);
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
-	SET_ITEM_TOOLTIP_BY_TYPE(slot, itemCls.ClassID);
 	return icon;
 end
 
@@ -48,7 +47,7 @@ function SET_SLOT_ITEM_OBJ(slot, itemCls, gender, isBarrack)
 	end
 end
 
-function SET_SLOT_INVITEM(slot, invItem, cnt)
+function SET_SLOT_INVITEM(slot, invItem, cnt, font, hor, ver, stateX, stateY)
 	if cnt == nil then
 		cnt = invItem.count;
 	end
@@ -60,7 +59,7 @@ function SET_SLOT_INVITEM(slot, invItem, cnt)
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, invItem, invItem.ClassName, 'None', invItem.type, invItem:GetIESID());
 --SET_ITEM_TOOLTIP_TYPE(icon, invItem.type);
 --icon:SetTooltipArg('None', invItem.type, invItem:GetIESID());
-	SET_SLOT_COUNT_TEXT(slot, cnt);
+	SET_SLOT_COUNT_TEXT(slot, cnt, font, hor, ver, stateX, stateY);
 end
 
 function SET_SLOT_ITEM_INV(slot, itemCls)
@@ -96,7 +95,8 @@ function SET_SLOT_ITEM_IMANGE(slot, invItem)
 
 	local obj = GetIES(invItem:GetObject());
 	local icon = CreateIcon(slot);
-	icon:Set(obj.Icon, 'None', invItem.type, invItem.count, invItem:GetIESID(), cnt);
+	local iconName = GET_ITEM_ICON_IMAGE(obj);
+	icon:Set(iconName, 'None', invItem.type, invItem.count, invItem:GetIESID(), cnt);
 	
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, invItem, invItem.ClassName, 'None', invItem.type, invItem:GetIESID());
 end
@@ -106,7 +106,8 @@ function SET_SLOT_ITEM(slot, invItem, count)
 	local itemCls = GetClassByType("Item", invItem.type);
 
 	local type = itemCls.ClassID;
-	local img = itemCls.Icon;
+	local obj = GetIES(invItem:GetObject());
+	local img = GET_ITEM_ICON_IMAGE(obj);
 	SET_SLOT_IMG(slot, img)
 	SET_SLOT_COUNT(slot, count)
 	SET_SLOT_IESID(slot, invItem:GetIESID())
@@ -195,8 +196,28 @@ function CreateSlotFolderIcon(slotFolder, index)
 	return icon;
 end
 
-function SET_SLOT_COUNT_TEXT(slot, cnt)
-		slot:SetText('{s18}{ol}{b}'..cnt, 'count', 'right', 'bottom', -2, 1);
+function SET_SLOT_COUNT_TEXT(slot, cnt, font, hor, ver, stateX, stateY)
+		if font == nil then
+			font = '{s18}{ol}{b}';
+		end
+		
+		if hor == nil then
+			hor = 'right';
+		end
+
+		if ver == nil then
+			ver = 'bottom';
+		end
+
+		if stateX == nil then
+			stateX = -2;
+		end
+
+		if stateY == nil then
+			stateY = 1;
+		end
+		
+		slot:SetText(font..cnt, 'count', hor, ver, stateX, stateY);
 end
 
 function SET_SLOT_ITEM_TEXT(slot, invItem, obj)

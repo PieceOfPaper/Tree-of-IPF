@@ -84,7 +84,7 @@ function AUTORESIZE_RESTART(frame)
 		return;
 	end
 	campGroup:RemoveAllChild();
-	-- ÆÄÆ¼¿øÀÌ Á¸Àç ÇÒ ¶§
+	-- ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
 	if 0 < count then
 		local y = 0;
 		for i = 0 , count - 1 do
@@ -148,6 +148,12 @@ function RESTART_MOVE_INDEX(frame, isDown)
 end
 
 function RESTART_ON_MSG(frame, msg, argStr, argNum)
+
+	local minigameover = ui.GetFrame('minigameover');	
+	if minigameover:IsVisible() == 1 then
+		return;
+	end;
+
 
 	if msg == 'RESTART_HERE' then
 		for i = 1 , 5 do

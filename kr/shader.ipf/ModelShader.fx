@@ -27,7 +27,7 @@ float 		g_timeStamp = 0.0f;
 #ifdef ENABLE_INSTANCING
 int			g_InstanceCount;
 float4x4	g_InstanceTMArray[30]				: INSTANCE_TMARRAY;
-float4		g_InstanceVecArray[30];
+float4		g_InstanceVecArray[40];
 #endif
 
 // 3d캐릭터 2d로 그리는거
@@ -55,10 +55,7 @@ float4 		g_outLineValue = float4(-12.0f, -30.0f, 0.0f, -40.0f);
 
 	// 표정 관련 정보
 	#ifdef ENABLE_FACE
-	float g_faceXm = 0.0f;
-	float g_faceXa = 0.0f;
-	float g_faceYm = 0.0f;
-	float g_faceYa = 0.0f;
+		float4 g_faceXYMulAdd = 0.0f;
 	#endif
 #endif
 
@@ -325,14 +322,17 @@ float4 CalcWVP(float4 Pos)
 #ifdef ENABLE_INSTANCING
 float4 CalcWVPSilhouette(float3 Pos, int tmIndex)
 {
+	// 아래의 로직 때문에 컴페니언 탑승시 컴페니언의 실루엣이 위아래로 납작하게 눌려버리는 문제가 발생한다.
+	// 없어도 실루엣을 그리는데 문제가 없지만, 미쳐 예상하지 못한 부분에서 문제가 발생할수도,
 	float4 pivotPoint = g_InstanceVecArray[tmIndex];
-	float stepChk = step(Pos.y, pivotPoint.y);
-	float y = Pos.y;
-	Pos.y += (pivotPoint.y - Pos.y) * stepChk;
+	//float stepChk = step(Pos.y, pivotPoint.y);
+	//float y = Pos.y;
+	//Pos.y += (pivotPoint.y - Pos.y) * stepChk;
 
 	float4 WorldPos = float4(Pos, 1);
 
 	float4 Out = 0;
+
 	#ifdef ENABLE_2D
 		Out = mul(WorldPos, g_InstanceTMArray[g_InstanceCount * 2 + tmIndex]);
 		Out /= Out.w;
@@ -355,11 +355,13 @@ float4 CalcWVPSilhouette(float3 Pos, int tmIndex)
 #else
 float4 CalcWVPSilhouette(float3 Pos)
 {
-	float stepChk = step(Pos.y, g_pivotPoint.y);
-	float y = Pos.y;
-	Pos.y += (g_pivotPoint.y - Pos.y) * stepChk;
+	// 아래의 로직 때문에 컴페니언 탑승시 컴페니언의 실루엣이 위아래로 납작하게 눌려버리는 문제가 발생한다.
+	// 없어도 실루엣을 그리는데 문제가 없지만, 미쳐 예상하지 못한 부분에서 문제가 발생할수도,
+	//float stepChk = step(Pos.y, g_pivotPoint.y);
+	//float y = Pos.y;
+	//Pos.y += (g_pivotPoint.y - Pos.y) * stepChk;
 
-	float4 WorldPos = float4(Pos, 1);
+	float4 WorldPos = float4(Pos, 1.f);
 
 	float4 Out = 0;
 	#ifdef ENABLE_2D
@@ -443,7 +445,10 @@ void CalcDiffuseTexCoord(in float2 texCoord, out float2 outTexCoord)
 
 VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
 #ifdef ENABLE_SKINNING
-	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES, in float tmID : TEXCOORD2
+	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
+#endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
 #endif
 	, float xAdd, float yAdd
 	)
@@ -522,11 +527,12 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 
 	o.worldPos.xyz = worldPos - zeroPos;
 #endif
-	//Diffuse
+
 #ifdef ENABLE_DIFFUSETEX
 	CalcDiffuseTexCoord(Tex.xy, o.diffuseTexCoord.xy);
 #endif
 	o.worldPos.w = 0.0f;
+
 #ifdef ENABLE_GRASS
 	float3 viewPos = mul(localPos, WorldViewTM);
 
@@ -594,14 +600,18 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 
 	o.viewVec = g_InvViewTM[3].xyz - worldPos;
 	o.worldNml.xyz = mul(localNml, (float3x3)WorldTM).xyz;
-#ifdef ENABLE_DIFFUSETEX
-	// 얼굴 그리는 부분
-	#ifdef ENABLE_FACE			
-		o.diffuseTexCoord.x = g_faceXm * o.diffuseTexCoord.x + g_faceXa;
-		o.diffuseTexCoord.y = g_faceYm * o.diffuseTexCoord.y + g_faceYa;
-	#endif
-#endif
 
+	#ifdef ENABLE_DIFFUSETEX
+		// 얼굴 그리는 부분
+		#ifdef ENABLE_FACE
+			float4 faceXYMulAdd = g_faceXYMulAdd;
+			#ifdef ENABLE_INSTANCING
+				faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 3 + tmIndex];
+			#endif
+			o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
+			o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
+		#endif
+	#endif
 #endif
 
 #if defined(ENABLE_DEPTH_RENDER) || defined(ENABLE_DEPTH_MRT)
@@ -619,62 +629,109 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 
 VS_OUT VS_HeadOutlineModelShader1(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
 #ifdef ENABLE_SKINNING
-	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES, in float tmID : TEXCOORD2
+	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
+#endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
 #endif
 	)
 {
 #ifdef ENABLE_SKINNING
-	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, -0.8f, 0.0f);
+	#ifdef ENABLE_INSTANCING
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, -0.8f, 0.0f);
+	#else
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, -0.8f, 0.0f);
+	#endif
 #else
-	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, -0.8f, 0.0f);
+	#ifdef ENABLE_INSTANCING
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, -0.8f, 0.0f);
+	#else
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, -0.8f, 0.0f);
+	#endif
 #endif
 }
 
 
 VS_OUT VS_HeadOutlineModelShader2(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
 #ifdef ENABLE_SKINNING
-	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES, in float tmID : TEXCOORD2
+	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
+#endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
 #endif
 	)
 {
 #ifdef ENABLE_SKINNING
-	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.8f, 0.0f);
+	#ifdef ENABLE_INSTANCING
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.8f, 0.0f);
+	#else
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, 0.8f, 0.0f);
+	#endif
 #else
-	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.8f, 0.0f);
+	#ifdef ENABLE_INSTANCING
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, 0.8f, 0.0f);
+	#else
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.8f, 0.0f);
+	#endif
 #endif
 }
 
 
 VS_OUT VS_HeadOutlineModelShader3(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
 #ifdef ENABLE_SKINNING
-	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES, in float tmID : TEXCOORD2
+	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
+#endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
 #endif
 	)
 {
 #ifdef ENABLE_SKINNING
-	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.0f, -0.8f);
+	#ifdef ENABLE_INSTANCING
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.0f, -0.8f);
+	#else
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, 0.0f, -0.8f);
+	#endif
 #else
-	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.0f, -0.8f);
+	#ifdef ENABLE_INSTANCING
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, 0.0f, -0.8f);
+	#else
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.0f, -0.8f);
+	#endif	
 #endif
 }
 
 
 VS_OUT VS_HeadOutlineModelShader4(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
 #ifdef ENABLE_SKINNING
-	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES, in float tmID : TEXCOORD2
+	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
+#endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
 #endif
 	)
 {
 #ifdef ENABLE_SKINNING
-	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.0f, 0.8f);
+	#ifdef ENABLE_INSTANCING
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.0f, 0.8f);
+	#else
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, 0.0f, 0.8f);
+	#endif
 #else
-	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.0f, 0.8f);
+	#ifdef ENABLE_INSTANCING
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, 0.0f, 0.8f);
+	#else
+		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.0f, 0.8f);
+	#endif
 #endif
 }
 
 VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
 #ifdef ENABLE_SKINNING
-	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES, in float tmID : TEXCOORD2
+	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
+#endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
 #endif
 	)
 {
@@ -820,14 +877,17 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 
 	o.viewVec = g_InvViewTM[3].xyz - worldPos;
 	o.worldNml.xyz = mul(localNml, (float3x3)WorldTM).xyz;
-#ifdef ENABLE_DIFFUSETEX
-	// 얼굴 그리는 부분
-	#ifdef ENABLE_FACE
-		o.diffuseTexCoord.x = g_faceXm * o.diffuseTexCoord.x + g_faceXa;
-		o.diffuseTexCoord.y = g_faceYm * o.diffuseTexCoord.y + g_faceYa;
+	#ifdef ENABLE_DIFFUSETEX
+		// 얼굴 그리는 부분
+		#ifdef ENABLE_FACE
+			float4 faceXYMulAdd = g_faceXYMulAdd;
+			#ifdef ENABLE_INSTANCING
+				faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 3 + tmIndex];
+			#endif
+			o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
+			o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
+		#endif
 	#endif
-#endif
-
 #endif
 
 #if defined(ENABLE_DEPTH_RENDER) || defined(ENABLE_DEPTH_MRT)
@@ -844,7 +904,10 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 
 VS_OUT VS_OutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
 #ifdef ENABLE_SKINNING
-	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES, in float tmID : TEXCOORD2
+	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
+#endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
 #endif
 	)
 {
@@ -923,7 +986,10 @@ VS_OUT VS_OutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 
 VS_OUT VS_ColorOutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
 #ifdef ENABLE_SKINNING
-	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES, in float tmID : TEXCOORD2
+	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
+#endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
 #endif
 	)
 {
@@ -1003,7 +1069,10 @@ VS_OUT VS_ColorOutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMA
 
 VS_OUT VS_Silhouette(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
 #ifdef ENABLE_SKINNING
-	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES, in float tmID : TEXCOORD2
+	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
+#endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
 #endif
 	)
 {
@@ -1072,9 +1141,14 @@ VS_OUT VS_Silhouette(in float4 InPos : POSITION, in float4 InNml : NORMAL, in fl
 	o.viewVec = g_InvViewTM[3].xyz - worldPos;
 	o.worldNml.xyz = mul(localNml, (float3x3)WorldTM).xyz;
 
+	// 얼굴 그리는 부분
 	#ifdef ENABLE_FACE
-		o.diffuseTexCoord.x = g_faceXm * o.diffuseTexCoord.x + g_faceXa;
-		o.diffuseTexCoord.y = g_faceYm * o.diffuseTexCoord.y + g_faceYa;
+		float4 faceXYMulAdd = g_faceXYMulAdd;
+		#ifdef ENABLE_INSTANCING
+			faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 3 + tmIndex];
+		#endif
+		o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
+		o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
 	#endif
 #endif
 	o.outDepth = o.Pos/o.Pos.w;
@@ -1257,8 +1331,8 @@ float4 PS_WaterRender(VS_OUT In) : COLOR
 	In.outDepth.y /= In.outDepth.w;
 
 	double2 scrTexOut;
-	scrTexOut.x = (In.outDepth.x + 1.0f) / 2;
-	scrTexOut.y = (2.0f - (In.outDepth.y + 1.0f)) / 2;
+	scrTexOut.x = (In.outDepth.x + 1.0f) * 0.5f;
+	scrTexOut.y = (2.0f - (In.outDepth.y + 1.0f)) * 0.5f;
 
 	// 스크린 오프셋 (매직넘버)
 	scrTexOut.x += 0.0005f;
@@ -1410,9 +1484,9 @@ float GetLuminance(float3 sourceColor)
 
 float4 PS_Silhouette(VS_OUT In) : COLOR
 {
-	double2 scrTexOut;
-	scrTexOut.x = (In.outDepth.x + 1.0f) / 2;
-	scrTexOut.y = (2.0f - (In.outDepth.y + 1.0f)) / 2;
+	float2 scrTexOut;
+	scrTexOut.x = (In.outDepth.x + 1.0f) * 0.5f;
+	scrTexOut.y = (2.0f - (In.outDepth.y + 1.0f)) * 0.5f;
 	// 스크린 오프셋 (매직넘버)
 	scrTexOut.x += 0.0005f;
 	scrTexOut.y += 0.0006f;
@@ -1430,9 +1504,9 @@ float4 PS_SilhouetteHead(VS_OUT In) : COLOR
 	alpha = tex2D(diffuseTex, In.diffuseTexCoord).a;
 #endif
 
-	double2 scrTexOut;
-	scrTexOut.x = (In.outDepth.x + 1.0f) / 2;
-	scrTexOut.y = (2.0f - (In.outDepth.y + 1.0f)) / 2;
+	float2 scrTexOut;
+	scrTexOut.x = (In.outDepth.x + 1.0f) * 0.5f;
+	scrTexOut.y = (2.0f - (In.outDepth.y + 1.0f)) * 0.5f;
 	// 스크린 오프셋 (매직넘버)
 	scrTexOut.x += 0.0005f;
 	scrTexOut.y += 0.0006f;
@@ -1440,16 +1514,15 @@ float4 PS_SilhouetteHead(VS_OUT In) : COLOR
 
 	float4 color = float4(0.0f, 0.0f, 0.0f, 1.0f);
 	color.rgb = 1.0f - GetLuminance(screenTexColor);
-	color.a = step(0.2f, alpha);
+	color.a = alpha;
 	return color;
 }
 
 #ifdef ENABLE_DEPTH_MRT
-OUT_COLOR 
+OUT_COLOR PS_CharacterShader(VS_OUT In)
 #else
-float4 
+float4 PS_CharacterShader(VS_OUT In) : COLOR
 #endif
-PS_CharacterShader(VS_OUT In) : COLOR
 {
 	float4 diffTexColor = 1;
 	float  alpha = 0;
@@ -1897,7 +1970,23 @@ PS_TEST(VS_OUT In) : COLOR
 				SRGBWRITEENABLE = FALSE;
 				CullMode = none;
 				AlphaTestEnable = true;
-				AlphaRef = 0x90;
+				AlphaRef = 0x30;
+				AlphaFunc = Greater;
+				ZEnable = true;
+				ZFunc = LessEqual;
+				ZWriteEnable = true;
+				VertexShader = compile vs_3_0 VS_ModelShader();
+				PixelShader = compile ps_3_0 PS_BillBoardHead();
+			}
+		}
+
+		technique BillboardHeadSnapShotTq
+		{
+			pass P0 {
+				SRGBWRITEENABLE = FALSE;
+				CullMode = none;
+				AlphaTestEnable = true;
+				AlphaRef = 0xb4;
 				AlphaFunc = Greater;
 				ZEnable = true;
 				ZFunc = LessEqual;
@@ -1913,7 +2002,7 @@ PS_TEST(VS_OUT In) : COLOR
 				SRGBWRITEENABLE = FALSE;
 				CullMode = none;
 				AlphaTestEnable = true;
-				AlphaRef = 0x90;
+				AlphaRef = 0x30;
 				AlphaFunc = Greater;
 				ZEnable = true;
 				ZFunc = LessEqual;
@@ -1925,7 +2014,7 @@ PS_TEST(VS_OUT In) : COLOR
 				SRGBWRITEENABLE = FALSE;
 				CullMode = none;
 				AlphaTestEnable = true;
-				AlphaRef = 0x90;
+				AlphaRef = 0x30;
 				AlphaFunc = Greater;
 				ZEnable = true;
 				ZFunc = LessEqual;
@@ -1937,7 +2026,7 @@ PS_TEST(VS_OUT In) : COLOR
 				SRGBWRITEENABLE = FALSE;
 				CullMode = none;
 				AlphaTestEnable = true;
-				AlphaRef = 0x90;
+				AlphaRef = 0x30;
 				AlphaFunc = Greater;
 				ZEnable = true;
 				ZFunc = LessEqual;
@@ -1949,7 +2038,7 @@ PS_TEST(VS_OUT In) : COLOR
 				SRGBWRITEENABLE = FALSE;
 				CullMode = none;
 				AlphaTestEnable = true;
-				AlphaRef = 0x90;
+				AlphaRef = 0x30;
 				AlphaFunc = Greater;
 				ZEnable = true;
 				ZFunc = LessEqual;
@@ -1969,7 +2058,7 @@ PS_TEST(VS_OUT In) : COLOR
 				AlphaFunc = Greater;
 				ZEnable = true;
 				ZFunc = LessEqual;
-				ZWriteEnable = false;
+				ZWriteEnable = true;
 				VertexShader = compile vs_3_0 VS_ModelShader();
 				PixelShader = compile ps_3_0 PS_BillBoardHead();
 			}

@@ -1404,7 +1404,8 @@ function MAKE_QUESTINFO_ITEM_BY_IES(ctrlset, questIES, startx, s_obj, y)
             			end
             		end
         
-        
+					monname = dictionary.ReplaceDicIDInCompStr(monname); -- dicToOriginal
+
         			if itemcount ~= 0 and itemcount ~= tonumber(ctrlset:GetParent():GetUserValue('QuestCntAlarmSound')) then
         				imcSound.PlaySoundEvent('quest_count');
         				ctrlset:GetParent():SetUserValue('QuestCntAlarmSound', itemcount);
@@ -1534,6 +1535,8 @@ function MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssni
     			    end
     			end
     			
+				monname = dictionary.ReplaceDicIDInCompStr(monname); -- dicToOriginal
+
     			if monname ~= "None" and string.find(monname,"%%s") ~= nil then
     				itemtxt = string.format(monname.." (%d/%d)", monbasicname, curcnt, needcnt);
     			elseif monname ~= "None" then

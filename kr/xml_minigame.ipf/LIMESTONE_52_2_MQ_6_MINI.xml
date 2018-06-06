@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="LIMESTONE_52_2_MQ_6_MINI" minLv="0" maxLv="0" startWaitSec="754004748">
+		<StageList>
+			<Stage Name="DefGroup">
+				<ObjList>
+					<Obj Type="Monster" MonType="58469" Pos="-342.15#-853.58#259.40" genCount="1" genTime="20000" objectKey="0" searchRange="800" tendency="1"/>
+					<Obj Type="Monster" MonType="58469" Pos="-348.82#-853.58#-16.75" genCount="1" genTime="20000" objectKey="1" searchRange="800" tendency="1"/>
+					<Obj Type="Monster" MonType="58469" Pos="-207.81#-853.58#104.65" genCount="1" genTime="20000" objectKey="2" searchRange="800" tendency="1"/>
+					<Obj Type="Monster" MonType="58469" Pos="-520.10#-853.58#98.12" genCount="1" genTime="20000" objectKey="3" searchRange="800" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="repeat" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

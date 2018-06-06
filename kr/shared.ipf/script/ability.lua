@@ -21,6 +21,9 @@ function CHECK_ABILITY_LOCK(pc, ability)
 			local jobCls = GetClass("Job", ability.Job)
 		
 			local abilGroupClass = GetClass("Ability_"..jobCls.EngName, ability.ClassName);
+			if abilGroupClass == nil then
+				abilGroupClass = GetClass("Ability", ability.ClassName);
+			end
 
 			if abilGroupClass == nil then
 				IMC_NORMAL_INFO("abilGroupClass is nil!!  jobCls.EngName : "..jobCls.EngName.."  ability.ClassName : "..ability.ClassName)
@@ -45,6 +48,9 @@ function CHECK_ABILITY_LOCK(pc, ability)
 			if string.find(ability.Job, sList[i]) ~= nil then
 				local jobCls = GetClass("Job", sList[i])
 				local abilGroupClass = GetClass("Ability_"..jobCls.EngName, ability.ClassName);
+				if abilGroupClass == nil then
+					abilGroupClass = GetClass("Ability", ability.ClassName);
+				end
 
 				local unlockFuncName = abilGroupClass.UnlockScr;
 
@@ -445,6 +451,27 @@ function SCR_ABIL_CLOTH_INACTIVE(self, ability)
 	
 end
 
+function SCR_ABIL_MERGEN(self)
+	local Bow_Attack = GetSkill(self, 'Bow_Attack');
+	if nil ~= Bow_Attack then
+		InvalidateSkill(self, 'Bow_Attack');
+		SendSkillProperty(self, Bow_Attack);
+	end
+
+	local CrossBow_Attack = GetSkill(self, 'CrossBow_Attack');
+	if nil ~= CrossBow_Attack then
+		InvalidateSkill(self, 'CrossBow_Attack');
+		SendSkillProperty(self, CrossBow_Attack);
+	end
+end
+
+function SCR_ABIL_MERGEN1_ACTIVE(self, ability)
+	SCR_ABIL_MERGEN(self)
+end
+
+function SCR_ABIL_MERGEN1_INACTIVE(self, ability)
+	SCR_ABIL_MERGEN(self)
+end
 
 function SCR_ABIL_LEATHER_ACTIVE(self, ability)
 
@@ -486,7 +513,7 @@ function SCR_ABIL_IRON_ACTIVE(self, ability)
 	end
 	
 	if count == 4 then
-	    addsta = math.floor(ability.Level / 3) * 1000;
+	    addsta = math.floor(ability.Level / 3);
 	end
 	
 	SetExProp(self, "IRON_ARMOR_COUNT", count);
@@ -676,11 +703,11 @@ end
 
 
 function SCR_ABIL_WEIGHT_ACTIVE(self, ability)
-    self.MaxWeight_Bonus = self.MaxWeight_Bonus + ability.Level * 20
+    self.MaxWeight_BM = self.MaxWeight_BM + ability.Level * 20
 end
 
 function SCR_ABIL_WEIGHT_INACTIVE(self, ability)
-    self.MaxWeight_Bonus = self.MaxWeight_Bonus - ability.Level * 20
+    self.MaxWeight_BM = self.MaxWeight_BM - ability.Level * 20
 end
 
 function SCR_ABIL_CRYOMANCER21_ACTIVE(self, ability)
@@ -731,6 +758,24 @@ function SCR_ABIL_KRIWI1_INACTIVE(self, ability)
     self.ResFire_BM = self.ResFire_BM - (ability.Level * 5)
     self.ResDark_BM = self.ResDark_BM + (ability.Level * 3)
 
+end
+
+function SCR_ABIL_INQUISITOR9_ACTIVE(self, ability)
+
+	local rItem  = GetEquipItem(self, 'RH');
+	
+    local addresdark = 0
+	if rItem.ClassType == "Mace" then
+		addresdark = addresdark + ability.Level * 10
+	end
+	
+	self.ResDark_BM = self.ResDark_BM + addresdark
+	SetExProp(ability, "ABIL_RESDARK_ADD", addresdark)
+end
+
+function SCR_ABIL_INQUISITOR9_INACTIVE(self, ability)
+	local addresdark = GetExProp(ability, "ABIL_RESDARK_ADD")
+	self.ResDark_BM = self.ResDark_BM - addresdark
 end
 
 
@@ -836,4 +881,57 @@ end
 
 function SCR_ABIL_Kriwi4_INACTIVE(self, ability)
 	InvalidateSkill(self, 'Kriwi_Zaibas');
+end
+
+
+function SCR_ABIL_MONK3_ACTIVE(self, ability)
+
+    local skl = GetSkill(self, "Monk_PalmStrike")
+    if skl ~= nil then
+        skl.KnockDownHitType = 1
+    end
+    
+end
+
+function SCR_ABIL_MONK3_INACTIVE(self, ability)
+
+    local skl = GetSkill(self, "Monk_PalmStrike")
+    if skl ~= nil then
+        skl.KnockDownHitType = 4
+    end
+
+end
+
+function SCR_ABIL_MONK9_ACTIVE(self, ability)
+
+    local skl = GetSkill(self, "Monk_HandKnife")
+    if skl ~= nil then
+        skl.KnockDownHitType = 1
+    end
+    
+end
+
+function SCR_ABIL_MONK9_INACTIVE(self, ability)
+
+    local skl = GetSkill(self, "Monk_HandKnife")
+    if skl ~= nil then
+        skl.KnockDownHitType = 4
+    end
+
+end
+
+function TX_SCR_SET_ABIL_HEADSHOT_OPTION(pc, tx, active)
+	local skl = GetSkill(pc, 'Musketeer_HeadShot')
+	if nil == skl then
+		return false;
+	end
+
+	local sklValue, overValue = 0, 0;
+	if active == 1 then
+		sklValue = 20000;
+		overValue = 20000;
+	end
+	TxSetIESProp(tx, skl, "SklUseOverHeat", sklValue);
+	TxSetIESProp(tx, skl, "OverHeatDelay", overValue);
+	return true;
 end

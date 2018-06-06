@@ -1,6 +1,6 @@
 --- link.lua
 
-
+pretframe = nil
 function GET_ITEM_FULLNAME_BY_TAG_INFO(props, clsID)
 
 	local newobj = CreateIESByID("Item", clsID);
@@ -15,6 +15,10 @@ function GET_ITEM_FULLNAME_BY_TAG_INFO(props, clsID)
 end
 
 function SLI(props, clsID)
+
+	if pretframe ~= nil then
+		CLOSE_LINK_TOOLTIP(pretframe, slot)
+	end
 
 	local tooltipType = GET_ITEM_TOOLTIP_TYPE(clsID);
 
@@ -36,11 +40,13 @@ function SLI(props, clsID)
 		tframe:SetTooltipType('skill');
 		tframe:SetTooltipArg("Level", skillType, level);
 	end
+
+	pretframe = tframe
+
 	tframe:RefreshTooltip();
 	tframe:ShowWindow(1);
 
 	ui.ToCenter(tframe);
-
 end
 
 function SLM(infoString)
@@ -132,6 +138,13 @@ function MAKE_LINK_MAP_TEXT_NO_POS(mapName, x, z)
 
 	local mapprop = geMapTable.GetMapProp(mapName);
 	return string.format("{a SLM %d#%d#%d}{#0000FF}{img link_map 24 24}%s{/}{/}{/}", mapprop.type, x, z, mapprop:GetName());	
+
+end
+
+function MAKE_LINK_MAP_TEXT_NO_POS_NO_FONT(mapName, x, z)
+
+	local mapprop = geMapTable.GetMapProp(mapName);
+	return string.format("{a SLM %d#%d#%d}{img link_map 24 24}%s{/}{/}{/}", mapprop.type, x, z, mapprop:GetName());	
 
 end
 

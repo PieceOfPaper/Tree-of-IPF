@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="sageportal" x="0" y="0" width="470" height="609" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin=" "/>
+    <frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <script OpenScp="SAGEPORTAL_OPEN_INIT"/>
+    <sound opensound="window_open" closesound="window_close"/>
+    <controls>
+        <groupbox name="bg" rect="0 0 470 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+        <groupbox name="bg_mid" rect="0 0 450 820" margin="10 110 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="true" skin="test_frame_midle"/>
+        <groupbox name="pipwin_top" rect="0 0 470 117" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
+        <richtext name="richtext_1" rect="0 0 120 24" margin="10 15 0 0" layout_gravity="center top" caption="{@st43}포탈" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <groupbox name="warplist" parent="bg_mid" rect="0 0 450 820" margin="-8 -19 0 0" layout_gravity="center top" draw="false" hittestbox="false" scrollbar="true" skin="pipwin_low" bg_mid=""/>
+        <button name="reg" parent="bg" rect="0 0 200 55" margin="0 0 0 25" layout_gravity="center bottom" LBtnUpScp="SAGEPORTAL_SAVE_BTN" caption="{@st41b}위치 저장" skin="test_red_button"/>
+        <button name="close" rect="0 0 44 44" margin="0 10 10 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}포탈 UI를 닫습니다.{/}"/>
+        <richtext name="warpCnt" margin="20 81 0 0" rect="0 0 120 24" format="{@st66b}포탈 저장 개수 %s/%s{/}" param1="value" param2="value2" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+    </controls>
+</uiframe>

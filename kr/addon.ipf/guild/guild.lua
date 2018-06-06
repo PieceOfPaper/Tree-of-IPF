@@ -1,4 +1,4 @@
-
+Ôªø
 function GUILD_ON_INIT(addon, frame)
 	
 	addon:RegisterOpenOnlyMsg("GUILD_PROPERTY_UPDATE", "ON_GUILD_PROPERTY_UPDATE");
@@ -10,8 +10,36 @@ function GUILD_ON_INIT(addon, frame)
 	addon:RegisterMsg("GUILD_OUT", "ON_GUILD_OUT");
 	addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
 	addon:RegisterMsg("GUILD_EVENT_UPDATE", "ON_GUILD_INFO_UPDATE");
-		
+	addon:RegisterMsg("UPDATE_GUILD_ONE_SAY", "ON_GUILD_ONE_SAY");
+end
 
+function ON_GUILD_ONE_SAY(frame, msg, argStr, argNum)
+	local properties = GET_CHILD(frame, "properties");
+	local boardlist = GET_CHILD_RECURSIVELY(properties, 'boardlist')
+	boardlist:RemoveAllChild();
+	
+	local cnt = session.guildState.GetBoardCount()
+	local sysTime = geTime.GetServerSystemTime();
+	for i = cnt - 1, 0, -1 do
+		local board = session.guildState.GetGuildBoardByIndex(i);
+		if nil ~= board then
+			local ctrlSet = boardlist:CreateControlSet("guild_board_ctrl", "CTRLSET_" .. i,  ui.LEFT, ui.TOP, 0, 0, 0, 0);
+			local name = ctrlSet:GetChild('name');
+			name:SetTextByKey('value', board:GetName() ..':'..board:GetMsg());
+
+			local reg = ctrlSet:GetChild('regTime');
+			local regTime = imcTime.ImcTimeToSysTime(board.regTime);
+
+			if	sysTime.wYear == regTime.wYear and
+				sysTime.wMonth == regTime.wMonth and
+				sysTime.wDay == regTime.wDay then
+				reg:SetTextByKey('value',regTime.wHour .. ':'..regTime.wMinute);
+			else
+				reg:SetTextByKey('value',regTime.wYear .. '/'..regTime.wMonth ..'/'..regTime.wDay);
+			end
+		end
+	end
+	GBOX_AUTO_ALIGN(boardlist, 10, 0, 10, true, false);
 end
 
 function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
@@ -68,8 +96,8 @@ end
 
 function ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty)
 	
-	local properties = frame:GetChild("properties");
-	local neutrality = GET_CHILD(properties, "neutrality", "ui::CCheckBox");
+	local warinfo = frame:GetChild("warinfo");
+	local neutrality = GET_CHILD(warinfo, "neutrality", "ui::CCheckBox");
 	local state = 0;
 
 	if true == pcparty.info:GetNeutralityState() then
@@ -77,7 +105,7 @@ function ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty)
 	end
 	
 	neutrality:SetCheck(state);
-	local neutralityTime = properties:GetChild("neutralityTime");
+	local neutralityTime = warinfo:GetChild("neutralityTime");
 	local difSec = session.party.GetGuildNeutraltyRaminTime();
 	if difSec > 0 then
 		neutralityTime:ShowWindow(1);
@@ -107,10 +135,10 @@ function ON_GUILD_SET_NEUTRALITY(frame)
 	local yesScp = string.format("C_GUILD_SET_NEUTRALITY(%d)", 1);
 	local noScp = string.format("C_GUILD_SET_NEUTRALITY(%d)", 0);
 	if true == pcparty.info:GetNeutralityState() then
-		--¡ﬂ∏≥ªÛ≈¬ «ÿ¡¶
+		--Ï§ëÎ¶ΩÏÉÅÌÉú Ìï¥Ï†ú
 		ui.MsgBox(ScpArgMsg("WantTobeChangedNoneNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)), yesScp, noScp);
 	else
-		--¡ﬂ∏≥ªÛ≈¬ ø¯«‘
+		--Ï§ëÎ¶ΩÏÉÅÌÉú ÏõêÌï®
 		ui.MsgBox(ScpArgMsg("WantTobeChangedNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)), yesScp, noScp);
 	end
 
@@ -187,6 +215,97 @@ function GUILD_GAME_START_3SEC(frame)
 	
 end
 
+function UPDATE_GUILD_ABILITY_INFO(frame, partyObj)
+	local properties = GET_CHILD(frame, "properties");
+	local groupbox_1 = GET_CHILD(properties, "groupbox_1"); 
+	local ablist = GET_CHILD_RECURSIVELY(groupbox_1, 'ablist')
+	ablist:RemoveAllChild();
+
+	local clsList, cnt = GetClassList("Guild_Ability");
+	for i = 0 , cnt - 1 do
+		local cls = GetClassByIndexFromList(clsList, i);
+		local ctrlSet = ablist:CreateControlSet("guild_info_ability_ctrl", "CTRLSET_" .. cls.ClassID,  ui.LEFT, ui.TOP, 0, 0, 0, 0);
+		local pic = GET_CHILD(ctrlSet, "pic");
+		pic:SetImage(cls.Icon);
+		local t_ability_name = GET_CHILD(ctrlSet, "t_ability_name");
+		t_ability_name:SetTextByKey("name", cls.Name);
+		local curLevel = partyObj["AbilLevel_" .. cls.ClassName];
+		t_ability_name:SetTextByKey("level", curLevel);
+		local t_ability_desc = GET_CHILD(ctrlSet, "t_ability_desc");
+		t_ability_desc:SetTextByKey("value", cls.Desc);
+	end
+
+	GBOX_AUTO_ALIGN(ablist, 10, 0, 10, true, false);
+end
+
+function UPDATE_GUILD_WAR_INFO(frame, pcparty, partyObj)
+
+	local warinfo = GET_CHILD(frame, "warinfo");
+	local chk_agit_enter_onlyguild = GET_CHILD(warinfo, "chk_agit_enter_onlyguild");
+	chk_agit_enter_onlyguild:SetCheck(partyObj.GuildOnlyAgit);
+	
+	local existEnemy = GUILD_UPDATE_ENEMY_PARTY(frame, pcparty);
+	if existEnemy == 1 then
+		frame:RunUpdateScript("UPDATE_REMAIN_GUILD_ENEMY_TIME",20,0,0,1);
+	else
+		frame:StopUpdateScript("UPDATE_REMAIN_GUILD_ENEMY_TIME");
+	end
+	
+	ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty);
+	
+	GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj);
+
+	GUILD_UPDATE_SKL_OBJ_INFO(frame, partyObj);
+end
+
+function GUILD_SAVE_ONE_SAY(frame, ctrl)
+	local edit = GET_CHILD(frame, "edit_1");
+	
+	if string.len( edit:GetText() ) == 0 then
+		ui.MsgBox(ClMsg("InputTitlePlease"));
+		return;
+	end
+
+	session.guildState.SaveGuildBoard(edit:GetText());
+end
+
+function GUILD_UPDATE_SKL_OBJ_INFO(frame, guildObj)
+	local warinfo = GET_CHILD(frame, "warinfo");
+
+	local maxCnt = TryGetProp(guildObj, 'Templer_BuildForge_Lv');
+	if nil == maxCnt then
+		maxCnt = 0;
+	end
+
+	local nowCnt = 0; 
+	for i = 1, maxCnt do 
+		if guildObj["BuildingLife_Forge_" .. i] ~= "None" then
+			nowCnt = nowCnt + 1;
+		end
+	end
+
+	local forge = GET_CHILD_RECURSIVELY(warinfo, 'forge');
+	forge:SetTextByKey('cnt',nowCnt);
+	forge:SetTextByKey('max', maxCnt);
+
+	maxCnt = TryGetProp(guildObj, 'Templer_BuildShieldCharger_Lv');
+	if nil == maxCnt then
+		maxCnt = 0;
+	end
+	
+	nowCnt = 0; 
+	for i = 1, maxCnt do 
+		if guildObj["BuildingLife_ShieldCharger_" .. i] ~= "None" then
+			nowCnt = nowCnt + 1;
+		end
+	end
+
+	local charge = GET_CHILD_RECURSIVELY(warinfo, 'charge');
+	charge:SetTextByKey('cnt',nowCnt);
+	charge:SetTextByKey('max',maxCnt);
+
+end
+
 function UPDATE_GUILDINFO(frame)
 
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
@@ -195,26 +314,33 @@ function UPDATE_GUILDINFO(frame)
 		return;
 	end
 
-	local information = GET_CHILD(frame, "information");
-	local properties = GET_CHILD(frame, "properties");
-
 	local isLeader = AM_I_LEADER(PARTY_GUILD);
 	local leaderAID = pcparty.info:GetLeaderAID();
 	local partyObj = GetIES(pcparty:GetObject());
 
+	local information = GET_CHILD(frame, "information");
+	local warInfo = GET_CHILD(frame, "warInfo");
+
+	local savememo = GET_CHILD_RECURSIVELY(frame, 'savememo')
+	savememo:ShowWindow(isLeader);	
+	local saveNotice = GET_CHILD_RECURSIVELY(frame, 'saveNotice')
+	saveNotice:ShowWindow(isLeader);	
+
+	local noticegbox = GET_CHILD_RECURSIVELY(frame, 'noticegbox')
+	noticegbox:EnableHitTest(isLeader);
+	local partynamegbox = GET_CHILD_RECURSIVELY(frame, 'partynamegbox')
+	partynamegbox:EnableHitTest(isLeader);
+	local partynotegbox = GET_CHILD_RECURSIVELY(frame, 'partynotegbox')
+	partynotegbox:EnableHitTest(isLeader);
+
 	local partyname_edit = GET_CHILD_RECURSIVELY(frame, 'partyname_edit')
 	local partynote = GET_CHILD_RECURSIVELY(frame, 'partynote')
 	local notice_edit = GET_CHILD_RECURSIVELY(frame, 'notice_edit')
+	
 	partyname_edit:SetText(pcparty.info.name);
 	partynote:SetText(pcparty.info:GetProfile());
 	notice_edit:SetText(pcparty.info:GetNotice());
 	
-	partyname_edit:EnableHitTest(isLeader);
-	partynote:EnableHitTest(isLeader);
-
-	local savememo = GET_CHILD_RECURSIVELY(frame, 'savememo')
-	savememo:ShowWindow(isLeader);	
-
 	local list = session.party.GetPartyMemberList(PARTY_GUILD);
 	local count = list:Count();
 
@@ -275,32 +401,21 @@ function UPDATE_GUILDINFO(frame)
 	
 	local memberStateText = ScpArgMsg("GuildMember{Cur}/{Max}People,OnLine{On}People", "Cur", count, "Max", GUILD_BASIC_MAX_MEMBER + partyObj.AbilLevel_MemberExtend, "On", connectionCount);
 	text_memberinfo:SetTextByKey("value", memberStateText);
-
+	
 	local chk_showonlyconnected = GET_CHILD(gbox_member, "chk_showonlyconnected");
 	chk_showonlyconnected:SetCheck(showOnlyConnected);
+
+	UPDATE_GUILD_ABILITY_INFO(frame, partyObj);
+
+	UPDATE_GUILD_WAR_INFO(frame, pcparty, partyObj);
 	
-	local chk_agit_enter_onlyguild = GET_CHILD(properties, "chk_agit_enter_onlyguild");
-	chk_agit_enter_onlyguild:SetCheck(partyObj.GuildOnlyAgit);
-
-	local existEnemy = GUILD_UPDATE_ENEMY_PARTY(frame, pcparty);
-	if existEnemy == 1 then
-		frame:RunUpdateScript("UPDATE_REMAIN_GUILD_ENEMY_TIME",20,0,0,1);
-	else
-		frame:StopUpdateScript("UPDATE_REMAIN_GUILD_ENEMY_TIME");
-	end
-
-	ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty);
-
-	GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj);
-
 	UPDATE_GUILD_EVENT_INFO(frame, pcparty, partyObj);
-
 end
 
 function GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj)
 
 	local houseInfo = partyObj.HousePosition;
-	local properties = frame:GetChild("properties");
+	local properties = frame:GetChild("warinfo");
 	local txt_guildtowercount = properties:GetChild("txt_guildtowercount");
 	local txt_guildtowerposition = properties:GetChild("txt_guildtowerposition");
 	
@@ -400,7 +515,7 @@ end
 
 function GUILD_UPDATE_ENEMY_PARTY(frame, pcparty)
 
-	local properties = frame:GetChild("properties");
+	local properties = frame:GetChild("warinfo");
 	local gbox_enemy_list = properties:GetChild("gbox_enemy_list");
 	local gbox_list = gbox_enemy_list:GetChild("gbox_list");
 	gbox_list:RemoveAllChild();
@@ -520,7 +635,6 @@ function EXEC_GUILD_CHANGE_DUTY(frame, ctrl)
 	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);
 		
 	party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID());
-	print(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID())
 	frame:ShowWindow(0);
 
 end

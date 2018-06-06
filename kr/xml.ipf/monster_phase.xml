@@ -452,22 +452,6 @@
             </Phase>
         </PhaseList>
     </Monster>
-    <Monster Name="boss_Denoptic">
-        <PhaseList>
-            <Phase PhaseNumber="3" SkillList="0#1#4#3">
-                <ActList/>
-            </Phase>
-            <Phase PhaseNumber="4" SkillList="0#1#4#-2@Atk_1@3#3">
-                <ActList/>
-            </Phase>
-            <Phase PhaseNumber="8" SkillList="5#2#-2@Debuff_4@3#3#1">
-                <ActList/>
-            </Phase>
-            <Phase PhaseNumber="9" SkillList="5#3">
-                <ActList/>
-            </Phase>
-        </PhaseList>
-    </Monster>
     <Monster Name="boss_Drapeliun">
         <PhaseList>
             <Phase PhaseNumber="4" SkillList="1#2#3#4#5">

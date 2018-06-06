@@ -63,7 +63,7 @@ function ON_CABINET_ITEM_LIST(frame)
 		local itemCount = ctrlSet:GetChild("count");
 		itemCount:ShowWindow(0);
 		local totalPrice = ctrlSet:GetChild("totalPrice");
-		totalPrice:SetTextByKey("value", cabinetItem.count);
+		totalPrice:SetTextByKey("value", GetCommaedText(cabinetItem.count));
 		totalPrice:SetOffset(totalPrice:GetX() - 25, totalPrice:GetY());
 		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, cabinetItem, itemObj.ClassName, "cabinet", cabinetItem.itemType, cabinetItem:GetItemID());
 		local endTime = ctrlSet:GetChild("endTime");
@@ -94,9 +94,21 @@ function ON_CABINET_ITEM_LIST(frame)
 end
 
 function CABINET_GET_ALL_ITEM(parent, ctrl)
+    local pc = GetMyPCObject();
+    local now = pc.NowWeight
+    local flag = 0
 	for i = 0 , session.market.GetCabinetItemCount() - 1 do
 		local cabinetItem = session.market.GetCabinetItemByIndex(i);
-		market.ReqGetCabinetItem(cabinetItem:GetItemID());
+		local itemObj = GetIES(cabinetItem:GetObject());
+		if pc.MaxWeight < now + (itemObj.Weight * cabinetItem.count) then
+		    flag = 1
+		else
+		    market.ReqGetCabinetItem(cabinetItem:GetItemID());
+		    now  = now + (itemObj.Weight * cabinetItem.count)
+		end
+	end
+	if flag == 1 then
+	    addon.BroadMsg("NOTICE_Dm_!", ScpArgMsg("MAXWEIGHTMSG"), 10);
 	end
 end
 

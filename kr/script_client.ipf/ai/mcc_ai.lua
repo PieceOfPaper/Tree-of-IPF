@@ -79,4 +79,23 @@ function MCC_SCRIPT_NINJA(actor, mccIndex)
 	end
 end
 
+function MCC_SCRIPT_MCC(actor, mccIndex)
+
+	local myActor = GetMyActor();
+	local forpos = actor:GetMCCPos(mccIndex, 25.0);			
+	local distFromActor = imcMath.Vec3Dist(actor:GetPos(), forpos);
+	local tgt = geMCC.GetLastAttackObject(5.0);
+	if tgt ~= nil then
+		if distFromActor <= 80 then
+			local skillType = geMCC.GetRandomSkill(actor);	
+			MCC_ATTACK_ACTOR(actor, tgt, skillType);
+		else
+			geMCC.MoveTo(actor, forpos);
+		end
+	else
+		if distFromActor >= 10 then
+			geMCC.MoveTo(actor, forpos);
+		end
+	end
+end
 

@@ -113,7 +113,7 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	local PickItemGropBox	= GET_CHILD(frame,'pickitem')
 	PickItemGropBox:RemoveAllChild();
 
-	-- ControlSet ì´ë¦„ ì„¤ì •
+	-- ControlSet ÀÌ¸§ ¼³Á¤
 	local img = GET_ITEM_ICON_IMAGE(class);
 
 	local PickItemCountObj		= PickItemGropBox:CreateControlSet('pickitemset_Type', 'pickitemset', 0, 0);
@@ -127,7 +127,7 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 
 	icon:Set(iconName, 'PICKITEM', itemCount, 0);
 
-	-- ì•„ì´í…œ ì´ë¦„ê³¼ íšë“ëŸ‰ ì¶œë ¥
+	-- ¾ÆÀÌÅÛ ÀÌ¸§°ú È¹µæ·® Ãâ·Â
 	local printName	 = '{@st41}' ..GET_FULL_NAME(class);
 	local printCount = '{@st41b}'..ScpArgMsg("GetByCount{Count}", "Count", itemCount);
 
@@ -154,7 +154,7 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 			end
 
 		else
-			AddWiki:ShowWindow(1)
+			AddWiki:ShowWindow(0)
 		end
 	else
 		AddWiki:SetTextByKey("value", addMsg);
@@ -162,7 +162,7 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	end
 
 
-	-- ì•„ì´í…œì´ë¦„ ë„ˆë¬´ê¸¸ë•Œ ì§¤ë ¤ì„œ resize ì¼ë‹¨ ì…‹íŒ….
+	-- ¾ÆÀÌÅÛÀÌ¸§ ³Ê¹«±æ¶§ Â©·Á¼­ resize ÀÏ´Ü ¼ÂÆÃ.
 	--PickItemGropBox:Resize(250, 120);
 	--frame:Resize(250, 120);
 	local textLen = string.len(printName);
@@ -176,7 +176,7 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	PickItemGropBox:UpdateData();
 	PickItemGropBox:Invalidate();
 
-	--ë‚´ìš© ë
+	--³»¿ë ³¡
 
 	frame:ShowWindow(1);
 	frame:SetDuration(duration);

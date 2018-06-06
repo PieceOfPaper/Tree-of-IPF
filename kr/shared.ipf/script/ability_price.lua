@@ -66,8 +66,8 @@ end
 
 function ABIL_8RANK_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 114250 + (4 - maxLevel + abilLevel) * 14200;
-    local time = 32 + (4 - maxLevel + abilLevel) * 4;
+    local price = 571250 + (4 - maxLevel + abilLevel) * 71000;
+    local time = 240 + (4 - maxLevel + abilLevel) * 100;
 
 	return price, time;
 	
@@ -138,8 +138,8 @@ end
 
 function ABIL_8RANK_BUFF_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 114250 + (abilLevel - 1) * 14200;
-    local time = 32 + (abilLevel - 1);
+    local price = 571250 + (abilLevel - 1) * 71000;
+    local time = 240 + (abilLevel - 1) * 20;
 
 	return price, time;
 	
@@ -210,7 +210,7 @@ end
 
 function ABIL_8RANK_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = math.floor(1.07^(abilLevel-1) * 8000);
+    local price = math.floor(1.085^(abilLevel-1) * 8000);
     local time = 0;
 
 	return price, time;
@@ -449,3 +449,92 @@ function ABIL_ADDBUFFCOUNT_PRICE(pc, abilName, abilLevel, maxLevel)
 	return price, time;
 end
 
+function ABIL_DOPPELSOELDNER20_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 713250
+    local time = 1440
+    
+	return price, time;
+end
+
+function ABIL_ALCHEMIST10_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 2000000
+    local time = 3000
+    
+	return price, time;
+end
+
+function ABIL_TOTALDEADPARTS_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 600000 + (abilLevel - 1) * 200000;
+    local time = 300 * abilLevel;
+    
+	return price, time;
+end
+
+function ABIL_HIGHERROTTEN_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 2000000
+    local time = 1500
+    
+	return price, time;
+end
+
+function ABIL_WARLOCK14_PRICE(pc, abilName, abilLevel, maxLevel)
+
+    local price = 571250 + math.floor(1.1^(abilLevel-1) * 80000);
+    local time = 600 + (abilLevel-1) * 100;
+
+	return price, time;
+	
+end
+
+function ABIL_SAGE8_PRICE(pc, abilName, abilLevel, maxLevel)
+
+    local price = 2000000
+    local time = 2000
+
+	return price, time;
+	
+end
+
+function ABIL_SAGE9_PRICE(pc, abilName, abilLevel, maxLevel)
+
+    local price = 1600000 + (abilLevel-1) * 100000;
+    local time = 2000 + (abilLevel-1) * 200;
+
+	return price, time;
+	
+end
+
+function ABIL_FALCONER11_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 1000000 + (abilLevel-1) * 100000;
+    local time = 1000 + (abilLevel-1) * 100;
+
+	return price, time;
+end
+
+function ABIL_SHINOBIARUKI_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 1800000
+    local time = 1440;
+
+	return price, time;
+end
+
+function ABIL_SCHWARZEREITER17_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 1658400
+    local time = 1440;
+
+	return price, time;
+end
+
+function ABIL_DRUID12_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 954400 + (abilLevel-1) * 98510;
+    local time = 700 + (abilLevel-1) * 100;
+
+	return price, time;
+end
+
+function ABIL_INQUISITOR9_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = math.floor(1.09^(abilLevel-1) * 1000000);
+    local time = 100;
+
+	return price, time;
+end

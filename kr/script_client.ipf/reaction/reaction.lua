@@ -222,6 +222,9 @@ function MONSKL_C_RESERVE_ANIM(actor, skill, animName, spd, freezeAnim)
 	actor:GetAnimation():ReserveAnim(animName, spd, freezeAnim);
 end
 
+function C_NEXT_SKILL_RESERVE_RESETANIM(actor)
+	actor:GetAnimation():SetNextSkillReserveResetAnim(true);
+end
 
 function MONSKL_C_RESERVE_ANIM_OOBE(actor, skill, animName, spd, freezeAnim)
 	local oobeActor = actor:GetOOBEActor();
@@ -284,7 +287,9 @@ function C_SET_CAM_FIXHEIGHT(actor, obj, height)
 end
 
 function C_FIX_CAM_POSY(actor, obj, holdTime)
+	if GetMyActor() == actor then
 	view.SetLockCamPosY(holdTime);
+end
 end
 
 function C_CAM_NOWAT_TIMERATIO(actor, obj, ratio)
@@ -497,7 +502,7 @@ end
 function C_SKL_CIRCLE_DAMAGE(actor, obj, range, hitType, hitDelay, isKdSafe, sklSR)
 
 	-- hitdelay쓰면 멈춤. 버그있음 일단 0으로 고정.
-	actor:DamageByClientDecisionOnCircle(range, hitType, 0, isKdSafe, sklSR);
+	actor:DamageByClientDecisionOnCircle(obj.type, range, hitType, 0, isKdSafe, sklSR);
 end
 
 function C_SKL_CIRCLE_DAMAGE_SR(actor, obj, range, hitType, hitDelay, isKdSafe)
@@ -507,7 +512,7 @@ function C_SKL_CIRCLE_DAMAGE_SR(actor, obj, range, hitType, hitDelay, isKdSafe)
 	if sklSR == 0 then
 		return;
 	end
-	actor:DamageByClientDecisionOnCircle(range, hitType, 0, isKdSafe, sklSR);
+	actor:DamageByClientDecisionOnCircle(obj.type, range, hitType, 0, isKdSafe, sklSR);
 end
 
 function SKL_FAST_FALL(actor, obj, fallRate)

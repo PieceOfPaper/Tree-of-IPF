@@ -296,22 +296,22 @@ function UPDATE_KEYBOARD_TUTORIAL(frame)
 	if keyboard.IsKeyDown("LEFT") == 1 then
 		frame:SetUserValue("move1", 'off')
 		local img = moveGroupBox:GetChild('move_l');
-		img:SetBlink(0, 1, 0xFF000000);
+		img:SetBlink(0, 1, '0xFF000000');
 	end
 	if keyboard.IsKeyDown("RIGHT") == 1 then
 		frame:SetUserValue("move2", 'off')
 		local img = moveGroupBox:GetChild('move_r');
-		img:SetBlink(0, 1, 0xFF000000);
+		img:SetBlink(0, 1, '0xFF000000');
 	end
 	if keyboard.IsKeyDown("UP") == 1 then
 		frame:SetUserValue("move3", 'off')
 		local img = moveGroupBox:GetChild('move_u');
-		img:SetBlink(0, 1, 0xFF000000);
+		img:SetBlink(0, 1, '0xFF000000');
 	end
 	if keyboard.IsKeyDown("DOWN") == 1 then
 		frame:SetUserValue("move4", 'off')
 		local img = moveGroupBox:GetChild('move_d');
-		img:SetBlink(0, 1, 0xFF000000);
+		img:SetBlink(0, 1, '0xFF000000');
 	end
 
 	local moveKeyDown = 0;

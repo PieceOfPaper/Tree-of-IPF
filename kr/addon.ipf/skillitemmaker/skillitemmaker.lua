@@ -1,4 +1,12 @@
 function SKILLITEMMAKER_ON_INIT(addon, frame)
+
+	frame = ui.GetFrame('skillitemmaker');
+	local richtext_1 = frame:GetChild('richtext_1');
+	richtext_1:ShowWindow(1);
+	local richtext_1_1 = frame:GetChild('richtext_1_1');
+	richtext_1_1:ShowWindow(0);
+
+	frame:SetUserValue("SKLNAME", 'Pardoner_Simony');
 end
 
 function SKILLITEMMAKER_FIRST_OPEN(frame)
@@ -55,7 +63,7 @@ function SKILLITEMMAKER_REGISTER(frame, skillType)
 
 	frame:SetUserValue("SKILLTYPE", skillType);
 	local skill_slot = GET_CHILD(frame, "skillslot", "ui::CSlot");
-	
+
 	SET_SLOT_SKILL(skill_slot, sklObj);
 --[[
 	local type = sklObj.ClassID;
@@ -64,13 +72,15 @@ function SKILLITEMMAKER_REGISTER(frame, skillType)
 	icon:Set(imageName, "Skill", sklObj.ClassID, 0);
 	SET_SKILL_TOOLTIP_BY_TYPE(icon, type);
 	icon:ClearText();
-]]
-	local mySimonySkill = GetSkill(GetMyPCObject(), 'Pardoner_Simony');
+]]	
+	local sklName = frame:GetUserValue('SKLNAME');
+	local mySimonySkill = GetSkill(GetMyPCObject(), sklName);
+
 	local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
 	droplist_level:ClearItems();
 	local count = mySimonySkill.Level;
 
-		-- ¸¸µç ½ºÅ³ÀÌ, ½Ã¸ð´Ï ·¹º§ º¸´Ù Å¬¶§
+		-- ë§Œë“  ìŠ¤í‚¬ì´, ì‹œëª¨ë‹ˆ ë ˆë²¨ ë³´ë‹¤ í´ë•Œ
 	if sklObj.Level >= mySimonySkill.Level then
 		count = mySimonySkill.Level;
 	elseif sklObj.Level < mySimonySkill.Level then
@@ -80,7 +90,7 @@ function SKILLITEMMAKER_REGISTER(frame, skillType)
 	 for i = 1 , count do
 	 	droplist_level:AddItem(i,  "{@st42}" .. ClMsg("Level") .. " " .. i, 0);
 	 end
-	 -- ½ºÅ³ ·¹º§ ±îÁö
+	 -- ìŠ¤í‚¬ ë ˆë²¨ ê¹Œì§€
 	 droplist_level:SelectItem(count-1);
 	 droplist_level:SetSelectedScp("SKILLITEMKAE_NUMCHANGE");
 	if sklObj.Caption == "None" then
@@ -89,14 +99,14 @@ function SKILLITEMMAKER_REGISTER(frame, skillType)
 		frame:GetChild("skilltext"):SetTextByKey("value", sklObj.Caption);		
 	end
 	
-	-- ½Ã¸ð´Ï ·¹º§¸¸Å­ ÇÒ °Í
+	-- ì‹œëª¨ë‹ˆ ë ˆë²¨ë§Œí¼ í•  ê²ƒ
 	frame:GetChild("skilllevel"):SetTextByKey("value", count);
 	frame:GetChild("skillname"):SetTextByKey("value", sklObj.Name);
-
+				
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	makecount:SetNumChangeScp("SKILLITEMKAE_NUMCHANGE");
 	makecount:SetNumberValue(1);
-	-- ¾ê´Â ¿Ö µû·ÎÀÖÀ»±î¿©?
+	-- ì–˜ëŠ” ì™œ ë”°ë¡œìžˆì„ê¹Œì—¬?
 	makecount:SetIncrValue(1);
 
 	SKILLITEMKAE_NUMCHANGE(frame);
@@ -112,7 +122,7 @@ function SKILLITEMMAKE_GET_TOTAL_MARTERIAL(frame, sklevel)
 
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
 	local vis = GET_SKILL_MAT_PRICE(sklObj, sklevel);
-	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(sklObj, sklevel);
+	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, sklevel);
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	local curCount = makecount:GetNumber();
 	local totalVis = curCount * vis;
@@ -138,13 +148,13 @@ function SKILLITEMKAE_NUMCHANGE(parent)
 
 	if sklObj == nil then
 		return;
-end
+	end
 
 	UPDATE_SKILLITEMMAKE_PRICE(parent:GetTopParentFrame(), sklObj, levelSkill);
 end
 
 function SKILLITEMMAKE_EXEC(frame)
-	-- ½ºÅ³µî·ÏÀÌ ¾ÈµÇÀÖ¾î!
+	-- ìŠ¤í‚¬ë“±ë¡ì´ ì•ˆë˜ìžˆì–´!
 	local skill_slot = GET_CHILD(frame, "skillslot", "ui::CSlot");
 	if nil == IS_CLEAR_SLOT_ITEM_INFO(skill_slot) then
 		print("skill regit NO");
@@ -161,7 +171,7 @@ function SKILLITEMMAKE_EXEC(frame)
 	local levelSkill = droplist_level:GetSelItemIndex()+1;
 	local totalVis, totalBottle = SKILLITEMMAKE_GET_TOTAL_MARTERIAL(frame, levelSkill);
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
-	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(sklObj, levelSkill);
+	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, levelSkill);
 	local bottleCls = GetClass("Item", bottle);
 	local visCls = GetClass("Item", "Vis");
 	local myVis = session.GetInvItemCountByType(visCls.ClassID);
@@ -195,7 +205,7 @@ function _SKILLITEMMAKE_EXEC()
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	local curCount = makecount:GetNumber();
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
-	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(sklObj, sklObj.Level);
+	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, sklObj.Level);
 	local bottleCls = GetClass("Item", bottle);
 	local myBottle = session.GetInvItemByName(bottleCls.ClassName);
 	local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
@@ -203,27 +213,27 @@ function _SKILLITEMMAKE_EXEC()
 	local argList = string.format("%d %d %d", sklObj.ClassID, level, curCount);
 	pc.ReqExecuteTx_Item("ITEM_SKILL_MAKER", myBottle:GetIESID(), argList);
 
-		_SKILLITEMMAKE_RESET(frame);
-	end
-	
+	_SKILLITEMMAKE_RESET(frame);
+end
+
 function _SKILLITEMMAKE_RESET(frame)
 
-	-- ÀüÃ¼¸¦ ÃÊ±âÈ­ ÇØÁÜ... ???
+	-- ì „ì²´ë¥¼ ì´ˆê¸°í™” í•´ì¤Œ... ???
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	local totalprice = frame:GetChild("totalprice");
 	makecount:SetNumberValue(0);
 	makecount:SetIncrValue(0);
 	totalprice:SetTextByKey("value", 0);
-	
+
 	local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
 	droplist_level:ClearItems();
 
 	CLEAR_SKILLITEMMAKER(frame);
-	end
+end
 
 function UPDATE_SKILLITEMMAKE_PRICE(frame, sklObj, levelSkill)
 	local vis = GET_SKILL_MAT_PRICE(sklObj, levelSkill);
-	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(sklObj, levelSkill);
+	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, levelSkill);
 	local bottleCls = GetClass("Item", bottle);
 	local matDesc = ClMsg("Material") .. " : ";
 	matDesc = matDesc .. GET_MONEY_IMG(36) .. vis;
@@ -231,7 +241,7 @@ function UPDATE_SKILLITEMMAKE_PRICE(frame, sklObj, levelSkill)
 
 	local mattext = frame:GetChild("mattext");
 	mattext:SetTextByKey("value", matDesc);
-	
+
 	local matslot = GET_CHILD(frame, "matslot", "ui::CSlot");
 	SET_SLOT_ITEM_CLS(matslot, bottleCls);
 	

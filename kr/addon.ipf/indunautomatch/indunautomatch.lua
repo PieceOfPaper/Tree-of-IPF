@@ -43,6 +43,7 @@ function _INDUN_AUTOMATCH_UPDATE_TIME(frame)
 	local txt = string.format("%02d:%02d", minute, second);
 	local txt_findtime = frame:GetChild("txt_findtime");
 	txt_findtime:SetTextByKey("time", txt);
+	
 	return 1;
 
 end
@@ -86,4 +87,8 @@ function INDUN_SET_WAIT_PC_COUNT(pcCount)
 	local frame = ui.GetFrame("indunautomatch");
 	local txt = frame:GetChild("txt_waitPcCount");
 	txt:SetTextByKey("value2", pcCount);
+end
+
+function INDUN_SET_WAIT_TOO_MUCH()
+	ui.SysMsg(ScpArgMsg("FailLevelMatching"))
 end

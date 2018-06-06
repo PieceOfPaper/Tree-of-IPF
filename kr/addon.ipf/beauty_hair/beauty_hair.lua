@@ -1,5 +1,5 @@
 -- 미용실. 적용된 대가리 개수 8개
-MAX_HAIR_COUNT = 60
+MAX_HAIR_COUNT = 82
 
 function BEAUTY_HAIR_ON_INIT(addon, frame)
 

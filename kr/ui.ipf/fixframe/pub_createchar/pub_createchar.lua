@@ -381,7 +381,6 @@ function _PUB_EXEC_CREATECHAR(viewOpening)
 	local actor = GetBarrackPub():GetSelectedActor();
 	barrack.RequestCreateCharacter(text, actor, selectMap);
 	GetBarrackPub():EnablePlayOpening(viewOpening, selectMap);
-	selectMap = 0;
 
 end
 

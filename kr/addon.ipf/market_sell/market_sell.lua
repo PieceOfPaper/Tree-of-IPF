@@ -70,7 +70,8 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 		local ctrlSet = INSERT_CONTROLSET_DETAIL_LIST(itemlist, i, 0, "market_sell_item_detail");
 		local pic = GET_CHILD(ctrlSet, "pic", "ui::CPicture");
-		pic:SetImage(itemObj.Icon);
+		local imgName = GET_ITEM_ICON_IMAGE(itemObj);
+		pic:SetImage(imgName);
 
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));

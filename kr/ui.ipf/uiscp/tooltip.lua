@@ -698,7 +698,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 	end
 
 	if totalLevel > 0 and pcAbilCnt > 0 then
-		ADD_SPEND_SKILL_LV_DESC_TOOLTIP(skillFrame:GetChild('SKILL_CAPTION_'..tostring(totalLevel)), pcAbilList)
+		ADD_SPEND_SKILL_LV_DESC_TOOLTIP(skillFrame:GetChild('SKILL_CAPTION_'..tostring(totalLevel)), pcAbilList, pcAbilCnt)
 	end
 
 	if pcAbilCnt > 0 then
@@ -941,8 +941,8 @@ function ABILITY_DESC_TOOLTIP(frame, abilCls, index, ypos, pc, pcAbilIES)
 	return abilCtrlSet:GetY() + abilCtrlSet:GetHeight() + 10, pcAbilIES
 end
 
-function ADD_SPEND_SKILL_LV_DESC_TOOLTIP(ctrlSet, pcAbilList)
-	if #pcAbilList < 1 then
+function ADD_SPEND_SKILL_LV_DESC_TOOLTIP(ctrlSet, pcAbilList, pcAbilCnt)
+	if pcAbilCnt < 1 then
 		return
 	end
 
@@ -956,7 +956,7 @@ function ADD_SPEND_SKILL_LV_DESC_TOOLTIP(ctrlSet, pcAbilList)
 	local coolText = ctrlSet:GetChild('cool_text')
 	local ADD_ABILITY_STYLE = ctrlSet:GetUserConfig('ADD_ABILITY_STYLE')
 
-	for i = 0, #pcAbilList do
+	for i = 0, pcAbilCnt - 1 do
 		local addSpendStr = pcAbilList[i].AddSpend
 		if pcAbilList[i].ActiveState == 1 and addSpendStr ~= 'None' then
 			local addSpendList = GET_ADD_SPEND_LIST(addSpendStr)

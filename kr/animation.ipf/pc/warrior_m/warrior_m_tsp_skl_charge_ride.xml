@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="19" R="180" G="160" B="100" A="100"/>
+	<BlendOn frame="20" R="70" G="65" B="40" A="100"/>
+	<BlendOn frame="21" R="60" G="55" B="35" A="100"/>
+	<BlendOn frame="22" R="50" G="45" B="30" A="100"/>
+	<BlendOn frame="24" R="40" G="35" B="20" A="100"/>
+	<BlendOn frame="26" R="30" G="25" B="15" A="100"/>
+	<BlendOn frame="28" R="20" G="17" B="10" A="100"/>
+	<BlendOn frame="29" R="10" G="9" B="5" A="100"/>
+	<BlendOff frame="30" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_Charge_shot_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_Charge_shot_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="20" attachNode="Dummy_effect_charge_spear3" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Bip01" particleName="F_warrior_Charge_cast_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter_pet" particleName="I_smoke014" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="17" attachNode="Dummy_emitter_pet" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="18" attachNode="Dummy_emitter_pet" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="19" attachNode="Dummy_emitter_pet" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="20" attachNode="Dummy_emitter_pet" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="22" attachNode="Dummy_emitter_pet" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="24" attachNode="Dummy_emitter_pet" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="26" attachNode="Dummy_emitter_pet" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="17" attachNode="Dummy_emitter_pet" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="19" attachNode="Dummy_emitter_pet" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="20" attachNode="Dummy_emitter_pet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="22" attachNode="Dummy_emitter_pet" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="24" attachNode="Dummy_emitter_pet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="26" attachNode="Dummy_emitter_pet" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="15" attachNode="Dummy_emitter" particleName="I_warrior_chrage_shot_dash_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="17" attachNode="Dummy_effect_craft" particleName="I_warrior_chrage_shot_dash_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="20" attachNode="Dummy_emitter" particleName="I_warrior_chrage_shot_dash_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="18" attachNode="Dummy_emitter_front" particleName="I_warrior_dash_run_line4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="19" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="20" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="5.00" soundFile="skl_fgt_spearlunge"/>
+</ActionDesc>

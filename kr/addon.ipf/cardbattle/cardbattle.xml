@@ -8,7 +8,7 @@
 	<draw drawtitlebar="false"/>
 	<script OpenScp="OPEN_CARDBATTLE"/>
 	<layer layerlevel="80"/>
-	<userconfig END_SOUND="sys_raid_ok" UIEFFECT_DROP="None" UIEFFECT_DROP_SCALE="5.0" WIN_EFT="None" WIN_EFT_SCALE="5.5" LOSE_EFT="None" LOSE_EFT_SCALE="5.0" DRAW_EFT="None" DRAW_EFT_SCALE="5.0"/>
+	<userconfig END_SOUND="sys_raid_ok" UIEFFECT_DROP="I_cardbattle_slot" UIEFFECT_DROP_SCALE="5.0" WIN_EFT="I_cardbattle_slot_win" WIN_EFT_SCALE="5.5" LOSE_EFT="I_cardbattle_slot_lost" LOSE_EFT_SCALE="5.0" DRAW_EFT="I_cardbattle_slot_draw" DRAW_EFT_SCALE="5.0"/>
 	<controls>
 		<picture name="picture_1" rect="0 0 858 442" margin="-2 -5 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="test_cardbattle_board" stretch="false"/>
 		<picture name="card_1" rect="0 0 130 177" margin="50 175 0 0" layout_gravity="left top" DropScp="DROP_CARD_1" changecursor="false" hittest="true" image="test_card_slot" scale_align="center center" stretch="true"/>

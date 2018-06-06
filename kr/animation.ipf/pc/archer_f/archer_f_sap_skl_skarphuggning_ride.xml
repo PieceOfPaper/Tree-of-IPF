@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="7.00" soundFile="skl_fgt_tackle_shot"/>
+	<Particle frame="5" attachNode="Dummy_emitter_pet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_emitter_pet" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_skarphuggning001_1" particleName="I_swordtrail040_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_skarphuggning001" particleName="I_swordtrail041_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false" sound="swd_attack2"/>
+	<Particle frame="5" attachNode="Dummy_effect_skarphuggning001" particleName="I_swordtrail040_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_emitter_pet_back" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_emitter_pet_back" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_effect_skarphuggning002" particleName="I_swordtrail041_yellow_reverse" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false" sound="swd_attack3"/>
+	<Particle frame="11" attachNode="Dummy_effect_skarphuggning002_1" particleName="I_swordtrail040_orange_reverse" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_effect_skarphuggning002_1" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+	<Shockwave frame="6" type="2" intensity="3" frequency="70" duration="0.1" range="1000"/>
+	<Shockwave frame="11" type="2" intensity="3" frequency="70" duration="0.1" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="80" G="80" B="50" A="100"/>
+	<BlendOn frame="7" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="13" R="80" G="80" B="50" A="100"/>
+	<BlendOn frame="14" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

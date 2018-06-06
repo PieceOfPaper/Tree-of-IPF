@@ -1,6 +1,6 @@
 -- toolskill_input.lua
 
-function SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxChargeTime, autoShot, rotateAble, loopingCharge, gotoSkillUse, execByKeyDown, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockwave, intensity, time, frequency, angle, quickCast, checkState)
+function SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxChargeTime, autoShot, rotateAble, loopingCharge, gotoSkillUse, execByKeyDown, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockwave, intensity, time, frequency, angle, quickCast, checkState, hitCancel)
 
 	if isVisivle == nil then
 		isVisivle = 1;
@@ -48,22 +48,29 @@ function SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxC
 	if quickCast == nil then
 		quickCast = 1
 	end
-
+	
 	geSkillControl.DynamicCastingSkill(actor, obj.type, dik, movable, rotateAble, rangeChargeTime, maxChargeTime, autoShot, loopingCharge, gotoSkillUse, execByKeyDown, upAbleSec, isVisivle, useDynamicLevel, isFullCharge, effectName, nodeName, lifeTime, scale,1,1,1, shockwave, intensity, time, frequency, angle, quickCast);
+	if nil ~= hitCancel and hitCancel == 1 then
+		actor:SetHitCancelCast(false)
+	end
+
 	if gotoSkillUse == 1 then
 		return 0, 0;
 	end
-	
+
 	return 1, 0;
 end
 
-function SKL_KEY_SELECT_CELL(actor, obj, dik, cellCount, cellSize, chargeTime, autoShot, cellEft, cellEftScale, selCellEft, selCellEftScale, selectionEft, selectionEftScale, backSelect, drawSelectablePos)
+function SKL_KEY_SELECT_CELL(actor, obj, dik, cellCount, cellSize, chargeTime, autoShot, cellEft, cellEftScale, selCellEft, selCellEftScale, selectionEft, selectionEftScale, backSelect, drawSelectablePos, hitCancel)
 	geSkillControl.CellSelectCasting(actor, obj.type, dik, cellCount, cellSize, chargeTime, autoShot, cellEft, cellEftScale, selCellEft, selCellEftScale, selectionEft, selectionEftScale, backSelect, drawSelectablePos);
+	if nil ~= hitCancel and hitCancel == 1 then
+		actor:SetHitCancelCast(true)
+	end
 	return 1;
 end
 
 function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, 
-	shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast)
+	shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel)
 	
 	if onlyMouseMode == 1 and session.config.IsMouseMode() == false then
 		geSkillControl.SendGizmoPosByCurrentTarget(actor, obj.type);
@@ -115,16 +122,20 @@ function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting
 	if angle == nil then
 	angle = 0;
 	end
-	
+
 	if quickCast == nil then
 		quickCast = 1;
 	end
 
 	geSkillControl.GroundSelecting(actor, obj.type, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, isVisivle, useDynamicLevel, isFullCharge, effectName, nodeName, lifeTime, scale,1,1,1, shockwave, intensity, time, frequency, angle, nil, quickCast);
+	if nil ~= hitCancel and hitCancel == 1 then
+		actor:SetHitCancelCast(true)
+	end
 	return 1, 0;
 end
 
-function SKL_KEY_SNIPE(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode)
+function SKL_KEY_SNIPE(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, 
+shockTime, shockFreq, shockAngle, onlyMouseMode, hitCancel)
 
 	local time = 0;
 	local frequency = 0;
@@ -140,21 +151,34 @@ function SKL_KEY_SNIPE(actor, obj, dik, chargeTime, autoShot, shotCasting, lookT
 		useDynamicLevel, isFullCharge, effectName, nodeName, lifeTime, 
 		scale,1,1,1, shockwave, 
 		intensity, time, frequency, angle, "Snipe");
+
+	if nil ~= hitCancel and hitCancel == 1 then
+		actor:SetHitCancelCast(true)
+	end
 	return 1, 0;
 end
 
-function SKL_KEY_GROUND_ARC(actor, obj, dik, chargeTime,  autoShot, shotCasting, lookTargetPos, upAbleSec, rotatable, minRange, maxRange, linkName, dummyName, eft, eftScale)
+function SKL_KEY_GROUND_ARC(actor, obj, dik, chargeTime,  autoShot, shotCasting, lookTargetPos, upAbleSec, rotatable, minRange, maxRange, linkName, dummyName, eft, eftScale, hitCancel)
 	geSkillControl.GroundSelectByArc(actor, obj.type, dik, chargeTime, autoShot, shotCasting, lookTargetPos, upAbleSec, rotatable, minRange, maxRange, linkName, dummyName, eft, eftScale);
+	if nil ~= hitCancel and hitCancel == 1 then
+		actor:SetHitCancelCast(true)
+	end
 	return 1, 0;
 end
 
-function SKL_KEY_GROUND_CONNECTION(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, x, y, z, moveSpd)
+function SKL_KEY_GROUND_CONNECTION(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, x, y, z, moveSpd, hitCancel)
 	geSkillControl.GroundConnection(actor, obj.type, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, x, y, z, moveSpd);
+	if nil ~= hitCancel and hitCancel == 1 then
+		actor:SetHitCancelCast(true)
+	end
 	return 1, 0;
 end
 
-function SKL_KEY_PRESS(actor, obj, dik, startDelay, pressSpd, duration)
+function SKL_KEY_PRESS(actor, obj, dik, startDelay, pressSpd, duration, hitCancel)
 	geSkillControl.KeyPress(actor, obj.type, dik, startDelay, pressSpd, duration);
+	if nil ~= hitCancel and hitCancel == 1 then
+		actor:SetHitCancelCast(true)
+	end
 	return 0, 0;
 end
 

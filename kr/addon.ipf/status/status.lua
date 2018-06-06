@@ -264,21 +264,6 @@ function ROLLBACK_STAT(frame)
 	STAT_RESET(frame)
 end
 
-
-function RESET_STAT(frame)
-
-	local pc = GetMyPCObject();
-	local usedStat = pc.UsedStat
-
-	local txt = ScpArgMsg("Auto_SeuTeiSeuTeoSeu_ChoKiHwae_") .. usedStat .. ScpArgMsg("Auto__MeDali_PilyoHapNiDa.{nl}_ChoKiHwa_HaSiKessSeupNiKka?");
-	ui.MsgBox(txt, 'EXEC_RESET_STAT()', "None");
-end
-
-function EXEC_RESET_STAT()
-
-	pc.ReqExecuteTx("SCR_TX_RESET_STAT", 'None');
-end
-
 function STATUS_UPDATE(frame)
 
 	if g_reserve_reset == 1 then

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_voice_unicorn_skl2"/>
+    <Sound frame="0.00" soundFile="skl_eff_meteostrikes_whoosh"/>
+    <BlendOn frame="7" R="20" G="10" B="3" A="30"/>
+    <Particle frame="11" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="11" attachNode="Dummy_emitter" particleName="I_smoke011_red_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="11" attachNode="Dummy_effect_L_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="11" attachNode="Dummy_effect_R_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="15" R="80" G="40" B="15" A="80"/>
+    <Particle frame="20" attachNode="Bip001 Spine2" particleName="F_spread_out025_fether_brown" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="25" R="200" G="100" B="70" A="100"/>
+    <Particle frame="30" attachNode="Dummy_effect_back_foot" particleName="I_smoke011_red_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="31" R="200" G="130" B="100" A="130"/>
+    <BlendOn frame="34" R="220" G="180" B="150" A="160"/>
+    <BlendOn frame="37" R="250" G="100" B="70" A="100"/>
+    <BlendOn frame="40" R="255" G="180" B="150" A="150"/>
+    <BlendOn frame="43" R="200" G="100" B="70" A="100"/>
+    <BlendOn frame="46" R="255" G="180" B="150" A="150"/>
+    <BlendOn frame="49" R="200" G="100" B="70" A="100"/>
+    <Particle frame="50" attachNode="Dummy_effect_L_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="50" attachNode="Dummy_effect_R_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="52" R="255" G="180" B="150" A="150"/>
+    <BlendOn frame="55" R="200" G="100" B="70" A="100"/>
+    <BlendOn frame="58" R="255" G="180" B="150" A="150"/>
+    <BlendOn frame="61" R="200" G="100" B="70" A="100"/>
+    <Sound frame="63.00" soundFile="skl_eff_lightning"/>
+    <Sound frame="63.00" soundFile="skl_eff_lightning_2"/>
+    <Sound frame="63.89" soundFile="skl_eff_unknocker_coin_boom"/>
+    <BlendOn frame="64" R="255" G="180" B="150" A="150"/>
+    <Particle frame="64" attachNode="Dummy_effect_front_foot" particleName="F_ground068_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="65" attachNode="Dummy_effect_front_foot" particleName="I_smoke011_red_white1" useAttach="false" hiddenObj="true" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="66" attachNode="Dummy_atk" particleName="F_explosion026_rize_red1" useAttach="false" hiddenObj="true" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="67" R="200" G="100" B="70" A="100"/>
+    <Particle frame="67" attachNode="Dummy_effect_back_foot" particleName="I_smoke011_red_white1" useAttach="false" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="69" attachNode="Dummy_atk2" particleName="F_explosion026_rize_red1" useAttach="false" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="70" R="255" G="180" B="150" A="150"/>
+    <Particle frame="75" attachNode="Dummy_effect_front_foot2" particleName="I_smoke011_red_white1" useAttach="false" hiddenObj="true" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="76" attachNode="Dummy_effect_front_foot2" particleName="F_ground068_smoke" useAttach="false" hiddenObj="true" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="87" R="100" G="40" B="20" A="80"/>
+    <BlendOn frame="90" R="80" G="40" B="15" A="80"/>
+    <BlendOn frame="105" R="20" G="5" B="2" A="30"/>
+    <BlendOff frame="107" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -15,6 +15,7 @@ function TPITEM_SELECTED_OPEN(refControl)
 
 	local ItemClsId			= icon:GetUserValue("itemClassID");
 	local ProductNo			= icon:GetUserValue("ProductNo");
+	
 	local OrderQuantity		= icon:GetUserValue("OrderQuantity");
 	local OrderNo			= icon:GetUserValue("OrderNo");
 	local OrderPrice			= icon:GetUserValue("OrderPrice");
@@ -73,11 +74,10 @@ function TPITEM_SELECTED_REFUND(parent, control, orderNo, productNo)
 	local screenbgTemp = frame:GetChild('screenbgTemp');	
 	screenbgTemp:ShowWindow(1);	
 	
-
 	local strMsg = "";
 	local frame = ui.GetFrame("tpitem");
 	strMsg = string.format("{@st43d}{s18}%s{/}{nl}{s8}{/} {/}{nl}{@st45d}{s20}%s{/}", ScpArgMsg("NISMS_REFUND_GUIDE1"), ScpArgMsg("NISMS_REFUND_GUIDE2"));
-	ui.MsgBox_NonNested_Ex(strMsg, 0x00000004, frame:GetName(), "ON_TPITEM_SELECTED_REFUND", "ON_TPSHOP_FREE_UI", productNo, orderNo);	
+	ui.MsgBox_NonNested_Ex(strMsg, 0x00000004, frame:GetName(), "ON_TPITEM_SELECTED_REFUND", "ON_TPSHOP_FREE_UI", "None", orderNo, productNo);	
 		
 end
 

@@ -14,7 +14,7 @@ function ENCHANTCHIP_ABLIE(item)
 end
 
 function IS_ENCHANT_ITEM(item)
-	if item.ClassName == "Premium_Enchantchip" then
+	if item.ClassName == "Premium_Enchantchip" or item.ClassName == "Premium_Enchantchip14" then
 		return 1;
 	end
 

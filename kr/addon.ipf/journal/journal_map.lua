@@ -1,12 +1,16 @@
 
 
+function ON_JOURNAL_UPDATE_MAP(frame, msg, argStr, argNum)
+	JOURNAL_BUILD_ALL_LIST(frame, "Map");
+end
+
 function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 
 	CREATE_JOURNAL_ARTICLE(frame, grid, key, text, iconImage, callback);
 
 	local group = GET_CHILD(frame, 'map', 'ui::CGroupBox')
-	local page = group:CreateOrGetControl('groupbox', 'page_Map', 0, 0, ui.NONE_HORZ, ui.NONE_VERT, 10, 50, 10, 30)
-	local queue = page:CreateOrGetControl('queue', 'page_Queue', 0, 100, ui.NONE_HORZ, ui.TOP, 15, 20, 20, 0)
+	local page = group:CreateOrGetControl('groupbox', 'page_Map', 0, 0, ui.NONE_HORZ, ui.NONE_VERT, 10, 50, 10, 30);
+	local queue = page:CreateOrGetControl('queue', 'page_Queue', 0, 100, ui.NONE_HORZ, ui.TOP, 0, 0, 0, 0)
 	queue:RemoveAllChild();
 	page:SetSkinName(frame:GetUserConfig(""));
 	queue:SetSkinName(frame:GetUserConfig("BG_MAP_QUEUE"));
@@ -54,7 +58,26 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 		else
 			totalScore = totalScore + recoverRate;
 		end
-		rating:SetText(string.format("{@st41b} %d%%", recoverRate));
+		
+		local mapRewardImg
+		local pcetc = GetMyEtcObject()
+		if cls ~= nil and cls.MapRatingRewardItem1 ~= 'None' and cls.WorldMapPreOpen == 'YES' and cls.UseMapFog ~= 0  then
+		    local mapClassName = cls.ClassName
+		    local property = 'Reward_'..mapClassName
+		    if GetPropType(pcetc, property) ~= nil then
+		        if pcetc[property] == 1 then
+		            mapRewardImg = '{img M_message_open 30 30}'
+		        elseif recoverRate >= 100 then
+		            mapRewardImg = '{img M_message_Unopen 30 30}'
+		        end
+		    end
+		end
+		local ratingTxt = string.format("{@st41b} %d%%", recoverRate)
+		if mapRewardImg ~= nil then
+		    ratingTxt = mapRewardImg..ratingTxt
+		    rating:Resize(100, 40)
+		end
+		rating:SetText(ratingTxt);
 	end
 
 	--- Calculate Whole Category Map List;
@@ -62,7 +85,7 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 		local zone = cateList[i];
 		local mapName = zone:GetUserValue("MAPNAME");
 
-		local title = zone:CreateOrGetControlSet('mapElementZone', zone:GetName(), 10, 0);
+		local title = zone:CreateOrGetControlSet('mapElementZone', zone:GetName(), 0, 0);
 		tolua.cast(title, 'ui::CControlSet')
 
 		local name = GET_CHILD(title, 'name', 'ui::CRichText')
@@ -146,9 +169,17 @@ function JOURNAL_OPEN_MAP_ARTICLE(frame, ctrlSet)
 	JOURNAL_HIDE_ARTICLES(f)
 	JOURNAL_OPEN_ARTICLE(f, 'map')
 
-	local group = GET_CHILD(f, 'map', 'ui::CGroupBox')
-	group:ShowWindow(1)
+	local group = GET_CHILD(f, 'map', 'ui::CGroupBox');
+
+	local bg = GET_CHILD(f, "bg", "ui::CGroupBox");
+	local page = GET_CHILD(group, "page_Map", "ui::CGroupBox");
+
+	if page ~= nil then
+		local scrollBarHeight = bg:GetHeight() - group:GetY();
+		page:SetScrollBar(scrollBarHeight);
+	end
+
+	group:ShowWindow(1);
 	imcSound.PlaySoundEvent('button_click_3');
 	--SET_JOURNAL_RANK_TYPE(f, 'Map');
 end
-

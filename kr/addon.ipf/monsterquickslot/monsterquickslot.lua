@@ -4,11 +4,15 @@ end
 
 
 function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
-
 	local frame = ui.GetFrame("monsterquickslot");
-
 	if isOn == 1 then
-
+		-- 라이칸스트로피 거나 쉐잎쉬ㅍ프팅, 트랜스폼이면
+		-- monsterquickslot을 사용하지 않겠다.
+		if buffType == 6012 or buffType == 6026 then
+			QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType);
+			frame:SetUserValue('BUFFTYPE', buffType);
+			return;
+		end
 		local beforeframe = ui.GetFrame("quickslotnexpbar")
 		
 		if beforeframe:IsVisible() == 1 then
@@ -109,6 +113,12 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 
 	else
 
+		local preBuff = frame:GetUserIValue('BUFFTYPE');
+		if preBuff == 6012 or preBuff == 6026 then
+			QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType);
+			frame:SetUserValue('BUFFTYPE', 0);
+			return;
+		end
 		local beforeframename = frame:GetUserValue("BEFORE_FRAME");
 
 		if beforeframename ~= "None" then
@@ -122,4 +132,3 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 	
 
 end
-

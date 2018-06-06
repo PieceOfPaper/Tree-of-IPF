@@ -60,6 +60,15 @@ function ON_RESTQUICKSLOT_OPEN(frame, msg, argStr, argNum)
 	end
 end
 
+function QSLOT_ENABLE_ENCHANT_CRAFT()
+	local abil = session.GetAbilityByName("Enchanter_Bomb")
+	if abil ~= nil then
+		return 1;
+	end
+
+	return 0;
+end
+
 function QSLOT_ENABLE_ARROW_CRAFT()
 	local abil = session.GetAbilityByName("Fletching")
 	if abil ~= nil then
@@ -69,7 +78,7 @@ function QSLOT_ENABLE_ARROW_CRAFT()
 	return 0;
 end
 
-function QSLOT_ENABLE_DIPELLER_CRAFT()
+function QSLOT_ENABLE_DISPELLER_CRAFT()
 	local abil = session.GetAbilityByName("Pardoner_Dispeller")
 	if abil ~= nil then
 		return 1;
@@ -77,6 +86,16 @@ function QSLOT_ENABLE_DIPELLER_CRAFT()
 
 	return 0;
 end
+
+function QSLOT_ENABLE_OMAMORI_CRAFT()
+	local abil = session.GetAbilityByName("Omamori")
+	if abil ~= nil then
+		return 1;
+	end
+
+	return 0;
+end
+
 
 function QSLOT_VISIBLE_ARROW_CRAFT()
 	local pc = GetMyPCObject();
@@ -179,6 +198,22 @@ function REQUEST_OPEN_JORUNAL_CRAFT()
 	end
 end
 
+function OPEN_ENCHENCT_CRAFT()
+	local abil = session.GetAbilityByName("Enchanter_Bomb")
+	if nil == abil then
+		return;
+	end
+
+	local obj = GetIES(abil:GetObject());
+	local frame = ui.GetFrame("itemcraft_fletching");
+	local title = frame:GetChild("title");
+	title:SetTextByKey("value",  obj.Name);
+	SET_ITEM_CRAFT_UINAME("itemcraft_fletching");
+	SET_CRAFT_IDSPACE(frame, "Recipe_ItemCraft", obj.ClassName, obj.Level);
+	CREATE_CRAFT_ARTICLE(frame);
+	ui.ToggleFrame("itemcraft_fletching");
+end
+
 function OPEN_ARROW_CRAFT()
 	local abil = session.GetAbilityByName("Fletching")
 	if abil ~= nil then
@@ -193,6 +228,24 @@ function OPEN_ARROW_CRAFT()
 	end
 
 end
+
+function OPEN_OMAMORI_CRAFT()
+	local abil = session.GetAbilityByName("Omamori")
+	if nil == abil then
+		return;
+	end
+	
+	local obj = GetIES(abil:GetObject());
+	local frame = ui.GetFrame("itemcraft_fletching");
+	local title = frame:GetChild("title");
+	title:SetTextByKey("value",  obj.Name);
+	SET_ITEM_CRAFT_UINAME("itemcraft_alchemist");
+	SET_CRAFT_IDSPACE(frame, "Recipe_ItemCraft", obj.ClassName, obj.Level);
+	CREATE_CRAFT_ARTICLE(frame);
+	ui.ToggleFrame("itemcraft_fletching");
+	
+end
+
 
 function OPEN_DISPELLER_CRAFT()
 	local abil = session.GetAbilityByName("Pardoner_Dispeller")
@@ -240,20 +293,22 @@ function EXEC_CAMPFIRE(x, y, z)
 end
 
 
-function QSLOT_VISIBLE_DISPELLER_CRAFT()
+function QSLOT_VISIBLE_ENCHNTE_CRAFT()
 	local pc = GetMyPCObject();
 	local pcjobinfo = GetClass('Job', pc.JobName)
 	local pcCtrlType = pcjobinfo.CtrlType
-	if pcCtrlType == "Cleric" then
+	if pcCtrlType == "Wizard" then
 		return 1;
 	end
 
 	return 0;
 end
 
-function QSLOT_ENABLE_DISPELLER_CRAFT()
-	local abil = session.GetAbilityByName("Pardoner_Dispeller")
-	if abil ~= nil then
+function QSLOT_VISIBLE_DISPELLER_CRAFT()
+	local pc = GetMyPCObject();
+	local pcjobinfo = GetClass('Job', pc.JobName)
+	local pcCtrlType = pcjobinfo.CtrlType
+	if pcCtrlType == "Cleric" then
 		return 1;
 	end
 

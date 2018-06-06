@@ -191,7 +191,7 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
 		totalTime = 0;
 	end
-	
+
 	local timeCtrl = GET_CHILD(classCtrl, "abilTime", "ui::CRichText");	
 	local hour = math.floor( totalTime / 60 );
 	local min = totalTime % 60;
@@ -246,15 +246,15 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 		end
 		if pc[prop] ~= nil and pc[prop] > 0 then
 			if pc[prop] == abilClass.ClassID then
-			classCtrl:SetGrayStyle(0);
-			priceCtrl:SetText(ScpArgMsg("Auto_{@st}TeugSeong_HagSeup_Jung"));
+				classCtrl:SetGrayStyle(0);
+				priceCtrl:SetText(ScpArgMsg("Auto_{@st}TeugSeong_HagSeup_Jung"));
 				classCtrl:EnableHitTest(0);
-		else
+			else
 				if runCnt + 1 > maxCount then
 				-- 특성을 배우는중이라면 배우는 스킬을 제외하고는 전부 회색으로 변경해야함.
-			classCtrl:SetGrayStyle(1);
-		end
-	end
+					classCtrl:SetGrayStyle(1);
+				end
+			end
 		end
 	end
 	classCtrl:Resize(classCtrl:GetOriginalWidth(), descCtrl:GetY() + descCtrl:GetHeight() + 50)
@@ -269,7 +269,7 @@ end
 
 s_buyAbilName = 'None';
 
-function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
+function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)	
 	local pc = GetMyPCObject();
 	if pc == nil then
 		return;
@@ -306,6 +306,15 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 	if unlockFuncName ~= 'None' then
 		local scp = _G[unlockFuncName];
 		local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
+
+		if abilIES ~= nil then
+		--어빌 맥스 레벨보다 높게 못올린다.
+			if abilIES.Level >= abilClass.MaxLevel then
+				ui.SysMsg(ScpArgMsg("AbilityLevelMax"));
+				return;
+			end
+		end
+
 		local ret = scp(pc, abilClass.UnlockArgStr, abilClass.UnlockArgNum, abilIES);
 		if ret ~= 'UNLOCK' then
 			if ret == 'LOCK_GRADE' then
@@ -340,8 +349,6 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 end
 
 function EXEC_BUY_ABILITY()
-
-	-- 일단은 특성 바로 배워지는걸로 셋팅. DB시간관련해서는 내일 작업예정.
 	pc.ReqExecuteTx("SCR_TX_ABIL_REQUEST", s_buyAbilName);
 end
 

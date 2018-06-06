@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="36" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="37" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="39" R="200" G="200" B="150" A="200"/>
+	<BlendOn frame="40" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="42" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="43" R="200" G="200" B="150" A="200"/>
+	<BlendOn frame="44" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="46" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="47" R="200" G="200" B="150" A="200"/>
+	<BlendOn frame="48" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="50" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="51" R="200" G="200" B="150" A="200"/>
+	<BlendOn frame="51" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="52" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="52" R="200" G="200" B="150" A="200"/>
+	<BlendOn frame="53" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="54" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="55" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="56" R="200" G="200" B="150" A="200"/>
+	<BlendOn frame="57" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="60" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="62" R="200" G="200" B="150" A="200"/>
+	<BlendOn frame="72" R="150" G="180" B="200" A="200"/>
+	<BlendOn frame="74" R="80" G="130" B="180" A="150"/>
+	<BlendOn frame="77" R="50" G="100" B="150" A="100"/>
+	<BlendOn frame="79" R="30" G="50" B="100" A="50"/>
+	<BlendOn frame="82" R="15" G="30" B="50" A="50"/>
+	<BlendOn frame="84" R="5" G="10" B="20" A="50"/>
+	<BlendOn frame="86" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="87" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_tail" particleName="I_force079_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="B_R_Wing_05" particleName="I_force078_blue_feather2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="B_L_Wing_05" particleName="I_force078_blue_feather2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_eye_R" particleName="I_smoke034_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_eye_L" particleName="I_smoke034_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="55" attachNode="Dummy_effect_spin2" particleName="F_spread_out025_fether_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="60" attachNode="Dummy_emitter" particleName="F_smoke129_spreadout" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="60" attachNode="Dummy_effect_atk2" particleName="I_swordtrail031_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="63" attachNode="Dummy_effect_skl2_hit" particleName="F_explosion059_ground_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="65" attachNode="Dummy_effect_skl2_hit" particleName="F_ground011_yellow2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="5.00" soundFile="mon_merge_skl2"/>
+	<Sound frame="58.00" soundFile="skl_eff_scythe_attack"/>
+	<Shockwave frame="37" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="50" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="60" type="2" intensity="20" frequency="70" duration="1" range="1000"/>
+</ActionDesc>

@@ -7,6 +7,17 @@ end
 
 function ON_BANDI_CAM(frame, msg, argStr, argNum)
 
+	if USE_SHOW_BANDI_CAM_TEXT == 0 then
+
+		if argNum == 1 then
+			print('BANDI_CAM start ' .. argStr)
+		else
+			print('BANDI_CAM end ')
+		end
+
+		argNum = 0;
+	end
+
 	if argNum == 1.0 then
 		local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 		timer:SetUpdateScript("PROCESS_BANDI_TXT");
@@ -14,6 +25,8 @@ function ON_BANDI_CAM(frame, msg, argStr, argNum)
 		frame:ShowWindow(1);
 		frame:SetSValue(argStr);
 	else
+		local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
+		timer:Stop();
 		frame:ShowWindow(0);
 		frame:SetSValue('None');
 		frame:GetChild("bandi"):SetTextByKey("bandi", "");

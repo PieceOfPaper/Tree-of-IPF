@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="EUC-KR"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<CreateMonster frame="0" MonName="Pet_box" Key="Pet_box" Angle="0" Dist="0" MonAngle="0"/>
-	<CreateMonsterAnim frame="0" Key="Pet_box" Anim="born" Freeze="0"/>
-	<Particle frame="50" attachNode="None" particleName="pet_box_dead" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="51" attachNode="None" particleName="F_smoke150_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <CreateMonster frame="0" MonName="Pet_box" Key="Pet_box" Angle="0" Dist="0" MonAngle="0"/>
+    <CreateMonsterAnim frame="0" Key="Pet_box" Anim="born" Freeze="0"/>
+    <Particle frame="50" attachNode="None" particleName="pet_box_dead" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="51" attachNode="None" particleName="F_smoke150_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="71.00" soundFile="mon_voice_lesser_panda_m"/>
+    <Sound frame="88.00" soundFile="mon_voice_lesser_panda_m"/>
 </ActionDesc>

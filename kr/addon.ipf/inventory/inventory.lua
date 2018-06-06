@@ -9,6 +9,7 @@ function INVENTORY_ON_INIT(addon, frame)
     addon:RegisterOpenOnlyMsg('INV_ITEM_LIST_GET', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_ADD', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_REMOVE', 'INVENTORY_ON_MSG');
+	addon:RegisterMsg('INV_DRAW_MONEY_TEXT', 'INVENTORY_ON_MSG');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_CHANGE_COUNT', 'INVENTORY_ON_MSG', 1);
 	addon:RegisterOpenOnlyMsg('LEVEL_UPDATE', 'INVENTORY_ON_MSG');
 	addon:RegisterOpenOnlyMsg('ITEM_PROP_UPDATE', 'INVENTORY_ITEM_PROP_UPDATE', 1);
@@ -26,11 +27,11 @@ function INVENTORY_ON_INIT(addon, frame)
 	
 	SHOP_SELECT_ITEM_LIST = {};
 
-	--°Ë»ö ¿ë º¯¼ö
+	--ê²€ìƒ‰ ìš© ë³€ìˆ˜
 	searchEnterCount = 1
 	beforekeyword = "None"
 
-
+	frame:SetUserValue("MONCARDLIST_OPENED", 0);
 	local dropscp = frame:GetUserConfig("TREE_SLOT_DROPSCRIPT");
 	frame:SetEventScript(ui.DROP, dropscp);
 	INVENTORY_LIST_GET(frame);
@@ -72,29 +73,18 @@ function UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
 
 		INIT_INVEN_SLOT(slot)						
 
-		--°Å·¡¸ñ·Ï ¶Ç´Â »óÁ¡ ÆÇ¸Å¸ñ·Ï¿¡¼­ ¿Ã·Á³õÀº ¾ÆÀÌÅÛ(½½·Ô) Ç¥½Ã ±â´É
-		if itemCls.MaxStack > 1 then
-			local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
-			if remainInvItemCount ~= invItem.count then
-				slot:Select(1)
-			else
-				slot:Select(0)
-			end
+		--ê±°ë˜ëª©ë¡ ë˜ëŠ” ìƒì  íŒë§¤ëª©ë¡ì—ì„œ ì˜¬ë ¤ë†“ì€ ì•„ì´í…œ(ìŠ¬ë¡¯) í‘œì‹œ ê¸°ëŠ¥
+		local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
+		if remainInvItemCount ~= invItem.count then
+			slot:Select(1)
 		else
 			slot:Select(0)
-			for iesid, selllistcount in pairs(SHOP_SELECT_ITEM_LIST) do
-				if invItem:GetIESID() == iesid then
-					slot:Select(1)
-					break;
-				end
-			end
-		end
-
+		end		
 end
 
 function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 
-							--±×·ì ¾øÀ¸¸é ¸¸µé±â
+							--ê·¸ë£¹ ì—†ìœ¼ë©´ ë§Œë“¤ê¸°
 							local treegroupname = baseidcls.TreeGroup
 
 							local treegroup = tree:FindByValue(treegroupname);
@@ -105,7 +95,7 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 								GROUP_NAMELIST[#GROUP_NAMELIST + 1] = treegroupname
 							end
 
-							--½½·Ô¼Â ¾øÀ¸¸é ¸¸µé±â
+							--ìŠ¬ë¡¯ì…‹ ì—†ìœ¼ë©´ ë§Œë“¤ê¸°
 							local slotsetname = GET_SLOTSET_NAME(invItem.invIndex)
 
 							local slotsetnode = tree:FindByValue(treegroup, slotsetname);
@@ -119,13 +109,13 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 
 							local slotindex = invItem.invIndex - GET_BASE_SLOT_INDEX(invItem.invIndex) - 1;
 
-							-- ÀúÀåµÈ ÅÛÀÇ ÃÖ´ë ÀÎµ¦½º¿¡ µû¶ó ÀÚµ¿À¸·Î ´Ã¾î³ªµµ·Ï. ¿¹¸¦µé¾î ÇØ´ç ¼ÂÀÌ 10000ºÎÅÍ ½ÃÀÛÇÏ´Âµ¥ 10500 ÀÌ ¿À¸é 500Ä­Àº ´Ã·Á¾ßµÊ
+							-- ì €ì¥ëœ í…œì˜ ìµœëŒ€ ì¸ë±ìŠ¤ì— ë”°ë¼ ìë™ìœ¼ë¡œ ëŠ˜ì–´ë‚˜ë„ë¡. ì˜ˆë¥¼ë“¤ì–´ í•´ë‹¹ ì…‹ì´ 10000ë¶€í„° ì‹œì‘í•˜ëŠ”ë° 10500 ì´ ì˜¤ë©´ 500ì¹¸ì€ ëŠ˜ë ¤ì•¼ë¨
 							while slotCount <= slotindex  do 
 								slotset:ExpandRow()
 								slotCount = slotset:GetSlotCount();
 							end
 
-							--°Ë»ö ±â´É
+							--ê²€ìƒ‰ ê¸°ëŠ¥
 							local slot = nil;
 							if cap == "" then
 								slot = slotset:GetSlotByIndex(slotindex);
@@ -216,14 +206,20 @@ function UPDATE_SHIHOUETTE_IMAGE(frame)
 	local shihouette = GET_CHILD(equipgroup, 'shihouette', "ui::CPicture");
 	local shihouette_imgname = ui.CaptureMyFullStdImage();
 	shihouette:SetImage(shihouette_imgname);
-
 	frame:Invalidate()
+
+	local genderFrame = ui.GetFrame('switchgender');
+	if nil ~= genderFrame and genderFrame:IsVisible() == 1 then
+		SWITCHGENDER_DRAW_CHANGE_STATE(genderFrame);
+	end
 end
 
 
 function INVENTORY_OPEN(frame)
 
-	ui.Chat("/requpdateequip"); -- ³»±¸µµ È¸º¹ À¯·áÅÛ ¶§¹®¿¡ Á¤È®ÇÑ °ªÀ» Áö±İ ¾Ë¾Æ¾ß ÇÔ.
+	frame:SetUserValue("MONCARDLIST_OPENED", 0);
+
+	ui.Chat("/requpdateequip"); -- ë‚´êµ¬ë„ íšŒë³µ ìœ ë£Œí…œ ë•Œë¬¸ì— ì •í™•í•œ ê°’ì„ ì§€ê¸ˆ ì•Œì•„ì•¼ í•¨.
 
 	local invGbox			= frame:GetChild('inventoryGbox');
 	
@@ -253,7 +249,12 @@ function INVENTORY_OPEN(frame)
 	frame:Invalidate()
 end
 
-function INVENTORY_CLOSE(frame)
+function INVENTORY_CLOSE()
+	local frame = ui.GetFrame("inventory");
+	frame:SetUserValue("MONCARDLIST_OPENED", 1);		-- ë°”ë¡œ ë‹¤ìŒì— ìˆëŠ” OPEN_MANAGED_CARDINVEN í•¨ìˆ˜ì—ì„œ 0ìœ¼ë¡œ ë§Œë“¤ì–´ì¤€ë‹¤.	
+	CHECK_BTN_OPNE_CARDINVEN(frame:GetChild('moncardGbox'));
+	EQUIP_CARDSLOT_BTN_CANCLE();
+
 	local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox','ui::CGroupBox')
 
 	local curpos = tree_box:GetScrollCurPos();
@@ -263,10 +264,10 @@ function INVENTORY_CLOSE(frame)
 	questInfoSetFrame:ShowWindow(1);
 
 	local minimapFrame = ui.GetFrame('minimap');
-	minimapFrame:ShowWindow(1)
+	minimapFrame:ShowWindow(1);
 
 	item.RemoveTargetItem();
-
+	ui.CloseFrame("inventory");
 end
 
 function INVENTORY_FRONT_IMAGE_CLEAR(frame)
@@ -297,17 +298,17 @@ function SET_INV_LBTN_FUNC(frame, funcName)
 	frame:SetUserValue("LBTN_SCP", funcName);
 end
 
-function SET_SLOT_APPLY_FUNC(frame, funcName)
+function SET_SLOT_APPLY_FUNC(frame, funcName, slotSetName)
 	frame:SetUserValue("SLOT_APPLY_FUNC", funcName);
 	if funcName == "None" then
 		INV_APPLY_TO_ALL_SLOT(_SLOT_RESET_GRAY_BLINK);
 	end
 
-	UPDATE_INV_LIST(frame);
+	UPDATE_INV_LIST(frame, slotSetName);
 end
 
-function UPDATE_INV_LIST(frame)
-	INVENTORY_LIST_GET(frame);
+function UPDATE_INV_LIST(frame, slotSetName)
+	INVENTORY_LIST_GET(frame, nil, slotSetName);
 end
 
 function INVENTORY_WEIGHT_UPDATE(frame)
@@ -385,12 +386,12 @@ function TEMP_INV_ADD(frame,invIndex)
 
 	INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
 		
-	--¾ÆÀÌÅÛ ¾ø´Â ºó ½½·ÔÀº ¼û°Ü¶ó
+	--ì•„ì´í…œ ì—†ëŠ” ë¹ˆ ìŠ¬ë¡¯ì€ ìˆ¨ê²¨ë¼
 	for i = 1 , #SLOTSET_NAMELIST do
 		local slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 		HIDE_EMPTY_SLOT(slotset)
 	end
-
+	
 	ADD_GROUP_BOTTOM_MARGIN(frame,tree)
 
 	local treegroupname = baseidcls.TreeGroup;
@@ -408,7 +409,7 @@ function TEMP_INV_ADD(frame,invIndex)
 	tree:OpenNode(treeNode, true, true);
 	tree:UpdateSurface();	
 
-	--°Ë»ö°á°ú ½ºÅ©·Ñ ¼¼ÆÃÀº ¿©±â¼­ ÇÏÀÚ. Æ®¸® ¾÷µ¥ÀÌÆ® ÈÄ¿¡ À§Ä¡°¡ °íÁ¤µÈ ´ÙÀ½¿¡.
+	--ê²€ìƒ‰ê²°ê³¼ ìŠ¤í¬ë¡¤ ì„¸íŒ…ì€ ì—¬ê¸°ì„œ í•˜ì. íŠ¸ë¦¬ ì—…ë°ì´íŠ¸ í›„ì— ìœ„ì¹˜ê°€ ê³ ì •ëœ ë‹¤ìŒì—.
 	for i = 1 , #SLOTSET_NAMELIST do
 		slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
 
@@ -499,7 +500,7 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 	if slot == nil then
 		return;
 	end
-
+	slot:SetText('{s18}{ol}{b}', 'count', 'right', 'bottom', -2, 1);
 	local slotIndex = slot:GetSlotIndex();
 	slotset:ClearSlotAndPullNextSlots(slotIndex, "ONUPDATE_SLOT_INVINDEX");
 	
@@ -507,7 +508,7 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 	cnt = cnt - 1;
 	slotset:SetUserValue("SLOT_ITEM_COUNT", cnt)
 
-	-- ¾ÆÀÌÅÛ ¾ø´Â ºó ½½·ÔÀº ¼û°Ü¶ó
+	-- ì•„ì´í…œ ì—†ëŠ” ë¹ˆ ìŠ¬ë¡¯ì€ ìˆ¨ê²¨ë¼
 	for i = 1 , #SLOTSET_NAMELIST do
 		local slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 		if slotset ~= nil then
@@ -580,6 +581,7 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 	
     if msg == 'INV_ITEM_LIST_GET' or msg == 'UPDATE_ITEM_REPAIR' then
         INVENTORY_LIST_GET(frame)
+		STATUS_EQUIP_SLOT_SET(frame);
     end
 	
     if msg == 'INV_ITEM_ADD' then
@@ -610,6 +612,10 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 		DRAW_MEDAL_COUNT(frame)
 	end
 
+	if msg == 'INV_DRAW_MONEY_TEXT' then
+		DRAW_TOTAL_VIS(frame, 'invenZeny');
+	end
+
 end
 
 function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
@@ -626,7 +632,6 @@ function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
 	if itemSlot ~= nil then
 		local invItem = GET_PC_ITEM_BY_GUID(itemGuid);
 		AUTO_CAST(itemSlot);
-		local icon = itemSlot:GetIcon();
 		local eqpItemList = session.GetEquipItemList();
 		SET_EQUIP_SLOT_BY_SPOT(frame, invItem, eqpItemList, _INV_EQUIP_LIST_SET_ICON);
 		frame:Invalidate();
@@ -672,7 +677,7 @@ function INVENTORY_UPDATE_ITEM_BY_GUID(frame, itemGuid)
 	
 end
 
------ ¾ÆÀÌÅÛ Á¶ÇÕ ÄÁÅÙÃ÷ (inventory_mix.lua¿¡¼­ º¹»çÇØ¿È)
+----- ì•„ì´í…œ ì¡°í•© ì»¨í…ì¸  (inventory_mix.luaì—ì„œ ë³µì‚¬í•´ì˜´)
 function SET_INVENTORY_MODE(frame, modeName)
 	
 	local curMode = frame:GetUserValue("Mode");
@@ -766,12 +771,18 @@ function INVENTORY_UPDATE_ICONS(frame)
 
 end
 
-function INVENTORY_LIST_GET(frame, setpos)
+--íŠ¹ì • ê²½ìš°ì—ì„œ ëª¨ë“  ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ë¥¼ ëŒ í•„ìš”ëŠ” ì—†ê¸° ë–„ë¬¸ì—
+--íŠ¹ì • ìŠ¬ë¡¯ì…‹ì˜ ë¦¬ìŠ¤íŠ¸ë§Œ ê°€ì ¸ì˜¬ ë•Œ, slotSetName ê°’ì„ ë„£ëŠ”ë‹¤.
+function INVENTORY_LIST_GET(frame, setpos, slotSetName)
 	
 	SET_INVENTORY_MODE(frame, "Normal");
 	
-	INVENTORY_TOTAL_LIST_GET(frame, setpos);
+	--ì´ë¯¸ ì¸ë²¤í† ë¦¬ì˜ ë¦¬ìŠ¤íŠ¸ëŠ” ë§Œë“¤ì–´ì ¸ ìˆëŠ”ë°, slotSetName ì´ë¶€ë¶„ ê°±ì‹ í•´ì£¼ê³  ì‹¶ì–´ì„œ
+	--ëª¨ë“  ë¦¬ìŠ¤íŠ¸ë¥¼ ë‹¤ ë¶ˆëŸ¬ì˜¬ í•„ìš”ëŠ” ì—†ë‹¤.
 
+	if slotSetName == nil then
+		INVENTORY_TOTAL_LIST_GET(frame, setpos);
+	end
 	
 	DRAW_TOTAL_VIS(frame, 'invenZeny');
 
@@ -783,10 +794,17 @@ function INVENTORY_LIST_GET(frame, setpos)
 			local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
 			local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
 			local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
-			local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-
-			local func = _G[funcStr];
-			APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+			local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
+			
+			if slotSetName ~= nil then
+				if string.find(slotSet:GetName(), slotSetName) then
+					local func = _G[funcStr];
+					APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+				end
+			else
+				local func = _G[funcStr];
+				APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+			end
 		end
 	end
 
@@ -805,7 +823,7 @@ function INVENTORY_SLOTSET_INIT(frame, slotSet, slotCount)
 	end
 end
 
--- °Å·¡½½·Ô¿¡ ¿Ã·ÁµÎ¾úÀ¸¸é ÀÎº¥Åä¸®¿¡ Ä«¿îÆ® Â÷ÀÌ¸¸Å­¸¸ Ç¥½ÃµÇµµ·Ï Ã¼Å© 
+-- ê±°ë˜ìŠ¬ë¡¯ì— ì˜¬ë ¤ë‘ì—ˆìœ¼ë©´ ì¸ë²¤í† ë¦¬ì— ì¹´ìš´íŠ¸ ì°¨ì´ë§Œí¼ë§Œ í‘œì‹œë˜ë„ë¡ ì²´í¬ 
 function CHECK_EXCHANGE_ITEM_LIST(invItem, remaincount)
 
 	local itemCount = exchange.GetExchangeItemCount(0);	
@@ -925,7 +943,7 @@ function SET_SLOTSETTITLE_COUNT(tree, basdidcls, addCount)
 		local treeNode = tree:GetNodeByTreeItem(hGroup);
 
 		--[[
-		-- ¾Æ·¡²¨ ¹ö±×ÀÖÀ¸¸é ÀÌ°Å·Î ´ëÃ¼ÇÏÀÚ
+		-- ì•„ë˜êº¼ ë²„ê·¸ìˆìœ¼ë©´ ì´ê±°ë¡œ ëŒ€ì²´í•˜ì
 		local totalItemCount = 0;
 		for j = 0 , treeNode:GetChildNodeCount() - 1 do
 			local childNode = treeNode:GetChildNodeByIndex(j);
@@ -992,9 +1010,9 @@ function INIT_INVEN_SLOT(slot)
 	local exchangeframe     = ui.GetFrame("exchange");
 
 	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 then
-		slot:SetSelectedImage('socket_slot_check')  -- °Å·¡½Ã¿¡¸¸ Ã¼Å© ¼¿·º ¾ÆÀÌÄÜ »ç¿ë
+		slot:SetSelectedImage('socket_slot_check')  -- ê±°ë˜ì‹œì—ë§Œ ì²´í¬ ì…€ë ‰ ì•„ì´ì½˜ ì‚¬ìš©
 	else
-		--slot:SetSelectedImage('socket_slot_check') -- Áö±İÀº ±âº» ½ºÅ² »ç¿ë
+		--slot:SetSelectedImage('socket_slot_check') -- ì§€ê¸ˆì€ ê¸°ë³¸ ìŠ¤í‚¨ ì‚¬ìš©
 	end
 	
 	slot:EnableHideInDrag(true)
@@ -1128,7 +1146,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 				
 						local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invItem.invIndex)
 				
-						if invItem.count > 0 and baseidcls.ClassName ~= 'Unused' then -- Unused·Î ¼³Á¤µÈ °ÍÀº ¾Èº¸ÀÓ
+						if invItem.count > 0 and baseidcls.ClassName ~= 'Unused' then -- Unusedë¡œ ì„¤ì •ëœ ê²ƒì€ ì•ˆë³´ì„
 							if outerbaseidcls.ClassName == baseidcls.ClassName then
 								INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
 							end
@@ -1145,7 +1163,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 		end
 	end
 
-	--¾ÆÀÌÅÛ ¾ø´Â ºó ½½·ÔÀº ¼û°Ü¶ó
+	--ì•„ì´í…œ ì—†ëŠ” ë¹ˆ ìŠ¬ë¡¯ì€ ìˆ¨ê²¨ë¼
 	for i = 1 , #SLOTSET_NAMELIST do
 		slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 		HIDE_EMPTY_SLOT(slotset)
@@ -1156,7 +1174,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 	tree:OpenNodeAll();
 	tree:UpdateSurface();	
 
-	--°Ë»ö°á°ú ½ºÅ©·Ñ ¼¼ÆÃÀº ¿©±â¼­ ÇÏÀÚ. Æ®¸® ¾÷µ¥ÀÌÆ® ÈÄ¿¡ À§Ä¡°¡ °íÁ¤µÈ ´ÙÀ½¿¡.
+	--ê²€ìƒ‰ê²°ê³¼ ìŠ¤í¬ë¡¤ ì„¸íŒ…ì€ ì—¬ê¸°ì„œ í•˜ì. íŠ¸ë¦¬ ì—…ë°ì´íŠ¸ í›„ì— ìœ„ì¹˜ê°€ ê³ ì •ëœ ë‹¤ìŒì—.
 	for i = 1 , #SLOTSET_NAMELIST do
 		slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
 
@@ -1231,7 +1249,7 @@ function CHECK_INV_LBTN(frame, object, argStr, argNum)
 	end
 	
 
-	--[[ ¾ÆÀÌÅÛ ³ª´©±â ±â´É. Áö±İÀº ÀÛµ¿ÇÏÁö ¾Ê´Â´Ù.
+	--[[ ì•„ì´í…œ ë‚˜ëˆ„ê¸° ê¸°ëŠ¥. ì§€ê¸ˆì€ ì‘ë™í•˜ì§€ ì•ŠëŠ”ë‹¤.
 	if keyboard.IsPressed(KEY_SHIFT) == 1 then
 		local invitem = session.GetInvItem(argNum);
 		if invitem ~= nil and invitem.count > 1 then
@@ -1267,7 +1285,7 @@ end
 
 function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 
-	-- ¿öÇÁ ÁÖ¹®¼­ ¿¹¿ÜÃ³¸®. ½ÇÁ¦ ¿öÇÁ°¡ ÀÌ·ç¾îÁú¶§ ¾ÆÀÌÅÛÀÌ ¼ÒºñµÇµµ·Ï.
+	-- ì›Œí”„ ì£¼ë¬¸ì„œ ì˜ˆì™¸ì²˜ë¦¬. ì‹¤ì œ ì›Œí”„ê°€ ì´ë£¨ì–´ì§ˆë•Œ ì•„ì´í…œì´ ì†Œë¹„ë˜ë„ë¡.
 	if itemobj.ClassName == 'Scroll_WarpKlaipe' or itemobj.ClassName == 'Scroll_Warp_quest' or itemobj.ClassName == 'Premium_WarpScroll'  then
 
 		if true == invitem.isLockState then
@@ -1285,7 +1303,17 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 
 end
 
---¾ÆÀÌÅÛÀÇ »ç¿ë
+function IS_TEMP_LOCK(invFrame, invitem)
+	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
+		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
+		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+			return true;
+	end
+
+	return false;
+end
+
+--ì•„ì´í…œì˜ ì‚¬ìš©
 function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	local invitem = GET_SLOT_ITEM(object);
     if invitem == nil then
@@ -1310,6 +1338,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 
 	if customRBtnScp ~= nil then
 		customRBtnScp(itemobj, object);
+		imcSound.PlaySoundEvent("icon_get_down");
 		return;
 	end
 	
@@ -1332,9 +1361,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		local slotsetname	= GET_SLOTSET_NAME(argNum)
 		local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
-		if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
-			or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-			or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+		if true == IS_TEMP_LOCK(invFrame, invitem) then
 			return;
 		end
 		local Itemclass		= GetClassByType("Item", invitem.type);
@@ -1351,15 +1378,15 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 						return;
 					end
 					
-					-- »óÁ¡ Sell SlotÀ¸·Î ³Ñ±ä´Ù.
+					-- ìƒì  Sell Slotìœ¼ë¡œ ë„˜ê¸´ë‹¤.
 					SHOP_SELL(invitem, 1);
 					return;
 				end
 			end
 
 		return;
-	end
-	
+	end	
+
 	local mixerFrame = ui.GetFrame("mixer");
 	if mixerFrame:IsVisible() == 1 then
 
@@ -1368,7 +1395,6 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		MIXER_INVEN_RBOTTUNDOWN(itemobj, argNum);
 		return;
 	end
-	
 
 	if TRY_TO_USE_WARP_ITEM(invitem, itemobj) == 1 then
 		return;
@@ -1404,9 +1430,34 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 			ui.MsgBox(itemobj.Name .. ScpArgMsg("WannaRegWiki?"), yesScp, "None");
 		end
 	end
+	
+	-- ì˜¤ë¥¸ìª½ í´ë¦­ìœ¼ë¡œ ëª¬ìŠ¤í„° ì¹´ë“œë¥¼ ì¸ë²¤í† ë¦¬ì˜ ì¹´ë“œ ì¥ì°© ìŠ¬ë¡¯ì— ì¥ì°©í•˜ê²Œ í•¨.
+	local invFrame    = ui.GetFrame("inventory");	
+	local moncardGbox = invFrame:GetChild('moncardGbox');
+	if moncardGbox:IsVisible() == 1 then
+		if itemobj.GroupName ~= "Card" then		
+			return;
+		end;		
+		local card_slotset = GET_CHILD(moncardGbox, "card_slotset");
+		if card_slotset ~= nil then
+			local gradeRank = session.GetPcTotalJobGrade();
+			for i = 0, gradeRank - 1 do							
+				local slot = card_slotset:GetSlotByIndex(i);
+				if slot == nil then
+					return;
+				end	
+			
+				local icon = slot:GetIcon();		
+				if icon == nil then		
+					CARD_SLOT_EQUIP(slot, invitem);
+					return;
+				end;
+			end;
+		end;
+	end
 end
 
---¾ÆÀÌÅÛÀÇ »ç¿ë
+--ì•„ì´í…œì˜ ì‚¬ìš©
 function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	
 	local invitem = GET_SLOT_ITEM(object);
@@ -1445,9 +1496,7 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
 	local slot		    = slotSet:GetSlotByIndex(argNum-1);
-	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
-		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+	if true == IS_TEMP_LOCK(invFrame, invitem) then
 		return;
 	end
 
@@ -1457,7 +1506,7 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
 	if itemProp:IsTradable() == true then
 		if IS_SHOP_SELL(invitem, Itemclass.MaxStack) == 1 then
-			-- »óÁ¡ Sell SlotÀ¸·Î ´Ù ³Ñ±ä´Ù.
+			-- ìƒì  Sell Slotìœ¼ë¡œ ë‹¤ ë„˜ê¸´ë‹¤.
 			SHOP_SELL(invitem, invitem.count);
 			return;
 		end
@@ -1476,7 +1525,7 @@ function EXEC_SHOP_SELL(frame, cnt)
 
 end
 
---Å©·Ğ¿¡ ´ëÇÑ ÅØ½ºÆ® Ãâ·ÂÇÏµµ·Ï ÇÑ´Ù
+--í¬ë¡ ì— ëŒ€í•œ í…ìŠ¤íŠ¸ ì¶œë ¥í•˜ë„ë¡ í•œë‹¤
 function DRAW_TOTAL_VIS(frame, childname, remove)
 
 	local Cron = GET_TOTAL_MONEY();
@@ -1580,7 +1629,7 @@ function GET_SLOT_INDEX_BY_INVINDEX(parentSlotSet, invIndex)
 end
 
 function INVENTORY_ON_DROP(frame, control, argStr, argNum)
-	
+
 
 	local liftIcon 				= ui.GetLiftIcon();
 	if liftIcon == nil then
@@ -1626,11 +1675,18 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 				QUICKSLOT_ON_CHANGE_INVINDEX(fromInvIndex, toInvIndex);
 			end
 		else
+			if true == BEING_TRADING_STATE() then
+				return;
+			end
+
 			local iconInfo = liftIcon:GetInfo();
 			item.UnEquip(iconInfo.ext);
 		end
 		
 	elseif FromFrame:GetName() == 'status' then
+		if true == BEING_TRADING_STATE() then
+			return;
+		end
 		local iconInfo = liftIcon:GetInfo();
 		item.UnEquip(iconInfo.ext);
 	elseif FromFrame:GetName() == "party" then
@@ -1641,7 +1697,7 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 		RunStringScript(strScp);
 	elseif FromFrame:GetName() == "camp_ui" or FromFrame:GetName() == "warehouse" then
 		local iconInfo = liftIcon:GetInfo();
-		local iesID = liftIcon:GetTooltipIESID();
+		local iesID = iconInfo:GetIESID();
 
 		if iconInfo.count > 1 then	
 			toFrame:SetUserValue("HANDLE", FromFrame:GetUserIValue("HANDLE"));
@@ -1651,7 +1707,7 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 		end
 	end
 
-	-- ÀüÃ¼ ´Ù ±×¸®¸é ¾ÈµÈ´Ù. ÀÌ°Å ¶§¹®¿¡ ¹ö±× »ı±â¸é ÇÏ³ª¸¸ ¾÷µ¥ÀÌÆ® ÇÏ°Ô Ã³¸®
+	-- ì „ì²´ ë‹¤ ê·¸ë¦¬ë©´ ì•ˆëœë‹¤. ì´ê±° ë•Œë¬¸ì— ë²„ê·¸ ìƒê¸°ë©´ í•˜ë‚˜ë§Œ ì—…ë°ì´íŠ¸ í•˜ê²Œ ì²˜ë¦¬
 	-- INVENTORY_TOTAL_LIST_GET(toFrame,nil,"NO")
 end
 
@@ -1709,41 +1765,7 @@ function INVENTORY_THROW_ITEM_AWAY(frame, control, argStr, argNum)
 	end
 end
 
---ÀÌ°Å ¾²´Â°Ç°¡?
-function INVENTORY_DELETE(deleteIESID, itemID)
-
-	local topFrame			= ui.GetFrame("inventory");
-	local invGbox			= topFrame:GetChild('inventoryGbox');
-	local slotSet			= GET_CHILD(invGbox, 'slotlist', 'ui::CSlotSet');
-	local slotCount 		= slotSet:GetSlotCount();
-
-	for i = 0, slotCount - 1 do
-		local slot = slotSet:GetSlotByIndex(i );
-		local icon = slot:GetIcon();
-		if icon ~= nil then
-			local iconInfo = icon:GetInfo();
-			if iconInfo.type == itemID then
-				item.AddToThrowAway(deleteIESID, iconInfo.count);
-			end
-		end
-	end
-
-	local mobj = GetMyActor();	
-	if 1 == mobj:IsDead() then
-		ui.SysMsg(ClMsg('CantDoWhenCharacterDead'));
-	else
-		ui.MsgBox(ScpArgMsg("Auto_JeongMal_SagJeHaSiKessSeupNiKka?"), "item.ThrowAwayList()", "None");
-
-	end
-
-	slotSet:ClearIconAll();
-	INVENTORY_FRONT_IMAGE_CLEAR(topFrame);
-
-	INVENTORY_LIST_GET(topFrame);
-
-end
-
---ÀÌ°Å ¾²´Â°Ç°¡?
+--ì´ê±° ì“°ëŠ”ê±´ê°€?
 function INVENTORY_THROW(frame, ctrl)
 	local msg = ScpArgMsg("Auto_{s22}JeongMalLo_BeoLiSiKessSeupNiKka?");
 	local StrScript = string.format("INVENTORY_DELETE()", -1);
@@ -1759,7 +1781,7 @@ end
 function INVENTORY_DELETE_ITEM_LIST(frame, invItem)
 	local invGbox			= frame:GetChild('inventoryGbox');
 	local slotSet			= GET_CHILD(invGbox, 'throwawayslotlist', 'ui::CSlotSet');
-	local slotCount 		= 0;	--slotSet:GetSlotCount();	-- ÈŞÁöÅë Á¦°ÅµÇ¾úÀ½. ½½·Ô »ı¼º ¾ÈÇÏµµ·Ï 0¼ÂÆÃ
+	local slotCount 		= 0;	--slotSet:GetSlotCount();	-- íœ´ì§€í†µ ì œê±°ë˜ì—ˆìŒ. ìŠ¬ë¡¯ ìƒì„± ì•ˆí•˜ë„ë¡ 0ì…‹íŒ…
 
 	for i = 0, slotCount - 1 do
 		local slot = slotSet:GetSlotByIndex(i);
@@ -1804,7 +1826,7 @@ function INVENTORY_OP_POP(frame, slot, str, num)
 	frame = frame:GetTopParentFrame();
 	frame:SetValue(0);
 	--INVENTORY_TOTAL_LIST_GET(frame);
-	-- ÀüÃ¼ ´Ù ±×¸®¸é ¾ÈµÈ´Ù. ÀÌ°Å ¶§¹®¿¡ ¹ö±× »ı±â¸é ÇÏ³ª¸¸ ¾÷µ¥ÀÌÆ® ÇÏ°Ô Ã³¸®
+	-- ì „ì²´ ë‹¤ ê·¸ë¦¬ë©´ ì•ˆëœë‹¤. ì´ê±° ë•Œë¬¸ì— ë²„ê·¸ ìƒê¸°ë©´ í•˜ë‚˜ë§Œ ì—…ë°ì´íŠ¸ í•˜ê²Œ ì²˜ë¦¬
 
 end
 
@@ -1815,8 +1837,8 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		return;
 	end
 
-	local imageName = GET_ITEM_ICON_IMAGE(class);
-	
+	local itemobj = GetIES(invItem:GetObject());	
+	local imageName = GET_EQUIP_ITEM_IMAGE_NAME(itemobj, 'Icon')
 	local itemType = invItem.type;
 	ICON_SET_ITEM_COOLDOWN(icon, itemType);	
 
@@ -1824,25 +1846,22 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 
 	ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
 	
-	
-
 	if class.ItemType == 'Equip' then
+		local resultLifeTimeOver = IS_LIFETIME_OVER(itemobj);
 		local result = CHECK_EQUIPABLE(itemType);
-		if result ~= "OK" then
-			icon:SetColorTone("FFFF0000");
+		if (result ~= "OK") or (resultLifeTimeOver == 1) then
+			icon:SetColorTone("FFFF0000");		
 		end
-	end
-
-	local itemobj = GetIES(invItem:GetObject());
-
+	end	
+	
 	SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count);
-
-	--¾ÆÀÌÅÛÀÌ ¼±ÅÃµÇ¾úÀ» ¶§ÀÇ ½ºÅ©¸³Æ®¸¦ ¼±ÅÃÇÑ´Ù
+	
+	--ì•„ì´í…œì´ ì„ íƒë˜ì—ˆì„ ë•Œì˜ ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì„ íƒí•œë‹¤
 	slot:SetEventScript(ui.RBUTTONDOWN, 'INVENTORY_RBDC_ITEMUSE');
 	slot:SetEventScriptArgString(ui.RBUTTONDOWN, imageName);
 	slot:SetEventScriptArgNumber(ui.RBUTTONDOWN, invItem.invIndex);
 
-	--»óÁ¡¿ë ´õºí Å¬¸¯
+	--ìƒì ìš© ë”ë¸” í´ë¦­
 	slot:SetEventScript(ui.RBUTTONDBLCLICK, 'INVENTORY_RBDOUBLE_ITEMUSE');
 	slot:SetEventScriptArgString(ui.RBUTTONDBLCLICK, imageName);
 	slot:SetEventScriptArgNumber(ui.RBUTTONDBLCLICK, invItem.invIndex);
@@ -1868,9 +1887,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		slot:SetFrontImage('quest_indi_icon');
 	elseif invItem.isLockState == true then
 		local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
-	elseif invItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_MORU') 
-		or invItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_AWAKEN')  
-		or invItem:GetIESID() == frame:GetUserValue('STONE_ITEM_GUID_IN_AWAKEN') then
+	elseif true == IS_TEMP_LOCK(frame, invItem) then
 		slot:SetFrontImage('item_Lock');
 	elseif invItem.isNew == true  then
 		slot:SetHeaderImage('new_inventory_icon');
@@ -1883,9 +1900,9 @@ end
 
 function UPDATE_SLOT_RECIPE_BLINK(frame, slot, invItem)
 
-	-- ¿ø·¡´Â DROP ½ºÅ©¸³Æ®°¡ ½ÇÇàµÇ°í LIFTICONÀÌ NULLÀÌ µÇ´Â ¼ø¼­ÀÎµ¥
-	-- ¿©±â¼­´Â NULLÀÌ ¸ÕÀú µÇ¾ßÇÑ´Ù. ¿¹¿Ü¸¦ ¸¸µéÁö ¾Ê±â À§ÇØ¼­ GetValue¸¦ »ç¿ë
-	-- DROPSCP <-> LIFTICON = NULL ¼ø¼­¸¦ º¯°æ ÇÏ´Â ¿É¼ÇÀÌ ÀÖÀ¸¸é ¿¹¿ÜÃ³¸®°¡ ¾ø¾îµµµÊ
+	-- ì›ë˜ëŠ” DROP ìŠ¤í¬ë¦½íŠ¸ê°€ ì‹¤í–‰ë˜ê³  LIFTICONì´ NULLì´ ë˜ëŠ” ìˆœì„œì¸ë°
+	-- ì—¬ê¸°ì„œëŠ” NULLì´ ë¨¼ì € ë˜ì•¼í•œë‹¤. ì˜ˆì™¸ë¥¼ ë§Œë“¤ì§€ ì•Šê¸° ìœ„í•´ì„œ GetValueë¥¼ ì‚¬ìš©
+	-- DROPSCP <-> LIFTICON = NULL ìˆœì„œë¥¼ ë³€ê²½ í•˜ëŠ” ì˜µì…˜ì´ ìˆìœ¼ë©´ ì˜ˆì™¸ì²˜ë¦¬ê°€ ì—†ì–´ë„ë¨
 	local recipeProp = invItem.prop.dragRecipe;
 	if recipeProp ~= nil then
 		if GetWiki(recipeProp.needWikiID) == nil then
@@ -1954,12 +1971,11 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	local slot = tolua.cast(child, 'ui::CSlot');
 	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
 	controlset:ShowWindow(0);
-
+	
 	if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
 		local icon = CreateIcon(slot);
 		local obj = GetIES(equipItem:GetObject());
-		local imageName = GET_ITEM_ICON_IMAGE(obj);
-
+		local imageName = GET_EQUIP_ITEM_IMAGE_NAME(obj, 'Icon');
 		if IS_DUR_ZERO(obj) == true  then
 			icon:SetColorTone("FF990000");
 		elseif IS_DUR_UNDER_10PER(obj) == true  then
@@ -1967,7 +1983,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		else
 			icon:SetColorTone("FFFFFFFF");
 		end
-
+		
 		icon:Set(imageName, 'Item', equipItem.type, equipItem.equipSpot, equipItem:GetIESID());
 		iconFunc(slot, icon, equipItem, ...);
 
@@ -1978,7 +1994,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		slot:SetText("");
 	end
 
-	-- LH¾ÆÀÌÄÜÀº RH¿¡ ¾ç¼Õ¹«±â°¡ ÀåÂøÁßÀÎÁö È®ÀÎÈÄ ¾ÆÀÌÄÜ ¼ÂÆÃ
+	-- LHì•„ì´ì½˜ì€ RHì— ì–‘ì†ë¬´ê¸°ê°€ ì¥ì°©ì¤‘ì¸ì§€ í™•ì¸í›„ ì•„ì´ì½˜ ì…‹íŒ…
 	if spotName == 'LH' then		
 		local checkRH = frame:GetChild('RH');
 		if checkRH ~= nil then
@@ -2111,12 +2127,11 @@ end
 s_dropDeleteItemIESID = '';
 
 function INVENTORY_DELETE(itemIESID, itemType)
-	local invframe = ui.GetFrame("inventory");
-	if itemIESID == invframe:GetUserValue("ITEM_GUID_IN_MORU")
-		or itemIESID == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or itemIESID == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+	if true == BEING_TRADING_STATE() then
 		return;
 	end
+
+	local invframe = ui.GetFrame("inventory");
 	if ui.GetPickedFrame() ~= nil then
 		return;
 	end
@@ -2126,7 +2141,7 @@ function INVENTORY_DELETE(itemIESID, itemType)
 		return;
 	end
 
-	if true == invItem.isLockState then
+	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
@@ -2138,8 +2153,11 @@ function INVENTORY_DELETE(itemIESID, itemType)
 
 	local itemProp = geItemTable.IsDestroyable(itemType);
 	if cls.Destroyable == 'NO' or geItemTable.IsDestroyable(itemType) == false then
-		ui.AlarmMsg("ItemIsNotDestroy");
-		return;
+		local obj = GetIES(invItem:GetObject());
+		if obj.ItemLifeTimeOver == 0 then
+			ui.AlarmMsg("ItemIsNotDestroy");
+			return;
+		end
 	end
 
 	--if cls.UserTrade == 'YES' or cls.ShopTrade == 'YES' then
@@ -2287,10 +2305,19 @@ end
 
 function LOCK_ITEM_INVENTORY(frame)
 	for i = 0, AUTO_SELL_COUNT-1 do
-		-- ¹¹ÇÏ³ª¶óµµ true¸é
+		-- ë­í•˜ë‚˜ë¼ë„ trueë©´
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
+			ui.MsgBox(ScpArgMsg("CannotDoAction"));
 			return;
 		end
+	end
+
+	if true == BEING_TRADING_STATE() then
+		return;
+	end
+
+	if true == IS_TRANSCENDING_STATE() then
+		return;
 	end
 
 	session.inventory.SetInventoryLock();
@@ -2352,10 +2379,17 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	if itemType == "Quest" then
 		return;
 	end
+
+	local invframe = ui.GetFrame("inventory");
+	if selectItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
+		or selectItem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+			ui.SysMsg(ClMsg("selectItemUsed"));
+			return;
+	end
 	
-	--µğ½ºÆç·¯ °ü·Ã Ã³¸®
+	--ë””ìŠ¤í ëŸ¬, ì˜¤ë§ˆëª¨ë¦¬ ê´€ë ¨ ì²˜ë¦¬
 	local obj = GetIES(selectItem:GetObject());
-	if obj.ClassName == "Dispeller_1" then
+	if obj.ClassName == "Dispeller_1" or obj.ClassName == 'Bujeok_1' then
 		if false == selectItem.isLockState then
 			if true == item.useToggleDispelDebuff() then
 				ui.SysMsg(ClMsg("selectItemUsed"));
@@ -2373,12 +2407,36 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	else
 		controlset:ShowWindow(1);
 	end
-
+	
 	session.inventory.SendLockItem(selectItem:GetIESID(), state);
 end
 
-function INV_ITEM_LOCK_SAVE_FAIL()
-	ui.SysMsg(ClMsg("ItemLockSaveFail"));
+function INV_ITEM_LOCK_SAVE_FAIL(frame, msg, argStr, agrNum)
+	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree')
+	for i = 1 , #SLOTSET_NAMELIST do
+		local slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
+
+		if nil ~= slotset then
+			local slotCount = slotset:GetSlotCount();
+			for i = 0, slotCount - 1 do
+				local slot		= slotset:GetSlotByIndex(i );
+				AUTO_CAST(slot);
+				local invItem = GET_SLOT_ITEM(slot);
+				if invItem ~= nil and invItem:GetIESID() == argStr then
+					invItem.isLockState = argNum;
+					ui.SysMsg(ClMsg("ItemLockSaveFail"));
+					local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
+					if 1 == agrNum then
+						controlset:ShowWindow(1);
+					else
+						controlset:ShowWindow(0);
+					end
+				end
+
+			end	
+		end
+
+	end
 end
 
 function INV_HAT_VISIBLE_STATE(frame)
@@ -2474,3 +2532,31 @@ function INV_HAT_VISIBLE_STEATE_SET(frame)
 
 	control.CustomCommand("HAT_VISIBLE_STATE", index);
 end
+
+-- ê¸°ê°„ì œ ì•„ì´í…œ íŒë³„ í•¨ìˆ˜
+function IS_LIFETIME_OVER(itemobj)
+
+	if itemobj.LifeTime == nil then
+		return 0;
+
+	elseif 0 ~= itemobj.LifeTime then		
+
+		-- ê¸°ê°„ì— ë”°ë¼ ì •í•˜ê¸°
+		local sysTime = geTime.GetServerSystemTime();
+		local endTime = imcTime.GetSysTimeByStr(itemobj.ItemLifeTime);
+		local difSec = imcTime.GetDifSec(endTime, sysTime);		
+		
+		-- ê¸°ê°„ë§Œë£Œ ì¼ ê²½ìš°ì—
+		if 0 > difSec then
+			return 1;
+		end;
+		
+		-- ItemLifeTimeOverìœ¼ë¡œ ê²€ì‚¬í•˜ëŠ” í•¨ìˆ˜		
+		--[[
+		if 0 ~= itemobj.ItemLifeTimeOver then
+			return 1;
+		end;
+		]]
+	end;
+	return 0;
+end;

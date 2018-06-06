@@ -7,6 +7,8 @@ function INIT_KEYCONFIG_CATEGORY(tree, cateName, imgName)
 	img:SetImage(imgName);
 	
 	local handle = tree:FindByObject(mouse);
+	
+	tree:SetFitToChild(true,50);
 	tree:SetFoldingScript(handle, "KEYCONFIG_UPDATE_FOLDING");
 
 end
@@ -122,7 +124,7 @@ end
 function KEYCONFIG_SAVE_INPUT(frame)
 
 	if frame:GetUserValue("EDITING") ~= "YES" then
-		return false;
+		return;
 	end
 
 	frame:SetUserValue("EDITING", "NO");
@@ -150,28 +152,31 @@ function KEYCONFIG_SAVE_INPUT(frame)
 		local useCtrl = txt_key:GetUserValue("UseCtrl");
 		local key = txt_key:GetUserValue("Key");
 		if key == "" then
-			return false;
+			return;
 		end
 
-		if config.IsOverlapHotKeyInConfig(key, useShift, useAlt, useCtrl) == true then
-			return false;
-		end
-
-		config.SetHotKeyElementAttributeForConfig(idx, "Key", key);
-		if joyStickMode == true then
-			local pressedKey = txt_key:GetUserValue("PressedKey");
-			config.SetHotKeyElementAttributeForConfig(idx, "PressedKey", pressedKey);
-		end
-		config.SetHotKeyElementAttributeForConfig(idx, "UseAlt", useAlt);
-		config.SetHotKeyElementAttributeForConfig(idx, "UseCtrl", useCtrl);
-		config.SetHotKeyElementAttributeForConfig(idx, "UseShift", useShift);
-		
-		
+		config.SetHotKeyIndexInConfig(fileName, idx, key, useShift, useAlt, useCtrl);
+				
 		config.SaveHotKey(fileName);
 		
-	end
+		local tree = GET_CHILD(frame, "tree");
+		local tnode = tree:GetLastSelectedNode();
+		if tnode == nil then
+			return;
+		end
 
-	return true;
+		local selValue = tnode:GetValue();
+		local sList = StringSplit(selValue, "#");
+		if #sList ~= 2 then
+			return;
+		end
+
+		local fileName = sList[1];
+		local categoryName = sList[2];
+
+		frame:SetUserValue("FILENAME", fileName);
+		KEYCONFIG_OPEN_CATEGORY(frame, fileName, categoryName);
+	end
 
 end
 
@@ -205,7 +210,7 @@ end
 function KEYCONFIG_END_INPUT(frame)
 
 		keyboard.EnableHotKey(true);
-		local result = KEYCONFIG_SAVE_INPUT(frame);
+		KEYCONFIG_SAVE_INPUT(frame);
 
 		local id = frame:GetUserValue("ID");
 		local bg_key = GET_CHILD(frame, "bg_key");
@@ -214,10 +219,6 @@ function KEYCONFIG_END_INPUT(frame)
 		if ctrlSet ~= nil then
 			local txt_key = GET_CHILD(ctrlSet, "txt_key");
 			txt_key:SetSkinName("base_btn");
-			
-			if result == false then
-				KEYCONFIG_GET_RESTORE_HOTKEY(frame, txt_key);
-			end
 		end
 
 		if string.find(id, "QuickSlotExecute") ~= nil then
@@ -225,7 +226,7 @@ function KEYCONFIG_END_INPUT(frame)
 			QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME(quickSlotFrame);
 			quickSlotFrame:Invalidate();
 		end
-
+		
 end
 
 function KEYCONFIG_CHECKING_INPUT(frame)
@@ -334,7 +335,8 @@ function KEYCONFIG_TREE_CLICK(parent, ctrl, str, num)
 
 	local frame = parent:GetTopParentFrame();
 	frame:SetUserValue("FILENAME", fileName);
-	KEYCONFIG_OPEN_CATEGORY(frame, fileName, categoryName);	
+	KEYCONFIG_OPEN_CATEGORY(frame, fileName, categoryName);
+	
 	
 end
 
@@ -353,11 +355,13 @@ function OPEN_KEYCONFIG(frame)
 	KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "mouse", "Battle", "hotkey_mousemode.xml", "Battle");
 	KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "mouse", "SystemMenu", "hotkey_mousemode.xml", "System");
 
-	-- KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "joypad", "Battle", "hotkey_joystick.xml", "Basic");
-	-- KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "joypad", "Battle", "hotkey_joystick.xml", "Battle");
-	-- KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "joypad", "Battle", "hotkey_joystick.xml", "System");
+	KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "joypad", "Battle", "hotkey_joystick.xml", "Basic");
 
 	tree:OpenNodeAll();
+end
+
+function CLOSE_KEYCONFIG(frame)
+	keyboard.EnableHotKey(true);
 end
 
 function GET_HOTKEY_TITLE_STR(id)

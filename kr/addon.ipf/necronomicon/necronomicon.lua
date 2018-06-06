@@ -13,7 +13,11 @@ function NECRONOMICON_MSG(frame, msg, argStr, argNum)
 	end
 end
 
-function SET_NECRO_CARD_STATE(frame, bosscardcls, i)
+function NECRONOMICON_STATE_UI_RESET(frame, i)
+	if 1 ~= i then
+		return;
+	end
+
 	local necoGbox = GET_CHILD(frame,'necoGbox',"ui::CGroupBox")
 	if nil == necoGbox then
 		return;
@@ -26,7 +30,71 @@ function SET_NECRO_CARD_STATE(frame, bosscardcls, i)
 
 	local gbox = GET_CHILD(descriptGbox,'desc_name',"ui::CRichText")
 	if nil ~= gbox then
+		gbox:SetTextByKey("bossname", "");
+	end
+	
+	NECRONOMICON_STATE_TEXT_RESET(descriptGbox)
+end
+
+function NECRONOMICON_STATE_TEXT_RESET(descriptGbox)
+	-- 체력
+	local myHp = GET_CHILD(descriptGbox,'desc_hp',"ui::CRichText")
+	myHp:SetTextByKey("value", 0);
+
+	-- 물리 공격력
+	local richText = GET_CHILD(descriptGbox,'desc_fower',"ui::CRichText")
+	richText:SetTextByKey("value", 0);
+
+	-- 방어력
+	richText = GET_CHILD(descriptGbox,'desc_defense',"ui::CRichText")
+	richText:SetTextByKey("value", 0);
+
+	-- 힘
+	richText = GET_CHILD(descriptGbox,'desc_Str',"ui::CRichText")
+	richText:SetTextByKey("value", 0);
+	
+	-- 체력
+	richText = GET_CHILD(descriptGbox,'desc_Con',"ui::CRichText")
+	richText:SetTextByKey("value", 0);
+	
+	-- 지능
+	richText = GET_CHILD(descriptGbox,'desc_Int',"ui::CRichText")
+	richText:SetTextByKey("value", 0);
+	
+	-- 민첩
+	richText = GET_CHILD(descriptGbox,'desc_Dex',"ui::CRichText")
+	richText:SetTextByKey("value", 0);
+	
+	-- 정신
+	richText = GET_CHILD(descriptGbox,'desc_Mna',"ui::CRichText")
+	richText:SetTextByKey("value", 0);
+end
+
+function SET_NECRO_CARD_STATE(frame, bosscardcls, i)
+	if 1 ~= i then
+		return;
+	end
+	
+	local necoGbox = GET_CHILD(frame,'necoGbox',"ui::CGroupBox")
+	if nil == necoGbox then
+		return;
+	end
+
+	local descriptGbox = GET_CHILD(necoGbox,'descriptGbox',"ui::CGroupBox")
+	if nil == descriptGbox then
+		return;
+	end
+
+	NECRONOMICON_STATE_TEXT_RESET(descriptGbox);
+
+	local gbox = GET_CHILD(descriptGbox,'desc_name',"ui::CRichText")
+	if nil ~= gbox then
 		gbox:SetTextByKey("bossname",bosscardcls.Name);
+	end
+
+	local skl = session.GetSkillByName('Necromancer_CreateShoggoth');
+	if nil == skl then
+		return;
 	end
 
 	local bossMonID = bosscardcls.NumberArg1;
@@ -41,80 +109,43 @@ function SET_NECRO_CARD_STATE(frame, bosscardcls, i)
 		return;
 	end
 
-	local skl = session.GetSkillByName('Necromancer_CreateShoggoth');
-
-	if nil ~= skl then
-		CLIENT_SORCERER_SUMMONING_MON(tempObj, GetMyPCObject(), GetIES(skl:GetObject()), bosscardcls);
-	end
-
+	CLIENT_SORCERER_SUMMONING_MON(tempObj, GetMyPCObject(), GetIES(skl:GetObject()), bosscardcls);
+	
 	-- 체력
 	local myHp = GET_CHILD(descriptGbox,'desc_hp',"ui::CRichText")
-	if nil ~= skl then
-		local hp = math.floor(SCR_Get_MON_MHP(tempObj));
-		myHp:SetTextByKey("value", hp);
-	else
-		myHp:SetTextByKey("value", 0);
-	end
+	local hp = math.floor(SCR_Get_MON_MHP(tempObj));
+	myHp:SetTextByKey("value", hp);
 
 	-- 물리 공격력
 	local richText = GET_CHILD(descriptGbox,'desc_fower',"ui::CRichText")
-	if nil ~= skl then
-		richText:SetTextByKey("value", math.floor(tempObj.MAXPATK));
-	else
-		richText:SetTextByKey("value", 0);
-	end
+	richText:SetTextByKey("value", math.floor(SCR_Get_MON_MAXPATK(tempObj)));
 
 	-- 방어력
 	richText = GET_CHILD(descriptGbox,'desc_defense',"ui::CRichText")
-	if nil ~= skl then
-		richText:SetTextByKey("value", math.floor(tempObj.DEF));
-	else
-		richText:SetTextByKey("value", 0);
-	end
+	richText:SetTextByKey("value", math.floor(SCR_Get_MON_DEF(tempObj)));
 
 	-- 힘
 	richText = GET_CHILD(descriptGbox,'desc_Str',"ui::CRichText")
-	if nil ~= skl then
-		richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "STR"));
-	else
-		richText:SetTextByKey("value", 0);
-	end
+	richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "STR"));
 
 	-- 체력
 	richText = GET_CHILD(descriptGbox,'desc_Con',"ui::CRichText")
-
-	if nil ~= skl then
 	 -- 기본적으로 GET_MON_STAT을 쓰지만 체력은 따로해달라는 평직씨의 요청
-		local con = math.floor(GET_MON_STAT_CON(tempObj, tempObj.Lv, "CON"));
-		richText:SetTextByKey("value", con);
-	else
-		richText:SetTextByKey("value", 0);
-	end
+	local con = math.floor(GET_MON_STAT_CON(tempObj, tempObj.Lv, "CON"));
+	richText:SetTextByKey("value", con);
 
 	-- 지능
 	richText = GET_CHILD(descriptGbox,'desc_Int',"ui::CRichText")
-	if nil ~= skl then
-		richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "INT"));
-	else
-		richText:SetTextByKey("value", 0);
-	end
+	richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "INT"));
 
 	-- 민첩
 	richText = GET_CHILD(descriptGbox,'desc_Dex',"ui::CRichText")
-	if nil ~= skl then
-		richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "DEX"));
-	else
-		richText:SetTextByKey("value", 0);
-	end
+	richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "DEX"));
 
 	-- 정신
 	richText = GET_CHILD(descriptGbox,'desc_Mna',"ui::CRichText")
-	if nil~= skl then
-		richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "MNA"));
-	else
-		richText:SetTextByKey("value", 0);
-	end
-
+	richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "MNA"));
+	
 	-- 생성한 가상몹을 지워야져
 	DestroyIES(tempObj);
 end
@@ -124,7 +155,6 @@ function UPDATE_NECRONOMICON_UI(frame)
 	local etc_pc = GetMyEtcObject();
 
 	local MAX_CARD_COUNT = 4; -- 설마 이 숫자가 늘어나려나. 끼우는 카드 수. 1은 메인 카드.(소환) 2,3,4는 서브카드
-
 
 	--데드파츠개수 업데이트
 	-- 네크로 파츠 1종
@@ -137,8 +167,15 @@ function UPDATE_NECRONOMICON_UI(frame)
 	
 	local part_gaugename = 'part_gauge1'
 	local part_gauge = GET_CHILD(deadpartsGbox, part_gaugename,"ui::CGauge")
-	part_gauge:SetPoint(deadPartsCnt,300) -- 기획 변경으로 100개 씩 3개있던걸 300개로 변경
-
+	local totalCount = 300
+	
+	local abil = session.GetAbilityByName("Necromancer21")
+	if abil ~= nil then
+	    local abilObj = GetIES(abil:GetObject());
+	    totalCount = totalCount + abilObj.Level * 100
+	end
+	
+	part_gauge:SetPoint(deadPartsCnt, totalCount) -- 기획 변경으로 100개 씩 3개있던걸 300개로 변경
 
 
 	local gbox = GET_CHILD(frame,'necoGbox',"ui::CGroupBox")
@@ -150,24 +187,30 @@ function UPDATE_NECRONOMICON_UI(frame)
 		
 		local bosscardid = etc_pc[nowcard_classname]
 		local nowcard_guid = etc_pc[nowcard_guidname];
+		local slotchild = GET_CHILD(gbox, slotname,"ui::CSlot");
+		local invitem = nil;
+		if "None" ~= nowcard_guid then
+			invitem = session.GetInvItemByGuid(nowcard_guid);
+		end
 
-		local invitem = session.GetInvItemByGuid(nowcard_guid);
 		if nil ~= invitem then
 			local itemobj = GetIES(invitem:GetObject());
-			print(itemobj.ClassName);
-			local slotchild = GET_CHILD(gbox,slotname,"ui::CSlot");
-			--local slotchild_text= GET_CHILD(gbox, slottextname,"ui::CRichText");
 			if itemobj ~= nil then
 				SET_SLOT_ICON(slotchild, itemobj.TooltipImage);		
 				SET_ITEM_TOOLTIP_BY_OBJ(slotchild:GetIcon(), invitem);
 				SET_NECRO_CARD_STATE(frame, itemobj, i);
-				--slotchild_text:SetText(itemobj.Name)
 			else
-				SET_SLOT_ICON(slotchild, 'monster_card');			
+				SET_SLOT_ICON(slotchild, 'bg2');			
 			end
-		end
 
-		--slotchild_text:SetText('');
+			local icon = slotchild:GetIcon();
+			if nil ~= icon then
+				icon:SetIESID(invitem:GetIESID());
+			end
+		else
+			slotchild:ClearIcon();
+			NECRONOMICON_STATE_UI_RESET(frame, i)
+		end
 	end
 
 	local necoGbox = GET_CHILD(frame,'necoGbox',"ui::CGroupBox")
@@ -185,19 +228,6 @@ function UPDATE_NECRONOMICON_UI(frame)
 		desc_needparts:SetTextByKey("value", "30");
 	end
 	
-	-- 네크로 파츠 1종
-	local deadPartsCnt = etc_pc.Necro_DeadPartsCnt
-
-	local gbox = GET_CHILD(frame,'deadpartsGbox',"ui::CGroupBox")
-	if nil == gbox then
-		return;
-	end
-
-	local part_gaugename = 'part_gauge1'
-	local part_gauge = GET_CHILD(gbox, part_gaugename,"ui::CGauge")
-	part_gauge:SetPoint(deadPartsCnt,300) -- 기획 변경으로 100개 씩 3개있던걸 300개로 변경
-
-	
 end
 
 function NECRONOMICON_FRAME_OPEN(frame)
@@ -206,6 +236,25 @@ end
 
 function NECRONOMICON_FRAME_CLOSE(frame)
 	
+end
+
+function NECRONOMICON_SLOT_RESET(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	local slot = tolua.cast(ctrl, "ui::CSlot");
+	local icon, iconInfo, itemIES = nil, nil, nil;
+	icon = slot:GetIcon();
+	if nil ~= icon then
+		 iconInfo = icon:GetInfo();
+	end
+
+	if nil ~= iconInfo then
+		itemIES = iconInfo:GetIESID();
+	end
+	session.ResetItemList();
+	if nil~= itemIES then
+		session.AddItemID(itemIES);
+	end
+	SET_NECRO_CARD_COMMIT(slot:GetName(),"UnEquip")
 end
 
 function NECRONOMICON_SLOT_DROP(frame, control, argStr, argNum) 
@@ -221,23 +270,59 @@ function NECRONOMICON_SLOT_DROP(frame, control, argStr, argNum)
 	local cardobj = GetIES(invenItemInfo:GetObject());
 
 	if cardobj.GroupName ~= 'Card' then
+		ui.SysMsg(ClMsg("PutOnlyCardItem"));
 		return 
+	end
+
+	local cardItemCls = GetClassByType("Item", cardobj.ClassID);
+	if nil == cardItemCls then
+		ui.SysMsg(ClMsg("PutOnlyCardItem"));
+		return;
+	end
+
+	local monCls = GetClassByType("Monster", cardItemCls.NumberArg1);
+	if monCls == nil then
+		ui.SysMsg(ClMsg("CheckCardType"));
+		return;
+	end
+
+	if monCls.RaceType == 'Velnias' or monCls.RaceType == 'Klaida' then
+		ui.SysMsg(ClMsg("CheckCardType"));
+		return;
+	end
+
+	local MAX_CARD_COUNT = 4;
+	local etc_pc = GetMyEtcObject();
+	local itemIES = GetIESID(cardobj);
+	for i = 1, MAX_CARD_COUNT do
+		local bosscardslotname = 'Necro_bosscardGUID'..i
+		if etc_pc[bosscardslotname] == itemIES then
+			ui.SysMsg(ClMsg("AlreadRegSameCard"));
+			return;
+		end
 	end
 
 	session.ResetItemList();
 	session.AddItemID(iconInfo:GetIESID());
 
-	SET_NECRO_CARD_COMMIT(slot:GetName())
+	SET_NECRO_CARD_COMMIT(slot:GetName(), "Equip")
 
 end
 
 
-function SET_NECRO_CARD_COMMIT(slotname)
+function SET_NECRO_CARD_COMMIT(slotname, type)
 
 	local resultlist = session.GetItemIDList();
 
 	local slotnumber = GET_NEC_SLOT_NUMBER(slotname)
-	item.DialogTransaction("SET_NECRO_CARD", resultlist, slotnumber); -- 서버의 SCR_SET_CARD()가 호출된다.
+
+	local iType = 1;
+	if "UnEquip" == type then
+		iType = 0;
+	end
+
+	local argStr = string.format("%s %s", tostring(slotnumber), iType);
+	item.DialogTransaction("SET_NECRO_CARD", resultlist, argStr); -- 서버의 SCR_SET_CARD()가 호출된다.
 
 end
 

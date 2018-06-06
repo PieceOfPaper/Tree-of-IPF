@@ -70,7 +70,7 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
 		value = 0;
 	end
 	
-    value = math.floor(value)
+    value = math.floor(value) /2
 	return math.floor(value);
 
 end
