@@ -361,6 +361,7 @@
 	<Trail name="dash004" texture="dash004" height="4.00" texel_x="128" texel_y="128" texel_width="64" texel_height="64"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="1040" texel_height="640"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="coin" model="coin.xac" motion="coin_ani.xsm" texturepath="char_texture\monster\Unknocker\" overlap="false"/>
 	<Model name="Lapene_skl2_gasi" model="Lapene_skl2_gasi.xac" motion="Lapene_skl2_gasi_ani.xsm" texturepath="char_texture_low\monster\Lapene\" overlap="false"/>
 	<Model name="pagdoper_force" model="pagdoper_force.xac" motion="None" texturepath="char_texture_low\monster\PagDoper\" overlap="false"/>
 	<Model name="Lapemiter_bomb" model="Lapemiter_bomb.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>

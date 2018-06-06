@@ -32,7 +32,9 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	end
 
 	type = tooltipframe:GetChild("token_expup");
-	type:SetTextByKey("value", ClMsg("token_expup")); 
+	type:SetTextByKey("value", ClMsg("token_expup"));
+	type = tooltipframe:GetChild("toekn_staup");
+	type:SetTextByKey("value", ClMsg("toekn_staup")); 
 end
 
 function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
