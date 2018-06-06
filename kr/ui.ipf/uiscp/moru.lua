@@ -153,6 +153,12 @@ function MORU_LBTN_CLICK(frame, invItem)
 		end
 	end
 
+	local pCls = GetClass("Item", obj.ClassName);
+	local Star = TryGetProp(pCls, "ItemStar")
+	if Star == nil or tonumber(Star) == 0 then
+		return;
+	end
+
 	upgradeitem_2:ShowWindow(1);
 	REINFORCE_131014_UPDATE_MORU_COUNT(upgradeitem_2);
 
@@ -182,6 +188,12 @@ function _CHECK_MORU_TARGET_ITEM(slot)
 		end
 	elseif REINFORCE_ABLE_131014(obj) == 1 then
 		CanReinforceItem =1;
+	end
+
+	local pCls = GetClass("Item", obj.ClassName);
+	local Star = TryGetProp(pCls, "ItemStar")
+	if Star == nil or tonumber(Star) == 0 then
+		CanReinforceItem = 0;
 	end
 
 	if CanReinforceItem == 1 then
