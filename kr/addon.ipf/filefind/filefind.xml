@@ -16,6 +16,6 @@
         <button name="t_end" rect="0 0 80 24" margin="175 0 0 30" layout_gravity="center bottom" LBtnUpScp="SELECT_FILEFIND" caption="{@st49}선택{/}"/>
         <button name="t_cancel" rect="0 0 80 24" margin="85 0 0 30" layout_gravity="center bottom" LBtnUpScp="CLOSE_UI" caption="{@st49}취소{/}"/>
         <button name="t_delete" rect="0 0 80 24" margin="175 0 0 30" layout_gravity="center bottom" LBtnUpScp="DELETE_FILEFIND" caption="{@st49}삭제{/}"/>
-        <edit name="input" rect="0 0 180 30" margin="0 20 23 0" layout_gravity="right top" EnterKeyScp="ENTER_FILE_FIND" OffsetForDraw="20 3" fontname="white_14_ol" maxlen="128" texttooltip="저장할 파일의 이름을 입력합니다." usetag="true"/>
+        <edit name="input" rect="0 0 180 30" margin="0 20 23 0" layout_gravity="right top" EnterKeyScp="ENTER_FILE_FIND" OffsetForDraw="20 3" fontname="white_14_ol" maxlen="128" texttooltip="저장할 파일의 이름을 입력합니다."/>
     </controls>
 </uiframe>

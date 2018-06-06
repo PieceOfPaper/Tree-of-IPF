@@ -47,7 +47,6 @@ function SHOW_TOKEN_REMAIN_TIME(ctrl)
 end
 
 function TOKEN_ON_MSG(frame, msg, argStr, argNum)
-
 	local logoutGBox = frame:GetChild("logoutGBox");
 	local logoutInternal = logoutGBox:GetChild("logoutInternal");
 	local gToken = logoutInternal:GetChild("gToken");
@@ -124,7 +123,9 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 
 	local itemClassID = session.loginInfo.GetPremiumStateArg(ITEM_TOKEN)
 	local itemCls = GetClassByType("Item", itemClassID);
-	if nil ~= itemCls and itemCls.NumberArg2 > 0 then
+    local accountObj = GetMyAccountObj();
+    local tradeCount = TryGetProp(accountObj, 'TradeCount');
+	if tradeCount ~= nil and tradeCount > 0 then
 		local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local prop = ctrlSet:GetChild("prop");
 		local img = string.format("{img dealok_image %d %d}", 55, 45) 
@@ -1781,7 +1782,7 @@ function STATUS_ACHIEVE_INIT(frame)
 				eachColorE = string.lower(eachColorE)
 
 				-- 업적 받으면 헤어 컬러 사라지는 현상이 있다고 해서 HairColor 프로퍼티 값으로도 확인
-				if string.find(nowAllowedColor, eachColorE) ~= nil or TryGetProp(etc, "HairColor_"..eachColorE) == 1 then
+				if TryGetProp(etc, "HairColor_"..eachColorE) == 1 then
 				
 					local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_'..eachColorE, 30 + 35 * haircount, 55, 35, 35);
 					tolua.cast(eachhairimg, "ui::CPicture");
@@ -1893,6 +1894,10 @@ function GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(engname)
 	
 	if engname == 'orange' then
 		return "orange_color"
+	end
+	
+	if engname == 'midnightblue' then
+		return "midnightblue_color"
 	end
 	return "basic_color"
 

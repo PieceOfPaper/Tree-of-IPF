@@ -82,3 +82,16 @@ function GET_PROGRESS_VALUE_BY_STRING(progressStr)
 	end
 	return 0;
 end
+
+function GET_PROGRESS_STRING_BY_VALUE(progressValue)
+	if progressValue == 1 then
+		return 'POSSIBLE';
+	elseif progressValue == 2 then
+		return 'SUCCESS';
+	elseif progressValue == 3 then
+		return 'PROGRESS';
+	elseif progressValue == 4 then
+		return 'COMPLETE';
+	end
+	return 'IMPOSSIBLE';
+end

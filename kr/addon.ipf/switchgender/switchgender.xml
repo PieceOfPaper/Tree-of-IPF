@@ -21,11 +21,11 @@
         <groupbox name="moneyGbox" rect="0 0 405 35" margin="0 170 25 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin" parent="Itembox1"/>
         <richtext name="moneyStr" parent="moneyGbox" rect="0 0 200 80" margin="6 8 0 0" layout_gravity="left top" caption="받는 가격 {img silver 20 20} " textalign="left top" fontname="brown_16_b"/>
         <richtext name="money" parent="moneyGbox" rect="0 0 343 48" margin="0 8 4 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
-        <edit name="moneyInput" margin="108 -8 0 0" rect="0 10 290 27" fontname="brown_16" maxlen="16" usetag="true" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="moneyGbox" skin=""/>
+        <edit name="moneyInput" margin="108 -8 0 0" rect="0 10 290 27" fontname="brown_16" maxlen="16" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="moneyGbox" skin=""/>
         <groupbox name="titleGbox" parent="Itembox1" rect="0 0 405 35" margin="0 132 25 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
         <richtext name="titleStr" parent="titleGbox" rect="0 0 200 80" margin="2 8 0 0" layout_gravity="left top" caption=" 상점 이름" textalign="left top" fontname="brown_16_b"/>
         <richtext name="title_1" parent="titleGbox" rect="0 0 343 48" margin="0 7 4 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
-        <edit name="titleInput" margin="95 -7 0 0" rect="0 10 290 27" fontname="brown_18" maxlen="16" usetag="true" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="titleGbox" skin=""/>
+        <edit name="titleInput" margin="95 -7 0 0" rect="0 10 290 27" fontname="brown_18" maxlen="16" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="titleGbox" skin=""/>
         <groupbox name="effectGbox" parent="bg_mid" rect="0 0 420 100" margin="-3 10 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
         <labelline name="effectline" parent="effectGbox" rect="0 0 400 2" margin="5 27 0 69" layout_gravity="center top" skin="None"/>
         <richtext name="effect" parent="effectGbox" rect="0 0 200 80" margin="18 1 0 0" layout_gravity="left top" fontname="black_18_b" caption="효과" textalign="left top"/>

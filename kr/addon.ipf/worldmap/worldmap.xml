@@ -23,7 +23,7 @@
 		<button name="btn_nowpos" rect="0 0 44 44" margin="0 380 155 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_pos_img" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}현재 위치를 봅니다{/}" LBtnUpScp="WORLDMAP_LOCATE_NOWPOS"/>
 		<button name="btn_dungeon" rect="0 0 44 44" margin="0 380 105 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_dungeon_img" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}추천 던전 위치를 봅니다{/}" LBtnUpScp="WORLDMAP_LOCATE_RECOMMENDDED_DUNGEON"/>
 		<groupbox name="editSkin" margin="0 430 10 0" rect="0 0 350 38" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
-		<edit name="input_search" margin="0 436 70 0" rect="0 0 280 26" fontname="white_18_ol" maxlen="16" usetag="true" EnterKeyScp="WORLDMAP_SEARCH_BY_NAME" numbermode="false" drawbackground="false" OffsetForDraw="0 -1" skin="None" layout_gravity="right top" typingsound="chat_typing"/>
+		<edit name="input_search" margin="0 436 70 0" rect="0 0 280 26" fontname="white_18_ol" maxlen="16" EnterKeyScp="WORLDMAP_SEARCH_BY_NAME" numbermode="false" drawbackground="false" OffsetForDraw="0 -1" skin="None" layout_gravity="right top" typingsound="chat_typing"/>
 		<button name="btn_search" image="inven_s" margin="0 430 10 0" rect="0 0 60 38" layout_gravity="right top" LBtnUpScp="WORLDMAP_SEARCH_BY_NAME" oversound="button_over" clicksound="button_click_big"/>
 	</controls>
 </uiframe>

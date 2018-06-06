@@ -10,7 +10,7 @@
     <sound opensound="win_open" closesound="win_close"/>
     <script CloseScp="CLOSE_CREATECHAT" EnterKeyScp="EXEC_MAKE_CHAT"/>
     <controls>
-        <edit name="tabTitle" rect="9 8 100 32" layout_gravity="left top" EnterKeyScp="EXEC_MAKE_CHAT" OffsetForDraw="10 5" fontname="white_16_ol" maxlen="10" texttooltip="탭 제목을 지우고 확인하면 탭이 삭제됩니다" usetag="true"/>
+        <edit name="tabTitle" rect="9 8 100 32" layout_gravity="left top" EnterKeyScp="EXEC_MAKE_CHAT" OffsetForDraw="10 5" fontname="white_16_ol" maxlen="10" texttooltip="탭 제목을 지우고 확인하면 탭이 삭제됩니다"/>
         <checkbox name="sel_Chat" rect="20 50 90 24" LBtnDownScp="CHECK_ALL_CATEGORY_CHATPROP" caption="{@st49}전체{/}" checked="true" clicksound="button_click_big" oversound="button_over"/>
         <checkbox name="sel_Sys" rect="20 75 90 24" LBtnDownScp="CHECK_ALL_CATEGORY_CHATPROP" caption="{@st49}시스템{/}" clicksound="button_click_big" oversound="button_over"/>
         <checkbox name="sel_Sys_Normal" rect="40 100 90 24" LBtnDownScp="CHECK_ALL_CATEGORY_CHATPROP" caption="{@st49}대화{/}" clicksound="button_click_big" oversound="button_over"/>
