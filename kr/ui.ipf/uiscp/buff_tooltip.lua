@@ -11,8 +11,10 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 		token_staup:ShowWindow(0);
 	elseif NEXON_PC == numarg1 then
 		type:SetTextByKey("value", ClMsg("nexon")); 
-		token_expup:SetTextByKey("value", ClMsg("token_setup"));
+		token_expup:SetTextByKey("value", ClMsg("token_expup"));
+		token_staup:SetTextByKey("value", ClMsg("token_setup"));
 		token_staup:ShowWindow(1);
+		token_expup:ShowWindow(1);
 	end
 	
 	for i = 0, 3 do 

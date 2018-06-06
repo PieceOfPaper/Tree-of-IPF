@@ -197,14 +197,14 @@ function ON_INTE_WARP(frame, changeDirection)
 					set:SetClickSound('button_click_stats');
 					local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
 					nameRechText:SetTextByKey("mapname","{#ffff00}"..ScpArgMsg('Auto_(woPeuJuMunSeo)'));
-					set:SetEventScript(ui.LBUTTONDOWN, 'WARP_TO_AREA')
+					set:SetEventScript(ui.LBUTTONUP, 'WARP_TO_AREA')
 					if warpInfo ~= nil then --여신상 있는 지역인 경우.
-						set:SetEventScriptArgString(ui.LBUTTONDOWN, warpInfo.ClassName);
+						set:SetEventScriptArgString(ui.LBUTTONUP, warpInfo.ClassName);
 					else
-						set:SetEventScriptArgString(ui.LBUTTONDOWN, mapCls.ClassName);
+						set:SetEventScriptArgString(ui.LBUTTONUP, mapCls.ClassName);
 					end
 
-					set:SetEventScriptArgNumber(ui.LBUTTONDOWN, 1);
+					set:SetEventScriptArgNumber(ui.LBUTTONUP, 1);
 
 					local warpcost;
 					warpcost = 0
@@ -276,8 +276,8 @@ function ON_INTE_WARP(frame, changeDirection)
 										local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
 								
 										nameRechText:SetTextByKey("mapname", GET_WARP_NAME_TEXT(mapCls, info, nowZoneName));
-										set:SetEventScript(ui.LBUTTONDOWN, 'WARP_TO_AREA')
-										set:SetEventScriptArgString(ui.LBUTTONDOWN, info.ClassName);
+										set:SetEventScript(ui.LBUTTONUP, 'WARP_TO_AREA')
+										set:SetEventScriptArgString(ui.LBUTTONUP, info.ClassName);
 										set:SetTooltipType('warpminimap');
 										set:SetTooltipStrArg(info.ClassName);
 										set:SetTooltipNumArg(warpcost)
@@ -303,8 +303,8 @@ function ON_INTE_WARP(frame, changeDirection)
 										set:SetClickSound('button_click_stats');
 										local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
 										nameRechText:SetTextByKey("mapname",GET_WARP_NAME_TEXT(mapCls, info, nowZoneName));
-										set:SetEventScript(ui.LBUTTONDOWN, 'WARP_TO_AREA')
-										set:SetEventScriptArgString(ui.LBUTTONDOWN, info.ClassName);
+										set:SetEventScript(ui.LBUTTONUP, 'WARP_TO_AREA')
+										set:SetEventScriptArgString(ui.LBUTTONUP, info.ClassName);
 										set:SetTooltipType('warpminimap');
 										set:SetTooltipStrArg(info.ClassName);
 										set:SetTooltipNumArg(warpcost)
@@ -331,8 +331,8 @@ function ON_INTE_WARP(frame, changeDirection)
 									set:SetClickSound('button_click_stats');
 									local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
 									nameRechText:SetTextByKey("mapname",GET_WARP_NAME_TEXT(mapCls, info, nowZoneName));
-									set:SetEventScript(ui.LBUTTONDOWN, 'WARP_TO_AREA')
-									set:SetEventScriptArgString(ui.LBUTTONDOWN, info.ClassName);
+									set:SetEventScript(ui.LBUTTONUP, 'WARP_TO_AREA')
+									set:SetEventScriptArgString(ui.LBUTTONUP, info.ClassName);
 									set:SetTooltipType('warpminimap');
 									set:SetTooltipStrArg(info.ClassName);
 									set:SetTooltipNumArg(warpcost)
@@ -555,7 +555,6 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 		ui.CloseFrame('inte_warp')
 	end
 end
-
 
 function RUN_INTE_WARP(actor)
 

@@ -10008,11 +10008,6 @@ if self.HP == 0 then return 1; else return 0; end;">
 				<Str Str="UNDERF592_TYPEB_GATE_FINAL"/>
 			</ToolScp>
 		</List>
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="UNDERF592_TYPEB_GATE_DEAD"/>
-			</ToolScp>
-		</DeadList>
 		<StartList>
 			<ToolScp Scp="S_AI_ZONEOBJ_VALUE" Client="NO" UseSleep="NO">
 				<Str Str="UNDERF592_TYPEB_GATE_COUNT"/>
@@ -10046,7 +10041,11 @@ if self.HP == 0 then return 1; else return 0; end;">
 				<Str Str="UNDERF592_TYPEB_GATE_CONTROL"/>
 				<Num Num="0"/>
 			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+			</StartList>
+    </AI>
+    <AI Name="UNDERF592_TYPEB_GATE_FINAL_01" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
 				<Str_Arg Str="E_TransmitPrana_loop" Arg="1"/>
 				<Str Str="BOT"/>

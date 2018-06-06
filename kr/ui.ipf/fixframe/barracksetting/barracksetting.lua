@@ -22,7 +22,7 @@ function BARRACK_SETTING_SAVE(frame, btnCtrl, argStr, argNum)
 end
 
 function BARRACk_SETTING_CHECK_TP(barrackName)
-	if 0 > GET_CASH_POINT_C() - CHANGE_FAMILY_NAME_TP then
+	if 0 > GET_CASH_TOTAL_POINT_C() - CHANGE_FAMILY_NAME_TP then
 		ui.MsgBox(ClMsg("NotEnoughMedal"));
 		return;
 	end

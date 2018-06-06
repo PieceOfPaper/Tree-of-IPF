@@ -7,10 +7,13 @@ function TPITEM_ON_INIT(addon, frame)
 	addon:RegisterMsg('TP_SHOP_UI_OPEN', 'TP_SHOP_DO_OPEN');
 	addon:RegisterMsg("TPSHOP_BUY_SUCCESS", "ON_TPSHOP_BUY_SUCCESS");
 
-	MAKE_CATEGORY_TREE()
-
 end
 
+function TPITEM_FIRST_OPEN()
+
+	MAKE_CATEGORY_TREE();
+
+end
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	
@@ -446,11 +449,15 @@ function TPSHOP_ITEM_PREVIEW_BUY(parent)
 
 	ui.MsgBox(ScpArgMsg("ReallyBuy?"), string.format("EXEC_BUY_MARKET_ITEM(%d)", 1), "None");
 
+	DISABLE_BUTTON_DOUBLECLICK("tpitem","previewSetBuyBtn")
+
 end
 
 function TPSHOP_ITEM_BASKET_BUY(parent)
 
 	ui.MsgBox(ScpArgMsg("ReallyBuy?"), string.format("EXEC_BUY_MARKET_ITEM(%d)", 2), "None");
+
+	DISABLE_BUTTON_DOUBLECLICK("tpitem","basketBuyBtn")
 
 end
 
@@ -505,7 +512,7 @@ function EXEC_BUY_MARKET_ITEM(slotsettype)
 		return
 	end
 
-	if GET_CASH_POINT_C() < allprice then 
+	if GET_CASH_TOTAL_POINT_C() < allprice then 
 		ui.MsgBox(ScpArgMsg("REQUEST_TAKE_MEDAL"))
 		return;
 	end
@@ -598,10 +605,10 @@ function UPDATE_BASKET_MONEY(frame)
 	local accountObj = GetMyAccountObj();
 
 	local haveTP = GET_CHILD_RECURSIVELY(frame,"haveTP")
-	haveTP:SetText(tostring(GET_CASH_POINT_C()))
+	haveTP:SetText(tostring(GET_CASH_TOTAL_POINT_C()))
 
 	local remainTP = GET_CHILD_RECURSIVELY(frame,"remainTP")
-	remainTP:SetText(tostring(GET_CASH_POINT_C() - allprice))
+	remainTP:SetText(tostring(GET_CASH_TOTAL_POINT_C() - allprice))
 
 	frame:Invalidate();
 

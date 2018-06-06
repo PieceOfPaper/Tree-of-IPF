@@ -203,7 +203,7 @@ function CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE()
 		price = price * 10
 	end
 	
-	if 0 > GET_CASH_POINT_C() - price then
+	if 0 > GET_CASH_TOTAL_POINT_C() - price then
 		ui.SysMsg(ScpArgMsg("Auto_MeDali_BuJogHapNiDa."))
 		return;
 	end

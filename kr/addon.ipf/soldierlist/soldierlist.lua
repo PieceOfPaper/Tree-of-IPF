@@ -221,7 +221,7 @@ end
 function SOLLIST_UPDATE_MEDAL(frame)
 	
 	local aobj = GetMyAccountObj();
-	SET_CHILD_TEXT_BY_KEY(frame, "t_medalpermin", "curMedal", GET_CASH_POINT_C());
+	SET_CHILD_TEXT_BY_KEY(frame, "t_medalpermin", "curMedal", GET_CASH_TOTAL_POINT_C());
 
 end
 

@@ -125,7 +125,7 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 	local imageName 		= 'icon_' .. class.Icon;
 	icon:Set(imageName, 'BUFF', buffType, 0);
 	icon:SetUserValue("BuffIndex", buffIndex);	
-	local buff 					= info.GetBuff(handle, buffType);
+	local buff 					= info.GetBuff(tonumber(handle), buffType);
 
 	if buff.over > 1 then
 		slot:SetText('{s13}{ol}{b}'..buff.over, 'count', 'right', 'bottom', -5, -3);

@@ -285,7 +285,6 @@ function ENTER_INTE_WARP(actor)
 
 	local scenePos = world.GetActorPos(actor:GetHandleVal());	
 	scenePos.y = scenePos.y + s_warpDestYPos;
-	actor:SetWrapState(true)	
 	
 	actor:SetMoveDestPos(scenePos);
 	actor:ReserveArgPos(1);
@@ -302,7 +301,6 @@ function UPDATE_INTE_WARP(actor, elapsedTime)
 	local fsmActor = GetMyActor();	
 	if fsmActor:IsHitState() == 1 or fsmActor:IsDead() == 1 then
 		actor:ActorMoveStop();
-		actor:SetWrapState(false)
 		movie.ShowModel(actor:GetHandleVal(), 1);
 		return;		
 	end

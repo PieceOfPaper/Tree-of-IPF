@@ -49,7 +49,7 @@ function OPEN_PROPERTY_SHOP(shopName)
 
 	itemlist:ClearBarInfo();
 	itemlist:AddBarInfo("Name", "{@st42b}" .. ClMsg("Item"), 250);
-	itemlist:AddBarInfo("Price", "{@st42b}" .. ClMsg("Price"), 120);	
+	itemlist:AddBarInfo("Price", "{@st42b}" .. ClMsg("Price"), 120);
 	itemlist:AddBarInfo("BuyCount", "{@st42b}" .. ClMsg("BuyCount"), 120);
 	itemlist:LoadUserSize();
 
@@ -77,16 +77,13 @@ function OPEN_PROPERTY_SHOP(shopName)
 		local numUpDown = INSERT_NUMUPDOWN_DETAIL_LIST(itemlist, i, 2, itemBoxFont .. "0");
 		numUpDown:SetNumChangeScp("PROPERTYSHOP_CHANGE_COUNT");
 
-	end	
+	end
 
 	itemlist:RealignItems();
 	PROPERTYSHOP_CHANGE_COUNT(frame);
 
-	local pointScp = shopInfo:GetPointScript();
-	local func = _G[pointScp .. "_C"];
-	local myMoney = func();
 	local t_mymoney = bg:GetChild("t_mymoney");
-	t_mymoney:SetTextByKey("value", myMoney);
+	t_mymoney:SetTextByKey("value", GET_CASH_TOTAL_POINT_C());
 
 end
 
@@ -95,10 +92,8 @@ function PROPERTY_SHOP_BUY(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local shopName = frame:GetUserValue("SHOPNAME");
 	local shopInfo = gePropertyShop.Get(shopName);
-	local pointScp = shopInfo:GetPointScript();
-	local func = _G[pointScp .. "_C"];
-	local myMoney = func();
-	
+	local myMoney = GET_CASH_TOTAL_POINT_C();
+
 	propertyShop.ClearPropertyShopInfo();
 
 	local bg = frame:GetChild("bg");
@@ -120,7 +115,7 @@ function PROPERTY_SHOP_BUY(parent, ctrl)
 		ui.SysMsg(ClMsg("NotEnoughMoney"));
 		-- return;
 	end
-	
+
 	propertyShop.ReqBuyPropertyShopItem(shopName);
 
 	-- 연타 방지용 시간 제한 걸기
@@ -133,7 +128,7 @@ function REFRESH_PROPERTY_SHOP_BUY_BTN_SET_ENABLE()
 
 	local frame = ui.GetFrame("propertyshop")
 	local btn = GET_CHILD_RECURSIVELY(frame,"buy")
-	
+
 	btn:SetEnable(1)
 end
 

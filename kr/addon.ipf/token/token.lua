@@ -58,7 +58,11 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	local itemobj = GetIES(invItem:GetObject());
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
-		arg1 = 2592000
+		arg1 = 2592000 --30¿œ
+	elseif itemobj.ClassName == "PremiumToken_5d" then
+		arg1 = 432000 -- 5¿œ
+	elseif itemobj.ClassName == "PremiumToken_1d" then
+		arg1 = 604800 -- 7¿œ
 	end
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");

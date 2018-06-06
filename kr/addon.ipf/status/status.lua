@@ -1221,7 +1221,7 @@ end
 
 function CHANGE_NAME_SETTING_CHECK_TP(changedName)
 	local accountObj = GetMyAccountObj();
-	if 0 > GET_CASH_POINT_C() - CHANGE_CAHR_NAME_TP then
+	if 0 > GET_CASH_TOTAL_POINT_C() - CHANGE_CAHR_NAME_TP then
 		ui.MsgBox(ClMsg("NotEnoughMedal"));
 		return;
 	end

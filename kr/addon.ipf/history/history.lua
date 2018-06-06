@@ -9,10 +9,10 @@ function UI_TOGGLE_HISTORY()
 		return;
 	end
 	
-	--session.playHistory.ReqPlayHistory(HISTORY_STAT, 1);
+	session.playHistory.ReqPlayHistory(HISTORY_STAT, 1);
 end
 
---[[
+
 function PLAY_HISTORY_ON_MSG(frame, msg, strArg, numArg)
 	if "UPDATE_PLAY_HISTORY" == msg then
 		UPDATE_PLAY_HISTORY(frame, numArg);
@@ -81,7 +81,7 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 
 	local TPbox = frame:GetChild("TPBox");
 	local medalText = TPbox:GetChild("MyTp");
-	medalText:SetTextByKey("value", GET_CASH_POINT_C());
+	medalText:SetTextByKey("value", GET_CASH_TOTAL_POINT_C());
 
 	gBox:ShowWindow(1);
 	gBox:RemoveAllChild();
@@ -119,7 +119,7 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 			name = cls.Name;
 			data = "-"..string.format("%s", info.value);
 		elseif numArg == HISTORY_TP then
-			name = info:GetPropName();
+			name = ClMsg(info:GetPropName());
 			data = info.value;
 		end
 		propName:SetTextByKey("value", name);
@@ -132,12 +132,16 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 		local button_1 = ctrlSet:GetChild("button_1");
 		button_1:ShowWindow(0);
 		if numArg ~= HISTORY_TP then
-			local data = string.format("%d", rollbackCnt) .. "TP";
+			
 			if info.isFree == true then
 				preValue:ShowWindow(1);
-				data = ClMsg("IsFree");
+				local data = ClMsg("IsFree");
 				preValue:SetTextByKey("value", data);
 			else
+				if 0 == rollbackCnt then
+					rollbackCnt = 1;
+				end
+				local data = string.format("%d", rollbackCnt) .. "TP";
 				preValue:ShowWindow(1);
 				preValue:SetTextByKey("value", data);
 				rollbackCnt = rollbackCnt+1;
@@ -234,7 +238,7 @@ function HISTORY_REQ_ROLL_BACK(frame, btn)
 	if FREE_RESPECT_TIME < diff then
 		-- 현재는 리스펙 횟수에 따라 메달을 차감하는데 이공식이 어떻게 바뀔지모르겠다.
 		-- 어떻게 해야 확장적일까
-		if  0 > GET_CASH_POINT_C() - rollBackCnt then
+		if  0 > GET_CASH_TOTAL_POINT_C() - rollBackCnt then
 			ui.SysMsg(ClMsg("NotEnoughMedal"));	
 			return;
 		end
@@ -245,4 +249,4 @@ end
 function HISTORY_REQ_ROLL_BACK_BTN_ENALBE()
 	local frame = ui.GetFrame("history")
 	frame:SetUserValue("Enable", 0);
-end]]--
+end

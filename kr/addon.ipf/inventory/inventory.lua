@@ -1354,7 +1354,10 @@ function DRAW_MEDAL_COUNT(frame)
 	local medalFreeTime			= GET_CHILD(medalGbox, 'medalFreeTime', 'ui::CRichText');
 	
 	local accountObj = GetMyAccountObj();
-    medalText:SetTextByKey("medal", GET_CASH_POINT_C());
+    medalText:SetTextByKey("medal", GET_CASH_TOTAL_POINT_C());
+	if GET_CASH_TOTAL_POINT_C() < 5 then
+		control.SendCheckFreeTPTime();
+	end
 	if "None" ~= accountObj.Medal_Get_Date then
 		local sysTime = geTime.GetServerSystemTime();
 		local endTime = imcTime.GetSysTimeByStr(accountObj.Medal_Get_Date);
