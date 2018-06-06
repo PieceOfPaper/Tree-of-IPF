@@ -3453,3 +3453,9 @@ function SCR_USE_RUDOLPH_COSTUME_BOX(pc, target, string1, arg1, arg2, itemID)
     TxGiveItem(tx, 'costume_Com_77', 1, 'USE_CHRISMAS2017_'..item.ClassName);
     local ret = TxCommit(tx);
 end
+
+function SCR_USE_GOLD_MOUR_BOX_GIVE_ITEM(pc, string1, arg1, arg2)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, arg1, arg2, 'GOLD_MOUR_BOX_S_GIVE_COUNT'..arg2);
+    local ret = TxCommit(tx);
+end

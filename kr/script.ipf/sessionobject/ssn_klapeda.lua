@@ -25,7 +25,7 @@ function SCR_REENTER_SSN_KLAPEDA(self, sObj)
     SetTimeSessionObject(self, sObj, 2, 60000, 'SCR_SSN_KLAPEDA_EVENT_1712_SECOND','YES')
 
     --EVENT_1712_XMAS
-    SetTimeSessionObject(self, sObj, 3, 60000, 'SCR_SSN_KLAPEDA_EVENT_1712_XMAS','YES')
+--    SetTimeSessionObject(self, sObj, 3, 60000, 'SCR_SSN_KLAPEDA_EVENT_1712_XMAS','YES')
     
     
     --EVENT_1705_CORSAIR
@@ -692,6 +692,14 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         LIMESTONE_52_3_REENTER_RUN(self, sObj, msg, argObj, argStr, argNum)
     elseif argStr == 'd_limestonecave_52_4' then
         LIMESTONE_52_4_REENTER_RUN(self, sObj, msg, argObj, argStr, argNum)
+    elseif argStr == 'f_flash_64' then
+        local hidden_Prop = SCR_GET_HIDDEN_JOB_PROP(self, 'Char4_19')
+        if hidden_Prop >= 5 then
+            local master_Hide_Check = isHideNPC(self, 'ZEALOT_MASTER')
+            if master_Hide_Check == 'YES' then
+                UnHideNPC(self, "ZEALOT_MASTER")
+            end
+        end
     elseif argStr == 'd_limestonecave_52_5' then
         LIMESTONE_52_5_REENTER_RUN(self, sObj, msg, argObj, argStr, argNum)
     elseif argStr == 'f_bracken_43_1' then
@@ -800,6 +808,10 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         elseif argStr == 'f_farm_49_1' then
             if isHideNPC(self, 'BULLETMARKER_MASTER') == 'YES' then
                 UnHideNPC(self, 'BULLETMARKER_MASTER')
+            end
+        elseif argStr == 'f_gele_57_4' then
+            if isHideNPC(self, 'CHAR120_MASTER') == 'YES' then
+                UnHideNPC(self, 'CHAR120_MASTER')
             end
         end
         
@@ -2130,53 +2142,53 @@ end
 --    end
 --end
 
-function SCR_SSN_KLAPEDA_EVENT_1712_XMAS(self, sObj, remainTime)
-    RunScript("SCR_EVENT_1712_XMAS_COUNTTING", self, sObj, remainTime)
-end
-
-function SCR_EVENT_1712_XMAS_COUNTTING(self, sObj, remainTime)
-    sleep(5000)
-    local now_time = os.date('*t')
-    local year = now_time['year']
-    local month = now_time['month']
-    local yday = now_time['yday']
-    local wday = now_time['wday']
-    local day = now_time['day']
-    local hour = now_time['hour']
-    local nowDay = year..'/'..month..'/'..day
-
-    local aObj = GetAccountObj(self)
-    local rewardTime = {1,30,60}
-    local rewardCount = {1,1,1}
-    local giveItem = 'EVENT_1712_XMAS_FIRE'
-    
-    if aObj.EVENT_1712_XMAS_DATE == nowDay and aObj.EVENT_1712_XMAS_MIN_ITEM_GIVE >= #rewardTime then
-        return
-    else
-        local giveItemFlag = 0 
-        local tx = TxBegin(self);
-    	TxEnableInIntegrate(tx);
-    	
-    	local nowMinTime = aObj.EVENT_1712_XMAS_MIN + 1
-    	local nowItemTime = aObj.EVENT_1712_XMAS_MIN_ITEM_GIVE + 1
-    	if aObj.EVENT_1712_XMAS_DATE ~= nowDay then
-    	    TxSetIESProp(tx, aObj, "EVENT_1712_XMAS_DATE", nowDay)
-	        nowItemTime = 1
-	        nowMinTime = 1
-	    end
-        TxSetIESProp(tx, aObj, "EVENT_1712_XMAS_MIN", nowMinTime)
-    	if nowMinTime >= rewardTime[nowItemTime] then
-        	TxSetIESProp(tx, aObj, "EVENT_1712_XMAS_MIN_ITEM_GIVE", nowItemTime)
-    	    TxGiveItem(tx, giveItem, rewardCount[nowItemTime], "EVENT_1712_XMAS_MIN_ITEM_"..nowItemTime)
-    	    giveItemFlag = 1
-    	end
-    	local ret = TxCommit(tx);
-    	if ret == 'SUCCESS' and giveItemFlag == 1 then
-    	    local itemKorName = GetClassString('Item', giveItem, 'Name')
-        	SendAddOnMsg(self, "NOTICE_Dm_GetItem", ScpArgMsg("EVENT_1712_XMAS_MSG1","ITEM",itemKorName,"COUNT",rewardCount[nowItemTime]), 10)
-    	end
-    end
-end
+--function SCR_SSN_KLAPEDA_EVENT_1712_XMAS(self, sObj, remainTime)
+--    RunScript("SCR_EVENT_1712_XMAS_COUNTTING", self, sObj, remainTime)
+--end
+--
+--function SCR_EVENT_1712_XMAS_COUNTTING(self, sObj, remainTime)
+--    sleep(5000)
+--    local now_time = os.date('*t')
+--    local year = now_time['year']
+--    local month = now_time['month']
+--    local yday = now_time['yday']
+--    local wday = now_time['wday']
+--    local day = now_time['day']
+--    local hour = now_time['hour']
+--    local nowDay = year..'/'..month..'/'..day
+--
+--    local aObj = GetAccountObj(self)
+--    local rewardTime = {1,30,60}
+--    local rewardCount = {1,1,1}
+--    local giveItem = 'EVENT_1712_XMAS_FIRE'
+--    
+--    if aObj.EVENT_1712_XMAS_DATE == nowDay and aObj.EVENT_1712_XMAS_MIN_ITEM_GIVE >= #rewardTime then
+--        return
+--    else
+--        local giveItemFlag = 0 
+--        local tx = TxBegin(self);
+--    	TxEnableInIntegrate(tx);
+--    	
+--    	local nowMinTime = aObj.EVENT_1712_XMAS_MIN + 1
+--    	local nowItemTime = aObj.EVENT_1712_XMAS_MIN_ITEM_GIVE + 1
+--    	if aObj.EVENT_1712_XMAS_DATE ~= nowDay then
+--    	    TxSetIESProp(tx, aObj, "EVENT_1712_XMAS_DATE", nowDay)
+--	        nowItemTime = 1
+--	        nowMinTime = 1
+--	    end
+--        TxSetIESProp(tx, aObj, "EVENT_1712_XMAS_MIN", nowMinTime)
+--    	if nowMinTime >= rewardTime[nowItemTime] then
+--        	TxSetIESProp(tx, aObj, "EVENT_1712_XMAS_MIN_ITEM_GIVE", nowItemTime)
+--    	    TxGiveItem(tx, giveItem, rewardCount[nowItemTime], "EVENT_1712_XMAS_MIN_ITEM_"..nowItemTime)
+--    	    giveItemFlag = 1
+--    	end
+--    	local ret = TxCommit(tx);
+--    	if ret == 'SUCCESS' and giveItemFlag == 1 then
+--    	    local itemKorName = GetClassString('Item', giveItem, 'Name')
+--        	SendAddOnMsg(self, "NOTICE_Dm_GetItem", ScpArgMsg("EVENT_1712_XMAS_MSG1","ITEM",itemKorName,"COUNT",rewardCount[nowItemTime]), 10)
+--    	end
+--    end
+--end
 
 
 function SCR_SSN_KLAPEDA_EVENT_1712_SECOND(self, sObj, remainTime)

@@ -253,7 +253,7 @@ function SCR_ITEM_MANUFACTURE(pc, idSpace, argList, strArgList)
 	
     checkMaterial = {false, false, false, false, false}; -- itemList와 대응하여 이미 체크되었는지를 확인함
 	for i = 0 , materialcnt - 1 do
-		local item = recipeProp:GetReqItem(i);		
+		local item = recipeProp:GetReqItem(i);	
 		local count = GET_INV_ITEM_COUNT_BY_TYPE(pc, item.type, recipeCls);
 		if item.count * makeCnt > count then
 			return;
@@ -279,7 +279,34 @@ function SCR_ITEM_MANUFACTURE(pc, idSpace, argList, strArgList)
         SendAddOnMsg(pc, "JOURNAL_DETAIL_CRAFT_EXEC_FAIL", recipeName, 0);
 	    return;
     end
-		
+
+	--itemList에 있는 내용이랑 Recipe에 있는 아이템 내용이랑 똑같은 애들인지 검증을 해야함.
+	local itemMatchCheck = false;
+	local checkItemList = {};
+	for i = 1 , materialcnt do
+		checkItemList[i] = false;
+	end
+
+	for i = 0 , materialcnt - 1 do
+		local item = recipeProp:GetReqItem(i);
+		for j = 1, #itemList do
+			local targetItem = itemList[j];
+			local materialCls = GetClassByType('Item', item.type);
+            local materialClassName = TryGetProp(materialCls, 'ClassName');
+			local isvaild = IsValidRecipeMaterial(materialClassName, targetItem, pc)
+			if checkItemList[j] ~= true and (targetItem.ClassID == item.type or isvaild == true) then
+				checkItemList[j] = true;
+				break;
+			end
+		end
+	end
+
+	for i = 1, #checkItemList do
+		if checkItemList[i] == false then
+			return;
+		end
+	end
+
 	local tx = TxBegin(pc);
 	if tx == nil then
 		SendAddOnMsg(pc, "JOURNAL_DETAIL_CRAFT_EXEC_FAIL", recipeName, 0);
@@ -635,12 +662,7 @@ function TX_ITEM_APPRAISAL(pc, seller, itemList, price, skill)
 		end
 	end
 
-	-- pc 감정사인 경우 tx를 다른 함수에서 함. hardskill_appraisal.lua 참고
-	if seller ~= nil then
-		_TX_ITEM_APPRAISAL(pc, seller, itemList, price, skill, totalPrice, needCnt, itemName, prList, socketList, priceList);
-		return;
-	end
-	
+
 	-- 구/신 감정 리스트 분류 -- 
 	local randomItemList = {}
 	local appraisalItemList = {}
@@ -658,6 +680,13 @@ function TX_ITEM_APPRAISAL(pc, seller, itemList, price, skill)
 	        appraisalItemList[#appraisalItemList + 1] = tempItem
 	    end
 	end
+	
+		-- pc 감정사인 경우 tx를 다른 함수에서 함. hardskill_appraisal.lua 참고
+	if seller ~= nil then
+		_TX_ITEM_APPRAISAL(pc, seller, itemList, price, skill, totalPrice, needCnt, itemName, prList, socketList, priceList);
+		return;
+	end
+	
 	
 	local RandomOptionGroup = {};
 	local RandomOption = {};

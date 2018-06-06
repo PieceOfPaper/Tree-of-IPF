@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <EmitterList>
+	<battle name="E_warrior_Khaoloi_hit" filename="E_warrior_Khaoloi_hit" loop="false" nodecount="2" xml="E_warrior_Khaoloi_hit.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_warrior_Khaoloi_dash" filename="E_warrior_Khaoloi_dash" loop="false" nodecount="2" xml="E_warrior_Khaoloi_dash.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_warrior_TridentFinish" filename="E_warrior_TridentFinish" loop="false" nodecount="2" xml="E_warrior_TridentFinish.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_SplitArrow" filename="E_SplitArrow" loop="false" nodecount="2" xml="E_SplitArrow.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_NeedleBlow" filename="E_NeedleBlow" loop="false" nodecount="2" xml="E_NeedleBlow.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_neuro_toxin" filename="E_neuro_toxin" loop="false" nodecount="2" xml="E_neuro_toxin.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>

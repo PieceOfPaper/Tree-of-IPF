@@ -1656,3 +1656,21 @@ function SCR_SKILL_RATETABLE_Falconer_Pheasant(self, from, skill, atk, ret, rate
 		end
 	end
 end
+
+function SCR_SKILL_RATETABLE_NakMuay_Attack(self, from, skill, atk, ret, rateTable)
+    SetMultipleHitCount(ret, 2)
+end
+
+function SCR_SKILL_RATETABLE_NakMuay_TeKha(self, from, skill, atk, ret, rateTable)
+    if IS_PC(self) == false then
+        if TryGetProp(self, "Size") == "S" then
+            rateTable.DamageRate = rateTable.DamageRate + 0.5
+        end
+    end
+end
+
+function SCR_SKILL_RATETABLE_NakMuay_KhaoLoi(self, from, skill, atk, ret, rateTable)
+    if TryGetProp(self, "MoveType") == "Flying" then
+        rateTable.DamageRate = rateTable.DamageRate + 0.5
+    end
+end

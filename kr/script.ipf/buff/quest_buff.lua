@@ -7340,9 +7340,14 @@ end
 
 
 function SCR_BUFF_UPDATE_JOB_SHADOWMANCER_CHANGE_SHADOW(self, buff, arg1, arg2, RemainTime, ret, over)
-    local x, y, z = GetPos(self);    
-    PlayEffectToGround(self, "F_wizard_ShadowPool_shot", x, y, z, 1, 1);
-    return 1;
+    local layer = GetLayer(self)
+    if layer == 0 then
+        return 0
+    else
+        local x, y, z = GetPos(self);    
+        PlayEffectToGround(self, "F_wizard_ShadowPool_shot", x, y, z, 1, 1);
+        return 1;
+    end
 end
 
 
@@ -7373,10 +7378,12 @@ end
 function SCR_BUFF_UPDATE_JOB_SHADOWMANCER_Q1_BUFF(self, buff, arg1, arg2, RemainTime, ret, over)
     local layer = GetLayer(self)
     if layer ~= 0 then
-        local mspdadd = GetBuffArgs(buff);
+--        print(self.MSPD_BM, self.FIXMSPD_BM)
+--        local mspdadd = GetBuffArgs(buff);
 --        if self.FIXMSPD_BM ~= mspdadd then
-        self.FIXMSPD_BM = mspdadd;
-        Invalidate(self, 'MSPD');
+--            self.FIXMSPD_BM = 10;
+--            Invalidate(self, 'MSPD');
+--            print(self.MSPD_BM, self.FIXMSPD_BM)
 --        end
         local sta = GetStamina(self)
         local maxsta = GetMaxStamina(self)
@@ -7425,8 +7432,16 @@ function SCR_BUFF_UPDATE_CHAR318_MSETP3_3_EFFECT_BUFF1(self, buff, arg1, arg2, R
                     for j = 1, 20 do
                         if obj[i].Dialog == "HIDDEN_STONE_KATYN451_"..j then
                             if sObj["Goal"..j] >= 1 then
-                                PlayEffectLocal(obj[i],self, "I_rize010_orange", 2, 1, "BOT", 1)
-                                return 1;
+                                local ston_Item = GetInvItemCount(self, "HIDDEN_BULLET_MSTEP3_3_1ITEM1")
+                                PlayEffectLocal(obj[i],self, "I_rize010_orange", 2, 1, "MID", 1)
+                                if ston_Item < 2 then
+                                    sObj.Step10 = sObj.Step10 + 1
+                                    if sObj.Step10 >= 5 then
+                                        sObj.Step10 = 0
+                                        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("CHAR318_MSETP3_3_EFFECT_BUFF1_MSG"), 5)
+                                        return 1;
+                                    end
+                                end
                             end
                         end
                     end

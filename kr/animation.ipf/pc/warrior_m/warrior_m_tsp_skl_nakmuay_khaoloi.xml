@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_eff_murmillo_jump"/>
+    <Sound frame="0.00" soundFile="pc_war_jump_1"/>
+    <Particle frame="3" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="4" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Bip01 R Calf" particleName="I_smoke_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="10" attachNode="Bip01 R Calf" particleName="I_light019_orange_spark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="11.00" soundFile="skl_fgt_tackle_shot"/>
+    <BlendOn frame="13" R="50" G="20" B="5" A="50"/>
+    <Sound frame="13.00" soundFile="skl_eff_short_impact_whoosh_3"/>
+    <BlendOn frame="14" R="80" G="50" B="30" A="50"/>
+    <Particle frame="14" attachNode="Dummy_emitter" particleName="E_warrior_Khaoloi_dash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="15" R="130" G="100" B="60" A="50"/>
+    <BlendOn frame="16" R="150" G="130" B="100" A="150"/>
+    <Sound frame="16.89" soundFile="skl_eff_atk_move_s_10"/>
+    <Sound frame="17.00" soundFile="skl_eff_ParthianShaft_hit_splash"/>
+    <Shockwave frame="17" type="2" intensity="8" frequency="80" duration="0.3" range="500"/>
+    <BlendOn frame="17" R="100" G="80" B="50" A="100"/>
+    <Particle frame="17" attachNode="Dummy_emitter" particleName="E_warrior_Khaoloi_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="17.00" soundFile="skl_eff_breakingwheel_hit_ground"/>
+    <BlendOff frame="18" R="0" G="0" B="0" A="0"/>
+    <Particle frame="19" attachNode="Bip01 R Foot" particleName="F_levitation005_red3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="19" attachNode="Dummy_emitter" particleName="F_smoke082" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="19" attachNode="Dummy_emitter" particleName="F_ground068_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="19.00" soundFile="pc_war_jump_2"/>
+    <Particle frame="21" attachNode="Bip01 R Calf" particleName="F_levitation005_red3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

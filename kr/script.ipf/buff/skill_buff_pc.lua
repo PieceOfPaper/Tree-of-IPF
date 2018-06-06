@@ -463,7 +463,7 @@ function SCR_BUFF_ENTER_FirePillar_Debuff(self, buff, arg1, arg2, over)
 
     local divineAtkAdd = skill.SkillAtkAdd
     local addValue = 0
-    
+
     local pad = GetPadByBuff(caster, buff);
     if pad ~= nil then
         addValue = GetPadArgNumber(pad, 1);
@@ -1182,7 +1182,7 @@ end
 
 --Sabbath_Fluting
 function SCR_BUFF_ENTER_Sabbath_Fluting(self, buff, arg1, arg2, over)
-
+    
     local moveSpeed = 100;
     local adddef = 0;
     
@@ -4831,7 +4831,7 @@ end
 
 -- Sleep_Debuff
 function SCR_BUFF_ENTER_Sleep_Debuff(self, buff, arg1, arg2, over)
-SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+	SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     --ShowEmoticon(self, 'I_emo_sleep', 0)
     
     local lv = arg1;
@@ -5349,7 +5349,7 @@ function SCR_BUFF_ENTER_Lethargy_Debuff(self, buff, arg1, arg2, over)
         patkadd = debuffAtkValue
         matkadd = debuffAtkValue
         dradd =  4 + 2 * (lv - 1)
-        
+		
         local skill = GetSkill(caster, "Wizard_Lethargy")
         if skill == nil then
             return
@@ -6746,7 +6746,7 @@ function SCR_BUFF_LEAVE_ReflectShield_Buff(self, buff, arg1, arg2, over)
     local damratio = GetExProp(buff, "ADD_DAMREFLCET");
     
     self.DamReflect = self.DamReflect - damratio;
-
+	
     DetachEffect(self, 'I_sphere007_mash');
     PlayEffect(self, "F_wizard_reflect_shot_light", 1, 2, "BOT");
 
@@ -8508,8 +8508,10 @@ end
 
 
 function SCR_BUFF_ENTER_MagneticForce_Debuff_Hold(self, buff, arg1, arg2, over)
-        EnableControl(self, 0, "MAGNETIC_MOVE_LOCK");
+	if IS_PC(self) == true then
+    	EnableControl(self, 0, "MAGNETIC_MOVE_LOCK");
     end
+end
 
 function SCR_BUFF_LEAVE_MagneticForce_Debuff_Hold(self, buff, arg1, arg2, over)    
     local caster = GetBuffCaster(buff);    
@@ -8522,9 +8524,11 @@ function SCR_BUFF_LEAVE_MagneticForce_Debuff_Hold(self, buff, arg1, arg2, over)
             end            
         end
     end
-
-        EnableControl(self, 1, "MAGNETIC_MOVE_LOCK");
+	
+	if IS_PC(self) == true then
+    	EnableControl(self, 1, "MAGNETIC_MOVE_LOCK");
     end
+end
 
 
 function SCR_BUFF_ENTER_Camouflage_Buff(self, buff, arg1, arg2, over)
@@ -10859,7 +10863,7 @@ function SCR_BUFF_UPDATE_FireBall_Buff(self, buff, arg1, arg2, over)
         Kill(self);
         return 1;
     end
-
+	
     local hitCount = GetExProp(self, 'FIREBALL_HIT_COUNT'); 
     local curTime = imcTime.GetAppTime();
     local isAttack = false;
@@ -10873,8 +10877,8 @@ function SCR_BUFF_UPDATE_FireBall_Buff(self, buff, arg1, arg2, over)
                     local splashRange = 70;
                     local dmgRage = 1;
                     local sr = 15;
-
-                    isAttack = FIREBALL_SPLASH_DAMAGE(self, caster, 'Pyromancer_FireBall', splashRange, sr);
+					
+					isAttack = FIREBALL_SPLASH_DAMAGE(self, caster, 'Pyromancer_FireBall', splashRange, sr);
                     if isAttack == true then
                         PlayEffect(self, "F_wizard_fireball_hit_full_explosion", 2.0);
                         hitCount = hitCount - 1;
@@ -10885,7 +10889,7 @@ function SCR_BUFF_UPDATE_FireBall_Buff(self, buff, arg1, arg2, over)
             end
         end     
     end
-        
+	
     if hitCount <= 0 then
         Kill(self);
         return 1;
@@ -10907,9 +10911,9 @@ function FIREBALL_SPLASH_DAMAGE(fireMon, caster, skillName, range, sr)
         for i = 1, objCount do
             local obj = objList[i];
             if IsSameActor(obj, caster) == "NO" then
-
+				
                 local damage = GET_SKL_DAMAGE(caster, obj, 'Pyromancer_FireBall');
-                TakeDamage(caster, obj, skillName, damage, "Fire", "Magic", "Magic", HIT_FIRE, HITRESULT_BLOW);
+				TakeDamage(caster, obj, skillName, damage, "Fire", "Magic", "Magic", HIT_FIRE, HITRESULT_BLOW);
                 sr = sr - obj.SDR;
 
                 isAttack = true;
@@ -10930,7 +10934,7 @@ function FIREBALL_SPLASH_DAMAGE(fireMon, caster, skillName, range, sr)
             end
         end
     end
-
+	
     return isAttack;
 end
 
@@ -11184,7 +11188,7 @@ function SCR_BUFF_LEAVE_murmillo_helmet(self, buff, arg1, arg2, over)
     --RunScript('SCR_MURMILLO_HELMET_UNEQUIP', self);
 
     EquipDummyItemSpot(self, self, 0, 'HELMET', 0);
-    ChangeSkillAniName(self, 'Normal_Attack', 'None');
+        ChangeSkillAniName(self, 'Normal_Attack', 'None');
     
     local addmaspd = GetExProp(buff, "ADD_MSPD")
     
@@ -15361,6 +15365,73 @@ end
 
 function SCR_BUFF_LEAVE_BuildRoost_Buff(self, buff, arg1, arg2, over)
 	
+end
+
+
+function SCR_BUFF_ENTER_RamMuay_Buff(self, buff, arg1, arg2, over, skill)
+    
+end
+
+function SCR_BUFF_UPDATE_RamMuay_Buff(self, buff, arg1, arg2, over, skill)
+    local ridingCompanion = GetRidingCompanion(self);
+    if ridingCompanion ~= nil then
+        return 0;
+    end
+    
+    local rammuaySkill = GetSkill(self, "NakMuay_RamMuay")
+    if rammuaySkill == nil then
+        return 0;
+    end
+    
+    ChangeNormalAttack(self, "NakMuay_Attack");
+    local equipByLhand = GetEquipItem(self, "LH")
+    if equipByLhand.ClassName == "NoWeapon" then
+        ChangeLHandAttack(self, "None")
+    else
+        ChangeLHandAttack(self, "NakMuay_Attack")
+    end
+    
+    return 1
+end
+
+function SCR_BUFF_LEAVE_RamMuay_Buff(self, buff, arg1, arg2, over)
+    ChangeNormalAttack(self, "None");
+    ChangeLHandAttack(self, "None")
+end
+
+function SCR_BUFF_ENTER_TeKha_Debuff(self, buff, arg1, arg2, over)
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    local mspdAdd = TryGetProp(self, "MSPD") * 0.5;
+    self.MSPD_BM = self.MSPD_BM - mspdAdd;
+    SetExProp(buff, "TEKHA_ADD_MSPD", mspdAdd);
+end
+
+
+function SCR_BUFF_LEAVE_TeKha_Debuff(self, buff, arg1, arg2, over)
+    local mspdAdd = GetExProp(buff, "TEKHA_ADD_MSPD");
+    self.MSPD_BM = self.MSPD_BM + mspdAdd;
+end
+
+function SCR_BUFF_ENTER_SokChiang_Debuff(self, buff, arg1, arg2, over)
+    local caster = GetBuffCaster(buff);
+    local dmg = (caster.MINPATK + caster.MINPATK) / 10;
+    SetExProp(self, 'CriticalWound_Damage', dmg)
+end
+
+function SCR_BUFF_UPDATE_SokChiang_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
+
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        caster = self;
+    end
+    local dmg = GetExProp(self, 'CriticalWound_Damage')
+    TakeDamage(caster, self, "None", dmg, "None", "None", "TrueDamage", HIT_BLEEDING, HITRESULT_BLOW, 0, 0);   
+    return 1;
+
+end
+
+function SCR_BUFF_LEAVE_SokChiang_Debuff(self, buff, arg1, arg2, over)
+
 end
 
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="MISSION_UPHILL_DEFFENSE" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_abbey_uphill" startWaitSec="-1526726657">
+    <Game Name="MISSION_UPHILL_DEFFENSE" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_abbey_uphill" playerCountCheckDestroy="1" startWaitSec="-1526726657">
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList>
@@ -16,7 +16,7 @@
                     <Obj Type="Monster" MonType="41203" Pos="-520.40#-147.40#-108.32" angle="-175" range="30" genCount="1" genTime="20000" autoGen="0" objectKey="9" UseAiOutOfPc="1" propList="&apos;MSPD_BM&apos; &apos;5&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_1_B&apos; " SimpleAI="MISSION_UPHILL_DEFFENSE_L1"/>
                     <Obj Type="Monster" MonType="41211" Pos="-469.37#-94.92#139.99" range="30" genCount="1" genTime="20000" autoGen="0" objectKey="10" UseAiOutOfPc="1" propList="&apos;MSPD_BM&apos; &apos;5&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_2_B&apos; " SimpleAI="MISSION_UPHILL_DEFFENSE_L2"/>
                     <Obj Type="Monster" MonType="41216" Pos="165.83#-99.50#554.57" range="30" genCount="1" genTime="20000" autoGen="0" objectKey="11" UseAiOutOfPc="1" propList="&apos;MSPD_BM&apos; &apos;5&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_3_B&apos; " SimpleAI="MISSION_UPHILL_DEFFENSE_L3"/>
-                    <Obj Type="Monster" MonType="47265" Pos="209.54#80.12#-152.99" angle="-100" genCount="1" genTime="20000" objectKey="12" UseAiOutOfPc="1" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;MHP_BM&apos; &apos;@GET_UPHILL_MHP_DEFF1&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;Name&apos; &apos;신성의 횃불&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; "/>
+                    <Obj Type="Monster" MonType="47265" Pos="209.54#80.12#-152.99" angle="-100" genCount="1" genTime="20000" autoGen="0" objectKey="12" UseAiOutOfPc="1" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;MHP_BM&apos; &apos;@GET_UPHILL_MHP_DEFF1&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;Name&apos; &apos;신성의 횃불&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; "/>
                     <Obj Type="Monster" MonType="151000" Pos="297.22#80.12#-242.25" angle="133" genCount="1" genTime="20000" objectKey="13" propList="&apos;Name&apos; &apos;정수 변환기&apos; &apos;Scale&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_UPHILL_DEFFENSEOBJ1&apos; "/>
                     <Obj Type="Monster" MonType="47266" Pos="373.61#80.12#-154.49" angle="315" range="30" genCount="1" genTime="20000" autoGen="0" objectKey="14" propList="&apos;Dialog&apos; &apos;MISSION_UPHILL_STEP_REWARD&apos; &apos;Name&apos; &apos;@GET_UPHILL_STEP_REWARD_NAME&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; "/>
                 </ObjList>
@@ -74,6 +74,11 @@
                                 <Str Str="20초 후에 시작됩니다"/>
                                 <Str Str="scroll"/>
                                 <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/12"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>

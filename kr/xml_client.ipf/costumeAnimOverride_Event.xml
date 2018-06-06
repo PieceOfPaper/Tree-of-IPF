@@ -325,7 +325,7 @@
 			<Motion Name="STD">
 				<Job Name="All">
 					<Event>
-						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -651,8 +651,22 @@
 			<Motion Name="Default">
 				<Job Name="All">
 					<Event>
-						<Particle frame="5" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
-						<Particle frame="5" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="3" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="3" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="9" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="9" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="15" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="15" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="23" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="23" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="29" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="35" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="40" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="45" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="50" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="55" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="60" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="65" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -669,6 +683,102 @@
 				<Job Name="All">
 					<Event>
 						<Particle frame="5" attachNode="mid" particleName="F_light143_1" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="retiarii01_sp">
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="8" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="12" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="retiarii02_sp">
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="8" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="12" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="retiarii03_sp">
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="8" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="12" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -1353,15 +1463,6 @@
 				</Job>
 			</Motion>
 		</Class>
-		<Class Costume="maiduniform02_blue">
-			<Motion Name="RUN">
-				<Job Name="All">
-					<Event>
-						<Particle frame="0" attachNode="None" particleName="none" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
-					</Event>
-				</Job>
-			</Motion>
-		</Class>
 		<Class Costume="vampire01">
 			<Motion Name="STUN_RIDE">
 				<Job Name="All">
@@ -1490,8 +1591,22 @@
 			<Motion Name="Default">
 				<Job Name="All">
 					<Event>
-						<Particle frame="5" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
-						<Particle frame="5" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="3" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="3" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="9" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="9" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="15" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="15" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="23" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="23" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="29" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="35" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="40" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="45" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="50" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="55" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="60" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="65" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -1508,6 +1623,102 @@
 				<Job Name="All">
 					<Event>
 						<Particle frame="5" attachNode="mid" particleName="F_light143_1" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="retiarii01_sp">
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="8" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="12" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="retiarii02_sp">
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="8" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="12" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="retiarii03_sp">
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="8" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="12" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>

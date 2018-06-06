@@ -4,6 +4,7 @@ function BREAKING_WHEEL_SUMMON_MON(mon, owner, skl)
     PlayAnim(mon, 'LOOP');
 
     SetExProp(mon, 'OWNER_HANDLE', GetHandle(owner));
+    SetExProp(mon, 'HIT_COUNT', 15);
     local abil = GetAbility(owner, 'Inquisitor8')
     if nil == abil then
         ClearSimpleAI(mon, 'INQUISITOR_WHEEL_SUMMON');
@@ -13,7 +14,8 @@ end
 function SCR_SUMMON_WHEEL(mon, self, skl)
     mon.Faction = 'IceWall'
     mon.StatType = 1
-    mon.HPCount = 15;
+--    mon.HPCount = 15;
+    mon.HPCount = 999999;
 end
 
 function SCR_WHEEL_SEND_JUST_EFFECT(self, from, ret)
@@ -24,25 +26,41 @@ function SCR_WHEEL_SEND_JUST_EFFECT(self, from, ret)
 end
 
 function SCR_WHEEL_SUMMON_HIT(self, from, skill, damage, ret)
-
-    if IS_PC(from) == false then
-        ret.Damage = 0
-        RunScript('SCR_WHEEL_SEND_JUST_EFFECT', self, from, ret);
-        return;
+	if damage == 0 then
+		return;	-- 닷지, 블록 등등의 이유로 대미지가 0인 공격이라면 무시 --
+	end
+	
+	local isPossible = 1;
+	
+    if IS_PC(from) == false or skill.ClassType ~= 'Melee' then
+		isPossible = 0;	-- PC의 공격이 아니거나, 물리 공격이 아니라면 확산시키지 않음 --
     end
-
-    if skill.ClassType ~= 'Melee' then
+	
+    if IsBuffApplied(from, 'Daino_Buff') == 'YES' and skill.ClassID ~= 100 and IsNormalSKillBySkillID(from, skill.ClassID) == 1 then
+    	local skillClass = GetClass('Skill', skill.ClassName);
+    	if TryGetProp(skillClass, 'ClassType') == 'Melee' then
+	    	isPossible = 1;	-- 하지만 다이노가 걸린 평타(원래 물리 공격인)라면 무시하고 확산 --
+	    end
+    end
+    
+    if isPossible == 0 then
         ret.Damage = 0
         RunScript('SCR_WHEEL_SEND_JUST_EFFECT', self, from, ret);
         return;
     end
 	
+	local hitCount = GetExProp(self, 'HIT_COUNT');
+	if hitCount < 1 then
+		return;
+	end
+	
+	SetExProp(self, 'HIT_COUNT', hitCount - 1);
     RunScript('_SCR_WHEEL_SUMMON_HIT', self, from, skill, damage, ret)
 end
 
 function _SCR_WHEEL_SUMMON_HIT(self, from, skill, damage, ret)
     local list, cnt = SelectObject(from, 100, 'ENEMY');
-    cnt = math.min(cnt,10); 
+    cnt = math.min(cnt,10);
 	
     local targetList = {};
 	

@@ -603,12 +603,6 @@ function CHALLENGE_MODE_RUN_UPDATE(gameObject, layerObj, pcList, pcCount, playTi
 		return;
 	end
 
-	--if pcCount < 1 then
-	--	SetExProp_Str(layerObj, "FailReason", "EmptyPlayer");
-	--	ChallengeModeChangeState(gameObject, "Fail");
-	--	return;
-	--end
-
 	local level = GetChallengeModeLevel(gameObject);
 	local createMonCount = GetExProp(layerObj, "ChallengeModeCreateMonCount");
 	local killMonCount = GetExProp(layerObj, "ChallengeModeKillMonCount");
@@ -656,6 +650,7 @@ function CHALLENGE_MODE_RUN_UPDATE(gameObject, layerObj, pcList, pcCount, playTi
 		local zoneInst = GetZoneInstID(pc);
 		local layer = GetLayer(pc);
 
+		local monCount = 0;
 		local monList, cnt = GetLayerMonList(zoneInst, layer);
 		for i = 1, cnt do
 			local owner = GetOwner(monList[i]);
@@ -671,10 +666,11 @@ function CHALLENGE_MODE_RUN_UPDATE(gameObject, layerObj, pcList, pcCount, playTi
 				if topHater == nil then
 					InsertHate(monList[i], pc, 1);
 				end
+
+				monCount = monCount + 1;
 			end
 		end
-	
-		local monCount = createMonCount - killMonCount;
+		
 		if monCount <= 10 then
 			local gentype_idspace = 'GenType_'..GetZoneName(pc);
 			local clsList, class_count = GetClassList(gentype_idspace);

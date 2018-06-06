@@ -732,6 +732,8 @@
 		<image name="icon_item_bulletmarker03_m" file="\icon\equip\icon_item_bulletmarker03_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_bulletmarker_m" file="\icon\equip\icon_item_SpecialCostume_bulletmarker.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_bulletmarker_f" file="\icon\equip\icon_item_SpecialCostume_bulletmarker.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_nakmuay01_m" file="\icon\equip\icon_item_warrior_nakmuay01_m.png" imgrect="0 0 256 256" CMM_Caption="낙무아이 코스튬"/>
+		<image name="icon_item_warrior_nakmuay01_f" file="\icon\equip\icon_item_warrior_nakmuay01_f.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_weapone_icons">
 		<image name="icon_item_artefact_210011" file="\icon\weapon\icon_item_artefact_210011.png" imgrect="0 0 256 256" CMM_Caption="요령"/>
@@ -4454,6 +4456,8 @@
 		<image name="icon_item_challengemode_scroll" file="\icon\item\icon_item_challengemode_scroll.png" imgrect="0 0 128 128" CMM_Caption="2주년 게이트 스크롤"/>
 		<image name="icon_item_Chrismas_Card" file="\icon\item\icon_item_Chrismas_Card.png" imgrect="0 0 128 128" CMM_Caption="눈덮힌 카드첩"/>
 		<image name="icon_item_Chrismas_Event_Box" file="\icon\item\icon_item_Chrismas_Event_Box.png" imgrect="0 0 128 128" CMM_Caption="17크리스마스 양말"/>
+		<image name="icon_item_egg_Armadilo" file="\icon\item\icon_item_egg_Armadilo.png" imgrect="0 0 128 128" CMM_Caption="아르마딜로 알"/>
+		<image name="icon_item_newyearcard" file="\icon\item\icon_item_newyearcard.png" imgrect="0 0 500 500" CMM_Caption="2018 연하장"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -4920,6 +4924,7 @@
 		<image name="icon_item_christmastree01_popupbook" file="\icon\payment\icon_item_christmastree01_popupbook.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_christmastree02_popupbook" file="\icon\payment\icon_item_christmastree02_popupbook.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_gold_socket" file="\icon\payment\icon_item_gold_socket.png" imgrect="0 0 256 256" CMM_Caption="황금 소켓 추가권"/>
+		<image name="icon_item_Gold_Moru_Box_S" file="\icon\payment\icon_item_Gold_Moru_Box_S.png" imgrect="0 0 256 256" CMM_Caption="황금 모루 박스"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

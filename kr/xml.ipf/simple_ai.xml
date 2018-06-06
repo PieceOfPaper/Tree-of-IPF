@@ -1513,8 +1513,11 @@
 			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 		</StartList>
 	</AI>
-	<AI Name="BRACKEN_42_1_JOB_SHADOWMANCER_SHADOW" ActiveMessageMapInBattle="1">
+    <AI Name="BRACKEN_42_1_JOB_SHADOWMANCER_SHADOW" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_BRACKEN_42_1_JOB_SHADOWMANCER_SHADOW_TIME_COUNT"/>
+            </ToolScp>
 			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
@@ -1555,8 +1558,11 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="BRACKEN_43_3_JOB_SHADOWMANCER_SHADOW" ActiveMessageMapInBattle="1">
+    <AI Name="BRACKEN_43_3_JOB_SHADOWMANCER_SHADOW" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_BRACKEN_43_3_JOB_SHADOWMANCER_SHADOW_TIME_COUNT"/>
+            </ToolScp>
 			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
@@ -1580,7 +1586,7 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="BRACKEN_43_3_JOB_SHADOWMANCER_TRAP_SHADOW" ActiveMessageMapInBattle="1">
+    <AI Name="BRACKEN_43_3_JOB_SHADOWMANCER_TRAP_SHADOW" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
@@ -2642,7 +2648,21 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="CHATHEDRAL53_MQ04_PUZZLE_CHECK" ActiveMessageMapInBattle="1">
+	<AI Name="CHAR120_FEMALE_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="CHAR120_FEMALE_AI_UPDATE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="CHAR120_GHOST_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="CHAR120_GHOST_AI_UPDATE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="CHATHEDRAL53_MQ04_PUZZLE_CHECK" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="PUZZLE_CHECK"/>
@@ -9980,8 +10000,11 @@
 			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 		</StartList>
 	</AI>
-	<AI Name="MAPLE_25_3_JOB_SHADOWMANCER_SHADOW_A" ActiveMessageMapInBattle="1">
+    <AI Name="MAPLE_25_3_JOB_SHADOWMANCER_SHADOW_A" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_MAPLE_25_3_JOB_SHADOWMANCER_SHADOW_TIME_COUNT"/>
+            </ToolScp>
 			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
 				<Str_Arg Str="F_spread_out008_smoke2_green" Arg="0.40000001"/>
@@ -10010,8 +10033,11 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="MAPLE_25_3_JOB_SHADOWMANCER_SHADOW_B" ActiveMessageMapInBattle="1">
+    <AI Name="MAPLE_25_3_JOB_SHADOWMANCER_SHADOW_B" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_MAPLE_25_3_JOB_SHADOWMANCER_SHADOW_TIME_COUNT"/>
+            </ToolScp>
 			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
 				<Str_Arg Str="F_spread_out008_smoke2_mint" Arg="0.40000001"/>
@@ -10040,8 +10066,11 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="MAPLE_25_3_JOB_SHADOWMANCER_SHADOW_C" ActiveMessageMapInBattle="1">
+    <AI Name="MAPLE_25_3_JOB_SHADOWMANCER_SHADOW_C" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_MAPLE_25_3_JOB_SHADOWMANCER_SHADOW_TIME_COUNT"/>
+            </ToolScp>
 			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
 				<Str_Arg Str="F_spread_out008_smoke_violet" Arg="0.40000001"/>
@@ -12607,7 +12636,7 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="REMAINS_37_2_JOB_SHADOWMANCER_PACKMAN_SHADOW" ActiveMessageMapInBattle="1">
+    <AI Name="REMAINS_37_2_JOB_SHADOWMANCER_PACKMAN_SHADOW" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
@@ -12617,6 +12646,9 @@ if self.HP == 0 then return 1; else return 0; end;">
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_REMAINS_37_2_JOB_SHADOWMANCER_PACKMAN_SHADOW_TARGET_AI"/>
 			</ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_REMAINS_37_2_JOB_SHADOWMANCER_SHADOW_TIME_COUNT"/>
+            </ToolScp>
 		</List>
 		<StartList>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
@@ -12624,7 +12656,7 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="REMAINS_37_2_JOB_SHADOWMANCER_SHADOW" ActiveMessageMapInBattle="1">
+    <AI Name="REMAINS_37_2_JOB_SHADOWMANCER_SHADOW" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
@@ -13178,6 +13210,47 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</StartList>
 	</AI>
+    <AI Name="SCR_BRACKEN_42_1_JOB_SHADOW_INLAYER_OBJECT" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_BRACKEN_42_1_JOB_SHADOW_INLAYER_OBJECT_UPDATE_AI"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_BRACKEN_42_1_JOB_SHADOW_INLAYER_OBJECT_LEAVE_AI"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_BRACKEN_42_1_JOB_SHADOW_INLAYER_OBJECT_ENTER_AI"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="SCR_BRACKEN_42_1_JOB_SHADOW_INLAYER_SUMMON_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_BRACKEN_42_1_JOB_SHADOW_INLAYER_SUMMON_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="SCR_BRACKEN_43_3_JOB_SHADOW_INLAYER_OBJECT" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_BRACKEN_43_3_JOB_SHADOW_INLAYER_OBJECT_UPDATE_AI"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_BRACKEN_43_3_JOB_SHADOW_INLAYER_OBJECT_LEAVE_AI"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_BRACKEN_43_3_JOB_SHADOW_INLAYER_OBJECT_ENTER_AI"/>
+            </ToolScp>
+        </StartList>
+    </AI>
 	<AI Name="SCR_ID_WHITETREES1_GIMMICK3_SETUP" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -13185,6 +13258,23 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</StartList>
 	</AI>
+    <AI Name="SCR_MAPLE_25_3_JOB_SHADOW_INLAYER_OBJECT" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_MAPLE_25_3_JOB_SHADOW_INLAYER_OBJECT_UPDATE_AI"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_MAPLE_25_3_JOB_SHADOW_INLAYER_OBJECT_LEAVE_AI"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_MAPLE_25_3_JOB_SHADOW_INLAYER_OBJECT_ENTER_AI"/>
+            </ToolScp>
+        </StartList>
+    </AI>
 	<AI Name="SCR_PILGRIM51_CALL_PRISONFIGHTER" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
@@ -13199,6 +13289,23 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</List>
 	</AI>
+    <AI Name="SCR_REMAINS_37_2_JOB_SHADOW_INLAYER_OBJECT" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_REMAINS_37_2_JOB_SHADOW_INLAYER_OBJECT_UPDATE_AI"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_REMAINS_37_2_JOB_SHADOW_INLAYER_OBJECT_LEAVE_AI"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_REMAINS_37_2_JOB_SHADOW_INLAYER_OBJECT_ENTER_AI"/>
+            </ToolScp>
+        </StartList>
+    </AI>
 	<AI Name="SERACH_PC_TGT" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -18779,6 +18886,13 @@ if self.HP == 0 then return 1; else return 0; end;">
 				<Str Str="campfire_Buff"/>
 			</ToolScp>
 		</LeaveList>
+	</AI>
+	<AI Name="companion_Armadillo" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+				<Str Str="PET_LOOP_AI"/>
+			</ToolScp>
+		</List>
 	</AI>
 	<AI Name="companion_Guineapig" ActiveMessageMapInBattle="1">
 		<List>

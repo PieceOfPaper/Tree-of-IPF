@@ -966,10 +966,10 @@ function SKL_THROW_EQUIP_OBJECT(self, skl, xacHeadName, handType, x, y, z, endEf
         RunScript('OP_DOT_DAMAGE_FOR_THROW_EQUIP_OBJECT', self, skl.ClassName, damage, x, y, z, (flyTime + delayTime) /1, range, 0, 1, "None", 1.0, 0);
     end
     
+    local buff = AddBuff(self, self, 'Warrior_ThrowItem_Debuff_'..handType, 0, 0, 30000, 1);
     local abil_Draoon17 = GetAbility(self, "Dragoon17")
     if skl.ClassName ~= "Hoplite_ThrouwingSpear" then
         if skl.ClassName == "Dragoon_Gae_Bulg" and abil_Draoon17 == nil then
-            local buff = AddBuff(self, self, 'Warrior_ThrowItem_Debuff_'..handType, 0, 0, 30000, 1);    
             if buff == nil then
                 CancelMonsterSkill(self);
                 return;
@@ -978,7 +978,7 @@ function SKL_THROW_EQUIP_OBJECT(self, skl, xacHeadName, handType, x, y, z, endEf
     end
         
     local monObj = CreateGCIES('Monster', 'skill_equip_object');
-    monObj.Name = "skill_equip_object" .. tostring(GetHandle(self)) -- ??부???정 ????라??언????스 같이 ??정 ??요??니?? skill_equip_object??로 cpp 검??
+    monObj.Name = "skill_equip_object" .. tostring(GetHandle(self))
     
     local angle = GetAngleToPos(self, x, z);
     local mon = CreateMonster(self, monObj, x, y, 100, angle - 90, 0, 0, GetLayer(self));
@@ -1014,7 +1014,7 @@ function SKL_THROW_EQUIP_OBJECT(self, skl, xacHeadName, handType, x, y, z, endEf
         end
     end
     
-    ThrowItem(self, mon, xacHeadName, handType, x, y, z, flyTime, delayTime, gravity, 1, endEftName, endScale, startRotateBillboard, endRotateBillboard);  
+    ThrowItem(self, mon, xacHeadName, handType, x, y, z, flyTime, delayTime, gravity, 1, endEftName, endScale, startRotateBillboard, endRotateBillboard);
     
     KnockDown(mon, self, 30, angle, 70, 3);
     

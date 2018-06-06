@@ -1,4 +1,4 @@
-﻿--- calc_property_skill.lua
+--- calc_property_skill.lua
 function GET_SKL_VALUE(skill, startValue, maxValue)
     local maxLv = 100;
     local curLv = skill.Level;
@@ -15390,6 +15390,66 @@ function SCR_GET_NonInvasiveArea_Ratio2(skill)
     return value;
 end
 
+function SCR_Get_SkillFactor_TeKha(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "NakMuay1")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_SokChiang(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "NakMuay2")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_TeTrong(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "NakMuay3")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_KhaoLoi(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "NakMuay4")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_RamMuay(skill)
+    local pc = GetSkillOwner(skill);
+    local RamMuaySkill = GetSkill(pc, "NakMuay_RamMuay")
+    local value = RamMuaySkill.SklFactor + (RamMuaySkill.Level - 1) * skill.SklFactorByLevel;
+    
+    return math.floor(value)
+end
+
+function SCR_GET_Rammuay_Ratio(skill)
+    local value = 50 + (TryGetProp(skill, "Level") - 1) * 5
+    return value;
+end
 function SCR_GET_GroovingMuzzle_BuffTime(skill)
 	local value = 10 + (skill.Level - 1);
 	

@@ -127,7 +127,7 @@ function EXECUTE_LETICIA_GACHA_BY_TP(pc, gachaDetailCls)
 		SendAddOnMsg(pc, "LETICIA_POPUP_10", rewardstring, 0);
     end
     
-    local ALLMSG = {'Raid_Stone_Box_S'}
+    local ALLMSG = {'GoldMoru_Box_S'}
 
 	for i = 1, table.getn(ALLMSG) do
 	    for j = 1, #sendrewardlist do
@@ -216,7 +216,7 @@ function SCR_PRECHECK_LETICIA_Time()
     local nowTime = tonumber(string.format("%04d%02d%02d%02d", sysTime.wYear, sysTime.wMonth, sysTime.wDay, sysTime.wHour))
     
     
-    if nowTime >= 2017120218 and nowTime < 2017120518 then
+    if nowTime >= 2018010118 and nowTime < 2018010418 then
         return 'YES'
     end
     
