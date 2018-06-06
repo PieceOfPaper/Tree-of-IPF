@@ -4,10 +4,11 @@
 	<Sound frame="0.00" soundFile="skl_fgt_light_cast"/>
 	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
 	<Sound frame="8.00" soundFile="skl_fgt_spearlunge"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="E_warrior_zornhau_swordtrail" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="50" sound="None"/>
 	<Particle frame="8" attachNode="Dummy_emitter" particleName="E_warrior_zornhau_swordtrail" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" sound="None"/>
 	<Particle frame="8" attachNode="Dummy_trail" particleName="None" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" sound="None"/>
 	<Particle frame="4" attachNode="Dummy_effect_wepon_spear02" particleName="I_spread_in002_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" sound="None"/>
-	<Particle frame="7" attachNode="Bip01 L Foot" particleName="I_smoke014_6" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" sound="None"/>
+	<Particle frame="7" attachNode="Bip01 L Foot" particleName="I_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" sound="None"/>
 	<Particle frame="8" attachNode="Dummy_effect_berserk" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" sound="skl_fgt_mordschlag"/>
 	<Particle frame="8" attachNode="Dummy_emitter" particleName="I_warrior_rush_shot_dash3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" sound="None"/>
 	<Particle frame="8" attachNode="Dummy_effect_craft" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" sound="None"/>

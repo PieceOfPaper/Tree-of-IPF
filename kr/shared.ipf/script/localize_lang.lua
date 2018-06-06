@@ -14,6 +14,9 @@ function GET_TIME_TXT(sec, hour)
 	if d > 0 then
 		ret = ret .. ScpArgMsg("{Day}","Day",d) .. " ";
 		started = 1;
+		if nil ~= hour and h == 0 then
+			return ret;
+		end
 	end
 	
 	if h > 0 then
@@ -22,8 +25,6 @@ function GET_TIME_TXT(sec, hour)
 		if nil ~= hour then
 			return ret;
 		end
-	else	
-		return ret;
 	end
 
 	if m >= 0 then

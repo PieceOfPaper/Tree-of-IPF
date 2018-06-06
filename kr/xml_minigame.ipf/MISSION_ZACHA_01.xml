@@ -312,7 +312,7 @@
             </Stage>
             <Stage Name="stage_f_boss" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="47408" Pos="44.25#-20.13#-481.42" genCount="1" genTime="20000" objectKey="0" propList="&apos;Scale&apos; &apos;0.6&apos; &apos;WlkMSPD&apos; &apos;0&apos; &apos;RunMSPD&apos; &apos;0&apos; &apos;Rotate&apos; &apos;NO&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;CustomDefence&apos; &apos;30&apos; &apos;CustomAttack&apos; &apos;20&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47408" Pos="44.25#-20.13#-481.42" genCount="1" genTime="20000" objectKey="0" propList="&apos;Scale&apos; &apos;0.6&apos; &apos;WlkMSPD&apos; &apos;0&apos; &apos;RunMSPD&apos; &apos;0&apos; &apos;Rotate&apos; &apos;NO&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " tendency="1">
                         <SelfAI>
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -363,7 +363,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47378" Pos="34.40#112.56#373.42" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;BTree&apos; &apos;None&apos; &apos;Tactics&apos; &apos;MON_DUMMY&apos; &apos;Faction&apos; &apos;Neutral&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;CustomDefence&apos; &apos;90&apos; &apos;CustomAttack&apos; &apos;10&apos; ">
+                    <Obj Type="Monster" MonType="47378" Pos="34.40#112.56#373.42" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;BTree&apos; &apos;None&apos; &apos;Tactics&apos; &apos;MON_DUMMY&apos; &apos;Faction&apos; &apos;Neutral&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; ">
                         <SelfAI>
                             <List>
                                 <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
@@ -542,7 +542,7 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47380" Pos="757.75#15.94#-483.62" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;BTree&apos; &apos;None&apos; &apos;CustomDefence&apos; &apos;20&apos; &apos;CustomAttack&apos; &apos;15&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47380" Pos="757.75#15.94#-483.62" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;BTree&apos; &apos;None&apos; " tendency="1">
                         <SelfAI>
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -582,7 +582,7 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47379" Pos="-730.76#-53.20#-485.92" genCount="1" genTime="20000" objectKey="0" propList="&apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;CustomDefence&apos; &apos;70&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47379" Pos="-730.76#-53.20#-485.92" genCount="1" genTime="20000" objectKey="0" propList="&apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " tendency="1">
                         <SelfAI>
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -622,7 +622,7 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47407" Pos="-816.03#62.14#375.80" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;CustomDefence&apos; &apos;100&apos; &apos;CustomAttack&apos; &apos;15&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47407" Pos="-816.03#62.14#375.80" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; " tendency="1">
                         <SelfAI>
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -662,7 +662,7 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47381" Pos="855.43#11.75#389.36" genCount="1" genTime="20000" objectKey="0" propList="&apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;CustomDefence&apos; &apos;90&apos; &apos;CustomAttack&apos; &apos;5&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47381" Pos="855.43#11.75#389.36" genCount="1" genTime="20000" objectKey="0" propList="&apos;ATK_BM&apos; &apos;@GET_MON_RANK_CUST_ATK_BOSS1&apos; &apos;DEF_BM&apos; &apos;@GET_MON_RANK_CUST_DEF_BOSS1&apos; &apos;MHP_BM&apos; &apos;@GET_MON_RANK_CUST_MHP_BOSS1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " tendency="1">
                         <SelfAI>
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">

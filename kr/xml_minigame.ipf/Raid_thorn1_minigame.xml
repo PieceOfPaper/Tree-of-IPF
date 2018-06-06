@@ -345,7 +345,7 @@
 			</Stage>
 			<Stage Name="PATROL_BOSS" AutoStart="0">
 				<ObjList>
-					<Obj Type="Monster" MonType="47370" Pos="328.00#151.46#-6.00" angle="-170" genCount="1" genTime="20000" objectKey="0" searchRange="100" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'WlkMSPD' '40' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'EquipDropType' 'Raidmonster4' 'CustomDefence' '50' " SimpleAI="Thorn_patrol_boss" tendency="1">
+					<Obj Type="Monster" MonType="47370" Pos="328.00#151.46#-6.00" angle="-170" genCount="1" genTime="20000" objectKey="0" searchRange="100" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'WlkMSPD' '40' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'EquipDropType' 'Raidmonster4' " SimpleAI="Thorn_patrol_boss" tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
@@ -416,7 +416,7 @@
 					</ToolScp>
 				</CompleteScpList>
 				<ObjList>
-					<Obj Type="Monster" MonType="47369" Pos="58.67#112.68#-863.74" angle="106" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'EquipDropType' 'Raidmonster4' 'CustomAttack' '15' " tendency="1">
+					<Obj Type="Monster" MonType="47369" Pos="58.67#112.68#-863.74" angle="106" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'EquipDropType' 'Raidmonster4' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_PHASE" Client="NO" UseSleep="YES"/>
@@ -475,7 +475,7 @@
 					</ToolScp>
 				</CompleteScpList>
 				<ObjList>
-					<Obj Type="Monster" MonType="47368" Pos="648.70#151.46#-864.96" angle="103" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'EquipDropType' 'Raidmonster4' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'CustomDefence' '40' " tendency="1">
+					<Obj Type="Monster" MonType="47368" Pos="648.70#151.46#-864.96" angle="103" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'EquipDropType' 'Raidmonster4' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_PHASE" Client="NO" UseSleep="YES"/>
@@ -540,7 +540,7 @@
 					</ToolScp>
 				</CompleteScpList>
 				<ObjList>
-					<Obj Type="Monster" MonType="47367" Pos="783.06#151.46#875.55" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'EquipDropType' 'Raidmonster4' 'CustomDefence' '50' " tendency="1">
+					<Obj Type="Monster" MonType="47367" Pos="783.06#151.46#875.55" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'EquipDropType' 'Raidmonster4' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_PHASE" Client="NO" UseSleep="YES"/>
@@ -620,7 +620,7 @@
 					</ToolScp>
 				</CompleteScpList>
 				<ObjList>
-					<Obj Type="Monster" MonType="47366" Pos="34.17#100.74#803.08" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'EquipDropType' 'Raidmonster4' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'CustomDefence' '40' " tendency="1">
+					<Obj Type="Monster" MonType="47366" Pos="34.17#100.74#803.08" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'EquipDropType' 'Raidmonster4' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_PHASE" Client="NO" UseSleep="YES"/>
@@ -677,7 +677,7 @@
 			</Stage>
 			<Stage Name="Final_boss" AutoStart="0">
 				<ObjList>
-					<Obj Type="Monster" MonType="41215" Pos="369.91#151.46#74.55" angle="175" genCount="1" genTime="20000" objectKey="0" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'BTree' 'None' 'Faction' 'Peaceful' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'EquipDropType' 'Raidmonster4' 'DropItemList' 'M_boss_GiantWoodGoblin_red' 'CustomDefence' '80' 'CustomAttack' '15' " SimpleAI="Thorn_f_boss_01" tendency="1">
+					<Obj Type="Monster" MonType="41215" Pos="369.91#151.46#74.55" angle="175" genCount="1" genTime="20000" objectKey="0" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'BTree' 'None' 'Faction' 'Peaceful' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'EquipDropType' 'Raidmonster4' 'DropItemList' 'M_boss_GiantWoodGoblin_red' " SimpleAI="Thorn_f_boss_01" tendency="1">
 						<SelfAI/>
 					</Obj>
 					<Obj Type="Monster" MonType="47244" Pos="-20.43#141.86#469.29" angle="-61" genCount="1" genTime="20000" objectKey="1"/>
@@ -1192,7 +1192,7 @@
 			</Stage>
 			<Stage Name="SMALL_WOOD_GEN" AutoStart="0">
 				<ObjList>
-					<Obj Type="Monster" MonType="41421" Pos="68.38#151.46#334.39" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="20" propList="'FixedEXP' '1' 'FixedJobEXP' '1' 'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+					<Obj Type="Monster" MonType="41421" Pos="68.38#151.46#334.39" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="20" propList="'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1212,7 +1212,7 @@
 							</StartList>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="41421" Pos="603.95#151.46#380.87" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="20" propList="'FixedEXP' '1' 'FixedJobEXP' '1' 'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+					<Obj Type="Monster" MonType="41421" Pos="603.95#151.46#380.87" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="20" propList="'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1232,7 +1232,7 @@
 							</StartList>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="41421" Pos="606.76#151.46#-405.99" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="20" propList="'FixedEXP' '1' 'FixedJobEXP' '1' 'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+					<Obj Type="Monster" MonType="41421" Pos="606.76#151.46#-405.99" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="20" propList="'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1252,7 +1252,7 @@
 							</StartList>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="41421" Pos="127.13#112.68#-749.95" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="20" propList="'FixedEXP' '1' 'FixedJobEXP' '1' 'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+					<Obj Type="Monster" MonType="41421" Pos="127.13#112.68#-749.95" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="20" propList="'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1272,7 +1272,7 @@
 							</StartList>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="41421" Pos="74.28#151.46#-310.57" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="20" propList="'FixedEXP' '1' 'FixedJobEXP' '1' 'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+					<Obj Type="Monster" MonType="41421" Pos="74.28#151.46#-310.57" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="20" propList="'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">

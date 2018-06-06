@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_NetherBovine_event2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_netherbovine_4"/>
+    <Sound frame="20.00" soundFile="mon_voice_netherbovine_5"/>
+    <Particle frame="34" attachNode="Bip01 L Finger0" particleName="F_drop_stone001_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="36" attachNode="Bip01 R Finger0" particleName="F_drop_stone001_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="55.00" soundFile="skl_eff_stone_blow_m"/>
+    <Sound frame="57.00" soundFile="mon_big_footstep_6"/>
+    <Particle frame="61" attachNode="Bip01 L Finger0" particleName="F_smoke063" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="61" attachNode="Bip01 R Finger0" particleName="F_smoke063" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="104" attachNode="Bip01 L Finger0" particleName="F_smoke074" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="104" attachNode="Bip01 R Finger0" particleName="F_smoke074" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="114.00" soundFile="mon_big_footstep_6"/>
+    <Shockwave frame="117" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="119" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="119" attachNode="Bip01 L Finger0" particleName="F_smoke074" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="119" attachNode="Bip01 R Finger0" particleName="F_smoke074" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="119" attachNode="Bip01 L Toe0" particleName="F_smoke074" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="119" attachNode="Bip01 R Toe0" particleName="F_smoke074" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="121" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="123" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="138" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="139" attachNode="Dummy_emitter" particleName="F_smoke014" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="139" attachNode="Dummy_emitter" particleName="F_smoke016_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="139" attachNode="Dummy_emitter" particleName="I_stone011_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="139" attachNode="Dummy_emitter" particleName="I_stone006_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="140" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="142" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="144" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="146" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="169" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="171" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="173" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="175" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="177" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

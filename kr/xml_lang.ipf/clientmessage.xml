@@ -2987,7 +2987,7 @@
 		<Class ClassID="120563" ClassName="MON_KILL_CNT_REWARD_MSG2" Data="이미 업적 점수를 받았습니다"/>
 		<Class ClassID="120564" ClassName="MON_KILL_CNT_REWARD_MSG3" Data="더 이상 업적 점수를 받을 수 없습니다"/>
 		<Class ClassID="180192" ClassName="CASTLE65_2_PILLAR" Data="마력 공급 장치"/>
-		<Class ClassID="120564" ClassName="MON_KILL_CNT_ERROR1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT}회를 모두 완료하셨습니다"/>
+		<Class ClassID="120566" ClassName="MON_KILL_CNT_ERROR1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT}회를 모두 완료하셨습니다"/>
 		<Class ClassID="120565" ClassName="ITEML_CNT_ERROR1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT}회를 모두 완료하셨습니다"/>
 	</Category>
 	<Category Name="BattleText">
@@ -6667,9 +6667,9 @@
 		<Class ClassID="550011" ClassName="nexon" Data="넥슨 PC방"/>
 		<Class ClassID="550012" ClassName="tokenItem" Data="토큰"/>
 		<Class ClassID="550013" ClassName="marketSellCom" Data="마켓 판매 수수료 감소"/>
-		<Class ClassID="550014" ClassName="marketUpMax{COUNT}" Data="마켓 물품 등록 개수 {COUNT}개로 증가"/>
-		<Class ClassID="550015" ClassName="abilityMax{COUNT}" Data="특성 동시 수련 가능 개수 {COUNT} 증가"/>
-		<Class ClassID="550016" ClassName="speedUp{COUNT}" Data="이동 속도 +{COUNT} 증가"/>
+		<Class ClassID="550014" ClassName="marketUpMax" Data="마켓 물품 등록 개수 증가"/>
+		<Class ClassID="550015" ClassName="abilityMax" Data="특성 동시 수련 가능 개수 증가"/>
+		<Class ClassID="550016" ClassName="speedUp" Data="이동 속도 증가"/>
 		<Class ClassID="550017" ClassName="NeedPremiunState" Data="해당 기능을  사용 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550018" ClassName="{Target}DontHavePremiumState" Data="{Target}님이 거래를 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550019" ClassName="CantTradeAbility" Data="거래/매입상점 사용가능"/>

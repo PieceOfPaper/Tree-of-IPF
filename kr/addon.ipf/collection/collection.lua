@@ -415,7 +415,7 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 
 	detailMainGbox:Resize(detailMainGbox:GetWidth(), nextY);
 	local detailAbilGbox  = detailView:CreateOrGetControl('groupbox', "downbox", 5, nextY, detailView:GetWidth() - 10, 50);
-	detailAbilGbox:SetSkinName('bg2')
+	detailAbilGbox:SetSkinName('rank_three_skin')
 
 
 	local abilText = string.format("%s %s : %s", font, ClMsg("CollectionEffect"), GET_COLLECTION_EFFECT_DESC(type));

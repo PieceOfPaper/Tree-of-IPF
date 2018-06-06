@@ -46,7 +46,7 @@
 			<slot name="HAT" margin="-110 45 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}헤어 코스튬1{/}" layout_gravity="center top"/>
 			<slot name="HAT_T" margin="-110 93 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}헤어 코스튬2{/}" layout_gravity="center top"/>
 			<slot name="HAT_L" margin="-110 141 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}헤어 코스튬3{/}" layout_gravity="center top"/>
-			<slot name="HAIR" margin="-110 189 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}가발{/}" layout_gravity="center top"/>
+			<slot name="HAIR" margin="-110 189 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wig_slot" DropScp="None" texttooltip="{@st59}헤어{/}" layout_gravity="center top"/>
 			<slot name="RING1" margin="-110 238 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring" DropScp="None" texttooltip="{@st59}팔찌1{/}" layout_gravity="center top"/>
 			<slot name="SHIRT" margin="-40 60 0 0" rect="0 0 60 60" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="shirt" DropScp="None" texttooltip="{@st59}상의{/}" layout_gravity="center top"/>
 			<slot name="PANTS" margin="-40 130 0 0" rect="0 0 60 60" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="pants" DropScp="None" texttooltip="{@st59}하의{/}" layout_gravity="center top"/>
@@ -85,7 +85,7 @@
 			<richtext name="level" rect="0 0 90 24" parent="mainBox" layout_gravity="left top" margin="80 15 0 0 " hittest="false" fontname="white_16" textalign="center center" format="{@st42b}Lv.%s" param1="value" fixwidth="true" param1_def="13"/>
 			<richtext name="job" rect="0 0 110 24" parent="mainBox" layout_gravity="left top" margin="190 15 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}%s" param1="value" fixwidth="true" param1_def="AAA"/>
 			<richtext name="name" rect="0 0 180 24" parent="mainBox" layout_gravity="left top" margin="100 48 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st41b}%s" param1="value" fixwidth="true" param1_def="ASDASASD"/>
-			<button name="revive_btn" layout_gravity="left top" rect="0 0 50 50" margin="282 31 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox" skin="stat_up_btn"/>
+			<button name="revive_btn" layout_gravity="left top" rect="0 0 50 50" margin="282 31 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox" image="companion_did_btn"/>
 		</controls>
 	</controlset>
 	<controlset name="barrack_newchar" toggle="false" hittest="true" width="420" height="100" skin="" hittestset="false">
@@ -1566,7 +1566,7 @@
 	<controlset name="deck" hittest="true" hittestset="false" draw="false" width="170" height="220">
 		<controls>
 			<groupbox name="items" margin="25 30 0 0" rect="0 0 120 120" hittestbox="true" LBtnDownScp="OPEN_DECK_DETAIL" changecursor="true" skin="tooltip1" layout_gravity="left top" scrollbar="false"/>
-			<picture name="outline" rect="0 0 98 98" image="collection_com_light" stretch="true" margin="30 40 0 0" layout_gravity="left top" hittest="false"/>
+			<picture name="outline" rect="0 0 98 98" image="collection_com_light" stretch="true" margin="35 40 0 0" layout_gravity="left top" hittest="false"/>
 			<picture name="newicon" rect="0 0 55 55" image="collection_new" stretch="true" margin="0 10 10 0" layout_gravity="right top"/>
 			<picture name="compicon" rect="0 0 55 55" image="collection_com" stretch="true" margin="0 10 10 0" layout_gravity="right top"/>
 			<richtext name="collec_name" rect="0 0 160 30" format="{@st66b}{s16}%s{/}" param1="name" param1_def="잡화상 묶음" textalign="center top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" margin="0 172 0 0" layout_gravity="center top"/>
