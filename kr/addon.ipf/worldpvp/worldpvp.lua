@@ -249,10 +249,12 @@ function JOIN_WORLDPVP(parent, ctrl)
 		return;
 	end
 
+	if cls.MatchType == "Guild" then
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcparty == nil then
 		ui.SysMsg(ScpArgMsg("PleaseJoinGuild"));
 		return;
+	end
 	end
 
 	local isLeader = AM_I_LEADER(PARTY_GUILD);
