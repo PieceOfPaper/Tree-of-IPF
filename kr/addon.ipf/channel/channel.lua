@@ -80,9 +80,9 @@ function SELECT_ZONE_MOVE_CHANNEL(index, channelID)
 		ui.SysMsg(ClMsg("ChannelIsClosed"));
 		return;
 	end
-
+	
 	local msg = ScpArgMsg("ReallyMoveToChannel_{Channel}", "Channel", channelID + 1);
-	local scpString = string.format("app.ChangeChannel(%d)", channelID);
+	local scpString = string.format("RUN_GAMEEXIT_TIMER(\"Channel\", %d)", channelID);
 	ui.MsgBox(msg, scpString, "None");
 
 end

@@ -89,17 +89,16 @@ function ITEMCRAFT_CLOSE(frame)
 	session.ResetItemList();
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-	INVENTORY_SET_ICON_SCRIPT("ITEMCRAFT_INV_ICON"); -- 한번 업데이트 후
-	INVENTORY_SET_ICON_SCRIPT("None"); -- 해제
+	INVENTORY_SET_ICON_SCRIPT("ITEMCRAFT_INV_ICON");
+	INVENTORY_SET_ICON_SCRIPT("None");
 
 	ui.CloseFrame('inventory')
 
 
 end
 
-function CRAFT_OPEN(frame)	 -- 설마 안쓰나?
+function CRAFT_OPEN(frame)
 
-	-- 세션에 등록안된 아이템이있는지 인벤토리에서 주문서 확인해서 갱신하기
 	INV_CRAFT_CHECK();
 	
 	local f = ui.GetFrame(g_itemCraftFrameName);
@@ -201,7 +200,6 @@ function CREATE_CRAFT_ARTICLE(frame)
 	local arg1 = frame:GetUserValue("IDSPACE_ARG1");
 	local arg2 = frame:GetUserValue("IDSPACE_ARG2");
 
-	--모든 제작 레시피 생성.
 	local clslist = GetClassList(idSpace);
 	if clslist == nil then return end
 
@@ -212,7 +210,6 @@ function CREATE_CRAFT_ARTICLE(frame)
 	local checkHaveMaterial = showonlyhavemat:IsChecked();	
 
 	local checkCraftFunc = _G["CRAFT_CHECK_".. idSpace];
-	-- 제작 카테고리.
 	while cls ~= nil do
 
 		if checkCraftFunc(cls, arg1, arg2) == true then
@@ -434,8 +431,6 @@ end
 
 function SORT_INVITEM_BY_WORTH(a,b)
 
-	-- 같은 ClassID를 가진 템일 경우 쓸모 없는 템부터 합성 하도록 정렬하는 함수. 
-	-- 정렬순위 : 매직어뮬렛 > 총 젬 경험치 > 젬 개수 > 뚫린 소켓 수 > 현재 강화 횟수 > 남은 포텐셜
 
 	local itemobj_a = GetIES(a:GetObject());
 	local itemobj_b = GetIES(b:GetObject());
@@ -683,7 +678,6 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 		return;
 	end
 
-	-- 임시로 작동하지 않게 막는다. 나중에 새로 만들어야함.
 	if TryGetProp(recipecls, "UseQueue") == "YES" then
 		session.CopyTempItemID();
 		local queueFrame = ui.GetFrame("craftqueue");
@@ -833,7 +827,6 @@ function CRAFT_RECIPE_FOCUS(page, ctrlSet)
 	local minimized = page:GetUserIValue("minimized");
 	local slotHeight = 0;
 
-	-- 예외처리 안해놓아서 오류뜸
 	if nil ~= g_craftRecipe then
 		slotHeight = ui.GetControlSetAttribute(g_craftRecipe, 'height') + 5;	
 	end
@@ -944,7 +937,7 @@ function ITEMCRAFT_INV_ICON(slot, reinfItemObj, invItem, itemobj)
 
 end
 
-function ITEMCRAFT_INV_RBTN(itemObj, slot) -- 우클릭 추가 함수
+function ITEMCRAFT_INV_RBTN(itemObj, slot)
 	local frame = ui.GetFrame(g_itemCraftFrameName)
 	local ITEM_CRAFT_NOW_FOCUSED_CSET_NAME = frame:GetUserValue('ITEM_CRAFT_NOW_FOCUSED_CSET_NAME')
 
@@ -975,7 +968,6 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot) -- 우클릭 추가 함수
 				local materialItemCnt = tonumber(targetslot:GetEventScriptArgString(ui.DROP));
 				local needcount = tonumber(materialItemCnt)
 
-				--등록 안된 IESID에 한하여
 				local resultlist = session.GetItemIDList();
 	
 				for i = 0, resultlist:Count() - 1 do
@@ -985,7 +977,7 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot) -- 우클릭 추가 함수
 					end
 				end
 				
-				if iconInfo.type == materialItemClassID and iconInfo.count >= needcount  then -- 이미 리스트에 없는 ies일 경우에만
+				if iconInfo.type == materialItemClassID and iconInfo.count >= needcount  then
 
 					local tempinvitem = session.GetInvItemByGuid(iconInfo:GetIESID());
 					if true == tempinvitem.isLockState then
@@ -994,7 +986,6 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot) -- 우클릭 추가 함수
 					end
 					session.AddItemID(iconInfo:GetIESID(), needcount);
 					local icon 		= targetslot:GetIcon();
-					--슬롯 컬러톤 및 폰트 밝게 변경. 
 					icon:SetColorTone('FFFFFFFF')
 					SET_ITEM_TOOLTIP_BY_OBJ(icon, tempinvitem)
 
@@ -1042,7 +1033,7 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 
 	local itemHeight = ui.GetControlSetAttribute(g_craftRecipe_detail_item, 'height');
 
-	for i = 1 , 5 do --스택 아니면 컨트롤셋을 더 늘려줘야 한다 자동으로. 5에서 끝나면 안됨.
+	for i = 1 , 5 do
 		if recipecls["Item_"..i.."_1"] ~= "None" then
 			local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i);
 			if invItemlist ~= nil then
@@ -1074,7 +1065,7 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 				CRAFT_DETAIL_CTRL_INIT(itemSet);
 				local slot = GET_CHILD(itemSet, "slot", "ui::CSlot");
 				local needcountTxt = GET_CHILD(itemSet, "needcount", "ui::CSlot");
-				needcountTxt:SetTextByKey("count",recipeItemCnt)--제작에 필요한 아이템 카운트
+				needcountTxt:SetTextByKey("count",recipeItemCnt)
 				local itemtext = GET_CHILD(itemSet, "item", "ui::CRichText");
 				SET_SLOT_ITEM_CLS(slot, dragRecipeItem);
 				slot:SetEventScript(ui.DROP, "ITEMCRAFT_ON_DROP");
@@ -1130,7 +1121,7 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 	y = y + ui.GetControlSetAttribute(g_craftRecipe_makeBtn, 'height');
 	local upDown = GET_CHILD(ctrlset, "upDown", "ui::CNumUpDown");
 	upDown:SetNumChangeScp('ITMCRAFT_BUTTON_UP');
-	upDown:SetNumberValue(1)--아이템 제작시 개수 설정 디폴트 1로 설정.
+	upDown:SetNumberValue(1)
 	upDown:ShowWindow(1)
 	upDown:SetOverSound('button_cursor_over_2');
 	upDown:SetClickSound('button_click');
@@ -1153,7 +1144,7 @@ function ITMCRAFT_BUTTON_UP(ctrl)
 		return;
 	end
 
-	for i = 1 , 5 do --스택 아니면 컨트롤셋을 더 늘려줘야 한다 자동으로. 5에서 끝나면 안됨.
+	for i = 1 , 5 do
 		if recipecls["Item_"..i.."_1"] ~= "None" then
 			local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i);
 			if nil ~= invItemlist then
@@ -1179,7 +1170,7 @@ end
 function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
 
 	imcSound.PlaySoundEvent('inven_equip');
-	--imcSound.PlaySoundItem('inven_equip'); --오류뜸
+	--imcSound.PlaySoundItem('inven_equip');
 
 	local slot 	   		= tolua.cast(control, 'ui::CSlot');
 	local needcount = tonumber(materialItemCnt)
@@ -1191,7 +1182,7 @@ function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
 	local liftIcon 				= ui.GetLiftIcon();
 	local iconInfo = liftIcon:GetInfo();
 
-	--등록 안된 IESID에 한하여
+	--??? ??? IESID?? ?????
 	local resultlist = session.GetItemIDList();
 	
 	for i = 0, resultlist:Count() - 1 do
@@ -1216,11 +1207,10 @@ function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
 		return;
 	end
 
-	if iconInfo.type == materialItemClassID and iconInfo.count >= needcount  then -- 이미 리스트에 없는 ies일 경우에만
+	if iconInfo.type == materialItemClassID and iconInfo.count >= needcount  then
 
 		session.AddItemID(iconInfo:GetIESID(), needcount);
 		local icon 		= slot:GetIcon();
-		--슬롯 컬러톤 및 폰트 밝게 변경. 
 		icon:SetColorTone('FFFFFFFF')
 		cset:SetUserValue("MATERIAL_IS_SELECTED", 'selected');
 	end
@@ -1275,7 +1265,6 @@ function INV_CRAFT_CHECK()
 		if invItem ~= nil then
 			local recipeCls = GetClass('Recipe', invItem.ClassName);
 			if recipeCls ~= nil then
-				-- 세션에 등록안되어있다면 서버에 갱신 한번 하라고 패킷보내주기
 				if GetWikiByName(invItem.ClassName) == nil then
 					packet.ReqWikiRecipeUpdate();
 					return;
@@ -1288,13 +1277,10 @@ end
 
 function SORT_PURE_INVITEMLIST(a,b)
 
-	-- 같은 ClassID를 가진 템일 경우 쓸모 없는 템부터 합성 하도록 정렬하는 함수. 
-	-- 정렬순위 : 매직어뮬렛 > 총 젬 경험치 > 뚫린 소켓 수 > 현재 강화 횟수 > 남은 포텐셜
-
 	local itemobj_a = GetIES(a:GetObject());
 	local itemobj_b = GetIES(b:GetObject());
     
-    if itemobj_a.GroupName ~= 'Gem' and itemobj_b.GroupName ~= 'Gem' and itemobj_a.GroupName ~= 'Card' and itemobj_b.GroupName ~= 'Card' then
+    if itemobj_a.GroupName ~= 'Gem' and itemobj_b.GroupName ~= 'Gem' and itemobj_a.GroupName ~= 'Card' and itemobj_b.GroupName ~= 'Card' and itemobj_a.GroupName ~= 'Premium' then
     
     	local a_amuletcnt = 0
     	local b_amuletcnt = 0
@@ -1429,10 +1415,7 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 	local materialItemClassID = targetslot:GetEventScriptArgNumber(ui.DROP);
 	local materialItemCnt = tonumber(targetslot:GetEventScriptArgString(ui.DROP));
 	local needcount = tonumber(materialItemCnt)
-	--IESID 아이템 마다 고유의 아이디가 있음
-	--DB저장되는 값.
-	--몬스터나, 플레이어가 가지고 있는 아이템을 구별하기 위해서 사용하는 ID
-	--등록 안된 IESID에 한하여
+	
 	local resultlist = session.GetItemIDList();
 
 	
@@ -1488,7 +1471,7 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 
 		SET_ITEM_TOOLTIP_BY_OBJ(icon, invItemadd)
 
-		--슬롯 컬러톤 및 폰트 밝게 변경. 
+		--???? ?첨??? ?? ??? ??? ????. 
 		icon:SetColorTone('FFFFFFFF')
 		itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'selected');
 		local invframe = ui.GetFrame('inventory')

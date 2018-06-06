@@ -51,7 +51,7 @@ end
 
 function ON_WIKI_RANK_PAGE(frame, msg, str, num)
 	if str == "Total" then
-	JOURNAKRANK_SHOW_PAGE(frame, num);
+		JOURNAKRANK_SHOW_PAGE(frame, num);
 	elseif str == "UpHill" then
 		MGAME_SHOW_PAGE(frame, num);
 	end
