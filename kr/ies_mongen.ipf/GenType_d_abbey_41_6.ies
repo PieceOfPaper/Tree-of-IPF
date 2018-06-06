@@ -1,1 +1,8 @@
-B437A9407F27868562DEF2B50B5173DD
+ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
+1,1,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","래스보이 호변","","","","MON_DUMMY","","","","ABBEY41_6_PILGRIM41_3","","NO","YES","NO","Neutral","","","",""
+2,2,1,40,50,5000,16,0,0,0,1,0,0,"rootcrystal_01","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
+3,3,1,100,-1,60000,1,0,0,0,0,0,0,"HiddenTrigger_CantGen100","FieldCantGen","","","","","","","","","","NO","YES","NO","Neutral","","","",""
+100,100,0,40,25,30000,15,0,0,0,0,0,0,"ticen_bow_red","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+101,101,0,40,25,30000,30,0,0,0,0,0,0,"ticen_red","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+102,102,0,40,25,30000,15,0,0,0,0,0,0,"ticen_mage_red","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+103,103,0,40,25,30000,25,0,0,0,0,0,0,"nuo_red","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
