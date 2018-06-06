@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <uiframe name="textballoon" x="0" y="0" width="196" height="90">
 	<frame title="Chat" layout_gravity="left top"/>
-	<draw blend="100" drawtitlebar="false" drawframe="true"/>
+	<draw blend="89" drawtitlebar="false" drawframe="true"/>
 	<skin frameskin="textballoon_mid"/>	
 	<input hittestframe="false" moveable="false" minheight="55" minwidth="48" maxwidth="226" resize="true" reduce="true"/>
 	<layer layerlevel="20"/>

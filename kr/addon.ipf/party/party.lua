@@ -51,8 +51,13 @@ function PARTY_OPEN(frame)
 end
 
 function PARTY_CLOSE(frame)
-
+    local frame = ui.GetFrame("guild");
+    if frame ~= nil then
+        local partynamegbox = GET_CHILD_RECURSIVELY(frame, 'partynamegbox')
+	    partynamegbox:EnableHitTest(0);
+    end
 	ui.CloseFrame('party_search')
+
 
 end
 

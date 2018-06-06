@@ -173,6 +173,8 @@ end
 
 
 function ON_GUILD_ENTER(frame, msg, str, isEnter)
+	local partynamegbox = GET_CHILD_RECURSIVELY(frame, 'partynamegbox')
+	partynamegbox:EnableHitTest(1);
 	ThrottleScript("UPDATE_GUILDINFO", 5.0);	
 end
 
@@ -195,6 +197,8 @@ function ON_GUILD_INFO_UPDATE(frame, msg)
 end
 
 function GUILD_UI_CLOSE(frame)
+	local partynamegbox = GET_CHILD_RECURSIVELY(frame, 'partynamegbox')
+	partynamegbox:EnableHitTest(1);
 	local guild_authority_popup = ui.GetFrame("guild_authority_popup");	
 	guild_authority_popup:ShowWindow(0);
 end
@@ -337,7 +341,7 @@ function UPDATE_GUILDINFO(frame)
 	local noticegbox = GET_CHILD_RECURSIVELY(frame, 'noticegbox')
 	noticegbox:EnableHitTest(isLeader);
 	local partynamegbox = GET_CHILD_RECURSIVELY(frame, 'partynamegbox')
-	partynamegbox:EnableHitTest(isLeader);
+	partynamegbox:EnableHitTest(0);
 	local partynotegbox = GET_CHILD_RECURSIVELY(frame, 'partynotegbox')
 	partynotegbox:EnableHitTest(isLeader);
 
@@ -692,7 +696,11 @@ function UI_CHECK_GUILD_UI_OPEN(propname, propvalue)
 	if pcparty == nil then
 		return 0;
 	end
-
+    local frame = ui.GetFrame("guild");
+    if frame ~= nil then
+        local partynamegbox = GET_CHILD_RECURSIVELY(frame, 'partynamegbox')
+	    partynamegbox:EnableHitTest(0);
+    end
 	return 1;
 
 end

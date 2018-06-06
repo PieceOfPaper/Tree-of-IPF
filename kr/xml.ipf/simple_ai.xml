@@ -18739,9 +18739,11 @@ return IMCRandom(300, 1000) * 0.001;"/>
                     </ToolScp>
                 </Cond>
                 <Exec>
-                    <ToolScp Scp="SH_USE_PCSKILL" Client="NO" UseSleep="NO">
-                        <Str Str="Paladin_ResistElements"/>
-                        <Num Num="3"/>
+                    <ToolScp Scp="SH_EXEC_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_ResistElements_Buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
                         <Num Num="1"/>
                     </ToolScp>
                 </Exec>

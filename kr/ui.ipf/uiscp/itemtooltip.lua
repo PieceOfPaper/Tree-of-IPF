@@ -348,7 +348,7 @@ function DRAW_SELL_PRICE(tooltipframe, invitem, yPos, mainframename)
 
 	local height = gBox:GetHeight() + tooltip_sellinfo_CSet:GetHeight();
 	gBox:Resize(gBox:GetWidth(), height);
-	return height;
+	return yPos + tooltip_sellinfo_CSet:GetHeight();
 end
 
 function DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, yPos, mainframename)
