@@ -94,7 +94,7 @@ function SCR_Get_SpendSP(skill)
 	
 	value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
 	value = value - decsp;
-	
+
 	if value < 1 then
 		value = 1;
 	end
@@ -231,6 +231,41 @@ function SCR_Skill_STA(skill)
 
 end
 
+function SCR_Skill_SubweaponCancel_STA(skill)
+
+	local basicsta = skill.BasicSta;
+	if basicsta == 0 then
+		return 0;
+	end
+
+	local pc = GetSkillOwner(skill);
+	local jolly = GetSkill(pc, 'Corsair_JollyRoger')
+	if jolly ~= nil and IsBuffApplied(pc, 'JollyRoger_Buff') == 'YES' then
+	    basicsta = basicsta - (basicsta * (jolly.Level * 0.05))
+	end
+	return basicsta * 1000
+end
+
+function SCR_Skill_DoublePunch_STA(skill)
+
+	local basicsta = skill.BasicSta;
+	if basicsta == 0 then
+		return 0;
+	end
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, 'Monk10')
+	if abil ~= nil and abil.ActiveState == 1 then
+	    local random = IMCRandom(1,100);
+        if random >= 51 then
+	        basicsta = basicsta / 2
+	    else
+	        return basicsta * 1000;
+	    end
+	end
+	return basicsta * 1000;
+end
+
 function SCR_GET_SKL_CAST(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -363,6 +398,35 @@ function SCR_GET_SKL_COOLDOWN_MISTWIND(skill)
 
 	return basicCoolDown;
 
+end
+
+function SCR_GET_SKL_COOLDOWN_Golden_Bell_Shield(skill)
+	local pc = GetSkillOwner(skill);
+	local basicCoolDown = skill.BasicCoolDown;
+	basicCoolDown = basicCoolDown - ((skill.Level - 1) * 1000);
+	if basicCoolDown < 0 then
+	    basicCoolDown = 0;
+	end
+    
+	local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+	
+	basicCoolDown = basicCoolDown + abilAddCoolDown;
+		
+	if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
+		basicCoolDown = basicCoolDown * 0.8;
+	elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+	    basicCoolDown = basicCoolDown * 1.2;
+	end
+	
+	if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+	    basicCoolDown = basicCoolDown * 0.9;
+	end
+	
+	if IsPVPServer(pc) == 1 then
+	    basicCoolDown = basicCoolDown + 10000;
+	end
+
+	return math.floor(basicCoolDown);
 end
 
 function SCR_GET_SKL_COOLDOWN_WIZARD(skill)
@@ -13140,6 +13204,24 @@ function SCR_GET_SR_LV(skill)
 
 	local pc = GetSkillOwner(skill);
 	local value = pc.SR + skill.SklSR;
+	
+	if value < 1 then
+	    value = 1
+	end
+	
+	return value
+	
+end
+
+function SCR_GET_SR_LV_Bazooka_Buff(skill)
+
+	local pc = GetSkillOwner(skill);
+	local skillSR = skill.SklSR;
+	if IsBuffApplied(pc, 'Bazooka_Buff') == 'YES' then
+        skillSR = math.floor(skillSR * 2);
+	end
+	
+	local value = pc.SR + skillSR;
 	
 	if value < 1 then
 	    value = 1

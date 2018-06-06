@@ -3,6 +3,7 @@
 UI_UPDATE_STOP = 0;
 UI_UPDATE_CONTINUE = 1;
 UI_UPDATE_DESTROY = 2;
+TYPE_REINFORCEMENT = nil;
 
 function UI_EFFECT_GET_NAME(frame, key)
 	if key == nil then
@@ -16,7 +17,10 @@ function UI_EFFECT_GET_NAME(frame, key)
 	return name;
 end
 
-function UI_FORCE(forceName, fx, fy, tx, ty, delayTime, changeImage, imgSize)
+function UI_FORCE(forceName, fx, fy, tx, ty, delayTime, changeImage, imgSize, type)	
+	if forceName == 'reinf_result_' then
+		TYPE_REINFORCEMENT = type
+	end
 	
 	if changeImage == nil then
 		changeImage = "";
@@ -35,11 +39,15 @@ function UI_FORCE(forceName, fx, fy, tx, ty, delayTime, changeImage, imgSize)
 	end
 	
 	if delayTime ~= nil and delayTime > 0 then
-		local funcStr = string.format("UI_FORCE(\"%s\", %f, %f, %f, %f, 0.0, \"%s\", %f)", forceName, fx, fy, tx, ty, changeImage, imgSize);
+		local funcStr = string.format("UI_FORCE(\"%s\", %f, %f, %f, %f, 0.0, \"%s\", %f)", forceName, fx, fy, tx, ty, changeImage, imgSize, type);
 		ReserveScript(funcStr, delayTime);
 		return;
 	end
 
+	if TYPE_REINFORCEMENT == "Certificate" and forceName == "reinf_finish" then		
+		forceName = forceName .. "_certificate"
+	end
+	
 	local force = ui.force.Get(forceName);
 	if force == nil then
 		return;
@@ -59,8 +67,6 @@ function UI_FORCE(forceName, fx, fy, tx, ty, delayTime, changeImage, imgSize)
 				text:SetTextFixWidth(0);
 				text:SetText(line:GetImageName());
 				text:PlayForce(force, i, tx, ty, 1);
-				
-
 		else
 			local imgName = line:GetImageName();
 			if changeImage ~= "" then
@@ -79,6 +85,9 @@ function UI_FORCE(forceName, fx, fy, tx, ty, delayTime, changeImage, imgSize)
 				selPic:PlayForce(force, i, tx, ty, 1);
 			end
 		end
+	end
+	if forceName == 'reinf_finish' or forceName == 'Certificate_reinf_finish' then
+		TYPE_REINFORCEMENT = nil
 	end
 end
 

@@ -5,7 +5,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 4,4,1,100,-1,0,1,0,0,1,0,0,0,"npc_pilgrim_shrine_NoObb","교단의 성물","","","","","","CATACOMB_33_1_UNHOLY","CATACOMB_33_1_UNHOLY","","","NO","YES","NO","Monster","","","",""
 6,6,1,40,-1,60000,1,1,0,0,0,100,0,"npc_bocor_juta","보코르 유타","","","","","","","CATACOMB_33_1_JUTA","","","NO","YES","NO","Neutral","","","",""
 7,7,1,40,1,60000,1,1,0,0,0,100,0,"npc_paladin_noinst3_3","묘지기 시기스","","","","","","","CATACOMB_33_1_SIGIS","","","NO","YES","NO","Neutral","","","",""
-8,8,1,40,-1,60000,20,0,0,0,1,0,0,"coffin_summon","UnvisibleName","","","","","","","CATACOMB_33_1_COFFIN","","","NO","YES","NO","Neutral","","","",""
+8,8,1,40,-1,60000,20,0,0,0,1,0,1,"coffin_summon","UnvisibleName","","","","","","","CATACOMB_33_1_COFFIN","","","NO","YES","NO","Neutral","","","",""
 9,9,0,40,100,0,30,0,0,0,0,0,0,"Sec_maggot_green","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","Attack"
 10,10,0,40,100,0,30,0,0,0,0,0,0,"Sec_Leaf_diving_purple","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","Attack"
 11,11,0,40,40,0,20,0,0,0,1,0,0,"Fisherman_green","","","","","","","CATACOMB_33_1_BURNINGMON","","","","NO","YES","NO","Monster","SmartGen","","","Attack"

@@ -118,7 +118,7 @@ function WORLDMAP_TOOLTIP_POSSIBLE_QUESTLIST(frame, mapName, numarg, ctrlSet, dr
     end
     for index = 0, questCnt-1 do
     	local questIES = GetClassByIndexFromList(questClsList, index);
-    	if questIES.StartMap == drawCls.ClassName and questIES.PossibleUI_Notify ~= 'NO' and questIES.QuestMode ~= 'MAIN' and questIES.Level ~= 9999 and questIES.Lvup ~= -9999 and questIES.QuestStartMode ~= 'NPCENTER_HIDE' then
+    	if questIES.StartMap == drawCls.ClassName and questIES.PossibleUI_Notify ~= 'NO' and questIES.QuestMode ~= 'MAIN' and questIES.QuestMode ~= 'KEYITEM' and questIES.Level ~= 9999 and questIES.Lvup ~= -9999 and questIES.QuestStartMode ~= 'NPCENTER_HIDE' then
     		local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName)
     		if result == 'POSSIBLE' then
     		    local picture = ctrlSet:CreateOrGetControl('picture', "questListBoxIcon"..viewCount, subX, subY + (viewCount - 1)*20, 20, 20);

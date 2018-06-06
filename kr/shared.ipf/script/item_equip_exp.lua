@@ -34,17 +34,20 @@ function GET_MORE_EVENT_EXP_JAEDDURY(pc)
 	return sumExp; 
 end
 
+-- 아이템의 exp 를 설정 ItemExp
 function GET_MIX_MATERIAL_EXP(item)
-
 	if item.EquipXpGroup == "None" then
 		return 0;
 	end
 
 	local prop = geItemTable.GetProp(item.ClassID);
 	local itemExp = TryGetProp(item, 'ItemExp')
+	
 	if itemExp ~= nil then
 	    if item.ItemType == "Equip" then
 	        return item.ItemLv;
+	    elseif item.EquipXpGroup == 'hethran_material' then
+			return itemExp;
 	    end
 		return prop:GetMaterialExp(itemExp);
 	end

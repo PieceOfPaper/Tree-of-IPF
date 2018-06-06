@@ -4,7 +4,7 @@
         <StageList>
             <Stage Name="victim" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="400821" Pos="-2666.07#334.14#-2595.56" maxStackCount="1" genTime="20000" objectKey="0" searchRange="100" tendency="1">
+                    <Obj Type="Monster" MonType="400821" Pos="-2665.56#332.09#-2594.60" maxStackCount="1" genTime="12000" objectKey="0" searchRange="150" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -13,7 +13,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400821" Pos="-2334.12#334.14#-2606.14" maxStackCount="1" genTime="20000" objectKey="2" searchRange="100" tendency="1">
+                    <Obj Type="Monster" MonType="400821" Pos="-2345.36#332.09#-2599.27" angle="166" maxStackCount="1" genTime="12000" objectKey="2" searchRange="150" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">

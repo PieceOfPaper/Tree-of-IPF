@@ -29,6 +29,8 @@ function GET_ICON_BY_STATE_MODE(state, questIES)
         modeicon = 'PERIOD'
     elseif tail == '_party' then
         modeicon = 'PARTY'
+    elseif tail == '_key' then
+        modeicon = 'KEYQUEST'
     end
     
 	if state == 'SUCCESS' then
@@ -60,6 +62,8 @@ function GET_MARK_TAIL(questies)
 	    return "_sub", 0;
 	elseif questies.QuestMode == "PARTY" then
 	    return "_party", 0;
+	elseif questies.QuestMode == "KEYITEM" then
+	    return "_key", 0;
 	end
 	
 	return "_sub", 0;

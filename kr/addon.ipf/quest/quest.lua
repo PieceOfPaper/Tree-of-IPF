@@ -417,6 +417,8 @@ function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, 
 		Quest_Ctrl:SetSkinName('test_repeatquest_skin');
 	elseif questIES.QuestMode == 'PARTY' then
 		Quest_Ctrl:SetSkinName('test_partyquest_skin');
+	elseif questIES.QuestMode == 'KEYITEM' then
+		Quest_Ctrl:SetSkinName('test_keyque_skin');
 	end
 
 	QUEST_CTRL_UPDATE_PARTYINFO(Quest_Ctrl, questIES);
@@ -863,7 +865,7 @@ function QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sObj_main)
 		return nil;
 	end
     local questAutoIES = GetClass('QuestProgressCheck_Auto',questIES.ClassName)
-    if sObj_main[questIES.ClassName] == QUEST_ABANDON_VALUE or sObj_main[questIES.ClassName] == QUEST_FAIL_VALUE or sObj_main[questIES.ClassName] == QUEST_SYSTEMCANCEL_VALUE then
+    if (sObj_main[questIES.ClassName] == QUEST_ABANDON_VALUE or sObj_main[questIES.ClassName] == QUEST_FAIL_VALUE or sObj_main[questIES.ClassName] == QUEST_SYSTEMCANCEL_VALUE) and questIES.QuestMode ~= 'KEYITEM'  then
         local trackInfo = SCR_STRING_CUT(questAutoIES.Track1)
         if trackInfo[1] == 'SPossible' or (trackInfo[1] == 'SProgress' and questAutoIES.Possible_NextNPC == 'PROGRESS') or (trackInfo[1] == 'SSuccess' and questAutoIES.Possible_NextNPC == 'SUCCESS') then
             --???? ???????? ???? ????????? ??????? ???

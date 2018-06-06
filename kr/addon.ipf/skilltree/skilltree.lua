@@ -172,7 +172,11 @@ function MAKE_CLASS_INFO_LIST(frame)
 		session.SetUserConfig("CLASSUP_" .. cls.ClassName, classLv);
 
 		local startext = ""
-		for i = 1 , 3 do
+		local maxIndex = 3
+		if cls.HiddenJob == 'YES' then
+		    maxIndex = 1
+		end
+		for i = 1 , maxIndex do
 			if i <= classLv then
 				startext = startext .. ("{img star_in_arrow 20 20}")
 			else

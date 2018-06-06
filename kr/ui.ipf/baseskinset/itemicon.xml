@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -432,6 +432,30 @@
 		<image name="icon_item_warmage_gloves" file="\icon\equip\icon_item_warmage_gloves.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warmage_pants" file="\icon\equip\icon_item_warmage_pants.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warmage_robe" file="\icon\equip\icon_item_warmage_robe.png" imgrect="0 0 256 256"/>
+	<image name="icon_item_malone_amor" file="\icon\equip\icon_item_malone_amor.png" imgrect="0 0 256 256" CMM_Caption="마로네_천세트75"/>
+		<image name="icon_item_malone_boots" file="\icon\equip\icon_item_malone_boots.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_malone_gloves" file="\icon\equip\icon_item_malone_gloves.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_malone_leg" file="\icon\equip\icon_item_malone_leg.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_prake_amor" file="\icon\equip\icon_item_prake_amor.png" imgrect="0 0 256 256" CMM_Caption="프라케_220천세트"/>
+		<image name="icon_item_prake_boots" file="\icon\equip\icon_item_prake_boots.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_prake_gloves" file="\icon\equip\icon_item_prake_gloves.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_prake_leg" file="\icon\equip\icon_item_prake_leg.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_razna_amor" file="\icon\equip\icon_item_razna_amor.png" imgrect="0 0 256 256" CMM_Caption="라즈나_75가죽세트"/>
+		<image name="icon_item_razna_boots" file="\icon\equip\icon_item_razna_boots.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_razna_gloves" file="\icon\equip\icon_item_razna_gloves.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_razna_leg" file="\icon\equip\icon_item_razna_leg.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_kiarc_amor" file="\icon\equip\icon_item_kiarc_amor.png" imgrect="0 0 256 256" CMM_Caption="키아크_220가죽세트"/>
+		<image name="icon_item_kiarc_boots" file="\icon\equip\icon_item_kiarc_boots.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_kiarc_gloves" file="\icon\equip\icon_item_kiarc_gloves.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_kiarc_leg" file="\icon\equip\icon_item_kiarc_leg.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_vargu_amor" file="\icon\equip\icon_item_vargu_amor.png" imgrect="0 0 256 256" CMM_Caption="바르그아르_75판금세트"/>
+		<image name="icon_item_vargu_boots" file="\icon\equip\icon_item_vargu_boots.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_vargu_gloves" file="\icon\equip\icon_item_vargu_gloves.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_vargu_leg" file="\icon\equip\icon_item_vargu_leg.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swoolite_amor" file="\icon\equip\icon_item_swoolite_amor.png" imgrect="0 0 256 256" CMM_Caption="스우리트_220판금세트"/>
+		<image name="icon_item_swoolite_boots" file="\icon\equip\icon_item_swoolite_boots.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swoolite_gloves" file="\icon\equip\icon_item_swoolite_gloves.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swoolite_leg" file="\icon\equip\icon_item_swoolite_leg.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
@@ -690,7 +714,8 @@
 		<image name="icon_item_dagger_bigstar" file="\icon\weapon\icon_item_dagger_bigstar.png" imgrect="0 0 256 256" CMM_Caption="검"/>
 		<image name="icon_item_dagger_cristal" file="\icon\weapon\icon_item_dagger_cristal.png" imgrect="0 0 256 256" CMM_Caption="검"/>
 		<image name="icon_item_dagger_dualblade" file="\icon\weapon\icon_item_dagger_dualblade.png" imgrect="0 0 256 256" CMM_Caption="검"/>
-		<image name="icon_item_dagger_scout" file="\icon\weapon\icon_item_dagger_scoutn.png" imgrect="0 0 256 256" CMM_Caption="검"/>
+		<image name="icon_item_dagger_scout" file="\icon\weapon\icon_item_dagger_scout.png" imgrect="0 0 256 256" CMM_Caption="검"/>
+		<image name="icon_item_sword_noroi" file="\icon\weapon\icon_item_sword_noroi.png" imgrect="0 0 256 256" CMM_Caption="검"/>
 		<image name="icon_item_knife" file="\icon\weapon\icon_item_knife.png" imgrect="0 0 256 256" CMM_Caption="단검"/>
 		<image name="icon_item_dirk_dagger" file="\icon\weapon\icon_item_dirk_dagger.png" imgrect="0 0 256 256" CMM_Caption="단검"/>
 		<image name="icon_item_main-gauche" file="\icon\weapon\icon_item_main-gauche.png" imgrect="0 0 256 256" CMM_Caption="단검"/>
@@ -1080,6 +1105,7 @@
 		<image name="icon_item_rap2_1" file="\icon\weapon\icon_item_rap2_1.png" imgrect="0 0 256 256" CMM_Caption="레이피어"/>
 		<image name="icon_item_rap1_1" file="\icon\weapon\icon_item_rap1_1.png" imgrect="0 0 256 256" CMM_Caption="레이피어"/>
 		<image name="icon_item_rapier_crown" file="\icon\weapon\icon_item_rapier_crown.png" imgrect="0 0 256 256" CMM_Caption="레이피어"/>
+		<image name="icon_item_rapier_aquamarin" file="\icon\weapon\icon_item_rapier_aquamarin.png" imgrect="0 0 256 256" CMM_Caption="레이피어"/>
 		<image name="icon_item_bulawa" file="\icon\weapon\icon_item_bulawa.png" imgrect="0 0 256 256" CMM_Caption="둔기"/>
 		<image name="icon_item_fist" file="\icon\weapon\icon_item_fist.png" imgrect="0 0 256 256" CMM_Caption="둔기"/>
 		<image name="icon_item_trophy" file="\icon\weapon\icon_item_trophy.png" imgrect="0 0 256 256" CMM_Caption="둔기"/>
@@ -2285,6 +2311,14 @@
 		<image name="icon_item_armband_02" file="\icon\acc\icon_item_armband_02.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_03" file="\icon\acc\icon_item_armband_03.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_facebook" file="\icon\acc\icon_item_armband_facebook.png" imgrect="0 0 256 256" CMM_Caption="페이스북 암밴드"/>
+		<image name="item_bracelet_22" file="\icon\acc\item_bracelet_22.png" imgrect="0 0 256 256" CMM_Caption="스머르토 브레이슬릿"/>
+		<image name="item_bracelet_23" file="\icon\acc\item_bracelet_23.png" imgrect="0 0 256 256" CMM_Caption="이스민티스 브레이슬릿"/>
+		<image name="item_bracelet_24" file="\icon\acc\item_bracelet_24.png" imgrect="0 0 256 256" CMM_Caption="스티피리아 브레이슬릿"/>
+		<image name="item_bracelet_25" file="\icon\acc\item_bracelet_25.png" imgrect="0 0 256 256" CMM_Caption="스베너스 브레이슬릿"/>
+		<image name="item_necklace_22" file="\icon\acc\item_necklace_22.png" imgrect="0 0 256 256" CMM_Caption="키에타스 네클리스"/>
+		<image name="item_necklace_23" file="\icon\acc\item_necklace_23.png" imgrect="0 0 256 256" CMM_Caption="페이너스 네클리스"/>
+		<image name="item_necklace_24" file="\icon\acc\item_necklace_24.png" imgrect="0 0 256 256" CMM_Caption="넬라이메스 네클리스"/>
+		<image name="item_necklace_25" file="\icon\acc\item_necklace_25.png" imgrect="0 0 256 256" CMM_Caption="루페스시우 네클리스"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -3922,6 +3956,25 @@
 		<image name="icon_item_event_weaponbox1" file="\icon\item\icon_item_event_weaponbox1.png" imgrect="0 0 128 128" CMM_Caption="구원자의 무기 상자"/>
 		<image name="icon_item_firework" file="\icon\item\icon_item_firework.png" imgrect="0 0 256 256" CMM_Caption="장난감 불꽃놀이"/>
 		<image name="icon_item_event161215_01" file="\icon\item\icon_item_event161215_01.png" imgrect="0 0 128 128" CMM_Caption="이벤트 씨앗"/>
+		<image name="icon_KQ_token_hethran_1" file="\icon\item\icon_KQ_token_hethran_1.png" imgrect="0 0 128 128" CMM_Caption="헤스란 증표1"/>
+		<image name="icon_KQ_token_hethran_2" file="\icon\item\icon_KQ_token_hethran_2.png" imgrect="0 0 128 128" CMM_Caption="헤스란 증표2"/>
+		<image name="icon_KQ_token_hethran_3" file="\icon\item\icon_KQ_token_hethran_3.png" imgrect="0 0 128 128" CMM_Caption="헤스란 증표3"/>
+		<image name="KQ_recipe_hethran_material_3_7" file="\icon\item\KQ_recipe_hethran_material_3_7.png" imgrect="0 0 128 128" CMM_Caption="3Lv 보상 레시피 재료템(7)"/>
+		<image name="KQ_recipe_hethran_material_1_1" file="\icon\item\KQ_recipe_hethran_material_1_1.png" imgrect="0 0 128 128" CMM_Caption="1Lv 보상 레시피 재료템(1)"/>
+		<image name="KQ_recipe_hethran_material_2_1" file="\icon\item\KQ_recipe_hethran_material_2_1.png" imgrect="0 0 128 128" CMM_Caption="1Lv 보상 레시피 재료템(1)"/>
+		<image name="KQ_recipe_hethran_material_3_1" file="\icon\item\KQ_recipe_hethran_material_3_1.png" imgrect="0 0 128 128" CMM_Caption="1Lv 보상 레시피 재료템(1)"/>
+		<image name="KQ_recipe_hethran_material_3_6" file="\icon\item\KQ_recipe_hethran_material_3_6.png" imgrect="0 0 128 128" CMM_Caption="3Lv 보상 레시피 재료템(6)"/>
+		<image name="KQ_recipe_hethran_material_1_4" file="\icon\item\KQ_recipe_hethran_material_1_4.png" imgrect="0 0 128 128" CMM_Caption="2Lv 보상 레시피 재료템(4)"/>
+		<image name="KQ_recipe_hethran_material_2_4" file="\icon\item\KQ_recipe_hethran_material_2_4.png" imgrect="0 0 128 128" CMM_Caption="2Lv 보상 레시피 재료템(4)"/>
+		<image name="KQ_recipe_hethran_material_3_4" file="\icon\item\KQ_recipe_hethran_material_3_4.png" imgrect="0 0 128 128" CMM_Caption="2Lv 보상 레시피 재료템(4)"/>
+		<image name="KQ_recipe_hethran_material_1_2" file="\icon\item\KQ_recipe_hethran_material_1_2.png" imgrect="0 0 128 128" CMM_Caption="1Lv 보상 레시피 재료템(2)"/>
+		<image name="KQ_recipe_hethran_material_2_2" file="\icon\item\KQ_recipe_hethran_material_2_2.png" imgrect="0 0 128 128" CMM_Caption="1Lv 보상 레시피 재료템(2)"/>
+		<image name="KQ_recipe_hethran_material_3_2" file="\icon\item\KQ_recipe_hethran_material_3_2.png" imgrect="0 0 128 128" CMM_Caption="1Lv 보상 레시피 재료템(2)"/>
+		<image name="KQ_recipe_hethran_material_1_3" file="\icon\item\KQ_recipe_hethran_material_1_3.png" imgrect="0 0 128 128" CMM_Caption="1Lv 보상 레시피 재료템(3)"/>
+		<image name="KQ_recipe_hethran_material_2_3" file="\icon\item\KQ_recipe_hethran_material_2_3.png" imgrect="0 0 128 128" CMM_Caption="1Lv 보상 레시피 재료템(3)"/>
+		<image name="KQ_recipe_hethran_material_3_3" file="\icon\item\KQ_recipe_hethran_material_3_3.png" imgrect="0 0 128 128" CMM_Caption="1Lv 보상 레시피 재료템(3)"/>
+		<image name="KQ_recipe_hethran_material_2_5" file="\icon\item\KQ_recipe_hethran_material_2_5.png" imgrect="0 0 128 128" CMM_Caption="2Lv 보상 레시피 재료템(5)"/>
+		<image name="KQ_recipe_hethran_material_3_5" file="\icon\item\KQ_recipe_hethran_material_3_5.png" imgrect="0 0 128 128" CMM_Caption="2Lv 보상 레시피 재료템(5)"/>
 		<image name="icon_item_event_armorbox2" file="\icon\item\icon_item_event_armorbox2.png" imgrect="0 0 128 128" CMM_Caption="구원자의 초급 방어구 상자"/>
 		<image name="icon_item_giftbox1" file="\icon\item\icon_item_giftbox1.png" imgrect="0 0 128 128" CMM_Caption="라이마의 선물 상자"/>
 		<image name="icon_item_giftbox2" file="\icon\item\icon_item_giftbox2.png" imgrect="0 0 128 128" CMM_Caption="라이마의 보물 상자"/>
@@ -3929,7 +3982,7 @@
 		<image name="icon_item_event_50000cash" file="\icon\item\icon_item_event_50000cash.png" imgrect="0 0 128 128" CMM_Caption="당첨권"/>
 		<image name="icon_item_event_50000cash_2" file="\icon\item\icon_item_event_50000cash_2.png" imgrect="0 0 500 500" CMM_Caption="당첨권 툴팁"/>
 		<image name="icon_item_event_nexonCash01" file="\icon\item\icon_item_event_nexonCash01.png" imgrect="0 0 128 128" CMM_Caption="넥슨 캐시 상자"/>
-	<image name="icon_item_Fortunecookie" file="\icon\item\icon_item_Fortunecookie.png" imgrect="0 0 128 128" CMM_Caption="포춘쿠키"/>
+		<image name="icon_item_Fortunecookie" file="\icon\item\icon_item_Fortunecookie.png" imgrect="0 0 128 128" CMM_Caption="포춘쿠키"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>

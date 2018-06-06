@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<uiframe name="reinforce_by_mix_certificate" x="0" y="0" width="450" height="1200" create="open">
+  <frame fullheight="true" fasthide="true" layout_gravity="left top" margin="-450 0 0 0" open="pip"/>
+  <skin frameskin="pipwin_test"/>
+  <draw drawnotitlebar="false" drawtitlebar="false"/>
+  <layer layerlevel="80"/>
+  <option closebutton="false" closebuttonpos="0 20"/>
+  <sound opensound="skill_window_open" closesound="skill_window_close"/>
+  <effect open="character_item_window_open" close="character_item_window_close"/>
+  <script OpenScp="OPEN_REINFORCE_BY_MIX_CERTIFICATE" CloseScp="CLOSE_REINFORCE_BY_MIX_CERTIFICATE"/>
+  <userconfig STAR_TEXT_SIZE="22" SWORD_ICON="gemtooltip_sword" DEFENSE_ICON="gemtooltip_defense" ARMOR_ICON="gemtooltip_armor" SHOES_ICON="gemtooltip_shoes" GLOVE_ICON="gemtooltip_glove"/>
+  <controls>
+    <groupbox name="bg2" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+    <groupbox name="bg_mid" rect="0 0 430 550" margin="10 345 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>
+    <groupbox name="pipwin_top" rect="0 0 450 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_top"/>
+    <groupbox name="box_item_bg" rect="0 0 450 660" margin="0 85 0 0" layout_gravity="center top" DropScp="REINFORCE_MIX_DROP_CERTIFICATE" draw="false" hittestbox="true" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="pipwin_low"/>
+    <groupbox name="box_item" rect="0 0 447 657" margin="0 88 0 0" layout_gravity="center top" DropScp="REINFORCE_MIX_DROP_CERTIFICATE" draw="false" hittestbox="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
+    <groupbox name="box_material" rect="0 0 450 305" margin="0 740 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
+    <picture name="titlepicture" rect="0 0 44 44" margin="0 -500 0 0" layout_gravity="left top" image="button_property"/>
+    <richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" fontname="" format="{@st43}%s{/}" param1="value" param1_def="reinforce" textalign="left top"/>
+    <button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}합성창을 닫습니다{/}"/>
+    <slot name="item_pic" parent="box_item" rect="0 0 128 128" margin="0 5 0 0" layout_gravity="center top" DropScp="REINFORCE_MIX_DROP_CERTIFICATE" changecursor="false" hittest="true" clicksound="icon_pick_up" oversound="button_cursor_over_3" skin="invenslot2" stretch="true"/>
+    <richtext name="itemname" parent="box_item" rect="0 0 450 24" margin="0 140 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="brown_20_b" format="%s" hittest="false" maxwidth="0" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZZZZZ" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+    <richtext name="startext" parent="box_item" rect="0 0 450 24" margin="0 165 0 0" layout_gravity="center top" caption="stars" drawbackground="false" fixwidth="true" fontname="white_16" hittest="false" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+    <!--<controlset name="stat_Level" type="reinforce_mix_stat" margin="-30 180 0 0" rect="0 0 80 93" hittest="true" layout_gravity="left top" parent="box_item"/>-->
+    <richtext name="title_gauge" parent="box_item" rect="0 0 160 29" margin="50 192 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st45tw}%s{/}" maxwidth="0" param1="value" param1_def="경험치" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+    <gauge name="gauge_exp" parent="box_item" rect="0 0 267 34" margin="130 186 0 0" layout_gravity="left top" inverse="false" point="50" skin="gauge_itemtooltip_poten" text1="%v / %m" textalign1="center center" textfont1="white_18_ol" textoffset1="0 -1"/>
+    <richtext name="exp_plus" parent="box_item" rect="0 0 150 29" margin="0 220 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@sti9}+ %s{/}" maxwidth="0" param1="value" param1_def="1311" resizebytext="true" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
+    <groupbox name="box_stats" parent="box_item" rect="0 0 484 169" margin="-30 251 0 14" layout_gravity="center bottom" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="none"/>
+    <groupbox name="box_stats_gem" parent="box_item" rect="0 0 430 400" margin="10 260 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="none"/>
+    <groupbox name="box_slot" parent="box_material" rect="0 0 430 200" margin="10 20 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="none"/>
+    <slotset name="matslot" parent="box_slot" rect="0 0 430 60" margin="0 0 0 0" layout_gravity="center top" col="6" cursoronresize="true" dropsound="icon_get_down" enableselect="true" hideindrag="true" movepop="false" picksound="icon_pick_up" row="2" size="60 60" skin="invenslot2" oversound="button_over" spc="1 1"/>
+    <richtext name="sel_item_count" parent="box_material" rect="0 0 420 60" margin="0 0 0 90" layout_gravity="center bottom" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st41b}선택한 {@sti9}%s개{/} 아이템으로 합성하시겠습니까?{/}" maxwidth="0" param1="value" param1_def="24" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+    <picture name="question" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" hittesr="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}증표 합성{nl}{@st59s} - 합성할 증표를 인벤토리에서 선택하여 등록{nl}{/}"/>
+    <button name="exec_mixreinf" parent="box_material" rect="0 0 160 50" margin="0 0 0 40" layout_gravity="center bottom" LBtnUpScp="REINFORCE_BY_MIX_EXECUTE_CERTIFICATE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}합성" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
+    </controls>
+</uiframe>

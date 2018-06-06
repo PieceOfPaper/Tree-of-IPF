@@ -158,11 +158,11 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	local shopTab = leftgbox:GetChild('shopTab');
 	local itembox_tab		= tolua.cast(shopTab, "ui::CTabControl");
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
-	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
+		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 		banner:SetImage("market_event_test");	--market_default
-	banner:SetUserValue("URL_BANNER", "");
-	banner:SetUserValue("NUM_BANNER", 0);
-	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+		banner:SetUserValue("URL_BANNER", "");
+		banner:SetUserValue("NUM_BANNER", 0);
+		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
 	else
 		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 		banner:ShowWindow(0);
@@ -187,7 +187,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 			itembox_tab:SetItemsFixWidth(170);
 		end
 	end
-	
+		
 	
 	MAKE_CATEGORY_TREE();
 	
@@ -199,10 +199,10 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	buyBtn = GET_CHILD_RECURSIVELY(frame,"specialBuyBtn");	
 	buyBtn:ShowWindow(0);
 	
-	local ratio = option.GetClientHeight()/option.GetClientWidth();
+	local ratio = option.GetClientHeight()/option.GetClientWidth();	
 	local limitMaxWidth = ui.GetSceneWidth() / ui.GetRatioWidth();
 	local limitMaxHeight = limitMaxWidth * ratio;
-
+	
 	if limitMaxWidth < option.GetClientWidth() then
 		limitMaxWidth = option.GetClientWidth();
 	end
@@ -212,8 +212,8 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		limitMaxHeight = option.GetClientHeight();
 		div = 6;
 	end
-	frame:Resize(0,0 , limitMaxWidth * 1.2, limitMaxHeight * 1.2);
-
+	frame:Resize(0,0 , limitMaxWidth * 1.2, limitMaxHeight * 1.2);	
+	
 	--session.shop.RequestLoadShopBuyLimit();
 	SET_TOPMOST_FRAME_SHOWFRAME(0);	
 	
@@ -260,8 +260,8 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		resol = 0;
 	end
 	
-	leftgFrame:SetOffset(leftgFrame:GetOffsetX(), resol);
-	rightFrame:SetOffset(rightFrame:GetOffsetX(), resol);
+	--leftgFrame:SetOffset(leftgFrame:GetOffsetX(), resol);
+	--rightFrame:SetOffset(rightFrame:GetOffsetX(), resol);
 
 	for i = 0 , 3 do
 	local resString = string.format("{@st42b}{s16}%s{/}", ScpArgMsg("SHOWLIST_ITEM_TYPE_" .. i));

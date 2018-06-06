@@ -11,8 +11,8 @@
 	<controls>
 		<!--TP SHOP 그룹박스-->
 		<groupbox name="screenbg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="true" skin="property_screenbg" stretch="true"/>
-		<groupbox name="leftgFrame" rect="0 0 1270 1020" margin="50 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false"/>
-		<groupbox name="rightFrame" rect="0 0 550 1020" margin="1320 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false"/>
+		<groupbox name="leftgFrame" rect="0 0 1270 1020" margin="50 20 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false"/>
+		<groupbox name="rightFrame" rect="0 0 550 1020" margin="1320 20 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false"/>
 		<groupbox name="leftgbox" parent="leftgFrame" rect="0 0 1270 950" margin="0 20 0 0" layout_gravity="left center" skin="test_frame_low" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false"/>
 		<groupbox name="rightgbox" parent="rightFrame" rect="0 0 550 950" margin="0 20 0 0" layout_gravity="left center" skin="test_frame_low" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false"/>
 		<groupbox name="lefttitlegbox" parent="leftgFrame" rect="0 0 1270 74" margin="0 0 0 0" layout_gravity="left top" skin="TPshop_title" stretch="true"/>

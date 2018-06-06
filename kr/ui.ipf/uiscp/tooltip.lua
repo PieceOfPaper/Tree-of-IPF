@@ -821,7 +821,11 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
 	end
 	sp = math.floor(sp)
 	if TryGetProp(obj, 'CoolDown') ~= nil then
-		coolTime = obj.BasicCoolDown * 0.001
+--		coolTime = obj.BasicCoolDown * 0.001
+		coolTime = obj.CoolDown * 0.001
+		if coolTime == 0 then
+		    coolTime = obj.BasicCoolDown * 0.001
+		end
 	end
 	
 	local pc = GetMyPCObject();

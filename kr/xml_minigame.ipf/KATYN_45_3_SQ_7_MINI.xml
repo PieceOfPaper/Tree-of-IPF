@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="KATYN_45_3_SQ_7_MINI" minLv="0" maxLv="0" startWaitSec="15">
+        <StageList>
+            <Stage Name="1" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400342" Pos="-240.67#26.91#336.10" genCount="1" maxStackCount="1" objectKey="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="400342" Pos="-194.88#26.91#222.02" genCount="1" maxStackCount="1" objectKey="2" searchRange="500" tendency="1"/>
+                    </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="사악한 기운을 정화하려고 하자 몬스터들이 몰려옵니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="31" isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400342" Pos="-189.55#26.91#261.26" genCount="1" maxStackCount="1" objectKey="0" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="400342" Pos="-83.98#26.91#208.54" genCount="1" maxStackCount="1" objectKey="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="400342" Pos="-26.27#26.91#178.90" genCount="1" maxStackCount="1" objectKey="2" searchRange="500" tendency="1"/>
+                    </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="사악한 기운에 이끌린 몬스터들이 나타납니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="31" isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="3" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400342" Pos="-180.24#26.91#262.23" genCount="1" maxStackCount="1" objectKey="0" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="400342" Pos="-72.17#26.91#214.60" genCount="1" maxStackCount="1" objectKey="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="400342" Pos="17.75#26.91#171.64" genCount="1" maxStackCount="1" objectKey="2" searchRange="500" tendency="1"/>
+                    </ObjList>
+                <StageEvents>
+                    <Event execMS="5000" execCount="1">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="사악한 기운에 이끌린 몬스터들이 나타납니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="4" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400342" Pos="-192.49#26.91#243.18" genCount="1" maxStackCount="1" objectKey="0" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="400342" Pos="-245.58#26.91#350.33" genCount="1" maxStackCount="1" objectKey="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="400342" Pos="-79.34#26.91#171.59" genCount="1" maxStackCount="1" objectKey="2" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="400342" Pos="5.40#26.91#173.85" genCount="1" maxStackCount="1" objectKey="3" searchRange="500" tendency="1"/>
+                    </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="사악한 기운에 이끌린 몬스터들이 나타납니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="31" isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="5" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400342" Pos="-214.92#26.91#325.61" genCount="1" maxStackCount="1" objectKey="0" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="400342" Pos="-173.85#26.91#264.09" genCount="1" maxStackCount="1" objectKey="1" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="400342" Pos="-77.86#26.91#205.88" genCount="1" maxStackCount="1" objectKey="2" searchRange="500" tendency="1"/>
+                    <Obj Type="Monster" MonType="400342" Pos="-5.28#26.91#211.80" genCount="1" maxStackCount="1" objectKey="3" searchRange="500" tendency="1"/>
+                    </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="사악한 기운에 이끌린 몬스터들이 나타납니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="timer">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="31000" execCount="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="61000" execCount="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="91000" execCount="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="121000" execCount="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="120"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

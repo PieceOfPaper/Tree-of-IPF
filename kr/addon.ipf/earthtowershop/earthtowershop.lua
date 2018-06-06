@@ -18,6 +18,18 @@ function REQ_EVENT_ITEM_SHOP_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_KEY_QUEST_TRADE_HETHRAN_LV1_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'KeyQuestShop1');
+	ui.OpenFrame('earthtowershop');
+end
+
+function REQ_KEY_QUEST_TRADE_HETHRAN_LV2_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'KeyQuestShop2');
+	ui.OpenFrame('earthtowershop');
+end
+
 function EARTH_TOWER_SHOP_OPEN(frame)
 	if frame == nil then
 		frame = ui.GetFrame("earthtowershop")
@@ -65,6 +77,10 @@ function EARTH_TOWER_INIT(frame, shopType)
 		title:SetText('{@st43}'..ScpArgMsg("EarthTowerShop"));
 	elseif shopType == 'EventShop' then
 		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
+	elseif shopType == 'KeyQuestShop1' then
+	    title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle1"));
+	elseif shopType == 'KeyQuestShop2' then
+	    title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle2"));
 	end
 
 	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
@@ -85,6 +101,7 @@ function EARTH_TOWER_INIT(frame, shopType)
 	tree:SetTabWidth(5);
 		
 	--��� ���� ������ ����.
+
 	local clslist = GetClassList("ItemTradeShop");
 	if clslist == nil then return end
 
@@ -305,7 +322,6 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 end
 
 function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
-
 	local parentcset = ctrl:GetParent()
 
 	
@@ -366,6 +382,10 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("EARTH_TOWER_SHOP_TREAD2", resultlist, cntText);
 	elseif shopType == 'EventShop' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD", resultlist, cntText);
+	elseif shopType == 'KeyQuestShop1' then
+		item.DialogTransaction("KEYQUESTSHOP1_SHOP_TREAD", resultlist, cntText);
+	elseif shopType == 'KeyQuestShop2' then
+		item.DialogTransaction("KEYQUESTSHOP2_SHOP_TREAD", resultlist, cntText);
 	end
 
 	frame:ShowWindow(0)

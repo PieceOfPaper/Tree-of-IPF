@@ -196,6 +196,49 @@
 			<gauge name="level_gauge" margin="100 0 0 0" rect="0 0 230 40" skin="gauge_itemtooltip_poten" inverse="false" point="50" layout_gravity="left top" text1="%v / %m" textoffset1="0 1" textfont1="white_14_ol" textalign1="center center"/>
 		</controls>
 	</controlset>
+	<!-- 증표 아이템 관련 시작-->
+	<controlset name="tooltip_hethran_common" hittest="true" width="410" height="125" skin="">
+		<userconfig GRADE_FONT_SIZE="16" BOTTOM_MARGIN="10"/>
+		<controls>
+			<picture name="item_bg" image="nomalitem_tooltip_bg" layout_gravity="left top" stretch="true" rect="0 0 80 80" margin="10 45 0 0"/>
+			<picture name="itempic" layout_gravity="left top" stretch="true" rect="0 0 60 60" margin="21 55 0 0"/>
+			<picture name="questMark" image="quest_indi_icon" layout_gravity="left top" stretch="true" rect="0 0 43 43" margin="15 48 0 0"/>
+			<richtext name="name" format="{s22}{#FFFFFF}{b}%s{/}" param1="itemname" param1_def="기본 아이템 이름" layout_gravity="center top" rect="0 0 385 30" margin="0 13 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" fontname="white_20_ol"/>
+			<richtext name="type_text" format="%s" param1="type" param1_def="DefVal" layout_gravity="left top" textalign="left center" rect="0 0 140 24" margin="100 50 0 0" fixwidth="true" hittest="false" fontname="brown_18_b"/>
+			<richtext name="weight_text" format="무게 : %s" param1="weight" param1_def="999" layout_gravity="right top" textalign="right center" rect="0 0 140 24" margin="0 50 15 0" fixwidth="true" hittest="false" fontname="brown_18"/>
+			<richtext name="grade" layout_gravity="left top" textalign="center center" rect="0 0 80 30" margin="10 107 0 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="brown_18"/>
+			<richtext name="trade_text" format="" param1="" param1_def="dgffdgdfg" layout_gravity="left top" textalign="left center" rect="0 0 140 24" margin="100 80 0 0" fixwidth="true" hittest="false" fontname="brown_18"/>
+			<richtext name="noTrade_cnt" format="총 거래 불가: %s개" param1="count" param1_def="999" layout_gravity="right top" textalign="right center" rect="0 0 170 24" margin="0 80 14 0" fixwidth="true" hittest="false" fontname="brown_18"/>
+		</controls>
+	</controlset>
+	<controlset name="tooltip_hethran_property" hittest="true" width="410" height="40">
+		<userconfig BOTTOM_MARGIN="7"/>
+		<controls>
+			<richtext name="prop_text" layout_gravity="left top" textalign="left center" fontname="brown_18" rect="0 0 80 30" margin="100 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="false"/>
+			<richtext name="trade_text" layout_gravity="left top" textalign="left center" fontname="brown_18" rect="0 0 80 30" margin="320 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="false"/>
+		</controls>
+	</controlset>
+	<controlset name="tooltip_hethran_heal_amount" hittest="true" width="410" height="23">
+		<controls>
+			<richtext name="atkName1" layout_gravity="left top" textalign="left center" fontname="idiotbrown_18" rect="0 0 80 30" margin="20 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="false"/>
+			<richtext name="atkValue1" layout_gravity="left top" textalign="right center" fontname="idiotbrown_18" rect="0 0 80 30" margin="120 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="false"/>
+		</controls>
+	</controlset>
+	<controlset name="tooltip_hethran_desc" toggle="false" hittest="false" width="410" height="0">
+		<userconfig BOTTOM_MARGIN="20"/>
+		<controls>
+			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
+			<richtext name="desc_text" layout_gravity="left top" rect="0 7 370 30" margin="20 0 0 0" fixwidth="true" hittest="false" fontname="brown_16"/>
+		</controls>
+	</controlset>
+	<controlset name="tooltip_hethran_exp" hittest="true" width="410" height="50">
+		<controls>
+			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
+			<richtext name="level_text" caption="경험치" rect="0 0 100 24" margin="30 10 0 0" fixwidth="true" hittest="false" fontname="brown_16" layout_gravity="left top"/>
+			<gauge name="level_gauge" margin="100 0 0 0" rect="0 0 290 40" skin="gauge_itemtooltip_poten" inverse="false" point="50" layout_gravity="left top" text1="%v / %m" textoffset1="0 1" textfont1="white_14_ol" textalign1="center center"/>
+		</controls>
+	</controlset>
+	<!-- 증표 아이템 관련 끝-->
 	<controlset name="tooltip_gem_common" hittest="true" width="330" height="460">
 		<userconfig BOTTOM_MARGIN="20" GRADE_FONT_SIZE="34"/>
 		<controls>

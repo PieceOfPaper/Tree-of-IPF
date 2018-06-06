@@ -1,0 +1,12 @@
+ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P_MaxDialog,AnchorCount,UP_ReturnRange,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
+900,900,1,20,-1,60000,1,2,0,0,0,0,0,"blank_npc_warp","세이르 숲","","","","MON_DUMMY","","VELNIAS_WARP_GATE_EFFECT","","LIMESTONECAVE_73_1_TO_ORCHARD_32_4","","NO","YES","NO","Neutral","","","",""
+901,901,0,40,35,0,20,0,0,0,0,0,0,"ERD_loftlem","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+902,902,0,40,35,0,20,0,0,0,0,0,0,"ERD_Tanu","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+903,903,0,40,9999,0,40,0,0,0,0,0,0,"ERD_Vesper","","","","","","","","","","","NO","YES","NO","Monster","","","",""
+904,904,0,40,35,0,20,0,0,0,0,0,0,"ERD_Lizardman","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+905,905,0,40,35,0,20,0,0,0,0,0,0,"ERD_groll","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+906,906,0,40,35,0,20,0,0,0,0,0,0,"ERD_Corylus","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+907,907,0,40,35,0,20,0,0,0,0,0,0,"ERD_Chafperor","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+908,908,1,150,1,60000,1,0,0,0,0,1,0,"HiddenTrigger_CantGen150","","","","","","","","","","","NO","YES","NO","Neutral","","","",""
+909,909,1,1,100,30000,20,0,0,0,0,1,0,"rootcrystal_03","나무뿌리 수정","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
+910,910,0,40,9999,0,35,0,0,0,0,0,0,"ERD_StonOrca","","","","","","","","","","","NO","YES","NO","Monster","","","","Attack"

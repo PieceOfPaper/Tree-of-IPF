@@ -524,6 +524,7 @@
 		<image name="icon_rest_gem" file="\icon\rest_mode_icon.tga" imgrect="0 128 128 128" CMM_Caption="젬강화"/>
 		<image name="icon_rest_card" file="\icon\rest_mode_icon.tga" imgrect="128 128 128 128" CMM_Caption="카드합성"/>
 		<image name="icon_beast_attack" file="\icon\rest_mode_icon.tga" imgrect="256 128 128 128" CMM_Caption="몬스터로변해서 어택"/>
+		<image name="icon_rest_certificate" file="\icon\rest_mode_icon.tga" imgrect="0 256 128 128" CMM_Caption="증표합성"/>
 	</imagelist>
 	<imagelist category="skillicon">
 		<image name="icon_war_thrust" file="\icon\skill_icon_warrior.tga" imgrect="0 0 64 64" CMM_Caption="쓰러스트"/>
@@ -884,6 +885,8 @@
 		<image name="ability_Warrior_Barbarian29" file="\icon\icon_ability_warrior05.tga" imgrect="896 640 128 128" CMM_Caption="야성: 지속시간"/>
 		<image name="ability_Warrior_Corsair17" file="\icon\icon_ability_warrior05.tga" imgrect="0 768 128 128" CMM_Caption="피스톨 샷: 도탄"/>
 		<image name="ability_Warrior_Corsair18" file="\icon\icon_ability_warrior05.tga" imgrect="128 768 128 128" CMM_Caption="약탈"/>
+		<image name="ability_Warrior_Barbarian30" file="\icon\icon_ability_warrior05.tga" imgrect="256 768 128 128" CMM_Caption="워크라이: 디버프 지속"/>
+		<image name="ability_Warrior_Cataphract32" file="\icon\icon_ability_warrior05.tga" imgrect="384 768 128 128" CMM_Caption="스티드 챠지 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -1118,7 +1121,7 @@
 		<image name="ability_Wizard_Psychokino10" file="\icon\icon_ability_wizard04.tga" imgrect="640 512 128 128" CMM_Caption="사이킥 프레셔: 집중"/>
 		<image name="ability_Wizard_Psychokino20" file="\icon\icon_ability_wizard04.tga" imgrect="768 512 128 128" CMM_Caption="그라비티 폴: 집중"/>
 		<image name="ability_Wizard_Sorcerer15" file="\icon\icon_ability_wizard04.tga" imgrect="896 512 128 128" CMM_Caption="탑승: 능력치 증가"/>
-	<image name="ability_Wizard_Elementalist25" file="\icon\icon_ability_wizard04.tga" imgrect="0 640 128 128" CMM_Caption="메테오: 퀵 차징"/>
+		<image name="ability_Wizard_Elementalist25" file="\icon\icon_ability_wizard04.tga" imgrect="0 640 128 128" CMM_Caption="메테오: 퀵 차징"/>
 		<image name="ability_Wizard_RuneCaster7" file="\icon\icon_ability_warrior03.tga" imgrect="256 128 128 128" CMM_Caption="보호의 룬: 넉다운 저항"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
@@ -1390,7 +1393,9 @@
 		<image name="ability_archer_Sapper36" file="\icon\icon_ability_archer05.tga" imgrect="0 128 128 128" CMM_Caption="푼지스테이크: 집념"/>
 		<image name="ability_archer_Falconer15" file="\icon\icon_ability_archer05.tga" imgrect="128 128 128 128" CMM_Caption="조련: 공중 컴패니언"/>
 		<image name="ability_archer_Hunter13" file="\icon\icon_ability_archer05.tga" imgrect="256 128 128 128" CMM_Caption="조련: 지상 컴패니언"/>
-	<image name="ability_archer_Cannoneer13" file="\icon\icon_ability_archer05.tga" imgrect="384 128 128 128" CMM_Caption="시즈버스트: 집중"/>
+		<image name="ability_archer_Cannoneer13" file="\icon\icon_ability_archer05.tga" imgrect="384 128 128 128" CMM_Caption="시즈버스트: 집중"/>
+		<image name="ability_archer_Schwarzereiter19" file="\icon\icon_ability_archer05.tga" imgrect="512 128 128 128" CMM_Caption="돌격 사격: 강화"/>
+		<image name="ability_archer_Cannoneer14" file="\icon\icon_ability_archer05.tga" imgrect="640 128 128 128" CMM_Caption="닐링샷: 조준 포격"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>
@@ -1625,6 +1630,8 @@
 		<image name="ability_cleric_Paladin9" file="\icon\icon_ability_cleric04.tga" imgrect="0 640 128 128" CMM_Caption="배리어: 원거리 방어"/>
 		<image name="ability_cleric_Kabbalist18" file="\icon\icon_ability_cleric04.tga" imgrect="128 640 128 128" CMM_Caption="아인 소프: 가중회복"/>
 		<image name="ability_cleric_Cleric19" file="\icon\icon_ability_cleric04.tga" imgrect="256 640 128 128" CMM_Caption="수호성인: 대상 변경"/>
+		<image name="ability_cleric_Paladin10" file="\icon\icon_ability_cleric04.tga" imgrect="384 640 128 128" CMM_Caption="개종: 신성공격"/>
+		<image name="ability_cleric_Monk10" file="\icon\icon_ability_cleric04.tga" imgrect="512 640 128 128" CMM_Caption="쌍쇄공: 스태미나 감소"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

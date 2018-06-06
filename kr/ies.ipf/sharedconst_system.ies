@@ -76,6 +76,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 110012,0,0,"BILLINGSHOP_NISMS_TEST_IGNORE_HTTP","BillingShop에서 HTTP통신 없이 Test용 내부 값 사용여부 (사용시,cash 사용이 무한해진다)","NO"
 110013,0,0,"BILLINGSHOP_NISMS_TEST_IGNORE_DB","BillingShop에서 DB관리 없이 Test용 내부 값 사용여부 (사용시, 아이템 지급 감사가 이루어지지 않는다.)","NO"
 110014,1,0,"USE_SHOW_BANDI_CAM_TEXT","반디캠","YES"
+110015,0,0,"INGAMESHOP_CONSUME_ITEM_FORCE_FAIL","1일 경우 구매 요청 통신을 강제로 실패하게 만듭니다. 구매 요청 통신 실패 시의 정상작동 여부를 검사하기 위해 사용됩니다.","NO"
 120000,0.700000,0,"HITDELAY_COLOR","히트시에PC몸체컬러 (0~1.0)","NO"
 120001,10,0,"SHADOW_DOFFSET","그림자, 스킬 이펙트 * offset","NO"
 130000,0,0,"Color_Friend","{#33FF33}","NO"

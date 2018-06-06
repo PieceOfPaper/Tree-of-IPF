@@ -78,12 +78,20 @@ function REINFORCE_MIX_DROP(frame, icon, argStr, argNum)
 		local invItem = GET_ITEM_BY_GUID(guid);
 
 		local obj = GetIES(invItem:GetObject());
+		if IS_KEY_ITEM(obj) == true or IS_KEY_MATERIAL(obj) == true then
+			ui.SysMsg(ClMsg("CanNotBeUsedMaterial"));
+			return;
+		end
 		local lv = GET_ITEM_LEVEL(obj);
 		REINFORCE_BY_MIX_SETITEM(frame, invItem)
 	end
 end
 
 function REINFORCE_MIX_RBTN(itemObj, slot)
+	if IS_KEY_ITEM(itemObj) == true or IS_KEY_MATERIAL(obj) == true then
+		ui.SysMsg(ClMsg("CanNotBeUsedMaterial"));
+		return;
+	end
 		
 	local frame = ui.GetFrame("reinforce_by_mix");
 	
@@ -121,7 +129,6 @@ function REINFORCE_BY_MIX_UPDATE_STAT(box_item, obj, nextObj, statName)
 end
 
 function REINFORCE_MIX_UPDATE_ITEM_STATS(frame, obj, nextObj)
-
 	local starsize = frame:GetUserConfig("STAR_TEXT_SIZE")
 	local startextrtext = GET_CHILD_RECURSIVELY(frame, 'startext','ui::CRichText');
 	local objstartext = GET_ITEM_STAR_TXT(obj,starsize);
@@ -308,7 +315,6 @@ function REINFORCE_MIX_UPDATE_ITEM_STATS(frame, obj, nextObj)
 end
 
 function CLICK_ITEM_PIC_RBTN(ctrl)
-
 	local frame = ctrl:GetTopParentFrame();	
 	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE") then
 		return 0;
@@ -332,7 +338,6 @@ function REINFORCE_BY_MIX_SETITEM(frame, invItem)
 			return;
 		end
 			local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(obj);
-			
 			if maxExp == 0 then
 			    ui.SysMsg(ClMsg("ThisGemCantReinforce"));
 			    return;
@@ -426,8 +431,8 @@ function GET_REINFORCE_MIX_ITEM()
 	return GetIES(invItem:GetObject());
 end
 
+-- 아이템을 올렸을 때, 재료로 사용할 수 없는 아이템의 아이콘을 비활성화를 시킨다.
 function REINF_MIX_CHECK_ICON(slot, reinfItemObj, invItem, itemobj)
-
 	slot:EnableDrag(0);
 	slot:EnableDrop(0);
 
@@ -465,9 +470,13 @@ function REINFORCE_MIX_INV_RDBTN(itemObj, slot)
 end
 
 function REINFORCE_MIX_INV_RBTN(itemObj, slot, selectall)
-
 	local invitem = session.GetInvItemByGuid(GetIESID(itemObj))
 	if nil == invitem then
+		return;
+	end
+
+	if IS_KEY_ITEM(itemObj) == true or IS_KEY_MATERIAL(obj) == true then
+		ui.SysMsg(ClMsg("CanNotBeUsedMaterial"));
 		return;
 	end
 
@@ -556,49 +565,47 @@ function REINFORCE_BY_MIX_SLOT_RBTN(parent, slot)
 end
 
 function REINFORCE_BY_MIX_EXECUTE(parent)
-
 	local frame = parent:GetTopParentFrame();
 
 	local slots = GET_MAT_SLOT(frame);
 	local cnt = slots:GetSlotCount();
-
+    
 	local ishavevalue = 0
+    local canProcessReinforce = false
 
 	for i = 0 , cnt - 1 do
 		local slot = slots:GetSlotByIndex(i);
 		local matItem, count = GET_SLOT_ITEM(slot);
-		
-		if matItem ~= nil then
-		
-			if IS_VALUEABLE_ITEM(matItem:GetIESID()) == 1 then
+		if matItem ~= nil then            
+		    if IS_VALUEABLE_ITEM(matItem:GetIESID()) == 1 then
 				ishavevalue = 1
 				break
-			end
+			else
+                canProcessReinforce = true
+            end
 		end
 	end
-
-
+    
 	if ishavevalue == 1 then
 		local yesScp = string.format("_REINFORCE_BY_MIX_EXECUTE()");
 		ui.MsgBox(ScpArgMsg("IsValueAbleItem"), yesScp, "None");
-	else
+	elseif canProcessReinforce then
 		_REINFORCE_BY_MIX_EXECUTE()
 	end
 end
 
 function _REINFORCE_BY_MIX_EXECUTE()
-
-	local tgtItem = GET_REINFORCE_MIX_ITEM();
+    local tgtItem = GET_REINFORCE_MIX_ITEM();
 	if tgtItem.GroupName == "Card" then
 		local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(tgtItem, tgtItem.ItemExp);
-		if lv == 10 then		-- ī�� �ռ� �����̴�. ���Ѽ��� ������ ��� ���⵵ �ٲ�����Ѵ�. ī�� ���� ������ ����ġ ���� ������ ������ ������ �������� ���� ���� ����� ��ã�ڴ�.
+		if lv == 10 then		-- 카드 합성 제한이다. 제한선을 수정할 경우 여기도 바꿔줘야한다. 카드 레벨 제한을 경험치 분할 갯수로 따지기 때문에 제함점을 따로 얻어올 방법을 못찾겠다.
 			ui.MsgBox(ScpArgMsg("CardLvisMax"));			
 			return;
 		end
 	end
 	local frame = ui.GetFrame("reinforce_by_mix");
 	
-	frame:SetUserValue("EXECUTE_REINFORCE", 1);
+    frame:SetUserValue("EXECUTE_REINFORCE", 1);
 
 	session.ResetItemList();
 
@@ -620,8 +627,7 @@ function _REINFORCE_BY_MIX_EXECUTE()
 	end
 	--local tgtItem = GET_REINFORCE_MIX_ITEM();
 	frame:SetUserValue("LAST_REQ_EXP", tgtItem.ItemExp);
-	CloneTempObj("REINF_MIX_TEMPOBJ", tgtItem);
-
+	CloneTempObj("REINF_MIX_TEMPOBJ", tgtItem);	
 end
 
 
@@ -642,8 +648,7 @@ function REINFORCE_MIX_FORCE(slot, resultText, x, y)
 
 end
 
-function REINFORCE_MIX_ITEM_EXPUP_END(frame, msg, multiPly, totalPoint)
-
+function REINFORCE_MIX_ITEM_EXPUP_END(frame, msg, multiPly, totalPoint)        
 	imcSound.PlaySoundEvent("sys_jam_mix_whoosh");
 		
 	local box_item = frame:GetChild("box_item");
@@ -685,9 +690,15 @@ function REINFORCE_MIX_ITEM_EXPUP_END(frame, msg, multiPly, totalPoint)
 		local indicator = ctrlSet:GetChild("indicator");
 		if indicator ~= nil then indicator:ShowWindow(0); end
 	end
-
-	frame:SetUserValue("EXECUTE_REINFORCE", 0);
-	
+    frame:SetUserValue("EXECUTE_REINFORCE", 0);
+    
+    -- 사실 재료가 box_material 내의 box_slot 에 들어가면 정보가 계속 남아 있는듯 하다. 
+    -- 그래서 해당 정보를 아이콘 삭제를 통해 지운다.
+    local box_material = frame:GetChild("box_material");
+    for i = 1, 12 do
+        local a = GET_CHILD_RECURSIVELY(box_material, "slot" .. tostring(i))        
+        a:ClearIcon();
+    end    
 end
 
 function REINF_FORCE_END()
@@ -839,7 +850,4 @@ function R_RENEW_SHOW_EXP_APPLIED(frame, obj)
 			end
 		end
 	end
-
-	
 end
-

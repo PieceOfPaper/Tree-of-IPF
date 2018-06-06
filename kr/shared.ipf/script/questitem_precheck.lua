@@ -1772,7 +1772,7 @@ function SCR_PRE_CATHEDRAL54_SQ_04_ITEM(self, argstring, argnum1, argnum2)
                 local i
                 if cnt > 0 then
                 for i = 1 , cnt do
-                    if list[i].ClassName == "Stoulet_blue" then
+                    if list[i].ClassName == "Stoulet_blue" or list[i].ClassName == "NightMaiden_mage" then
                         return GetHandle(list[i])
                     end
                 end
@@ -6801,6 +6801,15 @@ function SCR_PRE_DCAPITAL103_SQ09_ITEM1(self, argstring, argnum1, argnum2)
     return 0
 end
 
+
+
+
+--KEY_QUEST_COMMON
+function SCR_PRE_KEY_QUEST_COMMON_1(self, argstring, argnum1, argnum2)
+    return 1
+end
+
+
 --SCR_PRE_UNDER67_HIDDENQ1_ITEM1
 function SCR_PRE_UNDER67_HIDDENQ1_ITEM1(self, argstring, argnum1, argnum2)
     local result = SCR_QUEST_CHECK(self, 'UNDERFORTRESS67_HQ1')
@@ -7163,6 +7172,50 @@ function SCR_PRE_CATACOMB38_2_HIDDENQ1_ITEM1(self, argObj, argstring, arg1, arg2
 --                        end
                     end
                 end
+            end
+        end
+    end
+    return 0
+end
+
+
+
+--SCR_PRE_FTOWER692_KQ_1_ITEM
+function SCR_PRE_FTOWER692_KQ_1_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'd_firetower_69_2' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'FTOWER692_KQ_1')
+            if result == 'PROGRESS' then
+                return 1
+            end
+        end
+    end
+    return 0
+end
+
+
+--PILGRIM412_KQ_1
+function SCR_PRE_PILGRIM412_KQ_1_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_pilgrimroad_41_2' then
+        if GetLayer(self) == 0 then 
+            
+            local result = SCR_QUEST_CHECK(self, 'PILGRIM412_KQ_1')
+            if result == 'PROGRESS' then
+                return 1
+            end
+        end
+    end
+    return 0
+end
+
+
+--LSCAVE521_KQ_1
+function SCR_PRE_LSCAVE521_KQ_1_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'd_limestonecave_52_1' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'LSCAVE521_KQ_1')
+            if result == 'PROGRESS' then
+                return 1
             end
         end
     end

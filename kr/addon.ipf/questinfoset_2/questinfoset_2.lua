@@ -201,9 +201,6 @@ function QUESTINFOSET_2_REMOVE_QUEST(frame, questID)
 end
 
 function UPDATE_QUESTINFOSET_2(frame, msg, check, updateQuestID)
-
-
-
 --	local warpFrame = ui.GetFrame('questwarp');
 --	for i=0, QUESTWARP_MAX_BTN-1 do
 --		warpFrame:SetUserValue("QUEST_WARP_CLASSNAME_"..i, "None");
@@ -330,7 +327,7 @@ function CHEAK_QUEST_MONSTER(questIES)
     	    end
     	end
 	end
-
+	
 	
 	for i = 1 , QUEST_MAX_MON_CHECK do
 		local monname = questIES["Succ_Journal_MonKillName" .. i];
@@ -623,6 +620,8 @@ function GET_QUESTINFOSET_ICON_BY_STATE_MODE(state, questIES)
         modeicon = 'PERIOD'
     elseif tail == '_party' then
         modeicon = 'PARTY'
+    elseif tail == '_key' then
+        modeicon = 'KEYQUEST'
     end
     
 	if state == 'SUCCESS' then

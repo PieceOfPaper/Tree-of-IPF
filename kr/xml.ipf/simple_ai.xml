@@ -7498,7 +7498,17 @@
 			</ToolScp>
 		</List>
 	</AI>
-	<AI Name="LIMESOTNE_52_5_WALL_AI" ActiveMessageMapInBattle="1">
+	<AI Name="KQ_PUPPET_GIMMICK_LIB_RUN_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="KQ_PUPPET_GIMMICK_LIB_SUCH"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="LIMESOTNE_52_5_WALL_AI" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
@@ -7750,13 +7760,15 @@
 	</AI>
 	<AI Name="LIMESTONE_52_5_MQ_9_AI" ActiveMessageMapInBattle="1">
 		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="LIMESTONE_52_5_MQ_9_LOCK"/>
-			</ToolScp>
 			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
 				<Num Num="250"/>
 			</ToolScp>
-		</List>
+			</List>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+				<Str Str="LIMESTONE_52_5_MQ_9_LOCK"/>
+			</ToolScp>
+		</HitList>
 		<StartList>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="LIMESTONE_52_5_MQ_9_HP"/>
@@ -10034,7 +10046,28 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</List>
 	</AI>
-	<AI Name="RED_CRYSTAL" ActiveMessageMapInBattle="1">
+	<AI Name="RANDBOX_GIMMICK_BORN_SAVE_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="RANDBOX_GIMMICK_BORN_SAVE_AI"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="RCG_RMOD_REFLECT_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="RCG_RMOD_REFLECT_AI_1"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_sys_trigger_point_green" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="RED_CRYSTAL" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
@@ -10706,7 +10739,30 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="Raid_thorn_st_keparaider" ActiveMessageMapInBattle="1">
+	<AI Name="ROOTCRYSTAL_GIMMICK_BASIC" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ROOTCRYSTAL_GIMMICK_RUN"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="RCG_DEAD_LAYER_OUT_RUN"/>
+            </ToolScp>
+        </DeadList>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="ROOTCRYSTAL_GIMMICK_RMOD_REFLECT"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ROOTCRYSTAL_GIMMICK_INIT"/>
+            </ToolScp>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="Raid_thorn_st_keparaider" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
 		</List>
@@ -13781,7 +13837,10 @@ if self.HP == 0 then return 1; else return 0; end;">
 	</AI>
 	<AI Name="UNDER66_KINGDOM_GUADIAN" ActiveMessageMapInBattle="1">
 		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="UNDER66_KINGDOM_GUADIAN_KILL"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
 				<AbsPos X="53.779007" Y="269.97632" Z="-727.31116"/>
 			</ToolScp>
 			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
@@ -13790,27 +13849,18 @@ if self.HP == 0 then return 1; else return 0; end;">
 			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
 				<AbsPos X="349.45038" Y="269.97632" Z="-384.16501"/>
 			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="UNDER66_KINGDOM_GUADIAN_RUN"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="UNDER66_KINGDOM_GUADIAN01_KILL"/>
-			</ToolScp>
-		</List>
+			</List>
 		<StartList>
 			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 		</StartList>
 	</AI>
 	<AI Name="UNDER66_KINGDOM_GUADIAN2" ActiveMessageMapInBattle="1">
 		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="UNDER66_KINGDOM_GUADIAN_KILL"/>
+			</ToolScp>
 			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
 				<AbsPos X="-330.59869" Y="269.97632" Z="-458.17828"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="UNDER66_KINGDOM_GUADIAN_RUN"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="UNDER66_KINGDOM_GUADIAN02_KILL"/>
 			</ToolScp>
 		</List>
 		<StartList>
@@ -13819,14 +13869,11 @@ if self.HP == 0 then return 1; else return 0; end;">
 	</AI>
 	<AI Name="UNDER66_KINGDOM_GUADIAN3" ActiveMessageMapInBattle="1">
 		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="UNDER66_KINGDOM_GUADIAN_KILL"/>
+			</ToolScp>
 			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
 				<AbsPos X="74.283302" Y="269.97632" Z="-475.40292"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="UNDER66_KINGDOM_GUADIAN_RUN"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="UNDER66_KINGDOM_GUADIAN03_KILL"/>
 			</ToolScp>
 		</List>
 		<StartList>
@@ -13835,19 +13882,16 @@ if self.HP == 0 then return 1; else return 0; end;">
 	</AI>
 	<AI Name="UNDER66_KINGDOM_GUADIAN4" ActiveMessageMapInBattle="1">
 		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="UNDER66_KINGDOM_GUADIAN_KILL"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
 				<AbsPos X="56.844696" Y="269.97632" Z="-1124.1143"/>
 			</ToolScp>
 			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
 				<AbsPos X="60.305569" Y="269.97632" Z="-778.31586"/>
 			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="UNDER66_KINGDOM_GUADIAN_RUN"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="UNDER66_KINGDOM_GUADIAN04_KILL"/>
-			</ToolScp>
-		</List>
+			</List>
 		<StartList>
 			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 		</StartList>
@@ -13964,7 +14008,21 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</List>
 	</AI>
-	<AI Name="UNDER69_MQ020_DEVICE_AI_RUN01" ActiveMessageMapInBattle="1">
+	<AI Name="UNDER68_MQ4_SPIRIT_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="UNDER68_MQ4_SPIRIT_AI_UPDATE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="UNDER68_MQ5_SPIRIT_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="UNDER68_MQ5_SPIRIT_AI_UPDATE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="UNDER69_MQ020_DEVICE_AI_RUN01" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="UNDER69_MQ020_DEVICE_AI_RUN01"/>

@@ -742,7 +742,24 @@
 			</EventFrameList>
 		</Line>
 	</File>
-  <File FileName="popup_start_up" TotalSec="0.30">
+  <File FileName="reinf_finish_certificate" TotalSec="0.80000001">
+    <Line ImageName="blue_orb_32" isText="0">
+      <KeyFrameList>
+        <KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="0.5" sy="0.5" angle="0" alpha="1" colorTone="00000000"/>
+        <KeyFrame Time="0.60000002" Easing="0.5" x="1" y="1" posRandomMin="130" posRandomMax="150" sx="0.5" sy="0.5" angle="1" alpha="0" colorTone="00000000"/>
+      </KeyFrameList>
+      <EventFrameList>
+        <Event Time="0.63333303" Scp="UI_Force_Destroy" Client="NO" UseSleep="NO"/>
+        <Event Time="0" Scp="UI_Force_RunFunction" Client="NO" UseSleep="NO">
+          <Str Str="REINF_FORCE_END_CERTIFICATE"/>
+        </Event>
+        <Event Time="0" Scp="UI_PlaySound" Client="NO" UseSleep="NO">
+          <Str Str="reinforce_sucess"/>
+        </Event>
+      </EventFrameList>
+    </Line>
+  </File>
+	<File FileName="popup_start_up" TotalSec="0.30">
     <Line ImageName="{@st42}aaaaaaa" isText="1">
       <KeyFrameList>
         <KeyFrame Time="0" Easing="1" x="0" y="70" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="0" colorTone="00000000"/>

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
+    <Category ID="83">
+        <Effect Name="SKL_ARIES"/>
+        <Effect Name="SKL_BASH"/>
+        <Effect Name="BUFF#CONVICTION"/>
+        <Effect Name="SJUMP_READY"/>
+        <Effect Name="SRAISE"/>
+        <Effect Name="SKL_POMMELBEAT"/>
+        <Effect Name="SKL_DOUBLESLASH"/>
+        <Effect Name="SKL_HIGHGUARD_SWITCH"/>
+    </Category>
     <Category ID="179">
         <Effect Name="I_force023_fire#Bip01 L Hand"/>
         <Effect Name="I_force023_fire#Bip01 R Hand"/>
@@ -43,6 +53,9 @@
         <Effect Name="F_light094_blue_loop2"/>
         <Effect Name="F_light062_red"/>
         <Effect Name="f_bracken_42_1_elt2"/>
+    <Effect Name="F_bg_statu_mint"/>
+        <Effect Name="F_explosion035_violet"/>
+    <Effect Name="SitGrope_loop"/>
     </Category>
     <Category ID="201">
         <Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
@@ -124,7 +137,10 @@
         <Effect Name="F_explosion99_decal"/>
         <Effect Name="F_explosion98_red_dark"/>
         <Effect Name="F_hit010"/>
-    </Category>
+    <Effect Name="pollution_zone"/>
+		<Effect Name="gravity_floor"/>
+		<Effect Name="gargoyle_circlewave"/>
+	</Category>
     <Category ID="124">
         <Effect Name="rope_pad_abil"/>
         <Effect Name="punji_stake_abil"/>
@@ -198,6 +214,9 @@
         <Effect Name="I_force081_orange#Dummy_head_effect_L"/>
         <Effect Name="I_force030_orange#Bone011"/>
     <Effect Name="F_light110_pink_ground_loop"/>
+	<Effect Name="pollution_zone"/>
+		<Effect Name="I_stone010_mash_90"/>
+		<Effect Name="F_explosion113_leaf"/>
 	</Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -1400,6 +1419,7 @@
         <Effect Name="d_limestonecave_55_1_elt"/>
         <Effect Name="f_bracken_42_1_elt2"/>
         <Effect Name="F_cleric_MassHeal_spread_out"/>
+        <Effect Name="F_smoke125_dark_fail"/>
     </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
@@ -3276,6 +3296,7 @@
         <Effect Name="f_bracken_43_2_elt2"/>
         <Effect Name="f_bracken_43_2_elt"/>
     <Effect Name="I_ground013_vine_mash"/>
+    <Effect Name="boss_blackGargoyle"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
