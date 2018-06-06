@@ -1,1 +1,7 @@
-EA9B6632E41B5187992B7DE2404FCEFA
+ClassID,FullGrowMin,ConsumeWaterPerMin,GetItemCount,ClassName,ObjType,MonsterName,InitScript,GetNameScript,GetModelMonsterScript,GetModelItemScript,GetItem,UpdateScript
+1,300,40,50,"Seed_001","Plant","GuildHouseObject","","","","GET_GELE_MODELITEM","food_014",""
+2,300,40,50,"Seed_002","Plant","GuildHouseObject","","","","GET_SEED002_MODELITEM","food_014",""
+3,300,40,50,"Seed_003","Plant","GuildHouseObject","","","","GET_SEED003_MODELITEM","food_014",""
+101,7200,40,1,"Guineapig","Animal","guineapig_baby","INIT_GUILD_FARM_PET","GET_GUILD_PET_NAME","GET_GUINEA_PIG_TAMING_MODELMON","","Guineapig","UPDATE_GUILD_PET"
+102,7200,40,1,"Panda","Animal","Lesser_panda_baby","INIT_GUILD_FARM_PET","GET_GUILD_PET_NAME","","","Lesser_panda","UPDATE_GUILD_PET"
+103,7200,40,1,"Pig","Animal","Piggy_baby","INIT_GUILD_FARM_PET","GET_GUILD_PET_NAME","","","Piggy","UPDATE_GUILD_PET"
