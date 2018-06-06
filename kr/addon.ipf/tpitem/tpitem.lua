@@ -661,7 +661,7 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 		local itemobj = GetClass("Item", obj.ItemClassName)
 		local isFounded = false;
     if itemobj == nil then
-      IMC_NORMAL_INFO("ItemClassName not found in item.xml:TPITEM_DRAW_ITEM_WITH_CATEGORY. obj.ItemClassName:" ..obj.ItemClassName);
+      IMC_LOG("INFO_NORMAL", "ItemClassName not found in item.xml:TPITEM_DRAW_ITEM_WITH_CATEGORY. obj.ItemClassName:" ..obj.ItemClassName);
     else
 		  if filter ~= nil then
 			  local targetItemName = itemobj.Name;			
@@ -1393,7 +1393,6 @@ end
 
 --///////////////////////////////////////////////////////////////////////////////////////////미리보기 Code start
 function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)
-	
 	local frame = ui.GetFrame("tpitem");
 	local slotset = nil;
 	
@@ -1435,7 +1434,7 @@ function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_cl
                 TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
             end,
             default = function() 
-                IMC_NORMAL_INFO("EqpType not defined in tpitem.lua:TPSHOP_ITEM_PREVIEW_PREPROCESSOR. item.EqpType:" .. itemobj.EqpType);
+                IMC_LOG("INFO_NORMAL", "EqpType not defined in tpitem.lua:TPSHOP_ITEM_PREVIEW_PREPROCESSOR. item.EqpType:" .. itemobj.EqpType);
 			    TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj); -- 디폴트 헤어
             end,
 	    }
@@ -1516,6 +1515,9 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		[ES_BOOTS] = function() 
 				invSlot = invframe:GetChild("BOOTS");	
 		end,
+		[ES_HELMET] = function()
+				invSlot = invframe:GetChild("HAIR");	
+		end,
 		[ES_ARMBAND] = function() 
 				invSlot = invframe:GetChild("ARMBAND");	
 		end,
@@ -1562,7 +1564,12 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 				if invIteminfo ~= nil then
 					local obj = GetIES(invIteminfo:GetObject());
 					if obj ~= nil then
-						apc:SetEquipItem(i, obj.ClassID);	
+						local spotName = item.GetEquipSpotName(i);
+						if spotName == obj.EqpType then
+							apc:SetEquipItem(i, obj.ClassID);
+						else
+							apc:SetEquipItem(i, 0);	
+						end
 					else
 						apc:SetEquipItem(i, 0);	
 					end
@@ -1571,7 +1578,7 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 				end			
 			else	
 				apc:SetEquipItem(i, 0);							
-			end	
+			end		
 		end	
 	end
 	
@@ -1627,10 +1634,12 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		if hairslotset ~= nil then
 			local hairslot = hairslotset:GetSlotByIndex(0);
 			if hairslot ~= nil then
+				
 				local classname = hairslot:GetUserValue("CLASSNAME");
 		
-				local itemobj = GetClass("Item", classname)
+				local itemobj = GetClass("Item", classname);
 				if itemobj ~= nil then
+					apc:SetEquipItem(ES_HELMET , 0);
 					hairName = itemobj.StringArg;
 				end
 			end
@@ -1724,6 +1733,7 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
     local slotset = GET_CHILD_RECURSIVELY(topFrame, 'basketslotset');
     local slotCount = slotset:GetSlotCount();
     local cannotEquip = {};
+	local allPrice = 0;
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);
 		if slotIcon ~= nil then
@@ -1732,6 +1742,8 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
             local itemClassName = slot:GetUserValue('CLASSNAME');
 			local item = GetClass("Item", itemClassName);  
             local tpitem = GetClass('TPitem', tpItemName);
+
+			allPrice = allPrice + tpitem.Price
 
             if IS_EQUIP(item) == true then
 		        local lv = GETMYPCLEVEL();
@@ -1776,11 +1788,85 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
             clMsg = clMsg..'{@st66d}{s18}'..item.Name..'{/}{/}{nl}';
         end
         clMsg = clMsg..ScpArgMsg("ReallyBuy?");
+		if config.GetServiceNation() == "GLOBAL" then
+			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
         ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
     else
+				POPUP_LIMIT_PAYMENT(clMsg, parent:GetName(), allPrice)
+			end
+		else
+			ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
+		end
+    else
+		if config.GetServiceNation() == "GLOBAL" then
+			
+			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
         ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+			else
+				POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice)
+			end			
+		else
+			ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+		end
     end
 	control:SetEnable(0);
+end
+
+function CHECK_LIMIT_PAYMENT_STATE_C()
+	local aObj = GetMyAccountObj();
+	if aObj ~= nil then
+		local limitPaymentStateBySteam = TryGetProp(aObj, "LimitPaymentStateBySteam");
+		local limitPaymentStateByGM = TryGetProp(aObj, "LimitPaymentStateByGM")
+
+		if limitPaymentStateBySteam ~= nil and limitPaymentStateByGM ~= nil then
+			if limitPaymentStateBySteam == "Trusted" or limitPaymentStateByGM == "Trusted" then
+				return true;
+			else
+				return false;
+			end
+		end
+	end
+	return false;
+end
+
+function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)
+	local frame = ui.GetFrame("tpitem");
+	frame:SetUserValue("LIMIT_PAYMENT_MSG", clientMsg);
+	frame:SetUserValue("PARENT_NAME", parentName);
+
+
+	local accountObj = GetMyAccountObj();
+	local spentPaymentValue = 0;
+
+	if accountObj ~= nil then
+		spentPaymentValue = TryGetProp(accountObj, "SpentPaymentValue")
+		local nowUsePaymentValue = tonumber(VALVE_PURCHASESTATUS_ACTIVE_MONTHLY_PREMIUM_TP_SPENDLIMIT) - spentPaymentValue;
+		local paymentValue = tonumber(VALVE_PURCHASESTATUS_ACTIVE_MONTHLY_PREMIUM_TP_SPENDLIMIT) - (spentPaymentValue + allPrice);
+		if paymentValue >= 0 then
+			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentGuidMsg","Value", nowUsePaymentValue), "POPUP_POPUP_LIMIT_PAYMENT_CLICK")
+		else
+			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentExcessMsg","Value", paymentValue), "POPUP_POPUP_LIMIT_PAYMENT_CANCEL")
+		end
+	end
+end
+
+function POPUP_POPUP_LIMIT_PAYMENT_CLICK()
+	local frame = ui.GetFrame("tpitem");
+	local msg = frame:GetUserValue("LIMIT_PAYMENT_MSG");
+	local parentName = frame:GetUserValue("PARENT_NAME");
+	
+	ui.MsgBox_NonNested_Ex(msg, 0x00000004, parentName, "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+
+
+	local frame = ui.GetFrame("tpitem")
+	local btn = GET_CHILD_RECURSIVELY(frame,"basketBuyBtn");
+	btn:SetEnable(1);
+end
+
+function POPUP_POPUP_LIMIT_PAYMENT_CANCEL()
+	local frame = ui.GetFrame("tpitem")
+	local btn = GET_CHILD_RECURSIVELY(frame,"basketBuyBtn");
+	btn:SetEnable(1);	
 end
 
 function TPSHOP_ITEM_BASKET_BUY_CANCEL()

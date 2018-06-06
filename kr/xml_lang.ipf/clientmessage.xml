@@ -4268,6 +4268,14 @@
 		<Class ClassID="27421" ClassName="EVENT_1706_FISHING_BALLOON_MSG2" Data="다른 풍선을 원하시면 '{ITEM}'을 삭제해주세요!"/>
 		<Class ClassID="27430" ClassName="EVENT_1706_FISHING_ARTEFACT_MSG1" Data="축제용 장난감을 선택한다"/>
 		<Class ClassID="27431" ClassName="EVENT_1706_FISHING_ARTEFACT_MSG2" Data="축제용 코스튬을 선택한다"/>
+		<Class ClassID="27440" ClassName="MGAME_MSG_LIVE_MON_COUNT" Data="목표 몬스터 수 : {COUNT}"/>
+		<Class ClassID="27460" ClassName="EVENT_1706_DOPPELSOELDNER_MSG1" Data="오늘은 용병의 증표를 모두 받으셨습니다"/>
+		<Class ClassID="27461" ClassName="EVENT_1706_DOPPELSOELDNER_MSG2" Data="용병의 증표를 획득하셨습니다"/>
+		<Class ClassID="27462" ClassName="EVENT_1706_DOPPELSOELDNER_MSG3" Data="용병의 증표를 보상과 교환 한다"/>
+		<Class ClassID="27463" ClassName="EVENT_1706_DOPPELSOELDNER_MSG4" Data="[칼날서약 용병단의 능력 증명] 미션에 참여한다"/>
+		<Class ClassID="27464" ClassName="EVENT_1706_DOPPELSOELDNER_MSG5" Data="칭호 [명예 칼날서약 용병단원] 를 받는다"/>
+		<Class ClassID="27465" ClassName="EVENT_1706_DOPPELSOELDNER_MSG6" Data="누적 획득 증표 : {ADDCOUNT}{nl}최근 증표 획득 : {MM}월{DD}일 {COUNT}개"/>
+		<Class ClassID="27466" ClassName="EVENT_1706_DOPPELSOELDNER_MSG7" Data="용병의 길2 이벤트에서 획득하신 증표가 없습니다"/>
 		<Class ClassID="27470" ClassName="DungeonEnterWarningMsg1" Data="던전 : {ZONE} 에서 사망 시{nl}갖고계신 인벤토리의 젬이 바닥에 떨어집니다.{nl}젬은 도시 '창고지기'에게 맡기시면 안전합니다."/>
 		<Class ClassID="27471" ClassName="StatusTooltipMsg1" Data="보조 무기로 공격 시 적용되는 물리 공격력"/>
 		<Class ClassID="27472" ClassName="StatusTooltipMsg2" Data="광역 공격 시 몇 개의 타겟을 공격할 수 있는지 나타내는 수치"/>
@@ -4955,6 +4963,8 @@
 		<Class ClassID="50439" ClassName="JOB_PLAGUEDOCTOR71_MSG1" Data="탐지기 확인 중"/>
 		<Class ClassID="50440" ClassName="JOB_PLAGUEDOCTOR71_MSG2" Data="결과 보고서를 획득했습니다"/>
 		<Class ClassID="50441" ClassName="JOB_PLAGUEDOCTOR71_MSG3" Data="결과 보고서를 확인한 수집기입니다"/>
+		<Class ClassID="50474" ClassName="HIDDEN_MIKO_JUROTA_BUTTON1" Data="교감을 한다"/>
+		<Class ClassID="50475" ClassName="HIDDEN_MIKO_JUROTA_BUTTON2" Data="교감을 하지 않는다"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>
@@ -9618,6 +9628,8 @@
 		<Class ClassID="300160" ClassName="Premium_StatReset_Trade" Data="빛나는 스탯 초기화 포션"/>
 		<Class ClassID="300161" ClassName="Premium_SkillReset_Trade" Data="빛나는 스킬 초기화 포션"/>
 		<Class ClassID="300162" ClassName="Costume_Box" Data="코스튬 상자"/>
+	<Class ClassID="300163" ClassName="LimitPaymentGuidMsg" Data="이번 달 {Value} 만큼의 TP를 더 소모할 수 있습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
+		<Class ClassID="300164" ClassName="LimitPaymentExcessMsg" Data="이번 달 {Value} 만큼 초과 하였습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

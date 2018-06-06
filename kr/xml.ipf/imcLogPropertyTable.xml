@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LogPropertyTable>
+	<Property Name="NumValue" Type="Number" Desc="숫자 값"/>
+	<Property Name="StrValue" Type="String" Desc="문자열 값"/>
+	<Property Name="BoolValue" Type="Boolean" Desc="Boolean 값(ture/false)"/>
+	<Property Name="ErrorPropertys" Type="String" Desc="등록되지 않은 추가항목들"/>
+	<Property Name="LogHash" Type="Number" Desc="로그의 해쉬값"/>
+	<Property Name="ErrorCode" Type="String" Desc="에러코드"/>
+	<Property Name="ErrorCodeDesc" Type="String" Desc="에러코드설명"/>
+	<Property Name="CallStack" Type="String" Desc="콜스택정보"/>
+	<Property Name="Team" Type="String" Desc="에러코드 연관 팀"/>
+  <Property Name="GroupID" Type="Number" Desc="서버 그룹 아이디"/>
+  <Property Name="GroupName" Type="String" Desc="서버 그룹 이름"/>
+  <Property Name="MachineID" Type="Number" Desc="서버 머신 아이디"/>
+  <Property Name="MachineName" Type="String" Desc="서버 머신 이름"/>
+  <Property Name="DaemonID" Type="Number" Desc="데몬 아이디"/>
+  <Property Name="DaemonName" Type="String" Desc="데몬 이름"/>
+  <Property Name="DaemonType" Type="String" Desc="데몬 타입(서버 타입)"/>
+  <Property Name="ZoneInstanceID" Type="Number" Desc=""/>
+  <Property Name="MapID" Type="Number" Desc="맵 아이디"/>
+  <Property Name="MapName" Type="String" Desc="맵 이름"/>
+  <Property Name="ChannelID" Type="Number" Desc="채널 아이디"/>
+  <Property Name="Date" Type="String" Desc="날짜"/>
+  <Property Name="DSN" Type="String" Desc="도메인 서버 이름"/>
+  <Property Name="Result" Type="String" Desc="결과 값(문자열)"/>
+  <Property Name="IP_Address" Type="String" Desc="아이피 주소(문자열)"/>
+  <Property Name="Value" Type="Number" Desc="값(소수 값)"/>
+  <Property Name="Recorder" Type="String" Desc="기록 주체(데몬 타입)"/>
+  <Property Name="Sender" Type="String" Desc="송신(데몬 타입)"/>
+  <Property Name="Receiver" Type="String" Desc="수신(데몬 타입)"/>
+  <Property Name="Count" Type="Number" Desc="카운터(DWORD)"/>
+  <Property Name="Size" Type="Number" Desc="크기(DWORD)"/>
+  <Property Name="NormalCmd" Type="Number" Desc="Normal Packet의 커맨드(WORD)"/>
+  <Property Name="ReplayClientVersion" Type="Number" Desc="리플레이 클라이언트 버전"/>
+  <Property Name="ReplayPlayingVersion" Type="Number" Desc="리플레이 재생 버전"/>
+  <Property Name="ReplayLogicVersion" Type="Number" Desc="리플레이 로직 버전"/>
+  <Property Name="ReplayDate" Type="String" Desc="리플레이 날짜"/>
+  <Property Name="ReplayRevision" Type="Number" Desc="리플레이 리비전"/>
+</LogPropertyTable>

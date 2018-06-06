@@ -183,7 +183,7 @@ function GET_MAX_ENTERANCE_COUNT(resetGroupID)
     local bonusCount = 0;
     local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);    
     if isTokenState == true then
-        bonusCount = bonusCount + 1;
+        bonusCount = indunCls.PlayPerReset_Token
     end
     return indunCls.PlayPerReset + bonusCount;
 end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<fontlist category="Default Font">
@@ -64,8 +64,8 @@
 	</fontlist>
 	<fontlist category="Dialog Font">
 		<font name="white_12" filename="ORIGINAL" size="12" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
-    <font name="white_12_ol" filename="ORIGINAL" size="12" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
-    <font name="white_12_b" filename="ORIGINAL" size="12" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_12_ol" filename="ORIGINAL" size="12" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_12_b" filename="ORIGINAL" size="12" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
 		<font name="white_14" filename="ORIGINAL" size="14" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
 		<font name="white_14_ol" filename="ORIGINAL" size="14" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
 		<font name="white_14_b" filename="ORIGINAL" size="14" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
@@ -141,7 +141,7 @@
 		<font name="lifetime" filename="ORIGINAL" size="13" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
 		<font name="cooltime" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="yes" italic="no" outline="yes" outlinecolor="#333333"/>
 		<font name="selectcount" filename="ORIGINAL" size="16" color="#ffe400" space="0" underline="no" bold="yes" dropshadow="yes" italic="no" outline="yes" outlinecolor="#000000"/>
-    <font name="gray_14_b" filename="ORIGINAL" size="14" color="a6a6a6" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="gray_14_b" filename="ORIGINAL" size="14" color="a6a6a6" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
 		<font name="gray_16" filename="ORIGINAL" size="16" color="a6a6a6" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
 		<font name="gray_18" filename="ORIGINAL" size="18" color="a6a6a6" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
 		<font name="chatnametemp" filename="ORIGINAL" size="20" color="#764c1d" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
@@ -161,8 +161,9 @@
 		<font name="idiotbrown_18_b" filename="ORIGINAL" size="18" color="#9d8671" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
 		<font name="idiotbrown_20" filename="ORIGINAL" size="20" color="#9d8671" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
 		<font name="idiotbrown_14" filename="ORIGINAL" size="14" color="#9d8671" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
-    <font name="guild_18_ol" filename="ORIGINAL" size="18" color="#66CCFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="guild_18_ol" filename="ORIGINAL" size="18" color="#66CCFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
 		<font name="limitedsale" filename="ORIGINAL" size="16" color="#ffffff" space="0" underline="no" bold="no" dropshadow="yes" italic="no" outline="yes" outlinecolor="#e10000"/>
+		<font name="mygauge" filename="ORIGINAL" size="16" color="#ffffff" space="0" underline="no" bold="yes" dropshadow="yes" italic="no" outline="yes" outlinecolor="#000000"/>
 	</fontlist>
 	<fontlist category="ToolTip Font">
 		<font name="tooltip_font_white_18" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
