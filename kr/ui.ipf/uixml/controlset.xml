@@ -2027,11 +2027,15 @@
 		</controls>
 	</controlset>
 	<controlset name="friend_not" toggle="false" hittest="true" width="385" height="70" skin="test_skin_01" stateskin="false">
-		<controls>
-			<picture name="friend_team" rect="0 0 15 15" hittest="false" margin="20 0 0 0" layout_gravity="left center" image="friend_team" stretch="true"/>
-			<richtext name="team_name_text" rect="0 0 160 24" margin="40 0 0 0" fontname="yellow_16_ol" layout_gravity="left center" hittest="false" textalign="left top" format="%s" param1="name" param1_def="ZZZZZZZZZZZZZZAAAAA" fixwidth="true"/>
+		<controls>			
+			<richtext name="team_name_text" rect="0 0 160 24" margin="20 0 0 0" fontname="yellow_16_ol" layout_gravity="left center" hittest="false" textalign="left top" format="%s" param1="name" param1_def="ZZZZZZZZZZZZZZAAAAA" fixwidth="true"/>      
 		</controls>
 	</controlset>
+  <controlset name="friend_not_online" toggle="false" hittest="true" width="385" height="100" skin="test_skin_01" stateskin="false">
+    <controls>
+      <richtext name="logoutText" rect="0 0 160 24" margin="20 0 0 0" fontname="brown_16_b" layout_gravity="left center" hittest="false" format="%s{nl}%s" param1="name" param1_def="ZZZZZZZZZZZZZZAAAAA" param2="time" param2_def="" fixwidth="true"/>      
+    </controls>
+  </controlset>
 	<controlset name="sns_loading" toggle="false" hittest="true" width="400" height="120" skin="no">
 		<controls>
 			<richtext name="acc_name_text" rect="0 0 300 24" spacey="0" fontname="white_16_ol" layout_gravity="center center" hittest="false" textalign="center center" margin="0 0 0 0" format="{@st53b}친구 목록을 로딩중입니다." fixwidth="true"/>
