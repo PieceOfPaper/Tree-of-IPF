@@ -4,6 +4,15 @@ function FISHING_ITEM_BAG_ON_INIT(addon, frame)
     addon:RegisterMsg('FISHING_SUCCESS_COUNT', 'FISHING_ITEM_BAG_SET_COUNT_BOX');
 end
 
+function FISHING_ITEM_BAG_TOGGLE_UI()
+    local frame = ui.GetFrame('fishing_item_bag');
+    if frame ~= nil and frame:IsVisible() == 1 then
+        ui.CloseFrame('fishing_item_bag');
+        return;
+    end
+    FISHING_ITEM_BAG_OPEN_UI();
+end
+
 function FISHING_ITEM_BAG_OPEN_UI()
     local frame = ui.GetFrame('fishing_item_bag');
     FISHING_ITEM_BAG_RESET_MAX_SLOT_COUNT(frame);
@@ -209,4 +218,8 @@ function FISHING_ITEM_BAG_TOGGLE()
         return;
     end
     FISHING_ITEM_BAG_OPEN_UI();
+end
+
+function FISHING_ITEM_BAG_UPGRADE(parent, ctrl)
+    ui.OpenFrame('fishing_bag_upgrade');
 end

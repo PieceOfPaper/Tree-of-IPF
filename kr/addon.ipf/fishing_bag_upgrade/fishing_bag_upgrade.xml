@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="fishing_bag_upgrade" x="0" y="0" width="800" height="500" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin="test_win_system"/>
+	<frame title="" fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
+	<input moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="OPEN_FISHING_BAG_UPGRADE"/>
+	<userconfig UPGRADE_IMG="fishingbox_"/>
+	<controls>
+		<button name="closeBtn" rect="0 0 50 50" margin="0 20 5 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame(&apos;fishing_bag_upgrade&apos;)"/>
+		<richtext name="beforeText" rect="0 0 300 30" margin="125 80 0 0" layout_gravity="left top" format="{@st43b}{s22}%s 단계 살림통{/}" param1="step" param1_def="0" fontname="white_16_b_ol"/>
+		<richtext name="afterText" rect="0 0 300 30" margin="0 80 125 0" layout_gravity="right top" format="{@st66d_y}{s22}%s 단계 살림통{/}" param1="step" param1_def="0" fontname="yellow_16_b_ol"/>
+		<slot name="beforeSlot" rect="0 0 180 180" margin="100 120 0 0" layout_gravity="left top" movepop="false" skin="skill_squaier_slot" hittest="false"/>
+		<slot name="afterSlot" rect="0 0 180 180" margin="0 120 100 0" layout_gravity="right top" movepop="false" skin="skill_squaier_slot" hittest="false"/>
+		<picture name="arrowPic" rect="0 0 83 67" margin="0 -30 0 0" layout_gravity="center center" image="white_arrow" stretch="true"/>
+		<groupbox name="beforeBox" rect="0 0 180 90" margin="100 320 0 0" layout_gravity="left top" skin="market_coupon_skin"/>
+		<richtext name="beforeInfoText" rect="0 0 130 70" parent="beforeBox" margin="0 0 0 0" layout_gravity="center center" format="최대 %s칸{nl}낚시 횟수 %s회" fontname="white_16_b_ol" textalign="center center" param1="capacity" param1_def="10" param2="count" param2_def="10"/>
+		<groupbox name="afterBox" rect="0 0 180 90" margin="0 320 100 0" layout_gravity="right top" skin="market_coupon_skin"/>
+		<richtext name="afterInfoText" rect="0 0 130 70" parent="afterBox" margin="0 0 0 0" layout_gravity="center center" format="최대 %s칸{nl}낚시 횟수 %s회" fontname="white_16_b_ol" textalign="center center" param1="capacity" param1_def="10" param2="count" param2_def="10"/>
+		<picture name="framePic1" rect="0 0 180 30" parent="afterBox" margin="0 0 0 0" layout_gravity="center top" image="2curveframe_up" stretch="true"/>
+		<picture name="framePic2" rect="0 0 180 30" parent="afterBox" margin="0 0 0 0" layout_gravity="center bottom" image="2curveframe_down" stretch="true"/>
+		<button name="upgradeBtn" rect="0 0 300 50" margin="0 0 0 20" layout_gravity="center bottom" skin="test_red_button" format="{img icon_item_tpBox_30 30 30}{@st43b}{s18}%s TP 업그레이드{/}" fontname="white_14_ol" LBtnUpScp="FISHING_BAG_UPGRADE_CLICK" param1="cost" param1_def="20"/>
+	</controls>
+</uiframe>

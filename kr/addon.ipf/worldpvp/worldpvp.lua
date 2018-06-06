@@ -213,23 +213,6 @@ function UPDATE_WORLDPVP(frame)
 	local todayGetShopPointName = GetPVPPointPropName(clsName, "TodayGetShopPoint");
 	local shopPointName = GetPVPPointPropName(clsName, "ShopPoint");
     
-	local gbox_pointshop = GET_CHILD(charinfo, "gbox_pointshop");
-	gbox_pointshop:ShowWindow(0);
-	if shopPointName ~= "None" then
-		local todayGetShopPoint = 0;
-		if curDateString == pvpObj:GetPropValue(lastPointGetDateName) then
-			todayGetShopPoint = pvpObj:GetPropValue(todayGetShopPointName);
-		end
-
-		local shopgauge = GET_CHILD(gbox_pointshop, "shopgauge");
-		shopgauge:SetPoint(todayGetShopPoint, PVP_DAY_MAX_SHOP_POINT);
-
-		local txt_curshoppoint = GET_CHILD(gbox_pointshop, "txt_curshoppoint");
-		txt_curshoppoint:SetTextByKey("value", pvpObj:GetPropValue(shopPointName));
-
-		gbox_pointshop:ShowWindow(1);
-	end
-
 	local joinBtn = charinfo:GetChild("join");
 	local isPlaying = session.worldPVP.IsPlayingType(pvpType);
 	if isPlaying == true then
@@ -682,7 +665,7 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 	control:SetUserValue("PAGE", page);
 	
 	local btnReward = bg_ranking:GetChild("btn_reward");
-
+    
 	local cid = session.GetMySession():GetCID();
 	local myRank = session.worldPVP.GetPrevRankInfoByCID(cid);
 	if myRank ~= nil then

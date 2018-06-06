@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="leticia_more" x="0" y="0" width="400" height="60">
+<frame margin="0 200 0 0" layout_gravity="center center"/>
+<draw drawframe="false" drawtitlebar="false"/>
+<option hideable="true" autoopen="false"/>
+<sound opensound="win_open" closesound="win_close"/>
+<layer layerlevel="100"/>
+<animation frameCloseAnim="chat_balloon_end2"/>
+<script OpenScp="LETICIA_MORE_OPEN" CloseScp="LETICIA_MORE_CLOSE"/>
+<controls>
+		<button name="continueBtn" rect="0 0 250 60" margin="0 0 0 0" layout_gravity="left center" skin="test_red_button" caption="{@st42b}{s20}연속 구매" fontname="white_16_b_ol" LBtnUpScp="LETICIA_MORE_CLICK_CONTINUE"/>
+		<button name="closeBtn" rect="0 0 150 60" margin="0 0 0 0" layout_gravity="right center" skin="test_gray_button" caption="{@st42b}{s20}닫기" fontname="white_16_b_ol" LBtnUpScp="LETICIA_MORE_CLOSE"/>
+</controls>
+</uiframe>

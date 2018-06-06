@@ -349,6 +349,26 @@ function SET_GRADE_TOOLTIP(parent, invitem, starsize)
 	end
 end
 
+function SET_CARD_EDGE_TOOLTIP(parent, invitem)
+	local cardEdge = GET_CHILD(parent, "card_edge", "ui::CPicture");
+	if cardEdge ~= nil and invitem.CardGroupName ~= 'None' then
+		local cardGroupName = invitem.CardGroupName
+			
+		if cardGroupName == 'ATK' then
+			cardEdge:SetImage('moncard_red')
+		elseif cardGroupName == 'DEF' then
+			cardEdge : SetImage('moncard_blue')
+		elseif cardGroupName == 'UTIL' then
+			cardEdge : SetImage('moncard_purple')
+		elseif cardGroupName == 'STAT' then
+			cardEdge : SetImage('moncard_green')
+		elseif cardGroupName == 'LEG' then
+			cardEdge : SetImage('moncard_yellow')
+		else 
+			cardEdge:SetImage('moncard_red')
+		end
+	end
+end
 
 function ITEM_COMPARISON_SET_OFFSET(tooltipframe, isReadObj)
 	local equipChild = tooltipframe:GetChild('equip');

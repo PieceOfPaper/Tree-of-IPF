@@ -3,8 +3,30 @@
 function EQUIP_CARDSLOT_INFO_TOOLTIP_INIT(addon, frame)
 end
 
-function EQUIP_CARDSLOT_INFO_TOOLTIP_OPEN(frame, slot, argStr, argNum)
-	EQUIP_CARDSLOT_TOOLTIP_BOSSCARD(argNum);
+function EQUIP_CARDSLOT_INFO_TOOLTIP_OPEN(frame, slot, argStr, groupSlotIndex)
+	
+	if slot == nil then
+		return
+	end
+
+	local parentSlotSet = slot:GetParent()
+	if parentSlotSet == nil then
+		return
+	end
+
+	local slotIndex = slot:GetSlotIndex()
+
+	if parentSlotSet:GetName() == 'ATKcard_slotset' then
+		slotIndex = slotIndex + 0
+	elseif parentSlotSet : GetName() == 'DEFcard_slotset' then
+		slotIndex = slotIndex + 3
+	elseif parentSlotSet : GetName() == 'UTILcard_slotset' then
+		slotIndex = slotIndex + 6
+	elseif parentSlotSet : GetName() == 'STATcard_slotset' then
+		slotIndex = slotIndex + 9
+	end
+
+	EQUIP_CARDSLOT_TOOLTIP_BOSSCARD(slotIndex);
 end;
 
 function EQUIP_CARDSLOT_INFO_TOOLTIP_CLOSE(frame, slot, argStr, argNum)	
@@ -12,22 +34,34 @@ function EQUIP_CARDSLOT_INFO_TOOLTIP_CLOSE(frame, slot, argStr, argNum)
 	tooltipFrame:ShowWindow(0);
 end;
 
-function EQUIP_CARDSLOT_TOOLTIP_BOSSCARD(argNum)
+function EQUIP_CARDSLOT_TOOLTIP_BOSSCARD(slotIndex)
 	
 	local invenframe = ui.GetFrame('inventory');
 	local frame    = ui.GetFrame("equip_cardslot_tooltip");		
 	if frame:IsVisible() == 1 then
 		return;
 	end	
-	local infoFrame = ui.GetFrame('equip_cardslot_info');
-	if infoFrame:IsVisible() == 1 then
-		frame:SetOffset(invenframe:GetX() - frame:GetWidth() - infoFrame:GetWidth(), frame:GetY());			
-	else
-		frame:SetOffset(invenframe:GetX() - frame:GetWidth(), frame:GetY());	
-	end;
 
+	local infoFrame = ui.GetFrame('monstercardslot');
+	if infoFrame:IsVisible() == 0 then
+		return
+	end
 		
-	local cardID, cardLv, cardExp = GETMYCARD_INFO(argNum);
+	if slotIndex >= 0 and slotIndex <= 2 or slotIndex >= 6 and slotIndex <= 8 then
+		if infoFrame:GetX() - frame:GetWidth() < 0 then
+			frame:SetOffset(infoFrame:GetX() + infoFrame:GetWidth(), frame : GetY());
+		else
+			frame:SetOffset(infoFrame :GetX() - frame:GetWidth() , frame:GetY());
+		end
+	else
+		if infoFrame:GetX() + infoFrame : GetWidth() + frame : GetWidth() > ui.GetClientInitialWidth() then
+			frame : SetOffset(infoFrame : GetX() - frame : GetWidth(), frame : GetY());
+		else
+			frame:SetOffset(infoFrame : GetX() + infoFrame : GetWidth(), frame : GetY());
+		end
+	end
+		
+	local cardID, cardLv, cardExp = GETMYCARD_INFO(slotIndex);
 	if cardID == 0 then
 		return;
 	end
@@ -43,6 +77,7 @@ function EQUIP_CARDSLOT_DRAW_TOOLTIP(tooltipframe, cardID, cardLv)
 	local gBox = GET_CHILD(tooltipframe, "bg")
 	gBox:RemoveAllChild()
 
+	local CSetBg = gBox : CreateControlSet('tooltip_bosscard_bg', 'boss_bg_inven', 0, 200);
 	local CSet = gBox:CreateControlSet('tooltip_bosscard_common', 'boss_common_cset', 0, 0);
 	tolua.cast(CSet, "ui::CControlSet");
 
@@ -50,6 +85,9 @@ function EQUIP_CARDSLOT_DRAW_TOOLTIP(tooltipframe, cardID, cardLv)
 	
 	local cls = GetClassByType("Item", cardID);
 	
+	SET_CARD_EDGE_TOOLTIP(CSet, cls);
+
+
 	-- ������ �̹���
 	local itemPicture = GET_CHILD(CSet, "itempic");
 	itemPicture:SetImage(cls.TooltipImage);

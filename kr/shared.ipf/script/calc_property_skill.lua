@@ -7050,7 +7050,12 @@ end
 
 function SCR_GET_Ayin_sof_Ratio(skill)
     local value = 20 * skill.Level
-  return value
+    local pc = GetSkillOwner(skill)
+    if IsPVPServer(pc) == 1 then
+        value = value / 2
+    end
+    
+    return value
 
 end
 
@@ -7503,7 +7508,7 @@ function SCR_Get_SkillFactor_DarkTheurge(skill)
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
-
+    
     return math.floor(value)
 
 end
@@ -9464,8 +9469,8 @@ function SCR_GET_CreepingDeath_Ratio(skill)
 end
 
 function SCR_GET_CreepingDeath_Ratio2(skill)
---    local value = skill.SkillAtkAdd * (1.5 + 0.1 * skill.Level)
-    local value = 333
+    local value = 624
+    
     return math.floor(value);
 end
 
@@ -12971,7 +12976,7 @@ function SCR_Get_Bewitch_Ratio(skill)
 end
 function SCR_Get_Physicallink_Ratio(skill)
 
-    return skill.Level
+    return skill.Level + 3
 
 end
 function SCR_GET_ShieldBash_Ratio2(skill)
@@ -13451,7 +13456,7 @@ function SCR_Get_Summoning_Ratio(skill)
 end
 
 function SCR_Get_Electrocute_Ratio(skill)
-    local value = 2 + skill.Level * 0.5
+    local value = 1 + (2 + skill.Level * 0.5)
     return math.floor(value);
 end
 
@@ -13961,8 +13966,12 @@ end
 function SCR_GET_IronHook_Ratio(skill)
     
     local pc = GetSkillOwner(skill);
+    local value = 4 + skill.Level * 1
+    if IsPVPServer(pc) == 1 and value >= 10 then
+        value = 10
+    end
     
-    return 4 + skill.Level * 1
+    return value;
 end
 
 function SCR_GET_Ogouveve_Ratio(skill)

@@ -21,7 +21,7 @@ function HAIR_GACHA_OK_BTN()
 
 	local frame = ui.GetFrame("hair_gacha_start")
 	
-	local type = frame:GetUserValue("TYPE");
+	local type = frame:GetUserValue("ClassName");
 
 	local scpString = string.format("/hairgacha %s",  type);
 	ui.Chat(scpString);
@@ -29,258 +29,65 @@ function HAIR_GACHA_OK_BTN()
 	ui.CloseFrame("hair_gacha_start")
 end
 
-function HAIR_GACHA_START_1()
-	
-	GACHA_START("hair1")
-	
-end
+function CLIENT_GACHA_SCP(invItem)
+	local itemobj = GetIES(invItem:GetObject());
+	local gachaDetail = GetClass("GachaDetail", itemobj.ClassName);
 
-function HAIR_GACHA_START_1_1()
-	
-	GACHA_START("hair1_1")
-	
-end
+	if gachaDetail.PreCheckScp ~= "None" then
+		local scp = _G[gachaDetail.PreCheckScp];
+		if scp() == "NO" then
+			return;
+		end
+	end
 
-function HAIR_GACHA_START_11()
-	
-	GACHA_START("hair11")
-	
-end
-
-function RBOX_START_1()
-	
-	GACHA_START("rbox1")
-	
-end
-
-function RBOX_START_11()
-	
-	GACHA_START("rbox11")
-	
-end
-
-function RBOX_START_100()
-	
-	GACHA_START("rbox100")
-	
-end
-
-function RBOX2_START_1()
-    if SCR_PRECHECK_LETICIA_CONSUME() ~= 'YES' then
-        ui.SysMsg('지금은 사용 할 수 없습니다.')
-        return;
-    end
-
-	GACHA_START("rbox2_1")
-	
-end
-
-function RBOX2_START_1_11()
-    if SCR_PRECHECK_LETICIA_CONSUME() ~= 'YES' then
-        ui.SysMsg('지금은 사용 할 수 없습니다')
-        return;
-    end
-
-	GACHA_START("rbox2_11")
-	
-end
-
-function COSTUME_GACHA_START_1()
-    GACHA_START('costumebox');
-end
-
-function COSTUME_GACHA_START_2()
-    GACHA_START('costumebox_1');
-end
-
-function COSTUME_GACHA_START_3()
-    GACHA_START('costumebox_2');
-end
-
-function COSTUME_GACHA_START_3_11()
-    GACHA_START('costumebox_3');
-end
-function COSTUME_GACHA_START_4()
-    GACHA_START('costumebox_4');
+	GACHA_START(gachaDetail)
 end
 
 
-function COSTUME_GACHA_START_5()
-    GACHA_START('costumebox_5');
-end
-
-
-function TOY_GACHA_START()
-    GACHA_START('toygacha');
-end
-
-
-function GACHA_START(type)
-	local cnt = 0;
-	if type == "hair1" or type == "rbox1" or type == "rbox100" or type == "hair1_1" or type == 'costumebox' or type == 'costumebox_1'or type == 'costumebox_2' or type == 'rbox2_1' or type == 'costumebox_4' or type == "costumebox_5" or type == "toygacha"then
-		cnt = 1
-	elseif type == "hair11" or type == "rbox11" or type == "costumebox_3" or type == "rbox2_11"  then
-		cnt = 11
-	else	
+function GACHA_START(gachaDetail)
+	if gachaDetail == nil then
 		return;
 	end
-    
+
+	local cnt = gachaDetail.Count;
 	if cnt ~= 1 and cnt ~= 11 then
 		return;
 	end
 
 	local frame = ui.GetFrame("hair_gacha_start")
 	frame:ShowWindow(0)
-	frame:SetUserValue("TYPE", type);
-    
-	if type == "hair1" or type == "hair11" or type == "hair1_1" then
-		
-		local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
-		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
-        local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
-		local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
+	frame:SetUserValue("ClassName", gachaDetail.ClassName);
+	local item = GetClass("Item", gachaDetail.ClassName);
 
-		hairbg:SetVisible(1)
-		rboxbg:SetVisible(0)
-		hairText:SetVisible(1)
-		costumeText:SetVisible(0)
+	--어떤 BG를 쓸 것인가
+	--텍스트는 어떤걸?
+	--버튼 어떤거?
+	--카운트의 유무
+	local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
+	local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
+    local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
+	local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
+	local btn = GET_CHILD_RECURSIVELY(frame,"button")
 
-		local hairbtn = GET_CHILD_RECURSIVELY(frame,"button_hair")
-		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
-		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
-		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
+	btn:SetVisible(1)
+	local val = ScpArgMsg("GachaMsg", "Name", item.Name);
+	btn:SetTextByKey("value", "{@st42b}"..val)
 
-		rboxbtn:SetVisible(0)
-		rbox100btn:SetVisible(0)
-		costumebtn:SetVisible(0)
-		hairbtn:SetVisible(1)
-		hairbtn:SetTextByKey("value", cnt)
-	
-	elseif type == "rbox1" or type == "rbox11"  or type == "rbox2_11" or type == "rbox2_1"then
-
-		local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
-		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
-		local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
-		local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
-
-		hairbg:SetVisible(0)
-		rboxbg:SetVisible(1)
-		hairText:SetVisible(1)
-		costumeText:SetVisible(0)
-
-		local hairbtn = GET_CHILD_RECURSIVELY(frame,"button_hair")
-		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
-		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
-		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
-
-		rboxbtn:SetVisible(1)
-		rboxbtn:SetTextByKey("value", cnt)
-		costumebtn:SetVisible(0)
-		hairbtn:SetVisible(0)
-		rbox100btn:SetVisible(0)
-
-	elseif type == "rbox100"  then
-
-		local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
-		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
-		local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
-		local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
-
-		hairbg:SetVisible(0)
-		rboxbg:SetVisible(1)
-		hairText:SetVisible(1)
-		costumeText:SetVisible(0)
-
-		local hairbtn = GET_CHILD_RECURSIVELY(frame,"button_hair")
-		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
-		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
-		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
-
-		rboxbtn:SetVisible(0)
-		hairbtn:SetVisible(0)
-		costumebtn:SetVisible(0)
-		rbox100btn:SetVisible(1)
-    elseif type == 'costumebox' then
-        local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
-		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
-        local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
-		local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
-
-		hairbg:SetVisible(1)
-		rboxbg:SetVisible(0)
-        hairText:SetVisible(0)
-        costumeText:SetVisible(1)
-
-		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
-		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
-		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
-
-		rboxbtn:SetVisible(0)
-		rbox100btn:SetVisible(0)
-		costumebtn:SetVisible(1)
-
-	elseif type == 'costumebox_1'   then
-        local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
-		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
-        local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
-        local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
-
-		hairbg:SetVisible(1)
-		rboxbg:SetVisible(0)
-        hairText:SetVisible(0)
-        costumeText:SetVisible(1)
-
-		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
-		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
-		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
-
-		rboxbtn:SetVisible(0)
-		rbox100btn:SetVisible(0)
-		costumebtn:SetVisible(1)
-		
-	elseif type == 'costumebox_2'or type == 'costumebox_3'or type == 'costumebox_4' or type == 'costumebox_5' then
-        local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
-		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
-        local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
-        local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
-
-		hairbg:SetVisible(1)
-		rboxbg:SetVisible(0)
-        hairText:SetVisible(1)
-        costumeText:SetVisible(0)
-
-		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
-		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
-		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
-
-		rboxbtn:SetVisible(0)
-		rbox100btn:SetVisible(0)
-		costumebtn:SetVisible(1)
-		
-	elseif type == "toygacha" then 
-	    local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
-		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
-		local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
-		local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
-
-		hairbg:SetVisible(1)
-		rboxbg:SetVisible(0)
-		hairText:SetVisible(1)
-		costumeText:SetVisible(0)
-
-		local hairbtn = GET_CHILD_RECURSIVELY(frame,"button_hair")
-		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
-		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
-		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
-
-		rboxbtn:SetVisible(0)
-		hairbtn:SetVisible(0)
-		costumebtn:SetVisible(0)
-		rbox100btn:SetVisible(1)
-	
-	else
-		return
-
+	if gachaDetail.GachaType == "hair" then
+		hairbg:SetVisible(1);
+		rboxbg:SetVisible(0);
+		hairText:SetVisible(1);
+		costumeText:SetVisible(0);
+	elseif gachaDetail.GachaType == "rbox" then
+		hairbg:SetVisible(0);
+		rboxbg:SetVisible(1);
+		hairText:SetVisible(1);
+		costumeText:SetVisible(0);
+	elseif gachaDetail.GachaType == "costume" then
+		hairbg:SetVisible(1);
+		rboxbg:SetVisible(0);
+		hairText:SetVisible(0);
+		costumeText:SetVisible(1);
 	end
 
 	frame:ShowWindow(1)
