@@ -7479,7 +7479,7 @@ end
 
 function SCR_GET_EnchantLightning_Bufftime(skill)
 
-    local value = skill.Level;
+    local value = skill.Level * 10 + 60
     return value
     
 end
@@ -7624,11 +7624,9 @@ function SCR_GET_MissileHole_Bufftime(skill)
 
 end
 
-function SCR_GET_Empowering_Bufftime(skill)
-
-    local value = skill.Level;
+function SCR_GET_MissileHole_Ratio(skill)
+    local value = 4 + (skill.Level - 1) * 3;
     return value
-
 end
 
 function SCR_Get_SklAtkAdd_Heal(skill)
@@ -10507,6 +10505,10 @@ end
 
 function SCR_GET_SR_LV_Damballa(skill)
     return skill.Level * skill.SklSR
+end
+
+function SCR_GET_SR_LV_TwistOfFate(skill)
+    return 0
 end
 
 function SCR_GET_Barrier_Bufftime(skill)

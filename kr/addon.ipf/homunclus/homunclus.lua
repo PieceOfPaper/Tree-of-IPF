@@ -78,7 +78,7 @@ function UPDATE_HOMUNCLUS_INFO(frame, argStr)
 	end
 
 	tempObj.Lv = buff.arg1;
-	local hp = math.floor(SCR_Get_MON_MHP(tempObj));
+	local hp = SCR_Get_MON_MHP(tempObj);
 	local myHp = infogBox:GetChild('hpStr');
 	myHp:SetTextByKey("value", hp);
 	

@@ -155,56 +155,20 @@ function KEYCONFIG_SAVE_INPUT(frame)
 			return;
 		end
 
-		config.SetHotKeyIndexInConfig(fileName, idx, key, useShift, useAlt, useCtrl);
-				
+		config.SetHotKeyElementAttributeForConfig(idx, "Key", key);
+		if joyStickMode == true then
+			local pressedKey = txt_key:GetUserValue("PressedKey");
+			config.SetHotKeyElementAttributeForConfig(idx, "PressedKey", pressedKey);
+		end
+		config.SetHotKeyElementAttributeForConfig(idx, "UseAlt", useAlt);
+		config.SetHotKeyElementAttributeForConfig(idx, "UseCtrl", useCtrl);
+		config.SetHotKeyElementAttributeForConfig(idx, "UseShift", useShift);
+		
+		
 		config.SaveHotKey(fileName);
 		
-		local tree = GET_CHILD(frame, "tree");
-		local tnode = tree:GetLastSelectedNode();
-		if tnode == nil then
-			return;
-		end
-
-		local selValue = tnode:GetValue();
-		local sList = StringSplit(selValue, "#");
-		if #sList ~= 2 then
-			return;
-		end
-
-		local fileName = sList[1];
-		local categoryName = sList[2];
-
-		frame:SetUserValue("FILENAME", fileName);
-		KEYCONFIG_OPEN_CATEGORY(frame, fileName, categoryName);
 	end
 
-end
-
-function KEYCONFIG_GET_RESTORE_HOTKEY(frame, txt_key)
-	local id = frame:GetUserValue("ID");
-	local bg_key = GET_CHILD(frame, "bg_key");
-	local bg_keylist = GET_CHILD(bg_key, "bg_keylist");
-	local ctrlSet = GET_CHILD_BY_USERVALUE(bg_keylist, "ID", id);
-	
-	if ctrlSet ~= nil then
-		local idx = config.GetHotKeyElementIndex("ID", id);
-
-		local key = config.GetHotKeyElementAttributeForConfig(idx, "Key");
-		if key == "" then
-			return;
-		end
-
-		local useShift = config.GetHotKeyElementAttributeForConfig(idx, "UseShift");
-		local useAlt = config.GetHotKeyElementAttributeForConfig(idx, "UseAlt");
-		local useCtrl = config.GetHotKeyElementAttributeForConfig(idx, "UseCtrl");
-
-		txt_key:SetUserValue("Key", key);
-		txt_key:SetUserValue("UseShift", useShift);
-		txt_key:SetUserValue("UseAlt", useAlt);
-		txt_key:SetUserValue("UseCtrl", useCtrl);
-
-		KEYCONFIG_UPDATE_KEY_TEXT(txt_key);
-	end
 end
 
 function KEYCONFIG_END_INPUT(frame)
@@ -226,7 +190,7 @@ function KEYCONFIG_END_INPUT(frame)
 			QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME(quickSlotFrame);
 			quickSlotFrame:Invalidate();
 		end
-		
+
 end
 
 function KEYCONFIG_CHECKING_INPUT(frame)
@@ -335,8 +299,7 @@ function KEYCONFIG_TREE_CLICK(parent, ctrl, str, num)
 
 	local frame = parent:GetTopParentFrame();
 	frame:SetUserValue("FILENAME", fileName);
-	KEYCONFIG_OPEN_CATEGORY(frame, fileName, categoryName);
-	
+	KEYCONFIG_OPEN_CATEGORY(frame, fileName, categoryName);	
 	
 end
 
@@ -355,7 +318,9 @@ function OPEN_KEYCONFIG(frame)
 	KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "mouse", "Battle", "hotkey_mousemode.xml", "Battle");
 	KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "mouse", "SystemMenu", "hotkey_mousemode.xml", "System");
 
-	KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "joypad", "Battle", "hotkey_joystick.xml", "Basic");
+	-- KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "joypad", "Battle", "hotkey_joystick.xml", "Basic");
+	-- KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "joypad", "Battle", "hotkey_joystick.xml", "Battle");
+	-- KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "joypad", "Battle", "hotkey_joystick.xml", "System");
 
 	tree:OpenNodeAll();
 end
@@ -403,7 +368,6 @@ function KEYCONFIG_RESTORE_DEFAULT(parent)
 	
 	
 end
-
 
 
 
