@@ -473,6 +473,7 @@ end
 function SCR_NECRO_SUMMON_SKULL_CALC(mon, self, skl)
     local bySkillLevel = 0.1 + (skl.Level * 0.05);
     
+    local abilMasterLevel = 0
     local abilLevel = 0;
     if mon.ClassName == "pcskill_skullarcher" then
         abilLevel = GET_ABIL_LEVEL(self, "Necromancer10");
@@ -480,7 +481,11 @@ function SCR_NECRO_SUMMON_SKULL_CALC(mon, self, skl)
         abilLevel = GET_ABIL_LEVEL(self, "Necromancer7");
     end
     
-    local byAbilLevel = abilLevel * 0.005;
+    if abilLevel == 100 then
+    	abilMasterLevel = 0.1
+    end
+    
+    local byAbilLevel = (abilLevel * 0.005) + abilMasterLevel;
     
     local addAbilHP = 0
     local Necromancer20_abil = GetAbility(self, 'Necromancer20')
@@ -509,10 +514,15 @@ function SCR_NECRO_SUMMON_CORPS_CALC(self, caster, skl)
     
     local bySkillLevel = 0.1 + (skl.Level * 0.04);
     
+    local abilMasterLevel = 0
     local byAbilLevel = 0;
     local abil = GetAbility(caster, "Necromancer6")
+    if abil.Level == 100 then
+    	abilMasterLevel = 0.1
+    end
+    
     if abil ~= nil then
-        byAbilLevel = abil.Level * 0.005;
+        byAbilLevel = (abil.Level * 0.005) + abilMasterLevel;
     end
     
     local monPATK = self.MINPATK * bySkillLevel;
@@ -538,9 +548,14 @@ function SCR_NECRO_SUMMON_SHOGGOTH_CALC(self, caster, skl, card)
     end
     
     local byAbilLevel = 0;
+    local byAbilMasterLevel = 0;
     local Necromancer5_abil = GetAbility(caster, "Necromancer5")
+    if Necromancer5_abil.Level == 100 then
+    	byAbilMasterLevel = 0.1
+    end
+    
     if Necromancer5_abil ~= nil then
-        byAbilLevel = Necromancer5_abil.Level * 0.005;
+        byAbilLevel = (Necromancer5_abil.Level * 0.005) + byAbilMasterLevel;
     end
     
     local monPATK = self.MINPATK * (bySkillLevel + bycardLevel);

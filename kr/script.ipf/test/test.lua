@@ -1,5 +1,32 @@
 -- test.lua
 
+-- 은둔자의 통로가서 무녀 마스터 앞에서 테스트.
+-- TxHide 테스트
+function TEST_TXHIDE(pc)
+    local tx = TxBegin(pc);
+    TxHideNPC(tx,"MIKO_MASTER")
+  
+	local ret = TxCommit(tx);
+	if ret ~= "SUCCESS" then
+        print("tx fail");
+        return;
+    end
+end
+
+-- TxUnHide 테스트
+function TEST_TXUNHIDE(pc)
+    local tx = TxBegin(pc);
+
+    TxUnHideNPC(tx,"MIKO_MASTER")
+
+    local ret = TxCommit(tx);
+	if ret ~= "SUCCESS" then
+       print("tx fail");
+        return;
+    end
+end
+
+
 function TEST_GET_ITEM_COUNT_PARTY_WARE_HOUSE(pc, partyType, itemClassName)
 	if RequestLoadPartyInventory(pc, partyType) == 1 then
 		for i = 0 , 100 do

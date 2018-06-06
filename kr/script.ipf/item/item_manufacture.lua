@@ -736,14 +736,21 @@ function TX_ITEM_APPRAISAL(pc, seller, itemList, price, skill)
                 local option = RandomOption[i][j];
                 local value = RandomOptionValue[i][j];
 
-                TxSetIESProp(tx, randomItem, 'RandomOptionGroup_'..j, group);
-               	TxSetIESProp(tx, randomItem, 'RandomOption_'..j, option);
-               	TxSetIESProp(tx, randomItem, 'RandomOptionValue_'..j, value);
-
                 -- 로그용
                 SetExProp_Str(randomItem, 'RandomOptionGroup_'..j, group);
                 SetExProp_Str(randomItem, 'RandomOption_'..j, option);
                 SetExProp(randomItem, 'RandomOptionValue_'..j, value);
+
+                -- 치트
+                if IsGM(pc) == 1 and GetExProp(pc, 'ERROR_RANDOM_OPTION_FORCELY') == 1 then                	
+            		group = 'STAT';
+            		option = 'ADD_FIRE';
+            		value = IMCRandom(1, 2000);
+                end
+
+                TxSetIESProp(tx, randomItem, 'RandomOptionGroup_'..j, group);
+               	TxSetIESProp(tx, randomItem, 'RandomOption_'..j, option);
+               	TxSetIESProp(tx, randomItem, 'RandomOptionValue_'..j, value);
        	    end
        	    TxSetIESProp(tx, randomItem, "NeedRandomOption", 0);
 
@@ -763,8 +770,11 @@ function TX_ITEM_APPRAISAL(pc, seller, itemList, price, skill)
 		SendSysMsg(pc, "DataError");
 		return;
 	end
-    
-	ItemAppraisalMongoLog(pc, "NPC");
+
+	local wrongItemList = SCR_RANDOM_SETIESPROP_LOG(randomItemList);
+	local errorGuidList, errorInfoStrList = GET_RANDOM_OPTION_ERROR_LOG_PARAM(wrongItemList);
+
+	ItemAppraisalMongoLog(pc, "NPC", errorGuidList, errorInfoStrList);
 
 	SendAddOnMsg(pc, "SUCCESS_APPRALSAL", "", 0);
 	SendAddOnMsg(pc, "UPDATE_ITEM_REPAIR", "", 0);
@@ -777,4 +787,35 @@ function TX_ITEM_APPRAISAL(pc, seller, itemList, price, skill)
 			ShowTargetItemBalloon(pc, sellerHandle, "{@st43}", "AppraisalSuccess", item, 3, delaySec);
 		end
 	end
+end
+
+function GET_RANDOM_OPTION_ERROR_LOG_PARAM(wrongItemList)
+	local itemGuidList = {};
+	local errStrList = {};
+	for i = 1, #wrongItemList do
+		local errStr = '';
+		local wrongItemInfo = wrongItemList[i];
+		for key, value in pairs(wrongItemInfo) do
+			if key == 'Item' then
+				itemGuidList[#itemGuidList + 1] = GetItemGuid(value);
+			else				
+				errStr = errStr..key..'@'..value..'#';
+			end
+		end
+		if errStr == '' or #itemGuidList ~= (#errStrList + 1) then
+			IMC_LOG('FATAL_ASSERT', 'GET_RANDOM_OPTION_ERROR_LOG_PARAM: wrong item but error info is empty! or not matched item['..#itemGuidList..'] and info['..#errStrList..']');
+		end
+		errStrList[#errStrList + 1] = errStr;
+	end
+
+	if #itemGuidList ~= #errStrList then
+		IMC_LOG('FATAL_ASSERT', 'GET_RANDOM_OPTION_ERROR_LOG_PARAM: not matched item['..#itemGuidList..'], info['..#errStrList..']');
+	end
+
+	return itemGuidList, errStrList;
+end
+
+function TEST_SET_ERROR_RANDOM_OPTION_FORCELY(pc)
+	SetExProp(pc, 'ERROR_RANDOM_OPTION_FORCELY', 1);
+	Chat(pc, '랜덤옵션 강제 에러 발생 적용 중');
 end

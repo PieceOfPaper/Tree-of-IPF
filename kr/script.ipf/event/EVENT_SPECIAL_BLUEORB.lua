@@ -643,7 +643,7 @@ function SCR_BLUEORB_CLEAR_DIALOG(self,pc)
 end
 
 function SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
-    if IMCRandom(1, 100) <= 3 then
+    if IMCRandom(1, 100) <= 9 then
         local curMap = GetZoneName(self);
         local mapCls = GetClass("Map", curMap);
         

@@ -24,24 +24,25 @@ function GACHA_CUBE_OK_BTN(frame, ctrl)
 end
 
 -- 뽑기 성공 후, 결과 UI창 생성하여 띄우기 
-function GACHA_CUBE_SUCEECD(invItemClsID, rewardItem, btnVisible)
+function GACHA_CUBE_SUCEECD(invItemClsID, rewardItem, btnVisible, reopenCount)
 	-- UI창 얻어와서	 초기화
 	local gachaCubeFrame = ui.GetFrame("gacha_cube");	
 	GHACHA_CUBE_UI_RESET(gachaCubeFrame);	
-	GACHA_CUBE_SUCEECD_UI(gachaCubeFrame, invItemClsID, rewardItem, btnVisible);
+	GACHA_CUBE_SUCEECD_UI(gachaCubeFrame, invItemClsID, rewardItem, btnVisible, reopenCount);
 end
 
 
--- 뽑기 성공 후, 결과 UI창 요소 바꾸기
-function GACHA_CUBE_SUCEECD_EX(invItemClsID, rewardItem, btnVisible)	
+-- 뽑기 성공 후, 결과 UI창 요소 바꾸기　
+function GACHA_CUBE_SUCEECD_EX(invItemClsID, rewardItem, btnVisible, reopenCount)	
 	-- UI창 얻어와서	 
 	local gachaCubeFrame = ui.GetFrame("gacha_cube");	
-	GACHA_CUBE_SUCEECD_UI(gachaCubeFrame, invItemClsID, rewardItem, btnVisible);
+	GACHA_CUBE_SUCEECD_UI(gachaCubeFrame, invItemClsID, rewardItem, btnVisible, reopenCount);
 end
 
 --
-function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
+function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible, reopenCount)
 	-- UI창을 호출한 큐브 정보 얻어놓기
+
 	local cubeItem = GetClassByType("Item", invItemClsID);
 	
 	if cubeItem == nil and btnVisible == '0' then
@@ -115,7 +116,18 @@ function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
 	local BtnFrame = frame:GetChild("button_1");	
 	
 	local price = TryGet(cubeItem, "NumberArg1");
-	
+	if reopenCount == 0 then
+	    
+	    local discountRatio = TryGetProp(cubeItem, 'ReopenDiscountRatio')
+	    if discountRatio ~= nil and discountRatio > 0 then
+    	    discountRatio = 1 -  (discountRatio / 100)
+	    else
+	        discountRatio = 1;
+	    end
+	    
+	    price = SyncFloor(price * discountRatio)
+	    
+	end
 	if IS_SEASON_SERVER(nil) == 'YES' then
 	    price = math.floor(price/2)
 	end

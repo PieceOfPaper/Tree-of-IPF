@@ -40,14 +40,13 @@ function IS_ENABLE_LETICIA_GACHA(pc, gachaDetailCls, consumeType)
         return false;
     end
 
---양재성씨가 고쳐줘야함. 눈부신 큐브 조각
 	if itemClassName == "Gacha_TP_100"then
 		if haveCount < 100 then
 			SendSysMsg(pc, "NeedItemCount",0,"Cnt","100");
 			return false;
 		end
 	end
---여기까지	
+
     local now = pc.NowWeight;
 	if pc.MaxWeight <= now then
 		SendSysMsg(pc, "MAXWEIGHTMSG");
@@ -127,7 +126,7 @@ function EXECUTE_LETICIA_GACHA_BY_TP(pc, gachaDetailCls)
 		SendAddOnMsg(pc, "LETICIA_POPUP_10", rewardstring, 0);
     end
     
-    local ALLMSG = {'GoldMoru_Box_S'}
+    local ALLMSG = {'Gold_Socket_Box'}
 
 	for i = 1, table.getn(ALLMSG) do
 	    for j = 1, #sendrewardlist do
@@ -216,7 +215,7 @@ function SCR_PRECHECK_LETICIA_Time()
     local nowTime = tonumber(string.format("%04d%02d%02d%02d", sysTime.wYear, sysTime.wMonth, sysTime.wDay, sysTime.wHour))
     
     
-    if nowTime >= 2018010118 and nowTime < 2018010418 then
+    if nowTime >= 2018020118 and nowTime < 2018020418 then
         return 'YES'
     end
     

@@ -40,6 +40,8 @@ function GET_NINJA_SKILLS()
 	retList[#retList + 1] = "Dragoon_Dragontooth";
 	retList[#retList + 1] = "Dragoon_Dragon_Soar";
 	retList[#retList + 1] = "NakMuay_Attack";
+	retList[#retList + 1] = "Templer_MortalSlash";
+	retList[#retList + 1] = "Squire_DeadlyCombo";
 	return retList;
 
 end

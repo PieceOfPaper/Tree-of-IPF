@@ -567,6 +567,12 @@ function SCR_PRECHECK_EXPCARD(self)
 end
 
 function SCR_PRECHECK_CONSUME_ENCHANTBOMB(self)
+    local curMap = GetZoneName(self);
+    
+    if curMap == 'c_firemage_event' then
+        return 0;
+    end
+    
     local objList, objCount = SelectObject(self, 100, 'ENEMY');
     
     if objList[1] ~= nil then

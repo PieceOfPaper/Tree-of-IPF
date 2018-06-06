@@ -1955,15 +1955,15 @@ end
 
 function SCR_BUFF_RATETABLE_StormDust_Debuff(self, from, skill, atk, ret, rateTable, buff)
     if IsBuffApplied(self, "StormDust_Debuff") == "YES" then
-    	if GetBuffByProp(self, "Keyword", "Position") == nil then
-			if IS_PC(self) == false then
+    	if TryGetProp(self, "MonRank") ~= "Boss" then
+	    	if GetBuffByProp(self, "Keyword", "Position") == nil then
 				if TryGetProp(self, "MoveType") == "Flying" then
 					local reductionRate = 0.5
 					
 					AddDamageReductionRate(rateTable, reductionRate);
 				end
-	        end
-	    end
+		    end
+		end
     end
 end
 

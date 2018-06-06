@@ -112,7 +112,7 @@
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="DiceSuccess"/>
-                                <Str Str="=="/>
+                                <Str Str="OVER"/>
                                 <Num Num="1"/>
                             </ToolScp>
                         </condList>
@@ -133,7 +133,7 @@
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="DiceSuccess"/>
-                                <Str Str="=="/>
+                                <Str Str="OVER"/>
                                 <Num Num="2"/>
                             </ToolScp>
                         </condList>
@@ -154,7 +154,7 @@
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="DiceSuccess"/>
-                                <Str Str="=="/>
+                                <Str Str="OVER"/>
                                 <Num Num="3"/>
                             </ToolScp>
                         </condList>

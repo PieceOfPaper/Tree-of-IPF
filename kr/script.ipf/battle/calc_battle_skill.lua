@@ -1,4 +1,4 @@
-﻿-- calc_battle_skill.lua
+-- calc_battle_skill.lua
 
 function POST_ATK_Doppelsoeldner_Cyclone(self, from, skill, splash, ret)
 
@@ -177,7 +177,7 @@ function SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate)
         local shieldDef = TryGetProp(equipLH, "DEF");
         if addRate ~= nil then
             local addShiledRate = shieldDef * addRate;
-            rateTable.AddAtkDamage =rateTable.AddAtkDamage + addShiledRate;
+            rateTable.AddAtkDamage = rateTable.AddAtkDamage + addShiledRate;
         end
     end
 end
@@ -187,20 +187,18 @@ function SCR_ADD_ATK_BY_SUBWEAPON(self, from, skill, atk, ret, rateTable, addLhR
     local equipRH = GetEquipItem(from, "RH");
     
     if TryGetProp(equipLH, "GroupName") == "SubWeapon" and TryGetProp(equipLH, "ClassType") ~= "Artefact" then
-        local maxAtkLH = TryGetProp(equipLH, "MAXATK");
-        local minAtkLH = TryGetProp(equipLH, "MINATK");
+        local maxAtkLH = TryGetProp(from, "MAXPATK_SUB");
+        local minAtkLH = TryGetProp(from, "MINPATK_SUB");
         local addRateAtkLH = (maxAtkLH + minAtkLH)/2;
-        
         if addLhRate ~= nil then
-            rateTable.AddAtkDamage =rateTable.AddAtkDamage + (addRateAtkLH * addLhRate)
+            rateTable.AddAtkDamage = rateTable.AddAtkDamage + (addRateAtkLH * addLhRate)
         end
         
     end
     if addRhRate ~= nil then
-        local maxAtkRH = TryGetProp(equipRH, "MAXATK");
-        local minAtkRH = TryGetProp(equipRH, "MINATK");
+        local maxAtkRH = TryGetProp(from, "MAXPATK");
+        local minAtkRH = TryGetProp(from, "MINPATK");
         local addRateAtkRH = (maxAtkRH + minAtkRH)/2;
-        
         rateTable.AddAtkDamage =rateTable.AddAtkDamage + (addRateAtkRH * addRhRate)
     end
 end

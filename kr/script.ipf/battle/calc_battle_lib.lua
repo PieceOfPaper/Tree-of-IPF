@@ -1,4 +1,4 @@
-﻿-- calc_battle_lib.lua
+-- calc_battle_lib.lua
 
 HIT_BASIC = 0;
 HIT_MOTION = 1;
@@ -661,10 +661,40 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
         attackerATK = attackerPercentageATK + attackerSkillATK + sumAddATK;
     end
     
+    --ISBUNSHIN == "YES"--
+    if GetExProp(from, "BUNSIN") == 1 then
+        local attackerTopOwner = GetTopOwner(from);
+        local bunsinMaxAtk = TryGetProp(attackerTopOwner, "MAXPATK", 0);
+        local bunsinMinAtk = TryGetProp(attackerTopOwner, "MINPATK", 0);
+        local bunsinMaxAtkSub = TryGetProp(attackerTopOwner, "MAXPATK_SUB", 0) - TryGetProp(attackerTopOwner, "PATK_SUB_BM", 0) - TryGetProp(attackerTopOwner, "MAXPATK_SUB_BM", 0);
+        local bunsinMinAtkSub = TryGetProp(attackerTopOwner, "MINPATK_SUB", 0) - TryGetProp(attackerTopOwner, "PATK_SUB_BM", 0) - TryGetProp(attackerTopOwner, "MINPATK_SUB_BM", 0);
+        
+        if TryGetProp(skill, "UseSubweaponDamage") == "YES" then
+            bunsinMaxAtk = bunsinMaxAtkSub;
+            bunsinMinAtk = bunsinMinAtkSub;
+        elseif TryGetProp(skill, "UseSubweaponDamage") == "NO" and TryGetProp(attackerTopOwner, "PATK_MAIN_BM") ~= 0 then
+            bunsinMaxAtk = bunsinMaxAtk - TryGetProp(attackerTopOwner, "PATK_MAIN_BM", 0);
+            bunsinMinAtk = bunsinMinAtk - TryGetProp(attackerTopOwner, "PATK_MAIN_BM", 0);
+        end
+        
+        bunsinMaxAtk = bunsinMaxAtk - TryGetProp(attackerTopOwner, "PATK_BM", 0);
+        bunsinMinAtk = bunsinMinAtk - TryGetProp(attackerTopOwner, "PATK_BM", 0);
+        bunsinMaxAtkSub = bunsinMaxAtkSub - TryGetProp(attackerTopOwner, "PATK_BM", 0);
+        bunsinMinAtkSub = bunsinMinAtkSub - TryGetProp(attackerTopOwner, "PATK_BM", 0);
+        
+        if TryGetProp(attackerTopOwner, "PATK_RATE_BM") ~= 0 then
+            bunsinMaxAtk = bunsinMaxAtk/(1 + TryGetProp(attackerTopOwner, "PATK_RATE_BM", 0));
+            bunsinMinAtk = bunsinMinAtk/(1 + TryGetProp(attackerTopOwner, "PATK_RATE_BM", 0));
+            bunsinMaxAtkSub = bunsinMaxAtkSub/(1 + TryGetProp(attackerTopOwner, "PATK_RATE_BM", 0));
+            bunsinMinAtkSub = bunsinMinAtkSub/(1 + TryGetProp(attackerTopOwner, "PATK_RATE_BM", 0));
+        end
+        
+        bunsinMaxAtk, bunsinMinAtk = SCR_DUALHAND_ATK_CALC(from, attackerTopOwner, skill, bunsinMaxAtk, bunsinMinAtk, bunsinMaxAtkSub, bunsinMinAtkSub)
+        attackerATK = IMCRandom(bunsinMinAtk, bunsinMaxAtk);
+    end
+    
     --기본 물공에 여러가지 더해진 값
     local adjustedAttackerATK = attackerATK * factorRate;
-    
-    
     
     -- 캐릭터의 방어력
     local defenderDEF = def * (1 + (-1 * rateTable.AttackTypeRate))
@@ -1106,7 +1136,7 @@ function SCR_LIB_ATKCALC_RH(from, skill)
     end
 
     local minAtk, maxAtk = GetMinMaxATK(from, skill);
-
+    
     if IS_PC(from) == true then
         minAtk = minAtk + from.BonusDmg_BM;
         maxAtk = maxAtk + from.BonusDmg_BM;
@@ -1124,7 +1154,7 @@ function SCR_LIB_ATKCALC_LH(from, skill)
     if IS_PC(from) == true and skill.UseSubweaponDamage == "NO" then
         return SCR_LIB_ATKCALC_RH(from, skill)
     end
-
+    
     local minAtk = 1;
     local maxAtk = 1;
     
@@ -3356,5 +3386,32 @@ function SCR_RESET_SKILL_AFTER_HIT_PROP(attacker)
     DelExProp(attacker, "IS_BACKATTACK")
 end
 
-
+function SCR_DUALHAND_ATK_CALC(from, attackerTopOwner, skill, bunsinMaxAtk, bunsinMinAtk, bunsinMaxAtkSub, bunsinMinAtkSub)
+    local equipLH = GetEquipItem(attackerTopOwner, "LH");
+    local equipRH = GetEquipItem(attackerTopOwner, "RH");
+    local bunsinSkillName = TryGetProp(skill, "ClassName");
+    
+    if bunsinSkillName == "Peltasta_UmboBlow" or bunsinSkillName == "Peltasta_RimBlow" or bunsinSkillName == "Peltasta_ShieldLob" or bunsinSkillName == "Peltasta_UmboThrust" or
+        bunsinSkillName == "Rodelero_TargeSmash" or bunsinSkillName == "Rodelero_ShieldCharge" or bunsinSkillName == "Rodelero_ShieldPush" or bunsinSkillName == "Rodelero_ShieldShoving" or
+        bunsinSkillName == "Rodelero_ShieldBash" or bunsinSkillName == "Rodelero_Slithering" or bunsinSkillName == "Murmillo_ScutumHit" then
+        if TryGetProp(equipLH, "AttachType") == "Shield" then
+            local shieldDef = TryGetProp(equipLH, "DEF");
+            bunsinMaxAtk = bunsinMaxAtk + shieldDef * 0.3;
+            bunsinMinAtk = bunsinMinAtk + shieldDef * 0.3;
+        end
+    elseif bunsinSkillName == "Peltasta_ButterFly" or bunsinSkillName == "Rodelero_ShootingStar" then
+        if TryGetProp(equipLH, "AttachType") == "Shield" then
+            local shieldDef = TryGetProp(equipLH, "DEF");
+            bunsinMaxAtk = bunsinMaxAtk + shieldDef;
+            bunsinMinAtk = bunsinMinAtk + shieldDef;
+        end
+    elseif bunsinSkillName == "Corsair_DustDevil" or bunsinSkillName == "Corsair_HexenDropper" then
+        if TryGetProp(equipLH, "GroupName") == "SubWeapon" and TryGetProp(equipLH, "ClassType") ~= "Artefact" then
+            bunsinMaxAtk = bunsinMaxAtk * 0.8 + bunsinMaxAtkSub * 0.6;
+            bunsinMinAtk = bunsinMinAtk * 0.8 + bunsinMinAtkSub * 0.6;
+        end
+    end
+    
+    return bunsinMaxAtk, bunsinMinAtk
+end
 

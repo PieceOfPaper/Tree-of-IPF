@@ -165,7 +165,21 @@ function GET_CURRENT_ENTERANCE_COUNT(resetGroupID)
     if etc == nil then
         return 0;
     end
-    return etc['InDunCountType_'..resetGroupID];
+    
+    local indunClsList, cnt = GetClassList('Indun');
+    local indunCls = nil;
+    for i = 0, cnt - 1 do
+        indunCls = GetClassByIndexFromList(indunClsList, i);
+        if indunCls ~= nil and indunCls.PlayPerResetType == resetGroupID and indunCls.Category ~= 'None' then
+            break;
+        end
+    end
+    
+    if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
+        return(etc['IndunWeeklyEnteredCount_'..resetGroupID])
+    else
+        return etc['InDunCountType_'..resetGroupID];
+    end
 end
 
 function GET_MAX_ENTERANCE_COUNT(resetGroupID)
@@ -193,7 +207,11 @@ function GET_MAX_ENTERANCE_COUNT(resetGroupID)
     if isTokenState == true then
         bonusCount = indunCls.PlayPerReset_Token
     end
-    return indunCls.PlayPerReset + bonusCount;
+    if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
+        return indunCls.WeeklyEnterableCount + bonusCount;
+    else
+        return indunCls.PlayPerReset + bonusCount;
+    end
 end
 
 function INDUNINFO_DETAIL_LBTN_CLICK(parent, detailCtrl)
@@ -514,6 +532,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     local etc = GetMyEtcObject();
     local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
     local addCount = math.floor(nowCount * admissionPlayAddItemCount)
+    ---local etNowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
     
     if admissionItemCount == nil then
         admissionItemCount = 0;

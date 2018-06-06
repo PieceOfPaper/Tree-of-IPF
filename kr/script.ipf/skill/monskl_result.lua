@@ -30,7 +30,10 @@ function S_R_TGTBUFF(self, target, skill, ret, buffName, lv, arg2, bfTime, over,
 end
 
 function S_R_SELFBUFF(self, target, skill, ret, buffName, lv, arg2, bfTime, over, percent, updateTime)
-
+    if IS_REAL_PC(self) == "NO" and GetExProp(self, "BUNSIN") == 1 then
+        return
+    end
+    
     if percent < 100 and IMCRandom(1, 100) > percent then
         return;
     end

@@ -1379,6 +1379,33 @@ function FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
         local itemCount = 1;
 
         local monID = geItemTable.GetItemMonsterByName(itemName);
+        --180201 필보 보상 추가 이벤트 로직 --
+        local evepropDropCheck = TryGetProp(self, "DropItemList");
+        local bossDropList, cnt = GetClassList("MonsterDropItemList_"..evepropDropCheck);
+        local evegiveItem = nil
+        local everewardItem = nil
+        
+        for i = 0, cnt-1 do
+            local cls = GetClassByIndexFromList(bossDropList,i)
+            if cls == nil then
+                return;
+            end
+            everewardItem = TryGetProp(cls , "RewardGrade")
+            
+            if everewardItem == nil then
+                return;
+            end
+            
+            if everewardItem == "Add" then
+                local eveitemCheck = TryGetProp(cls, "ItemClassName")
+                if eveitemCheck == nil then
+                    return;
+                end
+                evegiveItem = eveitemCheck
+            break;
+            end
+        end
+        --180201 필보 이벤트 로직 종료 --
 
         if GetClassByType("Monster", monID) == nil then
             return nil;
@@ -1394,6 +1421,7 @@ function FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
             
         local tx = TxBegin(attacker);
         cmdIdx = TxGiveItem(tx, itemCls.ItemClassName, 1, "FieldBossReward");
+        TxGiveItem(tx, evegiveItem, 1, "FieldBossEventReward"); -- 필보 이벤트 보상 지급--
         resultGUID = TxGetGiveItemID(tx, cmdIdx);
         local ret = TxCommit(tx);
     

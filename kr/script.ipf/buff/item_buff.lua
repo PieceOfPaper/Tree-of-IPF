@@ -377,6 +377,7 @@ end
 
 -- salad buff
 function SCR_BUFF_ENTER_squire_food1_buff(self, buff, arg1, arg2, over)
+	local selfMHP = TryGetProp(self, "MHP") - TryGetProp(self, "MHP_BM")
     local addMhp = self.MHP * (0.075 + arg1 * 0.025);
     addMhp = math.floor(addMhp);
     SetExProp(buff, "SQUIRE_FOOD_ADD_MHP", addMhp);
@@ -391,7 +392,8 @@ end
 
 -- sandwich buff
 function SCR_BUFF_ENTER_squire_food2_buff(self, buff, arg1, arg2, over)
-    local addMsp = self.MSP * (0.075 + arg1 * 0.025);
+	local selfMSP = TryGetProp(self, "MSP") - TryGetProp(self, "MSP_BM")
+    local addMsp = selfMSP * (0.075 + arg1 * 0.025);
     addMsp = math.floor(addMsp);
     SetExProp(buff, "SQUIRE_FOOD_ADD_MSP", addMsp);
     self.MSP_BM = self.MSP_BM + addMsp;
@@ -3206,14 +3208,6 @@ end
 function SCR_BUFF_ENTER_DRUG_LOOTINGCHANCE(self, buff, arg1, arg2, over)
 
     self.LootingChance_BM = self.LootingChance_BM + arg1;
-
-end
-
-function SCR_BUFF_UPDATE_DRUG_LOOTINGCHANCE(self, buff, arg1, arg2, RemainTime, ret, over)
-    if RemainTime > 1800000 then
-        SetBuffRemainTime(self, buff.ClassName, 1800000)
-    end
-    return 1
 
 end
 

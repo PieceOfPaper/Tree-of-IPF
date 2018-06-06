@@ -201,4 +201,9 @@ function TEST_SIMULATE_ADVENTURE_BOOK(pc)
     Chat(pc, 'TEST_ADVENTURE_BOOK_FAIL END!!')
 end
 
+function TEST_ADVENTURE_BOOK_FISHING_CNT(pc, fishingCnt)
+    for i = 1, fishingCnt do
+        AddAdventureBookFishingInfo(pc, 730801, 1);
+    end
+end
 --- 테스트함수 끝!

@@ -214,16 +214,21 @@ function SCR_CARDCHECK_ATTACKTYPE_EQUIP(self, target, obj, TypeValue, arg1, arg2
     if self ~= nil and TypeValue ~= nil then
         local equipitem = GetEquipItem(self, 'RH')
         local equipType = TryGetProp(equipitem, "EqpType")
-
+        local atkType = TryGetProp(equipitem, "AttackType")
         if tonumber(arg2) ~= nil then
             arg2 = tonumber(arg2)
         end
-
+        
         if arg2 == 'None' then
             arg2 = TypeValue;
         end
         
         if arg1 == equipType then
+            arg2 = math.floor(arg2)
+            if arg2 >= IMCRandom(1, 100) then
+                return 1;
+            end
+        elseif arg1 == atkType then
             arg2 = math.floor(arg2)
             if arg2 >= IMCRandom(1, 100) then
                 return 1;

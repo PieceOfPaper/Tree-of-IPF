@@ -526,4 +526,5 @@
 	<Code Code="INFO_STATUE" Team="PROGRAM" Category="LOGIC" SubCategory="STATUE" Logger="root" Enabled="NO" CallStack="NO" Desc="동상 로드 확인"/>
 	<Code Code="INFO_CHECK_TIME" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="시간 체크"/>
 	<Code Code="INFO_CHECK_MEMORY" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="메모리 체크"/>
+	<Code Code="DEADLOCK_FIND_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="DB_DEAD_LOCK" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 데드락 찾기 위한 로그"/>
 </imcErrorCode>

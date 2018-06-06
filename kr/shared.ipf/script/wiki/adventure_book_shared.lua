@@ -311,7 +311,7 @@ function GET_ADVENTURE_BOOK_FISHING_POINT(pc)
         adv_fishing_point = ((fishing_cnt - 100)*0.2) + (50 *0.5) + (40*0.8) + (10 * 1)
         section = 4;
     elseif fishing_cnt > 1000 and fishing_cnt <= 5000 then
-        adv_fishing_point = ((fishing_cnt - 4000)*0.1) + (900*0.2) + (50 *0.5) + (40*0.8) + (10 * 1)
+        adv_fishing_point = ((fishing_cnt - 1000)*0.1) + (900*0.2) + (50 *0.5) + (40*0.8) + (10 * 1)
         section = 5;
     elseif fishing_cnt > 5000 then
         adv_fishing_point = ((fishing_cnt - 5000)*0) + (4000*0.1) + (900*0.2) + (50*0.5) + (40*0.8) + (10 * 1)

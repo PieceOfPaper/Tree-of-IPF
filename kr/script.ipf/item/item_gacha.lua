@@ -63,9 +63,12 @@ end
 -- 뽑기 기능 함수 
 -- (첫번째 뽑기에는  Group 인자가 nil이 아니다.)
 -- 참고 : function GIVE_REWARD(self, group, giveway, tx)
-function SCR_ITEM_GACHA(pc, Group, cubeID, btnVisible, bEnableDuplicate)
+function SCR_ITEM_GACHA(pc, Group, cubeID, btnVisible, bEnableDuplicate, reopenCount)
     local rewardID = 'reward_freedungeon'
     
+    if reopenCount == nil then
+        reopenCount = -1;
+    end
     if cubeID == 642501 then
         rewardID = 'reward_tp'
     end
@@ -96,7 +99,20 @@ function SCR_ITEM_GACHA(pc, Group, cubeID, btnVisible, bEnableDuplicate)
 	if IS_SEASON_SERVER(pc) == 'YES' then
 	    totalPrice = math.floor(totalPrice/2)
 	end
+
+	if reopenCount == 1 then
 	
+	    local discountRatio = TryGetProp(cubeItem, 'ReopenDiscountRatio')
+	    if discountRatio ~= nil and discountRatio > 0 then
+    	    discountRatio = 1 -  (discountRatio / 100)
+	    else
+	        discountRatio = 1;
+	    end
+	    
+	    totalPrice = SyncFloor(totalPrice * discountRatio)
+	    
+	end
+				
 	if CHECK_PC_MONEY_FOR_PAY(pc, totalPrice) == 0 then 
 		CLEAR_GACHA_COMMAND(pc, Group);
 		return;
@@ -170,11 +186,11 @@ function SCR_ITEM_GACHA(pc, Group, cubeID, btnVisible, bEnableDuplicate)
                     ClearGachaCmd(pc);
                     btnVisible = 0;
                 end
-				local sucScp = string.format("GACHA_CUBE_SUCEECD(\'%s\', \'%s\', \'%d\')", cubeID, reward, btnVisible);
+				local sucScp = string.format("GACHA_CUBE_SUCEECD(\'%s\', \'%s\', \'%d\',%d)", cubeID, reward, btnVisible, reopenCount);
 				ExecClientScp(pc, sucScp);		--성공여부를 클라이언트에 알린다.	(창 만들기)
 
-			else						
-				local sucScp = string.format("GACHA_CUBE_SUCEECD_EX(\'%s\', \'%s\', \'%d\')", cubeID, reward, btnVisible);
+			else
+			    local sucScp = string.format("GACHA_CUBE_SUCEECD_EX(\'%s\', \'%s\', \'%d\',%d)", cubeID, reward, btnVisible, reopenCount);
 				ExecClientScp(pc, sucScp);		--성공여부를 클라이언트에 알린다.	(창 요소만 바꾸기)							
 				UpdateCubeCmd(pc, reward); -- 큐브의 뽑기 횟수를 업데이트하기 위한 함수
 			end		

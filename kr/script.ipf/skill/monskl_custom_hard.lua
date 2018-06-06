@@ -660,14 +660,14 @@ function SKL_TGT_SPLASH_DMG_WITH_SR_TAKE_DAMAGE(self, skl, target, skillSR)
     return skillSR;
 end
 
--- ìŠ¤ë…¸ìš°ë¡¤ë§ì—ì„œ ë¶™ì—ˆë‹¤ê°€ ì ê°ìœ¼ë¡œ ì¸í•´ ë–¨ì–´ì§€ê³  ë°”ë¡œ ë¶™ìœ¼ë©´ ì•ˆë˜ê¸° ë•Œë¬¸ì—, ì²˜ìŒì— ê±¸ë ¸ì—ˆë˜ ìŠ¤ë…¸ë¡¤ë§ì˜ ë‚¨ì€ ì§€ì†ì‹œê°„ ë™ì•ˆ ë©´ì—­ì„ ê±´ë‹¤.
--- ì´ ë©´ì—­ ë²„í”„ë¥¼ ì²´í¬í•´ì„œ ë‹¤ì‹œ ë¶™ì¼ì§€ë¥¼ SKL_TGT_ATTACHMON ì—ì„œ ì²´í¬
--- ë„‰ë°±ì„ ì‹œí‚¬ì§€ ë§ì§€ SKL_TGT_KNOCKDOWN ì—ì„œ ì²´í¬
+-- ½º³ë¿ì·Ñ¸µ¿¡¼­ ºÙ¾ú´Ù°¡ Á¡°¨À¸·Î ÀÎÇØ ¶³¾îÁö°í ¹Ù·Î ºÙÀ¸¸é ¾ÈµÇ±â ¶§¹®¿¡, Ã³À½¿¡ °É·È¾ú´ø ½º³ë·Ñ¸µÀÇ ³²Àº Áö¼Ó½Ã°£ µ¿¾È ¸é¿ªÀ» °Ç´Ù.
+-- ÀÌ ¸é¿ª ¹öÇÁ¸¦ Ã¼Å©ÇØ¼­ ´Ù½Ã ºÙÀÏÁö¸¦ SKL_TGT_ATTACHMON ¿¡¼­ Ã¼Å©
+-- ³Ë¹éÀ» ½ÃÅ³Áö ¸»Áö SKL_TGT_KNOCKDOWN ¿¡¼­ Ã¼Å©
 local function CHECK_SNOWROLLING_IMMUNE_STATUS(player)
     if player ~= nil then
         local ret = GetBuffByName(player, "SnowRollingTemporaryImmune")
         if ret ~= nil then
-            return true -- ë©´ì—­ìƒíƒœ
+            return true -- ¸é¿ª»óÅÂ
         else
             return false
         end    
@@ -698,17 +698,17 @@ function SKL_TGT_KNOCKDOWN(self, skl, knockType, isInverseAngle, power, vAngle, 
     for i = 1 , #tgtList do
         local target = tgtList[i];
         if GetExProp(target, "NO_HIT") ~= 1 then
-            if skl.ClassName == "Cryomancer_SnowRolling" then   -- ìŠ¤ë…¸ìš°ë¡¤ë§ì´ë©´ ë©´ì—­ ìƒíƒœì¸ì§€ í™•ì¸í•˜ì.
+            if skl.ClassName == "Cryomancer_SnowRolling" then   -- ½º³ë¿ì·Ñ¸µÀÌ¸é ¸é¿ª »óÅÂÀÎÁö È®ÀÎÇÏÀÚ.
                 local immune = CHECK_SNOWROLLING_IMMUNE_STATUS(target)
                 if immune == false then
                     SKL_TOOL_KD(self, target, knockType, isInverseAngle, power, vAngle, hAngle, bound, kdRank);
                     DelExProp(target, "NO_HIT")
                 else
-                    -- ë„‰ë‹¤ìš´ ë©´ì—­
+                    -- ³Ë´Ù¿î ¸é¿ª
                     PlayTextEffect(target, "I_SYS_Text_Effect_Skill", ScpArgMsg("SHOW_GUNGHO"))
                 end
                 if IS_PC_RELATION(self, target) == true then
-                    RemoveBuff(target, "SnowRollingAttach") -- ìŠ¤ë…¸ìš°ë¡¤ë§ì´ ëì´ ë‚¬ê¸° ë•Œë¬¸ì— ì§€ì›Œì¤€ë‹¤.
+                    RemoveBuff(target, "SnowRollingAttach") -- ½º³ë¿ì·Ñ¸µÀÌ ³¡ÀÌ ³µ±â ¶§¹®¿¡ Áö¿öÁØ´Ù.
                 end
             else
                 SKL_TOOL_KD(self, target, knockType, isInverseAngle, power, vAngle, hAngle, bound, kdRank);
@@ -733,11 +733,11 @@ function SKL_TGT_ATTACHMON(self, skl, monName, nodeName, nodeRandom, attachAnim,
                     if nodeRandom == 0 then                                                    
                         AttachToObject(target, mon, nodeName, "None", 1, attachSec, 0, holdAI, 0, attachAnim)                                                    
                     else
-                        if skl.ClassName == "Cryomancer_SnowRolling" then   -- ìŠ¤ë…¸ìš°ë¡¤ë§ì´ë©´ ë©´ì—­ ìƒíƒœì¸ì§€ í™•ì¸í•˜ì.
+                        if skl.ClassName == "Cryomancer_SnowRolling" then   -- ½º³ë¿ì·Ñ¸µÀÌ¸é ¸é¿ª »óÅÂÀÎÁö È®ÀÎÇÏÀÚ.
                             local immune = CHECK_SNOWROLLING_IMMUNE_STATUS(target)
                             if immune == false then
                                 local rNodeName = nodeName .. IMCRandom(1, nodeRandom);
-                                if IS_PC_RELATION(self, target) == true then    -- ì ê° ì ìš©ì„ ìœ„í•œ ë²„í”„ëŠ” pcì¼ë•Œë§Œ ê±¸ì–´ì£¼ì.
+                                if IS_PC_RELATION(self, target) == true then    -- Á¡°¨ Àû¿ëÀ» À§ÇÑ ¹öÇÁ´Â pcÀÏ¶§¸¸ °É¾îÁÖÀÚ.
                                     local time = 3 + skl.Level
                                     AddBuff(self, target, "SnowRollingAttach", skl.Level, 1, 1000 * time, 1)                                    
                                 end
@@ -750,7 +750,7 @@ function SKL_TGT_ATTACHMON(self, skl, monName, nodeName, nodeRandom, attachAnim,
                                     AttachToObject(target, mon, rNodeName, "None", 1, attachSec, 0, holdAI, 0, attachAnim)
                                 end                                
                             else
-                                PlayTextEffect(target, "I_SYS_Text_Effect_Skill", ScpArgMsg("SnowRolling_Immune")) -- attach ë©´ì—­                                
+                                PlayTextEffect(target, "I_SYS_Text_Effect_Skill", ScpArgMsg("SnowRolling_Immune")) -- attach ¸é¿ª                                
                             end                    
                         else
                             local rNodeName = nodeName .. IMCRandom(1, nodeRandom);
@@ -1086,7 +1086,9 @@ function SKL_TGT_BUFF(self, skl, buffName, lv, arg2, applyTime, over, rate, chec
             if buff ~= nil then
                 CHECK_SHAREBUFF_BUFF(target, buff, lv, arg2, applyTime, over, rate);
             else
-                SkillCancel(self)
+				if target.ClassName ~= "hidden_monster2" then
+	                SkillCancel(self)
+				end
             end
         end
     end

@@ -571,6 +571,7 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
     local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
     local admissionPlayAddItemCount = TryGetProp(indunCls, "AdmissionPlayAddItemCount");
     local indunAdmissionItemImage = admissionItemIcon
+    local WeeklyEnterableCount = TryGetProp(indunCls, "WeeklyEnterableCount");
     
     if admissionItemCount == nil then
         admissionItemCount = 0;
@@ -581,10 +582,20 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
     if admissionItemName == "None" or admissionItemName == nil then
         -- now play count
         local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")), 0)
+        
+        if WeeklyEnterableCount ~= nil and WeeklyEnterableCount ~= "None" and WeeklyEnterableCount ~= 0 then
+            nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")), 0)
+        end
+        
         local addCount = math.floor(nowCount * admissionPlayAddItemCount);
         countData:SetTextByKey("now", nowCount);
         -- max play count
+
         local maxCount = TryGetProp(indunCls, 'PlayPerReset');
+        if WeeklyEnterableCount ~= nil and WeeklyEnterableCount ~= "None" and WeeklyEnterableCount ~= 0 then
+            maxCount = WeeklyEnterableCount
+        end
+        
         if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
             local playPerResetToken = TryGetProp(indunCls, 'PlayPerReset_Token');
             if playPerResetToken ~= nil then

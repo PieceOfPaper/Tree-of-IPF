@@ -222,17 +222,7 @@ function SCR_USE_ITEM_AddHP1(self,argObj,BuffName,arg1,arg2)
 		hpPoint = math.floor( hpPoint * (1 + self.HPPotion_BM/100));
 	end
 
-	if GetBuffByProp(self, 'Keyword', 'Curse') ~= nil then
-		hpPoint = 0;
-	end
-
-	--if self.MHP == self.HP then
-
-	--else
-		--AddHP(self, hpPoint);
 		Heal(self, hpPoint, 0);
-	--end
-	
 end
 
 function SCR_USE_ITEM_AddSP1(self,argObj,BuffName,arg1,arg2)
@@ -258,10 +248,6 @@ function SCR_USE_ITEM_AddSTA1(self,argObj,BuffName,arg1,arg2)
 	if self.STAPotion_BM > 0 then 
 		staminaPoint = math.floor(staminaPoint * (1 + self.STAPotion_BM/100));
 	end
-
-	if GetBuffByProp(self, 'Keyword', 'Curse') ~= nil then
-		staminaPoint = 0;
-	end
 	
 	AddStamina(self, staminaPoint);
 	
@@ -279,11 +265,6 @@ function SCR_USE_ITEM_AddHPSP1(self,argObj,BuffName,arg1,arg2)
 		spPoint = math.floor( spPoint * (1 + self.SPPotion_BM/100));
 	end
 
-	if GetBuffByProp(self, 'Keyword', 'Curse') ~= nil then
-		hpPoint = 0;
-		spPoint = 0;
-	end
-	
 	AddHP(self, hpPoint);
 	AddSP(self, spPoint);
 
@@ -3457,5 +3438,36 @@ end
 function SCR_USE_GOLD_MOUR_BOX_GIVE_ITEM(pc, string1, arg1, arg2)
     local tx = TxBegin(pc);
     TxGiveItem(tx, arg1, arg2, 'GOLD_MOUR_BOX_S_GIVE_COUNT'..arg2);
+    local ret = TxCommit(tx);
+end
+
+
+function SCR_USE_SNOWFLOWER_COSTUME_GIVE_ITEM(pc, target, string1, arg1, arg2, itemID)
+    local item = GetInvItemByType(pc, itemID);
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Hat_629008', 1, 'SNOWFLOWER_COSTUME_GIVE_ITEM_'..item.ClassName);
+    TxGiveItem(tx, string1, 1, 'SNOWFLOWER_COSTUME_GIVE_ITEM_'..item.ClassName);    
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_LOOTINC_POTION_GIVE_ITEM(pc, target, string1, arg1, arg2, itemID)
+    local item = GetInvItemByType(pc, itemID);
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, string1, arg1, 'Fortune_Box_GIVE_ITEM_'..item.ClassName);    
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_LOOTINC_POTION_A_GIVE_ITEM(pc, target, string1, arg1, arg2, itemID)
+    local item = GetInvItemByType(pc, itemID);
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Drug_Looting_Potion_500', 1, 'Fortune_Box_A_GIVE_ITEM_'..item.ClassName);
+    TxGiveItem(tx, 'Drug_Looting_Potion_300', 3, 'Fortune_Box_A_GIVE_ITEM_'..item.ClassName);   
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_PREMIUM_SOCEKT_GIVE_ITEM(pc, target, string1, arg1, arg2, itemID)
+    local item = GetInvItemByType(pc, itemID);
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, string1, arg1, 'PREMIUM_SOCEKT_GIVE_ITEM'..item.ClassName);    
     local ret = TxCommit(tx);
 end

@@ -176,6 +176,17 @@ function BUFF_TOOLTIP_TeamLevel(buff, cls)
 
 end
 
+
+function BUFF_TOOLTIP_DRUG_LOOTINGCHANCE(buff, cls)
+
+	local advantageText = "";
+	local buffArg1 = buff.arg1;
+	advantageText = advantageText .. ScpArgMsg("DrugLootingChance") .. " + " .. buffArg1;
+
+	return advantageText, ScpArgMsg("DrugLootingChance") .. " " .. buff.arg1;
+
+end
+
 function GET_TEAM_LEVEL_EXP_BONUS(teamLevel)
     local expBonus = 0;
     local xpCls = GetClassByType("XP_TeamLevel", teamLevel);

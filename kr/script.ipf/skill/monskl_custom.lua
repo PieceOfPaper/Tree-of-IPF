@@ -53,6 +53,10 @@ function SKL_BUFF_FOR_MONSTER(mon, skl, buffName, lv, arg2, applyTime, over, rat
 end
 
 function SKL_BUFF(mon, skl, buffName, lv, arg2, applyTime, over, rate, withPartyMember)
+    if IS_REAL_PC(mon) == "NO" and GetExProp(mon, "BUNSIN") == 1 then
+        return
+    end
+    
     if nil == withPartyMember then
         withPartyMember = 0;
     end
