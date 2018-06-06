@@ -301,8 +301,8 @@ function DRAW_APPRAISAL_PICTURE(tooltipframe)
 
 	local lastChild = equipchange:GetChild("EX" .. cnt-1)
 	local lastHeight = lastChild:GetY() + lastChild:GetHeight();
-	equipchange:Resize(width, lastHeight + 60)
-	tooltipframe:Resize(width, lastHeight + 0);
+	equipchange:Resize(width, lastHeight)
+	tooltipframe:Resize(width, lastHeight);
 end
 
 function DRAW_EQUIP_CHANGE_WEAPON_TOOLTIP(tooltipframe, invitem, equipItem, ypos, ispickitem)
