@@ -1545,6 +1545,9 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		[ES_LENS] = function() --ES_LENS
 				invSlot = invframe:GetChild("LENS");			
 		end,
+		[ES_WING] = function() --ES_WING
+				invSlot = invframe:GetChild("WING");			
+		end,
 		--[ES_HELMET] = function() end,		-- 6
 		--[ES_OUTERADD1] = function() end,	-- 11
 		--[ES_OUTERADD2] = function() end,	-- 12
