@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<UserData>
+	<EVENT_TYPE>
+		<EVENT Name="Emitter" frame="0" attachNode="None" emitterName="None" useAttach="true"/>
+		<EVENT Name="Particle" frame="0" attachNode="" particleName="None" useAttach="true"/>
+		<EVENT Name="FoodStep" frame="0" attachNode="None"/>
+		<EVENT Name="Sound" frame="0" soundFile=""/>
+		<EVENT Name="AttackSound" frame="" handPos=""/>
+		<EVENT Name="Trail" frame="0" duration="" nodeName="" imageName="" actionName=""/>
+		<EVENT Name="WeaponTrail" frame="0" keyFrameName="" imageName="" actionName=""/>
+		<EVENT Name="Voice" frame="0" prefix="" count=""/>
+		<EVENT Name="Shockwave" frame="0" shockwaveType="" intensity="" frequency="" duration="" range=""/>
+		<EVENT Name="Hittime" frame="0"/>
+		<EVENT Name="Pause" frame="0" duration=""/>
+		<EVENT Name="Force" frame="0" forceName="" attachNode="" vSpeed="" hSpeed="" fCtrlPt="0.0"/>
+		<EVENT Name="EndOfAnim" frame="0"/>
+		<EVENT Name="LookAt" frame="0" useLookAt="false" fadeInTime="0.3"/>
+    <EVENT Name="RimLight" frame="0" power="" duration="0.0" color=""/>
+    <EVENT Name="Material" frame="0" param="0" blendTime="" duration="0.0" partType="-2" itemType="-2" mtrlOption=""/>
+    <EVENT Name="AddShaderEffect" frame="0" color="0" duration="0.0" partType="-2" itemType="-2" effectType=""/>
+    <EVENT Name="MaterialChange" frame="0" mtrlName="" isOneSubMtrl="FALSE" mtrlID="0" duration="0.0" partType="-2" itemType="-2"/>
+	</EVENT_TYPE>
+	<FormDataSet Retarget="NO" RootNode="Bip01" ForceHitDummy="Bip01" TopDummy="Bip01 Head" LookAtOffset="Bip01 Head" AtkEffectOffsetHigh="16" AtkEffectOffsetMid="16" AtkEffectOffsetLow="16" BuffTopOffset="16" BuffMidOffset="16" WlkMSPD="16" RunMSPD="16" LODDist="1000" DamageOffset="0" PT_Body="-1" PT_BodyColor="-1" PT_Shirt="-1" PT_ShirtColor="-1" PT_Pants="-1" PT_PantsColor="-1" PT_Face="-1" PT_FaceColor="-1" PT_Hair="-1" PT_HairColor="-1" PT_Hat="-1" PT_HatColor="-1" PT_Gloves="-1" PT_GlovesColor="-1" PT_Boots="-1" PT_BootsColor="-1" PT_Belt="-1" PT_BeltColor="-1" PT_Jacket="-1" PT_JacketColor="-1" PT_Parts1="-1" PT_Parts1Color="-1" PT_Parts2="-1" PT_Parts2Color="-1" Item1="-1" Item1Node="None" Item1Color="-1" Item1Scale="1;1;1" Item2="-1" Item2Node="None" Item2Color="-1" Item2Scale="1;1;1" Item3="-1" Item3Node="None" Item3Color="-1" Item3Scale="1;1;1" Item4="-1" Item4Node="None" Item4Color="-1" Item4Scale="1;1;1" Item5="-1" Item5Node="None" Item5Color="-1" Item5Scale="1;1;1"/>
+	<FSM BORN="" STD="" ASTD="" WLK="" RUN="" ARUN="" DEAD="" ATK="" ATKRUN="" CAST="" SKILL="" HIT="" REACTION="" MOVEBACK=""/>
+	<Set BackGround="bg_texture\dun_pagoda\env_skin03.dds" FOV="60"/>
+	<XML ClassID="0" ClassName="None" IdleScript="None" EP_UniqueName="None" EP_Name="None" Icon="None" SET="None" BoneScale="None" Scale="0.1" Size="S" EP_WlkMSPD="0" EP_RunMSPD="0" AttachEffectIndex="None" DeadEffect="None" HitProof="NO" Rotate="YES" DialogCursor="DIALOG" CT_Faction="None" CT_GroupName="None" CT_Category="None" CT_CategoryName="None" CT_OnCheat="YES" CT_Icon="None" EP_Lv="1" CT_Grade="None" CT_STR="1" CT_LIFE="0.75" CT_DEF="0" CT_EXP="1" EP_HP="999999" CT_AniASPD="2000" CT_HitTime1="600;1100" CT_HitTime2="700" CT_HitTime3="0" EP_MinRDmg="50" EP_MaxRDmg="80" EP_FDMinR="61" EP_FDMaxR="80" CT_MinR="1" CT_MaxR="20" CT_RaceType="None" CT_JobType="None" CT_Race1="None" CT_Race2="None" CT_Race3="None" CT_LayerType="None" CT_WpnType="None" CT_SkinType="None" CT_BlowSoundType="None" CT_DefSoundType="None" CT_BlkSoundType="None" CT_AtkType="None" CT_ClassType="None" CT_ForceVel="100" CT_SplType="None" CT_SplRange="0" CT_SplLimit="0" CT_SplDam="0" CT_Buff="None" CT_BuffFreq="0" CT_DefType="None" CT_DefValue="0" CT_BlkType="None" CT_Ratio="1" CT_Rotate="YES" CT_Obstacle="NO" CT_Collision="YES" CT_Interactive="YES" CT_Hittable="YES" CT_PreDelay="0" CT_LifeTime="0" CT_DropItemIndex="None" CT_KbProof="NO" CT_HoldProof="NO" EP_PrevTSName="None" EP_TSName="None" EP_Tactics="None" CT_ActiveSpawn="None" EP_Enter="None" EP_Leave="None" EP_Dialog="None" EP_Range="0" EP_Trigger="0" CT_Occupation="None" CT_ViewInvi="FALSE" CT_AppTime="50" CT_Size="S" CT_Mass="1" CT_Hit="100" CT_RHP="0" CT_KP="0" CT_BLOCK="25" CT_Hits="1" CT_KDownPower="112" CT_KDownVAngle="45" CT_Stat="0" CT_ACC="0" CT_CRASH="0" CT_KDRank="1" CT_DyingTime="2000" EP_BattleTime="0" EP_AIFlag1="0" EP_AICount="0" EP_CreateX="0" EP_CreateY="0" CT_OpenSound="None" CT_CloseSound="None" EP_QuestName="None" EP_OnlyPCCheck="YES" CT_MergeTable1="None" CT_MergeClass1="None"/>
+</UserData>
