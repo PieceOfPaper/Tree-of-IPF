@@ -18,6 +18,31 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="Hackapell8">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Hackapell8"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Hackapell_CavalryCharge"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="CavalryChargeAbil_Buff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="5000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="Cataphract27">
 		<TriggerList Act="BeforeAttack">
 			<Trigger>

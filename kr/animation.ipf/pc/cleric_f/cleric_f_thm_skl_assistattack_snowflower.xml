@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_spitem_spray_shake"/>
+	<Sound frame="11.00" soundFile="skl_eff_spitem_spray_shot"/>
+	<Particle frame="12" attachNode="Dummy_emitter" particleName="E_PC_snowflower" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+</ActionDesc>

@@ -5247,7 +5247,7 @@ end
 
 
 function SCR_GET_Limacon_BuffTime(skill)
-    local value = 13 + skill.Level * 2
+    local value = skill.Level * 20
     return value
 end
 
@@ -8696,12 +8696,9 @@ function SCR_GET_Bunshin_no_jutsu_BuffTime(skill)
 end
 
 function SCR_GET_Aspergillum_Time(skill)
-
-
-    local value = skill.Level * 10
-
- return value
-
+    local value = skill.Level * 60
+    
+    return value
 end
 
 function SCR_GET_LastRites_Time(skill)
@@ -10647,9 +10644,7 @@ end
 
 function SCR_GET_SwiftStep_Bufftime(skill)
 
-    local pc = GetSkillOwner(skill);
-    return 15 + skill.Level * 3;
-
+    return 300
 end
 
 function SCR_GET_SwiftStep_Ratio(skill)
@@ -11171,8 +11166,8 @@ end
 
 function SCR_GET_Restoration_Ratio(skill)
     local pc = GetSkillOwner(skill);
---    local value = 100.7 + (skill.Level - 1) * 16.9;
-    local value = 100 + ((skill.Level - 1) * 10);
+    local value = 300 + ((skill.Level - 1) * 20)
+    
     local Paladin11_abil = GetAbility(pc, "Paladin11")  -- 1rank Skill Damage add
     if Paladin11_abil ~= nil then
         value = value * (1 + Paladin11_abil.Level * 0.01);
@@ -12821,8 +12816,9 @@ function SCR_Get_Monstrance_Bufftime(skill)
     local value = 20
     
     local abil = GetAbility(pc, "Priest22")
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = value + abil.Level
+    local ActiveState = TryGetProp(abil, "ActiveState")
+    if abil ~= nil and ActiveState == 1 then
+        value = value + (abil.Level * 60)
     end
     
     return math.floor(value);
@@ -12832,10 +12828,10 @@ function SCR_Get_Monstrance_Debufftime(skill)
     local pc = GetSkillOwner(skill);
     local value = 30
     
-    local abil = GetAbility(pc, "Priest22")
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = value + abil.Level
-    end
+--    local abil = GetAbility(pc, "Priest22")
+--    if abil ~= nil and abil.ActiveState == 1 then
+--        value = value + abil.Level
+--    end
     
     return math.floor(value);
 end
@@ -13345,7 +13341,7 @@ end
 function SCR_Get_SwellRightArm_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 45 + (skill.Level - 1)*10 + (skill.Level/5) * ((pc.INT + pc.MNA)*0.6)^0.9 
+    local value = 90 + (skill.Level - 1) * 20 + (skill.Level / 5) * ((pc.INT + pc.MNA) * 0.7) ^ 0.9 
     
     local Thaumaturge14_abil = GetAbility(pc, "Thaumaturge14")
     if Thaumaturge14_abil ~= nil and 1 == Thaumaturge14_abil.ActiveState then

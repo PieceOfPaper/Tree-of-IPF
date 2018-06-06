@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_craft" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="8" attachNode="Dummy_effect_craft" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="skl_move_explosion_trap"/>
+	<Sound frame="0.00" soundFile="skl_eff_pc_move"/>
+	<Sound frame="6.00" soundFile="skl_eff_collect_move"/>
+	<AttachModel frame="0" XAC="artefact_Houki" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="Houki_skl_HoukiBroom_loop.xsm"/>
+</ActionDesc>

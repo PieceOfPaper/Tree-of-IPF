@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_plaguedoctor_move"/>
+    <AttachModel frame="1" XAC="artefact_ejector" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="None"/>
+    <Particle frame="6" attachNode="Dummy_effect_Incineration" particleName="I_breath027_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

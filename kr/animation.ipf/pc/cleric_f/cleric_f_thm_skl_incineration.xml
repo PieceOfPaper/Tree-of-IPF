@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="0.00" soundFile="move_block_1"/>
+    <Sound frame="0.00" soundFile="skl_eff_plaguedoctor_move"/>
+    <AttachModel frame="1" XAC="artefact_ejector" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="None"/>
+    <Sound frame="1.00" soundFile="skl_fgt_tackle_cast"/>
+    <Particle frame="6" attachNode="Dummy_effect_Incineration" particleName="I_cleric_Incineration_breath_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="30" targetPos="false" sound="skl_fire_cast"/>
+</ActionDesc>

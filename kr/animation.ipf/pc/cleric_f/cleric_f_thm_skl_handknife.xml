@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_fgt_light_cast"/>
+	<Sound frame="0.00" soundFile="skl_wiz_snowrolling_cast"/>
+	<Sound frame="7.00" soundFile="skl_eff_atk_move_s_10"/>
+	<Sound frame="7.00" soundFile="skl_eff_archer_skl_shot2"/>
+	<Sound frame="7.00" soundFile="skl_fgt_tackle_shot"/>
+	<Shockwave frame="8" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="9" type="2" intensity="3" frequency="50" duration="0.5" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="2" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="3" R="60" G="30" B="35" A="50"/>
+	<BlendOn frame="5" R="80" G="45" B="40" A="70"/>
+	<BlendOn frame="6" R="100" G="50" B="60" A="90"/>
+	<BlendOn frame="7" R="150" G="120" B="125" A="100"/>
+	<BlendOn frame="8" R="200" G="150" B="160" A="100"/>
+	<BlendOn frame="10" R="200" G="140" B="150" A="100"/>
+	<BlendOn frame="11" R="100" G="50" B="60" A="50"/>
+	<BlendOn frame="12" R="80" G="45" B="40" A="50"/>
+	<BlendOn frame="13" R="60" G="30" B="35" A="50"/>
+	<BlendOn frame="14" R="30" G="15" B="15" A="30"/>
+	<BlendOn frame="15" R="10" G="5" B="7" A="20"/>
+	<BlendOff frame="17" R="0" G="0" B="0" A="0"/>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="E_cleric_handknife_cast" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="E_warrior_handknife_shot_trail" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+</ActionDesc>

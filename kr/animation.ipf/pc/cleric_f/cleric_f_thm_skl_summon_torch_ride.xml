@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="4" attachNode="Dummy_effect_aukuras_ground" particleName="F_cleric_aukuras_cast_burstup" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="22" attachNode="Dummy_effect_aukuras_ground" particleName="F_cleric_aukuras_cast_burstup2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Bip01 R Finger2" particleName="I_spread_out009_fire2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true"/>
+	<Particle frame="22" attachNode="Bip01 R Finger2" particleName="I_force008_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true"/>
+	<Sound frame="0.00" soundFile="skl_eff_wiz_skl_cast_2"/>
+	<Sound frame="15.00" soundFile="skl_fgt_tackle_cast"/>
+</ActionDesc>
