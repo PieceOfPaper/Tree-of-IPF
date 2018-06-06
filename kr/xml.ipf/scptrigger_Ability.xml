@@ -768,35 +768,6 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-	<SpcItem Name="Repeat">
-		<TriggerList Act="Attack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Swordman_Thrust"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
-						<Num Num="50" UseFunc="1" FuncTxt="return obj.Level"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-						<Str Str="ENEMY"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
-						<Str Str="Repeat"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_REPEATLY_HIT" Client="NO" UseSleep="NO">
-						<Str Str="Thrust_Repeat"/>
-						<Num Num="1" UseFunc="1" FuncTxt="return math.floor(obj.Level/5 + 1)"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_DAM_RATE" Client="NO" UseSleep="NO">
-						<Num Num="1.1" UseFunc="1" FuncTxt="return math.floor(obj.Level/5 + 1)*0.1 + 1;"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
 	<SpcItem Name="SPPOSIONBOOST">
 		<TriggerList Act="Consume">
 			<Trigger>

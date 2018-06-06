@@ -21,8 +21,8 @@ function SCR_REENTER_SSN_KLAPEDA(self, sObj)
         SetTimeSessionObject(self, sObj, 1, 30000, 'SCR_SSN_KLAPEDA_SETTIME_1')
     end
     
-    -- EVENT_1804_ARBOR
-    RegisterHookMsg(self, sObj, "EnterTrigger", "EVENT_1804_ARBOR_NPCEnter", "YES");
+--    -- EVENT_1804_ARBOR
+--    RegisterHookMsg(self, sObj, "EnterTrigger", "EVENT_1804_ARBOR_NPCEnter", "YES");
 
     --EVENT_1712_SECOND
 --    SetTimeSessionObject(self, sObj, 2, 60000, 'SCR_SSN_KLAPEDA_EVENT_1712_SECOND','YES')
@@ -671,6 +671,23 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
                 AddHelpByName(self, 'TUTO_GEM_ROASTING')
             end
         end
+    elseif argStr == 'c_barber_dress' then
+        local bufflist, buffcount = GetBuffListByProp(self, 'Keyword', 'Helmet')
+        for i = 1, buffcount do
+            local buff = bufflist[i]
+            if buff.TooltipType ~= "Premium" then
+                RemoveBuff(self, buff.ClassName);
+            end
+        end
+        
+        
+        if IS_PC_BEAUTYSHOP_FIRST_FLOOR(self) == true then
+            FixCamera(self, -7.83 , 4.81, 13.42, 240);
+        else -- second floor
+            FixCamera(self, 34.79, 6.98, 1098.98, 240);
+        end
+        AddBuff(self, self, "BEAUTY_HAIR_BUFF")
+        
     elseif argStr == 'f_pilgrimroad_31_2' then
         PILGRIM312_SQ_04_01_ADD(self, sObj, msg, argObj, argStr, argNum)
     elseif argStr == 'f_bracken_63_1' then
@@ -905,8 +922,8 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         end
     end
 
-    -- EVENT_1804_WEEKEND
-    EVENT_1804_WEEKEND(self)
+--    -- EVENT_1804_WEEKEND
+--    EVENT_1804_WEEKEND(self)
     
     
      -- MISSION_SURVIVAL_EVENT2
@@ -1535,8 +1552,11 @@ function SCR_SSN_KLAPEDA_KillMonster_Sub(self, sObj, msg, argObj, argStr, argNum
             end
         end
         
+        -- EVENT_1805_WEDDING1
+        SCR_EVENT_1805_WEDDING1_DROP(self, sObj, msg, argObj, argStr, argNum) 
+
 --        -- EVENT_1804_ARBOR
-        SCR_EVENT_1804_ARBOR_DROP(self, sObj, msg, argObj, argStr, argNum) 
+--        SCR_EVENT_1804_ARBOR_DROP(self, sObj, msg, argObj, argStr, argNum) 
 
 --        -- EVENT
 --        SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
@@ -2451,8 +2471,8 @@ function SCR_SSN_KLAPEDA_SETTIME_1(self, sObj, remainTime)
 --    -- 2017.12.02 ~ 2017.12.03 LootingChance + 2000 Event --
 --    SCR_EVENT_171202_171203_LOOTINGCHANCE(self)
     
-    --EVENT_1804_WEEKEND
-    EVENT_1804_WEEKEND_BUFF_REMOVE(self)
+--    --EVENT_1804_WEEKEND
+--    EVENT_1804_WEEKEND_BUFF_REMOVE(self)
 end
 
 --function SCR_EVENT_1710_HOLIDAY(self)

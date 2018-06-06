@@ -108,6 +108,15 @@ function MON_BORN_ATTRIBUTE_INVINCIBILITY_EXCEPT_FOR_CERTAIN_ATTACKS(self)
     AddBuff(self, self, 'INVINCIBILITY_EXCEPT_FOR_CERTAIN_ATTACKS');
 end
 
+function MON_BORN_ATTRIBUTE_TOWER_SET(self)
+    AddBuff(self, self, 'GM_Tower_Setting_Buff');
+end
+
+function MON_BORN_UNRECOVERABLE_HP(self)
+    AddBuff(self, self, "UC_UnrecoverableHP")
+    print(IsBuffApplied(self, "UC_UnrecoverableHP"))
+end
+
 -- Field Boss --
 function SCR_FIELD_BOSS_NEAR_ENTER(self, pc)
     AddBuff(self, pc, 'Ability_SoulCrystal_Debuff', 1, 0, 0, 1)
@@ -684,5 +693,14 @@ function SCR_BUFF_UPDATE_Ability_Detecting_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_LEAVE_Ability_Detecting_Buff(self, buff, arg1, arg2, over)
+
+end
+
+--GM_Tower_Setting_Buff
+function SCR_BUFF_ENTER_GM_Tower_Setting_Buff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_LEAVE_GM_Tower_Setting_Buff(self, buff, arg1, arg2, RemainTime)
 
 end

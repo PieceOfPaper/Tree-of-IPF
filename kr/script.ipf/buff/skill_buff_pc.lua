@@ -2318,22 +2318,30 @@ function SCR_BUFF_ENTER_EnchantFire_Buff(self, buff, arg1, arg2, over)
     end
     
     fireAtk = math.floor(fireAtk)
-    self.Fire_Atk_BM = self.Fire_Atk_BM + fireAtk
-
+    if IS_PC(self) == true then
+        self.Fire_Atk_BM = self.Fire_Atk_BM + fireAtk
+    else
+        self.ADD_FIRE_BM = self.ADD_FIRE_BM + fireAtk
+    end
+    
     SetExProp(buff, "ADD_FIRE", fireAtk);
-
+    
     local Name = GetName(caster)
     if self.Name ~= Name then
         SkillTextEffect(nil, self, caster, "SHOW_FIRE_DETONATION", buff.ClassID, nil, Name);
     end
-
+    
     SetBuffArgs(buff, lv, casterMATK, 0);
 end
 
 function SCR_BUFF_LEAVE_EnchantFire_Buff(self, buff, arg1, arg2, over)
 
     local fireAtk = GetExProp(buff, "ADD_FIRE");
-    self.Fire_Atk_BM = self.Fire_Atk_BM - fireAtk
+    if IS_PC(self) == true then
+        self.Fire_Atk_BM = self.Fire_Atk_BM - fireAtk
+    else
+        self.ADD_FIRE_BM = self.ADD_FIRE_BM - fireAtk
+    end
     
 end
 
@@ -8371,16 +8379,16 @@ function SCR_BUFF_UPDATE_Thurisaz_Buff(self, buff, arg1, arg2, RemainTime, ret, 
 end
 
 function SCR_BUFF_LEAVE_Thurisaz_Buff(self, buff, arg1, arg2, over)
-    local Aspersion_Buff = GetBuffByName(self, 'Aspersion_Buff')
-    local AspersionArg1, AspersionArg2, AspersionRemainTime = 0, 0, 0;
-    local AspersionCaster = nil;
-    if nil ~= Aspersion_Buff then
-        AspersionArg1, AspersionArg2 = GetBuffArg(Aspersion_Buff);
-        AspersionRemainTime = GetBuffRemainTime(Aspersion_Buff);
-        caster = GetBuffCaster(Aspersion_Buff);
-    end
-
-    RemoveBuff(self, 'Aspersion_Buff')
+--    local Aspersion_Buff = GetBuffByName(self, 'Aspersion_Buff')
+--    local AspersionArg1, AspersionArg2, AspersionRemainTime = 0, 0, 0;
+--    local AspersionCaster = nil;
+--    if nil ~= Aspersion_Buff then
+--        AspersionArg1, AspersionArg2 = GetBuffArg(Aspersion_Buff);
+--        AspersionRemainTime = GetBuffRemainTime(Aspersion_Buff);
+--        caster = GetBuffCaster(Aspersion_Buff);
+--    end
+--
+--    RemoveBuff(self, 'Aspersion_Buff')
 
     ChangeScalePC(self, 1/2, 0)
     local defadd = GetExProp(buff, "ADD_DEF")
@@ -8395,9 +8403,9 @@ function SCR_BUFF_LEAVE_Thurisaz_Buff(self, buff, arg1, arg2, over)
     self.Size = "M";
     ClearLimitationSkillList(self);
     
-    if nil ~= Aspersion_Buff then
-        AddBuff(AspersionCaster, self, 'Aspersion_Buff', AspersionArg1, AspersionArg2, AspersionRemainTime, 1);
-    end
+--    if nil ~= Aspersion_Buff then
+--        AddBuff(AspersionCaster, self, 'Aspersion_Buff', AspersionArg1, AspersionArg2, AspersionRemainTime, 1);
+--    end
 end
 
 

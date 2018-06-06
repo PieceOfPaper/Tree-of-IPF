@@ -1,5 +1,16 @@
 -- test.lua
 
+function TEST_FIXCAMERA(pc, x, y, z, dist)
+
+    FixCamera(pc, x,y,z,dist)
+end
+
+function TEST_CANCEL_FIXCAMERA(pc)
+
+    CancelFixCamera(pc)
+end
+
+
 -- 은둔자의 통로가서 무녀 마스터 앞에서 테스트.
 -- TxHide 테스트
 function TEST_TXHIDE(pc)
@@ -7580,6 +7591,15 @@ function TEST_CHECK_FIND_PATH_TO_PC(pc, dist)
         Chat(mon, isFound)
         print(mon.ClassName, isFound)
 	end
+end
+
+function TEST_BEAUTY_TRACK(pc, value)
+    value = tonumber(value);
+    if value == 1 then
+        PlayDirection(pc, "BARBER_TRACK_1")
+    elseif value == 2 then
+        PlayDirection(pc, "DRESS_TRACK_1")
+    end
 end
 
 function REINFORCE_ALLWEAPON2(pc, value)

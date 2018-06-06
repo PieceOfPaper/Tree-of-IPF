@@ -53,6 +53,18 @@ function SCR_PAD_USEABLE_RELATION_FRIEND_CHECK(self, pad, target)
     return 0;
 end
 
+function PAD_USEABLE_PC(self, skl, pad)
+    SetUseableCheckFunc(pad, "SCR_PAD_USEABLE_PC_CHECK");
+end
+
+function SCR_PAD_USEABLE_PC_CHECK(self, pad, target)
+    if IS_PC(target) == true then
+        return 1;
+    end
+    
+    return 0;
+end
+
 function PAD_USEABLE_FUNCNAME(self, skl, pad, funcName)
     SetUseableCheckFunc(pad, funcName);
 end

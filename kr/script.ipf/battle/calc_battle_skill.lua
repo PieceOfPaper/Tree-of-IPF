@@ -149,14 +149,19 @@ function SCR_CALC_HATE_POINT(attacker, AddHatePoint, skill)
     if cardHateRate == nil then
         cardHateRate = 0;
     end
+    local buffHateRate = GetExProp(attacker, "BUFF_HATE_RATE");
+    if buffHateRate == nil then
+        buffHateRate = 0;
+    end
+    
     skillHateRate = 1 * skillHateRate;
     
-    cardHateRate = 1 + (cardHateRate / 100);
+    local addHateRate = 1 + ((cardHateRate + buffHateRate)/100);
     if skillHateRate <= 0 then
         skillHateRate = 1;
     end
     
-    AddHatePoint = AddHatePoint * cardHateRate * skillHateRate;
+    AddHatePoint = AddHatePoint * addHateRate * skillHateRate;
     
     --여기서 리턴하는 HATE 수치가 최종적으로 적용되는 값은
     --C++ 코드에서 AddHatePoint + returnValue

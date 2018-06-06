@@ -46,7 +46,7 @@ function SKILLTREE_ON_JOB_CHANGE(frame)
 	UPDATE_SKILLTREE(frame)
 end
 
-function SKILLTREE_OPEN(frame)	
+function SKILLTREE_OPEN(frame)
 	local questInfoSetFrame = ui.GetFrame('questinfoset_2');
 	if questInfoSetFrame:IsVisible() == 1 then
 		questInfoSetFrame:ShowWindow(0);
@@ -329,8 +329,7 @@ function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 
 	local skilltreeframe = ui.GetFrame('skilltree')
 	local CTL_WIDTH = skilltreeframe:GetUserConfig("ControlWidth")
-	local CTL_HEIGHT = skilltreeframe:GetUserConfig("ControlHeight")	
-
+	local CTL_HEIGHT = skilltreeframe:GetUserConfig("ControlHeight");
 	local classCtrl = detail:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass.ClassName, 10 + (CTL_WIDTH + g_skilltree_xBetweenMargin) * row, posY + 20 + (CTL_HEIGHT + g_skilltree_yBetweenMargin) * col);
 	classCtrl:ShowWindow(1);
 	
@@ -338,7 +337,12 @@ function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 	if abilClass.AlwaysActive == 'NO' then
 		-- 특성 활성화 버튼        
 		local activeImg = GET_CHILD(classCtrl, "activeImg", "ui::CPicture");
-	    activeImg:EnableHitTest(1);
+        activeImg:SetEventScript(ui.LBUTTONUP, "TOGGLE_ABILITY_ACTIVE");
+        activeImg:SetEventScriptArgString(ui.LBUTTONUP, abilClass.ClassName);
+        activeImg:SetEventScriptArgNumber(ui.LBUTTONUP, abilClass.ClassID);
+        activeImg:SetOverSound('button_over');
+        activeImg:SetClickSound('button_click_big');
+	    activeImg:EnableHitTest(0);
 
         local ret = true
         if abilClass.SkillCategory ~= 'None' then
@@ -348,12 +352,7 @@ function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
         end
         
         if ret == true then
-            activeImg:SetEventScript(ui.LBUTTONUP, "TOGGLE_ABILITY_ACTIVE");
-	        activeImg:SetEventScriptArgString(ui.LBUTTONUP, abilClass.ClassName);
-	        activeImg:SetEventScriptArgNumber(ui.LBUTTONUP, abilClass.ClassID);
-            activeImg:SetOverSound('button_over');
-	        activeImg:SetClickSound('button_click_big');
-
+        	activeImg:EnableHitTest(1);
             if abilClass.ActiveState == 1 then                
 		        activeImg:SetImage("ability_on");                
 	        else
@@ -784,7 +783,7 @@ function SKILLLIST_GAMESTART(frame)
 	OPEN_SKILL_INFO(frame, nil, cls.ClassName, selectJobID, 1);
 end
 
-function UPDATE_SKILLTREE(frame)    
+function UPDATE_SKILLTREE(frame)
 	local reservereset = session.GetUserConfig("SKL_RESET", 0);
 	if reservereset == 1 then
         local skillResetPotion = true
@@ -975,8 +974,7 @@ function REFRESH_SKILL_TREE(frame, skillResetPotion, resetCommonType)
 		OPEN_SKILL_INFO(frame, nil, cls.ClassName, selectJobID, 0, skillResetPotion)
 	end
 
-	UPDATE_LEARING_ABIL_INFO(frame)
-
+	UPDATE_LEARING_ABIL_INFO(frame);
 	frame:Invalidate();
 end
 

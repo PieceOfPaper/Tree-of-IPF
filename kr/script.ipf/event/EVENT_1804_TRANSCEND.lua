@@ -11,12 +11,12 @@ function SCR_USE_EVENT_1804_TRANSCEND_REINFORCE_CUBE(self,argObj,str1,arg1,arg2)
 end
 
 
-function SCR_EVENT_1804_TRANSCEND_SHOP_DIALOG(self, pc)
-    local select = ShowSelDlg(pc, 0, 'EVENT_1804_TRANSCEND_SHOP_DLG1', ScpArgMsg('EVENT_1712_MORUKING_MSG2'), selmsg1_2, ScpArgMsg('Auto_DaeHwa_JongLyo'))
-    if select == 1 then
-        ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP_OPEN()")
-    end
-end
+--function SCR_EVENT_1804_TRANSCEND_SHOP_DIALOG(self, pc)
+--    local select = ShowSelDlg(pc, 0, 'EVENT_1804_TRANSCEND_SHOP_DLG1', ScpArgMsg('EVENT_1712_MORUKING_MSG2'), selmsg1_2, ScpArgMsg('Auto_DaeHwa_JongLyo'))
+--    if select == 1 then
+--        ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP_OPEN()")
+--    end
+--end
 
 function SCR_PRE_EVENT_1804_TRANSCEND_SHOP_SILVER_BOX_14D(self, argStr, arg1, arg2)
     local count = GetInvItemCount(self, 'Vis')

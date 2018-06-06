@@ -2094,31 +2094,32 @@ function SCR_REINFORCE_COUPON_PRECHECK(pc, price)
     return price, retCouponList
 end
 
-function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
-    if GetServerNation() ~= "KOR" then
-        return 'NO'
-    end
-    
-    local now_time = os.date('*t')
-    local year = now_time['year']
-    local month = now_time['month']
-    local day = now_time['day']
-    
-    if IsServerSection(pc) ~= 1 then
-        local serverTime = imcTime.GetCurdateNumber()
-        year = 2000 + tonumber(string.sub(serverTime,1, 2))
-        month = tonumber(string.sub(serverTime,3, 4))
-        day = tonumber(string.sub(serverTime,5, 6))
-    end
-    
-    local nowbasicyday = SCR_DATE_TO_YDAY_BASIC_2000(year, month, day)
-
-    if nowbasicyday >= SCR_DATE_TO_YDAY_BASIC_2000(2018, 4, 19) and nowbasicyday <= SCR_DATE_TO_YDAY_BASIC_2000(2018, 5, 3) then
-        return 'YES'
-    end
-    
-    return 'NO'
-end
+----EVENT_1804_TRANSCEND_REINFORCE
+--function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
+--    if GetServerNation() ~= "KOR" then
+--        return 'NO'
+--    end
+--    
+--    local now_time = os.date('*t')
+--    local year = now_time['year']
+--    local month = now_time['month']
+--    local day = now_time['day']
+--    
+--    if IsServerSection(pc) ~= 1 then
+--        local serverTime = imcTime.GetCurdateNumber()
+--        year = 2000 + tonumber(string.sub(serverTime,1, 2))
+--        month = tonumber(string.sub(serverTime,3, 4))
+--        day = tonumber(string.sub(serverTime,5, 6))
+--    end
+--    
+--    local nowbasicyday = SCR_DATE_TO_YDAY_BASIC_2000(year, month, day)
+--
+--    if nowbasicyday >= SCR_DATE_TO_YDAY_BASIC_2000(2018, 4, 19) and nowbasicyday <= SCR_DATE_TO_YDAY_BASIC_2000(2018, 5, 3) then
+--        return 'YES'
+--    end
+--    
+--    return 'NO'
+--end
 
 
 
@@ -2327,4 +2328,26 @@ function SCR_TEXT_HIGHLIGHT(dialogClassName, text)
     end
     
     return text
+end
+
+function GET_DATE_BY_DATE_STRING(dateString) -- yyyy-mm-ddThh:mm:ss
+    local tIndex = string.find(dateString, ' ');
+    if tIndex == nil then
+        return -1;
+    end
+    local dateStr = string.sub(dateString, 0, tIndex - 1);
+    local firstHipenIndex = string.find(dateString, '-');
+    local secondHipenIndex = string.find(dateString, '-', firstHipenIndex + 1);
+    local year = tonumber(string.sub(dateStr, 0, firstHipenIndex - 1));
+    local month = tonumber(string.sub(dateStr, firstHipenIndex + 1, secondHipenIndex - 1));
+    local day = tonumber(string.sub(dateStr, secondHipenIndex + 1));
+
+    local hourStr = string.sub(dateString, tIndex + 1);
+    local firstColonIndex = string.find(hourStr, ':');
+    local secondColonIndex = string.find(hourStr, ':', firstColonIndex + 1);
+    local hour = tonumber(string.sub(hourStr, 0, firstColonIndex - 1));
+    local minute = tonumber(string.sub(hourStr, firstColonIndex + 1, secondColonIndex - 1));
+    local second = tonumber(string.sub(hourStr, secondColonIndex + 1));
+
+    return year, month, day, hour, minute, second;
 end

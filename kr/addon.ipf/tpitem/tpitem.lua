@@ -97,6 +97,8 @@ function TPITEM_OPEN(frame)
 			btn2:SetEnable(0)
 		end
 	end
+
+	RECYCLE_MAKE_TREE(frame);
 end
 
 function TPSHOP_TAB_VIEW(frame, curtabIndex)
@@ -112,74 +114,82 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	screenbgTemp:ShowWindow(0);
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	local rcycle_basketgbox = GET_CHILD_RECURSIVELY(frame,'rcycle_basketgbox');
+
+	local rcycle_toitemBtn = GET_CHILD_RECURSIVELY(frame, 'rcycle_toitemBtn');
+	local basketBuyBtn = GET_CHILD_RECURSIVELY(frame, 'basketBuyBtn');
+	basketBuyBtn:SetEnable(1);
+	rcycle_toitemBtn:SetEnable(1);
 	
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
-	if curtabIndex == 0 then	
-		TPITEM_DRAW_NC_TP();
-		TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-		basketgbox:SetVisible(0);
-		previewgbox:SetVisible(0);
-		previewStaticTitle:SetVisible(0);	
-		cashInvGbox:SetVisible(1);
-		rcycle_basketgbox:SetVisible(0);
-		tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
-		tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
-	elseif curtabIndex == 1 then
-		basketgbox:SetVisible(1);
-		previewgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);
-		cashInvGbox:SetVisible(0);
-		rcycle_basketgbox:SetVisible(0);
-	elseif curtabIndex == 2 then -- 리사이클 샵
-		rcycle_basketgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);	
-		previewgbox:SetVisible(1);
-		basketgbox:SetVisible(0);
-		cashInvGbox:SetVisible(0);
-		RECYCLE_SHOW_TO_ITEM()
-	end
+		if curtabIndex == 0 then	
+			TPITEM_DRAW_NC_TP();
+			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
+			basketgbox:SetVisible(0);
+			previewgbox:SetVisible(0);
+			previewStaticTitle:SetVisible(0);	
+			cashInvGbox:SetVisible(1);
+			rcycle_basketgbox:SetVisible(0);
+			tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
+			tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
+		elseif curtabIndex == 1 then
+			basketgbox:SetVisible(1);
+			previewgbox:SetVisible(1);
+			previewStaticTitle:SetVisible(1);
+			cashInvGbox:SetVisible(0);
+			rcycle_basketgbox:SetVisible(0);
+		elseif curtabIndex == 2 then -- 리사이클 샵
+			rcycle_basketgbox:SetVisible(1);
+			previewStaticTitle:SetVisible(1);	
+			previewgbox:SetVisible(1);
+			basketgbox:SetVisible(0);
+			cashInvGbox:SetVisible(0);
+			RECYCLE_SHOW_TO_ITEM()
+		elseif curtabIndex == 3 then
+			basketBuyBtn:SetEnable(0);
+			rcycle_toitemBtn:SetEnable(0);
+		end
 	elseif (config.GetServiceNation() == "THI") then	
-	if curtabIndex == 0 then	
-		UPDATE_NEXON_AMERICA_SELLITEMLIST();
-		TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-		basketgbox:SetVisible(0);
-		previewgbox:SetVisible(0);
-		previewStaticTitle:SetVisible(0);	
-		cashInvGbox:SetVisible(0);
-		rcycle_basketgbox:SetVisible(0);
-		ncChargebtn:SetVisible(0);
-	elseif curtabIndex == 1 then
-		basketgbox:SetVisible(1);
-		previewgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);
-		cashInvGbox:SetVisible(0);
-		rcycle_basketgbox:SetVisible(0);
-		ncChargebtn:SetVisible(0);
-	elseif curtabIndex == 2 then -- 리사이클 샵
-		rcycle_basketgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);	
-		previewgbox:SetVisible(1);
-		basketgbox:SetVisible(0);
-		cashInvGbox:SetVisible(0);
-		ncChargebtn:SetVisible(0);
-		RECYCLE_SHOW_TO_ITEM()
-	end
+		if curtabIndex == 0 then	
+			UPDATE_NEXON_AMERICA_SELLITEMLIST();
+			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
+			basketgbox:SetVisible(0);
+			previewgbox:SetVisible(0);
+			previewStaticTitle:SetVisible(0);	
+			cashInvGbox:SetVisible(0);
+			rcycle_basketgbox:SetVisible(0);
+			ncChargebtn:SetVisible(0);
+		elseif curtabIndex == 1 then
+			basketgbox:SetVisible(1);
+			previewgbox:SetVisible(1);
+			previewStaticTitle:SetVisible(1);
+			cashInvGbox:SetVisible(0);
+			rcycle_basketgbox:SetVisible(0);
+			ncChargebtn:SetVisible(0);
+		elseif curtabIndex == 2 then -- 리사이클 샵
+			rcycle_basketgbox:SetVisible(1);
+			previewStaticTitle:SetVisible(1);	
+			previewgbox:SetVisible(1);
+			basketgbox:SetVisible(0);
+			cashInvGbox:SetVisible(0);
+			ncChargebtn:SetVisible(0);
+			RECYCLE_SHOW_TO_ITEM()
+		end
 	else
-	if curtabIndex == 0 then
-		basketgbox:SetVisible(1);
-		previewgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);
-		cashInvGbox:SetVisible(0);
-		rcycle_basketgbox:SetVisible(0);
-	elseif curtabIndex == 1 then -- 리사이클 샵
-		rcycle_basketgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);	
-		previewgbox:SetVisible(1);
-		basketgbox:SetVisible(0);
-		cashInvGbox:SetVisible(0);
-		RECYCLE_SHOW_TO_ITEM()
+		if curtabIndex == 0 then
+			basketgbox:SetVisible(1);
+			previewgbox:SetVisible(1);
+			previewStaticTitle:SetVisible(1);
+			cashInvGbox:SetVisible(0);
+			rcycle_basketgbox:SetVisible(0);
+		elseif curtabIndex == 1 then -- 리사이클 샵
+			rcycle_basketgbox:SetVisible(1);
+			previewStaticTitle:SetVisible(1);	
+			previewgbox:SetVisible(1);
+			basketgbox:SetVisible(0);
+			cashInvGbox:SetVisible(0);
+			RECYCLE_SHOW_TO_ITEM()
+		end
 	end
-end
 end
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
@@ -288,8 +298,9 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	input:ClearText();
 	editDiff:SetVisible(1);
 		
-	local basketslotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
-	basketslotset:ClearIconAll();
+	local basketslotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")	
+	TPITEM_CLEAR_SLOTSET(basketslotset);
+
 	local rcycle_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketbuyslotset")
 	rcycle_basketbuyslotset:ClearIconAll();
 	local rcycle_basketsellslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketsellslotset")
@@ -346,6 +357,15 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 
 	control.EnableControl(0);
 	ui.SetUILock(true);
+end
+
+function TPITEM_CLEAR_SLOTSET(slotset)
+	local slotCount = slotset:GetSlotCount();
+	for i = 0, slotCount - 1 do
+		local slot = slotset:GetSlotByIndex(i);
+		slot:SetUserValue('TPITEMNAME', 'None');
+	end
+	slotset:ClearIconAll();
 end
 
 function SET_TOPMOST_FRAME_SHOWFRAME(show)
@@ -541,6 +561,7 @@ function TPITEM_CLOSE(frame)
 
 	ui.CloseFrame("recycleshop_popupmsg");
 	ui.CloseFrame("tpitem_popupmsg");
+	ui.CloseFrame('packagelist');
 end
 
 -- 분류에 따라 항목의 아이템들을 그리기 설정
@@ -971,13 +992,20 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 		desc:SetText("{#990000}"..GET_USEJOB_TOOLTIP(itemobj).."{/}")
 	end
 
+	local argStr = string.format('%d;%d;', obj.ClassID, obj.Price);
 	local tradeable = GET_CHILD_RECURSIVELY(itemcset,"tradeable")
 	local itemProp = geItemTable.GetPropByName(itemobj.ClassName);
 	if itemProp:IsEnableUserTrade() == true then
 		tradeable:ShowWindow(0)
+		argStr = argStr..'T';
 	else
 		tradeable:ShowWindow(1)
+		argStr = argStr..'F';
 	end
+
+	slot:SetEventScript(ui.LBUTTONDOWN, 'TPITEM_SHOW_PACKAGELIST');
+	slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, itemclsID);
+	slot:SetEventScriptArgString(ui.LBUTTONDOWN, argStr);
 
 	local buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");
 	buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, tpitem_clsID);
@@ -1423,6 +1451,10 @@ end
 
 function TPSHOP_ITEMSEARCH_CLICK(parent, control, strArg, intArg)
 	local editDiff = GET_CHILD(parent, "editDiff");
+    if editDiff == nil then
+        local frame = parent:GetTopParentFrame();
+        editDiff = GET_CHILD_RECURSIVELY(frame, 'recycle_editDiff');
+    end
 	editDiff:SetVisible(0);
 	control:ClearText();
 end
@@ -1544,6 +1576,15 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 	local apc = pcSession:GetPCDummyApc();
 	local invframe = ui.GetFrame("inventory");
 	local invSlot = nil;
+
+	-- 내 캐릭터의 가발 보이기/안보이기 설정에 따라 APC도 보이기/안보이기 설정을 해야 한다.
+	local myPCetc = GetMyEtcObject();
+	local hairWig_Visible = myPCetc.HAIR_WIG_Visible
+	if hairWig_Visible == 1 then
+		apc:SetHairWigVisible(true);
+	else
+		apc:SetHairWigVisible(false);
+	end
 	
 	-- 장착 슬롯에 따라 리셋
 	for i = 0, ES_LAST do	--  EQUIP_SPOT만이 아닌 ES_LENS 포함
@@ -1938,10 +1979,10 @@ function TPSHOP_ITEM_BASKET_BUY_CANCEL()
 	ui.CloseFrame('tpitem_popupmsg');
 end
 
-function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)	
+function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)		
 	local tpitem_popupmsg = ui.GetFrame('tpitem_popupmsg');
 	if tpitem_popupmsg ~= nil and tpitem_popupmsg:IsVisible() == 1 then
-		return;
+		return false;
 	end
 
 	g_TpShopParent = parent;
@@ -1949,19 +1990,19 @@ function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_
 	
 	local obj = GetClassByType("TPitem", tpitem_clsID)
 	if obj == nil then
-		return;
+		return false;
 	end
 	
 	local itemobj = GetClass("Item", obj.ItemClassName)
 	if itemobj == nil then
-		return;
+		return false;
 	end
 
 	local classid = itemobj.ClassID;
 	local item = GetClassByType("Item", classid)
 
 	if item == nil then
-		return;
+		return false;
 	end
 
 	if ui.IsMyDefaultHairItem(classid) == true then
@@ -1987,12 +2028,11 @@ function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_
     local limit = GET_LIMITATION_TO_BUY(obj.ClassID);
 	if isHave == true then
 		ui.MsgBox(ClMsg("AlearyHaveItemReallyBuy?"), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
-	elseif TPITEM_IS_ALREADY_PUT_INTO_BASKET(parent:GetTopParentFrame(), obj) == true then
-		ui.MsgBox(ClMsg("AleadyPutInBasketReallyBuy?"), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
-	elseif limit == 'ACCOUNT' then
+    elseif limit == 'ACCOUNT' then
 		local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID, classid);
 		if curBuyCount >= obj.AccountLimitCount then
 			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded","Value", obj.AccountLimitCount), "")
+            return false;
 		else
 			ui.MsgBox(ScpArgMsg("SelectPurchaseRestrictedItem","Value", obj.AccountLimitCount), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
 		end
@@ -2000,12 +2040,16 @@ function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_
         local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID, classid);
 		if curBuyCount >= obj.MonthLimitCount then
 			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded","Value", obj.MonthLimitCount), "")
+            return false;
 		else
 			ui.MsgBox(ScpArgMsg("SelectPurchaseRestrictedItemByMonth","Value", obj.MonthLimitCount), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
 		end
+	elseif TPITEM_IS_ALREADY_PUT_INTO_BASKET(parent:GetTopParentFrame(), obj) == true then
+		ui.MsgBox(ClMsg("AleadyPutInBasketReallyBuy?"), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");	
 	else
 		TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
 	end
+    return true;
 end
 
 function TPSHOP_ITEM_TO_BASKET(tpitemname, classid)	
@@ -2032,6 +2076,12 @@ function TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
 		return
 	end
 
+	local frame = parent:GetTopParentFrame();
+	if CHECK_ALREADY_IN_LIMIT_ITEM(frame, tpitem) == false then
+		ui.SysMsg(ClMsg('AleadyPutInBasket'));
+		return;
+	end
+
 	if tpitem.SubCategory == "TP_Costume_Color" then
 		local etc = GetMyEtcObject();
 		if nil == etc then
@@ -2051,7 +2101,6 @@ function TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
         end
 	end
 
-	local frame = parent:GetTopParentFrame()
 	local slotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
 	local slotCount = slotset:GetSlotCount();
 
@@ -3138,4 +3187,37 @@ function TPITEM_IS_ALREADY_PUT_INTO_BASKET(frame, tpitem)
 		end
 	end
 	return false;
+end
+
+function TPITEM_SHOW_PACKAGELIST(parent, ctrl, argStr, itemID)
+	PACKAGELIST_SHOW(itemID, argStr);
+end
+
+g_tpItemMap = {};
+function GET_TPITEMID_BY_ITEM_NAME(itemName)
+	if #g_tpItemMap < 1 then
+		local clslist, cnt = GetClassList('TPitem');
+		for i = 0, cnt - 1 do
+			local cls = GetClassByIndexFromList(clslist, i);
+			g_tpItemMap[cls.ItemClassName] = cls.ClassID;
+		end
+	end
+	return g_tpItemMap[itemID];
+end
+
+function CHECK_ALREADY_IN_LIMIT_ITEM(frame, tpItem)
+	local limit = GET_LIMITATION_TO_BUY(tpItem.ClassID);
+	if limit == 'NO' then
+		return true;
+	end
+
+	local basketslotset = GET_CHILD_RECURSIVELY(frame, 'basketslotset');
+	local slotCnt = basketslotset:GetSlotCount();
+	for i = 0, slotCnt - 1 do
+		local slot = basketslotset:GetSlotByIndex(i);
+		if slot:GetUserValue('TPITEMNAME') == tpItem.ClassName then
+			return false;		
+		end	
+	end
+	return true;
 end

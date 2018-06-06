@@ -493,7 +493,7 @@ function GAME_ST_EVT_COND_TIMECHECK_START(cmd, curStage, eventInst, obj, sec)
 end
 
 function GAME_ST_EVT_COND_STAGE_TIME_CHECK(cmd, curStage, eventInst, obj, sec)
-
+    
 	local stageTime = cmd:GetStageTime(curStage);
 	if stageTime > sec then
 		return 1;
@@ -504,8 +504,10 @@ function GAME_ST_EVT_COND_STAGE_TIME_CHECK(cmd, curStage, eventInst, obj, sec)
 end
 
 function GAME_EVT_RESET_TIME(cmd, curStage, eventInst, obj)
+	--print("111111111111111111111111111111111111111", imcTime.GetAppTime())
 	eventInst = tolua.cast(eventInst, "STAGE_EVENT_INST_INFO");
-	eventInst:SetUserValue("TIME", imcTime.GetAppTime());
+	eventInst:SetUserValue("TIME", 0.0);
+	--print("222222222222222222222222222222222222222", imcTime.GetAppTime())
 end
 
 function GAME_EVT_ON_BYNAME(cmd, curStage, eventInst, obj, eventName)
@@ -771,6 +773,31 @@ function MGAME_EVT_EXEC_CREMON(cmd, curStage, eventInst, obj, monList, genCnt, r
 		end
 	end
 
+end
+
+function MGAME_EVT_COND_MONCNT_CREMON(cmd, curStage, eventInst, obj, check_monList, cre_monList, valName)
+    local curVal = cmd:GetUserValue(valName);
+    if curVal >= 4 then
+        genCnt = 5
+        randCnt = 0
+        MGAME_EVT_EXEC_CREMON(cmd, curStage, eventInst, obj, cre_monList, genCnt, randCnt)
+    elseif curVal >= 3 then
+        genCnt = 3
+        randCnt = 0
+        MGAME_EVT_EXEC_CREMON(cmd, curStage, eventInst, obj, cre_monList, genCnt, randCnt)
+    elseif curVal >= 2 then
+        genCnt = 2
+        randCnt = 0
+        MGAME_EVT_EXEC_CREMON(cmd, curStage, eventInst, obj, cre_monList, genCnt, randCnt)
+    elseif curVal >= 1 then
+		genCnt = 2
+		randCnt = 0
+		MGAME_EVT_EXEC_CREMON(cmd, curStage, eventInst, obj, cre_monList, genCnt, randCnt)
+    elseif curVal >= 0 then
+        genCnt = 2
+        randCnt = 0
+        MGAME_EVT_EXEC_CREMON(cmd, curStage, eventInst, obj, cre_monList, genCnt, randCnt)
+	end
 end
 
 function MGAME_EVT_EXEC_CREMON_BY_SCRIPT(cmd, curStage, eventInst, obj, monList, countScript, postBornScript, getMonsterTypeScript)
@@ -1293,6 +1320,13 @@ function MGAME_EVT_GIVE_ITEM(cmd, curStage, eventInst, obj, itemName, giveway)
 	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 	for i = 1 , cnt do
 		RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX', list[i], itemName, nil, nil, nil,giveway, nil)
+	end
+end
+
+function MGAME_EVT_TAKE_ITEM_LIST(cmd, curStage, eventInst, obj, itemName, takeway)
+	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+	for i = 1 , cnt do
+		RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX', list[i], nil, itemName, nil, nil,takeway, nil)
 	end
 end
 
@@ -2237,10 +2271,13 @@ function SCR_SET_SAVE_POINT_RESURRECT(cmd, curStage, eventInst, obj, flag)
 	end
 	cmd:SetnableSavePointResurrect(boolean)	
 end
+
+
 function SCR_GIVE_UP_HILL_RANK_POINT(cmd, curStage, eventInst, obj)
 	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 	local step = cmd:GetUserValue("UphillStep") - 1
 	local point = 0
+
 	if step ~= nil and step > 0 then
 	    if step <= 9 then
 	        point = step
@@ -2251,18 +2288,28 @@ function SCR_GIVE_UP_HILL_RANK_POINT(cmd, curStage, eventInst, obj)
 	    elseif step <= 30 then
 	        point = math.floor(step * 2)
 	    end
-	    if point > 0 then
-        	local pc = nil;
-        	if cnt > 0 then
-        		for i = 1, cnt do
-        			pc = list[i];
-        			if pc ~= nil then
-        				GiveUpHillRankPoint(pc, point);
-        				CustomMongoLog(pc, "UPHillDeffense", "State","RankPointGive","Value",point)
-        			end
-        		end
-        	end
-        end
+	end
+
+	local timeBonus = cmd:GetUserValue("RANKING_BONUS")
+	if timeBonus ~= 0 and timeBonus ~= nil then
+	    point = point + timeBonus
+	end
+
+    local bossKillBonus = cmd:GetUserValue("bossKillBonus")
+    if bossKillBonus ~= 0 and bossKillBonus ~= nil then
+        point = point + bossKillBonus
+    end
+    if point > 0 then
+    	local pc = nil;
+    	if cnt > 0 then
+    		for i = 1, cnt do
+    			pc = list[i];
+    			if pc ~= nil then
+    				GiveUpHillRankPoint(pc, point);
+    				CustomMongoLog(pc, "UPHillDeffense", "State","RankPointGive","Value",point)
+    			end
+    		end
+    	end
     end
 end
 
@@ -2790,6 +2837,91 @@ function GAME_ST_EVT_EXEC_SOUL_CRISTAL_LIMIT(cmd, curStage, eventInst, obj, flag
         local i
         for i = 1, cnt  do
 			SendAddOnMsg(list[i], "SHOW_SOUL_CRISTAL", "", count);
+        end
+    end
+end
+
+
+function SCR_UPHILL_BOSS_GEN_CHECK(cmd, curStage, eventInst, obj) -- checking boss gen timing
+    local blockingScriptWork = cmd:GetUserValue("BossGenEventCheck")
+    if blockingScriptWork ~= 0 then
+        return 0
+    elseif blockingScriptWork == 0 then
+        cmd:SetUserValue("BossGenEventCheck", 1)
+        local stepCheck = cmd:GetUserValue("UphillStep");
+        if stepCheck <= 9 then
+            local bossSummonCheck = cmd:GetUserValue("BOSS1")
+            if bossSummonCheck == 0 then
+                if stepCheck == 9 then
+                    return 1 
+                elseif stepCheck < 9 then
+                    local summonableCheck = IMCRandom(1,5)
+                    if summonableCheck == 3 then
+                        return 1
+                    end
+                end
+            end
+        elseif stepCheck <= 18 then
+            local bossSummonCheck = cmd:GetUserValue("BOSS2")
+            if bossSummonCheck == 0 then
+                if stepCheck == 18 then
+                    return 1 
+                elseif stepCheck < 18 then
+                    local summonableCheck = IMCRandom(1,5)
+                    if summonableCheck == 3 then
+                        return 1
+                    end
+                end
+            end
+        elseif stepCheck <= 27 then
+            local bossSummonCheck = cmd:GetUserValue("BOSS3")
+            if bossSummonCheck == 0 then
+                if stepCheck == 27 then
+                    return 1 
+                elseif stepCheck < 27 then
+                    local summonableCheck = IMCRandom(1,5)
+                    if summonableCheck == 3 then
+                        return 1
+                    end
+                end
+            end
+        end
+    end
+end
+
+
+function SCR_UPHILL_ADD_RANKING_POINT_TIME(cmd, curStage, eventInst, obj)  -- add bonus ranking point of uphill deffense
+    local stageTime = cmd:GetStageTime(curStage); -- check now stage's time
+    local stepCheck = cmd:GetUserValue("UphillStep") -- check now stage's step
+
+    if stepCheck == 10 or stepCheck == 20 then -- if now stage's step is 10 or 20 then
+        local bonusPoint = cmd:GetUserValue("RANKING_BONUS") -- get bonus point about clear speedy stage
+        local timeCount = cmd:GetUserValue("RP_TIME"); -- get ranking point time of now stage
+        timeCount = 60 - math.floor(stageTime) -- get remaining time of now stage
+        if timeCount ~= 0 and timeCount ~= nil then
+            bonusPoint = bonusPoint + math.floor(timeCount * 0.7) -- add bonus point
+            cmd:SetUserValue("RANKING_BONUS", bonusPoint) -- setting bonus point about clear speedy stage
+            cmd:SetUserValue("RP_TIME", 0) -- reset ranking point time of now stage
+        end
+
+    elseif stepCheck == 30 then
+        local bonusPoint = cmd:GetUserValue("RANKING_BONUS")
+        local timeCount = cmd:GetUserValue("RP_TIME");
+        timeCount = 120 - math.floor(stageTime)
+        if timeCount ~= 0 and timeCount ~= nil then
+            bonusPoint = bonusPoint + math.floor(timeCount * 0.9)
+            cmd:SetUserValue("RANKING_BONUS", bonusPoint)
+            cmd:SetUserValue("RP_TIME", 0)
+        end
+
+    else
+        local bonusPoint = cmd:GetUserValue("RANKING_BONUS")
+        local timeCount = cmd:GetUserValue("RP_TIME");
+        timeCount = 40 - math.floor(stageTime)
+        if timeCount ~= 0 and timeCount ~= nil then
+            bonusPoint = bonusPoint + math.floor(timeCount * 0.5)
+            cmd:SetUserValue("RANKING_BONUS", bonusPoint)
+            cmd:SetUserValue("RP_TIME", 0)
         end
     end
 end

@@ -3664,3 +3664,10 @@ end
 function SCR_FARMER_PLANT_STEP_01_AFTER_SUMMON(mon, pc, skill)
     SetDirectionByAngle(mon, -45);
 end
+
+
+function SCR_USE_GIVE_UPHILL_STORE_POINT(self, argObj, StringArg, Numarg1, Numarg2)
+    local tx = TxBegin(self);
+    TxAddWorldPVPProp(tx, "ShopPoint", Numarg1);
+    local ret = TxCommit(tx);
+end

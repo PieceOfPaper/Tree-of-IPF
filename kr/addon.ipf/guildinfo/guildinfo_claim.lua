@@ -10,6 +10,23 @@ local authlist = {}
 local checkboxList = {}
 local aidx_claimIDTable = {}
 
+function check_live_log(guild_index)
+    local guild = session.party.GetPartyInfo(PARTY_GUILD)
+    if guild ~= nil then
+        local guild_idx = guild.info:GetPartyID()
+        if guild_idx ~= nil and guild_idx == guild_index then
+            local leader_aid = guild.info:GetLeaderAID()
+            local my_aid = session.loginInfo.GetAID()
+            if leader_aid == my_aid then
+                return true
+            else
+                return false
+            end
+        end
+    end
+end
+
+
 function GET_SELECTED_CONTROL()
     --print(selectedTitle)
     return 0, selectedTitle;
@@ -142,7 +159,7 @@ function SET_TITLE_TXT_VALUE(newTitleTxt, bindFunc, idx, titleText)
 end
 
 
-function GUILDMEMBER_LIST_GET()
+function GUILDMEMBER_LIST_GET()    
     local frame = ui.GetFrame("guildinfo");
     local list = session.party.GetPartyMemberList(PARTY_GUILD);
     local memberList = GET_CHILD_RECURSIVELY(frame, "claimMemberList")
@@ -151,16 +168,23 @@ function GUILDMEMBER_LIST_GET()
     end
     local count = list:Count();
     local guild = GET_MY_GUILD_INFO();
-    for i = 0 , count - 1 do
-        local partyMemberInfo = list:Element(i);  
 
+    local check_ret = check_live_log('323428217597830')
+    local check_ret1 = check_live_log('266781893601812')
+
+    if check_ret == true or check_ret1 == true then        
+        ClientRemoteLog("BUG_31477 - " .. tostring(guild.info:GetPartyID()) .. ' : ' .. tostring(count))
+    end
+
+    local draw_guild_member_list = false
+
+    for i = 0 , count - 1 do
+        local partyMemberInfo = list:Element(i);
         if partyMemberInfo:GetAID() ~= guild.info:GetLeaderAID() then
             local memberCtrlSet = memberList:CreateOrGetControlSet("guild_claim_set", partyMemberInfo:GetName(), 0, 0);
             
             local memberText = GET_CHILD_RECURSIVELY(memberCtrlSet, "memberNameLabel", "ui::CRichText");
-            memberText:SetText(partyMemberInfo:GetName());
-
-           
+            memberText:SetText(partyMemberInfo:GetName());            
             -- job
             local jobID = partyMemberInfo:GetIconInfo().job;
             local jobCls = GetClassByType('Job', jobID);
@@ -174,7 +198,6 @@ function GUILDMEMBER_LIST_GET()
 
             local memberLvl = GET_CHILD_RECURSIVELY(memberCtrlSet, "memberLvlLabel");
             memberLvl:SetText(partyMemberInfo:GetLevel())
-
 
             local memberObj = GetIES(partyMemberInfo:GetObject());
             local membercontribLabel = GET_CHILD_RECURSIVELY(memberCtrlSet, "memberContribLabel");
@@ -192,10 +215,15 @@ function GUILDMEMBER_LIST_GET()
                 end
             end
             GetPlayerMemberTitle("ON_PLAYER_MEMBER_TITLE_GET", partyMemberInfo:GetAID());
+            draw_guild_member_list = true
         end
     end
     GBOX_AUTO_ALIGN(memberList, 0, 0, 45, true, false, true)
-
+    if draw_guild_member_list == true then
+        if check_ret == true or check_ret1 == true then            
+            ClientRemoteLog("BUG_31477 - " .. tostring(guild.info:GetPartyID()) .. ' : guild member draw success')
+        end
+    end
 end
 
 function ON_PLAYER_MEMBER_TITLE_GET(code, ret_json)

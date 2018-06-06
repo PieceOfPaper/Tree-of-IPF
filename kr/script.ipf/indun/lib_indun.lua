@@ -245,15 +245,19 @@ function MGAME_CHECK_INDUN(pc, cmd, indunName)
 			
             count = etcObj.IndunMultipleRate + 1;
 			end
-
+			
         local WeeklyEnterableCountPropName = "InDunCountType_" .. indunCls.PlayPerResetType;
         local didit = GetExProp(pc, "MovedIndun");
         if didit ~= 1 and indunCls.AdmissionItemName == 'None' then
             if WeeklyEnterableCountPropName ~= 'InDunCountType_400' then
-                TxAddIESProp(tx, etcObj, WeeklyEnterableCountPropName, count);
+                if WeeklyEnterableCountPropName == 'InDunCountType_500' then
+                    TxAddIESProp(tx, etcObj, "IndunWeeklyEnteredCount_"..indunCls.PlayPerResetType, count);
+                else
+                    TxAddIESProp(tx, etcObj, WeeklyEnterableCountPropName, count)
+                end
             end
         end
-
+        
         TxAddAchievePoint(tx, "INDUN", count);
 
 		local ret = TxCommit(tx);
@@ -989,7 +993,7 @@ function SCR_ADD_INDUN_BADPLAYER_REPORTER_BUFF(pc)
 	AddBuff(pc, pc, "System_IndunBadPlayerReporter", 1, 0, buffTime);
 end
 
-function IS_ENABLE_ENTER_TO_INDUN_WEEKLY(pc, indunCls, isEnableJustCountCheck)
+function IS_ENABLE_ENTER_TO_INDUN_WEEKLY(pc, indunCls, isOnlyCheckLimitCount)
 	local limitCount = indunCls.WeeklyEnterableCount;	
 	if limitCount == 0 then -- 주간 입장 횟수 체크 안하는 인던들
 		return true;
@@ -1006,8 +1010,8 @@ function IS_ENABLE_ENTER_TO_INDUN_WEEKLY(pc, indunCls, isEnableJustCountCheck)
 
 	-- 여기서 추가로 재료 소진하여 추가 입장 가능한 부분 구현해주시면 됩니다
 	-- 재료 소진을 제외한 순수 입장 횟수만 체크해야하는 경우, 아래에 넣어주세요
-	if isEnableJustCountCheck == false then
-		if indunCls.ClassName == "M_GTOWER_1" then
+	if isOnlyCheckLimitCount == false then
+		if indunCls.ClassName == "M_GTOWER_1" or indunCls.ClassName == "M_GTOWER_2" then
 			return GET_AVAILABLE_GTOWER_ADMISSION_TICKET_ITEM(pc) ~= nil;
 		end
 	end

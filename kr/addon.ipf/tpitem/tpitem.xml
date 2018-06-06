@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="tpitem" x="0" y="0" width="1920" height="1080" create="open">
 	<frame layout_gravity="left top" margin="0 0 0 0" snapclient="true" snapframe="true" tooltipoverlap="true"/>
 	<option closebutton="false"/>
 	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
 	<script OpenScp="TPITEM_OPEN" CloseScp="TPITEM_CLOSE"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
-	<userconfig packageBtn_package_Size="250 50" packageBtn_package_0="0 360 40 0" packageBtn_package_1="0 360 40 0"  banner_offset_y="-10" balance_resize_width="181" balance_resize_height="-2" balance_offset_y="37" refresh_offset_x="180"/>
+	<userconfig packageBtn_package_Size="250 50" packageBtn_package_0="0 360 40 0" packageBtn_package_1="0 360 40 0" banner_offset_y="-10" balance_resize_width="181" balance_resize_height="-2" balance_offset_y="37" refresh_offset_x="180" RECYCLE_CATEGORY_SELECT_SKIN="baseyellow_btn"/>
 	<layer layerlevel="95"/>
 	<controls>
 		<!--TP SHOP 그룹박스-->
@@ -25,16 +25,15 @@
 		<webpicture name="banner" parent="rightgbox" rect="0 0 520 250" margin="0 30 0 0" check_pattern="false" stretch="true" LBtnUpScp="TPSHOP_SELECTED_SPECIALGOODS_BANNER_CLICK" resizebyresolution="false" layout_gravity="center top"/>
 		<!--button name="btn_Web_prev" parent="banner" rect="0 0 40 38" margin="10 0  0 0" layout_gravity="left center" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/-->
 		<!--button name="btn_Web_next" parent="banner" rect="0 0 40 38" margin="0 0  10 0" layout_gravity="right center" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/-->
-	
 		<button name="haveStaticNCbox" parent="rightgbox" rect="0 0 290 45" margin="15 284 0 0" layout_gravity="left top" skin="test_weight_skin" draw="true" hittest="false" caption="  보유중인{img Nexon_cash_mark 30 30}{/}{/}" textalign="left center" LBtnUpScp="TPSHOP_CHECK_REMAIN_NEXONCASH" fontname="black_16_b"/>
 		<button name="ncReflashbtn" parent="rightgbox" rect="0 0 60 60" margin="308 282 10 0" layout_gravity="left top" image="market_reset_btn" draw="true" hittest="true" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_REFLASH_REMAINCASH" fontname="black_20_b"/>
-	    <button name="ncChargebtn" parent="rightgbox" rect="0 0 185 60" margin="0 275 10 0" layout_gravity="right top" skin="pay_charge_btn" hittest="true" caption="{@st66d}{s20}넥슨캐시 충전{/}" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="WEB_TPSHOP_OPEN_URL_NEXONCASH" fontname="black_20_b"/>
+		<button name="ncChargebtn" parent="rightgbox" rect="0 0 185 60" margin="0 275 10 0" layout_gravity="right top" skin="pay_charge_btn" hittest="true" caption="{@st66d}{s20}넥슨캐시 충전{/}" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="WEB_TPSHOP_OPEN_URL_NEXONCASH" fontname="black_20_b"/>
 		<richtext name="remainNexonCash" parent="haveStaticNCbox" rect="0 0 195 50" margin="0 12 10 0" layout_gravity="right top" caption="" fontname="black_16_b" resizebytext="true" textalign="right center"/>
 		<button name="haveStaticNCbox_prepaid" parent="rightgbox" rect="0 0 258 45" margin="278 275 0 0" layout_gravity="left top" skin="test_weight_skin" draw="true" hittest="false" caption="  Prepaid     {img THB_cash_mark 30 30}{/}{/}" textalign="left center" LBtnUpScp="TPSHOP_CHECK_REMAIN_NEXONCASH" fontname="black_16_b" visible="false"/>
-		<richtext name="remainNexonCash_prepaid" parent="haveStaticNCbox_prepaid" rect="0 0 195 50" margin="0 12 10 0" layout_gravity="right top" caption="" fontname="black_16_b" resizebytext="true"  textalign="right center" />
+		<richtext name="remainNexonCash_prepaid" parent="haveStaticNCbox_prepaid" rect="0 0 195 50" margin="0 12 10 0" layout_gravity="right top" caption="" fontname="black_16_b" resizebytext="true" textalign="right center"/>
 		<button name="haveStaticNCbox_credit" parent="rightgbox" rect="0 0 258 45" margin="15 275 0 0" layout_gravity="left top" skin="test_weight_skin" draw="true" hittest="false" caption="  Credit       {img THB_cash_mark 30 30}{/}{/}" textalign="left center" LBtnUpScp="TPSHOP_CHECK_REMAIN_NEXONCASH" fontname="black_16_b" visible="false"/>
-    	<richtext name="remainNexonCash_credit" parent="haveStaticNCbox_credit" rect="0 0 195 50" margin="0 12 10 0" layout_gravity="right top" caption="" fontname="black_16_b" resizebytext="true"  textalign="right center" />
-    <!--TP SHOP 오른쪽 그룹박스 중간부분-->
+		<richtext name="remainNexonCash_credit" parent="haveStaticNCbox_credit" rect="0 0 195 50" margin="0 12 10 0" layout_gravity="right top" caption="" fontname="black_16_b" resizebytext="true" textalign="right center"/>
+		<!--TP SHOP 오른쪽 그룹박스 중간부분-->
 		<!--미리보기 및 구매 그룹박스-->
 		<richtext name="previewStaticTitle" parent="rightgbox" rect="0 0 200 50" margin="25 370 0 0" layout_gravity="leff top" caption="{@st66d}{s18}미리보기 및 구매{/}" drawbackground="false" fixwidth="false" fontname="black_20_b" resizebytext="true" textalign="left center"/>
 		<groupbox name="previewgbox" parent="rightgbox" rect="0 0 520 265" margin="0 400 0 0" layout_gravity="center top" draw="false" scrollbar="false" hittestbox="true" resizebyparent="false" skin="none"/>
@@ -45,13 +44,14 @@
 		<button name="btn_hair_prev" parent="previewgbox" rect="0 0 40 58" margin="20 200 0 0" layout_gravity="left top" image="button_left_select2" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_HAIR_ROT_PREV"/>
 		<button name="btn_hair_next" parent="previewgbox" rect="0 0 40 58" margin="0 200 20 0" layout_gravity="right top" image="button_right_select2" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_HAIR_ROT_NEXT"/>
 		<!--프리뷰를 위한 슬롯-->
+		<picture name="market_wing" parent="previewgbox" rect="0 0 60 60" margin="0 134 10 0" layout_gravity="right top" hittest="true" image="market_wing" oversound="button_cursor_over_3" stretch="true"/>
 		<picture name="market_lens" parent="previewgbox" rect="0 0 60 60" margin="10 134 0 0" layout_gravity="left top" hittest="true" image="market_lens" oversound="button_cursor_over_3" stretch="true"/>
 		<picture name="market_hair" parent="previewgbox" rect="0 0 60 60" margin="10 72 0 0" layout_gravity="left top" hittest="true" image="market_costume" oversound="button_cursor_over_3" stretch="true"/>
 		<picture name="market_costume" parent="previewgbox" rect="0 0 60 60" margin="10 10 0 0" layout_gravity="left top" hittest="true" image="market_hair" oversound="button_cursor_over_3" stretch="true"/>
 		<picture name="market_haircolor" parent="previewgbox" rect="0 0 60 60" margin="0 72 10 0" layout_gravity="right top" hittest="true" image="market_haircolor" oversound="button_cursor_over_3" stretch="true"/>
 		<picture name="market_hairacc" parent="previewgbox" rect="0 0 60 60" margin="0 10 10 0" layout_gravity="right top" hittest="true" image="market_hairacc" oversound="button_cursor_over_3" stretch="true"/>
 		<slotset name="previewslotset0" parent="previewgbox" rect="0 0 336 42" margin="10 10 0 0" layout_gravity="left top" col="1" dropsound="inven_equip" oversound="button_cursor_over_3" picksound="icon_pick_up" row="3" size="60 60" skin="none" spc="2 2"/>
-		<slotset name="previewslotset1" parent="previewgbox" rect="0 0 336 42" margin="0 10 10 0" layout_gravity="right top" col="1" dropsound="inven_equip" oversound="button_cursor_over_3" picksound="icon_pick_up" row="2" size="60 60" skin="none" spc="2 2"/>
+		<slotset name="previewslotset1" parent="previewgbox" rect="0 0 336 42" margin="0 10 10 0" layout_gravity="right top" col="1" dropsound="inven_equip" oversound="button_cursor_over_3" picksound="icon_pick_up" row="3" size="60 60" skin="none" spc="2 2"/>
 		<!--TP SHOP 오른쪽 그룹박스 아래부분-->
 		<groupbox name="basketgbox" parent="rightgbox" rect="0 0 530 260" margin="0 0 0 20" layout_gravity="center bottom" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_midle_light"/>
 		<slotset name="basketslotset" parent="basketgbox" rect="0 0 336 42" margin="5 0 0 10" layout_gravity="left top" dropsound="inven_equip" oversound="button_cursor_over_3" picksound="icon_pick_up" col="10" row="2" size="50 50" skin="invenslot2" spc="2 2"/>
@@ -77,10 +77,11 @@
 		<richtext name="rcycle_basketTP" parent="rcycle_basketgbox" rect="0 0 195 50" margin="130 165 0 0" layout_gravity="left top" caption="" fontname="black_16_b" resizebytext="false" textalign="right center"/>
 		<richtext name="rcycle_remainTP" parent="rcycle_basketgbox" rect="0 0 195 50" margin="130 210 0 0" layout_gravity="left top" caption="" fontname="black_16_b" resizebytext="false" textalign="right center"/>
 		<!--TP SHOP 왼쪽 그룹박스-->
-		<tab name="shopTab" parent="leftgbox" rect="0 0 550 50" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" LBtnDownScp="TPSHOP_TAB_CHANGE" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="20 40 0 0"/>
+		<tab name="shopTab" parent="leftgbox" rect="0 0 700 50" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" LBtnDownScp="TPSHOP_TAB_CHANGE" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="20 40 0 0"/>
 		<tabitem name="Itembox2" parent="shopTab" caption="{@st66b}TP 구매{/}" width="170" layout_gravity="left top"/>
-		<tabitem name="Itembox1" parent="shopTab" caption="{@st66b}상점{/}" width="170" layout_gravity="left top"/>
+		<tabitem name="Itembox1" parent="shopTab" caption="{@st66b}프리미엄{/}" width="170" layout_gravity="left top"/>
 		<tabitem name="Itembox3" parent="shopTab" caption="{@st66b}리사이클 상점{/}" width="170" layout_gravity="left top"/>
+		<tabitem name="Itembox4" parent="shopTab" caption="{@st66b}꾸미기{/}" width="170" layout_gravity="left top"/>
 		<!--TP SHOP 왼쪽 그룹박스 탭1-->
 		<!--카테고리 그룹박스-->
 		<groupbox name="categorygbox" parent="leftgbox" rect="0 0 340 440" margin="20 90 0 0" layout_gravity="left top" draw="true" scrollbar="false" hittestbox="false" resizebyparent="false" tabname="Itembox1" skin="test_frame_midle_light"/>
@@ -94,15 +95,21 @@
 		<groupbox name="rcycle_categorygbox" parent="leftgbox" rect="0 0 340 840" margin="20 90 0 0" layout_gravity="left top" draw="true" scrollbar="false" hittestbox="false" resizebyparent="false" tabname="Itembox3" skin="test_frame_midle_light"/>
 		<groupbox name="rcycle_categoryBannerGBox" parent="rcycle_categorygbox" rect="0 0 340 40" margin="0 0 0 0" layout_gravity="left top" skin="market_listbase"/>
 		<groupbox name="rcycle_alignmentgbox" parent="leftgbox" rect="0 0 882 50" margin="365 40 0 0 " layout_gravity="left top" draw="false" scrollbar="false" hittestbox="false" resizebyparent="false" tabname="Itembox3"/>
-		<groupbox name="rcycle_serachgbox" parent="leftgbox" rect="0 0 885 40" margin="365 0 0 18 " layout_gravity="left bottom" draw="false" scrollbar="false" hittestbox="false" resizebyparent="false" tabname="Itembox3"/>
 		<richtext name="rcycle_categoryText" parent="rcycle_categoryBannerGBox" rect="0 0 350 40" margin="15 0 0 0" layout_gravity="left center" caption="카테고리" drawbackground="false" fixwidth="false" fontname="black_16_b" resizebytext="true" textalign="center center"/>
 		<groupbox name="rcycle_categorySubGbox" parent="rcycle_categorygbox" rect="0 0 375 540" margin="0 35 0 0" scrollbar="false" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
-		<groupbox name="rcycle_group1" margin="0 72 0 0" rect="0 0 340 80" hittestbox="true" skin="base_btn" layout_gravity="left top" parent="rcycle_categorySubGbox" LBtnDownScp="RECYCLE_SHOW_TO_MEDAL"/>
+		<groupbox name="rcycle_group1" margin="0 310 0 0" rect="0 0 340 80" hittestbox="true" skin="base_btn" layout_gravity="left top" parent="rcycle_categorySubGbox" LBtnDownScp="RECYCLE_SHOW_TO_MEDAL"/>
 		<picture name="rcycle_group1_icon" parent="rcycle_group1" margin="12 0 0 0" rect="0 0 50 50" hittest="false" image="market_re_M" stretch="true" changecursor="false" layout_gravity="left center"/>
 		<richtext name="rcycle_group1_text" parent="rcycle_group1" margin="80 0 0 0" rect="0 0 120 24" caption="보유중인 아이템을 메달로 교환" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" hittest="false"/>
 		<groupbox name="rcycle_group2" margin="0 0 0 0" rect="0 0 340 80" hittestbox="true" skin="base_btn" layout_gravity="left top" parent="rcycle_categorySubGbox" LBtnDownScp="RECYCLE_SHOW_TO_ITEM"/>
 		<picture name="rcycle_group2_icon" parent="rcycle_group2" margin="12 0 0 0" rect="0 0 50 50" hittest="false" image="market_re_I" stretch="true" changecursor="false" layout_gravity="left center"/>
 		<richtext name="rcycle_group2_text" parent="rcycle_group2" margin="80 0 0 0" rect="0 0 120 24" caption="보유중인 메달을 아이템으로 교환" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" hittest="false"/>
+		<!-- 리사이클 샵 카테고리 -->
+		<tree name="recycleCateTree" parent="rcycle_categorySubGbox" layout_gravity="left top" rect="0 0 320 550" margin="18 70 0 0" drawline="false" skin="none" selectioncolor="BBBB00" enableselectioncolor="true" LBtnDownScp="RECYCLE_TREE_CLICK"/>
+		<!-- 리사이클 샵 검색 -->
+		<groupbox name="recycle_editSkin" parent="rcycle_alignmentgbox" margin="0 0 0 0" rect="0 0 364 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
+		<richtext name="recycle_editDiff" parent="recycle_editSkin" rect="0 0 280 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<edit name="recycle_input" parent="recycle_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 250 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="RECYCLE_CREATE_BUY_LIST" LBtnDownScp="TPSHOP_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
+		<button name="recycle_btn_find" parent="recycle_editSkin" image="inven_s" margin="0 0 0 0" rect="0 0 50 40" layout_gravity="right center" LBtnUpScp="RECYCLE_CREATE_BUY_LIST" oversound="button_over" clicksound="button_click_big"/>
 		<!--아이템 목록 그룹박스-->
 		<groupbox name="maingbox" parent="leftgbox" rect="0 0 885 840" margin="365 90 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" tabname="Itembox1" skin="test_frame_midle_light" scrollbar="false"/>
 		<groupbox name="mainBanner" parent="maingbox" rect="0 0 885 40" margin="0 0 0 0" skin="market_listbase" layout_gravity="left top"/>
@@ -115,6 +122,13 @@
 		<richtext name="rcycle_mainBuyText" parent="rcycle_mainBanner" rect="0 0 300 50" margin="10 -2 0 0" layout_gravity="left center" caption="구매가능 목록" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<richtext name="rcycle_mainSellText" parent="rcycle_mainBanner" rect="0 0 300 50" margin="10 -2 0 0" layout_gravity="left center" caption="판매가능 목록" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<groupbox name="rcycle_mainSubGbox" parent="rcycle_maingbox" rect="0 0 880 800" margin="5 39 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
+		<!-- Beauty Shop -->
+		<groupbox name="beautyShopBox" parent="leftgbox" rect="0 0 1238 843" margin="15 90 0 0" layout_gravity="left top" hittestbox="false" resizebyparent="false" tabname="Itembox4" scrollbar="false" tabchangescp="TPITEM_INIT_BEAUTY_SHOP_TAB" draw="false"/>
+		<picture name="beautyShopBgPic" rect="0 0 1238 843" parent="beautyShopBox" margin="0 0 0 0" layout_gravity="left top" image="btshop_bg" stretch="false"/>
+		<button name="goBeautyShopBtn" parent="beautyShopBox" format="{@st43}뷰티 샵으로 이동{/}" rect="0 0 376 174" layout_gravity="center bottom" margin="0 0 0 20" textoffset="0 0" textalign="center center" image="login_test2_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover_3" MouseOffAnim="btn_mouseoff_3" LBtnUpScp="TPITEM_BEUTYSHOP_GO_SHOP">
+			<uieffect effect="UI_light013_spark_blue2" scale="10" overlab="No" sound="None" offset="5 -2" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
+			<uieffect effect="I_sys_item_slot4" scale="11" overlab="No" sound="None" offset="3 -4" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
+		</button>
 		<!--인기 Top 5-->
 		<richtext name="top5Title" parent="leftgbox" rect="0 0 300 50" margin="30 545 0 0" layout_gravity="left top" caption="{@st66d}{s18}인기 아이템 Top5{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" tabname="Itembox1" textalign="left center"/>
 		<groupbox name="top5gBox" parent="leftgbox" rect="0 0 340 351" margin="20 580 0 0" layout_gravity="left top" draw="false" hittestbox="true" tabname="Itembox1" scrollbar="true"/>

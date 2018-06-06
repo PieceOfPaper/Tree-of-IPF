@@ -37,6 +37,11 @@ end
 ----- reinforce_131014
 
 function CLIENT_MORU(invItem)
+    local zoneCheck = GetZoneName(pc)
+    if zoneCheck == "c_barber_dress" then
+        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+        return;
+    end
     if session.colonywar.GetIsColonyWarMap() == true then
         ui.SysMsg(ClMsg('CannotUseInPVPZone'));
         return;
@@ -46,7 +51,7 @@ function CLIENT_MORU(invItem)
 		ui.SysMsg(ScpArgMsg('CantUseThisInIntegrateServer'));
 		return;
 	end
-
+    
 	local rankresetFrame = ui.GetFrame("rankreset");
 	if 1 == rankresetFrame:IsVisible() then
 		ui.SysMsg(ScpArgMsg('CannotDoAction'));
@@ -92,7 +97,14 @@ function CURSOR_CHECK_REINF(slot)
 	
 	local upgradeitem_2 = ui.GetFrame("reinforce_131014");
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
+	if fromItem == nil or fromMoru == nil then
+		return 0 
+	end
 	local moruObj = GetIES(fromMoru:GetObject());
+	if moruObj == nil then
+		return 0
+	end
+
 	local obj = GetIES(item:GetObject());
 	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" or moruObj.ClassName == "Moru_Gold_Team_Trade" or moruObj.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER" then
 		if 1 == REINFORCE_ABLE_131014(obj) 
@@ -144,7 +156,15 @@ function MORU_LBTN_CLICK(frame, invItem)
 	MORU_SET_SLOT_ITEM(fromItemSlot, invItem);
 
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
+	if fromItem == nil or fromMoru == nil then
+		return
+	end
+
 	local moruObj = GetIES(fromMoru:GetObject());
+	if moruObj == nil then
+		return
+	end
+
 	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" or moruObj.ClassName == "Moru_Gold_Team_Trade" or moruObj.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER" then 
 		if obj.PR > 0 then
 		    return;
@@ -183,7 +203,15 @@ function _CHECK_MORU_TARGET_ITEM(slot)
 	local upgradeitem_2 = ui.GetFrame("reinforce_131014");
 
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
+	if fromItem == nil or fromMoru == nil then
+		return
+	end
+
 	local moruObj = GetIES(fromMoru:GetObject());
+	if moruObj == nil then
+		return
+	end
+
 	local obj = GetIES(item:GetObject());
 	local CanReinforceItem = 0;
 	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" or moruObj.ClassName == "Moru_Gold_Team_Trade" or moruObj.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER" then 

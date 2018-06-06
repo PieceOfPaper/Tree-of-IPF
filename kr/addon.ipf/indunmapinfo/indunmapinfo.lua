@@ -369,9 +369,9 @@ function UPDATE_INDUN_TOOLTIP(frame, argStr, argNum)
 		
 		local drawMapName = drawCls.ClassName;
 		local pic = GET_CHILD(ctrlSet, "map", "ui::CPicture");
-		local isValid = ui.IsValidImage(drawMapName .. "_fog");
+		local isValid = ui.IsImageExist(drawMapName .. "_fog");
 		if isValid == false then
-			world.PreloadMinimap(drawMapName, true, true);
+			world.PreloadMinimap(drawMapName);
 		end
 		pic:SetImage(drawMapName .. "_fog");
 		

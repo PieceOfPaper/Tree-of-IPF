@@ -750,3 +750,20 @@ function SCR_BUFF_GIVEDMG_Kraujas_Buff(self, buff, sklID, damage, target, ret)
     end
     return 1;
 end
+
+function SCR_BUFF_GIVEDMG_GM_WHITETREES_MON_BUFF1(self, buff, sklID, damage, target, ret)
+    local zoneID = GetZoneInstID(self)
+    local zon_Obj = GetLayerObject(zoneID, 0);
+    
+    local Prop_01 = GetExProp(zon_Obj, 'GM_WHITETREES_OBEL1')
+    
+    local arg1, arg2 = GetBuffArg(buff);
+    local duration = 10000;
+    
+    if IsBuffApplied(target, "GM_WHITETREES_MON_BUFF1_1") == "NO" then
+        if Prop_01 == 1 and GetRelation(self, target) == "ENEMY" and target.MonRank ~= "MISC" then 
+            AddBuff(self, target, 'GM_WHITETREES_MON_BUFF1_1', 1, 0, duration, 1);
+        end
+    end
+    return 1;
+end

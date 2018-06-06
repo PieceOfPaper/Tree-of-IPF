@@ -253,7 +253,7 @@ function BT_COND_IS_SKILL_COOLDOWN_BYNAME(self, state, btree, prop)
     if skillName == "None" then
         return BT_FAILED;
     end
-
+    
     local isCoolDown = IsSkillCoolTime(self, skillName);
     if isCoolDown == 0 then
         return BT_SUCCESS;
@@ -658,4 +658,22 @@ function BT_COND_SELF_MOVE_CHECK(self, state, btree, prop)
     end    
     
     return BT_FAILED;
+end
+
+--/**
+--* @Function    BT_ACT_SELF_BUFF_LIST_CHECK
+--* @Type   Cond
+--* @StrArg     체크할 버프 이름
+--* @Description    자신에게 버프가 걸려있을때
+--**/
+
+function BT_ACT_SELF_BUFF_LIST_CHECK(self, state, btree, prop)
+    local strArg = GetLeafStrArg(prop);
+    
+    local check = IsBuffApplied(self, strArg)
+    if check == "YES" then
+        return BT_SUCCESS;
+    else
+        return BT_FAILED;
+    end
 end

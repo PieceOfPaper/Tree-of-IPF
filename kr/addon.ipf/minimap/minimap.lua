@@ -134,9 +134,8 @@ function UPDATE_MINIMAP(frame)
 
 	local curmapname = session.GetMapName();
 	local imgfilename = curmapname;
-	if ui.IsImageExist(imgfilename) == 0 then
-		frame:ShowWindow(0);
-		return;
+	if ui.IsImageExist(imgfilename) == false then
+		UPDATE_MAP(frame);
 	end
 
 	local mapprop = geMapTable.GetMapProp(curmapname);

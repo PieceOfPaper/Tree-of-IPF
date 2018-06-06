@@ -473,8 +473,8 @@ function SCR_PVP_MINE_REWARD_RUN(pc)
         local teamName = GetTeamName(pc)
         --IMCLOG_CONTENT_SPACING("PVP_MINE_REWARD", teamName, pc.Name, result, team)
 
-        PVPMineResultLog(pc, GetTeamID(pc), result, myTeamPoint, 'misc_pvp_mine2', rewardItemCnt, beforePoint);
-        PVPMinePointLog(pc, GetTeamID(pc), 'Delete', 'None', beforePoint, 0, 0, 'misc_pvp_mine2', rewardItemCnt)
+        PVPMineResultLog(pc, GET_PVP_MINE_TEAM_NAME(pc), result, myTeamPoint, 'misc_pvp_mine2', rewardItemCnt, beforePoint);
+        PVPMinePointLog(pc, GET_PVP_MINE_TEAM_NAME(pc), 'Delete', 'None', beforePoint, 0, 0, 'misc_pvp_mine2', rewardItemCnt)
         end
     end
 end
@@ -606,7 +606,7 @@ function SCR_PVP_MINE_BOSSKILL_RUN(pc)
         if ret == "SUCCESS" then
             if IS_PC(pc) == true then
                 PlayEffect(pc, "F_fireworks001", 1)
-                PVPMinePointLog(pc, GetTeamID(pc), 'Get', 'BossKill', afterPoint - beforePoint, afterPoint);
+                PVPMinePointLog(pc, GET_PVP_MINE_TEAM_NAME(pc), 'Get', 'BossKill', afterPoint - beforePoint, afterPoint);
             end
         end
     end
@@ -628,11 +628,11 @@ function SCR_PVP_MINE_DEAD(self)
         local teamID = GetTeamID(killer);
         local argString = string.format("%s#%s#%s#%s#%d", killerIcon, selfIcon, killer.Name, self.Name, teamID);
         RunClientScriptToWorld(killer, "WORLDPVP_UI_MSG_KILL", argString);
-        PVPMineKillLog(killer, self, GetTeamID(killer));
+        PVPMineKillLog(killer, self, GET_PVP_MINE_TEAM_NAME(killer));
     end
 
     if IS_PC(self) == true then
-        PVPMineDeathLog(self, killer, GetTeamID(self));
+        PVPMineDeathLog(self, killer, GET_PVP_MINE_TEAM_NAME(self));
     end
 end
 
@@ -899,7 +899,7 @@ function SCR_EXCHANGE_PVP_MINE_DIALOG(self,pc)
         PlayEffect(pc, "F_buff_basic025_white_line", 1)
 
         DO_MINEPVP_SCORE_UPDATE(pc)
-        PVPMinePointLog(pc, GetTeamID(pc), 'Get', 'TradeCrystal', afterPoint - beforePoint, afterPoint, itemCount);
+        PVPMinePointLog(pc, GET_PVP_MINE_TEAM_NAME(pc), 'Get', 'TradeCrystal', afterPoint - beforePoint, afterPoint, itemCount);
         return
     end
 
@@ -1206,4 +1206,13 @@ function SCR_PVP_MINE_END_UI_OPEN(pc)
     else
         ExecClientScp(pc, 'PVP_MINE_RESULT_OPEN(0)')
     end
+end
+
+function GET_PVP_MINE_TEAM_NAME(pc)
+    if IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' then
+        return 'A';
+    elseif IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES' then
+        return 'B';
+    end
+    return 'Error';
 end

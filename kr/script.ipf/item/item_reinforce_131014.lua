@@ -482,12 +482,12 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
             PlayAnim(monster, "fail", 1, 1, 0, 1);
     	end
 			if result == 1 then
-				ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount+1, spentSilver);
+				ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount+1, spentSilver, moruName);
 			else
 				if isBreakItem == 1 then
-					ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount, spentSilver);
+					ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount, spentSilver, moruName);
 				else
-					ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount, spentSilver)
+					ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount, spentSilver, moruName)
 				end
 			end
 			

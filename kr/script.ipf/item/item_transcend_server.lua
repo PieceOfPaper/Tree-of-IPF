@@ -185,13 +185,13 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
 		TxAddIESProp(tx, targetItem, 'Transcend', 1);
 	end
 	
-	--EVENT_1804_TRANSCEND_SUCCESS_COUNT
-	if isSuccess == 1 then
-	    if targetItem.UseLv >= 350 then
-    	    local aObj = GetAccountObj(pc)
-    	    TxSetIESProp(tx, aObj, 'EVENT_1804_TRANSCEND_SUCCESS_COUNT', aObj.EVENT_1804_TRANSCEND_SUCCESS_COUNT + 1)
-    	end
-	end
+--	--EVENT_1804_TRANSCEND_SUCCESS_COUNT
+--	if isSuccess == 1 then
+--	    if targetItem.UseLv >= 350 then
+--    	    local aObj = GetAccountObj(pc)
+--    	    TxSetIESProp(tx, aObj, 'EVENT_1804_TRANSCEND_SUCCESS_COUNT', aObj.EVENT_1804_TRANSCEND_SUCCESS_COUNT + 1)
+--    	end
+--	end
 	
 	local ret = TxCommit(tx);	
 	

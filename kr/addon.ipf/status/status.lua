@@ -1678,6 +1678,118 @@ function SET_STAT_AVG_TEXT(frame, ctrlname, propName, propValue, avgStr, xpos, y
     btnUp:ShowWindow(0);
 end
 
+function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
+
+    if gbox == nil then
+        return
+    end
+
+    local customizingGBox = gbox
+    local colorTitle = customizingGBox:GetChild('hairColorStatic');
+   
+    -- 원래 아이콘들 삭제.
+    DESTROY_CHILD_BYNAME(customizingGBox, "hairColor_");
+
+    local pc = GetMyPCObject()
+    local etc = GetMyEtcObject();
+
+    local nowheadindex = item.GetHeadIndex()
+    local Rootclasslist = imcIES.GetClassList('HairType');
+    local Selectclass = Rootclasslist:GetClass(pc.Gender);
+    local Selectclasslist = Selectclass:GetSubClassList();
+
+    local nowhaircls = Selectclasslist:GetByIndex(nowheadindex - 1);
+    if nil == nowhaircls then
+        return;
+    end
+
+    local nowengname = imcIES.GetString(nowhaircls, 'EngName')
+    local nowcolor = imcIES.GetString(nowhaircls, 'ColorE')
+    nowcolor = string.lower(nowcolor)
+
+    -- 헤어 컬러가 많아질 경우 UI 벽을 뚫게 된다. row, col로 나눔.
+    local max_width = customizingGBox:GetWidth()
+    local row = 1
+    local col = 0
+    -- 아래 하드코딩 되어 있던 것들 이쪽으로 이동.
+    local row_top_margin = 20
+    local col_left_margin = 30
+    local height = 35
+    local width = 35
+    local select_margin = row_top_margin - 10
+
+    -- 기본헤어이름과 뷰티샵에서 변경했는지 확인.
+    local startHairName = TryGetProp(etc, 'StartHairName')
+    local bueatyShopHair = TryGetProp(etc, "BeautyshopStartHair")
+    
+    -- 기본헤어와 현재헤어 이름이 같고, 뷰티샵에서 변경한 헤어 일 때 신규 헤어다.
+    if startHairName == nowengname and bueatyShopHair == "Yes" then 
+            -- 타이틀 변경
+            if colorTitle ~= nil then
+                colorTitle:SetTextByKey("text", ClMsg('Status_Hair_Color') );
+            end
+
+            local startHairColorName =  TryGetProp(etc, "StartHairColorName")
+            local color = imcIES.GetString(nowhaircls, 'Color')
+
+            -- 한개만 그림.
+            local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_' .. startHairColorName,col_left_margin + (width * col), row_top_margin +  (height * row), width, height);
+            tolua.cast(eachhairimg, "ui::CPicture");
+
+            local colorimgname = GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(startHairColorName)
+            eachhairimg:SetImage(colorimgname);
+            eachhairimg:SetTextTooltip(color)  
+           
+    -- 아니라면 가발이거나 구 기본헤어.
+    else
+        -- 타이틀 변경
+        if colorTitle ~= nil then
+            colorTitle:SetTextByKey("text", ClMsg('Status_Wig_Dye') );
+        end
+ 
+        for i = 0, Selectclasslist:Count() do
+            local eachcls = Selectclasslist:GetByIndex(i);
+            if eachcls ~= nil then
+                local eachengname = imcIES.GetString(eachcls, 'EngName')
+                if eachengname == nowengname then
+
+                    local eachColorE = imcIES.GetString(eachcls, 'ColorE')
+                    local eachColor = imcIES.GetString(eachcls, 'Color')
+                    eachColorE = string.lower(eachColorE)
+
+                    -- 업적 받으면 헤어 컬러 사라지는 현상이 있다고 해서 HairColor 프로퍼티 값으로도 확인
+                    if TryGetProp(etc, "HairColor_" .. eachColorE) == 1 then
+                        -- row 변경 조건 검사
+                        local temp_offset_x = col_left_margin + width * col;
+                        local temp_max_width = temp_offset_x + width;
+                        if temp_max_width >= max_width then
+                            row = row +1
+                            col = 0
+                        end
+
+                        local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_' .. eachColorE, col_left_margin + (width * col), row_top_margin +  (height * row), width, height);
+                        tolua.cast(eachhairimg, "ui::CPicture");
+
+                        local colorimgname = GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(eachColorE)
+                        eachhairimg:SetImage(colorimgname);
+                        eachhairimg:SetTextTooltip(eachColor)
+                        eachhairimg:SetEventScript(ui.LBUTTONDOWN, "REQ_CHANGE_HAIR_COLOR");
+                        eachhairimg:SetEventScriptArgString(ui.LBUTTONDOWN, eachColorE);
+
+                        -- 선택 이미지 표시.
+                        if nowcolor == eachColorE then
+                            local selectedimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_Selected', col_left_margin + width * col, select_margin +  (height * row), width, height);
+                            tolua.cast(selectedimg, "ui::CPicture");
+                            selectedimg:SetImage('color_check');
+                        end
+                        col = col +1
+                    end
+                end
+            end
+        end
+    end
+
+end
 
 function STATUS_ACHIEVE_INIT(frame)
 
@@ -1791,78 +1903,13 @@ function STATUS_ACHIEVE_INIT(frame)
         end
     end
 
-    local customizingGBox = GET_CHILD_RECURSIVELY(frame, 'customizingGBox')
-    DESTROY_CHILD_BYNAME(customizingGBox, "hairColor_");
+    
+    local customizingGBox =  GET_CHILD_RECURSIVELY(frame, 'customizingGBox')
 
-    local pc = GetMyPCObject()
-    local etc = GetMyEtcObject();
-    local nowAllowedColor = etc['AllowedHairColor']
+    -- 가발 염색 목록 보여주기.
+    STATUS_ACHIEVE_INIT_HAIR_COLOR(customizingGBox)
+    
 
-    local nowheadindex = item.GetHeadIndex()
-
-    local Rootclasslist = imcIES.GetClassList('HairType');
-    local Selectclass = Rootclasslist:GetClass(pc.Gender);
-    local Selectclasslist = Selectclass:GetSubClassList();
-
-    local nowhaircls = Selectclasslist:GetByIndex(nowheadindex - 1);
-    if nil == nowhaircls then
-        return;
-    end
-    local nowengname = imcIES.GetString(nowhaircls, 'EngName')
-    local nowcolor = imcIES.GetString(nowhaircls, 'ColorE')
-    nowcolor = string.lower(nowcolor)
-
-    -- 헤어 컬러가 많아질 경우 UI 벽을 뚫게 된다. row, col로 나눔.
-    local max_width = customizingGBox:GetWidth()
-    local row = 1
-    local col = 0
-    -- 아래 하드코딩 되어 있던 것들 이쪽으로 이동.
-    local row_top_margin = 20
-    local col_left_margin = 30
-    local height = 35
-    local width = 35
-    local select_margin = row_top_margin - 10
-
-    for i = 0, Selectclasslist:Count() do
-        local eachcls = Selectclasslist:GetByIndex(i);
-        if eachcls ~= nil then
-            local eachengname = imcIES.GetString(eachcls, 'EngName')
-            if eachengname == nowengname then
-
-                local eachColorE = imcIES.GetString(eachcls, 'ColorE')
-                local eachColor = imcIES.GetString(eachcls, 'Color')
-                eachColorE = string.lower(eachColorE)
-
-                -- 업적 받으면 헤어 컬러 사라지는 현상이 있다고 해서 HairColor 프로퍼티 값으로도 확인
-                if TryGetProp(etc, "HairColor_" .. eachColorE) == 1 then
-                    -- row 변경 조건 검사
-                    local temp_offset_x = col_left_margin + width * col;
-                    local temp_max_width = temp_offset_x + width;
-                    if temp_max_width >= max_width then
-                        row = row +1
-                        col = 0
-                    end
-
-                    local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_' .. eachColorE, col_left_margin + (width * col), row_top_margin +  (height * row), width, height);
-                    tolua.cast(eachhairimg, "ui::CPicture");
-
-                    local colorimgname = GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(eachColorE)
-                    eachhairimg:SetImage(colorimgname);
-                    eachhairimg:SetTextTooltip(eachColor)
-                    eachhairimg:SetEventScript(ui.LBUTTONDOWN, "REQ_CHANGE_HAIR_COLOR");
-                    eachhairimg:SetEventScriptArgString(ui.LBUTTONDOWN, eachColorE);
-
-                    if nowcolor == eachColorE then
-                        local selectedimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_Selected', col_left_margin + width * col, select_margin +  (height * row), width, height);
-                        tolua.cast(selectedimg, "ui::CPicture");
-                        selectedimg:SetImage('color_check');
-                    end
-                    col = col +1
-                end
-            end
-        end
-    end
-   
     DESTROY_CHILD_BYNAME(customizingGBox, "ACHIEVE_RICHTEXT_");
     local index = 0;
     local x = 40;
