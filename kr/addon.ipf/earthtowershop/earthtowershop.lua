@@ -18,6 +18,12 @@ function REQ_EVENT_ITEM_SHOP_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_ITEM_SHOP2_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'EventShop2');
+	ui.OpenFrame('earthtowershop');
+end
+
 function REQ_KEY_QUEST_TRADE_HETHRAN_LV1_OPEN()
 	local frame = ui.GetFrame("earthtowershop");
 	frame:SetUserValue("SHOP_TYPE", 'KeyQuestShop1');
@@ -76,6 +82,8 @@ function EARTH_TOWER_INIT(frame, shopType)
 	if shopType == 'EarthTower' then
 		title:SetText('{@st43}'..ScpArgMsg("EarthTowerShop"));
 	elseif shopType == 'EventShop' then
+		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
+	elseif shopType == 'EventShop2' then
 		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
 	elseif shopType == 'KeyQuestShop1' then
 	    title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle1"));
@@ -382,6 +390,8 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("EARTH_TOWER_SHOP_TREAD2", resultlist, cntText);
 	elseif shopType == 'EventShop' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD", resultlist, cntText);
+	elseif shopType == 'EventShop2' then
+		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD2", resultlist, cntText);
 	elseif shopType == 'KeyQuestShop1' then
 		item.DialogTransaction("KEYQUESTSHOP1_SHOP_TREAD", resultlist, cntText);
 	elseif shopType == 'KeyQuestShop2' then

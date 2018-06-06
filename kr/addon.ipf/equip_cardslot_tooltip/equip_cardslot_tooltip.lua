@@ -42,14 +42,14 @@ end
 function EQUIP_CARDSLOT_DRAW_TOOLTIP(tooltipframe, cardID, cardLv)
 	local gBox = GET_CHILD(tooltipframe, "bg")
 	gBox:RemoveAllChild()
-	
+
 	local CSet = gBox:CreateControlSet('tooltip_bosscard_common', 'boss_common_cset', 0, 0);
 	tolua.cast(CSet, "ui::CControlSet");
 
 	local GRADE_FONT_SIZE = CSet:GetUserConfig("GRADE_FONT_SIZE"); -- ��� ��Ÿ���� �� ũ��
 	
 	local cls = GetClassByType("Item", cardID);
-
+	
 	-- ������ �̹���
 	local itemPicture = GET_CHILD(CSet, "itempic");
 	itemPicture:SetImage(cls.TooltipImage);

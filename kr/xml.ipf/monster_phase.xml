@@ -32,61 +32,9 @@
             </Phase>
         </PhaseList>
     </Monster>
-    <Monster Name="F_boss_Chapparition">
-        <PhaseList>
-            <Phase PhaseNumber="0" SkillList="3#4#0#1#5">
-                <ActList/>
-            </Phase>
-            <Phase PhaseNumber="5" SkillList="0#1#2#3#5#-2@field_Chaperition@2">
-                <ActList/>
-            </Phase>
-            <Phase PhaseNumber="8" SkillList="0#1#3">
-                <ActList/>
-            </Phase>
-            <Phase PhaseNumber="9" SkillList="0#1#3">
-                <ActList/>
-            </Phase>
-        </PhaseList>
-    </Monster>
-    <Monster Name="F_boss_Deathweaver">
-        <PhaseList>
-            <Phase PhaseNumber="2" SkillList="5#4#3#2#-2@field_deathweaver@2">
-                <ActList/>
-            </Phase>
-            <Phase PhaseNumber="5" SkillList="1#3#4#2#-2@field_deathweaver@2">
-                <ActList/>
-            </Phase>
-            <Phase PhaseNumber="9" SkillList="0#1#2#3">
-                <ActList/>
-            </Phase>
-        </PhaseList>
-    </Monster>
-    <Monster Name="F_boss_Kerberos">
-        <PhaseList>
-            <Phase PhaseNumber="1" SkillList="4#5#6#0">
-                <ActList/>
-            </Phase>
-            <Phase PhaseNumber="4" SkillList="1#2#4#0#5">
-                <ActList/>
-            </Phase>
-            <Phase PhaseNumber="9" SkillList="0#1#2#3">
-                <ActList/>
-            </Phase>
-        </PhaseList>
-    </Monster>
     <Monster Name="F_boss_Kerberos_summon">
         <PhaseList>
             <Phase PhaseNumber="9" SkillList="0#1#2#3#4#5#6#7">
-                <ActList/>
-            </Phase>
-        </PhaseList>
-    </Monster>
-    <Monster Name="F_boss_mineloader">
-        <PhaseList>
-            <Phase PhaseNumber="0" SkillList="4">
-                <ActList/>
-            </Phase>
-            <Phase PhaseNumber="9" SkillList="0#1#2#3">
                 <ActList/>
             </Phase>
         </PhaseList>

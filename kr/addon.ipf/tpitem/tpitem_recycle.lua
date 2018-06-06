@@ -507,73 +507,9 @@ function TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET(tpitemname, classid)
 		return
 	end
 	
-	if IS_EQUIP(item) == true then
-		local lv = GETMYPCLEVEL();
-		local job = GETMYPCJOB();
-		local gender = GETMYPCGENDER();
-		local prop = geItemTable.GetProp(classid);
-		local result = prop:CheckEquip(lv, job, gender);
-
-		if result ~= "OK" then
-			ui.MsgBox(ScpArgMsg("CanNotEquip"))
-			return;
-		end	
-		local pc = GetMyPCObject();
-		if pc == nil then
-			return;
-		end
-		
-		local useGender = TryGetProp(item,'UseGender')
-
-		if useGender =="Male" and pc.Gender ~= 1 then
-			ui.MsgBox(ScpArgMsg("CanNotEquip"))
-			return;
-		end
-
-		if useGender =="Female" and pc.Gender ~= 2 then
-			ui.MsgBox(ScpArgMsg("CanNotEquip"))
-			return;
-		end
-	end
-
 	local frame = ui.GetFrame("tpitem")
 	local slotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketbuyslotset")
 	local slotCount = slotset:GetSlotCount();
-
-	-- 기획 변경되어서 중복 구매 가능토록 한다 -by 김창운, 161025.
-	--[[
-	local nodupliItems = {}
-	nodupliItems[tpitemname] = true;
-
-	for i = 0, slotCount - 1 do
-		local slotIcon	= slotset:GetIconByIndex(i);
-
-		if slotIcon ~= nil then
-
-			local slot  = slotset:GetSlotByIndex(i);
-			local classname = slot:GetUserValue("TPITEMNAME");
-			local alreadyItem = GetClass("recycle_shop",classname)
-
-			if alreadyItem ~= nil then
-
-				local item = GetClass("Item", alreadyItem.ClassName)
-				local allowDup = TryGetProp(item,'AllowDuplicate')
-
-				if allowDup == "NO" then
-		
-					if nodupliItems[classname] == nil then
-						nodupliItems[classname] = true
-					else
-						ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
-						return;
-					end
-				end
-			
-			end
-
-		end
-	end
-	]]
 
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);
@@ -766,7 +702,7 @@ function EXEC_BUY_RECYCLE_ITEM()
 	local slotCount = slotset:GetSlotCount();
 
 	local allprice = 0
-
+    local cannotEquip = {};
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);
 
@@ -774,12 +710,48 @@ function EXEC_BUY_RECYCLE_ITEM()
 
 			local slot  = slotset:GetSlotByIndex(i);
 			local tpitemname = slot:GetUserValue("TPITEMNAME");
+            local itemClassName = slot:GetUserValue('CLASSNAME');
+			local item = GetClass("Item", itemClassName);
 			local tpitem = GetClass("recycle_shop",tpitemname)
 
 			if tpitem ~= nil then
-							
-				allprice = allprice + tpitem.BuyPrice
+				-- check equip
+                if IS_EQUIP(item) == true then
+		            local lv = GETMYPCLEVEL();
+		            local job = GETMYPCJOB();
+		            local gender = GETMYPCGENDER();
+                    local itemCls = GetClass('Item', itemClassName);
+                    local classid = itemCls.ClassID;
+		            local prop = geItemTable.GetProp(classid);
+		            local result = prop:CheckEquip(lv, job, gender);
 
+		            if result ~= "OK" then
+                        cannotEquip[#cannotEquip + 1] = itemCls;
+                    else
+		                local pc = GetMyPCObject();
+		                if pc == nil then
+			                return;
+		                end
+
+		                local needJobClassName = TryGetProp(tpitem, "Job");
+		                local needJobGrade = TryGetProp(tpitem, "JobGrade");
+		                if needJobClassName ~= nil and needJobGrade ~= nil and IS_ENABLE_EQUIP_CLASS(pc, needJobClassName, needJobGrade) == false then
+			                cannotEquip[#cannotEquip + 1] = itemCls;
+                        else
+		                    local useGender = TryGetProp(item,'UseGender');
+		                    if useGender =="Male" and pc.Gender ~= 1 then
+			                    cannotEquip[#cannotEquip + 1] = itemCls;
+                            else
+		                        if useGender =="Female" and pc.Gender ~= 2 then
+			                        cannotEquip[#cannotEquip + 1] = itemCls;
+		                        end
+		                    end
+		                end
+		            end
+                end
+
+                -- calculate price
+				allprice = allprice + tpitem.BuyPrice
 				if itemListStr == "" then
 					itemListStr = tostring(tpitem.ClassID)
 				else
@@ -787,7 +759,6 @@ function EXEC_BUY_RECYCLE_ITEM()
 				end
 				
 			else
-				
 				return
 			end
 
@@ -795,7 +766,6 @@ function EXEC_BUY_RECYCLE_ITEM()
 	end
 
 	if allprice == 0 then
-		
 		return
 	end
 
@@ -810,7 +780,21 @@ function EXEC_BUY_RECYCLE_ITEM()
 		return;
 	end
 
-	pc.ReqExecuteTx_NumArgs("SCR_TX_RECYCLE_BUY", itemListStr);	
+    if #cannotEquip > 0 then
+        local clMsg = ClMsg('ExistCannotEquipItem')..'{nl}';
+        for i = 1, #cannotEquip do
+            local item = cannotEquip[i];
+            clMsg = clMsg..'{@st66d}{s18}'..item.Name..'{/}{/}{nl}';
+        end
+        clMsg = clMsg..ScpArgMsg("ReallyBuy?");
+        ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, "tpitem_recycle", "_EXEC_BUY_RECYCLE_ITEM('"..itemListStr.."')", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
+        return;	
+    end
+    _EXEC_BUY_RECYCLE_ITEM(itemListStr);
+end
+
+function _EXEC_BUY_RECYCLE_ITEM(itemListStr)
+    pc.ReqExecuteTx_NumArgs("SCR_TX_RECYCLE_BUY", itemListStr);	
 	
 	local frame = ui.GetFrame("tpitem");
 	frame:ShowWindow(0);

@@ -13525,7 +13525,7 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 --  local sklFactor = skill.SklFactor;
 --  if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
 --      local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo14');
---      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ??�?무르밀??리밸????????????--
+--      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ??�?무르밀??리밸????????????--
 --  end
     
     local def = lhEquipWeapon.DEF;
@@ -13715,7 +13715,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
     if skill.GemLevel_BM > 0 then
-        value = value + 1;  -- 몬스????????�?????중첩?????무조??+1??????????
+        value = value + 1;  -- 몬스????????�?????중첩?????무조??+1??????????
     end
 
     if skill.LevelByDB == 0 then
@@ -14058,4 +14058,15 @@ end
 function SCR_GET_Dig_Ratio(skill)
     local value = skill.Level;
     return value;
+end
+
+
+
+function SCR_Get_SkillFactor_Zombify(skill)
+    local mon = GetSkillOwner(skill)
+    local owner = GetOwner(mon)
+    local ownerSkill = GetSkill(owner, "Bokor_Zombify")
+
+    local value = skill.SklFactor + (ownerSkill.Level - 1) * skill.SklFactorByLevel
+    return math.floor(value)
 end
