@@ -15,7 +15,7 @@
 					</ToolScp>
 				</StartScpList>
 				<ObjList>
-					<Obj Type="Monster" MonType="151043" Pos="-2644.57#241.48#-2255.35" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;150&apos; &apos;Name&apos; &apos;천체구&apos; &apos;Faction&apos; &apos;Law&apos; ">
+					<Obj Type="Monster" MonType="151043" Pos="-2644.57#241.48#-2255.35" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;HPCount&apos; &apos;150&apos; &apos;Name&apos; &apos;천체구&apos; &apos;Faction&apos; &apos;Law&apos; ">
 						<SelfAI UpdateMS="5000" ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ADD_HATE_AROUND" Client="NO" UseSleep="NO">
@@ -97,7 +97,15 @@
 							</ToolScp>
 						</execList>
 					</Event>
-				</StageEvents>
+				<Event execCount="1" eventName="Set_value">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR_12"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
 			</Stage>
 			<Stage Name="SUCCESS" AutoStart="0">
 				<StartScpList>
@@ -176,7 +184,13 @@
 							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
 								<Str Str="CNT"/>
 							</ToolScp>
-						</execList>
+						<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="SETTING"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_PROG"/>
+                            </ToolScp>
+                        </execList>
 					</Event>
 				</StageEvents>
 			</Stage>
@@ -446,40 +460,6 @@
 					</Obj>
 				</ObjList>
 				<StageEvents>
-					<Event execCount="1" eventName="Fail">
-						<condList>
-							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
-								<Num Num="0"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="FAIL"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_1_PROG"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="END">
-						<condList>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="SETTING/0"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_2_PROG"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_1_PROG"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_1_PROG"/>
-							</ToolScp>
-						</execList>
-					</Event>
 					<Event eventName="ACT1">
 						<condList>
 							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
@@ -675,7 +655,14 @@
 							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
 								<Str Str="CNT"/>
 							</ToolScp>
-						</execList>
+						<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="SETTING"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR_12"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
 					</Event>
 					<Event execCount="1" eventName="Fail_npcCNT">
 						<condList>
@@ -683,7 +670,12 @@
 								<MGameObj List="SETTING/0"/>
 								<Num Num="0"/>
 							</ToolScp>
-						</condList>
+						<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR_12"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
 						<execList>
 							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
 								<Str Str="FAIL"/>

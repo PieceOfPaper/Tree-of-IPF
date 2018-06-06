@@ -2,7 +2,7 @@
 <uiframe name="notice_gm" x="0" y="0" width="804" height="350" create="open">
     <frame title="알림" layout_gravity="center top" margin="0 160 0 0"/>
     <skin frameskin="none"/>
-	<option closebutton="false" visible="false" alwaysVisible="true"/>
+	<option closebutton="false" visible="false"/>
     <draw drawtitlebar="false" drawframe="true"/>
     <layer layerlevel="100"/>
     <input hittest="false"/>

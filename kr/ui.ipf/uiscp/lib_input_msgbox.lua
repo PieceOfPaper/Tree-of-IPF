@@ -117,9 +117,8 @@ end
 function GET_INPUT_STRING_TXT(frame)
 
 	local edit = frame:GetChild('input');
-	tolua.cast(edit, "ui::CEditControl");
+	tolua.cast(edit, "ui::CEditControl");	
 	return edit:GetText();
-
 end
 
 function GET_INPUT2_STRING_TXT(frame)

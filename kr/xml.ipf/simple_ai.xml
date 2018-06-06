@@ -6355,13 +6355,13 @@
 			</ToolScp>
 		</List>
 		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
 				<Str_Arg Str="I_force018_trail_dark" Arg="3"/>
 				<Str Str="TOP"/>
 			</ToolScp>
-		</StartList>
+		<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
 	</AI>
 	<AI Name="GT_STAGE_18_RUMBLE_AI" ActiveMessageMapInBattle="1">
 		<List>
