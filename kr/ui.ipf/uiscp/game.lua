@@ -4228,7 +4228,7 @@ function BLOCK_MSG(blockName, sysTime)
 end
 
 function UI_CHECK_NOT_EVENT_MAP()
-    if GetZoneName() == 'c_Klaipe_event' then
+    if IS_IN_EVENT_MAP() == true then
         return 0;
     end
     return 1;

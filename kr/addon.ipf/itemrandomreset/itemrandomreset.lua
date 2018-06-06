@@ -100,7 +100,7 @@ function ITEM_RANDOMRESET_DROP(frame, icon, argStr, argNum)
 	local liftIcon 				= ui.GetLiftIcon();
 	local FromFrame 			= liftIcon:GetTopParentFrame();
 	local toFrame				= frame:GetTopParentFrame();
-
+	CLEAR_ITEMRANDOMRESET_UI()
 	if FromFrame:GetName() == 'inventory' then
 		local iconInfo = liftIcon:GetInfo();
 		ITEM_RANDOMRESET_REG_TARGETITEM(frame, iconInfo:GetIESID());
@@ -164,6 +164,8 @@ function ITEM_RANDOMRESET_REG_TARGETITEM(frame, itemID)
 		elseif obj[propGroupName] == 'UTIL_WEAPON' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
 		elseif obj[propGroupName] == 'UTIL_ARMOR' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif obj[propGroupName] == 'UTIL_SHILED' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
 		elseif obj[propGroupName] == 'STAT' then
 		    clientMessage = 'ItemRandomOptionGroupSTAT'
@@ -459,6 +461,8 @@ ui.SetHoldUI(false);
 		elseif obj[propGroupName] == 'UTIL_WEAPON' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
 		elseif obj[propGroupName] == 'UTIL_ARMOR' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'			
+		elseif obj[propGroupName] == 'UTIL_SHILED' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
 		elseif obj[propGroupName] == 'STAT' then
 		    clientMessage = 'ItemRandomOptionGroupSTAT'

@@ -25,6 +25,14 @@ function ON_GUILD_SET_NEUTRALITY(parent, checkBox)
         return;
     end
 
+    -- 길드 중립 템플러 길마만 할 수 있다고 함
+    local templerCls = GetClass('Job', 'Char1_16');
+    if IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == false then
+        ui.SysMsg(ClMsg('TgtDonHaveTmpler'));        
+        GUILDINFO_WAR_INIT_CHECKBOX(parent);
+        return;
+    end
+
     local curState = guild.info:GetNeutralityState();
     local neutralityCost = 0;
     if curState == false then -- 자금 확인

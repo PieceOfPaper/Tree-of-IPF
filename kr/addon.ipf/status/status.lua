@@ -734,7 +734,7 @@ function SETEXP_SLOT(gbox, addBuffClsName, isAdd)
     if session.world.IsIntegrateIndunServer() == true then
         local party = session.party.GetPartyMemberList(PARTY_NORMAL);
         local count = party:Count();
-        local expupValue = count * INDUN_AUTO_FIND_EXP_BONUS * 100;
+		local expupValue = INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(count) / count * 100;
         expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, 'PartyIndunExpBuff', expupValue);
         totalExpUpValue = totalExpUpValue + expupValue; 
     end
@@ -815,6 +815,7 @@ function SETEXP_SLOT_ADD_ICON(expupBuffBox, key, expupValue)
 	end
 
     -- percent text
+	expupValue = math.floor(expupValue);
     local text = gBox:CreateOrGetControl('richtext', 'text_'..key, 40, 20, ui.CENTER_HORZ, ui.TOP, 0, 45, 0, 0);    
     text:SetFontName('white_18_ol');
     text:SetText('{s13}'.. expupValue ..'%{/}');

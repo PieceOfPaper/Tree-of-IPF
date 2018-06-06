@@ -76,12 +76,9 @@ function TPSHOP_REDRAW_TPITEMLIST()
 end
 
 function TPSHOP_TAB_CHANGE(frame, ctrl, argStr, argNum)
-	local tabObj = frame:GetChild('shopTab');
-	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
-	local curtabIndex = itembox_tab:GetSelectItemIndex();
-    if curtabIndex == 3 then -- wingStore
-        return;
-    end
+	local tabObj		    = frame:GetChild('shopTab');
+	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
+	local curtabIndex	    = itembox_tab:GetSelectItemIndex();
 	TPSHOP_TAB_VIEW(frame, curtabIndex);
 end
 
@@ -102,7 +99,7 @@ function TPITEM_OPEN(frame)
 	end
 end
 
-function TPSHOP_TAB_VIEW(frame, curtabIndex)	
+function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	local frame = ui.GetFrame("tpitem");
 	local rightFrame = frame:GetChild('rightFrame');
 	local rightgbox = rightFrame:GetChild('rightgbox');
@@ -117,74 +114,72 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	local rcycle_basketgbox = GET_CHILD_RECURSIVELY(frame,'rcycle_basketgbox');
 	
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
-	    if curtabIndex == 0 then	
-		    TPITEM_DRAW_NC_TP();
-		    TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-		    basketgbox:SetVisible(0);
-		    previewgbox:SetVisible(0);
-		    previewStaticTitle:SetVisible(0);	
-		    cashInvGbox:SetVisible(1);
-		    rcycle_basketgbox:SetVisible(0);
-		    tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
-		    tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
-	    elseif curtabIndex == 1 then
-		    basketgbox:SetVisible(1);
-		    previewgbox:SetVisible(1);
-		    previewStaticTitle:SetVisible(1);
-		    cashInvGbox:SetVisible(0);
-		    rcycle_basketgbox:SetVisible(0);
-	    elseif curtabIndex == 2 then -- 리사이클 샵
-		    rcycle_basketgbox:SetVisible(1);
-		    previewStaticTitle:SetVisible(1);	
-		    previewgbox:SetVisible(1);
-		    basketgbox:SetVisible(0);
-		    cashInvGbox:SetVisible(0);
-		    RECYCLE_SHOW_TO_ITEM()
-	    end
+	if curtabIndex == 0 then	
+		TPITEM_DRAW_NC_TP();
+		TPSHOP_SHOW_CASHINVEN_ITEMLIST();
+		basketgbox:SetVisible(0);
+		previewgbox:SetVisible(0);
+		previewStaticTitle:SetVisible(0);	
+		cashInvGbox:SetVisible(1);
+		rcycle_basketgbox:SetVisible(0);
+		tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
+		tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
+	elseif curtabIndex == 1 then
+		basketgbox:SetVisible(1);
+		previewgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);
+		cashInvGbox:SetVisible(0);
+		rcycle_basketgbox:SetVisible(0);
+	elseif curtabIndex == 2 then -- 리사이클 샵
+		rcycle_basketgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		basketgbox:SetVisible(0);
+		cashInvGbox:SetVisible(0);
+		RECYCLE_SHOW_TO_ITEM()
+	end
 	elseif (config.GetServiceNation() == "THI") then	
-	    if curtabIndex == 0 then	
-		    UPDATE_NEXON_AMERICA_SELLITEMLIST();
-		    TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-		    basketgbox:SetVisible(0);
-		    previewgbox:SetVisible(0);
-		    previewStaticTitle:SetVisible(0);	
-		    cashInvGbox:SetVisible(0);
-		    rcycle_basketgbox:SetVisible(0);
-		    ncChargebtn:SetVisible(0);
-	    elseif curtabIndex == 1 then
-		    basketgbox:SetVisible(1);
-		    previewgbox:SetVisible(1);
-		    previewStaticTitle:SetVisible(1);
-		    cashInvGbox:SetVisible(0);
-		    rcycle_basketgbox:SetVisible(0);
-		    ncChargebtn:SetVisible(0);
-	    elseif curtabIndex == 2 then -- 리사이클 샵
-		    rcycle_basketgbox:SetVisible(1);
-		    previewStaticTitle:SetVisible(1);	
-		    previewgbox:SetVisible(1);
-		    basketgbox:SetVisible(0);
-		    cashInvGbox:SetVisible(0);
-		    ncChargebtn:SetVisible(0);
-		    RECYCLE_SHOW_TO_ITEM()
-	    end
+	if curtabIndex == 0 then	
+		UPDATE_NEXON_AMERICA_SELLITEMLIST();
+		TPSHOP_SHOW_CASHINVEN_ITEMLIST();
+		basketgbox:SetVisible(0);
+		previewgbox:SetVisible(0);
+		previewStaticTitle:SetVisible(0);	
+		cashInvGbox:SetVisible(0);
+		rcycle_basketgbox:SetVisible(0);
+		ncChargebtn:SetVisible(0);
+	elseif curtabIndex == 1 then
+		basketgbox:SetVisible(1);
+		previewgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);
+		cashInvGbox:SetVisible(0);
+		rcycle_basketgbox:SetVisible(0);
+		ncChargebtn:SetVisible(0);
+	elseif curtabIndex == 2 then -- 리사이클 샵
+		rcycle_basketgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		basketgbox:SetVisible(0);
+		cashInvGbox:SetVisible(0);
+		ncChargebtn:SetVisible(0);
+		RECYCLE_SHOW_TO_ITEM()
+	end
 	else
-	    if curtabIndex == 0 then
-		    basketgbox:SetVisible(1);
-		    previewgbox:SetVisible(1);
-		    previewStaticTitle:SetVisible(1);
-		    cashInvGbox:SetVisible(0);
-		    rcycle_basketgbox:SetVisible(0);
-	    elseif curtabIndex == 1 then -- 리사이클 샵
-		    rcycle_basketgbox:SetVisible(1);
-		    previewStaticTitle:SetVisible(1);	
-		    previewgbox:SetVisible(1);
-		    basketgbox:SetVisible(0);
-		    cashInvGbox:SetVisible(0);
-		    RECYCLE_SHOW_TO_ITEM()
-	    end
-    end
-        
-    TPITEM_HIDE_WING_STORE(frame, curtabIndex);
+	if curtabIndex == 0 then
+		basketgbox:SetVisible(1);
+		previewgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);
+		cashInvGbox:SetVisible(0);
+		rcycle_basketgbox:SetVisible(0);
+	elseif curtabIndex == 1 then -- 리사이클 샵
+		rcycle_basketgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		basketgbox:SetVisible(0);
+		cashInvGbox:SetVisible(0);
+		RECYCLE_SHOW_TO_ITEM()
+	end
+end
 end
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
@@ -383,8 +378,8 @@ end
 function ON_TPSHOP_RESET_PREVIEWMODEL()
 
 	local frame = ui.GetFrame("tpitem");
-	local previewslotset0 = GET_CHILD_RECURSIVELY(frame, "previewslotset0");
-	local previewslotset1 = GET_CHILD_RECURSIVELY(frame, "previewslotset1");
+	local previewslotset0 = GET_CHILD_RECURSIVELY(frame,"previewslotset0")
+	local previewslotset1 = GET_CHILD_RECURSIVELY(frame,"previewslotset1")	-- 보류
 		
 	previewslotset0:ClearIconAll();
 	previewslotset1:ClearIconAll();
@@ -955,17 +950,8 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 		time_limited_text:SetVisible(0);
 	end
 			
-	nxp:SetText("{@st43}{s18}"..obj.Price.."{/}");
-	--[[
-	if obj.LimitCount ~= 0 then
-		local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
-		local limitText = string.format("{s13}%s{/}", ScpArgMsg("BuyLimitPerMonth_{Cur}_{Max}", "Cur", curBuyCount, "Max", obj.LimitCount));
-		subtitle:SetText(limitText);
-		subtitle:SetVisible(1);	
-	else
-	]]
-		subtitle:SetVisible(0);	
-	--end;
+	nxp:SetText("{@st43}{s18}"..obj.Price.."{/}");	
+	subtitle:SetVisible(0);	
 
 	SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(itemobj));
 			
@@ -1016,7 +1002,7 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 
 	local isPreviewPossible = 0;
 
-	if session.GetEquipItemByType(itemclsID) ~= nil then		-- 사용하여 혜택을 받고 있거나, 장비하고 있을때
+	if session.GetEquipItemByType(itemclsID) ~= nil then -- 사용하여 혜택을 받고 있거나, 장비하고 있을때
 		SWITCH(subCategory)
 		{
 			['TP_Useable'] = function()
@@ -1055,12 +1041,12 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 				SWITCH(subCategory)
 				{
 					['TP_Costume_Color'] = function() 	
-						isPreviewPossible = 1;	--미리보기 버그 수정 보류
+						isPreviewPossible = 1;
 						sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
  					end,
 
 					['TP_Costume_Hairacc'] = function()
-						isPreviewPossible = 1;		--미리보기 버그 수정 보류
+						isPreviewPossible = 1;
  					end,
 
 					['TP_Costume_Lens'] = function()
@@ -1095,19 +1081,6 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 
 				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
             end,
-			--[[		--미리보기 버그 수정 보류
-			['TP_Premium'] = function() 
-				SWITCH(subCategory) {
-					['TP_Petitem'] = function() 	-- 컴페니언 알일 경우
-						local clsName = obj.ItemClassName;
-						if (string.find(clsName, "egg_") ~= nil) then
-							isPreviewPossible = 1;`
-						end
- 					end,
-					default = function() end,
-					}
-			end,
-			]]--
 		}
 	end
 
@@ -1119,12 +1092,7 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 		return;
 	end
 
-	local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
-	if obj.AccountLimitCount ~= 0 and curBuyCount >= obj.AccountLimitCount then
-		buyBtn:SetSkinName('test_gray_button');
-		buyBtn:SetText(ClMsg('ITEM_IsPurchased0'))
-		buyBtn:EnableHitTest(0)
-	end
+    TPITEM_SET_ENABLE_BY_LIMITATION(buyBtn, obj);
 
 	previewbtn:ShowWindow(isPreviewPossible);
 end
@@ -1519,9 +1487,6 @@ function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_cl
             end,
             ['LENS'] = function()
                 TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
-            end,
-            ['WING'] = function()
-                TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 2, tpitemname, itemobj); -- 날개
             end,
             default = function() 
                 IMC_LOG("INFO_NORMAL", "EqpType not defined in tpitem.lua:TPSHOP_ITEM_PREVIEW_PREPROCESSOR. item.EqpType:" .. itemobj.EqpType);
@@ -2012,14 +1977,23 @@ function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_
 			isHave = true;
 		end
 	end
+
+    local limit = GET_LIMITATION_TO_BUY(obj.ClassID);
 	if isHave == true then
 		ui.MsgBox(ClMsg("AlearyHaveItemReallyBuy?"), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
-	elseif obj.AccountLimitCount ~= 0 then
+	elseif limit == 'ACCOUNT' then
 		local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
 		if curBuyCount >= obj.AccountLimitCount then
 			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded","Value", obj.AccountLimitCount), "")
 		else
 			ui.MsgBox(ScpArgMsg("SelectPurchaseRestrictedItem","Value", obj.AccountLimitCount), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
+		end
+    elseif limit == 'MONTH' then
+        local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
+		if curBuyCount >= obj.MonthLimitCount then
+			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded","Value", obj.MonthLimitCount), "")
+		else
+			ui.MsgBox(ScpArgMsg("SelectPurchaseRestrictedItemByMonth","Value", obj.MonthLimitCount), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
 		end
 	else
 		TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
@@ -3149,4 +3123,16 @@ function GETBANNERURL(webUrl)
 	local url = config.GetBannerImgURL();	
 	local urlStr = string.format("%s%s.png", url,webUrl );
 	return urlStr;
+end
+
+function TPITEM_SET_ENABLE_BY_LIMITATION(buyBtn, itemObj)
+    local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, itemObj.ClassID);
+    local accountLimitCount = TryGetProp(itemObj, 'AccountLimitCount');
+    local monthLimitCount = TryGetProp(itemObj, 'MonthLimitCount');
+	if (accountLimitCount ~= nil and accountLimitCount > 0 and curBuyCount >= accountLimitCount)
+        or (monthLimitCount ~= nil and monthLimitCount > 0 and curBuyCount >= monthLimitCount) then
+		buyBtn:SetSkinName('test_gray_button');
+		buyBtn:SetText(ClMsg('ITEM_IsPurchased0'))
+		buyBtn:EnableHitTest(0)
+	end
 end

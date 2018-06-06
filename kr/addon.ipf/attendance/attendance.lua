@@ -3,12 +3,12 @@ function ATTENDANCE_ON_INIT(addon, frame)
    addon:RegisterMsg('UPDATE_ATTENDANCE_REWARD', 'ON_ATTENDANCE_RESULT');
 end
 
-function GET_ATTENDANCE_ID_NEED_TO_SHOW(argNum)	
+function GET_ATTENDANCE_ID_NEED_TO_SHOW(argNum)		
     local attendanceID = 0;
     if argNum > 0 then
     	attendanceID = argNum;
     else
-    	attendanceID = session.attendance.GetNeedToShow();
+    	attendanceID = session.attendance.GetNeedToShow();    	
     end
 	if attendanceID == 0 then
 		return 0;
@@ -118,7 +118,7 @@ function ATTENDANCE_INIT_REWARD(frame, attendanceID)
             if receiptData == nil then
             	getPic:ShowWindow(0);
 
-            	if todayDayOffset > i then
+            	if todayDayOffset > i and attendanceCls.AttendancePass == 'YES' then
             		cntText:SetColorTone('FF444444');
             		ctrlSet:SetColorTone('FF444444');
             	end

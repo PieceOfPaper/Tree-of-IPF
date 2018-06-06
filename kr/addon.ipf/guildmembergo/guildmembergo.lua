@@ -100,7 +100,7 @@ function GUILDMEMBER_GO_CTRLSET_UPDATE(ctrlSet, updateTotalCheckCount)
 end
 
 function GUILD_CALL_EXEC(parent, ctrl)
-    if GetZoneName() == 'c_Klaipe_event' then
+    if IS_IN_EVENT_MAP() == true then
         ui.SysMsg(ClMsg('ImpossibleInCurrentMap'));
         return;
     end
@@ -116,7 +116,7 @@ function GUILD_CALL_EXEC(parent, ctrl)
 end
 
 function GUILD_GO_EXEC(parent, ctrl)
-    if GetZoneName() == 'c_Klaipe_event' then
+    if IS_IN_EVENT_MAP() == true then
         ui.SysMsg(ClMsg('ImpossibleInCurrentMap'));
         return;
     end

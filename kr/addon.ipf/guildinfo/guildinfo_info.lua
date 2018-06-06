@@ -220,6 +220,11 @@ function GUILDINFO_INFO_UPDATE_TOWERLEVEL(benefitBox, updateBtn)
     control.CustomCommand('UPDATE_GUILD_TOWER_LEVEL', 0);
 end
 
+function GUILDINFO_INFO_UPDATE_WAREHOUSE(frame, ctrl)
+	party.RequestReloadInventory(PARTY_GUILD);
+	DISABLE_BUTTON_DOUBLECLICK("guildwarehouse", ctrl:GetName(), 0.1);
+end
+
 function IS_EXIST_JOB_IN_HISTORY(jobID)
     local mySession = session.GetMySession();
     local jobHistory = mySession.jobHistory;

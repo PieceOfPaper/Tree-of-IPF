@@ -72,7 +72,7 @@ function ON_PVP_PLAYING_UPDATE(frame)
 end
 
 function WORLDPVP_START_ICON_NOTICE()
-    if GetZoneName() == 'c_Klaipe_event' then
+    if IS_IN_EVENT_MAP() == true then
         return;
     end
 

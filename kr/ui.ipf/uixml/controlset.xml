@@ -1604,7 +1604,7 @@
 			<picture name="shawdow" margin="0 20 0 0" rect="0 0 110 40 " hittest="false" layout_gravity="center center" stretch="true" image="skill-name_bg"/>
 			<slot name="icon" margin="0 70 0 0" rect="0 0 135 135" layout_gravity="center top" enabledrop="false" enablepop="false" hittest="true"/>
 			<button name="noneBtnPreSlot_2" margin="0 0 0 0 " rect="0 0 280 350" layout_gravity="left top" skin="premium_case_skin" scrollbar="false" hittest="false"/>
-			<button name="staticBuyMedalbox" margin="0 0 0 105" rect="0 0 255 30" layout_gravity="center bottom" hittestbox="false" draw="true" hittest="false" skin="categoryselect_skin" textalign="left center" fontname="black_16_b" format="{@st42}{s16}  소모 %s {/}{img %s 20 20}{/}" param1="type" param1_def="메달" param2="img" param2_def="icon_item_recyclemedal"/>
+			<button name="staticBuyMedalbox" margin="0 0 0 105" rect="0 0 255 30" layout_gravity="center bottom" hittestbox="false" draw="true" hittest="false" skin="categoryselect_skin" textalign="left center" fontname="black_16_b" caption="{@st42}{s16}  소모메달 {/}{img icon_item_recyclemedal 20 20}{/}"/>
 			<button name="staticSellMedalbox" margin="0 0 0 105" rect="0 0 255 30" layout_gravity="center bottom" hittestbox="false" draw="true" hittest="false" skin="categoryselect_skin" textalign="left center" fontname="black_16_b" caption="{@st42}{s16}  획득메달 {/}{img icon_item_recyclemedal 20 20}{/}"/>
 			<labelline name="labelline14" margin="10 60 0 0" rect="0 0 270 2" skin="none" layout_gravity="left top"/>
 			<richtext name="nxp" margin="0 0 20 100" rect="0 0 217 30" caption="999" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right bottom"/>
@@ -1623,7 +1623,7 @@
 			<picture name="rightarrow" margin="50 40 0 0" rect="0 0 30 20" hittest="false" image="market_rightarrow" stretch="true" changecursor="false" layout_gravity="center top"/>
 			<slot name="itemicon" margin="10 0 0 0" rect="0 0 80 80" layout_gravity="left center" enabledrop="false" enablepop="false" hittest="true" stretch="true"/>
 			<richtext name="itemname" margin="100 10 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="itemStaticprice_buy" margin="100 40 0 0" rect="0 0 210 40" format="소비 %s" param1="type" param1_def="메달" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<richtext name="itemStaticprice_buy" margin="100 40 0 0" rect="0 0 210 40" caption="소비 메달" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 			<richtext name="itemStaticprice_sell" margin="100 40 0 0" rect="0 0 210 40" caption="획득 메달" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 			<richtext name="itemprice" margin="150 40 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="right center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		</controls>
@@ -3908,7 +3908,7 @@
 			<richtext name="dayOffsetText" rect="0 0 15 15" margin="10 8 0 0" layout_gravity="left top" caption="1" fontname="brown_18"/>
 			<picture name="itemPic" rect="0 0 60 60" margin="0 15 0 0" layout_gravity="center top" image="testclose_button" stretch="true" hittest="true"/>
 			<richtext name="cntText" rect="0 0 70 30" margin="0 0 0 10" layout_gravity="center bottom" format="x %s" param1="cnt" param1_def="0" fontname="white_16_b_ol"/>
-			<picture name="getPic" rect="0 0 116 116" margin="0 0 0 0" layout_gravity="center center" image="attendance_onion_stamp" stretch="true"/>
+			<picture name="getPic" rect="0 0 80 80" margin="0 0 0 0" layout_gravity="center center" image="attendance_onion_stamp" stretch="true"/>
 		</controls>
 	</controlset>
 </controlsetlist>

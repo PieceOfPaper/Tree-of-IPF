@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="JOB_MATADOR_QUSET_MINIGAME" minLv="0" maxLv="0" startWaitSec="1632352">
+    <Game Name="JOB_MATADOR_QUSET_MINIGAME" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="1632352">
         <StageList>
             <Stage Name="Stage2">
                 <ObjList>
@@ -63,9 +63,9 @@
             </Stage>
             <Stage Name="Advantage1">
                 <ObjList>
-                    <Obj Type="Monster" MonType="20024" Pos="629.16#1178.06#758.89" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;어드밴티지&apos; " SimpleAI="MATADOR_MON_ADVANTAGE1_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="629.16#1178.06#758.89" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_ADVANTAGE1_AI"/>
                     <Obj Type="Monster" MonType="20024" Pos="596.77#1178.06#472.36" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;어드밴티지&apos; " SimpleAI="MATADOR_MON_ADVANTAGE2_AI"/>
-                    <Obj Type="Monster" MonType="20024" Pos="780.57#1178.06#443.83" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;어드밴티지&apos; " SimpleAI="MATADOR_MON_ADVANTAGE3_AI">
+                    <Obj Type="Monster" MonType="20024" Pos="780.95#1178.06#445.71" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;어드밴티지&apos; " SimpleAI="MATADOR_MON_ADVANTAGE3_AI">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
                 </ObjList>

@@ -119,7 +119,7 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
     
     local skillLevel = session.GetUserConfig("SKLUP_" .. nextObj.ClassName);    
     
-    -- skillLevel : ?��?가 ?�시�??�린 ?�벨 ??    -- _obj.Level : 지�??�킬???�벨        
+    -- skillLevel : ?��?가 ?�시�??�린 ?�벨 ??    -- _obj.Level : 지�??�킬???�벨        
     skillLevel = _obj.Level + skillLevel;
     
     local LevelByDB = TryGetProp(nextObj, 'LevelByDB');
@@ -277,7 +277,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
             objIsClone= true;
         end
     else
-	--�??�동???�이?�에 ?�한 ?�킬?�벨???�팁???�용?��? ?�음
+	--�??�동???�이?�에 ?�한 ?�킬?�벨???�팁???�용?��? ?�음
         obj = GetIES(abil:GetObject());
         tooltipStartLevel = obj.Level;
     end
@@ -606,7 +606,7 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     
     if TryGetProp(obj, 'BasicSP') ~= nil and TryGetProp(obj, 'LvUpSpendSp') ~= nil and TryGetProp(obj, 'Level') ~= nil and TryGetProp(obj, 'SpendSP') ~= nil then
 		-- lvUpSpendSP??루아?�서??float ?��??��? ?�정?�기?�해 ?�수 5?�리?�서 반올림한??
-		-- 값을 print�?찍어보면 ?�래 값과 같�?�?. ?�버?�?계산값을 맞출?�면 ?�렇�??�야 ?�다.
+		-- 값을 print�?찍어보면 ?�래 값과 같�?�?. ?�버?�?계산값을 맞출?�면 ?�렇�??�야 ?�다.
         local lvUpSpendSpRound = math.floor((obj.LvUpSpendSp * 10000) + 0.5) / 10000
         
         if noHave == true then
@@ -618,10 +618,15 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     end
     sp = math.floor(sp)
     if TryGetProp(obj, 'CoolDown') ~= nil then
---      coolTime = obj.BasicCoolDown * 0.001
-        coolTime = obj.CoolDown * 0.001
+        local tempObj = CreateGCIESByID("Skill", obj.ClassID);
+        if tempObj ~= nil then
+            tempObj.Level = lv;
+        else
+            tempObj = obj;
+        end
+        coolTime = tempObj.CoolDown * 0.001
         if coolTime == 0 then
-            coolTime = obj.BasicCoolDown * 0.001
+            coolTime = tempObj.BasicCoolDown * 0.001
         end
     end
     

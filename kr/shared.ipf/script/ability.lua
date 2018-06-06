@@ -1,6 +1,3 @@
-
--- ?�빌 UNLOCK체크?
-
 function PC_PCAA(pc)
 local jobHistory = GetJobHistorySting(pc)
     print(jobHistory)
@@ -13,7 +10,12 @@ function CHECK_ABILITY_LOCK(pc, ability)
         return "UNLOCK";
     end
 
-    local jobHistory = GetJobHistoryString(pc)
+    local jobHistory = '';
+    if IsServerObj(pc) == 1 then
+        jobHistory = GetJobHistoryString(pc);
+    else
+        jobHistory = GetMyJobHistoryString();
+    end
     
     if string.find(ability.Job, ";") == nil then
         
@@ -837,7 +839,7 @@ end
 function TX_SCR_SET_ABIL_HEADSHOT_OPTION(pc, tx, active)
     local skl = GetSkill(pc, 'Musketeer_HeadShot')
     if nil == skl then
-        return false;
+        return true -- 스킬이 없어도 true를 반환하여, tx가 롤백되지 않도록 한다.
     end
 
     local sklValue, overValue = 0, 0;
@@ -941,4 +943,58 @@ end
 
 function SCR_ABIL_SPEAR_INACTIVE(self, ability)
     DelExProp(self, "ABIL_SPEAR_RANGE")
+end
+
+
+
+function SCR_ABIL_KABBALIST21_ACTIVE(self, ability)
+	local addMaxMATKRate = 0.0;
+	
+    local rItem  = GetEquipItem(self, 'RH');
+    local rItemType = TryGetProp(rItem, 'ClassType');
+    if rItem ~= nil and (rItemType == 'Staff' or rItemType == 'Mace') then
+		addMaxMATKRate = 0.2;
+		
+		if rItemType == 'Staff' then
+			ChangeNormalAttack(self, "Magic_Attack");
+		end
+    end
+    
+	self.MAXMATK_RATE_BM = self.MAXMATK_RATE_BM + addMaxMATKRate;
+	
+	SetExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE", addMaxMATKRate);
+end
+
+function SCR_ABIL_KABBALIST21_INACTIVE(self, ability)
+	local addMaxMATKRate = GetExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE");
+	self.MAXMATK_RATE_BM = self.MAXMATK_RATE_BM - addMaxMATKRate;
+	
+	ChangeNormalAttack(self, "None");
+	
+	DelExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE");
+end
+
+function SCR_ABIL_KABBALIST22_ACTIVE(self, ability)
+	local addMSPD = 0;
+	local isAbilKabbalist22 = 0;
+	
+	local count = CHECK_ARMORMATERIAL(self, "Cloth")
+	if count >= 4 then
+		addMSPD = 5;
+		
+		isAbilKabbalist22 = 1;
+	end
+	
+	self.MSPD_BM = self.MSPD_BM + addMSPD;
+	
+	SetExProp(self, "ABIL_KABBALIST22_MSPD", addMSPD);
+	SetExProp(self, "ABIL_KABBALIST22_ON", isAbilKabbalist22);
+end
+
+function SCR_ABIL_KABBALIST22_INACTIVE(self, ability)
+	local addMSPD = GetExProp(self, "ABIL_KABBALIST22_MSPD");
+	self.MSPD_BM = self.MSPD_BM - addMSPD;
+	
+	DelExProp(self, "ABIL_KABBALIST22_MSPD");
+	DelExProp(self, "ABIL_KABBALIST22_ON");
 end

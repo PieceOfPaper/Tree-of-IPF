@@ -244,9 +244,12 @@ function GET_ADVENTURE_BOOK_SHOP_POINT(pc, isInitSectionInfo)
         elseif skl.ClassName == "Appraiser_Apprise" then
             money = earningPay
             --print("--- 개인상점: 감정: "..money);  
+        elseif skl.ClassName == "Sage_Portal" then
+            money = earningPay
+            --print("--- 개인상점: 포탈상점: "..money);  
         end
         earnig_Money = earnig_Money + money
---        print("--- 벌어들인 돈: ", earnig_Money);
+        --print("--- 벌어들인 돈: ", earnig_Money);
     end
     
     local section = 0;

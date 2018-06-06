@@ -3,7 +3,7 @@ SETITEM_LIST_STYLE = "{@st41}";
 SETITEM_ICON_START_Y = 80;
 
 function SETITEMALARM_ON_INIT(addon, frame)
-	addon:RegisterMsg('INV_ITEM_ADD', 'SETITEM_INV_ITEM_ADD');
+	--addon:RegisterMsg('INV_ITEM_ADD', 'SETITEM_INV_ITEM_ADD');
 end
 
 function SETITEM_INV_ITEM_ADD(frame, msg, addType, invIndex)
@@ -18,7 +18,7 @@ function SETITEM_INV_ITEM_ADD(frame, msg, addType, invIndex)
 end
 
 function SETITEM_CHECK(frame, itemType)
-
+	
 	local cnt = GET_TOTAL_ITEM_CNT(itemType);
 	if cnt > 1 then
 		return;

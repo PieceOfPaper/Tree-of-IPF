@@ -306,7 +306,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     local starData = GET_CHILD_RECURSIVELY(frame, 'starData');
     local STAR_IMAGE = frame:GetUserConfig('STAR_IMAGE');
     local starText = '';
-    local numStar = indunCls.Level / 100;
+    local numStar = (indunCls.Level - 1) / 100;
     for i = 0, numStar do
         starText = starText .. string.format('{img %s %d %d}', STAR_IMAGE, 20, 20);
     end

@@ -21,7 +21,7 @@ end
 function SCR_JOB_SHADOWMANCER_Q1_REW2_CHECK(pc, stepRewardFuncList)
     local sObj = GetSessionObject(pc, 'SSN_JOB_SHADOWMANCER_Q1')
     if sObj ~= nil then
-        if sObj.Goal1 > 70 then
+        if sObj.Goal1 > 75 then
             return 'YES'
         end
     end
@@ -31,7 +31,7 @@ end
 function SCR_JOB_SHADOWMANCER_Q1_REW3_CHECK(pc, stepRewardFuncList)
     local sObj = GetSessionObject(pc, 'SSN_JOB_SHADOWMANCER_Q1')
     if sObj ~= nil then
-        if sObj.Goal1 > 80 then
+        if sObj.Goal1 > 90 then
             return 'YES'
         end
     end

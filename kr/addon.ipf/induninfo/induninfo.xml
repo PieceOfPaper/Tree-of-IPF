@@ -54,7 +54,7 @@
 		<slotset name="monSlotSet" parent="monBox_dummy" rect="0 0 370 60" margin="5 0 0 0" layout_gravity="left top" row="1" col="10" size="65 65" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
 		<!-- Reward Box -->
 		<groupbox name="rewardBox" parent="infoBox" rect="0 0 412 90" margin="0 0 0 0" layout_gravity="right bottom" draw="false" hittestbox="false"/>
-		<button name="rewardRightBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="right top" image="button_right_select2" xLBtnUpScp="INDUNENTER_REWARD_CLICK_RIGHT"/>
+		<button name="rewardRightBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="right top" image="button_right_select2" LBtnUpScp="INDUNENTER_REWARD_CLICK_RIGHT"/>
 		<button name="rewardLeftBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="left top" image="button_left_select2" LBtnUpScp="INDUNENTER_REWARD_CLICK_LEFT"/>
 		<picture name="rewardPic" parent="rewardBox" rect="0 0 27 27" margin="5 0 0 0" layout_gravity="left top" image="indun_item"/>
 		<richtext name="rewardText" parent="rewardBox" rect="0 0 190 30" margin="35 0 0 0" layout_gravity="left top" caption="대표 획득 아이템" fontname="brown_18_b"/>

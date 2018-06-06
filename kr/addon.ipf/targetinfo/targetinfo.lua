@@ -87,7 +87,7 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 		return;
 	end
 
-	if GetZoneName() == 'c_Klaipe_event' then
+	if IS_IN_EVENT_MAP() == true then
 		return;
 	end
 	

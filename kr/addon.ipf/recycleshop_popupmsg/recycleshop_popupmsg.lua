@@ -15,64 +15,53 @@ function RECYCLESHOP_POPUPMSG_MAKE_ITEMLIST(type)
 
 	local slotsetname = nil
 	if type == "buy" then
-		slotsetname = "rcycle_basketbuyslotset";
-    elseif type == 'wingStore' then
-        slotsetname = "wing_basketbuyslotset";
-        frame:ShowWindow(1);
+		slotsetname = "rcycle_basketbuyslotset"
 	else
-		slotsetname = "rcycle_basketsellslotset";
+		slotsetname = "rcycle_basketsellslotset"
 	end
 
-	local gbox = GET_CHILD_RECURSIVELY(frame, "itemlistgbox")
+	local slotset = GET_CHILD_RECURSIVELY(tpitemframe,slotsetname)
+	
+
+	local gbox = GET_CHILD_RECURSIVELY(frame,"itemlistgbox")
 	if gbox == nil then
 		return false;
 	end
 	DESTROY_CHILD_BYNAME(gbox, 'eachitem_');
-
-	local slotset = GET_CHILD_RECURSIVELY(tpitemframe, slotsetname);
 	local slotCount = slotset:GetSlotCount();
 	local allprice = 0
 	local drawcount = 0
 
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);
+
 		if slotIcon ~= nil then
+
 			local slot  = slotset:GetSlotByIndex(i);
+
 			local tpitemname = slot:GetUserValue("TPITEMNAME");
 			local cnt = slot:GetUserValue("COUNT");
-			local item = nil;
-			local tpitem = nil;
-            if type == 'wingStore' then
-                tpitem = GetClass('WingStore', tpitemname);
-                item = GetClass('Item', tpitem.ItemClassName);
-            else
-                tpitem = GetClass("recycle_shop", tpitemname);
-                item = GetClass("Item", tpitemname);
-            end
+			local item = GetClass("Item",tpitemname)
+			local tpitem = GetClass("recycle_shop",tpitemname)
 
 			if tpitem ~= nil and item ~= nil then
+
 				local itemcset = gbox:CreateOrGetControlSet('tpshop_recycle_popup', 'eachitem_'..drawcount, 0, ui.GetControlSetAttribute("tpshop_recycle_popup", 'height') * drawcount);
-				local slot = GET_CHILD_RECURSIVELY(itemcset, "itemicon")				
+				local slot = GET_CHILD_RECURSIVELY(itemcset,"itemicon")
+				
 				SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(item));
 				
-				local itemname = GET_CHILD_RECURSIVELY(itemcset, "itemname")
-				local itemStaticprice_buy = GET_CHILD_RECURSIVELY(itemcset, "itemStaticprice_buy")
-				local itemStaticprice_sell = GET_CHILD_RECURSIVELY(itemcset, "itemStaticprice_sell")
-				local itemprice = GET_CHILD_RECURSIVELY(itemcset, "itemprice")
+				local itemname = GET_CHILD_RECURSIVELY(itemcset,"itemname")
+				local itemStaticprice_buy = GET_CHILD_RECURSIVELY(itemcset,"itemStaticprice_buy")
+				local itemStaticprice_sell = GET_CHILD_RECURSIVELY(itemcset,"itemStaticprice_sell")
+				local itemprice = GET_CHILD_RECURSIVELY(itemcset,"itemprice")
 				
 				if type == "buy" then
 					itemname:SetText(item.Name)
 					itemStaticprice_buy:ShowWindow(1)
-					itemStaticprice_sell:ShowWindow(0)                    
+					itemStaticprice_sell:ShowWindow(0)
 					itemprice:SetText(tostring(tpitem.BuyPrice))
 					allprice = allprice + tpitem.BuyPrice
-                elseif type == 'wingStore' then
-                    itemname:SetText(item.Name);
-					itemStaticprice_buy:ShowWindow(1);
-                    itemStaticprice_buy:SetTextByKey('type', ClMsg('Wing'));
-					itemStaticprice_sell:ShowWindow(0);                    
-					itemprice:SetText(tostring(tpitem.Price));
-					allprice = allprice + tpitem.Price;
 				else
 					itemname:SetText(item.Name.. " X"..tostring(cnt))
 					itemStaticprice_buy:ShowWindow(0)
@@ -103,24 +92,13 @@ function RECYCLESHOP_POPUPMSG_MAKE_ITEMLIST(type)
 	local button_cancel = GET_CHILD_RECURSIVELY(frame,"button_cancel")
 
 	if type == "buy" then
-		totalmedal_buy:ShowWindow(1);
-        totalmedal_buy:SetTextByKey('type', ClMsg('Medal'));
-		explain_buy:ShowWindow(1);
-        explain_buy:SetTextByKey('type', ClMsg('Medal'));
-		explain_buy2:ShowWindow(1);
-		totalmedal_sell:ShowWindow(0);
-		explain_sell:ShowWindow(0);
-		explain_sell2:ShowWindow(0);
+		totalmedal_buy:ShowWindow(1)
+		explain_buy:ShowWindow(1)
+		explain_buy2:ShowWindow(1)
+		totalmedal_sell:ShowWindow(0)
+		explain_sell:ShowWindow(0)
+		explain_sell2:ShowWindow(0)
 		button_ok:SetEventScript(ui.LBUTTONUP, 'EXEC_BUY_RECYCLE_ITEM');
-		button_cancel:SetEventScript(ui.LBUTTONUP, 'TPSHOP_RECYCLE_ITEM_BASKET_BUY_CANCEL');
-    elseif type == "wingStore" then
-		totalmedal_buy:ShowWindow(1);
-        totalmedal_buy:SetTextByKey('type', ClMsg('Wing'));
-        totalmedal_sell:ShowWindow(0);
-        explain_buy:SetTextByKey('type', ClMsg('Wing'));
-        explain_sell:ShowWindow(0);
-		explain_sell2:ShowWindow(0);
-		button_ok:SetEventScript(ui.LBUTTONUP, 'TPITEM_WING_BUY_EXECUTE');
 		button_cancel:SetEventScript(ui.LBUTTONUP, 'TPSHOP_RECYCLE_ITEM_BASKET_BUY_CANCEL');
 	else
 		totalmedal_buy:ShowWindow(0)

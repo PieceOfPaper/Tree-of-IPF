@@ -93,6 +93,7 @@
 		<slotset name="itemSlotset" rect="0 0 437 1500" parent="slotBox" margin="5 3 0 0" layout_gravity="left top" row="16" col="6" skin="invenslot2" spc="2 2" size="66 66" enableselect="false" enabledrop="false" enablepop="false"/>
 		<groupbox name="assetBox2" rect="0 0 700 484" parent="assetBox" margin="0 0 0 45" layout_gravity="right bottom" draw="false"/>
 		<richtext name="assetText" rect="0 0 369 30" parent="assetBox" margin="5 8 0 0" layout_gravity="left top" caption="{@st43b}{s18}길드 자금{/}" fontname="white_16_b_ol"/>
+		<button name="updateBtn2" parent="itemBox" rect="0 0 32 32" margin="0 3 5 0" layout_gravity="right top" image="market_reset3_btn" fontname="white_16_b_ol" LBtnUpScp="GUILDINFO_INFO_UPDATE_WAREHOUSE" texttooltip="현재 길드 보관함을 갱신합니다."/>
 		<groupbox name="historyBox" rect="0 0 700 484" parent="assetBox2" margin="0 0 0 0" layout_gravity="right bottom" hittestbox="false" skin="test_frame_midle" scrollbar="false"/>
 		<groupbox name="line" rect="0 0 130 484" parent="historyBox" margin="130 0 0 0" layout_gravity="left top" hittestbox="false" skin="pvp_Team_skin"/>
 		<groupbox name="line2" rect="0 0 130 484" parent="historyBox" margin="400 0 0 0" layout_gravity="left top" hittestbox="false" skin="pvp_Team_skin"/>

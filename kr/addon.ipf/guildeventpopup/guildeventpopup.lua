@@ -28,7 +28,7 @@ function UPDATE_GUILD_EVENT_POPUP()
 end
 
 function ON_UPDATE_GUILDEVENT_POPUP()
-    if GetZoneName() == 'c_Klaipe_event' then
+    if IS_IN_EVENT_MAP() == true then
         return;
     end
 

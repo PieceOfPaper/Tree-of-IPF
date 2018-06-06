@@ -37,7 +37,7 @@ function _SHOW_PC_CONTEXT_MENU(handle)
 end
 
 function SHOW_PC_CONTEXT_MENU(handle)
-	if world.IsPVPMap() == true or session.colonywar.GetIsColonyWarMap() == true or GetZoneName() == 'c_Klaipe_event' then
+	if world.IsPVPMap() == true or session.colonywar.GetIsColonyWarMap() == true or IS_IN_EVENT_MAP() == true then
 		return;
 	end
 

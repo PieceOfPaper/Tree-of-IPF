@@ -354,10 +354,16 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
         -- max play count
         local maxCount = TryGetProp(indunCls, 'PlayPerReset');
         if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
-            maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_Token')
+            local playPerResetToken = TryGetProp(indunCls, 'PlayPerReset_Token');
+            if playPerResetToken ~= nil then
+                maxCount = maxCount + playPerResetToken;
+            end
         end
         if session.loginInfo.IsPremiumState(NEXON_PC) == true then
-            maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_NexonPC')
+            local playPerResetNexonPC = TryGetProp(indunCls, 'PlayPerReset_NexonPC')
+            if playPerResetNexonPC ~= nil then
+                maxCount = maxCount + playPerResetNexonPC;
+            end
         end
         countData:SetTextByKey("max", maxCount);
     
@@ -615,6 +621,20 @@ end
 
 function INDUNENTER_ENTER(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
+	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+	if useCount > 0 then
+		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+		for i = 1, #multipleItemList do
+			local itemName = multipleItemList[i];
+			local invItem = session.GetInvItemByName(itemName);
+			if invItem ~= nil and invItem.isLockState then
+				ui.SysMsg(ClMsg("MaterialItemIsLock"));
+				return;
+			end
+		end
+	end
+    
+    local topFrame = frame:GetTopParentFrame();
     if INDUNENTER_CHECK_ADMISSION_ITEM(topFrame) == false then
         return;
     end
@@ -625,6 +645,20 @@ function INDUNENTER_ENTER(frame, ctrl)
 end
 
 function INDUNENTER_AUTOMATCH(frame, ctrl)
+    local topFrame = frame:GetTopParentFrame();
+	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+	if useCount > 0 then
+		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+		for i = 1, #multipleItemList do
+			local itemName = multipleItemList[i];
+			local invItem = session.GetInvItemByName(itemName);
+			if invItem ~= nil and invItem.isLockState then
+				ui.SysMsg(ClMsg("MaterialItemIsLock"));
+				return;
+			end
+		end
+	end
+    
     local topFrame = frame:GetTopParentFrame();
     if INDUNENTER_CHECK_ADMISSION_ITEM(topFrame) == false then
         return;
@@ -639,6 +673,20 @@ function INDUNENTER_AUTOMATCH(frame, ctrl)
 end
 
 function INDUNENTER_PARTYMATCH(frame, ctrl)
+    local topFrame = frame:GetTopParentFrame();
+	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+	if useCount > 0 then
+		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+		for i = 1, #multipleItemList do
+			local itemName = multipleItemList[i];
+			local invItem = session.GetInvItemByName(itemName);
+			if invItem ~= nil and invItem.isLockState then
+				ui.SysMsg(ClMsg("MaterialItemIsLock"));
+				return;
+			end
+		end
+	end
+    
     if session.party.GetPartyInfo(PARTY_NORMAL) == nil then 
         ui.SysMsg(ClMsg('HadNotMyParty'));
         return;
@@ -1059,9 +1107,9 @@ function INDUNENTER_REWARD_CLICK_RIGHT(parent, ctrl)
     leftBtn:SetEnable(1);   
 end
 
-function INDUNENTER_REWARD_CLICK_LEFT(parent, ctrl)
+function INDUNENTER_REWARD_CLICK_LEFT(parent, ctrl)    
     local topFrame = parent:GetTopParentFrame();
-    local rewardSlotCnt = topFrame:GetUserIValue('REWARD_SLOT_CNT');
+    local rewardSlotCnt = topFrame:GetUserIValue('REWARD_SLOT_CNT');   
     if rewardSlotCnt < 6 then
         return;
     end
@@ -1072,7 +1120,7 @@ function INDUNENTER_REWARD_CLICK_LEFT(parent, ctrl)
         return;
     end
         
-    UI_PLAYFORCE(monSlotSet, "slotsetRightMove_1");
+    UI_PLAYFORCE(rewardSlotSet, "slotsetRightMove_1");
     rewardSlotSet:SetUserValue('CURRENT_SLOT', currentSlot - 1);
 
     -- button enable
@@ -1232,6 +1280,19 @@ end
 
 function INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW(parent, ctrl)
     local topFrame = parent:GetTopParentFrame();
+	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+	if useCount > 0 then
+		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+		for i = 1, #multipleItemList do
+			local itemName = multipleItemList[i];
+			local invItem = session.GetInvItemByName(itemName);
+			if invItem ~= nil and invItem.isLockState then
+				ui.SysMsg(ClMsg("MaterialItemIsLock"));
+				return;
+			end
+		end
+	end
+
     local withMatchMode = topFrame:GetUserValue('WITHMATCH_MODE');
     if topFrame:GetUserValue('AUTOMATCH_MODE') ~= 'YES' and withMatchMode == 'NO' then
         ui.SysMsg(ScpArgMsg('EnableWhenAutoMatching'));

@@ -96,7 +96,7 @@ function ADVENTURE_BOOK_TEAM_BATTLE_RANK_UPDATE(frame, msg, argStr, argNum)
 end
 
 function ADVENTURE_BOOK_JOIN_WORLDPVP(parent, ctrl)
-    if GetZoneName() == 'c_Klaipe_event' then
+    if IS_IN_EVENT_MAP() == true then
         ui.SysMsg(ClMSg('ImpossibleInCurrentMap'));
         return;
     end 
