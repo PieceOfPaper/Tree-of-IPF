@@ -77,7 +77,7 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
     for i = 0, class_count -1 do
         local mapIES = GetClassByIndex('Map', i)
         if mapIES ~= nil then
-            if mapIES.MapType == 'Field' or mapIES.MapType == 'Dungeon' then
+            if (mapIES.MapType == 'Field' or mapIES.MapType == 'Dungeon') and mapIES.WorldMapPreOpen == 'YES'  then
                 if mapIES.QuestLevel >= pcLv - minRange and mapIES.QuestLevel <= pcLv + maxRange then
                     zoneClassNameList[#zoneClassNameList + 1] = mapIES.ClassName
                 end
@@ -112,6 +112,9 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
                                         end
                                         local maxMonCount =  basicTime / genTiem * maxPop
                                         local maxDropCount =  math.floor(maxMonCount * ratio / anotherPC)
+                                        if maxDropCount > 1 then
+                                            maxDropCount = math.floor(maxDropCount/2)
+                                        end
                                         if maxDropCount > 0 then
                                             accMax = accMax + maxDropCount
                                             itemList[#itemList + 1] = {}

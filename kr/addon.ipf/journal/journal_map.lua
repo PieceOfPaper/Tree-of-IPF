@@ -148,6 +148,6 @@ function JOURNAL_OPEN_MAP_ARTICLE(frame, ctrlSet)
 	local group = GET_CHILD(f, 'map', 'ui::CGroupBox')
 	group:ShowWindow(1)
 	imcSound.PlaySoundEvent('button_click_3');
-	SET_JOURNAL_RANK_TYPE(f, 'Map');
+	--SET_JOURNAL_RANK_TYPE(f, 'Map');
 end
 

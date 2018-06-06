@@ -1,4 +1,4 @@
---- calc_property_skill.lua
+ï»¿--- calc_property_skill.lua
 function GET_SKL_VALUE(skill, startValue, maxValue)
 	local maxLv = 100;
 	local curLv = skill.Level;
@@ -46,11 +46,11 @@ function SCR_Get_SpendSP_Buff(skill)
 	end
 	
 	local pc = GetSkillOwner(skill);
-	if IsBuffApplied(pc, 'CarveZemina_Buff') == 'YES' then
-        local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
-	    decsp = 2 + (zeminaLv * 2);
+    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+	if zeminaLv > 0 then
+		decsp = 2 + (zeminaLv * 2);
 	end
-	
+		
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
 	
 	local value = basicsp + (lv - 1) * addsp + abilAddSP;
@@ -82,9 +82,9 @@ function SCR_Get_SpendSP(skill)
 	end
 	
 	local pc = GetSkillOwner(skill);
-	if IsBuffApplied(pc, 'CarveZemina_Buff') == 'YES' then
-	    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
-	    decsp = 2 + (zeminaLv * 2);
+	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+	if zeminaLv > 0 then
+		decsp = 2 + (zeminaLv * 2);
 	end
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
@@ -110,9 +110,9 @@ function SCR_Get_SpendSP_Soaring(skill)
 	end
 	
 	local pc = GetSkillOwner(skill);
-	if IsBuffApplied(pc, 'CarveZemina_Buff') == 'YES' then
-	    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
-	    decsp = 2 + (zeminaLv * 2);
+	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+	if zeminaLv > 0 then
+		decsp = 2 + (zeminaLv * 2);
 	end
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
@@ -139,10 +139,11 @@ function SCR_Get_SpendSP_Magic(skill)
 	end
 	
 	local pc = GetSkillOwner(skill);
-	if IsBuffApplied(pc, 'CarveZemina_Buff') == 'YES' then
-	    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
-	    decsp = 2 + (zeminaLv * 2);
+	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+	if zeminaLv > 0 then
+		decsp = 2 + (zeminaLv * 2);
 	end
+
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
 	local value = basicsp + (lv - 1) * lvUpSpendSp + abilAddSP;
 	
@@ -173,9 +174,9 @@ function SCR_Get_SpendSP_Bow(skill)
 	end
 	
 	local pc = GetSkillOwner(skill);
-	if IsBuffApplied(pc, 'CarveZemina_Buff') == 'YES' then
-	    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
-	    decsp = 2 + (zeminaLv * 2);
+	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+	if zeminaLv > 0 then
+		decsp = 2 + (zeminaLv * 2);
 	end
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
@@ -6121,7 +6122,7 @@ end
 function SCR_GET_Damballa_Ratio2(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.Level * 2
+	local value = skill.Level * 3
   return value
 
 end
@@ -7459,7 +7460,7 @@ end
 
 function SCR_Get_Quickcast_Bufftime(skill)
     
-    return 3 + skill.Level * 1;
+    return 5 + skill.Level * 2;
 
 end
 
@@ -7870,7 +7871,7 @@ function SCR_GET_SwiftStep_Ratio(skill)
     local pc = GetSkillOwner(skill);
     local value = 10 - skill.Level;
     
-    if value < 0 then
+    if value <= 0 then
 	    value = 1;
 	end
 	
@@ -9492,7 +9493,7 @@ function SCR_GET_PatronSaint_Bufftime(skill)
 end
 
 function SCR_GET_PatronSaint_Raito(skill)
-    local value = skill.Level
+    local value = skill.Level * 3
     return math.floor(value);
 end
 
@@ -9676,7 +9677,7 @@ end
 
 function SCR_GET_Aukuras_Ratio2(skill)
 
-    local value = 3.6 + (skill.Level - 1) * 0.2;
+    local value = 8 + (skill.Level - 1) * 0.5
 
 	return value
 
@@ -9860,6 +9861,13 @@ end
 function SCR_Get_Physicallink_Bufftime(skill)
 
     return 60 + skill.Level * 10
+
+end
+
+
+function SCR_Get_Bewitch_Ratio(skill)
+
+    return 2 + skill.Level 
 
 end
 function SCR_Get_Physicallink_Ratio(skill)
@@ -10602,7 +10610,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
 	if skill.GemLevel_BM > 0 then
-		value = value + 1;	-- ¸ó½ºÅÍÁª ½ºÅ³º¸³Ê½º´Â ÁßÃ¸½ÃÄÑµµ ¹«Á¶°Ç +1¸¸ ½ÃÅ²´Ù°íÇÔ.
+		value = value + 1;	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½Ñµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ +1ï¿½ï¿½ ï¿½ï¿½Å²ï¿½Ù°ï¿½ï¿½ï¿½.
 	end
 
     if skill.LevelByDB == 0 then
@@ -10787,4 +10795,8 @@ function SCR_GET_DELAY_TIME(skill)
 		end
 	end
 	return skill.DelayTime;
+end
+function SCR_GET_Dig_Ratio(skill)
+	local value = skill.Level;
+	return value;
 end

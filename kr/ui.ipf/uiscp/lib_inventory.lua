@@ -316,7 +316,7 @@ function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame)
 		return nil;
 	end
 
-	local slotSet	= GET_CHILD(tree, slotsetname, "ui::CSlotSet");
+	local slotSet = GET_CHILD(tree, slotsetname, "ui::CSlotSet");
 	if slotSet == nil then
 		return nil;
 	end
@@ -490,6 +490,33 @@ function INVENTORY_SET_CUSTOM_RDBTNDOWN(scriptName)
 	frame:SetUserValue("CUSTOM_RDBTN_SCP", scriptName);
 end
 
+function GET_ITEM_ICON_IMAGE(itemCls, gender)
+
+	local iconImg = itemCls.Icon;
+			
+		-- costume icon is decided by PC's gender
+    	if itemCls.ItemType == 'Equip' and itemCls.ClassType == 'Outer' then
+
+			local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
+
+			if tempiconname ~= "_m" and tempiconname ~= "_f" then
+				if gender == nil then
+					gender = GetMyPCObject().Gender;
+				end
+
+    			if gender == 1 then
+        			iconImg = itemCls.Icon.."_m"
+        		else
+        			iconImg = itemCls.Icon.."_f"
+        		end
+			end
+
+
+        end
+
+		return iconImg;
+
+end
 
 function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 		
@@ -506,23 +533,7 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 		end
 
 		local itemCls = GetClassByType("Item", invItem.type);
-		local iconImg = itemCls.Icon;
-		-- costume icon is decided by PC's gender
-    	if itemCls.ItemType == 'Equip' and itemCls.ClassType == 'Outer' then
-
-			local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
-
-			if tempiconname ~= "_m" and tempiconname ~= "_f" then
-            local pc = GetMyPCObject();
-    	    if pc.Gender == 1 then
-        	    iconImg = itemCls.Icon.."_m"
-        	else
-        	    iconImg = itemCls.Icon.."_f"
-        	end
-        end
-		
-
-        end
+		local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
 		
 		SET_SLOT_IMG(slot, iconImg)
 		SET_SLOT_COUNT(slot, invItem.count)

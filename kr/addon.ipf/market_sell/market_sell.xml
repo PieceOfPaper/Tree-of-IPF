@@ -9,7 +9,7 @@
 	<layer layerlevel="99"/>
 	<controls>
 		<groupbox name="market_low" rect="0 0 1425 900" margin="0 95 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
-		<groupbox name="market_midle3" rect="0 0 1030 750" margin="19 177 14 0" layout_gravity="right top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
+		<groupbox name="market_midle3" rect="0 0 1030 765" margin="0 156 12 0" layout_gravity="right top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
 		<groupbox name="market_minititle" rect="0 0 1425 99" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="market_title"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 33 0 0" layout_gravity="center top" caption="{@st43}{s24}마켓{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
 		<labelline name="labelline" parent="market_low" rect="0 0 1250 2" margin="0 55 0 0 " layout_gravity="center top" skin="None"/>
@@ -24,7 +24,7 @@
 		<groupbox name="edit_price_bg" parent="groupbox" rect="0 0 240 38" margin="119 214 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="bg2"/>
 		<edit name="edit_count" parent="groupbox" rect="0 0 90 30" margin="14 221 0 0" layout_gravity="left top" EnterKeyScp="None" OffsetForDraw="0 -2" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="16" numbermode="true" oversound="button_over" skin="None" textalign="right center" usetag="true"/>
 		<edit name="edit_price" parent="groupbox" rect="0 0 240 38" margin="114 216 0 0" layout_gravity="left top" EnterKeyScp="None" OffsetForDraw="0 -2" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="16" numbermode="true" oversound="button_over" skin="None" textalign="right center" usetag="true"/>
-		<detaillist name="itemlist" rect="0 0 1030 750" margin="0 205 10 0" layout_gravity="right top" skin=""/>
+		<detaillist name="itemlist" rect="0 0 1030 750" margin="0 185 10 0" layout_gravity="right top" skin=""/>
 		<button name="button_1_1" parent="groupbox" rect="0 0 180 50" margin="85 250 1 0" layout_gravity="left center" LBtnUpScp="MARKET_SELL_REGISTER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}등록" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
 		<button name="button_1_2" rect="0 0 400 45" margin="410 105 0 0" layout_gravity="left top" caption="{@st66b18}판매 등록" clicksound="button_click" oversound="button_over" skin="tab2_btn_clicked"/>
 		<button name="button_1_2_1" rect="0 0 400 45" margin="810 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_MODE" caption="{@st66b18}아이템 수령함" clicksound="button_click" oversound="button_over" skin="tab2_btn"/>
@@ -33,7 +33,7 @@
 		<richtext name="richtext_3" margin="12 420 0 0" rect="0 0 120 24" caption="{@st66b}판매 등록 시간 및 수수료{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="groupbox"/>
 		<richtext name="richtext_3_1" margin="11 140 0 0" rect="0 0 120 24" caption="{@st66}토큰 아이템을 제외한 판매 아이템의{nl}정산된 실버는 48시간 후 수령할 수 있습니다.{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="groupbox"/>
 		<richtext name="category_totlaPrice_1" margin="1061 10 0 0" rect="0 0 120 24" caption="{@st45tw2}마감 시간{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
-		<groupbox name="groupbox_1" margin="382 177 0 0" rect="0 0 1027 40" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
+		<groupbox name="groupbox_1" margin="383 155 0 0" rect="0 0 1030 40" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
 		<richtext name="richtext_5" margin="139 10 0 0" rect="0 0 120 24" caption="{@st45tw2}이름{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="groupbox_1"/>
 		<richtext name="richtext_5_1" margin="349 10 0 0" rect="0 0 120 24" caption="{@st45tw2}판매 완료시 수수료{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="groupbox_1"/>
 		<richtext name="richtext_5_1_1" margin="620 10 0 0" rect="0 0 120 24" caption="{@st45tw2}총금액{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="groupbox_1"/>

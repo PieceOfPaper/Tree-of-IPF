@@ -28,11 +28,11 @@
 		<picture name="sellermoney" parent="OptionBox" rect="0 0 20 20" margin="175 138 0 0" layout_gravity="left top" image="icon_item_silver" oversound="button_over" stretch="true"/>
 		<edit name="MoneyInput" parent="OptionBox" rect="0 0 225 26" margin="0 135 15 0" layout_gravity="right top" OffsetForDraw="0 -1" clicksound="button_click_big" drawbackground="false" fontname="brown_18_b" maxlen="40" oversound="button_over" textalign="left center" usetag="true"/>
 		<groupbox name="Material" rect="0 0 439 500" margin="0 475 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
-		<richtext name="Materialtext" parent="Material" rect="0 0 200 80" margin="20 10 0 0" layout_gravity="left top" caption="{@st41b}재료 목록" textalign="left top"/>
+		<richtext name="Materialtext" parent="Material" rect="0 0 200 80" margin="15 10 0 0" layout_gravity="left top" caption="{@st41b}재료 목록" textalign="left top"/>
 		<richtext name="reqitemName" parent="Material" rect="0 0 343 48" margin="32 50 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="reqitemStr" parent="Material" rect="0 0 343 48" margin="130 55 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="reqitemCount" parent="Material" rect="0 0 343 48" margin="130 80 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<button name="btn_exec" rect="10 10 140 55" margin="80 0 0 90" layout_gravity="center bottom" LBtnUpScp="ITEM_BUFF_CLOSE" caption="{@st42}취 소" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
-		<button name="btn_cancel" rect="10 10 140 55" margin="-90 0 0 90" layout_gravity="center bottom" LBtnUpScp="ITEM_BUFF_CREATE_STORE" caption="{@st42}확 인" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
+		<button name="btn_exec" rect="10 10 160 50" margin="80 0 0 90" layout_gravity="center bottom" LBtnUpScp="ITEM_BUFF_CLOSE" caption="{@st41b}취 소" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
+		<button name="btn_cancel" rect="10 10 160 50" margin="-90 0 0 90" layout_gravity="center bottom" LBtnUpScp="ITEM_BUFF_CREATE_STORE" caption="{@st41b}확 인" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
 	</controls>
 </uiframe>

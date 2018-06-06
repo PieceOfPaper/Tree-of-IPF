@@ -1,6 +1,19 @@
 --- link.lua
 
 
+function GET_ITEM_FULLNAME_BY_TAG_INFO(props, clsID)
+
+	local newobj = CreateIESByID("Item", clsID);
+	if props ~= 'nullval' then
+		SetModifiedProperiesString(newobj, props);
+	end
+
+	local ret = GET_FULL_NAME(newobj);
+	DestroyIES(newobj);
+	return ret;
+
+end
+
 function SLI(props, clsID)
 
 	local tooltipType = GET_ITEM_TOOLTIP_TYPE(clsID);
@@ -82,23 +95,8 @@ function LINK_ITEM_TEXT(invitem)
 	local itemobj = GetIES(invitem:GetObject());
 
 	local imgtag =  "";
-	local imageName = itemobj.Icon;
-	if itemobj.ItemType =='Equip' and itemobj.ClassType == 'Outer' then
-
-		local tempiconname = string.sub(imageName, string.len(imageName) - 1 );
-
-		if tempiconname ~= "_m" and tempiconname ~= "_f" then
-		local pc = GetMyPCObject();
-    	if pc.Gender == 1 then
-			imageName = imageName.."_m"
-		else
-			imageName = imageName.."_f"			
-		end
-	end
-
-		
-	end
-
+	local imageName = GET_ITEM_ICON_IMAGE(itemobj);
+	
 	local imgtag = string.format("{img %s %d %d}", imageName, imgheight, imgheight);
 
 	local properties = "";

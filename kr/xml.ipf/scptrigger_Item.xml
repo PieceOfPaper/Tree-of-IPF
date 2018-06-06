@@ -970,6 +970,28 @@ return self.MNA;"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="TSF02_104">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cryomancer_IceBlast"/>
+						<Num Num="3"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cryomancer_IceBlast"/>
+						<Num Num="-3"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="TBW03_109">
 		<TriggerList Act="AfterHitScript_Attack">
 			<Trigger>

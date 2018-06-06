@@ -321,8 +321,9 @@ function REQ_TOKEN_ITEM(frame, ctrl)
 			return;
 		end
 	elseif argList == "Premium_boostToken" then
-		local etcObj = GetMyEtcObject();
-		if tonumber(etcObj.BoostToken) > 0 then
+		local myHandle = session.GetMyHandle();
+		local buff = info.GetBuffByName(myHandle, 'Premium_boostToken');
+		if buff ~= nil then
 			ui.MsgBox(ScpArgMsg("IsAppliedToken{NAME}","NAME", itemName));
 			return;
 		end

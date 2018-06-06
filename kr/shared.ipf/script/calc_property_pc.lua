@@ -103,7 +103,7 @@ function SCR_GET_STR(self)
 	
 	value = value + value * (jobCount - 1) * 0.1;
 	value = math.floor(value + self.STR_ADD, 1);
-	if value < 0 then
+	if value < 1 then
         value = 1;
     end
     
@@ -122,7 +122,7 @@ function SCR_GET_DEX(self)
 	local baseDex = self.DEX_JOB + self.DEX_STAT + self.DEX_Bonus + GetExProp(self, "DEX_TEMP");
 	local addStat = SCR_GET_ADDSTAT(self, baseDex)
 	local value = math.floor(baseDex + self.DEX_ADD + addStat, 1);
-	if value < 0 then
+	if value < 1 then
         value = 1;
     end
 	return value;
@@ -142,7 +142,7 @@ function SCR_GET_CON(self)
     local addStat = SCR_GET_ADDSTAT(self, baseCon)
 	
 	local value = math.floor(baseCon + self.CON_ADD + addStat, 1);
-	if value < 0 then
+	if value < 1 then
         value = 1;
     end
 	return value;
@@ -164,7 +164,7 @@ function SCR_GET_INT(self)
 	
 	value = value + value * (jobCount - 1) * 0.1;
 	value = math.floor(value + self.INT_ADD, 1);
-	if value < 0 then
+	if value < 1 then
         value = 1;
     end
 	return value;
@@ -181,7 +181,7 @@ function SCR_GET_MNA(self)
     local addStat = SCR_GET_ADDSTAT(self, baseMna)
 	
 	local value = math.floor(baseMna + self.MNA_ADD + addStat, 1);
-	if value < 0 then
+	if value < 1 then
         value = 1;
     end
 	return value;
@@ -620,6 +620,10 @@ function SCR_GET_RHPTIME(self)
 	    value = value / 2;
 	end
 	
+	if value < 1000 then
+	    value = 1000;
+	end
+	
 	return value;
 	
 
@@ -633,7 +637,11 @@ function SCR_GET_RSPTIME(self)
 	
 	if IsBuffApplied(self, 'SitRest') == 'YES' then	
 	    value = value / 2;
-	end		
+	end
+	
+	if value < 0 then
+	    value = 1000;
+	end
 	
 	return value;
 

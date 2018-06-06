@@ -452,7 +452,7 @@
             <Stage Name="Time">
                 <ObjList/>
                 <StageEvents>
-                    <Event execCount="1" eventName="제한 시간 메세지">
+                    <Event execCount="1" eventName="제한 시간 메시지">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="3300"/>

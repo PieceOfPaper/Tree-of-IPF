@@ -350,6 +350,8 @@
 		<Class ClassID="10409" ClassName="IndunFreeTImeText" Data="3일간 인던 무제한"/>
 		<Class ClassID="10410" ClassName="IndunRestText" Data="  인스턴스 던전과 의뢰소 미션의 입장 회수 초기화"/>
 		<Class ClassID="10411" Data="홈페이지에서 게임 시작 후 보호모드를 해제 후 다시 접속하여 주시기 바랍니다."/>
+		<Class ClassID="10422" ClassName="YouCantUseOblationInCity" Data="마을에서는 사용할 수 없습니다."/>
+		<Class ClassID="10423" ClassName="OblationNameIsNone" Data="봉헌함 이름을 입력해야 합니다."/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="210401" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -651,6 +653,7 @@
 		<Class ClassID="11185" ClassName="ThisItemIsNotForCompanion" Data="컴패니언이 착용할 수 없는 장비입니다."/>
 		<Class ClassID="11186" ClassName="DonUseItemOnRIde" Data="해당 아이템은 현재 상태에서 사용하실 수 없습니다."/>
 		<Class ClassID="11187" ClassName="ChangeModeThenDontRide" Data="변신 중엔 컴패니언탑승을 하실 수 없습니다."/>
+	<Class ClassID="11188" ClassName="SkillUse_Sit" Data="스킬 사용중에는 휴식을 취할 수 없습니다."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="11200" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -667,7 +670,7 @@
 		<Class ClassID="20002" ClassName="Yes" Data="예"/>
 		<Class ClassID="20003" ClassName="No" Data="아니오"/>
 		<Class ClassID="20004" ClassName="Cancel" Data="취소"/>
-		<Class ClassID="20005" ClassName="Message" Data="메세지"/>
+		<Class ClassID="20005" ClassName="Message" Data="메시지"/>
 		<Class ClassID="20006" ClassName="Alarm" Data="알림"/>
 		<Class ClassID="20007" ClassName="[Notice]" Data="[공지]"/>
 		<Class ClassID="20008" ClassName="Full" Data="꽉 참"/>
@@ -3187,6 +3190,7 @@
 		<Class ClassID="22102" ClassName="AlchDisAgreeOpenDungeon" Data="상대방이 던전 생성에 거절 하셨습니다."/>
 		<Class ClassID="22103" ClassName="WaitDroppingItemFromParty{Name}" Data="{Name}님이 아이템선택중에 있습니다. 기다려주세요."/>
 		<Class ClassID="22104" ClassName="WrongTargetTryAgin" Data="잘못된 상대를 선택해 보냈습니다. 다시 시도해 주세요."/>
+    <Class ClassID="22105" ClassName="OverIndunMaxPC" Data="인던 최대 입장인원을 초과했습니다."/>
 	</Category>
 	<Category Name="Guild">
 		<Class ClassID="22301" ClassName="GuildMember{Cur}/{Max}People,OnLine{On}People" Data="길드원 ( {Cur} / {Max} 명, 온라인 {On} 명 )"/>
@@ -5337,7 +5341,7 @@
 		<Class ClassID="91404" ClassName="Auto_SeonTaegChoKiHwa" Data="선택초기화"/>
 		<Class ClassID="91405" ClassName="Auto_KeuLupJeoJang" Data="그룹저장"/>
 		<Class ClassID="91406" ClassName="Auto_KeuLupSagJe" Data="그룹삭제"/>
-		<Class ClassID="91407" ClassName="Auto_MeSeJiSeolJeong" Data="메세지설정"/>
+		<Class ClassID="91407" ClassName="Auto_MeSeJiSeolJeong" Data="메시지설정"/>
 		<Class ClassID="91408" ClassName="Auto_SaunDeuSeolJeong" Data="사운드설정"/>
 		<Class ClassID="91409" ClassName="Auto_SeuKeuLipTeuSeolJeong" Data="스크립트설정"/>
 		<Class ClassID="91410" ClassName="Auto_KeuLupi_SeonTaegDoeJi_anassSeupNiDa." Data="그룹이 선택되지 않았습니다."/>
@@ -5853,7 +5857,7 @@
 		<Class ClassID="91931" ClassName="Auto_DaeHwa_ChoDae" Data="대화 초대"/>
 		<Class ClassID="91932" ClassName="Auto_KeoLae" Data="거래"/>
 		<Class ClassID="91933" ClassName="Auto_SiSeuTem" Data="시스템"/>
-		<Class ClassID="91934" ClassName="Auto_{@st61}SaeLoun_ChaeTing_MeSeJiKa_DoChagHaessSeupNiDa!{/}" Data="{@st61}새로운 채팅 메세지가 도착했습니다!{/}"/>
+		<Class ClassID="91934" ClassName="Auto_{@st61}SaeLoun_ChaeTing_MeSeJiKa_DoChagHaessSeupNiDa!{/}" Data="{@st61}새로운 채팅 메시지가 도착했습니다!{/}"/>
 		<Class ClassID="91935" ClassName="Auto_ChoeSo_:_" Data="최소 : "/>
 		<Class ClassID="91936" ClassName="Auto__ChoeDae_:_" Data=" 최대 : "/>
 		<Class ClassID="91937" ClassName="Auto_{@st43}SilBeo__0" Data="{@st43}실버  0"/>

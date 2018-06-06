@@ -28,10 +28,15 @@ function BARRACK_THEMA_UPDATE(frame)
 	local account = GetMyAccountObj();
 	local mynxp = bg:GetChild("mynxp");
 	local accountObj = GetMyAccountObj();
-	mynxp:SetTextByKey("value", accountObj.GiftMedal + accountObj.PremiumMedal);
+	mynxp:SetTextByKey("value", accountObj.GiftMedal);
+	mynxp:SetTextByKey("value2", accountObj.GiftMedal + accountObj.PremiumMedal);
 	local bg_1 = frame:GetChild("nxp_bg_1");
 	local mynxp_1 = bg_1:GetChild("mynxp_1");
 	mynxp_1:SetTextByKey("value", accountObj.Medal);
+
+	local tpText = ScpArgMsg("TPText{Premium}and{Event}","Premium", tostring(accountObj.PremiumMedal),"Event",tostring(accountObj.GiftMedal))
+	bg:SetTextTooltip(tpText)
+
 	local curID = account.SelectedBarrack;
 	local bg_mid = frame:GetChild("bg_mid");
 	local advBox = GET_CHILD(bg_mid, "AdvBox", "ui::CAdvListBox");

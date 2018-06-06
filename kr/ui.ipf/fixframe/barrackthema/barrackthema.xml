@@ -10,7 +10,7 @@
 	<controls>
         <groupbox name="bg_1" rect="0 0 520 970" margin="0 30 0 0" hittestbox="false" layout_gravity="center top" skin="test_frame_low" draw="true" scrollbar="false" resizebyresolution="true"/>
         <groupbox name="bg_mid" rect="0 0 500 600" margin="10 325 0 0" hittestbox="false" layout_gravity="left top" skin="test_frame_midle" draw="true" scrollbar="false" resizebyresolution="true"/>
-        <groupbox name="nxp_bg" rect="0 0 240 40" margin="0 0 263 100" skin="test_weight_skin" draw="true" hittestbox="false" layout_gravity="right bottom" scrollbar="false" resizebyparent="false"/>
+		<groupbox name="nxp_bg" rect="0 0 240 40" margin="0 0 263 100" hittestbox="true" layout_gravity="right bottom" skin="test_weight_skin" draw="true" scrollbar="false" resizebyresolution="false" texttooltip="qwe"/>
         <advlistbox name="AdvBox" rect="0 0 490 600" parent="bg_mid" skin="None" drawCurItem="false" maxrowcol="5000 4" heightperrow="40" widthpercol="100" margin="3 -3 0 0" resizebyresolution="false" layout_gravity="left top"/>
         <groupbox name="pipwin_top" rect="0 0 520 130" margin="0 0 0 0" skin="test_frame_top" draw="true" hittestbox="false" layout_gravity="center top" scrollbar="false" resizebyparent="false"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" format="{@st43}%s" param1="value" param1_def="숙소 변경"/>

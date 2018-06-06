@@ -57,9 +57,12 @@ function INIT_BARRACK_NAME(frame)
 	richtext:SetTextByKey("value2", tostring(barrackCls.BaseSlot + buySlot));
 
 	local accountObj = GetMyAccountObj();
-	richtext = frame:GetChild("myTp");
+	richtext = frame:GetChild("free");
 	richtext:SetTextByKey("value", accountObj.Medal);
-	richtext:SetTextByKey("value2", accountObj.GiftMedal + accountObj.PremiumMedal);
+	richtext = frame:GetChild("event");
+	richtext:SetTextByKey("value", accountObj.GiftMedal);
+	richtext = frame:GetChild("tp");
+	richtext:SetTextByKey("value", accountObj.PremiumMedal);
 end
 
 function SET_CHILD_USER_VALUE(frame, childName, name, value)
@@ -90,10 +93,13 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 	richtext:SetTextByKey("value", tostring(myCharCont));
 	richtext:SetTextByKey("value2", tostring(barrackCls.BaseSlot + buySlot));
 
-	richtext = barrackName:GetChild("myTp");
 	local accountObj = GetMyAccountObj();
+	richtext = barrackName:GetChild("free");
 	richtext:SetTextByKey("value", accountObj.Medal);
-	richtext:SetTextByKey("value2", accountObj.GiftMedal + accountObj.PremiumMedal);
+	richtext = barrackName:GetChild("event");
+	richtext:SetTextByKey("value", accountObj.GiftMedal);
+	richtext = barrackName:GetChild("tp");
+	richtext:SetTextByKey("value", accountObj.PremiumMedal);
 
 	if actor ~= nil then
 		CREATE_SCROLL_CHAR_LIST(frame, actor);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -2602,7 +2602,7 @@
 			<img name="bottomcore" imgrect="136 898 150 97"/>
 			<img name="bottomright" imgrect="287 898 131 97"/>
 		</skin>
-	<skin name="line_bg_skin" texture="\skin\pip_test_item.tga">
+		<skin name="line_bg_skin" texture="\skin\pip_test_item.tga">
 			<img name="topleft" imgrect="1411 660 50 50"/>
 			<img name="topcore" imgrect="1462 660 50 50"/>
 			<img name="topright" imgrect="1513 660 50 50"/>
@@ -3915,7 +3915,7 @@
 		<image name="weapon_cannon" file="\icon\wearing_weapon.tga" imgrect="42 21 20 20" CMM_Caption="캐논"/>
 		<image name="weapon_musket" file="\icon\wearing_weapon.tga" imgrect="63 21 20 20" CMM_Caption="장총"/>
 		<image name="weapon_All" file="\icon\wearing_weapon.tga" imgrect="84 21 28 20" CMM_Caption="전체"/>
-	<image name="weapon_companion" file="\icon\wearing_weapon.tga" imgrect="126 21 20 20" CMM_Caption="컴패니언"/>
+		<image name="weapon_companion" file="\icon\wearing_weapon.tga" imgrect="126 21 20 20" CMM_Caption="컴패니언"/>
 	</imagelist>
 	<imagelist category="jootest_image">
 		<image name="ok_button" file="\skin\pip_test.tga" imgrect="1797 0 125 50" CMM_Caption="ok버튼"/>
@@ -4128,6 +4128,8 @@
 		<image name="resetSkill_middle" file="\skin\paid_skin.tga" imgrect="419 636 316 165" CMM_Caption="스킬초기화"/>
 		<image name="indunFreeEnter_middle" file="\skin\paid_skin.tga" imgrect="419 802 316 165" CMM_Caption="인던3일무제한"/>
 		<image name="market_sell_updown" file="\skin\paid_skin.tga" imgrect="675 439 328 115" CMM_Caption="마켓상하한가표"/>
+		<image name="M_message_open" file="\skin\barrack.tga" imgrect="1493 721 30 30"/>
+		<image name="M_message_Unopen" file="\skin\barrack.tga" imgrect="1524 721 30 30"/>
 	</imagelist>
 	<imagelist category="tutorial_img">
 		<image name="tutr_img_btn_left" file="\skin\mainframe_04.tga" imgrect="371 448 44 44"/>
@@ -4366,6 +4368,15 @@
 		<image name="clear_btn" file="\skin\button.tga" imgrect="0 41 320 30" CMM_Caption="투명버튼"/>
 		<image name="clear_btn_cursoron" file="\skin\button.tga" imgrect="0 41 320 30"/>
 		<image name="clear_btn_clicked" file="\skin\button.tga" imgrect="0 41 320 30"/>
+		<image name="M-delete_btn" file="\skin\barrack.tga" imgrect="1067 721 46 46" CMM_Caption="삭제버튼"/>
+		<image name="M-delete_btn_cursoron" file="\skin\barrack.tga" imgrect="1114 721 46 46"/>
+		<image name="M-delete_btn_clicked" file="\skin\barrack.tga" imgrect="1161 721 46 46"/>
+		<image name="M_selectAll_btn" file="\skin\barrack.tga" imgrect="1210 721 46 46" CMM_Caption="전체선택버튼"/>
+		<image name="M_selectAll_btn_cursoron" file="\skin\barrack.tga" imgrect="1257 721 46 46"/>
+		<image name="M_selectAll_btn_clicked" file="\skin\barrack.tga" imgrect="1304 721 46 46"/>
+		<image name="M_down_btn" file="\skin\barrack.tga" imgrect="1352 721 46 46" CMM_Caption="받기버튼"/>
+		<image name="M_down_btn_cursoron" file="\skin\barrack.tga" imgrect="1399 721 46 46"/>
+		<image name="M_down_btn_clicked" file="\skin\barrack.tga" imgrect="1446 721 46 46"/>
 	</imagelist>
 	<imagelist category="hair_color">
 		<image name="basic_color" file="\skin\barrack.tga" imgrect="948 491 35 35" CMM_Caption="기본컬러"/>
@@ -5614,10 +5625,12 @@
 		<image name="Dlg_port_UosisKrieg" file="\npcimg\UosisKrieg.png" imgrect="0 0 900 1000" CMM_Caption="슈바르츠라이터마스터"/>
 		<image name="Dlg_port_AgotaHanska" file="\npcimg\AgotaHanska.png" imgrect="0 0 800 900" CMM_Caption="사두마스터"/>
 		<image name="Dlg_port_MistesGoldmund" file="\npcimg\MistesGoldmund.png" imgrect="0 0 800 1000" CMM_Caption="파드너마스터"/>
-	<image name="Dlg_port_VisvaldasBlack" file="\npcimg\VisvaldasBlack.png" imgrect="0 0 800 950" CMM_Caption="플레처마스터"/>
+		<image name="Dlg_port_VisvaldasBlack" file="\npcimg\VisvaldasBlack.png" imgrect="0 0 800 950" CMM_Caption="플레처마스터"/>
 		<image name="Dlg_port_ReamToiler" file="\npcimg\ReamToiler.png" imgrect="0 0 800 950" CMM_Caption="쿼렐슈터마스터"/>
-	<image name="Dlg_port_JuraSwajone" file="\npcimg\JuraSwajone.png" imgrect="0 0 800 1000" CMM_Caption="시노비마스터"/>
+		<image name="Dlg_port_JuraSwajone" file="\npcimg\JuraSwajone.png" imgrect="0 0 800 1000" CMM_Caption="시노비마스터"/>
 		<image name="Dlg_port_Boruble" file="\npcimg\Boruble.png" imgrect="0 0 700 1000" CMM_Caption="프리스트마스터"/>
+		<image name="Dlg_port_Zemyna" file="\npcimg\Zemyna.png" imgrect="0 0 800 1000" CMM_Caption="제미나여신"/>
+		<image name="Dlg_port_Ceslovas" file="\npcimg\Ceslovas.png" imgrect="0 0 700 1000" CMM_Caption="채플린마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -6019,7 +6032,7 @@
 		<image name="129_boss_Firelord" file="\skin\bosscard\129_boss_Firelord.tga" imgrect="0 0 330 440"/>
 		<image name="130_boss_Kubas" file="\skin\bosscard\130_boss_Kubas.tga" imgrect="0 0 330 440"/>
 		<image name="131_boss_capria" file="\skin\bosscard\131_boss_capria.tga" imgrect="0 0 330 440"/>
-	<image name="132_boss_Flammidus" file="\skin\bosscard\132_boss_Flammidus.png" imgrect="0 0 330 440"/>
+		<image name="132_boss_Flammidus" file="\skin\bosscard\132_boss_Flammidus.png" imgrect="0 0 330 440"/>
 	</imagelist>
 	<effectimagelist category="effectlist">
 		<image name="blue_orb" file="\icon\blue_orb.tga" imgrect="0 0 256 256"/>

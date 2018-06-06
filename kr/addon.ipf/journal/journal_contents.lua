@@ -36,7 +36,7 @@ function JOURNAL_OPEN_CONTENTS_ARTICLE(frame, ctrlSet)
 	JOURNAL_HIDE_ARTICLES(f)
 	JOURNAL_OPEN_ARTICLE(f, 'contents');
 	imcSound.PlaySoundEvent('button_click_3');
-	SET_JOURNAL_RANK_TYPE(f, 'Contents');
+	--SET_JOURNAL_RANK_TYPE(f, 'Contents');
 end
 
 function JOURNAL_CONTENTS_RESET_SUB_CTRL(ctrlSet)

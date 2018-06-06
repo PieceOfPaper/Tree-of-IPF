@@ -1386,6 +1386,9 @@ function DRAW_MEDAL_COUNT(frame)
 		medalFreeTime:StopUpdateScript("SHOW_REMAIN_NEXT_TP_GET_TIME");
 		medalFreeTime:SetTextByKey("medal", "{s16}{b}{#ff9900}MAX");
 	end
+
+	local tpText = ScpArgMsg("TPText{Premium}and{Event}","Premium", tostring(accountObj.PremiumMedal),"Event",tostring(accountObj.GiftMedal))
+	medalGbox_2:SetTextTooltip(tpText)
 end
 
 function SHOW_REMAIN_NEXT_TP_GET_TIME(ctrl)
@@ -1650,27 +1653,8 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	if class == nil then		
 		return;
 	end
-	local imageName 		= class.Icon;
 
-	-- costume icon is decided by PC's gender
-	if class.ItemType == 'Equip' and class.ClassType == 'Outer' then
-
-		local tempiconname = string.sub(class.Icon,string.len(class.Icon)-1);
-
-		if tempiconname ~= "_m" and tempiconname ~= "_f" then
-
-            local pc = GetMyPCObject();
-    	    if pc.Gender == 1 then
-        	    invitemImg = class.Icon.."_m"
-        		imageName = invitemImg;
-        	else
-        	    invitemImg = class.Icon.."_f"
-        		imageName = invitemImg;
-        	end
-
-		end
-            
-    end
+	local imageName = GET_ITEM_ICON_IMAGE(class);
 	
 	local itemType = invItem.type;
 	ICON_SET_ITEM_COOLDOWN(icon, itemType);	
@@ -1816,23 +1800,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
 		local icon = CreateIcon(slot);
 		local obj = GetIES(equipItem:GetObject());
-		local imageName = obj.Icon
-
-		-- 코스튬은 남녀공용, 남자PC는 남자 코스튬 아이콘, 여자PC는 여자 코스튬 아이콘이 보임
-		if obj.ItemType == 'Equip' and obj.ClassType == 'Outer' then
-
-			local tempiconname = string.sub(obj.Icon,string.len(obj.Icon)-1);
-
-			if tempiconname ~= "_m" and tempiconname ~= "_f" then
-				local pc = GetMyPCObject();
-    			if pc.Gender == 1 then
-    				imageName = obj.Icon.."_m"
-    			else
-    				imageName = obj.Icon.."_f"			
-    			end
-		end
-		
-		end
+		local imageName = GET_ITEM_ICON_IMAGE(obj);
 		
 		if IS_DUR_ZERO(obj) == true  then
 			icon:SetColorTone("FF990000");

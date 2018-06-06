@@ -8,7 +8,7 @@ end
 function SHOW_CHATNOTICE_MSG(chatType, targetName, msg, headInfo)
 	
 	--[[
-	새로운 채팅 메세지가 도착했습니다  <- 이거 안뜨게 해달라고해서 출력하는부분 주석해버림
+	새로운 채팅 메시지가 도착했습니다  <- 이거 안뜨게 해달라고해서 출력하는부분 주석해버림
 
 	local frame = ui.GetFrame('chatnotice');
 

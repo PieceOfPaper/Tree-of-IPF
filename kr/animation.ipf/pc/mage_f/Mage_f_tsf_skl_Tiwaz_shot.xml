@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<CreateMonster frame="0" MonName="pcskill_rune_stone" Key="Tiwaz" Angle="0" Dist="0" MonAngle="0"/>
+	<CreateMonsterAnim frame="0" Key="Tiwaz" Anim="Tiwaz_shot" Freeze="0"/>
+	<DeleteMonster frame="14" Key="Tiwaz"/>
+</ActionDesc>

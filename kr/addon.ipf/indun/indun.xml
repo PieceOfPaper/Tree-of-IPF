@@ -18,13 +18,13 @@
 		<button name="btn_close" rect="0 0 160 50" layout_gravity="center bottom" LBtnUpScp="CLOSE_UI" caption="{@st41b}닫기" skin="test_red_button" margin="0 0 0 75"/>
     <tabitem name="Itembox1" parent="statusTab" caption="{@st66b}던전{/}" width="150" layout_gravity="left top"/>
     <tabitem name="Itembox2" parent="statusTab" caption="{@st66b}의뢰소 미션{/}" width="150" layout_gravity="left top"/>
-		<richtext name="richtext_1" margin="66 150 0 0" rect="0 0 120 24" caption="{@st66b18}입장 횟수{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		<richtext name="count" margin="337 150 0 0" rect="0 0 200 24" format="{@st42}%s{/}" param1="value" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" param2="max"/>
-		<groupbox name="textGbox" margin="34 180 0 0" rect="0 0 550 35" hittestbox="false" skin="test_weight_skin" layout_gravity="left top"/>
+		<richtext name="richtext_1" margin="20 150 0 0" rect="0 0 120 24" caption="{@st66b18}입장 횟수{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="count" margin="370 150 0 0" rect="0 0 200 24" format="{@st66b18}%s{/}" param1="value" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" param2="max"/>
+		<groupbox name="textGbox" margin="25 180 0 0" rect="0 0 550 35" hittestbox="false" skin="test_weight_skin" layout_gravity="left top"/>
 		<richtext name="indunText" margin="0 0 0 0" rect="0 0 120 24" format="{@st66b}%s{/}" param1="value" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="top center" parent="textGbox"/>
-		<groupbox name="groupbox_1" margin="17 260 0 0" rect="0 0 570 40" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
+		<groupbox name="groupbox_1" margin="10 256 0 0" rect="0 0 578 40" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
 		<richtext name="richtext_2" margin="16 7 0 0" rect="0 0 120 24" caption="{@st45tw2}이름{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="groupbox_1"/>
-		<richtext name="richtext_2_1" margin="0 7 9 0" rect="0 0 120 24" caption="{@st45tw2}입장레벨{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" parent="groupbox_1"/>
-		<groupbox name="groupbox_2" margin="0 46 0 0" rect="0 0 575 600" hittestbox="false" layout_gravity="left top" parent="gbox" draw="false"/>
+		<richtext name="richtext_2_1" margin="0 7 20 0" rect="0 0 120 24" caption="{@st45tw2}입장레벨{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" parent="groupbox_1"/>
+		<groupbox name="groupbox_2" margin="-10 40 0 0" rect="0 0 590 640" hittestbox="false" layout_gravity="left top" parent="gbox" draw="false"/>
 	</controls>
 </uiframe>

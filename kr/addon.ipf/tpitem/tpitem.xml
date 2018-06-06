@@ -28,7 +28,7 @@
         <groupbox name="mainBanner" parent="maingbox" rect="0 0 835 40" margin="0 0 0 0" skin="market_listbase" layout_gravity="left top"/>
           <richtext name="mainText" parent="mainBanner" rect="0 0 300 50" margin="10 -2 0 0" layout_gravity="left center" caption="new > costume" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
           <!--<checkbox name="showOnlyAvailable" parent="mainBanner" rect="0 0 100 20" margin="0 0 5 0" layout_gravity="right center" LBtnDownScp="SHOW_ONLY_AVAILABLE_ITEM" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="사용 가능한 항목만 표시" clicksound="button_click_big" fontname="black_14" oversound="button_over"/>-->
-        <groupbox name="mainSubGbox" parent="maingbox" rect="0 0 810 500" margin="5 40 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
+        <groupbox name="mainSubGbox" parent="maingbox" rect="0 0 830 512" margin="5 38 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
     
     <!--미리보기 및 구매 그룹박스-->
     <groupbox name="rightgbox" rect="0 0 400 808" margin="0 1 0 0" layout_gravity="right top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>

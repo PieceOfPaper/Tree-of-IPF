@@ -228,7 +228,11 @@ function JOURNAL_UPDATE_ADD(frame, wikiID)
 end
 
 function SET_JOURNAL_RANK_TYPE(frame, typeName)
-	typeName = 'Total' -- ???? ?????? ????. ????? ?????
+
+	if typeName ~= 'Total' then
+		return;
+	end
+
 	frame:SetUserValue("JOURNAL_RANKVIEW", typeName);
 	local rankFrame = ui.GetFrame("journalrank");
 	JOURNALRANK_VIEW_PAGE(rankFrame, -1);

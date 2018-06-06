@@ -20,7 +20,7 @@ function ON_FOODTABLE_HISTORY_UI(frame, msg, handle)
 	for i = cnt -1 , 0, -1 do
 		local str = session.camp.GetFoodHistoryByIndex(i);
 		if nil ~= str then
-			local ctrlSet = log_gbox:CreateControlSet("squire_foodcamp_history", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+local ctrlSet = log_gbox:CreateControlSet("squire_foodcamp_history", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 55, 0, 0, 0);
 			local sList = StringSplit(str, "#");
 			local txt = ctrlSet:GetChild("txt");
 			txt:SetTextByKey("text", sList[1]);

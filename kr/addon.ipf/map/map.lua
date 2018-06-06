@@ -164,7 +164,7 @@ function CUSTOM_MAP_INIT(frame, MapName)
 	INIT_MAP_UI_COMMON(frame, MapName);
 
 	local mapname = mapprop:GetClassName();
-	UPDATE_MAP_BY_NAME(frame, mapname);
+	UPDATE_MAP_BY_NAME(frame, mapname, GET_CHILD(frame, "map"));
 
 	ui.SetTopMostFrame(frame);
     
@@ -347,7 +347,7 @@ end
 function UPDATE_MAP(frame, isFirst)
 
 	local curmapname = session.GetMapName()
-	UPDATE_MAP_BY_NAME(frame, curmapname);
+	UPDATE_MAP_BY_NAME(frame, curmapname, GET_CHILD(frame, "map"));
 	RUN_REVEAL_CHECKER(frame, curmapname);
 	MAKE_MAP_AREA_INFO(frame, curmapname)
 
@@ -370,11 +370,11 @@ function MAKE_MAP_NPC_ICONS(frame, mapname)
 	MAKE_MY_CURSOR_TOP(frame);
 end
 
-function UPDATE_MAP_BY_NAME(frame, mapname)
+function UPDATE_MAP_BY_NAME(frame, mapname, pic)
 	
 	INIT_MAPUI_PTR(frame);
 
-	MAKE_MAP_FOG_PICTURE(mapname, map_picture)
+	MAKE_MAP_FOG_PICTURE(mapname, pic)
 	UPDATE_MAP_FOG_RATE(frame, mapname);
 
 	MAKE_MAP_NPC_ICONS(frame, mapname);

@@ -5,24 +5,23 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	local token_expup = tooltipframe:GetChild("token_expup");
 	local token_staup = tooltipframe:GetChild("token_staup");
 
-	if ITEM_TOKEN == numarg1 then
+	local arg = tonumber(strarg);
+	if ITEM_TOKEN == arg then
 		type:SetTextByKey("value", ClMsg("tokenItem"));
-		token_expup:ShowWindow(0)--SetTextByKey("value", ClMsg("CantTradeAbility"));
-		token_staup:ShowWindow(0);
-	elseif NEXON_PC == numarg1 then
+		token_expup:SetTextByKey("value", ScpArgMsg("Token_ExpUp{PER}", "PER", "20%"));
+		token_staup:SetTextByKey("value", ClMsg("AllowPremiumPose"));
+	elseif NEXON_PC == arg then
 		type:SetTextByKey("value", ClMsg("nexon")); 
-		token_expup:SetTextByKey("value", ClMsg("token_expup"));
 		token_staup:SetTextByKey("value", ClMsg("token_setup"));
-		token_staup:ShowWindow(1);
-		token_expup:ShowWindow(1);
+		token_expup:SetTextByKey("value", ClMsg("token_expup"));
 	end
 	
 	for i = 0, 3 do 
-		local str = GetCashTypeStr(numarg1, i)
+		local str = GetCashTypeStr(arg, i)
 		if nil ~= str then
 			type = tooltipframe:GetChild(str);
 			local normal = GetCashValue(0, str);
-			local value = GetCashValue(numarg1,str);
+			local value = GetCashValue(arg,str);
 			local txt = "None"
 			if str == "marketSellCom" then
 				normal = normal + 0.01;

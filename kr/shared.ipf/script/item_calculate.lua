@@ -335,6 +335,8 @@ function SCR_REFRESH_WEAPON(item)
 		item.MAXATK = 0;
 	end
 
+	MakeItemOptionByOptionSocket(item);
+
 end
 
 -- refreshing armor's information
@@ -410,7 +412,8 @@ function SCR_REFRESH_ARMOR(item)
 	item.MHR = mhr;
 	item.MDEF = mdef;
 	APPLY_AWAKEN(item);
-	
+	MakeItemOptionByOptionSocket(item);
+
 end
 
 -- refreshing accessory's information
@@ -450,6 +453,8 @@ function SCR_REFRESH_ACC(item)
 	item.MDEF = mdef;
 	
 	APPLY_OPTION_SOCKET(item);
+	MakeItemOptionByOptionSocket(item);
+
 end
 
 function SCR_REFRESH_GEM(item)

@@ -35,9 +35,9 @@ end
 
 
 
-function SET_BUFF_TIME_TO_TEXT(text, time, buffID)
+function SET_BUFF_TIME_TO_TEXT(text, time)
 
-	text:SetText(GET_BUFF_TIME_TXT(time, 0, buffID));
+	text:SetText(GET_BUFF_TIME_TXT(time, 0));
 
 end
 
@@ -49,7 +49,7 @@ function MY_BUFF_TIME_UPDATE(frame, timer, argstr, argnum, passedtime)
 
 end
 
-function GET_BUFF_TIME_TXT(time, istooltip, buffID)
+function GET_BUFF_TIME_TXT(time, istooltip)
 
 	if time == 0.0 then
 		return "";
@@ -92,10 +92,7 @@ function GET_BUFF_TIME_TXT(time, istooltip, buffID)
 		if istooltip == 1 then
 			txt = txt .. hour .. ScpArgMsg("Auto_SiKan");
 		else
-			if 70004 ~= buffID then
-				hour = hour + 1;
-			end
-			return "{#FFFF00}{ol}{s12}" .. hour .. ScpArgMsg("Auto_SiKan");
+			return "{#FFFF00}{ol}{s12}" .. hour + 1 .. ScpArgMsg("Auto_SiKan");
 		end
 	end
 
@@ -145,7 +142,7 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 	slot:EnableDrag(0);
 
 	capt:ShowWindow(1);
-	capt:SetText(GET_BUFF_TIME_TXT(buff.time, 0, buff.buffID));
+	capt:SetText(GET_BUFF_TIME_TXT(buff.time, 0));
 	
 	local targetinfo = info.GetTargetInfo( handle );
 	if targetinfo ~= nil then
@@ -166,7 +163,8 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 		else
 			argNum = ITEM_TOKEN;
 		end
-		icon:SetTooltipNumArg(argNum);
+
+		icon:SetTooltipArg(argNum, buffType, "");
 	else
 	icon:SetTooltipType('buff');
 	icon:SetTooltipArg(handle, buffType, "");
@@ -289,7 +287,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 			if slot:IsVisible() == 1 then
 				local oldBuffIndex = oldIcon:GetUserIValue("BuffIndex");			
 				local iconInfo = oldIcon:GetInfo();
-				if iconInfo.type == buffType then -- and oldBuffIndex == buffIndex then
+				if iconInfo.type == buffType then
 					CLEAR_BUFF_SLOT(slot, text);
 					local j = GET_BUFF_ARRAY_INDEX(i, colcnt);
 					PULL_BUFF_SLOT_LIST(slotlist, captionlist, j, slotcount, colcnt, buffIndex);

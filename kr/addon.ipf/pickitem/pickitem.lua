@@ -45,25 +45,7 @@ function PICKITEM_IN(frame, msg, itemGuid, itemCount, class)
 	PickItemGropBox:RemoveAllChild();
 
 	-- ControlSet 이름 설정
-	local img = class.Icon;
-	
-	if class.ItemType == 'Equip' and class.ClassType == 'Outer' then
-
-		local tempiconname = string.sub(img,string.len(img)-1);
-
-		if tempiconname ~= "_m" and tempiconname ~= "_f" then
-
-    	local pc = GetMyPCObject();
-    	local gender = pc.Gender;
-    	
-    	if gender == 1 then
-    	    img = img.."_m"
-    	else
-    	    img = img.."_f"
-	    end
-
-		end
-	end
+	local img = GET_ITEM_ICON_IMAGE(class);
 	
 	local controlSetName = "icon_"..tostring(PickCount);
 

@@ -11670,10 +11670,10 @@ if self.HP == 0 then return 1; else return 0; end;">
     <AI Name="alche_summon" UpdateMS="300" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
-                <Num Num="130"/>
+                <Num Num="150"/>
             </ToolScp>
             <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                <Num Num="150"/>
+                <Num Num="170"/>
             </ToolScp>
             <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
         </List>
@@ -12529,7 +12529,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                 <Cond>
                     <ToolScp Scp="SH_COND_HP_RATE" Client="NO" UseSleep="NO">
                         <Num Num="60"/>
-                        <Num Num="3"/>
+                        <Num Num="10"/>
                         <Str Str="3_3_14_55_19"/>
                     </ToolScp>
                 </Cond>

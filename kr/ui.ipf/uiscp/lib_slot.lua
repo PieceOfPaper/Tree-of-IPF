@@ -16,6 +16,10 @@ function SET_SLOT_ITEM_INFO(slot, itemCls, count)
 	local icon = CreateIcon(slot);
 	icon:EnableHitTest(0);
 
+	if itemCls == nil then
+		return;
+	end
+
 	icon:Set(itemCls.Icon, "item", itemCls.ClassID, count);
 	slot:SetText('{s12}{ol}{b}'..count, 'count', 'right', 'bottom', -2, 1);
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
@@ -25,25 +29,8 @@ end
 
 
 function SET_SLOT_ITEM_OBJ(slot, itemCls, gender, isBarrack)
-	local img = itemCls.Icon;
+	local img = GET_ITEM_ICON_IMAGE(itemCls, gender);
 
-	if nil ~= gender and
-		itemCls.ItemType == 'Equip' and itemCls.ClassType == 'Outer' then
-
-		local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
-
-		if tempiconname ~= "_m" and tempiconname ~= "_f" then
-	    if gender == 1 then
-    	    local outerImg =  itemCls.Icon.."_m";
-    	    img = outerImg;
-    	else
-    	    local outerImg =  itemCls.Icon.."_f";
-    	    img = outerImg;
-	    end
-	end
-	
-	end
-	
 	SET_SLOT_IMG(slot, img);
 	local icon = slot:GetIcon();
 
@@ -55,7 +42,6 @@ function SET_SLOT_ITEM_OBJ(slot, itemCls, gender, isBarrack)
 		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls);
 	else
 		SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemCls, itemCls.ClassName, "tooltips", itemCls.ClassID, tooltipID);
-
 		if nil == isBarrack then
 			slot:CopyTooltipData(icon);
 		end

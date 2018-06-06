@@ -1,4 +1,4 @@
-
+﻿
 function OBLATION_ON_INIT(addon, frame)
 	addon:RegisterMsg("OBLATION_ITEM_LIST", "ON_OBLATION_ITEM_LIST");
 end
@@ -41,6 +41,17 @@ function OBLATION_EXEC(parent, ctrl)
 	local skillName = frame:GetUserValue("SKILL_NAME");
 	local skillType = GetClass("Skill", skillName).ClassID;
 
+	if GetMyPCObject() ~= nil then
+        local pc = GetMyPCObject();
+        local curMap = GetZoneName(pc)
+        local mapCls = GetClass("Map", curMap)
+        if mapCls.MapType == "City" then
+            ui.SysMsg(ClMsg("YouCantUseOblationInCity"));
+            return;
+        end
+        
+    end
+	
 	local groupName = "Oblation";
 	if session.autoSeller.GetMyAutoSellerShopState(AUTO_SELL_OBLATION) == true then
 		session.autoSeller.Close(groupName);
@@ -52,6 +63,7 @@ function OBLATION_EXEC(parent, ctrl)
 			local gbox_open = gbox:GetChild("gbox_open");
 			local inputname = gbox_open:GetChild("inputname");
 			if "" == inputname:GetText() then
+			    ui.SysMsg(ClMsg("OblationNameIsNone"));
 				return;
 			end
 

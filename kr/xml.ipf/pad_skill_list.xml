@@ -1486,7 +1486,7 @@ return 10000 + obj.Level * 1000"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                 <Num Num="0"/>
                 <Num Num="60000"/>
-                <Num Num="0"/>
+                <Num Num="1"/>
                 <Num Num="100"/>
                 <Num Num="0"/>
             </ToolScp>
@@ -1623,26 +1623,6 @@ return 10000 + obj.Level * 2000"/>
                 <Num Num="999990"/>
             </ToolScp>
         </createEvent>
-        <destroyEvent>
-            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
-                <Str Str="ALL"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="CarveLaima_Buff"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
-                <Str Str="ALL"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="CarveLaima_Debuff"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="CarveLaima_MSPD_Debuff"/>
-            </ToolScp>
-        </destroyEvent>
         <enterEvent>
             <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="PARTY"/>
@@ -3594,14 +3574,6 @@ end"/>
                 <Num Num="999990"/>
             </ToolScp>
         </createEvent>
-        <destroyEvent>
-            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
-                <Str Str="FRIEND"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="CarveZemina_Buff"/>
-            </ToolScp>
-        </destroyEvent>
         <enterEvent>
             <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="FRIEND"/>
@@ -5264,7 +5236,7 @@ return 20000 + obj.Level * 3000"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
-            <Num Num="0"/>
+                <Num Num="0"/>
             </ToolScp>
         </enterEvent>
         <leaveEvent>
@@ -5315,8 +5287,12 @@ return 20000 + obj.Level * 3000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Moldyhorn_takedamage" CheckerType="0" Dist="0.251196" Angle="0.74359298" Range="57.5" UpdateTerm="100" AutoPos="1" EnableSearch="0">
+    <PadSkill Name="Moldyhorn_takedamage" CheckerType="0" Dist="0.251196" Angle="0.74359298" Range="57.5" ObjType="2" EnableSearch="0">
         <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="13000"/>
+                <Num Num="999990"/>
+            </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_ground004_green" Arg="1"/>
                 <Pos Angle="0" Dist="0"/>
@@ -5329,34 +5305,18 @@ return 20000 + obj.Level * 3000"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
             </ToolScp>
-            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="5000"/>
-                <Num Num="999990"/>
-            </ToolScp>
         </createEvent>
-        <destroyEvent>
-            <ToolScp Scp="C_EFFECT_REMOVE_KEY" Client="YES" UseSleep="NO">
-                <Str Str="newbless"/>
-                <Num Num="0.5"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="Moldy_skill_Debuff"/>
-            </ToolScp>
-        </destroyEvent>
         <enterEvent>
             <ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="Moldy_skill_Debuff"/>
-                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Str Str="UC_poison"/>
+                <Num Num="1" UseFunc="1" FuncTxt="0"/>
                 <Num Num="0"/>
-                <Num Num="0"/>
+                <Num Num="60000"/>
                 <Num Num="1"/>
-                <Num Num="100"/>
+                <Num Num="30"/>
             </ToolScp>
         </enterEvent>
         <leaveEvent>
@@ -5369,12 +5329,21 @@ return 20000 + obj.Level * 3000"/>
         </leaveEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-100"/>
+                <Num Num="-500"/>
                 <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Moldyhorn_takedamage2" CheckerType="4" Dist="1.3594151" Angle="-0.92519403" Range="150" InnerRange="60" UpdateTerm="150" AutoPos="1" EnableSearch="0">
+    <PadSkill Name="Moldyhorn_takedamage2" CheckerType="4" Dist="1.3594151" Angle="-0.92519403" Range="150" InnerRange="70" ObjType="2" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_ground004_circle" Arg="2"/>
@@ -5383,7 +5352,7 @@ return 20000 + obj.Level * 3000"/>
                 <Str_Arg Str="None" Arg="1"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="5000"/>
+                <Num Num="15000"/>
                 <Num Num="999990"/>
             </ToolScp>
         </createEvent>
@@ -5404,12 +5373,12 @@ return 20000 + obj.Level * 3000"/>
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="Moldy_skill_Debuff"/>
+                <Str Str="UC_poison"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                 <Num Num="0"/>
-                <Num Num="0"/>
+                <Num Num="6000"/>
                 <Num Num="1"/>
-                <Num Num="100"/>
+                <Num Num="30"/>
             </ToolScp>
         </enterEvent>
         <leaveEvent>
@@ -5422,8 +5391,17 @@ return 20000 + obj.Level * 3000"/>
         </leaveEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-100"/>
+                <Num Num="-500"/>
                 <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
@@ -7325,6 +7303,7 @@ return 30000 + obj.Level * 5000"/>
                 <Num Num="1"/>
                 <Str Str="None"/>
                 <Str Str="None"/>
+            <Num Num="1"/>
             </ToolScp>
         </createEvent>
         <enterEvent>

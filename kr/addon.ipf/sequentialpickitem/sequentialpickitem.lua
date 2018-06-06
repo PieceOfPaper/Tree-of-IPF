@@ -100,26 +100,8 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	PickItemGropBox:RemoveAllChild();
 
 	-- ControlSet 이름 설정
-	local img = class.Icon;
+	local img = GET_ITEM_ICON_IMAGE(class);
 
-	if class.ItemType == 'Equip' and class.ClassType == 'Outer' then
-
-		local tempiconname = string.sub(img,string.len(img)-1);
-
-		if tempiconname ~= "_m" and tempiconname ~= "_f" then
-    	local pc = GetMyPCObject();
-    	local gender = pc.Gender;
-    	
-    	if gender == 1 then
-    	    img = img.."_m"
-    	else
-    	    img = img.."_f"
-	    end
-	end
-	
-    	
-	end
-	
 	local PickItemCountObj		= PickItemGropBox:CreateControlSet('pickitemset_Type', 'pickitemset', 0, 0);
 	local PickItemCountCtrl		= tolua.cast(PickItemCountObj, "ui::CControlSet");
 	--PickItemCountCtrl:SetGravity(ui.LEFT, ui.TOP);

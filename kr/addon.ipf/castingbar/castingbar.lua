@@ -50,7 +50,7 @@ function CASTINGBAR_ON_MSG(frame, msg, argStr, argNum)
 		castingGauge:AddTotalTime(time);
 	end 
 
-	if msg == 'CAST_END' then		-- 시전이 끝난경우 메세지 처리
+	if msg == 'CAST_END' then		-- 시전이 끝난경우 메시지 처리
 	    local animpic = GET_CHILD_RECURSIVELY(frame, "dynamic_animpic");
 		animpic:SetUserValue("LINKED_GAUGE", 0);
 		frame:ShowWindow(0);
@@ -113,7 +113,7 @@ function DYNAMIC_CASTINGBAR_ON_MSG(frame, msg, argStr, maxTime, isVisivle)
 		LINK_OBJ_TO_GAUGE(frame, dynamic_animpic, castingGauge, 1);
 	end 
 
-	if msg == 'DYNAMIC_CAST_END' then		-- 시전이 끝난경우 메세지 처리
+	if msg == 'DYNAMIC_CAST_END' then		-- 시전이 끝난경우 메시지 처리
 
 		local castingGauge = GET_CHILD(frame, 'dynamic_casting', "ui::CGauge");
 		castingGauge:StopTimeProcess();	 

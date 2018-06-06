@@ -295,7 +295,7 @@ function PREVIEW_CHEATLIST_MAP(frame, classID)
 	mapFrame:SetTitleName('{s18}{b}'..cls.ClassName);
 	mapFrame:ShowWindow(1);
 	mapFrame:Invalidate();
-	UPDATE_MAP_BY_NAME(mapFrame, cls.ClassName)
+	UPDATE_MAP_BY_NAME(mapFrame, cls.ClassName, pic)
     MAKE_MAP_AREA_INFO(mapFrame, cls.ClassName, "{s15}")
 end
 

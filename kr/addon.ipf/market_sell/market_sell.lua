@@ -385,6 +385,45 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		return;
 	end
 
+
+	if true == invitem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return false;
+	end
+
+	local invframe = ui.GetFrame("inventory");
+	if invitem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU")
+		or invitem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
+		or invitem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+	
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return false;
+	end
+
+	local itemProp = geItemTable.GetProp(obj.ClassID);
+	local pr = TryGetProp(obj, "PR");
+
+	local noTradeCnt = TryGetProp(obj, "BelongingCount");
+	local tradeCount = invitem.count
+	if nil ~= noTradeCnt and 0 < tonumber(noTradeCnt) then
+		local wareItem = session.GetWarehouseItemByType(obj.ClassID);
+		local wareCnt = 0;
+		if nil ~= wareItem then
+			wareCnt = wareItem.count;
+		end
+		tradeCount = (invitem.count + wareCnt) - tonumber(noTradeCnt);
+		if tradeCount <= 0 then
+			ui.AlarmMsg("ItemIsNotTradable");
+			return false;
+		end
+	end
+
+	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or (pr ~= nil and pr < 1) then
+		ui.AlarmMsg("ItemIsNotTradable");
+		return false;
+	end
+
+
 	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, selecIndex);
 	
 	commission = math.floor(commission);

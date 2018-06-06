@@ -189,6 +189,8 @@ function WAREHOUSE_EXTEND(frame, slot)
 	local yesScp = string.format("CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE(%d)", price) 
 	ui.MsgBox(str, yesScp, "None");
 
+	DISABLE_BUTTON_DOUBLECLICK("warehouse","extend")
+
 	end
 	
 function CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE(price)
@@ -197,7 +199,6 @@ function CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE(price)
 		return;
 	end
 
-	DISABLE_BUTTON_DOUBLECLICK("warehouse","extend")
 	item.ExtendWareHouse();
 end
 

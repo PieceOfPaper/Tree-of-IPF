@@ -286,7 +286,7 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 	-- 살건지 확인창 띄우기
 	s_buyAbilName = abilName;
 
-	-- 서버에서 시스템 메세지를 보내는데 특성 확인전에서 뿌려주자.
+	-- 서버에서 시스템 메시지를 보내는데 특성 확인전에서 뿌려주자.
 	local topframe = frame:GetTopParentFrame();
 	local abilGroupName = topframe:GetUserValue("ABIL_GROUP_NAME")
 	local abilClass = GetClass(abilGroupName, s_buyAbilName);

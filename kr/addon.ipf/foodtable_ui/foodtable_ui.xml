@@ -20,9 +20,9 @@
         <richtext name="richtext_1" rect="0 0 120 24" margin="10 18 0 0" layout_gravity="center top" caption="{@st43}배식 테이블" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
         <button name="close" rect="0 0 44 44" margin="0 10 10 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}배식테이블을 닫습니다{/}"/>
         <groupbox name="gbox_table" parent="gbox" rect="0 0 444 870" margin="16 63 0 0" layout_gravity="left top" hittestbox="false" skin="none" tabname="tab_normal"resizebyresolution="true"/>
-        <groupbox name="gbox_make" parent="gbox" rect="0 0 444 870" margin="16 63 0 0" layout_gravity="left top" hittestbox="false" skin="none" tabname="tab_make"resizebyresolution="true"/>
+        <groupbox name="gbox_make" parent="gbox" rect="0 0 444 895" margin="16 63 0 0" layout_gravity="left top" hittestbox="false" skin="none" tabname="tab_make"resizebyresolution="true"/>
         <groupbox name="gbox_log" parent="gbox" rect="0 0 444 870" margin="16 63 0 0" layout_gravity="left top" hittestbox="false" skin="none" tabname="tab_log"resizebyresolution="true"/>
         <groupbox name="log_gbox" parent="gbox_log" rect="0 0 444 800" margin="16 0 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true"/>
-        <button name="button_1" parent="gbox_log" rect="0 0 160 55" margin="0 480 0 0" layout_gravity="center bottom" LBtnUpScp="REMOVE_FOOD_TABLE" caption="{@st41b}배식대 해체" skin="test_red_button"/>
+        <button name="button_1" parent="gbox_log" rect="0 0 160 50" margin="0 480 0 0" layout_gravity="center bottom" LBtnUpScp="REMOVE_FOOD_TABLE" caption="{@st41b}배식대 해체" skin="test_red_button"/>
     </controls>
 </uiframe>

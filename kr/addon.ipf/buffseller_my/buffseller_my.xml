@@ -13,8 +13,8 @@
 		<groupbox name="pipwin_top" rect="0 0 450 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<groupbox name="bodyGbox" rect="0 0 450 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
 		<groupbox name="searchSkin" parent="bodyGbox" rect="0 0 340 38" margin="0 20 0 0" layout_gravity="center top" draw="false" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
-		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}매입상점{/}" textalign="center center"/>
-		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}매입의뢰상점을 닫습니다{/}"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}주문 판매상점{/}" textalign="center center"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}주문 판매상점을 닫습니다{/}"/>
 		<button name="cancel" parent="bodyGbox" rect="0 0 160 55" margin="0 0 0 15" layout_gravity="center bottom" LBtnUpScp="BUFFSELLER_MY_CLOSE" caption="{@st41b}마감하기" clicksound="button_click_big" oversound="button_over" skin="test_red_button"/>
 		<groupbox name="selllist" parent="bodyGbox" rect="0 0 430 450" margin="10 60 0 0" layout_gravity="left top" draw="false" hittestbox="false" scrollbar="true" skin="none"/>
 		<groupbox name="history" parent="bodyGbox" rect="0 0 430 320" margin="10 560 0 0" layout_gravity="left top" draw="true" resizebyresolution="true" hittestbox="false" scrollbar="true" skin="test_frame_midle"/>

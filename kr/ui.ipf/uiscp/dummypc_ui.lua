@@ -12,7 +12,7 @@ function POPUP_DUMMY(handle, targetInfo)
 	ui.AddContextMenuItem(context, ScpArgMsg("Auto_SalPyeoBoKi"), strscp);
 
 
---  매입의뢰상점후 핼퍼 고용 메세지 제거	
+--  매입의뢰상점후 핼퍼 고용 메시지 제거	
 --	if ownerHandle == 0 then
 --		strscp = string.format("DUMMYPC_HIRE(%d)", handle);
 --		ui.AddContextMenuItem(context, ScpArgMsg("Auto_yongByeongKoyong"), strscp);

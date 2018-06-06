@@ -146,41 +146,85 @@ function CHATFRAME_RESIZE(frame)
 
 end
 
+function GET_CHAT_GROUPBOX_BY_ENUMVALUE(frame, enumValue, targetID)
+
+	local key = CHAT_ENUM_TO_UI_KEY(enumValue);
+	local guid = 0;
+	if key == "whisper" then
+		if targetID ~= "" then
+			guid = targetID;
+		end
+	else
+		local partyRoom = session.chat.GetByControlName(key);
+		if partyRoom ~= nil then
+			guid = partyRoom:GetGuid();
+		end
+	end
+
+	local childName;
+	if guid == 0 then
+		childName = "chat_" ..key;
+	else
+		childName = "chat_" ..guid;
+	end
+
+	return frame:GetChild(childName);
+
+end
+
+function GET_RECENT_CHATS(ctrlList, chatBox)
+
+	local cnt = chatBox:GetChildCount();
+	local loopCount = math.min(cnt, 10);
+	for i = 0 , loopCount - 1 do
+		local child = chatBox:GetChildByIndex(cnt - 1 - i);
+		if child:GetClassName() == "controlset" then
+			ctrlList[#ctrlList + 1] = child;
+		end
+	end
+
+end
+
 function CHAT_FRAME_GROUPBOXES_VISIBLE(targetID)
 
 	local frame = ui.GetFrame('chatframe')
 	HIDE_CHILD_BYNAME(frame, 'chat_');
 	local cnt = ui.GetSelectedChatTabCount();
+
 	if cnt == 1 then
 		local enumValue = ui.GetSelectedChatTabByIndex(0);
-		local key = CHAT_ENUM_TO_UI_KEY(enumValue);
-		local guid = 0;
-		if key == "whisper" then
-			if targetID ~= "" then
-				guid = targetID;
-			end
-		else
-			local partyRoom = session.chat.GetByControlName(key);
-			if partyRoom ~= nil then
-				guid = partyRoom:GetGuid();
-			end
-		end
-
-		local childName;
-		if guid == 0 then
-			childName = "chat_" ..key;
-		else
-			childName = "chat_" ..guid;
-		end
-
-		local chatBox = frame:GetChild(childName);
+		local chatBox = GET_CHAT_GROUPBOX_BY_ENUMVALUE(frame, enumValue, targetID);
 		if chatBox ~= nil then
 			chatBox:ShowWindow(1);
 		end
 		
 	else
-		local chatroom = frame:GetChild("chat_tabs");
-		chatroom:ShowWindow(1);
+		local tabs = frame:GetChild("chat_tabs");
+		tabs:ShowWindow(1);
+		tabs:RemoveAllChild();
+
+		local ctrlList = {};
+		for i = 0 , cnt - 1 do
+			local enumValue = ui.GetSelectedChatTabByIndex(i);
+			local chatBox = GET_CHAT_GROUPBOX_BY_ENUMVALUE(frame, enumValue, targetID);
+			if chatBox ~= nil then
+				GET_RECENT_CHATS(ctrlList, chatBox);
+			end
+
+		end
+
+		for j = 1 , #ctrlList do
+			local child = ctrlList[j];
+			AUTO_CAST(child);
+			local cloneChild = tabs:CreateOrGetControlSet(child:GetStrcontrolset(), child:GetName(), child:GetHorzGravity(), child:GetVertGravity(), child:GetMargin().left, child:GetMargin().top, child:GetMargin().right, child:GetMargin().bottom);
+			cloneChild:CloneChilds(child);
+		end
+
+		CHAT_REALIGN_TAB_GROUPBOX(tabs);
+		GBOX_AUTO_ALIGN(tabs, 0, 0, 0, true, false);
+		tabs:UpdateData()
+		tabs:SetScrollPos(tabs:GetLineCount());
+
 
 		for i = 0 , cnt - 1 do
 			local enumValue = ui.GetSelectedChatTabByIndex(i);

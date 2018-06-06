@@ -22,7 +22,7 @@
         <edit name="input" rect="-110 260 80 30" layout_gravity="right top" OffsetForDraw="3 1" fontname="white_20" maxlen="32" maxnumber="32767" numbermode="true" texttooltip="{@st59}조각의 개수를 설정합니다.{/}"/>
         <advlistbox name="GroupList" rect="-50 310 350 193" layout_gravity="right top" LBtnDblClickScp="SELECT_MAPFOG_GROUP" RBtnUpScp="MAPFOG_CONTEXT" drawgrid="true" heightperrow="16" maxrowcol="5000 4" scroll="true" widthpercol="100"/>
         <advlistboxitem name="Name" parent="GroupList" rect="0 0 10 10" caption="{ol}그룹" col="0" datatype="richtext" fontname="white_16" row="0"/>
-        <advlistboxitem name="Text" parent="GroupList" rect="0 0 10 10" caption="{ol}메세지" col="1" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxitem name="Text" parent="GroupList" rect="0 0 10 10" caption="{ol}메시지" col="1" datatype="richtext" fontname="white_16" row="0"/>
         <advlistboxitem name="Sound" parent="GroupList" rect="0 0 10 10" caption="{ol}사운드" col="2" datatype="richtext" fontname="white_16" row="0"/>
         <advlistboxitem name="Script" parent="GroupList" rect="0 0 10 10" caption="{ol}Scp" col="3" datatype="richtext" fontname="white_16" row="0"/>
         <advlistboxsetting parent="GroupList" col="0" colwidth="50" row="0" rowbgcolor="#4a443f" rowheight="16" startrow="1"/>

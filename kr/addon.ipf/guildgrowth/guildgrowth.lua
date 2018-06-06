@@ -246,6 +246,10 @@ function _EXEC_GUILD_GROWTH_TALT()
 	local scpString = string.format("/guildexpup %s %d", iesID, count);
 	ui.Chat(scpString);
 
+
+	local ctrlset_growth = frame:GetChild("ctrlset_growth");
+	local pic = GET_CHILD(ctrlset_growth, "pic");
+	CLEAR_SLOT_ITEM_INFO(pic);
 end
 
 function GUILDGROWTH_GUILD_PROPERTY_UPDATE(frame)

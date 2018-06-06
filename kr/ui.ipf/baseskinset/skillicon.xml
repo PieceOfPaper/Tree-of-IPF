@@ -98,6 +98,11 @@
 		<image name="icon_wizar_darktheurge" file="\icon\skill\wizard\icon_wizar_darktheurge.png" imgrect="0 0 128 128" CMM_Caption="다크써지"/>
 		<image name="icon_wizar_mastema" file="\icon\skill\wizard\icon_wizar_mastema.png" imgrect="0 0 128 128" CMM_Caption="마스테마"/>
 	<image name="icon_wizar_evilsacrifice" file="\icon\skill\wizard\icon_wizar_evilsacrifice.png" imgrect="0 0 128 128" CMM_Caption="이블세크리파이스"/>
+	<image name="icon_wizar_isa" file="\icon\skill\wizard\icon_wizar_isa.png" imgrect="0 0 128 128" CMM_Caption="얼음의룬"/>
+		<image name="icon_wizar_hagalaz" file="\icon\skill\wizard\icon_wizar_hagalaz.png" imgrect="0 0 128 128" CMM_Caption="파괴의룬"/>
+		<image name="icon_wizar_thurisaz" file="\icon\skill\wizard\icon_wizar_thurisaz.png" imgrect="0 0 128 128" CMM_Caption="거인의룬"/>
+		<image name="icon_wizar_algiz" file="\icon\skill\wizard\icon_wizar_algiz.png" imgrect="0 0 128 128" CMM_Caption="보호의룬"/>
+		<image name="icon_wizar_tiwaz" file="\icon\skill\wizard\icon_wizar_tiwaz.png" imgrect="0 0 128 128" CMM_Caption="정의의룬"/>
 	</imagelist>
 	<imagelist category="archer_skillicon">
 		<image name="icon_arch_doubleShot" file="\icon\skill\archer\icon_arch_doubleShot.png" imgrect="0 0 128 128" CMM_Caption="멀티샷"/>
@@ -939,6 +944,12 @@
 		<image name="ability_Wizard_Warlock9" file="\icon\icon_ability_wizard03.tga" imgrect="128 896 128 128" CMM_Caption="마스테마: 강화"/>
 		<image name="ability_Wizard_Warlock10" file="\icon\icon_ability_wizard03.tga" imgrect="256 896 128 128" CMM_Caption="마스테마: 위협 감소"/>
 	<image name="ability_Wizard_Sorcerer14" file="\icon\icon_ability_wizard03.tga" imgrect="384 896 128 128" CMM_Caption="데스모두스:강화"/>
+	<image name="ability_Wizard_RuneCaster1" file="\icon\icon_ability_wizard03.tga" imgrect="512 896 128 128" CMM_Caption="룬캐스터:숙련된캐스팅"/>
+		<image name="ability_Wizard_RuneCaster2" file="\icon\icon_ability_wizard03.tga" imgrect="640 896 128 128" CMM_Caption="얼음의룬:슬로우"/>
+		<image name="ability_Wizard_RuneCaster3" file="\icon\icon_ability_wizard03.tga" imgrect="768 896 128 128" CMM_Caption="파괴의룬:강화"/>
+		<image name="ability_Wizard_RuneCaster4" file="\icon\icon_ability_wizard03.tga" imgrect="896 896 128 128" CMM_Caption="거인의룬:체력"/>
+		<image name="ability_Wizard_RuneCaster5" file="\icon\icon_ability_wizard04.tga" imgrect="0 0 128 128" CMM_Caption="정의의룬:강화"/>
+		<image name="ability_Wizard_RuneCaster6" file="\icon\icon_ability_wizard04.tga" imgrect="128 0 128 128" CMM_Caption="보호의 룬: 치명타저항"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>
@@ -1343,6 +1354,7 @@
 	<image name="ability_cleric_chaplain1" file="\icon\icon_ability_cleric03.tga" imgrect="256 896 128 128" CMM_Caption="종부성사: 사기진작"/>
 		<image name="ability_cleric_chaplain3" file="\icon\icon_ability_cleric03.tga" imgrect="384 896 128 128" CMM_Caption="장엄구마: 강화"/>
 		<image name="ability_cleric_chaplain2" file="\icon\icon_ability_cleric03.tga" imgrect="512 896 128 128" CMM_Caption="카펠라 설치: 유지시간"/>
+	<image name="ability_cleric_Monk8" file="\icon\icon_ability_cleric03.tga" imgrect="640 896 128 128" CMM_Caption="카펠라 설치: 유지시간"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

@@ -81,7 +81,7 @@ function OPEN_LETTER(frame, id)
 	local title = ctrlSet:GetChild("title");
 	title:SetTextByKey("value", msgInfo:GetTitle());
 
-	local content = ctrlSet:GetChild("content");
+	local content = GET_CHILD_RECURSIVELY(ctrlSet,"content");
 	if msgInfo.isDetailLoaded == false then
 		content:SetTextByKey("value", ClMsg("NowLoading..."));	
 		barrack.ReqChangePostBoxState(id, POST_BOX_STATE_REQ_LOAD);
@@ -93,7 +93,7 @@ end
 
 function POSTBOX_SET_LETTER_DETAIL(msgInfo, ctrlSet)
 
-	local content = ctrlSet:GetChild("content");
+	local content = GET_CHILD_RECURSIVELY(ctrlSet,"content");
 	content:SetTextByKey("value", msgInfo:GetMessage());	
 
 	local attachedItems = GET_CHILD_RECURSIVELY(ctrlSet,"attachedItems")

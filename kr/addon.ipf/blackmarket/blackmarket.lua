@@ -43,7 +43,7 @@ function BLACKMARKET_SHOW_DETAIL(bg, ctrl)
 		local pic = GET_CHILD(pic_gbox, "map", "ui::CPicture");
 		pic:SetImage(mapName .. "_fog");
 		
-		UPDATE_MAP_BY_NAME(pic_gbox, mapName);
+		UPDATE_MAP_BY_NAME(pic_gbox, mapName, pic);
 		MAKE_MAP_AREA_INFO(pic_gbox, mapName, "{s15}")
 		
 		mapname:SetTextByKey("value", ClMsg("Location") .. " : " .. mapCls.Name);

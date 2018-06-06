@@ -84,7 +84,7 @@ function MAKE_CATEGORY_TREE()
 		
 		if tpitemtree:IsExist(hsubtreeitem) == 0 and subcategory ~= "None" then
 
-			local added = tpitemtree:Add(htreeitem, "{@st42b}"..ScpArgMsg(subcategory), category.."#"..subcategory, "{#000000}");
+			local added = tpitemtree:Add(htreeitem, "{@st66}"..ScpArgMsg(subcategory), category.."#"..subcategory, "{#000000}");
 			tpitemtree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
 			local foldimg = GET_CHILD(categoryCset,"foldimg");
 			foldimg:ShowWindow(1);
@@ -199,29 +199,6 @@ function TPITEM_TREE_CLICK(parent, ctrl, str, num)
 
 end
 
-function _GET_IMG_NAME(itemobj)
-
-	local imageName = itemobj.Icon
-
-	if itemobj.ItemType == 'Equip' and itemobj.ClassType == 'Outer' then
-
-		local tempiconname = string.sub(itemobj.Icon,string.len(itemobj.Icon)-1);
-
-		if tempiconname ~= "_m" and tempiconname ~= "_f" then
-		local pc = GetMyPCObject();
-    	if pc.Gender == 1 then
-    		imageName = itemobj.Icon.."_m"
-    	else
-    		imageName = itemobj.Icon.."_f"			
-    	end
-	end
-
-		
-	end
-
-	return imageName
-end
-
 function IS_ITEM_WILL_CHANGE_APC(type)
 	
 	local item = GetClassByType("Item",type)
@@ -301,7 +278,7 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 
 			local slot = GET_CHILD_RECURSIVELY(itemcset, "icon");
 			
-			SET_SLOT_IMG(slot, _GET_IMG_NAME(itemobj));
+			SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(itemobj));
 			local icon = slot:GetIcon();
 			icon:SetTooltipType('wholeitem');
 			icon:SetTooltipArg('', itemobj.ClassID, 0);
@@ -451,7 +428,7 @@ function TPSHOP_ITEM_PREVIEW(parent, control, tpitemname, classid)
 			slot:SetUserValue("CLASSNAME", item.ClassName);
 			slot:SetUserValue("TPITEMNAME", tpitemname);
 
-			SET_SLOT_IMG(slot, _GET_IMG_NAME(item));
+			SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(item));
 			local icon = slot:GetIcon();
 			icon:SetTooltipType('wholeitem');
 			icon:SetTooltipArg('', item.ClassID, 0);
@@ -716,7 +693,7 @@ function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)
 			slot:SetUserValue("CLASSNAME", item.ClassName);
 			slot:SetUserValue("TPITEMNAME", tpitemname);
 
-			SET_SLOT_IMG(slot, _GET_IMG_NAME(item));
+			SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(item));
 			local icon = slot:GetIcon();
 			icon:SetTooltipType('wholeitem');
 			icon:SetTooltipArg('', item.ClassID, 0);

@@ -1,4 +1,86 @@
 
+-- 어빌 UNLOCK체크용
+
+function PC_PCAA(pc)
+local jobHistory = GetJobHistorySting(pc)
+	print(jobHistory)
+end
+
+function CHECK_ABILITY_LOCK(pc, ability)
+
+
+	if ability.Job == "None" then
+		return "UNLOCK";
+	end
+
+	local jobHistory = GetJobHistoryString(pc)
+
+	if string.find(ability.Job, ";") == nil then
+		
+		if string.find(jobHistory, ability.Job) ~= nil then
+			local jobCls = GetClass("Job", ability.Job)
+		
+			local abilGroupClass = GetClass("Ability_"..jobCls.EngName, ability.ClassName);
+
+			local unlockFuncName = abilGroupClass.UnlockScr;
+
+			if abilGroupClass.UnlockScr == "None" then
+				return "UNLOCK"
+			end
+		
+			local scp = _G[unlockFuncName];
+			local ret = scp(pc, abilGroupClass.UnlockArgStr, abilGroupClass.UnlockArgNum, ability);
+		
+			return ret;
+		end
+	else
+		local sList = StringSplit(jobHistory, ";");
+		for i = 1, #sList do
+			if string.find(ability.Job, sList[i]) ~= nil then
+				local jobCls = GetClass("Job", sList[i])
+				local abilGroupClass = GetClass("Ability_"..jobCls.EngName, ability.ClassName);
+
+				local unlockFuncName = abilGroupClass.UnlockScr;
+
+				if abilGroupClass.UnlockScr == "None" then
+					return "UNLOCK"
+				end
+		
+				local scp = _G[unlockFuncName];
+				local ret = scp(pc, abilGroupClass.UnlockArgStr, abilGroupClass.UnlockArgNum, ability);
+
+				if ret == "UNLOCK" then
+					return ret;
+				end
+			end
+		end
+	end
+
+	IMC_NORMAL_INFO("abilityUnlock Error");
+	return "UNLOCK";
+	
+	
+			--[[
+
+
+	if ability.Job ~= "None" and string.find(ability.Job, ";") == nil then
+		
+		local jobCls = GetClass("Job", ability.Job)
+		
+		local abilGroupClass = GetClass("Ability_"..jobCls.EngName, ability.ClassName);
+
+		local unlockFuncName = abilGroupClass.UnlockScr;
+		
+		local scp = _G[unlockFuncName];
+		local ret = scp(pc, abilGroupClass.UnlockArgStr, abilGroupClass.UnlockArgNum, abilObj);
+		
+		return ret;
+	end
+
+	return "UNLOCK";
+	]]--
+end
+
 function SCR_ABIL_NONE_ACTIVE(self, ability)
     
 end

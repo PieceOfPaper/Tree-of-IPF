@@ -38,7 +38,7 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 		end
 		pic:SetImage(drawMapName .. "_fog");
 
-		UPDATE_MAP_BY_NAME(ctrlSet, drawMapName)
+		UPDATE_MAP_BY_NAME(ctrlSet, drawMapName, pic)
 		pic:EnableCopyOtherImage(nil);
 		MAKE_MAP_AREA_INFO(ctrlSet, drawMapName, "{s15}")
 	

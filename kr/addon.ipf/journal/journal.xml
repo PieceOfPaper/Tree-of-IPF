@@ -47,7 +47,7 @@
         <controlset name="ctrlset" parent="Item" rect="0 0 570 120" margin="0 0 0 0" layout_gravity="left top" hittest="true" type="journal_category_set"/>
         <groupbox name="Monster" rect="0 0 590 815" margin="5 240 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
         <controlset name="ctrlset" parent="Monster" rect="0 0 570 120" margin="0 0 0 0" layout_gravity="left top" hittest="true" type="journal_category_set"/>
-        <groupbox name="map" rect="0 0 590 805" margin="5 240 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
+		<groupbox name="map" rect="0 0 590 770" margin="5 240 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
         <controlset name="ctrlset" parent="map" rect="0 0 570 120" margin="5 0 0 0" layout_gravity="center top" hittest="true" type="journal_map_set"/>
         <groupbox name="contents" rect="0 0 590 805" margin="5 240 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
         <controlset name="ctrlset" parent="contents" rect="0 0 570 120" margin="5 0 0 0" layout_gravity="center top" hittest="true" type="journal_contents_set"/>

@@ -313,24 +313,9 @@ function MAKE_ITEM_TAG_TEXT_CTRL(y, box, ctrlNameHead, itemName, itemCount, inde
 	if cls == nil then
 		return y;
 	end
-	local icon = cls.Icon;
 	
-	if cls.ItemType == 'Equip' and cls.ClassType == 'Outer' then
-
-		local tempiconname = string.sub(icon,string.len(icon)-1);
-
-		if tempiconname ~= "_m" and tempiconname ~= "_f" then
-	    local pc = GetMyPCObject();
-	    if pc.Gender == 1 then
-	        icon = icon.."_m"
-	    else
-	        icon = icon.."_f"
-	    end
-	end
-    
+	local icon = GET_ITEM_ICON_IMAGE(cls);
 	    
-	end
-    
     y = y + 5
     
     chIndex = index
@@ -487,6 +472,8 @@ function BOX_CREATE_RICH_CONTROLSET(box, name, y, height, text, index)
 end
 
 function MAKE_TAKEITEM_CTRL(box, cls, y)
+    y = y + 10
+    
     local isuse = false
 	local pc = GetMyPCObject();
     for i = 1 , MAX_QUEST_TAKEITEM do
@@ -495,6 +482,13 @@ function MAKE_TAKEITEM_CTRL(box, cls, y)
             break
         end
     end
+    
+	local questCls = GetClassByType("QuestProgressCheck", cls.ClassID);
+    local sObj_quest = GetSessionObject(pc, questCls.Quest_SSN) 
+    if sObj_quest ~= nil and sObj_quest.SSNInvItem ~= 'None' then
+        isuse = true
+    end
+    
 	if isuse == true then
 		y = BOX_CREATE_RICHTEXT(box, "need_item", y, 20, ScpArgMsg("QuestSuccessTakeItem"));
 		for i = 1 , MAX_QUEST_TAKEITEM do
@@ -505,10 +499,20 @@ function MAKE_TAKEITEM_CTRL(box, cls, y)
     			end
 			end
 		end
+		if sObj_quest ~= nil and sObj_quest.SSNInvItem ~= 'None' then
+		    local itemList = SCR_STRING_CUT(sObj_quest.SSNInvItem, ':')
+            local maxCount = math.floor(#itemList/3)
+            for i = 1, maxCount do
+                local InvItemName = itemList[i*3 - 2]
+        		local itemclass = GetClass("Item", InvItemName);
+        		if itemclass ~= nil then
+            		local needcnt = itemList[i*3 - 1]
+                    y = MAKE_ITEM_TAG_TEXT_CTRL(y, box, "need_Item", InvItemName, needcnt, i);
+            	end
+            end
+		end
 	end
-	y = y + 20;
-
-
+	
 	return y;
 end
 

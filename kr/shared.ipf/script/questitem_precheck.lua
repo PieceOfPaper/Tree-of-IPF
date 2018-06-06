@@ -529,7 +529,7 @@ function SCR_PRE_ROKAS27_QB_6(self, argstring, argnum1, argnum2)
             end
         end
     else
-        RunScript('TAKE_ITEM_TX', self, 'ROKAS27_QB_6', 1, "Q_ROKAS27_QB_6")
+--        RunScript('TAKE_ITEM_TX', self, 'ROKAS27_QB_6', 1, "Q_ROKAS27_QB_6")
         SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("Auto_aMuKeosDo_BalKyeonHaJi_Mos_HaessSeupNiDa."), 3);
     end
     return 0
