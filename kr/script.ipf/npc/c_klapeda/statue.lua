@@ -76,3 +76,7 @@ function SCR_GOLD_FISH_STATUE_DIALOG(self, pc)
         end
     end
 end
+
+function TEST_STATUE_LEAVE_SCP(mon, killer)
+    testStatueLeaveLog()
+end
