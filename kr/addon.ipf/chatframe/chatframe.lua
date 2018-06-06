@@ -230,7 +230,7 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				end
 			end
 			if ypos == 0 then
-				DRAW_CHAT_MSG(groupboxname, size, startindex - 1, framename);
+				DRAW_CHAT_MSG(groupboxname, size, 0, framename);
 				return;
 			end
 		end
