@@ -9605,11 +9605,11 @@ return obj.Level"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="helgasercle_atk2" CheckerType="0" Range="15" UpdateTerm="200" AutoPos="1" SpinRate="0.5" EnableSearch="0">
+    <PadSkill Name="helgasercle_atk2" CheckerType="0" Range="15" UpdateTerm="700" AutoPos="1" SpinRate="0.5" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="99999"/>
-                <Num Num="99990"/>
+                <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="I_spread_in008_red" Arg="1"/>
@@ -9626,6 +9626,73 @@ return obj.Level"/>
                 <Num Num="0"/>
             </ToolScp>
         </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="helgasercle_atk3" CheckerType="0" Dist="5.2131776e+028" Angle="0.0025850763" Range="10">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000"/>
+                <Num Num="999990"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="I_spread_in008_red" Arg="0.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Mon_Fire_buff"/>
+                <Num Num="250"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="20"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE_MON" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Mon_Fire_buff"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_MOVE_NEAR_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="200"/>
+                <Num Num="40"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
     </PadSkill>
     <PadSkill Name="kubas_prominence" CheckerType="5" UpdateTerm="100">
         <createEvent>

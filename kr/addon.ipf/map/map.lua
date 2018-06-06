@@ -83,10 +83,7 @@ end
 function MAP_OPEN(frame)	
 
 	MAP_SIZE_UPDATE(frame)
-	UPDATE_MAP(frame);
-	frame:Invalidate();
-	local mapClassName = session.GetMapName();
-	MAKE_MAP_AREA_INFO(frame, mapClassName)
+
 end
 
 function MAP_CLOSE(frame)
@@ -339,6 +336,7 @@ function UPDATE_MAP(frame, isFirst)
 	local curmapname = session.GetMapName()
 	UPDATE_MAP_BY_NAME(frame, curmapname);
 	RUN_REVEAL_CHECKER(frame, curmapname);
+	MAKE_MAP_AREA_INFO(frame, curmapname)
 
 end
 

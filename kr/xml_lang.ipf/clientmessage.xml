@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -502,7 +502,7 @@
 		<Class ClassID="10784" ClassName="poisonpot" Data="포이즌팟"/>
 		<Class ClassID="10785" ClassName="SelectCharacterToGetItem" Data="아이템을 수령할 캐릭터를 선택해주세요."/>
 		<Class ClassID="10786" ClassName="Premium" Data="프리미엄"/>
-	<Class ClassID="10787" ClassName="selectItemUsed" Data="사용중인 아이템은 잠금 기능을 사용할 수 없습니다."/>
+		<Class ClassID="10787" ClassName="selectItemUsed" Data="사용중인 아이템은 잠금 기능을 사용할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="10801" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -3603,8 +3603,8 @@
 		<Class ClassID="29308" ClassName="{TP}ReqSlotBuy" Data="{TP}TP를 사용해 캐릭터/컴패니언 슬롯을{nl}구입하시겠습니까?"/>
 		<Class ClassID="29309" ClassName="{TP}ReqChangeFamilyName" Data="{TP}TP를 사용해 팀명을 변경하도록 하시겠습니까?"/>
 		<Class ClassID="29310" ClassName="DontHaveSlot" Data="캐릭터/컴패니언 슬롯이 부족합니다.{nl}"/>
-    <Class ClassID="29311" ClassName="{TP}ReqChangeCharName" Data="{TP}TP를 사용해 캐릭터명을 변경하도록 하시겠습니까?"/>
-  </Category>
+		<Class ClassID="29311" ClassName="{TP}ReqChangeCharName" Data="{TP}TP를 사용해 캐릭터명을 변경하도록 하시겠습니까?"/>
+	</Category>
 	<Category Name="Collection">
 		<Class ClassID="29501" ClassName="CollectionEffect" Data="콜렉션 효과"/>
 		<Class ClassID="29502" ClassName="HaveList" Data="획득 목록"/>
@@ -6675,7 +6675,10 @@
 		<Class ClassID="550019" ClassName="CantTradeAbility" Data="거래/매입상점 사용가능"/>
 		<Class ClassID="550020" ClassName="token_expup" Data="경험치 30% 추가획득"/>
 		<Class ClassID="550021" ClassName="toekn_staup" Data="스테미너회복 2배"/>
-	<Class ClassID="550022" ClassName="UseToken" Data="토큰을 사용하시겠습니까?"/>
+		<Class ClassID="550022" ClassName="UseToken" Data="토큰을 사용하시겠습니까?"/>
 		<Class ClassID="550023" ClassName="UseBoost" Data="경험의 서를 사용하시겠습니까?"/>
+		<Class ClassID="550024" ClassName="marketUpMax{COUNT}" Data="마켓 물품 등록 개수 {COUNT}개로 증가"/>
+		<Class ClassID="550025" ClassName="abilityMax{COUNT}" Data="특성 동시 수련 가능 개수 {COUNT} 증가"/>
+		<Class ClassID="550026" ClassName="speedUp{COUNT}" Data="이동 속도 +{COUNT} 증가"/>
 	</Category>
 </idspace>

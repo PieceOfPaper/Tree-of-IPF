@@ -51,6 +51,7 @@
 		<Code Code="ERRCODE_LOGIC_INVALID_CONNECTION_TYPE" CallStack="NO" Desc="잘못된 타입의 커넥션 연결이 시도되었습니다."/>
 		<Code Code="ERRCODE_LOGIC_GEMSCOOL_LOGIN_FAIL" CallStack="NO" Desc="젬스쿨 로그인 서버와의 통신이 실패하였습니다. 다음 에러 정보를 참조하세요."/>
 		<Code Code="ERRCODE_LOGIC_NEXON_NOT_IMPLEMENTED_SYNC_TYPE" CallStack="NO" Desc="세션 정보와 넥슨 세션 서버와의 동기화가 실패하였습니다. 알 수 없는 싱크 타입입니다."/>
+		<Code Code="ERRCODE_LOGIC_GETPOS_NEAR_FROM_TARGET" CallStack="NO" Desc="MaxLoopCount내에 유효좌표를 얻지 못했습니다."/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
@@ -117,6 +118,7 @@
 		<Code Code="ERRCODE_SCRIPT_INVALID_MGAME_SCP_TYPE" CallStack="NO" Desc="잘못된 미션 스크립트 타입입니다. "/>
 		<Code Code="ERRCODE_SCRIPT_IES_INVALIDATE_CP" CallStack="NO" Desc="CP형태의 IES 프로퍼티값을 가져오는데 실패하였습니다. 해당 함수의 정상 작동 유무를 확인하세요."/>
 		<Code Code="ERRCODE_SCRIPT_INVALIDATE_LOG_TYPE" CallStack="NO" Desc="스크립트에서 잘못된 형태로 로그를 남기려고 시도하였습니다. 콜스택의 해당 라인을 확인하세요."/>
+		<Code Code="ERRCODE_SCRIPT_INVALIDATE_FIELDOBJECT" CallStack="NO" Desc="오브젝트 가져오는데 실패하였습니다. 콜스택의 해당 라인을 확인하세요."/>
 	</Type>
 	<Type Type="NETWORK">
 		<Code Code="ERRCODE_NETWORK_ERROR_MONGODB" CallStack="NO" Desc="몽고 DB에 연결하는데 실패하였습니다."/>
