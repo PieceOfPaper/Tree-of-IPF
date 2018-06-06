@@ -104,6 +104,7 @@ function TRY_COMPANION_HIRE(byShop)
 	end
 
 	if ui.IsValidCharacterName(nameText) == false then
+		SysMsg(self, 'Instant', ScpArgMsg('CompanionNameIsInvalid'))
 		return;
 	end
 	if GET_TOTAL_MONEY() < sellPrice then

@@ -788,6 +788,9 @@ function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonu
     local defRatio = 0;
     local mdefRatio = 0;
     
+    local PropName = {"ADD_FIRE"}; -- 아그니 네클리스만 유일하게 속성 공격력을 갖고 있습니다. 추후, 악세사리 메인 옵션 추가할 때 여기 추가할것 --
+    local changeProp = {};
+    
     local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
     for i = 1, #basicTooltipPropList do
         local basicProp = basicTooltipPropList[i];
@@ -848,6 +851,17 @@ function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonu
     
            mdef = math.floor(mdef) * upgradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
            mdef = SyncFloor(mdef);
+        elseif basicProp == 'ADD_FIRE' then
+            changeProp["ADD_FIRE"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
+            changeProp["ADD_FIRE"] = SyncFloor(changeProp["ADD_FIRE"]);
+        end
+    end
+
+    for i = 1, #PropName do
+        if changeProp[PropName[i]] ~= nil then
+            if changeProp[PropName[i]] ~= 0 then
+                item[PropName[i]] = changeProp[PropName[i]];
+            end
         end
     end
 

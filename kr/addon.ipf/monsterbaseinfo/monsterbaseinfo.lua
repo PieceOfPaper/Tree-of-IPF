@@ -92,11 +92,7 @@ function HIDE_MONBASE_INFO(frame)
 end
 
 function ON_MON_ENTER_SCENE(frame, msg, str, handle)
-	
-	local visible = session.ui.IsAlwaysVisible(handle);
-	if visible == true then
-		SHOW_MONB_TARGET(handle, 0.0);
-	end
+	SHOW_MONB_TARGET(handle, 0.0);
 end
 
 function UPDATE_MONB(handle)

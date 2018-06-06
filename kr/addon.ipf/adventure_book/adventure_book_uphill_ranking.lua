@@ -126,7 +126,12 @@ function ADVENTURE_BOOK_UPHILL_UPDATE_POINT(uphillPage)
 	local shopPointName = GetPVPPointPropName(clsName, "ShopPoint");
     local mySession = session.GetMySession();
 	local cid = mySession:GetCID();
-	local pvpObj = session.worldPVP.GetPVPObject(cid);
+    local ret = worldPVP.RequestPVPInfo();        
+    if ret == true then
+        return;
+    end
+
+	local pvpObj = session.worldPVP.GetPVPObject(cid);        
     if pvpObj == nil then
         return;
     end

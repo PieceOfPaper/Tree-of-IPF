@@ -7314,6 +7314,7 @@
         <Key Name="Kill_boss_Quipmage" Value="101805"/>
         <Key Name="Kill_boss_TelHarsha" Value="101801"/>
         <Key Name="Kill_boss_madon_maiden" Value="101803"/>
+        <Key Name="HadVisited_525" Value="101807"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="Check4" Value="124"/>
@@ -13845,6 +13846,7 @@
         <Key Name="MG_Last_MISSION_EVENT_BLUEORB" Value="101695"/>
         <Key Name="EV171017_STEAM_NRU_SOBJ" Value="101774"/>
         <Key Name="MG_Last_AGARIO_MINI" Value="101781"/>
+        <Key Name="MG_Last_MISSION_EVENT_CURSEDOOR" Value="101806"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Skill">
         <Key Name="OnNeutral" Value="6715"/>
@@ -14948,6 +14950,10 @@
         <Key Name="StrikeAtkFactor_PC_NT" Value="11472"/>
         <Key Name="StrikeDefFactor_PC_NT" Value="11481"/>
         <Key Name="LastRankRollbackIndex" Value="101779"/>
+        <Key Name="DASHSTA_RATE_BM" Value="101815"/>
+        <Key Name="MHP_RATE_BM" Value="101813"/>
+        <Key Name="MOVESTA_RATE_BM" Value="101814"/>
+        <Key Name="MSP_RATE_BM" Value="101812"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -16188,5 +16194,9 @@
         <Key Name="AGARIO_NAME_CHECK" Value="101794"/>
         <Key Name="EVENT_1710_HALLOWEEN_TOT_DATE" Value="101795"/>
         <Key Name="AGARIO_EVENT_WEEK" Value="101797"/>
+        <Key Name="AGARIO_HOUR_ENTER_COUNT" Value="101811"/>
+        <Key Name="HadVisited_525" Value="101810"/>
+        <Key Name="SURVIVAL2_COUNT" Value="101808"/>
+        <Key Name="SURVIVAL2_REWARD" Value="101809"/>
     </KeyIDSpc>
 </ClassKey>

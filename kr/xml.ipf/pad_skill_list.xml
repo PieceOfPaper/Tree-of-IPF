@@ -5515,7 +5515,7 @@ return obj.Level;"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="FanaticIllusion_pad" CheckerType="0" AllowOverlap="1" Dist="1.1135938" Angle="-1.3444525" Range="60" AutoPos="1" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
+	<PadSkill Name="FanaticIllusion_pad" CheckerType="0" AllowOverlap="1" Dist="1.1135938" Angle="-1.3444525" Range="60" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="999999"/>
@@ -5539,16 +5539,6 @@ return &quot;self&quot;"/>
 				<Num Num="0"/>
 			</ToolScp>
 		</enterEvent>
-		<leaveEvent>
-			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-				<Str Str="FRIEND" UseFunc="1" FuncTxt="local self = GetSkillOwner(obj);
-return &quot;self&quot;"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str Str="FanaticIllusion_Buff"/>
-				<Num Num="1"/>
-			</ToolScp>
-		</leaveEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
 				<Num Num="1"/>
