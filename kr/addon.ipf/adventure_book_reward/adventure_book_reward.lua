@@ -126,6 +126,40 @@ function ADVENTURE_BOOK_REWARD_INIT_LIST(frame, pointCls, curStep)
             local height = math.max(rewardSet:GetOriginalHeight(), rewardBox:GetY() + rewardBox:GetHeight() + 10);
             bgBox:Resize(width, height);
             rewardSet:Resize(width, height);
+        else
+            local rewardSet = listBox:CreateOrGetControlSet('adventure_book_reward', 'REWARD_STEP_'..i, 0, 0);        
+            rewardSet = AUTO_CAST(rewardSet);
+            -- level
+            local levelText = rewardSet:GetChild('levelText');
+            levelText:SetTextByKey('level', i);        
+            if i > preStep and i <= curStep then        
+                levelText:SetTextByKey('style', ENABLE_LEVEL_STYLE);
+            end
+
+            -- skin
+            local bgBox = rewardSet:GetChild('bgBox');
+            local isGray = false;
+            if i <= preStep then            
+                bgBox:SetSkinName(ALREADY_GET_SKIN);
+            elseif i > curStep then
+                rewardSet:EnableGrayWithText(1);
+                rewardSet:SetColorTone('FF444444');
+                isGray = true;
+            end
+
+            -- stamp
+            local stampPic = rewardSet:GetChild('stampPic');
+            if i > preStep then
+                stampPic:ShowWindow(0);
+            end
+
+            -- reward
+            local rewardBox = rewardSet:GetChild('rewardBox');
+            rewardBox:RemoveAllChild();
+            
+            local text = rewardBox:CreateControl('richtext', 'REWARD_SETTING', 10, 22, 100, 30);
+            text:SetText("???");
+            text:SetFontName('black_16_b')
         end
     end
     GBOX_AUTO_ALIGN(listBox, 0, REWARD_INTERVAL, 0, true, false);

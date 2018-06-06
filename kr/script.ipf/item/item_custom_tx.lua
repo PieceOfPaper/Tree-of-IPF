@@ -2616,8 +2616,12 @@ function TAKE_GUILD_EVENT_REWARD(pc)
 		return;
 	end
     
+    local guildID = GetGuildID(pc)
+    local GuildEventTicketCount = guildObj.GuildEventTicketCount;
+    local UsedTicketCount = guildObj.UsedTicketCount;
+    
     SuccessGuildEvent(guildObj)
-    GuildEventMongoLog(pc, eventID, "Success")
+    GuildEventMongoLog(pc, eventID, "Success", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
     GuildEventRewardMongoLog(pc, eventID, itemlist, itemcount)
 end
 

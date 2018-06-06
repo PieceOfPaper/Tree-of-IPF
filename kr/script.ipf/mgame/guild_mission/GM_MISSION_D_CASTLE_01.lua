@@ -172,7 +172,7 @@ function SCR_GM_CASTLE_01_GIMMICK1_MATH_EXAMINATION_DIALOG(self, pc)
     
     local sel = ShowSelDlg(pc,0, 'GM_CASTLE_GIMMICK_SECLECT_1', ScpArgMsg("Yes"), ScpArgMsg("No"))
     
-	if sel == 2 or select == nil then
+	if sel == 2 or sel == nil then
 		return;
 	elseif sel == 1 then
 	    if self.NumArg1 > 0 then

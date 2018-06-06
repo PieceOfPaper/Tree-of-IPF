@@ -280,7 +280,8 @@ function SCR_CLICK_CHANGEJOB_BUTTON(pc, jobid)
                             {'None','Char2_19','f_pilgrimroad_41_3','JOB_SHADOWMANCER_MASTER'},
                             {'None','Char3_18','f_farm_49_1','BULLETMARKER_MASTER'},
                             {'None','Char4_19','f_flash_64','ZEALOT_MASTER'},
-                            {'None','Char1_20','f_gele_57_4','CHAR120_MASTER'}
+                            {'None','Char1_20','f_gele_57_4','CHAR120_MASTER'},
+                            {'None','Char2_20','c_Klaipe','ONMYOJI_MASTER'}
                         }
     if pcjobinfo ~= nil then
         local targetIndex = 0

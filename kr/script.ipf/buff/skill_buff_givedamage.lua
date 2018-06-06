@@ -379,6 +379,26 @@ function SCR_BUFF_GIVEDMG_Sacrament_Buff(self, buff, sklID, damage, target, ret)
     return 1;
 end
 
+
+function SCR_BUFF_GIVEDMG_FireFoxShikigami_Buff(self, buff, sklID, damage, target, ret)
+    if damage <= 0 then
+        return 1;
+    end
+	
+	local skill = GetClassByType("Skill", sklID);
+	
+    if skill.ClassName == "Psychokino_GravityPole" then
+        local key = GetSkillSyncKey(self, ret);
+        local skillGravityPole = GetSkill(self, "Psychokino_GravityPole")
+        StartSyncPacket(self, key);
+        TakeDadak(self, target, "None", damage, 0.15, "Fire", "Magic", "TrueDamage", HIT_FIRE, HITRESULT_BLOW);
+        EndSyncPacket(self, key, 0);
+    end
+	
+    return 1;
+end
+
+
 function SCR_BUFF_GIVEDMG_LastRites_Buff(self, buff, sklID, damage, target, ret)
     if damage <= 0 then
         return 1;

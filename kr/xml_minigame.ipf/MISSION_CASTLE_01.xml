@@ -501,7 +501,8 @@
                     </Event>
                     <Event execCount="1" eventName="successItemGive">
                         <execList>
-                            <ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_NUNNERY_CUBE_REWARD_CHECK"/>
                                 <Str Str="Gacha_M_Castle_1/2"/>
                                 <Str Str="None"/>
                                 <Str Str="None"/>

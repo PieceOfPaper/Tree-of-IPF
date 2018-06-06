@@ -1,4 +1,4 @@
-﻿-- padskill_obj.lua
+-- padskill_obj.lua
 
 function PAD_TGT_HEAL(self, skl, pad, target, tgtRelation, atkRate, consumeLife, useCount)
 	
@@ -252,6 +252,18 @@ function PAD_TGT_BUFF(self, skl, pad, target, tgtRelation, consumeLife, useCount
 	if buff ~= nil  then
 		CHECK_SHAREBUFF_BUFF(target, buff, lv, arg2, applyTime, over, rate);
 	end
+end
+
+function PAD_TGT_BUFF_BOSS_CHECK(self, skl, pad, target, tgtRelation, consumeLife, useCount, buffName, lv, arg2, applyTime, over, rate, saveHandle, bossCheck)
+    if bossCheck == nil then
+        bossCheck = 0;
+    end
+    
+    if bossCheck == 0 or TryGetProp(target, "MonRank") ~= "Boss" then
+        PAD_TGT_BUFF(self, skl, pad, target, tgtRelation, consumeLife, useCount, buffName, lv, arg2, applyTime, over, rate, saveHandle)
+    else
+        return
+    end
 end
 
 function PAD_TGT_BUFF_AFTER_CHECK_BUFF(self, skl, pad, target, tgtRelation, consumeLife, useCount, checkbuff, buffName, lv, arg2, applyTime, over, rate, saveHandle)

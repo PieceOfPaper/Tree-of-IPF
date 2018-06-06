@@ -39,7 +39,9 @@ function SCR_BUFF_IMMUNE_Warrior_RushMove_Buff(self, buffName, buffLv, rate)
 end
 
 function SCR_BUFF_IMMUNE_murmillo_helmet(self, buffName, buffLv, rate)
-	if IsBuffApplied(self, 'murmillo_helmet') == 'YES' then
+	if buffName == "EquipDesrption_Debeff" then
+	    return 0;
+	elseif IsBuffApplied(self, 'murmillo_helmet') == 'YES' then
 		rate = rate + 5000
 		return rate;
 	end

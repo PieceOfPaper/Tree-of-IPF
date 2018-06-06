@@ -1,16 +1,23 @@
 function SCR_QUEST_RANDOM_DROPITEM_REQUEST1_FUNC(pc,questname,subStrList)
-    local result = IMCRandom(1, 10000);
-    local itemClsName = "None";
-    local itemCnt = 1;
+    local now_time = os.date('*t')
+    local wday = now_time['wday']
+    local itemClsName
+    local itemCnt
     local pcLv = pc.Lv
-    if pcLv > 185 then
-        itemClsName = 'expCard10'
-    elseif pcLv > 165 then
-        itemClsName = 'expCard9'
-    elseif pcLv > 135 then
-        itemClsName = 'expCard8'
+    if wday == 2 or wday == 3 or wday == 4 or wday == 5 then
+        itemClsName = "Vis"
+        itemCnt = pcLv * 400
     else
-        itemClsName = 'expCard7'
+        itemClsName = "Ability_Point_Stone_Quest100";
+        if pcLv < 300 then
+            itemCnt = 1
+        elseif pcLv < 500 then
+            itemCnt = 2
+        end
+        
+        if tonumber(PC_MAX_LEVEL) == pcLv then
+            itemCnt = itemCnt + 1
+        end
     end
     
     return itemClsName..':'..itemCnt

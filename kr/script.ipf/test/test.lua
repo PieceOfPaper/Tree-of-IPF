@@ -7339,6 +7339,74 @@ function TEST_RNF_CARD_LVUP(pc, value)
     local ret = TxCommit(tx);
 end
 
+
+function TEST_ONMYOJI_HIDDEN_CLEAR(pc)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        for i = 1, 9 do
+            if sObj['Step'..i] == 1 then
+                if i == 6 then
+                    if sObj['Goal'..i] ~= 1000 then
+                        sObj['Goal'..i] = 1000
+                    end
+                elseif i == 9 then
+                    if sObj['Goal'..i] ~= 100 then
+                        sObj['Goal'..i] = 100
+                    end
+                else
+                    if sObj['Goal'..i] ~= 10 then
+                        sObj['Goal'..i] = 10
+                    end
+                end
+            end
+        end
+    end
+end
+
+function TEST_ONMYOJI_HIDDEN_RESETTING(pc, num1, num2)
+    if num1 == nil or num1 == 0 or num1 == "" and num2 == nil or num2 == 0 or num1 == "" then
+        return
+    end
+    local prop = SCR_SET_HIDDEN_JOB_PROP(pc, 'Char2_20', 0)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        DestroySessionObject(pc, sObj)
+    end
+    local cnt = GetInvItemCount(pc, "CHAR220_MSTEP1_ITEM1")
+    if cnt >= 1 then
+        RunScript('TAKE_ITEM_TX', pc, "CHAR220_MSTEP1_ITEM1", cnt, "Quest_HIDDEN_ONMYOJI");
+    end
+    sleep(500)
+    local sObj1 = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj1 == nil then
+        CreateSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    end
+    sleep(500)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        local tx = TxBegin(pc)
+        if GetInvItemCount(pc, "CHAR220_MSTEP1_ITEM1") < 1 then
+            TxGiveItem(tx,"CHAR220_MSTEP1_ITEM1", 1, 'Quest_HIDDEN_ONMYOJI');
+        end
+        local ret = TxCommit(tx)
+        if sObj['Step'..num1] ~= 1 then
+            sObj['Step'..num1] = 1
+        end
+        if sObj['Step'..num2] ~= 1 then
+            sObj['Step'..num2] = 1
+        end
+        SCR_SET_HIDDEN_JOB_PROP(pc, 'Char2_20', 10)
+        ShowOkDlg(pc, "CHAR220_MSETP1_DLG1", 1)
+        SaveSessionObject(pc, sObj)
+    end
+    if isHideNPC(pc, "ONMYOJI_MASTER") == "NO" then
+        HideNPC(pc, "ONMYOJI_MASTER")
+    end
+    if isHideNPC(pc, "CHAR220_MSETP2_4_NPC") == "NO" then
+        HideNPC(pc, "CHAR220_MSETP2_4_NPC")
+    end
+end
+
 function TEST_SERVER_LEG_CARD_OPEN(pc)
 	local pcEtc = GetETCObject(pc);
 		
@@ -7346,4 +7414,43 @@ function TEST_SERVER_LEG_CARD_OPEN(pc)
 	TxSetIESProp(tx, pcEtc, 'IS_LEGEND_CARD_OPEN', 1)
     SendAddOnMsg(pc, "MSG_PLAY_LEGENDCARD_OPEN_EFFECT", "", 0)
 	local ret = TxCommit(tx)
+end
+
+function TEST_MONSTER_HP_SET_PERCENT(self, arg1)
+    local x,y,z = GetPos(self)
+    local objList, objCount = SelectObjectPos(self, x, y, z, 100, 'ENEMY', 0, 0 ,0)
+    local per = arg1 / 100
+    
+    for i = 1, objCount do
+	    local obj = objList[i];
+        obj.HP = obj.HP * per
+    end
+end
+
+function TEST_MON_DEBUFF_ALL(self)
+    local list, cnt = SelectObject(self, 50, "ALL", 1)
+    
+    if cnt >= 1 then
+        for i = 1, cnt do
+            local target = list[i]
+            print(target.Name, target.DEF)
+            local bufflist = GetBuffList(target);
+            if target.Faction == 'Monster' then
+                AddBuff(self, target, 'UC_armorbreak', 1, 0, 60000, 1);
+                AddBuff(self, target, 'SpearLunge_Debuff', 5, 0, 60000, 1);
+                AddBuff(self, target, 'AttaqueCoquille_Debuff', 5, 0, 60000, 1);
+                AddBuff(self, target, 'Kagura_Debuff', 5, 0, 60000, 1);
+                AddBuff(self, target, 'Cleave_Debuff', 5, 0, 60000, 1);
+                AddBuff(self, target, 'ResistElements_Debuff', 15, 0, 60000, 1);
+                AddBuff(self, target, 'Hagalaz_Debuff', 1, 0, 60000, 1);
+                AddBuff(self, target, 'Conviction_Debuff', 5, 0, 60000, 1);
+                AddBuff(self, target, 'Hexing_Debuff', 15, 0, 60000, 1);
+                AddBuff(self, self, 'KaguraDance_Buff', 5, 0, 60000, 1);
+            end
+            for b = 1, #bufflist do
+                local buff = bufflist[b]
+                print(target.Name.." : "..buff.ClassName);
+            end
+        end
+    end
 end

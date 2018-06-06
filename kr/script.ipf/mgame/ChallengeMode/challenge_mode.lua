@@ -525,19 +525,30 @@ end
 function CHALLENGE_MODE_REWARD(pc, level)
 	local tx = TxBegin(pc);
 	if tx ~= nil then
-		local clsList = GetClassList("challenge_mode");
-		local rewardCubeName = GetClassByNameFromList(clsList, "RewardCubeName");
-
-        TxGiveItem(tx, TryGet_Str(rewardCubeName, "Value_Str"), level, "CHALLENGE_MODE_REWARD");
-
-		local ret = TxCommit(tx);
-		if ret ~= "SUCCESS" then
-			CustomMongoLog(pc, "ChallengeMode", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "Type", "RewardFailed", "Level", level, "RewardItem", TryGet_Str(rewardCubeName, "Value_Str"));
-			IMC_LOG('ERROR_TX_FAIL', 'CHALLENGE_MODE_REWARD_ENTER: aid['..GetPcAIDStr(pc)..']');
-		else
-			CustomMongoLog(pc, "ChallengeMode", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "Type", "RewardSuccess", "Level", level, "RewardItem", TryGet_Str(rewardCubeName, "Value_Str"));
+       	local clsList = GetClassList("challenge_mode");
+    	local mapCls = GetMapProperty(pc);
+    	if mapCls == nil then
+		    return 0;
 		end
-	end
+
+        if 200 <= mapCls.QuestLevel and mapCls.QuestLevel <= 299 then
+        	local rewardCubeName = GetClassByNameFromList(clsList, "RewardCubeName200");
+                TxGiveItem(tx, TryGet_Str(rewardCubeName, "Value_Str"), level, "CHALLENGE_MODE_REWARD");
+        elseif 300 <= mapCls.QuestLevel then
+       		local rewardCubeName = GetClassByNameFromList(clsList, "RewardCubeName300")
+                TxGiveItem(tx, TryGet_Str(rewardCubeName, "Value_Str"), level, "CHALLENGE_MODE_REWARD");
+    	end
+        TxAddAchievePoint(tx, "Challenge_AP1", 1)
+    	local ret = TxCommit(tx);
+    	if ret ~= "SUCCESS" then
+    		CustomMongoLog(pc, "ChallengeMode", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "Type", "RewardFailed", "Level", level, "RewardItem", TryGet_Str(rewardCubeName, "Value_Str"));
+    		CustomMongoLog(pc, "ChallengeMode", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "Type", "RewardFailed", "Level", level, "Challenge_AdventurePoint1", 1);
+    		IMC_LOG('ERROR_TX_FAIL', 'CHALLENGE_MODE_REWARD_ENTER: aid['..GetPcAIDStr(pc)..']');
+    	else
+    		CustomMongoLog(pc, "ChallengeMode", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "Type", "RewardSuccess", "Level", level, "RewardItem", TryGet_Str(rewardCubeName, "Value_Str"));
+    	    CustomMongoLog(pc, "ChallengeMode", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "Type", "RewardSuccess", "Level", level, "Challenge_AdventurePoint1", 1);
+    	end
+    end
 end
 
 function CHALLENGE_MODE_READY_ENTER(gameObject, layerObj, pcList, pcCount)
@@ -820,8 +831,15 @@ function CHALLENGE_MODE_BOSS_UPDATE(gameObject, layerObj, pcList, pcCount, playT
             local bossLevel = 300;
             local clsList, cnt = GetClassList("item_summonboss");
             if cnt > 0 then
-            local randomIndex = IMCRandom(1, cnt) - 1;
-            local bossCls = GetClassByIndexFromList(clsList, randomIndex);
+            local bossMonList = {}
+                for i = 0, cnt - 1 do
+                local bossclass = GetClassByIndexFromList(clsList, i);
+                    if bossclass.OnlyCardBookUse ~= "YES" then
+                        bossMonList[#bossMonList + 1] = bossclass;
+                    end
+                end
+            local randomIndex = IMCRandom(1, #bossMonList);
+            local bossCls = bossMonList[randomIndex];
             if bossCls ~= nil then
                     bossMonClassName = bossCls.MonsterClassName;
                 else
@@ -830,7 +848,6 @@ function CHALLENGE_MODE_BOSS_UPDATE(gameObject, layerObj, pcList, pcCount, playT
             else
                 IMC_LOG("ERROR_CHALLENGE_MODE", "item_summonboss Data is empty");
             end
-            
             local pcIndex = IMCRandom(1, pcCount);
             local randomPC = pcList[pcIndex];
             

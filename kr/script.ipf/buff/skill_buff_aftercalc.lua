@@ -184,6 +184,48 @@ function SCR_BUFF_AFTERCALC_HIT_ReflectShield_Buff(self, from, skill, atk, ret, 
 end
 
 
+
+function SCR_BUFF_AFTERCALC_HIT_GenbuArmor_Buff(self, from, skill, atk, ret, buff)
+    if IsBuffApplied(self, 'todal_shield') == 'NO' and IsSameActor(self, from) == "NO" and ret.Damage > 0 then
+        if ret.Damage < 1 then
+            ret.Damage = 1;
+        end
+        if skill.Attribute == "Ice" and IMCRandom(1, 100) < 10 then
+        	ret.ResultType = HITRESULT_MISS
+        end
+        
+        local genbuArmorSkill = GetSkill(self, "Onmyoji_GenbuArmor")
+        if genbuArmorSkill ~= nil then
+        	local abilDamageRate = 0
+        	local abilOnmyoji12 = GetAbility(self, "Onmyoji12")
+        	if abilOnmyoji12 ~= nil and abilOnmyoji12.ActiveState == 1 then
+        		abilDamageRate = abilOnmyoji12.Level * 0.01
+        	end
+        	
+            ret.Damage = ret.Damage * (0.9 - (genbuArmorSkill.Level * 0.05)) + abilDamageRate
+        end
+        
+    	local abilOnmyoji11 = GetAbility(self, "Onmyoji11")
+    	local remainSP = TryGetProp(self, "SP")
+    	if abilOnmyoji11 ~= nil and abilOnmyoji11.ActiveState == 1 then
+    		if skill.ClassType == "Melee" or skill.ClassType == "Missile" then
+    			if IMCRandom(1, 100) < abilOnmyoji11.Level * 2 then
+	        		ret.Damage = 0;
+	        		ret.HitType = HIT_DODGE;
+	        	end
+		    end
+        end
+        
+		AddSP(self, -ret.Damage)
+        if remainSP < ret.Damage then
+        	AddHP(self, -(ret.Damage - remainSP))
+        end
+		
+        ret.Damage = 0;
+    end
+end
+
+
 function SCR_BUFF_AFTERCALC_HIT_Ability_buff_attribute(self, from, skill, atk, ret, buff)
     --Ability_buff_attribute (mon.attribute, skill attribute is Same? Heal : damage)
     if skill.Attribute == self.Attribute then
@@ -758,4 +800,47 @@ function SCR_BUFF_AFTERCALC_HIT_Skill_NoDamage_Buff(self, from, skill, atk, ret,
 	end
 	
 	return 1;
+end
+
+function SCR_BUFF_AFTERCALC_HIT_DaggerGuard_Buff(self, from, skill, atk, ret, buff)
+    if ret.Damage > 0 then
+        local buffRate = 50;
+        local abilRetiarii3 = GetAbility(self, "Retiarii3");
+        if abilRetiarii3 ~= nil and TryGetProp(abilRetiarii3, "ActiveState") == 1 then
+            buffRate = buffRate + TryGetProp(abilRetiarii3, "Level");
+        end
+        
+        local attackType = TryGetProp(skill, "AttackType");
+        local attackTypeList = {"Aries", "Slash", "Strike"};
+        local attackTypeCheck = false;
+        
+        for i = 1, #attackTypeList do
+            if attackTypeList[i] == attackType then
+                attackTypeCheck = true;
+            end
+        end
+        
+        local abilRetiarii4 = GetAbility(self, "Retiarii3");
+        if abilRetiarii4 ~= nil and TryGetProp(abilRetiarii4, "ActiveState") == 1 then
+            if TryGetProp(skill, "ClassType") == "Missile" then
+                attackTypeCheck = true
+                buffRate = buffRate * 0.5
+            end
+        end
+        
+        if IsBuffApplied(self, "DaggerGuard_Buff") == "YES" then 
+            if attackTypeCheck == true then
+                if buffRate >= IMCRandom(1, 100) then
+                    ret.Damage = 0;
+                    ret.HitType = HIT_BLOCK;
+                    ret.ResultType = HITRESULT_BLOCK;
+                    local remain = GetExProp(self, "DAGGERGUARD_COUNT");
+                    SetExProp(self, "DAGGERGUARD_COUNT", remain - 1);
+                    if remain - 1 <= 0 then
+                        RemoveBuff(self, buff.ClassName)
+                    end
+                end
+            end
+        end
+    end
 end

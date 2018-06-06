@@ -2,6 +2,8 @@ function GUILDEVENT_SELECT_TYPE(self, pc)
 	local guildObj = GetGuildObj(pc)
 	local authority = IS_GUILD_AUTHORITY_SERVER(pc, AUTHORITY_GUILD_EVENT)
     local isLeader = IsPartyLeaderPc(guildObj, pc);
+    local GuildEventTicketCount = guildObj.GuildEventTicketCount;
+    local UsedTicketCount = guildObj.UsedTicketCount;
 
     if guildObj.TowerLevel < 4 then
         return;
@@ -23,7 +25,7 @@ function GUILDEVENT_SELECT_TYPE(self, pc)
 			elseif eventState == 'Recruiting' or eventState == 'Waiting' then
 			    local eventID = GetGuildEventID(guildObj)
 			    CancelGuildEvent(pc)
-			    GuildEventMongoLog(pc, eventID, "Cancel")
+			    GuildEventMongoLog(pc, eventID, "Cancel", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
 			end
 			return;
 		elseif select == 2 or select == nil then
@@ -77,10 +79,13 @@ function GUILD_EVENT_START_REQUEST(pc, clsID)
         return;
     end
 
+    local GuildEventTicketCount = guildObj.GuildEventTicketCount;
+    local UsedTicketCount = guildObj.UsedTicketCount;
+
     local str, mapID = GUILD_EVENT_START_MAP_ON_LOCATION(pc, guildObj)
 
     BroadcastAddOnMsgToParty(guildObj, "GUILD_EVENT_WAITING_LOCATION", str, mapID, 0);
-	GuildEventMongoLog(pc, eventID, "Recruiting")
+	GuildEventMongoLog(pc, eventID, "Recruiting", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
 end
 
 function GUILD_EVENT_IN_START_MAP_ON_WAITING(pc, eventID)
@@ -175,6 +180,9 @@ function SCR_GUILD_EVENT_ENTER_CHECK(self, pc)
     local eventCls = GetClassByType("GuildEvent", eventID);
     local minigame = TryGetProp(eventCls, "MGame");
     local eventType = TryGetProp(eventCls, "EventType");
+    local GuildEventTicketCount = guildObj.GuildEventTicketCount;
+    local UsedTicketCount = guildObj.UsedTicketCount;
+    
     if GetGuildEventState(guildObj) == "Recruiting" then
         SendSysMsg(pc, 'GuildEventNotStarted');
     end
@@ -202,13 +210,13 @@ function SCR_GUILD_EVENT_ENTER_CHECK(self, pc)
                 if StartGuildEventPlayBossHunting(pc, layer) ~= 1 then
                     return;
                 end
-                GuildEventMongoLog(pc, eventID, "Started") 
+                GuildEventMongoLog(pc, eventID, "Started", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount) 
             elseif eventType == 'MISSION' then
                 local openedMission, alreadyJoin,numArgOpenParty, missionInst  = OpenPartyMission(pc, pc, 0, eventCls.MGame, "", 1, PARTY_GUILD);
                 if StartGuildEventPlayMission(pc, missionInst) ~= 1 then
                     return;
                 end
-                GuildEventMongoLog(pc, eventID, "Started")
+                GuildEventMongoLog(pc, eventID, "Started", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
     	        ReqMoveToMission(pc, openedMission);
             else
                 return;
@@ -231,7 +239,7 @@ function SCR_GUILD_EVENT_ENTER_CHECK(self, pc)
                     if IsPlayingMGame(pc, minigame) == 0 then
                         SendSysMsg(pc, 'GuildEventZonemoveError')
                         FailGuildEvent(guildObj)
-			            GuildEventMongoLog(pc, eventID, "Error")
+			            GuildEventMongoLog(pc, eventID, "Error", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
                         SetLayer(pc, 0, 0)
                     end
                 else 
@@ -244,14 +252,14 @@ function SCR_GUILD_EVENT_ENTER_CHECK(self, pc)
                     if IsPlayingMGame(pc, minigame) == 0 then
                         SendSysMsg(pc, 'GuildEventZonemoveError')
                         FailGuildEvent(guildObj)
-			            GuildEventMongoLog(pc, eventID, "Error")
+			            GuildEventMongoLog(pc, eventID, "Error", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
                         SetLayer(pc, 0, 0)
                     end
                 end
             elseif eventType == 'MISSION' then
             	local missionInstID = GetGuildEventMissionInstID(pc)
             	local openedMission, alreadyJoin = OpenPartyMission(pc, pc, 0, eventCls.MGame, "", 1, PARTY_GUILD);
-            	GuildEventMongoLog(pc, eventID, "Enter")
+            	GuildEventMongoLog(pc, eventID, "Enter", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
             	ReqMoveToMission(pc, openedMission);
             end
         end
@@ -327,6 +335,9 @@ end
 function SCR_GUILD_EVENT_FAIL_MONGOLOG(guildObj)
     local guildID = GetIESID(guildObj)
     local eventID = GetGuildEventID(guildObj)
-    FailGuildEvent(guildObj)
-	GuildEventMongoLogWithoutPC(guildID, eventID, "Fail")
+    local GuildEventTicketCount = guildObj.GuildEventTicketCount;
+    local UsedTicketCount = guildObj.UsedTicketCount;
+    
+    GuildEventMongoLogWithoutPC(guildID, eventID, "Fail", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
+    FailGuildEvent(guildObj)	
 end

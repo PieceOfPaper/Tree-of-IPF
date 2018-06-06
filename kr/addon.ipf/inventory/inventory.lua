@@ -2701,7 +2701,7 @@ function CURSOR_CHECK_IN_LOCK(slot)
 	return 0;
 end
 
-function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)	
+function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	local itemType = object.ItemType;
 	if nil == itemType then
 		local obj = GetIES(selectItem:GetObject());
@@ -2734,7 +2734,11 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	local slot = tolua.cast(object, "ui::CSlot");
     local parent = slot:GetParent();
 	local grandParent = parent:GetParent();
-	invframe:SetUserValue('LOCK_SLOT_GRANDPARENT_NAME', grandParent:GetName());
+
+	if grandParent ~= nil then
+		invframe:SetUserValue('LOCK_SLOT_GRANDPARENT_NAME', grandParent:GetName());	
+	end
+
     invframe:SetUserValue('LOCK_SLOT_PARENT_NAME', parent:GetName());
     invframe:SetUserValue('LOCK_SLOT_NAME', slot:GetName());
 
@@ -3080,13 +3084,28 @@ function ON_LOCK_FAIL(frame, msg, argStr, argNum)
 	local grandParentName = frame:GetUserValue('LOCK_SLOT_GRANDPARENT_NAME');
     local slotParentName = frame:GetUserValue('LOCK_SLOT_PARENT_NAME');
     local slotName = frame:GetUserValue('LOCK_SLOT_NAME');
-	local grandParent = GET_CHILD_RECURSIVELY(frame, grandParentName);
-    local parent = GET_CHILD(grandParent, slotParentName);
-    local slot = GET_CHILD(parent, slotName);
+	local grandParent = nil;
+	local parent = nil;
+	local slot = nil;
+
+	if grandParentName ~= "None" then
+		grandParent = GET_CHILD_RECURSIVELY(frame, grandParentName);
+		parent = GET_CHILD(grandParent, slotParentName);
+		slot = GET_CHILD(parent, slotName);
+	else
+		parent = GET_CHILD_RECURSIVELY(frame, slotParentName);
+		slot = GET_CHILD(parent, slotName);
+	end
+
     if slot ~= nil then
         local lockPic = slot:GetChild('itemlock');
         if lockPic ~= nil then
             lockPic:ShowWindow(0);
         end
     end
+
+	invframe:SetUserValue('LOCK_SLOT_GRANDPARENT_NAME', "None");	
+    invframe:SetUserValue('LOCK_SLOT_PARENT_NAME', "None");
+    invframe:SetUserValue('LOCK_SLOT_NAME', "None");
+
 end

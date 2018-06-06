@@ -7719,3 +7719,135 @@ end
 function SCR_BUFF_LEAVE_Agario_silence(self, buff, arg1, arg2, over)
     HideEmoticon(self, 'I_emo_silence')
 end
+
+--CHAR118_MSTEP2_ITEM1_BUFF1
+function SCR_BUFF_ENTER_CHAR118_MSTEP2_ITEM1_BUFF1(self, buff, arg1, arg2, over)
+    SendAddOnMsg(self, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_STAMINA_CHARGE'), 5)
+    SetExProp(self, "CHAR118_REST_TIME", 1);
+end
+
+function SCR_BUFF_UPDATE_CHAR118_MSTEP2_ITEM1_BUFF1(self, buff, arg1, arg2, over)
+    local sit_Buff = GetBuffByName(self, 'SitRest')
+    local rest_Time = GetExProp(self, "CHAR118_REST_TIME")
+    if sit_Buff ~= nil then
+        rest_Time = rest_Time + 1
+        SetExProp(self, "CHAR118_REST_TIME", rest_Time);
+        --print("rest_Time : "..rest_Time)
+    end
+    if GetBuffRemainTime(buff) <= 0 then
+        local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
+        if rest_Time >= 120 then
+            sObj.Step1 = 60
+            --Chat(self, sObj.Step1)
+        else
+            sObj.Step1 = 50
+            --Chat(self, sObj.Step1)
+        end
+        sObj.Step22 = 1
+        sObj.Step2 = sObj.Step2 + 1
+        SaveSessionObject(self, sObj)
+        return 0;
+    else
+        return 1;
+    end
+end
+
+function SCR_BUFF_LEAVE_CHAR118_MSTEP2_ITEM1_BUFF1(self, buff, arg1, arg2, over)
+    local rest_Time = GetExProp(self, "CHAR118_REST_TIME")
+    if GetBuffRemainTime(buff) <= 0 then
+        local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
+        if rest_Time >= 120 then
+            sObj.Step1 = 60
+            --print(sObj.Step1)
+        else
+            sObj.Step1 = 50
+            --print(sObj.Step1)
+        end
+        sObj.Step22 = 1
+        sObj.Step2 = sObj.Step2 + 1;
+        SaveSessionObject(self, sObj)
+    end
+end
+
+--CHAR118_MSTEP2_2_ITEM1_BUFF1
+function SCR_BUFF_ENTER_CHAR118_MSTEP2_2_ITEM1_BUFF1(self, buff, arg1, arg2, over)
+    local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
+    if sObj ~= nil then
+    --Step2 is traning Count
+--        print(sObj.Step2)
+        if sObj.Step2 == 1 then
+            self.FIXMSPD_BM = 20
+        elseif sObj.Step2 == 2 then
+            self.FIXMSPD_BM = 23
+        elseif sObj.Step2 == 3 then
+            self.FIXMSPD_BM = 26
+        elseif sObj.Step2 == 4 then
+            self.FIXMSPD_BM = 30
+        elseif sObj.Step2 >= 5 then
+            self.FIXMSPD_BM = 35
+        end
+        InvalidateMSPD(self);
+--        InvalidateStates(self);
+--        Invalidate(self, 'MSPD');
+    end
+end
+
+function SCR_BUFF_UPDATE_CHAR118_MSTEP2_2_ITEM1_BUFF1(self, buff, arg1, arg2, over)
+    if GetZoneName(self) == "f_farm_47_1" then
+        local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
+        --print(sObj.Step7)
+        if sObj.Step6 == 0 then
+            local goal_group = IMCRandom(1, 3)
+            sObj.Step7 = goal_group
+            sObj.Step6 = 1
+            for i = 1, 3 do
+                if isHideNPC(self, "RETIARII_ENDURANDE_TRAINING_GOAL"..goal_group.."_"..i) == "YES" then
+                    UnHideNPC(self, "RETIARII_ENDURANDE_TRAINING_GOAL"..goal_group.."_"..i)
+                end
+            end
+        end
+        return 1
+    else
+        local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
+        if sObj ~= nil then
+            sObj.Step6 = 0
+            local goal_group = sObj.Step7
+            SaveSessionObject(self, sObj)
+            self.FIXMSPD_BM = 0
+            InvalidateMSPD(self);
+            for i = 1, 3 do
+                if isHideNPC(self, "RETIARII_ENDURANDE_TRAINING_GOAL"..goal_group.."_"..i) == "NO" then
+                    HideNPC(self, "RETIARII_ENDURANDE_TRAINING_GOAL"..goal_group.."_"..i)
+                end
+            end
+            return 0
+        end
+    end
+    return 0
+end
+
+function SCR_BUFF_LEAVE_CHAR118_MSTEP2_2_ITEM1_BUFF1(self, buff, arg1, arg2, over)
+    local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
+    if sObj ~= nil then
+        sObj.Step6 = 0
+        local goal_group = sObj.Step7
+        SaveSessionObject(self, sObj)
+        for i = 1, 3 do
+            if isHideNPC(self, "RETIARII_ENDURANDE_TRAINING_GOAL"..goal_group.."_"..i) == "NO" then
+                HideNPC(self, "RETIARII_ENDURANDE_TRAINING_GOAL"..goal_group.."_"..i)
+                --Chat(self, "RETIARII_ENDURANDE_TRAINING_GOAL"..goal_group.."_"..i, 1)
+            end
+        end
+    end
+    self.FIXMSPD_BM = 0
+    InvalidateMSPD(self);
+end
+
+--CHAR118_AGILITY_TRAINING_BUFF
+function SCR_BUFF_ENTER_CHAR118_AGILITY_TRAINING_BUFF(self, buff, arg1, arg2, over)
+    
+end
+
+function SCR_BUFF_LEAVE_CHAR118_AGILITY_TRAINING_BUFF(self, buff, arg1, arg2, over)
+    
+end

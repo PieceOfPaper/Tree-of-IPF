@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Bip01 R Hand" particleName="I_warrior_EquipDesrption_mesh" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.7" pause="false" use2DEffect="false" soft2DValue="3" targetPos="false"/>
+	<Particle frame="20" attachNode="Dummy_gacha_root" particleName="F_ground068_smoke2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="false" use2DEffect="false" soft2DValue="3" targetPos="false" sound="skl_eff_katon_no_jutsu_ground"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_l_13"/>
+	<Sound frame="8.00" soundFile="skl_eff_atk_move_m_7"/>
+	<Sound frame="9.00" soundFile="skl_eff_shieldcharger_end"/>
+	<Sound frame="11.00" soundFile="skl_eff_atk_move_m_4"/>
+</ActionDesc>

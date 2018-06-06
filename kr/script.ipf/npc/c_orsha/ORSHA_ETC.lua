@@ -849,6 +849,59 @@ function SCR_ORSHA_BOOK02_DIALOG (self, pc)
     end
 end
 
+function SCR_ORSHA_TOOL_NPC_NORMAL_2_PRE(pc)
+    --ONMYOJI_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+    if prop == 10 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+        if sObj ~= nil then
+            if sObj.Step5 == 1 then
+                if sObj.Goal5 >= 1 and sObj.Goal5 <= 5 then
+                    return 'YES'
+                end
+            end
+        end
+    end
+end
+
+function SCR_ORSHA_TOOL_NPC_NORMAL_2(self,pc)
+    --ONMYOJI_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+    if prop >= 10 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+        if sObj ~= nil then
+            if sObj.Step5 == 1 then
+                if sObj.Goal5 == 1 then
+                    local sel = ShowSelDlg(pc, 1, "CHAR220_MSETP2_3_DLG3", ScpArgMsg("CHAR220_MSETP2_QUEST_OK_MSG"), ScpArgMsg("CHAR220_MSETP2_QUEST_NO_MSG"))
+                    if sel == 1 then
+                        sObj.Goal5 = 2
+                        SaveSessionObject(pc, sObj)
+                        ShowOkDlg(pc, "CHAR220_MSETP2_3_DLG3_1", 1)
+                        return
+                    end
+                elseif sObj.Goal5 == 2 then
+                    local max_cnt = 100
+                    local cnt = GetInvItemCount(pc, "CHAR220_MSTEP2_3_ITEM2")
+                    if cnt >= max_cnt then
+                        sObj.Goal5 = 5
+                        SaveSessionObject(pc, sObj)
+                        local cnt_else = GetInvItemCount(pc, "CHAR220_MSTEP2_3_ITEM1")
+                        if cnt_else > 0 then
+                            RunScript('TAKE_ITEM_TX', pc, "CHAR220_MSTEP2_3_ITEM1", cnt_else, "CHAR220_MSTEP2_3");
+                        end
+                        RunScript('TAKE_ITEM_TX', pc, "CHAR220_MSTEP2_3_ITEM2", cnt, "CHAR220_MSTEP2_3");
+                        ShowOkDlg(pc, "CHAR220_MSETP2_3_DLG5", 1)
+                    else
+                        ShowOkDlg(pc, "CHAR220_MSETP2_3_DLG4", 1)
+                    end
+                else
+                    ShowOkDlg(pc, "CHAR220_MSETP2_3_DLG6", 1)
+                end
+            end
+        end
+    end
+end
+
 function SCR_ORSHA_JOURNEY_SHOP_NORMAL_7(self, pc)
 
     local list, cnt = SCR_JOURNEY_QUEST_REWARD_CHECK(pc)

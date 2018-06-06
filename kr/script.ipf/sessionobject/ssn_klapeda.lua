@@ -824,7 +824,10 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         end
         
     end
-    
+     if GetAchieveCount(self) > 0 then
+        AddBuff(self, self, "Achieve_Possession_Buff", 1, 0, 0, 1)
+    end
+   
     if IsJoinColonyWarMap(self) == 1 then
         RunScript("SCR_GUILD_COLONY_MUSIC_PLAY", self)
         local state = GetColonyWarState()
@@ -880,12 +883,15 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
             end
         end
     end
+
+    -- EVENT_1802_WEEKEND
+    EVENT_1802_WEEKEND(self)
     
     if argStr == 'c_firemage_event' then
         self.FIXMSPD_BM = 25
         Invalidate(self, 'MSPD');
     end
-
+    
 end
 
 --function SCR_QUEST_BUG_TEMP(self,sObj)
@@ -1508,8 +1514,8 @@ function SCR_SSN_KLAPEDA_KillMonster_Sub(self, sObj, msg, argObj, argStr, argNum
 --        SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
         
         
-        -- EVENT_1802_NEWYEAR
-        RunScript('SCR_EVENT_1802_NEWYEAR_MONKILL',self, sObj, msg, argObj, argStr, argNum)
+--        -- EVENT_1802_NEWYEAR
+--        RunScript('SCR_EVENT_1802_NEWYEAR_MONKILL',self, sObj, msg, argObj, argStr, argNum)
     else
         print(ScpArgMsg("Auto_Jugin_MonSeuTeoui_obj_Ka_eopSeupNiDa."))
     end
@@ -2823,6 +2829,9 @@ function SCR_PERIOD_INITIALIZATION_PROPERTY(tx, pc, sObj, questname, questIES)
     end
     if GetPropType(sObj, questIES.QuestPropertyName..'_TRL') ~= nil then
         TxSetIESProp(tx, sObj, questIES.QuestPropertyName..'_TRL', 'None')
+    end
+    if (sObj[questIES.QuestPropertyName] <= 0 or sObj[questIES.QuestPropertyName] >= 300) and GetPropType(sObj, questIES.QuestPropertyName..'_RR') ~= nil and GetPropType(sObj, questIES.QuestPropertyName..'_RR') ~= 'None' then
+        TxSetIESProp(tx, sObj, questIES.QuestPropertyName..'_RR', 'None')
     end
 end
 

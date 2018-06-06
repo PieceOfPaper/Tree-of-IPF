@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!--editedwithXMLSPYv2004rel.2U(http://www.xmlspy.com)byimc(imc)-->
 <JournalReward>
 	<Reward ID="1" Category="Total" PointScriptName="ADVENTURE_ALL_CATEGORY">
@@ -163,6 +163,12 @@
 			<Item Name="None" Count="0"/>
 			<Item Name="None" Count="0"/>
 			<Achieve Name="Journal_AP3" Point="10"/>
+		</Step>
+		<Step ID="18" Score="13800" Money="0">
+			<Item Name="None" Count="0"/>
+			<Item Name="None" Count="0"/>
+			<Item Name="None" Count="0"/>
+			<Achieve Name="None" Point="0"/>
 		</Step>
 	</Reward>
 	<Reward ID="3" Category="Exploration" PointScriptName="ADVENTURE_EXPLORATION_CATEGORY">

@@ -1,4 +1,4 @@
--- monskl_custom_hard.lua
+﻿-- monskl_custom_hard.lua
 
 function SKL_SET_TARGET_CLIENT_TARGETTING(self, skl)
 
@@ -58,6 +58,47 @@ function SKL_SET_TARGET_CIRCLE(self, skl, x, y, z, range, maxCount, relation, dr
         end
     end
 
+end
+
+function SKL_SET_TARGET_CIRCLE_BOSSCHECK_BYABIL(self, skl, x, y, z, range, maxCount, relation, drawArea, abil, exceptCompa, exceptFixedMon)
+
+    if relation == nil then
+        relation = "ENEMY";
+    end
+    
+    if exceptCompa == nil then
+        exceptCompa = 0;
+    end
+    
+    local exceptBoss = 1;
+    local checkAbil = GetAbility(self, abil);
+    if checkAbil ~= nil and TryGetProp(checkAbil, "ActiveState") == 1 then
+        exceptBoss = 0;
+    end
+    
+    if exceptFixedMon == nil then
+        exceptFixedMon = 0;
+    end
+
+    ClearHardSkillTarget(self);
+    local list, cnt = SelectObjectPos(self, x, y, z, range, relation, drawArea);
+    local allowedCnt = math.min(maxCount, cnt);
+    local addedCnt = 0;
+
+    for i = 1, cnt do
+        local obj = list[i];
+        if exceptCompa == 0 or TryGetProp(obj, 'Faction') ~= 'Pet' then
+            if exceptBoss == 0 or TryGetProp(obj, "MonRank") ~= 'Boss' then
+                if exceptFixedMon == 0 or TryGetProp(obj, "MoveType") ~= "Holding" then
+                    AddHardSkillTarget(self, obj);
+                    addedCnt = addedCnt + 1;
+                end
+            end
+        end
+        if addedCnt >= allowedCnt then
+            break;
+        end
+    end
 end
 
 function SKL_SET_DEAD_PC_CIRCLE(self, skl, x, y, z, range, maxCount, drawArea, exceptCompa)
@@ -173,6 +214,47 @@ function SKL_SET_TARGET_FAN(self, skl, x, y, z, angle, dist, maxCount, relation,
             AddHardSkillTarget(self, obj);
             addedCnt = addedCnt + 1;
         end
+        if addedCnt >= allowedCnt then
+            break;
+        end
+    end
+end
+
+
+function SKL_SET_TARGET_FAN_BOSSCHECK(self, skl, x, y, z, angle, dist, maxCount, relation, drawArea, exceptCompa, exceptBoss, exceptFixedMon)
+
+    if relation == nil then
+        relation = "ENEMY";
+    end
+
+    if exceptCompa == nil then
+        exceptCompa = 0;
+    end
+    
+    if exceptBoss == nil then
+        exceptBoss = 0;
+    end
+    
+    if exceptFixedMon == nil then
+        exceptFixedMon = 0;
+    end
+    
+    ClearHardSkillTarget(self);
+    local list, cnt = SelectObjectByFan(self, relation, x, y, z, dist, angle, -1, drawArea);
+    local allowedCnt = math.min(maxCount, cnt);
+    local addedCnt = 0;
+    
+    for i = 1, cnt do
+        local obj = list[i];
+        if exceptCompa == 0 or TryGetProp(obj, 'Faction') ~= 'Pet' then
+            if exceptBoss == 0 or TryGetProp(obj, "MonRank") ~= "Boss" then
+                if exceptFixedMon == 0 or TryGetProp(obj, "MoveType") ~= "Holding" then
+                    AddHardSkillTarget(self, obj);
+                    addedCnt = addedCnt + 1;
+                end
+            end
+        end
+        
         if addedCnt >= allowedCnt then
             break;
         end

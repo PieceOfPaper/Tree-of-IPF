@@ -2492,14 +2492,14 @@ function ACHIEVE_EV_LUCK(self,argObj,BuffName,arg1,arg2)
 end
 
 function SCR_USE_ITEM_AddBuff_Item(self,argObj,BuffName,arg1,arg2)
-    local list = {
-        {10, 'PremiumToken_1d', 1},
-        {20, 'Event_drug_steam', 10},
-        {30, 'card_Xpupkit01_event', 1},
-        {40, 'misc_gemExpStone_randomQuest4_14d', 1},
-        {50, 'Moru_Silver', 1},
-        {60, 'Hat_628290', 1}
-    }
+--    local list = {
+--        {10, 'PremiumToken_1d', 1},
+--        {20, 'Event_drug_steam', 10},
+--        {30, 'card_Xpupkit01_event', 1},
+--        {40, 'misc_gemExpStone_randomQuest4_14d', 1},
+--        {50, 'Moru_Silver', 1},
+--        {60, 'Hat_628290', 1}
+--    }
     
     local aObj = GetAccountObj(self);
     local result = 0;
@@ -2522,29 +2522,29 @@ function SCR_USE_ITEM_AddBuff_Item(self,argObj,BuffName,arg1,arg2)
 	
 	--EVENT_PROPERTY_RESET(self, aObj, sObj)
 
-	for i = 1, table.getn(list) do
-        if aObj.PlayTimeEventRewardCount + 1 == list[i][1] then
-            result = i
-            break;
-end
-end
-
-	local tx = TxBegin(self);
-    if aObj.DAYCHECK_EVENT_LAST_DATE ~= 'Fortune' then
-        TxSetIESProp(tx, aObj, 'PlayTimeEventRewardCount', 1);
-        TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', "Fortune");
-    else
-        TxAddIESProp(tx, aObj, 'PlayTimeEventRewardCount', 1);
-        end
-    if result ~= 0 then
-        TxGiveItem(tx, list[result][2], list[result][3], 'Fortune');
-    end
-    local ret = TxCommit(tx);
-    if ret == 'SUCCESS' then
-        AddBuff(self, self, BuffName, arg1, 0, arg2, 1);
-        local msg = ScpArgMsg("Fortunecookie_Count","COUNT", aObj.PlayTimeEventRewardCount)
-        SendAddOnMsg(self, "NOTICE_Dm_scroll",msg, 10)
-    end
+--	for i = 1, table.getn(list) do
+--        if aObj.PlayTimeEventRewardCount + 1 == list[i][1] then
+--            result = i
+--            break;
+--end
+--end
+--
+--	local tx = TxBegin(self);
+--    if aObj.DAYCHECK_EVENT_LAST_DATE ~= 'Fortune' then
+--        TxSetIESProp(tx, aObj, 'PlayTimeEventRewardCount', 1);
+--        TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', "Fortune");
+--    else
+--        TxAddIESProp(tx, aObj, 'PlayTimeEventRewardCount', 1);
+--        end
+--    if result ~= 0 then
+--        TxGiveItem(tx, list[result][2], list[result][3], 'Fortune');
+--    end
+--    local ret = TxCommit(tx);
+--    if ret == 'SUCCESS' then
+--        AddBuff(self, self, BuffName, arg1, 0, arg2, 1);
+--        local msg = ScpArgMsg("Fortunecookie_Count","COUNT", aObj.PlayTimeEventRewardCount)
+--        SendAddOnMsg(self, "NOTICE_Dm_scroll",msg, 10)
+--    end
 end
 
 
@@ -3040,7 +3040,10 @@ function SCR_USE_Wedding_Costume2_Box(pc)
     end
 end
 
-function SCR_USE_ABILITY_STONE(pc)
+function SCR_USE_ABILITY_STONE(pc, argObj, argStr, arg1, arg2, itemID)
+    
+    local item = GetInvItemByType(pc, itemID);
+    local effect = TryGetProp(item,'ParticleName')
     local point = TryGetProp(pc, 'AbilityPoint')
     
      if point == 'None' then
@@ -3054,6 +3057,9 @@ function SCR_USE_ABILITY_STONE(pc)
     TxSetIESProp(tx, pc, 'AbilityPoint', point);
     local ret = TxCommit(tx);
     if ret == 'SUCCESS' then
+        if effect ~= nil and effect ~= 'None' then
+            PlayEffect(pc, effect, 3, 3,'BOT')
+        end
        AbilityPointMongoLog(pc, addPoint, point, 0, 'Item'); 
     end    
 end
@@ -3127,20 +3133,25 @@ function SCR_USE_Give_BosstToken(pc, string1, arg1, arg2)
     local ret = TxCommit(tx);
 end
 
-function SCR_USE_ABILITY_STONE_UP(pc, string1, arg1, arg2)
+function SCR_USE_ABILITY_STONE_UP(pc, argObj, argStr, arg1, arg2, itemID)
+
     local point = TryGetProp(pc, 'AbilityPoint')
-    
+    local item = GetInvItemByType(pc, itemID);
+    local effect = TryGetProp(item,'ParticleName')
      if point == 'None' then
         point = '0';
     end
     
-    point = point + arg2
+    point = point + arg1
     
     local tx = TxBegin(pc);
     TxSetIESProp(tx, pc, 'AbilityPoint', point);
     local ret = TxCommit(tx);
     if ret == 'SUCCESS' then
-        AbilityPointMongoLog(pc, arg2, point, 0, 'Item');
+        if effect ~= nil and effect ~= 'None' then
+            PlayEffect(pc, effect, 3, 3,'BOT')
+        end
+        AbilityPointMongoLog(pc, arg1, point, 0, 'Item');
     end    
 end
 
@@ -3489,4 +3500,97 @@ function SCR_USE_PREMIUM_GOLDDOG_GIVE_ITEM(pc, target, string1, arg1, arg2, item
       TxGiveItem(tx, 'helmet_golddog01', 1, 'GOLDDOG_COSTUME_GIVE_ITEM_'..item.ClassName); 
     TxGiveItem(tx, string1, arg1, 'GOLDDOG_COSTUME_GIVE_ITEM_'..item.ClassName);    
     local ret = TxCommit(tx);
+end
+
+
+function SCR_USE_RequestEnterCount_1add(self)
+    if IS_BASIC_FIELD_DUNGEON(self) == 'YES' or GetClassString('Map', GetZoneName(self), 'MapType') == 'City' then
+        local pcetc = GetETCObject(self)
+        if pcetc ~= nil then
+            if pcetc.InDunCountType_200 > 0 then
+                local tx = TxBegin(self);
+                TxSetIESProp(tx, pcetc, 'InDunCountType_200', pcetc.InDunCountType_200 - 1)
+                local ret = TxCommit(tx);
+                if ret == 'SUCCESS' then
+                    SendAddOnMsg(self, "NOTICE_Dm_Clear", ScpArgMsg("CS_RequestEnterCount_1add_MSG2"), 10);
+                end
+            end
+        end
+    end
+end
+
+function SCR_USE_GuildQuestEnterCount_1add(self, guildObj)
+    local guildObj = GetGuildObj(self)
+    local tx = TxBegin(self)
+    TxSetPartyProp(tx, PARTY_GUILD, "UsedTicketCount", guildObj.UsedTicketCount - 1)
+    local ret = TxCommit(tx);
+    
+    if ret == "SUCCESS" then
+        SendAddOnMsg(self, "NOTICE_Dm_Clear", ScpArgMsg("CS_Guild_Ticket_add1_MSG3"), 10);
+		return;
+	end
+end
+
+function SCR_USE_CHALLENGE_GIVE_ITEM(pc, target, string1, arg1, arg2, itemID)
+    local item = GetInvItemByType(pc, itemID);
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'PREMIUM_CHALLENG_PORTAL', arg1, 'CHALLENGE_GIVE_ITEM_'..item.ClassName);
+    TxGiveItem(tx, 'Premium_ChallengeModeReset', arg1, 'CHALLENGE_GIVE_ITEM_'..item.ClassName);   
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_EVENT_KOR_Fortunecookie(self,argObj,argstr,arg1,arg2)
+    local list = {
+        {10, 'PremiumToken_1d', 1},
+        {20, 'Event_drug_steam', 10},
+        {30, 'card_Xpupkit01_event', 1},
+        {40, 'misc_gemExpStone_randomQuest4_14d', 1},
+        {50, 'Moru_Silver', 1},
+        {60, 'Hat_628290', 1}
+    }
+    
+    local aObj = GetAccountObj(self);
+    local result = 0;
+    local BuffName
+
+    if IsBuffApplied(self, 'Premium_Fortunecookie_1') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_2'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_2') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_3'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_3') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_4'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_4') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_5'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_5') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_5'
+    else
+        BuffName = 'Premium_Fortunecookie_1'
+    end
+
+	--EVENT_PROPERTY_RESET(self, aObj, sObj)
+
+	for i = 1, table.getn(list) do
+        if aObj.EVENT_KOR_Fortunecookie_COUNT + 1 == list[i][1] then
+            result = i
+            break;
+        end
+    end
+
+	local tx = TxBegin(self);
+    TxAddIESProp(tx, aObj, 'EVENT_KOR_Fortunecookie_COUNT', 1);
+    if result ~= 0 then
+        TxGiveItem(tx, list[result][2], list[result][3], 'EVENT_KOR_Fortunecookie');
+    end
+    local ret = TxCommit(tx);
+    if ret == 'SUCCESS' then
+        AddBuff(self, self, BuffName, 0, 0, 1800000, 1);
+        local msg = ScpArgMsg("Fortunecookie_Count","COUNT", aObj.EVENT_KOR_Fortunecookie_COUNT)
+        SendAddOnMsg(self, "NOTICE_Dm_scroll",msg, 10)
+    end
+end
+
+function SCR_USE_ITEM_AddBuff_ABILPOTION(self,argObj,BuffName,arg1,arg2)
+    AddBuff(self, self, BuffName, arg1, 0, arg2, 1);
+	AddAchievePoint(self, "Potion", 1);
+
 end

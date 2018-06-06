@@ -46,7 +46,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 100032,10000,0,"MON_SKILL_CHASE_MAX_TIME","보스몬스터의 skill Chase 최대 시간. 이시간 지나가면 타겟을 해제한다.","NO"
 100033,300,0,"MON_WEAKINFO_DIST","몬스터 약점스킬 ui보여주는 거리","NO"
 100035,15,0,"MON_WEAKINFO_LEVEL","몬스터 약점 보여줄 PC레벨 제한","NO"
-100037,512,0,"MAX_MIC_LEN","외치기 최대길이(바이트)","YES"
+100037,1024,0,"MAX_MIC_LEN","외치기 최대길이(바이트)","YES"
 100038,20,0,"AD_TRIGGER_MIN_DIST","AD_TRIGGER일때 최소 대화거리","NO"
 100039,10,0,"WIKI_RANK_PER_PAGE","위키 랭킹 한페이지당 개수","YES"
 100040,3,0,"DROP_DIV_CNT","보이지않는손의 매직넘버","NO"

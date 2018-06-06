@@ -893,18 +893,18 @@ function SCR_QUEST_POSSIBLE_AGREE_PROP_CHANGE(pc, questname, self)
     			elseif argstr1 ~= nil and string.find(argstr1, 'COLLECT/ZONEAUTO') ~= nil then
     			    local sObj_quest = GetSessionObject(pc, questIES.Quest_SSN)
     			    if sObj_quest ~= nil then
-    			        local rand = IMCRandom(1, 100)
-    			        local qType = 'Item'
+--    			        local rand = IMCRandom(1, 100)
+    			        local qType = 'MonKill'
     			        local itemList, monList = DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
-    			        if rand <= 30 then
-    			            qType = 'MonKill'
-    			        end
-    			        
-    			        if qType == 'MonKill' and #monList == 0 then
-    			            qType = 'Item'
-    			        elseif qType == 'Item' and #itemList == 0 then
-    			            qType = 'MonKill'
-    			        end
+--    			        if rand <= 70 then
+--    			            qType = 'MonKill'
+--    			        end
+--    			        
+--    			        if qType == 'MonKill' and (monList == nil or #monList <= 2) then
+--    			            qType = 'Item'
+--    			        elseif qType == 'Item' and (itemList == nil or #itemList <= 2) then
+--    			            qType = 'MonKill'
+--    			        end
     			        
     			        if qType == 'MonKill' then
     			            if #monList > 0 then
@@ -913,43 +913,43 @@ function SCR_QUEST_POSSIBLE_AGREE_PROP_CHANGE(pc, questname, self)
     			                SaveSessionObject(pc, sObj_quest)
     			            end
     			        else
-                            if #itemList > 0 then
-            		            local beforeValue = sObj.DROPITEM_REQUEST1_TRL
-                			    local beforeItemList = SCR_STRING_CUT(beforeValue)
-                			    local count = #itemList
-                			    for i = 1, count do
-                			        local selItem
-                			        local itemIES
-                			        if #itemList == 1 then
-                			            itemIES = GetClass('Item', itemList[1][1])
-                			            selItem = itemList[1][1]..":"..itemList[1][2]..":"..itemList[1][3]
-                			        else
-                    			        local itemRand = IMCRandom(1, #itemList)
-                    			        
-                    			        itemIES = GetClass('Item', itemList[itemRand][1])
-                    			        local findIndex = table.find(beforeItemList, itemIES.ClassID)
-                    			        if findIndex == 0 then
-                    			            selItem = itemList[itemRand][1]..":"..itemList[itemRand][2]..":"..itemList[itemRand][3]
-                    			        else
-                    			            table.remove(itemList, itemRand)
-                    			        end
-                    			    end
-                    			    
-                    			    if selItem ~= nil then
-                    			        sObj_quest.SSNInvItem = selItem
-                    			        SaveSessionObject(pc, sObj_quest)
-                    			        if beforeValue == 'None' then
-                			                beforeValue = ''
-                			            else
-                			                beforeValue = beforeValue.."/"
-                			            end
-                			            sObj.DROPITEM_REQUEST1_TRL = beforeValue..itemIES.ClassID
-                			            SaveSessionObject(pc, sObj)
-                			            
-                    			        break
-                    			    end
-                			    end
-                			end
+--                            if #itemList > 0 then
+--            		            local beforeValue = sObj.DROPITEM_REQUEST1_TRL
+--                			    local beforeItemList = SCR_STRING_CUT(beforeValue)
+--                			    local count = #itemList
+--                			    for i = 1, count do
+--                			        local selItem
+--                			        local itemIES
+--                			        if #itemList == 1 then
+--                			            itemIES = GetClass('Item', itemList[1][1])
+--                			            selItem = itemList[1][1]..":"..itemList[1][2]..":"..itemList[1][3]
+--                			        else
+--                    			        local itemRand = IMCRandom(1, #itemList)
+--                    			        
+--                    			        itemIES = GetClass('Item', itemList[itemRand][1])
+--                    			        local findIndex = table.find(beforeItemList, itemIES.ClassID)
+--                    			        if findIndex == 0 then
+--                    			            selItem = itemList[itemRand][1]..":"..itemList[itemRand][2]..":"..itemList[itemRand][3]
+--                    			        else
+--                    			            table.remove(itemList, itemRand)
+--                    			        end
+--                    			    end
+--                    			    
+--                    			    if selItem ~= nil then
+--                    			        sObj_quest.SSNInvItem = selItem
+--                    			        SaveSessionObject(pc, sObj_quest)
+--                    			        if beforeValue == 'None' then
+--                			                beforeValue = ''
+--                			            else
+--                			                beforeValue = beforeValue.."/"
+--                			            end
+--                			            sObj.DROPITEM_REQUEST1_TRL = beforeValue..itemIES.ClassID
+--                			            SaveSessionObject(pc, sObj)
+--                			            
+--                    			        break
+--                    			    end
+--                			    end
+--                			end
                 		end
                     end
     			end
@@ -1732,7 +1732,7 @@ function SCR_QUEST_SUCCESS(pc, questname, self, selfname, noSleepFlag)
         end
     end
 	
-	if quest_auto.Success_Exp > 0 or repeat_reward_exp > 0 or quest_auto.Success_Lv_Exp > 0 then
+	if (quest_auto.Success_Exp > 0 or repeat_reward_exp > 0 or quest_auto.Success_Lv_Exp > 0) and pc.Lv < PC_MAX_LEVEL then
 	    local expup = 0
 	    if quest_auto.Success_Exp > 0 then
 	        expup = quest_auto.Success_Exp

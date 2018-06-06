@@ -1163,3 +1163,81 @@ function NAKMUAY_FIND_PEAPLE_FUNCTION(self)
         end
     end
 end
+
+function HINTNPC_DLG_TEST_SETTING(self, num)
+    local sObj = GetSessionObject(self, "SSN_NAKMUAY_UNLOCK")
+    sObj.Step12 = 0
+    sObj.Step13 = 0
+    sObj.Step14 = 0
+    sObj.Step15 = 0
+    sObj.Step16 = 0
+    sObj.Step17 = 0
+    sObj.Step18 = 0
+    sObj.Step19 = 0
+    sObj.Step20 = 0
+    sObj.Step21 = 0
+    sObj.Step22 = 0
+    sObj.Step23 = 0
+    sObj.Step24 = 0
+    sObj.Step25 = 0
+    sObj["Step"..num] = 1
+    SaveSessionObject(self, sObj)
+end
+
+function ASANA_UNHIDE_TEST_SETTING(self, num)
+    local sObj = GetSessionObject(self, "SSN_NAKMUAY_UNLOCK")
+    if tonumber(num) < 4 then
+        sObj.Step2 = num
+        SaveSessionObject(self, sObj)
+        Chat(self, "cheat success.")
+    elseif tonumber(num) >= 4 then
+        Chat(self, "cheat fail. must be less then 4")
+    end
+end
+
+function RETIARII_TRAINING_CNT_FUNCTION(self, char, goal_point)
+--Goal1 is traning Goal Count(muscular strength) max count : 50
+--Goal2 is traning Goal Count(endurande) max count : 50
+--Goal3 is traning Goal Count(agility) max count : 50
+--Goal4 is traning Goal Count(durability) max count : 50
+--Goal5 is traning Goal Count(simulation) max count : 50
+    local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
+    if sObj ~= nil then
+        local point = tonumber(goal_point)
+        if char == "all" then
+            sObj.Goal1 = 40
+            sObj.Goal2 = 15
+            sObj.Goal3 = 40
+            sObj.Goal5 = 40
+        elseif char == "muscularstrength" then
+            if point <= 40 then
+                sObj.Goal1 = point
+                Chat(self, "muscularstrength goal_point : "..point)
+            elseif point > 40 then
+                Chat(self, "goal_point is less then 40 point")
+            end
+        elseif char == "endurande" then
+            if point <= 15 then
+                sObj.Goal2 = point
+                Chat(self, "endurande goal_point : "..point)
+            elseif point > 15 then
+                Chat(self, "goal_point is less then 20 point")
+            end
+        elseif char == "agility" then
+            if point <= 40 then
+                sObj.Goal3 = point
+                Chat(self, "agility goal_point : "..point)
+            elseif point > 40 then
+                Chat(self, "goal_point is less then 40 point")
+            end
+        elseif char == "simulation" then
+            if point <= 40 then
+                sObj.Goal5 = point
+                Chat(self, "simulation goal_point : "..point)
+            elseif point > 40 then
+                Chat(self, "goal_point is less then 50 point")
+            end
+        end
+        SaveSessionObject(self, sObj)
+    end
+end

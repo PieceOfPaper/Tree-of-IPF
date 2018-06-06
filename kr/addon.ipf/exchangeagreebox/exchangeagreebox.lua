@@ -20,6 +20,7 @@ function OPEN_EXCHANGE_FILNAL_BOX(oppoTokenState)
 		return
 	end
 
+    local needShowAgreeBox = 1;
 	if (0 == oppoTokenState) or (false == session.loginInfo.IsPremiumState(ITEM_TOKEN)) or (myTradeCnt < 1) then
  		local itemCount = exchange.GetExchangeItemCount(1);	
 		local listStr = "";
@@ -30,6 +31,10 @@ function OPEN_EXCHANGE_FILNAL_BOX(oppoTokenState)
 				listStr = listStr .. string.format("%s",class.Name) .. "{nl}";
 			--end
 		end
+
+        if listStr == '' then
+            needShowAgreeBox = 0;
+        end
 
 		local list = itemList:GetChild('list');
 		list:Resize(list : GetOriginalWidth(), list : GetHeight());
@@ -72,5 +77,9 @@ function OPEN_EXCHANGE_FILNAL_BOX(oppoTokenState)
 		frame:Resize(frame:GetOriginalWidth(), frame:GetOriginalHeight());
 	end
 
-	frame:ShowWindow(1);
+    frame:ShowWindow(needShowAgreeBox);
+
+    if needShowAgreeBox == 0 then -- agree box
+        ui.MsgBox(ClMsg('DoYouAgreeExchangeFinally?'), 'CHANGEAGREEBOX_FIANLAGREE_CLICK()', 'None');
+    end
 end

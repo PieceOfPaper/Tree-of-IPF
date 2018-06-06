@@ -11,4 +11,8 @@
     <Particle frame="6" attachNode="Dummy_emitter_pet" particleName="F_ground068_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
     <BlendOn frame="8" R="50" G="50" B="50" A="50"/>
     <BlendOff frame="9" R="0" G="0" B="0" A="0"/>
+    <Sound frame="11.00" soundFile="skl_eff_shieldtrain_shot"/>
+    <Particle frame="12" attachNode="Dummy_emitter" particleName="F_ground180_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="12" type="2" intensity="5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="13" attachNode="Dummy_emitter" particleName="F_smoke174_gather" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
 </ActionDesc>

@@ -321,10 +321,7 @@ function SCR_BLUEORB_MONLVUP_DIALOG(self,pc)
 --        TxSetIESProp(tx, aObj, 'BLUEORB_MISSION_COUNT', 0);
 --    	local ret = TxCommit(tx)
 --    end
-    local select = ShowSelDlg(pc, 0, 'EVENT_1801_ORB_DLG3', ScpArgMsg("Cancel"), ScpArgMsg("EventShop"))
-    if select == 2 then
-        ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP2_OPEN()")
-    end
+
 --    local select = ShowSelDlg(pc, 0, 'EVENT_1801_ORB_DLG3', ScpArgMsg("Cancel"), ScpArgMsg("Event_Steam_Together_Master_1"), ScpArgMsg("EVENT_SELECT_BOSSLV_SEL1"), ScpArgMsg("EVENT_SELECT_BOSSLV_SEL4"), ScpArgMsg("EventShop"), ScpArgMsg('EVENT_1801_ORB_MSG3'))
 --    
 --    if select == 1 or select == nil then

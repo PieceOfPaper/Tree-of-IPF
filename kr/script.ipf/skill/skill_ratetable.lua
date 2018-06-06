@@ -1,4 +1,4 @@
-﻿-- skill_ratetable.lua
+-- skill_ratetable.lua
 -- FINAL_DAMAGECALC() -> SCR_SKILL_RATETABLE_UPDATE(self, from, skill, atk, ret, rateTable);
 
 function SCR_SKILL_RATETABLE_Ranger_SpiralArrow(self, from, skill, atk, ret, rateTable)
@@ -1793,4 +1793,64 @@ function SCR_SKILL_RATETABLE_Corsair_PistolShot(self, from, skill, atk, ret, rat
     end
 end
 
+function SCR_SKILL_RATETABLE_Retiari_DaggerFinish(self, from, skill, atk, ret, rateTable)
+    local targetMHP = self.MHP
+    local targetHP = self.HP
+    local targetHPRate = (targetHP/targetMHP) * 100
+    
+    if targetHPRate < 50 then
+        local addDamageRate = 30 /targetHPRate
+        
+        if addDamageRate >= 2.5 then
+            addDamageRate = 2.5
+        end
+        local textRate = (addDamageRate + 1) * 100
+        SkillTextEffect(nil, self, from, 'SHOW_SKILL_BONUS2', textRate, nil, skill.ClassID);
+        rateTable.DamageRate = rateTable.DamageRate + addDamageRate
+    end
+end
 
+
+function SCR_SKILL_RATETABLE_Onmyoji_WhiteTigerHowling(self, from, skill, atk, ret, rateTable)
+	local abilOnmyoji7 = GetAbility(from, "Onmyoji7")
+	local abilDamageRate = 0
+	if abilOnmyoji7 ~= nil and abilOnmyoji7.ActiveState == 1 then
+		abilDamageRate = abilOnmyoji7.Level * 0.05
+		
+		if TryGetProp(self, "RaceType") == "Widling" then
+			rateTable.DamageRate = rateTable.DamageRate + abilDamageRate
+		end
+	end
+	
+	if TryGetProp(self, "RaceType") == "Forester" then
+		rateTable.DamageRate = rateTable.DamageRate + 0.5
+	end
+end
+
+function SCR_SKILL_RATETABLE_Retiarii_TridentFinish(self, from, skill, atk, ret, rateTable)
+    if ret.Damage > 1 then
+        local buffList = GetBuffList(self);
+        for i = 1, #buffList do
+            local buff = buffList[i];
+            local buffKeyword = TryGetProp(buff, "Keyword");
+            if buffKeyword == "Strap" then
+                local ratio = 50;
+                if ratio >= IMCRandom(1, 100) then
+                    SetExProp(self, "IS_TAKE_CRITICAL", 1);
+                end
+            end
+        end
+    end
+end
+
+
+function SCR_SKILL_RATETABLE_Onmyoji_Toyou(self, from, skill, atk, ret, rateTable)
+	if IsKnockDownState(self) == 1 then
+        local reductionRate = 0.5
+        
+        AddDamageReductionRate(rateTable, reductionRate);
+        if IMCRandom(1, 100) < 10 then
+        	AddBuff(from, self, "Hold", 1, 0, 3000, 1)
+        end
+	end
+end

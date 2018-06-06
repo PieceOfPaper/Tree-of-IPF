@@ -205,3 +205,11 @@ function BUFF_TOOLTIP_Event_CharExpRate(buff, cls)
 	return advantageText, cls.ToolTip;
 end
 
+
+function BUFF_TOOLTIP_Achieve_Possession_Buff(buff, cls)
+
+	local advantageText = "";
+	local grade_Num = buff.arg1
+	advantageText = ScpArgMsg("ACHIEVE_GRADE_EXP"..grade_Num);
+	return advantageText, ScpArgMsg("ACHIEVE_GRADE", "num", grade_Num);
+end

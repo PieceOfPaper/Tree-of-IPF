@@ -26,11 +26,13 @@ function ITEMDECOMPOSE_CHECKBOX(frame)
     local magicCheckbox = GET_CHILD_RECURSIVELY(frame, 'magic');
     local rareCheckbox = GET_CHILD_RECURSIVELY(frame, 'rare');
     local uniqueCheckbox = GET_CHILD_RECURSIVELY(frame, 'unique');
+    local mechanicalCheckbox = GET_CHILD_RECURSIVELY(frame, 'mechanical');
     
     normalCheckbox:SetCheck(1);
     magicCheckbox:SetCheck(1);
     rareCheckbox:SetCheck(1);
-    uniqueCheckbox:SetCheck(1);
+    uniqueCheckbox:SetCheck(0);
+    mechanicalCheckbox:SetCheck(0);
 end
 
 function DECOMPOSE_ITEM_GRADE_SET(frame, isOpen)
@@ -40,6 +42,7 @@ function DECOMPOSE_ITEM_GRADE_SET(frame, isOpen)
     local magicCheckbox = GET_CHILD_RECURSIVELY(frame, "magic", "ui::CCheckBox");
     local rareCheckbox = GET_CHILD_RECURSIVELY(frame, "rare", "ui::CCheckBox");
     local uniqueCheckbox = GET_CHILD_RECURSIVELY(frame, "unique", "ui::CCheckBox");
+    local mechanicalCheckbox = GET_CHILD_RECURSIVELY(frame, 'mechanical', "ui::CCheckBox");
     
     local itemGradeList = {};
     
@@ -47,9 +50,14 @@ function DECOMPOSE_ITEM_GRADE_SET(frame, isOpen)
     itemGradeList[#itemGradeList + 1] = magicCheckbox:IsChecked();
     itemGradeList[#itemGradeList + 1] = rareCheckbox:IsChecked();
     itemGradeList[#itemGradeList + 1] = uniqueCheckbox:IsChecked();
+    itemGradeList[#itemGradeList + 1] = mechanicalCheckbox:IsChecked();
     
     ITEM_DECOMPOSE_UPDATE_MONEY(frame);
     
+    if itemGradeList[5] == 1 then
+        ui.MsgBox(ScpArgMsg("IS_MechanicalItem_Decompose"));
+    end
+
     if isOpen ~= 1 then
         local itemdecomposeFrame = ui.GetFrame("itemdecompose");
         ITEM_DECOMPOSE_ITEM_LIST(itemdecomposeFrame, itemGradeList);
@@ -60,7 +68,7 @@ end
 function ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
     if itemGradeList == nil then
         local itemTypeBoxFrame = GET_CHILD_RECURSIVELY(frame, "itemTypeBox", "ui::CGroupBox")
-        itemGradeList = DECOMPOSE_ITEM_GRADE_SET(itemTypeBoxFrame, 1)
+        itemGradeList = DECOMPOSE_ITEM_GRADE_SET(itemTypeBoxFrame, 0)
     end
     
     --슬롯 셋 및 전체 슬롯 초기화 해야됨
@@ -91,8 +99,13 @@ function ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
             		needToShow = false;
             		break;
             	end
+            	--가공된 장비 체크 추가 --
+            	if itemGradeList[5] == 0 and itemGrade == j and IS_MECHANICAL_ITEM(itemobj) == true then
+        	        needToShow = false;
+        	        break;
+            	end
             end
-
+            
             if needToShow == true then
     		if itemobj.ItemType == 'Equip' and itemobj.DecomposeAble ~= nil and itemobj.DecomposeAble == "YES" and itemobj.ItemType == 'Equip' and itemobj.UseLv >= 75 and invItem.isLockState == false  and itemGrade <= 4 then
     			local itemSlot = itemSlotSet:GetSlotByIndex(itemSlotCnt)
