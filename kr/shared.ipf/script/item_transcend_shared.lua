@@ -108,6 +108,10 @@ function GET_TRANSCEND_BREAK_ITEM()
 end
 
 function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
+	if 1 ~= IS_TRANSCEND_ABLE_ITEM(itemObj) then
+		return;
+	end
+
 --return math.floor(itemObj.Transcend_MatCount * 0.4);
     local transcendClsList = GetClassList("ItemTranscend");
     local cnt = 0;
@@ -125,12 +129,7 @@ function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
 		return 0;
 	end
 	
-    local itemMaxPR = TryGetProp(itemCls, "MaxPR")
-	if itemMaxPR == nil or itemMaxPR == 0 then
-		return 0;
-	end
-
-    local itemMPR = TryGetProp(itemCls, "PR")
+    local itemMPR = TryGetProp(itemObj, "MaxPR")
 	if itemMPR == nil or itemMPR == 0 then
 		return 0;
 	end
