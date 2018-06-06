@@ -95,7 +95,7 @@
         <Effect Name="I_ground009_water"/>
         <Effect Name="F_light119_yellow"/>
         <Effect Name="F_light119_yellow"/>
-    </Category>
+        </Category>
     <Category ID="201">
         <Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
         <Effect Name="I_bat009_smoke_re##0.4"/>
@@ -235,7 +235,7 @@
         <Effect Name="punji_stake_abil"/>
         <Effect Name="Archer_SpikeShooter_Abil"/>
         <Effect Name="MISSION_PRISON_EVENT2"/>
-        <Effect Name="F_cleric_Hurling_shot_ground"/>
+    <Effect Name="F_cleric_Hurling_shot_ground"/>
         <Effect Name="Cleric_Barrier_Abil"/>
     </Category>
     <Category ID="197">
@@ -412,7 +412,7 @@
         <Effect Name="F_staup_hit"/>
         <Effect Name="MISSION_PRISON_EVENT1"/>
         <Effect Name="stage_5"/>
-    </Category>
+        </Category>
     <Category ID="84">
         <Effect Name="M_PAST_FLIBRARY_1"/>
     </Category>
@@ -1530,7 +1530,7 @@
         <Effect Name="F_light069_red_fire3"/>
         <Effect Name="Appraiser_OverEstimate"/>
         <Effect Name="Appraiser_Devaluation"/>
-    </Category>
+        </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
         <Effect Name="Centurion_Winged_Formation"/>
@@ -3428,6 +3428,7 @@
         <Effect Name="I_rize009_7_green"/>
         <Effect Name="I_rize009_4"/>
         <Effect Name="F_ground170_dark"/>
+        <Effect Name="musicbox_main"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -4088,6 +4089,22 @@
         <Effect Name="MISSION_CATACOMB_HALLOWEEN"/>
         <Effect Name="MISSION_CASTLE_01_RN"/>
     <Effect Name="Appraise"/>
+    
+        <Effect Name="Monster_Orgel"/>
+        <Effect Name="PC_Orgel"/>
+        <Effect Name="#Monster_Orgel"/>
+        <Effect Name="#PC_Orgel"/>
+        <Effect Name="POSE_DANCECLAP"/>
+        <Effect Name="POSE_EXERCISE"/>
+        <Effect Name="musicbox"/>
+        <Effect Name="dummy_musicbox"/>
+        <Effect Name="musicbox_cake"/>
+        <Effect Name="musicbox_wedding_f"/>
+        <Effect Name="musicbox_maple"/>
+        <Effect Name="#Monster_Orgel2"/>
+        <Effect Name="musicbox_wedding_m"/>
+        <Effect Name="#PC_Orgel2"/>
+        <Effect Name="musicbox_bear"/>
     </Category>
     <Category ID="57">
         <Effect Name="SKL_TELEKINESIS_THROW"/>
@@ -4703,7 +4720,7 @@
         <Effect Name="FANTASYLIB485_MQ_5_MINI"/>
         <Effect Name="I_smoke013_dark_glow2_water"/>
         <Effect Name="F_spread_in032_dark_loop"/>
-    </Category>
+        </Category>
     <Category ID="180">
         <Effect Name="I_ice005_mash###1"/>
         <Effect Name="F_ground037_smoke##0.8"/>

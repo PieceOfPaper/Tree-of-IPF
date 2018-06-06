@@ -1,4 +1,4 @@
-﻿
+
 -- tpitem.lua : (tp shop)
 
 function TPITEM_ON_INIT(addon, frame)
@@ -148,7 +148,7 @@ end
 end
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
-	
+    
 	ui.CloseAllOpenedUI();
 	ui.OpenIngameShopUI();	-- Tpshop을 열었을때에 Tpitem에 대한 정보와 NexonCash 정보 등을 서버에 요청한다.
 
@@ -217,8 +217,8 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	--session.shop.RequestLoadShopBuyLimit();
 	SET_TOPMOST_FRAME_SHOWFRAME(0);	
 	
-	itembox_tab:SelectTab(0);
-	TPSHOP_TAB_VIEW(frame, 0);
+	itembox_tab:SelectTab(1);
+	TPSHOP_TAB_VIEW(frame, 1);
 	
 	local input = GET_CHILD_RECURSIVELY(frame, "input");
 	local editDiff = GET_CHILD_RECURSIVELY(frame, "editDiff");

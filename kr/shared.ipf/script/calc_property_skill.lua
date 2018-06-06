@@ -9808,7 +9808,7 @@ function SCR_Get_Quicken_Ratio(skill)
 end
 
 function SCR_GET_Quicken_Bufftime(skill)
-    return 20 + skill.Level * 3
+    return 30 + skill.Level * 5
 end
 
 function SCR_GET_Samsara_Bufftime(skill)
@@ -12524,7 +12524,7 @@ function SCR_GET_Finestra_Ratio2(skill)
     local pc = GetSkillOwner(skill);
     
 --  local value = 8.8 + (skill.Level - 1) * 2.2
-    local value = 25 * skill.Level
+    local value = 15 * skill.Level
     
     local abil = GetAbility(pc, 'Hoplite9');
     if abil ~= nil and 1 == abil.ActiveState then
@@ -12541,10 +12541,10 @@ function SCR_GET_Finestra_Ratio3(skill)
     
     local value = 25 + (15 * skill.Level); 
     
-    local abil = GetAbility(pc, 'Hoplite9');
-    if abil ~= nil and 1 == abil.ActiveState then
-        value = value * 2;
-    end
+--    local abil = GetAbility(pc, 'Hoplite9');
+--    if abil ~= nil and 1 == abil.ActiveState then
+--        value = value * 2;
+--    end
     
     return math.floor(value)
 
@@ -12743,7 +12743,17 @@ end
 function SCR_Get_Resurrection_Ratio(skill)
 
     return math.floor(skill.Level * 5);
+end
 
+function SCR_Get_Resurrection_Ratio2(skill)
+    local value = 1;
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "Priest9");
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value + abil.Level;
+    end
+    
+    return value
 end
 
 function SCR_Get_Resurrection_Time(skill)
