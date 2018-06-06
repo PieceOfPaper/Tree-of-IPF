@@ -2419,7 +2419,7 @@
     <controlset name="pvp_charinfo" hittest="true" width="487" height="260" hittestset="false" draw="false" skin="none">
         <controls>
             <richtext name="win" parent="charinfo" rect="0 0 132 25" margin="324 227 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}%s 승{/}" maxwidth="0" param1="value" param1_def="13131" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
-            <button name="pointshop" parent="charinfo" rect="0 0 170 50" margin="290 145 20 0" layout_gravity="right top" caption="{@st66b}포인트샵" skin="test_pvp_btn" LBtnUpScp="PVP_OPEN_POINT_SHOP"/>
+            <!--button name="pointshop" parent="charinfo" rect="0 0 170 50" margin="290 145 20 0" layout_gravity="right top" caption="{@st66b}포인트샵" skin="test_pvp_btn" LBtnUpScp="PVP_OPEN_POINT_SHOP"/-->
             <button name="join" parent="charinfo" rect="0 0 168 60" margin="290 20 0 0" layout_gravity="left top" image="pvp_leageue_btn" LBtnUpScp="JOIN_WORLDPVP" textalign="center center" format="{s18}{ol}{#FFFFFF}%s" param1="text" param1_def="JOIN"/>
             <droplist name="droplist" parent="charinfo" rect="0 0 259 61" margin="21 38 207 0" layout_gravity="left top" SelectScp="WORLDPVP_TYPE_SELECT" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="20 0" visibleline="11"/>
             <richtext name="txt_exp_2" parent="charinfo" rect="0 0 166 45" margin="17 96 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}%s" param1="value" param1_def="일일 획득 포인트" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>

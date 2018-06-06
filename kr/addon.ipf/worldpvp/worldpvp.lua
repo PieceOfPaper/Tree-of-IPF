@@ -773,7 +773,7 @@ end
 
 function PVP_OPEN_POINT_SHOP(parent, ctrl)
 
-	TOGGLE_PROPERTY_SHOP("PVPShop");
+	--TOGGLE_PROPERTY_SHOP("PVPShop");
 
 end
                     

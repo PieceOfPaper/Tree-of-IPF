@@ -16,6 +16,6 @@
 		<Item Name="RestartCristal" Count="1" Price="2" DailyBuyLimit="0"/>
 	</Shop>
 	<Shop Name="PVPShop" PointScript="GET_PVP_POINT">
-		<Item Script="PVP_CARD" Name="expCard1" Count="1" Price="50" DailyBuyLimit="1"/>
+		<!--Item Script="PVP_CARD" Name="expCard1" Count="1" Price="50" DailyBuyLimit="1"/-->
 	</Shop>
 </PropertyShop>
