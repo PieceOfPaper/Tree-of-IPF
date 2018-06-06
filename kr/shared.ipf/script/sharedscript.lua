@@ -812,6 +812,44 @@ function SCR_DATE_TO_YMIN_BASIC_2000(yy, mm, dd, hh, min)
 
     return ymin
 end
+function SCR_DATE_TO_YDAY_BASIC_2000_REVERSE(yday)
+    local yy,mm,dd
+    local startY = 2000
+    local monthdays= { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
+    
+    while 1 do
+        local leapDay = 0
+        if startY % 400 == 0 then
+            leapDay = 1
+        elseif startY % 100 == 0 then
+        elseif startY % 4 == 0 then
+            leapDay = 1
+        end
+        
+        leapDay = monthdays[2] + leapDay
+        
+        for i = 1, #monthdays do
+            local monDay = monthdays[i]
+            if i == 2 then
+                monDay = leapDay
+            end
+            
+            if yday < monDay then
+                yy = startY
+                mm = i
+                dd = yday
+                return yy,mm,dd
+            else
+                yday = yday - monDay
+            end
+            
+        end
+        startY = startY + 1
+    end
+    
+    
+    return yy,mm,dd
+end
 
 function SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
     local days, monthdays, leapyears, nonleapyears, nonnonleapyears

@@ -5,7 +5,7 @@
             <Stage Name="DefGroup">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="60초 뒤 미션이 시작됩니다"/>
+                        <Str Str="30초 뒤 미션이 시작됩니다"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList/>
@@ -13,7 +13,7 @@
                     <Event execCount="1" eventName="start">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="30"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -27,30 +27,16 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="sec50">
+                    <Event execCount="1" eventName="sec20">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="10"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="50초 후에 시작됩니다"/>
-                                <Str Str="scroll"/>
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="sec30">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="30초 후에 시작됩니다"/>
+                                <Str Str="20초 후에 시작됩니다"/>
                                 <Str Str="scroll"/>
                                 <Num Num="10"/>
                             </ToolScp>
@@ -59,7 +45,7 @@
                     <Event execCount="1" eventName="sec10">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="50"/>
+                                <Num Num="20"/>
                             </ToolScp>
                         </condList>
                         <execList>

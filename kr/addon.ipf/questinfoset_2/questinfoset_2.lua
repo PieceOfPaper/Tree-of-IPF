@@ -745,7 +745,7 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
 	if questName == nil then
 	    questName = questIES.Name
 	end
-	content:SetTextFixWidth(0);
+	content:SetTextFixWidth(1);
 	content:SetText(QUEST_TITLE_FONT..questName);
 	content:EnableHitTest(0);
 	y = y + content:GetHeight();

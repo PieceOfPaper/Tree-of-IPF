@@ -2638,6 +2638,7 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 
 	local state = 1;
 	local slot = tolua.cast(object, "ui::CSlot");
+	slot:Select(0)
 	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
 	if true == selectItem.isLockState then
 		state = 0;

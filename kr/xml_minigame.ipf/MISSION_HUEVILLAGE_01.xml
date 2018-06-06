@@ -583,7 +583,7 @@
             <Stage Name="SUCCESS" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="미션 성공 : 약 1분 후 원래 존으로 돌아갑니다"/>
+                        <Str Str="미션 성공 : 60초 후 원래 존으로 돌아갑니다"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
                         <Num Num="60"/>
@@ -608,6 +608,15 @@
                                 <Str Str="ssn_klapeda"/>
                                 <Str Str="REQUESTMISSION_CLEAR5"/>
                                 <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="successMsg">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="미션 성공 : 60초 후 원래 존으로 돌아갑니다"/>
+                                <Str Str="Clear"/>
+                                <Num Num="10"/>
                             </ToolScp>
                         </execList>
                     </Event>

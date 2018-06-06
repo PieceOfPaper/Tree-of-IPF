@@ -48,11 +48,6 @@
             </Stage>
             <Stage Name="end" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="클리어!! 60초 후 입구로 돌아갑니다"/>
-                        <Str Str="Clear"/>
-                        <Num Num="5"/>
-                    </ToolScp>
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
@@ -63,10 +58,6 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="60초 후 입구로 돌아갑니다!"/>
-                                <Num Num="5"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
@@ -294,6 +285,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="60초 입구로 돌아갑니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="boss"/>
                             </ToolScp>
@@ -348,9 +343,6 @@
         <EnterList>
             <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
                 <Str Str="Indun_Remains"/>
-            </ToolScp>
-            <ToolScp Scp="MGAME_RESUR_DLG" Client="NO" UseSleep="NO">
-                <Num Num="2"/>
             </ToolScp>
         </EnterList>
     </Game>

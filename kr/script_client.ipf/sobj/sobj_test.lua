@@ -1,15 +1,15 @@
-function SSN_TEST_ENTER_C(pc, sObj)
-
-	RegisterHookMsg_C(pc, sObj, "HPUpdate", "SSN_TEST_HPUPDATE");
-	RegisterHookMsg_C(pc, sObj, "ItemRemove", "SSN_TEST_ITEM_REMOVE");
-	RegisterHookMsg_C(pc, sObj, "ItemAdd", "SSN_TEST_ITEM_ADD");
-	RegisterHookMsg_C(pc, sObj, "ItemUse", "SSN_TEST_ITEM_USE");
-	RegisterHookMsg_C(pc, sObj, "ItemChangeCount", "SSN_TEST_ITEM_CHANGECOUNT");
-	RegisterHookMsg_C(pc, sObj, "EnterTrigger", "SSN_TEST_ENTER_TRIGGER");
-	
-	SetSObjTimeScp_C(pc, sObj, "SSN_CLIENT_SCP_UPDATE", 500);
-	CLIENT_SMARTGEN_INIT();
-
+function SSN_TEST_ENTER_C(pc, sObj, isPCData)
+    if isPCData ~= 0 then
+    	RegisterHookMsg_C(pc, sObj, "HPUpdate", "SSN_TEST_HPUPDATE");
+    	RegisterHookMsg_C(pc, sObj, "ItemRemove", "SSN_TEST_ITEM_REMOVE");
+    	RegisterHookMsg_C(pc, sObj, "ItemAdd", "SSN_TEST_ITEM_ADD");
+    	RegisterHookMsg_C(pc, sObj, "ItemUse", "SSN_TEST_ITEM_USE");
+    	RegisterHookMsg_C(pc, sObj, "ItemChangeCount", "SSN_TEST_ITEM_CHANGECOUNT");
+    	RegisterHookMsg_C(pc, sObj, "EnterTrigger", "SSN_TEST_ENTER_TRIGGER");
+    	
+    	SetSObjTimeScp_C(pc, sObj, "SSN_CLIENT_SCP_UPDATE", 500);
+    	CLIENT_SMARTGEN_INIT();
+    end
 end
 
 function SSN_TEST_LEAVE_C(pc, sObj)
@@ -759,7 +759,7 @@ function SSN_CLIENT_UPDATE_QUEST_SUCCESS(sObj, list)
 	if self == nil then
 		return;
 	end
-	
+
 
 	for i = 1, #list do
 		local questIES = list[i];

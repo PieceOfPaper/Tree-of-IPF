@@ -6,15 +6,27 @@ function QT(pc)
 end
 
 function QC(pc, questname)
+    if IsServerSection(pc) ~= 1 and pc == nil then
+        pc = GetMyPCObject()
+    end
     local result1, result2 = SCR_QUEST_CHECK(pc,questname, nil)
-    Chat(pc,questname..' = '..result1)
+    if IsServerSection(pc) == 1 then
+        Chat(pc,'IsServer : '..IsServerSection(pc)..' / '..questname..' = '..result1)
+    else
+        ui.Chat('Client SCR_QUEST_CHECK / '..questname..' = '..result1)
+        
+        local result3 = SCR_QUEST_CHECK_C(pc, questname)
+        ui.Chat('Client SCR_QUEST_CHECK_C / '..questname..' = '..result3)
+    end
     if result2 ~= nil then
         print('result1',result1,table.concat(result2,' : '))
     else
         print('result1',result1)
     end
     
-    
+    if IsServerSection(pc) == 1 then
+        ExecClientScp(pc, 'QC(nil,"'..questname..'")');
+    end
 end
 
 function SCR_QUESTPROGRESS_CHECK( pc, quest_list, quest_name, npcquestcount_list)

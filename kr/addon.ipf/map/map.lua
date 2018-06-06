@@ -799,47 +799,50 @@ end
 
 function GET_QUEST_INFO_TXT(questcls)
 	local txt = "";
-
-	for i = 1 , QUEST_MAX_INVITEM_CHECK do
-		local InvItemName = questcls["Succ_InvItemName" .. i];
-		local itemclass = GetClass("Item", InvItemName);
-		if itemclass ~= nil then
-    		local item = session.GetInvItemByName(InvItemName);
-    		local itemcount = 0;
-    		if item ~= nil then
-    			itemcount = item.count;
-    		end
-    
-    		local needcnt = questcls["Succ_InvItemCount" .. i];
-    		if itemcount < needcnt then
-    			local itemtxt = string.format("%s (%d/%d)", itemclass.Name, itemcount, needcnt);
-    			txt = string.format("%s{nl}%s", txt, itemtxt);
-    		end
+	local pc = GetMyPCObject();
+    local result = SCR_QUEST_CHECK_C(pc, questcls.ClassName)
+    if result == 'PROGRESS' then
+    	for i = 1 , QUEST_MAX_INVITEM_CHECK do
+    		local InvItemName = questcls["Succ_InvItemName" .. i];
+    		local itemclass = GetClass("Item", InvItemName);
+    		if itemclass ~= nil then
+        		local item = session.GetInvItemByName(InvItemName);
+        		local itemcount = 0;
+        		if item ~= nil then
+        			itemcount = item.count;
+        		end
+        
+        		local needcnt = questcls["Succ_InvItemCount" .. i];
+        		if itemcount < needcnt then
+        			local itemtxt = string.format("%s (%d/%d)", itemclass.Name, itemcount, needcnt);
+        			txt = string.format("%s{nl}%s", txt, itemtxt);
+        		end
+        	end
     	end
-	end
-	
-	if questcls.Quest_SSN ~= 'None' then
-	    local pc = GetMyPCObject();
-        local sObj_quest = GetSessionObject(pc, questcls.Quest_SSN)
-        if sObj_quest ~= nil and sObj_quest.SSNInvItem ~= 'None' then
-            local itemList = SCR_STRING_CUT(sObj_quest.SSNInvItem, ':')
-            local maxCount = math.floor(#itemList/3)
-            for i = 1, maxCount do
-                local InvItemName = itemList[i*3 - 2]
-        		local itemclass = GetClass("Item", InvItemName);
-        		if itemclass ~= nil then
-        		    local item = session.GetInvItemByName(InvItemName);
-            		local itemcount = 0;
-            		if item ~= nil then
-            			itemcount = item.count;
-            		end
-            
-            		local needcnt = itemList[i*3 - 1]
-            		if itemcount < needcnt then
-            			local itemtxt = string.format("%s (%d/%d)", itemclass.Name, itemcount, needcnt);
-            			txt = string.format("%s{nl}%s", txt, itemtxt);
-            		end
-            	end
+    	
+    	if questcls.Quest_SSN ~= 'None' then
+    	    local pc = GetMyPCObject();
+            local sObj_quest = GetSessionObject(pc, questcls.Quest_SSN)
+            if sObj_quest ~= nil and sObj_quest.SSNInvItem ~= 'None' then
+                local itemList = SCR_STRING_CUT(sObj_quest.SSNInvItem, ':')
+                local maxCount = math.floor(#itemList/3)
+                for i = 1, maxCount do
+                    local InvItemName = itemList[i*3 - 2]
+            		local itemclass = GetClass("Item", InvItemName);
+            		if itemclass ~= nil then
+            		    local item = session.GetInvItemByName(InvItemName);
+                		local itemcount = 0;
+                		if item ~= nil then
+                			itemcount = item.count;
+                		end
+                
+                		local needcnt = itemList[i*3 - 1]
+                		if itemcount < needcnt then
+                			local itemtxt = string.format("%s (%d/%d)", itemclass.Name, itemcount, needcnt);
+                			txt = string.format("%s{nl}%s", txt, itemtxt);
+                		end
+                	end
+                end
             end
         end
     end

@@ -298,55 +298,41 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
         return caption;
     end
 
-    local lvCaption = caption;
-    local lvStart, lvEnd = string.find(lvCaption, "Lv.");
-    local captionLevel = 0;
-    if nil ~= lvStart then
-        local afterText  = string.sub(lvCaption, lvEnd+1, lvEnd+1);
-        captionLevel = tonumber(afterText);
-    end
-
-    local skillLevel = session.GetUserConfig("SKLUP_" .. nextObj.ClassName);
-    -- no level up in session
-    -- or the level is low than current level
-    -- caption level == object level
-    if 0 == skillLevel or skillLevel < _obj.Level or captionLevel == _obj.Level then
-        if hasSkil == true then
-            skillLevel = _obj.Level + skillLevel;
-        else
-        skillLevel = _obj.Level 
-        end
-    else -- not skl_pts_up case
-            skillLevel = skillLevel + 1;
-    end
-
+    local lvCaption = caption;    
+    
+    local skillLevel = session.GetUserConfig("SKLUP_" .. nextObj.ClassName);    
+    
+    -- skillLevel : 유저가 임시로 올린 레벨 수
+    -- _obj.Level : 지금 스킬의 레벨        
+    skillLevel = _obj.Level + skillLevel;
+    
     local LevelByDB = TryGetProp(nextObj, 'LevelByDB');
-
+    
     if LevelByDB ~= nil then
         nextObj.LevelByDB = skillLevel;
     else
         nextObj.Level = skillLevel
     end
-
+    
     local lvStart, lvEnd = string.find(caption, "Lv.");
     if lvStart ~= nil then
-        local beforeText = string.sub(lvCaption, 1, lvStart - 1);
-        local afterText  = string.sub(lvCaption, lvEnd+1, string.len(lvCaption));
-        lvCaption = beforeText .. "ch."..afterText;
+        local beforeText = string.sub(lvCaption, 1, lvStart - 1);        
+        local afterText  = string.sub(lvCaption, lvEnd+1, string.len(lvCaption));        
+        lvCaption = beforeText .. "ch."..afterText;        
     end
     
     while 1 do
-        lvStart, lvEnd = string.find(lvCaption, "Lv.");
+        lvStart, lvEnd = string.find(lvCaption, "Lv.");        
         if lvStart ~= nil then
             local propStart = string.find(caption, "#{");
             if propStart ~= nil then
                 if lvStart < propStart then
                     beforeText = string.sub(lvCaption, 1, lvStart - 1);
-                    afterText  = string.sub(lvCaption, lvEnd+1, string.len(lvCaption));
-                    lvCaption = beforeText .. "ch."..afterText;
+                    afterText  = string.sub(lvCaption, lvEnd+1, string.len(lvCaption));                    
+                    lvCaption = beforeText .. "ch."..afterText;                    
                     DestroyIES(nextObj);                
                     nextObj = CloneIES_UseCP(_obj);
-                    skillLevel = skillLevel + 1;
+                    skillLevel = skillLevel + 1;                    
 
                     if LevelByDB ~= nil then
                         nextObj.LevelByDB = skillLevel;
@@ -358,10 +344,10 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
             end
         end
 
-        -- current level
-        caption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, caption);
+        -- current level        
+        caption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, caption);        
         -- next level
-        lvCaption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, lvCaption);
+        lvCaption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, lvCaption);        
         if parsed == 0 then
             break;
         end
@@ -431,8 +417,8 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
     if lvDescStart ~= nil and totalLevel ~= 0 then
         skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
 
-        while 1 do
-
+        while true do
+            
             local levelvalue = 2
             if lv >= 9 then
                 levelvalue = 3
@@ -457,7 +443,7 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
     frame:Resize(frame:GetWidth(), ypos + 30);
  end
 
-function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
+function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)        
 
     -- destroy skill, ability tooltip
     DESTROY_CHILD_BYNAME(frame:GetChild('skill_desc'), 'SKILL_CAPTION_');
@@ -502,7 +488,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
         end
     end
     name:SetText(nameText); 
-
+    
     -- set skill description
     local skillDesc = GET_CHILD(skillFrame, "desc", "ui::CRichText");   
     skillDesc:Resize(skillDesc:GetWidth(), 20);
@@ -511,15 +497,15 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     if obj.Caption ~= translatedData then
         skillDesc:SetDicIDText(obj.Caption)
     end
-    skillDesc:SetText('{#1f100b}'..PARSE_TOOLTIP_CAPTION(obj, obj.Caption));
+    skillDesc:SetText('{#1f100b}'..PARSE_TOOLTIP_CAPTION(obj, obj.Caption));    
     skillDesc:EnableSplitBySpace(0);
 
     local stateLevel = session.GetUserConfig("SKLUP_" .. strarg, 0);
-    tooltipStartLevel = tooltipStartLevel + stateLevel;
+    tooltipStartLevel = tooltipStartLevel + stateLevel;    
 
-    local skilltreecls = GetClassByStrProp("SkillTree", "SkillName", obj.ClassName);
-    if skilltreecls ~= nil then
-        if skilltreecls.MaxLevel < tooltipStartLevel then
+    local skilltreecls = GetClassByStrProp("SkillTree", "SkillName", obj.ClassName);    
+    if skilltreecls ~= nil then    
+        if skilltreecls.MaxLevel < tooltipStartLevel then            
              tooltipStartLevel = skilltreecls.MaxLevel
         end
     end
@@ -547,15 +533,15 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     
     weaponBox:SetOffset(0, ypos)
     ypos = weaponBox:GetY() + weaponBox:GetHeight() + 5;
-
+    
 
     -- skill level description controlset
-    local skillCaption2 = MAKE_SKILL_CAPTION2(obj.ClassName, obj.Caption2, tooltipStartLevel);
+    local skillCaption2 = MAKE_SKILL_CAPTION2(obj.ClassName, obj.Caption2, tooltipStartLevel);    
     local originalText = ""
-    local translatedData2 = dictionary.ReplaceDicIDInCompStr(skillCaption2);    
+    local translatedData2 = dictionary.ReplaceDicIDInCompStr(skillCaption2);        
     if skillCaption2 ~= translatedData2 then
         originalText = skillCaption2
-    end
+    end    
     
     local skillLvDesc = PARSE_TOOLTIP_CAPTION(obj, skillCaption2);
     local lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
@@ -563,7 +549,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     if tooltipStartLevel > 0 then
         lv = tooltipStartLevel;
     end 
-        
+
     local totalLevel = 0;
     local skl = session.GetSkillByName(obj.ClassName);
     if strarg ~= "Level" then
@@ -582,10 +568,10 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
             totalLevel = skilltreecls.MaxLevel
         end
     end
-
+    
     local currLvCtrlSet = nil
-
-    if totalLevel == 0 and lvDescStart ~= nil then  -- no have skill case
+        
+    if totalLevel == 0 and lvDescStart ~= nil then  -- no have skill case        
         skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
         lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
         if lvDescStart ~= nil then  
@@ -595,10 +581,10 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
         else -- max skill level = 1
             local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));
             ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
-        end
+        end        
     
-    elseif lvDescStart ~= nil and totalLevel ~= 0 then
-        skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
+    elseif lvDescStart ~= nil and totalLevel ~= 0 then        
+        skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));        
 
         while 1 do
 
@@ -609,20 +595,24 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
                 levelvalue = 4
             end
 
-            lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
+            lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");            
 
             if lvDescStart == nil then -- max skill level = 1
-                local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));
+                local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));                
                 ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
                 break;
+            end            
+            local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);               
+            local comma = string.sub(lvDesc, 1, 1)            
+            if comma ~= nil and comma == ',' then                
+                lvDesc = string.sub(skillLvDesc, 3, lvDescStart -1);   
             end
-            local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);
-            skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + levelvalue, string.len(skillLvDesc));
-            ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
+            skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + levelvalue, string.len(skillLvDesc));          
+            ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);            
             lv = lv + 1;
         end
     end
-    
+         
     local noTrade = GET_CHILD(skillFrame, "trade_text", "ui::CRichText");
     local itemID = frame:GetUserValue("SCROLL_ITEM_ID");
     local noTradeCnt = nil;
@@ -636,7 +626,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
             end
         end
     end
-    
+   
     if noTradeCnt ~= nil and 0 <= noTradeCnt then
         noTrade:SetTextByKey('count', noTradeCnt);
         noTrade:ShowWindow(1);
@@ -746,17 +736,13 @@ end
         
     for i = beginLv, maxLevel do
         caption = caption .. "Lv."..i;
-        if i < 10 then
-            caption = caption .. "," .. originCaption;
-        else
-            caption = caption .. " " ..  originCaption;
-        end
+        caption = caption .. "," .. originCaption;
     end
 
     return caption;
  end
 
-function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext)
+function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext)    
     if totalLevel ~= lv and totalLevel + 1 ~= lv then
         return ypos;
     end
@@ -846,9 +832,9 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
         coolText:SetText(lvFont..GET_TIME_TXT_TWO_FIGURES(coolTime))
     end
     
-    -- trim desc
-    local trimedDesc = desc:match("^%s*(.+)")
-    descText:SetText(descFont..trimedDesc);
+    -- trim desc    
+    local trimedDesc = desc:match("^%s*(.+)")    
+    descText:SetText(descFont..trimedDesc);    
 
     lvDescCtrlSet:SetGravity(ui.CENTER_HORZ, ui.TOP)
     lvDescCtrlSet:Resize(frame:GetWidth() - 20, descText:GetY() + descText:GetHeight() + 15);

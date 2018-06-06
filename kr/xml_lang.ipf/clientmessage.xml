@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -4335,6 +4335,8 @@
 		<Class ClassID="27557" ClassName="EVENT_1708_JURATE_MSG8" Data="큐폴의 선물{nl}{TEXT}"/>
 		<Class ClassID="27558" ClassName="EVENT_1708_JURATE_MSG9" Data="누적 미션 완료횟수 : {COUNT}회"/>
 		<Class ClassID="27565" ClassName="TradSelectItemMsg1" Data="{#FF0000}{ITEM}{/} 코스튬을 정말 선택하시겠습니까?{nl}선택 후에는 다른 코스튬으로 교환할 수 없습니다."/>
+		<Class ClassID="27570" ClassName="EVENT_GOLDEN_WHALE_MSG1" Data="누적 완료 보상 받기"/>
+		<Class ClassID="27571" ClassName="EVENT_GOLDEN_WHALE_MSG2" Data="보상 획득 횟수 : {COUNT}회"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -9780,6 +9782,8 @@
 	<Category Name="Npc_Equip_Shop_270_315">
 		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>
 		<Class ClassID="510201" ClassName="NPC_SHOP_ARMOR_NORMAL_270_315" Data="방어구"/>
+		<Class ClassID="501065" ClassName="Event_GOLDEN_WHALE_1" Data="황금 석화 고래 이벤트"/>
+		<Class ClassID="501066" ClassName="Event_GOLDEN_WHALE_2" Data="고래의 보물 받기"/>
 	</Category>
 	<Category Name="Skill_Misc_Shop">
 		<Class ClassID="510100" ClassName="Skill_Misc_Shop_Sel_Warrior" Data="전사 계열"/>
