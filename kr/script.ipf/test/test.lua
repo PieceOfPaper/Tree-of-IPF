@@ -1,8 +1,8 @@
 -- test.lua
 
-function SCR_GEN_EVENTNPC_CREATE(pc, value)
+function SCR_GEN_EVENTNPC_CREATE(pc, column, value)
     local zone_name = GetZoneName(pc)
-    local column = 'Dialog'
+--    local column = 'ClassID'
 --    local value = 'EVENT_1706_FREE_EXPUP_NPC'
 --    local value = 'KLAPEDA_FISHING_MANAGER'
     local result2 = SCR_GET_XML_IES('GenType_'..zone_name, column, value)
