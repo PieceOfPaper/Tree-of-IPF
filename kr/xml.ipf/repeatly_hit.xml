@@ -33,12 +33,6 @@
 			<KeyFrame Time="0.75" Ratio="50" HitDelayRatio="100" Effect="None" Sound="hit_good"/>
 		</Timing>
 	</Skill>
-	<Skill Name="Swordman_DoubleSlash">
-		<Timing Level="1">
-			<KeyFrame Time="0" Ratio="50" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
-			<KeyFrame Time="0.25" Ratio="50" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
-		</Timing>
-	</Skill>
 	<Skill Name="Repeatly_hit_Type1">
 		<Timing Level="1">
 			<KeyFrame Time="0" Ratio="50" HitDelayRatio="25" Effect="None" Sound="hit_good"/>

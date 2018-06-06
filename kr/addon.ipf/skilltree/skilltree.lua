@@ -263,7 +263,7 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 	local detail = GET_CHILD_RECURSIVELY(parentFrame,'detailGBox','ui::CGroupBox')
 	detail:RemoveAllChild();
 
-	local skillsRtext = detail:CreateOrGetControl('richtext', 'skills', 25, 25, 100, 30);
+	local skillsRtext = detail:CreateOrGetControl('richtext', 'skills', 10, 25, 100, 30);
 	skillsRtext:SetFontName("white_20_ol");
 	skillsRtext:SetText(ScpArgMsg('JustSkill'))
 
@@ -279,7 +279,7 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 	
 	local abilitysLline = detail:CreateOrGetControl('labelline', 'abilityslabellibe', 0, posY-25, 570, 2);
 	abilitysLline:SetSkinName('labelline_def_2')
-	local abilitysRtext = detail:CreateOrGetControl('richtext', 'abilitys', 25, posY-5, 100, 30);
+	local abilitysRtext = detail:CreateOrGetControl('richtext', 'abilitys', 10, posY-5, 100, 30);
 	abilitysRtext:SetFontName("white_20_ol");
 	abilitysRtext:SetText(ScpArgMsg('JustAbility'))
 
@@ -344,7 +344,7 @@ function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 	local xBetweenMargin = 10
 	local yBetweenMargin = 10
 
-	local classCtrl = detail:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass.ClassName, 25 + (CTL_WIDTH + xBetweenMargin) * row, posY + 20 + (CTL_HEIGHT + yBetweenMargin) * col);
+local classCtrl = detail:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass.ClassName, 10 + (CTL_WIDTH + xBetweenMargin) * row, posY + 20 + (CTL_HEIGHT + yBetweenMargin) * col);
 	classCtrl:ShowWindow(1);
 
     -- 항상 활성화 된 특성은 특성 활성화 버튼을 안보여준다.
@@ -577,7 +577,7 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 	local xBetweenMargin = 5
 	local yBetweenMargin = 10
 
-local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls.ClassName, 25 + (CTL_WIDTH + xBetweenMargin) * row, 50 + (CTL_HEIGHT + yBetweenMargin) * col);
+local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls.ClassName, 10 + (CTL_WIDTH + xBetweenMargin) * row, 50 + (CTL_HEIGHT + yBetweenMargin) * col);
 	skillCtrl:ShowWindow(1);
 	skillCtrl:SetUserValue("JOBNAME", jobName);
 	--skillCtrl:EnableScrollBar(0)
@@ -943,14 +943,6 @@ function UPDATE_LEARING_ABIL_INFO(frame)
 			nowLearingGBox:ShowWindow(1);
 			local ctr = nowLearingGBox:CreateOrGetControlSet("learing_abil_ctrl", "CTRLSET_" .. i, ui.LEFT, 0, 0, 0, 0, 0);
 			local abilClass = GetClassByType("Ability", pc[prop]);
-
-			--해승이가 남는지 너무 궁금하여 로깅을 하자.
-			if abilClass == nil then
-				if ui.GetHaeSeung() == false then
-				control.CustomCommand("HAESEUNG_TEST", pc[prop]);
-					ui.SetHaeSeung(true)
-				end
-			end
 
 		if abilClass ~= nil then
 

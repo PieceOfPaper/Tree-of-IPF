@@ -1061,6 +1061,66 @@ return obj.Level;"/>
             </ToolScp>
         </leaveEvent>
     </PadSkill>
+    <PadSkill Name="Chaplain_MagnusExorcismus" CheckerType="0" Range="17.5" ApplyFlyMon="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="7000" UseFunc="1" FuncTxt="return obj.Level * 1000 + 7000"/>
+                <Num Num="89990" UseFunc="1" FuncTxt="return 99999;"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_MagnusExorcismus_shot_burstup" Arg="0.69999999"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
+                <Num Num="0" UseFunc="1" FuncTxt="return obj.SkillAtkAdd"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="C_EFFECT_REMOVE_KEY" Client="YES" UseSleep="NO">
+                <Str Str="newbless"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_MON_SET_AI" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="MagnusExorcismus_Debuff"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_MON_SET_AI" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_BUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="MagnusExorcismus_Debuff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="
+
+return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
     <PadSkill Name="Chronomancer_Pass" CheckerType="0" Dist="0.584337" Angle="2.079396" Range="70" UpdateTerm="400">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -6985,7 +7045,7 @@ return 10000 + obj.Level * 2000"/>
                 <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
-                <Num Num="5"/>
+                <Num Num="6"/>
             </ToolScp>
         </createEvent>
         <destroyEvent>

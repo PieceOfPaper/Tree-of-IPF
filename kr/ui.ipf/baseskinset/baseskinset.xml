@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -2591,7 +2591,7 @@
 			<img name="bottomcore" imgrect="262 545 130 90"/>
 			<img name="bottomright" imgrect="393 545 130 90"/>
 		</skin>
-	<skin name="map_bg_skin" texture="\skin\paid_skin.tga">
+		<skin name="map_bg_skin" texture="\skin\paid_skin.tga">
 			<img name="topleft" imgrect="0 636 135 150"/>
 			<img name="topcore" imgrect="136 636 150 150"/>
 			<img name="topright" imgrect="287 636 131 150"/>
@@ -4093,6 +4093,8 @@
 		<image name="2plus_image" file="\skin\paid_skin.tga" imgrect="747 166 55 45" CMM_Caption="+2"/>
 		<image name="2multiply_image" file="\skin\paid_skin.tga" imgrect="524 590 55 45" CMM_Caption="x2"/>
 		<image name="30percent_image" file="\skin\paid_skin.tga" imgrect="747 212 55 45" CMM_Caption="30%"/>
+		<image name="paid_pose_image" file="\skin\paid_skin.tga" imgrect="922 0 55 45" CMM_Caption="유료포즈"/>
+		<image name="20percent_image" file="\skin\paid_skin.tga" imgrect="922 92 55 45" CMM_Caption="20%"/>
 		<image name="67percent_image2" file="\skin\paid_skin.tga" imgrect="187 0 100 45"/>
 		<image name="50percent_image2" file="\skin\paid_skin.tga" imgrect="187 46 100 45"/>
 		<image name="4plus_image2" file="\skin\paid_skin.tga" imgrect="187 92 100 45"/>
@@ -4101,9 +4103,12 @@
 		<image name="2plus_image2" file="\skin\paid_skin.tga" imgrect="803 166 100 45"/>
 		<image name="2multiply_image2" file="\skin\paid_skin.tga" imgrect="580 589 100 45"/>
 		<image name="30percent_image2" file="\skin\paid_skin.tga" imgrect="803 212 100 45"/>
+		<image name="20percent_image2" file="\skin\paid_skin.tga" imgrect="922 46 100 45"/>
 		<image name="arrow_red_image" file="\skin\paid_skin.tga" imgrect="131 230 55 15" CMM_Caption="빨간화살표"/>
 		<image name="token_middle" file="\skin\paid_skin.tga" imgrect="288 0 316 165" CMM_Caption="토큰중간이미지"/>
-	<image name="expup_middle" file="\skin\paid_skin.tga" imgrect="605 0 316 165" CMM_Caption="경험의서이미지"/>
+		<image name="expup_middle" file="\skin\paid_skin.tga" imgrect="605 0 316 165" CMM_Caption="경험의서이미지"/>
+		<image name="resetSkill_middle" file="\skin\paid_skin.tga" imgrect="419 636 316 165" CMM_Caption="스킬초기화"/>
+		<image name="indunFreeEnter_middle" file="\skin\paid_skin.tga" imgrect="419 802 316 165" CMM_Caption="인던3일무제한"/>
 		<image name="market_sell_updown" file="\skin\paid_skin.tga" imgrect="675 439 328 115" CMM_Caption="마켓상하한가표"/>
 	</imagelist>
 	<imagelist category="tutorial_img">
@@ -4751,7 +4756,7 @@
 		<image name="button_right_select" file="\skin\barrack.tga" imgrect="316 547 18 21" CMM_Caption="캐릭터상세선택 오른쪽"/>
 		<image name="button_right_select_cursoron" file="\skin\barrack.tga" imgrect="316 569 18 21"/>
 		<image name="button_right_select_clicked" file="\skin\barrack.tga" imgrect="316 547 18 21"/>
-	<image name="companion_did_btn" file="\skin\barrack.tga" imgrect="894 646 45 45" CMM_Caption="죽었을때나오는버튼"/>
+		<image name="companion_did_btn" file="\skin\barrack.tga" imgrect="894 646 45 45" CMM_Caption="죽었을때나오는버튼"/>
 		<image name="companion_did_btn_cursoron" file="\skin\barrack.tga" imgrect="894 692 45 45"/>
 		<image name="companion_did_btn_clicked" file="\skin\barrack.tga" imgrect="894 738 45 45"/>
 	</imagelist>
@@ -4945,7 +4950,7 @@
 		<image name="icon_gesture_hadoken" file="\icon\social.tga" imgrect="406 163 80 80"/>
 		<image name="icon_gesture_bow2" file="\icon\social.tga" imgrect="1 244 80 80"/>
 		<image name="icon_gesture_bow1" file="\icon\social.tga" imgrect="82 244 80 80"/>
-	<image name="icon_gesture_birdpose" file="\icon\social.tga" imgrect="163 244 80 80"/>
+		<image name="icon_gesture_birdpose" file="\icon\social.tga" imgrect="163 244 80 80"/>
 		<image name="icon_gesture_outcast" file="\icon\social.tga" imgrect="406 1 80 80"/>
 		<image name="icon_gesture_question" file="\icon\social.tga" imgrect="1 325 80 80"/>
 		<image name="icon_gesture_crap" file="\icon\social.tga" imgrect="163 325 80 80"/>
@@ -5174,7 +5179,7 @@
 		<image name="die_party" file="\icon\minimap_icon3.tga" imgrect="195 672 30 30"/>
 		<image name="Archer_party" file="\icon\minimap_icon3.tga" imgrect="226 672 30 30"/>
 		<image name="minimap_man_TPshop" file="\icon\minimap_icon3.tga" imgrect="432 572 80 80"/>
-	<image name="minimap_complete" file="\icon\minimap_icon3.tga" imgrect="213 338 24 24"/>
+		<image name="minimap_complete" file="\icon\minimap_icon3.tga" imgrect="213 338 24 24"/>
 		<image name="minimap_collection_c" file="\icon\minimap_icon3.tga" imgrect="240 338 24 24"/>
 	</imagelist>
 	<imagelist category="quest_tags">
@@ -5588,9 +5593,9 @@
 		<image name="Dlg_port_OlfasGrimm" file="\npcimg\OlfasGrimm.png" imgrect="0 0 900 1100" CMM_Caption="몽크마스터"/>
 		<image name="Dlg_port_Toras" file="\npcimg\Toras.png" imgrect="0 0 700 1000" CMM_Caption="오르샤_컴패니언상인"/>
 		<image name="Dlg_port_ZenklasMetai" file="\npcimg\ZenklasMetai.png" imgrect="0 0 800 1000" CMM_Caption="응사마스터"/>
-	<image name="Dlg_port_UosisKrieg" file="\npcimg\UosisKrieg.png" imgrect="0 0 900 1000" CMM_Caption="슈바르츠라이터마스터"/>
-	<image name="Dlg_port_AgotaHanska" file="\npcimg\AgotaHanska.png" imgrect="0 0 800 900" CMM_Caption="사두마스터"/>
-	<image name="Dlg_port_MistesGoldmund" file="\npcimg\MistesGoldmund.png" imgrect="0 0 800 1000" CMM_Caption="파드너마스터"/>
+		<image name="Dlg_port_UosisKrieg" file="\npcimg\UosisKrieg.png" imgrect="0 0 900 1000" CMM_Caption="슈바르츠라이터마스터"/>
+		<image name="Dlg_port_AgotaHanska" file="\npcimg\AgotaHanska.png" imgrect="0 0 800 900" CMM_Caption="사두마스터"/>
+		<image name="Dlg_port_MistesGoldmund" file="\npcimg\MistesGoldmund.png" imgrect="0 0 800 1000" CMM_Caption="파드너마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -5682,7 +5687,7 @@
 		<image name="icon_armorbreak" file="\icon\buff_icon.tga" imgrect="384 1152 128 128" CMM_Caption="아머브레이크"/>
 		<image name="icon_token" file="\icon\buff_icon.tga" imgrect="512 1152 128 128" CMM_Caption="토큰"/>
 		<image name="icon_nexonpc" file="\icon\buff_icon.tga" imgrect="640 1152 128 128" CMM_Caption="넥슨피시방"/>
-	<image name="icon_expup" file="\icon\buff_icon.tga" imgrect="768 1152 128 128" CMM_Caption="경험의서버프"/>
+		<image name="icon_expup" file="\icon\buff_icon.tga" imgrect="768 1152 128 128" CMM_Caption="경험의서버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
