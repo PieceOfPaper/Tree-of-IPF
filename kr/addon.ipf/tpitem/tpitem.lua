@@ -71,12 +71,12 @@ function TPSHOP_TAB_CHANGE(frame, ctrl, argStr, argNum)
 end
 
 function TPITEM_OPEN(frame)
-	if 0 == IsMyPcGM_FORNISMS() then
+--[[
 	local btn1 = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn")
 	local btn2 = GET_CHILD_RECURSIVELY(frame,"ncChargebtn")
 	btn1:SetEnable(0)
 	btn2:SetEnable(0)
-	end
+	]]
 end
 
 function TPSHOP_TAB_VIEW(frame, curtabIndex)
@@ -90,9 +90,10 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	local screenbgTemp = frame:GetChild('screenbgTemp');
 	screenbgTemp:ShowWindow(0);
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
+	tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
+
 	local rcycle_basketgbox = GET_CHILD_RECURSIVELY(frame,'rcycle_basketgbox');
 	
-	if 1 == IsMyPcGM_FORNISMS() then
 	if curtabIndex == 0 then	
 		TPITEM_DRAW_NC_TP();
 		TPSHOP_SHOW_CASHINVEN_ITEMLIST();
@@ -101,8 +102,6 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		previewStaticTitle:SetVisible(0);	
 		cashInvGbox:SetVisible(1);
 		rcycle_basketgbox:SetVisible(0);
-			tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
-			tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
 	elseif curtabIndex == 1 then
 		basketgbox:SetVisible(1);
 		previewgbox:SetVisible(1);
@@ -117,7 +116,8 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		cashInvGbox:SetVisible(0);
 		RECYCLE_SHOW_TO_ITEM()
 	end
-	else
+
+	--[[
 	if curtabIndex == 0 then
 		basketgbox:SetVisible(1);
 		previewgbox:SetVisible(1);
@@ -132,7 +132,7 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		cashInvGbox:SetVisible(0);
 		RECYCLE_SHOW_TO_ITEM()
 	end
-end
+	]]
 end
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
@@ -141,44 +141,12 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	ui.OpenIngameShopUI();	-- Tpshop을 열었을때에 Tpitem에 대한 정보와 NexonCash 정보 등을 서버에 요청한다.
 
 	frame:ShowWindow(1);
+	MAKE_CATEGORY_TREE();
 	
-	local leftgFrame = frame:GetChild("leftgFrame");	
-	local leftgbox = leftgFrame:GetChild("leftgbox");
-	local shopTab = leftgbox:GetChild('shopTab');
-	local itembox_tab		= tolua.cast(shopTab, "ui::CTabControl");
-	if 1 == IsMyPcGM_FORNISMS() then		
 	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
-		banner:SetImage("market_event_test");	--market_default
 	banner:SetUserValue("URL_BANNER", "");
 	banner:SetUserValue("NUM_BANNER", 0);
 	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
-	else
-		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
-		banner:ShowWindow(0);
-
-		local haveStaticNCbox = GET_CHILD_RECURSIVELY(frame,"haveStaticNCbox");	
-		haveStaticNCbox:ShowWindow(0);
-		
-		local ncReflashbtn = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn");	
-		ncReflashbtn:ShowWindow(0);
-		
-		local ncChargebtn = GET_CHILD_RECURSIVELY(frame,"ncChargebtn");	
-		ncChargebtn:ShowWindow(0);
-		
-		local remainNexonCash = GET_CHILD_RECURSIVELY(frame,"remainNexonCash");	
-		remainNexonCash:ShowWindow(0);
-				
-		local ncReflashbtn = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn");	
-		ncReflashbtn:ShowWindow(0);
-		
-		if itembox_tab:GetItemCount() == 3 then
-			itembox_tab:DeleteTab(0);
-			itembox_tab:SetItemsFixWidth(170);
-		end
-	end
-	
-	
-	MAKE_CATEGORY_TREE();
 	
 	frame:SetUserValue("CASHINVEN_PAGENUMBER", 1);
 
@@ -196,16 +164,18 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		limitMaxWidth = option.GetClientWidth();
 	end
 	
-	local div = 2;
 	if limitMaxHeight < option.GetClientHeight() then
 		limitMaxHeight = option.GetClientHeight();
-		div = 6;
 	end
-	frame:Resize(0,0 , limitMaxWidth * 1.2, limitMaxHeight * 1.2);
+	frame:Resize(limitMaxWidth, limitMaxHeight);
 
 	--session.shop.RequestLoadShopBuyLimit();
 	SET_TOPMOST_FRAME_SHOWFRAME(0);	
 	
+	local leftgFrame = frame:GetChild("leftgFrame");	
+	local leftgbox = leftgFrame:GetChild("leftgbox");
+	local shopTab = leftgbox:GetChild('shopTab');
+	local itembox_tab		= tolua.cast(shopTab, "ui::CTabControl");
 	itembox_tab:SelectTab(0);
 	TPSHOP_TAB_VIEW(frame, 0);
 	
@@ -220,6 +190,9 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	rcycle_basketbuyslotset:ClearIconAll();
 	local rcycle_basketsellslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketsellslotset")
 	rcycle_basketsellslotset:ClearIconAll();
+	
+	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
+	banner:SetImage("market_event_test");	--market_default
 	
 	local specialGoods = GET_CHILD_RECURSIVELY(frame,"specialGoods");	
 	specialGoods:SetImage("market_default2");
@@ -236,21 +209,12 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	UPDATE_BASKET_MONEY(frame);
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"sell");
 	
-	local rightFrame = frame:GetChild('rightFrame');
 	local leftgFrame = frame:GetChild("leftgFrame");	
 	local leftgbox = leftgFrame:GetChild("leftgbox");
 	local alignmentgbox = GET_CHILD(leftgbox,"alignmentgbox");				
 	local alignTypeList = GET_CHILD_RECURSIVELY(frame,"alignTypeList");	
 	local showTypeList = GET_CHILD_RECURSIVELY(frame,"showTypeList");	
 	showTypeList:ClearItems();
-
-	local resol = math.floor((limitMaxHeight - leftgFrame:GetHeight()) / div);
-	if resol < 0  then
-		resol = 0;
-	end
-	
-	leftgFrame:SetOffset(leftgFrame:GetOffsetX(), resol);
-	rightFrame:SetOffset(rightFrame:GetOffsetX(), resol);
 
 	for i = 0 , 3 do
 	local resString = string.format("{@st42b}{s16}%s{/}", ScpArgMsg("SHOWLIST_ITEM_TYPE_" .. i));
@@ -261,11 +225,14 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	local alignTypeList = GET_CHILD_RECURSIVELY(frame,"alignTypeList");	
 	alignTypeList:ClearItems();
 
-	for i = 0 , 3 do
+	for i = 0 , 4 do
 	local resString = string.format("{@st42b}{s16}%s{/}", ScpArgMsg("ALIGN_ITEM_TYPE_" .. i));
 		alignTypeList:AddItem(i, resString);
 	end
 	alignTypeList:SelectItem(0);
+	
+	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
+	tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 	
 	local tempGbox_for_scroll = GET_CHILD_RECURSIVELY(frame,"tempGbox_for_scroll")
 	tempGbox_for_scroll:SetEventScript(ui.MOUSEWHEEL, "TPSHOP_PREVIEW_ZOOM");
@@ -419,12 +386,10 @@ function TPITEM_CLOSE(frame)
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 
-	if 1 == IsMyPcGM_FORNISMS() then
 	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 	banner:SetUserValue("URL_BANNER", "");
 	banner:SetUserValue("NUM_BANNER", 0);
 	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
-	end
 
 	--ui.SetHoldUI("");
 	SET_TOPMOST_FRAME_SHOWFRAME(1);
@@ -629,11 +594,7 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 		local isFounded = false;
 		
 		if filter ~= nil then
-			local targetItemName = itemobj.Name;			
-			if config.GetServiceNation() ~= "KOR" then
-				targetItemName = dic.getTranslatedStr(targetItemName);				
-			end
-			local startNum, endNum = string.find(targetItemName, filter);
+			local startNum, endNum = string.find(itemobj.Name, filter);
 			if (startNum ~= nil) or (endNum ~= nil) then
 				isFounded = true;					
 			end
@@ -1082,7 +1043,6 @@ function TPSHOP_TPITEM_ALIGN_LIST(cnt)
 end	
 
 function _TPSHOP_TPITEM_SET_SPECIAL()	
-	if 1 == IsMyPcGM_FORNISMS() then
 	local frame = ui.GetFrame("tpitem");
 	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"mainSubGbox");
 
@@ -1109,7 +1069,6 @@ function _TPSHOP_TPITEM_SET_SPECIAL()
 	end	
 	
 	DebounceScript("TPSHOP_CREATE_TOP5_CTRLSET", 1);
-end
 end
 
 function TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID)
@@ -1926,12 +1885,6 @@ function EXEC_BUY_MARKET_ITEM()
 	if GET_CASH_TOTAL_POINT_C() < allprice then 
 		--ui.MsgBox_NonNested(ScpArgMsg("Auto_MeDali_BuJogHapNiDa."), 0x00000000, frame:GetName(), "WEB_TPSHOP_OPEN_URL_NEXONCASH", "None");	
 		ui.MsgBox_NonNested(ScpArgMsg("Auto_MeDali_BuJogHapNiDa."), 0x00000000, frame:GetName(), "None", "None");	
-		
-		local tabObj		    = GET_CHILD_RECURSIVELY(frame,"shopTab");	
-		local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
-		itembox_tab:SelectTab(0);
-		TPSHOP_TAB_VIEW(frame, 0);
-
 		btn:SetEnable(1);
 		return;
 	end
@@ -1977,7 +1930,7 @@ function TPITEM_DRAW_NC_TP()
 	local clsList, listcnt = GetClassList("item_package");	
 	local jobNum = GETPACKAGE_JOBNUM_BYJOBNGENDER();
 	-- 해당 카테고리의 노드들의 프레임을 만들기.
-
+	IMC_NORMAL_INFO(cnt);
 	for i = cnt -1,0, -1 do
 		local iteminfo = session.ui.Get_NISMS_ItemInfo(i)
 		if iteminfo == nil then
@@ -1993,7 +1946,8 @@ function TPITEM_DRAW_NC_TP()
 		productNo = iteminfo.itemid;
 		itemClsID = iteminfo.tpItemClsId;
 		
-		if (categoryNo == 2348) or (categoryNo == 805) then
+		IMC_NORMAL_INFO(i .. iteminfo.name .. iteminfo.categoryNo ..  iteminfo.limitOnce ..  iteminfo.price ..  iteminfo.imgAddress ..  iteminfo.itemid ..  iteminfo.tpItemClsId);
+		if categoryNo == 805 then
 							index = index - 1
 							x = ( (index-1) % 4) * ui.GetControlSetAttribute("tpshop_itemtp", 'width')
 							y = (math.ceil( (index / 4) ) - 1) * (ui.GetControlSetAttribute("tpshop_itemtp", 'height') * 1)
@@ -2019,7 +1973,7 @@ function TPITEM_DRAW_NC_TP()
 							buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
 							buyBtn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
 							buyBtn:SetUserValue("LISTINDEX", i);
-		elseif (categoryNo == 806) or (categoryNo == 2349)  then				
+		elseif categoryNo == 806 then				
 							local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
 							if imgURL ~= nil then	
 								local imgAddress = string.format("%s", imgURL);
@@ -2138,12 +2092,6 @@ function TPITEM_DRAW_NC_TP()
 	frame:Invalidate()
 end
 
-function _TPSHOP_STOPROLLING_SPECIALGOODS(parent, control, strArg, numArg)	
-	local frame = ui.GetFrame("tpitem");
-	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
-	tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
-end
-
 function _TPSHOP_SELECTED_SPECIALGOODS(parent, control, strArg, numArg)	
 	local frame = ui.GetFrame("tpitem");
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
@@ -2161,7 +2109,7 @@ function _PROCESS_ROLLING_SPECIALGOODS()
 	local tabObj		    = GET_CHILD_RECURSIVELY(frame,"shopTab");	
 	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
 
-	if itembox_tab:GetSelectItemIndex() ~= 0 then
+	if itembox_tab:GetSelectItemIndex() == 0 then
 		tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 		return 0;
 	end
@@ -2279,11 +2227,11 @@ function TPSHOP_SELECTED_SPECIALGOODS_BANNER(tpSubgbox, control, strArg, numArg)
 	
 	local limitOnce = iteminfo.limitOnce;
 	local price = iteminfo.price;
-	local imgAddress = string.format("%d", iteminfo.tpItemClsId);	
+	local imgAddress = iteminfo.imgAddress;	
 
 	local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
 	specialGoods = tolua.cast(specialGoods, "ui::CWebPicture");	
-	specialGoods:SetUrlInfo(GETBANNERURL(imgAddress));
+	specialGoods:SetUrlInfo(imgAddress);
 	specialGoods:Invalidate();
 	
 	local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
@@ -2291,8 +2239,6 @@ function TPSHOP_SELECTED_SPECIALGOODS_BANNER(tpSubgbox, control, strArg, numArg)
 	buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, numArg);
 	buyBtn:SetEventScriptArgString(ui.LBUTTONUP, strArg);
 	buyBtn:SetUserValue("LISTINDEX", listIndex);
-	
-	buyBtn:SetEventScript(ui.MOUSEMOVE, '_TPSHOP_STOPROLLING_SPECIALGOODS');
 	
 	TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, 0);	
 end
@@ -2325,13 +2271,13 @@ function TPSHOP_SELECTED_SPECIALPACKAGES_BANNER(tpSubgbox, control, strArg, numA
 	
 	local limitOnce = iteminfo.limitOnce;
 	local price = iteminfo.price;
-	local imgAddress = string.format("%d", iteminfo.tpItemClsId);
+	local imgAddress = iteminfo.imgAddress;
 	local productNo = iteminfo.itemid;	
 	local itemClsID = iteminfo.tpItemClsId;				
 											
 	local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
 	specialGoods = tolua.cast(specialGoods, "ui::CWebPicture");	
-	specialGoods:SetUrlInfo(GETBANNERURL(imgAddress));
+	specialGoods:SetUrlInfo(imgAddress);
 	
 	local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
 	if GETPACKAGE_JOBNUM_BYJOBNGENDER() == retNum then
@@ -2342,7 +2288,6 @@ function TPSHOP_SELECTED_SPECIALPACKAGES_BANNER(tpSubgbox, control, strArg, numA
 	else
 		buyBtn:ShowWindow(0);
 	end
-	buyBtn:SetEventScript(ui.MOUSEMOVE, '_TPSHOP_STOPROLLING_SPECIALGOODS');
 			
 	local jobCountMax = control:GetUserValue("jobCountMax");	
 	TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, 1, jobCountMax, packageID, control:GetName(), itemClsID, retNum);			
@@ -2425,11 +2370,7 @@ end
 --///////////////////////////////////////////////////////////////////////////////////////////TPITEM DRAW Code end
 
 function TPSHOP_REFLASH_REMAINCASH(parent, control, strArg, numArg)
-	if 1 == IsMyPcGM_FORNISMS() then
-		DebounceScript("ON_TPSHOP_REFLASH_REMAINCASH", 5);
-	else
-	ui.MsgBox(ClMsg("YouCanChargeOnWeb"));
-	end
+	DebounceScript("ON_TPSHOP_REFLASH_REMAINCASH", 5);
 end
 
 function ON_TPSHOP_REFLASH_REMAINCASH()
@@ -2560,17 +2501,13 @@ function TPSHOP_CHECK_REMAIN_NEXONCASH()
 	local frame = ui.GetFrame("tpitem");
 	local rightFrame = GET_CHILD(frame,"rightFrame");	
 	local rightgbox = GET_CHILD(rightFrame,"rightgbox");	
-
-	if 1 == IsMyPcGM_FORNISMS() then
-		local haveStaticNCbox = GET_CHILD(rightgbox,"haveStaticNCbox");	
-		local remainNexonCash = GET_CHILD_RECURSIVELY(haveStaticNCbox,"remainNexonCash");	
-		remainNexonCash:SetText(session.ui.GetRemainCash());
-	end
-
+	local haveStaticNCbox = GET_CHILD(rightgbox,"haveStaticNCbox");	
+	local remainNexonCash = GET_CHILD_RECURSIVELY(haveStaticNCbox,"remainNexonCash");	
+	remainNexonCash:SetText(session.ui.GetRemainCash());
 end
 
 function WEB_TPSHOP_OPEN_URL_NEXONCASH()
-	if 1 == IsMyPcGM_FORNISMS() then
+
 	ON_TPSHOP_FREE_UI();
 	local frame = ui.GetFrame("tpitem");	
 	TPSHOP_TAB_VIEW(frame, 0);
@@ -2582,9 +2519,7 @@ function WEB_TPSHOP_OPEN_URL_NEXONCASH()
 	itembox_tab:SelectTab(0);
 
 	ui.Embedded_Browser_forNC(ui.ExcNCurl());
-	else
-		ui.MsgBox(ClMsg("YouCanChargeOnWeb"));
-	end
+	
 end
 
 function TPSHOP_SHOW_CASHINVEN_ITEMLIST()
@@ -2645,7 +2580,6 @@ function TPSHOP_CASHINVEN_ITEM_CLICKED(parent, ctrl)
 end
 
 function _TPSHOP_BANNER(parent, control, argStr, argNum)
-	if 1 == IsMyPcGM_FORNISMS() then
 	local size = session.ui.GetSize_TPITEM_Banner_INFOList();
 
 	local frame = ui.GetFrame("tpitem");
@@ -2659,7 +2593,7 @@ function _TPSHOP_BANNER(parent, control, argStr, argNum)
 		if string.len(strImage) <= 0 then
 			banner:SetImage("market_event_test");	--market_default
 		else
-			banner:SetUrlInfo(GETBANNERURL(strImage));
+			banner:SetUrlInfo(strImage);
 		end;
 		banner:SetUserValue("URL_BANNER", bannerInfo.clickUrl);
 		banner:SetUserValue("NUM_BANNER", 0);
@@ -2668,7 +2602,6 @@ function _TPSHOP_BANNER(parent, control, argStr, argNum)
 		banner:RunUpdateScript("_PROCESS_ROLLING_BANNER",  5, 0, 1, 1);
 	end
 	banner:Invalidate();
-end
 end
 
 function _PROCESS_ROLLING_BANNER()
@@ -2692,7 +2625,7 @@ function _PROCESS_ROLLING_BANNER()
 		if strImage == 'None' then
 			banner:SetImage("market_event_test");	--market_default	
 		else
-			banner:SetUrlInfo(GETBANNERURL(strImage));
+			banner:SetUrlInfo(strImage);
 		end;
 		banner:SetUserValue("URL_BANNER", bannerInfo.clickUrl);
 		banner:SetUserValue("NUM_BANNER", num);
@@ -2718,11 +2651,4 @@ function IS_ENABLE_EQUIP_CLASS(pc, needJobClassName, needJobGrade)
 	end
 
 	return true
-end
-
-function GETBANNERURL(webUrl)
-	
-	local url = config.GetBannerImgURL();	
-	local urlStr = string.format("%s%s.png", url,webUrl );
-	return urlStr;
 end
