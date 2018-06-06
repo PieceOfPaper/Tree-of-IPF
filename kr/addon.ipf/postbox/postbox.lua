@@ -96,14 +96,23 @@ function POSTBOX_SET_LETTER_DETAIL(msgInfo, ctrlSet)
 	local content = ctrlSet:GetChild("content");
 	content:SetTextByKey("value", msgInfo:GetMessage());	
 
-	local attachedItems = ctrlSet:GetChild("attachedItems");
+	local attachedItems = GET_CHILD_RECURSIVELY(ctrlSet,"attachedItems")
+	
 	attachedItems:RemoveAllChild();
 
-	local slotHeight = attachedItems:GetHeight() - 15;
+	local slotHeight = 50;
 	local cnt = msgInfo:GetItemVecSize();
+
+	local x = 0
+	local y = 0
+
 	for i = 0 , cnt - 1 do
 		local itemInfo = msgInfo:GetItemByIndex(i);
-		local slot = attachedItems:CreateControl("slot", "SLOT_" .. i, slotHeight, slotHeight, ui.LEFT, ui.CENTER_VERT, 0, 0, 0, 0);
+
+		x = slotHeight* (i%8) + 10
+		y = slotHeight* math.floor(i/8)
+
+		local slot = attachedItems:CreateControl("slot", "SLOT_" .. i, slotHeight, slotHeight, ui.LEFT, ui.TOP, x, y, 0, 0);
 		slot:ShowWindow(1);
 		AUTO_CAST(slot);
 		local itemCls = GetClassByType("Item", itemInfo.itemType);
@@ -119,8 +128,6 @@ function POSTBOX_SET_LETTER_DETAIL(msgInfo, ctrlSet)
 			slot:SetUserValue("ITEM_TYPE", itemInfo.itemType);
 		end
 	end
-
-	GBOX_AUTO_ALIGN_HORZ(attachedItems, 10, 10, 0, true, false);
 
 end
 

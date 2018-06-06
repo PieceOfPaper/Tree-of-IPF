@@ -348,6 +348,28 @@ end
 function TPSHOP_ITEM_PREVIEW(parent, control, tpitemname, classid)	
 
 	local item = GetClassByType("Item", classid)
+
+	if item == nil then
+		return;
+	end
+
+	local allowDup = TryGetProp(item,'AllowDuplicate')
+				
+	if allowDup == "NO" then
+		if session.GetInvItemByType(classid) ~= nil then
+			ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
+			return;
+		end
+		if session.GetEquipItemByType(classid) ~= nil then
+			ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
+			return;
+		end
+		if session.GetWarehouseItemByType(classid) ~= nil then
+			ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
+			return;
+		end
+	end
+
 	local frame = parent:GetTopParentFrame()
 	local slotset = GET_CHILD_RECURSIVELY(frame,"previewslotset")
 	local slotCount = slotset:GetSlotCount();
@@ -377,6 +399,38 @@ function TPSHOP_ITEM_PREVIEW(parent, control, tpitemname, classid)
 
 	end
 
+	local nodupliItems = {}
+	nodupliItems[tpitemname] = true;
+
+	for i = 0, slotCount - 1 do
+		local slotIcon	= slotset:GetIconByIndex(i);
+
+		if slotIcon ~= nil then
+
+			local slot  = slotset:GetSlotByIndex(i);
+			local classname = slot:GetUserValue("TPITEMNAME");
+			local alreadyItem = GetClass("TPitem",classname)
+
+			if alreadyItem ~= nil then
+
+				local item = GetClass("Item", alreadyItem.ItemClassName)
+				local allowDup = TryGetProp(item,'AllowDuplicate')
+
+				if allowDup == "NO" then
+		
+					if nodupliItems[classname] == nil then
+						nodupliItems[classname] = true
+					else
+						ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
+						return;
+					end
+
+				end
+			
+			end
+
+		end
+	end
 
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);
@@ -541,7 +595,7 @@ function EXEC_BUY_MARKET_ITEM(slotsettype)
 	end
 
 	if GET_CASH_TOTAL_POINT_C() < allprice then 
-		ui.MsgBox(ScpArgMsg("REQUEST_TAKE_MEDAL"))
+		ui.MsgBox(ScpArgMsg("Auto_MeDali_BuJogHapNiDa."))
 		return;
 	end
 
@@ -553,6 +607,27 @@ end
 function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)	
 
 	local item = GetClassByType("Item", classid)
+
+	if item == nil then
+		return;
+	end
+
+	local allowDup = TryGetProp(item,'AllowDuplicate')
+				
+	if allowDup == "NO" then
+		if session.GetInvItemByType(classid) ~= nil then
+			ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
+			return;
+		end
+		if session.GetEquipItemByType(classid) ~= nil then
+			ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
+			return;
+		end
+		if session.GetWarehouseItemByType(classid) ~= nil then
+			ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
+			return;
+		end
+	end
 
 	local lv = GETMYPCLEVEL();
 	local job = GETMYPCJOB();
@@ -586,6 +661,40 @@ function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)
 	local frame = parent:GetTopParentFrame()
 	local slotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
 	local slotCount = slotset:GetSlotCount();
+
+	local nodupliItems = {}
+	nodupliItems[tpitemname] = true;
+
+	for i = 0, slotCount - 1 do
+		local slotIcon	= slotset:GetIconByIndex(i);
+
+		if slotIcon ~= nil then
+
+			local slot  = slotset:GetSlotByIndex(i);
+			local classname = slot:GetUserValue("TPITEMNAME");
+			local alreadyItem = GetClass("TPitem",classname)
+
+			if alreadyItem ~= nil then
+
+				local item = GetClass("Item", alreadyItem.ItemClassName)
+				local allowDup = TryGetProp(item,'AllowDuplicate')
+				
+				if allowDup == "NO" then
+		
+					if nodupliItems[classname] == nil then
+						nodupliItems[classname] = true
+					else
+						ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
+						return;
+					end
+
+				end
+			
+			end
+
+		end
+	end
+
 
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);

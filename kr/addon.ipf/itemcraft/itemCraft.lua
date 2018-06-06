@@ -652,7 +652,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 				return;
 			end
 
-			if ui.IsValidItemName(name) == false then
+			if ui.IsValidItemName(name, 1) == false then
 				return;
 			end
 
@@ -777,6 +777,7 @@ function IS_VALUEABLE_ITEM(itemid)
 end
 
 function CRAFT_DETAIL_CRAFT_EXEC_ON_START(frame, msg, str, time)
+	frame:SetUserValue("UI_NAME", g_itemCraftFrameName);
 	frame = ui.GetFrame(g_itemCraftFrameName);
 	if frame:GetUserIValue("MANUFACTURING") == 1 then
 		
@@ -1458,6 +1459,7 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 	local itemObj = GetIES(invItemadd:GetObject())
 				
 	if IS_EQUIP(itemObj) == true then
+		
 		local frame = ui.GetFrame(g_itemCraftFrameName);
 		frame:SetUserValue("TARGETSET", itemSet:GetName())
 		frame:SetUserValue("TARGET_GUID", GetIESID(itemObj))

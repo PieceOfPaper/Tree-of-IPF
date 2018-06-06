@@ -9,9 +9,8 @@ function UI_TOGGLE_HISTORY()
 		return;
 	end
 	
-	session.playHistory.ReqPlayHistory(HISTORY_STAT, 1);
+	session.playHistory.ReqPlayHistory(HISTORY_TP, 1);
 end
-
 
 function PLAY_HISTORY_ON_MSG(frame, msg, strArg, numArg)
 	if "UPDATE_PLAY_HISTORY" == msg then
@@ -33,33 +32,34 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 	local respect = nil;
 	local menu = frame:GetChild("menu")
 		local rect4 = menu:GetChild("richtext_4");
-	if numArg == HISTORY_STAT then
-		gBox = frame:GetChild("skill");
-		gBox:RemoveAllChild();
-		gBox:ShowWindow(0);
-		gBox = frame:GetChild("tp");
-		gBox:RemoveAllChild();
-		gBox:ShowWindow(0);
-		gBox = frame:GetChild("stat");
-
-		respect = frame:GetChild("skill_respect");
-		respect:RemoveAllChild();
-		respect = frame:GetChild("stat_respect");
-		rect4:ShowWindow(1);
-	elseif numArg == HISTORY_SKILL then
-		gBox = frame:GetChild("stat");
-		gBox:RemoveAllChild();
-		gBox:ShowWindow(0);
-		gBox = frame:GetChild("tp");
-		gBox:ShowWindow(0);
-		gBox:RemoveAllChild();
-		gBox = frame:GetChild("skill");
-
-		respect = frame:GetChild("stat_respect");
-		respect:RemoveAllChild();
-		respect = frame:GetChild("skill_respect");
-		rect4:ShowWindow(1);
-	elseif numArg == HISTORY_TP then
+--if numArg == HISTORY_STAT then
+--	gBox = frame:GetChild("skill");
+--	gBox:RemoveAllChild();
+--	gBox:ShowWindow(0);
+--	gBox = frame:GetChild("tp");
+--	gBox:RemoveAllChild();
+--	gBox:ShowWindow(0);
+--	gBox = frame:GetChild("stat");
+--
+--	respect = frame:GetChild("skill_respect");
+--	respect:RemoveAllChild();
+--	respect = frame:GetChild("stat_respect");
+--	rect4:ShowWindow(1);
+--elseif numArg == HISTORY_SKILL then
+--	gBox = frame:GetChild("stat");
+--	gBox:RemoveAllChild();
+--	gBox:ShowWindow(0);
+--	gBox = frame:GetChild("tp");
+--	gBox:ShowWindow(0);
+--	gBox:RemoveAllChild();
+--	gBox = frame:GetChild("skill");
+--
+--	respect = frame:GetChild("stat_respect");
+--	respect:RemoveAllChild();
+--	respect = frame:GetChild("skill_respect");
+--	rect4:ShowWindow(1);
+--else
+	if numArg == HISTORY_TP then
 		gBox = frame:GetChild("skill");
 		gBox:RemoveAllChild();
 		gBox:ShowWindow(0);
@@ -86,15 +86,18 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 	gBox:ShowWindow(1);
 	gBox:RemoveAllChild();
 	respect:RemoveAllChild();
+	local rollbackCnt = 0;
+
+	if numArg ~= HISTORY_TP then
 	local info = session.playHistory.GetHistoryRespec(numArg);
 	local ctrlSet = respect:CreateControlSet("skill_stat_resCnt", "repect",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	ctrlSet:SetSkinName("test_weight_skin");
 	local resCnt = ctrlSet:GetChild("resCnt");
-	local rollbackCnt = 0;
 	if nil ~= info then
 		rollbackCnt = info.count;
 	end
 	resCnt:SetTextByKey("value", rollbackCnt);	
+	end
 
 	--skill_stat_his
 	local cnt = session.playHistory.GetHistoryCount(numArg);
@@ -203,14 +206,14 @@ end
 
 function HISTORY_TAB_CHANGE(frame, ctrl, argStr, argNum)
 
-	local tabObj		    = frame:GetChild('statusTab');
-	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
-	local curtabIndex	    = itembox_tab:GetSelectItemIndex();
-	HISTORY_DATA_VIEW(frame, curtabIndex);
+--local tabObj		    = frame:GetChild('statusTab');
+--local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
+--local curtabIndex	    = itembox_tab:GetSelectItemIndex();
+--HISTORY_DATA_VIEW(frame, curtabIndex);
 end
 
 function HISTORY_DATA_VIEW(frame, curtabIndex)
-	session.playHistory.ReqPlayHistory(curtabIndex, 1);
+	--session.playHistory.ReqPlayHistory(curtabIndex, 1);
 end
 
 function HISTORY_REQ_ROLL_BACK(frame, btn)

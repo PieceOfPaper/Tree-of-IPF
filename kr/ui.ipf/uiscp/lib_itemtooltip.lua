@@ -670,6 +670,11 @@ function SHOW_REMAIN_BUFF_TIME(ctrl)
 	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
 	local startSec = ctrl:GetUserIValue("REMAINSEC");
 	startSec = startSec - elapsedSec;
+	if 0 > startSec then
+		ctrl:SetTextByKey("remaintime", "{#004123}");
+		ctrl:StopUpdateScript("SHOW_REMAIN_BUFF_TIME");
+		return 0;
+	end 
 	local timeTxt = GET_TIME_TXT(startSec);
 	ctrl:SetTextByKey("remaintime", "{#004123}" .. timeTxt);
 	return 1;

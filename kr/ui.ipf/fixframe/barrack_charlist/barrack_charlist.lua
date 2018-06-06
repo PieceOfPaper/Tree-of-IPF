@@ -297,6 +297,7 @@ function SELECT_CHARBTN_LBTNUP(parent, ctrl, cid, argNum)
 end
 
 function DELETE_CHAR_SCROLL(ctrl, btn, cid, argNum)
+
 	-- 스크롤 캐릭터 삭제 버튼
 	local acc = session.barrack.GetMyAccount();
 	local petVec = acc:GetPetVec();
@@ -312,16 +313,18 @@ function DELETE_CHAR_SCROLL(ctrl, btn, cid, argNum)
 		end
 	end
 
-	if IsFinalRelease() == true then
 		local bpc = barrack.GetBarrackPCInfoByCID(cid);
 		if bpc == nil then
 			return;
 		end
 
-		local isHaveEquipItem = 0
+	if 0 < bpc:GetDummyPCZoneID() then 
+		ui.MsgBox(ScpArgMsg("CanDelChrBecauseDummyPC"));
+		return;
+	end
 
-		
-		
+	if IsFinalRelease() == true then
+		local isHaveEquipItem = 0
 	for i = 0 , item.GetEquipSpotCount() - 1 do
 		local eqpObj = bpc:GetEquipObj(i);
 		if eqpObj ~= nil then

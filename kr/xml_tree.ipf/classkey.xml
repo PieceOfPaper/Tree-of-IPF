@@ -4640,12 +4640,6 @@
 		<Key Name="F_FLASH_64_EV_55_001_P" Value="10079"/>
 		<Key Name="UNDERF592_ZEMINA_STATUE_P" Value="10080"/>
 		<Key Name="PILGRIM312_SQ_08" Value="10094"/>
-		<Key Name="DROPITEM_REQUEST1" Value="10098"/>
-		<Key Name="DROPITEM_REQUEST1_R" Value="10099"/>
-		<Key Name="DROPITEM_REQUEST1_RR" Value="10100"/>
-		<Key Name="DROPITEM_REQUEST1_RRL" Value="10101"/>
-		<Key Name="DROPITEM_REQUEST1_PI" Value="10102"/>
-		<Key Name="MG_Last_ID_REMAIN_MINI_03" Value="10103"/>
 	</KeyIDSpc>
 	<KeyIDSpc Name="PCEtc">
 		<Key Name="FromMission" Value="3907"/>
@@ -8343,14 +8337,9 @@
 		<Key Name="Hide_1639" Value="10093"/>
 		<Key Name="Hide_1640" Value="10095"/>
 		<Key Name="Hide_1641" Value="10096"/>
-		<Key Name="InDunCountType_100" Value="10105"/>
-		<Key Name="InDunCountType_200" Value="10106"/>
-		<Key Name="AchieveReward_Gimmick_count_3" Value="10107"/>
-		<Key Name="AchieveReward_HairColor1" Value="10108"/>
-		<Key Name="AchieveReward_HairColor2" Value="10109"/>
-		<Key Name="AchieveReward_HairColor3" Value="10110"/>
-		<Key Name="AchieveReward_HairColor4" Value="10111"/>
-	</KeyIDSpc>
+	<Key Name="InDunCountType_100" Value="10105"/>
+        <Key Name="InDunCountType_200" Value="10106"/>
+        </KeyIDSpc>
 	<KeyIDSpc Name="Account">
 		<Key Name="MaxPVPGrade" Value="6299"/>
 		<Key Name="Medal" Value="6300"/>

@@ -413,7 +413,7 @@ function BUFF_TIME_UPDATE(handle, buff_ui)
 					local buffIndex = icon:GetUserIValue("BuffIndex");
     				local buff = info.GetBuff(handle, iconInfo.type, buffIndex);
     				if buff ~= nil then
-    					SET_BUFF_TIME_TO_TEXT(text, buff.time);
+    					SET_BUFF_TIME_TO_TEXT(text, buff.time, buff.buffID);
     					updated = 1;
     
     					if buff.time < 5000 and buff.time ~= 0.0 then

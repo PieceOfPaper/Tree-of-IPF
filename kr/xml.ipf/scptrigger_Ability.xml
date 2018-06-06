@@ -174,30 +174,6 @@
             </Trigger>
         </TriggerList>
     </SpcItem>
-    <SpcItem Name="Cryomancer3">
-        <TriggerList Act="Attack">
-            <Trigger>
-                <CondList>
-                    <ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-                        <Str Str="Cryomancer_Gust"/>
-                    </ToolScp>
-                    <ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-                        <Str Str="ENEMY"/>
-                    </ToolScp>
-                    <ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
-                        <Str Str="Cryomancer3"/>
-                    </ToolScp>
-                </CondList>
-                <ExecList>
-                    <ToolScp Scp="SPCI_TGT_KB_COLL_DAMAGE" Client="NO" UseSleep="NO">
-                        <Num Num="100" UseFunc="1" FuncTxt="return IMCRandom(self.MINMATK, self.MAXMATK)/2"/>
-                        <Num Num="0"/>
-                        <Num Num="3"/>
-                    </ToolScp>
-                </ExecList>
-            </Trigger>
-        </TriggerList>
-    </SpcItem>
     <SpcItem Name="Dievdirbys6">
         <TriggerList Act="BeforeAttack">
             <Trigger>

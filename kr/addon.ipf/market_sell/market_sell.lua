@@ -26,20 +26,7 @@ function MARKET_SELL_OPEN(frame)
 	droplist:SelectItem(0);
 	droplist:SelectItemByKey(1);
 
-	local silverRate = groupbox:GetChild("silverRate");
-
-	local upValue = silverRate:GetChild("upValue");
-	local downValue = silverRate:GetChild("downValue");
-	local min = silverRate:GetChild("min");
-	local max = silverRate:GetChild("max");
-
-	upValue:SetTextByKey("value", '0');
-	downValue:SetTextByKey("value", '0');
-	min:SetTextByKey("value", '0');
-	max:SetTextByKey("value", '0');
-
-	local slot_item = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
-	CLEAR_SLOT_ITEM_INFO(slot_item);
+	MARKET_SELL_ITEM_POP_BY_SLOT(frame, nil);
 end
 
 function MARKET_SELL_UPDATE_SLOT_ITEM(frame)
@@ -74,8 +61,6 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 	local count = session.market.GetItemCount();
 	for i = 0 , count - 1 do
 		local marketItem = session.market.GetItemByIndex(i);
-		local endTime = marketItem:GetSysTime();	
-		local timeString = imcTime.GetStringSysTimeForLog(endTime);
 
 		local itemObj = GetIES(marketItem:GetObject());
 		local refreshScp = itemObj.RefreshScp;
@@ -106,8 +91,6 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
 
-		local endTime = ctrlSet:GetChild("endTime");
-		endTime:SetTextByKey("value", timeString);
 
 		local btn = GET_CHILD(ctrlSet, "btn");
 		btn:SetTextByKey("value", ClMsg("Cancel"));
@@ -118,11 +101,11 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 	itemlist:RealignItems();
 	GBOX_AUTO_ALIGN(itemlist, 10, 0, 0, false, true);
-	local maxPage = math.ceil(session.market.GetTotalCount() / MARKET_SELL_ITEM_PER_PAGE);
-	local curPage = session.market.GetCurPage();
-	local pagecontrol = GET_CHILD(frame, 'pagecontrol', 'ui::CPageController')
-	pagecontrol:SetMaxPage(maxPage);
-	pagecontrol:SetCurPage(curPage);
+--local maxPage = math.ceil(session.market.GetTotalCount() / MARKET_SELL_ITEM_PER_PAGE);
+--local curPage = session.market.GetCurPage();
+--local pagecontrol = GET_CHILD(frame, 'pagecontrol', 'ui::CPageController')
+--pagecontrol:SetMaxPage(maxPage);
+--pagecontrol:SetCurPage(curPage);
 
 end
 
@@ -220,6 +203,34 @@ function MARKET_SELL_RBUTTON_ITEM_CLICK(frame, invItem)
 		market.ReqSellMinMaxInfo(invItem:GetIESID());
 		frame:SetUserValue('REQ_ITEMID', invItem:GetIESID())
 	end
+end
+
+function MARKET_SELL_ITEM_POP_BY_SLOT(parent, slot)
+
+	local groupbox = parent:GetChild("groupbox");
+	if groupbox == nil then
+		local frame = parent:GetTopParentFrame();
+		groupbox = frame:GetChild("groupbox");
+	end
+
+	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
+	edit_price:SetText("0");
+	local edit_count =GET_CHILD(groupbox, "edit_count", "ui::CEditControl");
+	edit_count:SetText("1");
+	local silverRate = groupbox:GetChild("silverRate");
+
+	local upValue = silverRate:GetChild("upValue");
+	local downValue = silverRate:GetChild("downValue");
+	local min = silverRate:GetChild("min");
+	local max = silverRate:GetChild("max");
+
+	upValue:SetTextByKey("value", '0');
+	downValue:SetTextByKey("value", '0');
+	min:SetTextByKey("value", '0');
+	max:SetTextByKey("value", '0');
+
+	local slot_item = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
+	CLEAR_SLOT_ITEM_INFO(slot_item);
 end
 
 function MARKET_SELL_ITEM_DROP_BY_SLOT(parent, slot)
@@ -334,8 +345,9 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local selecIndex = droplist:GetSelItemIndex();
 
 	local needTime, free = GetMarketTimeAndTP(selecIndex);
+	local commission = (price * count * free * 0.01);
 	local vis = session.GetInvItemByName("Vis");
-	if vis == nil or 0 > vis.count - (price * count) * (free * 0.01) then
+	if vis == nil or 0 > vis.count - commission then
 		ui.SysMsg(ClMsg("Auto_SilBeoKa_BuJogHapNiDa."));
 		return;
 	end
@@ -356,49 +368,54 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		return;
 	end
 
-	-- 장비그룹만 buffValue가 있다.
+	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, selecIndex);
+	
+	commission = math.floor(commission);
+	if commission <= 0 then
+		commission = 1;
+	end
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
-			local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, selecIndex);
-			ui.MsgBox(ScpArgMsg("BuffDestroy"), yesScp, "None");
+			-- 장비그룹만 buffValue가 있다.
+			ui.MsgBox(ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
 		else
-			market.ReqRegisterItem(itemGuid, price, count, 1, selecIndex);
+			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", tostring(commission)), yesScp, "None");			
 		end
 	else
-		market.ReqRegisterItem(itemGuid, price, count, 1, selecIndex);
+		ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", tostring(commission)), yesScp, "None");
 	end
 
 end
 
 function MARKET_SELL_SELECT_NEXT(pageControl, numCtrl)
-	pageControl = tolua.cast(pageControl, "ui::CPageController");
-	local page = pageControl:GetCurPage();
-	local frame = pageControl:GetTopParentFrame();
-	local MaxPage = pageControl:GetMaxPage();
-	local nexPage = page + 1;
-	if nexPage >= MaxPage then
-		nexPage = MaxPage - 1;
-	end
-
-	market.ReqMySellList(nexPage);
+--pageControl = tolua.cast(pageControl, "ui::CPageController");
+--local page = pageControl:GetCurPage();
+--local frame = pageControl:GetTopParentFrame();
+--local MaxPage = pageControl:GetMaxPage();
+--local nexPage = page + 1;
+--if nexPage >= MaxPage then
+--	nexPage = MaxPage - 1;
+--end
+--
+--market.ReqMySellList(nexPage);
 end
 
 function MARKET_SELL_SELECT_PREV(pageControl, numCtrl)
-	pageControl = tolua.cast(pageControl, "ui::CPageController");
-	local page = pageControl:GetCurPage();
-	local frame = pageControl:GetTopParentFrame();
-	local prePage = page - 1;
-	if prePage <= 0 then
-		prePage = 0;
-	end
-	market.ReqMySellList(prePage);
+--pageControl = tolua.cast(pageControl, "ui::CPageController");
+--local page = pageControl:GetCurPage();
+--local frame = pageControl:GetTopParentFrame();
+--local prePage = page - 1;
+--if prePage <= 0 then
+--	prePage = 0;
+--end
+--market.ReqMySellList(prePage);
 end
 
 function MARKET_SELL_SELECT(pageControl, numCtrl)
-	pageControl = tolua.cast(pageControl, "ui::CPageController");
-	local page = pageControl:GetCurPage();
-	local frame = pageControl:GetTopParentFrame();
-	market.ReqMySellList(page);
+--pageControl = tolua.cast(pageControl, "ui::CPageController");
+--local page = pageControl:GetCurPage();
+--local frame = pageControl:GetTopParentFrame();
+--market.ReqMySellList(page);
 end
 
 

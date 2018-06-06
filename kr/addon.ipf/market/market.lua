@@ -6,7 +6,7 @@ function MARKET_ON_INIT(addon, frame)
 end
 
 function ON_OPEN_MARKET(frame)
-	frame:ShowWindow(1);
+	MARKET_BUYMODE(frame)
 	MARKET_FIRST_OPEN(frame);
 	ui.OpenFrame("inventory");
 end
@@ -249,7 +249,7 @@ function MARKET_PAGE_SELECT(pageControl, numCtrl)
 	MARGET_FIND_PAGE(frame, page);
 end
 
-function ON_MARKET_ITEM_LIST(frame)
+function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 	if frame:IsVisible() == 0 then
 		return;
 	end
@@ -338,6 +338,10 @@ function ON_MARKET_ITEM_LIST(frame)
 	local pagecontrol = GET_CHILD(frame, 'pagecontrol', 'ui::CPageController')
 	pagecontrol:SetMaxPage(maxPage);
 	pagecontrol:SetCurPage(curPage);
+
+	if nil ~= argNum and  argNum == 1 then
+		MARGET_FIND_PAGE(frame, session.market.GetCurPage());
+	end
 end
 
 function CANCEL_MARKET_ITEM(parent, ctrl, guid)

@@ -21,6 +21,9 @@ function BARRACK_THEMA_UPDATE(frame)
 	if frame == nil then
 		return;
 	end
+
+	frame:SetUserValue("InputType", "Family_Name");
+
 	local bg = frame:GetChild("nxp_bg");
 	local account = GetMyAccountObj();
 	local mynxp = bg:GetChild("mynxp");

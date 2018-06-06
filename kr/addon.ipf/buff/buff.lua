@@ -35,9 +35,9 @@ end
 
 
 
-function SET_BUFF_TIME_TO_TEXT(text, time)
+function SET_BUFF_TIME_TO_TEXT(text, time, buffID)
 
-	text:SetText(GET_BUFF_TIME_TXT(time, 0));
+	text:SetText(GET_BUFF_TIME_TXT(time, 0, buffID));
 
 end
 
@@ -49,7 +49,7 @@ function MY_BUFF_TIME_UPDATE(frame, timer, argstr, argnum, passedtime)
 
 end
 
-function GET_BUFF_TIME_TXT(time, istooltip)
+function GET_BUFF_TIME_TXT(time, istooltip, buffID)
 
 	if time == 0.0 then
 		return "";
@@ -92,7 +92,10 @@ function GET_BUFF_TIME_TXT(time, istooltip)
 		if istooltip == 1 then
 			txt = txt .. hour .. ScpArgMsg("Auto_SiKan");
 		else
-			return "{#FFFF00}{ol}{s12}" .. hour + 1 .. ScpArgMsg("Auto_SiKan");
+			if 70004 ~= buffID then
+				hour = hour + 1;
+			end
+			return "{#FFFF00}{ol}{s12}" .. hour .. ScpArgMsg("Auto_SiKan");
 		end
 	end
 
@@ -142,7 +145,7 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 	slot:EnableDrag(0);
 
 	capt:ShowWindow(1);
-	capt:SetText(GET_BUFF_TIME_TXT(buff.time, 0));
+	capt:SetText(GET_BUFF_TIME_TXT(buff.time, 0, buff.buffID));
 	
 	local targetinfo = info.GetTargetInfo( handle );
 	if targetinfo ~= nil then

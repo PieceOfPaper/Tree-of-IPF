@@ -1204,7 +1204,10 @@
             <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="CATACOMB_33_2_UNHOLY_DETACH"/>
             </ToolScp>
-            </DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="CATACOMB_33_2_UNHOLY_DEAD"/>
+            </ToolScp>
+        </DeadList>
         <HitList>
             <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
                 <Str Str="CATACOMB_33_2_UNHOLY_DAM"/>
@@ -6296,6 +6299,11 @@ if self.HP == 0 then return 1; else return 0; end;">
         </StartList>
     </AI>
     <AI Name="ORCHARD323_EVIL_TRACK" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD323_EVIL_TRACK_DEAD"/>
+            </ToolScp>
+        </DeadList>
         <HitList>
             <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
                 <Str Str="ORCHARD323_EVIL_TRACK_HIT"/>

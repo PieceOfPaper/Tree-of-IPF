@@ -75,14 +75,6 @@ function SOCIAL_POSE_VIEW(frame)
 	end]]
 end
 
-function SOCIAL_POSE(frame, ctrl, strarg, poseClsID)
-
-	local poseCls = GetClassByType('Pose', poseClsID);
-	if poseCls ~= nil then
-		control.Pose(poseCls.ClassName);
-	end
-end
-
 function SOCIAL_GBOX_SHOW(frame, showGBoxName)	
 
 	if frame == nil then

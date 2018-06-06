@@ -286,7 +286,7 @@ return obj.Level;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Barbarian_Pouncing" CheckerType="1" Range="10" InnerRange="20" UpdateTerm="450" AutoPos="1" AutoDir="1" ApplyFlyMon="1" EnableSearch="0">
+    <PadSkill Name="Barbarian_Pouncing" CheckerType="1" Range="15" InnerRange="25" UpdateTerm="350" AutoPos="1" AutoDir="1" ApplyFlyMon="1" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000000"/>
@@ -295,15 +295,21 @@ return obj.Level;"/>
             <ToolScp Scp="PAD_USEABLE_FUNCNAME" Client="NO" UseSleep="NO">
                 <Str Str="SCR_PAD_OWNER_IS_MOVE"/>
             </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="5"/>
+            </ToolScp>
         </createEvent>
-        <enterEvent>
-            <ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
+        <updateEvent>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
             </ToolScp>
-        </enterEvent>
+        </updateEvent>
     </PadSkill>
     <PadSkill Name="BebeMagePrist_Safetyzone" CheckerType="1" Dist="0.85423601" Angle="-0.31544101" Range="15" InnerRange="15" UpdateTerm="300" AutoPos="1" AutoDir="1">
         <createEvent>
@@ -1539,6 +1545,12 @@ return 10000 + obj.Level * 2000"/>
                 <Num Num="0"/>
                 <Str Str="CarveLaima_Debuff"/>
             </ToolScp>
+            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="CarveLaima_MSPD_Debuff"/>
+            </ToolScp>
         </destroyEvent>
         <enterEvent>
             <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
@@ -1565,6 +1577,18 @@ return 10000 + obj.Level * 2000"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
             </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="CarveLaima_MSPD_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
         </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
@@ -1578,6 +1602,12 @@ return 10000 + obj.Level * 2000"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="CarveLaima_Debuff"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="CarveLaima_MSPD_Debuff"/>
             </ToolScp>
         </leaveEvent>
     </PadSkill>

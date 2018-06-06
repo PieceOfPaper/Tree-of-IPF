@@ -1208,7 +1208,6 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		local slotsetname	= GET_SLOTSET_NAME(argNum)
 		local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
-		local slot		    = slotSet:GetSlotByIndex(argNum-1);
 		if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
 			or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
 			or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
@@ -1308,6 +1307,7 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	if groupName == 'Money' then
 		return;
 	end
+
 	local invFrame     	= ui.GetFrame("inventory");
 	local invGbox		= invFrame:GetChild('inventoryGbox');
 	local treeGbox		= invGbox:GetChild('treeGbox');
@@ -1316,12 +1316,17 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
 	local slot		    = slotSet:GetSlotByIndex(argNum-1);
+	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
+		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
+		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+		return;
+	end
 
 	local Itemclass		= GetClassByType("Item", invitem.type);
 	local ItemType		= Itemclass.ItemType;
+	
 	if Itemclass.ShopTrade == 'YES' then
 		if IS_SHOP_SELL(invitem, Itemclass.MaxStack) == 1 then
-			slot:SetUserValue("SLOT_ITEM_ID", invitem:GetIESID());
 			-- 상점 Sell Slot으로 다 넘긴다.
 			SHOP_SELL(invitem, invitem.count);
 			return;

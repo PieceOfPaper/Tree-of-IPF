@@ -273,7 +273,7 @@ ClassID,ActiveState,Level,ClassName,Name,Icon,Job,SkillCategory,AddSpend,Desc,Bu
 203009,1,1,"Cryomancer19","아이스 블래스트: 강화 3","ability_Wizard_Cryomancer19","","","","[아이스 블래스트] 대미지가 크리오맨서 3서클 수준으로 강화됩니다.","","","YES","SCR_ABIL_NONE","NO",""
 203010,1,1,"Cryomancer20","스노우 롤링: 강화","ability_Wizard_Cryomancer20","Char2_3","Cryomancer_SnowRolling","","적에게 입히는 [스노우 롤링]의 대미지가 특성 레벨당 1% 증가합니다.","","","YES","SCR_ABIL_NONE","NO",""
 203011,1,1,"Cryomancer2","아이스 볼트: 결빙확률","ability_Wizard_Cryomancer2","Char2_3","Cryomancer_IceBolt","SP/8","스킬 [아이스 볼트]에 피격된 적이 [결빙]될 확률이 특성 레벨당 10% 증가합니다.","","","NO","SCR_ABIL_NONE","NO",""
-203012,1,1,"Cryomancer3","거스트: 충돌대미지","ability_Wizard_Cryomancer3","Char2_3","Cryomancer_Gust","SP/10","스킬 [거스트]로 밀려나는 적이 마법 공격력의 50% 만큼 대미지를 입습니다.","","","NO","SCR_ABIL_NONE","NO",""
+203012,1,1,"Cryomancer3","거스트: 충돌대미지","ability_Wizard_Cryomancer3","Char2_3","Cryomancer_Gust","SP/10","스킬 [거스트]가 [결빙] 상태가 아닌 적에게도 피해를 줍니다. [결빙] 상태가 아닌 대상에게는 2연타 피해를 주며, [결빙] 상태인 대상에게는 3연타로 피해를 줍니다.","","","NO","SCR_ABIL_NONE","NO",""
 203013,1,1,"Cryomancer5","로드 마스터리: 얼음","ability_Wizard_Cryomancer5","Char2_3","All","","[로드] 착용 시 캐릭터의 얼음 속성 공격력이 특성 레벨당 3 증가합니다.","","","YES","SCR_ABIL_CRYOMANCER5","YES",""
 203014,1,1,"Cryomancer6","아이스월: 크리오라이트","ability_Wizard_Cryomancer6","Char2_3","Cryomancer_IceWall","CoolDown/6000","[아이스월]이 사라질 때 특성 레벨당 1% 확률로 크리오라이트를 드랍합니다.","","","NO","SCR_ABIL_NONE","NO",""
 203015,1,1,"Cryomancer7","서브제로쉴드: 지속시간","ability_Wizard_Cryomancer7","Char2_3","Cryomancer_SubzeroShield","CoolDown/5000","[서브제로쉴드]로 적용되는 결빙의 지속시간이 특성 레벨당 0.5초씩 증가합니다.","","","NO","SCR_ABIL_NONE","NO",""

@@ -1,5 +1,7 @@
 function CHATMACRO_ON_INIT(addon, frame)
 	addon:RegisterMsg('SET_CHAT_MACRO_DEFAULT', 'SET_CHAT_MACRO_DEFAULT');
+	addon:RegisterOpenOnlyMsg('TOKEN_STATE', 'CHATMACRO_UPDATE_TOKEN_STATE');
+	
 end
 
 MAX_MACRO_CNT = 10;
@@ -50,6 +52,11 @@ function SHOW_CHAT_MACRO(frame)
 	UPDATE_CHAT_MACRO(frame);
 end
 
+function CHATMACRO_UPDATE_TOKEN_STATE(frame)
+
+	UPDATE_CHAT_MACRO(frame);
+
+end
 
 function MACRO_POSE_VIEW(poseGbox)	
 
@@ -64,6 +71,9 @@ function MACRO_POSE_VIEW(poseGbox)
 
 	local clslist = GetClassList("Pose");
 	local index = 0;
+	local controlIndex = 0;
+
+	local isPremiumTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
 	
 	while 1 do
 		local cls = GetClassByIndexFromList(clslist, index);
@@ -71,27 +81,31 @@ function MACRO_POSE_VIEW(poseGbox)
 			break;
 		end
 
-		local eachcontrol = poseGbox:CreateOrGetControlSet('pose_icon','pose_icon'..cls.ClassName, x, y)
+		if cls.Premium == "NO" or isPremiumTokenState == true then
+			local eachcontrol = poseGbox:CreateOrGetControlSet('pose_icon','pose_icon'..cls.ClassName, x, y)
 
-		local each_pose_name = GET_CHILD(eachcontrol, 'pose_name','ui::CRichText');
-		local each_pose_slot = GET_CHILD(eachcontrol, 'pose_slot','ui::CSlot');
+			local each_pose_name = GET_CHILD(eachcontrol, 'pose_name','ui::CRichText');
+			local each_pose_slot = GET_CHILD(eachcontrol, 'pose_slot','ui::CSlot');
 
-		each_pose_slot:SetEventScript(ui.LBUTTONDOWN, 'SOCIAL_POSE')
-		each_pose_slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
+			each_pose_slot:SetEventScript(ui.LBUTTONDOWN, 'SOCIAL_POSE')
+			each_pose_slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
 
-		SET_SLOT_IMG(each_pose_slot, cls.Icon);
+			SET_SLOT_IMG(each_pose_slot, cls.Icon);
 
-		each_pose_name:SetTextByKey('posename',cls.Name);
-		each_pose_slot:SetTextByKey('posename',cls.Name);
+			each_pose_name:SetTextByKey('posename',cls.Name);
+			each_pose_slot:SetTextByKey('posename',cls.Name);
 
-		local icon = each_pose_slot:GetIcon();
+			local icon = each_pose_slot:GetIcon();
 		
-		icon:SetUserValue('POSEID', cls.ClassID);			
+			icon:SetUserValue('POSEID', cls.ClassID);			
 		
+			controlIndex = controlIndex + 1;
+
+			x = xmargin + (controlIndex % 6) * csetwidth
+			y = ymargin + math.floor(controlIndex / 6) * csetheight
+		end
+
 		index = index + 1;
-
-		x = xmargin + (index % 6) * csetwidth
-		y = ymargin + math.floor(index / 6) * csetheight
 	end
 end
 
@@ -254,3 +268,13 @@ function SCR_GESTURE_DROP(frame, icon, argStr, argNum)
 	end
 
 end
+
+function SOCIAL_POSE(frame, ctrl, strarg, poseClsID)
+
+	local poseCls = GetClassByType('Pose', poseClsID);
+	if poseCls ~= nil then
+		control.Pose(poseCls.ClassName);
+	end
+end
+
+
