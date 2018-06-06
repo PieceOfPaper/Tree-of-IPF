@@ -2,9 +2,25 @@ function ABILITY_POINT_BUY_ON_INIT(addon, frame)
     addon:RegisterMsg('SUCCESS_BUY_ABILITY_POINT', 'ABILITY_POINT_BUY_RESET');
 end
 
+function GET_SILVER_BY_ONE_ABILITY_POINT_CALC()
+    local exchangeRate = SILVER_BY_ONE_ABILITY_POINT;
+    -- Test Server Spec : 80% Sale --
+    if (GetServerNation() == "KOR" and (GetServerGroupID() == 9001 or GetServerGroupID() == 9501)) then
+        exchangeRate = math.floor(exchangeRate * 0.2);
+    end
+    
+    if exchangeRate < 1 then
+        exchangeRate = 1;
+    end
+    
+    return exchangeRate;
+end
+
 function ABILITY_POINT_BUY_OPEN(frame)
     local ratioValueText = GET_CHILD_RECURSIVELY(frame, 'ratioValueText');
-    ratioValueText:SetTextByKey('ratio', GET_COMMAED_STRING(SILVER_BY_ONE_ABILITY_POINT));
+    local exchangeRate = GET_SILVER_BY_ONE_ABILITY_POINT_CALC();
+    ratioValueText:SetTextByKey('ratio', GET_COMMAED_STRING(exchangeRate));
+--    ratioValueText:SetTextByKey('ratio', GET_COMMAED_STRING(SILVER_BY_ONE_ABILITY_POINT));
 
     ABILITY_POINT_BUY_RESET(frame);
 end
@@ -13,7 +29,9 @@ function ABILITY_POINT_BUY_RESET(frame)
     local enableValueText = GET_CHILD_RECURSIVELY(frame, 'enableValueText');
     local buyPointEdit = GET_CHILD_RECURSIVELY(frame, 'buyPointEdit');
     local money = GET_TOTAL_MONEY();
-    local enableCount = math.floor(money / SILVER_BY_ONE_ABILITY_POINT);
+    
+    local exchangeRate = GET_SILVER_BY_ONE_ABILITY_POINT_CALC();
+    local enableCount = math.floor(money / exchangeRate);
     
     enableValueText:SetTextByKey('count', enableCount);
     frame:SetUserValue('ENABLE_COUNT', enableCount);
@@ -70,7 +88,8 @@ end
 
 function ABILITY_POINT_BUY_GET_CONSUME_MONEY(frame)
     local pointCount = frame:GetUserIValue('POINT_COUNT');
-    local consumeMoney = pointCount * SILVER_BY_ONE_ABILITY_POINT;
+    local exchangeRate = GET_SILVER_BY_ONE_ABILITY_POINT_CALC();
+    local consumeMoney = pointCount * exchangeRate;
     return consumeMoney;
 end
 

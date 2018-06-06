@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -4255,6 +4255,11 @@
 		<Class ClassID="27390" ClassName="EVENT_1705_SCHWARZEREITER_MSG1" Data="황금노래 용병단 의뢰완료 확인증"/>
 		<Class ClassID="27391" ClassName="EVENT_1705_SCHWARZEREITER_MSG2" Data="황금노래 용병단 의뢰완료 확인증을 모두 받으셨습니다"/>
 		<Class ClassID="27392" ClassName="EVENT_1705_SCHWARZEREITER_MSG3" Data="황금노래 용병단 의뢰완료 확인증을 {COUNT}개 받으셨습니다{nl}컴패니언 상인 크리스티나({REMAIN1} 회){nl}악세서리 상인 로네사({REMAIN2} 회){nl}장비 상인 던켈({REMAIN3} 회){nl}잡화 상인 미리나({REMAIN4} 회){nl}마켓 관리인 로지({REMAIN5} 회){nl}창고지기 리타({REMAIN6} 회){nl}의뢰소장 로타({REMAIN7} 회)"/>
+		<Class ClassID="27400" ClassName="EVENT_1706_MONK_MSG1" Data="같은 수준의 몬스터라면 {COUNT} 마리를 더 처치하시면 되겠어요."/>
+		<Class ClassID="27401" ClassName="EVENT_1706_MONK_MSG2" Data="수행자의 길 이벤트"/>
+		<Class ClassID="27402" ClassName="EVENT_1706_MONK_MSG3" Data="{NAME} 님이 수행자의 길 이벤트에서 {ITEM} 아이템을 획득하셨습니다"/>
+		<Class ClassID="27403" ClassName="EVENT_1706_MONK_MSG4" Data="수행자의 길 이벤트를 {PERCENT}% 달성하셨습니다"/>
+		<Class ClassID="27404" ClassName="EVENT_1706_MONK_MSG5" Data="수행자의 길 이벤트 진행 중이 아닙니다"/>
 		<Class ClassID="27410" ClassName="QUEST_CHEAT_MSG1" Data="퀘스트 '{QUESTNAME}'{nl} 치트를 실행하시려면 '예'{nl} 퀘스트 툴을 실행하시려면 '아니오' {nl}ESC 키를 클릭하시면 취소 됩니다."/>
 		<Class ClassID="27420" ClassName="EVENT_1706_FISHING_BALLOON_MSG1" Data="이벤트 풍선을 받는다"/>
 		<Class ClassID="27421" ClassName="EVENT_1706_FISHING_BALLOON_MSG2" Data="다른 풍선을 원하시면 '{ITEM}'을 삭제해주세요!"/>

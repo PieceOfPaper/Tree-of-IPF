@@ -898,25 +898,21 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 		return;
 	end
 
-	local isBuyPossible = 1;
 	local isPreviewPossible = 0;
 
 	if session.GetEquipItemByType(itemclsID) ~= nil then		-- 사용하여 혜택을 받고 있거나, 장비하고 있을때
 		SWITCH(subCategory)
 		{
 			['TP_Useable'] = function()
-				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
-				isBuyPossible = 0;
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));				
 			end,
 
 			['TP_Consume'] = function()
-				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
-				isBuyPossible = 0;
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));				
 			end,
 
 			['TP_Petitem'] = function()
-				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
-				isBuyPossible = 0;
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));				
 			end,
 
 			default = function()
@@ -925,8 +921,7 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 						if (subCategory == 'TP_Costume_Lens') then
 							isPreviewPossible = 1;
 						end
-						sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsEquiped"));	
-						isBuyPossible = 0;	
+						sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsEquiped"));							
 					end
 				end
 			end,
@@ -944,20 +939,8 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 				SWITCH(subCategory)
 				{
 					['TP_Costume_Color'] = function() 	
-						local etc = GetMyEtcObject();
-						if nil ~= etc then
-							local nowAllowedColor = etc['AllowedHairColor']
-							if (string.find(nowAllowedColor, itemobj.StringArg) ~= nil) or TryGetProp(etc, "HairColor_"..itemobj.StringArg) == 1 then
-								isBuyPossible = 0;
-							else
-								isBuyPossible = 1;
-							end
-							if session.GetInvItemByType(itemclsID) ~= nil then	
-								isBuyPossible = 0;
-							end
-							isPreviewPossible = 1;	--미리보기 버그 수정 보류
-							sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
-						end	
+						isPreviewPossible = 1;	--미리보기 버그 수정 보류
+						sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
  					end,
 
 					['TP_Costume_Hairacc'] = function()
@@ -965,8 +948,7 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
  					end,
 
 					['TP_Costume_Lens'] = function()
-						if session.GetInvItemByType(itemclsID) ~= nil then	
-							isBuyPossible = 0;
+						if session.GetInvItemByType(itemclsID) ~= nil then
 							sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased1"));
 						end
 						isPreviewPossible = 1;
@@ -975,14 +957,10 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 					default = function()	-- / TP_Hair_M / TP_Hair_F / TP_Hair_M_Premium / TP_Hair_F_Premium
 						if session.GetInvItemByType(itemclsID) ~= nil then
 							isPreviewPossible = IS_ITEM_WILL_CHANGE_APC(itemclsID);
-							isBuyPossible = 0;
 							sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
 						else
 							if result == "OK" then
-								isBuyPossible = isPreviewPossible;
 								sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
-							elseif session.GetInvItemByType(itemclsID) ~= nil then
-								isBuyPossible = 0;	
 							end
 						end
 					end,
@@ -990,28 +968,13 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 			end,
 
 			['TP_Costume_F'] = function()
-				if session.GetInvItemByType(itemclsID) ~= nil then
-					isBuyPossible = 0;
-				else
-					isBuyPossible = isPreviewPossible;
-				end
 				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
 			end,
 
 			['TP_Costume_M'] = function()
-				if session.GetInvItemByType(itemclsID) ~= nil then
-					isBuyPossible = 0;
-				else
-					isBuyPossible = isPreviewPossible;
-				end
 				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
 			end,
             ['TP_Premium_Sale'] = function()
-                if session.GetInvItemByType(itemclsID) ~= nil then
-					isBuyPossible = 0;
-				else
-					isBuyPossible = isPreviewPossible;
-				end
                 isSale_mark:SetVisible(1);
 
 				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
@@ -1030,7 +993,7 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 			end,
 			]]--
 		}
-	end	
+	end
 
 	buyBtn:SetSkinName("test_red_button");	
 	buyBtn:EnableHitTest(1);
@@ -1921,6 +1884,11 @@ function TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
 			ui.MsgBox(ScpArgMsg("AlearyEquipColor"))
 			return;
 		end
+           
+        if session.GetInvItemByType(item.ClassID) ~= nil then
+            ui.MsgBox(ClMsg('CanNotBuyDuplicateItem'));
+            return;
+        end
 	end
 
 	local frame = parent:GetTopParentFrame()
