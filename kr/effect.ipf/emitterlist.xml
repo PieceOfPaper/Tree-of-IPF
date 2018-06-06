@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <EmitterList>
+	<battle name="E_archer_jumpshot_ground" filename="E_archer_jumpshot_ground" loop="false" nodecount="12" xml="E_archer_jumpshot_ground.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_archer_jumpshot" filename="E_archer_jumpshot" loop="false" nodecount="12" xml="E_archer_jumpshot.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_headbutt_hit" filename="E_warrior_headbutt_hit" loop="false" nodecount="3" xml="E_warrior_headbutt_hit.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_EvadeThrust_shot_shield" filename="E_warrior_EvadeThrust_shot_shield" loop="false" nodecount="3" xml="E_warrior_EvadeThrust_shot_shield.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_EvadeThrust_shot" filename="E_warrior_EvadeThrust_shot" loop="false" nodecount="3" xml="E_warrior_EvadeThrust_shot.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>

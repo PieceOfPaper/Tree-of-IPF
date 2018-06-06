@@ -3518,6 +3518,9 @@ function SCR_GET_PunjiStake_Ratio2(skill)
 
 	local pc = GetSkillOwner(skill);
 	local value = 30 + skill.Level * 5
+	    if IsPVPServer(self) == 1 then
+	        value = 900
+	    end
   return value
 
 end
@@ -5739,6 +5742,9 @@ end
 
 function SCR_GET_PoleofAgony_Ratio2(skill)
 	local value = 10
+	    if IsPVPServer(self) == 1 then
+	        value = 5
+	    end
     local pc = GetSkillOwner(skill);
     local abil = GetAbility(pc, "Warlock3")
     if abil ~= nil and 1 == abil.ActiveState then
@@ -6242,8 +6248,7 @@ function SCR_Get_SklAtkAdd_Cure(skill)
     local pc = GetSkillOwner(skill);
 	local value = skill.SklAtkAdd + (skill.Level - 1) * skill.SklAtkAddByLevel
 
-    value = value + pc.INT;
-
+    value = value + math.floor(pc.INT * 1.2);
     return math.floor(value)
 
 end
@@ -7552,6 +7557,9 @@ end
 
 function SCR_GET_DirtyPole_Ratio(skill)
     local value = 20 + skill.Level * 2
+        if IsPVPServer(self) == 1 then
+	        value = 900
+	    end
     return value
 end
 
@@ -7873,6 +7881,9 @@ function SCR_GET_PsychicPressure_Ratio2(skill)
 end
 
 function SCR_GET_GravityPole_Ratio(skill)
+    if IsPVPServer(self) == 1 then
+        return skill.Level * 1
+    end
 
 	return 5 + skill.Level * 1
 end
@@ -8022,7 +8033,9 @@ end
 function SCR_GET_Blessing_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-	local value = 15.5 + (skill.Level-1) * 3.9;
+    local statValue = math.floor((pc.MNA * 0.06 + pc.INT * 0.02) * (skill.Level-1))
+	local value = 15.5 + (skill.Level-1) * 3.9 + statValue;
+	
 	
 	local Priest18_abil = GetAbility(pc, "Priest18")    -- 2rank Skill Damage multiple
     local Priest19_abil = GetAbility(pc, "Priest19")    -- 3rank Skill Damage multiple
@@ -8125,7 +8138,9 @@ end
 function SCR_GET_Revive_Bufftime(skill)
 	local pc = GetSkillOwner(skill);
 	local value = 90
-	
+	    if IsPVPServer(pc) == 1 then
+	        value = 30
+	    end
 	local Priest21_abil = GetAbility(pc, 'Priest21')
 	if Priest21_abil ~= nil and 1 == Priest21_abil.ActiveState and IsPVPServer(pc) == 0 then
 	    value = value + Priest21_abil.Level * 7
@@ -8340,7 +8355,9 @@ function SCR_GET_Carve_Ratio(skill)
 end
 
 function SCR_GET_OwlStatue_Bufftime(skill)
-
+    if IsPVPServer(self) == 1 then
+        return 900
+    end
     return 20 + skill.Level * 5;
     
 end
@@ -8888,8 +8905,11 @@ function SCR_GET_ManaShield_Ratio(skill)
 end
 
 function SCR_GET_Sleep_Ratio(skill)
-
-	return skill.Level
+    local value = skill.Level
+        if IsPVPServer(self) == 1 and value > 5 then
+	        value = 5
+	    end
+	return value
 
 end
 
@@ -11182,6 +11202,14 @@ end
 
 function SCR_GET_CarveLaima_Ratio2(skill)
     return 25 + (skill.Level * 5)
+end
+
+function SCR_GET_CarveLaima_Ratio3(skill)
+    local value = 20
+        if IsPVPServer(self) == 1 then
+	        value = 10
+	    end
+	return value;
 end
 
 function SCR_GET_CarveAusirine_Ratio(skill)

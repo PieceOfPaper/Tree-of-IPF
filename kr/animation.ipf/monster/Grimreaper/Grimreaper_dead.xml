@@ -2,12 +2,12 @@
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
     <BlendOn frame="0" R="50" G="50" B="10" A="30"/>
-    <Sound frame="0.00" Value="866" soundFile="skl_eff_atk_move_l_6"/>
     <Sound frame="0.00" soundFile="mon_chapparition_dead"/>
     <Particle frame="3" attachActor="None" attachNode="Bip01 Spine" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="15" pause="true" targetPos="false"/>
     <Sound frame="5.00" soundFile="skl_eff_chain_shot"/>
     <Sound frame="5.00" soundFile="skl_eff_metalchain"/>
     <Sound frame="5.00" soundFile="skl_eff_bodyfall_l_1"/>
+    <Sound frame="5.00" soundFile="mon_voice_lecifer_dead"/>
     <BlendOn frame="10" R="150" G="150" B="100" A="150"/>
     <Particle frame="20" attachActor="None" attachNode="Bip01 Spine" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="30" pause="true" targetPos="false"/>
     <BlendOn frame="30" R="200" G="200" B="150" A="200"/>

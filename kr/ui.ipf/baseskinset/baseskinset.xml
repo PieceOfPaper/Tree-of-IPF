@@ -2813,6 +2813,72 @@
 			<img name="bottomcore" imgrect="632 1000 100 15"/>
 			<img name="bottomright" imgrect="733 1000 15 15"/>
 		</skin>
+	<skin name="mission_fail_bg" texture="\skin\missionfail_skin.tga">
+			<img name="topleft" imgrect="0 0 100 70"/>
+			<img name="topcore" imgrect="101 0 100 70"/>
+			<img name="topright" imgrect="202 0 100 70"/>
+			<img name="bodyleft" imgrect="0 71 100 55"/>
+			<img name="bodycore" imgrect="101 71 100 55"/>
+			<img name="bodyright" imgrect="202 71 100 55"/>
+			<img name="bottomleft" imgrect="0 127 100 70"/>
+			<img name="bottomcore" imgrect="101 127 100 70"/>
+			<img name="bottomright" imgrect="202 127 100 70"/>
+		</skin>
+		<skin name="mission_fail_name" texture="\skin\missionfail_skin.tga">
+			<img name="topleft" imgrect="0 200 150 30"/>
+			<img name="topcore" imgrect="151 200 200 30"/>
+			<img name="topright" imgrect="352 200 150 30"/>
+			<img name="bodyleft" imgrect="0 231 150 30"/>
+			<img name="bodycore" imgrect="151 231 200 30"/>
+			<img name="bodyright" imgrect="352 231 150 30"/>
+			<img name="bottomleft" imgrect="0 262 150 30"/>
+			<img name="bottomcore" imgrect="151 262 200 30"/>
+			<img name="bottomright" imgrect="352 262 150 30"/>
+		</skin>
+	<skin name="guildbattle_lose_bg" texture="\skin\PVP_skin.tga">
+			<img name="topleft" imgrect="1022 164 100 50"/>
+			<img name="topcore" imgrect="1123 164 200 50"/>
+			<img name="topright" imgrect="1324 164 100 50"/>
+			<img name="bodyleft" imgrect="1022 215 100 100"/>
+			<img name="bodycore" imgrect="1123 215 200 100"/>
+			<img name="bodyright" imgrect="1324 215 100 100"/>
+			<img name="bottomleft" imgrect="1022 316 100 50"/>
+			<img name="bottomcore" imgrect="1123 316 200 50"/>
+			<img name="bottomright" imgrect="1324 316 100 50"/>
+		</skin>
+		<skin name="guildbattle_win_bg" texture="\skin\PVP_skin.tga">
+			<img name="topleft" imgrect="1426 164 100 50"/>
+			<img name="topcore" imgrect="1527 164 200 50"/>
+			<img name="topright" imgrect="1728 164 100 50"/>
+			<img name="bodyleft" imgrect="1426 215 100 100"/>
+			<img name="bodycore" imgrect="1527 215 200 100"/>
+			<img name="bodyright" imgrect="1728 215 100 100"/>
+			<img name="bottomleft" imgrect="1426 316 100 50"/>
+			<img name="bottomcore" imgrect="1527 316 200 50"/>
+			<img name="bottomright" imgrect="1728 316 100 50"/>
+		</skin>
+		<skin name="guildbattle_lose_name" texture="\skin\PVP_skin.tga">
+			<img name="topleft" imgrect="769 939 50 20"/>
+			<img name="topcore" imgrect="820 939 150 20"/>
+			<img name="topright" imgrect="971 939 50 20"/>
+			<img name="bodyleft" imgrect="769 960 50 40"/>
+			<img name="bodycore" imgrect="820 960 150 40"/>
+			<img name="bodyright" imgrect="971 960 50 40"/>
+			<img name="bottomleft" imgrect="769 1001 50 20"/>
+			<img name="bottomcore" imgrect="820 1001 150 20"/>
+			<img name="bottomright" imgrect="971 1001 50 20"/>
+		</skin>
+		<skin name="guildbattle_win_name" texture="\skin\PVP_skin.tga">
+			<img name="topleft" imgrect="511 939 50 20"/>
+			<img name="topcore" imgrect="562 939 150 20"/>
+			<img name="topright" imgrect="713 939 50 20"/>
+			<img name="bodyleft" imgrect="511 960 50 40"/>
+			<img name="bodycore" imgrect="562 960 150 40"/>
+			<img name="bodyright" imgrect="713 960 50 40"/>
+			<img name="bottomleft" imgrect="511 1001 50 20"/>
+			<img name="bottomcore" imgrect="562 1001 150 20"/>
+			<img name="bottomright" imgrect="713 1001 50 20"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -3951,6 +4017,14 @@
 			<img name="barmiddle" imgrect="1 132 240 40"/>
 			<img name="barright" imgrect="241 132 1 40"/>
 		</skin>
+	<skin name="gauge_guildtower_HP" texture="\skin\pvp_skin.tga">
+			<img name="bgleft" imgrect="1689 81 7 22"/>
+			<img name="bgmiddle" imgrect="1693 81 131 22"/>
+			<img name="bgright" imgrect="1830 81 7 22"/>
+			<img name="barleft" imgrect="1689 104 7 22"/>
+			<img name="barmiddle" imgrect="1693 104 131 22"/>
+			<img name="barright" imgrect="1830 104 7 22"/>
+		</skin>
 	</skinlist>
 	<skinlist category="labellines">
 		<skin name="labelline_def_2" texture="\skin\tooltip_skin_3.tga">
@@ -4409,6 +4483,12 @@
 	<image name="moncard_inven_image" file="\skin\pip_test.tga" imgrect="1515 836 157 35" CMM_Caption="몬스터카드_장착배경"/>
 		<image name="moncard_inven_up" file="\skin\pip_test.tga" imgrect="1515 872 10 10" CMM_Caption="몬스터카드_업"/>
 		<image name="moncard_inven_down" file="\skin\pip_test.tga" imgrect="1526 872 10 10" CMM_Caption="몬스터카드_다운"/>
+	<image name="mission_fail_boss" file="\skin\missionfail_skin.tga" imgrect="578 0 450 450" CMM_Caption="미션 보스 이미지"/>
+	<image name="guildbattle_lose" file="\skin\PVP_skin.tga" imgrect="1689 0 167 80" CMM_Caption="길드대전_패배표시"/>
+		<image name="guildbattle_win" file="\skin\PVP_skin.tga" imgrect="1288 0 400 144" CMM_Caption="길드대전_승리표시"/>
+		<image name="guildbattle_draw" file="\skin\PVP_skin.tga" imgrect="693 662 210 80" CMM_Caption="길드대전_비김표시"/>
+		<image name="guildtower_lose" file="\skin\PVP_skin.tga" imgrect="1016 0 135 135" CMM_Caption="타워아이콘_패배"/>
+		<image name="guildtower_windraw" file="\skin\PVP_skin.tga" imgrect="1152 0 135 135" CMM_Caption="타워아이콘_승리"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -5020,6 +5100,9 @@
 		<image name="logo_nexon" file="\skin\login_barrack.tga" imgrect="168 290 152 47"/>
 		<image name="logo_pathengine" file="\skin\login_barrack.tga" imgrect="0 849 300 120"/>
 		<image name="logo_bandicam" file="\skin\login_barrack.tga" imgrect="0 970 300 54"/>
+		<image name="copyright_2016_global" file="\skin\login_barrack.tga" imgrect="156 250 380 17"/>
+		<image name="logo_x2game" file="\skin\login_barrack.tga" imgrect="591 751 152 47"/>
+		<image name="game_rating_mark12" file="\skin\login_barrack.tga" imgrect="823 404 100 100"/>
 	</imagelist>
 	<imagelist category="etc">
 		<image name="popup_floor" file="\skin\popup_floor.png" imgrect="0 0 490 260"/>
@@ -5997,6 +6080,7 @@
 	<image name="Dlg_port_Vaivora" file="\npcimg\Vaivora.png" imgrect="0 0 900 1000" CMM_Caption="바이보라여신"/>
 		<image name="Dlg_port_Dalia" file="\npcimg\Dalia.png" imgrect="0 0 900 1000" CMM_Caption="딜라아"/>
 		<image name="Dlg_port_Vincentas" file="\npcimg\Vincentas.png" imgrect="0 0 850 1000" CMM_Caption="빈센타스"/>
+	<image name="Dlg_port_AgaillaFlurry" file="\npcimg\AgaillaFlurry.png" imgrect="0 0 800 900" CMM_Caption="아가일라플러리"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="loginui_idpw" x="0" y="0" width="1920" height="1080">
 	<frame title="로그인" margin="0 0 0 0" fullheight="true" layout_gravity="center bottom" scale_align="center bottom"/>
 	<layer layerlevel="11"/>
@@ -14,6 +14,7 @@
 		<picture name="logo_imc" rect="0 0 160 44" margin="0 0 0 30" layout_gravity="center bottom" hittest="false" image="logo_imc" serviceNation="KOR" stretch="true"/>
 		<picture name="logo_idn" rect="0 0 130 30" margin="-100 0 30 30" layout_gravity="center bottom" hittest="false" image="logo_idn" serviceNation="IDN" stretch="true"/>
 		<picture name="logo_imc1" rect="0 0 160 44" margin="90 0 30 30" layout_gravity="center bottom" hittest="false" image="logo_imc" serviceNation="IDN" stretch="true"/>
+		<picture name="img_copyright_gb" rect="0 0 360 17" margin="0 0 0 15" layout_gravity="center bottom" hittest="false" image="copyright_4_global" serviceNation="IDN" stretch="true"/>
 		<picture name="copyright_banner" rect="0 0 199 10" margin="0 0 0 15" layout_gravity="center bottom" hittest="false" image="copyright_banner" serviceNation="KOR" stretch="true"/>
 		<picture name="game_violent" rect="0 0 100 116" margin="0 20 130 0" layout_gravity="right top" hittest="false" image="game_violent_mark" serviceNation="KOR" stretch="true"/>
 		<picture name="game_rating" rect="0 0 100 116" margin="0 20 20 0" layout_gravity="right top" hittest="false" image="game_rating_mark" serviceNation="KOR" stretch="true"/>

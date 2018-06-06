@@ -298,10 +298,7 @@ function Proliferation_ENTER(actor, obj, buff)
 	end
 
 	actor:SetNodeScale("Bip01 L Hand", 2.0)
-	actor:SetNodeScale("Dummy_L_HAND", 1.0)
-	-- imcSound.PlaySoundItem(cls.Sound);
-	-- actor:PlaySound("SOUNDNAME");
-	
+	actor:SetNodeScale("Dummy_L_HAND", 1.25)
 end
 
 function Proliferation_LEAVE(actor, obj, buff)
@@ -318,17 +315,20 @@ function ProliferationRH_ENTER(actor, obj, buff)
 	end
 		
 	actor:SetNodeScale("Bip01 R Hand", 2.0)
-	actor:SetNodeScale("Dummy_R_HAND", 1.0)
-	-- imcSound.PlaySoundItem(cls.Sound);
-	-- actor:PlaySound("SOUNDNAME");
-	
+	actor:SetNodeScale("Dummy_R_HAND", 1.25)
+	actor:SetNodeScale("Dummy_R_dagger", 1.25)
+	actor:SetNodeScale("Dummy_R_allebell", 1.25)
+	actor:SetNodeScale("Dummy_R_umbrella", 1.25)
+	actor:SetNodeScale("Dummy_Shield", 1.25)	
 end
 
 function ProliferationRH_LEAVE(actor, obj, buff)
-
 	actor:SetNodeScale("Bip01 R Hand", 1.0)
 	actor:SetNodeScale("Dummy_R_HAND", 1.0)
-
+	actor:SetNodeScale("Dummy_R_dagger", 1.0)
+	actor:SetNodeScale("Dummy_R_allebell", 1.0)
+	actor:SetNodeScale("Dummy_R_umbrella", 1.0)
+	actor:SetNodeScale("Dummy_Shield", 1.0)
 end
 
 
@@ -373,13 +373,17 @@ function CalcBuffEffScale(radius)
 end
 
 -- 텔레키네시스처럼 FSM으로는 ASTD이지만 실제로는 스킬캐스팅중 인것들 등록. (버프로 캐스팅중인것 확인)
-function IsSkillStateByBuff()
+function IsSkillStateByBuff(isForGuard)
 
   -- 텔레키네시스
   if info.GetMyPcBuff('TeleCast') ~= nil then
     return 1;
   end
 
+  -- 임페일러
+	if isForGuard == 1 and info.GetMyPcBuff('Impaler_Buff') ~= nil then
+	  return 1;
+	end
   return 0;
 end
 

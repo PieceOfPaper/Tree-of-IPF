@@ -1,7 +1,7 @@
 
 function MARKET_SELL_ON_INIT(addon, frame)
 	addon:RegisterMsg("MARKET_REGISTER", "ON_MARKET_REGISTER");
-	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");
+	addon:RegisterMsg("MARKET_SELL_LIST", "ON_MARKET_SELL_LIST");
 	
 	addon:RegisterMsg("MARKET_MINMAX_INFO", "ON_MARKET_MINMAX_INFO");
 end
@@ -84,6 +84,10 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 		local cashValue = GetCashValue(marketItem.premuimState, "marketSellCom") * 0.01;
 		local stralue = GetCashValue(marketItem.premuimState, "marketSellCom");
+		if itemObj.ClassID == 490000 then
+			 cashValue = 0;
+			 stralue = 0;
+		end
 		priceStr = string.format("{img icon_item_silver %d %d}%d[%d%%]", 20, 20, marketItem.sellPrice * marketItem.count * cashValue, stralue) 
 		local silverFee = ctrlSet:GetChild("silverFee");
 		silverFee:SetTextByKey("value", priceStr);
@@ -124,10 +128,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 	end
 
 	local invframe = ui.GetFrame("inventory");
-	if invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU")
-		or invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invItem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
-	
+	if true == IS_TEMP_LOCK(invframe, invItem) then
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return false;
 		end
@@ -312,6 +313,13 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local count = session.market.GetItemCount();
 	local userType = session.loginInfo.GetPremiumState();
 	local maxCount = GetCashValue(userType, "marketUpMax");
+	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+		local tokenCnt = GetCashValue(ITEM_TOKEN, "marketUpMax");
+		if tokenCnt > maxCount then
+			maxCount = tokenCnt;
+		end
+	end
+
 	if count+1 > maxCount then
 		ui.SysMsg(ClMsg("MarketRegitCntOver"));		
 		return;
@@ -394,14 +402,10 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 
 	local invframe = ui.GetFrame("inventory");
-	if invitem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU")
-		or invitem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invitem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
-	
+	if true == IS_TEMP_LOCK(invframe, invitem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return false;
 	end
-
 	local itemProp = geItemTable.GetProp(obj.ClassID);
 	local pr = TryGetProp(obj, "PR");
 

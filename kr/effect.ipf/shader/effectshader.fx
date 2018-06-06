@@ -22,7 +22,6 @@ sampler2D g_bgSampler = sampler_state
     Texture = <g_bgTexture>;
 };
 
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
 texture	g_bgDepthTexture;
 sampler2D g_bgDepthSampler = sampler_state 
 {
@@ -35,15 +34,13 @@ sampler2D g_bgDepthSampler = sampler_state
 	BorderColor = 0xFFFFFFFF;
 	SRGBTEXTURE = FALSE;
 };
-#endif
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // global shader variables
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 float 		g_Power = 1.0f;
-//float		g_Freq 	= 600.0f;
 float		g_HDR_sunLightIntensity = 1.0f;
-float		g_HDR_specularIntensity = 0.0f;
 
 float		g_farDistance = 10000.0f;
 float		g_softParticleRange = 3.0f;
@@ -71,7 +68,7 @@ float4		g_lightDirection;
 // 3dƒ≥∏Ø≈Õ 2d∑Œ ±◊∏Æ¥¬∞≈
 float4x4 	g_billboardTM		: 	BILLBOARD_TM;
 float4x4 	g_charProjTM		:	CHARPROJ_TM;
-float4x4		g_charViewTM		:	CHARVIEW_TM;
+float4x4	g_charViewTM		:	CHARVIEW_TM;
 float3		g_pivotPoint;
 
 float g_softParticleFactor = 0.15f;
@@ -288,39 +285,30 @@ float decodeFromRG(float2 rg)
 }
 
 float CalcAlphaWithDepth(float4 srcPos)
-{	
-
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-	#ifndef USE_SOFT_PARTICLE
-		return 1.0f;	//2d¿Ã∆Â∆Æ(ex:UI)
-	#endif
+{
+#ifdef USE_SOFT_PARTICLE
 	float2 scrTexOut = GetScreenTex(srcPos);
 	float pixelDepth = srcPos.z;
-	float bgDepth = tex2D(g_bgDepthSampler, scrTexOut.xy).x * 5000.0;
-
-	float delta = (bgDepth - pixelDepth)*g_softParticleFactor + 1.0f;	
-	float alpha = saturate(delta);		
+	float bgDepth = tex2D(g_bgDepthSampler, scrTexOut.xy).x * 5000.0f;
+	float delta = (bgDepth - pixelDepth) * g_softParticleFactor + 1.0f;
+	float alpha = saturate(delta);
 	return alpha;
 #else
-	return 1.0f;
+	return 1.0f;	//2d¿Ã∆Â∆Æ(ex:UI)
 #endif
 }
 
 float CalcAlphaWithDepthInstancing(float4 srcPos, float softParticleFactor)
 {
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-#ifndef USE_SOFT_PARTICLE
-	return 1.0f;	//2d¿Ã∆Â∆Æ(ex:UI)
-#endif
+#ifdef USE_SOFT_PARTICLE
 	float2 scrTexOut = GetScreenTex(srcPos);
-		float pixelDepth = srcPos.z;
-	float bgDepth = tex2D(g_bgDepthSampler, scrTexOut.xy).x * 5000.0;
-
+	float pixelDepth = srcPos.z;
+	float bgDepth = tex2D(g_bgDepthSampler, scrTexOut.xy).x * 5000.0f;
 	float delta = (bgDepth - pixelDepth) * softParticleFactor + 1.0f;
 	float alpha = saturate(delta);
 	return alpha;
 #else
-	return 1.0f;
+	return 1.0f;	//2d¿Ã∆Â∆Æ(ex:UI)
 #endif
 }
 
@@ -332,25 +320,25 @@ float4 PS_MultiplyProcessInstancing(in float4 diffuse : COLOR,
 	in float4 WavePowerTime : TEXCOORD4
 	) : COLOR
 {
+	clip(diffuse.a - 0.001f);
+
 	tex.x = tex.x + (sin(tex.y * WaveSpeedStretch.z + WavePowerTime.z * WaveSpeedStretch.x) * WavePowerTime.x);
 	tex.y = tex.y + (sin(tex.x * WaveSpeedStretch.w + WavePowerTime.z * WaveSpeedStretch.y) * WavePowerTime.y);
 
 	float4 texColor = tex2D(g_sampler, tex.xy).rgba;
-		float4 finalColor = texColor * diffuse;
-		finalColor.rgb = finalColor * g_HDR_sunLightIntensity;
+	float4 finalColor = texColor * diffuse;
+	finalColor.rgb = finalColor * g_HDR_sunLightIntensity;
 
 #ifdef IS_REVERSE
 	finalColor = ShiftColor(finalColor);
 #endif
 
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-	#ifdef RGB_SOFT_PARTICLE
-		finalColor.rgb *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
-		finalColor.a = 0.0f;
-	#else
-		finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
-	#endif
-#endif	
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+	finalColor.a = 0.0f;
+#else
+	finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+#endif
 
 	return finalColor;
 }
@@ -368,13 +356,11 @@ float4 PS_AdditiveProcessInstancing(in float4 diffuse : COLOR,
 	finalColor.a = texColor.a * diffuse.a;
 	finalColor.rgb = (texColor.rgb * diffuse.rgb) * g_HDR_sunLightIntensity;
 
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-	#ifdef RGB_SOFT_PARTICLE
-		finalColor.rgb *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
-		finalColor.a = 1.0f;
-	#else
-		finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
-	#endif
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+	finalColor.a = 1.0f;
+#else
+	finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
 #endif
 
 #ifdef IS_REVERSE
@@ -395,14 +381,12 @@ float4 PS_ExchangeProcessInstancing(in float4 diffuse : COLOR,
 	finalColor.a = texColor.a * diffuse.a;
 	finalColor.rgb = finalColor * g_HDR_sunLightIntensity;
 
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-	#ifdef RGB_SOFT_PARTICLE
-		finalColor.rgb *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
-		finalColor.a = 1.0f;
-	#else
-		finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
-	#endif	
-#endif
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+	finalColor.a = 1.0f;
+#else
+	finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+#endif	
 
 #ifdef IS_REVERSE
 	finalColor = ShiftColor(finalColor);
@@ -436,14 +420,13 @@ float4 PS_MultiplyProcess( in float4 diffuse : COLOR,
 #ifdef IS_REVERSE
 	finalColor = ShiftColor(finalColor);
 #endif 
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-	#ifdef RGB_SOFT_PARTICLE
-		finalColor.rgb *= CalcAlphaWithDepth(ScrPos);
-		finalColor.a = 0.0f;	
-	#else
-		finalColor.a *= CalcAlphaWithDepth(ScrPos);
-	#endif		
-#endif	
+
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepth(ScrPos);
+	finalColor.a = 0.0f;	
+#else
+	finalColor.a *= CalcAlphaWithDepth(ScrPos);
+#endif		
 
 	return finalColor;
 }
@@ -459,14 +442,11 @@ float4 PS_AdditiveProcess( in float4 diffuse : COLOR,
 	finalColor.a 	= texColor.a * diffuse.a;
 	finalColor.rgb 	= (texColor.rgb * diffuse.rgb) * g_HDR_sunLightIntensity;	
 	
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-	#ifdef RGB_SOFT_PARTICLE
-		finalColor.rgb *= CalcAlphaWithDepth(ScrPos);
-		finalColor.a = 1.0f;	
-	#else
-		finalColor.a *= CalcAlphaWithDepth(ScrPos);
-	#endif
-		
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepth(ScrPos);
+	finalColor.a = 1.0f;	
+#else
+	finalColor.a *= CalcAlphaWithDepth(ScrPos);
 #endif
 
 #ifdef IS_REVERSE
@@ -480,23 +460,21 @@ float4 PS_ExchangeProcess( in float4 diffuse : COLOR,
 						in float2 tex: TEXCOORD0,
 						in float4 ScrPos: TEXCOORD1
 						) : COLOR
-{	
+{
     float4 texColor = tex2D(g_sampler, tex.xy).rgba;
 	float4 finalColor = diffuse;
 	finalColor.a 	= texColor.a * diffuse.a;
 	finalColor.rgb 	= finalColor * g_HDR_sunLightIntensity;
 	
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-	#ifdef RGB_SOFT_PARTICLE
-		finalColor.rgb *= CalcAlphaWithDepth(ScrPos);	
-		finalColor.a = 1.0f;	
-	#else
-		finalColor.a *= CalcAlphaWithDepth(ScrPos);	
-	#endif	
-#endif		
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepth(ScrPos);	
+	finalColor.a = 1.0f;	
+#else
+	finalColor.a *= CalcAlphaWithDepth(ScrPos);	
+#endif	
 
 #ifdef IS_REVERSE
-		finalColor = ShiftColor(finalColor);
+	finalColor = ShiftColor(finalColor);
 #endif 
 	return finalColor;
 }

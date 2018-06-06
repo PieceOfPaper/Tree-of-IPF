@@ -375,6 +375,9 @@
 						<Str Str="None"/>
 						<Str Str="NotCheck"/>
 					</ToolScp>
+				<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Melee"/>
+					</ToolScp>
 				</CondList>
 				<TgtExecList>
 					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">

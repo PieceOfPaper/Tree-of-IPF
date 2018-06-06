@@ -269,66 +269,44 @@ function ON_INTE_WARP(frame, changeDirection)
 								calcOnlyPosition = true;
 							end
 						end
-
+						local brushX = startX + x * spaceX;
+						local brushY = pictureStartY - y * spaceY;
 							if pic:GetChild(gBoxName) == nil then 
 								local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
 								gbox:SetSkinName("downbox");
 								gbox:ShowWindow(1);
 			
 								if  tonumber(index) <= 1 then
-									local setName = "WARP_CTRLSET_" .. index;
-									if calcOnlyPosition == false or gbox:GetChild(setName) == nil then
-										local set = gbox:CreateOrGetControlSet('warpAreaName', setName, 0, 0);
-										set = tolua.cast(set, "ui::CControlSet");
-										set:SetEnableSelect(1);
-										set:SetOverSound('button_over');
-										set:SetClickSound('button_click_stats');
-										local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
-								
-										nameRechText:SetTextByKey("mapname", GET_WARP_NAME_TEXT(mapCls, info, nowZoneName));
-										set:SetEventScript(ui.LBUTTONUP, 'WARP_TO_AREA')
-										set:SetEventScriptArgString(ui.LBUTTONUP, info.ClassName);
-										set:SetTooltipType('warpminimap');
-										set:SetTooltipStrArg(info.ClassName);
-										set:SetTooltipNumArg(warpcost)
-										if nameRechText:GetWidth() > 130 then
-											nameRechText:SetTextFixWidth(1);
-											nameRechText:Resize(125 , set:GetHeight())
+								ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY)
+							else
+								ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY)
+							end
+						else			
+							ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY)
+						end
+						local gbox = pic:GetChild(gBoxName)
+						GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
 										end
-										if makeWorldMapImage == true then
-											local brushX = startX + x * spaceX;
-											local brushY = pictureStartY - y * spaceY;
-											ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
 										end
 									end
-								else
-									local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
-									local setName = "WARP_CTRLSET_" .. index;
-									if calcOnlyPosition == false or gbox:GetChild(setName) == nil then
-										local set = gbox:CreateOrGetControlSet('warpAreaName', setName, 0, 0);
-										set = tolua.cast(set, "ui::CControlSet");
-										set:SetEnableSelect(1);
-										set:SetOverSound('button_over');
-										set:SetClickSound('button_click_stats');
-										local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
-										nameRechText:SetTextByKey("mapname",GET_WARP_NAME_TEXT(mapCls, info, nowZoneName));
-										set:SetEventScript(ui.LBUTTONUP, 'WARP_TO_AREA')
-										set:SetEventScriptArgString(ui.LBUTTONUP, info.ClassName);
-										set:SetTooltipType('warpminimap');
-										set:SetTooltipStrArg(info.ClassName);
-										set:SetTooltipNumArg(warpcost)
-										if nameRechText:GetWidth() > 130 then
-											nameRechText:SetTextFixWidth(1);
-											nameRechText:Resize(125 , set:GetHeight())
 										end
+
 										if makeWorldMapImage == true then
-											local brushX = startX + x * spaceX;
-											local brushY = pictureStartY - y * spaceY;
-											ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
+			ui.CreateCloneImageSkin("worldmap_" .. currentDirection .."_fog", "worldmap_" .. currentDirection .."_current");
+			ui.DrawBrushes("worldmap_" .. currentDirection .."_current", "worldmap_" .. currentDirection .."_bg")
 										end
+
 									end
+
+
+
+	pic:SetImage("worldmap_" .. currentDirection .. "_current");
+
+	frame:Invalidate()
+
 								end
-							else				
+
+function ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY)
 								local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
 								local setName = "WARP_CTRLSET_" .. index;
 								if calcOnlyPosition == false or gbox:GetChild(setName) == nil then
@@ -349,34 +327,11 @@ function ON_INTE_WARP(frame, changeDirection)
 										nameRechText:Resize(125 , set:GetHeight())
 									end
 									if makeWorldMapImage == true then
-										local brushX = startX + x * spaceX;
-										local brushY = pictureStartY - y * spaceY;
 										ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
 									end
 								end
 							end
-							local gbox = pic:GetChild(gBoxName)
-							GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
-						end
-				
-				end
-			end
-		end
 
-		if makeWorldMapImage == true then
-			ui.CreateCloneImageSkin("worldmap_" .. currentDirection .."_fog", "worldmap_" .. currentDirection .."_current");
-			ui.DrawBrushes("worldmap_" .. currentDirection .."_current", "worldmap_" .. currentDirection .."_bg")
-		end
-
-	end
-
-
-
-	pic:SetImage("worldmap_" .. currentDirection .. "_current");
-
-	frame:Invalidate()
-
-end
 
 function GET_WARP_NAME_TEXT(mapCls, info, nowZoneName)
 
@@ -403,6 +358,16 @@ function CREATE_WARP_CTRL(gbox, setName, info, warpcost)
 end
 
 function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
+
+	local warpFrame = ui.GetFrame('inte_warp');
+	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');
+	local costRichText = GET_CHILD(tooltipframe, "richtext_cost", "ui::CRichText");
+	
+	if (warpitemname == 'NO' or warpitemname == 'None')  then
+		costRichText:ShowWindow(1);
+	else
+		costRichText:ShowWindow(0);
+	end
 
 	local camp_warp_class = GetClass('camp_warp', strarg)
 	--여신상 있는 지역인 경우.
@@ -532,8 +497,16 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 		warpcost = 0
 	end
 	
-	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');
+	local etc = GetMyEtcObject();
+	local prevWarpZone = GetClassByType("Map", etc.ItemWarpMapID)
 
+	if prevWarpZone ~= nil then
+		if targetMapName == TryGetProp(prevWarpZone, "ClassName") then
+			warpcost = 0
+		end	
+	end
+
+	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');
 	if (warpitemname == 'NO' or warpitemname == 'None') and myMoney < warpcost then
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
 		return;
