@@ -19,6 +19,9 @@ function UPDATE_CURRENT_CHANNEL_TRAFFIC(frame)
 end
 
 function POPUP_CHANNEL_LIST(parent)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        return;
+    end
 	
 	if parent:GetUserValue("ISOPENDROPCHANNELLIST") == "YES" then
 		parent:SetUserValue("ISOPENDROPCHANNELLIST", "NO");

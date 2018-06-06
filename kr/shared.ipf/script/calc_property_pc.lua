@@ -1034,41 +1034,7 @@ function SCR_Get_MAXMATK(self)
 end
 
 function SCR_Get_DEF(self)
-    local defaultValue = 20;
-    
-    local lv = TryGetProp(self, "Lv");
-    if lv == nil then
-        lv = 1;
-    end
-    
---    local byLevel = lv * 1.5;
-    local byLevel = lv * 1.0;
-    
---    local rank = GetTotalJobCount(self)
---    if rank == nil or rank < 1 then
---        rank = 1;
---    end
---    
---    local byRank = math.floor(byLevel * ((rank - 1) * 0.1))
-    
-    local byItem = 0;
-    local byItemList = { "DEF", "ADD_DEF" };
-    for i = 1, #byItemList do
-        local byItemTemp = GetSumOfEquipItem(self, byItemList[i]);
-        if byItemTemp == nil then
-            byItemTemp = 0;
-        end
-        
-        byItem = byItem + byItemTemp;
-    end
-    
-    local byBonus = TryGetProp(self, "MAXDEF_Bonus");
-    if byBonus == nil then
-        byBonus = 0;
-    end
-    
---    local value = byLevel + byRank + byItem + byBonus;
-    local value = defaultValue + byLevel + byItem + byBonus;
+    local value = SCR_CALC_BASIC_DEF(self);
     
     local byBuff = TryGetProp(self, "DEF_BM");
     if byBuff == nil then
@@ -1088,7 +1054,7 @@ function SCR_Get_DEF(self)
     local leftHand = GetEquipItemForPropCalc(self, 'LH');
     if IsBuffApplied(self, 'Warrior_LH_VisibleObject') == 'YES' and leftHand ~= nil then
         throwItemDef = leftHand.DEF;
-    end 
+    end
     
     value = value - throwItemDef;
     
@@ -1099,7 +1065,7 @@ function SCR_Get_DEF(self)
     return math.floor(value);
 end
 
-function SCR_Get_MDEF(self)
+function SCR_CALC_BASIC_DEF(self)
     local defaultValue = 20;
     
     local lv = TryGetProp(self, "Lv");
@@ -1107,18 +1073,10 @@ function SCR_Get_MDEF(self)
         lv = 1;
     end
     
---    local byLevel = lv * 1.5;
     local byLevel = lv * 1.0;
     
---    local rank = GetTotalJobCount(self)
---    if rank == nil or rank < 1 then
---        rank = 1;
---    end
---    
---    local byRank = math.floor(byLevel * ((rank - 1) * 0.1))
-    
     local byItem = 0;
-    local byItemList = { "MDEF", "ADD_MDEF" };
+    local byItemList = { "DEF", "ADD_DEF" };
     for i = 1, #byItemList do
         local byItemTemp = GetSumOfEquipItem(self, byItemList[i]);
         if byItemTemp == nil then
@@ -1128,8 +1086,18 @@ function SCR_Get_MDEF(self)
         byItem = byItem + byItemTemp;
     end
     
---    local value = byLevel + byRank + byItem;
-    local value = defaultValue + byLevel + byItem;
+    local byBonus = TryGetProp(self, "MAXDEF_Bonus");
+    if byBonus == nil then
+        byBonus = 0;
+    end
+    
+    local value = defaultValue + byLevel + byItem + byBonus;
+    
+    return value;
+end
+
+function SCR_Get_MDEF(self)
+    local value = SCR_CALC_BASIC_MDEF(self);
     
     local byEnchant = 0;
     local enchantCount = CountEnchantItemEquip(self, 'ENCHANTARMOR_PROTECTIVE');
@@ -1154,12 +1122,44 @@ function SCR_Get_MDEF(self)
     return math.floor(value);
 end
 
+function SCR_CALC_BASIC_MDEF(self)
+    local defaultValue = 20;
+    
+    local lv = TryGetProp(self, "Lv");
+    if lv == nil then
+        lv = 1;
+    end
+    
+    local byLevel = lv * 1.0;
+    
+    local byItem = 0;
+    local byItemList = { "MDEF", "ADD_MDEF" };
+    for i = 1, #byItemList do
+        local byItemTemp = GetSumOfEquipItem(self, byItemList[i]);
+        if byItemTemp == nil then
+            byItemTemp = 0;
+        end
+        
+        byItem = byItem + byItemTemp;
+    end
+    
+    local value = defaultValue + byLevel + byItem;
+    
+    return value;
+end
+
 function SCR_Get_BLKABLE(self)
     
-    local isShield = GetSumOfEquipItem(self, 'BlockRate');
-    if isShield > 0 then
+    local equipLH = GetEquipItem(self, 'LH');
+    local isShield = TryGetProp(equipLH, 'ClassType');
+    if isShield == 'Shield' then
         return 1;
     end
+    
+--    local isShield = GetSumOfEquipItem(self, 'BlockRate');
+--    if isShield > 0 then
+--        return 1;
+--    end
     
     local buffList = { "CrossGuard_Buff", "StoneSkin_Buff" };
     for i = 1, #buffList do
@@ -1257,7 +1257,12 @@ function SCR_Get_BLK_BREAK(self)
         byBuff = 0;
     end
     
-    local value = byLevel + byStat + byItem + byBuff;
+    local byAbil = GetExProp(self, "ABIL_THMACE_BLKBLEAK")
+    if byAbil == nil then
+        byAbil = 0
+    end
+    
+    local value = byLevel + byStat + byItem + byBuff + byAbil;
     
     return math.floor(value);
 end
@@ -1964,7 +1969,18 @@ function SCR_Get_SR(self)
         byBuff = 0;
     end
     
-    local value = defaultSR + byItem + byBuff;
+    local byAbil = 0;
+    local abilPropList = { 'ABIL_THSWORD_SR', 'ABIL_THSTAFF_SR' };
+    for i = 1, #abilPropList do
+        local abilProp = GetExProp(self, abilPropList[i])
+        if abilProp == nil then
+            abilProp = 0
+        end
+        
+        byAbil = byAbil + abilProp;
+    end
+    
+    local value = defaultSR + byItem + byBuff + byAbil;
     
     return math.floor(value);
 end
@@ -2488,7 +2504,18 @@ function SCR_Get_SkillRange(self)
         byBuff = 0;
     end
     
-    local value = byItem + byBuff;
+    local byAbil = 0
+    local abilPropList = { 'ABIL_SPEAR_RANGE', 'ABIL_THSPEAR_RANGE' };
+    for i = 1, #abilPropList do
+        local abilProp = GetExProp(self, abilPropList[i])
+        if abilProp == nil then
+            abilProp = 0
+        end
+        
+        byAbil = byAbil + abilProp;
+    end
+    
+    local value = byItem + byBuff + byAbil;
     
     return value;
 end
@@ -3445,3 +3472,23 @@ end
 --    value = value - valueBM;
 --    return math.floor(value);
 --end
+
+
+
+function SCR_GET_LOOTINGCHANCE(self)
+    local defaultValue = 0;
+    
+    local byItem = GetSumOfEquipItem(self, 'LootingChance');
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(self, 'LootingChance_BM');
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = defaultValue + byItem + byBuff;
+    
+    return math.floor(value);
+end

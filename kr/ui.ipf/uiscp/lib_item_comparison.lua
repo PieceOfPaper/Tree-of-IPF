@@ -84,6 +84,7 @@ function GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
+    list[#list+1] = "LootingChance";
 	return list;
 
 end
@@ -157,6 +158,7 @@ function GET_ATK_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
+    list[#list+1] = "LootingChance";
 	return list;
 
 end
@@ -235,6 +237,7 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
+    list[#list+1] = "LootingChance";
 	return list;
 
 end
@@ -314,6 +317,7 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
+    list[#list+1] = "LootingChance";
 	return list;
 
 end

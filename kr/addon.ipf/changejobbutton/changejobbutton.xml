@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="changejobbutton" x="0" y="0" width="320" height="100">
 	<frame title="전직 가능 알람" snapclient="true" snapframe="true" layout_gravity="right top" margin="0 350 30 0"/>
 	<option visible="false" closebutton="false" useimageitem="true" piptype="right" autoopen="false" hideable="false"/>
@@ -9,7 +9,7 @@
 	<draw blend="100" drawtitlebar="false" drawframe="false"/>
 	<controls>
 		<button name="open_changejobui" rect="0 0 226 78" margin="0 0 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st43}클래스 전직" clicksound="button_click_3" oversound="button_cursor_over_2" image="btn_lv3">
-			<uieffect effect="UI_screen_logo012" scale="14" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"endEvent="LBUTTONDOWN"/>
+			<uieffect effect="UI_screen_logo012" scale="14" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN" endEvent="LBUTTONDOWN"/>
 			<uieffect effect="UI_screen_logo012_LOOP" scale="13.5" overlab="No" sound="None" offset="0 0" playtime="0.8" duration="0" conditon="active" event="MOUSEON" endEvent="MOUSEOFF"/>
 		</button>
 	</controls>

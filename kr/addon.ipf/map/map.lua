@@ -1,4 +1,4 @@
-﻿
+
 function MAP_ON_INIT(addon, frame)
 	map_offsetx = 0;
 	map_offsety = 0;
@@ -35,6 +35,7 @@ function MAP_ON_INIT(addon, frame)
 			
 	addon:RegisterMsg('CHANGE_CLIENT_SIZE', 'FIRST_UPDATE_MAP');
     addon:RegisterMsg('COLONY_MONSTER', 'MAP_COLONY_MONSTER');
+    addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MAP');
 
 	frame = ui.GetFrame("map");
 	INIT_MAPUI_INFO(frame);
@@ -60,12 +61,12 @@ function MAP_OPEN(frame)
 	end
 	
 	if beforeWidth ~= frame:GetWidth() then
-		UPDATE_MAP(frame, 0);
+		UPDATE_MAP(frame);
 	end
 
 end
 
--- �ػ� ����Ǹ� ���������ߵ�.
+-- 해상도 변경되면 실행시켜줘야됨.
 function INIT_MAPUI_INFO(frame)
 	
 	local width = frame:GetWidth();
@@ -353,14 +354,14 @@ function FIRST_UPDATE_MAP(frame, msg)
 		INIT_MAPUI_INFO(frame);
 	end
 
-	UPDATE_MAP(frame, 1);
+	UPDATE_MAP(frame);
 
 	local nameframe = ui.GetFrame("mapname");
 	nameframe:SetOpenDuration(2);
 	nameframe:SetDuration(0.1);
 end
 
-function UPDATE_MAP(frame, isFirst)
+function UPDATE_MAP(frame)
 
 	local curmapname = session.GetMapName()
 	UPDATE_MAP_BY_NAME(frame, curmapname, GET_CHILD(frame, "map"));
@@ -400,7 +401,7 @@ function UPDATE_NPC_STATE_COMMON(frame)
 	local cnt = mongens:Count();
 	
 	local typeCount = {};
-	-- MONGEN�� ���� ����Ʈ ���� ���
+	-- MONGEN을 통한 퀘스트 정보 출력
 	for i = 0 , cnt - 1 do
 	local MonProp = mongens:Element(i);
 		if MonProp.Minimap >= 1 then
@@ -509,7 +510,8 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 		offsetY = m_offsetY;
 	end
 
-	-- MONGEN�� ���� ����Ʈ ���� ���
+	-- MONGEN을 통한 퀘스트 정보 출력
+    local isColonyMap = session.colonywar.GetIsColonyWarMap();
 	for i = 0 , cnt - 1 do
 		local MonProp = mongens:Element(i);
 		
@@ -526,11 +528,14 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 				local PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);                
 				tolua.cast(PictureC, "ui::CPicture");
 				local idx, Icon = SET_MAP_MONGEN_NPC_INFO(PictureC, mapprop, WorldPos, MonProp, mapNpcState, npclist, statelist, questIESlist);
+                if isColonyMap == true and MonProp:GetClassName() == 'Warp_arrow' then
+                    PictureC:ShowWindow(1);
+                end
 			end
 		end
 	end
 
-	-- questprogress�� Location ����
+	-- questprogress의 Location 정보
 	local quemon = mapprop.questmonster;
 	if quemon ~= nil then
 
@@ -582,7 +587,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 		end
 	end
 
-	-- Location�� ���� ����Ʈ ���� ���
+	-- Location을 통한 퀘스트 정보 출력
 	local allmaptxt = "";
 
 	local mapname = mapprop:GetClassName();
@@ -639,7 +644,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 		end
 	end
 
-	-- QuestMapPointGroup�� ���� ����Ʈ ���� ���
+	-- QuestMapPointGroup을 통한 퀘스트 정보 출력
 	local cnt = #questIESlist;
 	for i = 1 , cnt do
 		local cls = questIESlist[i];
@@ -741,7 +746,7 @@ function GET_MONGEN_NPCPOS(mapprop, npcFuncName)
 	local WorldPos;
 	local minimapPos;
 
-	-- MONGEN�� ���� ����Ʈ ���� ���
+	-- MONGEN을 통한 퀘스트 정보 출력
 	for i = 0 , cnt - 1 do
 		local MonProp = mongens:Element(i);
 
@@ -904,7 +909,7 @@ function UPDATE_MINIMAP_TOOLTIP(tooltipframe, strarg, questclassID, numarg1, mon
 			local color = GET_LEVEL_COLOR(mylevel, questcls.Level)
 			if divQuestState ~= 'COMPLETE' then
 							
-				-- �̰� �� �˴� 4255�� ����?? �ϴ� questclassID�� 0�ΰ� ��¾ȵǰ� ����.
+				-- 이거 왜 죄다 4255로 들어옴?? 일단 questclassID가 0인건 출력안되게 막음.
 				if questclassID ~= 0 then
 					local questIconImgName = GET_ICON_BY_STATE_MODE(divQuestState, questcls);
 					local questInfoText = "{img ".. questIconImgName .." 20 20}"..color .. "{ol}{ds}{s16}" ..  questcls.Name .."{/}{/}{nl}";
@@ -927,7 +932,7 @@ end
 
 function MAP_CHAR_UPDATE(frame, msg, argStr, argNum)
 
-	-- argNum �� ������Ʈ ID -> ������Ʈ�� Relation, ��ġ�� ���� �� ����.
+	-- argNum 는 오브젝트 ID -> 오브젝트의 Relation, 위치와 방향 등 참조.
 	local objHandle = argNum;
 	--local pos = info.GetPositionInMap(objHandle, m_mapWidth, m_mapHeight);
 	
@@ -968,7 +973,7 @@ function MAP_ON_MSG(frame, msg, argStr, argNum)
 	  elseif msg == 'MAP_CHARACTER_ADD' then
 
     elseif msg == 'MAP_CHARACTER_REMOVE' then
-		-- argStr ������Ʈ ���� -> �̹��� ������ ����
+		-- argStr 오브젝트 네임 -> 이미지 아이템 삭제
 
 	 end
      frame:Invalidate();

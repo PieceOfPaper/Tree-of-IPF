@@ -1,5 +1,5 @@
 
--- 어빌 UNLOCK체크용
+-- ?�빌 UNLOCK체크?
 
 function PC_PCAA(pc)
 local jobHistory = GetJobHistorySting(pc)
@@ -871,4 +871,74 @@ function SCR_ABIL_DRAGOON14_INACTIVE(self, ability)
         skl.KnockDownHitType = 3
     end
 
+end
+
+function SCR_ABIL_THSWORD_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addSR = 0
+    if rItem.ClassType == "THSword" then
+        addSR = 1
+    end
+    
+    SetExProp(self, "ABIL_THSWORD_SR", addSR)
+end
+
+function SCR_ABIL_THSWORD_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_THSWORD_SR")
+end
+
+function SCR_ABIL_THSTAFF_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addSR = 0
+    if rItem.ClassType == "THStaff" then
+        addSR = 1
+    end
+    
+    SetExProp(self, "ABIL_THSTAFF_SR", addSR)
+end
+
+function SCR_ABIL_THSTAFF_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_THSTAFF_SR")
+end
+
+function SCR_ABIL_THSPEAR_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addSkillRange = 0
+    if rItem.ClassType == "THSpear" then
+        addSkillRange = 10
+    end
+    
+    SetExProp(self, "ABIL_THSPEAR_RANGE", addSkillRange)
+end
+
+function SCR_ABIL_THSPEAR_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_THSPEAR_RANGE")
+end
+
+function SCR_ABIL_THMACE_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addBlkBreak = 0
+    if rItem.ClassType == "THMace" then
+        addBlkBreak = 85
+    end
+    
+    SetExProp(self, "ABIL_THMACE_BLKBLEAK", addBlkBreak)
+end
+
+function SCR_ABIL_THMACE_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_THMACE_BLKBLEAK")
+end
+
+function SCR_ABIL_SPEAR_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addSkillRange = 0
+    if rItem.ClassType == "Spear" then
+        addSkillRange = 5
+    end
+    
+    SetExProp(self, "ABIL_SPEAR_RANGE", addSkillRange)
+end
+
+function SCR_ABIL_SPEAR_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_SPEAR_RANGE")
 end

@@ -3,7 +3,7 @@
 <uiframe name="char_colony_hud" x="0" y="0" width="310" height="90">
 	<frame layout_gravity="center center" outside="true" useothercountryframe="false" fasthide="true"/>
 	<option visible="false" closebutton="false" hideable="false" useimageitem="true"/>
-	<layer layerlevel="30"/>
+	<layer layerlevel="20"/>
 	<draw drawtitlebar="false" drawframe="false"/>
 	<input hittest="false" hittestframe="false"/>
 	<controls>
@@ -12,5 +12,7 @@
 		<gauge name="hpGauge" rect="0 0 101 18" margin="0 0 0 24" layout_gravity="center bottom" skin="colony_teamgauge" inverse="false" point="100"/>
 		<gauge name="spGauge" rect="0 0 100 5" margin="0 0 0 23" layout_gravity="center bottom" skin="colony_gauge_sp" inverse="false" point="100"/>
 		<picture name="bgBox" rect="0 0 133 22" margin="0 0 0 20" layout_gravity="center bottom" image="colonymy_myframe"/>
+	<slotset name="buffList" margin="115 5 0 0" rect="0 0 200 20" layout_gravity="center bottom" size="20 20" skin="slot_empty" enablepop="false" enabledrop="false" spc="2 2" image="slot" col="4" row="2"/>
+		<gauge name="pcShieldGauge" rect="0 0 96 4" margin="0 72 0 0" layout_gravity="center top" hittest="false" skin="guard_gauge" point="100" textoffset1="0 -1" textfont1="white_14_ol" textalign1="center center"/>
 	</controls>
 </uiframe>

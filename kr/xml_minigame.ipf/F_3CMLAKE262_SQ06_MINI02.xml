@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="F_3CMLAKE262_SQ06_MINI02" minLv="0" maxLv="0" startWaitSec="1476395007">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="58836" Pos="1324.89#-211.81#1062.79" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;SimpleAI&apos; &apos;F_3CMLAKE262_MONSTER&apos; " SimpleAI="F_3CMLAKE262_MONSTER" tendency="1"/>
+                    <Obj Type="Monster" MonType="58837" Pos="1507.27#-215.56#1011.20" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;F_3CMLAKE262_MONSTER&apos; " SimpleAI="F_3CMLAKE262_MONSTER" tendency="1"/>
+                    <Obj Type="Monster" MonType="58838" Pos="1436.63#-211.81#1096.43" genCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;SimpleAI&apos; &apos;F_3CMLAKE262_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58837" Pos="1397.93#-211.81#1017.56" genCount="1" genTime="20000" objectKey="3" propList="&apos;SimpleAI&apos; &apos;F_3CMLAKE262_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58837" Pos="1377.07#-211.81#951.17" genCount="1" genTime="20000" objectKey="4" propList="&apos;SimpleAI&apos; &apos;F_3CMLAKE262_MONSTER&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="PONDUS" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1/DefGroup/3/DefGroup/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO" CondFunc="">
+                                <MGameObjIndex List="DefGroup/1/DefGroup/3/DefGroup/4"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="ANCHOR" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="40"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/2"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="LAKE" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="10000" eventName="POINT">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_3CMLAKE262_SQ06_VALUE"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

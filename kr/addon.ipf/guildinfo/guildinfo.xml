@@ -11,7 +11,7 @@
 	<opencheck scp="UI_CHECK_GUILD_UI_OPEN"/>
 	<script OpenScp="GUILDINFO_OPEN_UI" CloseScp="GUILDINFO_CLOSE_UI" LBtnDownScp="GUILDINFO_MOVE_START"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
-	<userconfig MEMBER_SORT_IMG_ON="guild_arrow_up" MEMBER_SORT_IMG_OFF="guild_arrow_down" COLONY_EVEN_SKIN="chat_window_2" DEFAULT_EMBLEM_IMAGE="guildmark_slot" IMPOSSIBLE_REGIST_EMBLEM_COLOR="FF777777" POSSIBLE_REGIST_EMBLEM_COLOR="00000000" MEMBER_TEXT_LIMIT_BYTE="12"/>
+	<userconfig MEMBER_SORT_IMG_ON="guild_arrow_up" MEMBER_SORT_IMG_OFF="guild_arrow_down" COLONY_EVEN_SKIN="chat_window_2" DEFAULT_EMBLEM_IMAGE="guildmark_slot" IMPOSSIBLE_REGIST_EMBLEM_COLOR="FF777777" POSSIBLE_REGIST_EMBLEM_COLOR="00000000"/>
 	<controls>
 		<groupbox name="headerBox" rect="0 0 1500 60" margin="0 0 0 0" hittest="false" layout_gravity="center top" skin="test_frame_top"/>
 		<richtext name="headerText" rect="0 0 300 30" parent="headerBox" margin="0 2 0 0" layout_gravity="center center" caption="{@st43}길드" fontname="white_16_b_ol"/>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="3.04" soundFile="mon_voice5_l_9"/>
+    <Sound frame="50.00" soundFile="mon_rudas_loxodon_skl"/>
+    <Particle frame="60" attachNode="hammer_effect" particleName="F_burstup024_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="70.00" soundFile="mon_nepenthes_skl3"/>
+    <Particle frame="84" attachNode="slash_dum4_1" particleName="F_smoke005_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="87.72" soundFile="atk_hammerswing"/>
+    <BlendOn frame="90" R="100" G="100" B="100" A="50"/>
+    <Sound frame="90.25" soundFile="skl_eff_big_whoosh_2"/>
+    <BlendOn frame="92" R="0" G="0" B="0" A="0"/>
+    <Shockwave frame="92" type="2" intensity="10" frequency="50" duration="0.3" range="1000"/>
+    <BlendOn frame="94" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="96" R="0" G="0" B="0" A="0"/>
+    <Particle frame="100" attachNode="slash_dum4_1" particleName="F_smoke005_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="103.94" soundFile="skl_eff_big_whoosh_1"/>
+    <Sound frame="104.45" soundFile="atk_hammerswing"/>
+    <BlendOn frame="106" R="100" G="100" B="100" A="50"/>
+    <Shockwave frame="106" type="2" intensity="10" frequency="50" duration="0.3" range="1000"/>
+    <BlendOn frame="108" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="110" R="100" G="100" B="100" A="50"/>
+    <BlendOff frame="112" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="4" attachNode="Dummy_weapon_1" particleName="F_spread_in030_ice2" useAttach="ture" hiddenObj="false" changeEffect="None" scale=".2" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="18" attachNode="Dummy_weapon_1" particleName="F_explosion028_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_sakmoli_raiseup"/>
+	<Sound frame="0.00" soundFile="mon_rudas_loxodon_born"/>
+	<Sound frame="13.00" soundFile="mon_rudas_loxodon_hit"/>
+	<Sound frame="13.00" soundFile="mon_sakmoli_born"/>
+</ActionDesc>

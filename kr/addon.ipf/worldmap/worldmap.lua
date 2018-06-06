@@ -39,7 +39,7 @@ end
 
 function WORLDMAP_UPDATE_PICSIZE(frame, currentDirection)
 
-	local curMode = frame:GetUserValue("Mode");
+	local curMode = 'WorldMap';
 
 	local imgName = "worldmap_" .. currentDirection .. "_bg";
 	local pic = GET_CHILD(frame, "pic");
@@ -515,12 +515,14 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                 emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
 
                 -- emblem pic set
-                local emblemPic = GET_CHILD(emblemSet, 'emblemPic');                
-                local emblemImgName = guild.GetEmblemImageName(guildID);                        
+                local emblemPic = GET_CHILD(emblemSet, 'emblemPic');    
+                local worldID = session.party.GetMyWorldIDStr();            
+                local emblemImgName = guild.GetEmblemImageName(guildID, worldID);                        
                 if emblemImgName ~= 'None' then
                     emblemPic:SetImage(emblemImgName);
-                else                
-                    guild.ReqEmblemImage(guildID);
+                else            
+                    local worldID = session.party.GetMyWorldIDStr();    
+                    guild.ReqEmblemImage(guildID,worldID);
                 end                                
                 occupyTextTooltip = occupyInfo:GetGuildName();
             end
@@ -1401,7 +1403,8 @@ function ON_UPDATE_OTHER_GUILD_EMBLEM(frame, msg, argStr, argNum)
     local emblemSet = GET_CHILD_RECURSIVELY(pic, 'EMBELM_'..argStr);    
     if emblemSet ~= nil then
         local emblemPic = GET_CHILD(emblemSet, 'emblemPic');
-        local emblemImgName = guild.GetEmblemImageName(argStr);
+        local worldID = session.party.GetMyWorldIDStr();
+        local emblemImgName = guild.GetEmblemImageName(argStr,worldID);
         if emblemImgName ~= 'None' then
             emblemPic:SetImage(emblemImgName);
         end

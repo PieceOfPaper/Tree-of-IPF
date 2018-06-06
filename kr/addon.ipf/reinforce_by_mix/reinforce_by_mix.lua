@@ -565,8 +565,12 @@ function REINFORCE_BY_MIX_SLOT_RBTN(parent, slot)
 end
 
 function REINFORCE_BY_MIX_EXECUTE(parent)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('CannotUseInPVPZone'));
+        return;
+    end
   
-  if  session.world.IsIntegrateServer() == true or
+    if  session.world.IsIntegrateServer() == true or
 	    session.world.IsIntegrateIndunServer() == true or
 	    session.IsMissionMap() == true then      
 	      ui.SysMsg(ClMsg("CannotCraftInIndun"));

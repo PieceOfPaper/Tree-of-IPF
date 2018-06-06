@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <ComponentList>
+	<Particle name="ripple011" texture="ripple011" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="ripple010" texture="ripple010" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="shield_04" texture="shield_04" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="card001" texture="card001" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Particle name="light034" texture="light034" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
 	<Particle name="V_spelling_gold" texture="V_spelling_gold" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
 	<Particle name="V_main_blur" texture="V_main_blur" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
@@ -124,6 +128,7 @@
 	<Particle name="circle036" texture="circle036" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="circle035" texture="circle035" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="light003_yellow" texture="light003_yellow" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Particle name="circle007_2" texture="circle007" width="5.00" height="5.00" pivot_x="0.50" pivot_y="1" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="circle007" texture="circle007" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="light020" texture="light020" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="light019" texture="light019" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
@@ -378,6 +383,7 @@
 	<Particle name="circle018" texture="circle018" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="circle017" texture="circle017" width="4.00" height="4.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="160" texel_height="160"/>
 	<Particle name="line001" texture="line001" width="10.00" height="10.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Texture name="texture_smoke002" texture="smoke002" width="5.00" height="5.00" pivot_x="0.50" pivot_y="1.00" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="ripple007_green" texture="ripple007_green" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.00" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="ripple007" texture="ripple007" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.00" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="texture_fire005" texture="fire005" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
@@ -503,7 +509,7 @@
 	<Ray name="rize003" texture="rize003" height="5.00" texel_x="0" texel_y="0" texel_width="128" texel_height="32" texel_speed="0.00" loopingwidth="0.00" loop="true" count="4" pitch="4" ticktime="0.10"/>
 	<Trail name="trail008_1" texture="trail008_1" height="5.00" texel_x="0" texel_y="0" texel_width="128" texel_height="64"/>
 	<Trail name="trail006_blur" texture="trail006_blur" height="5.00" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
-	<Trail name="circle007" texture="circle007" height="5.00" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Trail name="trail_circle007" texture="circle007" height="5.00" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Trail name="trail010" texture="trail010" height="5.00" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
 	<Trail name="trail009" texture="trail009" height="5.00" texel_x="0" texel_y="0" texel_width="128" texel_height="64"/>
 	<Trail name="trail008" texture="trail008" height="5.00" texel_x="0" texel_y="0" texel_width="128" texel_height="64"/>
@@ -524,6 +530,9 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="cylinder006" model="cylinder006.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="I_shield002_blue" model="I_shield002_blue.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="I_crobasia_ball" model="I_crobasia_ball.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="BLEND"/>
 	<Model name="secret_warp_eff" model="secret_warp_eff.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="BLEND"/>
 	<Model name="I_kucarry_mesh" model="I_kucarry_mesh.xac" motion="I_kucarry_mesh.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="BLEND"/>
 	<Model name="I_Curtain001" model="I_Curtain001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
@@ -1376,6 +1385,11 @@
 	<Model name="d_fantasylibrary_bookshelf_dead" model="d_fantasylibrary_bookshelf_dead.xac" motion="d_fantasylibrary_bookshelf_dead_ani.xsm" texturepath="char_texture\npc\d_fantasylibrary_bookshelf_1\" overlap="false" AlphaType="TEST"/>
 	<Model name="3cmlake_Consensus_stone_dead" model="3cmlake_Consensus_stone_dead.xac" motion="3cmlake_Consensus_stone_dead_ani.xsm" texturepath="char_texture\npc\3cmlake_Consensus_stone\" overlap="false" AlphaType="TEST"/>
 	<Model name="d_fantasylibrary_bookshelf_explosion" model="d_fantasylibrary_bookshelf_explosion.xac" motion="d_fantasylibrary_bookshelf_explosion_ani.xsm" texturepath="char_texture\npc\d_fantasylibrary_bookshelf_1\" overlap="false" AlphaType="TEST"/>
+	<Model name="i_boss_ignas_dead" model="boss_ignas_dead.xac" motion="boss_ignas_dead_ani.xsm" texturepath="char_texture\monster\ignas\" overlap="false" AlphaType="TEST"/>
+	<Model name="i_boss_trampler_dead" model="boss_trampler_dead.xac" motion="boss_trampler_dead_ani.xsm" texturepath="char_texture\monster\trampler\" overlap="false" AlphaType="TEST"/>
+	<Model name="i_boss_banshee_boss_dead" model="boss_banshee_boss_dead.xac" motion="boss_banshee_boss_dead_ani.xsm" texturepath="char_texture\monster\banshee_boss\" overlap="false" AlphaType="TEST"/>
+	<Model name="i_boss_kinghammer_dead" model="boss_kinghammer_dead.xac" motion="boss_kinghammer_dead_ani.xsm" texturepath="char_texture\monster\kinghammer\" overlap="false" AlphaType="TEST"/>
+	<Model name="i_boss_pbeta_dead" model="boss_pbeta_dead.xac" motion="boss_pbeta_dead_ani.xsm" texturepath="char_texture\monster\pbeta\" overlap="false" AlphaType="TEST"/>
 	<Text name="Text_damage_self" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_damage_decision" caption="" fontfilename="ORIGINAL" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
 	<Text name="Text_destination" caption="" fontfilename="ORIGINAL" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>

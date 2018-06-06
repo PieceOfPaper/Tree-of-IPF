@@ -214,17 +214,24 @@ function IS_HAVE_GEM(item)
     return 0;
 end
 
-function GET_MAKE_SOCKET_PRICE(itemlv, curcnt)
+function GET_MAKE_SOCKET_PRICE(itemlv, grade, curcnt)
 
     local clslist, cnt  = GetClassList("socketprice");
-
+    local gradRatio = {1.2, 1 , 0.5 , 0.4, 0.3}
+    local itemGradeRatio = 1;
+    local secretNumber = 1;
+    if curcnt >= 1 then
+        secretNumber = 0.8;
+        itemGradeRatio = gradRatio[grade]
+    end
     for i = 0 , cnt - 1 do
 
         local cls = GetClassByIndexFromList(clslist, i);
 
         if cls.Lv == itemlv then
-            local priceRatio = (curcnt + 1) * (curcnt + 1);
-            return cls.NewSocketPrice * priceRatio;
+            local priceRatio = (curcnt + 1) ;
+            local ret = SyncFloor(cls.NewSocketPrice * secretNumber * (priceRatio ^ 1 / itemGradeRatio));
+            return ret
         end
     end
 
@@ -1361,7 +1368,23 @@ function IS_NEED_APPRAISED_ITEM(item)
     if isAppraised == 1 then
         return true;
     end
+    return false;
+end
 
+function IS_NEED_RANDOM_OPTION_ITEM(item)
+    if IS_EQUIP(item) == false then
+
+        return false;
+    end
+
+    local isRandomOption = TryGetProp(item,'NeedRandomOption')
+    if isRandomOption == nil then
+        return false;
+    end
+
+    if isRandomOption == 1 then
+        return true;
+    end
     return false;
 end
 

@@ -82,6 +82,7 @@ function INIT_WEAPON_PROP(item, class)
     item.RES_EARTH = class.RES_EARTH;
     item.RES_HOLY = class.RES_HOLY;
     item.RES_DARK = class.RES_DARK;
+    item.LootingChance = class.LootingChance;
 
 end
 
@@ -166,6 +167,7 @@ function INIT_ARMOR_PROP(item, class)
     item.RES_EARTH = class.RES_EARTH;
     item.RES_HOLY = class.RES_HOLY;
     item.RES_DARK = class.RES_DARK;
+    item.LootingChance = class.LootingChance;
     
 end
 
@@ -576,6 +578,7 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfB
     APPLY_OPTION_SOCKET(item);
     APPLY_AWAKEN(item);
     APPLY_ENCHANTCHOP(item);
+    APPLY_RANDOM_OPTION(item);
     if item.MINATK < 0 then
         item.MINATK = 0;
     end
@@ -729,6 +732,7 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
 
     APPLY_AWAKEN(item);
     APPLY_ENCHANTCHOP(item);
+    APPLY_RANDOM_OPTION(item);
     MakeItemOptionByOptionSocket(item);
 
 end
@@ -893,6 +897,19 @@ function APPLY_ENCHANTCHOP(item)
     for i = 1, 3 do
         local propName = "HatPropName_"..i;
         local propValue = "HatPropValue_"..i;
+        local getProp = TryGetProp(item, propName);
+        if getProp ~= nil and item[propValue] ~= 0 and item[propName] ~= "None" then
+            local prop = item[propName];
+            local propData = item[prop]
+            item[prop] = propData + item[propValue];
+        end
+    end
+end
+
+function APPLY_RANDOM_OPTION(item)
+    for i = 1, 4 do
+        local propName = "RandomOption_"..i;
+        local propValue = "RandomOptionValue_"..i;
         local getProp = TryGetProp(item, propName);
         if getProp ~= nil and item[propValue] ~= 0 and item[propName] ~= "None" then
             local prop = item[propName];
@@ -1210,6 +1227,19 @@ function GET_APPRAISAL_PRICE(item, SellPrice)
         end
     end
     return SellPrice;
+end
+
+function GET_DECOMPOSE_PRICE(item)
+    local lv = TryGetProp(item,"UseLv");
+    local grade = TryGetProp(item,"ItemGrade")
+    local price = 0;
+    if lv == nil then
+        return
+    end
+    
+    price = SyncFloor(lv * 19.25)
+    
+    return price;
 end
 
 function GET_REPAIR_PRICE(item, fillValue)

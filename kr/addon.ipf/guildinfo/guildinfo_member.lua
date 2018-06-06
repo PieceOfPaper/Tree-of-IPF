@@ -16,8 +16,7 @@ function GUILDINFO_INIT_MEMBER_TAB(frame, msg)
 
     local leaderAID = guild.info:GetLeaderAID();
 
-    local onlineCnt = 0;
-    local MEMBER_TEXT_LIMIT_BYTE = tonumber(frame:GetUserConfig('MEMBER_TEXT_LIMIT_BYTE'));    
+    local onlineCnt = 0;    
     local list = session.party.GetPartyMemberList(PARTY_GUILD);
 	local count = list:Count();
 	for i = 0 , count - 1 do
@@ -69,7 +68,6 @@ function GUILDINFO_INIT_MEMBER_TAB(frame, msg)
         local name = partyMemberInfo:GetName();
         txt_teamname:SetTextByKey('value', partyMemberInfo:GetName());
         txt_teamname:SetTextTooltip(partyMemberInfo:GetName());
-        txt_teamname:SetVisibleByte(MEMBER_TEXT_LIMIT_BYTE);
 
         -- job
         local jobID = partyMemberInfo:GetIconInfo().job;
@@ -87,8 +85,7 @@ function GUILDINFO_INIT_MEMBER_TAB(frame, msg)
         end
 
         -- duty
-        local txt_duty = memberCtrlSet:GetChild('txt_duty');
-        txt_duty:SetVisibleByte(MEMBER_TEXT_LIMIT_BYTE);
+        local txt_duty = memberCtrlSet:GetChild('txt_duty');        
         local grade = partyMemberInfo.grade;        
 		if leaderAID == partyMemberInfo:GetAID() then
 			local dutyName = "{ol}{#FFFF00}" .. ScpArgMsg("GuildMaster") .. "{/}{/}";

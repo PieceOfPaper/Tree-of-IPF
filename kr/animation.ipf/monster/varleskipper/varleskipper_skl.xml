@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="015" G="60" B="80" A="100"/>
+	<BlendOn frame="7" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="10" R="15" G="60" B="80" A="100"/>
+	<BlendOn frame="11" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="14" R="15" G="60" B="80" A="100"/>
+	<BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+	<Particle frame="6" attachNode="Dummy_eff_skl" particleName="F_dash002_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="14" attachNode="Dummy_eff_skl" particleName="F_dash002_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_eff_skl" particleName="F_dash002_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_eff_skl" particleName="F_dash004_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="14" attachNode="Dummy_eff_skl" particleName="F_dash004_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_eff_skl" particleName="F_dash004_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_sakmoli_atk_cast"/>
+	<Sound frame="0.00" soundFile="m_tontulia_skl_ready"/>
+	<Sound frame="8.00" soundFile="skl_eff_body_atk_6"/>
+	<Sound frame="8.00" soundFile="skl_eff_body_atk_8"/>
+	<Sound frame="8.00" soundFile="mon_pokubu_born"/>
+	<Sound frame="8.00" soundFile="m_tontulia_skl_shot"/>
+</ActionDesc>

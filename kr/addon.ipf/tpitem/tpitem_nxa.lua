@@ -8,6 +8,24 @@ function ON_NEXON_AMERICA_BALANCE(frame, msg, str, num)
 	remainNexonCash_credit:SetText(math.floor(session.ui.GetCreditBalance()));
 end
 
+function ON_NEXON_AMERICA_BALANCE_ENOUGH(frame, msg, str, num)
+	local item = GetClassByType("Item", num);
+	local itemName = TryGetProp(item, "Name")
+	if itemName == nil then
+		return;
+	end
+
+	local yesScp = string.format("REQ_NEXON_AMERICA_PURCHASE(%d, 1)", num);
+	local noScp = string.format("ON_PURCHASE_CANCELLED()");
+	ui.MsgBox(ScpArgMsg("NXABillingConfirmPurchase{Item}", "Item", itemName), yesScp, noScp);
+end
+
+function ON_NEXON_AMERICA_BALANCE_NOT_ENOUGH(frame, msg, str, num)
+	local yesScp = string.format("REQ_NEXON_AMERICA_PURCHASE(%d, 0)", num);
+	local noScp = string.format("ON_NEXON_AMERICA_PURCHASE_CANCELLED()");
+	ui.MsgBox(ScpArgMsg("NXABillingNotEnoughNXCashQueryRefill"), yesScp, noScp);
+end
+
 function ON_NEXON_AMERICA_BUY_ITEM(parent, control, ItemClassIDstr, itemid)
 	ui.BuyIngameShopItem(itemid);
 end
@@ -19,6 +37,14 @@ end
 function REQ_NEXON_AMERICA_REFRESH()
 	ui.ReqNXABalance();
 	ui.ReqNXARePickUp();
+end
+
+function REQ_NEXON_AMERICA_PURCHASE(itemID, hasEnoughNX)
+	ui.ReqNXAPurchase(itemID, hasEnoughNX);
+end
+
+function ON_NEXON_AMERICA_PURCHASE_CANCELLED()
+	ui.SysMsg(ScpArgMsg("NXABillingPurchaseCancelled"));
 end
 
 function UPDATE_NEXON_AMERICA_SELLITEMLIST() 

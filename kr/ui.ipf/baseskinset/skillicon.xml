@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="wizard_skillicon">
@@ -378,6 +378,8 @@
 		<image name="icon_cler_Hamaya" file="\icon\skill\cleric\icon_cler_Hamaya.png" imgrect="0 0 128 128" CMM_Caption="하마야"/>
 		<image name="icon_cler_Kasiwade" file="\icon\skill\cleric\icon_cler_Kasiwade.png" imgrect="0 0 128 128" CMM_Caption="박수"/>
 		<image name="icon_cler_Kaguradance" file="\icon\skill\cleric\icon_cler_Kaguradance.png" imgrect="0 0 128 128" CMM_Caption="카구라"/>
+		<image name="icon_cler_Demolition" file="\icon\skill\cleric\icon_cler_Demolition.png" imgrect="0 0 128 128" CMM_Caption="데몰리션"/>
+		<image name="icon_cler_Sanctuary" file="\icon\skill\cleric\icon_cler_Sanctuary.png" imgrect="0 0 128 128" CMM_Caption="생츄어리"/>
 	</imagelist>
 	<imagelist category="warrior_skillicon">
 		<image name="icon_warri_thrust" file="\icon\skill\warrior\icon_warri_thrust.png" imgrect="0 0 128 128" CMM_Caption="쓰러스트"/>
@@ -520,6 +522,11 @@
 		<image name="icon_warri_Unhorsing" file="\icon\skill\warrior\icon_warri_Unhorsing.png" imgrect="0 0 128 128" CMM_Caption="낙마 공격"/>
 		<image name="icon_warri_Quintain" file="\icon\skill\warrior\icon_warri_Quintain.png" imgrect="0 0 128 128" CMM_Caption="퀸테인"/>
 		<image name="icon_warri_Deployment" file="\icon\skill\warrior\icon_warri_Deployment.png" imgrect="0 0 128 128" CMM_Caption="개시"/>
+	</imagelist>
+	<imagelist category="summon_skillicon">
+		<image name="icon_summon_Common_ForcedAttack" file="\icon\skill\summon\icon_summon_Common_ForcedAttack.png" imgrect="0 0 128 128" CMM_Caption="소환수 강제 공격"/>
+		<image name="icon_summon_Common_ForcedAttackCancel" file="\icon\skill\summon\icon_summon_Common_ForcedAttackCancel.png" imgrect="0 0 128 128" CMM_Caption="소환수 강제 공격 취소"/>
+		<image name="icon_summon_Common_SummonRemove" file="\icon\skill\summon\icon_summon_Common_SummonRemove.png" imgrect="0 0 128 128" CMM_Caption="소환 전체 해제"/>
 	</imagelist>
 	<imagelist category="restquickslot_icon">
 		<image name="icon_rest_arrow" file="\icon\rest_mode_icon.tga" imgrect="0 0 128 128" CMM_Caption="화살제작"/>
@@ -1649,6 +1656,18 @@
 		<image name="ability_cleric_Paladin19" file="\icon\icon_ability_cleric04.tga" imgrect="768 640 128 128" CMM_Caption="배리어: 범위 증가 특성"/>
 		<image name="ability_cleric_Paladin20" file="\icon\icon_ability_cleric04.tga" imgrect="896 640 128 128" CMM_Caption="배리어：헌신"/>
 		<image name="ability_cleric_THMace" file="\icon\icon_ability_cleric04.tga" imgrect="0 768 128 128" CMM_Caption="양손둔기 사용"/>
+		<image name="ability_cleric_Kriwi17" file="\icon\icon_ability_cleric04.tga" imgrect="128 768 128 128" CMM_Caption="아우쿠라스: 불의 여신"/>
+		<image name="ability_cleric_Kriwi18" file="\icon\icon_ability_cleric04.tga" imgrect="256 768 128 128" CMM_Caption="디바인 스티그마: 악마 처단"/>
+		<image name="ability_cleric_Paladin21" file="\icon\icon_ability_cleric04.tga" imgrect="384 768 128 128" CMM_Caption="데볼리션: 스턴"/>
+		<image name="ability_cleric_Paladin22" file="\icon\icon_ability_cleric04.tga" imgrect="512 768 128 128" CMM_Caption="데몰리션: 강화"/>
+		<image name="ability_cleric_Paladin23" file="\icon\icon_ability_cleric04.tga" imgrect="640 768 128 128" CMM_Caption="턴 언데드: 개종"/>
+		<image name="ability_cleric_Monk27" file="\icon\icon_ability_cleric04.tga" imgrect="768 768 128 128" CMM_Caption="금종조: 페인 배리어"/>
+		<image name="ability_cleric_Pardoner7" file="\icon\icon_ability_cleric04.tga" imgrect="896 768 128 128" CMM_Caption="데카토스: 강화"/>
+		<image name="ability_cleric_Druid14" file="\icon\icon_ability_cleric04.tga" imgrect="0 896 128 128" CMM_Caption="라이칸스로피: 수인화"/>
+		<image name="ability_cleric_Priest24" file="\icon\icon_ability_cleric04.tga" imgrect="128 896 128 128" CMM_Caption="아스퍼션:강화"/>
+		<image name="ability_cleric_Priest25" file="\icon\icon_ability_cleric04.tga" imgrect="256 896 128 128" CMM_Caption="블레싱:강화"/>
+		<image name="ability_cleric_Priest26" file="\icon\icon_ability_cleric04.tga" imgrect="384 896 128 128" CMM_Caption="샤크라멘트:강화"/>
+		<image name="ability_cleric_Pardoner8" file="\icon\icon_ability_cleric04.tga" imgrect="512 896 128 128" CMM_Caption="마법방어력: 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

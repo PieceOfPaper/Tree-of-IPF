@@ -57,7 +57,7 @@ end
 function DO_QUIT_GAME()
 	session.SaveQuickSlot(true);
 	for i = 0, AUTO_SELL_COUNT-1 do
-	-- ���ϳ��� true��
+	-- 뭐하나라도 true면 
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
 			app.Quit(true)
 			return;
@@ -69,7 +69,7 @@ end
 function GAME_TO_LOGIN()
 	session.SaveQuickSlot(true);
 	for i = 0, AUTO_SELL_COUNT-1 do
-	-- ���ϳ��� true��
+	-- 뭐하나라도 true면
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
 			app.GameToLogin(true)
 			return;
@@ -81,7 +81,7 @@ end
 function GAME_TO_BARRACK()
 	session.SaveQuickSlot(true);
 	for i = 0, AUTO_SELL_COUNT-1 do
-	-- ���ϳ��� true��
+    -- 뭐하나라도 true면
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
 			app.GameToBarrack(true)
 			return;

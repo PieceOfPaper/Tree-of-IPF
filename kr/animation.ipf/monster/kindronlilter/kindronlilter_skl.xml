@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_groll_atk_cast"/>
+    <Particle frame="10" attachNode="Dummy_eff_skl1" particleName="F_bubble004_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+    <Sound frame="10.00" soundFile="skl_eff_horn_long"/>
+    <Particle frame="15" attachNode="Dummy_eff_skl" particleName="F_bubble004_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false" sound="skl_eff_gas_1"/>
+    <Particle frame="20" attachNode="Dummy_eff_skl2" particleName="F_bubble004_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+</ActionDesc>

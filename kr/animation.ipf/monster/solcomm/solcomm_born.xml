@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="7" attachNode="Bip001 Head" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="1" attachNode="Bip001 R Forearm" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="1" attachNode="Bip001 L Forearm" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="7" attachNode="Bip001 Neck" particleName="F_hit009_rize_green3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_effect_L_hand" particleName="F_hit009_rize_green2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_effect_R_hand" particleName="F_hit009_rize_green2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="12" attachNode="Dummy_emitter002" particleName="F_hit009_rize_green4" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_emitter001" particleName="F_spread_out045_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice_solcomm_born"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_22"/>
+	<Sound frame="2.00" soundFile="skl_eff_atk_move_l_1"/>
+</ActionDesc>

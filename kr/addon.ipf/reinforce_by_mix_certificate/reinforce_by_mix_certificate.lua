@@ -465,7 +465,12 @@ function REINFORCE_BY_MIX_SLOT_RBTN_CERTIFICATE(parent, slot)
 	imcSound.PlaySoundEvent("icon_pick_up");
 end
 
-function REINFORCE_BY_MIX_EXECUTE_CERTIFICATE(parent)	
+function REINFORCE_BY_MIX_EXECUTE_CERTIFICATE(parent)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('CannotUseInPVPZone'));
+        return;
+    end
+
 	local frame = parent:GetTopParentFrame();
 	local slots = GET_MAT_SLOT_CERTIFICATE(frame);
 	local cnt = slots:GetSlotCount();

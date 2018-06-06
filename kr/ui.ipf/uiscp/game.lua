@@ -1243,7 +1243,7 @@ function GET_ITEM_TOOLTIP_SKIN(cls)
 	return "Item_tooltip_consumable";
 end
 
-function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal)
+function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal, needRandomOption)
 
 	local pic = 'None'
 	if rank == 1 then
@@ -1260,7 +1260,7 @@ function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal)
 		return "premium_item_bg";
 	end
 
-	if needAppraisal == 1 then
+	if needAppraisal == 1 or needRandomOption == 1 then
 		pic = pic..'2';
 	end
 	return pic;
