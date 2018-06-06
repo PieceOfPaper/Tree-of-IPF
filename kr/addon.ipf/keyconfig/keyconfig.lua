@@ -20,7 +20,7 @@ function KEYCONFIG_UPDATE_KEY_TEXT(txt_key)
 	local useCtrl = txt_key:GetUserValue("UseCtrl");
 	local key = txt_key:GetUserValue("Key");
 	local pressedKey = txt_key:GetUserValue("PressedKey");
-
+	
 	local txt = "";
 	if useShift == "YES" then
 		txt = txt .. "SHIFT + ";
@@ -152,9 +152,25 @@ function KEYCONFIG_SAVE_INPUT(frame)
 		local useCtrl = txt_key:GetUserValue("UseCtrl");
 		local key = txt_key:GetUserValue("Key");
 		if key == "" then
-			return;
-		end
+			if useAlt == "YES" and useCtrl ~= "YES" and useShift ~= "YES" then
+				key = "LALT";
+			elseif useAlt ~= "YES" and useCtrl == "YES" and useShift ~= "YES" then
+				key = "LCTRL";
+			elseif  useAlt ~= "YES" and useCtrl ~= "YES" and useShift == "YES" then
+				key = "LSHIFT";
+			else
+				return;
+			end
 
+			useAlt = "NO";
+			useCtrl = "NO";
+			useShift = "NO";
+			txt_key:SetUserValue("UseAlt", useAlt);
+			txt_key:SetUserValue("UseCtrl", useCtrl);
+			txt_key:SetUserValue("UseShift", useShift);
+			txt_key:SetUserValue("Key", key);
+		end
+		
 		config.SetHotKeyElementAttributeForConfig(idx, "Key", key);
 		if joyStickMode == true then
 			local pressedKey = txt_key:GetUserValue("PressedKey");
@@ -162,9 +178,9 @@ function KEYCONFIG_SAVE_INPUT(frame)
 		end
 		config.SetHotKeyElementAttributeForConfig(idx, "UseAlt", useAlt);
 		config.SetHotKeyElementAttributeForConfig(idx, "UseCtrl", useCtrl);
-		config.SetHotKeyElementAttributeForConfig(idx, "UseShift", useShift);
+		config.SetHotKeyElementAttributeForConfig(idx, "UseShift", useShift);	
 		
-		
+		KEYCONFIG_UPDATE_KEY_TEXT(txt_key);
 		config.SaveHotKey(fileName);
 		
 	end

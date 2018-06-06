@@ -129,6 +129,18 @@ function SKL_CHECK_BOSS_CARD_C(self, skl)
 end
 
 function SKL_CHECK_DPARTS_COUNT_C(self, skl, count)
+	if skl.ClassName == "Necromancer_RaiseSkullarcher" or skl.ClassName == "Necromancer_RaiseDead" then
+		local mymapname = session.GetMapName();
+		local map = GetClass("Map", mymapname);
+		if nil == map then
+			return 0;
+		end
+		
+		if 'City' == map.MapType then
+			return 0;
+		end
+	end
+
 	local etc = GetMyEtcObject();
 	if etc == nil then
 		return 0;
