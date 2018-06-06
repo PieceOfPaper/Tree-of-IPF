@@ -1930,7 +1930,6 @@ function TPITEM_DRAW_NC_TP()
 	local clsList, listcnt = GetClassList("item_package");	
 	local jobNum = GETPACKAGE_JOBNUM_BYJOBNGENDER();
 	-- 해당 카테고리의 노드들의 프레임을 만들기.
-	IMC_NORMAL_INFO(cnt);
 	for i = cnt -1,0, -1 do
 		local iteminfo = session.ui.Get_NISMS_ItemInfo(i)
 		if iteminfo == nil then
@@ -1946,8 +1945,7 @@ function TPITEM_DRAW_NC_TP()
 		productNo = iteminfo.itemid;
 		itemClsID = iteminfo.tpItemClsId;
 		
-		IMC_NORMAL_INFO(i .. iteminfo.name .. iteminfo.categoryNo ..  iteminfo.limitOnce ..  iteminfo.price ..  iteminfo.imgAddress ..  iteminfo.itemid ..  iteminfo.tpItemClsId);
-		if categoryNo == 805 then
+		if categoryNo == 2348 then
 							index = index - 1
 							x = ( (index-1) % 4) * ui.GetControlSetAttribute("tpshop_itemtp", 'width')
 							y = (math.ceil( (index / 4) ) - 1) * (ui.GetControlSetAttribute("tpshop_itemtp", 'height') * 1)
@@ -1973,7 +1971,7 @@ function TPITEM_DRAW_NC_TP()
 							buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
 							buyBtn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
 							buyBtn:SetUserValue("LISTINDEX", i);
-		elseif categoryNo == 806 then				
+		elseif categoryNo == 2349 then				
 							local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
 							if imgURL ~= nil then	
 								local imgAddress = string.format("%s", imgURL);
