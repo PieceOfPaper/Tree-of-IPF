@@ -15,8 +15,14 @@ function BUFF_ON_INIT(addon, frame)
 	addon:RegisterMsg('BUFF_REMOVE', 'BUFF_ON_MSG');
 	addon:RegisterMsg('BUFF_UPDATE', 'BUFF_ON_MSG');
 
+	addon:RegisterMsg('TEST_ADDON_MSG_DUMP_MSG', 'TEST_ADDON_MSG_DUMP');
+
 	INIT_BUFF_UI(frame, s_buff_ui, "MY_BUFF_TIME_UPDATE");
 	INIT_PREMIUM_BUFF_UI(frame);
+end
+
+function TEST_ADDON_MSG_DUMP(frame)
+	test.TestFunction();
 end
 
 function INIT_PREMIUM_BUFF_UI(frame)

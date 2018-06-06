@@ -3339,8 +3339,1006 @@ function RANDOM_VIEW(pc)
 	local idx = IMCRandom(1, cnt);
 	local mon = list[idx];
 	ChangeFocusView(pc, mon);
+end
+
+function GETJOB(pc)
+    local jobID = TryGetProp(pc, "Job");
+    print(jobID)
+end
+function EXPORT_ITEM(pc)
+    ExportItem();
+end
+
+function GET_CHECK_OVERLAP_EQUIPPROP_LIST_FOR_EXPORT(propList, prop, list)
+    local checkList = propList;
+    if list == nil then
+        list = {};
+    end
+    for i = 1, #checkList do
+        if checkList[i] ~= prop then
+            list = PUSH_BACK_IF_NOT_EXIST(list, checkList[i]);
+        end
+    end
+    
+    return list;
+end
+
+function GET_EQUIP_TOOLTIP_PROP_LIST_FOR_EXPORT(invitem)
+
+	local groupName = invitem.GroupName;
+	if groupName == 'Weapon' then
+		return GET_ATK_PROP_LIST();
+	
+	elseif groupName == "PetWeapon" then
+		return GET_PET_WEAPON_PROP_LIST();
+	elseif groupName == "PetArmor" then
+		return GET_PET_ARMOR_PROP_LIST();
+	else
+		return GET_DEF_PROP_LIST();
+	end
+
+end
+function GET_PET_WEAPON_PROP_LIST()
+	local list = GET_ATK_PROP_LIST();
+	list[#list+1] = "MountPATK";
+	list[#list+1] = "MountMATK";
+	return list;
+    
+end
+function GET_PET_ARMOR_PROP_LIST()
+	local list = GET_DEF_PROP_LIST();
+	list[#list+1] = "MountPATK";
+	list[#list+1] = "MountMATK";
+	return list;    
+end
+
+function GET_DEF_PROP_LIST()
+
+	local list = {};
+    list[#list+1] = "DEF";
+    list[#list+1] = "ADD_DEF";
+    list[#list+1] = "PATK";
+    list[#list+1] = "MATK";
+    list[#list+1] = "ADD_MAXATK";
+    list[#list+1] = "ADD_MINATK";
+    list[#list+1] = "ADD_MATK";
+    list[#list+1] = "STR";
+    list[#list+1] = "DEX";
+    list[#list+1] = "INT";
+    list[#list+1] = "CON";
+    list[#list+1] = "MNA";
+    list[#list+1] = "MHP";
+    list[#list+1] = "MSP";
+    list[#list+1] = "MSTA";
+    list[#list+1] = "CRTHR";
+    list[#list+1] = "CRTDR";
+    list[#list+1] = "CRTATK";
+    list[#list+1] = "KDPow";
+    list[#list+1] = "SkillPower";
+    list[#list+1] = "ADD_HR";
+    list[#list+1] = "ADD_DR";
+    list[#list+1] = "MHR";
+    list[#list+1] = "ADD_MHR";
+    list[#list+1] = "MDEF";
+    list[#list+1] = "ADD_MDEF";
+    list[#list+1] = "SkillRange";
+    list[#list+1] = "SkillAngle";
+    list[#list+1] = "MSPD";
+    list[#list+1] = "RHP";
+    list[#list+1] = "RSP";
+    list[#list+1] = "SR";
+    list[#list+1] = "SDR";
+    list[#list+1] = "BLK";
+    list[#list+1] = "BLK_BREAK";
+    list[#list+1] = "ADD_FORESTER";
+    list[#list+1] = "ADD_WIDLING";
+    list[#list+1] = "ADD_VELIAS";
+    list[#list+1] = "ADD_PARAMUNE";
+    list[#list+1] = "ADD_KLAIDA";
+    list[#list+1] = "ADD_SMALLSIZE";
+    list[#list+1] = "ADD_MIDDLESIZE";
+    list[#list+1] = "ADD_LARGESIZE";
+    list[#list+1] = "ADD_CLOTH";
+    list[#list+1] = "ADD_LEATHER";
+    list[#list+1] = "ADD_IRON";
+    list[#list+1] = "ADD_GHOST";
+    list[#list+1] = "ADD_FIRE";
+    list[#list+1] = "ADD_ICE";
+    list[#list+1] = "ADD_SOUL";
+    list[#list+1] = "ADD_POISON";
+    list[#list+1] = "ADD_LIGHTNING";
+    list[#list+1] = "ADD_EARTH";
+    list[#list+1] = "ADD_HOLY";
+    list[#list+1] = "ADD_DARK";
+    list[#list+1] = "Aries";
+    list[#list+1] = "Slash";
+    list[#list+1] = "Strike";
+    list[#list+1] = "RES_FIRE";
+    list[#list+1] = "RES_ICE";
+    list[#list+1] = "RES_SOUL";
+    list[#list+1] = "RES_POISON";
+    list[#list+1] = "RES_LIGHTNING";
+    list[#list+1] = "RES_EARTH";
+    list[#list+1] = "RES_HOLY";
+    list[#list+1] = "RES_DARK";
+    list[#list+1] = "AriesDEF";
+    list[#list+1] = "SlashDEF";
+    list[#list+1] = "StrikeDEF";
+    list[#list+1] = "HR";
+    list[#list+1] = "DR";
+	return list;
+
+end
+function GET_ATK_PROP_LIST()
+	
+	local list = {};
+    list[#list+1] = "SR";
+    list[#list+1] = "SDR";
+    list[#list+1] = "MINATK";
+    list[#list+1] = "MAXATK";
+    list[#list+1] = "ADD_MAXATK";
+    list[#list+1] = "ADD_MINATK";
+    list[#list+1] = "ADD_MATK";
+    list[#list+1] = "PATK";
+    list[#list+1] = "MATK";
+    list[#list+1] = "ADD_DEF";
+    list[#list+1] = "STR";
+    list[#list+1] = "DEX";
+    list[#list+1] = "INT";
+    list[#list+1] = "MNA";
+    list[#list+1] = "CON";
+    list[#list+1] = "MHP";
+    list[#list+1] = "MSP";
+    list[#list+1] = "MSTA";
+    list[#list+1] = "CRTHR";
+    list[#list+1] = "CRTDR";
+    list[#list+1] = "CRTATK";
+    list[#list+1] = "KDPow";
+    list[#list+1] = "SkillPower";
+    list[#list+1] = "ADD_HR";
+    list[#list+1] = "ADD_DR";
+    list[#list+1] = "MHR";
+    list[#list+1] = "ADD_MHR";
+    list[#list+1] = "MDEF";
+    list[#list+1] = "ADD_MDEF";
+    list[#list+1] = "SkillRange";
+    list[#list+1] = "SkillAngle";
+    list[#list+1] = "MSPD";
+    list[#list+1] = "RHP";
+    list[#list+1] = "RSP";
+    list[#list+1] = "BLK";
+    list[#list+1] = "BLK_BREAK";
+    list[#list+1] = "ADD_FORESTER";
+    list[#list+1] = "ADD_WIDLING";
+    list[#list+1] = "ADD_VELIAS";
+    list[#list+1] = "ADD_PARAMUNE";
+    list[#list+1] = "ADD_KLAIDA";
+    list[#list+1] = "ADD_SMALLSIZE";
+    list[#list+1] = "ADD_MIDDLESIZE";
+    list[#list+1] = "ADD_LARGESIZE";
+    list[#list+1] = "ADD_CLOTH";
+    list[#list+1] = "ADD_LEATHER";
+    list[#list+1] = "ADD_IRON";
+    list[#list+1] = "ADD_GHOST";
+    list[#list+1] = "ADD_FIRE";
+    list[#list+1] = "ADD_ICE";
+    list[#list+1] = "ADD_SOUL";
+    list[#list+1] = "ADD_POISON";
+    list[#list+1] = "ADD_LIGHTNING";
+    list[#list+1] = "ADD_EARTH";
+    list[#list+1] = "ADD_HOLY";
+    list[#list+1] = "ADD_DARK";
+    list[#list+1] = "Aries";
+    list[#list+1] = "Slash";
+    list[#list+1] = "Strike";
+    list[#list+1] = "RES_FIRE";
+    list[#list+1] = "RES_ICE";
+    list[#list+1] = "RES_SOUL";
+    list[#list+1] = "RES_POISON";
+    list[#list+1] = "RES_LIGHTNING";
+    list[#list+1] = "RES_EARTH";
+    list[#list+1] = "RES_HOLY";
+    list[#list+1] = "RES_DARK";
+    list[#list+1] = "AriesDEF";
+    list[#list+1] = "SlashDEF";
+    list[#list+1] = "StrikeDEF";
+    list[#list+1] = "HR";
+    list[#list+1] = "DR";
+	return list;
+
+end
+
+function GET_MAINOPTION(classID)
+    local invitem = GetClassByType("Item", classID);
+    local min, max = GET_BASIC_ATK_FOR_EXPORT(invitem);
+    local magic = GET_BASIC_MATK_FOR_EXPORT(invitem);
+    print("armordef:" .. invitem.DEF);
+    print("armormagicdef:" .. invitem.MDEF);
+    return min, max, magic;
+end
+function GET_DEF(classID)
+    local item = GetClassByType("Item", classID);
+
+end
+
+function SCR_REFRESH_ACC_FOR_EXPORT(item, enchantUpdate, ignoreReinfAndTranscend)
+    if ignoreReinfAndTranscend == nil then
+        ignoreReinfAndTranscend = 0;
+    end
+
+    local class = GetClassByType('Item', item.ClassID);
+    INIT_ARMOR_PROP_FOR_EXPORT(item, class);
+    item.Level = GET_ITEM_LEVEL(item);
+
+    local lv = TryGetProp(item, "UseLv");
+    if lv == nil then
+        return 0;
+    end
+    
+    local hiddenLv = TryGetProp(item,"ItemLv");
+    if hiddenLv == nil then
+        return 0 ;
+    end
+    
+    if hiddenLv > 0 then
+        lv = hiddenLv;
+    end
+    
+    if (GetServerNation() == "KOR" and (GetServerGroupID() == 9001 or GetServerGroupID() == 9501)) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item, 1);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
+    
+    local classType = TryGetProp(item,"ClassType");
+    if classType == nil then
+        return 0;
+    end
+    
+    local accRatio;
+    
+    if classType == 'Neck' then
+        accRatio = 5.5;
+    elseif classType == 'Ring' then
+        accRatio = 11;
+    elseif classType == 'Hat' then
+        accRatio = 0;
+    else
+        return 0;
+    end
+
+    local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+            return 0;
+    end
+    
+    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO_FOR_EXPORT(grade, "BasicRatio");
+
+    local PropName = {"DEF", "MDEF", "HR", "DR",  "MHR", "ADD_FIRE", "ADD_ICE", "ADD_LIGHTNING", "DefRatio", "MDefRatio"};
+    local changeProp = {};
+    
+    local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
+    for i = 1, #basicTooltipPropList do
+        local basicProp = basicTooltipPropList[i];
+    
+        if basicProp == 'DEF' then
+            changeProp["DEF"] = ((20 + lv*3)/accRatio) * gradeRatio + GET_REINFORCE_ADD_VALUE_FOR_EXPORT(basicProp, item, ignoreReinfAndTranscend)
+            changeProp["DEF"] = SyncFloor(changeProp["DEF"]);
+            changeProp["DefRatio"] = math.floor(item.Reinforce_2 * 0.1);
+        elseif basicProp == 'MDEF' then
+            changeProp["MDEF"] = ((20 + lv*3)/accRatio) * gradeRatio + GET_REINFORCE_ADD_VALUE_FOR_EXPORT(basicProp, item, ignoreReinfAndTranscend)
+            changeProp["MDEF"] = SyncFloor(changeProp["MDEF"]);
+        elseif basicProp == 'ADD_FIRE' then
+            changeProp["ADD_FIRE"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE_FOR_EXPORT(basicProp, item, ignoreReinfAndTranscend));
+            changeProp["ADD_FIRE"] = SyncFloor(changeProp["ADD_FIRE"]);
+        elseif basicProp == 'ADD_ICE' then
+            changeProp["ADD_ICE"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE_FOR_EXPORT(basicProp, item, ignoreReinfAndTranscend));
+            changeProp["ADD_ICE"] = SyncFloor(changeProp["ADD_ICE"]);
+        elseif basicProp == 'ADD_LIGHTNING' then
+            changeProp["ADD_LIGHTNING"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE_FOR_EXPORT(basicProp, item, ignoreReinfAndTranscend));
+            changeProp["ADD_LIGHTNING"] = SyncFloor(changeProp["ADD_LIGHTNING"]);
+        end
+    end
+
+    for i = 1, #PropName do
+        if changeProp[PropName[i]] ~= nil then
+            if changeProp[PropName[i]] ~= 0 then
+                item[PropName[i]] = changeProp[PropName[i]];
+            end
+        end
+    end
+
+    local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(item, ignoreReinfAndTranscend);
+    for i = 1 , #propNames do
+        local propName = propNames[i];
+        local propValue = propValues[i];
+        local upgradeRatio = 1 + propValue / 100;
+        item[propName] = math.floor( item[propName] * upgradeRatio );
+    end
+
+end
+
+function SCR_REFRESH_ARMOR_FOR_EXPORT(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
+    if enchantUpdate == nil then
+        enchantUpdate = 0
+    end
+    
+    if ignoreReinfAndTranscend == nil then
+        ignoreReinfAndTranscend = 0;
+    end
+    
+    if reinfBonusValue == nil then
+        reinfBonusValue = 0;
+    end
+    
+    local class = GetClassByType('Item', item.ClassID);
+    INIT_ARMOR_PROP_FOR_EXPORT(item, class);
+    item.Level = GET_ITEM_LEVEL(item);
+    
+    local lv = TryGetProp(item , "UseLv");
+    if lv == nil then
+        return 0;
+    end
+    local hiddenLv = TryGetProp(item, "ItemLv");
+    if hiddenLv == nil then
+        return 0;
+    end
+    
+    if hiddenLv > 0 then
+        lv = hiddenLv;
+    end
+    
+    if (GetServerNation() == "KOR" and (GetServerGroupID() == 9001 or GetServerGroupID() == 9501)) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item, 1);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
+    
+    local def=0;
+    local hr =0;
+    local dr =0;
+    local mhr=0;
+    local mdef=0;
+    local fireAtk = 0;
+    local iceAtk = 0;
+    local lightningAtk = 0;
+    local defRatio = 0;
+    local mdefRatio = 0;
+    
+    local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
+    for i = 1, #basicTooltipPropList do
+        local basicProp = basicTooltipPropList[i];
+        
+        local buffarg = 0;
+        
+        local grade = TryGetProp(item,"ItemGrade");
+        if grade == nil then
+            return 0;
+        end
+          
+        local gradeRatio = SCR_GET_ITEM_GRADE_RATIO_FOR_EXPORT(grade, "BasicRatio");
+          
+        if enchantUpdate == 1 then
+            buffarg = GetExProp(item, "Rewards_BuffValue");
+        end
+        
+        local equipMaterial = TryGetProp(item, "Material");
+        if equipMaterial == nil then
+            return 0;
+        end
+        
+        local classType = TryGetProp(item,"ClassType");
+        if classType == nil then
+            return 0;
+        end
+        local equipRatio;
+        
+        if classType == 'Shirt' or classType == 'Pants' or classType == 'Shield'then
+                equipRatio = 3.5;
+        elseif classType == 'Boots' or classType == 'Gloves' then
+                equipRatio = 4.5;
+        else
+            return 0;
+        end
+        
+        local upgradeRatio = 1;        
+        if basicProp == 'DEF' then
+            def = ((20 + lv*3)/equipRatio) * gradeRatio;
+            upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;            
+            if item.Material == 'Cloth' then
+                def = def * 0.6;
+            elseif equipMaterial == 'Leather' then
+                def = def * 0.6;
+            elseif equipMaterial == 'Iron' then
+                def = def * 1.0;
+            end
+                
+            if def < 1 then
+                def = 1;
+            end
+            
+            def = math.floor(def) * upgradeRatio + GET_REINFORCE_ADD_VALUE_FOR_EXPORT(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
+            def = SyncFloor(def);            
+            print("def" .. def);
+        elseif basicProp == 'MDEF' then
+            mdef = ((20 + lv*3)/equipRatio) * gradeRatio;
+            upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_MDEF_RATIO(item, ignoreReinfAndTranscend) / 100;
+            if equipMaterial == 'Cloth' then
+                mdef = mdef * 1.0;
+            elseif equipMaterial == 'Leather' then
+                mdef = mdef * 0.6;
+            elseif equipMaterial == 'Iron' then
+                mdef = mdef * 0.6;
+            end
+            
+            if mdef < 1 then
+                mdef = 1;
+            end
+    
+           mdef = math.floor(mdef) * upgradeRatio + GET_REINFORCE_ADD_VALUE_FOR_EXPORT(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
+           mdef = SyncFloor(mdef);
+        end
+    end
+
+    item.HR = hr;
+    item.DR = dr;
+    item.DEF = def;
+    item.MHR = mhr;
+    item.MDEF = mdef;
+    item.DefRatio = defRatio;
+    item.MDefRatio = mdefRatio;
+    item.ADD_FIRE = fireAtk;
+    item.ADD_ICE = iceAtk;
+    item.ADD_LIGHTNING = lightningAtk;
+
+end
 
 
+function INIT_ARMOR_PROP_FOR_EXPORT(item, class)
+
+    item.DEF = class.DEF;
+    item.MDEF = class.MDEF;
+    item.ADD_DEF = class.ADD_DEF;
+    item.ADD_MDEF = class.ADD_MDEF;
+    item.ADD_MINATK = class.ADD_MINATK;
+    item.ADD_MAXATK = class.ADD_MAXATK;
+    item.ADD_MATK = class.ADD_MATK;
+    item.MINATK = class.MINATK;
+    item.MAXATK = class.MAXATK;
+    
+    item.PATK = class.PATK;
+    item.MATK = class.MATK;
+    item.CRTHR = class.CRTHR;
+    item.CRTATK = class.CRTATK;
+    item.CRTDR = class.CRTDR;
+    item.HR = class.HR;
+    item.DR = class.DR;
+    item.ADD_HR = class.ADD_HR;
+    item.ADD_DR = class.ADD_DR;
+    item.STR = class.STR;
+    item.DEX = class.DEX;
+    item.CON = class.CON;
+    item.INT = class.INT;
+    item.MNA = class.MNA;
+    item.SR = class.SR;
+    item.SDR = class.SDR;
+    item.MHR = class.MHR;
+    item.ADD_MHR = class.ADD_MHR;
+    item.MGP = class.MGP;
+    item.AddSkillMaxR = class.AddSkillMaxR;
+    item.SkillRange = class.SkillRange;
+    item.SkillAngle = class.SkillAngle;
+    item.BlockRate = class.BlockRate;
+    item.BLK = class.BLK;
+    item.BLK_BREAK = class.BLK_BREAK;
+    item.MSPD = class.MSPD;
+    item.KDPow = class.KDPow;
+    item.MHP = class.MHP;
+    item.MSP = class.MSP;
+    item.MSTA = class.MSTA;
+    item.RHP = class.RHP;
+    item.RSP = class.RSP;
+    item.RSPTIME = class.RSPTIME;
+    item.RSTA = class.RSTA;
+    item.ADD_CLOTH = class.ADD_CLOTH;
+    item.ADD_LEATHER = class.ADD_LEATHER;
+    item.ADD_CHAIN = class.ADD_CHAIN;
+    item.ADD_IRON = class.ADD_IRON;
+    item.ADD_GHOST = class.ADD_GHOST;
+    item.ADD_SMALLSIZE = class.ADD_SMALLSIZE;
+    item.ADD_MIDDLESIZE = class.ADD_MIDDLESIZE;
+    item.ADD_LARGESIZE = class.ADD_LARGESIZE;
+    item.ADD_FORESTER = class.ADD_FORESTER;
+    item.ADD_WIDLING = class.ADD_WIDLING;
+    item.ADD_VELIAS = class.ADD_VELIAS;
+    item.ADD_PARAMUNE = class.ADD_PARAMUNE;
+    item.ADD_KLAIDA = class.ADD_KLAIDA;
+    item.Aries = class.Aries;
+    item.Slash = class.Slash;
+    item.Strike = class.Strike;
+    item.AriesDEF = class.AriesDEF;
+    item.SlashDEF = class.SlashDEF;
+    item.StrikeDEF = class.StrikeDEF;
+    item.ADD_FIRE = class.ADD_FIRE;
+    item.ADD_ICE = class.ADD_ICE;
+    item.ADD_POISON = class.ADD_POISON;
+    item.ADD_LIGHTNING = class.ADD_LIGHTNING;
+    item.ADD_SOUL = class.ADD_SOUL;
+    item.ADD_EARTH = class.ADD_EARTH;
+    item.ADD_HOLY = class.ADD_HOLY;
+    item.ADD_DARK = class.ADD_DARK;
+    item.RES_FIRE = class.RES_FIRE;
+    item.RES_ICE = class.RES_ICE;
+    item.RES_POISON = class.RES_POISON;
+    item.RES_LIGHTNING = class.RES_LIGHTNING;
+    item.RES_SOUL = class.RES_SOUL;
+    item.RES_EARTH = class.RES_EARTH;
+    item.RES_HOLY = class.RES_HOLY;
+    item.RES_DARK = class.RES_DARK;
+    
+end
+function SCR_GET_ITEM_GRADE_RATIO(grade, prop)
+    local class = GetClassByNumProp("item_grade", "Grade", grade)
+    if class == nil then
+        return 0;
+    end
+    
+    local value = TryGetProp(class, prop);
+    if value == nil then
+        return 0;
+    end
+    
+    value = value / 100;
+    
+    return value;
+end
+
+function GET_REINFORCE_ADD_VALUE_FOR_EXPORT(prop, item, ignoreReinf, reinfBonusValue)
+    if ignoreReinf == 1 then
+        return 0;
+    end
+    if reinfBonusValue == nil then
+        reinfBonusValue = 0;
+    end
+    local value = 0;
+    local buffValue =  TryGetProp(item,"BuffValue");
+    if buffValue == nil then
+        return 0;
+    end
+    
+    local reinforceValue = TryGetProp(item,"Reinforce_2");
+    if reinforceValue == nil then
+        return 0;
+    end
+    
+    local lv = TryGetProp(item, "UseLv");
+    if lv == nil then
+        return 0;
+    end
+    
+    if (GetServerNation() == "KOR" and (GetServerGroupID() == 9001 or GetServerGroupID() == 9501)) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item, 1);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
+    
+    local classType = TryGetProp(item,"ClassType");
+    if classType == nil then
+        return 0;
+    end
+
+    local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+        return 0;
+    end
+    
+    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO_FOR_EXPORT(grade, "ReinforceRatio")
+    
+    local typeRatio;
+    
+    if classType == 'Shirt' or classType == 'Pants' or classType == 'Shield' then
+        typeRatio = 3.5;
+    elseif classType == 'Gloves' or classType == 'Boots' then
+        typeRatio = 4.5;
+    elseif classType == 'Neck' then
+        typeRatio = 5.5;
+    elseif classType == 'Ring' then
+        typeRatio = 11;
+    else
+        return 0;
+    end
+    
+    local value;
+    
+    reinforceValue = reinforceValue + reinfBonusValue;
+    
+    value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 )))) / typeRatio)) * gradeRatio;
+    value = value * (item.ReinforceRatio / 100) + buffValue;
+
+    return SyncFloor(value);
+end
+function GET_BASIC_ATK_FOR_EXPORT(item)
+    local lv = TryGetProp(item,"UseLv");
+    if lv == nil then
+        return 0;
+    end
+    
+    local hiddenLv = TryGetProp(item,"ItemLv");        
+    if hiddenLv > 0 then
+        lv = hiddenLv;
+    end
+    
+    if (GetServerNation() == "KOR" and (GetServerGroupID() == 9001 or GetServerGroupID() == 9501)) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item , 1);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
+    
+    local grade = TryGetProp(item, "ItemGrade");
+    if grade == nil then
+        return 0;
+    end
+    
+    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO_FOR_EXPORT(grade, "BasicRatio");
+    local itemATK = (20 + ((lv)*3)) * gradeRatio;
+    if lv == 0 then
+        itemATK = 0;
+    end
+
+    local slot = TryGetProp(item,"DefaultEqpSlot");
+    if slot == nil then
+        return 0;
+    end
+    
+    local classType = TryGetProp(item,"ClassType");
+    if classType == nil then
+        return 0;
+    end
+    
+    local damageRange = TryGetProp(item,"DamageRange")/100;
+    if damageRange == nil then
+        return 0;
+    end
+    
+    if slot == "RH" then
+        if classType == 'THSpear' then
+            itemATK = itemATK * 1.3;
+        elseif classType == 'Spear' then
+            itemATK = itemATK * 1.1;
+        elseif classType == 'Mace' then
+            itemATK = itemATK * 0.9;
+        elseif classType == 'Bow' or classType == 'Rapier' then
+            itemATK = itemATK * 1.0;
+        else
+            itemATK = itemATK * 1.2;
+        end
+   elseif slot == "RH LH" then
+       if classType == 'Sword' then
+           itemATK = itemATK * 1.0;
+       end
+   elseif slot == "LH" then
+        if classType == 'Cannon' then
+            itemATK = itemATK * 1.1;
+        elseif classType == 'Pistol' then
+            itemATK = itemATK * 1.0;
+        else
+            itemATK = itemATK * 0.9;
+        end
+    else
+        return 0;
+    end
+
+    local maxAtk = SyncFloor(itemATK * damageRange);
+    local minAtk = SyncFloor(itemATK * (2 - damageRange));
+    return maxAtk, minAtk;
+end
+
+function GET_BASIC_MATK_FOR_EXPORT(item)
+    local grade = TryGetProp(item, "ItemGrade");
+    if grade == nil then
+        return 0;
+    end
+
+    local lv = TryGetProp(item,"UseLv");
+    if lv == nil then
+        return 0;
+    end
+
+    if lv == 0 then
+        itemATK = 0;
+    end
+
+    local hiddenLv = TryGetProp(item,"ItemLv");
+    if hiddenLv == nil then
+        return 0;
+    end    
+
+    if hiddenLv > 0 then
+        lv = hiddenLv 
+    end
+    
+    if (GetServerNation() == "KOR" and (GetServerGroupID() == 9001 or GetServerGroupID() == 9501)) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item, 1);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
+
+    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO_FOR_EXPORT(grade, "BasicRatio");
+    local itemATK = (20 + ((lv)*3)) * gradeRatio;
+    local classType = TryGetProp(item,"ClassType");
+    if classType == nil then
+        return 0;
+    end
+    
+    if classType == 'THStaff' then
+        itemATK = itemATK * 1.2;
+    elseif classType == 'Staff' then
+        itemATK = itemATK * 1.0;
+    elseif classType == 'Mace' then
+        itemATK = itemATK * 0.9;
+    else
+        return 0;
+    end
+    
+    return itemATK;
+end
+
+function GET_ITEM_DESCS(classID)
+    local list = {};
+
+
+    local invitem = GetClassByType("Item", classID);
+    local clslist, cnt = GetClassList('SkillTree');
+
+
+    local basicTooltipPropList = StringSplit(invitem.BasicTooltipProp, ';');
+
+    local basiclist = GET_EQUIP_TOOLTIP_PROP_LIST_FOR_EXPORT(invitem);
+
+    for i = 1, #basicTooltipPropList do
+        local basicTooltipProp = basicTooltipPropList[i];
+        list = GET_CHECK_OVERLAP_EQUIPPROP_LIST_FOR_EXPORT(basiclist, basicTooltipProp, list);
+    end
+   
+
+    local mainOption = "";
+    if invitem.GroupName == "Weapon" or invitem.GroupName == "SubWeapon" then
+        local min, max = GET_BASIC_ATK_FOR_EXPORT(invitem);
+        if min ~= 0 then
+            mainOption = mainOption .. GetClass("ClientMessage", "PATK").Data .. " " .. min .. " ~ " .. max .. ",";
+        end
+        local magic = GET_BASIC_MATK_FOR_EXPORT(invitem);
+        if magic ~= 0 then
+           mainOption = mainOption .. GetClass("ClientMessage", "MATK").Data .. " " .. magic .. ",";
+        end
+
+    else
+        SCR_REFRESH_ARMOR_FOR_EXPORT(invitem, 0, 0, 0);
+        SCR_REFRESH_ACC_FOR_EXPORT(invitem, 0, 0);
+        if invitem.DEF ~= 0 then
+            mainOption = mainOption .. GetClass("ClientMessage", "DEF").Data .. " " .. invitem.DEF .. ",";
+        end
+        if invitem.MDEF ~= 0 then
+            mainOption = mainOption .. GetClass("ClientMessage", "MDEF").Data .. " " .. invitem.MDEF .. ",";
+        end
+        if mainOption == "" then -- 물방, 마방과 같은 메인 옵션이 없는 경우(장신구)
+             local PropName = {"HR", "DR",  "MHR", "ADD_FIRE", "ADD_ICE", "ADD_LIGHTNING", "DefRatio", "MDefRatio"};
+             for i = 1, #PropName do
+                if invitem[PropName[i]] ~= nil and invitem[PropName[i]] ~= 0 then
+                    mainOption = GetClass("ClientMessage", PropName[i]).Data .. " " .. invitem[PropName[i]];
+                end
+             end
+        end
+    end
+
+
+    local subOption = "";
+    for i = 1 , #list do
+
+		local propName = list[i];
+		local propValue = invitem[propName];
+        local translatedProp = GetClass("ClientMessage", propName);
+        if propValue ~= 0 then
+            if invitem.GroupName == "Weapon" or invitem.GroupName == "SubWeapon" then
+                if propName ~= "PATK" and propName ~= "MATK" then
+                    subOption = subOption  .. translatedProp.Data .. " " .. propValue .. ","
+                end
+            else
+                if propName ~= "DEF" and propName ~= "MDEF" then
+                    subOption = subOption  .. translatedProp.Data .. " " .. propValue .. ","
+                end
+            end
+
+        end
+	end
+
+
+    return subOption, mainOption;
+end
+function TEST_BINDFUNC(self, mon)
+  print("TEST_BINDFUNC");
+  return 1;
+end
+function TEST_GETNEAR(pc)
+  local nearEnemy = GetNearEnemy(pc);
+  if nearEnemy == nil then
+    print("nearEnemy is nil")
+    return
+  end
+  local selectedEnemy = GetNearEnemyFromFunc(nearEnemy, "TEST_BINDFUNC")
+  if selectedEnemy ~= nil then
+    print("selectedEnemy:" .. selectedEnemy.ClassName)
+  else
+    print("selectedEnemy is NIL")
+  end
+end
+function GET_ITEM_PROPERTY(pc)
+
+    local clsList, cnt = GetClassList('Item');
+
+    local solmickey = GetClass('Item', 'MAC04_110');
+    print(solmickey.Name); -- 이름
+    print(solmickey.Weight); -- 무게
+    print(solmickey.ReqToolTip); -- 한손둔기
+    print(solmickey.TeamTrade);
+    print(solmickey.ShopTrade);
+    print(solmickey.MarketTrade);
+    print(solmickey.UserTrade);
+    print(solmickey.UseJob) -- 무기 사용 가능 클래스
+
+    for i = 0, 3 do
+        local item = GetClassByIndexFromList(clsList, i);
+        if item.ItemType == "Equip" then
+           
+            
+
+        end
+        
+    end
+end
+
+function EXPORT_ALL_SKILLS(pc, fileDir)
+
+    if fileDir == nil or fileDir == "" then
+        print("fileDir is nil")
+        return;
+    end
+
+    local clslist, cnt = GetClassList('SkillTree');
+    local skillClsList, skillCnt = GetClassList('Skill');
+ 
+    --[[
+    현재 레벨, 
+    CaptionTime,
+    CaptionRatio, 
+    CaptionRatio2, 
+    CaptionRatio3, 
+    CaptionTime,
+    SpendSP
+    ]]--
+    
+
+    local jobID = TryGetProp(pc, "Job");
+    local firstSkill, lastSkill; 
+    
+        -- 해당 클래스가 배울 수 있는 스킬트리의 수 만큼
+    for i = 0, cnt do
+        local cls = GetClassByIndexFromList(clslist, i);
+
+        ret = ""
+
+        local skillProperty = GetClass('Skill', cls.SkillName); 
+        
+        --UnlockGrade:언락되는 서클
+        local maxLv = (4 - cls.UnlockGrade) * cls.LevelPerGrade;
+        local multFactor = 9;
+         --스킬 곱셈 팩터 = 최대랭(8) + 1 - 스킬의 직업 랭크
+        if skillProperty.Rank ~= "None" then
+          multFactor = 10 - skillProperty.Rank;
+        else
+          print("No-Rank skill:" .. cls.SkillName);
+        end
+        
+        --3보다 작을 경우 6랭크 이상 스킬
+        if multFactor < 3 then
+          maxLv = multFactor * cls.LevelPerGrade;
+        end;
+        
+        --MaxLevel프로퍼티가 디폴트 20이 아닌 경우 MaxLevel프로퍼티 값으로 오버라이드
+        if cls.MaxLevel ~= 20 then
+            maxLv = cls.MaxLevel
+        end
+
+        --스킬의 최대 레벨만큼
+        for j = 1, maxLv do
+           ret = ret .. j .. "/"; 
+
+           local tx = TxBegin(pc);
+           skilLv = tonumber(j)
+           local sklObj = GetSkill(pc, cls.SkillName);
+
+           if sklObj == nil then
+                local idx = TxAddSkill(tx, cls.SkillName);
+                TxAppendProperty(tx, idx, 'LevelByDB', skilLv);
+            else
+                TxSetIESProp(tx, sklObj, 'LevelByDB', skilLv);
+            end
+
+            TxCommit(tx);
+           local skillCls = GetSkill(pc, cls.SkillName);
+           if skillCls.CaptionTime == nil then
+              ret = ret .. 0 .. "/";
+           else
+              ret = ret .. skillCls.CaptionTime .. "/";
+           end
+           if skillCls.SkillFactor == nil then
+              ret = ret .. 0 .. "/";
+           else
+              ret = ret .. skillCls.SkillFactor .. "/";
+           end
+           if skillCls.SkillSR == nil then
+              ret = ret .. 0 .. "/";
+            else
+              ret = ret .. skillCls.SkillSR .. "/";
+           end
+           if skillCls.CaptionRatio == nil then
+              ret = ret .. 0 .. "/";
+            else
+              ret = ret .. skillCls.CaptionRatio .. "/";
+           end
+           if skillCls.CaptionRatio2 == nil then
+              ret = ret .. 0 .. "/";
+            else
+              ret = ret .. skillCls.CaptionRatio2 .. "/";
+           end
+           if skillCls.CaptionRatio3 == nil then
+              ret = ret .. 0 .. "/";
+            else
+              ret = ret .. skillCls.CaptionRatio3 .. "/";
+           end
+		   if skillCls.SpendItemCount == nil then
+		     ret = ret .. 0 .. "/";
+            else
+              ret = ret .. skillCls.SpendItemCount .. "/";
+           end
+           if skillCls.SpendPoison == nil then
+		     ret = ret .. 0 .. "/";
+            else
+              ret = ret .. skillCls.SpendPoison .. "/";
+           end
+           if skillCls.SkillAtkAdd == nil then
+		     ret = ret .. 0 .. "/";
+            else
+              ret = ret .. skillCls.SkillAtkAdd .. "/";
+           end
+           if skillCls["CoolDown"] == nil then
+              ret = ret .. 0 .. "/";
+            else
+              ret = ret .. skillCls["CoolDown"] * 0.001 .. "/";
+           end
+           if skillCls.SpendSP == nil then
+              ret = ret .. 0 .. "/";
+            else
+              ret = ret .. skillCls.SpendSP .. "{nl}";
+           end
+        end                                                 --쿨다운에 sp소모량이 들어감..?
+        ExportSkillDescJson(pc, cls.SkillName, ret, maxLv, fileDir);
+    end
 end
 
 function SET_SKL_LV(pc, skillName, skilLv)
@@ -6085,4 +7083,8 @@ end
 function TEST_SAY_CURRENT_SERVER_TIME(pc)
 	local curTime = GetDBTime();
 	Chat(pc, "CurDate: year["..curTime.wYear..'], month['..curTime.wMonth..'], day['..curTime.wDay..'], hour['..curTime.wHour..'], minute['..curTime.wMinute..']')
+end
+
+function TEST_ADDON_MSG_DUMP(pc)
+	SendAddOnMsg(pc, "TEST_ADDON_MSG_DUMP_MSG", "");
 end

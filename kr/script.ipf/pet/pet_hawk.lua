@@ -413,44 +413,36 @@ function HAWK_CIRCLING(self, skl)
         return;
     end
     
-    local applyTime = (skl.Level * 1000) + 10000;
-    SetExProp(hawk, "CirclingApplyTime", applyTime);
+--    if IsRunningScript(hawk, '_HAWK_CIRCLING') == 1 then
+--        return;
+--    end
     
-    if IsRunningScript(hawk, '_HAWK_CIRCLING') == 1 then
-        return;
-    end
     local x, y, z = Get3DPos(hawk);
-    local skl = GetSkill(self, 'Falconer_Circling');
-    local pad = RunPad(hawk, 'Falconer_Circling', skl, x, 0, z, 0, 1)
+    local skill = GetSkill(self, 'Falconer_Circling');
+    local pad = RunPad(hawk, 'Falconer_Circling', skill, x, 0, z, 0, 1)
     if nil == pad then
         return;
     end
     
-	AddPadEffect(pad, 'F_archer_circling_ground', 1.7)
+    local padID = GetPadID(pad);
+    SetExProp(hawk, 'CIRCLING_PAD_ID', padID);
     
-    RunScript('_HAWK_CIRCLING', hawk, self, pad, skl)
-    
-	
---    if IS_LOCK_HAWK_ACTION(hawk) == 1 then
---        local scp = GetExProp_Str(hawk, 'USING_HAWK_FUNNAME');
---        RunScript('_HAWK_START_BEFOR_STOP', hawk, self, skl, '_HAWK_CIRCLING', scp);
---        return;
---    end
---    
---    RunScript("_HAWK_CIRCLING", hawk, self, skl);
+    RunScript('_HAWK_CIRCLING', hawk, self, pad, skill, padID)
 end
 
-function _HAWK_CIRCLING(self, owner, pad, skl)
-
+function _HAWK_CIRCLING(self, owner, pad, skl, padID)
     sleep(1000);
-    HAWK_UNREST(self)
+    HAWK_UNREST(self);
+    
     local abilFalconer11 = GetAbility(owner, "Falconer11")
     if abilFalconer11 ~= nil then
         local buffApplyTime = 10000 + TryGetProp(abilFalconer11, "Level") * 1000
         AddBuff(owner, owner, "CirclingIncreaseSR_Buff", 1, 0, buffApplyTime, 1)
     end
     
-    local hoverTime = GetExProp(self, "CirclingApplyTime")
+	AddPadEffect(pad, 'F_archer_circling_ground', 1.7);
+    
+    local hoverTime = GetPadLife(pad);
     local startTime = imcTime.GetAppTimeMS();
     while 1 do
         if IsZombie(self) == 1 or IsDead(self) == 1 or IsZombie(owner) == 1 or IsDead(owner) == 1 then  
@@ -465,45 +457,17 @@ function _HAWK_CIRCLING(self, owner, pad, skl)
             break;
         end
         
+    	local nowPadID = GetExProp(self, 'CIRCLING_PAD_ID');
+    	if nowPadID ~= padID then
+    		KillPad(pad);
+    		return;
+    	end
+        
         if GetPadLife(pad) <= 1000 then
             break;
         end
         sleep(1000);
     end
-
-
---    LOCK_HAWK_ACTION(self, 1, '_HAWK_CIRCLING');
-----  HoldMonScp(self);
---    SetHoldMonScp(self, 1);
---    sleep(1000);
---    HAWK_UNREST(self)
---
---    local x, y, z = GetGizmoPos(owner);
---    SetMoveAniType(self, "CIRCLING_READY");
---    HAWK_WAIT_MOVE_TO(self, x, y, z);
---    SetMoveAniType(self, "None");
---
---    local hoverRadius = 50;
---    local hoverSpeed = 0.25;
---    HoverPosition(self, x, y + g_default_hawk_Height, z, hoverRadius, hoverSpeed, "CIRCLING_LOOP");
---    
---    local padName = "Falconer_Circling"
---    local cmd = RunPad(owner, padName, skl, x, y, z, 1, 1); 
---    local padID = GetPadID(cmd);
---
---    for i = 0 , 20 do
---        local pad = GetPadByID(owner, padID);
---        if pad == nil then
---            break;
---        end
---
---        sleep(1000);        
---    end
-    
---    StopHoverPosition(self);
---
---    PET_SET_ACT_FLAG(self);
---    HAWK_FLY_AWAY(self);
 end
 
 function LOCK_HAWK_ACTION(self, isLock, funName)
@@ -1234,23 +1198,28 @@ function HAWK_AIMING(self, skl)
         return;
     end
 
-    if IsRunningScript(hawk, '_HAWK_AIMING') == 1 then
-        return;
-    end
+--    if IsRunningScript(hawk, '_HAWK_AIMING') == 1 then
+--		return;
+--    end
+    
     local x, y, z= Get3DPos(hawk);
-    local skl = GetSkill(self, 'Falconer_Aiming');
-    local pad = RunPad(hawk, 'Falconer_Aiming', skl, x, y, z, 0, 1)
+    local skill = GetSkill(self, 'Falconer_Aiming');
+    local pad = RunPad(hawk, 'Falconer_Aiming', skill, x, y, z, 0, 1)
     if nil == pad then
         return;
     end
-    RunScript('_HAWK_AIMING', hawk, self, pad, skl)
+    
+    local padID = GetPadID(pad);
+    SetExProp(hawk, 'AIMING_PAD_ID', padID);
+    
+    RunScript('_HAWK_AIMING', hawk, self, pad, skill, padID)
 end
 
-function _HAWK_AIMING(self, owner, pad, skl)
+function _HAWK_AIMING(self, owner, pad, skl, padID)
     
     sleep(1000);
     HAWK_UNREST(self)
-    local hoverTime = skl.Level * 15000;
+	local hoverTime = GetPadLife(pad);
     local startTime = imcTime.GetAppTimeMS();
     while 1 do
         if IsZombie(self) == 1 or IsDead(self) == 1 or IsZombie(owner) == 1 or IsDead(owner) == 1 then  
@@ -1260,11 +1229,17 @@ function _HAWK_AIMING(self, owner, pad, skl)
         if imcTime.GetAppTimeMS() - startTime > hoverTime then
             break;
         end
-
+		
         if nil == pad then
             break;
         end
         
+    	local nowPadID = GetExProp(self, 'AIMING_PAD_ID');
+    	if nowPadID ~= padID then
+    		KillPad(pad);
+    		return;
+    	end
+		
         if GetPadLife(pad) <= 1000 then
             break;
         end

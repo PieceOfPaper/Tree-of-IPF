@@ -208,7 +208,7 @@ function ADVENTURE_BOOK_MAP.DRAW_MINIMAP(selectedMapID)
     pic:Resize(ctrlSet:GetWidth(), ctrlSet:GetHeight());
 	local mapimage = ui.GetImage(drawMapName .. "_fog");
 	if mapimage == nil then
-		world.PreloadMinimap(drawMapName);
+		world.PreloadMinimap(drawMapName, true, true);
 	end
 	pic:SetImage(drawMapName .. "_fog");
 		

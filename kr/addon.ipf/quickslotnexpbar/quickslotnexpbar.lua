@@ -553,7 +553,6 @@ function QUICKSLOT_ON_CHANGE_INVINDEX(fromIndex, toIndex)
 end
 
 function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
-
 	if GetCraftState() == 1 then
 		return;
 	end
@@ -590,17 +589,28 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 	if TRY_TO_USE_WARP_ITEM(invenItemInfo, itemobj) == 1 then
 		return;
 	end
-
+		
 	if invenItemInfo.count == 0 then
 		icon:SetColorTone("FFFF0000");
 		icon:SetText(invenItemInfo.count, 'quickiconfont', 'right', 'bottom', -2, 1);
 		return;
 	end
-
+		
 	if true == BEING_TRADING_STATE() then
 		return;
 	end
-	
+
+	local invItemAllowReopen = ''
+	if itemobj ~= nil then
+		invItemAllowReopen = TryGetProp(itemobj, 'AllowReopen')
+	end
+
+	local groupName = itemobj.ItemType;
+	local gachaCubeFrame = ui.GetFrame('gacha_cube')
+	if groupName == 'Consume' and gachaCubeFrame ~= nil and gachaCubeFrame:IsVisible() == 1 and invItemAllowReopen == 'YES' then
+		return
+	end
+
 	ICON_USE(icon);
 end
 
