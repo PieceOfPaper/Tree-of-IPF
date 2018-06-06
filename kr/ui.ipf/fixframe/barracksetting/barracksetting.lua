@@ -50,8 +50,46 @@ function ON_BARRACK_NAME_CHANGE_RESULT(frame, addon, str, result)
 		return;
 	end
 
-		if result == -1 then
+	--[[
+	[한국]
+	[1001월드에서 생성 시]
+	-- 같은 1001월드에 이미 같은 팀명이 존재
+	p_error = -11 ;
+
+	-- 1001, 1002월드가 아닌 다른 월드에 같은 팀명이 존재
+	p_error = -12 ;
+
+	[1002월드에서 생성 시]
+	-- 같은 1002월드에 이미 같은 팀명이 존재
+	p_error = -13 ;
+
+	-- 1001, 1002월드가 아닌 다른 월드에 같은 팀명이 존재
+	p_error = -14 ;
+	
+	[1001,1002가 아닌 월드에서 생성 시]
+	-- 팀명이 존재
+	p_error = -15 ;
+	
+	
+	[대만]
+	-- 팀명이 존재
+	p_error = -21 ;
+	
+	[인도]
+	-- 팀명이 존재
+	p_error = -31 ;
+	
+	[위 국가를 제외한 모든 국가]
+	-- 팀명이 존재
+	p_error = -1 ;
+	]]--
+
+	if result == -1 or result == -12 or result == -14 or result == -15 or result == -21 or result == -31 then
 			ui.SysMsg(ClMsg("TheTeamNameAlreadyExist"));
+	elseif result == -11 or result == -13 then
+		ui.SysMsg(ClMsg("ThisWorldExistFamilyName"));
+	elseif result == -15 then
+		ui.SysMsg(ClMsg("KorAnotherWorldExistFamilyName"));
 		else
 			ui.SysMsg(ClMsg("TeamNameChangeFailed"));
 		end			
