@@ -140,11 +140,12 @@ function ON_INTE_WARP(frame, changeDirection)
 
 
 	local imgSize = ui.GetSkinImageSize("worldmap_" .. currentDirection .. "_bg");
-	local startX = - 80;
-	local startY = bottomY - 30;
-	local pictureStartY = imgSize.y - 30;
-	local spaceX = 130.5;
-	local spaceY = 130.5;
+	local startX = - 40;
+	local startY = bottomY - 15;
+	local pictureStartY = imgSize.y - 15;
+
+	local spaceX = 65.25;
+	local spaceY = 65.25;
 
 	local nowlocationtext =  GET_CHILD_RECURSIVELY(frame, "nowLocation", "ui::CRichText")
 	local nowMapCls = GetClass("Map", nowZoneName);
