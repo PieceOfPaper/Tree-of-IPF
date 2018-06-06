@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ToolScpList>
+	<Buff Name="Melstis">
+		<BeAttacked>
+			<ToolScp Scp="S_R_SET_FORCE_REFLECT" Client="NO" UseSleep="NO">
+				<Num Num="1.000000"/>
+				<Num Num="100.000000"/>
+				<Num Num="0.100000"/>
+				<Num Num="2.000000"/>
+				<Str Str="ENEMY"/>
+			</ToolScp>
+			<ToolScp Scp="S_R_SET_MELEE_REFLECT" Client="NO" UseSleep="NO">
+				<Num Num="1.000000"/>
+				<Num Num="50.000000"/>
+				<Num Num="0.100000"/>
+				<Num Num="2.000000"/>
+				<Str Str="ENEMY"/>
+			</ToolScp>
+		</BeAttacked>
+	</Buff>
+	<Buff Name="Warrior_Parrying_Buff">
+		<BeAttacked>
+			<ToolScp Scp="S_R_RANDOM_GUARD" Client="NO" UseSleep="NO">
+				<Num Num="100.000000"/>
+				<Num Num="9.000000"/>
+				<Str Str="Warrior_Parrying"/>
+				<Num Num="1.000000"/>
+			</ToolScp>
+		</BeAttacked>
+	</Buff>
+</ToolScpList>
