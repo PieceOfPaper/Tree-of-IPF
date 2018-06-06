@@ -90,11 +90,15 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 
 	-- 아이템 배경 이미지 : grade기준
 	local item_bg = GET_CHILD(equipCommonCSet, "item_bg", "ui::CPicture");
-	local gradeBGName = GET_ITEM_BG_PICTURE_BY_GRADE(invitem.ItemGrade)
+	local needAppraisal = TryGetProp(invitem, "NeedAppraisal");
+	local gradeBGName = GET_ITEM_BG_PICTURE_BY_GRADE(invitem.ItemGrade, needAppraisal)
 	item_bg:SetImage(gradeBGName);
-
 	-- 아이템 이미지
 	local itemPicture = GET_CHILD(equipCommonCSet, "itempic", "ui::CPicture");
+	if needAppraisal ~= nil and needAppraisal == 1 then
+		itemPicture:SetColorTone("FF111111");
+	end
+
 	if invitem.TooltipImage ~= nil and invitem.TooltipImage ~= 'None' then
 	
     	if invitem.ClassType ~= 'Outer' then
@@ -178,6 +182,9 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	local nameChild = GET_CHILD(equipCommonCSet, "name", "ui::CRichText");
 	nameChild:SetText(fullname);
 
+	nameChild:AdjustFontSizeByWidth(gBox:GetWidth());		-- 폰트 사이즈를 조정
+	nameChild:SetTextAlign("center","center");				-- 중앙 정렬
+	
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+equipCommonCSet:GetHeight())
 
 	local retypos = equipCommonCSet:GetHeight();
@@ -481,7 +488,7 @@ function DRAW_EQUIP_SOCKET(tooltipframe, invitem, yPos, addinfoframename)
 	local inner_yPos = 0;
 
 
-	for i=0, invitem.MaxSocket-1 do
+	for i=0, invitem.MaxSocket_COUNT-1 do
 		if invitem['Socket_' .. i] > 0 then
 			inner_yPos = ADD_ITEM_SOCKET_PROP(socket_gbox, invitem, 
 												invitem['Socket_' .. i], 
@@ -576,6 +583,9 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 	
 	local COUNT_OF_EACHLINE = 3;
 
+	local clsID = 0;
+	local HaveCount = 0;
+	local EntireHaveCount = 0;
 	for i = 0, cnt -1 do
 		local clsName = set:GetItemClassName(i);
 		local cls = GetClass("Item", clsName);
@@ -590,10 +600,20 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 
 			set_image:SetImage(imgName)			
 
-			if GET_EQP_ITEM_CNT(cls.ClassID) > 0 then
-				set_image:SetColorTone(tooltip_CSet:GetUserConfig("HAVE_ITEM_TONE"));
-			else
+			if cls.ClassID ~= clsID then
+				HaveCount = 0;
+			end
+			
+			local count = GET_EQP_ITEM_CNT(cls.ClassID);
+			count = count - HaveCount;
+			if count == 0 then
 				set_image:SetColorTone(tooltip_CSet:GetUserConfig("HAVENT_ITEM_TONE"));
+				HaveCount = 0;
+			else
+				set_image:SetColorTone(tooltip_CSet:GetUserConfig("HAVE_ITEM_TONE"));
+				EntireHaveCount = EntireHaveCount + 1;
+				HaveCount = HaveCount + 1;
+				clsID = cls.ClassID;
 			end
 
 			if i == COUNT_OF_EACHLINE and cnt -1 ~= COUNT_OF_EACHLINE then
@@ -611,7 +631,6 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 	-- 세트아이템 세트 효과 텍스트 표시 부분
 	inner_yPos = 0;
 	inner_xPos = 0;
-	local curCnt = GET_EQUIPED_SET_COUNT(set);
 
 	local AVAIABLE_EFT_FONT_COLOR = tooltip_CSet:GetUserConfig("AVAIABLE_EFT_FONT_COLOR")
 	local UNAVAIABLE_EFT_FONT_COLOR = tooltip_CSet:GetUserConfig("UNAVAIABLE_EFT_FONT_COLOR")
@@ -622,7 +641,7 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 		if setEffect ~= nil then
 
 			local color = AVAIABLE_EFT_FONT_COLOR
-			if curCnt >= i + 1 then
+			if EntireHaveCount >= i + 1 then
 				color = UNAVAIABLE_EFT_FONT_COLOR
 			end
 
@@ -680,11 +699,22 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 
 	maxSocekt_text:SetOffset(maxSocekt_text:GetX(),levelNusejob_text:GetY() + levelNusejob_text:GetHeight() + 5)
 
+	local itemClass = GetClassByType("Item", invitem.ClassID);
+
 	--소켓제한 표시
-	if invitem.MaxSocket <= 0 then
+	if invitem.MaxSocket_COUNT <= 0 then
 		maxSocekt_text:SetText(ScpArgMsg("CantAddSocket"))
 	else
-		maxSocekt_text:SetTextByKey("socketcount",invitem.MaxSocket);
+		if itemClass.NeedAppraisal == 1 then
+			local needAppraisal = TryGetProp(invitem, "NeedAppraisal");
+			if nil ~= needAppraisal and needAppraisal == 1 then
+				maxSocekt_text:SetTextByKey("socketcount","{@st66d_y}????{/}");
+			else
+				maxSocekt_text:SetTextByKey("socketcount","{@st66d_y}"..invitem.MaxSocket.."{/}");
+			end
+		else
+			maxSocekt_text:SetTextByKey("socketcount",invitem.MaxSocket_COUNT);
+		end
 	end
 
 	--유저간 거래 제한 표시 : 아이콘만 표시하고 문구는 표시하지 않도록 바꿨다. (140718)
@@ -753,7 +783,12 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 	local inf_value = CSet:GetUserConfig("INF_VALUE")
 
 	local pr_gauge = GET_CHILD(CSet,'pr_gauge','ui::CGauge')
-	pr_gauge:SetPoint(invitem.PR, itemClass.PR);
+	local mpr = invitem.MaxPR;
+	if 0 == mpr then
+		mpr = itemClass.PR;
+	end
+
+	pr_gauge:SetPoint(invitem.PR, mpr);
 
 	local dur_gauge = GET_CHILD(CSet,'dur_gauge','ui::CGauge')
 	local temparg1 = math.floor(invitem.Dur/100);
@@ -762,6 +797,26 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 		dur_gauge:SetPoint(inf_value, inf_value);
 	else
 		dur_gauge:SetPoint(temparg1, temparg2);
+	end
+
+	if itemClass.NeedAppraisal == 1 then
+		local needAppraisal = TryGetProp(invitem, "NeedAppraisal");
+		if needAppraisal ~= nil and  needAppraisal == 0 then -- 감정아이템
+			pr_gauge:SetStatFont(0, "yellow_14_b")
+		else  --미감정아이템
+			pr_gauge:SetTextStat(0, "{@st66d_y}????{/}")
+
+			local picture = CSet:CreateControl('picture', 'appraisalPic', 0, dur_gauge:GetY()+dur_gauge:GetHeight() - 10, 400, 46);
+			picture:ShowWindow(1);
+			picture = tolua.cast(picture, "ui::CPicture");
+			picture:SetImage("USsentiment_message");
+
+			local rect = picture:CreateControl('richtext', 'appraisalStr', 200, 40, ui.CENTER_HORZ, ui.CENTER_HORZ, 0, 0, 0, 0);
+			rect = tolua.cast(rect, "ui::CRichText");
+			rect:SetText('{@st66b}'..ScpArgMsg("AppraisalItem"))
+			rect:SetTextAlign("center","center");
+			CSet:Resize(CSet:GetWidth(),CSet:GetHeight() + picture:GetHeight() - 30);
+		end
 	end
 
 	local extraMarginY = 0;
