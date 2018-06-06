@@ -32,9 +32,6 @@ function MARKET_SELL_OPEN(frame)
 	droplist:SelectItemByKey(1);
 end
 
-function MARKET_SELL_TYPE_SELECT(parent, ctrl)
-end
-
 function MARKET_SELL_UPDATE_SLOT_ITEM(frame)
 
 	local groupbox = frame:GetChild("groupbox");
@@ -90,6 +87,7 @@ function ON_MARKET_SELL_LIST(frame)
 		btn:SetTextByKey("value", ClMsg("Cancel"));
 		btn:UseOrifaceRectTextpack(true)
 		btn:SetEventScript(ui.LBUTTONUP, "CANCEL_MARKET_ITEM");
+		btn:SetEventScriptArgString(ui.LBUTTONUP,marketItem:GetMarketGuid());
 		
 	end
 

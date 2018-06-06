@@ -926,3 +926,15 @@ function APPLY_SORCERER_SUMMON_STAT(self, caster, skl, item)
 	self.MDEF = (self.MDEF/2 + (caster.MNA * sklbonus)) * itembonus
 
 end
+
+function SCR_GET_MON_SKILLFACTORRATE(self)
+    local value = 100;
+    if self.StatType ~= 'None' then
+		local cls = GetClass("Stat_Monster_Type", "type"..self.StatType);
+		if cls ~= nil then
+			value = cls.SkillFactorRate;
+		end
+	end
+	
+	return value;
+end

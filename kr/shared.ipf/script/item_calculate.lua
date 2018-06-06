@@ -523,8 +523,12 @@ function APPLY_AWAKEN(item)
 		return;
 	end
 
-	local hiddenProp = item.HiddenProp;
-	item[hiddenProp] = item[hiddenProp] + item.HiddenPropValue;
+		local hiddenProp = item.HiddenProp;
+	local getProp = TryGetProp(item, hiddenProp);
+	if nil ~= getProp then
+		local hiddenProp = item.HiddenProp;
+		item[hiddenProp] = item[hiddenProp] + item.HiddenPropValue;
+	end
 end
 
 function SCR_ENTER_AQUA(item, arg1, arg2)

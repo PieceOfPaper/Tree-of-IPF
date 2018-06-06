@@ -190,9 +190,11 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 	local curMode = frame:GetUserValue("Mode");
 	local imgName = "worldmap_" .. currentDirection .. "_bg";
 	local parentGBox = pic:GetChild("GBOX_".. curMode);
-	DESTROY_CHILD_BYNAME(parentGBox, "ZONE_GBOX_");
+	if changeDirection == true then
+		DESTROY_CHILD_BYNAME(parentGBox, "ZONE_GBOX_");
+	end
 
-	CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, mapName, currentDirection, spaceX, startX, spaceY, startY, pictureStartY);
+	CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDirection, mapName, currentDirection, spaceX, startX, spaceY, startY, pictureStartY);
 
 	if makeWorldMapImage == true then
 		ui.CreateCloneImageSkin("worldmap_" .. currentDirection .. "_fog", "worldmap_" .. currentDirection .. "_current");
@@ -213,7 +215,7 @@ function GET_WORLDMAP_GROUPBOX(frame)
 	return GET_CHILD(frame, "pic" ,"ui::CPicture");
 end
 
-function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, mapName, currentDirection, spaceX, startX, spaceY, startY, pictureStartY)
+function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDirection, mapName, currentDirection, spaceX, startX, spaceY, startY, pictureStartY)
 
 	local clsList, cnt = GetClassList('Map');	
 	if cnt == 0 then
@@ -246,9 +248,9 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, mapN
                 
 					local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 				
-					if parentGBox:GetChild(gBoxName) == nil then
+					if changeDirection ~= true or parentGBox:GetChild(gBoxName) == nil then
 				    
-						CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY);
+						CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirection, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY);
 
 					end
 				end
@@ -259,7 +261,7 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, mapN
 
 end
 
-function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY)
+function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirection, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY)
 
 	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
 	local sizeRatio = 1 + curSize * 0.25;
@@ -267,11 +269,18 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, nowMapIES, 
 	local picX = startX + x * spaceX * sizeRatio;
 	local picY = startY - y * spaceY * sizeRatio;
 
+	if changeDirection == false then
+		local gbox = parentGBox:GetChild(gBoxName);
+		if gbox ~= nil then
+			gbox:SetOffset(picX, picY);
+			return;
+		end
+	end
 	local gbox = parentGBox:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 120)
 	gbox:SetEventScript(ui.MOUSEWHEEL, "WORLDMAP_MOUSEWHEEL");
 	gbox:SetSkinName("None");
 	gbox:ShowWindow(1);
-	local ctrlSet = gbox:CreateControlSet('worldmap_zone', "ZONE_CTRL_" .. mapCls.ClassID, ui.LEFT, ui.TOP, 0, 0, 0, 0);
+	local ctrlSet = gbox:CreateOrGetControlSet('worldmap_zone', "ZONE_CTRL_" .. mapCls.ClassID, ui.LEFT, ui.TOP, 0, 0, 0, 0);
 	ctrlSet:ShowWindow(1);
 	local text = ctrlSet:GetChild("text");
 	if mapName == mapCls.ClassName then
@@ -343,7 +352,7 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, nowMapIES, 
 
 		if partyMemberInfo:GetMapID() == mapCls.ClassID and partyMemberName ~= info.GetFamilyName(session.GetMyHandle()) then
 					
-			local memberctrlSet = ctrlSet:CreateControlSet('worldmap_partymember_iconset', "WMAP_PMINFO_" .. partyMemberName, 0, suby );
+			local memberctrlSet = ctrlSet:CreateOrGetControlSet('worldmap_partymember_iconset', "WMAP_PMINFO_" .. partyMemberName, 0, suby );
 		
 			local pm_namertext = GET_CHILD(memberctrlSet,'pm_name','ui::CRichText')
 			pm_namertext:SetTextByKey('pm_fname',partyMemberName)
