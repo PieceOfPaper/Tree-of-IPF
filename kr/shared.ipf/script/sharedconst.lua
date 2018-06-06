@@ -1,4 +1,4 @@
-﻿DAYCHECK_EVENT_REWARD_HOUR = 3
+﻿DAYCHECK_EVENT_REWARD_HOUR = 30
 DAYCHECK_EVENT_TIME = {{{2016,7,14},{2016,7,27}},{{2016,7,28},{2016,8,10}},{{2016,8,11},{2016,8,25}}}
 DAYCHECK_EVENT_REWARD_ITEM = {{{'160714Event_box1',1},{'160714Event_box2',1},{'160714Event_box3',1},{'160714Event_box4',1},{'160714Event_box5',1},{'160714Event_box6',1},{'160714Event_box7',1},{'160714Event_box8',1},{'160714Event_box9',1},{'160714Event_box10',1}},
                                 {{'160714Event_box11',1},{'160714Event_box12',1},{'160714Event_box13',1},{'160714Event_box14',1},{'160714Event_box15',1},{'160714Event_box16',1},{'160714Event_box17',1},{'160714Event_box18',1},{'160714Event_box19',1},{'160714Event_box20',1}},
