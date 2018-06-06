@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="tradeselectitem" x="0" y="0" width="550" height="510" create="open">
 	<frame title="{@st43}{s22}레시피 큐브{/}" titlepos="0 0" layout_gravity="center center" margin="0 0 400 0" snapclient="true" snapframe="true" scale_align="center center"/>
 	<draw drawframe="true" drawtitlebar="true"/>
@@ -10,7 +10,7 @@
 	<script CloseScp="QUESTREWARD_CLOSE"/>
 	<controls>
 		<groupbox name="box" rect="0 0 480 294" margin="0 58 0 0" layout_gravity="center top" draw="false" hittestbox="false" rateheight="true" ratewidth="true" scrollbar="true" skin="groupbox"/>
-		<richtext name="richtext_1" margin="48 6 0 0" rect="0 0 120 24" caption="{@st41}레시피를 선택 후 확인을 눌러주세요{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="richtext_1" margin="48 6 0 0" rect="0 0 120 24" caption="{@st41}선택 후 확인을 눌러주세요{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		<button name="UseBtn" rect="0 0 160 50" margin="-85 0 0 40" layout_gravity="center bottom" LBtnUpScp="REQUEST_TRADE_ITEM" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}받기{/}" clicksound="button_click_stats_up" oversound="button_over" skin="test_red_button"/>
 		<button name="CancelBtn" rect="0 0 160 50" margin="85 0 0 40" layout_gravity="center bottom" LBtnUpScp="CANCEL_TRADE_ITEM" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}취소{/}" clicksound="button_click" oversound="button_over" skin="test_gray_button"/>
 	</controls>

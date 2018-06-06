@@ -2311,31 +2311,6 @@ function UI_CHECK_GRIMOIRE_UI_OPEN(propname, propvalue)
 	return 0;
 end
 
-function UI_CHECK_NECRO_UI_OPEN(propname, propvalue)
-
-	local jobcls = GetClass("Job", 'Char2_9');
-	local jobid = jobcls.ClassID
-
-	if IS_HAD_JOB(jobid) == 1 then
-		return 1
-	end
-
-	return 0;
-end
-
-function UI_CHECK_POSIONPOT_UI_OPEN(propname, propvalue)
-
-	local jobcls = GetClass("Job", 'Char3_6');
-	local jobid = jobcls.ClassID
-
-	if IS_HAD_JOB(jobid) == 1 then
-		return 1
-	end
-
-	return 0;
-
-end
-
 function UI_CHECK_PARTY()
 
 	local party = session.party.GetPartyInfo();

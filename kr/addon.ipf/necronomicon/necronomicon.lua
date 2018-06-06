@@ -167,14 +167,7 @@ function UPDATE_NECRONOMICON_UI(frame)
 	
 	local part_gaugename = 'part_gauge1'
 	local part_gauge = GET_CHILD(deadpartsGbox, part_gaugename,"ui::CGauge")
-	local totalCount = 300
-	
-	local abil = session.GetAbilityByName("Necromancer21")
-	if abil ~= nil then
-	    local abilObj = GetIES(abil:GetObject());
-	    totalCount = totalCount + abilObj.Level * 100
-	end
-	
+	local totalCount = GET_NECRONOMICON_TOTAL_COUNT();	
 	part_gauge:SetPoint(deadPartsCnt, totalCount) -- 기획 변경으로 100개 씩 3개있던걸 300개로 변경
 
 
@@ -227,7 +220,10 @@ function UPDATE_NECRONOMICON_UI(frame)
 	if nil ~= desc_needparts then
 		desc_needparts:SetTextByKey("value", "30");
 	end
-	
+
+    local showHUDGauge = config.GetXMLConfig('NecronomiconHUD');
+    local hudCheck = GET_CHILD_RECURSIVELY(frame, 'hudCheck');
+    hudCheck:SetCheck(showHUDGauge);
 end
 
 function NECRONOMICON_FRAME_OPEN(frame)
@@ -348,3 +344,21 @@ function SET_NECRO_CARD_ROTATE()
 	item.DialogTransaction("SET_NECRO_CARD_ROTATE", resultlist);
 end
 
+function UI_CHECK_NECRO_UI_OPEN(propname, propvalue)
+	local jobcls = GetClass("Job", 'Char2_9');
+	local jobid = jobcls.ClassID
+
+	if IS_HAD_JOB(jobid) == 1 then
+		return 1
+	end
+
+	return 0;
+end
+
+function NECRONOMICON_HUD_CONFIG_CHANGE()
+    local hudShow = NECRONOMICON_HUD_CHECK_VISIBLE();
+    if hudShow == true then
+        local hudFrame = ui.GetFrame('necronomicon_hud');
+        NECRONOMICON_HUD_SET_SAVED_OFFSET(hudFrame);
+    end
+end

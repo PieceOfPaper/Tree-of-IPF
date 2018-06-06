@@ -1,7 +1,7 @@
 
 
 g_credintimageNum = 1
-MAX_IMAGE_NUM = 8
+MAX_IMAGE_NUM = 10
 
 
 
@@ -79,6 +79,12 @@ function NEWCREDIT_FADEOUT()
 end
 
 function OPEN_NEWCREDIT(frame)
+	
+	local loginFrame = ui.GetFrame("loginui_idpw");
+	if loginFrame ~= nil then
+	  local loginButton = GET_CHILD_RECURSIVELY(loginFrame, "OK");
+	  loginButton:StopActiveUIEffect();
+	end
 	
 	g_credintimageNum = 1
 

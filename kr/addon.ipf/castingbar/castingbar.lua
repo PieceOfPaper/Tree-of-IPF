@@ -1,11 +1,11 @@
 function CASTINGBAR_ON_INIT(addon, frame)
  
-	-- ±âº» Ä³½ºÆÃ¹Ù (½ºÅ³½ÃÀüÇÏ¸é ÃÑ ÄÉ½ºÆÃ½Ã°£¸¸Å­ °ÔÀÌÁö°¡ Ç®·Î Â÷¾ß ½ºÅ³½ÃÀü. Á¶ÀÛºÒ°¡)
+	-- ê¸°ë³¸ ìºìŠ¤íŒ…ë°” (ìŠ¤í‚¬ì‹œì „í•˜ë©´ ì´ ì¼€ìŠ¤íŒ…ì‹œê°„ë§Œí¼ ê²Œì´ì§€ê°€ í’€ë¡œ ì°¨ì•¼ ìŠ¤í‚¬ì‹œì „. ì¡°ì‘ë¶ˆê°€)
 	addon:RegisterMsg('CAST_BEGIN', 'CASTINGBAR_ON_MSG');
 	addon:RegisterMsg('CAST_ADD', 'CASTINGBAR_ON_MSG');
 	addon:RegisterMsg('CAST_END', 'CASTINGBAR_ON_MSG');
 
-	-- ´ÙÀÌ³ª¹Í Ä³½ºÆÃ¹Ù (½ºÅ³Å° ´©¸£°íÀÖ´Â »óÅÂ¿¡¼­¸¸ °ÔÀÌÁöÁõ°¡. ½ºÅ³Å°¶§¸é ½ºÅ³½ÃÀü)
+	-- ë‹¤ì´ë‚˜ë¯¹ ìºìŠ¤íŒ…ë°” (ìŠ¤í‚¬í‚¤ ëˆ„ë¥´ê³ ìˆëŠ” ìƒíƒœì—ì„œë§Œ ê²Œì´ì§€ì¦ê°€. ìŠ¤í‚¬í‚¤ë•Œë©´ ìŠ¤í‚¬ì‹œì „)
 	addon:RegisterMsg('DYNAMIC_CAST_BEGIN', 'DYNAMIC_CASTINGBAR_ON_MSG');
 	addon:RegisterMsg('DYNAMIC_CAST_END', 'DYNAMIC_CASTINGBAR_ON_MSG');
 
@@ -13,12 +13,12 @@ end
 
 function CASTINGBAR_ON_MSG(frame, msg, argStr, argNum)
 
-	if msg == 'CAST_BEGIN' then		-- ½ÃÀü ½ÃÀÛ
+	if msg == 'CAST_BEGIN' then		-- ì‹œì „ ì‹œì‘
 	 
 		local castingObject = frame:GetChild('casting');
 		local castingGauge = tolua.cast(castingObject, "ui::CGauge");		
 
-		local time = argNum / 1000;   -- ÀÌºÎºĞ ÇÊ¿äÇÑ °ªÀ¸·Î º¯°æ
+		local time = argNum / 1000;   -- ì´ë¶€ë¶„ í•„ìš”í•œ ê°’ìœ¼ë¡œ ë³€ê²½
 			
 		castingGauge:SetTotalTime(time);	
 		castingGauge:SetText(argStr, 'normal', 'center', 'bottom', 0, 0);
@@ -41,28 +41,28 @@ function CASTINGBAR_ON_MSG(frame, msg, argStr, argNum)
 		frame:ShowWindow(1);
 	end 
 
-	if msg == 'CAST_ADD' then		-- Áö¿¬ ¹× ´ÜÃà µÇ´Â ½ÃÀü ½Ã°£
+	if msg == 'CAST_ADD' then		-- ì§€ì—° ë° ë‹¨ì¶• ë˜ëŠ” ì‹œì „ ì‹œê°„
 	 
 		local castingObject = frame:GetChild('casting');
 		local castingGauge = tolua.cast(castingObject, "ui::CGauge");
-		local time	= argNum / 1000;   -- ÀÌºÎºĞ ÇÊ¿äÇÑ °ªÀ¸·Î º¯°æ
+		local time	= argNum / 1000;   -- ì´ë¶€ë¶„ í•„ìš”í•œ ê°’ìœ¼ë¡œ ë³€ê²½
 			
 		castingGauge:AddTotalTime(time);
 	end 
 
-	if msg == 'CAST_END' then		-- ½ÃÀüÀÌ ³¡³­°æ¿ì ¸Ş½ÃÁö Ã³¸®
+	if msg == 'CAST_END' then		-- ì‹œì „ì´ ëë‚œê²½ìš° ë©”ì‹œì§€ ì²˜ë¦¬
 	    local animpic = GET_CHILD_RECURSIVELY(frame, "dynamic_animpic");
 		animpic:SetUserValue("LINKED_GAUGE", 0);
 		frame:ShowWindow(0);
 	end 
 
-	-- °ÔÀÌÁö°¡ 2Á¾·ù¶ó ´Ù¸¥ 1°³´Â ²ö´Ù
+	-- ê²Œì´ì§€ê°€ 2ì¢…ë¥˜ë¼ ë‹¤ë¥¸ 1ê°œëŠ” ëˆë‹¤
 	frame:GetChild('dynamic_casting'):ShowWindow(0);
 end 
 
 function DYNAMIC_CASTINGBAR_ON_MSG(frame, msg, argStr, maxTime, isVisivle)
 
-	if msg == 'DYNAMIC_CAST_BEGIN' and maxTime > 0 then		-- ½ÃÀü ½ÃÀÛ
+	if msg == 'DYNAMIC_CAST_BEGIN' and maxTime > 0 then		-- ì‹œì „ ì‹œì‘
 	 
 		local castingObject = frame:GetChild('dynamic_casting');
 		local castingGauge = tolua.cast(castingObject, "ui::CGauge");
@@ -113,7 +113,7 @@ function DYNAMIC_CASTINGBAR_ON_MSG(frame, msg, argStr, maxTime, isVisivle)
 		LINK_OBJ_TO_GAUGE(frame, dynamic_animpic, castingGauge, 1);
 	end 
 
-	if msg == 'DYNAMIC_CAST_END' then		-- ½ÃÀüÀÌ ³¡³­°æ¿ì ¸Ş½ÃÁö Ã³¸®
+	if msg == 'DYNAMIC_CAST_END' then		-- ì‹œì „ì´ ëë‚œê²½ìš° ë©”ì‹œì§€ ì²˜ë¦¬
 
 		local castingGauge = GET_CHILD(frame, 'dynamic_casting', "ui::CGauge");
 		castingGauge:StopTimeProcess();	 
@@ -127,7 +127,7 @@ function DYNAMIC_CASTINGBAR_ON_MSG(frame, msg, argStr, maxTime, isVisivle)
 		dynamic_animpic:SetUserValue("LINKED_GAUGE", 0);
 	end 
 
-	-- °ÔÀÌÁö°¡ 2Á¾·ù¶ó¼­ ´Ù¸¥ 1°³´Â ²ö´Ù
+	-- ê²Œì´ì§€ê°€ 2ì¢…ë¥˜ë¼ì„œ ë‹¤ë¥¸ 1ê°œëŠ” ëˆë‹¤
 	frame:GetChild('casting'):ShowWindow(0);
 end 
 
@@ -135,18 +135,18 @@ function UPDATE_CASTTIME(frame)
 	
 	local timer = frame:GetChild("addontimer");
 	tolua.cast(timer, "ui::CAddOnTimer");		
-	
-	local time = (imcTime.GetDWTime() - timer:GetValue()) / 1000;
+	local time = GetDynamicCastSkillChargedTime();
+   
 	local maxTime = tonumber( frame:GetUserValue("MAX_CHARGE_TIME") );
 	
 
 	local chargeType = tonumber( frame:GetUserValue('LOOPING_CHARGE') );
 
-	if chargeType == 0 then
+	if chargeType == 0 then        
 
 		if maxTime < time then
-			-- uiEffect°¡ useExternalÀÌ ¾È¸Ô¾î¼­ ·çÇÎUIÀÌÆåÆ®¸¦ ²ô´Â°É ¸øÇÏ°ÚÀ½. ±×·¡¼­ ¾Æ·¡Ã³·³ Ã³¸®ÇÔ.
-			-- full charge »óÅÂ°¡µÇ¸é Ä³½ºÆÃ½Ã°£ Ã¼Å©ÇÏ´Â ÇÔ¼ö´Â Á¾·áÇÏ°í ÀÌÆåÆ® ½ÇÇàÇÒ ÇÔ¼ö·Î ´Ù½Ã ¼ÂÆÃ.
+			-- uiEffectê°€ useExternalì´ ì•ˆë¨¹ì–´ì„œ ë£¨í•‘UIì´í™íŠ¸ë¥¼ ë„ëŠ”ê±¸ ëª»í•˜ê² ìŒ. ê·¸ë˜ì„œ ì•„ë˜ì²˜ëŸ¼ ì²˜ë¦¬í•¨.
+			-- full charge ìƒíƒœê°€ë˜ë©´ ìºìŠ¤íŒ…ì‹œê°„ ì²´í¬í•˜ëŠ” í•¨ìˆ˜ëŠ” ì¢…ë£Œí•˜ê³  ì´í™íŠ¸ ì‹¤í–‰í•  í•¨ìˆ˜ë¡œ ë‹¤ì‹œ ì…‹íŒ….
 			timer:Stop();
 			timer:SetUpdateScript("PLAY_FULL_CHARGING");		
 			timer:Start(1);
@@ -161,7 +161,7 @@ function UPDATE_CASTTIME(frame)
 
 		if maxTime < time then
 			frame:SetUserValue('LOOPING_CHARGE', 2);
-			timer:SetValue( imcTime.GetDWTime() );
+
 		end
 
 	elseif chargeType == 2 then
@@ -172,7 +172,7 @@ function UPDATE_CASTTIME(frame)
 
 		if maxTime < time then
 			frame:SetUserValue('LOOPING_CHARGE', 1);
-			timer:SetValue( imcTime.GetDWTime() );
+
 		end
 	end
 

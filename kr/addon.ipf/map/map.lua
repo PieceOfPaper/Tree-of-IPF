@@ -387,7 +387,7 @@ end
 function UPDATE_MAP_BY_NAME(frame, mapname, pic, mapWidth, mapHeight, offsetX, offsetY)
 	INIT_MAPUI_PTR(frame);
 
-	MAKE_MAP_FOG_PICTURE(mapname, pic)
+	MAKE_MAP_FOG_PICTURE(mapname, pic, true)
 	UPDATE_MAP_FOG_RATE(frame, mapname);
 	MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offsetY)
 end

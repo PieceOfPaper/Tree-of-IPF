@@ -1,6 +1,6 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P_MaxDialog,AnchorCount,UP_ReturnRange,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,30,1,60000,1,2,0,0,0,0,0,"Warp_arrow","메사파슬라","","","","MON_DUMMY","","","","TABLELAND282_TO_TABLELAND281","","NO","YES","NO","Neutral","","","",""
-2,2,1,30,1,60000,1,3,0,0,0,1,0,"Warp_arrow","록소나 장터","","","","MON_DUMMY","","","","TABLELAND282_TO_FLASH60","","NO","YES","NO","Neutral","","","",""
+2,2,1,30,1,60000,1,2,0,0,0,1,0,"Warp_arrow","록소나 장터","","","","MON_DUMMY","","","","TABLELAND282_TO_FLASH60","","NO","YES","NO","Neutral","","","",""
 3,3,1,40,50,5000,11,0,0,0,0,1,0,"rootcrystal_03","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
 4,4,1,40,1,60000,1,1,0,0,0,0,100,"soldier7","연락병 로체스","","","","","","","TABLELAND282_SQ_01","","","NO","YES","NO","Neutral","","","",""
 5,5,1,40,1,60000,1,1,0,0,0,0,200,"soldier7","보급병 론다","","","","","","","TABLELAND282_SQ_02","","","NO","YES","NO","Neutral","","","",""
@@ -24,7 +24,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 40,40,0,40,30,0,15,0,0,0,0,0,0,"Siaulav_bow_blue","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 42,42,1,40,1,60000,1,1,0,0,0,0,0,"soldier7","연락병 로체스","","","","","","","TABLELAND282_SQ_01_R","","","NO","YES","NO","Neutral","","","",""
 43,43,0,40,30,0,8,0,0,0,0,0,0,"lapasape_blue","","","","","","","","","","","NO","YES","NO","Monster","","","",""
-44,44,1,40,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","베다 고원","","","","MON_DUMMY","","","","TABLELAND28_2_TABLELAND11_1","","NO","YES","NO","Neutral","","","",""
+44,44,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","베다 고원","","","","MON_DUMMY","","","","TABLELAND28_2_TABLELAND11_1","","NO","YES","NO","Neutral","","","",""
 45,45,1,100,-1,60000,1,2,0,0,0,1,0,"statue_vakarine","여신 바카리네의 상","","","","STOUP_CAMP","","","WARP_F_TABLELAND_28_2","STOUP_CAMP","STOUP_CAMP","NO","YES","NO","Neutral","","","",""
 46,46,1,200,-1,60000,1,0,0,0,0,1,0,"HiddenTrigger_CantGen200","FieldCantGen","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 50,50,1,20,-1,60000,1,2,0,0,0,0,0,"blank_npc_warp","네이포트 성당 동관","","","","MON_DUMMY","","VELNIAS_WARP_GATE_EFFECT","TABLELAND_28_2_TO_CATHEDRAL_78_1","","","NO","YES","NO","Neutral","","","",""

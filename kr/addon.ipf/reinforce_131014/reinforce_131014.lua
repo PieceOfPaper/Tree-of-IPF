@@ -68,8 +68,13 @@ function REINFORCE_131014_UPDATE_MORU_COUNT(frame)
 	hitCountDesc:SetTextByKey("hitcount", hitCount);
 
 	local moruObj = GetIES(fromMoru:GetObject());
-	local price = GET_REINFORCE_131014_PRICE(fromItemObj, moruObj);
-	hitPriceDesc:SetTextByKey("price", price);
+	local pc = GetMyPCObject()
+	local price = GET_REINFORCE_131014_PRICE(fromItemObj, moruObj, pc);
+	local msg = GET_COMMAED_STRING(price)
+	if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
+	    msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
+	end
+	hitPriceDesc:SetTextByKey("price", msg);
 
 end
 
@@ -90,7 +95,8 @@ function REINFORCE_131014_MSGBOX(frame)
 	local curReinforce = fromItemObj.Reinforce_2;
 
 	local moruObj = GetIES(fromMoru:GetObject());
-	local price = GET_REINFORCE_131014_PRICE(fromItemObj, moruObj)
+	local pc = GetMyPCObject()
+	local price = GET_REINFORCE_131014_PRICE(fromItemObj, moruObj, pc)
 	local hadmoney = GET_TOTAL_MONEY();
 
 	if hadmoney < price then
@@ -103,7 +109,7 @@ function REINFORCE_131014_MSGBOX(frame)
     if moruObj.ClassName ~= "Moru_Potential" and moruObj.ClassName ~= "Moru_Potential14d" then
     if fromItemObj.GroupName == 'Weapon' or (fromItemObj.GroupName == 'SubWeapon' and  classType ~='Shield') then
     	if curReinforce >= 5 then
-               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" then
+               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA"or moruObj.ClassName == "Moru_Gold_TA_NR" then
                     ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
                    	return;
                	else
@@ -113,7 +119,7 @@ function REINFORCE_131014_MSGBOX(frame)
         	end
     else
         if curReinforce >= 3 then
-               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" then
+               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" then
                     ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
                    	return;
                	else

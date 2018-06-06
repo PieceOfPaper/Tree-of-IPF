@@ -221,6 +221,18 @@ function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue, basicTo
     reinforceValue = reinforceValue + reinfBonusValue
     
     value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 ))))));
+    
+    local itemOwner = GetItemOwner(item)
+    local checkPvp = IsPVPServer(itemOwner)
+    
+    if checkPvp == nil then
+        checkPvp = 0;
+    end
+    
+    if checkPvp == 1 then
+        value = value * 0.5
+    end
+
     value = value * (reinforceRatio / 100) * gradeRatio + buffValue;
     value = SyncFloor(value);
     return math.floor(value);
@@ -487,6 +499,7 @@ function GET_BASIC_MATK(item)
 end
 
 function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
+
     if nil == enchantUpdate then
         enchantUpdate = 0;
     end
@@ -507,6 +520,7 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfB
     local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
     for i = 1, #basicTooltipPropList do
         local basicProp = basicTooltipPropList[i];
+
         local upgradeRatio = 1 + GET_UPGRADE_ADD_ATK_RATIO(item, ignoreReinfAndTranscend) / 100;
         local zero = 0;
         local buffarg = 0;

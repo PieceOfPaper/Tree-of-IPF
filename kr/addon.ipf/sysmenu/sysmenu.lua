@@ -13,10 +13,7 @@ function SYSMENU_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('SERV_UI_EMPHASIZE', 'ON_UI_EMPHASIZE');
 	addon:RegisterMsg("UPDATE_READ_COLLECTION_COUNT", "SYSMENU_ON_MSG");
-
-	local statusBtn = frame:GetChild('status');
-	HIDE_CHILD(statusBtn, 'notice');
-	HIDE_CHILD(statusBtn, 'noticetext');
+    	
 	frame:EnableHideProcess(1);
 
 end
@@ -73,8 +70,6 @@ function SYSMENU_CHECK_OPENCONDITION(frame)
 	CHECK_CTRL_OPENCONDITION(frame, "quest", "quest");
 	CHECK_CTRL_OPENCONDITION(frame, "sys_collection", "sys_collection");
 	CHECK_CTRL_OPENCONDITION(frame, "helplist", "helplist");
-	--CHECK_CTRL_OPENCON_SCP(frame, "inte_warp", CHECK_WARP_VISIBLE);
-
 
 end
 
@@ -90,43 +85,34 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 
 	DESTROY_CHILD_BY_USERVALUE(frame, "IS_VAR_ICON", "YES");
 
+    local extraBag = frame:GetChild('extraBag');
 	local status = frame:GetChild("status");
-	local inven = frame:GetChild("inven");
-	local offsetX = inven:GetX() - status:GetX();
-	local startX = status:GetMargin().left - offsetX;
+	local offsetX = status:GetX() - extraBag:GetX();
+	local rightMargin = extraBag:GetMargin().right + offsetX;
 
-	startX = SYSMENU_CREATE_VARICON(frame, status, "guild", "guild", "sysmenu_guild", startX, offsetX, "Guild");
-	startX = SYSMENU_CREATE_VARICON(frame, status, "necronomicon", "necronomicon", "sysmenu_card", startX, offsetX);
-	startX = SYSMENU_CREATE_VARICON(frame, status, "grimoire", "grimoire", "sysmenu_neacro", startX, offsetX);
-	startX = SYSMENU_CREATE_VARICON(frame, status, "poisonpot", "poisonpot", "sysmenu_wugushi", startX, offsetX);
-	
-
-	
-	-- frame:CreateControl("")
-	-- print(status:GetWidth());
-
-	-- 		<button name="grimoire" rect="0 0 44 44" margin="520 0 0 10" layout_gravity="center bottom" LBtnUpScp="ui.ToggleFrame(&apos;grimoire&apos;)" MouseOffAnim="btn_mouseoff_2" MouseOnAnim="btn_mouseover_2" clickrgn="0 0 44 44" clicksound="button_click_2" image="sysmenu_card" oversound="button_over" skin="textbutton" textalign="center center" texttooltip="{@st59}그리모어{/}"/>
-	-- CHECK_CTRL_OPENCONDITION(frame, "necronomicon", "necronomicon");	
-	-- CHECK_CTRL_OPENCONDITION(frame, "grimoire", "grimoire");
-
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guild", "guild", "sysmenu_guild", rightMargin, offsetX, "Guild");
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "necronomicon", "necronomicon", "sysmenu_card", rightMargin, offsetX);
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "grimoire", "grimoire", "sysmenu_neacro", rightMargin, offsetX);
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "poisonpot", "poisonpot", "sysmenu_wugushi", rightMargin, offsetX);	
 end
 
-function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, startX, offsetX, hotkeyName)
+function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, rightMargin, offsetX, hotkeyName)
 
 	local invenOpen = ui.CanOpenFrame(frameName);
 	if invenOpen == 0 then
-		return startX;
+		return rightMargin;
 	end
 
-	local margin = status:GetMargin();
-	local btn = frame:CreateControl("button", ctrlName, status:GetWidth(), status:GetHeight(), ui.CENTER_HORZ, ui.BOTTOM, startX, margin.top, margin.right, margin.bottom);
+	local margin = status:GetMargin();    
+	local btn = frame:CreateControl("button", ctrlName, status:GetWidth(), status:GetHeight(), ui.LEFT, ui.BOTTOM, 0, margin.top, margin.right, margin.bottom);
 	if btn == nil then
-		return startX;
+		return rightMargin;
 	end
-
+    local btnMargin = btn:GetMargin();
+    btn:SetMargin(btnMargin.left, btnMargin.top, rightMargin, btnMargin.bottom);
 	btn:CloneFrom(status);
 
-	startX = startX - offsetX;
+	rightMargin = rightMargin + offsetX;
 	AUTO_CAST(btn);
 	btn:SetImage(imageName);
 	btn:SetUserValue("IS_VAR_ICON", "YES");
@@ -138,9 +124,7 @@ function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, s
 
 	btn:SetTextTooltip("{@st59}" .. tooltipString);
 	btn:SetEventScript(ui.LBUTTONUP, string.format("ui.ToggleFrame('%s')", frameName));
-	return startX;
-	----- 		<button name="grimoire" rect="0 0 44 44" margin="520 0 0 10" layout_gravity="center bottom" LBtnUpScp="ui.ToggleFrame(&apos;grimoire&apos;)" MouseOffAnim="btn_mouseoff_2" MouseOnAnim="btn_mouseover_2" clickrgn="0 0 44 44" clicksound="button_click_2" image="sysmenu_card" oversound="button_over" skin="textbutton" textalign="center center" texttooltip="{@st59}그리모어{/}"/>
-
+	return rightMargin;
 end
 
 function VARICON_VISIBLE_STATE_CHANTED(frame, ctrlName, frameName)
@@ -314,22 +298,20 @@ function NOTICE_CTRL_SET(parentCtrl, noticeName, point)
 		return
 	end
 
-	local notice = parentCtrl:GetChild(noticeName.."notice");
-	local noticeText = parentCtrl:GetChild(noticeName.."noticetext");
+    local topFrame = parentCtrl:GetTopParentFrame(); 
+	local notice = GET_CHILD_RECURSIVELY(parentCtrl:GetTopParentFrame(), noticeName.."notice");    
+	local noticeText = notice:GetChild(noticeName.."noticetext");
 
 	if point > 0 then
-		notice:ShowWindow(1);
+		notice:ShowWindow(1);        
 		noticeText:ShowWindow(1);
 		noticeText:SetText('{ol}{b}{s14}'..tostring(point));
 		if point >= 10 and point < 100 then
-			notice:Resize(0, 0, 30, 22);
-			noticeText:SetOffset(6, 2);
+			notice:Resize(30, 22);
 		elseif point >= 100 and point < 1000 then
-			notice:Resize(0, 0, 40, 22);
-			noticeText:SetOffset(6, 2);
+			notice:Resize(40, 22);
 		else
-			notice:Resize(0, 0, 22, 22);
-			noticeText:SetOffset(6, 2);
+			notice:Resize(22, 22);			
 		end
 	elseif point == 0 then
 		notice:ShowWindow(0);

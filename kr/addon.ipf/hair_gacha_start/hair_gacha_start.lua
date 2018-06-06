@@ -66,13 +66,21 @@ function RBOX_START_100()
 end
 
 function RBOX2_START_1()
-	
+    if SCR_PRECHECK_LETICIA_CONSUME() ~= 'YES' then
+        ui.SysMsg('지금은 사용 할 수 없습니다.')
+        return;
+    end
+
 	GACHA_START("rbox2_1")
 	
 end
 
 function RBOX2_START_1_11()
-	
+    if SCR_PRECHECK_LETICIA_CONSUME() ~= 'YES' then
+        ui.SysMsg('지금은 사용 할 수 없습니다')
+        return;
+    end
+
 	GACHA_START("rbox2_11")
 	
 end

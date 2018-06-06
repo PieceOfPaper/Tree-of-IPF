@@ -4341,15 +4341,14 @@ end
 
 
 function SCR_GET_Claymore_Ratio(skill)
-
     local pc = GetSkillOwner(skill);
     local abil = GetAbility(pc, "Sapper2") 
     local value = 5
-    if abil ~= nil then 
+    if abil ~= nil and abil.ActiveState == 1 then
         return value + abil.Level
     end
-  return value
-
+    
+    return value
 end
 
 function SCR_Get_SklAtkAdd_PunjiStake(skill)
@@ -6947,6 +6946,13 @@ function SCR_GET_GatherCorpse_Ratio(skill)
 
 end
 
+function SCR_GET_GatherCorpse_Ratio2(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 5 + skill.Level
+
+    return value
+end
+
 function SCR_Get_SklAtkAdd_FleshCannon(skill)
 
     local pc = GetSkillOwner(skill);
@@ -7314,10 +7320,10 @@ function SCR_GET_Bloodletting_Time(skill)
   
   local pc = GetSkillOwner(skill);
   if IsPVPServer(pc) == 1 then
-    value = 15 + skill.Level * 2;
+    value = value / 3
   end
    
-  return value;
+  return math.floor(value);
   
 end
 
@@ -7348,9 +7354,13 @@ function SCR_GET_Pandemic_Ratio(skill)
 end
 
 function SCR_GET_BeakMask_Time(skill)
-
-  local value = 20 + skill.Level * 5
-  return value;
+    local value = 20 + skill.Level * 5
+    local pc = GetSkillOwner(skill)
+    if IsPVPServer(pc) == 1 then
+        value = value / 3
+    end
+    
+    return math.floor(value);
   
 end
 
@@ -7897,15 +7907,23 @@ function SCR_GET_Blink_Bufftime(skill)
 end
 
 function SCR_GET_MissileHole_Bufftime(skill)
-
     local value = 50 + skill.Level * 10;
-    return value
+    
+    local pc = GetSkillOwner(skill)
+    if IsPVPServer(pc) == 1 then
+        value = value / 3
+    end
+    
+    return math.floor(value)
 
 end
 
 function SCR_GET_MissileHole_Ratio(skill)
     local value = 4 + (skill.Level - 1) * 3;
-    return value
+    
+    local pc = GetSkillOwner(skill)
+    
+    return math.floor(value)
 end
 
 function SCR_Get_SklAtkAdd_Heal(skill)
@@ -9832,11 +9850,25 @@ function SCR_Get_Bodkin_Ratio(skill)
 end
 
 function SCR_Get_Haste_Ratio(skill)
-    return 5 + skill.Level * 1;
+    local value = 5 + skill.Level * 1;
+    
+    local pc = GetSkillOwner(skill)
+    if IsPVPServer(pc) == 1 then
+        value = value * 0.5
+    end
+    
+    return math.floor(value);
 end
 
 function SCR_Get_Haste_Bufftime(skill)
-    return 30 + skill.Level * 5;
+    local value = 30 + skill.Level * 5;
+    
+    local pc = GetSkillOwner(skill)
+    if IsPVPServer(pc) == 1 then
+        value = value / 3
+    end
+    
+    return math.floor(value)
 end
 
 function SCR_Get_CreateShoggoth_Ratio(skill)
@@ -10881,6 +10913,9 @@ function SCR_GET_Trot_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
     local value = 5 + skill.Level * 1
+    if IsPVPServer(pc) == 1 then
+        value = value * 0.5
+    end
     
     return math.floor(value);
     
@@ -11335,6 +11370,16 @@ function SCR_GET_Forecast_Ratio(skill)
     end
     
     return value
+end
+
+function SCR_GET_CounterSpell_Bufftime(skill)
+    local value = 30
+    local pc = GetSkillOwner(skill)
+    if IsPVPServer(pc) == 1 then
+        value = value / 3
+    end
+    
+    return math.floor(value);
 end
 
 function SCR_GET_CounterSpell_Ratio(skill)

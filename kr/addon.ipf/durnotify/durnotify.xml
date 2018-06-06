@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="durnotify" x="" y="0" width="155" height="155">
-	<frame fasthide="true" margin="470 50 0 0" layout_gravity="left top" keyboardselectframe="false"/>
+	<frame fasthide="true" margin="520 0 0 40" layout_gravity="left bottom" keyboardselectframe="false"/>
 	<layer layerlevel="2"/>
 	<input hittest="true" hittestframe="false" moveable="false"/>
 	<draw drawtitlebar="false" drawframe="false"/>
@@ -9,6 +9,6 @@
 	<script OpenScp="DURNOTIFY_OPEN" CloseScp="DURNOTIFY_CLOSE"/>
 	<controls>
 		<groupbox name="gBox" rect="0 0 155 155" draw="false" hittest="false" scrollbar="false" skin="bg" updateparent="true"/>
-		<slotset name="slotlist" parent="gBox" rect="0 0 155 155" margin="0 0 0 0" layout_gravity="left top" col="3" cursoronresize="true" enabledrag="false" enableselect="true" hideindrag="true" image="slot" movepop="true" row="3" size="40 40" skin="durnotify_slot" spc="1 1"/>
+		<slotset name="slotlist" parent="gBox" rect="0 0 155 155" margin="0 0 0 0" layout_gravity="center bottom" col="3" cursoronresize="true" enabledrag="false" enableselect="true" hideindrag="true" image="slot" movepop="true" row="3" size="40 40" skin="durnotify_slot" spc="1 1"/>
 	</controls>
 </uiframe>

@@ -15,8 +15,7 @@
 		<checkbox name="onlyShowLearnable" parent="bg" rect="0 0 120 24" margin="20 15 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnDownScp="REFRESH_ABILITYSHOP" caption="{@st42}학습 가능한 특성만 표시{/}" clicksound="button_click_big" fontname="white_16_ol" oversound="button_over"/>
 		<groupbox name="abilityshopGBox" parent="bg_midle" rect="0 0 480 760" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_top"/>
 		<groupbox name="pip4" rect="0 0 500 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
-		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}특성 배우기{/}" fontname="" textalign="left top"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="10 -500 0 0" layout_gravity="left top" image="button_property"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}특성 배우기{/}" fontname="" textalign="left top"/>		
 		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ABILITYSHOP_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}특성창을 닫습니다{/}"/>
 		<groupbox name="moneyGbox" parent="bg" rect="0 0 420 38" margin="0 0 0 13" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<picture name="Zeny_Img" parent="moneyGbox" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" image="icon_item_silver" oversound="button_over" stretch="true"/>

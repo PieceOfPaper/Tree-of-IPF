@@ -74,6 +74,9 @@ function WORLDPVP_FIRST_OPEN(frame)
 		droplist:ShowWindow(0);
 		droplist_rank:ShowWindow(0);
 	end
+	
+	local btnReward = bg_ranking:GetChild("btn_reward");
+	btnReward:SetVisible(0);
 
 	OPEN_WORLDPVP(frame);
 	ON_PVP_HISTORY_UPDATE(frame);
@@ -281,7 +284,7 @@ function JOIN_WORLDPVP(parent, ctrl)
 	end
 
 	local isLeader = AM_I_LEADER(PARTY_GUILD);
-
+	
 	if cls.MatchType ~= "Guild" or isLeader == 0 then
 		JOIN_WORLDPVP_BY_TYPE(frame, pvpType);
 		return;
@@ -562,6 +565,7 @@ function WORLDPVP_REQUEST_RANK(frame, page, findMyRanking)
 	end
 
 	worldPVP.RequestPVPRanking(pvpType, 0, -1, page, findMyRanking, input_findname:GetText());
+	worldPVP.RequestGuildBattlePrevSeasonRanking(pvpType);
 
 end
 
@@ -676,7 +680,19 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 	control:SetMaxPage(totalPage);
 	control:SetCurPage(page - 1);
 	control:SetUserValue("PAGE", page);
+	
+	local btnReward = bg_ranking:GetChild("btn_reward");
 
+	local cid = session.GetMySession():GetCID();
+	local myRank = session.worldPVP.GetPrevRankInfoByCID(cid);
+	if myRank ~= nil then
+		-- 1,2,3등만 보여준다.
+		if myRank.ranking < 3 then
+			btnReward:SetVisible(1);
+		end
+	else
+		btnReward:SetVisible(0);
+	end
 end
 
 function ON_WORLDPVP_RANK_ICON(frame, msg, cid, argNum, info)
@@ -1027,7 +1043,13 @@ function PVP_OPEN_POINT_SHOP(parent, ctrl)
 	TOGGLE_PROPERTY_SHOP("PVPShop");
 
 end
-                    
+   
+function PVP_REWARD(parent, ctrl)
+	local type = session.worldPVP.GetRankProp("Type");
+	local cls = GetClassByType("WorldPVPType", type);
+
+	worldPVP.RequestGetWorldPVPReward(type);
+end                    
 
 function WORLDPVP_TAB_CHANGE(parent, ctrl)
 

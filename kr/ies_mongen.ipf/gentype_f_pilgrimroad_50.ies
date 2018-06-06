@@ -1,6 +1,6 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,P_MaxDialog,UP_ReturnRange,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 2,2,1,30,1,1,1,2,0,0,0,0,0,"Warp_arrow","필그림 들길","","","","MON_DUMMY","","","","PILGRIM50_PILGRIM47","","NO","YES","NO","Neutral","","","",""
-3,3,1,30,1,1,1,3,0,0,0,0,0,"Warp_arrow","기원의 숲","","","","MON_DUMMY","","","","PILGRIM50_PILGRIM51","","NO","YES","NO","Neutral","","","",""
+3,3,1,30,1,1,1,2,0,0,0,0,0,"Warp_arrow","기원의 숲","","","","MON_DUMMY","","","","PILGRIM50_PILGRIM51","","NO","YES","NO","Neutral","","","",""
 4,4,1,100,1,1,1,0,0,0,1,0,0,"HiddenTrigger6","REQ_SEMPLE_03","","","","","","","","REQ_SEMPLE_03_01","","NO","YES","NO","Neutral","","","",""
 5,5,1,100,1,1,1,0,0,0,1,0,0,"HiddenTrigger6","REQ_SEMPLE_03","","","","","","","","REQ_SEMPLE_03_02","","NO","YES","NO","Neutral","","","",""
 6,6,1,100,1,1,1,0,0,0,1,0,0,"HiddenTrigger6","REQ_SEMPLE_03","","","","","","","","REQ_SEMPLE_03_03","","NO","YES","NO","Neutral","","","",""
@@ -35,5 +35,5 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 37,37,1,200,-1,60000,1,0,0,0,1,0,0,"HiddenTrigger_CantGen200","","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 38,38,1,100,-1,60000,1,0,0,0,1,0,0,"HiddenTrigger_CantGen100","","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 39,39,1,100,-1,60000,1,0,0,0,1,0,0,"HiddenTrigger_CantGen100","","","","","","","","","","","NO","YES","NO","Neutral","","","",""
-40,40,1,20,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","게나르 평원","","","","","","","","PILGRIM_50_TO_PILGRIM_49","","NO","YES","NO","Neutral","","","",""
+40,40,1,20,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","게나르 평원","","","","","","","","PILGRIM_50_TO_PILGRIM_49","","NO","YES","NO","Neutral","","","",""
 41,41,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_179:1","",""

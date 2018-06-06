@@ -63,8 +63,7 @@
 		<slotset name="buyitemslot" parent="foodBox" rect="0 0 336 42" margin="0 0 0 375" layout_gravity="center bottom" col="10" dropsound="inven_equip" enableselect="true" maxselect="10" oversound="button_cursor_over_3" picksound="icon_pick_up" row="1" size="42 42" skin="invenslot2" spc="2 2"/>
 		<slotset name="sellitemslot" parent="foodBox" rect="0 0 336 84" margin="0 0 0 290" layout_gravity="center bottom" DropScp="SHOP_SELL_DROP" col="10" dropsound="inven_equip" enableselect="true" maxselect="10" oversound="button_cursor_over_3" picksound="icon_pick_up" row="1" size="42 42" skin="invenslot2" spc="2 2"/>
 		<slotset name="solditemslot" parent="foodBox" rect="0 0 336 42" margin="0 0 0 70" layout_gravity="center bottom" col="10" dropsound="inven_equip" enableselect="true" maxselect="10" oversound="button_cursor_over_3" picksound="icon_pick_up" row="1" size="42 42" skin="invenslot2" spc="2 2"/>
-		<labelline name="boardLine 1" parent="foodBox" rect="0 0 500 4" margin="0 0 0 280" layout_gravity="center bottom" skin="None" visible="true"/>
-		<picture name="titlepicture" parent="foodBox" rect="0 0 44 44" margin="10 -500 0 0" layout_gravity="left top" image="button_inven"/>
+		<labelline name="boardLine 1" parent="foodBox" rect="0 0 500 4" margin="0 0 0 280" layout_gravity="center bottom" skin="None" visible="true"/>		
 		<picture name="buy_Zeny_Img" parent="foodBox" rect="0 0 24 24" margin="25 0 0 425" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>
 		<picture name="sell_Zeny_Img" parent="foodBox" rect="0 0 24 24" margin="25 0 0 340" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>
 		<picture name="Zeny_Img" parent="foodBox" rect="0 0 24 24" margin="25 0 0 250" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>

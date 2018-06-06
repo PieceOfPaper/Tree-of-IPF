@@ -1214,9 +1214,7 @@ function SCR_PRE_HUEVILLAGE_58_2_MQ01_ITEM2(self, argstring, argnum1, argnum2)
                 local i 
                 for i = 1, fndCnt do
                     if fndList[i].ClassName == 'Zibu_Maize' then
-                        if GetHpPercent(fndList[i]) <= 0.5 then
-                            return GetHandle(fndList[i])
-                        end
+                        return GetHandle(fndList[i])
                     end
                 end
             end
@@ -2383,13 +2381,13 @@ function SCR_PRE_CATACOMB_02_SQ_03_ITEM(self, argstring, argnum1, argnum2)
         	            if IsServerSection(self) == 1 then
             	            if list[i].ClassName ~= 'PC' then
                 	            if list[i].Dialog == 'CATACOMB_02_OBJ_04' or list[i].Dialog == 'CATACOMB_02_OBJ_05_1' or list[i].Dialog == 'CATACOMB_02_OBJ_05_2' or list[i].Dialog == 'CATACOMB_02_OBJ_05_3' then
-                	                return 1;
+                	                return GetHandle(list[i]);
                 	            end
                 	        end
         	            else
             	            if list[i].ClassName ~= 'PC' then
                 	            if GetDialogByObject(list[i]) == 'CATACOMB_02_OBJ_04' or GetDialogByObject(list[i]) == 'CATACOMB_02_OBJ_05_1' or GetDialogByObject(list[i]) == 'CATACOMB_02_OBJ_05_2' or GetDialogByObject(list[i]) == 'CATACOMB_02_OBJ_05_3' then
-                	                return 1;
+                	                return GetHandle(list[i]);
                 	            end
                 	        end
             	        end
@@ -2578,7 +2576,7 @@ function SCR_PRE_KATYN_10_MQ_04_ITEM(self, argstring, argnum1, argnum2)
         if GetZoneName(self) == 'f_katyn_10' then
             if GetLayer(self) == 0 then
                 local x, y, z = GetPos(self)
-                if SCR_POINT_DISTANCE(x, z, 4364, -637) < 750 then
+                if SCR_POINT_DISTANCE(x, z, 4325, -795) < 400 then
                     return 1;
                 end
             end
@@ -2649,14 +2647,15 @@ function SCR_PRE_KATYN_12_MQ_03_ITEM(self, argstring, argnum1, argnum2)
     if result1 == 'PROGRESS' then
         if GetZoneName(self) == 'f_katyn_12' then
             if GetLayer(self) == 0 then
-                local x, y, z = GetPos(self)
-                if SCR_POINT_DISTANCE(x, z, -600, 490) < 500 then
-                    return 1;
+                local list, cnt = SelectObject(self, 30, 'ALL')
+                for i = 1, cnt do
+                    if list[i].ClassName == "HiddenTrigger6" then
+                        return 1;
+                    end
                 end
             end
         end
     end
-    
     local result2 = SCR_QUEST_CHECK(self, 'KATYN_12_MQ_07')
     if result2 == 'PROGRESS' then
         if GetZoneName(self) == 'f_katyn_12' then
@@ -4617,7 +4616,7 @@ function SCR_PRE_ORCHARD_323_SQ_CARVE(self, argstring, argnum1, argnum2)
                 local i 
                 if fndCnt > 0 then
                     for i = 1, fndCnt do
-                        if fndList[i].ClassName == 'ferret_patter' or fndList[i].ClassName == 'ferret_searcher' or ndList[i].ClassName == 'ferret_slinger' then
+                        if fndList[i].ClassName == 'ferret_patter' or fndList[i].ClassName == 'ferret_searcher' or fndList[i].ClassName == 'ferret_slinger' then
                             return GetHandle(fndList[i])
                         elseif fndList[i].ClassName == 'skill_romuva_D' then
                             return 0

@@ -41,8 +41,9 @@
 		<richtext name="desc_needparts" parent="descriptGbox" rect="0 0 250 95" margin="8 300 0 0" layout_gravity="left top" fixwidth="false" fontname="white_18_ol" format="{@st41}필요 파편 : %s개" param1="value"/>
 		<picture name="titlepicture" rect="0 0 44 44" margin="10 -600 0 0" layout_gravity="left top" image="testquesten_button"/>
 		<groupbox name="deadpartsGbox" rect="0 0 470 205" margin="0 0 0 20" layout_gravity="center bottom" draw="false" hittestbox="false" skin="pipwin_low"/>
-		<richtext name="deadpartsGboxTitle" parent="deadpartsGbox" rect="0 0 80 30" margin="0 25 0 0" layout_gravity="center top" caption="파편의 개수" fontname="white_20_ol" stretch="false"/>
-		<gauge name="part_gauge1" parent="deadpartsGbox" rect="0 0 300 50" margin="0 0 0 0" layout_gravity="center center" inverse="false" point="0" skin="gauge_itemtooltip_poten" text1="%v / %m" textalign1="center center" textfont1="yellow_16_b" textoffset1="0 -1"/>
+		<richtext name="deadpartsGboxTitle" parent="deadpartsGbox" rect="0 0 80 30" margin="0 38 0 0" layout_gravity="center top" caption="파편의 개수" fontname="white_20_ol" stretch="false"/>
+		<gauge name="part_gauge1" parent="deadpartsGbox" rect="0 0 400 50" margin="0 60 0 0" layout_gravity="center top" inverse="false" point="0" skin="gauge_itemtooltip_poten" text1="%v / %m" textalign1="center center" textfont1="yellow_16_b" textoffset1="0 -1"/>
+		<checkbox name="hudCheck" rect="0 0 400 30" parent="deadpartsGbox" margin="0 100 0 0" layout_gravity="center top" ConfigName="NecronomiconHUD" LBtnUpScp="NECRONOMICON_HUD_CONFIG_CHANGE" caption="{@st66b}메인 화면에 파편의 개수 표시하기{/}" clicksound="button_click_big" oversound="button_over" checked="true"/>
 		<richtext name="desc_hp" parent="descriptGbox" rect="0 0 250 95" margin="10 40 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="H P : {@st41b}%s" param1="value"/>
 		<richtext name="desc_fower" parent="descriptGbox" rect="0 0 250 95" margin="10 68 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="공격력 : {@st41b}%s" param1="value"/>
 		<richtext name="desc_defense" parent="descriptGbox" rect="0 0 250 95" margin="10 95 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="방어력 : {@st41b}%s" param1="value"/>

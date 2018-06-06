@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="fishing" x="0" y="0" width="450" height="330" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin="test_win_system"/>
+	<frame title="" fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
+	<input moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script CloseScp="FISHING_CLOSE_UI"/>
+	<controls>
+		<button name="startBtn" rect="0 0 150 50" margin="-80 0 0 20" layout_gravity="center bottom" caption="{@st42b}시작{/}" skin="test_red_button" LBtnUpScp="FISHING_START_LBTN_CLICK"/>
+		<button name="cancelBtn" rect="0 0 150 50" margin="80 0 0 20" layout_gravity="center bottom" caption="{@st42b}취소{/}" skin="test_gray_button" LBtnUpScp="FISHING_CANCEL_LBTN_CLICK"/>
+		<richtext name="infoText" rect="0 0 600 30" margin="0 80 0 0" layout_gravity="center top" caption="낚시를 시작합니다. 사용할 미끼를 올려주세요." fontname="brown_18_b"/>
+		<slot name="pasteBaitSlot" rect="0 0 100 100" margin="0 10 0 0" layout_gravity="center center" skin="invenslot2" DropScp="FISHING_DROP_PASTE_BAIT" PopScp="FISHING_POP_PASTE_BAIT" dropsound="icon_get_down" oversound="button_cursor_over_3" picksound="icon_pick_up" texttooltip="미끼를 올려주세요"/>
+	</controls>
+</uiframe>

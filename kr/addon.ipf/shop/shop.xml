@@ -42,8 +42,7 @@
 		<slotset name="buyitemslot" rect="0 0 336 42" margin="0 0 0 415" layout_gravity="center bottom" col="10" dropsound="inven_equip" enableselect="true" maxselect="10" oversound="button_cursor_over_3" picksound="icon_pick_up" row="1" size="42 42" skin="invenslot2" spc="2 2"/>
 		<slotset name="sellitemslot" rect="0 0 336 84" margin="0 0 0 320" layout_gravity="center bottom" DropScp="SHOP_SELL_DROP" col="10" dropsound="inven_equip" enableselect="true" maxselect="10" oversound="button_cursor_over_3" picksound="icon_pick_up" row="1" size="42 42" skin="invenslot2" spc="2 2"/>
 		<slotset name="solditemslot" rect="0 0 336 42" margin="0 0 0 90" layout_gravity="center bottom" col="10" dropsound="inven_equip" enableselect="true" maxselect="10" oversound="button_cursor_over_3" picksound="icon_pick_up" row="1" size="42 42" skin="invenslot2" spc="2 2"/>
-		<labelline name="boardLine 1" rect="0 0 500 4" margin="0 0 0 305" layout_gravity="center bottom" skin="None" visible="true"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="10 -500 0 0" layout_gravity="left top" image="button_inven"/>
+		<labelline name="boardLine 1" rect="0 0 500 4" margin="0 0 0 305" layout_gravity="center bottom" skin="None" visible="true"/>		
 		<picture name="buy_Zeny_Img" rect="0 0 24 24" margin="25 0 0 465" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>
 		<picture name="sell_Zeny_Img" rect="0 0 24 24" margin="25 0 0 370" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>
 		<picture name="Zeny_Img" rect="0 0 24 24" margin="25 0 0 275" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>

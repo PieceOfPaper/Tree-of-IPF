@@ -15,15 +15,15 @@ end
 
 function INIT_LANGUAGE_CONFIG(frame)
 
-	local getGroup = GET_CHILD(frame, "pipwin_low", "ui::CGroupBox")
+	local getGroup = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
 
-	local getPipwin_low = GET_CHILD(frame, "pipwin_low", "ui::CGroupBox")
-	local catelist = GET_CHILD(getPipwin_low, "languageList", "ui::CDropList");
+	local getPipwin_low = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
+	local catelist = GET_CHILD_RECURSIVELY(frame, "languageList", "ui::CDropList");
 	catelist:ClearItems();
 
 	if dictionary.IsEnableDic() == false then
 		catelist:ShowWindow(0);
-		local language_title = GET_CHILD(getPipwin_low, "language_title");
+		local language_title = GET_CHILD_RECURSIVELY(frame, "language_title");
 		language_title:ShowWindow(0);
 	end
 
@@ -49,9 +49,9 @@ end
 
 function INIT_SCREEN_CONFIG(frame)
 
-	local getGroup = GET_CHILD(frame, "pipwin_low", "ui::CGroupBox")
-	local getPipwin_low = GET_CHILD(frame, "pipwin_low", "ui::CGroupBox")
-	local catelist = GET_CHILD(getPipwin_low, "resolutionList", "ui::CDropList");
+	local getGroup = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
+	local getPipwin_low = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
+	local catelist = GET_CHILD_RECURSIVELY(frame, "resolutionList", "ui::CDropList");
 	catelist:ClearItems();
 
 	local curWidth = option.GetClientWidth();
@@ -101,42 +101,42 @@ function INIT_SOUND_CONFIG(frame)
 end
 
 function INIT_GRAPHIC_CONFIG(frame)
-	local bloom = GET_CHILD(frame, "check_Bloom", "ui::CCheckBox");
+	local bloom = GET_CHILD_RECURSIVELY(frame, "check_Bloom", "ui::CCheckBox");
 	if nil ~= bloom then
 	bloom:SetCheck(config.GetUseBloom());
 	end;
 
-	local warfog = GET_CHILD(frame, "check_warfog", "ui::CCheckBox");
+	local warfog = GET_CHILD_RECURSIVELY(frame, "check_warfog", "ui::CCheckBox");
 	if nil ~= warfog then
 	warfog:SetCheck(config.GetUseWarfog());
 	end;
 
-	local fxaa = GET_CHILD(frame, "check_fxaa", "ui::CCheckBox");
+	local fxaa = GET_CHILD_RECURSIVELY(frame, "check_fxaa", "ui::CCheckBox");
 	if nil ~= fxaa then
 	fxaa:SetCheck(config.GetUseFXAA());
 	end;
 
-	local glow = GET_CHILD(frame, "check_Glow", "ui::CCheckBox");
+	local glow = GET_CHILD_RECURSIVELY(frame, "check_Glow", "ui::CCheckBox");
 	if nil ~= glow then
 	glow:SetCheck(config.GetUseGlow());
 	end;
 
-	local depth = GET_CHILD(frame, "check_Depth", "ui::CCheckBox");
+	local depth = GET_CHILD_RECURSIVELY(frame, "check_Depth", "ui::CCheckBox");
 	if nil ~= depth then
 	depth:SetCheck(1);
 	end;
 
-	local softParticle = GET_CHILD(frame, "check_SoftParticle", "ui::CCheckBox");
+	local softParticle = GET_CHILD_RECURSIVELY(frame, "check_SoftParticle", "ui::CCheckBox");
 	if nil ~= softParticle then
 	softParticle:SetCheck(config.GetUseSoftParticle());
 	end;
 
-	local highTexture = GET_CHILD(frame, "check_highTexture", "ui::CCheckBox");
+	local highTexture = GET_CHILD_RECURSIVELY(frame, "check_highTexture", "ui::CCheckBox");
 	if nil ~= highTexture then
 	highTexture:SetCheck(config.GetHighTexture());
 	end;
 
-	local otherPCDamage = GET_CHILD(frame, "check_ShowOtherPCDamageEffect", "ui::CCheckBox");
+	local otherPCDamage = GET_CHILD_RECURSIVELY(frame, "check_ShowOtherPCDamageEffect", "ui::CCheckBox");
 	if nil ~= otherPCDamage then
 		otherPCDamage:SetCheck(config.GetOtherPCDamageEffect());
 	end;
@@ -162,7 +162,7 @@ end
 function UPDATE_SCREEN_CONFIG(frame)
 
 	local scrMode = option.GetScreenMode();
-	local catelist = GET_CHILD(frame, "resolutionList", "ui::CDropList");
+	local catelist = GET_CHILD_RECURSIVELY(frame, "resolutionList", "ui::CDropList");
 	if scrMode == 1 then
 		catelist:ShowWindow(0);
 	else
@@ -187,14 +187,14 @@ end
 
 function INIT_CONTROL_CONFIG(frame)
 	local modeValue = config.GetXMLConfig("ControlMode");
-	local getGroup = GET_CHILD(frame, "pipwin_low", "ui::CGroupBox")
-	local radioBtn = GET_CHILD(getGroup, "controltype_" .. modeValue);
+	local getGroup = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
+	local radioBtn = GET_CHILD_RECURSIVELY(frame, "controltype_" .. modeValue);
 	radioBtn:SetCheck(true);
 end
 
 function APPLY_CONTROLMODE(frame)
 
-	local controlmodeRadioBtn = GET_CHILD_RECURSIVELY(frame, "controltype_0");
+	local controlmodeRadioBtn = GET_CHILD_RECURSIVELY(frame, "controltype_0");    
 	local controlmodeType = GET_RADIOBTN_NUMBER(controlmodeRadioBtn);
 	config.ChangeXMLConfig("ControlMode", controlmodeType);
 	UPDATE_CONTROL_MODE();
@@ -203,14 +203,13 @@ end
 
 function APPLY_PERFMODE(frame)
 	
-	local perfRadioBtn = GET_CHILD_RECURSIVELY(frame, "perftype_0");
-	
+	local perfRadioBtn = GET_CHILD_RECURSIVELY(frame, "perftype_0");    
 	local perfType = GET_RADIOBTN_NUMBER(perfRadioBtn);
 	
 	local parent = frame:GetTopParentFrame();
-	local highTexture = GET_CHILD(parent, "check_highTexture", "ui::CCheckBox");
-	local softParticle = GET_CHILD(parent, "check_SoftParticle", "ui::CCheckBox");
-	local otherPCDamage = GET_CHILD(parent, "check_ShowOtherPCDamageEffect", "ui::CCheckBox");
+	local highTexture = GET_CHILD_RECURSIVELY(parent, "check_highTexture", "ui::CCheckBox");
+	local softParticle = GET_CHILD_RECURSIVELY(parent, "check_SoftParticle", "ui::CCheckBox");
+	local otherPCDamage = GET_CHILD_RECURSIVELY(parent, "check_ShowOtherPCDamageEffect", "ui::CCheckBox");
 	if 0 == perfType then
 		graphic.EnableHighTexture(0);
 		config.EnableOtherPCDamageEffect(0);
@@ -229,8 +228,8 @@ function APPLY_PERFMODE(frame)
 end
 
 function APPLY_SCREEN(frame)
-	local scrRadioBtn = GET_CHILD(frame, "scrtype_0" , "ui::CRadioButton");
-	local resCtrl = GET_CHILD(frame, "resolutionList", "ui::CDropList");
+	local scrRadioBtn = GET_CHILD_RECURSIVELY(frame, "scrtype_1" , "ui::CRadioButton");
+	local resCtrl = GET_CHILD_RECURSIVELY(frame, "resolutionList", "ui::CDropList");    
 	local scrType = GET_RADIOBTN_NUMBER(scrRadioBtn);
 	local resIndex = resCtrl:GetSelItemIndex();
 	option.SetDisplayMode(scrType, resIndex, option.IsEnableVSync());
@@ -246,7 +245,7 @@ end
 
 function APPLY_LANGUAGE(frame)
 
-	local lanCtrl = GET_CHILD(frame, "languageList", "ui::CDropList");
+	local lanCtrl = GET_CHILD_RECURSIVELY(frame, "languageList", "ui::CDropList");
 	local lanIndex = lanCtrl:GetSelItemIndex();
 	local lanString = option.GetPossibleCountry(lanIndex);
 	option.SetCountry(lanString)
@@ -285,9 +284,9 @@ end
 
 function SET_SLIDE_VAL(frame, ctrlName, txtname, value)
 
-	local slide = GET_CHILD(frame, ctrlName, "ui::CSlideBar");
+	local slide = GET_CHILD_RECURSIVELY(frame, ctrlName, "ui::CSlideBar");
 	slide:SetLevel(value);
-	local txt = GET_CHILD(frame, txtname, "ui::CRichText");
+	local txt = GET_CHILD_RECURSIVELY(frame, txtname, "ui::CRichText");
 
 	local rate = value / 255 * 100;
 	rate = math.floor(rate);
@@ -297,9 +296,9 @@ end
 
 function SET_SKL_CTRL_CONFIG(frame)
 	local value = config.GetSklCtrlSpd();
-	local slide = GET_CHILD(frame, "sklCtrlSpd", "ui::CSlideBar");
+	local slide = GET_CHILD_RECURSIVELY(frame, "sklCtrlSpd", "ui::CSlideBar");
 	slide:SetLevel(value);
-	local txt = GET_CHILD(frame, "sklCtrlSpd_text", "ui::CRichText");
+	local txt = GET_CHILD_RECURSIVELY(frame, "sklCtrlSpd_text", "ui::CRichText");
 	local rate = value / 10;
 	rate = math.floor(rate);
 	txt:SetTextByKey("opValue", rate);
@@ -375,13 +374,13 @@ function APPLY_PKS_DELAY(frame)
 
 	debug.VPD(minDelay, maxDelay);
 
-	local minPksDelay = GET_CHILD(frame, "minPksDelay", "ui::CSlideBar");
-	local maxPksDelay = GET_CHILD(frame, "maxPksDelay", "ui::CSlideBar");
+	local minPksDelay = GET_CHILD_RECURSIVELY(frame, "minPksDelay", "ui::CSlideBar");
+	local maxPksDelay = GET_CHILD_RECURSIVELY(frame, "maxPksDelay", "ui::CSlideBar");
 	minPksDelay:SetLevel(minDelay);
 	maxPksDelay:SetLevel(maxDelay);
 
-	local minPksDelay_text = GET_CHILD(frame, "minPksDelay_text", "ui::CRichText");
-	local maxPksDelay_text = GET_CHILD(frame, "maxPksDelay_text", "ui::CRichText");
+	local minPksDelay_text = GET_CHILD_RECURSIVELY(frame, "minPksDelay_text", "ui::CRichText");
+	local maxPksDelay_text = GET_CHILD_RECURSIVELY(frame, "maxPksDelay_text", "ui::CRichText");
 	minPksDelay_text:SetTextByKey("opValue", minDelay);
 	maxPksDelay_text:SetTextByKey("opValue", maxDelay);
 
@@ -446,11 +445,11 @@ end
 
 function ENABEL_VSYNC(frame)
 
-	local syncRadioBtn = GET_CHILD(frame, "vsync_0" , "ui::CRadioButton");
+	local syncRadioBtn = GET_CHILD_RECURSIVELY(frame, "vsync_0" , "ui::CRadioButton");        
 	local syncType = GET_RADIOBTN_NUMBER(syncRadioBtn);
 
-	local scrRadioBtn = GET_CHILD(frame, "scrtype_0" , "ui::CRadioButton");
-	local resCtrl = GET_CHILD(frame, "resolutionList", "ui::CDropList");
+	local scrRadioBtn = GET_CHILD_RECURSIVELY(frame, "scrtype_1" , "ui::CRadioButton");
+	local resCtrl = GET_CHILD_RECURSIVELY(frame, "resolutionList", "ui::CDropList");        
 	local scrType = GET_RADIOBTN_NUMBER(scrRadioBtn);
 	local resIndex = resCtrl:GetSelItemIndex();
 	option.SetDisplayMode(scrType, resIndex, syncType);

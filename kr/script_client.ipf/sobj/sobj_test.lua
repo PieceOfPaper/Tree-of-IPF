@@ -143,7 +143,16 @@ function CLIENT_SMARTGEN_INIT()
 	if sObj.ZoneGenPoint == 0 then
 		sObj.ZoneGenPoint = -1;
 	end
-
+    
+    local pc = GetMyPCObject()
+	if pc.Lv <= 50 then
+    	local nowZoneClassName = GetZoneName(pc)
+    	if nowZoneClassName == 'd_cmine_01' or nowZoneClassName == 'd_cmine_02' or nowZoneClassName == 'd_cmine_6' or nowZoneClassName == 'd_prison_62_1' or nowZoneClassName == 'd_prison_62_2' or nowZoneClassName == 'd_prison_62_3'  then
+    	    if GetInvItemCount(pc,'gem_circle_1') > 0 or GetInvItemCount(pc,'gem_square_1') > 0 or GetInvItemCount(pc,'gem_diamond_1') > 0 or GetInvItemCount(pc,'gem_star_1') > 0 then
+    	        ui.MsgBox_NonNested(ScpArgMsg('DungeonEnterWarningMsg1','ZONE', GetClassString('Map',nowZoneClassName,'Name')),0x00000000)
+            end
+        end
+    end
 end
 
 function SSN_CLIENT_SMARTGEN(self)

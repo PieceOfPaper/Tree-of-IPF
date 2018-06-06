@@ -121,6 +121,9 @@ function UPDATE_POISONPOT_UI(frame)
 		SET_POISONPOT_CARD_COMMIT(slot:GetName(), "UnEquip")
 	end
 
+    local showHUDGauge = config.GetXMLConfig('PoisonPotHUD');
+    local hudCheck = GET_CHILD_RECURSIVELY(frame, 'hudCheck');
+    hudCheck:SetCheck(showHUDGauge);
 end
 
 function IS_USEABLEITEM_IN_POISONPOT(itemobj)
@@ -256,4 +259,21 @@ function SET_POISONPOT_CARD_COMMIT(slotname, type)
 	local argStr = string.format("%s %s", slotname, iType);
 	item.DialogTransaction("SET_POISON_CARD", resultlist, argStr); 
 
+end
+
+function POISONPOT_HUD_CONFIG_CHANGE(frame)
+    local hudShow = POISONPOT_HUD_CHECK_VISIBLE();
+    if hudShow == true then
+        local poisonpotHUD = ui.GetFrame('poisonpot_hud');
+        POISONPOT_HUD_SET_SAVED_OFFSET(poisonpotHUD);
+    end
+end
+
+function POISONPOT_CHECK_OPEN(propname, propvalue)
+	local jobcls = GetClass("Job", 'Char3_6');
+	local jobid = jobcls.ClassID;
+	if IS_HAD_JOB(jobid) == 1 then
+		return 1;
+	end
+	return 0;
 end

@@ -1,6 +1,6 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,50,1,100,1,2,0,0,1,0,0,"Warp_arrow","아샤크 지하 감옥 1층","","","","MON_DUMMY","","","","PRISON622_TO_PRISON621","","NO","YES","NO","Neutral","","","",""
-2,2,1,50,1,100,1,3,0,0,1,0,0,"Warp_arrow","아샤크 지하 감옥 3층","","","","MON_DUMMY","","","","PRISON622_TO_PRISON623","","NO","YES","NO","Neutral","","","",""
+2,2,1,50,1,100,1,2,0,0,1,0,0,"Warp_arrow","아샤크 지하 감옥 3층","","","","MON_DUMMY","","","","PRISON622_TO_PRISON623","","NO","YES","NO","Neutral","","","",""
 3,3,1,1,1,100,1,1,0,0,1,0,0,"npc_friar_03","사제 프라나스","","","","MON_DUMMY","","","PRISON622_PRANAS","","","NO","YES","NO","Neutral","","","",""
 4,4,1,1,1,100,1,1,0,0,1,0,0,"npc_friar_04","사제 아우라나스","","","","MON_DUMMY","","","PRISON621_ARUNARAS","","","NO","YES","NO","Neutral","","","",""
 5,5,1,1,1,100,1,1,0,0,1,0,0,"npc_friar_05","사제 드라즈니에","","","","MON_DUMMY","","","PRISON622_DRAZUNIE","","","NO","YES","NO","Neutral","","","",""
@@ -12,8 +12,8 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 11,11,1,40,200,25000,25,0,0,0,1,0,0,"rootcrystal_01","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
 12,12,1,40,1,60000,1,0,0,0,0,0,0,"bube_flag1","저주의 우상","","","","","","PRISON621_TOTEM_1","PRISON622_MQ_02_NPC","","","NO","YES","NO","Neutral","","","",""
 15,15,1,1,-1,20000,14,0,0,0,1,0,0,"Altarcrystal_Y1","UnvisibleName","","","","Noen","","PRISON622_MQ_05_AI","","","","NO","YES","NO","Neutral","","","",""
-16,16,1,40,1,60000,1,3,0,0,0,0,0,"Warp_arrow","특별 수형 구역","","","","MON_DUMMY","","","","PRISON622_TO_PRISON622_1","","NO","YES","NO","Neutral","","","",""
-17,17,1,40,1,60000,1,3,0,0,0,0,0,"Warp_arrow","아샤크 지하 감옥 2층","","","","MON_DUMMY","","","","PRISON622_1_TO_PRISON622","","NO","YES","NO","Neutral","","","",""
+16,16,1,40,1,60000,1,2,0,0,0,0,0,"Warp_arrow","특별 수형 구역","","","","MON_DUMMY","","","","PRISON622_TO_PRISON622_1","","NO","YES","NO","Neutral","","","",""
+17,17,1,40,1,60000,1,2,0,0,0,0,0,"Warp_arrow","아샤크 지하 감옥 2층","","","","MON_DUMMY","","","","PRISON622_1_TO_PRISON622","","NO","YES","NO","Neutral","","","",""
 18,18,1,1,-1,1000,5,0,0,0,1,0,1,"Hiddennpc_Q4","드라즈니에의 함정","","","","PRISON622_SQ_04_NPC","","","PRISON622_SQ_04_NPC","","","NO","YES","NO","Neutral","","","",""
 19,19,1,30,1,10,11,0,0,0,1,0,0,"block_fence_2","UnvisibleName","","","","","","PRISON621_DARK_WALL","","PRISON622_MQ_02_WALL","","NO","YES","NO","Neutral","","","",""
 22,22,1,40,50,20000,15,0,0,0,1,0,1,"Hiddennpc_Q1","반짝이는 진주 가루","","","","PRISON622_SQ_01_NPC","","","PRISON622_SQ_01_NPC","","","NO","YES","NO","Neutral","","","",""

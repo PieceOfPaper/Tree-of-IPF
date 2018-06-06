@@ -660,44 +660,46 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 		local obj = GetClassByIndexFromList(clsList, i);
 		local itemobj = GetClass("Item", obj.ItemClassName)
 		local isFounded = false;
-
-		if filter ~= nil then
-			local targetItemName = itemobj.Name;			
-			if config.GetServiceNation() ~= "KOR" then
-				targetItemName = dic.getTranslatedStr(targetItemName);				
-			end
-			local startNum, endNum = string.find(targetItemName, filter);
-			if (startNum ~= nil) or (endNum ~= nil) then
-				isFounded = true;					
-			end
-		end
-        local itemcset = nil;
-		if (allFlag == nil) then	
-			if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
-				if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
-					if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then
-                       index = index + 1
-                       x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-						y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-                        itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-						TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
-					end
-				end
-			end
-		
-		else
-			if (obj.Category == category) then
-				if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
-					if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
-						index = index + 1
-						x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-						y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-						itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-						TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
-					end
-				end
-			end
-		end
+    if itemobj == nil then
+      IMC_NORMAL_INFO("ItemClassName not found in item.xml:TPITEM_DRAW_ITEM_WITH_CATEGORY. obj.ItemClassName:" ..obj.ItemClassName);
+    else
+		  if filter ~= nil then
+			  local targetItemName = itemobj.Name;			
+			  if config.GetServiceNation() ~= "KOR" then
+				  targetItemName = dic.getTranslatedStr(targetItemName);				
+			  end
+			  local startNum, endNum = string.find(targetItemName, filter);
+			  if (startNum ~= nil) or (endNum ~= nil) then
+			  	isFounded = true;					
+			  end
+		  end
+      local itemcset = nil;
+		  if (allFlag == nil) then	
+			  if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+				  if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
+					  if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then
+					    index = index + 1
+					    x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
+						  y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+              itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+						  TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					  end
+				  end
+			  end
+		  else
+			  if (obj.Category == category) then
+				  if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+					  if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
+						  index = index + 1
+						  x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
+						  y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+						  itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+						  TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					  end
+				  end
+			  end
+		  end
+    end
 	end
 
 	--mainSubGbox:Resize(mainSubGbox:GetOriginalWidth(), y + ui.GetControlSetAttribute("tpshop_item", 'height'))
@@ -1187,7 +1189,7 @@ function TPSHOP_SORT_LIST(a, b)
 end
 
 --정렬
-function TPSHOP_TPITEM_ALIGN_LIST(cnt)	
+function TPSHOP_TPITEM_ALIGN_LIST(cnt)
 	local srcTable = {};
 	for i = 1, cnt do
 		srcTable[#srcTable + 1] = i;
@@ -1371,7 +1373,7 @@ function TPSHOP_ITEMSEARCH_CLICK(parent, control, strArg, intArg)
 	control:ClearText();
 end
 
-function TPSHOP_ITEMSEARCH_ENTER(parent, control, strArg, intArg)	
+function TPSHOP_ITEMSEARCH_ENTER(parent, control, strArg, intArg)
 	local frame = ui.GetFrame("tpitem");
 	local input = GET_CHILD_RECURSIVELY(frame, "input");
 
@@ -1433,7 +1435,7 @@ function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_cl
                 TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
             end,
             default = function() 
-                print("EqpType not defined in tpitem.lua:TPSHOP_ITEM_PREVIEW_PREPROCESSOR. item.EqpType:" .. itemobj.EqpType);
+                IMC_NORMAL_INFO("EqpType not defined in tpitem.lua:TPSHOP_ITEM_PREVIEW_PREPROCESSOR. item.EqpType:" .. itemobj.EqpType);
 			    TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj); -- 디폴트 헤어
             end,
 	    }

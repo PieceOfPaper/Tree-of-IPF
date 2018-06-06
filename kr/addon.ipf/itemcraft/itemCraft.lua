@@ -92,6 +92,8 @@ function ITEMCRAFT_CLOSE(frame)
 	INVENTORY_SET_ICON_SCRIPT("ITEMCRAFT_INV_ICON");
 	INVENTORY_SET_ICON_SCRIPT("None");
 
+    local invframe = ui.GetFrame('inventory')
+	INVENTORY_UPDATE_ICONS(invframe)
 	ui.CloseFrame('inventory')
 
 
@@ -1446,7 +1448,6 @@ function GET_ONLY_PURE_INVITEMLIST(type)
 end
 
 function CRAFT_ITEM_ALL(itemSet, btn)
-
 	local itemname = itemSet:GetUserValue("ClassName")
 	local itemcls = GetClass("Item", itemname);
 	local invItemlist = nil;
@@ -1468,7 +1469,6 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 	if #invItemlist < 1 or invItemlist == nil then
 		return;
 	end
-
 	local targetslot = GET_CHILD(itemSet, "slot", "ui::CSlot");
 	local materialItemClassID = targetslot:GetEventScriptArgNumber(ui.DROP);
 	local materialItemCnt = tonumber(targetslot:GetEventScriptArgString(ui.DROP));
@@ -1495,7 +1495,6 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 			invItemadd = tempinvItem
 			break
 		end
-
 	end
 
 	if invItemadd == nil then

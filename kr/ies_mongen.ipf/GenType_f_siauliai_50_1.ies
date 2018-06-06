@@ -1,5 +1,5 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P_MaxDialog,AnchorCount,UP_ReturnRange,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
-1,1,1,40,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","아렐르노 남작령","","","","MON_DUMMY","","","","SIAUL50_1_TO_FARM_47_4","","NO","YES","NO","Neutral","","","",""
+1,1,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","아렐르노 남작령","","","","MON_DUMMY","","","","SIAUL50_1_TO_FARM_47_4","","NO","YES","NO","Neutral","","","",""
 2,2,1,40,1,60000,1,1,0,0,0,0,100,"npc_village_uncle_8","기티스","","","","MON_DUMMY","","","SIAULIAI_50_1_SQ_GYTIS","","","NO","YES","NO","Neutral","","","",""
 3,3,1,40,1,60000,1,1,0,0,0,0,100,"npc_village_male_b1","연구원 가레스","","","","","","","SIAULIAI_50_1_SQ_RESEARCHER","","","NO","YES","NO","Neutral","","","",""
 4,4,1,100,1,60000,1,0,0,0,0,0,0,"siauliai_grass_3_large","UnvisibleName","","","","MON_DUMMY","","","SIAULIAI_50_1_SQ_GRASS","SIAULIAI_50_1_GRASS_MESSAGE","","NO","YES","NO","Neutral","Effect/F_smoke023_red/0.6/2","","",""
@@ -8,8 +8,8 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 7,7,1,40,-1,60000,1,1,0,0,0,0,100,"soldier7","병사 퍼스","","","","MON_DUMMY","","","SIAULIAI_50_1_SQ_SOLDIER03","","","NO","YES","NO","Neutral","Anim/ASTD","","",""
 8,8,1,40,1,60000,1,1,0,0,0,0,0,"npc_village_uncle_2","루이즈","","","","","","","SIAULIAI_50_1_SQ_MAN01","","","NO","YES","NO","Neutral","","","",""
 9,9,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","클라페다","","","","","","","","SIAUL50_1_TO_KLAPEDA","","NO","YES","NO","Neutral","","","",""
-10,10,1,40,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","베야 골짜기","","","","","","","","SIAUL50_1_TO_HUEVILLAGE_58_1","","NO","YES","NO","Neutral","","","",""
-11,11,1,40,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","비에타 계곡","","","","","","","","SIAUL50_1_TO_HUEVILLAGE_58_2","","NO","YES","NO","Neutral","","","",""
+10,10,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","베야 골짜기","","","","","","","","SIAUL50_1_TO_HUEVILLAGE_58_1","","NO","YES","NO","Neutral","","","",""
+11,11,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","비에타 계곡","","","","","","","","SIAUL50_1_TO_HUEVILLAGE_58_2","","NO","YES","NO","Neutral","","","",""
 13,13,0,40,30,0,12,0,0,0,0,1,0,"Chupaluka_pink","","","","","","","SIAULIAI50_MON_WILD","","","","NO","YES","NO","Monster","SmartGen","","","Attack"
 14,14,0,40,3000,0,15,0,0,0,0,0,0,"Sakmoli_orange","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 16,16,1,40,1,60000,1,1,0,0,0,0,0,"soldier7","병사 퍼스","","","","MON_DUMMY","","","SIAULIAI_50_1_SQ_SOLDIER03_AFTER","","","NO","YES","NO","Neutral","Anim/INJURY2","ChangeDialogRotate/0","",""

@@ -437,7 +437,13 @@ function GET_ITEM_PROP_NAME_LIST(obj)
 		else
 			propNameList[#propNameList + 1] = {};
 			propNameList[#propNameList]["PropName"] = propName;
-			propNameList[#propNameList]["PropValue"] = obj[propName];
+
+            local propValue = math.floor(obj[propName]);
+            if propName == 'CoolDown' and propValue == 0 then -- 인벤토리가 아닌 아이템의 경우 CP계산을 못해요
+                propValue = obj.ItemCoolDown;
+            end
+
+			propNameList[#propNameList]["PropValue"] = propValue;
 		end
 	end
 	

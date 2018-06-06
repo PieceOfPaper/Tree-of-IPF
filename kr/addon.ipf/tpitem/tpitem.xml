@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="tpitem" x="0" y="0" width="1920" height="1080" create="open">
 	<frame layout_gravity="left top" margin="0 0 0 0" snapclient="true" snapframe="true" tooltipoverlap="true"/>
 	<option closebutton="false"/>
@@ -137,7 +137,9 @@
 		<button name="specialBuyBtn" parent="tpSubgbox" rect="0 0 250 65" margin="0 330 80 0" layout_gravity="right top" skin="test_red_button" hittest="true" caption="{@st66d}구매 하기{/}" oversound="button_over" clicksound="button_click_stats" scrollbar="false" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" fontname="black_20_b" LBtnUpScp="TPITEM_PACKAGE_OPEN"/>
 		<!--TP SHOP 오른쪽 그룹박스 탭2-->
 		<groupbox name="cashInvGbox" parent="rightgbox" rect="0 0 545 600" margin="0 0 0 30" layout_gravity="left bottom" draw="false" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
-		<richtext name="cashInvTitle" parent="cashInvGbox" rect="0 0 500 50" margin="22 180 0 0" layout_gravity="left top" caption="{@st66d}{s18}캐시 창고{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left top"/>
+		<richtext name="gachaInfoTitle" parent="cashInvGbox" rect="0 0 500 50" margin="22 50 0 0" layout_gravity="left top" caption="{@st66d}{s18}유료 확률형 아이템{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left top"/>
+		<richtext name="gachaInfoGuide" parent="cashInvGbox" rect="0 0 500 50" margin="20 80 0 0" layout_gravity="left top" caption="{@st43d}{s18}- 홈페이지 하단의 확률형 아이템 목록 메뉴에서 구성품과 확률을 확인 할 수 있습니다.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left top"/>
+		<richtext name="cashInvTitle2" parent="cashInvGbox" rect="0 0 500 50" margin="22 180 0 0" layout_gravity="left top" caption="{@st66d}{s18}캐시 창고{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left top"/>
 		<richtext name="cashInvGuide" parent="cashInvGbox" rect="0 0 500 50" margin="20 210 0 0" layout_gravity="left top" caption="{@st43d}{s18}- 캐시 창고의 아이템을 구매 확정해야만 사용 할 수 있습니다.{nl}- 구매 확정은 마우스 우클릭을 통해 가능합니다.{nl}- 구매 확정한 상품은 캐릭터 인벤토리로 이동됩니다.{nl}- 캐시창고에 보관된 아이템은 구입 후 7일 이내에 청약철회를 할 수 있습니다.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left top"/>
 		<slotset name="cashInvSlotSet" parent="cashInvGbox" rect="0 0 430 60" margin="2 330 0 0" layout_gravity="center top" col="6" cursoronresize="true" dropsound="icon_get_down" enablepop="false" enableselect="true" hideindrag="false" movepop="false" picksound="icon_pick_up" row="3" size="80 80" skin="invenslot2" oversound="button_over" LBtnUpScp="TPSHOP_CASHINVEN_ITEM_CLICKED" RBtnUpScp="TPSHOP_CASHINVEN_ITEM_CLICKED" spc="2 2"/>
 		<!--TP SHOP 메세지박스를 위한 전체를 덮는 배경 박스-->

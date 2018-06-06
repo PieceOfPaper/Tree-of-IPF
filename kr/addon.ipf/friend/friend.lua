@@ -134,10 +134,14 @@ function CHECK_FRIEND_NEW_INVITE(frame)
 		helpBalloon:ShowWindow(1);
 		local sysFrame = ui.GetFrame("sysmenu");
 		local friendBtn = sysFrame:GetChild("friend");
-		local x, y = GET_GLOBAL_XY(friendBtn);
-		x = x - (helpBalloon:GetWidth()/2);
-		y = y;
-		helpBalloon:SetOffset(x, y);
+        local margin = friendBtn:GetMargin();
+        local x = margin.right;
+        local y = margin.bottom;        
+		x = x + (friendBtn:GetWidth() / 2);
+		y = y + friendBtn:GetHeight() + 5;
+        helpBalloon:SetGravity(ui.RIGHT, ui.BOTTOM);
+        helpBalloon:SetMargin(0, 0, x, y);
+
 		helpBalloon:SetDuration(5);
 	else
 		ui.CloseFrame("new_friend_msg");

@@ -1,10 +1,10 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 5,9,0,40,25,0,20,0,0,0,0,0,0,"Hallowventor","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 8,13,0,40,25,0,10,0,0,0,0,0,0,"Cockatries","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
-9,14,0,40,9999,0,5,0,0,0,0,0,0,"Big_Cockatries","","","","","","","","","","","NO","YES","NO","Monster","","","",""
+9,14,0,40,9999,0,4,0,0,0,0,0,0,"Big_Cockatries","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 100,100,1,30,1,60000,1,2,0,0,0,0,0,"Warp_arrow","에산치우 마을","","","","MON_DUMMY","","","","WS_REMAINS40_TO_REMAINS39","","NO","YES","NO","Neutral","","","",""
 101,101,1,30,1,60000,1,2,0,0,0,0,0,"Warp_arrow","페디미안","","","","MON_DUMMY","","","","WS_REMAINS40_TO_FEDMIAN","","NO","YES","NO","Neutral","","","",""
-102,102,1,20,1,60000,1,3,0,1,0,0,0,"whorfzone","마법사의 탑 1층","","","","","","","","WS_REMAINS40_TO_FIRETOWER41","","NO","YES","NO","Neutral","Anim/ON","","",""
+102,102,1,20,1,60000,1,2,0,1,0,0,0,"whorfzone","마법사의 탑 1층","","","","","","","","WS_REMAINS40_TO_FIRETOWER41","","NO","YES","NO","Neutral","Anim/ON","","",""
 103,103,89,30,1,60000,1,1,0,0,1,150,0,"npc_village_uncle_2","코벤","","","","","","","REMAINS_40_DRUNK_01","","","NO","YES","NO","Neutral","","","",""
 104,104,89,30,1,60000,1,1,0,0,0,0,0,"npc_village_uncle_2","코벤","","","","MON_DUMMY","","","REMAINS_40_DRUNK_02","","","NO","YES","NO","Neutral","","","",""
 105,105,89,30,1,60000,1,1,0,0,0,0,0,"npc_village_uncle_2","코벤","","","","MON_DUMMY","","","REMAINS_40_DRUNK_03","","","NO","YES","NO","Neutral","","","",""
@@ -47,3 +47,4 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 429,429,1,40,-1,60000,1,1,0,0,0,0,0,"npc_friar_02","심판관 라이미스","","","","","","","CATACOMB_25_4_LAIMIS","","","NO","YES","NO","Neutral","","","",""
 430,430,1,5,-1,60000,1,0,0,0,0,0,1,"noshadow_npc_big","UnvisibleName","","","","","","","HTA_REMAINS_40_WATERPOT","","","NO","YES","NO","Neutral","","","",""
 431,431,1,5,-1,60000,1,0,0,0,0,0,1,"noshadow_npc_big","UnvisibleName","","","","","","","HTA_REMAINS_40_SMOKE","","","NO","YES","NO","Neutral","","","",""
+432,432,0,40,30,0,1,0,0,0,0,0,0,"Big_Cockatries","","","","","","","","","","","NO","YES","NO","Monster","","","",""

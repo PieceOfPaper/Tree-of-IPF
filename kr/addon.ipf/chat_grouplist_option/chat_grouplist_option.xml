@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="chat_grouplist_option" x="0" y="0" width="300" height="230" create="open">
-  <skin frameskin="chat_optionwin"/>
-  <frame title="chat_optionwin" titlepos="0 -12" layout_gravity="left top" snapclient="true" snapframe="true" margin="0 0 0 0" scale_align="left bottom"/>
-  <draw drawframe="true" drawtitlebar="false"/>
-  <layer layerlevel="81"/>
-  <input moveable="true"/>
-  <option closebutton="false" hideable="true" useimageitem="true"/>
-  <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
-  <sound opensound="win_open" closesound="win_close"/>
-  <controls>
-    <richtext name="richtext_1" rect="0 0 120 24" margin="20 7 0 0" layout_gravity="left top" caption="{@st42}그룹 설정" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-    <edit name="groupname_edit" rect="0 0 236 30" margin="0 40 0 0" layout_gravity="center top" caption="" drawbackground="true" fixwidth="true" fontname="white_16" slideshow="false" spacey="0" textalign="left center" updateparent="false" maxlen="800"/>
-    <richtext name="richtext_2" rect="0 0 120 24" margin="20 80 0 0" layout_gravity="left top" caption="{@st42}색 설정" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-    <groupbox name="colorBox" margin="0 120 0 0" rect="0 0 250 25" scrollbar="false" draw="false" hittestbox="false" layout_gravity="center top" resizebyparent="false"/>
-    <picture name="color0" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="0 0 0 0" parent="colorBox" image="chat_color"/>
-    <picture name="color1" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="25 0 0 0" parent="colorBox" image="chat_color"/>
-    <picture name="color2" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="50 0 0 0" parent="colorBox" image="chat_color"/>
-    <picture name="color3" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="75 0 0 0" parent="colorBox" image="chat_color"/>
-    <picture name="color4" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="100 0 0 0" parent="colorBox" image="chat_color"/>
-    <picture name="color5" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="125 0 0 0" parent="colorBox" image="chat_color"/>
-    <picture name="color6" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="150 0 0 0" parent="colorBox" image="chat_color"/>
-    <picture name="color7" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="175 0 0 0" parent="colorBox" image="chat_color"/>
-    <picture name="color8" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="200 0 0 0" parent="colorBox" image="chat_color"/>
-    <picture name="color9" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="225 0 0 0" parent="colorBox" image="chat_color"/>
-    <picture name="vmark" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="0 0 0 0" parent="colorBox" image="v_mark"/>
-    <button name="btn_ok" skin="test_pvp_btn" rect="0 0 100 40" layout_gravity="center bottom" LBtnUpScp="CHAT_GROUPLIST_OPTION_OK" clicksound="button_click" oversound="button_over" margin="-50 0 0 25" caption="{@st66}확인"/>
-    <button name="btn_out" skin="test_pvp_btn" rect="0 0 100 40" layout_gravity="center bottom" LBtnUpScp="CHAT_GROUPLIST_OPTION_OUT" clicksound="button_click" oversound="button_over" margin="50 0 0 25" caption="{@st66}방 나가기"/>
-  </controls>
+	<skin frameskin="test_frame_low"/>
+	<frame title="chat_optionwin" titlepos="0 -12" layout_gravity="left top" snapclient="true" snapframe="true" margin="0 0 0 0" scale_align="left bottom"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<layer layerlevel="81"/>
+	<input moveable="true"/>
+	<option closebutton="false" hideable="true" useimageitem="true"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<controls>
+		<richtext name="richtext_1" rect="0 0 120 24" margin="20 15 0 0" layout_gravity="left top" caption="{@st66b}그룹 설정" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<labelline name="boardLine 1" parent="macroGroupbox" rect="0 0 280 4" margin="0 38 0 0" layout_gravity="center top" skin="None" visible="true"/>
+		<edit name="groupname_edit" rect="0 0 236 30" margin="0 47 0 0" layout_gravity="center top" caption="" drawbackground="true" fixwidth="true" fontname="white_16" slideshow="false" spacey="0" textalign="left center" updateparent="false" maxlen="800"/>
+		<labelline name="boardLine 2" parent="macroGroupbox" rect="0 0 280 4" margin="0 113 0 0" layout_gravity="center top" skin="None" visible="true"/>
+		<richtext name="richtext_2" rect="0 0 120 24" margin="20 90 0 0" layout_gravity="left top" caption="{@st66b}색 설정" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<groupbox name="colorBox" margin="0 125 0 0" rect="0 0 250 25" scrollbar="false" draw="false" hittestbox="false" layout_gravity="center top" resizebyparent="false"/>
+		<picture name="color0" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="0 0 0 0" parent="colorBox" image="chat_color"/>
+		<picture name="color1" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="25 0 0 0" parent="colorBox" image="chat_color"/>
+		<picture name="color2" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="50 0 0 0" parent="colorBox" image="chat_color"/>
+		<picture name="color3" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="75 0 0 0" parent="colorBox" image="chat_color"/>
+		<picture name="color4" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="100 0 0 0" parent="colorBox" image="chat_color"/>
+		<picture name="color5" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="125 0 0 0" parent="colorBox" image="chat_color"/>
+		<picture name="color6" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="150 0 0 0" parent="colorBox" image="chat_color"/>
+		<picture name="color7" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="175 0 0 0" parent="colorBox" image="chat_color"/>
+		<picture name="color8" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="200 0 0 0" parent="colorBox" image="chat_color"/>
+		<picture name="color9" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="225 0 0 0" parent="colorBox" image="chat_color"/>
+		<picture name="vmark" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 25 25" margin="0 0 0 0" parent="colorBox" image="v_mark"/>
+		<button name="btn_ok" skin="test_pvp_btn" rect="0 0 100 40" layout_gravity="center bottom" LBtnUpScp="CHAT_GROUPLIST_OPTION_OK" clicksound="button_click" oversound="button_over" margin="-50 0 0 22" caption="{@st66}확인"/>
+		<button name="btn_out" skin="test_pvp_btn" rect="0 0 100 40" layout_gravity="center bottom" LBtnUpScp="CHAT_GROUPLIST_OPTION_OUT" clicksound="button_click" oversound="button_over" margin="50 0 0 22" caption="{@st66}방 나가기"/>
+	</controls>
 </uiframe>

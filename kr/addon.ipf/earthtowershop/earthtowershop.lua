@@ -68,6 +68,7 @@ function EARTH_TOWER_SHOP_OPEN(frame)
 end
 
 function  EARTH_TOWER_SHOP_OPTION(frame, ctrl)
+  session.ResetItemList();
 	frame = frame:GetTopParentFrame();
 	local shopType = frame:GetUserValue("SHOP_TYPE");
 	EARTH_TOWER_INIT(frame, shopType);

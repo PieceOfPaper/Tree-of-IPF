@@ -13,8 +13,7 @@
 	<script OpenScp="" CloseScp=""/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
 	<controls>
-		<picture name="map" rect="0 0 1460 830" layout_gravity="center center" hittest="false" image="tutr_img_joypad2" stretch="true"/>
-		<!--		<picture name="login_bg" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="button_property" stretch="false"/>-->
+		<picture name="map" rect="0 0 1460 830" layout_gravity="center center" hittest="false" image="tutr_img_joypad2" stretch="true"/>		
 		<button name="close_map" rect="0 0 44 44" margin="0 18 18 0" layout_gravity="right top" LBtnDownScp="" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;joysticktutorial&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}조이패드 설명을 닫습니다.{/}"/>
 	</controls>
 </uiframe>
