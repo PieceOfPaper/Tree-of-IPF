@@ -306,7 +306,7 @@ function ON_INTE_WARP(frame, changeDirection)
 
 				local warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName),info.Zone);
 				
---                warpcost = 0      --EV161110
+                warpcost = 0      --EV161110
                 
 				if nowZoneName == 'infinite_map' then
 					warpcost = 0;

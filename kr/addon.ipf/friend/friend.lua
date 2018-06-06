@@ -668,6 +668,9 @@ function FRIEND_BLOCK(parent)
 end
 
 function EXED_FRIEND_REGISTER(frame, friendName)
+    if friendName == nil or friendName == '' then        
+        return;
+    end
 	friends.RequestRegister(friendName);
 end
 

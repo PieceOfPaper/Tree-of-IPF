@@ -340,10 +340,16 @@
 		<Class ClassID="4156" ClassName="ItemRandomOptionGroupATK" Data="{img tooltip_attribute1}"/>
 		<Class ClassID="4157" ClassName="CannotUseNotAppliedOption" Data="미감정된 랜덤 옵션 아이템입니다."/>
 		<Class ClassID="4158" ClassName="DON_T_HAVE_ITEM_TO_DECOMPOSE" Data="분해할 아이템을 선택해 주세요."/>
-		<Class ClassID="4159" ClassName="ItemDecomposePrice" Data="분해 비용 : {Price}{nl}분해하시겠습니까?"/>
+		<Class ClassID="4159" ClassName="ItemDecomposePrice" Data="정말 분해를 진행하시겠습니까?{nl}분해 비용 : {Price}"/>
 		<Class ClassID="4164" ClassName="CannotUseInParty" Data="파티에 가입된 상태에서는 사용할 수 없습니다."/>
 		<Class ClassID="4165" ClassName="Event_Solmiki_Box_Title" Data="솔미키 선택 상자"/>
 	<Class ClassID="4166" ClassName="CannotBecause{LAST_INDEX}" Data="{LAST_INDEX}랭크에서 롤백했기 때문에 현재 랭크에서는 사용할 수 없습니다."/>
+		<Class ClassID="4167" ClassName="ItemDecomposeWarningPropMessage" Data="{@st47}{s18}{WARNINGPROP}{/}{/}한 아이템이 포함되어 있습니다.{nl} {nl}{DEFAULTMSG}"/>
+		<Class ClassID="4168" ClassName="ItemDecomposeWarningProp_Reinforce" Data="강화"/>
+		<Class ClassID="4169" ClassName="ItemDecomposeWarningProp_Transcend" Data="초월"/>
+		<Class ClassID="4170" ClassName="ItemDecomposeWarningProp_Awaken" Data="각성"/>
+		<Class ClassID="4171" ClassName="ItemDecomposeWarningProp_Socket_Equip" Data="젬 장착"/>
+		<Class ClassID="4172" ClassName="ItemDecomposeWarningProp_Socket_Add" Data="소켓 추가"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>

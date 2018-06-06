@@ -388,6 +388,9 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 			local info = result[index];
 			local mapCls = GetClass("Map", info.Zone);
 			local warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName),info.Zone);
+			
+			warpcost = 0      --EV161110
+			
 			if nowZoneName == 'infinite_map' then
 				warpcost = 0;
 			end
