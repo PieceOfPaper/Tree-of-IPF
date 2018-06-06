@@ -94,6 +94,7 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 
 	local rcycle_basketgbox = GET_CHILD_RECURSIVELY(frame,'rcycle_basketgbox');
 	
+	--[[
 	if curtabIndex == 0 then	
 		TPITEM_DRAW_NC_TP();
 		TPSHOP_SHOW_CASHINVEN_ITEMLIST();
@@ -116,8 +117,7 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		cashInvGbox:SetVisible(0);
 		RECYCLE_SHOW_TO_ITEM()
 	end
-
-	--[[
+]]
 	if curtabIndex == 0 then
 		basketgbox:SetVisible(1);
 		previewgbox:SetVisible(1);
@@ -132,7 +132,6 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		cashInvGbox:SetVisible(0);
 		RECYCLE_SHOW_TO_ITEM()
 	end
-	]]
 end
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
@@ -142,12 +141,12 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 
 	frame:ShowWindow(1);
 	MAKE_CATEGORY_TREE();
-	
+		--[[
 	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 	banner:SetUserValue("URL_BANNER", "");
 	banner:SetUserValue("NUM_BANNER", 0);
 	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
-	
+	]]
 	frame:SetUserValue("CASHINVEN_PAGENUMBER", 1);
 
 	local screenbgTemp = GET_CHILD_RECURSIVELY(frame, 'screenbgTemp');
@@ -190,10 +189,10 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	rcycle_basketbuyslotset:ClearIconAll();
 	local rcycle_basketsellslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketsellslotset")
 	rcycle_basketsellslotset:ClearIconAll();
-	
+	--[[
 	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 	banner:SetImage("market_event_test");	--market_default
-	
+	]]
 	local specialGoods = GET_CHILD_RECURSIVELY(frame,"specialGoods");	
 	specialGoods:SetImage("market_default2");
 		
@@ -385,12 +384,12 @@ function TPITEM_CLOSE(frame)
 	
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
-
+	--[[
 	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 	banner:SetUserValue("URL_BANNER", "");
 	banner:SetUserValue("NUM_BANNER", 0);
 	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
-
+	]]
 	--ui.SetHoldUI("");
 	SET_TOPMOST_FRAME_SHOWFRAME(1);
 	session.ui.Clear_NISMS_ItemList();
@@ -2368,7 +2367,9 @@ end
 --///////////////////////////////////////////////////////////////////////////////////////////TPITEM DRAW Code end
 
 function TPSHOP_REFLASH_REMAINCASH(parent, control, strArg, numArg)
-	DebounceScript("ON_TPSHOP_REFLASH_REMAINCASH", 5);
+	ui.MsgBox(ClMsg("YouCanChargeOnWeb"));
+	
+	--DebounceScript("ON_TPSHOP_REFLASH_REMAINCASH", 5);
 end
 
 function ON_TPSHOP_REFLASH_REMAINCASH()
@@ -2499,13 +2500,16 @@ function TPSHOP_CHECK_REMAIN_NEXONCASH()
 	local frame = ui.GetFrame("tpitem");
 	local rightFrame = GET_CHILD(frame,"rightFrame");	
 	local rightgbox = GET_CHILD(rightFrame,"rightgbox");	
-	local haveStaticNCbox = GET_CHILD(rightgbox,"haveStaticNCbox");	
-	local remainNexonCash = GET_CHILD_RECURSIVELY(haveStaticNCbox,"remainNexonCash");	
-	remainNexonCash:SetText(session.ui.GetRemainCash());
+	--local haveStaticNCbox = GET_CHILD(rightgbox,"haveStaticNCbox");	
+	--local remainNexonCash = GET_CHILD_RECURSIVELY(haveStaticNCbox,"remainNexonCash");	
+	--remainNexonCash:SetText(session.ui.GetRemainCash());
 end
 
 function WEB_TPSHOP_OPEN_URL_NEXONCASH()
 
+	ui.MsgBox(ClMsg("YouCanChargeOnWeb"));
+
+--[[
 	ON_TPSHOP_FREE_UI();
 	local frame = ui.GetFrame("tpitem");	
 	TPSHOP_TAB_VIEW(frame, 0);
@@ -2517,7 +2521,7 @@ function WEB_TPSHOP_OPEN_URL_NEXONCASH()
 	itembox_tab:SelectTab(0);
 
 	ui.Embedded_Browser_forNC(ui.ExcNCurl());
-	
+	]]
 end
 
 function TPSHOP_SHOW_CASHINVEN_ITEMLIST()
@@ -2578,6 +2582,7 @@ function TPSHOP_CASHINVEN_ITEM_CLICKED(parent, ctrl)
 end
 
 function _TPSHOP_BANNER(parent, control, argStr, argNum)
+	--[[
 	local size = session.ui.GetSize_TPITEM_Banner_INFOList();
 
 	local frame = ui.GetFrame("tpitem");
@@ -2600,6 +2605,7 @@ function _TPSHOP_BANNER(parent, control, argStr, argNum)
 		banner:RunUpdateScript("_PROCESS_ROLLING_BANNER",  5, 0, 1, 1);
 	end
 	banner:Invalidate();
+	]]
 end
 
 function _PROCESS_ROLLING_BANNER()
