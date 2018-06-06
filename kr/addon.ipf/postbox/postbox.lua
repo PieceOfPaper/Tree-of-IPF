@@ -43,6 +43,7 @@ function UPDATE_POSTBOX_LETTERS_LIST(gbox_list, onlyNewMessage, startindex)
 	local x = 0;
 	local y = 0;
 	local cnt = session.postBox.GetMessageCount();
+	local drawindex = gbox_list:GetChildCount();
 
 	for i = startindex , cnt - 1 do
 
@@ -54,7 +55,9 @@ function UPDATE_POSTBOX_LETTERS_LIST(gbox_list, onlyNewMessage, startindex)
 
 		if onlyNewMessage == false or (msgInfo:GetItemCount() > 0 and msgInfo:GetItemTakeCount() == 0 ) then
 
-			local beforectrl = GET_CHILD_RECURSIVELY(gbox_list,"ITEM_" ..(i-1))
+			drawindex = drawindex + 1
+
+			local beforectrl = GET_CHILD_RECURSIVELY(gbox_list,"ITEM_" ..(drawindex-1))
 
 			if beforectrl == nil then
 				y = 0
@@ -62,7 +65,7 @@ function UPDATE_POSTBOX_LETTERS_LIST(gbox_list, onlyNewMessage, startindex)
 				y = beforectrl:GetHeight() + beforectrl:GetY();
 			end
 
-			local ctrlSet = gbox_list:CreateOrGetControlSet("postbox_list2", "ITEM_" ..i, x, y);
+			local ctrlSet = gbox_list:CreateOrGetControlSet("postbox_list2", "ITEM_" ..drawindex, x, y);
 			if ctrlSet ~= nil then
 				
 				ctrlSet:SetUserValue("LETTER_ID", msgInfo:GetID());
