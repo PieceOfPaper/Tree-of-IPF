@@ -25,12 +25,14 @@ function DRAW_LEGENDEXPPOTION_COMMON_TOOLTIP(tooltipframe, invitem, mainframenam
 	local level_gauge = GET_CHILD(CSet,'level_gauge','ui::CGauge')
 	local itemPicture = GET_CHILD(CSet, "itempic", "ui::CPicture");
 	
-	local lv, curExp, maxExp = 1, invitem.ItemExp, invitem.NumberArg1
+	local curExp, maxExp = invitem.ItemExp, invitem.NumberArg1
 	local tooltipImage = GET_LEGENDEXPPOTION_ICON_IMAGE(invitem);
-
+	
 	if strarg == 'maxexp' then
 		curExp = maxExp;
 		tooltipImage = GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(invitem);
+	elseif GetExpOrbGuidStr() == GetIESID(invitem) then
+		curExp = GetExpOrbFillingExp();
 	end
 	
 	level_gauge:SetPoint(curExp, maxExp);

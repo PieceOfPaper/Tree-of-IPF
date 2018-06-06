@@ -3009,14 +3009,22 @@ function SCR_IS_ENABLE_ITEM_LOCK(pc, item, isIndunPlaying)
 	return 1;
 end
 
-function TX_SAVE_EXP_ORB(pc, invItem, maxExp)
+function TX_SAVE_EXP_ORB(pc, invItem, fillingExp, maxExp, changeExpOrbAfterSaved, nextGuid)
 	local groupName = TryGetProp(invItem, "GroupName");
 	if groupName ~= "ExpOrb" then
 		return;
 	end
 
-	local exp = TryGetProp(invItem, "ItemExp");
-	if exp > maxExp then
+	local curExp = TryGetProp(invItem, "ItemExp");
+	if curExp == nil then
+		return;
+	end
+	
+	if curExp > maxExp then
+		return;
+	end
+
+	if fillingExp > maxExp then
 		return;
 	end
 
@@ -3028,6 +3036,14 @@ function TX_SAVE_EXP_ORB(pc, invItem, maxExp)
 
 	local tx = TxBegin(pc);
 	TxEnableInIntegrate(tx);
-	TxSetIESProp(tx, invItem, "ItemExp", exp);
+	TxSetIESProp(tx, invItem, "ItemExp", fillingExp);
 	local ret = TxCommit(tx);
+
+	if changeExpOrbAfterSaved == 1 then
+		if nextGuid ~= nil and nextGuid ~= 0 then
+			SetExpOrbItem(pc, nextGuid);
+		else
+			ResetExpOrbItem(pc);
+		end
+	end
 end

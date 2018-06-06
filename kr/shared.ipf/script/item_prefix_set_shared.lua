@@ -37,7 +37,10 @@ function GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(itemObj)
 end
 
 function GET_LEGENDEXPPOTION_ICON_IMAGE(itemObj)
-	local curExp, maxExp = itemObj.ItemExp, itemObj.NumberArg1;
+    local curExp, maxExp = itemObj.ItemExp, itemObj.NumberArg1;
+    if GetExpOrbGuidStr() == GetIESID(itemObj) then
+		curExp = GetExpOrbFillingExp();
+    end
 	if curExp >= maxExp then
 		return GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(itemObj);
 	end
