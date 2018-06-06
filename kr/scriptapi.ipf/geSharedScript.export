@@ -1,0 +1,8 @@
+//
+// script.export
+//
+
+void ScalePropertyNumberAll(const char* idSpace, const char* propertyName, float fScale);
+void SetPropertyNumber(const char* idSpace, const char* className, const char* propertyName, float fVal);
+void SetPropertyString(const char* idSpace, const char* className, const char* propertyName, const char* szVal);
+void UpdateItemTable();

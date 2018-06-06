@@ -1,0 +1,76 @@
+
+CActor*			GetActor(void* pvActor);
+CAiActor*		GetAiActor(void* pvAiActor);
+
+CActor*			GetActorAttackMe(CAiActor* pAiActor);
+CActor*			GetUserTarget(CAiActor* pAiActor);
+void			SetAiTarget(CAiActor* pAiActor, CActor* pTarget);
+CActor*			GetAiTarget(CAiActor* pAiActor);
+
+void			ClearAiTarget(CAiActor* pAiActor);
+void			ClearUserTarget(CAiActor* pAiActor);
+void			ClearCounterTarget(CAiActor* pAiActor);
+
+CActor*			GetNearEnemy(CAiActor* pAiActor, float dist);
+CActor*			GetNeedHealFriend(CAiActor* pAiActor, float dist, float minHpPercent);
+
+void			ChangeTacticsAi(CAiActor* pAiActor, const char* nextTactisFSM);
+
+const char*		IsDead(CActor* pActor);
+const char*		IsKd(CActor* pActor);
+const char*		IsEqual(CActor* lActor, CActor* rActor);
+const char*		IsSkillUsing(CAiActor* pAiActor);
+const char*		GetUsingSkill(CAiActor* pAiActor);
+
+void			Attack(CAiActor* pAiActor, CActor* pTarget);
+void			UseSkill(CAiActor* pAiActor, CActor* pTarget, int skillIndex);
+
+void			AssaultDestMoveTo(CAiActor* pAiActor);
+void			HarvestDestMoveTo(CAiActor* pAiActor);
+void			KeepDestMoveTo(CAiActor* pAiActor);
+
+void			InstantHold(CAiActor* pAiActor);
+
+const char*		IsNearFromAssaultDestPosition(CAiActor* pAiActor, float dist);
+const char*		IsNearFromMoveDestPosition(CAiActor* pAiActor, float dist);
+const char*		IsNearFromKeepDestPosition(CAiActor* pAiActor, float dist);
+
+const char*		IsMoving(CAiActor* pAiActor);
+const char*		IsLeader(CAiActor* pAiActor);
+
+const char*		IsAbleToAttack(CAiActor* pAiActor);
+
+const char*		IsExist(CActor* pActor);
+
+void			Print(CActor* pActor);
+
+CActor*			GetNearAtkableEnemy(CAiActor* pAiActor, float dist);
+CActor*			GetNearAtkableEnemyOnHold(CAiActor* pAiActor, float dist);
+CActor*			GetAtkableActorAttackMe(CAiActor* pAiActor);
+
+void			Hold(CAiActor* pAiActor);
+void			UnHold(CAiActor* pAiActor);
+const char*		IsTargetInMyAttackRange(CAiActor* pAiActor, CActor* target);
+const char*		IsTargetInMySkillRange(CAiActor* pAiActor, CActor* target, int skillIndex);
+
+const char*		GetPrevTS(CAiActor* pAiActor);
+
+void			PlaySound(const char* soundName);
+
+CActor*			GetHoldAtkableEnemy(CAiActor* pAiActor, float dist);
+
+int				GetNearItem(CAiActor* pAiActor, float dist);
+const char*		IsExistItem(int handle);
+void			PickItem(CAiActor* pAiActor, int handle);
+const char*		IsNearFromHarvestDestPosition(CAiActor* pAiActor, float dist);
+int				GetPickItem(CAiActor* pAiActor);
+
+void			Rx();
+
+void Ra(); 
+
+const char*		GetJobName(CAiActor* pAiActor);
+
+void			SetTarget(CAiActor* pAiActor, const char* type, CActor* pTarget);
+CActor*			GetTarget(CAiActor* pAiActor, const char* type);
+			

@@ -1,0 +1,16 @@
+namespace imcAddOn
+{
+
+class CAddOn
+{
+public:
+	void RegisterMsg(const char* msg, const char* funcName);
+};
+
+};
+
+namespace addon
+{
+void ToggleAddOnListFrame();
+void ToggleMsgMapFrame();
+};
