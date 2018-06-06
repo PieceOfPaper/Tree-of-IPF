@@ -253,6 +253,7 @@
 	<Code Code="ERRCODE_NETWORK_HTTP_SOAP_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
 		<Code Code="ERRCODE_NETWORK_EMBEDDED_BROWSER_ERROE" CallStack="YES" Desc="Embedded_Browser에 문제가 발생하였습니다."/>
 	<Code Code="ERRCODE_NISMS_LOADFAIL" CallStack="NO" Desc="NISMS 상품 목록을 얻어오는데에 실패했습니다. 강제종료 시킵니다. 만약 넥슨 인게임샵 기능을 사용하지 않는다면, serverconfig.xml의 UseNISMS를 NO로 설정하세요. "/>
+	<Code Code="ERRCODE_NISMS_INVALIED_WORLDID" CallStack="NO" Desc="NISMS를 위한 월드의 domainType 값을 잘못 얻어왔습니다."/>
 	</Type>
 	<Type Type="DB">
 		<Code Code="ERRCODE_DB_WORLDTABLE" CallStack="NO" Desc="월드 테이블 세팅에 실패하였습니다. WorldTable DB 테이블 및 ODBC 세팅을 확인하세요."/>

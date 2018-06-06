@@ -6948,3 +6948,31 @@ function SCR_PRE_TABLE281_HIDDENQ1_ITEM5(self, argObj, argstring, arg1, arg2)
     end
     return 0
 end
+
+--LOWLV_BOASTER_SQ_20_ITEM
+function SCR_PRE_LOWLV_BOASTER_SQ_20_ITEM(self, argObj, argstring, arg1, arg2)
+    local result1 = SCR_QUEST_CHECK(self, 'LOWLV_BOASTER_SQ_20')
+    if result1 == 'PROGRESS' then
+        if GetZoneName(self) == 'f_siauliai_16' then
+            if GetLayer(self) == 0 then
+                local x, y, z = GetPos(self)
+                if SCR_POINT_DISTANCE(x,z,-389,-435) <= 70 then
+                    return 1; 
+                elseif SCR_POINT_DISTANCE(x,z,-396,201) <= 70 then
+                    return 1; 
+                elseif SCR_POINT_DISTANCE(x,z,654,1145) <= 70 then
+                    return 1; 
+                elseif SCR_POINT_DISTANCE(x,z,1434,125) <= 70 then
+                    return 1; 
+                elseif SCR_POINT_DISTANCE(x,z,979,-721) <= 70 then
+                    return 1; 
+                elseif SCR_POINT_DISTANCE(x,z,54,-945) <= 70 then
+                    return 1; 
+                else
+                    return 0
+                end
+            end
+        end
+    end
+    return 0; 
+end

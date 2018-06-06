@@ -488,7 +488,7 @@ function DRAW_EQUIP_SOCKET(tooltipframe, invitem, yPos, addinfoframename)
 	local inner_yPos = 0;
 
 
-	for i=0, invitem.MaxSocket_COUNT-1 do
+	for i=0, invitem.MaxSocket-1 do
 		if invitem['Socket_' .. i] > 0 then
 			inner_yPos = ADD_ITEM_SOCKET_PROP(socket_gbox, invitem, 
 												invitem['Socket_' .. i], 
@@ -702,7 +702,7 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 	local itemClass = GetClassByType("Item", invitem.ClassID);
 
 	--소켓제한 표시
-	if invitem.MaxSocket_COUNT <= 0 then
+	if invitem.MaxSocket <= 0 then
 		maxSocekt_text:SetText(ScpArgMsg("CantAddSocket"))
 	else
 		if itemClass.NeedAppraisal == 1 then
@@ -713,7 +713,7 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 				maxSocekt_text:SetTextByKey("socketcount","{@st66d_y}"..invitem.MaxSocket.."{/}");
 			end
 		else
-			maxSocekt_text:SetTextByKey("socketcount",invitem.MaxSocket_COUNT);
+			maxSocekt_text:SetTextByKey("socketcount",invitem.MaxSocket);
 		end
 	end
 

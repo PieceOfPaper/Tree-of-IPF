@@ -1,4 +1,4 @@
-﻿function SCR_GET_JOB_STR(pc)
+function SCR_GET_JOB_STR(pc)
 	
 	local jobObj = GetJobObject(pc);
 	if jobObj ~= nil then
@@ -931,8 +931,11 @@ function SCR_Get_MSPD(self)
 		
 	end
 	
-	if self.DashRun == 1 then
+	if self.DashRun > 0 then -- 대시 런
 		value = value + 10;
+		if self.DashRun == 2 then -- 인보 특성이 있으면 추가 속도 1
+			value = value + 1;
+		end
 	end
 	
 	if value > 60 then
@@ -1135,8 +1138,12 @@ end
 function SCR_Get_Sta_Run(self)
 	local value = 50;
 	
-	if self.DashRun == 1 then
-		value = value + 500;
+	if self.DashRun > 0 then
+		local dashAmount = 500;
+		if self.DashRun == 2 then
+			dashAmount = dashAmount * 0.9; -- 인보 특성 있는 중에는 추가량 10% 감소
+		end
+		value = value + dashAmount;
 	end
 	
 	return 250 * value / 100;

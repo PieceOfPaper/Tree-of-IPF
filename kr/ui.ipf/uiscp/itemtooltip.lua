@@ -80,10 +80,17 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 		return;
 	end
 	
+	local needAppraisal = TryGetProp(itemObj, "NeedAppraisal");
+	local drawCompare = true;
+	if needAppraisal ~= nil and needAppraisal == 1 then
+		DRAW_APPRAISAL_PICTURE(tooltipframe);
+		drawCompare = false
+	end
+	
 	-- 비교툴팁
-	-- 툴팁 비교는 무기와 장비에만 해당된다.
+	-- 툴팁 비교는 무기와 장비에만 해당된다. (미감정 제외)
 
-	if (itemObj.ToolTipScp == 'WEAPON' or itemObj.ToolTipScp == 'ARMOR') and  (strarg == 'inven' or strarg =='sell') and (string.find(itemObj.GroupName, "Pet") == nil) then
+	if drawCompare == true and ( (itemObj.ToolTipScp == 'WEAPON' or itemObj.ToolTipScp == 'ARMOR') and  (strarg == 'inven' or strarg =='sell') and (string.find(itemObj.GroupName, "Pet") == nil)) then
 
 		local CompItemToolTipScp = _G[ 'ITEM_TOOLTIP_' .. itemObj.ToolTipScp];
 		local ChangeValueToolTipScp = _G[ 'ITEM_TOOLTIP_' .. itemObj.ToolTipScp..'_CHANGEVALUE'];

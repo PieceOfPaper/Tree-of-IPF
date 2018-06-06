@@ -63,9 +63,11 @@ end
 
 --TABLELAND28_1_HQ1 condition check
 function TABLELAND28_1_HIDDENQ1_PRECHECK(pc)
-    local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char1_13');
-    if is_unlock == 'YES' then
-    	return 'YES'
+    local sObj = GetSessionObject(pc, "SSN_TABLELAND28_1_HQ1_UNLOCK")
+    if sObj ~= nil then
+        if sObj.Step1 >= 1 then
+            return "YES"
+        end
     end
 end
 

@@ -41,6 +41,10 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 	local smallBtn = GET_CHILD_RECURSIVELY(frame, 'smallBtn');
 	local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
 	local withBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');
+
+	if frame:IsVisible() == 1 then
+		return;
+	end
 	
 	-- set user value
 	frame:SetUserValue('INDUN_TYPE', indunType);

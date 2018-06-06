@@ -1,6 +1,6 @@
 ---- lib_ui.lua
 
-function REGISTERR_LASTUIOPEN_POS(frame) --pc_command.lua¿¡ ¹Ì¸® ÇÁ·¹ÀÓ µî·ÏÇØµÖ¾ß ÇÔ
+function REGISTERR_LASTUIOPEN_POS(frame) --pc_command.luaï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ØµÖ¾ï¿½ ï¿½ï¿½
 
 	local text = string.format("/lastuiopenpos %s",frame:GetName());
 	ui.Chat(text);
@@ -247,7 +247,6 @@ end
 function GET_CHILD(frame, name, typeName)
 
 	if frame == nil then
-		DumpCallStack();
 		return nil;
 	end	
 	

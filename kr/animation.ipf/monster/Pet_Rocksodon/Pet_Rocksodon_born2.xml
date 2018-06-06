@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<CreateMonster frame="0" MonName="Pet_box_rocksodon" Key="Pet_box_rocksodon" Angle="0" Dist="0" MonAngle="0"/>
-	<CreateMonsterAnim frame="0" Key="Pet_box_rocksodon" Anim="born" Freeze="0"/>
-	<Particle frame="50" attachNode="None" particleName="I_pet_box_rocksodon_dead" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="51" attachNode="None" particleName="F_smoke150_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <CreateMonster frame="0" MonName="Pet_box_rocksodon" Key="Pet_box_rocksodon" Angle="0" Dist="0" MonAngle="0"/>
+    <CreateMonsterAnim frame="0" Key="Pet_box_rocksodon" Anim="born" Freeze="0"/>
+    <Sound frame="9.33" soundFile="mon_pet_rocksodon_born2"/>
+    <Particle frame="50" attachNode="None" particleName="I_pet_box_rocksodon_dead" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="51" attachNode="None" particleName="F_smoke150_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
 </ActionDesc>

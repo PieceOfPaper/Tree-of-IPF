@@ -83,14 +83,13 @@ float4 PS_GEGlow(in float2 Tex : TEXCOORD0) : COLOR
 
 float4 PS_Glow(in float2 Tex : TEXCOORD0) : COLOR
 {
-	//float3 srcColor = tex2D(targetTex, Tex.xy).rgb;
-	float3 srcColor = tex2D(blurTex, Tex.xy) * 2.f;
+	float4 srcColor = tex2D(targetTex, Tex.xy);
 
-#ifdef ENABLE_VIGNETTE
-	//srcColor = vignette(srcColor, Tex.xy);
+#ifdef ENABLE_GE_GLOW
+	srcColor.xyz += tex2D(blurTex, Tex.xy) * 2.f;
 #endif
 
-	return float4(srcColor, 1.f);
+	return srcColor;
 }
 
 technique GEGlowTq

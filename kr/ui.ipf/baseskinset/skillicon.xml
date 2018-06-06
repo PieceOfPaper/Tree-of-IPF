@@ -876,6 +876,11 @@
 		<image name="ability_Warrior_Lancer7" file="\icon\icon_ability_warrior05.tga" imgrect="896 512 128 128" CMM_Caption="낙마 공격: 강화"/>
 		<image name="ability_Warrior_Lancer8" file="\icon\icon_ability_warrior05.tga" imgrect="0 640 128 128" CMM_Caption="퀸테인: 강화"/>
 		<image name="ability_Warrior_Hoplite27" file="\icon\icon_ability_warrior05.tga" imgrect="128 640 128 128" CMM_Caption="한손창마스터리:중형사냥꾼"/>
+		<image name="ability_Warrior_Templar1" file="\icon\icon_ability_warrior05.tga" imgrect="256 640 128 128" CMM_Caption="모탈 슬래쉬: 강화"/>
+		<image name="ability_Warrior_Squire11" file="\icon\icon_ability_warrior05.tga" imgrect="384 640 128 128" CMM_Caption="데들리 콤보: 강화"/>
+		<image name="ability_Warrior_Swordman29" file="\icon\icon_ability_warrior05.tga" imgrect="512 640 128 128" CMM_Caption="페인 배리어: 지속시간"/>
+		<image name="ability_Warrior_Highlander33" file="\icon\icon_ability_warrior05.tga" imgrect="640 640 128 128" CMM_Caption="카타스트로크: 퀵 차징"/>
+		<image name="ability_Warrior_Barbarian28" file="\icon\icon_ability_warrior05.tga" imgrect="768 640 128 128" CMM_Caption="바바리안: 난폭"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -1106,6 +1111,7 @@
 		<image name="ability_Wizard_Featerfoot13" file="\icon\icon_ability_wizard04.tga" imgrect="128 512 128 128" CMM_Caption="본포인팅:연타"/>
 		<image name="ability_Wizard_Featerfoot14" file="\icon\icon_ability_wizard04.tga" imgrect="256 512 128 128" CMM_Caption="커다이챠:이동속도증가"/>
 		<image name="ability_Wizard_Alchemist11" file="\icon\icon_ability_wizard04.tga" imgrect="384 512 128 128" CMM_Caption="아이템 어웨이크닝:속전속결"/>
+		<image name="ability_Wizard_Cryomancer22" file="\icon\icon_ability_wizard04.tga" imgrect="512 512 128 128" CMM_Caption="아이스 월:지속시간"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>
@@ -1365,7 +1371,7 @@
 		<image name="ability_archer_Schwarzereiter18" file="\icon\icon_ability_archer04.tga" imgrect="640 896 128 128" CMM_Caption="리마콘:확산"/>
 		<image name="ability_archer_Musketeer19" file="\icon\icon_ability_archer04.tga" imgrect="768 896 128 128" CMM_Caption="버트스트로크:회심공격"/>
 		<image name="ability_archer_Musketeer20" file="\icon\icon_ability_archer04.tga" imgrect="896 896 128 128" CMM_Caption="버트스트로크:추가대미지"/>
-	<image name="ability_archer_Archer32" file="\icon\icon_ability_archer05.tga" imgrect="0 0 128 128" CMM_Caption="닐링샷: 스킬 사용"/>
+		<image name="ability_archer_Archer32" file="\icon\icon_ability_archer05.tga" imgrect="0 0 128 128" CMM_Caption="닐링샷: 스킬 사용"/>
 		<image name="ability_archer_Sapper32" file="\icon\icon_ability_archer05.tga" imgrect="128 0 128 128" CMM_Caption="푼지스테이크: 화력 개량"/>
 		<image name="ability_archer_Sapper33" file="\icon\icon_ability_archer05.tga" imgrect="256 0 128 128" CMM_Caption="크레모어: 화력 개량"/>
 		<image name="ability_archer_Sapper34" file="\icon\icon_ability_archer05.tga" imgrect="384 0 128 128" CMM_Caption="브룸트랩: 화력 개량"/>
@@ -1374,6 +1380,8 @@
 		<image name="ability_archer_Falconer13" file="\icon\icon_ability_archer05.tga" imgrect="768 0 128 128" CMM_Caption="선제 공격: 호버링 제거"/>
 		<image name="ability_archer_Falconer14" file="\icon\icon_ability_archer05.tga" imgrect="896 0 128 128" CMM_Caption="선제 공격: 음속타 제거"/>
 		<image name="ability_archer_Sapper36" file="\icon\icon_ability_archer05.tga" imgrect="0 128 128 128" CMM_Caption="푼지스테이크: 집념"/>
+		<image name="ability_archer_Falconer15" file="\icon\icon_ability_archer05.tga" imgrect="128 128 128 128" CMM_Caption="조련: 공중 컴패니언"/>
+		<image name="ability_archer_Hunter13" file="\icon\icon_ability_archer05.tga" imgrect="256 128 128 128" CMM_Caption="조련: 지상 컴패니언"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>

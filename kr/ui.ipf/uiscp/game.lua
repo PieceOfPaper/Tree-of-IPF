@@ -3152,7 +3152,21 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 		end
 	end
 
+	if itemobj.GroupName == "Gem" then
+		local yesscp = string.format("USE_ITEMTARGET_ICON_GEM(%d)", argNum);
+		ui.MsgBox(ClMsg("GemHasPenaltyLater"), yesscp, "None");
+		return;
+	end
 	item.SelectTargetItem(argNum);
+end
+
+function USE_ITEMTARGET_ICON_GEM(argNum)
+	local invFrame     	= ui.GetFrame("inventory");
+	local invGbox		= invFrame:GetChild('inventoryGbox');
+	local tab = invGbox:GetChild("inventype_Tab");
+	tolua.cast(tab, "ui::CTabControl");
+	tab:SelectTab(0);
+	item.SelectTargetItem(argNum)
 end
 
 function SCR_ITEM_USE_TARGET_RELEASE()

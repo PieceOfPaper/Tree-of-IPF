@@ -502,6 +502,13 @@ function SuperDrop_Client_LEAVE(actor, obj, buff)
 	
 end
 
+function EliteMonster_ENTER(actor, obj, buff)
+	actor:SetAuraInfo("EliteBuff");
+end
+
+function EliteMonster_LEAVE(actor, obj, buff)
+end
+
 --??|?? ????: ??? ????o?? ??|????? ??? ?뵵
 function TwinkleBuff_Client_ENTER(actor, obj, buff)
 	if buff.arg2 == 1 then

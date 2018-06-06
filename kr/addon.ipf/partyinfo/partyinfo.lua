@@ -609,7 +609,7 @@ function RECEIVE_PARTY_INVITE(partyType, inviterAid, familyName)
 	else
 		msg = "{Inviter}InviteYouToGuild_DoYouAccept?";
 	end
-
+	
 	local str = ScpArgMsg(msg, "Inviter", familyName);
 	local yesScp = string.format("party.AcceptInvite(%d, \"%s\", \"%s\", 0)", partyType, inviterAid, familyName);
 	local noScp = string.format("party.CancelInvite(%d, \"%s\", 0)", partyType, familyName);
@@ -630,7 +630,7 @@ end
 
 function ON_PARTY_INVITE_CANCEL(frame, msg, familyName, arg2)
 
-	ui.SysMsg('['..familyName..'] '.. ClMsg("PartyInviteCancelMsg"));
+	ui.SysMsg(familyName .. ClMsg("PartyInviteCancelMsg"));
 end
 
 function SET_PARTY_JOB_TOOLTIP(cid)	

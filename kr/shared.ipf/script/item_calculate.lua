@@ -963,6 +963,11 @@ function GET_REINFORCE_PR(obj)
 	
 end
 
+function GET_APPRAISAL_PRICE(item)
+	-- 현재는 소켓 추출 가격 가져왔습니당.
+	return GET_MAKE_SOCKET_PRICE(item.ItemLv, 0);
+end
+
 function GET_REPAIR_PRICE(item, fillValue)
     local lv = item.ItemLv;
     local priceRatio = item.RepairPriceRatio / 100;
@@ -1558,4 +1563,8 @@ function GET_EMPTY_SOCKET_CNT(socketCnt, invItem)
 		end
 	end
 	return emptyCnt
+end
+
+function SCR_GET_MAX_SOKET(item)
+	return item.MaxSocket_COUNT + item.AppraisalSoket;
 end

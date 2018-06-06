@@ -17,7 +17,10 @@ function TARGETINFO_ON_INIT(addon, frame)
 	timer:Start(0.1);
 	UPDATE_BOSS_SCORE_TIME(frame);
 	frame:EnableHideProcess(1);
-
+		
+	TARGET_INFO_OFFSET_BOSS_X = 1200;
+	TARGET_INFO_OFFSET_X = 785;
+	TARGET_INFO_OFFSET_Y = 20;
  end
 
  function UPDATE_BOSS_SCORE_TIME(frame)
@@ -84,9 +87,9 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 	
 	local mypclevel = GETMYPCLEVEL();
 	local levelcolor = ""
+	local targetHandle = session.GetTargetHandle();
 	
-	
-	local targetinfo = info.GetTargetInfo( session.GetTargetHandle() );
+	local targetinfo = info.GetTargetInfo( targetHandle );
 	if nil == targetinfo then
 		return;
 	end
@@ -102,12 +105,16 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 		return;
 	end
 
-	local hpGauge 
+	local hpGauge; 
 
 	if targetinfo.isBoss == 1 then
 		return;
 	end
 	
+	local normalImage;
+	local eliteImage;
+	local levelRichText
+	local nametext
 	if targetinfo.isElite == 1 then
 		hpGauge = GET_CHILD(frame, "elite", "ui::CGauge");
 		local normal = GET_CHILD(frame, "normal", "ui::CGauge");
@@ -115,11 +122,22 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 		normal:ShowWindow(0);
 		elite:ShowWindow(1);
 
-
-		local normalImage = GET_CHILD(frame, "target_info_gauge_image", "ui::CPicture");
-		local eliteImage = GET_CHILD(frame, "elitetarget_info_gauge_image", "ui::CPicture");
+		normalImage = GET_CHILD(frame, "target_info_gauge_image", "ui::CPicture");
+		eliteImage = GET_CHILD(frame, "elitetarget_info_gauge_image", "ui::CPicture");
 		normalImage:ShowWindow(0);
 		eliteImage:ShowWindow(1);
+
+		local normalname = GET_CHILD_RECURSIVELY(frame, "name");
+		local elitename = GET_CHILD_RECURSIVELY(frame, "elitename");
+		normalname:ShowWindow(0)
+		elitename:ShowWindow(1)
+		nametext = elitename
+
+		local normallevel = GET_CHILD_RECURSIVELY(frame, "level");
+		local elitelevel = GET_CHILD_RECURSIVELY(frame, "elitelevel");
+		normallevel:ShowWindow(0)
+		elitelevel:ShowWindow(1)
+		levelRichText = elitelevel
 
 	else
 		hpGauge = GET_CHILD(frame, "normal", "ui::CGauge");
@@ -128,12 +146,37 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 		normal:ShowWindow(1);
 		elite:ShowWindow(0);
 
-		local normalImage = GET_CHILD(frame, "target_info_gauge_image", "ui::CPicture");
-		local eliteImage = GET_CHILD(frame, "elitetarget_info_gauge_image", "ui::CPicture");
+		normalImage = GET_CHILD(frame, "target_info_gauge_image", "ui::CPicture");
+		eliteImage = GET_CHILD(frame, "elitetarget_info_gauge_image", "ui::CPicture");
 		normalImage:ShowWindow(1);
 		eliteImage:ShowWindow(0);
+
+		local normalname = GET_CHILD_RECURSIVELY(frame, "name");
+		local elitename = GET_CHILD_RECURSIVELY(frame, "elitename");
+		normalname:ShowWindow(1)
+		elitename:ShowWindow(0)
+		nametext = normalname
+
+		local normallevel = GET_CHILD_RECURSIVELY(frame, "level");
+		local elitelevel = GET_CHILD_RECURSIVELY(frame, "elitelevel");
+		normallevel:ShowWindow(1)
+		elitelevel:ShowWindow(0)
+		levelRichText = normallevel
 	end
 	
+	local targetMonRank = info.GetMonRankbyHandle(targetHandle);
+	if nil ~= targetMonRank then		
+		if targetMonRank == 'Special' then
+			normalImage:SetImage("expert_info_gauge_image");
+			eliteImage:SetImage("expert_info_gauge_image");
+		else
+			normalImage:SetImage("target_info_gauge_image");
+			eliteImage:SetImage("elitetarget_info_gauge_image");
+		end;
+
+	end;
+
+
 	frame:SetValue(session.GetTargetHandle());
 
 	local dist = targetinfo.distance;
@@ -142,7 +185,7 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 	local nameRichText = GET_CHILD(frame, "dist", "ui::CRichText");
 	nameRichText:SetText("{s16}{ol}"..str);
 	-- ..ScpArgMsg("Auto_KeoLi_")..'{@st43}'..targetinfo.name.."{/}{/}{/}"
-	local levelRichText = GET_CHILD(frame, "level", "ui::CRichText");
+
 	if targetinfo.raceType ~= 'Item' then	
 		levelRichText:SetText('{@st41}'..levelcolor..'Lv. '..targetinfo.level);
 		levelRichText:ShowWindow(1);
@@ -171,16 +214,21 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 	end
 
 	-- name size
-	local nametext = GET_CHILD(frame, "name", "ui::CRichText");
+	
 	local targetSize = targetinfo.size;
 	if targetSize ~= nil then
 		
+		local eliteBuffMob = "";
+		if targetinfo.isEliteBuff == 1 then
+			eliteBuffMob = ClMsg("TargetNameGiant") .. " ";
+		end
+
 		if targetinfo.raceType ~= 'Item' then
-			--nametext:SetText('{@st41}      {@st43}'.. targetinfo.name .. '{@st53} ' .. targetSize); -- Å¸°Ù»çÀÌÁî ³ªÁß¿¡ ½ºÅ³·Î »«´Ù°í ÇÔ
-			nametext:SetText('{@st41}'.. levelcolor..targetinfo.name .. "{/}");
+			--nametext:SetText('{@st41}      {@st43}'.. targetinfo.name .. '{@st53} ' .. targetSize); -- Å¸ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½Ù°ï¿½ ï¿½ï¿½
+			nametext:SetText('{@st41}'.. levelcolor .. eliteBuffMob .. targetinfo.name .. "{/}");
 		else
 			--nametext:SetText('{@st43}'.. targetinfo.name .. '{@st53} ' .. targetSize);
-			nametext:SetText('{@st43}'.. targetinfo.name .. '{@st53} ');
+			nametext:SetText('{@st43}'.. eliteBuffMob .. targetinfo.name .. '{@st53} ');
 		end
 	end
 		

@@ -538,3 +538,12 @@ function ABIL_INQUISITOR9_PRICE(pc, abilName, abilLevel, maxLevel)
 
 	return price, time;
 end
+
+function ABIL_CLERIC9_PRICE(pc, abilName, abilLevel, maxLevel)
+
+    local price = 4600 + (4 - maxLevel + abilLevel) * 280;
+    local time = 12 + (9 - maxLevel + abilLevel) * 4;
+
+	return price, time;
+	
+end

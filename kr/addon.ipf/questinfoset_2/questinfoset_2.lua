@@ -1615,8 +1615,7 @@ function MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssni
     			end
                 
                 monUIIndex = i
-				local contentOffsetX = startx + ctrlset:GetX()
-    			local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. i, contentOffsetX, y, ctrlset:GetWidth() - contentOffsetX - IES_CTRL_OFFSET , 10);
+    			local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. i, startx, y, ctrlset:GetWidth() - startx - IES_CTRL_OFFSET, 10);
     			content:EnableHitTest(0);
     			content:SetTextFixWidth(1);
     			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);

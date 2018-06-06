@@ -22,7 +22,8 @@ function CHECK_BTN_OPNE_CARDINVEN(ctrl)
 	local monCardBtn_text = monCardBtn:GetChild('moncard_btn_text');
 	
 	local invGbox = frame:GetChild('inventoryGbox');
-	local tree_box = GET_CHILD_RECURSIVELY(invGbox, 'treeGbox');
+	local tree_box = GET_CHILD_RECURSIVELY(invGbox, 'treeGbox_Item');
+	local tree_box_E = GET_CHILD_RECURSIVELY(invGbox, 'treeGbox_Equip');
 
 	local offsetY = moncardGbox:GetHeight();
 	local invGboxOriX = invGbox:GetOriginalX();
@@ -31,14 +32,21 @@ function CHECK_BTN_OPNE_CARDINVEN(ctrl)
 	local invGboxH = invGbox:GetHeight();
 	local tree_boxW = tree_box:GetWidth();
 	local tree_boxH = tree_box:GetHeight();
+	local tree_boxW_E = tree_box_E:GetWidth();
+	local tree_boxH_E = tree_box_E:GetHeight();
 	
+	local searchGbox = invGbox:GetChild('searchGbox');	
+
 	if isOpen == 0 then					
 	-- ī�彽���� �����ִٸ� ������ �Ѵ�. �κ� �׷� �ڽ��� �Ʒ��� ������ �۰�.
 		invGbox:Resize(invGboxOriX, invGboxOriY + offsetY, invGboxW, invGboxH - offsetY);
+		tree_box_E:Resize(tree_boxW_E, tree_boxH_E - offsetY);
+		tree_box_E:SetScrollBar(tree_boxH_E - offsetY);
 		tree_box:Resize(tree_boxW, tree_boxH - offsetY);
 		tree_box:SetScrollBar(tree_boxH - offsetY);
-		monCardBtn:SetPos(monCardBtn:GetOriginalX(), monCardBtn:GetOriginalY() + offsetY);
-		
+		monCardBtn:SetOffset(monCardBtn:GetOriginalX(), monCardBtn:GetOriginalY() + offsetY);
+		searchGbox:Invalidate();
+		invGbox:Invalidate();
 		-- ī�彽���� ������ ���� ����� �ش�.
 		CARD_SLOT_CREATE(moncardGbox); 
 
@@ -48,9 +56,13 @@ function CHECK_BTN_OPNE_CARDINVEN(ctrl)
 	else								
 	-- ī�彽���� �����ִٸ� ������ �Ѵ�. �κ� �׷� �ڽ��� ���� ũ��� �ǵ�����.
 		invGbox:Resize(invGboxOriX, invGboxOriY, invGboxW, invGboxH + offsetY);
+		tree_box_E:Resize(tree_boxW_E, tree_boxH_E + offsetY);
+		tree_box_E:SetScrollBar(tree_boxH_E + offsetY);
 		tree_box:Resize(tree_boxW, tree_boxH + offsetY);
 		tree_box:SetScrollBar(tree_boxH + offsetY);
-		monCardBtn:SetPos(monCardBtn:GetOriginalX(), monCardBtn:GetOriginalY());
+		monCardBtn:SetOffset(monCardBtn:GetOriginalX(), monCardBtn:GetOriginalY());
+		searchGbox:Invalidate();
+		invGbox:Invalidate();
 		
 		isOpen = 0;
 		moncardGbox:ShowWindow(isOpen);

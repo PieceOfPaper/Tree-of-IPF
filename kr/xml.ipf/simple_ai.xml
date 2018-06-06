@@ -566,17 +566,12 @@
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_BLACK_HOLE_AI_RUN"/>
 			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="spread_in011_blue" Arg="0.30000001"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</List>
+			</List>
 		<StartList>
 			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
-				<Str_Arg Str="F_summon_ground_violet" Arg="6"/>
+				<Str_Arg Str="F_light117_dark_red_loop" Arg="10"/>
 				<Str Str="BOT"/>
 			</ToolScp>
 		</StartList>
@@ -6199,6 +6194,30 @@
 			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
 		</List>
 	</AI>
+	<AI Name="GR_CHAPEL_1_S7_RN_BOSS_RECALL_RUN_1" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="GR_CHAPEL_1_S7_RN_BOSS_RECALL_IN"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="I_spread_in009_violet" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="I_spread_in011" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_spread_in001_dark" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
 	<AI Name="GR_KATYN_1_S6_MONSTER_AI_1" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -6483,7 +6502,15 @@
 			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 		</StartList>
 	</AI>
-	<AI Name="HT_ZACHA_CUBE01_AI" ActiveMessageMapInBattle="1">
+	<AI Name="HT2_MAPLE_25_1_BONFIRE" ActiveMessageMapInBattle="1"/>
+    <AI Name="HT2_MAPLE_25_1_BONFIRE_AI" UpdateMS="10000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="HT2_MAPLE_25_1_BONFIRE_AI_ACT01"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="HT_ZACHA_CUBE01_AI" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_NODE" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
@@ -7634,6 +7661,22 @@
 				<Num Num="0"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="LOWLV_BOASTER_SQ_AI" UpdateMS="1" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="LOWLV_MON_KILL"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+				<Str Str="Normal"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+				<Num Num="4"/>
 			</ToolScp>
 		</StartList>
 	</AI>
@@ -10566,7 +10609,7 @@ if self.HP == 0 then return 1; else return 0; end;">
 	<AI Name="Run_Away_Hit" ActiveMessageMapInBattle="1"/>
 	<AI Name="SAI_BASIC_BOSS_300" ActiveMessageMapInBattle="1">
 		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+			<ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
 				<Num Num="300"/>
 			</ToolScp>
 		</List>
@@ -15294,12 +15337,12 @@ if self.HP == 0 then return 1; else return 0; end;">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
-				<Str_Arg Str="F_light079_blue_loop_att" Arg="1"/>
+				<Str_Arg Str="F_light079_blue_loop_att" Arg="3"/>
 				<Str Str="MID"/>
 			</ToolScp>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
-				<Str_Arg Str="F_levitation032_red_loop" Arg="3"/>
+				<Str_Arg Str="F_levitation032_red_loop" Arg="2"/>
 				<Str Str="MID"/>
 			</ToolScp>
 		</StartList>

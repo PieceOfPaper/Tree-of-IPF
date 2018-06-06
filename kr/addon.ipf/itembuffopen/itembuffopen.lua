@@ -19,11 +19,6 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 		return;
 	end
 
-	if nil == session.GetInvItemByType(invItem.type) then
-		ui.SysMsg(ClMsg("CannotDropItem"));
-		return;
-	end
-
 	if iconInfo == nil or invItem == nil or slot == nil then
 		return;
 	end
@@ -154,6 +149,8 @@ function SQUTE_UI_RESET(frame)
 	local slot  = repairbox:GetChild("slot");
 	slot  = tolua.cast(slot, 'ui::CSlot');
 	slot:ClearIcon();
+	slot:EnableDrag(1);
+	slot:EnableDrop(1);
 
 	local slotNametext = repairbox:GetChild("slotName");
 	slotNametext:SetTextByKey("txt", "");
@@ -184,8 +181,12 @@ function SQIORE_BUFF_EXCUTE(parent, ctrl)
 	if "" ==  guid:GetTextByKey("guid") then
 		return;
 	end
+	local slot  = targetbox:GetChild("slot");
+	slot  = tolua.cast(slot, 'ui::CSlot');
+	slot:EnableDrag(0);
+	slot:EnableDrop(0);
 	session.autoSeller.BuySquireBuff(handle, AUTO_SELL_SQUIRE_BUFF, skillName, guid:GetTextByKey("guid"));
-
+		
 end
 
 function SQIORE_TAP_CHANGE(frame)

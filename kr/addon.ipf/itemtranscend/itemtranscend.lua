@@ -78,6 +78,11 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 		return;
 	end
 
+	if IS_NEED_APPRAISED_ITEM(obj) == true then 
+		ui.SysMsg(ClMsg("NeedAppraisd"));
+		return;
+	end
+
 	local invframe = ui.GetFrame("inventory");
 	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
@@ -351,6 +356,11 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 		return;
 	end		
 
+	if IS_NEED_APPRAISED_ITEM(obj) == true then 
+		ui.SysMsg(ClMsg("NeedAppraisd"));
+		return;
+	end
+
 	if keyboard.IsPressed(KEY_SHIFT) == 1 then
 		count = count + 5;	elseif keyboard.IsPressed(KEY_ALT) == 1 then		count = maxItemCount;	else
 		count = count + 1;
@@ -601,6 +611,9 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 	
 	local invItem = GET_SLOT_ITEM(slot);
 	if invItem == nil then
+		if isSuccess == 0 then
+			ui.SysMsg(ClMsg('ItemDeleted'));
+		end
 		ui.SetHoldUI(false);
 		slot:ClearIcon();
 		return;

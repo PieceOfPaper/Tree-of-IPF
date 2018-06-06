@@ -853,50 +853,50 @@ function SCR_MON_COMBOABLE(mon)
 end
 
 function SCR_GET_MON_FIRE_DEF(self)
-    local value = self.Fire_Res;
-    value = value + self.Fire_Def_BM;
+    local value = 0;
+    value = self.Fire_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_ICE_DEF(self)
-    local value = self.Ice_Res;
-    value = value + self.Ice_Def_BM;
+    local value = 0;
+    value = self.Ice_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_POISON_DEF(self)
-    local value = self.Poison_Res;
-    value = value + self.Poison_Def_BM;
+    local value = 0;
+    value = self.Poison_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_LIGHTNING_DEF(self)
-    local value = self.Lightning_Res;
-    value = value + self.Lightning_Def_BM;
+    local value = 0;
+    value = self.Lightning_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_SOUL_DEF(self)
-    local value = self.Soul_Res;
-    value = value + self.Soul_Def_BM;
+    local value = 0;
+    value = self.Soul_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_EARTH_DEF(self)
-    local value = self.Earth_Res;
-    value = value + self.Earth_Def_BM;
+    local value = 0;
+    value = self.Earth_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_HOLY_DEF(self)
-    local value = self.Holy_Res;
-    value = value + self.Holy_Def_BM;
+    local value = 0;
+    value = self.Holy_Def_BM;
 	return value;
 end
 
 function SCR_GET_MON_DARK_DEF(self)
-    local value = self.Dark_Res;
-    value = value + self.Dark_Def_BM;
+    local value = 0;
+    value = self.Dark_Def_BM;
 	return value;
 end
 

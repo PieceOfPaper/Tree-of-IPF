@@ -110,11 +110,11 @@ function CABINET_GET_ALL_ITEM(parent, ctrl)
 	if flag == 1 then
 	    addon.BroadMsg("NOTICE_Dm_!", ScpArgMsg("MAXWEIGHTMSG"), 10);
 	end
+	market.ReqCabinetList();
 end
 
 function CABINET_ITEM_BUY(frame, ctrl, guid)
 	market.ReqGetCabinetItem(guid);
-
 end
 
 

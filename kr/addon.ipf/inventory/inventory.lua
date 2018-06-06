@@ -1,5 +1,8 @@
 -- inventory.lua
 
+
+g_invenTypeStrList = {"Equip", "Item"};
+
 function INVENTORY_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('ITEM_LOCK_FAIL', 'INV_ITEM_LOCK_SAVE_FAIL');
@@ -57,9 +60,10 @@ function IS_SLOTSET_NAME(name)
 end
 
 function HIDE_EMPTY_SLOT(slotset)
-	
+	if slotset == nil then
+		return;
+	end
 	local slotCount = slotset:GetSlotCount();
-
 	for i = 0, slotCount - 1 do
 		local slot		= slotset:GetSlotByIndex(i );
 		local icon = slot:GetIcon()
@@ -67,7 +71,6 @@ function HIDE_EMPTY_SLOT(slotset)
 			slot:ShowWindow(0)
 		end
 	end	
-	
 end
 
 function UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
@@ -229,9 +232,8 @@ function INVENTORY_OPEN(frame)
 		savedPos = '0'
 	end
 				
-	local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox')
-	tree_box:SetScrollPos( tonumber(savedPos) )
-
+	local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox_Equip')
+	tree_box:SetScrollPos( tonumber(savedPos) );
 
 	session.CheckOpenInvCnt();
 	ui.CloseFrame('layerscore');
@@ -245,7 +247,6 @@ function INVENTORY_OPEN(frame)
 	minimapFrame:ShowWindow(0)
 
 	INV_HAT_VISIBLE_STATE(frame)
-
 	frame:Invalidate()
 end
 
@@ -255,7 +256,7 @@ function INVENTORY_CLOSE()
 	CHECK_BTN_OPNE_CARDINVEN(frame:GetChild('moncardGbox'));
 	EQUIP_CARDSLOT_BTN_CANCLE();
 
-	local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox','ui::CGroupBox')
+	local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox_Equip','ui::CGroupBox')
 
 	local curpos = tree_box:GetScrollCurPos();
 	frame:SetUserValue("INVENTORY_CUR_SCROLL_POS", curpos);
@@ -275,15 +276,22 @@ function INVENTORY_FRONT_IMAGE_CLEAR(frame)
 	for j = 1 , #SLOTSET_NAMELIST do
 
 		local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-		local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
-		local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
-		local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+		
+		for typeNo = 1, #g_invenTypeStrList do
+			local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+			local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
+
+			local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');
+			
+			if slotSet ~= nil then
 		local slotCount = slotSet:GetSlotCount();
 
 		for i = 0, slotCount - 1 do
 			local slot		= slotSet:GetSlotByIndex(i );
 			slot:SetFrontImage("None");
 		end	
+	end
+end
 	end
 end
 
@@ -375,8 +383,6 @@ function TEMP_INV_ADD(frame,invIndex)
 		end
 	end	
 
-	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree')
-
 	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
 	local invItem = session.GetInvItem(invIndex);	
 	local itemCls = GetClassByType("Item", invItem.type);
@@ -384,6 +390,11 @@ function TEMP_INV_ADD(frame,invIndex)
 	local beforeSlotSetCount = #SLOTSET_NAMELIST;
 	local beforeGroupCount = #GROUP_NAMELIST;
 
+	local typeStr = "Item"	
+	if itemCls.ItemType == "Equip" then
+		typeStr = itemCls.ItemType; 
+	end
+	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree_' .. typeStr);
 	INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
 		
 	--아이템 없는 빈 슬롯은 숨겨라
@@ -422,6 +433,7 @@ function TEMP_INV_ADD(frame,invIndex)
 				savedPos = 0
 			end
 				
+			local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox_'.. typeStr)
 			tree_box:SetScrollPos( tonumber(savedPos) )
 		end
 		
@@ -468,7 +480,6 @@ end
 
 function TEMP_INV_REMOVE(frame, itemGuid)
 
-	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree')
 	local invItem = session.GetInvItemByGuid(itemGuid);
 	if invItem == nil then
 		return;
@@ -486,6 +497,11 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 
 	local treegroupname = baseidcls.TreeGroup;
 
+	local typeStr = "Item"	
+	if itemCls.ItemType == "Equip" then
+		typeStr = itemCls.ItemType; 
+	end	
+	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree_'..typeStr)
 	local treegroup = tree:FindByValue(treegroupname);
 	if tree:IsExist(treegroup) == 0 then
 		return;
@@ -578,7 +594,6 @@ function GET_SLOT_FROMSLOTSET_BY_IESID(slotset, itemGuid)
 end
 
 function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
-	
     if msg == 'INV_ITEM_LIST_GET' or msg == 'UPDATE_ITEM_REPAIR' then
         INVENTORY_LIST_GET(frame)
 		STATUS_EQUIP_SLOT_SET(frame);
@@ -723,8 +738,10 @@ end
 function INVENTORY_GET_SLOT_BY_INVITEM(frame, changeTargetItem)
 
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-	local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
-	local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
+	
+	for typeNo = 1, #g_invenTypeStrList do
+		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 
 	for i = 1 , #SLOTSET_NAMELIST do
 		local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
@@ -737,6 +754,7 @@ function INVENTORY_GET_SLOT_BY_INVITEM(frame, changeTargetItem)
 				end
 			end
 		end
+	end
 	end
 
 	return nil;
@@ -755,15 +773,19 @@ end
 
 function SLOTSET_UPDATE_ICONS_BY_NAME(frame, slotSetName)
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-	local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
-	local inventree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
+
+	
+	for typeNo = 1, #g_invenTypeStrList do
+		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 
 	local slotSet = nil;
 	for i = 1 , #SLOTSET_NAMELIST do
 		if string.find(SLOTSET_NAMELIST[i], slotSetName) ~= nil then
-			slotSet = GET_CHILD(inventree, SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+				slotSet = GET_CHILD(tree , SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 			break;
 		end
+	end
 	end
 	
 	if slotSet ~= nil then
@@ -772,6 +794,10 @@ function SLOTSET_UPDATE_ICONS_BY_NAME(frame, slotSetName)
 end
 
 function SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
+	if slotSet == nil then
+		return;
+	end
+
 	for j = 0 , slotSet:GetChildCount() - 1 do
 		local slot = slotSet:GetChildByIndex(j);
 		local invItem = GET_SLOT_ITEM(slot); 
@@ -785,19 +811,21 @@ end
 
 function INVENTORY_UPDATE_ICONS(frame)
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-	local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
-	local inventree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
+	
+	for typeNo = 1, #g_invenTypeStrList do
+		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 
 	for i = 1 , #SLOTSET_NAMELIST do
-		local slotSet = GET_CHILD(inventree, SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+			local slotSet = GET_CHILD(tree, SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 		SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
 	end
+end
 end
 
 --특정 경우에서 모든 아이템 리스트를 돌 필요는 없기 떄문에
 --특정 슬롯셋의 리스트만 가져올 때, slotSetName 값을 넣는다.
 function INVENTORY_LIST_GET(frame, setpos, slotSetName)
-	
 	SET_INVENTORY_MODE(frame, "Normal");
 	
 	--이미 인벤토리의 리스트는 만들어져 있는데, slotSetName 이부분 갱신해주고 싶어서
@@ -810,15 +838,15 @@ function INVENTORY_LIST_GET(frame, setpos, slotSetName)
 	DRAW_TOTAL_VIS(frame, 'invenZeny');
 
 	local funcStr = frame:GetUserValue("SLOT_APPLY_FUNC");
-
 	if funcStr ~= "None" then
 		for i = 1 , #SLOTSET_NAMELIST do
 
 			local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-			local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
-			local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
-			local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
-			
+			for typeNo = 1, #g_invenTypeStrList do
+				local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+				local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
+				local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');			
+				if slotSet ~= nil then
 			if slotSetName ~= nil then
 				if string.find(slotSet:GetName(), slotSetName) then
 					local func = _G[funcStr];
@@ -828,6 +856,8 @@ function INVENTORY_LIST_GET(frame, setpos, slotSetName)
 				local func = _G[funcStr];
 				APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
 			end
+		end
+	end
 		end
 	end
 
@@ -1031,8 +1061,9 @@ function INIT_INVEN_SLOT(slot)
 
 	local shopframe     = ui.GetFrame("shop");
 	local exchangeframe     = ui.GetFrame("exchange");
+	local companionshop = ui.GetFrame('companionshop');
 
-	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 then
+	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 then
 		slot:SetSelectedImage('socket_slot_check')  -- 거래시에만 체크 셀렉 아이콘 사용
 	else
 		--slot:SetSelectedImage('socket_slot_check') -- 지금은 기본 스킨 사용
@@ -1055,7 +1086,9 @@ end
 function SEARCH_ITEM_INVENTORY(a,b,c)
 	local frame = ui.GetFrame('inventory')
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-	local edit = GET_CHILD(group, "ItemSearch", "ui::CEditControl")
+	local searchGbox = group:GetChild('searchGbox');
+	local searchSkin = GET_CHILD(searchGbox, "searchSkin",'ui::CGroupBox');
+	local edit = GET_CHILD(searchSkin, "ItemSearch", "ui::CEditControl")
 
 	local nowkeyword = edit:GetText();
 	
@@ -1080,7 +1113,6 @@ function GET_REMAIN_INVITEM_COUNT(invItem)
 				remainInvItemCount = remainInvItemCount - selllistcount
 			end
 	end
-
 	return remainInvItemCount;
 end
 
@@ -1098,8 +1130,9 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 	local blinkcolor = frame:GetUserConfig("TREE_SEARCH_BLINK_COLOR");
 
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-	local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
-	local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
+	for typeNo = 1, #g_invenTypeStrList do
+		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 
 	local groupfontname = frame:GetUserConfig("TREE_GROUP_FONT");
 	local tabwidth = frame:GetUserConfig("TREE_TAB_WIDTH");
@@ -1128,10 +1161,16 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 			scriptArg = getArgFunc();
 		end
 	end
+	end
 
 	local baseidclslist, baseidcnt  = GetClassList("inven_baseid");
+	session.BuildInvItemSortedList();
+	local sortedList = session.GetInvItemSortedList();
 
-	local edit = GET_CHILD(group, "ItemSearch", "ui::CEditControl");
+				
+	local searchGbox = group:GetChild('searchGbox');
+	local searchSkin = GET_CHILD(searchGbox, "searchSkin",'ui::CGroupBox');
+	local edit = GET_CHILD(searchSkin, "ItemSearch", "ui::CEditControl");
 	local cap = edit:GetText();
 	if cap ~= "" then
 		for i = 1 , #SLOTSET_NAMELIST do
@@ -1141,22 +1180,23 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 		end
 	end
 
-
-	session.BuildInvItemSortedList();
-	local sortedList = session.GetInvItemSortedList();
 	for h= 0 , baseidcnt - 1 do
 		local outerbaseidcls = GetClassByIndexFromList(baseidclslist, h);
-
 		local invItemCount = sortedList:size();
 		for j = 0 , invItemCount - 1 do
 			local invItem			= sortedList:at(j);
-			
 			if invItem ~= nil then
 					local itemCls = GetIES(invItem:GetObject());	
+				local typeStr = "Item"	
+				if itemCls.ItemType == "Equip" then
+					typeStr = itemCls.ItemType; 
+				end
+
+				if itemCls ~= nil then
 					local makeSlot = true;
 					if cap ~= "" then
 						local itemname = string.lower(dictionary.ReplaceDicIDInCompStr(itemCls.Name));		
-						local tempcap = string.lower(cap)
+						local tempcap = string.lower(cap);
 						
 						local a = string.find(itemname, cap);
 						if a == nil then
@@ -1166,11 +1206,12 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 					end				
 
 					if makeSlot == true then
-				
 						local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invItem.invIndex)
 				
 						if invItem.count > 0 and baseidcls.ClassName ~= 'Unused' then -- Unused로 설정된 것은 안보임
 							if outerbaseidcls.ClassName == baseidcls.ClassName then
+								local tree_box = GET_CHILD(group, 'treeGbox_'.. typeStr,'ui::CGroupBox')
+								local tree = GET_CHILD(tree_box, 'inventree_'.. typeStr,'ui::CTreeControl')
 								INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
 							end
 						end
@@ -1185,11 +1226,17 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 			end
 		end
 	end
+	end
 
+	for typeNo = 1, #g_invenTypeStrList do
+		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 	--아이템 없는 빈 슬롯은 숨겨라
 	for i = 1 , #SLOTSET_NAMELIST do
-		slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-		HIDE_EMPTY_SLOT(slotset)
+			slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');
+			if slotset ~= nil then
+				HIDE_EMPTY_SLOT(slotset);
+			end			
 	end
 
 	ADD_GROUP_BOTTOM_MARGIN(frame,tree)
@@ -1212,7 +1259,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 				
 			tree_box:SetScrollPos( tonumber(savedPos) )
 		end
-		
+		end		
 	end
 end
 
@@ -1378,27 +1425,36 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	end
 
 	local frame     = ui.GetFrame("shop");
+	local companionshop = ui.GetFrame('companionshop');
+	if companionshop:IsVisible() == 1 then
+		frame = companionshop:GetChild('foodBox');
+	end	
 	if frame:IsVisible() == 1 then
 		local groupName = itemobj.GroupName;
 		if groupName == 'Money' then
 			return;
 		end
+		
 		local invFrame     	= ui.GetFrame("inventory");
 		local invGbox		= invFrame:GetChild('inventoryGbox');
-		local treeGbox		= invGbox:GetChild('treeGbox');
-		local tree		    = treeGbox:GetChild('inventree');
-		local slotsetname	= GET_SLOTSET_NAME(argNum)
-		local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
-
 		if true == IS_TEMP_LOCK(invFrame, invitem) then
 			return;
 		end
 		local Itemclass		= GetClassByType("Item", invitem.type);
 		local ItemType		= Itemclass.ItemType;
+		local typeStr = "Item"	
+		if Itemclass.ItemType == "Equip" then
+			typeStr = Itemclass.ItemType; 
+		end		
+		
+		local tree_box 		= invGbox:GetChild('treeGbox_'.. typeStr);
+		local tree		    = tree_box:GetChild('inventree_'.. typeStr);
+		local slotsetname	= GET_SLOTSET_NAME(argNum)
+		local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
 		local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
 		if itemProp:IsTradable() == true then
-				if IS_SHOP_SELL(invitem, Itemclass.MaxStack) == 1 then
+				if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
 					if keyboard.IsPressed(KEY_SHIFT) == 1 then
 						local sellableCount = invitem.count;
 						local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", sellableCount);
@@ -1408,7 +1464,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 					end
 					
 					-- 상점 Sell Slot으로 넘긴다.
-					SHOP_SELL(invitem, 1);
+					SHOP_SELL(invitem, 1, frame);
 					return;
 				end
 			end
@@ -1509,6 +1565,10 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	end
 	
 	local frame     = ui.GetFrame("shop");
+	local companionshop = ui.GetFrame('companionshop');
+	if companionshop:IsVisible() == 1 then
+		frame = companionshop:GetChild('foodBox');
+	end	
 	if frame:IsVisible() == 0 then
 		return;
 	end
@@ -1518,13 +1578,7 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	end
 
 	local invFrame     	= ui.GetFrame("inventory");
-	local invGbox		= invFrame:GetChild('inventoryGbox');
-	local treeGbox		= invGbox:GetChild('treeGbox');
-	local tree		    = treeGbox:GetChild('inventree');
-	local slotsetname	= GET_SLOTSET_NAME(argNum)
-	local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
-	local slot		    = slotSet:GetSlotByIndex(argNum-1);
 	if true == IS_TEMP_LOCK(invFrame, invitem) then
 		return;
 	end
@@ -1532,11 +1586,24 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	local Itemclass		= GetClassByType("Item", invitem.type);
 	local ItemType		= Itemclass.ItemType;
 	
+	local typeStr = "Item"	
+	if Itemclass.ItemType == "Equip" then
+		typeStr = Itemclass.ItemType; 
+	end
+
+	local invGbox		= invFrame:GetChild('inventoryGbox');
+	local tree_box 		= invGbox:GetChild('treeGbox_'..typeStr);
+	local tree		    = tree_box:GetChild('inventree_'..typeStr);
+	local slotsetname	= GET_SLOTSET_NAME(argNum)
+	local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
+
+	local slot		    = slotSet:GetSlotByIndex(argNum-1);
+	
 	local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
 	if itemProp:IsTradable() == true then
-		if IS_SHOP_SELL(invitem, Itemclass.MaxStack) == 1 then
+		if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
 			-- 상점 Sell Slot으로 다 넘긴다.
-			SHOP_SELL(invitem, invitem.count);
+			SHOP_SELL(invitem, invitem.count, frame);
 			return;
 		end
 	end
@@ -1550,7 +1617,7 @@ function EXEC_SHOP_SELL(frame, cnt)
 	cnt = tonumber(cnt);
 	local itemGuid = frame:GetUserValue("SELL_ITEM_GUID");
 	local invItem = session.GetInvItemByGuid(itemGuid);
-	SHOP_SELL(invItem, cnt, true);
+	SHOP_SELL(invItem, cnt, frame, true);
 
 end
 
@@ -1626,8 +1693,11 @@ function DRAW_TOTAL_VIS_OTHER_FRAME(frame, childname)
 end
 
 function ON_CHANGE_INVINDEX(frame, msg, fromInvIndex, toInvIndex)
-
 	local shopFrame     = ui.GetFrame("shop");
+	local companionshop = ui.GetFrame('companionshop');
+	if companionshop:IsVisible() == 1 then
+		shopFrame = companionshop:GetChild('foodBox');
+	end	
 	if shopFrame:IsVisible() == 1 then
 		local groupbox  = shopFrame:GetChild('sellitemslot');
 		local slotSet   = tolua.cast(groupbox, 'ui::CSlotSet');
@@ -2209,8 +2279,11 @@ function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)
 		timer:Stop();		
 
 	elseif str == 'JUNGTAN_ON' then
-
-		frame:SetUserValue("JUNGTAN_EFFECT", itemType);
+		local invItem = session.GetInvItemByType(itemType);
+		if invItem == nil then
+			return;
+		end
+		frame:SetUserValue("JUNGTAN_EFFECT", invItem:GetIESID());
 		local timer = GET_CHILD(frame, "jungtantimer", "ui::CAddOnTimer");
 		timer:SetUpdateScript("UPDATE_INVENTORY_JUNGTAN");
 		timer:Start(1);		
@@ -2234,11 +2307,10 @@ function UPDATE_INVENTORY_JUNGTAN(frame, ctrl, num, str, time)
 	if frame:IsVisible() == 0 then
 		return;
 	end
-	local jungtanID = tonumber( frame:GetUserValue("JUNGTAN_EFFECT") );
+	local jungtanID = frame:GetUserValue("JUNGTAN_EFFECT");
 	if jungtanID == 0 then
 		return;
 	end
-
 	local slotSet = INV_GET_SLOTSET_BY_ITEMID(jungtanID)
 
 	local slot = GET_SLOT_BY_ITEMTYPE(slotSet, jungtanID);
@@ -2441,10 +2513,10 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 end
 
 function INV_ITEM_LOCK_SAVE_FAIL(frame, msg, argStr, agrNum)
-	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree')
+	for typeNo = 1, #g_invenTypeStrList do
+		local tree = GET_CHILD_RECURSIVELY(frame, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 	for i = 1 , #SLOTSET_NAMELIST do
 		local slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
-
 		if nil ~= slotset then
 			local slotCount = slotset:GetSlotCount();
 			for i = 0, slotCount - 1 do
@@ -2464,7 +2536,7 @@ function INV_ITEM_LOCK_SAVE_FAIL(frame, msg, argStr, agrNum)
 
 			end	
 		end
-
+		end
 	end
 end
 

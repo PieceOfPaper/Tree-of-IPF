@@ -145,6 +145,8 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 200007,1,0,"MARKET_BUY_CHECK_ITEM_TABLE","sp_market_item_get 체크할지","NO"
 200008,0.500000,0,"JAEDDURY_MARKET_MINPRICE","마켓 하한가 조절","YES"
 200009,30000,0,"SCROLL_MARKET_REG_LIMIT_PRICE","마법 부여 스크롤 마켓 올릴때 최소 실버가격","YES"
+200010,172800,0,"CABINET_VIS_DELAY_TIME","마켓 판매 실버대금 딜레이 48시간.","NO"
+200011,172800,0,"CABINET_VIS_TOKEN_DELAY_TIME","마켓 판매 실버대금 딜레이 48시간.(토큰전용)","NO"
 210000,950,0,"PARTY_SHARE_RANGE","파티 공유거리","YES"
 210001,30,0,"PARTY_AUCTION_SEC","파티 경매 제한 시간","NO"
 210002,2000,0,"PARTY_MEMBER_LOC_UPDATE","파티 멤버 위치 정보 전송","NO"

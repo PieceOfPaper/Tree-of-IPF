@@ -338,8 +338,8 @@ function ITEMDUNGEON_DROP_ITEM(parent, ctrl)
 		return;
 	end
 
-	if invItem.isLockState then 
-		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+	if IS_NEED_APPRAISED_ITEM(itemObj) == true then 
+		ui.SysMsg(ClMsg("NeedAppraisd"));
 		return;
 	end
 

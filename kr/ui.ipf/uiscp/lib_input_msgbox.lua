@@ -116,17 +116,9 @@ end
 
 function GET_INPUT_STRING_TXT(frame)
 
-	
-	IMC_NORMAL_INFO("---- GET_INPUT_STRING_TXT: Begin");
-
 	local edit = frame:GetChild('input');
 	tolua.cast(edit, "ui::CEditControl");	
-	IMC_NORMAL_INFO("GET_INPUT_STRING_TXT: GetText("..edit:GetText()..")");
-	
-	IMC_NORMAL_INFO("---- GET_INPUT_STRING_TXT: End");
-
 	return edit:GetText();
-
 end
 
 function GET_INPUT2_STRING_TXT(frame)

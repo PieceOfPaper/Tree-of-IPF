@@ -61,7 +61,11 @@ function CLIENT_MORU(invItem)
 	x = x - gbox:GetWidth() * 0.7;
 	y = y - 40;
 	SET_MOUSE_FOLLOW_BALLOON(ClMsg("ClickItemToReinforce"), 0, x, y);
-	ui.SetEscapeScp("_CANCEL_MORU()");
+	ui.SetEscapeScp("CANCEL_MORU()");
+		
+	local tab = gbox:GetChild("inventype_Tab");	
+	tolua.cast(tab, "ui::CTabControl");
+	tab:SelectTab(0);
 
 	SET_SLOT_APPLY_FUNC(invframe, "_CHECK_MORU_TARGET_ITEM");
 	SET_INV_LBTN_FUNC(invframe, "MORU_LBTN_CLICK");
@@ -99,12 +103,7 @@ function CURSOR_CHECK_REINF(slot)
 	return REINFORCE_ABLE_131014(obj);
 end
 
-function _CANCEL_MORU()
-	local frame = ui.GetFrame("reinforce_131014");
-	CANCEL_MORU(frame);
-end
-
-function CANCEL_MORU(frame)
+function CANCEL_MORU()
 	SET_MOUSE_FOLLOW_BALLOON(nil);
 	ui.RemoveGuideMsg("SelectItem");
 	SET_MOUSE_FOLLOW_BALLOON();
@@ -127,11 +126,11 @@ function MORU_LBTN_CLICK(frame, invItem)
 		return;
 	end
 
-	CANCEL_MORU(frame);
+	CANCEL_MORU();
 	
 	local upgradeitem_2 = ui.GetFrame("reinforce_131014");
 	local fromItemSlot = GET_CHILD(upgradeitem_2, "fromItemSlot", "ui::CSlot");
-	SET_SLOT_ITEM(fromItemSlot, invItem);
+	MORU_SET_SLOT_ITEM(fromItemSlot, invItem);
 
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
 	local moruObj = GetIES(fromMoru:GetObject());
@@ -204,4 +203,25 @@ function _CHECK_MORU_TARGET_ITEM(slot)
 		slot:ReleaseBlink();
 	end
 
+end
+
+function MORU_SET_SLOT_ITEM(slot, invItem, count)
+
+	print("MORU_SET_SLOT_ITEM",invItem.type);
+	local itemCls = GetClassByType("Item", invItem.type);
+
+	local type = itemCls.ClassID;
+	local obj = GetIES(invItem:GetObject());
+	local img = GET_ITEM_ICON_IMAGE(obj);
+	SET_SLOT_IMG(slot, img)
+	SET_SLOT_COUNT(slot, count)
+	SET_SLOT_IESID(slot, invItem:GetIESID())
+	
+	local icon = slot:GetIcon();
+	local iconInfo = icon:GetInfo();
+	iconInfo.type = type;
+
+	icon:SetTooltipType('reinforceitem');
+	icon:SetTooltipArg('inven',type,invItem:GetIESID());
+	
 end
