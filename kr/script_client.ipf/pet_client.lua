@@ -103,3 +103,14 @@ function SET_TOOLTIP_REVIVAL_EGG(icon, invitem, itemCls)
 end
 
 
+function C_GET_COMPANION_POS(actor)
+	local myPet = control.GetMyCompanionActor();
+
+	if nil == myPet then
+		return 0, 0, 0
+	end
+	myPet = tolua.cast(myPet, "CFSMActor");
+	local pos = myPet:GetPos();
+	print(pos.z, pos.y, pos.x);
+	return pos.z, pos.y, pos.x;
+end

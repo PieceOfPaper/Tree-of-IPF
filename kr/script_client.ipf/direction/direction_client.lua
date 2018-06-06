@@ -1,6 +1,7 @@
 
 
-function DRT_C_PLAY_ANIM(actor, cmd, animName, fixAnim, duplicationPlay, delayTime)
+function DRT_C_PLAY_ANIM(actor, cmd, animName, fixAnim, duplicationPlay, delayTime, passedTime)
+
 	if fixAnim == nil then
 		fixAnim = 1;
 	end
@@ -12,8 +13,13 @@ function DRT_C_PLAY_ANIM(actor, cmd, animName, fixAnim, duplicationPlay, delayTi
 	if duplicationPlay == 0 then
 		skipIfExist = 1;
 	end
-		
-	actor:GetAnimation():PlayFixAnim(animName, 1.0, fixAnim, 1, delayTime, skipIfExist);
+
+	local startTime = 0;
+	if passedTime ~= nil and passedTime > 0.0 then
+		startTime = passedTime;
+	end
+
+	actor:GetAnimation():PlayFixAnim(animName, 1.0, fixAnim, 1, delayTime, skipIfExist, false, startTime);
 end
 
 function DRT_C_PLAY_ANIM_R(actor, cmd, ani1, ani2, ani3, fixAnim, duplicationPlay, delayTime)

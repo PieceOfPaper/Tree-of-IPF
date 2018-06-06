@@ -15,20 +15,11 @@ end
 function CLAMP_WORLDMAP_POS(frame, cx, cy)
 
 	local maxY = frame:GetUserIValue("MAX_Y");
-	if cy < 0 then
-		cy = 0;
-	end
-	if cy > maxY then
-		cy = maxY;
-	end
-
 	local minX = frame:GetUserIValue("MIN_X");
-	if cx > 0 then
-		cx = 0;
-	end
-
-	if cx < minX then
-		cx = minX;
+	cx = CLAMP(cx, minX, 0);
+	cy = CLAMP(cy, 0, maxY);
+	if maxY < 0 then
+		cy = maxY;
 	end
 
 	return cx, cy;	
@@ -50,18 +41,43 @@ function WORLDMAP_UPDATE_PICSIZE(frame, currentDirection)
 	local imgName = "worldmap_" .. currentDirection .. "_bg";
 	local pic = GET_CHILD(frame, "pic");
 	local size = ui.GetSkinImageSize(imgName);
-	pic:Resize(size.x, size.y);
-	local gbox = pic:CreateOrGetControl("groupbox", "GBOX_".. curMode, 0, 0, size.x, size.y);
+
+	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
+	local sizeRatio = 1 + curSize * 0.25;
+	local t_scale = frame:GetChild("t_scale");
+	t_scale:SetTextByKey("value", string.format("%.2f", sizeRatio));
+
+	local picWidth = size.x * sizeRatio;
+	local picHeight = size.y * sizeRatio;
+	
+	pic:Resize(picWidth, picHeight);
+	local frameWidth = frame:GetWidth();
+	local frameHeight = frame:GetHeight();
+	local horzAlign;
+	local vertAlign;
+	if picWidth < frameWidth then
+		horzAlign = ui.CENTER_HORZ;
+	else
+		horzAlign = ui.LEFT;
+	end
+
+	if picHeight < frameHeight then
+		vertAlign = ui.CENTER_VERT;
+	else
+		vertAlign = ui.TOP;
+	end
+
+	pic:SetGravity(horzAlign, vertAlign);
+	
+	local gbox = pic:CreateOrGetControl("groupbox", "GBOX_".. curMode, 0, 0, picWidth, picHeight);
 	gbox:SetSkinName("None");
-	gbox:Resize(size.x, size.y);
+	gbox:Resize(picWidth, picHeight);
 	gbox:EnableHitTest(1);
 	gbox = AUTO_CAST(gbox);
+	gbox:EnableScrollBar(0);
 	gbox:EnableHittestGroupBox(false);	
 
-	local frameHeight = frame:GetHeight();
-	local picHeight = pic:GetHeight();
-	local maxY = picHeight  - frameHeight;
-	frame:SetUserValue("MAX_Y", maxY);
+	WORLDMAP_UPDATE_CLAMP_MINMAX(frame);
 
 	local cx = config.GetConfigInt("WORLDMAP_X");
 	local cy = config.GetConfigInt("WORLDMAP_Y");
@@ -79,23 +95,35 @@ function OPEN_WORLDMAP(frame)
 
 end
 
-function _OPEN_WORLDMAP(frame)
+function WORLDMAP_UPDATE_CLAMP_MINMAX(frame)
 
-	WORLDMAP_SIZE_UPDATE(frame);
-	frame:Invalidate();
-	
 	local pic = frame:GetChild("pic");
 	local frameHeight = frame:GetHeight();
 	local picHeight = pic:GetHeight();
-	local maxY = picHeight  - frameHeight;
+	local maxY = picHeight - frameHeight;
 	frame:SetUserValue("MAX_Y", maxY);
 
 	local frameWidth = frame:GetWidth();
 	local picWidth = pic:GetWidth();
 
 	local minX = picWidth - frameWidth;
+	if minX < 0 then
+		minX = 0;
+	end
+
  	frame:SetUserValue("MIN_X", -minX);
 
+end
+
+function _OPEN_WORLDMAP(frame)
+
+	WORLDMAP_SIZE_UPDATE(frame);
+	frame:Invalidate();
+	
+	local pic = frame:GetChild("pic");
+
+	UPDATE_WORLDMAP_CONTROLS(frame);
+	
 	local cx = config.GetConfigInt("WORLDMAP_X");
 	local cy = config.GetConfigInt("WORLDMAP_Y");
 
@@ -103,11 +131,20 @@ function _OPEN_WORLDMAP(frame)
 
 	WORLDMAP_SETOFFSET(frame, cx, cy);
 	
-	CREATE_ALL_ZONE_TEXT(frame);
+end
+
+function UPDATE_WORLDMAP_CONTROLS(frame, changeDirection)
+
+	if frame:GetName() == "worldmap" then
+		CREATE_ALL_ZONE_TEXT(frame, changeDirection);
+	else
+		ON_INTE_WARP(frame, changeDirection);		
+	end
 
 end
 
 function PRELOAD_WORLDMAP()
+
 	local frame = ui.GetFrame("worldmap");
 	OPEN_WORLDMAP(frame);
 
@@ -121,8 +158,9 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 	end
 
 	local makeWorldMapImage = session.mapFog.NeedUpdateWorldMap();
-
+		
 	local currentDirection = config.GetConfig("WORLDMAP_DIRECTION", "s");
+	currentDirection = "s";
 
 	if changeDirection == true or ui.GetImage("worldmap_" .. currentDirection .. "_current") == nil then
 		makeWorldMapImage = true;
@@ -136,8 +174,12 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 	local frameHeight = frame:GetHeight();
 	local bottomY = picHeight;
 	
+	local imgSize = ui.GetSkinImageSize("worldmap_" .. currentDirection .. "_bg");
+
 	local startX = - 80;
 	local startY = bottomY - 30;
+	local pictureStartY = imgSize.y - 30;
+
 	local spaceX = 130.5;
 	local spaceY = 130.5;
 
@@ -150,8 +192,7 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 	local parentGBox = pic:GetChild("GBOX_".. curMode);
 	DESTROY_CHILD_BYNAME(parentGBox, "ZONE_GBOX_");
 
-	CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, mapName, currentDirection, spaceX, startX, spaceY, startY);
-						--  createControlFunc(parentGBox, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY);
+	CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, mapName, currentDirection, spaceX, startX, spaceY, startY, pictureStartY);
 
 	if makeWorldMapImage == true then
 		ui.CreateCloneImageSkin("worldmap_" .. currentDirection .. "_fog", "worldmap_" .. currentDirection .. "_current");
@@ -162,7 +203,17 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 
 end
 
-function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, mapName, currentDirection, spaceX, startX, spaceY, startY)
+function GET_WORLDMAP_GROUPBOX(frame)
+	if frame:GetName() == "worldmap" then
+		local curMode = frame:GetUserValue("Mode");
+		local pic = GET_CHILD(frame, "pic" ,"ui::CPicture");
+		return pic:GetChild("GBOX_".. curMode);
+	end
+
+	return GET_CHILD(frame, "pic" ,"ui::CPicture");
+end
+
+function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, mapName, currentDirection, spaceX, startX, spaceY, startY, pictureStartY)
 
 	local clsList, cnt = GetClassList('Map');	
 	if cnt == 0 then
@@ -197,7 +248,7 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, mapN
 				
 					if parentGBox:GetChild(gBoxName) == nil then
 				    
-						CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY);
+						CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY);
 
 					end
 				end
@@ -208,10 +259,14 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, mapN
 
 end
 
-function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY)
+function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY)
 
-	local picX = startX + x * spaceX;
-	local picY = startY - y * spaceY;
+	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
+	local sizeRatio = 1 + curSize * 0.25;
+
+	local picX = startX + x * spaceX * sizeRatio;
+	local picY = startY - y * spaceY * sizeRatio;
+
 	local gbox = parentGBox:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 120)
 	gbox:SetEventScript(ui.MOUSEWHEEL, "WORLDMAP_MOUSEWHEEL");
 	gbox:SetSkinName("None");
@@ -266,6 +321,8 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, nowMapIES, 
     	end
 	end
 					
+--	local gbox_bg = ctrlSet:GetChild("gbox_bg");
+--	gbox_bg:Resize(text:GetWidth() + 10, text:GetHeight() + 10);
 	ctrlSet:SetEventScript(ui.LBUTTONDOWN, "WORLDMAP_LBTNDOWN");
 	ctrlSet:SetEventScript(ui.MOUSEWHEEL, "WORLDMAP_MOUSEWHEEL");
 				
@@ -303,9 +360,13 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, nowMapIES, 
 
 	if makeWorldMapImage == true then
 		local addSpace = 40;
-		ui.AddBrushArea(picX + ctrlSet:GetWidth() / 2, picY + ctrlSet:GetHeight() / 2, ctrlSet:GetWidth() + addSpace);
-	end
 
+		local brushX = startX + x * spaceX;
+		local brushY = pictureStartY - y * spaceY;
+
+		ui.AddBrushArea(brushX + ctrlSet:GetWidth() / 2, brushY + ctrlSet:GetHeight() / 2, ctrlSet:GetWidth() + addSpace);
+	end
+	 
 	GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, false);
 
 end
@@ -323,6 +384,7 @@ end
 
 function WORLDMAP_MOUSEWHEEL(parent, ctrl, s, n)
 	
+	--[[
 	local dx = 0;
 	local dy = n;
 	local cx = config.GetConfigInt("WORLDMAP_X");
@@ -335,6 +397,15 @@ function WORLDMAP_MOUSEWHEEL(parent, ctrl, s, n)
 	config.SetConfig("WORLDMAP_X", cx);	
 	config.SetConfig("WORLDMAP_Y", cy);
 	WORLDMAP_SETOFFSET(ctrl:GetTopParentFrame(), cx, cy);
+	]]
+
+
+	local frame = parent:GetTopParentFrame();
+	if n > 0 then
+		WORLDMAP_CHANGESIZE(frame, nil, nil, 1);
+	else
+		WORLDMAP_CHANGESIZE(frame, nil, nil, -1);
+	end
 
 end
 
@@ -346,6 +417,8 @@ function WORLDMAP_LBTNDOWN(parent, ctrl)
 	pic:SetUserValue("MOUSE_X", x);
 	pic:SetUserValue("MOUSE_Y", y);
 	
+	ui.EnableToolTip(0);
+	mouse.ChangeCursorImg("MOVE_MAP", 1);
 	pic:RunUpdateScript("WORLDMAP_PROCESS_MOUSE");
 
 end
@@ -353,7 +426,9 @@ end
 function WORLDMAP_PROCESS_MOUSE(ctrl)
 
 	if mouse.IsLBtnPressed() == 0 then
-		return;
+		mouse.ChangeCursorImg("BASIC", 0);
+		ui.EnableToolTip(1);
+		return 0;
 	end
 
 	local mx, my = GET_MOUSE_POS();
@@ -361,6 +436,8 @@ function WORLDMAP_PROCESS_MOUSE(ctrl)
 	local y = ctrl:GetUserIValue("MOUSE_Y");
 	local dx = mx - x;
 	local dy = my - y;
+	dx = dx * 2;
+	dy = dy * 2;
 
 	local cx = config.GetConfigInt("WORLDMAP_X");
 	local cy = config.GetConfigInt("WORLDMAP_Y");
@@ -383,8 +460,93 @@ end
 function WORLDMAP_SHOW_DIRECTION(frame, ctrl, str, num)
 
 	config.SetConfig("WORLDMAP_DIRECTION", str);
-	CREATE_ALL_ZONE_TEXT(frame, true);
+	UPDATE_WORLDMAP_CONTROLS(frame, true);
 
 end
+
+function WORLDMAP_CHANGESIZE(frame, ctrl, str, isAmplify)
+
+	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
+	local sizeRatio = 1 + curSize * 0.25;
+	curSize = curSize + isAmplify;
+	curSize = CLAMP(curSize, -3, 3);
+	config.SetConfig("WORLDMAP_SCALE", curSize);
+	local afterSizeRatio = 1 + curSize * 0.25;
+	if sizeRatio == afterSizeRatio then
+		return;
+	end
+
+	local cx = config.GetConfigInt("WORLDMAP_X");
+	local cy = config.GetConfigInt("WORLDMAP_Y");
+	local multiPlyRatio = afterSizeRatio / sizeRatio;
+	cx = cx * multiPlyRatio;
+	cy = cy * multiPlyRatio;
+	config.SetConfig("WORLDMAP_X", cx);
+	config.SetConfig("WORLDMAP_Y", cy);
+
+	UPDATE_WORLDMAP_CONTROLS(frame);
+	
+
+end
+
+function WORLDMAP_LOCATE_LASTWARP(parent, ctrl)
+
+	local etcObj = GetMyEtcObject();
+	local mapCls = GetClassByType("Map", etcObj.LastWarpMapID);
+	LOCATE_WORLDMAP_POS(parent:GetTopParentFrame(), mapCls.ClassName);
+	
+end
+
+function WORLDMAP_LOCATE_NOWPOS(parent, ctrl)
+
+	local mapName= session.GetMapName();
+	LOCATE_WORLDMAP_POS(parent:GetTopParentFrame(), mapName);
+
+end
+
+function LOCATE_WORLDMAP_POS(frame, mapName)
+
+	local gBox = GET_WORLDMAP_GROUPBOX(frame);
+	local mapCls = GetClass("Map", mapName);
+	local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
+	local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
+
+	local childCtrl = gBox:GetChild(gBoxName);
+	local x = childCtrl:GetX();
+	local y = childCtrl:GetY();
+
+	local cx = config.GetConfigInt("WORLDMAP_X");
+	local cy = config.GetConfigInt("WORLDMAP_Y");
+	local pic = GET_CHILD(frame, "pic");
+
+	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
+	local sizeRatio = 1 + curSize * 0.25;
+
+	local destX = - x + frame:GetWidth() / 2;
+	local destY = pic:GetHeight() - (frame:GetHeight() / 2)  - y;
+
+	destX, destY = CLAMP_WORLDMAP_POS(frame, destX, destY);	
+	WORLDMAP_SETOFFSET(frame, destX, destY);
+	
+	config.SetConfig("WORLDMAP_X", destX);	
+	config.SetConfig("WORLDMAP_Y", destY);
+	
+	x = x + 0.5 * childCtrl:GetWidth() + 5;
+	y = y + 0.5 * childCtrl:GetHeight() + 5;
+	
+	local emphasize = gBox:CreateOrGetControlSet('worldmap_emphasize', "EMPHASIZE", x, y);
+	x = x - emphasize:GetWidth() / 2;
+	y = y - emphasize:GetHeight() / 2;
+
+	emphasize:SetOffset(x, y);
+	emphasize:MakeTopBetweenChild();
+	emphasize:ShowWindow(1);
+	local animpic = GET_CHILD(emphasize, "animpic");
+	animpic:ShowWindow(1);
+	animpic:PlayAnimation();
+
+end
+
+
 
 

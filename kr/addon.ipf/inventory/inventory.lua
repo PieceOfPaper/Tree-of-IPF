@@ -3,7 +3,7 @@
 function INVENTORY_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('ITEM_LOCK_FAIL', 'INV_ITEM_LOCK_SAVE_FAIL');
-
+	addon:RegisterMsg('MYPC_CHANGE_SHAPE','INVENTORY_MYPC_CHANGE_SHAPE');
     addon:RegisterMsg('GAME_START', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('EQUIP_ITEM_LIST_GET', 'INVENTORY_ON_MSG');
     addon:RegisterOpenOnlyMsg('INV_ITEM_LIST_GET', 'INVENTORY_ON_MSG');
@@ -1183,7 +1183,8 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 
 		local slot		    = slotSet:GetSlotByIndex(argNum-1);
 		if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
-			or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") then
+			or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
+			or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
 			return;
 		end
 		local Itemclass		= GetClassByType("Item", invitem.type);
@@ -1337,7 +1338,7 @@ function DRAW_MEDAL_COUNT(frame)
 	local medalFreeTime			= GET_CHILD(medalGbox, 'medalFreeTime', 'ui::CRichText');
 
 	local accountObj = GetMyAccountObj();
-    medalText:SetTextByKey("medal", accountObj.Medal);
+    medalText:SetTextByKey("medal", GET_CASH_POINT_C());
 	if "None" ~= accountObj.Medal_Get_Date then
 		local sysTime = geTime.GetServerSystemTime();
 		local endTime = imcTime.GetSysTimeByStr(accountObj.Medal_Get_Date);
@@ -1679,7 +1680,8 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	elseif invItem.isLockState == true then
 		local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
 	elseif invItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_MORU') 
-		or invItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_AWAKEN')  then
+		or invItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_AWAKEN')  
+		or invItem:GetIESID() == frame:GetUserValue('STONE_ITEM_GUID_IN_AWAKEN') then
 		slot:SetFrontImage('item_Lock');
 	elseif invItem.isNew == true  then
 		slot:SetHeaderImage('new_inventory_icon');
@@ -1931,7 +1933,8 @@ s_dropDeleteItemIESID = '';
 function INVENTORY_DELETE(itemIESID, itemType)
 	local invframe = ui.GetFrame("inventory");
 	if itemIESID == invframe:GetUserValue("ITEM_GUID_IN_MORU")
-		or itemIESID == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") then
+		or itemIESID == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
+		or itemIESID == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
 		return;
 	end
 	if ui.GetPickedFrame() ~= nil then

@@ -163,7 +163,6 @@ function INIT_ARMOR_PROP(item, class)
 
 end
 
---이 값들 툴팁에서 퍼가요
 function GET_REINFORCE_ADD_VALUE_ATK(item)
 	local buffValue = item.BuffValue;
 	local star = item.ItemStar;
@@ -183,14 +182,23 @@ end
 function GET_REINFORCE_ADD_VALUE_DEF(item)
 	local buffValue = item.BuffValue;
 	local star = item.ItemStar;
-	local value = item.Reinforce_2 * (1 + math.floor(star / 10)) + buffValue;
+	local value = 0;
+	
+	
+	if item.Reinforce_2 > 3 then
+	    value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
+	else
+	    value = item.Reinforce_2 * (1 + math.floor(star / 2));
+	end
+	
+	value = value + buffValue;
+	
 	return math.floor(value);
 end
 
 function GET_REINFORCE_ADD_VALUE_HR(item)
 	local buffValue = item.BuffValue;
 	local star = item.ItemStar;
-	-- 스콰이어 무기손질 때문에 붙여주긴했는데.. 사용하지 않는거같아요
 	return (item.Reinforce_2 * star) + buffValue;
 end
 
@@ -204,19 +212,41 @@ function GET_REINFORCE_ADD_VALUE(prop, item)
 	local value = 0;
     local buffValue = item.BuffValue;
     local star = item.ItemStar;
-    
+
 	if prop == 'DEF' then -- Defence
-    	value = item.Reinforce_2 * math.floor(1 + star / 10) + buffValue;
+	    if item.Reinforce_2 > 3 then
+	    value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
+    	else
+    	    value = item.Reinforce_2 * (1 + math.floor(star / 2));
+    	end
     elseif prop == 'MDEF' then -- Magic Defence
-        value = item.Reinforce_2 * math.floor(1 + star / 10) + buffValue;
+        if item.Reinforce_2 > 3 then
+	    value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
+    	else
+    	    value = item.Reinforce_2 * (1 + math.floor(star / 2));
+    	end
 	elseif prop == 'HR' then -- Hit rating
-    	value = item.Reinforce_2 * math.floor(1 + star / 10) + buffValue;
+	    if item.Reinforce_2 > 3 then
+        	value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 5));
+    	else
+    	    value = item.Reinforce_2 * (1 + math.floor(star / 5));
+    	end
     elseif prop == 'DR' then -- Dodge rating
-        value = item.Reinforce_2 * math.floor(1 + star / 10) + buffValue;
+        if item.Reinforce_2 > 3 then
+            value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 5));
+    	else
+    	    value = item.Reinforce_2 * (1 + math.floor(star / 5));
+    	end
     elseif prop == 'MHR' then -- MHR
-        value = item.Reinforce_2 * (star + 1) / 2 + buffValue;
+        if item.Reinforce_2 > 3 then
+	        value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
+    	else
+    	    value = item.Reinforce_2 * (1 + math.floor(star / 2));
+    	end
 	end
-	
+
+	value = value + buffValue;
+
 	return math.floor(value);
 end
 
@@ -268,7 +298,7 @@ function SCR_REFRESH_WEAPON(item)
     	item.MINATK = itemATK * (2 - item.DamageRange /100) + GET_REINFORCE_ADD_VALUE_ATK(item);
     	item.MATK = 0;
 
-		-- maxatkc_bc가 0과 같지 않아.
+		-- maxatkc_bc가 0�?같�? ?�아.
 		if zero ~= item.MAXATK_AC then
 			item.MAXATK = item.MAXATK + item.MAXATK_AC;
 		end
@@ -293,7 +323,7 @@ function SCR_REFRESH_WEAPON(item)
 	item.MINATK = math.floor(item.MINATK);
 	item.MAXATK = math.floor(item.MAXATK);
 	item.MATK = math.floor(item.MATK);
-	-- 강화 및 소켓 여부 적용
+	-- 강화 �??�켓 ?��? ?�용
 	APPLY_OPTION_SOCKET(item);
 	APPLY_AWAKEN(item);
 
@@ -430,7 +460,7 @@ function SCR_REFRESH_CARD(item)
 	item.Level = GET_ITEM_LEVEL(item);
 end
 
--- 소켓 기능 적용
+-- ?�켓 기능 ?�용
 function APPLY_OPTION_SOCKET(item)
 
 	local curcnt = GET_SOCKET_CNT(item);
@@ -451,14 +481,14 @@ function APPLY_OPTION_SOCKET(item)
 	end
 	]]
 	
-	-- 룬 옵션 적용(종족별 추뎀)
+	-- �??�션 ?�용(종족�?추�?)
 	for i=0, curcnt-1 do
 		local runeID = GetIESProp(item, 'Socket_Equip_' .. i);
 		if runeID > 0 then
 			local runeItem = GetClassByType('Item', runeID);
 			if runeItem ~= nil then
 				
-				-- StringArg에 룬옵션을 적용할 스크립트가 적혀있으면됨
+				-- StringArg??룬옵?�을 ?�용???�크립트가 ?��??�으면됨
 				if runeItem.StringArg ~= 'None' and item ~= nil then
 					local func = _G[runeItem.StringArg];
 					if func ~= nil then
@@ -489,10 +519,12 @@ function APPLY_OPTION_SOCKET(item)
 end
 
 function APPLY_AWAKEN(item)
-	if item.IsAwaken == 1 then
-		local hiddenProp = item.HiddenProp;
-		item[hiddenProp] = item[hiddenProp] + item.HiddenPropValue;
+	if item.IsAwaken ~= 1 then
+		return;
 	end
+
+	local hiddenProp = item.HiddenProp;
+	item[hiddenProp] = item[hiddenProp] + item.HiddenPropValue;
 end
 
 function SCR_ENTER_AQUA(item, arg1, arg2)
@@ -516,7 +548,7 @@ function SCR_ENTER_PERI(item, arg1, arg2)
 end
 
 
--- Upgrade 옵션
+-- Upgrade ?�션
 function SCR_OPT_ATK(item, optvalue)
 	item.MINATK = item.MINATK + optvalue;
 	item.MAXATK = item.MAXATK + optvalue;
@@ -535,7 +567,7 @@ function SCR_OPT_RR(item, optvalue)
 end
 
 
--- Enchant 옵션
+-- Enchant ?�션
 function SCR_OPT_Aries(item, optvalue)
 	item.Aries = item.Aries + optvalue;
 end
@@ -560,17 +592,16 @@ function SCR_OPT_StrikeDEF(item, optvalue)
 	item.StrikeDEF = item.StrikeDEF + optvalue;
 end
 
--- 치명타
+-- 치명?�
 function SCR_OPT_CRTHR(item, optvalue)
 	item.CRTHR = item.CRTHR + optvalue;
 end
 
--- 스턴확율
+-- ?�턴?�율
 function SCR_OPT_StunRate(item, optvalue)
 	item.StunRate = item.StunRate + optvalue;
 end
 
--- KD 추가 공격력
 function SCR_OPT_KDBonus(item, optvalue)
 	item.KDBonusDamage = item.KDBonusDamage + optvalue;
 end
@@ -607,12 +638,10 @@ function SCR_OPT_HR(item, optvalue)
 	item.HR = item.HR + optvalue;
 end
 
--- 회피율
 function SCR_OPT_DR(item, optvalue)
 	item.DR = item.DR + optvalue;
 end
 
--- 가드포인트
 function SCR_OPT_MGP(item, optvalue)
 	item.MGP = item.MGP + optvalue;
 end
@@ -633,7 +662,6 @@ function SCR_OPT_RSP(item, optvalue)
 	item.RSP = item.RSP + optvalue;
 end
 
---속성 추가 공격 & 방어
 function SCR_OPT_ADDFIRE(item, optvalue)
 	item.ADD_FIRE = item.ADD_FIRE + optvalue;
 end
@@ -690,7 +718,6 @@ function SCR_OPT_RESDARK(item, optvalue)
 	item.RES_DARK = item.RES_DARK + optvalue;
 end
 
---종족 추가 공격 & 방어
 function SCR_OPT_VelniasATK(item, optvalue)
 	item.VelniasATK = item.ADD_VELNIAS + optvalue;
 end
@@ -1021,7 +1048,7 @@ function IS_PERSONAL_SHOP_TRADABLE(itemCls)
 		return 0;
 	end
 
-	--¾???¿9????¼­ ≫??´ ´???? °????????
+	--¾???¿9????¼­ ???´ ´???? °????????
 	if itemCls.ClassName == 'Default_Recipe' or itemCls.ClassName == 'Scroll_SkillItem' then
 		return 0;
 	end
@@ -1035,7 +1062,6 @@ function SCR_GET_ITEM_COOLDOWN(item)
 end
 
 function SCR_GET_HP_COOLDOWN(item)
-	--? 왜 이게 없으면 링크때 애러가 뜨는거지
 	local name = item.ClassName
   return item.ItemCoolDown;
 end
@@ -1046,6 +1072,147 @@ end
 
 function SCR_GET_SP_COOLDOWN(item)  
   return item.ItemCoolDown;
+end
+
+
+function SCR_GET_AWAKENING_PROP_LEVEL(star, grade)
+
+    local value = 0;
+    
+    if star == 1 then
+        value = 15;
+    elseif star == 2 then
+        value = 40;
+    elseif star == 3 then
+        value = 75;
+    elseif star == 4 then
+        value = 120;
+    else
+        value = (star - 4 ) * 50 + 120;
+    end
+    
+    value = value * (1 + (grade - 1) / 10);
+    
+    return value;
+end
+
+function SCR_GET_MAXPROP_DEF(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.1 * 0.4;
+    local result = IMCRandom(value * 0.5, value)
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_DEFATTRIBUTE(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.1 * 0.5;
+    local result = IMCRandom(value * 0.5, value)
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_ATK(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.12;
+    
+    if item.DBLHand == 'YES' then
+        value = value * 1.4;
+    end
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_STAT(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.1 * 0.5;
+    
+    if item.DBLHand == 'YES' then
+        value = value * 1.4;
+    end
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_MHP(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.08 * 34;
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_MSP(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.08 * 6.7;
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_RHP(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.2;
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_RSP(item)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.2;
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    return math.floor(result);
+end
+
+function GET_KEYWORD_PROP_NAME(idx)
+
+	if idx == 1 then
+		return "KeyWord";
+	end
+
+	return "KeyWord_" .. idx;
 end
 
 

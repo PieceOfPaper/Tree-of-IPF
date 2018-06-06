@@ -3,18 +3,17 @@
 <PropertyShop>
 	<Shop Name="CashShop" PointScript="GET_CASH_POINT">
 		<Item Name="Artefact_630012" Count="1" Price="5"/>
-		<Item Name="Scroll_StatReset_CBT" Count="1" Price="5"/>
-		<Item Name="Scroll_SkillReset_CBT" Count="1" Price="5"/>
+		<Item Name="RestartCristal" Count="1" Price="2"/>
 	</Shop>
-  <Shop Name="TestCashShop" PointScript="GET_CASH_POINT">
-    <Item Name="Artefact_630012" Count="1" Price="5"/>
-    <Item Name="Scroll_StatReset_CBT" Count="1" Price="5"/>
-    <Item Name="PremiumToken" Count="1" Price="5"/>
-    <Item Name="PremiumToken_5m" Count="1" Price="5"/>
-    <Item Name="PremiumToken_10m" Count="1" Price="5"/>
-    <Item Name="PremiumToken_30m" Count="1" Price="5"/>
-    <Item Name="PremiumToken_1h" Count="1" Price="5"/>
-  </Shop>
+	<Shop Name="TestCashShop" PointScript="GET_CASH_POINT">
+		<Item Name="Artefact_630012" Count="1" Price="5"/>
+		<Item Name="PremiumToken" Count="1" Price="5"/>
+		<Item Name="PremiumToken_5m" Count="1" Price="5"/>
+		<Item Name="PremiumToken_10m" Count="1" Price="5"/>
+		<Item Name="PremiumToken_30m" Count="1" Price="5"/>
+		<Item Name="PremiumToken_1h" Count="1" Price="5"/>
+		<Item Name="RestartCristal" Count="1" Price="2"/>
+	</Shop>
 	<Shop Name="PVPShop" PointScript="GET_PVP_POINT">
 		<Item Name="Drug_STA2" Count="50" Price="1000"/>
 	</Shop>

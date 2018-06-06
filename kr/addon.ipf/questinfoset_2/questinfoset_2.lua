@@ -1129,13 +1129,14 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
     	y = MAKE_QUESTINFO_MAPFOGSEARCH_BY_IES(ctrlset, questIES, startx, y);
     	y = MAKE_QUESTINFO_HONORPOINT_BY_IES(ctrlset, questIES, startx, y);
     	y = MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y);
-        if SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'PROGRESS')  == 'YES'  and isQuestDetail ~= 1 then
-            y = MAKE_QUESTINFO_PROG_STORY(ctrlset, questIES, startx, y, s_obj);
-        end
         
     	if starty == y  then
     		y = MAKE_QUESTINFO_PROG_DESC(ctrlset, questIES, startx, y, s_obj);
     	end
+    	
+        if SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'PROGRESS')  == 'YES'  and isQuestDetail ~= 1 then
+            y = MAKE_QUESTINFO_PROG_STORY(ctrlset, questIES, startx, y, s_obj);
+        end
 
     	return y;
     else

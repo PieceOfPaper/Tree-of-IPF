@@ -90,7 +90,7 @@
             </Stage>
             <Stage Name="boss" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="45090" Pos="-392.29#247.81#2026.03" angle="-45" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;135&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58247" Pos="-392.29#247.81#2026.03" angle="-45" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;135&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">

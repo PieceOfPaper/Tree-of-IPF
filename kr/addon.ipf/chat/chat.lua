@@ -206,10 +206,6 @@ function CHAT_BAL_CLICK(frame, ctrl, roomID)
 	chat.UpdateReadFlag(roomID);
 end
 
-function CHATFRAME_RESIZE(frame)
-
-end
-
 function CHAT_BAL_TEXT(frame, viewText, roomID)
 	
 	local scpString = "{a @CHAT_BAL_CLICK " .. roomID .. "}";

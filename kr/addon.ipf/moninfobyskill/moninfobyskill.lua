@@ -228,8 +228,6 @@ function GET_MON_PROPVALUE_BY_PROPNAME_OLD(targetinfo,paramname)
 		return targetinfo.stat.MaxStamina;
 	elseif paramname == "SHIELD" then
 		return targetinfo.stat.shield;
-	elseif paramname == "MAXSHIELD" then
-		return targetinfo.stat.maxShield;
 	end
 
 	return nil;

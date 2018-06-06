@@ -154,6 +154,51 @@ function JOURNAL_DETAIL_LIST_RENEW(ctrlset, idSpace, group, groupValue, cate, ca
 	gbox:Resize(gbox:GetWidth(),gbox:GetOriginalHeight())
 end
 
+function SET_ITEM_CATEGORY_BY_PROP(tree)
+	tree:Clear();
+	local clslist, cnt = GetClassList("ItemCategory");
+
+	for i = -1 , cnt - 1 do
+		local iesPropName;
+		local cls = nil;
+		if -1 == i then
+			iesPropName = "All";
+		else
+			cls = GetClassByIndexFromList(clslist, i);
+			iesPropName = cls.ClassName;
+		end
+
+		local subCateList = {};
+		if nil ~= cls and cls.SubCategory ~= "None" then
+			subCateList = StringSplit(cls.SubCategory, "/");
+		end
+		local title = ClMsg(iesPropName);
+		local ctrlSet = tree:CreateControlSet("journal_tree", "CTRLSET_" .. i, ui.LEFT, 0, 0, 0, 0, 0);
+		local part = ctrlSet:GetChild("part");
+		part:SetTextByKey("value", title);
+
+		local data = "Item#GroupName#"..iesPropName.."#ClassType";
+
+		if 0 >= #subCateList then
+			local foldimg = ctrlSet:GetChild("foldimg");
+			foldimg:ShowWindow(0);
+			tree:Add(ctrlSet,  data);
+		else
+			tree:Add(ctrlSet, data);
+			local htreeitem = tree:FindByName(ctrlSet:GetName());
+			tree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
+			for j = 1 , #subCateList do
+				local cate = subCateList[j]
+		    	if cate ~= 'None' then
+					tree:Add(htreeitem, ClMsg(cate), data.."#"..cate, "{#000000}");
+		    	end
+			end
+		end
+	end
+
+	GBOX_AUTO_ALIGN(tree, 0, 0, 100, true, true);
+end
+
 function SET_CATEGORY_BY_PROP(tree, idSpace, groupName, classType, clMsgHeader, list)
 
 	tree:Clear();
@@ -369,7 +414,6 @@ function JOURNAL_UPDATE_LIST_RENEW(groupBox, insertWikiType)
 	local ctrlset = groupBox:GetChild("ctrlset");
 	local gbox = GET_CHILD(ctrlset, "gbox");
 	local clsList = GetClassList(idSpace);
-	
 	local type1 = GET_CHILD(ctrlset, "type1");
 	local type2 = GET_CHILD(ctrlset, "type2");
 	local filterName1 = type1:GetUserValue("PROPNAME");
@@ -506,6 +550,7 @@ function JOURNAL_UPDATE_CTRLSET_BY_TYPE(frame, group, wikiType)
 			local category = group:GetUserValue("CATEGORY");
 			local ctrl = gbox:GetChild(wikiCls.ClassName);
 			local func = _G["UPDATE_ARTICLE_" .. category];
+			print(category);
 			if ctrl ~= nil and func ~= nil then
 				func(ctrl);
 			end

@@ -5351,7 +5351,7 @@ return 20000 + obj.Level * 3000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Mon_Fireball_santan" CheckerType="0" Range="15"UpdateTerm="0">
+    <PadSkill Name="Mon_Fireball_santan" CheckerType="0" Range="15" UpdateTerm="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_FORCE" Client="YES" UseSleep="NO">
                 <Str_Arg Str="I_wizard_Prominence_force_fire_test" Arg="1"/>
@@ -6202,7 +6202,7 @@ return GET_ABIL_LEVEL(self, &quot;Necromancer2&quot;) * 4000;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="PlagueDoctor_Bloodletting" CheckerType="0" Range="70" EnableSearch="0">
+    <PadSkill Name="PlagueDoctor_Bloodletting" CheckerType="0" Range="120" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="None" Arg="0.69999999"/>
@@ -7509,7 +7509,7 @@ return 30000 + obj.Level * 5000"/>
         </createEvent>
         <destroyEvent>
             <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
-                <Str Str="FRIEND"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="BattleOrders_Buff"/>
@@ -7535,8 +7535,8 @@ return obj.Level"/>
             </ToolScp>
         </enterEvent>
         <leaveEvent>
-            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO" CondFunc="">
-                <Str Str="FRIEND"/>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="BattleOrders_Buff"/>
@@ -9091,7 +9091,7 @@ return obj.Level"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="I_stone005_explosion_mash_force_dark" Arg="1"/>
-                <Pos Angle="0" Dist="0"Height="5"/>
+                <Pos Angle="0" Dist="0" Height="5"/>
                 <Num Num="10"/>
                 <Str_Arg Str="None" Arg="1"/>
             </ToolScp>
@@ -9387,6 +9387,87 @@ return obj.Level"/>
                 <Num Num="0"/>
             </ToolScp>
         </updateEvent>
+    </PadSkill>
+    <PadSkill Name="gpad_gr_katyn_1_s7_1" CheckerType="1" Dist="2608.0571" Angle="-1.4962163" Range="100" InnerRange="600" UpdateTerm="2000" ApplyFlyMon="1" ObjType="2" EnableSearch="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_bg_wind003_rota" Arg="1"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_PUSH_ANGLE" Client="NO" UseSleep="NO">
+                <Str Str="FRIEND"/>
+                <Num Num="90"/>
+                <Num Num="40"/>
+                <Str Str="GR_KATYN_1"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_PUSH_END" Client="NO" UseSleep="NO">
+                <Str Str="GR_KATYN_1"/>
+            </ToolScp>
+        </leaveEvent>
+    </PadSkill>
+    <PadSkill Name="gpad_gr_katyn_1_s7_2" CheckerType="1" Dist="42.88345" Angle="-0.41876349" Range="100" InnerRange="300" UpdateTerm="2000" ApplyFlyMon="1" ObjType="2" EnableSearch="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_bg_wind003_rota" Arg="1"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_PUSH_ANGLE" Client="NO" UseSleep="NO">
+                <Str Str="FRIEND"/>
+                <Num Num="135"/>
+                <Num Num="40"/>
+                <Str Str="GR_KATYN_2"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_PUSH_END" Client="NO" UseSleep="NO">
+                <Str Str="GR_KATYN_2"/>
+            </ToolScp>
+        </leaveEvent>
+    </PadSkill>
+    <PadSkill Name="gpad_gr_katyn_1_s7_3" CheckerType="1" Dist="42.88345" Angle="-0.41876349" Range="100" InnerRange="100" UpdateTerm="100" ApplyFlyMon="1" ObjType="2" EnableSearch="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_bg_wind003_rota" Arg="1"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_PUSH_ANGLE" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="40"/>
+                <Str Str="GR_KATYN_3"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_PUSH_END" Client="NO" UseSleep="NO">
+                <Str Str="GR_KATYN_3"/>
+            </ToolScp>
+        </leaveEvent>
     </PadSkill>
     <PadSkill Name="gtower_killthemall" CheckerType="4" Dist="11.30368" Angle="-1.1771666" Range="500" InnerRange="50" UpdateTerm="1000" AutoDir="1" ApplyFlyMon="1" Relation="2" EnableSearch="0">
         <createEvent>
@@ -10252,7 +10333,7 @@ return 10000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;"/>
                 <Num Num="99990"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="I_force046_green2" Arg="1.8"/>
+                <Str_Arg Str="I_force019_mint" Arg="1.8"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="10"/>
                 <Str_Arg Str="None" Arg="1"/>
@@ -10426,7 +10507,26 @@ return 10000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;"/>
                 <Str Str="ALL"/>
                 <Str_Arg Str="E_cleric_chortasmata" Arg="1"/>
             </ToolScp>
+            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="StereaTrofh_Buff"/>
+            </ToolScp>
         </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_GRASS_AREA" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="StereaTrofh_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
                 <Str Str="ALL"/>
@@ -10439,17 +10539,6 @@ return 10000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;"/>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-100"/>
                 <Num Num="0"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_BUFF_GRASS_AREA" Client="NO" UseSleep="NO">
-                <Str Str="PARTY"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="StereaTrofh_Buff"/>
-                <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="1"/>
-                <Num Num="100"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>

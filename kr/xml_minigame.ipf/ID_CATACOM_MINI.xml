@@ -4,7 +4,7 @@
         <StageList>
             <Stage Name="Ready">
                 <ObjList>
-                    <Obj Type="Monster" MonType="20045" Pos="-604.19#95.36#478.99" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="20053" Pos="-583.64#106.83#457.88" genCount="1" genTime="20000" objectKey="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="10초">
@@ -20,7 +20,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="시작">
+                    <Event execCount="1" eventName="시작">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="20"/>
@@ -32,10 +32,17 @@
                                 <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="Ready/0"/>
+                                <MGameObjPtr List="Ready/1"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Ready"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="60000" execCount="1" eventName="startcheckdead" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="checkalldead"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -397,10 +404,13 @@
                 </StageEvents>
             </Stage>
         </StageList>
-      <EnterList>
-        <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
-          <Str Str="Indun_Catacom"/>
-        </ToolScp>
-      </EnterList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="Indun_Catacom"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_RESUR_DLG" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+            </ToolScp>
+        </EnterList>
     </Game>
 </GameList>

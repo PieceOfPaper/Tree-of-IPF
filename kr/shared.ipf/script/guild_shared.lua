@@ -75,6 +75,34 @@ function GET_GUINEA_PIG_TAMING_MODELMON(seedCls, obj)
 	end
 end
 
+function GET_LEASSERPANDA_TAMING_MODELMON(seedCls, obj)
+	local age = obj:GetPropIValue("Age");
+	local maxGrowTime = seedCls.FullGrowMin;
+	local curState = CLAMP(age / maxGrowTime, 0, 1);
+	local monCls = GetClass("Monster", seedCls.MonsterName);
+	local ownerName = obj:GetPropValue("Maker");
+	
+	if curState < 1 then
+		return "Lesser_panda_baby";
+	else
+		return "Lesser_panda";
+	end
+end
+
+function GET_PIG_TAMING_MODELMON(seedCls, obj)
+	local age = obj:GetPropIValue("Age");
+	local maxGrowTime = seedCls.FullGrowMin;
+	local curState = CLAMP(age / maxGrowTime, 0, 1);
+	local monCls = GetClass("Monster", seedCls.MonsterName);
+	local ownerName = obj:GetPropValue("Maker");
+	
+	if curState < 1 then
+		return "Piggy";
+	else
+		return "Piggy_baby";
+	end
+end
+
 function GET_GUILD_EXPUP_ITEM_INFO()
 
 	return "misc_talt", 20;

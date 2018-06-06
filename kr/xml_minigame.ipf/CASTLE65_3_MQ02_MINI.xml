@@ -13,12 +13,6 @@
                                 </ToolScp>
                             </DeadList>
                             <HitList>
-                                <ToolScp Scp="SAI_DAMAGE_SOBJ" Client="NO" UseSleep="NO">
-                                    <Num Num="2"/>
-                                    <Str Str="SSN_CASTLE65_3_MQ02"/>
-                                    <Str Str="QuestInfoValue1"/>
-                                    <Num Num="1"/>
-                                </ToolScp>
                                 <ToolScp Scp="SAI_ADD_MGAME_V_TAKEDMG" Client="NO" UseSleep="NO">
                                     <Str Str="castle653_02"/>
                                     <Num Num="1"/>
@@ -42,7 +36,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="155094" Pos="-817.46#166.69#1153.95" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;TrackMonster&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Lv&apos; &apos;200&apos; ">
+                    <Obj Type="Monster" MonType="155094" Pos="-849.90#166.69#1171.55" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;TrackMonster&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Lv&apos; &apos;200&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -59,7 +53,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58077" Pos="-933.12#166.69#1137.99" range="100" genCount="6" maxStackCount="1" genTime="2000" genReadyTime="1000" objectKey="2" autoDestroy="0" tendency="1">
+                    <Obj Type="Monster" MonType="58077" Pos="-933.12#166.69#1137.99" range="100" genCount="6" maxStackCount="1" genTime="3000" genReadyTime="2000" objectKey="2" autoDestroy="0" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -82,7 +76,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58077" Pos="-802.46#166.69#1008.70" range="100" genCount="6" maxStackCount="1" genTime="2000" genReadyTime="1000" objectKey="3" autoDestroy="0" tendency="1">
+                    <Obj Type="Monster" MonType="58077" Pos="-802.46#166.69#1008.70" range="100" genCount="6" maxStackCount="1" genTime="3000" genReadyTime="2000" objectKey="3" autoDestroy="0" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -105,7 +99,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58077" Pos="-796.51#166.69#1270.89" range="100" genCount="6" maxStackCount="1" genTime="2000" genReadyTime="1500" objectKey="4" autoDestroy="0" tendency="1">
+                    <Obj Type="Monster" MonType="58077" Pos="-796.51#166.69#1270.89" range="100" genCount="6" maxStackCount="1" genTime="3000" genReadyTime="3000" objectKey="4" autoDestroy="0" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -128,7 +122,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58077" Pos="-663.03#166.69#1144.68" range="100" genCount="6" maxStackCount="1" genTime="2000" genReadyTime="10000" objectKey="5" autoDestroy="0" tendency="1">
+                    <Obj Type="Monster" MonType="58077" Pos="-663.03#166.69#1144.68" range="100" genCount="6" maxStackCount="1" genTime="3000" genReadyTime="10000" objectKey="5" autoDestroy="0" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -151,7 +145,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58076" Pos="-794.00#166.00#1139.00" range="200" genCount="6" maxStackCount="1" genTime="2000" genReadyTime="1000" objectKey="6" autoDestroy="0" tendency="1">
+                    <Obj Type="Monster" MonType="58076" Pos="-794.00#166.00#1139.00" range="200" genCount="6" maxStackCount="1" genTime="3000" genReadyTime="2000" objectKey="6" autoDestroy="0" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -261,12 +255,6 @@
                     <Obj Type="Monster" MonType="155097" Pos="-794.00#166.00#1139.00" angle="-45" maxStackCount="1" genTime="1000" objectKey="0" propList="&apos;Faction&apos; &apos;Monster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
-                                <ToolScp Scp="SAI_DAMAGE_SOBJ" Client="NO" UseSleep="NO">
-                                    <Num Num="2"/>
-                                    <Str Str="SSN_CASTLE65_3_MQ02"/>
-                                    <Str Str="QuestInfoValue1"/>
-                                    <Num Num="5"/>
-                                </ToolScp>
                                 <ToolScp Scp="SAI_ADD_MGAME_V_TAKEDMG" Client="NO" UseSleep="NO">
                                     <Str Str="castle653_02"/>
                                     <Num Num="5"/>

@@ -36,16 +36,44 @@ function SHOW_PARTY_RECOMMEND(recommendType)
 	
 	local recommendParty = session.party.GetRecommendParty();
 
-	
-
 	local partyInfo = recommendParty.partyInfo
 	local partymemberlist = recommendParty:GetMemberList()
+
+	local leadername = partyInfo.info.leaderName;
+	local mapname = ""
+	local channel = ""
+
+				
+	for i = 0 , partymemberlist:Count() - 1 do
+
+		local eachpartymember = partymemberlist:Element(i)
+
+		if eachpartymember:GetName() == leadername then
 		
+			if geMapTable.GetMapName(eachpartymember:GetMapID()) ~= 'None' then		
+				mapname = geMapTable.GetMapName(eachpartymember:GetMapID())
+				channel = eachpartymember:GetChannel()
+				break;
+			end
+		end
+
+	end
+
 	local ppartyobj = partyInfo:GetObject();
 	local partyObj = GetIES(ppartyobj);
 
 	local partyNameTxt = GET_CHILD_RECURSIVELY(popupframe,'partyName')
 	partyNameTxt:SetTextByKey('partyname',partyInfo.info.name)
+
+	local mapch = GET_CHILD_RECURSIVELY(popupframe,'mapch')
+	mapch:SetTextByKey('map', mapname)
+	mapch:SetTextByKey('ch', channel)
+
+	if mapname == "" then
+		mapch:ShowWindow(0)
+	else
+		mapch:ShowWindow(1)
+	end
 
 	-- 파티 설명
 	local noteTxt = GET_CHILD_RECURSIVELY(popupframe,'partyNote')
@@ -106,6 +134,16 @@ function SHOW_PARTY_RECOMMEND(recommendType)
 
 	local partyNameTxt2 = GET_CHILD_RECURSIVELY(frame,"partyname")
 	partyNameTxt2:SetText(partyInfo.info.name)
+
+	local mapch2 = GET_CHILD_RECURSIVELY(frame,'mapch')
+	mapch2:SetTextByKey('map', mapname)
+	mapch2:SetTextByKey('ch', channel)
+
+	if mapname == "" then
+		mapch2:ShowWindow(0)
+	else
+		mapch2:ShowWindow(1)
+	end
 
 	local duration = tonumber(frame:GetUserConfig("POPUP_DURATION"))
 	

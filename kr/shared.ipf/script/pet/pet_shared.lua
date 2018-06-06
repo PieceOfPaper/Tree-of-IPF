@@ -4,7 +4,7 @@ PET_ACTIVATE_COOLDOWN = 5;
 
 function GET_PET_STAT(self, lv, statStr)
     local statRatio = TryGetProp(self , statStr.."_Rate");
-	local stat = statRatio + statRatio / 25 * (lv * 1.5 + self.Level); -- ÃÊ±â ÄÄÆÐ´Ï¾ð ´É·ÂÄ¡¸¦ ¿Ã·ÁÁÖ±â À§ÇØ self.Level°ªÀ» ´õÇØÁÜ
+	local stat = statRatio + statRatio / 25 * (lv * 1.5 + self.Level); -- ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Ð´Ï¾ï¿½ ï¿½É·ï¿½Ä¡ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ self.Levelï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     return math.floor(stat);
 end
 
@@ -97,10 +97,10 @@ function PET_ATK_BY_ABIL(statValue)
 end
 
 function PET_ATK(self)
-    -- ÄÄÆÐ´Ï¾ðÀº ATK ¼öÄ¡·Î ¹°¸®, ¸¶¹ý °ø°Ý·ÂÀ» °°ÀÌ °è»ê
+    -- ï¿½ï¿½ï¿½Ð´Ï¾ï¿½ï¿½ï¿½ ATK ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     local addLv = self.Level;
-    local atk = self.Lv + self.STR + addLv + PET_ATK_BY_ABIL(self.Stat_ATK);
-    -- ±âº»°ø°ÝÀÌ ¸¶¹ý °ø°ÝÀÎ ÆêÀÌ µîÀåÇÏ¸é INT°¡ °ø°Ý·Â¿¡ ´õÇØÁöµµ·Ï ¿¹¿ÜÃ³¸®°¡ ÇÊ¿ä
+    local atk = self.Lv + self.STR + addLv + PET_ATK_BY_ABIL(self.Stat_ATK) + self.Stat_ATK_BM;
+    -- ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ INTï¿½ï¿½ ï¿½ï¿½ï¿½Ý·Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
 	return math.floor(atk);
 end
 
@@ -187,7 +187,7 @@ end
 function PET_CRTHR(self)
     local byStat = self.DEX;
     local byItem = GetSumOfPetEquip(self, "CRTHR");
-    local value = byStat + byItem + PET_CRTHR_BY_ABIL(self.Stat_CRTHR) + self.CRTHR_BM;
+    local value = byStat + byItem + PET_CRTHR_BY_ABIL(self.Stat_CRTHR) + self.CRTHR_BM + self.Stat_CRTHR_BM;
 	return math.floor(value);
 end
 
@@ -225,7 +225,7 @@ end
 function PET_SDR(self)
     local value = 5;
     
-    if self.MonSDR < 0 then	-- ÆÄºñ½º
+    if self.MonSDR < 0 then	-- ï¿½Äºï¿½
 		return -1;
 	elseif self.Size == 'S' then
         value = 1;
@@ -259,7 +259,7 @@ function PET_HR(self)
     local byLv = self.Lv;
     local addLv = self.Level;
     local byItem = GetSumOfPetEquip(self, "HR")
-	local ret = byLv + addLv + byItem + self.DEX + PET_HR_BY_ABIL(self.Stat_HR);
+	local ret = byLv + addLv + byItem + self.DEX + PET_HR_BY_ABIL(self.Stat_HR) + self.Stat_HR_BM;
 	return math.floor(ret);
 end
 

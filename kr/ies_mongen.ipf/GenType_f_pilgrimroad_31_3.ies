@@ -5,7 +5,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,U
 4,4,1,40,1,1000,1,1,0,0,150,1,"npc_williya","스콰이어 윌리야","","","","","","","PILGRIM313_WILLIYA","","","NO","YES","NO","Neutral","","","","","0"
 5,5,1,40,1,1000,1,1,0,0,150,1,"npc_Galius","가일류스 르귄","","","","","","PILGRIM313_GALIUS_AI","PILGRIM313_GALIUS","","","NO","YES","NO","Neutral","","","","","0"
 6,6,1,200,1,1000,3,0,0,0,0,1,"HiddenTrigger_CantGen200","몬젠X","","","","","","","","","","NO","YES","NO","Neutral","","","","","0"
-8,8,1,1,50,20000,15,0,0,0,0,1,"siauliai_grass_1","영혼향","","","","","","","PILGRIM313_SQ_03_NPC","","","NO","YES","NO","Neutral","","","","","1"
+8,8,1,1,50,20000,15,0,0,0,0,1,"siauliai_grass_1","모치아 줄기","","","","","","","PILGRIM313_SQ_03_NPC","","","NO","YES","NO","Neutral","","","","","1"
 10,10,1,1,1,2000,4,0,0,0,0,1,"npc_zachariel_head_01","무명비","","","","","","","PILGRIM313_SQ_02_NPC","","","NO","YES","NO","Neutral","","","","","1"
 11,11,1,1,1,2000,5,0,0,0,0,1,"npc_pilgrim_tomb","무명비","","","","","","","PILGRIM313_SQ_02_NPC","","","NO","YES","NO","Neutral","","","","","1"
 13,13,1,40,1,60000,1,0,0,0,0,1,"npc_rokas_3","음산한 봉인장치","","","","","","","PILGRIM313_SQ_06_NPC","","","NO","YES","NO","Neutral","","","","",""
@@ -18,3 +18,4 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,U
 23,23,0,40,30,60000,20,0,0,0,0,0,"Sec_Popolion_Orange","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","","0"
 24,24,0,40,30,60000,30,0,0,0,0,0,"Sec_Spion_mage","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","","0"
 25,25,0,40,30,60000,35,0,0,0,0,0,"Sec_Templeslave_mage","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","","0"
+26,26,0,30,150,30000,8,0,0,0,0,1,"rootcrystal_01","나무뿌리 수정","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","","","0"

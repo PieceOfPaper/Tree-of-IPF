@@ -15,7 +15,7 @@ function ITEM_BALLOON_CLEAR(handle)
 	end
 end
 
-function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, msgText)
+function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, skinName, msgText)
 -- ?????? ?????? ??? ??? ???? ?????
   if world.GetLayer() ~= 0 then
 		return 0;
@@ -55,8 +55,8 @@ function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, m
 		itemcontainer:RemoveAllChild();
 	end
 
-	local ctrlSetWidth = ui.GetControlSetAttribute("reward_itembox", 'width');
-	local ctrlSetHeight = ui.GetControlSetAttribute("reward_itembox", 'height');
+	local ctrlSetWidth = ui.GetControlSetAttribute(skinName, 'width');
+	local ctrlSetHeight = ui.GetControlSetAttribute(skinName, 'height');
 	local cnt = itemcontainer:GetChildCount();
 	
 	local heightCnt = 0;
@@ -73,7 +73,7 @@ function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, m
 	end
 
 	descText:SetText(msgText);
-	local ctrlSet = itemcontainer:CreateControlSet('reward_itembox', "BOX_" .. cnt, widthCnt * ctrlSetWidth, descText:GetHeight() + ctrlSetHeight * heightCnt);
+	local ctrlSet = itemcontainer:CreateControlSet(skinName, "BOX_" .. cnt, widthCnt * ctrlSetWidth, descText:GetHeight() + ctrlSetHeight * heightCnt);
 	local slot = GET_CHILD(ctrlSet, "slot", "ui::CSlot");
 	local itemSlot = GET_CHILD(ctrlSet, "itemslot", "ui::CSlot");
 	local itemtext = GET_CHILD(ctrlSet, "itemtext", "ui::CRichText");	
@@ -111,7 +111,7 @@ function REWARD_ITEM_BALLOON(handle, rewardList)
 
 	local itemcontainer = frame:GetChild("itemcontainer");
 	itemcontainer:RemoveAllChild();
-	local ctrlSetWidth = ui.GetControlSetAttribute("reward_itembox", 'width');
+	local ctrlSetWidth = ui.GetControlSetAttribute(skinName, 'width');
 
 	for i = 0 , rewardList:size() - 1 do
 		local rItem = rewardList:at(i);

@@ -1,7 +1,9 @@
 function CHATFRAME_ON_INIT(addon, frame)
 
 	addon:RegisterMsg("ON_GROUP_CHAT_LAST_TEN", "CHAT_LAST_TEN_UPDATED");
-	addon:RegisterMsg("GROUP_CHAT_RECEIVED", "CHAT_ON_GAME_START");
+	addon:RegisterMsg("GROUP_CHAT_RECEIVED", "ON_GROUP_CHAT_RECEIVED");
+	addon:RegisterMsg("GAME_START", "ON_GAME_START");
+
 	CHAT_GROUPBOX_ALL_HIDE(frame)
 	local total = GET_CHILD(frame, 'chat_total', 'ui::CGroupBox')
 	total:ShowWindow(1)
@@ -13,8 +15,14 @@ function CHATFRAME_ON_INIT(addon, frame)
 	
 
 end
+
+function ON_GAME_START(frame)
+	
+	frame:Resize(config.GetXMLConfig("ChatFrameSizeWidth"),config.GetXMLConfig("ChatFrameSizeHeight"))
+	frame:Invalidate()
+end
  
- function CHAT_ON_GAME_START(frame)
+ function ON_GROUP_CHAT_RECEIVED(frame)
 
 	if frame:GetUserIValue("REFRESH") == 1 then
 		return;
@@ -40,6 +48,13 @@ end
 
 function CHAT_LAST_TEN_ON_BTN_UP()
 	ui.GetGroupChatLastTen();
+end
+
+function CHATFRAME_RESIZE(frame)
+	
+	config.ChangeXMLConfig("ChatFrameSizeWidth", frame:GetWidth()); 
+	config.ChangeXMLConfig("ChatFrameSizeHeight", frame:GetHeight()); 
+
 end
 
 function CHAT_FRAME_NOW_BTN_SKN(type)

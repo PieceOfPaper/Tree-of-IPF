@@ -25,6 +25,8 @@ function SHOW_MEMBER_RECOMMEND(cid, recommendType)
 
 	local otherpcinfo = session.otherPC.GetByStrCID(cid);
 
+	local mapUIName = GetClassByType("Map", otherpcinfo.mapID).Name;
+
 	local imagename = nil
 	imagename = ui.CaptureSomeonesFullStdImage(otherpcinfo:GetAppearance())	
 	local charImage = GET_CHILD_RECURSIVELY(popupframe,"shihouette");
@@ -39,6 +41,11 @@ function SHOW_MEMBER_RECOMMEND(cid, recommendType)
 	local cnametext = GET_CHILD_RECURSIVELY(popupframe,"cname")
 	local cname		= otherpcinfo:GetAppearance():GetName()
 	cnametext:SetText(cname);
+
+	local mapch = GET_CHILD_RECURSIVELY(popupframe,"mapch")
+	mapch:SetTextByKey("map",mapUIName);
+	mapch:SetTextByKey("ch",otherpcinfo.channel+1);
+	
 
 	local lvtext = GET_CHILD_RECURSIVELY(popupframe,"lv")
 	local lv		= otherpcinfo:GetAppearance():GetLv()
@@ -74,10 +81,13 @@ function SHOW_MEMBER_RECOMMEND(cid, recommendType)
 		local btn = GET_CHILD_RECURSIVELY(popupframe, "invite")
 		btn:SetText(ScpArgMsg("JustReqOK"))
 	end
-
-
+	
 	local charname = GET_CHILD_RECURSIVELY(frame,"name")
-	charname:SetText(fname);
+	charname:SetTextByKey("name",fname);
+
+	local mapch2 = GET_CHILD_RECURSIVELY(frame,"mapch")
+	mapch2:SetTextByKey("map",mapUIName);
+	mapch2:SetTextByKey("ch",otherpcinfo.channel+1);
 
 	local charImage_nonpopup = GET_CHILD_RECURSIVELY(frame,"shihouette");
 	if charImage_nonpopup ~= nil then

@@ -9,8 +9,7 @@ function DO_REMAIN_LOGOUTPC(isWillRemain)
 	local type = logoutinfoframe:GetUserValue("LOGOUT_TYPE")
 
 	if isWillRemain == true then
-		local accountObj = GetMyAccountObj();
-		if GET_DPC_REMAIN_PC_PRICE() > accountObj.Medal then
+		if GET_DPC_REMAIN_PC_PRICE() > GET_CASH_POINT_C() then
 			ui.SysMsg(ScpArgMsg("NotEnoughMedal"));
 			return
 		end

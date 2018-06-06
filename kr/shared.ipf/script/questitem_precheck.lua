@@ -964,15 +964,16 @@ function SCR_PRE_JOB_ROGUE4_1_ITEM(self, argstring, argnum1, argnum2)
     if result == 'PROGRESS' then
         if GetLayer(self) ~= 0  then
     	    if GetZoneName(self) == 'f_katyn_7' then
-            local fndList, fndCnt = SelectObject(self, 80, 'ENEMY')
-            local i
-            for i = 1, fndCnt do
-                if fndList[i].Faction == 'Monster' then
-                    if fndList[i].MonRank == 'Normal' or fndList[i].MonRank == 'Material' then
-        		        return GetHandle(fndList[i])
-        		    end
-                end
-            end
+--                local fndList, fndCnt = SelectObject(self, 80, 'ENEMY')
+--                local i
+--                for i = 1, fndCnt do
+--                    if fndList[i].Faction == 'Monster' then
+--                        if fndList[i].MonRank == 'Normal' or fndList[i].MonRank == 'Material' then
+--            		        return GetHandle(fndList[i])
+--            		    end
+--                    end
+--                end
+                return 1;
             end
         end
     end
@@ -4142,7 +4143,7 @@ function SCR_PRE_BRACKEN632_SQ2_ITEM01(self, argstring, argnum1, argnum2)
                 local i 
                 if fndCnt > 0 then
                 for i = 1, fndCnt do
-                    if fndList[i].ClassName == 'siauliai_grass_2' then
+                        if fndList[i].ClassName == 'siauliai_grass_1' then
                         return GetHandle(fndList[i])
                     end
                 end
@@ -4365,6 +4366,7 @@ function SCR_PRE_F_3CMLAKE_83_MQ_ITEM1(self, argObj, argstring, arg1, arg2)
                 local i
                 if cnt ~= 0 then
                     for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
                         if list[i].Faction == 'Monster' then
                     return 1
                 end
@@ -4373,6 +4375,8 @@ function SCR_PRE_F_3CMLAKE_83_MQ_ITEM1(self, argObj, argstring, arg1, arg2)
     end
 end
     end
+end
+    return 0
 end
 
 --CASTLE65_1_MQ02_ITEM
@@ -4553,4 +4557,115 @@ function SCR_PRE_ABBAY643_SQ3_ITEM2(self, argObj, argstring, arg1, arg2)
         end
     end
     return 0;
+end
+
+--GIMMICK_TRANSFORM_POPOLION
+function SCR_PRE_GIMMICK_TRANSFORM_POPOLION(self, argstring, argnum1, argnum2)
+    local zone = GetZoneName(self)
+    local city = GetClass("Map", zone)
+    if GetLayer(self) == 0 then 
+        if city.MapType == 'City' or zone == 'guild_agit_1' then
+            if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
+                return 1
+            end
+        else
+            SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg('GIMMICK_TRANSFORM_FAIL'), 10)
+        end
+    end
+    return 0
+end
+--GIMMICK_TRANSFORM_FERRET
+function SCR_PRE_GIMMICK_TRANSFORM_FERRET(self, argstring, argnum1, argnum2)
+    local zone = GetZoneName(self)
+    local city = GetClass("Map", zone)
+    if GetLayer(self) == 0 then 
+        if city.MapType == 'City' or zone == 'guild_agit_1' then
+            if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
+                return 1
+            end
+        else
+            SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg('GIMMICK_TRANSFORM_FAIL'), 10)
+        end
+    end
+    return 0
+end
+
+--GIMMICK_TRANSFORM_TINY
+function SCR_PRE_GIMMICK_TRANSFORM_TINY(self, argstring, argnum1, argnum2)
+    local zone = GetZoneName(self)
+    local city = GetClass("Map", zone)
+    if GetLayer(self) == 0 then 
+        if city.MapType == 'City' or zone == 'guild_agit_1' then
+            if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
+                return 1
+            end
+        else
+            SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg('GIMMICK_TRANSFORM_FAIL'), 10)
+        end
+    end
+    return 0
+end
+
+--GIMMICK_TRANSFORM_PHANTO
+function SCR_PRE_GIMMICK_TRANSFORM_PHANTO(self, argstring, argnum1, argnum2)
+    local zone = GetZoneName(self)
+    local city = GetClass("Map", zone)
+    if GetLayer(self) == 0 then 
+        if city.MapType == 'City' or zone == 'guild_agit_1' then
+            if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
+                return 1
+            end
+        else
+            SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg('GIMMICK_TRANSFORM_FAIL'), 10)
+        end
+    end
+    return 0
+end
+
+--GIMMICK_TRANSFORM_HONEY
+function SCR_PRE_GIMMICK_TRANSFORM_HONEY(self, argstring, argnum1, argnum2)
+    local zone = GetZoneName(self)
+    local city = GetClass("Map", zone)
+    if GetLayer(self) == 0 then 
+        if city.MapType == 'City' or zone == 'guild_agit_1' then
+            if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
+                return 1
+            end
+        else
+            SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg('GIMMICK_TRANSFORM_FAIL'), 10)
+        end
+    end
+    return 0
+end
+
+--GIMMICK_TRANSFORM_ONION
+function SCR_PRE_GIMMICK_TRANSFORM_ONION(self, argstring, argnum1, argnum2)
+    local zone = GetZoneName(self)
+    local city = GetClass("Map", zone)
+    if GetLayer(self) == 0 then 
+        if city.MapType == 'City' or zone == 'guild_agit_1' then
+            if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
+                return 1
+            end
+        else
+            SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg('GIMMICK_TRANSFORM_FAIL'), 10)
+        end
+    end
+    return 0
+end
+
+--GIMMICK_TRANSFORM_JUKOPUS
+function SCR_PRE_GIMMICK_TRANSFORM_JUKOPUS(self, argstring, argnum1, argnum2)
+    local zone = GetZoneName(self)
+    local city = GetClass("Map", zone)
+    if GetLayer(self) == 0 then 
+        if city.MapType == 'City' or zone == 'guild_agit_1' then
+            if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
+                return 1
+            end
+        else
+            SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg('GIMMICK_TRANSFORM_FAIL'), 10)
+        end
+    end
+    return 0
 end

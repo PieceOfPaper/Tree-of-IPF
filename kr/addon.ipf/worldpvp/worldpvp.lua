@@ -497,7 +497,7 @@ end
 
 function GET_CASH_POINT_C()
 	local aobj = GetMyAccountObj();
-	return aobj.Medal;
+	return aobj.Medal -- + aobj.GiftMedal + aobj.ReceiveGiftMedal;
 end
 
 function WORLDPVP_READY_STATE_CHANGE(state)

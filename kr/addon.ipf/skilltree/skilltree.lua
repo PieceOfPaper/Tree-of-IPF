@@ -792,6 +792,7 @@ function EXEC_COMMIT_SKILL()
 			isReq = 1;
 		end
 		ArgStr = string.format("%s %d", ArgStr, usedpts);
+		session.SetUserConfig("SKLUP_" .. cls.SkillName, 0);
 	end
 
 	if isReq == 1 then
@@ -928,19 +929,28 @@ end
 function UPDATE_LEARING_ABIL_INFO(frame)
 
 	local nowLearingGBox = GET_CHILD(frame, 'nowLearingGBox','ui::CGroupBox')
+	nowLearingGBox:ShowWindow(0);
 
 	local pc = GetMyPCObject();
-	if pc.LearnAbilityID > 0 then
-		nowLearingGBox:ShowWindow(1)
-		local abilClass = GetClassByType("Ability", pc.LearnAbilityID);
+	for i = 0, RUN_ABIL_MAX_COUNT do
+		local prop = "None";
+		if 0 == i then
+			prop = "LearnAbilityID";
+		else
+			prop = "LearnAbilityID_" ..i;
+		end
+		if pc[prop] ~= nil and pc[prop] > 0 then
+			nowLearingGBox:ShowWindow(1);
+			local ctr = nowLearingGBox:CreateOrGetControlSet("learing_abil_ctrl", "CTRLSET_" .. i, ui.LEFT, 0, 0, 0, 0, 0);
+			local abilClass = GetClassByType("Ability", pc[prop]);
 		if abilClass ~= nil then
 
-			local titlepicture = GET_CHILD(nowLearingGBox, 'learningAbilPic','ui::CPicture')
+				local titlepicture = GET_CHILD(ctr, 'learningAbilPic','ui::CPicture')
 
 			local iconname = abilClass.Icon;
 			titlepicture:SetImage(iconname);
 
-			local nowLearingRtxt = GET_CHILD(nowLearingGBox, 'nowLearing','ui::CRichText')
+				local nowLearingRtxt = GET_CHILD(ctr, 'nowLearing','ui::CRichText')
 
 			local jobClsList, jobCnt = GetClassList('Job');
 			for i=0, jobCnt-1 do
@@ -952,7 +962,7 @@ function UPDATE_LEARING_ABIL_INFO(frame)
 				if clslist ~= nil then
 					local foundabilcls = GetClassByNameFromList(clslist, abilClass.ClassName);
 					if foundabilcls ~= nil then
-						nowLearingRtxt:SetTextByKey('clsName',cls.Name)
+							ctr:SetTextByKey('clsName',cls.Name)
 					end
 				end
 			end
@@ -961,14 +971,20 @@ function UPDATE_LEARING_ABIL_INFO(frame)
 
 			if abilIES ~= nil then
 				local abilLv = abilIES.Level + 1;
-				nowLearingRtxt:SetTextByKey('level',abilLv)
+					ctr:SetTextByKey('level',abilLv)
 			end
 			
-			nowLearingRtxt:SetTextByKey('abilName',abilClass.Name)
+				ctr:SetTextByKey('abilName',abilClass.Name)
 
-			local remainTimeRtxt = GET_CHILD(nowLearingGBox, 'remainTime','ui::CRichText')
+				local remainTimeRtxt = GET_CHILD(ctr, 'remainTime','ui::CRichText')
 			local sysTime = geTime.GetServerSystemTime();
-			local learnAbilTime = imcTime.GetSysTimeByStr(pc.LearnAbilityTime);
+				local propTime = "None";
+				if i == 0 then
+					propTime = "LearnAbilityTime";
+				else
+					propTime = "LearnAbilityTime_" ..i;
+				end
+				local learnAbilTime = imcTime.GetSysTimeByStr(pc[propTime]);
 			local difSec = imcTime.GetDifSec(learnAbilTime, sysTime);
 			local min = math.floor(difSec / 60);
 
@@ -988,10 +1004,19 @@ function UPDATE_LEARING_ABIL_INFO(frame)
 
 		end
 	else	
-		nowLearingGBox:ShowWindow(0)
+			local ctr = nowLearingGBox:GetChild("CTRLSET_" .. i);
+			if nil ~= ctr then
+				nowLearingGBox:RemoveChild("CTRLSET_" .. i);
+			end
+		end
 	end
 
+	GBOX_AUTO_ALIGN(nowLearingGBox, 10, 0, 10, true, true);
 
+	local skilltreegbox = GET_CHILD_RECURSIVELY(frame,'skilltree_pip')
+	local destHeight = nowLearingGBox:GetY() - skilltreegbox:GetY();
+	skilltreegbox:Resize(skilltreegbox:GetWidth(), destHeight);
+	
 end
 
 

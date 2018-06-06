@@ -9,6 +9,7 @@
     <script OpenScp="SEQUENTIALPICKITEM_OPEN" CloseScp="SEQUENTIALPICKITEM_CLOSE"/>
     <animation frameOpenAnim="sequentialpickitem_open" frameCloseAnim="sequentialpickitem_close"/>
     <userconfig POPUP_DURATION="1.5" PUSHUP_ANIM_NAME="sequentialpickitem_pushup"/>
+	<layer layerlevel="90"/>
     <controls>
         <groupbox name="pickitem" rect="0 0 380 120" layout_gravity="left top" container="true" draw="false" image="jour_new_item" scrollbar="false"/>
     </controls>

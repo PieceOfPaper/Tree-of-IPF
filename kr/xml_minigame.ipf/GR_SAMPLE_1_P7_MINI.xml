@@ -3,9 +3,22 @@
     <Game Name="GR_SAMPLE_1_P7_MINI" minLv="0" maxLv="0" startWaitSec="0">
         <StageList>
             <Stage Name="SETTING">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
+                        <AbsPos X="-19.64146" Y="48.555763" Z="-177.00452" Random="30"/>
+                        <Num Num="6"/>
+                        <Num Num="1"/>
+                        <Num Num="0.5"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="채퍼리션이 부하들을 보내어 제단을 파괴하려 합니다!"/>
+                        <Str Str="!"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="147357" Pos="1516.68#48.43#-107.78" angle="-45" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;말다 제단&apos; &apos;Faction&apos; &apos;Law&apos; "/>
-                    <Obj Type="Monster" MonType="147357" Pos="-941.10#48.35#-108.08" angle="-45" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Name&apos; &apos;아우카 제단&apos; &apos;Faction&apos; &apos;Law&apos; "/>
+                    <Obj Type="Monster" MonType="147357" Pos="1516.68#48.43#-107.78" angle="-45" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;말다 제단&apos; &apos;Faction&apos; &apos;Law&apos; &apos;HPCount&apos; &apos;150&apos; "/>
+                    <Obj Type="Monster" MonType="147357" Pos="-941.10#48.35#-108.08" angle="-45" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Name&apos; &apos;아우카 제단&apos; &apos;Faction&apos; &apos;Law&apos; &apos;HPCount&apos; &apos;150&apos; "/>
                     <Obj Type="Monster" MonType="40072" Pos="-130.51#35.92#-208.22" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
                     <Obj Type="Monster" MonType="40072" Pos="69.67#35.92#-207.71" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
                     <Obj Type="Monster" MonType="40072" Pos="71.15#35.92#-60.22" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
@@ -141,13 +154,13 @@
             </Stage>
             <Stage Name="STAGE_1" AutoStart="0">
                 <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="300"/>
+                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
                         <Str Str="마족들로부터 아우카 제단을 보호하세요"/>
                         <Str Str="scroll"/>
                         <Num Num="5"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="300"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
                         <AbsPos X="-896.86249" Y="48.348972" Z="-112.12598"/>
@@ -277,13 +290,13 @@
             </Stage>
             <Stage Name="STAGE_2" AutoStart="0">
                 <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="300"/>
+                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
                         <Str Str="마족들로부터 말다 제단을 보호하세요"/>
                         <Str Str="scroll"/>
                         <Num Num="5"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="300"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
                         <AbsPos X="1485.2307" Y="48.434662" Z="-111.69113"/>

@@ -12,6 +12,11 @@ function ON_PVP_PLAYING_UPDATE(frame)
 		return;
 	end
 
+	if session.IsMissionMap() == true then
+		frame:ShowWindow(0);
+		return;
+	end
+
 	local partyCount = session.party.GetPartyCompetitionStates();
 	local cnt = session.worldPVP.GetPlayTypeCount();
 	local partySize = partyCount:size();

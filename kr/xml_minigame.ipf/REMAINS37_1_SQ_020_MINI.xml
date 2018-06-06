@@ -43,7 +43,7 @@
             </Stage>
             <Stage Name="2nd" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="57622" Pos="1369.05#274.28#-1061.32" genCount="1" genTime="20000" objectKey="0" tendency="1">
+                    <Obj Type="Monster" MonType="57622" Pos="1369.05#274.28#-1061.32" genCount="1" genTime="20000" objectKey="0" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -52,7 +52,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57622" Pos="1434.73#274.28#-1181.77" genCount="1" genTime="20000" objectKey="1" tendency="1">
+                    <Obj Type="Monster" MonType="57622" Pos="1434.73#274.28#-1181.77" genCount="1" genTime="20000" objectKey="1" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -65,7 +65,7 @@
             </Stage>
             <Stage Name="3rd" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="57620" Pos="1410.45#274.28#-1047.09" genCount="1" genTime="20000" objectKey="0" tendency="1">
+                    <Obj Type="Monster" MonType="57620" Pos="1410.45#274.28#-1047.09" genCount="1" genTime="20000" objectKey="0" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -74,7 +74,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57620" Pos="1404.26#274.28#-1178.32" genCount="1" genTime="20000" objectKey="1" tendency="1">
+                    <Obj Type="Monster" MonType="57620" Pos="1404.26#274.28#-1178.32" genCount="1" genTime="20000" objectKey="1" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -83,7 +83,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57620" Pos="1151.29#274.11#-1105.94" genCount="1" genTime="20000" objectKey="2" tendency="1">
+                    <Obj Type="Monster" MonType="57620" Pos="1151.29#274.11#-1105.94" genCount="1" genTime="20000" objectKey="2" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -92,7 +92,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57620" Pos="1331.65#274.28#-1105.59" genCount="1" genTime="20000" objectKey="3" tendency="1">
+                    <Obj Type="Monster" MonType="57620" Pos="1331.65#274.28#-1105.59" genCount="1" genTime="20000" objectKey="3" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -101,7 +101,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57620" Pos="1239.72#274.21#-1163.82" genCount="1" genTime="20000" objectKey="4" tendency="1">
+                    <Obj Type="Monster" MonType="57620" Pos="1239.72#274.21#-1163.82" genCount="1" genTime="20000" objectKey="4" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">

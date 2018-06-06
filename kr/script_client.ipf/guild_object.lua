@@ -19,12 +19,8 @@ function GUILD_ITEM_OBJECT(actor, isSelect)
 		
 		local frame = ui.GetFrame("plantwater");
 		local pic = GET_CHILD(frame, "pic");
-		if objType == "Plant" then		
-			pic:SetImage("icon_item_wateringcan");
-		else
-			pic:SetImage("icon_item_meat_01");
-		end
-
+		pic:SetImage(seedCls.GaugeIcon);
+		
 		WATER_VALUE_FRAME_UPDATE(frame, obj);
 		frame:SetUserValue("GUID", guid);
 		frame:ShowWindow(1);
@@ -47,11 +43,9 @@ function GUILD_ITEM_OBJECT(actor, isSelect)
 		local seedCls = GetClass("Seed", clsName);
 		local objType = seedCls.ObjType;
 
-		if objType == "Plant" then
+		---if objType == "Plant" then
 			ui.CloseFrame("plantwater");
-		else
-
-		end
+		--end
 
 	end
 

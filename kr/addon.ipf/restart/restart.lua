@@ -3,7 +3,6 @@ function RESTART_ON_INIT(addon, frame)
 	addon:RegisterMsg('RESTARTSELECT_UP', 'RESTART_ON_MSG');
 	addon:RegisterMsg('RESTARTSELECT_DOWN', 'RESTART_ON_MSG');
 	addon:RegisterMsg('RESTARTSELECT_SELECT', 'RESTART_ON_MSG');
-	addon:RegisterMsg('SET_RESTART_NEED_MEDAL', 'RESTART_ON_MSG');
 end
 
 function RESTART_ON_RESSURECT_SAVE_POINT(frame)
@@ -12,7 +11,13 @@ function RESTART_ON_RESSURECT_SAVE_POINT(frame)
 end
 
 function RESTART_ON_RESSURECT_HERE(frame)
+	local cristal = GetClass("Item", "RestartCristal");
+	local item = session.GetInvItemByName(cristal.ClassName);
+	if item == nil then
+		ui.SysMsg(ScpArgMsg("NotEnough{ItemName}Item","ItemName", cristal.Name));
+		return;
 
+	end
 	restart.SendRestartHereMsg();
 end
 
@@ -173,11 +178,6 @@ function RESTART_ON_MSG(frame, msg, argStr, argNum)
 		local scp = ItemBtn:GetEventScript(ui.LBUTTONUP);
 		scp = _G[scp];
 		scp(frame, ItemBtn);
-
-	elseif msg == 'SET_RESTART_NEED_MEDAL' then
-
-		local hereBtn = frame:GetChild("restart2btn");
-  		hereBtn:SetTextByKey("{@st41b}Medal", 1);
 	end
 end
 

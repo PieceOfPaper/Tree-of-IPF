@@ -296,7 +296,6 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 		icon:SetEnableUpdateScp('ICON_UPDATE_SKILL_ENABLE');
 		icon:SetColorTone("FFFFFFFF");
 		icon:ClearText();
-
 		quickSlot.OnSetSkillIcon(slot, type);
 	elseif category == 'Item' then
 		local itemIES = GetClassByType('Item', type);
@@ -330,9 +329,11 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 					icon:SetColorTone("FFFF0000");
 				end
 
-				if itemIES.MaxStack > 1 then
+				if itemIES.MaxStack > 1 or itemIES.GroupName == "Material" then
 					icon:SetText(invenItemInfo.count, 'quickiconfont', 'right', 'bottom', -2, 1);
+					icon:SetColorTone("FFFFFFFF");
 				end
+
 				tolua.cast(icon, "ui::CIcon");
 				local iconInfo = icon:GetInfo();
 				iconInfo.count = invenItemInfo.count;
@@ -652,7 +653,6 @@ function QUICKSLOTNEXPBAR_SETICON(slot, icon, makeLog, sendSavePacket)
 end
 
 function CLEAR_QUICKSLOT_SLOT(slot, makeLog, sendSavePacket)
-
 	slot:ReleaseBlink();
 	slot:ClearIcon();
 	local sendPacket = 1;

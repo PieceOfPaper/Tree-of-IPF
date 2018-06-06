@@ -52,6 +52,7 @@ function JOURNAL_ON_INIT(addon, frame)
 
 		end
 	end
+
 	packet.ReqWikiRecipeUpdate();
 end
 
@@ -197,26 +198,33 @@ end
 function JOURNAL_UPDATE_ADD(frame, wikiID)
 	local wiki = session.GetWiki(wikiID);
 	local cls = GetIES(wiki:GetWikiObject());
-	local category = cls.Category;
+	local clsCate = cls.Category;
 
 	local bg = GET_CHILD(frame, "bg", "ui::CGroupBox");
 	local grid = GET_CHILD(frame, "article", "ui::CGrid");
 
-	if category == "Map" then
+	if clsCate == "Map" then
 		CREATE_JOURNAL_ARTICLE_MAP(frame, grid, 'Map', ScpArgMsg('Auto_MaepTamHeom'), 'journal_map_icon', 'JOURNAL_OPEN_MAP_ARTICLE');
-	elseif category == "Recipe" then
+		return;
+	elseif clsCate == "Recipe" then
 		CREATE_JOURNAL_ARTICLE_CRAFT(frame, grid, 'Recipe', ScpArgMsg('Auto_JeJag'), 'journal_craet_icon', 'JOURNAL_OPEN_CRAFT_ARTICLE');
 		JOURNAL_OPEN_CRAFT_ARTICLE(frame);
-	else
-
-		local wikiCls = GetClassByType("Wiki", wikiID);
-		local category = wikiCls.Category;
-		local group = GET_CHILD(frame, category, 'ui::CGroupBox');
-		JOURNAL_UPDATE_SCORE(frame, group, category);
-		JOURNAL_UPDATE_LIST_RENEW(group, wikiID);
-
+		return;
 	end
+	local wikiCls = GetClassByType("Wiki", wikiID);
+	local category = wikiCls.Category;
+	local group = GET_CHILD(frame, category, 'ui::CGroupBox');
+	JOURNAL_UPDATE_SCORE(frame, group, category);
 
+	if clsCate == "Item" or clsCate == "Monster" then
+		local monsterGroup = GET_CHILD(frame, clsCate, 'ui::CGroupBox')
+		local ctrlset = monsterGroup:GetChild("ctrlset");
+		if nil ~= ctrlset then
+			JOURNAL_DETAIL_LIST_RENEW(ctrlset, clsCate, "GroupName", "All", "ClassType" ,"All");
+		end
+	else
+		JOURNAL_UPDATE_LIST_RENEW(group, wikiID);
+	end
 end
 
 function SET_JOURNAL_RANK_TYPE(frame, typeName)

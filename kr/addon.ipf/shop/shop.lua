@@ -1140,11 +1140,11 @@ function CONTEXT_SOLD_ITEM(frame, slot, str, num)
 
 	local context = ui.CreateContextMenu("SOLD_ITEM_CONTEXT", "{@st41}".. GET_FULL_NAME(obj).. "{@st42b}..",0, 0, 100, 100);
 	local strScp = string.format("SHOP_REQ_CANCEL_SELL(%d)", num);
-	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}JaeMaeip"), strScp);
+--	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}JaeMaeip"), strScp);
 	strScp = string.format("SHOP_REQ_DELETE_SOLDITEM(%d)", num);
-	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}yeongKuJeKeo"), strScp);
-	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}ChwiSo"), "SHOP_SOLDED_CANCEL");
-	ui.OpenContextMenu(context);
+--	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}yeongKuJeKeo"), strScp);
+--	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}ChwiSo"), "SHOP_SOLDED_CANCEL");
+--	ui.OpenContextMenu(context);
 end
 function SHOP_SOLDED_CANCEL()
 	imcSound.PlaySoundEvent("button_click");

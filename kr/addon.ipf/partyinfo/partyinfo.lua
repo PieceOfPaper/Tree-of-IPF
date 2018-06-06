@@ -221,6 +221,7 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		iamLeader = true;
 	end
 
+	local myInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, myAid);	
 	local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, aid);	
 	local context = ui.CreateContextMenu("CONTEXT_PARTY", "", 0, 0, 170, 100);
 
@@ -236,7 +237,9 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		ui.AddContextMenuItem(context, ScpArgMsg("ShowInfomation"), string.format("OPEN_PARTY_MEMBER_INFO(\"%s\")", memberInfo:GetName()));	
 		ui.AddContextMenuItem(context, ScpArgMsg("GiveLeaderPermission"), string.format("GIVE_PARTY_LEADER(\"%s\")", memberInfo:GetName()));	
 		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("BAN_PARTY_MEMBER(\"%s\")", memberInfo:GetName()));	
-
+		if myInfo:GetMapID() == memberInfo:GetMapID() and memberInfo.isAlchmist == 1 then
+			ui.AddContextMenuItem(context, ScpArgMsg("RequestItemDungeon"), string.format("Alchemist.RequestItemDungeon('%s')", memberInfo:GetName()));	
+		end
 	else
 		-- 3. 파티원이 파티원 우클릭
 		-- 대화하기. 세부 정보 보기.
@@ -244,7 +247,9 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", memberInfo:GetName());
 		ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
 		ui.AddContextMenuItem(context, ScpArgMsg("ShowInfomation"), string.format("OPEN_PARTY_MEMBER_INFO(\"%s\")", memberInfo:GetName()));	
-		
+		if myInfo:GetMapID() == memberInfo:GetMapID() and memberInfo.isAlchmist == 1 then
+			ui.AddContextMenuItem(context, ScpArgMsg("RequestItemDungeon"), string.format("Alchemist.RequestItemDungeon('%s')",memberInfo:GetName()));	
+		end
 	end
 	
 	ui.AddContextMenuItem(context, ScpArgMsg("Cancel"), "None");

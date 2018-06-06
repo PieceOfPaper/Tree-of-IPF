@@ -80,38 +80,4 @@ function CHARBASEINFO_EXCHANGE()
     ui.ToggleFrame('charbaseinfo1name')
 end
 
-function CHARBSEINFO_UPDATE(frame, hppercent, sppercent)
-	frame = tolua.cast(frame, "ui::CObject");
-	
-	local hp = GET_CHILD(frame, "pcHpGauge", "ui::CGauge");
-	local sp = GET_CHILD(frame, "pcSpGauge", "ui::CGauge");
-	local otherhp = GET_CHILD(frame, "OtherpcHpGauge", "ui::CGauge");
-	local othersp = GET_CHILD(frame, "OtherpcSpGauge", "ui::CGauge");
 
-	local bgl = GET_CHILD(frame, "pcinfo_bg_L", "ui::CGauge");
-	local bgr = GET_CHILD(frame, "pcinfo_bg_R", "ui::CGauge");
-	local otherbgl = GET_CHILD(frame, "Otherpcinfo_bg_L", "ui::CGauge");
-	local otherbgr = GET_CHILD(frame, "Otherpcinfo_bg_R", "ui::CGauge");
-
-	otherhp:SetPoint(hppercent * 100, 100);
-	othersp:SetPoint(sppercent * 100, 100);
-		
-	if hp ~= nil and otherhp ~= nil then
-		hp:ShowWindow(0)
-		otherhp:ShowWindow(1)
-	end
-	if sp ~= nil and othersp ~= nil then
-		sp:ShowWindow(0)
-		othersp:ShowWindow(1)
-	end
-
-	if bgl ~= nil and otherbgl ~= nil then
-		bgl:ShowWindow(0)
-		otherbgl:ShowWindow(1)
-	end
-	if bgr ~= nil and otherbgr ~= nil then
-		bgr:ShowWindow(0)
-		otherbgr:ShowWindow(1)
-	end
-	
-end

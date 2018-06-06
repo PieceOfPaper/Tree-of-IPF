@@ -783,7 +783,7 @@ function SCR_Get_KDArmorType(self)
 	local armor = 0;
 
 	if jobObj.CtrlType == 'Warrior' then 
-    	armor = 2;
+    	armor = 1;
     
     elseif jobObj.CtrlType == 'Wizard' then 
     	armor = 0;

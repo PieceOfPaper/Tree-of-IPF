@@ -87,7 +87,7 @@ function RECV_SNS_PC_GAME_INFO()
 			sns_name_text:SetColorTone("FF666666");			
 		end
 
-		UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, info, false);
+		UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, -1, info, false);
 	end
 
 	ALIGN_SNS_FRIENDS(facebook, SNS_FACEBOOK);

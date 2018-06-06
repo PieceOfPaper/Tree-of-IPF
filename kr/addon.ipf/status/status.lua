@@ -14,6 +14,7 @@ function STATUS_ON_INIT(addon, frame)
 	addon:RegisterMsg("MYPC_CHANGE_SHAPE", "ACHIEVE_RESET");
 	addon:RegisterMsg("JOB_CHANGE", "STATUS_JOB_CHANGE");
 	addon:RegisterMsg("LIKEIT_WHO_LIKE_ME", "STATUS_INFO");
+	addon:RegisterMsg("TOKEN_STATE", "TOKEN_ON_MSG");
 	
 	
 	
@@ -32,6 +33,70 @@ function STATUS_ON_GAME_START(frame)
 	STATUS_ON_PC_COMMENT_CHANGE(frame);
 	STATUS_JOB_CHANGE(frame);
 
+end
+
+function SHOW_TOKEN_REMAIN_TIME(ctrl)
+	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
+	local startSec = ctrl:GetUserIValue("REMAINSEC");
+	startSec = startSec - elapsedSec;
+	local timeTxt = GET_TIME_TXT(startSec);
+	ctrl:SetTextByKey("value", "{@st42}" .. timeTxt);
+	return 1;
+end
+
+function TOKEN_ON_MSG(frame, msg, argStr, argNum)
+
+	local logoutGBox = frame:GetChild("logoutGBox");
+	local logoutInternal = logoutGBox:GetChild("logoutInternal");
+	
+	local time = logoutInternal:GetChild("time");
+	local accountObj = GetMyAccountObj();
+	if accountObj.TokenTime ~= "None " then
+		local sysTime = geTime.GetServerSystemTime();
+		local endTime = imcTime.GetSysTimeByStr(accountObj.TokenTime);
+		local difSec = imcTime.GetDifSec(endTime, sysTime);
+		time:SetUserValue("REMAINSEC", difSec);
+		time:SetUserValue("STARTSEC", imcTime.GetAppTime());
+		SHOW_TOKEN_REMAIN_TIME(time);
+		time:RunUpdateScript("SHOW_TOKEN_REMAIN_TIME");
+	else
+		time:SetUserValue("REMAINSEC", 0);
+		time:SetUserValue("STARTSEC", 0);
+		time:StopUpdateScript("SHOW_TOKEN_REMAIN_TIME");
+		time:SetTextByKey("value", "");
+	end
+	
+	if argNum ~= ITEM_TOKEN then
+		return;
+	end
+
+	local tokenList = logoutInternal:GetChild("tokenList");
+	for i = 0 , 4 do
+		local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local str = GetCashTypeStr(ITEM_TOKEN, i)
+		local prop = ctrlSet:GetChild("prop");
+		prop:SetTextByKey("value", ClMsg(str)); 
+
+		local normal = GetCashValue(0, str) 
+		local value = GetCashValue(ITEM_TOKEN, str)
+		local txt = "None"
+		if str == "marketSellCom" then
+			normal = normal + 0.01;
+			value = value + 0.01;
+			txt = math.floor(normal*100).. "% ->".. math.floor(value*100) .."%";
+		elseif str == "marketUpCom" then
+			txt = math.floor(normal*100).. "% ->".. math.floor(value*100) .."%";
+		elseif str =="abilityMax"then
+			txt = normal.. " -> +"..value;
+		else
+			txt = normal..ClMsg("Piece").." ->"..value .. ClMsg("Piece");
+		end
+
+		local value = ctrlSet:GetChild("value");
+		value:SetTextByKey("value", txt); 
+	end
+
+	GBOX_AUTO_ALIGN(tokenList, 0, 10, 0, true, false);
 end
 
 function STATUS_ON_PC_COMMENT_CHANGE(frame)
@@ -1129,6 +1194,24 @@ function EXEC_CHANGE_NAME(inputframe, ctrl)
 		return;
 	end
 
+	local str = ScpArgMsg('{TP}ReqChangeFamilyName', "TP", CHANGE_CAHR_NAME_TP);
+	if nil == str then
+		return;
+	end
+	
+	local yesScp = string.format("CHANGE_NAME_SETTING_CHECK_TP(\"%s\")", changedName);
+	ui.MsgBox(str, yesScp, "None");
+
+	
+end
+
+function CHANGE_NAME_SETTING_CHECK_TP(changedName)
+	local accountObj = GetMyAccountObj();
+	if 0 > GET_CASH_POINT_C() - CHANGE_CAHR_NAME_TP then
+		ui.MsgBox(ClMsg("NotEnoughMedal"));
+		return;
+	end
+
 	if ui.IsValidCharacterName(changedName) == true then
 		local msg = string.format("/name %s", changedName);
 		ui.Chat(msg);
@@ -1332,6 +1415,9 @@ function STATUS_ACHIEVE_INIT(frame)
 	local Selectclasslist = Selectclass:GetSubClassList();
 
 	local nowhaircls = Selectclasslist:GetByIndex(nowheadindex-1);
+	if nil == nowhaircls then
+		return;
+	end
 	local nowengname = imcIES.GetString(nowhaircls, 'EngName') 
 	local nowcolor = imcIES.GetString(nowhaircls, 'ColorE')
 	nowcolor = string.lower(nowcolor)

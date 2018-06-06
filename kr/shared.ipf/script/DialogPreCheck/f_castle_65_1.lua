@@ -66,15 +66,7 @@ function SCR_CASTLE651_MQ_05_3_PRE_DIALOG(pc, dialog)
     return 'NO'
 end
 
-function SCR_CASTLE651_SQ_02_1_PRE_DIALOG(pc, dialog)
-    local result = SCR_QUEST_CHECK(pc, 'CASTLE65_1_SQ02')
-    if result == 'PROGRESS' then
-        return 'YES'
-    end
-    return 'NO'
-end
-
-function SCR_CASTLE651_SQ_02_2_PRE_DIALOG(pc, dialog)
+function SCR_CASTLE651_SQ_02_PRE_DIALOG(pc, dialog)
     local result = SCR_QUEST_CHECK(pc, 'CASTLE65_1_SQ02')
     if result == 'PROGRESS' then
         return 'YES'

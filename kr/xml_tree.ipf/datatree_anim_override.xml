@@ -2005,8 +2005,9 @@
 			<Node1 ClassID="1" ClassName="BORN" FileName="npc\wizdom&apos;s_owls\wizdom&apos;s_owls_std"/>
 			<Node1 ClassID="2" ClassName="STD" FileName="npc\wizdom&apos;s_owls\wizdom&apos;s_owls_std"/>
 			<Node1 ClassID="3" ClassName="DEAD" FileName="npc\wizdom&apos;s_owls\wizdom&apos;s_owls_DEAD"/>
-			<Node1 ClassID="3" ClassName="IDLE" FileName="npc\wizdom&apos;s_owls\wizdom&apos;s_owls_idle"/>
-			<Node1 ClassID="4" ClassName="SKL1" FileName="npc\wizdom&apos;s_owls\wizdom&apos;s_owls_skl1"/>
+			<Node1 ClassID="4" ClassName="IDLE" FileName="npc\wizdom&apos;s_owls\wizdom&apos;s_owls_idle"/>
+			<Node1 ClassID="5" ClassName="SKL1" FileName="npc\wizdom&apos;s_owls\wizdom&apos;s_owls_skl1"/>
+			<Node1 ClassID="6" ClassName="EVENT_HIT" FileName="npc\wizdom&apos;s_owls\wizdom&apos;s_owls_event_hit"/>
 		</Class>
 		<Class ClassID="48021" ClassName="f_katyn_owl01_fall">
 			<Node1 ClassID="1" ClassName="BORN" FileName="npc\f_katyn_owl_fall\f_katyn_owl01_fall_std"/>
@@ -3521,6 +3522,7 @@
 			<Node1 ClassID="1" ClassName="STD" FileName="npc\obleisk\obelisk_std"/>
 			<Node1 ClassID="2" ClassName="ON" FileName="npc\obleisk\obelisk_on"/>
 			<Node1 ClassID="3" ClassName="ON_RED" FileName="npc\obleisk\obelisk_on_red"/>
+			<Node1 ClassID="4" ClassName="DEAD" FileName="npc\obleisk\obelisk_dead"/>
 		</Class>
 		<Class ClassID="40165" ClassName="npc_Paladin_follower1">
 			<Node1 ClassID="1" ClassName="ARUN" FileName="npc\npc_Paladin_follower1\npc_paladin_follower1_arun"/>

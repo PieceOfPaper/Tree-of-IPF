@@ -204,7 +204,7 @@ function R_REWARD_ADD_CNT(frame)
 
 	local accountObj = GetMyAccountObj();
 	local info = session.reward.GetRewardInfo();
-	if accountObj.Medal < info.pickUpForMedal then
+	if GET_CASH_POINT_C() < info.pickUpForMedal then
 		ui.MsgBox(ClMsg("NotEnoughMedal"));
 		return;
 	end

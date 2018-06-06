@@ -8,7 +8,6 @@ function MONSTERBASEINFO_ON_INIT(addon, frame)
 	addon:RegisterMsg('TARGET_SET', 'ON_MONB_TARGET_SET');	
 	addon:RegisterMsg('UPDATE_SDR', 'MONSTERBASEINFO_ON_MSG');
 	addon:RegisterMsg('SHIELD_UPDATE', 'MONBASE_SHIELD_UPDATE');
-	addon:RegisterMsg('MSHIELD_UPDATE', 'MONBASE_MSHIELD_UPDATE');
 	addon:RegisterMsg('SHOW_TARGET_UI', 'ON_SHOW_TARGET_UI');
 	addon:RegisterMsg('MON_ENTER_SCENE', 'ON_MON_ENTER_SCENE');
 	addon:RegisterMsg('TARGET_COLORSET', 'ON_TARGET_COLORSET');	
@@ -35,11 +34,11 @@ function MONBASE_GAUGE_SET(frame, targetinfo)
 	
 	hpGauge:SetPoint(stat.HP, stat.maxHP);
 	frame:SetDuration(10);
-	if stat.maxShield == 0 then
+	if stat.shield == 0 then
 		shield:ShowWindow(0);
 	else
 		shield:Resize(gaugeWidth, 10);
-		shield:SetPoint(stat.shield, stat.maxShield);
+		shield:SetPoint(stat.shield, stat.maxHP);
 		shield:ShowWindow(1);
 	end		
 
@@ -183,16 +182,6 @@ end
 
 function MONBASE_SHIELD_UPDATE(msgFrame, msg, str, targetHandle)
 
-	local frame= ui.GetFrame("monb_"..targetHandle);
-	
-	if frame ~= nil then
-		local targetinfo = info.GetTargetInfo(targetHandle);
-		MONBASE_GAUGE_SET(frame, targetinfo);
-	end
-end
-
-
-function MONBASE_MSHIELD_UPDATE(msgFrame, msg, str, targetHandle)
 	local frame= ui.GetFrame("monb_"..targetHandle);
 	
 	if frame ~= nil then

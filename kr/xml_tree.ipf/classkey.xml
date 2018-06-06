@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <ClassKey>
     <KeyIDSpc Name="Party">
         <Key Name="UseLevelLimit" Value="0"/>
@@ -135,6 +135,7 @@
         <Key Name="Mon_Phase" Value="128"/>
         <Key Name="Hide_1312" Value="7758"/>
         <Key Name="Hide_1313" Value="7759"/>
+        <Key Name="IsPrivate" Value="9890"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Ability">
         <Key Name="Name" Value="129"/>
@@ -4416,8 +4417,7 @@
         <Key Name="TABLELAND70_COUNT_HIDENSEEK" Value="9356"/>
         <Key Name="TABLELAND_11_1_DEFENSE_COUNT" Value="9354"/>
         <Key Name="TABLELAND_11_1_DEFENSE_TIME" Value="9353"/>
-        <Key Name="Katyn_45_2_COUNT_NUMBER_BASEBALL" Value="9358"/>
-        <Key Name="Katyn_45_2_TIME_NUMBER_BASEBALL" Value="9357"/>
+        <Key Name="KATYN_45_2_COUNT_NUMBER_BASEBALL" Value="9358"/>
         <Key Name="KATYN_45_2_COUNT_DEFENSE" Value="9361"/>
         <Key Name="KATYN_45_2_COUNT_MONSTER_PAIR" Value="9366"/>
         <Key Name="KATYN_45_2_COUNT_NUMBER_MIXING" Value="9365"/>
@@ -4463,6 +4463,148 @@
         <Key Name="TUTO_2_ARCHER_TECH" Value="9541"/>
         <Key Name="GIMMICK_COUNT_9" Value="9567"/>
         <Key Name="GIMMICK_TIME_9" Value="9578"/>
+        <Key Name="KATYN_45_2_TIME_NUMBER_BASEBALL" Value="9357"/>
+        <Key Name="ABBEY_35_4_HOLE_TIME" Value="9601"/>
+        <Key Name="ABBEY_35_4_HOLE_COUNT" Value="9602"/>
+        <Key Name="TABLELAND_11_1_MONSTER_PAIR" Value="9613"/>
+        <Key Name="MG_Last_GR_VELNIAS_1_S4_MINI" Value="9648"/>
+        <Key Name="MG_Last_GR_VELNIAS_1_S8_MINI" Value="9647"/>
+        <Key Name="MG_Last_GR_CATHEDRAL_1_S1_MINI" Value="9665"/>
+        <Key Name="MG_Last_GR_KATYN_1_S3_MINI" Value="9651"/>
+        <Key Name="MG_Last_GR_FD_UNDER_1_S8_MINI" Value="9653"/>
+        <Key Name="MG_Last_GR_FD_UNDER_1_S4_MINI" Value="9652"/>
+        <Key Name="MG_Last_GR_CATHEDRAL_1_S7_MINI" Value="9646"/>
+        <Key Name="MG_Last_GR_VELNIAS_1_S3_MINI" Value="9656"/>
+        <Key Name="MG_Last_GR_VELNIAS_1_S7_MINI" Value="9655"/>
+        <Key Name="MG_Last_GR_CATHEDRAL_1_S4_MINI" Value="9638"/>
+        <Key Name="MG_Last_GR_KATYN_1_S6_MINI" Value="9658"/>
+        <Key Name="MG_Last_GR_KATYN_1_S2_MINI" Value="9659"/>
+        <Key Name="MG_Last_GR_FD_UNDER_1_S7_MINI" Value="9661"/>
+        <Key Name="MG_Last_GR_FD_UNDER_1_S3_MINI" Value="9660"/>
+        <Key Name="MG_Last_GR_KATYN_1_S8_MINI" Value="9641"/>
+        <Key Name="MG_Last_GR_VELNIAS_1_S2_MINI" Value="9664"/>
+        <Key Name="MG_Last_GR_VELNIAS_1_S6_MINI" Value="9663"/>
+        <Key Name="MG_Last_GR_CATHEDRAL_1_S5_MINI" Value="9662"/>
+        <Key Name="MG_Last_GR_CATHEDRAL_1_S3_MINI" Value="9649"/>
+        <Key Name="MG_Last_GR_KATYN_1_S5_MINI" Value="9666"/>
+        <Key Name="MG_Last_GR_KATYN_1_S1_MINI" Value="9637"/>
+        <Key Name="MG_Last_GR_FD_UNDER_1_S6_MINI" Value="9668"/>
+        <Key Name="MG_Last_GR_FD_UNDER_1_S2_MINI" Value="9667"/>
+        <Key Name="MG_Last_GR_KATYN_1_S7_MINI" Value="9650"/>
+        <Key Name="MG_Last_GR_VELNIAS_1_S5_MINI" Value="9639"/>
+        <Key Name="MG_Last_GR_VELNIAS_1_S1_MINI" Value="9640"/>
+        <Key Name="MG_Last_GR_CATHEDRAL_1_S6_MINI" Value="9654"/>
+        <Key Name="MG_Last_GR_CATHEDRAL_1_S2_MINI" Value="9657"/>
+        <Key Name="MG_Last_GR_KATYN_1_S4_MINI" Value="9642"/>
+        <Key Name="MG_Last_GR_FD_UNDER_1_S9_MINI" Value="9645"/>
+        <Key Name="MG_Last_GR_FD_UNDER_1_S5_MINI" Value="9644"/>
+        <Key Name="MG_Last_GR_FD_UNDER_1_S1_MINI" Value="9643"/>
+        <Key Name="MG_Last_test_1" Value="9621"/>
+        <Key Name="TABLELAND70_GIMMICK_TIME" Value="9690"/>
+        <Key Name="TABLELAND70_GIMMICK_COUNT" Value="9691"/>
+        <Key Name="KATYN_45_1_CHARGES_TIME" Value="9748"/>
+        <Key Name="KATYN_45_1_CHARGES_COUNT" Value="9749"/>
+        <Key Name="GIMMICK_COUNT_MANA_WAR_PILGRIM415" Value="9711"/>
+        <Key Name="GIMMICK_TIME_MANA_WAR_PILGRIM415" Value="9710"/>
+        <Key Name="PILGRIM41_5_COUNT_DELIVERY_CHARGES" Value="9707"/>
+        <Key Name="PILGRIM41_5_TIME_DELIVERY_CHARGES" Value="9706"/>
+        <Key Name="GIMMICK_COUNT_MANA_WAR_PILGRIM412" Value="9697"/>
+        <Key Name="GIMMICK_TIME_MANA_WAR_PILGRIM412" Value="9696"/>
+        <Key Name="PILGRIM41_1_COUNT_DELIVERY_CHARGES" Value="9693"/>
+        <Key Name="PILGRIM41_1_TIME_DELIVERY_CHARGES" Value="9692"/>
+        <Key Name="PILGRIM412_COUNT_BLACK_HOLE" Value="9699"/>
+        <Key Name="PILGRIM413_COUNT_HIDENSEEK" Value="9701"/>
+        <Key Name="PILGRIM41_3_CURLING_TIME" Value="9745"/>
+        <Key Name="PILGRIM414_NUMBER_MIXING_TIME" Value="9704"/>
+        <Key Name="PILGRIM41_5_DEFENSE_TIME" Value="9708"/>
+        <Key Name="PILGRIM41_1_NUMBER_MIXING_COUNT" Value="9695"/>
+        <Key Name="PILGRIM412_TIME_BLACK_HOLE" Value="9698"/>
+        <Key Name="PILGRIM413_TIME_HIDENSEEK" Value="9700"/>
+        <Key Name="PILGRIM413_COUNT_MONSTER_PAIR" Value="9703"/>
+        <Key Name="PILGRIM414_COUNT_HIDENSEEK" Value="9763"/>
+        <Key Name="PILGRIM41_4_CURLING2_COUNT" Value="9761"/>
+        <Key Name="KATYN_45_2_COUNT_BASEBALL" Value="9768"/>
+        <Key Name="PILGRIM41_1_NUMBER_MIXING_TIME" Value="9694"/>
+        <Key Name="PILGRIM41_1_CURLING_COUNT" Value="9719"/>
+        <Key Name="PILGRIM41_2_CURLING2_COUNT" Value="9731"/>
+        <Key Name="PILGRIM413_TIME_MONSTER_PAIR" Value="9702"/>
+        <Key Name="PILGRIM414_TIME_HIDENSEEK" Value="9762"/>
+        <Key Name="PILGRIM41_4_CURLING2_TIME" Value="9760"/>
+        <Key Name="KATYN_45_2_TIME_BASEBALL" Value="9767"/>
+        <Key Name="PILGRIM41_1_CURLING_TIME" Value="9718"/>
+        <Key Name="PILGRIM41_2_CURLING2_TIME" Value="9730"/>
+        <Key Name="PILGRIM413_MONSTER_PAIR" Value="9744"/>
+        <Key Name="PILGRIM41_3_CURLING_COUNT" Value="9746"/>
+        <Key Name="PILGRIM414_NUMBER_MIXING_COUNT" Value="9705"/>
+        <Key Name="PILGRIM41_5_DEFENSE_COUNT" Value="9709"/>
+        <Key Name="TABLE74_NUM_MIX_TIME" Value="9765"/>
+        <Key Name="WARP_D_UNDERFORTRESS_68_1" Value="9930"/>
+        <Key Name="COUNT_MANA_WAR_PILGRIM412" Value="9925"/>
+        <Key Name="TIME_MANA_WAR_PILGRIM415" Value="9920"/>
+        <Key Name="ABBEY41_6_DEFENSE_TIME" Value="9714"/>
+        <Key Name="TABLE74_NUM_MIX_COUNT" Value="9766"/>
+        <Key Name="PILGRIM41_1_TIME_DELIVERY" Value="9922"/>
+        <Key Name="COUNT_MANA_WAR_PILGRIM415" Value="9921"/>
+        <Key Name="ABBEY41_6_DEFENSE_COUNT" Value="9715"/>
+        <Key Name="WARP_D_CMINE_66_1" Value="9928"/>
+        <Key Name="PILGRIM41_5_TIME_DELIVERY" Value="9926"/>
+        <Key Name="GIMMICK_TIME_DICE_ABBEY41_6" Value="9712"/>
+        <Key Name="PILGRIM41_1_COUNT_DELIVERY" Value="9923"/>
+        <Key Name="TABLELAND73_TIME_MANA_WAR" Value="9764"/>
+        <Key Name="ABBEY416_TIME_BLACK_HOLE" Value="9716"/>
+        <Key Name="WARP_D_CASTLE_67_1" Value="9929"/>
+        <Key Name="TIME_MANA_WAR_PILGRIM412" Value="9924"/>
+        <Key Name="PILGRIM41_5_COUNT_DELIVERY" Value="9927"/>
+        <Key Name="GIMMICK_COUNT_DICE_ABBEY41_6" Value="9713"/>
+        <Key Name="ABBEY416_COUNT_BLACK_HOLE" Value="9717"/>
+        <Key Name="PRISON_79_COUNT_DEFENSE" Value="9799"/>
+        <Key Name="PRISON_79_COUNT_HIGH_LOW" Value="9821"/>
+        <Key Name="PRISON_80_COUNT_CURLING" Value="9842"/>
+        <Key Name="PRISON_81_COUNT_BLACK_HOLE" Value="9863"/>
+        <Key Name="PRISON_82_COUNT_MANA_WAR" Value="9884"/>
+        <Key Name="PRISON_82_TIME_DEFENSE" Value="9888"/>
+        <Key Name="ORCHARD_34_1_COUNT_BLACK_HOLE" Value="9771"/>
+        <Key Name="ORCHARD_34_1_TIME_HIGH_LOW" Value="9772"/>
+        <Key Name="PRISON_78_COUNT_BASEBALL" Value="9914"/>
+        <Key Name="PRISON_79_TIME_DEFENSE" Value="9802"/>
+        <Key Name="PRISON_79_TIME_HIGH_LOW" Value="9820"/>
+        <Key Name="PRISON_80_TIME_CURLING" Value="9841"/>
+        <Key Name="PRISON_81_TIME_BLACK_HOLE" Value="9862"/>
+        <Key Name="PRISON_82_TIME_MANA_WAR" Value="9883"/>
+        <Key Name="PRISON_82_PAIR_CHECK" Value="9919"/>
+        <Key Name="ORCHARD_34_1_TIME_BLACK_HOLE" Value="9770"/>
+        <Key Name="ORCHARD_34_1_PAIR_CHECK" Value="9912"/>
+        <Key Name="PRISON_78_TIME_BASEBALL" Value="9911"/>
+        <Key Name="PRISON_78_COUNT_MANA_WAR" Value="9781"/>
+        <Key Name="PRISON_79_COUNT_HIDENSEEK" Value="9801"/>
+        <Key Name="PRISON_80_COUNT_DELIVERY" Value="9918"/>
+        <Key Name="PRISON_80_COUNT_MIXING" Value="9844"/>
+        <Key Name="PRISON_81_COUNT_BASEBALL" Value="9917"/>
+        <Key Name="PRISON_82_COUNT_PAIR" Value="9886"/>
+        <Key Name="ORCHARD_34_1_COUNT_PAIR" Value="9775"/>
+        <Key Name="PRISON_78_TIME_KILL_COUNT" Value="9913"/>
+        <Key Name="PRISON_78_TIME_MANA_WAR" Value="9780"/>
+        <Key Name="PRISON_79_TIME_HIDENSEEK" Value="9800"/>
+        <Key Name="PRISON_80_TIME_DELIVERY" Value="9916"/>
+        <Key Name="PRISON_80_TIME_MIXING" Value="9843"/>
+        <Key Name="PRISON_81_TIME_BASEBALL" Value="9915"/>
+        <Key Name="PRISON_82_TIME_PAIR" Value="9885"/>
+        <Key Name="PRISON_82_COUNT_DEFENSE" Value="9889"/>
+        <Key Name="ORCHARD_34_1_TIME_PAIR" Value="9774"/>
+        <Key Name="ORCHARD_34_1_COUNT_HIGH_LOW" Value="9773"/>
+        <Key Name="MG_Last_abdf2d" Value="9776"/>
+        <Key Name="KATYN_45_1_DELIVERY_CHARGES_COUNT" Value="9733"/>
+        <Key Name="KATYN_45_1_DELIVERY_CHARGES_TIME" Value="9732"/>
+        <Key Name="ORCHARD_34_1_MOSTER_PAIR_CHECK" Value="9769"/>
+        <Key Name="PILGRIM413_MONSTER_PAIR_NT" Value="9747"/>
+        <Key Name="PRISON_78_COUNT_NUMBER_BASEBALL" Value="9779"/>
+        <Key Name="PRISON_78_TIME_KILL_COUNT_CHECK" Value="9777"/>
+        <Key Name="PRISON_78_TIME_NUMBER_BASEBALL" Value="9778"/>
+        <Key Name="PRISON_80_COUNT_DELIVERY_CHARGES" Value="9839"/>
+        <Key Name="PRISON_80_TIME_DELIVERY_CHARGES" Value="9840"/>
+        <Key Name="PRISON_81_COUNT_NUMBER_BASEBALL" Value="9865"/>
+        <Key Name="PRISON_81_TIME_NUMBER_BASEBALL" Value="9864"/>
+        <Key Name="PRISON_82_MOSTER_PAIR_CHECK" Value="9887"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="FromMission" Value="3907"/>
@@ -8071,6 +8213,25 @@
         <Key Name="Hide_1611" Value="9555"/>
         <Key Name="Hide_1612" Value="9566"/>
         <Key Name="Kill_F_boss_FerretMarauder" Value="9577"/>
+        <Key Name="Hide_1613" Value="9624"/>
+        <Key Name="Hide_1614" Value="9625"/>
+        <Key Name="Kill_boss_Abomination_J1" Value="9679"/>
+        <Key Name="Hide_1615" Value="9626"/>
+        <Key Name="LastWarpMapID" Value="9941"/>
+        <Key Name="Hide_1616" Value="9931"/>
+        <Key Name="Hide_1618" Value="9933"/>
+        <Key Name="Hide_1620" Value="9935"/>
+        <Key Name="Kill_F_boss_helgasercle" Value="9908"/>
+        <Key Name="Hide_1624" Value="9939"/>
+        <Key Name="Hide_1622" Value="9937"/>
+        <Key Name="Hide_1617" Value="9932"/>
+        <Key Name="Hide_1619" Value="9934"/>
+        <Key Name="Hide_1621" Value="9936"/>
+        <Key Name="Kill_F_boss_Marnoks" Value="9910"/>
+        <Key Name="Hide_1625" Value="9942"/>
+        <Key Name="Hide_1623" Value="9938"/>
+        <Key Name="Kill_F_boss_lecifer" Value="9909"/>
+        <Key Name="Kill_F_boss_mirtis" Value="9907"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Account">
         <Key Name="MaxPVPGrade" Value="6299"/>
@@ -9320,6 +9481,8 @@
         <Key Name="ADD_MHR" Value="8865"/>
         <Key Name="KeyWord" Value="9120"/>
         <Key Name="UseAbility" Value="9295"/>
+        <Key Name="KeyWord_2" Value="9742"/>
+        <Key Name="KeyWord_3" Value="9743"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Guild">
         <Key Name="MaxCount" Value="7691"/>
@@ -9362,6 +9525,10 @@
         <Key Name="GuildInDunID" Value="9494"/>
         <Key Name="GuildEventStartTime" Value="9502"/>
         <Key Name="GuildEventSeq" Value="9505"/>
+        <Key Name="BuildingLife_Academy" Value="9589"/>
+        <Key Name="BuildingLife_Forge" Value="9590"/>
+        <Key Name="RewardBidItemList" Value="9940"/>
+        <Key Name="RewardBidStartTime" Value="9943"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>

@@ -14,10 +14,65 @@ function BUFF_ON_INIT(addon, frame)
 	addon:RegisterMsg('BUFF_ADD', 'BUFF_ON_MSG');
 	addon:RegisterMsg('BUFF_REMOVE', 'BUFF_ON_MSG');
 	addon:RegisterMsg('BUFF_UPDATE', 'BUFF_ON_MSG');
+	addon:RegisterMsg('PREMIUM_STATE_UPDATE', 'BUFF_PREMIUM_ON_MSG');
 
 	INIT_BUFF_UI(frame, s_buff_ui, "MY_BUFF_TIME_UPDATE");
+	INIT_PREMIUM_BUFF_UI(frame);
+end
 
+function INIT_PREMIUM_BUFF_UI(frame)
+	local slotSet		= frame:GetChild('premium');
+	slotSet = tolua.cast(slotSet, 'ui::CSlotSet');
+	if slotSet == nil then
+		return;
+	end	
+	local count = slotSet:GetSlotCount();
+	for i = 0, count-1 do
+		local slot = slotSet:GetSlotByIndex(i);	
+		slot:ShowWindow(0);
+	end
 
+end
+function BUFF_PREMIUM_ON_MSG(frame, msg, argStr, argNum)
+	local slotSet		= frame:GetChild('premium');
+	slotSet = tolua.cast(slotSet, 'ui::CSlotSet');
+	if slotSet == nil then
+		return;
+	end	
+
+	if argStr == "NO" then
+		local count = slotSet:GetSlotCount();
+		for i = 0, count-1 do
+			local slot = slotSet:GetSlotByIndex(i);	
+			local type = slo:GetUserIValue("Type");
+			if type == argNum then
+				slot:ShowWindow(0);
+				return;
+			end
+		end
+	end
+
+	local count = slotSet:GetSlotCount();
+	for i = 0, count-1 do
+		local slot = slotSet:GetSlotByIndex(i);	
+		if 0 == slot:IsVisible() then
+			local icon 		= slot:GetIcon();
+			if nil == icon then
+				icon = CreateIcon(slot);
+			end
+			icon:SetDrawCoolTimeText(0);
+			slot:ShowWindow(1);
+			icon:SetTooltipType('premium');
+			icon:SetTooltipNumArg(argNum);
+			if argNum == ITEM_TOKEN then
+				icon:SetImage("icon_token");
+				return;
+			elseif argNum == NEXON_PC then
+				icon:SetImage("icon_nexonpc");
+				return;
+			end
+		end
+	end
 end
 
 function INIT_BUFF_UI(frame, buff_ui, updatescp)

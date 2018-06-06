@@ -59,6 +59,16 @@ function GET_TIME_TXT_TWO_FIGURES(sec)
 	
 end
 
+function GET_TIME_TXT_D(sec)
+
+	local d, h, m, s = GET_DHMS(sec);
+	if d > 0 then
+		return ScpArgMsg("{Day}","Day",d) .. " ";
+	end
+	return " ";
+	
+
+end
 function GET_TIME_TXT_DHM(sec)
 
 	local d, h, m, s = GET_DHMS(sec);

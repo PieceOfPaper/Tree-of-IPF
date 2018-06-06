@@ -16,8 +16,6 @@ function QUIT_ON_INIT(addon, frame)
 	addon:RegisterMsg('GOLEM_REVIVE', 'ON_GOLEM_REVIVE');
 	addon:RegisterMsg('MEDAL_RECEIVED', 'ON_MEDAL_RECEIVED');
 	addon:RegisterMsg('MEDAL_PRESENTED', 'ON_MEDAL_PRESENTED');
-
-	addon:RegisterMsg('FAIL_GIFTMEDAL', 'ON_FAIL_GIFTMEDAL');	
 end 
 
 function ON_EVENT_TIMER(frame, msg, str, sec)

@@ -31,7 +31,7 @@ end
 
 function REFRESH_ABILITYSHOP(frame, msg)
 
-	local frame = ui.GetFrame("abilityshop") -- ì²´í¬ë°•ìŠ¤?ì„œ???°ë™?´ì„œ ?°ë?ë¡?
+	local frame = ui.GetFrame("abilityshop") -- Ã¼Å©¹Ú½º¿¡¼­µµ ¿¬µ¿ÇØ¼­ ¾²¹Ç·Î
 	
 	local abilGroupName = frame:GetUserValue("ABIL_GROUP_NAME")
 
@@ -44,7 +44,7 @@ function REFRESH_ABILITYSHOP(frame, msg)
 	DESTROY_CHILD_BYNAME(gbox, 'ABILSHOP_');
 	local posY = 5;
 
-	-- abilGroupName?¼ë¡œ xml?ì„œ ?´ë‹¹?˜ëŠ” êµ¬ìž…ê°€?¥í•œ ?¹ì„±ë¦¬ìŠ¤??ê°€?¸ì˜¤ê¸?
+	-- abilGroupNameÀ¸·Î xml¿¡¼­ ÇØ´çµÇ´Â ±¸ÀÔ°¡´ÉÇÑ Æ¯¼º¸®½ºÆ® °¡Á®¿À±â
 	local abilList, abilListCnt = GetClassList("Ability");
 	local abilGroupList, abilGroupListCnt = GetClassList(abilGroupName);
 
@@ -71,6 +71,21 @@ end
 
 function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 
+	local runCnt = 0;
+	for i = 0, RUN_ABIL_MAX_COUNT do
+		local prop = "None";
+		if 0 == i then
+			prop = "LearnAbilityID";
+		else
+			prop = "LearnAbilityID_" ..i;
+		end
+		if pc[prop] ~= nil and pc[prop] > 0 then
+			runCnt = runCnt +1;
+		end
+	end
+	local userType = session.loginInfo.GetPremiumState();
+	local maxCount = GetCashValue(userType, "abilityMax");
+	
 	local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
 	local abilLv = 1;
 	if abilIES ~= nil then
@@ -78,7 +93,7 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 	end
 
 	local isMax = 0;
-	-- ?¹ì„± êµ¬ìž… ë²„íŠ¼.  ?„ìž¬ ë°°ìš°???¹ì„±???ˆìœ¼ë©??¤ë¥¸ ?¹ì„±?€ ??ë§‰ê¸°
+	-- Æ¯¼º ±¸ÀÔ ¹öÆ°.  ÇöÀç ¹è¿ì´Â Æ¯¼ºÀÌ ÀÖÀ¸¸é ´Ù¸¥ Æ¯¼ºÀº ´Ù ¸·±â
 	local maxLevel = tonumber(groupClass.MaxLevel)
 	if maxLevel < abilLv then
 		isMax = 1;
@@ -90,7 +105,7 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 	-- ë°°ìš¸ ???ˆëŠ” ?¹ì„±ë§??œì‹œ
 	if onlyShowLearnable:IsChecked() == 1 then
 	
-		if isMax == 1 then
+		if isMax == 1 and runCnt + 1 > maxCount then
 			return posY
 		end
 
@@ -117,6 +132,9 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 	
 
 	if maxLevel >= abilLv then
+		if runCnt + 1 > maxCount then
+			classCtrl:EnableHitTest(0);
+		end
 		classCtrl:SetEventScript(ui.LBUTTONUP, "REQUEST_BUY_ABILITY");
 		classCtrl:SetEventScriptArgString(ui.LBUTTONUP, abilClass.ClassName);
 		classCtrl:SetEventScriptArgNumber(ui.LBUTTONUP, abilClass.ClassID);
@@ -126,27 +144,27 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 		abilLv = groupClass.MaxLevel;
 	end
 
-	-- abilClassê´€???•ë³´ ?‹íŒ…
-	-- ?¹ì„± ?„ì´ì½?
+	-- abilClass°ü·Ã Á¤º¸ ¼ÂÆÃ
+	-- Æ¯¼º ¾ÆÀÌÄÜ
 	local classSlot = GET_CHILD(classCtrl, "slot", "ui::CSlot");
 	classSlot:EnableHitTest(0);
 	local icon = CreateIcon(classSlot);	
 	icon:SetImage(abilClass.Icon);
 
-	-- ?¹ì„± ?´ë¦„
+	-- Æ¯¼º ÀÌ¸§
 	local nameCtrl = GET_CHILD(classCtrl, "abilName", "ui::CRichText");
 	nameCtrl:SetText("{@st42}".. abilClass.Name);
 
-	-- ?¹ì„± ?ˆë²¨
+	-- Æ¯¼º ·¹º§
 	local levelCtrl = GET_CHILD(classCtrl, "abilLevel", "ui::CRichText");
 	levelCtrl:SetText("Lv.".. abilLv);
 
-	-- ?¹ì„± ?¤ëª…
+	-- Æ¯¼º ¼³¸í
 	local descCtrl = GET_CHILD(classCtrl, "abilDesc", "ui::CRichText");
 	descCtrl:SetText("{@st66b}".. abilClass.Desc);
 
 
-	-- groupClassê´€???•ë³´ ?‹íŒ…
+	-- groupClass°ü·Ã Á¤º¸ ¼ÂÆÃ
 	local price = 0;
 	local totalTime = 0;
 	local funcName = groupClass.ScrCalcPrice;
@@ -207,20 +225,27 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 		end
 	end
 
-	if pc.LearnAbilityID > 0 then
-		if pc.LearnAbilityID == abilClass.ClassID then
 
-			classCtrl:SetGrayStyle(0);
-
-			priceCtrl:SetText(ScpArgMsg("Auto_{@st}TeugSeong_HagSeup_Jung"));
-
+	for i = 0, RUN_ABIL_MAX_COUNT do
+		local prop = "None";
+		if 0 == i then
+			prop = "LearnAbilityID";
 		else
-			-- ?¹ì„±??ë°°ìš°?”ì¤‘?´ë¼ë©?ë°°ìš°???¤í‚¬???œì™¸?˜ê³ ???„ë? ?Œìƒ‰?¼ë¡œ ë³€ê²½í•´?¼í•¨.
+			prop = "LearnAbilityID_" ..i;
+		end
+		if pc[prop] ~= nil and pc[prop] > 0 then
+			if pc[prop] == abilClass.ClassID then
+			classCtrl:SetGrayStyle(0);
+			priceCtrl:SetText(ScpArgMsg("Auto_{@st}TeugSeong_HagSeup_Jung"));
+				classCtrl:EnableHitTest(0);
+		else
+				if runCnt + 1 > maxCount then
+				-- Æ¯¼ºÀ» ¹è¿ì´ÂÁßÀÌ¶ó¸é ¹è¿ì´Â ½ºÅ³À» Á¦¿ÜÇÏ°í´Â ÀüºÎ È¸»öÀ¸·Î º¯°æÇØ¾ßÇÔ.
 			classCtrl:SetGrayStyle(1);
 		end
-		classCtrl:EnableHitTest(0);
 	end
-
+		end
+	end
 	classCtrl:Resize(classCtrl:GetOriginalWidth(), descCtrl:GetY() + descCtrl:GetHeight() + 50)
 
 	if classCtrl:GetHeight() < classCtrl:GetOriginalHeight() then
@@ -234,15 +259,33 @@ end
 s_buyAbilName = 'None';
 
 function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
+	local runCnt = 0;
+	for i = 0, RUN_ABIL_MAX_COUNT do
+		local prop = "None";
+		if 0 == i then
+			prop = "LearnAbilityID";
+		else
+			prop = "LearnAbilityID_" ..i;
+		end
+		if pc[prop] ~= nil and pc[prop] > 0 then
+			runCnt = runCnt +1;
+		end
+	end
 
-	-- êµ¬ìž…ê°€?¥í•œì§€ ?¤ë²„ ì²´í¬?˜ê¸°
+	local userType = session.loginInfo.GetPremiumState();
+	local maxCount = GetCashValue(userType, "abilityMax");
+	if runCnt+1 > maxCount then	
+		return;
+	end
+
+	-- ±¸ÀÔ°¡´ÉÇÑÁö ½Ç¹ö Ã¼Å©ÇÏ±â
 	local price = tonumber( control:GetUserValue("PRICE_"..abilName) );
 	if GET_TOTAL_MONEY() < price then
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
 		return;
 	end
 
-	-- ?´ê±´ì§€ ?•ì¸ì°??„ìš°ê¸?
+	-- »ì°ÇÁö È®ÀÎÃ¢ ¶ç¿ì±â
 	s_buyAbilName = abilName;
 	local yesScp = string.format("EXEC_BUY_ABILITY()");
 	ui.MsgBox(ClMsg('ExecLearnAbility'), yesScp, "None");
@@ -251,7 +294,7 @@ end
 
 function EXEC_BUY_ABILITY()
 
-	-- ?¼ë‹¨?€ ?¹ì„± ë°”ë¡œ ë°°ì›Œì§€?”ê±¸ë¡??‹íŒ…. DB?œê°„ê´€?¨í•´?œëŠ” ?´ì¼ ?‘ì—…?ˆì •.
+	-- ÀÏ´ÜÀº Æ¯¼º ¹Ù·Î ¹è¿öÁö´Â°É·Î ¼ÂÆÃ. DB½Ã°£°ü·ÃÇØ¼­´Â ³»ÀÏ ÀÛ¾÷¿¹Á¤.
 	pc.ReqExecuteTx("SCR_TX_ABIL_REQUEST", s_buyAbilName);
 end
 

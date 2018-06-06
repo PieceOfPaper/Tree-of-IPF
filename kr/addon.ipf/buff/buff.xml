@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
-<uiframe name="buff" x="0" y="0" width="430" height="158">
+<uiframe name="buff" x="0" y="0" width="430" height="200">
     <frame title="BuffWindow" layout_gravity="left top" margin="20 140 0 0" tooltipoverlap="true"/>
     <option visible="true" hideable="false" closebutton="false"/>
     <draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
@@ -11,6 +11,7 @@
         <slotset name="buffcountslot" rect="0 0 40 40" margin="0 0 0 0" layout_gravity="left top" col="10" enabledrop="false" enablepop="false" row="1" size="40 40" skin="slot_empty" spc="2 15"/>
         <slotset name="buffslot" rect="0 0 40 40" margin="0 52 0 0" layout_gravity="left top" col="10" enabledrop="false" enablepop="false" row="1" size="40 40" skin="slot_empty" spc="2 15"/>
         <slotset name="debuffslot" rect="0 0 40 40" margin="0 104 0 0" layout_gravity="left top" col="10" enabledrop="false" enablepop="false" row="1" size="40 40" skin="slot_empty" spc="2 15"/>
-        <timer name="addontimer" rect="0 0 10 10"/>
+        <timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
+        <slotset name="premium" rect="0 0 40 40" margin="0 156 0 0" layout_gravity="left top" col="2" enabledrop="false" enablepop="false" row="1" size="40 40" skin="slot_empty" spc="2 15"/>
     </controls>
 </uiframe>

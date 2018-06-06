@@ -66,13 +66,22 @@ function REFRESH_ABILITY_LIST_OLD(frame)
 	DESTROY_CHILD_BYNAME(grid, 'ABIL_');
 	local posY = 20;
 
+	for i = 0, RUN_ABIL_MAX_COUNT do
+		local prop = "None";
+		if 0 == i then
+			prop = "LearnAbilityID";
+		else
+			prop = "LearnAbilityID_" ..i;
+		end
 	-- learningAbility
-	if pc.LearnAbilityID > 0 then
-		local abilClass = GetClassByType("Ability", pc.LearnAbilityID);
+		if pc[prop] ~= nil and pc[prop] > 0 then
+			local abilClass = GetClassByType("Ability", pc[prop]);
 		if abilClass ~= nil then
-			posY = MAKE_ABILITY_ICON(frame, pc, grid, abilClass, posY);
+				posY = MAKE_ABILITY_ICON(frame, pc, grid, abilClass, posY, i);
 		end
 	end
+	end
+	
 
 	-- Ability
 	local abilList = session.GetAbilityList();
@@ -103,14 +112,19 @@ function REFRESH_ABILITY_LIST_OLD(frame)
 	frame:Invalidate();
 end
 
-function MAKE_ABILITY_ICON_OLD(frame, pc, grid, abilClass, posY)
+function MAKE_ABILITY_ICON_OLD(frame, pc, grid, abilClass, posY, index)
 
 	local classCtrl = grid:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass.ClassName, 0, posY);
 	classCtrl:ShowWindow(1);
-
+	for i = 0, RUN_ABIL_MAX_COUNT do
+		local prop = "None";
+		if 0 == i then
+			prop = "LearnAbilityID";
+		else
+			prop = "LearnAbilityID_" ..i;
+		end
+		if pc[prop] ~= nil and pc[prop] == abilClass.ClassID then
 	-- 현재 배우는 특성이 있으면 해당특성은 남은시간 표시, 활성버튼은 막기
-	if pc.LearnAbilityID == abilClass.ClassID then
-
 		local activeImg = GET_CHILD(classCtrl, "activeImg", "ui::CPicture");
 		activeImg:ShowWindow(0);
 	else
@@ -133,7 +147,7 @@ function MAKE_ABILITY_ICON_OLD(frame, pc, grid, abilClass, posY)
 		end
 		activeImg:ShowWindow(1);
 	end
-
+	end
 	-- 특성 아이콘
 	local classSlot = GET_CHILD(classCtrl, "slot", "ui::CSlot");
 	local icon = CreateIcon(classSlot);	
@@ -149,7 +163,14 @@ function MAKE_ABILITY_ICON_OLD(frame, pc, grid, abilClass, posY)
 
 	-- 특성 레벨
 	local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
-	if abilIES ~= nil and abilIES.ClassID ~= pc.LearnAbilityID then
+	for i = 0, RUN_ABIL_MAX_COUNT do
+		local prop = "None";
+		if 0 == i then
+			prop = "LearnAbilityID";
+		else
+			prop = "LearnAbilityID_" ..i;
+		end
+		if abilIES ~= nil and pc[prop] ~= nil and abilIES.ClassID ~= pc[prop] then
 		local abilLv = abilIES.Level;
 
 		local levelCtrl = GET_CHILD(classCtrl, "abilLevel", "ui::CRichText");
@@ -170,7 +191,13 @@ function MAKE_ABILITY_ICON_OLD(frame, pc, grid, abilClass, posY)
 		end
 
 		local sysTime = geTime.GetServerSystemTime();
-		local learnAbilTime = imcTime.GetSysTimeByStr(pc.LearnAbilityTime);
+			local prop = "None";
+			if 0 == i then
+				prop = "LearnAbilityTime";
+			else
+				prop = "LearnAbilityTime" ..index;
+			end
+			local learnAbilTime = imcTime.GetSysTimeByStr(pc[prop]);
 		local difSec = imcTime.GetDifSec(learnAbilTime, sysTime);
 		local min = math.floor(difSec / 60);
 
@@ -188,15 +215,22 @@ function MAKE_ABILITY_ICON_OLD(frame, pc, grid, abilClass, posY)
 		frame:SetUserValue("LEARN_ABIL_NAME", abilClass.Name);
 		frame:SetUserValue("LEARN_ABIL_CLASSNAME", abilClass.ClassName);
 	end
+	end
 
 	return posY + classCtrl:GetHeight();
 end
 
-function UPDATE_LEARN_ABIL_TIME_OLD(frame, timer, str, num, time)
+function UPDATE_LEARN_ABIL_TIME_OLD(frame, timer, str, num, time, index)
 
 	local pc  = GetMyPCObject();
 	local sysTime = geTime.GetServerSystemTime();
-	local learnAbilTime = imcTime.GetSysTimeByStr(pc.LearnAbilityTime);
+	local prop = "None";
+	if 0 == index then
+		prop = "LearnAbilityTime";
+	else
+		prop = "LearnAbilityTime" ..index;
+	end
+	local learnAbilTime = imcTime.GetSysTimeByStr(pc[prop]);
 	local difSec = imcTime.GetDifSec(learnAbilTime, sysTime);
 	local min = math.floor(difSec / 60);
 		

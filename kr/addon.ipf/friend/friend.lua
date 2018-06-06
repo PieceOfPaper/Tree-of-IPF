@@ -386,7 +386,7 @@ function GET_INTERACTION_BADGE_TOOLTIPSTR_BY_TYPE(type,count) -- 나중에는 카운트
 	
 end
 
-function UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, info, drawNameWhenLogout)
+function UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, channel, info, drawNameWhenLogout)
 
 	local jobportrait_bg = GET_CHILD(ctrlSet, "jobportrait_bg", "ui::CPicture");
 	local jobportrait = GET_CHILD(ctrlSet, "jobportrait", "ui::CPicture");
@@ -394,6 +394,7 @@ function UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, info, drawNameWhenLo
 	local pc_name_text = ctrlSet:GetChild("pc_name_text");
 	local job_text = ctrlSet:GetChild("job_text");
 	local map_name_text = ctrlSet:GetChild("map_name_text");
+	local map_name_channel_text = ctrlSet:GetChild("map_name_channel_text");
 	local level_text = GET_CHILD(ctrlSet, "level_text", "ui::CRichText");
 	local relationmarks = GET_CHILD(ctrlSet, "relationmarks", "ui::CRichText");
 	local relatedinfo = geClientInteraction.GetRelatedPCByAID(info:GetACCID());
@@ -438,6 +439,9 @@ function UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, info, drawNameWhenLo
 			map_name_text:SetColorTone("FF1f100b");
 			--map_name_text:SetTextByKey("name", ScpArgMsg("Logout"));
 			map_name_text:SetTextByKey("name", GET_DIFF_TIME_TXT(sysTime,info.logoutTime));
+
+			map_name_channel_text:ShowWindow(0)
+			map_name_text:ShowWindow(1)
 		end
 
 		if pc_name_text ~= nil then
@@ -470,9 +474,13 @@ function UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, info, drawNameWhenLo
 		end
 
 		local mapCls = GetClassByType("Map", mapID);
-		if map_name_text ~= nil and mapCls ~= nil then
-			map_name_text:SetColorTone(0);
-			map_name_text:SetTextByKey("name", mapCls.Name);
+		if map_name_channel_text ~= nil and mapCls ~= nil then
+			map_name_channel_text:SetColorTone(0);
+			map_name_channel_text:SetTextByKey("name", mapCls.Name)
+			map_name_channel_text:SetTextByKey("channel", channel+1)
+
+			map_name_channel_text:ShowWindow(1)
+			map_name_text:ShowWindow(0)
 		end
 
 		if pc_name_text ~= nil then
@@ -709,8 +717,7 @@ function UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, f)
 		memortext:SetTextByKey('memo',memo);
 	end
 
-	local mapID = f.mapID;
-	UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, info, true);
+	UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet,  f.mapID, f.channel, info, true);
 	
 end
 
@@ -874,184 +881,3 @@ function POPUP_FRIEND_GROUP_CONTEXTMENU(aid)
 	ui.OpenContextMenu(context);
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
--- 일단 안쓰는 함수.
---[[
-function ON_RELATED_SESSION_COUNT(frame, msg, aid, count)
-	
-	local groupbox = frame:GetChild("gamefriend");
-	local ctrlSet = groupbox:GetChild("REL_" .. aid);
-	if ctrlSet == nil then
-		return;
-	end
-	
-	local info = geClientInteraction.GetRelatedPCByAID(aid);
-	UPDATE_RELATED_SESSION_CTRLSET(ctrlSet, info);
-end
-
-function UPDATE_RELATED_SESSION_CTRLSET(ctrlSet, info)
-	local relation_count_text = ctrlSet:GetChild("relation_count_text");
-	local txt = "";
-	for j = 0 , PC_INTERACTION_COUNT - 1 do
-		local relatedCount = info:GetInteractionCount(j);
-		if relatedCount > 0 then
-			local str = GetInteractionTypeStr(j);
-			if txt ~= "" then
-				txt = txt .. "{nl}";
-			end
-
-			txt = txt .. ClMsg(str) .. " : " .. relatedCount;
-		end
-	end
-
-	relation_count_text:SetTextByKey("name", txt);
-end
-
-function ON_RELATED_SESSION_LIST(frame)
-
-	local count = geClientInteraction.GetRelatedPCCount();
-
-	local groupbox = frame:GetChild("gamefriend");
-	DESTROY_CHILD_BYNAME(groupbox, "REL_");
-
-	local y = 0;
-	if count > 0 then
-		local ctrlSet = groupbox:CreateOrGetControlSet('friend_dividebar', "REL_TITLE", ui.CENTER_HORZ, ui.TOP, 0, y, 0, 0);
-		local title = ctrlSet:GetChild("title");
-		title:SetTextByKey("name", ClMsg("MayBeKnowThisPerson"));
-	end
-	
-	for i = 0 , count - 1 do
-		local info = geClientInteraction.GetRelatedPCByIndex(i);
-		local pcInfo = info:GetPCInfo();
-
-		local ctrlSet = groupbox:CreateOrGetControlSet("friend_related", "REL_" .. info:GetAID(), ui.CENTER_HORZ, ui.TOP, 0, y, 0, 0);
-		UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, 1, pcInfo, true)
-		UPDATE_RELATED_SESSION_CTRLSET(ctrlSet, info);
-
-		ctrlSet:SetUserValue("AID", info:GetAID());
-		ctrlSet:SetEventScript(ui.RBUTTONUP, "POPUP_RELATED_CTRLSET");
-	end	
-
-	ALIGN_FRIEND_CONTROLS(groupbox);
-end
-
-function REQUEST_RELATION_DETAIL(aid)
-	--geClientInteraction.RequestHistory(aid, 0);
-end
-
-function POPUP_RELATED_CTRLSET(parent, ctrlset)
-	local aid = ctrlset:GetUserValue("AID");
-	if aid == "None" then
-		return;
-	end
-
-	local info = geClientInteraction.GetRelatedPCByAID(aid);
-	if info == nil then
-		return;
-	end
-
-	local pcInfo = info:GetPCInfo();
-	local context = ui.CreateContextMenu("FRIEND_CONTEXT", pcInfo:GetFamilyName(), 0, 0, 100, 100);
-
-	local strscp = string.format("REQUEST_RELATION_DETAIL(\"%s\"s)", aid);
-	ui.AddContextMenuItem(context, ClMsg("ShowDetails"), strscp);
-	ui.AddContextMenuItem(context, ClMsg("Cancel"), "None");
-	ui.OpenContextMenu(context);
-
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- 안쓰는 함수
-
-
-function ALIGN_RELATED_CTRLSET(groupbox, y)
-
-	local count = geClientInteraction.GetRelatedPCCount();
-	if count > 0 then
-		local titleSet = groupbox:GetChild("REL_TITLE");
-		if titleSet ~= nil then
-			local rect = titleSet:GetMargin();
-			titleSet:SetMargin(rect.left, y, rect.right, rect.bottom);
-			y = y + titleSet:GetHeight();
-		end
-	end		
-	
-	for i = 0 , count - 1 do
-		local info = geClientInteraction.GetRelatedPCByIndex(i);
-		local ctrlSet = groupbox:GetChild("REL_" .. info:GetAID());
-		if ctrlSet ~= nil then
-			local rect = ctrlSet:GetMargin();
-			ctrlSet:SetMargin(rect.left, y, rect.right, rect.bottom);
-			y = y + ctrlSet:GetHeight();
-		end
-	end
-
-	return y;
-
-end
-	
-function ALIGN_FRIEND_CTRLSET(groupbox, listType, y)
-
-	local cnt = session.friends.GetFriendCount(listType);
-	if cnt > 0 then
-		local titleSet = groupbox:GetChild("FR_" .. listType .. "_TITLE");
-		if titleSet ~= nil then
-			local rect = titleSet:GetMargin();
-			titleSet:SetMargin(rect.left, y, rect.right, rect.bottom);
-			y = y + titleSet:GetHeight();
-		end
-	end		
-	
-	for i = 0 , cnt - 1 do
-		local f = session.friends.GetFriendByIndex(listType, i);		
-		local ctrlSet = groupbox:GetChild("FR_" .. listType .. "_" .. f:GetInfo():GetACCID());
-		if ctrlSet ~= nil then
-			local rect = ctrlSet:GetMargin();
-			ctrlSet:SetMargin(rect.left, y, rect.right, rect.bottom);
-			y = y + ctrlSet:GetHeight();
-		end
-	end
-
-	return y;
-end
-
-function ALIGN_FRIEND_CONTROLS(groupbox)
-	local y = 800; -- 나중에 바꾸자
-	y = ALIGN_RELATED_CTRLSET(groupbox, y);
-	y = ALIGN_FRIEND_CTRLSET(groupbox, FRIEND_LIST_COMPLETE, y);
-	y = ALIGN_FRIEND_CTRLSET(groupbox, FRIEND_LIST_REJECTED, y);
-	y = ALIGN_FRIEND_CTRLSET(groupbox, FRIEND_LIST_REQUESTED, y);
-	y = ALIGN_FRIEND_CTRLSET(groupbox, FRIEND_LIST_REQUEST, y);
-	y = ALIGN_FRIEND_CTRLSET(groupbox, FRIEND_LIST_BLOCKED, y);
-	groupbox:GetTopParentFrame():Invalidate();
-end
-
-
-]]

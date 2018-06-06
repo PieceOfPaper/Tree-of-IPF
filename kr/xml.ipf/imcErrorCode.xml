@@ -56,18 +56,19 @@
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
 		<Code Code="ERRCODE_DATA_INVALID_IES" CallStack="NO" Desc="존재하지 않는 IES입니다. 해당하는 ipspace를 담고 있는 xml이 존재하는지, 정상적으로 불러왔는지 확인하세요."/>
 		<Code Code="ERRCODE_DATA_INVALID_CLASS_IN_IES" CallStack="NO" Desc="해당 IES에 존재하지 않는 클래스입니다.  해당 정보를 담고 있는 xml 파일을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_FILE_LOAD" CallStack="NO" Desc="해당 파일을 불러오는데 실패하였습니다."/>
+		<Code Code="ERRCODE_DATA_FILE_LOAD" CallStack="YES" Desc="해당 파일을 불러오는데 실패하였습니다."/>
 		<Code Code="ERRCODE_DATA_FILE_SAVE" CallStack="NO" Desc="해당 파일을 저장하는데 실패하였습니다."/>
 		<Code Code="ERRCODE_DATA_BROKEN_FILE" CallStack="NO" Desc="해당 파일이 비정상적입니다."/>
 		<Code Code="ERRCODE_DATA_SERVICE_NATION" CallStack="NO" Desc="서버의 국가 설정이 비정상 적입니다. server_config.xml을 확인하세요."/>
 		<Code Code="ERRCODE_DATA_IES_DUPLICATE_CLASSID" CallStack="NO" Desc="IES오브젝트의 ClassID가 중복되었습니다. 해당 정보를 담고 있는 xml 파일을 확인하세요."/>
 		<Code Code="ERRCODE_DATA_IES_DUPLICATE_CLASSNAME" CallStack="NO" Desc="IES오브젝트의 ClassName이 중복되었습니다. 해당 정보를 담고 있는 xml 파일을 확인하세요."/>
+		<Code Code="DUPLICATE_CLASSKEY" CallStack="NO" Desc="!!클래스키 중복!!"/>
 		<Code Code="ERRCODE_DATA_IES_COULDNT_FIND_CLASS" CallStack="YES" Desc="해당 idspace에서 지정한 클래스를 가져오는데 실패하였습니다. 해당 idspace에 해당하는 xml 파일을 확인하세요."/>
 		<Code Code="ERRCODE_DATA_IES_COULDNT_FIND_IDSPACE" CallStack="NO" Desc="지정한 idspace를 찾을 수 없습니다. 해당 idspace에 해당하는 xml 파일이 존재하는지 확인하세요."/>
 		<Code Code="ERRCODE_DATA_INVALID_STANCE" CallStack="NO" Desc="잘못된 스탠스 타입입니다."/>
 		<Code Code="ERRCODE_DATA_INVALID_TYPE_IN_TABLE" CallStack="NO" Desc="해당 테이블에 존재하지 않는 Class 입니다. 해당 정보를 담고 있는 xml 파일을 확인하세요."/>
 		<Code Code="ERRCODE_DATA_SOBJ_INVALID_PROPNAME" CallStack="NO" Desc="해당되는 정보를 세션 오브젝트의 클라이언트 프로퍼티에서 찾을 수 없습니다. 프로퍼티명을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_INVALID_IES_PROPERTY_NAME" CallStack="NO" Desc="해당 프로퍼티를 가져올 수 없습니다. 해당 IES 클래스가 선언되어있는 xml을 서버가 로드 하였는지, xml 내부에 해당 프로퍼티가 존재하는지 확인하세요."/>
+		<Code Code="ERRCODE_DATA_INVALID_IES_PROPERTY_NAME" CallStack="YES" Desc="해당 프로퍼티를 가져올 수 없습니다. 해당 IES 클래스가 선언되어있는 xml을 서버가 로드 하였는지, xml 내부에 해당 프로퍼티가 존재하는지 확인하세요."/>
 		<Code Code="ERRCODE_DATA_INIT_ADJACENCY_LIST" CallStack="NO" Desc="맵간 연결 정보를 초기화 하는데 실패하였습니다. map.xml의 PhysicalLinkZone 컬럼을 확인하세요."/>
 		<Code Code="ERRCODE_DATA_XML_FILE_PARSING" CallStack="NO" Desc="해당 xml 파일을 읽는데 실패하였습니다. xml 파일이 정상적인지 확인하세요."/>
 		<Code Code="ERRCODE_DATA_XML_COULDNG_FIND_IDSPACE" CallStack="NO" Desc="해당 xml 파일을 읽는데 실패하였습니다. idSpace는 반드시 존재하여야 합니다. xml 파일이 정상적인지 확인하세요."/>
@@ -100,7 +101,9 @@
 		<Code Code="ERRCODE_DATA_KB_OVER_VANGLE" CallStack="NO" Desc="넉백타입인데 높이값이 너무 높습니다. 10으로 보정합니다."/>
 		<Code Code="ERRCODE_DATA_INVALID_MOTION" CallStack="NO" Desc="해당 모션을 찾을 수 없습니다."/>
 		<Code Code="ERRCODE_DATA_PLAY_MOVIE_FAIL" CallStack="NO" Desc="해당 동영상을 재생할 수 없습니다."/>
-	<Code Code="ERRCODE_DATA_SET_SAVE_VALUE" CallStack="YES" Desc="같은 값으로 저장을 시도하고 있습니다."/>
+		<Code Code="ERRCODE_DATA_SET_SAVE_VALUE" CallStack="YES" Desc="같은 값으로 저장을 시도하고 있습니다."/>
+		<Code Code="ERRCODE_DATA_NOT_EXIST_CONFIG_NAME" CallStack="NO" Desc="존재하지 않는 옵션 이름입니다. config.xml이 손상되지 않았는지, config.xml파일이 서버와 클라이언트가 같은 파일을 사용하는지 확인하세요."/>
+		<Code Code="ERRCODE_DATA_PACKET_SIZE_OVER" CallStack="YES" Desc="패킷 사이즈 오버"/>
 	</Type>
 	<Type Type="SCRIPT">
 		<Code Code="ERRCODE_SCRIPT_IES_CANT_SUSPEND_MAIN_THREAD" CallStack="NO" Desc="메인 쓰레드는 sleep, tx등으로 중단시킬 수 없습니다. 해당 함수 내용을 확인하세요."/>
@@ -161,7 +164,7 @@
 		<Code Code="ERRCODE_SYSTEM_DUPLICATED_EXEC" CallStack="NO" Desc="프로그램이 중복 실행되었습니다."/>
 	</Type>
 	<Type Type="INFO">
-		<Code Code="ERRCODE_NOT_YET" CallStack="NO" Desc="아직 에러코드가 정의되지 않은 로그입니다."/>
+		<Code Code="ERRCODE_NOT_YET" CallStack="YES" Desc="아직 에러코드가 정의되지 않은 로그입니다."/>
 		<Code Code="ERRCODE_INFO_FRAME_DROP" CallStack="NO" Desc="프레임 드랍"/>
 		<Code Code="ERRCODE_INFO_LUA_RUN_STRING" CallStack="NO" Desc="run string"/>
 		<Code Code="ERRCODE_INFO_FILE_RELOAD" CallStack="NO" Desc="파일 다시 불러옴"/>

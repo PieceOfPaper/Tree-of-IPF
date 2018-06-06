@@ -1,7 +1,7 @@
 
 -- 각 평가 항목의 비중
 WEIGHT_MEMBER_COUNT = 200 -- 인원수에 의한 점수
-WEIGHT_DISTANCE = 500 -- 거리에 의한 점수
+WEIGHT_DISTANCE = 2000 -- 거리에 의한 점수
 WEIGHT_JOB_VALANCE = 100 -- 직업 균형에 의한 점수
 WEIGHT_QUEST = 1000 -- 퀘스트에 의한 점수
 WEIGHT_LEVEL = 500 -- 레벨에 의한 점수
@@ -234,29 +234,29 @@ function PARTY_MATCHMAKING_INIT_OBJ(pSession, pParty)
 	local memcount = party:GetMemberCount()
 	local memlist = {}
 
+	local memindex = 0
+
 	for i = 0 , memcount - 1 do
+		
 		local pMeminfo = party:GetMemberByIndex(i);
 
 		if pMeminfo ~= nil then
 
 			local meminfo = tolua.cast(pMeminfo, "PARTY_COMMANDER_INFO")
-
-			memlist[i+1] = {}
-			memlist[i+1]["Info"] = meminfo
-
 			local memsession = GetSessionByFamilyName(meminfo:GetName());
 
 			if memsession ~= nil then
-				memlist[i+1]["Session"] = memsession
-			else
-				memlist[i+1]["Session"] = nil
-			end
 
+				memlist[memindex+1] = {}
+				memlist[memindex+1]["Info"] = meminfo
+				memlist[memindex+1]["Session"] = memsession
+
+				memindex = memindex + 1
+
+			end
 		end
 		
 	end
-
-
 
 	return session, sessionPcObj, party, partyobj, memlist
 
@@ -292,7 +292,7 @@ function PARTY_MATCHMAKING_PRE_CONDITION_CHECK(session, sessionPcObj, party, par
 		end
 		return false
 	end
-
+	
 	-- 파티 옵션에서 레벨 제한 사용 중이고 추천할 유저가 그 조건을 만족하지 못한다면
 	if partyobj["UseLevelLimit"] == 1 then
 		if sessionPcObj.Lv < partyobj["MinLv"] or sessionPcObj.Lv > partyobj["MaxLv"] then
@@ -302,7 +302,7 @@ function PARTY_MATCHMAKING_PRE_CONDITION_CHECK(session, sessionPcObj, party, par
 			return false
 		end
 	end
-
+	
 	-- 파티 옵션에서 직업 계열 조건을 사용 중이고 추천할 유저가 그 조건과 어긋난다면 제외
 	if IS_CTRLTYPE_MATCHING_RECRUIT_WITH_PC(sessionPcObj.JobName, partyobj["RecruitClassType"]) ~= 1 then
 		if PARTY_MATCH_SHOWLOG == true then
@@ -311,7 +311,7 @@ function PARTY_MATCHMAKING_PRE_CONDITION_CHECK(session, sessionPcObj, party, par
 
 		return false
 	end
-
+	
 	local memcount = #partymemberlist
 
 	--유저와 파티원간에 친구이거나 블럭 상대라도 제외
@@ -320,19 +320,19 @@ function PARTY_MATCHMAKING_PRE_CONDITION_CHECK(session, sessionPcObj, party, par
 		local meminfo = partymemberlist[i]["Info"]
 		local memsession = partymemberlist[i]["Session"]
 
-		if memsession == nil or session == nil then
-			return false
-		end
-
-		if session:IsFriendOrBlock(meminfo:GetAID()) == true or memsession:IsFriendOrBlock(session:GetAID()) then
-			if PARTY_MATCH_SHOWLOG == true then
-				print('유저와 파티원간에 친구이거나 블럭 상대라도 제외')
+		if memsession ~= nil and session ~= nil then
+			if session:IsFriendOrBlock(meminfo:GetAID()) == true or memsession:IsFriendOrBlock(session:GetAID()) then
+				if PARTY_MATCH_SHOWLOG == true then
+					print('유저와 파티원간에 친구이거나 블럭 상대라도 제외')
+				end
+				return false
 			end
-			return false
 		end
+	
+
 
 	end
-
+	
 	return true
 end
 
@@ -365,25 +365,44 @@ end
 function PARTY_MATCHMAKING_CALC_DISTANCE_SCORE(session, sessionPcObj, party, partyobj, partymemberlist,  nowmatchscore, nowmainreason, nowmainreasonAddvalue)	
 
 	local maxWarpCostPoint = WEIGHT_DISTANCE;
-	local depmapcls = GetClassByType("Map", session.mapID);
-	local dstmapcls = GetClassByType("Map", party:GetLeaderInfo():GetMapID());
-	local warpCost = -999999;
-	if depmapcls ~= nil and dstmapcls ~= nil then
-		warpCost = CalcWarpCost(dstmapcls.ClassName, depmapcls.ClassName);
-	end
-	if warpCost < 0 then
-		warpCost = -999999;
+
+	if session.mapID == party:GetLeaderInfo():GetMapID() and session.channelID == party:GetLeaderInfo():GetChannel() then -- 맵 채널 둘 다 같다면 
+
+		-- 만점
+		maxWarpCostPoint = WEIGHT_DISTANCE;
+
+	elseif session.mapID == party:GetLeaderInfo():GetMapID() then -- 맵만 같다면
+
+		-- 만점의 절반
+		maxWarpCostPoint = WEIGHT_DISTANCE/2
+
+	else -- 다르다면
+
+		maxWarpCostPoint = WEIGHT_DISTANCE/4
+
+		local depmapcls = GetClassByType("Map", session.mapID);
+		local dstmapcls = GetClassByType("Map", party:GetLeaderInfo():GetMapID());
+		local warpCost = -999999;
+		if depmapcls ~= nil and dstmapcls ~= nil then
+			warpCost = CalcWarpCost(dstmapcls.ClassName, depmapcls.ClassName);
+		end
+		if warpCost < 0 then
+			warpCost = -999999;
+		end
+
+		if warpCost >= 0 then
+			maxWarpCostPoint = maxWarpCostPoint - (warpCost * DISTANCE_PENALTY_PER_WARPCOST);
+		else
+			maxWarpCostPoint = 0
+		end
+
+		if maxWarpCostPoint < 0 then
+			maxWarpCostPoint = 0;
+		end
+
 	end
 
-	if warpCost >= 0 then
-		maxWarpCostPoint = maxWarpCostPoint - (warpCost * DISTANCE_PENALTY_PER_WARPCOST);
-	else
-		maxWarpCostPoint = 0
-	end
-
-	if maxWarpCostPoint < 0 then
-		maxWarpCostPoint = 0;
-	end
+	
 
 	
 	local matchscore = nowmatchscore + maxWarpCostPoint

@@ -42,7 +42,7 @@ function UPDATE_PARTY_SEARCH_OPTION(frame, msg, str, num)
 	local questOptList = GET_CHILD_RECURSIVELY(frame, "questOptList", "ui::CDropList");
 	local quest_selecIndex = questOptList:GetSelItemIndex();
 
-	config.ChangeXMLConfig("PartySearch_QuestShare", quest_selecIndex - 1);  -- Î™®Îëê Î≥¥Í∏∞ ?µÏÖò?åÎ¨∏??-1 ?úÌÇ®??
+	config.ChangeXMLConfig("PartySearch_QuestShare", quest_selecIndex - 1);  -- ∏µŒ ∫∏±‚ ø…º«∂ßπÆø° -1 Ω√≈≤¥Ÿ.
 	
 	local expOptList = GET_CHILD_RECURSIVELY(frame, "expOptList", "ui::CDropList");
 	local exp_selecIndex = expOptList:GetSelItemIndex();
@@ -135,7 +135,7 @@ function REFRESH_MEMBER_RECOMMEND_LIST(parent, ctrl)
 
 	party.RefreshMemberRecommendList();
 
-	-- ?∞Ì? Î∞©Ï????úÍ∞Ñ ?úÌïú Í±∏Í∏∞
+	-- ø¨≈∏ πÊ¡ˆøÎ Ω√∞£ ¡¶«— ∞…±‚
 	ReserveScript("REFRESH_MEMBER_RECOMMEND_LIST_BTN_SET_ENABLE()", 3);
 	ctrl:SetEnable(0)
 
@@ -207,46 +207,56 @@ function UPDATE_RECOMMEND_MEMBER_LIST(frame, ctrl, argStr, argNum)
 		local set = mainGbox3:CreateOrGetControlSet('memberrecommend_info', 'eachrecommendmember_'..i, 0, startYmargin + ctrlheight*i);
 		
 		local otherpcinfo = session.party.GetLastPartyMatchRecommendMemberInfoByIndex(i);
-		
+
 		if otherpcinfo ~= nil and otherpcinfo.partyMatchMainReason ~= 0 then
 
-		local imagename = nil
-		imagename = ui.CaptureSomeonesFullStdImage(otherpcinfo:GetAppearance())	
-		local charImage = GET_CHILD_RECURSIVELY(set,"shihouette");
-		if imagename ~= nil then
-			charImage:SetImage(imagename)
-		end
+			local imagename = nil
+			imagename = ui.CaptureSomeonesFullStdImage(otherpcinfo:GetAppearance())	
+			
+			local charImage = GET_CHILD_RECURSIVELY(set,"shihouette");
+			if imagename ~= nil then
+				charImage:SetImage(imagename)
+				charImage:ShowWindow(1)
+			else
+				charImage:ShowWindow(0)
+			end
 
-		local fnametext = GET_CHILD_RECURSIVELY(set,"fname")
-		local fname		= otherpcinfo:GetAppearance():GetFamilyName()
-		fnametext:SetText(fname);
+			local fnametext = GET_CHILD_RECURSIVELY(set,"fname")
+			local fname		= otherpcinfo:GetAppearance():GetFamilyName()
+			fnametext:SetText(fname);
 
-		local cnametext = GET_CHILD_RECURSIVELY(set,"cname")
-		local cname		= otherpcinfo:GetAppearance():GetName()
-		cnametext:SetText(cname);
+			local cnametext = GET_CHILD_RECURSIVELY(set,"cname")
+			local cname		= otherpcinfo:GetAppearance():GetName()
+			cnametext:SetText(cname);
 
-		local lvtext = GET_CHILD_RECURSIVELY(set,"lv")
-		local lv		= otherpcinfo:GetAppearance():GetLv()
-		lvtext:SetTextByKey("level",lv);
+			local lvtext = GET_CHILD_RECURSIVELY(set,"lv")
+			local lv		= otherpcinfo:GetAppearance():GetLv()
+			lvtext:SetTextByKey("level",lv);
 
-		local jobhistory = otherpcinfo.jobHistory;
-		local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
-		local clslist, cnt  = GetClassList("Job");
-		local nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
-		local jobRank		= nowjobinfo.grade
-		local jobName		= nowjobcls.Name
-		local jobtext = GET_CHILD_RECURSIVELY(set,"job")
-		jobtext:SetTextByKey("jobname",jobName);
-		jobtext:SetTextByKey("jobrank",jobRank);
+			local jobhistory = otherpcinfo.jobHistory;
+			local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
+			local clslist, cnt  = GetClassList("Job");
+			local nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
+			local jobRank		= nowjobinfo.grade
+			local jobName		= nowjobcls.Name
+			local jobtext = GET_CHILD_RECURSIVELY(set,"job")
+			jobtext:SetTextByKey("jobname",jobName);
+			jobtext:SetTextByKey("jobrank",jobRank);
 
-		set:SetUserValue("RECOMMEND_TYPE",otherpcinfo.partyMatchMainReason);
-		set:SetUserValue("RECOMMEND_FNAME", fname);
-	
+			set:SetUserValue("RECOMMEND_TYPE",otherpcinfo.partyMatchMainReason);
+			set:SetUserValue("RECOMMEND_FNAME", fname);
 
-		local description = GET_CHILD_RECURSIVELY(set,"description")
-		local matchmakerCls = GetClassByType("PartyMatchMaker",otherpcinfo.partyMatchMainReason)
 
-		description:SetText(matchmakerCls.RecommendMent)
+			local mapUIName = GetClassByType("Map", otherpcinfo.mapID).Name;
+			local maptext = GET_CHILD_RECURSIVELY(set,"mapname")
+			maptext:SetTextByKey("map",mapUIName);
+			maptext:SetTextByKey("channel",otherpcinfo.channel+1);
+
+
+			local description = GET_CHILD_RECURSIVELY(set,"description")
+			local matchmakerCls = GetClassByType("PartyMatchMaker",otherpcinfo.partyMatchMainReason)
+
+			description:SetText(matchmakerCls.RecommendMent)
 		end
 
 	end
@@ -295,15 +305,15 @@ function UPDATE_PARTY_SEARCH_LIST(frame, msg, str, page)
 		local ppartyobj = eachpartyinfo:GetObject();
 		local partyObj = GetIES(ppartyobj);
 
-		-- ?åÌã∞ ?¥Î¶Ñ
+		-- ∆ƒ∆º ¿Ã∏ß
 		local nameTxt = GET_CHILD(set,'name')
 		nameTxt:SetTextByKey('name',eachpartyinfo.info.name)
 
-		-- ?åÌã∞ ?§Î™Ö
+		-- ∆ƒ∆º º≥∏Ì
 		local noteTxt = GET_CHILD(set,'note')
 		noteTxt:SetTextByKey('note',partyObj["Note"])
 
-		-- Ï∞æÎäî ÏßÅÏóÖ ?∏ÌåÖ
+		-- √£¥¬ ¡˜æ˜ ºº∆√
 		local curClassType = partyObj["RecruitClassType"];
 
 		local num = curClassType
@@ -322,22 +332,22 @@ function UPDATE_PARTY_SEARCH_LIST(frame, msg, str, page)
 
 		local findclassstr = ""
 
-		if calcresult[0] == 1 then -- ?ÑÏÇ¨
+		if calcresult[0] == 1 then -- ¿¸ªÁ
 			findclassstr = findclassstr .. ScpArgMsg('JustWarrior')
 		end
-		if calcresult[1] == 1 then -- Î≤ïÏÇ¨
+		if calcresult[1] == 1 then -- π˝ªÁ
 			if findclassstr ~= "" then
 				findclassstr = findclassstr .. ' / '
 			end
 			findclassstr = findclassstr .. ScpArgMsg('JustWizard')
 		end
-		if calcresult[2] == 1 then -- Í∂ÅÏàò
+		if calcresult[2] == 1 then -- ±√ºˆ
 			if findclassstr ~= "" then
 				findclassstr = findclassstr .. ' / '
 			end
 			findclassstr = findclassstr .. ScpArgMsg('JustArcher')
 		end
-		if calcresult[3] == 1 then --?¥Î†àÎ¶?
+		if calcresult[3] == 1 then -- ≈¨∑π∏Ø
 			if findclassstr ~= "" then
 				findclassstr = findclassstr .. ' / '
 			end
@@ -347,7 +357,7 @@ function UPDATE_PARTY_SEARCH_LIST(frame, msg, str, page)
 		local findClassTxt = GET_CHILD(set,'findClass','ui::CRichText')
 		findClassTxt:SetTextByKey('findClass',findclassstr)
 	
-		-- ?òÏä§??Í≥µÏú† ?µÏÖò ?∏ÌåÖ
+		-- ƒ˘Ω∫∆Æ ∞¯¿Ø ø…º« ºº∆√
 		local questPolicyTxt = GET_CHILD(set,'questPolicy','ui::CRichText')
 		if partyObj["IsQuestShare"] == 1 then
 			questPolicyTxt:SetTextByKey('isuse',ScpArgMsg("PartySearchQuestOpt2"))
@@ -355,7 +365,7 @@ function UPDATE_PARTY_SEARCH_LIST(frame, msg, str, page)
 			questPolicyTxt:SetTextByKey('isuse',ScpArgMsg("PartySearchQuestOpt1"))
 		end
 
-		-- Í≤ΩÌóòÏπ?Í≥µÏú† ?µÏÖò ?∏ÌåÖ
+		-- ∞Ê«Ëƒ° ∞¯¿Ø ø…º« ºº∆√
 		local expPolicyTxt = GET_CHILD(set,'expPolicy','ui::CRichText')
 		if partyObj["ExpGainType"] == 0 then
 			expPolicyTxt:SetTextByKey('isuse',ScpArgMsg("PartySearchExpOpt1"))
@@ -365,7 +375,7 @@ function UPDATE_PARTY_SEARCH_LIST(frame, msg, str, page)
 			expPolicyTxt:SetTextByKey('isuse',ScpArgMsg("PartySearchExpOpt3"))
 		end
 
-		-- ?ÑÏù¥??Î∂ÑÎ∞∞ Í∑úÏπô ?µÏÖò ?∏ÌåÖ
+		-- æ∆¿Ã≈€ ∫–πË ±‘ƒ¢ ø…º« ºº∆√
 		local itemPolicyTxt = GET_CHILD(set,'itemPolicy','ui::CRichText')
 		if partyObj["ItemRouting"] == 0 then
 			itemPolicyTxt:SetTextByKey('isuse',ScpArgMsg("PartySearchItemOpt1"))
@@ -375,7 +385,7 @@ function UPDATE_PARTY_SEARCH_LIST(frame, msg, str, page)
 			itemPolicyTxt:SetTextByKey('isuse',ScpArgMsg("PartySearchItemOpt3"))
 		end		
 
-		-- ?åÌã∞???ïÎ≥¥ ?úÏãú
+		-- ∆ƒ∆ºø¯ ¡§∫∏ «•Ω√
 		DESTROY_CHILD_BYNAME(set, 'foundeachmember_');
 
 		local avglevel = 0;
@@ -447,7 +457,7 @@ function UPDATE_PARTY_SEARCH_LIST(frame, msg, str, page)
 
 		avglevel = math.floor( avglevel / loginMemberCnt )
 
-		-- ?åÌã∞ ?âÍ∑† ?àÎ≤®
+		-- ∆ƒ∆º ∆Ú±’ ∑π∫ß
 		local avgLevelTxt = GET_CHILD(set,'avgLevel','ui::CRichText')
 		avgLevelTxt:SetTextByKey('avglv',avglevel)
 
@@ -512,7 +522,7 @@ end
 
 function LCLICK_PARTY_LIST(frame, ctrl, familyName, argNum)	
 
-	-- ?¥Í? ?¥Î? ?åÌã∞??Í∞Ä?ÖÎêò?¥Ïûà?îÏ? ?ïÏù∏ ???ÜÏùÑ?åÎßå ?îÏ≤≠.
+	-- ≥ª∞° ¿ÃπÃ ∆ƒ∆ºø° ∞°¿‘µ«æÓ¿÷¥¬¡ˆ »Æ¿Œ »ƒ æ¯¿ª∂ß∏∏ ø‰√ª.
 	if session.party.GetPartyInfo() ~= nil then
 		ui.SysMsg(ClMsg('HadMyParty'));
 		return;

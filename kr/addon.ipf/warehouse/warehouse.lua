@@ -9,7 +9,7 @@ function WAREHOUSE_OPEN(frame)
 	INVENTORY_SET_CUSTOM_RBTNDOWN("WAREHOUSE_INV_RBTN")	
 	local gbox = frame:GetChild("gbox");
 
-	local t_useprice = gbox:GetChild("t_useprice");
+	local t_useprice = frame:GetChild("t_useprice");
 	t_useprice:SetTextByKey("value", WAREHOUSE_PRICE);
 	
 end
@@ -83,17 +83,18 @@ function ON_WAREHOUSE_ITEM_LIST(frame)
 	local slotset = gbox:GetChild("slotset");
 	local gbox_warehouse = nil;
 	if slotset == nil then
-		gbox_warehouse = GET_CHILD(gbox, 'gbox_warehouse', 'ui::CGroupBox');
+		gbox_warehouse = GET_CHILD(gbox, 'gbox', 'ui::CGroupBox');
 		if gbox_warehouse ~= nil then
 			slotset = gbox_warehouse:GetChild("slotset");
 		end
 	end
 
 	AUTO_CAST(slotset);
-	
+	local etc = GetMyEtcObject();
 	local slotCount = slotset:GetSlotCount();
-	local MaxWarehouseCount = 100;
-	while slotCount <= MaxWarehouseCount  do 
+	slotset:SetSlotCount(etc.MaxWarehouseCount);
+	
+	while slotCount < etc.MaxWarehouseCount  do 
 		slotset:ExpandRow()
 		slotCount = slotset:GetSlotCount();
 	end
@@ -161,6 +162,50 @@ function WAREHOUSE_SORT()
 	scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_WAREHOUSE, BY_NAME);
 	ui.AddContextMenuItem(context, ScpArgMsg("SortByName"), scpScp);	
 	ui.OpenContextMenu(context);
+end
+
+function WAREHOUSE_EXTEND(frame, slot)
+	local aObj = GetMyAccountObj();
+	local etcObj = GetMyEtcObject();
+	if nil == etcObj or nil == aObj then
+		return;
+	end
+
+	local baseSlot = 60;
+	local slotDiff = etcObj.MaxWarehouseCount - baseSlot;
+	local extendCnt = 0;
+	local price = WAREHOUSE_EXTEND_PRICE;
+	if slotDiff > 0 then
+		extendCnt = slotDiff / 5;
+		price = price * (extendCnt + 1);
+	end
+
+	local str = ScpArgMsg("ExtendWarehouseSlot{TP}{SLOT}", "TP", price, "SLOT", 5);
+	ui.MsgBox(str, "CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE()", "None");
+
+end
+
+function CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE()
+	local etcObj = GetMyEtcObject();
+	if nil == etcObj then
+		return;
+	end
+
+	local baseSlot = 60;
+	local slotDiff = etcObj.MaxWarehouseCount - baseSlot;
+	local extendCnt = 0;
+	local price = WAREHOUSE_EXTEND_PRICE;
+	if slotDiff > 0 then
+		extendCnt = slotDiff / 5;
+		price = price * (extendCnt + 1);
+	end
+
+	if GET_CASH_POINT_C() - price < 0 then
+		ui.SysMsg(ScpArgMsg("Auto_MeDali_BuJogHapNiDa."))
+		return;
+	end
+
+	item.ExtendWareHouse();
 end
 
 function CHECK_EMPTYSLOT(frame)

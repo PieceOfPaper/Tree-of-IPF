@@ -138,6 +138,9 @@ function PS_REGISTER_ITEM(parent, ctrl)
 end
 
 function OPEN_PERSONAL_SHOP_REGISTER()
+	if 1 == 1 then
+		return;
+	end
 	if session.autoSeller.GetMyAutoSellerShopState(1) == true then
 		ui.OpenFrame("buffseller_my");
 	else

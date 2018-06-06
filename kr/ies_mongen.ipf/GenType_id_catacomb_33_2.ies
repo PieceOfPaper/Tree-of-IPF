@@ -1,7 +1,7 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","시에나칼 묘역","","","","","","","","CATACOMB_33_2_TO_CATACOMB_33_1","","NO","YES","NO","Neutral","","","",""
 2,2,1,40,100,60000,15,0,0,0,1,0,0,"rootcrystal_05","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
-3,3,1,40,-1,60000,1,1,0,0,0,100,0,"npc_gintas","신도 긴타스","","","","","","","CATACOMB_33_2_GINTAS","","","NO","YES","NO","Neutral","","","",""
+3,3,1,40,-1,60000,1,1,0,0,0,100,0,"npc_gintas","신도 긴타스","","","","","","CATACOMB_33_2_GINTAS_AI","CATACOMB_33_2_GINTAS","","","NO","YES","NO","Neutral","","","",""
 4,4,1,40,-1,60000,1,1,0,0,0,50,0,"npc_margiris","마르기리스","","","","","","","CATACOMB_33_2_MARGIRIS","","","NO","YES","NO","Neutral","","","",""
 5,5,1,40,-1,60000,1,1,0,0,0,100,0,"npc_rich_m","칼라일의 영혼","","","","","","CATACOMB_33_2_KARLYLE_AI","CATACOMB_33_2_KARLYLE","","","NO","YES","NO","Neutral","","","",""
 6,6,1,40,-1,60000,1,0,0,0,0,0,0,"npc_pilgrim_shrine","교단의 성물","","","","","","CATACOMB_33_2_UNHOLY_AI","CATACOMB_33_2_UNHOLY","","","NO","YES","NO","Neutral","","","",""

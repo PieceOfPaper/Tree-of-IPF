@@ -22,10 +22,14 @@ function OPEN_PARAMCONTROL()
 			local constName = name;
 			local sl = tolua.cast(ctrl, "ui::CSlideBar");
 			sl:SetMinSlideLevel(0);
-			sl:SetMaxSlideLevel(1000);
 
 			local text = frame:GetChild(constName .. "_text");
 			local cls = GetClass("SharedConst", name);
+			if name ~= "TOKEN_MARKET_REG_LIMIT_PRICE" and name ~= "TOKEN_MARKET_REG_MAX_PRICE" then
+				sl:SetMaxSlideLevel(1000);
+			else
+				sl:SetMaxSlideLevel(99999999);
+			end
 			text:SetTextByKey("title", cls.Desc);
 		end
 	end
@@ -89,6 +93,23 @@ function PARAM_CONTROL_SLIDE(frame, ctrl, str, num)
 	local val = sl:GetLevel();
 	local text = frame:GetChild(ctrl:GetName() .. "_edit");
 	local str = string.format("%.2f", val * 0.01);
+	text:SetText(str);
+end
+
+function PARAM_CONTROL_SILVER_RESET(frame, ctrl, str, num)
+	local sl = tolua.cast(ctrl, "ui::CSlideBar");
+	local clsName = sl:GetName();
+	local edit = frame:GetChild(clsName .. "_edit");
+	edit:SetText("28000");
+	sl:SetLevel(99999999);
+	REQ_SERVER_UPDATE_PARAM_CTRL(frame, sl:GetName());
+end
+
+function PARAM_CONTROL_SILVER_SLIDE(frame, ctrl, str, num)
+	local sl = tolua.cast(ctrl, "ui::CSlideBar");
+	local val = sl:GetLevel();
+	local text = frame:GetChild(ctrl:GetName() .. "_edit");
+	local str = string.format("%d", val);
 	text:SetText(str);
 end
 

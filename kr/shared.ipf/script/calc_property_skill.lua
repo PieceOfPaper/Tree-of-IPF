@@ -2516,20 +2516,20 @@ function SCR_GET_Bunshin_no_jutsu_Ratio(skill)
 end
 
 function SCR_GET_SummonGuildMember_Ratio(skill)
-    local value = 15 + 1 * skill.Level
+    local value = 1 * skill.Level
     
   return value
 end
 
 function SCR_GET_BattleOrders_Ratio(skill)
 
-	local value = 3 * skill.Level
+	local value = 5 * skill.Level
 
   return value
 
 end
 
-function SCR_GET_BattleOrders_Ratio(skill)
+function SCR_GET_BattleOrders_Ratio2(skill)
 
 	local value = 30 + 5 * skill.Level
 
@@ -5273,6 +5273,31 @@ function SCR_GET_Evocation_Ratio(skill)
 
 end
 
+function SCR_Get_SkillFactor_Desmodus(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+
+	local abil = GetAbility(pc, "Sorcerer14")      -- Skill Damage add
+    if abil ~= nil then
+        value = value + (value * (abil.Level * 0.01))
+    end
+
+    return math.floor(value)
+
+end
+
+function SCR_GET_Desmodus_Ratio(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "Sorcerer14") 
+	local value = 0
+	if abil ~= nil then 
+        return value + abil.Level
+    end
+
+end
+
 function SCR_Get_SklAtkAdd_GatherCorpse(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -5477,7 +5502,7 @@ function SCR_GET_Invocation_Bufftime(skill)
 end
 
 function SCR_Get_Pass_Bufftime(skill)
-	local value = skill.Level * 3
+	local value = skill.Level * 5
   return value
 
 end
@@ -7699,7 +7724,7 @@ end
 
 function SCR_GET_StoneSkin_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = (skill.Level - 1) * 120 + pc.MNA * 4
+    local value = (80 * skill.Level * 1) + pc.MNA * 4
     return value
 end
 
@@ -7711,6 +7736,11 @@ function SCR_GET_MeteorSwarm_Count(skill)
         meteorCount = 10;
     end
     return math.floor(meteorCount);
+end
+
+function SCR_GET_Burrow_Ratio(skill)
+local value = 5 * skill.Level
+return value
 end
 
 function SCR_Get_HellFire_SkillFactor(skill)
@@ -8025,11 +8055,11 @@ end
 function SCR_GET_SubzeroShield_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 6;
+    local value = 3;
     
     local abil = GetAbility(pc, "Cryomancer7")
     if abil ~= nil and 1 == abil.ActiveState then
-        value = value + abil.Level
+        value = value + abil.Level * 0.5
     end
     
     return value
@@ -8039,7 +8069,21 @@ end
 function SCR_GET_SubzeroShield_Ratio2(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 30 + skill.Level * 10
+    local value = 10 + skill.Level * 5
+    return value
+
+end
+
+function SCR_GET_Roasting_Ratio(skill)
+
+    local value = skill.Level * 1
+    return value
+
+end
+
+function SCR_GET_SubzeroShield_BuffTime(skill)
+
+    local value = 15 + skill.Level * 3
     return value
 
 end
@@ -9503,7 +9547,7 @@ end
 function SCR_GET_Aukuras_Ratio(skill)
 
     local value = 21 + (skill.Level - 1) * 6
-    
+    local pc = GetSkillOwner(skill)
     local abil = GetAbility(pc, 'Kriwi14');
 	if abil ~= nil then
 		value = value + abil.Level * 1.5;
@@ -9845,9 +9889,15 @@ end
 function SCR_GET_Vendetta_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = pc.MAXPATK * (skill.Level * 0.03)
+    local value = 5 * skill.Level
 
     return math.floor(value)
+end
+
+function SCR_GET_ZombieCapsule_Ratio(skill)
+    local value = skill.Level
+
+    return value
 end
 
 function SCR_GET_Vendetta_Bufftime(skill)
@@ -9889,6 +9939,24 @@ end
 function SCR_GET_FireBall_HitSplRange(skill)
 
 	return 50;
+
+end
+
+function SCR_GET_MitigatePenalty_Ratio(skill)
+
+	return 2 * skill.Level
+
+end
+
+function SCR_GET_MitigatePenalty_Ratio2(skill)
+
+	return 0.4 * skill.Level
+
+end
+
+function SCR_GET_MitigatePenalty_BuffTime(skill)
+
+	return 1 * skill.Level
 
 end
 
@@ -10438,6 +10506,12 @@ end
 function SCR_GET_SPENDITEM_COUNT(skill)
 	return skill.SpendItemBaseCount;
 end
+
+function SCR_GET_Dekatos_Ratio(skill)
+	return 1500
+end
+
+
 
 
 function SCR_GET_SPENDITEM_COUNT_Aspersion(skill)

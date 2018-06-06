@@ -6,7 +6,7 @@ function SET_ITEM_CATEGORY_FILTER(ctrlset)
 	local gBox = GET_CHILD(ctrlset, "categoryGbox");
 	local tree = GET_CHILD(gBox, "tree", 'ui::CTreeControl');
 	
-	SET_CATEGORY_BY_PROP(tree, "Item", "GroupName", "ClassType");
+	SET_ITEM_CATEGORY_BY_PROP(tree);
 
 end
 

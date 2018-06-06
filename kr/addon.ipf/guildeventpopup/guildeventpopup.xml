@@ -6,8 +6,9 @@
     <script margin="0 -3 0 0"/>
     <skin frameskin="jour_search"/>
     <controls>
-        <button name="btn_join" rect="0 0 191 50" layout_gravity="right top" LBtnUpScp="REQ_JOIN_GUILDEVENT" clicksound="button_click" oversound="button_over" margin="0 214 160 33" format="{@st42}%s{/}" param1="value" param1_def="Join"/>
-        <richtext name="txt_currentcount" rect="0 0 439 41" margin="32 8 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{s18}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="길드이벤트 참가자를 모집하고 있습니다." resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <button name="btn_join" rect="0 0 191 50" layout_gravity="right top" LBtnUpScp="REQ_JOIN_GUILDEVENT" clicksound="button_click" oversound="button_over" margin="0 214 260 33" format="{@st42}%s{/}" param1="value" param1_def="Join"/>
+        <button name="btn_close" rect="0 0 191 50" layout_gravity="right top" LBtnUpScp="REQ_JOIN_GUILDEVENT" clicksound="button_click" oversound="button_over" margin="0 214 60 33" format="{@st42}%s{/}" param1="value" param1_def="Close"/>
+		<richtext name="txt_currentcount" rect="0 0 439 41" margin="32 8 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{s18}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="길드이벤트 참가자를 모집하고 있습니다." resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
         <richtext name="txt_goal" rect="0 0 440 66" margin="30 50 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{s18}{#333333}%s{/}" maxwidth="0" param1="value" param1_def="Goal : Kill the minotors" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
         <richtext name="txt_joincount" rect="0 0 439 41" margin="28 120 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{s18}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="(7 / 26) Joining..." resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
         <gauge name="gauge" margin="29 164 0 0" rect="0 0 449 43" skin="jour_info_gauge" inverse="false" point="50" layout_gravity="left top"/>

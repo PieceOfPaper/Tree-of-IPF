@@ -310,12 +310,6 @@ function SKILLITEMMAKER_REGISTER(frame, skillType)
 
 end
 
-function SKILLITEMMAKE_GET_SKL_OBJ(frame)
-	local skillType= frame:GetUserIValue("SKILLTYPE");
-	local skillInfo = session.GetSkill(skillType);
-	return GetIES(skillInfo:GetObject());
-end
-
 function SKILLITEMMAKE_GET_TOTAL_MARTERIAL(frame)
 
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
@@ -409,51 +403,14 @@ function _SKILLITEMMAKE_EXEC()
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	local curCount = makecount:GetNumber();
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
-
+	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(sklObj, sklObj.Level);
+	local bottleCls = GetClass("Item", bottle);
+	local myBottle = session.GetInvItemByName(bottleCls.ClassName);
 	local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
 	local level = droplist_level:GetSelItemIndex()+1;
+	local argList = string.format("%d %d %d", sklObj.ClassID, level, curCount);
+	pc.ReqExecuteTx_Item("ITEM_SKILL_MAKER", myBottle:GetIESID(), argList);
 	
-	control.CustomCommand("SKILLITEM_MAKE", curCount, sklObj.ClassID, level);
-	_SKILLITEMMAKE_RESET(frame);
-end
-
-function _SKILLITEMMAKE_RESET(frame)
-
-	-- 전체를 초기화 해줌... ???
-	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
-	local totalprice = frame:GetChild("totalprice");
-	makecount:SetNumberValue(0);
-	makecount:SetIncrValue(0);
-	totalprice:SetTextByKey("value", 0);
-
---local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
---droplist_level:ClearItems();
-
-	CLEAR_SKILLITEMMAKER(frame);
-
-	if myVis < totalVis then
-		ui.SysMsg(ClMsg("NotEnoughMoney"));
-		return;
-	end
-
-	if myBottle < totalBottle  then
-		ui.SysMsg(ClMsg("NotEnoughRecipe"));
-		return;
-	end
-
-	ui.MsgBox(ClMsg("ReallyManufactureItem?"), "_SKILLITEMMAKE_EXEC", "None");
-end
-
-function _SKILLITEMMAKE_EXEC()
-	local frame = ui.GetFrame("skillitemmaker");
-	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
-	local curCount = makecount:GetNumber();
-	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
-
-	local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
-	local level = droplist_level:GetSelItemIndex()+1;
-	
-	control.CustomCommand("SKILLITEM_MAKE", curCount, sklObj.ClassID, level);
 	_SKILLITEMMAKE_RESET(frame);
 end
 

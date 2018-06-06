@@ -55,6 +55,15 @@ function NOTICE_ON_INIT(addon, frame)
     addon:RegisterMsg('NOTICE_Dm_OffLeft10Sec', 'NOTICE_ON_MSG');
     addon:RegisterMsg('NOTICE_Dm_OffLeft5Sec', 'NOTICE_ON_MSG');
 
+    addon:RegisterMsg('NOTICE_Dm_raid_fail', 'NOTICE_ON_MSG');
+    addon:RegisterMsg('NOTICE_Dm_reward_box', 'NOTICE_ON_MSG');
+    addon:RegisterMsg('NOTICE_Dm_raid_clear', 'NOTICE_ON_MSG');
+    addon:RegisterMsg('NOTICE_Dm_stage_clear', 'NOTICE_ON_MSG');
+    addon:RegisterMsg('NOTICE_Dm_stage_start', 'NOTICE_ON_MSG');
+    addon:RegisterMsg('NOTICE_Dm_stage_ready', 'NOTICE_ON_MSG');
+    addon:RegisterMsg('NOTICE_Dm_move_to_point', 'NOTICE_ON_MSG');
+    addon:RegisterMsg('NOTICE_Dm_guildevent_join_complete', 'NOTICE_ON_MSG');
+
 	addon:RegisterMsg('NOTICE_Dm_invenfull', 'NOTICE_ON_MSG');
     addon:RegisterMsg('NOTICE_Dm_levelup_base', 'NOTICE_ON_MSG');
 	addon:RegisterMsg('NOTICE_Dm_LevelUP_Auto', 'NOTICE_ON_MSG');
@@ -376,6 +385,23 @@ function NOTICE_ON_MSG(frame, msg, argStr, argNum)
 	elseif msg == 'NOTICE_Dm_invenfull' then
         exeText = '{@st41_red}'..noticeText ;
 	elseif msg == 'NOTICE_Dm_quest_complete' then
+        exeText = '{@st41}'..noticeText ;
+        
+    elseif msg == 'NOTICE_Dm_raid_fail' then
+        exeText = '{@st41}'..noticeText ;
+    elseif msg == 'NOTICE_Dm_reward_box' then
+        exeText = '{@st41}'..noticeText ;
+    elseif msg == 'NOTICE_Dm_raid_clear' then
+        exeText = '{@st41}'..noticeText ;
+    elseif msg == 'NOTICE_Dm_stage_clear' then
+        exeText = '{@st41}'..noticeText ;
+    elseif msg == 'NOTICE_Dm_stage_start' then
+        exeText = '{@st41}'..noticeText ;
+    elseif msg == 'NOTICE_Dm_stage_ready' then
+        exeText = '{@st41}'..noticeText ;
+    elseif msg == 'NOTICE_Dm_move_to_point' then
+        exeText = '{@st41}'..noticeText ;
+    elseif msg == 'NOTICE_Dm_guildevent_join_complete' then
         exeText = '{@st41}'..noticeText ;
 	end
 

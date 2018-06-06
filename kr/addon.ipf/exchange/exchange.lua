@@ -142,7 +142,8 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 
 		local invframe = ui.GetFrame("inventory");
 		if item:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU") 
-			or item:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN")  then
+		or item:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN")  
+		or item:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
 			return;
 		end
 		if geItemTable.IsStack(obj.ClassID) == 1  then

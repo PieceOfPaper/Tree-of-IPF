@@ -961,6 +961,11 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
         value = 0;
     end
 
+	    -- 라이브 사전캐릭터용 14레벨 경험치 0
+    if pcLv > 10 then
+        value = value * 0;
+    end
+
     return value;
 
 end

@@ -19,9 +19,10 @@ function CREATE_JOURNAL_ARTICLE_CRAFT(frame, grid, key, text, iconImage, callbac
 	tree:SetFontName("white_20_ol");
 	tree:SetTabWidth(5);
 
+	
 	local clslist = GetClassList("Recipe");
 	if clslist == nil then 
-		return
+		return 
 	end
 
 	local i = 0;
@@ -36,7 +37,7 @@ function CREATE_JOURNAL_ARTICLE_CRAFT(frame, grid, key, text, iconImage, callbac
 		if session.GetWikiByName(cls.ClassName) ~= nil then
 			--print(i,cls.ClassName,cls.ClassID)
 		end
-		
+
 		if cls.NeedWiki == 0 or session.GetWikiByName(cls.ClassName) ~= nil then
 			if checkHaveMaterial == 1 then
 				if JOURNAL_HAVE_MATERIAL(cls) == 1 then
@@ -236,6 +237,7 @@ function JOURNAL_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType)
 
 			hParent = hClassType;
 		end
+
 		local pageCtrlName = "PAGE_" .. groupName;
 		if classType ~= nil then
 			pageCtrlName = pageCtrlName .. "_" .. classType;

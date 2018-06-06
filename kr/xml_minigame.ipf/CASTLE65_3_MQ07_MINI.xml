@@ -4,13 +4,18 @@
         <StageList>
             <Stage Name="Stage01">
                 <ObjList>
-                    <Obj Type="Monster" MonType="58076" Pos="1026.16#0.03#-1691.64" maxStackCount="1" genTime="1000" objectKey="1" tendency="1">
+                    <Obj Type="Monster" MonType="58077" Pos="1087.00#0.75#-1764.91" maxStackCount="1" genTime="7000" genReadyTime="3000" objectKey="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="250"/>
                                 </ToolScp>
                             </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_DAMAGE_ADDHATE" Client="NO" UseSleep="NO">
+                                    <Num Num="5000"/>
+                                </ToolScp>
+                            </HitList>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -18,13 +23,18 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58078" Pos="934.95#0.03#-1609.63" maxStackCount="1" genTime="1500" objectKey="2" tendency="1">
+                    <Obj Type="Monster" MonType="58153" Pos="1031.49#0.75#-1727.77" maxStackCount="1" genTime="17000" genReadyTime="7000" objectKey="2" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="250"/>
                                 </ToolScp>
                             </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_DAMAGE_ADDHATE" Client="NO" UseSleep="NO">
+                                    <Num Num="5000"/>
+                                </ToolScp>
+                            </HitList>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -32,13 +42,18 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58076" Pos="896.74#0.03#-1476.21" maxStackCount="1" genTime="1000" genReadyTime="1000" objectKey="3" tendency="1">
+                    <Obj Type="Monster" MonType="58077" Pos="972.37#0.75#-1650.38" maxStackCount="1" genTime="7000" genReadyTime="4500" objectKey="3" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="250"/>
                                 </ToolScp>
                             </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_DAMAGE_ADDHATE" Client="NO" UseSleep="NO">
+                                    <Num Num="5000"/>
+                                </ToolScp>
+                            </HitList>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -46,13 +61,18 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58078" Pos="961.92#0.03#-1386.27" maxStackCount="1" genTime="1500" genReadyTime="1000" objectKey="4" tendency="1">
+                    <Obj Type="Monster" MonType="58153" Pos="956.95#0.75#-1583.34" maxStackCount="1" genTime="17000" genReadyTime="10000" objectKey="4" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="250"/>
                                 </ToolScp>
                             </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_DAMAGE_ADDHATE" Client="NO" UseSleep="NO">
+                                    <Num Num="5000"/>
+                                </ToolScp>
+                            </HitList>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -60,13 +80,18 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58076" Pos="1070.07#0.03#-1352.80" maxStackCount="1" genTime="2000" objectKey="5" tendency="1">
+                    <Obj Type="Monster" MonType="58077" Pos="963.73#0.75#-1507.08" maxStackCount="1" genTime="8000" genReadyTime="4500" objectKey="5" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="250"/>
                                 </ToolScp>
                             </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_DAMAGE_ADDHATE" Client="NO" UseSleep="NO">
+                                    <Num Num="5000"/>
+                                </ToolScp>
+                            </HitList>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>

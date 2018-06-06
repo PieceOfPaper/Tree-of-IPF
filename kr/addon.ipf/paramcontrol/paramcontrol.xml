@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="paramcontrol" x="0" y="0" width="400" height="609" create="open">
+<uiframe name="paramcontrol" x="0" y="0" width="400" height="1000" create="open">
     <frame title="{@st43}운영자 설정{/}" titlepos="0 -12" layout_gravity="right bottom" snapclient="true" snapframe="true" margin="0 0 55 16"/>
     <draw drawframe="true" drawtitlebar="true"/>
     <layer layerlevel="100"/>
@@ -39,5 +39,11 @@
         <richtext name="JAEDDURY_MON_JOBEXP_RATE_text" rect="0 0 120 24" margin="53 540 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
         <edit name="JAEDDURY_MON_JOBEXP_RATE_edit" rect="0 0 120 24" margin="200 540 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
         <slidebar name="JAEDDURY_MON_JOBEXP_RATE" rect="0 0 350 20" margin="53 565 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+		<richtext name="TOKEN_MARKET_REG_LIMIT_PRICE_text" rect="0 0 120 24" margin="52 612 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+		<edit name="TOKEN_MARKET_REG_LIMIT_PRICE_edit" rect="0 0 120 24" margin="199 612 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+		<slidebar name="TOKEN_MARKET_REG_LIMIT_PRICE" rect="0 0 350 20" margin="52 637 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SILVER_RESET" SlideScp="PARAM_CONTROL_SILVER_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+		<richtext name="TOKEN_MARKET_REG_MAX_PRICE_text" rect="0 0 120 24" margin="55 671 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+		<edit name="TOKEN_MARKET_REG_MAX_PRICE_edit" rect="0 0 120 24" margin="202 671 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+		<slidebar name="TOKEN_MARKET_REG_MAX_PRICE" rect="0 0 350 20" margin="55 696 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SILVER_RESET" SlideScp="PARAM_CONTROL_SILVER_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
     </controls>
 </uiframe>

@@ -4,8 +4,8 @@
         <StageList>
             <Stage Name="ST1">
                 <ObjList>
-                    <Obj Type="Monster" MonType="401181" Pos="-891.79#782.87#-3379.11" genCount="1" genTime="20000" objectKey="0" searchRange="300" tendency="1">
-                        <SelfAI>
+                    <Obj Type="Monster" MonType="401181" Pos="-891.79#782.87#-3379.11" genCount="1" genTime="20000" objectKey="0" searchRange="300" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="300"/>
@@ -13,8 +13,8 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="401181" Pos="-1010.66#782.87#-3456.48" genCount="1" genTime="20000" objectKey="1" searchRange="300" tendency="1">
-                        <SelfAI>
+                    <Obj Type="Monster" MonType="401181" Pos="-1010.66#782.87#-3456.48" genCount="1" genTime="20000" objectKey="1" searchRange="300" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="300"/>
@@ -22,8 +22,8 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="401181" Pos="-844.90#739.85#-3581.62" genCount="1" genTime="20000" objectKey="2" searchRange="300" tendency="1">
-                        <SelfAI>
+                    <Obj Type="Monster" MonType="401181" Pos="-844.90#739.85#-3581.62" genCount="1" genTime="20000" objectKey="2" searchRange="300" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="300"/>
@@ -31,7 +31,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="401181" Pos="-762.17#739.85#-3490.55" genCount="1" genTime="20000" objectKey="3" searchRange="300" tendency="1"/>
+                    <Obj Type="Monster" MonType="401181" Pos="-762.17#739.85#-3490.55" genCount="1" genTime="20000" objectKey="3" searchRange="300" SimpleAI="ORCHARD_342_MON_AI" tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="ST1">
@@ -54,8 +54,8 @@
             </Stage>
             <Stage Name="ST2" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="401181" Pos="-832.68#739.85#-3616.60" range="100" genCount="1" genTime="20000" objectKey="0" searchRange="300" tendency="1">
-                        <SelfAI>
+                    <Obj Type="Monster" MonType="401181" Pos="-832.68#739.85#-3616.60" range="100" genCount="1" genTime="20000" objectKey="0" searchRange="300" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="300"/>
@@ -63,8 +63,8 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="401181" Pos="-915.11#782.87#-3438.57" range="100" genCount="1" genTime="20000" objectKey="2" searchRange="300" tendency="1">
-                        <SelfAI>
+                    <Obj Type="Monster" MonType="401181" Pos="-915.11#782.87#-3438.57" range="100" genCount="1" genTime="20000" objectKey="2" searchRange="300" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="300"/>
@@ -72,8 +72,8 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="401181" Pos="-738.52#739.85#-3493.64" range="100" genCount="1" genTime="20000" objectKey="1" searchRange="300" tendency="1">
-                        <SelfAI>
+                    <Obj Type="Monster" MonType="401181" Pos="-738.52#739.85#-3493.64" range="100" genCount="1" genTime="20000" objectKey="1" searchRange="300" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="300"/>
@@ -114,8 +114,8 @@
             </Stage>
             <Stage Name="ST3" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="401101" Pos="-729.41#739.85#-3499.50" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="300" tendency="1">
-                        <SelfAI>
+                    <Obj Type="Monster" MonType="401101" Pos="-729.41#739.85#-3499.50" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="300" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="300"/>
@@ -123,8 +123,8 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="401101" Pos="-857.81#739.85#-3595.93" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="300" tendency="1">
-                        <SelfAI>
+                    <Obj Type="Monster" MonType="401101" Pos="-857.81#739.85#-3595.93" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="300" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="300"/>
@@ -132,8 +132,8 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="401181" Pos="-998.07#782.87#-3457.35" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="300" tendency="1">
-                        <SelfAI>
+                    <Obj Type="Monster" MonType="401181" Pos="-998.07#782.87#-3457.35" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="300" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="300"/>
@@ -141,8 +141,8 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="401181" Pos="-885.92#782.87#-3403.24" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="300" tendency="1">
-                        <SelfAI>
+                    <Obj Type="Monster" MonType="401181" Pos="-885.92#782.87#-3403.24" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="300" SimpleAI="ORCHARD_342_MON_AI" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="300"/>

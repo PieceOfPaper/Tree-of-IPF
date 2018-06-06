@@ -4,6 +4,7 @@ function INTE_WARP_ON_INIT(addon, frame)
 	--addon:RegisterOpenOnlyMsg("GAME_START", "ON_INTE_WARP");
 end
 
+
 function INTE_WARP_ON_RELOAD(frame)
 	
 end
@@ -44,6 +45,10 @@ function INTE_WARP_OPEN(frame)
 	ON_INTE_WARP(frame)
 
 	frame:Invalidate()
+
+	local nowZoneName = GetZoneName(pc);
+	LOCATE_WORLDMAP_POS(frame, nowZoneName);
+	
 
 end
 
@@ -115,6 +120,7 @@ function ON_INTE_WARP(frame, changeDirection)
 
 	local makeWorldMapImage = session.mapFog.NeedUpdateWorldMap();
 	local currentDirection = config.GetConfig("INTEWARP_DIRECTION", "s");
+	currentDirection = "s";
 
 	if changeDirection == true or ui.GetImage("worldmap_" .. currentDirection .. "_current") == nil then
 		makeWorldMapImage = true;
@@ -127,8 +133,10 @@ function ON_INTE_WARP(frame, changeDirection)
 	local bottomY = picHeight;
 
 
+	local imgSize = ui.GetSkinImageSize("worldmap_" .. currentDirection .. "_bg");
 	local startX = - 80;
 	local startY = bottomY - 30;
+	local pictureStartY = imgSize.y - 30;
 	local spaceX = 130.5;
 	local spaceY = 130.5;
 
@@ -144,6 +152,9 @@ function ON_INTE_WARP(frame, changeDirection)
 	local curMode = frame:GetUserValue("Mode");
 	local imgName = "worldmap_" .. currentDirection .. "_bg";
 	
+	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
+	local sizeRatio = 1 + curSize * 0.25;
+
 	if mapCls ~= nil and mapCls.WorldMap ~= "None" then
 		
 		local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
@@ -151,8 +162,8 @@ function ON_INTE_WARP(frame, changeDirection)
 			if currentDirection == dir then
 
 			local warpInfo = WARP_INFO_ZONE(mapCls.ClassName)
-			local picX = startX + x * spaceX;
-			local picY = startY - y * spaceY;
+			local picX = startX + x * spaceX * sizeRatio;
+			local picY = startY - y * spaceY * sizeRatio;
 			local searchRate = session.GetMapFogSearchRate(mapCls.ClassName);
 			local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 			local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
@@ -190,16 +201,16 @@ function ON_INTE_WARP(frame, changeDirection)
 					set:SetTooltipStrArg(mapCls.ClassName);
 				end
 				set:SetTooltipNumArg(warpcost)
-				local dotText = GET_CHILD(set, "dotname", "ui::CRichText");
-				dotText:ShowWindow(0)
 				if nameRechText:GetWidth() > 130 then
 					nameRechText:SetTextFixWidth(1);
 					nameRechText:Resize(125 , set:GetHeight())
-					dotText:ShowWindow(1)
 				end
 					if makeWorldMapImage == true then
+				
 						local addSpace = 20;
-						ui.AddBrushArea(picX + set:GetWidth() / 2, picY + set:GetHeight() / 2, set:GetWidth() + addSpace);
+						local brushX = startX + x * spaceX;
+						local brushY = pictureStartY - y * spaceY;
+						ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + addSpace);
 					end
 			end
 		end
@@ -218,12 +229,12 @@ function ON_INTE_WARP(frame, changeDirection)
 				local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
 				
 				if currentDirection == dir then
-					local picX = startX + x * spaceX;
-					local picY = startY - y * spaceY;
+					local picX = startX + x * spaceX * sizeRatio;
+					local picY = startY - y * spaceY * sizeRatio;
 					local searchRate = session.GetMapFogSearchRate(mapCls.ClassName);
 					local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 
-					if (warpcost < 1000000) and (info.Zone ~= nowZoneName) then
+					if (warpcost < 1000000) then
 						if pic:GetChild(gBoxName) == nil then 
 							local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
 							gbox:SetSkinName("downbox");
@@ -237,22 +248,22 @@ function ON_INTE_WARP(frame, changeDirection)
 								set:SetOverSound('button_over');
 								set:SetClickSound('button_click_stats');
 								local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
-								nameRechText:SetTextByKey("mapname",info.Name);
+								
+								nameRechText:SetTextByKey("mapname", GET_WARP_NAME_TEXT(mapCls, info, nowZoneName));
 								set:SetEventScript(ui.LBUTTONDOWN, 'WARP_TO_AREA')
 								set:SetEventScriptArgString(ui.LBUTTONDOWN, info.ClassName);
 								set:SetTooltipType('warpminimap');
 								set:SetTooltipStrArg(info.ClassName);
 								set:SetTooltipNumArg(warpcost)
-								local dotText = GET_CHILD(set, "dotname", "ui::CRichText");
-								dotText:ShowWindow(0)
 								if nameRechText:GetWidth() > 130 then
 									nameRechText:SetTextFixWidth(1);
 									nameRechText:Resize(125 , set:GetHeight())
-									dotText:ShowWindow(1)
 								end
 								if makeWorldMapImage == true then
 									local addSpace = 20;
-									ui.AddBrushArea(picX + set:GetWidth() / 2, picY + set:GetHeight() / 2, set:GetWidth() + addSpace);
+									local brushX = startX + x * spaceX;
+									local brushY = pictureStartY - y * spaceY;
+									ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + addSpace);
 								end
 							else
 								local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
@@ -263,22 +274,21 @@ function ON_INTE_WARP(frame, changeDirection)
 								set:SetOverSound('button_over');
 								set:SetClickSound('button_click_stats');
 								local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
-								nameRechText:SetTextByKey("mapname",info.Name);
+								nameRechText:SetTextByKey("mapname",GET_WARP_NAME_TEXT(mapCls, info, nowZoneName));
 								set:SetEventScript(ui.LBUTTONDOWN, 'WARP_TO_AREA')
 								set:SetEventScriptArgString(ui.LBUTTONDOWN, info.ClassName);
 								set:SetTooltipType('warpminimap');
 								set:SetTooltipStrArg(info.ClassName);
 								set:SetTooltipNumArg(warpcost)
-								local dotText = GET_CHILD(set, "dotname", "ui::CRichText");
-								dotText:ShowWindow(0)
 								if nameRechText:GetWidth() > 130 then
 									nameRechText:SetTextFixWidth(1);
 									nameRechText:Resize(125 , set:GetHeight())
-									dotText:ShowWindow(1)
 								end
 								if makeWorldMapImage == true then
 									local addSpace = 20;
-									ui.AddBrushArea(picX + set:GetWidth() / 2, picY + set:GetHeight() / 2, set:GetWidth() + addSpace);
+									local brushX = startX + x * spaceX;
+									local brushY = pictureStartY - y * spaceY;
+									ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + addSpace);
 								end
 							end
 						else				
@@ -290,22 +300,21 @@ function ON_INTE_WARP(frame, changeDirection)
 							set:SetOverSound('button_over');
 							set:SetClickSound('button_click_stats');
 							local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
-							nameRechText:SetTextByKey("mapname",info.Name);
+							nameRechText:SetTextByKey("mapname",GET_WARP_NAME_TEXT(mapCls, info, nowZoneName));
 							set:SetEventScript(ui.LBUTTONDOWN, 'WARP_TO_AREA')
 							set:SetEventScriptArgString(ui.LBUTTONDOWN, info.ClassName);
 							set:SetTooltipType('warpminimap');
 							set:SetTooltipStrArg(info.ClassName);
 							set:SetTooltipNumArg(warpcost)
-							local dotText = GET_CHILD(set, "dotname", "ui::CRichText");
-							dotText:ShowWindow(0)
 							if nameRechText:GetWidth() > 130 then
 								nameRechText:SetTextFixWidth(1);
 								nameRechText:Resize(125 , set:GetHeight())
-								dotText:ShowWindow(1)
 							end
 							if makeWorldMapImage == true then
 								local addSpace = 20;
-								ui.AddBrushArea(picX + set:GetWidth() / 2, picY + set:GetHeight() / 2, set:GetWidth() + addSpace);
+								local brushX = startX + x * spaceX;
+								local brushY = pictureStartY - y * spaceY;
+								ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + addSpace);
 							end
 						end
 						local gbox = pic:GetChild(gBoxName)
@@ -328,6 +337,16 @@ function ON_INTE_WARP(frame, changeDirection)
 	pic:SetImage("worldmap_" .. currentDirection .. "_current");
 
 	frame:Invalidate()
+
+end
+
+function GET_WARP_NAME_TEXT(mapCls, info, nowZoneName)
+
+	if mapCls.ClassName == nowZoneName then
+		return "{#FFFF00}" .. info.Name;
+	end
+
+	return info.Name;
 
 end
 --[[
@@ -457,11 +476,19 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 	local nowZoneName = GetZoneName(pc);
 	local myMoney = GET_TOTAL_MONEY();
 	local warpcost
+	local targetMapName;
 	if camp_warp_class ~= nil then
+		targetMapName = camp_warp_class.Zone;
     	warpcost = geMapTable.CalcWarpCostBind(nowZoneName, camp_warp_class.Zone);
     elseif argStr ~= nil then
         warpcost = geMapTable.CalcWarpCostBind(nowZoneName, argStr);
+		targetMapName = argStr;
     end
+
+	if targetMapName == nowZoneName then
+		ui.SysMsg(ScpArgMsg("ThatCurrentPosition"));
+		return;
+	end	
 
 	if warpcost < 0 then
 		warpcost = 0
