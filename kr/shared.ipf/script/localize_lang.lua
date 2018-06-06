@@ -43,6 +43,44 @@ function GET_TIME_TXT(sec, hour)
 	
 end
 
+function GET_TIME_TXT_NO_LANG(sec, hour)
+
+	sec = math.floor(sec)
+
+	local d, h, m, s = GET_DHMS(sec);
+	local ret = "";
+	local started = 0;
+	if d > 0 then
+		ret = d .. ":";
+		started = 1;
+		if nil ~= hour and h == 0 then
+			return ret;
+		end
+	end
+	if h > 0 then
+		ret = ret .. h .. ":";
+		started = 1;
+		if nil ~= hour then
+			return ret;
+		end
+	end
+	
+	if m >= 0 then
+		ret = ret .. m .. ":";
+		started = 1;
+	else
+		return ret;
+	end
+	
+--if s == 0 and ret ~= "" then
+--	return string.sub(ret, 1, string.len(ret) - 1);
+--end
+
+	ret = ret .. s;
+	return ret;
+	
+end
+
 function GET_TIME_TXT_TWO_FIGURES(sec)
 
 	sec = math.floor(sec)

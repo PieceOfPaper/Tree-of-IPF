@@ -52,7 +52,7 @@ function ON_CABINET_ITEM_LIST(frame)
 			refreshScp(itemObj);
 		end	
 
-		local ctrlSet = INSERT_CONTROLSET_DETAIL_LIST(itemlist, i, 0, "market_sell_item_detail");
+		local ctrlSet = INSERT_CONTROLSET_DETAIL_LIST(itemlist, i, 0, "market_cabinet_item_detail");
 		ctrlSet:Resize(1350, ctrlSet:GetHeight());
 
 		local pic = GET_CHILD(ctrlSet, "pic", "ui::CPicture");
@@ -83,11 +83,10 @@ function ON_CABINET_ITEM_LIST(frame)
 		
 		local btn = GET_CHILD(ctrlSet, "btn");
 		btn:SetTextByKey("value", ClMsg("Receieve"));
-
-		if 0 >= difSec then
 		btn:UseOrifaceRectTextpack(true)
 		btn:SetEventScript(ui.LBUTTONUP, "CABINET_ITEM_BUY");
 		btn:SetEventScriptArgString(ui.LBUTTONUP,cabinetItem:GetItemID());
+		if 0 >= difSec then
 			btn:SetEnable(1);
 		else
 			btn:SetEnable(0);

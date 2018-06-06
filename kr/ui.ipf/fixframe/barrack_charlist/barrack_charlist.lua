@@ -52,11 +52,14 @@ function INIT_BARRACK_NAME(frame)
 
 	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
 	richtext:SetTextByKey("value",myCharCont);
+	local buySlot = session.loginInfo.GetBuySlotCount();
+	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
+	richtext:SetTextByKey("value2", tostring(barrackCls.BaseSlot + buySlot));
 
 	local accountObj = GetMyAccountObj();
 	richtext = frame:GetChild("myTp");
-	local txt = string.format("%d(%d+%d)", GET_CASH_TOTAL_POINT_C(), accountObj.GiftMedal + accountObj.PremiumMedal, accountObj.Medal) 
-	richtext:SetTextByKey("value", txt);
+	richtext:SetTextByKey("value", accountObj.Medal);
+	richtext:SetTextByKey("value2", accountObj.GiftMedal + accountObj.PremiumMedal);
 end
 
 function SET_CHILD_USER_VALUE(frame, childName, name, value)
@@ -89,8 +92,8 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 
 	richtext = barrackName:GetChild("myTp");
 	local accountObj = GetMyAccountObj();
-	local txt = string.format("%d(%d+%d)", GET_CASH_TOTAL_POINT_C(), accountObj.GiftMedal + accountObj.PremiumMedal, accountObj.Medal) 
-	richtext:SetTextByKey("value", txt);
+	richtext:SetTextByKey("value", accountObj.Medal);
+	richtext:SetTextByKey("value2", accountObj.GiftMedal + accountObj.PremiumMedal);
 
 	if actor ~= nil then
 		CREATE_SCROLL_CHAR_LIST(frame, actor);
@@ -566,7 +569,9 @@ function UPDATE_BARRACK_MODE(frame)
 
 		local barrack_exit = ui.GetFrame("barrack_exit");
 		local postbox = barrack_exit:GetChild("postbox");
+		local postbox_new = GET_CHILD(barrack_exit, "postbox_new");
 		postbox:ShowWindow(0);
+		postbox_new:ShowWindow(0);
 	end
 end
 

@@ -365,6 +365,8 @@ function DRAW_EQUIP_MEMO(tooltipframe, invitem, yPos, mainframename)
 		return yPos
 	end
 	
+	memo = ScpArgMsg("ItIsMemo") ..memo
+	
 	local tooltip_equip_property_CSet = gBox:CreateOrGetControlSet('tooltip_equip_memo', 'tooltip_equip_memo', 0, yPos);
 	local property_gbox = GET_CHILD(tooltip_equip_property_CSet,'property_gbox','ui::CGroupBox')
 		

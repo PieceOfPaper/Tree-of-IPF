@@ -4057,6 +4057,7 @@
 		<image name="star_out_arrow" file="\icon\arrow_icon.tga" imgrect="105 0 20 20" CMM_Caption="클래스 별없는"/>
 		<image name="viewunfold" file="\icon\arrow_icon.tga" imgrect="84 21 20 20" CMM_Caption="펼쳐보기"/>
 		<image name="spreadclose" file="\icon\arrow_icon.tga" imgrect="105 21 20 20" CMM_Caption="펼침닫기"/>
+		<image name="blue_down_arrow" file="\icon\arrow_icon.tga" imgrect="0 42 20 20" CMM_Caption="파랑_다운_화살표"/>
 		<image name="keyboard_img" file="\skin\pip_test.tga" imgrect="477 944 75 35" CMM_Caption="키보드이미지"/>
 		<image name="joypad_img" file="\skin\pip_test.tga" imgrect="553 944 54 35" CMM_Caption="조이패드이미지"/>
 		<image name="mouse_img" file="\skin\pip_test.tga" imgrect="608 944 38 35" CMM_Caption="마우스이미지"/>
@@ -4103,6 +4104,7 @@
 		<image name="arrow_red_image" file="\skin\paid_skin.tga" imgrect="131 230 55 15" CMM_Caption="빨간화살표"/>
 		<image name="token_middle" file="\skin\paid_skin.tga" imgrect="288 0 316 165" CMM_Caption="토큰중간이미지"/>
 	<image name="expup_middle" file="\skin\paid_skin.tga" imgrect="605 0 316 165" CMM_Caption="경험의서이미지"/>
+		<image name="market_sell_updown" file="\skin\paid_skin.tga" imgrect="675 439 328 115" CMM_Caption="마켓상하한가표"/>
 	</imagelist>
 	<imagelist category="tutorial_img">
 		<image name="tutr_img_btn_left" file="\skin\mainframe_04.tga" imgrect="371 448 44 44"/>
@@ -5094,8 +5096,8 @@
 		<image name="btn_worldmap_zoomout_cursoron" file="\skin\button.tga" imgrect="235 212 44 44"/>
 		<image name="btn_worldmap_zoomout_clicked" file="\skin\button.tga" imgrect="280 212 44 44"/>
 		<image name="worldmap_mark" file="\skin\worldmap_mark.png" imgrect="0 0 360 300"/>
-		<image name="worldmap_s_fog" file="\skin\worldmap_overall_fog.jpg" imgrect="0 0 3480 7250"/>
-		<image name="worldmap_s_bg" file="\skin\worldmap_overall_bg.jpg" imgrect="0 0 3480 7250"/>
+		<image name="worldmap_s_fog" file="\skin\worldmap_overall_fog.jpg" imgrect="0 0 1740 3625"/>
+		<image name="worldmap_s_bg" file="\skin\worldmap_overall_bg.jpg" imgrect="0 0 1740 3625"/>
 	</imagelist>
 	<imagelist category="minimap_imgs">
 		<image name="jilgam" file="\minimap\jilgam.png" imgrect="0 0 1024 1024"/>
@@ -5171,6 +5173,8 @@
 		<image name="die_party" file="\icon\minimap_icon3.tga" imgrect="195 672 30 30"/>
 		<image name="Archer_party" file="\icon\minimap_icon3.tga" imgrect="226 672 30 30"/>
 		<image name="minimap_man_TPshop" file="\icon\minimap_icon3.tga" imgrect="432 572 80 80"/>
+	<image name="minimap_complete" file="\icon\minimap_icon3.tga" imgrect="213 338 24 24"/>
+		<image name="minimap_collection_c" file="\icon\minimap_icon3.tga" imgrect="240 338 24 24"/>
 	</imagelist>
 	<imagelist category="quest_tags">
 		<image name="quest_tag_1_MAIN" file="\icon\minimap_icon.tga" imgrect="61 31 16 16"/>

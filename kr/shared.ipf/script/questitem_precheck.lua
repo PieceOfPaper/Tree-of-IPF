@@ -4157,10 +4157,10 @@ function SCR_PRE_JOB_2_CLERIC3_ITEM(self, argObj, argstring, arg1, arg2)
     local result = SCR_QUEST_CHECK(self, 'JOB_2_CLERIC3')
     if result == 'PROGRESS' then
         if GetZoneName(self) == 'f_siauliai_16' then
-            local list, cnt = SelectObject(self, 30, 'ALL')
+            local list, cnt = SelectObject(self, 30, 'ALL', 1)
             for i = 1, cnt do
                 if list[i].ClassName ~= 'PC' then
-                    if list[i].ClassName == 'npc_husband_1' or list[i].ClassName == 'npc_wife_1' or list[i].ClassName == 'npc_oldman_1' then
+                    if list[i].ClassName == 'orsha_m_2' or list[i].ClassName == 'orsha_f_4' or list[i].ClassName == 'orsha_m_14_1' then
                         if IsBuffApplied(list[i],'JOB_2_CLERIC_CURED')  == 'NO' then
                             return GetHandle(list[i])
                         end
@@ -4650,6 +4650,7 @@ function SCR_PRE_GIMMICK_TRANSFORM_JUKOPUS(self, argstring, argnum1, argnum2)
     end
     return 0
 end
+
 --Escape_Orb
 function SCR_PRE_ITEM_Escape(self, argObj, BuffName, arg1, arg2)
     if GetLayer(self) ~= 0 then

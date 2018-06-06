@@ -17,8 +17,8 @@
 		<button name="close" rect="7 2 44 44" margin="0 10 20 0" layout_gravity="right top" LBtnUpScp="GEMROASTING_TARGET_UI_CENCEL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}UI를 닫습니다{/}"/>
 		<tab name="statusTab" rect="70 70 500 40" layout_gravity="left top" LBtnDownScp="GEMROASTING_TAP_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="1" oversound="button_cursor_over_2" skin="tab2"/>
 		<labelline name="repairLine1" rect="0 0 420 2" margin="0 103 0 0 " layout_gravity="center top" skin="None"/>
-		<tabitem name="Itembox1" parent="statusTab" caption="{@st41b}로스팅{/}" width="160"/>
-		<tabitem name="Itembox2" parent="statusTab" caption="{@st41b}기록{/}" width="160"/>
+		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}로스팅{/}" width="160"/>
+		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}기록{/}" width="160"/>
 		<picture name="titlepicture" rect="0 0 44 44" margin="0 -100 8 0" layout_gravity="right top" image="button_property"/>
 		<picture name="slot_bg_img" parent="roasting" rect="0 0 240 260" margin="0 50 0 0" layout_gravity="center top" image="squaier_gem" stretch="true"/>
 		<slot name="slot" parent="roasting" rect="0 0 130 130" margin="0 110 0 0" layout_gravity="center top" DropScp="GEMROASTING_SLOT_DROP" PopScp="GEMROASTING_SLOT_POP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}젬을 올려주세요{/}"/>

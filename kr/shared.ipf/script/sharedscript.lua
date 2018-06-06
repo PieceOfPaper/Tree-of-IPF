@@ -16,6 +16,10 @@ function IMC_INFO(code, stringinfo)
 	imclog("Info",code,stringinfo)
 end
 
+function IMC_NORMAL_INFO(stringinfo)
+	imclog("ERRCODE_INFO_NORMAL", stringinfo)
+end
+
 
 function IS_REINFORCEABLE_ITEM(item)
 
@@ -942,22 +946,7 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
         local lvRatio = 1 - ((pcLv - monLv - 4) * 0.05);
         value = value * lvRatio;
     end
-
-    if highLv ~= 0 then
-        local partyLvGap = highLv - pcLv
-        if partyLvGap > 40 then
-            value = 0;
-        elseif partyLvGap > 35 then
-            value = value / 16;
-        elseif partyLvGap > 30 then
-            value = value / 8;
-        elseif partyLvGap > 25 then
-            value = value / 4;
-        elseif partyLvGap > 20 then
-            value = value / 2;
-        end
-    end
-
+	
     if value < 0 then
         value = 0;
     end

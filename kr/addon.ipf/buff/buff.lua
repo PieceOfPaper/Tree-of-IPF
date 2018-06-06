@@ -125,6 +125,9 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 	local imageName 		= 'icon_' .. class.Icon;
 	icon:Set(imageName, 'BUFF', buffType, 0);
 	icon:SetUserValue("BuffIndex", buffIndex);	
+	if tonumber(handle) == nil then
+		return
+	end
 	local buff 					= info.GetBuff(tonumber(handle), buffType);
 
 	if buff.over > 1 then

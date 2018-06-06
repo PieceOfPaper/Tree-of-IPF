@@ -943,6 +943,15 @@ function UPDATE_LEARING_ABIL_INFO(frame)
 			nowLearingGBox:ShowWindow(1);
 			local ctr = nowLearingGBox:CreateOrGetControlSet("learing_abil_ctrl", "CTRLSET_" .. i, ui.LEFT, 0, 0, 0, 0, 0);
 			local abilClass = GetClassByType("Ability", pc[prop]);
+
+			--해승이가 남는지 너무 궁금하여 로깅을 하자.
+			if abilClass == nil then
+				if ui.GetHaeSeung() == false then
+				control.CustomCommand("HAESEUNG_TEST", pc[prop]);
+					ui.SetHaeSeung(true)
+				end
+			end
+
 		if abilClass ~= nil then
 
 				local titlepicture = GET_CHILD(ctr, 'learningAbilPic','ui::CPicture')

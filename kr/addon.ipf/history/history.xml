@@ -13,9 +13,9 @@
 		<groupbox name="pipwin_top_my" rect="0 0 0 0" margin="0 0 0 0" layout_gravity="right top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top" parent="TPBox"/>
 <groupbox name="pipwin_top" rect="0 0 490 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_top"/>
 		<tab name="statusTab" rect="0 0 470 40" layout_gravity="left top" LBtnDownScp="HISTORY_TAB_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="25 68 0 0"/>
-		<tabitem name="Itembox1" parent="statusTab" caption="{@st41b}스테이터스{/}" width="150" layout_gravity="left top"/>
-		<tabitem name="Itembox2" parent="statusTab" caption="{@st41b}스킬{/}" width="150" layout_gravity="left top"/>
-		<tabitem name="Itembox3" parent="statusTab" caption="{@st41b}TP{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}스테이터스{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}스킬{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="Itembox3" parent="statusTab" caption="{@st66b}TP{/}" width="150" layout_gravity="left top"/>
 		<pagecontroller name="pagecontrol" rect="0 0 430 40" margin="-3 0 0 117" layout_gravity="center bottom" image="{@st42b}{#999999} {@st41}{b}" nextScp="HISTORY_PAGE_SELECT_NEXT" prevScp="HISTORY_PAGE_SELECT_PREV" selectScp="HISTORY_PAGE_SELECT" slot="25 25" space="100 0 0 100" type="richtext">
 			<prev size="40 40" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}" skin="test_normal_button"/>
 			<next size="40 40" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}" skin="test_normal_button"/>

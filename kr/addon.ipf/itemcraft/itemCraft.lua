@@ -26,7 +26,6 @@ g_craftRecipe_upDown = nil;
 
 -- craftRecipe
 function SET_ITEM_CRAFT_UINAME(uiName)
-
 	g_itemCraftFrameName = uiName;
 
 	g_craftRecipe = "craftRecipe";
@@ -51,8 +50,8 @@ end
 
 function ITEMCRAFT_REFRSH(frame, msg, str, time)
 
-	frame = ui.GetFrame(g_itemCraftFrameName);
-	session.ResetItemList();
+	frame = ui.GetFrame(frame:GetUserValue("UI_NAME"));
+--session.ResetItemList();
 --local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
 --local tree_box = GET_CHILD(group, 'recipetree_Box','ui::CGroupBox')
 --local tree = GET_CHILD(tree_box, 'recipetree','ui::CTreeControl')
@@ -191,6 +190,10 @@ end
 		
 		
 function CREATE_CRAFT_ARTICLE(frame)
+
+	if g_craftRecipe == nil then
+		return;
+	end
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	INVENTORY_SET_ICON_SCRIPT("None");
@@ -561,6 +564,11 @@ function SORT_INVITEM_BY_WORTH(a,b)
 end
 
 function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
+	if control.IsRestSit() == false then
+		ui.SysMsg(ClMsg("CraftUsedtoSit"));
+		return;
+	end
+
 	local frame = ctrlset:GetTopParentFrame();
 	local parentcset = ctrlset:GetParent()
 	local idSpace = frame:GetUserValue("IDSPACE");
@@ -694,19 +702,23 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 		end
 
 	-- 임시로 작동하지 않게 막는다. 나중에 새로 만들어야함.
---	if TryGetProp(recipecls, "UseQueue") == "YES" then
---		local queueFrame = ui.GetFrame("craftqueue");
---		ADD_CRAFT_QUEUE(queueFrame, targetItem, recipecls.ClassID, totalCount);
---		if frame:GetUserIValue("MANUFACTURING") == 1 then
---			return;
---	end
+	if TryGetProp(recipecls, "UseQueue") == "YES" then
+		local queueFrame = ui.GetFrame("craftqueue");
+		for i = 1, totalCount do
+			ADD_CRAFT_QUEUE(queueFrame, targetItem, recipecls.ClassID, 1);
+		end
+		if frame:GetUserIValue("MANUFACTURING") == 1 then
+			return;
+	end
 		frame:SetUserValue("MANUFACTURING", 1);
 		SetCraftState(1)
---		ui.OpenFrame("craftqueue");		
---	end
+		ui.OpenFrame("craftqueue");	
+		frame:SetUserValue("MANUFACTURING", 1);
+	end
 	
 	local resultlist = session.GetItemIDList();
-	local cntText = string.format("%s %s", recipecls.ClassID, totalCount);
+	local cntText = string.format("%s %s", recipecls.ClassID, 1);
+	frame:SetUserValue("IDSPACE", idSpace);
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText, nameList);
 	
 end
@@ -772,7 +784,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_START(frame, msg, str, time)
 end
 
 function CRAFT_DETAIL_CRAFT_EXEC_ON_FAIL(frame, msg, str, time)
-	frame = ui.GetFrame(g_itemCraftFrameName);
+	frame = ui.GetFrame(frame:GetUserValue("UI_NAME"))
 	if frame:GetUserIValue("MANUFACTURING") == 1 then
 		local queueFrame = ui.GetFrame("craftqueue");
 		CLEAR_CRAFT_QUEUE(queueFrame);
@@ -783,14 +795,8 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_FAIL(frame, msg, str, time)
 end
 
 function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
-	frame = ui.GetFrame(g_itemCraftFrameName);
-	--임시로 막아놓는다.
-	--if frame:GetUserIValue("MANUFACTURING") ~= 1 then
-	--	return;
-	--end
-	if 1 == 1 then
-		frame:SetUserValue("MANUFACTURING", 0);
-		SetCraftState(0)
+	frame = ui.GetFrame(frame:GetUserValue("UI_NAME"))
+	if frame:GetUserIValue("MANUFACTURING") ~= 1 then
 		return;
 	end
 
@@ -801,7 +807,6 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 		SetCraftState(0)
 		return;
 	end
-			
 	local idSpace = frame:GetUserValue("IDSPACE");
 	local recipecls = GetClassByType(idSpace, recipeType);
 	local resultlist = session.GetItemIDList();
@@ -822,7 +827,6 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 			end
 		end
 	end
-
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText);
 end
 
@@ -903,7 +907,7 @@ function CRAFT_CRAFT_SET_DETAIL(ctrlset, detailMode, ignoreUserValue)
 		return 0;
 	else
 		
-		local frame = ui.GetFrame(g_itemCraftFrameName);
+		local frame = ui.GetFrame(g_itemCraftFrameName)
 		frame:SetUserValue('ITEM_CRAFT_NOW_FOCUSED_CSET_NAME',ctrlset:GetName())
 		DESTROY_CHILD_BY_USERVALUE(ctrlset, "DETAIL_CTRL", "YES");		
 		local icon = ctrlset:GetChild("icon");
@@ -948,7 +952,7 @@ function ITEMCRAFT_INV_ICON(slot, reinfItemObj, invItem, itemobj)
 end
 
 function ITEMCRAFT_INV_RBTN(itemObj, slot) -- 우클릭 추가 함수
-	local frame = ui.GetFrame(g_itemCraftFrameName);
+	local frame = ui.GetFrame(g_itemCraftFrameName)
 	local ITEM_CRAFT_NOW_FOCUSED_CSET_NAME = frame:GetUserValue('ITEM_CRAFT_NOW_FOCUSED_CSET_NAME')
 
 	local nowCset = GET_CHILD_RECURSIVELY(frame,ITEM_CRAFT_NOW_FOCUSED_CSET_NAME,'ui::CControlSet')
@@ -1251,6 +1255,7 @@ function CRAFT_EXIT(frame, msg, argStr, argNum)
 
 	packet.StopTimeAction();
 	ui.CloseFrame("timeaction");
+	ui.CloseFrame(frame:GetUserValue("UI_NAME"))
 	ui.CloseFrame(g_itemCraftFrameName);
 end
 

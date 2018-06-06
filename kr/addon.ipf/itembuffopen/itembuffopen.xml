@@ -15,8 +15,8 @@
 		<richtext name="Squire_WeaponTouchUp" rect="0 0 200 80" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}무기 손질{/}" textalign="left top"/>
 		<richtext name="Squire_ArmorTouchUp" rect="0 0 200 80" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}장비 손질{/}" textalign="left top"/>
 		<tab name="statusTab" rect="70 70 500 40" layout_gravity="left top" LBtnDownScp="SQIORE_TAP_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
-		<tabitem name="Itembox1" parent="statusTab" caption="{@st41b}손질{/}" width="160"/>
-		<tabitem name="Itembox2" parent="statusTab" caption="{@st41b}기록{/}" width="160"/>
+		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}손질{/}" width="160"/>
+		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}기록{/}" width="160"/>
 		<button name="close" rect="10 0 44 44" margin="0 15 20 0" layout_gravity="right top" LBtnUpScp="SQIORE_TARGET_UI_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}수리 UI를 닫습니다{/}"/>
 		<groupbox name="repair" rect="0 0 439 1000" margin="0 69 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="flase" skin=""/>
 		<groupbox name="TitleSkin" parent="repair" rect="0 0 405 35" margin="0 48 15 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>

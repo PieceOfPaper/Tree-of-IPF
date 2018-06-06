@@ -222,10 +222,9 @@ function ON_INTE_WARP(frame, changeDirection)
 					end
 						if makeWorldMapImage == true then
 				
-							local addSpace = 20;
 							local brushX = startX + x * spaceX;
 							local brushY = pictureStartY - y * spaceY;
-							ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + addSpace);
+							ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
 						end
 				end
 			end
@@ -286,10 +285,9 @@ function ON_INTE_WARP(frame, changeDirection)
 											nameRechText:Resize(125 , set:GetHeight())
 										end
 										if makeWorldMapImage == true then
-											local addSpace = 20;
 											local brushX = startX + x * spaceX;
 											local brushY = pictureStartY - y * spaceY;
-											ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + addSpace);
+											ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
 										end
 									end
 								else
@@ -313,10 +311,9 @@ function ON_INTE_WARP(frame, changeDirection)
 											nameRechText:Resize(125 , set:GetHeight())
 										end
 										if makeWorldMapImage == true then
-											local addSpace = 20;
 											local brushX = startX + x * spaceX;
 											local brushY = pictureStartY - y * spaceY;
-											ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + addSpace);
+											ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
 										end
 									end
 								end
@@ -341,10 +338,9 @@ function ON_INTE_WARP(frame, changeDirection)
 										nameRechText:Resize(125 , set:GetHeight())
 									end
 									if makeWorldMapImage == true then
-										local addSpace = 20;
 										local brushX = startX + x * spaceX;
 										local brushY = pictureStartY - y * spaceY;
-										ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + addSpace);
+										ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
 									end
 								end
 							end

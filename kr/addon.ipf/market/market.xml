@@ -24,7 +24,7 @@
 		<button name="marketBuy" rect="0 0 400 45" margin="10 105 0 0" layout_gravity="left top" caption="{@st66b18}판매중인 아이템" clicksound="button_click" oversound="button_over" skin="tab2_btn_clicked"/>
 		<groupbox name="categoryList" rect="0 0 362 590" margin="4 192 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false"/>
 		<button name="category" margin="10 155 0 0" rect="0 0 355 40" layout_gravity="left top" caption="{@st45tw2}카테고리" hittest="false" skin="market_listbase" Enable="false"/>
-		<detaillist name="itemlist" rect="0 0 1030 730 " margin="376 193 0 0" layout_gravity="left top" rowheight="70" skin=""/>
+		<detaillist name="itemlist" rect="0 0 1030 730 " margin="376 185 0 0" layout_gravity="left top" rowheight="70" skin=""/>
 		<groupbox name="title_1" rect="0 0 1040 40" margin="373 155 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
 		<richtext name="richtext_1" margin="170 10 0 0" rect="0 0 120 24" caption="{@st45tw2}이름{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 		<richtext name="category_level" margin="400 10 0 0" rect="0 0 120 24" caption="{@st45tw2}레벨{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>

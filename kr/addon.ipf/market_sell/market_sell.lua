@@ -3,6 +3,7 @@ function MARKET_SELL_ON_INIT(addon, frame)
 	addon:RegisterMsg("MARKET_REGISTER", "ON_MARKET_REGISTER");
 	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");
 	
+	addon:RegisterMsg("MARKET_MINMAX_INFO", "ON_MARKET_MINMAX_INFO");
 end
 
 function MARKET_SELL_OPEN(frame)
@@ -24,6 +25,21 @@ function MARKET_SELL_OPEN(frame)
 	end
 	droplist:SelectItem(0);
 	droplist:SelectItemByKey(1);
+
+	local silverRate = groupbox:GetChild("silverRate");
+
+	local upValue = silverRate:GetChild("upValue");
+	local downValue = silverRate:GetChild("downValue");
+	local min = silverRate:GetChild("min");
+	local max = silverRate:GetChild("max");
+
+	upValue:SetTextByKey("value", '0');
+	downValue:SetTextByKey("value", '0');
+	min:SetTextByKey("value", '0');
+	max:SetTextByKey("value", '0');
+
+	local slot_item = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
+	CLEAR_SLOT_ITEM_INFO(slot_item);
 end
 
 function MARKET_SELL_UPDATE_SLOT_ITEM(frame)
@@ -71,20 +87,30 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		local ctrlSet = INSERT_CONTROLSET_DETAIL_LIST(itemlist, i, 0, "market_sell_item_detail");
 		local pic = GET_CHILD(ctrlSet, "pic", "ui::CPicture");
 		pic:SetImage(itemObj.Icon);
+
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
+
 		local itemCount = ctrlSet:GetChild("count");
 		itemCount:SetTextByKey("value", marketItem.count);
+
+		local priceStr = string.format("{img icon_item_silver %d %d}%d", 20, 20, marketItem.sellPrice * marketItem.count) 
 		local totalPrice = ctrlSet:GetChild("totalPrice");
-		totalPrice:SetOffset(totalPrice:GetX() - 100, totalPrice:GetY());
-		totalPrice:SetTextByKey("value", GetCommaedText(marketItem.sellPrice) .. " * " .. GetCommaedText(marketItem.count) .. " = " .. GetCommaedText(marketItem.sellPrice * marketItem.count));
+		totalPrice:SetTextByKey("value", priceStr);
+
+		local cashValue = GetCashValue(marketItem.premuimState, "marketSellCom") * 0.01;
+		local stralue = GetCashValue(marketItem.premuimState, "marketSellCom");
+		priceStr = string.format("{img icon_item_silver %d %d}%d[%d%%]", 20, 20, marketItem.sellPrice * marketItem.count * cashValue, stralue) 
+		local silverFee = ctrlSet:GetChild("silverFee");
+		silverFee:SetTextByKey("value", priceStr);
+
 		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
+
 		local endTime = ctrlSet:GetChild("endTime");
 		endTime:SetTextByKey("value", timeString);
 
 		local btn = GET_CHILD(ctrlSet, "btn");
 		btn:SetTextByKey("value", ClMsg("Cancel"));
-		btn:UseOrifaceRectTextpack(true)
 		btn:SetEventScript(ui.LBUTTONUP, "CANCEL_MARKET_ITEM");
 		btn:SetEventScriptArgString(ui.LBUTTONUP,marketItem:GetMarketGuid());
 		
@@ -112,7 +138,7 @@ end
 function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)	
 	if true == invItem.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
-		return;
+		return false;
 	end
 
 	local invframe = ui.GetFrame("inventory");
@@ -121,10 +147,21 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		or invItem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
 	
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
-			return;
+		return false;
 		end
 
 	local groupbox = frame:GetChild("groupbox");
+	local silverRate = groupbox:GetChild("silverRate");
+	local upValue = silverRate:GetChild("upValue");
+	local downValue = silverRate:GetChild("downValue");
+	local min = silverRate:GetChild("min");
+	local max = silverRate:GetChild("max");
+	
+	upValue:SetTextByKey("value", '0');
+	downValue:SetTextByKey("value", '0');
+	min:SetTextByKey("value", '0');
+	max:SetTextByKey("value", '0');
+
 	local edit_count = GET_CHILD(groupbox, "edit_count", "ui::CEditControl");
 	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
 
@@ -151,13 +188,13 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 			tradeCount = (invItem.count + wareCnt) - tonumber(noTradeCnt);
 			if tradeCount <= 0 then
 				ui.AlarmMsg("ItemIsNotTradable");
-				return;
+			return false;
 			end
 		end
 
 		if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or (pr ~= nil and pr < 1) then
 			ui.AlarmMsg("ItemIsNotTradable");
-			return;
+		return false;
 		end
 
 
@@ -169,6 +206,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		edit_count:SetMaxNumber(tradeCount);
 
 	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
+	return true;
 	end
 		
 function MARKET_SELL_RBUTTON_ITEM_CLICK(frame, invItem)
@@ -177,11 +215,16 @@ function MARKET_SELL_RBUTTON_ITEM_CLICK(frame, invItem)
 	edit_price:SetText("0");
 	edit_price:SetMinNumber(0);
 
-	MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, nil);
+	local ret = MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, nil);
+	if ret == true then
+		market.ReqSellMinMaxInfo(invItem:GetIESID());
+		frame:SetUserValue('REQ_ITEMID', invItem:GetIESID())
+	end
 end
 
 function MARKET_SELL_ITEM_DROP_BY_SLOT(parent, slot)
 
+	local frame = parent:GetTopParentFrame();
 	local liftIcon = ui.GetLiftIcon();
 	local groupbox = slot:GetParent();
 	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
@@ -196,15 +239,60 @@ function MARKET_SELL_ITEM_DROP_BY_SLOT(parent, slot)
 		return;
 	end
 
+
 	local invItem = session.GetInvItemByGuid(itemID);
 	if invItem ~= nil then
-		MARKET_SELL_UPDATE_REG_SLOT_ITEM(parent:GetTopParentFrame(), invItem, slot);
+		local ret = MARKET_SELL_UPDATE_REG_SLOT_ITEM(parent:GetTopParentFrame(), invItem, slot);
+		if ret == true then
+			market.ReqSellMinMaxInfo(itemID);
+			frame:SetUserValue('REQ_ITEMID', itemID)
+		end
 		return;
 	end
 
 	CLEAR_SLOT_ITEM_INFO(slot);
-	local frame = parent:GetTopParentFrame();
 	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
+end
+
+function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
+	local itemID = frame:GetUserValue('REQ_ITEMID');
+	local invItem = session.GetInvItemByGuid(itemID);
+	local groupbox = frame:GetChild("groupbox");
+	local silverRate = groupbox:GetChild("silverRate");
+
+	local upValue = silverRate:GetChild("upValue");
+	local downValue = silverRate:GetChild("downValue");
+	local min = silverRate:GetChild("min");
+	local max = silverRate:GetChild("max");
+
+	upValue:SetTextByKey("value", '0');
+	downValue:SetTextByKey("value", '0');
+	min:SetTextByKey("value", '0');
+	max:SetTextByKey("value", '0');
+
+	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
+	edit_price:SetText("0");
+	edit_price:SetMaxNumber(2147483647);
+
+	if argNum == 1 then	
+		local tokenList = TokenizeByChar(argStr, ";");
+		local minStr = tokenList[1];
+		local minAllow = tokenList[2];
+		local maxStr = tokenList[3];
+		local maxAllow = tokenList[4];
+		local avg = tokenList[5];
+
+		upValue:SetTextByKey("value", maxAllow);
+		downValue:SetTextByKey("value", minAllow);
+		min:SetTextByKey("value", minStr);
+		max:SetTextByKey("value", maxStr);
+		edit_price:SetText(avg);
+		edit_price:SetMaxNumber(maxAllow);
+		return;
+	end
+
+	frame:SetUserValue('REQ_ITEMID', 'None')
+	MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame:GetTopParentFrame(), invItem, nil);
 end
 
 function MARKET_SELL_REGISTER(parent, ctrl)
@@ -251,6 +339,23 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		ui.SysMsg(ClMsg("Auto_SilBeoKa_BuJogHapNiDa."));
 		return;
 	end
+
+	local silverRate = groupbox:GetChild("silverRate");
+
+	local down = silverRate:GetChild("downValue");
+	local downValue = down:GetTextByKey("value");
+	local idownValue = tonumber(downValue);
+	local iPrice = tonumber(price);
+	if 0 ~= idownValue and  iPrice < idownValue then
+		ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", downValue));	
+		return;
+	end
+
+	if obj.GroupName == "Premium" and iPrice < tonumber(TOKEN_MARKET_REG_LIMIT_PRICE) then
+		ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", TOKEN_MARKET_REG_LIMIT_PRICE));		
+		return;
+	end
+
 	-- 장비그룹만 buffValue가 있다.
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
@@ -260,15 +365,6 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 			market.ReqRegisterItem(itemGuid, price, count, 1, selecIndex);
 		end
 	else
-		if obj.GroupName == "Premium" then
-			if tonumber(price) < tonumber(TOKEN_MARKET_REG_LIMIT_PRICE) then
-				ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", TOKEN_MARKET_REG_LIMIT_PRICE));		
-				return;
-			end
-			local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, selecIndex);
-			ui.MsgBox(ScpArgMsg("DoyouRegMarket"), yesScp, "None");
-			return;
-		end
 		market.ReqRegisterItem(itemGuid, price, count, 1, selecIndex);
 	end
 

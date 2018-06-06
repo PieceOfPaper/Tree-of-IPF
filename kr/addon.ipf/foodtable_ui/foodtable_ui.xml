@@ -14,9 +14,9 @@
         <groupbox name="pipwin_top" rect="0 0 470 117" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_warrior"/>
         <groupbox name="gbox" rect="0 0 472 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
         <tab name="itembox" parent="gbox" rect="0 0 430 40" margin="25 20 0 0 " layout_gravity="left top" LBtnDownScp="FRIEND_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
-        <tabitem name="tab_make" parent="itembox" layout_gravity="left top" caption="{@st41b}조리" skinspace="20" width="140"/>
-        <tabitem name="tab_normal" parent="itembox" layout_gravity="left top" caption="{@st41b}음식" skinspace="20" width="140"/>
-        <tabitem name="tab_log" parent="itembox" layout_gravity="left top" caption="{@st41b}기록" skinspace="20" width="140"/>
+        <tabitem name="tab_make" parent="itembox" layout_gravity="left top" caption="{@st66b}조리" skinspace="20" width="140"/>
+        <tabitem name="tab_normal" parent="itembox" layout_gravity="left top" caption="{@st66b}음식" skinspace="20" width="140"/>
+        <tabitem name="tab_log" parent="itembox" layout_gravity="left top" caption="{@st66b}기록" skinspace="20" width="140"/>
         <richtext name="richtext_1" rect="0 0 120 24" margin="10 18 0 0" layout_gravity="center top" caption="{@st43}배식 테이블" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
         <button name="close" rect="0 0 44 44" margin="0 10 10 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}배식테이블을 닫습니다{/}"/>
         <groupbox name="gbox_table" parent="gbox" rect="0 0 444 870" margin="16 63 0 0" layout_gravity="left top" hittestbox="false" skin="none" tabname="tab_normal"resizebyresolution="true"/>

@@ -7789,6 +7789,15 @@ function SCR_GET_SwiftStep_Ratio(skill)
 
 end
 
+function SCR_GET_SwiftStep_Ratio2(skill)
+
+    local pc = GetSkillOwner(skill);
+    local value = 5 + skill.Level;
+	
+    return value
+
+end
+
 function SCR_Get_Fulldraw_BuffTime(skill)
 
     local pc = GetSkillOwner(skill);

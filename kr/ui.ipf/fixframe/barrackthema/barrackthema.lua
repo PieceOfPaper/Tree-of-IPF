@@ -24,7 +24,11 @@ function BARRACK_THEMA_UPDATE(frame)
 	local bg = frame:GetChild("nxp_bg");
 	local account = GetMyAccountObj();
 	local mynxp = bg:GetChild("mynxp");
-	mynxp:SetTextByKey("value", tostring(GET_CASH_TOTAL_POINT_C()));
+	local accountObj = GetMyAccountObj();
+	mynxp:SetTextByKey("value", accountObj.GiftMedal + accountObj.PremiumMedal);
+	local bg_1 = frame:GetChild("nxp_bg_1");
+	local mynxp_1 = bg_1:GetChild("mynxp_1");
+	mynxp_1:SetTextByKey("value", accountObj.Medal);
 	local curID = account.SelectedBarrack;
 	local bg_mid = frame:GetChild("bg_mid");
 	local advBox = GET_CHILD(bg_mid, "AdvBox", "ui::CAdvListBox");
@@ -100,7 +104,7 @@ function BARRACK_THEMA_UPDATE(frame)
 	end
 	
 	advBox:UpdateAdvBox();
-	GBOX_AUTO_ALIGN(advBox, 20, 3, 10, true, false);
+	GBOX_AUTO_ALIGN(advBox, 5, 3, 10, true, false);
 end
 
 function BARRACKTHEMA_PREVIEW(themaName)

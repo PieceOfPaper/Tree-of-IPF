@@ -1358,10 +1358,13 @@ function DRAW_MEDAL_COUNT(frame)
 	local medalGbox				= bottomGbox:GetChild('medalGbox');
 	local medalText				= GET_CHILD(medalGbox, 'medalText', 'ui::CRichText');
 	local medalFreeTime			= GET_CHILD(medalGbox, 'medalFreeTime', 'ui::CRichText');
+	local medalGbox_2				= bottomGbox:GetChild('medalGbox_2');
+	local premiumTP			= GET_CHILD(medalGbox_2, 'premiumTP', 'ui::CRichText');
 	
 	local accountObj = GetMyAccountObj();
-	local txt = string.format("%d(%d+%d)", GET_CASH_TOTAL_POINT_C(), accountObj.GiftMedal + accountObj.PremiumMedal, accountObj.Medal) 
-    medalText:SetTextByKey("medal", txt);
+    medalText:SetTextByKey("medal", tostring(accountObj.Medal));
+	premiumTP:SetTextByKey("medal", tostring(accountObj.GiftMedal + accountObj.PremiumMedal));
+
 	if "None" ~= accountObj.Medal_Get_Date then
 		local sysTime = geTime.GetServerSystemTime();
 		local endTime = imcTime.GetSysTimeByStr(accountObj.Medal_Get_Date);
@@ -1388,7 +1391,7 @@ function SHOW_REMAIN_NEXT_TP_GET_TIME(ctrl)
 		ctrl:StopUpdateScript("SHOW_REMAIN_NEXT_TP_GET_TIME");
 		return;
 	end
-	local timeTxt = GET_TIME_TXT(startSec);
+	local timeTxt = GET_TIME_TXT_NO_LANG(startSec);
 	ctrl:SetTextByKey("medal", "{s16}{#ffffcc}(" .. timeTxt..")");
 	return 1;
 end

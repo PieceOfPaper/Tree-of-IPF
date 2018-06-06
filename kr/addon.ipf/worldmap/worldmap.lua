@@ -176,12 +176,12 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 	
 	local imgSize = ui.GetSkinImageSize("worldmap_" .. currentDirection .. "_bg");
 
-	local startX = - 80;
-	local startY = bottomY - 30;
-	local pictureStartY = imgSize.y - 30;
+	local startX = - 40;
+	local startY = bottomY - 15;
+	local pictureStartY = imgSize.y - 15;
 
-	local spaceX = 130.5;
-	local spaceY = 130.5;
+	local spaceX = 65.25;
+	local spaceY = 65.25;
 
 	local mapName = session.GetMapName();
 	
@@ -281,6 +281,10 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 	local picX = startX + x * spaceX * sizeRatio;
 	local picY = startY - y * spaceY * sizeRatio;
 
+	if picX < 0 then
+		picX = 0
+	end
+
 	if changeDirection == false then
 		local gbox = parentGBox:GetChild(gBoxName);
 		if gbox ~= nil then
@@ -288,10 +292,12 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 			return;
 		end
 	end
-	local gbox = parentGBox:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 120)
+	local gbox = parentGBox:CreateOrGetControl("groupbox", gBoxName, picX, picY, 200, 120)
 	gbox:SetEventScript(ui.MOUSEWHEEL, "WORLDMAP_MOUSEWHEEL");
 	gbox:SetSkinName("None");
 	gbox:ShowWindow(1);
+	gbox = AUTO_CAST(gbox);
+	gbox:EnableScrollBar(0);
 	local ctrlSet = gbox:CreateOrGetControlSet('worldmap_zone', "ZONE_CTRL_" .. mapCls.ClassID, ui.LEFT, ui.TOP, 0, 0, 0, 0);
 	ctrlSet:ShowWindow(1);
 	local text = ctrlSet:GetChild("text");
@@ -320,17 +326,32 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
         if #getTypeIES > 0 then
 		warpGoddessIcon = '{img minimap_goddess 24 24}'
 	end
+
+	local nltag = ''
+
 	local mapLvValue = mapLv
 	if mapLv == nil or mapLv == 'None' or mapLv == '' or mapLv == 0 then
 		mapLv = ''
 	else
-		mapLv = '{nl}Lv.'..mapLv
+		mapLv = 'Lv.'..mapLv
+		nltag = "{nl}"
+	end
+
+	local recoverRate = 0
+	if 0 ~= MAP_USE_FOG(mapCls.ClassName) then
+		recoverRate = session.GetMapFogRevealRate(mapCls.ClassName);
+	end
+
+	local mapratebadge = ""
+	
+	if recoverRate >= 100 then
+		mapratebadge = "{img minimap_complete 24 24}"
 	end
 	
 	local mapNameFont = MAPNAME_FONT_CHECK(mapLvValue)
 	
 	if mainName ~= "None" then
-		text:SetTextByKey("value", warpGoddessIcon..questPossibleIcon..mapNameFont..mainName..mapLv..'{/}{nl}'..GET_STAR_TXT(20,mapCls.MapRank));
+		text:SetTextByKey("value", mapNameFont..mainName..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge..'{/}{nl}'..GET_STAR_TXT(20,mapCls.MapRank));
 	else
 		if mapName ~= mapCls.ClassName and nowMapWorldPos[1] == x and nowMapWorldPos[2] == y then
 			local nowmapLv = nowMapIES.QuestLevel
@@ -339,9 +360,9 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
         	else
         		nowmapLv = '{nl}Lv.'..nowmapLv
         	end
-			text:SetTextByKey("value", warpGoddessIcon..questPossibleIcon..mapNameFont..mapCls.Name..mapLv..'{nl}'..warpGoddessIcon_now..questPossibleIcon..'{@st57}'..nowMapIES.Name..nowmapLv..'{/}'.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank))
+			text:SetTextByKey("value", mapNameFont..mapCls.Name..nltag..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge..'{nl}'..warpGoddessIcon_now..questPossibleIcon..'{@st57}'..nowMapIES.Name..nowmapLv..'{/}'.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank))
 		else
-    		text:SetTextByKey("value", warpGoddessIcon..questPossibleIcon..mapNameFont..mapCls.Name..mapLv.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank));						
+    		text:SetTextByKey("value", mapNameFont..mapCls.Name..nltag..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank));						
     	end
 	end
 					
@@ -383,12 +404,11 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 	end	
 
 	if makeWorldMapImage == true then
-		local addSpace = 40;
 
 		local brushX = startX + x * spaceX;
 		local brushY = pictureStartY - y * spaceY;
 
-		ui.AddBrushArea(brushX + ctrlSet:GetWidth() / 2, brushY + ctrlSet:GetHeight() / 2, ctrlSet:GetWidth() + addSpace);
+		ui.AddBrushArea(brushX + ctrlSet:GetWidth() / 2, brushY + ctrlSet:GetHeight() / 2, ctrlSet:GetWidth() + WORLDMAP_ADD_SPACE);
 	end
 	 
 	GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, false);
@@ -454,7 +474,7 @@ function WORLDMAP_PROCESS_MOUSE(ctrl)
 		ui.EnableToolTip(1);
 		return 0;
 	end
-
+	
 	local mx, my = GET_MOUSE_POS();
 	local x = ctrl:GetUserIValue("MOUSE_X");
 	local y = ctrl:GetUserIValue("MOUSE_Y");
@@ -493,7 +513,7 @@ function WORLDMAP_CHANGESIZE(frame, ctrl, str, isAmplify)
 	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
 	local sizeRatio = 1 + curSize * 0.25;
 	curSize = curSize + isAmplify;
-	curSize = CLAMP(curSize, -3, 3);
+	curSize = CLAMP(curSize, -3, 12);
 	config.SetConfig("WORLDMAP_SCALE", curSize);
 	local afterSizeRatio = 1 + curSize * 0.25;
 	if sizeRatio == afterSizeRatio then
@@ -518,7 +538,7 @@ function WORLDMAP_LOCATE_LASTWARP(parent, ctrl)
 	local etcObj = GetMyEtcObject();
 	local mapCls = GetClassByType("Map", etcObj.LastWarpMapID);
 	if mapCls ~= nil then
-	LOCATE_WORLDMAP_POS(parent:GetTopParentFrame(), mapCls.ClassName);
+		LOCATE_WORLDMAP_POS(parent:GetTopParentFrame(), mapCls.ClassName);
 	end
 	
 end
@@ -534,7 +554,11 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 
 	local gBox = GET_WORLDMAP_GROUPBOX(frame);
 	local mapCls = GetClass("Map", mapName);
-	local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
+	if mapCls.WorldMap == "None" then
+		return;
+	end
+
+	local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);	
 	local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 
 	local childCtrl = gBox:GetChild(gBoxName);

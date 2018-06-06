@@ -22,8 +22,8 @@
 		<tree name="friendtree_request" parent="friendtree_request_gbox" rect="0 0 420 0" margin=" 0 0 0 0" layout_gravity="left top" drawline="true" selectioncolor="000000"/>
         <!--<groupbox name="facebook" rect="0 0 410 790" margin="20 160 0 0" hittestbox="false" layout_gravity="left top" skin=" " draw="true" scrollbar="true" tabname="tab_facebook" resizebyresolution="true"/>-->
         <tab name="itembox" rect="0 0 400 40" margin="85 80 0 0 " layout_gravity="left top" LBtnDownScp="FRIEND_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
-        <tabitem name="tab_game" parent="itembox" layout_gravity="left top" caption="{@st41b}목록" skinspace="20" width="140"/>
-        <tabitem name="tab_request" parent="itembox" layout_gravity="left top" caption="{@st41b}관리" skinspace="20" width="140"/>
+        <tabitem name="tab_game" parent="itembox" layout_gravity="left top" caption="{@st66b}목록" skinspace="20" width="140"/>
+        <tabitem name="tab_request" parent="itembox" layout_gravity="left top" caption="{@st66b}관리" skinspace="20" width="140"/>
 		<button name="friend_register" parent="friendtree_request_gbox" rect="0 0 200 50" margin="-105 0 0 10" layout_gravity="center bottom" LBtnUpScp="FRIEND_REGISTER" caption="{@st41b}친구 신청" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
 		<button name="friend_block" parent="friendtree_request_gbox" rect="0 0 200 50" margin="105 0 0 10" layout_gravity="center bottom" LBtnUpScp="FRIEND_BLOCK" caption="{@st41b}차단" clicksound="button_click" oversound="button_over" skin="test_gray_button"/>
         <!--labelline name="boardLine 1" margin="0 134 0 0" rect="0 0 440 2" layout_gravity="center top" visible="true" skin="None"/-->

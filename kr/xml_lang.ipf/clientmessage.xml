@@ -63,7 +63,7 @@
 		<Class ClassID="10020" ClassName="InventoryIsFull" Data="인벤토리에 빈자리가 없습니다"/>
 		<Class ClassID="10021" ClassName="ServerIsClosed" Data="서버가 닫혀있습니다"/>
 		<Class ClassID="10022" Data="장착할 수 없는 아이템입니다"/>
-		<Class ClassID="10023" ClassName="{Word}_FobiddenWord" Data="[{Word}] 사용할 수 없는 단어입니다"/>
+		<Class ClassID="10023" ClassName="{Word}_FobiddenWord" Data="[{Word}] 사용할 수 없는 단어입니다."/>
 		<Class ClassID="10024" Data="{s20}{ol}{#46c8ff}SP가 부족합니다"/>
 		<Class ClassID="10025" Data="서버 버전과 일치하지 않습니다"/>
 		<Class ClassID="10026" ClassName="NotEnoughLevelToEquipItem" Data="레벨이 부족합니다{nl}아이템 설명에서 장착 가능한 레벨을 확인하세요"/>
@@ -268,6 +268,7 @@
 		<Class ClassID="10319" ClassName="VisitBarrack" Data="숙소 방문"/>
 		<Class ClassID="10320" ClassName="StartGame" Data="게임 시작"/>
 		<Class ClassID="10321" ClassName="Return" Data="돌아가기"/>
+		<Class ClassID="10322" ClassName="MarketMinMaxInfo_None" Data="아직 물품의 거래량이 충분하지 않아서 시세 정보가 없습니다."/>
 		<Class ClassID="10324" ClassName="IsDoingAction" Data="제작자가 현재 스킬을 사용중에 있습니다."/>
 		<Class ClassID="10325" ClassName="ItemMendingFinished" Data="아이템 제련이 완료되었습니다."/>
 		<Class ClassID="10326" ClassName="Gain" Data="획득"/>
@@ -343,6 +344,7 @@
 		<Class ClassID="10404" ClassName="CanTakeItemFromPostBox" Data="현재 습득하지 않은 아이템이 존재합니다.{nl}모든 아이템 수령 후 삭제가 가능합니다."/>
 		<Class ClassID="10405" ClassName="ReallyGivePremiumItemTo{PC}" Data="{PC}으로 아이템을 받으시겠습니까? 수령 시 청약철회가 불가능해 집니다."/>
 		<Class ClassID="10406" ClassName="EscapeDisabled" Data="지금은 귀환석을 사용할 수 없습니다."/>
+		<Class ClassID="10407" ClassName="HasFobiddenWord" Data="사용할 수 없는 단어가 포함되어 있습니다."/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="210401" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -794,6 +796,7 @@
 		<Class ClassID="20143" ClassName="TP_Hair_F" Data="여자 헤어"/>
 		<Class ClassID="20144" ClassName="TP_Costume1" Data="꾸미기"/>
 		<Class ClassID="20145" ClassName="TP_Event" Data="한정상품"/>
+		<Class ClassID="20146" ClassName="ItIsMemo" Data="[메모]"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="20501" ClassName="Guard" Data="방어"/>
@@ -894,6 +897,7 @@
 		<Class ClassID="165" ClassName="GIMMICK_DEFENSE_START" Data="몬스터가 수호물을 파괴하려합니다{nl}몬스터로부터 수호물을 지켜주세요"/>
 		<Class ClassID="166" ClassName="WIKI_SCORE_REWARD_MONEY_MSG" Data="모험일지 보상으로 실버를 획득하셨습니다"/>
 		<Class ClassID="167" ClassName="WIKI_SCORE_REWARD_MONEY_TOOLTIP" Data="보상으로 실버가 지급됩니다"/>
+		<Class ClassID="168" ClassName="PARTY_PLAYER_QUEST_REWARD_PROGRESS" Data="'{BEFORE_QUEST}' 퀘스트 보상을 받으셔야{nl} 파티원과 '{NEXT_QUEST}' 퀘스트를 진행하실 수 있습니다"/>
 		<Class ClassID="1000" ClassName="MASTER_ORACLE_NORMAL_2_AGREE8" Data="워프 이동 지역 순위"/>
 		<Class ClassID="1001" ClassName="MASTER_ORACLE_NORMAL_2_AGREE4" Data="몬스터 처치 지역 순위"/>
 		<Class ClassID="1002" ClassName="MASTER_ORACLE_NORMAL_2_AGREE5" Data="계시자 전투불능 지역 순위"/>
@@ -3285,7 +3289,7 @@
 		<Class ClassID="22804" ClassName="BuyCount" Data="구매 개수"/>
 		<Class ClassID="22805" ClassName="SellPriceMustOverThenZeroSilver" Data="판매가격은 0실버 이상이여야 합니다."/>
 		<Class ClassID="22806" ClassName="SellCountMustOverThenZeo" Data="판매개수는 0개 이상이여야합니다."/>
-		<Class ClassID="22807" ClassName="MarketItemRegisterSucceeded" Data="마켓 아이템 등록에 성공했습니다."/>
+		<Class ClassID="22807" ClassName="MarketItemRegisterSucceeded" Data="마켓 아이템 등록에 성공했습니다. 아이템은 30분에서 2시간 사이에 판매 리스트에 보여집니다."/>
 		<Class ClassID="22808" ClassName="MarketBuySucceeded_CheckInCabinet" Data="마켓 아이템 구매에 성공했습니다. 아이템 수령함을 확인하세요."/>
 		<Class ClassID="22809" ClassName="TooMuchItemsMatched_InputMoreDetailFindText" Data="일치하는 아이템 이름이 많습니다. 좀 더 상세하게 검색어를 입력해주세요."/>
 		<Class ClassID="22810" ClassName="ReallyCancelRegisteredItem" Data="아이템 등록을 취소하시겠습니까?"/>
@@ -3300,11 +3304,13 @@
 		<Class ClassID="22819" ClassName="BuffDestroy" Data="마켓에 등록하면 해당 버프가 사라집니다. 그래도 등록하시겠습니까?"/>
 		<Class ClassID="22820" ClassName="RemoveMarketItem" Data="이미 판매된 아이템입니다."/>
 		<Class ClassID="22821" ClassName="DontBuySameFamilyName" Data="같은 계정으로 등록된 아이템으로 구매하실 수 없습니다."/>
-		<Class ClassID="22822" ClassName="MarketRegTimeOver" Data="판매 시간이 지났습니다. 수령함에서 확인해주세요"/>
+		<Class ClassID="22822" ClassName="MarketRegTimeOver" Data="판매 시간이 지났습니다. 수령함에서 확인해주세요."/>
 		<Class ClassID="22823" ClassName="MarketRegAfter{TIME}" Data="{TIME}후에 마켓 리스트에 등록됩니다."/>
 		<Class ClassID="22824" ClassName="MarketCabinetAfter{TIME}" Data="{TIME}후에 캐비넷으로 이동합니다."/>
 		<Class ClassID="22825" ClassName="PremiumRegMinPrice{Price}" Data="해당 아이템의 등록 최소가는 {Price}실버 부터 가능합니다."/>
 	<Class ClassID="22826" ClassName="DecreasePotaion" Data="해당 아이템을 구입하시면{nl}포텐셜이 감소합니다.{nl}그래도 구입하시겠습니까?"/>
+		<Class ClassID="22827" ClassName="MinAllowPriceError" Data="해당 아이템의 하한가가 변동되었습니다. 다시 입력해주세요."/>
+		<Class ClassID="22828" ClassName="MaxAllowPriceError" Data="해당 아이템의 상한가가 변동되었습니다. 다시 입력해주세요."/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="22900" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>

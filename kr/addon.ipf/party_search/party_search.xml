@@ -13,8 +13,8 @@
 		<groupbox name="party_search_bg" rect="0 0 560 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
 		<groupbox name="party_search_pip" rect="0 0 540 930" margin="10 90 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<tab name="itembox" parent="party_search_pip" rect="0 0 540 40" margin="20 0 0 0" layout_gravity="left top" LBtnDownScp="PARTYSEARCH_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
-		<tabitem name="partylist" parent="itembox" layout_gravity="left top" caption="{@st41b}공개 파티 목록{/}" width="250"/>
-		<tabitem name="userlist" parent="itembox" layout_gravity="left top" caption="{@st41b}추천 플레이어 목록{/}" width="250"/>
+		<tabitem name="partylist" parent="itembox" layout_gravity="left top" caption="{@st66b}공개 파티 목록{/}" width="250"/>
+		<tabitem name="userlist" parent="itembox" layout_gravity="left top" caption="{@st66b}추천 플레이어 목록{/}" width="250"/>
 		<groupbox name="mainGbox2" parent="party_search_pip" rect="0 0 540 735" margin="0 190 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle" tabname="partylist"/>
 		<groupbox name="pipwin_top" rect="0 0 560 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<richtext name="title" rect="0 0 200 30" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}공개 파티 목록{/}" fontname=""/>

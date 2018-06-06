@@ -126,6 +126,10 @@ function SCR_3CMLAKE_84_HERB1_PRE_DIALOG(pc, dialog)
     return 'NO'
 end
 
-function SCR_3CMLAKE_84_WATER_PRE_DIALOG(pc, dialog)
+function SCR_3CMLAKE_84_BUCKET1_PRE_DIALOG(pc, dialog)
+    return 'NO'
+end
+
+function SCR_3CMLAKE_84_BUCKET2_PRE_DIALOG(pc, dialog)
     return 'NO'
 end

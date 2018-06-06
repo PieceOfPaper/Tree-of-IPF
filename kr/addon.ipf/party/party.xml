@@ -18,9 +18,9 @@
 		<richtext name="richtext_1" rect="0 0 120 24" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}파티 정보{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<groupbox name="gbox" rect="0 0 470 930" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
 		<tab name="itembox" parent="gbox" rect="0 0 450 40" margin="25 0 0 0" layout_gravity="left top" LBtnDownScp="PARTY_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
-		<tabitem name="infomation" parent="itembox" layout_gravity="left top" caption="{@st41b}구성{/}" width="120"/>
-		<tabitem name="quest" parent="itembox" layout_gravity="left top" caption="{@st41b}파티 이벤트{/}" width="180"/>
-		<tabitem name="option" parent="itembox" layout_gravity="left top" caption="{@st41b}설정{/}" width="120"/>
+		<tabitem name="infomation" parent="itembox" layout_gravity="left top" caption="{@st66b}구성{/}" width="120"/>
+		<tabitem name="quest" parent="itembox" layout_gravity="left top" caption="{@st66b}파티 이벤트{/}" width="180"/>
+		<tabitem name="option" parent="itembox" layout_gravity="left top" caption="{@st66b}설정{/}" width="120"/>
 		<groupbox name="party_info" parent="gbox" rect="0 0 450 630" margin="10 230 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle" tabname="infomation"/>
 		<groupbox name="memberlist" parent="gbox" rect="0 0 450 540" margin="10 270 0 0" layout_gravity="left top" hittestbox="false" resizebyresolution="true" scroll="false" skin="" tabname="infomation"/>
 		<richtext name="partyName" parent="party_info" rect="0 0 120 24" margin="10 5 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41}{s20}%s{/}" maxwidth="0" param1="PartyName" param1_def="DefName" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>

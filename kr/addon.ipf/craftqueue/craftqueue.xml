@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="craftqueue" x="0" y="0" width="100" height="120" create="open" layout_gravity="center top">
 	<skin frameskin="textballoon_npc"/>
-	<frame title="{@st43}{s22}name{/}" titlepos="0 -10" fasthide="true" layout_gravity="center bottom" margin="0 0 0 600"/>
+	<frame title="{@st43}{s22}name{/}" titlepos="0 -10" fasthide="true" layout_gravity="center bottom" margin="0 0 0 650"/>
 	<input maxwidth="1280" moveable="false" hittestframe="false"/>
 	<layer layerlevel="95"/>
 	<option closebutton="false" hideable="true"/>

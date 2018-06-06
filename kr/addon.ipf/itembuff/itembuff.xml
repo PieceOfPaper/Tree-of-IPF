@@ -20,8 +20,8 @@
 		<button name="close" rect="10 0 44 44" margin="0 40 40 0" layout_gravity="right top" LBtnUpScp="ITEM_BUFF_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}상점을 닫습니다{/}"/>
 		<groupbox name="OptionBox" rect="0 0 439 400" margin="0 69 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
 		<richtext name="needlisttxt" parent="OptionBox" rect="0 0 200 30" margin="20 50 0 0" layout_gravity="left top" resizebytext="false" caption="설정" fontname="brown_20_b" textalign="left center"/>
-		<richtext name="Title" parent="OptionBox" rect="0 0 140 30" margin="20 95 0 0" layout_gravity="left top" resizebytext="false" caption="간판 제목" fontname="brown_16_b" textalign="right center"/>
-		<richtext name="Money" parent="OptionBox" rect="0 0 140 30" margin="20 135 0 0" layout_gravity="left top" resizebytext="false" caption="개당 가격" fontname="brown_16_b" textalign="right center"/>
+		<richtext name="Title" parent="OptionBox" rect="0 0 140 30" margin="30 95 0 0" layout_gravity="left top" resizebytext="false" caption="간판 제목" fontname="brown_16_b" textalign="left center"/>
+		<richtext name="Money" parent="OptionBox" rect="0 0 140 30" margin="30 135 0 0" layout_gravity="left top" resizebytext="false" caption="개당 가격" fontname="brown_16_b" textalign="left center"/>
 		<groupbox name="TitleSkin" parent="OptionBox" rect="0 0 260 35" margin="0 90 10 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<edit name="TitleInput" parent="OptionBox" rect="0 0 250 26" margin="0 95 15 0" layout_gravity="right top" OffsetForDraw="0 -1" clicksound="button_click_big" drawbackground="false" fontname="brown_18_b" maxlen="40" oversound="button_over" textalign="left center" usetag="true"/>
 		<groupbox name="MoneySkin" parent="OptionBox" rect="0 0 260 35" margin="0 130 10 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>

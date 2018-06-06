@@ -16,8 +16,8 @@
         <richtext name="richtext_1" rect="0 0 120 24" margin="0 13 0 0" layout_gravity="center top" caption="{@st43}봉헌함 열기" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
         <groupbox name="gbox" rect="0 0 472 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="false" scrollbar="false" skin="gem_socket_bg"/>
         <tab name="itembox" rect="0 0 400 40" margin="50 70 0 0 " layout_gravity="center top" LBtnDownScp="OBLATION_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
-        <tabitem name="tab_normal" parent="itembox" layout_gravity="left top" caption="{@st41b}열기" skinspace="20" width="160"/>
-        <tabitem name="tab_view" parent="itembox" layout_gravity="left top" caption="{@st41b}봉헌함" skinspace="20" width="160"/>
+        <tabitem name="tab_normal" parent="itembox" layout_gravity="left top" caption="{@st66b}열기" skinspace="20" width="160"/>
+        <tabitem name="tab_view" parent="itembox" layout_gravity="left top" caption="{@st66b}봉헌함" skinspace="20" width="160"/>
         <groupbox name="gbox_open" parent="gbox" rect="0 0 447 600" margin="11 51 0 0" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="none"/>
         <richtext name="richtext_1_1" parent="gbox_open" rect="0 0 120 24" margin="25 18 0 0" layout_gravity="left top" caption="{@st41b}봉헌함 이름" drawbackground="false" fixwidth="false" fontname="white_18_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
         <groupbox name="searchSkin" parent="gbox_open" rect="0 0 300 38" margin="60 10 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
