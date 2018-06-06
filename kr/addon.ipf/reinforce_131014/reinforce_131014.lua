@@ -71,9 +71,9 @@ function REINFORCE_131014_UPDATE_MORU_COUNT(frame)
 	local pc = GetMyPCObject()
 	local price = GET_REINFORCE_131014_PRICE(fromItemObj, moruObj, pc);
 	local msg = GET_COMMAED_STRING(price)
-	if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
-	    msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
-	end
+--	if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
+--	    msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
+--	end
 	hitPriceDesc:SetTextByKey("price", msg);
 
 end

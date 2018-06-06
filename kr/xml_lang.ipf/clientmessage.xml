@@ -532,7 +532,7 @@
 		<Class ClassID="10049" ClassName="PartyIsFull" Data="현재 가입 가능한 인원이 초과되었습니다"/>
 		<Class ClassID="10050" Data="현재 존의 웨이 포인트를 선택하였습니다"/>
 		<Class ClassID="10051" Data="해당 게임에서 설정한 레벨제한에 맞지 않아 방을 만들 수 없습니다"/>
-		<Class ClassID="10052" ClassName="DoyouBuySlotInBarrack" Data="해당 배럭에서 최대 생성 가능한 캐릭터 수에 도달하였습니다{nl}캐릭터 슬롯을 구입하시겠습니까?"/>
+		<Class ClassID="10052" ClassName="DoyouBuySlotInBarrack" Data="숙소에서 최대 생성 가능한 캐릭터 수에 도달하였습니다{nl}캐릭터 슬롯을 구입하시겠습니까?"/>
 		<Class ClassID="10053" Data="캐릭터 포인트가 부족합니다{nl}퀘스트 수행이나 미션에서 캐릭터 포인트를 얻을 수 있습니다"/>
 		<Class ClassID="10054" Data="리더가 배울 수 없는 스탠스입니다{nl}스탠스 비전서의 설명을 보고 해당 스탠스 습득이 가능한 직업을 확인하세요"/>
 		<Class ClassID="10055" Data="이미 획득한 스탠스입니다"/>
@@ -777,7 +777,7 @@
 		<Class ClassID="10397" ClassName="CantDelCharBecauseHaveEquipItem" Data="착용중인 장비가 있어 캐릭터 삭제가 불가능합니다."/>
 		<Class ClassID="10398" ClassName="ExtendWarehouseSlot{TP}{SLOT}" Data="{TP}TP를 소모해 {SLOT}칸을 확장하시겠습니까?"/>
 		<Class ClassID="10399" ClassName="NeedMoreSkillLevel" Data="스킬 레벨이 부족합니다."/>
-		<Class ClassID="10400" ClassName="CanCreateCharCuzMaxSlot" Data="해당 배럭에서 최대 생성 가능한 캐릭터 수에 도달하였습니다{nl}기존 캐릭터를 삭제해주시고 시도해주세요."/>
+		<Class ClassID="10400" ClassName="CanCreateCharCuzMaxSlot" Data="숙소에서 최대 생성 가능한 캐릭터 수에 도달하였습니다{nl}기존 캐릭터를 삭제해주시고 시도해주세요."/>
 		<Class ClassID="10401" ClassName="LoadingOpeningData" Data="오프닝 데이터를 로딩 중 입니다."/>
 		<Class ClassID="10402" ClassName="WillYouSeeOpeningAgain?" Data="오프닝을 다시 보시겠습니까?"/>
 		<Class ClassID="10403" ClassName="ThatCurrentPosition" Data="현재 위치 입니다."/>
@@ -4280,6 +4280,7 @@
 		<Class ClassID="27430" ClassName="EVENT_1706_FISHING_ARTEFACT_MSG1" Data="축제용 장난감을 선택한다"/>
 		<Class ClassID="27431" ClassName="EVENT_1706_FISHING_ARTEFACT_MSG2" Data="축제용 코스튬을 선택한다"/>
 		<Class ClassID="27440" ClassName="MGAME_MSG_LIVE_MON_COUNT" Data="목표 몬스터 수 : {COUNT}"/>
+		<Class ClassID="27450" ClassName="FREE_COMPANION_MSG1" Data="{JOB} 클래스 해택 : {COMPANION} 분양 받기"/>
 		<Class ClassID="27460" ClassName="EVENT_1706_DOPPELSOELDNER_MSG1" Data="오늘은 용병의 증표를 모두 받으셨습니다"/>
 		<Class ClassID="27461" ClassName="EVENT_1706_DOPPELSOELDNER_MSG2" Data="용병의 증표를 획득하셨습니다"/>
 		<Class ClassID="27462" ClassName="EVENT_1706_DOPPELSOELDNER_MSG3" Data="용병의 증표를 보상과 교환 한다"/>
