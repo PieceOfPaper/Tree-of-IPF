@@ -6221,7 +6221,7 @@ function SCR_BUFF_ENTER_SwellLeftArm_Buff(self, buff, arg1, arg2, over)
         patkadd = math.floor(addValue)
         matkadd = math.floor(addValue)
         
-        self.PATK_MAIN_BM = self.PATK_MAIN_BM + patkadd;
+        self.PATK_BM = self.PATK_BM + patkadd;
         self.MATK_BM = self.MATK_BM + matkadd;
     end
     
@@ -6233,7 +6233,7 @@ function SCR_BUFF_LEAVE_SwellLeftArm_Buff(self, buff, arg1, arg2, over)
 
     local patkadd = GetExProp(buff, "ADD_PATK");
     local matkadd = GetExProp(buff, "ADD_MATK");
-    self.PATK_MAIN_BM = self.PATK_MAIN_BM - patkadd;
+    self.PATK_BM = self.PATK_BM - patkadd;
     self.MATK_BM = self.MATK_BM - matkadd;
 
 end
@@ -6302,7 +6302,8 @@ function UPDATE_USER_ADD_PROPERTY(self, buff, arg1)
             addtype = 1;
             Invalidate(self, 'DEF');
         elseif item.AttachType == 'dagger' or item.AttachType == 'Pistol' or item.AttachType == 'Sword' or item.AttachType == 'Cannon' then
-            self.PATK_SUB_BM  = self.PATK_SUB_BM  + addValue;
+            self.PATK_BM = self.PATK_BM + addValue;
+            self.MATK_BM = self.MATK_BM + addValue;
             addtype = 2;
             Invalidate(self, 'MAXPATK');
             Invalidate(self, 'MINPATK');
@@ -6341,7 +6342,8 @@ function UPDATE_USER_MINER_PROPERTY(self, buff)
         Invalidate(self, 'DEF');
 --        Invalidate(self, 'MDEF');
     elseif addtype == 2 then
-        self.PATK_SUB_BM  = self.PATK_SUB_BM  - addValue;
+        self.PATK_BM = self.PATK_BM - addValue;
+        self.MATK_BM = self.MATK_BM - addValue;
         Invalidate(self, 'MAXPATK');
         Invalidate(self, 'MINPATK');
         Invalidate(self, 'MAXMATK');
@@ -6370,19 +6372,7 @@ end
 function SCR_BUFF_UPDATE_SwellRightArm_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
     local item = GetEquipItem(self, 'LH');
     if nil == item then
---        UPDATE_USER_MINER_PROPERTY(self, buff);
-        local caster = GetBuffCaster(buff);
-        if caster == nil then
-            return 0;
-        end
-        
-        RemainTime = RemainTime - 1000;
-        if RemainTime <= 0 then
-            return 0;
-        end
-        
-        AddBuff(caster, self, buff.ClassName, arg1, arg2, RemainTime, 1);
-        
+        UPDATE_USER_MINER_PROPERTY(self, buff);
         return 1;
     end
 
@@ -6390,21 +6380,9 @@ function SCR_BUFF_UPDATE_SwellRightArm_Buff(self, buff, arg1, arg2, RemainTime, 
     local guid = GetExProp_Str(buff, "ItemGUID");
 
     if nowGuid ~= guid then
---        UPDATE_USER_MINER_PROPERTY(self, buff);
---        UPDATE_USER_ADD_PROPERTY(self, buff, arg1);
-        local caster = GetBuffCaster(buff);
-        if caster == nil then
-            return 0;
-        end
-        
-        RemainTime = RemainTime - 1000;
-        if RemainTime <= 0 then
-            return 0;
-        end
-        
-        AddBuff(caster, self, buff.ClassName, arg1, arg2, RemainTime, 1);
-        
-        return 1;
+        UPDATE_USER_MINER_PROPERTY(self, buff);
+        -- ?????
+        UPDATE_USER_ADD_PROPERTY(self, buff, arg1);
     end
     return 1;
 end
