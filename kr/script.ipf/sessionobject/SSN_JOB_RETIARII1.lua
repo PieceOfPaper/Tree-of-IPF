@@ -173,13 +173,15 @@ function SSN_JOB_RETIARII1_UseSkill(self, sObj, msg, sklObj)
     if objCnt > 0 then
         for i = 1, objCnt do
             if table.find(monClassNameList, objList[i].ClassName) > 0 then
-                targetList[#targetList + 1] = objList[i]
-                targetCount = targetCount + 1
-                if isSameClassName == nil then
-                    if sameClassName == nil then
-                        sameClassName = objList[i].ClassName
-                    elseif sameClassName ~= objList[i].ClassName then
-                        isSameClassName = 0
+                if IsDead(objList[i]) == 0 then
+                    targetList[#targetList + 1] = objList[i]
+                    targetCount = targetCount + 1
+                    if isSameClassName == nil then
+                        if sameClassName == nil then
+                            sameClassName = objList[i].ClassName
+                        elseif sameClassName ~= objList[i].ClassName then
+                            isSameClassName = 0
+                        end
                     end
                 end
             end

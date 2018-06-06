@@ -234,7 +234,7 @@ end
 function ON_KEYBOARD_TUTORIAL(frame, msg, argStr, argNum)
 
 	INIT_KEYBOARD_TUTORIAL(frame);
-	session.SaveQuickSlot();
+	quickslot.RequestSave();
 	local comment = frame:GetChild('comment');
 	comment:SetText(ScpArgMsg('Auto_{@st64}Keimui_KiBon_JoJageul_TtaLaHae_BopNiDa!'));
 	comment:ShowWindow(1);

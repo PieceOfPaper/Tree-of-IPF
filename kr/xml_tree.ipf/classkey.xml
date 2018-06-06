@@ -395,6 +395,10 @@
         <Key Name="Desc_Sub" Value="34029"/>
         <Key Name="LogoutSave" Value="7312"/>
         <Key Name="ReopenDiscountRatio" Value="102047"/>
+        <Key Name="Extractable" Value="102229"/>
+        <Key Name="InheritanceItemName" Value="102231"/>
+        <Key Name="LegendGroup" Value="102230"/>
+        <Key Name="LegendPrefix" Value="102232"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -1264,6 +1268,26 @@
         <Key Name="EVENT_1803_NEWCLASS_RTA_TEAM_COUNT" Value="102191"/>
         <Key Name="EV_7DAY_COUNT" Value="102182"/>
         <Key Name="EV_7DAY_DAY" Value="102183"/>
+        <Key Name="Event_Cooperation_Team" Value="102216"/>
+        <Key Name="Event_Cooperation_TradeCount1" Value="102221"/>
+        <Key Name="Event_Cooperation_TradeCount2" Value="102217"/>
+        <Key Name="Event_Cooperation_TradeCount3" Value="102222"/>
+        <Key Name="Event_Cooperation_TradeCount4" Value="102218"/>
+        <Key Name="Event_Cooperation_TradeCount5" Value="102219"/>
+        <Key Name="GACHA_HAIRACC_BOUNS" Value="102214"/>
+        <Key Name="GACHA_HAIRACC_COUNT" Value="102213"/>
+        <Key Name="GACHA_TP_BOUNS" Value="102212"/>
+        <Key Name="GACHA_TP_COUNT" Value="102215"/>
+        <Key Name="Guild_Attendance_Reward" Value="102220"/>
+        <Key Name="EVENT_1804_ARBOR_BUFF_COUNT" Value="102239"/>
+        <Key Name="EVENT_1804_ARBOR_BUFF_DATE" Value="102235"/>
+        <Key Name="EVENT_1804_ARBOR_GIMMICK1_MAXPOINT" Value="102238"/>
+        <Key Name="EVENT_1804_ARBOR_INPUT_COUNT" Value="102241"/>
+        <Key Name="EVENT_1804_ARBOR_INPUT_DATE" Value="102234"/>
+        <Key Name="EVENT_1804_ARBOR_WEEKREWARD3" Value="102236"/>
+        <Key Name="EVENT_1804_ARBOR_WEEKREWARD4" Value="102233"/>
+        <Key Name="EVENT_1804_ARBOR_WEEKREWARD5" Value="102237"/>
+        <Key Name="EVENT_1804_ARBOR_WEEKREWARD6" Value="102240"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -9313,6 +9337,7 @@
         <Key Name="SR" Value="6858"/>
         <Key Name="SkillASPD" Value="6860"/>
         <Key Name="UseOverHeat" Value="6859"/>
+        <Key Name="CommonType" Value="102228"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Guild">
         <Key Name="AbilLevel_Farming" Value="8999"/>
@@ -9527,6 +9552,9 @@
         <Key Name="MaxCount" Value="7691"/>
         <Key Name="MiningLevel" Value="9329"/>
         <Key Name="GuildEventTicketCount" Value="101946"/>
+        <Key Name="Guild_Attendance_1" Value="102226"/>
+        <Key Name="Guild_Attendance_2" Value="102225"/>
+        <Key Name="Guild_Attendance_Reset" Value="102227"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="JaqBoxLock" Value="122"/>
@@ -9609,6 +9637,13 @@
         <Key Name="Hide_1312" Value="7758"/>
         <Key Name="Hide_1313" Value="7759"/>
         <Key Name="IsPrivate" Value="9890"/>
+        <Key Name="EVENT_1804_ARBOR_TREE_INPUT_COUNT" Value="102246"/>
+        <Key Name="MOLE_BINGO_RANKING_1" Value="102245"/>
+        <Key Name="MOLE_BINGO_RANKING_2" Value="102243"/>
+        <Key Name="MOLE_BINGO_RANKING_3" Value="102248"/>
+        <Key Name="MOLE_BINGO_RANKING_POINT_1" Value="102247"/>
+        <Key Name="MOLE_BINGO_RANKING_POINT_2" Value="102244"/>
+        <Key Name="MOLE_BINGO_RANKING_POINT_3" Value="102242"/>
     </KeyIDSpc>
     <KeyIDSpc Name="SessionObject">
         <Key Name="BOOKSHELF" Value="1079"/>
@@ -16158,6 +16193,10 @@
         <Key Name="EVENT_1803_NEWCLASS_OMJ_PC_COUNT" Value="102184"/>
         <Key Name="EVENT_1803_NEWCLASS_RTA_PC_COUNT" Value="102185"/>
         <Key Name="MG_Last_RAID_VELCOPFFER_RARE_MINI" Value="102187"/>
+        <Key Name="VELCOFFER_MQ1" Value="102223"/>
+        <Key Name="VELCOFFER_MQ2" Value="102224"/>
+        <Key Name="EVENT_1804_ARBOR_BALLOON1_DATE" Value="102249"/>
+        <Key Name="EVENT_1804_ARBOR_BALLOON2_DATE" Value="102250"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

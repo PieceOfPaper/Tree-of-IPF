@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="legendprefix_result" x="0" y="0" width="500" height="150" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="" fullheight="true" fasthide="false" layout_gravity="left top" margin="0 375 0 0"/>
+	<input moveable="false"/>
+	<layer layerlevel="81"/>
+	<option closebutton="false" hideable="true" useimageitem="true"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
+	<controls>
+		<groupbox name="resultBox" rect="0 0 500 150" margin="0 0 0 0" layout_gravity="center top" skin="BnYellow_skin2"/>
+		<picture name="successPic" parent="resultBox" rect="0 0 300 100" margin="0 0 0 0" layout_gravity="center center" image="card_reinforce_SUCCESS" stretch="true"/>
+	</controls>
+</uiframe>

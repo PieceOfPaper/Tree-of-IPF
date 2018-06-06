@@ -1,4 +1,4 @@
-﻿-- calc_battle_lib.lua
+-- calc_battle_lib.lua
 
 HIT_BASIC = 0;
 HIT_MOTION = 1;
@@ -778,7 +778,7 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
                 attributeConditionRate = 0.5    -- 속성상성과 상태이상 증/감댐은 복리지만 최소 50% 제한 --
             end
             
-            atkDefResult = atkDefResult * attributeConditionRate;
+            atkDefResult = atk * attributeConditionRate;
             
             addDamage = addDamage + rateTable.AddTrueDamage;
         end

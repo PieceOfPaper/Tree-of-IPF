@@ -1,174 +1,105 @@
 -- item_calculate.lua
 
+function GET_COMMON_PROP_LIST()
+    return {
+        'MINATK',
+        'MAXATK',
+        'ADD_MINATK',
+        'ADD_MAXATK',
+        'ADD_MATK',
+        'ADD_DEF',
+        'ADD_MDEF',
+        'DEF',
+        'MDEF',
+        'PATK',
+        'MATK',
+        'CRTHR',
+        'CRTATK',
+        'CRTDR',
+        'HR',
+        'DR',
+        'ADD_HR',
+        'ADD_DR',
+        'STR',
+        'DEX',
+        'CON',
+        'INT',
+        'MNA',
+        'SR',
+        'SDR',
+        'MHR',
+        'ADD_MHR',
+        'MGP',
+        'AddSkillMaxR',
+        'SkillRange',
+        'SkillAngle',
+        'BlockRate',
+        'BLK',
+        'BLK_BREAK',
+        'MSPD',
+        'KDPow',
+        'MHP',
+        'MSP',
+        'MSTA',
+        'RHP',
+        'RSP',
+        'RSPTIME',
+        'RSTA',
+        'ADD_CLOTH',
+        'ADD_LEATHER',
+        'ADD_CHAIN',
+        'ADD_IRON',
+        'ADD_GHOST',
+        'ADD_SMALLSIZE',
+        'ADD_MIDDLESIZE',
+        'ADD_LARGESIZE',
+        'ADD_FORESTER',
+        'ADD_WIDLING',
+        'ADD_VELIAS',
+        'ADD_PARAMUNE',
+        'ADD_KLAIDA',
+        'Aries',
+        'Slash',
+        'Strike',
+        'AriesDEF',
+        'SlashDEF',
+        'StrikeDEF',
+        'ADD_FIRE',
+        'ADD_ICE',
+        'ADD_POISON',
+        'ADD_LIGHTNING',
+        'ADD_SOUL',
+        'ADD_EARTH',
+        'ADD_HOLY',
+        'ADD_DARK',
+        'RES_FIRE',
+        'RES_ICE',
+        'RES_POISON',
+        'RES_LIGHTNING',
+        'RES_SOUL',
+        'RES_EARTH',
+        'RES_HOLY',
+        'RES_DARK',
+        'LootingChance'
+    };
+end
+
 function INIT_WEAPON_PROP(item, class)
-
-    item.MINATK = class.MINATK;
-    item.MAXATK = class.MAXATK;
-    item.ADD_MINATK = class.ADD_MINATK;
-    item.ADD_MAXATK = class.ADD_MAXATK;
-    item.ADD_MATK = class.ADD_MATK;
-    item.ADD_DEF = class.ADD_DEF;
-    item.ADD_MDEF = class.ADD_MDEF;
-    item.DEF = class.DEF;
-    item.MDEF = class.MDEF;
-
-    item.PATK = class.PATK;
-    item.MATK = class.MATK;
-    item.CRTHR = class.CRTHR;
-    item.CRTATK = class.CRTATK;
-    item.CRTDR = class.CRTDR;
-    item.HR = class.HR;
-    item.DR = class.DR;
-    item.ADD_HR = class.ADD_HR;
-    item.ADD_DR = class.ADD_DR;
-    item.STR = class.STR;
-    item.DEX = class.DEX;
-    item.CON = class.CON;
-    item.INT = class.INT;
-    item.MNA = class.MNA;
-    item.SR = class.SR;
-    item.SDR = class.SDR;
-    item.MHR = class.MHR;
-    item.ADD_MHR = class.ADD_MHR;
-    item.MDEF = class.MDEF;
-    item.MGP = class.MGP;
-    item.AddSkillMaxR = class.AddSkillMaxR;
-    item.SkillRange = class.SkillRange;
-    item.SkillAngle = class.SkillAngle;
-    item.BlockRate = class.BlockRate;
-    item.BLK = class.BLK;
-    item.BLK_BREAK = class.BLK_BREAK;
-    item.MSPD = class.MSPD;
-    item.KDPow = class.KDPow;
-    item.MHP = class.MHP;
-    item.MSP = class.MSP;
-    item.MSTA = class.MSTA;
-    item.RHP = class.RHP;
-    item.RSP = class.RSP;
-    item.RSPTIME = class.RSPTIME;
-    item.RSTA = class.RSTA;
-    item.ADD_CLOTH = class.ADD_CLOTH;
-    item.ADD_LEATHER = class.ADD_LEATHER;
-    item.ADD_CHAIN = class.ADD_CHAIN;
-    item.ADD_IRON = class.ADD_IRON;
-    item.ADD_GHOST = class.ADD_GHOST;
-    item.ADD_SMALLSIZE = class.ADD_SMALLSIZE;
-    item.ADD_MIDDLESIZE = class.ADD_MIDDLESIZE;
-    item.ADD_LARGESIZE = class.ADD_LARGESIZE;
-    item.ADD_FORESTER = class.ADD_FORESTER;
-    item.ADD_WIDLING = class.ADD_WIDLING;
-    item.ADD_VELIAS = class.ADD_VELIAS;
-    item.ADD_PARAMUNE = class.ADD_PARAMUNE;
-    item.ADD_KLAIDA = class.ADD_KLAIDA;
-    item.Aries = class.Aries;
-    item.Slash = class.Slash;
-    item.Strike = class.Strike;
-    item.AriesDEF = class.AriesDEF;
-    item.SlashDEF = class.SlashDEF;
-    item.StrikeDEF = class.StrikeDEF;
-    item.ADD_FIRE = class.ADD_FIRE;
-    item.ADD_ICE = class.ADD_ICE;
-    item.ADD_POISON = class.ADD_POISON;
-    item.ADD_LIGHTNING = class.ADD_LIGHTNING;
-    item.ADD_SOUL = class.ADD_SOUL;
-    item.ADD_EARTH = class.ADD_EARTH;
-    item.ADD_HOLY = class.ADD_HOLY;
-    item.ADD_DARK = class.ADD_DARK;
-    item.RES_FIRE = class.RES_FIRE;
-    item.RES_ICE = class.RES_ICE;
-    item.RES_POISON = class.RES_POISON;
-    item.RES_LIGHTNING = class.RES_LIGHTNING;
-    item.RES_SOUL = class.RES_SOUL;
-    item.RES_EARTH = class.RES_EARTH;
-    item.RES_HOLY = class.RES_HOLY;
-    item.RES_DARK = class.RES_DARK;
-    item.LootingChance = class.LootingChance;
-
+    local commonPropList = GET_COMMON_PROP_LIST();
+    for i = 1, #commonPropList do
+        local propName = commonPropList[i];        
+        item[propName] = class[propName];
+    end
+    OVERRIDE_INHERITANCE_PROPERTY(item);
 end
 
 function INIT_ARMOR_PROP(item, class)
-
-    item.DEF = class.DEF;
-    item.MDEF = class.MDEF;
-    item.ADD_DEF = class.ADD_DEF;
-    item.ADD_MDEF = class.ADD_MDEF;
-    item.ADD_MINATK = class.ADD_MINATK;
-    item.ADD_MAXATK = class.ADD_MAXATK;
-    item.ADD_MATK = class.ADD_MATK;
-    item.MINATK = class.MINATK;
-    item.MAXATK = class.MAXATK;
-    
-    item.PATK = class.PATK;
-    item.MATK = class.MATK;
-    item.CRTHR = class.CRTHR;
-    item.CRTATK = class.CRTATK;
-    item.CRTDR = class.CRTDR;
-    item.HR = class.HR;
-    item.DR = class.DR;
-    item.ADD_HR = class.ADD_HR;
-    item.ADD_DR = class.ADD_DR;
-    item.STR = class.STR;
-    item.DEX = class.DEX;
-    item.CON = class.CON;
-    item.INT = class.INT;
-    item.MNA = class.MNA;
-    item.SR = class.SR;
-    item.SDR = class.SDR;
-    item.MHR = class.MHR;
-    item.ADD_MHR = class.ADD_MHR;
-    item.MGP = class.MGP;
-    item.AddSkillMaxR = class.AddSkillMaxR;
-    item.SkillRange = class.SkillRange;
-    item.SkillAngle = class.SkillAngle;
-    item.BlockRate = class.BlockRate;
-    item.BLK = class.BLK;
-    item.BLK_BREAK = class.BLK_BREAK;
-    item.MSPD = class.MSPD;
-    item.KDPow = class.KDPow;
-    item.MHP = class.MHP;
-    item.MSP = class.MSP;
-    item.MSTA = class.MSTA;
-    item.RHP = class.RHP;
-    item.RSP = class.RSP;
-    item.RSPTIME = class.RSPTIME;
-    item.RSTA = class.RSTA;
-    item.ADD_CLOTH = class.ADD_CLOTH;
-    item.ADD_LEATHER = class.ADD_LEATHER;
-    item.ADD_CHAIN = class.ADD_CHAIN;
-    item.ADD_IRON = class.ADD_IRON;
-    item.ADD_GHOST = class.ADD_GHOST;
-    item.ADD_SMALLSIZE = class.ADD_SMALLSIZE;
-    item.ADD_MIDDLESIZE = class.ADD_MIDDLESIZE;
-    item.ADD_LARGESIZE = class.ADD_LARGESIZE;
-    item.ADD_FORESTER = class.ADD_FORESTER;
-    item.ADD_WIDLING = class.ADD_WIDLING;
-    item.ADD_VELIAS = class.ADD_VELIAS;
-    item.ADD_PARAMUNE = class.ADD_PARAMUNE;
-    item.ADD_KLAIDA = class.ADD_KLAIDA;
-    item.Aries = class.Aries;
-    item.Slash = class.Slash;
-    item.Strike = class.Strike;
-    item.AriesDEF = class.AriesDEF;
-    item.SlashDEF = class.SlashDEF;
-    item.StrikeDEF = class.StrikeDEF;
-    item.ADD_FIRE = class.ADD_FIRE;
-    item.ADD_ICE = class.ADD_ICE;
-    item.ADD_POISON = class.ADD_POISON;
-    item.ADD_LIGHTNING = class.ADD_LIGHTNING;
-    item.ADD_SOUL = class.ADD_SOUL;
-    item.ADD_EARTH = class.ADD_EARTH;
-    item.ADD_HOLY = class.ADD_HOLY;
-    item.ADD_DARK = class.ADD_DARK;
-    item.RES_FIRE = class.RES_FIRE;
-    item.RES_ICE = class.RES_ICE;
-    item.RES_POISON = class.RES_POISON;
-    item.RES_LIGHTNING = class.RES_LIGHTNING;
-    item.RES_SOUL = class.RES_SOUL;
-    item.RES_EARTH = class.RES_EARTH;
-    item.RES_HOLY = class.RES_HOLY;
-    item.RES_DARK = class.RES_DARK;
-    item.LootingChance = class.LootingChance;
-    
+    local commonPropList = GET_COMMON_PROP_LIST();
+    for i = 1, #commonPropList do
+        local propName = commonPropList[i];
+        item[propName] = class[propName];
+    end
+    OVERRIDE_INHERITANCE_PROPERTY(item);
 end
 
 function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue, basicTooltipProp)
@@ -2005,7 +1936,7 @@ function GET_EMPTY_SOCKET_CNT(socketCnt, invItem)
     return emptyCnt
 end
 
-function SCR_GET_MAX_SOKET(item)
+function SCR_GET_MAX_SOKET(item)    
     return item.MaxSocket_COUNT + item.AppraisalSoket;
 end
 
@@ -2125,4 +2056,3 @@ function GET_SOCKET_ADD_PRICE_BY_TICKET(item)
     local curSocketCount = GET_SOCKET_CNT(item);
     return GET_MAKE_SOCKET_PRICE(item.UseLv, item.ItemGrade, curSocketCount) * 3;
 end
-

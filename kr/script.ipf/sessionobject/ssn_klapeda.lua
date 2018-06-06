@@ -21,6 +21,9 @@ function SCR_REENTER_SSN_KLAPEDA(self, sObj)
         SetTimeSessionObject(self, sObj, 1, 30000, 'SCR_SSN_KLAPEDA_SETTIME_1')
     end
     
+    -- EVENT_1804_ARBOR
+    RegisterHookMsg(self, sObj, "EnterTrigger", "EVENT_1804_ARBOR_NPCEnter", "YES");
+
     --EVENT_1712_SECOND
 --    SetTimeSessionObject(self, sObj, 2, 60000, 'SCR_SSN_KLAPEDA_EVENT_1712_SECOND','YES')
 
@@ -1510,6 +1513,9 @@ function SCR_SSN_KLAPEDA_KillMonster_Sub(self, sObj, msg, argObj, argStr, argNum
             end
         end
         
+--        -- EVENT_1804_ARBOR
+        SCR_EVENT_1804_ARBOR_DROP(self, sObj, msg, argObj, argStr, argNum) 
+
 --        -- EVENT
 --        SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
         

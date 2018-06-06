@@ -1,7 +1,7 @@
 --item_custom_tx.lua
 
 
-function GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add, achieveInfo, giveWay, sObjInfo_set, exp, jexp, dungeoncount, tokenBonus)
+function GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add, achieveInfo, giveWay, sObjInfo_set, exp, jexp, dungeoncount, tokenBonus, mGameName)
     local ret
     local pcetc
     if dungeoncount == 'YES' then
@@ -104,6 +104,13 @@ function GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add,
     	if ret == 'SUCCESS' then
     	    if jexp ~= nil and jexp > 0 then
     	        GiveJobExp(self, jexp, giveWay);
+    	    end
+    	    if mGameName ~= nil and mGameName ~= "None" then
+    	        CustomMongoLog(self, "Raid", "MGAME_NAME", mGameName, "tx_Succ")
+    	    end
+    	elseif ret == 'FAIL' then
+    	    if mGameName ~= nil and mGameName ~= "None" then
+    	        CustomMongoLog(self, "Raid", "MGAME_NAME", mGameName, "tx_Fail")
     	    end
     	end
     end
@@ -2542,33 +2549,39 @@ end
 function TAKE_GUILD_EVENT_REWARD(pc)
 	local guildObj = GetGuildObj(pc);
 	if guildObj == nil then
+	    IMC_LOG("ERROR_GUILD_EVENT", "GuildObj")
 		SendSysMsg(pc, "DataErrorWithErrorCode{ErrorCode}", 0, "ErrorCode", 'GuildObj');
 		return;
 	end
 
     local isExistEvent = IsExistGuildEvent(guildObj) 
     if isExistEvent == nil or isExistEvent == 0 then    --길드 이벤트가 등록되어 있는지 확인
+        IMC_LOG("ERROR_GUILD_EVENT", "isExistEvent")
         return;
     end
     
     if GetGuildEventState(guildObj) ~= "Started" then
+        IMC_LOG("ERROR_GUILD_EVENT", "GetGuildEventState")
         return;
     end
 
     local eventID = GetGuildEventID(guildObj)
     if eventID == nil then
+        IMC_LOG("ERROR_GUILD_EVENT", "eventID == nil")
 		SendSysMsg(pc, "DataErrorWithErrorCode{ErrorCode}", 0, "ErrorCode", 'GuildEventID');
         return;
     end
     
     local eventCls = GetClassByType("GuildEvent", eventID);
     if eventCls == nil then
+        IMC_LOG("ERROR_GUILD_EVENT", "eventCls == nil")
         SendSysMsg(pc, "DataErrorWithErrorCode{ErrorCode}", 0, "ErrorCode", 'List');
         return;
     end
       
     local eventName = TryGetProp(eventCls, "ClassName");
     if  eventName == nil then
+        IMC_LOG("ERROR_GUILD_EVENT", "eventName == nil")
         SendSysMsg(pc, "DataErrorWithErrorCode{ErrorCode}", 0, "ErrorCode", 'ClassName');
         return;        
     end
@@ -2594,9 +2607,19 @@ function TAKE_GUILD_EVENT_REWARD(pc)
     local curExp = guildObj.Exp;
     local nextExp = curExp + addExp;
 	local nextLevel = GET_GUILD_LEVEL_BY_EXP(nextExp);
-    
-    local itemlist, itemcount = SCR_GUILD_EVENT_GIVE_ITEM_LIST(pc, eventCls)
 
+    local itemlist, itemcount = SCR_GUILD_EVENT_GIVE_ITEM_LIST(pc, eventCls)
+    
+    local itemListStr = ""
+    local itemCountStr = ""
+    
+    for l = 1, #itemlist do
+        itemListStr = itemListStr..itemlist[l].."/"
+        itemCountStr = itemCountStr..itemcount[l].."/"
+    end
+
+    GuildEventMongoLog(pc, eventID, "ItemList", "itemListStr", itemListStr, "itemCountStr", itemCountStr)
+    
     local tx = TxBegin(pc);
 
 	TxSetPartyProp(tx, PARTY_GUILD, "Exp", nextExp);
@@ -2613,6 +2636,7 @@ function TAKE_GUILD_EVENT_REWARD(pc)
 	local ret = TxCommit(tx);
 	
 	if ret ~= "SUCCESS" then
+	    IMC_LOG("ERROR_GUILD_EVENT", "ret ~= SUCCESS")
 		return;
 	end
     
@@ -2623,6 +2647,53 @@ function TAKE_GUILD_EVENT_REWARD(pc)
     SuccessGuildEvent(guildObj)
     GuildEventMongoLog(pc, eventID, "Success", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
     GuildEventRewardMongoLog(pc, eventID, itemlist, itemcount)
+end
+
+function SCR_REQUEST_CHANGE_NAME_BY_ITEM_BY_WEB(self, itemIES, changeName, itemType)	
+	if itemType ~= "GuildName" then	
+		return;
+	end 
+	
+	if stringfunction.IsValidCharacterName(changeName) == false then
+		return;
+	end
+	
+	local invItem = GetInvItemByGuid(self, itemIES);
+	if nil == invItem then
+		return
+	end
+    
+	local itemClientScp = TryGetProp(invItem, "ClientScp")
+	
+	if itemClientScp ~= "CHANGE_GUILD_NAME_BY_ITEM" then
+	        return;
+	    end
+
+	if IsFixedItem(invItem) == 1 then
+		return;
+	end
+
+	local guildID = nil;	
+
+	local isAlreadyExist = IsPartyNameAlreadyExist(PARTY_GUILD, changeName)
+	if isAlreadyExist == 1 then
+		SendSysMsg(self, "NameAlreadyExist");
+		return;
+	end
+
+	guildID = GetGuildID(self);
+	if guildID == 0 then
+		return;
+	end
+	
+	local partyObj = GetGuildObj(self);
+	local isLeader = IsPartyLeaderPc(partyObj, self);
+	if isLeader == 0 then
+		SendSysMsg(self, "OnlyGuildLeader");
+		return;
+	end
+    
+	ChangeGuildName(self, invItem, 1, "use", changeName)	
 end
 
 
@@ -2898,6 +2969,11 @@ function SCR_TX_TRADE_SELECT_ITEM(pc, argStr)
 	if item == nil then
 		return;
 	end
+	
+	if item.ItemLifeTimeOver == 1 then
+		SendSysMsg(pc, "CannotUseLifeTimeOverItem");
+		return
+	end
 
 	local cls = GetClass("TradeSelectItem", item.ClassName);
 
@@ -2931,4 +3007,27 @@ function SCR_IS_ENABLE_ITEM_LOCK(pc, item, isIndunPlaying)
     end
 
 	return 1;
+end
+
+function TX_SAVE_EXP_ORB(pc, invItem, maxExp)
+	local groupName = TryGetProp(invItem, "GroupName");
+	if groupName ~= "ExpOrb" then
+		return;
+	end
+
+	local exp = TryGetProp(invItem, "ItemExp");
+	if exp > maxExp then
+		return;
+	end
+
+	local guid = GetItemGuid(invItem);
+	local obj, cnt = GetInvItemByGuid(pc, guid);
+	if obj == nil then
+		return;
+	end
+
+	local tx = TxBegin(pc);
+	TxEnableInIntegrate(tx);
+	TxSetIESProp(tx, invItem, "ItemExp", exp);
+	local ret = TxCommit(tx);
 end

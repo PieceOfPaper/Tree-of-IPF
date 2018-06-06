@@ -73,12 +73,11 @@ function UPDATE_REINFORCE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 end
 
 function REINFORCE_ITEM_TOOLTIP_WEAPON(tooltipframe, invitem, strarg, usesubframe)
-	REINFORCE_ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
+	ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 end
 
 function REINFORCE_ITEM_TOOLTIP_ARMOR(tooltipframe, invitem, strarg, usesubframe)
-
-	REINFORCE_ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe) 
+	ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 end
 
 function REINFORCE_ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
@@ -126,7 +125,7 @@ function REINFORCE_ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe
 	addinfoGBox:SetOffset(addinfoGBox:GetX(),ypos)
 	addinfoGBox:Resize(addinfoGBox:GetOriginalWidth(),0)
 	
-	ypos = DRAW_EQUIP_PROPERTY(tooltipframe, invitem, ypos, mainframename) -- 각종 프로퍼티
+		ypos = DRAW_EQUIP_PROPERTY(tooltipframe, invitem, ypos, mainframename) --각종 프로퍼티
 	ypos = DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename) -- 세트아이템
 	ypos = DRAW_EQUIP_MEMO(tooltipframe, invitem, ypos, mainframename) -- 제작 템 시 들어간 메모
 	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename) -- 각종 프로퍼티

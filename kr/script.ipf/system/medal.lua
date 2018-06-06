@@ -40,6 +40,8 @@ function RESTART_HERE_BY_MEDAL(pc, item)
 	local tx = TxBegin(pc);
 	TxEnableInIntegrateIndun(tx);
 	TxTakeItemByObject(tx, item, 1, "Restart");
+	TxAddAchievePoint(tx, 'PcRevive', 1)
+
 	local ret = TxCommit(tx);
 	
 	if ret == "SUCCESS" then

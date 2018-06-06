@@ -156,8 +156,19 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
         return 0;
     end
     
+    local legendGroup = TryGetProp(targetItem, "LegendGroup");
+    local legendcount = 1;
+    if legendGroup ~= 'None' then
+        legendcount = 0.5
+    end
+
     --Need Material Count --
-    needMatCount = math.floor(((1 + (transcendCount + lv ^ (0.2 + ((math.floor(transcendCount / 3) * 0.03)) + (transcendCount * 0.05))) * equipTypeRatio) * gradeRatio));
+    needMatCount = math.floor(((1 + (transcendCount + lv ^ (0.2 + ((math.floor(transcendCount / 3) * 0.03)) + (transcendCount * 0.05))) * equipTypeRatio) * gradeRatio)* legendcount);
+    
+    if needMatCount < 1 then
+        needMatCount = 1;
+    end
+    
     return SyncFloor(needMatCount);
 end
 

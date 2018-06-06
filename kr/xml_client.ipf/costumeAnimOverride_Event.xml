@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <Category>
 	<Gender Name="Male">
 		<Class Costume="shadowmancer01_sp">
@@ -820,6 +820,38 @@
 			</Motion>
 		</Class>
 		<Class Costume="retiarii03_sp">
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="8" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="12" attachNode="Bip01 R Clavicle twist2" particleName="F_fire045_retiarii" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="retiarii04_sp">
 			<Motion Name="ASTD_RIDE">
 				<Job Name="All">
 					<Event>
@@ -1972,6 +2004,38 @@
 			</Motion>
 		</Class>
 		<Class Costume="retiarii03_sp">
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="8" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="12" attachNode="Bip01 L Clavicle twist 2" particleName="F_fire045_retiarii_F" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="retiarii04_sp">
 			<Motion Name="ASTD_RIDE">
 				<Job Name="All">
 					<Event>

@@ -1,7 +1,7 @@
 
 function ON_GUILD_AUTHO_POPUP_OPEN(frame, ctrl, argStr, argNum)
-	local guild_authority_popup = ui.GetFrame("guild_authority_popup");	
-	guild_authority_popup:ShowWindowToggle();	-- Open / Close
+    ui.MsgBox_NonNested(ClMsg("GuildMaintenance"), 0)
+    return;
 end
 
 function GUILD_AUTHO_POPUP_DO_OPEN(frame, ctrl, argStr, argNum)	

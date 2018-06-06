@@ -20,12 +20,12 @@ function SCR_ORSHA_BLACKSMITH_NORMAL_3(self,pc)
     SendAddOnMsg(pc, "DO_OPEN_MANAGE_GEM_UI", "", 0);
 end
 
-function SCR_ORSHA_BLACKSMITH_NORMAL_4(self,pc)
-    ShowCustomDlg(pc, "itemtranscend", 5);
+function SCR_ORSHA_BLACKSMITH_NORMAL_4(self, pc)
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend', 5, 0, self);
 end
 
-function SCR_ORSHA_BLACKSMITH_NORMAL_5(self,pc)
-    ShowCustomDlg(pc, "itemtranscend_break", 5);
+function SCR_ORSHA_BLACKSMITH_NORMAL_5(self, pc)
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend_break', 5, 0, self);
 end
 
 function SCR_ORSHA_BLACKSMITH_NORMAL_6(self,pc)

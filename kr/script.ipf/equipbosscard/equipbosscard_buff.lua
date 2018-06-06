@@ -568,18 +568,22 @@ function SCR_BUFF_ENTER_CARD_ExpUP(self, buff, arg1, arg2, over)
     print(arg2)
     local addExpUP = math.floor(arg2/100)
     ExpUP = addExpUP 
-    
-    print(ExpUP)
 end
 
 function SCR_BUFF_UPDATE_CARD_ExpUP(self, buff, arg1, arg2, RemainTime, ret, over)
     local buffCls = GetClass('Buff', key);
     local ExpUP = TryGetProp(buffCls, 'BuffExpUP');
-    print(ExpUP)
 end
 
 function SCR_BUFF_LEAVE_CARD_ExpUP(self, buff, arg1, arg2, over)
     local buffCls = GetClass('Buff', key);
     local ExpUP = TryGetProp(buffCls, 'BuffExpUP');
-    print(ExpUP)
+end
+
+function SCR_BUFF_ENTER_CARD_MON_DMG_Rate_Down_Buff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_LEAVE_CARD_MON_DMG_Rate_Down_Buff(self, buff, arg1, arg2, over)
+
 end

@@ -608,3 +608,102 @@ function ICON_SET_EQUIPITEM_TOOLTIP(icon, equipitem, topParentFrameName)
 		icon:SetTooltipTopParentFrame(topParentFrameName);
 	end
 end
+
+-- 옵션 추출 아이템 툴팁
+function ITEM_TOOLTIP_EXTRACT_OPTION(tooltipframe, invitem, mouseOverFrameName)
+	local targetItem = GetClass('Item', invitem.InheritanceItemName);
+	if targetItem == nil then
+		return;
+	end
+
+	tolua.cast(tooltipframe, "ui::CTooltipFrame");
+	local mainframename = 'extract_option';
+	local ypos, commonCtrlSet = DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, mainframename);	
+	local line1 = commonCtrlSet:GetChild('line1');
+	if IS_EXIST_RANDOM_OPTION(invitem) == false then
+		line1:ShowWindow(0);
+		ypos = DRAW_EQUIP_PROPERTY(tooltipframe, targetItem, ypos, mainframename);
+	else
+		line1:ShowWindow(1);
+		ypos = DRAW_EXTRACT_OPTION_RANDOM_OPTION(tooltipframe, invitem, mainframename, ypos);	
+	end
+	ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos);
+	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
+	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename);
+	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
+end
+
+function DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos)
+	local gBox = GET_CHILD(tooltipframe, mainframename);
+	local descCtrlset = gBox:CreateControlSet('tooltip_extract_option_equip_limit', 'equipLimitCtrlSet', 0, ypos);
+    local descText = GET_CHILD(descCtrlset, 'descText');
+    descText:SetText(ScpArgMsg('{LEVEL}LimitEquip', 'LEVEL', GET_OPTION_EQUIP_LIMIT_LEVEL(targetItem)));
+    descCtrlset:Resize(descCtrlset:GetWidth(), descText:GetY() + descText:GetHeight());
+
+	ypos = ypos + descCtrlset:GetHeight() + 10;
+	gBox:Resize(gBox:GetWidth(), ypos);
+	return ypos;
+end
+
+function DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, mainframename)
+	local gBox = GET_CHILD(tooltipframe, mainframename);
+	gBox:RemoveAllChild();
+	
+	local ctrlset = gBox:CreateControlSet('tooltip_extract_option', 'EXTRACT_OPTION_CTRLSET', 0, 0);
+	local nameText = GET_CHILD(ctrlset, 'nameText');
+	nameText:SetText(invitem.Name);
+
+	local itemPic = GET_CHILD(ctrlset, 'itemPic');
+	itemPic:SetImage(invitem.Icon);
+
+	local groupText = GET_CHILD(ctrlset, 'groupText');
+	groupText:SetText(ClMsg(invitem.GroupName));
+
+	local weightText = GET_CHILD(ctrlset, 'weightText');
+	weightText:SetTextByKey('weight', invitem.Weight)
+
+	local classTypeText = GET_CHILD(ctrlset, 'classTypeText');	
+	classTypeText:SetText(ClMsg(targetItem.ClassType));
+
+	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + ctrlset:GetHeight());
+	return ctrlset:GetHeight(), ctrlset;
+end
+
+function DRAW_EXTRACT_OPTION_RANDOM_OPTION(tooltipframe, invitem, mainframename, ypos)
+	local gBox = GET_CHILD(tooltipframe, mainframename);
+	local randomOptionBox = gBox:CreateControl('groupbox', 'randomOptionBox', 0, ypos + 5, gBox:GetWidth(), 0);
+	randomOptionBox:SetSkinName('None');
+	local inner_yPos = 0;
+
+	for i = 1 , 6 do
+	    local propGroupName = "RandomOptionGroup_"..i;
+		local propName = "RandomOption_"..i;
+		local propValue = "RandomOptionValue_"..i;
+		local clientMessage = 'None'
+		
+		if invitem[propGroupName] == 'ATK' then
+		    clientMessage = 'ItemRandomOptionGroupATK'
+		elseif invitem[propGroupName] == 'DEF' then
+		    clientMessage = 'ItemRandomOptionGroupDEF'
+		elseif invitem[propGroupName] == 'UTIL_WEAPON' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'UTIL_ARMOR' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'UTIL_SHILED' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'STAT' then
+		    clientMessage = 'ItemRandomOptionGroupSTAT'
+		end
+		
+		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
+			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(invitem[propName]));
+			local strInfo = ABILITY_DESC_NO_PLUS(opName, invitem[propValue], 0);
+			inner_yPos = ADD_ITEM_PROPERTY_TEXT(randomOptionBox, strInfo, 0, inner_yPos);
+		end
+	end
+
+	randomOptionBox:Resize(randomOptionBox:GetWidth(), inner_yPos);
+	ypos = randomOptionBox:GetY() + randomOptionBox:GetHeight() + 10;
+	gBox:Resize(gBox:GetWidth(), ypos);
+	return ypos;
+end

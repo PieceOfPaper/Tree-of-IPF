@@ -81,7 +81,6 @@ function PIPHELP_POPUP_ADD(frame, isforceopen, addHelpType)
 
 	local detailGroupBox = GET_CHILD_RECURSIVELY(frame, "detail_explain", "ui::CGroupBox");
 	detailGroupBox:RemoveAllChild();
-	detailGroupBox:Resize(detailGroupBox:GetOriginalWidth(), detailGroupBox:GetOriginalHeight() )
 
 	local yPos = 10;
 	for index = 1, 20 do

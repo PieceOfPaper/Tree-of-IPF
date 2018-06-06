@@ -1,4 +1,4 @@
-﻿--skill_buff_pc.lua
+--skill_buff_pc.lua
 
 function SCR_SKILL_BUFF(self, from, skill, splash, ret)    
     NO_HIT_RESULT(ret);
@@ -4342,6 +4342,10 @@ function CAN_REMAINCOOL_TIME_FOR_PASS_BUFF(downList, skl)
         return "NO"
     end
     
+    if TryGetProp(skl, "CommonType") == "Item" then
+        return "NO"
+    end
+    
     if skl.ClassName == "Chronomancer_Pass" or skl.ClassName == "Musketeer_PrimeAndLoad" then
         return "NO"
     end
@@ -5496,21 +5500,23 @@ function SCR_BUFF_ENTER_Feint_Debuff(self, buff, arg1, arg2, over)
 end
 
 function SCR_FEINT_ABIL(self, caster)
-    local casterx, casterz = GetDir(caster)
-    local casterDir = DirToAngle(casterx, casterz)
-    
-    sleep(300);
-
-    if IS_PC(self) == false then
-            HoldMonScp(self)
-        end
-    
-    SetDirectionByAngle(self, casterDir)
-    
-    if IS_PC(self) == false then
-        sleep(1500);
-        UnHoldMonScp(self)
-    end
+	if TryGetProp(self, "MonRank") ~= "Boss" then
+	    local casterx, casterz = GetDir(caster)
+	    local casterDir = DirToAngle(casterx, casterz)
+	    
+	    sleep(300);
+	
+	    if IS_PC(self) == false then
+	        HoldMonScp(self)
+	    end
+	    
+	    SetDirectionByAngle(self, casterDir)
+	    
+	    if IS_PC(self) == false then
+	        sleep(1500);
+	        UnHoldMonScp(self)
+	    end
+	end
 end
 
 
@@ -11166,7 +11172,7 @@ function SCR_BUFF_LEAVE_murmillo_helmet(self, buff, arg1, arg2, over)
     --RunScript('SCR_MURMILLO_HELMET_UNEQUIP', self);
 
     EquipDummyItemSpot(self, self, 0, 'HELMET', 0);
-        ChangeSkillAniName(self, 'Normal_Attack', 'None');
+    ChangeSkillAniName(self, 'Normal_Attack', 'None');
     
     local addmaspd = GetExProp(buff, "ADD_MSPD")
     
@@ -16109,5 +16115,100 @@ function SCR_BUFF_ENTER_VitalProtection_Leave_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_LEAVE_VitalProtection_Leave_Buff(self, buff, arg1, arg2, over)
+    self.MaxDefenced_BM = self.MaxDefenced_BM - 1;
+end
+
+function SCR_BUFF_ENTER_Sumazinti_Debuff(self, buff, arg1, arg2, over)
+    local addMdefRate = 0.15;
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM - addMdefRate;
+    SetExProp(buff, "SUMAZINTI_REDUCE_MDEF", addMdefRate);
+end
+
+function SCR_BUFF_LEAVE_Sumazinti_Debuff(self, buff, arg1, arg2, over)
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM + GetExProp(buff, "SUMAZINTI_REDUCE_MDEF");
+end
+
+function SCR_BUFF_ENTER_Tiksline_Debuff(self, buff, arg1, arg2, over)
+    
+end
+
+function SCR_BUFF_LEAVE_Tiksline_Debuff(self, buff, arg1, arg2, over)
+    local buffCaster = GetBuffCaster(buff);
+    local damage = GetExProp(buff, "Tiksline_accumulatedDamage");
+    if buffCaster ~= nil then
+        if damage > 1 then
+            TakeDamage(buffCaster, self, "Velcoffer_Tiksline", damage, "Melee", "Magic", "AbsoluteDamage")
+        end
+    end
+end
+
+function SCR_BUFF_ENTER_Mergaite_Buff(self, buff, arg1, arg2, over)
+    local addDefRate = 0;
+    local itemStack = GetPrefixSetItemStack(self, "Set_Mergaite");
+    if itemStack ~= nil then
+        if itemStack == 4 then
+            addDefRate = 0.4;
+        elseif itemStack == 5 then
+            addDefRate = 1;
+        end
+    end
+    
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM + addDefRate;
+    self.DEF_RATE_BM = self.DEF_RATE_BM + addDefRate;
+    SetExProp(buff, "MERGAITE_ADDDEF_RATE", addDefRate);
+end
+
+function SCR_BUFF_LEAVE_Mergaite_Buff(self, buff, arg1, arg2, over)
+    local addDefRate =  GetExProp(buff, "MERGAITE_ADDDEF_RATE");
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM - addDefRate;
+    self.DEF_RATE_BM = self.DEF_RATE_BM - addDefRate;
+end
+
+function SCR_BUFF_ENTER_Kraujas_Buff(self, buff, arg1, arg2, over)
+    
+end
+
+function SCR_BUFF_LEAVE_Kraujas_Buff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_ENTER_Gyvenimas_Buff(self, buff, arg1, arg2, over)
+    local shieldOwner = GetBuffCaster(buff)
+    if shieldOwner == nil then
+        return
+    end
+
+    local shieldOwnerMHP = TryGetProp(shieldOwner, "MHP")
+    local shieldValue = shieldOwnerMHP * 0.5
+    
+    SetBuffArgs(buff, shieldValue)
+    AddShield(self, shieldValue)
+end
+
+function SCR_BUFF_UPDATE_Gyvenimas_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    local shiedlValue = GetBuffArgs(buff);
+    local currentShield = GetShield(self);
+    if currentShield == 0 then
+        return 0;
+    end
+    
+    local updateShiedlValue = shiedlValue * 0.05;
+    if (currentShield + updateShiedlValue) <= (shiedlValue/2) then
+        AddShield(self, updateShiedlValue);
+    end
+    
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Gyvenimas_Buff(self, buff, arg1, arg2, over)
+    local currentShield = GetShield(self)
+    AddShield(self, -currentShield)
+end
+
+function SCR_BUFF_ENTER_Mergaite_Enter_Buff(self, buff, arg1, arg2, over)
+    self.MaxDefenced_BM = self.MaxDefenced_BM + 1;
+end
+
+function SCR_BUFF_LEAVE_Mergaite_Enter_Buff(self, buff, arg1, arg2, over)
     self.MaxDefenced_BM = self.MaxDefenced_BM - 1;
 end

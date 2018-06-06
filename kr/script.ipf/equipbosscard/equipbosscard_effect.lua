@@ -618,7 +618,7 @@ local arg1List = StringSplit(arg1, "/");
 end
 
 function SCR_CARDEFFECT_MATK_PLUS(self, target, obj, TypeValue, arg1, arg2, arg3)
-local arg1List = StringSplit(arg1, "/");
+    local arg1List = StringSplit(arg1, "/");
     
     if arg1List ~= nil and #arg1List >= 1 then
         local arg2List = StringSplit(arg2, "/");
@@ -635,7 +635,7 @@ local arg1List = StringSplit(arg1, "/");
                 elseif TypeValue >= 0 then
                     arg3_int = math.floor(TypeValue * arg3)
                 end
-
+                
                 self[arg1List[i]] = self[arg1List[i]] + arg3_int;
   
                 if arg2 ~= 'None' then
@@ -809,5 +809,20 @@ function SCR_CARDEFFECT_DAMAGE_REDUCTION_RATE_FROM_PC(self, target, obj, TypeVal
         local reduction = math.floor(TypeValue * arg3);
         local damageReductionRateFromPC = GetExProp(self, "DAMAGE_REDUCTION_RATE_FROM_PC");
         SetExProp(self, "DAMAGE_REDUCTION_RATE_FROM_PC", damageReductionRateFromPC + reduction);
+    end
+end
+
+function SCR_CARDEFFECT_DAMAGE_REDUCTION_RATE_FROM_MON(self, target, obj, TypeValue, arg1, arg2, arg3)
+    if TypeValue ~= 0 then
+        if arg3 == "None" then
+            arg3 = 0;
+        end
+        
+        if TypeValue > 0 then
+            tonumber(TypeValue)
+            AddBuff(self, self, arg1, TypeValue, 0, 0, 1);
+        else
+            RemoveBuff(self, arg1)
+        end
     end
 end

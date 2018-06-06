@@ -371,6 +371,12 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 end
 
 function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	if frame:GetName() == 'legend_craft' then
+		LEGEND_CRAFT_EXECUTE(parent, ctrl);
+		return;
+	end
+
 	local parentcset = ctrl:GetParent()
 
 	

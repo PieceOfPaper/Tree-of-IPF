@@ -54,11 +54,9 @@ function EDIT_DLG_CONTEXT(frame)
 end
 
 function DIALOG_SHOW_DIALOG_TEXT(frame, text, titleName, voiceName)
-	-- NPC이름 출력 관련 오브젝트
 	
     local textObj		= GET_CHILD(frame, "textlist", "ui::CFlowText");
 
-	--기존의 text테이블을 초기화
 	textObj:SetText(" ");
 
 	local dialogFrame = ui.GetFrame('dialog');
@@ -75,7 +73,6 @@ function DIALOG_SHOW_DIALOG_TEXT(frame, text, titleName, voiceName)
 	local spaceObj		= GET_CHILD(dialogFrame, "space", "ui::CAnimPicture");
 	spaceObj:PlayAnimation();
 
-	--페이지를 출력해준다
 	local ViewText = string.format('{s20}{b}{#1f100b}' .. text);
 	textObj:ClearText();
 	textObj:SetText(ViewText);
@@ -113,16 +110,20 @@ function DIALOG_TEXTVIEW(frame, msg, argStr)
 			argStr = tokenList[2];
 		end
 	end
-
+	
 	if DialogTable ~= nil then
 		text = DialogTable.Text;
 	else
 		text = argStr;
 	end
+	
+    text = SCR_TEXT_HIGHLIGHT(argStr,text)
 
 	if DialogTable ~= nil then
 		if DialogTable.Caption ~= 'None' then
 			titleName = DialogTable.Caption;
+		else
+		    titleName = '';
 		end
 
 		voiceName = DialogTable.VoiceName
@@ -130,6 +131,8 @@ function DIALOG_TEXTVIEW(frame, msg, argStr)
 
 		if npcDialog.Caption ~= 'None' then
 			titleName =  npcDialog.Caption;
+		else
+			titleName =  '';
 		end
 		voiceName = npcDialog.VoiceName
 	end
@@ -188,7 +191,6 @@ function DIALOG_ON_MSG(frame, msg, argStr, argNum)
 		frame:SetUserValue("DialogType", 0);
 
 		local uidirector = ui.GetFrame('directormode');
-		-- 복잡하다.. 이쪽저쪽에서 중요한 quickslot을 열고 닫고하니버그가 생길 수 밖에 없다.
 		if uidirector:IsVisible() == 1 then
 			return;
 		else
@@ -201,11 +203,10 @@ end
 
 function DIALOG_LEAVE_TRIGGER(frame)
 
-	--전투 시에는 물약 창이 보여야 할 때도 있다. 뭔가 다시 정리가 필요. 연출에 의해서 끌 것인지 아님 레이어도 도는지
-	--local uidirector = ui.GetFrame('directormode');
+    --local uidirector = ui.GetFrame('directormode');
 	--if uidirector:IsVisible() ~= 1 then
 
-		--ui.OpenFrame('quickslotnexpbar'); -- 어차피 전투 시작하면 다시 다 켜지지 않나
+		--ui.OpenFrame('quickslotnexpbar'); 
 		--ui.OpenFrame('minimap');
 	--end
 end

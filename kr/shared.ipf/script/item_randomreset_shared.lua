@@ -5,7 +5,7 @@ function SCR_SIERA_MATERIAL(item)
 		return;
 	end
 
-	local sieraCount =  math.floor(1 + (math.floor(itemLv/75) * math.floor(itemLv/75))* 5)  
+	local sieraCount =  math.floor((1 + (math.floor(itemLv/75) * math.floor(itemLv/75))* 5) * 0.5)
 
 	return sieraCount
 end
@@ -24,7 +24,17 @@ function SCR_NEWCLE_MATERIAL(item)
 		return;
 	end
 	
-	local newcleCount = math.floor(math.floor(1 + (itemLv/itemGradeRatio[itemGrade])) * itemMaxRatio[itemGrade] * 30)
+	local newcleCount = math.floor(math.floor(1 + (itemLv/itemGradeRatio[itemGrade])) * itemMaxRatio[itemGrade] * 20)
 
 	return newcleCount
+end
+
+function IS_EXIST_RANDOM_OPTION(item)
+	local maxRandomOptionCnt = 6;
+	for i = 1, maxRandomOptionCnt do
+		if item['RandomOption_'..i] ~= 'None' then
+			return true;
+		end
+	end
+	return false;
 end

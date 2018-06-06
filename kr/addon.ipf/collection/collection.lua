@@ -715,8 +715,9 @@ function DETAIL_UPDATE(frame, coll, detailView ,type, posY ,playEffect, isUnknow
 	DESTROY_CHILD_BYNAME(detailView, 'SLOT_');
 	
 	-- 액티브상태면 디테일뷰를 그린다.
+	local topParentFrame = detailView:GetTopParentFrame()
 	local curDetailCollectionType = frame:GetUserIValue("DETAIL_VIEW_TYPE");
-	if curDetailCollectionType == type then
+	if curDetailCollectionType == type and topParentFrame:GetName() ~= 'adventure_book' then
 		local curCount, maxCount = GET_COLLECTION_COUNT(type, coll);
 
 		posY = posY + frame:GetUserConfig("MAGIC_DETAIL_MARGIN"); -- 효과텍스트랑 붙어있는 공간을 띄운다.

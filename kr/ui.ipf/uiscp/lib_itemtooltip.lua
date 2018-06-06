@@ -244,7 +244,7 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 
 	local NEGATIVE_COLOR = ControlSetObj:GetUserConfig("NEGATIVE_COLOR")
 	local POSITIVE_COLOR = ControlSetObj:GetUserConfig("POSITIVE_COLOR")
-	local STAR_SIZE = ControlSetObj:GetUserConfig("STAR_SIZE")
+--	local STAR_SIZE = ControlSetObj:GetUserConfig("STAR_SIZE")
 
 	if gem == 0 then
 		local socketCls = GetClassByType("Socket", socket);
@@ -257,6 +257,20 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 
 		local gemclass = GetClassByType("Item", gem);
 		local socket_image_name = gemclass.Icon
+
+		if gemclass.ClassName == 'gem_circle_1' then
+			socket_image_name = 'test_tooltltip_red'
+		elseif gemclass.ClassName == 'gem_square_1' then
+			socket_image_name = 'test_tooltltip_blue'
+		elseif gemclass.ClassName == 'gem_diamond_1' then
+			socket_image_name = 'test_tooltltip_green'
+		elseif gemclass.ClassName == 'gem_star_1' then
+			socket_image_name = 'test_tooltltip_yellow'
+		elseif gemclass.ClassName == 'thengem_White_1' then
+			socket_image_name = 'test_tooltltip_white'
+		end
+
+		
 		socket_image:SetImage(socket_image_name)		
 		local lv = GET_ITEM_LEVEL_EXP(gemclass, gemExp);
 		
@@ -266,7 +280,8 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 		local socketProp = prop:GetSocketPropertyByLevel(lv);
 		local type = invitem.ClassID;
 		local cnt = socketProp:GetPropCountByType(type);
-		gradetext:SetText(GET_STAR_TXT(STAR_SIZE,lv))
+--		gradetext:SetText(GET_STAR_TXT(STAR_SIZE,lv))
+gradetext:SetText("Lv " .. lv)
 		gradetext:ShowWindow(1)
 
 		for i = 0 , cnt - 1 do
@@ -281,9 +296,9 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 			end
 
 			if addProp:GetPropName() == "OptDesc" then
-				desc = addProp:GetPropDesc().."{nl}";
+				desc = addProp:GetPropDesc().." ";
 			else
-				desc = desc .. ScpArgMsg(addProp:GetPropName()) .. " : ".. plma_mark .. tempvalue.."{nl}";
+				desc = desc .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
 			end
 
 		end
@@ -306,10 +321,10 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 
 			if gemLv > 0 then
 				if 0 < penaltyLv then
-					desc = desc .. ScpArgMsg(addProp:GetPropName()) .. " : ".. plma_mark .. tempvalue.."{nl}";
+					desc = desc .. " / " .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
 				end
 			else
-				desc = desc .. ScpArgMsg(addProp:GetPropName()) .. " : ".. plma_mark .. tempvalue.."{nl}";
+				desc = desc .. " / " .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
 			end
 		end
 			
@@ -1217,7 +1232,7 @@ function IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
     if frame == nil then
         return 0;
     end
-    local value = frame:GetUserValue("IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC");
+    local value = frame:GetUserIValue("IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC");
 	return tonumber(value)
 end
 

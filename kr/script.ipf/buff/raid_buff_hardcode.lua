@@ -200,3 +200,15 @@ function SCR_BUFF_LEAVE_Mon_RaidGimmick_Buff(self, buff, arg1, arg2, over)
 	local addDefenced_BM = GetExProp(buff, 'DEFENCED_BM');
 	self.MaxDefenced_BM = self.MaxDefenced_BM - addDefenced_BM;
 end
+
+--BlackGargoyle 무적 버프--
+function SCR_BUFF_ENTER_Mon_invincible(self, buff, arg1, arg2, over)
+   	local addDefenced_BM  = 1;
+	SetExProp(buff, 'DEFENCED_BM', addDefenced_BM);
+	self.MaxDefenced_BM = self.MaxDefenced_BM + addDefenced_BM;
+end
+
+function SCR_BUFF_LEAVE_Mon_invincible(self, buff, arg1, arg2, over)
+	local addDefenced_BM = GetExProp(buff, 'DEFENCED_BM');
+	self.MaxDefenced_BM = self.MaxDefenced_BM - addDefenced_BM;
+end

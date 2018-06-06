@@ -44,11 +44,11 @@ function SCR_BLACKSMITH_FEDIMIAN_NORMAL_3(self,pc)
 end
 
 function SCR_BLACKSMITH_FEDIMIAN_NORMAL_4(self,pc)
-    ShowCustomDlg(pc, "itemtranscend", 5);
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend', 5, 0, self);
 end
 
 function SCR_BLACKSMITH_FEDIMIAN_NORMAL_5(self,pc)
-    ShowCustomDlg(pc, "itemtranscend_break", 5);
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend_break', 5, 0, self);
 end
 
 function SCR_BLACKSMITH_FEDIMIAN_NORMAL_6(self,pc)
@@ -346,7 +346,7 @@ function SCR_FEDIMIAN_APPRAISER_NORMAL_1(self,pc)
 end
 
 function SCR_FEDIMIAN_APPRAISER_NORMAL_2(self,pc)
-    -- 재감정
+    -- ??감??
     
     UIOpenToPC(pc, 'itemrandomreset', 1)
 end
@@ -404,6 +404,7 @@ function SCR_TUTO_APPRAISE_NPC_ENTER(self, pc)
 --    AddHelpByName(pc, "TUTO_ITEM_APPRAISE")
 end
 
+
 function JOB_APPRAISER51_ABBADON(self)
     local item_cnt1 = GetInvItemCount(self, "JOB_APPRAISER5_1_ITEM1")
     local item_cnt2 = GetInvItemCount(self, "JOB_APPRAISER5_1_ITEM2")
@@ -428,4 +429,54 @@ function JOB_APPRAISER52_ABBADON(self)
     if item_cnt1 < 1 or item_cnt2 < 1 then
         RunZombieScript('GIVE_TAKE_ITEM_TX', self, "JOB_APPRAISER5_1_ITEM1/"..temp1.."/JOB_APPRAISER5_1_ITEM2/"..temp2,nil, "Quest")
     end
+end
+
+function SCR_FEDIMIAN_TERIAVELIS_ENTER(self, pc)
+--    local levelCheck = pc.Lv
+--    if levelCheck >= 360 then
+--        AddHelpByName(pc, 'TUTO_ICOR')
+--    end
+end
+
+
+
+
+function SCR_FEDIMIAN_TERIAVELIS_DIALOG(self, pc)
+     COMMON_QUEST_HANDLER(self, pc)
+--     local TeriavelisSelect = ShowSelDlg(pc, 0, 'NPC_TERIAVELIS_DLG1', ScpArgMsg("LegendRecipe"),ScpArgMsg("itemoptionextract"),ScpArgMsg("itemoptionadd"),ScpArgMsg("legenditemtranscend"), ScpArgMsg("Close"))
+--
+--    if TeriavelisSelect == 1 then
+--        SHOW_ITEM_TRANCEND_UI(pc, 'legend_craft', 5, 1, self);
+--    elseif TeriavelisSelect == 2 then
+--        UIOpenToPC(pc,'itemoptionextract',1)
+--    elseif TeriavelisSelect == 3 then
+--        UIOpenToPC(pc,'itemoptionadd',1)
+--    elseif TeriavelisSelect == 4 then
+--        SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend', 5, 1, self);
+--    end
+     
+end
+
+function SCR_FEDIMIAN_TERIAVELIS_NORMAL_1(self,pc)
+    ShowTradeDlg(pc, 'Teliavelis', 5);
+end
+
+function SCR_FEDIMIAN_TERIAVELIS_NORMAL_2(self, pc)
+    SHOW_ITEM_TRANCEND_UI(pc, 'legend_craft', 5, 1, self);
+end
+
+function SCR_FEDIMIAN_TERIAVELIS_NORMAL_3(self, pc)
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemoptionextract', 5, 1, self);
+end
+
+function SCR_FEDIMIAN_TERIAVELIS_NORMAL_4(self, pc)
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemoptionadd', 5, 1, self);
+    end
+     
+function SCR_FEDIMIAN_TERIAVELIS_NORMAL_5(self, pc)
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend', 5, 1, self);
+end
+
+function SCR_FEDIMIAN_TERIAVELIS_NORMAL_6(self, pc)
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend', 5, 1, self);
 end

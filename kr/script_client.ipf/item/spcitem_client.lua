@@ -11,3 +11,10 @@ function SCR_USE_EVENT_PICTURE_ITEM(invItem)
 	local itemobj = GetIES(invItem:GetObject());
 	EVENT_PICTURE_OPEN(ui.GetFrame("event_picture"), itemobj.StringArg, itemobj.NumberArg1, itemobj.NumberArg2);
 end
+
+function REGISTER_EXP_ORB_ITEM(invItem)
+    local itemobj = invItem:GetIESID();
+    item.RegExpOrbItem(itemobj);
+end
+
+

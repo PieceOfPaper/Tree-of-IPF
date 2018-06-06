@@ -78,7 +78,7 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 					icon:SetEnableUpdateScp('MONSTER_ICON_UPDATE_SKILL_ENABLE');
 					icon:SetColorTone("FFFFFFFF");
 					icon:ClearText();
-					quickSlot.OnSetSkillIcon(slot, type);
+					quickslot.OnSetSkillIcon(slot, type);
 
 					
 					-- 이 땜빵을 어찌해아 하나? 제일 좋은건 hotkey_joystic.xml의 Key, PressedKey를 예쁘게 정리하는 것이다.
@@ -194,7 +194,7 @@ function EXEC_INSTANT_QUICKSLOT(isOn)
 				icon:SetEnableUpdateScp('MONSTER_ICON_UPDATE_SKILL_ENABLE');
 				icon:SetColorTone("FFFFFFFF");
 				icon:ClearText();
-				quickSlot.OnSetSkillIcon(slot, type);
+				quickslot.OnSetSkillIcon(slot, type);
 					
 				-- 이 땜빵을 어찌해아 하나? 제일 좋은건 hotkey_joystic.xml의 Key, PressedKey를 예쁘게 정리하는 것이다.
 				hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(true, hotKey);

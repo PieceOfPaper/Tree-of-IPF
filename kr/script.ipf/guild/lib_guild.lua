@@ -75,7 +75,7 @@ function CREATE_GUILD_COMMON_MENU(partyObj, menuList, isLeader, isEnemyParty, is
 	local currentLevel = partyObj.TowerLevel;
 	if isSameGuild == true then
 		if currentLevel >= 1 then
-			menuList[#menuList + 1] = "Warp";
+			menuList[#menuList + 1] = "Warp";   
 		end
 
 		if currentLevel >= 2 then
@@ -147,7 +147,8 @@ end
 function RESET_GUILD_TICKET(pc)
 
 	local guildObj = GetGuildObj(pc);		
-	local curDate, nextRestTime = GetCurDateAndNextData(INDUN_RESET_TIME);
+	local curDate = GetCurDateAndNextData();
+	local nextRestTime = GetNextIndunWeeklyResetTime()
 
 	if curDate < guildObj.LastEventTicketDay then
 		return;
@@ -315,9 +316,7 @@ function SCR_GUILD_TOWER_DIALOG(tower, pc)
 			end
 
 			if select == 1 then
-				local tx = TxBegin(pc);
-				TxRemoveGuildTower(tx);
-				local ret = TxCommit(tx);			
+                RemoveGuildTower(pc)
 			end
 		end
 	end
@@ -479,7 +478,8 @@ function SCR_USE_AGIT_EGG(pc, argObj, clsName, argnum1, argnum2, itemType, itemO
 	local partyObj = GetGuildObj(pc);
 	local abilLevel = GET_GUILD_ABILITY_LEVEL(partyObj, "Taming");
 	local curPlantCount = GetGuildHouseObjectCountByClassProp(pc, "ObjType", "Animal");
-	if curPlantCount >= abilLevel then
+	local petCount = abilLevel * 3
+	if curPlantCount >= petCount then
 		SendSysMsg(pc, "CantCreateAnimalAnymore");	
 		return;
 	end
@@ -921,6 +921,7 @@ function GUILDHOUSE_OBJ_DIALOG_ANIMAL(obj, pc, guildHouseObj, seedCls)
 		if nextMenuCmd == menuCmd then
 			
 			local objGuid = GetIESID(obj);
+			Dead(obj);
 			local tx = TxBegin(pc);
 			TxRemoveGuildHouseObject(tx, objGuid);
 			local ret = TxCommit(tx);	
@@ -938,6 +939,7 @@ function GUILDHOUSE_OBJ_DIALOG_ANIMAL(obj, pc, guildHouseObj, seedCls)
 			local petType = petCls.ClassID;
 			local objGuid = GetIESID(obj);
 			local haveCompanion = GetSummonedPet(pc, petCls.JobID);
+			Dead(obj);
 			local tx = TxBegin(pc);
 			TxAdoptPet(tx, monCls.ClassID, input);
 			TxRemoveGuildHouseObject(tx, objGuid);
@@ -1149,13 +1151,15 @@ function GUILD_EXP_UP(pc, iesID, count)
         return;
     end
 
-	local needItem, expPerItem = GET_GUILD_EXPUP_ITEM_INFO();
+--	local needItem, expPerItem = GET_GUILD_EXPUP_ITEM_INFO();
 	local item, cnt = GetInvItemByGuid(pc, iesID);
-	if needItem ~= item.ClassName or count > cnt then
+	local itemGuildCheck = TryGetProp(item, "StringArg")
+	if itemGuildCheck ~= "Guild_EXP" or count > cnt then
 		SendSysMsg(pc, "REQUEST_TAKE_ITEM");
 		return;
 	end
 	
+	local expPerItem = TryGetProp(item, "NumberArg1")
 	local curExp = partyObj.Exp;
 	local addExp = count * expPerItem;
 	local nextExp = curExp + addExp;
@@ -1171,7 +1175,8 @@ function GUILD_EXP_UP(pc, iesID, count)
 	local memberObj = GetMemberObjByPC(partyObj, pc);
 	local currentContribution = memberObj.Contribution;
 	currentContribution = currentContribution + addExp;
-	local tx = TxBegin(pc);
+
+    local tx = TxBegin(pc);
 	TxSetPartyMemberProp(tx, PARTY_GUILD, "Contribution", currentContribution)
 	TxTakeItemByObject(tx, item, count, "GuildExpUp");
 	TxSetPartyProp(tx, PARTY_GUILD, "Exp", nextExp);
@@ -1183,7 +1188,14 @@ function GUILD_EXP_UP(pc, iesID, count)
 	if ret == "SUCCESS" then
 		SendSysMsg(pc, "GuildExpUpSuccessByItem");
 	end
-	
+
+    --[[ 아래는 웹 전용 로직
+    if curLevel ~= nextLevel then
+		GuildExpUp(pc, currentContribution, item, count, nextExp, nextLevel);
+    else
+        GuildExpUp(pc, currentContribution, item, count, nextExp);
+	end
+    --]]
 end
 
 function LEARN_GUILD_ABILITY(pc, arg1)
@@ -1215,8 +1227,8 @@ function LEARN_GUILD_ABILITY(pc, arg1)
 	if IsRunningScript(pc, "TX_LEARN_GUILD_ABILITY") == 1 then
 		return;
 	end
-
-	RunScript("TX_LEARN_ABILITY", pc, arg1);
+    RunScript("TX_LEARN_ABILITY", pc, arg1);
+	--RunScript("TX_LEARN_ABILITY_BY_WEB", pc, arg1);
 
 end
 
@@ -1257,14 +1269,13 @@ function LEARN_GUILD_SKL(pc, arg1)
 	ChangePartyProp(pc, PARTY_GUILD, skl.ClassName .. '_Lv', tonumber(level));
 end
 
-function TX_LEARN_ABILITY(pc, arg1)
-
+function TX_LEARN_ABILITY(pc, arg1)        
 	local abilCls = GetClassByType("Guild_Ability", arg1);
 	if abilCls == nil then
 		return;
 	end
 
-	local partyObj = GetGuildObj(pc);	
+	local partyObj = GetGuildObj(pc);
 	local used = partyObj.UsedAbilStat;
 	used = used + 1;
 	local curAbilityName = "AbilLevel_" .. abilCls.ClassName;
@@ -1279,10 +1290,32 @@ function TX_LEARN_ABILITY(pc, arg1)
 	local tx = TxBegin(pc);	
 	TxSetPartyProp(tx, PARTY_GUILD, "UsedAbilStat", used);
 	TxSetPartyProp(tx, PARTY_GUILD, curAbilityName, curAbilityLevel);
-   	local ret = TxCommit(tx);
-
-	
+   	local ret = TxCommit(tx);	
 end
+
+function TX_LEARN_ABILITY_BY_WEB(pc, arg1)
+	local abilCls = GetClassByType("Guild_Ability", arg1);
+	if abilCls == nil then
+		return;
+	end
+
+	local partyObj = GetGuildObj(pc);
+	local used = partyObj.UsedAbilStat;
+	used = used + 1;
+	local curAbilityName = "AbilLevel_" .. abilCls.ClassName;
+	local curAbilityLevel = partyObj[curAbilityName];
+	curAbilityLevel = curAbilityLevel + 1;
+
+	if curAbilityLevel > abilCls.MaxLevel then
+		SendSysMsg(pc, "AbilityLevelMax");
+		return
+	end
+
+    -- 여기서 웹요청 bind function
+    local abil_class_id = arg1
+    GuildAbilityLevelUp(pc, tonumber(abil_class_id), "UsedAbilStat", used, curAbilityName, curAbilityLevel)
+end
+
 
 function SKL_CHECK_NEAR_GUILDTOWER(self, skl)
     
@@ -1370,85 +1403,56 @@ function SCR_DECREASE_CRAFT_LEAVE(self, pc)
 	
 end
 
-function GUILDEVENT_JOIN_TX(pc, string)
-
+function GUILDEVENT_JOIN_TX(pc)
 	local guildObj = GetGuildObj(pc);
-	local accObj = GetAccountObj(pc);
+    local eventID = GetGuildEventID(guildObj)
 
-	local joinTime = GetAddDataFromCurrent(1)
-	local joinCount = guildObj.GuildEventJoinCount;
+    local eventState = GetGuildEventState(guildObj);
+    if eventState ~= "Recruiting" then
+        return;
+    end
 
-	local beforeSelectTime = accObj.GuildEventSelectTime;
-	local beforeSeq = tonumber(accObj.GuildEventSeq) or 0;
-
-	local eventSelectTime = guildObj.GuildEventBroadCastTime;
-	local eventSeq = tonumber(guildObj.GuildEventSeq) or 0;
-
-	RunGuildEventAssembleCheck(pc)
-
-	if eventSeq == beforeSeq and IsLaterOrSameStrByStr(beforeSelectTime, eventSelectTime) == 1 then
-		ExecClientScp(pc, "UPDATE_GUILD_EVENT_POPUP()");
-		SendAddOnMsg(pc, "GUILD_EVENT_UPDATE");
-	else
-		if JoinGuildEvent(pc) == 1 then
-			ChangePartyProp(pc, PARTY_GUILD, "GuildEventJoinCount", joinCount + 1)
-		end
-		ExecClientScp(pc, "UPDATE_GUILD_EVENT_POPUP()");
-		SendAddOnMsg(pc, "GUILD_EVENT_UPDATE");
-
-		--DB 응답이 느린 경우가 있어서 GUILD_EVENT_UPDATE를 2번 호출한다.
-		local tx = TxBegin(pc);
-		if beforeSelectTime ~= eventSelectTime then
-			TxSetIESProp(tx, accObj, "GuildEventSelectTime", joinTime);
-		end
-		if beforeSeq ~= eventSeq then
-			TxSetIESProp(tx, accObj, "GuildEventSeq", guildObj.GuildEventSeq);
-		end
-		local ret = TxCommit(tx);
-
-		ExecClientScp(pc, "UPDATE_GUILD_EVENT_POPUP()");
-		SendAddOnMsg(pc, "GUILD_EVENT_UPDATE");
-
-		if guildObj.GuildInDunFlag == 1 then
-			GUILD_EVENT_INDUN_START(pc)
-		end
-	
-	end
+    local isParticipated = IsGuildEventParticipant(pc)
+    if isParticipated == true then
+        return;
+    end
+    
+    local ret = AddGuildEventParticipant(pc);
+    if ret == 1 then
+        SendAddOnMsg(pc, 'GUILD_EVENT_RECRUITING_IN');
+        GuildEventMongoLog(pc, eventID, "Register")
+    end
 	
 end
 
 
-function SCR_GUILDEVENT_JOIN(pc, isLeader)
+function SCR_GUILDEVENT_JOIN(pc)
     if IS_IN_EVENT_MAP(pc) == true then
         SendSysMsg(pc, 'ImpossibleInCurrentMap');
         return;
     end
 
-	RunScript("GUILDEVENT_JOIN_TX", pc, isLeader);
+	RunScript("GUILDEVENT_JOIN_TX", pc);
 end
 
 function GUILDEVENT_REFUSAL_TX(pc)
 	local guildObj = GetGuildObj(pc);
-	local accObj = GetAccountObj(pc);
 
-	local beforeSelectTime = accObj.GuildEventSelectTime;
-	local refuseTime = GetAddDataFromCurrent(1)
-	
-	local beforeSeq = tonumber(accObj.GuildEventSeq) or 0;
+    local eventState = GetGuildEventState(guildObj);
+    if eventState ~= "Recruiting" then
+        return;
+    end
 
-	local tx = TxBegin(pc);
-	if beforeSelectTime ~= refuseTime then
-		TxSetIESProp(tx, accObj, "GuildEventSelectTime", refuseTime);
-	end
-	if beforeSeq ~= 0 then
-		TxSetIESProp(tx, accObj, "GuildEventSeq", 0);
-	end
-	local ret = TxCommit(tx);
+    local isParticipated = IsGuildEventParticipant(pc)
+    if isParticipated == 1 then
+        return;
+    end
 
-	RefuseGuildEvent(pc);
+    RemoveGuildEventParticipant(pc);
+    SendAddOnMsg(pc, 'GUILD_EVENT_RECRUITING_OUT');
 end
 
-function SCR_GUILDEVENT_REFUSAL(pc, classID)
+function SCR_GUILDEVENT_REFUSAL(pc)
 	RunScript("GUILDEVENT_REFUSAL_TX", pc);
 end
 
@@ -1688,10 +1692,10 @@ function TEST_SUBSUB(pc)
 end
 
 function SCR_DEPOSIT_GUILD_ASSET(pc, money)
-    if IsRunningScript(pc, 'TX_DEPOSIT_GUILD_ASSET') == 1 then
+    if IsRunningScript(pc, 'TX_DEPOSIT_GUILD_ASSET_BY_WEB') == 1 then
         return;
     end
-    TX_DEPOSIT_GUILD_ASSET(pc, money);
+    TX_DEPOSIT_GUILD_ASSET_BY_WEB(pc, money);
 end
 
 function TX_DEPOSIT_GUILD_ASSET(pc, money)
@@ -1735,6 +1739,36 @@ function TX_DEPOSIT_GUILD_ASSET(pc, money)
         return;
     end
     IMC_LOG('ERROR_TX_FAIL', 'SCR_DEPOSIT_GUILD_ASSET: cur['..currentAsset..'], add['..money..'], sum['..sumStr..']');
+end
+
+function TX_DEPOSIT_GUILD_ASSET_BY_WEB(pc, money)    
+    if money < 1 then
+        return;
+    end
+    local guildObj = GetGuildObj(pc);
+    if guildObj == nil then
+        return;
+    end
+    local currentAsset = TryGetProp(guildObj, 'GuildAsset');
+    if currentAsset == nil then
+        IMC_LOG('ERROR_DATA_NULL', 'SCR_DEPOSIT_GUILD_ASSET: GuildAsset property is null! Plz check guild.xml');
+        return;
+    end
+    if currentAsset == 'None' then -- 실버 관련 아주 큰 값이 입력될 가능성이 있어서 문자형으로 선언했음
+        currentAsset = 0;
+    end
+    local pcMoney, cnt = GetInvItemByName(pc, MONEY_NAME);
+    if pcMoney == nil or cnt < money then -- 돈없으면 ㄴㄴ해    
+        return;
+    end
+
+	--맥시멈값 못넣어요
+    local sumStr = SumForBigNumber(money, currentAsset);
+	if IsGreaterThanForBigNumber(sumStr, MONEY_MAX_STACK) == 1 then    
+		return;
+	end
+    
+    DepositGuildAsset(pc, MONEY_NAME, money, sumStr, guildObj)
 end
 
 function TX_GUILD_NEUTRALITY_ALARM(pc, isOn)

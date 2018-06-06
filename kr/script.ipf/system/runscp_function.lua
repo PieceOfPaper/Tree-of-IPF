@@ -1886,6 +1886,14 @@ function getsession_name(pc,session_name, property_name)
         obj = GetAccountObj(pc);
     elseif string.upper(session_name) == 'PCETC' then
         obj = GetETCObject(pc)
+    elseif string.upper(session_name) == 'ZONE' then
+        local zoneID = GetZoneInstID(pc)
+        local zoneObj = GetLayerObject(zoneID, 0)
+        obj = zoneObj
+    elseif string.upper(session_name) == 'INSTANCE' then
+        local value = GetExProp(pc,property_name)
+        Chat(pc,'Present '..session_name..' : '..property_name..' = '..value);
+        return
     else
         obj = GetSessionObject(pc, session_name);
     end
@@ -1929,6 +1937,17 @@ function setsession_name(pc,session_name, property_name,property_value)
         obj = GetAccountObj(pc);
     elseif string.upper(session_name) == 'PCETC' then
         obj = GetETCObject(pc)
+    elseif string.upper(session_name) == 'ZONE' then
+        local zoneID = GetZoneInstID(pc)
+        local zoneObj = GetLayerObject(zoneID, 0)
+        zoneObj[property_name] = property_value
+        Chat(pc,session_name..' : '..property_name..' = '..zoneObj[property_name]);
+        return
+    elseif string.upper(session_name) == 'INSTANCE' then
+        SetExProp(pc,property_name,property_value)
+        local value = GetExProp(pc, property_name)
+        Chat(pc,'Present '..session_name..' : '..property_name..' = '..value);
+        return
     else
         obj = GetSessionObject(pc, session_name);
     end

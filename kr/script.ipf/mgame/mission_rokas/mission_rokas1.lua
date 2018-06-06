@@ -127,8 +127,10 @@ function MROKAS_GATE_02(self, from, skill, damage, ret)
     end
 end
 
-function MROKAS_ENT_TRIGER(self, mgame_value, value)
-    SetMGameValue(self, 'MROKAS_GATE_03', 1);
+function MROKAS_ENT_TRIGER(self)
+    if IS_PC(self) == true then
+        SetPos(self, 524, 181, -23)
+    end
 end
 
 

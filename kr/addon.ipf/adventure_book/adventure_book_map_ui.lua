@@ -199,6 +199,10 @@ function ADVENTURE_BOOK_MAP.DRAW_MINIMAP(selectedMapID)
 		ratestr = " {img minimap_complete 24 24}"
 	end
 
+	if ADVENTURE_BOOK_MAP_CONTENT.IS_VISIBLE_MAP(mapCls) ~= 1 then
+		return;
+	end
+
 	local mapnameCtrl = ctrlSet:GetChild("mapname");
     mapnameCtrl:ShowWindow(0);
 		
@@ -209,6 +213,10 @@ function ADVENTURE_BOOK_MAP.DRAW_MINIMAP(selectedMapID)
 	local mapimage = ui.GetImage(drawMapName .. "_fog");
 	if mapimage == nil then
 		world.PreloadMinimap(drawMapName, true, true);
+	end
+
+	if ui.GetImage(drawMapName .. "_fog") == nil then
+		return;
 	end
 	pic:SetImage(drawMapName .. "_fog");
 		

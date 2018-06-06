@@ -740,3 +740,13 @@ function SCR_BUFF_TAKEDMG_Raid_Velcofer_Curse_Debuff(self, buff, sklID, damage, 
     end
     return 1;
 end
+
+function SCR_BUFF_GIVEDMG_Kraujas_Buff(self, buff, sklID, damage, target, ret)
+    if IsBuffApplied(self, "Kraujas_Buff") == "YES" then
+        local buffRemainTime = GetBuffRemainTime(buff);
+        if buffRemainTime > 1000 then
+            AddBuff(self, self, "Kraujas_Buff", 1, 0, buffRemainTime, 1);
+        end
+    end
+    return 1;
+end

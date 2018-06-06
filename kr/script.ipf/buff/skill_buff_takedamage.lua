@@ -551,3 +551,19 @@ function SCR_BUFF_TAKEDMG_Muleta_Cast_Buff(self, buff, sklID, damage, attacker, 
 	
 	return 1;
 end
+
+function SCR_BUFF_TAKEDMG_Tiksline_Debuff(self, buff, sklID, damage, attacker, ret)
+    if damage > 0 then
+        local buffCaster = GetBuffCaster(buff);
+        local attackerTopOwner = GetTopOwner(attacker);
+        if IsSameActor(buffCaster, attackerTopOwner) == "YES" then
+            if IsBuffApplied(self, buff.ClassName) == "YES" then
+                local accumulatedDamage = damage + GetExProp(buff, "Tiksline_accumulatedDamage")
+                SetExProp(buff, "Tiksline_accumulatedDamage", accumulatedDamage);
+            end
+        end
+    end
+    
+    return 1;
+end
+

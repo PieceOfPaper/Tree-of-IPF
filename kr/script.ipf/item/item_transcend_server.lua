@@ -16,6 +16,23 @@ function IS_ENABLE_BUFF_STATE_TO_REINFORCE_OR_TRANSCEND(pc)
 	return 'YES';
 end
 
+function CHECK_VALID_TRANSCEND_SHOP(pc, targetItem)
+	if TryGetProp(targetItem, 'LegendGroup', 'None') ~= 'None' then
+		if GetExProp(pc, 'IS_LEGEND_SHOP') ~= 1 then
+			return false;
+		end
+	end
+
+	return true;
+end
+
+function CHECK_ENABLE_BREAK_TRANSCEND(pc, targetItem)
+	if TryGetProp(targetItem, 'LegendGroup', 'None') ~= 'None' then
+		return false;	
+	end
+	return true;
+end
+
 function SCR_ITEM_TRANSCEND_TX(pc, argList)	
 	local materialCount = tonumber(argList[1]);
 	
@@ -36,9 +53,9 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
 	end
 
 
-
-
-   
+    if CHECK_VALID_TRANSCEND_SHOP(pc, targetItem) == false then
+    	return;
+    end   
 
     local itemClass = GetClass("Item",targetItem.ClassName);
 
@@ -56,11 +73,6 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
         ExecClientScp(pc, "ITEMTRANSCEND_FAIL_TO_TRANSCEND()");
         return;
     end
-
-
-
-
-
 
 	-- 잠금 상태 안되고
 	if 1 == IsFixedItem(targetItem) or 1 == IsFixedItem(materialItem) then 
@@ -211,6 +223,10 @@ function SCR_ITEM_TRANSCEND_BREAK_TX(pc, argList)
 		return;
 	end
 
+    if CHECK_ENABLE_BREAK_TRANSCEND(pc, targetItem) == false then    
+    	return;
+    end
+
     local itemClass = GetClass("Item",targetItem.ClassName);
 
     if itemClass == nil then
@@ -304,6 +320,10 @@ function SCR_ITEM_TRANSCEND_REMOVE_TX(pc, argList)
 	if targetItem == nil or materialItem == nil then
 		return;
 	end
+
+    if CHECK_ENABLE_BREAK_TRANSCEND(pc, targetItem) == false then
+    	return;
+    end
 
     local itemClass = GetClass("Item",targetItem.ClassName);
 
@@ -517,4 +537,13 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 	InvalidateStates(pc);
 	local stringScp = string.format("TRANSCEND_SCROLL_RESULT(%d)", isSuccess);
 	ExecClientScp(pc, stringScp);
+end
+
+function SHOW_ITEM_TRANCEND_UI(pc, uiName, dlgPriority, isLegendShop, npc)
+	SetExProp_Str(pc, "TRANSCEND_NPC_NAME", npc.ClassName);
+    SetExProp(pc, 'IS_LEGEND_SHOP', isLegendShop);
+    if isLegendShop == 1 then
+    	SetExProp(pc, 'LEGEND_NPC_HANDLE', GetHandle(npc));
+    end
+    ShowCustomDlg(pc, uiName, dlgPriority, '', isLegendShop);
 end

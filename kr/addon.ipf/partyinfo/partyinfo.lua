@@ -636,6 +636,16 @@ function RECEIVE_PARTY_INVITE(partyType, inviterAid, familyName)
 	ui.MsgBox(str, yesScp, noScp);
 end
 
+function RECEIVE_GUILD_INVITE(partyType, inviterAid, familyName)    
+	local msg = "";
+	msg = "{Inviter}InviteYouToGuild_DoYouAccept?";	
+	
+	local str = ScpArgMsg(msg, "Inviter", familyName);
+	local yesScp = string.format("party.AcceptGuildInvite(\"%s\", \"%s\")", inviterAid, familyName);
+	local noScp = string.format("party.CancelInvite(%d, \"%s\", 0)", partyType, familyName);
+	ui.MsgBox(str, yesScp, noScp);
+end
+
 function PARTY_AUTO_REFUSE_INVITE(familyName)
 
 	local noScp = string.format("PARTY_AUTO_REFUSE_INVITE_EXEC(\"%s\")", familyName);

@@ -195,10 +195,9 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 	end
 
 	if (isLeader == 1 or IS_GUILD_AUTHORITY(2) == 1) and aid ~= myAid then
-		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", aid));
+		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", aid));        
 	end
-
-	
+    	
 	if isLeader == 1 and aid ~= myAid then
 		local mapName = session.GetMapName();
 		if mapName == 'guild_agit_1' then
@@ -210,7 +209,7 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 
 		local list = session.party.GetPartyMemberList(PARTY_GUILD);
 		if list:Count() == 1 then
-			ui.AddContextMenuItem(context, ScpArgMsg("Disband"), "ui.Chat('/destroyguild')");
+			ui.AddContextMenuItem(context, ScpArgMsg("Disband"), "ui.Chat('/destroyguildbyweb')");            
 		end
 	else
 		if aid == myAid then
@@ -395,7 +394,12 @@ function _SEND_REQ_GUILD_MASTER(name)
 end
 
 function OUT_GUILD()
-	ui.Chat("/outguild");
+	ui.Chat("/outguildbyweb");
+    ui.CloseFrame('guildinfo');
+end
+
+function OUT_GUILD_BY_WEB()
+    ui.Chat("/outguildbyweb");
     ui.CloseFrame('guildinfo');
 end
 
@@ -423,7 +427,11 @@ function EXEC_GUILD_CHANGE_DUTY(frame, ctrl)
 end
 
 function GUILD_BAN(name)
-	ui.Chat("/partybanByAID " .. PARTY_GUILD.. " " .. name);	
+    ui.Chat("/guildbanByAID " .. name);	
+end
+
+function GUILD_BAN_BY_WEB(aid)
+    ui.Chat("/guildbanByAID " .. aid);
 end
 
 function GUILDINFO_MEMBER_INIT_ONLINE_CHECKBOX(frame)

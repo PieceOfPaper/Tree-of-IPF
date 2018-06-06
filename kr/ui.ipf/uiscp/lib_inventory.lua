@@ -544,7 +544,7 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
         		iconImg = itemCls.Icon.."_f"
         	end
     	end    	
-	else
+	elseif itemCls.ItemType == 'Equip' then
 		local faceID = TryGetProp(itemCls, 'BriquettingIndex');
 		if nil ~= faceID and tonumber(faceID) > 0 then
 			faceID = tonumber(faceID);
@@ -553,7 +553,13 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 				iconImg = cls.Icon;
 			 end
 		end
-    end
+	elseif itemCls.GroupName == "ExpOrb" then
+		local exp = TryGetProp(itemCls, "ItemExp");
+		local maxExp = TryGetProp(itemCls, "NumberArg1");
+		if exp ~= nil and maxExp ~= nil then 
+			iconImg = GET_LEGENDEXPPOTION_ICON_IMAGE(itemCls);
+		end
+	end
 	return iconImg;
 
 end

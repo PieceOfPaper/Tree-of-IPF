@@ -13,6 +13,7 @@ function SYSTEMOPTION_CREATE(frame)
 	INIT_GRAPHIC_CONFIG(frame);
 	INIT_CONTROL_CONFIG(frame);
 	SET_SKL_CTRL_CONFIG(frame);
+        SET_AUTO_CELL_SELECT_CONFIG(frame);
     	SET_DMG_FONT_SCALE_CONTROLLER(frame);
 	SET_SHOW_PAD_SKILL_RANGE(frame);
 	SET_SIMPLIFY_BUFF_EFFECTS(frame);
@@ -319,6 +320,20 @@ function CONFIG_SKL_CTRL_SPD(frame, ctrl, str, num)
 	tolua.cast(ctrl, "ui::CSlideBar");
 	config.SetSklCtrlSpd(ctrl:GetLevel());
 	SET_SKL_CTRL_CONFIG(frame);
+end
+
+function SET_AUTO_CELL_SELECT_CONFIG(frame)
+	local value = config.GetAutoCellSelectSpd();
+	local slide = GET_CHILD_RECURSIVELY(frame, "autoCellSelectSpd", "ui::CSlideBar");
+	slide:SetLevel(value);
+	local txt = GET_CHILD_RECURSIVELY(frame, "autoCellSelectSpd_text", "ui::CRichText");
+	txt:SetTextByKey("ctrlValue", value);
+end
+
+function CONFIG_AUTO_CELL_SELECT_SPD(frame, ctrl, str, num)
+    tolua.cast(ctrl, "ui::CSlideBar");
+	config.SetAutoCellSelectSpd(ctrl:GetLevel());
+	SET_AUTO_CELL_SELECT_CONFIG(frame);
 end
 
 function CONFIG_SOUNDVOL(frame, ctrl, str, num)

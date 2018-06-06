@@ -341,3 +341,15 @@ function SCR_GUILD_EVENT_FAIL_MONGOLOG(guildObj)
     GuildEventMongoLogWithoutPC(guildID, eventID, "Fail", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
     FailGuildEvent(guildObj)	
 end
+
+function SCR_GUILD_EVENT_REWARD_CHECK_MONGOLOG(guildObj, pc)
+    local guildID = GetIESID(guildObj)
+    local eventID = GetGuildEventID(guildObj)
+    
+    if pc == nil then
+        GuildEventMongoLogWithoutPC(guildID, eventID, "REWARD_CHECK_NIL")
+        return
+    end
+    
+    GuildEventMongoLog(pc, eventID, "REWARD_CHECK_PC")
+end

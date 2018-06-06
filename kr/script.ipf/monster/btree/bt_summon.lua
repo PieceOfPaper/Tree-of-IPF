@@ -105,7 +105,7 @@ end
 --* @Function       BT_ATTACK_NEAR
 --* @Type           Cond
 --* @NumArg         검색 범위
---* @Description    주변 범위안의 적을 검색해서 공격
+--* @Description    주변 범위안의 적을 검색해서 SkillByRatio 스킬 공격
 --**/
 function BT_ATTACK_NEAR(self, state, btree, prop)
     

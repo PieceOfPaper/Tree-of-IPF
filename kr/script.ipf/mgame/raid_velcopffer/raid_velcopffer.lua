@@ -3,6 +3,11 @@
 --벨코퍼 입장.
 function SCR_VELLCOFFER_ENTER_01_DIALOG(self, pc)
 
+    local pcLvCheck = pc.Lv
+    if pcLvCheck >= 300 then
+        AddHelpByName(pc, "TUTO_VELCOFFER_RAID")
+    end
+
     local dialog_list ={}
     local dialog_ck = {}
 
@@ -16,7 +21,6 @@ function SCR_VELLCOFFER_ENTER_01_DIALOG(self, pc)
     
     if sel_dialog == 'StartGame' then
         INDUN_ENTER_DIALOG_AND_UI(pc, 'RAID_VELLCOFFER_ENTER', 'Raid_Velcoffer_guard', 0, 0);
-        print(pc, "RAID_VELLCOFFER_ENTER", "Raid_Velcoffer_guard", 0)
         return;
     end
 end
@@ -384,4 +388,8 @@ function SCR_VELCOFFR_RAID_PC_DEBUFF_REMOVE(self)
     RemoveBuff(self, 'Raid_Velcofer_Cnt_Debuff')
     RemoveBuff(self, 'Raid_Velcofer_Last_Curse_Debuff')
     RemoveBuff(self, 'Raid_Velcofer_Curse_Debuff')
+end
+
+function SCR_VELLCOFFER_SOUND_ENTER(self, pc)
+    PlayMusicQueueLocal(pc, "raid_velcoffer")
 end

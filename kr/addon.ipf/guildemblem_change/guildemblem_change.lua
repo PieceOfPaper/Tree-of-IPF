@@ -64,7 +64,7 @@ function GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST(frame)
         if session.party.IsValidGuildEmblemImage(v.fullPathName) == true then
             local ctrlSet = body:CreateOrGetControlSet('guild_emblem_deck', "DECK_" .. index, 0, posY)
             ctrlSet:ShowWindow(1)
-            posY = SET_PRIVIEW_ITEM(frame, ctrlSet, v.fileName, posY)
+            posY = _SET_PRIVIEW_ITEM(frame, ctrlSet, v.fileName, posY)
             posY = posY -tonumber(frame:GetUserConfig("DECK_SPACE")) -- 가까이 붙이기 위해 좀더 위쪽으로땡김
             count = count + 1
             if count >= 10 then
@@ -112,7 +112,7 @@ function GUILDEMBLEM_CHANGE_EXCUTE(isNewRegist, useItem)
     
     if isNewRegist == true then
     -- 최초 등록
-        local fullPath = emblemFolderPath .. "\\" .. selectPngName        
+        local fullPath = emblemFolderPath .. "\\" .. selectPngName
         local result = session.party.RegisterGuildEmblem(fullPath,false)
         if result == EMBLEM_RESULT_ABNORMAL_IMAGE then
             ui.SysMsg(ClMsg("AbnormalImageData"))    
@@ -140,14 +140,14 @@ function GUILDEMBLEM_CHANGE_EXCUTE(isNewRegist, useItem)
             
              -- 길드이미지 변경 가능 시간 확인
             if session.party.IsPossibleRegistGuildEmblem(useItem) == false and session.party.IsRegisteredEmblem() == true then
-                ui.SysMsg(ClMsg("NotReachToReRegisterTime"))
-                ui.CloseFrame('guildemblem_change')
-                GUILDEMBLEM_CHANGE_CANCEL(frame)
-                return
+               ui.SysMsg(ClMsg("NotReachToReRegisterTime"))
+               ui.CloseFrame('guildemblem_change')
+               GUILDEMBLEM_CHANGE_CANCEL(frame)
+               return
             end
 
             -- 등록 요청
-            local fullPath = emblemFolderPath .. "\\" .. selectPngName     
+            local fullPath = emblemFolderPath .. "\\" .. selectPngName
             local result = session.party.RegisterGuildEmblem(fullPath,useItem)
             if result == EMBLEM_RESULT_ABNORMAL_IMAGE then
                 ui.SysMsg(ClMsg("AbnormalImageData"))    
@@ -167,15 +167,10 @@ function GUILDEMBLEM_CHANGE_ACCEPT(frame)
 
     -- 길드 엠블럼을 변경하는 경우(이미 등록이 되어있었다면) 인벤에 길드 엠블럼 변경권을 확인한다.
     if session.party.IsRegisteredEmblem() == true then
-    -- 인벤에 변경권이 있으면 물어본다.
-        local invItem = session.GetInvItemByName("Premium_Change_Guild_Emblem");
-        if invItem ~= nil then 
-            local yesScp = string.format("GUILDEMBLEM_CHANGE_EXCUTE(false,true)");
-            local noScp = string.format("GUILDEMBLEM_CHANGE_EXCUTE(false,false)");
-            ui.MsgBox(ScpArgMsg("UseGuildEmblemChangeItem"), yesScp, noScp);
-            return
-        end
+        GUILDEMBLEM_CHANGE_EXCUTE(false,false)
+        return
     end
+    
     -- 최초 길드 엠블럼 등록.
     GUILDEMBLEM_CHANGE_EXCUTE(true,false)
 end
@@ -234,7 +229,7 @@ function GUILDEMBLEM_LIST_UPDATE(frame)
     
 end
 
-function SET_PRIVIEW_ITEM(frame, ctrlSet, fileName, posY)
+function _SET_PRIVIEW_ITEM(frame, ctrlSet, fileName, posY)
     local pngFullPath =  emblemFolderPath .. "\\" .. fileName
     -- 아이콘을 설정한다
 	local gb_items = GET_CHILD(ctrlSet, "gb_items", "ui::CGroupBox") 
