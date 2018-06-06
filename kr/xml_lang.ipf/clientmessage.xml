@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -88,7 +88,7 @@
 		<Class ClassID="2031" ClassName="RealyDoEnchant" Data="아이템을 각성하면, 마법 부여 스크롤 아이템 및 이미 각성했던 옵션도 사라집니다. 그래도 진행하시겠습니까?"/>
 		<Class ClassID="2032" ClassName="PleaseDropItem{Name}" Data="[{Name}] 아이템을 올려주세요."/>
 		<Class ClassID="2033" ClassName="TranscendSuccessRatio{P}%" Data="초월 성공률 {P}%"/>
-		<Class ClassID="2034" ClassName="ReallyExecTranscend?" Data="포텐셜이 0인 아이템의 초월 실패시 아이템이 소멸됩니다.{nl}정말 초월을 시작하시겠습니까?"/>
+		<Class ClassID="2034" ClassName="ReallyExecTranscend_PR_ZERO" Data="포텐셜이 0인 아이템의 초월 실패시 아이템이 소멸됩니다.{nl}정말 초월을 시작하시겠습니까?"/>
 		<Class ClassID="2035" ClassName="SuccessToTranscend" Data="아이템 초월을 성공하였습니다."/>
 		<Class ClassID="2036" ClassName="FailedToTranscend" Data="아이템 초월을 실패하였습니다."/>
 		<Class ClassID="2037" ClassName="CantTrasncendMore" Data="더 이상 초월할 수 없습니다."/>
@@ -116,6 +116,7 @@
 		<Class ClassID="2059" ClassName="ITEMTRANSCEND_BREAK_GUIDE_FIRST" Data="축복석 추출을 하시려면 먼저 위의 원 안에 {nl}장비를 올려둬야 합니다. 축복석 추출은 초월 아이템에서 축복석을 추출하고 아이템이 제거됩니다."/>
 		<Class ClassID="2060" ClassName="ITEMTRANSCEND_REMOVE_GUIDE_FIRST" Data="아이템 추출을 하시려면 먼저 위의 원 안에 {nl}장비를 올려둬야 합니다. 아이템 추출은 초월 아이템에서 아이템을 추출하고 초월효과는 제거됩니다."/>
 		<Class ClassID="2061" ClassName="GOLDMORUdontbrokenitemProcessReinforce?" Data="현재 사용한 모루로 강화를 시도하는 경우, 장비가 파괴되지 않습니다. 실패시 강화 단계가 하락 할 수 있습니다. 강화를 진행하시겠습니까?"/>
+		<Class ClassID="2062" ClassName="ReallyExecTranscend" Data="정말 초월을 시작하시겠습니까?"/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -780,7 +781,7 @@
 		<Class ClassID="10451" ClassName="InvalidGender" Data="착용할 수 있는 성별이 아닙니다."/>
 		<Class ClassID="10452" ClassName="Indun1AddText" Data="  인스턴스 던전과 의뢰소 미션에 1회 더 입장 가능"/>
 		<Class ClassID="10453" Data="중복으로 장착할 수 없는 아이템입니다."/>
-	</Category>
+		</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
 		<Class ClassID="20002" ClassName="IncreaseSP{Value}For{Time}Minute" Data="{Time}분 동안 SP가 {Value}% 증가합니다."/>
@@ -4076,7 +4077,7 @@
 		<Class ClassID="27131" ClassName="CATACOMB_HALLOWEEN_MSG2" Data="누적 참여보상을 받는다({COUNT}회 참여)"/>
 		<Class ClassID="27132" ClassName="CATACOMB_HALLOWEEN_MSG3" Data="3회 참여 보상을 받는다"/>
 		<Class ClassID="27133" ClassName="CATACOMB_HALLOWEEN_MSG4" Data="30회 참여 보상을 받는다"/>
-		<Class ClassID="27182" ClassName="GACHA_SITEM_GET_ALLMSG" Data="{s24}축하드립니다!{nl}{PC} 님이 레티샤의 비밀 큐브에서{nl}{ITEMNAME} 를 획득하셨습니다!"/>
+		<Class ClassID="27182" ClassName="GACHA_SITEM_GET_ALLMSG" Data="{s24}축하드립니다!{nl}{PC} 님이 레티샤의 비밀 큐브에서{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5263,7 +5264,8 @@
 		<Class ClassID="106046" ClassName="CantReceiveItem" Data="아이템 수령에 실패하였습니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="106047" ClassName="IsBlackItem" Data="비정상 거래로 확인된 아이템입니다. 구매하실 수 없습니다."/>
 		<Class ClassID="106048" ClassName="PremiumRegMaxPrice{Price}" Data="해당 아이템의 등록 최대 가격은 {Price}실버 입니다."/>
-		<Class ClassID="106049" ClassName="TooLongFindItemQuery" Data="검색어는 최대 20자를 초과할 수 없습니다."/>
+		<Class ClassID="106049" ClassName="InvalidFindItemQueryMin" Data="검색어는 1글자 보다 길어야합니다."/>
+		<Class ClassID="106050" ClassName="InvalidFindItemQueryMax" Data="검색어는 20자를 초과할 수 없습니다."/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>

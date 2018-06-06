@@ -34,6 +34,7 @@ function TPITEM_SELECTED_OPEN(refControl)
 	local Itemslot = GET_CHILD(stdBox, "Itemslot");
 	SET_SLOT_IMG(Itemslot, cls.Icon);
 		
+	tpitem_selected:SetUserValue("ItemClsId", ItemClsId);
 	tpitem_selected:SetUserValue("OrderQuantity", OrderQuantity);
 	tpitem_selected:SetUserValue("OrderPrice", OrderPrice);
 
@@ -55,7 +56,8 @@ function TPITEM_SELECTED_PICKUP(parent, control, orderNo, productNo)
 	tpitem_selected:SetUserValue("IsClose", 1);
 	local orderQuantity = tpitem_selected:GetUserValue("OrderQuantity");
 	local orderPrice = tpitem_selected:GetUserValue("OrderPrice");
-	ui.PickUpCashItem(orderNo, productNo, orderQuantity, orderPrice);
+	local clsID = tpitem_selected:GetUserValue("ItemClsId");
+	ui.PickUpCashItem(orderNo, productNo, orderQuantity, orderPrice, clsID);
 	tpitem_selected:ShowWindow(0);	
 	
 	UPDATE_BASKET_MONEY(frame);
@@ -90,7 +92,8 @@ function ON_TPITEM_SELECTED_REFUND(parent, control, orderNo, productNo)
 	
 	local tpitem_selected = ui.GetFrame("tpitem_selected");
 	local orderQuantity = tpitem_selected:GetUserValue("OrderQuantity");
-	ui.RefundIngameShopItem(orderNo, productNo, orderQuantity);
+	local clsID = tpitem_selected:GetUserValue("ItemClsId");
+	ui.RefundIngameShopItem(orderNo, productNo, orderQuantity, clsID);
 	tpitem_selected:SetUserValue("IsClose", 0);
 	tpitem_selected:ShowWindow(0);	
 end
@@ -106,6 +109,7 @@ function TPITEM_SELECTED_CLOSE(parent, control)
 			tpitem_selected:SetUserValue("IsClose", 1);
 		end
 end
+
 
 function TPSHOP_SHOWINFO_SELECTED_CASHITEM_INFO(frame, icon, visible)
 

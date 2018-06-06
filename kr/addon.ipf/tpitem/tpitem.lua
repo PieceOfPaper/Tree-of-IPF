@@ -1082,11 +1082,11 @@ function TPSHOP_TPITEM_ALIGN_LIST(cnt)
 end	
 
 function _TPSHOP_TPITEM_SET_SPECIAL()	
-
+	if 1 == IsMyPcGM_FORNISMS() then
 	local frame = ui.GetFrame("tpitem");
 	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"mainSubGbox");
-	local index = frame:GetUserValue("CHILD_ITEM_INDEX");	
 
+	local index = frame:GetUserValue("CHILD_ITEM_INDEX");	
 	if index == 0 then
 		return;
 	end
@@ -1109,6 +1109,7 @@ function _TPSHOP_TPITEM_SET_SPECIAL()
 	end	
 	
 	DebounceScript("TPSHOP_CREATE_TOP5_CTRLSET", 1);
+end
 end
 
 function TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID)
