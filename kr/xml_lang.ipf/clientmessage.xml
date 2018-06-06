@@ -7561,6 +7561,7 @@
 		<Class ClassID="134035" ClassName="CannotUseForAutoMatching" Data="자동매칭 중에는 사용할 수 없습니다."/>
 		<Class ClassID="134036" ClassName="CannotLockInIndun" Data="입장 아이템을 해당 인던 안에서 잠글 수 없습니다."/>
 		<Class ClassID="134037" ClassName="Wait{Sec}ReturnOringinServer" Data="{Sec}초 후 입구로 돌아갑니다..."/>
+		<Class ClassID="134039" ClassName="MultipleErrorCannotReward" Data="설정한 만큼의 배수권이 인벤토리에 없어서 배수 토큰 적용에 실패했습니다."/>
 	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
@@ -10793,7 +10794,7 @@
 		<Class ClassID="801041" ClassName="CololnywarInsideCannotRideHasnotAbility" Data="컴패니언 탑승가능한 직업이 아닙니다."/>
 		<Class ClassID="801042" ClassName="CanNotActiveByColonyWarJoin" Data="콜로니전 진행 중에는 해당 기능을 이용하실 수 없습니다."/>
 		<Class ClassID="801043" ClassName="CannotUseInPVPZone" Data="PVP 지역에서는 사용 하실 수 없습니다."/>
-	</Category>
+		</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="การซื้อสำเร็จ"/>
 		<Class ClassID="900001" ClassName="NXABillingPurchaseFailed" Data="Purchase Failed"/>
