@@ -253,7 +253,7 @@
 		<Class ClassID="10304" ClassName="CantUseSkillOnRiding" Data="스킬중엔 컴패니언 탑승을 해제 할 수 없습니다."/>
 		<Class ClassID="10305" ClassName="CantUseSkill_NeedRiding" Data="컴패니언 탑승중에만 사용 할 수 있는 스킬입니다."/>
 		<Class ClassID="10306" ClassName="PCNameMustLongerThen{LEN}" Data="{LEN}자 이상이어야 합니다."/>
-		<Class ClassID="10307" ClassName="PCNameMustNotLongerThen{LEN}" Data="{LEN}바이트 이하이어야 합니다."/>
+		<Class ClassID="10307" ClassName="PCNameMustNotLongerThen{LEN}" Data="이름은 {LEN}자이하이어야 합니다."/>
 		<Class ClassID="10308" ClassName="HadFobbidenWord" Data="사용할 수 없는 문자가 포함되어 있습니다."/>
 		<Class ClassID="10309" ClassName="YouCanNotRideCompanionWhileSitting" Data="휴식모드 중에는 탑승할 수 없습니다."/>
 		<Class ClassID="10310" ClassName="YouCanNotRideCompanionWhileCompanionIsDead" Data="기절중인 컴패니언에는 탑승할 수 없습니다."/>
@@ -342,7 +342,7 @@
 		<Class ClassID="10403" ClassName="ThatCurrentPosition" Data="현재 위치 입니다."/>
 		<Class ClassID="10404" ClassName="CanTakeItemFromPostBox" Data="현재 습득하지 않은 아이템이 존재합니다.{nl}모든 아이템 수령 후 삭제가 가능합니다."/>
 		<Class ClassID="10405" ClassName="ReallyGivePremiumItemTo{PC}" Data="{PC}으로 아이템을 받으시겠습니까? 수령 시 청약철회가 불가능해 집니다."/>
-	<Class ClassID="10406" ClassName="EscapeDisabled" Data="지금은 귀환석을 사용할 수 없습니다."/>
+		<Class ClassID="10406" ClassName="EscapeDisabled" Data="지금은 귀환석을 사용할 수 없습니다."/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="210401" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -1905,7 +1905,7 @@
 		<Class ClassID="140171" ClassName="PILGRIM311_SQ_03_NPC_DO" Data="채집 중"/>
 		<Class ClassID="140172" ClassName="PILGRIM311_SQ_03_NPC_1" Data="붉은 잎사귀를 획득했습니다!{nl}"/>
 		<Class ClassID="140173" ClassName="PILGRIM311_SQ_04_ITEM_DO" Data="설치 중"/>
-		<Class ClassID="140174" ClassName="PILGRIM311_SQ_04_ITEM_1" Data="신호탄 덫을 놓았습니다{nl}마족들이 덫에 유인될 때까지 지키세요!"/>
+		<Class ClassID="140174" ClassName="PILGRIM311_SQ_04_ITEM_1" Data="신호탄 덫을 놓았습니다!{nl}마족들이 덫에 걸릴 때까지 기다리세요!"/>
 		<Class ClassID="140175" ClassName="SSN_PILGRIM311_SQ_03_RUN" Data="위쪽 어딘가에서 누군가가 당신을 부르고 있습니다"/>
 		<Class ClassID="140176" ClassName="PILGRIM312_SQ_01_NPC_DO" Data="채집 중"/>
 		<Class ClassID="140177" ClassName="PILGRIM312_SQ_01_NPC_01" Data="검푸른 허브를 획득했습니다"/>
@@ -6691,8 +6691,8 @@
 		<Class ClassID="550017" ClassName="NeedPremiunState" Data="해당 기능을  사용 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550018" ClassName="{Target}DontHavePremiumState" Data="{Target}님이 거래를 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550019" ClassName="CantTradeAbility" Data="거래/매입상점 사용가능"/>
-		<Class ClassID="550020" ClassName="token_expup" Data="몬스터 사망 시 획득 경험치 +30% 증가"/>
-		<Class ClassID="550021" ClassName="token_staup" Data="스태미나 회복량 2배 증가"/>
+		<Class ClassID="550020" ClassName="token_expup" Data="몬스터 사망 시 획득 경험치 증가"/>
+		<Class ClassID="550021" ClassName="token_staup" Data="스태미나 회복량 증가"/>
 		<Class ClassID="550022" ClassName="marketUpMax{COUNT}" Data="마켓 물품 등록 개수 {COUNT}개로 증가"/>
 		<Class ClassID="550023" ClassName="abilityMax{COUNT}" Data="특성 동시 수련 가능 개수 {COUNT} 증가"/>
 		<Class ClassID="550024" ClassName="speedUp{COUNT}" Data="이동 속도 +{COUNT} 증가"/>
@@ -6709,7 +6709,7 @@
 		<Class ClassID="550035" ClassName="DoyouRegMarket" Data="해당 아이템을 정말로{nl}마켓에 등록하시겠습니까?"/>
 		<Class ClassID="550036" ClassName="CannoTradeToNPC" Data="해당 아이템은 NPC에게 판매하실 수 없습니다."/>
 		<Class ClassID="550037" ClassName="token_setup" Data="스태미나 회복량 2배 증가"/>
-		<Class ClassID="550038" ClassName="{TP}UseAndGo{INDUN}" Data="무료 입장 횟수를 전부 사용하셨습니다.{nl}{TP}TP를 소비해 {INDUN}에 입장하시겠습니까?"/>
+		<Class ClassID="550038" ClassName="{TP}UseAndGo{INDUN}" Data="무료 입장 횟수를 전부 사용하셨습니다.{nl}{TP}TP를 소비해 {INDUN}에{nl} 입장하시겠습니까?{nl}단, 이미 활성화 중인 던전에 입장한다면 TP는 소모되지 않습니다."/>
 		<Class ClassID="550039" ClassName="PremiumToken_24h" Data="토큰:1일[증정용]"/>
 		<Class ClassID="550040" ClassName="SameName" Data="같은 이름으로는 변경을 시도 할 수 없습니다."/>
 		<Class ClassID="550041" ClassName="IsAppliedToken{NAME}" Data="이미 {NAME} 아이템이 활성화 중에 있습니다."/>
@@ -6730,5 +6730,6 @@
 		<Class ClassID="600013" ClassName="Family Name" Data="팀명 변경"/>
 		<Class ClassID="600014" ClassName="SkillRollBack" Data="스킬 되돌리기"/>
 		<Class ClassID="600015" ClassName="BuySlot" Data="팀 슬롯 구매"/>
+		<Class ClassID="600016" ClassName="IndunCount" Data="인던입장"/>
 	</Category>
 </idspace>

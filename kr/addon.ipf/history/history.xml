@@ -35,6 +35,6 @@
 		<groupbox name="TPBox" margin="20 0 0 80" rect="0 0 220 30" hittestbox="false" layout_gravity="left bottom" skin="test_weight_skin"/>
 		<picture name="Pic_Medal" parent="TPBox" rect="0 0 24 24" margin="5 0 0 3" layout_gravity="left bottom" hittest="true" image="icon_item_tospoint" oversound="button_over" stretch="true"/>
 		<richtext name="richtext_1" margin="-7 0 0 10" rect="40 5 0 0" caption="{@st42}TP{/}" textalign="left bottom" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left bottom" parent="TPBox"/>
-		<richtext name="MyTp" margin="25 0 0 5" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right bottom" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left bottom" parent="TPBox"/>
+		<richtext name="MyTp" margin="0 0 10 5" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right bottom" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right bottom" parent="TPBox"/>
 	</controls>
 </uiframe>

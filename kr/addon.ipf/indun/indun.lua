@@ -59,13 +59,8 @@ function INDUN_COUNT_BUY(indunName)
 	end
 	local etc = GetMyEtcObject();
 	local indunCount = etcObj["InDunCountType_" .. pCls.PlayPerResetType];
-	local count = indunCount - pCls.PlayPerReset
-	local tp = NEED_INDUN_MIN_TP;
-	if count == 0 then
-		count = 1;
-	end
-
-	tp = tp * count;
+	local count = (indunCount - tonumber(pCls.PlayPerReset))+1
+	local tp = tonumber(NEED_INDUN_MIN_TP) * count;	
 
 	local yesScp = string.format("CHECK_TP_AND_GO(%d, \"%s\")", tp, indunName);
 	local msg = ScpArgMsg("{TP}UseAndGo{INDUN}","TP", tostring(tp), "INDUN", pCls.Name);

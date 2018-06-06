@@ -12,11 +12,8 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	if 0 == frame:IsVisible() then
 		frame:ShowWindow(1)
 	end
-
-	local token_middle = frame:GetChild("token_middle");
-	token_middle:ShowWindow(1);
-	local expup_middle = frame:GetChild("expup_middle");
-	expup_middle:ShowWindow(0);
+	local token_middle = GET_CHILD(frame, "token_middle", "ui::CPicture");
+	token_middle:SetImage("token_middle");
 
 	local gBox = frame:GetChild("gBox");
 	gBox:RemoveAllChild();
@@ -63,13 +60,13 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	local itemobj = GetIES(invItem:GetObject());
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
-		arg1 = 2592000 --30��
+		arg1 = 2592000 --30일
 	elseif itemobj.ClassName == "PremiumToken_5d" then
-		arg1 = 432000 -- 5��
+		arg1 = 432000 -- 5일
 	elseif itemobj.ClassName == "PremiumToken_1d" then
-		arg1 = 604800 -- 7��
+		arg1 = 604800 -- 7일
 	elseif itemobj.ClassName == "PremiumToken_24h" then
-		arg1 = 86400 -- 1��
+		arg1 = 86400 -- 1일
 	end
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");
@@ -87,8 +84,14 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	local strTxt = frame:GetChild("richtext_1");
 	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
 
+	local forToken = frame:GetChild("forToken");
+	forToken:ShowWindow(1);
+
 	frame:SetUserValue("itemIES", invItem:GetIESID());
 	frame:SetUserValue("ClassName", itemobj.ClassName);
+	local bg2 = frame:GetChild("bg2");
+	bg2:Resize(bg2:GetWidth(), 640);
+	frame:Resize(frame:GetWidth(), 700);
 end
 
 function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
@@ -102,25 +105,25 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 		frame:ShowWindow(1)
 	end
 
-	local token_middle = frame:GetChild("token_middle");
-	token_middle:ShowWindow(0);
-	local expup_middle = frame:GetChild("expup_middle");
-	expup_middle:ShowWindow(1);
+	local token_middle = GET_CHILD(frame, "token_middle", "ui::CPicture");
+	token_middle:SetImage("expup_middle");
 
 	local gBox = frame:GetChild("gBox");
 	gBox:RemoveAllChild();
 	
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_0",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
-	prop:SetTextByKey("value", ClMsg("token_expup")); 
+	local imag = string.format("{img 30percent_image %d %d}", 55, 45) 
+	prop:SetTextByKey("value", imag .. ClMsg("token_expup")); 
 	local value = ctrlSet:GetChild("value");
-	value:ShowWindow(0);
+	value:SetTextByKey("value", string.format("{img 30percent_image2 %d %d}", 100, 45) ); 
 
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_1",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
-	prop:SetTextByKey("value", ClMsg("token_staup")); 
+	imag = string.format("{img 2multiply_image %d %d}", 55, 45) 
+	prop:SetTextByKey("value",imag .. ClMsg("token_staup")); 
 	local value = ctrlSet:GetChild("value");
-	value:ShowWindow(0);
+	value:SetTextByKey("value", string.format("{img 2multiply_image2 %d %d}", 100, 45) ); 
 
 	GBOX_AUTO_ALIGN(gBox, 0, 3, 0, true, false);
 	local itemobj = GetIES(invItem:GetObject());
@@ -144,6 +147,10 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
 	frame:SetUserValue("ClassName", itemobj.ClassName);
+	
+	local bg2 = frame:GetChild("bg2");
+	bg2:Resize(bg2:GetWidth(), 500);
+	frame:Resize(frame:GetWidth(), 550);
 end
 
 function REQ_TOKEN_ITEM(frame, ctrl)

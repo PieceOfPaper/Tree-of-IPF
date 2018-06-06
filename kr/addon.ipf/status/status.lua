@@ -1195,7 +1195,7 @@ end
 function CHANGE_MYPC_NAME(frame)
 
 	local charName = GETMYPCNAME();
-	INPUT_STRING_BOX(ClMsg("InputNameForChange"), "EXEC_CHANGE_NAME", charName, 0, 20);
+	INPUT_STRING_BOX(ClMsg("InputNameForChange"), "EXEC_CHANGE_NAME", charName, 0, 8);
 
 end
 
@@ -1208,7 +1208,7 @@ function EXEC_CHANGE_NAME(inputframe, ctrl)
 	end
 
 	local changedName = GET_INPUT_STRING_TXT(inputframe);
-	OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, changedName, 1);
+	OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, changedName);
 end
 
 function STATUS_AVG(frame)

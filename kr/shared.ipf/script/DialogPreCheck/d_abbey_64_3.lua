@@ -78,7 +78,7 @@ function SCR_ABBEY643_MQ03_DEVICE02_5_PRE_DIALOG(pc, dialog, handle)
 end
 
 function SCR_ABBEY643_MQ03_DEVICE01_PRE_DIALOG(pc, dialog, handle)
-    local result = SCR_QUEST_CHECK(pc,'ABBAY_64_3_MQ040')
+    local result = SCR_QUEST_CHECK(pc,'ABBAY_64_3_MQ030')
     if result == 'PROGRESS' then
         return 'YES'
     end

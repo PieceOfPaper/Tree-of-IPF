@@ -507,11 +507,8 @@ function SELECTTEAM_OPEN_BARRACK_SETTING(frame, btnCtrl, argStr, argNum)
 		btnCtrl = frame:GetChild("setting");
 	end
 
-	ui.ToggleFrame('barracksetting');
-
-	local settingFrame = ui.GetFrame('barracksetting');
-	settingFrame:MoveFrame(btnCtrl:GetX() + btnCtrl:GetWidth(), btnCtrl:GetY() + btnCtrl:GetHeight());
-
+	local acc = session.barrack.GetMyAccount();
+	INPUT_STRING_BOX(ClMsg("Family Name"), "BARRACK_SETTING_SAVE", acc:GetFamilyName(), 0, 8);
 end
 
 function BARRACK_VISIT_MSGBOX(frame)
@@ -559,6 +556,10 @@ function UPDATE_BARRACK_MODE(frame)
 		SHOW_CHILD_BY_USERVALUE(frame, "Barrack", "YES", 0);
 		local barrack_nameUI = ui.GetFrame("barrack_name");
 		barrack_nameUI:ShowWindow(0);
+
+		local barrack_exit = ui.GetFrame("barrack_exit");
+		local postbox = barrack_exit:GetChild("postbox");
+		postbox:ShowWindow(0);
 	end
 end
 

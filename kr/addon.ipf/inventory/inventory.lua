@@ -1189,6 +1189,12 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		return;
 	end
 	
+	local market_sell     = ui.GetFrame("market_sell");
+	if market_sell:IsVisible() == 1 then
+		MARKET_SELL_RBUTTON_ITEM_CLICK(market_sell, invitem);
+		return;
+	end
+
 	local frame     = ui.GetFrame("shop");
 	if frame:IsVisible() == 1 then
 		local groupName = itemobj.GroupName;
@@ -1323,6 +1329,7 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 			end
 	
 	ui.SysMsg(ClMsg("CannoTradeToNPC"));
+	return;
 end
 
 function EXEC_SHOP_SELL(frame, cnt)

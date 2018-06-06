@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="barracksetting" x="0" y="0" width="400" height="200">
-    <frame title="{@st43}팀명 변경{/}" titlepos="0 -7" fasthide="true" layout_gravity="center top" margin="0 300 0 0" scale_align="center center"/>
+    <frame title="{@st43}팀명 변경{/}" titlepos="0 -7" fasthide="true" layout_gravity="center top" margin="0 180 0 0" scale_align="center top"/>
 	<draw drawnotitlebar="false" drawtitlebar="true"/>
 	<skin frameskin="mainwindow"/>
 	<input moveable="true" maxwidth="1280"/>

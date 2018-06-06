@@ -85,7 +85,7 @@
 			<richtext name="level" rect="0 0 90 24" parent="mainBox" layout_gravity="left top" margin="80 15 0 0 " hittest="false" fontname="white_16" textalign="center center" format="{@st42b}Lv.%s" param1="value" fixwidth="true" param1_def="13"/>
 			<richtext name="job" rect="0 0 110 24" parent="mainBox" layout_gravity="left top" margin="190 15 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}%s" param1="value" fixwidth="true" param1_def="AAA"/>
 			<richtext name="name" rect="0 0 180 24" parent="mainBox" layout_gravity="left top" margin="100 48 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st41b}%s" param1="value" fixwidth="true" param1_def="ASDASASD"/>
-			<button name="revive_btn" layout_gravity="left top" rect="0 0 50 50" margin="282 31 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox" image="companion_did_btn"/>
+			<button name="revive_btn" layout_gravity="left top" rect="0 0 50 50" margin="40 0 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox" image="companion_did_btn"/>
 		</controls>
 	</controlset>
 	<controlset name="barrack_newchar" toggle="false" hittest="true" width="420" height="100" skin="" hittestset="false">

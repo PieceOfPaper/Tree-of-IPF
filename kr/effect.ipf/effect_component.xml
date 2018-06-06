@@ -1092,6 +1092,7 @@
 	<Model name="MerRegina_dead" model="MerRegina_dead.xac" motion="MerRegina_dead_ani.xsm" texturepath="char_texture\monster\MerRegina\" overlap="true"/>
 	<Model name="bat_event_drop" model="bat_event_drop.xac" motion="bat_event_drop_ani.xsm" texturepath="char_texture\monster\bat_event\" overlap="true"/>
 	<Model name="stonetablet_stone_dead" model="stonetablet_stone_dead.xac" motion="stonetablet_stone_dead_ani.xsm" texturepath="char_texture\npc\stonetablet_stone\" overlap="true"/>
+	<Model name="npc_rokas_3_dead" model="npc_rokas_3_dead.xac" motion="npc_rokas_3_dead_ani.xsm" texturepath="char_texture\npc\npc_rokas_3\" overlap="false"/>
 	<Text name="Text_damage_self" caption="" fontfilename="nngothicExtraBold.ttf" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_damage_decision" caption="" fontfilename="nngothicExtraBold.ttf" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
 	<Text name="Text_destination" caption="" fontfilename="nngothicExtraBold.ttf" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>

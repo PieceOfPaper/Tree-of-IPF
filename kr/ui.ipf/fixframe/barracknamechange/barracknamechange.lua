@@ -8,6 +8,7 @@ end
 
 function BARRACK_CHANGE_NAME_USE_TP(frame, ctrl)
 	frame:ShowWindow(0);
+
 	local inputframeName = frame:GetUserValue("inputframe");
 	local inputframe = ui.GetFrame(inputframeName)
 	inputframe:ShowWindow(0);

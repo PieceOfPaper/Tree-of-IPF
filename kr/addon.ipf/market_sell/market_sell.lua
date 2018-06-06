@@ -109,33 +109,25 @@ function ON_MARKET_REGISTER(frame, msg, argStr, argNum)
 	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
 end
 
-function DROP_MARKET_SELL_SLOT(parent, slot)
-
-	local liftIcon = ui.GetLiftIcon();
-	
-	local groupbox = slot:GetParent();
-	local edit_count = GET_CHILD(groupbox, "edit_count", "ui::CEditControl");
-	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
-	edit_price:SetText("0");
-	edit_price:SetMinNumber(0);
-
-	local iconInfo = liftIcon:GetInfo();
-	local itemID = iconInfo:GetIESID();
-
-	if session.GetEquipItemByGuid(itemID) ~= nil then
-		ui.SysMsg(ClMsg("CantRegisterEquipItem"));
+function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)	
+	if true == invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
 
-	local invItem = session.GetInvItemByGuid(itemID);
-	if invItem == nil then
-		CLEAR_SLOT_ITEM_INFO(slot);
-		edit_count:SetText("0");
-	else
-		if true == invItem.isLockState then
+	local invframe = ui.GetFrame("inventory");
+	if invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU")
+		or invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
+		or invItem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+	
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
 			return;
 		end
+
+	local groupbox = frame:GetChild("groupbox");
+	local edit_count = GET_CHILD(groupbox, "edit_count", "ui::CEditControl");
+	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
+
 		local obj = GetIES(invItem:GetObject());
 		if obj.GroupName == "Premium" then
 			edit_count:SetText("1");
@@ -168,18 +160,49 @@ function DROP_MARKET_SELL_SLOT(parent, slot)
 			return;
 		end
 
-		local invframe = ui.GetFrame("inventory");
-		if invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU")
-			or invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-			or invItem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
-			return;
-		end
 
+	if nil == slot then
+		slot = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
+		end
 		SET_SLOT_ITEM(slot, invItem);
 		edit_count:SetText(tradeCount);
 		edit_count:SetMaxNumber(tradeCount);
+
+	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
 	end
 		
+function MARKET_SELL_RBUTTON_ITEM_CLICK(frame, invItem)
+	local groupbox = frame:GetChild("groupbox");
+	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
+	edit_price:SetText("0");
+	edit_price:SetMinNumber(0);
+
+	MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, nil);
+end
+
+function MARKET_SELL_ITEM_DROP_BY_SLOT(parent, slot)
+
+	local liftIcon = ui.GetLiftIcon();
+	local groupbox = slot:GetParent();
+	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
+	edit_price:SetText("0");
+	edit_price:SetMinNumber(0);
+
+	local iconInfo = liftIcon:GetInfo();
+	local itemID = iconInfo:GetIESID();
+
+	if session.GetEquipItemByGuid(itemID) ~= nil then
+		ui.SysMsg(ClMsg("CantRegisterEquipItem"));
+		return;
+	end
+
+	local invItem = session.GetInvItemByGuid(itemID);
+	if invItem ~= nil then
+		MARKET_SELL_UPDATE_REG_SLOT_ITEM(parent:GetTopParentFrame(), invItem, slot);
+		return;
+	end
+
+	CLEAR_SLOT_ITEM_INFO(slot);
 	local frame = parent:GetTopParentFrame();
 	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
 end

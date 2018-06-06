@@ -3211,6 +3211,13 @@ function SCR_GET_RapidFire_Ratio(skill)
 
 end
 
+function SCR_Get_RunningShot_Ratio(skill)
+
+	local value = 40 * skill.Level
+  return value
+
+end
+
 function SCR_Get_SklAtkAdd_DestroyPavise(skill)
 
 	local pc = GetSkillOwner(skill);
