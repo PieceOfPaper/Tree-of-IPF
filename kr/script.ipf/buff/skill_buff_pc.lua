@@ -7897,8 +7897,8 @@ function SCR_BUFF_ENTER_DivineMight_Buff(self, buff, arg1, arg2, over)
         local list, cnt = GetPCSkillList(self);
         for i = 1, cnt do
             if list[i].ClassID > 10000 and list[i].ClassName ~= "Cleric_DivineMight" then
-				local skillcls = GetClass("SkillTree", list[i].ClassName)
-				if skillcls ~= nil then
+				local skillcls = GetClass("Skill", list[i].ClassName)
+				if skillcls ~= nil and skillcls.CommonType == "None"  then
 					list[i].Level_BM = list[i].Level_BM + 1;
 					--UpdateProperty(list[i], "Level");
 					InvalidateObjectProp(list[i], "Level");
@@ -7921,11 +7921,14 @@ function SCR_BUFF_LEAVE_DivineMight_Buff(self, buff, arg1, arg2, over)
         local list, cnt = GetPCSkillList(self);
         for i = 1, cnt do
             if list[i].ClassID > 10000 and list[i].ClassName ~= "Cleric_DivineMight" then
-                list[i].Level_BM = list[i].Level_BM - 1;
-                --UpdateProperty(list[i], "Level");
-                InvalidateObjectProp(list[i], "Level");
-                InvalidateObjectProp(list[i], "SkillAtkAdd");
-                SendSkillProperty(self, list[i]);
+                local skillcls = GetClass("Skill", list[i].ClassName)
+				if skillcls ~= nil and skillcls.CommonType == "None"  then
+                    list[i].Level_BM = list[i].Level_BM - 1;
+                    --UpdateProperty(list[i], "Level");
+                    InvalidateObjectProp(list[i], "Level");
+                    InvalidateObjectProp(list[i], "SkillAtkAdd");
+                    SendSkillProperty(self, list[i]);
+                end                
             end
         end
         

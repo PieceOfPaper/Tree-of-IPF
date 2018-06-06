@@ -3492,7 +3492,7 @@
 			<richtext name="result" margin="0 4 5 0" rect="0 0 120 24" format="{@st66d}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
 		</controls>
 	</controlset>
-	<controlset name="collection_deck" hittest="true" width="510" height="140" skin="test_skin_01_btn" hittestset="true" draw="true" stateskin="false">
+	<controlset name="collection_deck" hittest="true" width="510" height="80" skin="test_skin_01_btn" hittestset="true" draw="true" stateskin="false">
 		<controls>
 			<groupbox name="gb_complete" layout_gravity="left top" rect="0 0 510 140" margin="0 0 0 0" draw="true" resizebyparent="false" scrollbar="false" skin="base_btn_clicked"/>
 			<picture name="numicon" layout_gravity="left top" rect="0 0 30 30" margin="5 5 0 0" stretch="true" image="collection_num"/>
@@ -3505,7 +3505,7 @@
 			<picture name="iconMagic" parent="gb_magic" layout_gravity="left top" rect="0 0 80 20" margin="50 0 0 0" stretch="true" image="collection_magic"/>
 			<richtext name="richMagic" parent="iconMagic" layout_gravity="left top" rect="0 0 80 20" margin="0 0 0 0" textalign="center center" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="white_16_b" format="%s" param1="value" param1_def="magic"/>
 			<richtext name="magicList" parent="gb_magic" layout_gravity="left top" rect="0 0 200 20" margin="135 0 0 0" textalign="left top" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="black_18" format="%s" param1="value" param1_def="magiclist"/>
-			<groupbox name="gb_items" layout_gravity="left top" rect="0 0 500 70" margin="5 60 0 0" draw="true" resizebyparent="false" scrollbar="false" skin="ability_deck"/>
+			<groupbox name="gb_items" layout_gravity="left bottom" rect="0 0 500 70" margin="5 0 0 10" draw="true" resizebyparent="false" scrollbar="false" skin="ability_deck"/>
 			<groupbox name="gb_collection" layout_gravity="left top" rect="0 0 510 140" margin="0 0 0 0" draw="false" resizebyparent="false" scrollbar="false" skin="test_skin_01_btn" hittest="true" hittestbox="true" LBtnDownScp="OPEN_DECK_DETAIL"/>
 		</controls>
 	</controlset>
