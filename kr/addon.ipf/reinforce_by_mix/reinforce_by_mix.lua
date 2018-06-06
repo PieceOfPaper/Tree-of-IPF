@@ -144,13 +144,16 @@ function REINFORCE_MIX_UPDATE_ITEM_STATS(frame, obj, nextObj)
 	
 	local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(obj);
 	
+	if curExp > maxExp then
+		curExp = maxExp;
+	end
 	gauge_exp:SetPoint(curExp, maxExp);
 	gauge_exp:ShowWindow(1);
 	
 	local title_gauge = GET_CHILD_RECURSIVELY(frame, "title_gauge", "ui::CRichText");
 	title_gauge:ShowWindow(1);
 
-	--???�용 ?�벨??prop?�시 ??��. ?��? ??�� 분류가 번거로우므�??�예 ?�른 ?�과 ?�르�??�도�??�다. ?�머지???�협?�에�?문의.
+	--???�용 ?�벨??prop?�시 ??��. ?��? ??�� 분류가 번거로우므�??�예 ?�른 ?�과 ?�르�??�도�??�다. ?�머지???�협?�에�?문의.
 	if obj.GroupName == "Gem" then
 		local box_stats_gem = GET_CHILD_RECURSIVELY(frame,'box_stats_gem','ui::CGroupBox')
 		box_stats_gem:ShowWindow(1)
@@ -179,7 +182,7 @@ function REINFORCE_MIX_UPDATE_ITEM_STATS(frame, obj, nextObj)
 			end
 		
 			if title ~= nil then
-				-- �??�로?�티 마다 컨트롤셋 ?�성. 무기?�서 ?�번, ?�의?�서 ?�번 ?�런 ??
+				-- �??�로?�티 마다 컨트롤셋 ?�성. 무기?�서 ?�번, ?�의?�서 ?�번 ?�런 ??
 				innerCSet = box_stats_gem:CreateOrGetControlSet('each_gem_property_for_gemreinforceui', title, 0, inner_yPos); 
 				DESTROY_CHILD_BYNAME(innerCSet, 'proptext');
 				local type_text = GET_CHILD(innerCSet,'type_text','ui::CRichText')
@@ -192,7 +195,7 @@ function REINFORCE_MIX_UPDATE_ITEM_STATS(frame, obj, nextObj)
 			
 			else
 				local type_text = GET_CHILD(innerCSet,'type_text','ui::CRichText')
-				-- �??�로?�티???�션 마다 컨트롤셋 ?�성. 공격??10?�서 ?�번, 블럭+10?�서 ?�번 ?�런 ??
+				-- �??�로?�티???�션 마다 컨트롤셋 ?�성. 공격??10?�서 ?�번, 블럭+10?�서 ?�번 ?�런 ??
 				innerInnerCSet = innerCSet:CreateOrGetControlSet('each_gem_property_each_text_for_gemreinforceui', 'proptext'..innerpropcount, 0, innerpropypos);
 			
 				local realtext = nil
@@ -479,7 +482,7 @@ function REINFORCE_MIX_INV_RBTN(itemObj, slot, selectall)
 		local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED")
 
 		if selectall == 'YES' then
-			nowselectedcount = invitem.count -1 -- ?�차???�에??+1 ?��?�?
+			nowselectedcount = invitem.count -1 -- ?�차???�에??+1 ?��?�?
 		end
 
 		if nowselectedcount < invitem.count then
@@ -584,7 +587,14 @@ end
 function _REINFORCE_BY_MIX_EXECUTE()
 
 	local tgtItem = GET_REINFORCE_MIX_ITEM();
-	local frame = ui.GetFrame("reinforce_by_mix")
+	if tgtItem.GroupName == "Card" then
+		local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(tgtItem, tgtItem.ItemExp);
+		if lv == 10 then	
+			ui.MsgBox(ScpArgMsg("CardLvisMax"));			
+			return;
+		end
+	end
+	local frame = ui.GetFrame("reinforce_by_mix");
 
 	frame:SetUserValue("EXECUTE_REINFORCE", 1);
 
@@ -726,6 +736,9 @@ function REINF_MIX_UPDATE_EXP_UP(frame)
 	if gauge:GetCurPoint() == gauge:GetMaxPoint() then
 		if processExp == 0 then
 			R_RENEW_SHOW_EXP_APPLIED(frame, obj);
+			if curExp > maxExp then
+				curExp = maxExp;
+			end
 			gauge:SetPoint(curExp, maxExp);
 			frame:SetUserValue("IS_ING", 0);
 			return 0;

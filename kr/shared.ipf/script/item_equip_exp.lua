@@ -62,6 +62,15 @@ function GET_ITEM_LEVEL_EXP(item, itemExp)
 
 end
 
+function GET_ITEM_LEVEL_EXP_BYCLASSID(ClassID, itemExp)
+	local prop = geItemTable.GetProp(ClassID);
+	local lv = prop:GetLevel(itemExp);
+	local curExp = prop:GetCurExp(itemExp);
+	local maxExp = prop:GetMaxExp(itemExp);
+	return lv, curExp, maxExp;
+
+end
+
 
 function IS_ITEM_UPGRADABLE(item)
 

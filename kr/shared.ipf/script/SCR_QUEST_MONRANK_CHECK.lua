@@ -2,7 +2,7 @@
 
 ---- Monster Rank Check
 -- mon : Only Monster Object
--- ... : MonRank (Ex : 'Normal', 'Elite', 'Material', 'Boss' ......)
+-- ... : MonRank (Ex : 'Normal', 'Special', 'Elite', 'Material', 'Boss' ......)
 function SCR_QUEST_MONRANK_CHECK(mon, ...)
     local pc_sk_list = {
                         'hidden_monster',

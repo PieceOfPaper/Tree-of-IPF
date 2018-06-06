@@ -2879,6 +2879,17 @@
 			<img name="bottomcore" imgrect="562 1001 150 20"/>
 			<img name="bottomright" imgrect="713 1001 50 20"/>
 		</skin>
+	<skin name="popup_floor_skin" texture="\skin\popup_floor.tga">
+			<img name="topleft" imgrect="0 0 220 89"/>
+			<img name="topcore" imgrect="221 0 48 89"/>
+			<img name="topright" imgrect="270 0 220 89"/>
+			<img name="bodyleft" imgrect="0 90 220 70"/>
+			<img name="bodycore" imgrect="221 90 48 70"/>
+			<img name="bodyright" imgrect="270 90 220 70"/>
+			<img name="bottomleft" imgrect="0 161 220 99"/>
+			<img name="bottomcore" imgrect="221 161 48 99"/>
+			<img name="bottomright" imgrect="270 161 220 99"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -4489,6 +4500,11 @@
 		<image name="guildbattle_draw" file="\skin\PVP_skin.tga" imgrect="693 662 210 80" CMM_Caption="길드대전_비김표시"/>
 		<image name="guildtower_lose" file="\skin\PVP_skin.tga" imgrect="1016 0 135 135" CMM_Caption="타워아이콘_패배"/>
 		<image name="guildtower_windraw" file="\skin\PVP_skin.tga" imgrect="1152 0 135 135" CMM_Caption="타워아이콘_승리"/>
+	<image name="deal_lefthave" file="\skin\deal_skin.tga" imgrect="0 0 561 64" CMM_Caption="왼쪽토큰가지고있음"/>
+		<image name="deal_nonehave" file="\skin\deal_skin.tga" imgrect="0 65 561 64" CMM_Caption="아무도안가지고있음"/>
+		<image name="deal_righthave" file="\skin\deal_skin.tga" imgrect="0 130 561 64" CMM_Caption="오른쪽토큰가지고있음"/>
+		<image name="deal_wehave" file="\skin\deal_skin.tga" imgrect="0 195 561 64" CMM_Caption="모두토큰가지고있음"/>
+		<image name="deal_changearrow" file="\skin\deal_skin.tga" imgrect="0 260 45 63" CMM_Caption="화살표"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -5633,6 +5649,7 @@
 		<image name="minimap_complete" file="\icon\minimap_icon3.tga" imgrect="213 338 24 24"/>
 		<image name="minimap_collection_c" file="\icon\minimap_icon3.tga" imgrect="240 338 24 24"/>
 		<image name="minimap_team" file="\icon\minimap_icon3.tga" imgrect="340 587 80 80"/>
+	<image name="minimap_dungeon" file="\icon\minimap_icon3.tga" imgrect="432 653 80 80"/>
 	</imagelist>
 	<imagelist category="quest_tags">
 		<image name="quest_tag_1_MAIN" file="\icon\minimap_icon.tga" imgrect="61 31 16 16"/>
@@ -5864,6 +5881,9 @@
 		<image name="journal_pvp_icon" file="\skin\HUD.tga" imgrect="1290 613 66 66" CMM_Caption="모험일지_pvp랭킹"/>
 		<image name="journal_pvp_icon_cursoron" file="\skin\HUD.tga" imgrect="1360 613 66 66"/>
 		<image name="journal_pvp_icon_clicked" file="\skin\HUD.tga" imgrect="1360 613 66 66"/>
+		<image name="journal_uphill_icon" file="\skin\HUD.tga" imgrect="1827 683 66 66" CMM_Caption="모험일지_업힐디펜스"/>
+		<image name="journal_uphill_icon_cursoron" file="\skin\HUD.tga" imgrect="1827 750 66 66"/>
+		<image name="journal_uphill_icon_clicked" file="\skin\HUD.tga" imgrect="1827 750 66 66"/>
 		<image name="inven_s" file="\skin\HUD.tga" imgrect="1070 96 58 34" CMM_Caption="인벤찾기버튼"/>
 		<image name="inven_s_cursoron" file="\skin\HUD.tga" imgrect="1070 131 58 34"/>
 		<image name="inven_s_clicked" file="\skin\HUD.tga" imgrect="1129 131 58 34"/>
@@ -6081,6 +6101,8 @@
 		<image name="Dlg_port_Dalia" file="\npcimg\Dalia.png" imgrect="0 0 900 1000" CMM_Caption="딜라아"/>
 		<image name="Dlg_port_Vincentas" file="\npcimg\Vincentas.png" imgrect="0 0 850 1000" CMM_Caption="빈센타스"/>
 	<image name="Dlg_port_AgaillaFlurry" file="\npcimg\AgaillaFlurry.png" imgrect="0 0 800 900" CMM_Caption="아가일라플러리"/>
+	<image name="Dlg_port_Diena" file="\npcimg\Diena.png" imgrect="0 0 700 1000" CMM_Caption="디에나"/>
+		<image name="Dlg_port_Diena_dark" file="\npcimg\Diena_dark.png" imgrect="0 0 700 1000" CMM_Caption="디에나_다크"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>

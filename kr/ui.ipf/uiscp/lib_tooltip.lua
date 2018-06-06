@@ -89,6 +89,18 @@ function GET_STAR_TXT(imgSize, count, obj)
 	return gradeString;
 end
 
+function GET_STAR_TXT_REDUCED(imgSize, count, removeCount)
+    local transcend = 0;        
+	local gradeString = "";
+	for i = 1 , count - removeCount do
+    	gradeString = gradeString .. string.format("{img star_mark %d %d}", imgSize, imgSize);
+	end	
+	for i = 1 , removeCount do
+	   gradeString = gradeString .. string.format("{img star_mark2 %d %d}", imgSize, imgSize);
+	end
+
+	return gradeString;
+end
 
 function GET_ITEM_GRADE_TXT(obj, imgSize)
 

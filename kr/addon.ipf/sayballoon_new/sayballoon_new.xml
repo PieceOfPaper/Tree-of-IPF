@@ -13,6 +13,6 @@
         <picture name="chattail" rect="0 0 30 60" margin="-30 35 0 0" layout_gravity="center top" hittest="false" image="dark_balloon_direction" stretch="true"/>
         <picture name="picture_1" rect="0 0 280 100" margin="0 0 0 0" layout_gravity="center top" hittest="false" image="dark_balloon_2" stretch="true"/>
         <richtext name="characterName" rect="0 0 20 100" margin="0 10 0 0" layout_gravity="center top" caption="임시이름" drawbackground="false" fixwidth="false" fontname="chatnametemp" hittest="false" maxwidth="260" resizebytext="true" slideshow="false" spacey="0" splitbyspace="false" textalign="left center" updateparent="true"/>
-        <richtext name="chat" rect="0 0 20 100" margin="0 40 0 0" layout_gravity="center top" caption="text" drawbackground="false" fixwidth="false" fontname="black_18" hittest="true" maxwidth="260" resizebytext="true" slideshow="false" spacey="0" splitbyspace="false" textalign="left center" updateparent="true"/>
+        <richtext name="chat" rect="0 0 20 100" margin="0 40 0 0" layout_gravity="center top" caption="text" drawbackground="false" fixwidth="false" fontname="black_18" hittest="true" maxwidth="260" resizebytext="true" slideshow="false" spacey="0" splitbyspace="true" textalign="left center" updateparent="true"/>
     </controls>
 </uiframe>

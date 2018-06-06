@@ -129,6 +129,44 @@
 			</ToolScp>
 		</StartList>
 	</AI>
+    <AI Name="ABBEY41_6_SQ05_P" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="250"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </List>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="SCR_ABBEY41_6_SQ05_P_A"/>
+            </ToolScp>
+        </HitList>
+    </AI>
+    <AI Name="ABBEY41_6_SQ07_P" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_ABBEY41_6_SQ07_P"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </List>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="SCR_ABBEY41_6_SQ07_P_A"/>
+            </ToolScp>
+        </HitList>
+    </AI>
+    <AI Name="ABBEY41_6_SQ09_3" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_cleric_barrier_mash_loop2" Arg="72"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
 	<AI Name="ABBEY641_MQ_COMPLETE01_AI" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -860,7 +898,7 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="CASTLE651_MQ04_EFFECT" ActiveMessageMapInBattle="1">
+    <AI Name="CASTLE65_1_MQ04_EFFECT" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
@@ -6255,6 +6293,13 @@
 			</ToolScp>
 		</StartList>
 	</AI>
+    <AI Name="JUST_FOLLOW" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                <Num Num="50"/>
+            </ToolScp>
+        </List>
+    </AI>
 	<AI Name="KATYN10_SLEEPER_01" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
@@ -7549,6 +7594,124 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</List>
 	</AI>
+    <AI Name="PILGRIM41_1_SQ05_P" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                <Num Num="100"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM41_1_SQ07_F" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-473.92328" Y="-98.5354" Z="848.29199"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM41_2_ALTAR" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+                <Num Num="130"/>
+                <Num Num="200"/>
+                <Num Num="255"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_2_SQ05_M" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                <Num Num="4"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM412_SQ_05_M"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_2_SQ06_MOVE" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="784.77649" Y="224.25394" Z="499.5957"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_2_SQ08_MOVE" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="533.25897" Y="224.25394" Z="590.9079"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="626.45947" Y="224.25394" Z="530.20239"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="858.88" Y="224.25394" Z="531.08002"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="Chat" Client="NO" UseSleep="NO">
+                <Str Str="마족들을 해치우다니, 대단하십니다!"/>
+                <Num Num="3"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_2_SQ09_F" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM412_SQ_09_COUNT"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM41_3_SQ08_S" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+                <Str Str="SCR_PILGRIM413_SQ_08_NPCMOVE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM41_4_SQ12_P" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM41_4_SQ12_P_RUN"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </List>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM41_4_SQ12_P_RUN"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM414_SQ_12_P"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_5_SQ01_D" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_CASTLE651_MQ_05_AI_RUN"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_burstup025_dark" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM41_5_SQ08_P" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                <Num Num="50"/>
+            </ToolScp>
+        </List>
+    </AI>
 	<AI Name="PILGRIM46_ACHON" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -7945,7 +8108,16 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="RED_CRYSTAL" ActiveMessageMapInBattle="1">
+	<AI Name="PRISON_82_MQ_6_GHOST_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ADD_HATE_AROUND" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+                <Num Num="9999"/>
+                <Num Num="10"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="RED_CRYSTAL" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
@@ -16940,7 +17112,14 @@ return GET_HP_RATE(self) * 0.5"/>
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="remains_minigame_cockat" ActiveMessageMapInBattle="1">
+	<AI Name="pavise_ai" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PAVISE_BORNSCRIPT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="remains_minigame_cockat" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
 				<Str Str="Attack"/>

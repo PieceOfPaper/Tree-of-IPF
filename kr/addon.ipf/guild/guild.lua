@@ -621,7 +621,7 @@ end
 
 
 function UPDATE_GUILD_EVENT_INFO(frame, pcparty, partyObj)
-	local pcEtc = GetMyEtcObject();
+	local pcAcc = GetMyAccountObj();
 
 	if partyObj["GuildBossSummonFlag"] ~= 1 then
 		session.minimap.RemoveIconInfo("GuildBossSummon");
@@ -630,7 +630,7 @@ function UPDATE_GUILD_EVENT_INFO(frame, pcparty, partyObj)
 		session.minimap.RemoveIconInfo("GuildIndun");
 	end
 
-	if partyObj["GuildBossSummonFlag"] == 1 and pcEtc.GuildEventSeq == partyObj.GuildEventSeq then
+	if partyObj["GuildBossSummonFlag"] == 1 and pcAcc.GuildEventSeq == partyObj.GuildEventSeq then
 		local locInfo = geClientGuildEvent.GetGuildEventLocaionInfo(pcparty, "GuildBossSummonLocInfo");
 		if locInfo ~= nil then
 			local mapCls = GetClassByType("Map", locInfo.mapID);

@@ -406,7 +406,12 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				label:SetColorTone(myColor);
 			else
 				label:SetColorTone(targetColor);
+
+				if commnderName == 'System' then
+					nameText:SetText('{img chat_system_icon 65 18 }{/}');
+				else
 					nameText:SetText('{@st61}'..commnderName..'{/}');
+				end
 
 				local iconPicture = GET_CHILD(chatCtrl, "iconPicture", "ui::CPicture");
 				iconPicture:ShowWindow(0);

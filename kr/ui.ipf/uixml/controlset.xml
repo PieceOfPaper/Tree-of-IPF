@@ -175,7 +175,13 @@
 			<richtext name="type_text" format="%s 종족" param1="type" param1_def="DefVal" rect="0 0 100 24" margin="30 600 0 0" fixwidth="false" hittest="false" fontname="brown_18_b" layout_gravity="left top"/>
 		</controls>
 	</controlset>
-	<controlset name="tooltip_bosscard_exp" hittest="true" width="370" height="50">
+	<controlset name="tooltip_bosscard_desc" hittest="true" width="370" height="50">
+        <controls>
+            <labelline name="labelline" margin="0 0 0 0" rect="0 0 340 3" skin="labelline_def_2" layout_gravity="center top"/>
+            <richtext name="desc_text" format="{b}%s{/}" param1="text" param1_def="기분 좋아진다." rect="0 0 324 30" margin="5 10 0 0" fixwidth="true" textalign="left top" hittest="false" resizebytext="true" fontname="brown_16" layout_gravity="center top"/>
+        </controls>
+    </controlset>
+    <controlset name="tooltip_bosscard_exp" hittest="true" width="370" height="50">
 		<controls>
 			<labelline name="labelline" margin="0 0 0 0" rect="0 0 340 3" skin="labelline_def_2" layout_gravity="center top"/>
 			<richtext name="level_text" caption="경험치" rect="0 0 100 24" margin="30 10 0 0" fixwidth="true" hittest="false" fontname="brown_16" layout_gravity="left top"/>

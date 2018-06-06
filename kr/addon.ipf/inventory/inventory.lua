@@ -30,7 +30,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	searchEnterCount = 1
 	beforekeyword = "None"
 
-
+	frame:SetUserValue("MONCARDLIST_OPENED", 0);
 	local dropscp = frame:GetUserConfig("TREE_SLOT_DROPSCRIPT");
 	frame:SetEventScript(ui.DROP, dropscp);
 	INVENTORY_LIST_GET(frame);
@@ -212,6 +212,8 @@ end
 
 function INVENTORY_OPEN(frame)
 
+	frame:SetUserValue("MONCARDLIST_OPENED", 0);
+
 	ui.Chat("/requpdateequip"); -- 내구도 회복 유료템 때문에 정확한 값을 지금 알아야 함.
 
 	local invGbox			= frame:GetChild('inventoryGbox');
@@ -242,7 +244,12 @@ function INVENTORY_OPEN(frame)
 	frame:Invalidate()
 end
 
-function INVENTORY_CLOSE(frame)
+function INVENTORY_CLOSE()
+	local frame = ui.GetFrame("inventory");
+	frame:SetUserValue("MONCARDLIST_OPENED", 1);		-- 바로 다음에 있는 OPEN_MANAGED_CARDINVEN 함수에서 0으로 만들어준다.
+	CHECK_BTN_OPNE_CARDINVEN(frame:GetChild('moncardGbox'));
+	EQUIP_CARDSLOT_BTN_CANCLE();
+
 	local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox','ui::CGroupBox')
 
 	local curpos = tree_box:GetScrollCurPos();
@@ -1414,6 +1421,31 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 			ui.MsgBox(itemobj.Name .. ScpArgMsg("WannaRegWiki?"), yesScp, "None");
 		end
 	end
+	
+	-- 오른쪽 클릭으로 몬스터 카드를 인벤토리의 카드 장착 슬롯에 장착하게 함.
+	local invFrame    = ui.GetFrame("inventory");	
+	local moncardGbox = invFrame:GetChild('moncardGbox');
+	if moncardGbox:IsVisible() == 1 then
+		if itemobj.GroupName ~= "Card" then		
+			return;
+		end;		
+		local card_slotset = GET_CHILD(moncardGbox, "card_slotset");
+		if card_slotset ~= nil then
+			local gradeRank = session.GetPcTotalJobGrade();
+			for i = 0, gradeRank - 1 do							
+				local slot = card_slotset:GetSlotByIndex(i);
+				if slot == nil then
+					return;
+				end	
+			
+				local icon = slot:GetIcon();		
+				if icon == nil then		
+					CARD_SLOT_EQUIP(slot, invitem);
+					return;
+				end;
+			end;
+		end;
+	end
 end
 
 --아이템의 사용
@@ -1656,7 +1688,7 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 		RunStringScript(strScp);
 	elseif FromFrame:GetName() == "camp_ui" or FromFrame:GetName() == "warehouse" then
 		local iconInfo = liftIcon:GetInfo();
-		local iesID = liftIcon:GetTooltipIESID();
+		local iesID = iconInfo:GetIESID();
 
 		if iconInfo.count > 1 then	
 			toFrame:SetUserValue("HANDLE", FromFrame:GetUserIValue("HANDLE"));

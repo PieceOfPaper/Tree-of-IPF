@@ -327,6 +327,7 @@ function SCR_Get_MAXPATK(self)
 	local byItem2 = GetSumOfEquipItem(self, 'PATK');
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MAXATK');
     local leftMaxAtk = 0;
+	local maxpatk_bm = self.MAXPATK_BM;
 	
     
 	if jobObj.CtrlType == 'Warrior' then
@@ -345,7 +346,7 @@ function SCR_Get_MAXPATK(self)
     	throwItemMaxAtk = rightHand.MAXATK;
     end
 	
-	local value = lv + str + byItem + byItem2 + byItem3 + buff - leftMaxAtk - throwItemMaxAtk;
+	local value = lv + str + byItem + byItem2 + byItem3 + buff - leftMaxAtk - throwItemMaxAtk + 0 + maxpatk_bm;
 	
 	return math.floor(value);
 end
@@ -381,6 +382,7 @@ function SCR_Get_MAXPATK_SUB(self)
 	local str = self.STR;	
 	local lv = self.Lv;
 	local buff = self.PATK_BM;
+	local sub_bm = self.MAXPATK_SUB_BM;
 
 	local byItem = GetSumOfEquipItem(self, 'MAXATK');
 	local byItem2 = GetSumOfEquipItem(self, 'PATK');
@@ -395,7 +397,7 @@ function SCR_Get_MAXPATK_SUB(self)
         	str = str * 1.3;
 	end
 
-	local value = lv + str + byItem + byItem2 + byItem3 + buff - rightMaxAtk;
+	local value = lv + str + byItem + byItem2 + byItem3 + buff + sub_bm - rightMaxAtk;
 	
 	return math.floor(value);
 end
@@ -513,12 +515,15 @@ function SCR_Get_BLK(self)
 end
 
 function SCR_Get_BLK_BREAK(self)
-	
+	local jobObj = GetJobObject(self);
 	local blk = GetSumOfEquipItem(self, 'BLK_BREAK');
 	local byLevel = self.Lv;
 	local stat = self.MNA;
-	local value = byLevel * 0.5 + stat + blk + self.BLK_BREAK_BM;
-
+	local str = self.STR;
+	local value = byLevel * 0.5 + stat + blk + self.BLK_BREAK_BM + str;
+	if jobObj.CtrlType == 'Warrior' then
+        	value = value + str * 0.2;
+	end
 	return math.floor(value);
 end
 
