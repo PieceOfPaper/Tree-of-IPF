@@ -409,7 +409,7 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll, posY)
 
 	--마지막으로 컨트롤셋과 gbox_collection의 크기조절
 	local gbox_collection = GET_CHILD(ctrlSet,"gb_collection","ui::CGroupBox");	
-	gbox_collection:Resize(gbox_collection:GetWidth(), curPosY); -- 이위치에서 리사이즈해야한다. 디테일뷰가 켜지면 그안에 +버튼을 눌러야하니까 히트는 나머지영역만으로 제한
+	gbox_collection:Resize(gbox_collection:GetWidth(), ctrlSet:GetOriginalHeight()); -- 이위치에서 리사이즈해야한다. 디테일뷰가 켜지면 그안에 +버튼을 눌러야하니까 히트는 나머지영역만으로 제한
 
 	curPosY = curPosY + gbox_items:GetHeight() + tonumber(frame:GetUserConfig("SLOT_BOTTOM_MARGIN"));
 	gbox_complete:Resize(ctrlSet:GetWidth(), curPosY);
