@@ -35,3 +35,8 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 47,47,0,1,50,0,7,0,0,0,0,0,0,"Lemur","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 1000,1000,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_212:1","",""
 1001,1001,1,40,1,60000,1,0,0,0,0,0,0,"Hiddennpc","","","","","MON_FLASH63_HQ1_NPC_TRIGGER","","","","","","NO","YES","NO","Neutral","","","",""
+1002,1002,1,1,1,60000,1,1,0,0,0,1,150,"Silvertransporter_m_Quest","경비병 호튼","","","","MON_DUMMY","","","FLASH63_SQ13","","","NO","YES","NO","Neutral","","","",""
+1003,1003,1,1,1,60000,1,1,0,0,0,1,150,"Silvertransporter_m_Quest","경비병 맨더슨","","","","MON_DUMMY","","","FLASH29_1_SQ_090","","","NO","YES","NO","Neutral","","","",""
+1004,1004,1,40,1,20000,6,0,0,0,1,1,0,"noshadow_npc","반짝이는 물체","","","","","","","FLASH63_SQ13_OBJ1","","","NO","YES","NO","Neutral","AttachEffect/I_light001/5/BOT","","",""
+1005,1005,1,40,1,0,1,0,0,0,0,1,0,"noshadow_npc","반짝이는 물체","","","","","","","FLASH63_SQ13_OBJ1","FLASH63_SQ13_OBJ2","","NO","YES","NO","Neutral","AttachEffect/I_light001/5/BOT","","",""
+1021,1021,1,40,1,2000,9,0,0,0,1,1,0,"old_wooden_box_S","버려진 궤짝","","","","","","","FLASH63_SQ14_OBJ","","","NO","YES","NO","Neutral","","","",""

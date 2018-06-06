@@ -72,7 +72,7 @@ function MONBASE_GAUGE_SET(frame, targetinfo)
 	
 	hpGauge:SetPoint(stat.HP, stat.maxHP);
 	frame:SetDuration(10);
-	if stat.shield == 0 then
+	if stat.shield <= 0 then
 		shield:ShowWindow(0);
 	else
 		shield:Resize(gaugeWidth, 10);

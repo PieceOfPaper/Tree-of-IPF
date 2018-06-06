@@ -24,7 +24,7 @@ function TARGETSPACE_SET(frame, type)
 		return;
 	end
 
-	if TARGETSPACE_PRECHECK(handle) == 0 then
+	if TARGETSPACE_PRECHECK(handle) == 0 and (COMPANION_SPACE_PRECHECK(handle, targetinfo.companionName) == 0 or targetinfo.isMyCompanion == false) then 
 		frame:ShowWindow(0);
 		return;
 	end
@@ -57,7 +57,7 @@ function TARGETSPACE_SET(frame, type)
 			spaceObj:ShowWindow(0);
 			LbtnObj:ShowWindow(1);
 			joyBbtn:ShowWindow(0);
-		elseif type == 0 then -- ÀÚµ¿¸ðµå
+		elseif type == 0 then -- ï¿½Úµï¿½ï¿½ï¿½ï¿½
 			if IsJoyStickMode() == 1 then
 				spaceObj:ShowWindow(0);
 				LbtnObj:ShowWindow(0);

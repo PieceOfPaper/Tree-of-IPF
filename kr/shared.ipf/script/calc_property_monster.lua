@@ -924,15 +924,15 @@ function CLIENT_SORCERER_SUMMONING_MON(self, caster, skl, item)
 
 	self.Lv = caster.Lv;
 	self.StatType = 30
-
+		
 	local monDef = self.DEF;
 	local monMDef = self.MDEF;
-	
+
 	local sklbonus = 1 + skl.Level * 0.1
 	local itembonus = 1 + item.Level * 0.1
 	self.MATK_BM = (500 + (caster.INT * sklbonus)) * itembonus
 	self.PATK_BM = (500 + (caster.INT * sklbonus)) * itembonus
-
+	
 	self.DEF_BM = (monDef / 2  + (caster.MNA * sklbonus)) * itembonus
 	self.MDEF_BM = (monMDef / 2 + (caster.MNA * sklbonus)) * itembonus
 end
@@ -949,21 +949,55 @@ function SCR_GET_MON_SKILLFACTORRATE(self)
 	return value;
 end
 
+
 function SCR_Get_MON_Slash_Res(self)
 	local value = 0;
-	value = value + self.Slash_Res + self.Slash_Def_BM;
+
+	local Slash_Res = TryGetProp(self, "Slash_Res")
+	if Slash_Res == nil then
+	    Slash_Res = 0;
+	end
+	
+	local Slash_Def_BM = TryGetProp(self, "Slash_Def_BM")
+	if Slash_Def_BM == nil then
+	    Slash_Def_BM = 0;
+	end
+	
+	value = value + Slash_Res + Slash_Def_BM;
 	return value;
 end
 
 function SCR_Get_MON_Aries_Res(self)
 	local value = 0;
-	value = value + self.Aries_Res + self.Aries_Def_BM;
+    
+	local Aries_Res = TryGetProp(self, "Aries_Res")
+	if Aries_Res == nil then
+	    Aries_Res = 0;
+	end
+	
+	local Aries_Def_BM = TryGetProp(self, "Aries_Def_BM")
+	if Aries_Def_BM == nil then
+	    Aries_Def_BM = 0;
+	end
+    
+	value = value + Aries_Res + Aries_Def_BM;
 	return value;
 end
 
 function SCR_Get_MON_Strike_Res(self)
 	local value = 0;
-	value = value + self.Strike_Res + self.Strike_Def_BM;
+	
+	local Strike_Res = TryGetProp(self, "Strike_Res")
+	if Strike_Res == nil then
+	    Strike_Res = 0;
+	end
+	
+	local Strike_Def_BM = TryGetProp(self, "Strike_Def_BM")
+	if Strike_Def_BM == nil then
+	    Strike_Def_BM = 0;
+	end
+	
+	value = value + Strike_Res + Strike_Def_BM;
 	return value;
 end
 
@@ -987,18 +1021,51 @@ end
 
 function SCR_Get_MON_Arrow_Res(self)
 	local value = 0;
-	value = value + self.Arrow_Res + self.Arrow_Def_BM;
+    
+	local Arrow_Res = TryGetProp(self, "Arrow_Res")
+	if Arrow_Res == nil then
+	    Arrow_Res = 0;
+	end
+	
+	local Arrow_Def_BM = TryGetProp(self, "Arrow_Def_BM")
+	if Arrow_Def_BM == nil then
+	    Arrow_Def_BM = 0;
+	end
+	
+	value = value + Arrow_Res + Arrow_Def_BM;
 	return value;
 end
 
 function SCR_Get_MON_Gun_Res(self)
 	local value = 0;
-	value = value + self.Gun_Res + self.Gun_Def_BM;
+	
+	local Gun_Res = TryGetProp(self, "Gun_Res")
+	if Gun_Res == nil then
+	    Gun_Res = 0;
+	end
+	
+	local Gun_Def_BM = TryGetProp(self, "Gun_Def_BM")
+	if Gun_Def_BM == nil then
+	    Gun_Def_BM = 0;
+	end
+	
+	value = value + Gun_Res + Gun_Def_BM;
 	return value;
 end
 
 function SCR_Get_MON_Cannon_Res(self)
 	local value = 0;
-	value = value + self.Cannon_Res + self.Cannon_Def_BM;
+	
+	local Cannon_Res = TryGetProp(self, "Cannon_Res")
+	if Cannon_Res == nil then
+	    Cannon_Res = 0;
+	end
+	
+	local Cannon_Def_BM = TryGetProp(self, "Cannon_Def_BM")
+	if Cannon_Def_BM == nil then
+	    Cannon_Def_BM = 0;
+	end
+	
+	value = value + Cannon_Res + Cannon_Def_BM;
 	return value;
 end

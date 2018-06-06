@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="m_matsum_born_voice"/>
-    <Sound frame="5.00" soundFile="skl_eff_body_atk_3"/>
-    <Sound frame="5.00" soundFile="mon_voice_mouse_skl"/>
-    <Sound frame="5.00" soundFile="m_matsum_dying"/>
+	<Particle frame="5" attachNode="Dummy_effect_ground" particleName="F_burstup029_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="m_matsum_born_voice"/>
+	<Sound frame="5.00" soundFile="skl_eff_body_atk_3"/>
+	<Sound frame="5.00" soundFile="mon_voice_mouse_skl"/>
+	<Sound frame="5.00" soundFile="m_matsum_dying"/>
 </ActionDesc>

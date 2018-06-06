@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="CHATHEDRAL53_SQ07_TRACK_MINI" minLv="0" maxLv="0" startWaitSec="1338329072">
+		<StageList>
+			<Stage Name="stage1">
+				<ObjList>
+					<Obj Type="Monster" MonType="57678" Pos="-1787.80#0.00#-82.32" genCount="1" genTime="20000" autoGen="0" objectKey="0" SimpleAI="CHATHEDRAL53_SQ07_TRACK_MINI_AI" tendency="1"/>
+					<Obj Type="Monster" MonType="57678" Pos="-1805.50#0.00#-124.74" genCount="1" genTime="20000" autoGen="0" objectKey="1" SimpleAI="CHATHEDRAL53_SQ07_TRACK_MINI_AI" tendency="1"/>
+					<Obj Type="Monster" MonType="57678" Pos="-1839.01#0.00#-84.17" genCount="1" genTime="20000" autoGen="0" objectKey="2" SimpleAI="CHATHEDRAL53_SQ07_TRACK_MINI_AI" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="start">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="stage1/0/stage1/1/stage1/2"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="end" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="stage2"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="value">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="CHATHEDRAL53_SQ07"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage2" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="57678" Pos="-1494.79#0.00#234.86" genCount="1" genTime="20000" objectKey="0" SimpleAI="CHATHEDRAL53_SQ07_TRACK_MINI_AI" tendency="1"/>
+					<Obj Type="Monster" MonType="57678" Pos="-1478.56#0.00#183.77" genCount="1" genTime="20000" objectKey="1" SimpleAI="CHATHEDRAL53_SQ07_TRACK_MINI_AI" tendency="1"/>
+					<Obj Type="Monster" MonType="57678" Pos="-1523.76#0.00#190.12" genCount="1" genTime="20000" objectKey="2" SimpleAI="CHATHEDRAL53_SQ07_TRACK_MINI_AI" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event execMS="100" execCount="1" eventName="end" execWithStart="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="stage2/0/stage2/1/stage2/2"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="stage3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage3" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="57678" Pos="-1431.71#0.00#-97.96" genCount="1" genTime="20000" objectKey="0" SimpleAI="CHATHEDRAL53_SQ07_TRACK_MINI_AI" tendency="1"/>
+					<Obj Type="Monster" MonType="57678" Pos="-1473.75#0.00#-133.62" genCount="1" genTime="20000" objectKey="1" SimpleAI="CHATHEDRAL53_SQ07_TRACK_MINI_AI" tendency="1"/>
+					<Obj Type="Monster" MonType="57678" Pos="-1480.70#0.00#-88.55" genCount="1" genTime="20000" objectKey="2" SimpleAI="CHATHEDRAL53_SQ07_TRACK_MINI_AI" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event execMS="100" execCount="1" eventName="end" execWithStart="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="stage3/0/stage3/1/stage3/2"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="몬스터들을 모두 처치했습니다!{nl}{np}파편을 수집하세요!"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="CHATHEDRAL53_SQ07"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

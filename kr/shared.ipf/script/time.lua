@@ -25,7 +25,7 @@ function GET_XM_HM_BY_SYSTIME(sysTime)
 
 end
 
-function TW_NO_TOKEN_CONNECT_ABLE() -- ´ë¸¸ ÅëÇàÁõ Ã¼Å© ÇÔ¼ö
+function TW_NO_TOKEN_CONNECT_ABLE() -- ï¿½ë¸¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å© ï¿½Ô¼ï¿½
 
 	if "06/24/16 15:00:00" <= os.date() and os.date() < "06/24/16 21:00:00" then
 		return 1
@@ -35,6 +35,6 @@ function TW_NO_TOKEN_CONNECT_ABLE() -- ´ë¸¸ ÅëÇàÁõ Ã¼Å© ÇÔ¼ö
 		return 1
 	end
 
-	return 0
+	return 1
 
 end

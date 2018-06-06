@@ -375,12 +375,6 @@ end
 
 function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
 
-	HIDE_CHILD_BYNAME(frame, "1");
-	HIDE_CHILD_BYNAME(frame, "2");
-	HIDE_CHILD_BYNAME(frame, "3");
-	HIDE_CHILD_BYNAME(frame, "4");
-	HIDE_CHILD_BYNAME(frame, "5");
-
 	local abil = session.GetAbilityByGuid(numarg2);
 	local obj = nil;
 	if abil == nil then
@@ -403,8 +397,7 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
 	typeCtrl:SetText('{@st42}'..ClMsg("Ability"));
 
 	local descCtrl = GET_CHILD(frame, "desc", "ui::CRichText");
-	descCtrl:Resize(frame:GetWidth() - 20, 20);
-	descCtrl:SetTextAlign("center", "top");
+	descCtrl:SetTextAlign("left", "top");
 	descCtrl:SetGravity(ui.CENTER_HORZ, ui.TOP);
 	local translatedData = dictionary.ReplaceDicIDInCompStr(obj.Desc);
 	if obj.Desc ~= translatedData then
@@ -483,7 +476,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 			objIsClone= true;
 		end
 	else
-	--존 이동시 아이템에 의한 스킬레벨이 툴팁에 적용되지 않음
+	--�??�동???�이?�에 ?�한 ?�킬?�벨???�팁???�용?��? ?�음
 		obj = GetIES(abil:GetObject());
 		tooltipStartLevel = obj.Level;
 	end
@@ -815,8 +808,8 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
 	end
 	
 	if TryGetProp(obj, 'BasicSP') ~= nil and TryGetProp(obj, 'LvUpSpendSp') ~= nil and TryGetProp(obj, 'Level') ~= nil and TryGetProp(obj, 'SpendSP') ~= nil then
-		-- lvUpSpendSP의 루아에서의 float 정밀도를 수정하기위해 소수 5자리에서 반올림한다.
-		-- 값을 print로 찍어보면 원래 값과 같지만.. 서버와 계산값을 맞출려면 이렇게 해야 한다.
+		-- lvUpSpendSP??루아?�서??float ?��??��? ?�정?�기?�해 ?�수 5?�리?�서 반올림한??
+		-- 값을 print�?찍어보면 ?�래 값과 같�?�?. ?�버?� 계산값을 맞출?�면 ?�렇�??�야 ?�다.
 		local lvUpSpendSpRound = math.floor((obj.LvUpSpendSp * 10000) + 0.5) / 10000
 		
 		if noHave == true then
@@ -980,7 +973,7 @@ function ADD_SPEND_SKILL_LV_DESC_TOOLTIP(ctrlSet, pcAbilList, pcAbilCnt)
 		if pcAbilList[i].ActiveState == 1 and addSpendStr ~= 'None' then
 			local addSpendList = GET_ADD_SPEND_LIST(addSpendStr)
 
-			for i = 0, #addSpendList, 2 do	-- AddSpendStr? prop/value pair
+			for i = 0, #addSpendList, 2 do	-- AddSpendStr?? prop/value pair
 				local addValueStr = addSpendList[i + 1]
 				local addValue = tonumber(addValueStr)
 		

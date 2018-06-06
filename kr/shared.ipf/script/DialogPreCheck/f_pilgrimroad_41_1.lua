@@ -21,3 +21,13 @@ function SCR_PILGRIM411_SQ_08_1_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+
+
+function SCR_HT3_PILGRIM41_1_WELLROPE_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'PILGRIM41_1_SQ07')
+    if result == 'COMPLETE' then
+        return 'YES'
+    end
+    return 'NO'
+end

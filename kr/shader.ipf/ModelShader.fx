@@ -52,8 +52,7 @@ float4		g_auraValues = float4(0.0f, 0.0f, 0.0f, 0.0f);
 
 // 3d캐릭터 2d로 그리는거
 float4x4 	g_billboardTM		: BILLBOARD_TM;
-float4x4 	g_charProjTM		: CHARPROJ_TM;
-float4x4	g_charViewTM		: CHARVIEW_TM;
+float4x4 	g_charViewProjTM	: CHARVIEWPROJ_TM;
 float3		g_pivotPoint;
 
 	// 표정 관련 정보
@@ -329,8 +328,7 @@ float4 CalcWVP(float4 Pos, out float4 PosWV)
 	#ifdef ENABLE_2D
 		// View TM, Proj TM 은 합쳐도 무방
 		float4 WorldPos = mul(Pos, g_WorldTM);
-		Pos = mul(WorldPos, g_charViewTM);
-		Pos = mul(Pos, g_charProjTM);
+		Pos = mul(WorldPos, g_charViewProjTM);
 		Pos /= Pos.w;
 		Pos.z = 0.0f;	// 빌보드로 만듦
 		Pos.y += 0.4f;  // 캐릭터 발 위치ㄹ르 맞추기 위한 상수
@@ -400,8 +398,7 @@ float4 CalcWVPSilhouette(float3 Pos)
 
 	float4 Out = 0;
 	#ifdef ENABLE_2D
-		Out = mul(WorldPos, g_charViewTM);
-		Out = mul(Out, g_charProjTM);
+		Out = mul(WorldPos, g_charViewProjTM);
 		Out /= Out.w;
 		Out.z = 0.0f; // 빌보드로 만듬
 		Out.y += 0.4f;  // 캐릭터 발 위치 맞출때 사용하는 상수입니다	

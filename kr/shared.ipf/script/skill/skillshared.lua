@@ -117,3 +117,27 @@ function HAS_GUILDGROWTH_SKL_OBJ(guildObj, sklName, sklLv)
 
 	return true;
 end
+function SCR_ARRAY_SHUFFLE(arr_val)
+    if arr_val ~= nil then
+        if type(arr_val) == 'table' then
+            local i;
+            local temp_arr;
+            local rnd;
+            for i = 1, #arr_val do
+                rnd = IMCRandom(i, #arr_val);
+                if rnd ~= i then
+                    temp_arr = arr_val[i];
+                    arr_val[i] = arr_val[rnd];
+                    arr_val[rnd] = temp_arr;
+                end
+            end
+            
+--            return arr_val;
+--        else
+--            print('ERR!! arr_val is not Arrange Value')
+        end
+--    else
+--        print('ERR!! arr_val is nil')
+    end
+    return arr_val;
+end

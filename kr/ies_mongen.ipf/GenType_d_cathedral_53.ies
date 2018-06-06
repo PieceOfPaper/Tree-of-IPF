@@ -51,4 +51,6 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 59,59,0,40,30,0,11,0,0,0,0,0,0,"anchor_mage","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 60,60,0,100,9999,60000,0,0,0,0,0,0,0,"F_boss_Fireload","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 61,61,1,100,1,60000,2,0,0,0,1,0,0,"HiddenTrigger_CantGen100","필드젠x","","","","","","","","","","NO","YES","NO","Neutral","","","",""
+62,62,1,40,1,60000,1,1,0,0,0,0,0,"id_gate_npc","카타콤 제2던전","","","","","","","INSTANCE_DUNGEON_CATACOM2_08","","","NO","YES","NO","Neutral","","","",""
 63,63,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_183:1","",""
+64,64,1,200,1,60000,1,0,0,0,0,0,0,"noshadow_npc","지팡이 파편","","","","","","CHATHEDRAL53_SQ07_OBJ1_AI","CHATHEDRAL53_SQ07_OBJ1","","","NO","YES","NO","Neutral","","","",""

@@ -1,7 +1,7 @@
 function GUILDWAREHOUSE_ON_INIT(addon, frame)
 
 	addon:RegisterOpenOnlyMsg("GUILD_WAREHOUSE_ITEM_LIST", "ON_GUILD_WAREHOUSE_ITEM_LIST");
-	addon:RegisterOpenOnlyMsg("GUILD_WAREHOUSE_ITEM_ADD", "ON_GUILD_WAREHOUSE_ITEM_LIST");
+	addon:RegisterMsg("GUILD_WAREHOUSE_ITEM_ADD", "ON_GUILD_WAREHOUSE_ITEM_LIST");
 	
 
 end
@@ -21,8 +21,12 @@ function TOGGLE_GUILD_WAREHOUSE()
 
 end
 
-function ON_GUILD_WAREHOUSE_ITEM_LIST(frame)
+function GUILDWAREHOUSE_REFRESH_BTN(frame, ctrl)
+	party.RequestReloadInventory(PARTY_GUILD);
+	DISABLE_BUTTON_DOUBLECLICK("guildwarehouse",ctrl:GetName());
+end
 
+function ON_GUILD_WAREHOUSE_ITEM_LIST(frame)
 	local gbox = frame:GetChild("gbox");
 	local slotset = GET_CHILD(gbox, "slotset");
 	UPDATE_ETC_ITEM_SLOTSET(slotset, IT_GUILD, "guildwarehouse");

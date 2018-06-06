@@ -17,6 +17,18 @@ function GET_MORE_EVENT_EXP(pc)
 	return sumExp; 
 end
 
+function GET_MORE_EVENT_EXP_JAEDDURY(pc)
+	local sumExp = 0.0;
+	if "YES" == IsBuffApplied(pc, 'Event_CharExpRate') then
+		local etc = GetETCObject(pc);
+		local rate = TryGetProp(etc, "EventCharExpRate");
+		if rate ~= nil and rate > 0 then
+			sumExp = sumExp + rate;
+		end		
+	end	
+	return sumExp; 
+end
+
 function GET_MIX_MATERIAL_EXP(item)
 
 	if item.EquipXpGroup == "None" then

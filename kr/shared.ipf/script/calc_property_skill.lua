@@ -9888,7 +9888,11 @@ end
 
 
 function SCR_GET_PsychicPressure_Ratio2(skill)
-
+    local pc = GetSkillOwner(skill)
+    local abil = GetAbility(pc, 'Psychokino10')
+    if abil ~= nil and abil.ActiveState == 1 then
+        return 2;
+    end
 	return 1
 end
 
@@ -9898,6 +9902,15 @@ function SCR_GET_GravityPole_Ratio(skill)
     end
 
 	return 5 + skill.Level * 1
+end
+
+function SCR_GET_GravityPole_Ratio3(skill)
+    local pc = GetSkillOwner(skill)
+    local abil = GetAbility(pc, 'Psychokino20')
+    if abil ~= nil and abil.ActiveState == 1 then
+        return 3;
+    end
+    return 2;
 end
 
 
@@ -12276,6 +12289,18 @@ function SCR_Get_Monstrance_Bufftime(skill)
     return math.floor(value);
 end
 
+function SCR_Get_Monstrance_Debufftime(skill)
+	local pc = GetSkillOwner(skill);
+	local value = 30
+	
+	local abil = GetAbility(pc, "Priest22")
+    if abil ~= nil and abil.ActiveState == 1 then
+	    value = value + abil.Level
+	end
+	
+    return math.floor(value);
+end
+
 
 function SCR_Get_Monstrance_Ratio(skill)
 
@@ -12938,21 +12963,21 @@ end
 
 
 function SCR_GET_KDOWNPOWER_CartarStroke(skill) 
-    
-    local pc = GetSkillOwner(skill);
-    
-    local abil = GetAbility(pc, "Highlander28")
-    if abil ~= nil and 1 == abil.ActiveState then
-        return 0;
-    end
-    
-    local abil = GetAbility(pc, "Highlander3")
-    if abil ~= nil and 1 == abil.ActiveState then
-        return skill.KDownValue + (abil.Level * 50);
-    else
-        return skill.KDownValue;
-    end
-    
+--    
+--    local pc = GetSkillOwner(skill);
+--    
+--    local abil = GetAbility(pc, "Highlander28")
+--    if abil ~= nil and 1 == abil.ActiveState then
+--        return 0;
+--    end
+--    
+--    local abil = GetAbility(pc, "Highlander3")
+--    if abil ~= nil and 1 == abil.ActiveState then
+--        return skill.KDownValue + (abil.Level * 50);
+--    else
+--        return skill.KDownValue;
+--    end
+--    
 end
 
 --function SCR_GET_KDOWNPOWER_UmboBlow(skill)

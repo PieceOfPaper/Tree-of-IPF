@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Bip01 L Finger12" particleName="I_pose_pollen_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+    <Particle frame="0" attachNode="Bip01 R Finger12" particleName="I_pose_pollen_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+    <Sound frame="0.00" soundFile="atk_cloth_s_r1"/>
+    <Particle frame="5" attachNode="Bip01 Pelvis" particleName="F_light101" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" soft2DValue="200"/>
+    <Sound frame="14.00" soundFile="atk_cloth_s_l1"/>
+    <Particle frame="20" attachNode="Bip01 Head" particleName="F_light101" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" soft2DValue="200"/>
+    <Particle frame="20" attachNode="Bip01 L Finger12" particleName="I_pose_pollen_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+    <Particle frame="20" attachNode="Bip01 R Finger12" particleName="I_pose_pollen_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+    <Particle frame="33" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+    <Sound frame="34.00" soundFile="atk_cloth_s_r1"/>
+    <Sound frame="34.00" soundFile="walk_left"/>
+    <Particle frame="35" attachNode="Bip01 L Finger12" particleName="I_pose_pollen_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+    <Particle frame="35" attachNode="Bip01 R Finger12" particleName="I_pose_pollen_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+    <Particle frame="40" attachNode="Bip01 Pelvis" particleName="F_light101" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" soft2DValue="200"/>
+    <Sound frame="49.00" soundFile="atk_cloth_s_l1"/>
+    <Particle frame="53" attachNode="Bip01 L Finger12" particleName="I_pose_pollen_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+    <Particle frame="53" attachNode="Bip01 R Finger12" particleName="I_pose_pollen_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+    <Particle frame="57" attachNode="Bip01 Head" particleName="F_light101" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" soft2DValue="200"/>
+    <Sound frame="68.00" soundFile="walk_left"/>
+    <Particle frame="68" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+</ActionDesc>

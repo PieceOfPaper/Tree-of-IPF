@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="CHATHEDRAL56_SQ05_TRACK_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57370" Pos="-1947.12#0.50#-588.66" genCount="1" genTime="20000" autoGen="0" objectKey="0" SimpleAI="CHATHEDRAL56_SQ05_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57370" Pos="-1992.62#0.50#-547.72" genCount="1" genTime="20000" autoGen="0" objectKey="1" SimpleAI="CHATHEDRAL56_SQ05_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57371" Pos="-2000.97#0.50#-610.71" genCount="1" genTime="20000" autoGen="0" objectKey="2" SimpleAI="CHATHEDRAL56_SQ05_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57371" Pos="-1228.98#0.50#-541.48" genCount="1" genTime="20000" autoGen="0" objectKey="3" SimpleAI="CHATHEDRAL56_SQ05_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57371" Pos="-1232.62#0.50#-592.19" genCount="1" genTime="20000" autoGen="0" objectKey="4" SimpleAI="CHATHEDRAL56_SQ05_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57370" Pos="-1183.27#0.50#-568.98" genCount="1" genTime="20000" autoGen="0" objectKey="5" SimpleAI="CHATHEDRAL56_SQ05_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57370" Pos="-1576.95#0.50#-357.77" genCount="1" genTime="20000" autoGen="0" objectKey="6" SimpleAI="CHATHEDRAL56_SQ05_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57370" Pos="-1512.96#0.50#-364.21" genCount="1" genTime="20000" autoGen="0" objectKey="7" SimpleAI="CHATHEDRAL56_SQ05_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57370" Pos="-1546.13#0.50#-314.60" genCount="1" genTime="20000" autoGen="0" objectKey="8" SimpleAI="CHATHEDRAL56_SQ05_TRACK_MINI_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event>
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0/DefGroup/1/DefGroup/2"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event>
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="35"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/3/DefGroup/4/DefGroup/5"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event>
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="50"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/6/DefGroup/7/DefGroup/8"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -1254,25 +1254,25 @@ function GET_ITEM_TOOLTIP_SKIN(cls)
 	return "Item_tooltip_consumable";
 end
 
-function GET_ITEM_BG_PICTURE_BY_GRADE(rank)
+function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal)
 
-	if rank == nil then
-		return "None";
-	end
-
+	local pic = 'None'
 	if rank == 1 then
-		return "one_two_star_item_bg";
+		pic = "one_two_star_item_bg";
 	elseif rank == 2 then
-		return "three_star_item_bg";
+		pic ="three_star_item_bg";
 	elseif rank == 3 then
-		return "four_star_item_bg";
+		pic = "four_star_item_bg";
 	elseif rank == 4 then
-		return "five_item_bg";
+		pic = "five_item_bg";
 	elseif rank == 0 then
 		return "premium_item_bg";
 	end
 
-	return "None";
+	if needAppraisal == 1 then
+		pic = pic..'2';
+end
+	return pic;
 end
 
 function GET_ITEM_BG_PICTURE_BY_ITEMLEVEL(itemlv) 
@@ -3227,6 +3227,11 @@ function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
 				return
 			end
 		end
+	end
+
+	if IS_ENABLE_EQUIP_GEM(itemobj, gemClass.ClassID) == false then
+		ui.SysMsg(ScpArgMsg("ValidDupEquipGemBy{VALID_CNT}", "VALID_CNT", VALID_DUP_GEM_CNT));
+		return;
 	end
 
 	local cnt = 0;

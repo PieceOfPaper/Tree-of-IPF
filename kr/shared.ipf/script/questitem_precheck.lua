@@ -6948,6 +6948,26 @@ function SCR_PRE_TABLE281_HIDDENQ1_ITEM5(self, argObj, argstring, arg1, arg2)
     end
     return 0
 end
+--PILGRIMROAD55_SQ12_ITEM
+function SCR_PRE_PILGRIMROAD55_SQ12_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_pilgrimroad_55' then
+        if GetLayer(self) == 0 then 
+            local result1 = SCR_QUEST_CHECK(self, 'PILGRIMROAD55_SQ12')
+            if result1 == 'PROGRESS' then
+                local fndList, fndCnt = SelectObject(self, 100, 'ENEMY', 1)
+                local i 
+                for i = 1, fndCnt do
+                    if fndList[i].ClassName == 'Burialer' then
+                        if GetHpPercent(fndList[i]) <= 0.3 then
+                            return GetHandle(fndList[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
 
 --LOWLV_BOASTER_SQ_20_ITEM
 function SCR_PRE_LOWLV_BOASTER_SQ_20_ITEM(self, argObj, argstring, arg1, arg2)
@@ -6976,3 +6996,99 @@ function SCR_PRE_LOWLV_BOASTER_SQ_20_ITEM(self, argObj, argstring, arg1, arg2)
     end
     return 0; 
 end
+
+
+--THORN39_1_SQ04_ITEM1
+function SCR_PRE_THORN39_1_SQ04_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'd_thorn_39_1' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'THORN39_1_SQ04')
+            if result == 'PROGRESS' then
+                local list, Cnt = SelectObject(self, 100, 'ENEMY', 1)
+                local i 
+                for i = 1, Cnt do
+                    if list[i].ClassName == 'Pandroceum' then
+                        if GetHpPercent(list[i]) <= 0.3 then
+                            return GetHandle(list[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--THORN39_1_SQ06_ITEM
+function SCR_PRE_THORN39_1_SQ06_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'd_thorn_39_1' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'THORN39_1_SQ06')
+            if result == 'PROGRESS' then
+                local x, y, z = GetPos(self)
+                local sObj = GetSessionObject(self, 'SSN_THORN39_1_SQ06')
+                if SCR_POINT_DISTANCE(x, z, 1298, -1288) < 50 then
+                    if sObj.Goal1 == 2 then
+                    return 0
+                    elseif sObj.Goal1 == 0 then
+                    return 1
+                    end
+                elseif SCR_POINT_DISTANCE(x, z, 1443, -1432) < 50 then
+                    if sObj.Goal2 == 2 then
+                    return 0
+                    elseif sObj.Goal2 == 0 then
+                    return 1
+                    end
+                elseif SCR_POINT_DISTANCE(x, z, 1122, -1467) < 50 then
+                    if sObj.Goal3 == 2 then
+                    return 0
+                    elseif sObj.Goal3 == 0 then
+                    return 1
+                    end
+                elseif SCR_POINT_DISTANCE(x, z, 1271, -1603) < 50 then
+                    if sObj.Goal4 == 2 then
+                    return 0
+                    elseif sObj.Goal4 == 0 then
+                    return 1
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+--THORN39_3_SQ07_ITEM
+function SCR_PRE_THORN39_3_SQ07_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'd_thorn_39_3' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'THORN39_3_SQ07')
+            if result == 'PROGRESS' then
+                local x, y, z = GetPos(self)
+                if SCR_POINT_DISTANCE(x, z, 759, -858) < 50 then
+                    if isHideNPC(self, 'THORN39_3_SQ07_OBJ1') == 'YES' then
+                    return 1
+                    else
+                    return 0;
+                    end
+                end
+                if SCR_POINT_DISTANCE(x, z, 1366, -1181) < 50 then
+                    if isHideNPC(self, 'THORN39_3_SQ07_OBJ2') == 'YES' then
+                    return 1
+                    else
+                    return 0;
+                    end
+                end
+                if SCR_POINT_DISTANCE(x, z, 2062, -822) < 50 then
+                    if isHideNPC(self, 'THORN39_3_SQ07_OBJ3') == 'YES' then
+                    return 1
+                    else
+                    return 0;
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+

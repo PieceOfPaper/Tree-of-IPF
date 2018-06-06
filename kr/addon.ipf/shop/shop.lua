@@ -865,6 +865,7 @@ function SHOP_ITEM_LIST_GET(frame)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
+	
 	local ShopItemGroupBox 	= frame:GetChild('shop');
 	local SHOPITEM_listSet	= tolua.cast(ShopItemGroupBox, "ui::CGroupBox");
 
@@ -893,6 +894,10 @@ function SHOP_ITEM_LIST_GET(frame)
 	local SHOPITEMLIST_prevItem = nil;
 
 	TOTALPAGENUM = math.floor(shopItemCount / 8) + 1;
+	if shopItemCount % 8 == 0 then
+		TOTALPAGENUM = TOTALPAGENUM - 1;
+	end
+
 	if shopItemCount - shopItemCount % 8 > 0 then
 		local pageEndCount = NOWPAGENUM * 8 - 1;
 		if pageEndCount > shopItemCount then
@@ -1306,3 +1311,11 @@ function SHOP_SLOT_CLEAR(slot)
 
 end
 
+function GET_SHOP_FRAME()
+	local shop = ui.GetFrame('shop');
+	local companionshop = ui.GetFrame('companionshop');
+	if companionshop:IsVisible() == 1 then
+		return companionshop:GetChild('foodBox');
+	end
+	return shop;
+end

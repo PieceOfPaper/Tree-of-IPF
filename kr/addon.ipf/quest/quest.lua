@@ -993,7 +993,7 @@ function QUEST_MYPC_PARTY_JOIN(frame)
 			local clsID = ctrlSet:GetUserIValue("QUEST_CLASSID");
 			if clsID > 0 then
 				party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Quest", clsID);
-				REQUEST_SHARED_QUEST_PROGRESS(questID)
+				REQUEST_SHARED_QUEST_PROGRESS(clsID)
 				local questinfoset2 = ui.GetFrame("questinfoset_2");
 				local questGbox = questinfoset2:GetChild('member');
 				questGbox:RunUpdateScript("QUEST_GBOX_UPDATE_PARTY_PROP");
@@ -1051,15 +1051,25 @@ function REQUEST_SHARED_QUEST_PROGRESS(questClsID)
 	party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", -1) -- 값을 초기화해야 바뀜
 
 	local myInfo = session.party.GetMyPartyObj(PARTY_NORMAL);
+	if nil == myInfo then
+		return;
+	end
+
 	local myObj = GET_MY_PARTY_INFO_C()
 	local sharedQuestID = TryGetProp(myObj, 'Shared_Quest')
-	if myInfo ~= nil and sharedQuestID ~= nil and sharedQuestID > 0 then
-		local questIES = GetClassByType("QuestProgressCheck", questClsID)
-		local progStr = SCR_QUEST_CHECK_C(GetMyPCObject(), questIES.ClassName)
-		local progValue = quest.GetQuestStateValue(progStr)
-		party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", progValue)
-		party.SendSharedQuestSession(questIES.ClassID, questIES.ClassName, myInfo:GetAID());
-	end	
+	if nil == sharedQuestID or sharedQuestID == 0 then
+		return;
+	end
+
+	local questIES = GetClassByType("QuestProgressCheck", questClsID)
+	if questIES == nil then
+		return;
+	end
+
+	local progStr = SCR_QUEST_CHECK_C(GetMyPCObject(), questIES.ClassName)
+	local progValue = quest.GetQuestStateValue(progStr)
+	party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", progValue)
+	party.SendSharedQuestSession(questIES.ClassID, questIES.ClassName, myInfo:GetAID());
 end
 
 function ON_PARTY_UPDATE_SHARED_QUEST()

@@ -56,8 +56,16 @@ float		g_wavePowerY = 0.0f;
 //
 
 float4x4	g_WorldViewProjTM;
+float4x4	g_ViewTM;
+float4x4	g_ProjTM;
 float4x4	g_ViewProjTM;
+float4x4	g_InvViewProjTM;
 float4x4	g_WorldTM;
+float4x4	g_InvWorldTM;
+float4x4	g_InvViewTM;
+float4x4	g_InvProjTM;
+
+float3		g_CamPos;
 
 float4		g_ModelDiffuse = 1.0f;
 
@@ -639,6 +647,44 @@ float4 PS_DistortionProcess(in float4 diffuse: COLOR0,
 	return finalColor;
 }
 
+void VS_Decal(in float4 PosIn : POSITION,
+	out float4 PosOut : POSITION,
+	out float4 ScrPos : TEXCOORD1,
+	out float3 ViewRay : TEXCOORD2)
+{
+	PosIn.w = 1.f;
+	PosOut = mul(PosIn, g_WorldTM);
+
+	ViewRay = PosOut - g_CamPos;
+
+	PosOut = mul(PosOut, g_ViewProjTM);
+	ScrPos = PosOut;
+}
+
+float4 PS_Decal(in float4 ScrPos : TEXCOORD1,
+	in float3 ViewRay : TEXCOORD2) : COLOR
+{
+	float2 screeenPos;
+	screeenPos.x = ScrPos.x / ScrPos.w * 0.5f + 0.5f;
+	screeenPos.y = -ScrPos.y / ScrPos.w * 0.5f + 0.5f;
+	
+	float fDepth = tex2D(g_bgDepthSampler, screeenPos).g * 5000.f;
+
+	ViewRay = normalize(ViewRay);
+	float4 pos = float4(g_CamPos + ViewRay * fDepth, 1.f);
+
+	float3 f3DecalLocalPos = mul(pos, g_InvWorldTM).xyz;
+	clip(0.5f - abs(f3DecalLocalPos));
+
+	float2 f2DecalUV = f3DecalLocalPos.xz + 0.5f;
+
+	float fDist = abs(f3DecalLocalPos.y);
+	float4 color = tex2D(g_sampler, f2DecalUV).rgba;
+	color *= (1.f - max((fDist - 0.25f) / 0.25f, 0.f));
+
+	return color;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Techniques
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -818,6 +864,14 @@ technique TQ_Effect_AniModel
 		VertexShader = compile vs_3_0 VS_Effect_AniModel();
         PixelShader  = compile ps_3_0 PS_DistortionProcess();
     }
+}
+
+technique Decal
+{
+	pass P0 {
+		VertexShader = compile vs_3_0 VS_Decal();
+		PixelShader = compile ps_3_0 PS_Decal();
+	}
 }
 
 #endif //__IMCEFFECTSHADER_FX__

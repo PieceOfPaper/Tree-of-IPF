@@ -1535,3 +1535,41 @@ function GET_COMMAED_STRING(num) -- 백억정도까진 가능합니다
 	retStr = string.format("%d", num)..retStr;
 	return retStr;
 end
+
+function IS_ENABLE_EQUIP_GEM(targetItem, gemType)
+	if targetItem == nil or gemType == nil then
+		return false;
+	end
+
+	local maxSocket = TryGetProp(targetItem, 'MaxSocket');
+	if maxSocket < VALID_DUP_GEM_CNT then
+		return true;
+	end
+	
+	local curCnt = 0;
+	for i = 0, maxSocket - 1 do
+		if TryGetProp(targetItem, 'Socket_Equip_'..i) == gemType then
+			curCnt = curCnt + 1;
+		end
+	end
+
+	if curCnt + 1 > VALID_DUP_GEM_CNT then
+		return false;
+	end
+
+	return true;
+end
+
+function IS_ITEM_IN_LIST(list, item)
+	if list == nil or item == nil or #list < 1 then
+		return false;
+	end
+
+	for i = 1, #list do
+		if list[i] == item then
+			return true;
+		end
+	end
+
+	return false;
+end

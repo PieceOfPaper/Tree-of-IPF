@@ -2171,7 +2171,7 @@
 			<img name="bottomcore" imgrect="81 75 14 5"/>
 			<img name="bottomright" imgrect="96 75 35 5"/>
 		</skin>
-	<skin name="name_glasss_btn" texture="\skin\pip_test.tga">
+		<skin name="name_glasss_btn" texture="\skin\pip_test.tga">
 			<img name="topleft" imgrect="1759 506 20 10"/>
 			<img name="topcore" imgrect="1780 506 20 10"/>
 			<img name="topright" imgrect="1801 506 20 10"/>
@@ -7034,6 +7034,11 @@
 		<image name="icon_Event_Vitamin" file="\icon\buff_icon.tga" imgrect="384 1408 128 128" CMM_Caption="이벤트 비타민 버프"/>
 		<image name="icon_Event_choco" file="\icon\buff_icon.tga" imgrect="512 1408 128 128" CMM_Caption="이벤트 초콜릿 버프"/>
 		<image name="icon_ScudInstinct_Buff" file="\icon\buff_icon.tga" imgrect="640 1408 128 128" CMM_Caption="바바리안 특성 버프"/>
+		<image name="icon_Event_161215_1" file="\icon\buff_icon.tga" imgrect="768 1408 128 128" CMM_Caption="새싹1"/>
+		<image name="icon_Event_161215_2" file="\icon\buff_icon.tga" imgrect="896 1408 128 128" CMM_Caption="새싹2"/>
+		<image name="icon_Event_161215_3" file="\icon\buff_icon.tga" imgrect="0 1536 128 128" CMM_Caption="새싹3"/>
+		<image name="icon_Event_161215_4" file="\icon\buff_icon.tga" imgrect="128 1536 128 128" CMM_Caption="새싹4"/>
+		<image name="icon_Event_161215_5" file="\icon\buff_icon.tga" imgrect="256 1536 128 128" CMM_Caption="새싹5"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

@@ -473,7 +473,7 @@ function WORLDMAP_MOUSEWHEEL(parent, ctrl, s, n)
 	end
 end
 
-function WORLDMAP_LBTNDOWN(parent, ctrl)
+function WORLDMAP_LBTNDOWN(parent, ctrl)		
 	local frame = parent:GetTopParentFrame();
 	local pic = frame:GetChild("pic");
 	local x, y = GET_MOUSE_POS();
@@ -485,7 +485,7 @@ function WORLDMAP_LBTNDOWN(parent, ctrl)
 	
 	ui.EnableToolTip(0);
 	mouse.ChangeCursorImg("MOVE_MAP", 1);
-	pic:RunUpdateScript("WORLDMAP_PROCESS_MOUSE");
+	pic:RunUpdateScript("WORLDMAP_PROCESS_MOUSE");	
 end
 
 function WORLDMAP_LBTNUP(parent, ctrl)
@@ -523,8 +523,7 @@ function WORLDMAP_PROCESS_MOUSE(ctrl)
 	
 
 	ctrl:SetUserValue("MOUSE_X", mx);
-	ctrl:SetUserValue("MOUSE_Y", my);
-
+	ctrl:SetUserValue("MOUSE_Y", my);	
 	return 1;
 end
 
@@ -629,12 +628,11 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 
 	local gBox = GET_WORLDMAP_GROUPBOX(frame);
 	local mapCls = GetClass("Map", mapName);
-	if mapCls == nil then
-		
-		return
+	if mapCls == nil then		
+		return false;
 	end
 	if mapCls.WorldMap == "None" then
-		return;
+		return false;
 	end
 
 	local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);	
@@ -643,7 +641,7 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 	local childCtrl = gBox:GetChild(gBoxName);
 
 	if childCtrl == nil then
-		return; -- ��ϵ�?���Ż��� ������ nil�ΰ�?
+		return false;
 	end
 
 	local x = childCtrl:GetX();
@@ -680,6 +678,7 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 	animpic:ShowWindow(1);
 	animpic:PlayAnimation();
 
+	return true;
 end
 
 function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
@@ -694,6 +693,8 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 	end
 
 	local etc = GetMyEtcObject();    
+
+	-- search map
 	local mapList, cnt = GetClassList('Map')
 	if etc == nil or mapList == nil or cnt < 1 then -- valid check
 		return
@@ -713,6 +714,36 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 		end
 	end
 
+	-- search npc
+	local npcStates = session.GetNPCStateMap();
+	local idx = npcStates:Head();
+	while idx ~= npcStates:InvalidIndex() do
+		local mapName = npcStates:KeyPtr(idx):c_str();
+		local mapCls = GetClass("Map", mapName);
+		local npcList = npcStates:Element(idx);		
+		local npcIdx = npcList:Head();
+		while npcIdx ~= npcList:InvalidIndex() do
+			local type = npcList:Key(npcIdx);
+
+			local genCls = GetGenTypeClass(mapName, type);			
+			if nil == genCls then
+				break;
+			end;
+
+			if TryGetProp(genCls, 'ClassType') ~= 'Warp_arrow' then -- 워프 제외한 npc
+				local name = GET_GENCLS_NAME(genCls);
+				local tempname = string.lower(dictionary.ReplaceDicIDInCompStr(name));		
+				local tempinputtext = string.lower(searchText);
+				if string.find(tempname, tempinputtext) ~= nil and IS_ITEM_IN_LIST(targetMap, mapCls.ClassName) == false then
+					targetMap[targetCnt] = mapCls.ClassName;
+					targetCnt = targetCnt + 1;
+				end
+			end
+			npcIdx = npcList:Next(npcIdx);
+		end
+		idx = npcStates:Next(idx);
+	end
+
 	local showIdx = 0
 	if oldSearchText == searchText then
 		showIdx = tonumber(oldSearchIdx) + 1
@@ -723,7 +754,9 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 		frame:SetUserValue('SEARCH_TEXT', searchText)
 	end
 	frame:SetUserValue('SEARCH_IDX', tostring(showIdx))
-	LOCATE_WORLDMAP_POS(frame, targetMap[showIdx]);
+	local ret = LOCATE_WORLDMAP_POS(frame, targetMap[showIdx]);
+	if ret == false then
+		frame:SetUserValue('SEARCH_TEXT', "");
+		frame:SetUserValue('SEARCH_IDX', 0);
+	end
 end
-
-

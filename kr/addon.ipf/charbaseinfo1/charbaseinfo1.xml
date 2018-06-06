@@ -19,6 +19,6 @@
         <richtext name="guildName" rect="0 0 400 24" margin="0 62 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="false"/>
         <richtext name="partyName" rect="0 0 400 24" margin="0 62 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="false"/>
         <gauge name="pcShieldGauge" rect="0 0 104 15" margin="0 7 0 0" layout_gravity="center top" hittest="false" skin="guard_gauge" point="100" text1="AAA" textoffset1="0 -1" textfont1="white_14_ol" textalign1="center center"/>
-        <picture name="desenchant" margin="166 7 0 0" rect="5 5 64 64" hittest="false" image="None" stretch="true" changecursor="false" layout_gravity="left top"/>
+        <picture name="desenchant" margin="-4 7 0 0" rect="5 5 64 64" hittest="false" image="None" stretch="true" changecursor="false" layout_gravity="center top"/>
     </controls>
 </uiframe>

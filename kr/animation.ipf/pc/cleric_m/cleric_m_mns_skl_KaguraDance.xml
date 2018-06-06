@@ -26,4 +26,13 @@
 	<Particle frame="100" attachNode="Dummy_effect_L_hand" particleName="I_cleric_KaguraDance_cast_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20"/>
 	<HeadRotBip frame="0" BipName="Dummy_head"/>
 	<AttachModel frame="0" XAC="artefact_Kagurasuzu" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="Kagurasuzu_skl_KaguraDance.xsm"/>
+	<Sound frame="0.00" soundFile="skl_eff_kaguradance_bowl"/>
+	<Sound frame="4.00" soundFile="skl_fgt_tackle_cast_2"/>
+	<Sound frame="6.00" soundFile="atk_cloth_m_l2"/>
+	<Sound frame="27.00" soundFile="atk_cloth_cast"/>
+	<Sound frame="31.00" soundFile="atk_cloth_m_l1"/>
+	<Sound frame="53.00" soundFile="atk_cloth_m_l2"/>
+	<Sound frame="60.00" soundFile="atk_cloth_s_r2"/>
+	<Sound frame="83.00" soundFile="skl_fgt_tackle_cast_2"/>
+	<Sound frame="93.00" soundFile="atk_cloth_cast"/>
 </ActionDesc>

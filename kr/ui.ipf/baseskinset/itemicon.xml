@@ -592,7 +592,7 @@
 		<image name="icon_item_miko_m" file="\icon\equip\icon_item_kannushi.png" imgrect="0 0 256 256" CMM_Caption="칸누시"/>
 		<image name="icon_item_Cleric_monk_f" file="\icon\equip\icon_item_Cleric_monk_f.png" imgrect="0 0 256 256" CMM_Caption="3랭크 유료 몽크 코스튬"/>
 		<image name="icon_item_Cleric_monk_m" file="\icon\equip\icon_item_Cleric_monk_m.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_Cleric_cleric01_3_f" file="\icon\equip\icon_item_Cleric_cleric01_3_f.png" imgrect="0 0 256 256" CMM_Caption="3랭크 클레릭 코스튬"/>
+		<image name="icon_item_Cleric_cleric01_3_f" file="\icon\equip\icon_item_Cleric_cleric01_3_f.png" imgrect="0 0 256 256" CMM_Caption="3랭크 클레릭"/>
 		<image name="icon_item_Cleric_cleric01_3_m" file="\icon\equip\icon_item_Cleric_cleric01_3_m.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_weapone_icons">
@@ -2199,6 +2199,8 @@
 		<image name="icon_item_solmiki_THS" file="\icon\weapon\icon_item_solmiki_THS.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_solmiki_sword" file="\icon\weapon\icon_item_solmiki_sword.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_solmiki_TSD" file="\icon\weapon\icon_item_solmiki_TSD.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_foldingchair" file="\icon\weapon\icon_item_foldingchair.png" imgrect="0 0 256 256" CMM_Caption="의자"/>
+		<image name="icon_item_hotpack" file="\icon\weapon\icon_item_hotpack.png" imgrect="0 0 256 256" CMM_Caption="핫팩"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -3903,6 +3905,10 @@
 		<image name="icon_item_Event_Vitamin" file="\icon\item\icon_item_Event_Vitamin.png" imgrect="0 0 128 128" CMM_Caption="이벤트 비타민"/>
 		<image name="icon_item_candle" file="\icon\item\icon_item_candle.png" imgrect="0 0 128 128" CMM_Caption="향초"/>
 		<image name="icon_item_flute" file="\icon\item\icon_item_flute.png" imgrect="0 0 128 128" CMM_Caption="피리"/>
+		<image name="icon_item_event_armorbox1" file="\icon\item\icon_item_event_armorbox1.png" imgrect="0 0 128 128" CMM_Caption="구원자의 방어구 상자"/>
+		<image name="icon_item_event_weaponbox1" file="\icon\item\icon_item_event_weaponbox1.png" imgrect="0 0 128 128" CMM_Caption="구원자의 무기 상자"/>
+		<image name="icon_item_firework" file="\icon\item\icon_item_firework.png" imgrect="0 0 256 256" CMM_Caption="장난감 불꽃놀이"/>
+		<image name="icon_item_event161215_01" file="\icon\item\icon_item_event161215_01.png" imgrect="0 0 128 128" CMM_Caption="이벤트 씨앗"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -4148,6 +4154,10 @@
 		<image name="icon_item_pumpkin_box03" file="\icon\payment\icon_item_pumpkin_box03.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_pumpkin_box04" file="\icon\payment\icon_item_pumpkin_box04.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_egg_Rocksodon" file="\icon\payment\icon_item_egg_Rocksodon.png" imgrect="0 0 256 256" CMM_Caption="락소돈 상자"/>
+		<image name="icon_item_archer_bluepeacock_f" file="\icon\payment\icon_item_archer_bluepeacock_f.png" imgrect="0 0 256 256" CMM_Caption="아쳐 블루 피콕"/>
+		<image name="icon_item_archer_bluepeacock_m" file="\icon\payment\icon_item_archer_bluepeacock_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_pinkwizard_f" file="\icon\payment\icon_item_mage_pinkwizard_f.png" imgrect="0 0 256 256" CMM_Caption="위자드 핑크"/>
+		<image name="icon_item_mage_pinkwizard_m" file="\icon\payment\icon_item_mage_pinkwizard_m.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

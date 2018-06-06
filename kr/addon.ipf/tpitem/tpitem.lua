@@ -75,6 +75,11 @@ function TPSHOP_TAB_CHANGE(frame, ctrl, argStr, argNum)
 end
 
 function TPITEM_OPEN(frame)
+	-- 자동매칭중이면 간소화!
+	local indunenter = ui.GetFrame('indunenter');
+	if indunenter ~= nil and indunenter:IsVisible() == 1 then
+		INDUNENTER_SMALL(indunenter, nil, true);
+	end
 
 	if (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
 	if 0 == IsMyPcGM_FORNISMS() then

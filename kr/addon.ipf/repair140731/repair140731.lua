@@ -29,14 +29,13 @@ function REPAIR140731_ON_MSG(frame, msg, argStr, argNum)
 end
 
 function REPAIR140731_OPEN(frame)
-
+	frame:SetUserValue("SELECTED", "NotSelected");
 	ui.EnableSlotMultiSelect(1);
 
 	UPDATE_REPAIR140731_LIST(frame);
 end
 
 function REPAIR140731_CLOSE(frame)
-
 	ui.EnableSlotMultiSelect(0);
 end
 
@@ -270,28 +269,80 @@ end
 
 function REPAIR140731_SELECT_ALL(frame, ctrl)
 
-	local isselected =  ctrl:GetUserValue("SELECTED");
-
-	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "slotlist", "ui::CSlotSet")
-	
+	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "slotlist", "ui::CSlotSet")	
 	local slotCount = slotSet:GetSlotCount();
-
+	local isselected =  frame:GetUserValue("SELECTED");
+	
 	for i = 0, slotCount - 1 do
 		local slot = slotSet:GetSlotByIndex(i);
 		if slot:GetIcon() ~= nil then
-			if isselected == "selected" then
+			slot:Select(0)
+		end
+	end
+	
+	local isSelectAllItem = false;
+	for i = 0, slotCount - 1 do
+		local slot = slotSet:GetSlotByIndex(i);
+		if slot:GetIcon() ~= nil then
+			if isselected == "SelectedAll" then
 				slot:Select(0)
 			else
 				slot:Select(1)
+				isSelectAllItem = true;
+			end
+		end
+	end
+	slotSet:MakeSelectionList()
+		
+	if isSelectAllItem == false or isselected == "SelectedAll" then
+		frame:SetUserValue("SELECTED", "NotSelected");
+	else
+		frame:SetUserValue("SELECTED", "SelectedAll");
+	end
+
+	UPDATE_REPAIR140731_MONEY(frame)
+end
+
+function REPAIR140731_SELECT_EQUIPED_ITEMS(frame, ctrl)
+
+	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "slotlist", "ui::CSlotSet")	
+	local slotCount = slotSet:GetSlotCount();
+	local isselected =  frame:GetUserValue("SELECTED");
+	
+	for i = 0, slotCount - 1 do
+		local slot = slotSet:GetSlotByIndex(i);
+		if slot:GetIcon() ~= nil then
+			slot:Select(0)
+		end
+	end
+	
+	local isSelectEquipedItem = false;
+	local equipList = session.GetEquipItemList();
+	for i = 0, slotCount - 1 do
+		local slot = slotSet:GetSlotByIndex(i);
+		if slot:GetIcon() ~= nil then
+			if isselected == "SelectedEquiped" then
+				slot:Select(0)
+			else
+				for i = 0, equipList:Count() - 1 do
+					local equipItem = equipList:Element(i);
+					
+					if equipItem:GetIESID() == slot:GetIcon():GetInfo():GetIESID() then
+						slot:Select(1);
+						isSelectEquipedItem = true;
+						break;
+					end
+				end
+				
 			end
 		end
 	end
 	slotSet:MakeSelectionList()
 
-	if isselected == "selected" then
-		ctrl:SetUserValue("SELECTED", "notselected");
+	if isSelectEquipedItem == false or isselected == "SelectedEquiped" then	
+		frame:SetUserValue("SELECTED", "NotSelected");
 	else
-		ctrl:SetUserValue("SELECTED", "selected");
+		frame:SetUserValue("SELECTED", "SelectedEquiped");
 	end
 
 	UPDATE_REPAIR140731_MONEY(frame)

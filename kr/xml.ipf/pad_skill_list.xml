@@ -462,7 +462,7 @@ return obj.Level;"/>
     <PadSkill Name="Boss_slow" CheckerType="0" Dist="7.0362092e+022" Angle="6.9177952e+022" Range="10" UpdateTerm="150">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="15000" UseFunc="1" FuncTxt="20000"/>
+                <Num Num="20000" FuncTxt="20000"/>
                 <Num Num="99999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -2555,7 +2555,10 @@ end"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
             </ToolScp>
-        </createEvent>
+        <ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_PAD_ENTER_heal"/>
+			</ToolScp>
+		</createEvent>
         <destroyEvent>
             <ToolScp Scp="C_EFFECT_REMOVE_KEY" Client="YES" UseSleep="NO">
                 <Str Str="newbless"/>
@@ -2569,11 +2572,22 @@ end"/>
                 <Num Num="-1"/>
                 <Str Str="Heal_Buff"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
-                <Num Num="0"/>
+                <Num Num="0" UseFunc="1" FuncTxt="local addHeal = 0;
+
+local pad = GetUserDataToPadObject(userData);
+
+if pad ~= nil then
+
+addHeal = GetExProp(pad, &apos;AYINSOF_HEAL_ADD&apos;);
+
+end
+
+return addHeal;"/>
                 <Num Num="1000"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
-            </ToolScp>
+            <Num Num="0"/>
+			</ToolScp>
             <ToolScp Scp="PAD_TGT_BUFF_ABIL_OFF" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
                 <Str Str="Cleric10"/>
@@ -4059,19 +4073,7 @@ end"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
             </ToolScp>
-            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
-                <Str Str="PARTY"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="Looting_Buff"/>
-                <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="1"/>
-                <Num Num="100"/>
-                <Num Num="0"/>
-            </ToolScp>
-        </enterEvent>
+            </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
                 <Str Str="ALL"/>
@@ -4079,13 +4081,7 @@ end"/>
                 <Num Num="0"/>
                 <Str Str="JollyRoger_Buff"/>
             </ToolScp>
-            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="ALL"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="Looting_Buff"/>
-            </ToolScp>
-        </leaveEvent>
+            </leaveEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-100"/>

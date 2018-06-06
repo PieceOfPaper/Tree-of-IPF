@@ -193,6 +193,7 @@ function MARKET_FIRST_OPEN(frame)
 	end
 	end
 
+	tree:SetFitToChild(true, 5);
 	frame:SetUserValue("Group", "ShowAll");
 	frame:SetUserValue("ClassType", "ShowAll");
 
@@ -251,6 +252,12 @@ function GET_CHILD_NUMBER_VALUE(parent, childName)
 end
 
 function MARKET_REQ_LIST(frame)
+	-- 마켓 이용 중에는 자동매칭중이면 간소화!
+	local indunenter = ui.GetFrame('indunenter');
+	if indunenter ~= nil and indunenter:IsVisible() == 1 then
+		INDUNENTER_SMALL(indunenter, nil, true);
+	end
+
 	frame = frame:GetTopParentFrame();
 	frame:SetUserValue("Group", 'ShowAll');
 	frame:SetUserValue("ClassType", 'ShowAll');

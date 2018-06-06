@@ -646,13 +646,13 @@ function SETEXP_SLOT(gbox)
 	if IS_SEASON_SERVER(nil) == "YES" then
 		local cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
 		local val1 = cls1.Value;
-	if val1 ~= nil then
-	if val1 > 0.0 then
-		local class  = GetClassByType('Buff', 4540);	
-		percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val1 * 100);
-		index = index + 1;
+		if val1 ~= nil then
+			if val1 > 0.0 then
+				local class  = GetClassByType('Buff', 4540);	
+				percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val1 * 100);
+				index = index + 1;
+			end
 		end
-	end
 	end
 	]]--
 
@@ -660,14 +660,24 @@ function SETEXP_SLOT(gbox)
 		local cls2 = GetClass("SharedConst","JAEDDURY_NEXON_PC_EXP_RATE");
 		local val2 = cls2.Value;	
 		if val2 ~= nil then
-	if val2 > 0.0 then
-		local class  = GetClassByType('Buff', 4541);	
-		percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val2 * 100);
-		index = index + 1;
+			if val2 > 0.0 then
+				local class  = GetClassByType('Buff', 4541);	
+				percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val2 * 100);
+				index = index + 1;
 			end
-	end
+		end
 	end
 	
+	local class  = GetClass("Buff", "Event_CharExpRate");	
+	if class ~= nil then	
+		local handle = session.GetMyHandle();		
+		local charexpbuff = info.GetBuff(tonumber(handle), class.ClassID);				
+		if charexpbuff ~= nil then	
+			percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, charexpbuff.arg1);						
+			index = index + 1;
+		end
+	end
+		
 		--[[
 	--일반 파티 경험치 계산
 	local retParty = false;
@@ -766,7 +776,7 @@ function SETSLOTCTRL_EXP(cls, strIcon, parent, index, sum, perc)
 	tolua.cast(slotbox, "ui::CGroupBox");	
 	slotbox:EnableDrawFrame(0);
 
-	local newslot = slotbox:CreateOrGetControl('slot', 'slotExp_'..index, 42, 42, ui.LEFT, ui.TOP, 0, 0, 0, 0);	
+	local newslot = slotbox:CreateOrGetControl('slot', 'slotExp_'..index, 42, 42, ui.LEFT, ui.TOP, 0, 0, 0, 0);
 	tolua.cast(newslot, "ui::CSlot");	
 	if cls ~= nil then
 		newslot:SetEventScriptArgNumber(ui.RBUTTONUP, cls.ClassID);

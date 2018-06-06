@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_ridimed_atk1_cast"/>
-    <Sound frame="0.00" soundFile="mon_ridimed_burrow"/>
-    <Sound frame="4.00" soundFile="skl_eff_body_atk_2"/>
-    <Sound frame="4.00" soundFile="mon_ridimed_atk1_shot"/>
-    <Sound frame="4.00" soundFile="mon_sakmoli_atk_shot"/>
+	<Particle frame="5" attachNode="Bip001 Head" particleName="F_spark004_leaf" useAttach="true" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_ridimed_atk1_cast"/>
+	<Sound frame="0.00" soundFile="mon_ridimed_burrow"/>
+	<Sound frame="4.00" soundFile="skl_eff_body_atk_2"/>
+	<Sound frame="4.00" soundFile="mon_ridimed_atk1_shot"/>
+	<Sound frame="4.00" soundFile="mon_sakmoli_atk_shot"/>
 </ActionDesc>

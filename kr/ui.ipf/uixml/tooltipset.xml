@@ -159,12 +159,12 @@
 			<richtext name="desc" layout_gravity="center top" fontname="brown_16_b" rect="0 230 280 20" resizebytext="true" fixwidth="true" hittest="false" updateparent="true"/>
 		</controls>
 	</tooltip>
-	<tooltip name="ability" x="0" y="0" marginy="10" fixwidth="true" width="440" height="220" moveable="true" frameskin="avility_tooltip_passive2" UpdateScp="UPDATE_ABILITY_TOOLTIP" CustomUpdate="UPDATE_NEW_ABIL_TIP">
+	<tooltip name="ability" x="0" y="0" marginy="10" fixwidth="true" width="560" height="220" moveable="true" frameskin="avility_tooltip_passive2" UpdateScp="UPDATE_ABILITY_TOOLTIP" CustomUpdate="UPDATE_NEW_ABIL_TIP">
 		<controls>
 			<picture name="icon" layout_gravity="center top" rect="0 0 100 100" stretch="true" margin="0 25 0 0"/>
 			<richtext name="name" layout_gravity="center top" rect="0 150 280 20" fixwidth="false" hittest="false" updateparent="true"/>
 			<richtext name="type" layout_gravity="center top" rect="0 190 160 20" fixwidth="false" hittest="false" updateparent="true"/>
-			<richtext name="desc" layout_gravity="center top" fontname="brown_16_b" rect="0 230 280 20" fixwidth="true" hittest="false" updateparent="true"/>
+			<richtext name="desc" layout_gravity="center top" fontname="brown_16" rect="0 230 440 20" fixwidth="true" hittest="false" updateparent="true"/>
 		</controls>
 	</tooltip>
 	<tooltip name="buff" x="0" y="0" fixwidth="true" width="200" height="100" moveable="true" frameskin="downbox" UpdateScp="UPDATE_BUFF_TOOLTIP">

@@ -345,6 +345,12 @@
 	<Texture name="texture_fire001" texture="fire001" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="texture_test_1" texture="fire004" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="texture_test_2" texture="fire004" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Sprite name="sprit019_3" texture="sprite019_3" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="96" texel_height="192" loop="false" count="8" pitch="4" ticktime="0.02"/>
+	<Sprite name="sprite002_red" texture="sprite002_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.03"/>
+	<Sprite name="sprite002_puple" texture="sprite002_puple" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.03"/>
+	<Sprite name="sprite002_orange" texture="sprite002_orange" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.03"/>
+	<Sprite name="sprite002_green" texture="sprite002_green" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.03"/>
+	<Sprite name="sprite002_blue" texture="sprite002_blue" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.03"/>
 	<Sprite name="sprite002_lightning_blue" texture="sprite002_lightning_blue" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.05"/>
 	<Sprite name="sprite002_lightning_puple" texture="sprite002_lightning_puple" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.05"/>
 	<Sprite name="sprite002_lightning_red" texture="sprite002_lightning_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.05"/>
@@ -365,6 +371,7 @@
 	<Sprite name="sprit013" texture="sprit013" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
 	<Sprite name="sprit012" texture="sprit012" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
 	<Sprite name="sprit011" texture="sprit011" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="8" pitch="4" ticktime="0.03"/>
+	<Sprite name="sprit008_alpha" texture="sprit008_alpha" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
 	<Sprite name="sprit008_green" texture="sprit008_green" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
 	<Sprite name="sprit016_alpha" texture="sprit016_alpha" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
 	<Sprite name="sprit010_alpha" texture="sprit010_alpha" width="5.80" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
@@ -413,6 +420,19 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="arrow006_ignas_mon" model="arrow006_ignas_mon.xac" motion="None" texturepath="char_texture\monster\ignas\" overlap="false"/>
+	<Model name="porahound_skl3_mesh" model="porahound_skl3.xac" motion="None" texturepath="char_texture\monster\PoraHound\" overlap="false"/>
+	<Model name="tooth_mesh" model="tooth_mesh.xac" motion="tooth_mesh_ani.xsm" texturepath="char_texture\monster\PoraHound\" overlap="false"/>
+	<Model name="pbeta_ice_circle" model="pbeta_ice_circle.xac" motion="pbeta_ice_circle_ani.xsm" texturepath="char_texture\monster\Pbeta\" overlap="false"/>
+	<Model name="spiral_mesh001" model="spiral_mesh001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true"/>
+	<Model name="sphere_gradient_texture" model="sphere_gradient_texture.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>
+	<Model name="sphere_tilemap_mesh" model="sphere_tilemap_mesh.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>
+	<Model name="I_stone005_mesh" model="I_stone005_mesh.xac" motion="I_stone005_mesh_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
+	<Model name="I_stone004_mesh" model="I_stone004_mesh.xac" motion="I_stone004_mesh_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
+	<Model name="circle_half2" model="circle_half2.xac" motion="None" texturepath="\effect\high\texture\" overlap="false"/>
+	<Model name="circle_half" model="circle_half.xac" motion="None" texturepath="\effect\high\texture\" overlap="false"/>
+	<Model name="slash_glowing" model="slash_glowing.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true"/>
+	<Model name="I_thorn001_mesh" model="I_thorn001_mesh.xac" motion="I_thorn001_mesh.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="I_stone001_mesh" model="I_stone001_mesh.xac" motion="I_stone001_mesh.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="I_stone003_mesh" model="I_stone003_mesh.xac" motion="I_stone003_mesh_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="I_stone002_mesh" model="I_stone002_mesh.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>
@@ -583,7 +603,7 @@
 	<Model name="coffin_deadparts" model="coffin_deadparts.xac" motion="coffin_deadparts_ani.xsm" texturepath="char_texture\monster\coffin\" overlap="true"/>
 	<Model name="egg_deadparts" model="egg_deadparts.xac" motion="egg_deadparts_ani.xsm" texturepath="char_texture\monster\Egg\" overlap="true"/>
 	<Model name="lumberpus_dead" model="lumberpus_dead.xac" motion="lumberpus_dead_ani.xsm" texturepath="char_texture\monster\LumberPus\" overlap="true"/>
-	<Model name="rootopus_dead" model="rootopus_dead.xac" motion="rootopus_dead_ani.xsm" texturepath="None" overlap="true"/>
+	<Model name="rootopus_dead" model="rootopus_dead.xac" motion="rootopus_dead_ani.xsm" texturepath="char_texture\monster\rootopus\" overlap="true"/>
 	<Model name="kubas_dead" model="kubas_dead.xac" motion="kubas_dead_ani.xsm" texturepath="char_texture\monster\Kubas\" overlap="true"/>
 	<Model name="tombmaiden_dead" model="tombmaiden_dead.xac" motion="tombmaiden_dead_ani.xsm" texturepath="char_texture\monster\TombMaiden\" overlap="true"/>
 	<Model name="woodhoungan_dead" model="woodhoungan_dead.xac" motion="woodhoungan_dead_ani.xsm" texturepath="char_texture\monster\woodhoungan\" overlap="true"/>
@@ -908,7 +928,7 @@
 	<Model name="archer_bodkinpoint" model="archer_bodkinpoint.xac" motion="None" texturepath="char_texture\monster\large_crossbow\" overlap="false"/>
 	<Model name="ShadowGaoler_dead" model="ShadowGaoler_dead.xac" motion="ShadowGaoler_dead_ani.xsm" texturepath="char_texture\monster\boss_ShadowGaoler\" overlap="false"/>
 	<Model name="Stout_dead" model="Stout_dead.xac" motion="Stout_dead_ani.xsm" texturepath="char_texture\monster\Stout\" overlap="false"/>
-	<Model name="golem_gray_dead_1" model="golem_gray_dead_1.xac" motion="golem_gray_dead_1_ani.xsm" texturepath="None\" overlap="false"/>
+	<Model name="golem_gray_dead_1" model="golem_gray_dead_1.xac" motion="golem_gray_dead_1_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="Chafer_dead" model="Chafer_dead.xac" motion="Chafer_dead_ani.xsm" texturepath="char_texture\monster\Chafer\" overlap="false"/>
 	<Model name="toadalijus_dead" model="toadalijus_dead.xac" motion="toadalijus_dead_ani.xsm" texturepath="char_texture\monster\toadalijus\" overlap="false"/>
 	<Model name="Rocktortuga_dead" model="Rocktortuga_dead.xac" motion="Rocktortuga_dead_ani.xsm" texturepath="char_texture\monster\Rocktortuga\" overlap="false"/>
@@ -1205,6 +1225,11 @@
 	<Model name="I_fantasylibrary_arch_dead" model="fantasylibrary_arch_dead.xac" motion="fantasylibrary_arch_dead_ani.xsm" texturepath="char_texture\npc\fantasylibrary_arch\" overlap="false"/>
 	<Model name="boss_torelodeer_dead" model="boss_torelodeer_dead.xac" motion="boss_torelodeer_dead_ani.xsm" texturepath="char_texture\monster\torelodeer\" overlap="false"/>
 	<Model name="I_boss_aklasprincess_dead" model="boss_aklasprincess_dead.xac" motion="boss_aklasprincess_dead_ani.xsm" texturepath="char_texture\monster\boss_aklasprincess\" overlap="false"/>
+	<Model name="I_boss_velnipper_dead" model="boss_velnipper_dead.xac" motion="boss_velnipper_dead_ani.xsm" texturepath="char_texture\monster\velnipper\" overlap="false"/>
+	<Model name="I_boss_Kandlogre_dead" model="boss_Kandlogre_dead.xac" motion="boss_Kandlogre_dead_ani.xsm" texturepath="char_texture\monster\Kandlogre\" overlap="false"/>
+	<Model name="I_boss_velschariot_dead" model="boss_velschariot_dead.xac" motion="boss_velschariot_dead_ani.xsm" texturepath="char_texture\monster\velschariot\" overlap="false"/>
+	<Model name="I_boss_porahound_dead" model="boss_porahound_dead.xac" motion="boss_porahound_dead_ani.xsm" texturepath="char_texture\monster\porahound\" overlap="false"/>
+	<Model name="I_boss_WoodCenturion_dead" model="boss_WoodCenturion_dead.xac" motion="boss_WoodCenturion_dead_ani.xsm" texturepath="char_texture\monster\WoodCenturion\" overlap="false"/>
 	<Text name="Text_damage_self" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_damage_decision" caption="" fontfilename="ORIGINAL" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
 	<Text name="Text_destination" caption="" fontfilename="ORIGINAL" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
