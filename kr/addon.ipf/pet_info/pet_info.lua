@@ -402,11 +402,11 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 	local invItem = session.GetInvItemByGuid(liftIcon:GetIESID());
 	local slotlist = tolua.cast(parent, "ui::CSlotSet");
 	local itemObj = invItem:GetObject();
-	if itemObj == nil then
+	if itemObj ~= nil then
 		itemObj = GetIES(itemObj);
+	else
 		return;
 	end
-
 	local itemEnum = PET_EQUIP_PARTS_COUNT;
 	local group = TryGetProp(itemObj, "GroupName");
 	if group == "Weapon" or group == "SubWeapon" then
@@ -428,6 +428,19 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 
 	local isAble = petInfo:IsEquipable(itemEnum, typeEnum, slotSpot);
 	if isAble == false then
+		return;
+	end
+
+	local itemProp = geItemTable.GetPropByName(itemObj.ClassName);
+	local blongProp = TryGetProp(itemObj, "BelongingCount");
+	local blongCnt = 0;
+
+	if blongProp ~= nil then
+		blongCnt = tonumber(blongProp);
+	end
+
+	if itemProp:IsExchangeable() == false or GetTradeLockByProperty(itemObj) ~= "None" or 0 <  blongCnt then
+		ui.SysMsg(ClMsg("CantEquipItem"));
 		return;
 	end
 

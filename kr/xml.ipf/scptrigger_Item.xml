@@ -3377,7 +3377,7 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FireBall"/>
-						<Num Num="2"/>
+						<Num Num="2.8"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3390,20 +3390,7 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FireWall"/>
-						<Num Num="2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
-						<Str Str="Fire"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Pyromancer_FireWall"/>
-						<Num Num="2"/>
+						<Num Num="2.6"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3416,7 +3403,7 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_Flare"/>
-						<Num Num="3"/>
+						<Num Num="3.1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3429,7 +3416,7 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FirePillar"/>
-						<Num Num="4"/>
+						<Num Num="2.9"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3442,7 +3429,7 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_HellBreath"/>
-						<Num Num="5"/>
+						<Num Num="2.45"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3455,7 +3442,7 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FlameGround"/>
-						<Num Num="6"/>
+						<Num Num="1.6"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3468,7 +3455,7 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
 						<Str Str="Elementalist_Meteor"/>
-						<Num Num="7"/>
+						<Num Num="0.996"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3481,7 +3468,7 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
 						<Str Str="PlagueDoctor_Incineration"/>
-						<Num Num="9"/>
+						<Num Num="1.044"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3494,20 +3481,7 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
 						<Str Str="Elementalist_Prominence"/>
-						<Num Num="10"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
-						<Str Str="Fire"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Elementalist_Prominence"/>
-						<Num Num="10"/>
+						<Num Num="1.86"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>

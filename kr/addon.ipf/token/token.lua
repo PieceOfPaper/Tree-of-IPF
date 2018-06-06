@@ -407,7 +407,7 @@ function REQ_TOKEN_ITEM(parent, ctrl)
 			ui.MsgBox(str, yesScp, "None");
 			return;
 		end
-	elseif argList == "Premium_boostToken" or argList == "Premium_boostToken_14d" or argList == "Premium_boostToken_14d_test" then
+	elseif argList == "Premium_boostToken" or argList == "Premium_boostToken_14d" or argList == "Premium_boostToken_14d_test" or argList == "Premium_boostToken_test1min" then
 		local myHandle = session.GetMyHandle();
 		local buff = info.GetBuffByName(myHandle, 'Premium_boostToken');
 		if buff ~= nil then

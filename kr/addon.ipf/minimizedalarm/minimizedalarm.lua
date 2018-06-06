@@ -100,21 +100,22 @@ function OPEN_GUILDBATTLE_FRAME(frame)
 	frame:ShowWindow(0);
 	
 	OPEN_GUILDBATTLE_RANKING_TAB();
-end
-
-function OPEN_GUILDBATTLE_RANKING_TAB()
+	
 	ui.OpenFrame("guildbattle_league");	
-	local worldpvp =  ui.GetFrame("worldpvp");
-	worldpvp:ShowWindow(0);
-
-	local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");
-	GUILDBATTLE_RANKING_TAB_CHANGE(guildbattle_ranking);
-
 	local pvpFrame = ui.GetFrame("guildbattle_league");
 	local tab = GET_CHILD(pvpFrame, "tab");
 	if tab ~= nil then
 		tab:SelectTab(0);
 	end
+	
+end
+
+function OPEN_GUILDBATTLE_RANKING_TAB()
+	local worldpvp =  ui.GetFrame("worldpvp");
+	worldpvp:ShowWindow(0);
+
+	local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");
+	GUILDBATTLE_RANKING_TAB_CHANGE(guildbattle_ranking);
 end
 
 
