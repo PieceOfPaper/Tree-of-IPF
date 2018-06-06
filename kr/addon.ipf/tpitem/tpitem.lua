@@ -2225,11 +2225,11 @@ function TPSHOP_SELECTED_SPECIALGOODS_BANNER(tpSubgbox, control, strArg, numArg)
 	
 	local limitOnce = iteminfo.limitOnce;
 	local price = iteminfo.price;
-	local imgAddress = iteminfo.imgAddress;	
+	local imgAddress = iteminfo.tpItemClsId;	
 
 	local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
 	specialGoods = tolua.cast(specialGoods, "ui::CWebPicture");	
-	specialGoods:SetUrlInfo(imgAddress);
+	specialGoods:SetUrlInfo(GETBANNERURL(imgAddress));
 	specialGoods:Invalidate();
 	
 	local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
@@ -2269,13 +2269,13 @@ function TPSHOP_SELECTED_SPECIALPACKAGES_BANNER(tpSubgbox, control, strArg, numA
 	
 	local limitOnce = iteminfo.limitOnce;
 	local price = iteminfo.price;
-	local imgAddress = iteminfo.imgAddress;
+	local imgAddress = iteminfo.tpItemClsId;
 	local productNo = iteminfo.itemid;	
 	local itemClsID = iteminfo.tpItemClsId;				
 											
 	local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
 	specialGoods = tolua.cast(specialGoods, "ui::CWebPicture");	
-	specialGoods:SetUrlInfo(imgAddress);
+	specialGoods:SetUrlInfo(GETBANNERURL(imgAddress));
 	
 	local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
 	if GETPACKAGE_JOBNUM_BYJOBNGENDER() == retNum then
@@ -2591,7 +2591,7 @@ function _TPSHOP_BANNER(parent, control, argStr, argNum)
 		if string.len(strImage) <= 0 then
 			banner:SetImage("market_event_test");	--market_default
 		else
-			banner:SetUrlInfo(strImage);
+			banner:SetUrlInfo(GETBANNERURL(strImage));
 		end;
 		banner:SetUserValue("URL_BANNER", bannerInfo.clickUrl);
 		banner:SetUserValue("NUM_BANNER", 0);
@@ -2623,7 +2623,7 @@ function _PROCESS_ROLLING_BANNER()
 		if strImage == 'None' then
 			banner:SetImage("market_event_test");	--market_default	
 		else
-			banner:SetUrlInfo(strImage);
+			banner:SetUrlInfo(GETBANNERURL(strImage));
 		end;
 		banner:SetUserValue("URL_BANNER", bannerInfo.clickUrl);
 		banner:SetUserValue("NUM_BANNER", num);
@@ -2649,4 +2649,11 @@ function IS_ENABLE_EQUIP_CLASS(pc, needJobClassName, needJobGrade)
 	end
 
 	return true
+end
+
+function GETBANNERURL(webUrl)
+	
+	local url = config.GetBannerImgURL();	
+	local urlStr = string.format("%s%d.png", url,webUrl );
+	return urlStr;
 end

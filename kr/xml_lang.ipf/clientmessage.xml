@@ -5264,8 +5264,7 @@
 		<Class ClassID="106046" ClassName="CantReceiveItem" Data="아이템 수령에 실패하였습니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="106047" ClassName="IsBlackItem" Data="비정상 거래로 확인된 아이템입니다. 구매하실 수 없습니다."/>
 		<Class ClassID="106048" ClassName="PremiumRegMaxPrice{Price}" Data="해당 아이템의 등록 최대 가격은 {Price}실버 입니다."/>
-		<Class ClassID="106049" ClassName="InvalidFindItemQueryMin" Data="검색어는 1글자 보다 길어야합니다."/>
-		<Class ClassID="106050" ClassName="InvalidFindItemQueryMax" Data="검색어는 20자를 초과할 수 없습니다."/>
+		<Class ClassID="106049" ClassName="TooLongFindItemQuery" Data="검색어는 최대 20자를 초과할 수 없습니다."/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>

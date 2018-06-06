@@ -447,9 +447,20 @@ function ITEMTRANSCEND_EXEC(frame)
 		imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_BTN_OVER_SOUND"));
 		return;
 	end
-	
+
+	local itemObj = GetIES(invItem:GetObject());
+	local potential = TryGetProp(itemObj, "PR");
+	if potential == nil then
+		return;
+	end
+
+	local clmsg = ScpArgMsg("ReallyExecTranscend_PR_ZERO");
+	if potential ~= nil and potential > 0  then
+		clmsg = ScpArgMsg("ReallyExecTranscend");
+	end
+
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_BTN_OK_SOUND"));
-	ui.MsgBox_NonNested(ScpArgMsg("ReallyExecTranscend?"), frame:GetName(), "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL");			
+	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL");			
 end
 
 function _ITEMTRANSCEND_CANCEL()
