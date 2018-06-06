@@ -732,7 +732,7 @@ function SCR_INDUN_MULTIPLE_VALUE_SET(pc, alreadyJoin, missionInstID, indunMulti
             etcObj.IndunMultipleRate = etcObj.IndunMultipleRate_Reserve;
         else -- 재접속
             if etcObj.IndunMultipleZoneID == missionInstID and etcObj.IndunMultipleMGameName == indunMultipleMGameName then                
-                etcObj.IndunMultipleRate = etcObj.IndunMultipleRate_Reserve
+                -- 이전에 세팅한 값 그대로 가져갈 수 있도록 함                
             else
                 reset = true;
             end

@@ -25,6 +25,7 @@ end
 
 function INDUN_REWARD_SET(frame, msg, str, data)
 	local msgList = StringSplit(str, '#');
+	print('INDUN_REWARD_SET 1')
 	if #msgList < 1 then
 		return;
 	end
@@ -35,8 +36,8 @@ function INDUN_REWARD_SET(frame, msg, str, data)
 
 	frame:SetUserValue("IndunMultipleCount", inputMultiple);
 
-	--í˜„ìž¬ ë‚´ê°€ ì¸ë˜ì„ ëˆ íšŸìˆ˜
-	--í˜„ìž¬ ë‚´ê°€ ìµœëŒ€ë¡œ ì¸ë˜ì„ ëŒ ìˆ˜ ìžˆëŠ” íšŸìˆ˜
+	--ÇöÀç ³»°¡ ÀÎ´øÀ» µ· È½¼ö
+	--ÇöÀç ³»°¡ ÃÖ´ë·Î ÀÎ´øÀ» µ¹ ¼ö ÀÖ´Â È½¼ö
 
 	frame : SetUserValue("rewardStr", str)
     frame:ShowWindow(1);
@@ -107,7 +108,7 @@ function INDUN_REWARD_SET(frame, msg, str, data)
 	end
 	
 	picRank:SetImage(picRankName);
-
+	print('INDUN_REWARD_SET2')
 end
 
 function INDUN_REWARD_SET_FINAL(frame, msg, str, data)
@@ -224,7 +225,8 @@ function SCR_INDUN_GET_REWARD(frame)
 
 	local argStr = string.format("%d#", indunMultipleRate)
 	local multipleCount = frame:GetUserIValue("IndunMultipleCount");
-	
+	print('GEt ReWARD MULTIPLE CNT : ' .. tostring(multipleCount))
+
 	pc.ReqExecuteTx("SCR_TX_INDUN_CONTRIBUTION_REWARD", multipleCount);
 end
 
@@ -256,7 +258,7 @@ function INDUN_REWARD_MULTI_UP(frame, ctrl)
             return;
         end
     end
-       
+
     local itemCount = GET_MY_INDUN_MULTIPLE_ITEM_COUNT();    
     if itemCount == 0 then
         return;
@@ -281,17 +283,12 @@ function INDUN_REWARD_MULTI_UP(frame, ctrl)
 
     local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
 	nowCount = nowCount - 1
-
     local maxCount = TryGetProp(indunCls, 'PlayPerReset');
     if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
         maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_Token')
     end
-    if session.loginInfo.IsPremiumState(NEXON_PC) == true then
-        maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_NexonPC')
-    end
-	
+   
     local remainCount = maxCount - nowCount;
-
     if nowCnt >= remainCount then
         nowCnt = remainCount - 1;
         ui.SysMsg(ScpArgMsg('NotEnoughIndunEnterCount'));

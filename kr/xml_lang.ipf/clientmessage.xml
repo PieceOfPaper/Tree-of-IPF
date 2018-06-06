@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -7615,6 +7615,7 @@
 		<Class ClassID="134045" ClassName="IndunBadPlayerReport_Reason_Etc" Data="기타"/>
 		<Class ClassID="134046" ClassName="AlreadyReported_IndunBadPlayer" Data="하루에 한 번만 신고하실 수 있습니다. 감사합니다."/>
 		<Class ClassID="134047" ClassName="Success_IndunBadPlayer_Report" Data="신고 접수 되었습니다. 감사합니다."/>
+		<Class ClassID="134049" ClassName="ReenterMultipleNotAllowed" Data="재입장시에는 이전에 적용한 배수모드가 적용됩니다.{nl}재입장하시겠습니까?"/>
 	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
