@@ -56,7 +56,7 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
 
-	-- 갯수채크
+	-- 개수채크
 	local invItemList = session.GetInvItemList();
 	local i = invItemList:Head();
 	local count = 0;
@@ -139,6 +139,10 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 			return;
 		end
 
+	if nil ~= string.find(obj.ClassName, "PremiumToken") then
+		ui.AlarmMsg("ItemIsNotTradable");
+		return;
+	end
 
 		local invframe = ui.GetFrame("inventory");
 		if item:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU") 

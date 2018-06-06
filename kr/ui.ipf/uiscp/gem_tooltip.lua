@@ -51,7 +51,7 @@ function DRAW_GEM_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	local nameChild = GET_CHILD(CSet, "name", "ui::CRichText");
 	nameChild:SetText(fullname);
 
-	-- 레벨 몇인지 : 그냥 경험치만 표시하고 레벨은 별 갯수로 표시하도록 바꿈 - 140722 ayase
+	-- 레벨 몇인지 : 그냥 경험치만 표시하고 레벨은 별 개수로 표시하도록 바꿈 - 140722 ayase
 	local level_text = GET_CHILD(CSet,'level_text','ui::CGauge')
 	--level_text:SetTextByKey("level", invitem.Level);
 

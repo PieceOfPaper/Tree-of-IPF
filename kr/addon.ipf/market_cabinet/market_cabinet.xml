@@ -22,7 +22,7 @@
 		<button name="button_1_1_1" rect="0 0 400 45" margin="810 105 0 0" layout_gravity="left top" caption="{@st66b18}아이템 수령함" clicksound="button_click" oversound="button_over" skin="tab2_btn_clicked"/>
 		<labelline name="labelline_1" parent="market_low" rect="0 0 1250 2" margin="0 150 0 0" layout_gravity="center top" skin="None"/>
 		<groupbox name="title_1" rect="0 0 1390 50" margin="11 164 0 0" hittestbox="false" skin="base_btn" layout_gravity="left top"/>
-		<richtext name="richtext_1" margin="158 10 0 0" rect="0 0 120 50" caption="{@st45tw2}이름{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
-		<richtext name="category_totlaPrice" margin="970 10 0 0" rect="0 0 120 24" caption="{@st45tw2}개수{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+		<richtext name="richtext_1" margin="158 13 0 0" rect="0 0 120 50" caption="{@st45tw2}이름{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+		<richtext name="category_totlaPrice" margin="970 13 0 0" rect="0 0 120 24" caption="{@st45tw2}개수{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 	</controls>
 </uiframe>

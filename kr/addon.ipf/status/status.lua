@@ -45,13 +45,17 @@ function SHOW_TOKEN_REMAIN_TIME(ctrl)
 end
 
 function TOKEN_ON_MSG(frame, msg, argStr, argNum)
-
 	local logoutGBox = frame:GetChild("logoutGBox");
 	local logoutInternal = logoutGBox:GetChild("logoutInternal");
-	
-	local time = logoutInternal:GetChild("time");
+	local gToken = logoutInternal:GetChild("gToken");
+	local time = gToken:GetChild("time");
+	time:ShowWindow(0);
 	local accountObj = GetMyAccountObj();
+	local tokenList = gToken:GetChild("tokenList");
+	tokenList:RemoveAllChild();
+
 	if accountObj.TokenTime ~= "None " then
+		time:ShowWindow(1);
 		local sysTime = geTime.GetServerSystemTime();
 		local endTime = imcTime.GetSysTimeByStr(accountObj.TokenTime);
 		local difSec = imcTime.GetDifSec(endTime, sysTime);
@@ -59,44 +63,54 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 		time:SetUserValue("STARTSEC", imcTime.GetAppTime());
 		SHOW_TOKEN_REMAIN_TIME(time);
 		time:RunUpdateScript("SHOW_TOKEN_REMAIN_TIME");
-	else
-		time:SetUserValue("REMAINSEC", 0);
-		time:SetUserValue("STARTSEC", 0);
-		time:StopUpdateScript("SHOW_TOKEN_REMAIN_TIME");
-		time:SetTextByKey("value", "");
 	end
 	
-	if argNum ~= ITEM_TOKEN then
+	if argNum ~= ITEM_TOKEN or "No" == argStr then
 		return;
 	end
-
-	local tokenList = logoutInternal:GetChild("tokenList");
-	for i = 0 , 4 do
+	for i = 0 , 3 do
 		local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local str = GetCashTypeStr(ITEM_TOKEN, i)
+		if nil ~= str then
 		local prop = ctrlSet:GetChild("prop");
-		prop:SetTextByKey("value", ClMsg(str)); 
-
 		local normal = GetCashValue(0, str) 
 		local value = GetCashValue(ITEM_TOKEN, str)
 		local txt = "None"
 		if str == "marketSellCom" then
 			normal = normal + 0.01;
 			value = value + 0.01;
-			txt = math.floor(normal*100).. "% ->".. math.floor(value*100) .."%";
-		elseif str == "marketUpCom" then
-			txt = math.floor(normal*100).. "% ->".. math.floor(value*100) .."%";
-		elseif str =="abilityMax"then
-			txt = normal.. " -> +"..value;
+				local img = string.format("{img 67percent_image %d %d}", 55, 45) 
+				prop:SetTextByKey("value", img..ClMsg(str)); 
+				txt = string.format("{img 67percent_image2 %d %d}", 100, 45) 
+			elseif str =="abilityMax" then
+				local img = string.format("{img 2plus_image %d %d}", 55, 45) 
+				prop:SetTextByKey("value", img..ScpArgMsg(str.."{COUNT}", "COUNT", value)); 
+				txt = string.format("{img 2plus_image2 %d %d}", 100, 45) 
+			elseif str == "speedUp"then
+				local img = string.format("{img 3plus_image %d %d}", 55, 45) 
+				prop:SetTextByKey("value",img.. ScpArgMsg(str.."{COUNT}", "COUNT", value)); 
+				txt = string.format("{img 3plus_image2 %d %d}", 100, 45) 
 		else
-			txt = normal..ClMsg("Piece").." ->"..value .. ClMsg("Piece");
+				local img = string.format("{img 4plus_image %d %d}", 55, 45) 
+				prop:SetTextByKey("value", img..ScpArgMsg(str.."{COUNT}", "COUNT", value)); 
+				txt = string.format("{img 4plus_image2 %d %d}", 100, 45) 
 		end
 
 		local value = ctrlSet:GetChild("value");
 		value:SetTextByKey("value", txt); 
+		else
+			return; -- 패킷이 안온 상태
+	end
 	end
 
-	GBOX_AUTO_ALIGN(tokenList, 0, 10, 0, true, false);
+	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 5,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local prop = ctrlSet:GetChild("prop");
+	local imag = string.format("{img dealok_image %d %d}", 55, 45) 
+	prop:SetTextByKey("value", imag..ClMsg("CantTradeAbility")); 
+	local value = ctrlSet:GetChild("value");
+	value:ShowWindow(0);
+	
+	GBOX_AUTO_ALIGN(tokenList, 0, 0, 0, false, false);
 end
 
 function STATUS_ON_PC_COMMENT_CHANGE(frame)
@@ -748,7 +762,7 @@ function STATUS_INFO(frame)
 		DestroyIES(vpc);
 	end
 
-	-- 내가 받은 좋아요 갯수
+	-- 내가 받은 좋아요 개수
 	local loceCountText = GET_CHILD_RECURSIVELY(frame, "loceCountText")
 	loceCountText:SetTextByKey("Count",session.likeit.GetWhoLikeMeCount());
 
@@ -1194,7 +1208,7 @@ function EXEC_CHANGE_NAME(inputframe, ctrl)
 		return;
 	end
 
-	local str = ScpArgMsg('{TP}ReqChangeFamilyName', "TP", CHANGE_CAHR_NAME_TP);
+	local str = ScpArgMsg('{TP}ReqChangeCharName', "TP", CHANGE_CAHR_NAME_TP);
 	if nil == str then
 		return;
 	end
@@ -1421,69 +1435,37 @@ function STATUS_ACHIEVE_INIT(frame)
 	local nowengname = imcIES.GetString(nowhaircls, 'EngName') 
 	local nowcolor = imcIES.GetString(nowhaircls, 'ColorE')
 	nowcolor = string.lower(nowcolor)
-
-	local founddefaultindex = 1
-
-	for i = nowheadindex, 0, -1 do
-
+	
+	local haircount = 0;
+	for i = 0, Selectclasslist:Count() do
 		local eachcls = Selectclasslist:GetByIndex(i);
-
 		if eachcls ~= nil then
-
 			local eachengname = imcIES.GetString(eachcls, 'EngName') 
-
 			if eachengname == nowengname then
-				founddefaultindex = i;	
-			end
-
-		else
-			break
-		end
-
-	end
-
-	local haircount = 0
-
-	for i = founddefaultindex, Selectclasslist:Count() do
-
-		local eachcls = Selectclasslist:GetByIndex(i);
-
-		if eachcls ~= nil then
-
-			local eachengname = imcIES.GetString(eachcls, 'EngName') 
-
-			if eachengname ~= nowengname then
-				break;
-			end
-
-			local eachColorE = imcIES.GetString(eachcls, 'ColorE') 
-			local eachColor = imcIES.GetString(eachcls, 'Color') 
-			eachColorE = string.lower(eachColorE)
-
-			if string.find(nowAllowedColor, eachColorE) ~= nil then -- 이미 소유중이라면
 				
-				local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_'..haircount, 30 + 35 * haircount, 55, 35, 35);
-				tolua.cast(eachhairimg, "ui::CPicture");
-				
-				local colorimgname = GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(eachColorE)
-				
-				eachhairimg:SetImage(colorimgname); 
+				local eachColorE = imcIES.GetString(eachcls, 'ColorE') 
+				local eachColor = imcIES.GetString(eachcls, 'Color') 
+				eachColorE = string.lower(eachColorE)
 
-				eachhairimg:SetTextTooltip(eachColor)
-				eachhairimg:SetEventScript(ui.LBUTTONDOWN, "REQ_CHANGE_HAIR_COLOR");
-				eachhairimg:SetEventScriptArgNumber(ui.LBUTTONDOWN, i+1);
+				if string.find(nowAllowedColor, eachColorE) ~= nil then -- 이미 소유중이라면
 				
-				if nowcolor == eachColorE then
+					local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_'..haircount, 30 + 35 * haircount, 55, 35, 35);
+					tolua.cast(eachhairimg, "ui::CPicture");
+				
+					local colorimgname = GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(eachColorE)
+					eachhairimg:SetImage(colorimgname); 
+					eachhairimg:SetTextTooltip(eachColor)
+					eachhairimg:SetEventScript(ui.LBUTTONDOWN, "REQ_CHANGE_HAIR_COLOR");
+					eachhairimg:SetEventScriptArgString(ui.LBUTTONDOWN, eachColorE);
+				
+					if nowcolor == eachColorE then
+						local selectedimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_Selected', 30 + 35 * haircount, 45, 35, 35);
+						tolua.cast(selectedimg, "ui::CPicture");
+						selectedimg:SetImage('color_check');
+					end
 
-					local selectedimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_Selected', 30 + 35 * haircount, 45, 35, 35);
-					tolua.cast(selectedimg, "ui::CPicture");
-					selectedimg:SetImage('color_check'); 
-
+					haircount = haircount + 1
 				end
-
-
-				haircount = haircount + 1
-				
 			end
 		end
 	end
@@ -1524,8 +1506,8 @@ function STATUS_ACHIEVE_INIT(frame)
 
 end
 
-function REQ_CHANGE_HAIR_COLOR(frame, ctrl, argStr, hairindex)
-	item.ReqChangeHead(hairindex);
+function REQ_CHANGE_HAIR_COLOR(frame, ctrl, hairColorName)
+	item.ReqChangeHead(hairColorName);
 end
 
 

@@ -14,7 +14,6 @@ function BUFF_ON_INIT(addon, frame)
 	addon:RegisterMsg('BUFF_ADD', 'BUFF_ON_MSG');
 	addon:RegisterMsg('BUFF_REMOVE', 'BUFF_ON_MSG');
 	addon:RegisterMsg('BUFF_UPDATE', 'BUFF_ON_MSG');
-	addon:RegisterMsg('PREMIUM_STATE_UPDATE', 'BUFF_PREMIUM_ON_MSG');
 
 	INIT_BUFF_UI(frame, s_buff_ui, "MY_BUFF_TIME_UPDATE");
 	INIT_PREMIUM_BUFF_UI(frame);
@@ -33,98 +32,8 @@ function INIT_PREMIUM_BUFF_UI(frame)
 	end
 
 end
-function BUFF_PREMIUM_ON_MSG(frame, msg, argStr, argNum)
-	local slotSet		= frame:GetChild('premium');
-	slotSet = tolua.cast(slotSet, 'ui::CSlotSet');
-	if slotSet == nil then
-		return;
-	end	
-
-	if argStr == "NO" then
-		local count = slotSet:GetSlotCount();
-		for i = 0, count-1 do
-			local slot = slotSet:GetSlotByIndex(i);	
-			local type = slo:GetUserIValue("Type");
-			if type == argNum then
-				slot:ShowWindow(0);
-				return;
-			end
-		end
-	end
-
-	local count = slotSet:GetSlotCount();
-	for i = 0, count-1 do
-		local slot = slotSet:GetSlotByIndex(i);	
-		if 0 == slot:IsVisible() then
-			local icon 		= slot:GetIcon();
-			if nil == icon then
-				icon = CreateIcon(slot);
-			end
-			icon:SetDrawCoolTimeText(0);
-			slot:ShowWindow(1);
-			icon:SetTooltipType('premium');
-			icon:SetTooltipNumArg(argNum);
-			if argNum == ITEM_TOKEN then
-				icon:SetImage("icon_token");
-				return;
-			elseif argNum == NEXON_PC then
-				icon:SetImage("icon_nexonpc");
-				return;
-			end
-		end
-	end
-end
-
-function INIT_BUFF_UI(frame, buff_ui, updatescp)
-
-	local slotcountSetPt		= frame:GetChild('buffcountslot');
-	local slotSetPt				= frame:GetChild('buffslot');
-	local deslotSetPt			= frame:GetChild('debuffslot');
-
-	buff_ui["slotsets"][0]			= tolua.cast(slotcountSetPt, 'ui::CSlotSet');
-	buff_ui["slotsets"][1]			= tolua.cast(slotSetPt, 'ui::CSlotSet');
-	buff_ui["slotsets"][2]			= tolua.cast(deslotSetPt, 'ui::CSlotSet');
-
-	for i = 0 , buff_ui["buff_group_cnt"] do
-	buff_ui["slotcount"][i] = 0;
-	buff_ui["slotlist"][i] = {};
-	buff_ui["captionlist"][i] = {};
-		while 1 do
-			if buff_ui["slotsets"][i] == nil then
-				break;
-			end
-
-			local slot = buff_ui["slotsets"][i]:GetSlotByIndex(buff_ui["slotcount"][i]);
-			if slot == nil then
-				break;
-			end
-
-			buff_ui["slotlist"][i][buff_ui["slotcount"][i]] = slot;
-			slot:ShowWindow(0);
-			local icon = CreateIcon(slot);
-			icon:SetDrawCoolTimeText(0);
 
 
-			local x = buff_ui["slotsets"][i]:GetX() + slot:GetX() + buff_ui["txt_x_offset"];
-			local y = buff_ui["slotsets"][i]:GetY() + slot:GetY() + slot:GetHeight() + buff_ui["txt_y_offset"];
-
-			local capt = frame:CreateOrGetControl('richtext', "_t_" .. i .. "_".. buff_ui["slotcount"][i], x, y, 50, 20);
-			--capt:SetTextAlign("center", "top");
-			capt:SetFontName("yellow_13");
-			buff_ui["captionlist"][i][buff_ui["slotcount"][i]] = capt;
-
-			buff_ui["slotcount"][i] = buff_ui["slotcount"][i] + 1;
-		end
-
-	end
-
-
-	local timer = frame:GetChild("addontimer");
-	tolua.cast(timer, "ui::CAddOnTimer");
-	timer:SetUpdateScript(updatescp);
-	timer:Start(0.45);
-
-end
 
 function SET_BUFF_TIME_TO_TEXT(text, time)
 
@@ -132,49 +41,6 @@ function SET_BUFF_TIME_TO_TEXT(text, time)
 
 end
 
-function BUFF_TIME_UPDATE(handle, buff_ui)
-
-	local updated = 0;
-	for j = 0 , buff_ui["buff_group_cnt"] do
-
-		local slotlist = buff_ui["slotlist"][j];
-		local captlist = buff_ui["captionlist"][j];
-		if buff_ui["slotcount"][j] ~= nil and buff_ui["slotcount"][j] >= 0 then
-    		for i = 0,  buff_ui["slotcount"][j] - 1 do
-    
-    			local slot		= slotlist[i];
-    			local text		= captlist[i];
-    
-    			if slot:IsVisible() == 1 then
-    				local icon 		= slot:GetIcon();
-    				local iconInfo = icon:GetInfo();
-					local buffIndex = icon:GetUserIValue("BuffIndex");
-    				local buff = info.GetBuff(handle, iconInfo.type, buffIndex);
-    				if buff ~= nil then
-    					SET_BUFF_TIME_TO_TEXT(text, buff.time);
-    					updated = 1;
-    
-    					if buff.time < 5000 and buff.time ~= 0.0 then
-    						if slot:IsBlinking() == 0 then
-    							slot:SetBlink(600000, 1.0, "55FFFFFF", 1);
-    						end
-    					else
-    						if slot:IsBlinking() == 1 then
-    							slot:ReleaseBlink();
-    						end
-    					end
-    				end
-    			end
-    		end
-		end
-	end
-
-	if updated == 1 then
-		ui.UpdateVisibleToolTips("buff");
-	end
-
-
-end
 
 function MY_BUFF_TIME_UPDATE(frame, timer, argstr, argnum, passedtime)
 
@@ -286,8 +152,19 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 		slot:ShowWindow(1);
 	end
 	
+	if class.ClassName == "Premium_Nexon" or class.ClassName =="" then
+		icon:SetTooltipType('premium');
+		local argNum = 0;
+		if class.ClassName == "Premium_Nexon" then
+			argNum = NEXON_PC;
+		else
+			argNum = ITEM_TOKEN;
+		end
+		icon:SetTooltipNumArg(argNum);
+	else
 	icon:SetTooltipType('buff');
 	icon:SetTooltipArg(handle, buffType, "");
+	end
 
 	--slot:SetSkinName(class.SlotType);
 

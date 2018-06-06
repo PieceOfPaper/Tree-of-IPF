@@ -10,6 +10,11 @@ function PARTY_INFO_UPDATE_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userD
 	local name = GET_CHILD_RECURSIVELY(tooltipframe,"partyname")
 	local nearPartyList = session.party.GetNearPartyList();
 	local eachpartyinfo = nearPartyList:Element(numarg1).partyInfo
+
+	if eachpartyinfo == nil then
+		return;
+	end
+
 	local eachpartymemberlist = nearPartyList:Element(numarg1):GetMemberList()
 
 	local ppartyobj = eachpartyinfo:GetObject();
@@ -31,6 +36,21 @@ function PARTY_INFO_UPDATE_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userD
 	
 	local memo = GET_CHILD_RECURSIVELY(tooltipframe,'partymemo')
 	memo:SetText(partyObj["Note"])
+
+	
+	local elapsedTime = session.party.GetHowOldPartyCreated(eachpartyinfo);
+	local timeString = GET_TIME_TXT_DHM(elapsedTime);
+	
+	local createdTimeTxt = GET_CHILD_RECURSIVELY(tooltipframe,'createdTime')
+
+	if elapsedTime < 0 or elapsedTime > 315360000 then
+		createdTimeTxt:ShowWindow(0)
+	else
+	createdTimeTxt:SetTextByKey('createtime',timeString)
+		createdTimeTxt:ShowWindow(1)
+	end
+	
+	
 
 	local meminfogbox = GET_CHILD_RECURSIVELY(tooltipframe,'meminfo')
 

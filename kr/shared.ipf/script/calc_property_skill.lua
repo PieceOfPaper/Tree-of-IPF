@@ -8326,7 +8326,7 @@ function SCR_GET_StereaTrofh_Ratio(skill)
 end
 
 function SCR_GET_Chortasmata_Bufftime(skill)
-    local value = 10
+    local value = 10 + skill.Level
     
     local pc = GetSkillOwner(skill)
     local Druid1_abil = GetAbility(pc, "Druid1")

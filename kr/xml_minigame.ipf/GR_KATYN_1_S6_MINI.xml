@@ -5,6 +5,16 @@
 		<StageList>
 			<Stage Name="SETTING">
 				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="INI">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="KATYN_1_S6_BOSS_RUN"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
 			</Stage>
 			<Stage Name="FAIL" AutoStart="0">
 				<StartScpList>
@@ -37,8 +47,8 @@
 						<Num Num="10"/>
 					</ToolScp>
 					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="목표 완료!"/>
-						<Str Str="stage_clear"/>
+						<Str Str="목표 완료!{nl}세콰이를 쫒아 대왕의 관문으로 향하세요"/>
+						<Str Str="move_to_point"/>
 						<Num Num="10"/>
 					</ToolScp>
 				</StartScpList>
@@ -52,7 +62,7 @@
 						</condList>
 						<execList>
 							<ToolScp Scp="MGAME_GUILD_RAID_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
+								<Num Num="5"/>
 							</ToolScp>
 						</execList>
 					</Event>
@@ -65,8 +75,41 @@
 						<Str Str="stage_ready"/>
 						<Num Num="10"/>
 					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="10"/>
+					</ToolScp>
 				</StartScpList>
-				<ObjList/>
+				<ObjList>
+					<Obj Type="Monster" MonType="740004" Pos="-2182.10#505.10#779.14" angle="-43" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="KATYN_1_S6_BOSS_RUN_NPC_AI"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+									<Str Str="SLEEP"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str Str="HPLock"/>
+									<Num Num="90000"/>
+									<Num Num="0"/>
+									<Num Num="0"/>
+									<Num Num="1"/>
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
 				<StageEvents>
 					<Event execCount="1" eventName="TO_PROG">
 						<condList>
@@ -87,17 +130,28 @@
 			</Stage>
 			<Stage Name="STAGE_1_PROG" AutoStart="0">
 				<StartScpList>
-					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="5"/>
+					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+						<Str Str="세콰이어를 공격하세요"/>
+						<Str Str="stage_start"/>
+						<Num Num="10"/>
 					</ToolScp>
 				</StartScpList>
 				<ObjList/>
 				<StageEvents>
-					<Event eventName="INI"/>
+					<Event execCount="1" eventName="INI">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE_1_READY/0"/>
+								<Str Str="KATYN_1_S6_BOSS_RUN_FACTION_CHANGE"/>
+							</ToolScp>
+						</execList>
+					</Event>
 					<Event execCount="1" eventName="END">
 						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="5"/>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="KATYN_1_S6_BOSS_RUN"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
 							</ToolScp>
 						</condList>
 						<execList>
@@ -122,6 +176,9 @@
 						<Str Str="stage_clear"/>
 						<Num Num="10"/>
 					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="10"/>
+					</ToolScp>
 				</StartScpList>
 				<ObjList/>
 				<StageEvents>
@@ -140,6 +197,14 @@
 							</ToolScp>
 						</execList>
 					</Event>
+					<Event execCount="1" eventName="CHANGE">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE_1_READY/0"/>
+								<Str Str="KATYN_1_S6_BOSS_RUN_NPC_P2"/>
+							</ToolScp>
+						</execList>
+					</Event>
 				</StageEvents>
 			</Stage>
 			<Stage Name="STAGE_2_READY" AutoStart="0">
@@ -149,13 +214,31 @@
 						<Str Str="stage_ready"/>
 						<Num Num="10"/>
 					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="5"/>
+					</ToolScp>
 				</StartScpList>
-				<ObjList/>
+				<ObjList>
+					<Obj Type="Monster" MonType="740007" Pos="-2291.99#505.17#883.48" angle="-39" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="300"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
 				<StageEvents>
 					<Event execCount="1" eventName="TO_PROG">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
+								<Num Num="5"/>
 							</ToolScp>
 						</condList>
 						<execList>
@@ -171,17 +254,29 @@
 			</Stage>
 			<Stage Name="STAGE_2_PROG" AutoStart="0">
 				<StartScpList>
-					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="5"/>
+					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+						<Str Str="세콰이아의 난동으로 일티스워트가 나타났습니다"/>
+						<Str Str="stage_start"/>
+						<Num Num="10"/>
 					</ToolScp>
 				</StartScpList>
 				<ObjList/>
 				<StageEvents>
-					<Event eventName="INI"/>
+					<Event execCount="1" eventName="INI">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_DIRECTION" Client="NO" UseSleep="NO">
+								<Str Str="raid_f_katyn_12_track"/>
+							</ToolScp>
+						</execList>
+					</Event>
 					<Event execCount="1" eventName="END">
 						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE_2_READY/0"/>
+								<Num Num="0"/>
+							</ToolScp>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="5"/>
+								<Num Num="10"/>
 							</ToolScp>
 						</condList>
 						<execList>
@@ -217,178 +312,10 @@
 						</condList>
 						<execList>
 							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_3_READY"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_2_END"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="STAGE_3_READY" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="곧 세 번째 목표가 시작 됩니다"/>
-						<Str Str="stage_ready"/>
-						<Num Num="10"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="TO_PROG">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_3_PROG"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_3_READY"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="STAGE_3_PROG" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="5"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList/>
-				<StageEvents>
-					<Event eventName="INI"/>
-					<Event execCount="1" eventName="END">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="5"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_3_PROG"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_3_PROG"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_3_END"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event eventName="ACT_1"/>
-				</StageEvents>
-			</Stage>
-			<Stage Name="STAGE_3_END" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="세 번째 목표를 완료했습니다"/>
-						<Str Str="stage_clear"/>
-						<Num Num="10"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="TO_STAGE_4">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_4_READY"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_3_END"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="STAGE_4_READY" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="곧 네 번째 목표가 시작 됩니다"/>
-						<Str Str="stage_ready"/>
-						<Num Num="10"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="TO_PROG">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_4_PROG"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_4_READY"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="STAGE_4_PROG" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="5"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList/>
-				<StageEvents>
-					<Event eventName="INI"/>
-					<Event execCount="1" eventName="END">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="5"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_4_PROG"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_4_PROG"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_4_END"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event eventName="ACT_1"/>
-				</StageEvents>
-			</Stage>
-			<Stage Name="STAGE_4_END" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="네 번째 목표를 완료했습니다"/>
-						<Str Str="stage_clear"/>
-						<Num Num="10"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="TO_STAGE_5">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
 								<Str Str="SUCCESS"/>
 							</ToolScp>
 							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_4_END"/>
+								<Str Str="STAGE_2_END"/>
 							</ToolScp>
 						</execList>
 					</Event>

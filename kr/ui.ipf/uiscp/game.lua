@@ -72,7 +72,6 @@ function CREATE_ITEM_TEMP()
 
 		if IS_NO_EQUIPITEM(cls) == 0 and cls.Weight < 2 then
 			local key = cls.ClassID;
-			print(key)
 			ui.Chat("//item ".. key)
 		end
 		
@@ -192,7 +191,6 @@ function MAKE_NPC_LIST_TO_HTML()
 	file:write(retstring)
 	file:close()
 
-	print("MAKE_NPC_LIST_TO_HTML")
 
 end
 
@@ -208,7 +206,6 @@ function MAKE_ALL_DEFAULT_HAIR()
 		for i = 1, Selectclasslist:Count() do
 
 			local name = ui.CaptureModelHeadImageByHairtype(gender,i)
-			print(name)
 			
 		end
 
@@ -2129,7 +2126,6 @@ function ITEM_EQUIP_EXCEPTION(item)
 	end
 
 	local result = CHECK_EQUIPABLE(item.type);
-	print(item.type, result, item.ClassName);
 	if result ~= "OK" then
 		ui.MsgBox(ITEM_REASON_MSG(result));
 		return 0

@@ -4,7 +4,7 @@
 
 -- Time text can be variable between nations
 
-function GET_TIME_TXT(sec)
+function GET_TIME_TXT(sec, hour)
 
 	sec = math.floor(sec)
 
@@ -19,11 +19,18 @@ function GET_TIME_TXT(sec)
 	if h > 0 then
 		ret = ret .. ScpArgMsg("{Hour}","Hour",h) .. " ";
 		started = 1;
+		if nil ~= hour then
+			return ret;
+		end
+	else	
+		return ret;
 	end
 
 	if m >= 0 then
 		ret = ret .. ScpArgMsg("{Min}","Min",m) .. " ";
 		started = 1;
+	else
+		return ret;
 	end
 	
 --if s == 0 and ret ~= "" then
@@ -126,27 +133,29 @@ function SofS(thing, owner)
 	
 end
 
-function GET_DIFF_TIME_TXT(nowtime, beforetime)
+function GET_DIFF_TIME_TXT(sec)
 
-	if beforetime.wYear < nowtime.wYear then
-		return ScpArgMsg("{Year}Ago", "Year", nowtime.wYear - beforetime.wYear)
+	local mon = 60 * 60 * 24 * 30
+	local day = 60 * 60 * 24
+	local hour = 60 * 60
+	local min = 60
+
+	if (sec / mon) > 1 then
+		return ScpArgMsg("{Month}Ago", "Month", math.floor(sec/mon) )
 	end
 
-	if beforetime.wMonth < nowtime.wMonth then
-		return ScpArgMsg("{Month}Ago", "Month", nowtime.wMonth - beforetime.wMonth)
+	if (sec / day) > 1 then
+		return ScpArgMsg("{Day}Ago", "Day", math.floor(sec/day) )
 	end
 
-	if beforetime.wDay < nowtime.wDay then
-		return ScpArgMsg("{Day}Ago", "Day", nowtime.wDay - beforetime.wDay)
+	if (sec / hour) > 1 then
+		return ScpArgMsg("{Hour}Ago", "Hour", math.floor(sec/hour) )
 	end
 
-	if beforetime.wHour < nowtime.wHour then
-		return ScpArgMsg("{Hour}Ago", "Hour", nowtime.wHour - beforetime.wHour)
-	end
-
-	if beforetime.wMinute < nowtime.wMinute then
-		return ScpArgMsg("{Min}Ago", "Min", nowtime.wMinute - beforetime.wMinute)
+	if (sec / min) > 1 then
+		return ScpArgMsg("{Min}Ago", "Min", math.floor(sec/min) )
 	end
 
 	return ScpArgMsg("JustBefore")
+	
 end

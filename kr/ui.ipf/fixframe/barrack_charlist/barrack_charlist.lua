@@ -58,6 +58,9 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 		return;
 	end
 
+	local buySlot = frame:GetChild("buySlot");
+	local buySlotCnt = session.loginInfo.GetBuySlotCount();
+	buySlot:SetTextByKey("value", tostring(buySlotCnt));
 	CREATE_SCROLL_CHAR_LIST(frame, actor);
 end
 
@@ -200,6 +203,7 @@ function CREATE_SCROLL_NEW_CHAR(frame)
 end
 
 function UPDATE_SELECT_CHAR_SCROLL(frame)
+	local acc = session.barrack.GetMyAccount();
 
 	local scrollBox = frame:GetChild("scrollBox");
 	for i=0, scrollBox:GetChildCount()-1 do

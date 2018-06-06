@@ -1,7 +1,7 @@
 
 
 g_credintimageNum = 1
-MAX_IMAGE_NUM = 4
+MAX_IMAGE_NUM = 5
 
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ppiac (IMCGames Co., Ltd) -->
 <idspace id="AnimOverrideList">
 	<Category>
 		<Class ClassID="1" ClassName="mon_zealot">
@@ -923,6 +923,7 @@
 			<Node1 ClassID="30" ClassName="BATTLESTART" FileName="monster\wood_spirit_02\monster_wood_spirit_02_battlestart"/>
 			<Node1 ClassID="31" ClassName="WLK" FileName="monster\wood_spirit_02\monster_wood_spirit_02_wlk"/>
 			<Node1 ClassID="32" ClassName="RUN" FileName="monster\wood_spirit_02\monster_wood_spirit_02_run"/>
+			<Node1 ClassID="33" ClassName="EVENT_BORN" FileName="monster\wood_spirit_02\monster_wood_spirit_02_event_born"/>
 		</Class>
 		<Class ClassID="47001" ClassName="Onion_Big">
 			<Node1 ClassID="1" ClassName="STD" FileName="monster\onion\monster_onion_astd"/>
@@ -3114,6 +3115,11 @@
 			<Node1 ClassID="26" ClassName="RIGHTTURN_EVENT" FileName="monster\Sequoia\sequoia_rightturn_event"/>
 			<Node1 ClassID="27" ClassName="IDLE_EVENT" FileName="monster\Sequoia\sequoia_idle_event"/>
 			<Node1 ClassID="28" ClassName="SKL_READY_EVENT" FileName="monster\Sequoia\sequoia_skl_ready_event"/>
+			<Node1 ClassID="29" ClassName="EVENT_WAKEUP" FileName="monster\Sequoia\sequoia_event_wakeup"/>
+			<Node1 ClassID="30" ClassName="EVENT_IDLE" FileName="monster\Sequoia\sequoia_event_idle"/>
+			<Node1 ClassID="31" ClassName="EVENT_CRAZY" FileName="monster\Sequoia\sequoia_event_crazy"/>
+			<Node1 ClassID="32" ClassName="EVENT_CRAZY2" FileName="monster\Sequoia\sequoia_event_crazy2"/>
+			<Node1 ClassID="33" ClassName="EVENT_SKL" FileName="monster\Sequoia\sequoia_event_skl"/>
 		</Class>
 		<Class ClassID="401681" ClassName="Fallen_Statue">
 			<Node1 ClassID="1" ClassName="STD" FileName="monster\Fallen_Statue\Fallen_Statue_astd"/>

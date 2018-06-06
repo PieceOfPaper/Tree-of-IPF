@@ -99,3 +99,123 @@ end
 
 
 
+
+function RESIZE_FRAME(parent, ctrl)
+
+	local frame = parent:GetTopParentFrame();
+	local mx, my = GET_MOUSE_POS();
+	mx = mx / ui.GetRatioWidth();
+	my = my / ui.GetRatioHeight();
+	frame:SetUserValue("MOUSE_X", mx);
+	frame:SetUserValue("MOUSE_Y", my);
+	frame:SetUserValue("BEFORE_W", frame:GetWidth());
+	frame:SetUserValue("BEFORE_H", frame:GetHeight());
+	frame:StopUpdateScript("_PROCESS_MOVE_FRAME");
+	frame:RunUpdateScript("_PROCESS_RESIZE_FRAME",  0.01, 0.0, 0, 1);
+	
+end
+
+
+function _PROCESS_RESIZE_FRAME(frame)
+
+	if mouse.IsLBtnPressed() == 0 then
+		return 0;
+	end
+
+	local mx, my = GET_MOUSE_POS();
+	mx = mx / ui.GetRatioWidth();
+	my = my / ui.GetRatioHeight();
+	local bx = frame:GetUserIValue("MOUSE_X");
+	local by = frame:GetUserIValue("MOUSE_Y");
+
+	local dx = (mx - bx);
+	local dy = (my - by);
+
+	local width = frame:GetUserIValue("BEFORE_W");
+	local height = frame:GetUserIValue("BEFORE_H");
+	width = width + dx;
+	height = height + dy;
+	frame:Resize(width, height);
+
+	return 1;
+
+end
+
+
+function MOVE_FRAME(parent, ctrl)
+
+	local frame = parent:GetTopParentFrame();
+	local mx, my = GET_MOUSE_POS();
+	mx = mx / ui.GetRatioWidth();
+	my = my / ui.GetRatioHeight();
+	frame:SetUserValue("MOUSE_X", mx);
+	frame:SetUserValue("MOUSE_Y", my);
+	frame:SetUserValue("BEFORE_W", frame:GetX());
+	frame:SetUserValue("BEFORE_H", frame:GetY());
+	frame:StopUpdateScript("_PROCESS_RESIZE_FRAME");
+	frame:RunUpdateScript("_PROCESS_MOVE_FRAME",  0.01, 0.0, 0, 1);
+	
+end
+
+function SET_MOVE_END_CALLBACK(parent, cbFunc)
+	local frame = parent:GetTopParentFrame();
+	frame:SetUserValue("MOVE_END_CB", cbFunc);
+end
+
+function SET_MOVE_PROCESS_CALLBACK(parent, cbFunc)
+	local frame = parent:GetTopParentFrame();
+	frame:SetUserValue("MOVE_PRO_CB", cbFunc);
+	frame:RunUpdateScript("UPDATE_MOVE_PROCESS_CB",  0.01, 0.0, 0, 1);
+	
+end
+
+function UPDATE_MOVE_PROCESS_CB(frame)
+
+	if false == frame:HaveUpdateScript("_PROCESS_MOVE_FRAME") then
+		return 0;
+	end
+
+	local procCB = frame:GetUserValue("MOVE_PRO_CB");
+	local func = _G[procCB];
+	if 0 == func(frame) then
+		return 0;
+	end
+
+	return 1;
+
+end
+
+function _PROCESS_MOVE_FRAME(frame)
+
+	if mouse.IsLBtnPressed() == 0 then
+
+		local cbFunc = frame:GetUserValue("MOVE_END_CB");
+		if cbFunc ~= "None" then
+			local fun = _G[cbFunc];
+			frame:SetUserValue("MOVE_END_CB", "None");
+			fun(frame);
+		end
+
+		return 0;
+	end
+
+	local mx, my = GET_MOUSE_POS();
+	mx = mx / ui.GetRatioWidth();
+	my = my / ui.GetRatioHeight();
+	local bx = frame:GetUserIValue("MOUSE_X");
+	local by = frame:GetUserIValue("MOUSE_Y");
+
+	local dx = (mx - bx);
+	local dy = (my - by);
+
+	local width = frame:GetUserIValue("BEFORE_W");
+	local height = frame:GetUserIValue("BEFORE_H");
+	width = width + dx;
+	height = height + dy;
+	frame:SetOffset(width, height);
+
+	return 1;
+
+end
+
+

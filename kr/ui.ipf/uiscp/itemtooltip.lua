@@ -96,6 +96,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 			if itemObj.DefaultEqpSlot == 'RH' then
 				
 				local item = session.GetEquipItemBySpot( item.GetEquipSpotNum("RH") );
+				if nil ~= item then
 				local equipItem = GetIES(item:GetObject());
 				
 				local classtype = TryGetProp(equipItem, "ClassType"); -- 코스튬은 안뜨도록
@@ -104,30 +105,32 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 					CompItemToolTipScp(tooltipframe, equipItem, strarg, "usesubframe");
 					isVisble = ChangeValueToolTipScp(tooltipframe, itemObj, equipItem, strarg);
 				end
-		
+				end
 			elseif itemObj.DefaultEqpSlot == 'LH' then
 
 				local item = session.GetEquipItemBySpot( item.GetEquipSpotNum("LH") );
+				if nil ~= item then
 				local equipItem = GetIES(item:GetObject());
 
 				if IS_NO_EQUIPITEM(equipItem) == 0 then
 					CompItemToolTipScp(tooltipframe, equipItem, strarg, "usesubframe");
 					isVisble = ChangeValueToolTipScp(tooltipframe, itemObj, equipItem, strarg);
 				end
-
+				end
 			end
 			
 		-- 양손 무기 일 경우
 		elseif itemObj.EqpType == 'DH' then
 			
 			local item = session.GetEquipItemBySpot(item.GetEquipSpotNum("RH"));
+			if nil ~= item then
 			local equipItem = GetIES(item:GetObject());
 
 			if IS_NO_EQUIPITEM(equipItem) == 0 then
 				CompItemToolTipScp(tooltipframe, equipItem, strarg, "usesubframe");
 				isVisble = ChangeValueToolTipScp(tooltipframe, itemObj, equipItem, strarg);
 			end
-		
+			end
 		else
 
 			local equiptype = itemObj.EqpType

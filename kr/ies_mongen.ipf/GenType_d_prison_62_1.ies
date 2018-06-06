@@ -9,7 +9,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 8,8,1,1,1,60000,1,0,0,0,1,0,0,"noshadow_npc","UnvisibleName","","","","PRISON621_MQ_06_DIR_NPC","","","","PRISON621_MQ_06_DIR_NPC","","NO","YES","NO","Neutral","","","",""
 9,9,1,40,1,100,1,1,0,0,1,0,0,"npc_Urbonas","주교 우르보나스","","","","","","","PRISON621_URBONAS","","","NO","YES","NO","Neutral","","","",""
 11,11,0,40,9999,25000,60,0,0,0,0,0,0,"wendigo_blue","","","","","","","","","","","NO","YES","NO","Monster","","","","Attack"
-13,13,1,40,200,25000,25,0,0,0,1,0,0,"rootcrystal_01","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
+13,13,1,40,50,25000,25,0,0,0,1,0,0,"rootcrystal_01","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
 14,14,1,30,1,100,14,0,0,0,1,0,0,"block_fence_2","UnvisibleName","","","","","","PRISON621_DARK_WALL","","PRISON621_MQ_02_WALL","","NO","YES","NO","Neutral","","","",""
 16,16,1,180,1,100,1,0,0,0,1,0,0,"HiddenTrigger6","PRISON621_MQ_01","","","","","","","","PRISON621_MQ_01_NPC","","NO","YES","NO","Neutral","","","",""
 17,17,1,40,1,100,1,0,0,0,1,0,0,"bube_flag1","저주의 우상","","","","","","PRISON621_TOTEM_1","PRISON621_MQ_02_NPC","","","NO","YES","NO","Neutral","","","",""
@@ -22,3 +22,4 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 29,29,0,20,35,40000,45,0,0,0,0,0,0,"wendigo_blue","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","","Attack"
 30,30,0,1,30,40000,35,0,0,0,0,0,0,"Sec_Yekubite","","","","","","","","","","","NO","YES","NO","Monster","","","","Attack"
 31,31,0,40,9999,60000,60,0,0,0,0,0,0,"Goblin_Miners_Blue","","","","","","","","","","","NO","YES","NO","Monster","","","",""
+32,32,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_221:1","",""

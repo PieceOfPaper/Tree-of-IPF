@@ -558,8 +558,8 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 				color = UNAVAIABLE_EFT_FONT_COLOR
 			end
 
-			local setTitle = ScpArgMsg("Auto_{s18}{Auto_1}{Auto_2}_SeTeu_HyoKwa_:_", "Auto_1",color, "Auto_2",i + 1);
-			local setDesc = string.format("%s%s", color, setEffect:GetDesc());
+			local setTitle = ScpArgMsg("Auto_{s16}{Auto_1}{Auto_2}_SeTeu_HyoKwa_:_", "Auto_1",color, "Auto_2",i + 1);
+			local setDesc = string.format("{s16}%s%s", color, setEffect:GetDesc());
 	
 			local each_text_CSet = set_gbox_prop:CreateControlSet('tooltip_set_each_prop_text', 'each_text_CSet'..i, inner_xPos, inner_yPos);
 			tolua.cast(each_text_CSet, "ui::CControlSet");
@@ -655,8 +655,8 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 	gBox:RemoveChild('tooltip_pr_n_dur');
 
 	local itemClass = GetClassByType("Item", invitem.ClassID);
-
 	if invitem.GroupName ~= "Armor" and invitem.GroupName ~= "Weapon" then -- 내구도 개념이 없는 템
+
 	    if invitem.BasicTooltipProp == "None" then
     		return yPos;
 		end
@@ -664,7 +664,7 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 
 	local classtype = TryGetProp(invitem, "ClassType"); -- 코스튬은 안뜨도록
 	if classtype ~= nil then
-		if classtype == "Outer" or classtype == "Hat" then
+		if classtype == "Outer" or classtype == "Hat" or classtype == "Hair" then
 			return yPos;
 		end
 	end

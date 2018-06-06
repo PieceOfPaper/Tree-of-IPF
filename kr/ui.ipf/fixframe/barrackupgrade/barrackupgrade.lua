@@ -34,7 +34,7 @@ function UPDATE_B_UPGRADE_THEMA(frame)
 		local key = cls.ClassName;
 		--local isHave = account["Have_" .. cls.ClassName];
 
-		local mapNameStr = string.format("%s %s", mapCls.Name, string.format("%dPeople", cls.MaxPC));
+		local mapNameStr = string.format("%s %s", mapCls.Name, string.format("%dPeople", cls.BaseSlot));
 		local previewScp = "{a @BARRACK_PREVIEW " .. mapCls.ClassName .. "}";
 		local bitem = SET_ADVBOX_ITEM_C(advBox, key, 0, "{@st41b}" .. previewScp .. mapNameStr, "white_16_ol");
 		bitem:EnableHitTest(1);

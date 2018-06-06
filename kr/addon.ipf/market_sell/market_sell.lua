@@ -13,19 +13,13 @@ function MARKET_SELL_OPEN(frame)
 	local groupbox = frame:GetChild("groupbox");
 	local droplist = GET_CHILD(groupbox, "sellTimeList", "ui::CDropList");	
 	droplist:ClearItems();
-	
-	local userType = session.loginInfo.GetPremiumState();
-	local needMedalFee = GetCashValue(userType, "marketUpCom")
+
 	local cnt = GetMarketTimeCount();
 	for i = 0 , cnt - 1 do
-		local time, tp = GetMarketTimeAndTP(i);
+		local time, free = GetMarketTimeAndTP(i);
 		local day = 0;
 		local listType = nil;
-		if time < 24 then -- 하루는 24시간
-			listType = ScpArgMsg("MarketTime{Time}{TP}","Time", time, "TP", tp*needMedalFee);
-		else
-			listType = ScpArgMsg("MarketTime{Time}{Day}{TP}","Time", time, "Day", time/24, "TP", math.floor(tp*needMedalFee));
-		end
+		listType = ScpArgMsg("MarketTime{Time}{FREE}","Time", time, "FREE", free);
 		droplist:AddItem(time, "{@st42}"..listType);
 	end
 	droplist:SelectItem(0);
@@ -49,10 +43,13 @@ function MARKET_SELL_UPDATE_SLOT_ITEM(frame)
 
 end
 
-function ON_MARKET_SELL_LIST(frame)
-
+function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
+	if msg == MARKET_ITEM_LIST then
+		local str = GET_TIME_TXT(argNum);
+		ui.SysMsg(ScpArgMsg("MarketCabinetAfter{TIME}","Time", str));
 	if frame:IsVisible() == 0 then
 		return;
+	end
 	end
 
 	local itemlist = GET_CHILD(frame, "itemlist", "ui::CDetailListBox");
@@ -101,8 +98,10 @@ function ON_MARKET_SELL_LIST(frame)
 
 end
 
-function ON_MARKET_REGISTER(frame)
+function ON_MARKET_REGISTER(frame, msg, argStr, argNum)
 	ui.SysMsg(ClMsg("MarketItemRegisterSucceeded"));
+	local str = GET_TIME_TXT(argNum);
+	ui.SysMsg(ScpArgMsg("MarketRegAfter{TIME}","TIME", str));
 	
 	local groupbox = frame:GetChild("groupbox");
 	local slot_item = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
@@ -221,14 +220,10 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local droplist = GET_CHILD(groupbox, "sellTimeList", "ui::CDropList");	
 	local selecIndex = droplist:GetSelItemIndex();
 
-	-- tp계산할것
-	local userType = session.loginInfo.GetPremiumState();
-	local needMedalFee = GetCashValue(userType, "marketUpCom")
-	local needTime, needTp = GetMarketTimeAndTP(selecIndex);
-	local resultMadel = needTp*needMedalFee;
-	
-	if 0 > GET_CASH_POINT_C() - resultMadel then
-		ui.SysMsg(ClMsg("NotEnoughMedal"));	
+	local needTime, free = GetMarketTimeAndTP(selecIndex);
+	local vis = session.GetInvItemByName("Vis");
+	if vis == nil or 0 > vis.count - (price * count) * (free * 0.01) then
+		ui.SysMsg(ClMsg("Auto_SilBeoKa_BuJogHapNiDa."));
 		return;
 	end
 
