@@ -1,4 +1,4 @@
-g_reserve_reset = 0;
+﻿g_reserve_reset = 0;
 MAX_INV_COUNT = 4999;
 
 function STATUS_ON_INIT(addon, frame)
@@ -669,204 +669,137 @@ end
 
 --F1 경험치 계산부분
 function SETEXP_SLOT(gbox)
-	local expupBuffBox = gbox:GetChild('expupBuffBox');	
-	DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_");			--EXP_Rate
-	
-	-- s_buff_ui : cf) buff.lua 
-	local slotlist = s_buff_ui["slotlist"][1];
-	local slotcount = s_buff_ui["slotcount"][1];
-	local captionlist = s_buff_ui["captionlist"][1];
-    
-	local index = 0;
-	local percSum = 0;
-	
-    local cls1 = nil;
-    local val1 = nil;
+	local expupBuffBox = gbox:GetChild('expupBuffBox');
+    expupBuffBox:RemoveAllChild();
+        
+    local totalExpUpValue = 0;
 
+    -- team level
+    local account = session.barrack.GetCurrentAccount();
+    if account ~= nil then
+        local teamLevel = account:GetTeamLevel();
+        local expupValue = GET_TEAM_LEVEL_EXP_BONUS(teamLevel);
+        expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, 'TeamLevel', expupValue);
+        totalExpUpValue = totalExpUpValue + expupValue;
+    end
+
+    -- server exp
+    local serverExpupValue = 0;
     if session.world.IsIntegrateServer() == true then
-        local pcEtc = GetMyEtcObject();
-        if pcEtc then
-           val1 = pcEtc.MyWorldExpRate;
+        local etc = GetMyEtcObject();
+        local expupValue = TryGetProp(etc, 'MyWorldExpRate');
+        if expupValue ~= nil then
+            serverExpupValue = expupValue;
         end
     else
-        cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
-        if cls1 ~= nil then
-            if TryGetProp(cls1, "Value") ~= nil then
-                val1 = cls1.Value;
-            end  
+        serverExpupValue = JAEDDURY_MON_EXP_RATE;
+    end
+
+    serverExpupValue = serverExpupValue * 100;
+    serverExpupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, 'ExpUpStd', serverExpupValue);
+    totalExpUpValue = totalExpUpValue + serverExpupValue;
+
+    -- pc room premium
+    if 1 == session.loginInfo.GetPremiumState() then
+        local expupValue = JAEDDURY_NEXON_PC_EXP_RATE;
+        expupValue = expupValue * 100;
+        expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, 'ExpUpEvent', expupValue);
+        totalExpUpValue = totalExpUpValue + expupValue;
+	end
+
+    -- char exp
+	local handle = session.GetMyHandle();
+    local charExpBuffCls  = GetClass("Buff", "Event_CharExpRate");	
+	if charExpBuffCls ~= nil then	
+		local charexpbuff = info.GetBuff(tonumber(handle), charExpBuffCls.ClassID);				
+		if charexpbuff ~= nil then
+            local expupValue = buff.arg1;
+            expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, 'Event_CharExpRate', expupValue);
+            totalExpUpValue = totalExpUpValue + expupValue;        
+		end
+	end
+
+    -- auto match
+    if session.world.IsIntegrateIndunServer() == true then
+        local party = session.party.GetPartyMemberList(PARTY_NORMAL);
+        local count = party:Count();
+        local expupValue = count * INDUN_AUTO_FIND_EXP_BONUS * 100;
+        expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, 'PartyIndunExpBuff', expupValue);
+        totalExpUpValue = totalExpUpValue + expupValue; 
+    end
+
+    -- exp buffs
+    local buffCount = info.GetBuffCount(handle);
+	for i = 0, buffCount - 1 do
+		local buff = info.GetBuffIndexed(handle, i);
+        local buffCls = GetClassByType('Buff', buff.buffID);
+        if buffCls ~= nil then
+            local expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName);
+            totalExpUpValue = totalExpUpValue + expupValue;
+        end
+	end
+
+    local totalExpUpValueText = GET_CHILD_RECURSIVELY(gbox, 'totalExpUpValueText');
+    totalExpUpValueText:SetTextByKey('value', totalExpUpValue);
+end
+
+
+function SETEXP_SLOT_ADD_ICON(expupBuffBox, key, expupValue)
+    -- info
+    local handle = session.GetMyHandle();
+    local buffCls = GetClass('Buff', key);
+    if buffCls == nil then
+        return 0;
+    end
+    if expupValue == nil then
+        local buffExpUp = TryGetProp(buffCls, 'BuffExpUP');
+        if buffExpUp == nil then
+            expupValue = 0;
+        else
+            expupValue = math.floor(buffExpUp * 100);
         end
     end
 
-		if val1 ~= nil then
-			if val1 > 0.0 then
-				local class  = GetClassByType('Buff', 4540);	
-				percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val1 * 100);
-				index = index + 1;
-			end
-		end
-
-	if 1 == session.loginInfo.GetPremiumState() then	
-		local cls2 = GetClass("SharedConst","JAEDDURY_NEXON_PC_EXP_RATE");
-		local val2 = cls2.Value;	
-		if val2 ~= nil then
-			if val2 > 0.0 then
-				local class  = GetClassByType('Buff', 4541);	
-				percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val2 * 100);
-				index = index + 1;
-			end
-		end
-	end
-	
-	local class  = GetClass("Buff", "Event_CharExpRate");	
-	if class ~= nil then	
-		local handle = session.GetMyHandle();		
-		local charexpbuff = info.GetBuff(tonumber(handle), class.ClassID);				
-		if charexpbuff ~= nil then	
-			percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, charexpbuff.arg1);						
-			index = index + 1;
-		end
-	end
-		
-		--[[
-	--일반 파티 경험치 계산
-	local retParty = false;
-	local partyMember, addValue1 =	GET_ONLINE_PARTY_MEMBER_N_ADDEXP();	
-	SWITCH(math.floor(partyMember)) {				
-		[0] = function() end,
-		[1] = function() end,	
-		[4] = function() -- 4인 260 -> 280
-			local addValue2 = 0;
-			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FOUR");
-			local val = cls.Value;	
-			if val ~= nil then
-				addValue2 = val;
-			end	
-			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
-		end,
-		[5] = function() -- 5인 300 -> 350
-			local addValue2 = 0;
-			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FIVE");
-			local val = cls.Value;	
-			if val ~= nil then
-				addValue2 = val;
-			end	
-			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
-		end,
-		default = function() --		1인 100. 2인 180, 3인 220
-			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue1, index, percSum);
-		end,
-		}	
-	if retParty == true then
-		index = index + 1;
-	end
-	]]--
-	if slotcount ~= nil and slotcount >= 0 then
-    	for i = 0, slotcount - 1 do
-    		local slot		= slotlist[i];
-			local icon		= slot:GetIcon();
-			local info		= icon:GetInfo();
-			local type		= info.type;
-			if type ~= 0 then
-				local class  = GetClassByType('Buff', type);	
-				if class ~= nil then
-					local exp = TryGetProp(class, "BuffExpUP");
-					if nil == exp then
-						exp = 0;
-					else
-						exp = tonumber(exp);
-					end
-
-					if exp > 0.0 then
-						percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, exp * 100);
-						index = index + 1;					
-					else
-						SWITCH(class.ClassName) {				
-						['TeamLevel'] = function() 
-							local account = session.barrack.GetCurrentAccount();
-							if account ~= nil then
-								local lv = account:GetTeamLevel();
-									local expT = account:GetTeamLevel() - 1;
-									if expT > 0.0 then
-										percSum = SETSLOTCTRL_EXP(class, "teamexpup", expupBuffBox, index, percSum, expT);
-										index = index + 1;
-									end
-								end	
-						end,
-						--[[
-						['PartyIndunExpBuff'] = function() 
-										local cls = GetClass("SharedConst","INDUN_AUTO_FIND_EXP_BONUS");
-										local val = cls.Value;
-										if val > 0.0 then
-											if partyMember > 1 then
-												percSum = SETSLOTCTRL_EXP(class, "cler_daino", expupBuffBox, index, percSum, val * 100);
-										index = index + 1;
-											end
-										end
-						end,
-						]]--
-						default = function() end,
-						}	
-					end
-				end
-			end
-    	end
+    if expupValue <= 0 then
+        return 0;
     end
-			
-	local expupTextBox = gbox:GetChild('expupTextBox');	
-	local expUP_Dyn = expupTextBox:GetChild('expUP_Dyn');	
-		
-	expUP_Dyn:SetTextByKey("perc", math.floor(percSum));
-	
-	expupTextBox:Invalidate();	
-end
 
-function SETSLOTCTRL_EXP(cls, strIcon, parent, index, sum, perc)
-	local slotbox = parent:CreateOrGetControl('groupbox', 'expBuffslot_'.. cls.ClassID, 42, 70, ui.LEFT, ui.TOP, 42 * index, 0, 0, 0);												
-	tolua.cast(slotbox, "ui::CGroupBox");	
-	slotbox:EnableDrawFrame(0);
+    -- groupbox
+    local numChild = expupBuffBox:GetChildCount();
+    local gBox = expupBuffBox:CreateOrGetControl('groupbox', 'expupBox_'..key, 42, 70, ui.LEFT, ui.TOP, 42 * (numChild - 1), 0, 0, 0);
+    gBox = tolua.cast(gBox, 'ui::CGroupBox');
+    gBox:EnableDrawFrame(0);
 
-	local newslot = slotbox:CreateOrGetControl('slot', 'slotExp_'..index, 42, 42, ui.LEFT, ui.TOP, 0, 0, 0, 0);
-	tolua.cast(newslot, "ui::CSlot");	
-	if cls ~= nil then
-		newslot:SetEventScriptArgNumber(ui.RBUTTONUP, cls.ClassID);
-	end
-	newslot:EnableDrop(0);
-	newslot:EnableDrag(0);
-	newslot:ClearIcon();
-	local newicon = newslot:GetIcon();			
-	if newicon == nil then		
-		newicon = CreateIcon(newslot);
-	end;	
-	
-	if cls ~= nil then
-		local handle = session.GetMyHandle();
-		if cls.ClassName == "Premium_Nexon" or cls.ClassName =="Premium_Token" then
-			local buff = info.GetBuff(tonumber(handle), cls.ClassID);
-			if nil ~= buff then
-				newicon:SetTooltipType('premium');		
-				newicon:SetTooltipArg(handle, cls.ClassID, buff.arg1);
-				newicon:SetTooltipOverlap(1);
-			end
-		else
-			newicon:SetTooltipType('buff');
-			newicon:SetTooltipArg(handle, cls.ClassID, "");
-			newicon:SetTooltipOverlap(1);
+    -- slot
+    local slot = gBox:CreateOrGetControl('slot', 'slot_'..key, 42, 42, ui.LEFT, ui.TOP, 0, 0, 0, 0);
+    slot = tolua.cast(slot, 'ui::CSlot');
+    slot:EnableDrop(0);
+    slot:EnableDrag(0);
+
+    -- icon
+    local icon = CreateIcon(slot);
+    icon:SetImage('icon_'..buffCls.Icon);
+    if key == "Premium_Nexon" or key =="Premium_Token" then -- premium tooltip
+		local buff = info.GetBuff(tonumber(handle), buffCls.ClassID);
+		if nil ~= buff then
+			icon:SetTooltipType('premium');		
+			icon:SetTooltipArg(handle, buffCls.ClassID, buff.arg1);
+			icon:SetTooltipOverlap(1);
 		end
+	else
+		icon:SetTooltipType('buff');
+		icon:SetTooltipArg(handle, buffCls.ClassID, "");
+		icon:SetTooltipOverlap(1);
 	end
-	
-	local imageName = strIcon;
-	if imageName ~= nil then
-		newicon:SetImage('icon_' .. strIcon);
-	end;
 
-	local percText = slotbox:CreateOrGetControl('richtext', 'staticExptext_'..index, 10, 10, ui.CENTER_HORZ, ui.TOP, 0, 42, 0, 0);	
-	tolua.cast(percText, "ui::CRichText");
-	
-	local strCaption = string.format("{s13}%d", math.floor(perc));
-	strCaption = strCaption .. "%{/}";		
-	percText:SetFontName("white_18_ol");
-	percText:SetText(strCaption);
-	return sum + perc;
+    -- percent text
+    local text = gBox:CreateOrGetControl('richtext', 'text_'..key, 40, 20, ui.CENTER_HORZ, ui.TOP, 0, 45, 0, 0);    
+    text:SetFontName('white_18_ol');
+    text:SetText('{s13}'.. expupValue ..'%{/}');
+
+    gBox:ShowWindow(1);
+
+    return expupValue;
 end
 
 function STATUS_INFO()
@@ -1143,7 +1076,7 @@ function STATUS_INFO()
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResDark");
 	y = y + 10;
 
-	gboxctrl:SetScrollPos(0)
+
 	frame:Invalidate();
 
 	if vpc ~= nil then

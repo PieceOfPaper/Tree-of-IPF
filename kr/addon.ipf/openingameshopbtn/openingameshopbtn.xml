@@ -6,6 +6,6 @@
 	<layer layerlevel="31"/>
 	<draw blend="100" drawtitlebar="false" drawframe="false"/>
 	<controls>
-		<button name="open_openingameshopbtn" rect="0 0 100 60" margin="3000 0 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_3" oversound="button_cursor_over_2" image="steam_shop_btn" LBtnDownScp="ui.OpenFrame('simpleingameshop')"/>
+		<button name="open_openingameshopbtn" rect="0 0 100 60" margin="3000 0 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_3" oversound="button_cursor_over_2" image="steam_shop_btn" LBtnDownScp="ui.OpenFrame('steamtpinventory')"/>
 	</controls>
 </uiframe>

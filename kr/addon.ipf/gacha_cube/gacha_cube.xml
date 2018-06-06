@@ -23,5 +23,6 @@
 		<richtext name="richtext_3" margin="0 0 0 135" rect="0 25 480 24" caption="{@st66b}토큰 혜택 적용시 2회까지 가능합니다.{/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
 		<richtext name="richtext_4" margin="0 0 0 55" rect="0 0 200 60" caption="{@st41b}횟수를 모두 소진하였습니다.{/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
 		<richtext name="richtext_5" margin="0 0 0 135" rect="0 50 480 24" format="{@st41b}%s {nl}아이템을 획득 하셨습니다!" param1="value" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" visible="false"/>
+		<richtext name="notAllowedReopenText" rect="0 0 400 30" margin="0 0 0 90" layout_gravity="center bottom" caption="{@st41b}한번 더 열기를 할 수 없는 큐브입니다.{/}"/>
 	</controls>
 </uiframe>

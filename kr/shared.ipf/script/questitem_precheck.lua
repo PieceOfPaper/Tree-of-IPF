@@ -4410,7 +4410,7 @@ function SCR_PRE_TABLELAND28_2_SQ06_ITEM1(self, argstring, argnum1, argnum2)
         if GetZoneName(self) == 'f_tableland_28_2' then
             if GetLayer(self) == 0 then
                 local itemCnt = GetInvItemCount(self, 'TABLELAND28_2_SQ06_ITEM2')
-                if itemCnt <= 7 then
+                if itemCnt <= 9 then
                     local list, cnt = SelectObject(self, 20, 'ALL', 1)
                     local i
                     for i = 1, cnt do
@@ -6760,7 +6760,7 @@ function SCR_PRE_DCAPITAL103_SQ03_ITEM1(self, argstring, argnum1, argnum2)
         if GetZoneName(self) == 'f_dcapital_103' then
             if GetLayer(self) == 0 then
                 local itemCnt = GetInvItemCount(self, 'DCAPITAL103_SQ03_ITEM2')
-                if itemCnt <= 7 then
+                if itemCnt <= 10 then
                     local list, cnt = SelectObject(self, 20, 'ALL', 1)
                     local i
                     for i = 1, cnt do

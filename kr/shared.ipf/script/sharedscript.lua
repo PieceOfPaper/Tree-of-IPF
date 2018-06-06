@@ -1,3 +1,9 @@
+function IS_KOR_TEST_SERVER()
+    if GetServerNation() == 'KOR' and GetServerGroupID() == 9001 then
+        return true
+    end
+    return false
+end
 function IS_SEASON_SERVER(pc)
     
     if pc ~= nil then
@@ -8,9 +14,9 @@ function IS_SEASON_SERVER(pc)
 
                 --Test Server
                 --if GetServerNation() == "KOR" and serverGroupID == 1550 then
-				--	return "NO";
+                --  return "NO";
                 --else
-				--	return "YES";
+                --  return "YES";
                 --end
 
                 --Live Server
@@ -22,9 +28,9 @@ function IS_SEASON_SERVER(pc)
             else
                 --Test Server
                 --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
-				--	return "YES"
+                --  return "YES"
                 --else
-				--	return "NO"
+                --  return "NO"
                 --end
     
                 --Live Server
@@ -42,9 +48,9 @@ function IS_SEASON_SERVER(pc)
 
                 --Test Server
                 --if GetServerNation() == "KOR" and serverGroupID == 1550 then
-				--	return "NO";
+                --  return "NO";
                 --else
-				--	return "YES";
+                --  return "YES";
                 --end
 
                 --Live Server
@@ -56,7 +62,7 @@ function IS_SEASON_SERVER(pc)
             else
                 --Test Server
                 --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
-				--	return 'YES'
+                --  return 'YES'
                 --end
      
                 --Live Server
@@ -70,7 +76,7 @@ function IS_SEASON_SERVER(pc)
     else
         --Test Server
         --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
-		--	return 'YES'
+        --  return 'YES'
         --end
     
         --Live Server
@@ -82,7 +88,7 @@ function IS_SEASON_SERVER(pc)
 
     --Test Server
     --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
-	--	return 'YES'
+    --  return 'YES'
     --end
     
     --Live Server
@@ -1003,7 +1009,7 @@ function GET_CLS_GROUP(idSpace, groupName)
     while 1 do
 
         local name = groupName .. "_" .. index;
-		local cls =	GetClassByNameFromList(clsList, name);
+        local cls = GetClassByNameFromList(clsList, name);
         if cls == nil then
             return retList;
         end
@@ -1034,13 +1040,11 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
         value = 500;
     end
     
-    if (pcLv - 20) > monLv then
-        local lvRatio = 1 - ((pcLv - monLv - 20) * 0.05);
-        value = value * lvRatio;
-    end
+    local levelGap = math.abs(pcLv - monLv);
     
-    if monLv > (pcLv + 20) then
-        local lvRatio = 1 - ((monLv - pcLv - 20) * 0.033);
+    
+    if levelGap > 30 then
+        local lvRatio = 1 - ((levelGap - 30) * 0.05);
         value = value * lvRatio;
     end
     
@@ -1049,7 +1053,6 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     end
     
     return value;
-
 end
 
 function GET_ADD_SPRAY_USE(colCnt, obj)
@@ -1377,9 +1380,9 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
         
 
         local sList = StringSplit(cls["ChangeJobCondition" .. i], ";");
-		local conditionCount = #sList / 2;	-- 해당직업 전직조건 체크갯수
+        local conditionCount = #sList / 2;  -- 해당직업 전직조건 체크갯수
         
-		local completeCount = 0;			-- 전직조건에 몇개나 만족하는지
+        local completeCount = 0;            -- 전직조건에 몇개나 만족하는지
         for j = 1, conditionCount do
             -- 직업가지고있고 요구레벨보다 높은지 체크
             for n=0, #haveJobNameList do
@@ -1442,10 +1445,10 @@ function NUM_KILO_CHANGE(num)
     return str
 end
 
-function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount, chType)
+function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
     local ret = "HIDE"
     if questIES.PossibleUI_Notify == 'NO' then
-        return ret, subQuestCount
+        return ret, subQuestZoneList
     end
     local sobjIES = GET_MAIN_SOBJ();
     local abandonCheck = 'None';
@@ -1455,29 +1458,79 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount, chType)
     end
     local result = SCR_QUEST_CHECK_C(pc,questIES.ClassName)
     
+    local checkZoneList = {}
+    local subQuestFlag = 0
+    local subQuestNowZone = ''
+    local maxLv = 10
+    
+    if pc.Lv <= 10 then
+        maxLv = 2
+    elseif pc.Lv <= 20 then
+        maxLv = 3
+    elseif pc.Lv <= 30 then
+        maxLv = 5
+    end
+    
+    if questIES.Level >= pc.Lv - 5 and questIES.Level <= pc.Lv + maxLv then
+        if pc.Lv < 100 and questIES.QStartZone ~= 'None' and sobjIES.QSTARTZONETYPE ~= 'None' and questIES.QStartZone ~=  sobjIES.QSTARTZONETYPE then
+            subQuestFlag = 4
+        else
+            if questIES.StartMapListUI ~= 'None' then
+                checkZoneList = SCR_STRING_CUT(questIES.StartMapListUI)
+            end
+            if table.find(checkZoneList, questIES.StartMap) == 0 then
+                checkZoneList[#checkZoneList + 1] = questIES.StartMap
+            end
+            if subQuestZoneList == nil then
+            else
+                if #checkZoneList > 0 then
+                    for i = 1, #checkZoneList do
+                        if table.find(subQuestZoneList, checkZoneList[i]) > 0 then
+                            subQuestFlag = 1
+                            break
+                        end
+                    end
+                else
+                    subQuestFlag = 2
+                end
+            end
+            
+            if subQuestFlag == 0 then
+                if questIES.StartMap ~= 'None' then
+                    subQuestNowZone = questIES.StartMap
+                else
+                    subQuestNowZone = checkZoneList[1]
+                end
+            end
+        end
+    else
+        subQuestFlag = 3
+    end
+    
     local zonecheckFun = _G['LINKZONECHECK'];
     if chType == 'Set2' then
         ret = "OPEN"
-        return ret, subQuestCount
+        return ret, subQuestZoneList
     elseif (chType == 'ZoneMap' or chType == 'NPCMark') and abandonCheck == 'ABANDON/LIST' then
         ret = "OPEN"
-        return ret, subQuestCount
-    elseif questIES.QuestMode ~= "MAIN" and questIES.QuestMode ~= "KEYITEM" and subQuestCount == 0 and result == 'POSSIBLE' and (questIES.StartMap == GetZoneName(pc) or table.find(SCR_STRING_CUT(questIES.StartMapListUI), GetZoneName(pc)) > 0) then
+        return ret, subQuestZoneList
+    elseif questIES.QuestMode ~= "MAIN" and questIES.QuestMode ~= "KEYITEM" and result == 'POSSIBLE' and subQuestFlag == 0 then
         ret = "OPEN"
-        return ret, subQuestCount + 1
+        subQuestZoneList[#subQuestZoneList + 1] = subQuestNowZone
+        return ret, subQuestZoneList
     elseif questIES.QuestMode ~= "MAIN" and questIES.QuestMode ~= "KEYITEM" and questIES.Check_QuestCount > 0 and zonecheckFun ~= nil and zonecheckFun(GetZoneName(pc), questIES.StartMap) == 'YES' then
         local sObj = GetSessionObject(pc, "ssn_klapeda")
         local result1 = SCR_QUEST_CHECK_MODULE_QUEST(pc, questIES, sObj)
         if result1 == "YES" then
             ret = "OPEN"
-            return ret, subQuestCount
+            return ret, subQuestZoneList
         end
     elseif questIES.QuestMode == "MAIN" or questIES.PossibleUI_Notify == 'UNCOND' then
         ret = "OPEN"
-        return ret, subQuestCount
+        return ret, subQuestZoneList
     end
     
-    return ret, subQuestCount
+    return ret, subQuestZoneList
 end
 
 function SCR_GET_ZONE_FACTION_OBJECT(zoneClassName, factionList, monRankList, respawnTime)
@@ -1600,4 +1653,26 @@ function IS_ITEM_IN_LIST(list, item)
     end
 
     return false;
+end
+
+
+function EXIST_ITEM(list, element)
+    if list == nil or #list < 1 then
+        return false;
+    end
+    for i = 1, #list do
+        if list[i] == element then
+            return true;
+        end
+    end
+    return false;
+end
+
+function PUSH_BACK_IF_NOT_EXIST(list, element)
+    if EXIST_ITEM(list, element) == true then
+        return list;
+    end
+
+    list[#list + 1] = element;
+    return list;
 end

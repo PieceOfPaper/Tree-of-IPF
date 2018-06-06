@@ -833,12 +833,6 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 	return skillCtrl:GetY() + skillCtrl:GetHeight()
 end
 
-function REFRESH_POINT(frame)
-	local pc = GetMyPCObject();
-	local txt = frame:GetChild("point");
-	txt:SetText(ScpArgMsg("POINT") .. " : " .. pc.AbilityPoint);
-end
-
 function SKILLLIST_GAMESTART(frame)
 	local jobObj = info.GetJob(session.GetMyHandle());
 	local jobCtrlTypeName = GetClassString('Job', jobObj, 'CtrlType');

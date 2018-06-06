@@ -176,10 +176,10 @@ function UPDATE_TRANSCEND_BREAK_ITEM(frame)
 		text_material:SetTextByKey("value", GET_FULL_NAME(targetObj));
 		text_material:ShowWindow(1);
 
-		local materialItem = GET_TRANSCEND_MATERIAL_ITEM(targetObj);
+		local materialItem = "misc_BlessedStone";
 		local matItemCls = GetClass("Item", materialItem);
 		if matItemCls ~= nil then
-			local resultString = ScpArgMsg("{Item}WillBeReturnedBy{Count}", "Item", matItemCls.Name, "Count", GET_TRANSCEND_BREAK_ITEM_COUNT(targetObj));
+			local resultString = ScpArgMsg("{Item}WillBeReturnedBy{Count}", "Item", matItemCls.Name, "Count", GET_TRANSCEND_BREAK_ITEM_COUNT(targetObj) * 10);
 			text_breakresult:SetTextByKey("value", resultString);
 		else
 			text_breakresult:SetTextByKey("value", "");

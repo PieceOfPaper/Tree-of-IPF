@@ -4,9 +4,7 @@ function MARKET_SELL_ON_INIT(addon, frame)
 	addon:RegisterMsg("MARKET_SELL_LIST", "ON_MARKET_SELL_LIST");
 	
 	addon:RegisterMsg("MARKET_MINMAX_INFO", "ON_MARKET_MINMAX_INFO");
-	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");
-
-    MONEY_MAX_STACK = 200000000;
+	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");    
 end
 
 function MARKET_SELL_OPEN(frame)
@@ -513,13 +511,13 @@ function MARKET_SELL_SELECT(pageControl, numCtrl)
 end
 
 function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)
-    local moneyText = ctrl:GetText();
+    local moneyText = ctrl:GetText();    
     if moneyText == "" then
         moneyText = 0;
     end
     if tonumber(moneyText) > MONEY_MAX_STACK then
         moneyText = tostring(MONEY_MAX_STACK);
-        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', MONEY_MAX_STACK));
+        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(MONEY_MAX_STACK)));
     end
     ctrl:SetText(GET_COMMAED_STRING(moneyText));
 end

@@ -115,7 +115,7 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 	local eliteImage;
 	local levelRichText
 	local nametext
-	if targetinfo.isElite == 1 then
+	if targetinfo.isElite == 1 or targetinfo.isEliteBuff == 1 then
 		hpGauge = GET_CHILD(frame, "elite", "ui::CGauge");
 		local normal = GET_CHILD(frame, "normal", "ui::CGauge");
 		local elite = GET_CHILD(frame, "elite", "ui::CGauge");
@@ -220,7 +220,7 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 		
 		local eliteBuffMob = "";
 		if targetinfo.isEliteBuff == 1 then
-			eliteBuffMob = ClMsg("TargetNameGiant") .. " ";
+			eliteBuffMob = ClMsg("TargetNameElite") .. " ";
 		end
 
 		if targetinfo.raceType ~= 'Item' then
@@ -292,7 +292,7 @@ function TARGETINFO_ON_MSG(frame, msg, argStr, argNum)
 
 		local hpGauge
 
-		if targetinfo.isElite == 1 then
+		if targetinfo.isElite == 1 or targetinfo.isEliteBuff == 1 then
 			hpGauge = GET_CHILD(frame, "elite", "ui::CGauge");
 		else
 			hpGauge = GET_CHILD(frame, "normal", "ui::CGauge");

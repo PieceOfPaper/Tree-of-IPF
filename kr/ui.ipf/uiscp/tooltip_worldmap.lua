@@ -8,12 +8,12 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 	local drawList = {};
 	drawList[#drawList + 1] = mapCls;
 	
-	local etc = GetMyEtcObject();
+	local accObj = GetMyAccountObj();
 
 	local clsList, cnt = GetClassList('Map');	
 	for i = 0, cnt-1 do
 		local otherMap = GetClassByIndexFromList(clsList, i);
-		if otherMap.ClassID ~= mapCls.ClassID and etc['HadVisited_' .. otherMap.ClassID] == 1 then
+		if otherMap.ClassID ~= mapCls.ClassID and accObj['HadVisited_' .. otherMap.ClassID] == 1 then
 			local ox, oy, odir, oindex = GET_WORLDMAP_POSITION(otherMap.WorldMap);
 			if ox == x and oy == y then
 				drawList[#drawList + 1] = otherMap;

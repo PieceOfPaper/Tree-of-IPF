@@ -129,7 +129,8 @@ function GET_ITEM_STAR_TXT(obj, imgSize, isEquiped)
 		local lv = GET_ITEM_LEVEL_EXP(obj);
 		star = lv
 	else
-		star = obj.ItemStar;
+	return "";
+		--star = obj.ItemStar;
 	end
 	return GET_STAR_TXT(imgSize, star, obj, isEquiped);
 end

@@ -1,34 +1,34 @@
 --item_buff.lua
 
-function GET_ITEM_PROPERT_STR(item)
+function GET_ITEM_PROPERT_STR(item, basicTooltipProp)
 	if item.GroupName == "Weapon" then
-		if item.BasicTooltipProp == "ATK" then
+		if basicTooltipProp == "ATK" then
 			return ClMsg("MAXATK"), ClMsg("MINATK");
-		elseif item.BasicTooltipProp == "MATK" then
+		elseif basicTooltipProp == "MATK" then
 			return ClMsg("Magic_Atk"), "";
 		end
 	elseif item.GroupName == "SubWeapon" then
-	    if item.BasicTooltipProp == "ATK" then
+	    if basicTooltipProp == "ATK" then
 			return ClMsg("MAXATK"), ClMsg("MINATK");
-		elseif item.BasicTooltipProp == "DEF" then
+		elseif basicTooltipProp == "DEF" then
 			return ClMsg("MELEEDEF"), "";
 		end
 	else
-		if item.BasicTooltipProp == "DEF" then
+		if basicTooltipProp == "DEF" then
 			return ClMsg("MELEEDEF"), "";
-		elseif item.BasicTooltipProp == "MDEF" then
+		elseif basicTooltipProp == "MDEF" then
 			return ClMsg("MDEF"), "";
-		elseif  item.BasicTooltipProp == "HR" then
+		elseif  basicTooltipProp == "HR" then
 			return ClMsg("ADD_HR"), "";
-		elseif  item.BasicTooltipProp == "DR" then
+		elseif  basicTooltipProp == "DR" then
 			return ClMsg("ADD_DR"), "";
-		elseif  item.BasicTooltipProp == "MHR" then
+		elseif  basicTooltipProp == "MHR" then
 			return ClMsg("MHR"), "";
-		elseif  item.BasicTooltipProp == "ADD_FIRE" then
+		elseif  basicTooltipProp == "ADD_FIRE" then
 			return ClMsg("ADD_FIRE"), "";
-		elseif  item.BasicTooltipProp == "ADD_ICE" then
+		elseif  basicTooltipProp == "ADD_ICE" then
 			return ClMsg("ADD_ICE"), "";
-		elseif  item.BasicTooltipProp == "ADD_LIGHTNING" then
+		elseif  basicTooltipProp == "ADD_LIGHTNING" then
 			return ClMsg("ADD_LIGHTNING"), "";
 		else
 		return "";
@@ -43,11 +43,23 @@ function ITEMBUFF_CHECK_Squire_WeaponTouchUp(self, item)
 
 	if item.GroupName == "Weapon" then
 		return 1;
-	elseif item.GroupName == 'SubWeapon' and item.BasicTooltipProp == 'ATK' then
+    end
+
+	if item.GroupName == 'SubWeapon' and CHECK_ITEM_BASIC_TOOLTIP_PROP_EXIST(item, 'ATK') then
 	    return 1;
 	end
 
 	return 0;
+end
+
+function CHECK_ITEM_BASIC_TOOLTIP_PROP_EXIST(item, propertyName)
+    local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
+    for i = 1, #basicTooltipPropList do
+        if basicTooltipPropList[i] == propertyName then
+            return true;
+        end
+    end
+    return false;
 end
 
 function ITEMBUFF_CHECK_Squire_ArmorTouchUp(self, item)
@@ -86,20 +98,93 @@ function ITEMBUFF_NEEDITEM_Enchanter_EnchantArmor(self, item)
 end
 
 function ITEMBUFF_NEEDITEM_Squire_WeaponTouchUp(self, item)
-	local needCount = item.ItemStar + item.ItemStar * (item.ItemGrade - 1) / 2;
-	needCount = math.max(1, needCount);
-	return "misc_whetstone", math.floor(needCount);
-end
+--	local needCount = item.ItemStar + item.ItemStar * (item.ItemGrade - 1) / 2;
+    
+    local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+        return 0;
+    end
+    
+    local useLv = TryGetProp(item,"UseLv");
+    if useLv == nil then
+        return 0;
+    end
+    
+    local itemLv = TryGetProp(item,"ItemLv");
+    if itemLv == nil then
+        return 0;
+    end
+    
+    local lv = math.max(useLv, itemLv);
+    lv = lv / 30
+        if lv < 1 then
+           lv = 1;
+        end
+    
+    local needCount = lv + lv * (item.ItemGrade - 1) / 2;
+    needCount = math.max(1, needCount);
+    return "misc_whetstone", math.floor(needCount);
+    end
 
 function ITEMBUFF_NEEDITEM_Squire_ArmorTouchUp(self, item)
-	local needCount = item.ItemStar + item.ItemStar * (item.ItemGrade - 1) / 2;
-	needCount = math.max(1, needCount);
+   local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+        return 0;
+    end
+    
+    local useLv = TryGetProp(item,"UseLv");
+    if useLv == nil then
+        return 0;
+    end
+    
+    local itemLv = TryGetProp(item,"ItemLv");
+    if itemLv == nil then
+        return 0;
+    end
+    
+    local lv = math.max(useLv, itemLv);
+    lv = lv / 30
+        if lv < 1 then
+           lv = 1;
+        end
+    
+    local needCount = lv + lv * (item.ItemGrade - 1) / 2;
+    needCount = math.max(1, needCount);
 	return "misc_repairkit_1", math.floor(needCount);
 end
 
 function ITEMBUFF_NEEDITEM_Squire_Repair(self, item)
-	local needCount = item.ItemStar + item.ItemStar * (item.ItemGrade - 1) / 2;
-	return "misc_repairkit_1", math.floor(needCount);
+--	local needCount = item.ItemStar + item.ItemStar * (item.ItemGrade - 1) / 2;
+    local reinforceCount = TryGetProp(item, "Reinforce_2");
+       if reinforceCount == nil then
+           return 0;
+   end
+
+   local transcendCount = TryGetProp(item, "Transcend");
+       if transcendCount == nil then
+           return 0;
+   end
+
+   local UseLv = item.UseLv / 30
+   if UseLv < 1 then
+       UseLv = 1;
+   end
+      
+   local grade = TryGetProp(item, "ItemGrade");
+   if grade == nil then
+    return 0;
+   end
+   
+   local repairPriceRatio = TryGetProp(item,"RepairPriceRatio");   
+   if repairPriceRatio == nil then
+    return 0;
+   end
+   
+   repairPriceRatio = repairPriceRatio / 100;
+--   local needCount = (UseLv + UseLv * (item.ItemGrade - 1) / 2) * (1 + (((grade-1) * 0.1) + (reinforceCount * 0.05) + (transcendCount * 0.2)));
+    local needCount = (UseLv + UseLv * (grade - 1) / 2) * (1 + (((grade-1) * 0.1) + (reinforceCount * 0.05) + (transcendCount * 0.2))) * repairPriceRatio;
+    needCount = math.max(1, needCount);
+    return "misc_repairkit_1", math.floor(needCount);
 end
 
 function ITEMBUFF_STONECOUNT_Squire_WeaponTouchUp(invItemList)
@@ -180,18 +265,30 @@ function ITEMBUFF_STONECOUNT_Enchanter_EnchantArmor(invItemList)
 end
 
 function ITEMBUFF_VALUE_Squire_WeaponTouchUp(self, item, skillLevel)
-
-    local star = item.ItemStar;
     
-    if star > 8 then
-        star = 8;
+--	local value = item.ItemStar + skillLevel * item.ItemStar;
+    local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+        return 0;
     end
     
-	local value = item.ItemStar + skillLevel * item.ItemStar;
+    local useLv = TryGetProp(item,"UseLv");
+    if useLv == nil then
+        return 0;
+    end
+    
+    local itemLv = TryGetProp(item,"ItemLv");
+    if itemLv == nil then
+        return 0;
+    end
+    
+    local lv = math.max(useLv, itemLv);
+
+
+    local value = math.floor(skillLevel + skillLevel * ((lv * 0.03) * (1 + (grade * 0.1 ))));
 	local count = 2500 + skillLevel * 250 + self.INT;
 	local sec = 3600;
 	local Squire3 = GetAbility(self, 'Squire3');
-	
 	if Squire3 ~= nil then
 	    count = count + Squire3.Level * 20
 	end
@@ -200,7 +297,26 @@ function ITEMBUFF_VALUE_Squire_WeaponTouchUp(self, item, skillLevel)
 end
 
 function ITEMBUFF_VALUE_Squire_ArmorTouchUp(self, item, skillLevel)
-	local value = skillLevel;
+--	local value = skillLevel;
+
+    local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+        return 0;
+    end
+    
+    local useLv = TryGetProp(item,"UseLv");
+    if useLv == nil then
+        return 0;
+    end
+    
+    local itemLv = TryGetProp(item,"ItemLv");
+    if itemLv == nil then
+        return 0;
+    end
+    
+    local lv = math.max(useLv, itemLv);
+
+	local value = math.floor(skillLevel + skillLevel * ((lv * 0.005) * (1 + (grade * 0.1 ))));
 	local count = 500 + skillLevel * 50 + self.INT;
 	local sec = 3600;
 	local Squire4 = GetAbility(self, 'Squire4');
