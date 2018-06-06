@@ -564,10 +564,6 @@ function SORT_INVITEM_BY_WORTH(a,b)
 end
 
 function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
-	if control.IsRestSit() == false then
-		ui.SysMsg(ClMsg("CraftUsedtoSit"));
-		return;
-	end
 
 	local frame = ctrlset:GetTopParentFrame();
 	local parentcset = ctrlset:GetParent()
