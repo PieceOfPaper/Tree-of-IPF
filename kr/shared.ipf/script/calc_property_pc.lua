@@ -2008,6 +2008,11 @@ end
 
 
 function SCR_Get_SDR(self)
+	local fixedSDR = TryGetProp(self, 'FixedMinSDR_BM');
+	if fixedSDR ~= nil and fixedSDR ~= 0 then
+		return 1;
+	end
+	
     local defaultSDR = 1;
     
     local byItem = GetSumOfEquipItem(self, "SDR");
@@ -2021,6 +2026,10 @@ function SCR_Get_SDR(self)
     end
     
     local value = defaultSDR + byItem + byBuff;
+    
+    if value < 1 then
+    	value = 1;
+    end
     
     return math.floor(value);
 end

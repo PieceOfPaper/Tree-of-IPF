@@ -52,7 +52,7 @@ function SHOW_MONINFO_BY_SKILL(frame, monhandle, showCount, paramList)
 	gbox:Resize(gbox:GetOriginalWidth(),y + 50)
 	frame:Resize(frame:GetOriginalWidth(),gbox:GetHeight() + 50)
 
-	--À§Ä¡´Â ¼Ò½º¿¡¼­ ÄÁÆ®·Ñ ÇÔ. m_pMonDetailInfo ÇÁ·¹ÀÓ
+	--ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ò½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½. m_pMonDetailInfo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 end
 
@@ -141,7 +141,7 @@ function GET_MON_PROPICON_BY_PROPNAME(paramname, monclass)
 		elseif paramvalue == "Earth" then
 			return 'mon_info_earth'
 		elseif paramvalue == "Melee" then
-			return 'mon_info_none'
+			return 'mon_info_melee'
 		end
 
 	elseif paramname == "MoveType" then 
@@ -159,16 +159,16 @@ function GET_MON_PROPICON_BY_PROPNAME(paramname, monclass)
 	elseif paramname == "EffectiveAtkType" then
 
 		if monclass.ArmorMaterial == "Cloth" then
-		--º£±â°¡ È¿°úÀû
+		--ï¿½ï¿½ï¿½â°¡ È¿ï¿½ï¿½ï¿½ï¿½
 			return 'mon_info_slash'
 		elseif monclass.ArmorMaterial == "Leather" then
-		--Âî¸£±â°¡ È¿°úÀû
+		--ï¿½î¸£ï¿½â°¡ È¿ï¿½ï¿½ï¿½ï¿½
 			return 'mon_info_aries'
 		elseif monclass.ArmorMaterial == "Iron" then
-		--¶§¸®±â°¡ È¿°úÀû
+		--ï¿½ï¿½ï¿½ï¿½ï¿½â°¡ È¿ï¿½ï¿½ï¿½ï¿½
 			return 'mon_info_strike'
 		else
-		--±×·±°Å ¾ø´Ù
+		--ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			return 'mon_info_none'
 		end
 
@@ -185,16 +185,16 @@ function GET_MON_PROPVALUE_BY_PROPNAME(monclass,paramname)
 		return ScpArgMsg('MonInfo_'..paramname..'_'..monclass[paramname] );
 	elseif paramname == "EffectiveAtkType" then
 		if monclass.ArmorMaterial == "Cloth" then
-		--º£±â°¡ È¿°úÀû
+		--ï¿½ï¿½ï¿½â°¡ È¿ï¿½ï¿½ï¿½ï¿½
 			return ScpArgMsg('MonInfo_EffectiveAtkType_Slash')
 		elseif monclass.ArmorMaterial == "Leather" then
-		--Âî¸£±â°¡ È¿°úÀû
+		--ï¿½î¸£ï¿½â°¡ È¿ï¿½ï¿½ï¿½ï¿½
 			return ScpArgMsg('MonInfo_EffectiveAtkType_Aries')
 		elseif monclass.ArmorMaterial == "Iron" then
-		--¶§¸®±â°¡ È¿°úÀû
+		--ï¿½ï¿½ï¿½ï¿½ï¿½â°¡ È¿ï¿½ï¿½ï¿½ï¿½
 			return ScpArgMsg('MonInfo_EffectiveAtkType_Strike')
 		else
-		--±×·±°Å ¾ø´Ù
+		--ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			return ScpArgMsg('MonInfo_None')
 		end
 	end

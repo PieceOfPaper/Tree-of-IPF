@@ -105,7 +105,7 @@ function COLONY_POINT_INFO_UPDATE_EMBLEM(frame, msg, argStr, argNum)
     local emblemCtrl = nil;
     local rankingBox = nil;
     if frame:GetUserValue('OCCUPATION_GUILD_ID') == argStr then
-        emblemCtrl = GET_CHILD_RECURSIVLEY(frame, 'occupyGuildEmblemPic');
+        emblemCtrl = GET_CHILD_RECURSIVELY(frame, 'occupyGuildEmblemPic');
     elseif frame:GetUserValue('RANKING_GUILD_ID_1') == argStr then
         rankingBox = GET_CHILD_RECURSIVELY(frame, 'rankingBox1');
     elseif frame:GetUserValue('RANKING_GUILD_ID_2') == argStr then

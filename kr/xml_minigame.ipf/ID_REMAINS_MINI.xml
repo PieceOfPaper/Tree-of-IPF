@@ -47,11 +47,6 @@
                 </StageEvents>
             </Stage>
             <Stage Name="end" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
-                        <Str Str="Indun_Remains"/>
-                    </ToolScp>
-      </StartScpList>
                 <ObjList/>
                 <StageEvents>
                     <Event execCount="1" eventName="60초 후 완료">

@@ -8995,7 +8995,17 @@
 			</ToolScp>
 		</List>
 	</AI>
-	<AI Name="JUST_FOLLOW" ActiveMessageMapInBattle="1">
+	<AI Name="JUNK_SHOP_CREATE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_JUNK_SHOP_CREATE_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="JUST_FOLLOW" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
 				<Num Num="50"/>

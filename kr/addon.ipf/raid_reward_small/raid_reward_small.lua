@@ -88,9 +88,8 @@ function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, s
 	if itemCls ~= nil then
 		SET_SLOT_ITEM_OBJ(itemSlot, itemCls);
 		itemSlot:EnableDrag(0);
-
-		local gradeTxt = GET_ITEM_GRADE_TXT(itemCls, 24);
-		itemtext:SetTextByKey("txt", gradeTxt);
+		local rewardTxt = REWARD_SET_ITEM_TEXT(skinName, itemCls);
+		itemtext:SetTextByKey("txt", rewardTxt);
 	else
 		CLEAR_SLOT_ITEM_INFO(itemSlot);
 		itemtext:SetTextByKey("txt", "");
@@ -105,6 +104,14 @@ function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, s
 	itemSlot:EnableHitTest(1)
 	RAID_REWARD_BAL_POS(frame);
 
+end
+
+function REWARD_SET_ITEM_TEXT(skinName, itemCls)
+	if skinName == "junksilvergacha_itembox" then
+		return GET_FULL_NAME(itemCls)
+	else
+		return GET_ITEM_GRADE_TXT(itemCls, 24);
+	end
 end
 
 function REWARD_ITEM_BALLOON(handle, rewardList)

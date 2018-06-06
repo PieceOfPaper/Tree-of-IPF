@@ -187,13 +187,11 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 	local groupbox_infotext = frame:GetChild('groupbox_infotext');
 	
 
-	local jobclassname_richtext = GET_CHILD(groupbox_infotext, "className", "ui::CRichText");
-	--jobclassname_richtext:SetText(jobinfo.Name);
+	local jobclassname_richtext = GET_CHILD(groupbox_infotext, "className", "ui::CRichText");	
 	jobclassname_richtext:SetTextByKey("param_name", GET_JOB_NAME(jobinfo));
 
 
-	local jobclasscircle_richtext = GET_CHILD(groupbox_infotext, "classCircle", "ui::CRichText");
-	--local jobcircle = session.GetJobGrade(jobid)
+	local jobclasscircle_richtext = GET_CHILD(groupbox_infotext, "classCircle", "ui::CRichText");	
 	local jobcircle = nowcircle
 
 	if jobcircle == 0 then
@@ -209,31 +207,10 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 		jobclasscircle_richtext:SetTextByKey('param_circle',jobcircle);
 	end
 
-	local captionstr = 'Caption'..nowcircle
-	--local captionstr = 'Caption'
-
+	local captionstr = 'Caption'..nowcircle	
 	local jobclasscaption_richtext = GET_CHILD(frame, "classExplain", "ui::CRichText");
 	jobclasscaption_richtext:SetTextByKey("param_explain",jobinfo[captionstr]);
 
---	local ratingstr = jobinfo.Rating
---	ratingstr_arg = {}
-
---	for i = 1, 2 do 
---		ratingstr_arg[i] = string.sub(ratingstr,2*i-1,2*i-1)
---		ratingstr_arg[i] = ratingstr_arg[i] + 0
---
---		local starrating = ''
---		for i = 1 , ratingstr_arg[i] do
---			starrating = starrating .. ScpArgMsg('StarRating')
---		end
---
---		local ratingtextname = 'classRating'..i
---		local ratingText = frame:GetChild(ratingtextname);
---		
---		ratingText:SetTextByKey("rating", starrating);
---	end
-
-	
 	local ratingstr = jobinfo.Rating
 	
 	local ratingText1 = frame:GetChild('classRating1');
@@ -328,13 +305,12 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 		else
 			if CJ_JOB_PROPERTYQUESTCHECK() == 1 then
 				if CJ_JOB_GENDERCHECK(jobid) == 1 then
-					if session.GetPcTotalJobGrade() <= JOB_CHANGE_MAX_RANK then
+					if session.GetPcTotalJobGrade() < JOB_CHANGE_MAX_RANK then
 						jobchangebutton:SetEventScript(ui.LBUTTONDOWN, 'CJ_CLICK_CHANGEJOBBUTTON')
 						jobchangebutton:SetEventScriptArgNumber(ui.LBUTTONDOWN, jobid);	
 						jobchangebutton:ShowWindow(1);
 					else
-						jobchangebutton:ShowWindow(0);
-						ui.SysMsg(ScpArgMsg('Auto_aJig_KuHyeonDoeJi_aneun_JeonJig_KweSeuTeuipNiDa.'));
+						jobchangebutton:ShowWindow(0);						
 					end
 				else
 					jobchangebutton:ShowWindow(0);
@@ -611,84 +587,89 @@ function UPDATE_CHANGEJOB(frame)
 		end
 	end
 
-	local howmanyline = math.ceil(drawnewjobcnt/jobsPerALine)	
+	local howmanyline = math.ceil(drawnewjobcnt / jobsPerALine);	
 	
-	local groupbox_sub_newjob = groupbox_main:CreateOrGetControlSet('groupbox_sub', 'groupbox_sub_newjob', 0, 0)
-	groupbox_sub_newjob:Resize(groupbox_sub_newjob:GetWidth(), (howmanyline * (jobbox_height + margin_y_per_eachpic * 11)) + sum_margin_y)
+	local groupbox_sub_newjob = groupbox_main:CreateOrGetControlSet('groupbox_sub', 'groupbox_sub_newjob', 0, 0);
+	local cjobGbox = GET_CHILD(groupbox_sub_newjob, 'changeJobGbox');
+	if totaljobgrade < JOB_CHANGE_MAX_RANK then
+		groupbox_sub_newjob:Resize(groupbox_sub_newjob:GetWidth(), (howmanyline * (jobbox_height + margin_y_per_eachpic )) + sum_margin_y);
 
-	local rankRollBackBtn = GET_CHILD(groupbox_sub_newjob, 'rankRollBackBtn');
-	rankRollBackBtn:ShowWindow(0);
-
-	local cjobGbox = groupbox_sub_newjob:GetChild('changeJobGbox');
-	cjobGbox:Resize(groupbox_sub_newjob:GetWidth(),groupbox_sub_newjob:GetHeight() + 10)
-
-	cjobGbox = tolua.cast(cjobGbox, "ui::CGroupBox");
-	cjobGbox:RemoveAllChild();
-
-	local changeJob_richtext = groupbox_sub_newjob:GetChild('changeJob_richtext');
-	--changeJob_richtext:SetText("{@st44}"..(totaljobgrade+1)..ScpArgMsg("Auto_{@st44}Daeum_LaengKeu_KeulLaeSeu_JeongBo"))
-	changeJob_richtext:SetText(ScpArgMsg("Auto_{@st44}Daeum_LaengKeu_KeulLaeSeu_JeongBo"))
-	local index =1
-	for i = 1, #hadjobarray do
-
-		if hadjobarray[i][2] ~= CHANGE_JOB_TYPE_HAVE then
-			
-            if session.GetJobGrade(hadjobarray[i][1]) <= 2 then
-				local row = math.floor((index - 1) / jobsPerALine);
-				local col = (index - 1)  % jobsPerALine;
-				local x = margin_x + col * (jobbox_width + margin_x_per_eachpic);
-				local y = (cjobGbox:GetHeight() - jobbox_height)  - ( margin_y + row * (jobbox_height + margin_y_per_eachpic));
-	
-				local subClassCtrl = cjobGbox:CreateOrGetControlSet('jobinfo', hadjobarray[i][2]..'_CJ_A_JOBRANK_'..index , x + 130, y);
-				local button = GET_CHILD(subClassCtrl, "button", "ui::CButton");
-	
-				if hadjobarray[i][2] == CHANGE_JOB_TYPE_CAN_UPGRADE then
-					button:SetImage("btn_upclass");	
-				elseif hadjobarray[i][2] == CHANGE_JOB_TYPE_HAVE then
-					button:SetImage("btn_enclass");	
-				elseif hadjobarray[i][2] == CHANGE_JOB_TYPE_HAVE_NOT then
-					button:SetImage("btn_unclass");	
-				elseif hadjobarray[i][2] == CHANGE_JOB_TYPE_NEW then
-					button:SetImage("btn_newclass");	
-				else
-					print('error')
-				end
-
-	
-				local jobnameCtrl = GET_CHILD(subClassCtrl, "jobname", "ui::CRichText");
-				local jobName = hadjobarray[i][3];
-
-				
-				if hadjobarray[i][1] == firstHotJobID or hadjobarray[i][1] == secontHotJobID then
-					local charpic = GET_CHILD(subClassCtrl, "hotimg", "ui::CPicture");
-					charpic:SetImage("class_hot_img")
-				end
-
-				jobnameCtrl:SetTextByKey("param_jobcname", jobName);
-
-				local jobclassCtrl = GET_CHILD(subClassCtrl, "jobclass", "ui::CRichText");
-				local jobclass = session.GetJobGrade(hadjobarray[i][1])
+		local rankRollBackBtn = GET_CHILD(groupbox_sub_newjob, 'rankRollBackBtn');
+		rankRollBackBtn:ShowWindow(0);
 		
-				if jobclass > 0 then
-					button:SetImage("btn_upclass");	
-					jobclassCtrl:SetTextByKey("param_jobclass", jobclass+1);
-					jobclassCtrl:ShowWindow(1)
-				else
-					jobclassCtrl:ShowWindow(0)	
-				end
+		cjobGbox:Resize(groupbox_sub_newjob:GetWidth(), groupbox_sub_newjob:GetHeight() + 10)
+		cjobGbox:RemoveAllChild();
 
-				local tempstr = hadjobarray[i][2]..(jobclass+1)
+		local changeJob_richtext = groupbox_sub_newjob:GetChild('changeJob_richtext');	
+		changeJob_richtext:SetText(ScpArgMsg("Auto_{@st44}Daeum_LaengKeu_KeulLaeSeu_JeongBo"));	
+		changeJob_richtext:SetGravity(ui.LEFT, ui.TOP);
+		changeJob_richtext:SetOffset(30, 10);
+
+		local labelline = groupbox_sub_newjob:GetChild('labelline');
+		labelline:SetGravity(ui.LEFT, ui.TOP);
+		labelline:SetOffset(30, changeJob_richtext:GetHeight() + 18);
+
+		local index =1
+		for i = 1, #hadjobarray do
+
+			if hadjobarray[i][2] ~= CHANGE_JOB_TYPE_HAVE then
 				
-				button:SetEventScript(ui.LBUTTONDOWN, 'CJ_CLICK_INFO')
-				button:SetEventScriptArgNumber(ui.LBUTTONDOWN, hadjobarray[i][1]);	
-				button:SetEventScriptArgString(ui.LBUTTONDOWN, tempstr);	
+	            if session.GetJobGrade(hadjobarray[i][1]) <= 2 then
+					local row = math.floor((index - 1) / jobsPerALine);
+					local col = (index - 1)  % jobsPerALine;
+					local x = margin_x + col * (jobbox_width + margin_x_per_eachpic);
+					local y = (cjobGbox:GetHeight() - jobbox_height)  - ( margin_y + row * (jobbox_height + margin_y_per_eachpic));
+		
+					local subClassCtrl = cjobGbox:CreateOrGetControlSet('jobinfo', hadjobarray[i][2]..'_CJ_A_JOBRANK_'..index , x + 130, y);
+					local button = GET_CHILD(subClassCtrl, "button", "ui::CButton");
+		
+					if hadjobarray[i][2] == CHANGE_JOB_TYPE_CAN_UPGRADE then
+						button:SetImage("btn_upclass");	
+					elseif hadjobarray[i][2] == CHANGE_JOB_TYPE_HAVE then
+						button:SetImage("btn_enclass");	
+					elseif hadjobarray[i][2] == CHANGE_JOB_TYPE_HAVE_NOT then
+						button:SetImage("btn_unclass");	
+					elseif hadjobarray[i][2] == CHANGE_JOB_TYPE_NEW then
+						button:SetImage("btn_newclass");	
+					else
+						print('error')
+					end
 
-				index = index +1
+		
+					local jobnameCtrl = GET_CHILD(subClassCtrl, "jobname", "ui::CRichText");
+					local jobName = hadjobarray[i][3];
+
+					
+					if hadjobarray[i][1] == firstHotJobID or hadjobarray[i][1] == secontHotJobID then
+						local charpic = GET_CHILD(subClassCtrl, "hotimg", "ui::CPicture");
+						charpic:SetImage("class_hot_img")
+					end
+
+					jobnameCtrl:SetTextByKey("param_jobcname", jobName);
+
+					local jobclassCtrl = GET_CHILD(subClassCtrl, "jobclass", "ui::CRichText");
+					local jobclass = session.GetJobGrade(hadjobarray[i][1])
+			
+					if jobclass > 0 then
+						button:SetImage("btn_upclass");	
+						jobclassCtrl:SetTextByKey("param_jobclass", jobclass+1);
+						jobclassCtrl:ShowWindow(1)
+					else
+						jobclassCtrl:ShowWindow(0)	
+					end
+
+					local tempstr = hadjobarray[i][2]..(jobclass+1)
+					
+					button:SetEventScript(ui.LBUTTONDOWN, 'CJ_CLICK_INFO')
+					button:SetEventScriptArgNumber(ui.LBUTTONDOWN, hadjobarray[i][1]);	
+					button:SetEventScriptArgString(ui.LBUTTONDOWN, tempstr);	
+
+					index = index +1
+				end
 			end
 		end
-
-		
-
+	else
+		groupbox_sub_newjob:Resize(groupbox_sub_newjob:GetWidth(), 0);
 	end
 
 	
@@ -831,7 +812,7 @@ function UPDATE_CHANGEJOB(frame)
 	local jobhistorysession = mains.jobHistory
 	local jobhistory = jobhistorysession:GetJobHistory(totaljobgrade-1);
 
-	CJ_UPDATE_RIGHT_INFOMATION(frame, pcjobinfo.ClassID,pcjobinfotype,jobhistory.grade)
+	CJ_UPDATE_RIGHT_INFOMATION(frame, pcjobinfo.ClassID, pcjobinfotype, jobhistory.grade);
 
 	local scrollBarCurLine = cjobGbox:GetCurLine();
 	cjobGbox:SetCurLine(0);
@@ -887,7 +868,7 @@ function CHANGEJOB_SHOW_RANKROLLBACK()
 	local frame = ui.GetFrame('changejob');    
     local lastJobBox = GET_CHILD_RECURSIVELY(frame, 'groupbox_sub_oldjob'..lastJobGrade);
     local rankRollBackBtn = GET_CHILD(lastJobBox, 'rankRollBackBtn');
-    rankRollBackBtn:ShowWindow(0);
+    rankRollBackBtn:ShowWindow(1);
 
 	if pc.LastRankRollbackIndex >= lastJobGrade then
 		rankRollBackBtn:SetColorTone('FF444444');

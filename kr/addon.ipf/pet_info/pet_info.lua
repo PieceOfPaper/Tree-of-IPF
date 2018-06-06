@@ -666,3 +666,39 @@ function PET_INFO_GET_STAT_SILVER(ctrl, pc, pet, trainCnt)
 	end
 	return statCost;
 end
+
+function CHANGE_MYPET_NAME(frame, btn)
+    local topFrame = frame:GetTopParentFrame()
+    local petGuid = topFrame:GetUserValue('PET_GUID')
+    if petGuid == nil or petGuid == "None" then
+        ui.SysMsg(ClMsg("SummonedPetDoesNotExist"));
+        return;
+    end
+
+    local petInfo = session.pet.GetPetByGUID(petGuid);
+    if petInfo == nil then
+        return;
+    end
+
+    local beforeName = petInfo:GetName();
+    local newframe = ui.GetFrame("inputstring");
+    newframe:SetUserValue("InputType", "PetName");
+    INPUT_STRING_BOX(ClMsg("PetName"), "EXEC_CHANGE_NAME_PET", petName, 0, 16);
+end
+
+function EXEC_CHANGE_NAME_PET(inputframe, ctrl)
+    if ctrl:GetName() == "inputstr" then
+        inputframe = ctrl;
+    end
+
+    local changedName = GET_INPUT_STRING_TXT(inputframe);
+    
+    local petInfoFrame = ui.GetFrame("pet_info");
+    local petGuid = petInfoFrame:GetUserValue("PET_GUID");
+    local petInfo = session.pet.GetPetByGUID(petGuid);
+    if petInfo == nil then
+	return;
+    end
+
+    OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, "petName", changedName, petInfo:GetName(), petGuid);
+end

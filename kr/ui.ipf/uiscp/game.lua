@@ -2016,21 +2016,6 @@ function GETMYPCNAME()
 	return CharName;
 end
 
-function GETMYPETNAME()
-	local summonedPet = GET_SUMMONED_PET();
-	if summonedPet == nil then
-		return;
-	end
-
-	local petInfo = session.pet.GetPetByGUID(summonedPet:GetStrGuid());
-	if petInfo == nil then
-		return;
-	end
-
-	local petName = petInfo:GetName();
-    return petName;
-end
-
 function CHECK_EQUIPABLE(type)
 	local pc = GetMyPCObject();
 	local lv = GETMYPCLEVEL();
