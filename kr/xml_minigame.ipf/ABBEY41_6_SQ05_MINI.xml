@@ -162,6 +162,11 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EXEC_SSN_ADD" Client="NO" UseSleep="NO">
+                                <Str Str="SSN_ABBEY41_6_SQ05"/>
+                                <Str Str="QuestInfoValue1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
                             </ToolScp>

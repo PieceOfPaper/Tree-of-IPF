@@ -1,14 +1,7 @@
 MAX_RESTSLOT_CNT = 20;
 
 function RESTQUICKSLOT_ON_INIT(addon, frame)
-
-	for i = 0, MAX_RESTSLOT_CNT-1 do
-		local slot 			= frame:GetChild("slot"..i+1);
-		tolua.cast(slot, "ui::CSlot");
-		local slotString 	= 'QuickSlotExecute'..(i+1);
-		local text 			= hotKeyTable.GetHotKeyString(slotString);
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
-	end
+	RESTQUICKSLOT_UPDATE_HOTKEYNAME(frame);
 
 	addon:RegisterMsg('RESTQUICKSLOT_OPEN', 'ON_RESTQUICKSLOT_OPEN');
 	addon:RegisterMsg('RESTQUICKSLOT_CLOSE', 'ON_RESTQUICKSLOT_CLOSE');
@@ -16,6 +9,16 @@ function RESTQUICKSLOT_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('INV_ITEM_POST_REMOVE', 'RESTQUICKSLOT_ON_ITEM_CHANGE');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_CHANGE_COUNT', 'RESTQUICKSLOT_ON_ITEM_CHANGE');
 end
+
+function RESTQUICKSLOT_UPDATE_HOTKEYNAME(frame)
+	for i = 0, MAX_RESTSLOT_CNT-1 do
+		local slot 			= frame:GetChild("slot"..i+1);
+		tolua.cast(slot, "ui::CSlot");
+		local slotString 	= 'QuickSlotExecute'..(i+1);
+		local text 			= hotKeyTable.GetHotKeyString(slotString);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
+	end
+end;
 
 function RESTQUICKSLOT_ON_ITEM_CHANGE(frame)
 	-- 우선 걍다 업데이트 하는거로
@@ -50,14 +53,10 @@ function ON_RESTQUICKSLOT_OPEN(frame, msg, argStr, argNum)
 	if IsJoyStickMode() == 0 then
 
 		local quickFrame = ui.GetFrame('quickslotnexpbar')
-			if quickFrame:IsVisible() == 1 then
-				quickFrame:ShowWindow(0);
-			end
+		quickFrame:ShowWindow(0);
 	elseif IsJoyStickMode(pc) == 1 then
 		local joystickQuickFrame = ui.GetFrame('joystickquickslot')
-			if joystickQuickFrame:IsVisible() == 1 then
-				joystickQuickFrame:ShowWindow(0);
-			end
+		joystickQuickFrame:ShowWindow(0);
 	end
 end
 
@@ -96,14 +95,10 @@ function ON_RESTQUICKSLOT_CLOSE(frame, msg, argStr, argNum)
 
 	if IsJoyStickMode() == 0 then
 		local quickFrame = ui.GetFrame('quickslotnexpbar')
-		if quickFrame:IsVisible() == 0 then
-			quickFrame:ShowWindow(1);
-		end
+		quickFrame:ShowWindow(1);
 	elseif IsJoyStickMode() == 1 then
 		local joystickQuickFrame = ui.GetFrame('joystickquickslot')
-		if joystickQuickFrame:IsVisible() == 0 then
-			joystickQuickFrame:ShowWindow(1);
-		end
+		joystickQuickFrame:ShowWindow(1);
 	end
 	ui.CloseFrame('reinforce_by_mix')
 
@@ -189,6 +184,8 @@ function OPEN_ARROW_CRAFT()
 	if abil ~= nil then
 		local obj = GetIES(abil:GetObject());
 		local frame = ui.GetFrame("itemcraft_fletching");
+		local title = frame:GetChild("title");
+		title:SetTextByKey("value",  obj.Name);
 		SET_ITEM_CRAFT_UINAME("itemcraft_fletching");
 		SET_CRAFT_IDSPACE(frame, "Recipe_ItemCraft", obj.ClassName, obj.Level);
 		CREATE_CRAFT_ARTICLE(frame);
@@ -197,15 +194,17 @@ function OPEN_ARROW_CRAFT()
 
 end
 
-function OPEN_DIPELLER_CRAFT()
+function OPEN_DISPELLER_CRAFT()
 	local abil = session.GetAbilityByName("Pardoner_Dispeller")
 	if abil ~= nil then
 		local obj = GetIES(abil:GetObject());
-		local frame = ui.GetFrame("itemcraft_alchemist");
-		SET_ITEM_CRAFT_UINAME(frame, "itemcraft_alchemist");
-		SET_CRAFT_IDSPACE("Recipe_ItemCraft", obj.ClassName, obj.Level);
+		local frame = ui.GetFrame("itemcraft_fletching");
+		local title = frame:GetChild("title");
+		title:SetTextByKey("value",  obj.Name);
+		SET_ITEM_CRAFT_UINAME("itemcraft_alchemist");
+		SET_CRAFT_IDSPACE(frame, "Recipe_ItemCraft", obj.ClassName, obj.Level);
 		CREATE_CRAFT_ARTICLE(frame);
-		ui.ToggleFrame("itemcraft_alchemist");
+		ui.ToggleFrame("itemcraft_fletching");
 		
 	end
 
@@ -259,18 +258,4 @@ function QSLOT_ENABLE_DISPELLER_CRAFT()
 	end
 
 	return 0;
-end
-
-function OPEN_DISPELLER_CRAFT()
-	local abil = session.GetAbilityByName("Pardoner_Dispeller")
-	if abil ~= nil then
-		local obj = GetIES(abil:GetObject());
-		local frame = ui.GetFrame("itemcraft_alchemist");
-		SET_ITEM_CRAFT_UINAME("itemcraft_alchemist");
-		SET_CRAFT_IDSPACE(frame, "Recipe_ItemCraft", obj.ClassName, obj.Level);
-		CREATE_CRAFT_ARTICLE(frame);
-		ui.ToggleFrame("itemcraft_alchemist");
-		
-	end
-
 end

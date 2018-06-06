@@ -1571,7 +1571,7 @@ function SCR_PRE_FLASH64_SQ_08_ITEM(self, argstring, argnum1, argnum2)
                 if cnt >= 1 then
 	    for i = 1, cnt do
                         if list[i].Faction == 'Monster' then
-                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Material') == 'YES' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
             return GetHandle(list[i])
 	    end
     end
@@ -2239,7 +2239,7 @@ function SCR_PRE_CATACOMB_38_2_SQ_02_ITEM(self, argstring, argnum1, argnum2)
                 if fndCnt >= 1 then
                     for i = 1, fndCnt do
                         if fndList[i].Faction == 'Monster' then
-                            if SCR_QUEST_MONRANK_CHECK(fndList[i], 'Normal', 'Special', 'Material') == 'YES' then
+                            if SCR_QUEST_MONRANK_CHECK(fndList[i], 'Normal', 'Material') == 'YES' then
                     		    return GetHandle(fndList[i])
                     		end
                         end
@@ -2310,7 +2310,7 @@ function SCR_PRE_CATACOMB_04_SQ_03_ITEM(self, argstring, argnum1, argnum2)
                 if fndCnt >= 1 then
                     for i = 1, fndCnt do
                         if fndList[i].Faction == 'Monster' then
-                            if SCR_QUEST_MONRANK_CHECK(fndList[i], 'Normal', 'Special', 'Material') == 'YES' then
+                            if SCR_QUEST_MONRANK_CHECK(fndList[i], 'Normal', 'Material') == 'YES' then
                 		        return GetHandle(fndList[i])
                 		    end
                         end
@@ -2484,7 +2484,7 @@ function SCR_PRE_JOB_ROGUE_6_1_ITEM(self, argstring, argnum1, argnum2)
     	        if cnt >= 1 then
         	        for i = 1, cnt do
         	            if list[i].Faction == 'Monster' then
-        	                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Elite', 'Material') == 'YES' then
+        	                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                                 if IsServerSection(self) == 1 then
                                     local buff = GetBuffByName(list[i], 'JOB_ROGUE_6_1_BUFF')
                                     if buff == nil then
@@ -2516,7 +2516,7 @@ function SCR_PRE_JOB_FALCONER_6_1_ITEM(self, argstring, argnum1, argnum2)
 	        if cnt >= 1 then
     	        for i = 1, cnt do
                     if list[i].Faction == 'Monster' then
-                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Elite', 'Material') == 'YES' then
+                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
     	                    if IsServerSection(self) == 1 then
     	                        if list[i].MoveType == 'Flying' then
             	                    return GetHandle(list[i]);
@@ -2591,7 +2591,7 @@ function SCR_PRE_KATYN_10_MQ_04_ITEM(self, argstring, argnum1, argnum2)
                 if cnt >= 1 then
                     for i = 1, cnt do
                         if list[i].Faction == 'Monster' then
-                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Elite', 'Material') == 'YES' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                                 return GetHandle(list[i]);
                 	        end
             	        end
@@ -2629,7 +2629,7 @@ function SCR_PRE_KATYN_12_MQ_02_ITEM(self, argstring, argnum1, argnum2)
                 if cnt >= 1 then
                     for i = 1, cnt do
                         if list[i].Faction == 'Monster' then
-                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Material') == 'YES' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                                 return GetHandle(list[i]);
                 	        end
             	        end
@@ -2727,7 +2727,7 @@ function SCR_PRE_JOB_2_CRYOMANCER_3_1_ITEM(self, argstring, argnum1, argnum2)
             if cnt >= 1 then
                 for i = 1, cnt do
                     if list[i].Faction == 'Monster' then
-                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Material') == 'YES' then
+                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                             return GetHandle(list[i]);
             	        end
         	        end
@@ -2749,7 +2749,7 @@ function SCR_PRE_JOB_2_PSYCHOKINO_3_1_ITEM(self, argstring, argnum1, argnum2)
             if cnt >= 1 then
                 for i = 1, cnt do
                     if list[i].Faction == 'Monster' then
-                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Material') == 'YES' then
+                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                             if list[i].MoveType ~= 'Holding' then
                                 if IsServerSection(self) == 1 then
                                     local buff = GetBuffByName(list[i], 'JOB_2_PSYCHOKINO_3_1_BUFF')
@@ -2804,7 +2804,7 @@ function SCR_PRE_JOB_2_WUGUSHI_5_1_ITEM(self, argstring, argnum1, argnum2)
             if cnt >= 1 then
                 for i = 1, cnt do
                     if list[i].Faction == 'Monster' then
-                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Material') == 'YES' then
+                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                             if list[i].Attribute == 'Poison' then
                                 return GetHandle(list[i]);
                             end
@@ -2870,7 +2870,7 @@ function SCR_PRE_JOB_2_WUGUSHI_4_1_ITEM(self, argstring, argnum1, argnum2)
                 if cnt >= 1 then
                     for i = 1, cnt do
                         if list[i].Faction == 'Monster' then
-                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Elite', 'Material') == 'YES' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                                 if IsServerSection(self) == 1 then
                                     local buff = GetBuffByName(list[i], 'JOB_2_WUGUSHI_4_1_BUFF')
                                     if buff == nil then
@@ -2905,7 +2905,7 @@ function SCR_PRE_JOB_WARLOCK_7_1_ITEM(self, argstring, argnum1, argnum2)
                 if cnt >= 1 then
                     for i = 1, cnt do
                         if list[i].Faction == 'Monster' then
-                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Elite', 'Material') == 'YES' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                                 return 1;
                             end
             	        end
@@ -2928,7 +2928,7 @@ function SCR_PRE_JOB_FEATHERFOOT_7_1_ITEM(self, argstring, argnum1, argnum2)
             if cnt >= 1 then
                 for i = 1, cnt do
                     if list[i].Faction == 'Monster' then
-                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Material') == 'YES' then
+                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                             if IsServerSection(self) == 1 then
                                 local buff = GetBuffByName(list[i], 'JOB_FEATHERFOOT_7_1_BUFF')
                                 if buff == nil then
@@ -3146,122 +3146,6 @@ end
 
 
 
---PRISON_78_MQ_3_ITEM
-function SCR_PRE_PRISON_78_MQ_3_ITEM(self, argstring, argnum1, argnum2)
-    if GetLayer(self) == 0  then
-        local _zone = GetZoneName(self)
-        local i
-
-        for i = 78, 82 do
-            if _zone == 'd_prison_'..i then
-                return 1;
-            end
-        end
-    end
-    return 0;
-end
-
-
-
---PRISON_78_MQ_5_ITEM
-function SCR_PRE_PRISON_78_MQ_5_ITEM(self, argstring, argnum1, argnum2)
-    local result1 = SCR_QUEST_CHECK(self, 'PRISON_78_MQ_7')
-    if result1 == 'PROGRESS' then
-        if GetLayer(self) ~= 0  then
-    	    if GetZoneName(self) == 'd_prison_78' then
-    	        local list, cnt = SelectObject(self, 100, 'ENEMY')
-    	        if cnt >= 1 then
-        	        for i = 1, cnt do
-        	            if list[i].ClassName == 'boss_Mandara_Q1' then
-        	                local buff1 = IsBuffApplied(list[i], 'PRISON_78_MQ_7_BUFF')
-                            if buff1 == 'YES' then
-            	                return GetHandle(list[i])
-            	            else
-                	            if IsServerSection(self) == 1 then
-                	                SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("PRISON_78_MQ_5_ITEM_MSG3"), 5);
-                	            end
-            	            end
-            	        end
-        	        end
-        	    end
-            end
-        end
-    end
-    return 0;
-end
-
-
-
---PRISON_80_MQ_4_ITEM
-function SCR_PRE_PRISON_80_MQ_4_ITEM(self, argstring, argnum1, argnum2)
-    local result1 = SCR_QUEST_CHECK(self, 'PRISON_80_MQ_5')
-    if result1 == 'PROGRESS' then
-        if GetLayer(self) == 0  then
-    	    if GetZoneName(self) == 'd_prison_80' then
-                return 1;
-            end
-        end
-    end
-    return 0;
-end
-
-
-
---PRISON_82_MQ_7_ITEM
-function SCR_PRE_PRISON_82_MQ_7_ITEM(self, argstring, argnum1, argnum2)
-    if GetLayer(self) == 0  then
-	    if GetZoneName(self) == 'd_prison_82' then
-            local result1 = SCR_QUEST_CHECK(self, 'PRISON_82_MQ_8')
-            local result2 = SCR_QUEST_CHECK(self, 'PRISON_82_MQ_9')
-            if result1 == 'PROGRESS' then
-                local list, cnt = SelectObject(self, 100, 'ENEMY')
-                if cnt >= 1 then
-                    for i = 1, cnt do
-                        if list[i].Faction == 'Monster' then
-                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Material') == 'YES' then
-                                if IsServerSection(self) == 1 then
-                                    local buff = GetBuffByName(list[i], 'PRISON_82_MQ_8_BUFF')
-                                    if buff == nil then
-                                        return GetHandle(list[i])
-                                    end
-                                else
-                                    return GetHandle(list[i]);
-                                end
-                	        end
-            	        end
-            	    end
-            	    
-            	    if IsServerSection(self) == 1 then
-                        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("PRISON_82_MQ_7_ITEM_MSG1"), 5);
-                    end
-                end
-            elseif result2 == 'PROGRESS' then
-                local list, cnt = SelectObject(self, 100, 'ALL')
-                if cnt >= 1 then
-                    for i = 1, cnt do
-                        if list[i].ClassName ~= 'PC' then
-                            if list[i].ClassName == 'mine_crystal_red2_small' then
-                                if IsServerSection(self) == 1 then
-                                    local buff = GetBuffByName(list[i], 'PRISON_82_MQ_8_BUFF')
-                                    if buff == nil then
-                                        return GetHandle(list[i])
-                                    end
-                                else
-                                    return GetHandle(list[i]);
-                                end
-                	        end
-            	        end
-            	    end
-            	    
-            	    if IsServerSection(self) == 1 then
-                        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("PRISON_82_MQ_7_ITEM_MSG1"), 5);
-                    end
-                end
-            end
-        end
-    end
-    return 0;
-end
 
 
 
@@ -4086,7 +3970,7 @@ function SCR_PRE_PILGRIM312_SQ_04_ITEM(self, argstring, argnum1, argnum2)
                 for i = 1, cnt do
                         if list[i].ClassName ~= 'PC' then
                     if list[i].Faction == 'Monster' then
-                                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Material') == 'YES' then
+                                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                             if IsBuffApplied(list[i], 'PILGRIM312_SQ_04_BUFF') == 'NO' then
                                 if list[i].ClassName ~= "rootcrystal_01" then
                                     return GetHandle(list[i])
@@ -4589,7 +4473,7 @@ function SCR_PRE_SIAU15RE_SQ_03_ITEM(self, argObj, argstring, arg1, arg2)
                     local i
                     for i = 1, cnt do
         	            if list[i].Faction == 'Monster' then
-        	                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Elite', 'Material') == 'YES' then
+        	                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                             return GetHandle(list[i])
                         end
                     end
@@ -4628,7 +4512,7 @@ function SCR_PRE_PRISON621_SQ_04_ITEM(self, argObj, argstring, arg1, arg2)
                 for i = 1, cnt do
                     if cnt > 0 then
                         if list[i].Faction == 'Monster' then
-                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Elite', 'Material') == 'YES' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                         return GetHandle(list[i])
                     end
                 end
@@ -4651,7 +4535,7 @@ function SCR_PRE_PRISON622_SQ_02_ITEM(self, argObj, argstring, arg1, arg2)
                 for i = 1, cnt do
                     if list[i].ClassName ~= 'PC' then
         	            if list[i].Faction == 'Monster' then
-        	                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Special', 'Elite', 'Material') == 'YES' then
+        	                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                             return GetHandle(list[i])
                         end
                     end
@@ -4845,6 +4729,7 @@ function SCR_PRE_CASTLE65_3_SQ01_ITEM(self, argObj, argstring, argnum1, argnum2)
     end
     return 0
 end
+
 
 --SCR_PRE_PRISON611_MAP_ITEM
 function SCR_PRE_PRISON611_MAP_ITEM(self, argObj, argstring, arg1, arg2)
@@ -5143,7 +5028,7 @@ function SCR_PRE_TABLE72_SUBQ6ITEM1(self, argObj, BuffName, arg1, arg2)
         if GetLayer(self) == 0 then
             local result = SCR_QUEST_CHECK(self, 'TABLELAND_72_SQ6')
             if result == 'PROGRESS' then
-                local list, cnt = SelectObject(self, 40, 'ALL', 1)
+                local list, cnt = SelectObject(self, 40, 'ALL')
                 local i
                 if cnt > 0 then
                     for i = 1, cnt do

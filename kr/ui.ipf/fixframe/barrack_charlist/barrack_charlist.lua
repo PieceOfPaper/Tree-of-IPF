@@ -14,7 +14,7 @@ function BARRACK_CHARLIST_ON_INIT(addon, frame)
 	addon:RegisterMsg("NOT_HANDLED_ENTER", "SELECTTEAM_OPEN_CHAT");
 	
 	addon:RegisterMsg("BARRACK_NAME_CHANGE_RESULT", "SELECTTEAM_ON_MSG");
-	addon:RegisterMsg("BARRACK_ACCOUNT_PROP_UPDATE", "SELECTTEAM_ON_MSG");
+	addon:RegisterMsg("ACCOUNT_PROP_UPDATE", "SELECTTEAM_ON_MSG");
 
 	frame:SetUserValue("BarrackMode", "Barrack");
 	SET_CHILD_USER_VALUE(frame, "upgrade", "Barrack", "YES");
@@ -76,27 +76,15 @@ function SET_CHILD_USER_VALUE(frame, childName, name, value)
 	end
 end
 
-function DRAW_BARRACK_MEDAL_COUNT(frame)
+function DRAW_MEDAL_COUNT(frame)
 	local myaccount = session.barrack.GetMyAccount();
 	if nil == myaccount then
 		return;
 	end
 
 	local accountObj = GetMyAccountObj();
-	if accountObj == nil then
-		return;
-	end
-
 	local barrackName = ui.GetFrame("barrack_name");
-	if barrackName == nil then
-		return;
-	end
-
 	local richtext = barrackName:GetChild("free");
-	if richtext == nil then
-		return;
-	end
-
 	richtext:SetTextByKey("value", accountObj.Medal);
 	richtext = barrackName:GetChild("event");
 	richtext:SetTextByKey("value", accountObj.GiftMedal);
@@ -489,8 +477,8 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 		-- tp표시갱신
 		SELECTTEAM_NEW_CTRL(frame, ud);
 		BARRACK_THEMA_UPDATE(ui.GetFrame("barrackthema"))
-	elseif msg == "BARRACK_ACCOUNT_PROP_UPDATE" then
-		DRAW_BARRACK_MEDAL_COUNT(frame);
+	elseif msg == "ACCOUNT_PROP_UPDATE" then
+		DRAW_MEDAL_COUNT(frame);
 	end
 
 	SELECTCHAR_RE_ALIGN(frame);

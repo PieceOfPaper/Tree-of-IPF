@@ -114,7 +114,49 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="Check_Team2_Win">
+                    <Event execCount="1" eventName="Create_Portal">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="147"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="각 진영에 중앙으로 향하는 단방향 워프가 생성됩니다."/>
+								<Num Num="3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Notice_Portal">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="151"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="워프는 한번 사용시 90초간 비활성화 되므로 신중히 사용하세요!"/>
+								<Num Num="3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Remove_Portal">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="775"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="각 팀의 워프가 이제 곧 사라집니다."/>
+								<Num Num="3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Check_Team2_Win">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="Battle/Tower_1"/>

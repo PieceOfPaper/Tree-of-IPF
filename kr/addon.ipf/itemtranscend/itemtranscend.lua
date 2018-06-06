@@ -27,6 +27,7 @@ function ITEMTRASCEND_OPEN(frame)
 	local slotTemp = GET_CHILD(frame, "slotTemp");
 	slotTemp:StopActiveUIEffect();
 	slotTemp:ShowWindow(0);	
+	frame:SetUserValue("ONANIPICTURE_PLAY", 0);
 end
 
 function ITEMTRANSCEND_CLOSE(frame)
@@ -39,6 +40,7 @@ function ITEMTRANSCEND_CLOSE(frame)
 	frame:ShowWindow(0);
 	control.DialogOk();
 	ui.CloseFrame("inventory");
+	frame:SetUserValue("ONANIPICTURE_PLAY", 0);
  end
 
 function TRANSCEND_UPDATE(isSuccess)
@@ -49,6 +51,9 @@ end
 
 function ITEM_TRANSEND_DROP(frame, icon, argStr, argNum)
 
+	if frame:GetUserIValue("ONANIPICTURE_PLAY") == 1 then
+		return;
+	end
 	local liftIcon 				= ui.GetLiftIcon();
 	local FromFrame 			= liftIcon:GetTopParentFrame();
 	local toFrame				= frame:GetTopParentFrame();
@@ -102,7 +107,7 @@ function ITEM_TRANSCEND_NEED_GUIDE(frame, obj)
 	end
 		
 	local needTxt = "";
-	needTxt = string.format("{img %s 30 30}{/}{@st43_green}{s16}%s{/}{@st43b}{s16}%s{nl}%s{/}", mtrlCls.Icon, mtrlCls.Name, ScpArgMsg("Need_Item"), GET_TRANSCEND_MAXCOUNT_TXT(obj));			
+	needTxt = string.format("{img %s 30 30}{/}{@st43_green}{s16}%s{/}{@st42b}{s16}%s{nl}%s{/}", mtrlCls.Icon, mtrlCls.Name, ScpArgMsg("Need_Item"), GET_TRANSCEND_MAXCOUNT_TXT(obj));			
 	SETTEXT_GUIDE(frame, 1, needTxt);
 end;
 
@@ -121,7 +126,7 @@ end;
 function GET_TRANSCEND_MAXCOUNT_TXT(obj)
 	local numColor = "{#FFE400}";
 	local mtrl_num = ScpArgMsg("ITEMTRANSCEND_MTRL_NUM{color}{num}", "num", GET_TRANSCEND_MAXCOUNT(obj), "color", numColor);
-	local guideTxt = string.format("{@st43b}{s16}{#FFE400}%s{/}{@st43b}{s16}%s{/}{@st43b}{s16}%s{/}", ScpArgMsg("TranscendSuccessRatio{P}%", "P", 100), mtrl_num, ScpArgMsg("ITEMTRANSCEND_MTRL_NUM"));
+	local guideTxt = string.format("{@st43b}{s16}{#FFE400}%s{/}{@st42b}{s16}%s{/}{@st42b}{s16}%s{/}", ScpArgMsg("TranscendSuccessRatio{P}%", "P", 100), mtrl_num, ScpArgMsg("ITEMTRANSCEND_MTRL_NUM"));
 	return guideTxt;
 end;
 
@@ -314,19 +319,17 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 	end
 	
 	local targetObj = GetIES(targetItem:GetObject());
+	local transcend = targetObj.Transcend;
+	local transcendCls = GetClass("ItemTranscend", transcend + 1);
+	if transcendCls == nil then
+		ui.MsgBox(ScpArgMsg("CantTrasncendMore"));
+		return;
+	end
 	
 	local matItemName = GET_TRANSCEND_MATERIAL_ITEM(targetObj);
 	if obj.ClassName ~= matItemName then
 		local msgString = ScpArgMsg("PleaseDropItem{Name}", "Name", GetClass("Item", matItemName).Name);
 		ui.MsgBox(msgString);
-		return;
-	end
-	
-
-	local transcend = targetObj.Transcend;
-	local transcendCls = GetClass("ItemTranscend", transcend + 1);
-	if transcendCls == nil then
-		ui.MsgBox(ScpArgMsg("CantTrasncendMore"));
 		return;
 	end
 	
@@ -396,7 +399,7 @@ function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 		return;
 	end
 	local targetObj = GetIES(targetItem:GetObject());
-	local tooltipFont = "{@st43b}{s16}";
+	local tooltipFont = "{@st42b}{s16}";
 
 	local needTxt = string.format("{@st43b}{s16}%s{/}{nl}%s{/}{nl}%s{/}", ScpArgMsg("ITEMTRANSCEND_MTRL_NUM_TOOLTIP{font}", "font", tooltipFont), ScpArgMsg("ITEMTRANSCEND_GUIDE_SECOND"), GET_TRANSCEND_MAXCOUNT_TXT(targetObj));	
 	SETTEXT_GUIDE(frame, 3, needTxt);
@@ -449,6 +452,7 @@ function _ITEMTRANSCEND_EXEC()
 	if frame:IsVisible() == 0 then
 		return;
 	end
+	frame:SetUserValue("ONANIPICTURE_PLAY", 1);
 	
 	ui.SetHoldUI(true);
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_EVENT_EXEC"));
@@ -490,6 +494,10 @@ end
 function ITEMTRANSCEND_INV_RBTN(itemObj, slot)
 	
 	local frame = ui.GetFrame("itemtranscend");
+
+	if frame:GetUserIValue("ONANIPICTURE_PLAY") == 1 then
+		return;
+	end
 
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
@@ -642,6 +650,7 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 
 	frame:StopUpdateScript("TIMEWAIT_STOP_ITEMTRANSCEND");
 	frame:RunUpdateScript("TIMEWAIT_STOP_ITEMTRANSCEND", timesecond);
+	frame:SetUserValue("ONANIPICTURE_PLAY", 0);
 end
 
 -------------------------

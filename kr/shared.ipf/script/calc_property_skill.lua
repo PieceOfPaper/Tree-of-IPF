@@ -8721,6 +8721,14 @@ function SCR_GET_ResistElements_Ratio2(skill)
     return value
 end
 
+function SCR_GET_ResistElements_Ratio3(skill)
+    
+    local pc = GetSkillOwner(skill);
+    local value = skill.Level * 2.5;
+    
+    return value
+end
+
 function SCR_GET_ResistElements_Bufftime(skill)
     local value = 60 + skill.Level * 5
     return math.floor(value)

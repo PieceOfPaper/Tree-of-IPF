@@ -8108,16 +8108,7 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="PRISON_82_MQ_6_GHOST_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_ADD_HATE_AROUND" Client="NO" UseSleep="NO">
-                <Num Num="300"/>
-                <Num Num="9999"/>
-                <Num Num="10"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="RED_CRYSTAL" ActiveMessageMapInBattle="1">
+	<AI Name="RED_CRYSTAL" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>

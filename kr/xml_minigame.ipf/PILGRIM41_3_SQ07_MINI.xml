@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="PILGRIM41_3_SQ07_MINI" minLv="0" maxLv="0" startWaitSec="757424960">
+        <StageList>
+            <Stage Name="Set">
+                <ObjList>
+                    <Obj Type="Monster" MonType="151051" Pos="1047.04#45.04#1057.12" angle="156" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HP&apos; &apos;99999&apos; &apos;DEF_BM&apos; &apos;99999&apos; &apos;Lv&apos; &apos;280&apos; &apos;HPCount&apos; &apos;90&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_smoke101_dark" Arg="4"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </DeadList>
+                            <HitList>
+                                <ToolScp Scp="SAI_ADD_MGAME_V_TAKEDMG" Client="NO" UseSleep="NO">
+                                    <Str Str="pilgrim413_01"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Setting">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="pilgrim413_01"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Stage1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="pilgrim413_01"/>
+                                <Str Str="OVER"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event eventName="Stage2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="pilgrim413_01"/>
+                                <Str Str="OVER"/>
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event eventName="Stage3">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="pilgrim413_01"/>
+                                <Str Str="OVER"/>
+                                <Num Num="65"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage1" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57921" Pos="903.38#52.28#792.19" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57921" Pos="1007.05#52.28#782.91" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57921" Pos="957.71#52.28#768.90" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Effect">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Set/0"/>
+                                <Str Str="SCR_PILGRIM413_SQ_07_EFFECT1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="검은 수정이 뿜어낸 기운에 몬스터들이 반응합니다!"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage2" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57921" Pos="874.93#52.28#792.73" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57921" Pos="1012.87#52.28#788.21" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57924" Pos="919.46#52.28#750.33" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57924" Pos="990.42#52.28#746.91" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Effect">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Set/0"/>
+                                <Str Str="SCR_PILGRIM413_SQ_07_EFFECT2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="검은 수정이 다시 검은 기운을 뿜어냅니다!"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage3" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57921" Pos="958.05#52.28#780.10" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57924" Pos="1012.87#52.28#788.21" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57924" Pos="889.35#52.28#796.17" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57944" Pos="991.73#52.28#752.42" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57944" Pos="929.26#52.28#753.05" genCount="1" maxStackCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" searchRange="300" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Effect">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Set/0"/>
+                                <Str Str="SCR_PILGRIM413_SQ_07_EFFECT3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="검은 수정이 보다 격렬하게 기운을 뿜어냅니다!"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Clear">
+                <ObjList>
+                    <Obj Type="Monster" MonType="155126" Pos="920.37#52.28#704.59" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;수도사 스텔라&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;FIXMSPD_BM&apos; &apos;72&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_PILGRIM413_SQ_07_NPCMOVE"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="Chat" Client="NO" UseSleep="NO">
+                                    <Str Str="잘 하셨습니다. 이제 그들을 기다리죠."/>
+                                    <Num Num="12"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_MGAME_PC_OWNER" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="Clear1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Set/0/Stage1/0/Stage1/1/Stage1/2/Stage2/0/Stage2/1/Stage2/2/Stage2/3/Stage3/0/Stage3/1/Stage3/2/Stage3/3/Stage3/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="검은 수정과 마족을 모두 처리하였습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Clear/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event eventName="AllKill">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Set/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/0/Stage1/1/Stage1/2/Stage2/0/Stage2/1/Stage2/2/Stage2/3/Stage3/0/Stage3/1/Stage3/2/Stage3/3/Stage3/4"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="남은 몬스터를 모두 처치하세요"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>
