@@ -15,7 +15,7 @@
 		<groupbox name="gbox" rect="0 0 467 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg" tabname="tab_normal"/>
 		<groupbox name="gbox_log" rect="0 0 467 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg" tabname="tab_log"/>
 		<groupbox name="log_gbox" parent="gbox_log" rect="0 0 467 900" margin="0 69 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
-		<tab name="itembox" rect="0 0 400 40" margin="30 70 0 0 " layout_gravity="center top" LBtnDownScp="FRIEND_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tab name="itembox" rect="0 0 400 40" margin="30 70 0 0 " layout_gravity="center top" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
 		<tabitem name="tab_normal" parent="itembox" layout_gravity="left top" caption="{@st66b}베이스캠프" skinspace="20" width="160"/>
 		<tabitem name="tab_log" parent="itembox" layout_gravity="left top" caption="{@st66b}기록" skinspace="20" width="160"/>
 		<richtext name="richtext_1" rect="0 0 120 24" margin="10 18 0 0" layout_gravity="center top" caption="{@st43}베이스 캠프" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>

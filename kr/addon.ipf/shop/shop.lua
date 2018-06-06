@@ -355,20 +355,6 @@ function SHOP_SELL(invitem, sellCount, setTotalCount)
 	if itemobj.MaxStack > 1 then
 		slot:SetText('{s18}{b}{ol}'..curCnt, 'count', 'right', 'bottom', -2, 1);
 	end
-	local noTrade = TryGetProp(itemobj, "BelongingCount");
-	if nil ~= noTrade then
-		local cnt = tonumber(noTrade);
-		local compareCnt = 0;
-		if nil == curCnt then
-			compareCnt = sellCount;
-		else
-			compareCnt = curCnt;
-		end
-		if cnt > compareCnt then
-			cnt = compareCnt
-		end
-		icon:SetNoTradeCount(cnt);
-	end
 
 	SHOP_SELECT_ITEM_LIST[invitem:GetIESID()] = curCnt;
 
@@ -1088,12 +1074,6 @@ function UPDATE_SOLD_ITEM_LIST(frame)
 		local obj = GetIES(info:GetObject());
 		local info = list:Element(i);
 		SOLD_SLOT_SET(slot, i, info);
-
-		local noTrade = TryGetProp(obj, "BelongingCount");
-		if nil ~= noTrade then
-			local icon = slot:GetIcon();
-			icon:SetNoTradeCount(noTrade);
-		end
 
 		idx = idx + 1;
 		i = list:Prev(i);

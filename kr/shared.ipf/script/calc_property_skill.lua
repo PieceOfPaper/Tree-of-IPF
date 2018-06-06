@@ -2711,6 +2711,14 @@ function SCR_GET_Gae_Bulg_Ratio(skill)
 
 end
 
+
+function SCR_GET_Gae_Bulg_Ratio2(skill)
+
+	local value = 5 + skill.Level * 0.5
+  return value
+
+end
+
 function SCR_Get_SkillFactor_Dragon_Soar(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -5803,6 +5811,11 @@ end
 function SCR_GET_Bloodletting_Ratio(skill)
 
   local value = 6 - skill.Level
+  
+  if value <= 0 then
+  value = 1
+  end
+  
   return value;
   
 end
@@ -7281,6 +7294,18 @@ function SCR_Get_Rain_Ratio(skill)
     return value;
 end
 
+function SCR_GET_SafetyZone_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.Level * 2;
+    
+    local abil = GetAbility(pc, 'Cleric18')
+    if abil ~= nil and 1 == abil.ActiveState then
+        value = value + abil.Level * 1;
+    end
+    
+    return value;
+end
+
 
 function SCR_GET_Briquetting_Ratio(skill)
     local value = 4.5 + skill.Level * 0.5;
@@ -8512,7 +8537,7 @@ function SCR_GET_ResistElements_Bufftime(skill)
 end
 
 function SCR_GET_TurnUndead_Ratio(skill)
-    return skill.Level
+    return 3 + skill.Level
 end
 
 function SCR_Get_IronSkin_Time(skill)
@@ -9390,7 +9415,7 @@ function SCR_Get_BroadHead_Ratio(skill)
 end
 
 function SCR_Get_BroadHead_Bufftime(skill)
-    return 5 + skill.Level * 1
+    return 5 + skill.Level * 0.5
 end
 
 function SCR_Get_CrossFire_Ratio(skill)
@@ -10731,6 +10756,17 @@ function SCR_NOHIT_ATTACK(self, from, skill, splash, ret)
 
 end
 
+
+
+
+function SCR_GET_SR_LV_TurnUndead(skill)
+
+	local value = 3 + skill.Level
+
+	return value
+	
+end
+
 function SCR_GET_SR_LV(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -10818,7 +10854,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
 	if skill.GemLevel_BM > 0 then
-		value = value + 1;	-- ������ ��ų���ʽ��� ��ø���ѵ� ������ +1�� ��Ų�ٰ���.
+		value = value + 1;	-- ?????? ?????????? ??ø????? ?????? +1?? ????????.
 	end
 
     if skill.LevelByDB == 0 then
@@ -10899,10 +10935,18 @@ function SCR_GET_Ogouveve_Ratio(skill)
     return math.floor(value);
 end
 
-function SCR_GET_Ogouveve_Ratio2(skill)
+function SCR_GET_Ogouveve_BuffTime(skill)
     
     local pc = GetSkillOwner(skill);
     local value = 60 + skill.Level * 10
+    
+    return math.floor(value);
+end
+
+
+function SCR_GET_Ogouveve_Ratio2(skill)
+    
+    local value = 1 + skill.Level * 0.5
     
     return math.floor(value);
 end
@@ -11004,6 +11048,11 @@ function SCR_GET_DELAY_TIME(skill)
 	end
 	return skill.DelayTime;
 end
+
+function SCR_USE_DELAY_TIME(skill)
+	return skill.DelayTime;
+end
+
 function SCR_GET_Dig_Ratio(skill)
 	local value = skill.Level;
 	return value;

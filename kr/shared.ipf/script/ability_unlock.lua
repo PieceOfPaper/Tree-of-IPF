@@ -36,6 +36,17 @@ function UNLOCK_ABIL_LEVEL(pc, pcLevel, levelFix, abilIES)
 	
 end
 
+function UNLOCK_ABIL_RANK(pc, strarg, limitRank, abilIES)
+
+    local rank = GetTotalJobCount(pc);
+	if rank >= limitRank then
+		return "UNLOCK";
+	end
+
+	return "LOCK_GRADE";
+
+end
+
 function UNLOCK_PRIEST21(pc, sklName, limitLevel, abilIES)
 
 	local jobGrade = GetJobGradeByName(pc, 'Char4_2');

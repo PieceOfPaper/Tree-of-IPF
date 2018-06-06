@@ -24,6 +24,6 @@
 		<groupbox name="title_1" rect="0 0 1400 40" margin="9 161 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
 		<richtext name="richtext_1" margin="158 10 0 0" rect="0 0 120 50" caption="{@st45tw2}이름{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 		<richtext name="category_totlaPrice" margin="745 10 0 0" rect="0 0 120 24" caption="{@st45tw2}개수{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
-    <richtext name="getTime" margin="1000 10 0 0" rect="0 0 120 24" caption="{@st45tw2}수령 가능 시간{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+    <richtext name="getTime" margin="1000 10 0 0" rect="0 0 120 24" caption="{@st45tw2}대기 시간{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 	</controls>
 </uiframe>

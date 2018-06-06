@@ -811,8 +811,8 @@ function SCR_Get_MON_MGP(self)
 end
 
 function SCR_Get_MON_SR(self)
-	return self.MonSR + self.SR_BM;
---	return self.MonSR + self.SR_BM + math.floor(self.Lv / 10);
+    local value = self.MonSR + self.SR_BM;
+	return math.floor(value)
 end
 
 function SCR_Get_MON_SDR(self)
@@ -912,23 +912,16 @@ function CLIENT_SORCERER_SUMMONING_MON(self, caster, skl, item)
 	self.Lv = caster.Lv;
 	self.StatType = 30
 
-	APPLY_SORCERER_SUMMON_STAT(self, caster, skl, item)
+	local monDef = self.DEF;
+	local monMDef = self.MDEF;
 	
-end
-
-function APPLY_SORCERER_SUMMON_STAT(self, caster, skl, item)
-
 	local sklbonus = 1 + skl.Level * 0.1
 	local itembonus = 1 + item.Level * 0.1
-	
 	self.MATK_BM = (500 + (caster.INT * sklbonus)) * itembonus
 	self.PATK_BM = (500 + (caster.INT * sklbonus)) * itembonus
 
-	--print(self.MATK_BM, self.PATK_BM)
-	
-	self.DEF = (self.DEF /2  + (caster.MNA * sklbonus)) * itembonus
-	self.MDEF = (self.MDEF/2 + (caster.MNA * sklbonus)) * itembonus
-
+	self.DEF_BM = (monDef / 2  + (caster.MNA * sklbonus)) * itembonus
+	self.MDEF_BM = (monMDef / 2 + (caster.MNA * sklbonus)) * itembonus
 end
 
 function SCR_GET_MON_SKILLFACTORRATE(self)

@@ -19,7 +19,7 @@
         <groupbox name="mainGbox" rect="0 0 470 460" margin="0 50 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
         <picture name="bgimage" parent="mainGbox" rect="0 0 280 270" margin="30 50 0 0" layout_gravity="left top" image="Magic_poison" stretch="true"/>
         <picture name="subboss_bg" parent="mainGbox" rect="0 0 168 214" margin="0 150 30 0" layout_gravity="right top" image="bosscard_big_on" stretch="true"/>
-        <slot name="subboss" parent="mainGbox" rect="0 0 130 174" margin="0 170 48 0" layout_gravity="right top" DropScp="POISONPOT_SLOT_DROP" stretch="true"/>
+		<slot name="subboss" parent="mainGbox" rect="0 0 130 174" margin="0 170 48 0" layout_gravity="right top" DropScp="POISONPOT_SLOT_DROP"  PopScp="POISONPOT_SLOT_RESET" RBtnDownScp="POISONPOT_SLOT_RESET" stretch="true"/>
         <gauge name="poisonAmountGauge" parent="mainGbox" rect="0 0 400 50" margin="30 400 0 0" layout_gravity="left top" inverse="false" point="17" skin="gauge_itemtooltip_poten" text1="%v / %m" textalign1="center center" textfont1="yellow_16_b" textoffset1="0 -1"/>
         <richtext name="poisonAmount" parent="mainGbox" rect="0 0 300 30" margin="180 380 0 0" layout_gravity="left top" resizebyresolution="true" fontname="white_24_ol" format="{s20}독의 양  {s28}{b}{#ff6600}%s" param1="amount" param1_def="369" stretch="true"/>
         <groupbox name="ingredientGbox" rect="0 0 450 380" margin="10 550 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>

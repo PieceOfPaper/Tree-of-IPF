@@ -10,18 +10,20 @@ function POST_BOX_MESSAGE_COUNT()
 	local postbox = GET_CHILD(frame, "postbox");
 	local postbox_new = GET_CHILD(frame, "postbox_new");
 
-
-	local cnt = session.postBox.GetMessageCount();
-
 	local drawnewicon = false
+	for dbType = 0, 1 do
+		local cnt = session.postBox.GetMessageCount(dbType);
 
-	for i = 0 , cnt - 1 do
+	
 
-		local msgInfo = session.postBox.GetMessageByIndex(i);
-		if msgInfo ~= nil then
-			if msgInfo:GetItemCount() > 0 and msgInfo:GetItemTakeCount() == 0 then
-				drawnewicon = true
-				break;
+		for i = 0 , cnt - 1 do
+
+			local msgInfo = session.postBox.GetMessageByIndex(i, dbType);
+			if msgInfo ~= nil then
+				if msgInfo:GetItemCount() > 0 and msgInfo:GetItemTakeCount() == 0 then
+					drawnewicon = true
+					break;
+				end
 			end
 		end
 	end

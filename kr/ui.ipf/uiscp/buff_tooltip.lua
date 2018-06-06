@@ -18,11 +18,9 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 		type:SetTextByKey("value", ClMsg("tokenItem"));
 		token_expup:SetTextByKey("value", ScpArgMsg("Token_ExpUp{PER}", "PER", "20%"));
 		token_staup:SetTextByKey("value", ClMsg("AllowPremiumPose"));
-
-
 		local accountObj = GetMyAccountObj();
 		local tokenItemCls = GetClassByType("Item", numarg2);
-		if tokenItemCls ~= nil then
+		if tokenItemCls ~= nil and tokenItemCls.NumberArg2 > 0 then
 			local tradeCountString = ScpArgMsg("AllowTradeByCount") .. " " .. string.format("(%d/%d)", accountObj.TradeCount, tokenItemCls.NumberArg2);
 			token_tradecount:SetTextByKey("value", tradeCountString);
 			token_tradecount:ShowWindow(1);
@@ -59,6 +57,20 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 			end		
 		end
 	end
+
+	local cnt = tooltipframe:GetChildCount();
+	local y = 45;
+	for i = 0, cnt - 1 do
+		local ctrl = tooltipframe:GetChildByIndex(i);
+		if ctrl:IsVisible() == 1 and ctrl:GetClassString() == "ui::CRichText" and ctrl:GetName() ~= "richtext_1" then
+			ctrl:SetOffset(ctrl:GetX(), y);
+			y = y + ctrl:GetHeight();
+		end
+	end
+
+	local gbox = tooltipframe:GetChild("gbox");
+	gbox:Resize(gbox:GetWidth(), y + 10);
+	tooltipframe:Resize(tooltipframe:GetWidth(), gbox:GetHeight() + 20);
 end
 
 

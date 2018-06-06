@@ -107,6 +107,12 @@
                     <ToolScp Scp="MGAME_START_CHANGE_BGM" Client="NO" UseSleep="NO">
                         <Str Str="m_boss_guild_hunting"/>
                     </ToolScp>
+                    <ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
+                        <AbsPos X="-484.16528" Y="346.15057" Z="1431.7507" Random="30"/>
+                        <Num Num="3"/>
+                        <Num Num="1"/>
+                        <Num Num="0.5"/>
+                    </ToolScp>
                 </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="740009" Pos="-514.99#346.15#1435.17" genCount="1" genTime="20000" objectKey="0" tendency="1">
@@ -125,7 +131,13 @@
                     </Obj>
                 </ObjList>
                 <StageEvents>
-                    <Event eventName="INI"/>
+                    <Event execCount="1" eventName="INI">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+                                <AbsPosRange X="-212.62404" Y="346.15057" Z="1434.1375" Range="60"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                     <Event execCount="1" eventName="END">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">

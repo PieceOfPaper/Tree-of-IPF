@@ -58,6 +58,11 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="reward">
+                        <execList>
+                            <ToolScp Scp="MGAME_GUILD_REWARD" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="STAGE_1_READY">

@@ -498,7 +498,7 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 
 end
 
-function COLLECTION_DROP(frame, slot, str, num)
+function COLLECTION_DROP(frame, slot)
 
 	local type = slot:GetUserIValue("COLLECTION_TYPE");
 	local liftIcon = ui.GetLiftIcon():GetInfo();
@@ -510,15 +510,21 @@ function COLLECTION_DROP(frame, slot, str, num)
 	local needcnt = colinfo:GetNeedItemCount(liftIcon.type)
 
 	if nowcnt < needcnt then
-		session.ResetItemList();
-		session.AddItemID(liftIcon:GetIESID());
-		local resultlist = session.GetItemIDList();
-		item.DialogTransaction("PUT_COLLECTION", resultlist, type);
-
-		imcSound.PlaySoundEvent("cllection_weapon_epuip");
+		local yesScp = string.format("EXEC_PUT_COLLECTION(\"%s\", %d)", liftIcon:GetIESID(), type);
+		ui.MsgBox(ScpArgMsg("CollectionIsSharedToTeamAndCantTakeBackItem_Continue?"), yesScp, "None");
 	end
 
 	
+
+end
+
+function EXEC_PUT_COLLECTION(itemID, type)
+
+	session.ResetItemList();
+	session.AddItemID(itemID);
+	local resultlist = session.GetItemIDList();
+	item.DialogTransaction("PUT_COLLECTION", resultlist, type);
+	imcSound.PlaySoundEvent("cllection_weapon_epuip");
 
 end
 

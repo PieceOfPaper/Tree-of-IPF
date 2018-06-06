@@ -4,6 +4,7 @@
 function INPUT_NUMBER_BOX(cbframe, titleName, strscp, defNumber, minNumber, maxNumber, numarg, strarg, isNumber)
 	local frame = INPUT_STRING_BOX_CB(cbframe, titleName, strscp, defNumber, numarg, strarg, nil, isNumber)
 	local edit = GET_CHILD(frame, 'input', "ui::CEditControl");
+	edit:SetNumberMode(1);
 	edit:SetMaxNumber(maxNumber);
 	edit:SetMinNumber(minNumber);
 
@@ -30,6 +31,7 @@ function INPUT_STRING_BOX_CB(fromFrame, titleName, strscp, defText, numarg, stra
 	local confirm = newframe:GetChild("confirm");
 	confirm:SetEventScript(ui.LBUTTONUP, "INPUT_STRING_EXEC");
 	local edit = GET_CHILD(newframe, 'input', "ui::CEditControl");
+	edit:SetNumberMode(0);
 	edit:SetEventScript(ui.ENTERKEY, "INPUT_STRING_EXEC");
 	newframe:SetSValue(strscp);
 

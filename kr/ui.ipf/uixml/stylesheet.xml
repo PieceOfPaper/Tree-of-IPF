@@ -177,6 +177,10 @@
 		<!--UI_button_small-->
 		<font name="normal" size="16" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="no" outline="yes" outlinecolor="333333" underline="no" centerline="no"/>
 	</style>
+	<style name="st42_red_small">
+		<!--UI_button_small-->
+		<font name="normal" size="12" space="0" color="FF2222" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
 	<style name="st43">
 		<!--UI_dialog_name-->
 		<font name="normal" size="24" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="yes" outline="yes" outlinecolor="111111" underline="no" centerline="no" gradation="gradation2"/>
@@ -409,4 +413,13 @@
 		<!--notice_screen-->
 		<font name="normal" size="16" space="0" color="000000" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
 	</style>
+  <style name="st69b_36">
+    <!--mon_pcskill-->
+    <font name="book" size="36" space="0" color="3C270D" bold="yes" italic="no" dropshadow="no" outline="no" outlinecolor="222222" underline="no" centerline="no" gradation="gradation2"/>
+  </style>
+  <style name="st69_100">
+    <!--mon_pcskill-->
+    <font name="book" size="100" space="0" color="3C270D" bold="yes" italic="no" dropshadow="no" outline="no" outlinecolor="222222" underline="no" centerline="no" gradation="gradation2"/>
+  </style>
+
 </StyleSheet>

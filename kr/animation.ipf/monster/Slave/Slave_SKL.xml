@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="6.00" soundFile="mon_sakmoli_raiseup"/>
+    <Sound frame="37.00" soundFile="skl_eff_born_wood_s"/>
+    <Sound frame="38.00" soundFile="wizard_normal_shot"/>
+    <Shockwave frame="39" type="2" intensity="5" frequency="70" duration="0.1" range="1000"/>
+    <Particle frame="39" attachNode="None" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="39" attachNode="Back_Acc_03" particleName="F_smoke006_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="41" type="2" intensity="5" frequency="70" duration="0.1" range="1000"/>
+</ActionDesc>

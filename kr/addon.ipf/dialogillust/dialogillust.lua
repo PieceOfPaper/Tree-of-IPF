@@ -9,8 +9,7 @@ end
 
 --ClassName을 받아, 그것을 Client의 데이터태이블에서, 값을 받아 오는 형식을 구성한다
 function DIALOGILLUST_TEXTVIEW(frame, msg, argStr, argNum)
-	ui.OpenFrame('dialogillust');
-	
+		
     local frame = ui.GetFrame('dialogillust');
 	local DialogTable		= GetClass( 'DialogText', argStr);
 	if DialogTable == nil then
@@ -25,7 +24,11 @@ function DIALOGILLUST_TEXTVIEW(frame, msg, argStr, argNum)
 		local imgObject = frame:GetChild('dialogimage');
 		tolua.cast(imgObject, 'ui::CPicture');
 		imgObject:SetImage(DialogTable.ImgName);	
+	else
+		imgObject:SetImage("");
 	end
+
+	frame:ShowWindow(1);
 end
 
 function DIALOGILLUST_ON_MSG(frame, msg, argStr, argNum)

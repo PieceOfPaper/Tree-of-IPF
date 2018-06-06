@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_slime_elite_born"/>
+    <Sound frame="13.00" soundFile="mon_slime_elite_knockdown"/>
+    <Sound frame="15.00" soundFile="mon_slime_elite_atk"/>
+    <Particle frame="16" attachNode="None" particleName="F_ground055_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="16" attachNode="None" particleName="F_ground004_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+</ActionDesc>

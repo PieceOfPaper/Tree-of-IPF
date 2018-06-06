@@ -7,7 +7,8 @@ function SEQUENTIALPICKITEM_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('INV_ITEM_IN', 'SEQUENTIAL_PICKITEMON_MSG');
 	addon:RegisterMsg('INV_ITEM_ADD', 'SEQUENTIAL_PICKITEMON_MSG');
-	
+	addon:RegisterMsg('GUILDWAREHOUSE_ITEM_IN', 'SEQUENTIAL_PICKITEMON_MSG');
+		
 end
 
 function SEQUENTIAL_PICKITEMON_MSG(frame, msg, arg1, type, class)
@@ -16,7 +17,7 @@ function SEQUENTIAL_PICKITEMON_MSG(frame, msg, arg1, type, class)
 		if arg1 == 'UNEQUIP' then
 			return
 		end
-		
+
 		local invitem = session.GetInvItem(type);
 		if class == nil then
 			class = GetClassByType("Item",	invitem.prop.type)
@@ -40,6 +41,19 @@ function SEQUENTIAL_PICKITEMON_MSG(frame, msg, arg1, type, class)
 			ADD_SEQUENTIAL_PICKITEM(frame, msg, arg1, count, class, tablekey)
 		end
 
+	elseif msg == "GUILDWAREHOUSE_ITEM_IN" then
+
+		local class = GetClassByType("Item", arg1);
+		local tablekey = arg1.."_"..type;
+
+		if SEQUENTIALPICKITEM_alreadyOpendGUIDs[tablekey] == nil then
+			SEQUENTIALPICKITEM_alreadyOpendGUIDs[tablekey] = "AlreadyOpen"
+			local addMsg = nil;
+			if msg == "GUILDWAREHOUSE_ITEM_IN" then
+				addMsg = ScpArgMsg("GetItemToGuildWareHouse");
+			end
+			ADD_SEQUENTIAL_PICKITEM(frame, msg, "", type, class, tablekey, false, addMsg)
+		end
 	end
 
 	
@@ -73,7 +87,7 @@ function SEQUENTIALPICKITEM_CLOSE(frame)
 
 end
 
-function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tablekey, fromWareHouse)
+function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tablekey, fromWareHouse, addMsg)
 	if class.ItemType == 'Unused' then
 		return
 	end
@@ -121,26 +135,30 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	PickItemCountCtrl:SetTextByKey('ItemCount', printCount);
 	
 	local AddWiki = GET_CHILD(PickItemCountCtrl,'AddWiki')
+	if addMsg == nil then
+		if wiki ~= nil and false == fromWareHouse then	
 
-	if wiki ~= nil and false == fromWareHouse then	
+			local total = GetWikiIntProp(wiki, "Total");
+			if total ~= nil then
 
-		local total = GetWikiIntProp(wiki, "Total");
-		if total ~= nil then
+				local totalCount = total;
 
-			local totalCount = total;
+				if totalCount > 1 then
+					AddWiki:ShowWindow(0)
+				else
+					AddWiki:ShowWindow(1)
+				end
 
-		if totalCount > 1 then
-			AddWiki:ShowWindow(0)
+			else
+				AddWiki:ShowWindow(0)
+			end
+
 		else
 			AddWiki:ShowWindow(1)
 		end
-
 	else
-		AddWiki:ShowWindow(0)
-	end
-
-	else
-		AddWiki:ShowWindow(0)
+		AddWiki:SetTextByKey("value", addMsg);
+		AddWiki:ShowWindow(1);
 	end
 
 

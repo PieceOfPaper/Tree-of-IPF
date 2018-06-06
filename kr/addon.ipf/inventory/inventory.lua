@@ -476,7 +476,7 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 	local itemCls = GetClassByType("Item", invItem.type);
 	local name = itemCls.ClassName;
 	if name == "Vis" or name == "Feso" then
-		DRAW_TOTAL_VIS(frame, 'invenZeny');
+		DRAW_TOTAL_VIS(frame, 'invenZeny', 1);
 		return;
 	end
 
@@ -1477,10 +1477,13 @@ function EXEC_SHOP_SELL(frame, cnt)
 end
 
 --크론에 대한 텍스트 출력하도록 한다
-function DRAW_TOTAL_VIS(frame, childname)
+function DRAW_TOTAL_VIS(frame, childname, remove)
 
 	local Cron = GET_TOTAL_MONEY();
-
+	if remove == 1 then
+		Cron = 0;
+	end
+	
 	local bottomGbox				= frame:GetChild('bottomGbox');
 	local moneyGbox				= bottomGbox:GetChild('moneyGbox');
 	local INVENTORY_CronCheck	= GET_CHILD(moneyGbox, childname, 'ui::CRichText');
@@ -1644,7 +1647,7 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 			toFrame:SetUserValue("HANDLE", FromFrame:GetUserIValue("HANDLE"));
 			INPUT_NUMBER_BOX(toFrame, ScpArgMsg("InputCount"), "EXEC_TAKE_ITEM_FROM_WAREHOUSE", iconInfo.count, 1, iconInfo.count, nil, iesID);
 		else
-			item.TakeItemFromWarehouse(iesID, iconInfo.count, FromFrame:GetUserIValue("HANDLE"));
+			item.TakeItemFromWarehouse(IT_WAREHOUSE, iesID, iconInfo.count, FromFrame:GetUserIValue("HANDLE"));
 		end
 	end
 
@@ -1655,7 +1658,7 @@ end
 function EXEC_TAKE_ITEM_FROM_WAREHOUSE(frame, count, inputframe, fromFrame)
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
-	item.TakeItemFromWarehouse(iesid, tonumber(count), frame:GetUserIValue("HANDLE"));
+	item.TakeItemFromWarehouse(IT_WAREHOUSE, iesid, tonumber(count), frame:GetUserIValue("HANDLE"));
 end
 
 
@@ -1831,10 +1834,6 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	end
 
 	local itemobj = GetIES(invItem:GetObject());
-	local noTrade = TryGetProp(itemobj, "BelongingCount");
-	if nil ~= noTrade then
-		icon:SetNoTradeCount(noTrade);
-	end
 
 	SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count);
 
@@ -1854,8 +1853,9 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 
 	slot:SetOverSound('button_over');
 
-	--slot:EnableDrag(1);
-	--slot:EnableDrop(1);
+	slot:EnablePop(1)
+	slot:EnableDrag(1)
+	slot:EnableDrop(1)
 
 	-- drag && drop recipe blink
 	UPDATE_SLOT_RECIPE_BLINK(frame, slot, invItem);
@@ -2380,6 +2380,7 @@ end
 function INV_ITEM_LOCK_SAVE_FAIL()
 	ui.SysMsg(ClMsg("ItemLockSaveFail"));
 end
+
 function INV_HAT_VISIBLE_STATE(frame)
 
 	if frame == nil then
@@ -2410,18 +2411,34 @@ function INV_HAT_VISIBLE_STATE(frame)
 	else
 		hat_t:SetImage("inventory_hat_layer_off");
 		hat_t:SetTextTooltip(ScpArgMsg('HAT_OFF'))
+
 	end
 
 	if hat_l_Visible == 1 then
 		hat_l:SetImage("inven_hat_layer_on");
 		hat_l:SetTextTooltip(ScpArgMsg('HAT_ON'))
+
 	else
 		hat_l:SetImage("inventory_hat_layer_off");
 		hat_l:SetTextTooltip(ScpArgMsg('HAT_OFF'))
 	end
+
+	local equipgroup = GET_CHILD(frame, 'equip', 'ui::CGroupBox')
+	local shihouette = GET_CHILD(equipgroup, 'shihouette', "ui::CPicture");
+	local shihouette_imgname = ui.CaptureMyFullStdImage();
+	shihouette:SetImage(shihouette_imgname);
+
+	frame:Invalidate()
 end
 
 function INV_HAT_VISIBLE_STEATE_SET(frame)
+	
+	if frame:GetUserIValue("CLICK_COOL_TIME") > imcTime.GetAppTime() then
+		return;	
+	end
+
+	frame:SetUserValue("CLICK_COOL_TIME", imcTime.GetAppTime() + 1);
+
 	local slotName = frame:GetName()
 	local topFrame = frame:GetTopParentFrame()
 
@@ -2439,10 +2456,10 @@ function INV_HAT_VISIBLE_STEATE_SET(frame)
 
 	if visibleState == 1 then
 		visibleBtnInfo:SetImage("inven_hat_layer_on");
-		ui.ChangeTooltipText(ScpArgMsg('HAT_ON'))
+		ui.ChangeTooltipText(ScpArgMsg('HAT_OFF'))
 	else
 		visibleBtnInfo:SetImage("inventory_hat_layer_off");
-		ui.ChangeTooltipText(ScpArgMsg('HAT_OFF'))
+		ui.ChangeTooltipText(ScpArgMsg('HAT_ON'))
 	end
 
 	local index = 0;
@@ -2456,5 +2473,4 @@ function INV_HAT_VISIBLE_STEATE_SET(frame)
 	end
 
 	control.CustomCommand("HAT_VISIBLE_STATE", index);
-
 end

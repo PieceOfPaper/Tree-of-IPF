@@ -3,6 +3,11 @@
     <Game Name="raid_siauliai1" rankScript="RAID_RANK_SCP" minLv="20" maxLv="29" mapName="raid_siauliai1" playerCnt="10" checkSec="3600" checkSecStart="600" checkScript="CHECK_MGAME_COMMON" msgTxt="{@st41b}도시 외곽 성곽에 몬스터들이 몰려들고 있습니다. 당신만이 문제를 해결할 수 있습니다." portrait="Dlg_port_KNIGHT_USKA">
         <StageList>
             <Stage Name="st1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="가구더미를 파괴해 길을 뚫으세요!"/>
+                    </ToolScp>
+                </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="41248" Pos="-447.66#-74.46#-1312.18" range="80" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;SurroundRate&apos; &apos;10&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="41248" Pos="-353.75#-74.46#-1316.50" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;SurroundRate&apos; &apos;10&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; " tendency="1"/>
@@ -80,9 +85,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
                                 <Str Str="st1"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="st1"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
                                 <Str Str="Ready"/>
                             </ToolScp>
@@ -91,6 +93,9 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="st2_before"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="st1"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -146,6 +151,9 @@
             <Stage Name="st2" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                        <Str Str="회색 골렘을 처치하세요!"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="회색 골렘을 처치하세요!"/>
                     </ToolScp>
                 </StartScpList>
@@ -295,13 +303,16 @@
                     <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
                         <Str Str="3분간 횃불을 지키면 길이 열립니다"/>
                     </ToolScp>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="3분간 횃불을 지키세요!"/>
+                    </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47242" Pos="-70.52#1.83#130.80" angle="-40" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Faction&apos; &apos;Law&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HPCount&apos; &apos;100&apos; "/>
-                    <Obj Type="Monster" MonType="47241" Pos="9.24#1.83#351.04" genCount="1" genTime="20000" autoGen="0" objectKey="1"/>
-                    <Obj Type="Monster" MonType="41250" Pos="-46.28#1.83#64.33" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;SurroundRate&apos; &apos;10&apos; &apos;Name&apos; &apos;싸늘한 골렘릿&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41295" Pos="-64.90#1.83#63.70" range="260" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;SurroundRate&apos; &apos;10&apos; &apos;Name&apos; &apos;싸늘한 스톤오르카&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41248" Pos="-44.61#1.83#97.52" range="200" genCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;SurroundRate&apos; &apos;10&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47242" Pos="-70.52#1.83#130.80" angle="-40" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;Faction&apos; &apos;Law&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HPCount&apos; &apos;100&apos; "/>
+                    <Obj Type="Monster" MonType="47241" Pos="9.24#1.83#351.04" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1"/>
+                    <Obj Type="Monster" MonType="41250" Pos="-46.28#1.83#64.33" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;SurroundRate&apos; &apos;10&apos; &apos;Name&apos; &apos;싸늘한 골렘릿&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41295" Pos="-64.90#1.83#63.70" range="260" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;SurroundRate&apos; &apos;10&apos; &apos;Name&apos; &apos;싸늘한 스톤오르카&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41248" Pos="-44.61#1.83#97.52" range="200" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;SurroundRate&apos; &apos;10&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="keyNPCGen">
@@ -526,6 +537,11 @@
                 </ObjList>
             </Stage>
             <Stage Name="st4" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="보스 몬스터들을 처치하세요!"/>
+                    </ToolScp>
+                </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="47352" Pos="59.16#1.78#1064.01" angle="-86" range="30" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
@@ -801,6 +817,9 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="st1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Ready"/>
                             </ToolScp>
                         </execList>
                     </Event>

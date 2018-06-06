@@ -107,9 +107,15 @@
                     <ToolScp Scp="MGAME_START_CHANGE_BGM" Client="NO" UseSleep="NO">
                         <Str Str="m_guild_eventraid_a"/>
                     </ToolScp>
+                    <ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
+                        <AbsPos X="-1681.8667" Y="346.40939" Z="328.18057" Random="20"/>
+                        <Num Num="3"/>
+                        <Num Num="1"/>
+                        <Num Num="0.5"/>
+                    </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="151056" Pos="-1680.50#346.41#370.68" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;150&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
+                    <Obj Type="Monster" MonType="151056" Pos="-1680.50#346.41#370.68" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;500&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
                     <Obj Type="Monster" MonType="750031" Pos="-1762.60#346.41#280.38" range="150" maxStackCount="2" genTime="20000" objectKey="1" searchRange="150" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
@@ -342,9 +348,15 @@
                     <ToolScp Scp="MGAME_START_CHANGE_BGM" Client="NO" UseSleep="NO">
                         <Str Str="m_guild_eventraid_b"/>
                     </ToolScp>
+                    <ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
+                        <AbsPos X="-1603.4258" Y="346.40884" Z="-427.00006" Random="20"/>
+                        <Num Num="3"/>
+                        <Num Num="1"/>
+                        <Num Num="0.5"/>
+                    </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="151056" Pos="-1646.79#346.41#-431.33" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;150&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
+                    <Obj Type="Monster" MonType="151056" Pos="-1646.79#346.41#-431.33" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;500&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
                     <Obj Type="Monster" MonType="750029" Pos="-2089.35#380.58#-546.69" genTime="20000" genReadyTime="30000" objectKey="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>

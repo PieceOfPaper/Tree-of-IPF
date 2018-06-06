@@ -424,3 +424,28 @@ function ABIL_QUARRELSHOOTER9_PRICE(pc, abilName, abilLevel, maxLevel)
 	
 end
 
+function ABIL_RODELERO29_PRICE(pc, abilName, abilLevel, maxLevel)
+    
+    local price = 41050 + (abilLevel - 1) * 3300;
+    local time = 24 + (abilLevel - 1) * 4;
+    
+	return price, time;
+	
+end
+
+function ABIL_CLERIC18_PRICE(pc, abilName, abilLevel, maxLevel)
+    
+    local price = 1670 + (abilLevel - 1) * 100;
+    local time = 1;
+    
+	return price, time;
+	
+end
+
+function ABIL_ADDBUFFCOUNT_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 10000
+    local time = 0
+
+	return price, time;
+end
+

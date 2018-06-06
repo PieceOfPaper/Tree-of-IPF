@@ -5,28 +5,7 @@ function UPDATE_MONSTER_TOOLTIP(frame, monName)
 	local monCls = GetClass("Monster", monName);
 	local image = GET_CHILD(frame, "image");
 	image:SetImage(GET_MON_ILLUST(monCls));
-    
-	local completeBtn = GET_CHILD(frame, "complete");
-	local completeText = GET_CHILD(frame, "t_complete");
-	completeBtn:SetVisible(0);
-	completeText:SetVisible(0);
-	local jIES = GetClass('Journal_monkill_reward', monCls.ClassName)
-	if jIES ~= nil then
-	    if jIES ~= nil and jIES.Count1 > 0 then
-	        local wiki = GetWikiByName(monCls.ClassName)
-            if wiki ~= nil then
-                local killcount = GetWikiIntProp(wiki, "KillCount");
-                if killcount >= jIES.Count1 then
-					completeBtn:SetVisible(1);
-					completeText:SetVisible(1);
---                    local picMonKillReward = frame:CreateControl('picture', 'COM_'..monCls.ClassName, 0, 40, 95, 95)
---        			tolua.cast(picMonKillReward, 'ui::CPicture')
---                	picMonKillReward:SetImage('icon_item_expcard');
-                end
-            end
-	    end
-	end
-	
+
 	local name = GET_CHILD(frame, "name");
 	name:SetTextByKey("value", monCls.Name);
 
@@ -50,15 +29,14 @@ function UPDATE_MONSTER_TOOLTIP(frame, monName)
 	local t_desc = GET_CHILD(frame, "t_desc");
 	t_desc:SetTextByKey("value", monCls.Desc);            
 	
-	local offset = t_desc:GetHeight() - t_desc:GetOriginalHeight();
-	SCR_GET_MON_RANKINFO(frame, monName, offset);
+	SCR_GET_MON_RANKINFO(frame, monName);
 end
 
-function SCR_GET_MON_RANKINFO(tooltipFrame, monName, offset)
+function SCR_GET_MON_RANKINFO(tooltipFrame, monName)
 	
 	local ranking = geServerWiki.GetWikiServRank();
 	if ranking == nil then
-		SET_WIKI_MONRANK_INFO(tooltipFrame, monName, 0, offset);
+		SET_WIKI_MONRANK_INFO(tooltipFrame, monName, 0);
 		return;
 	end
 	
@@ -68,12 +46,13 @@ function SCR_GET_MON_RANKINFO(tooltipFrame, monName, offset)
 		isShow = 0;
 	end	
 
-	SET_WIKI_MONRANK_INFO(tooltipFrame, monName, isShow, offset);
+	SET_WIKI_MONRANK_INFO(tooltipFrame, monName, isShow);
 end
 
-function SET_WIKI_MONRANK_INFO(frame, monName, isShow, offset)
+function SET_WIKI_MONRANK_INFO(frame, monName, isShow)
 	
 	local ranking = geServerWiki.GetWikiServRank();
+	
 	local myGBox = GET_CHILD(frame, "myRanking", "ui::CGroupBox");
 	
 	local myTitleText = GET_CHILD(myGBox, "myTitle");
@@ -89,52 +68,17 @@ function SET_WIKI_MONRANK_INFO(frame, monName, isShow, offset)
 	myDamageTitle:SetText(ScpArgMsg("DamageRanking"));
 	
 	myKillRankText:SetTextByKey("rank", ranking.myKillRank + 1);
+	myKillScoreText:SetTextByKey("score", ranking.myKillScore);
 	myDamageRankText:SetTextByKey("rank", ranking.myDamageRank + 1);
 	myDamageScoreText:SetTextByKey("score", ranking.myDamageScore);
-	
-    local myKillFlag = 0
-    local pcetc = GetMyEtcObject()
-	local jIES = GetClass('Journal_monkill_reward', monName)
-	if jIES ~= nil and pcetc ~= nil then
-	    if jIES ~= nil and jIES.Count1 > 0 then
-	        local wiki = GetWikiByName(monName)
-            if wiki ~= nil then
-                local killcount = ranking.myKillScore
-                local property = 'Reward_'..monName
-    		    if GetPropType(pcetc, property) ~= nil then
-    		        if pcetc[property] == 1 then
-                        local text = '{img M_message_open 30 30}'..ScpArgMsg("myKillScoreText")..killcount
-                        myKillScoreText:SetText(text);
-                        myKillFlag = 1
-    		        end
-    		    end
-    		    if myKillFlag == 0 then
-                    local text = ScpArgMsg("myKillScoreText")..killcount..' / '..jIES.Count1
-                    if jIES.Count1 <= killcount then
-                        text = '{img M_message_Unopen 30 30}'..text
-                    end
-                    myKillScoreText:SetText(text);
-                    myKillFlag = 1
-    		    end
-            end
-	    end
-	end
-	
-	if myKillFlag == 0 then
-        local text = ScpArgMsg("myKillScoreText")..ranking.myKillScore
-        myKillScoreText:SetText(text);
-	end
-	
 
 	SHOW_CHILD_LIST(myGBox, isShow);
 	
-	local killGBox = GET_CHILD(frame, "killRanking", "ui::CGroupBox");
-	local killTitleText = GET_CHILD(killGBox, "killTitle");
-	local damageGBox = GET_CHILD(frame, "damageRanking", "ui::CGroupBox");
-	local damageTitleText = GET_CHILD(damageGBox, "damageTitle");
 	for i=1, 3 do	
 		
 		-- killRank
+		local killGBox = GET_CHILD(frame, "killRanking", "ui::CGroupBox");
+		local killTitleText = GET_CHILD(killGBox, "killTitle");
 		local killRankText = GET_CHILD(killGBox, "killRank"..i);
 		local killScoreText = GET_CHILD(killGBox, "killScore"..i);
 		killTitleText:SetText(ScpArgMsg("KillRanking"));
@@ -151,6 +95,8 @@ function SET_WIKI_MONRANK_INFO(frame, monName, isShow, offset)
 
 
 		-- damageRank
+		local damageGBox = GET_CHILD(frame, "damageRanking", "ui::CGroupBox");
+		local damageTitleText = GET_CHILD(damageGBox, "damageTitle");
 		local damageRankText = GET_CHILD(damageGBox, "damageRank"..i);
 		local damageScoreText = GET_CHILD(damageGBox, "damageScore"..i);
 		damageTitleText:SetText(ScpArgMsg("DamageRanking"));
@@ -166,16 +112,6 @@ function SET_WIKI_MONRANK_INFO(frame, monName, isShow, offset)
 		SHOW_CHILD_LIST(damageGBox, isShow);
 	end
 
-	for i = 1 , 3 do 
-		local frameLine = GET_CHILD(frame, "label_" ..i , "ui::CGroupBox");	
-		frameLine:SetPos(myGBox:GetOriginalX(), myGBox:GetOriginalY() + offset);
-	end;
-	
-	myGBox:SetPos(myGBox:GetOriginalX(), myGBox:GetOriginalY() + offset);
-	killGBox:SetPos(killGBox:GetOriginalX(), killGBox:GetOriginalY() + offset);	
-	damageGBox:SetPos(damageGBox:GetOriginalX(), damageGBox:GetOriginalY() + offset);
-		
-	frame:Resize(frame:GetWidth(), frame:GetOriginalHeight() + offset + 30);
 end
 
 function SCR_WIKI_MONRANK_TOOLTIP(parent, frame, monName, num)
@@ -252,13 +188,12 @@ function TRY_PARSE_PROPERTY(obj, nextObj, caption)
 end
 
 function PARSE_TOOLTIP_CAPTION(_obj, caption)
+
 	caption = dictionary.ReplaceDicIDInCompStr(caption);
 	local obj;	
 	local parsed = 0;
 	
-	local hasSkil = true;
 	if _obj.Level < 1 then
-		hasSkil = false;
 	    _obj.Level = 1
 	end
 	
@@ -311,11 +246,7 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
 	-- 그 레벨이 현재 레벨보다 작거나
 	-- 캡션션레벨과 오브젝트의 레벨이 일치할 때
 	if 0 == skillLevel or skillLevel < _obj.Level or captionLevel == _obj.Level then
-		if hasSkil == true then
-			skillLevel = _obj.Level + skillLevel;
-		else
 		skillLevel = _obj.Level 
-		end
 	else-- 아니였다면, skl_pts_up을 하지 않았다는 것
 		skillLevel = skillLevel + 1;
 	end
@@ -362,6 +293,7 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
 		caption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, caption);
 		-- 다음레벨
 		lvCaption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, lvCaption);
+		
 		if parsed == 0 then
 			break;
 		end
@@ -631,13 +563,10 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 	if noTradeCnt ~= nil and 0 <= noTradeCnt then
 		noTrade:SetTextByKey('count', noTradeCnt);
 		noTrade:ShowWindow(1);
-		noTrade:SetOffset(noTrade:GetOriginalX() + 10, ypos - noTrade:GetOriginalHeight());
 	else
-		noTrade:SetOffset(noTrade:GetOriginalX(),noTrade:GetOriginalY());
 		noTrade:ShowWindow(0);
 	end
 
-	noTrade:Invalidate();
 	frame:Resize(frame:GetWidth(), ypos + 10);
 	frame:Invalidate();
 
@@ -686,7 +615,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 		if i < 10 then
 			caption = caption .. "," .. originCaption;
 		else
-			caption = caption .. " " ..  originCaption;
+			caption = caption ..  originCaption;
 		end
 	end
 

@@ -749,7 +749,13 @@
                     </Obj>
                 </ObjList>
                 <StageEvents>
-                    <Event eventName="INI"/>
+                    <Event execCount="1" eventName="INI">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+                                <AbsPosRange X="987.04388" Y="70.243614" Z="-470.82776" Range="30"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                     <Event execCount="1" eventName="END">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
@@ -864,7 +870,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -882,7 +891,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -900,7 +912,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -918,7 +933,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -936,7 +954,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -954,7 +975,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -972,7 +996,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -990,7 +1017,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1008,7 +1038,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1026,7 +1059,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1044,7 +1080,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1062,7 +1101,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1080,7 +1122,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1098,7 +1143,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1116,7 +1164,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1134,7 +1185,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1152,7 +1206,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1170,7 +1227,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1188,7 +1248,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1206,7 +1269,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1224,7 +1290,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1242,7 +1311,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1260,7 +1332,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1278,7 +1353,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1296,7 +1374,10 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1283.084" Y="0.37695342" Z="154.80402" Random="100"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
                                     <MGameObj List="STAGE_2_PROG/0"/>
@@ -1314,10 +1395,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1332,10 +1416,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1350,10 +1437,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1368,10 +1458,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1386,10 +1479,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1404,10 +1500,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1422,10 +1521,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1440,10 +1542,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1458,10 +1563,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1476,10 +1584,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1494,10 +1605,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1512,10 +1626,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1530,10 +1647,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1548,10 +1668,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1566,10 +1689,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1584,10 +1710,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1602,10 +1731,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1620,10 +1752,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1638,10 +1773,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1656,10 +1794,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1674,10 +1815,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1692,10 +1836,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -1710,10 +1857,13 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="1009.3493" Y="118.91849" Z="-187.30511" Random="110"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_ADD_HATE" Client="NO" UseSleep="NO">
-                                    <MGameObj List="STAGE_1_PROG/21"/>
+                                    <MGameObj List="STAGE_2_PROG/0"/>
                                 </ToolScp>
                             </List>
                             <StartList>

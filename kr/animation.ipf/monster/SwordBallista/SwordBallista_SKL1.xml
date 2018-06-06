@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_swordballista_atk_cast"/>
+    <Sound frame="20.00" soundFile="mon_voice_swordballista_atk_shot"/>
+    <Shockwave frame="28" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="28" attachNode="Dummy_SKL1_Effect001" particleName="F_ground016_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="28" attachNode="Dummy_SKL1_Effect001" particleName="F_smoke061" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="28" attachNode="Dummy_SKL1_Effect001" particleName="I_stone014_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="28" attachNode="Dummy_SKL1_Effect001" particleName="F_ground108_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="28" attachNode="Dummy_SKL1_Effect001" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="28" attachNode="Dummy_SKL1_Effect001" particleName="F_smoke031" useAttach="true" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="30" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="32" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="34" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

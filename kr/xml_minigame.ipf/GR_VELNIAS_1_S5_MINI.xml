@@ -91,13 +91,6 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="SetPos">
-                        <execList>
-                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
-                                <AbsPosRange X="-98.863022" Y="254.12894" Z="460.54242" Range="50"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="STAGE_1_PROG" AutoStart="0">
@@ -115,10 +108,10 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="151056" Pos="-776.46#395.55#-280.57" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;100&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
-                    <Obj Type="Monster" MonType="151056" Pos="-764.07#395.55#974.94" genCount="1" genTime="20000" objectKey="1" propList="&apos;HPCount&apos; &apos;100&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
-                    <Obj Type="Monster" MonType="151056" Pos="-1488.78#395.55#1073.04" genCount="1" genTime="20000" objectKey="2" propList="&apos;HPCount&apos; &apos;100&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
-                    <Obj Type="Monster" MonType="151056" Pos="-1549.31#395.55#-129.70" genCount="1" genTime="20000" objectKey="3" propList="&apos;HPCount&apos; &apos;100&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
+                    <Obj Type="Monster" MonType="151056" Pos="-776.46#395.55#-280.57" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;500&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
+                    <Obj Type="Monster" MonType="151056" Pos="-764.07#395.55#974.94" genCount="1" genTime="20000" objectKey="1" propList="&apos;HPCount&apos; &apos;500&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
+                    <Obj Type="Monster" MonType="151056" Pos="-1488.78#395.55#1073.04" genCount="1" genTime="20000" objectKey="2" propList="&apos;HPCount&apos; &apos;500&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
+                    <Obj Type="Monster" MonType="151056" Pos="-1549.31#395.55#-129.70" genCount="1" genTime="20000" objectKey="3" propList="&apos;HPCount&apos; &apos;500&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
                     <Obj Type="Monster" MonType="750032" Pos="-887.96#395.55#-388.16" range="160" maxStackCount="2" genTime="20000" objectKey="4" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>

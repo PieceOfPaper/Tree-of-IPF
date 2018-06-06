@@ -345,6 +345,7 @@ function NOTICE_ON_MSG(frame, msg, argStr, argNum)
 --		imcSound.PlaySoundItem('sys_confirm');
         exeText = '{@st41}'..noticeText ;
     elseif msg == 'NOTICE_Dm_GetItem' then
+        imcSound.PlaySoundEvent("sys_quest_item_get")
         exeText = '{@st41}'..noticeText ;
     elseif msg == 'NOTICE_Dm_UsePotion' then
         exeText = '{@st41_red}'..noticeText ;
@@ -359,6 +360,7 @@ function NOTICE_ON_MSG(frame, msg, argStr, argNum)
     elseif msg == 'NOTICE_Dm_Bomb' then
         exeText = '{@st41_red}'..noticeText ;
     elseif msg == 'NOTICE_Dm_!' then
+        imcSound.PlaySoundEvent("sys_quest_message")
         exeText = '{@st41_red}'..noticeText ;
     elseif msg == 'NOTICE_Dm_SpaceBar' then
         exeText = '{@st41}'..noticeText ;
@@ -397,8 +399,10 @@ function NOTICE_ON_MSG(frame, msg, argStr, argNum)
         exeText = '{@st41}'..noticeText ;
     elseif msg == 'NOTICE_Dm_stage_start' then
         exeText = '{@st41}'..noticeText ;
+        imcSound.PlaySoundEvent('quest_event_start')
     elseif msg == 'NOTICE_Dm_stage_ready' then
         exeText = '{@st41}'..noticeText ;
+        imcSound.PlaySoundEvent('quest_success_2')
     elseif msg == 'NOTICE_Dm_move_to_point' then
         exeText = '{@st41}'..noticeText ;
     elseif msg == 'NOTICE_Dm_guildevent_join_complete' then

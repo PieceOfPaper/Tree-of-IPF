@@ -4,8 +4,8 @@ FRIEND_MINIMIZE_HEIGHT = 100;
 function FRIEND_ON_INIT(addon, frame)
 
 	addon:RegisterMsg("GAME_START_3SEC", "CHECK_FRIEND_NEW_INVITE");
-	addon:RegisterMsg("REMOVE_FRIEND", "ON_REMOVE_FRIEND");
-	addon:RegisterMsg("ADD_FRIEND", "ON_ADD_FRIEND");
+	addon:RegisterOpenOnlyMsg("REMOVE_FRIEND", "ON_REMOVE_FRIEND");
+	addon:RegisterOpenOnlyMsg("ADD_FRIEND", "ON_ADD_FRIEND");
 	addon:RegisterOpenOnlyMsg("GAME_START", "FRIEND_GAME_START");
 	addon:RegisterOpenOnlyMsg("UPDATE_FRIEND_LIST", "ON_UPDATE_FRIEND_LIST");
 	addon:RegisterOpenOnlyMsg("FRIEND_SESSION_CHANGE", "ON_FRIEND_SESSION_CHANGE");
@@ -141,9 +141,8 @@ function CHECK_FRIEND_NEW_INVITE(frame)
 end
 
 function FRIEND_OPEN(frame)
-
-	UPDATE_FRIEND_LIST(frame) -- юс╫ц
-	FRIEND_TAB_CHANGE(frame);
+	
+	
 end
 
 function ON_UPDATE_FRIEND_LIST(frame, msg)
@@ -332,11 +331,6 @@ function BUILD_FRIEND_LIST(frame, listType, groupName, iscustom)
 	end
 	
 	tree:OpenNodeAll();
-
-end
-
-
-function FRIEND_TAB_CHANGE(frame)
 
 end
 

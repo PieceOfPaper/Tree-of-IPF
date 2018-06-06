@@ -173,27 +173,36 @@ function CHAT_SET_OPACITY(num)
 
 end
 
-function REMOVE_CHAT_CLUSTER(groupboxname, clusterid)
+function REMOVE_CHAT_CLUSTER(groupboxname, clusteridlist)
+
+	if clusteridlist == nil then
+		return
+	end	
 
 	local chatframe = ui.GetFrame("chatframe")
 
 	if chatframe ~= nil then
 		
 		local groupbox = GET_CHILD(chatframe,groupboxname);
-		local clustername = "cluster_"..clusterid
+
+
+		local addpos = 0;
+
+		for i = 1 , #clusteridlist do
+
+			local clustername = "cluster_"..clusteridlist[i]
 
 		local child = GET_CHILD(groupbox,clustername)
 		if child ~= nil then
 			local beforeLineCount = groupbox:GetLineCount();	
 
-			local addpos = child:GetHeight()
+				addpos = addpos + child:GetHeight()
 			 
 			DESTROY_CHILD_BYNAME(groupbox, clustername);
-			ADDYPOS_CHILD_BYNAME(groupbox, "cluster_", -addpos);
-
+			end
 		end
 		
-
+		ADDYPOS_CHILD_BYNAME(groupbox, "cluster_", -addpos);
 	end
 
 
@@ -203,20 +212,28 @@ function REMOVE_CHAT_CLUSTER(groupboxname, clusterid)
 	if popupframe ~= nil then
 		
 		local groupbox = GET_CHILD(popupframe,groupboxname);
-		local clustername = "cluster_"..clusterid
+
+		local addpos = 0;
+
+		for i = 1 , #clusteridlist do
+
+			local clustername = "cluster_"..clusteridlist[i]
 
 		local child = GET_CHILD(groupbox,clustername)
 		if child ~= nil then
-			local addpos = child:GetHeight()
+				local beforeLineCount = groupbox:GetLineCount();	
+
+				addpos = addpos + child:GetHeight()
 			 
 			DESTROY_CHILD_BYNAME(groupbox, clustername);
-			ADDYPOS_CHILD_BYNAME(groupbox, "cluster_", -addpos);
+			end
 		end
+
+			ADDYPOS_CHILD_BYNAME(groupbox, "cluster_", -addpos);
 
 	end
 
 end
-
 
 function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 

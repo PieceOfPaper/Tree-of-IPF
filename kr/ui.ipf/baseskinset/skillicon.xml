@@ -1178,6 +1178,7 @@
 		<image name="ability_archer_Wugushi21" file="\icon\icon_ability_archer04.tga" imgrect="512 384 128 128" CMM_Caption="오공고: 독 강화"/>
 		<image name="ability_archer_Musketeer9" file="\icon\icon_ability_archer04.tga" imgrect="640 384 128 128" CMM_Caption="헤드샷: 스턴"/>
 		<image name="ability_archer_Musketeer10" file="\icon\icon_ability_archer04.tga" imgrect="768 384 128 128" CMM_Caption="스나이프: 스턴"/>
+	<image name="ability_archer_archer31" file="\icon\icon_ability_archer04.tga" imgrect="896 384 128 128" CMM_Caption="스위프트스텝:파티원버프"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>
@@ -1370,6 +1371,7 @@
 		<image name="ability_cleric_chaplain2" file="\icon\icon_ability_cleric03.tga" imgrect="512 896 128 128" CMM_Caption="카펠라 설치: 유지시간"/>
 	<image name="ability_cleric_Monk8" file="\icon\icon_ability_cleric03.tga" imgrect="640 896 128 128" CMM_Caption="카펠라 설치: 유지시간"/>
 	<image name="ability_cleric_Priest23" file="\icon\icon_ability_cleric03.tga" imgrect="768 896 128 128" CMM_Caption="엑소사이즈:지속시간"/>
+	<image name="ability_cleric_cleric20" file="\icon\icon_ability_cleric03.tga" imgrect="896 896 128 128" CMM_Caption="세이프티존:방어횟수추가"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>
@@ -1380,6 +1382,7 @@
 	<image name="ability_common_CompMastery1" file="\icon\icon_ability_common.tga" imgrect="256 128 128 128" CMM_Caption="컴패니언 마스터리: 끈기"/>
 		<image name="ability_common_CompMastery2" file="\icon\icon_ability_common.tga" imgrect="0 256 128 128" CMM_Caption="컴패니언 응급치료"/>
 		<image name="ability_common_MaxWeightAbil" file="\icon\icon_ability_common.tga" imgrect="128 256 128 128" CMM_Caption="최대 무게 증가"/>
+	<image name="ability_common_addbuffcount" file="\icon\icon_ability_common.tga" imgrect="256 256 128 128" CMM_Caption="버프카운트증가"/>
 	</imagelist>
 	<imagelist category="abilityicon">
 		<image name="icon_abil_1_1" file="\icon\ability_icon.tga" imgrect="0 0 64 64" CMM_Caption="절단"/>

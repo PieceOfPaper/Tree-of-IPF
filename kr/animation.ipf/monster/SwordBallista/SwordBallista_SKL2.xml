@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_Effect001" particleName="I_warrior_Zornhau_cast_spread_in" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="0" attachNode="Dummy_Effect001" particleName="I_spread_in011" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="0" attachNode="Dummy_Effect001" particleName="I_spread_in011" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="0" attachNode="Dummy_Effect001" particleName="F_spread_in002_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" targetPos="false" soft2DValue="0"/>
+    <Sound frame="0.00" soundFile="mon_voice_swordballista_atk2_cast"/>
+    <Sound frame="0.00" soundFile="mon_move_swordballista_skl2_cast"/>
+    <Particle frame="5" attachNode="Dummy_Effect001" particleName="I_warrior_Zornhau_cast_spread_in" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="5" attachNode="Dummy_Effect001" particleName="I_spread_in011" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="5" attachNode="Dummy_Effect001" particleName="I_spread_in011" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Sound frame="27.00" soundFile="mon_move_swordballista_skl2_shot"/>
+    <Shockwave frame="38" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="38" attachNode="None" particleName="F_explosion004_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+    <Particle frame="38" attachNode="Dummy_Effect001" particleName="F_explosion086_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" targetPos="false" soft2DValue="0" sound=""/>
+    <Particle frame="38" attachNode="None" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" targetPos="false" soft2DValue="0"/>
+    <Particle frame="38" attachNode="Dummy_Effect001" particleName="F_light003_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="40" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="42" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="44" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="46" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

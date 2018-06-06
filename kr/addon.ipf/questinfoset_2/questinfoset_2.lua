@@ -1071,7 +1071,17 @@ function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
 		return;
 	end
 	
+	local cls = GetClassList('Map');
     local mapClassName = session.GetMapName();
+
+	local obj = GetClassByNameFromList(cls, mapClassName);
+
+	if obj.Type == "MISSION" then
+		ui.SysMsg(ScpArgMsg("WarpQuestDisabled"));
+        return;
+    end
+
+
 	local questIES = GetClassByType("QuestProgressCheck", questID);
 	local pc = GetMyPCObject();
 	if ctrl ~= nil then

@@ -1,4 +1,4 @@
-﻿function SCR_GET_JOB_STR(pc)
+function SCR_GET_JOB_STR(pc)
 	
 	local jobObj = GetJobObject(pc);
 	if jobObj ~= nil then
@@ -67,9 +67,7 @@ end
 
 function SCR_GET_MAX_WEIGHT(pc)
 	
-	local rewardProperty = GET_REWARD_PROPERTY(pc, "MaxWeight")
-
-	local value = 5000 + pc.MaxWeight_BM + pc.MaxWeight_Bonus + (pc.CON * 5) + (pc.STR * 5) + rewardProperty;
+	local value = 5000 + pc.MaxWeight_Bonus + (pc.CON * 5) + (pc.STR * 5);
 
 	return value;
 end
@@ -98,16 +96,13 @@ function SCR_GET_ADDSTAT(self, stat)
 end
 
 function SCR_GET_STR(self)
-    local rewardProperty = GET_REWARD_PROPERTY(self, "STR")
-	local baseStr = self.STR_JOB + self.STR_STAT + self.STR_Bonus + GetExProp(self, "STR_TEMP") + rewardProperty;
-	
+	local baseStr = self.STR_JOB + self.STR_STAT + self.STR_Bonus + GetExProp(self, "STR_TEMP");
 	local addStat = SCR_GET_ADDSTAT(self, baseStr);
 	local value = baseStr + addStat;
 	local jobCount = GetTotalJobCount(self);
 	
 	value = value + value * (jobCount - 1) * 0.1;
 	value = math.floor(value + self.STR_ADD, 1);
-	
 	if value < 1 then
         value = 1;
     end
@@ -124,15 +119,12 @@ function SCR_GET_ADDSTR(self)
 end
 
 function SCR_GET_DEX(self)
-    local rewardProperty = GET_REWARD_PROPERTY(self, "DEX")
-	local baseDex = self.DEX_JOB + self.DEX_STAT + self.DEX_Bonus + GetExProp(self, "DEX_TEMP") + rewardProperty;
+	local baseDex = self.DEX_JOB + self.DEX_STAT + self.DEX_Bonus + GetExProp(self, "DEX_TEMP");
 	local addStat = SCR_GET_ADDSTAT(self, baseDex)
 	local value = math.floor(baseDex + self.DEX_ADD + addStat, 1);
-	
 	if value < 1 then
         value = 1;
     end
-
 	return value;
 
 end
@@ -146,16 +138,13 @@ end
 
 
 function SCR_GET_CON(self)
-    local rewardProperty = GET_REWARD_PROPERTY(self, "CON")
-	local baseCon = self.CON_JOB + self.CON_STAT + self.CON_Bonus + GetExProp(self, "CON_TEMP") + rewardProperty;
+	local baseCon = self.CON_JOB + self.CON_STAT + self.CON_Bonus + GetExProp(self, "CON_TEMP");
     local addStat = SCR_GET_ADDSTAT(self, baseCon)
 	
 	local value = math.floor(baseCon + self.CON_ADD + addStat, 1);
-
 	if value < 1 then
         value = 1;
     end
-
 	return value;
 
 end
@@ -168,19 +157,16 @@ function SCR_GET_ADDCON(self)
 end
 
 function SCR_GET_INT(self)
-    local rewardProperty = GET_REWARD_PROPERTY(self, "INT")
-	local baseInt = self.INT_JOB + self.INT_STAT + self.INT_Bonus + GetExProp(self, "INT_TEMP") + rewardProperty;
+	local baseInt = self.INT_JOB + self.INT_STAT + self.INT_Bonus + GetExProp(self, "INT_TEMP");
     local addStat = SCR_GET_ADDSTAT(self, baseInt)
     local value = baseInt + addStat;
 	local jobCount = GetTotalJobCount(self);
 	
 	value = value + value * (jobCount - 1) * 0.1;
 	value = math.floor(value + self.INT_ADD, 1);
-	
 	if value < 1 then
         value = 1;
     end
-
 	return value;
 
 end
@@ -191,16 +177,13 @@ function SCR_GET_ADDINT(self)
 end
 
 function SCR_GET_MNA(self)
-    local rewardProperty = GET_REWARD_PROPERTY(self, "MNA")
-	local baseMna = self.MNA_JOB + self.MNA_STAT + self.MNA_Bonus + GetExProp(self, "MNA_TEMP") + rewardProperty;
+	local baseMna = self.MNA_JOB + self.MNA_STAT + self.MNA_Bonus + GetExProp(self, "MNA_TEMP");
     local addStat = SCR_GET_ADDSTAT(self, baseMna)
 	
 	local value = math.floor(baseMna + self.MNA_ADD + addStat, 1);
-
 	if value < 1 then
         value = 1;
     end
-
 	return value;
 end
 
@@ -236,16 +219,12 @@ function SCR_Get_MHP(self)
 	local con = self.CON;	
 	local lv = self.Lv;
 
-	local byItemRatio = (1.0 + GetSumOfEquipItem(self, 'MHPRatio') * 0.01);
-
 	local byItem = GetSumOfEquipItem(self, 'MHP');
 	local byBuff = self.MHP_BM;
 	local byLevel = math.floor((lv -1) * 8.5 * 2);
 	local byStat = math.floor(con * 85);
 
-	local rewardProperty = GET_REWARD_PROPERTY(self, "MHP")
-
-	local value = ((jobObj.JobRate_HP * byLevel) + byStat) * byItemRatio + byItem + self.MHP_Bonus + byBuff + rewardProperty;
+	local value = (jobObj.JobRate_HP * byLevel) + byItem + byStat + self.MHP_Bonus + byBuff;
 	
 	if value < 1 then
 	    value = 1;
@@ -271,9 +250,7 @@ function SCR_Get_MSP(self)
         	addSp = self.Lv * 1.675;
 	end
 
-	local rewardProperty = GET_REWARD_PROPERTY(self, "MSP")
-
-	local value = (jobObj.JobRate_SP * byLevel) + byItem + byStat + self.MSP_Bonus + byBuff + addSp + rewardProperty;
+	local value = (jobObj.JobRate_SP * byLevel) + byItem + byStat + self.MSP_Bonus + byBuff + addSp;
 	
 	if value < 1 then
 	    value = 0;
@@ -294,11 +271,6 @@ function SCR_Get_MINPATK(self)
 	local byItem2 = GetSumOfEquipItem(self, 'PATK');
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MINATK');
 	local leftMinAtk = 0;
-	
-	if jobObj.CtrlType == 'Warrior' then
-        	str = str * 1.3;
-	end
-	
 	
 	if GetEquipItemForPropCalc(self, 'LH') ~= nil then
     	leftHand = GetEquipItemForPropCalc(self, 'LH');
@@ -327,13 +299,6 @@ function SCR_Get_MAXPATK(self)
 	local byItem2 = GetSumOfEquipItem(self, 'PATK');
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MAXATK');
     local leftMaxAtk = 0;
-	local maxpatk_bm = self.MAXPATK_BM;
-	
-    
-	if jobObj.CtrlType == 'Warrior' then
-        	str = str * 1.3;
-	end
-	
 	
 	if GetEquipItemForPropCalc(self, 'LH') ~= nil then
     	leftHand = GetEquipItemForPropCalc(self, 'LH');
@@ -346,7 +311,7 @@ function SCR_Get_MAXPATK(self)
     	throwItemMaxAtk = rightHand.MAXATK;
     end
 	
-	local value = lv + str + byItem + byItem2 + byItem3 + buff - leftMaxAtk - throwItemMaxAtk + 0 + maxpatk_bm;
+	local value = lv + str + byItem + byItem2 + byItem3 + buff - leftMaxAtk - throwItemMaxAtk;
 	
 	return math.floor(value);
 end
@@ -367,10 +332,6 @@ function SCR_Get_MINPATK_SUB(self)
     	rightMinAtk = rightHand.MINATK;
     end
 	
-	if jobObj.CtrlType == 'Warrior' then
-        	str = str * 1.3;
-	end
-	
 	local value = lv + str + byItem + byItem2 + byItem3 + buff - rightMinAtk;
 	
 	return math.floor(value);
@@ -382,7 +343,6 @@ function SCR_Get_MAXPATK_SUB(self)
 	local str = self.STR;	
 	local lv = self.Lv;
 	local buff = self.PATK_BM;
-	local sub_bm = self.MAXPATK_SUB_BM;
 
 	local byItem = GetSumOfEquipItem(self, 'MAXATK');
 	local byItem2 = GetSumOfEquipItem(self, 'PATK');
@@ -393,11 +353,7 @@ function SCR_Get_MAXPATK_SUB(self)
     	rightMaxAtk = rightHand.MAXATK;
     end
 	
-	if jobObj.CtrlType == 'Warrior' then
-        	str = str * 1.3;
-	end
-
-	local value = lv + str + byItem + byItem2 + byItem3 + buff + sub_bm - rightMaxAtk;
+	local value = lv + str + byItem + byItem2 + byItem3 + buff - rightMaxAtk;
 	
 	return math.floor(value);
 end
@@ -515,15 +471,12 @@ function SCR_Get_BLK(self)
 end
 
 function SCR_Get_BLK_BREAK(self)
-	local jobObj = GetJobObject(self);
+	
 	local blk = GetSumOfEquipItem(self, 'BLK_BREAK');
 	local byLevel = self.Lv;
 	local stat = self.MNA;
-	local str = self.STR;
-	local value = byLevel * 0.5 + stat + blk + self.BLK_BREAK_BM + str;
-	if jobObj.CtrlType == 'Warrior' then
-        	value = value + str * 0.2;
-	end
+	local value = byLevel * 0.5 + stat + blk + self.BLK_BREAK_BM;
+
 	return math.floor(value);
 end
 
@@ -951,6 +904,10 @@ function SCR_Get_SR(pc)
 	local jobObj = GetJobObject(pc);
 	if jobObj.CtrlType == 'Warrior' then
 	    byStat = 4;
+	    local abil = GetAbility(pc, 'Hoplite9');
+	    if abil ~= nil and IsBuffApplied(pc, 'Finestra_Buff') == 'YES' then
+		    byStat = byStat + 3;
+	    end
 	end
 	if jobObj.CtrlType == 'Archer' then
     	byStat = 0;
@@ -1083,10 +1040,7 @@ function SCR_Get_MSTA(self)
 	if itemSta == nil then
 		itemSta = 0;
 	end
-
-	local rewardProperty = GET_REWARD_PROPERTY(self, "MSTA")
-
-	local result = 25000 + itemSta * 1000 + self.MaxSta_BM * 1000 + self.MAXSTA_Bonus * 1000 + (rewardProperty * 1000);
+	local result = 25000 + itemSta * 1000 + self.MaxSta_BM + self.MAXSTA_Bonus * 1000;
 	return result;
 
 end
@@ -1238,11 +1192,6 @@ function SCR_GET_PC_GUARDABLE(pc)
 	--	return 1;
 	--end
 	
-	if IsBuffApplied(pc, "Impaler_Buff") == "YES" then
-		return 0;
-	end
-
-
 	if pelGuard ~= nil and (lItem ~= nil and lItem.ClassType == "Shield") then	
 		return 1; 
 	end
@@ -1623,11 +1572,6 @@ function SCR_GET_PC_LIMIT_BUFF_COUNT(self)
 	  count = 7;
 	end
 	
-	-- �����ü��... 
-	if 1 == IsDummyPC(self) then
-		return count;
-	end
-	
 	if 1 == IsPremiumState(self, ITEM_TOKEN) then
 	  TokenBuffCnt = 1
 	end
@@ -1765,30 +1709,4 @@ end
 
 function SCR_GET_DARK_DEFFACTOR_PC(self)
     return self.DarkDefFactor_PC_BM;
-end
-
-function GET_REWARD_PROPERTY(self, propertyName)
-	
-	local sObj = GetSessionObject(self, 'ssn_klapeda')
-	local rewardProperty = 0;
-
-	if sObj == nil and IsServerObj(self) == 0 then
-		local pc = GetMyPCObject()
-		sObj = GetSessionObject(pc, 'ssn_klapeda')
-	end
-
-	if sObj ~= nil then
-		local list, listCnt = GetClassList("reward_property");
-		
-		for i = 0, listCnt -1 do
-			local cls = GetClassByIndexFromList(list, i);
-			if cls ~= nil and TryGetProp(cls, "Property") == propertyName then
-				if sObj[cls.ClassName] == 300 then
-					rewardProperty = rewardProperty + cls.Value
-				end
-			end
-		end
-	end
-
-	return rewardProperty
 end

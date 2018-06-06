@@ -218,7 +218,7 @@ end
 function TEST_AYASE()
 	
 
-	print(" ")
+		
 
 
 end
@@ -1342,12 +1342,6 @@ function GET_FULL_NAME(item, useNewLine)
 	local ownName = GET_NAME_OWNED(item);
 
 	local reinforce_2 = TryGetProp(item, "Reinforce_2");
-	local isHaveLifeTime = TryGetProp(item, "LifeTime");
-	
-	if 0 ~= isHaveLifeTime then
-		ownName = string.format("{img test_cooltime 30 30 }%s", ownName);
-	end
-	
 	if reinforce_2 ~= nil and reinforce_2 > 0 then
 		ownName = string.format("+%d %s", reinforce_2, ownName);
 	end
@@ -1465,9 +1459,7 @@ function IS_RECIPE_ITEM(itemCls)
 end
 
 function SCR_MAGICAMULET_EQUIP(fromitem, toitem)
-	if nil == fromitem or nil == toitem then
-		return;
-	end
+
 	local fromobj = GetIES(fromitem:GetObject());
 	local toobj = GetIES(toitem:GetObject());
 
@@ -2084,10 +2076,6 @@ function ITEM_EQUIP_MSG(item, slotName)
 		return;
 	end
 
-	if true == BEING_TRADING_STATE() then
-		return;
-	end
-
 	local strscp = string.format("item.Equip(%d)", item.invIndex);
 	if slotName ~= nil then
 		strscp = string.format("item.Equip(\"%s\", %d)", slotName, item.invIndex);
@@ -2579,34 +2567,6 @@ function GET_BUFF_TAG_TXT(buffName)
 
 	return ScpArgMsg("Auto_{img_{Auto_1}_20_20}{ol}{@st45}_{Auto_2}_BeoPeu","Auto_1", 'icon_'..cls.Icon,"Auto_2", cls.Name)
 
-end
-function GET_PCPROPERTY_TAG_TXT(propertyName, value)
-    local ret, propertyTxt
-    if propertyName == 'STR' then
-        propertyTxt = ScpArgMsg("STR")
-    elseif propertyName == 'DEX' then
-        propertyTxt = ScpArgMsg("DEX")
-    elseif propertyName == 'CON' then
-        propertyTxt = ScpArgMsg("CON")
-    elseif propertyName == 'INT' then
-        propertyTxt = ScpArgMsg("INT")
-    elseif propertyName == 'MSTA' then
-        propertyTxt = ScpArgMsg("MSTA")
-    elseif propertyName == 'MHP' then
-        propertyTxt = ScpArgMsg("MHP")
-    elseif propertyName == 'MSP' then
-        propertyTxt = ScpArgMsg("MSP")
-    elseif propertyName == 'MaxWeight' then
-        propertyTxt = ScpArgMsg("MaxWeight")
-	elseif propertyName == 'MNA' then
-        propertyTxt = ScpArgMsg("MNA")
-    else
-        propertyTxt = propertyName
-    end
-    
-    ret = ScpArgMsg("QuestRewardPCPropertyText1","Auto_1", propertyTxt,"Auto_2", value)
-    
-    return ret
 end
 
 function GET_HONOR_TAG_TXT(honor, point_value)
@@ -4059,7 +4019,7 @@ function ON_RIDING_VEHICLE(onoff)
 
 		if 1 == onoff then
 			local abil = GetAbility(GetMyPCObject(), "CompanionRide");
-			if nil == abil and control.IsPremiumCompanion() == false then
+			if nil == abil then
 				ui.SysMsg(ClMsg('PetHasNotAbility'));
 				return
 			end
@@ -4139,7 +4099,8 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 
 	frame = tolua.cast(frame, "ui::CObject");
 
-	local petguid  = session.pet.GetPetGuidByHandle(handle);
+	local petguid  = session.pet.GetPetGuidByHandle(handle)
+
 
 	local mycompinfoBox = GET_CHILD_RECURSIVELY(frame, "mycompinfo");
 	if mycompinfoBox == nil then
@@ -4167,17 +4128,18 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 
 		local mynameRtext = GET_CHILD_RECURSIVELY(frame, "myname");
 		local gauge_stamina = GET_CHILD_RECURSIVELY(frame, "StGauge");
-		local gauge_HP = GET_CHILD_RECURSIVELY(frame, "HpGauge");
+		local hp_stamina = GET_CHILD_RECURSIVELY(frame, "HpGauge");
 
-		local pet = session.pet.GetPetByGUID(petguid);
-		mynameRtext:SetText(pet:GetName())
+		local petInfo = session.pet.GetPetByGUID(petguid);	
 
-		local petObj = GetIES(pet:GetObject());
-		gauge_stamina:SetPoint(petObj.Stamina, petObj.MaxStamina);
-		
-		local petInfo = info.GetStat(handle);
-		gauge_HP:SetPoint(petInfo.HP, petInfo.maxHP);		
+		local obj = GetIES(petInfo:GetObject());
+		gauge_stamina:SetPoint(obj.Stamina, obj.MaxStamina);
+		hp_stamina:SetPoint(obj.HP, obj.MHP);
+		mynameRtext:SetText(petInfo:GetName())
+
 	end
+
+
 
 	frame:Invalidate()
 
@@ -4343,14 +4305,12 @@ function KEYBOARD_INPUT()
 		local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
 		local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');
 
-		if monsterquickslot:IsVisible() ~= 1 then
 		if control.IsRestSit() == true then
 			quickFrame:ShowWindow(0);
 			restquickslot:ShowWindow(1);
 		else
 			quickFrame:ShowWindow(1);
 			restquickslot:ShowWindow(0);
-		end
 		end
 
 		joystickQuickFrame:ShowWindow(0);
@@ -4390,14 +4350,12 @@ function JOYSTICK_INPUT()
 		local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
 		local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');
 
-		if monsterquickslot:IsVisible() ~= 1 then
 		if control.IsRestSit() == true then
 			joystickQuickFrame:ShowWindow(0);
 			joystickrestquickslot:ShowWindow(1);
 		else
 			joystickQuickFrame:ShowWindow(1);
 			joystickrestquickslot:ShowWindow(0);
-		end
 		end
 
 		quickFrame:ShowWindow(0);

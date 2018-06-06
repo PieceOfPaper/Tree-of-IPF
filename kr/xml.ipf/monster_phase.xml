@@ -91,6 +91,185 @@
             </Phase>
         </PhaseList>
     </Monster>
+    <Monster Name="GRB_boss_nuodai">
+        <PhaseList>
+            <Phase PhaseNumber="1">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_in026_violet_ice_loop##8" Arg="1"/>
+                        <Pos Angle="0" Dist="0" Height="40"/>
+                        <Num Num="9000"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="8000"/>
+                    </ToolScp>
+                    <ToolScp Scp="PlayAnim" Client="NO" UseSleep="NO">
+                        <Str Str="skl3"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="2000"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_out034_violet_ice" Arg="2"/>
+                        <Pos Angle="0" Dist="0"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_BUFF_TO_PC" Client="NO" UseSleep="NO">
+                        <Num Num="450"/>
+                        <Str Str="Nuodai_Poison_Debuff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="0"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="4">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_in026_violet_ice_loop##8" Arg="1"/>
+                        <Pos Angle="0" Dist="0" Height="40"/>
+                        <Num Num="9000"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="8000"/>
+                    </ToolScp>
+                    <ToolScp Scp="PlayAnim" Client="NO" UseSleep="NO">
+                        <Str Str="skl3"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="2000"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_out034_violet_ice" Arg="2"/>
+                        <Pos Angle="0" Dist="0"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_BUFF_TO_PC" Client="NO" UseSleep="NO">
+                        <Num Num="450"/>
+                        <Str Str="Nuodai_Poison_Debuff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="0"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="6">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_in026_violet_ice_loop##8" Arg="1"/>
+                        <Pos Angle="0" Dist="0" Height="40"/>
+                        <Num Num="9000"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="8000"/>
+                    </ToolScp>
+                    <ToolScp Scp="PlayAnim" Client="NO" UseSleep="NO">
+                        <Str Str="skl3"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="2000"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_out034_violet_ice" Arg="2"/>
+                        <Pos Angle="0" Dist="0"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_BUFF_TO_PC" Client="NO" UseSleep="NO">
+                        <Num Num="450"/>
+                        <Str Str="Nuodai_Poison_Debuff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="0"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="8">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_in026_violet_ice_loop##8" Arg="1"/>
+                        <Pos Angle="0" Dist="0" Height="40"/>
+                        <Num Num="9000"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="8000"/>
+                    </ToolScp>
+                    <ToolScp Scp="PlayAnim" Client="NO" UseSleep="NO">
+                        <Str Str="skl3"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="2000"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_out034_violet_ice" Arg="2"/>
+                        <Pos Angle="0" Dist="0"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_BUFF_TO_PC" Client="NO" UseSleep="NO">
+                        <Num Num="450"/>
+                        <Str Str="Nuodai_Poison_Debuff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="0"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
     <Monster Name="M_boss_Denoptic">
         <PhaseList>
             <Phase PhaseNumber="2">

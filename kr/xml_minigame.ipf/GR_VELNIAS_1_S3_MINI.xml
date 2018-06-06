@@ -130,7 +130,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="750034" Pos="1528.94#346.46#371.87" genCount="10" maxStackCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;25&apos; ">
+                    <Obj Type="Monster" MonType="750034" Pos="1528.94#346.46#371.87" genCount="10" maxStackCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;50&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
@@ -156,11 +156,18 @@
                                     <Num Num="255"/>
                                     <Num Num="145"/>
                                     <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_GTOWER_DM" Client="NO" UseSleep="NO">
+                                    <Str Str="DIRECT"/>
+                                    <Num Num="1"/>
+                                    <Str Str="하루갈이 나타났습니다!"/>
+                                    <Str Str="!"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="750034" Pos="1613.77#353.36#-398.69" genCount="10" maxStackCount="1" genTime="20000" objectKey="1" propList="&apos;HPCount&apos; &apos;25&apos; ">
+                    <Obj Type="Monster" MonType="750034" Pos="1613.77#353.36#-398.69" genCount="10" maxStackCount="1" genTime="20000" objectKey="1" propList="&apos;HPCount&apos; &apos;50&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
@@ -186,6 +193,13 @@
                                     <Num Num="255"/>
                                     <Num Num="145"/>
                                     <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_GTOWER_DM" Client="NO" UseSleep="NO">
+                                    <Str Str="DIRECT"/>
+                                    <Num Num="1"/>
+                                    <Str Str="하루갈이 나타났습니다!"/>
+                                    <Str Str="!"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                             </StartList>
                         </SelfAI>

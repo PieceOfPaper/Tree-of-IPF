@@ -239,7 +239,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 	local slotcount;
 	local captionlist;
 	local colcnt = 0;
-
+	local ApplyLimitCountBuff = "YES"
 	if class.Group1 == 'Debuff' then
 		slotlist = buff_ui["slotlist"][2];
 		slotcount = buff_ui["slotcount"][2];
@@ -259,6 +259,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 			slotcount = buff_ui["slotcount"][1];
 			captionlist = buff_ui["captionlist"][1];
 			colcnt = buff_ui["slotsets"][1]:GetCol();
+			ApplyLimitCountBuff = "NO";
 		end
 	end
 
@@ -286,7 +287,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 				if iconInfo.type == buffType then
 					CLEAR_BUFF_SLOT(slot, text);
 					local j = GET_BUFF_ARRAY_INDEX(i, colcnt);
-					PULL_BUFF_SLOT_LIST(slotlist, captionlist, j, slotcount, colcnt, buffIndex);
+					PULL_BUFF_SLOT_LIST(slotlist, captionlist, j, slotcount, colcnt, ApplyLimitCountBuff);
 					frame:Invalidate();
 					return;
 				end
@@ -313,7 +314,13 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 
 end
 
-function PULL_BUFF_SLOT_LIST(slotlist, captionlist, index, slotcount, colcnt)
+function PULL_BUFF_SLOT_LIST(slotlist, captionlist, index, slotcount, colcnt, ApplyLimitCountBuff)
+	if index == slotcount-1 and "NO" == ApplyLimitCountBuff then
+		local actor = GetMyActor();	
+		local aslot	= slotlist[index-1];
+		local aicon = aslot:GetIcon();
+		actor:GetBuff():InvalidateLastBuff(aicon:GetTooltipNumArg(), aicon:GetUserIValue("BuffIndex"));
+	end
 
 	for j = index,  slotcount - 2 do
 		local i = GET_BUFF_SLOT_INDEX(j, colcnt);
@@ -325,6 +332,11 @@ function PULL_BUFF_SLOT_LIST(slotlist, captionlist, index, slotcount, colcnt)
 
 		if bslot:IsVisible() == 1 then
 			COPY_BUFF_SLOT_INFO(bslot, aslot, btext, atext);
+			if j+1 <= slotcount-1 and "NO" == ApplyLimitCountBuff then
+				local actor = GetMyActor();	
+				local bicon = bslot:GetIcon();
+				actor:GetBuff():InvalidateLastBuff(bicon:GetTooltipNumArg(), bicon:GetUserIValue("BuffIndex"));
+			end
 		end
 	end
 end

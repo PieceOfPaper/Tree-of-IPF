@@ -94,6 +94,12 @@
                     <ToolScp Scp="MGAME_START_CHANGE_BGM" Client="NO" UseSleep="NO">
                         <Str Str="m_guild_eventraid_b"/>
                     </ToolScp>
+                    <ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
+                        <AbsPos X="-649.15967" Y="236.91521" Z="987.79688"/>
+                        <Num Num="3"/>
+                        <Num Num="1"/>
+                        <Num Num="0.5"/>
+                    </ToolScp>
                 </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="740002" Pos="-680.36#236.92#985.93" genCount="1" genTime="20000" objectKey="0" tendency="1">
@@ -116,7 +122,7 @@
                     <Obj Type="Monster" MonType="154004" Pos="-433.64#236.92#991.50" maxStackCount="1" genTime="20000" objectKey="3" propList="&apos;SimpleAI&apos; &apos;FE_UNDERF591_TYPEA_PILLAR_AI&apos; "/>
                     <Obj Type="Monster" MonType="154004" Pos="-384.15#236.92#1053.08" maxStackCount="1" genTime="20000" objectKey="4" propList="&apos;SimpleAI&apos; &apos;FE_UNDERF591_TYPEA_PILLAR_AI&apos; "/>
                     <Obj Type="Monster" MonType="154004" Pos="-455.19#236.92#1102.05" maxStackCount="1" genTime="20000" objectKey="5" propList="&apos;SimpleAI&apos; &apos;FE_UNDERF591_TYPEA_PILLAR_AI&apos; "/>
-                    <Obj Type="Monster" MonType="151056" Pos="-212.91#312.42#1407.36" genCount="1" genTime="20000" objectKey="6" propList="&apos;HPCount&apos; &apos;30&apos; &apos;Name&apos; &apos;마족 환원석&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;KDArmor&apos; &apos;9999&apos; "/>
+                    <Obj Type="Monster" MonType="151056" Pos="-212.91#312.42#1407.36" genCount="1" genTime="20000" objectKey="6" propList="&apos;HPCount&apos; &apos;300&apos; &apos;Name&apos; &apos;마족 환원석&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;KDArmor&apos; &apos;9999&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="INI"/>

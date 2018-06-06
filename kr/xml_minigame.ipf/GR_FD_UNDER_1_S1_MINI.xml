@@ -632,29 +632,17 @@
             </Stage>
             <Stage Name="STAGE_2_PROG" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
-                        <AbsPos X="1553.1185" Y="1158.5375" Z="2145.8547"/>
-                        <Num Num="3"/>
-                        <Num Num="1"/>
-                        <Num Num="0.5"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SHOCKWAVE" Client="YES" UseSleep="NO">
-                        <Num Num="15"/>
-                        <Num Num="6"/>
-                        <Num Num="45"/>
-                        <Num Num="999"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_START_CHANGE_BGM" Client="NO" UseSleep="NO">
                         <Str Str="m_boss_guild_hunting"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="왕릉 노역자 숙소에서 고르곤이 뛰쳐나옵니다!{nl}고르곤을 처치하세요!"/>
+                        <Str Str="왕릉 노역자 숙소에서 고르카스가 뛰쳐나옵니다!{nl}고르카스를 처치하세요!"/>
                         <Str Str="stage_start"/>
                         <Num Num="10"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="740001" Pos="1420.59#1121.71#2219.91" angle="-20" genCount="1" genTime="20000" objectKey="0">
+                    <Obj Type="Monster" MonType="740017" Pos="1420.59#1121.71#2219.91" angle="-20" genCount="1" genTime="20000" autoGen="0" objectKey="0">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -686,6 +674,9 @@
                                 <MGameObj List="STAGE_2_PROG/0"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
@@ -699,7 +690,17 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="ACT_1"/>
+                    <Event execCount="1" eventName="INI">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DIRECTION_REGMON" Client="NO" UseSleep="NO">
+                                <Str Str="GR_boss_SWORDBALISTA"/>
+                                <MGameObjIndex List="STAGE_2_PROG/0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+                                <AbsPosRange X="1683.9363" Y="1161.3306" Z="1898.4027" Range="40"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="STAGE_2_END" AutoStart="0">

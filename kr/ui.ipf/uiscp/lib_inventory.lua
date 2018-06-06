@@ -532,21 +532,17 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 			slot = GET_EMPTY_SLOT(slotset);
 		end
 
-		local itemCls = GetClassByType("Item", invItem.type);
+		local itemCls = GetIES(invItem:GetObject());
 		local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
 		
 		SET_SLOT_IMG(slot, iconImg)
 		SET_SLOT_COUNT(slot, invItem.count)
 		SET_SLOT_COUNT_TEXT(slot, invItem.count);
 		SET_SLOT_IESID(slot, invItem:GetIESID())
+		slot:SetMaxSelectCount(invItem.count);
 		local icon = slot:GetIcon();
-		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls);
 		icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
-		local itemObj = GetIES(invItem:GetObject());
-		local noTrade = TryGetProp(itemObj, "BelongingCount");
-		if nil ~= noTrade then
-			icon:SetNoTradeCount(noTrade);
-		end
+		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
 
 		index = itemList:Next(index);
 	end

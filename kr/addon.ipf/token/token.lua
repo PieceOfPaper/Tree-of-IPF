@@ -48,8 +48,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		value:SetTextByKey("value", txt); 
 	end
 
-
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 5,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 4,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img 20percent_image %d %d}", 55, 45) 
 	prop:SetTextByKey("value", imag.. ScpArgMsg("Token_ExpUp{PER}", "PER", " ")); 
@@ -57,30 +56,35 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	imag = string.format("{img 20percent_image2 %d %d}", 100, 45) 
     value:SetTextByKey("value", imag);
 
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-	local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img paid_pose_image %d %d}", 55, 45) 
-    prop:SetTextByKey("value", imag..ClMsg("AllowPremiumPose")); 
-	local value = ctrlSet:GetChild("value");
-	value:ShowWindow(0);
-
 	local itemobj = GetIES(invItem:GetObject());
-
-	if string.find(itemobj.ClassName, "PremiumToken") ~= nil then
+	if itemobj.NumberArg2 > 0 then
 		local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_TOKEN_TRADECOUNT",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local prop = GET_CHILD(ctrlSet, "prop");
 		local value = GET_CHILD(ctrlSet, "value");
 		local img = string.format("{img dealok_image %d %d}", 55, 45) 
 		prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
-		value:SetTextByKey("value", itemobj.NumberArg2);
+
+		img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
+		value:SetTextByKey("value", img);
 	else
-		gbox:RemoveChild("CTRLSET_TOKEN_TRADECOUNT");	
+		gBox:RemoveChild("CTRLSET_TOKEN_TRADECOUNT");	
 	end	
 
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img 2plus_image %d %d}", 55, 45) 
+    prop:SetTextByKey("value", imag..ClMsg("CanGetMoreBuff")); 
+    local value = ctrlSet:GetChild("value");
+    value:ShowWindow(0);
 
-	GBOX_AUTO_ALIGN(gBox, 0, 3, 0, true, true);
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img paid_pose_image %d %d}", 55, 45) 
+    prop:SetTextByKey("value", imag..ClMsg("AllowPremiumPose")); 
+    local value = ctrlSet:GetChild("value");
+    value:ShowWindow(0);
 
-
+	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, true);
 	
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
@@ -98,36 +102,39 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	elseif itemobj.ClassName == "PremiumToken_6h" then
 		arg1 = 21600 
 	elseif itemobj.ClassName == "PremiumToken_3h" then
-		arg1 = 10800
+		arg1 = 10800 
+	elseif itemobj.ClassName == "PremiumToken_15d" then
+		arg1 = 1296000 
 	end
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");
 	endTxt:SetTextByKey("value", endTime); 
 
-	local endTxt2 = frame:GetChild("endTime2");
+	local strTxt = frame:GetChild("richtext_1");
+	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
 
+	local bg2 = frame:GetChild("bg2");
+
+	local strTxt = bg2:GetChild("str");
+	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
+
+	local endTxt2 = bg2:GetChild("endTime2");
 	endTxt2:SetTextByKey("value2", endTime); 
 	endTxt2:SetTextByKey("value", ClMsg(itemobj.ClassName)..ScpArgMsg("Premium_itemEun")); 
     endTxt2:SetTextByKey("value3", ScpArgMsg("Premium_team")); 
     endTxt2:ShowWindow(1);
 
-	local indunStr = frame:GetChild("indunStr");
+	local indunStr = bg2:GetChild("indunStr");
 	indunStr:ShowWindow(0);
     
-	local strTxt = frame:GetChild("str");
-	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
-
-	local strTxt = frame:GetChild("richtext_1");
-	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
-
-	local forToken = frame:GetChild("forToken");
+	local forToken = bg2:GetChild("forToken");
 	forToken:ShowWindow(1);
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
 	frame:SetUserValue("ClassName", itemobj.ClassName);
-	local bg2 = frame:GetChild("bg2");
-	bg2:Resize(bg2:GetWidth(), 770);
-	frame:Resize(frame:GetWidth(), 800);
+	GBOX_AUTO_ALIGN(bg2, 10, 3, 10, true, true);
+	bg2:Resize(bg2:GetWidth(), 800);
+	frame:Resize(frame:GetWidth(), 830);
 end
 
 function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
@@ -161,34 +168,36 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	local value = ctrlSet:GetChild("value");
 	value:SetTextByKey("value", string.format("{img 2plus_image2 %d %d}", 100, 45) ); 
 
-	GBOX_AUTO_ALIGN(gBox, 0, 3, 0, true, false);
+	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, false);
 	local itemobj = GetIES(invItem:GetObject());
 	local arg1 = itemobj.NumberArg1 / 1000;
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");
 	endTxt:SetTextByKey("value", endTime); 
-	local endTxt2 = frame:GetChild("endTime2");
+
+	local strTxt = frame:GetChild("richtext_1");
+	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
+
+	
+	local bg2 = frame:GetChild("bg2");
+	local strTxt = bg2:GetChild("str");
+	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
+
+	local endTxt2 = bg2:GetChild("endTime2");
 	endTxt2:SetTextByKey("value2", endTime); 
 	endTxt2:SetTextByKey("value", ClMsg(itemobj.ClassName)..ScpArgMsg("Premium_itemEun"));
 	endTxt2:SetTextByKey("value3", ScpArgMsg("Premium_character")); 
 	endTxt2:ShowWindow(1);
 
-	local indunStr = frame:GetChild("indunStr");
+	local indunStr = bg2:GetChild("indunStr");
 	indunStr:ShowWindow(0);
 
-	local strTxt = frame:GetChild("str");
-	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
-
-	local strTxt = frame:GetChild("richtext_1");
-	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
-
-	local forToken = frame:GetChild("forToken");
+	local forToken = bg2:GetChild("forToken");
 	forToken:ShowWindow(0);
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
 	frame:SetUserValue("ClassName", itemobj.ClassName);
 	
-	local bg2 = frame:GetChild("bg2");
 	bg2:Resize(bg2:GetWidth(), 500);
 	frame:Resize(frame:GetWidth(), 550);
 end
@@ -217,31 +226,31 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	value:ShowWindow(0);
 	
 
-	GBOX_AUTO_ALIGN(gBox, 0, 3, 0, true, false);
+	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, false);
 	local itemobj = GetIES(invItem:GetObject());
 	local endTxt = frame:GetChild("endTime");
 	endTxt:ShowWindow(0);
 
-	local indunStr = frame:GetChild("indunStr");
+	local strTxt = frame:GetChild("richtext_1");
+	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
+
+	local bg2 = frame:GetChild("bg2");
+	local indunStr = bg2:GetChild("indunStr");
 	indunStr:SetTextByKey("value", ClMsg(itemobj.ClassName)..ScpArgMsg("Premium_itemEun")); 
     indunStr:SetTextByKey("value2", ScpArgMsg("Premium_character")); 
     indunStr:ShowWindow(1);
 
-	local endTime2 = frame:GetChild("endTime2");
+	local endTime2 = bg2:GetChild("endTime2");
 	endTime2:ShowWindow(0);
     
-	local strTxt = frame:GetChild("str");
+	local strTxt = bg2:GetChild("str");
 	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
 
-	local strTxt = frame:GetChild("richtext_1");
-	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
-
-	local forToken = frame:GetChild("forToken");
+	local forToken = bg2:GetChild("forToken");
 	forToken:ShowWindow(1);
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
 	frame:SetUserValue("ClassName", itemobj.ClassName);
-	local bg2 = frame:GetChild("bg2");
 	bg2:Resize(bg2:GetWidth(), 440);
 	frame:Resize(frame:GetWidth(), 500);
 end
@@ -298,7 +307,8 @@ function BEFORE_APPLIED_INDUNFREE_OPEN(invItem)
 	frame:Resize(frame:GetWidth(), 500);
 end
 
-function REQ_TOKEN_ITEM(frame, ctrl)
+function REQ_TOKEN_ITEM(parent, ctrl)
+	local frame				= parent:GetTopParentFrame();
 	TOKEN_SELEC_CANCLE(frame);
 	
 	local itemIES = frame:GetUserValue("itemIES");
@@ -349,6 +359,7 @@ function REQ_TOKEN_ITEM(frame, ctrl)
 end
 
 
-function TOKEN_SELEC_CANCLE(frame, ctrl)
+function TOKEN_SELEC_CANCLE(parent, ctrl)
+	local frame				= parent:GetTopParentFrame();
 	frame:ShowWindow(0);
 end

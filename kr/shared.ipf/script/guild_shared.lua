@@ -1,4 +1,4 @@
-﻿
+
 
 
 function GET_GELE_MODELITEM(seedCls, obj)
@@ -37,6 +37,58 @@ function GET_SEED003_MODELITEM(seedCls, obj)
 	end
 
 	return "food_011";
+
+end
+
+function GET_SEED004_MODELITEM(seedCls, obj)
+
+	local age = obj:GetPropIValue("Age");
+	local maxGrowTime = seedCls.FullGrowMin;
+	local curState = CLAMP(age / maxGrowTime, 0, 1);
+	if curState <= 0.5 then
+		return "Default_Sprout";
+	end
+
+	return "icon_item_Jonazole_farm";
+
+end
+
+function GET_SEED005_MODELITEM(seedCls, obj)
+
+	local age = obj:GetPropIValue("Age");
+	local maxGrowTime = seedCls.FullGrowMin;
+	local curState = CLAMP(age / maxGrowTime, 0, 1);
+	if curState <= 0.5 then
+		return "Default_Sprout";
+	end
+
+	return "icon_item_Mairunas_farm";
+
+end
+
+function GET_SEED006_MODELITEM(seedCls, obj)
+
+	local age = obj:GetPropIValue("Age");
+	local maxGrowTime = seedCls.FullGrowMin;
+	local curState = CLAMP(age / maxGrowTime, 0, 1);
+	if curState <= 0.5 then
+		return "Default_Sprout";
+	end
+
+	return "icon_item_Rosemary_farm";
+
+end
+
+function GET_SEED007_MODELITEM(seedCls, obj)
+
+	local age = obj:GetPropIValue("Age");
+	local maxGrowTime = seedCls.FullGrowMin;
+	local curState = CLAMP(age / maxGrowTime, 0, 1);
+	if curState <= 0.5 then
+		return "Default_Sprout";
+	end
+
+	return "icon_item_Lavender_farm";
 
 end
 
@@ -168,15 +220,9 @@ function GET_GUILD_MAKE_PRICE()
 
 end
 
-function GET_REMAIN_TICKET_COUNT(guildObj, curDate)
-
+function GET_REMAIN_TICKET_COUNT(guildObj)
 	local guildLevel = guildObj.Level;
-	if guildObj.LastEventTicketDay ~= curDate then
-		return guildLevel;
-	end
-
 	return guildLevel - guildObj.UsedTicketCount;
-
 end
 
 

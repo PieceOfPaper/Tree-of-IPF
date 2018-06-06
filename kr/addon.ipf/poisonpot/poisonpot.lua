@@ -26,6 +26,26 @@ function POISONPOT_FRAME_CLOSE(frame)
 	
 end
 
+function POISONPOT_SLOT_RESET(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	local slot = tolua.cast(ctrl, "ui::CSlot");
+	local icon, iconInfo, itemIES = nil, nil, nil;
+	icon = slot:GetIcon();
+	if nil ~= icon then
+		 iconInfo = icon:GetInfo();
+	end
+
+	if nil ~= iconInfo then
+		itemIES = iconInfo:GetIESID();
+	end
+	session.ResetItemList();
+	if nil~= itemIES then
+		session.AddItemID(itemIES);
+	end
+
+	SET_POISONPOT_CARD_COMMIT(slot:GetName(), "UnEquip")
+end
+
 function UPDATE_POISONPOT_UI(frame)
 	
 	local etc_pc = GetMyEtcObject();
@@ -40,16 +60,13 @@ function UPDATE_POISONPOT_UI(frame)
 
 	--local slottextname = 'subbosstext'..i
 	local bosscardid = etc_pc['Wugushi_bosscard']
-
 	local bosscardcls = GetClassByType("Item", bosscardid)
 
+	local slotchild = GET_CHILD_RECURSIVELY(frame, 'subboss',"ui::CSlot");
 	if bosscardcls ~= nil then
-		local slotchild = GET_CHILD_RECURSIVELY(frame, 'subboss',"ui::CSlot");
-		slotchild:EnableDrag(0)
 		SET_SLOT_ICON(slotchild, bosscardcls.TooltipImage);
-
-		--local slotchild_text= GET_CHILD(gbox, slottextname,"ui::CRichText");
-		--slotchild_text:SetText(bosscardcls.Name)
+	else
+		slotchild:ClearIcon();
 	end
 
 
@@ -158,22 +175,25 @@ function POISONPOT_SLOT_DROP(frame, control, argStr, argNum)
 	local bosscardid = etc_pc['Wugushi_bosscard']
 
 	if bosscardid == cardobj.ClassID then
+		ui.SysMsg(ClMsg("AlreadRegSameCard"));
 		return
 	end
 
 	if cardobj.GroupName ~= 'Card' then
+		ui.SysMsg(ClMsg("PutOnlyCardItem"));
 		return 
 	end
 
 	local bossCls = GetClassByType("Monster", cardobj.NumberArg1);
-	if bossCls.RaceType ~= 'Klaida' then -- 곤충?�인가?
+	if bossCls.RaceType ~= 'Klaida' then
+		ui.SysMsg(ClMsg("CheckCardType"));
 		return 
 	end
 
 	session.ResetItemList();
 	session.AddItemID(iconInfo:GetIESID());
 
-	SET_POISONPOT_CARD_COMMIT(slot:GetName())
+	SET_POISONPOT_CARD_COMMIT(slot:GetName(), "Equip")
 
 end
 
@@ -210,10 +230,16 @@ function EXECUTE_POISONPOT_COMMIT()
 	item.DialogTransaction("POISONPOT", resultlist);
 end
 
-function SET_POISONPOT_CARD_COMMIT(slotname)
+function SET_POISONPOT_CARD_COMMIT(slotname, type)
 
 	local resultlist = session.GetItemIDList();
 
-	item.DialogTransaction("SET_POISON_CARD", resultlist); -- ?�버??SCR_SET_CARD()가 ?�출?�다.
+	local iType = 1;
+	if "UnEquip" == type then
+		iType = 0;
+	end
+
+	local argStr = string.format("%s %s", slotname, iType);
+	item.DialogTransaction("SET_POISON_CARD", resultlist, argStr); 
 
 end

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="2.00" soundFile="mon_big_footstep_6"/>
+    <Shockwave frame="3" type="2" intensity="5" frequency="70" duration="0.1" range="1000"/>
+    <Particle frame="3" particleName="F_smoke109" attachNode="Bip001 R Toe0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="3" particleName="F_stone005" attachNode="Bip001 R Toe0" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="5" type="2" intensity="5" frequency="70" duration="0.1" range="1000"/>
+    <Sound frame="20.00" soundFile="mon_big_footstep_6"/>
+    <Shockwave frame="25" type="2" intensity="5" frequency="70" duration="0.1" range="1000"/>
+    <Particle frame="25" particleName="F_smoke109" attachNode="Bip001 L Toe0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="25" particleName="F_stone005" attachNode="Bip001 L Toe0" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="27" type="2" intensity="5" frequency="70" duration="0.1" range="1000"/>
+</ActionDesc>

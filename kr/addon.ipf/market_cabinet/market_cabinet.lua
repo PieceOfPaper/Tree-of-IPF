@@ -76,10 +76,6 @@ function ON_CABINET_ITEM_LIST(frame)
 			SHOW_REMAIN_NEXT_TIME_GET_CABINET(medalFreeTime);
 			endTime:RunUpdateScript("SHOW_REMAIN_NEXT_TIME_GET_CABINET");
 		end
-		local noTrade = TryGetProp(itemObj, "BelongingCount");
-		if nil ~= noTrade then
-			ctrlSet:SetNoTradeCount(noTrade);
-		end
 		
 		local btn = GET_CHILD(ctrlSet, "btn");
 		btn:SetTextByKey("value", ClMsg("Receieve"));
