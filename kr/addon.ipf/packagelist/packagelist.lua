@@ -70,7 +70,7 @@ function PACKAGELIST_EDIT_ON_TYPING(parent, ctrl)
 			return;
 		end
 	end
-	local resCnt = math.min(20, curCount + 1); -- 장바구니 개수까지만 
+	local resCnt = math.min(20, curCount); -- 장바구니 개수까지만 
 	textEdit:SetText(resCnt);
 end
 
