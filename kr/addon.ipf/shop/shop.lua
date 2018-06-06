@@ -1144,6 +1144,7 @@ function CONTEXT_SOLD_ITEM(frame, slot, str, num)
 	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}ChwiSo"), "SHOP_SOLDED_CANCEL");
 	ui.OpenContextMenu(context);
 end
+
 function SHOP_SOLDED_CANCEL()
 	imcSound.PlaySoundEvent("button_click");
 end
