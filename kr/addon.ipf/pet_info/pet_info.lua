@@ -39,7 +39,13 @@ function ON_PET_PROP_UPDATE(frame, msg, propName)
 		PET_INFO_UPDATE_ACTIVATED(frame);
 		return;
 	end
-	PET_INFO_CANCEL_TRAIN(frame);
+
+	if propName ~= "Stamina" and frame:GetUserValue('IS_OPEN_BY_NPC') == 'YES' then
+		PET_INFO_CANCEL_TRAIN(frame);
+		return;
+	end
+
+	PET_INFO_SHOW(frame:GetUserValue('PET_GUID'));
 end
 
 function PET_INFO_OPEN(frame)
@@ -489,7 +495,9 @@ end
 
 function PET_STAT_UP(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
+	local pc = GetMyPCObject();
 	local guid = topFrame:GetUserValue("PET_GUID");
+	local trainCnt = frame:GetUserIValue('TRAIN_CNT');
 	local petInfo = session.pet.GetPetByGUID(guid);
 	local obj = petInfo:GetObject();
 	if obj == nil then
@@ -497,7 +505,12 @@ function PET_STAT_UP(frame, ctrl)
 	end
 	obj = GetIES(obj);
 
-	local trainCnt = frame:GetUserIValue('TRAIN_CNT');
+	local needSilver = PET_INFO_GET_STAT_SILVER(frame, pc, obj, trainCnt + 1);
+	if needSilver > GET_TOTAL_MONEY() then
+		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
+		return;
+	end
+
 	local statName = frame:GetUserValue('CLSNAME');
 	local statValue = frame:GetUserIValue('STAT_VALUE');
 	local afterValueText = frame:GetChild('afterValueText');
@@ -616,16 +629,12 @@ function PET_INFO_CALC_TRAIN_COST(frame)
 		local TRAIN_TOOLTIP_IMG = ctrlset:GetUserConfig('TRAIN_TOOLTIP_IMG');
 
 		-- cost
-		local statCost = 0;
-		for j = 0, trainCnt - 1 do
-			local needSilver = GET_PET_STAT_PRICE(pc, obj, clsName, statValue + j);
-			statCost = statCost + needSilver;
-		end
+		local statCost = PET_INFO_GET_STAT_SILVER(ctrlset, pc, obj, trainCnt);
 
 		-- tooltip
-		local tooltipText = string.format("%s[%s]{/}%s%s{/}{nl}", TRAIN_TOOLTIP_EMPHA_ST, ClMsg("Pet_" .. clsName), TRAIN_TOOLTIP_ST, ClMsg('ReinforceCost'));
+		local tooltipText = string.format("%s[%s]{/}%s%s{/}{nl}", TRAIN_TOOLTIP_EMPHA_ST, ClMsg("Pet_" .. clsName), TRAIN_TOOLTIP_ST, ClMsg('NextReinforceCost'));
 		tooltipText = tooltipText..string.format("{img %s 18 18}", TRAIN_TOOLTIP_IMG);
-		tooltipText = tooltipText..string.format("%s%s{/}", TRAIN_TOOLTIP_EMPHA_ST, GET_COMMAED_STRING(statCost));
+		tooltipText = tooltipText..string.format("%s%s{/}", TRAIN_TOOLTIP_EMPHA_ST, GET_COMMAED_STRING(PET_INFO_GET_STAT_SILVER(ctrlset, pc, obj, trainCnt + 1)));
 		statUpBtn:SetTextTooltip(tooltipText);
 
 		cost = cost + statCost;
@@ -636,4 +645,19 @@ function PET_INFO_CALC_TRAIN_COST(frame)
 	local totalCostText = GET_CHILD_RECURSIVELY(frame, 'totalCostText');
 	frame:SetUserValue('TOTAL_COST', cost);
 	totalCostText:SetTextByKey('cost', GET_COMMAED_STRING(cost));
+end
+
+function PET_INFO_GET_STAT_SILVER(ctrl, pc, pet, trainCnt)
+	if ctrl == nil or pc == nil or pet == nil then
+		return 0;
+	end
+
+	local clsName = ctrl:GetUserValue('CLSNAME');
+	local statValue = pet["Stat_" .. clsName];
+	local statCost = 0;
+	for j = 0, trainCnt - 1 do
+		local needSilver = GET_PET_STAT_PRICE(pc, pet, clsName, statValue + j);
+		statCost = statCost + needSilver;
+	end
+	return statCost;
 end

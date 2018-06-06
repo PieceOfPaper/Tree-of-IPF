@@ -119,7 +119,7 @@
 		<Class ClassID="2062" ClassName="ReallyExecTranscend" Data="정말 초월을 시작하시겠습니까?"/>
 		<Class ClassID="2063" ClassName="GemHasPenaltyLater" Data="한번 장착한 젬을 추출할 때에는 레벨이 하락하며, 몬스터젬과 1레벨 젬의 경우 소멸됩니다. 정말 장착하시겠습니까?"/>
 		<Class ClassID="2064" ClassName="ItemDeleted" Data="아이템이 소멸되었습니다."/>
-		<Class ClassID="2065" ClassName="ReinforceCost" Data="강화 비용"/>
+		<Class ClassID="2065" ClassName="NextReinforceCost" Data="다음 강화 비용"/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -4896,6 +4896,7 @@
 		<Class ClassID="90059" ClassName="LOWLV_BOASTER_SQ_20_MSG4" Data="이미 수정을 묻은 장소 입니다"/>
 		<Class ClassID="90060" ClassName="LOWLV_BOASTER_SQ_30_MSG1" Data="낙엽을 채취하는 중"/>
 		<Class ClassID="90061" ClassName="LOWLV_BOASTER_SQ_30_MSG2" Data="마른 낙엽을 얻었습니다"/>
+	<Class ClassID="90062" ClassName="CATACOMB_33_1_SQ_BOX_FAIL2" Data="상자가 잠겨있습니다"/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -5085,6 +5086,9 @@
 		<Class ClassID="101124" ClassName="JustInvite" Data="{@st41b}초대"/>
 		<Class ClassID="101125" ClassName="JustReqOK" Data="{@st41b}수락"/>
 		<Class ClassID="101126" ClassName="CannotChagePropertyThisServer" Data="자동매칭에서는 파티옵션 변경이 불가능합니다."/>
+		<Class ClassID="101127" ClassName="DonotChangeName12" Data="허용되지 않은 글자가 포함되어 있습니다."/>
+		<Class ClassID="101128" ClassName="DonotChangeName13" Data="(-), (_)는 1개만 포함 가능합니다. (, )는 불가능합니다."/>
+		<Class ClassID="101129" ClassName="DonotChangeName14" Data="사용할 수 없는 BlockName이 포함되어 있습니다."/>
 		<Class ClassID="101130" ClassName="{PC}AlreadyBelongsToPartySame" Data="{PC}님은 이미 같은 파티에 속해있습니다"/>
 		<Class ClassID="101131" ClassName="{PC}AlreadyBelongsToPartyOther" Data="{PC}님은 이미 다른 파티에 속해있습니다"/>
 		<Class ClassID="101132" ClassName="HadMyPartySame" Data="이미 같은 파티에 속해있습니다"/>
@@ -8919,7 +8923,7 @@
 		<Class ClassID="300086" ClassName="Premium_boostToken03" Data="x8 경험의 서"/>
 		<Class ClassID="300087" ClassName="Premium_boostToken04" Data="향상된 경험의 서 [증정용]"/>
 		<Class ClassID="300088" ClassName="IsAppliedTokenSame" Data="같은 종류의 버프가 활성화 되어 있어, 사용할 수 없습니다."/>
-		<Class ClassID="300089" ClassName="FAILED_PURCHASED_1001002" Data="사용자의 캐시가 잠겨있습니다."/>
+		<Class ClassID="300089" ClassName="FAILED_PURCHASED_1001002" Data="구매 실패.{nl}넥슨캐시 보안 설정을 변경해 주세요.{nl}넥슨캐시를 사용할 게임에 트리오브세이비어가 선택되어야 합니다."/>
 		<Class ClassID="300090" ClassName="FAILED_PURCHASED_12040" Data="넥슨캐시가 부족합니다."/>
 		<Class ClassID="300091" ClassName="FAILED_PURCHASED_1001200" Data="14세 미만이 사용할 용도로 구입할 수 없습니다."/>
 		<Class ClassID="300092" ClassName="FAILED_PURCHASED_1001201" Data="선물 한도 정책으로 선물이 불가능합니다."/>
@@ -8955,6 +8959,8 @@
 		<Class ClassID="300125" ClassName="Premium_boostToken_RemainingMsg{Sec}" Data="경험의서 효과가 {Sec}초 후에 종료됩니다."/>
 		<Class ClassID="300126" ClassName="Premium_boostToken_EndMsg" Data="경험의서 효과가 종료되었습니다."/>
 		<Class ClassID="300136" ClassName="Premium_StatReset_TA" Data="농축 스탯 초기화 포션"/>
+
+<Class ClassID="300138" ClassName="PremiumToken_1h_TC" Data="토큰:1시간[증정용]"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

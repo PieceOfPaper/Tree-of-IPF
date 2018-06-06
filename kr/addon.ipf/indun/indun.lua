@@ -18,7 +18,11 @@ function ON_CHAT_INDUN_UI_OPEN(frame, msg, argStr, argNum)
 end
 
 function INDUN_UI_OPEN(frame)
-	INDUN_DRAW_CATEGORY(frame)
+	INDUN_DRAW_CATEGORY(frame);
+
+	-- resize frame for using system menu and quickslot
+	local bg3 = frame:GetChild('bg3');
+	frame:Resize(frame:GetWidth(), bg3:GetY() + bg3:GetHeight());
 end
 
 function INDUN_DRAW_CATEGORY(frame)

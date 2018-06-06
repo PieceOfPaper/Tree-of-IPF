@@ -144,8 +144,6 @@ end
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	
-	ui.SetUILock(true);
-
 	ui.CloseAllOpenedUI();
 	ui.OpenIngameShopUI();	-- Tpshop을 열었을때에 Tpitem에 대한 정보와 NexonCash 정보 등을 서버에 요청한다.
 
@@ -279,6 +277,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	tempGbox_for_scroll:SetEventScript(ui.MOUSEWHEEL, "TPSHOP_PREVIEW_ZOOM");
 
 	control.EnableControl(0);
+	ui.SetUILock(true);
 end
 
 function SET_TOPMOST_FRAME_SHOWFRAME(show)

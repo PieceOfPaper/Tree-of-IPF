@@ -1354,6 +1354,12 @@ function SLOT_ITEMUSE_BY_TYPE(frame, object, argStr, type)
 end
 
 function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
+	local pc = GetMyPCObject();
+	if pc == nil or IsPVPServer(pc) == 1 then
+		ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
+		return 0;
+	end
+
 
 	-- 워프 주문서 예외처리. 실제 워프가 이루어질때 아이템이 소비되도록.
 	local warpscrolllistcls = GetClass("warpscrolllist", itemobj.ClassName);
@@ -1951,6 +1957,10 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		if (result ~= "OK") or (resultLifeTimeOver == 1) then
 			icon:SetColorTone("FFFF0000");		
 		end
+			
+		if IS_NEED_APPRAISED_ITEM(itemobj) then
+			icon:SetColorTone("FFFF0000");		
+		end
 	end	
 	
 	SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count);
@@ -2307,7 +2317,7 @@ function UPDATE_INVENTORY_JUNGTAN(frame, ctrl, num, str, time)
 	if frame:IsVisible() == 0 then
 		return;
 	end
-	local jungtanID = frame:GetUserValue("JUNGTAN_EFFECT");
+	local jungtanID = frame:GetUserIValue("JUNGTAN_EFFECT");
 	if jungtanID == 0 then
 		return;
 	end

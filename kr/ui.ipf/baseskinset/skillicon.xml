@@ -880,7 +880,9 @@
 		<image name="ability_Warrior_Squire11" file="\icon\icon_ability_warrior05.tga" imgrect="384 640 128 128" CMM_Caption="데들리 콤보: 강화"/>
 		<image name="ability_Warrior_Swordman29" file="\icon\icon_ability_warrior05.tga" imgrect="512 640 128 128" CMM_Caption="페인 배리어: 지속시간"/>
 		<image name="ability_Warrior_Highlander33" file="\icon\icon_ability_warrior05.tga" imgrect="640 640 128 128" CMM_Caption="카타스트로크: 퀵 차징"/>
-		<image name="ability_Warrior_Barbarian28" file="\icon\icon_ability_warrior05.tga" imgrect="768 640 128 128" CMM_Caption="바바리안: 난폭"/>
+		<image name="ability_Warrior_Barbarian28" file="\icon\icon_ability_warrior05.tga" imgrect="768 640 128 128" CMM_Caption="바바리안: 야성"/>
+		<image name="ability_Warrior_Barbarian29" file="\icon\icon_ability_warrior05.tga" imgrect="896 640 128 128" CMM_Caption="야성: 지속시간"/>
+		<image name="ability_Warrior_Corsair17" file="\icon\icon_ability_warrior05.tga" imgrect="0 768 128 128" CMM_Caption="피스톨 샷: 도탄"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -1112,6 +1114,9 @@
 		<image name="ability_Wizard_Featerfoot14" file="\icon\icon_ability_wizard04.tga" imgrect="256 512 128 128" CMM_Caption="커다이챠:이동속도증가"/>
 		<image name="ability_Wizard_Alchemist11" file="\icon\icon_ability_wizard04.tga" imgrect="384 512 128 128" CMM_Caption="아이템 어웨이크닝:속전속결"/>
 		<image name="ability_Wizard_Cryomancer22" file="\icon\icon_ability_wizard04.tga" imgrect="512 512 128 128" CMM_Caption="아이스 월:지속시간"/>
+		<image name="ability_Wizard_Psychokino10" file="\icon\icon_ability_wizard04.tga" imgrect="640 512 128 128" CMM_Caption="사이킥 프레셔: 집중"/>
+		<image name="ability_Wizard_Psychokino20" file="\icon\icon_ability_wizard04.tga" imgrect="768 512 128 128" CMM_Caption="그라비티 폴: 집중"/>
+		<image name="ability_Wizard_Sorcerer15" file="\icon\icon_ability_wizard04.tga" imgrect="896 512 128 128" CMM_Caption="탑승: 능력치 증가"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>

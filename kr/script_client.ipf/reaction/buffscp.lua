@@ -504,6 +504,7 @@ end
 
 function EliteMonster_ENTER(actor, obj, buff)
 	actor:SetAuraInfo("EliteBuff");
+	actor:GetTitle():UpdateCaption();
 end
 
 function EliteMonster_LEAVE(actor, obj, buff)

@@ -61,8 +61,8 @@ function GET_MON_ILLUST(monCls)
 		return name;
 	end
 
-	--아이콘은 이제 쓰지 않을꺼라고 해서 일단 주석을 합시다.
-	--주연씨께서 중복으로 아이콘 등록해야 해서 살려드림 16.10.10
+	--?�이콘�? ?�제 ?��? ?�을꺼라�??�서 ?�단 주석???�시??
+	--주연?�께??중복?�로 ?�이�??�록?�야 ?�서 ?�려?�림 16.10.10
 	name = monCls.Icon;
 	if ui.IsImageExist(name) == 1 then
 		return name;
@@ -200,7 +200,7 @@ function UPDATE_ARTICLE_Monster(ctrlset)
 	if topAtkPropValue > 0 then
 		local sklCls = GetClassByType("Skill", topAtkPropValue);
 		skillName:SetTextByKey("value", sklCls.Name);
-		skillValue:SetTextByKey("value", "피해량 " .. topAtkPropCount);
+		skillValue:SetTextByKey("value", " " .. topAtkPropCount);
 		skillicon:SetImage("Icon_" .. sklCls.Icon);
 
 		skillValue:ShowWindow(1);

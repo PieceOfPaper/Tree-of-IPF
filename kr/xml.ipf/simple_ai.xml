@@ -2959,7 +2959,17 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="DTACURLING_TARGET_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+	<AI Name="DTACURLING_BALL_AI" UpdateMS="300" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO" CondFunc="">
+                <Str Str="SCR_DTACURLING_BALL_RUN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="DTACURLING_TARGET_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_DTACURLING_TARGET_RUN"/>

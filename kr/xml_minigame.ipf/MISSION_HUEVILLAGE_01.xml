@@ -418,7 +418,7 @@
                             </ToolScp>
                         </enterScpList>
                     </Obj>
-                    <Obj Type="Monster" MonType="47465" Pos="869.49#33.63#235.86" range="200" genCount="5" maxStackCount="5" genTime="1" objectKey="11" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47465" Pos="869.49#33.63#235.86" range="200" genCount="5" maxStackCount="5" genTime="1" objectKey="11" autoDestroy="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -427,7 +427,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47465" Pos="1243.11#81.59#587.98" range="300" genCount="15" maxStackCount="10" genTime="1" objectKey="12" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47465" Pos="1243.11#81.59#587.98" range="300" genCount="15" maxStackCount="10" genTime="1" objectKey="12" autoDestroy="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -491,13 +491,28 @@
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="bonusSet">
+                    <Event execCount="1" eventName="hiddenEvent1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_4/11/stage_4/12"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
                         <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE_RANDOM" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
-                                <Str Str="mission_huevillage_bonus"/>
-                                <Num Num="1"/>
-                                <Num Num="20"/>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="stage_bonus/1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="hiddenEvent2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="31"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="hiddenEvent1"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -602,32 +617,6 @@
                 <ObjList>
                     <Obj Type="Monster" MonType="20053" Pos="-83.33#2.64#690.88" angle="5" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; " SimpleAI="HUEVILLAGE_58_4_MQ01_WALL01"/>
                 </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="check">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="minigame_timeout"/>
-                                <Str Str="DIF"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="mission_huevillage_bonus1"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="stage_bonus/1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="stage_bonus/0"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
             </Stage>
             <Stage Name="ready">
                 <StartScpList>

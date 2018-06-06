@@ -2171,6 +2171,39 @@
 			<img name="bottomcore" imgrect="81 75 14 5"/>
 			<img name="bottomright" imgrect="96 75 35 5"/>
 		</skin>
+	<skin name="name_glasss_btn" texture="\skin\pip_test.tga">
+			<img name="topleft" imgrect="1759 506 20 10"/>
+			<img name="topcore" imgrect="1780 506 20 10"/>
+			<img name="topright" imgrect="1801 506 20 10"/>
+			<img name="bodyleft" imgrect="1759 517 20 10"/>
+			<img name="bodycore" imgrect="1780 517 20 10"/>
+			<img name="bodyright" imgrect="1801 517 20 10"/>
+			<img name="bottomleft" imgrect="1759 528 20 10"/>
+			<img name="bottomcore" imgrect="1780 528 20 10"/>
+			<img name="bottomright" imgrect="1801 528 20 10"/>
+		</skin>
+		<skin name="name_glasss_btn_cursoron" texture="\skin\pip_test.tga">
+			<img name="topleft" imgrect="1759 539 20 10"/>
+			<img name="topcore" imgrect="1780 539 20 10"/>
+			<img name="topright" imgrect="1801 539 20 10"/>
+			<img name="bodyleft" imgrect="1759 550 20 10"/>
+			<img name="bodycore" imgrect="1780 550 20 10"/>
+			<img name="bodyright" imgrect="1801 550 20 10"/>
+			<img name="bottomleft" imgrect="1759 561 20 10"/>
+			<img name="bottomcore" imgrect="1780 561 20 10"/>
+			<img name="bottomright" imgrect="1801 561 20 10"/>
+		</skin>
+		<skin name="name_glasss_btn_clicked" texture="\skin\pip_test.tga">
+			<img name="topleft" imgrect="1759 539 20 10"/>
+			<img name="topcore" imgrect="1780 539 20 10"/>
+			<img name="topright" imgrect="1801 539 20 10"/>
+			<img name="bodyleft" imgrect="1759 550 20 10"/>
+			<img name="bodycore" imgrect="1780 550 20 10"/>
+			<img name="bodyright" imgrect="1801 550 20 10"/>
+			<img name="bottomleft" imgrect="1759 561 20 10"/>
+			<img name="bottomcore" imgrect="1780 561 20 10"/>
+			<img name="bottomright" imgrect="1801 561 20 10"/>
+		</skin>
 	</skinlist>
 	<skinlist category="testjoo_frames">
 		<skin name="test_frame_top" texture="\skin\pip_test.tga">

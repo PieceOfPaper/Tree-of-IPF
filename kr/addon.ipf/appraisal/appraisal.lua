@@ -10,7 +10,7 @@ end
 
 function ON_OPEN_APPRAISAL(frame, msg, arg1, arg2)
 	if frame:IsVisible() == 0 then
-	frame:ShowWindow(1)
+		frame:ShowWindow(1)
 		APPRAISAL_RESET_CAL_MONEY(frame)
 	end
 	if msg == 'SUCCESS_APPRALSAL' then
@@ -91,16 +91,16 @@ function APPRAISAL_UPDATE_MONEY(frame)
 	end
 
 	local repairprice = GET_CHILD_RECURSIVELY_AT_TOP(frame, "invenZeny", "ui::CRichText")
-	repairprice:SetText(GetCommaedText(totalprice))
+	repairprice:SetText(GET_COMMAED_STRING(totalprice))
 
 	local calcprice = GET_CHILD_RECURSIVELY_AT_TOP(frame, "remainInvenZeny", "ui::CRichText")
 
-	if GET_TOTAL_MONEY() < totalprice then
-		calcprice:SetText(GET_TOTAL_MONEY()-totalprice)
+	if totalprice <= 0 then
+		calcprice:SetText(GET_COMMAED_STRING(GET_TOTAL_MONEY()))
 		return;
-end
+	end
 
-	local mymoney = GetCommaedText(GET_TOTAL_MONEY()-totalprice);
+	local mymoney = GET_COMMAED_STRING(GET_TOTAL_MONEY()-totalprice);
 	calcprice:SetText(mymoney)
 end
 
@@ -176,7 +176,7 @@ function APPRAISAL_EXECUTE(frame)
 		return;
 	end
 
-	local txtPrice = GetCommaedText(totalprice)
+	local txtPrice = GET_COMMAED_STRING(totalprice)
 	local msg = ScpArgMsg('AppraisalPrice',"Price", txtPrice)
 	local msgBox = ui.MsgBox(msg, 'APPRAISAL_EXECUTE_COMMIT', "None");
 	msgBox:SetYesButtonSound("button_click_repair");
