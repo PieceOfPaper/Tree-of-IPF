@@ -1,25 +1,24 @@
 
 function FEVORCOMBO_ON_INIT(addon, frame)
 	
-	addon:RegisterMsg('MAXFEVERTIME', 'MAXFEVERTIME');		-- Å¬¶ó¿¡¼­ maxFever°è»ê¾ÈÇÏ°í ¼­¹ö¿¡¼­ ¾Ë·ÁÁÜ
+	addon:RegisterMsg('MAXFEVERTIME', 'MAXFEVERTIME');		-- Å¬ï¿½ï¿½ï¿½ï¿½ maxFeverï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½ï¿½
 end
 
 function FEVORCOMBO_OPEN(frame)
 
 	frame:SetDuration(10);
-
 end
 
 function FEVOR_UPDATE_DIGIT_COLOR(frame, cnt, digit1, digit2, digit3)
 
 	local configName = "";
-	if cnt <= 4 then
+	if cnt <= 60 then
 		configName = "Color_0_9";
-	elseif cnt <= 6 then
+	elseif cnt <= 120 then
 		configName = "Color_10_29";
-	elseif cnt <= 8 then
+	elseif cnt <= 180 then
 		configName = "Color_30_49";
-	elseif cnt <= 10 then
+	elseif cnt <= 240 then
 		configName = "Color_50_99";
 	else
 		configName = "Color_100";
@@ -35,13 +34,13 @@ end
 
 function GET_FEVORCOMBO_COLOR_STYLE(cnt)
 
-	if cnt <= 4 then
+	if cnt <= 60 then
 		return 0;
-	elseif cnt <= 6 then
+	elseif cnt <= 120 then
 		return 1;
-	elseif cnt <= 8 then
+	elseif cnt <= 180 then
 		return 2;
-	elseif cnt <= 10 then
+	elseif cnt <= 240 then
 		return 3;
 	end
 	
@@ -49,67 +48,17 @@ function GET_FEVORCOMBO_COLOR_STYLE(cnt)
 
 end
 
-function FEVORCOMBO_EX_RECODE(comboCount, comboTime, maxComboCount)
-
-	if comboCount > maxComboCount then
-		return;
-	end
-
-	local frame = ui.GetFrame("fevorcombo");
-	local digitFont = frame:GetUserConfig("Ex_DigitFont");
-	local xFont = frame:GetUserConfig("Ex_XFont");
-	local exComboFont = frame:GetUserConfig("Ex_TextFont");
-	local txt = "";
-		
-	local pushTxt = string.format("%s%d{/}%s X {/}%s%s{/}", digitFont, comboCount, xFont, exComboFont, txt);
-	FEVORCOMBO_PUSH_EXRECODE(frame, comboCount, pushTxt, comboTime);
-	
-
-end
-
-function FEVORCOMBO_PUSH_EXRECODE(frame, comboCount, pushTxt, comboTime)
-
-	local exrecode = frame:GetChild("exrecode");
-	exrecode:ShowWindow(1);
-
-	
-	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
-	
-	timer:SetValue(imcTime.GetDWTime() + comboTime);
-	
-	timer:SetUpdateScript("PROCESS_FEVORCOMBO_EXRECODE");
-	timer:Start(0.01);
-
-	exrecode:SetValue(comboCount);
-	
-	local ex1 = exrecode:GetChild("ex1");	
-	ex1:SetText(pushTxt);
-
-end
-
-function PROCESS_FEVORCOMBO_EXRECODE(frame, timer)
-
-	local exrecode = frame:GetChild("exrecode");
-	if timer:GetValue() == 0 then
-		return;
-	end
-	
-	if imcTime.GetDWTime() >= timer:GetValue() then
-		exrecode:ShowWindow(0);
-		timer:SetValue(0);
-		timer:Stop();
-		frame:ForceOpen();
-	end	
-	
-end
-
 function SET_FEVORCOMBO_CNT(cnt, time, maxCnt)
 
+	local frame = ui.GetFrame("fevorcombo");
+	local feverPic = frame:GetChild("feverPic");
 	if cnt > maxCnt then
+		if feverPic:IsVisible() then
+			feverPic:PlayEvent("COMBO");
+end
 		return;
 	end
-
-	local frame = ui.GetFrame("fevorcombo");
+	
 	frame:SetUserValue("CNT", cnt);
 
 	if cnt < 1 then
@@ -159,64 +108,76 @@ function SET_FEVORCOMBO_CNT(cnt, time, maxCnt)
 		digit1:ShowWindow(0);
 	end
 	
-	digit3:SetImage(tostring(oneDigit));
-	if playEft == 1 then
-		digit3:PlayEvent("ITEM_GET");
-	end
-
-	local text = frame:GetChild("text");
-	if text:GetCommandCount() <= 1 then
-		--frame:GetChild("text"):PlayEvent("COMBO_TEXT");
-	end
-	
-	--local curcombo = frame:GetChild("curcombo");
-	local expBonus = frame:GetChild("expBonus");
-
+	FEVORCOMBO_DIGIT_SET(digit3, oneDigit, playEft);	
 	if cnt >= 1 then
-		-- ÄÞº¸´ç °øÁõ 5		
-		--local setStr = string.format("%d", cnt*5);
-		--expBonus:SetTextByKey("bonusexp", setStr);
-		expBonus:ShowWindow(0);
-
-		--curcombo:SetTextByKey("comboCnt", cnt * 5);
 		FEVORTIME_GUAGE_START(frame, 5);
-		--curcombo:ShowWindow(1);
-
 	else
 		frame:GetChild("combo_gauge_right"):ShowWindow(0);
-		--frame:GetChild("combo_gauge_left"):ShowWindow(0);
-		--curcombo:ShowWindow(0);
-		expBonus:ShowWindow(0);
+		frame:GetChild("fever_gauge"):ShowWindow(0);
+	end
+
+	local comboPic = frame:GetChild("comboPic");
+	if cnt >= maxCnt then
+		feverPic:ShowWindow(1);
+	
+		comboPic:ShowWindow(0);		
+		digit1:ShowWindow(0);
+		digit2:ShowWindow(0);
+		digit3:ShowWindow(0);
+	else
+		comboPic:ShowWindow(1);
+		comboPic:PlayEvent("COMBO");
+
+		feverPic:ShowWindow(0);
 	end
 end
 
 function MAXFEVERTIME()
-	-- maxComboÀÏ¶§´Â °ÔÀÌÁö 10ÃÊ·Î ¼ÂÆÃ
 	local frame = ui.GetFrame("fevorcombo");
+	frame:SetDuration(10);
 	FEVORTIME_GUAGE_START(frame, 10);
 end
 
 function FEVORCOMBO_DIGIT_SET(digitCtrl, cnt, playEft)
-	digitCtrl:SetImage(tostring(cnt));
+	digitCtrl:SetImage(tostring(cnt) .. '_1');
 	if playEft == 1 then
-		digitCtrl:PlayEvent("ITEM_GET");
+		digitCtrl:PlayEvent("COMBO_C");
 	end
 	digitCtrl:ShowWindow(1);
 end
 
 function FEVORTIME_GUAGE_START(frame, time)
 
-	local rightGauge = GET_CHILD(frame, "combo_gauge_right", "ui::CGauge");
-	rightGauge:ShowWindow(1);
+	local comboGauge = GET_CHILD(frame, "combo_gauge_right", "ui::CGauge");
+	local feverGauge = GET_CHILD(frame, "fever_gauge", "ui::CGauge");
 	
-	rightGauge:SetPoint(time, time);
-	rightGauge:SetPointWithTime(0, time);
+	if time > 5 then
+		feverGauge:SetPoint(time, time);
+		feverGauge:SetPointWithTime(0, time);
+	else
+		comboGauge:SetPoint(time, time);
+		comboGauge:SetPointWithTime(0, time);
+	end
 
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
+	timer:Stop();
 	timer:SetUpdateScript("UPDATE_FEVOR_TIME");
 	timer:Start(0.01, 0);
 	frame:SetValue(time);
 
+	local animpic = GET_CHILD_RECURSIVELY(frame, "animpic");
+	if time > 5 then
+		feverGauge:ShowWindow(1);		
+		comboGauge:ShowWindow(0);
+		
+		animpic:ShowWindow(1);
+		animpic:SetUserValue("LINKED_GAUGE", 0);
+		LINK_OBJ_TO_GAUGE(frame, animpic, feverGauge, 0);
+	else
+		comboGauge:ShowWindow(1);		
+		feverGauge:ShowWindow(0);
+		animpic:ShowWindow(0);
+	end
 end
 
 function UPDATE_FEVOR_TIME(frame, timer, str, num, time)
@@ -226,20 +187,5 @@ function UPDATE_FEVOR_TIME(frame, timer, str, num, time)
 		frame:ShowWindow(0);
 		timer:Stop();
 		return;
-	end
-
-
-	local remainTime = totalTime - time;
-	local timeframe = frame:GetChild("combotime");
-	if remainTime <=  10 then
-		remainTime = math.floor(remainTime);
-		remainTime = remainTime + 1;
-		if remainTime > totalTime then
-			remainTime = totalTime;
-		end
-		timeframe:SetTextByKey("curTime", remainTime);
-		timeframe:ShowWindow(1);
-	else
-		timeframe:ShowWindow(0);
 	end
 end

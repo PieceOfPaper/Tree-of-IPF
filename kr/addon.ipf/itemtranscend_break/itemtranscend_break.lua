@@ -120,8 +120,9 @@ function ITEM_TRANSCEND_BREAK_REG_TARGETITEM(frame, itemID)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
-
-	if transcend == 0 then
+	
+	local transcend = TryGetProp(obj, "Transcend")
+	if transcend == nil or transcend == 0 then
 		ui.MsgBox(ScpArgMsg("YouCanBreakOnlyTreancendedItem"));
 		return;
 	end

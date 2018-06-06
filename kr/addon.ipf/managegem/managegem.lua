@@ -272,12 +272,12 @@ function EXEC_REMOVE_GEM()
 	local selectedNum = tonumber(frame:GetUserValue("NOW_SELECT_INDEX"));
 	local MAX_SOCKET_CNT = frame:GetUserIValue('MAX_SOCKET_CNT');
 
-	if selectedNum == nil or selectedNum < 1 or selectedNum >= MAX_SOCKET_CNT then
+	if selectedNum == nil or selectedNum < 1 or selectedNum > MAX_SOCKET_CNT then
 		ui.MsgBox(ScpArgMsg("WRONG_INDEX"))
 		return;
 	end
 	
-	local ctrlset = GET_CHILD_RECURSIVELY(frame, 'SOCKET_CSET_'..selectedNum);
+	local ctrlset = GET_CHILD_RECURSIVELY(frame, 'SOCKET_CSET_'..selectedNum-1);
 	local radioBtn = ctrlset:GetChild('radioBtn');
 	if tempiesid == 0 then
 		return;

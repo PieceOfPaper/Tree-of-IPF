@@ -2,8 +2,11 @@
 	addon:RegisterMsg('MOVE_ZONE', 'INDUNENTER_CLOSE');
 	addon:RegisterMsg('UPDATE_PC_COUNT', 'INDUNENTER_UPDATE_PC_COUNT');
 	addon:RegisterMsg('ESCAPE_PRESSED', 'INDUNENTER_ON_ESCAPE_PRESSED');
+
 	g_indunMultipleItem = "Premium_dungeoncount_01";
 	g_indunMultipleItem2 = "Premium_dungeoncount_Event";
+
+	PC_INFO_COUNT = 4;
 end
 
 function INDUNENTER_ON_ESCAPE_PRESSED(frame, msg, argStr, argNum)
@@ -89,14 +92,15 @@ end
 function INDUNENTER_INIT_MEMBERBOX(frame)
 	local pc = GetMyPCObject();
 	local aid = session.loginInfo.GetAID();
+	local mySession = session.GetMySession();
 	local jobID = TryGetProp(pc, "Job");
 	local lv = TryGetProp(pc, "Lv");
-
-	if pc == nil or jobID == nil or lv ==  nil then
+	if pc == nil or jobID == nil or lv ==  nil or mySession == nil then
 		return;
 	end
+	local cid = mySession:GetCID();
 
-	frame:SetUserValue('MEMBER_INFO', aid..'/'..tostring(jobID)..'/'..tostring(lv));
+	frame:SetUserValue('MEMBER_INFO', aid..'/'..tostring(jobID)..'/'..tostring(lv)..'/'..cid);
 	INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 0);
 end
 
@@ -305,7 +309,7 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 	local frame = ui.GetFrame('indunenter');
 	local partyLine = GET_CHILD_RECURSIVELY(frame, 'partyLine');
 	local memberBox = GET_CHILD_RECURSIVELY(frame, 'memberBox');
-	local memberCnt = #memberTable / 3;
+	local memberCnt = #memberTable / PC_INFO_COUNT;
 
 	if pcCount < 1 then -- member초기화해주자
 		memberCnt = 0;
@@ -343,26 +347,30 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 		matchedIcon:ShowWindow(0);
 
 		if i <= pcCount then -- 참여한 인원만큼 보여주는 부분
-			if i * 3 <= #memberTable then -- 파티원인 경우		
+			if i * PC_INFO_COUNT <= #memberTable then -- 파티원인 경우		
 				-- show leader
-				local aid = memberTable[i * 3 - 2];
+				local aid = memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 1)];
 				local pcparty = session.party.GetPartyInfo(PARTY_NORMAL);
 				if pcparty ~= nil and pcparty.info:GetLeaderAID() == aid then
 					leaderImg:ShowWindow(1);
 				end
 
 				-- show job icon
-				local jobCls = GetClassByType("Job", tonumber(memberTable[i * 3 - 1]));
+				local jobCls = GetClassByType("Job", tonumber(memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 2)]));
 				local jobIconData = TryGetProp(jobCls, 'Icon');
 				if jobIconData ~= nil then
 					jobIcon:SetImage(jobIconData);
 				end
-				local ret = PARTY_JOB_TOOLTIP_BY_AID(aid, jobIcon, jobCls);
 
 				-- show level
-				local lv = memberTable[i * 3];
+				local lv = memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 3)];
 				levelText:SetText(lv);
 				levelText:ShowWindow(1);
+
+				-- set tooltip
+				local cid = memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 4)];
+				PARTY_JOB_TOOLTIP_BY_CID(cid, jobIcon, jobCls);
+
 			else -- 파티원은 아닌데 매칭된 사람
 				jobIcon:ShowWindow(0);
 				matchedIcon:ShowWindow(1);
@@ -382,6 +390,17 @@ function INDUNENTER_MULTI_UP(frame, ctrl)
 	local maxCnt = INDUN_MULTIPLE_USE_MAX_COUNT;
 	local invItem = session.GetInvItemByName(g_indunMultipleItem);
 	local invItem2 = session.GetInvItemByName(g_indunMultipleItem2);
+
+    if invItem ~= nil and invItem.isLockState then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+
+    if invItem2 ~= nil and invItem2.isLockState == true then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+    
 	if invItem == nil and invItem2 == nil then
 		return;
 	end
@@ -481,6 +500,8 @@ function INDUNENTER_SMALL(frame, ctrl, forceSmall)
 		smallmode:ShowWindow(0);
 		topFrame:SetUserValue('FRAME_MODE', 'BIG');
 		topFrame:Resize(bigmode:GetWidth(), bigmode:GetHeight());
+
+		INDUNENTER_AMEND_OFFSET(topFrame);
 	end
 	INDUNENTER_MAKE_HEADER(topFrame);
 
@@ -651,7 +672,7 @@ function INDUNENTER_AUTOMATCH_PARTY(numWaiting, level, limit, indunLv, indunName
 			lowerBound = indunLv;
 		end
 		if upperBound > PC_MAX_LEVEL then
-			uppderBound = PC_MAX_LEVEL;
+			upperBound = PC_MAX_LEVEL;
 		end	
 		partyAskText:SetTextByKey("value", ScpArgMsg("MatchWithParty").."(Lv."..tostring(lowerBound)..'~'..tostring(upperBound)..")");	
 
@@ -690,7 +711,7 @@ function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
 	enterBtn:SetEnable(enter);
 	autoMatchBtn:SetEnable(autoMatch);
 	withPartyBtn:SetEnable(withParty);
-	multiBtn:SetEnable(multi);
+	INDUNENTER_SET_ENABLE_MULTI(multi);
 
 	-- multi btn
 	local invItem = session.GetInvItemByName(g_indunMultipleItem);
@@ -786,6 +807,8 @@ function INDUNENTER_AUTOMATCH_FINDED()
 	local MATCH_FINDED_SOUND = frame:GetUserConfig('MATCH_FINDED_SOUND');
 	imcSound.PlaySoundEvent(MATCH_FINDED_SOUND);
 
+	app.SetWindowTopMost();
+
 	INDUNENTER_SET_ENABLE(0, 0, 0, 0);
 	INDUNENTER_MAKE_SMALLMODE(frame, true);
 	INDUNENTER_AUTOMATCH_FIND_TIMER_START(frame);
@@ -863,6 +886,18 @@ end
 
 function INDUNENTER_MULTI_EXEC(frame, ctrl)
 	
+    local invItem = session.GetInvItemByName(g_indunMultipleItem);
+	local invItem2 = session.GetInvItemByName(g_indunMultipleItem2);
+    if invItem ~= nil and invItem.isLockState then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+
+    if invItem2 ~= nil and invItem2.isLockState == true then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+	
 	local indunenterFrame = ui.GetFrame('indunenter');
 	local indunType = indunenterFrame:GetUserValue('INDUN_TYPE');
 
@@ -921,6 +956,19 @@ function INDUNENTER_MULTI_EXEC(frame, ctrl)
 end
 
 function INDUN_MULTIPLE_CHECK_NUMBER(frame)
+    local invItem = session.GetInvItemByName(g_indunMultipleItem);
+	local invItem2 = session.GetInvItemByName(g_indunMultipleItem2);
+
+    if invItem ~= nil and invItem.isLockState then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+
+    if invItem2 ~= nil and invItem2.isLockState == true then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+
 	local multiEdit = GET_CHILD_RECURSIVELY(frame, 'multiEdit');
 	local textCount = multiEdit:GetNumber();
 	if textCount >= INDUN_MULTIPLE_USE_MAX_COUNT then
@@ -970,4 +1018,26 @@ function GET_INVENTORY_ITEM_COUNT_BY_NAME(name)
 		index = invItemList:Next(index);
 	end
 	return invITemCount;
+end
+
+function INDUNENTER_AMEND_OFFSET(frame)
+	local left = frame:GetX();
+	local top = frame:GetY();
+	if left < 0 then
+		left = 0;
+	end
+	if top < 0 then
+		top = 0;
+	end
+		
+	local rightDiff = left + frame:GetWidth() - option.GetClientWidth();
+	local bottomDiff = top + frame:GetHeight() - option.GetClientHeight();
+	if rightDiff > 0 then
+		left = left - rightDiff;
+	end
+	if bottomDiff > 0 then
+		top = top - bottomDiff;
+	end
+
+	frame:SetOffset(left, top);	
 end

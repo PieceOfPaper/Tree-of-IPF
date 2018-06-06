@@ -121,7 +121,7 @@
 		<Class ClassID="2064" ClassName="ItemDeleted" Data="아이템이 소멸되었습니다."/>
 		<Class ClassID="2065" ClassName="NextReinforceCost" Data="다음 강화 비용"/>
 		<Class ClassID="2069" ClassName="ValidDupEquipGemBy{VALID_CNT}" Data="같은 종류의 젬은 {VALID_CNT}개 까지만 장착 가능합니다."/>
-	</Category>
+		</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
 		<Class ClassID="3002" ClassName="RecipeResult" Data="{@st42)제작 시"/>
@@ -297,8 +297,12 @@
 		<Class ClassID="4122" ClassName="AppraisalSuccess" Data="감정 성공!"/>
 		<Class ClassID="4123" ClassName="AppraisalPrice" Data="감정 비용 : {Price}{nl}감정하시겠습니까?"/>
 		<Class ClassID="4124" ClassName="AppraisalItem" Data="미감정 아이템입니다"/>
+		<Class ClassID="4125" ClassName="RankResetStart" Data="랭크초기화를 시작하였습니다. 처리시간이 걸릴 수 있습니다."/>
 		<Class ClassID="4126" ClassName="DON_T_HAVE_ITEM_TO_APPRAISAL" Data="감정할 아이템을 선택해 주세요."/>
-		</Category>
+		<Class ClassID="4127" ClassName="CantUseRank" Data="{Rank}랭크 에서만 사용하실 수 있습니다."/>
+		<Class ClassID="4128" ClassName="CantUseRankRest1Rank" Data="1랭크에서는 사용하실 수 없습니다."/>
+		<Class ClassID="4130" ClassName="IsDoingRankReset" Data="랭크 초기화중에 있습니다."/>
+</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
 		<Class ClassID="5002" ClassName="WhenEquipToWeapon" Data="무기 장착 시 효과"/>
@@ -793,6 +797,7 @@
 		<Class ClassID="10451" ClassName="InvalidGender" Data="착용할 수 있는 성별이 아닙니다."/>
 		<Class ClassID="10452" ClassName="Indun1AddText" Data="  인스턴스 던전과 의뢰소 미션에 1회 더 입장 가능"/>
 		<Class ClassID="10453" Data="중복으로 장착할 수 없는 아이템입니다."/>
+		<Class ClassID="10454" ClassName="RankResetMsg" Data="랭크초기화에 성공하였습니다. 배럭으로 돌아갑니다."/>
 		<Class ClassID="10456" ClassName="YouareLearningAbil" Data="습득중인 특성이 있어 사용할 수 없습니다."/>
 		<Class ClassID="10457" ClassName="OnlyTokenUserAbilCount" Data="토큰 이용자만 특성 레벨을 한번에 올릴 수 있습니다."/>
 	</Category>
@@ -1042,6 +1047,7 @@
 		<Class ClassID="21240" ClassName="YouCanChargeOnWeb" Data="넥슨캐시 충전은 홈페이지에서 가능합니다."/>
 		<Class ClassID="21241" ClassName="NotLearnedYet" Data="미습득"/>
 <Class ClassID="21242" ClassName="TargetNameGiant" Data="자이언트"/>
+		<Class ClassID="21245" ClassName="ParenthesesPlus{Add}" Data="(+{Add})"/>
 		</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -4102,6 +4108,23 @@
 		<Class ClassID="27225" ClassName="EV161124_DAYCHECK_MSG6" Data="{ITEM} {COUNT}개"/>
 		<Class ClassID="27226" ClassName="EV161124_DAYCHECK_MSG7" Data="남은 보상("/>
 		<Class ClassID="27227" ClassName="EV161124_DAYCHECK_MSG8" Data="모든 보상을 받으셨습니다!"/>
+		<Class ClassID="27230" ClassName="EV161215_SEED_MSG1" Data="PVP 서버에서는 사용 하실 수 없습니다!"/>
+		<Class ClassID="27231" ClassName="EV161215_SEED_MSG2" Data="주변에 축복이 깃든 새싹이 있어서 추가로 심을 수 없습니다."/>
+		<Class ClassID="27232" ClassName="EV161215_SEED_MSG3" Data="연출 모드에서는 사용하실 수 없습니다."/>
+		<Class ClassID="27233" ClassName="EV161215_SEED_MSG4" Data="축복이 깃든 새싹"/>
+		<Class ClassID="27234" ClassName="EV161215_SEED_MSG5" Data="{SEC}초 안에 심어 놓으신 새싹으로 가셔야 새싹의 버프가 발동 됩니다!"/>
+		<Class ClassID="27235" ClassName="EV161215_SEED_MSG6" Data="축복이 깃든 새싹의 {STEP} 단계 버프를 받으셨습니다!"/>
+		<Class ClassID="27236" ClassName="EV161215_SEED_MSG7" Data="축복이 깃든 씨앗을 받는다"/>
+		<Class ClassID="27240" ClassName="EV161215_NEXONCASHBOX_MSG1" Data="{LV}레벨 이상만 사용하실 수 있습니다!"/>
+		<Class ClassID="27241" ClassName="EV161215_NEXONCASHBOX_MSG2" Data="'넥슨 5만 캐시 당첨권' 획득!"/>
+		<Class ClassID="27242" ClassName="EV161215_NEXONCASHBOX_MSG3" Data="'넥슨 캐시 추첨권' 획득"/>
+		<Class ClassID="27243" ClassName="EV161215_NEXONCASHBOX_MSG4" Data="넥슨캐시 상자"/>
+		<Class ClassID="27250" ClassName="CS_IndunReset_GTower_1_MSG1" Data="오류 보상용 대지의 탑 1회 입장권이 적용되셨습니다"/>
+		<Class ClassID="27251" ClassName="CS_IndunReset_Nunnery_1_MSG1" Data="오류 보상용 살러스 미션 1회 입장권이 적용되셨습니다"/>
+		<Class ClassID="27252" ClassName="CS_IndunReset_GTower_1_MSG2" Data="오늘 대지의 탑에 입장한 횟수가 1 이상일 때만 사용 가능합니다"/>
+		<Class ClassID="27253" ClassName="CS_IndunReset_Nunnery_1_MSG2" Data="오늘 살러스 수녀원 미션에 입장한 횟수가 1 이상일 때만 사용 가능합니다"/>
+		<Class ClassID="27254" ClassName="CS_IndunReset_GTower_1_MSG3" Data="인스턴스 지역에서는 사용 하실 수 없습니다!"/>
+		<Class ClassID="27280" ClassName="EVENT_MONEYBOX_MSG1" Data="실버 상자"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -4582,7 +4605,7 @@
 		<Class ClassID="50165" ClassName="ABBEY64_2_HIDDENQ1_MSG1" Data="노바하 수도원은 어떻게 됐나요?"/>
 		<Class ClassID="50166" ClassName="ABBEY64_2_HIDDENQ1_MSG2" Data="노바하 수도원에 구조가 필요로 한 희생자가 있었나요?"/>
 		<Class ClassID="50167" ClassName="ABBEY64_2_HIDDENQ1_MSG3" Data="노바하 수도원에 곳 곳에 희생자가 없었나요?"/>
-		<Class ClassID="50168" ClassName="ABBEY64_2_HIDDENQ1_MSG4" Data="노바하 수도원에 저희같은 피해자가 더 있을까 걱정이 되요"/>
+		<Class ClassID="50168" ClassName="ABBEY64_2_HIDDENQ1_MSG4" Data="노바하 수도원에 저희같은 피해자가 더 있을까 걱정이 돼요"/>
 		<Class ClassID="50169" ClassName="ABBEY64_2_HIDDENQ1_MSG5" Data="적당한 비석 찾는 중"/>
 		<Class ClassID="50170" ClassName="ABBEY64_2_HIDDENQ1_MSG6" Data="추모비로 쓸 만한 적당한 비석을 찾았습니다"/>
 		<Class ClassID="50171" ClassName="ABBEY64_2_HIDDENQ1_MSG7" Data="추모비로 쓰기에는 적당하지 않는 것 같습니다"/>
@@ -4735,8 +4758,9 @@
 		<Class ClassID="60286" ClassName="GT_LUTHA_NPC_SEL_KEEP_FLOOR_2" Data="종료"/>
 		<Class ClassID="60287" ClassName="GT_LUTHA_NPC_TOLL_SAVE_1" Data="동료들이 {FLOOR}층에서 당신을 기다리고 있어요.{nl}이동하시겠어요?"/>
 		<Class ClassID="60288" ClassName="NUNNERY_KQ_1_GETITEM" Data="수녀원 기록물을 회수했습니다!"/>
-		<Class ClassID="60289" ClassName="GUILDM_CASTLE_1_ON" Data="조작한다"/>
+		<Class ClassID="60289" ClassName="GUILDM_CASTLE_1_ON" Data="작동시킨다"/>
 		<Class ClassID="60290" ClassName="GUILDM_CASTLE_1_CANCLE" Data="그만둔다"/>
+		<Class ClassID="60291" ClassName="GUILDM_CASTLE_1_OFF" Data="작동을 멈춘다"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
 		<Class ClassID="70003" ClassName="FARM49_2_MQ06_ALREADY" Data="이미 우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
@@ -5028,6 +5052,7 @@
 		<Class ClassID="100057" ClassName="skill_verticalslash" Data="스컬 슬래쉬!!"/>
 		<Class ClassID="100058" ClassName="SKILL_EMPOWRING_{Auto_1}" Data="{Auto_1}레벨 증가!"/>
 		<Class ClassID="100059" ClassName="CannotMoreBuff" Data="허용할 수 있는 버프 개수를 초과하였습니다."/>
+		<Class ClassID="100060" ClassName="ExistBuffByAutoSeller" Data="상점에서 받은 버프가 이미 적용 중입니다."/>
 	</Category>
 	<Category Name="Party">
 		<Class ClassID="101001" ClassName="GULID_OUT" Data="길드 탈퇴"/>
@@ -5414,6 +5439,8 @@
 		<Class ClassID="106048" ClassName="PremiumRegMaxPrice{Price}" Data="해당 아이템의 등록 최대 가격은 {Price}실버 입니다."/>
 		<Class ClassID="106049" ClassName="InvalidFindItemQueryMin" Data="검색어는 1글자 보다 길어야합니다."/>
 		<Class ClassID="106050" ClassName="InvalidFindItemQueryMax" Data="검색어는 20자를 초과할 수 없습니다."/>
+		<Class ClassID="106051" ClassName="SoldItemNotice" Data="아이템 [{#0000ff}{ITEM}{#000000}] {#ff0000}{COUNT}{#000000}개 판매완료"/>
+		<Class ClassID="106052" ClassName="ReceivableSilverNotice" Data="수령 가능한 {#ff0000}실버{#000000}가 있습니다.{nl}{#0000ff}[마켓 수령함]{#000000}에서 수령 가능합니다."/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -5421,7 +5448,7 @@
 		<Class ClassID="107003" ClassName="CannotState" Data="전투상태에서 해당 스킬을 사용할 수 없습니다."/>
 		<Class ClassID="107004" ClassName="FarFromSeller" Data="판매자와 거리가 멉니다."/>
 		<Class ClassID="107005" ClassName="SellerItemNone" Data="판매자의 스킬 아이템이 부족합니다."/>
-		<Class ClassID="107006" ClassName="MaterialItemIsLock" Data="해당 아이템이 현재 잠금 상태에 있습니다."/>
+		<Class ClassID="107006" ClassName="MaterialItemIsLock" Data="아이템이 현재 잠금 상태에 있습니다."/>
 		<Class ClassID="107007" ClassName="ItemLockSaveFail" Data="아이템 잠금에 실패했습니다. 다시 시도해 주세요."/>
 		<Class ClassID="107008" ClassName="NotEnoughMaterial" Data="재료가 부족합니다."/>
 		<Class ClassID="107009" ClassName="UseingSomeoneToStore" Data="다른 캐릭터가 상점을 사용중에 있습니다. 잠시 후에 다시 시도해 주세요."/>
@@ -5762,7 +5789,12 @@
 		<Class ClassID="119006" ClassName="GetCollection" Data="콜렉션이 등록되었습니다."/>
 		<Class ClassID="119007" ClassName="YouCanAddOnlyNearbyNpc" Data="마법협회 NPC를 통해서만 등록 가능합니다."/>
 		<Class ClassID="119008" ClassName="CollectionIsSharedToTeamAndCantTakeBackItem_Continue?" Data="콜렉션은 팀단위로 공유되며, 한번 추가한 아이템은 되돌려 받을 수 없습니다. 아이템을 넣으시겠습니까?"/>
-		</Category>
+		<Class ClassID="119009" ClassName="CollectionReplace" Data="콜렉션:"/>
+		<Class ClassID="119010" ClassName="CollectionMagicText" Data="효과"/>
+		<Class ClassID="119011" ClassName="AlignDefault" Data="기본"/>
+		<Class ClassID="119012" ClassName="AlignName" Data="이름 순"/>
+		<Class ClassID="119013" ClassName="AlignStatus" Data="상태 순"/>
+	</Category>
 	<Category Name="Wiki">
 		<Class ClassID="120001" ClassName="From{Auto_1}_Get_{Auto_2}_Count" Data="{Auto_1}로부터 {Auto_2}개 획득"/>
 		<Class ClassID="120002" ClassName="ExploreRateOfAll" Data=""/>
@@ -9031,7 +9063,15 @@
 		<Class ClassID="300126" ClassName="Premium_boostToken_EndMsg" Data="경험의서 효과가 종료되었습니다."/>
 		<Class ClassID="300136" ClassName="Premium_StatReset_TA" Data="농축 스탯 초기화 포션"/>
 		<Class ClassID="300138" ClassName="PremiumToken_1h_TC" Data="토큰:1시간[증정용]"/>
-		</Category>
+		<Class ClassID="300139" ClassName="Premium_indunReset_1add_14d" Data="인던 입장 1회 입장권(14일)"/>
+		<Class ClassID="300140" ClassName="PremiumToken_3d_Steam" Data="토큰:3일[증정용]"/>
+		<Class ClassID="300141" ClassName="PremiumToken_5d_Steam" Data="토큰:5일[증정용]"/>
+		<Class ClassID="300142" ClassName="PremiumToken_7d_Steam" Data="토큰:7일[증정용]"/>
+		<Class ClassID="300143" ClassName="PremiumToken_15d_Steam" Data="토큰:15일[증정용]"/>
+		<Class ClassID="300144" ClassName="Premium_SkillReset_14d" Data="스킬 초기화 포션(14일)"/>
+		<Class ClassID="300145" ClassName="Premium_boostToken02_1d" Data="x4 경험의 서 (1일)"/>
+		<Class ClassID="300146" ClassName="Premium_indunReset_TA" Data="인던 입장 횟수 초기화권"/>
+	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
 		<Class ClassID="301002" ClassName="hirePC" Data="용병 고용"/>

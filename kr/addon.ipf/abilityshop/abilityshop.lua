@@ -104,7 +104,7 @@ function GET_ABILITY_LEARN_COST(pc, groupClass, abilClass, destLv)
 			local scp = _G[funcName];
 			tempPrice, tempTotalTime = scp(pc, abilClass.ClassName, abilLv, groupClass.MaxLevel);
 
-			tempPrice = GET_ABILITY_PRICE(tempPrice)
+			tempPrice = GET_ABILITY_PRICE(tempPrice, groupClass, abilClass, abilLv)
 			price = price + tempPrice;			
 			tempTotalTime = math.floor(tempTotalTime);
 			totalTime = totalTime + tempTotalTime;
@@ -113,7 +113,7 @@ function GET_ABILITY_LEARN_COST(pc, groupClass, abilClass, destLv)
 		for abilLv = curLv+1, destLv, 1 do
 			tempPrice = groupClass["Price" .. abilLv];
 			tempTotalTime = groupClass["Time" .. abilLv];
-			tempPrice = GET_ABILITY_PRICE(tempPrice)
+			tempPrice = GET_ABILITY_PRICE(tempPrice, groupClass, abilClass, abilLv)
 			price = price + tempPrice;			
 			tempTotalTime = math.floor(tempTotalTime);
 			totalTime = totalTime + tempTotalTime;	
@@ -143,7 +143,7 @@ function SET_ABILITY_TIME_CTRL(timeCtrl, groupClass, totalTime)
 	local hour = math.floor( totalTime / 60 );
 	local min = totalTime % 60;
 	if hour > 0 then
-		timeCtrl:SetText("".. hour ..ScpArgMsg("Auto_SiKan_") .. min .. ScpArgMsg("Auto_Bun_Soyo"));
+		timeCtrl:SetText("".. hour ..ScpArgMsg("Auto_SiKan_") .. min .. ScpArgMsg("Auto_Bun_Soyo")); 
 	else
 		if min < 1 then
 
@@ -354,12 +354,18 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 		classCtrl:SetSkinName("test_skin_01_btn_cursoron");
 	end
 	
-		
-	if isMax == 1 then
-		local timeCtrl = GET_CHILD(classCtrl, "abilTime", "ui::CRichText");	
-		local levelCtrl = GET_CHILD(classCtrl, "abilLevel", "ui::CRichText");	
-		timeCtrl:SetText(ScpArgMsg("Auto_{@st}_ChoeKo_LeBel_MaSeuTeo!"));	
-		levelCtrl:SetText("Lv.".. groupClass.MaxLevel);
+	local timeCtrl = GET_CHILD(classCtrl, "abilTime", "ui::CRichText");	
+	local levelCtrl = GET_CHILD(classCtrl, "abilLevel", "ui::CRichText");	
+
+	local diffAbilTimeHeight = timeCtrl:GetHeight() - 20;
+	if diffAbilTimeHeight > 0 then
+		descCtrl:Move(0, diffAbilTimeHeight);
+		bg3:Move(0, diffAbilTimeHeight);
+	end
+
+	if isMax == 1 then		
+		timeCtrl:SetText(ScpArgMsg("Auto_{@st}_ChoeKo_LeBel_MaSeuTeo!"));
+		levelCtrl:SetText("Lv.".. groupClass.MaxLevel);	
 	end
 	
 	local priceSize = 60;
@@ -584,9 +590,17 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 
 end
 
-function GET_ABILITY_PRICE(price)
+function GET_ABILITY_PRICE(price, groupClass, abilClass, abilLv)
+    -- 랭크 초기화권 사용 전에 배웠던 특성은 0실버
+    if GetBeforeAbilityLevel(nil, abilClass.ClassName) >= abilLv then
+        price = 0
+        return price
+    end
+    
 	if IS_SEASON_SERVER(nil) == "YES" then
 		price = price - (price * 0.4)
+	else
+	    price = price - (price * 0.2)
 	end
 	price = math.floor(price);
 

@@ -2517,6 +2517,18 @@
 		<image name="Hat_mannish07" file="\icon\hairacc\Hat_mannish07.png" imgrect="0 0 256 256"/>
 		<image name="Hat_mannish08" file="\icon\hairacc\Hat_mannish08.png" imgrect="0 0 256 256"/>
 		<image name="Hat_GSTAR16" file="\icon\hairacc\Hat_GSTAR16.png" imgrect="0 0 256 256" CMM_Caption="지스타 헤어 악세"/>
+		<image name="christmasarcher" file="\icon\hairacc\christmasarcher.png" imgrect="0 0 256 256" CMM_Caption="크리스마스 헤어 악세"/>
+		<image name="christmasarcher2" file="\icon\hairacc\christmasarcher2.png" imgrect="0 0 256 256"/>
+		<image name="christmascleric" file="\icon\hairacc\christmascleric.png" imgrect="0 0 256 256"/>
+		<image name="christmascleric2" file="\icon\hairacc\christmascleric2.png" imgrect="0 0 256 256"/>
+		<image name="christmasmage" file="\icon\hairacc\christmasmage.png" imgrect="0 0 256 256"/>
+		<image name="christmasmage2" file="\icon\hairacc\christmasmage2.png" imgrect="0 0 256 256"/>
+		<image name="christmaswarrior" file="\icon\hairacc\christmaswarrior.png" imgrect="0 0 256 256"/>
+		<image name="christmaswarrior2" file="\icon\hairacc\christmaswarrior2.png" imgrect="0 0 256 256"/>
+		<image name="christmascornhat" file="\icon\hairacc\christmascornhat.png" imgrect="0 0 256 256"/>
+		<image name="christmasRudolph" file="\icon\hairacc\christmasRudolph.png" imgrect="0 0 256 256"/>
+		<image name="christmas1" file="\icon\hairacc\christmas1.png" imgrect="0 0 256 256"/>
+		<image name="christmas2" file="\icon\hairacc\christmas2.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -3903,12 +3915,20 @@
 		<image name="icon_item_Event_Candy" file="\icon\item\icon_item_Event_Candy.png" imgrect="0 0 128 128" CMM_Caption="이벤트 엿"/>
 		<image name="icon_item_Event_choco" file="\icon\item\icon_item_Event_choco.png" imgrect="0 0 128 128" CMM_Caption="이벤트 초콜릿"/>
 		<image name="icon_item_Event_Vitamin" file="\icon\item\icon_item_Event_Vitamin.png" imgrect="0 0 128 128" CMM_Caption="이벤트 비타민"/>
+		<image name="icon_item_rankreset_paper" file="\icon\item\icon_item_rankreset_paper.png" imgrect="0 0 256 256" CMM_Caption="랭크 초기화 권"/>
 		<image name="icon_item_candle" file="\icon\item\icon_item_candle.png" imgrect="0 0 128 128" CMM_Caption="향초"/>
 		<image name="icon_item_flute" file="\icon\item\icon_item_flute.png" imgrect="0 0 128 128" CMM_Caption="피리"/>
 		<image name="icon_item_event_armorbox1" file="\icon\item\icon_item_event_armorbox1.png" imgrect="0 0 128 128" CMM_Caption="구원자의 방어구 상자"/>
 		<image name="icon_item_event_weaponbox1" file="\icon\item\icon_item_event_weaponbox1.png" imgrect="0 0 128 128" CMM_Caption="구원자의 무기 상자"/>
 		<image name="icon_item_firework" file="\icon\item\icon_item_firework.png" imgrect="0 0 256 256" CMM_Caption="장난감 불꽃놀이"/>
 		<image name="icon_item_event161215_01" file="\icon\item\icon_item_event161215_01.png" imgrect="0 0 128 128" CMM_Caption="이벤트 씨앗"/>
+		<image name="icon_item_event_armorbox2" file="\icon\item\icon_item_event_armorbox2.png" imgrect="0 0 128 128" CMM_Caption="구원자의 초급 방어구 상자"/>
+		<image name="icon_item_giftbox1" file="\icon\item\icon_item_giftbox1.png" imgrect="0 0 128 128" CMM_Caption="라이마의 선물 상자"/>
+		<image name="icon_item_giftbox2" file="\icon\item\icon_item_giftbox2.png" imgrect="0 0 128 128" CMM_Caption="라이마의 보물 상자"/>
+		<image name="icon_item_event_luckychance" file="\icon\item\icon_item_event_luckychance.png" imgrect="0 0 128 128" CMM_Caption="추첨권"/>
+		<image name="icon_item_event_50000cash" file="\icon\item\icon_item_event_50000cash.png" imgrect="0 0 128 128" CMM_Caption="당첨권"/>
+		<image name="icon_item_event_50000cash_2" file="\icon\item\icon_item_event_50000cash_2.png" imgrect="0 0 500 500" CMM_Caption="당첨권 툴팁"/>
+		<image name="icon_item_event_nexonCash01" file="\icon\item\icon_item_event_nexonCash01.png" imgrect="0 0 128 128" CMM_Caption="넥슨 캐시 상자"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -3981,6 +4001,8 @@
 		<image name="hair_scout_f" file="\icon\payment\hair_scout_f.png" imgrect="0 0 256 256"/>
 		<image name="hair_ploana_f" file="\icon\payment\hair_ploana_f.png" imgrect="0 0 256 256"/>
 		<image name="hair_shortwave_m" file="\icon\payment\hair_shortwave_m.png" imgrect="0 0 256 256"/>
+		<image name="hair_falconer_m" file="\icon\payment\hair_falconer_m.png" imgrect="0 0 256 256"/>
+		<image name="hair_tyurt_f" file="\icon\payment\hair_tyurt_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_swordmanmaster_m" file="\icon\payment\warrior_swordmanmaster_m.png" imgrect="0 0 256 256" CMM_Caption="소드맨마스터유료코스튬"/>
 		<image name="icon_item_Warrior_PeltastaMaster_f" file="\icon\payment\Warrior_PeltastaMaster_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_repairkit" file="\icon\payment\icon_item_repairkit.png" imgrect="0 0 256 256" CMM_Caption="긴급수리키트"/>
@@ -4158,6 +4180,14 @@
 		<image name="icon_item_archer_bluepeacock_m" file="\icon\payment\icon_item_archer_bluepeacock_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_mage_pinkwizard_f" file="\icon\payment\icon_item_mage_pinkwizard_f.png" imgrect="0 0 256 256" CMM_Caption="위자드 핑크"/>
 		<image name="icon_item_mage_pinkwizard_m" file="\icon\payment\icon_item_mage_pinkwizard_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_christmas_m" file="\icon\payment\icon_item_warrior_christmas_m.png" imgrect="0 0 256 256" CMM_Caption="크리스마스 코스튬"/>
+		<image name="icon_item_warrior_christmas_f" file="\icon\payment\icon_item_warrior_christmas_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_christmas_m" file="\icon\payment\icon_item_mage_christmas_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_christmas_f" file="\icon\payment\icon_item_mage_christmas_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archer_christmas_m" file="\icon\payment\icon_item_archer_christmas_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archer_christmas_f" file="\icon\payment\icon_item_archer_christmas_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_cleric_christmas_m" file="\icon\payment\icon_item_cleric_christmas_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_cleric_christmas_f" file="\icon\payment\icon_item_cleric_christmas_f.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

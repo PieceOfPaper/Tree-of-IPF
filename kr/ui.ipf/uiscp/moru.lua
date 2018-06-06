@@ -42,6 +42,12 @@ function CLIENT_MORU(invItem)
 		return;
 	end
 
+	local rankresetFrame = ui.GetFrame("rankreset");
+	if 1 == rankresetFrame:IsVisible() then
+		ui.SysMsg(ScpArgMsg('CannotDoAction'));
+		return;
+	end
+	
 	local frame = ui.GetFrame("reinforce_131014");
 	local fromMoruSlot = GET_CHILD(frame, "fromMoruSlot", "ui::CSlot");
 
@@ -207,7 +213,6 @@ end
 
 function MORU_SET_SLOT_ITEM(slot, invItem, count)
 
-	print("MORU_SET_SLOT_ITEM",invItem.type);
 	local itemCls = GetClassByType("Item", invItem.type);
 
 	local type = itemCls.ClassID;

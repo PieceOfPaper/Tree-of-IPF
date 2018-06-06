@@ -757,7 +757,7 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
     	end
 		
 		
-		y = MAKE_QUESTINFO_MAP(ctrlset, questIES, titleX + 60, y, s_obj)
+		y = MAKE_QUESTINFO_MAP(ctrlset, questIES, titleX + 60, y, s_obj, result)
 		
 		y = MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, titleX + 60, y)
 		
@@ -937,7 +937,7 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg, progVal)
 
 	if result == 'SUCCESS' then
 
-  		y = MAKE_QUESTINFO_MAP(ctrlset, questIES, titleX + 60, y, s_obj);
+  		y = MAKE_QUESTINFO_MAP(ctrlset, questIES, titleX + 60, y, s_obj, result);
   		
   		y = MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, titleX + 60, y)
   		
@@ -1189,7 +1189,7 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
         end
     end
     
-    y = MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj);
+    y = MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj, result);
     
     y = MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y)
     
@@ -1208,7 +1208,7 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
     	y = MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y);
         
     	if starty == y  then
-    		y = MAKE_QUESTINFO_PROG_DESC(ctrlset, questIES, startx, y, s_obj);
+    		y = MAKE_QUESTINFO_PROG_DESC(ctrlset, questIES, startx, y, s_obj, result);
     	end
     	
         if SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'PROGRESS')  == 'YES'  and isQuestDetail ~= 1 then
@@ -2077,12 +2077,14 @@ function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y)
     
 	return y;
 end
-function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj)
+function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj, sharedProgress)
     local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+	if sharedProgress ~= nil then -- 공유중인 퀘스트는 공유 퀘스트 상태로 보여줘야 함
+		result = sharedProgress;
+	end
 	local State = CONVERT_STATE(result);
-
-
+	
     local mapListUI = questIES[State .. 'MapListUI']
 	local map = questIES[State .. 'Map'];
 	local location = questIES[State .. 'Location'];
@@ -2207,7 +2209,7 @@ function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj)
             end
         end
     end
-    
+
     if txt == '' and location ~= '' and location ~= 'None' then
         local strList = SCR_STRING_CUT(location,' ')
         local i = 1
@@ -2261,9 +2263,12 @@ function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj)
 	return y;
 end
 
-function MAKE_QUESTINFO_PROG_DESC(ctrlset, questIES, startx, y, s_obj)
+function MAKE_QUESTINFO_PROG_DESC(ctrlset, questIES, startx, y, s_obj, sharedProgress)
 	local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+	if sharedProgress ~= nil then
+		result = sharedProgress;
+	end	
 	local State = CONVERT_STATE(result);
 
 	local desc = questIES[State .. 'Desc'];
@@ -2388,7 +2393,7 @@ function MAKE_QUESTINFO_POSSIBLE_DESC(ctrlset, questIES, startx, y, s_obj, isQue
 		local desc = questIES[questCtrlName[i]];
 		if desc == 'None' then
 		else
-			local content = ctrlset:CreateOrGetControl('richtext', questCtrlName[i], startx, y, ctrlset:GetWidth() , 10);
+			local content = ctrlset:CreateOrGetControl('richtext', questCtrlName[i], startx, y, ctrlset:GetWidth() - startx, 10);
 			tolua.cast(content, "ui::CRichText");
     		if questState == questCtrlName[i] then
     			content:EnableHitTest(0);

@@ -1118,6 +1118,8 @@
 		<image name="ability_Wizard_Psychokino10" file="\icon\icon_ability_wizard04.tga" imgrect="640 512 128 128" CMM_Caption="사이킥 프레셔: 집중"/>
 		<image name="ability_Wizard_Psychokino20" file="\icon\icon_ability_wizard04.tga" imgrect="768 512 128 128" CMM_Caption="그라비티 폴: 집중"/>
 		<image name="ability_Wizard_Sorcerer15" file="\icon\icon_ability_wizard04.tga" imgrect="896 512 128 128" CMM_Caption="탑승: 능력치 증가"/>
+	<image name="ability_Wizard_Elementalist25" file="\icon\icon_ability_wizard04.tga" imgrect="0 640 128 128" CMM_Caption="메테오: 퀵 차징"/>
+		<image name="ability_Wizard_RuneCaster7" file="\icon\icon_ability_warrior03.tga" imgrect="256 128 128 128" CMM_Caption="보호의 룬: 넉다운 저항"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>
@@ -1388,6 +1390,7 @@
 		<image name="ability_archer_Sapper36" file="\icon\icon_ability_archer05.tga" imgrect="0 128 128 128" CMM_Caption="푼지스테이크: 집념"/>
 		<image name="ability_archer_Falconer15" file="\icon\icon_ability_archer05.tga" imgrect="128 128 128 128" CMM_Caption="조련: 공중 컴패니언"/>
 		<image name="ability_archer_Hunter13" file="\icon\icon_ability_archer05.tga" imgrect="256 128 128 128" CMM_Caption="조련: 지상 컴패니언"/>
+	<image name="ability_archer_Cannoneer13" file="\icon\icon_ability_archer05.tga" imgrect="384 128 128 128" CMM_Caption="시즈버스트: 집중"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>

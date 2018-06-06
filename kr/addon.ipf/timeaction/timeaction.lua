@@ -41,6 +41,11 @@ function START_TIME_ACTION(frame, msg, second)
 		timer:EnableHideUpdate(0);
 	end
 
+	local rankresetFrame = ui.GetFrame("rankreset");
+	if 1 == rankresetFrame:IsVisible() then
+		RANKRESET_PC_TIMEACTION_STATE(rankresetFrame)
+	end
+
 	local fontName = frame:GetUserConfig("TitleFont");
 	local title = GET_CHILD_RECURSIVELY(frame,'title')
 	title:SetText(fontName .. msg .. "{/}");
@@ -70,13 +75,23 @@ function END_TIME_ACTION(frame, isFail)
 	timer:Stop();
 	timer:EnableHideUpdate(0);
 	frame:EnableHideProcess(0);
+
+	
+	local rankresetFrame = ui.GetFrame("rankreset");
+	if 1 == rankresetFrame:IsVisible() then
+		RANKRESET_PC_TIMEACTION_STATE(rankresetFrame)
+	end
 		
+end
+
+function STOP_TIEM_ACTINO(frame)
+	packet.StopTimeAction();
+	END_TIME_ACTION(frame, 1);
 end
 
 function UPDATE_TIME_ACTION(frame, timer, str, num, totalTime)
 	if 1 == control.IsMoving() then
-		packet.StopTimeAction();
-		END_TIME_ACTION(frame, 1);
+		STOP_TIEM_ACTINO(frame);
 		return;
 	end
 	

@@ -733,12 +733,12 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
 	return 1;
 end
 
-function PARTY_JOB_TOOLTIP_BY_AID(aid, icon, nowJobName)
-	if (nil == session.otherPC.GetByStrAID(aid)) or (nil == icon) then 
+function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
+	if (nil == session.otherPC.GetByStrCID(cid)) or (nil == icon) then 
 		return 0;
 	end		 
 	
-	local otherpcinfo = session.otherPC.GetByStrAID(aid);
+	local otherpcinfo = session.otherPC.GetByStrCID(cid);
 
 	local jobhistory = otherpcinfo.jobHistory;
 	local gender = otherpcinfo:GetIconInfo().gender;

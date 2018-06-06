@@ -568,6 +568,7 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 			return GetIES(obj);
 		end
 	elseif strarg == "collection" then
+		--[[
 		local colls = session.GetMySession():GetCollection();
 		local coll = colls:Get(numarg1);
 		if coll ~= nil then
@@ -581,6 +582,10 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 				return GetIES(collItem:GetObject());
 			end
 		end
+		]]--
+		-- collection parameter(guid) is classID.
+		local item = GetClassByType("Item", guid);
+		return item;
 	elseif strarg == "market" then
 		local marketItem = session.market.GetItemByMarketID(guid);
 		if marketItem ~= nil then

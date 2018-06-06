@@ -16,8 +16,6 @@ function STATUS_ON_INIT(addon, frame)
 	addon:RegisterMsg("LIKEIT_WHO_LIKE_ME", "STATUS_INFO");
 	addon:RegisterMsg("TOKEN_STATE", "TOKEN_ON_MSG");
 	
-	
-	
 	STATUS_INFO_VIEW(frame);
 end
 
@@ -299,12 +297,14 @@ function ACHIEVE_RESET(frame)
 	STATUS_ACHIEVE_INIT(frame);
 end
 
-function SET_STAT_TEXT(frame, ctrlname, pc, propname, addprop, consumed, vpc, xpos, ypos, totalValue, argValue)
+function SET_STAT_TEXT(frame, ctrlname, pc, propname, pointprop, addprop, consumed, vpc, xpos, ypos, totalValue, argValue)
 
 	local configName = propname .. "_UP";
 	local statup = session.GetUserConfig(configName);
 	local add = pc[addprop];
 	local total = pc[propname];
+	local point = pc[pointprop];
+	local base = total - add - point;
 
 	local value = (total + statup) / totalValue;
 	local percValue = math.floor(value * 100);
@@ -329,9 +329,13 @@ function SET_STAT_TEXT(frame, ctrlname, pc, propname, addprop, consumed, vpc, xp
 	local thopic = GET_CHILD(statusUpControlSet, "tho", "ui::CPicture");
 
 	onepic:ShowWindow(0);
+	onepic:EnableHitTest(0);
 	tenpic:ShowWindow(0);
+	tenpic:EnableHitTest(0);
 	hunpic:ShowWindow(0);
+	hunpic:EnableHitTest(0);
 	thopic:ShowWindow(0);
+	thopic:EnableHitTest(0);
 
 	local statupValue = total + statup;
 
@@ -389,24 +393,23 @@ function SET_STAT_TEXT(frame, ctrlname, pc, propname, addprop, consumed, vpc, xp
 	if ctrlname == "STR" then
 	    name:EnableHitTest(1);
         name:SetTextTooltip(ScpArgMsg("Auto_{@st59}KongKyeogLyeoge_yeongHyangeul_Jum{/}"));
-        btnUp:SetTextTooltip(ScpArgMsg("Auto_{@st59}KongKyeogLyeogeul_JeungKa_SiKinDa{/}"));
 	elseif ctrlname == "CON" then
 	    name:EnableHitTest(1);
         name:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChoeDae_HPe_yeongHyangeul_Jum{/}"));
-        btnUp:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChoeDae_HPLeul_JeungKa_SiKinDa{/}"));
 	elseif ctrlname == "INT" then
 	    name:EnableHitTest(1);
         name:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChoeDae_SPe_yeongHyangeul_Jum{/}"));
-        btnUp:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChoeDae_SPLeul_JeungKa_SiKinDa{/}"));
     elseif ctrlname == "MNA" then
 	    name:EnableHitTest(1);
         name:SetTextTooltip(ScpArgMsg("MNA_UI_MSG1"));
-        btnUp:SetTextTooltip(ScpArgMsg("MNA_UI_MSG2"));
 	elseif ctrlname == "DEX" then
 	    name:EnableHitTest(1);
         name:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChiMyeongTa_Mich_HoePie_yeongHyangeul_Jum{/}"));
-        btnUp:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChiMyeongTa_Mich_HoePiLeul_JeungKa_SiKinDa{/}"));
 	end
+	
+	bgPic:SetTooltipType("status_detail");
+	bgPic:SetTooltipArg(base, point, add);
+
 	btnUp:SetEventScript(ui.LBUTTONUP, "REQ_STAT_UP");
 	btnUp:SetEventScriptArgString(ui.LBUTTONUP, propname);
 	btnUp:SetClickSound("button_click_stats");
@@ -426,6 +429,15 @@ function SET_STAT_TEXT(frame, ctrlname, pc, propname, addprop, consumed, vpc, xp
 	return consumed + statup, vpc;
 end
 
+function UPDATE_STATUS_DETAIL_TOOLTIP(frame, base, point, add)
+	local baseValue = GET_CHILD(frame, "base_value", "ui::CRichText");
+	local pointValue = GET_CHILD(frame, "point_value", "ui::CRichText");
+	local addValue = GET_CHILD(frame, "add_value", "ui::CRichText");
+	
+	baseValue:SetTextByKey("value", base);
+	pointValue:SetTextByKey("value", point);
+	addValue:SetTextByKey("value", add);
+end
 
 function REQ_STAT_UP(frame, control, argstr, argnum)
 
@@ -495,7 +507,7 @@ function UPDATE_STATUS_STAT(frame, gboxctrl, pc)
 		local typeStr = GetStatTypeStr(i);
 		local x = tonumber(frame:GetUserConfig("StatIconStartX")) + i * 85;
 		local avg = session.GetStatAvg(i) + pc[typeStr];
-		consumed, vpc = SET_STAT_TEXT(frame, typeStr, pc, typeStr, typeStr .. "_ADD", consumed, vpc, x, 60, totalValue, avg);
+		consumed, vpc = SET_STAT_TEXT(frame, typeStr, pc, typeStr, typeStr.."_STAT", typeStr .. "_ADD", consumed, vpc, x, 60, totalValue, avg);
 	end
 
 
@@ -630,6 +642,7 @@ function SETEXP_SLOT_PARTY(expupBuffBox, addValue, index, entireSum)
 		return false, percSum;
 end
 
+--F1 경험치 계산부분
 function SETEXP_SLOT(gbox)
 	local expupBuffBox = gbox:GetChild('expupBuffBox');	
 	DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_");			--EXP_Rate
@@ -642,10 +655,23 @@ function SETEXP_SLOT(gbox)
 	local index = 0;
 	local percSum = 0;
 	
-	--[[
-	if IS_SEASON_SERVER(nil) == "YES" then
-		local cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
-		local val1 = cls1.Value;
+    local cls1 = nil;
+    local val1 = nil;
+
+    if session.world.IsIntegrateServer() == true then
+        local pcEtc = GetMyEtcObject();
+        if pcEtc then
+           val1 = pcEtc.MyWorldExpRate;
+        end
+    else
+        cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
+        if cls1 ~= nil then
+            if TryGetProp(cls1, "Value") ~= nil then
+                val1 = cls1.Value;
+            end  
+        end
+    end
+
 		if val1 ~= nil then
 			if val1 > 0.0 then
 				local class  = GetClassByType('Buff', 4540);	
@@ -653,8 +679,6 @@ function SETEXP_SLOT(gbox)
 				index = index + 1;
 			end
 		end
-	end
-	]]--
 
 	if 1 == session.loginInfo.GetPremiumState() then	
 		local cls2 = GetClass("SharedConst","JAEDDURY_NEXON_PC_EXP_RATE");

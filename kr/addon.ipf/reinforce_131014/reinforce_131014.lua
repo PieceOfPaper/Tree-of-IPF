@@ -24,6 +24,11 @@ function REINFORCE_131014_ITEM_LOCK(guid)
 	local invframe = ui.GetFrame("inventory");
 	invframe:SetUserValue("ITEM_GUID_IN_MORU", guid);
 	INVENTORY_ON_MSG(invframe, 'UPDATE_ITEM_REPAIR');
+
+	local rankresetFrame = ui.GetFrame("rankreset");
+	if 1 == rankresetFrame:IsVisible() then
+		RANKRESET_PC_TIMEACTION_STATE(rankresetFrame)
+	end
 end
 
 function REINFORCE_131014_OPEN(frame)

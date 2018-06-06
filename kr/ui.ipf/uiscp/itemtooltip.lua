@@ -69,7 +69,8 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 
 	local recipeclass = recipeitemobj;
 
-	if recipeclass ~= nil then
+	-- 콜렉션에서 툴팁을 띄울때는 제작서는 제작서만 보여준다. 
+	if recipeclass ~= nil and strarg ~= 'collection' then
 		local ToolTipScp = _G[ 'ITEM_TOOLTIP_' .. recipeclass.ToolTipScp];
 		ToolTipScp(tooltipframe, recipeclass, strarg, "usesubframe_recipe");
 		DestroyIES(recipeitemobj);
@@ -203,19 +204,42 @@ function ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe)
 	local cvalueGBox = GET_CHILD(tooltipframe, 'changevalue','ui::CGroupBox')
 	local cvalueGBoxheight = cvalueGBox:GetHeight()
 	local childCnt = tooltipframe:GetChildCount();
+	local minY = option.GetClientHeight();
+	local arrange = false;
 	for i = 0 , childCnt - 1 do
 		local chld = tooltipframe:GetChildByIndex(i);
 		if chld:GetName() ~= 'changevalue' then
-			local targetY = chld:GetY() + cvalueGBoxheight;
+			local targetY = chld:GetY() + cvalueGBoxheight;			
 			local diff = targetY + chld:GetHeight() - option.GetClientHeight();
 			if diff > 0 then
+				arrange = true;
 				targetY = targetY - diff;
 			end
 
 			chld:SetOffset(chld:GetX(), targetY);
+
+			if minY > targetY then
+				minY = targetY;
+			end
 		end
 	end
 
+	if arrange == true then
+		-- 비교 툴팁 위치 맞춰주기
+		local equip_main = tooltipframe:GetChild('equip_main');
+		local equip_sub = tooltipframe:GetChild('equip_sub');
+		local mainY = equip_main:GetY();
+		local subY = equip_sub:GetY();
+		if mainY > subY then
+			equip_main:SetOffset(equip_main:GetX(), subY);
+		elseif mainY < subY then
+			equip_sub:SetOffset(equip_sub:GetX(), mainY);
+		end
+
+		-- 비교 말풍선 위치 조정
+		local changevalue = tooltipframe:GetChild('changevalue');
+		changevalue:SetOffset(changevalue:GetX(), minY - cvalueGBoxheight);
+	end
 end
 
 function INIT_ITEMTOOLTIPFRAME_CHILDS(tooltipframe)

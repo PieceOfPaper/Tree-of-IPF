@@ -44,7 +44,7 @@ function SHOW_PC_CONTEXT_MENU(handle)
 
 	local targetInfo= info.GetTargetInfo(handle);
 	if targetInfo.IsDummyPC == 1 then
-		if targetInfo.isSkillObj == 0 then --À¯Ã¼ÀÌÅ»Àº Å¬¸¯ÇØµµ ¾Æ¹«¹İÀÀ ¾øµµ·Ï ÇÑ´Ù.
+		if targetInfo.isSkillObj == 0 then --ìœ ì²´ì´íƒˆì€ í´ë¦­í•´ë„ ì•„ë¬´ë°˜ì‘ ì—†ë„ë¡ í•œë‹¤.
 			POPUP_DUMMY(handle, targetInfo);
 		end
 		return
@@ -99,15 +99,13 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			
 		local contextMenuCtrlName = string.format("{@st41}%s (%d){/}", pcObj:GetPCApc():GetFamilyName(), handle);
 		local context = ui.CreateContextMenu("PC_CONTEXT_MENU", pcObj:GetPCApc():GetFamilyName(), 0, 0, 170, 100);
-		-- ¿©±â¿¡ Ä³¸¯ÅÍ Á¤º¸º¸±â, ·Î±×¾Æ¿ôPC°ü·Ã ¸Ş´º Ãß°¡ÇÏ¸éµÊ
-		local strWhisperScp = string.format("ui.WhisperTo('%s')", pcObj:GetPCApc():GetFamilyName());
-		--if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+
+		-- ì—¬ê¸°ì— ìºë¦­í„° ì •ë³´ë³´ê¸°, ë¡œê·¸ì•„ì›ƒPCê´€ë ¨ ë©”ë‰´ ì¶”ê°€í•˜ë©´ë¨
+		if session.world.IsIntegrateServer() == false then
 			local strScp = string.format("exchange.RequestChange(%d)", pcObj:GetHandleVal());
 			ui.AddContextMenuItem(context, ClMsg("Exchange"), strScp);
-		--end
 		
-		local strScp = "";
-		if session.world.IsIntegrateServer() == false then
+			local strWhisperScp = string.format("ui.WhisperTo('%s')", pcObj:GetPCApc():GetFamilyName());
 			ui.AddContextMenuItem(context, ClMsg("WHISPER"), strWhisperScp);
 			strScp = string.format("PARTY_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
 			ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
@@ -147,7 +145,7 @@ function SHOW_PC_CONTEXT_MENU(handle)
 		ui.AddContextMenuItem(context, ScpArgMsg("Report_AutoBot"), string.format("REPORT_AUTOBOT_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 
 
-		-- º¸È£¸ğµå, °­Á¦Å±
+		-- ë³´í˜¸ëª¨ë“œ, ê°•ì œí‚¥
 		if 1 == session.IsGM() then
 			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Protected"), string.format("REQUEST_GM_ORDER_PROTECTED(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Kick"), string.format("REQUEST_GM_ORDER_KICK(\"%s\")", pcObj:GetPCApc():GetFamilyName()));

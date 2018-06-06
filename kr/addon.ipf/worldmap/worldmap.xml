@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="worldmap" x="0" y="0" width="1920" height="1080">
-    <frame title="지도" stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
-    <skin frameskin="fullblack_bg"/>
-    <draw blend="100" drawnotitlebar="false" drawtitlebar="false"/>
-    <layer layerlevel="200"/>
-    <option closebutton="false" visible="false" useimageitem="true"/>
-    <input resize="false" minwidth="128" minheight="128" hittestframe="true" hittesttitlebar="false"/>
-    <sound opensound="sys_map_open" closesound="sys_map_close"/>
-    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
-    <script OpenScp="OPEN_WORLDMAP"/>
-    <controls>
-        <picture name="pic" rect="0 0 3480 7250" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="WORLDMAP_LBTNUP" LBtnDownScp="WORLDMAP_LBTNDOWN" MouseWheelScp="WORLDMAP_MOUSEWHEEL" changecursor="false" hittest="true" image="worldmap_s_bg" stretch="true"/>
-        <picture name="worldmap_mark" rect="0 0 360 300" margin="0 60 0 0" layout_gravity="right top" changecursor="false" hittest="false" image="worldmap_mark" stretch="true"/>
-        <groupbox name="scalebg" rect="0 0 140 30" margin="0 347 110 0" layout_gravity="right top" hittest="false" draw="true" scrollbar="false" skin="bg"/>
-        <richtext name="t_scale" margin="0 347 110 0" rect="0 0 140 30" format="{@st42}x %s{/}" param1="value" param1_def="scale" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
-        <button name="close_map" rect="0 0 44 44" margin="0 18 18 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;worldmap&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" image="testclose_button" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 닫습니다 (M){/}"/>
-        <button name="open_map" rect="0 0 120 40" margin="0 18 120 0" layout_gravity="right top" LBtnUpScp="CLOSE_AND_OPEN_UI" LBtnUpArgStr="map" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st42b}지역{/}" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 엽니다{/}"/>
-        <button name="btn_plus" rect="0 0 44 44" margin="0 340 210 0" layout_gravity="right top" LBtnUpScp="WORLDMAP_CHANGESIZE" LBtnUpArgNum="1" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="btn_worldmap_zoomin" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 확대합니다{/}"/>
-        <button name="btn_minus" rect="0 0 44 44" margin="0 340 100 0" layout_gravity="right top" LBtnUpScp="WORLDMAP_CHANGESIZE" LBtnUpArgNum="-1" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="btn_worldmap_zoomout" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 축소합니다{/}"/>
+	<frame title="지도" stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
+	<skin frameskin="fullblack_bg"/>
+	<draw blend="100" drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="200"/>
+	<option closebutton="false" visible="false" useimageitem="true"/>
+	<input resize="false" minwidth="128" minheight="128" hittestframe="true" hittesttitlebar="false"/>
+	<sound opensound="sys_map_open" closesound="sys_map_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
+	<script OpenScp="OPEN_WORLDMAP" CloseScp="CLOSE_WORLDMAP"/>
+	<controls>
+		<picture name="pic" rect="0 0 3480 7250" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="WORLDMAP_LBTNUP" LBtnDownScp="WORLDMAP_LBTNDOWN" MouseWheelScp="WORLDMAP_MOUSEWHEEL" changecursor="false" hittest="true" image="worldmap_s_bg" stretch="true"/>
+		<picture name="worldmap_mark" rect="0 0 360 300" margin="0 60 0 0" layout_gravity="right top" changecursor="false" hittest="false" image="worldmap_mark" stretch="true"/>
+		<groupbox name="scalebg" rect="0 0 140 30" margin="0 347 110 0" layout_gravity="right top" hittest="false" draw="true" scrollbar="false" skin="bg"/>
+		<richtext name="t_scale" margin="0 347 110 0" rect="0 0 140 30" format="{@st42}x %s{/}" param1="value" param1_def="scale" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+		<button name="close_map" rect="0 0 44 44" margin="0 18 18 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;worldmap&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" image="testclose_button" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 닫습니다 (M){/}"/>
+		<button name="open_map" rect="0 0 120 40" margin="0 18 120 0" layout_gravity="right top" LBtnUpScp="CLOSE_AND_OPEN_UI" LBtnUpArgStr="map" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st42b}지역{/}" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 엽니다{/}"/>
+		<button name="btn_plus" rect="0 0 44 44" margin="0 340 210 0" layout_gravity="right top" LBtnUpScp="WORLDMAP_CHANGESIZE" LBtnUpArgNum="1" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="btn_worldmap_zoomin" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 확대합니다{/}"/>
+		<button name="btn_minus" rect="0 0 44 44" margin="0 340 100 0" layout_gravity="right top" LBtnUpScp="WORLDMAP_CHANGESIZE" LBtnUpArgNum="-1" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="btn_worldmap_zoomout" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 축소합니다{/}"/>
 		<button name="btn_lastwarp" rect="0 0 44 44" margin="0 380 205 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_accept_img" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}마지막 워프 지역을 봅니다{/}" LBtnUpScp="WORLDMAP_LOCATE_LASTWARP"/>
 		<button name="btn_nowpos" rect="0 0 44 44" margin="0 380 155 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_pos_img" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}현재 위치를 봅니다{/}" LBtnUpScp="WORLDMAP_LOCATE_NOWPOS"/>
-    <button name="btn_dungeon" rect="0 0 44 44" margin="0 380 105 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_dungeon_img" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}추천 던전 위치를 봅니다{/}" LBtnUpScp="WORLDMAP_LOCATE_RECOMMENDDED_DUNGEON"/>
+		<button name="btn_dungeon" rect="0 0 44 44" margin="0 380 105 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_dungeon_img" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}추천 던전 위치를 봅니다{/}" LBtnUpScp="WORLDMAP_LOCATE_RECOMMENDDED_DUNGEON"/>
 		<groupbox name="editSkin" margin="0 430 10 0" rect="0 0 350 38" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
 		<edit name="input_search" margin="0 436 70 0" rect="0 0 280 26" fontname="white_18_ol" maxlen="16" usetag="true" EnterKeyScp="WORLDMAP_SEARCH_BY_NAME" numbermode="false" drawbackground="false" OffsetForDraw="0 -1" skin="None" layout_gravity="right top" typingsound="chat_typing"/>
 		<button name="btn_search" image="inven_s" margin="0 430 10 0" rect="0 0 60 38" layout_gravity="right top" LBtnUpScp="WORLDMAP_SEARCH_BY_NAME" oversound="button_over" clicksound="button_click_big"/>

@@ -840,7 +840,7 @@
                     </Event>
                 </StageEvents>
             </Stage>
-            <Stage Name="END">
+            <Stage Name="END" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
                         <Str Str="[다시 찾아온 위기] 이벤트를 완료했습니다"/>

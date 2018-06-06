@@ -43,15 +43,11 @@ function CLIENT_ENCHANTCHIP(invItem)
 	ui.GuideMsg("SelectItem");
 	CHANGE_MOUSE_CURSOR("MORU", "MORU_UP", "CURSOR_CHECK_ENCHANTCHIP");
 
-	local inventoryGbox = invframe:GetChild("inventoryGbox");
-	local treeGbox = inventoryGbox:GetChild("treeGbox");
-	local tree = GET_CHILD(treeGbox,"inventree");
-	tree:CloseNodeAll();
-
-	local treegroup = tree:FindByValue("Premium");
-	tree:ShowTreeNode(treegroup, 1);
-	treegroup = tree:FindByValue("EquipGroup");
-	tree:ShowTreeNode(treegroup, 1);
+	local invFrame     	= ui.GetFrame("inventory");
+	local invGbox		= invFrame:GetChild('inventoryGbox');
+	local tab = invGbox:GetChild("inventype_Tab");
+	tolua.cast(tab, "ui::CTabControl");
+	tab:SelectTab(0);
 end
 
 

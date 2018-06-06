@@ -3152,13 +3152,24 @@
 		<skin name="collection_complete" texture="\skin\pip_test.tga">
 			<img name="topleft" imgrect="1576 573 45 45"/>
 			<img name="topcore" imgrect="1622 573 130 45"/>
-			<img name="topright" imgrect="1576 573 45 45"/>
+			<img name="topright" imgrect="1753 573 45 45"/>
 			<img name="bodyleft" imgrect="1576 619 45 45"/>
 			<img name="bodycore" imgrect="1622 619 130 45"/>
 			<img name="bodyright" imgrect="1753 619 45 45"/>
 			<img name="bottomleft" imgrect="1576 665 45 45"/>
 			<img name="bottomcore" imgrect="1622 665 130 45"/>
 			<img name="bottomright" imgrect="1753 665 45 45"/>
+		</skin>
+		<skin name="event_arlarm" texture="\skin\missionFail_skin.tga">
+			<img name="topleft" imgrect="172 293 116 60"/>
+			<img name="topcore" imgrect="289 293 105 60"/>
+			<img name="topright" imgrect="395 293 116 60"/>
+			<img name="bodyleft" imgrect="172 354 116 10"/>
+			<img name="bodycore" imgrect="289 354 105 10"/>
+			<img name="bodyright" imgrect="395 354 116 10"/>
+			<img name="bottomleft" imgrect="172 365 116 35"/>
+			<img name="bottomcore" imgrect="289 365 105 35"/>
+			<img name="bottomright" imgrect="395 365 116 35"/>
 		</skin>
 	</skinlist>
 	<skinlist category="testji_frames">
@@ -3173,7 +3184,7 @@
 			<img name="bottomcore" imgrect="432 477 180 30"/>
 			<img name="bottomright" imgrect="613 477 110 30"/>
 		</skin>
-		<skin name="test_skillswicoolgaug">
+		<skin name="test_skillswicoolgaug" texture="\skin\keynbet.tga">
 			<img name="topleft" imgrect="724 143 1 1"/>
 			<img name="topcore" imgrect="725 143 40 1"/>
 			<img name="topright" imgrect="765 143 1 1"/>
@@ -3184,7 +3195,7 @@
 			<img name="bottomcore" imgrect="725 146 40 1"/>
 			<img name="bottomright" imgrect="764 146 1 1"/>
 		</skin>
-		<skin name="test_skillswicoolgaugB">
+		<skin name="test_skillswicoolgaugB" texture="\skin\keynbet.tga">
 			<img name="topleft" imgrect="724 147 1 1"/>
 			<img name="topcore" imgrect="725 147 40 1"/>
 			<img name="topright" imgrect="765 147 1 1"/>
@@ -3316,28 +3327,6 @@
 			<img name="bottomcore" imgrect="1 465 784 1"/>
 			<img name="bottomright" imgrect="785 465 1 1"/>
 		</skin>
-		<skin name="test_betrum_scoretitle_skin" texture="\skin\keynbet.tga">
-			<img name="topleft" imgrect="407 0 1 1"/>
-			<img name="topcore" imgrect="408 0 400 1"/>
-			<img name="topright" imgrect="808 0 1 1"/>
-			<img name="bodyleft" imgrect="407 1 1 87"/>
-			<img name="bodycore" imgrect="408 1 400 87"/>
-			<img name="bodyright" imgrect="808 1 1 87"/>
-			<img name="bottomleft" imgrect="407 88 1 1"/>
-			<img name="bottomcore" imgrect="408 88 400 1"/>
-			<img name="bottomright" imgrect="808 88 1 1"/>
-		</skin>
-		<skin name="test_betrum_scoreboardT_skin" texture="\skin\keynbet.tga">
-			<img name="topleft" imgrect="0 528 1 1"/>
-			<img name="topcore" imgrect="1 528 350 1"/>
-			<img name="topright" imgrect="351 528 1 1"/>
-			<img name="bodyleft" imgrect="0 529 1 86"/>
-			<img name="bodycore" imgrect="1 529 350 86"/>
-			<img name="bodyright" imgrect="351 529 1 86"/>
-			<img name="bottomleft" imgrect="0 615 1 1"/>
-			<img name="bottomcore" imgrect="1 615 350 1"/>
-			<img name="bottomright" imgrect="351 615 1 1"/>
-		</skin>
 		<skin name="test_betrum_myrespgau" texture="\skin\keynbet.tga">
 			<img name="topleft" imgrect="0 466 5 1"/>
 			<img name="topcore" imgrect="6 466 178 1"/>
@@ -3403,6 +3392,17 @@
 			<img name="bottomleft" imgrect="0 527 26 1"/>
 			<img name="bottomcore" imgrect="27 527 252 1"/>
 			<img name="bottomright" imgrect="280 527 27 1"/>
+		</skin>
+		<skin name="test_tooltipskin_tj" texture="\skin\keynbet.tga">
+			<img name="topleft" imgrect="0 858 27 35"/>
+			<img name="topcore" imgrect="28 858 118 35"/>
+			<img name="topright" imgrect="147 858 75 35"/>
+			<img name="bodyleft" imgrect="0 894 27 73"/>
+			<img name="bodycore" imgrect="28 894 118 73"/>
+			<img name="bodyright" imgrect="147 894 75 73"/>
+			<img name="bottomleft" imgrect="0 968 27 27"/>
+			<img name="bottomcore" imgrect="28 968 118 27"/>
+			<img name="bottomright" imgrect="147 968 75 27"/>
 		</skin>
 	</skinlist>
 	<skinlist category="buttons">
@@ -3693,7 +3693,7 @@
 			<img name="on" imgrect="439 28 25 27"/>
 			<img name="off" imgrect="439 0 25 27"/>
 		</skin>
-		<skin name="01_checkbox" texture="\skin\pip_test_item.tga">
+		<skin name="rankreset_checkbox" texture="\skin\pip_test_item.tga">
 			<img name="on" imgrect="1902 0 57 28"/>
 			<img name="off" imgrect="1960 0 57 28"/>
 		</skin>
@@ -4564,6 +4564,14 @@
 			<img name="barmiddle" imgrect="1693 104 131 22"/>
 			<img name="barright" imgrect="1830 104 7 22"/>
 		</skin>
+		<skin name="gauge_fever" texture="\skin\mainframe_03.tga">
+			<img name="bgleft" imgrect="523 516 2 20"/>
+			<img name="bgmiddle" imgrect="526 516 176 20"/>
+			<img name="bgright" imgrect="703 516 2 20"/>
+			<img name="barleft" imgrect="523 495 2 20"/>
+			<img name="barmiddle" imgrect="526 495 176 20"/>
+			<img name="barright" imgrect="703 495 2 20"/>
+		</skin>
 	</skinlist>
 	<skinlist category="labellines">
 		<skin name="labelline_def_2" texture="\skin\tooltip_skin_3.tga">
@@ -4594,6 +4602,14 @@
 			<img name="left" imgrect="868 503 20 40"/>
 			<img name="middle" imgrect="889 503 20 40"/>
 			<img name="right" imgrect="910 503 20 40"/>
+			<img name="dropbutton" imgrect="931 503 12 12"/>
+			<img name="dropbutton_click" imgrect="931 516 12 12"/>
+			<img name="dropbutton_cursoron" imgrect="931 529 12 12"/>
+		</skin>
+		<skin name="droplist_normal3" texture="\skin\pip_test.tga">
+			<img name="left" imgrect="868 664 20 40"/>
+			<img name="middle" imgrect="889 664 45 40"/>
+			<img name="right" imgrect="935 664 20 40"/>
 			<img name="dropbutton" imgrect="931 503 12 12"/>
 			<img name="dropbutton_click" imgrect="931 516 12 12"/>
 			<img name="dropbutton_cursoron" imgrect="931 529 12 12"/>
@@ -5063,6 +5079,7 @@
 		<image name="indunticket_middle" file="\skin\indunticket.tga" imgrect="0 0 316 165" CMM_Caption="인던소탕권"/>
 		<image name="market_sell_updown" file="\skin\paid_skin.tga" imgrect="675 439 328 115" CMM_Caption="마켓상하한가표"/>
 		<image name="M_message_open" file="\skin\barrack.tga" imgrect="1493 721 30 30"/>
+		<image name="rankreset_middle" file="\skin\rankreset_skin.tga" imgrect="0 0 316 165" CMM_Caption="랭크리셋중간"/>
 		<image name="M_message_Unopen" file="\skin\barrack.tga" imgrect="1524 721 30 30"/>
 		<image name="pvp_teamrank_bg" file="\skin\PVP_skin.tga" imgrect="668 65 38 30"/>
 		<image name="inventory_hat_layer_off" file="\skin\pip_test.tga" imgrect="596 888 20 20" CMM_Caption="인벤헤어_꺼짐"/>
@@ -5164,13 +5181,13 @@
 		<image name="chat_close" file="\skin\chat_skin.tga" imgrect="27 101 18 18" CMM_Caption="귓속말_채팅닫기"/>
 		<image name="chat_close2" file="\skin\chat_skin.tga" imgrect="30 83 12 14" CMM_Caption="귓속말_닫기"/>
 		<image name="chat_login" file="\skin\chat_skin.tga" imgrect="0 81 25 40" CMM_Caption="귓속말_로그인상태"/>
-		<image name="01_armor" file="\skin\pip_test_item.tga" imgrect="1482 0 59 59" CMM_Caption="01"/>
-		<image name="01_ability" file="\skin\pip_test_item.tga" imgrect="1542 0 59 59" CMM_Caption="01"/>
-		<image name="01_com" file="\skin\pip_test_item.tga" imgrect="1602 0 59 59" CMM_Caption="01"/>
-		<image name="01_home" file="\skin\pip_test_item.tga" imgrect="1662 0 59 59" CMM_Caption="01"/>
-		<image name="01_shop" file="\skin\pip_test_item.tga" imgrect="1722 0 59 59" CMM_Caption="01"/>
-		<image name="01_moru" file="\skin\pip_test_item.tga" imgrect="1782 0 59 59" CMM_Caption="01"/>
-		<image name="01_master" file="\skin\pip_test_item.tga" imgrect="1842 0 59 59" CMM_Caption="01"/>
+		<image name="rank_reset_armor" file="\skin\pip_test_item.tga" imgrect="1482 0 59 59" CMM_Caption="랭크리셋_아머"/>
+		<image name="rank_reset_ability" file="\skin\pip_test_item.tga" imgrect="1542 0 59 59" CMM_Caption="특성"/>
+		<image name="rank_reset_com" file="\skin\pip_test_item.tga" imgrect="1602 0 59 59" CMM_Caption="컴패니언"/>
+		<image name="rank_reset_home" file="\skin\pip_test_item.tga" imgrect="1662 0 59 59" CMM_Caption="마을에서"/>
+		<image name="rank_reset_shop" file="\skin\pip_test_item.tga" imgrect="1722 0 59 59" CMM_Caption="상점폐쇄"/>
+		<image name="rank_reset_moru" file="\skin\pip_test_item.tga" imgrect="1782 0 59 59" CMM_Caption="제작금지"/>
+		<image name="rank_reset_master" file="\skin\pip_test_item.tga" imgrect="1842 0 59 59" CMM_Caption="길드마스터"/>
 		<image name="ability_now" file="\skin\pip_test.tga" imgrect="868 607 72 18" CMM_Caption="현재"/>
 		<image name="ability_max" file="\skin\pip_test.tga" imgrect="868 626 72 18" CMM_Caption="최대"/>
 		<image name="collection_magic" file="\skin\pip_test.tga" imgrect="868 645 72 18" CMM_Caption="효과"/>
@@ -5178,6 +5195,9 @@
 		<image name="collection_tooltip1" file="\skin\pip_test.tga" imgrect="939 542 18 18" CMM_Caption="콜렉션완성한것"/>
 		<image name="collection_tooltip2" file="\skin\pip_test.tga" imgrect="939 561 18 18" CMM_Caption="콜렉션미완성된것"/>
 		<image name="collection_tooltip3" file="\skin\pip_test.tga" imgrect="939 580 18 18" CMM_Caption="레시피재료가능"/>
+		<image name="map_complet_img" file="\skin\mainframe_03.tga" imgrect="0 864 340 160" CMM_Caption="맵완료나오는이미지"/>
+		<image name="event_img_box" file="\skin\missionFail_skin.tga" imgrect="0 300 170 100" CMM_Caption="이벤트_박스"/>
+		<image name="combo_light" file="\skin\mainframe_03.tga" imgrect="251 821 149 30" CMM_Caption="콤보_라이트"/>
 	</imagelist>
 	<imagelist category="testji_image">
 		<image name="test_deathX" file="\skin\keynbet.tga" imgrect="363 272 47 47" CMM_Caption="파티 사망자표시"/>
@@ -6042,6 +6062,16 @@
 		<image name="mouseon" file="\skin\mainframe_A.tga" imgrect="644 848 13 13"/>
 	</imagelist>
 	<imagelist category="tooltip_digit">
+		<image name="1_1" file="\skin\txt_combo.tga" imgrect="0 0 76 128"/>
+		<image name="2_1" file="\skin\txt_combo.tga" imgrect="77 0 76 128"/>
+		<image name="3_1" file="\skin\txt_combo.tga" imgrect="153 0 76 128"/>
+		<image name="4_1" file="\skin\txt_combo.tga" imgrect="229 0 76 128"/>
+		<image name="5_1" file="\skin\txt_combo.tga" imgrect="305 0 76 128"/>
+		<image name="6_1" file="\skin\txt_combo.tga" imgrect="381 0 76 128"/>
+		<image name="7_1" file="\skin\txt_combo.tga" imgrect="457 0 76 128"/>
+		<image name="8_1" file="\skin\txt_combo.tga" imgrect="533 0 76 128"/>
+		<image name="9_1" file="\skin\txt_combo.tga" imgrect="609 0 76 128"/>
+		<image name="0_1" file="\skin\txt_combo.tga" imgrect="685 0 76 128"/>
 		<image name="1" file="\skin\tooltip_digit.tga" imgrect="0 0 55 70"/>
 		<image name="2" file="\skin\tooltip_digit.tga" imgrect="55 0 55 70"/>
 		<image name="3" file="\skin\tooltip_digit.tga" imgrect="110 0 55 70"/>
@@ -6814,7 +6844,7 @@
 		<image name="Dlg_port_Raima" file="\npcimg\Raima.png" imgrect="0 0 1000 1100" CMM_Caption="Godness Raima"/>
 		<image name="Dlg_port_Giltine" file="\npcimg\Giltine.png" imgrect="0 0 1000 1200" CMM_Caption="Giltine"/>
 		<image name="Dlg_port_Gesti" file="\npcimg\Gesti.png" imgrect="0 0 880 1050" CMM_Caption="Gesti"/>
-		<image name="Dlg_port_Saule" file="\npcimg\Saule.png" imgrect="0 0 880 1050" CMM_Caption="Godness Saule"/>
+		<image name="Dlg_port_Saule" file="\npcimg\Saule.png" imgrect="0 0 900 900" CMM_Caption="Godness Saule"/>
 		<image name="Dlg_port_Vlaentinas_Naimon" file="\npcimg\Vlaentinas_Naimon.png" imgrect="0 0 700 800" CMM_Caption="Paladin master"/>
 		<image name="Dlg_port_Krajicek" file="\npcimg\Krajicek.png" imgrect="0 0 700 800" CMM_Caption="Centurion master"/>
 		<image name="Dlg_port_Ili_Terid" file="\npcimg\Ili_Terid.png" imgrect="0 0 700 800" CMM_Caption="Psychokino master"/>
@@ -6827,7 +6857,7 @@
 		<image name="Dlg_port_HENRIKA" file="\npcimg\HENRIKA.png" imgrect="0 0 700 800" CMM_Caption="컬렉션npc"/>
 		<image name="Dlg_port_kristina" file="\npcimg\kristina.png" imgrect="0 0 700 800" CMM_Caption="컴패니언npc"/>
 		<image name="Dlg_port_rena" file="\npcimg\rena.png" imgrect="0 0 700 800" CMM_Caption="모험일지npc"/>
-		<image name="Dlg_port_gabija" file="\npcimg\gabija.png" imgrect="0 0 1000 1000" CMM_Caption="가비아여신"/>
+		<image name="Dlg_port_gabija" file="\npcimg\gabija.png" imgrect="0 0 950 1000" CMM_Caption="가비아여신"/>
 		<image name="Dlg_port_druid" file="\npcimg\druid.png" imgrect="0 0 700 800" CMM_Caption="druid master"/>
 		<image name="Dlg_port_hunter" file="\npcimg\hunter.png" imgrect="0 0 800 1050" CMM_Caption="hunter master"/>
 		<image name="Dlg_port_Rita" file="\npcimg\Rita.png" imgrect="0 0 800 900" CMM_Caption="창고지기"/>
@@ -6862,7 +6892,7 @@
 		<image name="Dlg_port_Zadan" file="\npcimg\Zadan.png" imgrect="0 0 700 800" CMM_Caption="페미디안창고지기"/>
 		<image name="Dlg_port_Alf" file="\npcimg\Alf.png" imgrect="0 0 700 800" CMM_Caption="오르샤잡화상인"/>
 		<image name="Dlg_port_CastleLord" file="\npcimg\CastleLord.png" imgrect="0 0 800 1000" CMM_Caption="캐슬영주"/>
-		<image name="Dlg_port_GoddessLada" file="\npcimg\GoddessLada.png" imgrect="0 0 800 1100" CMM_Caption="여신 라다"/>
+		<image name="Dlg_port_GoddessLada" file="\npcimg\GoddessLada.png" imgrect="0 0 750 1000" CMM_Caption="여신 라다"/>
 		<image name="Dlg_port_Illanai" file="\npcimg\Illanai.png" imgrect="0 0 700 900" CMM_Caption="오르샤대장장이"/>
 		<image name="Dlg_port_InesaHamondail" file="\npcimg\InesaHamondail.png" imgrect="0 0 800 1100" CMM_Caption="오르샤영주"/>
 		<image name="Dlg_port_Julla" file="\npcimg\Julla.png" imgrect="0 0 700 800" CMM_Caption="오르샤장비상인"/>
@@ -6870,7 +6900,7 @@
 		<image name="Dlg_port_Tiliana" file="\npcimg\Tiliana.png" imgrect="0 0 700 800" CMM_Caption="오르샤마켓관리인"/>
 		<image name="Dlg_port_Yurrs" file="\npcimg\Yurrs.png" imgrect="0 0 800 1000" CMM_Caption="오르샤 악세사리상인"/>
 		<image name="Dlg_port_Mardas" file="\npcimg\Mardas.png" imgrect="0 0 700 900" CMM_Caption="카틴숲정찰병"/>
-		<image name="Dlg_port_Saule2" file="\npcimg\Saule2.png" imgrect="0 0 880 1050" CMM_Caption="샤울레여신2"/>
+		<image name="Dlg_port_Saule2" file="\npcimg\Saule2.png" imgrect="0 0 900 900" CMM_Caption="샤울레여신2"/>
 		<image name="Dlg_port_vakarine2" file="\npcimg\vakarine2.png" imgrect="0 0 1000 1050" CMM_Caption="바카리네여신2"/>
 		<image name="Dlg_port_Austeja2" file="\npcimg\Austeja2.png" imgrect="0 0 780 800" CMM_Caption="아우스테자여신2"/>
 		<image name="Dlg_port_Raima2" file="\npcimg\Raima2.png" imgrect="0 0 1000 1100" CMM_Caption="라이마여신2"/>
@@ -7203,6 +7233,8 @@
 	</imagelist>
 	<imagelist category="ComboText">
 		<image name="combo" file="\skin\mainframe_03.tga" imgrect="754 130 270 70"/>
+		<image name="combo2" file="\skin\mainframe_03.tga" imgrect="503 537 220 80"/>
+		<image name="fever" file="\skin\mainframe_03.tga" imgrect="0 583 366 137"/>
 	</imagelist>
 	<imagelist category="beatkeyboard">
 		<image name="beatkeyboard" file="\icon\beat_keyboard2.tga" imgrect="0 0 100 240"/>

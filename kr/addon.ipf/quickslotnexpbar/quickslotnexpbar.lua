@@ -122,7 +122,12 @@ function PLAY_QUICKSLOT_UIEFFECT(frame, itemID)
 				local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
 				if slot ~= nil then
 					local posX, posY = GET_SCREEN_XY(slot);
-					movie.PlayUIEffect('I_sys_item_slot', posX, posY, 1);
+					-- SLOT 이 활성화 상태일때만 그린다.
+					if CHECK_SLOT_ON_ACTIVEQUICKSLOTSET(frame, i) == true then
+						-- 스케일이 너무 크게 나와서 조금 줄임. 
+						movie.PlayUIEffect('I_sys_item_slot', posX, posY, 0.8); 
+					end
+					
 				end
 			end
 		end
@@ -155,7 +160,6 @@ function UPDATE_QUICKSLOT_JUNGTANDEF(frame, ctrl, num, str, time)
 end
 
 function UPDATE_QUICKSLOT_DISPEL_DEBUFF(frame, ctrl, num, str, time)
-
 	if frame:IsVisible() == 0 then
 		return;
 	end
@@ -1068,4 +1072,17 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 
 end
 	frame:SetUserValue('SKL_MAX_CNT',0)
+end
+
+-- 현재 활성화된 QUICK 슬롯셋에 속하는 SlotNumber(실제 슬롯 번호가 넘어옴)인지 확인
+function CHECK_SLOT_ON_ACTIVEQUICKSLOTSET(frame, slotNumber)
+	local quickSlotList = session.GetQuickSlotList();
+	local curCnt = quickSlotList:GetQuickSlotActiveCnt();	
+
+	-- 현재 Active된 슬롯의 카운터보다 SlotNumber가 작으면 true
+	if curCnt > slotNumber then
+		return true;
+	end
+
+	return false;
 end

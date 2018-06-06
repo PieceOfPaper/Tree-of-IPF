@@ -29,7 +29,7 @@ function IS_TRANSCEND_ABLE_ITEM(obj)
 	if TryGetProp(obj, "Transcend") == nil then
 		return 0;
 	end
-
+	
 	if TryGetProp(obj, "BasicTooltipProp") == nil then
 		return 0;
 	end
@@ -37,9 +37,24 @@ function IS_TRANSCEND_ABLE_ITEM(obj)
 	if TryGetProp(obj, "ItemStar") == nil or TryGetProp(obj, "ItemStar") < 1 then
 		return 0;
 	end
-
+	
 	local afterNames, afterValues = GET_ITEM_TRANSCENDED_PROPERTY(obj);
 	if #afterNames == 0 then
+		return 0;
+	end
+	
+    local itemCls = GetClass("Item", obj.ClassName);
+    if itemCls == nil then
+		return 0;
+	end
+
+    local itemMaxPR = TryGetProp(itemCls, "MaxPR")
+	if itemMaxPR == nil or itemMaxPR == 0 then
+		return 0;
+	end
+
+    local itemMPR = TryGetProp(itemCls, "PR")
+	if itemMPR == nil or itemMPR == 0 then
 		return 0;
 	end
 
@@ -106,21 +121,31 @@ function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
     end
 
     local itemCls = GetClass("Item", itemObj.ClassName);
-    local itemMPR = 0;
-        if itemCls ~= nil then
-    	itemMPR = itemCls.PR;
-        end
+    if itemCls == nil then
+		return 0;
+	end
+	
+    local itemMaxPR = TryGetProp(itemCls, "MaxPR")
+	if itemMaxPR == nil or itemMaxPR == 0 then
+		return 0;
+	end
+
+    local itemMPR = TryGetProp(itemCls, "PR")
+	if itemMPR == nil or itemMPR == 0 then
+		return 0;
+	end
 
     local itemPR = TryGetProp(itemObj, "PR")
     if nil == itemPR then
 	    itemPR = itemMPR;
     end
-
+	
     local giveCnt = cnt * (0.2 + ((itemPR / itemMPR) * 0.7))
-    giveCnt = math.floor(giveCnt);
+		giveCnt = math.floor(giveCnt);
         if giveCnt <= 0 then
         	giveCnt = 1;
         end
+    
     if itemObj.Transcend == 1 then
         giveCnt = 0;
     end

@@ -394,6 +394,12 @@ function UPDATE_GUILDINFO(frame)
 
 				pic_online:SetImage("guild_online");
 			else
+				local logoutSec = partyMemberInfo:GetLogoutSec();
+				if logoutSec >= 0 then
+					locationText = GET_DIFF_TIME_TXT(logoutSec);
+				else				
+					locationText = ScpArgMsg("Logout");
+				end
 				pic_online:SetImage("guild_offline");
 			end
 

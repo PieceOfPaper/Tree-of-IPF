@@ -1133,65 +1133,9 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                 
             end
             
-            if questIES.JobLvup == 'None' then
-                req_joblvup = 'YES'
-            else
-                local jobinfo = SCR_STRING_CUT(questIES.JobLvup)
-                local job_name = jobinfo[1]
-                local jobCircleTarget = tonumber(jobinfo[2])
-                local jobCircle, jobRank
-                
-                if IsServerSection(pc) == 1 then
-                    jobCircle, jobRank = GetJobGradeByName(pc, job_name);
-                else
-                    local jobIES = GetClass('Job', job_name)
-                    jobCircle = session.GetJobGrade(jobIES.ClassID);
-                end
-                
-                if jobinfo[3] == '>=' then
-                    if jobCircle ~= nil and jobCircle >= tonumber(jobCircleTarget) then
-                        req_joblvup = 'YES'
-                    end
-                elseif jobinfo[3] == '<=' then
-                    if jobCircle ~= nil and jobCircle <= tonumber(jobCircleTarget) then
-                        req_joblvup = 'YES'
-                    end
-                elseif jobinfo[3] == '==' then
-                    if jobCircle ~= nil and jobCircle == tonumber(jobCircleTarget) then
-                        req_joblvup = 'YES'
-                    end
-                end
-            end
+            req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
             
-            if questIES.JobLvdown == 'None' then
-                req_joblvdown = 'YES'
-            else
-                local jobinfo = SCR_STRING_CUT(questIES.JobLvdown)
-                local job_name = jobinfo[1]
-                local jobCircleTarget = tonumber(jobinfo[2])
-                local jobCircle, jobRank
-                
-                if IsServerSection(pc) == 1 then
-                    jobCircle, jobRank = GetJobGradeByName(pc, job_name);
-                else
-                    local jobIES = GetClass('Job', job_name)
-                    jobCircle = session.GetJobGrade(jobIES.ClassID);
-                end
-                
-                if jobinfo[3] == '>=' then
-                    if jobCircle ~= nil and jobCircle >= tonumber(jobCircleTarget) then
-                        req_joblvdown = 'YES'
-                    end
-                elseif jobinfo[3] == '<=' then
-                    if jobCircle ~= nil and jobCircle <= tonumber(jobCircleTarget) then
-                        req_joblvdown = 'YES'
-                    end
-                elseif jobinfo[3] == '==' then
-                    if jobCircle ~= nil and jobCircle == tonumber(jobCircleTarget) then
-                        req_joblvdown = 'YES'
-                    end
-                end
-            end
+            req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
             
             if questIES.Atkup == 0 then
                 req_atkup = 'YES';
@@ -4649,4 +4593,74 @@ function SCR_QUEST_POSSIBLE_DIALOG_CHECK_SUB(pc, questname, argmsg)
     elseif string.find(argmsg, '/') == nil or string.find(argmsg, ';') == nil then
         return 'YES'
     end
+end
+
+function SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
+    local req_joblvup = 'NO'
+    
+    if questIES.JobLvup == 'None' then
+        req_joblvup = 'YES'
+    else
+        local jobinfo = SCR_STRING_CUT(questIES.JobLvup)
+        local job_name = jobinfo[1]
+        local jobCircleTarget = tonumber(jobinfo[2])
+        local jobCircle, jobRank
+        
+        if IsServerSection(pc) == 1 then
+            jobCircle, jobRank = GetJobGradeByName(pc, job_name);
+        else
+            local jobIES = GetClass('Job', job_name)
+            jobCircle = session.GetJobGrade(jobIES.ClassID);
+        end
+        
+        if jobinfo[3] == '>=' then
+            if jobCircle ~= nil and jobCircle >= tonumber(jobCircleTarget) then
+                req_joblvup = 'YES'
+            end
+        elseif jobinfo[3] == '<=' then
+            if jobCircle ~= nil and jobCircle <= tonumber(jobCircleTarget) then
+                req_joblvup = 'YES'
+            end
+        elseif jobinfo[3] == '==' then
+            if jobCircle ~= nil and jobCircle == tonumber(jobCircleTarget) then
+                req_joblvup = 'YES'
+            end
+        end
+    end
+    return req_joblvup
+end
+
+function SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
+    local req_joblvdown = 'NO'
+    
+    if questIES.JobLvdown == 'None' then
+        req_joblvdown = 'YES'
+    else
+        local jobinfo = SCR_STRING_CUT(questIES.JobLvdown)
+        local job_name = jobinfo[1]
+        local jobCircleTarget = tonumber(jobinfo[2])
+        local jobCircle, jobRank
+        
+        if IsServerSection(pc) == 1 then
+            jobCircle, jobRank = GetJobGradeByName(pc, job_name);
+        else
+            local jobIES = GetClass('Job', job_name)
+            jobCircle = session.GetJobGrade(jobIES.ClassID);
+        end
+        
+        if jobinfo[3] == '>=' then
+            if jobCircle ~= nil and jobCircle >= tonumber(jobCircleTarget) then
+                req_joblvdown = 'YES'
+            end
+        elseif jobinfo[3] == '<=' then
+            if jobCircle ~= nil and jobCircle <= tonumber(jobCircleTarget) then
+                req_joblvdown = 'YES'
+            end
+        elseif jobinfo[3] == '==' then
+            if jobCircle ~= nil and jobCircle == tonumber(jobCircleTarget) then
+                req_joblvdown = 'YES'
+            end
+        end
+    end
+    return req_joblvdown
 end

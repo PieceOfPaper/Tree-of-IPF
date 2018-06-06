@@ -281,9 +281,9 @@
 			<richtext name="remaintime" margin="179 154 0 0" rect="0 0 190 136" format="{@st42}남은 시간 : %s" param1="text" param1_def="18:20" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		</controls>
 	</tooltip>
-	<tooltip name="worldmap" x="0" y="0" width="512" height="512" frameskin="none" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_WORLDMAP_TOOLTIP" skin="socket_gem_titlebar_baseskin">
-		<controls/>
-	</tooltip>
+  <tooltip name="worldmap" x="0" y="0" width="512" height="512" frameskin="none" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_WORLDMAP_TOOLTIP" skin="socket_gem_titlebar_baseskin">
+    <controls/>
+  </tooltip>
 	<tooltip name="indun_tooltip" x="0" y="0" width="512" height="512" frameskin="none" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_INDUN_TOOLTIP" skin="socket_gem_titlebar_baseskin">
 		<controls/>
 	</tooltip>
@@ -320,6 +320,16 @@
 			<groupbox name="equip_sub_addinfo" margin="0 0 0 0" rect="0 0 410 0" skin="test_Item_tooltip_equip_sub" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="bosscard" margin="820 0 0 0" rect="0 0 370 0" skin="testbosscard_tooltip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="gem" margin="820 0 0 0" rect="0 0 330 0" skin="test_Item_tooltip_equip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
+		</controls>
+	</tooltip>
+	<tooltip name="status_detail" x="0" y="0" fixwidth="false" width="200" height="62" moveable="false" frameskin="test_tooltipskin_tj" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_STATUS_DETAIL_TOOLTIP">
+		<controls>
+			<richtext name="base_txt" rect="0 0 60 30" margin="8 9 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}{s16}%s{/}{/}" maxwidth="0" param1="value" param1_def="기본" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
+			<richtext name="point_txt" rect="0 0 60 30" margin="68 9 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}{s16}%s{/}{/}" maxwidth="0" param1="value" param1_def="투자" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
+			<richtext name="add_txt" rect="0 0 60 30" margin="128 9 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}{s16}%s{/}{/}" maxwidth="0" param1="value" param1_def="기타" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
+			<richtext name="base_value" rect="0 0 60 30" margin="8 34 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66b}%s{/}" maxwidth="0" param1="value" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
+			<richtext name="point_value" rect="0 0 60 30" margin="68 34 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66b}%s{/}" maxwidth="0" param1="value" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
+			<richtext name="add_value" rect="0 0 60 30" margin="128 34 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66b}%s{/}" maxwidth="0" param1="value" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
 		</controls>
 	</tooltip>
 </tooltipset>

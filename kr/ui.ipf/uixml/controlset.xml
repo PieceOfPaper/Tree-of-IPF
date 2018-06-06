@@ -1521,7 +1521,7 @@
 			<richtext name="abilTimeText" margin="80 60 0 0" rect="0 0 75 20" layout_gravity="left top" resizebytext="false" textalign="center center" fixwidth="true" fixheight="true" hittest="false" fontname="white_16_b" format="%s{/}" param1="value" param1_def="조건"/>
 			<richtext name="abilLevelMaxText" margin="260 38 0 0" rect="0 0 75 20" layout_gravity="left top" resizebytext="false" textalign="center center" fixwidth="true" fixheight="true" hittest="false" fontname="white_16_b" format="%s{/}" param1="value" param1_def="최대"/>
 			<richtext name="abilLevel" margin="165 38 0 0" rect="0 0 100 30" layout_gravity="left top" resizebytext="false" textalign="left top" fixwidth="true" fixheight="true" hittest="false" fontname="brown_16_b"/>
-			<richtext name="abilTime" margin="165 60 0 0" rect="0 0 300 30" layout_gravity="left top" resizebytext="false" textalign="left top" fixwidth="true" fixheight="true" hittest="false" fontname="brown_16_b"/>
+			<richtext name="abilTime" margin="165 60 0 0" rect="0 0 265 30" layout_gravity="left top" resizebytext="true" textalign="left top" fixwidth="true" fixheight="false" hittest="false" fontname="brown_16_b"/>
 			<richtext name="abilLevelMax" margin="345 38 0 0" rect="0 0 100 30" layout_gravity="left top" resizebytext="false" textalign="left top" fixwidth="true" fixheight="true" hittest="false" fontname="brown_16_b" format="%s{/}" param1="value" param1_def="aaaaa"/>
 			<richtext name="abilDesc" margin="15 90 0 0" rect="0 0 410 70" skin="ability_deck" layout_gravity="left top" resizebytext="true" textalign="left top" fixwidth="true" hittest="false" fontname="brown_16"/>
 			<richtext name="abilPrice" margin="20 0 0 13" rect="0 0 200 30" layout_gravity="left bottom" resizebytext="false" textalign="center center" fixwidth="true" fixheight="true" hittest="false" fontname="white_16_ol"/>
@@ -3133,6 +3133,30 @@
 			<richtext name="inputVis" margin="100 4 0 0" rect="0 0 120 24" format="{@st66d_y}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="withdrawVis" margin="0 4 160 0" rect="0 0 120 24" format="{@st66d_r}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
 			<richtext name="result" margin="0 4 5 0" rect="0 0 120 24" format="{@st66d}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+		</controls>
+	</controlset>
+	<controlset name="collection_deck" hittest="true" width="510" height="140" skin="test_skin_01_btn" hittestset="true" draw="true" stateskin="false">
+		<controls>
+			<groupbox name="gb_complete" layout_gravity="left top" rect="0 0 510 140" margin="0 0 0 0" draw="true" resizebyparent="false" scrollbar="false" skin="base_btn_clicked"/>
+			<picture name="numicon" layout_gravity="left top" rect="0 0 30 30" margin="5 5 0 0" stretch="true" image="collection_num"/>
+			<picture name="newicon" layout_gravity="left top" rect="0 0 30 30" margin="5 5 0 0" stretch="true" image="collection_new"/>
+			<picture name="compicon" layout_gravity="left top" rect="0 0 30 30" margin="5 5 0 0" stretch="true" image="collection_com"/>
+			<richtext name="collec_num" layout_gravity="left top" rect="0 0 30 30" margin="5 10 0 0" textalign="center center" resizebytext="true" fixwidth="true" fontname="white_18_b" format="%s" param1="value" param1_def="9"/>
+			<richtext name="collec_name" layout_gravity="left top" rect="0 0 260 20" margin="35 10 0 0" textalign="left center" resizebytext="true" fixwidth="true" fontname="black_18" format="%s" param1="name" param1_def="Collection_Name"/>
+			<richtext name="collec_count" layout_gravity="right top" rect="0 0 260 20" margin="0 10 10 0" textalign="right center" resizebytext="true" fixwidth="true" fontname="black_16_b" format="(%s/%s)" param1="curcount" param1_def="1" param2="maxcount" param2_def="9"/>
+			<groupbox name="gb_magic" layout_gravity="left top" rect="0 0 510 50" margin="0 40 0 0" draw="false" skin="test_skin_01_btn" resizebyparent="false" scrollbar="false"/>
+			<picture name="iconMagic" parent="gb_magic" layout_gravity="left top" rect="0 0 80 20" margin="50 0 0 0" stretch="true" image="collection_magic"/>
+			<richtext name="richMagic" parent="iconMagic" layout_gravity="left top" rect="0 0 80 20" margin="0 0 0 0" textalign="center center" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="white_16_b" format="%s" param1="value" param1_def="magic"/>
+			<richtext name="magicList" parent="gb_magic" layout_gravity="left top" rect="0 0 200 20" margin="135 0 0 0" textalign="left top" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="black_18" format="%s" param1="value" param1_def="magiclist"/>
+			<groupbox name="gb_items" layout_gravity="left top" rect="0 0 500 70" margin="5 60 0 0" draw="true" resizebyparent="false" scrollbar="false" skin="ability_deck"/>
+			<groupbox name="gb_collection" layout_gravity="left top" rect="0 0 510 140" margin="0 0 0 0" draw="false" resizebyparent="false" scrollbar="false" skin="test_skin_01_btn" hittest="true" hittestbox="true" LBtnDownScp="OPEN_DECK_DETAIL"/>
+		</controls>
+	</controlset>
+	<controlset name="collection_slot" hittest="true" hittestset="false" draw="false" width="55" height="55" skin="">
+		<controls>
+			<groupbox name="bg_slot" margin="0 0 0 0" rect="0 0 55 55" hittestbox="false" LBtnDownScp="" changecursor="true" skin="" layout_gravity="left top" scrollbar="false"/>
+			<slot name="slot" margin="0 0 0 0" layout_gravity="left top" rect="0 0 55 55" stretch="true" skin="slot_empty" oversound="button_over" enabledrag="false" enableselect="false" enablepop="false"/>
+			<button name="btn" caption="{@st41b}{/}" margin="0 0 0 0" rect="0 0 55 55" layout_gravity="center center" DropScp="COLLECTION_DROP" LBtnUpScp="COLLECTION_TAKE" texttooltip="{@st59}콜렉션 아이템을 등록합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
 		</controls>
 	</controlset>
 </controlsetlist>

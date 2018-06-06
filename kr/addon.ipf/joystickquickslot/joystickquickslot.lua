@@ -1,8 +1,8 @@
 --joystickquickslot.lua
 
---±âÁ¸ÀÇ Äü½½·Ô°ú °°Àº ÇÔ¼ö´Â ±×´ë·Î »ç¿ëÇÏ·Á°í ÇÏ¿´À¸³ª,
---Æ¯Á¤ °æ¿ìÀÇ ÇÇ¾¾ È¯°æ¿¡¼­´Â ÇÔ¼ö¸¦ Ã£À» ¼ö ¾ø´Ù´Â ¿¡·¯¸Ş½ÃÁö¸¦ ¶ç¿ö¼­
---±×³É ±âÁ¸ÀÇ ÇÔ¼öÀÇ ÀÌ¸§À» º¯°æÇÏ¿© »ç¿ëÇÏ±â·Î ÇÔ.
+--ê¸°ì¡´ì˜ í€µìŠ¬ë¡¯ê³¼ ê°™ì€ í•¨ìˆ˜ëŠ” ê·¸ëŒ€ë¡œ ì‚¬ìš©í•˜ë ¤ê³  í•˜ì˜€ìœ¼ë‚˜,
+--íŠ¹ì • ê²½ìš°ì˜ í”¼ì”¨ í™˜ê²½ì—ì„œëŠ” í•¨ìˆ˜ë¥¼ ì°¾ì„ ìˆ˜ ì—†ë‹¤ëŠ” ì—ëŸ¬ë©”ì‹œì§€ë¥¼ ë„ì›Œì„œ
+--ê·¸ëƒ¥ ê¸°ì¡´ì˜ í•¨ìˆ˜ì˜ ì´ë¦„ì„ ë³€ê²½í•˜ì—¬ ì‚¬ìš©í•˜ê¸°ë¡œ í•¨.
 
 MAX_SLOT_CNT = 40;
 SLOT_NAME_INDEX = 0;
@@ -14,7 +14,7 @@ function JOYSTICKQUICKSLOT_ON_INIT(addon, frame)
 	addon:RegisterMsg('JOYSTICK_QUICKSLOT_LIST_GET', 'JOYSTICK_QUICKSLOT_ON_MSG');
 	addon:RegisterMsg('JOYSTICK_INPUT', 'JOYSTICK_INPUT');
 
-
+	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JOYSTICK_JUNGTAN_SLOT_ON_MSG');
 
 	addon:RegisterMsg('JOYSTICK_RESTQUICKSLOT_OPEN', 'JOYSTICK_ON_RESTQUICKSLOT_OPEN');
 	addon:RegisterMsg('JOYSTICK_RESTQUICKSLOT_CLOSE', 'ON_JOYSTICK_RESTQUICKSLOT_CLOSE');
@@ -74,10 +74,10 @@ function UPDATE_JOYSTICK_QUICKSLOT_OVERHEAT(frame, ctrl, num, str, time)
 
 	UPDATE_JOYSTICK_INPUT(frame)
 
-	--[[¶«»§ÄÚµåÀÔ´Ï´Ù.
-	´ÙÀÌ¾ó·Î±×¸¦ ¿­ ¶§¸¶´Ù Á¶ÀÌ½ºÆ½¸ğµå¿¡¼­ Æ¯Á¤ Á¶°Ç¿¡
-	±×³É Äü½½·ÔÀÌ °°ÀÌ ¿­¸®´Â °æ¿ì°¡ ÀÖ¾î¼­ ±×³É ¿©±â¼­ °­Á¦·Î ²¨¹ö¸²
-	³Ø½¼ Å×½ºÆ® ´ëºñ ¶«»§ÀÌ°í Ã£¾Æ¼­ °íÃÄ¾ßÇÔ.
+	--[[ë•œë¹µì½”ë“œì…ë‹ˆë‹¤.
+	ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ì—´ ë•Œë§ˆë‹¤ ì¡°ì´ìŠ¤í‹±ëª¨ë“œì—ì„œ íŠ¹ì • ì¡°ê±´ì—
+	ê·¸ëƒ¥ í€µìŠ¬ë¡¯ì´ ê°™ì´ ì—´ë¦¬ëŠ” ê²½ìš°ê°€ ìˆì–´ì„œ ê·¸ëƒ¥ ì—¬ê¸°ì„œ ê°•ì œë¡œ êº¼ë²„ë¦¼
+	ë„¥ìŠ¨ í…ŒìŠ¤íŠ¸ ëŒ€ë¹„ ë•œë¹µì´ê³  ì°¾ì•„ì„œ ê³ ì³ì•¼í•¨.
 	]]--
 
 	local quickSlotFrame = ui.GetFrame("quickslotnexpbar");
@@ -105,6 +105,7 @@ function UPDATE_JOYSTICK_SLOT_OVERHEAT(slot)
 	skl = GetIES(skl:GetObject());
 	local useOverHeat = skl.UseOverHeat;
 	local curHeat = session.GetSklOverHeat(sklType);
+	curHeat = curHeat + useOverHeat - 1;
 	local maxOverHeat = session.GetSklMaxOverHeat(sklType);
 	local gauge = slot:GetSlotGauge();
 
@@ -159,7 +160,7 @@ function JOYSTICK_QUICKSLOT_ON_MSG(frame, msg, argStr, argNum)
 	]]--
 	--tolua.cast(slot, "ui::CSlot");
 	--print(msg)
--- ½ºÅ³°ú ÀÎº¥Åä¸® Á¤º¸¸¦ °¡Áö°í ¿Â´Ù.
+-- ìŠ¤í‚¬ê³¼ ì¸ë²¤í† ë¦¬ ì •ë³´ë¥¼ ê°€ì§€ê³  ì˜¨ë‹¤.
 	local skillList 		= session.GetSkillList();
 	local skillCount 		= skillList:Count();
 	local invItemList 		= session.GetInvItemList();
@@ -329,7 +330,7 @@ end
 
 function JOYSTICK_QUICKSLOT_ON_DROP(frame, control, argStr, argNum)
 
-	-- ¾ÆÀÌÄÜ ¼Â
+	-- ì•„ì´ì½˜ ì…‹
 	-- imcSound.PlaySoundItem('ui_item_drop');
 
 	local liftIcon 					= ui.GetLiftIcon();
@@ -338,7 +339,7 @@ function JOYSTICK_QUICKSLOT_ON_DROP(frame, control, argStr, argNum)
 	slot:SetEventScript(ui.RBUTTONUP, 'QUICKSLOTNEXPBAR_SLOT_USE');
 
 	if iconParentFrame:GetName() == 'joystickquickslot' then
-		-- NOTE : Äü½½·ÔÀ¸·Î ºÎÅÍ ÆËµÈ ¾ÆÀÌÄÜÀÎ °æ¿ì ±âÁ¸ ¾ÆÀÌÄÜ°ú ±³È¯ ÇÕ´Ï´Ù.
+		-- NOTE : í€µìŠ¬ë¡¯ìœ¼ë¡œ ë¶€í„° íŒëœ ì•„ì´ì½˜ì¸ ê²½ìš° ê¸°ì¡´ ì•„ì´ì½˜ê³¼ êµí™˜ í•©ë‹ˆë‹¤.
 		local popSlotObj 		  = liftIcon:GetParent();
 		if popSlotObj:GetName()  ~=  slot:GetName() then
 			local popSlot = tolua.cast(popSlotObj, "ui::CSlot");
@@ -381,7 +382,7 @@ end
 --[[
 function QUICKSLOTNEXPBAR_EXECUTE(slotIndex)
 --print(slotIndex)
-	-- ÈŞ½Ä¸ğµå ?½½·Ô Ã³¸®
+	-- íœ´ì‹ëª¨ë“œ ?ìŠ¬ë¡¯ ì²˜ë¦¬
 	local restFrame = ui.GetFrame('restquickslot')
 	if restFrame:IsVisible() == 1 then
 		REST_SLOT_USE(restFrame, slotIndex);
@@ -473,7 +474,7 @@ function UPDATE_JOYSTICK_INPUT(frame)
 		local gbox = frame:GetChildRecursively("L2_slot_Set"..setIndex);
 		if joystick.IsKeyPressed("JOY_L1L2") == 0 then
 ---------------------------------------------------------------------
--- sysmenu Á¶ÀÛ ³¢¿ö³ÖÀ½
+-- sysmenu ì¡°ì‘ ë¼ì›Œë„£ìŒ
 			if SYSMENU_JOYSTICK_IS_OPENED() == 1 then
 				SYSMENU_JOYSTICK_MOVE_LEFT();
 			end
@@ -489,7 +490,7 @@ function UPDATE_JOYSTICK_INPUT(frame)
 		local gbox = frame:GetChildRecursively("R2_slot_Set"..setIndex);
 		if joystick.IsKeyPressed("JOY_R1R2") == 0 then
 ---------------------------------------------------------------------
--- sysmenu Á¶ÀÛ ³¢¿ö³ÖÀ½
+-- sysmenu ì¡°ì‘ ë¼ì›Œë„£ìŒ
 			if SYSMENU_JOYSTICK_IS_OPENED() == 1 then
 				SYSMENU_JOYSTICK_MOVE_RIGHT();
 			end
@@ -542,4 +543,130 @@ function QUICKSLOT_INIT(frame, msg, argStr, argNum)
 	end
 end
 
+function JOYSTICK_JUNGTAN_SLOT_ON_MSG(frame, msg, str, itemType)
 
+	-- atk jungtan
+	if str == 'JUNGTAN_OFF' then
+
+		frame:SetUserValue("JUNGTAN_EFFECT", 0);
+		local timer = GET_CHILD(frame, "jungtantimer", "ui::CAddOnTimer");
+		timer:Stop();
+		imcSound.PlaySoundEvent('sys_booster_off');
+
+	elseif str == 'JUNGTAN_ON' then
+
+		frame:SetUserValue("JUNGTAN_EFFECT", itemType);
+		local timer = GET_CHILD(frame, "jungtantimer", "ui::CAddOnTimer");
+		timer:SetUpdateScript("UPDATE_JOYSTICKQUICKSLOT_JUNGTAN");
+		timer:Start(1);
+		imcSound.PlaySoundEvent('sys_atk_booster_on');
+
+	-- def jungtan
+	elseif str == 'JUNGTANDEF_OFF' then
+
+		frame:SetUserValue("JUNGTANDEF_EFFECT", 0);
+		local timer = GET_CHILD(frame, "jungtandeftimer", "ui::CAddOnTimer");
+		timer:Stop();
+		imcSound.PlaySoundEvent('sys_booster_off');
+
+	elseif str == 'JUNGTANDEF_ON' then
+
+		frame:SetUserValue("JUNGTANDEF_EFFECT", itemType);
+		local timer = GET_CHILD(frame, "jungtandeftimer", "ui::CAddOnTimer");
+		timer:SetUpdateScript("UPDATE_JOYSTICKQUICKSLOT_JUNGTANDEF");
+		timer:Start(1);
+		imcSound.PlaySoundEvent('sys_def_booster_on');
+
+	-- dispel magic
+	elseif str == 'DISPELDEBUFF_OFF' then
+
+		frame:SetUserValue("DISPELDEBUFF_EFFECT", 0);
+		local timer = GET_CHILD(frame, "dispeldebufftimer", "ui::CAddOnTimer");
+		timer:Stop();
+		imcSound.PlaySoundEvent('sys_booster_off');
+
+	elseif str == 'DISPELDEBUFF_ON' then
+
+		frame:SetUserValue("DISPELDEBUFF_EFFECT", itemType);
+		local timer = GET_CHILD(frame, "dispeldebufftimer", "ui::CAddOnTimer");
+		timer:SetUpdateScript("UPDATE_JOYSTICKQUICKSLOT_DISPEL_DEBUFF");
+		timer:Start(1);
+		imcSound.PlaySoundEvent('sys_def_booster_on');
+	
+	end
+	
+end
+
+
+
+function UPDATE_JOYSTICKQUICKSLOT_JUNGTAN(frame, ctrl, num, str, time)
+	if frame:IsVisible() == 0 then
+		return;
+	end
+
+	local jungtanID = tonumber( frame:GetUserValue("JUNGTAN_EFFECT") );
+	if jungtanID > 0 then
+		PLAY_JOYSTICKQUICKSLOT_UIEFFECT(frame, jungtanID);
+	end
+end
+
+function UPDATE_JOYSTICKQUICKSLOT_JUNGTANDEF(frame, ctrl, num, str, time)
+
+	if frame:IsVisible() == 0 then
+		return;
+	end
+
+	local jungtanDefID = tonumber( frame:GetUserValue("JUNGTANDEF_EFFECT") );
+	if jungtanDefID > 0 then
+		PLAY_JOYSTICKQUICKSLOT_UIEFFECT(frame, jungtanDefID);
+	end
+
+end
+
+function UPDATE_JOYSTICKQUICKSLOT_DISPEL_DEBUFF(frame, ctrl, num, str, time)
+	if frame:IsVisible() == 0 then
+		return;
+	end
+
+	local dispelmagicID = tonumber( frame:GetUserValue("DISPELDEBUFF_EFFECT") );
+	if dispelmagicID > 0 then
+		PLAY_JOYSTICKQUICKSLOT_UIEFFECT(frame, dispelmagicID);
+	end
+
+end
+
+function PLAY_JOYSTICKQUICKSLOT_UIEFFECT(frame, itemID)
+
+	local quickSlotList = session.GetQuickSlotList();
+	for i = 0, MAX_QUICKSLOT_CNT-1 do
+
+		local quickSlotInfo = quickSlotList:Element(i);
+		if quickSlotInfo ~= nil then
+			if quickSlotInfo.type == itemID then
+				local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
+				if slot ~= nil then
+					local posX, posY = GET_SCREEN_XY(slot);
+					if CHECK_SLOT_ON_ACTIVEJOYSTICKSLOTSET(frame, i) == true then
+						-- ìŠ¤ì¼€ì¼ì´ ë„ˆë¬´ í¬ê²Œ ë‚˜ì™€ì„œ ì¡°ê¸ˆ ì¤„ì„. í‚¤ë³´ë“œëª¨ë“œì™€ëŠ” ë‹¤ë¥´ê²Œ ì¡°ì´íŒ¨ë“œê°€ ì¡°ê¸ˆë” ì‘ë‹¤.
+						movie.PlayUIEffect('I_sys_item_slot', posX, posY, 0.7); 
+					end
+				end
+			end
+		end
+	end
+end
+
+-- í˜„ì¬ í™œì„±í™”ëœ ì¡°ì´íŒ¨ë“œ ìŠ¬ë¡¯ì…‹ì— ì†í•˜ëŠ” SlotNumber(ì‹¤ì œ ìŠ¬ë¡¯ ë²ˆí˜¸ê°€ ë„˜ì–´ì˜´)ì¸ì§€ í™•ì¸
+function CHECK_SLOT_ON_ACTIVEJOYSTICKSLOTSET(frame, slotNumber)
+	local Set1 = GET_CHILD_RECURSIVELY(frame,'Set1','ui::CGroupBox');
+	local Set2 = GET_CHILD_RECURSIVELY(frame,'Set2','ui::CGroupBox');
+
+	-- Set1ì´ í™œì„±í™” ë˜ì—ˆì„ë•ŒëŠ” ìŠ¬ë¡¯ë²ˆí˜¸ë¥¼ 0~19ê¹Œì§€ ê²€ì‚¬í•œë‹¤. (Slotì˜ ì‹¤ì œ NumberëŠ” 0ë¶€í„° ì‹œì‘í•¨)
+	if Set1:IsVisible() == 1 and slotNumber >= 0 and slotNumber < 20 then
+		return true;
+	-- Set2ì´ í™œì„±í™” ë˜ì—ˆì„ë•ŒëŠ” ìŠ¬ë¡¯ë²ˆí˜¸ë¥¼ 20~39ê¹Œì§€ ê²€ì‚¬í•œë‹¤. 
+	elseif Set2:IsVisible() == 1 and slotNumber >= 20 and slotNumber < 40 then
+		return true;
+	end
+	return false;
+end

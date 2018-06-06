@@ -74,7 +74,7 @@ function CHANGEJOB_CHECK_QUEST_SCP_CONDITION_IGNORE_SELECTEDJOB(questname)
 	local req_script_check = 0
 	local pc = GetMyPCObject();
 
-	-- Äù½ºÆ® ÇÔ¼ö Ã¤Å©  
+	-- ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ô¼ï¿½ Ã¤Å©  
     if questIES.Check_Script == 0 then
 		return 1
     elseif questIES.Script_Condition == 'AND' then
@@ -183,12 +183,12 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 	local myIconInfo = info.GetIcon( session.GetMyHandle() );
 	local headIndex = myIconInfo:GetHeadIndex();
 	
-	-- »çÁø ¹Ù²Ù±â
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù±ï¿½
 	local charpic = GET_CHILD(frame, "class_image", "ui::CPicture");
 	local charimgName = ui.CaptureFullStdImage(jobid, GETMYPCGENDER(), headIndex);
 	charpic:SetImage(charimgName);
 
-	-- Á÷¾÷¸í, ¼­Å¬, ¼³¸í
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å¬, ï¿½ï¿½ï¿½ï¿½
 	local groupbox_infotext = frame:GetChild('groupbox_infotext');
 	
 
@@ -208,7 +208,7 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 			jobclasscircle_richtext:ShowWindow(0)
 		end
 	elseif jobcircle == 1 then
-		jobclasscircle_richtext:ShowWindow(0) -- 1¼­Å¬
+		jobclasscircle_richtext:ShowWindow(0) -- 1ï¿½ï¿½Å¬
 	else
 		jobclasscircle_richtext:ShowWindow(1)
 		jobclasscircle_richtext:SetTextByKey('param_circle',jobcircle);
@@ -220,12 +220,12 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 	local jobclasscaption_richtext = GET_CHILD(frame, "classExplain", "ui::CRichText");
 	jobclasscaption_richtext:SetTextByKey("param_explain",jobinfo[captionstr]);
 
-	-- º°Á¡ ³Ö±â
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
 	--[[
 	local ratingstr = jobinfo.Rating
 	ratingstr_arg = {}
 
-	for i = 1, 2 do -- È¤½Ã º°Á¡ Ç×¸ñÀÌ ´Ã¾î³­´Ù¸é ÀÌ 3À» ´Ã¸± °Í
+	for i = 1, 2 do -- È¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½Ã¾î³­ï¿½Ù¸ï¿½ ï¿½ï¿½ 3ï¿½ï¿½ ï¿½Ã¸ï¿½ ï¿½ï¿½
 		ratingstr_arg[i] = string.sub(ratingstr,2*i-1,2*i-1)
 		ratingstr_arg[i] = ratingstr_arg[i] + 0
 
@@ -240,7 +240,7 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 		ratingText:SetTextByKey("rating", starrating);
 	end]]
 
-	-- ¼³¸í ³Ö±â
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
 	local ratingstr = jobinfo.Rating
 	
 	local ratingText1 = frame:GetChild('classRating1');
@@ -250,7 +250,7 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 	ratingText2:SetTextByKey("rating", jobinfo.ControlDifficulty);
 	
 
-	-- ½ºÅ³½½·Ô
+	-- ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½
 	local skillsGbox = frame:GetChild('groupbox_skills');
 	skillsGbox:RemoveAllChild();
 
@@ -302,7 +302,7 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 
 	end
 	
-	-- ÀüÁ÷ ¹öÆ° Ã³¸®
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° Ã³ï¿½ï¿½
 	local mbg = frame:GetChild("mbg");
 	local jobchangebutton = GET_CHILD(mbg, "class_select", "ui::CButton");
 	--skillslot:SetOverSound('win_open')
@@ -346,7 +346,7 @@ function CJ_CLICK_CHANGEJOBBUTTON(frame, slot, argStr, argNum)
 	local nowjobID = GetClass("Job", nowjobName).ClassID;
 	local havepts = GetRemainSkillPts(pc, nowjobID);
 	
-	--if havepts > 0 then -- ÀüÁ÷½Ã Æ÷ÀÎÆ® ³²¾ÆÀÖÀ¸¸é ÀüÁ÷ ¸·´Â ¼Ò½º
+	--if havepts > 0 then -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½
 		--ui.SysMsg(ScpArgMsg('PlzConsumeRemainSkillPts'));
 		--return;
 	--end
@@ -363,7 +363,7 @@ end
 
 function EXEC_CHANGE_JOB()
 
-	control.CustomCommand("CLICK_CHANGEJOB_BUTTON", exechangejobid) -- ¼­¹ö¿¡¼­ jobid¸¦ jobChanging¿¡ ÀúÀå
+	control.CustomCommand("CLICK_CHANGEJOB_BUTTON", exechangejobid) -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ jobidï¿½ï¿½ jobChangingï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	ui.CloseFrame('changejob')
 
 end
@@ -424,11 +424,11 @@ function UPDATE_CHANGEJOB(frame)
 
 		local jobCircle = session.GetJobGrade(cls.ClassID)
 
-		--½ÃÀÛÁ¡¿¡ µû¶ó ÀüÁ÷ Äù½ºÆ®°¡ ´Þ¶óÁö´Â °æ¿ì°¡ ÀÖ¾î¼­ ¿©±â¼­ Ã³¸®ÇÑ´Ù
+		--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Þ¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì°¡ ï¿½Ö¾î¼­ ï¿½ï¿½ï¿½â¼­ Ã³ï¿½ï¿½ï¿½Ñ´ï¿½
 		local ChangeJobQuestCircleText = "ChangeJobQuestCircle"..jobCircle+1
 		local pc = GetMyPCObject();
 		local sObj = GetSessionObject(pc, 'ssn_klapeda')
-		--½ÃÀÛÁöÁ¡¿¡ µû¶ó¼­ µÚ¿¡ ChangeJobQuestCircle_jobCircle+1_1 È¤Àº _2 ÄÃ·³¿¡¼­ Äù½ºÆ® ÀÌ¸§À» °¡Á®¿È
+		--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ ChangeJobQuestCircle_jobCircle+1_1 È¤ï¿½ï¿½ _2 ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if sObj.QSTARTZONETYPE == "StartLine1" then
 			ChangeJobQuestCircleText = ChangeJobQuestCircleText.."_1"	
 		elseif sObj.QSTARTZONETYPE == "StartLine2" then
@@ -448,22 +448,22 @@ function UPDATE_CHANGEJOB(frame)
 			flag =0
 		end
 		]]
-		if ishave == 1 then -- °®°í ÀÖ´Ù¸é ·©Å© °Ë»ç ÇØ¼­ ·©Å©¿¡ ¸Â´Â ¹è¿­¿¡ Ãß°¡
+		if ishave == 1 then -- ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½Å© ï¿½Ë»ï¿½ ï¿½Ø¼ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Â´ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½ß°ï¿½
 
 			local subindex = #hadjobarray + 1
 			hadjobarray[subindex] = {}
 			hadjobarray[subindex][1] = cls.ClassID
 
 			if canChangeJob == true then
-				hadjobarray[subindex][2] = CHANGE_JOB_TYPE_CAN_UPGRADE -- ÀÌ¹Ì°¡Á³À¸¸ç ¾÷±Û °¡´ÉÇÑ ¾êµéÀÌ¶ó°í ¸¶Å©;
+				hadjobarray[subindex][2] = CHANGE_JOB_TYPE_CAN_UPGRADE -- ï¿½Ì¹Ì°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½Å©;
 			else
-				hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE -- ÀÌ¹Ì°¡Áø¾êµéÀÌ¶ó°í ¸¶Å©;
+				hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE -- ï¿½Ì¹Ì°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½Å©;
 			end
 
 			hadjobarray[subindex][3] = cls.Name
 			hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);
 			
-			-- ¿¹¿ÜÃ³¸® 3¼­Å¬·Î ÀüÁ÷ÇßÀ¸¸é ´õÀÌ»ó ÀüÁ÷ÀÌ ºÒ°¡´ÉÇÏ°í, ÇØ´ç ÇÁ·ÎÆÛÆ¼°¡ ¾ø±â ¶§¹®¿¡ ¿¹¿ÜÃ³¸®¸¦ ÇÑ´Ù.
+			-- ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ 3ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 			if jobCircle+1 >= 4 then
 				hadjobarray[subindex][5] = "None"
 			else
@@ -475,7 +475,7 @@ function UPDATE_CHANGEJOB(frame)
 				pcjobinfotype = hadjobarray[subindex][2]
 			end
 
-		else -- °®°í ÀÖÁö´Â ¾ÊÀ¸³ª ÀüÁ÷Àº °¡´ÉÇÑ ¾êµé
+		else -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
 			if cls.CtrlType == pcCtrlType then
 				--[[
@@ -491,26 +491,31 @@ function UPDATE_CHANGEJOB(frame)
 				]]--
 
 				if clsRank <= session.GetPcTotalJobGrade()+1 then
-				-- È÷µç Á÷¾÷ Ã¼Å©´Â ³ªÁß¿¡ ¿©±â¿¡ ³¢¿öµÎ¸é µÈ´Ù
+				-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½È´ï¿½
 					if clsRank <= session.GetPcTotalJobGrade() then
 						if cls.HiddenJob == "NO" then 						
 						local subindex = #hadjobarray + 1
 						hadjobarray[subindex] = {}
 						hadjobarray[subindex][1] = cls.ClassID	
-						hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE_NOT -- »õ·Î ÃâÇöÀº ¾Æ´Ï³ª ÇÑ¹øµµ ¾ÈÂïÀº ¾êµéÀÌ¶ó°í ¸¶Å©;	
+						hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE_NOT -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï³ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½Å©;	
 						hadjobarray[subindex][3] = cls.Name
 						hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);						
 							hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]			
 						elseif cls.HiddenJob == "YES" then
 							local pcEtc = GetMyEtcObject();
 							if pcEtc["HiddenJob_"..cls.ClassName] == 300 then
-								local subindex = #hadjobarray + 1
-								hadjobarray[subindex] = {}
-								hadjobarray[subindex][1] = cls.ClassID	
-								hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- »õ·Î ÃâÇöÀº ¾Æ´Ï³ª ÇÑ¹øµµ ¾ÈÂïÀº ¾êµéÀÌ¶ó°í ¸¶Å©;	
-								hadjobarray[subindex][3] = cls.Name
-								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);	
-								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
+							    local questIES = GetClass('QuestProgressCheck',nowjobID[ChangeJobQuestCircleText])
+							    local req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
+							    local req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
+							    if req_joblvup == 'YES' and req_joblvdown == 'YES' then
+    								local subindex = #hadjobarray + 1
+    								hadjobarray[subindex] = {}
+    								hadjobarray[subindex][1] = cls.ClassID	
+    								hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï³ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½Å©;	
+    								hadjobarray[subindex][3] = cls.Name
+    								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);	
+    								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
+    							end
 							end
 						end
 					elseif cls.HiddenJob == "NO" then
@@ -518,23 +523,28 @@ function UPDATE_CHANGEJOB(frame)
 							local subindex = #hadjobarray + 1
 							hadjobarray[subindex] = {}
 							hadjobarray[subindex][1] = cls.ClassID
-							hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- »õ·Î¿î¾êµéÀÌ¶ó°í ¸¶Å©;	
+							hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½Å©;	
 							hadjobarray[subindex][3] = cls.Name
 							hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);							
 							hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]				
 						end
-					--È÷µç Á÷¾÷ °ü·Ã Ã³¸® && ·©Å©¿Í °ü°è ÀÖ´Â ¾ÖÀÓ. ·©Å©¿Í °ü°è¾ø´Â È÷µç Á÷¾÷ÀÌ ³ª¿Â´Ù¸é Ãß°¡ ¼öÁ¤ÇØ¾ßÇÔ
+					--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ && ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´Ù¸ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
 					elseif cls.HiddenJob == "YES" then
 						if canChangeJob == true then
 							local pcEtc = GetMyEtcObject();
 							if pcEtc["HiddenJob_"..cls.ClassName] == 300 then
-								local subindex = #hadjobarray + 1
-								hadjobarray[subindex] = {}
-								hadjobarray[subindex][1] = cls.ClassID
-								hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- »õ·Î¿î¾êµéÀÌ¶ó°í ¸¶Å©;	
-								hadjobarray[subindex][3] = cls.Name
-								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);			
-								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]					
+							    local questIES = GetClass('QuestProgressCheck',nowjobID[ChangeJobQuestCircleText])
+							    local req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
+							    local req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
+							    if req_joblvup == 'YES' and req_joblvdown == 'YES' then
+    								local subindex = #hadjobarray + 1
+    								hadjobarray[subindex] = {}
+    								hadjobarray[subindex][1] = cls.ClassID
+    								hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½Å©;	
+    								hadjobarray[subindex][3] = cls.Name
+    								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);			
+    								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]					
+    							end
 							end
 						end
 					end
@@ -549,12 +559,12 @@ function UPDATE_CHANGEJOB(frame)
 		end
 	end
 
-	-- ÀüÁ÷¼øÀ§ hotÇ¥½Ã
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ hotÇ¥ï¿½ï¿½
 	local firstHotJobID = 0;
 	local secontHotJobID = 0;
 	local hotCount = 0;
 	for i = 1, 2 do
-		if i == 2 and #hadjobarray < 4 then		-- 1Â÷ÀüÁ÷¶§´Â 1°³, ±×ÀÌÈÄ 2°³ Ç¥½Ã
+		if i == 2 and #hadjobarray < 4 then		-- 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ Ç¥ï¿½ï¿½
 			break;
 		end
 
@@ -574,7 +584,7 @@ function UPDATE_CHANGEJOB(frame)
 
 	local totaljobgrade = session.GetPcTotalJobGrade()
 
-	-- ½ÇÁ¦ »ý¼º. ÀÏ´Ü »õ Á÷¾÷µé º¸¿©ÁÖ´Â ºÎºÐ
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Îºï¿½
 	local jobsPerALine = 3
 	local jobbox_width = 280
 	local jobbox_height = 134
@@ -608,8 +618,8 @@ function UPDATE_CHANGEJOB(frame)
 	for i = 1, #hadjobarray do
 
 		if hadjobarray[i][2] ~= CHANGE_JOB_TYPE_HAVE then
-			--Á÷¾÷ ÄÁÆ®·Ñ ¼Â »ý¼º
-			--ÀÌ¹Ì 3½áÅ¬À» Âï¾úÀ» ¶©, º¸¿©ÁÖÁö ¸»ÀÚ.	
+			--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			--ï¿½Ì¹ï¿½ 3ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.	
 
 			if session.GetJobGrade(hadjobarray[i][1]) <= 2 and hadjobarray[i][5] ~= "None" then
 				local row = math.floor((index - 1) / jobsPerALine);
@@ -636,7 +646,7 @@ function UPDATE_CHANGEJOB(frame)
 				local jobnameCtrl = GET_CHILD(subClassCtrl, "jobname", "ui::CRichText");
 				local jobName = hadjobarray[i][3];
 
-				-- hotÁ÷¾÷ Ã¼Å© ºÎºÐ. ÀÌºÎºÐ ¼öÁ¤ÇÏ¸éµÊ
+				-- hotï¿½ï¿½ï¿½ï¿½ Ã¼Å© ï¿½Îºï¿½. ï¿½ÌºÎºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½
 				if hadjobarray[i][1] == firstHotJobID or hadjobarray[i][1] == secontHotJobID then
 					local charpic = GET_CHILD(subClassCtrl, "hotimg", "ui::CPicture");
 					charpic:SetImage("class_hot_img")
@@ -669,11 +679,11 @@ function UPDATE_CHANGEJOB(frame)
 
 	end
 
-	-- ÀÌÀü Á¤º¸µé Ãß°¡
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	for i = 0, totaljobgrade-1 do
 
 		local index = totaljobgrade - i
-		-- ÇöÀç Á÷¾÷°ú ¾Æ´Ñ ¾êµé ³ª´©ÀÚ
+		-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		local mains = session.GetMainSession();
 		local jobhistorysession = mains.jobHistory
 		local jobhistorycount = jobhistorysession:GetJobHistoryCount()
@@ -689,7 +699,7 @@ function UPDATE_CHANGEJOB(frame)
 		
 		if index == totaljobgrade then
 
-			-- Áö±Ý Á÷¾÷	
+			-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 			local jobhistory = jobhistorysession:GetJobHistory(index-1);
 			local jobinfoclass = GetClassByType('Job', jobhistory.jobID)
 
@@ -712,7 +722,7 @@ function UPDATE_CHANGEJOB(frame)
 			local jobclass = jobhistory.grade
 
 			if jobclass > 1 then
-				-- ÀÌ°Íµµ ¼­Å¬ ÀÖ´ÂÁö¿¡ µû¶ó¼­ ¹Ù²Ü °Í
+				-- ï¿½Ì°Íµï¿½ ï¿½ï¿½Å¬ ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ ï¿½ï¿½
 				button:SetImage("btn_upclass");	
 				jobclassCtrl:SetTextByKey("param_jobclass", jobclass);
 				jobclassCtrl:ShowWindow(1)
@@ -740,7 +750,7 @@ function UPDATE_CHANGEJOB(frame)
 			button:SetEventScriptArgString(ui.LBUTTONDOWN, tempstr);	
 		else
 
-			-- ¿¹Àü Á÷¾÷
+			-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			local jobhistory = jobhistorysession:GetJobHistory(index-1);
 			local jobinfoclass = GetClassByType('Job', jobhistory.jobID)
 
@@ -768,7 +778,7 @@ function UPDATE_CHANGEJOB(frame)
 			local jobclass = jobhistory.grade
 
 			if jobclass > 1 then
-				-- ÀÌ°Íµµ ¼­Å¬ ÀÖ´ÂÁö¿¡ µû¶ó¼­ ¹Ù²Ü °Í
+				-- ï¿½Ì°Íµï¿½ ï¿½ï¿½Å¬ ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ ï¿½ï¿½
 				button:SetImage("btn_upclass");	
 				jobclassCtrl:SetTextByKey("param_jobclass", jobclass);
 				jobclassCtrl:ShowWindow(1)
@@ -847,7 +857,7 @@ function CJ_CLICK_INFO(frame, slot, argStr, argNum)
 	local tempstring2 = string.sub(argStr,2,string.len(argStr))
 	local tempint2 = tempstring2 + 0
 
-	if tempint2 > 10 then -- job.xml¿¡ caption(circle) Ç×¸ñ Ãß°¡ ÇÊ¿ä
+	if tempint2 > 10 then -- job.xmlï¿½ï¿½ caption(circle) ï¿½×¸ï¿½ ï¿½ß°ï¿½ ï¿½Ê¿ï¿½
 	    tempint2 = 10
 	end
 

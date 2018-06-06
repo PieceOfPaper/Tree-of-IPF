@@ -82,3 +82,14 @@ function UNLOCK_MUSKETEER15(pc, sklName, limitLevel, abilIES)
 	return "LOCK_GRADE";
 
 end
+function UNLOCK_ELEMENTALIST25(pc, sklName, limitLevel, abilIES)
+
+	local jobGrade = GetJobGradeByName(pc, 'Char2_11');
+	local skl = GetSkill(pc, "Elementalist_Meteor")
+	if skl ~= nil and skl.LevelByDB >= 10 and jobGrade ~= nil and jobGrade >= 3 then
+		return "UNLOCK";
+	end
+
+	return "LOCK_GRADE";
+
+end

@@ -32,7 +32,8 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 		return;
 	end
 
-	local frame = ui.CreateNewFrame("buffseller_balloon", "SELL_BALLOON_" .. handle);
+	local frameName = "SELL_BALLOON_" .. handle;
+	local frame = ui.CreateNewFrame("buffseller_balloon", frameName);
 	if frame == nil then
 		return nil;
 	end
@@ -78,12 +79,16 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 	end	
 	frame:ShowWindow(1);
 
-	local offsetY = - 30;
+	local offsetY = - 100;
 	if sellType == AUTO_TITLE_FOOD_TABLE then
-		offsetY = - 150;
+		offsetY = -50;
 	end
-
-	FRAME_AUTO_POS_TO_OBJ(frame, handle, -frame:GetWidth() / 2, offsetY, 3, 1, 1);
+	
+	local actor = world.GetActor(handle);
+	if actor ~= nil then
+		actor:GetTitle():SetBuffSellerBalloonFrame(frameName, offsetY);
+	end
+	
 end
 
 function BUFFSELLER_OPEN(parent, ctrl)
