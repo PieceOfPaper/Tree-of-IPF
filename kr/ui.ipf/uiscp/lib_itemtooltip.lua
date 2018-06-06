@@ -26,7 +26,7 @@ end
 function IS_NEED_DRAW_GEM_TOOLTIP(invitem)
 
 	local cnt = 0
-	for i=0, invitem.MaxSocket-1 do
+	for i=0, invitem.MaxSocket_COUNT-1 do
 		if invitem['Socket_' .. i] > 0 then
 			cnt = cnt + 1;
 		end
@@ -217,7 +217,6 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 	end
 
 	local cnt = GroupCtrl:GetChildCount();
-	
 	local ControlSetObj			= GroupCtrl:CreateControlSet('tooltip_item_prop_socket', "ITEM_PROP_" .. cnt , 0, yPos);
 	local ControlSetCtrl		= tolua.cast(ControlSetObj, 'ui::CControlSet');
 
