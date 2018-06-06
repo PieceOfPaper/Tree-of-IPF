@@ -459,6 +459,7 @@
 		<Class ClassID="8094" ClassName="Pet_Soul_Def" Data="염 속성 저항력"/>
 		<Class ClassID="8095" ClassName="HaveToPutPetAtBarrack" Data="컴패니언과 함께하는 중에는 사용할 수 없습니다."/>
 		<Class ClassID="8096" ClassName="AutoAtk" Data="자동 공격"/>
+		<Class ClassID="8097" ClassName="CompanionIsNotActive" Data="컴패니언이 휴면 상태입니다."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="9001" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -5568,7 +5569,7 @@
 		<Class ClassID="102021" ClassName="WareHouse" Data="개인 창고"/>
 		<Class ClassID="102022" ClassName="UsableAbilityPoint" Data="사용가능한 특성 포인트"/>
 		<Class ClassID="102023" ClassName="DeclareWar" Data="전쟁 선포"/>
-		<Class ClassID="102024" ClassName="ReallyDeclareWar?" Data="정말 전쟁을 선포하시겠습니까?"/>
+		<Class ClassID="102024" ClassName="ReallyDeclareWar?" Data="전쟁을 선포하면, 전쟁이 끝나고 휴전 시간이 끝날 때까지 길드 해산을 할 수 없습니다.{nl}정말 전쟁을 선포하시겠습니까?"/>
 		<Class ClassID="102025" ClassName="GuildTower" Data="길드 타워"/>
 		<Class ClassID="102026" ClassName="DiscardTower" Data="타워 철거"/>
 		<Class ClassID="102027" ClassName="NextDeclareWarAbleTime" Data="다음 전쟁선포 가능 시간"/>
@@ -5599,7 +5600,7 @@
 		<Class ClassID="102052" ClassName="{PC}AlreadyBelongsToGuild" Data="{PC}님은 이미 길드에 속해있습니다"/>
 		<Class ClassID="102053" ClassName="ToMakeGuild,YouMustHaveJob{Name}" Data="길드를 만들거나 마스터 양도를 받기 위해선 {Name}직업으로 전직해야 합니다."/>
 		<Class ClassID="102054" ClassName="YouConsume{Price}SilverToMakeGuild" Data="길드를 만들기 위해선 {Price}실버가 소요됩니다."/>
-		<Class ClassID="102055" ClassName="YouCannotDisbandGuildInWarState" Data="전쟁 상태에서는 길드를 해산할 수 없습니다."/>
+		<Class ClassID="102055" ClassName="YouCannotDisbandGuildInWarState" Data="전쟁 중인 길드가 있는 상태에서는 길드 해산을 할 수 없습니다"/>
 		<Class ClassID="102056" ClassName="YouCantMakeObjectOnlyInFarmArea" Data="밭에서만 작물을 심거나 컴패니언을 키울 수 있습니다."/>
 		<Class ClassID="102057" ClassName="WarStartedWith{GuildName}" Data="{GuildName}길드와 전쟁이 시작되었습니다."/>
 		<Class ClassID="102058" ClassName="WarEndedWith{GuildName}" Data="{GuildName}길드와 전쟁이 종료되었습니다."/>
@@ -5696,6 +5697,7 @@
 		<Class ClassID="102149" ClassName="HadMyGuildSame" Data="이미 같은 길드에 속해있습니다"/>
 		<Class ClassID="102150" ClassName="HadMyGuildOther" Data="이미 다른 길드에 속해있습니다"/>
 		<Class ClassID="102151" ClassName="OtherLoaclSummonFail" Data="다른 지역에 있는 길드원을 소환할 수 없는 지역입니다."/>
+		<Class ClassID="102152" ClassName="YouCannotDisbandGuildInWarRestState" Data="휴전 중인 길드가 있는 상태에서는 길드 해산을 할 수 없습니다"/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>

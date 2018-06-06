@@ -848,6 +848,7 @@ ClassID,ActiveState,Level,ClassName,Name,Icon,Job,SkillCategory,AddSpend,Desc,Bu
 408016,1,1,"Monk3","철사장: 넉다운 제거","ability_cleric_Monk3","Char4_9","Monk_PalmStrike","SP/8","* 스킬 [철사장]의 넉다운 제거{nl}* 해당 특성이 ON이면 무조건 넘어지지 않음{nl}* SP 소모 8증가","","","NO","","SCR_ABIL_MONK3","NO",""
 408017,1,1,"Monk9","관음장: 넉다운 제거","ability_cleric_Monk9","Char4_9","Monk_HandKnife","SP/8","* 스킬 [관음장]의 넉다운 제거{nl}* 해당 특성이 ON이면 무조건 넘어지지 않음{nl}* SP 소모 8증가","","","NO","","SCR_ABIL_MONK9","NO",""
 408018,1,1,"Monk10","쌍쇄공: 스태미나 감소","ability_cleric_Monk10","Char4_9","Monk_DoublePunch","","* 스킬 [쌍쇄공] 사용 시 50% 확률로 스태미나 소모량 50% 감소","","","NO","","SCR_ABIL_MONK9","NO",""
+408019,1,1,"Monk26","몽크: 때리기 지속","ability_cleric_Monk26","Char4_9","All","","* 몽크가 거는 때리기 추가대미지 디버프의 지속시간이 5초 증가{nl}* 디버프: 쌍쇄공, 탄지신통","","","NO","","SCR_ABIL_NONE","NO",""
 409001,1,1,"Pardoner1","인둘겐티아: 강화","ability_cleric_Pardoner1","Char4_10","Pardoner_Indulgentia","","* 적에게 입히는 [인둘겐티아]의 대미지가 특성 레벨당 1% 증가","","","YES","","SCR_ABIL_NONE","NO",""
 409002,1,1,"Pardoner2","디서닝 이블: 대상 수 증가","ability_cleric_Pardoner2","Char4_10","Pardoner_DiscernEvil","SP/15","* 스킬 [디서닝 이블]에 적용 되는 대상이 특성 레벨당 1명씩 추가{nl}* SP 소모 15증가","","","NO","","SCR_ABIL_NONE","NO",""
 409003,1,1,"Pardoner_Dispeller","디스펠러 제작","ability_cleric_Pardoner_Dispeller","Char4_10","All","","* 해로운 효과를 한차례 막을 수 있는 디스펠러 제작 가능{nl}* 디스펠러 제작은 휴식모드에서 가능","","","YES","","SCR_ABIL_NONE","NO",""

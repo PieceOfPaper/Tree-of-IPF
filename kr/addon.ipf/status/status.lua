@@ -1688,7 +1688,7 @@ function STATUS_ACHIEVE_INIT(frame)
 			eachAchiveGauge:SetTextTooltip("(" .. nowpoint .. "/" .. cls.NeedCount ..")")
 
 			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 then
-				if equipAchieveName == cls.Name then
+				if equipAchieveName ~= 'None' and equipAchieveName == cls.Name then
 					eachAchiveDescTitle:SetText('{@stx2}'..cls.DescTitle..ScpArgMsg('Auto__(SayongJung)'));
 				else
 					eachAchiveDescTitle:SetText('{@stx2}'..cls.DescTitle);
