@@ -57,20 +57,13 @@ function CLEAR_MANAGEGEM_UI()
 
 	local gauge_potential = GET_CHILD_RECURSIVELY(frame, 'gauge_potential', "ui::CGauge");
 	gauge_potential:SetPoint(0, 1);
-
-	local groupbox_socket = GET_CHILD_RECURSIVELY(frame, 'groupbox_socket', 'ui::CGroupBox')
-	groupbox_socket:RemoveAllChild();
+	
+	local bodyGbox_midle = GET_CHILD_RECURSIVELY(frame, 'bodyGbox_midle');
+	bodyGbox_midle:RemoveAllChild();
 
 	local richtext_howmuch = GET_CHILD_RECURSIVELY(frame, 'richtext_howmuch', 'ui::CRichText')
 	richtext_howmuch:SetTextByKey("add",'--')
 	richtext_howmuch:SetTextByKey("remove",'--')
-
-	local groupbox_socket_radios = GET_CHILD_RECURSIVELY(frame, 'groupbox_socket_radios', 'ui::CGroupBox')
-	for i = 1, 5 do
-		local radioBtn = GET_CHILD_RECURSIVELY(groupbox_socket_radios, "removegem_radio"..i , "ui::CRadioButton");
-		radioBtn:SetCheck(false)
-		radioBtn:ShowWindow(0)
-	end
 
 	frame:SetUserValue("NOW_SELECT_INDEX",0);
 
@@ -117,6 +110,7 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
+
 	local frame = ui.GetFrame("managegem");
 	local STAR_SIZE = frame:GetUserConfig("STAR_SIZE")
 	local NEGATIVE_COLOR = frame:GetUserConfig("NEGATIVE_COLOR")
@@ -129,15 +123,11 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 	select_item_text:SetText(item.Name)
 
 	local gauge_potential = GET_CHILD_RECURSIVELY(frame, 'gauge_potential', "ui::CGauge");
-	gauge_potential:SetPoint(item.PR, itemClass.PR);
-
-	local groupbox_socket = GET_CHILD_RECURSIVELY(frame, 'groupbox_socket', 'ui::CGroupBox')
-	groupbox_socket:RemoveAllChild();
-
-	local groupbox_socket_radios = GET_CHILD_RECURSIVELY(frame, 'groupbox_socket_radios', 'ui::CGroupBox')
-
-	local nowusesocketcount = 0
-
+	gauge_potential:SetPoint(item.PR, item.MaxPR);
+	
+	local bodyGbox_midle = GET_CHILD_RECURSIVELY(frame, 'bodyGbox_midle');
+	frame:SetUserValue('MAX_SOCKET_CNT', item.MaxSocket);
+	local nowusesocketcount = 0;
 	for i = 0, item.MaxSocket - 1 do
 		local nowsockettype = item['Socket_' .. i]
 		local nowsocketitem = item['Socket_Equip_' .. i]
@@ -147,7 +137,7 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 			nowusesocketcount = nowusesocketcount + 1
 		end
 		
-		local subClassCtrl = groupbox_socket:CreateOrGetControlSet('eachsocket_in_managesocket', 'SOCKET_CSET_'..i , 0, i*90);
+		local subClassCtrl = bodyGbox_midle:CreateOrGetControlSet('eachsocket_in_managesocket', 'SOCKET_CSET_'..i , 0, i*90);
 		local socket_icon = GET_CHILD_RECURSIVELY(subClassCtrl,"socket_icon","ui::CPicture");
 		local socket_questionmark = GET_CHILD_RECURSIVELY(subClassCtrl,"socket_questionmark","ui::CPicture");
 		local socket_name = GET_CHILD_RECURSIVELY(subClassCtrl,"socket_name","ui::CRichText");
@@ -156,6 +146,7 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 
 		gradetext:ShowWindow(1)
 		socket_property:ShowWindow(1)
+		subClassCtrl:SetUserValue('SOCKET_NUMBER', i);
 
 		local socketname = ScpArgMsg('NotDecidedYet')
 		
@@ -174,17 +165,18 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 
 				gradetext:ShowWindow(0)
 				socket_property:ShowWindow(0)
-
-				local radioBtn = GET_CHILD_RECURSIVELY(groupbox_socket_radios, "removegem_radio"..i+1 , "ui::CRadioButton");
+				
+				local radioBtn = subClassCtrl:GetChild('radioBtn');
 				radioBtn:ShowWindow(0)
 			else
 			    local socketItemCls = GetClassByNumProp('Item', 'ClassID', nowsocketitem)
 			    socketname = socketItemCls.Name;
 
 				local socketCls = GetClassByType("Item", nowsocketitem);
-				socketicon = socketCls.Icon
+				socketicon = socketCls.Icon;
 
-				local radioBtn = GET_CHILD_RECURSIVELY(groupbox_socket_radios, "removegem_radio"..i+1 , "ui::CRadioButton");
+				local radioBtn = GET_CHILD(subClassCtrl, 'radioBtn', 'ui::CRadioButton');
+				radioBtn:SetCheck(false);
 				radioBtn:ShowWindow(1)
 
 				local level = GET_ITEM_LEVEL_EXP(socketCls,nowsocketitemexp)
@@ -216,7 +208,7 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 				socket_property:ShowWindow(1)
 			end
 		else
-			local radioBtn = GET_CHILD_RECURSIVELY(groupbox_socket_radios, "removegem_radio"..i+1 , "ui::CRadioButton");
+			local radioBtn = subClassCtrl:GetChild('radioBtn');
 			radioBtn:ShowWindow(0)
 			gradetext:ShowWindow(0)
 			socket_property:ShowWindow(0)
@@ -242,20 +234,24 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 	button_remove_gem:SetEventScriptArgString(ui.LBUTTONUP, item.Name);	
 
 	local button_make_socket = GET_CHILD_RECURSIVELY(frame, 'button_make_socket', 'ui::CButton')
-	button_make_socket:SetEventScriptArgString(ui.LBUTTONUP, item.Name);	
-
-	groupbox_socket:Resize(groupbox_socket:GetOriginalWidth(),item.MaxSocket * 90);
-
+	button_make_socket:SetEventScriptArgString(ui.LBUTTONUP, item.Name);
 end
 
 function CLICK_REMOVEGEM_RADIOBTN(parent)
-
 	local frame = ui.GetFrame("managegem");
-	local groupbox_socket_radios = GET_CHILD_RECURSIVELY(frame, 'groupbox_socket_radios', 'ui::CGroupBox')
-	local radioBtn = GET_CHILD_RECURSIVELY(groupbox_socket_radios, "removegem_radio1" , "ui::CRadioButton");
-	local selectedNum = GET_RADIOBTN_NUMBER(radioBtn);
-	frame:SetUserValue("NOW_SELECT_INDEX",selectedNum);
+	local radioBtn = parent:GetChild('radioBtn');
+	local MAX_SOCKET_CNT = frame:GetUserIValue('MAX_SOCKET_CNT');
 
+	for i = 0, MAX_SOCKET_CNT -1 do
+		local ctrlset = GET_CHILD_RECURSIVELY(frame, 'SOCKET_CSET_'..i);
+		local _radioBtn = GET_CHILD(ctrlset, 'radioBtn', 'ui::CRadioButton');
+		if _radioBtn ~= radioBtn then
+			_radioBtn:SetCheck(false);
+		else
+			radioBtn:SetCheck(true);
+			frame:SetUserValue('NOW_SELECT_INDEX', i + 1);
+		end
+	end
 end
 
 function CLICK_REMOVE_GEM_BUTTON(frame, slot, argStr, argNum)
@@ -274,15 +270,15 @@ function EXEC_REMOVE_GEM()
 	local frame = ui.GetFrame("managegem");
 	local tempiesid = frame:GetUserValue("TEMP_IESID");
 	local selectedNum = tonumber(frame:GetUserValue("NOW_SELECT_INDEX"));
+	local MAX_SOCKET_CNT = frame:GetUserIValue('MAX_SOCKET_CNT');
 
-	if selectedNum == nil or selectedNum < 1 or selectedNum > 5 then
+	if selectedNum == nil or selectedNum < 1 or selectedNum > MAX_SOCKET_CNT then
 		ui.MsgBox(ScpArgMsg("WRONG_INDEX"))
 		return;
 	end
-
-	local groupbox_socket_radios = GET_CHILD_RECURSIVELY(frame, 'groupbox_socket_radios', 'ui::CGroupBox')
-	local radioBtn = GET_CHILD_RECURSIVELY(groupbox_socket_radios, "removegem_radio1" , "ui::CRadioButton");
-
+	
+	local ctrlset = GET_CHILD_RECURSIVELY(frame, 'SOCKET_CSET_'..selectedNum-1);
+	local radioBtn = ctrlset:GetChild('radioBtn');
 	if tempiesid == 0 then
 		return;
 	end
