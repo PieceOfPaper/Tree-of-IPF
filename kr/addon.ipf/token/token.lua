@@ -31,15 +31,15 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 			txt = string.format("{img 67percent_image2 %d %d}", 100, 45) 
 		elseif str =="abilityMax" then
 			local img = string.format("{img 2plus_image %d %d}", 55, 45) 
-			prop:SetTextByKey("value", img..ScpArgMsg(str.."{COUNT}", "COUNT", value)); 
+			prop:SetTextByKey("value", img..ClMsg(str)); 
 			txt = string.format("{img 2plus_image2 %d %d}", 100, 45) 
 		elseif str == "speedUp"then
 			local img = string.format("{img 3plus_image %d %d}", 55, 45) 
-			prop:SetTextByKey("value",img.. ScpArgMsg(str.."{COUNT}", "COUNT", value)); 
+			prop:SetTextByKey("value",img.. ClMsg(str)); 
 			txt = string.format("{img 3plus_image2 %d %d}", 100, 45) 
 		else
 			local img = string.format("{img 4plus_image %d %d}", 55, 45) 
-			prop:SetTextByKey("value", img..ScpArgMsg(str.."{COUNT}", "COUNT", value)); 
+			prop:SetTextByKey("value", img..ClMsg(str)); 
 			txt = string.format("{img 4plus_image2 %d %d}", 100, 45) 
 		end
 
@@ -60,7 +60,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	if itemobj.ClassName == "PremiumToken" then
 		arg1 = 2592000
 	end
-	local endTime = GET_TIME_TXT(arg1)
+	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");
 	endTxt:SetTextByKey("value", endTime); 
 

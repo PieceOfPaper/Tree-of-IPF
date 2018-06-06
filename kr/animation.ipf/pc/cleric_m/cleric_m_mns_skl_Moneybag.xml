@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <AttachModel frame="0" XAC="artefact_moneybag" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="artefact_moneybag_ani.xsm"/>
-    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
-    <Sound frame="0.00" soundFile="skl_eff_coin_rustle"/>
-    <Sound frame="4.00" soundFile="skl_fgt_tackle_shot"/>
-    <Sound frame="5.00" soundFile="skl_fgt_tackle_cast_2"/>
+	<AttachModel frame="1" XAC="artefact_moneybag" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="artefact_moneybag_ani.xsm"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="0.00" soundFile="skl_eff_coin_rustle"/>
+	<Sound frame="4.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="5.00" soundFile="skl_fgt_tackle_cast_2"/>
 </ActionDesc>
