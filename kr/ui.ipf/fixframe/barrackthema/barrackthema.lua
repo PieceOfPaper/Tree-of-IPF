@@ -80,13 +80,13 @@ function BARRACK_THEMA_UPDATE(frame)
 	
 		local preViewBtn = ctrlSet:GetChild("preViewBtn");
 		local previewScp = string.format("BARRACKTHEMA_PREVIEW(\'%s\')", cls.ClassName);
-		preViewBtn:SetEventScript(ui.LBUTTONUP, previewScp);
+		preViewBtn:SetEventScript(ui.LBUTTONUP, previewScp, true);
 
 		local have = barrack.HaveThame(mapCls.ClassID, cls.Price);
 
 		if true == have then -- 현재 테마를 가지고 있을 때
 			local appliedScp = string.format("BARRACKTHEMA_APPLIED(\'%s\')", cls.ClassName);
-			changeBtn:SetEventScript(ui.LBUTTONUP, appliedScp);
+			changeBtn:SetEventScript(ui.LBUTTONUP, appliedScp, true);
 			changeBtn:ShowWindow(1);
 			buyBtn:ShowWindow(0);
 
@@ -99,7 +99,7 @@ function BARRACK_THEMA_UPDATE(frame)
 			end
 		else
 			local buyScp = string.format("BARRACK_BUY(\'%s\')", cls.ClassName);
-			buyBtn:SetEventScript(ui.LBUTTONUP, buyScp);
+			buyBtn:SetEventScript(ui.LBUTTONUP, buyScp, true);
 		end
 
 

@@ -124,9 +124,9 @@ function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, r
 
 	btn:SetTextTooltip("{@st59}" .. tooltipString);
     if hotkeyName ~= 'Guild' then
-	    btn:SetEventScript(ui.LBUTTONUP, string.format("ui.ToggleFrame('%s')", frameName));
+	    btn:SetEventScript(ui.LBUTTONUP, string.format("ui.ToggleFrame('%s')", frameName), true);
     else
-        btn:SetEventScript(ui.LBUTTONUP, 'UI_TOGGLE_GUILD()');
+        btn:SetEventScript(ui.LBUTTONUP, 'UI_TOGGLE_GUILD()', true);
     end
 	return rightMargin;
 end

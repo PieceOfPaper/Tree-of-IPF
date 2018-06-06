@@ -27,9 +27,11 @@ function INSERT_PET_RINGCOMMAND(bg, name, img, text, toolTipText, angle, index, 
 	local ctrlSet = bg:CreateControlSet('ringcmd_menu', name, ui.LEFT, ui.TOP, x, y, 0, 0);
 	ctrlSet = tolua.cast(ctrlSet, 'ui::CControlSet');
 
-	-- ÇØ´ç ÄÁÆ®·Ñ¼Â ¹öÆ° ´©¸£¸é ÇØ´ç ±â´É ½ÇÇàÇÏ±â À§ÇØ¼­ nameÀÇ ÇÔ¼ö¸¦ ¸¸µé¾î Ã³¸®Áß..
-	-- ÁÁÀº ±¸Á¶´Â ¾Æ´Ñµ¥.. µüÈ÷ ÁÁÀº »ý°¢ÀÌ ¶°¿À¸£Áö ¾Ê¾Æ¼­.. »ý°¢³ª¸é ¼öÁ¤ ¿¹Á¤.
-	ctrlSet:SetEventScript(ui.LBUTTONUP, cbFunc);
+	-- ï¿½Ø´ï¿½ ï¿½ï¿½Æ®ï¿½Ñ¼ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ nameï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½..
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ñµï¿½.. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½.. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+
+    local byFullString = string.find(cbFunc, '%(') ~= nil;
+	ctrlSet:SetEventScript(ui.LBUTTONUP, cbFunc, byFullString);
 
 	local pic = GET_CHILD(ctrlSet, "pic", "ui::CPicture");
 	pic:SetImage(img);

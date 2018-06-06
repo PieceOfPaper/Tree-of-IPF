@@ -314,7 +314,7 @@ function SHOW_QUEST_NPC(mapname, npcname)
 	CUSTOM_MAP_INIT(frame, mapname);
 
 	local closeBtn = frame:GetChild('colse');
-	closeBtn:SetEventScript(ui.LBUTTONUP, 'ui.CloseFrame("Map_Custom")');
+	closeBtn:SetEventScript(ui.LBUTTONUP, 'ui.CloseFrame("Map_Custom")', true);
 
 	local pNpcIcon = frame:GetChild("_NPC_"..  monnpcprop:GetType() .. "_0");
 	if pNpcIcon == nil then

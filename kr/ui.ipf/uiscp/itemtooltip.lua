@@ -584,6 +584,9 @@ function SET_ITEM_DESC(value, desc, item)
 end
 
 function ICON_SET_INVENTORY_TOOLTIP(icon, invitem, strarg, itemCls)
+    if itemCls == nil then
+        return;
+    end
 
 	if strarg == nil then
 		strarg = 'inven';

@@ -310,7 +310,7 @@ function SET_MAP_MONGEN_NPC_INFO(picture, mapprop, WorldPos, MonProp, mapNpcStat
 
 	local cheat = string.format("//setpos %d %d %d", WorldPos.x, WorldPos.y, WorldPos.z);
 	local scpstr = string.format( "ui.Chat(\"%s\")", cheat);
-	picture:SetEventScript(ui.LBUTTONUP, scpstr);
+	picture:SetEventScript(ui.LBUTTONUP, scpstr, true);
 
 	local idx = GET_NPC_STATE(MonProp:GetDialog(), statelist, npclist, questIESlist);
 	local Icon, state, questclsid, iconState = GET_NPC_ICON(idx, statelist, questIESlist);
