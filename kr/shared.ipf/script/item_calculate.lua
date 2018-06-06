@@ -272,6 +272,66 @@ function GET_REINFORCE_ADD_VALUE_DR(item, ignoreReinf, reinfBonusValue)
 	return math.floor(((reinfValue * star) + buffValue) * (item.ReinforceRatio / 100));
 end
 
+function GET_SOCKET_ADD_VALUE(item, i)
+	local socket = item['Socket_' .. i]
+	local gem = item['Socket_Equip_' .. i]
+	local gemExp = item['SocketItemExp_' .. i]
+	local gemLv = item['Socket_JamLv_' ..i]
+
+	if socket <= 0 then
+        return;
+    end
+	if gem == 0 then
+        return;
+    end
+    
+    local props = {};
+	local gemclass = GetClassByType("Item", gem);
+	local lv = GET_ITEM_LEVEL_EXP(gemclass, gemExp);
+	local prop = geItemTable.GetProp(gem);
+	local socketProp = prop:GetSocketPropertyByLevel(lv);
+	local type = item.ClassID;
+	local benefitCnt = socketProp:GetPropCountByType(type);
+	for i = 0 , benefitCnt - 1 do
+		local benefitProp = socketProp:GetPropAddByType(type, i);
+        props[#props + 1] = {benefitProp:GetPropName(), benefitProp.value}
+	end
+    
+	local penaltyCnt = socketProp:GetPropPenaltyCountByType(type);
+	local penaltyLv = lv - gemLv;
+	if 0 > penaltyLv then
+		penaltyLv = 0;
+	end
+	local socketPenaltyProp = prop:GetSocketPropertyByLevel(penaltyLv);
+	for i = 0 , penaltyCnt - 1 do
+		local penaltyProp = socketPenaltyProp:GetPropPenaltyAddByType(type, i);
+		local value = penaltyProp.value
+        penaltyProp:GetPropName()
+        props[#props + 1] = {penaltyProp:GetPropName(), penaltyProp.value}
+	end
+    return props;
+end
+
+function GET_ITEM_SOCKET_ADD_VALUE(targetPropName, item)
+	local value = 0;
+    local sockets = {};
+    for i=0, item.MaxSocket-1 do
+        sockets[#sockets + 1] = GET_SOCKET_ADD_VALUE(item, i)
+	end
+
+    for i = 1, #sockets do
+        local props = sockets[i];
+        for j = 1, #props do
+            local prop = props[j]
+            if prop[1] == targetPropName then                
+                value = value + prop[2];
+            end
+        end
+    end
+
+    return value;
+end
+
 function GET_REINFORCE_ADD_VALUE(prop, item, ignoreReinf, reinfBonusValue)
 	if ignoreReinf == 1 then
 		return 0;
@@ -1270,7 +1330,7 @@ function IS_PERSONAL_SHOP_TRADABLE(itemCls)
 	end
 
 	local itemProp = geItemTable.GetPropByName(itemCls.ClassName);
-	if itemProp:IsExchangeable() == false or itemCls.ItemType == "Equip" then
+	if itemProp:IsEnableUserTrade() == false or itemCls.ItemType == "Equip" then
 		return 0;
 	end
 

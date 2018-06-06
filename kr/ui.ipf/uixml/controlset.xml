@@ -151,7 +151,7 @@
 			<richtext name="weight_text" format="무게 : %s" param1="weight" param1_def="999" layout_gravity="right top" textalign="right center" rect="0 0 140 24" margin="0 50 15 0" fixwidth="true" hittest="false" fontname="brown_18"/>
 			<richtext name="grade" layout_gravity="left top" textalign="center center" rect="0 0 80 30" margin="10 107 0 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="brown_18"/>
 			<richtext name="prop_text" format="%s" param1="" param1_def="" layout_gravity="left bottom" textalign="left center" rect="0 0 170 24" margin="95 0 0 30" fixwidth="false" hittest="false" fontname="brown_18"/>
-			<richtext name="noTrade_cnt" format="{#62100c}거래불가 개수 : %s개" param1="count" param1_def="999" layout_gravity="left bottom" textalign="left center" rect="0 0 300 24" margin="95 0 0 10" fixwidth="true" hittest="false" fontname="red_18"/>
+			<richtext name="noTrade_cnt" format="{#62100c}거래불가 개수 : %s개" param1="count" param1_def="999" layout_gravity="left bottom" textalign="left center" rect="0 0 170 24" margin="95 0 0 10" fixwidth="true" hittest="false" fontname="red_18"/>
 		</controls>
 	</controlset>
 	<controlset name="tooltip_gem_tradability" hittest="true" width="330" height="70">

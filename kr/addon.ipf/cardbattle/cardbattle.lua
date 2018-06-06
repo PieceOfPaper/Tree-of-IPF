@@ -205,7 +205,9 @@ function UPDATE_CARDBATTLE_FRAME(frame, info)
 	info = tolua.cast(info, "CARD_BATTLE_TABLE_INFO");
 	local wincount_1 = frame:GetChild("wincount_1");
 	
-
+	if -1 == info.targetWinCount then
+		info.targetWinCount = 0;
+	end
 	wincount_1:SetTextByKey("value", info.targetWinCount);
 	
 	local wincount_2 = frame:GetChild("wincount_2");
@@ -383,6 +385,12 @@ function DROP_CARDBATTLE_CARD(frame)
 		ui.SysMsg(ClMsg("PutOnlyCardItem"));
 		return;
 	end
+
+    if obj.BelongingCount > 0 then
+        ui.SysMsg(ClMsg('ItemIsNotTradable'));
+        return;
+    end
+
 	imcSound.PlaySoundEvent("sys_card_battle_icon_equip");
 	local ownerHandle = frame:GetUserIValue("OWNER_HANDLE");
 	

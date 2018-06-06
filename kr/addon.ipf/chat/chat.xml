@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
-<uitile name="chat" x="0" y="0" width="500" height="36" bodycolor="#ffffff" bodyalpha="0">
+<uitile name="chat" x="0" y="0" width="470" height="36" bodycolor="#ffffff" bodyalpha="0">
 	<frame title="{@st44}채팅{/}" layout_gravity="center bottom" fasthide="true" scale_align="center bottom" margin="0 0 0 225"/>
 	<script OpenScp="CHAT_OPEN_INIT" CloseScp="CHAT_CLOSE_SCP" LBtnDownScp="CHAT_CLICK_CHECK"/>
-	<input moveable="true" minwidth="290" maxwidth="500" maxheight="1000" minheight="150" resize="false" hittestframe="true"/>
+	<input moveable="true" minwidth="290" maxwidth="470" maxheight="1000" minheight="150" resize="false" hittestframe="true"/>
 	<layer layerlevel="101"/>
 	<option hideable="true" visible="false" closebutton="false" useimageitem="true"/>
 	<userconfig COLOR_MY="ffe86a" COLOR_TO="ffffff" COLOR_MY_ALL="ffe86a" COLOR_TO_ALL="ffffff" COLOR_MY_WHI="7cd8ff" COLOR_TO_WHI="b4ddef" COLOR_MY_PARTY="93c95a" COLOR_TO_PARTY="bceb89" COLOR_MY_SHOUT="ff7c0f" COLOR_TO_SHOUT="ffa800" COLOR_MY_GUILD="a735dc" COLOR_TO_GUILD="be80ce" COLOR_BTN_1="ffffff" COLOR_BTN_2="ff8a00" COLOR_BTN_3="93c95a" COLOR_BTN_4="e596ff" COLOR_BTN_5="7cd8ff"/>
 	<controls>
-		<groupbox name="edit_bg" rect="0 0 490 36" margin="5 0 0 0" layout_gravity="left top" draw="true" frameOpenAnim="pip_simbol_ani_3" hittestbox="false" resizebyparent="false" scrollbar="false" skin="inventory_serch"/>
+		<groupbox name="edit_bg" rect="0 0 460 36" margin="5 0 0 0" layout_gravity="left top" draw="true" frameOpenAnim="pip_simbol_ani_3" hittestbox="false" resizebyparent="false" scrollbar="false" skin="inventory_serch"/>
 		<groupbox name="edit_to_bg" rect="0 0 100 32" margin="60 0 0 0" layout_gravity="left center" draw="true" frameOpenAnim="pip_simbol_ani_3" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg"/>
 		<richtext name="title_to" parent="edit_to_bg" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="To. WWWWWWWW 외 1" fixwidth="false" fontname="white_16_ol" hittest="true" resizebytext="true" LBtnDownScp="CHAT_CLICK_CHECK"/>
 		<edit name="mainchat" rect="0 0 415 30" margin="10 0 0 0" layout_gravity="left center" OffsetForDraw="5 0" border="0 0 0 0" drawbackground="false" fontname="white_20" maxlen="512" maxlenfunc="CHAT_MAXLEN_MSG" resizebytext="false" skin="None" allowtag="color img link size ul" typingsound="chat_typing" LBtnDownScp="CHAT_CLICK_CHECK"/>
 		<setfocus name="mainchat_1" layout_gravity="left top"/>
 		<button name="button_type" rect="0 0 66 36" margin="3 0 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="button_chat_kind" oversound="button_cursor_over_2" caption="type"/>
-		<button name="button_emo" rect="0 0 36 36" margin="0 0 39 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="button_chat_emo" oversound="button_cursor_over_2"/>
-		<button name="button_option" rect="0 0 36 36" margin="0 0 6 0" layout_gravity="right top" LBtnDownScp="CHAT_OPEN_OPTION" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="button_chat_option" oversound="button_cursor_over_2"/>
+		<button name="button_emo" rect="0 0 36 36" margin="0 0 6 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="button_chat_emo" oversound="button_cursor_over_2"/>
+		<!--<button name="button_option" rect="0 0 36 36" margin="0 0 6 0" layout_gravity="right top" LBtnDownScp="CHAT_OPEN_OPTION" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="button_chat_option" oversound="button_cursor_over_2"/>-->
 	</controls>
 </uitile>

@@ -3,7 +3,7 @@
 
 function WHISPER_CHAT(commname)
 
-	local	setText = string.format("\"%s ", commname);
+	local	setText = string.format('\"%s ', commname);
 	SET_CHAT_TEXT(setText);
 
 end

@@ -212,7 +212,7 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
  end
 
 --Icon Use
-function ICON_USE(object, reAction)	
+function ICON_USE(object, reAction)
 	local iconPt = object;
 	if iconPt  ~=  nil then
 		local icon = tolua.cast(iconPt, 'ui::CIcon');
@@ -229,34 +229,19 @@ function ICON_USE(object, reAction)
 					local usable = itemObj.Usable;
 					if usable ~= 'ITEMTARGET' then						
 						local invenItemInfo = GET_ICON_ITEM(iconInfo);
-						if false and usable == 'GROUND' then
-							
-						else
-							if invenItemInfo ~= nil then
-								local itemtype = iconInfo.type;
-								local curTime = item.GetCoolDown(itemtype);
-								local stat = info.GetStat(session.GetMyHandle());
-								if curTime ~= 0 or stat.HP <= 0 then
-									imcSound.PlaySoundEvent("skill_cooltime");
-									return;
-								end
-							
-								--[[
-								local itemCount = invenItemInfo.count;
-								if itemCount >= 0 then
-									local equipSound = itemObj.EquipSound;
-									imcSound.PlaySoundEvent(equipSound);
-									icon:SetOnCoolTimeEndScp('QUICKSLOTNEXPBAR_ICON_COUNT');
-									icon:SetOnCoolTimeEndArgNum(itemCount);
-									icon:SetText(itemCount, 'quickiconfont', 'right', 'bottom', -2, 1);
-								end
-								]]
-								
-								INV_ICON_USE(invenItemInfo);
+						if invenItemInfo ~= nil then
+							local itemtype = iconInfo.type;
+							local curTime = item.GetCoolDown(itemtype);
+							local stat = info.GetStat(session.GetMyHandle());
+							if curTime ~= 0 or stat.HP <= 0 then
+								imcSound.PlaySoundEvent("skill_cooltime");
 								return;
 							end
-							item.UseByInvIndex(iconInfo.ext);
+								
+							INV_ICON_USE(invenItemInfo);
+							return;
 						end
+						item.UseByInvIndex(iconInfo.ext);
 					end
 				end
 			end

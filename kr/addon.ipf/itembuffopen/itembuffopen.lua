@@ -40,12 +40,12 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 	local checkFunc = _G["ITEMBUFF_NEEDITEM_" .. frame:GetUserValue("SKILLNAME")];
 	local name, cnt = checkFunc(pc, obj);
 
-	-- �̹����� �ְ�
+	-- 이미지를 넣고
 	SET_SLOT_ITEM_IMANGE(slot, invItem);
 	
 	local repairbox = frame:GetChild("repair");
 	local slotNametext = repairbox:GetChild("slotName");
-	-- �̸��� ��ȭ ��ġ�� ǥ���Ѵ�.
+	-- 이름과 강화 수치를 표시한다.
 	slotNametext:SetTextByKey("txt", obj.Name);
 
 	local skillLevel = frame:GetUserIValue("SKILLLEVEL");
@@ -60,7 +60,7 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 	end	
 
 	local nameList, fromList, toList = ExtractDiffProperty(obj, nextObj);
-	-- ȿ���� ǥ���Ѵ�.
+	-- 효과를 표시한다.
 	local effectBox = repairbox:GetChild("effectGbox");
 	local maxtextStr = effectBox:GetChild("maxpower");
 	local mintextStr = effectBox:GetChild("minpower");
@@ -74,29 +74,29 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 	local timestr = effectBox:GetChild("timestr");
 
 	if obj.GroupName == "Weapon" or obj.GroupName == "SubWeapon" then
-		if obj.BasicTooltipProp == "ATK" then -- �ִ�, �ּ� ���ݷ�
+		if obj.BasicTooltipProp == "ATK" then -- 최대, 최소 공격력
 			maxtext:SetTextByKey("txt", obj.MAXATK .." > ".. nextObj.MAXATK);
 			mintext:SetTextByKey("txt", obj.MINATK .." > ".. nextObj.MINATK);
-		elseif obj.BasicTooltipProp == "MATK" then -- �������ݷ�
+		elseif obj.BasicTooltipProp == "MATK" then -- 마법공격력
 			maxtext:SetTextByKey("txt", obj.MATK .." > ".. nextObj.MATK);
 			mintext:SetTextByKey("txt", "");
 		end
 	else
-		if obj.BasicTooltipProp == "DEF" then -- ���
+		if obj.BasicTooltipProp == "DEF" then -- 방어
 			maxtext:SetTextByKey("txt", obj.DEF .." > ".. nextObj.DEF);
-		elseif obj.BasicTooltipProp == "MDEF" then -- �Ǽ��縮
+		elseif obj.BasicTooltipProp == "MDEF" then -- 악세사리
 			maxtext:SetTextByKey("txt", obj.MDEF .." > ".. nextObj.MDEF);
-		elseif  obj.BasicTooltipProp == "HR" then -- ����
+		elseif  obj.BasicTooltipProp == "HR" then -- 명중
 			maxtext:SetTextByKey("txt", obj.HR .." > ".. nextObj.HR);
-		elseif  obj.BasicTooltipProp == "DR" then -- ȸ��
+		elseif  obj.BasicTooltipProp == "DR" then -- 회피
 			maxtext:SetTextByKey("txt", obj.DR .." > ".. nextObj.DR);
-		elseif  obj.BasicTooltipProp == "MHR" then -- ��������
+		elseif  obj.BasicTooltipProp == "MHR" then -- 마법관통
 			maxtext:SetTextByKey("txt", obj.MHR .." > ".. nextObj.MHR);
-		elseif  obj.BasicTooltipProp == "ADD_FIRE" then -- ȭ��
+		elseif  obj.BasicTooltipProp == "ADD_FIRE" then -- 화염
 			maxtext:SetTextByKey("txt", obj.FIRE .." > ".. nextObj.FIRE);
-		elseif  obj.BasicTooltipProp == "ADD_ICE" then -- ����
+		elseif  obj.BasicTooltipProp == "ADD_ICE" then -- 빙한
 			maxtext:SetTextByKey("txt", obj.ICE .." > ".. nextObj.ICE);
-		elseif  obj.BasicTooltipProp == "ADD_LIGHTNING" then -- ����
+		elseif  obj.BasicTooltipProp == "ADD_LIGHTNING" then -- 전격
 			maxtext:SetTextByKey("txt", obj.LIGHTNING .." > ".. nextObj.LIGHTNING);
 		end
 		mintext:SetTextByKey("txt", "");
@@ -128,7 +128,7 @@ function SQUIRE_BUFF_CENCEL_CHECK(frame)
 	local handle = frame:GetUserIValue("HANDLE");
 	local skillName = frame:GetUserValue("SKILLNAME");
 
-	-- �׷� �̰��� �Ǹ���
+	-- 그럼 이것은 판매자
 	if handle == session.GetMyHandle() then
 		if "Squire_Repair" == skillName then
 			SQIORE_REPAIR_CENCEL();
@@ -136,7 +136,7 @@ function SQUIRE_BUFF_CENCEL_CHECK(frame)
 		end
 	end
 
-	-- ����
+	-- 유저
 	session.autoSeller.BuyerClose(AUTO_SELL_SQUIRE_BUFF, handle);
 end
 
@@ -303,7 +303,7 @@ function ITEMBUFF_UPDATE_HISTORY(frame)
 			local propNameValue = sList[j];
 			local propToken = StringSplit(propNameValue, "@");
 			local strBuf = string.format("%s %s -> %s", propToken[1] , propToken[2], propToken[3]);
-			if 3 < #propToken then -- ��������� �� ���ٵ�
+			if 3 < #propToken then -- 무기수리할 때 오바됨
 				strBuf = strBuf .. "{nl}" .. string.format("%s %s -> %s", propToken[4] , propToken[5], propToken[6]);
 			end
 			if j > 3 then

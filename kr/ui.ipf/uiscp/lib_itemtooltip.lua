@@ -1100,4 +1100,151 @@ function GET_DUR_TEXT(invitem)
 	return dureinfo;
 end
 
+function TOGGLE_TRADE_OPTION(tradabilityCset, invitem, pictureName, richtextName, property)
+    local styleTradeOn = tradabilityCset:GetUserConfig('STYLE_TRADE_ON');
+    local styleTradeOff = tradabilityCset:GetUserConfig('STYLE_TRADE_OFF');
 
+	local picture = GET_CHILD(tradabilityCset, pictureName, 'ui::CPicture')
+	local richtext = GET_CHILD(tradabilityCset, richtextName, 'ui::CRichText')
+
+	if IS_ENABLE_TRADE_BY_TRADE_TYPE(invitem, property) == true then
+		picture:SetImage('tradecondition_on')
+        richtext:SetTextByKey('style', styleTradeOn);
+    else
+	    picture:SetImage('tradecondition_off')
+        richtext:SetTextByKey('style', styleTradeOff);
+    end
+end
+
+function IS_ENABLE_TRADE_BY_TRADE_TYPE(invitem, property)
+    if property == "ShopTrade" then
+	    return IS_ENABLED_SHOP_TRADE_ITEM(invitem)
+    elseif property == "UserTrade" then
+	    return IS_ENABLED_USER_TRADE_ITEM(invitem)
+    elseif property == "TeamTrade" then
+	    return IS_ENABLED_TEAM_TRADE_ITEM(invitem)
+    elseif property == "MarketTrade" then
+	    return IS_ENABLED_MARKET_TRADE_ITEM(invitem)
+    else
+        IMC_ERROR("NORMAL", "IS_ENABLE_TRADE_BY_TRADE_TYPE ERROR!!")
+    end
+end
+
+function IS_ENABLE_TRADE_BY_TRADE_TYPE(invitem, property)
+    if property == "ShopTrade" then
+	    return IS_ENABLED_SHOP_TRADE_ITEM(invitem)
+    elseif property == "UserTrade" then
+	    return IS_ENABLED_USER_TRADE_ITEM(invitem)
+    elseif property == "TeamTrade" then
+	    return IS_ENABLED_TEAM_TRADE_ITEM(invitem)
+    elseif property == "MarketTrade" then
+	    return IS_ENABLED_MARKET_TRADE_ITEM(invitem)
+    else
+        IMC_ERROR("NORMAL", "IS_ENABLE_TRADE_BY_TRADE_TYPE ERROR!!")
+    end
+end
+
+function ON_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
+	local frame = ui.GetFrame("inventory")
+    if frame == nil then
+        return;
+    end
+	local wholeitem = ui.GetTooltip("wholeitem")
+	local wholeitem_link = ui.GetFrame("wholeitem_link")
+    
+    local is_frame_visible = frame ~= nil and frame:IsVisible() == 1;
+    local is_wholeitem_visible = wholeitem ~= nil and wholeitem:IsVisible() == 1;
+    local is_wholeitem_link_visible = wholeitem_link ~= nil and wholeitem_link:IsVisible() == 1;
+    
+    if is_frame_visible == false and is_wholeitem_link_visible == false then
+        return;
+    end
+
+    isToggle = IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
+	if isToggle == 1 then
+		frame:SetUserValue("IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC", 0);
+	else
+        frame:SetUserValue("IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC", 1);
+	end
+
+    ON_REFRESH_ITEM_TOOLTIP()
+end
+
+function IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
+    local frame = ui.GetFrame("inventory")
+    if frame == nil then
+        return 0;
+    end
+    local value = frame:GetUserValue("IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC");
+	return tonumber(value)
+end
+
+function IS_DISABLED_TRADE(invitem)
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+	local blongProp = TryGetProp(invitem, "BelongingCount");
+	local blongCnt = 0;
+	if blongProp ~= nil then
+		blongCnt = tonumber(blongProp);
+	end
+
+    if invitem.MaxStack <= 1 and (GetTradeLockByProperty(invitem) ~= "None" or 0 <  blongCnt) then
+        return true;
+    end
+    return false;
+end
+
+function IS_ENABLED_SHOP_TRADE_ITEM(invitem)
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+    if false == itemProp:IsEnableShopTrade() then
+        return false;
+    else
+        return true;
+    end
+end
+function IS_ENABLED_USER_TRADE_ITEM(invitem)
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+
+	if false == itemProp:IsEnableUserTrade()then
+        return false;
+	elseif true == IS_DISABLED_TRADE(invitem) then
+        return false;
+    else
+        return true;
+	end
+end
+
+function IS_ENABLED_MARKET_TRADE_ITEM(invitem)
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+
+    if false == itemProp:IsEnableMarketTrade() then
+        return false;
+    elseif true == IS_DISABLED_TRADE(invitem) then
+        return false;
+    else
+        return true;
+    end
+end
+
+function IS_ENABLED_TEAM_TRADE_ITEM(invitem)
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+
+    if false == itemProp:IsEnableTeamTrade() then
+        return false;
+    elseif true == IS_DISABLED_TRADE(invitem) then
+        return false;
+    else
+        return true;
+    end
+end
+
+function GET_ENABLE_TRADE_MSG(itemProp)
+    if itemProp == nil then
+        return "";
+    elseif itemProp:IsEnableUserTrade() == true then
+        return ScpArgMsg("UserTradeAble");
+    elseif itemProp:IsEnableMarketTrade() == true then
+        return ScpArgMsg("MarketTradeAble");
+    else 
+        return ScpArgMsg("UserTradeUnable")
+    end
+end

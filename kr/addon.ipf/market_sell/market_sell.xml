@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="market_sell" x="0" y="0" width="1425" height="1000" create="open">
-	<frame title="{@st43}{s22}판매 등록" titlepos="0 0" layout_gravity="left center" snapclient="true" snapframe="true" scale_align="center top" margin="0 -20 0 0"/>
+	<frame title="{@st43}{s22}판매 등록" titlepos="0 0" layout_gravity="left center" snapclient="true" snapframe="true" scale_align="center top" margin="0 -20 0 0" fasthide="true"/>
 	<option closebutton="false"/>
 	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
 	<script OpenScp="MARKET_SELL_OPEN"/>
@@ -23,7 +23,7 @@
 		<groupbox name="edit_count_bg" parent="groupbox" rect="0 0 100 38" margin="9 215 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="bg2"/>
 		<groupbox name="edit_price_bg" parent="groupbox" rect="0 0 240 38" margin="119 214 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="bg2"/>
 		<edit name="edit_count" parent="groupbox" rect="0 0 90 30" margin="14 221 0 0" layout_gravity="left top" EnterKeyScp="None" OffsetForDraw="0 -2" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="16" numbermode="true" oversound="button_over" skin="None" textalign="right center"/>
-		<edit name="edit_price" parent="groupbox" rect="0 0 240 38" margin="114 216 0 0" layout_gravity="left top" EnterKeyScp="None" OffsetForDraw="0 -2" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="16" numbermode="true" oversound="button_over" skin="None" textalign="right center"/>
+		<edit name="edit_price" parent="groupbox" rect="0 0 240 38" margin="114 216 0 0" layout_gravity="left top" EnterKeyScp="None" OffsetForDraw="0 -2" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="16" numbermode="true" oversound="button_over" skin="None" textalign="right center" typingscp="UPDATE_MONEY_COMMAED_STRING"/>
 		<detaillist name="itemlist" rect="0 0 1030 750" margin="0 185 10 0" layout_gravity="right top" skin=""/>
 		<button name="button_1_1" parent="groupbox" rect="0 0 180 50" margin="85 250 1 0" layout_gravity="left center" LBtnUpScp="MARKET_SELL_REGISTER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}등록" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
 		<button name="button_1_2" rect="0 0 400 45" margin="410 105 0 0" layout_gravity="left top" caption="{@st66b18}판매 등록" clicksound="button_click" oversound="button_over" skin="tab2_btn_2"/>

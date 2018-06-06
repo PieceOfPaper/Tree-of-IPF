@@ -50,7 +50,7 @@ function BEFORE_APPLIED_SKILLSTAT_OPEN(invItem)
 
     local prop = ctrlSet:GetChild("prop");
     prop:SetTextByKey("value", ClMsg("Premium_SkillResetLng")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
@@ -126,7 +126,7 @@ function BEFORE_APPLIED_STATRESET_OPEN(invItem)
 
     local prop = ctrlSet:GetChild("prop");
     prop:SetTextByKey("value", ClMsg("Premium_StatResetLng")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());

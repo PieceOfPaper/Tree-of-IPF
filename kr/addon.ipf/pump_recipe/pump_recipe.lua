@@ -105,7 +105,10 @@ function _PUMP_RECIPE_OPEN(frame, recipeType, itemName)
 	frame:Invalidate();
 end
 
-function PUMP_RECIPE_OPEN(recipeType, itemName)
+function PUMP_RECIPE_OPEN(recipeType, itemName, addType)
+    if addType == 4 then -- ADD_ITEM_UNEQUIP = 4: 장비 해제로 인벤에 들어올 때에는 안해줌
+        return;
+    end
 	local frame = ui.GetFrame("pump_recipe");
 	_PUMP_RECIPE_OPEN(frame, recipeType, itemName);
 

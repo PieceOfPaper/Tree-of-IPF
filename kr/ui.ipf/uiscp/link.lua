@@ -14,8 +14,6 @@ function GET_ITEM_FULLNAME_BY_TAG_INFO(props, clsID)
 end
 
 function SLI(props, clsID)
-	local tooltipType = GET_ITEM_TOOLTIP_TYPE(clsID);
-
 	local itemFrame = ui.GetFrame("wholeitem_link");
 	if itemFrame == nil then
 		itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
@@ -105,7 +103,7 @@ function LINK_ITEM_TEXT(invitem)
 
 	local chatFrame = GET_CHATFRAME();
 	local edit = chatFrame:GetChild('mainchat');
-	local imgheight = edit:GetHeight();
+	local imgheight = edit:GetOriginalHeight();
 
 	local itemobj = GetIES(invitem:GetObject());
 
@@ -164,6 +162,22 @@ function LINK_MAP_POS(mapName, x, z)
 	SET_LINK_TEXT(linkstr);
 
 end
+
+function SLC(linktext)
+
+	local sstart, send = string.find(linktext,"@@@")
+
+	if sstart == nil or send == nil then
+		return;
+	end
+
+	local aid = string.sub(linktext,0,sstart -1)
+	local roomid = string.sub(linktext,send + 1)
+
+	ui.GroupChatEnterRoomByTag(roomid,aid)
+
+end
+
 
 function SLP(partyID)
 	local pcparty = session.party.GetPartyInfo();

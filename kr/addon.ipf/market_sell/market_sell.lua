@@ -5,6 +5,8 @@ function MARKET_SELL_ON_INIT(addon, frame)
 	
 	addon:RegisterMsg("MARKET_MINMAX_INFO", "ON_MARKET_MINMAX_INFO");
 	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");
+
+    MONEY_MAX_STACK = 200000000;
 end
 
 function MARKET_SELL_OPEN(frame)
@@ -88,10 +90,6 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 		local cashValue = GetCashValue(marketItem.premuimState, "marketSellCom") * 0.01;
 		local stralue = GetCashValue(marketItem.premuimState, "marketSellCom");
-		if itemObj.ClassID == 490000 or itemObj.ClassName:find('PremiumToken') then
-			 cashValue = 0;
-			 stralue = 0;
-		end
 		priceStr = string.format("{img icon_item_silver %d %d}%d[%d%%]", 20, 20, marketItem.sellPrice * marketItem.count * cashValue, stralue) 
 		local silverFee = ctrlSet:GetChild("silverFee");
 		silverFee:SetTextByKey("value", priceStr);
@@ -188,7 +186,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		end
 	end
 
-	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
+	if itemProp:IsEnableMarketTrade() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
 		ui.AlarmMsg("ItemIsNotTradable");
 		return false;
 	end
@@ -310,7 +308,7 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 		downValue:SetTextByKey("value", minAllow);
 		min:SetTextByKey("value", minStr);
 		max:SetTextByKey("value", maxStr);
-		edit_price:SetText(avg);
+		edit_price:SetText(GET_COMMAED_STRING(avg));
 		if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
 			if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
 				edit_price:SetMaxNumber(maxAllow);
@@ -354,13 +352,13 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 
 	local count = tonumber(edit_count:GetText());
-	local price = tonumber(edit_price:GetText());
+    local price = GET_NOT_COMMAED_NUMBER(edit_price:GetText());
 	if price < 100 then
 		ui.SysMsg(ClMsg("SellPriceMustOverThen100Silver"));		
 		return;
 	end
 
-	local strprice = edit_price:GetText()
+	local strprice = string.format("%d", price);
 
 	if string.len(strprice) < 3 then
 		return
@@ -372,7 +370,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 	
 	if strprice ~= floorprice then
-		edit_price:SetText(floorprice)
+		edit_price:SetText(GET_COMMAED_STRING(floorprice));
 		ui.SysMsg(ScpArgMsg("AutoAdjustToMinPrice"));		
 		price = tonumber(floorprice);
 	end
@@ -422,7 +420,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
     	return;
 	end
 	if obj.ClassName == "PremiumToken" and iPrice > tonumber(TOKEN_MARKET_REG_MAX_PRICE) then
-    	ui.SysMsg(ScpArgMsg("PremiumRegMaxPrice{Price}","Price", TOKEN_MARKET_REG_TOKEN_MARKET_REG_MAX_PRICELIMIT_PRICE));
+    	ui.SysMsg(ScpArgMsg("PremiumRegMaxPrice{Price}","Price", TOKEN_MARKET_REG_MAX_PRICE));
     	return;
 	end
 
@@ -458,7 +456,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		end
 	end
 
-	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
+	if itemProp:IsEnableMarketTrade() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
 		ui.AlarmMsg("ItemIsNotTradable");
 		return false;
 	end
@@ -475,10 +473,10 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 			-- 장비그룹만 buffValue가 있다.
 			ui.MsgBox(ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
 		else
-			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", tostring(commission)), yesScp, "None");			
+			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GET_COMMAED_STRING(commission)), yesScp, "None");			
 		end
 	else
-		ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", tostring(commission)), yesScp, "None");
+		ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GET_COMMAED_STRING(commission)), yesScp, "None");
 	end
 
 end
@@ -514,4 +512,14 @@ function MARKET_SELL_SELECT(pageControl, numCtrl)
 --market.ReqMySellList(page);
 end
 
-
+function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)
+    local moneyText = ctrl:GetText();
+    if moneyText == "" then
+        moneyText = 0;
+    end
+    if tonumber(moneyText) > MONEY_MAX_STACK then
+        moneyText = tostring(MONEY_MAX_STACK);
+        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', MONEY_MAX_STACK));
+    end
+    ctrl:SetText(GET_COMMAED_STRING(moneyText));
+end

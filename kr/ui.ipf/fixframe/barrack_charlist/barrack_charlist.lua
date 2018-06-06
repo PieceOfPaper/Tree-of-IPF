@@ -874,7 +874,7 @@ function BARRACK_TO_GAME()
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
 	local maxCharCount = barrackCls.BaseSlot + buySlot;
 	
-	if myCharCount > maxCharCount then
+	if 0 == PostponeCharCount() and myCharCount > maxCharCount then
 		ui.SysMsg(ScpArgMsg("Many{CharCount}Than{CharSlot}CantStartGame", "CharCount", myCharCount, "CharSlot", maxCharCount));
 	else
 		local bpc = barrack.GetGameStartAccount();
@@ -893,7 +893,6 @@ function BARRACK_TO_GAME()
 		local key = channels:GetSelItemIndex();
 		app.BarrackToGame(key);
 	end	
-	
 end
 
 function UPDATE_BARRACK_PET_BTN_LIST()

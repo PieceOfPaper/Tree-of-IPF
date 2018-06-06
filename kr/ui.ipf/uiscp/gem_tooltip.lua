@@ -9,6 +9,7 @@ function ITEM_TOOLTIP_GEM(tooltipframe, invitem, strarg)
 
 	local ypos = DRAW_GEM_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 기타 템이라면 공통적으로 그리는 툴팁들
 	ypos = DRAW_GEM_PROPERTYS_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 젬의 속성들 그려줌
+    ypos = DRAW_GEM_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_GEM_DESC_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 젬 설명. 프로퍼티 말고. 오른쪽 클릭 후 장착하고 어쩌고 하는 그런것들
 	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
 
@@ -158,11 +159,25 @@ function DRAW_GEM_PROPERTYS_TOOLTIP(tooltipframe, invitem, yPos, mainframename)
 
 	property_gbox:Resize(property_gbox:GetOriginalWidth(),inner_yPos);
 
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
-	CSet:Resize(CSet:GetWidth(),CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY() + BOTTOM_MARGIN);
+	CSet:Resize(CSet:GetWidth(),CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY());
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight())
 	return CSet:GetHeight() + CSet:GetY();
+end
+
+function DRAW_GEM_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename)
+	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+	gBox:RemoveChild('tooltip_gem_tradability');
+
+	local CSet = gBox:CreateControlSet('tooltip_gem_tradability', 'tooltip_gem_tradability', 0, ypos);
+	tolua.cast(CSet, "ui::CControlSet");
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_npc', 'option_npc_text', 'ShopTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_market', 'option_market_text', 'MarketTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_teamware', 'option_teamware_text', 'TeamTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_trade', 'option_trade_text', 'UserTrade')
+
+	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight())
+    return ypos + CSet:GetHeight();
 end
 
 function DRAW_GEM_DESC_TOOLTIP(tooltipframe, invitem, yPos, mainframename)

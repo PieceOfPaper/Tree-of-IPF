@@ -48,17 +48,17 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
 	local count = list:Count();
 	local memberIndex = 0;
-
-	local myAid = session.loginInfo.GetAID();
+	local myAid = session.loginInfo.GetAID();	
+    local partyID = pcparty.info:GetPartyID();
 	for i = 0 , count - 1 do
-		local partyMemberInfo = list:Element(i);	
+		local partyMemberInfo = list:Element(i);
 		if partyMemberInfo:GetAID() ~= myAid then
 			local ret = nil;		
 			-- 접속중 파티원
 			if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
-				ret = SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, false);
+				ret = SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, false, partyID);
 			else-- 접속안한 파티원
-				ret = SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType);
+				ret = SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, partyID);
 			end
 		else -- 내정본데
 			local headsup = ui.GetFrame("headsupdisplay");
@@ -70,7 +70,7 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 			end
 		end
 	end	
-	
+
 	for i = 0 , frame:GetChildCount() - 1 do
 		local ctrlSet = frame:GetChildByIndex(i);
 		if nil ~= ctrlSet then
@@ -331,7 +331,10 @@ function UPDATE_PARTY_INST_SET(partyInfoCtrlSet, partyMemberInfo)
 	UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo);	
 end
 
-function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, leaderFID, isCorsairType, ispipui)
+function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, leaderFID, isCorsairType, ispipui, partyID)
+    if partyID ~= nil and partyMemberInfo ~= nil and partyID ~= partyMemberInfo:GetPartyID() then
+        return nil;
+    end
 
 	local partyinfoFrame = ui.GetFrame('partyinfo')
 	local FAR_MEMBER_FACE_COLORTONE = partyinfoFrame:GetUserConfig("FAR_MEMBER_FACE_COLORTONE")
@@ -462,7 +465,10 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	return 1;
 end
 
-function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, leaderFID, isCorsairType)
+function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, leaderFID, isCorsairType, partyID)
+    if partyID ~= nil and partyMemberInfo ~= nil and partyID ~= partyMemberInfo:GetPartyID() then
+        return nil;
+    end
 
 	local partyinfoFrame = ui.GetFrame('partyinfo')
 	local FAR_MEMBER_FACE_COLORTONE = partyinfoFrame:GetUserConfig("FAR_MEMBER_FACE_COLORTONE")

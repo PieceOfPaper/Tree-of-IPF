@@ -359,6 +359,8 @@ function UPDATE_GUILDINFO(frame)
 
 	local showOnlyConnected = config.GetXMLConfig("Guild_ShowOnlyConnected");
 
+    IMC_WARNING("ERRCODE_INFO_NORMAL", "[count:"..tostring(count));
+
 	local connectionCount = 0;
 	for i = 0 , count - 1 do
 		local partyMemberInfo = list:Element(i);
@@ -372,6 +374,8 @@ function UPDATE_GUILDINFO(frame)
 			local txt_location = ctrlSet:GetChild("txt_location");
 			txt_teamname:SetTextByKey("value", partyMemberInfo:GetName());
 			txt_teamname:SetTextTooltip(partyMemberInfo:GetName());
+
+            IMC_WARNING("ERRCODE_INFO_NORMAL", "[name:"..partyMemberInfo:GetName());
 
 			local grade = partyMemberInfo.grade;
 			if leaderAID == partyMemberInfo:GetAID() then
@@ -427,7 +431,7 @@ function UPDATE_GUILDINFO(frame)
 
 	local text_memberinfo = gbox_member:GetChild("text_memberinfo");
 	
-	local memberStateText = ScpArgMsg("GuildMember{Cur}/{Max}People,OnLine{On}People", "Cur", count, "Max", GUILD_BASIC_MAX_MEMBER + partyObj.AbilLevel_MemberExtend, "On", connectionCount);
+	local memberStateText = ScpArgMsg("GuildMember{Cur}/{Max}People,OnLine{On}People", "Cur", count, "Max", pcparty:GetMaxGuildMemberCount(), "On", connectionCount);
 	text_memberinfo:SetTextByKey("value", memberStateText);
 	
 	local chk_showonlyconnected = GET_CHILD(gbox_member, "chk_showonlyconnected");
@@ -438,6 +442,8 @@ function UPDATE_GUILDINFO(frame)
 	UPDATE_GUILD_WAR_INFO(frame, pcparty, partyObj);
 	
 	UPDATE_GUILD_EVENT_INFO(frame, pcparty, partyObj);
+
+    SendSystemLog()
 end
 
 function GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj)
@@ -767,7 +773,19 @@ end
 function CHANGE_AGIT_ENTER_OPTION(parnet, ctrl)
 
 	ctrl = AUTO_CAST(ctrl);
-	
+    
+    local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	local partyObj = GetIES(pcparty:GetObject());
+
+    local isLeader = AM_I_LEADER(PARTY_GUILD);
+	if 0 == isLeader then
+		ui.SysMsg(ScpArgMsg("OnlyLeaderAbleToDoThis"));
+        print(ctrl:IsChecked())
+        ctrl:SetCheckWhenClicked(0);
+        ctrl:SetCheck(partyObj.GuildOnlyAgit);
+		return;
+	end
+    	
 	party.ReqChangeProperty(PARTY_GUILD, "GuildOnlyAgit", ctrl:IsChecked());
 
 end

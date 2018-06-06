@@ -12,15 +12,14 @@ end
 
 
 function SET_SLOT_ITEM_INFO(slot, itemCls, count)
-
 	local icon = CreateIcon(slot);
 	icon:EnableHitTest(0);
-
 	if itemCls == nil then
 		return;
 	end
+    local iconImageName = GET_EQUIP_ITEM_IMAGE_NAME(itemCls, 'Icon');
 
-	icon:Set(itemCls.Icon, "item", itemCls.ClassID, count);
+	icon:Set(iconImageName, "item", itemCls.ClassID, count);
 	slot:SetText('{s12}{ol}{b}'..count, 'count', 'right', 'bottom', -2, 1);
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
 	return icon;

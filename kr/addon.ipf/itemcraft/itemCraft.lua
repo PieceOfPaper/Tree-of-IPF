@@ -211,9 +211,8 @@ function CREATE_CRAFT_ARTICLE(frame)
 
 	local checkCraftFunc = _G["CRAFT_CHECK_".. idSpace];
 	while cls ~= nil do
-
 		if checkCraftFunc(cls, arg1, arg2) == true then
-			local haveM = CRAFT_HAVE_MATERIAL(cls);		
+			local haveM = CRAFT_HAVE_MATERIAL(cls);
 			if checkHaveMaterial == 1 then
 				if haveM == 1 then
 					CRAFT_INSERT_CRAFT(cls, tree, slotHeight,haveM);
@@ -378,7 +377,7 @@ function CRAFT_HAVE_MATERIAL(recipecls)
 		if recipecls["Item_"..i.."_1"] ~= "None" then
 			
 			local recipeItemCnt, invItemCnt = GET_RECIPE_MATERIAL_INFO(recipecls, i);
-
+                        
 			if recipeItemCnt > invItemCnt then
 				return 0;
 			end
@@ -398,35 +397,6 @@ function CRAFT_HAVE_MATERIAL(recipecls)
 	end
 
 	return 1;
-end
-
-function GET_INVITEMS_BY_TYPE_WORTH_SORTED(type)
-
-	local resultlist = {}
-
-	local invItemList = session.GetInvItemList();
-	local index = invItemList:Head();
-	local itemCount = session.GetInvItemList():Count();
-
-	for i = 0, itemCount - 1 do
-		
-		local invItem = invItemList:Element(index);
-		if invItem ~= nil then
-
-			if invItem.type == type then
-				local itemobj = GetIES(invItem:GetObject());			
-
-				resultlist[#resultlist+1] = invItem
-
-			end
-		end
-
-		index = invItemList:Next(index);
-	end
-	
-	table.sort(resultlist, SORT_INVITEM_BY_WORTH)
-
-	return resultlist
 end
 
 function SORT_INVITEM_BY_WORTH(a,b)
@@ -536,6 +506,26 @@ function SORT_INVITEM_BY_WORTH(a,b)
     	end
     end
 
+    -- 기간에 대한 부분 추가
+    local lifeTimeA = TryGetProp(itemobj_a, 'ItemLifeTime');
+    local lifeTimeB = TryGetProp(itemobj_b, 'ItemLifeTime');
+    if lifeTimeA ~= nil and lifeTimeB ~= nil then
+        local remainLifeTimeA = 2147483647;
+        local remainLifeTimeB = 2147483647;
+
+        -- 무기한 아이템은 애초에 ItemLifeTime이 0이라 보정해줘야 함
+        if lifeTimeA ~= 'None' then
+            remainLifeTimeA = GET_REMAIN_LIFE_TIME(lifeTimeA);
+        end
+        if lifeTimeB ~= 'None' then
+            remainLifeTimeB = GET_REMAIN_LIFE_TIME(lifeTimeB);
+        end
+
+        if remainLifeTimeA ~= remainLifeTimeB then
+            return remainLifeTimeA < remainLifeTimeB;
+        end
+    end
+
 	return a:GetIESID() < b:GetIESID()
 	
 end
@@ -577,15 +567,24 @@ function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
 
 	
 	local resultlist = session.GetItemIDList();
-	
-	local someflag = 0
+	local someflag = 0;
+    local lifeTimeOverFlag = false;
 	for i = 0, resultlist:Count() - 1 do
 		local tempitem = resultlist:PtrAt(i);
 
 		if IS_VALUEABLE_ITEM(tempitem.ItemID) == 1 then
 			someflag = 1
 		end
+
+        if IS_LIFE_TIME_OVER_ITEM(tempitem.ItemID) then
+            lifeTimeOverFlag = true;
+        end
 	end
+    if lifeTimeOverFlag then
+        ui.SysMsg(ClMsg('CannotUseLifeTimeOverItem'));
+        return;
+    end
+
 	if someflag > 0 then
 		local yesScp = string.format("CRAFT_START_CRAFT(\'%s\', \'%s\', %d)",idSpace, recipeName, totalCount);
 		ui.MsgBox(ScpArgMsg("IsValueAbleItem"), yesScp, "None");
@@ -639,6 +638,10 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 		end
 	end
 	
+    -- get validation script
+    local validRecipeMaterial = GET_MATERIAL_VALIDATION_SCRIPT(recipecls);
+    local IsValidRecipeMaterial = _G[validRecipeMaterial];
+
 	local resultlist = session.GetItemIDList();
 	for index=1, 5 do
 		local clsName = "Item_"..index.."_1";
@@ -649,7 +652,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 				local tempitem = resultlist:PtrAt(j);
 				local invItem = session.GetInvItemByGuid(tempitem.ItemID);
 				local itemobj = GetIES(invItem:GetObject());
-				if nil ~= invItem and itemobj.ClassName == itemName then
+				if nil ~= invItem and IsValidRecipeMaterial(itemName, itemobj) then
 					if true == invItem.isLockState then
 						ui.SysMsg(ClMsg("MaterialItemIsLock"));
 						return;
@@ -672,7 +675,6 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 		end
 	end
 
-	--if frame:GetUserIValue("MANUFACTURING") == 1 then
 	if GetCraftState() == 1 then
 		ui.SysMsg(ClMsg("prosessItemCraft"));
 		return;
@@ -687,8 +689,8 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 		if frame:GetUserIValue("MANUFACTURING") == 1 then
 			return;
 	end
-	frame:SetUserValue("MANUFACTURING", 1);
-	SetCraftState(1)
+	    frame:SetUserValue("MANUFACTURING", 1);
+	    SetCraftState(1);
 		ui.OpenFrame("craftqueue");	
 		frame:SetUserValue("MANUFACTURING", 1);
 	end
@@ -698,6 +700,22 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	frame:SetUserValue("IDSPACE", idSpace);
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText, nameList);
 	
+end
+
+function IS_LIFE_TIME_OVER_ITEM(itemid)
+    local invitem = session.GetInvItemByGuid(itemid);
+	if invitem == nil then
+		return true; -- 못쓰는 아이템이야
+	end
+	local itemobj = GetIES(invitem:GetObject());
+    if itemobj == nil then
+        return true;
+    end
+    local isLifeTimeOver = TryGetProp(itemobj, 'ItemLifeTimeOver');
+    if isLifeTimeOver > 0 then
+        return true;
+    end
+    return false;
 end
 
 function IS_VALUEABLE_ITEM(itemid)
@@ -947,8 +965,9 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
 		return
 	end
 
-	imcSound.PlaySoundEvent('inven_equip');
+	imcSound.PlaySoundEvent('inven_equip');    
 
+    local dropResult = 'FAIL'
 	local cnt = nowCset:GetChildCount();
 	for i = 0, cnt - 1 do
 		local eachcset = nowCset:GetChildByIndex(i);
@@ -977,9 +996,15 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
 					end
 				end
 				
-				if iconInfo.type == materialItemClassID and iconInfo.count >= needcount  then
-
-					local tempinvitem = session.GetInvItemByGuid(iconInfo:GetIESID());
+                local recipeCls = GetClass('Recipe', eachcset:GetUserValue('RECIPE_CLASS_NAME'));
+                local validRecipeMaterial = GET_MATERIAL_VALIDATION_SCRIPT(recipeCls);
+                local IsValidRecipeMaterial = _G[validRecipeMaterial];
+				local tempinvitem = session.GetInvItemByGuid(iconInfo:GetIESID());
+                local invItemObj = nil;
+                if tempinvitem ~= nil then
+                    invItemObj = GetIES(tempinvitem:GetObject());
+                end
+				if invItemObj~= nil and IsValidRecipeMaterial(eachcset:GetUserValue('ClassName'), invItemObj) and iconInfo.count >= needcount  then
 					if true == tempinvitem.isLockState then
 						ui.SysMsg(ClMsg("MaterialItemIsLock"));
 						return;
@@ -993,7 +1018,8 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
 					
 
 					local invframe = ui.GetFrame('inventory')
-					INVENTORY_UPDATE_ICONS(invframe)
+					INVENTORY_UPDATE_ICONS(invframe);
+                    dropResult = 'SUCCESS';
 
 					local btn = GET_CHILD(eachcset, "btn", "ui::CButton");
 										
@@ -1010,6 +1036,9 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
 		end
 	end
 
+    if dropResult ~= 'SUCCESS' then
+        ui.SysMsg(ClMsg('WrongDropItem'));
+    end
 end
 
 function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
@@ -1036,7 +1065,7 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 	for i = 1 , 5 do
 		if recipecls["Item_"..i.."_1"] ~= "None" then
 			local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i);
-			if invItemlist ~= nil then
+			if invItemlist ~= nil then -- 재료 아이템이 비스택형이면 일로 온다
 				for j = 0, recipeItemCnt - 1 do
 					local itemSet = ctrlset:CreateOrGetControlSet(g_craftRecipe_detail_item, "EACHMATERIALITEM_" .. i ..'_'.. j, x, y);
 					itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
@@ -1054,12 +1083,13 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 					icon:SetColorTone('33333333')
 					itemtext:SetText(dragRecipeItem.Name);
 					y = y + itemHeight;
-					itemSet:SetUserValue("ClassName", dragRecipeItem.ClassName)
+					itemSet:SetUserValue("ClassName", dragRecipeItem.ClassName);
+                    itemSet:SetUserValue('RECIPE_CLASS_NAME', recipecls.ClassName);
 
 					slot:SetOverSound('button_cursor_over_2');
 					slot:SetClickSound('button_click');
 				end
-			else
+			else -- 재료 아이템이 스택형이면 일로 온다
 				local itemSet = ctrlset:CreateOrGetControlSet(g_craftRecipe_detail_item, "EACHMATERIALITEM_" .. i, x, y);
 				itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
 				CRAFT_DETAIL_CTRL_INIT(itemSet);
@@ -1076,7 +1106,7 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 				icon:SetColorTone('33333333')
 				itemtext:SetText(dragRecipeItem.Name);
 				y = y + itemHeight;
-				itemSet:SetUserValue("ClassName", dragRecipeItem.ClassName)
+				itemSet:SetUserValue("ClassName", dragRecipeItem.ClassName);
 				
 				slot:SetOverSound('button_cursor_over_2');
 				slot:SetClickSound('button_click');
@@ -1168,9 +1198,7 @@ function ITMCRAFT_BUTTON_UP(ctrl)
 end
 
 function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
-
 	imcSound.PlaySoundEvent('inven_equip');
-	--imcSound.PlaySoundItem('inven_equip');
 
 	local slot 	   		= tolua.cast(control, 'ui::CSlot');
 	local needcount = tonumber(materialItemCnt)
@@ -1178,11 +1206,10 @@ function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
 	local itemname = cset:GetUserValue("ClassName")
 	local invItem = session.GetInvItemByName(itemname);
 	
-
 	local liftIcon 				= ui.GetLiftIcon();
 	local iconInfo = liftIcon:GetInfo();
 
-	--??? ??? IESID?? ?????
+	--등록 안된 IESID에 한하여
 	local resultlist = session.GetItemIDList();
 	
 	for i = 0, resultlist:Count() - 1 do
@@ -1420,9 +1447,20 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 	local itemname = itemSet:GetUserValue("ClassName")
 	local itemcls = GetClass("Item", itemname);
 	local invItemlist = nil;
-	local invItemadd = nil
-
-	invItemlist = GET_ONLY_PURE_INVITEMLIST(itemcls.ClassID)
+	local invItemadd = nil;
+    local recipeCls = GetClass('Recipe', itemSet:GetUserValue('RECIPE_CLASS_NAME'));
+    local ignoreType = false;
+    if recipeCls ~= nil then
+        local getMaterialScript = TryGetProp(recipeCls, 'GetMaterialScript');
+        if getMaterialScript == nil then
+            getMaterialScript = 'SCR_GET_RECIPE_ITEM';
+        end
+        local GetRecipeMaterialItemList = _G[getMaterialScript];
+        invItemlist = GetRecipeMaterialItemList(itemcls);
+        ignoreType = true; -- 별도의 스크립트 함수를 거치는 경우
+    else
+	    invItemlist = GET_ONLY_PURE_INVITEMLIST(itemcls.ClassID);
+    end
 
 	if #invItemlist < 1 or invItemlist == nil then
 		return;
@@ -1433,9 +1471,7 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 	local materialItemCnt = tonumber(targetslot:GetEventScriptArgString(ui.DROP));
 	local needcount = tonumber(materialItemCnt)
 	
-	local resultlist = session.GetItemIDList();
-
-	
+	local resultlist = session.GetItemIDList();	
 
 	for i = 1, #invItemlist do
 
@@ -1481,14 +1517,13 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 		return;
 	end
 
-	if invItemadd.type == materialItemClassID and invItemadd.count >= needcount then
-		
+	if (ignoreType or invItemadd.type == materialItemClassID) and invItemadd.count >= needcount then		
 		session.AddItemID(invItemadd:GetIESID(), needcount);
 		local icon 		= targetslot:GetIcon();
 
 		SET_ITEM_TOOLTIP_BY_OBJ(icon, invItemadd)
 
-		--???? ?÷??? ?? ??? ??? ????. 
+		--슬롯 컬러톤 및 폰트 밝게 변경. 
 		icon:SetColorTone('FFFFFFFF')
 		itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'selected');
 		local invframe = ui.GetFrame('inventory')
