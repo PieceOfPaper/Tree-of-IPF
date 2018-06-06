@@ -271,6 +271,7 @@
 		<Class ClassID="4108" ClassName="AreYouSureEquipCard" Data="선택하신 몬스터 카드를 장착하시겠습니까?{nl}장착해제시 카드 레벨이 하락합니다."/>
 		<Class ClassID="4109" ClassName="NoHaveZombiefySkill" Data="좀비만들기 스킬이 없어 좀비를 생성할 수 없습니다."/>
 		<Class ClassID="4110" ClassName="IsMaxCountZombie" Data="좀비 최대 생성수에 도달하여 좀비를 생성할 수 없습니다."/>
+	<Class ClassID="4111" ClassName="Money{MAX}OverAtAcc" Data="최대 {MAX} 소지금을 초과하여 저장 할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -3842,8 +3843,24 @@
 		<Class ClassID="26990" ClassName="MISSION_UPHILL_MSG12" Data="현재 화염 결정 : {COUNT}개"/>
 		<Class ClassID="26991" ClassName="FLASHMOB_EVENT_PROGRESS_MSG1" Data="이벤트에 참여하셨습니다!"/>
 		<Class ClassID="27000" ClassName="GM_MON_SUMMON_MSG1" Data="이벤트 몬스터 {COUNT}마리 생성 완료!"/>
+		<Class ClassID="27010" ClassName="GM_BUFF_MSG1" Data="[{BUFF}]버프를 선물 받으셨습니다!"/>
+		<Class ClassID="27011" ClassName="GM_BUFF_MSG2" Data="착용 중인 모든 장비의 내구도가 5씩 회복됩니다!"/>
 		<Class ClassID="30141" ClassName="ORCHARD_34_3_SQ_OBJ_6_SUB_MSG4" Data="잘못된 순서로 빛을 활성화했습니다{nl}빛이 빠르게 깜빡이는 순서대로 활성화하세요"/>
-<Class ClassID="50001" ClassName="UNDER30_2_CHECK_MSG2" Data="유독가스에 중독되어 비석을 확인하는데 힘듭니다"/>
+<Class 
+ClassID="30151" 
+ClassName="HIDDEN_MIKO_JURATE_MSG1" Data="받아둔다"/>
+		<Class ClassID="30152" ClassName="HIDDEN_MIKO_SOUL_MSG1" Data="신령의 힘을 받는 중"/>
+		<Class ClassID="30153" ClassName="HIDDEN_MIKO_BEAD_MSG1" Data="이미 보유한 신령구가 있습니다"/>
+		<Class ClassID="30154" ClassName="HIDDEN_MIKO_BEAD_MSG2" Data="신령구 획득 중"/>
+		<Class ClassID="30155" ClassName="HIDDEN_MIKO_BEAD_MSG3" Data="마기로 인해 신령석을 만질 수 없습니다"/>
+		<Class ClassID="30156" ClassName="HIDDEN_MIKO_WEEK_MSG1" Data="신령구 사용 중"/>
+		<Class ClassID="30157" ClassName="HIDDEN_MIKO_SOUL_MSG2" Data="고헤이에 신령의 힘이 깃들었습니다"/>
+		<Class ClassID="30158" ClassName="HIDDEN_MIKO_SOUL_MSG3" Data="고헤이가 모든 힘을 되찾았습니다"/>
+		<Class ClassID="30159" ClassName="HIDDEN_MIKO_JUROTA_MSG1" Data="교감을 시도하는 중"/>
+		<Class ClassID="30160" ClassName="HIDDEN_MIKO_CMINE_6_MSG1" Data="다른 신령구의 기운이 남아있어 만질 수 없습니다"
+/>
+<Class 
+ClassID="50001" ClassName="UNDER30_2_CHECK_MSG2" Data="유독가스에 중독되어 비석을 확인하는데 힘듭니다"/>
 		<Class ClassID="50002" ClassName="UNDER301_MONSTER_PAIR_ERROR_1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT} 회를 모두 진행하셨습니다."/>
 		<Class ClassID="50025" ClassName="UNDER302_LEVEL_CHECK" Data="레벨이 부족하여 이 장치를 사용할 수 없습니다"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
@@ -4207,6 +4224,7 @@
 		<Class ClassID="104024" ClassName="CannotCreaeFire" Data="한 개의 모닥불만 설치가 가능합니다. 기존 모닥불이 제거되었습니다."/>
 		<Class ClassID="104025" ClassName="NearFireFromPC" Data="근처에 설치된 모닥불이 있습니다."/>
 		<Class ClassID="104026" ClassName="ItIsAlreadyInProcess" Data="이미 처리중입니다. 원치않으면 취소를 눌러주세요."/>
+	<Class ClassID="104027" ClassName="ItIsAlreadyInProcessAfter" Data="이미 처리중입니다. 잠시 후에 다시 시도해 주세요."/>
 	</Category>
 	<Category Name="ShopCommon">
 		<Class ClassID="105001" ClassName="ReallyBuy?" Data="구매하시겠습니까?"/>
@@ -7798,6 +7816,7 @@
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
+	<Class ClassID="303002" ClassName="AccountUse2MoreRank" Data="실버 입금 및 출금은 2랭크 이상 가능합니다."/>
 	</Category>
 	<Category Name="Notice">
 		<Class ClassID="304001" ClassName="NoticeFrameName" Data="공지사항"/>

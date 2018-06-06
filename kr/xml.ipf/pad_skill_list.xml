@@ -7777,7 +7777,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Sapper_StakeStockades" CheckerType="1" Range="10" InnerRange="10" UpdateTerm="100" Relation="2" IsMagicType="0">
+    <PadSkill Name="Sapper_StakeStockades" CheckerType="1" Range="15" InnerRange="10" UpdateTerm="100" Relation="2" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="30000" UseFunc="1" FuncTxt="if IsPVPServer(self) == 1 then return 900000 else return 15000 end"/>

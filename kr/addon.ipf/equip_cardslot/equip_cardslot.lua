@@ -274,7 +274,9 @@ end;
 function EQUIP_CARDSLOT_BTN_REMOVE(frame, ctrl)
 	local inven = ui.GetFrame("inventory");
 	local argStr = string.format("%d", frame:GetUserIValue("REMOVE_CARD_SLOTINDEX"));
-	pc.ReqExecuteTx("SCR_TX_UNEQUIP_CARD_SLOT", argStr);
+
+	argStr = argStr .. " 0" -- 0: 카드 레벨 떨어지면서 제거
+	pc.ReqExecuteTx_NumArgs("SCR_TX_UNEQUIP_CARD_SLOT", argStr);
 end;
 
 -- 인벤토리의 카드 슬롯 제거 동작
@@ -301,3 +303,12 @@ function GETMYCARD_INFO(slotIndex)
 	local cardExp = myPCetc[string.format("EquipCardExp_Slot%d", slotIndex + 1)];
 	return cardID, cardLv, cardExp;
 end
+
+-- 단계 보호하고, 카드 슬롯의 카드 제거
+function EQUIP_CARDSLOT_BTN_REMOVE_WITHOUT_EFFECT(frame, ctrl)
+	local inven = ui.GetFrame("inventory");
+	local argStr = string.format("%d", frame:GetUserIValue("REMOVE_CARD_SLOTINDEX"));
+
+	argStr = argStr .. " 1" -- 1을 arg list로 넘기면 5tp 소모후 카드 레벨 하락 안함
+	pc.ReqExecuteTx_NumArgs("SCR_TX_UNEQUIP_CARD_SLOT", argStr);
+end;

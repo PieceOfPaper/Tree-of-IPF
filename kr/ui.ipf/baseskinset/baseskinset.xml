@@ -1410,6 +1410,17 @@
 			<img name="bottomcore" imgrect="548 96 403 1"/>
 			<img name="bottomright" imgrect="952 96 476 1"/>
 		</skin>
+		<skin name="TPshop_title" texture="\skin\market_skin.tga">
+			<img name="topleft" imgrect="0 425 300 1"/>
+			<img name="topcore" imgrect="301 425 300 1"/>
+			<img name="topright" imgrect="602 425 300 1"/>
+			<img name="bodyleft" imgrect="0 426 300 72"/>
+			<img name="bodycore" imgrect="301 426 300 72"/>
+			<img name="bodyright" imgrect="602 426 300 72"/>
+			<img name="bottomleft" imgrect="0 498 300 1"/>
+			<img name="bottomcore" imgrect="301 498 300 1"/>
+			<img name="bottomright" imgrect="602 498 300 1"/>
+		</skin>
 		<skin name="market_minititle" texture="\skin\market_skin.tga">
 			<img name="topleft" imgrect="0 246 547 96"/>
 			<img name="topcore" imgrect="548 246 176 96"/>
@@ -3323,6 +3334,12 @@
 			<img name="cooltime" imgrect="403 210 50 50"/>
 			<img name="selected" imgrect="403 210 50 50"/>
 		</skin>
+		<skin name="accountwarehouse_slot" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="403 656 40 40"/>
+			<img name="mouseon" imgrect="403 210 50 50"/>
+			<img name="cooltime" imgrect="403 210 50 50"/>
+			<img name="selected" imgrect="403 210 50 50"/>
+		</skin>
 		<skin name="durnotify_slot" texture="\skin\pip_test.tga">
 			<img name="slot" imgrect="403 522 40 40"/>
 			<img name="mouseon" imgrect="403 210 50 50"/>
@@ -4485,9 +4502,10 @@
 		<image name="Cube_skin" file="\skin\cube_skin.tga" imgrect="0 0 455 509" CMM_Caption="큐브스킨"/>
 		<image name="tiket_icon" file="\skin\pip_test.tga" imgrect="1797 937 34 21" CMM_Caption="티켓스킨"/>
 		<image name="premium_img" file="\skin\pip_test_item.tga" imgrect="947 684 85 25" CMM_Caption="프리미엄_폰트"/>
-		<image name="guildbattle_ranking_bg" file="\skin\guildbattle_ranking_bg.tga" imgrect="0 0 366 626" CMM_Caption="길드배틀1등표시배경"/>
+		<image name="guildbattle_ranking_bg" file="\skin\guildbattle_ranking_bg.tga" imgrect="0 0 366 495" CMM_Caption="길드배틀1등표시배경"/>
 		<image name="guildbattle_kill_count" file="\skin\pvp_skin.tga" imgrect="251 204 30 30" CMM_Caption="길드배틀킬카운트"/>
 		<image name="guildbattle_death_count" file="\skin\pvp_skin.tga" imgrect="251 173 30 30" CMM_Caption="길드배틀데쓰카운트"/>
+		<image name="dlcinfo" file="\skin\dlcinfo.png" imgrect="0 0 1276 691" CMM_Caption="DLC정보안내"/>
 		<image name="market_view_bg" file="\skin\market_view_bg.tga" imgrect="0 0 380 330" CMM_Caption="마켓뷰배경"/>
 		<image name="transcendence_bg" file="\skin\transcendence_skin.tga" imgrect="0 0 408 707" CMM_Caption="초월배경"/>
 		<image name="transcendence_bg2" file="\skin\transcendence_skin2.tga" imgrect="0 0 415 707" CMM_Caption="분해배경"/>
@@ -4506,6 +4524,8 @@
 		<image name="deal_righthave" file="\skin\deal_skin.tga" imgrect="0 130 561 64" CMM_Caption="오른쪽토큰가지고있음"/>
 		<image name="deal_wehave" file="\skin\deal_skin.tga" imgrect="0 195 561 64" CMM_Caption="모두토큰가지고있음"/>
 		<image name="deal_changearrow" file="\skin\deal_skin.tga" imgrect="0 260 45 63" CMM_Caption="화살표"/>
+	<image name="in_arrow" file="\skin\pip_test.tga" imgrect="439 625 14 14" CMM_Caption="입금화살표"/>
+		<image name="chul_arrow" file="\skin\pip_test.tga" imgrect="439 640 14 14" CMM_Caption="출금화살표"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -4598,6 +4618,7 @@
 		<image name="cube_ani" file="\skin\cube_ani.tga" imgrect="0 0 3608 400"/>
 		<image name="transcendence_ani" file="\skin\transcendence_ani.tga" imgrect="0 0 5725 706"/>
 		<image name="glimoire_ani" file="\skin\glimoire_ani.tga" imgrect="0 0 2887 360"/>
+		<image name="poisonpo_ani" file="\skin\poisonpot_ani.tga" imgrect="0 0 2813 150"/>
 		<image name="notice_pos" file="\skin\notice_pos.tga" imgrect="0 0 2800 200"/>
 		<image name="collection_new" file="\skin\HUD.tga" imgrect="559 521 55 55"/>
 		<image name="collection_com" file="\skin\HUD.tga" imgrect="503 521 55 55"/>
@@ -5894,6 +5915,9 @@
 		<image name="journal_guild_icon" file="\skin\HUD.tga" imgrect="616 896 66 66" CMM_Caption="모험일지_길드랭킹"/>
 		<image name="journal_guild_icon_cursoron" file="\skin\HUD.tga" imgrect="683 896 66 66"/>
 		<image name="journal_guild_icon_clicked" file="\skin\HUD.tga" imgrect="683 896 66 66"/>
+	<image name="steam_shop_btn" file="\skin\HUD.tga" imgrect="1489 916 66 66" CMM_Caption="Tp상점버튼_스팀"/>
+		<image name="steam_shop_btn_cursoron" file="\skin\HUD.tga" imgrect="1427 615 66 66"/>
+		<image name="steam_shop_btn_clicked" file="\skin\HUD.tga" imgrect="1427 615 66 66"/>
 	</imagelist>
 	<imagelist category="controlset item icon">
 		<image name="Item_View01_IDLE" file="\skin\mainframe_A.tga" imgrect="794 0 230 50" CMM_Caption="상점 아이템 슬롯"/>

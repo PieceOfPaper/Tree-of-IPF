@@ -3462,6 +3462,8 @@
 		<image name="icon_item_eventbox_potion" file="\icon\item\icon_item_eventbox_potion.png" imgrect="0 0 128 128" CMM_Caption="포션박스"/>
 		<image name="icon_item_ironhammer" file="\icon\item\icon_item_ironhammer.png" imgrect="0 0 128 128" CMM_Caption="해머"/>
 		<image name="icon_item_ironbundle" file="\icon\item\icon_item_ironbundle.png" imgrect="0 0 128 128" CMM_Caption="해머윗부분"/>
+<image name="icon_item_gohei_blue" file="\icon\item\icon_item_gohei_blue.png" imgrect="0 0 128 128" CMM_Caption="고헤이_각성"/>
+		<image name="icon_item_gohei" file="\icon\item\icon_item_gohei.png" imgrect="0 0 128 128" CMM_Caption="고헤이"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -3609,7 +3611,8 @@
 		<image name="icon_item_archer_school_f" file="\icon\payment\archer_school_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_cleric_school_m" file="\icon\payment\cleric_school_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_cleric_school_f" file="\icon\payment\cleric_school_f.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_mage_bunny_f" file="\icon\payment\mage_bunny_f.png" imgrect="0 0 256 256" CMM_Caption="바니걸_코스튬"/>
+		<image name="icon_item_mage_bunny_m" file="\icon\payment\mage_bunny_m.png" imgrect="0 0 256 256" CMM_Caption="바니걸_코스튬"/>
+		<image name="icon_item_mage_bunny_f" file="\icon\payment\mage_bunny_f.png" imgrect="0 0 256 256" />
 		<image name="hairacc_hat_whitebunny" file="\icon\payment\hairacc_hat_whitebunny.png" imgrect="0 0 256 256" CMM_Caption="바니걸_헤어"/>
 		<image name="icon_item_cleric_maid_m" file="\icon\payment\cleric_maid_m.png" imgrect="0 0 256 256" CMM_Caption="메이드코스튬"/>
 		<image name="icon_item_cleric_maid_f" file="\icon\payment\cleric_maid_f.png" imgrect="0 0 256 256"/>
@@ -3618,6 +3621,7 @@
 		<image name="hair_silvia" file="\icon\payment\hair_silvia.png" imgrect="0 0 256 256" CMM_Caption="실비아헤어"/>
 	<image name="icon_item_warrior_swordman01_3_m" file="\icon\payment\warrior_swordman01_3_m.png" imgrect="0 0 256 256" CMM_Caption="소드맨3랭크코스튬"/>
 		<image name="icon_item_warrior_swordman01_3_f" file="\icon\payment\warrior_swordman01_3_f.png" imgrect="0 0 256 256"/>
+	<image name="icon_item_archer_racoon_f" file="\icon\payment\archer_racoon_f.png" imgrect="0 0 256 256" CMM_Caption="너구리여자코스튬"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

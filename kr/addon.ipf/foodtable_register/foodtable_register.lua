@@ -5,6 +5,17 @@ function FOODTABLE_REGISTER_ON_INIT(addon, frame)
 
 end
 
+function FOODTABLE_UI_CLOSE()
+
+	local frame = ui.GetFrame("foodtable_register")
+	if ui ~= nil then
+		ui.CloseFrame("foodtable_register");	
+	else
+		print("UI(foodtable_register) is nil. Check uiframe.name from foodtable_register.xml file")
+	end
+
+end
+
 function FOODTABLE_SKILL_INIT(frame, skillName, sklLevel)
 
 	frame:SetUserValue("SKILL_NAME", skillName);

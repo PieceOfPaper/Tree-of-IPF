@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
-<uiframe name="equip_cardslot_info" x="0" y="0" width="400" height="800">
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="equip_cardslot_info" x="0" y="0" width="400" height="860">
 	<frame fasthide="true" layout_gravity="right center" margin="0 0 0 0" scale_align="right center"/>
 	<skin frameskin="test_win_lastpopup2"/>
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
@@ -16,10 +16,11 @@
 		<picture name="downArrow" rect="0 0 30 20 " margin="1 4 0 0" layout_gravity="center center" hittest="false" image="white_down_arrow" parent="star_bg" stretch="true"/>
 		<richtext name="cardStar_Before" rect="0 0 400 50" margin="0 0 0 0" format="{@st42}%s{/}" param1="value" param1_def="itemstar" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_22_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" parent="star_bg" layout_gravity="center top"/>
 		<richtext name="cardStar_After" rect="0 0 400 50" margin="0 0 0 0" format="{@st42}%s{/}" param1="value" param1_def="itemstar" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_22_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" parent="star_bg" layout_gravity="center bottom"/>
-		<groupbox name="bg" rect="0 0 350 115" margin="0 0 0 150" layout_gravity="center bottom" scale_align="left bottom" draw="true" skin="test_frame_midle"/>
+		<groupbox name="bg" rect="0 0 350 115" margin="0 0 0 210" layout_gravity="center bottom" scale_align="left bottom" draw="true" skin="test_frame_midle"/>
 		<richtext name="effect_title" margin="10 5 0 0" rect="0 0 10 50" format="{@st66b}제거 되는 효과{/}" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_22_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" parent="bg" layout_gravity="left top"/>
 		<richtext name="effect_info" margin="0 50 0 0" rect="0 0 10 300" format="{@st41_red}%s{/}" param1="RemovedEffect" param1_def="없음." textalign="left top" resizebytext="true" spacey="0" maxwidth="320" fontname="white_22_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" parent="bg" layout_gravity="center top"/>
-		<button name="button_1" margin="0 0 0 85" rect="0 0 200 55" format="{@st41b}카드 해제하기{/}" skin="test_red_button" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="EQUIP_CARDSLOT_BTN_REMOVE"/>
-		<button name="button_2" margin="0 0 0 30" rect="0 0 200 55" format="{@st41b}취소{/}" skin="test_gray_button" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="EQUIP_CARDSLOT_BTN_CANCLE"/>
+		<button name="button_1" margin="-87 0 0 30" rect="0 0 175 55" format="{@st41b}해제하기{/}" skin="test_gray_button" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="EQUIP_CARDSLOT_BTN_REMOVE"/>
+		<button name="button_2" margin="87 0 0 30" rect="0 0 175 55" format="{@st41b}취소{/}" skin="test_gray_button" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="EQUIP_CARDSLOT_BTN_CANCLE"/>
+		<button name="button_3" margin="0 0 0 90" rect="0 0 350 110" format="{img icon_item_tospoint 24 24}{@st41b}5TP 소모{nl}별 감소없이 카드 해제하기{/}" skin="test_red_button" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="EQUIP_CARDSLOT_BTN_REMOVE_WITHOUT_EFFECT"/>
 	</controls>
 </uiframe>

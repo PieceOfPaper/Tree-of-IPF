@@ -286,7 +286,7 @@ function CRAFT_UPDATE_PAGE(page, cls, haveMaterial, item)
 --on:SetTooltipArg('', item.ClassID, 0);
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemData, item.ClassName, '', item.ClassID, 0);
 
-	app:SetEventScript(ui.LBUTTONUP, 'CRAFT_RECIPE_FOCUS');
+	app:SetEventScript(ui.LBUTTONUP, 'CRAFT_RECIPE_FOCUS');	
 	app:SetOverSound('button_cursor_over_3');
 	app:SetClickSound('button_click_big_2');
 
@@ -328,7 +328,7 @@ function CRAFT_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType)
 
 		hParent = hClassType;
 	end
-
+	
 	local pageCtrlName = "PAGE_" .. groupName;
 	if classType ~= nil then
 		pageCtrlName = pageCtrlName .. "_" .. classType;
@@ -546,7 +546,7 @@ function SORT_INVITEM_BY_WORTH(a,b)
 end
 
 function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
-
+	
 	local frame = ctrlset:GetTopParentFrame();
 	local parentcset = ctrlset:GetParent()
 	local idSpace = frame:GetUserValue("IDSPACE");
@@ -560,8 +560,8 @@ function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
 	local totalCount = 0;
 	local upDown = GET_CHILD(parentcset, "upDown", "ui::CNumUpDown");
 	if nil ~= upDown then
-		totalCount = upDown:GetNumber();
-	end
+		totalCount = upDown:GetNumber();	
+	end	
 
 	if 0 >= totalCount then
 		ui.SysMsg(ClMsg("InputCount"));
@@ -570,7 +570,7 @@ function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
 
 	local cnt = parentcset:GetChildCount();
 	for i = 0, cnt - 1 do
-		local eachcset = parentcset:GetChildByIndex(i);
+		local eachcset = parentcset:GetChildByIndex(i);		
 		if string.find(eachcset:GetName(),'EACHMATERIALITEM_') ~= nil then
 			local selected = eachcset:GetUserValue("MATERIAL_IS_SELECTED")
 			if selected ~= 'selected' then
@@ -600,7 +600,7 @@ function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
 end
 
 function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
-
+	control.DialogEscape();
 	local frame = ui.GetFrame(g_itemCraftFrameName);
 	local ctrl = GET_CHILD_RECURSIVELY(frame, "LABEL", "ui::CGroupBox");
 
@@ -625,7 +625,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 				return;
 			end
 			
-			if GetUTF8Len(memo) > ITEM_MEMO_LEN then
+			if GetUTF8Len(memo) > ITEM_MEMO_LEN then	
 				ui.SysMsg(ScpArgMsg("RecipeMemoCantExceed{Auto_1}Byte", "Auto_1", ITEM_MEMO_LEN));
 				return;
 			end
@@ -655,17 +655,17 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 				local invItem = session.GetInvItemByGuid(tempitem.ItemID);
 				local itemobj = GetIES(invItem:GetObject());
 				if nil ~= invItem and itemobj.ClassName == itemName then
-				if true == invItem.isLockState then
-					ui.SysMsg(ClMsg("MaterialItemIsLock"));
-					return;
-				end
-
-		if 0 ~= recipeItemCnt and 0 == IS_EQUIPITEM(itemName) then
-			if nil ~= invItem and invItem.count < (recipeItemCnt * totalCount) then
-				ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
-				return;
-			end
-		end
+					if true == invItem.isLockState then
+						ui.SysMsg(ClMsg("MaterialItemIsLock"));
+						return;
+					end
+	
+					if 0 ~= recipeItemCnt and 0 == IS_EQUIPITEM(itemName) then
+						if nil ~= invItem and invItem.count < (recipeItemCnt * totalCount) then
+							ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
+							return;
+						end
+					end
 					break;
 				end
 
@@ -680,8 +680,8 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	--if frame:GetUserIValue("MANUFACTURING") == 1 then
 	if GetCraftState() == 1 then
 		ui.SysMsg(ClMsg("prosessItemCraft"));
-			return;
-		end
+		return;
+	end
 
 	-- 임시로 작동하지 않게 막는다. 나중에 새로 만들어야함.
 	if TryGetProp(recipecls, "UseQueue") == "YES" then
@@ -693,8 +693,8 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 		if frame:GetUserIValue("MANUFACTURING") == 1 then
 			return;
 	end
-		frame:SetUserValue("MANUFACTURING", 1);
-		SetCraftState(1)
+	frame:SetUserValue("MANUFACTURING", 1);
+	SetCraftState(1)
 		ui.OpenFrame("craftqueue");	
 		frame:SetUserValue("MANUFACTURING", 1);
 	end
@@ -924,7 +924,7 @@ end
 function ITEMCRAFT_INV_ICON(slot, reinfItemObj, invItem, itemobj)
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
-
+	
 	local someflag = 0
 	local resultlist = session.GetItemIDList();
 	
@@ -964,10 +964,10 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot) -- 우클릭 추가 함수
 			local selected = eachcset:GetUserValue("MATERIAL_IS_SELECTED")
 
 			if selected == 'nonselected' then
-				local targetslot = GET_CHILD(eachcset, "slot", "ui::CSlot");
+				local targetslot = GET_CHILD(eachcset, "slot", "ui::CSlot");				
 				local targeticon 	= targetslot:GetIcon();
 				local targeticonInfo = targeticon:GetInfo();
-
+				
 				local icon 	= slot:GetIcon();
 				local iconInfo = icon:GetInfo();
 
@@ -1005,7 +1005,7 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot) -- 우클릭 추가 함수
 					INVENTORY_UPDATE_ICONS(invframe)
 
 					local btn = GET_CHILD(eachcset, "btn", "ui::CButton");
-
+										
 					if btn ~= nil then
 						btn:ShowWindow(0)
 					end
@@ -1102,7 +1102,7 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 	y = y + 10;
 
 	local gboxHeight = y - startY;
-	labelBox:Resize(labelBox:GetWidth(), gboxHeight);
+	labelBox:Resize(labelBox:GetWidth(), gboxHeight );
 	
 	local targetItem = GetClass("Item", recipecls.TargetItem);
 	if IS_EQUIP(targetItem) == true then
@@ -1294,7 +1294,7 @@ function SORT_PURE_INVITEMLIST(a,b)
 	local itemobj_a = GetIES(a:GetObject());
 	local itemobj_b = GetIES(b:GetObject());
     
-    if itemobj_a.GroupName ~= 'Gem' and itemobj_b.GroupName ~= 'Gem' then
+    if itemobj_a.GroupName ~= 'Gem' and itemobj_b.GroupName ~= 'Gem' and itemobj_a.GroupName ~= 'Card' and itemobj_b.GroupName ~= 'Card' then
     
     	local a_amuletcnt = 0
     	local b_amuletcnt = 0
@@ -1502,7 +1502,7 @@ function ITEM_EQUIP_CRAFT()
 	local frame = ui.GetFrame(g_itemCraftFrameName);
 	local ITEM_CRAFT_NOW_FOCUSED_CSET_NAME = frame:GetUserValue('ITEM_CRAFT_NOW_FOCUSED_CSET_NAME')
 	local nowCset = GET_CHILD_RECURSIVELY(frame,ITEM_CRAFT_NOW_FOCUSED_CSET_NAME,'ui::CControlSet')
-
+	
 	if nowCset == nil then
 		return
 	end
@@ -1515,7 +1515,7 @@ function ITEM_EQUIP_CRAFT()
 	if invItem == nil then
 		return
 	end
-	
+
 	if true == invItem.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
@@ -1523,7 +1523,7 @@ function ITEM_EQUIP_CRAFT()
 	
 	local targetslot = GET_CHILD(itemSet, "slot", "ui::CSlot");
 	local btn = GET_CHILD(itemSet, "btn", "ui::CButton");
-
+	
 	if btn ~= nil then
 		btn:ShowWindow(0)
 	end
