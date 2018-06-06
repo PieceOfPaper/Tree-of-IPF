@@ -30,6 +30,11 @@ function JOURNALRANK_ON_RECV_MY(frame)
 	local ctrlSet = GET_CHILD(frame, "rank_1");
 	local pageCtrl = GET_CHILD(ctrlSet, 'control');
 	local maxPage = ranking.totalCount / WIKI_RANK_PER_PAGE + 1;
+	
+	if maxPage > 2000 then
+		maxPage = 2000
+	end
+
 	pageCtrl:SetMaxPage(maxPage);
 end
 
@@ -45,10 +50,9 @@ function JOURNALRANK_VIEW_PAGE(frame, page)
 end
 
 function ON_WIKI_RANK_PAGE(frame, msg, str, num)
-	print(msg, str, num)
-	if msg == "Total" then
+	if str == "Total" then
 	JOURNAKRANK_SHOW_PAGE(frame, num);
-	elseif msg == "UpHill" then
+	elseif str == "UpHill" then
 		MGAME_SHOW_PAGE(frame, num);
 	end
 end
