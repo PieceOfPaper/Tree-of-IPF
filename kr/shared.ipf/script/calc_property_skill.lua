@@ -383,95 +383,6 @@ function SCR_GET_SKL_COOLDOWN_WIZARD(skill)
 
 end
 
-function SCR_GET_SKL_COOLDOWN_Bloodletting(skill)
-
-	local pc = GetSkillOwner(skill);
-	local basicCoolDown = skill.BasicCoolDown;
-	local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
-	
-	basicCoolDown = basicCoolDown + abilAddCoolDown;
-		
-	if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
-		basicCoolDown = basicCoolDown * 0.8;
-	elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-	    basicCoolDown = basicCoolDown * 1.2;
-	end
-	
-	if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-	    basicCoolDown = basicCoolDown * 0.9;
-	end
-	
-	if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-		if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-			basicCoolDown =	basicCoolDown * 0.5;
-		end
-	end
-	
-	if IsPVPServer(pc) == 1 then
-	    basicCoolDown = basicCoolDown + 20000;
-	end
-
-	return math.floor(basicCoolDown);
-
-end
-
-function SCR_GET_SKL_COOLDOWN_HealingFactor(skill)
-	
-	local pc = GetSkillOwner(skill);
-	local basicCoolDown = skill.BasicCoolDown;
-	local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
-	
-	basicCoolDown = basicCoolDown + abilAddCoolDown;
-		
-	if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
-		basicCoolDown = basicCoolDown * 0.8;
-	elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-	    basicCoolDown = basicCoolDown * 1.2;
-	end
-	
-	if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-	    basicCoolDown = basicCoolDown * 0.9;
-	end
-	
-	if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-		if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-			basicCoolDown =	basicCoolDown * 0.5;
-		end
-	end
-	
-	if IsPVPServer(pc) == 1 then
-	    basicCoolDown = basicCoolDown + 20000;
-	end	
-
-	return math.floor(basicCoolDown);
-	
-end
-
-function SCR_GET_SKL_COOLDOWN_GravityPole(skill)
-	
-	local pc = GetSkillOwner(skill);
-	local basicCoolDown = skill.BasicCoolDown;
-	local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
-	
-	basicCoolDown = basicCoolDown + abilAddCoolDown;
-		
-	if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
-		basicCoolDown = basicCoolDown * 0.8;
-	elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
-	    basicCoolDown = basicCoolDown * 1.2;
-	end
-	
-	if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-	    basicCoolDown = basicCoolDown * 0.9;
-	end
-	
-	if IsPVPServer(pc) == 1 then
-	    basicCoolDown = basicCoolDown + 15000;
-	end	
-
-	return math.floor(basicCoolDown);
-	
-end
 
 function SCR_Get_WaveLength(skill)
 
@@ -1800,16 +1711,6 @@ function SCR_GET_ShieldShoving_Ratio(skill)
 
 end
 
-function SCR_GET_ShieldShoving_Bufftime(skill)
-
-    local value = 1.5
-        if IsPVPServer(self) == 1 then
-	        value = 3
-	    end
-    return value
-
-end
-
 function SCR_Get_SkillFactor_ShieldBash(skill)
 	local pc = GetSkillOwner(skill);
 	local value = skill.SklFactor
@@ -2810,14 +2711,6 @@ function SCR_GET_Gae_Bulg_Ratio(skill)
 
 end
 
-
-function SCR_GET_Gae_Bulg_Ratio2(skill)
-
-	local value = 5 + skill.Level * 0.5
-  return value
-
-end
-
 function SCR_Get_SkillFactor_Dragon_Soar(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -3528,9 +3421,6 @@ function SCR_GET_PunjiStake_Ratio2(skill)
 
 	local pc = GetSkillOwner(skill);
 	local value = 30 + skill.Level * 5
-	    if IsPVPServer(self) == 1 then
-	        value = 900
-	    end
   return value
 
 end
@@ -5271,31 +5161,6 @@ function SCR_GET_MagneticForce_Ratio(skill)
 
 end
 
-function SCR_Get_SkillFactor_GravityPole(skill)
-
-	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
-
-	local abil = GetAbility(pc, "Psychokino8")      -- Skill Damage add
-    if abil ~= nil then
-        value = value + (value * (abil.Level * 0.01))
-    end
-
-    return math.floor(value)
-
-end
-
-function SCR_GET_GravityPole_Ratio2(skill)
-
-	local pc = GetSkillOwner(skill);
-	local abil = GetAbility(pc, "Psychokino8") 
-	local value = 0
-	if abil ~= nil then 
-        return value + abil.Level
-    end
-
-end
-
 function SCR_Get_SklAtkAdd_Meteor(skill)
 
     local pc = GetSkillOwner(skill);
@@ -5735,12 +5600,6 @@ function SCR_GET_Reduce_Level_Ratio(skill)
 
 end
 
-function SCR_GET_Reduce_Level_Ratio2(skill)
-	local value = 10 + skill.Level
-  return value
-
-end
-
 
 
 function SCR_GET_PoleofAgony_Bufftime(skill)
@@ -5752,9 +5611,6 @@ end
 
 function SCR_GET_PoleofAgony_Ratio2(skill)
 	local value = 10
-	    if IsPVPServer(self) == 1 then
-	        value = 5
-	    end
     local pc = GetSkillOwner(skill);
     local abil = GetAbility(pc, "Warlock3")
     if abil ~= nil and 1 == abil.ActiveState then
@@ -5845,9 +5701,9 @@ function SCR_GET_BloodBath_Ratio(skill)
 end
 
 function SCR_GET_BloodBath_Ratio2(skill)
-    local AddValue = skill.SkillAtkAdd * 0.3
-	local value = AddValue
-	return math.floor(value);
+
+	local value = 20 + skill.Level * 10
+	return value;
 
 end
 
@@ -5917,11 +5773,8 @@ end
 
 
 function SCR_GET_HeadShot_Ratio2(skill)
-  local pc = GetSkillOwner(skill);
+
   local value = 5 * skill.Level
-    if IsPVPServer(self) == 1 then
-        value = (5 * skill.Level) + (pc.HR * 0.1)
-    end
   return value;
   
 end
@@ -5929,12 +5782,6 @@ end
 function SCR_GET_HealingFactor_Time(skill)
 
   local value = 15 + skill.Level * 5
-  
-  local pc = GetSkillOwner(skill);
-  if IsPVPServer(pc) == 1 then
-    value = math.min(27, value);
-  end
-  
   return value;
   
 end
@@ -5949,12 +5796,6 @@ end
 function SCR_GET_Bloodletting_Time(skill)
 
   local value = 30 + skill.Level * 5
-  
-  local pc = GetSkillOwner(skill);
-  if IsPVPServer(pc) == 1 then
-    value = 15 + skill.Level * 2;
-  end
-   
   return value;
   
 end
@@ -5962,11 +5803,6 @@ end
 function SCR_GET_Bloodletting_Ratio(skill)
 
   local value = 6 - skill.Level
-  
-  if value <= 0 then
-  value = 1
-  end
-  
   return value;
   
 end
@@ -6243,25 +6079,13 @@ function SCR_GET_Heal_Ratio3(skill)
 
 end
 
-function SCR_GET_Heal_Time(skill)
-
-	local pc = GetSkillOwner(skill);
-	local value = 40;
-	
-	if IsPVPServer(pc) == 1 then
-	    value = 10;
-	end
-	
-	return value
-
-end
-
 function SCR_Get_SklAtkAdd_Cure(skill)
 
     local pc = GetSkillOwner(skill);
 	local value = skill.SklAtkAdd + (skill.Level - 1) * skill.SklAtkAddByLevel
 
-    value = value + math.floor(pc.INT * 1.2);
+    value = value + pc.INT;
+
     return math.floor(value)
 
 end
@@ -6885,7 +6709,7 @@ end
 function SCR_GET_Bunshin_no_jutsu_BuffTime(skill)
 
 
-	local value = skill.Level * 10
+	local value = skill.Level
 
  return value
 
@@ -7304,9 +7128,6 @@ end
 function SCR_Get_DeployPavise_Time(skill)
     
     local value = 16 + skill.Level * 2;
-        if IsPVPServer(pc) == 1 then
-    	    value = 900;
-	    end
     return math.floor(value);
 
 end
@@ -7460,18 +7281,6 @@ function SCR_Get_Rain_Ratio(skill)
     return value;
 end
 
-function SCR_GET_SafetyZone_Ratio(skill)
-    local pc = GetSkillOwner(skill);
-    local value = skill.Level * 2;
-    
-    local abil = GetAbility(pc, 'Cleric18')
-    if abil ~= nil and 1 == abil.ActiveState then
-        value = value + abil.Level * 1;
-    end
-    
-    return value;
-end
-
 
 function SCR_GET_Briquetting_Ratio(skill)
     local value = 4.5 + skill.Level * 0.5;
@@ -7573,9 +7382,6 @@ end
 
 function SCR_GET_DirtyPole_Ratio(skill)
     local value = 20 + skill.Level * 2
-        if IsPVPServer(self) == 1 then
-	        value = 900
-	    end
     return value
 end
 
@@ -7702,12 +7508,7 @@ end
 function SCR_Get_StoneShot_Bufftime(skill)
     
     local value = 4 + skill.Level * 0.4
-    
-    if IsPVPServer(pc) == 1 then
-        value = value / 2
-    end
-    
-    return value;
+    return math.floor(value);
 
 end
 
@@ -7887,7 +7688,7 @@ end
 
 
 function SCR_GET_PsychicPressure_Ratio(skill)
-	return skill.Level + 4
+	return 5 - math.floor(skill.Level * 0.1)
 end
 
 
@@ -7897,9 +7698,6 @@ function SCR_GET_PsychicPressure_Ratio2(skill)
 end
 
 function SCR_GET_GravityPole_Ratio(skill)
-    if IsPVPServer(self) == 1 then
-        return skill.Level * 1
-    end
 
 	return 5 + skill.Level * 1
 end
@@ -7994,7 +7792,7 @@ end
 function SCR_GET_HellBreath_Ratio(skill)
 
 	local pc = GetSkillOwner(skill);
-    local value = 2
+    local value = 3
     return value
 end
 
@@ -8049,9 +7847,7 @@ end
 function SCR_GET_Blessing_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local statValue = math.floor((pc.MNA * 0.06 + pc.INT * 0.02) * (skill.Level-1))
-	local value = 15.5 + (skill.Level-1) * 3.9 + statValue;
-	
+	local value = 15.5 + (skill.Level-1) * 3.9;
 	
 	local Priest18_abil = GetAbility(pc, "Priest18")    -- 2rank Skill Damage multiple
     local Priest19_abil = GetAbility(pc, "Priest19")    -- 3rank Skill Damage multiple
@@ -8154,11 +7950,9 @@ end
 function SCR_GET_Revive_Bufftime(skill)
 	local pc = GetSkillOwner(skill);
 	local value = 90
-	    if IsPVPServer(pc) == 1 then
-	        value = 30
-	    end
+	
 	local Priest21_abil = GetAbility(pc, 'Priest21')
-	if Priest21_abil ~= nil and 1 == Priest21_abil.ActiveState and IsPVPServer(pc) == 0 then
+	if Priest21_abil ~= nil and 1 == Priest21_abil.ActiveState then
 	    value = value + Priest21_abil.Level * 7
 	end
 	
@@ -8192,15 +7986,8 @@ end
 
 function SCR_GET_StoneSkin_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 80 * skill.Level * 1
-    
-	if IsPVPServer(pc) == 1 then
-	    value = value + pc.MNA * 0.5
-	else
-	    value = value + pc.MNA * 4
-	end
-	
-    return math.floor(value)
+    local value = (80 * skill.Level * 1) + pc.MNA * 4
+    return value
 end
 
 
@@ -8371,9 +8158,7 @@ function SCR_GET_Carve_Ratio(skill)
 end
 
 function SCR_GET_OwlStatue_Bufftime(skill)
-    if IsPVPServer(self) == 1 then
-        return 900
-    end
+
     return 20 + skill.Level * 5;
     
 end
@@ -8721,21 +8506,13 @@ function SCR_GET_ResistElements_Ratio2(skill)
     return value
 end
 
-function SCR_GET_ResistElements_Ratio3(skill)
-    
-    local pc = GetSkillOwner(skill);
-    local value = skill.Level * 2.5;
-    
-    return value
-end
-
 function SCR_GET_ResistElements_Bufftime(skill)
     local value = 60 + skill.Level * 5
     return math.floor(value)
 end
 
 function SCR_GET_TurnUndead_Ratio(skill)
-    return 3 + skill.Level
+    return skill.Level
 end
 
 function SCR_Get_IronSkin_Time(skill)
@@ -8823,13 +8600,6 @@ end
 
 function SCR_GET_Carnivory_Time(skill)
     local value = 10
-    
-    local pc = GetSkillOwner(skill)
-    local abil = GetAbility(pc, "Druid8")
-    if abil ~= nil and 1 == abil.ActiveState then
-        value = value + abil.Level
-    end
-    
     return value
 end
 
@@ -8929,11 +8699,8 @@ function SCR_GET_ManaShield_Ratio(skill)
 end
 
 function SCR_GET_Sleep_Ratio(skill)
-    local value = skill.Level
-        if IsPVPServer(self) == 1 and value > 5 then
-	        value = 5
-	    end
-	return value
+
+	return skill.Level
 
 end
 
@@ -9623,7 +9390,7 @@ function SCR_Get_BroadHead_Ratio(skill)
 end
 
 function SCR_Get_BroadHead_Bufftime(skill)
-    return 5 + skill.Level * 0.5
+    return 5 + skill.Level * 1
 end
 
 function SCR_Get_CrossFire_Ratio(skill)
@@ -10721,14 +10488,6 @@ function SCR_Get_SwellBrain_Ratio(skill)
 
 end
 
-function SCR_Get_SwellBrain_Ratio2(skill)
-
-    local value = 12.5 + (skill.Level - 1) * 2.5
-    
-    return math.floor(value)
-
-end
-
 function SCR_Get_SpiritualChain_Bufftime(skill)
 
     local pc = GetSkillOwner(skill);
@@ -10972,17 +10731,6 @@ function SCR_NOHIT_ATTACK(self, from, skill, splash, ret)
 
 end
 
-
-
-
-function SCR_GET_SR_LV_TurnUndead(skill)
-
-	local value = 3 + skill.Level
-
-	return value
-	
-end
-
 function SCR_GET_SR_LV(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -11070,7 +10818,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
 	if skill.GemLevel_BM > 0 then
-		value = value + 1;	-- ?????? ?????????? ??ø????? ?????? +1?? ????????.
+		value = value + 1;	-- ������ ��ų���ʽ��� ��ø���ѵ� ������ +1�� ��Ų�ٰ���.
 	end
 
     if skill.LevelByDB == 0 then
@@ -11151,18 +10899,10 @@ function SCR_GET_Ogouveve_Ratio(skill)
     return math.floor(value);
 end
 
-function SCR_GET_Ogouveve_BuffTime(skill)
+function SCR_GET_Ogouveve_Ratio2(skill)
     
     local pc = GetSkillOwner(skill);
     local value = 60 + skill.Level * 10
-    
-    return math.floor(value);
-end
-
-
-function SCR_GET_Ogouveve_Ratio2(skill)
-    
-    local value = 1 + skill.Level * 0.5
     
     return math.floor(value);
 end
@@ -11228,14 +10968,6 @@ function SCR_GET_CarveLaima_Ratio2(skill)
     return 25 + (skill.Level * 5)
 end
 
-function SCR_GET_CarveLaima_Ratio3(skill)
-    local value = 20
-        if IsPVPServer(self) == 1 then
-	        value = 10
-	    end
-	return value;
-end
-
 function SCR_GET_CarveAusirine_Ratio(skill)
     return 8 + (skill.Level * 2)
 end
@@ -11272,11 +11004,6 @@ function SCR_GET_DELAY_TIME(skill)
 	end
 	return skill.DelayTime;
 end
-
-function SCR_USE_DELAY_TIME(skill)
-	return skill.DelayTime;
-end
-
 function SCR_GET_Dig_Ratio(skill)
 	local value = skill.Level;
 	return value;
