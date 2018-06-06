@@ -82,9 +82,13 @@ function PET_INFO_SHOW(petGuid)
 
 	local frame = ui.GetFrame("pet_info");
 	frame:SetUserValue("PET_GUID", petInfo:GetStrGuid());
-	local obj = GetIES(petInfo:GetObject());
+	local obj = petInfo:GetObject();
+	if obj == nil then
+		return;
+	end
+
+	obj = GetIES(obj);
 	
-	--print(obj.IconImage);
 	local bg_Icon = frame:GetChild("bg_icon");
 	local icon = GET_CHILD(bg_Icon, "icon", "ui::CPicture");
 	icon:SetImage(obj.IconImage);
@@ -160,6 +164,7 @@ function PET_INFO_SHOW(petGuid)
 	local monCls = GetClassByType("Monster", petInfo:GetPetType());
 
 	local bg_stat = GET_CHILD(frame, "bg_stat", "ui::CGroupBox");
+
 	local tree = GET_CHILD(bg_stat, "pettree", "ui::CTreeControl");
 	
 	local groupfontname = frame:GetUserConfig("TREE_GROUP_FONT");
@@ -181,9 +186,10 @@ function PET_INFO_SHOW(petGuid)
 	for i = 0 , statCnt - 1 do
 		local statCls = GetClassByIndexFromList(statList, i);
 		local val = obj[statCls.ClassName];
+		
 		local pet_stat_info_text = statBox:CreateOrGetControlSet("pet_stat_info_text", "STAT_TEXT_" .. i, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		pet_stat_info_text:SetUserValue("CLSNAME", statCls.ClassName);
-		pet_stat_info_text:Resize(statBox:GetWidth() - 20, pet_stat_info_text:GetHeight() + 5);
+		pet_stat_info_text:Resize(statBox:GetWidth() - 20, pet_stat_info_text:GetHeight());
 		
 		local name = pet_stat_info_text:GetChild("name");
 		name:SetTextByKey("value", ClMsg("Pet_" .. statCls.ClassName));
@@ -197,23 +203,32 @@ function PET_INFO_SHOW(petGuid)
 			btn:ShowWindow(0)
 		end
 		
-		local descStrFunc = _G["PET_ABILITY_DESC_" .. statCls.ClassName];
-		local descStr = descStrFunc(obj);
-		
 	end
 	
 	GBOX_AUTO_ALIGN(statBox, 5, 3, 10, true, true);
-	local statnode = tree:Add(ClMsg("DetailInfo"), "Stats", g_treeStartSpace, g_treeEndSpace);
+	local statnode = tree:Add(ClMsg("DetailInfo"), "Stats", 5, 10);
 	tree:Add(statnode, statBox);
+	
+	for i = 0, PET_EQUIP_PARTS_COUNT - 2 do
+		local caption = "";
+		if i == 0 then
+			caption = ClMsg("Wiki_Weapon");
+		elseif i == 1 then
+			caption = ClMsg("Wiki_Armor");
+		end
 
-	local equips = tree:Add(ClMsg("EquipInfomation"), "EquipInfomation", g_treeStartSpace, g_treeEndSpace);
-	local newslotset = MAKE_PET_EQUIP_SLOT(tree);
-	newslotset:ShowWindow(1);
-	PET_INFO_BUILD_EQUIP(frame, newslotset, petInfo);
-	tree:Add(equips, newslotset);
+		local equips = tree:Add(ClMsg("EquipInfomation") .. " - " .. caption, "EquipInfomation" .. i, 5, 10);
+		local newslotset = MAKE_PET_EQUIP_SLOT(tree, petInfo, i);
+		if newslotset ~= nil then
+			newslotset:ShowWindow(1);
+			PET_INFO_BUILD_EQUIP(frame, newslotset, petInfo, i);
+			tree:Add(equips, newslotset);
+		end
+	end
 		
 	tree:OpenNodeAll();
 	frame:ShowWindow(1);
+	
 	PET_INFO_UPDATE_ACTIVATED(frame, true);
 
 ---	bg_stat:SetScrollPos(0);
@@ -223,7 +238,12 @@ function PET_INFO_UPDATE_ACTIVATED(frame, isFirstUpdate)
 
 	local pet_guid = frame:GetUserValue("PET_GUID");
 	local petInfo = session.pet.GetPetByGUID(pet_guid);
-	local obj = GetIES(petInfo:GetObject());
+	local obj = petInfo:GetObject();
+	if obj == nil then
+		return;
+	end
+
+	obj = GetIES(obj);
 
 	local bg = frame:GetChild("bg");
 	local activate = GET_CHILD(bg, "activate", "ui::CPicture");
@@ -250,20 +270,26 @@ function TOGGLE_PET_ACTIVITY(parent, ctrl)
 	control.CustomCommand("PET_ACTIVATE", 0);	
 end
 
-function PET_INFO_BUILD_EQUIP(frame, newslotset, petInfo)
+function PET_INFO_BUILD_EQUIP(frame, newslotset, petInfo, type)
 
-	for i = 0 , PET_EQUIP_COUNT - 1 do
-		local petEquipInfo = petInfo:GetEquipBySlot(i);
-		if petEquipInfo ~= nil then
-			local obj = GetIES(petEquipInfo:GetObject());
-			local slotIndex = petEquipInfo.slot;
-			local slot = newslotset:GetSlotByIndex(slotIndex);
+	local petEquipParts = petInfo:GetEquipPartsByType(type);
+	if petEquipParts == nil then
+		return;
+	end
+
+	local size = petEquipParts:GetEquipableCount();
+	for i = 0 , size - 1 do
+		local obj = petEquipParts:GetObject(i);
+		if obj ~= nil then
+			obj = GetIES(obj);
+			local slot = newslotset:GetSlotByIndex(i);
 			SET_SLOT_ITEM_OBJ(slot, obj);
 			local icon = slot:GetIcon();
-			icon:SetTooltipArg("petequip", obj.ClassID, GetIESID(obj));
+
+			icon:SetTooltipArg("petequip", obj.ClassID, GetIESID(obj), obj);
+
 			slot:SetUserValue("ITEM_GUID", GetIESID(obj));
 			slot:SetEventScript(ui.RBUTTONUP, "PET_ITEM_UNEQUIP");
-			imcSound.PlaySoundEvent("item_pick_down")		
 		end
 	end
 
@@ -274,34 +300,43 @@ function PET_ITEM_UNEQUIP(parent, ctrl)
 	local guid = ctrl:GetUserValue("ITEM_GUID");
 	local frame = parent:GetTopParentFrame();
 	local pet_guid = frame:GetUserValue("PET_GUID");
-	geClientPet.RequestEquipPet(pet_guid, guid, PET_EQUIP_COUNT);
+	
+	geClientPet.RequestEquipPet(pet_guid, guid, PET_EQUIP_PARTS_COUNT, -1);
 	imcSound.PlaySoundEvent("item_pick_up")		
 end
 
-function MAKE_PET_EQUIP_SLOT(tree)
+function MAKE_PET_EQUIP_SLOT(tree, petInfo, type)
 
 	local frame = tree:GetTopParentFrame();
 	local slotsize = frame:GetUserConfig("TREE_SLOT_SIZE");
 	
-	local newslotset = tree:CreateOrGetControl('slotset',"equpslot" ,0,0,0,0) 
+	local petEquipParts = petInfo:GetEquipPartsByType(type);
+	if petEquipParts == nil then
+		return nil;
+	end
+
+	local size = petEquipParts:GetEquipableCount();
+
+	local newslotset = tree:CreateOrGetControl('slotset', "equpslot_" .. type ,0,0,0,0) 
 	tolua.cast(newslotset, "ui::CSlotSet");
 	newslotset:EnablePop(1)
 	newslotset:EnableDrag(1)
 	newslotset:EnableDrop(1)
 	newslotset:SetMaxSelectionCount(999)
 	newslotset:SetSlotSize(slotsize,slotsize)
-	newslotset:SetColRow(PET_EQUIP_COUNT, 1)
+	newslotset:SetColRow(size, 1)
 	newslotset:SetSpc(0,0)
 	newslotset:SetSkinName('invenslot2');
 	newslotset:EnableSelection(0)
 	newslotset:SetEventScript(ui.DROP, "DROP_PET_EQUIP");
 	newslotset:CreateSlots();
 
-	for i = 0 , PET_EQUIP_COUNT - 1 do
-		local slotStr = gePet.PetSlotToString(i);
+	for i = 0, size - 1 do
+		local slotStr = gePet.PetPartsToString(type);
 		local slot = newslotset:GetSlotByIndex(i);
-		slot:SetUserValue("SPOT", slotStr);
-		slot:SetOverSound("button_over")
+		slot:SetUserValue("TYPE", slotStr);
+		slot:SetUserValue("SPOT", i);
+		slot:SetOverSound("button_over");
 	end
 
 	return newslotset;
@@ -314,7 +349,13 @@ function PET_ABIL_UP(parent, ctrl)
 	local guid = frame:GetUserValue("PET_GUID");
 	
 	local petInfo = session.pet.GetPetByGUID(guid);
-	local obj = GetIES(petInfo:GetObject());
+	local obj = petInfo:GetObject();
+	if obj == nil then
+		return;
+	end
+
+	obj = GetIES(obj);
+
 	local pc = GetMyPCObject();
 	local needSilver = GET_PET_STAT_PRICE(pc, obj, clsName);
 	local statTitle = ClMsg("Pet_" .. clsName);
@@ -345,29 +386,52 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 	local liftIcon = ui.GetLiftIcon():GetInfo();
 	local frame = parent:GetTopParentFrame();
 	local guid = frame:GetUserValue("PET_GUID");
+
+	local list = session.pet.GetPetInfoVec();
+
+	local petInfo = session.pet.GetPetByGUID(guid);
+	if petInfo == nil then
+		return;
+	end
 	
 	slot = tolua.cast(slot, "ui::CSlot");
+	local slotType = slot:GetUserValue("TYPE");
 	local slotSpot = slot:GetUserValue("SPOT");
-	local spotEnum = gePet.StringToPetEquipSlot(slotSpot);
+	local typeEnum = gePet.StringToPetEquipType(slotType);
 
 	local invItem = session.GetInvItemByGuid(liftIcon:GetIESID());
 	local slotlist = tolua.cast(parent, "ui::CSlotSet");
-	local itemObj = GetIES(invItem:GetObject());
-	local petSlot = TryGetProp(itemObj, "PetSlot");
-	if petSlot == nil or petSlot == "None" then
-		ui.MsgBox(ScpArgMsg("ThisItemIsNotForCompanion"));
+	local itemObj = invItem:GetObject();
+	if itemObj ~= nil then
+		itemObj = GetIES(itemObj);
+	else
+		return;
+	end
+	local itemEnum = PET_EQUIP_PARTS_COUNT;
+	local group = TryGetProp(itemObj, "GroupName");
+	if group == "Weapon" or group == "SubWeapon" then
+		local equip = TryGetProp(itemObj, "EquipGroup");
+		if equip ~= "None" then
+			itemEnum = PET_EQUIP_PARTS_WEAPON;
+		end
+	elseif group == "Armor" then
+		local equip = TryGetProp(itemObj, "EquipGroup");
+		if equip ~= "None" then
+			itemEnum = PET_EQUIP_PARTS_ARMOR;
+		end
+	end
+
+	if itemEnum == PET_EQUIP_PARTS_COUNT then
+		ui.SysMsg(ClMsg("ThisItemIsNotForCompanion"));
 		return;
 	end
 
-	local itemEnum = gePet.StringToPetEquipSlot(petSlot);
-	local isAble = gePet.IsEquipable(itemEnum, spotEnum);
-	local destSlot = spotEnum;
+	local isAble = petInfo:IsEquipable(itemEnum, typeEnum, slotSpot);
 	if isAble == false then
-		local suitableSlot = GET_SLOT_BY_USERVALUE(slotlist, "SPOT", petSlot);
-		destSlot = suitableSlot:GetSlotIndex();
+		return;
 	end
 
-	geClientPet.RequestEquipPet( guid, liftIcon:GetIESID(), destSlot );
+	geClientPet.RequestEquipPet( guid, liftIcon:GetIESID(), typeEnum, slotSpot );
 
 end
 

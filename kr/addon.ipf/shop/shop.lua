@@ -21,7 +21,7 @@ function SHOP_UI_OPEN(frame)
 	--HIDE_OR_SHOW_REPAIR_BUTTON(frame)
 	OPEN_SHOPUI_COMMON();
 
-	--jansori.lua �� �Լ�
+	--jansori.lua 의 함수
 	JS_SHOP_OPEN(frame)
 	ui.EnableSlotMultiSelect(1);
 
@@ -66,7 +66,7 @@ end
 function SHOP_UI_CLOSE(frame, obj, argStr, argNum)
 	control.DialogOk()
 
-	--jansori.lua �� �Լ�
+	--jansori.lua 의 함수
 	JS_SHOP_CLOSE(frame)
 	ui.EnableSlotMultiSelect(0);
 	SHOP_SELECT_ITEM_LIST = {}
@@ -76,6 +76,9 @@ function SHOP_UI_CLOSE(frame, obj, argStr, argNum)
 	if invenFrame:IsVisible() == 1 then
 		invenFrame:ShowWindow(0);
 	end
+
+	-- 상점마다 페이지 다를 수 있어서 페이지 넘버 초기화함
+	NOWPAGENUM = 1
 end
 
 function SHOP_SLOT_RBTNDOWN_2(frame, slotList, argStr, argNum)
@@ -166,7 +169,7 @@ function SHOP_BUTTON_BUYSELL(frame, slot, argStr, argNum)
 end
 
 function SHOP_BUTTON_BUY(frame, slot, argStr, argNum)
-	-- ������ ����
+	-- 아이템 구입
 	local frame     = ui.GetFrame("shop");
 	local groupbox  = frame:GetChild('buyitemslot');
 	local buyslotSet	= tolua.cast(groupbox, 'ui::CSlotSet');
@@ -196,7 +199,7 @@ function SHOP_BUTTON_BUY(frame, slot, argStr, argNum)
 end
 
 function SHOP_BUTTON_SELL(frame, slot, argStr, argNum)
-	-- ������ �Ǹ�
+	-- 아이템 판매
 	local frame     = ui.GetFrame("shop");
 	local groupbox  = frame:GetChild('sellitemslot');
 	local sellslotSet	= tolua.cast(groupbox, 'ui::CSlotSet');
@@ -574,7 +577,7 @@ function CANCEL_SELL(frame, ctrl, argstr, argnum)
 		slot = tolua.cast(ctrl, "ui::CSlot");
 	end
 
-	-- �κ����� ������ ����
+	-- 인벤으로 아이템 복귀
 	local itemID = slot:GetUserValue("SLOT_ITEM_ID");
 	local invitem = session.GetInvItemByGuid(itemID);
 
@@ -590,7 +593,7 @@ end
 
 function GET_TOTAL_BUY_PRICE(frame)
 
-	-- ���� �� �ݾ� ���
+	-- 구입 총 금액 계산
 	local buygroupbox  = frame:GetChild('buyitemslot');
 	local buyslotSet   = tolua.cast(buygroupbox, 'ui::CSlotSet');
 	local buyslotCount = buyslotSet:GetSlotCount();
@@ -614,7 +617,7 @@ function GET_TOTAL_BUY_PRICE(frame)
 	local buypricetext = frame:GetChild('buy_price');
 	buypricetext:SetText("{@st41b}" .. tostring(buyprice));
 
-	-- �Ǹ�  �� �ݾ� ���
+	-- 판매  총 금액 계산
 	local sellgroupbox  = frame:GetChild('sellitemslot');
 	if sellgroupbox == nil then
 		return buyprice;
@@ -742,7 +745,7 @@ function SHOP_REPAIR_ITEM(frame)
 end
 
 function SHOP_ITEM_SLOT_INIT(frame)
-	-- ���� ���� �ʱ�ȭ
+	-- 구입 슬롯 초기화
 	local groupbox  = frame:GetChild('buyitemslot');
 	local slotSet   = tolua.cast(groupbox, 'ui::CSlotSet');
 	local slotCount = slotSet:GetSlotCount();
@@ -757,7 +760,7 @@ function SHOP_ITEM_SLOT_INIT(frame)
 
 	--slotSet:ClearIconAll();
 
-	-- �Ǹ� ���� �ʱ�ȭ ( �ǸŴ� �κ������� �������� ���� ������� �Ѵ� )
+	-- 판매 슬롯 초기화 ( 판매는 인벤쪽으로 아이템을 복귀 시켜줘야 한다 )
 	groupbox  = frame:GetChild('sellitemslot');
 	slotSet   = tolua.cast(groupbox, 'ui::CSlotSet');
 	slotCount = slotSet:GetSlotCount();
@@ -797,7 +800,7 @@ function SHOP_ITEM_LIST_GET(frame)
 	shopgrid:SetSlotSize(460, 50)
 	shopgrid:SetSlotSpace(0, 0)
 
-	-- ������ �Ĵ� ������ ���� �ľ�
+	-- 상점에 파는 아이템 개수 파악
 	local shopItemList = session.GetShopItemList();
 	if shopItemList == nil then
 		return;
@@ -805,7 +808,7 @@ function SHOP_ITEM_LIST_GET(frame)
 	local shopItemCount = shopItemList:Count();
 	local SHOPITEMLIST_prevItem = nil;
 
-	-- ������ �Ĵ� �������� 10���� ���� ��
+	-- 상점에 파는 아이템이 10개가 넘을 시
 	if shopItemCount - shopItemCount % 8 > 0 then
 		if shopItemCount % 8 == 0 then
 			TOTALPAGENUM = shopItemCount / 8;
@@ -884,7 +887,7 @@ function SET_SHOP_ITEM_TOOLTIP(icon, shopItem)
 end
 
 function SHOP_ITEM_LIST_UPDATE(frame, ShopItemData, ShopItemCount)
-	-- ������ �Ĵ� ������ ���� �ľ�
+	-- 상점에 파는 아이템 개수 파악
 	local shopItemList = session.GetShopItemList();
 
 	local shopItemList = session.GetShopItemList();
@@ -894,7 +897,7 @@ function SHOP_ITEM_LIST_UPDATE(frame, ShopItemData, ShopItemCount)
 
 	local shopItem	= shopItemList:PtrAt(ShopItemData);
 
-	-- ������ �Ĵ� ������ �׷켳��
+	-- 상점에 파는 아이템 그룹설정
 	local ShopItemGroupBox 	= frame:GetChild('shop');
 	local SHOPITEM_listSet	= tolua.cast(ShopItemGroupBox, "ui::CGroupBox");
 	local ShopItemName		= 'SHOPITEMLLIST_' .. ShopItemData;
@@ -905,14 +908,14 @@ function SHOP_ITEM_LIST_UPDATE(frame, ShopItemData, ShopItemCount)
 		ui.MsgBox(ShopItemData)
 	end
 
-	-- ���� ������ ����Ʈ�� �Է��Ѵ�
+	-- 상점 아이템 리스트를 입력한다
 	local ShopItemCountObj		= grid:CreateControlSet('shopitemset_Type', ShopItemName, 0, 0);
 	local ShopItemCountCtrl		= tolua.cast(ShopItemCountObj, "ui::CControlSet");
 	ShopItemCountCtrl:SetEnableSelect(1);
 	ShopItemCountCtrl:SetSelectGroupName("ShopItemList");
 
 
-	-- Sort�� ���� ���� ���� ����϶�
+	-- Sort를 위한 개수 값을 계산하라
 	--[[
 	ui.MsgBox(ShopItemData)
 	if ShopItemData % 8 == 0 then
@@ -926,7 +929,7 @@ function SHOP_ITEM_LIST_UPDATE(frame, ShopItemData, ShopItemCount)
 	]]
 
 
-		-- ���� ������ ���� �� ��Ÿ �������� �Ѵ�
+		-- 상점 아이콘 설정 및 기타 설정들을 한다
 	local ConSetBySlot 	= ShopItemCountCtrl:GetChild('slot');
 	local slot			= tolua.cast(ConSetBySlot, "ui::CSlot");
 	local icon = CreateIcon(slot);
@@ -949,13 +952,13 @@ function SHOP_ITEM_LIST_UPDATE(frame, ShopItemData, ShopItemCount)
 	slot:SetEventScriptArgString(ui.RBUTTONDOWN, imageName);
 	slot:SetEventScriptArgNumber(ui.RBUTTONDOWN, ShopItemData);
 
-	-- ���������� ���� ǥ��
+	-- 묶음아이템 수량 표시
 	if shopItem.count > 1 then
 		slot:SetText(shopItem.count,  'quickiconfont', 'right', 'bottom', 0, 0);
 	end
 
 	SET_SHOP_ITEM_TOOLTIP(icon, shopItem);
-	-- ���� �Ұ��� �� ����ũ ó��
+	-- 착용 불가는 색 마스크 처리
 	local result = IS_SHOPITEM_BUYABLE(shopItem);
 
 
@@ -971,9 +974,9 @@ function SHOP_ITEM_LIST_UPDATE(frame, ShopItemData, ShopItemCount)
 
 end
 
--- ���� ������ ">" ">>" �� �������� ó��
--- �������� �°� ��������Ʈ�� ����ó��
--- ">>" �� ���������� argnum���� 1�� �ѱ�
+-- 상점 페이지 ">" ">>" 를 눌렀을때 처리
+-- 페이지에 맞게 상점리스트도 갱신처리
+-- ">>" 를 눌렀을때는 argnum에서 1을 넘김
 function SHOP_PAGE_RIGHT(frame, ctrl, argstr, argnum)
 	if ctrl:IsEnable() == 1 then
 		if argnum == 1 then
@@ -1002,9 +1005,9 @@ function SHOP_PAGE_RIGHT(frame, ctrl, argstr, argnum)
 	end
 end
 
--- ���� ������ "<" "<<" �� �������� ó��
--- �������� �°� ��������Ʈ�� ����ó��
--- "<<" �� ���������� argnum���� 1�� �ѱ�
+-- 상점 페이지 "<" "<<" 를 눌렀을때 처리
+-- 페이지에 맞게 상점리스트도 갱신처리
+-- "<<" 를 눌렀을때는 argnum에서 1을 넘김
 function SHOP_PAGE_LEFT(frame, ctrl, argstr, argnum)
 	if ctrl:IsEnable() == 1 then
 		if argnum == 1 then
@@ -1084,8 +1087,7 @@ function UPDATE_SOLD_ITEM_LIST(frame)
 
 
 	local MyMoney = GET_TOTAL_MONEY();
-	local TotalPrice = GET_TOTAL_BUY_PRICE(frame);
-	FINALPRICE = MyMoney + TotalPrice;
+	FINALPRICE = MyMoney;
 
 	SHOP_UPDATE_BUY_PRICE();
 
@@ -1108,7 +1110,15 @@ function SOLD_SLOT_SET(slot, index, info)
 	if IS_EQUIP(obj) == false then
 		slot:SetText('{s18}{ol}{b}'..info.count, 'count', 'right', 'bottom', -2, 1);
 	end
-   -- icon:SetTooltipArg('soldItem', info.type, index);
+
+	local price = 0;
+	local itemProp = geItemTable.GetPropByName(obj.ClassName);
+	if itemProp ~= nil then
+		price = geItemTable.GetSellPrice(itemProp);
+	end
+	slot:SetUserValue('SOLDITEMPRICE', price * info.count);
+
+	-- icon:SetTooltipArg('soldItem', info.type, index);
 
 	slot:SetEventScript(ui.RBUTTONUP, "CONTEXT_SOLD_ITEM");
 	slot:SetEventScriptArgNumber(ui.RBUTTONUP, index);
@@ -1128,17 +1138,34 @@ function CONTEXT_SOLD_ITEM(frame, slot, str, num)
 
 	local context = ui.CreateContextMenu("SOLD_ITEM_CONTEXT", "{@st41}".. GET_FULL_NAME(obj).. "{@st42b}..",0, 0, 100, 100);
 	local strScp = string.format("SHOP_REQ_CANCEL_SELL(%d)", num);
---	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}JaeMaeip"), strScp);
+	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}JaeMaeip"), strScp);
 	strScp = string.format("SHOP_REQ_DELETE_SOLDITEM(%d)", num);
---	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}yeongKuJeKeo"), strScp);
---	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}ChwiSo"), "SHOP_SOLDED_CANCEL");
---	ui.OpenContextMenu(context);
+	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}yeongKuJeKeo"), strScp);
+	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}ChwiSo"), "SHOP_SOLDED_CANCEL");
+	ui.OpenContextMenu(context);
 end
 function SHOP_SOLDED_CANCEL()
 	imcSound.PlaySoundEvent("button_click");
 end
 function SHOP_REQ_CANCEL_SELL(index)
 	imcSound.PlaySoundEvent("button_click");
+	
+	local frame     = ui.GetFrame("shop");
+	local slotSet = GET_CHILD(frame, "solditemslot", "ui::CSlotSet");
+	local slot = slotSet:GetSlotByIndex(index);
+	if slot == nil then
+		return;
+	end
+	
+	local price = slot:GetUserIValue('SOLDITEMPRICE');
+	local MyMoney = GET_TOTAL_MONEY();
+
+	if price > MyMoney then
+		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughMoney'));
+		return;
+	end
+
+
 	item.ReqCancelSell(index);
 end
 
@@ -1163,3 +1190,4 @@ function SHOP_SLOT_CLEAR(slot)
 	slot:SetText("");
 
 end
+
