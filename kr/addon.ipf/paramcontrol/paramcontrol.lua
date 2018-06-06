@@ -66,7 +66,7 @@ function REQ_SERVER_UPDATE_PARAM_CTRL(frame, clsName)
 	local val = tonumber(text:GetText());
 	local valStr = string.format("%.2f", val);
 	local cls = GetClass("SharedConst", clsName);
-	iesman.ChangeIESProp("SharedConst", cls.ClassID, "Value", valStr, "Change By Tool", 1);
+	iesman.ChangeIESProp("SharedConst", cls.ClassID, cls.ClassName, "Value", valStr, "Change By Tool", 1);
 end
 
 function PARAM_CONTROL_EDIT(frame, ctrl, str, num)

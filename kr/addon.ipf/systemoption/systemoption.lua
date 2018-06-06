@@ -319,7 +319,7 @@ function CHANGE_SHARED_CONST(frame, checkBox, isch, numArg)
 		changeValue = 0;
 	end
 
-	iesman.ChangeIESProp("SharedConst", cls.ClassID, "Value", changeValue, "CHANGE BY OPTION", 1);
+	iesman.ChangeIESProp("SharedConst", cls.ClassID, cls.ClassName, "Value", changeValue, "CHANGE BY OPTION", 1);
 
 end
 
