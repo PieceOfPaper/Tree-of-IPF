@@ -91,7 +91,7 @@
             </Stage>
             <Stage Name="MONSTER">
                 <ObjList>
-                    <Obj Type="Monster" MonType="58150" Pos="-1216.07#511.44#-2257.35" maxStackCount="2" genTime="8000" genReadyTime="500" objectKey="0" tendency="1">
+                    <Obj Type="Monster" MonType="58150" Pos="-1216.07#511.44#-2257.35" maxStackCount="2" genTime="8000" genReadyTime="500" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -122,7 +122,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58150" Pos="-1220.00#511.00#-2647.00" maxStackCount="2" genTime="8000" genReadyTime="500" objectKey="1" tendency="1">
+                    <Obj Type="Monster" MonType="58150" Pos="-1220.00#511.00#-2647.00" maxStackCount="2" genTime="8000" genReadyTime="500" objectKey="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -153,7 +153,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58150" Pos="-799.70#511.44#-2639.04" maxStackCount="2" genTime="10000" genReadyTime="500" objectKey="2" tendency="1">
+                    <Obj Type="Monster" MonType="58150" Pos="-799.70#511.44#-2639.04" maxStackCount="2" genTime="10000" genReadyTime="500" objectKey="2" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -184,7 +184,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58150" Pos="-797.89#511.44#-2260.09" maxStackCount="2" genTime="10000" genReadyTime="500" objectKey="3" tendency="1">
+                    <Obj Type="Monster" MonType="58150" Pos="-797.89#511.44#-2260.09" maxStackCount="2" genTime="10000" genReadyTime="500" objectKey="3" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -215,7 +215,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="103009" Pos="-1216.00#511.00#-2257.00" maxStackCount="1" genTime="25000" genReadyTime="1000" objectKey="4" tendency="1">
+                    <Obj Type="Monster" MonType="103009" Pos="-1216.00#511.00#-2257.00" maxStackCount="1" genTime="25000" genReadyTime="1000" objectKey="4" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -243,7 +243,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="103009" Pos="-1220.82#511.44#-2647.77" maxStackCount="1" genTime="18000" genReadyTime="1000" objectKey="5" tendency="1">
+                    <Obj Type="Monster" MonType="103009" Pos="-1220.82#511.44#-2647.77" maxStackCount="1" genTime="18000" genReadyTime="1000" objectKey="5" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -271,7 +271,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="103009" Pos="-799.00#511.00#-2639.00" maxStackCount="1" genTime="20000" genReadyTime="1000" objectKey="6" tendency="1">
+                    <Obj Type="Monster" MonType="103009" Pos="-799.00#511.00#-2639.00" maxStackCount="1" genTime="20000" genReadyTime="1000" objectKey="6" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -299,7 +299,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="103009" Pos="-797.00#511.00#-2260.00" maxStackCount="1" genTime="24000" genReadyTime="1000" objectKey="7" tendency="1">
+                    <Obj Type="Monster" MonType="103009" Pos="-797.00#511.00#-2260.00" maxStackCount="1" genTime="24000" genReadyTime="1000" objectKey="7" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">

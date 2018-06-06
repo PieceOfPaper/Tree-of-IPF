@@ -2,17 +2,23 @@
 function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	local type = tooltipframe:GetChild("richtext_1");
 	local typeStr = "None";
+	local token_expup = tooltipframe:GetChild("token_expup");
+	local token_staup = tooltipframe:GetChild("token_staup");
+
 	if ITEM_TOKEN == numarg1 then
 		type:SetTextByKey("value", ClMsg("tokenItem"));
+		token_expup:SetTextByKey("value", ClMsg("CantTradeAbility"));
+		token_staup:ShowWindow(0);
 	elseif NEXON_PC == numarg1 then
 		type:SetTextByKey("value", ClMsg("nexon")); 
+		token_expup:SetTextByKey("value", ClMsg("token_setup"));
+		token_staup:ShowWindow(1);
 	end
 	
 	for i = 0, 3 do 
 		local str = GetCashTypeStr(numarg1, i)
 		if nil ~= str then
 			type = tooltipframe:GetChild(str);
-	
 			local normal = GetCashValue(0, str);
 			local value = GetCashValue(numarg1,str);
 			local txt = "None"
@@ -30,12 +36,8 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 			end		
 		end
 	end
-
-	type = tooltipframe:GetChild("token_expup");
-	type:SetTextByKey("value", ClMsg("token_expup"));
-	type = tooltipframe:GetChild("toekn_staup");
-	type:SetTextByKey("value", ClMsg("toekn_staup")); 
 end
+
 
 function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
 

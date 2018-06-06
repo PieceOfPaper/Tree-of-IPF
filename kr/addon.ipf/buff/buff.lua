@@ -152,7 +152,7 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 		slot:ShowWindow(1);
 	end
 	
-	if class.ClassName == "Premium_Nexon" or class.ClassName =="" then
+	if class.ClassName == "Premium_Nexon" or class.ClassName =="Premium_Token" then
 		icon:SetTooltipType('premium');
 		local argNum = 0;
 		if class.ClassName == "Premium_Nexon" then

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <ClassKey>
 	<KeyIDSpc Name="Party">
 		<Key Name="UseLevelLimit" Value="0"/>
@@ -4425,8 +4425,35 @@
 		<Key Name="TABLELAND_11_1_DEFENSE_COUNT" Value="9354"/>
 		<Key Name="TABLELAND70_TIME_HIDENSEEK" Value="9355"/>
 		<Key Name="TABLELAND70_COUNT_HIDENSEEK" Value="9356"/>
-		<Key Name="Katyn_45_2_TIME_NUMBER_BASEBALL" Value="9357"/>
-		<Key Name="Katyn_45_2_COUNT_NUMBER_BASEBALL" Value="9358"/>
+		<Key Name="KATYN_45_2_TIME_NUMBER_BASEBALL" Value="9357"/>
+		<Key Name="PRISON623_SQ_04" Value="9983"/>
+		<Key Name="GIMMICK_KILL_CNT_COUNT" Value="10005"/>
+		<Key Name="GIMMICK_KILL_CNT_TIME" Value="10004"/>
+		<Key Name="TABLE71_ITEM_CNT_COUNT" Value="10011"/>
+		<Key Name="TABLE71_ITEM_CNT_TIME" Value="10010"/>
+		<Key Name="TABLE74_ITEM_CHECK_COUNT" Value="10007"/>
+		<Key Name="TABLE74_ITEM_CHECK_TIME" Value="10006"/>
+		<Key Name="MG_Last_GR_CHAPEL_1_S7_MINI" Value="10012"/>
+		<Key Name="MG_Last_GR_CHAPEL_1_S6_MINI" Value="10013"/>
+		<Key Name="MG_Last_GR_CHAPEL_1_S5_MINI" Value="10014"/>
+		<Key Name="MG_Last_GR_CHAPEL_1_S4_MINI" Value="10015"/>
+		<Key Name="MG_Last_GR_CHAPEL_1_S3_MINI" Value="10016"/>
+		<Key Name="MG_Last_GR_CHAPEL_1_S1_MINI" Value="10017"/>
+		<Key Name="MG_Last_GR_CHAPEL_1_S2_MINI" Value="10018"/>
+		<Key Name="PRISON_78_COUNT_KILL_COUNT" Value="10019"/>
+		<Key Name="TUTO_TOKEN" Value="10020"/>
+		<Key Name="ABBEY_35_4_MONKILL_TIME" Value="10066"/>
+		<Key Name="ABBEY_35_4_MONKILL_COUNT" Value="10067"/>
+		<Key Name="TABLELAND_11_1_MONKILL_TIME" Value="10068"/>
+		<Key Name="TABLELAND_11_1_MONKILL_COUNT" Value="10069"/>
+		<Key Name="CORAL_32_1_MONKILL_TIME" Value="10070"/>
+		<Key Name="CORAL_32_1_MONKILL_COUNT" Value="10071"/>
+		<Key Name="KATYN_45_1_MONKILL_TIME_TIME" Value="10072"/>
+		<Key Name="KATYN_45_1_MONKILL_COUNT" Value="10073"/>
+		<Key Name="KATYN_45_2_COUNT_NUMBER_BASEBALL" Value="9358"/>
+		<Key Name="MG_Last_GR_TEST_S1" Value="9952"/>
+		<Key Name="TAVBLE73_KILL_CNT_COUNT" Value="9974"/>
+		<Key Name="TAVBLE73_KILL_CNT_TIME" Value="9973"/>
 		<Key Name="KATYN_45_2_TIME_DEFENSE" Value="9359"/>
 		<Key Name="KATYN_45_2_COUNT_DEFENSE" Value="9361"/>
 		<Key Name="KATYN_45_2_MOSTER_PAIR" Value="9362"/>
@@ -8232,11 +8259,62 @@
 		<Key Name="Hide_1623" Value="9735"/>
 		<Key Name="Kill_F_boss_lecifer" Value="9736"/>
 		<Key Name="Kill_F_boss_mirtis" Value="9737"/>
+		<Key Name="Hide_1626" Value="9961"/>
+		<Key Name="Kill_boss_Kerberos_Q1" Value="9981"/>
+		<Key Name="PRISON623_SQ_04_TRACK" Value="9979"/>
+		<Key Name="Hide_1627" Value="9982"/>
+		<Key Name="Hide_1628" Value="9990"/>
+		<Key Name="Hide_1629" Value="9991"/>
+		<Key Name="Hide_1630" Value="9994"/>
+		<Key Name="Hide_1631" Value="9996"/>
+		<Key Name="Hide_1632" Value="9998"/>
+		<Key Name="Hide_1633" Value="9999"/>
+		<Key Name="Hide_1634" Value="10000"/>
+		<Key Name="Hide_1635" Value="10001"/>
+		<Key Name="Hide_1636" Value="10026"/>
+		<Key Name="Hide_1637" Value="10027"/>
 		<Key Name="StartHairName" Value="10022"/>
 		<Key Name="CurHairName" Value="10023"/>
 		<Key Name="CurHairColorName" Value="10024"/>
 		<Key Name="BaseHairType" Value="10025"/>
-<Key Name="BoostToken" Value="10028"/>
+		<Key Name="BoostToken" Value="10028"/>
+		<Key Name="CollectionRead_223" Value="10062"/>
+		<Key Name="CollectionRead_227" Value="10063"/>
+		<Key Name="CollectionRead_231" Value="10065"/>
+		<Key Name="CollectionRead_235" Value="10064"/>
+		<Key Name="CollectionRead_239" Value="10057"/>
+		<Key Name="CollectionRead_243" Value="10058"/>
+		<Key Name="CollectionRead_219" Value="10061"/>
+		<Key Name="CollectionRead_251" Value="10060"/>
+		<Key Name="CollectionRead_247" Value="10059"/>
+		<Key Name="CollectionRead_224" Value="10034"/>
+		<Key Name="CollectionRead_228" Value="10037"/>
+		<Key Name="CollectionRead_232" Value="10036"/>
+		<Key Name="CollectionRead_236" Value="10035"/>
+		<Key Name="CollectionRead_240" Value="10029"/>
+		<Key Name="CollectionRead_244" Value="10030"/>
+		<Key Name="CollectionRead_220" Value="10033"/>
+		<Key Name="CollectionRead_252" Value="10032"/>
+		<Key Name="CollectionRead_248" Value="10031"/>
+		<Key Name="CollectionRead_253" Value="10042"/>
+		<Key Name="CollectionRead_221" Value="10043"/>
+		<Key Name="CollectionRead_225" Value="10044"/>
+		<Key Name="CollectionRead_229" Value="10046"/>
+		<Key Name="CollectionRead_233" Value="10045"/>
+		<Key Name="CollectionRead_237" Value="10038"/>
+		<Key Name="CollectionRead_241" Value="10039"/>
+		<Key Name="CollectionRead_245" Value="10040"/>
+		<Key Name="CollectionRead_249" Value="10041"/>
+		<Key Name="CollectionRead_254" Value="10051"/>
+		<Key Name="CollectionRead_222" Value="10053"/>
+		<Key Name="CollectionRead_226" Value="10054"/>
+		<Key Name="CollectionRead_230" Value="10056"/>
+		<Key Name="CollectionRead_234" Value="10055"/>
+		<Key Name="CollectionRead_238" Value="10047"/>
+		<Key Name="CollectionRead_242" Value="10048"/>
+		<Key Name="CollectionRead_246" Value="10049"/>
+		<Key Name="CollectionRead_218" Value="10052"/>
+		<Key Name="CollectionRead_250" Value="10050"/>
 	</KeyIDSpc>
 	<KeyIDSpc Name="Account">
 		<Key Name="MaxPVPGrade" Value="6299"/>
@@ -9536,6 +9614,9 @@
 		<Key Name="BuildingLife_Forge" Value="9590"/>
 		<Key Name="RewardBidItemList" Value="9940"/>
 		<Key Name="RewardBidStartTime" Value="9943"/>
+		<Key Name="RewardBidItemID" Value="9945"/>
+		<Key Name="RewardBidItemCount" Value="9959"/>
+		<Key Name="RewardBidState" Value="9966"/>
 	</KeyIDSpc>
 	<KeyIDSpc Name="GuildMember">
 		<Key Name="Name" Value="9011"/>

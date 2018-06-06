@@ -1,22 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SpcItemList>
-	<SpcItem Name="set_019">
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF2" Client="NO" UseSleep="NO">
-						<Str Str="Stun"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
 	<SpcItem Name="set_024">
 		<TriggerList Act="Attack">
 			<Trigger>

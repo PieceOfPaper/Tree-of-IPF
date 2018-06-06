@@ -379,6 +379,7 @@ function UPDATE_CATEGORY_CONTROL_SCORE(ctrl, score, destScore, cateType, realtim
 		btnControl:SetGrayStyle(0);
 		btnControl:SetEnable(1);
 		btnControl:SetEventScript(ui.LBUTTONUP, "REQ_GET_WIKI_SCORE_REWARD");
+		btnControl:SetTextTooltip(ScpArgMsg('WIKI_SCORE_REWARD_MONEY_TOOLTIP'))
 
 		if realtimeUpdate == 1 then
 			local beforeRewardCount = ctrl:GetUserIValue("REWARDCOUNT");
@@ -404,6 +405,7 @@ end
 
 function REQ_GET_WIKI_SCORE_REWARD(parent, btn)
 	local cateType = parent:GetUserIValue("CATETYPE");
+	addon.BroadMsg('NOTICE_Dm_GetItem', ScpArgMsg('WIKI_SCORE_REWARD_MONEY_MSG'), 10);
 	packet.ReqGetWikiScoreReward(cateType);
 end
 

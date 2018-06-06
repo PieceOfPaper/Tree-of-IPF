@@ -257,15 +257,11 @@ function ON_MARKET_ITEM_LIST(frame)
 	local itemlist = GET_CHILD(frame, "itemlist", "ui::CDetailListBox");
 	itemlist:RemoveAllChild();
 	local mySession = session.GetMySession();
-	local familyname = mySession:GetPCApc():GetFamilyName()
+	local cid = mySession:GetCID();
 
-	local sysTime = geTime.GetServerSystemTime();		
 	local count = session.market.GetItemCount();
 	for i = 0 , count - 1 do
 		local marketItem = session.market.GetItemByIndex(i);
-		local registerTime = marketItem:GetSysTime();
-		local difSec = imcTime.GetDifSec(registerTime, sysTime);
-		local timeString = GET_TIME_TXT(difSec);
 		local itemObj = GetIES(marketItem:GetObject());
 		local refreshScp = itemObj.RefreshScp;
 		if refreshScp ~= "None" then
@@ -295,8 +291,7 @@ function ON_MARKET_ITEM_LIST(frame)
 		local price = ctrlSet:GetChild("price");
 		price:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
 		price:SetUserValue("Price", marketItem.sellPrice);
-		
-		if familyname == marketItem:GetSeller() then
+		if cid == marketItem:GetSellerCID() then
 			local button_1 = ctrlSet:GetChild("button_1");
 			button_1:SetEnable(0);
 

@@ -7,16 +7,40 @@ function MARKET_CABINET_OPEN(frame)
 	market.ReqCabinetList();
 end
 
+function SHOW_REMAIN_NEXT_TIME_GET_CABINET(ctrl)
+	if nil == ctrl then
+		return 0;
+	end
+	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
+	if 0 >= elapsedSec then
+		ctrl:SetTextByKey("value", ClMsg("Receieve"));
+		return 0;
+	end
+	local startSec = ctrl:GetUserIValue("REMAINSEC");
+	startSec = startSec - elapsedSec;
+	local timeTxt = GET_TIME_TXT(startSec);
+	ctrl:SetTextByKey("value", "{s16}{#ffffcc}(" .. timeTxt..")");
+	return 1;
+end
+
 function ON_CABINET_ITEM_LIST(frame)
 	local itemGbox = GET_CHILD(frame, "itemGbox");
 	local itemlist = GET_CHILD(itemGbox, "itemlist", "ui::CDetailListBox");
 	itemlist:RemoveAllChild();
 
 	local cnt = session.market.GetCabinetItemCount();
+	local sysTime = geTime.GetServerSystemTime();		
 	for i = 0 , cnt - 1 do
 		local cabinetItem = session.market.GetCabinetItemByIndex(i);
 		local itemID = cabinetItem:GetItemID();
 		local itemObj = GetIES(cabinetItem:GetObject());
+		local registerTime = cabinetItem:GetRegSysTime();
+		local difSec = imcTime.GetDifSec(registerTime, sysTime);
+		if 0 >= difSec then
+			difSec =0;
+		end
+		local timeString = GET_TIME_TXT(difSec);
+
 		local refreshScp = itemObj.RefreshScp;
 		if refreshScp ~= "None" then
 			refreshScp = _G[refreshScp];
@@ -35,9 +59,18 @@ function ON_CABINET_ITEM_LIST(frame)
 		itemCount:ShowWindow(0);
 		local totalPrice = ctrlSet:GetChild("totalPrice");
 		totalPrice:SetTextByKey("value", cabinetItem.count);
-		totalPrice:SetOffset(totalPrice:GetX() + 115, totalPrice:GetY());
+		totalPrice:SetOffset(totalPrice:GetX() - 25, totalPrice:GetY());
 		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, cabinetItem, itemObj.ClassName, "cabinet", cabinetItem.itemType, cabinetItem:GetItemID());
-
+		local endTime = ctrlSet:GetChild("endTime");
+		endTime:SetTextByKey("value", timeString);
+		if 0 == difSec then
+			endTime:SetTextByKey("value", ClMsg("Receieve"));
+		else
+			endTime:SetUserValue("REMAINSEC", difSec);
+			endTime:SetUserValue("STARTSEC", imcTime.GetAppTime());
+			SHOW_REMAIN_NEXT_TIME_GET_CABINET(medalFreeTime);
+			endTime:RunUpdateScript("SHOW_REMAIN_NEXT_TIME_GET_CABINET");
+		end
 		local noTrade = TryGetProp(itemObj, "BelongingCount");
 		if nil ~= noTrade then
 			ctrlSet:SetNoTradeCount(noTrade);
@@ -45,9 +78,15 @@ function ON_CABINET_ITEM_LIST(frame)
 		
 		local btn = GET_CHILD(ctrlSet, "btn");
 		btn:SetTextByKey("value", ClMsg("Receieve"));
+
+		if 0 >= difSec then
 		btn:UseOrifaceRectTextpack(true)
 		btn:SetEventScript(ui.LBUTTONUP, "CABINET_ITEM_BUY");
 		btn:SetEventScriptArgString(ui.LBUTTONUP,cabinetItem:GetItemID());
+			btn:SetEnable(1);
+		else
+			btn:SetEnable(0);
+		end
 		
 	end
 	GBOX_AUTO_ALIGN(itemlist, 10, 0, 0, true, true);

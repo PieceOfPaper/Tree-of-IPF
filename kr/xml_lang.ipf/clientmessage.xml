@@ -25,6 +25,7 @@
 		<Class ClassID="21" ClassName="PCBangDisconnect6" Data="접속이 차단되었습니다."/>
 		<Class ClassID="22" ClassName="PCBangDisconnect7" Data="넥슨 PC방 정량제 시간이 만료되어 게임이 종료 됩니다. 이용중인 PC방 담당자에게 문의해 주시기 바랍니다."/>
 		<Class ClassID="23" ClassName="DataError" Data="데이터 응답을 받지 못했습니다. 잠시후 다시 시도해 주세요."/>
+		<Class ClassID="24" ClassName="TooManyDataInThisPC_PleaseInquireToGameCustomerCenter" Data="이 플레이어에 데이터량이 너무 많습니다. 게임 고객센터에 문의해주세요."/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="301" ClassName="CantWhisperToSelf" Data="자기자신에겐 귓속말을 할 수 없습니다."/>
@@ -878,6 +879,8 @@
 		<Class ClassID="163" ClassName="GIMMICK_DICE_MATCHING_ERROR_2" Data="주사위 숫자가 다릅니다"/>
 		<Class ClassID="164" ClassName="GIMMICK_DICE_MATCHING_CLEAR" Data="같은 주사위 숫자를 찾았습니다!"/>
 		<Class ClassID="165" ClassName="GIMMICK_DEFENSE_START" Data="몬스터가 수호물을 파괴하려합니다{nl}몬스터로부터 수호물을 지켜주세요"/>
+		<Class ClassID="166" ClassName="WIKI_SCORE_REWARD_MONEY_MSG" Data="모험일지 보상으로 실버를 획득하셨습니다"/>
+		<Class ClassID="167" ClassName="WIKI_SCORE_REWARD_MONEY_TOOLTIP" Data="보상으로 실버가 지급됩니다"/>
 		<Class ClassID="1000" ClassName="MASTER_ORACLE_NORMAL_2_AGREE8" Data="워프 이동 지역 순위"/>
 		<Class ClassID="1001" ClassName="MASTER_ORACLE_NORMAL_2_AGREE4" Data="몬스터 처치 지역 순위"/>
 		<Class ClassID="1002" ClassName="MASTER_ORACLE_NORMAL_2_AGREE5" Data="계시자 전투불능 지역 순위"/>
@@ -3284,6 +3287,7 @@
 		<Class ClassID="22822" ClassName="MarketRegTimeOver" Data="판매 시간이 지났습니다. 수령함에서 확인해주세요"/>
 		<Class ClassID="22823" ClassName="MarketRegAfter{TIME}" Data="{TIME}후에 마켓 리스트에 등록됩니다."/>
 		<Class ClassID="22824" ClassName="MarketCabinetAfter{TIME}" Data="{TIME}후에 캐비넷으로 이동합니다."/>
+		<Class ClassID="22825" ClassName="PremiumRegMinPrice{Price}" Data="해당 아이템의 등록 최소가는 {Price}실버 부터 가능합니다."/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="22900" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -6674,11 +6678,26 @@
 		<Class ClassID="550018" ClassName="{Target}DontHavePremiumState" Data="{Target}님이 거래를 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550019" ClassName="CantTradeAbility" Data="거래/매입상점 사용가능"/>
 		<Class ClassID="550020" ClassName="token_expup" Data="경험치 30% 추가획득"/>
-		<Class ClassID="550021" ClassName="toekn_staup" Data="스테미너회복 2배"/>
-		<Class ClassID="550022" ClassName="UseToken" Data="토큰을 사용하시겠습니까?"/>
-		<Class ClassID="550023" ClassName="UseBoost" Data="경험의 서를 사용하시겠습니까?"/>
-		<Class ClassID="550024" ClassName="marketUpMax{COUNT}" Data="마켓 물품 등록 개수 {COUNT}개로 증가"/>
-		<Class ClassID="550025" ClassName="abilityMax{COUNT}" Data="특성 동시 수련 가능 개수 {COUNT} 증가"/>
-		<Class ClassID="550026" ClassName="speedUp{COUNT}" Data="이동 속도 +{COUNT} 증가"/>
+		<Class ClassID="550021" ClassName="token_setup" Data="스테미너회복 2배"/>
+		<Class ClassID="550022" ClassName="marketUpMax{COUNT}" Data="마켓 물품 등록 개수 {COUNT}개로 증가"/>
+		<Class ClassID="550023" ClassName="abilityMax{COUNT}" Data="특성 동시 수련 가능 개수 {COUNT} 증가"/>
+		<Class ClassID="550024" ClassName="speedUp{COUNT}" Data="이동 속도 +{COUNT} 증가"/>
+		<Class ClassID="550025" ClassName="IsAppliedToken{NAME}" Data="이미 {NAME} 아이템이 활성화 중에 있습니다."/>
+		<Class ClassID="550026" ClassName="PremiumToken" Data="토큰"/>
+		<Class ClassID="550027" ClassName="Premium_boostToken" Data="경험의 서"/>
+		<Class ClassID="550027" ClassName="CashPurchaseGmMsg" Data="유료상품이 숙소에 도착하였습니다. 숙소에서 상품을 수령하세요."/>
+	</Category>
+	<Category Name="TPHistory">
+		<Class ClassID="600001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
+		<Class ClassID="600002" ClassName="hirePC" Data="용병 고용"/>
+		<Class ClassID="600003" ClassName="NpcShop" Data="TP상점"/>
+		<Class ClassID="600004" ClassName="InitStat" Data="스텟 초기화"/>
+		<Class ClassID="600005" ClassName="REQUEST_SELECT" Data="요청하기"/>
+		<Class ClassID="600006" ClassName="WarpSkill" Data="순간이동"/>
+		<Class ClassID="600007" ClassName="TPSHOP_BUY" Data="TP상점"/>
+		<Class ClassID="600008" ClassName="Change Name" Data="팀명 변경"/>
+		<Class ClassID="600009" ClassName="RandomItem" Data="랜덤 상자"/>
+		<Class ClassID="600010" ClassName="BuySlot" Data="슬롯 구매"/>
+		<Class ClassID="600011" ClassName="StatRollBack" Data="히스토리 롤백"/>
 	</Category>
 </idspace>

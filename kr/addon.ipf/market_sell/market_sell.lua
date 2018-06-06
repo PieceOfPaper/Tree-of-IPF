@@ -20,7 +20,7 @@ function MARKET_SELL_OPEN(frame)
 		local day = 0;
 		local listType = nil;
 		listType = ScpArgMsg("MarketTime{Time}{FREE}","Time", time, "FREE", free);
-		droplist:AddItem(time, "{@st42}"..listType);
+		droplist:AddItem(time, "{s16}{b}{ol}"..listType);
 	end
 	droplist:SelectItem(0);
 	droplist:SelectItemByKey(1);
@@ -58,9 +58,9 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 	local count = session.market.GetItemCount();
 	for i = 0 , count - 1 do
 		local marketItem = session.market.GetItemByIndex(i);
-		local registerTime = marketItem:GetSysTime();
-		local difSec = imcTime.GetDifSec(registerTime, sysTime);
-		local timeString = GET_TIME_TXT(difSec);
+		local endTime = marketItem:GetSysTime();	
+		local timeString = imcTime.GetStringSysTimeForLog(endTime);
+
 		local itemObj = GetIES(marketItem:GetObject());
 		local refreshScp = itemObj.RefreshScp;
 		if refreshScp ~= "None" then
@@ -76,9 +76,11 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		local itemCount = ctrlSet:GetChild("count");
 		itemCount:SetTextByKey("value", marketItem.count);
 		local totalPrice = ctrlSet:GetChild("totalPrice");
+		totalPrice:SetOffset(totalPrice:GetX() - 100, totalPrice:GetY());
 		totalPrice:SetTextByKey("value", GetCommaedText(marketItem.sellPrice) .. " * " .. GetCommaedText(marketItem.count) .. " = " .. GetCommaedText(marketItem.sellPrice * marketItem.count));
-		
 		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
+		local endTime = ctrlSet:GetChild("endTime");
+		endTime:SetTextByKey("value", timeString);
 
 		local btn = GET_CHILD(ctrlSet, "btn");
 		btn:SetTextByKey("value", ClMsg("Cancel"));
@@ -117,9 +119,11 @@ function DROP_MARKET_SELL_SLOT(parent, slot)
 	local edit_count = GET_CHILD(groupbox, "edit_count", "ui::CEditControl");
 	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
 	edit_price:SetText("0");
+	edit_price:SetMinNumber(0);
 
 	local iconInfo = liftIcon:GetInfo();
 	local itemID = iconInfo:GetIESID();
+
 	if session.GetEquipItemByGuid(itemID) ~= nil then
 		ui.SysMsg(ClMsg("CantRegisterEquipItem"));
 		return;
@@ -136,10 +140,10 @@ function DROP_MARKET_SELL_SLOT(parent, slot)
 		end
 		local obj = GetIES(invItem:GetObject());
 		if obj.GroupName == "Premium" then
-			edit_price:SetMinNumber(TOKEN_MARKET_REG_LIMIT_PRICE);
-			edit_price:SetMaxNumber(TOKEN_MARKET_REG_MAX_PRICE);
+			edit_count:SetText("1");
+			edit_count:SetMaxNumber(1);
+			edit_price:SetMaxNumber(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
 		else
-			edit_price:SetMinNumber(0);
 			edit_price:SetMaxNumber(2147483647);
 		end
 
@@ -236,6 +240,12 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 			market.ReqRegisterItem(itemGuid, price, count, 1, selecIndex);
 		end
 	else
+		if obj.GroupName == "Premium" then
+			if tonumber(price) < tonumber(TOKEN_MARKET_REG_LIMIT_PRICE) then
+				ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", TOKEN_MARKET_REG_LIMIT_PRICE * count));		
+				return;
+			end
+		end
 		market.ReqRegisterItem(itemGuid, price, count, 1, selecIndex);
 	end
 

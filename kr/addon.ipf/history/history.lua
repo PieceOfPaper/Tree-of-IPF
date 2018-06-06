@@ -9,7 +9,7 @@ function UI_TOGGLE_HISTORY()
 		return;
 	end
 	
---	session.playHistory.ReqPlayHistory(HISTORY_STAT, 1);
+	--session.playHistory.ReqPlayHistory(HISTORY_STAT, 1);
 end
 
 --[[

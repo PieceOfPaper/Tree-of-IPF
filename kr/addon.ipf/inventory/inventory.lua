@@ -1373,6 +1373,13 @@ end
 
 function SHOW_REMAIN_NEXT_TP_GET_TIME(ctrl)
 	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
+	if 5 >= elapsedSec then
+		control.SendCheckFreeTPTime();
+	end
+	if 0 >= elapsedSec then
+		ctrl:SetTextByKey("medal", "{s16}{#ffffcc}");
+		return;
+	end
 	local startSec = ctrl:GetUserIValue("REMAINSEC");
 	startSec = startSec - elapsedSec;
 	local timeTxt = GET_TIME_TXT(startSec);

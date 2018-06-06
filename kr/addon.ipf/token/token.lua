@@ -66,9 +66,13 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 
 	local endTxt2 = frame:GetChild("endTime2");
 	endTxt2:SetTextByKey("value", endTime); 
+	endTxt2:SetTextByKey("value1", ClMsg(itemobj.ClassName)); 
 
 	local strTxt = frame:GetChild("str");
-	strTxt:SetTextByKey("value", ClMsg("UseToken")); 
+	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
+
+	local strTxt = frame:GetChild("richtext_1");
+	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
 	frame:SetUserValue("ClassName", itemobj.ClassName);
@@ -107,10 +111,14 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	local endTxt = frame:GetChild("endTime");
 	endTxt:SetTextByKey("value", endTime); 
 	local endTxt2 = frame:GetChild("endTime2");
-	endTxt2:SetTextByKey("value", endTime); 
+	endTxt2:SetTextByKey("value2", endTime); 
+	endTxt2:SetTextByKey("value1", ClMsg(itemobj.ClassName)); 
 
 	local strTxt = frame:GetChild("str");
-	strTxt:SetTextByKey("value", ClMsg("UseBoost")); 
+	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
+
+	local strTxt = frame:GetChild("richtext_1");
+	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
 
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
@@ -122,6 +130,21 @@ function REQ_TOKEN_ITEM(frame, ctrl)
 	
 	local itemIES = frame:GetUserValue("itemIES");
 	local argList = string.format("%s", frame:GetUserValue("ClassName"));
+	local itemName = ClMsg(argList);
+	if argList == "PremiumToken" then
+		local accountObj = GetMyAccountObj();
+		if accountObj.TokenTime ~= "None" then
+			ui.MsgBox(ScpArgMsg("IsAppliedToken{NAME}","NAME", itemName));
+			return;
+		end
+	elseif argList == "Premium_boostToken" then
+		local etcObj = GetMyEtcObject();
+		if tonumber(etcObj.BoostToken) > 0 then
+			ui.MsgBox(ScpArgMsg("IsAppliedToken{NAME}","NAME", itemName));
+			return;
+		end
+	end
+
 	pc.ReqExecuteTx_Item("SCR_USE_ITEM_TOKEN", itemIES, argList);
 end
 
