@@ -1,11 +1,18 @@
-function GUILDINFO_INIT_MEMBER_TAB(frame, msg)
-    local memberBox = GET_CHILD_RECURSIVELY(frame, 'memberBox');    
-    if memberBox:IsVisible() == 0 then
+function GUILDINFO_INIT_MEMBER_TAB(frame, msg)    
+    _GUILDINFO_INIT_MEMBER_TAB(frame, msg);
+end
+
+function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)    
+    if g_ENABLE_GUILD_MEMBER_SHOW == false then
+        return;
+    end
+    local guild = GET_MY_GUILD_INFO();
+    if guild == nil then
         return;
     end
 
-    local guild = GET_MY_GUILD_INFO();
-    if guild == nil then
+    local memberBox = GET_CHILD_RECURSIVELY(frame, 'memberBox');
+    if memberBox:IsVisible() == 0 then
         return;
     end
 
