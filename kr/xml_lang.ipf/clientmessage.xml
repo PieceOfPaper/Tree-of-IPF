@@ -82,7 +82,33 @@
 		<Class ClassID="2029" ClassName="YouDeadSoSomeSilverHasBeenLost" Data="사망 페널티로 실버 일부를 잃어버렸습니다."/>
 		<Class ClassID="2030" ClassName="ItemIsNotEnchantable1" Data="각성할 수 없는 아이템 입니다."/>
 		<Class ClassID="2031" ClassName="RealyDoEnchant" Data="아이템을 각성하면, 마법 부여 스크롤 아이템 및 이미 각성했던 옵션도 사라집니다. 그래도 진행하시겠습니까?"/>
+		<Class ClassID="2032" ClassName="PleaseDropItem{Name}" Data="[{Name}] 아이템을 올려주세요."/>
+		<Class ClassID="2033" ClassName="TranscendSuccessRatio{P}%" Data="초월 성공률 {P}%"/>
+		<Class ClassID="2034" ClassName="ReallyExecTranscend?" Data="정말 초월을 시작하시겠습니까?"/>
+		<Class ClassID="2035" ClassName="SuccessToTranscend" Data="아이템 초월을 성공하였습니다."/>
+		<Class ClassID="2036" ClassName="FailedToTranscend" Data="아이템 초월을 실패하였습니다."/>
+		<Class ClassID="2037" ClassName="CantTrasncendMore" Data="더 이상 초월할 수 없습니다."/>
+		<Class ClassID="2038" ClassName="{Item}WillBeReturnedBy{Count}" Data="{Item} {Count}개 반환 예정"/>
+		<Class ClassID="2039" ClassName="ItemWillBeDeleted_Continue?" Data="분해한 아이템은 삭제됩니다. 계속하시겠습니까?"/>
+		<Class ClassID="2040" ClassName="ReallyBreakTransendedItem?" Data="정말 초월된 아이템을 분해하시겠습니까?"/>
+		<Class ClassID="2041" ClassName="YouCanBreakOnlyTreancendedItem" Data="초월된 아이템만 분해가 가능합니다."/>
+		<Class ClassID="2042" ClassName="IfYouRemoveTranscend_YouCannotReceieveTranscendStones_Continue?" Data="초월을 제거하면 초월에 사용된 초월석을 돌려받을 수 없습니다. 계속하시겠습니까?"/>
+		<Class ClassID="2043" ClassName="TranscendValueWillBeZero_Continue?" Data="초월수치가 초기화 됩니다. 계속하시겠습니까?"/>
+		<Class ClassID="2044" ClassName="TranscendRemove" Data="초월이 제거되었습니다."/>
+		<Class ClassID="2045" ClassName="YouCanRemoveOnlyTreancendedItem" Data="초월된 아이템만 제거가 가능합니다."/>
+		<Class ClassID="2046" ClassName="ThisItemIsNotAbleToTranscend" Data="초월이 불가능한 아이템입니다."/>
+		<Class ClassID="2047" ClassName="TranscendValueIsTooSmallSoReturnItemDoesNotExist" Data="사용된 초월의 돌이 부족하여 분해할 수 없습니다."/>
 		<Class ClassID="2048" ClassName="MaxPR" Data="최대 포텐셜인 아이템에는 사용하실 수 없습니다."/>
+	<Class ClassID="2049" ClassName="ThisItemIsNotTranscended" Data="초월되지 않은 아이템입니다."/>
+		<Class ClassID="2050" ClassName="ThisItemIsNotAbleToTranscendBreak" Data="초월 분해가 불가능한 아이템입니다."/>
+		<Class ClassID="2051" ClassName="ThisItemIsNotAbleToTranscendRemove" Data="초월 제거가 불가능한 아이템입니다."/>
+		<Class ClassID="2052" ClassName="ITEMTRANSCEND_GUIDE_FIRST" Data="초월 시도를 하시려면{nl} 먼저 위의 원 안에 장비를  {nl}올려둬야 합니다."/>
+		<Class ClassID="2053" ClassName="ITEMTRANSCEND_GUIDE_SECOND" Data="취소 하시려면 위의 장비를 오른쪽 클릭으로 해제해주세요."/>
+		<Class ClassID="2054" ClassName="ITEMTRANSCEND_TOO_MANY" Data="재료를 더 추가할 수 없습니다."/>
+		<Class ClassID="2055" ClassName="ITEMTRANSCEND_TOO_LACK" Data="더 추가하기에는 재료가 부족합니다."/>
+		<Class ClassID="2056" ClassName="ITEMTRANSCEND_MTRL_NUM{color}{num}" Data="가 되려면 {color}{num}개"/>
+		<Class ClassID="2057" ClassName="ITEMTRANSCEND_MTRL_NUM" Data="를 넣으세요."/>
+		<Class ClassID="2058" ClassName="ITEMTRANSCEND_MTRL_NUM_TOOLTIP{font}" Data="{font}{#00D8FF}Shift키{/}{font}+ {#00D8FF}클릭{/}{font} : 5개씩{/}{nl}{font}{#00D8FF}Alt키{/}{font}+ {#00D8FF}클릭{/}{font} : 모두 한번에{/}  "/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -268,6 +294,16 @@
 		<Class ClassID="5025" ClassName="SortByWeight" Data="무게순"/>
 		<Class ClassID="5026" ClassName="SortByPrice" Data="가격순"/>
 		<Class ClassID="5027" ClassName="SortByName" Data="이름순"/>
+	<Class ClassID="5028" ClassName="MeleeDamage" Data="물리 피해 감소율"/>
+		<Class ClassID="5029" ClassName="MagicDamage" Data="마법 피해 감소율"/>
+		<Class ClassID="5030" ClassName="ATKTranscendBy{Count}" Data="초월 {Count}단계 공격력 증가"/>
+		<Class ClassID="5031" ClassName="DEFTranscendBy{Count}" Data="초월 {Count}단계 물리 방어력 증가"/>
+		<Class ClassID="5032" ClassName="HRTranscendBy{Count}" Data="초월 {Count}단계 명중 증가"/>
+		<Class ClassID="5033" ClassName="DRTranscendBy{Count}" Data="초월 {Count}단계 회피 증가"/>
+		<Class ClassID="5034" ClassName="MHRTranscendBy{Count}" Data="초월 {Count}단계 마법 증폭 증가"/>
+		<Class ClassID="5035" ClassName="MHPTranscendBy{Count}" Data="초월 {Count}단계 체력 증가"/>
+		<Class ClassID="5036" ClassName="MDEFTranscendBy{Count}" Data="초월 {Count}단계 마법 방어력 증가"/>
+		<Class ClassID="5037" ClassName="CanNotTradeTranscendedItem" Data="초월된 아이템은 거래할 수 없습니다."/>
 	</Category>
 	<Category Name="PeriodicTitle">
 		<Class ClassID="6001" ClassName="TournamentChampion" Data="토너먼트 챔피언"/>
@@ -842,12 +878,12 @@
 		<Class ClassID="21132" ClassName="TP_Ring" Data="반지"/>
 		<Class ClassID="21133" ClassName="TP_NewCostume" Data="신규 코스튬"/>
 		<Class ClassID="21134" ClassName="TP_LimitCostume" Data="한정 코스튬"/>
-		<Class ClassID="21135" ClassName="TP_Pet" Data="펫"/>
-		<Class ClassID="21136" ClassName="TP_Premium" Data="프리미엄"/>
+		<Class ClassID="21135" ClassName="TP_Pet" Data="컴패니언"/>
+		<Class ClassID="21136" ClassName="TP_Premium" Data="프리미엄 아이템"/>
 		<Class ClassID="21137" ClassName="TP_Consume" Data="소모품"/>
 		<Class ClassID="21138" ClassName="TP_Hair_M" Data="남자 헤어"/>
 		<Class ClassID="21139" ClassName="TP_Hair_F" Data="여자 헤어"/>
-		<Class ClassID="21140" ClassName="TP_Costume" Data="꾸미기"/>
+		<Class ClassID="21140" Data="남자 코스튬"/>
 		<Class ClassID="21141" ClassName="TP_Event" Data="한정상품"/>
 		<Class ClassID="21142" ClassName="ItIsMemo" Data="[메모]"/>
 		<Class ClassID="21143" ClassName="CanNotBuyDuplicateItem" Data="중복하여 구매할 수 없는 아이템입니다."/>
@@ -871,20 +907,36 @@
 		<Class ClassID="21161" ClassName="Excnaged_Count_Remind" Data="번 교환 가능 합니다."/>
 		<Class ClassID="21162" ClassName="Excnaged_No_Enough" Data="교환 횟수를 모두 소진하였습니다."/>
 	<Class ClassID="20166" ClassName="TP_Costume_Lens" Data="[프리미엄]컬러 렌즈"/>
-	<Class ClassID="20167" ClassName="ChatType_1" Data="일반"/>
-		<Class ClassID="20168" ClassName="ChatType_2" Data="외침"/>
-		<Class ClassID="20169" ClassName="ChatType_3" Data="파티"/>
-		<Class ClassID="20170" ClassName="ChatType_4" Data="길드"/>
-		<Class ClassID="20171" ClassName="ChatType_5" Data="귓말"/>
-		<Class ClassID="20172" ClassName="ChatType_6" Data="공지"/>
-		<Class ClassID="20173" ClassName="ChatType_7" Data="시스템"/>
-		<Class ClassID="20174" ClassName="ChatType_1_ToolTip" Data="/s 할말"/>
-		<Class ClassID="20175" ClassName="ChatType_2_ToolTip" Data="/y 할말"/>
-		<Class ClassID="20176" ClassName="ChatType_3_ToolTip" Data="/p 할말"/>
-		<Class ClassID="20177" ClassName="ChatType_4_ToolTip" Data="/g 할말"/>
-		<Class ClassID="20178" ClassName="ChatType_5_ToolTip" Data="/w 팀명 할말"/>
-		<Class ClassID="20179" ClassName="TeamBattleLeagueText" Data="팀배틀리그"/>
-	<Class ClassID="20180" ClassName="TP_Costume_Hairacc" Data="헤어 악세서리"/>
+	<Class ClassID="21167" ClassName="ChatType_1" Data="일반"/>
+		<Class ClassID="21168" ClassName="ChatType_2" Data="외침"/>
+		<Class ClassID="21169" ClassName="ChatType_3" Data="파티"/>
+		<Class ClassID="21170" ClassName="ChatType_4" Data="길드"/>
+		<Class ClassID="21171" ClassName="ChatType_5" Data="귓말"/>
+		<Class ClassID="21172" ClassName="ChatType_6" Data="공지"/>
+		<Class ClassID="21173" ClassName="ChatType_7" Data="시스템"/>
+		<Class ClassID="21174" ClassName="ChatType_1_ToolTip" Data="/s 할말"/>
+		<Class ClassID="21175" ClassName="ChatType_2_ToolTip" Data="/y 할말"/>
+		<Class ClassID="21176" ClassName="ChatType_3_ToolTip" Data="/p 할말"/>
+		<Class ClassID="21177" ClassName="ChatType_4_ToolTip" Data="/g 할말"/>
+		<Class ClassID="21178" ClassName="ChatType_5_ToolTip" Data="/w 팀명 할말"/>
+		<Class ClassID="21179" ClassName="TeamBattleLeagueText" Data="팀배틀리그"/>
+	<Class ClassID="21180" ClassName="TP_Costume_Hairacc" Data="헤어 악세서리"/>
+	<Class ClassID="21181" ClassName="War_costume_M" Data="전사 코스튬"/>
+		<Class ClassID="21182" ClassName="Wiz_costume_M" Data="마법사 코스튬"/>
+		<Class ClassID="21183" ClassName="Arc_costume_M" Data="궁수 코스튬"/>
+		<Class ClassID="21184" ClassName="Cle_costume_M" Data="성직자 코스튬"/>
+		<Class ClassID="21185" ClassName="Com_costume_M" Data="공용 코스튬"/>
+		<Class ClassID="21186" ClassName="War_costume_F" Data="전사 코스튬"/>
+		<Class ClassID="21187" ClassName="Wiz_costume_F" Data="마법사 코스튬"/>
+		<Class ClassID="21188" ClassName="Arc_costume_F" Data="궁수 코스튬"/>
+		<Class ClassID="21189" ClassName="Cle_costume_F" Data="성직자 코스튬"/>
+		<Class ClassID="21190" ClassName="Com_costume_F" Data="공용 코스튬"/>
+		<Class ClassID="21191" ClassName="TP_Character" Data="꾸미기"/>
+		<Class ClassID="21192" ClassName="TP_Useable" Data="프리미엄"/>
+		<Class ClassID="21193" ClassName="TP_Petitem" Data="컴패니언"/>
+		<Class ClassID="21194" ClassName="ITEMtranscend_PROCESS" Data="초월 재료"/>
+		<Class ClassID="21195" ClassName="ITEMtranscend_RESULT" Data="초월 결과"/>
+		<Class ClassID="21196" ClassName="ITEMtranscend_GUIDE" Data="초월 안내"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -994,7 +1046,7 @@
 		<Class ClassID="24074" ClassName="NUMBER_MIXING_VALUE_MSG1" Data="계속 진행한다"/>
 		<Class ClassID="24075" ClassName="NUMBER_MIXING_VALUE_MSG2" Data="포기 한다"/>
 		<Class ClassID="24076" ClassName="BLACKSMITH_ABBEY_AGREE1" Data="수리를 부탁한다"/>
-		<Class ClassID="24077" ClassName="COLLECTION_SHOP_ALPHABET_EVENT" Data="알파벳을 보여준다"/>
+		<Class ClassID="24077" ClassName="COLLECTION_SHOP_ALPHABET_EVENT" Data="황금 열쇠를 보여준다"/>
 		<Class ClassID="24078" ClassName="ALPHABET_EVENT_EXCHANGE_TREE1" Data="TREE 한 세트를 건네준다 ({COUNT}/{MAX})"/>
 		<Class ClassID="24079" ClassName="ALPHABET_EVENT_EXCHANGE_TREE5" Data="TREE 다섯 세트를 건네준다 ({COUNT}/{MAX})"/>
 		<Class ClassID="24080" ClassName="ALPHABET_EVENT_EXCHANGE_SAVIOR1" Data="SAVIOR 한 세트를 건네준다 ({COUNT}/{MAX})"/>
@@ -1006,8 +1058,8 @@
 		<Class ClassID="24086" ClassName="MONKILLREWARDALL" Data="보상 모두 받기(대상 : {COUNT} 종)"/>
 		<Class ClassID="24087" ClassName="MAXWEIGHTMSG" Data="무게가 초과되어 아이템을 얻을 수 없습니다{nl}인벤토리의 아이템을 팔거나 버려서 무게를 줄이세요"/>
 		<Class ClassID="24088" ClassName="COLLECTION_SHOP_PLAYTIME" Data="티켓을 보여준다"/>
-		<Class ClassID="24089" ClassName="PLAYTIME_NOTICEMSG1" Data="이벤트 보상{nl}{ITEM}{nl}누적 티켓량 : {ACC}"/>
-		<Class ClassID="24090" ClassName="PLAYTIME_NOTICEMSG2" Data="누적 티켓량 : {ACC}"/>
+		<Class ClassID="24089" ClassName="PLAYTIME_NOTICEMSG1" Data="이벤트 보상{nl}{ITEM}{nl}누적 황금 열쇠 개수 : {ACC}"/>
+		<Class ClassID="24090" ClassName="PLAYTIME_NOTICEMSG2" Data="누적 황금 열쇠 개수 : {ACC}"/>
 		<Class ClassID="24091" ClassName="MASTER_ORACLE_NORMAL_2_AGREE8" Data="워프 이동 지역 순위"/>
 		<Class ClassID="24092" ClassName="MASTER_ORACLE_NORMAL_2_AGREE4" Data="몬스터 처치 지역 순위"/>
 		<Class ClassID="24093" ClassName="MASTER_ORACLE_NORMAL_2_AGREE5" Data="계시자 전투불능 지역 순위"/>
@@ -3534,6 +3586,17 @@
 		<Class ClassID="26966" ClassName="FLASHMOB_EVENT_SET_SUCCESS" Data="제스쳐 : '{POSE}'{nl}보상 : {REWARD}{nl}플래시몹 이벤트 설정 완료!"/>
 		<Class ClassID="26967" ClassName="FLASHMOB_EVENT_START_MSG1" Data="곧! 이벤트를 시작합니다.{nl}대화로 이벤트를 신청해주세요!{nl}남은시간 {TIME}"/>
 		<Class ClassID="26968" ClassName="FLASHMOB_EVENT_STEP_MSG4" Data="{STEP}단계 제스쳐는 '{POSE}' 입니다!"/>
+		<Class ClassID="26969" ClassName="MISSION_CASTLE_ERROR1" Data="이미 주사위를 갖고 있습니다!"/>
+		<Class ClassID="26970" ClassName="MISSION_CASTLE_ERROR2" Data="큐브와 맞는 주사위가 아닙니다!"/>
+		<Class ClassID="26971" ClassName="MISSION_CASTLE_PROG1" Data="짝이 맞는 큐브와 대화 하세요!"/>
+		<Class ClassID="26972" ClassName="COLLECTION_SHOP_GOLDKEY" Data="황금 열쇠를 보여준다"/>
+		<Class ClassID="26973" ClassName="GOLDKEY_EVENT_EXCHANGE_1" Data="포션 아이템 상자 교환 필요 열쇠 : {KEYCOUNT}개 {TEXT}"/>
+		<Class ClassID="26974" ClassName="GOLDKEY_EVENT_EXCHANGE_2" Data="매지션 아이템 상자 교환 필요 열쇠 : {KEYCOUNT}개 {TEXT}"/>
+		<Class ClassID="26975" ClassName="GOLDKEY_EVENT_EXCHANGE_3" Data="TP 묶음 상자 교환 필요 열쇠 : {KEYCOUNT}개 {TEXT}"/>
+		<Class ClassID="26976" ClassName="GOLDKEY_EVENT_EXCHANGE_4" Data="물음표 상자 교환 필요 열쇠 : {KEYCOUNT}개 {TEXT}"/>
+		<Class ClassID="26977" ClassName="GOLDKEY_EVENT_EXCHANGE_5" Data="젬 아이템 상자 교환 필요 열쇠 : {KEYCOUNT}개 {TEXT}"/>
+		<Class ClassID="26978" ClassName="GOLDKEY_EVENT_EXCHANGE_6" Data="파워업 아이템 상자 교환 필요 열쇠 : {KEYCOUNT}개 {TEXT}"/>
+	    <Class ClassID="26979" ClassName="GOLDKEY_EVENT_NOTICE1" Data="{TEXT} 황금 열쇠를 획득하셨습니다!"/>
 		<Class ClassID="50001" ClassName="UNDER30_2_CHECK_MSG2" Data="유독가스에 중독되어 비석을 확인하는데 힘듭니다"/>
 		<Class ClassID="50002" ClassName="UNDER301_MONSTER_PAIR_ERROR_1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT} 회를 모두 진행하셨습니다."/>
 		<Class ClassID="50025" ClassName="UNDER302_LEVEL_CHECK" Data="레벨이 부족하여 이 장치를 사용할 수 없습니다"/>
@@ -4503,6 +4566,12 @@
 		<Class ClassID="131052" ClassName="DonotPlayGuildBattleYet" Data="길드 마스터가 상대를 찾고 있거나 아직 참여 신청을 하지 않았습니다."/>
 		<Class ClassID="131053" ClassName="WorldGuildPVP" Data="통합 길드배틀"/>
 	<Class ClassID="131054" ClassName="GuildBattleLeageHasBegun_JoinByByttonOnTheLeftMinimap" Data="통합 길드배틀이 시작되었습니다. 미니맵 좌측 아이콘을 통해 참여가 가능합니다."/>
+		<Class ClassID="131056" ClassName="TryAgainAfter{TIME}" Data="{TIME}초 후에 다시 시도해 주세요."/>
+		<Class ClassID="131057" ClassName="PCGuild{OBJ}Selecting" Data="{OBJ}를 활성화 중에 있습니다."/>
+		<Class ClassID="131058" ClassName="SomeOneGuild{OBJ}Seleting" Data="누군가가 {OBJ}를 활성화하고 있습니다."/>
+		<Class ClassID="131059" ClassName="{GN}Acquire{Obj}Option" Data="{GN}팀이 {Obj}을 활성화했습니다."/>
+		<Class ClassID="131060" ClassName="{GN}GuardionDead" Data="{GN}팀의 가디언이 자연으로 돌아갔습니다."/>
+		<Class ClassID="131061" ClassName="GuildGuardionObjRevive" Data="가디언을 소환시킬 수 있는 가디언 오브가 생성되었습니다."/>
 	</Category>
 	<Category Name="MonInfo">
 		<Class ClassID="132001" ClassName="MonInfo_Size" Data="크기"/>
@@ -6964,13 +7033,13 @@
 		<Class ClassID="138386" ClassName="ABBEY643_DESK_SEL01" Data="수취인 불명의 편지"/>
 		<Class ClassID="138387" ClassName="ABBEY643_DESK_SEL02" Data="인장이 찍힌 편지"/>
 		<Class ClassID="138388" ClassName="ROTA_02_SEL01" Data="의뢰주에 대해"/>
-	</Category>
+<Class ClassID="138389" ClassName="Need_Item" Data="가 필요합니다."/>	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
 		<Class ClassID="200002" ClassName="WithdrawToCamp" Data="님께서 꺼내가셨습니다."/>
 		<Class ClassID="200003" ClassName="StoreToCamp" Data="님께서 저장하셨습니다."/>
 		<Class ClassID="200004" ClassName="FarFromFoodTable" Data="배식대와 거리가 멉니다. 음식을 먹으려면 가까이에서 시도하세요."/>
-		<Class ClassID="200005" ClassName="MissionInstanceFull" Data="미션 인스턴스 개수 초과 나중에 시도하세요"/>
+		<Class ClassID="200005" ClassName="MissionInstanceFull" Data="서버가 혼잡하여 미션 생성을 실패하였습니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="200006" ClassName="DonCreateMonThisAria" Data="해당 지역에서는 몬스터를 소환할 수 없습니다."/>
 		<Class ClassID="200007" ClassName="DonExecSkill" Data="해당 지역에서는 실행할 수 없는 스킬입니다."/>
 		<Class ClassID="200008" ClassName="MissionRoomFullCont" Data="해당 던전에 정원이 가득 찾습니다."/>

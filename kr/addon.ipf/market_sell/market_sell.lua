@@ -149,6 +149,12 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
 
 		local obj = GetIES(invItem:GetObject());
+	local reason = GetTradeLockByProperty(obj);
+	if reason ~= "None" then
+		ui.SysMsg(ScpArgMsg(reason));
+		return;
+	end
+
 		if obj.GroupName == "Premium" then
 			edit_count:SetText("1");
 			edit_count:SetMaxNumber(1);

@@ -2810,7 +2810,7 @@
 	<controlset name="transcend_result_text" hittest="true" width="440" height="60" hittestset="false" draw="false" skin="">
 		<controls>
 			<groupbox name="groupbox_1" margin="0 0 0 0" rect="0 0 440 60" hittestbox="true" skin="monster_skill_bg" layout_gravity="center center"/>
-			<richtext name="text" margin="0 3 0 0" rect="0 0 420 49" hittest="false" format="{@sti1c}%s + {#FFFF00} %s" param1="propname" param1_def="Defence" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" param2="propvalue" param2_def="131"/>
+			<richtext name="text" margin="0 3 0 0" rect="0 0 420 49" hittest="false" format="{@sti1c}%s {#FFFF00}%s%s%" param1="propname" param1_def="Defence" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" param2="propoper" param2_def="+" param3="propvalue" param3_def="131"/>
 		</controls>
 	</controlset>
 	<controlset name="guildEvent_popup_listItem" hittest="true" width="200" height="45" hittestset="true" draw="false" skin="none">

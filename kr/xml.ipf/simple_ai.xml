@@ -2812,7 +2812,10 @@
 				<Str_Arg Str="F_cleric_owl_loop" Arg="1"/>
 				<Str Str="BOT"/>
 			</ToolScp>
-		</StartList>
+		<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_OWL_BORNSCRIPT"/>
+            </ToolScp>
+        </StartList>
 	</AI>
 	<AI Name="Dievdirbys_Owl_2" UpdateMS="500" ActiveMessageMapInBattle="1">
 		<List>

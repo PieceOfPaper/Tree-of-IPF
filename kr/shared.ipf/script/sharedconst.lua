@@ -1,9 +1,9 @@
-﻿--PLAYTIMEEVENT_REFLASH_HOUR = 6
---PLAYTIMEEVENT_REWARD_TIME = {0, 30, 60}
---PLAYTIMEEVENT_REWARD_BASIC = {{{'Event_160421',2}}, {{'Event_160421',4}}, {{'Event_160421',10}}}
---PLAYTIMEEVENT_REWARD_PREMIUM = {{{'Event_160421',4}}, {{'Event_160421',6}}, {{'Event_160421',14}}}
---PLAYTIMEEVENT_REWARD_ACC_TIME = {80, 110, 130, 192}
---PLAYTIMEEVENT_REWARD_ACC = {{{'Hat_628132',1}},{{'Premium_awakeningStone14',2}},{{'Premium_StatReset14', 1}},{{'Hat_628133',1}}}
+﻿PLAYTIMEEVENT_REFLASH_HOUR = 6
+PLAYTIMEEVENT_REWARD_TIME = {0, 30, 60}
+PLAYTIMEEVENT_REWARD_BASIC = {{{'Event_160609',1}}, {{'Event_160609',1}}, {{'Event_160609',1}}}
+PLAYTIMEEVENT_REWARD_PREMIUM = {{{'Event_160609',1}}, {{'Event_160609',1}}, {{'Event_160609',1}}}
+PLAYTIMEEVENT_REWARD_ACC_TIME = nil
+PLAYTIMEEVENT_REWARD_ACC = nil
 
 CITYATTACK_BOSS_EVENT_TIME_TABLE = {{2016,5,26,20,'boss_honeyspider'},
                                     {2016,5,26,22,'Head_fish'},
@@ -42,7 +42,19 @@ CITYATTACK_BOSS_EVENT_TIME_TABLE = {{2016,5,26,20,'boss_honeyspider'},
                                     {2016,6,7,20,'boss_honeyspider'},
                                     {2016,6,7,22,'Head_fish'},
                                     {2016,6,8,20,'boss_honeyspider'},
-                                    {2016,6,8,22,'Head_fish'}
+                                    {2016,6,8,22,'Head_fish'},
+                                    {2016,6,9,20,'boss_honeyspider'},
+                                    {2016,6,9,22,'Head_fish'},
+                                    {2016,6,10,20,'boss_honeyspider'},
+                                    {2016,6,10,22,'Head_fish'},
+                                    {2016,6,11,16,'boss_honeyspider'},
+                                    {2016,6,11,18,'Head_fish'},
+                                    {2016,6,11,20,'boss_honeyspider'},
+                                    {2016,6,11,22,'Head_fish'},
+                                    {2016,6,12,16,'boss_honeyspider'},
+                                    {2016,6,12,18,'Head_fish'},
+                                    {2016,6,12,20,'boss_honeyspider'},
+                                    {2016,6,12,22,'Head_fish'}
                                     }
                                     
 FLASHMOB_EVENT_REWARD_TABLE = {{{'Premium_tpBox_10',1}}}
@@ -242,13 +254,3 @@ function SSN_DIALOGCOUNT_ENTER_C()
 end
 function SSN_DIALOGCOUNT_LEAVE_C()
 end
-
-
-
-
-
-
-
-
-
-

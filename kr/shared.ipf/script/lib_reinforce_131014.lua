@@ -1,4 +1,4 @@
----- lib_reinforce_131014.lua
+﻿---- lib_reinforce_131014.lua
 
 function REINFORCE_ABLE_131014(item)
 	
@@ -14,7 +14,9 @@ function REINFORCE_ABLE_131014(item)
 end
 
 function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
-	
+	if moruItem.ClassName == "Moru_Potential" or moruItem.ClassName == "Moru_Potential14d" then
+		return 0;
+	end
 	local reinforcecount = fromItem.Reinforce_2;
 	local slot = fromItem.DefaultEqpSlot;
 	local grade = fromItem.ItemGrade;
@@ -56,6 +58,18 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
 	if moruItem.ClassName == "Moru_Platinum_Premium" then
 		value = value / 2;
 	end
+	
+    if moruItem.ClassName == "Moru_Silver" or moruItem.ClassName == "Moru_Silver_test" then 
+		value = 0;
+	end
+	
+    if moruItem.ClassName == "Moru_Event160609" then
+		value = 0;
+	end
+    if moruItem.ClassName == "Moru_Potential" or moruItem.ClassName == "Moru_Potential14d" then
+		value = 0;
+	end
+	
     value = math.floor(value)
 	return math.floor(value);
 
@@ -69,10 +83,6 @@ function GET_REINFORCE_131014_HITCOUNT(fromItem, moru)
 	local ItemStar = fromItem.ItemStar;
 	
 	local prop = geItemTable.GetProp(fromItem.ClassID);
-	--local cls = GetClassByType("itemevolution", prop.evolutionType);
-
 	return 3;
-	---- 모루와 아이템의 컬럼을 이용해서 몇번 모루를 때려야 하는지 계산한다.
-	--return cls.HitCount;
 
 end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
 		<image name="item_angle_icon" file="\skin\mainframe_A.tga" imgrect="818 710 30 20" CMM_Caption="S 랭크 아이템 아이콘"/>
@@ -515,7 +515,7 @@
 		<image name="icon_item_mage_grita_f" file="\icon\equip\mage_f_grita.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_archer_quarreelshooter01_3_m" file="\icon\equip\archer_m_quarreelshooter01_3.png" imgrect="0 0 256 256" CMM_Caption="3랭크코스튬_쿼렐"/>
 		<image name="icon_item_archer_quarreelshooter01_3_f" file="\icon\equip\archer_f_quarreelshooter01_3.png" imgrect="0 0 256 256"/>
-	<image name="icon_item_Cleric_dievdirbys01_3_m" file="\icon\equip\Cleric_dievdirbys01_3_m.png" imgrect="0 0 256 256" CMM_Caption="3랭크코스튬_딥디르비"/>
+		<image name="icon_item_Cleric_dievdirbys01_3_m" file="\icon\equip\Cleric_dievdirbys01_3_m.png" imgrect="0 0 256 256" CMM_Caption="3랭크코스튬_딥디르비"/>
 		<image name="icon_item_Cleric_dievdirbys01_3_f" file="\icon\equip\Cleric_dievdirbys01_3_f.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_weapone_icons">
@@ -2085,6 +2085,8 @@
 		<image name="item_bracelet_18" file="\icon\acc\item_bracelet_18.png" imgrect="0 0 256 256"/>
 		<image name="item_bracelet_19" file="\icon\acc\item_bracelet_19.png" imgrect="0 0 256 256"/>
 		<image name="item_bracelet_20" file="\icon\acc\item_bracelet_20.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_eventbracelet01" file="\icon\acc\icon_item_eventbracelet01.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_eventbracelet02" file="\icon\acc\icon_item_eventbracelet02.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_cloth" file="\icon\acc\icon_item_armband_cloth.png" imgrect="0 0 256 256" CMM_Caption="완장"/>
 		<image name="icon_item_armband_clothlong" file="\icon\acc\icon_item_armband_clothlong.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_feather" file="\icon\acc\icon_item_armband_feather.png" imgrect="0 0 256 256"/>
@@ -3443,7 +3445,16 @@
 		<image name="icon_item_blacknecklace" file="\icon\item\icon_item_blacknecklace.png" imgrect="0 0 128 128" CMM_Caption="종유동굴 푸른목걸이"/>
 		<image name="icon_item_Anchovy" file="\icon\item\icon_item_Anchovy.png" imgrect="0 0 128 128" CMM_Caption="멸치"/>
 		<image name="icon_item_egg_lessrpanda2" file="\icon\item\icon_item_egg_lessrpanda2.png" imgrect="0 0 128 128" CMM_Caption="렛서팬더상자"/>
-	<image name="icon_item_jemina" file="\icon\item\icon_item_jemina.png" imgrect="0 0 128 128" CMM_Caption="제미나목걸이상자"/>
+		<image name="icon_item_jemina" file="\icon\item\icon_item_jemina.png" imgrect="0 0 128 128" CMM_Caption="제미나목걸이상자"/>
+		<image name="icon_item_eventbox_lord" file="\icon\item\icon_item_eventbox_lord.png" imgrect="0 0 128 128" CMM_Caption="영주헤먼데일의 브레이슬릿"/>
+		<image name="icon_item_eventbox_knight" file="\icon\item\icon_item_eventbox_knight.png" imgrect="0 0 128 128" CMM_Caption="기사단장 우스카의 뱅글"/>
+		<image name="icon_item_event_goldenkey" file="\icon\item\icon_item_event_goldenkey.png" imgrect="0 0 128 128" CMM_Caption="황금열쇠"/>
+		<image name="icon_item_eventbox_magic" file="\icon\item\icon_item_eventbox_magic.png" imgrect="0 0 128 128" CMM_Caption="매지션박스"/>
+		<image name="icon_item_eventbox_powup" file="\icon\item\icon_item_eventbox_powup.png" imgrect="0 0 128 128" CMM_Caption="파워업박스"/>
+		<image name="icon_item_eventbox_TP" file="\icon\item\icon_item_eventbox_TP.png" imgrect="0 0 128 128" CMM_Caption="TP박스"/>
+		<image name="icon_item_eventbox_gem" file="\icon\item\icon_item_eventbox_gem.png" imgrect="0 0 128 128" CMM_Caption="젬박스"/>
+		<image name="icon_item_eventbox_QM" file="\icon\item\icon_item_eventbox_QM.png" imgrect="0 0 128 128" CMM_Caption="물음표박스"/>
+		<image name="icon_item_eventbox_potion" file="\icon\item\icon_item_eventbox_potion.png" imgrect="0 0 128 128" CMM_Caption="포션박스"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -3583,6 +3594,14 @@
 		<image name="hairacc_Hat_trump_war" file="\icon\payment\Hat_war_trump.png" imgrect="0 0 256 256"/>
 		<image name="hairacc_Hat_trump_wizm" file="\icon\payment\Hat_wiz_trump_m.png" imgrect="0 0 256 256"/>
 		<image name="hairacc_Hat_trump_wizf" file="\icon\payment\Hat_wiz_trump_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_school_m" file="\icon\payment\warrior_school_m.png" imgrect="0 0 256 256" CMM_Caption="스쿨룩세트_코스튬"/>
+		<image name="icon_item_warrior_school_f" file="\icon\payment\warrior_school_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_school_m" file="\icon\payment\mage_school_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_school_f" file="\icon\payment\mage_school_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archer_school_m" file="\icon\payment\archer_school_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archer_school_f" file="\icon\payment\archer_school_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_cleric_school_m" file="\icon\payment\cleric_school_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_cleric_school_f" file="\icon\payment\cleric_school_f.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

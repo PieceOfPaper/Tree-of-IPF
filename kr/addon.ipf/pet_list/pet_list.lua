@@ -30,6 +30,10 @@ function UI_TOGGLE_PETLIST()
 		return;
 	end
 
+	if ui.CheckHoldedUI() == true then
+		return;
+	end	
+
 	local frame = ui.GetFrame("pet_info");
 	if frame:IsVisible() == 1 then
 		frame:ShowWindow(0);

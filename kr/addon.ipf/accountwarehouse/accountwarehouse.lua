@@ -50,6 +50,12 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 		return;
 	end
 	
+	local reason = GetTradeLockByProperty(obj);
+	if reason ~= "None" then
+		ui.SysMsg(ScpArgMsg(reason));
+		return;
+	end
+
 if fromFrame:GetName() == "inventory" then
 	local maxCnt = invItem.count;
 		if TryGetProp(obj, "BelongingCount") ~= nil then
@@ -149,7 +155,6 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 		gbox_warehouse:InvalidateScrollBar();
 		frame:Invalidate();
 	end
-
 end
 
 function ACCOUNT_WAREHOUSE_RECEIVE_ITEM(parent, slot)

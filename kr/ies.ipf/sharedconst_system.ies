@@ -63,6 +63,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 110006,1,0,"NGS_TEST_LOG","이 값을 1로 두면 NGS관련한 로그가 info로그로 남습니다.","NO"
 110007,1,0,"USE_NEW_NGS","이 값을 1로 두면 새로운 NGS 소스를 이용합니다","NO"
 110008,0,0,"USE_NGS_KICK","NGS에 의한 유저킥 사용유무","NO"
+110010,1,0,"GUILD_MISSION_TEST_LOG","길드미션 테스트 로그 출력","YES"
 120000,0.700000,0,"HITDELAY_COLOR","히트시에PC몸체컬러 (0~1.0)","NO"
 120001,10,0,"SHADOW_DOFFSET","그림자, 스킬 이펙트 * offset","NO"
 130000,0,0,"Color_Friend","{#33FF33}","NO"

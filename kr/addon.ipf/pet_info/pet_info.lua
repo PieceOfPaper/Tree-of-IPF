@@ -13,7 +13,11 @@ g_treeStartSpace = 5;
 g_treeEndSpace = 10;
 
 function COMPANION_UI_OPEN_DO(frame)
-	-- 펫이 2마리 일때는 여기서 작업 해서 추가 하면 될듯...?????
+	
+	if ui.CheckHoldedUI() == true then
+		return;
+	end	
+
 	local summonedPet = GET_SUMMONED_PET();
 	if summonedPet == nil then
 		ui.SysMsg(ClMsg("SummonedPetDoesNotExist"));
@@ -320,11 +324,12 @@ function PET_ABIL_UP(parent, ctrl)
 		return;
 	end
 
-	ui.MsgBoxNoCap(msg, scriptString, "None", frame:GetName());
+	ui.MsgBox_NonNested(msg, frame:GetName(), scriptString, "None");
 
 end
 
 function EXEC_PET_ABIL(guid, clsName)
+	imcSound.PlaySoundEvent("button_click_big");
 
 	local chatStr = string.format("/petstat %s %s", guid, clsName);
 	ui.Chat(chatStr);

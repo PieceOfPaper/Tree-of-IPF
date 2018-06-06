@@ -1800,6 +1800,16 @@ function SCR_GET_ShieldShoving_Ratio(skill)
 
 end
 
+function SCR_GET_ShieldShoving_Bufftime(skill)
+
+    local value = 1.5
+        if IsPVPServer(self) == 1 then
+	        value = 3
+	    end
+    return value
+
+end
+
 function SCR_Get_SkillFactor_ShieldBash(skill)
 	local pc = GetSkillOwner(skill);
 	local value = skill.SklFactor
@@ -5907,8 +5917,11 @@ end
 
 
 function SCR_GET_HeadShot_Ratio2(skill)
-
+  local pc = GetSkillOwner(skill);
   local value = 5 * skill.Level
+    if IsPVPServer(self) == 1 then
+        value = (5 * skill.Level) + (pc.HR * 0.1)
+    end
   return value;
   
 end
@@ -7291,6 +7304,9 @@ end
 function SCR_Get_DeployPavise_Time(skill)
     
     local value = 16 + skill.Level * 2;
+        if IsPVPServer(pc) == 1 then
+    	    value = 900;
+	    end
     return math.floor(value);
 
 end

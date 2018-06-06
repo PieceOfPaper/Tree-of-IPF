@@ -1,6 +1,7 @@
 <?xml version="1.0" standalone="yes"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ComponentList>
+	<Particle name="pattern023" texture="pattern023" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="pattern022" texture="pattern022" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="square008" texture="background002" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="pattern018_2" texture="pattern018_2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
@@ -296,6 +297,7 @@
 	<Particle name="circle018" texture="circle018" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="circle017" texture="circle017" width="4.00" height="4.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="160" texel_height="160"/>
 	<Particle name="line001" texture="line001" width="10.00" height="10.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Texture name="texture_pattern023" texture="pattern023" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="texture_pattern022" texture="pattern022" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="texture_pattern021" texture="pattern021" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Texture name="texture_pattern020" texture="pattern020" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
@@ -477,7 +479,7 @@
 	<Model name="Velniamonkey_dead" model="Velniamonkey_dead.xac" motion="Velniamonkey_dead_ani.xsm" texturepath="char_texture\monster\Velniamonkey\" overlap="true"/>
 	<Model name="SilvaGriffin_dead" model="SilvaGriffin_dead.xac" motion="SilvaGriffin_dead_ani.xsm" texturepath="char_texture\monster\Silva_Griffin\" overlap="true"/>
 	<Model name="Marionette_dead" model="Marionette_dead.xac" motion="Marionette_dead_ani.xsm" texturepath="char_texture\monster\Marionette\" overlap="true"/>
-	<Model name="rokas_brickwall_dead" model="rokas_brickwall_dead.xac" motion="rokas_brickwall_dead_ani.xsm" texturepath="char_texture\npc\rokas_brickwall\" overlap="false"/>
+	<Model name="rokas_brickwall_dead" model="rokas_brickwall_dead.xac" motion="rokas_brickwall_dead_ani.xsm" texturepath="bg_texture\zachariel\" overlap="false"/>
 	<Model name="subzeroshield_obj2" model="subzeroshield_obj2.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true"/>
 	<Model name="arrow005_mash" model="arrow005_mash.xac" motion="None" texturepath="item_texture\" overlap="false"/>
 	<Model name="blud_skl3" model="blud_skl3.xac" motion="blud_skl3_ani.xsm" texturepath="char_texture\monster\Blud\" overlap="true"/>

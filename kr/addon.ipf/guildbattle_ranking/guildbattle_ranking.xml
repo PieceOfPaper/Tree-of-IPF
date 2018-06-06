@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <uiframe name="guildbattle_ranking" x="0" y="0" width="900" height="1920">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -33,6 +33,6 @@
 		<controlset name="rankingpage" type="guildbattle_ranking_page" margin="363 178 0 0" rect="0 0 150 200" hittest="true" layout_gravity="left top"/>
 		<groupbox name="gbox_guild_rewards" margin="17 806 0 0" rect="0 0 350 210" hittestbox="false" skin="none" layout_gravity="left top"/>
 		<labelline name="labelline_1" margin="24 800 0 0" rect="0 0 340 2" skin="labelline_def_2" layout_gravity="left top"/>
-    <!---->button name="btn_get_reward" margin="146 722 0 0" rect="0 0 217 40" layout_gravity="left top" format="{@st42}%s" param1="value" param1_def="보상 받기" skin="textbutton_nomal_joo" LBtnUpScp="REQ_GET_GUILD_BATTLE_REWARD"/-->
+<button name="btn_get_reward" margin="146 722 0 0" rect="0 0 217 40" layout_gravity="left top" format="{@st42}%s" param1="value" param1_def="보상 받기" skin="textbutton_nomal_joo" LBtnUpScp="REQ_GET_GUILD_BATTLE_REWARD"/>
 	</controls>
 </uiframe>

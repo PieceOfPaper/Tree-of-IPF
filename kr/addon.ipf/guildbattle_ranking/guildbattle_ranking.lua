@@ -36,13 +36,10 @@ function UPDATE_FIRST_RANKING_GUILD(frame)
 		first_point:SetTextByKey("value", ScpArgMsg("{Point}Point", "Point", firstRankGuildInfo.point));
 
 	end
-	
+
 end
 
 function UPDATE_GET_REWARD_BUTTON(frame)
-	if 1 == 1 then
-		return;
-	end
 	local btn = frame:GetChild("btn_get_reward");
 	btn:ShowWindow(0);
 	local prevSeason = session.worldPVP.GetCurrentSeason() - 1;
@@ -82,7 +79,7 @@ function OPEN_GUILDBATTLE_RANKING_FRAME(openPage)
 		local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");
 		guildbattle_ranking:ShowWindow(1);
 		if 1 ~= openPage then
-		GUILDBATTLE_RANKING_TAB_CHANGE(guildbattle_ranking, 1, 0);
+			GUILDBATTLE_RANKING_TAB_CHANGE(guildbattle_ranking, 1, 0);
 		end
 		GUILDBATTLE_RANKING_UPDATE(guildbattle_ranking);
 end;

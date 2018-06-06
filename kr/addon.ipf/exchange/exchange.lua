@@ -183,6 +183,12 @@ function EXCHANGE_INV_RBTN(itemobj, slot)
 end
 
 function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
+	local reason = GetTradeLockByProperty(obj);
+	if reason ~= "None" then
+		ui.SysMsg(ScpArgMsg(reason));
+		return;
+	end
+
 	if true == item.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;

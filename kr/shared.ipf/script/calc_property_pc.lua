@@ -236,6 +236,8 @@ function SCR_Get_MHP(self)
 	local con = self.CON;	
 	local lv = self.Lv;
 
+	local byItemRatio = (1.0 + GetSumOfEquipItem(self, 'MHPRatio') * 0.01);
+
 	local byItem = GetSumOfEquipItem(self, 'MHP');
 	local byBuff = self.MHP_BM;
 	local byLevel = math.floor((lv -1) * 8.5 * 2);
@@ -243,7 +245,7 @@ function SCR_Get_MHP(self)
 
 	local rewardProperty = GET_REWARD_PROPERTY(self, "MHP")
 
-	local value = (jobObj.JobRate_HP * byLevel) + byItem + byStat + self.MHP_Bonus + byBuff + rewardProperty;
+	local value = ((jobObj.JobRate_HP * byLevel) + byStat) * byItemRatio + byItem + self.MHP_Bonus + byBuff + rewardProperty;
 	
 	if value < 1 then
 	    value = 1;

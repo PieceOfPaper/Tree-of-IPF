@@ -512,6 +512,7 @@ function IS_DRAW_ETC_ITEM_DAMAGE(invitem)
 end
 
 function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
+
 	local invitem = nil;
 	if strarg == 'select' then
 		invitem = session.GetSelectItemByIndex(guid);
@@ -519,10 +520,15 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 		invitem = GET_SOLDITEM_BY_INDEX(guid);
 	elseif strarg == 'equip' then
 		invitem = GET_ITEM_BY_GUID(guid, 1);
+		if invitem == nil then
+			invitem = session.otherPC.GetItemByGuid(guid);
+		end
 	elseif strarg == 'dummyPC' then
 		invitem = GET_DUMMYPC_ITEM(guid, numarg1);
 	elseif strarg == "warehouse" then
 		invitem = session.GetWarehouseItemByGuid(guid);
+	elseif strarg == "accountwarehouse" then
+		invitem = session.GetEtcItemByGuid(IT_ACCOUNT_WAREHOUSE, guid);
 	elseif strarg == "party" then
 		invitem = GetItemByID(guid, session.party.GetPartyInfo().inv);
 	elseif strarg == "exchange" then
@@ -536,9 +542,14 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 		end
 	elseif strarg == "collection" then
 		local colls = session.GetMySession():GetCollection();
-		local coll = colls:Get(guid);
+		local coll = colls:Get(numarg1);
 		if coll ~= nil then
-			local collItem = coll:Get(numarg1);
+			local collItem = coll:GetByItemID(guid);
+			if collItem == nil then
+				local item = GetClassByType("Item", guid);
+				return item;
+			end
+
 			if collItem ~= nil then
 				return GetIES(collItem:GetObject());
 			end
@@ -572,6 +583,8 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 				return ownerItemObj;
 			end
 		end
+	elseif strarg == "guildwarehouse" then
+		invitem = session.GetEtcItemByGuid(IT_GUILD, guid);
 	else
 		invitem = GET_ITEM_BY_GUID(guid, 0);
 	end
@@ -688,6 +701,38 @@ function SHOW_REMAIN_BUFF_COUNT(ctrl)
 	return 1;
 end
 
+function SET_TRANSCEND_TEXT(gBox, invitem, yPos)
+    local transcend = TryGetProp(invitem, "Transcend");
+
+	if transcend ~= nil and transcend > 0 then
+		local y = GET_CHILD_MAX_Y(gBox);
+
+		local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(invitem);
+		for i = 1 , #propNames do
+			local propName = propNames[i];
+			local propValue = propValues[i];
+
+			local mhpText = gBox:CreateOrGetControl('richtext', "TRASNCEND_TEXT_" .. propName, 20, yPos, gBox:GetWidth() - 30, 20);
+			mhpText = AUTO_CAST(mhpText);
+			mhpText:SetTextFixWidth(1);
+			local text = "{#004123}- " .. ScpArgMsg(propName .. "TranscendBy{Count}", "Count", transcend);
+			mhpText:SetText(text);
+		
+			local hpUpValue = gBox:CreateOrGetControl('richtext', "TRASNCEND_VALUE_" .. propName, 200, yPos, 200, 20);
+			hpUpValue = AUTO_CAST(hpUpValue);
+			hpUpValue:SetTextFixWidth(1);
+			hpUpValue:SetTextAlign("right", "center");
+
+			local valueText = string.format("{#004123}"..ScpArgMsg("PropUp").."%d", propValue)
+			hpUpValue:SetText(valueText.."%");
+			
+			yPos = yPos + mhpText:GetHeight();
+		end
+	end
+
+	return yPos;
+end
+
 function SET_REINFORCE_TEXT(gBox, invitem, yPos)
 	if invitem.Reinforce_2 > 0  then
 		local y = GET_CHILD_MAX_Y(gBox);
@@ -732,6 +777,45 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos)
 	return yPos;
 end
 
+function SET_REINFORCE_BUFF_TEXT(gBox, invitem, yPos)
+	if invitem.Reinforce_2 >= 10  then
+		if invitem.DefRatio == 0 and invitem.MDefRatio == 0 then
+			return yPos;
+		end
+		
+		local y = GET_CHILD_MAX_Y(gBox);
+		
+		local reinforceBuffText = gBox:CreateOrGetControl('richtext', "REINFORCE_BUFF_TEXT", 20, yPos, gBox:GetWidth() - 30, 20);
+		reinforceBuffText = tolua.cast(reinforceBuffText, "ui::CRichText");
+		reinforceBuffText:SetTextFixWidth(1);
+		reinforceBuffText:SetFormat("%s");
+		reinforceBuffText:AddParamInfo("ReinforceBuffText", "");
+
+		local text;
+		local ratioValue = 0;
+		if invitem.DefRatio > 0 then
+			text = string.format("{#004123}".."- "..ScpArgMsg("MeleeDamage"))
+			ratioValue = invitem.DefRatio;
+		elseif invitem.MDefRatio > 0 then
+			text = string.format("{#004123}".."- "..ScpArgMsg("MagicDamage"));
+			ratioValue = invitem.MDefRatio;
+		end
+		reinforceBuffText:SetTextByKey("ReinforceBuffText", text);
+
+		local reinforceBuffValue = gBox:CreateOrGetControl('richtext', "REINFORCE_BUFF_VALUE", 350, yPos, gBox:GetWidth() - 30, 20);
+		reinforceBuffValue = tolua.cast(reinforceBuffValue, "ui::CRichText");
+		reinforceBuffValue:SetTextFixWidth(1);
+		reinforceBuffValue:SetFormat("%s");
+		reinforceBuffValue:AddParamInfo("ReinforceValue", "");
+		
+		local valueText = string.format("{#004123}"..ScpArgMsg("PropUp").."%d%%", ratioValue);
+		reinforceBuffValue:SetTextByKey("ReinforceValue", valueText);
+
+		yPos = yPos + reinforceBuffValue:GetHeight();
+	end
+
+	return yPos;
+end
 
 function ABILITY_CHANGEVALUE_SKINSET(tooltipframe, itemtype, invitem, equipItem)
 	local valueUp = 0;

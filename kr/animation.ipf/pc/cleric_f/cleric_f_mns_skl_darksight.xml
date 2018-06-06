@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="4.00" soundFile="skl_fgt_tackle_cast"/>
-    <Sound frame="7.00" soundFile="skl_fgt_tackle_cast_2"/>
-    <Sound frame="10.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="4.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="7.00" soundFile="skl_fgt_tackle_cast_2"/>
+	<Sound frame="10.00" soundFile="skl_fgt_tackle_shot"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="16" R="100" G="100" B="100" A="100"/>
+	<BlendOn frame="17" R="90" G="90" B="90" A="100"/>
+	<BlendOn frame="18" R="80" G="80" B="80" A="100"/>
+	<BlendOn frame="19" R="60" G="60" B="60" A="100"/>
+	<BlendOn frame="20" R="40" G="40" B="40" A="100"/>
+	<BlendOn frame="21" R="20" G="20" B="20" A="100"/>
+	<BlendOff frame="22" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_L_HAND" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_R_HAND" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_L_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_R_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_L_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_R_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="14" attachNode="Dummy_L_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="30" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="14" attachNode="Dummy_R_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="30" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="16" attachNode="Dummy_effect_darksight" particleName="I_cleric_DarkSight_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_darksight2" particleName="F_cleric_DarkSight_cast" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+	<Particle frame="3" attachNode="Dummy_effect_darksight4" particleName="I_circle009_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_darksight4" particleName="I_circle009_alpha_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="true" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Dummy_effect_moneybag_hit" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Dummy_effect_moneybag_hit" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
 </ActionDesc>

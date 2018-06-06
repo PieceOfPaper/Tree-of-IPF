@@ -149,7 +149,7 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	if blongProp ~= nil then
 		blongCnt = tonumber(blongProp);
 	end
-	if itemProp:IsExchangeable() == false or 0 <  blongCnt then
+	if itemProp:IsExchangeable() == false or GetTradeLockByProperty(invitem) ~= "None" or 0 <  blongCnt then
 		itemCantSoldPicture:ShowWindow(1);
 		itemCantSoldText:ShowWindow(1);
 	else
@@ -264,6 +264,10 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 
 	yPos = SET_REINFORCE_TEXT(gBox, invitem, yPos);
 	
+	yPos = SET_TRANSCEND_TEXT(gBox, invitem, yPos);
+
+	yPos = SET_REINFORCE_BUFF_TEXT(gBox, invitem, yPos);
+	
 	gBox:Resize(gBox:GetWidth(),  yPos);
 	return yPos;
 end
@@ -327,7 +331,9 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 	end
 
 	if cnt <= 0 and (invitem.OptDesc == nil or invitem.OptDesc == "None") then -- 일단 그릴 프로퍼티가 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
+		if invitem.ReinforceRatio == 100 then
 		return yPos
+	end
 	end
 	
 	local tooltip_equip_property_CSet = gBox:CreateOrGetControlSet('tooltip_equip_property', 'tooltip_equip_property', 0, yPos);
@@ -397,6 +403,12 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 		local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(invitem.HiddenProp));
 		local strInfo = ABILITY_DESC_PLUS(opName, invitem.HiddenPropValue, invitem[invitem.HiddenProp]);
 		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
+	end
+
+	if invitem.ReinforceRatio > 100 then
+		local opName = ClMsg("ReinforceOption");
+		local strInfo = ABILITY_DESC_PLUS(opName, math.floor(10 * invitem.ReinforceRatio/100), ClMsg("ReinforceOption"));
+		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo.."% "..ClMsg("ReinforceOptionAtk"), 0, inner_yPos);
 	end
 
 	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백

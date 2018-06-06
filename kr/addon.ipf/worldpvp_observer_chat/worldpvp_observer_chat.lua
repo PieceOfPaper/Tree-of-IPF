@@ -12,7 +12,7 @@ function CHAT_OBSERVER_ENABLE(count, aidList, teamIDList, iconList)
 	if count == 0 then
 		for i = 0 , frame:GetChildCount() - 1 do
 			local child = frame:GetChildByIndex(i);
-			if string.find(child:GetName(), "button") ~= nil then
+			if string.find(child:GetName(), "button") ~= nil or string.find(child:GetName(), "mainchat") ~= nil then
 				child:ShowWindow(1)
 			else
 				child:ShowWindow(0)

@@ -73,22 +73,12 @@ function UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
 		INIT_INVEN_SLOT(slot)						
 
 		--거래목록 또는 상점 판매목록에서 올려놓은 아이템(슬롯) 표시 기능
-		if itemCls.MaxStack > 1 then
 			local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
 			if remainInvItemCount ~= invItem.count then
 				slot:Select(1)
 			else
 				slot:Select(0)
 			end
-		else
-			slot:Select(0)
-			for iesid, selllistcount in pairs(SHOP_SELECT_ITEM_LIST) do
-				if invItem:GetIESID() == iesid then
-					slot:Select(1)
-					break;
-				end
-			end
-		end
 
 end
 
@@ -145,7 +135,6 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 							
 							slot:ShowWindow(1)							
 							UPDATE_INVENTORY_SLOT(slot, invItem, itemCls);
-							
 							INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, remainInvItemCount);
 							SET_SLOTSETTITLE_COUNT(tree, baseidcls, 1)
 											
@@ -297,17 +286,17 @@ function SET_INV_LBTN_FUNC(frame, funcName)
 	frame:SetUserValue("LBTN_SCP", funcName);
 end
 
-function SET_SLOT_APPLY_FUNC(frame, funcName)
+function SET_SLOT_APPLY_FUNC(frame, funcName, slotSetName)
 	frame:SetUserValue("SLOT_APPLY_FUNC", funcName);
 	if funcName == "None" then
 		INV_APPLY_TO_ALL_SLOT(_SLOT_RESET_GRAY_BLINK);
 	end
 
-	UPDATE_INV_LIST(frame);
+	UPDATE_INV_LIST(frame, slotSetName);
 end
 
-function UPDATE_INV_LIST(frame)
-	INVENTORY_LIST_GET(frame);
+function UPDATE_INV_LIST(frame, slotSetName)
+	INVENTORY_LIST_GET(frame, nil, slotSetName);
 end
 
 function INVENTORY_WEIGHT_UPDATE(frame)
@@ -382,7 +371,6 @@ function TEMP_INV_ADD(frame,invIndex)
 
 	local beforeSlotSetCount = #SLOTSET_NAMELIST;
 	local beforeGroupCount = #GROUP_NAMELIST;
-
 	INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
 		
 	--아이템 없는 빈 슬롯은 숨겨라
@@ -476,7 +464,7 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 	local itemCls = GetClassByType("Item", invItem.type);
 	local name = itemCls.ClassName;
 	if name == "Vis" or name == "Feso" then
-		DRAW_TOTAL_VIS(frame, 'invenZeny');
+		DRAW_TOTAL_VIS(frame, 'invenZeny', 1);
 		return;
 	end
 
@@ -499,7 +487,7 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 	if slot == nil then
 		return;
 	end
-
+	slot:SetText('{s18}{ol}{b}', 'count', 'right', 'bottom', -2, 1);
 	local slotIndex = slot:GetSlotIndex();
 	slotset:ClearSlotAndPullNextSlots(slotIndex, "ONUPDATE_SLOT_INVINDEX");
 	
@@ -566,7 +554,7 @@ function GET_SLOT_FROMSLOTSET_BY_IESID(slotset, itemGuid)
 	for i = 0 , count - 1 do
 		local slot = slotset:GetChildByIndex(i);
 		AUTO_CAST(slot);
-		local tooltipIESID = slot:GetIcon():GetTooltipIESID();
+		local tooltipIESID = slot:GetIcon():GetInfo():GetIESID();
 		if tooltipIESID == itemGuid then
 			return slot;
 		end
@@ -580,6 +568,7 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 	
     if msg == 'INV_ITEM_LIST_GET' or msg == 'UPDATE_ITEM_REPAIR' then
         INVENTORY_LIST_GET(frame)
+		STATUS_EQUIP_SLOT_SET(frame);
     end
 	
     if msg == 'INV_ITEM_ADD' then
@@ -766,12 +755,18 @@ function INVENTORY_UPDATE_ICONS(frame)
 
 end
 
-function INVENTORY_LIST_GET(frame, setpos)
+--특정 경우에서 모든 아이템 리스트를 돌 필요는 없기 떄문에
+--특정 슬롯셋의 리스트만 가져올 때, slotSetName 값을 넣는다.
+function INVENTORY_LIST_GET(frame, setpos, slotSetName)
 	
 	SET_INVENTORY_MODE(frame, "Normal");
 	
-	INVENTORY_TOTAL_LIST_GET(frame, setpos);
+	--이미 인벤토리의 리스트는 만들어져 있는데, slotSetName 이부분 갱신해주고 싶어서
+	--모든 리스트를 다 불러올 필요는 없다.
 
+	if slotSetName == nil then
+	INVENTORY_TOTAL_LIST_GET(frame, setpos);
+	end
 	
 	DRAW_TOTAL_VIS(frame, 'invenZeny');
 
@@ -785,9 +780,16 @@ function INVENTORY_LIST_GET(frame, setpos)
 			local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
 			local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 
+			if slotSetName ~= nil then
+				if string.find(slotSet:GetName(), slotSetName) then
+					local func = _G[funcStr];
+					APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+				end
+			else
 			local func = _G[funcStr];
 			APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
 		end
+	end
 	end
 
 end
@@ -1285,6 +1287,16 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 
 end
 
+function IS_TEMP_LOCK(invFrame, invitem)
+	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
+		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
+		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+			return true;
+	end
+
+	return false;
+end
+
 --아이템의 사용
 function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	local invitem = GET_SLOT_ITEM(object);
@@ -1332,9 +1344,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		local slotsetname	= GET_SLOTSET_NAME(argNum)
 		local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
-		if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
-			or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-			or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+		if true == IS_TEMP_LOCK(invFrame, invitem) then
 			return;
 		end
 		local Itemclass		= GetClassByType("Item", invitem.type);
@@ -1445,9 +1455,7 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
 	local slot		    = slotSet:GetSlotByIndex(argNum-1);
-	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
-		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+	if true == IS_TEMP_LOCK(invFrame, invitem) then
 		return;
 	end
 
@@ -1477,10 +1485,13 @@ function EXEC_SHOP_SELL(frame, cnt)
 end
 
 --크론에 대한 텍스트 출력하도록 한다
-function DRAW_TOTAL_VIS(frame, childname)
+function DRAW_TOTAL_VIS(frame, childname, remove)
 
 	local Cron = GET_TOTAL_MONEY();
-
+	if remove == 1 then
+		Cron = 0;
+	end
+	
 	local bottomGbox				= frame:GetChild('bottomGbox');
 	local moneyGbox				= bottomGbox:GetChild('moneyGbox');
 	local INVENTORY_CronCheck	= GET_CHILD(moneyGbox, childname, 'ui::CRichText');
@@ -1623,11 +1634,18 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 				QUICKSLOT_ON_CHANGE_INVINDEX(fromInvIndex, toInvIndex);
 			end
 		else
+			if true == BEING_TRADING_STATE() then
+				return;
+			end
+
 			local iconInfo = liftIcon:GetInfo();
 			item.UnEquip(iconInfo.ext);
 		end
 		
 	elseif FromFrame:GetName() == 'status' then
+		if true == BEING_TRADING_STATE() then
+			return;
+		end
 		local iconInfo = liftIcon:GetInfo();
 		item.UnEquip(iconInfo.ext);
 	elseif FromFrame:GetName() == "party" then
@@ -1644,7 +1662,7 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 			toFrame:SetUserValue("HANDLE", FromFrame:GetUserIValue("HANDLE"));
 			INPUT_NUMBER_BOX(toFrame, ScpArgMsg("InputCount"), "EXEC_TAKE_ITEM_FROM_WAREHOUSE", iconInfo.count, 1, iconInfo.count, nil, iesID);
 		else
-			item.TakeItemFromWarehouse(iesID, iconInfo.count, FromFrame:GetUserIValue("HANDLE"));
+			item.TakeItemFromWarehouse(IT_WAREHOUSE, iesID, iconInfo.count, FromFrame:GetUserIValue("HANDLE"));
 		end
 	end
 
@@ -1655,7 +1673,7 @@ end
 function EXEC_TAKE_ITEM_FROM_WAREHOUSE(frame, count, inputframe, fromFrame)
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
-	item.TakeItemFromWarehouse(iesid, tonumber(count), frame:GetUserIValue("HANDLE"));
+	item.TakeItemFromWarehouse(IT_WAREHOUSE, iesid, tonumber(count), frame:GetUserIValue("HANDLE"));
 end
 
 
@@ -1704,40 +1722,6 @@ function INVENTORY_THROW_ITEM_AWAY(frame, control, argStr, argNum)
 			end
 		end
 	end
-end
-
---이거 쓰는건가?
-function INVENTORY_DELETE(deleteIESID, itemID)
-
-	local topFrame			= ui.GetFrame("inventory");
-	local invGbox			= topFrame:GetChild('inventoryGbox');
-	local slotSet			= GET_CHILD(invGbox, 'slotlist', 'ui::CSlotSet');
-	local slotCount 		= slotSet:GetSlotCount();
-
-	for i = 0, slotCount - 1 do
-		local slot = slotSet:GetSlotByIndex(i );
-		local icon = slot:GetIcon();
-		if icon ~= nil then
-			local iconInfo = icon:GetInfo();
-			if iconInfo.type == itemID then
-				item.AddToThrowAway(deleteIESID, iconInfo.count);
-			end
-		end
-	end
-
-	local mobj = GetMyActor();	
-	if 1 == mobj:IsDead() then
-		ui.SysMsg(ClMsg('CantDoWhenCharacterDead'));
-	else
-		ui.MsgBox(ScpArgMsg("Auto_JeongMal_SagJeHaSiKessSeupNiKka?"), "item.ThrowAwayList()", "None");
-
-	end
-
-	slotSet:ClearIconAll();
-	INVENTORY_FRONT_IMAGE_CLEAR(topFrame);
-
-	INVENTORY_LIST_GET(topFrame);
-
 end
 
 --이거 쓰는건가?
@@ -1820,22 +1804,15 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	icon:Set(imageName, 'Item', itemType, invItem.invIndex, invItem:GetIESID(), invItem.count);
 
 	ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
-	
-	
+	local itemobj = GetIES(invItem:GetObject());	
 
 	if class.ItemType == 'Equip' then
+		local resultLifeTimeOver = IS_LIFETIME_OVER(itemobj);
 		local result = CHECK_EQUIPABLE(itemType);
-		if result ~= "OK" then
+		if (result ~= "OK") or (resultLifeTimeOver == 1) then
 			icon:SetColorTone("FFFF0000");
 		end
 	end
-
-	local itemobj = GetIES(invItem:GetObject());
-	local noTrade = TryGetProp(itemobj, "BelongingCount");
-	if nil ~= noTrade then
-		icon:SetNoTradeCount(noTrade);
-	end
-
 	SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count);
 
 	--아이템이 선택되었을 때의 스크립트를 선택한다
@@ -1854,8 +1831,9 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 
 	slot:SetOverSound('button_over');
 
-	--slot:EnableDrag(1);
-	--slot:EnableDrop(1);
+	slot:EnablePop(1)
+	slot:EnableDrag(1)
+	slot:EnableDrop(1)
 
 	-- drag && drop recipe blink
 	UPDATE_SLOT_RECIPE_BLINK(frame, slot, invItem);
@@ -1868,9 +1846,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		slot:SetFrontImage('quest_indi_icon');
 	elseif invItem.isLockState == true then
 		local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
-	elseif invItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_MORU') 
-		or invItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_AWAKEN')  
-		or invItem:GetIESID() == frame:GetUserValue('STONE_ITEM_GUID_IN_AWAKEN') then
+	elseif true == IS_TEMP_LOCK(frame, invItem) then
 		slot:SetFrontImage('item_Lock');
 	elseif invItem.isNew == true  then
 		slot:SetHeaderImage('new_inventory_icon');
@@ -2111,12 +2087,11 @@ end
 s_dropDeleteItemIESID = '';
 
 function INVENTORY_DELETE(itemIESID, itemType)
-	local invframe = ui.GetFrame("inventory");
-	if itemIESID == invframe:GetUserValue("ITEM_GUID_IN_MORU")
-		or itemIESID == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or itemIESID == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+	if true == BEING_TRADING_STATE() then
 		return;
 	end
+
+	local invframe = ui.GetFrame("inventory");
 	if ui.GetPickedFrame() ~= nil then
 		return;
 	end
@@ -2126,7 +2101,7 @@ function INVENTORY_DELETE(itemIESID, itemType)
 		return;
 	end
 
-	if true == invItem.isLockState then
+	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
@@ -2138,8 +2113,11 @@ function INVENTORY_DELETE(itemIESID, itemType)
 
 	local itemProp = geItemTable.IsDestroyable(itemType);
 	if cls.Destroyable == 'NO' or geItemTable.IsDestroyable(itemType) == false then
+		local obj = GetIES(invItem:GetObject());
+		if obj.ItemLifeTimeOver == 0 then
 		ui.AlarmMsg("ItemIsNotDestroy");
 		return;
+	end
 	end
 
 	--if cls.UserTrade == 'YES' or cls.ShopTrade == 'YES' then
@@ -2289,8 +2267,17 @@ function LOCK_ITEM_INVENTORY(frame)
 	for i = 0, AUTO_SELL_COUNT-1 do
 		-- 뭐하나라도 true면
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
+			ui.MsgBox(ScpArgMsg("CannotDoAction"));
 			return;
 		end
+	end
+
+	if true == BEING_TRADING_STATE() then
+		return;
+	end
+
+	if true == IS_TRANSCENDING_STATE() then
+		return;
 	end
 
 	session.inventory.SetInventoryLock();
@@ -2377,9 +2364,34 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	session.inventory.SendLockItem(selectItem:GetIESID(), state);
 end
 
-function INV_ITEM_LOCK_SAVE_FAIL()
+function INV_ITEM_LOCK_SAVE_FAIL(frame, msg, argStr, agrNum)
+	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree')
+	for i = 1 , #SLOTSET_NAMELIST do
+		local slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
+
+		if nil ~= slotset then
+			local slotCount = slotset:GetSlotCount();
+			for i = 0, slotCount - 1 do
+				local slot		= slotset:GetSlotByIndex(i );
+				AUTO_CAST(slot);
+				local invItem = GET_SLOT_ITEM(slot);
+				if invItem ~= nil and invItem:GetIESID() == argStr then
+					invItem.isLockState = argNum;
 	ui.SysMsg(ClMsg("ItemLockSaveFail"));
+					local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
+					if 1 == agrNum then
+						controlset:ShowWindow(1);
+					else
+						controlset:ShowWindow(0);
+					end
+				end
+
+			end	
+		end
+
+	end
 end
+
 function INV_HAT_VISIBLE_STATE(frame)
 
 	if frame == nil then
@@ -2410,18 +2422,34 @@ function INV_HAT_VISIBLE_STATE(frame)
 	else
 		hat_t:SetImage("inventory_hat_layer_off");
 		hat_t:SetTextTooltip(ScpArgMsg('HAT_OFF'))
+
 	end
 
 	if hat_l_Visible == 1 then
 		hat_l:SetImage("inven_hat_layer_on");
 		hat_l:SetTextTooltip(ScpArgMsg('HAT_ON'))
+
 	else
 		hat_l:SetImage("inventory_hat_layer_off");
 		hat_l:SetTextTooltip(ScpArgMsg('HAT_OFF'))
 	end
+
+	local equipgroup = GET_CHILD(frame, 'equip', 'ui::CGroupBox')
+	local shihouette = GET_CHILD(equipgroup, 'shihouette', "ui::CPicture");
+	local shihouette_imgname = ui.CaptureMyFullStdImage();
+	shihouette:SetImage(shihouette_imgname);
+
+	frame:Invalidate()
 end
 
 function INV_HAT_VISIBLE_STEATE_SET(frame)
+	
+	if frame:GetUserIValue("CLICK_COOL_TIME") > imcTime.GetAppTime() then
+		return;	
+	end
+
+	frame:SetUserValue("CLICK_COOL_TIME", imcTime.GetAppTime() + 1);
+
 	local slotName = frame:GetName()
 	local topFrame = frame:GetTopParentFrame()
 
@@ -2439,10 +2467,10 @@ function INV_HAT_VISIBLE_STEATE_SET(frame)
 
 	if visibleState == 1 then
 		visibleBtnInfo:SetImage("inven_hat_layer_on");
-		ui.ChangeTooltipText(ScpArgMsg('HAT_ON'))
+		ui.ChangeTooltipText(ScpArgMsg('HAT_OFF'))
 	else
 		visibleBtnInfo:SetImage("inventory_hat_layer_off");
-		ui.ChangeTooltipText(ScpArgMsg('HAT_OFF'))
+		ui.ChangeTooltipText(ScpArgMsg('HAT_ON'))
 	end
 
 	local index = 0;
@@ -2456,5 +2484,31 @@ function INV_HAT_VISIBLE_STEATE_SET(frame)
 	end
 
 	control.CustomCommand("HAT_VISIBLE_STATE", index);
-
 end
+-- 기간제 아이템 판별 함수
+function IS_LIFETIME_OVER(itemobj)
+
+	if itemobj.LifeTime == nil then
+		return 0;
+
+	elseif 0 ~= itemobj.LifeTime then		
+
+		-- 기간에 따라 정하기
+		local sysTime = geTime.GetServerSystemTime();
+		local endTime = imcTime.GetSysTimeByStr(itemobj.ItemLifeTime);
+		local difSec = imcTime.GetDifSec(endTime, sysTime);		
+		
+		-- 기간만료 일 경우에
+		if 0 > difSec then
+			return 1;
+		end;
+		
+		-- ItemLifeTimeOver으로 검사하는 함수		
+		--[[
+		if 0 ~= itemobj.ItemLifeTimeOver then
+			return 1;
+		end;
+		]]
+	end;
+	return 0;
+end;
