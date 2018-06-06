@@ -590,7 +590,7 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 			return obj;
 		end
 	elseif strarg == "petequip" then
-		local item = session.pet.GetPetEquipByGuid(guid);
+		local item = session.pet.GetPetEquipObjByGuid(guid);
 		if item ~= nil then
 			local obj = GetIES(item:GetObject());
 			return obj;

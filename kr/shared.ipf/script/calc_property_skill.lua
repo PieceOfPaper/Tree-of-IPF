@@ -316,7 +316,6 @@ function SCR_GET_SKL_COOLDOWN(skill)
 	local pc = GetSkillOwner(skill);
 	local basicCoolDown = skill.BasicCoolDown;
 	local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
-	
 	basicCoolDown = basicCoolDown + abilAddCoolDown;
 		
 	if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
@@ -9095,6 +9094,89 @@ function SCR_GET_Lycanthropy_Bufftime(skill)
     return value
 end
 
+function SCR_Get_SkillFactor_Gohei(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+
+	local abil = GetAbility(pc, "Miko1")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+
+end
+
+function SCR_GET_Gohei_Ratio(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "Miko1") 
+	local value = 0
+	if abil ~= nil then 
+        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
+    end
+
+end
+function SCR_Get_SkillFactor_Hamaya(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+
+	local abil = GetAbility(pc, "Miko3")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+
+end
+
+function SCR_GET_Hamaya_Ratio(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "Miko3")
+	local value = 0
+	if abil ~= nil then 
+        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
+    end
+
+end
+
+function SCR_GET_Hamaya_Ratio2(skill)
+
+	local value = 5 + skill.Level * 3
+        return value
+        
+
+end
+
+function SCR_GET_HoukiBroom_Time(skill)
+	local value = 5
+    return math.floor(value)
+end
+
+function SCR_GET_HoukiBroom_Ratio(skill)
+	local value = 5 + skill.Level
+    return math.floor(value)
+end
+
+function SCR_GET_KaguraDance_Time(skill)
+	local value = 5 + 5 * skill.Level;
+    return math.floor(value)
+end
+
+function SCR_GET_KaguraDance_Ratio(skill)
+	local value = 3
+    return math.floor(value)
+end
+
+
+function SCR_GET_KaguraDance_Ratio2(skill)
+	local value = 10 * skill.Level
+    return math.floor(value)
+end
+
 
 --[BodkinPoint]]--
 
@@ -9109,6 +9191,12 @@ function SCR_GET_SR_LV_BodkinPoint(skill)
 	local pc = GetSkillOwner(skill);
     return math.floor(1 + pc.SR + (skill.Level * 0.2))
 
+end
+
+function SCR_GET_Kasiwade_Ratio(skill)
+
+	local value = skill.Level * 5
+	return value;
 end
 
 
@@ -12852,9 +12940,9 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 end
 
 function SCR_SYNCHROTHRUSTING_TAKEDAMAGE(self, from, skill, ariesDamage, strikeDamage, rightHandAttribute, leftHandAttribute)
-    TakeDamage(from, self, "None", ariesDamage * skill.SkillFactor/100, rightHandAttribute, "Aries", "Melee", HIT_BASIC, 0);
+    TakeDamage(from, self, skill.ClassName, ariesDamage * skill.SkillFactor/100, rightHandAttribute, "Aries", "Melee", HIT_BASIC, 0);
 	sleep(200)
-	TakeDamage(from, self, "None", strikeDamage * skill.SkillFactor/100, leftHandAttribute, "Strike", "Melee", HIT_BASIC, 0);
+	TakeDamage(from, self, skill.ClassName, strikeDamage * skill.SkillFactor/100, leftHandAttribute, "Strike", "Melee", HIT_BASIC, 0);
 end
 
 
@@ -12999,17 +13087,6 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 	if skill.GemLevel_BM > 0 then
 		value = value + 1;	-- ëª¬ìŠ¤?°ì ¬ ?¤í‚¬ë³´ë„ˆ?¤ëŠ” ì¤‘ì²©?œì¼œ??ë¬´ì¡°ê±?+1ë§??œí‚¨?¤ê³ ??
 	end
-
-	if skill.HitType == 'Pad' then
-		local owner = GetSkillOwner(skill);
-			local jobObj = GetJobObject(owner);
-			if jobObj ~= nil and jobObj.CtrlType == 'Cleric' then
-				local isHengeStone = GetExProp(owner, 'HENGE_STONE_SATE');
-				if isHengeStone > 0 then
-					value = value + 1;
-				end
-			end
-		end
 
     if skill.LevelByDB == 0 then
         return 0;

@@ -4,8 +4,8 @@ PET_ACTIVATE_COOLDOWN = 5;
 
 function GET_PET_STAT(self, lv, statStr)
     local statRatio = TryGetProp(self , statStr.."_Rate");
-	local stat = statRatio + statRatio / 25 * (lv * 1.5 + self.Level); -- �ʱ� ���дϾ� �ɷ�ġ�� �÷��ֱ� ���� self.Level���� ������
-    return math.floor(stat);
+	local stat = statRatio + statRatio / 25 * (lv * 1.5 + self.Level);
+	return math.floor(stat);
 end
 
 function PET_STR(self)
@@ -97,26 +97,29 @@ function PET_ATK_BY_ABIL(statValue)
 end
 
 function PET_ATK(self)
-    -- ���дϾ��� ATK ��ġ�� ����, ���� ���ݷ��� ���� ���
     local addLv = self.Level;
     local atk = self.Lv + self.STR + addLv + PET_ATK_BY_ABIL(self.Stat_ATK) + self.Stat_ATK_BM;
-    -- �⺻������ ���� ������ ���� �����ϸ� INT�� ���ݷ¿� ���������� ����ó���� �ʿ�
-	return math.floor(atk);
+
+	local average = GetSumOfPetEquip(self, "MINATK") + GetSumOfPetEquip(self, "MAXATK");
+	if average ~= 0 then
+		average = average / 2;
+		average = average + GetSumOfPetEquip(self, "PATK");
+	end
+
+	return math.floor(atk + average);
 end
 
 function PET_MINPATK(self)
 	local byStat = self.ATK;
-	local byItem = GetSumOfPetEquip(self, "PATK") + GetSumOfPetEquip(self, "MINATK");
 	local byBuff = self.PATK_BM
-	local value = byStat + byItem + byBuff;
+	local value = byStat + byBuff;
 	return math.floor(value);
 end
 
 function PET_MAXPATK(self)
 	local byStat = self.ATK;
-	local byItem = GetSumOfPetEquip(self, "PATK") + GetSumOfPetEquip(self, "MAXATK");
 	local byBuff = self.PATK_BM
-	local value = byStat + byItem + byBuff;
+	local value = byStat + byBuff;
 	return math.floor(value);
 end
 
@@ -217,7 +220,7 @@ end
 function PET_MDEF(self)
     local byLv = self.Lv;
     local addLv = self.Level;
-    local byItem = GetSumOfPetEquip(self, 'MDEF');
+    local byItem = GetSumOfPetEquip(self, 'MDEF') + GetSumOfPetEquip(self, 'ADD_MDEF');
 	local ret = (byLv + addLv) / 2 + byItem + PET_MDEF_BY_ABIL(self.Stat_MDEF);
 	return math.floor(ret);
 end
@@ -225,7 +228,7 @@ end
 function PET_SDR(self)
     local value = 5;
     
-    if self.MonSDR < 0 then	-- �ĺ�
+    if self.MonSDR < 0 then
 		return -1;
 	elseif self.Size == 'S' then
         value = 1;
@@ -264,7 +267,6 @@ function PET_HR(self)
 end
 
 function GET_PET_STAT_PRICE(pc, pet, statName)
-
     local defPrice = 300;
 	if statName  == "DEF" then
 		defPrice = 600;

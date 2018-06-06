@@ -16,9 +16,17 @@ function ITEM_BALLOON_CLEAR(handle)
 end
 
 function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, skinName, msgText)
--- ?????? ?????? ??? ??? ???? ?????
-  if world.GetLayer() ~= 0 then
+  if world.GetLayer() ~= 0 then --
 		return 0;
+	end
+
+	if nil == itemCls then
+		return;
+	end
+
+	local scp = _G[itemCls.RefreshScp];
+	if nil ~= scp then
+		scp(itemCls);
 	end
 
 	delaySec = 0.0;

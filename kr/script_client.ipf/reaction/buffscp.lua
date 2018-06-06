@@ -247,7 +247,7 @@ function EpeeGarde_ENTER(actor, obj, buff)
 	end
 
 	local lhObj = GetIES(lhItem:GetObject());
-	if nil == lhObj or lhObj.DEF <= 0 then
+	if nil == lhObj then
 		return;
 	end
 
@@ -867,6 +867,23 @@ function Levitation_LEAVE(actor, obj, buff)
 	actor:GetAnimation():ResetRUNAnim();
 	actor:GetAnimation():ResetWLKAnim();
 
+end
+
+function HoukiBroom_ENTER(actor, obj, buff)
+    actor:SetAlwaysBattleState(true);
+    actor:GetAnimation():SetTURNAnim("SKL_HOUKIBROOM_LOOP");
+    actor:GetAnimation():SetSTDAnim("SKL_HOUKIBROOM_LOOP");
+    actor:GetAnimation():SetRUNAnim("SKL_HOUKIBROOM_WLK");
+    actor:GetAnimation():SetWLKAnim("SKL_HOUKIBROOM_WLK");
+end
+
+function HoukiBroom_LEAVE(actor, obj, buff)
+    actor:SetAlwaysBattleState(false);
+    actor:GetAnimation():ResetTURNAnim();
+    actor:GetAnimation():ResetSTDAnim();
+    actor:GetAnimation():ResetRUNAnim();
+	actor:GetAnimation():ResetWLKAnim();
+	actor:GetAnimation():PlayFixAnim("ASTD", 1.0, 0);
 end
 
 

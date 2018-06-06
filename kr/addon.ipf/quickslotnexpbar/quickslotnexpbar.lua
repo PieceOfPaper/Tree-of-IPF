@@ -322,8 +322,10 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 					icon:SetColorTone("FFFF0000");
 				end
 
-				if itemIES.MaxStack > 1 or itemIES.GroupName == "Material" then
-					icon:SetText(invenItemInfo.count, 'quickiconfont', 'right', 'bottom', -2, 1);
+				if itemIES.MaxStack > 0 or itemIES.GroupName == "Material" then
+					if itemIES.MaxStack > 1 then -- 개수는 스택형 아이템만 표시해주자
+						icon:SetText(invenItemInfo.count, 'quickiconfont', 'right', 'bottom', -2, 1);
+					end
 					icon:SetColorTone("FFFFFFFF");
 				end
 
@@ -801,9 +803,10 @@ end
 function QUICKSLOTNEXPBAR_EXECUTE(slotIndex)
 
 	local chatFrame = ui.GetFrame("chat");
-
+	if chatFrame ~= nil then
 	if chatFrame:IsVisible() == 1 then
 		return;
+	end
 	end
 
 	local restFrame = ui.GetFrame('restquickslot')

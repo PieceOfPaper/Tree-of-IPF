@@ -175,7 +175,7 @@ return obj.Level;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Archer_VerminPot" CheckerType="0" Range="40" IsMagicType="0">
+    <PadSkill Name="Archer_VerminPot" CheckerType="0" PadHeight="10" Range="40" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="6000"/>
@@ -6397,14 +6397,14 @@ return 20000 + obj.Level * 3000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Miko_Hamaya" CheckerType="0" Range="50" ApplyFlyMon="1" IsMineType="0">
+    <PadSkill Name="Miko_Hamaya" CheckerType="0" Range="30" UpdateTerm="300" ApplyFlyMon="1" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="10000" UseFunc="1" FuncTxt="return obj.Level * 4000"/>
+                <Num Num="10000" UseFunc="1" FuncTxt="return 5000 + obj.Level * 3000"/>
                 <Num Num="9999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_Hamaya_ground_loop" Arg="2"/>
+                <Str_Arg Str="F_cleric_Hamaya_ground_loop" Arg="1.5"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
@@ -6415,7 +6415,7 @@ return 20000 + obj.Level * 3000"/>
         </createEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-500"/>
+                <Num Num="-300"/>
                 <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
@@ -6429,7 +6429,7 @@ return 20000 + obj.Level * 3000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Miko_Hamaya_TakeDamage" CheckerType="0" Range="50" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
+    <PadSkill Name="Miko_Hamaya_TakeDamage" CheckerType="0" Range="30" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="1000"/>
@@ -6462,14 +6462,19 @@ return 20000 + obj.Level * 3000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Miko_HoukiBroom" CheckerType="0" Range="35" EnableSearch="0">
+    <PadSkill Name="Miko_HoukiBroom" CheckerType="0" Range="45" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="10000"/>
+                <Num Num="10000" UseFunc="1" FuncTxt="
+
+return 5000 + obj.Level *  1000"/>
                 <Num Num="99999"/>
             </ToolScp>
-            <ToolScp Scp="PAD_CHECKER_ADD_RANGE" Client="NO" UseSleep="NO">
-                <Num Num="50" UseFunc="1" FuncTxt="return 1 + obj.Level * 0.1;"/>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_HoukiBroom_ground_loop" Arg="0.80000001"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
@@ -6501,39 +6506,78 @@ return 20000 + obj.Level * 3000"/>
             </ToolScp>
             <ToolScp Scp="PAD_CHECK_ABLI_AND_RUNSCRIP" Client="NO" UseSleep="NO">
                 <Str Str="Miko2"/>
-                <Str Str="SCR_HOUKIBROOM_BY_ABIL"/>
+                <Str Str="PAD_DECREASE_LIFE_TIME"/>
+                <Num Num="1"/>
+                <Num Num="1000"/>
+                <Num Num="35"/>
+                <Num Num="5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Miko_KaguraDance" CheckerType="0" Range="70" EnableSearch="0">
+    <PadSkill Name="Miko_KaguraDance" CheckerType="0" Range="130" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="99999"/>
                 <Num Num="999990"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_KaguraDance_leaf" Arg="1"/>
+                <Str_Arg Str="F_cleric_KaguraDance_leaf" Arg="2.2"/>
                 <Pos Angle="0" Dist="0" Height="15"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
             </ToolScp>
         </createEvent>
-        <enterEvent>
-            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+        <destroyEvent>
+            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Kagura_Debuff"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
                 <Str Str="FRIEND"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="KaguraDance_Buff"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Kagura_Debuff"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="FRIEND"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="KaguraDance_Buff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="
+
+return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            <Num Num="0"/>
             </ToolScp>
         </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="ALL"/>
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Kagura_Debuff"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="FRIEND"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="KaguraDance_Buff"/>

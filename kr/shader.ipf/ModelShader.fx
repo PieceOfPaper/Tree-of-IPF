@@ -547,6 +547,12 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 	float bgDepth = tex2Dlod(heightTex, float4(texPos, 0.0f, 1.0f)).y;
 
 	float delta = (bgDepth - worldY) / 10;
+	// 0.0005f 는 수치를 바꿔가면서 찾은 delta 최대치의 매직넘버
+	// 0.001f 이상부터 모델이 흔들리는 정도가 심해지기 시작함
+	if (delta > 0.0005f)
+	{
+		delta = 0.0005f;
+	}
 	o.worldPos.w = 0;
 
 
@@ -825,6 +831,12 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 	float bgDepth = tex2Dlod(heightTex, float4(texPos, 0.0f, 1.0f)).y;
 
 	float delta = (bgDepth - worldY) / 10;
+	// 0.0005f 는 수치를 바꿔가면서 찾은 delta 최대치의 매직넘버
+	// 0.001f 이상부터 모델이 흔들리는 정도가 심해지기 시작함
+	if (delta > 0.0005f)
+	{
+		delta = 0.0005f;
+	}
 	o.worldPos.w = 0;
 
 	float attack = 0;

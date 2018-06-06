@@ -1,5 +1,4 @@
 function TOKEN_ON_INIT(addon, frame)
-
 end
 
 function BEFORE_APPLIED_TOKEN_OPEN(invItem)
@@ -90,23 +89,23 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
-		arg1 = 2592000 --30ÀÏ
+		arg1 = 2592000 --30ï¿½ï¿½
 	elseif itemobj.ClassName == "PremiumToken_5d" then
-		arg1 = 432000 -- 5ÀÏ
+		arg1 = 432000 -- 5ï¿½ï¿½
 	elseif itemobj.ClassName == "PremiumToken_1d" then
-		arg1 = 604800 -- 7ÀÏ
+		arg1 = 604800 -- 7ï¿½ï¿½
 	elseif itemobj.ClassName == "PremiumToken_24h" then
-		arg1 = 86400 -- 1ÀÏ
+		arg1 = 86400 -- 1ï¿½ï¿½
 	elseif itemobj.ClassName == "PremiumToken_3d" then
-		arg1 = 259200 -- 3ÀÏ
+		arg1 = 259200 -- 3ï¿½ï¿½
 	elseif itemobj.ClassName == "PremiumToken_12h" then
-		arg1 = 43200 -- 12½Ã°£
+		arg1 = 43200 -- 12ï¿½Ã°ï¿½
 	elseif itemobj.ClassName == "PremiumToken_6h" then
-		arg1 = 21600 -- 6½Ã°£
+		arg1 = 21600 -- 6ï¿½Ã°ï¿½
 	elseif itemobj.ClassName == "PremiumToken_3h" then
-		arg1 = 10800 -- 3½Ã°£
+		arg1 = 10800 -- 3ï¿½Ã°ï¿½
 	elseif itemobj.ClassName == "PremiumToken_15d" then
-		arg1 = 1296000 -- 15ÀÏ
+		arg1 = 1296000 -- 15ï¿½ï¿½
 	end
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");
@@ -151,8 +150,7 @@ function TOKEN_GET_IMGNAME2()
 	return "{img 20percent_image2 %d %d}"
 end
 
-function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
-	
+function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)	
 	local obj = GetIES(invItem:GetObject());
 	
 	if obj.ItemLifeTimeOver > 0 then
@@ -340,7 +338,7 @@ function BEFORE_APPLIED_INDUNFREE_OPEN(invItem)
 
 	GBOX_AUTO_ALIGN(gBox, 0, 3, 0, true, false);
 	local itemobj = GetIES(invItem:GetObject());
-	local arg1 = 259200 -- 3ÀÏ
+	local arg1 = 259200 -- 3ï¿½ï¿½
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");
 	endTxt:SetTextByKey("value", endTime); 
@@ -389,7 +387,7 @@ function REQ_TOKEN_ITEM(parent, ctrl)
 	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' then
 
 		local etcObj = GetMyEtcObject();
-		-- 2°³»ÓÀÌ¿©¼­ °íÁ¤À¸·Î ³Ö¾îµÒ
+		-- 2ï¿½ï¿½ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½
 		local countType1 = "InDunCountType_100";
 		local countType2 = "InDunCountType_200";
 		if etcObj[countType1] == 0 and etcObj[countType2] == 0 then

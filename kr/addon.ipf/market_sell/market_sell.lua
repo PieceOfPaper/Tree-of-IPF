@@ -49,9 +49,9 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 	if msg == MARKET_ITEM_LIST then
 		local str = GET_TIME_TXT(argNum);
 		ui.SysMsg(ScpArgMsg("MarketCabinetAfter{TIME}","Time", str));
-	if frame:IsVisible() == 0 then
-		return;
-	end
+		if frame:IsVisible() == 0 then
+			return;
+		end
 	end
 
 	local itemlist = GET_CHILD(frame, "itemlist", "ui::CDetailListBox");
@@ -100,7 +100,7 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		btn:SetTextByKey("value", ClMsg("Cancel"));
 		btn:SetEventScript(ui.LBUTTONUP, "CANCEL_MARKET_ITEM");
 		btn:SetEventScriptArgString(ui.LBUTTONUP,marketItem:GetMarketGuid());
-		
+
 	end
 
 	itemlist:RealignItems();
@@ -115,7 +115,7 @@ end
 
 function ON_MARKET_REGISTER(frame, msg, argStr, argNum)
 	ui.SysMsg(ClMsg("MarketItemRegisterSucceeded"));
-	
+
 	local groupbox = frame:GetChild("groupbox");
 	local slot_item = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
 	CLEAR_SLOT_ITEM_INFO(slot_item);
@@ -130,9 +130,9 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 
 	local invframe = ui.GetFrame("inventory");
 	if true == IS_TEMP_LOCK(invframe, invItem) then
-			ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return false;
-		end
+	end
 
 	local groupbox = frame:GetChild("groupbox");
 	local silverRate = groupbox:GetChild("silverRate");
@@ -149,59 +149,59 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 	local edit_count = GET_CHILD(groupbox, "edit_count", "ui::CEditControl");
 	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
 
-		local obj = GetIES(invItem:GetObject());
+	local obj = GetIES(invItem:GetObject());
 	local reason = GetTradeLockByProperty(obj);
 	if reason ~= "None" then
 		ui.SysMsg(ScpArgMsg(reason));
 		return;
 	end
 
-		if obj.GroupName == "Premium" then
-			edit_count:SetText("1");
-			edit_count:SetMaxNumber(1);
-			edit_price:SetMaxNumber(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
-		else
-			edit_price:SetMaxNumber(2147483647);
-		end
+	if obj.ClassName == "PremiumToken" then
+		edit_count:SetText("1");
+		edit_count:SetMaxNumber(1);
+		edit_price:SetMaxNumber(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
+	else
+		edit_price:SetMaxNumber(2147483647);
+	end
 
-		local itemProp = geItemTable.GetProp(obj.ClassID);
-		local pr = TryGetProp(obj, "PR");
+	local itemProp = geItemTable.GetProp(obj.ClassID);
+	local pr = TryGetProp(obj, "PR");
 
-		local noTradeCnt = TryGetProp(obj, "BelongingCount");
-		local tradeCount = invItem.count
-		if nil ~= noTradeCnt and 0 < tonumber(noTradeCnt) then
+	local noTradeCnt = TryGetProp(obj, "BelongingCount");
+	local tradeCount = invItem.count
+	if nil ~= noTradeCnt and 0 < tonumber(noTradeCnt) then
 		local wareItem = nil 
 		if obj.MaxStack > 1 then
 			wareItem = session.GetWarehouseItemByType(obj.ClassID);
 		end
-			local wareCnt = 0;
-			if nil ~= wareItem then
-				wareCnt = wareItem.count;
-			end
-			tradeCount = (invItem.count + wareCnt) - tonumber(noTradeCnt);
-			if tradeCount <= 0 then
-				ui.AlarmMsg("ItemIsNotTradable");
-			return false;
-			end
+		local wareCnt = 0;
+		if nil ~= wareItem then
+			wareCnt = wareItem.count;
 		end
-
-		if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or (pr ~= nil and pr < 1) then
+		tradeCount = (invItem.count + wareCnt) - tonumber(noTradeCnt);
+		if tradeCount <= 0 then
 			ui.AlarmMsg("ItemIsNotTradable");
-		return false;
+			return false;
 		end
+	end
+
+	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and TryGetProp(obj, "ClassType") ~= "Outer") then
+		ui.AlarmMsg("ItemIsNotTradable");
+		return false;
+	end
 
 
 	if nil == slot then
 		slot = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
-		end
-		SET_SLOT_ITEM(slot, invItem);
-		edit_count:SetText(tradeCount);
-		edit_count:SetMaxNumber(tradeCount);
+	end
+	SET_SLOT_ITEM(slot, invItem);
+	edit_count:SetText(tradeCount);
+	edit_count:SetMaxNumber(tradeCount);
 
 	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
 	return true;
-	end
-		
+end
+
 function MARKET_SELL_RBUTTON_ITEM_CLICK(frame, invItem)
 	local groupbox = frame:GetChild("groupbox");
 	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
@@ -397,17 +397,13 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		return;
 	end
 
-	if obj.GroupName == "Premium" and iPrice < tonumber(TOKEN_MARKET_REG_LIMIT_PRICE) then
-	    if obj.ClassName == "PremiumToken" then
-		ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", TOKEN_MARKET_REG_LIMIT_PRICE));		
-		return;
-    	elseif obj.ClassName == "Premium_Enchantchip" then
-        	ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", SCROLL_MARKET_REG_LIMIT_PRICE));
-    		return;
-    	else
-   			ui.SysMsg(ClMsg("ThisMessgeIsError"));
-    	    return false;
-    	end
+	if obj.ClassName == "PremiumToken" and iPrice < tonumber(TOKEN_MARKET_REG_LIMIT_PRICE) then
+    	ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", TOKEN_MARKET_REG_LIMIT_PRICE));
+    	return;
+	end
+	if obj.ClassName == "PremiumToken" and iPrice > tonumber(TOKEN_MARKET_REG_MAX_PRICE) then
+    	ui.SysMsg(ScpArgMsg("PremiumRegMaxPrice{Price}","Price", TOKEN_MARKET_REG_TOKEN_MARKET_REG_MAX_PRICELIMIT_PRICE));
+    	return;
 	end
 
 
@@ -442,7 +438,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		end
 	end
 
-	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or (pr ~= nil and pr < 1) then
+	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and TryGetProp(obj, "ClassType") ~= "Outer") then
 		ui.AlarmMsg("ItemIsNotTradable");
 		return false;
 	end
@@ -456,7 +452,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
-			-- ï¿½ï¿½ï¿½×·ì¸¸ buffValueï¿½ï¿½ ï¿½Ö´ï¿½.
+			-- Àåºñ±×·ì¸¸ buffValue°¡ ÀÖ´Ù.
 			ui.MsgBox(ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
 		else
 			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", tostring(commission)), yesScp, "None");			

@@ -110,3 +110,35 @@ function GUILDBATTLE_LEAGUE_SET_UI_MODE(frame, uiType)
 	end
 	
 end	
+
+function GUILDBATTLE_LEAGUE_SET_GUILDPVP_TYPE_PROP(bg, ctrlName, idSpace, propName)
+	local ctrl = bg:GetChild(ctrlName);
+	if nil == ctrl then
+		return;
+	end
+
+	local obj = nil;
+	if "Guild" == idSpace then
+		local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+		if pcparty ~= nil then
+			obj = GetIES(pcparty:GetObject());
+		end
+	elseif "Account" == idSpace then
+		obj = GetMyAccountObj();
+	end
+
+	if nil == obj then
+		ctrl:SetTextByKey("value", '0');
+		return;
+	end
+
+	local propValue = TryGetProp(obj, propName)
+	if nil == propValue then
+		propValue = '0'
+	end
+	if propName == "GuildBattleWeeklyPlayCnt" and propValue > 3 then
+		propValue = '3';
+		propValue = ScpArgMsg("{Num}OrMore", "Num", propValue);
+	end
+	ctrl:SetTextByKey("value", propValue);
+end	

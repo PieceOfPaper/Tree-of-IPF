@@ -2959,7 +2959,7 @@
 			<img name="bottomcore" imgrect="31 231 222 287"/>
 			<img name="bottomright" imgrect="254 231 30 287"/>
 		</skin>
-	<skin name="nisms_skin" texture="\skin\nisms_skin.tga">
+		<skin name="nisms_skin" texture="\skin\nisms_skin.tga">
 			<img name="topleft" imgrect="0 0 150 150"/>
 			<img name="topcore" imgrect="150 0 162 150"/>
 			<img name="topright" imgrect="312 0 150 150"/>
@@ -4625,17 +4625,30 @@
 		<image name="new_mark2" file="\skin\market_skin.tga" imgrect="1204 246 72 34" CMM_Caption="뉴_마크"/>
 		<image name="hot_mark2" file="\skin\market_skin.tga" imgrect="1204 281 72 34" CMM_Caption="핫_마크"/>
 		<image name="event_mark2" file="\skin\market_skin.tga" imgrect="1204 316 72 34" CMM_Caption="이벤트_마크"/>
+		<image name="new_mark_K" file="\skin\market_skin.tga" imgrect="1785 383 72 34" CMM_Caption="뉴_마크_한글"/>
+		<image name="hot_mark_K" file="\skin\market_skin.tga" imgrect="1785 418 72 34" CMM_Caption="핫_마크_한글"/>
+		<image name="recommend_mark_K" file="\skin\market_skin.tga" imgrect="1785 453 72 34" CMM_Caption="추천_마크_한글"/>
 		<image name="minus_icon" file="\skin\market_skin.tga" imgrect="1277 277 20 20" CMM_Caption="마이너스아이콘"/>
 		<image name="result_icon" file="\skin\market_skin.tga" imgrect="1277 298 20 20" CMM_Caption="결과아이콘"/>
 		<image name="Nexon_cash_mark" file="\skin\market_skin.tga" imgrect="1277 246 30 30" CMM_Caption="넥슨캐시마크"/>
 		<image name="Tp_cash_mark" file="\skin\market_skin.tga" imgrect="1277 319 30 30" CMM_Caption="TP캐시마크"/>
 		<image name="mirror_bg" file="\skin\mirror_bg.tga" imgrect="0 0 300 380" CMM_Caption="거울"/>
+		<image name="market_hairacc" file="\skin\market_skin.tga" imgrect="1927 447 60 60" CMM_Caption="마켓_헤어악세사리"/>
+		<image name="market_haircolor" file="\skin\market_skin.tga" imgrect="1866 447 60 60" CMM_Caption="마켓_염색약"/>
 		<image name="market_costume" file="\skin\market_skin.tga" imgrect="1866 383 60 60" CMM_Caption="마켓_코스튬"/>
 		<image name="market_hair" file="\skin\market_skin.tga" imgrect="1927 383 60 60" CMM_Caption="마켓_가발"/>
 		<image name="market_lens" file="\skin\market_skin.tga" imgrect="1988 383 60 60" CMM_Caption="마켓_렌즈"/>
 		<image name="market_F_gender" file="\skin\market_skin.tga" imgrect="1746 0 50 50" CMM_Caption="마켓_여자성별"/>
 		<image name="market_M_gender" file="\skin\market_skin.tga" imgrect="1797 0 50 50" CMM_Caption="마켓_남자성별"/>
-	<image name="indun_line_img" file="\skin\pip_test.tga" imgrect="1548 872 100 14" CMM_Caption="인던맵구분선"/>
+		<image name="indun_line_img" file="\skin\pip_test.tga" imgrect="1548 872 100 14" CMM_Caption="인던맵구분선"/>
+	<image name="gacha_big_01" file="\skin\gacha_big_one.tga" imgrect="0 0 758 508" CMM_Caption="가챠_좋은거_큰거"/>
+		<image name="gacha_big_02" file="\skin\gacha_big_two.tga" imgrect="0 0 758 508" CMM_Caption="가챠_그냥저냥_큰거"/>
+		<image name="gacha_big_03" file="\skin\gacha_big_three.tga" imgrect="0 0 758 508" CMM_Caption="가챠_노말_큰거"/>
+		<image name="gacha_01" file="\skin\gacha_ui.tga" imgrect="0 78 170 170" CMM_Caption="가챠_좋은거"/>
+		<image name="gacha_02" file="\skin\gacha_ui.tga" imgrect="171 78 170 170" CMM_Caption="가챠_그냥저냥"/>
+		<image name="gacha_03" file="\skin\gacha_ui.tga" imgrect="342 78 170 170" CMM_Caption="가챠_노말"/>
+	<image name="gacha_skin" file="\skin\gacha_skin.tga" imgrect="0 0 450 580" CMM_Caption="가챠_팝업"/>
+	<image name="expup_img" file="\skin\pip_test.tga" imgrect="868 544 70 62" CMM_Caption="expup_이미지"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -4957,7 +4970,7 @@
 		<image name="market_archer_btn" file="\skin\market_skin.tga" imgrect="1494 0 64 63" CMM_Caption="마켓_아쳐버튼"/>
 		<image name="market_archer_btn_cursoron" file="\skin\market_skin.tga" imgrect="1494 64 64 63"/>
 		<image name="market_archer_btn_clicked" file="\skin\market_skin.tga" imgrect="1494 0 64 63"/>
-	<image name="nisms_close_btn" file="\skin\nisms_skin.tga" imgrect="464 10 35 35" CMM_Caption="닫기버튼"/>
+		<image name="nisms_close_btn" file="\skin\nisms_skin.tga" imgrect="464 10 35 35" CMM_Caption="닫기버튼"/>
 		<image name="nisms_close_btn_cursoron" file="\skin\nisms_skin.tga" imgrect="464 46 35 35"/>
 		<image name="nisms_close_btn_clicked" file="\skin\nisms_skin.tga" imgrect="464 82 35 35"/>
 		<image name="nisms_refresh_btn" file="\skin\nisms_skin.tga" imgrect="464 123 35 35" CMM_Caption="새로고침"/>
@@ -4972,6 +4985,15 @@
 		<image name="nisms_scale_btn" file="\skin\nisms_skin.tga" imgrect="464 456 15 15" CMM_Caption="크기변환"/>
 		<image name="nisms_scale_btn_cursoron" file="\skin\nisms_skin.tga" imgrect="480 456 15 15"/>
 		<image name="nisms_scale_btn_clicked" file="\skin\nisms_skin.tga" imgrect="496 456 15 15"/>
+		<image name="market_number_btn" file="\skin\market_skin.tga" imgrect="1776 51 35 38" CMM_Caption="마켓_번호버튼"/>
+		<image name="market_number_btn_cursoron" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
+		<image name="market_number_btn_clicked" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
+		<image name="market_number2_btn" file="\skin\market_skin.tga" imgrect="1812 51 35 38" CMM_Caption="마켓_번호버튼2"/>
+		<image name="market_number2_btn_cursoron" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
+		<image name="market_number2_btn_clicked" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
+	<image name="gachaskip_btn" file="\skin\gacha_ui.tga" imgrect="0 0 124 50" CMM_Caption="스킵버튼"/>
+		<image name="gachaskip_btn_cursoron" file="\skin\gacha_ui.tga" imgrect="125 0 124 50"/>
+		<image name="gachaskip_btn_clicked" file="\skin\gacha_ui.tga" imgrect="250 0 124 50"/>
 	</imagelist>
 	<imagelist category="hair_color">
 		<image name="basic_color" file="\skin\barrack.tga" imgrect="949 492 35 35" CMM_Caption="기본컬러"/>
@@ -5836,7 +5858,7 @@
 		<image name="minimap_collection_c" file="\icon\minimap_icon3.tga" imgrect="240 338 24 24"/>
 		<image name="minimap_team" file="\icon\minimap_icon3.tga" imgrect="340 587 80 80"/>
 		<image name="minimap_dungeon" file="\icon\minimap_icon3.tga" imgrect="432 653 80 80"/>
-	<image name="minimap_indun" file="\icon\minimap_icon3.tga" imgrect="432 734 80 80"/>
+		<image name="minimap_indun" file="\icon\minimap_icon3.tga" imgrect="432 734 80 80"/>
 	</imagelist>
 	<imagelist category="quest_tags">
 		<image name="quest_tag_1_MAIN" file="\icon\minimap_icon.tga" imgrect="61 31 16 16"/>
@@ -6296,6 +6318,15 @@
 		<image name="Dlg_port_AgaillaFlurry" file="\npcimg\AgaillaFlurry.png" imgrect="0 0 800 900" CMM_Caption="아가일라플러리"/>
 		<image name="Dlg_port_Diena" file="\npcimg\Diena.png" imgrect="0 0 700 1000" CMM_Caption="디에나"/>
 		<image name="Dlg_port_Diena_dark" file="\npcimg\Diena_dark.png" imgrect="0 0 700 1000" CMM_Caption="디에나_다크"/>
+		<image name="Dlg_port_jenaHavindar" file="\npcimg\jenaHavindar.png" imgrect="0 0 800 900" CMM_Caption="인챈터마스터"/>
+		<image name="Dlg_port_Flintess" file="\npcimg\Flintess.png" imgrect="0 0 800 950" CMM_Caption="하카펠마스터"/>
+		<image name="Dlg_port_hitomiko" file="\npcimg\hitomiko.png" imgrect="0 0 900 900" CMM_Caption="무녀마스터"/>
+		<image name="Dlg_port_Feliksia" file="\npcimg\Feliksia.png" imgrect="0 0 800 900" CMM_Caption="무르밀로마스터"/>
+		<image name="Dlg_port_NoirParesseus" file="\npcimg\NoirParesseus.png" imgrect="0 0 800 900" CMM_Caption="랜서마스터"/>
+		<image name="Dlg_port_BangomontBorjigin" file="\npcimg\BangomontBorjigin.png" imgrect="0 0 800 1000" CMM_Caption="메르겐마스터"/>
+		<image name="Dlg_port_LufasKehel" file="\npcimg\LufasKehel.png" imgrect="0 0 800 900" CMM_Caption="세이지마스터"/>
+		<image name="Dlg_port_GeHong" file="\npcimg\GeHong.png" imgrect="0 0 800 900" CMM_Caption="도사마스터"/>
+		<image name="Dlg_port_ThomasIconostasis" file="\npcimg\ThomasIconostasis.png" imgrect="0 0 800 1000" CMM_Caption="인퀴지터마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -6392,9 +6423,12 @@
 		<image name="icon_fieldboss" file="\icon\buff_icon.tga" imgrect="0 1280 128 128" CMM_Caption="필드보스패널티"/>
 		<image name="icon_GreaterDEF" file="\icon\buff_icon.tga" imgrect="128 1280 128 128" CMM_Caption="광역방어버프"/>
 		<image name="icon_GreaterATK" file="\icon\buff_icon.tga" imgrect="256 1280 128 128" CMM_Caption="광역공격버프"/>
-	<image name="icon_L_Songpyeon" file="\icon\buff_icon.tga" imgrect="384 1280 128 128" CMM_Caption="대왕송편버프"/>
+		<image name="icon_L_Songpyeon" file="\icon\buff_icon.tga" imgrect="384 1280 128 128" CMM_Caption="대왕송편버프"/>
 		<image name="icon_Songpyeon" file="\icon\buff_icon.tga" imgrect="512 1280 128 128" CMM_Caption="송편버프"/>
 		<image name="icon_L_H_Songpyeon" file="\icon\buff_icon.tga" imgrect="640 1280 128 128" CMM_Caption="꿀떡버프"/>
+	<image name="icon_nexonpc2" file="\icon\buff_icon.tga" imgrect="768 1280 128 128" CMM_Caption="넥슨피시방"/>
+		<image name="icon_expup_total" file="\icon\buff_icon.tga" imgrect="896 1280 128 128" CMM_Caption="경험치버프토탈"/>
+		<image name="icon_eventbuff" file="\icon\buff_icon.tga" imgrect="0 1408 128 128" CMM_Caption="이벤트버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

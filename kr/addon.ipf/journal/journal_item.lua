@@ -38,6 +38,9 @@ function UPDATE_ARTICLE_Item(ctrlset)
 	local titleText = GET_CHILD(ctrlset, "t_name", "ui::CRichText");
 	titleText:SetTextByKey("value", cls.Name);
 
+	local GRADE_FONT_SIZE = ctrlset:GetUserConfig("GRADE_FONT_SIZE"); -- 등급 나타내는 별 크기
+	SET_GRADE_TOOLTIP(ctrlset,cls,GRADE_FONT_SIZE)
+
 	local infoGbox = GET_CHILD(ctrlset, "infoGbox");	
 	infoGbox:SetOffset(infoGbox:GetOffsetX(), titleText:GetY() + titleText:GetHeight());
 	local icon = GET_CHILD(ctrlset, "icon", "ui::CPicture");

@@ -3,6 +3,7 @@
 <uiframe name="tpitem_selected" x="0" y="0" width="500" height="600" create="open">
 	<frame layout_gravity="center center" margin="0 0 0 0" tooltipoverlap="true"/>
 	<option closebutton="false"/>
+	<script CloseScp="TPITEM_SELECTED_CLOSE"/>
 	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
 	<layer layerlevel="99"/>
@@ -15,6 +16,6 @@
 		<richtext name="caution1" parent="stdBox" rect="0 0 200 50" margin="0 0 0 150" layout_gravity="center bottom" caption="{@st67}{s26}구매가 확정되면 되돌릴 수 없습니다.{/}" drawbackground="false" fixwidth="false" fontname="white_18_ol" resizebytext="true" textalign="center center"/>
 		<button name="puchaseBtn" parent="stdBox" caption="{@st66d}{s26}구매확정{/}" rect="0 0 160 80" margin="80 0 0 40" layout_gravity="left bottom" LBtnUpScp="TPITEM_SELECTED_PICKUP" clicksound="button_click_big" skin="test_red_button" oversound="button_over"/>
 		<button name="deferBtn" parent="stdBox" caption="{@st66d}{s26}아니오{/}" rect="0 0 160 80" margin="0 0 80 40" layout_gravity="right bottom" LBtnUpScp="TPITEM_SELECTED_DEFER" clicksound="button_click_big" skin="test_gray_button" oversound="button_over"/>
-		<button name="cancelBtn" parent="stdBox" caption="{@st66d}{s26}청약철회{/}" rect="0 0 140 60" margin="0 0 60 200" layout_gravity="right bottom" LBtnUpScp="TPITEM_SELECTED_REFUND" clicksound="button_click_big" skin="test_weight_skin" oversound="button_over"/>
+		<button name="cancelBtn" parent="stdBox" caption="{@st66}{s26}청약철회{/}" rect="0 0 140 60" margin="0 0 60 200" layout_gravity="right bottom" LBtnUpScp="TPITEM_SELECTED_REFUND" clicksound="button_click_big" skin="test_pvp_btn" oversound="button_over"/>
 	</controls>
 </uiframe>

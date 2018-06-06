@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -281,7 +281,8 @@
 		<Class ClassID="4113" ClassName="HairColorExist" Data="이미 가지고 있는 색 입니다."/>
 		<Class ClassID="4114" ClassName="NeedSameEquipClassType" Data="같은 종류의 장비 아이템으로만 외형 선택이 가능합니다."/>
 		<Class ClassID="4115" ClassName="ThisLocalUseNot" Data="해당 지역에서는 사용이 불가능 합니다."/>
-    <Class ClassID="4116" ClassName="ThisWorldExistIndunClear" Data="이미 해당 지역에서는 인스턴스 소탕권이 사용중입니다."/>
+		<Class ClassID="4116" ClassName="ThisWorldExistIndunClear" Data="이미 해당 지역에서는 인스턴스 소탕권이 사용중입니다."/>
+		<Class ClassID="4117" ClassName="Cube" Data="큐브"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -770,6 +771,7 @@
 		<Class ClassID="10449" ClassName="SeasonServerNotBuySlot" Data="해당 서버에서는 캐릭터 슬롯을 늘릴 수 없습니다."/>
 		<Class ClassID="10450" ClassName="SeasonServerNotEatCardLv280" Data="시즌 서버에서는 280 레벨 이상으로 올릴 수 없습니다."/>
 		<Class ClassID="10451" ClassName="InvalidGender" Data="착용할 수 있는 성별이 아닙니다."/>
+		<Class ClassID="10453" Data="중복으로 장착할 수 없는 아이템입니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -995,20 +997,21 @@
 		<Class ClassID="21215" ClassName="SHOWLIST_ITEM_TYPE_0" Data="아이템 전체"/>
 		<Class ClassID="21216" ClassName="SHOWLIST_ITEM_TYPE_1" Data="신규 아이템"/>
 		<Class ClassID="21217" ClassName="SHOWLIST_ITEM_TYPE_2" Data="인기 아이템"/>
-		<Class ClassID="21218" ClassName="SHOWLIST_ITEM_TYPE_3" Data="이벤트 아이템"/>
-		<Class ClassID="21219" ClassName="SHOWLIST_ITEM_TYPE_4" Data="추천 아이템"/>
-		<Class ClassID="21220" ClassName="ALIGN_ITEM_TYPE_0" Data="이름 오름차순"/>
-		<Class ClassID="21221" ClassName="ALIGN_ITEM_TYPE_1" Data="이름 내림차순"/>
-		<Class ClassID="21222" ClassName="ALIGN_ITEM_TYPE_2" Data="높은 가격순"/>
-		<Class ClassID="21223" ClassName="ALIGN_ITEM_TYPE_3" Data="낮은 가격순"/>
-		<Class ClassID="21224" ClassName="ALIGN_ITEM_TYPE_4" Data="높은 인기도순"/>
-		<Class ClassID="21225" ClassName="ALIGN_ITEM_TYPE_5" Data="낮은 인기도순"/>
-		<Class ClassID="21226" ClassName="ALIGN_ITEM_TYPE_6" Data="최신 등록순"/>
+		<Class ClassID="21218" ClassName="SHOWLIST_ITEM_TYPE_3" Data="추천 아이템"/>
+		<Class ClassID="21219" ClassName="SHOWLIST_ITEM_TYPE_4" Data="이벤트 아이템"/>
+		<Class ClassID="21220" ClassName="ALIGN_ITEM_TYPE_0" Data="최신 등록순"/>
+		<Class ClassID="21221" ClassName="ALIGN_ITEM_TYPE_1" Data="이름 오름차순"/>
+		<Class ClassID="21222" ClassName="ALIGN_ITEM_TYPE_2" Data="이름 내림차순"/>
+		<Class ClassID="21223" ClassName="ALIGN_ITEM_TYPE_3" Data="높은 가격순"/>
+		<Class ClassID="21224" ClassName="ALIGN_ITEM_TYPE_4" Data="낮은 가격순"/>
+		<Class ClassID="21225" ClassName="ALIGN_ITEM_TYPE_5" Data="높은 인기도순"/>
+		<Class ClassID="21226" ClassName="ALIGN_ITEM_TYPE_6" Data="낮은 인기도순"/>
 		<Class ClassID="21227" ClassName="ITEM_IsPurchased0" Data="구매 불가"/>
 		<Class ClassID="21228" ClassName="ITEM_IsPurchased_CAUTION_TRADEABLE_0" Data="{#FF0000}※ 패키지 포함 구성물은 모두 거래가 불가능합니다.{/}"/>
 		<Class ClassID="21229" ClassName="ITEM_IsPurchased_CAUTION_TRADEABLE_1" Data="{#0054FF}※ 패키지 포함 구성물은 모두 거래가 가능합니다.{/}"/>
 		<Class ClassID="21231" ClassName="ITEM_IsPurchased_CAUTION_TRADECNT1" Data="{#FF0000}※ 본 상품은 계정 당 1회만 구매 가능합니다.{/}"/>
-	<Class ClassID="21232" ClassName="MAX_CASHINVAN" Data="캐시 인벤토리에 여유 공간이 없습니다. "/>
+		<Class ClassID="21232" ClassName="MAX_CASHINVAN" Data="캐시 인벤토리에 여유 공간이 없습니다. "/>
+    <Class ClassID="21235" ClassName="ItemNameNCnt" Data="{Name} {#FFCC00}x{Cnt}{/}"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -4052,6 +4055,10 @@
 		<Class ClassID="27080" ClassName="CHUSEOK_EVENT_MSG1" Data="'제작서 - 송편'을 구매한다"/>
 		<Class ClassID="27081" ClassName="CHUSEOK_EVENT_MSG2" Data="'제작서 - 대왕 송편'을 받는다"/>
 		<Class ClassID="27082" ClassName="CHUSEOK_EVENT_MON_NAME" Data="황금 부베"/>
+		<Class ClassID="27090" ClassName="EV160929_MSG1" Data="{ITEM} {COUNT} 개 ({SEA}시즌 누적 {DAYCOUNT}일)"/>
+		<Class ClassID="27091" ClassName="EV160929_MSG2" Data="{ITEM} 획득 {COUNT} 개{nl}{SEA}시즌 {DAYCOUNT}일 출석"/>
+		<Class ClassID="27092" ClassName="EV160929_MSG3" Data="{SEA}시즌 {DAYCOUNT}일 출석 보상 획득"/>
+    <Class ClassID="27093" ClassName="REWARD_SILVER_GET" Data="{COUNT} 실버 획득!"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -4495,6 +4502,8 @@
 		<Class ClassID="60273" ClassName="GT1_GT2_FOLLOW_LEADER" Data="파티 리더를 따라 솔미키 구간으로 이동하세요{nl}(큐폴 루타를 통해 이동할 수 있습니다)"/>
 		<Class ClassID="60274" ClassName="GT1_GT2_FOLLOW_LEADER_CLEAR" Data="파티 리더를 따라 솔미키 구간으로 이동하세요"/>
 		<Class ClassID="60275" ClassName="GT_shortfallMember_1" Data="대지의 탑 솔미키 구간에 도전할 수 없습니다!{nl}파티 구성원이 도전 조건을 충족하지 못 했습니다{nl}(레벨조건 미달)"/>
+		<Class ClassID="60276" ClassName="GT_ENTRACE_SELECT_1" Data="대지의 탑 : 롤로팬서 구간"/>
+		<Class ClassID="60277" ClassName="GT_ENTRACE_SELECT_2_TOLL" Data="대지의 탑 : 솔미키 구간"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
 		<Class ClassID="70003" ClassName="FARM49_2_MQ06_ALREADY" Data="이미 우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
@@ -5071,6 +5080,8 @@
 		<Class ClassID="106044" ClassName="CanNotBuyThisItem" Data="구매 불가능한 상품입니다."/>
 		<Class ClassID="106045" ClassName="ReportedItem" Data="거래 중지 된 아이템입니다."/>
 		<Class ClassID="106046" ClassName="CantReceiveItem" Data="아이템 수령에 실패하였습니다. 잠시 후 다시 시도해주세요."/>
+		<Class ClassID="106047" ClassName="IsBlackItem" Data="비정상 거래로 확인된 아이템입니다. 구매하실 수 없습니다."/>
+		<Class ClassID="106048" ClassName="PremiumRegMaxPrice{Price}" Data="해당 아이템의 등록 최대 가격은 {Price}실버 입니다."/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -5084,7 +5095,7 @@
 		<Class ClassID="107009" ClassName="UseingSomeoneToStore" Data="다른 캐릭터가 상점을 사용중에 있습니다. 잠시 후에 다시 시도해 주세요."/>
 		<Class ClassID="107010" ClassName="DonnotOpenautoseller" Data="아직 상점을 열지 않았습니다."/>
 		<Class ClassID="107011" ClassName="ReqAllItemUnEquip" Data="모든 아이템의 장비를 해제 하셔야 합니다.{nl}또한 헤어 컬러도 기본으로 설정해야 합니다."/>
-	<Class ClassID="107012" ClassName="ThisMessgeIsError" Data="이 메세지가 보이면 문의해주시기 바랍니다."/>
+		<Class ClassID="107012" ClassName="ThisMessgeIsError" Data="이 메세지가 보이면 문의해주시기 바랍니다."/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="108001" ClassName="GetOut!WeMustTransportStones!" Data="비켜주십시오! 빨리 돌을 운반해야 합니다."/>
@@ -5571,9 +5582,10 @@
 		<Class ClassID="124037" ClassName="CardLvisMax" Data="카드 레벨이 한계치에 도달했습니다."/>
 		<Class ClassID="124038" ClassName="DonotUseMySelf" Data="자신에게 사용할 수 없습니다."/>
 		<Class ClassID="124039" ClassName="DeathPenaltyGemSilverCardETC" Data="현재 지역에서 전투 불능 시, 소지 중인 젬, 카드, 축복석, 실버등의 일부를 유실할 수 있습니다."/>
-    <Class ClassID="124040" ClassName="ServerIsEnd" Data="유라테 서버에 오신 것을 환영합니다.{nl} {nl}유라테 서버는 7/28~10/20까지 운영되는 시즌 서버로 10/20 이후부터는{nl}더 이상 유라테 서버 이용이 불가합니다.{nl} {nl}서버의 캐릭터 통합에 대한 자세한 내용은 {nl}홈페이지 공지사항을 참고해주세요.{/}"/>
+		<Class ClassID="124040" ClassName="ServerIsEnd" Data="유라테 서버에 오신 것을 환영합니다.{nl} {nl}유라테 서버는 7/28~10/20까지 운영되는 시즌 서버로 10/20 이후부터는{nl}더 이상 유라테 서버 이용이 불가합니다.{nl} {nl}서버의 캐릭터 통합에 대한 자세한 내용은 {nl}홈페이지 공지사항을 참고해주세요.{/}"/>
 		<Class ClassID="124041" ClassName="AlertDuplicatedKeys{Key1}And{Key2}Are{Key}" Data="[{Key1}]키와 [{Key2}]키가 동일한 키 [{Key}]로 설정되었습니다."/>
 		<Class ClassID="124042" ClassName="NotClearChar" Data="대지의 탑을 클리어 하지 않은 캐릭터는 보상을 받을 수 없습니다."/>
+		<Class ClassID="124043" ClassName="OnlyOnePcJoin" Data="해당 미션은 다른 캐릭터로 입장할 수 없습니다."/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="130001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
@@ -5644,6 +5656,11 @@
 		<Class ClassID="131062" ClassName="PleaseJoinGuild" Data="소속된 길드가 없으면 참여할 수 없습니다."/>
 		<Class ClassID="131063" ClassName="ExistsPlayingPVP" Data="진행중인 대전에 입장하시겠습니까?"/>
 		<Class ClassID="131064" ClassName="GuildPVPReward{TP}{CNT}" Data="{TP}TP 교환권 {CNT}장"/>
+		<Class ClassID="131065" ClassName="GuildPVPStart{sYear}{sMonth}{sDay}GuildPVPEnd{eYear}{eMonth}{eDay}" Data="길드 배틀 시즌 {sYear}년 {sMonth}월 {sDay}일 부터 {eYear}년 {eMonth}월 {eDay}일 까지"/>
+		<Class ClassID="131066" ClassName="MAXPVPEnterCount{AMPM}{TIME}" Data="오늘 해당 리그에 참여 가능한 횟수를 초과하셨습니다.{nl}횟수는 매일 {AMPM} {TIME}시에 초기화 됩니다."/>
+		<Class ClassID="131067" ClassName="{Num}OrMore" Data="{Num}회 이상"/>
+		<Class ClassID="131068" ClassName="AskPVPEnterCancel" Data="참가 신청을 취소하시겠습니까?"/>
+		<Class ClassID="131069" ClassName="CanNotJoinPVPFromMission" Data="해당 지역에서는 참가하실 수 없습니다."/>
 	</Category>
 	<Category Name="MonInfo">
 		<Class ClassID="132001" ClassName="MonInfo_Size" Data="크기"/>
@@ -5699,13 +5716,15 @@
 		<Class ClassID="133004" ClassName="{Hour}Ago" Data="로그아웃 : {Hour}시간 전"/>
 		<Class ClassID="133005" ClassName="{Min}Ago" Data="로그아웃 : {Min}분 전"/>
 		<Class ClassID="133006" ClassName="JustBefore" Data="로그아웃 : 방금 전"/>
+		<Class ClassID="133007" ClassName="AM" Data="오전"/>
+		<Class ClassID="133008" ClassName="PM" Data="오후"/>
 	</Category>
 	<Category Name="Indun">
 		<Class ClassID="134001" ClassName="CannotJoinIndunYet" Data="오늘의 인던 참여 회수를 초과하였습니다."/>
 		<Class ClassID="134002" ClassName="YourLevelIsLowThenIndun" Data="인던 제한 레벨보다 낮습니다"/>
 		<Class ClassID="134003" ClassName="MaxCountExplain{COUNT}" Data="매일 {HOUR}시에 초기화되며 {COUNT}회 입장할 수 있습니다."/>
 		<Class ClassID="134004" ClassName="NextEnterNeed" Data="인던 무제한 입장권을 사용중에 있습니다."/>
-		<Class ClassID="134005" ClassName="IndunMore{COUNT}ForTOKEN" Data="(토큰 혜택으로 {COUNT}번 추가 입장 하실 수 있습니다.)"/>
+		<Class ClassID="134005" ClassName="IndunMore{COUNT}ForTOKEN" Data="(토큰 혜택으로 {COUNT}회 추가 입장 하실 수 있습니다.)"/>
 		<Class ClassID="134006" ClassName="ReEnterAutoMatchIndun" Data="자동파티찾기 재입장"/>
 		<Class ClassID="134007" ClassName="FailLevelMatching" Data="레벨에 맞는 파티를 찾지 못했습니다.{nl}다시 시도합니다."/>
 	</Category>
@@ -8641,7 +8660,11 @@
 		<Class ClassID="300116" ClassName="SUMMERHAIR6" Data="물안경"/>
 		<Class ClassID="300117" ClassName="SUMMERHAIR7" Data="해변용 밀짚모자"/>
 		<Class ClassID="300118" ClassName="SUMMERHAIR8" Data="알로하 화관"/>
-	<Class ClassID="300122" ClassName="FAILED_PURCHASED_1001100" Data="구매 조건이 맞지 않습니다."/>
+		<Class ClassID="300122" ClassName="FAILED_PURCHASED_1001100" Data="구매 조건이 맞지 않습니다."/>
+		<Class ClassID="300123" ClassName="FAILED_PURCHASED_1002002" Data="응답 시간이 초과되었습니다. {/}나중에 다시 시도해주시기 바랍니다."/>
+		<Class ClassID="300124" ClassName="FAILED_REFUND_10" Data="응답 시간이 초과되었습니다. {/}나중에 다시 시도해주시기 바랍니다."/>
+		<Class ClassID="300125" ClassName="Premium_boostToken_RemainingMsg{Sec}" Data="경험의서 효과가 {Sec}초 후에 종료됩니다."/>
+		<Class ClassID="300126" ClassName="Premium_boostToken_EndMsg" Data="경험의서 효과가 종료되었습니다."/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

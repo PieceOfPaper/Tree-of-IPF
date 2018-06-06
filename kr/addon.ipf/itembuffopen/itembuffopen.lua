@@ -45,12 +45,12 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 	local checkFunc = _G["ITEMBUFF_NEEDITEM_" .. frame:GetUserValue("SKILLNAME")];
 	local name, cnt = checkFunc(pc, obj);
 
-	-- ÀÌ¹ÌÁö¸¦ ³Ö°í
+	-- ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½
 	SET_SLOT_ITEM_IMANGE(slot, invItem);
 	
 	local repairbox = frame:GetChild("repair");
 	local slotNametext = repairbox:GetChild("slotName");
-	-- ÀÌ¸§°ú °­È­ ¼öÄ¡¸¦ Ç¥½ÃÇÑ´Ù.
+	-- ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½Ä¡ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ñ´ï¿½.
 	slotNametext:SetTextByKey("txt", obj.Name);
 
 	local skillLevel = frame:GetUserIValue("SKILLLEVEL");
@@ -65,7 +65,7 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 	end	
 
 	local nameList, fromList, toList = ExtractDiffProperty(obj, nextObj);
-	-- È¿°ú¸¦ Ç¥½ÃÇÑ´Ù.
+	-- È¿ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ñ´ï¿½.
 	local effectBox = repairbox:GetChild("effectGbox");
 	local maxtextStr = effectBox:GetChild("maxpower");
 	local mintextStr = effectBox:GetChild("minpower");
@@ -79,24 +79,30 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 	local timestr = effectBox:GetChild("timestr");
 
 	if obj.GroupName == "Weapon" or obj.GroupName == "SubWeapon" then
-		if obj.BasicTooltipProp == "ATK" then -- ÃÖ´ë, ÃÖ¼Ò °ø°Ý·Â
+		if obj.BasicTooltipProp == "ATK" then -- ï¿½Ö´ï¿½, ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½Ý·ï¿½
 			maxtext:SetTextByKey("txt", obj.MAXATK .." > ".. nextObj.MAXATK);
 			mintext:SetTextByKey("txt", obj.MINATK .." > ".. nextObj.MINATK);
-		elseif obj.BasicTooltipProp == "MATK" then -- ¸¶¹ý°ø°Ý·Â
+		elseif obj.BasicTooltipProp == "MATK" then -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½
 			maxtext:SetTextByKey("txt", obj.MATK .." > ".. nextObj.MATK);
 			mintext:SetTextByKey("txt", "");
 		end
 	else
-		if obj.BasicTooltipProp == "DEF" then -- ¹æ¾î
+		if obj.BasicTooltipProp == "DEF" then -- ï¿½ï¿½ï¿½
 			maxtext:SetTextByKey("txt", obj.DEF .." > ".. nextObj.DEF);
-		elseif obj.BasicTooltipProp == "MDEF" then -- ¾Ç¼¼»ç¸®
+		elseif obj.BasicTooltipProp == "MDEF" then -- ï¿½Ç¼ï¿½ï¿½ç¸®
 			maxtext:SetTextByKey("txt", obj.MDEF .." > ".. nextObj.MDEF);
-		elseif  obj.BasicTooltipProp == "HR" then -- ¸íÁß
+		elseif  obj.BasicTooltipProp == "HR" then -- ï¿½ï¿½ï¿½ï¿½
 			maxtext:SetTextByKey("txt", obj.HR .." > ".. nextObj.HR);
-		elseif  obj.BasicTooltipProp == "DR" then -- È¸ÇÇ
+		elseif  obj.BasicTooltipProp == "DR" then -- È¸ï¿½ï¿½
 			maxtext:SetTextByKey("txt", obj.DR .." > ".. nextObj.DR);
-		elseif  obj.BasicTooltipProp == "MHR" then -- ¸¶¹ý°üÅë
+		elseif  obj.BasicTooltipProp == "MHR" then -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			maxtext:SetTextByKey("txt", obj.MHR .." > ".. nextObj.MHR);
+		elseif  obj.BasicTooltipProp == "ADD_FIRE" then -- È­ï¿½ï¿½
+			maxtext:SetTextByKey("txt", obj.FIRE .." > ".. nextObj.FIRE);
+		elseif  obj.BasicTooltipProp == "ADD_ICE" then -- ï¿½ï¿½ï¿½ï¿½
+			maxtext:SetTextByKey("txt", obj.ICE .." > ".. nextObj.ICE);
+		elseif  obj.BasicTooltipProp == "ADD_LIGHTNING" then -- ï¿½ï¿½ï¿½ï¿½
+			maxtext:SetTextByKey("txt", obj.LIGHTNING .." > ".. nextObj.LIGHTNING);
 		end
 		mintext:SetTextByKey("txt", "");
 	end
@@ -118,16 +124,16 @@ function SQIORE_TARGET_UI_CLOSE()
 	ui.CloseFrame("itembuffopen");
 end
 
-function SQIORE_TARGET_BUFF_CENCEL(sellerHandle)
+function SQUIRE_TARGET_BUFF_CENCEL(sellerHandle)
 	packet.StopTimeAction(1);
 end
 
-function SQIORE_BUFF_CENCEL_CHECK(frame)
+function SQUIRE_BUFF_CENCEL_CHECK(frame)
 	frame = frame:GetTopParentFrame();
 	local handle = frame:GetUserIValue("HANDLE");
 	local skillName = frame:GetUserValue("SKILLNAME");
 
-	-- ±×·³ ÀÌ°ÍÀº ÆÇ¸ÅÀÚ
+	-- ï¿½×·ï¿½ ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ï¿½ï¿½
 	if handle == session.GetMyHandle() then
 		if "Squire_Repair" == skillName then
 			SQIORE_REPAIR_CENCEL();
@@ -135,7 +141,7 @@ function SQIORE_BUFF_CENCEL_CHECK(frame)
 		end
 	end
 
-	-- À¯Àú
+	-- ï¿½ï¿½ï¿½ï¿½
 	session.autoSeller.BuyerClose(AUTO_SELL_SQUIRE_BUFF, handle);
 end
 
@@ -208,7 +214,7 @@ function SQIORE_LOG_VIEW(frame)
 	gboxctrl:ShowWindow(1);
 end
 
-function SQIORE_BUFF_CLOSE(frame)
+function SQUIRE_BUFF_CLOSE(frame)
 	frame = frame:GetTopParentFrame();
 	local groupName = frame:GetUserValue("GroupName");
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
@@ -296,7 +302,7 @@ function ITEMBUFF_UPDATE_HISTORY(frame)
 			local propNameValue = sList[j];
 			local propToken = StringSplit(propNameValue, "@");
 			local strBuf = string.format("%s %s -> %s", propToken[1] , propToken[2], propToken[3]);
-			if 3 < #propToken then -- ¹«±â¼ö¸®ÇÒ ¶§ ¿À¹ÙµÊ
+			if 3 < #propToken then -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ùµï¿½
 				strBuf = strBuf .. "{nl}" .. string.format("%s %s -> %s", propToken[4] , propToken[5], propToken[6]);
 			end
 			if j > 3 then

@@ -30,6 +30,14 @@ end
 
 function TPSHOP_TRY_BUY_PACKAGE_BY_NEXONCASH(parent, control, ItemClassIDstr, itemid)
 	local frame = ui.GetFrame("tpitem");
+	
+	local nMaxCnt = session.ui.Get_NISMS_CashInven_ItemListSize();
+	if nMaxCnt >= 18 then
+		strMsg = string.format("{@st43d}{s20}%s{/}", ScpArgMsg("MAX_CASHINVAN"));
+		ui.MsgBox_NonNested(strMsg, 0x00000000, frame:GetName(), "None", "None");	
+		return;
+	end
+
 	local screenbgTemp = frame:GetChild('screenbgTemp');	
 	screenbgTemp:ShowWindow(1);	
 

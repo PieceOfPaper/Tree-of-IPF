@@ -700,7 +700,7 @@ function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)
 		end
 
 		local nowAllowedColor = etc['AllowedHairColor']
-		if string.find(nowAllowedColor, item.StringArg) ~= nil then
+		if string.find(nowAllowedColor, item.StringArg) ~= nil or TryGetProp(etc, "HairColor_"..item.StringArg) == 1 then
 			ui.MsgBox(ScpArgMsg("AlearyEquipColor"))
 			return;
 		end

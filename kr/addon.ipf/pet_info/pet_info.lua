@@ -402,11 +402,11 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 	local invItem = session.GetInvItemByGuid(liftIcon:GetIESID());
 	local slotlist = tolua.cast(parent, "ui::CSlotSet");
 	local itemObj = invItem:GetObject();
-	if itemObj ~= nil then
+	if itemObj == nil then
 		itemObj = GetIES(itemObj);
-	else
 		return;
 	end
+
 	local itemEnum = PET_EQUIP_PARTS_COUNT;
 	local group = TryGetProp(itemObj, "GroupName");
 	if group == "Weapon" or group == "SubWeapon" then

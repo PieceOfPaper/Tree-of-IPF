@@ -4566,7 +4566,7 @@
 			<Stage Name="stage9_2" AutoStart="0">
 				<StartScpList>
 					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-						<Str Str="프로스트 로드 처치"/>
+						<Str Str="프로스터 로드 처치"/>
 					</ToolScp>
 				</StartScpList>
 				<ObjList/>
@@ -4585,7 +4585,7 @@
 			<Stage Name="stage9_3" AutoStart="0">
 				<StartScpList>
 					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="프로스트 로드를 처치했습니다"/>
+						<Str Str="프로스터 로드를 처치했습니다"/>
 						<Str Str="stage_clear"/>
 						<Num Num="10"/>
 					</ToolScp>
@@ -4629,7 +4629,7 @@
 					</Event>
 				</StageEvents>
 			</Stage>
-			<Stage Name="TEST">
+			<Stage Name="TEST" AutoStart="0">
 				<ObjList/>
 				<StageEvents>
 					<Event execCount="1" eventName="Check">

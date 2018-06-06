@@ -4396,12 +4396,17 @@ function SCR_PRE_PILGRIM_48_SQ_030_ITEM_1(self, argObj, argstring, arg1, arg2)
     local result = SCR_QUEST_CHECK(self, 'PILGRIM_48_SQ_030')
     if result == 'PROGRESS' then
         if GetZoneName(self) == 'f_siauliai_west' or GetZoneName(self) == 'f_siauliai_2' or GetZoneName(self) == 'f_siauliai_out' 
-         or GetZoneName(self) == 'f_siauliai_16' or GetZoneName(self) == 'f_siauliai_15_re' or GetZoneName(self) == 'f_siauliai_11_re' then
+         or GetZoneName(self) == 'd_cmine_01' or GetZoneName(self) == 'd_cmine_02' or GetZoneName(self) == 'd_cmine_6'
+          or GetZoneName(self) == 'f_siauliai_16' or GetZoneName(self) == 'f_siauliai_15_re' or GetZoneName(self) == 'f_siauliai_11_re' 
+           or GetZoneName(self) == 'd_prison_62_1' or GetZoneName(self) == 'd_prison_62_2' or GetZoneName(self) == 'd_prison_62_3'  
+            
+            then
+            
             local pc_list, pc_cnt = SelectObject(self, 100, 'ALL', 1)
             local i
             for i = 1, pc_cnt do
                 if pc_list[i].ClassName == 'PC' then
-                    if pc_list[i].Lv >= 1 and  pc_list[i].Lv <= 10 then
+                    if pc_list[i].Lv >= 1 and  pc_list[i].Lv <= 25 then
 
 --                        local pc_sObj = GetSessionObject(pc_list[i], "ssn_klapeda")
 --                        if pc_sObj.PILGRIM_48_SQ_030_BUFF ~= 300 then

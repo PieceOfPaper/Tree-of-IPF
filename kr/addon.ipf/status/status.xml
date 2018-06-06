@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="status" x="0" y="0" width="500" height="1080">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -26,12 +26,21 @@
 		<groupbox name="statusGbox" rect="0 0 480 415" margin="10 550 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>
 		<groupbox name="achieveGbox" rect="0 0 500 830" margin="10 160 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="false"/>
 		<groupbox name="internalstatusBox" parent="statusGbox" rect="0 0 483 415" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>
-		<groupbox name="internalBox" parent="achieveGbox" rect="0 0 480 840" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>
+		<groupbox name="internalBox" parent="achieveGbox" rect="0 0 480 830" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>
 		<groupbox name="logoutGBox" rect="0 0 495 915" margin="10 140 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="false"/>
-		<groupbox name="customizingGBox" parent="logoutGBox" rect="0 0 480 360" margin="0 0 0 0" layout_gravity="left top" draw="true" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"skin="line_bg_skin"/>
-		<richtext name="hairColorStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 25 0 0" layout_gravity="left top" caption="헤어컬러" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
-		<richtext name="titleListStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 115 0 0" layout_gravity="left top" caption="장착 가능 칭호" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
-		<controlset name="logoutInternal" parent="logoutGBox" rect="0 0 485 560" margin="1 357 0 0" layout_gravity="left bottom" draw="false" hittest="true" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="none" type="logoutpc_config"/>
+		<groupbox name="customizingGBox" parent="logoutGBox" rect="0 0 480 350" margin="0 110 0 0" layout_gravity="left top" draw="true" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
+		<!--<경험치율 총합 계산 UI>-->
+		<groupbox name="expupGBox" parent="internalstatusBox" rect="0 0 483 70" margin="0 10 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="expupBuffBox" parent="expupGBox" rect="0 0 310 70" margin="82 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="false" scrollbar="true"/>
+		<groupbox name="expupTextBox" parent="expupGBox" rect="0 0 90 60" margin="0 0 13 0" layout_gravity="right top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<labelline name="labelline_EXP" parent="internalstatusBox" rect="0 0 440 4" margin="0 75 0 0" layout_gravity="center top" skin="None"/>
+		<picture name="expUp" parent="expupGBox" rect="0 0 70 60" margin="10 -2 0 0" layout_gravity="left top" image="expup_img"/>
+		<richtext name="expUP_Static" parent="expupTextBox" rect="0 0 200 20" margin="0 2 0 0" layout_gravity="center top" caption="{@st66d_y}{s20}총{/}" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="expUP_Dyn" parent="expupTextBox" rect="0 0 300 20" margin="0 27 0 0" layout_gravity="center top" caption="" fontname="brown_18_b" format="{@st66d_y} {s20}%s%{/}" hittest="false" param1="perc" param1_def="0" spacey="0" textalign="left center"/>
+		<!--</경험치율 총합 계산 UI>-->
+		<richtext name="hairColorStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 15 0 0" layout_gravity="left top" caption="{@st42}헤어컬러{/}" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="titleListStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 115 0 0" layout_gravity="left top" caption="{@st42}장착 가능 칭호{/}" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
+		<controlset name="logoutInternal" parent="logoutGBox" rect="0 0 485 550" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="none" type="logoutpc_config"/>
 		<button name="colse" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;status&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}캐릭터 정보를 닫습니다{/}"/>
 		<richtext name="LevJobText" rect="0 0 200 20" layout_gravity="center top" caption="직업 출력" fontname="white_20_ol_ds" hittest="false" spacey="0" textalign="left center" margin="0 56 0 0"/>
 		<richtext name="NameText" rect="0 0 200 30" layout_gravity="center top" caption="캐릭터 이름 출력" frameOpenAnim=" " hittest="false" spacey="0" textalign="left center" margin="0 16 0 0"/>

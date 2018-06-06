@@ -272,6 +272,7 @@ function STATUS_UPDATE(frame)
 	else
 		DebounceScript("STATUS_INFO", 0.1);
 	end
+	STATUS_INFO();
 end
 
 function RESERVE_RESET(frame)
@@ -544,6 +545,147 @@ function STATUS_BTN_UP_VISIBLE(frame, controlsetName, pc, visible)
 	btnUp:ShowWindow(visible);
 end
 
+function SETEXP_SLOT(gbox)
+	local expupBuffBox = gbox:GetChild('expupBuffBox');	
+	DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_");
+	
+	-- s_buff_ui : cf) buff.lua 
+	local slotlist = s_buff_ui["slotlist"][1];
+	local slotcount = s_buff_ui["slotcount"][1];
+	local captionlist = s_buff_ui["captionlist"][1];
+    
+	local index = 0;
+	local percSum = 0;
+	
+	local cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
+	local val1 = cls1.Value;
+	if val1 > 0.0 then
+		local class  = GetClassByType('Buff', 4540);	
+		percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val1 * 100);
+		index = index + 1;
+	else
+		DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_EventBuff");
+	end
+
+	if 1 == session.loginInfo.GetPremiumState() then	
+	local cls2 = GetClass("SharedConst","JAEDDURY_NEXON_PC_EXP_RATE");
+local val2 = cls2.Value;	
+	if val2 > 0.0 then
+		local class  = GetClassByType('Buff', 4541);	
+		percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val2 * 100);
+		index = index + 1;
+	else
+		DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_nexonpc2");
+	end
+	end
+	
+	if slotcount ~= nil and slotcount >= 0 then
+    	for i = 0, slotcount - 1 do
+    		local slot		= slotlist[i];
+			local icon		= slot:GetIcon();
+			local info		= icon:GetInfo();
+			local type		= info.type;
+			if type ~= 0 then
+				local class  = GetClassByType('Buff', type);	
+				if class ~= nil then
+					local exp = TryGetProp(class, "BuffExpUP");
+					if nil == exp then
+						exp = 0;
+					else
+						exp = tonumber(exp);
+					end
+
+					if exp > 0.0 then
+						percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, exp * 100);
+						index = index + 1;					
+					else
+						SWITCH(class.ClassName) {				
+						['TeamLevel'] = function() 
+							local account = session.barrack.GetCurrentAccount();
+							if account ~= nil then
+								local lv = account:GetTeamLevel();
+									local expT = account:GetTeamLevel() - 1;
+									if expT > 0.0 then
+										percSum = SETSLOTCTRL_EXP(class, "teamexpup", expupBuffBox, index, percSum, expT);
+										index = index + 1;
+									else
+										DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_teamexpup");
+									end
+								end	
+						end,
+						['PartyIndunExpBuff'] = function() 
+										local cls = GetClass("SharedConst","INDUN_AUTO_FIND_EXP_BONUS");
+										local val = cls.Value;
+										if val > 0.0 then
+											percSum = SETSLOTCTRL_EXP(class, "cler_daino", expupBuffBox, index, percSum, val * 100);
+										index = index + 1;
+										else
+											DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_teamexpup");
+										end
+						end,
+						default = function() end,
+						}	
+					end
+				end
+			end
+    	end
+    end
+			
+	local expupTextBox = gbox:GetChild('expupTextBox');	
+	local expUP_Dyn = expupTextBox:GetChild('expUP_Dyn');	
+	expUP_Dyn:SetTextByKey("perc", percSum);
+	
+	expupTextBox:Invalidate();	
+end
+
+function SETSLOTCTRL_EXP(cls, strIcon, parent, index, sum, perc)
+	local slotbox = parent:CreateOrGetControl('groupbox', 'expBuffslot_'..strIcon, 42, 70, ui.LEFT, ui.TOP, 42 * index, 0, 0, 0);												
+	tolua.cast(slotbox, "ui::CGroupBox");	
+	slotbox:EnableDrawFrame(0);
+
+	local newslot = slotbox:CreateOrGetControl('slot', 'slotExp_'..index, 42, 42, ui.LEFT, ui.TOP, 0, 0, 0, 0);	
+	tolua.cast(newslot, "ui::CSlot");	
+	if cls ~= nil then
+		newslot:SetEventScriptArgNumber(ui.RBUTTONUP, cls.ClassID);
+	end
+	newslot:EnableDrop(0);
+	newslot:EnableDrag(0);
+	newslot:ClearIcon();
+	local newicon = newslot:GetIcon();			
+	if newicon == nil then		
+		newicon = CreateIcon(newslot);
+	end;	
+	
+	if cls ~= nil then
+		local handle = session.GetMyHandle();
+		if cls.ClassName == "Premium_Nexon" or cls.ClassName =="Premium_Token" then
+			local buff = info.GetBuff(tonumber(handle), cls.ClassID);
+			if nil ~= buff then
+				newicon:SetTooltipType('premium');		
+				newicon:SetTooltipArg(handle, cls.ClassID, buff.arg1);
+			end
+		else
+			newicon:SetTooltipType('buff');
+			newicon:SetTooltipArg(handle, cls.ClassID, "");
+		end
+	end
+	
+	local imageName = strIcon;
+	if imageName ~= nil then
+		newicon:SetImage('icon_' .. strIcon);
+	end;
+
+	local percText = slotbox:CreateOrGetControl('richtext', 'staticExptext_'..index, 10, 10, ui.CENTER_HORZ, ui.TOP, 0, 42, 0, 0);	
+	tolua.cast(percText, "ui::CRichText");
+	
+	local strCaption = string.format("{s13}%d", perc);
+	strCaption = strCaption .. "%{/}";		
+	percText:SetFontName("white_18_ol");
+	percText:SetText(strCaption);
+	
+	return sum + perc;
+end
+
 function STATUS_INFO()
 	local frame = ui.GetFrame('status');
 	local MySession		= session.GetMyHandle()
@@ -573,6 +715,10 @@ function STATUS_INFO()
 	local y = 0;
 
 	y = y + 10;
+
+	local expupGBox = GET_CHILD(gboxctrl,'expupGBox');
+	SETEXP_SLOT(expupGBox);
+	y = y + expupGBox:GetHeight() + 10;
 
 	local returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MHP", y);
 	if returnY ~= y then
@@ -1457,9 +1603,10 @@ function STATUS_ACHIEVE_INIT(frame)
 				local eachColor = imcIES.GetString(eachcls, 'Color') 
 				eachColorE = string.lower(eachColorE)
 
-				if string.find(nowAllowedColor, eachColorE) ~= nil then 
+				-- 업적 받으면 헤어 컬러 사라지는 현상이 있다고 해서 HairColor 프로퍼티 값으로도 확인
+				if string.find(nowAllowedColor, eachColorE) ~= nil or TryGetProp(etc, "HairColor_"..eachColorE) == 1 then
 				
-					local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_'..haircount, 30 + 35 * haircount, 55, 35, 35);
+					local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_'..eachColorE, 30 + 35 * haircount, 55, 35, 35);
 					tolua.cast(eachhairimg, "ui::CPicture");
 				
 					local colorimgname = GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(eachColorE)

@@ -31,7 +31,7 @@ end
 
 function REFRESH_ABILITYSHOP(frame, msg)
 
-	local frame = ui.GetFrame("abilityshop") -- Ã¼Å©¹Ú½º¿¡¼­µµ ¿¬µ¿ÇØ¼­ ¾²¹Ç·Î
+	local frame = ui.GetFrame("abilityshop") -- Ã¼Å©ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ç·ï¿½
 	
 	local abilGroupName = frame:GetUserValue("ABIL_GROUP_NAME")
 
@@ -44,7 +44,7 @@ function REFRESH_ABILITYSHOP(frame, msg)
 	DESTROY_CHILD_BYNAME(gbox, 'ABILSHOP_');
 	local posY = 5;
 
-	-- abilGroupNameÀ¸·Î xml¿¡¼­ ÇØ´çµÇ´Â ±¸ÀÔ°¡´ÉÇÑ Æ¯¼º¸®½ºÆ® °¡Á®¿À±â
+	-- abilGroupNameï¿½ï¿½ï¿½ï¿½ xmlï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½Ô°ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	local abilList, abilListCnt = GetClassList("Ability");
 	local abilGroupList, abilGroupListCnt = GetClassList(abilGroupName);
 
@@ -93,7 +93,7 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 	end
 
 	local isMax = 0;
-	-- Æ¯¼º ±¸ÀÔ ¹öÆ°.  ÇöÀç ¹è¿ì´Â Æ¯¼ºÀÌ ÀÖÀ¸¸é ´Ù¸¥ Æ¯¼ºÀº ´Ù ¸·±â
+	-- Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°.  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local maxLevel = tonumber(groupClass.MaxLevel)
 	if maxLevel < abilLv then
 		isMax = 1;
@@ -102,7 +102,7 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 	
 	local onlyShowLearnable = GET_CHILD_RECURSIVELY(frame,"onlyShowLearnable")
 
-	-- ë°°ìš¸ ???ˆëŠ” ?¹ì„±ë§??œì‹œ
+	-- ë°°ìš¸ ???ï¿½ëŠ” ?ï¿½ì„±ï¿½??ï¿½ì‹œ
 	if onlyShowLearnable:IsChecked() == 1 then
 	
 		if isMax == 1 and runCnt + 1 > maxCount then
@@ -144,27 +144,27 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 		abilLv = groupClass.MaxLevel;
 	end
 
-	-- abilClass°ü·Ã Á¤º¸ ¼ÂÆÃ
-	-- Æ¯¼º ¾ÆÀÌÄÜ
+	-- abilClassï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	-- Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	local classSlot = GET_CHILD(classCtrl, "slot", "ui::CSlot");
 	classSlot:EnableHitTest(0);
 	local icon = CreateIcon(classSlot);	
 	icon:SetImage(abilClass.Icon);
 
-	-- Æ¯¼º ÀÌ¸§
+	-- Æ¯ï¿½ï¿½ ï¿½Ì¸ï¿½
 	local nameCtrl = GET_CHILD(classCtrl, "abilName", "ui::CRichText");
 	nameCtrl:SetText("{@st42}".. abilClass.Name);
 
-	-- Æ¯¼º ·¹º§
+	-- Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local levelCtrl = GET_CHILD(classCtrl, "abilLevel", "ui::CRichText");
 	levelCtrl:SetText("Lv.".. abilLv);
 
-	-- Æ¯¼º ¼³¸í
+	-- Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local descCtrl = GET_CHILD(classCtrl, "abilDesc", "ui::CRichText");
 	descCtrl:SetText("{@st66b}".. abilClass.Desc);
 
 
-	-- groupClass°ü·Ã Á¤º¸ ¼ÂÆÃ
+	-- groupClassï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local price = 0;
 	local totalTime = 0;
 	local funcName = groupClass.ScrCalcPrice;
@@ -179,6 +179,8 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 
 	if IS_SEASON_SERVER(nil) == "YES" then
 		price = price - (price * 0.4)
+	else
+		price = price - (price * 0.2)
 	end
 
 	price = math.floor(price);
@@ -249,7 +251,7 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 				classCtrl:EnableHitTest(0);
 			else
 				if runCnt + 1 > maxCount then
-				-- Æ¯¼ºÀ» ¹è¿ì´ÂÁßÀÌ¶ó¸é ¹è¿ì´Â ½ºÅ³À» Á¦¿ÜÇÏ°í´Â ÀüºÎ È¸»öÀ¸·Î º¯°æÇØ¾ßÇÔ.
+				-- Æ¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½.
 					classCtrl:SetGrayStyle(1);
 				end
 			end
@@ -292,10 +294,10 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 		return;
 	end
 
-	-- »ì°ÇÁö È®ÀÎÃ¢ ¶ç¿ì±â
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½
 	s_buyAbilName = abilName;
 
-	-- ¼­¹ö¿¡¼­ ½Ã½ºÅÛ ¸Þ½ÃÁö¸¦ º¸³»´Âµ¥ Æ¯¼º È®ÀÎÀü¿¡¼­ »Ñ·ÁÁÖÀÚ.
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ Æ¯ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ·ï¿½ï¿½ï¿½ï¿½ï¿½.
 	local topframe = frame:GetTopParentFrame();
 	local abilGroupName = topframe:GetUserValue("ABIL_GROUP_NAME")
 	local abilClass = GetClass(abilGroupName, s_buyAbilName);
@@ -306,7 +308,7 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 		local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
 
 		if abilIES ~= nil then
-		--¾îºô ¸Æ½º ·¹º§º¸´Ù ³ô°Ô ¸ø¿Ã¸°´Ù.
+		--ï¿½ï¿½ï¿½ ï¿½Æ½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½.
 			if abilIES.Level >= abilClass.MaxLevel then
 				ui.SysMsg(ScpArgMsg("AbilityLevelMax"));
 				return;
@@ -325,7 +327,7 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 		end
 	end
 
-	-- ±¸ÀÔ°¡´ÉÇÑÁö ½Ç¹ö Ã¼Å©ÇÏ±â
+	-- ï¿½ï¿½ï¿½Ô°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹ï¿½ Ã¼Å©ï¿½Ï±ï¿½
 	local price = tonumber( control:GetUserValue("PRICE_"..abilName) );
 
 	if IS_SEASON_SERVER(nil) == "YES" then

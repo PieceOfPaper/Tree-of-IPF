@@ -155,6 +155,7 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
 		local scp = _G[itemobj.ClientScp];
 		if scp == nil then
 			ErrorLog(itemobj.ClientScp);
+			return false;
 		end
 		scp(invItem);
 		return true;
@@ -223,7 +224,7 @@ function ICON_USE(object, reAction)
 				return;
 			else
 				local groupName = itemObj.ItemType;
-				if groupName == 'Consume' or groupName == "Quest" or groupName == "Cube" then
+				if groupName == 'Consume' or groupName == "Quest" or TryGetProp(itemObj, "GroupName") == "Cube" then
 					local usable = itemObj.Usable;
 					if usable ~= 'ITEMTARGET' then						
 						local invenItemInfo = GET_ICON_ITEM(iconInfo);

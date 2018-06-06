@@ -273,6 +273,9 @@
 	<tooltip name="worldmap" x="0" y="0" width="512" height="512" frameskin="none" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_WORLDMAP_TOOLTIP" skin="socket_gem_titlebar_baseskin">
 		<controls/>
 	</tooltip>
+	<tooltip name="indun_tooltip" x="0" y="0" width="512" height="512" frameskin="none" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_INDUN_TOOLTIP" skin="socket_gem_titlebar_baseskin">
+		<controls/>
+	</tooltip>
 	<tooltip name="puzzlecraft" x="0" y="0" width="512" height="512" frameskin="pipwin_low" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_PUZZLECRAFT_MAKING_TOOLTIP" skin="socket_gem_titlebar_baseskin">
 		<controls>
 			<groupbox name="gbox" margin="-1 61 0 0" rect="0 0 480 441" hittestbox="false" skin="bg" layout_gravity="center top"/>

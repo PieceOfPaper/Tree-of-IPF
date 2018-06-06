@@ -5,19 +5,19 @@
             <Stage Name="DefGroup" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="1200"/>
+                        <Num Num="480"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="20분 내에 소환서를 파괴하세요.{nl}실패 : 시간 초과, 전원 전투불능"/>
+                        <Str Str="8분 내에 소환서를 파괴하세요.{nl}실패 : 시간 초과, 전원 전투불능"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47140" Pos="-1557.68#56.98#-288.41" angle="35" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;60&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
-                    <Obj Type="Monster" MonType="47140" Pos="-910.18#74.34#638.39" angle="4" genCount="1" genTime="20000" autoGen="0" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;60&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
-                    <Obj Type="Monster" MonType="47140" Pos="159.34#56.98#1438.22" angle="-110" genCount="1" genTime="20000" autoGen="0" objectKey="2" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;60&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
-                    <Obj Type="Monster" MonType="47140" Pos="-709.51#4.90#-1278.97" angle="24" genCount="1" genTime="20000" autoGen="0" objectKey="3" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;60&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
-                    <Obj Type="Monster" MonType="47140" Pos="684.21#83.49#-1038.59" angle="47" genCount="1" genTime="20000" autoGen="0" objectKey="4" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;60&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
-                    <Obj Type="Monster" MonType="47140" Pos="1165.29#4.90#566.52" angle="-138" genCount="1" genTime="20000" autoGen="0" objectKey="5" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;60&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
+                    <Obj Type="Monster" MonType="47140" Pos="-1557.68#56.98#-288.41" angle="35" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
+                    <Obj Type="Monster" MonType="47140" Pos="-910.18#74.34#638.39" angle="4" genCount="1" genTime="20000" autoGen="0" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
+                    <Obj Type="Monster" MonType="47140" Pos="159.34#56.98#1438.22" angle="-110" genCount="1" genTime="20000" autoGen="0" objectKey="2" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
+                    <Obj Type="Monster" MonType="47140" Pos="-709.51#4.90#-1278.97" angle="24" genCount="1" genTime="20000" autoGen="0" objectKey="3" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
+                    <Obj Type="Monster" MonType="47140" Pos="684.21#83.49#-1038.59" angle="47" genCount="1" genTime="20000" autoGen="0" objectKey="4" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
+                    <Obj Type="Monster" MonType="47140" Pos="1165.29#4.90#566.52" angle="-138" genCount="1" genTime="20000" autoGen="0" objectKey="5" autoDestroy="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환서&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
                     <Obj Type="Monster" MonType="57133" Pos="-768.69#79.69#632.27" angle="-59" genCount="1" genTime="20000" autoGen="0" objectKey="6" autoDestroy="0" searchRange="250" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="47361" Pos="79.31#62.51#1341.27" angle="-116" genCount="1" genTime="20000" autoGen="0" objectKey="7" autoDestroy="0" searchRange="250" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="57132" Pos="1068.10#8.28#482.52" angle="-169" genCount="1" genTime="20000" autoGen="0" objectKey="8" autoDestroy="0" searchRange="250" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
@@ -25,24 +25,24 @@
                     <Obj Type="Monster" MonType="47363" Pos="-628.03#8.28#-1167.05" angle="79" genCount="1" genTime="20000" autoGen="0" objectKey="10" autoDestroy="0" searchRange="250" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="47364" Pos="-1501.23#62.51#-234.68" angle="17" genCount="1" genTime="20000" autoGen="0" objectKey="11" autoDestroy="0" searchRange="250" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="47365" Pos="144.01#84.46#-257.54" angle="136" genCount="1" genTime="20000" autoGen="0" objectKey="12" autoDestroy="0" searchRange="200" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_LASTBOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="47235" Pos="-302.03#107.76#162.97" angle="45" genCount="1" genTime="20000" autoGen="0" objectKey="13" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;40&apos; "/>
-                    <Obj Type="Monster" MonType="47235" Pos="2.96#107.76#306.58" genCount="1" genTime="20000" autoGen="0" objectKey="14" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;40&apos; "/>
-                    <Obj Type="Monster" MonType="47235" Pos="315.11#67.62#126.82" angle="135" genCount="1" genTime="20000" autoGen="0" objectKey="15" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;40&apos; "/>
-                    <Obj Type="Monster" MonType="47235" Pos="284.07#108.42#-405.30" angle="45" genCount="1" genTime="20000" autoGen="0" objectKey="16" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;40&apos; "/>
-                    <Obj Type="Monster" MonType="47235" Pos="-243.43#67.62#-441.96" angle="315" genCount="1" genTime="20000" autoGen="0" objectKey="17" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;40&apos; "/>
-                    <Obj Type="Monster" MonType="47235" Pos="-428.15#107.76#-133.37" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="18" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;40&apos; "/>
-                    <Obj Type="Monster" MonType="401521" Pos="-368.80#111.71#211.55" angle="137" genCount="1" genTime="20000" autoGen="0" objectKey="20" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41235" Pos="-338.50#111.71#232.69" angle="135" genCount="1" genTime="20000" autoGen="0" objectKey="21" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41235" Pos="39.75#111.62#362.80" angle="88" genCount="1" genTime="20000" autoGen="0" objectKey="22" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401521" Pos="-14.25#111.62#377.16" angle="86" genCount="1" genTime="20000" autoGen="0" objectKey="23" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401521" Pos="358.61#67.62#207.27" angle="40" genCount="1" genTime="20000" autoGen="0" objectKey="24" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41235" Pos="395.69#67.62#166.55" angle="38" genCount="1" genTime="20000" autoGen="0" objectKey="25" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41235" Pos="315.22#111.22#-482.04" angle="-46" genCount="1" genTime="20000" autoGen="0" objectKey="26" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401521" Pos="355.97#111.22#-447.26" angle="-42" genCount="1" genTime="20000" autoGen="0" objectKey="27" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401521" Pos="-287.11#67.62#-500.14" angle="-136" genCount="1" genTime="20000" autoGen="0" objectKey="28" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41235" Pos="-310.41#67.62#-480.89" angle="-140" genCount="1" genTime="20000" autoGen="0" objectKey="29" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41235" Pos="-510.10#107.76#-164.40" angle="175" genCount="1" genTime="20000" autoGen="0" objectKey="30" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401521" Pos="-507.81#107.76#-120.52" angle="177" genCount="1" genTime="20000" autoGen="0" objectKey="31" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47235" Pos="-302.03#107.76#162.97" angle="45" genCount="1" genTime="20000" autoGen="0" objectKey="13" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;30&apos; "/>
+                    <Obj Type="Monster" MonType="47235" Pos="2.96#107.76#306.58" genCount="1" genTime="20000" autoGen="0" objectKey="14" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;30&apos; "/>
+                    <Obj Type="Monster" MonType="47235" Pos="315.11#67.62#126.82" angle="135" genCount="1" genTime="20000" autoGen="0" objectKey="15" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;30&apos; "/>
+                    <Obj Type="Monster" MonType="47235" Pos="284.07#108.42#-405.30" angle="45" genCount="1" genTime="20000" autoGen="0" objectKey="16" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;30&apos; "/>
+                    <Obj Type="Monster" MonType="47235" Pos="-243.43#67.62#-441.96" angle="315" genCount="1" genTime="20000" autoGen="0" objectKey="17" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;30&apos; "/>
+                    <Obj Type="Monster" MonType="47235" Pos="-428.15#107.76#-133.37" angle="90" genCount="1" genTime="20000" autoGen="0" objectKey="18" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;30&apos; "/>
+                    <Obj Type="Monster" MonType="401521" Pos="-368.80#111.71#211.55" angle="137" genCount="1" genTime="20000" autoGen="0" objectKey="20" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41235" Pos="-338.50#111.71#232.69" angle="135" genCount="1" genTime="20000" autoGen="0" objectKey="21" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41235" Pos="39.75#111.62#362.80" angle="88" genCount="1" genTime="20000" autoGen="0" objectKey="22" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401521" Pos="-14.25#111.62#377.16" angle="86" genCount="1" genTime="20000" autoGen="0" objectKey="23" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401521" Pos="358.61#67.62#207.27" angle="40" genCount="1" genTime="20000" autoGen="0" objectKey="24" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41235" Pos="395.69#67.62#166.55" angle="38" genCount="1" genTime="20000" autoGen="0" objectKey="25" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41235" Pos="315.22#111.22#-482.04" angle="-46" genCount="1" genTime="20000" autoGen="0" objectKey="26" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401521" Pos="355.97#111.22#-447.26" angle="-42" genCount="1" genTime="20000" autoGen="0" objectKey="27" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401521" Pos="-287.11#67.62#-500.14" angle="-136" genCount="1" genTime="20000" autoGen="0" objectKey="28" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41235" Pos="-310.41#67.62#-480.89" angle="-140" genCount="1" genTime="20000" autoGen="0" objectKey="29" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41235" Pos="-510.10#107.76#-164.40" angle="175" genCount="1" genTime="20000" autoGen="0" objectKey="30" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401521" Pos="-507.81#107.76#-120.52" angle="177" genCount="1" genTime="20000" autoGen="0" objectKey="31" searchRange="400" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;StatType&apos; &apos;62&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="401781" Pos="71.56#62.51#1320.14" angle="-96" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="35" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " SimpleAI="follow_mon2" tendency="1"/>
                     <Obj Type="Monster" MonType="401781" Pos="752.40#83.49#-996.83" angle="134" range="80" genCount="1" genTime="20000" autoGen="0" objectKey="36" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " SimpleAI="follow_mon2" tendency="1"/>
                     <Obj Type="Monster" MonType="401781" Pos="-1452.32#62.51#-187.17" angle="23" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="37" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " SimpleAI="follow_mon2" tendency="1"/>
@@ -87,36 +87,28 @@
                     <Obj Type="Monster" MonType="401422" Pos="-1538.75#56.98#-264.53" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="76" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
-                    <Event isOr="1" eventName="bossgen1" execWithStart="0" isEnabled="0">
+                    <Event execCount="1" isOr="1" eventName="bossgen1" execWithStart="0" isEnabled="0">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/5/DefGroup/3/DefGroup/4"/>
-                                <Num Num="0"/>
+                                <Num Num="3"/>
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="bossgen2"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="bossgen2" isEnabled="0">
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="DefGroup"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="boss"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                     <Event eventName="random">
                         <execList>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME_RAND" Client="NO" UseSleep="NO">
-                                <Num Num="2"/>
+                                <Num Num="1"/>
                                 <Str Str="barricade"/>
                                 <Num Num="6"/>
                             </ToolScp>
@@ -414,11 +406,11 @@
                     <Event eventName="FailCheck2">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="1200"/>
+                                <Num Num="480"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
                                 <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5"/>
-                                <Num Num="1"/>
+                                <Num Num="4"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -436,8 +428,8 @@
                     <Event execCount="1" eventName="message">
                         <execList>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="20분 내에 모든 소환서를 파괴하세요!"/>
-                                <Num Num="8"/>
+                                <Str Str="8분 내에 모든 소환서를 파괴하세요!"/>
+                                <Num Num="10"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
@@ -565,12 +557,12 @@
             <Stage Name="Ready">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="60초 뒤 미션이 시작됩니다"/>
+                        <Str Str="30초 뒤 미션이 시작됩니다"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
-                    <Event eventName="sec50">
+                    <Event eventName="sec20">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="10"/>
@@ -578,21 +570,21 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="50초 후에 시작됩니다"/>
+                                <Str Str="20초 후에 시작됩니다"/>
                                 <Num Num="8"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
-                    <Event eventName="sec30">
+                    <Event eventName="sec5">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
+                                <Num Num="25"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="30초 후에 시작됩니다"/>
+                                <Str Str="5초 후에 시작됩니다"/>
                                 <Num Num="8"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
@@ -601,7 +593,7 @@
                     <Event eventName="sec10">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="50"/>
+                                <Num Num="20"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -615,7 +607,7 @@
                     <Event eventName="start">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="30"/>
                             </ToolScp>
                         </condList>
                         <execList>

@@ -39,7 +39,7 @@ function EXCHANGE_ON_OPEN(frame)
 	oppfinalbutton:SetEnable(0);
 end
 
-function EXCHANGE_ON_CANCEL(frame)
+function EXCHANGE_ON_CANCEL(frame) 
 	frame:SetUserValue("CHECK_TOKENSTATE_OPPO", 0);
 
 	exchange.SendCancelExchangeMsg();
@@ -47,7 +47,7 @@ function EXCHANGE_ON_CANCEL(frame)
 	exchange.ResetExchangeItem();
 	local invFrame = ui.GetFrame('inventory')
 	UPDATE_INV_LIST(invFrame);	
-
+	
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 end 
 
@@ -61,11 +61,8 @@ function EXCHANGE_ON_AGREE(frame)
 			isEquip = true;
 		end
 	end
-	if false == isEquip then
-   exchange.SendAgreeExchangeMsg();
-	else
-		ui.MsgBox(ScpArgMsg("DecreasePotaionByExchangeForBuyer"),"exchange.SendAgreeExchangeMsg()" , "None");		
-	end
+
+	exchange.SendAgreeExchangeMsg();
 end 
 
 function EXCHANGE_ON_FINALAGREE(frame)
@@ -121,7 +118,7 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 					if IS_EQUIP(obj) == true then
 						ui.SysMsg(ClMsg("ItemIsNotTradable"));	
 					else
-					ui.SysMsg(ClMsg("ItemOverCount"));	
+						ui.SysMsg(ClMsg("ItemOverCount"));	
 					end
 					return;
 				end
@@ -153,16 +150,16 @@ function EXCHANGE_INV_RBTN(itemobj, slot)
 		if obj.MaxStack > 1 then
 			wareItem = session.GetWarehouseItemByType(obj.ClassID);
 		end
-	local wareCnt = 0;
+		local wareCnt = 0;
 		if nil ~= wareItem then
 			wareCnt = wareItem.count;
 		end
 		tradeCount = (item.count + wareCnt) - noTradeCnt;
 		if tradeCount > item.count then
 			tradeCount = item.count;
+		end
 	end
-	end
-
+	
 	EXCHANGE_ADD_FROM_INV(obj, item, tradeCount)
 end
 
@@ -180,26 +177,26 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 
 	local itemProp = geItemTable.GetPropByName(obj.ClassName);
 	if itemProp:IsExchangeable() == false then
-			ui.AlarmMsg("ItemIsNotTradable");
-			return;
-		end
-
-		if geItemTable.IsHavePotential(obj.ClassID) == 1 and obj.PR == 0 then
-			ui.AlarmMsg("NoPotentialForExchange");
-			return;
-		end
-
-	if nil ~= string.find(obj.ClassName, "PremiumToken") then
 		ui.AlarmMsg("ItemIsNotTradable");
 		return;
 	end
 
-		local invframe = ui.GetFrame("inventory");
-	if true == IS_TEMP_LOCK(invframe, item) then
-			return;
-		end
+	if geItemTable.IsHavePotential(obj.ClassID) == 1 and obj.PR == 0 then
+		ui.AlarmMsg("NoPotentialForExchange");
+		return;
+	end
 
-		if geItemTable.IsStack(obj.ClassID) == 1  then
+	if nil ~= string.find(obj.ClassName, "PremiumToken") then -- 토큰 아이템 칼럼이 생기면 바뀌어야 할 부분
+		ui.AlarmMsg("ItemIsNotTradable");
+		return;
+	end
+
+	local invframe = ui.GetFrame("inventory");
+	if true == IS_TEMP_LOCK(invframe, item) then
+		return;
+	end
+
+	if geItemTable.IsStack(obj.ClassID) == 1  then
 		local noTrade = TryGetProp(obj, "BelongingCount");
 		local tradeCount = item.count;
 		if nil ~= noTrade then
@@ -220,7 +217,7 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 				if IS_EQUIP(obj) == true then
 					ui.SysMsg(ClMsg("ItemIsNotTradable"));	
 				else
-				ui.SysMsg(ClMsg("ItemOverCount"));	
+					ui.SysMsg(ClMsg("ItemOverCount"));	
 				end
 				return;
 			end
@@ -231,15 +228,10 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 			return;
 		else
 			ui.AlarmMsg("ItemOverCount"); -- 등록수가 소비개수보다 큼
-			end
 		end
-	if obj.ItemType == "Equip" then
-		local yesScp = string.format("exchange.SendOfferItem(\'%s\', %d)", tostring(item:GetIESID()), 1)
-		ui.MsgBox(ScpArgMsg("DecreasePotaionByExchange"),yesScp , "None");		
-	else
-		exchange.SendOfferItem(tostring(item:GetIESID()), 1);	
 	end
-			
+
+	exchange.SendOfferItem(tostring(item:GetIESID()), 1);				
 end
 
 function EXCHANGE_ON_DROP(frame, control, argStr, argNum)
@@ -271,20 +263,20 @@ function EXCHANGE_ON_DROP(frame, control, argStr, argNum)
 			if obj.MaxStack > 1 then
 				wareItem = session.GetWarehouseItemByType(obj.ClassID);
 			end
-		local wareCnt = 0;
+			local wareCnt = 0;
 			if nil ~= wareItem then
 				wareCnt = wareItem.count;
-		end
+			end
 			tradeCount = (item.count + wareCnt) - noTradeCnt;
 			if tradeCount > item.count then
 				tradeCount = item.count;
-		end
-		
+			end
+
 			if 0 >= tradeCount then
 				if IS_EQUIP(obj) == true then
 					ui.SysMsg(ClMsg("ItemIsNotTradable"));	
 				else
-				ui.SysMsg(ClMsg("ItemOverCount"));	
+					ui.SysMsg(ClMsg("ItemOverCount"));	
 				end
 				return;
 			end
@@ -311,7 +303,7 @@ function EXCHANGE_MSG_END(frame, msg, argStr, argNum)
 	local opponenGBox = GET_CHILD(frame, 'opbgGbox');
 	local nameRichText = GET_CHILD_RECURSIVELY(opponenGBox,'opponentname','ui::CRichText');
 	nameRichText:SetTextByKey('value',argStr)
-	frame:ShowWindow(0);		
+	frame:ShowWindow(0);	
 end 
 
 function EXCHANGE_INIT_SLOT(frame)
@@ -330,12 +322,12 @@ function EXCHANGE_MSG_START(frame, msg, argStr, argNum)
 
 	EXCHANGE_INIT_SLOT(frame);
 	EXCHANGE_RESET_AGREE_BUTTON(frame);
-	
+
 	local myGBox = GET_CHILD(frame, 'mybgGbox');	
 	local nameRichText = GET_CHILD_RECURSIVELY(myGBox,'myname','ui::CRichText');
 	local Name = info.GetFamilyName(session.GetMyHandle());
 	nameRichText:SetTextByKey('value',Name)
-	
+
 	local opponenGBox = GET_CHILD(frame, 'opbgGbox');
 	nameRichText = GET_CHILD_RECURSIVELY(opponenGBox,'opponentname','ui::CRichText');
 	nameRichText:SetTextByKey('value',argStr)
@@ -357,7 +349,7 @@ function EXCHANGE_MSG_START(frame, msg, argStr, argNum)
 	local equipCanTrade = GET_CHILD(frame, 'equipCanTrade');
 	local TokenState = GET_CHILD(frame, 'TokenState');
 	local tradeStatePic = GET_CHILD(frame, 'tradeStatePic', "ui::CPicture");
-	
+
 	equipCannotTrade:ShowWindow(1);
 	equipCanTrade:ShowWindow(0);
 	TokenState:SetTextByKey('value',ScpArgMsg("NoneTokenState"))
@@ -422,7 +414,7 @@ function CHECK_VIS_INPUT(frame)
 end
 
 function EXCHANGE_ITEM_REMOVE(slot, agrNum, agrString)
-	exchange.SendOfferItem(agrString, 0);
+	exchange.SendOfferItem(agrString, 0);	
 end
 
 function EXCHANGE_UPDATE_SLOT(slotset,listindex)

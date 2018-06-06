@@ -46,15 +46,23 @@ end
 function LOGIN_TITLE_UIEFFECT_MOUESMOVE()	
 end
 
+
+g_replayPerfRecordCheckBox = nil
+
 function TOGGLE_REPLAY(frame)
+	local recordPerfCheck = GET_CHILD_RECURSIVELY(frame, "replayPerfRecord");
+	g_replayPerfRecordCheckBox = recordPerfCheck;
 
 	OPEN_FILE_FIND("replay", "EXEC_LOAD_REPLAY", 0);
-
 end
 
 function EXEC_LOAD_REPLAY(fileName)
+	flagRecordPerf = 1;
+	if g_replayPerfRecordCheckBox ~= nil then
+		flagRecordPerf = g_replayPerfRecordCheckBox:IsChecked();
+	end
 
-	app.StartReplay(fileName);	
+	app.StartReplay(fileName, flagRecordPerf == 1);	
 
 end
 

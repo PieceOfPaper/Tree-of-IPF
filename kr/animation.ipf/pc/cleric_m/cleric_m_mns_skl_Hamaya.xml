@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<Particle frame="2" attachNode="Dummy_effect_Hamaya" particleName="I_light013_spark_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="5" attachNode="Dummy_effect_Hamaya" particleName="I_light013_spark_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="8" attachNode="Dummy_effect_Hamaya" particleName="I_light013_spark_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="11" attachNode="Dummy_effect_Hamaya" particleName="I_light013_spark_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="14" attachNode="Dummy_effect_Hamaya" particleName="I_light013_spark_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="17" attachNode="Dummy_effect_Hamaya" particleName="I_light013_spark_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<AttachModel frame="0" XAC="artefact_Kagurasuzu" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="Kagurasuzu_skl_Hamaya.xsm"/>
-	<AttachModel frame="0" XAC="artefact_hamaya" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="1" anim="hamaya_skl_Hamaya.xsm"/>
+    <AttachModel frame="0" XAC="artefact_Kagurasuzu" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="Kagurasuzu_skl_Hamaya.xsm"/>
+    <AttachModel frame="0" XAC="artefact_hamaya" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="1" anim="hamaya_skl_Hamaya.xsm"/>
+    <Sound frame="0.00" soundFile="skl_eff_hamaya_bowl"/>
+    <Sound frame="0.00" soundFile="skl_eff_crystallight_1"/>
+    <Sound frame="0.00" soundFile="skl_eff_resurrection_cast"/>
+    <Particle frame="1.00" attachNode="Dummy_effect_Hamaya" particleName="I_light013_spark_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound=""/>
+    <Particle frame="4.00" attachNode="Dummy_effect_Hamaya" particleName="I_light013_spark_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound=""/>
+    <Particle frame="7.00" attachNode="Dummy_effect_Hamaya" particleName="I_light013_spark_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound=""/>
+    <Sound frame="7.00" soundFile="skl_fgt_tackle_shot"/>
+    <Particle frame="10.00" attachNode="Dummy_effect_Hamaya" particleName="I_light013_spark_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound=""/>
+    <Sound frame="11.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="21.00" soundFile="skl_fgt_tackle_cast_2"/>
 </ActionDesc>

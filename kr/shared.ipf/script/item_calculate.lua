@@ -176,6 +176,12 @@ function GET_REINFORCE_ADD_VALUE_ATK(item)
 	    value = (minAtk + maxAtk) / 2;
 	elseif item.BasicTooltipProp == "MATK" then
 	    value = GET_BASIC_MATK(item);
+	elseif item.BasicTooltipProp == "ADD_FIRE" then
+	    value = item.ItemLv;
+	elseif item.BasicTooltipProp == "ADD_ICE" then
+	    value = item.ItemLv;
+	elseif item.BasicTooltipProp == "ADD_LIGHTNING" then
+	    value = item.ItemLv;
 	end
 --	if value < 10 then
 --	    value = 10;
@@ -258,6 +264,12 @@ function GET_REINFORCE_ADD_VALUE(prop, item)
     	    value = item.Reinforce_2 * (1 + math.floor(star / 5));
     	end
     elseif prop == 'MHR' then -- MHR
+        if item.Reinforce_2 > 3 then
+	        value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
+    	else
+    	    value = item.Reinforce_2 * (1 + math.floor(star / 2));
+    	end
+    elseif prop == 'ADD_FIRE' or prop == 'ADD_ICE' or prop == 'ADD_LIGHTNING' then -- ADD_Element
         if item.Reinforce_2 > 3 then
 	        value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
     	else
@@ -405,6 +417,9 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
 	local dr =0;
 	local mhr=0;
 	local mdef=0;
+	local fireAtk = 0;
+	local iceAtk = 0;
+	local lightningAtk = 0;
 	local defRatio = 0;
 	local mdefRatio = 0;
     
@@ -460,6 +475,15 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
         
     elseif basicProp == 'MHR' then
         mhr = math.floor((lv / 4) + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg
+    elseif basicProp == 'ADD_FIRE' then
+        local rainforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item);
+        fireAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg;
+    elseif basicProp == 'ADD_ICE' then
+        local rainforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item);
+        iceAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg;
+    elseif basicProp == 'ADD_LIGHTNING' then
+        local rainforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item);
+        lightningAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg;
     end
 	item.HR = hr;
 	item.DR = dr;
@@ -468,6 +492,9 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
 	item.MDEF = mdef;
 	item.DefRatio = defRatio;
 	item.MDefRatio = mdefRatio;
+	item.ADD_FIRE = fireAtk;
+	item.ADD_ICE = iceAtk;
+	item.ADD_LIGHTNING = lightningAtk;
 	local MHPRatio = TryGetProp(item, 'MHPRatio')
 	if nil ~= MHPRatio then
 		item.MHPRatio = 0;
@@ -514,6 +541,9 @@ function SCR_REFRESH_ACC(item)
 	local dr =0;
 	local mhr=0;
 	local mdef=0;
+	local fireAtk=0;
+	local iceAtk=0;
+	local lightningAtk=0;	
 	local defRatio = 0;
 	local mdefRatio = 0;
     
@@ -531,6 +561,12 @@ function SCR_REFRESH_ACC(item)
         dr =  math.floor((4 + lv)/2 + GET_REINFORCE_ADD_VALUE(basicProp, item))
     elseif basicProp == 'MHR' then
         mhr = math.floor((lv / 4) + GET_REINFORCE_ADD_VALUE(basicProp, item))
+    elseif basicProp == 'ADD_FIRE' then
+        fireAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
+    elseif basicProp == 'ADD_ICE' then
+        iceAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
+    elseif basicProp == 'ADD_LIGHTNING' then
+        lightningAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
     end
 
 	item.HR = hr;
@@ -538,6 +574,9 @@ function SCR_REFRESH_ACC(item)
 	item.DEF = def;
 	item.MHR = mhr;
 	item.MDEF = mdef;
+	item.ADD_FIRE = fireAtk;
+	item.ADD_ICE = iceAtk;
+	item.ADD_LIGHTNING = lightningAtk;
 	item.DefRatio = defRatio;
 	item.MDefRatio = mdefRatio;
 

@@ -119,12 +119,6 @@ end
 
 function GET_ITEM_STAR_TXT(obj, imgSize)
 
-	local starcount = 1;	
-
-	if obj.ItemType ~= "Equip" and obj.GroupName ~="Gem" and obj.GroupName ~='Card'  then
-		return ""
-	end
-
 	local star = nil
 
 	if obj.GroupName == "Gem" or  obj.GroupName == "Card"  then

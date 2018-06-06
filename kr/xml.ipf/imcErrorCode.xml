@@ -247,6 +247,8 @@
 		<Code Code="ERRCODE_NETWORK_FAIL_ONPACKET_FALSE" CallStack="NO" Desc="해당 패킷을 처리하는 로직이 없습니다."/>
     <Code Code="ERRCODE_NETWORK_CANT_GET_EXTERN_IP" CallStack="NO" Desc="외부 IP를 얻는데 실패하였습니다."/>
     <Code Code="ERRCODE_NETWORK_HTTP_JSON_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
+	<Code Code="ERRCODE_NETWORK_HTTP_SOAP_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
+		<Code Code="ERRCODE_NETWORK_EMBEDDED_BROWSER_ERROE" CallStack="YES" Desc="Embedded_Browser에 문제가 발생하였습니다."/>
 	</Type>
 	<Type Type="DB">
 		<Code Code="ERRCODE_DB_WORLDTABLE" CallStack="NO" Desc="월드 테이블 세팅에 실패하였습니다. WorldTable DB 테이블 및 ODBC 세팅을 확인하세요."/>
@@ -324,5 +326,6 @@
 		<Code Code="ERRCODE_INFO_OLDMSG" CallStack="NO" Desc="다국어화 어순 이슈로 clientmessage.xml에서 %s 를 이용한 포맷은 쓰지 않기로 했습니다. "/>
     <Code Code="ERRCODE_INFO_FAIL_GUILD_AGIT_ENTER" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
     <Code Code="ERRCODE_INFO_DB_CONNECT" CallStack="NO" Desc=" : "/>
-  </Type>
+  <Code Code="ERRCODE_INFO_FAIL_GUILD_AGIT_ENTER" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
+	</Type>
 </imcErrorCode>

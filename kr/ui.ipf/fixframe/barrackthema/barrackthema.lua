@@ -28,8 +28,7 @@ function BARRACK_THEMA_UPDATE(frame)
 	local account = GetMyAccountObj();
 	local mynxp = bg:GetChild("mynxp");
 	local accountObj = GetMyAccountObj();
-	mynxp:SetTextByKey("value", accountObj.GiftMedal);
-	mynxp:SetTextByKey("value2", accountObj.GiftMedal + accountObj.PremiumMedal);
+	mynxp:SetTextByKey("value", accountObj.GiftMedal + accountObj.PremiumMedal);
 	local bg_1 = frame:GetChild("nxp_bg_1");
 	local mynxp_1 = bg_1:GetChild("mynxp_1");
 	mynxp_1:SetTextByKey("value", accountObj.Medal);
@@ -150,12 +149,7 @@ end
 function BARRACK_BUY(buyMap)
 	local cls = GetClass("BarrackMap", buyMap);
 
-	local msgBoxStr = ClMsg("ReallyBuy?") .. "{nl}" .. cls.Price .. " " .. ScpArgMsg("iCoin");
-	if config.GetServiceNation() == "KOR" then
-		msgBoxStr = ClMsg("ReallyBuy?") .. "{nl}" .. cls.Price .. " " .. ScpArgMsg("NXP");
-	elseif config.GetServiceNation() == "JP" then
-		msgBoxStr = ClMsg("ReallyBuy?") .. "{nl}" .. cls.Price .. " " .. ScpArgMsg("JNxp");
-	end
+	local msgBoxStr = ClMsg("ReallyBuy?") .. "{nl}" .. cls.Price .. " " .. ScpArgMsg("NXP");
 
 	local yesScp = string.format("EXEC_BUY_BARRACK(\"%s\")", buyMap);
 	if GET_CASH_TOTAL_POINT_C() < cls.Price then
