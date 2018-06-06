@@ -1,7 +1,7 @@
 
 if not exist Temp mkdir Temp
 cd Temp
-if not exist data mkdir data
+if not exist patch mkdir patch
 cd ..
 
 if not exist %2 mkdir %2
@@ -18,10 +18,10 @@ set ExportPath=%cd%\%2
 
 
 
-for /f %%a in (ipflist_data.txt) do (
-	echo F|xcopy /y "%TosPath%\data\%%a" "%TempPath%\data\%%a"
-	%RootPath%\ipf_unpack.exe %TempPath%\data\%%a decrypt
-	%RootPath%\ipf_unpack.exe %TempPath%\data\%%a extract ies xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3
+for /f %%a in (ipflist_patch.txt) do (
+	echo F|xcopy /y "%TosPath%\patch\%%a" "%TempPath%\patch\%%a"
+	%RootPath%\ipf_unpack.exe %TempPath%\patch\%%a decrypt
+	%RootPath%\ipf_unpack.exe %TempPath%\patch\%%a extract ies xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3
 	
 	xcopy /y /s "%ExtractPath%" "%ExportPath%"
 	
