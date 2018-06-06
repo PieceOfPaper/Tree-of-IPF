@@ -66,7 +66,7 @@
 ZONENAME_LIST = {}
 ZONENAME_LIST_LV = {}
 
-FLASHMOB_EVENT_REWARD_TABLE = {{{'Premium_eventTpBox_5_3',1}}}
+FLASHMOB_EVENT_REWARD_TABLE = {{{'Premium_eventTpBox_10_3',1}}}
 
 
 WORLD_SIZE = 10240;

@@ -9,6 +9,8 @@ function GUILDINFO_INIT_MEMBER_TAB(frame, msg)
         return;
     end
 
+    GUILDINFO_MEMBER_INIT_ONLINE_CHECKBOX(frame);
+
     local memberCtrlBox = GET_CHILD_RECURSIVELY(memberBox, 'memberCtrlBox');
     DESTROY_CHILD_BYNAME(memberCtrlBox, 'MEMBER_');
 
@@ -153,6 +155,8 @@ function GUILDINFO_MEMBER_ONLINE_CLICK(parent, checkBox)
 
     local childCount = memberCtrlBox:GetChildCount();
     local showOnlyOnline = checkBox:IsChecked();
+    config.ChangeXMLConfig('OnlyOnlineGuildMember', showOnlyOnline);    
+
     for i = 0, childCount - 1 do
         local child = memberCtrlBox:GetChildByIndex(i);
         if string.find(child:GetName(), 'MEMBER_') ~= nil then
@@ -415,4 +419,9 @@ end
 
 function GUILD_BAN(name)
 	ui.Chat("/partybanByAID " .. PARTY_GUILD.. " " .. name);	
+end
+
+function GUILDINFO_MEMBER_INIT_ONLINE_CHECKBOX(frame)
+    local memberFilterCheck = GET_CHILD_RECURSIVELY(frame, 'memberFilterCheck');    
+    memberFilterCheck:SetCheck(config.GetXMLConfig('OnlyOnlineGuildMember'));
 end
