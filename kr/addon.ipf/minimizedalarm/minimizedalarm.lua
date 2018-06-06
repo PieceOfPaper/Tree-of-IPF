@@ -59,7 +59,11 @@ function ON_PVP_PLAYING_UPDATE(frame)
 		gbox_mission:ShowWindow(1);
 	
 		local pic = gbox_mission:GetChild("pic");
+		if nil ~= pic then
 		pic:SetEventScript(ui.LBUTTONUP, "OPEN_PARTY_COMPETITION");
+		else
+			gbox_mission:ShowWindow(0);
+		end
 	
 	else
 		gbox_mission:ShowWindow(0);

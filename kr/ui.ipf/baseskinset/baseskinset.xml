@@ -2063,13 +2063,13 @@
 		</skin>
 		<skin name="pay_charge_btn" texture="\skin\paid_skin.tga">
 			<img name="topleft" imgrect="288 166 50 30"/>
-			<img name="topcore" imgrect="399 166 50 30"/>
+			<img name="topcore" imgrect="339 166 50 30"/>
 			<img name="topright" imgrect="390 166 50 30"/>
 			<img name="bodyleft" imgrect="288 197 50 15"/>
-			<img name="bodycore" imgrect="399 197 50 15"/>
+			<img name="bodycore" imgrect="339 197 50 15"/>
 			<img name="bodyright" imgrect="390 197 50 15"/>
 			<img name="bottomleft" imgrect="288 213 50 30"/>
-			<img name="bottomcore" imgrect="399 213 50 30"/>
+			<img name="bottomcore" imgrect="339 213 50 30"/>
 			<img name="bottomright" imgrect="390 213 50 30"/>
 		</skin>
 		<skin name="pay_charge_btn_cursoron" texture="\skin\paid_skin.tga">
@@ -4406,6 +4406,9 @@
 		<image name="transcendence_bg" file="\skin\transcendence_skin.tga" imgrect="0 0 408 707" CMM_Caption="초월배경"/>
 		<image name="transcendence_bg2" file="\skin\transcendence_skin2.tga" imgrect="0 0 415 707" CMM_Caption="분해배경"/>
 		<image name="transcendence_bg3" file="\skin\transcendence_skin copy3.tga" imgrect="0 0 415 707" CMM_Caption="제거배경"/>
+	<image name="moncard_inven_image" file="\skin\pip_test.tga" imgrect="1515 836 157 35" CMM_Caption="몬스터카드_장착배경"/>
+		<image name="moncard_inven_up" file="\skin\pip_test.tga" imgrect="1515 872 10 10" CMM_Caption="몬스터카드_업"/>
+		<image name="moncard_inven_down" file="\skin\pip_test.tga" imgrect="1526 872 10 10" CMM_Caption="몬스터카드_다운"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -5730,8 +5733,8 @@
 		<image name="button_chat_Emo" file="\skin\HUD.tga" imgrect="866 345 34 34" CMM_Caption="chat_Emoticons"/>
 		<image name="button_chat_Emo_cursoron" file="\skin\HUD.tga" imgrect="901 345 34 34"/>
 		<image name="button_chat_Emo_clicked" file="\skin\HUD.tga" imgrect="936 345 34 34"/>
-		<image name="button_chat_kind" file="\skin\HUD.tga" imgrect="1318 916 56 34" CMM_Caption="채팅분류"/>
-		<image name="button_chat_kind_cursoron" file="\skin\HUD.tga" imgrect="1375 916 56 34"/>
+		<image name="button_chat_kind" file="\skin\HUD.tga" imgrect="1375 916 56 34" CMM_Caption="채팅분류"/>
+		<image name="button_chat_kind_cursoron" file="\skin\HUD.tga" imgrect="1318 916 56 34"/>
 		<image name="button_chat_kind_clicked" file="\skin\HUD.tga" imgrect="1432 916 56 34"/>
 		<image name="button_chat_option" file="\skin\HUD.tga" imgrect="866 381 34 34" CMM_Caption="채팅옵션"/>
 		<image name="button_chat_option_cursoron" file="\skin\HUD.tga" imgrect="901 381 34 34"/>
@@ -5991,6 +5994,9 @@
 		<image name="Dlg_port_PhilipAureolus" file="\npcimg\PhilipAureolus.png" imgrect="0 0 800 1000" CMM_Caption="플레이그닥터마스터"/>
 		<image name="Dlg_port_zanas_prison" file="\npcimg\zanas_prison.png" imgrect="0 0 800 900" CMM_Caption="자나스"/>
 		<image name="Dlg_port_Jurate" file="\npcimg\Jurate.png" imgrect="0 0 800 1000" CMM_Caption="유라테여신"/>
+	<image name="Dlg_port_Vaivora" file="\npcimg\Vaivora.png" imgrect="0 0 900 1000" CMM_Caption="바이보라여신"/>
+		<image name="Dlg_port_Dalia" file="\npcimg\Dalia.png" imgrect="0 0 900 1000" CMM_Caption="딜라아"/>
+		<image name="Dlg_port_Vincentas" file="\npcimg\Vincentas.png" imgrect="0 0 850 1000" CMM_Caption="빈센타스"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>

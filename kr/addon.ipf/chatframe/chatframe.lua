@@ -298,7 +298,7 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 	local roomID = "Default";
 	local marginLeft = 0;
 	local marginRight = 25;
-	local ypos = 0
+	local ypos = 0;
 	local textVer = IS_TEXT_VER_CHAT();
 
 	for i = startindex , size - 1 do
@@ -348,12 +348,14 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				local tempMsg = string.gsub(clusterinfo:GetMsg(), "({/}{/})", "%1" .. fontStyle .. tempfontSize);
 				txt:SetTextByKey("text", tempMsg);
 
-				RESIZE_CHAT_CTRL(chatframe, cluster, label, txt, 0, offsetX)
+				
+				local timeBox = GET_CHILD(cluster, "timebox");
+				RESIZE_CHAT_CTRL(1, chatframe, cluster, label, txt, timeBox, offsetX);
 
 			if cluster:GetHorzGravity() == ui.RIGHT then
-					cluster:SetOffset( marginRight , ypos - 10); 
+					cluster:SetOffset( marginRight , ypos + 5); 
 			else
-					cluster:SetOffset( marginLeft , ypos - 10); 
+					cluster:SetOffset( marginLeft , ypos + 5); 
 			end
 
 				local slflag = string.find(clusterinfo:GetMsg(),'a SL%a')
@@ -374,7 +376,7 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				horzGravity = ui.RIGHT;
 			end
 
-				local chatCtrl = groupbox:CreateOrGetControlSet(chatCtrlName, clustername, horzGravity, ui.TOP, marginLeft, ypos - 10, marginRight, 0);
+				local chatCtrl = groupbox:CreateOrGetControlSet(chatCtrlName, clustername, horzGravity, ui.TOP, marginLeft, ypos + 5, marginRight, 0);
 			chatCtrl:EnableHitTest(1);
 				local fontStyle = mainchatFrame:GetUserConfig("BALLONCHAT_FONTSTYLE");
 				if msgType ~= "System" then
@@ -387,6 +389,8 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				local myColor, targetColor = GET_CHAT_COLOR(msgType);
 			local label = chatCtrl:GetChild('bg');
 			local txt = GET_CHILD(label, "text", "ui::CRichText");
+				local timeBox = GET_CHILD(chatCtrl, "timebox", "ui::CGroupBox");
+				local timeCtrl = GET_CHILD(timeBox, "time", "ui::CRichText");
 			local nameText = GET_CHILD(chatCtrl, "name", "ui::CRichText");
 
 				local tempMsg = string.gsub(clusterinfo:GetMsg(), "({/}{/})", "%1" .. fontStyle .. tempfontSize);
@@ -416,6 +420,8 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				]]
 			end
 		
+				timeCtrl:SetTextByKey("time", clusterinfo:GetTimeStr());
+
 				local slflag = string.find(clusterinfo:GetMsg(),'a SL%a')
 			if slflag == nil then
 				label:EnableHitTest(0)
@@ -423,7 +429,7 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				label:EnableHitTest(1)
 			end
 		
-				RESIZE_CHAT_CTRL(chatframe, chatCtrl, label, txt, 0, offsetX);
+				RESIZE_CHAT_CTRL(1, chatframe, chatCtrl, label, txt, timeBox, offsetX);
 			end;			
 		elseif textVer == 1 then
 			-- 간략화 버젼 
@@ -433,16 +439,21 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				local itemCnt = clusterinfo:GetMsgItemCount();
 				local label = chatCtrl:GetChild('bg');
 				local txt = GET_CHILD(chatCtrl, "text", "ui::CRichText");	
+				local timeCtrl = GET_CHILD(chatCtrl, "time", "ui::CRichText");
 				local msgFront = "";
 				local msgString = "";				
-				local fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_NORMAL");
+				local fontStyle = nil;
+				local msgIsMine = false;
 				
-				if fontStyle == nil then
-					fontStyle = "";
-				end;
-
 				chatCtrl:EnableHitTest(1);
+
+				if true == ui.IsMyChatCluster(clusterinfo) then
+					msgIsMine = true;
+					label:SetColorTone("FF000000");
+					label:SetAlpha(60);
+				else
 				label:SetAlpha(0);
+				end;
 
 				if msgType ~= "System" then
 					chatCtrl:SetEventScript(ui.RBUTTONDOWN, 'CHAT_RBTN_POPUP');
@@ -450,20 +461,21 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 
 					if msgType == "Normal" then
 						msgFront = string.format("[%s]", commnderName);
+						fontStyle = CHAT_TEXT_IS_MINE_AND_SETFONT(mainchatFrame, msgIsMine, "TEXTCHAT_FONTSTYLE_NORMAL");
 					elseif msgType == "Shout" then
-						fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_SHOUT");
+						fontStyle = CHAT_TEXT_IS_MINE_AND_SETFONT(mainchatFrame, msgIsMine, "TEXTCHAT_FONTSTYLE_SHOUT");
 						msgFront = string.format("[%s][%s]", ScpArgMsg("ChatType_2"), commnderName);	
 					elseif msgType == "Party" then
-						fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_PARTY");
+						fontStyle = CHAT_TEXT_IS_MINE_AND_SETFONT(mainchatFrame, msgIsMine, "TEXTCHAT_FONTSTYLE_PARTY");
 						msgFront = string.format("[%s][%s]", ScpArgMsg("ChatType_3"), commnderName);		
 					elseif msgType == "Guild" then
-						fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_GUILD");
+						fontStyle = CHAT_TEXT_IS_MINE_AND_SETFONT(mainchatFrame, msgIsMine, "TEXTCHAT_FONTSTYLE_GUILD");
 						msgFront = string.format("[%s][%s]", ScpArgMsg("ChatType_4"), commnderName);	
 					elseif msgType == "Notice" then		--공지
 						fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_NOTICE");	
 						msgFront = string.format("[%s]", ScpArgMsg("ChatType_6"));		
 					else	--귓말
-						fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_WHISPER");
+						fontStyle = CHAT_TEXT_IS_MINE_AND_SETFONT(mainchatFrame, msgIsMine, "TEXTCHAT_FONTSTYLE_WHISPER");
 						msgFront = string.format("[%s][%s]", ScpArgMsg("ChatType_5"), commnderName);	
 					end;
 				elseif msgType == "System" then
@@ -472,6 +484,7 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 					label:SetColorTone("FF000000");
 					label:SetAlpha(80);
 		end
+
 
 				for i = 1 , itemCnt do
 					--local tempMsg = string.gsub(clusterinfo:GetMsgItembyIndex(i-1), "({img %a+_%d+%s)%d+%s%d+(}{/})", "%1" .. (fontSize * 3) .. " " .. (fontSize * 3) .. "%2".. fontStyle .. tempfontSize); --이미지의 크기도 변경시키는 코드
@@ -482,7 +495,9 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				msgString = string.format("%s{/}", msgString);	
 				txt:SetTextByKey("font", fontStyle);				
 				txt:SetTextByKey("size", fontSize);				
-				txt:SetTextByKey("text", msgString);
+				txt:SetTextByKey("text", CHAT_TEXT_LINKCHAR_FONTSET(mainchatFrame, msgString));
+				timeCtrl:SetTextByKey("time", clusterinfo:GetTimeStr());	
+
 								
 				local slflag = string.find(clusterinfo:GetMsg(),'a SL%a')
 				if slflag == nil then
@@ -490,7 +505,8 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				else
 					txt:EnableHitTest(1)
 	end
-				RESIZE_CHAT_CTRL(chatframe, chatCtrl, label, txt, 1, offsetX);				
+				timeCtrl:SetOffset(10, 10);
+				RESIZE_CHAT_CTRL(0, chatframe, chatCtrl, label, txt, timeCtrl, offsetX);				
 		end;
 	end;
 
@@ -531,22 +547,42 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 	end
 end
 
-function RESIZE_CHAT_CTRL(chatframe, chatCtrl, label, txt, simple, offsetX)
+function RESIZE_CHAT_CTRL(isBallon, chatframe, chatCtrl, label, txt, timeBox, offsetX)
 
-	if simple == 0 then
+	if isBallon == 1  then
 		-- 풍선버젼
 	local lablWidth = txt:GetWidth() + 40;
 	local chatWidth = chatCtrl:GetWidth();
 	label:Resize(lablWidth, txt:GetHeight() + 20);
 
 	chatCtrl:Resize(chatWidth, label:GetY() + label:GetHeight() + 10);
+
+		if chatCtrlName == 'chati' then
+			local offsetX = label:GetX() + txt:GetWidth() - 60;
+			if 35 > offsetX then
+				offsetX = offsetX + 40;
+			end
+			if label:GetWidth() < timeBox:GetWidth() + 20 then		
+				offsetX = math.min(offsetX, label:GetX() - timeBox:GetWidth()/2);
+			end
+			timeBox:SetOffset(offsetX, label:GetY() + label:GetHeight() - 10);
+		else		
+			local offsetX = label:GetX() + txt:GetWidth() - 60;
+			if 35 > offsetX then
+				offsetX = offsetX + 40;
+			end
+			timeBox:SetOffset(offsetX, label:GetY() + label:GetHeight() - 10);
+		end;
+
 	else
 		-- 간략화 버젼
 		local lablWidth = txt:GetWidth() + 40;
 		local chatWidth = chatframe:GetWidth();
 		label:Resize(chatWidth - offsetX, txt:GetHeight());
 		chatCtrl:Resize(chatWidth, label:GetHeight());
-		txt:SetTextMaxWidth(chatWidth - offsetX);
+
+		txt:SetTextMaxWidth(chatWidth - (offsetX + 60));
+		timeBox:SetOffset(label:GetWidth() - 60, 0);
 	end;
 end;
 
@@ -932,15 +968,16 @@ function CHAT_SET_FONTSIZE(chatframe, num)
 								local msgString = CHAT_TEXT_CHAR_RESIZE(txt:GetTextByKey("text"), targetSize);
 								txt:SetTextByKey("text", msgString);
 						txt:SetTextByKey("size", targetSize);
-								RESIZE_CHAT_CTRL(chatframe, chatCtrl, label, txt, 0, offsetX)				
+								local timeBox = GET_CHILD(chatCtrl, "timebox");
+								RESIZE_CHAT_CTRL(1, chatframe, chatCtrl, label, txt, timeBox, offsetX)				
 							else
 								--간략화 버젼
 								local txt = GET_CHILD(chatCtrl, "text", "ui::CRichText");
 								local msgString = CHAT_TEXT_CHAR_RESIZE(txt:GetTextByKey("text"), targetSize);
 								txt:SetTextByKey("text", msgString);
 								txt:SetTextByKey("size", targetSize);	
-
-								RESIZE_CHAT_CTRL(chatframe, chatCtrl, label, txt, 1, offsetX)
+								local timeBox = GET_CHILD(chatCtrl, "time");
+								RESIZE_CHAT_CTRL(0, chatframe, chatCtrl, label, txt, timeBox, offsetX)
 							end;
 						beforeHeight = chatCtrl:GetY() + chatCtrl:GetHeight();
 						lastChild = chatCtrl;
@@ -983,6 +1020,28 @@ function CHAT_TEXT_CHAR_RESIZE(msg, fontSize)
 	local resultStr = string.gsub(msg, "({s%d+})", tempfontSize);
 	return resultStr;
 end
+
+
+function CHAT_TEXT_LINKCHAR_FONTSET(frame, msg)
+	if msg == nil then 
+		return;
+	end;
+	
+	local fontStyle = frame:GetUserConfig("TEXTCHAT_FONTSTYLE_LINK");
+	local resultStr = string.gsub(msg, "({#%x+}){img", fontStyle .. "{img");
+
+	return resultStr;
+end
+
+function CHAT_TEXT_IS_MINE_AND_SETFONT(chatframe, msgIsMine, fontName)
+	local result;
+	if true == msgIsMine then
+		result = fontName .. "_MY";
+		return chatframe:GetUserConfig(result);
+	end
+	return chatframe:GetUserConfig(fontName);
+end
+
 
 --[[
 function CHAT_LAST_TEN_UPDATED(frame, msg, argStr, argNum) -- 아직 정체 불명. 나중에 고치던가 할 것

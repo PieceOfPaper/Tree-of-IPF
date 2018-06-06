@@ -2058,6 +2058,7 @@
 		<image name="item_NECK_PILGRIM_03_SPR" file="\icon\acc\item_NECK_PILGRIM_03_SPR.png" imgrect="0 0 256 256"/>
 		<image name="item_NECK_PILGRIM_04_INT" file="\icon\acc\item_NECK_PILGRIM_04_INT.png" imgrect="0 0 256 256"/>
 		<image name="item_NECK_PILGRIM_05_HPW" file="\icon\acc\item_NECK_PILGRIM_05_HPW.png" imgrect="0 0 256 256"/>
+		<image name="item_NECK_JEMINA01" file="\icon\acc\item_NECK_JEMINA01.png" imgrect="0 0 256 256"/>
 		<image name="item_bracelet_01" file="\icon\acc\item_bracelet_01.png" imgrect="0 0 256 256" CMM_Caption="팔찌"/>
 		<image name="item_bracelet_02" file="\icon\acc\item_bracelet_02.png" imgrect="0 0 256 256"/>
 		<image name="item_bracelet_03" file="\icon\acc\item_bracelet_03.png" imgrect="0 0 256 256"/>
@@ -3440,6 +3441,7 @@
 		<image name="icon_item_blacknecklace" file="\icon\item\icon_item_blacknecklace.png" imgrect="0 0 128 128" CMM_Caption="종유동굴 푸른목걸이"/>
 		<image name="icon_item_Anchovy" file="\icon\item\icon_item_Anchovy.png" imgrect="0 0 128 128" CMM_Caption="멸치"/>
 		<image name="icon_item_egg_lessrpanda2" file="\icon\item\icon_item_egg_lessrpanda2.png" imgrect="0 0 128 128" CMM_Caption="렛서팬더상자"/>
+	<image name="icon_item_jemina" file="\icon\item\icon_item_jemina.png" imgrect="0 0 128 128" CMM_Caption="제미나목걸이상자"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -3502,6 +3504,8 @@
 		<image name="icon_item_hair_GM2_female" file="\icon\payment\hair_GM2_female.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_hair_sage" file="\icon\payment\hair_sage.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_hair_warrock" file="\icon\payment\hair_warrock.png" imgrect="0 0 256 256"/>
+		<image name="hair_zealot" file="\icon\payment\hair_zealot.png" imgrect="0 0 256 256"/>
+		<image name="hair_necromancer" file="\icon\payment\hair_necromancer.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_swordmanmaster_m" file="\icon\payment\warrior_swordmanmaster_m.png" imgrect="0 0 256 256" CMM_Caption="소드맨마스터유료코스튬"/>
 		<image name="icon_item_Warrior_PeltastaMaster_f" file="\icon\payment\Warrior_PeltastaMaster_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_repairkit" file="\icon\payment\icon_item_repairkit.png" imgrect="0 0 256 256" CMM_Caption="긴급수리키트"/>
@@ -3556,6 +3560,8 @@
 		<image name="icon_item_warrior_knight_m" file="\icon\payment\warrior_m_knight.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_lens_yellow" file="\icon\payment\lens_yellow.png" imgrect="0 0 256 256" CMM_Caption="렌즈"/>
 		<image name="icon_item_lens_perple" file="\icon\payment\lens_perple.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_lens_red" file="\icon\payment\lens_red.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_lens_black" file="\icon\payment\lens_black.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_package_penguin" file="\icon\payment\icon_item_package_penguin.png" imgrect="0 0 256 256" CMM_Caption="펭귄패키지"/>
 		<image name="icon_item_tospoint500" file="\icon\payment\icon_item_tospoint500.png" imgrect="0 0 256 256" CMM_Caption="TP 500개"/>
 		<image name="icon_item_tospoint900" file="\icon\payment\icon_item_tospoint900.png" imgrect="0 0 256 256" CMM_Caption="TP 900개"/>

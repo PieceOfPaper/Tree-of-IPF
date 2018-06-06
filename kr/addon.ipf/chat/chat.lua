@@ -459,6 +459,7 @@ function CHAT_OPEN_TYPE()
 	local frame = ui.GetFrame('chattypelist');
 	frame:SetPos(chatFrame:GetX() + 3, chatFrame:GetY() - frame:GetHeight());	
 	frame:ShowWindow(1);	
+	frame:SetDuration(3);
 end;
 
 

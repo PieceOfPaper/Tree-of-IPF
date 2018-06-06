@@ -41,7 +41,7 @@ function CHANGE_LOADING_IMG_URLSTR()
 	local cls = GetClassByTypeFromList(clsList, clsID);
 	local url = config.GetLoadingImgURL();
 	local urlStr = string.format("%s%s", url, cls.FileName);
-	return urlStr, currentLoadingType;
+	return urlStr, cls;
 end
 
 function LOADINGBG_ON_INIT(addon, frame)
@@ -58,7 +58,7 @@ function LOADINGBG_ON_INIT(addon, frame)
 	local pic = GET_CHILD(frame, "pic", "ui::CWebPicture");
 	pic:Resize(frame:GetWidth(), frame:GetHeight());
 
-	local urlStr, currentLoadingType = CHANGE_LOADING_IMG_URLSTR();
+	local urlStr, cls = CHANGE_LOADING_IMG_URLSTR();
 	pic:SetUrlInfo(urlStr);
 
 	local tipGroupbox 		= frame:GetChild('tip');
@@ -66,13 +66,23 @@ function LOADINGBG_ON_INIT(addon, frame)
 	local faqGroupbox 		= GET_CHILD_RECURSIVELY(frame,'faq')
 	local faqCtl 			= GET_CHILD_RECURSIVELY(frame,'gamefaq')
 	
-	if currentLoadingType ~= 'LoadingDefault' then
-		tipGroupbox:SetVisible(0);
-		faqGroupbox:SetVisible(0);
+	if cls ~= nil then
+		local isHide = 0;
+
+		if cls.FAQ_Hide == "YES" then	
+			isHide = 1;
 	else
-		tipGroupbox:SetVisible(1);
-		faqGroupbox:SetVisible(1);
-	end;
+			isHide = 0;		
+		end
+		faqGroupbox:SetVisible(isHide);	
+
+		if cls.Tooltip_Hide == "YES" then	
+			isHide = 1;
+		else
+			isHide = 0;		
+		end
+		tipGroupbox:SetVisible(isHide);
+	end
 
 	local gauge = frame:GetChild("gauge");
 	gauge:Resize(frame:GetWidth(), gauge:GetHeight());

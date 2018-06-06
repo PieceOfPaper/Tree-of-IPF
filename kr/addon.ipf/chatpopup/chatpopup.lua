@@ -1,6 +1,11 @@
 
 function RESIZE_POPUP_CHAT(frame)	
 	local textVer = IS_TEXT_VER_CHAT();	
+
+	if frame == nil then
+		return;
+	end
+
 	local offsetX = frame:GetUserConfig("CTRLSET_OFFSETX");
 	local count = frame:GetChildCount();
 	for  i = 0, count-1 do 
@@ -19,11 +24,13 @@ function RESIZE_POPUP_CHAT(frame)
 							if textVer == 0 then
 								--풍선 버젼
 								local txt = GET_CHILD(label, "text", "ui::CRichText");
-								RESIZE_CHAT_CTRL(frame, chatCtrl, label, txt, 0, offsetX)				
+								local timeBox = GET_CHILD(chatCtrl, "timebox");
+								RESIZE_CHAT_CTRL(1, frame, chatCtrl, label, txt, timeBox, offsetX)				
 							else
 								--간략화 버젼
 								local txt = GET_CHILD(chatCtrl, "text", "ui::CRichText");
-								RESIZE_CHAT_CTRL(frame, chatCtrl, label, txt, 1, offsetX)
+								local timeBox = GET_CHILD(chatCtrl, "time");
+								RESIZE_CHAT_CTRL(0, frame, chatCtrl, label, txt, timeBox, offsetX)
 							end;
 							beforeHeight = chatCtrl:GetY() + chatCtrl:GetHeight();
 							lastChild = chatCtrl;
@@ -94,25 +101,31 @@ function _PROCESS_MOVING_RESIZE_FRAME(frame)
 		return 0;
 	end
 
+	local ratio = option.GetClientHeight()/option.GetClientWidth();
 	local mx, my = GET_MOUSE_POS();
 	mx = mx / ui.GetRatioWidth();
 	my = my / ui.GetRatioHeight();
+
 	local bx = frame:GetUserIValue("MOUSE_X");
 	local by = frame:GetUserIValue("MOUSE_Y");
-
 	local dx = (mx - bx);
 	local dy = (my - by);
+	dy = dy / ratio;
 	
 	local wndX = frame:GetX();
 	local wndY = frame:GetUserIValue("BEFORE_Y");
 	local width = frame:GetUserIValue("BEFORE_W");
 	local height = frame:GetUserIValue("BEFORE_H");
+
 	width = width + dx;
 	height = height - dy;
 	wndY = wndY + dy;
 
+	local limitOffset = 10;
 	local limitMinWidth = frame:GetOriginalWidth();
 	local limitMinHeight = frame:GetOriginalHeight();
+	local limitMaxWidth = ui.GetSceneWidth() / ui.GetRatioWidth() - limitOffset;
+	local limitMaxHeight = limitMaxWidth * ratio  - limitOffset * 12;
 
 	if limitMinWidth > width then
 		width = limitMinWidth;
@@ -123,17 +136,14 @@ function _PROCESS_MOVING_RESIZE_FRAME(frame)
 		wndY = frame:GetY();
 	end
 
-	if wndX < 10 then
-		wndX = 10;
+	if wndX < limitOffset then
+		wndX = limitOffset;
 	end;
 
-	if wndY < 10 then
-		wndY = 10;
+	if wndY < limitOffset then
+		wndY = limitOffset;
 	end;
 	
-	local limitMaxWidth = ui.GetClientInitialWidth() - 10;
-	local limitMaxHeight = ui.GetClientInitialHeight() - 10;
-
 	if (width + wndX) > limitMaxWidth then
 		width = limitMaxWidth - wndX;
 	end;
@@ -181,39 +191,43 @@ function _PROCESS_MOVE_POPUPCHAT_FRAME(frame)
 		return 0;
 	end
 
+	local ratio = option.GetClientHeight()/option.GetClientWidth();
+	local limitOffset = 10;
+	local limitMaxWidth = ui.GetSceneWidth() / ui.GetRatioWidth() - limitOffset;
+	local limitMaxHeight = limitMaxWidth * ratio - limitOffset * 12;
+
 	local mx, my = GET_MOUSE_POS();
 	mx = mx / ui.GetRatioWidth();
 	my = my / ui.GetRatioHeight();
+
 	local bx = frame:GetUserIValue("MOUSE_X");
 	local by = frame:GetUserIValue("MOUSE_Y");
-
 	local dx = (mx - bx);
 	local dy = (my - by);
-
+	dy = dy / ratio;
 	local width = frame:GetUserIValue("BEFORE_W");
 	local height = frame:GetUserIValue("BEFORE_H");
 	width = width + dx;
 	height = height + dy;
 	
-	if width < 10 then
-		width = 10;
+
+	if width < limitOffset then
+		width = limitOffset;
 	end;
 
-	if height < 10 then
-		height = 10;
+	if height < limitOffset then
+		height = limitOffset;
 	end;
 	
-	local limitMaxWidth = ui.GetClientInitialWidth() - 10;
-	local limitMaxHeight = ui.GetClientInitialHeight() - 10;
-	local wndX = frame:GetWidth();
-	local wndY = frame:GetHeight();
+	local wndW = frame:GetWidth();
+	local wndH = frame:GetHeight() 
 
-	if (width + wndX) > limitMaxWidth then
-		width = limitMaxWidth - wndX;
+	if (width + wndW) > limitMaxWidth then
+		width = limitMaxWidth - wndW;
 	end;
 
-	if (height + wndY) > limitMaxHeight then
-		height = limitMaxHeight - wndY;
+	if (height + wndH) > limitMaxHeight then
+		height = (limitMaxHeight - wndH) ;
 	end;
 	
 	frame:SetOffset(width, height);

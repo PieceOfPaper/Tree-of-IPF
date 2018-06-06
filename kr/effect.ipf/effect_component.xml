@@ -368,6 +368,9 @@
 	<Trail name="dash004" texture="dash004" height="4.00" texel_x="128" texel_y="128" texel_width="64" texel_height="64"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="1040" texel_height="640"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="headfish_dead" model="headfish_dead.xac" motion="headfish_dead_ani.xsm" texturepath="char_texture\npc\NPC_Cart1\" overlap="false"/>
+	<Model name="honeyspider_dead" model="honeyspider_dead.xac" motion="honeyspider_dead_ani.xsm" texturepath="char_texture\monster\honeyspider\" overlap="false"/>
+	<Model name="sphere001" model="sphere001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true"/>
 	<Model name="austeja_alter" model="austeja_alter.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="ChiefGuard_Dead" model="ChiefGuard_Dead.xac" motion="ChiefGuard_Dead.xsm" texturepath="char_texture\monster\ChiefGuard\" overlap="false"/>
 	<Model name="snow_dead" model="snow_dead.xac" motion="snow_dead_ani.xsm" texturepath="char_texture\monster\snow\" overlap="false"/>

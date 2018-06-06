@@ -4,6 +4,10 @@ function FULLBLACK_ON_INIT(addon, frame)
 end
 
 function FULLBLACK_FIRST_OPEN(frame)
+	FULLBLACK_RESIZE(frame);
+end
+
+function FULLBLACK_RESIZE(frame)
 	local width, height = FRAME_FULLSCREEN(frame);
 
 	local picture = frame:GetChild('screenmask');

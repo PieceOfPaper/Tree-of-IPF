@@ -217,10 +217,10 @@ end
 	
 function TEST_AYASE()
 	
-	
+
+	print(" ")
 
 
-	
 end
 
 function JOB_COMMAND()
@@ -569,7 +569,6 @@ function UI_TOGGLE_GUILD()
 
 	local guildinfo = session.GetGuildInfo();
 	if guildinfo == nil then
-		ui.ToggleFrame('guildcreate');
 		return;
 	end
 
@@ -885,7 +884,7 @@ function ADD_EX_TOOLTIP(GroupCtrl, txt, yPos, ySize)
 	ControlSetCtrl:SetGravity(ui.LEFT, ui.TOP);
 	richText:SetGravity(ui.LEFT, ui.TOP);
 	richText:SetFontName(ITEM_TOOLTIP_TEXT_FONT);
-	ControlSetCtrl:Resize(255, ySize);		-- 3?êÎ¶¨ÍπåÏ?Îß?Ï∂úÎ†•?òÏÑú 7~8?êÎ¶¨ÍπåÏ? ?òÎ¶º
+	ControlSetCtrl:Resize(255, ySize);		-- 3??∏Æ±Ó????√‚∑¬??º≠ 7~8??∏Æ±Ó?? ??∏≤
 	ControlSetCtrl:SetTextByKey('text', txt);
 	GroupCtrl:ShowWindow(1)
 	return ControlSetCtrl:GetHeight() + ControlSetCtrl:GetOffsetY();
@@ -1270,6 +1269,8 @@ function GET_ITEM_BG_PICTURE_BY_GRADE(rank)
 		return "four_star_item_bg";
 	elseif rank == 4 then
 		return "five_item_bg";
+	elseif rank == 0 then
+		return "premium_item_bg";
 	end
 
 	return "None";
@@ -1341,6 +1342,12 @@ function GET_FULL_NAME(item, useNewLine)
 	local ownName = GET_NAME_OWNED(item);
 
 	local reinforce_2 = TryGetProp(item, "Reinforce_2");
+	local isHaveLifeTime = TryGetProp(item, "LifeTime");
+	
+	if 0 ~= isHaveLifeTime then
+		ownName = string.format("{img test_cooltime 30 30 }%s", ownName);
+	end
+	
 	if reinforce_2 ~= nil and reinforce_2 > 0 then
 		ownName = string.format("+%d %s", reinforce_2, ownName);
 	end
@@ -1457,82 +1464,10 @@ function IS_RECIPE_ITEM(itemCls)
 
 end
 
--- ???®Ïàò???§ÌÅ¨Î°??ÑÏù¥?úÎèÑ ?úÏãú?????¨Ïö©?©Îãà??
-function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, ItemType, index)
-	
-	if className == 'Scroll_SkillItem' then
-		SET_TOOLTIP_SKILLSCROLL(icon, invitem);
-	else
-		icon:SetTooltipType('wholeitem');
-		if nil ~= strType and nil ~= ItemType and nil ~= index then
-			icon:SetTooltipArg(strType, ItemType, index);
-		end
-	end
-end
-
-function SET_ITEM_TOOLTIP_TYPE(prop, itemID, itemCls)
-	prop:SetTooltipType('wholeitem');
-	
-end
-
-function GET_ITEM_TOOLTIP_TYPE(itemID, itemCls)
-
-	return 'wholeitem'
-end
-
-function SET_TOOLTIP_SKILLSCROLL(icon, invitem, itemCls)
-
-	local obj = GetIES(invitem:GetObject());
-
-	if nil == obj or obj.SkillType == 0 then
-		return 0;
-	end 
-
-	SET_SKILL_TOOLTIP_BY_TYPE_LEVEL(icon, obj.SkillType, obj.SkillLevel);
-	return 1;
-end
-
--- ÎßàÏºì?±Ïóê??Î¨òÏÇ¨?êÏÑú ?§ÌÇ¨Î™??òÏò§?ÑÎ°ù
-function SET_ITEM_DESC(value, desc, item)
-	if desc == "None" then
-		desc = "";
-	end
-
-	local obj = GetIES(item:GetObject());
-
-	if nil ~= obj and
-	   obj.ClassName == 'Scroll_SkillItem' then		
-		local sklCls = GetClassByType("Skill", obj.SkillType)
-		value:SetTextByKey("value", obj.SkillLevel .. " Level/ "..  sklCls.Name);
-	else
-		value:SetTextByKey("value", desc);
-	end
-end
-
-function ICON_SET_INVENTORY_TOOLTIP(icon, invitem, strarg, itemCls)
-
-	if strarg == nil then
-		strarg = 'inven';
-	end
-
-	SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, itemCls.ClassName, strarg, 0, invitem:GetIESID());
-
-	local itemobj = GetIES(invitem:GetObject());
-	if itemobj.ItemType == "Equip" and itemobj.MaxDur ~= 0 and itemobj.Dur == 0 then
-		icon:SetColorTone("FFFF0000");
-	end
-
-end
-
-function ICON_SET_EQUIPITEM_TOOLTIP(icon, equipitem)
-
-	SET_ITEM_TOOLTIP_TYPE(icon, equipitem.type);
-	icon:SetTooltipArg('equip', equipitem.type, equipitem:GetIESID());
-
-end
-
 function SCR_MAGICAMULET_EQUIP(fromitem, toitem)
-
+	if nil == fromitem or nil == toitem then
+		return;
+	end
 	local fromobj = GetIES(fromitem:GetObject());
 	local toobj = GetIES(toitem:GetObject());
 
@@ -1572,7 +1507,7 @@ function SCR_GEM_EQUIP(fromitem, toitem)
 	local socketindex = GET_GEM_SOCKET_CNT(toobj,fromobj_gemtype);
 
 	if socketindex == -1 then
-		socketindex = GET_GEM_SOCKET_CNT(toobj,5); -- ?Ï®çÏß∞?T
+		socketindex = GET_GEM_SOCKET_CNT(toobj,5); -- ?¬∏¬Æ?T
 	end
 
 	if socketindex == -1 then
@@ -2003,7 +1938,7 @@ end
 
 
 
--- ON_WORLD_MSG_%d (WORLD_MESSAGE_ACHIEVE_ADD == 0)   : Ï©???êÎ∏ù??Ï©??? Ï®òË??
+-- ON_WORLD_MSG_%d (WORLD_MESSAGE_ACHIEVE_ADD == 0)   : ?????∫Ô?????? ¬∫???
 function ON_WORLD_MSG_0(name, type, pointType, point)
 
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
@@ -2146,6 +2081,10 @@ end
 function ITEM_EQUIP_MSG(item, slotName)
 
 	if 1 ~= ITEM_EQUIP_EXCEPTION(item) then
+		return;
+	end
+
+	if true == BEING_TRADING_STATE() then
 		return;
 	end
 
@@ -2640,6 +2579,34 @@ function GET_BUFF_TAG_TXT(buffName)
 
 	return ScpArgMsg("Auto_{img_{Auto_1}_20_20}{ol}{@st45}_{Auto_2}_BeoPeu","Auto_1", 'icon_'..cls.Icon,"Auto_2", cls.Name)
 
+end
+function GET_PCPROPERTY_TAG_TXT(propertyName, value)
+    local ret, propertyTxt
+    if propertyName == 'STR' then
+        propertyTxt = ScpArgMsg("STR")
+    elseif propertyName == 'DEX' then
+        propertyTxt = ScpArgMsg("DEX")
+    elseif propertyName == 'CON' then
+        propertyTxt = ScpArgMsg("CON")
+    elseif propertyName == 'INT' then
+        propertyTxt = ScpArgMsg("INT")
+    elseif propertyName == 'MSTA' then
+        propertyTxt = ScpArgMsg("MSTA")
+    elseif propertyName == 'MHP' then
+        propertyTxt = ScpArgMsg("MHP")
+    elseif propertyName == 'MSP' then
+        propertyTxt = ScpArgMsg("MSP")
+    elseif propertyName == 'MaxWeight' then
+        propertyTxt = ScpArgMsg("MaxWeight")
+	elseif propertyName == 'MNA' then
+        propertyTxt = ScpArgMsg("MNA")
+    else
+        propertyTxt = propertyName
+    end
+    
+    ret = ScpArgMsg("QuestRewardPCPropertyText1","Auto_1", propertyTxt,"Auto_2", value)
+    
+    return ret
 end
 
 function GET_HONOR_TAG_TXT(honor, point_value)
@@ -3618,7 +3585,7 @@ end
 
 function SCR_QUEST_CHECK_T(pc, questname)
 	local result, reason = SCR_QUEST_CHECK(pc, questname);
-		local reasonString = "";
+	local reasonString = "";
 	if reason ~= nil then
 		for j = 1 , #reason do
 			reasonString = reasonString .. reason[j];
@@ -4092,7 +4059,7 @@ function ON_RIDING_VEHICLE(onoff)
 
 		if 1 == onoff then
 			local abil = GetAbility(GetMyPCObject(), "CompanionRide");
-			if nil == abil then
+			if nil == abil and control.IsPremiumCompanion() == false then
 				ui.SysMsg(ClMsg('PetHasNotAbility'));
 				return
 			end
@@ -4243,7 +4210,7 @@ end
 function TEST_TIARUA()
 
 ReloadHotKey()
---print("Î¶¨Î°ú?úÌï´??)
+--print("∏Æ∑Œ??«÷??)
 --ui.OpenFrame("joystickrestquickslot");
 --[[
 local quickFrame = ui.GetFrame('quickslotnexpbar')
@@ -4274,7 +4241,9 @@ end
 function UI_MODE_CHANGE(index)
 
 	local quickFrame = ui.GetFrame('quickslotnexpbar')
+	local restquickslot = ui.GetFrame('restquickslot')
 	local joystickQuickFrame = ui.GetFrame('joystickquickslot')
+	local joystickrestquickslot = ui.GetFrame('joystickrestquickslot')
 	local monQuickslot = ui.GetFrame("monsterquickslot")
 	if joystickQuickFrame == nil then
 		return;
@@ -4287,26 +4256,62 @@ function UI_MODE_CHANGE(index)
 	local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
 	local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');
 
-if index == nil then
-	if IsJoyStickMode() == 1 then
-		quickFrame:ShowWindow(0);
-		joystickQuickFrame:ShowWindow(1);
-		Set1:ShowWindow(1);
-		Set2:ShowWindow(0);	
-	elseif IsJoyStickMode() == 0 then
-		quickFrame:ShowWindow(1);
-		joystickQuickFrame:ShowWindow(0);
-		Set1:ShowWindow(0);
-		Set2:ShowWindow(0);	
-	end
+	if index == nil then
+		if IsJoyStickMode() == 1 then
+			if control.IsRestSit() == true then	
+				joystickQuickFrame:ShowWindow(0);
+				joystickrestquickslot:ShowWindow(1);
+			else
+				joystickQuickFrame:ShowWindow(1);
+				joystickrestquickslot:ShowWindow(0);
+			end
+			
+			quickFrame:ShowWindow(0);
+			restquickslot:ShowWindow(0);
+
+			Set1:ShowWindow(1);
+			Set2:ShowWindow(0);	
+		elseif IsJoyStickMode() == 0 then
+			if control.IsRestSit() == true then	
+				quickFrame:ShowWindow(0);
+				restquickslot:ShowWindow(1);
+			else
+				quickFrame:ShowWindow(1);
+				restquickslot:ShowWindow(0);
+			end
+			
+			joystickQuickFrame:ShowWindow(0);
+			joystickrestquickslot:ShowWindow(0);
+
+			Set1:ShowWindow(0);
+			Set2:ShowWindow(0);	
+		end
 	elseif index == 1 then
+		if control.IsRestSit() == true then	
+			joystickQuickFrame:ShowWindow(0);
+			joystickrestquickslot:ShowWindow(1);
+		else
+			joystickQuickFrame:ShowWindow(1);
+			joystickrestquickslot:ShowWindow(0);
+		end
+			
 		quickFrame:ShowWindow(0);
-		joystickQuickFrame:ShowWindow(1);
+		restquickslot:ShowWindow(0);
+
 		Set1:ShowWindow(1);
 		Set2:ShowWindow(0);	
 	elseif index == 2 then	
-		quickFrame:ShowWindow(1);
+		if control.IsRestSit() == true then	
+			quickFrame:ShowWindow(0);
+			restquickslot:ShowWindow(1);
+		else
+			quickFrame:ShowWindow(1);
+			restquickslot:ShowWindow(0);
+		end
+			
 		joystickQuickFrame:ShowWindow(0);
+		joystickrestquickslot:ShowWindow(0);
+
 		Set1:ShowWindow(0);
 		Set2:ShowWindow(0);	
 	end
@@ -4314,6 +4319,10 @@ end
 
 function KEYBOARD_INPUT()
 	
+	if GetChangeUIMode() == 1 then
+		return;
+	end
+
 	local quickFrame = ui.GetFrame('quickslotnexpbar')
 	local restquickslot = ui.GetFrame('restquickslot')
 	local joystickrestquickslot = ui.GetFrame('joystickrestquickslot')
@@ -4328,15 +4337,27 @@ function KEYBOARD_INPUT()
 		if joystickrestquickslot:IsVisible() == 1 then
 			joystickrestquickslot:ShowWindow(0);
 		end
-		return;
 	end
+
 	if GetChangeUIMode() == 0 then
 		local quickFrame = ui.GetFrame('quickslotnexpbar')
 		local joystickQuickFrame = ui.GetFrame('joystickquickslot')
 		local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
 		local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');
-		quickFrame:ShowWindow(1);
+
+		if monsterquickslot:IsVisible() ~= 1 then
+		if control.IsRestSit() == true then
+			quickFrame:ShowWindow(0);
+			restquickslot:ShowWindow(1);
+		else
+			quickFrame:ShowWindow(1);
+			restquickslot:ShowWindow(0);
+		end
+		end
+
 		joystickQuickFrame:ShowWindow(0);
+		joystickrestquickslot:ShowWindow(0);
+
 		Set1:ShowWindow(0);
 		Set2:ShowWindow(0);	
 
@@ -4345,6 +4366,11 @@ function KEYBOARD_INPUT()
 end
 
 function JOYSTICK_INPUT()
+
+	if GetChangeUIMode() == 2 or GetChangeUIMode() == 3 then
+		return;
+	end
+
 	local joystickQuickFrame = ui.GetFrame('joystickquickslot')
 	local joystickrestquickslot = ui.GetFrame('joystickrestquickslot')
 	local restquickslot = ui.GetFrame('restquickslot')
@@ -4359,16 +4385,26 @@ function JOYSTICK_INPUT()
 		if restquickslot:IsVisible() == 1 then	
 			restquickslot:ShowWindow(0);
 		end
-		return;
 	end
-
 
 	if GetChangeUIMode() == 0 then
 		local quickFrame = ui.GetFrame('quickslotnexpbar')
 		local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
 		local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');
+
+		if monsterquickslot:IsVisible() ~= 1 then
+		if control.IsRestSit() == true then
+			joystickQuickFrame:ShowWindow(0);
+			joystickrestquickslot:ShowWindow(1);
+		else
+			joystickQuickFrame:ShowWindow(1);
+			joystickrestquickslot:ShowWindow(0);
+		end
+		end
+
 		quickFrame:ShowWindow(0);
-		joystickQuickFrame:ShowWindow(1);
+		restquickslot:ShowWindow(0);
+
 		Set1:ShowWindow(1);
 		Set2:ShowWindow(0);	
 

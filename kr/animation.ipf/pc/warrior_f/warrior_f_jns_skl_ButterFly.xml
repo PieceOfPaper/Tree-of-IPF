@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_2"/>
 	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
 	<BlendOn frame="4" R="100" G="150" B="150" A="100"/>
 	<BlendOn frame="5" R="0" G="0" B="0" A="50"/>
@@ -24,14 +25,12 @@
 	<Shockwave frame="4" type="2" intensity="1" frequency="100" duration="0.2" range="1000"/>
 	<Shockwave frame="11" type="2" intensity="3" frequency="70" duration="0.2" range="1000"/>
 	<Shockwave frame="19" type="2" intensity="1" frequency="50" duration="0.5" range="1000"/>
-	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_2"/>
 	<Sound frame="0.00" soundFile="arrow_blow_critical"/>
 	<Sound frame="2.00" soundFile="shield_blow"/>
 	<Sound frame="4.00" soundFile="skl_eff_atk_move_s_9"/>
 	<Sound frame="10.00" soundFile="arrow_blow_critical"/>
 	<Sound frame="10.00" soundFile="skl_eff_body_atk_1"/>
-	<HeadRotBip frame="13" BipName="Bip01"/>
-	<BlendOn frame="14" R="150" G="200" B="200" A="200"/>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
 	<Sound frame="16.00" soundFile="skl_fgt_crescentwing"/>
 	<HeadRotBip frame="20" BipName="None"/>
 </ActionDesc>

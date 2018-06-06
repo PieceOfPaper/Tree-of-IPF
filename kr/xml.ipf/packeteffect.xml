@@ -379,6 +379,7 @@
         <Effect Name="I_emo_damagerank5"/>
         <Effect Name="m_boss_scenario2"/>
         <Effect Name="GuildHunter_Cnt"/>
+        <Effect Name="Pyromancer_HellBreath"/>
     </Category>
     <Category ID="42">
         <Effect Name="voice_cleric_m_vashitasiddhi_cast"/>
@@ -1014,6 +1015,7 @@
         <Effect Name="mission_notice_3"/>
         <Effect Name="mission_success_1"/>
         <Effect Name="mission_fail_1"/>
+        <Effect Name="F_burstup001_grey"/>
     </Category>
     <Category ID="61">
         <Effect Name="F_ground083_smoke"/>
@@ -1791,6 +1793,9 @@
         <Effect Name="Strat"/>
         <Effect Name="Boss"/>
         <Effect Name="CATACOMB_25_4_SQ_110_MINI"/>
+        <Effect Name="merregina_pad_pc_summon"/>
+        <Effect Name="F_DCAPITAL_20_5_SQ_70_MINI"/>
+        <Effect Name="F_DCAPITAL_20_6_SQ_40_MINI"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -2459,6 +2464,26 @@
         <Effect Name="I_sphere009_green#Dummy_skl1_effect"/>
         <Effect Name="I_sphere009_green#Dummy_skl1_effect#1.5"/>
         <Effect Name="F_explosion001_dark##0.5"/>
+        <Effect Name="F_rize006_green2"/>
+        <Effect Name="I_smoke034_blue2"/>
+        <Effect Name="I_force071_light_green#Bone_hair02"/>
+        <Effect Name="I_force071_light_green#Dummy_effect_trail1"/>
+        <Effect Name="I_force071_light_green#Dummy_effect_horn"/>
+        <Effect Name="I_ground002_blue##0.3"/>
+        <Effect Name="PlagueDoctor_PlagueVapours"/>
+        <Effect Name="Mergen_ArrowRain"/>
+        <Effect Name="I_cleric_mackangdal_force_talisman#Dummy_R_HAND"/>
+        <Effect Name="Daoshi_DarkSight"/>
+        <Effect Name="Daoshi_StormCalling"/>
+        <Effect Name="F_DCAPITAL_20_5_SQ_70_MINI"/>
+        <Effect Name="F_DCAPITAL_20_6_SQ_40_MINI"/>
+        <Effect Name="I_force086_trail"/>
+        <Effect Name="I_archer_ArrowRain_hit_mash"/>
+        <Effect Name="Mergen_ArrowRain2"/>
+        <Effect Name="I_archer_ArrowRain_hit2_mash"/>
+        <Effect Name="I_archer_FocusFire_arrow_trail"/>
+        <Effect Name="I_archer_ArrowRain_trail"/>
+        <Effect Name="I_archer_ArrowRain_hit3_mash"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -2856,6 +2881,7 @@
         <Effect Name="CATACOMB_25_4_SQ_110_MINI"/>
         <Effect Name="F_lineup006_violet"/>
         <Effect Name="F_spin007"/>
+        <Effect Name="F_circle020_light2"/>
     </Category>
     <Category ID="23">
         <Effect Name="I_force004_pink#Bip01 R Finger0"/>
@@ -3556,6 +3582,12 @@
         <Effect Name="M_GTOWER2_STAGE_38"/>
         <Effect Name="M_GTOWER2_STAGE_31"/>
         <Effect Name="M_GTOWER2_STAGE_33"/>
+        <Effect Name="I_force066_ice"/>
+        <Effect Name="F_smoke110"/>
+        <Effect Name="F_archer_circling_ground##40"/>
+        <Effect Name="F_smoke033_1"/>
+        <Effect Name="dir"/>
+        <Effect Name="M_GTOWER2_ZEMINA_ROOM"/>
     </Category>
     <Category ID="180">
         <Effect Name="I_ice005_mash###1"/>

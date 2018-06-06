@@ -3,12 +3,132 @@ function GUILD_ON_INIT(addon, frame)
 	
 	addon:RegisterOpenOnlyMsg("GUILD_PROPERTY_UPDATE", "ON_GUILD_PROPERTY_UPDATE");
 	addon:RegisterOpenOnlyMsg("GUILD_INFO_UPDATE", "ON_GUILD_INFO_UPDATE");
+	addon:RegisterMsg("GUILD_NEUTRALITY_UPDATE", "ON_GUILD_NEUTRALITY_UPDATE");
+	addon:RegisterMsg("GAME_START_3SEC", "GUILD_GAME_START_3SEC");	
 	addon:RegisterMsg("MYPC_GUILD_JOIN", "ON_MYPC_GUILD_JOIN");
 	addon:RegisterMsg("GUILD_ENTER", "ON_GUILD_ENTER");
 	addon:RegisterMsg("GUILD_OUT", "ON_GUILD_OUT");
+	addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
 	addon:RegisterMsg("GUILD_EVENT_UPDATE", "ON_GUILD_INFO_UPDATE");
 		
 
+end
+
+function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	if nil ==pcparty then
+		return;
+	end
+	local leaderAID = pcparty.info:GetLeaderAID();
+	local list = session.party.GetPartyMemberList(PARTY_GUILD);
+	local count = list:Count();
+	local leaderName = 'None'
+	for i = 0 , count - 1 do
+		local partyMemberInfo = list:Element(i);
+		if leaderAID == partyMemberInfo:GetAID() then
+			leaderName = partyMemberInfo:GetName();
+		end
+	end
+
+	local yesScp = string.format("ui.Chat('/agreeGuildMaster')");
+	local noScp = string.format("ui.Chat('/disagreeGuildMaster')");
+	ui.MsgBox(ScpArgMsg("DoYouWantGuildLeadr{N1}{N2}",'N1',leaderName,'N2', pcparty.info.name), yesScp, noScp);
+end
+
+function ON_GUILD_NEUTRALITY_UPDATE(frame, msg, strArg, numArg)
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	if pcparty == nil then
+		return;
+	end
+
+	if strArg ~= nil and strArg == "Change" then
+		if true == pcparty.info:GetNeutralityState() then
+			ui.SysMsg(ScpArgMsg("ChangeGuildNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)));
+		else
+			ui.SysMsg(ScpArgMsg("ChangeGuildNoneNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)));
+		end
+	end
+
+	ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty);
+end
+
+function SHOW_GUILD_NEUTRALTY_REMAIN_TIME(ctrl)
+local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
+	local startSec = ctrl:GetUserIValue("REMAINSEC");
+	startSec = startSec - elapsedSec;
+	if 0 > startSec then
+		ctrl:SetTextByKey("value", "");
+		return 0;
+	end
+	local timeTxt = GET_TIME_TXT(startSec);
+	local str = ScpArgMsg("NeutralityChangeTime{TIME}",'TIME', timeTxt);
+	ctrl:SetTextByKey("value", str);
+	return 1;
+end
+
+function ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty)
+	
+	local properties = frame:GetChild("properties");
+	local neutrality = GET_CHILD(properties, "neutrality", "ui::CCheckBox");
+	local state = 0;
+
+	if true == pcparty.info:GetNeutralityState() then
+		state = 1;
+	end
+	
+	neutrality:SetCheck(state);
+	local neutralityTime = properties:GetChild("neutralityTime");
+	local difSec = session.party.GetGuildNeutraltyRaminTime();
+	if difSec > 0 then
+		neutralityTime:ShowWindow(1);
+		neutralityTime:SetUserValue("REMAINSEC", difSec);
+		neutralityTime:SetUserValue("STARTSEC", imcTime.GetAppTime());
+		SHOW_GUILD_NEUTRALTY_REMAIN_TIME(neutralityTime);
+		neutralityTime:RunUpdateScript("SHOW_GUILD_NEUTRALTY_REMAIN_TIME", 1);
+	else
+		neutralityTime:SetTextByKey("value", "");
+		neutralityTime:StopUpdateScript("SHOW_GUILD_NEUTRALTY_REMAIN_TIME");
+	end
+end
+
+function ON_GUILD_SET_NEUTRALITY(frame)
+	local isLeader = AM_I_LEADER(PARTY_GUILD);
+	if 0 == isLeader then
+		ui.SysMsg(ScpArgMsg("OnlyLeaderAbleToDoThis"));
+		ON_GUILD_NEUTRALITY_UPDATE(ui.GetFrame("guild"));
+		return;
+	end
+
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	if nil == pcparty then
+		return;
+	end
+
+	local yesScp = string.format("C_GUILD_SET_NEUTRALITY(%d)", 1);
+	local noScp = string.format("C_GUILD_SET_NEUTRALITY(%d)", 0);
+	if true == pcparty.info:GetNeutralityState() then
+		--중립상태 해제
+		ui.MsgBox(ScpArgMsg("WantTobeChangedNoneNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)), yesScp, noScp);
+	else
+		--중립상태 원함
+		ui.MsgBox(ScpArgMsg("WantTobeChangedNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)), yesScp, noScp);
+	end
+
+end
+
+function C_GUILD_SET_NEUTRALITY(change)
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	if nil == pcparty then
+		return;
+	end
+	
+	if change == 0 then
+		local frame = ui.GetFrame("guild");
+		ON_GUILD_NEUTRALITY_UPDATE(frame);
+		return;
+	end
+
+	session.guildState.ChangeGuildNeutralityState(pcparty.info);
 end
 
 function ON_GUILD_OUT(frame)
@@ -46,7 +166,29 @@ function ON_GUILD_PROPERTY_UPDATE(frame, msg)
 
 end
 
+function GUILD_GAME_START_3SEC(frame)
+
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	if pcparty == nil then
+		return;
+	end
+
+	local cnt = pcparty.info:GetEnemyPartyCount();
+	for i = 0 , cnt - 1 do
+		local enemyInfo = pcparty.info:GetEnemyPartyByIndex(i);
+		local serverTime = geTime.GetServerFileTime();
+		local difSec = imcTime.GetIntDifSecByTime(serverTime, enemyInfo:GetStartTime());
+		local remainSec = GUILD_WAR_AUTO_END_MINUTE * 60 - difSec;
+		if remainSec > 0 then
+			local msg = ScpArgMsg("WarWith{Name}GuildRemain{Time}", "Name", enemyInfo:GetPartyName(), "Time", GET_TIME_TXT_DHM(remainSec));
+			ui.SysMsg(msg);
+		end
+	end
+	
+end
+
 function UPDATE_GUILDINFO(frame)
+
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcparty == nil then
 		frame:ShowWindow(0);
@@ -129,12 +271,12 @@ function UPDATE_GUILDINFO(frame)
 
 	GBOX_AUTO_ALIGN(gbox_list, 0, 0, 0, true, false);
 
-	local text_memberinfo = information:GetChild("text_memberinfo");
+	local text_memberinfo = gbox_member:GetChild("text_memberinfo");
 	
 	local memberStateText = ScpArgMsg("GuildMember{Cur}/{Max}People,OnLine{On}People", "Cur", count, "Max", GUILD_BASIC_MAX_MEMBER + partyObj.AbilLevel_MemberExtend, "On", connectionCount);
 	text_memberinfo:SetTextByKey("value", memberStateText);
 
-	local chk_showonlyconnected = GET_CHILD(information, "chk_showonlyconnected");
+	local chk_showonlyconnected = GET_CHILD(gbox_member, "chk_showonlyconnected");
 	chk_showonlyconnected:SetCheck(showOnlyConnected);
 	
 	local chk_agit_enter_onlyguild = GET_CHILD(properties, "chk_agit_enter_onlyguild");
@@ -146,6 +288,8 @@ function UPDATE_GUILDINFO(frame)
 	else
 		frame:StopUpdateScript("UPDATE_REMAIN_GUILD_ENEMY_TIME");
 	end
+
+	ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty);
 
 	GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj);
 
@@ -160,32 +304,61 @@ function GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj)
 	local txt_guildtowercount = properties:GetChild("txt_guildtowercount");
 	local txt_guildtowerposition = properties:GetChild("txt_guildtowerposition");
 	
+	txt_guildtowerposition:StopUpdateScript("UPDATE_TOWER_REMAIN_TIME");
+	txt_guildtowerposition:StopUpdateScript("UPDATE_TOWER_DESTROY_TIME");
+
 	if houseInfo == "None" then
 
 		local countText = ScpArgMsg("GuildTower") ..  " (0)";
 		txt_guildtowercount:SetTextByKey("value", countText);
 		txt_guildtowerposition:SetTextByKey("value", "");
+		txt_guildtowerposition:SetTextByKey("remaintime", "");
+		txt_guildtowerposition:ShowWindow(0);
 
 	else
 
+		txt_guildtowerposition:ShowWindow(1);
 		local towerInfo = StringSplit(houseInfo, "#");
-		local mapID = towerInfo[1];
-		local towerID = towerInfo[2];
-		local x = towerInfo[3];
-		local y = towerInfo[4];
-		local z = towerInfo[5];
-		local builtTime = towerInfo[6];
-
-		local mapCls = GetClassByType("Map", mapID);
-		
-		local countText = ScpArgMsg("GuildTower") ..  " (1)";
-		txt_guildtowercount:SetTextByKey("value", countText);
-		local positionText = MAKE_LINK_MAP_TEXT(mapCls.ClassName, x, z);
-		txt_guildtowerposition:SetTextByKey("value", positionText);
+		if #towerInfo == 3 then
+			local destroyPartyName = towerInfo[2];
+			local destroyedTime = towerInfo[3];
 	
-		txt_guildtowerposition:SetUserValue("BUILTTIME", builtTime);
-		txt_guildtowerposition:RunUpdateScript("UPDATE_TOWER_REMAIN_TIME", 1, 0, 0, 1);
-		UPDATE_TOWER_REMAIN_TIME(txt_guildtowerposition);
+			local countText = ScpArgMsg("GuildTower") ..  " (1)";
+			txt_guildtowercount:SetTextByKey("value", countText);
+			
+			if destroyPartyName == "None" then
+				destroyPartyName = ScpArgMsg("Enemy");
+			end
+
+			local positionText = "{#FF0000}" .. ScpArgMsg("DestroyedByGuild{Name}", "Name", destroyPartyName) .. "{/}";
+			positionText = positionText .. "{nl}" .. ScpArgMsg("ToRebuildableTime") .. " " ;
+			txt_guildtowerposition:SetTextByKey("value", positionText);
+			txt_guildtowerposition:SetUserValue("PARTYNAME", destroyPartyName);
+	
+			txt_guildtowerposition:SetUserValue("DESTROYTIME", destroyedTime);
+			txt_guildtowerposition:RunUpdateScript("UPDATE_TOWER_DESTROY_TIME", 1, 0, 0, 1);
+			UPDATE_TOWER_DESTROY_TIME(txt_guildtowerposition);
+
+
+		else
+			local mapID = towerInfo[1];
+			local towerID = towerInfo[2];
+			local x = towerInfo[3];
+			local y = towerInfo[4];
+			local z = towerInfo[5];
+			local builtTime = towerInfo[6];
+
+			local mapCls = GetClassByType("Map", mapID);
+		
+			local countText = ScpArgMsg("GuildTower") ..  " (1)";
+			txt_guildtowercount:SetTextByKey("value", countText);
+			local positionText = MAKE_LINK_MAP_TEXT(mapCls.ClassName, x, z);
+			txt_guildtowerposition:SetTextByKey("value", positionText);
+	
+			txt_guildtowerposition:SetUserValue("BUILTTIME", builtTime);
+			txt_guildtowerposition:RunUpdateScript("UPDATE_TOWER_REMAIN_TIME", 1, 0, 0, 1);
+			UPDATE_TOWER_REMAIN_TIME(txt_guildtowerposition);
+		end
 	end
 	
 end
@@ -203,6 +376,27 @@ function UPDATE_TOWER_REMAIN_TIME(txt_guildtowerposition)
 
 end
 
+function UPDATE_TOWER_DESTROY_TIME(txt_guildtowerposition)
+
+	local builtTime = txt_guildtowerposition:GetUserValue("DESTROYTIME");
+	local endTime = imcTime.GetSysTimeByStr(builtTime);
+	endTime = imcTime.AddSec(endTime, GUILD_TOWER_DESTROY_REBUILD_ABLE_MIN * 60);
+	local sysTime = geTime.GetServerSystemTime();
+	local difSec = imcTime.GetDifSec(endTime, sysTime);
+	if difSec > 0 then
+		local difSecString = GET_TIME_TXT_DHM(difSec);
+		txt_guildtowerposition:SetTextByKey("remaintime", difSecString);
+	else
+		local destroyPartyName = txt_guildtowerposition:GetUserValue("PARTYNAME");
+		local positionText = "{#FF0000}" .. ScpArgMsg("DestroyedByGuild{Name}", "Name", destroyPartyName) .. "{/}";
+		txt_guildtowerposition:SetTextByKey("value", positionText);
+		txt_guildtowerposition:SetTextByKey("remaintime", ScpArgMsg("AbleToRebuild"));
+		return 0;
+	end
+
+	return 1;
+
+end
 
 function GUILD_UPDATE_ENEMY_PARTY(frame, pcparty)
 
@@ -270,6 +464,10 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 	if isLeader == 1 and aid ~= myAid then
 		ui.AddContextMenuItem(context, ScpArgMsg("ChangeDuty"), string.format("GUILD_CHANGE_DUTY('%s')", name));
 		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", name));
+		local mapName = session.GetMapName();
+		if mapName == 'guild_agit_1' then
+			ui.AddContextMenuItem(context, ScpArgMsg("GiveGuildLeaderPermission"), string.format("SEND_REQ_GUILD_MASTER('%s')", name));
+		end
 	end
 
 	if isLeader == 1 then
@@ -290,6 +488,9 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 
 end
 
+function SEND_REQ_GUILD_MASTER(name)
+	ui.Chat("/guildleader " .. name)
+end
 
 function OUT_GUILD()
 	ui.Chat("/outguild");
@@ -319,6 +520,7 @@ function EXEC_GUILD_CHANGE_DUTY(frame, ctrl)
 	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);
 		
 	party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID());
+	print(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID())
 	frame:ShowWindow(0);
 
 end

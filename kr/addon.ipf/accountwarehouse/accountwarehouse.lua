@@ -50,33 +50,7 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 		return;
 	end
 	
-	if fromFrame:GetName() == "inventory" then
-	--local accountObj = GetMyAccountObj();
-	--local remainTardeCnt = accountObj.TradeCount
-	--if 0 >= remainTardeCnt then
-	--	ui.MsgBox(ScpArgMsg("RemainTradeCountDoesNotExist"));
-	--	return;
-	--end
-	--
-	--if geItemTable.IsHavePotential(itemCls.ClassID) == 1 then
-	--	if obj.PR <= 0 then
-	--		ui.MsgBox(ScpArgMsg("NoMorePotential"));
-	--		return;
-	--	end
-	--
-	--	local msg = "";
-	--	if 5 < remainTardeCnt then
-	--		msg = ScpArgMsg('DecreasePotaionWhenPutItToAccountWareHouse_Continue?', 'COUNT', remainTardeCnt)
-	--	else
-	--		msg = ScpArgMsg('WANNING_DecreasePotaionWhenPutItToAccountWareHouse_Continue?', 'COUNT', remainTardeCnt)
-	--	end
-	--
-	--	local yesScp = string.format("EXEC_PUT_TO_ACCOUNT_WAREHOUSE(\"%s\", %d, %d)", invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
-	--	ui.MsgBox(msg, yesScp, "None");
-	--	return;
-	--end
-	--
-
+if fromFrame:GetName() == "inventory" then
 	local maxCnt = invItem.count;
 		if TryGetProp(obj, "BelongingCount") ~= nil then
 			maxCnt = invItem.count - obj.BelongingCount;
@@ -88,6 +62,10 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 		if invItem.count > 1 then
 			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE", maxCnt, 1, maxCnt, nil, tostring(invItem:GetIESID()));
 		else
+			if maxCnt <= 0 then
+				ui.SysMsg(ClMsg("ItemIsNotTradable"));	
+				return;
+			end
 			item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
 		end
 	else

@@ -695,6 +695,8 @@
 		<Class ClassID="10430" ClassName="CantWarpBczThereIsInstZone" Data="인스턴스 던전으로는 이동할 수 없습니다."/>
 		<Class ClassID="10431" ClassName="TeamLevel" Data="팀 레벨"/>
 		<Class ClassID="10432" ClassName="ExpGetAmount" Data="경험치 획득량"/>
+<Class ClassID="10434" ClassName="NoTOKEN_USER_Trade_Warnning" Data="거래 대상 양측이 모두 토큰을 사용한다면 해당 아이템의 속성에 변경이 없습니다.  계속 하시겠습니까?"/>
+		<Class ClassID="10435" ClassName="NoTOKEN_USER_Trade_Warnning_ItemList" Data="거래 속성이 변경되는 아이템 목록"/>
 		<Class ClassID="10436" ClassName="RefusedInviteRequest_Public" Data="공개 파티 가입이 거절되었습니다."/>
 	<Class ClassID="10437" ClassName="DruidTransformFailed" Data="해당 몬스터로 변신할 수 없습니다."/>
     <Class ClassID="10439" ClassName="CantWarpBcz" Data="해당 지역으로는 이동할 수 없습니다."/>
@@ -3487,6 +3489,51 @@
 		<Class ClassID="26920" ClassName="UNDER301_EVENT1_WARNING3" Data="장교 영혼의 체력이 70% 남았습니다{nl}장교 영혼이 죽으면 보상을 받지 못합니다"/>
 		<Class ClassID="26921" ClassName="UNDER301_EVENT1_FAIL" Data="장교 영혼이 죽었습니다"/>
 		<Class ClassID="26922" ClassName="VELNIASP54_1_MONNAME" Data="열쇠 도둑"/>
+		<Class ClassID="26923" ClassName="MISSION_UPHILL_MSG1" Data="화염 흡수 중"/>
+		<Class ClassID="26924" ClassName="MISSION_UPHILL_SEL1" Data="신성의 횃불 모두 회복 [화염 결정 {COUNT}개 필요]"/>
+		<Class ClassID="26925" ClassName="MISSION_UPHILL_SEL2" Data="방해 마법진 생성 [화염 결정 {COUNT}개 필요]"/>
+		<Class ClassID="26926" ClassName="MISSION_UPHILL_MSG2" Data="화염 결정이 부족합니다!{nl}필요 개수 : {TAKE}{nl}소지 개수 : {CURR}"/>
+		<Class ClassID="26927" ClassName="MISSION_UPHILL_MSG3" Data="2분간 이동속도를 감소시키는 방해 마법진이 발동 합니다!"/>
+		<Class ClassID="26928" ClassName="MISSION_UPHILL_MSG4" Data="신성의 횃불 HP가 모두 회복 됩니다!"/>
+		<Class ClassID="26929" ClassName="MISSION_UPHILL_MSG5" Data="신성의 횃불 HP가 80%이하 일 때 사용할 수 있습니다!"/>
+		<Class ClassID="26930" ClassName="MISSION_UPHILL_MSG6" Data="방해 마법진이 모두 작동 중입니다!"/>
+		<Class ClassID="26931" ClassName="MISSION_UPHILL_SEL3" Data="순간이동으로 아군 소환 [화염 결정 {COUNT}개 필요]"/>
+		<Class ClassID="26932" ClassName="MISSION_UPHILL_MSG7" Data="순간이동 가능한 아군이 없습니다!"/>
+		<Class ClassID="26933" ClassName="MISSION_UPHILL_MSG8" Data="5초 뒤 {CALLPC}님께로 순간이동 됩니다!"/>
+		<Class ClassID="26934" ClassName="MISSION_UPHILL_SEL4" Data="거미줄 생성 [화염 결정 {COUNT}개 필요]"/>
+		<Class ClassID="26935" ClassName="MISSION_UPHILL_MSG9" Data="거미줄을 사용할 몬스터가 없습니다!"/>
+		<Class ClassID="26936" ClassName="MISSION_UPHILL_SEL5" Data="아군에게로 순간이동 [화염 결정 {COUNT}개 필요]"/>
+		<Class ClassID="26937" ClassName="MISSION_UPHILL_MSG10" Data="순간이동할 아군이 없습니다!"/>
+		<Class ClassID="26938" ClassName="CITYATTACK_BOSS_NPC" Data="이벤트 보상 지원병"/>
+		<Class ClassID="26939" ClassName="CITYATTACK_BOSS_BOX" Data="보물 상자"/>
+		<Class ClassID="26940" ClassName="CITYATTACK_BOSS_MSG1" Data="보스를 처치했습니다!{nl}이벤트 보상지원 NPC와 보물 상자에서 보상을 받으세요!"/>
+		<Class ClassID="26941" ClassName="CITYATTACK_BOSS_MSG2" Data="워퓰리스의 습격{nl}남은 보물 상자 : {COUNT}"/>
+		<Class ClassID="26942" ClassName="CITYATTACK_BOSS_ATTACK1" Data="워퓰리스의 습격 방어에 참여하셨습니다!"/>
+		<Class ClassID="26943" ClassName="CITYATTACK_BOSS_BASICREWARD" Data="워퓰리스의 습격 방어{nl}참가 보상 '{ITEM}' {ITEMCOUNT}개 획득{nl}이벤트용 보물 상자 오픈 권한을 {COUNT}회 받으셨습니다!"/>
+		<Class ClassID="26944" ClassName="CITYATTACK_BOSS_BOXOPENMAX" Data="워퓰리스의 습격 방어{nl}이벤트용 보물 상자 오픈 권한을 {COUNT}회 받으셨습니다!"/>
+		<Class ClassID="26945" ClassName="CITYATTACK_BOSS_BOXOPEN" Data="워퓰리스의 습격 방어{nl}보물 상자에서 '{ITEM}' {COUNT}개 획득했습니다!"/>
+		<Class ClassID="26946" ClassName="CITYATTACK_BOSS_BEFOREMSG1" Data="10 분 뒤 마군주 워퓰러스가 1채널,2채널 샤울레이 서쪽 숲, 렘파라사 연못에 {MONSTER}를 소환합니다{nl}습격에 대비해주세요!"/>
+		<Class ClassID="26947" ClassName="CITYATTACK_BOSS_BOSSGEN" Data="샤울레이 서쪽 숲과 렘파라사 연못에 보스가 습격했습니다.{nl}어서 1채널,2채널로 모여주세요!"/>
+		<Class ClassID="26948" ClassName="CITYATTACK_BOSS_SERVER_REWARD" Data="여신의 축복으로 1시간 동안 경험치30%, 드랍율30%가 향상됩니다!"/>
+		<Class ClassID="26949" ClassName="CITYATTACK_BOSS_MSG3" Data="모든 보물 상자가 사라졌습니다. 다음에 또 참여해주세요"/>
+		<Class ClassID="26950" ClassName="CITYATTACK_BOSS_MSG4" Data="이벤트 보상 지원병에게 권한을 받아야 보물 상자를 여실 수 있습니다!"/>
+		<Class ClassID="26951" ClassName="CITYATTACK_BOSS_MSG5" Data="이미 이번 습격 방어의 보상을 받으셨습니다!"/>
+		<Class ClassID="26952" ClassName="CITYATTACK_BOSS_BEFOREMSG2" Data="{MONSTER} 소환이 완성돼가고 있습니다{nl}5 분 뒤 1채널,2채널 샤울레이 서쪽 숲, 렘파라사 연못에 소환됩니다{nl}저희 힘 만으로는 부족합니다"/>
+		<Class ClassID="26953" ClassName="CITYATTACK_BOSS_BEFOREMSG3" Data="결국 소환 주문을 막지 못 했습니다{nl}이제 곧 1채널,2채널 샤울레이 서쪽 숲, 렘파라사 연못에 나타납니다{nl}숲과 연못을 지켜주세요!"/>
+		<Class ClassID="26954" ClassName="CITYATTACK_BOSS_BOSSKILL" Data="워퓰러스가 소환한 보스를 처치했습니다{nl}이벤트 보상 지원병을 통해서 참여 보상과 보물 상자 1회 오픈 권한을 받을 수 있습니다"/>
+		<Class ClassID="26955" ClassName="FLASHMOB_EVENT_NPC" Data="이벤트 도우미"/>
+		<Class ClassID="26956" ClassName="FLASHMOB_EVENT_NPC_CHAT" Data="{STEP}단계 {nl}제스쳐 : {img {ICON} 50 50} '{POSE}'{nl}남은 시간 : {SEC}초 "/>
+		<Class ClassID="26957" ClassName="FLASHMOB_EVENT_NPC_REWARD_MSG1" Data="대화를 신청해 이벤트 보상을 받아가세요!{nl}남은 시간 {TIME}"/>
+		<Class ClassID="26958" ClassName="FLASHMOB_EVENT_STEP_SUCCESS" Data="{STEP}단계 {nl}제스쳐 : '{POSE}' 성공!!"/>
+		<Class ClassID="26959" ClassName="FLASHMOB_EVENT_STEP_MSG1" Data="이번 단계는 이미 성공하셨습니다!"/>
+		<Class ClassID="26960" ClassName="FLASHMOB_EVENT_STEP_MSG2" Data="순서에 맞는 모든 제스쳐를 취하셔야합니다{nl}이벤트에 실패 했습니다!"/>
+		<Class ClassID="26962" ClassName="FLASHMOB_EVENT_STEP_ALL_SUCCESS" Data="제스쳐를 모두 성공하셨습니다!{nl}잠시 뒤 이벤트 도우미에게 보상을 받으세요!"/>
+		<Class ClassID="26963" ClassName="FLASHMOB_EVENT_STEP_CURR_POSE" Data="이번 단계의 제스쳐는 '{POSE}' 입니다."/>
+		<Class ClassID="26964" ClassName="FLASHMOB_EVENT_SET_ERROR1" Data="설정하시는 보상 Type이 없습니다!"/>
+		<Class ClassID="26965" ClassName="FLASHMOB_EVENT_SET_ERROR2" Data="설정하신 제스쳐 '{POSE}'가 없습니다!"/>
+		<Class ClassID="26966" ClassName="FLASHMOB_EVENT_SET_SUCCESS" Data="제스쳐 : '{POSE}'{nl}보상 : {REWARD}{nl}플래시몹 이벤트 설정 완료!"/>
+		<Class ClassID="26967" ClassName="FLASHMOB_EVENT_START_MSG1" Data="곧! 이벤트를 시작합니다.{nl}대화로 이벤트를 신청해주세요!{nl}남은시간 {TIME}"/>
+		<Class ClassID="26968" ClassName="FLASHMOB_EVENT_STEP_MSG4" Data="{STEP}단계 제스쳐는 '{POSE}' 입니다!"/>
 		<Class ClassID="50001" ClassName="UNDER30_2_CHECK_MSG2" Data="유독가스에 중독되어 비석을 확인하는데 힘듭니다"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>

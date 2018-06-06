@@ -300,7 +300,7 @@ return obj.Level;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Barbarian_Pouncing" CheckerType="1" Range="15" InnerRange="25" UpdateTerm="350" AutoPos="1" AutoDir="1" ApplyFlyMon="1" EnableSearch="0">
+    <PadSkill Name="Barbarian_Pouncing" CheckerType="1" Range="20" InnerRange="25" UpdateTerm="300" AutoPos="1" AutoDir="1" ApplyFlyMon="1" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000000"/>
@@ -9060,7 +9060,7 @@ return obj.Level"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_wizard_firepillar_shot_burstup" Arg="0.89999998"/>
-                <Pos Angle="0" Dist="0" PosType="3"/>
+                <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
             </ToolScp>
@@ -9194,7 +9194,7 @@ return obj.Level"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_wizard_firepillar_shot_burstup" Arg="0.69999999"/>
-                <Pos Angle="0" Dist="0" PosType="3"/>
+                <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
             </ToolScp>

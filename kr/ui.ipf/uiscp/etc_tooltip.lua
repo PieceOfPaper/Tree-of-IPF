@@ -1,6 +1,6 @@
 -- etc_tooltip.lua
 
-function ITEM_TOOLTIP_ETC(tooltipframe, invitem, num1, usesubframe, noTradeCnt)
+function ITEM_TOOLTIP_ETC(tooltipframe, invitem, num1, usesubframe)
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");
 
 	local mainframename = 'etc'
@@ -11,17 +11,23 @@ function ITEM_TOOLTIP_ETC(tooltipframe, invitem, num1, usesubframe, noTradeCnt)
 		mainframename = "etc_sub"
 	end
 
-	local ypos = DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, noTradeCnt); -- 기타 템이라면 공통적으로 그리는 툴팁들
+	local ypos = DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 기타 템이라면 공통적으로 그리는 툴팁들
 	ypos = DRAW_ETC_HEAL_AMOUNT(tooltipframe, invitem, ypos, mainframename); -- 회복량. (존재한다면)
 	ypos = DRAW_ETC_PROPRTY(tooltipframe, invitem, ypos, mainframename); -- 쿨다운은 몇초입니다. 그런것들?
 	ypos = DRAW_ETC_DESC_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 아이템 설명.
 	ypos = DRAW_ETC_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 재료템이라면 필요한 재료랑 보여줌
-	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename); -- 재료템이라면 필요한 재료랑 보여줌
+	
+	local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
+	if 0 == isHaveLifeTime then
+		ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename); -- 재료템이라면 필요한 재료랑 보여줌
+	else
+		ypos = DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, ypos, mainframename);
+	end
 	
 end
 
 
-function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, noTradeCnt)
+function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveAllChild()
 	--스킨 세팅
@@ -67,12 +73,15 @@ function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, noTradeCn
 	local trade_richtext = GET_CHILD(CSet, "trade_text", "ui::CRichText");
 	local tradeText = "";
 	local noTrade_cnt = GET_CHILD(CSet, "noTrade_cnt", "ui::CRichText");
-	if nil ~= noTradeCnt and 0 > noTradeCnt then
-		noTradeCnt = 0
+	local noTradeCount = TryGetProp(invitem, "BelongingCount");
+	if nil ~= noTradeCount and 0 > noTradeCount then
+		noTradeCount = 0
 	end
-	noTrade_cnt:SetTextByKey('count', noTradeCnt);
-	if invitem.UserTrade ~= nil then
-		if invitem.UserTrade == "YES" then
+	noTrade_cnt:SetTextByKey('count', noTradeCount);
+
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+	if itemProp ~= nil then
+		if itemProp:IsExchangeable() == true then
 			tradeText = ScpArgMsg("UserTradeAble")
 		else
 			tradeText = ScpArgMsg("UserTradeUnable")

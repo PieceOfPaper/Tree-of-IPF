@@ -6,7 +6,7 @@
 	<input moveable="true" minwidth="290" maxwidth="500" maxheight="1000" minheight="150" resize="false" hittestframe="true"/>
 	<layer layerlevel="101"/>
 	<option hideable="true" visible="false" closebutton="false" useimageitem="true"/>
-	<userconfig COLOR_MY="ffe86a" COLOR_TO="ffffff" COLOR_MY_ALL="ffe86a" COLOR_TO_ALL="ffffff" COLOR_MY_WHI="7cd8ff" COLOR_TO_WHI="b4ddef" COLOR_MY_PARTY="93c95a" COLOR_TO_PARTY="bceb89" COLOR_MY_SHOUT="ff7c0f" COLOR_TO_SHOUT="ffa800" COLOR_MY_GUILD="a735dc" COLOR_TO_GUILD="be80ce"/>
+	<userconfig COLOR_MY="ffe86a" COLOR_TO="ffffff" COLOR_MY_ALL="ffe86a" COLOR_TO_ALL="ffffff" COLOR_MY_WHI="7cd8ff" COLOR_TO_WHI="b4ddef" COLOR_MY_PARTY="93c95a" COLOR_TO_PARTY="bceb89" COLOR_MY_SHOUT="ff7c0f" COLOR_TO_SHOUT="ffa800" COLOR_MY_GUILD="a735dc" COLOR_TO_GUILD="be80ce"COLOR_BTN_1="ffffff" COLOR_BTN_2="ff8a00" COLOR_BTN_3="93c95a" COLOR_BTN_4="e596ff" COLOR_BTN_5="7cd8ff"/>
 	<controls>
 		<groupbox name="edit_bg" rect="0 0 490 36" margin="5 0 0 0" layout_gravity="left top" draw="true" frameOpenAnim="pip_simbol_ani_3" hittestbox="false" resizebyparent="false" scrollbar="false" skin="inventory_serch"/>
 		<groupbox name="edit_to_bg" rect="0 0 100 32" margin="60 0 0 0" layout_gravity="left center" draw="true" frameOpenAnim="pip_simbol_ani_3" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg"/>
