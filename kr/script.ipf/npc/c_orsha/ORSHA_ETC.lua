@@ -880,7 +880,7 @@ function SCR_ORSHA_TOOL_NPC_NORMAL_2(self,pc)
                         return
                     end
                 elseif sObj.Goal5 == 2 then
-                    local max_cnt = 100
+                    local max_cnt = 50
                     local cnt = GetInvItemCount(pc, "CHAR220_MSTEP2_3_ITEM2")
                     if cnt >= max_cnt then
                         sObj.Goal5 = 5

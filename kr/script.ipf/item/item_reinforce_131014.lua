@@ -399,21 +399,6 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
 	local key = GetSkillSyncKey(pc, ret);
 	StartSyncPacket(pc, key);
 	local delaySec = 1.0;
-	if result == 1 then
-		InvalidateStates(pc);
-		invItem.Reinforce_2 = invItem.Reinforce_2 + 1;
-		ShowItemBalloon(pc, "{@st43}", "SucessReinforce!!!", "", invItem, 5, delaySec, "enchant_itembox");
-		invItem.Reinforce_2 = invItem.Reinforce_2 - 1;
-        PlayAnim(monster, "success", 1, 1, 0, 1);
-	else
-    	if moruName == "Moru_Potential" or moruName == "Moru_Potential14d" then
-        ShowItemBalloon(pc, "{@st43}", "SucessReinforce!!!", "", invItem, 5, delaySec, "enchant_itembox");
-        PlayAnim(monster, "success", 1, 1, 0, 1);
-        else
-		ShowItemBalloon(pc, "{@st43_red}", "SucessFail!!!", "", invItem, 5, delaySec, "enchant_itembox");
-        PlayAnim(monster, "fail", 1, 1, 0, 1);
-        end
-	end
 
 	EndSyncPacket(pc, key);
 	DelExProp(invItem, "REINF_ING")	
@@ -488,9 +473,14 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
 	
 	local ret = TxCommit(tx);
 	if ret == 'SUCCESS' then
-		if moruName == "Moru_Potential" or moruName == "Moru_Potential14d" then
-			ItemPotentialMoruMongoLog(pc, guid, invItem.PR);
-		else
+    	if result == 1 then
+    		InvalidateStates(pc);
+    		ShowItemBalloon(pc, "{@st43}","SucessReinforce!!!", "", invItem, 5, delaySec, "enchant_itembox");
+            PlayAnim(monster, "success", 1, 1, 0, 1);
+    	else
+    		ShowItemBalloon(pc, "{@st43_red}", "SucessFail!!!", "", invItem, 5, delaySec, "enchant_itembox");
+            PlayAnim(monster, "fail", 1, 1, 0, 1);
+    	end
 			if result == 1 then
 				ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount+1, spentSilver);
 			else
@@ -515,7 +505,7 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
     			end
 			end
 		end
-    end
+--    end
 	BroadcastShape(pc); 
 end
 

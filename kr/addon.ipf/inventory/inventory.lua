@@ -1,4 +1,4 @@
--- inventory.lua
+	-- inventory.lua
 
 
 g_invenTypeStrList = {"Equip", "Item"};
@@ -80,23 +80,20 @@ function HIDE_EMPTY_SLOT(slotset)
 end
 
 function UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
+	INIT_INVEN_SLOT(slot);
 
-		INIT_INVEN_SLOT(slot)						
-
-		--거래목록 또는 상점 판매목록에서 올려놓은 아이템(슬롯) 표시 기능
-		local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
-		if remainInvItemCount ~= invItem.count then
-			slot:Select(1)
-		else
-			slot:Select(0)
-		end		
+	--거래목록 또는 상점 판매목록에서 올려놓은 아이템(슬롯) 표시 기능
+	local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
+	if remainInvItemCount ~= invItem.count then
+		slot:Select(1);
+	else
+		slot:Select(0);
+	end		
 end
 
 function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
-
 	--그룹 없으면 만들기
 	local treegroupname = baseidcls.TreeGroup
-
 	local treegroup = tree:FindByValue(treegroupname);
 	if tree:IsExist(treegroup) == 0 then
 		treegroup = tree:Add(baseidcls.TreeGroupCaption, baseidcls.TreeGroup);
@@ -110,12 +107,9 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 	local slotsetnode = tree:FindByValue(treegroup, slotsetname);
 	if tree:IsExist(slotsetnode) == 0 then
 		MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls);
-	end
-					
-	slotset = GET_CHILD(tree,slotsetname,'ui::CSlotSet')	
-
+	end					
+	slotset = GET_CHILD(tree,slotsetname,'ui::CSlotSet');
 	local slotCount = slotset:GetSlotCount();
-
 	local slotindex = invItem.invIndex - GET_BASE_SLOT_INDEX(invItem.invIndex) - 1;
 
 	--검색 기능
@@ -135,7 +129,7 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 		slotset:SetUserValue("SLOT_ITEM_COUNT", cnt)
 	end
 							
-	slot:ShowWindow(1)							
+	slot:ShowWindow(1);
 	UPDATE_INVENTORY_SLOT(slot, invItem, itemCls);
 							
 	INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, remainInvItemCount);
@@ -217,15 +211,11 @@ end
 
 
 function INVENTORY_OPEN(frame)
-
 	frame:SetUserValue("MONCARDLIST_OPENED", 0);
 
 	ui.Chat("/requpdateequip"); -- 내구도 회복 유료템 때문에 정확한 값을 지금 알아야 함.
 
-	local invGbox			= frame:GetChild('inventoryGbox');
-	
-	local savedPos = frame:GetUserValue("INVENTORY_CUR_SCROLL_POS");
-		
+	local savedPos = frame:GetUserValue("INVENTORY_CUR_SCROLL_POS");		
 	if savedPos == 'None' then
 		savedPos = '0'
 	end
@@ -235,17 +225,16 @@ function INVENTORY_OPEN(frame)
 
 	session.CheckOpenInvCnt();
 	ui.CloseFrame('layerscore');
-	MAKE_WEAPON_SWAP_BUTTON()
+	MAKE_WEAPON_SWAP_BUTTON();
 	local questInfoSetFrame = ui.GetFrame('questinfoset_2');
 	if questInfoSetFrame:IsVisible() == 1 then
 		questInfoSetFrame:ShowWindow(0);
 	end
 
 	local minimapFrame = ui.GetFrame('minimap');
-	minimapFrame:ShowWindow(0)
+	minimapFrame:ShowWindow(0);
 
-	INV_HAT_VISIBLE_STATE(frame)
-	frame:Invalidate()
+	INV_HAT_VISIBLE_STATE(frame);	
 end
 
 function INVENTORY_CLOSE()
@@ -653,7 +642,7 @@ function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
 	if itemSlot ~= nil then
 		local invItem = GET_PC_ITEM_BY_GUID(itemGuid);
 		AUTO_CAST(itemSlot);
-		local eqpItemList = session.GetEquipItemList();
+		local eqpItemList = session.GetEquipItemList();        
 		SET_EQUIP_SLOT_BY_SPOT(frame, invItem, eqpItemList, _INV_EQUIP_LIST_SET_ICON);
 		frame:Invalidate();
 		return;
@@ -1063,21 +1052,18 @@ end
 
 
 function INIT_INVEN_SLOT(slot)
-
 	local frame = ui.GetFrame('inventory');
 	local picksound = frame:GetUserConfig("TREE_SLOT_PICKSOUND");
 	local dropsound = frame:GetUserConfig("TREE_SLOT_DROPSOUND");
 	local dropscp = frame:GetUserConfig("TREE_SLOT_DROPSCRIPT");
 	local popscp = frame:GetUserConfig("TREE_SLOT_POPSCRIPT");
 
-	local shopframe     = ui.GetFrame("shop");
-	local exchangeframe     = ui.GetFrame("exchange");
+	local shopframe = ui.GetFrame("shop");
+	local exchangeframe  = ui.GetFrame("exchange");
 	local companionshop = ui.GetFrame('companionshop');
 
 	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 then
-		slot:SetSelectedImage('socket_slot_check')  -- 거래시에만 체크 셀렉 아이콘 사용
-	else
-		--slot:SetSelectedImage('socket_slot_check') -- 지금은 기본 스킨 사용
+		slot:SetSelectedImage('socket_slot_check')  -- 거래시에만 체크 셀렉 아이콘 사용	
 	end
 	
 	slot:EnableHideInDrag(true)
@@ -1085,7 +1071,6 @@ function INIT_INVEN_SLOT(slot)
 	slot:SetDropSound(dropsound)
 	slot:SetEventScript(ui.DROP, dropscp);
 	slot:SetEventScript(ui.POP, popscp);
-
 end
 
 function SEARCH_ITEM_INVENTORY_KEY()
@@ -1407,7 +1392,9 @@ end
 function IS_TEMP_LOCK(invFrame, invitem)
 	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
 		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN")
+		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_TRANSCEND")
+		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_TRANSCEND_SCROLL") then
 			return true;
 	end
 
@@ -2088,14 +2075,14 @@ function INVENTORY_OP_POP(frame, slot, str, num)
 end
 
 function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)	
-	local icon 			 	= CreateIcon(slot);
-	local class 			= GetClassByType('Item', invItem.type);
+	local icon = CreateIcon(slot);
+	local class = GetClassByType('Item', invItem.type);
 	if class == nil then		
 		return;
 	end
 
 	local itemobj = GetIES(invItem:GetObject());	
-	local imageName = GET_EQUIP_ITEM_IMAGE_NAME(itemobj, 'Icon')
+	local imageName = GET_EQUIP_ITEM_IMAGE_NAME(itemobj, 'Icon');
 	local itemType = invItem.type;
 	ICON_SET_ITEM_COOLDOWN(icon, itemType);	
 
@@ -2314,16 +2301,16 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	end
 	
 	if spotName == 'RH' then
-		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
-			session.SetWeaponQuicSlot(0, equipItem : GetIESID());
+		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then        
+			session.SetWeaponQuicSlot(0, equipItem : GetIESID(), false);
 			
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_RH', equipItem.type)
 			else
 				frame:SetUserValue('CURRENT_WEAPON_RH', 0)
 			end
-		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
-			session.SetWeaponQuicSlot(2, equipItem : GetIESID());
+		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then        
+			session.SetWeaponQuicSlot(2, equipItem : GetIESID(), false);
 					
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_RH', equipItem.type)
@@ -2335,16 +2322,16 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 
 	if spotName == 'LH' then
 		
-		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
-			session.SetWeaponQuicSlot(1, equipItem : GetIESID());
+		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then        
+			session.SetWeaponQuicSlot(1, equipItem : GetIESID(), false);
 			
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_LH', equipItem.type)
 			else
 				frame:SetUserValue('CURRENT_WEAPON_LH', 0)
 			end
-		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
-			session.SetWeaponQuicSlot(3, equipItem : GetIESID());
+		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then        
+			session.SetWeaponQuicSlot(3, equipItem : GetIESID(), false);
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_LH', equipItem.type)
 			else
@@ -2355,6 +2342,10 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	
 
 	if equipItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_MORU') then
+		slot:SetFrontImage('item_Lock');
+	elseif equipItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_TRANSCEND') then
+		slot:SetFrontImage('item_Lock');
+	elseif equipItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_TRANSCEND_SCROLL') then
 		slot:SetFrontImage('item_Lock');
 	elseif equipItem.isLockState == true then
 		controlset:ShowWindow(1);			
@@ -2369,7 +2360,7 @@ function SET_EQUIP_SLOT(frame, i, equipItemList, iconFunc, ...)
 		equipItemList = session.GetEquipItemList();
 	end
 
-	local equipItem = equipItemList:Element(i);
+	local equipItem = equipItemList:Element(i);    
 	SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, equipItemList, iconFunc, ...);
 	
 	frame:Invalidate();

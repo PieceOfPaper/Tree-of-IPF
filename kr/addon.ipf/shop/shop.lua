@@ -23,11 +23,7 @@ function SHOP_UI_OPEN(frame)
 
 	--HIDE_OR_SHOW_REPAIR_BUTTON(frame)
 	OPEN_SHOPUI_COMMON();
-
-	--jansori.lua 의 함수
-	JS_SHOP_OPEN(frame)
 	ui.EnableSlotMultiSelect(1);
-
 	FINALPRICE = GET_TOTAL_MONEY();
 
 	return 1;
@@ -73,9 +69,6 @@ function SHOP_UI_CLOSE(frame, obj, argStr, argNum)
 		frame = ui.GetFrame('shop');
 	end
 	control.DialogOk()
-
-	--jansori.lua 의 함수
-	JS_SHOP_CLOSE(frame)
 	ui.EnableSlotMultiSelect(0);
 	SHOP_SELECT_ITEM_LIST = {}
 

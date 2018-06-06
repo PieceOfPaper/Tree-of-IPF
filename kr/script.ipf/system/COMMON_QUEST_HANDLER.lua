@@ -894,8 +894,26 @@ function SCR_QUEST_POSSIBLE_AGREE_PROP_CHANGE(pc, questname, self)
     			    local sObj_quest = GetSessionObject(pc, questIES.Quest_SSN)
     			    if sObj_quest ~= nil then
 --    			        local rand = IMCRandom(1, 100)
-    			        local qType = 'MonKill'
-    			        local itemList, monList = DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
+    			        local itemList, monList, zoneClassNameList = DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
+    			        
+    			        if #zoneClassNameList > 0 then
+			                local monRand = IMCRandom(1, #zoneClassNameList)
+			                
+			                local addCount = 0
+			                if pc.Lv <= 150 then
+			                    addCount = 0
+			                elseif pc.Lv <= 200 then
+			                    addCount = 20
+			                elseif pc.Lv <= 300 then
+			                    addCount = 50
+			                else
+			                    addCount = 70
+			                end
+			                    
+			                sObj_quest.SSNMonKill = 'ZONEMONKILL'..':'..zoneClassNameList[monRand]..'/'..80+addCount
+			                SaveSessionObject(pc, sObj_quest)
+    			        else
+    			        
 --    			        if rand <= 70 then
 --    			            qType = 'MonKill'
 --    			        end
@@ -906,13 +924,14 @@ function SCR_QUEST_POSSIBLE_AGREE_PROP_CHANGE(pc, questname, self)
 --    			            qType = 'MonKill'
 --    			        end
     			        
-    			        if qType == 'MonKill' then
-    			            if #monList > 0 then
-    			                local monRand = IMCRandom(1, #monList)
-    			                sObj_quest.SSNMonKill = monList[monRand][1]..":"..monList[monRand][2]..":"..monList[monRand][3]
-    			                SaveSessionObject(pc, sObj_quest)
-    			            end
-    			        else
+--    			        if qType == 'MonKill' then
+--    			            if #monList > 0 then
+--    			                local monRand = IMCRandom(1, #monList)
+--    			                print('DDDDDDDDDDDDDD',monList[monRand][1]..":"..monList[monRand][2]..":"..monList[monRand][3])
+--    			                sObj_quest.SSNMonKill = monList[monRand][1]..":"..monList[monRand][2]..":"..monList[monRand][3]
+--    			                SaveSessionObject(pc, sObj_quest)
+--    			            end
+--    			        else
 --                            if #itemList > 0 then
 --            		            local beforeValue = sObj.DROPITEM_REQUEST1_TRL
 --                			    local beforeItemList = SCR_STRING_CUT(beforeValue)

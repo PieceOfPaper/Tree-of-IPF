@@ -9,34 +9,97 @@
 	<option hideable="false" closebutton="false"/>
 	<controls>
 		<picture name="bgbg" rect="0 0 6000 8000" margin="0 0 0 0" layout_gravity="center center" image="bg_w" stretch="true"/>
-		<picture name="login_bg" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="login_bg2" stretch="false">
-			<uieffect effect="I_screen_logo006" scale="7" sound="None" offset="-800 -420" playtime="1.3" duration="0" conditon="Always" event="None"/>
+		<picture name="login_img" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="login_img" stretch="false">
+			<uieffect effect="I_screen_smoke002" scale="15" sound="None" offset="800 -50" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke002" scale="15" sound="None" offset="200 -100" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke002" scale="10" sound="None" offset="600 400" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke002" scale="10" sound="None" offset="200 400" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke002" scale="20" sound="None" offset="600 700" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke002" scale="15" sound="None" offset="-600 -50" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke002" scale="15" sound="None" offset="-200 -100" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke002" scale="10" sound="None" offset="-600 400" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke002" scale="10" sound="None" offset="-200 400" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke002" scale="20" sound="None" offset="-600 700" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="7" sound="None" offset="-540 -180" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo013" scale="9" sound="None" offset="-350 -100" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo013" scale="8" sound="None" offset="-200 -00" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_ground" scale="4" sound="None" offset="-170 -00" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_violet" scale="10" sound="None" offset="560 -180" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_ground" scale="4" sound="None" offset="200 0" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo013" scale="9" sound="None" offset="350 -100" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo013_violet" scale="4" sound="None" offset="100 40" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_ground" scale="8" sound="None" offset="0 40" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_line004_test" scale="22.7" sound="None" offset="7 280" playtime="1" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_line003_test" scale="22.7" sound="None" offset="7 260" playtime="1" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_particle003" scale="120" sound="None" offset="0 400" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_particle002" scale="25" sound="None" offset="0 600" playtime="0.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_particle003" scale="60" sound="None" offset="-800 500" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_particle003" scale="60" sound="None" offset="800 500" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_particle002" scale="30" sound="None" offset="-700 400" playtime="0.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_particle002" scale="30" sound="None" offset="700 400" playtime="0.5" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo002" scale="3" sound="None" offset="-682 -389" playtime="1.3" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo002" scale="2" sound="None" offset="-501 -448" playtime="1.3" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo002" scale="4" sound="None" offset="-451 -434" playtime="1.3" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo002" scale="2" sound="None" offset="-375 -472" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo002" scale="6" sound="None" offset="-384 -395" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="4" sound="None" offset="-384 -395" playtime="1.3" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo002" scale="4" sound="None" offset="-354 -444" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo002" scale="7" sound="None" offset="-325 -495" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="5" sound="None" offset="355 -390" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="2" sound="None" offset="917 -309" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="3" sound="None" offset="847 -337" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_violet" scale="5" sound="None" offset="873 -325" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="3" sound="None" offset="877 -245" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="7" sound="None" offset="0 -150" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="7" sound="None" offset="2 -40" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="6" sound="None" offset="60 -90" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="5" sound="None" offset="-73 -90" playtime="1.3" duration="0" conditon="Always" event="None"/>
+		</picture>
+		<picture name="login_img2" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="login_img2" stretch="false">
+			<uieffect effect="I_screen_logo002" scale="6" sound="None" offset="80 -200" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_green" scale="4" sound="None" offset="-917 140" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_green" scale="5" sound="None" offset="-315 -400" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_green" scale="3" sound="None" offset="-310 -270" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_green" scale="4" sound="None" offset="917 140" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_green" scale="3" sound="None" offset="315 -400" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_green" scale="3" sound="None" offset="310 -270" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="6" sound="None" offset="100 -300" playtime="3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="6" sound="None" offset="-100 -300" playtime="3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="6" sound="None" offset="-800 -300" playtime="2" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="6" sound="None" offset="800 -300" playtime="2" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="6" sound="None" offset="0 -150" playtime="2" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="6" sound="None" offset="690 250" playtime="2" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="6" sound="None" offset="-690 250" playtime="2" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke003_1" scale="15" sound="None" offset="0 80" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke003" scale="15" sound="None" offset="0 80" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke001_light_mint2" scale="10" sound="None" offset="100 0" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke001_light_mint2" scale="10" sound="None" offset="300 0" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke001_light_mint2" scale="10" sound="None" offset="-100 0" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_smoke001_light_mint2" scale="10" sound="None" offset="-300 0" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_green" scale="5" sound="None" offset="-710 -340" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo013_violet" scale="9" sound="None" offset="-430 -120" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo013_violet" scale="9" sound="None" offset="-420 -150" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="3" sound="None" offset="-730 210" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="3" sound="None" offset="-650 -450" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="2.5" sound="None" offset="-780 -90" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="4" sound="None" offset="-810 -150" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_green" scale="4" sound="None" offset="-695 -460" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="2" sound="None" offset="-917 -309" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="3" sound="None" offset="-847 -337" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="5" sound="None" offset="-873 -325" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="3" sound="None" offset="-877 -245" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002_green" scale="3" sound="None" offset="605 -370" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="3" sound="None" offset="620 370" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="3" sound="None" offset="730 220" playtime="1.3" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo006" scale="3" sound="None" offset="650 -450" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo002" scale="5" sound="None" offset="695 -460" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="2.5" sound="None" offset="780 -90" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="4" sound="None" offset="810 -150" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="3" sound="None" offset="695 -460" playtime="1.3" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo002" scale="2" sound="None" offset="917 -309" playtime="1.3" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo002" scale="3" sound="None" offset="847 -337" playtime="1.3" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo002" scale="5" sound="None" offset="873 -325" playtime="1.3" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo002" scale="3" sound="None" offset="877 -245" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo002" scale="7" sound="None" offset="7 40" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo002" scale="6" sound="None" offset="83 -20" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo006" scale="7" sound="None" offset="0 -350" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo006" scale="7" sound="None" offset="0 -150" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo006" scale="10" sound="None" offset="0 0" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo006" scale="12" sound="None" offset="780 -370" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo006" scale="12" sound="None" offset="780 100" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo006" scale="12" sound="None" offset="-780 100" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo006" scale="12" sound="None" offset="-400 -390" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo002" scale="5" sound="None" offset="-93 -10" playtime="1.3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="UI_screen_halloween_fire_red" scale="4" sound="None" offset="90 -395" playtime="5" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="UI_screen_halloween_fire_blue" scale="5" sound="None" offset="-90 450" playtime="5" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="UI_screen_halloween_fire_blue2" scale="7" sound="None" offset="15 400" playtime="5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="7" sound="None" offset="2 -40" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="6" sound="None" offset="60 -90" playtime="1.3" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="5" sound="None" offset="-73 -90" playtime="1.3" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_main_leaf004_light" scale="0.6" sound="None" offset="0 0" playtime="10" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_main_leaf005_light_reverse" scale="0.6" sound="None" offset="0 0" playtime="10" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_main_leaf005_light_reverse" scale="0.5" sound="None" offset="0 0" playtime="10" duration="0" conditon="Always" event="None"/>

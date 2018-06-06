@@ -663,9 +663,7 @@ function SCR_JOB_DIEVDIRBYS2_NPC_NORMAL_4_PRE(pc)
     local _hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char1_20')
     if _hidden_prop == 100 then
         if sObj.Step4 == 1 then
-            if GetInvItemCount(pc, 'HIDDEN_RUNECASTER_ITEM_4') == 0 then
-                return 'YES'
-            end
+            return 'YES'
         end
     end
     return 'NO'
@@ -1544,6 +1542,8 @@ function SCR_JOB_DRUID3_1_NPC_NORMAL_2(self,pc)
                         sObj.Goal3 = 1
                         SaveSessionObject(pc, sObj)
                         ShowOkDlg(pc, "CHAR220_MSETP2_2_1_DLG1_1", 1)
+                        sleep(500)
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHAR220_MSETP2_EFFECT_SET_MSG"), 10)
                         return
                     end
                 elseif sObj.Goal3 == 1 then
@@ -1561,6 +1561,8 @@ function SCR_JOB_DRUID3_1_NPC_NORMAL_2(self,pc)
                         SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)
                     else
                         ShowOkDlg(pc, "CHAR220_MSETP2_2_1_DLG2", 1)
+                        sleep(500)
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHAR220_MSETP2_EFFECT_SET_MSG"), 10)
                     end
                 else
                     SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)

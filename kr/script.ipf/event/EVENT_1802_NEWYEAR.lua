@@ -59,11 +59,6 @@ function SCR_EVENT_1802_NEWYEAR_NPC_DIALOG(self, pc)
 --    elseif select == 2 then
 --        ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP3_OPEN()")
 --    end
-    
-    local select = ShowSelDlg(pc, 0, 'EVENT_1802_NEWYEAR_DLG1', ScpArgMsg('EventShop'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
-    if select == 1 then
-        ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP3_OPEN()")
-    end
 end
 
 

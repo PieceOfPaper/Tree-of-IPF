@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Bip001 Spine1" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<BlendOn frame="50" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="52" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="90" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="92" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="130" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="132" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="165" R="100" G="100" B="100" A="50"/>
+	<BlendOff frame="167" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="68" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="110" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="142" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="168" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="mon_voice5_l_cast_2"/>
+	<Sound frame="5.00" soundFile="skl_eff_atk_move_l_16"/>
+	<Sound frame="40.00" soundFile="mon_voice5_l_12"/>
+	<Sound frame="45.00" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="48.00" soundFile="skl_eff_atk_move_l_7"/>
+	<Sound frame="78.00" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="81.00" soundFile="skl_eff_atk_move_l_7"/>
+	<Sound frame="115.00" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="118.00" soundFile="skl_eff_atk_move_l_7"/>
+	<Sound frame="120.00" soundFile="mon_voice5_l_cast_1"/>
+	<Sound frame="170.00" soundFile="skl_eff_atk_move_l_1"/>
+</ActionDesc>

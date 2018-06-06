@@ -35,3 +35,10 @@ function SCR_BUFF_RATETABLE_FIELD_BOSS_AWAKE_UP_VERSION_TWO(self, from, skill, a
         rateTable.addDamageRate = rateTable.addDamageRate - 0.5
     end
 end
+
+--Velcofer Debuff
+function SCR_BUFF_RATETABLE_Raid_Velcofer_Awake_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, 'Raid_Velcofer_Awake_Buff') == 'YES' then
+        rateTable.addDamageRate = rateTable.addDamageRate - 0.3
+    end
+end

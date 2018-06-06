@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="54" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="56" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="58" R="100" G="100" B="100" A="50"/>
+	<BlendOff frame="60" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="56" type="2" intensity="10" frequency="50" duration="0.5" range="1000"/>
+	<Sound frame="12.00" soundFile="m_kerberos_atk"/>
+	<Sound frame="15.00" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="45.00" soundFile="skl_eff_atk_sperad"/>
+	<Sound frame="48.00" soundFile="skl_eff_scythe_attack"/>
+	<Sound frame="49.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="50.00" soundFile="mon_nepenthes_born"/>
+</ActionDesc>

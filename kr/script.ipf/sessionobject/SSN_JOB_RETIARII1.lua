@@ -26,7 +26,10 @@ function SCR_DESTROY_SSN_JOB_RETIARII1(self, sObj)
 end
 
 function SCR_TIMEOUT_SSN_JOB_RETIARII1(self, sObj)
-    
+    SetTimeSessionObject(self, sObj, 2, 1000, "None")
+    SetTimeSessionObject(self, sObj, 3, 3000, "None")
+    SetTimeSessionObject(self, sObj, 4, 1000, "None")
+    SetTitle(self, '')
     local maxRewardIndex = SCR_QUEST_CHECK_MODULE_STEPREWARD_FUNC(self, sObj.QuestName)
     if maxRewardIndex ~= nil and maxRewardIndex > 0 then
     	SCR_SSN_TIMEOUT_PARTY_SUCCESS(self, sObj.QuestName, nil, nil)
@@ -44,8 +47,8 @@ function SCR_SSN_JOB_RETIARII1_TRACK_START(self, sObj)
 	    
 	    SetTimeSessionObject(self, sObj, 1, 1000, "None")
 	    
-	    local npc1 = CREATE_NPC(self, 'crystal_vakarine', -1170,-41,-195, 315, 'Peaceful', GetLayer(self), nil, nil, nil, nil, 1, nil, 'JOB_RETIARII1_ENTICEMENT')
-	    local npc2 = CREATE_NPC(self, 'crystal_vakarine', -1030, -41, -348, 315, 'Peaceful', GetLayer(self), nil, nil, nil, nil, 1, nil, 'JOB_RETIARII1_ENTICEMENT')
+	    local npc1 = CREATE_NPC(self, 'crystal_vakarine', -1170,-41,-195, 315, 'Peaceful', GetLayer(self), 'UnvisibleName', nil, nil, nil, 1, nil, 'JOB_RETIARII1_ENTICEMENT')
+	    local npc2 = CREATE_NPC(self, 'crystal_vakarine', -1030, -41, -348, 315, 'Peaceful', GetLayer(self), 'UnvisibleName', nil, nil, nil, 1, nil, 'JOB_RETIARII1_ENTICEMENT')
 --	    local npc1 = CREATE_NPC(self, 'magictrap_core', -1170,-41,-195, 315, 'Peaceful', GetLayer(self), nil, nil, nil, nil, 1, nil, 'JOB_RETIARII1_ENTICEMENT')
 --	    local npc2 = CREATE_NPC(self, 'magictrap_core', -1030, -41, -348, 315, 'Peaceful', GetLayer(self), nil, nil, nil, nil, 1, nil, 'JOB_RETIARII1_ENTICEMENT')
     end
@@ -72,7 +75,7 @@ function SCR_SSN_JOB_RETIARII1_TIMER1(self, sObj, remainTime)
     end
     
     if (lastSec + changeSec < remainTime) or targetCount == nil or targetCount == 0 then
-        targetCount = IMCRandom(4,6)
+        targetCount = IMCRandom(3,5)
         SetExProp(self,'JOB_RETIARII1_TARGET_COUNT', targetCount)
         SetExProp(self,'JOB_RETIARII1_TARGET_SEC', remainTime)
     end
@@ -154,6 +157,9 @@ function SCR_JOB_RETIARII1_MON_CREATE(self, sObj, i, failCount, monRate, maxRate
 end
 
 function SSN_JOB_RETIARII1_UseSkill(self, sObj, msg, sklObj)
+    if sklObj.ClassName ~= 'Retiarii_Quest1' then
+        return
+    end
     local skillX, skillY, skillZ = GetSkillTargetPos(self)
     local zoneID = GetZoneInstID(self)
     local objList, objCnt = GetWorldObjectListByPos(zoneID, GetLayer(self), skillX, skillY, skillZ, 'MON', 35)

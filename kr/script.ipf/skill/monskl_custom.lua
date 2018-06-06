@@ -1263,6 +1263,7 @@ end
 
 function CRE_MON_ABIL_ATTRACT(mon, skl, abilName, x, y, z, monName, attachEffect, effectScale, lifeTime, tickDamage, tickTime, attrRange)
 	local self = GetSkillOwner(skl);
+	
     if skl.ClassName == 'Onmyoji_GreenwoodShikigami' then
         local now = toint(imcTime.GetAppTime())                
         SetExProp(self, 'Onmyoji_GreenwoodShikigami_startTime', now)        
@@ -1272,6 +1273,7 @@ function CRE_MON_ABIL_ATTRACT(mon, skl, abilName, x, y, z, monName, attachEffect
     if mon1 == nil then
         return;
     end
+    
 	local range = GetExProp(self, "ATTR_RANGE");
     PlayAnim(mon1, 'Born', 1, 1);
 	
@@ -1281,15 +1283,16 @@ function CRE_MON_ABIL_ATTRACT(mon, skl, abilName, x, y, z, monName, attachEffect
         AttachEffect(mon1, attachEffect, effectScale);      
     end
     SetHittable(mon1, 0);
-    SetExProp(mon1, "TICK_TIME", tickTime); 
-    SetExProp(mon1, "LIFE_TIME", lifeTime); 
-    SetExProp(mon1, "ATTR_RANGE", attrRange);
+    SetExProp(mon1, "LIFE_TIME", lifeTime);
     BroadcastRelation(mon1);
     
     local abil = GetAbility(self, abilName)
     if abil == nil then
     	return
     end
+    
+    SetExProp(mon1, "ATTR_RANGE", attrRange);
+    SetExProp(mon1, "TICK_TIME", tickTime); 
     
     local x, y, z = GetPos(mon1);
     local objList, objCount = SelectObject(mon1, attrRange, 'ENEMY');

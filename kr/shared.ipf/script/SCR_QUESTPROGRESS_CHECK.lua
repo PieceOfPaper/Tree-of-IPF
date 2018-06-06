@@ -3255,7 +3255,7 @@ function SCR_QUEST_SUCC_CHECK_MODULE_MONKILL(pc, questIES)
     if monkill_sObj ~= nil and GetPropType(monkill_sObj, 'SSNMonKill') ~= nil and monkill_sObj.SSNMonKill ~= 'None' then
         ssnMonCheck = true
         local monInfo = SCR_STRING_CUT(monkill_sObj.SSNMonKill, ":")
-        if #monInfo >= 3 and #monInfo % 3 == 0 then
+        if #monInfo >= 3 and #monInfo % 3 == 0 and monInfo[1] ~= 'ZONEMONKILL' then
             local ssnMonListCount = #monInfo / 3
             local flag = 0
             for i = 1, QUEST_MAX_MON_CHECK do
@@ -3271,6 +3271,24 @@ function SCR_QUEST_SUCC_CHECK_MODULE_MONKILL(pc, questIES)
             end
             
             if flag >= ssnMonListCount then
+                Succ_req_MonKill = 'YES'
+            end
+        elseif monInfo[1] == 'ZONEMONKILL'  then
+            local flag = 0
+            for i = 1, QUEST_MAX_MON_CHECK do
+                if #monInfo - 1 >= i then
+                    local index = i + 1
+                    local zoneMonInfo = SCR_STRING_CUT(monInfo[index])
+                    local needCount = tonumber(zoneMonInfo[2])
+                    local nowCount = monkill_sObj['KillMonster'..i]
+                    if nowCount >= needCount then
+                        flag = flag + 1
+                    end
+                else
+                    break
+                end
+            end
+            if flag >= #monInfo - 1 then
                 Succ_req_MonKill = 'YES'
             end
         end

@@ -101,9 +101,9 @@ function SET_RATE_TABLE()
     
     rateTable.AddAtkDamage = 0.0;
     rateTable.DamageRate = 0.0;
-    rateTable.DamageReductionRate = { };	-- 피해 감소, AddDamageReductionRate(rateTable, value)로 사용
+    rateTable.DamageReductionRate = { };    -- 피해 감소, AddDamageReductionRate(rateTable, value)로 사용
     rateTable.MultipleHitDamageRate = 0.0;
-    rateTable.addDamageRate = 0.0;	-- DamageRate를 바꾸는 것이 아니라, True대미지나, 속성 대미지와 같은 고정 대미지를 줄이는 기능 --
+    rateTable.addDamageRate = 0.0;  -- DamageRate를 바꾸는 것이 아니라, True대미지나, 속성 대미지와 같은 고정 대미지를 줄이는 기능 --
     rateTable.AddTrueDamage = 0.0;
     rateTable.AddAttributeDamageFire = 0;
     rateTable.AddAttributeDamageIce = 0;
@@ -172,9 +172,9 @@ function RESET_RATE_TABLE(rateTable)
     
     rateTable.AddAtkDamage = 0.0;
     rateTable.DamageRate = 0.0;
-    rateTable.DamageReductionRate = { };	-- 피해 감소, AddDamageReductionRate(rateTable, value)로 사용
+    rateTable.DamageReductionRate = { };    -- 피해 감소, AddDamageReductionRate(rateTable, value)로 사용
     rateTable.MultipleHitDamageRate = 0.0;
-    rateTable.addDamageRate = 0.0;	-- DamageRate를 바꾸는 것이 아니라, True대미지나, 속성 대미지와 같은 고정 대미지를 줄이는 기능 --
+    rateTable.addDamageRate = 0.0;  -- DamageRate를 바꾸는 것이 아니라, True대미지나, 속성 대미지와 같은 고정 대미지를 줄이는 기능 --
     rateTable.AddTrueDamage = 0.0;
     rateTable.AddAttributeDamageFire = 0;
     rateTable.AddAttributeDamageIce = 0;
@@ -234,11 +234,11 @@ function RESET_RATE_TABLE(rateTable)
 end
 
 function AddDamageReductionRate(rateTable, value)
-	if rateTable == nil then
-		return;
-	end
-	
-	table.insert(rateTable.DamageReductionRate, value);
+    if rateTable == nil then
+        return;
+    end
+    
+    table.insert(rateTable.DamageReductionRate, value);
 end
 
 function IS_PC(actor)
@@ -277,17 +277,17 @@ function ADDBUFF(from, target, name, arg1, arg2, time, over, rate, sklID, fromWh
     end
     
     if IsBuffApplied(target, 'Skill_NoDamage_Buff') == 'YES' then
-	    local buffClass = GetClass('Buff', name);
-	    if buffClass ~= nil then
-	    	local buffGroup1 = TryGetProp(buffClass, 'Group1');
-	    	local buffLv = TryGetProp(buffClass, 'Lv');
-	    	
-	    	if buffGroup1 == 'Debuff' and buffLv < 99 then
-	    		return nil;
-	    	end
-	    end
-	end
-	
+        local buffClass = GetClass('Buff', name);
+        if buffClass ~= nil then
+            local buffGroup1 = TryGetProp(buffClass, 'Group1');
+            local buffLv = TryGetProp(buffClass, 'Lv');
+            
+            if buffGroup1 == 'Debuff' and buffLv < 99 then
+                return nil;
+            end
+        end
+    end
+    
     -- 버프상점은 BUFF_FROM_AUTO_SELLER 으로 데이터를 넘깁니다.
     if fromWho == nil then
         if IsSameActor(from, target) == "YES" then
@@ -296,9 +296,9 @@ function ADDBUFF(from, target, name, arg1, arg2, time, over, rate, sklID, fromWh
             fromWho = BUFF_FROM_OTHER;
         end
     end
-	
+    
     local buff = nil;
-	
+    
     if rate == nil then
         buff = AddBuff(from, target, name, arg1 , arg2, time, over, sklID, fromWho);
     elseif rate >= IMCRandom(1, 100) then
@@ -311,17 +311,17 @@ end
 
 function ADDPADBUFF(from, target, pad, name, arg1, arg2, time, over, rate, fromWho)
     if IsBuffApplied(target, 'Skill_NoDamage_Buff') == 'YES' then
-	    local buffClass = GetClass('Buff', name);
-	    if buffClass ~= nil then
-	    	local buffGroup1 = TryGetProp(buffClass, 'Group1');
-	    	local buffLv = TryGetProp(buffClass, 'Lv');
-	    	
-	    	if buffGroup1 == 'Debuff' and buffLv < 99 then
-	    		return nil;
-	    	end
-	    end
-	end
-	
+        local buffClass = GetClass('Buff', name);
+        if buffClass ~= nil then
+            local buffGroup1 = TryGetProp(buffClass, 'Group1');
+            local buffLv = TryGetProp(buffClass, 'Lv');
+            
+            if buffGroup1 == 'Debuff' and buffLv < 99 then
+                return nil;
+            end
+        end
+    end
+    
 -- 버프상점은 BUFF_FROM_AUTO_SELLER 으로 데이터를 넘깁니다.    
     if fromWho == nil then
         if IsSameActor(from, target) == "YES" then
@@ -386,7 +386,7 @@ function SCR_LIB_CHECK_CRT(self, from, skill, ret, rateTable)
     end
     
     crt_rating = (crt_rating ^ 0.6) * 100;
-	
+    
 --  crt_rating = crt_rating * 10000;
     
     if from.ClassName == "PC" then
@@ -400,7 +400,7 @@ function SCR_LIB_CHECK_CRT(self, from, skill, ret, rateTable)
     end
     
     crt_rating = crt_rating + rateTable.crtRatingAdd;
-	
+    
     if crt_rating < 0 then
         crt_rating = 0 ;
     end
@@ -502,28 +502,28 @@ function SCR_LIB_CHECK_DODGE(self, from, ret, skill, rateTable)
         return 0;
     end
     
-	-- 마법 공격 체크 --
-	local checkMagic = 1;
-	if skill.ClassType == "Magic" then
-		checkMagic = 0;
-		
-		if rateTable.EnableMagicDodge == 1 then
-			checkMagic = 1;
-		end
-	end
-	
-	-- 트루 대미지 체크 --
-	local checkTrue = 1;
-	if skill.ClassType == 'TrueDamage' or skill.ClassType == 'AbsoluteDamage' then
-		checkTrue = 0;
-	end
-	
-	
-	
-	
-	if checkMagic == 0 or checkTrue == 0 then
-		return 0;
-	end
+    -- 마법 공격 체크 --
+    local checkMagic = 1;
+    if skill.ClassType == "Magic" then
+        checkMagic = 0;
+        
+        if rateTable.EnableMagicDodge == 1 then
+            checkMagic = 1;
+        end
+    end
+    
+    -- 트루 대미지 체크 --
+    local checkTrue = 1;
+    if skill.ClassType == 'TrueDamage' or skill.ClassType == 'AbsoluteDamage' then
+        checkTrue = 0;
+    end
+    
+    
+    
+    
+    if checkMagic == 0 or checkTrue == 0 then
+        return 0;
+    end
     
     
     
@@ -548,7 +548,7 @@ function SCR_LIB_CHECK_DODGE(self, from, ret, skill, rateTable)
     end
     
     if rateTable.FixedDodgeRate > 0 then
-		defRatio = rateTable.FixedDodgeRate;
+        defRatio = rateTable.FixedDodgeRate;
     end
     
     local randVal = IMCRandom(0, 10000);
@@ -771,11 +771,11 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
             -- 속성상성 증/감댐과 상태이상에 따른 증/감댐이 복리 연산 --
             local attributeConditionRate = trueRateSum * conditionRate;
             if attributeConditionRate > 2 then
-            	attributeConditionRate = 2;	-- 속성상성과 상태이상 증/감댐은 복리지만 최대 200% 제한 --
+                attributeConditionRate = 2; -- 속성상성과 상태이상 증/감댐은 복리지만 최대 200% 제한 --
             end
             
             if attributeConditionRate < 0.5 then
-            	attributeConditionRate = 0.5	-- 속성상성과 상태이상 증/감댐은 복리지만 최소 50% 제한 --
+                attributeConditionRate = 0.5    -- 속성상성과 상태이상 증/감댐은 복리지만 최소 50% 제한 --
             end
             
             atkDefResult = atkDefResult * attributeConditionRate;
@@ -786,9 +786,9 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
         if atkDefResult < 1 then
             atkDefResult = 0;
         else
-        	local multipleHitCountRate = 1 + rateTable.MultipleHitDamageRate;
-        	atkDefResult = atkDefResult * multipleHitCountRate;
-        	
+            local multipleHitCountRate = 1 + rateTable.MultipleHitDamageRate;
+            atkDefResult = atkDefResult * multipleHitCountRate;
+            
             local armorAbilRate = 0.0;
             
             if IS_PC(self) == true then
@@ -838,17 +838,17 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
             if rateSum < 0.1 then
                 rateSum = 0.1;
             end
-			
-            atkDefResult = atkDefResult * rateSum;	-- 기본 증댐 처리 --
+            
+            atkDefResult = atkDefResult * rateSum;  -- 기본 증댐 처리 --
             
             if rateTable.DamageReductionRate ~= nil and #rateTable.DamageReductionRate > 0 then
-            	for i = 1, #rateTable.DamageReductionRate do
-	            	atkDefResult = atkDefResult - (atkDefResult * rateTable.DamageReductionRate[i]);	-- 감댐 복리 계산 --
-	            	
-			        if atkDefResult < 1 then
-			            atkDefResult = 0;
-			        end
-	            end
+                for i = 1, #rateTable.DamageReductionRate do
+                    atkDefResult = atkDefResult - (atkDefResult * rateTable.DamageReductionRate[i]);    -- 감댐 복리 계산 --
+                    
+                    if atkDefResult < 1 then
+                        atkDefResult = 0;
+                    end
+                end
             end
             
             -- 상태이상에 따른 기본 증댐 처리 --
@@ -857,11 +857,11 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
             -- 속성상성 증/감댐과 상태이상에 따른 증/감댐이 복리 연산 --
             local attributeConditionRate = (1 + rateTable.AttributeRate) * conditionRate;
             if attributeConditionRate > 2 then
-            	attributeConditionRate = 2;	-- 속성상성과 상태이상 증/감댐은 복리지만 최대 200% 제한 --
+                attributeConditionRate = 2; -- 속성상성과 상태이상 증/감댐은 복리지만 최대 200% 제한 --
             end
             
             if attributeConditionRate < 0.5 then
-            	attributeConditionRate = 0.5	-- 속성상성과 상태이상 증/감댐은 복리지만 최소 50% 제한 --
+                attributeConditionRate = 0.5    -- 속성상성과 상태이상 증/감댐은 복리지만 최소 50% 제한 --
             end
             
             atkDefResult = atkDefResult * attributeConditionRate;
@@ -957,7 +957,7 @@ end
 
 function SCR_ABIL_DAMAGE_CALC(self, from, skill, rateTable, ret)
     local abilRateDamage = 0;
-	
+    
     local Archer5_abil = GetAbility(from, "Archer5")
     if Archer5_abil ~= nil and IS_PC(self) == false then
         local rItem  = GetEquipItem(from, 'RH');
@@ -1020,73 +1020,73 @@ function SCR_ABIL_DAMAGE_CALC(self, from, skill, rateTable, ret)
     
     local Matador10_abil = GetAbility(from, "Matador10")
     if Matador10_abil ~= nil then
-		if IS_PC(self) == true then	-- PC 대상 --
-			local buffList, buffCount = GetBuffListByProp(self, 'Keyword', 'Provoke');
-			if buffList ~= nil and buffCount >= 1 then
-    			for i = 1, buffCount do
-    				local checkBuff = buffList[i];
-    				local buffCaster = GetBuffCaster(checkBuff);
-    				if buffCaster ~= nil and IsSameActor(from, buffCaster) then
-    					abilRateDamage = abilRateDamage + 0.1;
-    				end
-    			end
-    		end
-		else	-- 몬스터 대상 --
-			local topHate = GetTopHatePointChar(self);
-			if topHate ~= nil then
-				if IsSameActor(from, topHate) == 'YES' then
-					abilRateDamage = abilRateDamage + 0.1;
-				end
-			end
-		end
+        if IS_PC(self) == true then -- PC 대상 --
+            local buffList, buffCount = GetBuffListByProp(self, 'Keyword', 'Provoke');
+            if buffList ~= nil and buffCount >= 1 then
+                for i = 1, buffCount do
+                    local checkBuff = buffList[i];
+                    local buffCaster = GetBuffCaster(checkBuff);
+                    if buffCaster ~= nil and IsSameActor(from, buffCaster) then
+                        abilRateDamage = abilRateDamage + 0.1;
+                    end
+                end
+            end
+        else    -- 몬스터 대상 --
+            local topHate = GetTopHatePointChar(self);
+            if topHate ~= nil then
+                if IsSameActor(from, topHate) == 'YES' then
+                    abilRateDamage = abilRateDamage + 0.1;
+                end
+            end
+        end
     end
     
     local Matador11_abil = GetAbility(from, "Matador11")
     if Matador11_abil ~= nil then
         local rItem = GetEquipItem(from, 'RH');
         if rItem ~= nil and rItem.ClassType == "Rapier" then
-			if IS_PC(self) == true then	-- PC 대상 --
-				local buffList, buffCount = GetBuffListByProp(self, 'Keyword', 'Provoke');
-				if buffList ~= nil and buffCount >= 1 then
-	    			for i = 1, buffCount do
-	    				local checkBuff = buffList[i];
-	    				local buffCaster = GetBuffCaster(checkBuff);
-	    				if buffCaster ~= nil and IsSameActor(from, buffCaster) then
-	    					abilRateDamage = abilRateDamage + 0.2;
-	    				end
-	    			end
-	    		end
-			else	-- 몬스터 대상 --
-				local topHate = GetTopHatePointChar(self);
-				if topHate ~= nil then
-					topHate = GetTopOwner(topHate);
-					if IsSameActor(from, topHate) == 'YES' then
-						abilRateDamage = abilRateDamage + 0.2;
-					end
-				end
-			end
-	    end
+            if IS_PC(self) == true then -- PC 대상 --
+                local buffList, buffCount = GetBuffListByProp(self, 'Keyword', 'Provoke');
+                if buffList ~= nil and buffCount >= 1 then
+                    for i = 1, buffCount do
+                        local checkBuff = buffList[i];
+                        local buffCaster = GetBuffCaster(checkBuff);
+                        if buffCaster ~= nil and IsSameActor(from, buffCaster) then
+                            abilRateDamage = abilRateDamage + 0.2;
+                        end
+                    end
+                end
+            else    -- 몬스터 대상 --
+                local topHate = GetTopHatePointChar(self);
+                if topHate ~= nil then
+                    topHate = GetTopOwner(topHate);
+                    if IsSameActor(from, topHate) == 'YES' then
+                        abilRateDamage = abilRateDamage + 0.2;
+                    end
+                end
+            end
+        end
     end
     
-	local abilPyromancer8 = GetAbility(from, "Pyromancer8")
+    local abilPyromancer8 = GetAbility(from, "Pyromancer8")
     if abilPyromancer8 ~= nil then
         local rItem = GetEquipItem(from, 'RH');
         if rItem ~= nil and rItem.ClassType == "THStaff" then
             local attribute = TryGetProp(skill, "Attribute");
             if attribute == "Fire" then
-            	local abilAddDamage = abilPyromancer8.Level * 0.05
+                local abilAddDamage = abilPyromancer8.Level * 0.05
                 abilRateDamage = abilRateDamage + abilAddDamage;
             end
         end
     end
     
-	local abilCryomancer5 = GetAbility(from, "Cryomancer5")
+    local abilCryomancer5 = GetAbility(from, "Cryomancer5")
     if abilCryomancer5 ~= nil then
         local rItem = GetEquipItem(from, 'RH');
         if rItem ~= nil and rItem.ClassType == "Staff" then
             local attribute = TryGetProp(skill, "Attribute");
             if attribute == "Ice" then
-            	local abilAddDamage = abilCryomancer5.Level * 0.05
+                local abilAddDamage = abilCryomancer5.Level * 0.05
                 abilRateDamage = abilRateDamage + abilAddDamage;
             end
         end
@@ -1409,9 +1409,11 @@ function FINAL_DAMAGECALC(self, from, skill, atk, ret, fixHitType, isDadak)
     end
     
 --HP카운터 처리 여기서 한번 더 해준다.
-    local multiHitCount = GetMultipleHitCount(ret);
-    if ret.Damage < multiHitCount then
-        ret.Damage = multiHitCount;
+    if ret.Damage > 0 then
+        local multiHitCount = GetMultipleHitCount(ret);
+        if ret.Damage < multiHitCount then
+            ret.Damage = multiHitCount;
+        end
     end
 
     local limitDamage = GET_LIMIT_MAX_DAMAGE(self, from, skill, ret);
@@ -1450,7 +1452,7 @@ function GET_LIMIT_MAX_DAMAGE(self, attacker, skill, ret)
     -- MON : 777,777
     
     if GetExProp(self, 'UNLIMIT_MAX_DAMAGE') == 1 then
-    	return 2147483647;	-- 표현 가능한 최대값 인트 범위 --
+        return 2147483647;  -- 표현 가능한 최대값 인트 범위 --
     end
     
     local defaultMaxDamage = 777777;
@@ -1458,8 +1460,8 @@ function GET_LIMIT_MAX_DAMAGE(self, attacker, skill, ret)
     
     local multipleHitCount = GetMultipleHitCount(ret);
     if multipleHitCount ~= nil and multipleHitCount ~= 0 then
-    	defaultMaxDamage = math.floor(defaultMaxDamage * multipleHitCount);
-    	overMaxDamage = math.floor(overMaxDamage * multipleHitCount);
+        defaultMaxDamage = math.floor(defaultMaxDamage * multipleHitCount);
+        overMaxDamage = math.floor(overMaxDamage * multipleHitCount);
     end
     
     local checkPC = false;
@@ -2307,13 +2309,13 @@ function SCR_ATTRIBUTE_DAMAGE_CALC(self, from, ret, skill, rateTable)
         end
         
         if rate < 0 then
-	        local attributePenaltyReductionRate = GetExProp(from, 'CARD_ATTRIBUTE_PENALTY_REDUCTION');
-	        if attributePenaltyReductionRate == nil then
-	        	attributePenaltyReductionRate = 0;
-	        end
-	        
-	        rate = rate - (rate * (attributePenaltyReductionRate / 100));
-	    end
+            local attributePenaltyReductionRate = GetExProp(from, 'CARD_ATTRIBUTE_PENALTY_REDUCTION');
+            if attributePenaltyReductionRate == nil then
+                attributePenaltyReductionRate = 0;
+            end
+            
+            rate = rate - (rate * (attributePenaltyReductionRate / 100));
+        end
         
         
         
@@ -2602,7 +2604,7 @@ function SCR_LIB_CHECK_BLK(self, from, ret, skill, rateTable)
     
     local abilMatador3 = GetAbility(self, "Matador3")
     if abilMatador3 ~= nil and abilMatador3.ActiveState == 1 then
-    	return 0;
+        return 0;
     end
     
     if rateTable.blkResult == 1 then
@@ -2614,27 +2616,27 @@ function SCR_LIB_CHECK_BLK(self, from, ret, skill, rateTable)
     end
     
     if GetExProp(self, "NotRet") ~= 1 then
-		-- 마법 공격 체크 --
-		local checkMagic = 1;
-		if skill.ClassType == "Magic" then
-			checkMagic = 0;
-			
-			if rateTable.EnableMagicBlock == 1 then
-				checkMagic = 1;
-			end
-			
-			if GetExProp(self, "ABIL_KABBALIST22_ON") == 1 then
-				checkMagic = 1;
-				rateTable.MagicBlockRate = rateTable.MagicBlockRate - 0.5;
-			end
-		end
-		
-		-- 트루 대미지 체크 --
-		local checkTrue = 1;
-		if skill.ClassType == 'TrueDamage' or skill.ClassType == 'AbsoluteDamage' then
-			checkTrue = 0;
-		end
-		
+        -- 마법 공격 체크 --
+        local checkMagic = 1;
+        if skill.ClassType == "Magic" then
+            checkMagic = 0;
+            
+            if rateTable.EnableMagicBlock == 1 then
+                checkMagic = 1;
+            end
+            
+            if GetExProp(self, "ABIL_KABBALIST22_ON") == 1 then
+                checkMagic = 1;
+                rateTable.MagicBlockRate = rateTable.MagicBlockRate - 0.5;
+            end
+        end
+        
+        -- 트루 대미지 체크 --
+        local checkTrue = 1;
+        if skill.ClassType == 'TrueDamage' or skill.ClassType == 'AbsoluteDamage' then
+            checkTrue = 0;
+        end
+        
         if checkMagic == 1 and checkTrue == 1 then
             local blkLimit = 6666;
             local blk = (math.max(0, self.BLK - from.BLK_BREAK) ^ 0.7) * 100;
@@ -2666,11 +2668,11 @@ function SCR_LIB_CHECK_BLK(self, from, ret, skill, rateTable)
             end
             
             -- 블록 확률 최종값 비율 조정 --
-        	blk = blk * rateTable.BlockRate;
-        	
+            blk = blk * rateTable.BlockRate;
+            
             if skill.ClassType == "Magic" then
-	            blk = blk * rateTable.MagicBlockRate;
-	        end
+                blk = blk * rateTable.MagicBlockRate;
+            end
             
             blk = MinMaxCorrection(blk, 0, blkLimit)
             
@@ -2811,7 +2813,7 @@ function SCR_SKILL_SPECIAL_CALC(self, from, ret, skill, rateTable)
     if IsBuffApplied(self, 'Cleric_Bless_Debuff') == 'YES' and skill.Attribute == 'Holy' then
         ret.Damage = ret.Damage + (ret.Damage * 0.4);
     end
-	
+    
     if self.ClassName == 'pavise' then
         ret.ResultType = HITRESULT_BLOCK;
         self.HPCount = self.HPCount - 1
@@ -3351,30 +3353,30 @@ function SCR_ADD_PC_SKLFACTOR_CALC(self, from, skill, rateTable, ret)
 end
 
 function SCR_CONDITION_RATE_CALC(self, form, skill)
-	local conditionRate = 1.0;
-	
-	local attackType = GET_SKILL_ATTACKTYPE(skill);
-	local attribute = TryGetProp(skill, 'Attribute');
-	
-	if GetBuffByProp(self, 'Keyword', 'Freeze') ~= nil then
-		if attribute == 'Lightning' then
-			conditionRate = conditionRate + 0.5;
-		end
-	end
-	
-	if GetBuffByProp(self, 'Keyword', 'Petrify') ~= nil then
-		if attribute == 'Fire' then
-			conditionRate = conditionRate + 0.5;
-		end
-	end
-	
-	if GetBuffByProp(self, 'Keyword', 'Curse') ~= nil then
-		if attribute == 'Dark' then
-			conditionRate = conditionRate + 0.5;
-		end
-	end
-	
-	return conditionRate;
+    local conditionRate = 1.0;
+    
+    local attackType = GET_SKILL_ATTACKTYPE(skill);
+    local attribute = TryGetProp(skill, 'Attribute');
+    
+    if GetBuffByProp(self, 'Keyword', 'Freeze') ~= nil then
+        if attribute == 'Lightning' then
+            conditionRate = conditionRate + 0.5;
+        end
+    end
+    
+    if GetBuffByProp(self, 'Keyword', 'Petrify') ~= nil then
+        if attribute == 'Fire' then
+            conditionRate = conditionRate + 0.5;
+        end
+    end
+    
+    if GetBuffByProp(self, 'Keyword', 'Curse') ~= nil then
+        if attribute == 'Dark' then
+            conditionRate = conditionRate + 0.5;
+        end
+    end
+    
+    return conditionRate;
 end
 
 function SCR_RESET_SKILL_AFTER_HIT_PROP(attacker)

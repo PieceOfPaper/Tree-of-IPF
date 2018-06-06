@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_onion_the_great_4"/>
+	<Sound frame="24.90" soundFile="skl_eff_stone_blow_m"/>
+	<Particle frame="27" attachNode="Bip001 L Finger2" particleName="F_smoke074" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="false" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<BlendOn frame="60" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="62" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="64" R="100" G="100" B="100" A="50"/>
+	<BlendOff frame="66" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="26" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="60" type="2" intensity="5" frequency="70" duration="1.5" range="1000"/>
+	<Sound frame="50.00" soundFile="skl_eff_firebreath"/>
+	<Sound frame="50.35" soundFile="mon_voice_screech_3"/>
+</ActionDesc>

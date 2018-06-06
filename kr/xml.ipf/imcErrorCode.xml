@@ -358,9 +358,13 @@
 	<Code Code="INFO_PATCHMAKER_LOG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
 	<Code Code="WARNING_INVALID_LOG_PROPERTY" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="로그 프로퍼티 형식 오류 입니다."/>
 	<Code Code="NOTICE_PACKET_INFO" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 정보 입니다"/>
+	<Code Code="NOTICE_HEALTH_STATE" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="상태 정보"/>
+	<Code Code="ALERT_REPORT_ThresholdState" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="상태 경고"/>
 	<Code Code="ALERT_REPORT_DBConnectionLost" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="데이터베이스 연결이 끊김 "/>
 	<Code Code="ALERT_REPORT_NodeConnectionLost" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Node와의 연결이 끊김"/>
 	<Code Code="ALERT_REPORT_DaemonCrash" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Daemon Crash"/>
+	<Code Code="ALERT_REPORT_AutoChannelAdd" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 추가 비정상"/>
+	<Code Code="ALERT_REPORT_AutoChannelDelete" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 제거 비정상"/>
 	<Code Code="ERROR_NULLPTR_REFCOUNT_ZERO" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="참조 수가 0인 이미 지워진 객체입니다."/>
 	<Code Code="INFO_ADVENTURE_BOOK" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 정보"/>
 	<Code Code="ERROR_FAIL_DLL_LOAD" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DLL 을 로드하지 못했습니다."/>
@@ -526,7 +530,10 @@
 	<Code Code="INFO_STATUE" Team="PROGRAM" Category="LOGIC" SubCategory="STATUE" Logger="root" Enabled="NO" CallStack="NO" Desc="동상 로드 확인"/>
 	<Code Code="INFO_CHECK_TIME" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="시간 체크"/>
 	<Code Code="INFO_CHECK_MEMORY" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="메모리 체크"/>
-	<Code Code="DEADLOCK_FIND_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="DB_DEAD_LOCK" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 데드락 찾기 위한 로그"/>
+	<Code Code="INFO_CLIENT_REMOTE_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="CLIENT_REMOTE_LOG" Logger="root" Enabled="YES" CallStack="NO" Desc="Client로 부터 전송된 로그"/>
+<Code Code="DEADLOCK_FIND_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="DB_DEAD_LOCK" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 데드락 찾기 위한 로그"/>
 	<Code Code="ERROR_SMTP" Team="PROGRAM" Category="LOGIC" Logger="root" Enabled="YES" CallStack="NO" Desc="SMTP 관련 에러"/>
 	<Code Code="ERROR_VERTEX_NAN_VALUE" Team="ART" Category="DATA" SubCategory="MODEL" Logger="root" Enabled="YES" CallStack="NO" Desc="모델의 정점중에 NAN 값이 발견됨."/>
+		<Code Code="ALERT_REPORT_MESSAGE" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 메세지를 알럿으로 처리."/>
+		<Code Code="ERROR_RANDOM_OPTION" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랜덤 옵션 관련 에러"/>
 </imcErrorCode>

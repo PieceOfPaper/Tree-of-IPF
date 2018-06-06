@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AttachModel frame="0" XAC="artefact_hammer_set" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="0" anim="None"/>
+	<CreateMonsterAnim frame="0" Key="armor_maintain" Anim="HAMMERING"/>
+	<Sound frame="2.00" soundFile="skl_eff_squire_armor_hit_1"/>
+	<Sound frame="9.00" soundFile="skl_eff_squire_armor_hit_1"/>
+	<Sound frame="18.00" soundFile="skl_eff_squire_armor_hit_2"/>
+</ActionDesc>

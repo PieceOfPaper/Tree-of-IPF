@@ -29,6 +29,31 @@ function SCR_BUFF_TAKEDMG_UC_petrify(self, buff, sklID, damage, attacker)
     end
 end
 
+--Ability_buff_Antimage
+function SCR_BUFF_TAKEDMG_Ability_buff_Antimage(self, buff, sklID, damage, attacker)
+    local skill = GetClassByType("Skill", sklID);
+    if skill ~= nil then
+        if skill.ClassType == 'Magic' then
+            local healHP = self.MHP * 0.1
+	        Heal(self, math.floor(healHP) , 0);
+        end
+    end
+    return 1;
+end
+--
+
+--Ability_buff_Antiwarrior
+function SCR_BUFF_TAKEDMG_Ability_buff_Antiwarrior(self, buff, sklID, damage, attacker)
+    local skill = GetClassByType("Skill", sklID);
+    if skill ~= nil then
+        if skill.ClassType == 'Melee' or skill.ClassType == 'Missile' then
+            local healHP = self.MHP * 0.1
+	        Heal(self, math.floor(healHP) , 0);
+        end
+    end
+    return 1;
+end
+--
 
 function SCR_BUFF_TAKEDMG_UC_deprotect(self, buff, sklID, damage, attacker)
 	if IsBuffApplied(self, 'UC_armorbreak') == 'YES' then

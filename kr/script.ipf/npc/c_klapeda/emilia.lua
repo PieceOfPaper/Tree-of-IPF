@@ -60,7 +60,7 @@ function SCR_EMILIA_NORMAL_2(self,pc)
                         return
                     end
                 elseif sObj.Goal1 == 1 then
-                    local max_cnt = 100
+                    local max_cnt = 80
                     local cnt = GetInvItemCount(pc, "CHAR220_MSTEP2_1_1_ITEM2")
                     if cnt >= max_cnt then
                         sObj.Goal1 = 10
@@ -89,7 +89,7 @@ function SCR_EMILIA_NORMAL_2(self,pc)
                         return
                     end
                 elseif sObj.Goal2 == 1 then
-                    local max_cnt = 150
+                    local max_cnt = 80
                     local cnt = GetInvItemCount(pc, "CHAR220_MSTEP2_1_2_ITEM1")
                     if cnt >= max_cnt then
                         sObj.Goal2 = 10

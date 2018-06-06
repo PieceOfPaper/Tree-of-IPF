@@ -2725,3 +2725,20 @@ function TEST_MGAME_CRASH(pc)
 	local pcGuildID = GetGuildID(nil);
 	local pcGuildObj = GetPartyObjByIESID(PARTY_GUILD, pcGuildID);
 end
+
+function GAME_ST_EVT_EXEC_SOUL_CRISTAL_LIMIT(cmd, curStage, eventInst, obj, flag, count)
+	if flag == 1 then
+		cmd:SetSoulCristalLimit(true);
+	else
+		cmd:SetSoulCristalLimit(false);
+	end
+	cmd:SetSoulCristalLimitCount(count);
+
+	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+    if cnt > 0 then
+        local i
+        for i = 1, cnt  do
+			SendAddOnMsg(list[i], "SHOW_SOUL_CRISTAL", "", count);
+        end
+    end
+end

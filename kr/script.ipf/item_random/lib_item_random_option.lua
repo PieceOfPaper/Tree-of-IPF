@@ -831,3 +831,65 @@ function SCR_RANDOM_LOOTINGCHANCE_CALC(item)
     
     return finalStatus, 0 , 126;
 end
+
+function IS_APPLIED_VALID_RANDOM_OPTION(item, guidStr, category)
+    if item == nil then
+        return false;
+    end
+
+    local maxRandomOptionCnt = 6;
+    for j = 1, maxRandomOptionCnt do                
+        local randomOptCls, clsCnt = GetClassList('item_random');
+        for k = 0, clsCnt - 1 do
+            local itemRandomOptList = GetClassByIndexFromList(randomOptCls, k);
+            local optNameCheckList = TryGetProp(itemRandomOptList, "OptionName")
+            local optionStat = TryGetProp(itemRandomOptList, "OptionValue")
+            
+            local randomOption = TryGetProp(item, 'RandomOption_'..j, 'None');
+            if randomOption == optNameCheckList then                
+                local compareOptValue = item['RandomOptionValue_'..j];                
+                local optionValue = optionStat
+                local scp = _G[optionValue]
+                if scp ~= nil then                    
+                    local checkOptValue, min , max = scp(item);                                                            
+                    if compareOptValue < min or compareOptValue > max then -- out of range
+
+                        if guidStr ~= nil then -- 캐비넷 등에서 검사할 때에는 인벤토리에 아이템이 없어서 GetItemGuid 함수를 사용할 수가 없음
+                            IMC_LOG('ERROR_RANDOM_OPTION', 'InvalidRandomOption: category['..category..'], item['..guidStr..'], option['..randomOption..'], value['..compareOptValue..'], min['..min..'], max['..max..']');
+                        end
+
+                        return false, randomOption, compareOptValue, min, max;
+                    end
+                end
+            end
+        end
+    end
+    return true;
+end
+
+-- 인벤토리 검사 해서 전체 랜덤옵션 확인용
+function TEST_CHECK_RANDOM_OPTION_INVENTORY(pc)
+    local invList = GetInvItemList(pc);
+    if invList == nil or #invList < 1 then
+        Chat(pc, '텅빈 인벤토리에요');
+        return;
+    end
+
+    Chat(pc, '랜덤옵션 검사 시작: 아이템 개수['..#invList..']')
+    for i = 1 , #invList do
+        local invItem = invList[i];
+        local baseCls = GetClass('Item', invItem.ClassName);
+        if baseCls.ItemType == 'Equip' and TryGetProp(baseCls, 'NeedRandomOption', 0) == 1 then
+            local ret, optionName, optionValue, normalMin, normalMax = IS_APPLIED_VALID_RANDOM_OPTION(invItem);            
+            if ret == false then
+                local chatStr = 'Find Error RandomOption Item! idx['..GetItemGuid(invItem)..'], name['..invItem.ClassName..']';
+                if optionName ~= nil then
+                    chatStr = chatStr..', option['..optionName..'], value['..optionValue..'], range['..normalMin..'~'..normalMax..']';
+                end
+                Chat(pc, chatStr);
+                return;
+            end
+        end
+    end
+    Chat(pc, '랜덤옵션 이상무');
+end

@@ -4,6 +4,14 @@ function MON_BORN_ATTRIBUTE_Avoidance(self)
     AddBuff(self, self, 'Ability_buff_Avoidance');
 end
 
+function MON_BORN_ATTRIBUTE_Antimage(self)
+	AddBuff(self, self, 'Ability_buff_Antimage');
+end
+
+function MON_BORN_ATTRIBUTE_Antiwarrior(self)
+	AddBuff(self, self, 'Ability_buff_Antiwarrior');
+end
+
 function MON_BORN_ATTRIBUTE_Explosion(self)
     AddBuff(self, self, 'Ability_buff_Explosion');
 end
@@ -91,6 +99,9 @@ function MON_BORN_DETECTING(self)
     AddBuff(self, self, "Ability_Detecting_Buff")
 end
 
+function MON_BORN_ATTRIBUTE_INVINCIBILITY_EXCEPT_FOR_CERTAIN_ATTACKS(self)
+    AddBuff(self, self, 'INVINCIBILITY_EXCEPT_FOR_CERTAIN_ATTACKS');
+end
 
 -- Field Boss --
 function SCR_FIELD_BOSS_NEAR_ENTER(self, pc)
@@ -440,8 +451,8 @@ function SCR_PC_FireFox_Summon_ENTER(self, buff, arg1, arg2, over)
             myOwner = GetOwner(self)
         end
     end
-	
-	local selfMATK = (TryGetProp(self, "MINMATK") + TryGetProp(self, "MAXMATK")) / 2
+    
+    local selfMATK = (TryGetProp(self, "MINMATK") + TryGetProp(self, "MAXMATK")) / 2
     local ownerMATK = SCR_GET_PC_ATK(myOwner, "Magic") - selfMATK
     
     self.MATK_BM = self.MATK_BM + ownerMATK
@@ -450,16 +461,17 @@ function SCR_PC_FireFox_Summon_ENTER(self, buff, arg1, arg2, over)
     
     Invalidate(self, "MINMATK");
     Invalidate(self, "MAXMATK");
+    Invalidate(self, "MATK");
 end
 
 function SCR_PC_FireFox_Summon_LEAVE(self, buff, arg1, arg2, over)
-	local ownerMATK = GetExProp(buff, "FIREFOX_MATK")
-	
-	self.MATK_BM = self.MATK_BM - ownerMATK
+    local ownerMATK = GetExProp(buff, "FIREFOX_MATK")
+    
+    self.MATK_BM = self.MATK_BM - ownerMATK
 end
 
 function SCR_PC_FireFox_Summon_RATETABLE(self, from, skill, atk, ret, rateTable, buff)
-	
+
 end
 
 

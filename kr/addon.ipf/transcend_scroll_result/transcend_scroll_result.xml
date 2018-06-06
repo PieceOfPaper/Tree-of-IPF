@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<uiframe name="transcend_scroll_result" x="0" y="0" width="500" height="100" create="open">
+	<frame layout_gravity="right top" snapclient="true" snapframe="true" margin="0 480 470 0"/>
+	<draw drawframe="false" drawtitlebar="false"/>
+	<layer layerlevel="100"/>
+	<input moveable="true"/>
+	<option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<script CloseScp="TRANSCEND_SCROLL_RESULT_CLOSE"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+	<controls>
+		<groupbox name="gbox" margin="0 0 0 0" rect="0 0 500 90" hittestbox="false" skin="none" layout_gravity="left top"/>
+	</controls>
+</uiframe>

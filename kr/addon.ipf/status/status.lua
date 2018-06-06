@@ -304,7 +304,6 @@ function STATUS_UPDATE(frame)
     else
         DebounceScript("STATUS_INFO", 0.1);
     end
-    STATUS_INFO();
 end
 
 function RESERVE_RESET(frame)
@@ -1390,9 +1389,6 @@ function STATUS_HIDDEN_JOB_UNLOCK_VIEW(pc, opc, frame, gboxctrl, y)
                     end
                 else
                     flag = true
-                end
-                if jobIES.ClassName == 'Char2_20' or jobIES.ClassName == 'Char1_18' then
-                    flag = false
                 end
                 if flag == true and(etcObj["HiddenJob_" .. jobIES.ClassName] == 300 or IS_KOR_TEST_SERVER()) then
                     local hidden_job = gboxctrl:CreateControl('richtext', 'HIDDEN_JOB_' .. jobIES.ClassName, 10, y, 100, 25);

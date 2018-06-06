@@ -1127,6 +1127,54 @@ function JOB_REMOVE_OBJECT_WARP_FUNCTION(self, char)
     end
 end
 
+--Test function
+function RETIARII_TRAINING_CNT_FUNCTION(self, char, goal_point)
+--Goal1 is traning Goal Count(muscular strength) max count : 50
+--Goal2 is traning Goal Count(endurande) max count : 50
+--Goal3 is traning Goal Count(agility) max count : 50
+--Goal4 is traning Goal Count(durability) max count : 50
+--Goal5 is traning Goal Count(simulation) max count : 50
+    local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
+    if sObj ~= nil then
+        local point = tonumber(goal_point)
+        if char == "all" then
+            sObj.Goal1 = 25
+            sObj.Goal2 = 3
+            sObj.Goal3 = 20
+            sObj.Goal5 = 20
+        elseif char == "muscularstrength" then
+            if point <= 25 then
+                sObj.Goal1 = point
+                Chat(self, "muscularstrength goal_point : "..point)
+            elseif point > 25 then
+                Chat(self, "goal_point is less then 25 point")
+            end
+        elseif char == "endurande" then
+            if point <= 3 then
+                sObj.Goal2 = point
+                Chat(self, "endurande goal_point : "..point)
+            elseif point > 3 then
+                Chat(self, "goal_point is less then 3 point")
+            end
+        elseif char == "agility" then
+            if point <= 20 then
+                sObj.Goal3 = point
+                Chat(self, "agility goal_point : "..point)
+            elseif point > 20 then
+                Chat(self, "goal_point is less then 20 point")
+            end
+        elseif char == "simulation" then
+            if point <= 20 then
+                sObj.Goal5 = point
+                Chat(self, "simulation goal_point : "..point)
+            elseif point > 20 then
+                Chat(self, "goal_point is less then 20 point")
+            end
+        end
+        SaveSessionObject(self, sObj)
+    end
+end
+
 function NAKMUAY_FIND_PEAPLE_FUNCTION(self)
     local sObj = GetSessionObject(self, "SSN_NAKMUAY_UNLOCK")
     for i = 12, 25 do

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3658,6 +3658,17 @@
 			<img name="bottomcore" imgrect="1120 621 40 1"/>
 			<img name="bottomright" imgrect="1161 621 180 1"/>
 		</skin>
+		<skin name="BnYellow_skin2" texture="\skin\missionfail_skin.tga">
+			<img name="topleft" imgrect="0 401 1 40"/>
+			<img name="topcore" imgrect="1 401 498 40"/>
+			<img name="topright" imgrect="499 401 1 40"/>
+			<img name="bodyleft" imgrect="0 441 1 30"/>
+			<img name="bodycore" imgrect="1 441 498 30"/>
+			<img name="bodyright" imgrect="499 441 1 30"/>
+			<img name="bottomleft" imgrect="0 471 1 34"/>
+			<img name="bottomcore" imgrect="1 471 498 34"/>
+			<img name="bottomright" imgrect="499 471 1 34"/>
+		</skin>
 	</skinlist>
 	<skinlist category="testmin_frames">
 		<skin name="monstercard" texture="\skin\monstercard.tga">
@@ -5776,6 +5787,9 @@
 		<image name="Appariser_item" file="\skin\Appraiser_skin.tga" imgrect="228 0 155 172" CMM_Caption="감정사"/>
 		<image name="market_event_test" file="\skin\market_event_test.png" imgrect="0 0 520 250" CMM_Caption="마켓배너준비(테스트)"/>
 	</imagelist>
+	<imagelist category="testse_image">
+		<image name="indun_soulcrystal_bg" file="\skin\indun_skin.tga" imgrect="614 552 79 79" CMM_Caption="소울크리스탈 횟수제한 UI"/>
+	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_deathX" file="\skin\keynbet.tga" imgrect="363 272 47 47" CMM_Caption="파티 사망자표시"/>
 		<image name="test_killinfosw" file="\skin\keynbet.tga" imgrect="410 200 29 14" CMM_Caption="처치 표시"/>
@@ -5990,6 +6004,13 @@
 		<image name="attribute_lightning" file="\skin\attribute_icon.tga" imgrect="1 77 37 37"/>
 		<image name="attribute_holy" file="\skin\attribute_icon.tga" imgrect="39 77 37 37"/>
 		<image name="attribute_dark" file="\skin\attribute_icon.tga" imgrect="77 77 37 37"/>
+		<image name="gold_arrow_right" file="\skin\monstercard.tga" imgrect="1 82 80 80"/>
+		<image name="gold_plus" file="\skin\monstercard.tga" imgrect="1 1 80 80"/>
+		<image name="LegendEquip_big_01" file="\skin\LegendEquip_big_01.tga" imgrect="0 0 942 570" CMM_Caption="벨코퍼 제작"/>
+		<image name="SUCCESS_gold_bg" file="\skin\SUCCESS_gold_bg.tga" imgrect="0 0 507 313" CMM_Caption="강화 bg"/>
+		<image name="itemlink_skin" file="\skin\itemlink_skin.tga" imgrect="0 0 507 707" CMM_Caption="아이템 링크 bg"/>
+		<image name="itemlink_skin2" file="\skin\itemlink_skin2.tga" imgrect="0 0 507 707" CMM_Caption="레전드 아이템 분해 bg"/>
+		<image name="transcendence_scroll_skin" file="\skin\transcendence_scroll_skin.tga" imgrect="0 0 506 715" CMM_Caption="초월 스크롤 bg"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -6237,6 +6258,7 @@
 		<image name="loading_bube" file="\skin\loading_gauge.tga" imgrect="7 183 790 80"/>
 		<image name="cube_ani" file="\skin\cube_ani.tga" imgrect="0 0 3608 400"/>
 		<image name="transcendence_ani" file="\skin\transcendence_ani.tga" imgrect="0 0 5725 706"/>
+		<image name="transcendence_scroll_ani" file="\skin\transcendence_scroll_ani.tga" imgrect="0 0 3099 308"/>
 		<image name="glimoire_ani" file="\skin\glimoire_ani.tga" imgrect="0 0 2887 360"/>
 		<image name="poisonpo_ani" file="\skin\poisonpot_ani.tga" imgrect="0 0 2813 150"/>
 		<image name="notice_pos" file="\skin\notice_pos.tga" imgrect="0 0 2800 200"/>
@@ -8187,6 +8209,7 @@
 		<image name="icon_Provocation_immunity" file="\icon\buff_icon2.tga" imgrect="128 0 128 128" CMM_Caption="도발 면역"/>
 		<image name="icon_gold_dog" file="\icon\buff_icon2.tga" imgrect="256 0 128 128" CMM_Caption="황금 고로 버프"/>
 		<image name="icon_Gold_Clover" file="\icon\buff_icon2.tga" imgrect="384 0 128 128" CMM_Caption="황금 클로버"/>
+		<image name="icon_Raid_Velcofer_Curse" file="\icon\buff_icon2.tga" imgrect="512 0 128 128" CMM_Caption="벨코퍼 버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
@@ -8508,6 +8531,7 @@
 		<image name="133_boss_simorph" file="\skin\bosscard\133_boss_simorph.png" imgrect="0 0 330 440"/>
 		<image name="134_boss_graygolem" file="\skin\bosscard\134_boss_graygolem.png" imgrect="0 0 330 440"/>
 		<image name="135_boss_nepenthes" file="\skin\bosscard\135_boss_nepenthes.png" imgrect="0 0 330 440"/>
+		<image name="136_Raid_boss_blackGargoyle" file="\skin\bosscard\136_Raid_boss_blackGargoyle.png" imgrect="0 0 330 440"/>
 		<image name="137_boss_molich" file="\skin\bosscard\137_boss_molich.tga" imgrect="0 0 330 440"/>
 		<image name="138_boss_succubus" file="\skin\bosscard\138_boss_succubus.tga" imgrect="0 0 330 440"/>
 		<image name="139_boss_Marnoks" file="\skin\bosscard\139_boss_Marnoks.tga" imgrect="0 0 330 440"/>

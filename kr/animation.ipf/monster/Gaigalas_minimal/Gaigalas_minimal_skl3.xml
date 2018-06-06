@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_ground022_fire" useAttach="true" hiddenObj="false" scale="8" pause="true" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_emitter" particleName="F_ground022_fire" useAttach="true" hiddenObj="false" scale="8" pause="true" targetPos="false"/>
+	<Particle frame="60" attachNode="Dummy_emitter" particleName="F_ground022_fire" useAttach="true" hiddenObj="false" scale="8" pause="true" targetPos="false"/>
+	<Particle frame="90" attachNode="Dummy_emitter" particleName="F_ground022_fire" useAttach="true" hiddenObj="false" scale="8" pause="true" targetPos="false"/>
+	<Particle frame="70" attachNode="Dummy_head_effect" particleName="F_ifrit_skl3_body_true" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="70" attachNode="Dummy_head_effect" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="80" attachNode="Dummy_head_effect" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="90" attachNode="Dummy_head_effect" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="100" attachNode="Dummy_head_effect" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="110" attachNode="Dummy_head_effect" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="85" attachNode="Dummy_emitter" particleName="F_ifrit_skl5_badak" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="83" attachNode="Dummy_head_effect" particleName="F_explosion050_fire" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="115" attachNode="Dummy_emitter" particleName="F_ifrit_skl5_badak" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="115" attachNode="Dummy_head_effect" particleName="F_explosion050_fire" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="18.00" soundFile="mon_voice_onion_the_great_2"/>
+	<Sound frame="45.00" soundFile="skl_eff_atk_move_l_1"/>
+	<Sound frame="45.00" soundFile="skl_eff_atk_move_m_11"/>
+	<Sound frame="60.00" soundFile="mon_voice_onion_the_great_1"/>
+</ActionDesc>

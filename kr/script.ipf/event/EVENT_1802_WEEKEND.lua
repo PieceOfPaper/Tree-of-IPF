@@ -19,8 +19,8 @@ function IS_DAY_EVENT_1802_WEEKEND(self)
 
     local nowbasicyday = SCR_DATE_TO_YDAY_BASIC_2000(year, month, day)
 
-    if nowbasicyday >= SCR_DATE_TO_YDAY_BASIC_2000(2018, 2, 22) and nowbasicyday <= SCR_DATE_TO_YDAY_BASIC_2000(2018, 3, 8) then
-        if wday == 1 or wday == 7 or (month == 3 and day == 1) then
+    if nowbasicyday >= SCR_DATE_TO_YDAY_BASIC_2000(2018, 3, 8) and nowbasicyday <= SCR_DATE_TO_YDAY_BASIC_2000(2018, 4, 5) then
+        if wday == 1 or wday == 7 then
             return 'YES'
         end
     end
@@ -31,17 +31,7 @@ end
 
 -- Event_1802_weekend
 function SCR_BUFF_ENTER_Event_1802_weekend(self, buff, arg1, arg2, over)
-    self.PATK_BM = self.PATK_BM + 100;
-    self.MATK_BM = self.MATK_BM + 100;
-    self.DEF_BM = self.DEF_BM + 100;
-    self.MDEF_BM = self.MDEF_BM + 100;
-    self.MSPD_BM = self.MSPD_BM + 3;
 end
 
 function SCR_BUFF_LEAVE_Event_1802_weekend(self, buff, arg1, arg2, over)
-    self.PATK_BM = self.PATK_BM - 100;
-    self.MATK_BM = self.MATK_BM - 100;
-    self.DEF_BM = self.DEF_BM - 100;
-    self.MDEF_BM = self.MDEF_BM - 100;
-    self.MSPD_BM = self.MSPD_BM - 3;
 end

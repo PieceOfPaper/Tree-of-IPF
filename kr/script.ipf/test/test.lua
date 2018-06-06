@@ -7420,7 +7420,7 @@ function TEST_MONSTER_HP_SET_PERCENT(self, arg1)
     local x,y,z = GetPos(self)
     local objList, objCount = SelectObjectPos(self, x, y, z, 100, 'ENEMY', 0, 0 ,0)
     local per = arg1 / 100
-    
+
     for i = 1, objCount do
 	    local obj = objList[i];
         obj.HP = obj.HP * per
@@ -7429,7 +7429,7 @@ end
 
 function TEST_MON_DEBUFF_ALL(self)
     local list, cnt = SelectObject(self, 50, "ALL", 1)
-    
+
     if cnt >= 1 then
         for i = 1, cnt do
             local target = list[i]
@@ -7452,5 +7452,62 @@ function TEST_MON_DEBUFF_ALL(self)
                 print(target.Name.." : "..buff.ClassName);
             end
         end
+    end
+end
+function SCR_TTTTT(self)
+    local maxHP = self.MHP
+    local nowHP = self.HP
+    local healHP = maxHP * 0.15
+    local prop = GetExProp(buff, 'useHeal')
+
+    for i = 1, maxHP do
+        if nowHP < maxHP then
+            Heal(self, math.floor(healHP) , 0);
+            break;
+        end
+        SetExProp(buff, 'useHeal', 1)
+    end
+        
+end
+
+--function SCR_VELLCOFFER_ENTER_01_DIALOG(self, pc)
+--
+----    if IS_GT_PARTYLEADER(pc) ~= 1 then
+----    print("11111")
+----        REQ_MOVE_TO_INDUN(pc, "Raid_Velcoffer_guard", 1);
+----        local select = ShowSelDlg(pc, 0, 'RAID_VELLCOFFER_ENTER', ScpArgMsg('RAIDBOSS_VELLCOFFER_MSG01'), ScpArgMsg('INSTANCE_DUNGEON_MSG02'))
+----        if select == 1 then
+----            SCR_SETPOS_FADEOUT(pc, 'd_raidboss_velcoffer', -1945, -17, 631)
+----        end
+----    end
+----end
+--
+--    local select = ShowSelDlg(pc, 1, 'RAID_VELLCOFFER_ENTER', ScpArgMsg('StartGame'), ScpArgMsg('Close'))
+--        if select == 1 then
+----        SendAddOnMsg(pc, "OPEN_DLG_REPAIR", "", 0);
+--        print("111111111")
+----            MoveZone(pc, "d_raidboss_velcoffer", -1809, -9, 556);
+--            AUTOMATCH_INDUN_DIALOG(pc, "INSTANCE_DUNGEON_select05", "Raid_Velcoffer_guard")
+--            print("실행하나")
+--    end
+--end
+function SCR_VELLCOFFER_ENTER_01_DIALOG(self, pc)
+
+    local dialog_list ={}
+    local dialog_ck = {}
+
+    dialog_list[#dialog_list+1] = ScpArgMsg("StartGame")
+    dialog_ck[#dialog_ck+1] = 'StartGame'
+
+
+    local select = SCR_SEL_LIST(pc, dialog_list, 'INSTANCE_GT_GROUNDTOWER_1')
+    print(SCR_SEL_LIST, pc, dialog_list)
+    local sel_dialog = dialog_ck[select]
+    print(sel_dialog)
+    
+    if sel_dialog == 'StartGame' then
+		INDUN_ENTER_DIALOG_AND_UI(pc, 'INSTANCE_GT_GROUNDTOWER_1', 'Raid_Velcoffer_guard', 0, 0);
+		print(pc, "INSTANCE_GT_GROUNDTOWER_1", "Raid_Velcoffer_guard", 0)
+		return;
     end
 end

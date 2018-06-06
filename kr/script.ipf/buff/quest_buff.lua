@@ -7727,16 +7727,26 @@ function SCR_BUFF_ENTER_CHAR118_MSTEP2_ITEM1_BUFF1(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_UPDATE_CHAR118_MSTEP2_ITEM1_BUFF1(self, buff, arg1, arg2, over)
+    local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
     local sit_Buff = GetBuffByName(self, 'SitRest')
     local rest_Time = GetExProp(self, "CHAR118_REST_TIME")
     if sit_Buff ~= nil then
         rest_Time = rest_Time + 1
         SetExProp(self, "CHAR118_REST_TIME", rest_Time);
-        --print("rest_Time : "..rest_Time)
+        PlayEffect(self, "F_light013", 1, 3, "BOT")
+        print("rest_Time : "..rest_Time)
     end
-    if GetBuffRemainTime(buff) <= 0 then
-        local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
-        if rest_Time >= 120 then
+    if GetBuffRemainTime(buff) > 0 then
+        if rest_Time >= 60 then
+            sObj.Step1 = 60
+            PlayEffect(self, "F_light018", 1, 1, "BOT")
+            sObj.Step22 = 1
+            sObj.Step2 = sObj.Step2 + 1
+            SaveSessionObject(self, sObj)
+            return 0;
+        end
+    elseif GetBuffRemainTime(buff) <= 0 then
+        if rest_Time >= 60 then
             sObj.Step1 = 60
             --Chat(self, sObj.Step1)
         else
@@ -7747,34 +7757,36 @@ function SCR_BUFF_UPDATE_CHAR118_MSTEP2_ITEM1_BUFF1(self, buff, arg1, arg2, over
         sObj.Step2 = sObj.Step2 + 1
         SaveSessionObject(self, sObj)
         return 0;
-    else
-        return 1;
     end
+    return 1;
 end
 
 function SCR_BUFF_LEAVE_CHAR118_MSTEP2_ITEM1_BUFF1(self, buff, arg1, arg2, over)
+    local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
     local rest_Time = GetExProp(self, "CHAR118_REST_TIME")
-    if GetBuffRemainTime(buff) <= 0 then
-        local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
-        if rest_Time >= 120 then
+    if GetBuffRemainTime(buff) > 0 then
+        if rest_Time >= 60 then
             sObj.Step1 = 60
-            --print(sObj.Step1)
+        end
+    elseif GetBuffRemainTime(buff) <= 0 then
+        if rest_Time >= 60 then
+            sObj.Step1 = 60
+            --Chat(self, sObj.Step1)
         else
             sObj.Step1 = 50
-            --print(sObj.Step1)
+            --Chat(self, sObj.Step1)
         end
         sObj.Step22 = 1
-        sObj.Step2 = sObj.Step2 + 1;
+        sObj.Step2 = sObj.Step2 + 1
         SaveSessionObject(self, sObj)
     end
+    PlayEffect(self, "F_light018", 1, 1, "BOT")
 end
 
 --CHAR118_MSTEP2_2_ITEM1_BUFF1
 function SCR_BUFF_ENTER_CHAR118_MSTEP2_2_ITEM1_BUFF1(self, buff, arg1, arg2, over)
     local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
     if sObj ~= nil then
-    --Step2 is traning Count
---        print(sObj.Step2)
         if sObj.Step2 == 1 then
             self.FIXMSPD_BM = 20
         elseif sObj.Step2 == 2 then
@@ -7787,8 +7799,6 @@ function SCR_BUFF_ENTER_CHAR118_MSTEP2_2_ITEM1_BUFF1(self, buff, arg1, arg2, ove
             self.FIXMSPD_BM = 35
         end
         InvalidateMSPD(self);
---        InvalidateStates(self);
---        Invalidate(self, 'MSPD');
     end
 end
 
@@ -7796,6 +7806,11 @@ function SCR_BUFF_UPDATE_CHAR118_MSTEP2_2_ITEM1_BUFF1(self, buff, arg1, arg2, ov
     if GetZoneName(self) == "f_farm_47_1" then
         local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
         --print(sObj.Step7)
+        local ridingCompanion = GetRidingCompanion(self);
+        if ridingCompanion ~= nil then
+            RideVehicle(self, ridingCompanion, 0)
+            SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("RETIARII_TRAINING_COMPANION_NOT"), 6)
+        end
         if sObj.Step6 == 0 then
             local goal_group = IMCRandom(1, 3)
             sObj.Step7 = goal_group
@@ -7845,9 +7860,9 @@ end
 
 --CHAR118_AGILITY_TRAINING_BUFF
 function SCR_BUFF_ENTER_CHAR118_AGILITY_TRAINING_BUFF(self, buff, arg1, arg2, over)
-    
+    SetEmoticon(self, 'I_emo_exclamation')
 end
 
 function SCR_BUFF_LEAVE_CHAR118_AGILITY_TRAINING_BUFF(self, buff, arg1, arg2, over)
-    
+    SetEmoticon(self, 'None')
 end

@@ -306,27 +306,27 @@ function SCR_JOB_ONMYOJI_Q1_GIMMICK_MON_AI(self)
         if angle_check >= 135 and angle_check < 180 then
             angle_check = -180
             SetDirectionByAngle(self, angle_check)
-            StopMove(self)
+--            StopMove(self)
         elseif angle_check >= 45 and angle_check < 135 then
             angle_check = 90
             SetDirectionByAngle(self, angle_check)
-            StopMove(self)
+--            StopMove(self)
         elseif angle_check >= 0 and angle_check < 45 then
             angle_check = 0
             SetDirectionByAngle(self, angle_check)
-            StopMove(self)
+--            StopMove(self)
         elseif angle_check >= -45 and angle_check < 0 then
             angle_check = 0
             SetDirectionByAngle(self, angle_check)
-            StopMove(self)
+--            StopMove(self)
         elseif angle_check >= -135 and angle_check < -45 then
             angle_check = -90
             SetDirectionByAngle(self, angle_check)
-            StopMove(self)
+--            StopMove(self)
         elseif angle_check >= -180 and angle_check < -136 then
             angle_check = -180
             SetDirectionByAngle(self, angle_check)
-            StopMove(self)
+--            StopMove(self)
         end
         local zoneID = GetZoneInstID(self)
         local dir = GetDirectionByAngle(self)

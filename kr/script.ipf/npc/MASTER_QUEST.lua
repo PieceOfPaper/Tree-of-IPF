@@ -184,7 +184,6 @@ end
 
 function SCR_MASTER_ICEMAGE1_WARP_ENTER(self, pc)
     SCR_WS_SCRIPT(self, pc, 'FIREMAGE_KLAPEDA');
-    DestroyLayer(self)
 end
 
 

@@ -710,3 +710,33 @@ function SCR_BUFF_GIVEDMG_Daino_Buff(self, buff, sklID, damage, target, ret)
     
 	return 1
 end
+
+function SCR_BUFF_TAKEDMG_Raid_Velcofer_Curse_Debuff(self, buff, sklID, damage, attacker, ret)
+    if damage <= 0 then
+        return 1;
+    end
+    
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        return 1;
+    end
+    
+    if IsBuffApplied(self, 'Raid_Velcofer_Curse_Debuff') == 'NO' then
+        return 1;
+    end 
+       
+    local buffOver = GetBuffOver(self, 'Raid_Velcofer_Curse_Debuff')
+    if buffOver < 3 then
+        return 1;
+    end
+        
+    local attackerSkill = GetClassByType("Skill", sklID)
+    if attackerSkill.ClassName ~= 'Default' then
+        local key = GetSkillSyncKey(self, ret);
+        StartSyncPacket(self, key);
+        TakeDadak(caster, self, 'None', 999, 0.15 , 'Dark', 'None', 'TrueDamage', HIT_DARK, HITRESULT_NO_HITSCP);
+        EndSyncPacket(self, key, 0);
+        return 1;
+    end
+    return 1;
+end

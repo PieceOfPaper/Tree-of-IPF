@@ -168,7 +168,7 @@ function SCR_BUFF_AFTERCALC_HIT_ReflectShield_Buff(self, from, skill, atk, ret, 
     
     if currentSP > spendSP then
         if IsBuffApplied(from, 'todal_shield') == 'NO' and IsSameActor(self, from) == "NO" and ret.Damage > 0 then
-          	ret.Damage = ret.Damage * 0.8;
+            ret.Damage = ret.Damage * 0.8;
             
             if ret.Damage < 1 then
                 ret.Damage = 1;
@@ -210,8 +210,11 @@ function SCR_BUFF_AFTERCALC_HIT_GenbuArmor_Buff(self, from, skill, atk, ret, buf
     	if abilOnmyoji11 ~= nil and abilOnmyoji11.ActiveState == 1 then
     		if skill.ClassType == "Melee" or skill.ClassType == "Missile" then
     			if IMCRandom(1, 100) < abilOnmyoji11.Level * 2 then
-	        		ret.Damage = 0;
-	        		ret.HitType = HIT_DODGE;
+			        ret.Damage = 0;
+			        ret.ResultType = HITRESULT_DODGE;
+			        ret.HitType = HIT_DODGE;
+			        ret.EffectType = HITEFT_NO;
+			        ret.HitDelay = 0;
 	        	end
 		    end
         end
@@ -736,7 +739,7 @@ function SCR_BUFF_AFTERCALC_ATK_BlindFaith_Buff(self, from, skill, atk, ret, buf
         local damage = blindFaithSP * (2 + ((attackSkill.Level - 1) * 0.2))
         
         if IsSameActor(caster, self) == "NO" then
-        	TakeDadak(caster, self, attackSkill.ClassName, damage, 0.25, "Holy", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_NO_HITSCP)
+            TakeDadak(caster, self, attackSkill.ClassName, damage, 0.25, "Holy", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_NO_HITSCP)
         end
         
         local atkCount = GetExProp(buff, "BlindFaith_Count")
@@ -749,10 +752,10 @@ function SCR_BUFF_AFTERCALC_ATK_BlindFaith_Buff(self, from, skill, atk, ret, buf
         SetExProp(buff, "BlindFaith_Count", atkCount)
         local abil = GetAbility(caster, "Zealot7")
         if abil ~= nil and abil.ActiveState == 1 then
-        	local abilLevel = TryGetProp(abil, 'Level');
-        	if abilLevel == nil then
-        		abilLevel = 1;
-        	end
+            local abilLevel = TryGetProp(abil, 'Level');
+            if abilLevel == nil then
+                abilLevel = 1;
+            end
             AddBuff(caster, self, "BlindFaith_Debuff", abilLevel, 0, 10000, 1)
         end
     end
@@ -775,31 +778,31 @@ end
 
 function SCR_BUFF_AFTERCALC_HIT_BlindFaith_Debuff(self, from, skill, atk, ret, buff)
     if IsBuffApplied(self, 'BlindFaith_Debuff') == 'YES' then
-	    if ret.ResultType == HITRESULT_CRITICAL then
-		    local abilLevel = GetBuffArg(buff);
-		    if abilLevel == nil then
-		    	abilLevel = 1;
-		    end
-		    
-		    local addCrtDmgRate = abilLevel * 0.1;
-		    
+        if ret.ResultType == HITRESULT_CRITICAL then
+            local abilLevel = GetBuffArg(buff);
+            if abilLevel == nil then
+                abilLevel = 1;
+            end
+            
+            local addCrtDmgRate = abilLevel * 0.1;
+            
             ret.Damage = ret.Damage + math.floor(ret.Damage * addCrtDmgRate);
         end
     end
 end
 
 function SCR_BUFF_AFTERCALC_HIT_Skill_NoDamage_Buff(self, from, skill, atk, ret, buff)
-	if ret.Damage > 0 then
-		if IsBuffApplied(self, 'Skill_NoDamage_Buff') == 'YES' then
-			local buffLv, buffRate = GetBuffArg(buff);
-			if buffRate >= 10000 or buffRate >= IMCRandom(1, 10000) then
-				ret.HitType = HIT_NOHIT;
-				ret.Damage = 0;
-			end
-		end
-	end
-	
-	return 1;
+    if ret.Damage > 0 then
+        if IsBuffApplied(self, 'Skill_NoDamage_Buff') == 'YES' then
+            local buffLv, buffRate = GetBuffArg(buff);
+            if buffRate >= 10000 or buffRate >= IMCRandom(1, 10000) then
+                ret.HitType = HIT_NOHIT;
+                ret.Damage = 0;
+            end
+        end
+    end
+    
+    return 1;
 end
 
 function SCR_BUFF_AFTERCALC_HIT_DaggerGuard_Buff(self, from, skill, atk, ret, buff)
@@ -811,6 +814,16 @@ function SCR_BUFF_AFTERCALC_HIT_DaggerGuard_Buff(self, from, skill, atk, ret, bu
         end
         
         local attackType = TryGetProp(skill, "AttackType");
+        if IS_PC(from) == true and skill.ClassID < 10000 then
+            if TryGetProp(skill, "UseSubweaponDamage") == "NO" then
+                local rightHand = GetEquipItem(from, 'RH');
+                attackType = rightHand.AttackType
+            else
+                local leftHand = GetEquipItem(from, 'LH');
+                attackType = leftHand.AttackType
+            end
+        end
+        
         local attackTypeList = {"Aries", "Slash", "Strike"};
         local attackTypeCheck = false;
         
@@ -842,5 +855,17 @@ function SCR_BUFF_AFTERCALC_HIT_DaggerGuard_Buff(self, from, skill, atk, ret, bu
                 end
             end
         end
+    end
+end
+
+function SCR_BUFF_AFTERCALC_HIT_INVINCIBILITY_EXCEPT_FOR_CERTAIN_ATTACKS(self, from, skill, atk, ret, buff)
+    if IsSameActor(from, self) == 'NO' then
+        ret.Damage = 0;
+    end
+end
+
+function SCR_BUFF_AFTERCALC_HIT_VitalProtection_Buff(self, from, skill, atk, ret, buff)
+    if self.HP < ret.Damage then
+        SetExProp(buff, "VITALPROTECTION_ADDHP", self.HP);
     end
 end

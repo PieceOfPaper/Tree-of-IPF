@@ -60,7 +60,9 @@ function RANKROLLBACK_PC_TIMEACTION_STATE(frame)
 
 	local invframe = ui.GetFrame("inventory");
 	if invframe:GetUserValue('ITEM_GUID_IN_MORU') ~= 'None'
-		or 'None' ~= invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") then
+		or 'None' ~= invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
+		or 'None' ~= invframe:GetUserValue("ITEM_GUID_IN_TRANSCEND") 
+		or 'None' ~= invframe:GetUserValue("ITEM_GUID_IN_TRANSCEND_SCROLL") then
 		nonstate = false;
 	end
 

@@ -100,6 +100,7 @@ function PVP_RESET_BATTLE_STATE(obj)
 	-- 리�??�션?�로 ?�한 부?��? 카운?�는 ?�운?�당 ?�번~!
 	SetExProp(obj, "RESURRECTION_COUNT", 1)
 	SetExProp(obj, "REVIVE_COUNT", 1)
+	SetExProp(obj, "VITALPROTECTION_TBL_COUNT", 0)
     SetExProp(obj, "DURAHAN_CARD_COUNT", 1)
     
     local cmd = GetMGameCmd(obj);

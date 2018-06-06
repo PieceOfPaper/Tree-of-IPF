@@ -213,10 +213,12 @@ function SCR_PILGRIM_48_LEOPOLDAS_NORMAL_1(self,pc)
                         sObj.Goal8 = 1
                         SaveSessionObject(pc, sObj)
                         ShowOkDlg(pc, "CHAR220_MSETP2_6_DLG1_1", 1)
+                        sleep(500)
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHAR220_MSETP2_EFFECT_SET_MSG"), 10)
                         return
                     end
                 elseif sObj.Goal8 == 1 then
-                    local max_cnt = 15
+                    local max_cnt = 20
                     local cnt = GetInvItemCount(pc, "CHAR220_MSTEP2_6_ITEM2")
                     if cnt >= max_cnt then
                         sObj.Goal8 = 10
@@ -230,6 +232,8 @@ function SCR_PILGRIM_48_LEOPOLDAS_NORMAL_1(self,pc)
                         SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)
                     else
                         ShowOkDlg(pc, "CHAR220_MSETP2_6_DLG2", 1)
+                        sleep(500)
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHAR220_MSETP2_EFFECT_SET_MSG"), 10)
                     end
                 else
                     SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)

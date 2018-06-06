@@ -3589,6 +3589,12 @@ function SCR_USE_EVENT_KOR_Fortunecookie(self,argObj,argstr,arg1,arg2)
     end
 end
 
+function SCR_USE_VELCOFER_CURSE_DISPEL(pc, target, string1, arg1, arg2, itemID)
+    if IsBuffApplied(pc, 'Raid_Velcofer_Cnt_Debuff') == 'YES' then
+        RemoveBuff(pc, 'Raid_Velcofer_Cnt_Debuff')
+    end
+end
+
 function SCR_USE_ITEM_AddBuff_ABILPOTION(self,argObj,BuffName,arg1,arg2)
     AddBuff(self, self, BuffName, arg1, 0, arg2, 1);
 	AddAchievePoint(self, "Potion", 1);

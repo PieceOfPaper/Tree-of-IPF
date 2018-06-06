@@ -235,7 +235,7 @@ end
 function SCR_BUFF_RATETABLE_SoulDuel_DEF(self, from, skill, atk, ret, rateTable, buff)
 
     if IsBuffApplied(self, 'SoulDuel_DEF') == 'YES' and  IsBuffApplied(from, 'SoulDuel_ATK') == 'NO' then   
-        rateTable.blkResult = 1;
+        rateTable.missResult = 1
     end
 end
 
@@ -1994,18 +1994,22 @@ function SCR_BUFF_RATETABLE_FishingNetsDraw_Debuff(self, from, skill, atk, ret, 
         rateTable.EnableDodge = 0;
     end
     
-    if IsBuffApplied(self, "FishingNetsDraw_Debuff") == "YES" then
-        if TryGetProp(skill, "AttackType") == "Aries" then
-            local weapon = GetEquipItem(from, "RH");
-            if TryGetProp(weapon, "ClassType") == "Spear" and TryGetProp(skill, "UseSubweaponDamage") == "NO" then
-                addDamageRate = 0.5
-            end
-        end
+    local attackType = TryGetProp(skill, "AttackType");
+    if IS_PC(from) == true and skill.ClassID < 10000 then
+        local rightHand = GetEquipItem(from, 'RH');
+        attackType = rightHand.AttackType
     end
     
-    local skillClassName = TryGetProp(skill, "ClassName")
-    if skillClassName == "Retiarii_TridentFinish" or skillClassName == "Retiari_DaggerFinish" then
-        addDamageRate = 1
+    local skillJob = TryGetProp(skill, "Job");
+    if IsBuffApplied(self, "FishingNetsDraw_Debuff") == "YES" then
+        if skillJob ~= "Retiarii" then
+            if attackType == "Aries" then
+                local weapon = GetEquipItem(from, "RH");
+                if TryGetProp(weapon, "ClassType") == "Spear" and TryGetProp(skill, "UseSubweaponDamage") == "NO" then
+                    addDamageRate = 1
+                end
+            end
+        end
     end
     
     rateTable.DamageRate = rateTable.DamageRate + addDamageRate
@@ -2014,22 +2018,26 @@ end
 function SCR_BUFF_RATETABLE_ThrowingFishingNet_Debuff(self, from, skill, atk, ret, rateTable, buff)
     local addDamageRate = 0
     local abilRetiarii2 = GetAbility(from, "Retiarii2");
-    if abilRetiarii2 ~= nil and TryGetProp(abilRetiarii1, "ActiveState") == 1 then
+    if abilRetiarii2 ~= nil and TryGetProp(abilRetiarii2, "ActiveState") == 1 then
         rateTable.EnableDodge = 0;
     end
     
-    if IsBuffApplied(self, "ThrowingFishingNet_Debuff") == "YES" then
-        if TryGetProp(skill, "AttackType") == "Aries" then
-            local weapon = GetEquipItem(from, "RH");
-            if TryGetProp(weapon, "ClassType") == "Spear" and TryGetProp(skill, "UseSubweaponDamage") == "NO" then
-                addDamageRate = 0.5
-            end
-        end
+    local attackType = TryGetProp(skill, "AttackType");
+    if IS_PC(from) == true and skill.ClassID < 10000 then
+        local rightHand = GetEquipItem(from, 'RH');
+        attackType = rightHand.AttackType
     end
     
-    local skillClassName = TryGetProp(skill, "ClassName")
-    if skillClassName == "Retiarii_TridentFinish" or skillClassName == "Retiari_DaggerFinish" then
-        addDamageRate = 1
+    local skillJob = TryGetProp(skill, "Job");
+    if IsBuffApplied(self, "ThrowingFishingNet_Debuff") == "YES" then
+        if skillJob ~= "Retiarii" then
+            if attackType == "Aries" then
+                local weapon = GetEquipItem(from, "RH");
+                if TryGetProp(weapon, "ClassType") == "Spear" and TryGetProp(skill, "UseSubweaponDamage") == "NO" then
+                    addDamageRate = 1
+                end
+            end
+        end
     end
     
     rateTable.DamageRate = rateTable.DamageRate + addDamageRate

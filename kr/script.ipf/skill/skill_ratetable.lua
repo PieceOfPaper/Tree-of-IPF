@@ -164,9 +164,15 @@ function SCR_SKILL_RATETABLE_Wizard_EarthQuake(self, from, skill, atk, ret, rate
         SetMultipleHitCount(ret, hitCount);
     end
     
-	if TryGetProp(self, 'MoveType') == 'Normal' or TryGetProp(self, 'MoveType') == 'Holding' or IS_PC(self) == true then
-    	rateTable.DamageRate = rateTable.DamageRate + 1;
-    end
+    if IS_PC(self) == false then
+		if TryGetProp(self, 'MoveType') == 'Normal' or TryGetProp(self, 'MoveType') == 'Holding' then
+			if GetBuffByProp(self, 'Keyword', 'FlyingState') == nil then
+	    		rateTable.DamageRate = rateTable.DamageRate + 1;
+	    	end
+	    end
+	elseif IS_PC(self) == true and GetBuffByProp(self, 'Keyword', 'FlyingState') == nil then
+		rateTable.DamageRate = rateTable.DamageRate + 1;
+	end
 end
 
 
@@ -1229,11 +1235,16 @@ function SCR_SKILL_RATETABLE_Inquisitor_GodSmash(self, from, skill, atk, ret, ra
     end
     
     local abil = GetAbility(from, "Inquisitor12")
+    local abilDamage = 0
     if abil ~= nil and abil.ActiveState == 1 then
         if IS_PC(self) == false and self.RaceType == "Velnias" then
-            local abilDamage = abil.Level * 0.1
+            abilDamage = abil.Level * 0.1
             
             rateTable.DamageRate = rateTable.DamageRate + abilDamage;
+        elseif IS_PC(self) == true and IsBuffApplied(self, 'Judgment_Debuff') == 'YES' then
+        	abilDamage = abil.Level * 0.1
+        	
+        	rateTable.DamageRate = rateTable.DamageRate + abilDamage;
         end
     end
 end
@@ -1808,6 +1819,10 @@ function SCR_SKILL_RATETABLE_Retiari_DaggerFinish(self, from, skill, atk, ret, r
         SkillTextEffect(nil, self, from, 'SHOW_SKILL_BONUS2', textRate, nil, skill.ClassID);
         rateTable.DamageRate = rateTable.DamageRate + addDamageRate
     end
+    
+    if GetBuffByProp(self, "Keyword", "Strap") ~= nil then
+        rateTable.DamageRate = rateTable.DamageRate + 1
+    end
 end
 
 
@@ -1829,28 +1844,42 @@ end
 
 function SCR_SKILL_RATETABLE_Retiarii_TridentFinish(self, from, skill, atk, ret, rateTable)
     if ret.Damage > 1 then
-        local buffList = GetBuffList(self);
-        for i = 1, #buffList do
-            local buff = buffList[i];
-            local buffKeyword = TryGetProp(buff, "Keyword");
-            if buffKeyword == "Strap" then
-                local ratio = 50;
-                if ratio >= IMCRandom(1, 100) then
-                    SetExProp(self, "IS_TAKE_CRITICAL", 1);
-                end
-            end
-        end
-    end
+	    if GetBuffByProp(self, "Keyword", "Strap") ~= nil then
+	        local ratio = 50;
+	        if ratio >= IMCRandom(1, 100) then
+	            SetExProp(self, "IS_TAKE_CRITICAL", 1);
+	        end
+	        
+	        rateTable.DamageRate = rateTable.DamageRate + 1
+	    end
+	end
 end
 
 
 function SCR_SKILL_RATETABLE_Onmyoji_Toyou(self, from, skill, atk, ret, rateTable)
-	if IsKnockDownState(self) == 1 then
+	local state = GetActionState(self);
+	if state == 'AS_KNOCKDOWN' or state == 'AS_DOWN' then
         local reductionRate = 0.5
-        
         AddDamageReductionRate(rateTable, reductionRate);
         if IMCRandom(1, 100) < 10 then
         	AddBuff(from, self, "Hold", 1, 0, 3000, 1)
         end
 	end
+end
+
+
+function SCR_SKILL_RATETABLE_Mon_pcskill_FireFoxShikigami_Skill_1(self, from, skill, atk, ret, rateTable)
+    local hitCount = 2
+	
+	rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + (hitCount - 1);
+    SetMultipleHitCount(ret, hitCount);
+end
+
+function SCR_SKILL_RATETABLE_Pyromancer_FireBall(self, from, skill, atk, ret, rateTable)
+	if IsBuffApplied(from, 'FireFoxShikigami_Onmyoji18_Buff') == 'YES' then
+	    local hitCount = 3
+		
+		rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 1
+	    SetMultipleHitCount(ret, hitCount);
+    end
 end

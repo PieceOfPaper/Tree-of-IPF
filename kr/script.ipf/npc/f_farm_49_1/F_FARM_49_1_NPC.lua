@@ -185,7 +185,7 @@ function SCR_FARM491_MQ_01_NORMAL_1(self,pc)
                         return
                     end
                 elseif sObj.Goal9 >= 1 and sObj.Goal9 < 100 then
-                    local max_cnt = 21
+                    local max_cnt = 11
                     if sObj.Goal9 >= max_cnt then
                         sObj.Goal9 = 100
                         SaveSessionObject(pc, sObj)

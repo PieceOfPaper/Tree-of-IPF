@@ -10,6 +10,29 @@ function SCR_BUFF_LEAVE_UC_stun(self, buff, arg1, arg2, over)
     --HideEmoticon(self, 'I_emo_stun')
 end
 
+-- mon_pollution_zone
+function SCR_BUFF_ENTER_mon_pollution_zone(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_mon_pollution_zone(self, buff, arg1, arg2, RemainTime, ret, over)
+    local damage = self.MHP * 0.05;
+    damage = math.floor(damage)
+
+    if damage < 1 then
+        damage = 1
+    end
+
+    local caster = GetBuffCaster(buff);
+
+    if caster ~= nil then
+        TakeDamage(caster, self, "None", damage, "Poison", "Magic", "TrueDamage", "HIT_POISON", "HITRESULT_BLOW", 0, 0);
+    end
+end
+
+function SCR_BUFF_LEAVE_mon_pollution_zone(self, buff, arg1, arg2, over)
+
+end
 
 -- UC_bound
 function SCR_BUFF_ENTER_UC_bound(self, buff, arg1, arg2, over)
@@ -2771,4 +2794,277 @@ function SCR_FIELD_BOSS_AWAKE_VERSION_TWO_SIMPLE(self)
             SetExProp(self, "AWAKE_COUNT", 1)
         end
     end
+end
+
+-- 벨코퍼 쫄 소환용 버프.
+
+function SCR_BUFF_ENTER_Raid_buff_Velcoffer_Summon(self, buff, arg1, arg2, over)
+    local x, y, z = GetPos(self)
+    local followerList, followercnt = GetFollowerList(self);
+    local limitCnt = 4;
+    if followercnt == 0 then
+        for i = 1, limitCnt do
+            RunScript("SCR_Raid_buff_Velcoffer_Summon_Time", self, x, y, z)
+        end
+    end
+end
+
+function SCR_BUFF_UPDATE_Raid_buff_Velcoffer_Summon(self, buff, arg1, arg2, over)
+    local followerList, followercnt = GetFollowerList(self);
+    if followerList == nil or followercnt == 0 then
+        return 0;
+    end
+    
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_Raid_buff_Velcoffer_Summon(self, buff, arg1, arg2, over)
+    
+end
+
+function SCR_Raid_buff_Velcoffer_Summon_Time(self, x, y, z)
+   local time = IMCRandom(0, 1000);
+   sleep(time);
+   local dPos = SCR_DOUGHNUT_RANDOM_POS(x, z, 50, 100)
+   local angle = GetAngleFromPos(self, dPos['x'], dPos['z'])
+   local summonMon = CREATE_MONSTER_EX(self, 'velcoffer_guard_mini', dPos['x'], y, dPos['z'], angle, 'Monster', nil);
+   DisableBornAni(summonMon)
+   PlayEffect(summonMon, 'F_buff_basic027_navy_line', 0.5, 'BOT');
+   SetOwner(summonMon,self,0)
+end
+
+
+------------------RAID_VELCOFFER_GIMMICK_BUFF----
+function SCR_BUFF_ENTER_RAID_VELCOFFER_GIMMICK_BUFF(self, buff, arg1, arg2, over)
+    PlayEffect(self, 'F_buff_basic025_white_line_event', 0.5, 'BOT');
+end
+
+function SCR_BUFF_LEAVE_RAID_VELCOFFER_GIMMICK_BUFF(self, buff, arg1, arg2, over)
+
+end
+--------
+function SCR_BUFF_ENTER_VELCOPFFER_GIMMICK_TIMER_BUFF(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_VELCOPFFER_GIMMICK_TIMER_BUFF(self, buff, arg1, arg2, RemainTime, ret, over)
+    local remainderTime = math.floor(RemainTime/1000)
+    local timer = remainderTime + 1
+    SetTitle(self, timer)
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_VELCOPFFER_GIMMICK_TIMER_BUFF(self, buff, arg1, arg2, over)
+    SetTitle(self, "")
+end
+--------
+function SCR_BUFF_ENTER_VELCOPFFER_GIMMICK_SACRIFICE_BUFF(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_LEAVE_VELCOPFFER_GIMMICK_SACRIFICE_BUFF(self, buff, arg1, arg2, over)
+
+end
+------------------RAID_VELCOFFER_GIMMICK_BUFF----
+
+function SCR_BUFF_ENTER_INVINCIBILITY_EXCEPT_FOR_CERTAIN_ATTACKS(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_LEAVE_INVINCIBILITY_EXCEPT_FOR_CERTAIN_ATTACKS(self, buff, arg1, arg2, over)
+
+end
+
+------------RAID_VELCOFFER_MINIGAME DEBUFF------------
+function SCR_BUFF_ENTER_Raid_Velcofer_Curse_Debuff(self, buff, arg1, arg2, over)
+    local caster = GetBuffCaster(buff)
+    local StageProgress = GetMGameValue(self, 'StageProgress')
+    if over >= 1 then
+    end
+    
+    if over >=2 then
+    end
+    
+    if over >=3 then
+        if StageProgress == 0 then
+            if IsBuffApplied(self, 'Raid_Velcofer_Cnt_Debuff') == 'YES' then
+                RemoveBuff(self, 'Raid_Velcofer_Cnt_Debuff')
+            end
+        end
+        local objList, objCount = SelectObject(self, 40, 'PC');
+        PlayEffect(self, 'F_burstup012_violet', 1);
+        for i = 1, objCount do
+            local obj = objList[i];
+            if obj.ClassName == 'PC' then
+                local angle = GetAngleTo(self, obj);
+                TakeDamage(caster, obj, "None", 9999 , "Dark", "Magic", "Magic", HIT_DARK, HITRESULT_BLOW);
+                KnockDown(obj, self, 150, angle, 60, 1);
+            end
+        end
+    end
+    
+    if over >=4 then
+    end
+  
+end
+
+function SCR_BUFF_UPDATE_Raid_Velcofer_Curse_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
+    local buffCount = GetBuffArgs(buff)
+    local caster = GetBuffCaster(buff)
+    
+    if caster == nil then
+        local casterHandler = GetMGameValue(self, 'casterHandle')
+        local zoneInst = GetZoneInstID(self)
+        caster = GetByHandle(zoneInst, casterHandler)
+    end
+    
+    SetBuffArgs(buff, buffCount + 1)
+
+    ---------2단계 HP 감소 관련 시작-----------
+    if over >= 2 then
+        if  buffCount%5 == 0 and buffCount ~= 0 then
+            local hpDmg = (2500 * ( over - 1 ))-1
+            local hpCheck = self.HP - hpDmg
+            if hpCheck >= 1 then
+                TakeDamage(caster, self, "None", hpDmg , "Dark", "Magic", "TrueDamage", HIT_BASIC_NOT_CANCEL_CAST, HITRESULT_BLOW)
+            end
+        end
+    end
+    ---------2단계 HP 감소 관련 끝-----------
+    
+    --------- 디버프 스택 MAX 처리 시작 ---------
+    local StageProgress = GetMGameValue(self, "StageProgress")
+    if StageProgress == 1 then
+        if IsBuffApplied(self, 'Raid_Velcofer_Cnt_Debuff') == 'NO' then
+            if over < 5 then
+               AddBuff(caster, self, 'Raid_Velcofer_Cnt_Debuff', 1, 0, 0, 1)
+               return 1;
+            end
+        elseif IsBuffApplied(self, 'Raid_Velcofer_Cnt_Debuff') == 'YES' then
+            if over >= 5 then
+                RemoveBuff(self, 'Raid_Velcofer_Cnt_Debuff')
+            end
+        end
+    elseif IsBuffApplied(self, 'Raid_Velcofer_Cnt_Debuff') == 'YES' and over >= 3 then
+        RemoveBuff(self, 'Raid_Velcofer_Cnt_Debuff')
+    elseif IsBuffApplied(self, 'Raid_Velcofer_Cnt_Debuff') == 'NO' and over < 3 then
+        AddBuff(caster, self, 'Raid_Velcofer_Cnt_Debuff', 1)
+    end
+    --------- 디버프 스택 MAX 처리 끝 ---------
+    
+    --------- 4단계 이후 전염 시작 -------
+    if over >= 4 then
+        if buffCount == 10 then
+            local objList, objCount = SelectObject(self, 100, 'PC');
+            if objCount == nil or objCount ~= 0 then
+                for i = 1, objCount do
+                    local obj = objList[i]
+                    if obj.ClassName == 'PC' then
+                        if IsBuffApplied(obj, 'Raid_Velcofer_Curse_Debuff') == 'YES' then
+                            local overCharge = GetBuffOver(obj, 'Raid_Velcofer_Curse_Debuff')
+                            if overCharge >= 2 then
+                                return 1;
+                            end
+                        end
+                        AddBuff(caster, obj, 'Raid_Velcofer_Curse_Debuff', 1, 0, 0, 2)
+                    end
+                end
+            end
+        end
+    end
+
+    --------- 4단계 이후 전염 종료 -------
+
+    if over >= 5 then
+        AddBuff(caster, self, 'Raid_Velcofer_Last_Curse_Debuff', 1, 0, 30000, 1)
+        RemoveBuff(self, 'Raid_Velcofer_Curse_Debuff')
+    end
+
+    if buffCount >= 10 then
+        SetBuffArgs(buff, 0)
+    end
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_Raid_Velcofer_Curse_Debuff(self, buff, arg1, arg2, over)
+    
+end
+
+
+
+function SCR_BUFF_ENTER_Raid_Velcofer_Cnt_Debuff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_Raid_Velcofer_Cnt_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        local casterHandler = GetMGameValue(self, 'casterHandle')
+        local zoneInst = GetZoneInstID(self)
+        caster = GetByHandle(zoneInst, casterHandler)
+    end
+    
+    local curseCharge = over
+
+    if curseCharge >= 100 then
+        AddBuff(caster, self, 'Raid_Velcofer_Curse_Debuff', 1, 0, 0, 1)
+        RemoveBuff(self, 'Raid_Velcofer_Cnt_Debuff')
+    end
+    AddBuff(caster, self, 'Raid_Velcofer_Cnt_Debuff', 1, 0, 0, 1)
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_Raid_Velcofer_Cnt_Debuff(self, buff, arg1, arg2, over)
+
+end
+
+
+function SCR_BUFF_ENTER_Raid_Velcofer_Awake_Buff(self, buff, arg1, arg2, over)
+    local lv = arg1
+    local blkbreakAdd = 50 * lv
+    local hrAdd = 50 * lv
+
+    self.HR_BM = self.HR_BM + hrAdd
+    self.BLK_BREAK_BM = self.BLK_BREAK_BM + blkbreakAdd
+    
+    SetExProp(buff, "ADD_HR", hrAdd);
+    SetExProp(buff, "ADD_BLKBREAK", blkbreakAdd);
+end
+
+function SCR_BUFF_LEAVE_Raid_Velcofer_Awake_Buff(self, buff, arg1, arg2, over)
+    local blkbreakAdd = GetExProp(buff, "ADD_BLKBREAK");
+    local hrAdd = GetExProp(buff, "ADD_HR");
+    
+    self.HR_BM = self.HR_BM - hrAdd
+    self.BLK_BREAK_BM = self.BLK_BREAK_BM - blkbreakAdd
+end
+
+function SCR_BUFF_ENTER_Raid_Velcofer_Last_Curse_Debuff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_Raid_Velcofer_Last_Curse_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
+    local buffCount = GetBuffArgs(buff)
+    SetBuffArgs(buff, buffCount + 1)
+    
+    if  buffCount == 10 then
+        local buffSelect = IMCRandom(1, 4)
+        if buffSelect == 1 then
+            AddBuff(caster, self, 'Mon_raid_stun', 1, 0, 3000, 1)
+        elseif buffSelect == 2 then
+            AddBuff(caster, self, 'UC_petrify', 1, 0, 3000, 1)
+        elseif buffSelect == 3 then
+            AddBuff(caster, self, 'UC_silence', 1, 0, 3000, 1)
+        elseif buffSelect == 4 then
+            AddBuff(caster, self, 'UC_blind', 1, 0, 3000, 1)
+        end
+    end
+    if buffCount >= 10 then
+        SetBuffArgs(buff, 0)
+    end
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_Raid_Velcofer_Last_Curse_Debuff(self, buff, arg1, arg2, over)
+    
 end
