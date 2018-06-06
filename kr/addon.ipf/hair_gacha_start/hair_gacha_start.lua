@@ -100,13 +100,26 @@ end
 function COSTUME_GACHA_START_3_11()
     GACHA_START('costumebox_3');
 end
+function COSTUME_GACHA_START_4()
+    GACHA_START('costumebox_4');
+end
+
+
+function COSTUME_GACHA_START_5()
+    GACHA_START('costumebox_5');
+end
+
+
+function TOY_GACHA_START()
+    GACHA_START('toygacha');
+end
+
 
 function GACHA_START(type)
-
 	local cnt = 0;
-	if type == "hair1" or type == "rbox1" or type == "rbox100" or type == "hair1_1" or type == 'costumebox' or type == 'costumebox_1'or type == 'costumebox_2' or type == 'rbox2_1' then
+	if type == "hair1" or type == "rbox1" or type == "rbox100" or type == "hair1_1" or type == 'costumebox' or type == 'costumebox_1'or type == 'costumebox_2' or type == 'rbox2_1' or type == 'costumebox_4' or type == "costumebox_5" or type == "toygacha"then
 		cnt = 1
-	elseif type == "hair11" or type == "rbox11" or type == "costumebox_3" or type == "rbox2_11" then
+	elseif type == "hair11" or type == "rbox11" or type == "costumebox_3" or type == "rbox2_11"  then
 		cnt = 11
 	else	
 		return;
@@ -166,7 +179,7 @@ function GACHA_START(type)
 		hairbtn:SetVisible(0)
 		rbox100btn:SetVisible(0)
 
-	elseif type == "rbox100" then
+	elseif type == "rbox100"  then
 
 		local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
 		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
@@ -206,7 +219,7 @@ function GACHA_START(type)
 		rbox100btn:SetVisible(0)
 		costumebtn:SetVisible(1)
 
-	elseif type == 'costumebox_1' then
+	elseif type == 'costumebox_1'   then
         local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
 		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
         local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
@@ -225,7 +238,7 @@ function GACHA_START(type)
 		rbox100btn:SetVisible(0)
 		costumebtn:SetVisible(1)
 		
-	elseif type == 'costumebox_2'or type == 'costumebox_3' then
+	elseif type == 'costumebox_2'or type == 'costumebox_3'or type == 'costumebox_4' or type == 'costumebox_5' then
         local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
 		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
         local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
@@ -244,6 +257,26 @@ function GACHA_START(type)
 		rbox100btn:SetVisible(0)
 		costumebtn:SetVisible(1)
 		
+	elseif type == "toygacha" then 
+	    local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
+		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
+		local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
+		local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
+
+		hairbg:SetVisible(1)
+		rboxbg:SetVisible(0)
+		hairText:SetVisible(1)
+		costumeText:SetVisible(0)
+
+		local hairbtn = GET_CHILD_RECURSIVELY(frame,"button_hair")
+		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
+		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
+		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
+
+		rboxbtn:SetVisible(0)
+		hairbtn:SetVisible(0)
+		costumebtn:SetVisible(0)
+		rbox100btn:SetVisible(1)
 	
 	else
 		return

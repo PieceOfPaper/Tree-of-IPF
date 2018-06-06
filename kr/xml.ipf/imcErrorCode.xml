@@ -491,4 +491,5 @@
 	<Code Code="ALERT_Report_AutoChannelCommandAddSend" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 추가 명령 전송 "/>
 	<Code Code="ALERT_Report_AutoChannelCommandDeleteRecv" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 삭제 결과 수신"/>
 	<Code Code="ALERT_Report_AutoChannelCommandDeleteSend" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 삭제 명령 전송 "/>
+	<Code Code="ERROR_FAIL_DLL_LOAD" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DLL 을 로드하지 못했습니다."/>
 </imcErrorCode>
