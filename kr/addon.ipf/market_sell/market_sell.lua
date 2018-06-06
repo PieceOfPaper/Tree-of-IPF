@@ -18,13 +18,25 @@ function MARKET_SELL_OPEN(frame)
 
 	local defaultTime = 0;
 	local cnt = GetMarketTimeCount();
+	local timeTable = {};
+	local timeVec = {};	
 	for i = 0 , cnt - 1 do
 		local time, free = GetMarketTimeAndTP(i);
-		local day = 0;
+		timeTable[time] = free;
+		timeVec[#timeVec + 1] = time;		
+	end
+
+	table.sort(timeVec);
+	for i = 1, #timeVec do
+		local time = timeVec[i];
+		local free = timeTable[time];
 		local listType = ScpArgMsg("MarketTime{Time}{FREE}","Time", time, "FREE", free);
 		droplist:AddItem(time, "{s16}{b}{ol}"..listType);
 		defaultTime = time; -- 7일을 기본으로 해달래여
+		frame:SetUserValue('TIME_'..tostring(i - 1), time);
+		frame:SetUserValue('FREE_'..tostring(i - 1), free);
 	end
+
 	droplist:SelectItem(cnt - 1);
 	droplist:SelectItemByKey(defaultTime);
 
@@ -82,13 +94,13 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		local itemCount = ctrlSet:GetChild("count");
 		itemCount:SetTextByKey("value", marketItem.count);
 
-		local priceStr = string.format("{img icon_item_silver %d %d}%d", 20, 20, marketItem.sellPrice * marketItem.count) 
+		local priceStr = string.format("{img icon_item_silver %d %d}%s", 20, 20, GetMonetaryString(marketItem.sellPrice * marketItem.count));
 		local totalPrice = ctrlSet:GetChild("totalPrice");
 		totalPrice:SetTextByKey("value", priceStr);
 
 		local cashValue = GetCashValue(marketItem.premuimState, "marketSellCom") * 0.01;
 		local stralue = GetCashValue(marketItem.premuimState, "marketSellCom");
-		priceStr = string.format("{img icon_item_silver %d %d}%d[%d%%]", 20, 20, marketItem.sellPrice * marketItem.count * cashValue, stralue) 
+		priceStr = string.format("{img icon_item_silver %d %d}%s[%d%%]", 20, 20, GetMonetaryString( math.floor(marketItem.sellPrice * marketItem.count * cashValue)), stralue);
 		local silverFee = ctrlSet:GetChild("silverFee");
 		silverFee:SetTextByKey("value", priceStr);
 
@@ -104,12 +116,6 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 	itemlist:RealignItems();
 	GBOX_AUTO_ALIGN(itemlist, 10, 0, 0, false, true);
---local maxPage = math.ceil(session.market.GetTotalCount() / MARKET_SELL_ITEM_PER_PAGE);
---local curPage = session.market.GetCurPage();
---local pagecontrol = GET_CHILD(frame, 'pagecontrol', 'ui::CPageController')
---pagecontrol:SetMaxPage(maxPage);
---pagecontrol:SetCurPage(curPage);
-
 end
 
 function ON_MARKET_REGISTER(frame, msg, argStr, argNum)
@@ -149,12 +155,6 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
 
 	local obj = GetIES(invItem:GetObject());
-	local reason = GetTradeLockByProperty(obj);
-	if reason ~= "None" then
-		ui.SysMsg(ScpArgMsg(reason));
-		return;
-	end
-
 	if obj.ClassName == "PremiumToken" then
 		edit_count:SetText("1");
 		edit_count:SetMaxNumber(1);
@@ -162,7 +162,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 	else
 		edit_price:SetMaxNumber(2147483647);
-		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3); -- , 텍스트로 변환		
+		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3); -- 3: , 텍스트로 변환		
 	end
 
 	local itemProp = geItemTable.GetProp(obj.ClassID);
@@ -305,10 +305,10 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 		local maxAllow = tokenList[4];
 		local avg = tokenList[5];
 
-		upValue:SetTextByKey("value", maxAllow);
-		downValue:SetTextByKey("value", minAllow);
-		min:SetTextByKey("value", minStr);
-		max:SetTextByKey("value", maxStr);
+		upValue:SetTextByKey("value", GET_COMMAED_STRING(maxAllow));        
+		downValue:SetTextByKey("value", GET_COMMAED_STRING(minAllow));
+		min:SetTextByKey("value", GET_COMMAED_STRING(minStr));
+		max:SetTextByKey("value", GET_COMMAED_STRING(maxStr));
 		edit_price:SetText(GET_COMMAED_STRING(avg));
 		if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
 			if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
@@ -390,8 +390,8 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 
 	local droplist = GET_CHILD(groupbox, "sellTimeList", "ui::CDropList");	
 	local selecIndex = droplist:GetSelItemIndex();
-
-	local needTime, free = GetMarketTimeAndTP(selecIndex);
+	local needTime = frame:GetUserIValue('TIME_'..selecIndex);
+	local free = tonumber(frame:GetUserValue('FREE_'..selecIndex));
 	local commission = (price * count * free * 0.01);
 	local vis = session.GetInvItemByName("Vis");
 	if vis == nil or 0 > vis.count - commission then
@@ -403,7 +403,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 
 	local down = silverRate:GetChild("downValue");
 	local downValue = down:GetTextByKey("value");
-	local idownValue = tonumber(downValue);
+	local idownValue = GET_NOT_COMMAED_NUMBER(downValue);
 	local iPrice = tonumber(price);
 	if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
 		if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
@@ -477,53 +477,29 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 			-- 장비그룹만 buffValue가 있다.
 			ui.MsgBox(ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
 		else
-			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GET_COMMAED_STRING(commission)), yesScp, "None");			
+			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GetMonetaryString(commission)), yesScp, "None");			
 		end
 	else
-		ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GET_COMMAED_STRING(commission)), yesScp, "None");
+		ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GetMonetaryString(commission)), yesScp, "None");
 	end
 
 end
 
-function MARKET_SELL_SELECT_NEXT(pageControl, numCtrl)
---pageControl = tolua.cast(pageControl, "ui::CPageController");
---local page = pageControl:GetCurPage();
---local frame = pageControl:GetTopParentFrame();
---local MaxPage = pageControl:GetMaxPage();
---local nexPage = page + 1;
---if nexPage >= MaxPage then
---	nexPage = MaxPage - 1;
---end
---
---market.ReqMySellList(nexPage);
-end
-
-function MARKET_SELL_SELECT_PREV(pageControl, numCtrl)
---pageControl = tolua.cast(pageControl, "ui::CPageController");
---local page = pageControl:GetCurPage();
---local frame = pageControl:GetTopParentFrame();
---local prePage = page - 1;
---if prePage <= 0 then
---	prePage = 0;
---end
---market.ReqMySellList(prePage);
-end
-
-function MARKET_SELL_SELECT(pageControl, numCtrl)
---pageControl = tolua.cast(pageControl, "ui::CPageController");
---local page = pageControl:GetCurPage();
---local frame = pageControl:GetTopParentFrame();
---market.ReqMySellList(page);
-end
-
-function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)
+function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)	
     local moneyText = ctrl:GetText();    
     if moneyText == "" then
         moneyText = 0;
     end
-    if tonumber(moneyText) > MONEY_MAX_STACK then
-        moneyText = tostring(MONEY_MAX_STACK);
-        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(MONEY_MAX_STACK)));
+
+    local frame = parent:GetTopParentFrame();
+    local limitMoney = MARKET_REGISTER_SILVER_LIMIT;
+    if frame:GetName() == 'accountwarehouse' then
+    	limitMoney = ACCOUNT_WAREHOUSE_MAX_STORE_SILVER;
+    end
+
+    if tonumber(moneyText) > limitMoney then
+        moneyText = tostring(limitMoney);
+        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
     end
     ctrl:SetText(GET_COMMAED_STRING(moneyText));
 end

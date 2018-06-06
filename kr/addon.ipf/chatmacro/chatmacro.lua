@@ -172,7 +172,7 @@ function UPDATE_CHAT_MACRO(frame)
 		icon:SetImage('icon_item_none');
 		icon:SetColorTone("FF666666");		
 
-local edit = macroGbox:CreateOrGetControl("edit", "CHAT_MACRO_" .. i, 205, posy, 400, 36);
+        local edit = macroGbox:CreateOrGetControl("edit", "CHAT_MACRO_" .. i, 205, posy, 400, 36);
 		tolua.cast(edit, "ui::CEditControl");
 		edit:MakeTextPack();
 		edit:Resize(330, 36);
@@ -181,6 +181,7 @@ local edit = macroGbox:CreateOrGetControl("edit", "CHAT_MACRO_" .. i, 205, posy,
 		edit:SetOffsetXForDraw(20);
 		edit:SetOffsetYForDraw(0);
 		edit:SetSkinName("test_weight_skin");
+		edit:SetTypingScp('CHATMACRO_TYPE_MACRO');
 			
 		posy = posy + 40;	
 	end
@@ -301,4 +302,28 @@ function SOCIAL_POSE(frame, ctrl, strarg, poseClsID)
 	end
 end
 
+function CHATMACRO_TYPE_MACRO(parent, ctrl)
+	local text = ctrl:GetText();
+	local stringLen = string.len(text);
+	if string.sub(text, stringLen, stringLen) ~= ' ' then
+		return;
+	end
 
+	local tokenList = StringSplit(text, ' ');
+	local iconToken = tokenList[#tokenList];
+	local slashIndex = string.find(iconToken, '/');
+	if slashIndex ~= 1 then
+		return;
+	end
+
+	local _iconToken = string.sub(iconToken, 2);
+	local imageClass = GET_EMOTICON_CLASS_BY_ICON_TOKEN(_iconToken);
+	if imageClass == nil then
+		return;
+	end
+
+	local replaceTargetText = iconToken..' ';	
+	local toText = string.format('{img %s 30 30}', imageClass.ClassName);			
+	text = string.gsub(text, replaceTargetText, toText);	
+	ctrl:SetText(text);
+end

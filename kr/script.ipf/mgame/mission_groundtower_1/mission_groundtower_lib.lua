@@ -654,12 +654,13 @@ function TX_REWARD_EARTH_TOWER(pc, mGameName)
 		    if cls.ItemName2 ~= nil and cls.ItemName2 ~= 'None' and cls.Count2 > 0 then
 			    TxGiveItem(tx, cls.ItemName2, cls.Count2, "Earth_Tower_Reward");
 			end
-			if cls.ItemName3 ~= nil and cls.ItemName3 ~= 'None' and cls.Count3 > 0 then
+		    local ishavetoll = GetInvItemCount(pc, 'misc_earthTower20_toll')
+			if cls.ItemName3 ~= nil and cls.ItemName3 ~= 'None' and cls.Count3 > 0 and ishavetoll == 0 then
     			TxGiveItem(tx, cls.ItemName3, cls.Count3, "Earth_Tower_Reward");
     		end
-    		print(etcObj.IndunWeeklyEnteredCount_400)
+  
                 TxAddIESProp(tx, etcObj, "IndunWeeklyEnteredCount_400", 1);
-            print(etcObj.IndunWeeklyEnteredCount_400)
+
 			local ret = TxCommit(tx);
 		--else
 		--	SendSysMsg(obj, "NotClearChar");

@@ -298,7 +298,7 @@ function GET_REINFORCE_ADD_VALUE(prop, item, ignoreReinf, reinfBonusValue)
     
     reinforceValue = reinforceValue + reinfBonusValue;
     
-    value = math.floor((reinforceValue + (lv * (reinforceValue * (0.12 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.0225 )))) / typeRatio)) * gradeRatio;
+    value = math.floor((reinforceValue + (lv * (reinforceValue * (0.12 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.0225 )))) / typeRatio)) *1.25* gradeRatio;
     --    value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 )))) / typeRatio)) * gradeRatio;
     
     if classType == 'Neck' or classType == 'Ring' then
@@ -358,29 +358,29 @@ function GET_BASIC_ATK(item)
     
     if slot == "RH" then
         if classType == 'THSpear' or classType == 'Musket' then
-            itemATK = itemATK * 1.3;
+            itemATK = itemATK * 1.95;
         elseif classType == 'Spear' then
-            itemATK = itemATK * 1.1;
+            itemATK = itemATK * 1.65;
         elseif classType == 'Mace' then
-            itemATK = itemATK * 0.9;
+            itemATK = itemATK * 1.35;
         elseif classType == 'THMace' then
-            itemATK = itemATK * 1.08;
+            itemATK = itemATK * 1.62;
         elseif classType == 'Bow' or classType == 'Rapier' then
-            itemATK = itemATK * 1.0;
+            itemATK = itemATK * 1.5;
         else
-            itemATK = itemATK * 1.2;
+            itemATK = itemATK * 1.8;
         end
    elseif slot == "RH LH" then
        if classType == 'Sword' then
-           itemATK = itemATK * 1.0;
+           itemATK = itemATK * 1.5;
        end
    elseif slot == "LH" then
         if classType == 'Cannon' then
-            itemATK = itemATK * 1.1;
+            itemATK = itemATK * 1.65;
         elseif classType == 'Pistol' then
-            itemATK = itemATK * 1.0;
+            itemATK = itemATK * 1.5;
         else
-            itemATK = itemATK * 0.9;
+            itemATK = itemATK * 1.35;
         end
     else
         return 0;
@@ -432,13 +432,13 @@ function GET_BASIC_MATK(item)
     end
     
     if classType == 'THStaff' then
-        itemATK = itemATK * 1.2;
+        itemATK = itemATK * 1.8;
     elseif classType == 'Staff' then
-        itemATK = itemATK * 1.0;
+        itemATK = itemATK * 1.5;
     elseif classType == 'Mace' then
-        itemATK = itemATK * 0.9;
+        itemATK = itemATK * 1.35;
     elseif classType == 'THMace' then
-        itemATK = itemATK * 1.08;
+        itemATK = itemATK * 1.62;
     else
         return 0;
     end
@@ -612,13 +612,13 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
             def = ((20 + lv*3)/equipRatio) * gradeRatio;
             upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;            
             if equipMaterial == 'Cloth' then
-                def = def * 1.0;
+                def = def * 1.7;
             elseif equipMaterial == 'Leather' then
-                def = def * 1.0;
+                def = def * 1.7;
             elseif equipMaterial == 'Iron' then
-                def = def * 2.0;
+                def = def * 3.4;
             elseif classType == 'Shield' then
-                def = def * 2.0;
+                def = def * 3.4;
             end
            
             if def < 1 then
@@ -632,13 +632,13 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
             mdef = ((20 + lv*3)/equipRatio) * gradeRatio;
             upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_MDEF_RATIO(item, ignoreReinfAndTranscend) / 100;
             if equipMaterial == 'Cloth' then
-                mdef = mdef * 2.0;
+                mdef = mdef * 3.4;
             elseif equipMaterial == 'Leather' then
-                mdef = mdef * 1.0;
+                mdef = mdef * 1.7;
             elseif equipMaterial == 'Iron' then
-                mdef = mdef * 1.0;
+                mdef = mdef * 1.7;
             elseif classType == 'Shield' then
-                mdef = mdef * 2.0;
+                mdef = mdef * 3.4;
             end
             
             if mdef < 1 then

@@ -215,7 +215,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		banner:SetOffset(banner:GetOriginalX(), banner:GetOriginalY()+banner_offset_y)
 
 		local haveStaticNCbox = GET_CHILD_RECURSIVELY(frame,"haveStaticNCbox");	
-		haveStaticNCbox:SetText("  Total          {img Nexon_cash_mark 30 30}{/}{/}"); -- //memo nxa clientmessage
+		haveStaticNCbox:SetText("  Total          {img THB_cash_mark 30 30}{/}{/}"); -- //memo nxa clientmessage
 		haveStaticNCbox:SetOffset(haveStaticNCbox:GetOriginalX(), haveStaticNCbox:GetOriginalY()+balance_offset_y)
 		haveStaticNCbox:Resize(haveStaticNCbox:GetOriginalWidth()+balance_resize_width, haveStaticNCbox:GetOriginalHeight()+balance_resize_height)
 		local haveStaticNCbox_prepaid = GET_CHILD(rightgbox, 'haveStaticNCbox_prepaid');
@@ -350,11 +350,9 @@ end
 
 function SET_TOPMOST_FRAME_SHOWFRAME(show)
 	local sysmenu = ui.GetFrame("sysmenu");
-	local quickslotnexpbar = ui.GetFrame("quickslotnexpbar");
 	local charbaseinfo = ui.GetFrame("charbaseinfo");
 	local apps = ui.GetFrame("apps");
 	sysmenu:ShowWindow(show);	
-	quickslotnexpbar:ShowWindow(show);
 	charbaseinfo:ShowWindow(show);
 	apps:ShowWindow(show);	
 end

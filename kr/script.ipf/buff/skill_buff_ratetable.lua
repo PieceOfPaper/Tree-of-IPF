@@ -2047,7 +2047,10 @@ function SCR_BUFF_RATETABLE_Potion_Demon_DMG_DOWN_Buff(self, from, skill, atk, r
     if IsBuffApplied(self, "Potion_Demon_DMG_DOWN_Buff") == "YES" then
         if TryGetProp(from, "MonRank") == "Boss" then
             if TryGetProp(from, "RaceType") == "Velnias" then
-                local reductionRate = 0.5
+                local buffarg1 = GetBuffArg(buff)
+                tonumber(buffarg1)
+                local reductionRate = buffarg1 / 100
+
                 AddDamageReductionRate(rateTable, reductionRate);
             end
         end
@@ -2058,7 +2061,10 @@ function SCR_BUFF_RATETABLE_Potion_MIX_DMG_DOWN_Buff(self, from, skill, atk, ret
     if IsBuffApplied(self, "Potion_MIX_DMG_DOWN_Buff") == "YES" then
         if TryGetProp(from, "MonRank") == "Boss" then
             if TryGetProp(from, "RaceType") == "Paramune" then
-                local reductionRate = 0.5
+                local buffarg1 = GetBuffArg(buff)
+                tonumber(buffarg1)
+                local reductionRate = buffarg1 / 100
+                
                 AddDamageReductionRate(rateTable, reductionRate);
             end
         end
@@ -2069,7 +2075,10 @@ function SCR_BUFF_RATETABLE_Potion_Bug_DMG_DOWN_Buff(self, from, skill, atk, ret
     if IsBuffApplied(self, "Potion_Bug_DMG_DOWN_Buff") == "YES" then
         if TryGetProp(from, "MonRank") == "Boss" then
             if TryGetProp(from, "RaceType") == "Klaida" then
-                local reductionRate = 0.5
+                local buffarg1 = GetBuffArg(buff)
+                tonumber(buffarg1)
+                local reductionRate = buffarg1 / 100
+                
                 AddDamageReductionRate(rateTable, reductionRate);
             end
         end
@@ -2080,7 +2089,10 @@ function SCR_BUFF_RATETABLE_Potion_Plant_DMG_DOWN_Buff(self, from, skill, atk, r
     if IsBuffApplied(self, "Potion_Plant_DMG_DOWN_Buff") == "YES" then
         if TryGetProp(from, "MonRank") == "Boss" then
             if TryGetProp(from, "RaceType") == "Forester" then
-                local reductionRate = 0.5
+                local buffarg1 = GetBuffArg(buff)
+                tonumber(buffarg1)
+                local reductionRate = buffarg1 / 100
+
                 AddDamageReductionRate(rateTable, reductionRate);
             end
         end
@@ -2091,7 +2103,10 @@ function SCR_BUFF_RATETABLE_Potion_Wild_DMG_DOWN_Buff(self, from, skill, atk, re
     if IsBuffApplied(self, "Potion_Wild_DMG_DOWN_Buff") == "YES" then
         if TryGetProp(from, "MonRank") == "Boss" then
             if TryGetProp(from, "RaceType") == "Widling" then
-                local reductionRate = 0.5
+                local buffarg1 = GetBuffArg(buff)
+                tonumber(buffarg1)
+                local reductionRate = buffarg1 / 100
+                
                 AddDamageReductionRate(rateTable, reductionRate);
             end
         end
@@ -2102,7 +2117,9 @@ function SCR_BUFF_RATETABLE_Potion_Demon_DMG_UP_Buff(self, from, skill, atk, ret
     if IsBuffApplied(from, "Potion_Demon_DMG_UP_Buff") == "YES" then
         if TryGetProp(self, "MonRank") == "Boss" then
             if TryGetProp(self, "RaceType") == "Velnias" then
-                local addDamageRate = 1
+                local buffarg1 = GetBuffArg(buff)
+                tonumber(buffarg1)
+                local addDamageRate = buffarg1 / 100
                 
                 rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
             end
@@ -2114,7 +2131,9 @@ function SCR_BUFF_RATETABLE_Potion_MIX_DMG_UP_Buff(self, from, skill, atk, ret, 
     if IsBuffApplied(from, "Potion_MIX_DMG_UP_Buff") == "YES" then
         if TryGetProp(self, "MonRank") == "Boss" then
             if TryGetProp(self, "RaceType") == "Paramune" then
-                local addDamageRate = 1
+                local buffarg1 = GetBuffArg(buff)
+                tonumber(buffarg1)
+                local addDamageRate = buffarg1 / 100
                 
                 rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
             end
@@ -2126,7 +2145,9 @@ function SCR_BUFF_RATETABLE_Potion_Bug_DMG_UP_Buff(self, from, skill, atk, ret, 
     if IsBuffApplied(from, "Potion_Bug_DMG_UP_Buff") == "YES" then
         if TryGetProp(self, "MonRank") == "Boss" then
             if TryGetProp(self, "RaceType") == "Klaida" then
-                local addDamageRate = 1
+                local buffarg1 = GetBuffArg(buff)
+                tonumber(buffarg1)
+                local addDamageRate = buffarg1 / 100
                 
                 rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
             end
@@ -2138,7 +2159,9 @@ function SCR_BUFF_RATETABLE_Potion_Plant_DMG_UP_Buff(self, from, skill, atk, ret
     if IsBuffApplied(from, "Potion_Plant_DMG_UP_Buff") == "YES" then
         if TryGetProp(self, "MonRank") == "Boss" then
             if TryGetProp(self, "RaceType") == "Forester" then
-                local addDamageRate = 1
+                local buffarg1 = GetBuffArg(buff)
+                tonumber(buffarg1)
+                local addDamageRate = buffarg1 / 100
                 
                 rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
             end
@@ -2150,7 +2173,9 @@ function SCR_BUFF_RATETABLE_Potion_Wild_DMG_UP_Buff(self, from, skill, atk, ret,
     if IsBuffApplied(from, "Potion_Wild_DMG_UP_Buff") == "YES" then
         if TryGetProp(self, "MonRank") == "Boss" then
             if TryGetProp(self, "RaceType") == "Widling" then
-                local addDamageRate = 1
+                local buffarg1 = GetBuffArg(buff)
+                tonumber(buffarg1)
+                local addDamageRate = buffarg1 / 100
                 
                 rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
             end

@@ -1331,7 +1331,7 @@ function CHECK_INV_LBTN(frame, object, argStr, argNum)
 		end
 	end
 	
-	if keyboard.IsPressed(KEY_CTRL) == 1 then
+	if keyboard.IsKeyPressed("LCTRL") == 1 then
 		local invitem = session.GetInvItem(argNum);
 		LINK_ITEM_TEXT(invitem);
 		return;
@@ -1365,7 +1365,8 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 		end
 	end
 	
-	if IsBuffApplied(pc, 'Event_Penalty') == 'YES' and (itemobj.ClassID == 640022 or itemobj.ClassID == 640022 or itemobj.ClassID == 640079 or itemobj.ClassID == 490006 or itemobj.ClassID == 490110)then
+	if (IsBuffApplied(pc, 'Event_Penalty') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES') 
+	and (itemobj.ClassID == 640022 or itemobj.ClassID == 640079 or itemobj.ClassID == 490006 or itemobj.ClassID == 490110) then
 		ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
 		return 0;
 	end
@@ -1418,7 +1419,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		return;
 	end
 	
-	if keyboard.IsPressed(KEY_CTRL) == 1 then
+	if keyboard.IsKeyPressed("LCTRL") == 1 then
 		local obj = GetIES(invitem:GetObject());
 		IES_MAN_IESID(invitem:GetIESID());
 		return;
@@ -1487,7 +1488,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
 		if itemProp:IsEnableShopTrade() == true then
 				if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
-					if keyboard.IsPressed(KEY_SHIFT) == 1 then
+					if keyboard.IsKeyPressed("LSHIFT") == 1 then
 						local sellableCount = invitem.count;
 						local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", sellableCount);
 						INPUT_NUMBER_BOX(invFrame, titleText, "EXEC_SHOP_SELL", 1, 1, sellableCount);
@@ -2466,6 +2467,8 @@ end
 
 
 s_dropDeleteItemIESID = '';
+s_dropDeleteItemCount = 0;
+s_dropDeleteItemName = '';
 
 function INVENTORY_DELETE(itemIESID, itemType)
 	if GetCraftState() == 1 then
@@ -2505,15 +2508,33 @@ function INVENTORY_DELETE(itemIESID, itemType)
 	end
 
 	--if cls.UserTrade == 'YES' or cls.ShopTrade == 'YES' then
+	if invItem.count > 1 then
+		local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", invItem.count);
 		s_dropDeleteItemIESID = itemIESID;
-		local yesScp = string.format("EXEC_DELETE_ITEMDROP()");
-		ui.MsgBox(ScpArgMsg("Auto_JeongMal_[")..cls.Name..ScpArgMsg("Auto_]_eul_BeoLiSiKessSeupNiKka?"), yesScp, "None");
+		s_dropDeleteItemName = cls.Name;
+		INPUT_NUMBER_BOX(invFrame, titleText, "CHECK_EXEC_DELETE_ITEMDROP", 1, 1, invItem.count);
+	else
+		s_dropDeleteItemIESID = itemIESID;
+		s_dropDeleteItemCount = 1;
+		s_dropDeleteItemName = cls.Name;
+		local yesScp = string.format("EXEC_DELETE_ITEMDROP");
+        local clmsg = ScpArgMsg('ReallyDestroy{ITEM}', 'ITEM', s_dropDeleteItemName);
+		ui.MsgBox(clmsg, yesScp, "None");
+	end
 	--end
 end
 
+function CHECK_EXEC_DELETE_ITEMDROP(count)
+	s_dropDeleteItemCount = tonumber(count);
+	local yesScp = string.format("EXEC_DELETE_ITEMDROP");
+    local clmsg = ScpArgMsg('ReallyDestroy{ITEM}{COUNT}', 'ITEM', s_dropDeleteItemName, 'COUNT', s_dropDeleteItemCount);
+	ui.MsgBox(clmsg, yesScp, "None");
+end
+
 function EXEC_DELETE_ITEMDROP()
-	item.DropDelete(s_dropDeleteItemIESID);
+	item.DropDelete(s_dropDeleteItemIESID, s_dropDeleteItemCount);
 	s_dropDeleteItemIESID = '';
+	s_dropDeleteItemCount = 0;
 end
 
 function EXP_ORB_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)	
@@ -2658,7 +2679,7 @@ function EQUIP_RING(itemobj, argNum)
 		return;
 	end
 
-	if keyboard.IsPressed(KEY_ALT) == 1 then
+	if keyboard.IsKeyPressed("LALT") == 1 then
 		ITEM_EQUIP(argNum, "RING2");
 		return;
 	else
@@ -2941,11 +2962,9 @@ function IS_LIFETIME_OVER(itemobj)
 		end;
 		
 		-- ItemLifeTimeOver으로 검사하는 함수		
-		--[[
 		if 0 ~= itemobj.ItemLifeTimeOver then
 			return 1;
 		end;
-		]]
 	end;
 	return 0;
 end

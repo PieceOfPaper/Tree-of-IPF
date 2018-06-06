@@ -7,6 +7,28 @@ end
 
 -- 콜로니전 채널 입장 체크 스크립트
 function SCR_GUILD_COLONY_ENTER_CHECK(self, pc)
+--    --스팀 콜로니전 일부 지역만 개최시, 그외 지역 입장 스크립트 안돌도록 처리
+--    if GetServerNation() ~= 'KOR' then
+--        if GetServerNation() == 'GLOBAL' then
+--            local warp_clsList = GetClassList("Warp");
+--            local enterCls = self.Enter
+--            if self.Enter == "None" then
+--                enterCls = self.Dialog
+--            end
+--            local warpCls = GetClassByNameFromList(warp_clsList, enterCls); --warp.xml에 저장된 워프화살표의 class obj
+--            local next_ZoneClsName = nil
+--            if warpCls ~= nil then
+--                next_ZoneClsName = warpCls.TargetZone;
+--            end
+--            local clsList = GetClassList("guild_colony")
+--            local colonyCls = GetClassByNameFromList(clsList, "GuildColony_"..next_ZoneClsName);
+--            if colonyCls ~= nil then
+--                if TryGetProp(colonyCls, "ID") == 0 then
+--                    return "NORMAL"
+--                end
+--            end
+--        end
+--    end
     local select = ShowSelDlg(pc,0, 'GUILD_COLONY_DLG', ScpArgMsg('GUILD_COLONY_MSG_ENTER_COLONY'), ScpArgMsg('GUILD_COLONY_MSG_ENTER_NORMAL'))
     if select == 2 then --일반 채널 입장을 선택했다면,
         return "NORMAL"
@@ -282,7 +304,12 @@ end
 --guildObjList_zone : 존 내 모든 pc들이 들고있는 길드오브젝트 리스트
 --guildObjList_area : 존 내 모든 pc들 중, 타워 범위 안에 있는 pc들이 들고있는 길드오브젝트 리스트
 function SCR_GUILD_COLONY_OCCUPATION_POINT_UP_RUN(self, zoneClsName, guildObjList_zone, guildObjList_area, range, num, maxPoint, onePoint, twoPoint, threePoint, fourPoint, removePoint, addPoint)
-
+    local common_addPoint = addPoint
+    local common_onePoint = onePoint
+    local common_twoPoint = twoPoint
+    local common_threePoint = threePoint
+    local common_fourPoint = fourPoint
+    
     local guildObjList_type = {} --guildObjList_area 길드 종류로 분리한 리스트
     for i = 1, #guildObjList_area do
         local check = 0
@@ -333,6 +360,12 @@ function SCR_GUILD_COLONY_OCCUPATION_POINT_UP_RUN(self, zoneClsName, guildObjLis
             twoPoint = twoPoint + addPoint
             threePoint = threePoint + addPoint
             fourPoint = fourPoint + addPoint
+        else
+            addPoint = common_addPoint
+            onePoint = common_onePoint
+            twoPoint = common_twoPoint
+            threePoint = common_threePoint
+            fourPoint = common_fourPoint
         end
 
         local nowPoint = GetGuildColonyOccupationPoint(guildObjList_type[back_i], zoneClsName) --해당 길드의 점령 포인트를 받아옴
@@ -435,25 +468,25 @@ function SCR_GUILD_COLONY_OCCUPATION_POINT_UP_RUN(self, zoneClsName, guildObjLis
                             PlayEffect(P_list[p], 'F_cleric_dodola_line', 0.8, 'BOT')
                             PlayEffect(P_list[p], 'F_lineup020_blue_mint', 0.6, 'BOT')
                         end
-            	        if GetServerNation() == 'GLOBAL' then --점령 사운드 출력
-                            PlaySoundLocal(P_list[p], "S1_battle_occupation")
-                        elseif GetServerNation() == 'KOR' then
+                        if GetServerNation() == 'KOR' then --점령 사운드 출력
                             PlaySoundLocal(P_list[p], "battle_occupation")
+                        else
+                            PlaySoundLocal(P_list[p], "S1_battle_occupation")
                         end
                     elseif IsSameObject(beforeOccupationGuild, GetGuildObj(P_list[p])) == 1 then --검색된 pc 길드가 바로 전에 점령했던 길드라면,
                         SendAddOnMsg(P_list[p], 'NOTICE_Dm_GuildColony2', ScpArgMsg("GUILD_COLONY_MSG_OCCUPIED_1{partyName}{mapName}", "partyName", partyName, "mapName", mapName), 15)
-            	        if GetServerNation() == 'GLOBAL' then --점령 사운드 출력
-                            PlaySoundLocal(P_list[p], "S1_battle_lose_occupation")
-                        elseif GetServerNation() == 'KOR' then
+                        if GetServerNation() == 'KOR' then --점령 사운드 출력
                             PlaySoundLocal(P_list[p], "battle_lose_occupation")
+                        else
+                            PlaySoundLocal(P_list[p], "S1_battle_lose_occupation")
                         end
                         RunScript("SCR_GUILD_COLONY_ZONE_WARP_OUT", P_list[p])
                     else --검색된 pc 길드가 점령 길드 또는 점령했던 길드가 아니라면,
                         SendAddOnMsg(P_list[p], 'NOTICE_Dm_GuildColony3', ScpArgMsg("GUILD_COLONY_MSG_OCCUPIED_2{partyName}{mapName}", "partyName", partyName, "mapName", mapName), 15)
-            	        if GetServerNation() == 'GLOBAL' then --점령 사운드 출력
-                            PlaySoundLocal(P_list[p], "S1_battle_occupied")
-                        elseif GetServerNation() == 'KOR' then
+                        if GetServerNation() == 'KOR' then --점령 사운드 출력
                             PlaySoundLocal(P_list[p], "battle_occupied")
+                        else
+                            PlaySoundLocal(P_list[p], "S1_battle_occupied")
                         end
                         RunScript("SCR_GUILD_COLONY_ZONE_WARP_OUT", P_list[p])
                     end
@@ -696,10 +729,10 @@ function SCR_GUILD_COLONY_SUMMON_MONSTER_RUN(self) --히든 오브젝트 프랍 
                 	local pcList, pcCount = GetLayerPCList(GetZoneInstID(self), GetLayer(self))
                 	if pcCount > 0 then
                 	    for j = 1, pcCount do
-                	        if GetServerNation() == 'GLOBAL' then --보스몬스터 등장 사운드 출력
-                                PlaySoundLocal(pcList[j], "S1_battle_bossmonster_appear")
-                            elseif GetServerNation() == 'KOR' then
+                            if GetServerNation() == 'KOR' then --보스몬스터 등장 사운드 출력
                                 PlaySoundLocal(pcList[j], "battle_bossmonster_appear")
+                            else
+                                PlaySoundLocal(pcList[j], "S1_battle_bossmonster_appear")
                             end
                             SendAddOnMsg(pcList[j], 'NOTICE_Dm_BossAppear', ScpArgMsg("GUILD_COLONY_MSG_BOSSMONSTER_SUMMON"), 15) --보스몬스터 등장 메시지(존 내 인원)
                         end
@@ -904,9 +937,8 @@ function SCR_GUILD_COLONY_OCCUPATION_POINT_OTHER_GUILD_CHECK(self, zoneClsName, 
     end
 end
 
-function SCR_GUILD_COLONY_MUSIC_PLAY(self)
-    sleep(3000)
-    PlayMusicQueueLocal(self, 'battle_colony')
+function SCR_GUILD_COLONY_MUSIC_PLAY(self)    
+    PlayBGM(self, 'battle_colony')
 end
 
 --입장 화살표 태어날 때 동작 스크립트

@@ -1713,7 +1713,7 @@ end
 
 function SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue)
     local value = 0;
-    value = 1 + (transcendValue * 0.2);
+    value = 1 + (transcendValue * 0.1);
     
     return value;
 end

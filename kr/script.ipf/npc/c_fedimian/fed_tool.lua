@@ -47,15 +47,7 @@ function SCR_BLACKSMITH_FEDIMIAN_NORMAL_4(self, pc)
     SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend', 5, 0, self);
 end
 
-function SCR_BLACKSMITH_FEDIMIAN_NORMAL_5(self, pc)
-    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend_break', 5, 0, self);
-end
-
-function SCR_BLACKSMITH_FEDIMIAN_NORMAL_6(self,pc)
-    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend_remove', 5, 0, self);
-end
-
-function SCR_BLACKSMITH_FEDIMIAN_NORMAL_7(self,pc)
+function SCR_BLACKSMITH_FEDIMIAN_NORMAL_5(self,pc)
     UIOpenToPC(pc, 'itemdecompose', 1)
 end
 

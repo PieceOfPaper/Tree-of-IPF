@@ -517,11 +517,11 @@ function SCR_NECRO_SUMMON_CORPS_CALC(self, caster, skl)
     local abilMasterLevel = 0
     local byAbilLevel = 0;
     local abil = GetAbility(caster, "Necromancer6")
-    if abil.Level == 100 then
-    	abilMasterLevel = 0.1
-    end
-    
     if abil ~= nil then
+	    if abil.Level == 100 then
+	    	abilMasterLevel = 0.1
+	    end
+		
         byAbilLevel = (abil.Level * 0.005) + abilMasterLevel;
     end
     
@@ -550,11 +550,12 @@ function SCR_NECRO_SUMMON_SHOGGOTH_CALC(self, caster, skl, card)
     local byAbilLevel = 0;
     local byAbilMasterLevel = 0;
     local Necromancer5_abil = GetAbility(caster, "Necromancer5")
-    if Necromancer5_abil.Level == 100 then
-    	byAbilMasterLevel = 0.1
-    end
     
     if Necromancer5_abil ~= nil then
+        if TryGetProp(Necromancer5_abil,"Level") == 100 then
+            byAbilMasterLevel = 0.1;
+        end
+        
         byAbilLevel = (Necromancer5_abil.Level * 0.005) + byAbilMasterLevel;
     end
     

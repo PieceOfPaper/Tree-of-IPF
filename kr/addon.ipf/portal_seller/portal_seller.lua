@@ -68,8 +68,8 @@ function PORTAL_SELLER_INIT_PORTAL_LIST(frame)
         pos:SetTextByKey('z', z);
 
         -- picture
-        local mapimage = ui.GetImage(mapName);
-		if mapimage == nil then
+        local isValid = ui.IsValidImage(mapName);
+		if isValid == false then
 			world.PreloadMinimap(mapName, true, true);
 		end
 

@@ -326,7 +326,7 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 		level:SetTextByKey("value", itemObj.UseLv);
 
 		local price = ctrlSet:GetChild("price");
-		price:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
+		price:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
 		price:SetUserValue("Price", marketItem.sellPrice);
 		if cid == marketItem:GetSellerCID() then
 			local button_1 = ctrlSet:GetChild("button_1");
@@ -372,10 +372,10 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 			numUpDown:SetNumberValue(1)
 
 			local totalPrice = ctrlSet:GetChild("totalPrice");
-				totalPrice:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
+				totalPrice:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
 				totalPrice:SetUserValue("Price", marketItem.sellPrice);
-		end		
-	end
+		    end		
+	    end
 
 	itemlist:RealignItems();
 	GBOX_AUTO_ALIGN(itemlist, 10, 0, 0, false, true);

@@ -262,6 +262,11 @@ function PET_SKILL_PRE_CHECK(self, skl)
         SendSysMsg(self, 'CompanionIsNotActive');
         return 0;
     end
+
+    if PET_CHECK_PAUSE_PET_SKILL(self, skl) ~= 1 then
+        SendSysMsg(self, 'YouCanNotUseSkillCompanionCoolTime');
+        return 0;
+    end
     
     local _hide = IsHide(pet);
     if _hide == 1 then
@@ -289,6 +294,18 @@ function PET_CHECK_ACTIVE_STATE(self, skl)
     if isActive ~= 1 then
         return 0;
     end
+    return 1;
+end
+
+function PET_CHECK_PAUSE_PET_SKILL(self, skl)
+    local pet = GetSummonedPet(self, PET_COMMON_JOBID);
+    if pet == nil then
+        return 0;
+    end
     
+    local pauseCount = GetExProp(pet, "PAUSE_PET_SKILL");
+    if pauseCount == nil or pauseCount > 0 then
+        return 0;
+    end
     return 1;
 end

@@ -2663,6 +2663,20 @@
 			<img name="centerclose"/>
 			<img name="bottomclose"/>
 		</skin>
+		<skin name="tab4" texture="\skin\guild_skin.tga">
+			<img name="leftopen" imgrect="0 82 20 40"/>
+			<img name="bodyopen" imgrect="31 82 5 40"/>
+			<img name="rightopen" imgrect="110 82 30 40"/>
+			<img name="leftclose" imgrect="0 0 20 40"/>
+			<img name="bodyclose" imgrect="31 0 5 40"/>
+			<img name="rightclose" imgrect="110 0 30 40"/>
+			<img name="topopen"/>
+			<img name="centeropen"/>
+			<img name="bottomopen"/>
+			<img name="topclose"/>
+			<img name="centerclose"/>
+			<img name="bottomclose"/>
+		</skin>
 		<skin name="tab2_marketgender" texture="\skin\market_skin.tga">
 			<img name="leftopen" imgrect="1848 0 10 63"/>
 			<img name="bodyopen" imgrect="1859 0 42 63"/>
@@ -2962,6 +2976,17 @@
 			<img name="bottomleft" imgrect="1689 570 102 1"/>
 			<img name="bottomcore" imgrect="1792 570 150 1"/>
 			<img name="bottomright" imgrect="1943 570 105 1"/>
+		</skin>
+		<skin name="premium_case_skin2" texture="\skin\guild_skin.tga">
+			<img name="topleft" imgrect="1 380 42 1"/>
+			<img name="topcore" imgrect="44 380 72 1"/>
+			<img name="topright" imgrect="117 380 38 1"/>
+			<img name="bodyleft" imgrect="1 382 42 43"/>
+			<img name="bodycore" imgrect="44 382 72 43"/>
+			<img name="bodyright" imgrect="117 382 38 43"/>
+			<img name="bottomleft" imgrect="1 426 42 1"/>
+			<img name="bottomcore" imgrect="44 426 72 1"/>
+			<img name="bottomright" imgrect="117 426 38 1"/>
 		</skin>
 		<skin name="premium_case_skin" texture="\skin\pip_test_item.tga">
 			<img name="topleft" imgrect="1505 917 35 35"/>
@@ -3679,6 +3704,17 @@
 			<img name="bottomleft" imgrect="0 471 1 34"/>
 			<img name="bottomcore" imgrect="1 471 498 34"/>
 			<img name="bottomright" imgrect="499 471 1 34"/>
+		</skin>
+		<skin name="guild_comment_skin" texture="\skin\guild_skin.tga">
+			<img name="topleft" imgrect="706 457 50 50"/>
+			<img name="topcore" imgrect="757 457 200 50"/>
+			<img name="topright" imgrect="958 457 50 50"/>
+			<img name="bodyleft" imgrect="706 508 50 60"/>
+			<img name="bodycore" imgrect="757 508 200 60"/>
+			<img name="bodyright" imgrect="958 508 50 60"/>
+			<img name="bottomleft" imgrect="706 569 50 50"/>
+			<img name="bottomcore" imgrect="757 569 200 50"/>
+			<img name="bottomright" imgrect="958 569 50 50"/>
 		</skin>
 	</skinlist>
 	<skinlist category="testmin_frames">
@@ -5105,6 +5141,14 @@
 			<img name="barmiddle" imgrect="693 533 270 18"/>
 			<img name="barright" imgrect="963 533 1 18"/>
 		</skin>
+		<skin name="mine_pvp_gauge" texture="\skin\PVP_skin.tga">
+			<img name="bgleft" imgrect="1019 367 1 41"/>
+			<img name="bgmiddle" imgrect="1020 367 500 41"/>
+			<img name="bgright" imgrect="1520 367 1 41"/>
+			<img name="barleft" imgrect="1520 367 1 41"/>
+			<img name="barmiddle" imgrect="1521 367 500 41"/>
+			<img name="barright" imgrect="2021 367 1 41"/>
+		</skin>
 	</skinlist>
 	<skinlist category="labellines">
 		<skin name="labelline_def_2" texture="\skin\tooltip_skin_3.tga">
@@ -5381,6 +5425,7 @@
 		<image name="Map_raidboss_velcoffer" file="\skin\indunmap\Map_raidboss_velcoffer.png" imgrect="0 0 295 450" CMM_Caption="레이드보스존"/>
 		<image name="Map_Past_FantasyLibrary_1" file="\skin\indunmap\Map_Past_FantasyLibrary_1.png" imgrect="0 0 295 450" CMM_Caption="환상도서관 사우시스"/>
 		<image name="Map_Indun_Whitetrees1" file="\skin\indunmap\Map_Indun_Whitetrees1.png" imgrect="0 0 295 450" CMM_Caption="첫번째 피난처"/>
+		<image name="Map_Pilgrimroad" file="\skin\indunmap\Map_Pilgrimroad.png" imgrect="0 0 295 450" CMM_Caption="순례자의 길"/>
 	</imagelist>
 	<imagelist category="jootest_image">
 		<image name="ok_button" file="\skin\pip_test.tga" imgrect="1797 0 125 50" CMM_Caption="ok버튼"/>
@@ -5502,6 +5547,9 @@
 		<image name="test_companion_19" file="\icon\companion.tga" imgrect="606 369 100 122" CMM_Caption="윈터펭_탭버튼"/>
 		<image name="test_companion_19_cursoron" file="\icon\companion.tga" imgrect="707 369 100 122"/>
 		<image name="test_companion_19_clicked" file="\icon\companion.tga" imgrect="707 369 100 122"/>
+		<image name="test_companion_20" file="\icon\companion.tga" imgrect="606 492 100 122" CMM_Caption="도도새_탭버튼"/>
+		<image name="test_companion_20_cursoron" file="\icon\companion.tga" imgrect="707 492 100 122"/>
+		<image name="test_companion_20_clicked" file="\icon\companion.tga" imgrect="707 492 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -5726,6 +5774,7 @@
 		<image name="minus_icon" file="\skin\market_skin.tga" imgrect="1277 277 20 20" CMM_Caption="마이너스아이콘"/>
 		<image name="result_icon" file="\skin\market_skin.tga" imgrect="1277 298 20 20" CMM_Caption="결과아이콘"/>
 		<image name="Nexon_cash_mark" file="\skin\market_skin.tga" imgrect="1277 246 30 30" CMM_Caption="넥슨캐시마크"/>
+		<image name="THB_cash_mark" file="\skin\market_skin.tga" imgrect="1277 371 30 30" CMM_Caption="캐시마크(태국)"/>
 		<image name="Tp_cash_mark" file="\skin\market_skin.tga" imgrect="1277 319 30 30" CMM_Caption="TP캐시마크"/>
 		<image name="mirror_bg" file="\skin\mirror_bg.tga" imgrect="0 0 300 380" CMM_Caption="거울"/>
 		<image name="market_hairacc" file="\skin\market_skin.tga" imgrect="1927 447 60 60" CMM_Caption="마켓_헤어악세사리"/>
@@ -5823,6 +5872,10 @@
 	</imagelist>
 	<imagelist category="testse_image">
 		<image name="indun_soulcrystal_bg" file="\skin\indun_skin.tga" imgrect="614 552 79 79" CMM_Caption="소울크리스탈 횟수제한 UI"/>
+		<image name="mine_pvp_teamicon_bladetryst" file="\skin\PVP_skin.tga" imgrect="1857 1 79 78" CMM_Caption="칼날서약단 팀 아이콘"/>
+		<image name="mine_pvp_teamicon_goldencroon" file="\skin\PVP_skin.tga" imgrect="1937 1 79 78" CMM_Caption="황금노래단 팀 아이콘"/>
+		<image name="mine_pvp_icon_player" file="\skin\PVP_skin.tga" imgrect="2017 1 18 20" CMM_Caption="인원수 아이콘"/>
+		<image name="mine_pvp_img_mine" file="\skin\PVP_skin.tga" imgrect="988 409 251 63" CMM_Caption="광산 이미지"/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_deathX" file="\skin\keynbet.tga" imgrect="363 272 47 47" CMM_Caption="파티 사망자표시"/>
@@ -5963,7 +6016,7 @@
 		<image name="2curveframe_up" file="\skin\Appraiser_skin.tga" imgrect="85 173 165 25" CMM_Caption="살림통 업그레이드 프레임"/>
 		<image name="2curveframe_down" file="\skin\Appraiser_skin.tga" imgrect="85 199 165 25"/>
 		<image name="white_arrow" file="\skin\Appraiser_skin.tga" imgrect="1 173 83 67" CMM_Caption="화살표"/>
-		<image name="guildmark_frame" file="\skin\guild_skin.tga" imgrect="0 0 248 255" CMM_Caption="길드 마크 프레임"/>
+		<image name="guildmark_frame" file="\skin\guild_skin.tga" imgrect="0 513 193 270" CMM_Caption="길드 마크 프레임"/>
 		<image name="guildmark_slot" file="\skin\guild_skin.tga" imgrect="249 0 129 129" CMM_Caption=""/>
 		<image name="guildname_frame" file="\skin\guild_skin.tga" imgrect="0 255 306 42" CMM_Caption="길드명 프레임"/>
 		<image name="guild_info_1" file="\skin\guild_skin.tga" imgrect="124 339 40 40"/>
@@ -6283,6 +6336,7 @@
 		<image name="companion_goro_suit" file="\icon\companion_Velhider.tga" imgrect="320 80 80 80"/>
 		<image name="companion_gold_goro" file="\icon\companion_Velhider.tga" imgrect="320 160 80 80"/>
 		<image name="companion_winterpeng" file="\icon\companion_Velhider.tga" imgrect="320 240 80 80"/>
+		<image name="companion_mrdodo" file="\icon\companion_Velhider.tga" imgrect="400 0 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -7424,6 +7478,8 @@
 		<image name="icon_gesture_OTL" file="\icon\social.tga" imgrect="244 406 80 80"/>
 		<image name="icon_gesture_jiangshi" file="\icon\social.tga" imgrect="325 406 80 80"/>
 		<image name="icon_gesture_chair" file="\icon\social.tga" imgrect="406 487 80 80"/>
+		<image name="icon_gesture_dancecrap" file="\icon\social.tga" imgrect="1 487 80 80"/>
+		<image name="icon_gesture_exercise" file="\icon\social.tga" imgrect="82 487 80 80"/>
 	</imagelist>
 	<imagelist>
 		<image name="chat_page_arrow_left" file="\skin\mainframe_A.tga" imgrect="766 943 40 40"/>

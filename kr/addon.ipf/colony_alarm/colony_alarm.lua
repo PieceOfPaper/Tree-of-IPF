@@ -23,66 +23,66 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
         elseif diffSec == -60 then
             clmsg = ClMsg('Guild_Colony_Start_Msg_Before_1min');
             if enableEnterColonyWar == 1 then
-                if config.GetServiceNation() == 'GLOBAL' then
-                    imcSound.PlaySoundEvent('S1_battle_start_before_1');
-                elseif config.GetServiceNation() == 'KOR' then
+                if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_start_before');
+                else
+                    imcSound.PlaySoundEvent('S1_battle_start_before_1');
                 end
             end
         elseif diffSec == 0 then
             clmsg = ClMsg('Guild_Colony_Start_Msg');
             if enableEnterColonyWar == 1 then
-                if config.GetServiceNation() == 'GLOBAL' then
-                    imcSound.PlaySoundEvent('S1_battle_start');
-                elseif config.GetServiceNation() == 'KOR' then
+                if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_start');
+                else
+                    imcSound.PlaySoundEvent('S1_battle_start');
                 end
             end
         end
     elseif argStr == 'END' then
         if diffSec == -1800 then
             clmsg = ClMsg('Guild_Colony_End_Msg_Before_30min');
-            if config.GetServiceNation() == 'GLOBAL' then
-                imcSound.PlaySoundEvent('S1_battle_end_before_30min');
-            elseif config.GetServiceNation() == 'KOR' then
+            if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_30min');
+            else
+                imcSound.PlaySoundEvent('S1_battle_end_before_30min');
             end
         elseif diffSec == -600 then
             clmsg = ClMsg('Guild_Colony_End_Msg_Before_10min');
-            if config.GetServiceNation() == 'GLOBAL' then
-                imcSound.PlaySoundEvent('S1_battle_end_before_10min');
-            elseif config.GetServiceNation() == 'KOR' then
+            if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_10min');
+            else
+                imcSound.PlaySoundEvent('S1_battle_end_before_10min');
             end
         elseif diffSec == -300 then
             clmsg = ClMsg('Guild_Colony_End_Msg_Before_5min');
-            if config.GetServiceNation() == 'GLOBAL' then
-                imcSound.PlaySoundEvent('S1_battle_end_before_5min');
-            elseif config.GetServiceNation() == 'KOR' then
+            if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_5min');
+            else
+                imcSound.PlaySoundEvent('S1_battle_end_before_5min');
             end
         elseif diffSec == -60 then
             clmsg = ClMsg('Guild_Colony_End_Msg_Before_1min');
-            if config.GetServiceNation() == 'GLOBAL' then
-                imcSound.PlaySoundEvent('S1_battle_end_before_1min');
-            elseif config.GetServiceNation() == 'KOR' then
+            if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_1min');
+            else
+                imcSound.PlaySoundEvent('S1_battle_end_before_1min');
             end
         elseif diffSec >= -10 and diffSec < 0 then
             local countdownSec = -diffSec;
             clmsg = ScpArgMsg('Guild_Colony_End_Msg_Before{sec}', 'sec', countdownSec);
-            if config.GetServiceNation() == 'GLOBAL' then
-                imcSound.PlaySoundEvent('S1_countdown_'..countdownSec);
-            elseif config.GetServiceNation() == 'KOR' then
+            if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('countdown_'..countdownSec);
+            else
+                imcSound.PlaySoundEvent('S1_countdown_'..countdownSec);
             end
         elseif diffSec == 0 then
             clmsg = ClMsg('Guild_Colony_End_Msg');
             if enableEnterColonyWar == 1 then
-                if config.GetServiceNation() == 'GLOBAL' then
-                    imcSound.PlaySoundEvent('S1_battle_end');
-                elseif config.GetServiceNation() == 'KOR' then
+                if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_end');
+                else
+                    imcSound.PlaySoundEvent('S1_battle_end');
                 end
             end
         end

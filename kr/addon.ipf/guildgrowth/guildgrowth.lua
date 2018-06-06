@@ -68,13 +68,6 @@ function UPDATE_GUILD_ABILITY_CTRLSET(ctrlSet, cls, guildObj)
 end
 
 function GUILD_ABILITY_UP(parent, ctrl)
-
-	local isLeader = AM_I_LEADER(PARTY_GUILD);
-	if isLeader == 0 then
-		ui.MsgBox(ScpArgMsg("OnlyGuildLeader"));
-		return;
-	end
-
 	local clsID = parent:GetUserIValue("CLASSID");
 	local yesScp = string.format("_EXEC_GUILD_ABILITY_UP(%d)", clsID);
 	ui.MsgBox( ScpArgMsg("ExecLearnAbility"), yesScp, "None");

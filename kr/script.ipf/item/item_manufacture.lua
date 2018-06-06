@@ -42,6 +42,11 @@ function TX_HALLOWEEN_SHOP_TREAD(pc, argList, strArgList)
 	TX_ITEM_TRADE_SHOP_THREAD(pc, argList, strArgList, 'HALLOWEEN')
 end
 
+function TX_PVP_MINE_SHOP(pc, argList, strArgList)
+	TX_ITEM_TRADE_SHOP_THREAD(pc, argList, strArgList, 'PVPMine')
+end
+
+
 function TX_ITEM_TRADE_SHOP_THREAD(pc, argList, strArgList, shopType)
 
 	local cls = GetClassByType("ItemTradeShop", argList[1]);
@@ -821,5 +826,5 @@ end
 
 function TEST_SET_ERROR_RANDOM_OPTION_FORCELY(pc)
 	SetExProp(pc, 'ERROR_RANDOM_OPTION_FORCELY', 1);
-	Chat(pc, 'ëœë¤ì˜µì…˜ ê°•ì œ ì—ëŸ¬ ë°œìƒ ì ìš© ì¤‘');
+	Chat(pc, '·£´ı¿É¼Ç °­Á¦ ¿¡·¯ ¹ß»ı Àû¿ë Áß');
 end

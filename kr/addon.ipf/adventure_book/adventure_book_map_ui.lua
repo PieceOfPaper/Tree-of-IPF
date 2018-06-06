@@ -210,12 +210,12 @@ function ADVENTURE_BOOK_MAP.DRAW_MINIMAP(selectedMapID)
 	local pic = GET_CHILD(ctrlSet, "map", "ui::CPicture");
     pic:SetOffset(0, 0);
     pic:Resize(ctrlSet:GetWidth(), ctrlSet:GetHeight());
-	local mapimage = ui.GetImage(drawMapName .. "_fog");
-	if mapimage == nil then
+	local isValid = ui.IsValidImage(drawMapName .. "_fog");
+	if isValid == false then
 		world.PreloadMinimap(drawMapName, true, true);
 	end
 
-	if ui.GetImage(drawMapName .. "_fog") == nil then
+	if ui.IsValidImage(drawMapName .. "_fog") == false then
 		return;
 	end
 	pic:SetImage(drawMapName .. "_fog");

@@ -1744,6 +1744,14 @@ function PET_ABLE_TO_RIDE(self, pet)
 	return 1;
 end
 
+function WAIT_PAUSE_PET_SKILL(pet, ms)
+	sleep(ms);
+	local pauseCount = GetExProp(pet, "PAUSE_PET_SKILL");
+	if pauseCount > 0 then
+		SetExProp(pet, "PAUSE_PET_SKILL", pauseCount - 1);
+	end
+end
+
 function UPDATE_PET_ACTIVATE(pet, pc, isFirstUpdate)
 
 	if GetExProp(pet, "DEACTIVATED") ~= pet.IsActivated then
@@ -1760,6 +1768,10 @@ function UPDATE_PET_ACTIVATE(pet, pc, isFirstUpdate)
 		local x, y, z = GetPos(pc);
 		SetPos(pet, x, y, z);
 		
+		local pauseCount = GetExProp(pet, "PAUSE_PET_SKILL");
+		SetExProp(pet, "PAUSE_PET_SKILL", pauseCount + 1);
+		local waitMS = 1500;
+		RunScript("WAIT_PAUSE_PET_SKILL", pet, waitMS);
 	else
 		SetHide(pet, 1);
 		SetSafe(pet, 1);

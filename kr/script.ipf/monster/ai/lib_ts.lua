@@ -432,10 +432,31 @@ function SCR_LIB_AI_ITEM_DROP(self)
     end
     
     DropCommon(self);
+    local topAttacker = GetTopContributionAttacker(self);
+    --180419 EliteMonster misc_BlessedStone Drop Add Start--
+    if IsBuffApplied(self, "EliteMonsterBuff") == "YES" then
+        local topAttackerLv = tonumber(topAttacker.Lv)
+        local eliteMonLv = tonumber(self.Lv)
+        local eliteMonAddLv = topAttackerLv - eliteMonLv
+
+        if eliteMonAddLv < 31 then
+            local dropList = self.DropItemList
+            local dropIndex = GetMonDropListByIndex(self, dropList)
+            local bonusDropRand = IMCRandom(1, 10000)
+            local bonusDropRatio = 1000
+            if dropList ~= "None" then
+                if bonusDropRand <= bonusDropRatio then
+                    AddMonDropList(self, dropList, "misc_BlessedStone", 1)
+                end
+            end
+        end
+    end
+    --180419 EliteMonster misc_BlessedStone Drop Add End--
+    
+
     --local topAttacker = GetTopAttacker(self); 
     -- 전투스크럼12일차에 의해 막타친놈에게 템드랍하도록 변경.
-    local topAttacker = GetTopContributionAttacker(self);
-    
+
     if topAttacker == nil or GetObjType(topAttacker) ~= 2 then  -- (2 == PC)
         return;
     end
@@ -670,7 +691,7 @@ end
 
 function DROP_ITEM(self, topAttacker, isDoubleBuff, isHasEliteBuff)    
     sleep(500);
-    
+
     local cnt = GetMonDropListCount(self, 1);
     for i=0, cnt-1 do
         local droplistName, dropClsName, itemCount, dropID, superDrop = GetMonDropListByIndex(self, i);
@@ -1269,6 +1290,9 @@ function NORMAL_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
         end
 
         local pcetc = GetETCObject(attacker);
+        
+        local aObj = GetAccountObj(attacker)
+        
 
         local multipleCnt = 0;
         --if IsIndunMultiple(attacker) == 1 then
@@ -1287,6 +1311,38 @@ function NORMAL_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
                         local initProp = 'InDunCountType_'..string.gsub(pcetcProp, 'InDunRewardCountType_', '')
                         if pcetc[initProp] ~= addValue then
                             useTX[#useTX + 1] = {'property',pcetc, initProp, addValue}
+                        end
+                    end
+                    if pcetcProp == 'InDunRewardCountType_300' then
+                        local now_time = os.date('*t')
+                        local year = now_time['year']
+                        local month = now_time['month']
+                        local day = now_time['day']
+                        local hour = now_time['hour']
+                        
+                        local lastYday
+                        local nowYday = math.floor((SCR_DATE_TO_YHOUR_BASIC_2000(year,month,day,hour) - 6)/24)
+                        if aObj.BLESSEDSTONE_DAY_FIRST_REWARD_DATE == 'None' then
+                            lastYday = 0
+                        else
+                            lastYday = math.floor((SCR_DATE_TO_YHOUR_BASIC_2000_STR(aObj.BLESSEDSTONE_DAY_FIRST_REWARD_DATE..'/6') - 6)/24)
+                        end
+--                        print('AAAAAAAAAAA','lastYday',lastYday)
+--                        print('BBBBBBBBBBB','nowYday',nowYday)
+--                        print('CCCCCCCCCCC','aObj.BLESSEDSTONE_DAY_FIRST_REWARD_DATE',aObj.BLESSEDSTONE_DAY_FIRST_REWARD_DATE)
+--                        print('DDDDDDDDDDD','aObj.BLESSEDSTONE_DAY_FIRST_REWARD_COUNT',aObj.BLESSEDSTONE_DAY_FIRST_REWARD_COUNT)
+                        if lastYday ~= nowYday or  aObj.BLESSEDSTONE_DAY_FIRST_REWARD_COUNT < 3 then
+                            if lastYday ~= nowYday then
+                                local retYear,retMonth,retDay = SCR_DATE_TO_YDAY_BASIC_2000_REVERSE(nowYday)
+                                local nowDate = retYear..'/'..retMonth..'/'..retDay
+                                
+                                useTX[#useTX + 1] = {'property',aObj, 'BLESSEDSTONE_DAY_FIRST_REWARD_DATE', nowDate}
+                                useTX[#useTX + 1] = {'property',aObj, 'BLESSEDSTONE_DAY_FIRST_REWARD_COUNT', 1}
+                            elseif lastYday == nowYday and aObj.BLESSEDSTONE_DAY_FIRST_REWARD_COUNT < 3 then
+                                useTX[#useTX + 1] = {'property',aObj, 'BLESSEDSTONE_DAY_FIRST_REWARD_COUNT', aObj.BLESSEDSTONE_DAY_FIRST_REWARD_COUNT + 1}
+                            end
+--                            print('EEEEEEEEEEEEEEE')
+                            useTX[#useTX + 1] = {'item', 'Gacha_E_026', 1}
                         end
                     end
                 end
@@ -1356,6 +1412,8 @@ function NORMAL_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
             if ret ~= 'SUCCESS' then            
                 return nil
             end            
+--            print('FFFFFFFFFFF','aObj.BLESSEDSTONE_DAY_FIRST_REWARD_DATE',aObj.BLESSEDSTONE_DAY_FIRST_REWARD_DATE)
+--            print('GGGGGGGGGGG','aObj.BLESSEDSTONE_DAY_FIRST_REWARD_COUNT',aObj.BLESSEDSTONE_DAY_FIRST_REWARD_COUNT)
         end
         
         if isGiveInv == 0 then

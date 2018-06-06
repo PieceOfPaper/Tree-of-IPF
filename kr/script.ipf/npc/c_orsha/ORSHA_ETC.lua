@@ -24,15 +24,7 @@ function SCR_ORSHA_BLACKSMITH_NORMAL_4(self, pc)
     SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend', 5, 0, self);
 end
 
-function SCR_ORSHA_BLACKSMITH_NORMAL_5(self, pc)
-    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend_break', 5, 0, self);
-end
-
-function SCR_ORSHA_BLACKSMITH_NORMAL_6(self,pc)
-    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend_remove', 5, 0, self);
-end
-
-function SCR_ORSHA_BLACKSMITH_NORMAL_7(self,pc)
+function SCR_ORSHA_BLACKSMITH_NORMAL_5(self,pc)
 	local NpcHandle = GetHandle(self);
 	SetExProp(pc, "APPRAISER_HANDLE", NpcHandle);
 	REGISTERR_LASTUIOPEN_POS_SERVER(pc,"appraisal")
@@ -41,7 +33,7 @@ function SCR_ORSHA_BLACKSMITH_NORMAL_7(self,pc)
     DelExProp(pc, "APPRAISER_HANDLE");
 end
 
-function SCR_ORSHA_BLACKSMITH_NORMAL_8(self,pc)
+function SCR_ORSHA_BLACKSMITH_NORMAL_6(self,pc)
     local sObj = GetSessionObject(pc, "SSN_MATADOR_UNLOCK")
     ShowOkDlg(pc, "CHAR119_MSTEP3_2_DLG1", 1)
     ShowBalloonText(pc, "CHAR119_MSTEP3_2_PC_DLG1", 5)
@@ -51,7 +43,7 @@ function SCR_ORSHA_BLACKSMITH_NORMAL_8(self,pc)
     end
 end
 
-function SCR_ORSHA_BLACKSMITH_NORMAL_9(self,pc)
+function SCR_ORSHA_BLACKSMITH_NORMAL_7(self,pc)
     local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char1_19');
     local item = GetInvItemCount(pc, "HIDDEN_MINERAL_CMINE661_ITEM1")
     local sObj = GetSessionObject(pc, "SSN_MATADOR_UNLOCK")
@@ -73,7 +65,7 @@ function SCR_ORSHA_BLACKSMITH_NORMAL_9(self,pc)
     end
 end
 
-function SCR_ORSHA_BLACKSMITH_NORMAL_8_PRECHECK(pc)
+function SCR_ORSHA_BLACKSMITH_NORMAL_6_PRECHECK(pc)
     local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char1_19')
     local item = GetInvItemCount(pc, "HIDDEN_MINERAL_CMINE661_ITEM1")
     local sObj = GetSessionObject(pc, "SSN_MATADOR_UNLOCK")
@@ -90,7 +82,7 @@ function SCR_ORSHA_BLACKSMITH_NORMAL_8_PRECHECK(pc)
     end
 end
 
-function SCR_ORSHA_BLACKSMITH_NORMAL_9_PRECHECK(pc)
+function SCR_ORSHA_BLACKSMITH_NORMAL_7_PRECHECK(pc)
     local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char1_19')
     local item = GetInvItemCount(pc, "HIDDEN_MINERAL_CMINE661_ITEM1")
     local sObj = GetSessionObject(pc, "SSN_MATADOR_UNLOCK")
@@ -107,11 +99,11 @@ function SCR_ORSHA_BLACKSMITH_NORMAL_9_PRECHECK(pc)
     end
 end
 
-function SCR_ORSHA_BLACKSMITH_NORMAL_10(self,pc)
+function SCR_ORSHA_BLACKSMITH_NORMAL_8(self,pc)
     UIOpenToPC(pc, 'itemdecompose', 1)
 end
 
-function SCR_ORSHA_BLACKSMITH_NORMAL_11(self,pc)
+function SCR_ORSHA_BLACKSMITH_NORMAL_9(self,pc)
     UIOpenToPC(pc, 'itemrandomreset', 1)
 end
 

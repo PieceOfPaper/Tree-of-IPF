@@ -11,19 +11,21 @@ function ADVENTURE_BOOK_TEAM_BATTLE_COMMON_INIT(adventureBookFrame, teamBattleRa
 	local join = GET_CHILD_RECURSIVELY(teamBattleRankingPage, 'teamBattleMatchingBtn');
 	join:SetEnable(0);
 	
-	local cnt = session.worldPVP.GetPlayTypeCount();
-	if cnt > 0 then
-		local isGuildBattle = 0;
-		for i = 1, cnt do
-			local type = session.worldPVP.GetPlayTypeByIndex(i);
-			if type == 210 then
-				isGuildBattle = 1;
-				break;
+    if session.colonywar.GetIsColonyWarMap() == false then
+		local cnt = session.worldPVP.GetPlayTypeCount();
+		if cnt > 0 then
+			local isGuildBattle = 0;
+			for i = 1, cnt do
+				local type = session.worldPVP.GetPlayTypeByIndex(i);
+				if type == 210 then
+					isGuildBattle = 1;
+					break;
+				end
 			end
-		end
 
-		if isGuildBattle == 0 then
-			join:SetEnable(1);
+			if isGuildBattle == 0 then
+				join:SetEnable(1);
+			end
 		end
 	end
 end
@@ -246,7 +248,12 @@ function ADVENTURE_BOOK_TEAM_BATTLE_SEARCH(parent, ctrl)
     local page = control:GetCurPage();
     local adventureBookRankSearchEdit = GET_CHILD_RECURSIVELY(teamBattleRankSet, 'adventureBookRankSearchEdit');
     local teamBattleCls = GET_TEAM_BATTLE_CLASS();
-	worldPVP.RequestPVPRanking(teamBattleCls.ClassID, 0, -1, page, 0, adventureBookRankSearchEdit:GetText());
+    local searchText = adventureBookRankSearchEdit:GetText();    
+    if searchText == nil or searchText == '' then
+		worldPVP.RequestPVPRanking(teamBattleCls.ClassID, 0, -1, 1, 0, '');
+	else		
+		worldPVP.RequestPVPRanking(teamBattleCls.ClassID, 0, -1, page, 0, adventureBookRankSearchEdit:GetText());
+	end
 	ui.DisableForTime(control, 0.5);
 end
 

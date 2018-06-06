@@ -455,6 +455,11 @@ function GetMinMaxATK(self, skill)
 end
 
 function SCR_LIB_CHECK_MISS(self, from, ret, skill, rateTable)
+    -- MISSION_SURVIVAL_EVENT2
+    if GetZoneName(self) == 'f_pilgrimroad_41_1_event' then
+        return 0
+    end
+    
     if GetObjType(self) == OT_PC then
         local enchantcnt = CountEnchantItemEquip(self, 'ENCHANTARMOR_BLESSING');
         if enchantcnt > 0 and IMCRandom(1, 10000) < enchantcnt * 100 then
@@ -3091,7 +3096,11 @@ function GET_SKILL_ATTACKTYPE(skill)
 end
 
 function SCR_LIB_BUFF_IMMUNE_RATIO(self, from, buffName)
-
+    -- MISSION_SURVIVAL_EVENT2
+    if GetZoneName(self) == 'f_pilgrimroad_41_1_event' then
+        return 0
+    end
+    
     if self == nil or from == nil then
         return 0;
     end

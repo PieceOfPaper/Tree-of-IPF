@@ -2090,3 +2090,23 @@ end
 function SCR_VELCOFFER_COSTUME_SET01_LEAVE(pc)
    RemoveBuff(pc, 'COSTUME_VELCOFFER_SET');
 end
+
+-- set 054
+function SCR_set_054_COLONY_ENTER(pc)
+    AddBuff(pc, pc, 'item_set_041_buff');
+
+end
+
+function SCR_set_054_COLONY_LEAVE(pc)
+    RemoveBuff(pc, 'item_set_041_buff');
+end
+
+-- set 055
+function SCR_set_055_COLONY_ENTER(pc)
+    AddBuff(pc, pc, 'item_set_041_buff');
+
+end
+
+function SCR_set_055_COLONY_LEAVE(pc)
+    RemoveBuff(pc, 'item_set_041_buff');
+end

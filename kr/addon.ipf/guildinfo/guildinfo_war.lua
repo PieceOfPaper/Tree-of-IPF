@@ -4,13 +4,16 @@ function GUILDINFO_WAR_INIT(parent, warBox)
     ui.CloseFrame('guild_authority_popup');
 end
 
-function ON_GUILD_SET_NEUTRALITY(parent, checkBox)
-	local isLeader = AM_I_LEADER(PARTY_GUILD);
+function ON_GUILD_SET_NEUTRALITY(parent, checkBox)	
+--[[
+    local isLeader = AM_I_LEADER(PARTY_GUILD);
 	if 0 == isLeader then
 		ui.SysMsg(ScpArgMsg("OnlyLeaderAbleToDoThis"));
         GUILDINFO_WAR_INIT_CHECKBOX(parent);
 		return;
 	end
+    ]]--
+    
 
 	local guild = GET_MY_GUILD_INFO();
     local guildObj = GET_MY_GUILD_OBJECT();
@@ -26,12 +29,14 @@ function ON_GUILD_SET_NEUTRALITY(parent, checkBox)
     end
 
     -- 길드 중립 템플러 길마만 할 수 있다고 함
+    --[[
     local templerCls = GetClass('Job', 'Char1_16');
     if IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == false then
         ui.SysMsg(ClMsg('TgtDonHaveTmpler'));        
         GUILDINFO_WAR_INIT_CHECKBOX(parent);
         return;
     end
+    -]]
 
     local curState = guild.info:GetNeutralityState();
     local neutralityCost = 0;
@@ -63,8 +68,9 @@ function ON_GUILD_SET_NEUTRALITY(parent, checkBox)
 end
 
 function GUILDINFO_WAR_INIT_CHECKBOX(warBox)
+    local guildinfo = ui.GetFrame('guildinfo');
     if warBox == nil then
-        local guildinfo = ui.GetFrame('guildinfo');
+
         warBox = GET_CHILD_RECURSIVELY(guildinfo, 'warBox');
     end
     local guild = GET_MY_GUILD_INFO();
@@ -72,14 +78,14 @@ function GUILDINFO_WAR_INIT_CHECKBOX(warBox)
         return;
     end
 
-    local neutralCheck = GET_CHILD_RECURSIVELY(warBox, 'neutralCheck');    
+    local neutralCheck = GET_CHILD_RECURSIVELY(guildinfo, 'neutralCheck');    
     local state = 0;
     if true == guild.info:GetNeutralityState() then
 		state = 1;
 	end	
 	neutralCheck:SetCheck(state);
 
-    GUILDINFO_WAR_INIT_CHECKBOX_ALARM(warBox);
+    GUILDINFO_WAR_INIT_CHECKBOX_ALARM(guildinfo);
 end
 
 function GUILDINFO_WAR_INIT_LIST(warBox)
@@ -90,17 +96,23 @@ function GUILDINFO_WAR_INIT_LIST(warBox)
     local warListBox = GET_CHILD_RECURSIVELY(warBox, 'warListBox');    
     DESTROY_CHILD_BYNAME(warListBox, 'WAR_GUILD_');
 
+    if HAS_GUILD_WAR_LIST_CLIAM() == false and AM_I_LEADER(PARTY_GUILD) ~= 1 then
+        return
+    end
+
+
+
     local cnt = guild.info:GetEnemyPartyCount();
 	for i = 0 , cnt - 1 do
 		local enemyInfo = guild.info:GetEnemyPartyByIndex(i);
         local ctrlSet = warListBox:CreateOrGetControlSet('guildwar_ctrlset', 'WAR_GUILD_'..enemyInfo:GetPartyName(), 0, 0);
 
         -- name
-        local t_guildname = ctrlSet:GetChild('t_guildname');
+        local t_guildname = ctrlSet:GetChildRecursively('t_guildname');
         t_guildname:SetTextByKey("value", enemyInfo:GetPartyName());
 
         -- time
-        local t_remainTime = ctrlSet:GetChild('t_remainTime');
+        local t_remainTime = ctrlSet:GetChildRecursively('t_remainTime');
         local serverTime = geTime.GetServerFileTime();
 		local warEndTime = enemyInfo:GetEndTime();
 		local remainSec = imcTime.GetIntDifSecByTime(warEndTime, serverTime);
@@ -113,7 +125,7 @@ function GUILDINFO_WAR_INIT_LIST(warBox)
 			t_remainTime:SetTextByKey("value", remainTimeText);
 		end
     end
-    GBOX_AUTO_ALIGN(warListBox, 60, 0, 0, true, false);
+    GBOX_AUTO_ALIGN(warListBox, 0, 0, 0, true, false);
 end
 
 function C_GUILD_SET_NEUTRALITY(change)

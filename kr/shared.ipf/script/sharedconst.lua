@@ -106,9 +106,6 @@ MAX_ACTIVE_ABILITY = 128;
 GENTYPE_PREFIX = "GenType_";
 ANCHOR_PREFIX = "Anchor_";
 MONEY_NAME = "Vis";
-MONEY_MAX_STACK = 200000000;
-
-
 MCY_MAP_NAME = "mission_test";
 
 function SCP_MSG_OLD(msg, ...)

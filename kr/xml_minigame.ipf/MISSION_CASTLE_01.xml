@@ -160,7 +160,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="플록스케가 나타났습니다!"/>
+                                <Str Str="플록스케가 나타났습니다!{nl}모든 중간 보스가 출현했습니다."/>
                                 <Str Str="scroll"/>
                                 <Num Num="10"/>
                             </ToolScp>
@@ -503,13 +503,13 @@
                         <execList>
                             <ToolScp Scp="MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_NUNNERY_CUBE_REWARD_CHECK"/>
-                                <Str Str="Gacha_M_Castle_1/2"/>
+                                <Str Str="Gacha_M_Castle_1/3"/>
                                 <Str Str="None"/>
                                 <Str Str="None"/>
                                 <Str Str="None"/>
                                 <Str Str="MISSION_CASTLE_01"/>
                                 <Str Str="None"/>
-                                <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>

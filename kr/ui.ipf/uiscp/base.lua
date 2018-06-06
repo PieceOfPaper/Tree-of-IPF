@@ -120,6 +120,13 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
  
   function SCR_DISPEL_DEBUFF_TOGGLE(invItem)
 	-- debuff dispel on/off 토글
+	local curZone = GetZoneName();
+    local mapCls = GetClass('Map', curZone);
+
+	if mapCls.ClassName == 'pvp_Mine' then
+		return;
+	end
+
 	if invItem ~= nil then
 		local itemobj = GetIES(invItem:GetObject());
 		item.ToggleDispelDebuff(itemobj.ClassID);

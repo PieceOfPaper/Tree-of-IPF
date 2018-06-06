@@ -19,9 +19,11 @@ end
 
 function SCR_COLONY_START_ALARM(timeEventCls, diffSec)
     local colonyDayOfWeek = GET_COLONY_WAR_DAY_OF_WEEK();
-    local curTime = GetDBTime();    
-    if curTime.wDayOfWeek ~= colonyDayOfWeek then    
-        return;
+    local curTime = GetDBTime();
+    if colonyDayOfWeek ~= -1 then --매일 오픈이 아니라면,
+        if curTime.wDayOfWeek ~= colonyDayOfWeek then
+            return;
+        end
     end
 
     local checkScp = 'IS_ENTRY_GUILD';
@@ -39,8 +41,10 @@ end
 function SCR_COLONY_END_ALARM(timeEventCls, diffSec)
     local colonyDayOfWeek = GET_COLONY_WAR_DAY_OF_WEEK();
     local curTime = GetDBTime();
-    if curTime.wDayOfWeek ~= colonyDayOfWeek then
-        return;
+    if colonyDayOfWeek ~= -1 then --매일 오픈이 아니라면,
+        if curTime.wDayOfWeek ~= colonyDayOfWeek then
+            return;
+        end
     end
 
     local checkScp = 'IS_ENABLE_ENTER_COLONY_WAR_MAP';
@@ -67,7 +71,7 @@ function EXEC_CHANGE_COLONY_CONFIG(pc, changeValue)
     end
 
     local pcGuildID = GetGuildID(pc);
-    local guild = GetPartyObjByIESID(PARTY_GUILD, pcGuildID);    
+    local guild = GetPartyObjByIESID(PARTY_GUILD, pcGuildID);
     if IsPartyLeaderPc(guild, pc) == 0 then
         return;
     end
@@ -76,7 +80,7 @@ function EXEC_CHANGE_COLONY_CONFIG(pc, changeValue)
     if string.find(jobHistoryStr, 'Char1_16') == nil then
         return;
     end
-
+    
     if IsOccupationGuild(pcGuildID) == 1 then
         return;
     end
@@ -90,7 +94,7 @@ function EXEC_CHANGE_COLONY_CONFIG(pc, changeValue)
     ChangePartyProp(pc, PARTY_GUILD, "EnableEnterColonyWar", changeValue);
 	
 	--변경되는 시점을 정확히 알기 힘들기 때문에 여기서 로깅
-	EnterColonyWarMongoLog(pc, guild, beforeValue, changeValue);
+	EnableEnterColonyWarMongoLog(pc, guild, beforeValue, changeValue);
 
 end
 
@@ -131,10 +135,10 @@ function SEND_KILL_DEAD_MESSAGE(Deader, killer)
 	local fromGuild = GetGuildObj(killer);
 	local guildName = GetPartyName(guild);
 	local fromGuildName = GetPartyName(fromGuild);
-    local killMsg = ScpArgMsg("GuildMember{Name}Killed{Target}OfGuild{TargetGuild}", "Name", GetTeamName(killer), "Target", GetTeamName(Deader), "TargetGuild", guildName);
-	BroadcastToPartyMember(PARTY_GUILD, fromGuildID, killMsg, "{#FFFFFF}");
+    local killMsg = ScpArgMsg("Colony_GuildMember{Name}Killed{Target}OfGuild{TargetGuild}", "Name", GetTeamName(killer), "Target", GetTeamName(Deader), "TargetGuild", guildName);
+	BroadcastToPartyMember(PARTY_GUILD, fromGuildID, killMsg, "{#00FF00}");
 
-	local killedMsg = ScpArgMsg("GuildMember{Name}HasKilledBy{From}OfGuild{FromGuild}", "Name", GetTeamName(Deader), "From", GetTeamName(killer), "FromGuild", fromGuildName);
+	local killedMsg = ScpArgMsg("Colony_GuildMember{Name}HasKilledBy{From}OfGuild{FromGuild}", "Name", GetTeamName(Deader), "From", GetTeamName(killer), "FromGuild", fromGuildName);
 	BroadcastToPartyMember(PARTY_GUILD, guildID, killedMsg, "");
 end
 

@@ -527,9 +527,7 @@ function GAME_ST_EVT_COND_VALUE(cmd, curStage, eventInst, obj, valName, operator
 end
 
 function SCR_MGAME_VALUE_CHECK(cmd, valName, operator, val)
-	
-    --HS_COMMENT
-    local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 	if cnt > 0 then
         if cmd:GetMGameName() == 'battlefield' then
 			local round = cmd:GetUserValue('Round');
@@ -546,8 +544,7 @@ function SCR_MGAME_VALUE_CHECK(cmd, valName, operator, val)
 	local curValue = cmd:GetUserValue(valName);
     
 	if operator == "UNDER" then
-		if curValue <= val then
-            --hs_comment
+		if curValue <= val then            
             if cmd:GetMGameName() == 'battlefield' then
 			    local round = cmd:GetUserValue('Round');
 			    IMC_LOG('INFO_NORMAL', '[TBL_LOG] SCR_MGAME_VALUE_CHECK UNDER: cnt['..cnt..'], round['..round..'], cur['..curValue..'], val['..val..']');
@@ -558,8 +555,7 @@ function SCR_MGAME_VALUE_CHECK(cmd, valName, operator, val)
 			return 0;
 		end
 	elseif operator == "OVER" then
-		if curValue >= val then
-            --hs_comment
+		if curValue >= val then            
             if cmd:GetMGameName() == 'battlefield' then
 			    local round = cmd:GetUserValue('Round');
 			    IMC_LOG('INFO_NORMAL', '[TBL_LOG] SCR_MGAME_VALUE_CHECK OVER: cnt['..cnt..'], round['..round..'], cur['..curValue..'], val['..val..']');
@@ -617,8 +613,6 @@ end
 
 
 function GAME_ST_EVT_COND_VALUE_COMPARE(cmd, curStage, eventInst, obj, valName, operator, valName2)
-
-	--HS_COMMENT
     local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 	if cnt > 0 then
         if cmd:GetMGameName() == 'battlefield' then
@@ -648,8 +642,7 @@ function GAME_ST_EVT_COND_VALUE_COMPARE(cmd, curStage, eventInst, obj, valName, 
 			return 0;
 		end
 	else
-		if val1 == val2 then
-            -- hs_comment
+		if val1 == val2 then            
             if cmd:GetMGameName() == 'battlefield' then
 	            local round = cmd:GetUserValue('Round');
 	            IMC_LOG('INFO_NORMAL', '[TBL_LOG] GAME_ST_EVT_COND_VALUE_COMPARE: stage['..curStage..'], cnt['..cnt..'], round['..round..'], val1['..val1..'], val2['..val2..']');
@@ -995,8 +988,6 @@ end
 
 function MGAME_EVT_COND_PCCNT(cmd, curStage, eventInst, obj, limitCnt)
 	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
-
-	--HS_COMMENT
 	local limitTime = math.floor(cmd:GetUserValue('LIMIT_TIME'));
 	if limitTime == 0 then
 		limitTime = math.floor(imcTime.GetAppTime() + 60);
@@ -1076,10 +1067,7 @@ end
 function MGAME_EVT_COND_PC_CON_TEAM(cmd, curStage, eventInst, obj, teamID, limitCnt)
 
 	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
-
-	--HS_COMMENT
 	if cnt > 0 then
-		-- hs_comment: 팀배인 경우만 로그 남김
 		if cmd:GetMGameName() == 'battlefield' then
 			local round = cmd:GetUserValue('Round');
 			IMC_LOG('INFO_NORMAL', '[TBL_LOG] 1. MGAME_EVT_COND_PC_CON_TEAM_check flag: stage['..curStage..'], cnt['..cnt..'], round['..round..']');
@@ -1103,8 +1091,6 @@ function MGAME_EVT_COND_PC_CON_TEAM(cmd, curStage, eventInst, obj, teamID, limit
 	end
 
 	if livePCCnt <= limitCnt then
-
-		-- hs_comment: 팀배인 경우만 로그 남김
 		if cmd:GetMGameName() == 'battlefield' then
 			local round = cmd:GetUserValue('Round');
 			IMC_LOG('INFO_NORMAL', '[TBL_LOG] 2. MGAME_EVT_COND_PC_CON_TEAM: stage['..curStage..'], teamID['..teamID..'], round['..round..']');
@@ -1117,10 +1103,7 @@ function MGAME_EVT_COND_PC_CON_TEAM(cmd, curStage, eventInst, obj, teamID, limit
 end
 
 function MGAME_EVT_COND_PC_CON_FACTION(cmd, curStage, eventInst, obj, faction, limitCnt)
-
 	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
-
-	--HS_COMMENT
 	if cnt > 0 then
         if cmd:GetMGameName() == 'battlefield' then
 			local round = cmd:GetUserValue('Round');
@@ -1144,8 +1127,6 @@ function MGAME_EVT_COND_PC_CON_FACTION(cmd, curStage, eventInst, obj, faction, l
 	end
 
 	if livePCCnt <= limitCnt then
-
-		-- hs_comment: 팀배인 경우만 로그 남김
 		if cmd:GetMGameName() == 'battlefield' then
 			local round = cmd:GetUserValue('Round');
 			IMC_LOG('INFO_NORMAL', '[TBL_LOG] MGAME_EVT_COND_PC_CON_FACTION: stage['..curStage..'], faction['..faction..'], round['..round..']');
@@ -1211,8 +1192,6 @@ function MGAME_EVT_COND_SCRIPT(cmd, curStage, eventInst, obj, scpName)
 end
 
 function CHECK_TEAM2_HP_MORE(cmd, curStage, eventInst, obj)
-
-    --HS_COMMENT
     local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 	if cnt > 0 then
         if cmd:GetMGameName() == 'battlefield' then
@@ -1253,16 +1232,11 @@ function CHECK_TEAM2_HP_MORE(cmd, curStage, eventInst, obj)
 
 end
 
-function CHECK_TEAM1_HP_MORE(cmd, curStage, eventInst, obj) --hs_comment
-
+function CHECK_TEAM1_HP_MORE(cmd, curStage, eventInst, obj)
 	local team1HP = 0;
 	local team2HP = 0;
-
 	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
-    
-	--HS_COMMENT
 	if cnt > 0 then
-		-- hs_comment: 팀배인 경우만 로그 남김
 		if cmd:GetMGameName() == 'battlefield' then
 			local round = cmd:GetUserValue('Round');
 			IMC_LOG('INFO_NORMAL', '[TBL_LOG] CHECK_TEAM1_HP_MORE_ check flag3: stage['..curStage..'], cnt['..cnt..'], round['..round..']');
@@ -1287,7 +1261,6 @@ function CHECK_TEAM1_HP_MORE(cmd, curStage, eventInst, obj) --hs_comment
 	end
 
 	if team1HP > team2HP then
-        -- hs_comment: 팀배인 경우만 로그 남김
 		if cmd:GetMGameName() == 'battlefield' then
 			local round = cmd:GetUserValue('Round');
 			IMC_LOG('INFO_NORMAL', '[TBL_LOG] 5. CHECK_TEAM1_HP_MORE: stage['..curStage..'], cnt['..cnt..'], round['..round..']');

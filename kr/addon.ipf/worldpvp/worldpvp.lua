@@ -116,21 +116,23 @@ function OPEN_WORLDPVP(frame)
 	local join = charinfo:GetChild("join");
 	join:SetEnable(0);
 	
-	local cnt = session.worldPVP.GetPlayTypeCount();
-	if cnt > 0 then
-		local isGuildBattle = 0;
-		for i = 1, cnt do
-			local type = session.worldPVP.GetPlayTypeByIndex(i);
-			if type == 210 then
-				isGuildBattle = 1;
-				break;
+    if session.colonywar.GetIsColonyWarMap() == false then
+		local cnt = session.worldPVP.GetPlayTypeCount();
+		if cnt > 0 then
+			local isGuildBattle = 0;
+			for i = 1, cnt do
+				local type = session.worldPVP.GetPlayTypeByIndex(i);
+				if type == 210 then
+					isGuildBattle = 1;
+					break;
+				end
+			end
+
+			if isGuildBattle == 0 then
+				join:SetEnable(1);
 			end
 		end
-
-		if isGuildBattle == 0 then
-			join:SetEnable(1);
-		end
-	end
+    end
 
 	UPDATE_WORLDPVP(frame);
 	ON_PVP_STATE_CHANGE(frame);
@@ -998,7 +1000,13 @@ function PVP_OPEN_POINT_SHOP(parent, ctrl)
 	TOGGLE_PROPERTY_SHOP("PVPShop");
 
 end
-   
+
+function MINE_OPEN_POINT_SHOP(parent, ctrl)
+
+	TOGGLE_PROPERTY_SHOP("MINEShop");
+
+end
+
 function PVP_REWARD(parent, ctrl)
 	local type = session.worldPVP.GetRankProp("Type");
 	local cls = GetClassByType("WorldPVPType", type);
@@ -1040,4 +1048,14 @@ function GUILD_PVP_MISSION_CREATED(roomGuid, gameType, isCreated, zonePCCount)
 		UPDATE_WORLDPVP(frame);
 	end
 
+end
+
+function GET_PVP_MINE_POINT_C()
+	local aObj = GetMyAccountObj();
+
+	if aObj == nil then
+		return 0;
+	end
+
+    return aObj.PVP_MINE_POINT
 end

@@ -952,7 +952,16 @@ function SCR_STRING_TO_TABLE(a)
     
     return ret
 end
-
+function SCR_DATE_TO_YHOUR_BASIC_2000_STR(str)
+    if str == nil or type(str) ~= 'string' then
+        return
+    end
+    
+    local date = SCR_STRING_CUT(str)
+    if #date == 4 then
+        return SCR_DATE_TO_YHOUR_BASIC_2000(date[1], date[2], date[3], date[4])
+    end
+end
 function SCR_DATE_TO_YHOUR_BASIC_2000(yy, mm, dd, hh)
     local days, monthdays, leapyears, nonleapyears, nonnonleapyears
 
@@ -2091,22 +2100,21 @@ function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
     end
     
     local now_time = os.date('*t')
---    local year = now_time['year']
+    local year = now_time['year']
     local month = now_time['month']
     local day = now_time['day']
     
     if IsServerSection(pc) ~= 1 then
         local serverTime = imcTime.GetCurdateNumber()
+        year = 2000 + tonumber(string.sub(serverTime,1, 2))
         month = tonumber(string.sub(serverTime,3, 4))
         day = tonumber(string.sub(serverTime,5, 6))
     end
     
-    local dateList = {{12,24},{12,25}}
-    
-    for i = 1, #dateList do
-        if month == dateList[i][1] and day == dateList[i][2] then
-            return 'YES'
-        end
+    local nowbasicyday = SCR_DATE_TO_YDAY_BASIC_2000(year, month, day)
+
+    if nowbasicyday >= SCR_DATE_TO_YDAY_BASIC_2000(2018, 4, 19) and nowbasicyday <= SCR_DATE_TO_YDAY_BASIC_2000(2018, 5, 3) then
+        return 'YES'
     end
     
     return 'NO'

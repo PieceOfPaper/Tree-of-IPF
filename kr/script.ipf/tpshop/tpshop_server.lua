@@ -107,14 +107,15 @@ function CHECK_EQUIP_PREMIUMITEM(pc, itemInfo, sendMsg, fromTpShop)
 end
 
 function SCR_TX_TP_SHOP(pc, argList)
-
 	if #argList < 1 then
+		IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: argError- aid['..GetPcAIDStr(pc)..']');
 		return
 	end
 
 	local aobj = GetAccountObj(pc);
 	local etcObj = GetETCObject(pc);
 	if aobj == nil or etcObj == nil then
+		IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: account or etc object is nil- aid['..GetPcAIDStr(pc)..']');
 		return
 	end
 
@@ -165,6 +166,7 @@ function SCR_TX_TP_SHOP(pc, argList)
     for i = 1, #argList do
         local tpitem = GetClassByType("TPitem", argList[i])
 		if tpitem == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: tpitem is nil- aid['..GetPcAIDStr(pc)..'], itemID['..argList[i]..']');
 			return
 		end
 
@@ -178,20 +180,24 @@ function SCR_TX_TP_SHOP(pc, argList)
 	for i = 1, #argList do		
 		local tpitem = GetClassByType("TPitem", argList[i]);		
 		if tpitem == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: tpitem is nil- aid['..GetPcAIDStr(pc)..'], itemID['..argList[i]..']');
 			return
 		end
 
 		if 0 > GetPCTotalTPCount(pc) - tpitem.Price then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: lack of tp- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..'], totalTP['..GetPCTotalTPCount(pc)..'], price['..tpitem.Price..']');
 			return
 		end
 
 		local itemcls = GetClass("Item", tpitem.ItemClassName)
 		if itemcls == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: item class is nil- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..'], item['..tpitem.ItemClassName..']');
 			return
 		end
 
 		local tx = TxBegin(pc);
 		if tx == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: tx is nil- aid['..GetPcAIDStr(pc)..']');
 			return
 		end
 
@@ -212,6 +218,8 @@ function SCR_TX_TP_SHOP(pc, argList)
 			CustomMongoLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)
 			CustomMongoCashLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)
 			SendAddOnMsg(pc, "TPSHOP_BUY_SUCCESS", "", 0);
+		else
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: Tx Fail- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..']');
 		end
 	end
 end

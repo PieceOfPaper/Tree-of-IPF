@@ -26,6 +26,8 @@ function GUILDINFO_DETAIL_ON_INIT(guildData, emblemPath, info, guild_idx)
 
         local guildEmblem = GET_CHILD_RECURSIVELY(frame, "emblem")
         guildEmblem:SetImage("")
+
+
         if emblemPath == "None" then
             guildEmblem:SetImage('guildmark_slot')
         else
@@ -80,6 +82,9 @@ function GUILDINFO_DETAIL_ON_INIT(guildData, emblemPath, info, guild_idx)
 end
 
 function GET_INTRO_IMAGE(code, ret_json)
+    if ret_json ~= "" and ret_json ~= g_guildIdx then
+        return -- 이전 길드 페이지 요청하자마자 페이지 닫고
+    end        -- 다른 길드를 보는중에 응답이 와서 배경에 깔리는 일이 있음.
     local frame = ui.GetFrame("guildinfo_detail");
     local tabCtrl = GET_CHILD_RECURSIVELY(frame, "itembox");
     local promoPic = GET_CHILD_RECURSIVELY(frame, "promoPicture");
@@ -110,27 +115,20 @@ function GUILDINFO_DETAIL_OPEN(addon, frame)
     local detail = ui.GetFrame("guildinfo_detail");
   
     local tabCtrl = GET_CHILD_RECURSIVELY(detail, "itembox")
-
     tabCtrl:SelectTab(0);
+
     local intro = GET_CHILD_RECURSIVELY(detail, "intro");
     intro:ShowWindow(1)
+    local btn = GET_CHILD_RECURSIVELY(detail, "joinBtn");
 
-    GetGuildIndex("ON_GUILDINDEX_GET")
-    
-end
-
-function ON_GUILDINDEX_GET(code, guild_idx)
-    if code ~= 200 then
-        SHOW_GUILD_HTTP_ERROR(code, guild_idx, "ON_GUILDINDEX_GET")
-        return
-    end
-    local joinFrame = ui.GetFrame("guildinfo_detail");
-    local btn = GET_CHILD_RECURSIVELY(joinFrame, "joinBtn");
-    if guild_idx ~= "0" then
-        btn:SetEnable(0)
-    else
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+    if pcparty == nil then
         btn:SetEnable(1)
+    else
+        btn:SetEnable(0)
     end
+   
+    
 end
 
 function OPEN_REQUEST_GUILDJOIN()

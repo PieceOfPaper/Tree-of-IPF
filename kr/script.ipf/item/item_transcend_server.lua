@@ -185,6 +185,14 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
 		TxAddIESProp(tx, targetItem, 'Transcend', 1);
 	end
 	
+	--EVENT_1804_TRANSCEND_SUCCESS_COUNT
+	if isSuccess == 1 then
+	    if targetItem.UseLv >= 350 then
+    	    local aObj = GetAccountObj(pc)
+    	    TxSetIESProp(tx, aObj, 'EVENT_1804_TRANSCEND_SUCCESS_COUNT', aObj.EVENT_1804_TRANSCEND_SUCCESS_COUNT + 1)
+    	end
+	end
+	
 	local ret = TxCommit(tx);	
 	
 	if ret ~= "SUCCESS" then		
@@ -192,7 +200,7 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
 		ExecClientScp(pc, "ITEMTRANSCEND_FAIL_TO_TRANSCEND()");
 		return;
 	end
-
+	
     if isSuccess == 1 then
         if IsExistItemInAdventureBook(pc, targetItem.ClassID) == 'NO' then
             ALARM_ADVENTURE_BOOK_NEW(pc, targetItem.Name);
@@ -210,165 +218,174 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
 	ExecClientScp(pc, stringScp);
 end
 
-function SCR_ITEM_TRANSCEND_BREAK_TX(pc, argList)
-	local itemList = GetDlgItemList(pc);
-	if #itemList ~= 2 then
-		return;
-	end
-	
-	local targetItem = itemList[1];
-	local materialItem = itemList[2];
-
-	if targetItem == nil or materialItem == nil then
-		return;
-	end
-
-    if CHECK_ENABLE_BREAK_TRANSCEND(pc, targetItem) == false then    
-    	return;
-    end
-
-    local itemClass = GetClass("Item",targetItem.ClassName);
-
-    if itemClass == nil then
-        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHATHEDRAL53_MQ03_ITEM02"), 3);
-        return;
-    end
-
-    local isNeedAppraisal = TryGetProp(itemClass, "NeedAppraisal");
-
-    if isNeedAppraisal ~= nil and isNeedAppraisal == 1 and ENABLE_APPRAISAL_ITEM_MOVE ~= 1 then
-
-        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHATHEDRAL53_MQ03_ITEM02"), 3);
-        return;
-    end
-
-	local transcend = TryGetProp(targetItem, "Transcend");
-	if transcend == nil or transcend < 1 then
-		return;
-	end
-	
-	local lastTranscend = transcend;
-	local lastTranscend_MatCount = TryGetProp(targetItem, "Transcend_MatCount");
-	if lastTranscend_MatCount == nil then
-		lastTranscend_MatCount = 0;
-	end
-
-	if materialItem.ClassName ~= GET_TRANSCEND_BREAK_ITEM() then
-		return;
-	end
-
-	local breakItemCount = GET_TRANSCEND_BREAK_ITEM_COUNT(targetItem);
-	local breakItemCount = breakItemCount * 10;
-	local needSilver = GET_TRANSCEND_BREAK_SILVER(targetItem);
-    
-    local successTranscend_MatCount = TryGetProp(targetItem, "Transcend_SucessCount");
-    
-    successTranscend_MatCount = math.floor(successTranscend_MatCount * 0.9) * 10;
-    
-    if successTranscend_MatCount <  breakItemCount then
-        return 0;
-    end
-    
-	local getItemName = "misc_BlessedStone";
-	if getItemName == nil then
-		return;
-	end
-	
-	local targetItemGUID = GetItemGuid(targetItem);
-	if targetItemGUID == nil then
-		return;
-	end
-	local targetItemClassID = TryGetProp(targetItem, "ClassID");
-	if targetItemClassID == nil then
-		return;
-	end
-	local targetItemClassName = TryGetProp(targetItem, "ClassName");
-	if targetItemClassName == nil then
-		return;
-	end
-    local equipType = TryGetProp(targetItem, 'ClassType');
-    if equipType == nil then
-        return;
-    end
-    
-	local tx = TxBegin(pc);
-	TxTakeItemByObject(tx, targetItem, 1, "TranscendBreak");
-	TxTakeItem(tx, 'Vis', needSilver, "TranscendBreak");
-	TxTakeItemByObject(tx, materialItem, 1, "TranscendBreak");
-	TxGiveItem(tx, getItemName, breakItemCount, "TranscendBreak");
-	local ret = TxCommit(tx);	
-	
-	if ret == "SUCCESS" then
-		ItemTranscendBreakMongoLog(pc, targetItemGUID, targetItemClassID, targetItemClassName, lastTranscend, lastTranscend_MatCount, getItemName, breakItemCount, equipType);
-		
-		InvalidateStates(pc);
-		local strScp = string.format("TRANSCEND_BREAK_UPDATE(\"%s\", %d)", getItemName, breakItemCount)	
-		ExecClientScp(pc, strScp);
-	end	
-	
-end
-
-function SCR_ITEM_TRANSCEND_REMOVE_TX(pc, argList)	
-	local itemList = GetDlgItemList(pc);
-	if #itemList ~= 2 then
-		return;
-	end
-	
-	local targetItem = itemList[1];
-	local materialItem = itemList[2];
-
-	if targetItem == nil or materialItem == nil then
-		return;
-	end
-
-    if CHECK_ENABLE_BREAK_TRANSCEND(pc, targetItem) == false then
-    	return;
-    end
-
-    local itemClass = GetClass("Item",targetItem.ClassName);
-
-    if itemClass == nil then
-        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHATHEDRAL53_MQ03_ITEM02"), 3);
-        return;
-    end
-
-    local isNeedAppraisal = TryGetProp(itemClass, "NeedAppraisal");
-
-    if isNeedAppraisal ~= nil and isNeedAppraisal == 1 and ENABLE_APPRAISAL_ITEM_MOVE ~= 1 then
-
-        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHATHEDRAL53_MQ03_ITEM02"), 3);
-        return;
-    end
-
-	local transcend = TryGetProp(targetItem, "Transcend");
-	if transcend == nil or transcend < 1 then
-		return;
-	end
-
-	if materialItem.ClassName ~= GET_TRANSCEND_REMOVE_ITEM() then
-		return;
-	end
-
-	local lastTranscend = transcend;
-	local lastTranscend_MatCount = TryGetProp(targetItem, "Transcend_MatCount");
-	if lastTranscend_MatCount == nil then
-		lastTranscend_MatCount = 0;
-	end
-
-	local tx = TxBegin(pc);
-	TxSetIESProp(tx, targetItem, 'Transcend_MatCount', 0);	
-	TxSetIESProp(tx, targetItem, 'Transcend', 0);
-	TxSetIESProp(tx, targetItem, 'Transcend_SucessCount', 0)	
-	TxTakeItemByObject(tx, materialItem, 1, "TranscendRemove");
-	local ret = TxCommit(tx);	
-
-	if ret == "SUCCESS" then
-		ItemTranscendRemoveMongoLog(pc, targetItem, lastTranscend, lastTranscend_MatCount);
-		InvalidateStates(pc);
-		local strScp = "TRANSCEND_REMOVE_UPDATE()";
-		ExecClientScp(pc, strScp);
-	end	
-end
+--function SCR_ITEM_TRANSCEND_BREAK_TX(pc, argList)
+--	local itemList = GetDlgItemList(pc);
+--	if #itemList ~= 2 then
+--		return;
+--	end
+--	
+--	local targetItem = itemList[1];
+--	local materialItem = itemList[2];
+--
+--	if targetItem == nil or materialItem == nil then
+--		return;
+--	end
+--
+--    if IsShutDown("Item", targetItem.ClassName, targetItem) == 1 or IsShutDown("ShutDownContent", "Transcend") == 1 then
+--        SendAddOnMsg(pc, "SHUTDOWN_BLOCKED", "", 0);
+--        return;
+--    end
+--
+--    if CHECK_ENABLE_BREAK_TRANSCEND(pc, targetItem) == false then    	
+--    	return;
+--    end
+--
+--    local itemClass = GetClass("Item",targetItem.ClassName);
+--
+--    if itemClass == nil then
+--        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHATHEDRAL53_MQ03_ITEM02"), 3);
+--        return;
+--    end
+--
+--    local isNeedAppraisal = TryGetProp(itemClass, "NeedAppraisal");
+--
+--    if isNeedAppraisal ~= nil and isNeedAppraisal == 1 and ENABLE_APPRAISAL_ITEM_MOVE ~= 1 then
+--
+--        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHATHEDRAL53_MQ03_ITEM02"), 3);
+--        return;
+--    end
+--
+--	local transcend = TryGetProp(targetItem, "Transcend");
+--	if transcend == nil or transcend < 1 then
+--		return;
+--	end
+--	
+--	local lastTranscend = transcend;
+--	local lastTranscend_MatCount = TryGetProp(targetItem, "Transcend_MatCount");
+--	if lastTranscend_MatCount == nil then
+--		lastTranscend_MatCount = 0;
+--	end
+--
+--	if materialItem.ClassName ~= GET_TRANSCEND_BREAK_ITEM() then
+--		return;
+--	end
+--
+--	local breakItemCount = GET_TRANSCEND_BREAK_ITEM_COUNT(targetItem);
+--	local breakItemCount = breakItemCount * 10;
+--	local needSilver = GET_TRANSCEND_BREAK_SILVER(targetItem);
+--    
+--    local successTranscend_MatCount = TryGetProp(targetItem, "Transcend_SucessCount");
+--    
+--    successTranscend_MatCount = math.floor(successTranscend_MatCount * 0.9) * 10;
+--    
+--    if successTranscend_MatCount <  breakItemCount then
+--        return 0;
+--    end
+--    
+--	local getItemName = "misc_BlessedStone";
+--	if getItemName == nil then
+--		return;
+--	end
+--	
+--	local targetItemGUID = GetItemGuid(targetItem);
+--	if targetItemGUID == nil then
+--		return;
+--	end
+--	local targetItemClassID = TryGetProp(targetItem, "ClassID");
+--	if targetItemClassID == nil then
+--		return;
+--	end
+--	local targetItemClassName = TryGetProp(targetItem, "ClassName");
+--	if targetItemClassName == nil then
+--		return;
+--	end
+--    local equipType = TryGetProp(targetItem, 'ClassType');
+--    if equipType == nil then
+--        return;
+--    end
+--    
+--	local tx = TxBegin(pc);
+--	TxTakeItemByObject(tx, targetItem, 1, "TranscendBreak");
+--	TxTakeItem(tx, 'Vis', needSilver, "TranscendBreak");
+--	TxTakeItemByObject(tx, materialItem, 1, "TranscendBreak");
+--	TxGiveItem(tx, getItemName, breakItemCount, "TranscendBreak");
+--	local ret = TxCommit(tx);	
+--	
+--	if ret == "SUCCESS" then
+--		ItemTranscendBreakMongoLog(pc, targetItemGUID, targetItemClassID, targetItemClassName, lastTranscend, lastTranscend_MatCount, getItemName, breakItemCount, equipType);
+--		
+--		InvalidateStates(pc);
+--		local strScp = string.format("TRANSCEND_BREAK_UPDATE(\"%s\", %d)", getItemName, breakItemCount)	
+--		ExecClientScp(pc, strScp);
+--	end	
+--	
+--end
+--function SCR_ITEM_TRANSCEND_REMOVE_TX(pc, argList)	
+--	local itemList = GetDlgItemList(pc);
+--	if #itemList ~= 2 then
+--		return;
+--	end
+--	
+--	local targetItem = itemList[1];
+--	local materialItem = itemList[2];
+--
+--	if targetItem == nil or materialItem == nil then
+--		return;
+--	end
+--
+--    if IsShutDown("Item", targetItem.ClassName, targetItem) == 1 or IsShutDown("ShutDownContent", "Transcend") == 1 then
+--        SendAddOnMsg(pc, "SHUTDOWN_BLOCKED", "", 0);
+--        return;
+--    end
+--
+--    if CHECK_ENABLE_BREAK_TRANSCEND(pc, targetItem) == false then
+--    	return;
+--    end
+--
+--    local itemClass = GetClass("Item",targetItem.ClassName);
+--
+--    if itemClass == nil then
+--        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHATHEDRAL53_MQ03_ITEM02"), 3);
+--        return;
+--    end
+--
+--    local isNeedAppraisal = TryGetProp(itemClass, "NeedAppraisal");
+--
+--    if isNeedAppraisal ~= nil and isNeedAppraisal == 1 and ENABLE_APPRAISAL_ITEM_MOVE ~= 1 then
+--
+--        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHATHEDRAL53_MQ03_ITEM02"), 3);
+--        return;
+--    end
+--
+--	local transcend = TryGetProp(targetItem, "Transcend");
+--	if transcend == nil or transcend < 1 then
+--		return;
+--	end
+--
+--	if materialItem.ClassName ~= GET_TRANSCEND_REMOVE_ITEM() then
+--		return;
+--	end
+--
+--	local lastTranscend = transcend;
+--	local lastTranscend_MatCount = TryGetProp(targetItem, "Transcend_MatCount");
+--	if lastTranscend_MatCount == nil then
+--		lastTranscend_MatCount = 0;
+--	end
+--
+--	local tx = TxBegin(pc);
+--	TxSetIESProp(tx, targetItem, 'Transcend_MatCount', 0);	
+--	TxSetIESProp(tx, targetItem, 'Transcend', 0);
+--	TxSetIESProp(tx, targetItem, 'Transcend_SucessCount', 0)	
+--	TxTakeItemByObject(tx, materialItem, 1, "TranscendRemove");
+--	local ret = TxCommit(tx);	
+--
+--	if ret == "SUCCESS" then
+--		ItemTranscendRemoveMongoLog(pc, targetItem, lastTranscend, lastTranscend_MatCount);
+--		InvalidateStates(pc);
+--		local strScp = "TRANSCEND_REMOVE_UPDATE()";
+--		ExecClientScp(pc, strScp);
+--	end	
+--end
 
 
 function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)	

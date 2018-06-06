@@ -1,6 +1,6 @@
 -- Event_1710_Holiday
 function SCR_BUFF_ENTER_Event_1710_Holiday(self, buff, arg1, arg2, over)
-    local rootingChance = 2000;
+    local rootingChance = 1000;
     
     self.LootingChance_BM = self.LootingChance_BM + rootingChance;
     SetExProp(buff, "ADD_ENTER_Event_1710_Holiday", rootingChance);

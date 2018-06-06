@@ -185,15 +185,11 @@ function ZONE_ENTER_PVP(pc)
 end
 
 function ZONE_ENTER(pc)
-
-
-    -- ?????? 2???? ??????? ? (??????? ?? o??)
     if pc == nil then
         return;
     end
 
     local teamName = GetTeamName(pc);
-
     if teamName == nil or string.len(teamName) < 2 then
         CustomMongoLog(pc,"BarrackMove","Type","Kick")
         TransferLogin(pc)
@@ -566,6 +562,33 @@ function ZONE_ENTER(pc)
     if IsMGameSoulCristalLimit(pc) == 1 then
 		SendSoulCristalLimit(pc)
 	end
+    PROCESS_PASSIVE_SKILL_DELETE(pc);
+end
+
+function PROCESS_PASSIVE_SKILL_DELETE(pc)    
+    PROCESS_PASSIVE_SKILL_DELETE_GUILD_TOWER(pc);
+end
+
+function PROCESS_PASSIVE_SKILL_DELETE_GUILD_TOWER(pc)
+    local guildObj = GetGuildObj(pc);
+    if guildObj == nil then        
+        return;
+    end
+
+    local pcGuildID = GetGuildID(pc);
+    local guild = GetPartyObjByIESID(PARTY_GUILD, pcGuildID);    
+    if IsPartyLeaderPc(guild, pc) == 0 then
+        return;
+    end
+
+    local jobHistoryStr = GetJobHistoryString(pc);
+    if string.find(jobHistoryStr, 'Char1_16') == nil then        
+        return;
+    end
+
+    local guildTowerSkl = GetSkill(pc, 'Templer_BuildGuildTower');
+    local currentTowerLevel = TryGetProp(guildTowerSkl, 'Level', 0);    
+    ChangePartyProp(pc, PARTY_GUILD, "TowerLevel", currentTowerLevel);
 end
 
 function GUILD_EVENT_POPUP(pc) 
