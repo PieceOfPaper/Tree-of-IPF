@@ -280,7 +280,79 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
 	local sizeRatio = 1 + curSize * 0.25;
 	local pic = GET_CHILD(frame, "pic" ,"ui::CPicture");
+	local etc = GetMyEtcObject();
+	local lobbyMapCls = GetClassByType("Map", etc.ItemWarpMapID)
 
+	-- draw lobby map
+	if lobbyMapCls ~= nil and lobbyMapCls.WorldMap ~= "None" then        
+        local x, y, dir, index = GET_WORLDMAP_POSITION(lobbyMapCls.WorldMap);
+        if currentDirection == dir then
+            local warpInfo = WARP_INFO_ZONE(lobbyMapCls.ClassName)
+            local picX = startX + x * spaceX * sizeRatio;
+            local picY = startY - y * spaceY * sizeRatio;
+            local searchRate = session.GetMapFogSearchRate(lobbyMapCls.ClassName);
+            local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
+            local gbox = nil;
+            if changeDirection ~= true then
+                gbox = pic:GetChild(gBoxName);
+                if gbox ~= nil then
+                    gbox:SetOffset(picX, picY);
+                end
+            end
+
+            if gbox == nil then
+                gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
+                gbox:SetEventScript(ui.MOUSEWHEEL, "WORLDMAP_MOUSEWHEEL");
+                gbox:SetEventScript(ui.LBUTTONDOWN, "WORLDMAP_LBTNDOWN");
+                gbox:SetEventScript(ui.LBUTTONUP, "WORLDMAP_LBTNUP");
+                gbox:SetSkinName("downbox");
+                gbox = tolua.cast(gbox, "ui::CGroupBox");
+                gbox:EnableScrollBar(0)
+                gbox:ShowWindow(1);
+            end            
+            
+            local setName = "WARP_CTRLSET_0"
+            local set = gbox:CreateOrGetControlSet('warpAreaName', setName, 0, 0);
+            set = tolua.cast(set, "ui::CControlSet");
+            set:SetEventScript(ui.MOUSEWHEEL, "WORLDMAP_MOUSEWHEEL");
+            set:SetEnableSelect(1);
+            set:SetOverSound('button_over');
+            set:SetClickSound('button_click_stats');
+            local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
+            nameRechText:SetTextByKey("mapname","{#ffff00}"..ScpArgMsg('Auto_(woPeuJuMunSeo)'));
+            set:SetEventScript(ui.LBUTTONUP, 'WARP_TO_AREA')
+            if warpInfo ~= nil then
+                set:SetEventScriptArgString(ui.LBUTTONUP, warpInfo.ClassName);
+            else
+                set:SetEventScriptArgString(ui.LBUTTONUP, lobbyMapCls.ClassName);
+            end
+
+            set:SetEventScriptArgNumber(ui.LBUTTONUP, 1);
+
+            local warpcost;
+            warpcost = 0
+
+            set:SetTooltipType('warpminimap');
+            if warpInfo ~= nil then
+                set:SetTooltipStrArg(warpInfo.ClassName);
+            else
+                set:SetTooltipStrArg(lobbyMapCls.ClassName);
+            end
+            set:SetTooltipNumArg(warpcost)
+            if nameRechText:GetWidth() > 130 then
+                nameRechText:SetTextFixWidth(1);
+                nameRechText:Resize(125 , set:GetHeight())
+            end
+            if makeWorldMapImage == true then
+                
+                local brushX = startX + x * spaceX;
+                local brushY = pictureStartY - y * spaceY;
+                ui.AddBrushArea(brushX + set:GetWidth() / 2, brushY + set:GetHeight() / 2, set:GetWidth() + WORLDMAP_ADD_SPACE);
+            end
+        end
+    end
+
+	-- draw text
 	if type == 'Dievdirbys' or type == 'Normal' then
 		for index = 1, #result do
 			local info = result[index];
@@ -989,6 +1061,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	local warpFrame = ui.GetFrame('worldmap');
 	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');
 	local costRichText = GET_CHILD(tooltipframe, "richtext_cost", "ui::CRichText");
+	local etc = GetMyEtcObject();
 
 	if (warpitemname == 'NO' or warpitemname == 'None')  then
 		costRichText:ShowWindow(1);
@@ -1005,14 +1078,18 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 		world.PreloadMinimap(camp_warp_class.Zone);
 		local pic = GET_CHILD(tooltipframe, "picture_minimap", "ui::CPicture");
 		pic:SetImage(camp_warp_class.Zone);
-
-		local costRichText = GET_CHILD(tooltipframe, "richtext_cost", "ui::CRichText");
-		costRichText:SetTextByKey("costname",strnum);
 		
 		local mapprop = geMapTable.GetMapProp(camp_warp_class.Zone);
 
 		if mapprop == nil then
 			return;
+		end
+
+		local costRichText = GET_CHILD(tooltipframe, "richtext_cost", "ui::CRichText");
+		if mapprop.type == etc.ItemWarpMapID then
+			costRichText:SetTextByKey("costname",0);
+		else
+			costRichText:SetTextByKey("costname",strnum);
 		end
 
 		local genList = mapprop.mongens;
@@ -1159,7 +1236,9 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 	    dest_mapClassID = camp_warp_class.ClassID
 	else
 	    local mapcls = GetClass('Map',argStr)
-	    dest_mapClassID = mapcls.ClassID
+		if mapcls ~= nil then
+			dest_mapClassID = mapcls.ClassID
+		end
 	end
 	local cheat = string.format("/intewarp %d %d", dest_mapClassID, argNum);
 	if warpitemname ~= 'NO' and warpitemname ~= 'None' then
@@ -1184,8 +1263,7 @@ end
 
 function INTEWARP_SHOW_DIRECTION(frame, ctrl, str, num)
 	config.SetConfig("INTEWARP_DIRECTION", str);
-	ON_INTE_WARP(frame, true);
-
+	UPDATE_WORLDMAP_CONTROLS(frame, true);
 end
 
 function WARP_INFO_ZONE(zoneName)
