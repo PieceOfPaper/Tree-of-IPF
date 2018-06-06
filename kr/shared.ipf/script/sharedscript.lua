@@ -1044,12 +1044,8 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     end
     
     if monLv > (pcLv + 20) then
-        local lvRatio = 1 - ((monLv - pcLv - 20) * 0.05);
+        local lvRatio = 1 - ((monLv - pcLv - 20) * 0.033);
         value = value * lvRatio;
-        
-        if value < 0.25 then
-            value = 0.25;
-        end
     end
 	
     if value < 0 then
