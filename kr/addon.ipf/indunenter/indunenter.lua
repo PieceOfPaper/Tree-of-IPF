@@ -387,7 +387,7 @@ function INDUNENTER_MULTI_UP(frame, ctrl)
 	end
 	local itemCount = 0;
 	if invItem ~= nil then
-		itemCount = itemCount + invItem.Count;
+		itemCount = itemCount + invItem.count;
 	end
 	if invItem2 ~= nil then
 		itemCount = itemCount + GET_INVENTORY_ITEM_COUNT_BY_NAME(g_indunMultipleItem2);
@@ -902,7 +902,7 @@ function INDUNENTER_MULTI_EXEC(frame, ctrl)
 	local invItem = session.GetInvItemByName(g_indunMultipleItem);
 	local itemCount = 0;
 	if invItem ~= nil then
-		itemCount = invItem.Count;
+		itemCount = invItem.count;
 	end
 	itemCount = itemCount + GET_INVENTORY_ITEM_COUNT_BY_NAME(g_indunMultipleItem2);
 
