@@ -1411,7 +1411,7 @@ function MGAME_RETURN(cmd, curStage, eventInst, obj, x, y, z)
 			local pc = list[i];
 			local isGetReward = cmd:GetUserValue('isGetReward_' ..GetPcCIDStr(pc))
 			if pc ~= nil and isGetReward ~= 1 then
-				local argStr = string.format("%s#%s#%d#", rewardItemName, mGameName, 0)
+				local argStr = string.format("%d#", 0)
 				SCR_INDUN_CONTRIBUTION_REWARD_DEFAULT(pc, cmd, argStr)
 			end
 		end
@@ -2601,7 +2601,7 @@ function SCR_INDUN_CONTRIBUTION_REWARD(bossMon)
 		cmd:SetUserValue("contribution", contribution)
 		cmd:SetUserValue("rank", rank)		
 
-		local argStr = string.format("%d#%d#%d#%s#%s#%s#%s#%d#%d#%s#%s#", contribution, rewardSilver, rewardItemCount, tostring(calcExp_default), tostring(calcJExp_default), tostring(calcExp_bonus), tostring(calcJExp_bonus), multipleRate, rank, rewardItemName, mGameName)
+		local argStr = string.format("%d#%d#%d#%s#%s#%s#%s#%d#%d#", contribution, rewardSilver, rewardItemCount, tostring(calcExp_default), tostring(calcJExp_default), tostring(calcExp_bonus), tostring(calcJExp_bonus), multipleRate, rank)
 		SendAddOnMsg(pc, "INDUN_REWARD_RESULT_FIRST", argStr);
 	end
 end
@@ -2626,27 +2626,51 @@ function SCR_TX_INDUN_CONTRIBUTION_REWARD(pc, argStr)
 	local exp = cmd : GetUserValue("myExp")
 	local jobExp = cmd : GetUserValue("myJobExp")
 	local itemCount = cmd : GetUserValue("RewardItemCount") -- 인던 달성 률에 의해 받을 수 있는 추가 개수
-
 	local indunClassID = cmd : GetUserValue("indunClassID")
-	local multipleRate = cmd : GetUserValue("indunMultipleRate")
-
+	local multipleRate = tonumber(argList[1]);
 	local contribution = cmd : GetUserValue("contribution")
-	local pcIndunMultipleRate = tonumber(argList[3])
-	multipleRate = tonumber(argList[3])
 	local rank = cmd : GetUserValue("rank")
+	local mGameName = cmd:GetMGameName();
 
-	local itemName = argList[1]
-	local mGameName = argList[2]
+
+	local clsIndun = GET_MGAME_CLASS_BY_MGAMENAME(mGameName);
+	if clsIndun == nil then
+		return;
+	end
+
+	local itemName = TryGet_Str(clsIndun, "Reward_Item");
+
+	--값에 대한 검증이 아무것도 없음
+	--무슨 배수권을썼는지????????????
+
+	local etcObj = GetETCObject(pc);
+	if nil == etcObj then
+		return;
+	end
+
+	--multipleRate에 대한 검증을 시작하자
+	if multipleRate > 0 then
+		local dailyEnteredCnt = etcObj["InDunCountType_" .. clsIndun.PlayPerResetType]; 
+		local dailyMaxEnterableCnt = clsIndun.PlayPerReset;
+		local tokenEnterableCntBonus = clsIndun.PlayPerReset_Token;
+		if IsPremiumState(pc, ITEM_TOKEN) == 1 then -- 입장 가능 요일 있는 경우 토큰 혜택 없게 해달라고 하셨음
+			dailyMaxEnterableCnt = dailyMaxEnterableCnt + tokenEnterableCntBonus;
+		end
+
+		if dailyMaxEnterableCnt < dailyEnteredCnt + multipleRate then
+			local remaindCount = dailyMaxEnterableCnt - dailyEnteredCnt;
+			remaindCount = remaindCount - 1;
+			if remaindCount < 0 then
+				multipleRate = 0;
+			else
+				multipleRate = remaindCount;
+			end
+		end
+	end
 
 	local tx = TxBegin(pc);
-	if tx ~= nil then
-		local etcObj = GetETCObject(pc);
-		if nil == etcObj then
-			return;
-		end
-		
+	if tx ~= nil then		
 		TxEnableInIntegrate(tx);
-
 		local multipleError = false;
 		if etcObj.IndunFreeTime == 'None' then
 			if multipleRate > 0 then
@@ -2750,10 +2774,9 @@ function SCR_TX_INDUN_CONTRIBUTION_REWARD(pc, argStr)
         if silver > 0 then
         	if multipleError == false then
         		silver = silver * (multipleRate + 1);
+				TxGiveItem(tx, "Vis", silver, "INDUN_CONTRIBUTION_REWARD");
         	end
-            TxGiveItem(tx, "Vis", silver, "INDUN_CONTRIBUTION_REWARD");
         end
-
         if itemCount >= 0 then
 			-- 보스 몬스터가 기본으로 드랍하는 큐브 개수, 1
 			local payItemCount = 1;
@@ -2761,7 +2784,8 @@ function SCR_TX_INDUN_CONTRIBUTION_REWARD(pc, argStr)
         		itemCount = itemCount * (multipleRate + 1);        		
 				itemCount = itemCount + (payItemCount * (multipleRate + 1));
         	end
-        	if itemCount > 0 then
+
+        	if itemCount > 0 and multipleError == false then
             	TxGiveItem(tx, itemName, itemCount, "INDUN_CONTRIBUTION_REWARD");
             end
         end
@@ -2790,7 +2814,7 @@ function SCR_TX_INDUN_CONTRIBUTION_REWARD(pc, argStr)
 		end
 
 		local ret = TxCommit(tx);
-		if ret == "SUCCESS" then
+		if ret == "SUCCESS" and multipleError == false then
 			AddIndunExp(pc, exp, jobExp, "INDUN_CONTRIBUTION_REWARD", multipleRate);
 			local calcExp_default, calcJExp_default, calcExp_bonus, calcJExp_bonus = GetIndunExp(pc, exp, jobExp, multipleRate);
             IndunJoinCountMongoLog(pc, mGameName, indunCount, "IndunComplete");
@@ -2800,10 +2824,10 @@ function SCR_TX_INDUN_CONTRIBUTION_REWARD(pc, argStr)
 
 			cmd:SetUserValue('isGetReward_' ..GetPcCIDStr(pc), 1)
 
-			CustomMongoLog(pc, "IndunContribution", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "MissionRoomName", mGameName, "MissionRoomID", tostring(GetZoneInstID(pc)), "IndunClsID", tostring(indunClassID), "Type", "RewardSuccessed", "IndunRewardRate", tostring(contribution), "IndunMultipleRate", tostring(pcIndunMultipleRate), "RewardCubeName", itemName, "RewardCubeCnt", tostring(itemCount), "RewardVisCnt", tostring(silver), "RewardExpCnt", tostring(calcExp), "RewardJobExpCnt", tostring(calcJExp));
+			CustomMongoLog(pc, "IndunContribution", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "MissionRoomName", mGameName, "MissionRoomID", tostring(GetZoneInstID(pc)), "IndunClsID", tostring(indunClassID), "Type", "RewardSuccessed", "IndunRewardRate", tostring(contribution), "IndunMultipleRate", tostring(multipleRate), "RewardCubeName", itemName, "RewardCubeCnt", tostring(itemCount), "RewardVisCnt", tostring(silver), "RewardExpCnt", tostring(calcExp), "RewardJobExpCnt", tostring(calcJExp));
 			SendAddOnMsg(pc, "INDUN_REWARD_RESULT_FINAL", string.format("%d#%d#%d#%s#%s#%s#%s#%d#%d#", contribution, silver, itemCount, tostring(calcExp_default), tostring(calcJExp_default), tostring(calcExp_bonus), tostring(calcJExp_bonus), multipleRate, rank));
 		else
-			CustomMongoLog(pc, "IndunContribution", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "MissionRoomName", mGameName, "MissionRoomID", tostring(GetZoneInstID(pc)), "IndunClsID", tostring(indunClassID), "Type", "RewardFailed", "IndunRewardRate", tostring(contribution), "IndunMultipleRate", tostring(pcIndunMultipleRate), "RewardCubeName", itemName, "RewardCubeCnt", tostring(itemCount), "RewardVisCnt", tostring(silver), "RewardExpCnt", tostring(calcExp), "RewardJobExpCnt", tostring(calcJExp));
+			CustomMongoLog(pc, "IndunContribution", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "MissionRoomName", mGameName, "MissionRoomID", tostring(GetZoneInstID(pc)), "IndunClsID", tostring(indunClassID), "Type", "RewardFailed", "IndunRewardRate", tostring(contribution), "IndunMultipleRate", tostring(multipleRate), "RewardCubeName", itemName, "RewardCubeCnt", tostring(itemCount), "RewardVisCnt", tostring(silver), "RewardExpCnt", tostring(calcExp), "RewardJobExpCnt", tostring(calcJExp));
 			IMC_LOG('ERROR_TX_FAIL', 'INDUN_CONTRIBUTION_REWARD: aid['..GetPcAIDStr(pc)..']');
 		end
 	end

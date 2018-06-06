@@ -30,8 +30,13 @@ function INDUN_REWARD_SET(frame, msg, str, data)
 	end
 	
 	local multiEdit = GET_CHILD_RECURSIVELY(frame, "multiEdit")
-
+	
 	local inputMultiple = multiEdit:GetNumber()
+
+	frame:SetUserValue("IndunMultipleCount", inputMultiple);
+
+	--현재 내가 인던을 돈 횟수
+	--현재 내가 최대로 인던을 돌 수 있는 횟수
 
 	frame : SetUserValue("rewardStr", str)
     frame:ShowWindow(1);
@@ -46,11 +51,6 @@ function INDUN_REWARD_SET(frame, msg, str, data)
 	local multipleRate = tonumber(msgList[8]) + inputMultiple;
 	local rank = tonumber(msgList[9]);
 
-	local rewardItemName = msgList[10];
-	local mGameName = msgList[11];
-
-	frame : SetUserValue("rewardItemName", rewardItemName)
-	frame : SetUserValue("mGameName", mGameName)
 	frame : SetUserValue("contribution", contribution)
 	frame : SetUserValue("multipleRate", multipleRate)
 	frame : SetUserValue("rank", rank)
@@ -129,11 +129,6 @@ function INDUN_REWARD_SET_FINAL(frame, msg, str, data)
 	local multipleRate = tonumber(msgList[8]);
 	local rank = tonumber(msgList[9]);
 
-	local rewardItemName = msgList[10];
-	local mGameName = msgList[11];
-
-	frame : SetUserValue("rewardItemName", rewardItemName)
-	frame : SetUserValue("mGameName", mGameName)
 	frame : SetUserValue("contribution", contribution)
 	frame : SetUserValue("multipleRate", multipleRate)
 	frame : SetUserValue("rank", rank)
@@ -227,11 +222,10 @@ function SCR_INDUN_GET_REWARD(frame)
     local multiEdit = GET_CHILD_RECURSIVELY(frame, 'multiEdit');
 	local indunMultipleRate = multiEdit:GetNumber();
 
-	local rewardItemName = frame : GetUserValue("rewardItemName")
-	local mGameName = frame : GetUserValue("mGameName")
-
-	local argStr = string.format("%s#%s#%d#", rewardItemName, mGameName, indunMultipleRate)
-	pc.ReqExecuteTx("SCR_TX_INDUN_CONTRIBUTION_REWARD", argStr);
+	local argStr = string.format("%d#", indunMultipleRate)
+	local multipleCount = frame:GetUserIValue("IndunMultipleCount");
+	
+	pc.ReqExecuteTx("SCR_TX_INDUN_CONTRIBUTION_REWARD", multipleCount);
 end
 
 function SCR_INDUN_REWARD_RETURN(frame)

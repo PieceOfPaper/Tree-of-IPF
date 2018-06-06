@@ -19,7 +19,7 @@
 		<richtext name="textContribution_percent" rect="0 0 100 30" margin="200 178 0 0" layout_gravity="left top" caption="{@st43}{s24}0%" fontname="brown_20_b"/>
 		<groupbox name="multiEditBox" parent="gboxRewardList3" rect="0 0 120 30" margin="0 0 0 0" layout_gravity="right center" draw="false" hittestbox="false"/>
 		<picture name="indunTokenImage" parent="gboxRewardList3" rect="0 0 40 40" margin="0 0 120 0" layout_gravity="right center" hittest="false" image="indunexmode_token_on"/>
-		<edit name="multiEdit" parent="multiEditBox" rect="0 0 60 30" margin="0 0 0 0" layout_gravity="center center" textalign="center center" fontname="white_18_ol" minnumber="0" maxnumber="2" numbermode="true" skin="test_weight_skin" caption="1" EnterKeyScp="INDUN_MULTIPLE_CHECK_NUMBER"/>
+		<edit name="multiEdit" parent="multiEditBox" rect="0 0 60 30" margin="0 0 0 0" layout_gravity="center center" textalign="center center" fontname="white_18_ol" minnumber="0" maxnumber="2" numbermode="true" skin="test_weight_skin" hittest="false" caption="1" EnterKeyScp="INDUN_MULTIPLE_CHECK_NUMBER"/>
 		<button name="downBtn" parent="multiEditBox" stretch="true" rect="0 0 60 60" margin="0 0 0 3" layout_gravity="left bottom" image="buff_sale_left" oversound="button_over" LBtnUpScp="INDUN_REWARD_MULTI_DOWN"/>
 		<button name="upBtn" parent="multiEditBox" stretch="true" rect="0 0 60 60" margin="0 0 0 3" layout_gravity="right bottom" image="buff_sale_right" oversound="button_over" LBtnUpScp="INDUN_REWARD_MULTI_UP"/>
 		<labelline name="boardLine 1" parent="gboxRewardList" rect="0 0 400 3" margin="10 80 0 0" layout_gravity="left top" skin="None" visible="true"/>
