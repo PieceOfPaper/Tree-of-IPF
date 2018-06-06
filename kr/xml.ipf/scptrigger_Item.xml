@@ -2828,14 +2828,8 @@ return self.MNA;"/>
 	<SpcItem Name="TMAC05_102">
 		<TriggerList Act="AfterHitScript_Attack">
 			<Trigger>
-				<TgtCondList>
-					<ToolScp Scp="SPCI_COND_TIME" Client="NO" UseSleep="NO">
-						<Num Num="80"/>
-						<Str Str="Solmiki"/>
-					</ToolScp>
-				</TgtCondList>
 				<TgtExecList>
-					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_BUFF_WITH_COOLDOWN" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_Solmiki_armorbreak"/>
 						<Num Num="1"/>
 						<Num Num="0"/>
@@ -2843,6 +2837,8 @@ return self.MNA;"/>
 						<Num Num="1"/>
 						<Num Num="10"/>
 						<Num Num="-1"/>
+						<Str Str="Item_Solmiki_Tmace"/>
+						<Num Num="80000"/>
 					</ToolScp>
 				</TgtExecList>
 			</Trigger>

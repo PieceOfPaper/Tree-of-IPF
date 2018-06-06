@@ -311,9 +311,10 @@ return obj.Level;"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Archer_VerminPot_Debuff"/>
-                <Num Num="0" UseFunc="1" FuncTxt="
-
-return obj.Level;"/>
+                <Num Num="0" UseFunc="1" FuncTxt="local obj = GetSkill(self, &quot;Wugushi_ThrowGuPot&quot;)
+if obj ~= nil then
+return obj.Level
+end"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
@@ -335,7 +336,10 @@ return obj.Level;"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Archer_VerminPot_Debuff"/>
-                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
+                <Num Num="0" UseFunc="1" FuncTxt="local obj = GetSkill(self, &quot;Wugushi_ThrowGuPot&quot;)
+if obj ~= nil then
+return obj.Level
+end"/>
                 <Num Num="0"/>
                 <Num Num="2000" UseFunc="1" FuncTxt="return 2000 * GET_ABIL_LEVEL(self, &quot;Wugushi5&quot;)"/>
                 <Num Num="1"/>
