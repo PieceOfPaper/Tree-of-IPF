@@ -6299,11 +6299,6 @@ if self.HP == 0 then return 1; else return 0; end;">
         </StartList>
     </AI>
     <AI Name="ORCHARD323_EVIL_TRACK" ActiveMessageMapInBattle="1">
-        <DeadList>
-            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="ORCHARD323_EVIL_TRACK_DEAD"/>
-            </ToolScp>
-        </DeadList>
         <HitList>
             <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
                 <Str Str="ORCHARD323_EVIL_TRACK_HIT"/>
@@ -12845,7 +12840,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                 </Cond>
                 <Exec>
                     <ToolScp Scp="SH_USE_PCSKILL" Client="NO" UseSleep="NO">
-                        <Str Str="Cryomancer_Gust"/>
+                        <Str Str="MonPCSKill_Cryomancer_Gust"/>
                         <Num Num="3"/>
                         <Num Num="1"/>
                     </ToolScp>

@@ -4,7 +4,9 @@ end
 
 function BARRACK_CHANCLE_CHANGE_NAME(frame, ctrl)
 	frame:ShowWindow(0);
-	barrack.ToMyBarrack();
+	if frame:GetName() == "barrackthema" then
+		barrack.ToMyBarrack();
+	end
 end
 
 function BARRACK_CHANGE_NAME_USE_TP(frame, ctrl)

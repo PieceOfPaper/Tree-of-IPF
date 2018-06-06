@@ -10347,26 +10347,24 @@ end
 
 function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 
-	local damage, temp = SCR_LIB_ATKCALC_RH(from, skill)
+	local rhDamage = SCR_LIB_ATKCALC_RH(from, skill)
 
 	local leftHandAttribute = "Melee"
 	local rightHandAttribute = "Melee"	
 	
-	equipWeapon = GetEquipItem(from, 'RH');
-
-	if equipWeapon ~= nil and IS_NO_EQUIPITEM(equipWeapon) == 0 then	
-		rightHandAttribute	= equipWeapon.Attribute;
-	end
-
-	local equipWeapon = GetEquipItem(from, 'LH');
-	
-	if equipWeapon ~= nil and IS_NO_EQUIPITEM(equipWeapon) == 0 then			
-		leftHandAttribute	= equipWeapon.Attribute;
+	local rhEquipWeapon = GetEquipItem(from, 'RH');
+	if rhEquipWeapon ~= nil and IS_NO_EQUIPITEM(rhEquipWeapon) == 0 then
+		rightHandAttribute = rhEquipWeapon.Attribute;
 	end
 	
-	local def = equipWeapon.DEF;
+	local lhEquipWeapon = GetEquipItem(from, 'LH');
+	if lhEquipWeapon ~= nil and IS_NO_EQUIPITEM(lhEquipWeapon) == 0 then
+		leftHandAttribute = lhEquipWeapon.Attribute;
+	end
+	
+	local def = lhEquipWeapon.DEF;
 	local strikeDamage = def * 5 + skill.SkillAtkAdd
-	local ariesDamage = damage + skill.SkillAtkAdd;
+	local ariesDamage = rhDamage + skill.SkillAtkAdd;
 	
 	local abil = GetAbility(from, 'Hoplite7');
 	if abil ~= nil then
@@ -10376,11 +10374,16 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 	
 	local key = GetSkillSyncKey(from, ret);
 	StartSyncPacket(from, key);
-	TakeDamage(from, self, "None", ariesDamage * skill.SkillFactor/100, rightHandAttribute, "Aries", "Melee", HIT_BASIC, 0);
-	TakeDamage(from, self, "None", strikeDamage * skill.SkillFactor/100, leftHandAttribute, "Strike", "Melee", HIT_BASIC, 0);
+	RunScript('SCR_SYNCHROTHRUSTING_TAKEDAMAGE', self, from, skill, ariesDamage, strikeDamage, rightHandAttribute, leftHandAttribute)
 	EndSyncPacket(from, key, 0);
 
 	NO_HIT_RESULT(ret);
+end
+
+function SCR_SYNCHROTHRUSTING_TAKEDAMAGE(self, from, skill, ariesDamage, strikeDamage, rightHandAttribute, leftHandAttribute)
+    TakeDamage(from, self, "None", ariesDamage * skill.SkillFactor/100, rightHandAttribute, "Aries", "Melee", HIT_BASIC, 0);
+	sleep(200)
+	TakeDamage(from, self, "None", strikeDamage * skill.SkillFactor/100, leftHandAttribute, "Strike", "Melee", HIT_BASIC, 0);
 end
 
 

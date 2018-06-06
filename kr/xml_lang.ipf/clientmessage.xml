@@ -345,6 +345,7 @@
 		<Class ClassID="10405" ClassName="ReallyGivePremiumItemTo{PC}" Data="{PC}으로 아이템을 받으시겠습니까? 수령 시 청약철회가 불가능해 집니다."/>
 		<Class ClassID="10406" ClassName="EscapeDisabled" Data="지금은 귀환석을 사용할 수 없습니다."/>
 		<Class ClassID="10407" ClassName="HasFobiddenWord" Data="사용할 수 없는 단어가 포함되어 있습니다."/>
+		<Class ClassID="10408" ClassName="CanDelChrBecauseDummyPC" Data="상점을 개설한 상태에서는 캐릭터 삭제를 할 수 없습니다."/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="210401" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -513,7 +514,7 @@
 		<Class ClassID="10788" ClassName="OnlyMale" Data="남성 전용"/>
 		<Class ClassID="10789" ClassName="OnlyFemale" Data="여성 전용"/>
 		<Class ClassID="10790" ClassName="CanNotEquip" Data="착용 불가능한 상품입니다."/>
-	<Class ClassID="10791" ClassName="DecreasePotaionByExchange" Data="해당 아이템을 등록하시면{nl}거래 성사시 포텐셜이 감소합니다.{nl}그래도 등록하시겠습니까?"/>
+		<Class ClassID="10791" ClassName="DecreasePotaionByExchange" Data="해당 아이템을 등록하시면{nl}거래 성사시 포텐셜이 감소합니다.{nl}그래도 등록하시겠습니까?"/>
 		<Class ClassID="10792" ClassName="DecreasePotaionByExchangeForBuyer" Data="거래하시려는 아이템 중 거래 성공 후 포텐셜이 감소하는 아이템이 존재합니다. 그래도 수락하시겠습니까?"/>
 	</Category>
 	<Category Name="ItemTooltip">
@@ -797,6 +798,7 @@
 		<Class ClassID="20144" ClassName="TP_Costume1" Data="꾸미기"/>
 		<Class ClassID="20145" ClassName="TP_Event" Data="한정상품"/>
 		<Class ClassID="20146" ClassName="ItIsMemo" Data="[메모]"/>
+		<Class ClassID="20147" ClassName="CanNotBuyDuplicateItem" Data="중복하여 구매할 수 없는 아이템입니다."/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="20501" ClassName="Guard" Data="방어"/>
@@ -2571,7 +2573,7 @@
 		<Class ClassID="190018" ClassName="ORCHARD_342_MQ_05_ONE" Data="몽롱초 향 주머니를 터뜨렸습니다{nl}앞으로 두 번 더 터뜨릴 수 있습니다"/>
 		<Class ClassID="190019" ClassName="ORCHARD_342_MQ_05_TWO" Data="몽롱초 향 주머니를 터뜨렸습니다{nl}앞으로 한 번 더 터뜨릴 수 있습니다"/>
 		<Class ClassID="190020" ClassName="ORCHARD_342_MQ_05_THREE" Data="몽롱초 향 주머니를 모두 사용했습니다"/>
-		<Class ClassID="190021" ClassName="ORCHARD323_EVIL_TRACK_DAM" Data="마족을 처치하기 전엔 토템을 파괴할 수 없습니다"/>
+		<Class ClassID="190021" ClassName="ORCHARD323_EVIL_TRACK_DAM" Data="페릿 머로더를 처치하기 전엔 토템을 파괴할 수 없습니다"/>
 		<Class ClassID="190022" ClassName="ORCHARD323_GIRL_NAME" Data="신비한 소녀"/>
 		<Class ClassID="190023" ClassName="ORCHARD323_FOOD_FIND" Data="식량 바구니 뒤지는 중"/>
 		<Class ClassID="190024" ClassName="ORCHARD323_FOOD_GET" Data="육포를 숨긴 바구니를 찾았습니다!{nl}붉은 물을 뿌려서 육포를 오염시키세요!"/>
@@ -3289,7 +3291,7 @@
 		<Class ClassID="22804" ClassName="BuyCount" Data="구매 개수"/>
 		<Class ClassID="22805" ClassName="SellPriceMustOverThenZeroSilver" Data="판매가격은 0실버 이상이여야 합니다."/>
 		<Class ClassID="22806" ClassName="SellCountMustOverThenZeo" Data="판매개수는 0개 이상이여야합니다."/>
-		<Class ClassID="22807" ClassName="MarketItemRegisterSucceeded" Data="마켓 아이템 등록에 성공했습니다. 아이템은 30분에서 2시간 사이에 판매 리스트에 보여집니다."/>
+		<Class ClassID="22807" ClassName="MarketItemRegisterSucceeded" Data="마켓 아이템 등록에 성공했습니다.{nl}토큰을 제외한 모든 아이템은{nl}30분에서 2시간 사이에 판매 리스트에 보여집니다."/>
 		<Class ClassID="22808" ClassName="MarketBuySucceeded_CheckInCabinet" Data="마켓 아이템 구매에 성공했습니다. 아이템 수령함을 확인하세요."/>
 		<Class ClassID="22809" ClassName="TooMuchItemsMatched_InputMoreDetailFindText" Data="일치하는 아이템 이름이 많습니다. 좀 더 상세하게 검색어를 입력해주세요."/>
 		<Class ClassID="22810" ClassName="ReallyCancelRegisteredItem" Data="아이템 등록을 취소하시겠습니까?"/>
@@ -3301,16 +3303,17 @@
 		<Class ClassID="22816" ClassName="HighPriceFirst" Data="높은 가격순"/>
 		<Class ClassID="22817" ClassName="RecentFirst" Data="최신등록순"/>
 		<Class ClassID="22818" ClassName="ItemOverCount" Data="등록하려는 개수가 소비개수보다 많거나, 입력한 값이 음수가 될 수 없습니다."/>
-		<Class ClassID="22819" ClassName="BuffDestroy" Data="마켓에 등록하면 해당 버프가 사라집니다. 그래도 등록하시겠습니까?"/>
+		<Class ClassID="22819" ClassName="BuffDestroy{Price}" Data="등록수수료 {Price}실버가 소비됩니다. 마켓에 등록하면 해당 버프가 사라집니다. 그래도 등록하시겠습니까?"/>
 		<Class ClassID="22820" ClassName="RemoveMarketItem" Data="이미 판매된 아이템입니다."/>
 		<Class ClassID="22821" ClassName="DontBuySameFamilyName" Data="같은 계정으로 등록된 아이템으로 구매하실 수 없습니다."/>
 		<Class ClassID="22822" ClassName="MarketRegTimeOver" Data="판매 시간이 지났습니다. 수령함에서 확인해주세요."/>
 		<Class ClassID="22823" ClassName="MarketRegAfter{TIME}" Data="{TIME}후에 마켓 리스트에 등록됩니다."/>
 		<Class ClassID="22824" ClassName="MarketCabinetAfter{TIME}" Data="{TIME}후에 캐비넷으로 이동합니다."/>
 		<Class ClassID="22825" ClassName="PremiumRegMinPrice{Price}" Data="해당 아이템의 등록 최소가는 {Price}실버 부터 가능합니다."/>
-	<Class ClassID="22826" ClassName="DecreasePotaion" Data="해당 아이템을 구입하시면{nl}포텐셜이 감소합니다.{nl}그래도 구입하시겠습니까?"/>
+		<Class ClassID="22826" ClassName="DecreasePotaion" Data="해당 아이템을 구입하시면{nl}포텐셜이 감소합니다.{nl}그래도 구입하시겠습니까?"/>
 		<Class ClassID="22827" ClassName="MinAllowPriceError" Data="해당 아이템의 하한가가 변동되었습니다. 다시 입력해주세요."/>
 		<Class ClassID="22828" ClassName="MaxAllowPriceError" Data="해당 아이템의 상한가가 변동되었습니다. 다시 입력해주세요."/>
+		<Class ClassID="22829" ClassName="CommissionRegMarketItem{Price}" Data="등록수수료 {Price}실버가 소비됩니다. 등록하시겠습니까?"/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="22900" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -3809,6 +3812,7 @@
 		<Class ClassID="33518" ClassName="TeamBattleLeageHasBegun_JoinByByttonOnTheLeftMinimap" Data="팀 배틀리그가 시작되었습니다. 미니맵 좌측 아이콘을 통해 참여가 가능합니다."/>
 		<Class ClassID="33519" ClassName="YouCannotPlayGameBecauseYouRejectRecently" Data="최근 게임을 자주 거절해서 게임에 참여할 수 없습니다."/>
 		<Class ClassID="33520" ClassName="YouCantJoinInThisMapByError" Data="에러로 인해 현재 맵에서 PVP에 참여할 수 없습니다."/>
+		<Class ClassID="33521" ClassName="NotEnoughPoint_Need{Point}PointAtLeast" Data="포인트가 부족합니다. 최소 {Point}포인트가 필요합니다."/>
 	</Category>
 	<Category Name="MonInfo">
 		<Class ClassID="34001" ClassName="MonInfo_Size" Data="크기"/>
@@ -6705,7 +6709,7 @@
 		<Class ClassID="550017" ClassName="NeedPremiunState" Data="해당 기능을  사용 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550018" ClassName="{Target}DontHavePremiumState" Data="{Target}님이 거래를 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550019" ClassName="CantTradeAbility" Data="거래/매입상점 사용가능"/>
-		<Class ClassID="550020" ClassName="token_expup" Data="몬스터 사망 시 획득 경험치 증가"/>
+		<Class ClassID="550020" ClassName="token_expup" Data="몬스터 처치 시 획득 경험치 증가"/>
 		<Class ClassID="550021" ClassName="token_staup" Data="스태미나 회복량 증가"/>
 		<Class ClassID="550022" ClassName="marketUpMax{COUNT}" Data="마켓 물품 등록 개수 {COUNT}개로 증가"/>
 		<Class ClassID="550023" ClassName="abilityMax{COUNT}" Data="특성 동시 수련 가능 개수 {COUNT} 증가"/>
@@ -6714,7 +6718,7 @@
 		<Class ClassID="550026" ClassName="PremiumToken" Data="토큰"/>
 		<Class ClassID="550027" ClassName="Premium_boostToken" Data="경험의 서"/>
 		<Class ClassID="550028" ClassName="CashPurchaseGmMsg" Data="유료상품이 숙소에 도착하였습니다. 숙소에서 상품을 수령하세요."/>
-		<Class ClassID="550029" ClassName="PremiumToken_1d" Data="토큰:1일[증정용]"/>
+		<Class ClassID="550029" ClassName="PremiumToken_1d" Data="토큰:7일[증정용]"/>
 		<Class ClassID="550030" ClassName="PremiumToken_5d" Data="토큰:5일[증정용]"/>
 		<Class ClassID="550031" ClassName="Premium_itemEun" Data=" 아이템은"/>
 		<Class ClassID="550032" ClassName="Premium_character" Data="캐릭터"/>
@@ -6728,6 +6732,10 @@
 		<Class ClassID="550040" ClassName="SameName" Data="같은 이름으로는 변경을 시도 할 수 없습니다."/>
 		<Class ClassID="550041" ClassName="IsAppliedToken{NAME}" Data="이미 {NAME} 아이템이 활성화 중에 있습니다."/>
 		<Class ClassID="550042" ClassName="TokenApplied" Data="토큰 혜택이 모든 캐릭터에 적용되었습니다."/>
+		<Class ClassID="550043" ClassName="PremiumToken_3h" Data="토큰:3시간[증정용]"/>
+		<Class ClassID="550044" ClassName="PremiumToken_6h" Data="토큰:6시간[증정용]"/>
+		<Class ClassID="550045" ClassName="PremiumToken_12h" Data="토큰:12시간[증정용]"/>
+		<Class ClassID="550046" ClassName="PremiumToken_3d" Data="토큰:3일[증정용]"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="600001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

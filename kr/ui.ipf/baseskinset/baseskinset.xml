@@ -4093,6 +4093,7 @@
 		<image name="2plus_image" file="\skin\paid_skin.tga" imgrect="747 166 55 45" CMM_Caption="+2"/>
 		<image name="2multiply_image" file="\skin\paid_skin.tga" imgrect="524 590 55 45" CMM_Caption="x2"/>
 		<image name="30percent_image" file="\skin\paid_skin.tga" imgrect="747 212 55 45" CMM_Caption="30%"/>
+		<image name="paid_pose_image" file="\skin\paid_skin.tga" imgrect="922 0 55 45" CMM_Caption="유료포즈"/>
 		<image name="67percent_image2" file="\skin\paid_skin.tga" imgrect="187 0 100 45"/>
 		<image name="50percent_image2" file="\skin\paid_skin.tga" imgrect="187 46 100 45"/>
 		<image name="4plus_image2" file="\skin\paid_skin.tga" imgrect="187 92 100 45"/>
@@ -4663,6 +4664,7 @@
 		<image name="logo_bandicam" file="\skin\login_barrack.tga" imgrect="0 970 300 54"/>
 	</imagelist>
 	<imagelist category="etc">
+		<image name="chat_system_icon" file="\skin\login_barrack.tga" imgrect="331 290 60 14"/>
 		<image name="rim_stroke" file="\skin\rim_stroke.png" imgrect="0 0 1024 512"/>
 		<image name="sight_wholeguideline" file="\skin\sight_wholeguideline.tga" imgrect="0 0 640 640"/>
 		<image name="sight_sight_guideline_1" file="\skin\sight_sight_guideline_1.tga" imgrect="0 0 160 640"/>
@@ -5589,6 +5591,7 @@
 		<image name="Dlg_port_ZenklasMetai" file="\npcimg\ZenklasMetai.png" imgrect="0 0 800 1000" CMM_Caption="응사마스터"/>
 	<image name="Dlg_port_UosisKrieg" file="\npcimg\UosisKrieg.png" imgrect="0 0 900 1000" CMM_Caption="슈바르츠라이터마스터"/>
 	<image name="Dlg_port_AgotaHanska" file="\npcimg\AgotaHanska.png" imgrect="0 0 800 900" CMM_Caption="사두마스터"/>
+	<image name="Dlg_port_MistesGoldmund" file="\npcimg\MistesGoldmund.png" imgrect="0 0 800 1000" CMM_Caption="파드너마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
