@@ -242,7 +242,7 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
     local frame = ui.GetFrame('indunenter');
     local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
     local controlName = control:GetName();
-    -- 여기서 부터
+    -- ?�기??부??
     local topFrame = frame:GetTopParentFrame();
     local indunType = topFrame:GetUserValue('INDUN_TYPE');
     local indunCls = GetClassByType('Indun', indunType);
@@ -265,7 +265,7 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
             local indunRewardItemClass = GetClassByIndexFromList(allIndunRewardItemList, j);
             if indunRewardItemClass ~= nil and TryGetProp(indunRewardItemClass, 'Group') == itemStringArg then
                 local item = GetClass('Item', indunRewardItemClass.ItemName);
-                if item ~= nil then   -- 있다면 아이템 --
+                if item ~= nil then   -- ?�다�??�이??--
                     local itemType = TryGetProp(item, 'GroupName');
                     local itemClassType = TryGetProp(item, 'ClassType');
                     if itemType == 'Recipe' then
@@ -350,7 +350,7 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
         itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
     end
     itemFrame:SetUserValue('MouseClickedCheck','NO')
-    -- 여기까지
+    -- ?�기까�?
 end 
 
 function INDUNENTER_MAKE_DROPBOX(parent, control)
@@ -500,29 +500,9 @@ function INDUNENTER_MAKE_MULTI_BOX(frame, indunCls)
     if frame == nil then
         return;
     end
-        
-    if indunCls == nil then
-        return
-    end
-
-    local dungeonType = TryGetProp(indunCls, "DungeonType")
-    if dungeonType == nil then
-        return
-    end
-
     local multiBox = GET_CHILD_RECURSIVELY(frame, 'multiBox');
-    local arrow = GET_CHILD_RECURSIVELY(frame, 'arrow');
-    if dungeonType ~= 'KlaipeMission' then
-        multiBox:ShowWindow(0)
-        arrow:ShowWindow(0)
-
-        return
-    end
-    multiBox:ShowWindow(1)
-    arrow:ShowWindow(1)
-
     local multiBtn = GET_CHILD_RECURSIVELY(frame, 'multiBtn');
-    
+    local arrow = GET_CHILD_RECURSIVELY(frame, 'arrow');
     local indunType = TryGetProp(indunCls, "PlayPerResetType");
     local viewBOX = false;
     
@@ -697,7 +677,7 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable, understaffCount)
         matchedIcon:ShowWindow(0);
         understaffAllowImg:ShowWindow(0);
 
-        if i <= pcCount then -- 참여???�원만큼 보여주는 부�?
+        if i <= pcCount then -- 참여???�원만큼 보여주는 부�?
             if i * PC_INFO_COUNT <= #memberTable then -- ?�티?�인 경우      
                 -- show leader
                 local aid = memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 1)];
@@ -1169,7 +1149,7 @@ function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
     withPartyBtn:SetEnable(withParty);
     INDUNENTER_SET_ENABLE_MULTI(multi);
 
-    -- multi btn: 배수?�큰 ?�어???�용 가?? ?�던/?�뢰??미션�??�용가??
+    -- multi btn: 배수?�큰 ?�어???�용 가?? ?�던/?�뢰??미션�??�용가??
     local indunCls = GetClassByType('Indun', frame:GetUserIValue('INDUN_TYPE'));
     local resetType = TryGetProp(indunCls, 'PlayPerResetType');
     local itemCount = GET_INDUN_MULTIPLE_ITEM_LIST();

@@ -328,8 +328,7 @@ function INDUN_REWARD_UI_OPEN(pc, indunCls)
     if indunCls.PlayPerResetType ~= 100 then
         return;
     end    
-
-    SendAddOnMsg(pc, 'OPEN_INDUN_REWARD_HUD', tostring(indunCls.ClassID));
+    SendAddOnMsg(pc, 'OPEN_INDUN_REWARD_HUD');
 end
 
 function SEND_INDUN_REWARD_PERTAGE(pc, percent)

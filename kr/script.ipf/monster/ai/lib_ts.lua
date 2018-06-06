@@ -1,4 +1,4 @@
--- lib_ts.lua
+﻿-- lib_ts.lua
 
 function SCR_LIB_AI_BORN_ENTER(self)
     -- Initialize properties
@@ -820,7 +820,7 @@ function POST_DROP_DETERMINED(self, dropItemList, topAttacker, mulDropRate, list
             
             -- 현재 아이템을 받을 수 있는가?
             local dpkDropRate = IMCRandom(1, finalValue)
-            
+
       			local overDPK = false;
       			if currentValue > dpkValue then
       				overDPK = true;
@@ -1020,9 +1020,9 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
 
     local cnt, dropType, goldCount, minMoney, maxMoney, itemList, dropItemList, getCnt, payItemList, cardName, cardRatio = CalcBossDropItem(self, rewardGrade);
     if cnt == 0 then
-        if isFieldBoss == 1 then
-            CustomMongoLog(attacker, "RewardBossItemFailed", "Type", "NoneBossReward", "MobID", self.ClassID, "MobName", self.ClassName);
-        end
+        IMC_LOG("INFO_NORMAL"," cnt is 0");
+        CustomMongoLog(attacker, "RewardBossItemFailed", "Type", "NoneBossReward", "MobID", self.ClassID, "MobName", self.ClassName);
+
         return 0;
     end
 
@@ -1083,7 +1083,7 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
                 if superDropArg > 0 then
                     local rate = IMCRandom(1,(dpkMin + drop.DPK_Max)/2)
                         if rate == 1 then
-							pickCls = drop
+                        pickCls = drop
                         end
                     else
                         -- 현재 몬스터 잡힌 마리수
@@ -1094,17 +1094,17 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
                         if (GetServerNation() == "KOR" and GetServerGroupID() == 9001) then
                             dpkValue = math.floor(dpkValue/2);
                         end
-               
+                        
                         -- 현재 DPK 확률
                         local finalValue = dpkValue - currentValue
-						
+
                         if finalValue < 1 then
                             finalValue = 1;
                         end
-		
+
                         -- 현재 아이템을 받을 수 있는가?
                         local dpkDropRate = IMCRandom(1, finalValue)
-		
+
 						local overDPK = false;
 						if currentValue > dpkValue then
 							overDPK = true;
@@ -1139,7 +1139,7 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
             curCnt = curCnt + 1;
         end
     end
-    
+
     if #retList == 0 then
         CustomMongoLog(attacker, "RewardBossItemFailed", "Type", "NoneDropItem", "MobID", self.ClassID, "MobName", self.ClassName);
     end
@@ -1167,7 +1167,6 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
     end
     return 1;
 end
-
 
 function BOSS_CARD_DROP(self, attacker, cardName, cardRatio)    
     if CAN_DROP_CONSIDERING_PENALTY(attacker) == true then
@@ -1469,7 +1468,7 @@ function CalcBossDropItem(self, rewardGrade)
     -- 아이템 리스트 가져오는부분
     local itemList = {};
     local payItemList = {};
-    local clsList, listCnt  = GetClassList("MonsterDropItemList_" .. dropItemListName);    
+    local clsList, listCnt  = GetClassList("MonsterDropItemList_" .. dropItemListName);
     for i = 0 , listCnt - 1 do
         local cls = GetClassByIndexFromList(clsList, i);
         if cls ~= nil then
@@ -1486,7 +1485,7 @@ function CalcBossDropItem(self, rewardGrade)
 						end
 					end
 				end
-			else -- rewardGrade == 'None'
+			else
 				if cls.DropRatio > 0 then
 					itemList[#itemList + 1] = cls;
 				else
@@ -1503,7 +1502,6 @@ function CalcBossDropItem(self, rewardGrade)
     if nil ~= DropCount then
         dropCnt = tonumber(DropCount);
     end
-
     return listCnt, type, dropCnt, minMoney, maxMoney, itemList, dropItemListName, itemCnt, payItemList, TryGetProp(prop, "Cardlist"), TryGetProp(prop, "CardDropRatio");
 end
 
