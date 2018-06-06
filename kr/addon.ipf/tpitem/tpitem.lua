@@ -290,7 +290,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	rcycle_basketsellslotset:ClearIconAll();
 	
 	local specialGoods = GET_CHILD_RECURSIVELY(frame,"specialGoods");	
-	specialGoods:SetImage("market_default2");
+	specialGoods:SetImage("market_default4");
 		
 	local basketTP = GET_CHILD_RECURSIVELY(frame,"basketTP")
 	basketTP:SetText(tostring(0))	
@@ -3022,6 +3022,7 @@ function _TPSHOP_BANNER(parent, control, argStr, argNum)
 		banner:RunUpdateScript("_PROCESS_ROLLING_BANNER",  5, 0, 1, 1);
 	end
 	banner:Invalidate();
+	specialGoods:SetImage("market_default4");
 end
 
 function _PROCESS_ROLLING_BANNER()
