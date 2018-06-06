@@ -5471,6 +5471,8 @@
 		<Class ClassID="118010" ClassName="DontHaveSlot" Data="캐릭터/컴패니언 슬롯이 부족합니다.{nl}"/>
 		<Class ClassID="118011" ClassName="{TP}ReqChangeCharName" Data="{TP}TP를 사용해 캐릭터명을 변경하도록 하시겠습니까?"/>
 		<Class ClassID="118011" ClassName="MoveBarrackLayer" Data="숙소 레이어를 변경했습니다."/>
+	<Class ClassID="118012" ClassName="ThisWorldExistFamilyName" Data="이미 사용 중이거나, 사용할 수 없는 팀 이름입니다."/>
+		<Class ClassID="118013" ClassName="KorAnotherWorldExistFamilyName" Data="이미 사용 중이거나, 사용할 수 없는 팀 이름입니다."/>
 	</Category>
 	<Category Name="Collection">
 		<Class ClassID="119001" ClassName="CollectionEffect" Data="콜렉션 효과"/>
