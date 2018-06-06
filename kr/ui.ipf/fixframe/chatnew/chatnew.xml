@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="chatnew" x="0" y="104" width="200" height="90">
+	<frame title="{@st44}새로운 창 이름{/}" layout_gravity="center center"/>
+	<draw drawtitlebar="true" drawframe="true"/>
+	<option closebutton="false" hideable="true"/>
+	<script OpenScp="CLEAR_CHATNEW"/>
+	<controls>
+		<edit name="input" rect="0 10 150 27" layout_gravity="center top" fontname="white_16" maxlen="16" usetag="true" EnterKeyScp="CREATE_GUILD"/>
+		<button name="UseBtn" caption="{@st42}확인{/}" layout_gravity="right bottom" rect="-98 -15 80 24" LBtnUpScp="CHATNEW_NAME"/>
+		<button name="CloseBtn" caption="{@st42}취소{/}" layout_gravity="right bottom" rect="-13 -15 80 24" LBtnUpScp="CLOSE_CHATNEW"/>
+	</controls>
+</uiframe>

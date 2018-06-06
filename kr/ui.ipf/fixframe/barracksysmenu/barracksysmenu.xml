@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="barracksysmenu" x="0" y="0" width="55" height="2160">
+	<frame layout_gravity="right top" fullheight="true" margin="0 0 0 0"/>
+	<skin frameskin="systemmenu_vertical 잠정삭제"/>
+	<layer layerlevel="1"/>
+	<option visible="true" closebutton="false" alwaysVisible="true"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<controls>
+		<!--		<button name="social" rect="0 0 44 44" layout_gravity="center top" margin="0 488 0 0" texttooltip="{@st59}생활 (O){/}" image="button_party" skin="textbutton" textalign="center center" LBtnUpScp="ui.ToggleFrame(&apos;social&apos;)" clicksound="button_click_2" oversound="button_over"/> -->
+	</controls>
+</uiframe>

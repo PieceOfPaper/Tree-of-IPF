@@ -1,0 +1,37 @@
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<skinset name="charbaseinfo">
+	<fontlist/>
+	<skinlist>
+		<skin name="GenderM" texture="\skin\button.tga">
+			<img name="on" imgrect="90 212 44 44"/>
+			<img name="off" imgrect="135 212 44 44"/>
+		</skin>
+		<skin name="GenderF" texture="\skin\button.tga">
+			<img name="on" imgrect="90 257 44 44"/>
+			<img name="off" imgrect="135 257 44 44"/>
+		</skin>
+		<skin name="hair_radiobtn" texture="\skin\button.tga">
+			<img name="on" imgrect="90 302 44 44"/>
+			<img name="off" imgrect="135 302 44 44"/>
+		</skin>
+		<skin name="editbox" texture="\skin\login_barrack.tga">
+			<img name="topleft" imgrect="0 229 20 18"/>
+			<img name="topcore" imgrect="22 229 20 18"/>
+			<img name="topright" imgrect="132 229 20 18"/>
+			<img name="bodyleft" imgrect="0 247 20 2"/>
+			<img name="bodycore" imgrect="22 247 20 2"/>
+			<img name="bodyright" imgrect="132 247 20 2"/>
+			<img name="bottomleft" imgrect="0 249 20 18"/>
+			<img name="bottomcore" imgrect="22 249 20 18"/>
+			<img name="bottomright" imgrect="132 249 20 18"/>
+		</skin>
+	</skinlist>
+	<imagelist>
+		<image name="backImg01" file="\skin\login_barrack.tga" imgrect="202 0 310 240"/>
+		<image name="class_back" file="\skin\login_barrack.tga" imgrect="420 794 0 0"/>
+		<image name="button_normal" file="\skin\button.tga" imgrect="0 40 142 34"/>
+		<image name="button_normal_cursoron" file="\skin\button.tga" imgrect="144 40 142 34"/>
+		<image name="button_normal_clicked" file="\skin\button.tga" imgrect="288 40 142 34"/>
+	</imagelist>
+</skinset>

@@ -9,7 +9,7 @@ function IS_NEED_DRAW_GEM_TOOLTIP(invitem)
 		end
 	end
 
-	if cnt <= 0 then -- ¿œ¥‹ ±◊∏± º“ƒœ¿Ã ¿÷¥¬¡ˆ ∞ÀªÁ. æ¯¿∏∏È ƒ¡∆Æ∑— º¬ ¿⁄√º∏¶ æ»∏∏µÎ
+	if cnt <= 0 then -- ÏùºÎã® Í∑∏Î¶¥ ÏÜåÏºìÏù¥ ÏûàÎäîÏßÄ Í≤ÄÏÇ¨. ÏóÜÏúºÎ©¥ Ïª®Ìä∏Î°§ ÏÖã ÏûêÏ≤¥Î•º ÏïàÎßåÎì¨
 		return false
 	end
 
@@ -26,7 +26,7 @@ function IS_NEED_DRAW_MAGICAMULET_TOOLTIP(invitem)
 		end
 	end
 
-	if cnt <= 0 then -- ¿œ¥‹ ±◊∏± º“ƒœ¿Ã ¿÷¥¬¡ˆ ∞ÀªÁ. æ¯¿∏∏È ƒ¡∆Æ∑— º¬ ¿⁄√º∏¶ æ»∏∏µÎ
+	if cnt <= 0 then -- ÏùºÎã® Í∑∏Î¶¥ ÏÜåÏºìÏù¥ ÏûàÎäîÏßÄ Í≤ÄÏÇ¨. ÏóÜÏúºÎ©¥ Ïª®Ìä∏Î°§ ÏÖã ÏûêÏ≤¥Î•º ÏïàÎßåÎì¨
 		return false
 	end
 
@@ -55,10 +55,7 @@ function GET_USEJOB_TOOLTIP(invitem)
 		return GET_USEJOB_TOOLTIP_PET(invitem);
 	end
 
-	local usejob = TryGetProp(invitem,'UseJob')
-	if usejob == nil then
-		return '';
-	end
+	local usejob = invitem.UseJob;
 	local resultstr = ''	
 
 	if usejob == "All" then
@@ -124,7 +121,7 @@ function SET_DAMAGE_TEXT(parent, strArg, iconname, mindamage, maxdamage, index, 
 	end
 
 	if iconname ~= 'None' then
-		-- ≈∏¿‘ æ∆¿Ãƒ‹
+		-- ÌÉÄÏûÖ ÏïÑÏù¥ÏΩò
 		local weapon_type_img = GET_CHILD(parent, "weapon_type", "ui::CPicture");
 		weapon_type_img:SetImage(iconname);
 		weapon_type_img:ShowWindow(1)
@@ -137,7 +134,7 @@ function SET_DAMAGE_TEXT(parent, strArg, iconname, mindamage, maxdamage, index, 
 	local atkValueCtrl = GET_CHILD(parent, "atkValue"..index, "ui::CRichText");
 	if mindamage == maxdamage or maxdamage == 0 then
 		if reinforceAddValue ~= 0 then
-			--∞≠»≠ºˆƒ°∏¶ µ˚∑Œ «•«ˆ«ÿ¡÷¡ˆ æ ∞Ì «’√ƒº≠ ∫∏ø©¡ÿ¥Ÿ.
+			--Í∞ïÌôîÏàòÏπòÎ•º Îî∞Î°ú ÌëúÌòÑÌï¥Ï£ºÏßÄ ÏïäÍ≥† Ìï©Ï≥êÏÑú Î≥¥Ïó¨Ï§ÄÎã§.
 			--atkValueCtrl:SetText(mindamage..' '..color..'(+'..reinforceAddValue..'){/}');
 			atkValueCtrl:SetText(mindamage + reinforceAddValue);
 		else
@@ -145,7 +142,7 @@ function SET_DAMAGE_TEXT(parent, strArg, iconname, mindamage, maxdamage, index, 
 		end
 	else
 		if reinforceAddValue ~= 0 then
-			--∞≠»≠ºˆƒ°∏¶ µ˚∑Œ «•«ˆ«ÿ¡÷¡ˆ æ ∞Ì «’√ƒº≠ ∫∏ø©¡ÿ¥Ÿ.
+			--Í∞ïÌôîÏàòÏπòÎ•º Îî∞Î°ú ÌëúÌòÑÌï¥Ï£ºÏßÄ ÏïäÍ≥† Ìï©Ï≥êÏÑú Î≥¥Ïó¨Ï§ÄÎã§.
 			atkValueCtrl:SetText(mindamage + reinforceAddValue.." ~ "..maxdamage + reinforceAddValue);
 		else
 			atkValueCtrl:SetText(mindamage.." ~ "..maxdamage);
@@ -227,13 +224,13 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 			if addProp:GetPropName() == "OptDesc" then
 				desc = addProp:GetPropDesc().."{nl}";
 			else
-				desc = desc .. ScpArgMsg(addProp:GetPropName()) .. " : ".. plma_mark .. tempvalue.."{nl}";
+			desc = desc .. ScpArgMsg(addProp:GetPropName()) .. " : ".. plma_mark .. tempvalue.."{nl}";
 			end
 
 		end
 
 		local cnt2 = socketProp:GetPropPenaltyCountByType(type);
-		-- ø¯∑° «—¥‹∞‘ æ∆∑°ø°, ¡™ ∞≠»≠∞° ¡∏¿Á«—¥Ÿ∏È ¡™ ∞≠»≠ ∑π∫ß¿ª ª´¥Ÿ
+		-- ÏõêÎûò ÌïúÎã®Í≤å ÏïÑÎûòÏóê, Ï†¨ Í∞ïÌôîÍ∞Ä Ï°¥Ïû¨ÌïúÎã§Î©¥ Ï†¨ Í∞ïÌôî Î†àÎ≤®ÏùÑ Î∫ÄÎã§
 		local penaltyLv = lv - gemLv;
 		if 0 > penaltyLv then
 			penaltyLv = 0;
@@ -243,7 +240,7 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 			local addProp = socketPenaltyProp:GetPropPenaltyAddByType(type, i);
 			local tempvalue = addProp.value
 			local plma_mark = POSITIVE_COLOR .. "{img green_up_arrow 16 16}"..'{/}';
-			-- ∏∏æ‡ ∏∂¿Ã≥ Ω∫ ∆–≥Œ∆º∂Û∏È
+			-- ÎßåÏïΩ ÎßàÏù¥ÎÑàÏä§ Ìå®ÎÑêÌã∞ÎùºÎ©¥
 			if tempvalue < 0 then
 				plma_mark = NEGATIVE_COLOR .. "{img red_down_arrow 16 16}"..'{/}';			
 			end
@@ -299,7 +296,7 @@ end
 
 function SET_GRADE_TOOLTIP(parent, invitem, starsize)
 
-	-- æ∆¿Ã≈€ grade º≥¡§
+	-- ÏïÑÏù¥ÌÖú grade ÏÑ§Ï†ï
 	local gradeChild = parent:GetChild('grade');
 	if gradeChild ~= nil then
 		local gradeString = GET_ITEM_GRADE_TXT(invitem, starsize);
@@ -351,7 +348,7 @@ function COMPARISON_BY_PROPLIST(list, invitem, eqpItem, tooltipframe, equipchang
 		end
 	end
 
-	local IsNeedShowTooltip = 0; -- ≈¯∆¡ ¿⁄√º∞° ∂∞æﬂ«œ¥¬∞°ø° ¥Î«— ∫Øºˆ. «œ≥™∂Ûµµ ∫∏ø©¡Ÿ∞‘ ¿÷æ˙¥¬¡ˆ?
+	local IsNeedShowTooltip = 0; -- Ìà¥ÌåÅ ÏûêÏ≤¥Í∞Ä Îñ†ÏïºÌïòÎäîÍ∞ÄÏóê ÎåÄÌïú Î≥ÄÏàò. ÌïòÎÇòÎùºÎèÑ Î≥¥Ïó¨Ï§ÑÍ≤å ÏûàÏóàÎäîÏßÄ?
 	for i = 1 , #list do
 		local propName = list[i];
 		local changeValue = valueList[i];
@@ -408,7 +405,7 @@ function IS_DRAG_RECIPE_ITEM(itemObj)
 		return 0;
 	end
 
-	return 0; --ø÷ «◊ªÛ 0¿Œ∞‹?
+	return 0; --Ïôú Ìï≠ÏÉÅ 0Ïù∏Í≤®?
 end
 
 function GET_DRAG_RECIPE_INFO(itemObj)
@@ -679,7 +676,7 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos)
 		local reinforceValue = 0;
 
 		if invitem.GroupName == "Armor" then
-			reinforceValue = GET_REINFORCE_ADD_VALUE(invitem.BasicTooltipProp, invitem)
+			reinforceValue = GET_REINFORCE_ADD_VALUE_DEF(invitem)
 		elseif invitem.GroupName == "Weapon" then
 			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem)
 		elseif invitem.GroupName == "SubWeapon" then

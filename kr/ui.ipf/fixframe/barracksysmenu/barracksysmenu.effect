@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<UIEffectList>
+	<event name="barracksysmenu_MouseMove">
+		<Layer name="MoveAnimation" type="Object">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>
+			<Moving>
+				<Property destpos="1860 0" destmovetime="0.3" pausetime="0.0"/>
+				<Keyframe>
+				</Keyframe>
+			</Moving>
+		</Layer>
+	</event>
+	<event name="barracksysmenu_LostFocus">
+		<Layer name="MoveAnimation" type="Object">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>
+			<Moving>
+				<Property destpos="1910 0" destmovetime="0.3" pausetime="0.0"/>
+				<Keyframe>
+				</Keyframe>
+			</Moving>
+		</Layer>
+	</event>
+</UIEffectList>

@@ -58,9 +58,6 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 		return;
 	end
 
-	local buySlot = frame:GetChild("buySlot");
-	local buySlotCnt = session.loginInfo.GetBuySlotCount();
-	buySlot:SetTextByKey("value", tostring(buySlotCnt));
 	CREATE_SCROLL_CHAR_LIST(frame, actor);
 end
 
@@ -203,7 +200,6 @@ function CREATE_SCROLL_NEW_CHAR(frame)
 end
 
 function UPDATE_SELECT_CHAR_SCROLL(frame)
-	local acc = session.barrack.GetMyAccount();
 
 	local scrollBox = frame:GetChild("scrollBox");
 	for i=0, scrollBox:GetChildCount()-1 do
@@ -373,7 +369,7 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 		local account = session.barrack.GetMyAccount();
 		local bpc = account:GetBySlot(argNum);
 		local gameStartFrame = ui.GetFrame('barrack_gamestart')
-		if argNum == 0 or bpc == nil then
+		if argNum == 0 then
 			gameStartFrame:ShowWindow(0);
 		else
 			START_GAME_SET_MAP(gameStartFrame, argNum, bpc:GetApc().mapID, bpc:GetApc().channelID);

@@ -1,0 +1,36 @@
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<skinset name="loginui_autojoin">
+	<fontlist/>
+	<skinlist>
+		<skin name="listbox" texture="\skin\mainframe_A.tga">
+			<img name="topleft" imgrect="222 492 20 20"/>
+			<img name="topcore" imgrect="243 492 18 20"/>
+			<img name="topright" imgrect="262 492 20 20"/>
+			<img name="bodyleft" imgrect="222 513 20 18"/>
+			<img name="bodycore" imgrect="243 513 18 18"/>
+			<img name="bodyright" imgrect="262 513 20 18"/>
+			<img name="bottomleft" imgrect="222 532 20 20"/>
+			<img name="bottomcore" imgrect="243 532 18 20"/>
+			<img name="bottomright" imgrect="262 532 20 20"/>
+		</skin>
+		<skin name="editbox" texture="\skin\login_barrack.tga">
+			<img name="topleft" imgrect="0 229 20 18"/>
+			<img name="topcore" imgrect="22 229 100 18"/>
+			<img name="topright" imgrect="132 229 20 18"/>
+			<img name="bodyleft" imgrect="0 247 20 2"/>
+			<img name="bodycore" imgrect="22 247 100 2"/>
+			<img name="bodyright" imgrect="132 247 20 2"/>
+			<img name="bottomleft" imgrect="0 249 20 18"/>
+			<img name="bottomcore" imgrect="22 249 100 18"/>
+			<img name="bottomright" imgrect="132 249 20 18"/>
+		</skin>
+	</skinlist>
+	<imagelist>
+		<image name="button_normal" file="\skin\button.tga" imgrect="0 40 142 34"/>
+		<image name="button_normal_cursoron" file="\skin\button.tga" imgrect="144 40 142 34"/>
+		<image name="button_normal_clicked" file="\skin\button.tga" imgrect="288 40 142 34"/>
+		<image name="bar_selection" file="\skin\login_barrack.tga" imgrect="420 740 170 24"/>
+		<image name="bar_cursoron" file="\skin\login_barrack.tga" imgrect="420 765 170 24"/>
+	</imagelist>
+</skinset>

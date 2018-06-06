@@ -72,6 +72,7 @@ function CREATE_ITEM_TEMP()
 
 		if IS_NO_EQUIPITEM(cls) == 0 and cls.Weight < 2 then
 			local key = cls.ClassID;
+			print(key)
 			ui.Chat("//item ".. key)
 		end
 		
@@ -191,6 +192,7 @@ function MAKE_NPC_LIST_TO_HTML()
 	file:write(retstring)
 	file:close()
 
+	print("MAKE_NPC_LIST_TO_HTML")
 
 end
 
@@ -206,6 +208,7 @@ function MAKE_ALL_DEFAULT_HAIR()
 		for i = 1, Selectclasslist:Count() do
 
 			local name = ui.CaptureModelHeadImageByHairtype(gender,i)
+			print(name)
 			
 		end
 
@@ -2098,16 +2101,11 @@ function CHECK_EQUIPABLE(type)
 	local prop = geItemTable.GetProp(type);
 	
 	local ret = prop:CheckEquip(lv, job, gender);
-	local haveAbil =  session.IsEquipWeaponAbil(type);
 	if ret == 'OK' then
-		if 0 ~= haveAbil then
+		if 1 == session.IsEquipWeaponAbil(type) then
 			return ret;
 		else
 			return 'ABIL'
-		end
-	else
-		if 0 ~= haveAbil then
-			return 'OK'
 		end
 	end
 

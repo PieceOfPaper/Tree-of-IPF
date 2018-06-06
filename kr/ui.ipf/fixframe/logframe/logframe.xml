@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by WonSup (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="logframe" x="0" y="0" width="800" height="660">
+    <frame title="로그" layout_gravity="center top"/>
+    <option hideable="true"/>
+    <draw blend="95"/>
+    <controls>
+        <textview name="textview_log" rect="10 5 780 500" transparent="false"/>
+        <textview name="textview_balance" rect="10 5 780 500" transparent="false"/>
+        <textview name="textview_packet" rect="10 5 780 500" transparent="false"/>
+        <textview name="textview_send" rect="10 5 780 500" transparent="false"/>
+        <textview name="textview_recv" rect="10 5 780 500" transparent="false"/>
+        <textview name="textview_warning" rect="10 5 780 500" transparent="false"/>
+        <textview name="textview_res" rect="10 5 780 500" transparent="false"/>
+        <textview name="textview_ui" rect="10 5 780 500" transparent="false"/>
+        <textview name="textview_battle" rect="10 5 780 500" transparent="false"/>
+        <textview name="textview_session" rect="10 5 780 500" transparent="false"/>
+        <textview name="textview_ai" rect="10 5 780 500" transparent="false"/>
+        <textview name="textview_error" rect="10 5 780 500" transparent="false"/>
+        <button name="clear" rect="700 525 60 20" caption="Clear"/>
+        <button name="execute" rect="630 525 60 20" caption="Do"/>
+        <edit name="input" rect="20 525 600 20" EnterKeyScp="LOGFRAME_ENTER_KEY" fontname="white_14"/>
+        <listbox name="executelist" rect="20 550 760 90" columnsort="false" multiselection="false" showtitle="false"/>
+        <tab name="channel" rect="25 505 780 21" fixwidth="false"/>
+        <tabitem name="log" parent="channel" SelectArgStr="textview_log" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Log"/>
+        <tabitem name="balance" parent="channel" SelectArgStr="textview_balance" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Balance"/>
+        <tabitem name="packet" parent="channel" SelectArgStr="textview_packet" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Packet"/>
+        <tabitem name="send" parent="channel" SelectArgStr="textview_send" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Send"/>
+        <tabitem name="recv" parent="channel" SelectArgStr="textview_recv" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Recv"/>
+        <tabitem name="warning" parent="channel" SelectArgStr="textview_warning" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Warning"/>
+        <tabitem name="res" parent="channel" SelectArgStr="textview_res" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Res"/>
+        <tabitem name="ui" parent="channel" SelectArgStr="textview_ui" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Ui"/>
+        <tabitem name="battle" parent="channel" SelectArgStr="textview_battle" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Battle"/>
+        <tabitem name="session" parent="channel" SelectArgStr="textview_session" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Session"/>
+        <tabitem name="ai" parent="channel" SelectArgStr="textview_ai" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Ai"/>
+        <tabitem name="error" parent="channel" SelectArgStr="textview_error" SelectScp="LOGFRAME_OPEN_TEXT_VIEW" caption="Error"/>
+    </controls>
+</uiframe>

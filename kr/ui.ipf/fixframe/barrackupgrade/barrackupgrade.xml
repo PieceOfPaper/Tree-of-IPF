@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="barrackupgrade" x="0" y="0" width="500" height="649">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin="pipwin_test"/>
+	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -500 0" open="pip" piptype="right"/>
+	<input moveable="false" maxwidth="1280" hittestframe="false" />
+	<layer layerlevel="100"/>
+	<option closebutton="false"/>
+	<effect open="barrackupgradeOpen" close="barrackupgradeClose"/>
+	<controls>
+		<groupbox name="pip4" rect="0 0 500 50" margin="0 60 0 0" skin="pipwin_bartest" draw="true" hittestbox="false" layout_gravity="center top" scrollbar="false" resizebyparent="false"/>
+		<button name="close" image="btn_close" rect="0 0 44 44" margin="0 50 0 0" layout_gravity="left top" caption="" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" texttooltip="{@st59}숙소 꾸미기를 닫습니다{/}" LBtnUpScp="ui.CloseFrame('barrackupgrade')" LBtnUpArgNum=""/>
+		<picture name="titlepicture" rect="0 0 44 44" margin="0 -600 8 0" image="button_inven" layout_gravity="right top"/>
+		<richtext name="title" rect="0 70 200 30" caption="{@st43}숙소 꾸미기{/}" layout_gravity="center top"/>
+		<tab name="itembox" rect="50 120 370 30" imagetype="false" itemspc="2" LBtnDownScp="BAR_UPGRADE_TAB_CHANGE"/>
+		<tabitem parent="itembox" name="thema" width="40" caption="{@st41b}   테마   {/}"/>
+		<tabitem parent="itembox" name="batch" width="40" caption="{@st41b}   물품배치   {/}"/>
+		<advlistbox name="AdvBox" rect="40 160 420 270" tabname="thema" skin="bg2" drawCurItem="false" maxrowcol="5000 4" selectgroup="achieve" heightperrow="40" widthpercol="100"/>
+		<advlistboxitem parent="AdvBox" row="0" col="0" datatype="richtext" name="Kor" caption="{@st41b}이름" rect="0 0 10 10"/>
+		<advlistboxitem parent="AdvBox" row="0" col="1" datatype="richtext" name="PropName" caption="{@st41b}가격" rect="0 0 10 10"/>
+		<advlistboxitem parent="AdvBox" row="0" col="2" datatype="richtext" name="PropName2" caption="{@st41b}상태" rect="0 0 10 10"/>
+		<advlistboxsetting parent="AdvBox" row="0" col="0" colwidth="200" rowheight="40" startrow="1" rowbgcolor="#4a443f" textalign="center center"/>
+		<advlistboxsetting parent="AdvBox" row="0" col="1" colwidth="150" rowheight="40" startrow="1" rowbgcolor="#4a443f" textalign="center center"/>
+		<advlistboxsetting parent="AdvBox" row="0" col="2" colwidth="80" rowheight="40" startrow="1" rowbgcolor="#4a443f" textalign="center center"/>
+		<advlistbox name="AdvBox_Obj" rect="40 130 420 270" tabname="batch" skin="bg2" drawCurItem="false" maxrowcol="5000 4" selectgroup="achieve" heightperrow="40" widthpercol="100"/>
+		<advlistboxitem parent="AdvBox_Obj" row="0" col="0" datatype="richtext" name="Kor" caption="{@st41b}이름" rect="0 0 10 10"/>
+		<advlistboxitem parent="AdvBox_Obj" row="0" col="1" datatype="richtext" name="PropName" caption="{@st41b}가격" rect="0 0 10 10"/>
+		<advlistboxsetting parent="AdvBox_Obj" row="0" col="0" colwidth="200" rowheight="40" startrow="1" rowbgcolor="#4a443f"/>
+		<advlistboxsetting parent="AdvBox_Obj" row="0" col="1" colwidth="150" rowheight="40" startrow="1" rowbgcolor="#4a443f"/>
+	</controls>
+</uiframe>

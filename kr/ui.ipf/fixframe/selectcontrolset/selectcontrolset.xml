@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Psw (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="selectcontrolset" x="0" y="0" width="600" height="768">
+	<frame title="아이템 생성 UI" layout_gravity="left top" snapclient="true" snapframe="true"/>
+	<input resize="false" hittestframe="false"/>
+	<option hideable="true"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<sound opensound="sys_ui_open.wav" closesound="sys_ui_close.wav"/>
+	<controls>
+		<richtext name="nameTextBox01" caption="{s24}이름 : " layout_gravity="left top" rect="6 16 72 24"/>
+		<edit name="NameTextEdit01" layout_gravity="left top" rect="80 16 168 24"/>
+		<labelbox name="JobSelectLabelBox01" layout_gravity="left top" rect="8 44 240 120"/>
+		<labelbox name="CharExteranlSet" layout_gravity="left top" rect="8 168 240 148"/>
+		<labelbox name="CharBodySet" layout_gravity="left top" rect="8 320 240 164"/>
+		<labelbox name="CharColorSet" layout_gravity="left top" rect="8 488 240 120"/>
+		<labelbox name="CharDsc" layout_gravity="left top" rect="8 612 240 118"/>
+		<groupbox name="JobStatePointLabelBox01" layout_gravity="left top" rect="252 62 240 96"/>
+		<richtext parent="JobStatePointLabelBox01" name="JobStatePoint01" caption="{s16} 힘 : " layout_gravity="left top" rect="10 10 102 16"/>
+		<richtext parent="JobStatePointLabelBox01" name="JobStatePoint02" caption="{s16} 체력 : " layout_gravity="left top" rect="120 10 102 16"/>
+		<richtext parent="JobStatePointLabelBox01" name="JobStatePoint03" caption="{s16} 민첩 : " layout_gravity="left top" rect="10 37 102 16"/>
+		<richtext parent="JobStatePointLabelBox01" name="JobStatePoint04" caption="{s16} 기력 : " layout_gravity="left top" rect="120 37 102 16"/>
+		<richtext parent="JobStatePointLabelBox01" name="JobStatePoint05" caption="{s16} 도력 : " layout_gravity="left top" rect="10 64 102 16"/>
+		<richtext parent="JobStatePointLabelBox01" name="JobStatePoint01_val" caption="{s16} " layout_gravity="left top" rect="70 10 50 16"/>
+		<richtext parent="JobStatePointLabelBox01" name="JobStatePoint02_val" caption="{s16} " layout_gravity="left top" rect="184 10 102 16"/>
+		<richtext parent="JobStatePointLabelBox01" name="JobStatePoint03_val" caption="{s16} " layout_gravity="left top" rect="70 37 102 16"/>
+		<richtext parent="JobStatePointLabelBox01" name="JobStatePoint04_val" caption="{s16} " layout_gravity="left top" rect="184 37 102 16"/>
+		<richtext parent="JobStatePointLabelBox01" name="JobStatePoint05_val" caption="{s16} " layout_gravity="left top" rect="70 64 102 16"/>
+		<groupbox name="CharExteranlSetListBox" layout_gravity="left top" rect="252 168 334 506"/>
+		<richtext parent="JobSelectLabelBox01" name="JobSleectTextBox01" caption="{s18} 직업선택" layout_gravity="left top" rect="16 4 88 24"/>
+		<labelbox parent="JobSelectLabelBox01" name="JobSel_Type01" layout_gravity="left top" rect="8 28 110 86"/>
+		<labelbox parent="JobSelectLabelBox01" name="JobSel_Type02" layout_gravity="right top" rect="-8 28 110 86"/>
+		<richtext parent="JobSel_Type01" name="JobSelText01" caption="{s18} 정도연맹" layout_gravity="left top" rect="16 0 82 16"/>
+		<richtext parent="JobSel_Type02" name="JobSelText01" caption="{s18} 천명마교" layout_gravity="left top" rect="16 0 82 16"/>
+		<radiobutton name="radioJobSel01" caption="홍무문" group="2" layout_gravity="left top" rect="24 96 92 16" LBtnDownScp="CREATECHAR_SELECT_JOB" LBtnDownArgNum="1"/>
+		<radiobutton name="radioJobSel02" caption="대도천" group="2" layout_gravity="left top" rect="24 114 92 16" LBtnDownScp="CREATECHAR_SELECT_JOB" LBtnDownArgNum="2"/>
+		<radiobutton name="radioJobSel03" caption="화선도" group="2" layout_gravity="left top" rect="24 132 92 16" LBtnDownScp="CREATECHAR_SELECT_JOB" LBtnDownArgNum="3"/>
+		<radiobutton name="radioJobSel04" caption="용화극선종" group="2" layout_gravity="left top" rect="138 96 92 16" LBtnDownScp="CREATECHAR_SELECT_JOB" LBtnDownArgNum="4"/>
+		<radiobutton name="radioJobSel05" caption="천자성" group="2" layout_gravity="left top" rect="138 114 92 16" LBtnDownScp="CREATECHAR_SELECT_JOB" LBtnDownArgNum="5"/>
+		<radiobutton name="radioJobSel06" caption="연화교" group="2" layout_gravity="left top" rect="138 132 92 16" LBtnDownScp="CREATECHAR_SELECT_JOB" LBtnDownArgNum="6"/>
+		<richtext parent="CharExteranlSet" name="SexnExteranlText01" caption="{s16}성별 및 외모" layout_gravity="left top" rect="8 4 82 16"/>
+		<radiobutton name="radioSexSel01" caption="남" group="1" layout_gravity="left top" rect="136 172 54 16" LBtnDownScp="CREATECHAR_SELECT_GENDER" LBtnDownArgNum="1"/>
+		<radiobutton name="radioSexSel02" caption="여" group="1" layout_gravity="left top" rect="188 172 54 16" LBtnDownScp="CREATECHAR_SELECT_GENDER" LBtnDownArgNum="2"/>
+		<slot name="HairSlot" layout_gravity="left top" rect="14 192 90 90" LBtnDownScp="CREATECHAR_EXTERANL_CONTRLSET" LBtnDownArgStr="Hair"/>
+		<slot name="FaceSlot" layout_gravity="left top" rect="106 192 90 90" LBtnDownScp="CREATECHAR_EXTERANL_CONTRLSET" LBtnDownArgStr="Face"/>
+		<slot name="TatooSlot01" layout_gravity="left top" rect="198 192 44 44" LBtnDownScp="CREATECHAR_EXTERANL_CONTRLSET" LBtnDownArgStr="Tatoo"/>
+		<slot name="TatooSlot02" layout_gravity="left top" rect="198 238 44 44" LBtnDownScp="CREATECHAR_EXTERANL_CONTRLSET" LBtnDownArgStr="Tatoo2"/>
+		<slidebar name="BodySet_Head" caption="머리 조절" layout_gravity="left top" rect="116 346 124 14" maxlevel="100" defaultlevel="50" SlideScp="CREATECHAR_SLIDE_TYPE1"/>
+		<slidebar name="BodySet_Stature" caption="키 조절" layout_gravity="left top" rect="116 364 124 14" maxlevel="100" defaultlevel="50" SlideScp="CREATECHAR_SLIDE_TYPE2"/>
+		<slidebar name="BodySet_ShoulderBreadth" caption="어깨 넓이" layout_gravity="left top" rect="116 382 124 14" maxlevel="100" defaultlevel="50" SlideScp="CREATECHAR_SLIDE_TYPE3"/>
+		<slidebar name="BodySet_Hand_Foot" caption="손, 발 크기" layout_gravity="left top" rect="116 400 124 14" maxlevel="100" defaultlevel="50" SlideScp="CREATECHAR_SLIDE_TYPE4"/>
+		<slidebar name="BodySet_Breast" caption="가슴 사이즈" layout_gravity="left top" rect="116 418 124 14" maxlevel="100" defaultlevel="50" SlideScp="CREATECHAR_SLIDE_TYPE5"/>
+		<slidebar name="BodySet_Waist" caption="허리 사이즈" layout_gravity="left top" rect="116 436 124 14" maxlevel="100" defaultlevel="50" SlideScp="CREATECHAR_SLIDE_TYPE6"/>
+		<slidebar name="BodySet_Hip" caption="골반 사이즈" layout_gravity="left top" rect="116 436 124 14" maxlevel="100" defaultlevel="50" SlideScp="CREATECHAR_SLIDE_TYPE7"/>
+		<richtext parent="CharBodySet" name="CharBodySetText01" caption="{s18} 머리크기" layout_gravity="left top" rect="6 8 82 16"/>
+		<richtext parent="CharBodySet" name="CharBodySetText02" caption="{s14} 키 조절" layout_gravity="left top" rect="4 26 102 14"/>
+		<richtext parent="CharBodySet" name="CharBodySetText03" caption="{s14} 어깨 넓이" layout_gravity="left top" rect="4 44 102 14"/>
+		<richtext parent="CharBodySet" name="CharBodySetText04" caption="{s14} 손, 발 크기" layout_gravity="left top" rect="4 62 102 14"/>
+		<richtext parent="CharBodySet" name="CharBodySetText05" caption="{s14} 가슴 사이즈" layout_gravity="left top" rect="4 80 102 14"/>
+		<richtext parent="CharBodySet" name="CharBodySetText06" caption="{s14} 허리 사이즈" layout_gravity="left top" rect="4 98 102 14"/>
+		<richtext parent="CharBodySet" name="CharBodySetText07" caption="{s14} 골반 사이즈" layout_gravity="left top" rect="4 116 102 14"/>
+		<button name="PreSetBtn01" caption="미리설정값" layout_gravity="left top" clicksound="ui_click_button_4" rect="14 286 112 24" LBtnUpScp="CREATECHAR_PRESET"/>
+		<button name="RandomSetBtn01" caption="임의설정값" layout_gravity="left top" clicksound="ui_click_button_4" rect="130 286 112 24" LBtnUpScp="CREATECHAR_SEXNEXTERANL_RANDOM"/>
+		<button name="PreSetBtn02" caption="미리설정값" layout_gravity="left top" clicksound="ui_click_button_4" rect="14 454 112 24" LBtnUpScp="CREATECHAR_PRESET"/>
+		<button name="RandomSetBtn02" caption="임의설정값" layout_gravity="left top" clicksound="ui_click_button_4" rect="130 454 112 24" LBtnUpScp="CREATECHAR_PRESET"/>
+		<button name="createCharBtn" caption="신규 인물 생성" layout_gravity="left bottom" clicksound="ui_click_button_4" rect="14 -8 114 24" LBtnUpScp="CREATECHAR_REQUEST_CREATE"/>
+		<button name="createUIcloseBtn" caption="인물 생성 취소" layout_gravity="left bottom" clicksound="ui_click_button_4" rect="130 -8 114 24" LBtnUpScp="CREATECHAR_REQUEST_CANCEL"/>
+	</controls>
+</uiframe>

@@ -21,7 +21,7 @@ function BARRACK_THEMA_UPDATE(frame)
 	local bg = frame:GetChild("nxp_bg");
 	local account = GetMyAccountObj();
 	local mynxp = bg:GetChild("mynxp");
-	mynxp:SetTextByKey("value", GET_CASH_POINT_C());
+	mynxp:SetTextByKey("value", account.Medal);
 	local curID = account.SelectedBarrack;
 	local bg_mid = frame:GetChild("bg_mid");
 	local advBox = GET_CHILD(bg_mid, "AdvBox", "ui::CAdvListBox");
@@ -41,9 +41,7 @@ function BARRACK_THEMA_UPDATE(frame)
 
 		local charCntBox = ctrlSet:GetChild("charCnt");
 		local charCnt = charCntBox:GetChild("count");
-		charCnt:SetTextByKey("value", cls.BaseSlot);
-		local cashCnt = charCntBox:GetChild("cashCnt");
-		cashCnt:SetTextByKey("value", cls.MaxCashPC);
+		charCnt:SetTextByKey("value", cls.MaxPC);
 
 		local nxpBox = ctrlSet:GetChild("nxp");
 		local nxpCnt = nxpBox:GetChild("nxpCnt");
@@ -102,31 +100,12 @@ function BARRACKTHEMA_APPLIED(themaName)
 end
 
 function BARRACKTHEMA_CANCEL_PREVIEW(parent, ctrl)
-	if barrack.isPreviewMode() == true then
-		barrack.ToMyBarrack();
-	else
-		ui.CloseFrame("barrackthema")
-	end
-end
-
-function BARRACKTHEMA_REQ_SLOT_PRICE()
-	local scp = ClMsg("DoyouBuySlotInBarrack");
-	ui.MsgBox(scp, "barrack.ReqSlotPrice()", "None");
-end
-
-function BARRACKTHEMA_ASK_BUY_SLOT(price)
-	local str = ScpArgMsg('{TP}ReqSlotBuy', "TP", price);
-	if nil == str then
-		ui.MsgBox(ClMsg("DataError"));
-		return;
-	end
-
-	local yesScp = string.format("barrack.ReqBuyCharSlot(%d)", price);
-	ui.MsgBox(str, yesScp, "None");
+	barrack.ToMyBarrack();
 end
 
 function BARRACK_BUY(buyMap)
 	local cls = GetClass("BarrackMap", buyMap);
+	local accountObj = GetMyAccountObj();
 
 	local msgBoxStr = ClMsg("ReallyBuy?") .. "{nl}" .. cls.Price .. " " .. ScpArgMsg("iCoin");
 	if config.GetServiceNation() == "KOR" then
@@ -136,7 +115,7 @@ function BARRACK_BUY(buyMap)
 	end
 
 	local yesScp = string.format("EXEC_BUY_BARRACK(\"%s\")", buyMap);
-	if GET_CASH_POINT_C() < cls.Price then
+	if accountObj.Medal < cls.Price then
 		ui.MsgBox(ClMsg("NotEnoughMedal"));		
 	else
 		ui.MsgBox(msgBoxStr, yesScp, "None");

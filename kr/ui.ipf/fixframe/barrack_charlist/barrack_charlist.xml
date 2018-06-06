@@ -12,6 +12,5 @@
 		<groupbox name="scrollBox" parent="listGbox" rect="0 0 800 1038" margin="0 42 0 0" skin="_pipwin_low" draw="true" hittest="true" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="true" resizebyresolution="true"/>
 		<picture name="signboard" rect="0 0 346 50" margin="50 0 0 0" layout_gravity="left top" image="barrack_ace"/>
 		<richtext name="richtext_1" margin="0 16 400 0" rect="200 0 200 24" caption="{@st41}캐릭터{/}" layout_gravity="left top" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
-        <richtext name="buySlot" margin="379 18 0 0" rect="0 0 120 24" format="{@st42}구매 슬롯:%s개{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 	</controls>
 </uiframe>

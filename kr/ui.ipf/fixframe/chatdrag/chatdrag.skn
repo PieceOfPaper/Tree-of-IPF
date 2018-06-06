@@ -1,0 +1,42 @@
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<skinset name="chatdrag">
+	<imagelist>
+		<image name="button_option" file="\skin\mainframe_A.tga" imgrect="648 685 18 19" Caption="option"/>
+		<image name="button_option_cursoron" file="\skin\mainframe_A.tga" imgrect="667 685 18 19"/>
+		<image name="button_option_clicked" file="\skin\mainframe_A.tga" imgrect="686 685 18 19"/>
+		<image name="button_scrollup" file="\skin\mainframe_A.tga" imgrect="648 704 18 19" Caption="up"/>
+		<image name="button_scrollup_cursoron" file="\skin\mainframe_A.tga" imgrect="667 704 18 19"/>
+		<image name="button_scrollup_clicked" file="\skin\mainframe_A.tga" imgrect="686 704 18 19"/>
+		<image name="button_scrolldown" file="\skin\mainframe_A.tga" imgrect="648 723 18 19" Caption="down"/>
+		<image name="button_scrolldown_cursoron" file="\skin\mainframe_A.tga" imgrect="667 723 18 19"/>
+		<image name="button_scrolldown_clicked" file="\skin\mainframe_A.tga" imgrect="686 723 18 19"/>
+		<image name="button_end" file="\skin\mainframe_A.tga" imgrect="648 742 18 19" Caption="end"/>
+		<image name="button_end_cursoron" file="\skin\mainframe_A.tga" imgrect="667 742 18 19"/>
+		<image name="button_end_clicked" file="\skin\mainframe_A.tga" imgrect="686 742 18 19"/>
+	</imagelist>
+	<skinlist>
+		<skin name="textview" texture="\skin\mainframe_A.tga">
+			<img name="topleft" imgrect="671 907 11 9"/>
+			<img name="topcore" imgrect="683 907 9 9"/>
+			<img name="topright" imgrect="693 907 11 9"/>
+			<img name="bodyleft" imgrect="671 917 11 2"/>
+			<img name="bodycore" imgrect="683 917 9 2"/>
+			<img name="bodyright" imgrect="693 917 11 2"/>
+			<img name="bottomleft" imgrect="671 920 11 13"/>
+			<img name="bottomcore" imgrect="683 920 9 13"/>
+			<img name="bottomright" imgrect="693 920 11 13"/>
+		</skin>
+		<skin name="editbox" texture="\skin\mainframe_A.tga">
+			<img name="topleft" imgrect="547 864 10 10"/>
+			<img name="topcore" imgrect="558 864 100 10"/>
+			<img name="topright" imgrect="659 864 10 10"/>
+			<img name="bodyleft" imgrect="547 875 10 2"/>
+			<img name="bodycore" imgrect="558 875 100 2"/>
+			<img name="bodyright" imgrect="659 875 10 2"/>
+			<img name="bottomleft" imgrect="547 878 10 13"/>
+			<img name="bottomcore" imgrect="558 878 100 13"/>
+			<img name="bottomright" imgrect="659 878 10 13"/>
+		</skin>
+	</skinlist>
+</skinset>

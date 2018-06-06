@@ -5,7 +5,6 @@
 		<controls>
 			<richtext name="partyname" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="30 30 0 0" fixwidth="false" hittest="false" resizebytext="true" fontname="white_18_ol"/>
 			<richtext name="partymemo" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="40 60 0 0" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
-			<richtext name="createdTime" rect="0 0 140 80" margin="0 30 25 0" layout_gravity="right top" fixwidth="false" fontname="white_16_ol" format="결성시간 : %s 전" param1="createtime" param1_def="DefTime DefMin" textalign="left top"/>
 			<groupbox name="meminfo" rect="0 0 414 200" margin="0 110 0 0" skin="none" hittest="false" draw="false" updateparent="true" scrollbar="false"/>
 			<richtext name="questText" format="퀘스트" textalign="center top" layout_gravity="left bottom" rect="0 0 100 30" margin="30 0 0 50" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
 			<richtext name="expText" format="경험치" textalign="center top" layout_gravity="center bottom" rect="0 0 100 30" margin="0 0 0 50" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
@@ -249,17 +248,4 @@
 			<richtext name="text" margin="-1 21 0 0" rect="0 0 120 24" format="{@st53}제조 중인 아이템" textalign="center center" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" layout_gravity="center top"/>
 		</controls>
 	</tooltip>
-    <tooltip name="premium" x="0" y="0" width="300" height="215" frameskin="none" UpdateScp="UPDATE_PREMIUM_TOOLTIP" lifetime="90000" blendtime="1500" skin="">
-        <controls>
-            <groupbox name="gbox" margin="0 0 0 0" rect="0 0 300 205" hittestbox="false" skin="test_skin_01_btn_clicked" layout_gravity="left top"/>
-            <labelline name="labelline_1" margin="10 35 0 0" rect="0 0 280 2" skin="labelline_def" layout_gravity="left top"/>
-            <richtext name="richtext_1" margin="9 10 0 0" rect="0 0 120 24" format="{@st42}%s 혜택적용{/}" param1="value" param1_def="혜택" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-            <richtext name="marketSellCom" margin="10 45 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-            <richtext name="marketUpMax" margin="10 70 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-            <richtext name="abilityMax" margin="10 95 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-            <richtext name="speedUp" margin="10 120 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-            <richtext name="token_expup" margin="10 145 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-            <richtext name="toekn_staup" margin="10 170 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-        </controls>
-    </tooltip>
 </tooltipset>

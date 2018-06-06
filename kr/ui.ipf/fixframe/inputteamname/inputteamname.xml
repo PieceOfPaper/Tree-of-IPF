@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="inputteamname" x="0" y="0" width="540" height="20">
+    <frame title="캐릭터선택" margin="0 -50 0 0" layout_gravity="center center" snapclient="true" fullwidth="false" fullheight="false" useautoposition="true" autosizebychild="true"/>
+    <skin frameskin="test_win_system"/>
+    <draw drawnotitlebar="false" drawtitlebar="false" drawframe="true"/>
+    <input moveable="false" hittestframe="false"/>
+    <option hideable="false" closebutton="false"/>
+    <controls>
+        <groupbox name="bg" margin="0 26 0 0" rect="0 0 547 30" draw="false" hittestbox="false" skin="bg" layout_gravity="center top" autosizebychild="true"/>
+        <richtext name="richtext_1" margin="0 46 0 0" rect="0 0 420 100" caption="{@st43}{s30}{#f0dcaa}팀 이름 입력!" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" parent="bg"/>
+		<richtext name="richtext_2" margin="0 30 0 0" rect="0 0 460 100" caption="{@st66b} 팀 이름은 모든 캐릭터를 대표하는 이름입니다.{nl}자유롭게 바꿀 수 있는 팀 이름은 거래, 길드 가입, 대화 등에 사용되는 공용 이름입니다.{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" parent="bg"/>
+        <groupbox name="input_name_skin" parent="bg" margin="0 45 0 0" rect="0 0 300 50" skin="test_weight_skin" draw="true" hittestbox="true" layout_gravity="center top" scrollbar="false" resizebyparent="false"/>
+        <edit name="input" margin="0 -43 0 0" rect="0 0 290 36" fontname="white_22_ol" textalign="center top" usetag="true" EnterKeyScp="None" numbermode="false" OffsetForDraw="0 0" layout_gravity="center top" parent="bg" skin="None" maxlen="8" drawbackground="false" clicksound="button_click_big" oversound="button_over" createscript="INIT_TEAMNAME_EDIT" createscriptarg="btn"/>
+        <button name="close" rect="0 0 160 60" margin="85 50 0 30" layout_gravity="center top" caption="{@st41b}취소{/}" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" texttooltip="{@st59}팀 이름 입력을 닫습니다{/}" textoffset="0 0" textalign="center center" skin="test_gray_button" LBtnUpScp="app.BarrackToLogin()" parent="bg"/>
+        <button name="btn" rect="0 0 160 60" margin="-82 -59 0 30" layout_gravity="center top" caption="{@st41b}완료{/}" clicksound="game_start" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" texttooltip="{@st59}입력한 이름으로 팀을 생성합니다{/}" textoffset="0 0" textalign="center center" skin="test_red_button" LBtnUpScp="INPUT_TEAMNAME_EXEC" parent="bg"/>
+    </controls>
+</uiframe>
