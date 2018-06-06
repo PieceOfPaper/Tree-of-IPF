@@ -616,8 +616,7 @@ function BARRACK_GO_CREATE_RETRY()
 	
 	local accountInfo = session.barrack.GetMyAccount();
 	if accountInfo ~= nil then
-		local petCnt = session.pet.GetPetTotalCount();
-		local myCharCont = accountInfo:GetPCCount() + petCnt;
+		local myCharCont = accountInfo:GetTotalSlotCount();
 		local buySlot = session.loginInfo.GetBuySlotCount();
 		local barrackCls = GetClass("BarrackMap", accountInfo:GetThemaName());
 		if barrackCls ~= nil then
@@ -849,7 +848,7 @@ function BARRACK_TO_GAME()
 	if nil == myaccount then
 		return;
 	end
-	local myCharCount = myaccount:GetPCCount() + myaccount:GetPetCount();
+	local myCharCount = myaccount:GetTotalSlotCount();
 	
 	local buySlot = session.loginInfo.GetBuySlotCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());

@@ -766,13 +766,14 @@
 		<Class ClassID="10447" ClassName="BarrackDeleteCharBtn" Data="캐릭터 삭제"/>
 		<Class ClassID="10448" ClassName="CurChar{CharCnt}CurSlot{SlotCnt}" Data="이용가능한 슬롯이 없습니다.{nl}(현재 캐릭터 수:{CharCnt}, 현재 슬롯수:{SlotCnt})"/>
 		<Class ClassID="10449" ClassName="SeasonServerNotBuySlot" Data="해당 서버에서는 캐릭터 슬롯을 늘릴 수 없습니다."/>
+		<Class ClassID="10450" ClassName="SeasonServerNotEatCardLv280" Data="시즌 서버에서는 280 레벨 이상으로 올릴 수 없습니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
 		<Class ClassID="20002" ClassName="IncreaseSP{Value}For{Time}Minute" Data="{Time}분 동안 SP가 {Value}% 증가합니다."/>
 		<Class ClassID="20003" ClassName="IncreaseRHPTIME{Value}For{Time}Minute" Data="{Time}분 동안 HP회복시간이 {Value}초 감소합니다."/>
 		<Class ClassID="20004" ClassName="IncreaseRSPTIME{Value}For{Time}Minute" Data="{Time}분 동안 SP회복시간이 {Value}초 감소합니다."/>
-	<Class ClassID="20005" ClassName="IncreaseSR{Value}For{Time}Minute" Data="{Time}분 동안 광역 공격 비율이 {Value} 증가합니다."/>
+		<Class ClassID="20005" ClassName="IncreaseSR{Value}For{Time}Minute" Data="{Time}분 동안 광역 공격 비율이 {Value} 증가합니다."/>
 		<Class ClassID="20006" ClassName="IncreaseSDR{Value}For{Time}Minute" Data="{Time}분 동안 광역 방어 비율이 {Value} 증가합니다."/>
 	</Category>
 	<Category Name="UIText">
@@ -1000,8 +1001,8 @@
 		<Class ClassID="21224" ClassName="ALIGN_ITEM_TYPE_4" Data="높은 인기도순"/>
 		<Class ClassID="21225" ClassName="ALIGN_ITEM_TYPE_5" Data="낮은 인기도순"/>
 		<Class ClassID="21226" ClassName="ALIGN_ITEM_TYPE_6" Data="최신 등록순"/>
-	<Class ClassID="21227" ClassName="ITEM_IsPurchased0" Data="구매 불가"/>
-	<Class ClassID="21228" ClassName="ITEM_IsPurchased_CAUTION_TRADEABLE_0" Data="{#FF0000}※ 패키지 포함 구성물은 모두 거래가 불가능합니다.{/}"/>
+		<Class ClassID="21227" ClassName="ITEM_IsPurchased0" Data="구매 불가"/>
+		<Class ClassID="21228" ClassName="ITEM_IsPurchased_CAUTION_TRADEABLE_0" Data="{#FF0000}※ 패키지 포함 구성물은 모두 거래가 불가능합니다.{/}"/>
 		<Class ClassID="21229" ClassName="ITEM_IsPurchased_CAUTION_TRADEABLE_1" Data="{#0054FF}※ 패키지 포함 구성물은 모두 거래가 가능합니다.{/}"/>
 		<Class ClassID="21231" ClassName="ITEM_IsPurchased_CAUTION_TRADECNT1" Data="{#FF0000}※ 본 상품은 계정 당 1회만 구매 가능합니다.{/}"/>
 	</Category>
@@ -5559,8 +5560,9 @@
 		<Class ClassID="124035" ClassName="CanNotEquipLow{Job}{Grade}" Data="{Job} {Grade}서클만 구매 가능합니다."/>
 		<Class ClassID="124036" ClassName="CanNotItemCraftInDialog" Data="아이템 제작중 입니다."/>
 		<Class ClassID="124037" ClassName="CardLvisMax" Data="카드 레벨이 한계치에 도달했습니다."/>
-		<Class ClassID="124038" ClassName="DonotUseMySelf" Data="자신에 캐릭터에게 사용할 수 없습니다."/>
-	<Class ClassID="124039" ClassName="DeathPenaltyGemSilverCardETC" Data="현재 지역에서 전투 불능 시, 소지 중인 젬, 카드, 축복석, 실버등의 일부를 유실할 수 있습니다."/>
+		<Class ClassID="124038" ClassName="DonotUseMySelf" Data="자신에게 사용할 수 없습니다."/>
+		<Class ClassID="124039" ClassName="DeathPenaltyGemSilverCardETC" Data="현재 지역에서 전투 불능 시, 소지 중인 젬, 카드, 축복석, 실버등의 일부를 유실할 수 있습니다."/>
+		<Class ClassID="124040" ClassName="ServerIsEnd" Data="유라테 서버에 오신 것을 환영합니다.{nl} {nl}유라테 서버는 7/28~10/20까지 운영되는 시즌 서버로 10/20 이후부터는{nl}더 이상 유라테 서버 이용이 불가합니다.{nl} {nl}서버의 캐릭터 통합에 대한 자세한 내용은 {nl}홈페이지 공지사항을 참고해주세요.{/}"/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="130001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
@@ -8614,7 +8616,7 @@
 		<Class ClassID="300101" ClassName="NISMS_REFUND_GUIDE2" Data="정말 청약철회를 신청하시겠습니까?"/>
 		<Class ClassID="300102" ClassName="Premium_boostToken02_event01" Data="x4 경험의 서 (14일)"/>
 		<Class ClassID="300103" ClassName="Premium_boostToken03_event01" Data="x8 경험의 서 (14일)"/>
-	<Class ClassID="300104" ClassName="FAILED_PURCHASED_1002000" Data="구매 처리 과정에서 오류가 발생했습니다.  {/}나중에 다시 시도하시기 바랍니다."/>
+		<Class ClassID="300104" ClassName="FAILED_PURCHASED_1002000" Data="구매 처리 과정에서 오류가 발생했습니다.  {/}나중에 다시 시도하시기 바랍니다."/>
 		<Class ClassID="300105" ClassName="FAILED_PURCHASED_1002001" Data="본 상품은 계정 당 1회만 구매 가능합니다."/>
 		<Class ClassID="300106" ClassName="FAILED_REFUND_8" Data="환불 처리 과정에서 오류가 발생했습니다.  {/}나중에 다시 시도하시기 바랍니다."/>
 		<Class ClassID="300107" ClassName="PremiumToken_5d_event" Data="토큰:5일[증정용](14일)"/>

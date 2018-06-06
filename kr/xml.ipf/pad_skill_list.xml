@@ -4923,7 +4923,7 @@ return obj.Level"/>
     <PadSkill Name="Falconer_Aiming" CheckerType="0" Range="100" UpdateTerm="1000" AutoPos="1" Relation="5">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="10000" UseFunc="1" FuncTxt="local owner = GetOwner(self); local skl = GetSkill(owner, &apos;Falconer_Aiming&apos;); return skl.Level * 15000;"/>
+                <Num Num="10000" UseFunc="1" FuncTxt="local owner = GetOwner(self); local skl = GetSkill(owner, 'Falconer_Aiming'); return skl.Level * 15000;"/>
                 <Num Num="99999"/>
             </ToolScp>
         </createEvent>
@@ -4941,7 +4941,7 @@ return obj.Level"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Aiming_Buff"/>
-                <Num Num="1" UseFunc="1" FuncTxt="local owner = GetOwner(self); local skl = GetSkill(owner, &apos;Falconer_Aiming&apos;);	 return skl.Level;"/>
+                <Num Num="1" UseFunc="1" FuncTxt="local owner = GetOwner(self); local skl = GetSkill(owner, 'Falconer_Aiming');	 return skl.Level;"/>
                 <Num Num="0"/>
                 <Num Num="1500"/>
                 <Num Num="1"/>
