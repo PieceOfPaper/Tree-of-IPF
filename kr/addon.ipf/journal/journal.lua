@@ -350,6 +350,7 @@ end
 function UPDATE_CATEGORY_CONTROL_SCORE(ctrl, score, destScore, cateType, realtimeUpdate)
 
 	local frame = ctrl:GetTopParentFrame();
+    local mainTabGroupBox = frame:GetChild('bg');
 	local isopenbyNPC = frame:GetUserValue("IS_OPEN_BY_NPC")
 
 	local gauge = GET_CHILD(ctrl, "gauge", "ui::CGauge");
@@ -390,7 +391,7 @@ function UPDATE_CATEGORY_CONTROL_SCORE(ctrl, score, destScore, cateType, realtim
 
 		if realtimeUpdate == 1 then
 			local beforeRewardCount = ctrl:GetUserIValue("REWARDCOUNT");
-			if rewardCount > beforeRewardCount then
+			if rewardCount > beforeRewardCount and mainTabGroupBox:IsVisible() == 1 then
 				UI_PLAYFORCE(ctrl:GetChild("button"), "emphasize_2", 0, 0);
 				ctrl:SetUserValue("REWARDCOUNT", rewardCount);
 			end
@@ -430,7 +431,9 @@ function ADD_JOURNAL_SCORE_CTRL_BY_CATEGORY(queue, cateType, realtimeUpdate)
 	
 	if realtimeUpdate == 1 then
 		local updatedScore = session.GetUpdatedWikiScore(cateType);
-		if updatedScore > score then
+        local topFrame = ctrl:GetTopParentFrame();
+        local mainTabGroupBox = topFrame:GetChild('bg');
+        if updatedScore > score and mainTabGroupBox:IsVisible() == 1 then -- 메인탭 보고 있는 중에만 이펙트 보여준다
 			ctrl:RunUpdateScript("VIEW_UPDATED_SCORE", 0, 0, 0, 1);
 			ctrl:SetUserValue("STARTPOINT", score);
 			ctrl:SetUserValue("STARTTIME", imcTime.GetAppTimeMS());
@@ -454,7 +457,7 @@ function VIEW_UPDATED_SCORE(ctrl)
 	session.SetWikiScore(cateType, curScore);
 	UPDATE_CATEGORY_CONTROL_SCORE(ctrl, curScore, updatedScore, cateType, 1)
 	if curScore >= updatedScore then
-		local gauge = GET_CHILD(ctrl, "gauge", "ui::CGauge");
+		local gauge = GET_CHILD(ctrl, "gauge", "ui::CGauge");        
 		gauge:PlayOnceUIEffect("I_sys_fullcharge", 5.0);
 		gauge:SetDrawFillPoint(0);
 
@@ -474,7 +477,6 @@ function ADD_JOURNAL_SCORE_CTRL(queue, name, score)
 end
 
 function JOURNAL_UPDATE_MAIN_PAGE(frame, realtimeUpdate)
-
 	local bg = frame:GetChild("bg");
 	local myinfobg = bg:GetChild("myinfobg");
 	local queue = GET_CHILD(myinfobg, "queue", "ui::CQueue");

@@ -63,6 +63,9 @@
 --                                    {2016,6,12,22,'Head_fish'}
 --                                    }
                                     
+ZONENAME_LIST = {}
+ZONENAME_LIST_LV = {}
+
 FLASHMOB_EVENT_REWARD_TABLE = {{{'Premium_eventTpBox_5_3',1}}}
 
 

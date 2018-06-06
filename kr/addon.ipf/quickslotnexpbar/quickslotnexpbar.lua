@@ -815,7 +815,7 @@ function QUICKSLOTNEXPBAR_EXECUTE(slotIndex)
 	end
 
 	local restFrame = ui.GetFrame('restquickslot')
-	if restFrame:IsVisible() == 1 then
+	if restFrame ~= nil and restFrame:IsVisible() == 1 then
 		REST_SLOT_USE(restFrame, slotIndex);
 		return;
 	end	

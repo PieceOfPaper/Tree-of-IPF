@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <BlendOn frame="0" R="20" G="10" B="5" A="50"/>
-    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
-    <Sound frame="0.00" soundFile="rap_attack_2"/>
-    <BlendOn frame="6" R="30" G="20" B="10" A="60"/>
-    <Sound frame="11.00" soundFile="rap_attack_2"/>
-    <BlendOn frame="12" R="20" G="10" B="5" A="50"/>
-    <BlendOff frame="13" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="0" R="20" G="10" B="5" A="50"/>
+	<Particle frame="0" attachNode="Dummy_trail" particleName="WeaponTrail_rap_Prepartion_01" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="rap_attack_2"/>
+	<BlendOn frame="6" R="30" G="20" B="10" A="60"/>
+	<Sound frame="11.00" soundFile="rap_attack_2"/>
+	<BlendOn frame="12" R="20" G="10" B="5" A="50"/>
+	<BlendOff frame="13" R="0" G="0" B="0" A="0"/>
 </ActionDesc>

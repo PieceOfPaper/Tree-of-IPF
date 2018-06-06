@@ -696,6 +696,7 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
 	tolua.cast(ctrlset, 'ui::CControlSet');
 	ctrlset:SetValue2(questIES.ClassID);
 	ctrlset:SetSValue(result);
+	ctrlset:Resize(GroupCtrl:GetWidth(), ctrlset:GetHeight());
 	--ctrlset:Resize(350, ctrlset:GetHeight());
 
 	local titleWidth = ctrlset:GetWidth() - 10;
@@ -2041,8 +2042,14 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
 	return y;
 end
 
-function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y)
+function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y, font)
     local pc = SCR_QUESTINFO_GET_PC();
+    local nextPCLvIES = GetClass('Xp', pc.Lv + 1)
+    
+    if nextPCLvIES == nil then
+        return y
+    end
+    
     local quest_auto = GetClassByType("QuestProgressCheck_Auto", questIES.ClassID);
     
     local repeat_reward_item = {}
@@ -2066,14 +2073,24 @@ function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y)
     end
     
     if quest_auto.Success_Lv_Exp > 0 then
-        qRewardExp = qRewardExp + quest_auto.Success_Lv_Exp
+        local xpIES = GetClass('Xp', pc.Lv)
+        if xpIES ~= nil then
+            local lvexpvalue =  math.floor(xpIES.QuestStandardExp * quest_auto.Success_Lv_Exp)
+            if lvexpvalue ~= nil and lvexpvalue > 0 then
+	            qRewardExp = qRewardExp + lvexpvalue
+            end
+        end
+    end
+    
+    if font == nil then
+        font = '{@st42b}'
     end
     
     if qRewardExp > 0 and session.GetMaxEXP() - session.GetEXP() - qRewardExp <= 0 then
         local content = ctrlset:CreateOrGetControl('richtext', 'QUESTINFOREWARDLVUP', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
     	content:EnableHitTest(0);
     	content:SetTextFixWidth(0);
-    	content:SetText(ScpArgMsg('QUESTINFOREWARDLVUP','Auto_1',pc.Lv + 1));
+    	content:SetText(font..ScpArgMsg('QUESTINFOREWARDLVUP','Auto_1',pc.Lv + 1));
     	y = y + content:GetHeight()+5;
     end
     

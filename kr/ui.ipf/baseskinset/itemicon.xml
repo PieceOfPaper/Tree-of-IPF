@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -3992,6 +3992,13 @@
 		<image name="icon_item_Rice_Soup" file="\icon\item\icon_item_Rice_Soup.png" imgrect="0 0 256 256" CMM_Caption="떡국"/>
 		<image name="icon_item_Large_RiceSoup" file="\icon\item\icon_item_Large_RiceSoup.png" imgrect="0 0 256 256" CMM_Caption="특대만두떡국"/>
 		<image name="icon_item_leather_cronewt" file="\icon\item\icon_item_leather_cronewt.png" imgrect="0 0 128 128" CMM_Caption="크로뉴트가죽"/>
+		<image name="Event_WhiteDay_Candy_Set" file="\icon\item\Event_WhiteDay_Candy_Set.png" imgrect="0 0 128 128" CMM_Caption="사탕 세트"/>
+		<image name="Event_WhiteDay_Cube_1" file="\icon\item\Event_WhiteDay_Cube_1.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 비밀 선물 상자"/>
+		<image name="Event_WhiteDay_Candy_1" file="\icon\item\Event_WhiteDay_Candy_1.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 딸기캔디"/>
+		<image name="Event_WhiteDay_Candy_2" file="\icon\item\Event_WhiteDay_Candy_2.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 소다캔디"/>
+		<image name="Event_WhiteDay_Candy_3" file="\icon\item\Event_WhiteDay_Candy_3.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 후르츠캔디"/>
+		<image name="Event_WhiteDay_Candy_4" file="\icon\item\Event_WhiteDay_Candy_4.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 레몬츠캔디"/>
+		<image name="R_WHITE_01" file="\icon\item\R_WHITE_01.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 사탕제작서"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>

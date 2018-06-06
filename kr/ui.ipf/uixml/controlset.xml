@@ -2118,9 +2118,8 @@
 			<numupdown name="upDown" rect="0 0 120 30" layout_gravity="right top" clicksound="button_click_big" oversound="button_over" minvalue="0" incrvalue="1" fontname="white_20_ol" keypad="false" margin="0 0 35 0"/>
 		</controls>
 	</controlset>
-	<controlset name="worldmap_zone" hittest="true" width="200" height="120" skin="">
+	<controlset name="worldmap_zone" hittest="true" width="100" height="60" skin="">
 		<controls>
-			<richtext name="text" hittest="false" margin="0 0 0 0" rect="0 0 200 120" format="%s%s{/}" param1="font" param1_def="{@st42}" param2="value" param2_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" fixheight="true"/>
 		</controls>
 	</controlset>
 	<controlset name="worldmap_emphasize" hittest="true" width="180" height="200" skin="">

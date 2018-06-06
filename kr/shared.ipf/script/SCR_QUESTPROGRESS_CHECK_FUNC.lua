@@ -87,6 +87,9 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
     end
     
     if #zoneClassNameList > 0 then
+        local anotherPC = 6
+        local genTiem = 2
+        local basicTime = 30
         for y = 1, #zoneClassNameList do
             local targetZone = zoneClassNameList[y]
             local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(targetZone, 'Monster', 'Normal/Material/Elite', 120000)
@@ -112,11 +115,8 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
                                         end
                                         
                                         if flag == false then
-                                            local basicTime = 30
-                                            local genTiem = 2
                                             local maxPop = targetMonList[i][2]
                                             local ratio = dropIES.DropRatio / 10000
-                                            local anotherPC = 5
                                             if dropIES.DPK_Min > 0 and dropIES.DPK_Max > 0 then
                                                 ratio = 1/((dropIES.DPK_Min + dropIES.DPK_Max)/2) * ratio
                                             end
@@ -147,6 +147,9 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
     
     if #zoneClassNameList > 0 then
         local removeMonList = {"Silvertransporter_Qm", "Treasure_Goblin"}
+        local basicTime = 30
+        local genTiem = 2
+        local anotherPC = 12
         for y = 1, #zoneClassNameList do
             local targetZone = zoneClassNameList[y]
             local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(targetZone, 'Monster', 'Normal/Material/Elite', 120000)
@@ -154,15 +157,12 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
             if #targetMonList > 0 then
                 for i = 1, #targetMonList do
                     if table.find(removeMonList, targetMonList[i][1]) == 0 then
-                        local basicTime = 30
-                        local genTiem = 2
                         local maxPop = targetMonList[i][2]
-                        local anotherPC = 10
                         local maxMonCount =  basicTime / genTiem * maxPop
                         local killCount =  math.floor(maxMonCount / anotherPC)
                         
                         local monRank = GetClassString('Monster', targetMonList[i][1], 'MonRank')
-                        if monRank == 'Elite' then
+                        if monRank == 'Elite' or monRank == 'Special' then
                             killCount = math.floor(killCount / 3)
                             if killCount < 2 then
                                 killCount = 2

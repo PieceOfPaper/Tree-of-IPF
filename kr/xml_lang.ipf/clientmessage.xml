@@ -1070,6 +1070,22 @@
 		<Class ClassID="22005" ClassName="Retreat!" Data="후퇴!"/>
 		<Class ClassID="22006" ClassName="Withdrawal!" Data="철수!"/>
 	</Category>
+  <Category Name="Ayase">
+    <Class ClassID="22499" ClassName="NotConnectedToChatServer_TryAfterAgain" Data="채팅 서버와의 연결이 원할하지 않습니다. 잠시 후 다시 시도해주세요."/>
+    <Class ClassID="22500" ClassName="NewTab" Data="탭{Count}"/>
+    <Class ClassID="22501" ClassName="TotalTabName" Data="전체"/>
+    <Class ClassID="22502" ClassName="SetScrollBarBottom" Data="새 메시지 도착 시 스크롤바 하단 이동"/>
+    <Class ClassID="22503" ClassName="NewChatRoom" Data="새 채팅"/>
+		<Class ClassID="22504" ClassName="LimitGroupChatMaxUserCnt" Data="방의 최대 인원이 가득 찼습니다."/>
+    <Class ClassID="22505" ClassName="ChatWith{Name}" Data="{Name}님과의 대화"/>
+    <Class ClassID="22506" ClassName="DiscardedTicket" Data="유효하지 않은 초대장입니다."/>
+    <Class ClassID="22507" ClassName="AlreadyEnteredRoom" Data="이미 접속중인 채팅방입니다."/>
+    <Class ClassID="22508" ClassName="{Name}ofGroupChat" Data="{Name}님의 그룹채팅"/>
+    <Class ClassID="22509" ClassName="GroupChatTitleWithMemCnt" Data="{Text} [{Cnt}명]"/>
+    <Class ClassID="22510" ClassName="NewRoomHasBeenCreated" Data="새로운 방이 생성되었습니다."/>
+    <Class ClassID="22511" ClassName="{Name}EnterRoom" Data="{Name}님이 입장하셨습니다."/>
+    <Class ClassID="22512" ClassName="{Name}OutRoom" Data="{Name}님이 퇴장하셨습니다."/>
+  </Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
 		<Class ClassID="23002" ClassName="CardNotRegistered" Data="카드를 등록하지 않았습니다."/>
@@ -1193,7 +1209,7 @@
 		<Class ClassID="24097" ClassName="MASTER_ORACLE_NORMAL_2_AGREE1" Data="아이템 강화 순위"/>
 		<Class ClassID="24098" ClassName="MASTER_ORACLE_NORMAL_2_AGREE3" Data="실버 획득 계시자 순위"/>
 		<Class ClassID="24099" ClassName="QuestRewardMoneyText" Data="{@st45w3}{s18}{Auto_1} 실버{/}"/>
-		<Class ClassID="24100" ClassName="QUESTINFOREWARDLVUP" Data="{@st42b}완료 시 {Auto_1} 레벨 달성"/>
+		<Class ClassID="24100" ClassName="QUESTINFOREWARDLVUP" Data="(완료 시 {Auto_1} 레벨 달성)"/>
 		<Class ClassID="24101" ClassName="DialogSelectRewardTxt" Data="{@st54}{b}보상{/}"/>
 		<Class ClassID="24102" ClassName="QuestReenterTimeD" Data="일 "/>
 		<Class ClassID="24103" ClassName="QuestReenterTimeH" Data="시간 "/>
@@ -4160,6 +4176,10 @@
 		<Class ClassID="27302" ClassName="KeyQuestShopTitle2" Data="헤스란 증표 Lv2"/>
 		<Class ClassID="27310" ClassName="EV170216_EVENTCOUNTING" Data="총 {MAXCOUNT}회 중 {COUNT}회 완료하셨습니다."/>
 		<Class ClassID="27311" ClassName="EV170216_MSG1" Data="왕국의 잃어버린 보물"/>
+		<Class ClassID="27315" ClassName="CHAPLE577_MQ_06_1_BUFFEND_MSG" Data="변신이 풀렸습니다{nl}자신감 버프가 없다면 폰델과 폰드를 처치 후 변신 스크롤을 사용하세요!"/>
+		<Class ClassID="27320" ClassName="HighLvZoneEnterMsg1" Data="{ZONE}지역은 {ZONELV} 레벨 지역입니다.{nl}이동 하시겠습니까?"/>
+		<Class ClassID="27321" ClassName="HighLvZoneEnterMsg2" Data="사용하실 수 있는 경험치 카드가 있습니다.{nl}경험치 카드를 사용하지 않고 바로 이동하시겠습니까?"/>
+		<Class ClassID="27330" ClassName="SuccessJobExpGiveMSG1" Data="{@st41b}클래스 경험치 : "/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -9463,6 +9483,13 @@
 		<Class ClassID="302003" ClassName="ArborDayEventRewardGet" Data="봄볕 이벤트 보상을 받았습니다. 메시지함에서 확인해주세요."/>
 		<Class ClassID="302007" ClassName="JP_Event_Daily" Data="이벤트 보상을 받았습니다. 인벤토리를 확인해 주세요."/>
 		<Class ClassID="302021" ClassName="Fortunecookie_Count" Data="포춘 쿠키 {COUNT}회 사용"/>
+		<Class ClassID="302030" ClassName="Goddess_Statue1" Data="여신의 축복 1 단계 적용."/>
+		<Class ClassID="302031" ClassName="Goddess_Statue2" Data="여신의 축복 2 단계 적용."/>
+		<Class ClassID="302032" ClassName="Goddess_Statue3" Data="여신의 축복 3 단계 적용."/>
+		<Class ClassID="302033" ClassName="Goddess_Statue4" Data="여신의 축복 4 단계 적용."/>
+		<Class ClassID="302034" ClassName="Goddess_Statue5" Data="여신의 축복 5 단계 적용."/>
+		<Class ClassID="302035" ClassName="Goddess_Statue6" Data="5단계 이상 여신의 축복을 받을 수 없습니다."/>
+		<Class ClassID="302036" ClassName="Goddess_Statue7" Data="여신의 조각상은 5분간 유지 됩니다."/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
@@ -9499,5 +9526,17 @@
 		<Class ClassID="306010" ClassName="ENCHANTARMOR_BLESSING_DESC" Data="1% 확률로 적의 공격 무효"/>
 		<Class ClassID="306011" ClassName="ENCHANTARMOR_HOLY_DESC" Data="성직자의 버프 지속시간이 5% 증가(주문판매상점 제외)"/>
 		<Class ClassID="306012" ClassName="ENCHANTARMOR_VOLITIVE_DESC" Data="자신의 정신 스탯 20 당 체력 스탯 1의 포인트 획득"/>
+	</Category>
+	<Category Name="GLOBAL">
+		<Class ClassID="500001" ClassName="EXPCARD_COMPANION_FAIL" Data="함께하고 있는 컴패니언 레벨이 낮아 사용할 수 없습니다."/>
+		<Class ClassID="501002" ClassName="Wihte_Select" Data="사탕 세트 제작서 구입"/>
+		<Class ClassID="501003" ClassName="Wihte_Select1" Data="사탕 세트 건네주기"/>
+		<Class ClassID="501004" ClassName="Wihte_Select2" Data="화이트데이 버프 받기"/>
+		<Class ClassID="501005" ClassName="Wihte_Select1_1" Data="화이트데이 목걸이"/>
+		<Class ClassID="501006" ClassName="Wihte_Select1_2" Data="화이트데이 팔찌"/>
+		<Class ClassID="501007" ClassName="Wihte_Select1_3" Data="화이트데이 밴드"/>
+		<Class ClassID="501008" ClassName="Wihte_Select1_4" Data="다시 생각해본다"/>
+		<Class ClassID="501009" ClassName="Wihte_Select3" Data="이벤트 참여 회수 확인"/>
+		<Class ClassID="501010" ClassName="Wihte_Select3_1" Data="{WHITECOUNT}회 완료하셨습니다."/>
 	</Category>
 </idspace>

@@ -235,7 +235,7 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 	-- race
 	local image = GET_CHILD(frame, "race", "ui::CPicture");
 
-	if targetinfo.raceType ~= nil and targetinfo.raceType ~= 'Item' then
+	if targetinfo.raceType ~= nil and targetinfo.raceType ~= 'Item' and targetinfo.raceType ~= 'None' then
 		image:SetImage('Tribe_' .. targetinfo.raceType);
 		image:SetOffset( nametext:GetX() , image:GetY());
 		image:ShowWindow(1);
