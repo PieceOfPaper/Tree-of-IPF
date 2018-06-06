@@ -13,6 +13,7 @@ if not exist %2 mkdir %2
 
 
 
+
 set TosPath=%1
 set RootPath=%cd%
 set TempPath=%cd%\Temp
@@ -33,12 +34,11 @@ for /f %%a in (ipflist_data.txt) do (
 	
 	git add --all
 	git commit -m "%%a"
+	git push
 	
 	cd %RootPath%
 	del /s /q extract
 )
-pause
-
 
 
 ::====== temp data clear
