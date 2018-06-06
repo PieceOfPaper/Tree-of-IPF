@@ -498,7 +498,7 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance)
 					mainWeaponName[mainSum] = stance.Name
 					mainSum = mainSum + 1
 
-					tooltipText = tooltipText..stance.Name.."{nl}"
+					--tooltipText = tooltipText..stance.Name.."{nl}"
 				elseif stance.UseSubWeapon == "YES" then
 					local flag = 0
 					for i = 0, #subWeapon do

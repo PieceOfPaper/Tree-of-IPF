@@ -46,8 +46,8 @@ function ON_CABINET_ITEM_LIST(frame)
 		local btn = GET_CHILD(ctrlSet, "btn");
 		btn:SetTextByKey("value", ClMsg("Receieve"));
 		btn:UseOrifaceRectTextpack(true)
-		btn:SetEventScript(ui.LBUTTONUP, "CANCEL_MARKET_ITEM");
 		btn:SetEventScript(ui.LBUTTONUP, "CABINET_ITEM_BUY");
+		btn:SetEventScriptArgString(ui.LBUTTONUP,cabinetItem:GetItemID());
 		
 	end
 	GBOX_AUTO_ALIGN(itemlist, 10, 0, 0, true, true);
@@ -61,14 +61,8 @@ function CABINET_GET_ALL_ITEM(parent, ctrl)
 	end
 end
 
-function CABINET_ITEM_BUY(parent, ctrl)
-	local frame = parent:GetTopParentFrame();
-	local itemlist = GET_CHILD(frame, "itemlist", "ui::CDetailListBox");
-	
-	local row = ctrl:GetUserIValue("DETAIL_ROW");
-	local col = ctrl:GetUserIValue("DETAIL_COL");
-	local cabinetItem = session.market.GetCabinetItemByIndex(row);
-	market.ReqGetCabinetItem(cabinetItem:GetItemID());
+function CABINET_ITEM_BUY(frame, ctrl, guid)
+	market.ReqGetCabinetItem(guid);
 
 end
 

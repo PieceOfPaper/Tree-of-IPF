@@ -103,6 +103,34 @@ function GET_PIG_TAMING_MODELMON(seedCls, obj)
 	end
 end
 
+function GET_TOUCAN_TAMING_MODELMON(seedCls, obj)
+	local age = obj:GetPropIValue("Age");
+	local maxGrowTime = seedCls.FullGrowMin;
+	local curState = CLAMP(age / maxGrowTime, 0, 1);
+	local monCls = GetClass("Monster", seedCls.MonsterName);
+	local ownerName = obj:GetPropValue("Maker");
+	
+	if curState < 1 then
+		return "Toucan";
+	else
+		return "Toucan";
+	end
+end
+
+function GET_BARN_OWL_TAMING_MODELMON(seedCls, obj)
+	local age = obj:GetPropIValue("Age");
+	local maxGrowTime = seedCls.FullGrowMin;
+	local curState = CLAMP(age / maxGrowTime, 0, 1);
+	local monCls = GetClass("Monster", seedCls.MonsterName);
+	local ownerName = obj:GetPropValue("Maker");
+	
+	if curState < 1 then
+		return "barn_owl";
+	else
+		return "barn_owl";
+	end
+end
+
 function GET_GUILD_EXPUP_ITEM_INFO()
 
 	return "misc_talt", 20;

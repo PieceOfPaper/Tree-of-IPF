@@ -81,13 +81,10 @@ function ON_WAREHOUSE_ITEM_LIST(frame)
 
 	local gbox = frame:GetChild("gbox");
 	local slotset = gbox:GetChild("slotset");
-	local gbox_warehouse = nil;
 	if slotset == nil then
-		gbox_warehouse = GET_CHILD(gbox, 'gbox', 'ui::CGroupBox');
-		if gbox_warehouse ~= nil then
+		local gbox_warehouse = gbox:GetChild("gbox_warehouse");
 			slotset = gbox_warehouse:GetChild("slotset");
 		end
-	end
 
 	AUTO_CAST(slotset);
 	local etc = GetMyEtcObject();
