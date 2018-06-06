@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ForceDef>
+	<Force Name="I_force007_vilolet" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force007_vilolet" TargetType="enemy" ShootDelay="0" Destroy="FAST" FinishScaleFix="NO" FinishScale="0" FinishEffect="I_explosion008_violet" FinishEffectCond="None" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="I_caltrops001_mash" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_caltrops001_mash" TargetType="enemy" ShootDelay="0" Destroy="FAST" FinishScaleFix="NO" FinishScale="0" FinishEffect="None" FinishEffectCond="None" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="wiz_skl_venom" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force003_green" TargetType="enemy" ShootDelay="0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="wiz_skl_venom_force_finish" FinishEffectCond="None" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="I_light011_blue" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_light011_blue" TargetType="enemy" ShootDelay="0" Destroy="FAST" FinishScaleFix="NO" FinishScale="0.5" FinishEffect="mon_vordoi_quake_shot_2" FinishEffectCond="None" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="monster_rafflesia_skl" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="rafflesia_skl_shot" TargetType="enemy" ShootDelay="0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="2.0" FinishEffect="F_explosion068_green" FinishEffectCond="NOTARGET" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="altar_crystal_force" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="altar_crystal_force" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="NOTARGET" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="I_wizard_telekinesis_shot_sphere" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_light005_blue" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="I_explosion005_blue" FinishEffectCond="NOTARGET" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="zombie_archer_arrow" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_arrow010" TargetType="enemy" ShootDelay="0" Destroy="FAST" FinishScaleFix="NO" FinishScale="0" FinishEffect="None" FinishEffectCond="None" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="wood_spirit_skl" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="wood_spirit_skl" TargetType="enemy" ShootDelay="0" Destroy="FAST" FinishScaleFix="NO" FinishScale="0" FinishEffect="None" FinishEffectCond="None" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="I_breath022_green" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_breath022_green" TargetType="enemy" ShootDelay="0" Destroy="FAST" FinishScaleFix="NO" FinishScale="2.0" FinishEffect="None" FinishEffectCond="None" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="wiz_skl_HoveringFire_atk" CollisionRange="0.01" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="wiz_HoveringFire_atk" TargetType="ray" ShootDelay="0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="2.0" FinishEffect="F_skl_HoveringFire_atk" FinishEffectCond="None" ShootSound="getexp_shoot" FinishSound="getexp_1_se"/>
+	</Force>
+	<Force Name="I_sakmoli_atk001_mash" CollisionRange="1" Type="Normal" AutoRotate="NO" Custom="None">
+		<SFX ForceEffect="I_circle005_rize" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="F_explosion001_orange" FinishEffectCond="None" ShootSound="None" FinishSound="None"/>
+		<SFX ForceEffect="I_sakmoli_atk001_mash" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="archer_KillingShot" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_smoke005_dark" TargetType="enemy" ShootDelay="0.0" Destroy="NO" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+		<SFX ForceEffect="I_arrow004_mash" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+	</Force>
+	<Force Name="archer_AimingShot" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_arrow005_mash" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+	</Force>
+	<Force Name="archer_heallingarrow" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force015_white" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+		<SFX ForceEffect="I_arrow002_white" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+	</Force>
+	<Force Name="archer_poisonarrow" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force013_dark" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+		<SFX ForceEffect="I_arrow001" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+	</Force>
+	<Force Name="archer_icearrow" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force014_ice" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+		<SFX ForceEffect="I_arrow002_white" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+	</Force>
+	<Force Name="archer_flamearrow" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force016_fire" TargetType="enemy" ShootDelay="0.0" Destroy="NO" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+		<SFX ForceEffect="I_arrow008" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+	</Force>
+	<Force Name="turret_atk_force" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="turret_atk" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="turret_atk_finish" FinishEffectCond="NOTARGET" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="I_laser005_blue" CollisionRange="0.01" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_laser005_blue" TargetType="ray" ShootDelay="0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="F_rize005_blue" ShootSound="getexp_shoot" FinishSound="getexp_1_se"/>
+		<SFX ForceEffect="F_spread_out021_blue" TargetType="enemy" ShootDelay="0" Destroy="NO" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="F_rize005_blue" ShootSound="getexp_shoot" FinishSound="getexp_1_se"/>
+	</Force>
+	<Force Name="spector_atk1" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force035_red" TargetType="enemy" ShootDelay="0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="monster_spector_m_atk1_force_end" FinishEffectCond="None" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="spector_atk2" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force035_red" TargetType="enemy" ShootDelay="0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="getexp_shoot" FinishSound="getexp_1_se"/>
+	</Force>
+	<Force Name="bokchoy_atk" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="bokchoy_atk" TargetType="enemy" ShootDelay="0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="getexp_shoot" FinishSound="getexp_1_se"/>
+	</Force>
+	<Force Name="sys_get_experience" CollisionRange="0.01" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_light004_violet" TargetType="enemy" ShootDelay="0.75" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="F_explosion003" FinishEffectCond="None" ShootSound="getexp_shoot" FinishSound="getexp_1_se"/>
+	</Force>
+	<Force Name="sys_get_experience2" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_light004_violet" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="getexp_shoot" FinishSound="getexp_1_se"/>
+	</Force>
+	<Force Name="sys_spark_1" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="archer_arrow" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+	</Force>
+	<Force Name="sys_spark" CollisionRange="25" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="archer_arrow_1" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+	</Force>
+	<Force Name="sys_spark_2" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_arrow008" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" FinishEffectCond="None" ShootSound="arrow_weak" FinishSound="arrow_blow_normal"/>
+	</Force>
+	<Force Name="pc_fire_ball" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force009_fire" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="I_explosion009_orange" FinishEffectCond="NOTARGET" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="pc_magic_ball" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force019_violet" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="I_explosion010_violet" FinishEffectCond="NOTARGET" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="pc_wiz_freezingsphere" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force018_ice" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="I_explosion006_ice" FinishEffectCond="NOTARGET" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="pc_wiz_manasphere" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force004_pink" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="I_explosion003_pink" FinishEffectCond="NOTARGET" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="dreadworm" CollisionRange="30" Type="Pierce" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force004_pink" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="I_explosion003_pink" FinishEffectCond="NOTARGET" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="get_money_item" CollisionRange="0.01" Type="Normal" AutoRotate="YES" Custom="None" RadiusSpeed="1.0">
+		<SFX ForceEffect="None" TargetType="enemy" ShootDelay="0" Destroy="FAST" FinishScaleFix="YES" FinishScale="0.5" FinishEffect="I_coin_mash" FinishEffectCond="ROTATE" ShootSound="sys_coin_get" FinishSound="sys_coin_get_finish_1"/>
+	</Force>
+	<Force Name="get_item" CollisionRange="0.01" Type="Normal" AutoRotate="YES" Custom="None" RadiusSpeed="1.0">
+		<SFX ForceEffect="None" TargetType="enemy" ShootDelay="0" Destroy="FAST" FinishScaleFix="YES" FinishScale="10.0" FinishEffect="F_explosion003" FinishEffectCond="None" ShootSound="getitem_shoot" FinishSound="getitem_1_se"/>
+	</Force>
+	<Force Name="pc_skl_musa_forceattack1g" CollisionRange="25" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="Sample_fire" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" ShootSound="None"/>
+	</Force>
+	<Force Name="pc_skl_hwa_maehwa" CollisionRange="25" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="Shot_hwaskl1" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" ShootSound="None"/>
+	</Force>
+	<Force Name="pc_skl_shot_daeskl1" CollisionRange="25" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="Shot_daeskl1" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" ShootSound="None"/>
+	</Force>
+	<Force Name="pc_skl_musa_forceattack1" CollisionRange="25" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="PC_skl_musa_forceattack_force" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" ShootSound="None"/>
+	</Force>
+	<Force Name="pc_mag_attack1" CollisionRange="5" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_circle002" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="I_bomb008_blue" ShootSound="None"/>
+	</Force>
+	<Force Name="pc_mag_attack2" CollisionRange="5" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_circle002" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="I_spread_in001_dark" ShootSound="None"/>
+	</Force>
+	<Force Name="pc_mag_attack3" CollisionRange="5" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_circle002" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="I_bomb001_orange" ShootSound="None"/>
+	</Force>
+	<Force Name="pc_mag_attack4" CollisionRange="5" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_circle002" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="hit_magic_ice" ShootSound="None"/>
+	</Force>
+	<Force Name="pc_mag_fireball" CollisionRange="5" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="pc_skl_mage_fireball" TargetType="enemy" ShootDelay="0.0" Destroy="FAST" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="None" ShootSound="None"/>
+	</Force>
+	<Force Name="pc_wiz_icebolt" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="I_force018_ice" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="I_explosion006_ice" FinishEffectCond="NOTARGET" ShootSound="None" FinishSound="None"/>
+	</Force>
+	<Force Name="pc_wiz_hexing" CollisionRange="1" Type="Normal" AutoRotate="YES" Custom="None">
+		<SFX ForceEffect="#S#HexingForce" EffectScale="1.0" TargetType="enemy" ShootDelay="0.0" Destroy="SLOW" FinishScaleFix="NO" FinishScale="1.0" FinishEffect="#S#HexingForceFinish" FinishEffectCond="None" ShootSound="#S#HexingForce" FinishSound="#S#HexingForceFinish"/>
+	</Force>
+</ForceDef>
