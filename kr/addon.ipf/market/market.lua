@@ -102,7 +102,6 @@ function MARGET_FIND_PAGE(frame, page)
 	end
 
 	local groupName, classType = MARKET_SEARCH_GROUP_AND_CLASSTYPE(frame);
-	print('1. ON_MARKET_ITEM_LIST groupName: ' .. groupName .. " , classType:" ..classType);
 	market.ReqMarketList(page, find_name:GetText(), groupName, classType, lv_min, lv_max, rein_min, rein_max, sortype);
 end
 
@@ -267,7 +266,6 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 	local cid = mySession:GetCID();
 
 	local count = session.market.GetItemCount();
-	print('6. ON_MARKET_ITEM_LIST Cnt:' .. count);
 	for i = 0 , count - 1 do
 		local marketItem = session.market.GetItemByIndex(i);
 		local itemObj = GetIES(marketItem:GetObject());
