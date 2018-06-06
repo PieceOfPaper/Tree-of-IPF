@@ -63,7 +63,7 @@ function SCR_EVENT_1805_WEDDING1_NPC_DIALOG(self, pc)
             if aObj.EVENT_1805_WEDDING1_DATE ~= nowday then
                 if addMsg ~= '' then
                     local select2 = ShowSelDlg(pc, 0, 'EVENT_1805_WEDDING1_DLG1\\'..ScpArgMsg('EVENT_1805_WEDDING1_MSG6'),ScpArgMsg('EVENT_1707_USERWEDDING_MSG1'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
-                    if select2 == 2 then
+                    if select2 ~= 1 then
                         return
                     end
                 end
