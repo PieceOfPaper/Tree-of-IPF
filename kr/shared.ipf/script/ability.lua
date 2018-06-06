@@ -14,7 +14,7 @@ function CHECK_ABILITY_LOCK(pc, ability)
 	end
 
 	local jobHistory = GetJobHistoryString(pc)
-
+	
 	if string.find(ability.Job, ";") == nil then
 		
 		if string.find(jobHistory, ability.Job) ~= nil then
@@ -590,7 +590,7 @@ function SCR_ABIL_PALADIN4_ACTIVE(self, ability)
     local skl = GetSkill(self, "Paladin_Smite")
     if skl ~= nil then
         skl.KnockDownHitType = 4
-        skl.KDownValue = 300
+        skl.KDownValue = 250
     end
 end
 

@@ -13,6 +13,76 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="BOW03_110">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_DeployPavise"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_ScatterCaltrop"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StonePicking"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StoneShot"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RapidFire"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_Teardown"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RunningShot"/>
+						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_DeployPavise"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_ScatterCaltrop"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StonePicking"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StoneShot"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RapidFire"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_Teardown"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RunningShot"/>
+						<Num Num="-2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="DAG02_101">
 		<TriggerList Act="AfterHitScript_Attack">
 			<Trigger>
@@ -289,6 +359,28 @@
 				<ExecList>
 					<ToolScp Scp="SPCI_DAGGER_MULTIPLE_HIT" Client="BOTH" UseSleep="NO">
 						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="MUS03_103">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_CoveringFire"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_CoveringFire"/>
+						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -965,6 +1057,52 @@ return self.MNA;"/>
 					<ToolScp Scp="SPCI_ADD_SKILL_RANGE" Client="NO" UseSleep="NO">
 						<Num Num="222"/>
 						<Num Num="55"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSP04_107">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_USE_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Cataphract_Impaler"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="235"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSF03_111">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_USE_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Wizard_MagicMissile"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="186"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="SWD04_106">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_IS_NORMAL_ATTACK" Client="NO" UseSleep="NO"/>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="1" UseFunc="1" FuncTxt="return math.floor(targetObj.BLK / 2);"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -2030,6 +2168,23 @@ return math.floor(self.Lv/3);"/>
 						<Num Num="-1"/>
 					</ToolScp>
 				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSW03_112">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="2"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="1" UseFunc="1" FuncTxt="
+return self.RSP;"/>
+					</ToolScp>
+				</ExecList>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>

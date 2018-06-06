@@ -2,6 +2,7 @@ function PROPERTYSHOP_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('PROPERTY_SHOP_UI_OPEN', 'PROPERTY_SHOP_DO_OPEN');
 	addon:RegisterMsg('UPDATE_PROPERTY_SHOP', 'ON_UPDATE_PROPERTY_SHOP');
+	addon:RegisterOpenOnlyMsg('PVP_PROPERTY_UPDATE', 'ON_UPDATE_PROPERTY_SHOP');
 end
 
 function PROPERTY_SHOP_DO_OPEN(frame, msg, shopName, argNum)
@@ -19,6 +20,10 @@ function ON_UPDATE_PROPERTY_SHOP(frame, msg, shopName, isSuccess)
 	end
 
 	if frame:IsVisible() == 1 then
+		if shopName == "None" then 
+			shopName = frame:GetUserValue("SHOPNAME");
+		end
+
 		OPEN_PROPERTY_SHOP(shopName);
 	end
 end
@@ -32,10 +37,26 @@ function PROPERTYSHOP_CLOSE(frame)
 	ui.CloseFrame('inventory');
 end
 
+function TOGGLE_PROPERTY_SHOP(shopName)
+	local frame = ui.GetFrame("propertyshop");
+	if frame:IsVisible() == 1 then
+		frame:ShowWindow(0);
+		return;
+	end
+
+	OPEN_PROPERTY_SHOP(shopName);
+end
+
 function OPEN_PROPERTY_SHOP(shopName)
 
 	local frame = ui.GetFrame("propertyshop");
 	frame:ShowWindow(1);
+
+	local bg = frame:GetChild("bg");
+	local t_totalprice = GET_CHILD(bg, "t_totalprice");
+	local t_mymoney = GET_CHILD(bg, "t_mymoney");
+	t_totalprice:SetTextByKey("text", ScpArgMsg("TotalBuyPoint"));
+	t_mymoney:SetTextByKey("text", ScpArgMsg("TotalHavePoint"));
 
 	local title = frame:GetChild("title");
 	title:SetTextByKey("value", ClMsg(shopName));
@@ -44,7 +65,6 @@ function OPEN_PROPERTY_SHOP(shopName)
 	frame:SetUserValue("SHOPNAME", shopName);
 	local shopInfo = gePropertyShop.Get(shopName);
 
-	local bg = frame:GetChild("bg");
 	local itemlist = GET_CHILD(bg, "itemlist");
 
 	itemlist:ClearBarInfo();
@@ -60,30 +80,65 @@ function OPEN_PROPERTY_SHOP(shopName)
 	local cnt = shopInfo:GetItemCount();
 	for i = 0 , cnt - 1 do
 		local itemInfo = shopInfo:GetItemByIndex(i);
-		local itemCls = GetClass("Item", itemInfo:GetItemName());
+		local itemName, itemCount, addText;
+		local scriptName = itemInfo:GetScriptName();
+		if scriptName == "None" then
+			itemName = itemInfo:GetItemName();
+			itemCount = itemInfo.count;
+		else
+			local func = _G[scriptName .."_GET_ITEM_C"];
+			itemName, itemCount, addText = func();
+		end
+
+		local itemCls = GetClass("Item", itemName);
 		local ctrlSet = INSERT_CONTROLSET_DETAIL_LIST(itemlist, i, 0, "propertyshop_item");
 		ctrlSet = tolua.cast(ctrlSet, "ui::CControlSet");
-		ctrlSet:EnableHitTestSet(1);
+		ctrlSet:EnableHitTestSet(0);
 		local pic = GET_CHILD(ctrlSet, "pic");
 		pic:SetImage(itemCls.Icon);
-		SET_ITEM_TOOLTIP_BY_TYPE(ctrlSet, itemCls.ClassID);
+		SET_ITEM_TOOLTIP_BY_TYPE(pic, itemCls.ClassID);
 		local count = ctrlSet:GetChild("count");
-		count:SetTextByKey("value", itemInfo.count);
+		count:SetTextByKey("value", itemCount);
 		local name = ctrlSet:GetChild("name");
-		name:SetTextByKey("value", itemCls.Name);
+		local nameText = itemCls.Name;
+		nameText = nameText .. " " .. itemCount .. " " .. ScpArgMsg("Piece");
 
-		INSERT_TEXT_DETAIL_LIST(itemlist, i, 1, itemBoxFont .. itemInfo.price);
+		if addText == nil then
+			addText = "";
+		end
+
+		if itemInfo.dailyBuyLimit > 0 then
+			if addText ~= "" then
+				addText = addText .. ", ";
+			end
+
+			addText = addText .. ScpArgMsg("BuyableCountPerDay_{Count}", "Count", itemInfo.dailyBuyLimit);
+		end
+
+		if addText ~= "" then
+			nameText = nameText .. " (" .. addText ..")";
+		end
+
+		name:SetTextByKey("value", nameText);
+		name:SetTextTooltip("{b}{s22}" .. nameText);
+
+		local priceTxt = GetCommaedText(itemInfo.price);
+		INSERT_TEXT_DETAIL_LIST(itemlist, i, 1, itemBoxFont .. priceTxt, nil, nil, priceTxt);
 
 		local numUpDown = INSERT_NUMUPDOWN_DETAIL_LIST(itemlist, i, 2, itemBoxFont .. "0");
+		if itemInfo.dailyBuyLimit > 0 then
+			numUpDown:SetMaxValue(itemInfo.dailyBuyLimit);
+		end
+
 		numUpDown:SetNumChangeScp("PROPERTYSHOP_CHANGE_COUNT");
 
 	end
 
 	itemlist:RealignItems();
 	PROPERTYSHOP_CHANGE_COUNT(frame);
-
+	
 	local t_mymoney = bg:GetChild("t_mymoney");
-	t_mymoney:SetTextByKey("value", GET_CASH_TOTAL_POINT_C());
+	t_mymoney:SetTextByKey("value", GET_PROPERTY_SHOP_MY_POINT(frame));
 
 end
 
@@ -92,7 +147,7 @@ function PROPERTY_SHOP_BUY(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local shopName = frame:GetUserValue("SHOPNAME");
 	local shopInfo = gePropertyShop.Get(shopName);
-	local myMoney = GET_CASH_TOTAL_POINT_C();
+	local myMoney = GET_PROPERTY_SHOP_MY_POINT(frame);
 
 	propertyShop.ClearPropertyShopInfo();
 
@@ -113,14 +168,14 @@ function PROPERTY_SHOP_BUY(parent, ctrl)
 
 	if totalPrice > myMoney then
 		ui.SysMsg(ClMsg("NotEnoughMoney"));
-		-- return;
+		return;
 	end
 
 	propertyShop.ReqBuyPropertyShopItem(shopName);
 
 	-- 연타 방지용 시간 제한 걸기
-	ReserveScript("REFRESH_PROPERTY_SHOP_BUY_BTN_SET_ENABLE()", 5);
-	ctrl:SetEnable(0)
+--	ReserveScript("REFRESH_PROPERTY_SHOP_BUY_BTN_SET_ENABLE()", 1);
+	-- ctrl:SetEnable(0)
 
 end
 
@@ -159,5 +214,12 @@ function PROPERTYSHOP_CHANGE_COUNT(parent)
 
 
 
+end
+
+function GET_PROPERTY_SHOP_MY_POINT(frame)
+	local shopName = frame:GetUserValue("SHOPNAME");
+	local shopInfo = gePropertyShop.Get(shopName);
+	local clientScp = _G[shopInfo:GetPointScript() .. "_C"];
+	return clientScp();
 end
 

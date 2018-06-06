@@ -76,11 +76,11 @@ function UPDATE_JOURNAL_ITEM_SUB(frame, strarg, itemType, arg2, ud, obj, monName
 	clickto:SetTextByKey("value", ClMsg("ClickToItemPage"));
 	        
 	local getCount = 0;
-	local wiki = session.GetWikiByName(monName);
+	local wiki = GetWikiByName(monName);
 	if wiki ~= nil then
-		local prop = FIND_WIKI_COUNT_PROP(wiki, "DropItem_", MAX_WIKI_MON_DROPITEM, itemType);
+		local prop, count = FIND_WIKI_COUNT_PROP(wiki, "DropItem_", MAX_WIKI_MON_DROPITEM, itemType);
 		if prop ~= nil then
-			getCount = prop.count;
+			getCount = count;
 		end
 	end
 
@@ -102,14 +102,14 @@ function UPDATE_ARTICLE_Monster(ctrlset)
 	local frame = ctrlset:GetTopParentFrame();
 
 	local classID = ctrlset:GetUserIValue("WIKI_TYPE");
-	local wiki = session.GetWiki(classID);
+	local wiki = GetWiki(classID);
 	local cls = GetClassByType("Wiki", classID);
 	local name = cls.ClassName;
 	local monCls = GetClass("Monster", cls.ClassName);
 	local monstername = monCls.Name;
 
-	local expProp = wiki:GetIntProp("Exp");
-	local jobExpProp = wiki:GetIntProp("JobExp");
+	local expProp = GetWikiIntProp(wiki, "Exp");
+	local jobExpProp = GetWikiIntProp(wiki, "JobExp");
 
 
 	local titleText = GET_CHILD(ctrlset, "name", "ui::CRichText");
@@ -122,19 +122,19 @@ function UPDATE_ARTICLE_Monster(ctrlset)
 	local icon = GET_CHILD(ctrlset, "icon", "ui::CPicture");
 	icon:SetImage(GET_MON_ILLUST(monCls));
 	icon:SetTooltipType("monster");
-	icon:SetTooltipArg(monCls.ClassName, expProp.propValue, jobExpProp.propValue);
+	icon:SetTooltipArg(monCls.ClassName, expProp, jobExpProp);
 	
 	icon:SetOverSound("button_over")
 	local items = GET_CHILD(ctrlset, "drop", "ui::CPage");
 	local index  = 1;
 	local itemTypeCount = 0;
 	while true do
-		local dropWikiProp = wiki:GetProp("DropItem_" .. index);
-		if dropWikiProp.propValue == 0 then
+		local dropWikiPropValue, count = GetWikiProp(wiki, "DropItem_" .. index);
+		if dropWikiPropValue == 0 then
 			break;
 		end
 
-		local item = GetClassByType("Item", dropWikiProp.propValue);
+		local item = GetClassByType("Item", dropWikiPropValue);
 		if item ~= nil then
 			local pic = items:CreateOrGetControl('picture', item.ClassName, 30, 30, ui.LEFT, ui.TOP, 0, 0, 0, 0)
 			tolua.cast(pic, 'ui::CPicture')				
@@ -159,14 +159,14 @@ function UPDATE_ARTICLE_Monster(ctrlset)
 	local itemcountText = GET_CHILD(ctrlset, "itemcount");
 	itemcountText:SetTextByKey("value", itemTypeCount);
 
-	local topAtkProp = GET_WIKI_MAX_RANKPROP(wiki, "TopAtk_", MAX_WIKI_TOPATTACK);
+	local topAtkPropValue, topAtkPropCount = GET_WIKI_MAX_RANKPROP(wiki, "TopAtk_", MAX_WIKI_TOPATTACK);
 	local skillicon = GET_CHILD(ctrlset, "skillicon");
 	local skillValue = GET_CHILD(ctrlset, "skillValue");
 	local skillName = GET_CHILD(ctrlset, "skillName");
-	if topAtkProp.propValue > 0 then
-		local sklCls = GetClassByType("Skill", topAtkProp.propValue);
+	if topAtkPropValue > 0 then
+		local sklCls = GetClassByType("Skill", topAtkPropValue);
 		skillName:SetTextByKey("value", sklCls.Name);
-		skillValue:SetTextByKey("value", "Damage " .. topAtkProp.count);
+		skillValue:SetTextByKey("value", "Damage " .. topAtkPropCount);
 		skillicon:SetImage("Icon_" .. sklCls.Icon);
 
 		skillValue:ShowWindow(1);
@@ -181,14 +181,6 @@ function UPDATE_ARTICLE_Monster(ctrlset)
 	local dateString = GET_WIKI_ELAPSED_DATE_STRING(wiki);
 	t_date:SetTextByKey("value", string.format("[%s]", dateString));
 
-	--[[
-	if wiki == nil then
-		SET_COLORTONE_RECURSIVE(ctrlset, frame:GetUserConfig("NOT_HAVE_WIKI"));
-	else
-		SET_COLORTONE_RECURSIVE(ctrlset, "FFFFFFFF");
-	end
-	]]
-
 end
 
 function JOURNAL_TO_ITEM_PAGE(parent, ctrl)
@@ -201,13 +193,24 @@ function JOURNAL_TO_ITEM_PAGE(parent, ctrl)
 	local itemCls = GetClassByType("Item", itemType);
 	input:SetText(itemCls.Name);
 
+	--[[
 	local type1 = GET_CHILD(ctrlset, "type1");
 	type1:SelectItem(0);
 	local type2 = GET_CHILD(ctrlset, "type2");
 	type2:SelectItem(0);
+	]]
+
+	local categoryGbox = GET_CHILD(ctrlset, "categoryGbox");
+	local tree = GET_CHILD(categoryGbox, "tree");
+	tree:CloseNodeAll();
+	local all = tree:FindByValue("Item#GroupName#All#ClassType");
+	tree:Select(all);
+	JOURNALTREE_CLICK(tree:GetParent(), tree);
 
 	JOURNAL_OPEN_ITEM_ARTICLE(frame);
-	JOURNAL_UPDATE_LIST_RENEW(itemGBox);
+	
+	
+	--JOURNAL_UPDATE_LIST_RENEW(itemGBox);
 
 end
 

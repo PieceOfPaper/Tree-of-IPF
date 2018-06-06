@@ -449,7 +449,7 @@ function GET_SHOP_ITEM_MY_CNT(shopItem)
 
 		return item.count;
 	elseif shopItem:GetIDSpace() == "Wiki" then
-		local wiki = session.GetWiki(shopItem.type);
+		local wiki = GetWiki(shopItem.type);
 		if wiki == nil then
 			return 0;
 		end

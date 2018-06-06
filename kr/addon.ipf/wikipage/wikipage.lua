@@ -208,7 +208,7 @@ function WIKIPAGE_MONSTER(frame, cls, sameWiki)
 	end
 
 
-	local wiki = session.GetWiki(wikiType);
+	local wiki = GetWiki(wikiType);
 	if wiki == nil then
 		desc:SetText(cls.Desc);
 		return;
@@ -306,7 +306,7 @@ function WIKIPAGE_ITEM_1(frame, cls, sameWiki)
 
 	txt = txt .. cls.Desc;
 
-	local wiki = session.GetWiki(wikiType);
+	local wiki = GetWiki(wikiType);
 	if wiki == nil then
 		desc:SetText(txt);
 		return;
@@ -397,28 +397,6 @@ function WIKIPAGE_TROPHY_SLOT_LBTNUP(frame, slot, argStr, argNum)
 	WIKIPAGE_ALL_TROPHY_VIEW = 0;
 	UPDATE_WIKIPAGE_FRAME(frame, argNum);
 end
-function GET_WIKIPAGE_SORT_LIST(wiki, nameHead, maxCnt, sortList)
-	local tmpList = {};
-	local idx = 1;
-		for i = 1 , maxCnt do
-		local propName = nameHead .. i;
-		local prop = wiki:GetProp(propName);
-		if prop.propValue > 0 then
-			tmpList[idx] = prop;
-			idx = idx + 1;
-		end
-	end
-
-	if idx == 1 then
-		return;
-	end
-
-	for i = 1, idx - 1 do
-		sortList[i] = GET_MAXPROP_FROM_LIST(tmpList);
-	end
-
-end
-
 
 --[[
 struct WIKIPAGE_RANK_INFO_INT
@@ -431,7 +409,7 @@ struct WIKIPAGE_RANK_INFO_INT
 
 function GET_WIKIPAGE_INTPROP_TXT(frame, wiki, propName, msgTxt, rankList)
 
-	local cnt = wiki:GetIntProp(propName).propValue;
+	local cnt = GetWikiIntProp(wiki, propName);
 	if cnt == 0 then
 		return "";
 	end
@@ -442,13 +420,13 @@ function GET_WIKIPAGE_INTPROP_TXT(frame, wiki, propName, msgTxt, rankList)
 		return txt;
 	end
 
-	local propType = wiki:NameToType_Int(propName);
+	local propType = WikiNameToType_Int(wiki, propName);
 	local rankInfo = GET_FIRST_RANK_INFO(rankList, propType);
 	if rankInfo == nil then
 		return txt;
 	end
 
-	local linkScp = string.format( "{a #WIKIPAGE_TOOLTIP_INT %s %d}", "None", wiki:GetType() * 1000 +  propType);
+	local linkScp = string.format( "{a #WIKIPAGE_TOOLTIP_INT %s %d}", "None", GetWikiType(wiki) * 1000 +  propType);
 	local topTxt = string.format("{s%d}%s%s 1%s - %s : %d{/}{/}{/}{/}", WIKIPAGE_RANKER_SIZE, WIKIPAGE_RANKER_COLOR, linkScp, ClientMsg(20034), rankInfo.charName, rankInfo.count);
 	return txt .. " " .. topTxt;
 end
@@ -465,25 +443,6 @@ function GET_FIRST_RANK_INFO(rankList, propType)
 
 	return sortList:PtrAt(0);
 end
-
-function GET_MAXPROP_FROM_LIST(tmpList)
-
-	local maxIdx = -1;
-	local maxProp = nil;
-	local cnt = #tmpList;
-	for i = 1 , cnt do
-		local prop = tmpList[i];
-		if prop ~= nil and (maxProp == nil or prop.count > maxProp.count) then
-			maxIdx = i;
-			maxProp = prop;
-		end
-	end
-
-	tmpList[maxIdx] = nil;
-	return maxProp;
-
-end
-
 
 function GET_WIKIPAGE_SORT_PROP_TXT(frame, wiki, msg, nameHead, maxCnt, getFunc, rankList)
 
@@ -507,13 +466,13 @@ function GET_WIKIPAGE_SORT_PROP_TXT(frame, wiki, msg, nameHead, maxCnt, getFunc,
 	end
 
 	local firstPropName = nameHead .. "1";
-	local propType = wiki:NameToType(firstPropName);
+	local propType = WikiNameToType(wiki, firstPropName);
 	local rankInfo = GET_FIRST_RANK_INFO(rankList, propType);
 	if rankInfo == nil then
 		return txt;
 	end
 
-	local linkScp = string.format( "{a #WIKIPAGE_TOOLTIP_PAIR %s %d}", getFunc, wiki:GetType() * 1000 + propType);
+	local linkScp = string.format( "{a #WIKIPAGE_TOOLTIP_PAIR %s %d}", getFunc, GetWikiType(wiki) * 1000 + propType);
 
 	local rankTxt = func(frame, rankInfo);
 	rankTxt = string.sub(rankTxt, 5, string.len(rankTxt));
@@ -704,7 +663,7 @@ function UPDATE_WIKIPAGE_TOOLTIP(frame, funcName, datatype, typeInt)
 	local wikiType = math.floor(typeInt / 1000);
 	local propType = typeInt % 1000;
 
-	local wiki = session.GetWiki(wikiType);
+	local wiki = session.etWiki(wikiType);
 	if wiki == nil then
 		frame:ShowWindow(0);
 		return;

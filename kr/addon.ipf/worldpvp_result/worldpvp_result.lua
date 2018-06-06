@@ -64,19 +64,19 @@ function WORLDPVP_RESULT_UI(argStr)
 		local gbox = frame:GetChild("gbox_" .. i);
 		local gbox_char = gbox:GetChild("gbox_char");
 		gbox_char:RemoveAllChild();
-		local wintext = gbox:GetChild("wintext");
+		local result = GET_CHILD(frame, "result_" ..i);
 
 		if winTeam == i then
-			wintext:SetTextByKey("value", "{@st63_green}WIN");
+			result:SetImage("test_pvp_win");
 		else
-			wintext:SetTextByKey("value", "{@st63_red}LOSE");
+			result:SetImage("test_pvp_lose");
 		end
 	end
 
 	local mvpChar = nil;
 	local mvpTeam = nil;
 	local maxScore = -1;
-	local tokenPerChar = 9;
+	local tokenPerChar = 11;
 	local startIndex = 2;
 	local charCount = (#stringList - startIndex) / tokenPerChar;
 	local lastTeam = -1;
@@ -84,13 +84,15 @@ function WORLDPVP_RESULT_UI(argStr)
 		local indexBase = i * tokenPerChar + startIndex;
 		local aid = stringList[indexBase + 1];
 		local teamID = stringList[indexBase + 2];
-		local iconStr = stringList[indexBase + 3];
-		local famName = stringList[indexBase + 4];
-		local charName = stringList[indexBase + 5];
-		local killCnt = stringList[indexBase + 6];
-		local deathCnt = stringList[indexBase + 7];
-		local dealAmount = tonumber(stringList[indexBase + 8]);
-		local skillDeals = stringList[indexBase + 9];
+		local remainPoint = tonumber(stringList[indexBase + 3]);
+		local isConnected = stringList[indexBase + 4];
+		local iconStr = stringList[indexBase + 5];
+		local famName = stringList[indexBase + 6];
+		local charName = stringList[indexBase + 7];
+		local killCnt = stringList[indexBase + 8];
+		local deathCnt = stringList[indexBase + 9];
+		local dealAmount = tonumber(stringList[indexBase + 10]);
+		local skillDeals = stringList[indexBase + 11];
 		
 		local iconInfo = ui.GetPCIconInfoByString(iconStr);
 		local iconName = ui.CaptureModelHeadImage_IconInfo(iconInfo);
@@ -109,6 +111,17 @@ function WORLDPVP_RESULT_UI(argStr)
 		txt_kill:SetTextByKey("value", killCnt);
 		local txt_death = GET_CHILD(ctrlSet, "txt_death");
 		txt_death:SetTextByKey("value", deathCnt);
+		local txt_getpoint = GET_CHILD(ctrlSet, "txt_getpoint");
+		if isConnected == "0"then
+			txt_getpoint:SetTextByKey("value", 0);
+		else
+			if winTeam == tonumber(teamID) then
+				txt_getpoint:SetTextByKey("value", math.min(WORLDPVP_WIN_GET_POINT));
+			else
+				txt_getpoint:SetTextByKey("value", math.min(WORLDPVP_LOSE_GET_POINT));
+			end
+		end
+
 		local txt_dealmount = GET_CHILD(ctrlSet, "txt_dealmount");
 		txt_dealmount:SetTextByKey("value", "{#FF1111}" .. dealAmount);
 

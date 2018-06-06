@@ -272,14 +272,14 @@ function SCR_Get_MINPATK(self)
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MINATK');
 	local leftMinAtk = 0;
 	
-	if GetEquipItem(self, 'LH') ~= nil then
-    	leftHand = GetEquipItem(self, 'LH');
+	if GetEquipItemForPropCalc(self, 'LH') ~= nil then
+    	leftHand = GetEquipItemForPropCalc(self, 'LH');
     	leftMinAtk = leftHand.MINATK;
     end
     
     local throwItemMinAtk = 0;
-	if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and GetEquipItem(self, 'RH') ~= nil then
-    	rightHand = GetEquipItem(self, 'RH');
+	if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and GetEquipItemForPropCalc(self, 'RH') ~= nil then
+    	rightHand = GetEquipItemForPropCalc(self, 'RH');
     	throwItemMinAtk = rightHand.MINATK;
     end
     
@@ -300,14 +300,14 @@ function SCR_Get_MAXPATK(self)
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MAXATK');
     local leftMaxAtk = 0;
 	
-	if GetEquipItem(self, 'LH') ~= nil then
-    	leftHand = GetEquipItem(self, 'LH');
+	if GetEquipItemForPropCalc(self, 'LH') ~= nil then
+    	leftHand = GetEquipItemForPropCalc(self, 'LH');
     	leftMaxAtk = leftHand.MAXATK;
     end
     
     local throwItemMaxAtk = 0;
-	if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and GetEquipItem(self, 'RH') ~= nil then
-    	rightHand = GetEquipItem(self, 'RH');
+	if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and GetEquipItemForPropCalc(self, 'RH') ~= nil then
+    	rightHand = GetEquipItemForPropCalc(self, 'RH');
     	throwItemMaxAtk = rightHand.MAXATK;
     end
 	
@@ -327,8 +327,8 @@ function SCR_Get_MINPATK_SUB(self)
 	local byItem2 = GetSumOfEquipItem(self, 'PATK');
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MINATK');
 	local rightMinAtk = 0;
-	if GetEquipItem(self, 'RH') ~= nil then
-    	rightHand = GetEquipItem(self, 'RH');
+	if GetEquipItemForPropCalc(self, 'RH') ~= nil then
+    	rightHand = GetEquipItemForPropCalc(self, 'RH');
     	rightMinAtk = rightHand.MINATK;
     end
 	
@@ -348,8 +348,8 @@ function SCR_Get_MAXPATK_SUB(self)
 	local byItem2 = GetSumOfEquipItem(self, 'PATK');
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MAXATK');
 	local rightMaxAtk = 0;
-	if GetEquipItem(self, 'RH') ~= nil then
-    	rightHand = GetEquipItem(self, 'RH');
+	if GetEquipItemForPropCalc(self, 'RH') ~= nil then
+    	rightHand = GetEquipItemForPropCalc(self, 'RH');
     	rightMaxAtk = rightHand.MAXATK;
     end
 	
@@ -403,8 +403,8 @@ function SCR_Get_DEF(self)
 	end
 	
 	local throwItemDef = 0;
-	if IsBuffApplied(self, 'Warrior_LH_VisibleObject') == 'YES' and GetEquipItem(self, 'LH') ~= nil then
-    	leftHand = GetEquipItem(self, 'LH');
+	if IsBuffApplied(self, 'Warrior_LH_VisibleObject') == 'YES' and GetEquipItemForPropCalc(self, 'LH') ~= nil then
+    	leftHand = GetEquipItemForPropCalc(self, 'LH');
         throwItemDef = leftHand.DEF
     end	
     
@@ -865,8 +865,8 @@ end
 function SCR_Get_MinR(self)
 
 	local value = 0;
-	rweapon = GetEquipItem(self, 'RH');
-	lweapon = GetEquipItem(self, 'LH');
+	rweapon = GetEquipItemForPropCalc(self, 'RH');
+	lweapon = GetEquipItemForPropCalc(self, 'LH');
 	stance = GetCurrentStance(self);
 	if stance.ClassType == 'Force' then
 		value = 0;
@@ -877,7 +877,7 @@ end
 function SCR_Get_MaxR(self)
 
 	local value = 5;
-	rweapon = GetEquipItem(self, 'RH');
+	rweapon = GetEquipItemForPropCalc(self, 'RH');
 	stance = GetCurrentStance(self);
 	if stance.ClassType == 'Force' then
 		value = 300;
@@ -1113,7 +1113,7 @@ end
 
 function SCR_Get_PC_HitCount(pc)
 
-	local RH = GetEquipItem(pc, 'RH');
+	local RH = GetEquipItemForPropCalc(pc, 'RH');
 	return RH.HitCount;
 
 end
@@ -1178,9 +1178,9 @@ end
 
 
 function SCR_GET_PC_GUARDABLE(pc)
-	local rItem  = GetEquipItem(pc, 'RH');
-	local lItem  = GetEquipItem(pc, 'LH');
-	if lItem.LHandSkill ~= "None" then	
+	local rItem  = GetEquipItemForPropCalc(pc, 'RH');
+	local lItem  = GetEquipItemForPropCalc(pc, 'LH');
+	if lItem ~= nil and lItem.LHandSkill ~= "None" then	
 		return 0;
 	end
 	
@@ -1191,7 +1191,7 @@ function SCR_GET_PC_GUARDABLE(pc)
 	--	return 1;
 	--end
 	
-	if pelGuard ~= nil and lItem.ClassType == "Shield" then	
+	if pelGuard ~= nil and (lItem ~= nil and lItem.ClassType == "Shield") then	
 		return 1; 
 	end
 
@@ -1587,7 +1587,7 @@ end
 
 function GET_ArmorMaterial_ID(self)
 	
-	local equipbodyItem		= GetEquipItem(self, 'SHIRT');
+	local equipbodyItem		= GetEquipItemForPropCalc(self, 'SHIRT');
 	armorMaterial			= equipbodyItem.Material;
 	
 	if armorMaterial == 'Cloth' then

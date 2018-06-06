@@ -58,6 +58,7 @@
 		<Code Code="ERRCODE_LOGIC_TX_FAIL" CallStack="NO" Desc="트랜잭션 수행을 실패"/>
 		<Code Code="ERRCODE_LOGIC_STD_EXCEPTION" CallStack="NO" Desc="std::exception이 발생"/>
 		<Code Code="ERRCODE_LOGIC_FREEMEDAL_TIME" CallStack="NO" Desc="Medal충전이 필요한 상태이지만 충전시간이 셋팅되어있지 않습니다. 2시간뒤로 다시 셋팅합니다."/>
+    <Code Code="ERRCODE_LOGIC_IDSPACE_INIT_ERROR" CallStack="YES" Desc="XML에서 IDSpace를 초기화 하는데 실패했습니다."/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>

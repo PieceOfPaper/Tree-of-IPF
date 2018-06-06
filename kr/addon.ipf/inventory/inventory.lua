@@ -1637,7 +1637,7 @@ end
 
 function INVENTORY_OP_POP(frame, slot, str, num)
 	local itemProp = GET_SLOT_PROP(slot);
-	if itemProp.dragRecipe == nil or session.GetWiki(itemProp.dragRecipe.needWikiID) == nil then
+	if itemProp.dragRecipe == nil or GetWiki(itemProp.dragRecipe.needWikiID) == nil then
 		return;
 	end
 
@@ -1730,7 +1730,7 @@ function UPDATE_SLOT_RECIPE_BLINK(frame, slot, invItem)
 	-- DROPSCP <-> LIFTICON = NULL 순서를 변경 하는 옵션이 있으면 예외처리가 없어도됨
 	local recipeProp = invItem.prop.dragRecipe;
 	if recipeProp ~= nil then
-		if session.GetWiki(recipeProp.needWikiID) == nil then
+		if GetWiki(recipeProp.needWikiID) == nil then
 			return;
 		end
 	end

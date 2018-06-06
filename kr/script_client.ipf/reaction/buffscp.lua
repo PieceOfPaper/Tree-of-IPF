@@ -293,6 +293,10 @@ end
 
 function Proliferation_ENTER(actor, obj, buff)
 
+	if pc.IsBuffApplied(actor, "Thurisaz_Buff") == 1 then
+		return;
+	end
+
 	actor:SetNodeScale("Bip01 L Hand", 2.0)
 	actor:SetNodeScale("Dummy_L_HAND", 1.0)
 	-- imcSound.PlaySoundItem(cls.Sound);
@@ -308,7 +312,11 @@ function Proliferation_LEAVE(actor, obj, buff)
 end
 
 function ProliferationRH_ENTER(actor, obj, buff)
-
+	--DumpCPP()
+	if pc.IsBuffApplied(actor, "Thurisaz_Buff") == 1 then
+		return;
+	end
+		
 	actor:SetNodeScale("Bip01 R Hand", 2.0)
 	actor:SetNodeScale("Dummy_R_HAND", 1.0)
 	-- imcSound.PlaySoundItem(cls.Sound);
@@ -745,6 +753,7 @@ end
 
 function IMPALER_STUN_ANI_LEAVE(actor, obj, buff)
 	actor:GetAnimation():ResetSTDAnim();
+	actor:GetAnimation():PlayFixAnim("ASTD", 1.0, 0);
 end
 
 

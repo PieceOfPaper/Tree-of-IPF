@@ -35,6 +35,10 @@ end
 
 function SHOW_PC_CONTEXT_MENU(handle)
 
+	if world.IsPVPMap() == true then
+		return;
+	end
+
 	local targetInfo= info.GetTargetInfo(handle);
 	if targetInfo.IsDummyPC == 1 then
 		if targetInfo.isSkillObj == 0 then --유체이탈은 클릭해도 아무반응 없도록 한다.
@@ -131,12 +135,27 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			ui.AddContextMenuItem(context, ScpArgMsg("ReqLikeIt"), strRequestLikeItScp);
 		end
 
+		-- 보호모드, 강제킥
+		if 1 == session.IsGM() then
+			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Protected"), string.format("REQUEST_GM_ORDER_PROTECTED(\"%d\")", pcObj:GetHandleVal()));
+			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Kick"), string.format("REQUEST_GM_ORDER_KICK(\"%d\")", pcObj:GetHandleVal()));
+		end
+
+
 		ui.AddContextMenuItem(context, ClMsg("Cancel"), "None");
 		ui.OpenContextMenu(context);
 		return  context;
 	end
 
 
+end
+
+function REQUEST_GM_ORDER_PROTECTED(handle)
+	packet.RequestGmOrderMsg(handle, 'protected');
+end
+
+function REQUEST_GM_ORDER_KICK(handle)
+	packet.RequestGmOrderMsg(handle, 'kick');
 end
 
 function REQUEST_FIGHT(handle)

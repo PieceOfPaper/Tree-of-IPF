@@ -59,8 +59,8 @@ function GET_QUEST_RET_POS(pc, questIES, inputNpcState)
 end
 
 function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC(pc)
-    local itemList = DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
-    if #itemList > 0 then
+    local itemList, monList = DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
+    if #itemList > 0 or #monList > 0 then
         return 'YES'
     end
     return 'NO'
@@ -73,6 +73,7 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
     local zoneClassNameList = {}
     local class_count = GetClassCount('Map')
     local itemList = {}
+    local monList = {}
     
     for i = 0, class_count -1 do
         local mapIES = GetClassByIndex('Map', i)
@@ -102,25 +103,35 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
                                 local itemIES = GetClass('Item', dropIES.ItemClassName)
                                 if itemIES ~= nil then
                                     if itemIES.ItemType == 'Etc' and itemIES.GroupName == 'Material' then
-                                        local basicTime = 30
-                                        local genTiem = 2
-                                        local maxPop = targetMonList[i][2]
-                                        local ratio = dropIES.DropRatio / 10000
-                                        local anotherPC = 5
-                                        if dropIES.DPK_Min > 0 and dropIES.DPK_Max > 0 then
-                                            ratio = 1/((dropIES.DPK_Min + dropIES.DPK_Max)/2) * ratio
+                                        local flag = false
+                                        for index = 1, #itemList do
+                                            if itemList[index][1] == dropIES.ItemClassName then
+                                                flag = true
+                                                break
+                                            end
                                         end
-                                        local maxMonCount =  basicTime / genTiem * maxPop
-                                        local maxDropCount =  math.floor(maxMonCount * ratio / anotherPC)
-                                        if maxDropCount > 1 then
-                                            maxDropCount = math.floor(maxDropCount/2)
-                                        end
-                                        if maxDropCount > 0 then
-                                            accMax = accMax + maxDropCount
-                                            itemList[#itemList + 1] = {}
-                                            itemList[#itemList][1] = dropIES.ItemClassName
-                                            itemList[#itemList][2] = maxDropCount
-                                            itemList[#itemList][3] = targetZone
+                                        
+                                        if flag == false then
+                                            local basicTime = 30
+                                            local genTiem = 2
+                                            local maxPop = targetMonList[i][2]
+                                            local ratio = dropIES.DropRatio / 10000
+                                            local anotherPC = 5
+                                            if dropIES.DPK_Min > 0 and dropIES.DPK_Max > 0 then
+                                                ratio = 1/((dropIES.DPK_Min + dropIES.DPK_Max)/2) * ratio
+                                            end
+                                            local maxMonCount =  basicTime / genTiem * maxPop
+                                            local maxDropCount =  math.floor(maxMonCount * ratio / anotherPC)
+                                            if maxDropCount > 1 then
+                                                maxDropCount = math.floor(maxDropCount/2)
+                                            end
+                                            if maxDropCount > 0 then
+                                                accMax = accMax + maxDropCount
+                                                itemList[#itemList + 1] = {}
+                                                itemList[#itemList][1] = dropIES.ItemClassName
+                                                itemList[#itemList][2] = maxDropCount
+                                                itemList[#itemList][3] = targetZone
+                                            end
                                         end
                                     end
                                 end
@@ -131,7 +142,43 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
             end
         end
     end
-    return itemList
+    
+    
+    
+    if #zoneClassNameList > 0 then
+        for y = 1, #zoneClassNameList do
+            local targetZone = zoneClassNameList[y]
+            local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(targetZone, 'Monster', 'Normal/Material/Elite')
+            local accMax = 0
+            if #targetMonList > 0 then
+                for i = 1, #targetMonList do
+                    local basicTime = 30
+                    local genTiem = 2
+                    local maxPop = targetMonList[i][2]
+                    local anotherPC = 7
+                    local maxMonCount =  basicTime / genTiem * maxPop
+                    local killCount =  math.floor(maxMonCount / anotherPC)
+                    
+--                    if killCount >= 140 then
+--                        killCount = 139
+--                    elseif killCount >= 100 then
+--                        killCount = math.floor(killCount * 0.7)
+--                    elseif killCount >= 50 then
+--                        killCount = math.floor(killCount * 0.8)
+--                    end
+                    
+                    if killCount > 0 and killCount < 110 then
+                        monList[#monList + 1] = {}
+                        monList[#monList][1] = targetMonList[i][1]
+                        monList[#monList][2] = killCount
+                        monList[#monList][3] = targetZone
+                    end
+                end
+            end
+        end
+    end
+    
+    return itemList, monList
 end
 
 
@@ -328,9 +375,7 @@ function SCR_QUEST_REASON_TXT(pc, questIES, quest_reason)
             for i = 1, 4 do
                 local flag = false
                 if questIES['InvItemCount'..i] == 0 then
-                    if GetInvItemCount(pc, questIES['InvItemName'..i]) == 0 then
-                        flag = true
-                    end
+                    flag = true
                 else
                     if GetInvItemCount(pc, questIES['InvItemName'..i]) >= questIES['InvItemCount'..i] then
                         flag = true

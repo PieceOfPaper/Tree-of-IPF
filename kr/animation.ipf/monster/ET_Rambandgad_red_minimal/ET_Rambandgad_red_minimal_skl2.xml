@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="70" attachNode="Dummy_effect_skl2" particleName="I_laser015_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Dummy_emitter" particleName="E_rambandgad_skl2_laserground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Dummy_emitter" particleName="E_rambandgad_skl2_laserground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Dummy_emitter" particleName="E_rambandgad_skl2_laserground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="100" attachNode="Dummy_emitter" particleName="E_rambandgad_skl2_laserground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="5.00" soundFile="mon_tomblord_skl_3"/>
+	<Sound frame="63.00" soundFile="skl_eff_oobe_shot_explosion"/>
+</ActionDesc>

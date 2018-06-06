@@ -160,7 +160,7 @@ function SET_CRAFT_IDSPACE(frame, idSpace, arg1, arg2)
 end
 
 function CRAFT_CHECK_Recipe(cls, arg1, arg2)
-	if cls.NeedWiki == 0 or session.GetWikiByName(cls.ClassName) ~= nil then
+	if cls.NeedWiki == 0 or GetWikiByName(cls.ClassName) ~= nil then
 		return true;
 	end
 
@@ -1265,7 +1265,7 @@ function INV_CRAFT_CHECK()
 			local recipeCls = GetClass('Recipe', invItem.ClassName);
 			if recipeCls ~= nil then
 				-- 세션에 등록안되어있다면 서버에 갱신 한번 하라고 패킷보내주기
-				if session.GetWikiByName(invItem.ClassName) == nil then
+				if GetWikiByName(invItem.ClassName) == nil then
 					packet.ReqWikiRecipeUpdate();
 					return;
 				end

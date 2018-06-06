@@ -413,7 +413,7 @@ function BUFF_TIME_UPDATE(handle, buff_ui)
 					local buffIndex = icon:GetUserIValue("BuffIndex");
     				local buff = info.GetBuff(handle, iconInfo.type, buffIndex);
     				if buff ~= nil then
-    					SET_BUFF_TIME_TO_TEXT(text, buff.time, buff.buffID);
+    					SET_BUFF_TIME_TO_TEXT(text, buff.time);
     					updated = 1;
     
     					if buff.time < 5000 and buff.time ~= 0.0 then
@@ -489,3 +489,15 @@ function GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESList, questPro
 	end
 
 end
+
+function GET_JOB_ICON(job)
+
+	local cls = GetClassByType("Job", job);
+	if cls == nil then
+		return "None";
+	end
+
+	return cls.Icon;
+
+end
+

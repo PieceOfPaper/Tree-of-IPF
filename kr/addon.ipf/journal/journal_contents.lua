@@ -170,7 +170,7 @@ end
 function JOURNAL_CONTENTS_MGAME(frame, group)
 	local pc = GetMyPCObject();
 	local point = session.GetMyWikiScore(WIKI_MGAME);
-	local haveCnt = session.GetWikiListByCategory("MGame"):Count();
+	local haveCnt = GetWikiListCountByCategory("MGame");
 	local dd = ScpArgMsg("Clear_Mission{Auto_1}", "Auto_1", haveCnt);
 	JOURNAL_CREATE_CONTENTS(frame, group, "mission", point, ClMsg("Mission"), ScpArgMsg("Clear_Mission{Auto_1}", "Auto_1", haveCnt), 100);
 	return point;

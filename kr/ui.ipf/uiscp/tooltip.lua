@@ -16,14 +16,14 @@ function UPDATE_MONSTER_TOOLTIP(frame, monName)
 	local attrText = ClMsg("Attribute") .. " {img " .. "attri_" ..monCls.Attribute .. " 32 32}";
 	attr:SetTextByKey("value", attrText);
 	
-	local wiki = session.GetWikiByName(monName);
+	local wiki = GetWikiByName(monName);
 	local t_exp = GET_CHILD(frame, "t_exp");
 	if wiki == nil then
 		t_exp:ShowWindow(0);	
 	else
 		t_exp:ShowWindow(1);
-		t_exp:SetTextByKey("exp", wiki:GetIntProp("Exp").propValue);
-		t_exp:SetTextByKey("jobexp", wiki:GetIntProp("JobExp").propValue);
+		t_exp:SetTextByKey("exp", GetWikiIntProp(wiki, "Exp"));
+		t_exp:SetTextByKey("jobexp", GetWikiIntProp(wiki, "JobExp"));
 	end	
 	
 	local t_desc = GET_CHILD(frame, "t_desc");
@@ -426,8 +426,8 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj, no
 	local translatedData = dictionary.ReplaceDicIDInCompStr(obj.Name);
 	if obj.EngName ~= translatedData then
 		if config.GetServiceNation() ~= "GLOBAL" then
-		nameText = nameText .. "{/}{nl}" .. obj.EngName;
-	end
+			nameText = nameText .. "{/}{nl}" .. obj.EngName;
+		end
 	end
 
 	name:SetText(nameText);
@@ -498,7 +498,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj, no
 		skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
 		lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
 		if lvDescStart ~= nil then
-		
+	
 			local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);
 			skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + 2	, string.len(skillLvDesc));
 			ypos = SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, lvDesc, ypos, originalText);
@@ -522,7 +522,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj, no
 	
 	elseif lvDescStart ~= nil and totalLevel ~= 0 then
 		skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
-		
+
 		while 1 do
 
 			local levelvalue = 2
@@ -545,7 +545,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj, no
 			lv = lv + 1;
 		end
 	end
-
+	
 	local noTrade = GET_CHILD(frame, "trade_text", "ui::CRichText");
 	if 0 <= noTradeCnt then
 		noTrade:SetTextByKey('count', noTradeCnt);
@@ -583,7 +583,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj, no
 			end
 		end
 	end
-	
+
 	-- 1~maxLevel까지 모든 caption을 한번에 가져오면 버퍼사이즈 넘어서 클라다운됨. 필요한거 2개만 가져오도록 함.
 	if curLv ~= nil then
 		if curLv == 0 then
@@ -635,11 +635,11 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj, no
 	if totalLevel == lv then
 		lvDescCtrlSet:SetDraw(1);
 		lvText:SetText(LEVEL_FONTNAME..ScpArgMsg("Level{Level}","Level",lv));
-		descText:SetText(DESC_FONTNAME.. desc);
+		descText:SetText(DESC_FONTNAME..desc);
 	else
 		lvDescCtrlSet:SetDraw(0);
 		lvText:SetText(LEVEL_NEXTLV_FONTNAME..ScpArgMsg("Level{Level}","Level",lv));
-		descText:SetText(DESC_NEXTLV_FONTNAME.. desc);
+		descText:SetText(DESC_NEXTLV_FONTNAME..desc);
 	end
 
 	lvDescCtrlSet:Resize(frame:GetWidth()-120, descText:GetY()+descText:GetHeight() + 15);

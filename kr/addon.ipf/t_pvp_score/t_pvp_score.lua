@@ -68,22 +68,35 @@ end
 
 function _T_PVP_UPDATE_GAUGE(gauge, teamID)
 	
-	local avg = 0;
 	local teamInfo = session.mission.GetTeam(teamID);
+	if teamInfo == nil then
+		gauge:SetPoint(1, 1);
+		return;
+	end
+
+	local maxPoint = 0;
+	local totalPoint = 0;
 	if teamInfo ~= nil then
 		local teamList = teamInfo:GetPCList();
 		local cnt = teamList:size();
 		for i = 0 , cnt - 1 do
 			local pcInfo = teamList:at(i);
-			local percent = pcInfo.hp / pcInfo.mhp;
-			avg = avg + ((percent - avg) / (i + 1));
+			local percent = pcInfo.hp * 100 / pcInfo.mhp;
+			totalPoint = totalPoint + percent;
+			maxPoint = maxPoint + 100;
 		end
 	end
 
+	if maxPoint == 0 then
+		gauge:SetPoint(1, 1);
+		return;
+	end
+
+	gauge:SetMaxPoint(maxPoint);
 	local cur = gauge:GetDestPoint();
-	if cur ~= avg then
-		gauge:SetPointWithTime(avg, 0.25, 0.5);
-		if cur > avg then
+	if cur ~= totalPoint then
+		gauge:SetPointWithTime(totalPoint, 0.25, 0.5);
+		if cur > totalPoint then
 			UI_PLAYFORCE(gauge, "gauge_damage");
 		end
 	end

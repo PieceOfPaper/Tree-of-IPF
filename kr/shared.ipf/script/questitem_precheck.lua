@@ -835,7 +835,8 @@ function SCR_PRE_KEY_OF_LEGEND_01(self, argstring, argnum1, argnum2)
 --            end
 --        end
     elseif PC_zone == 'f_siauliai_west' or
-            PC_zone == 'f_pilgrimroad_52' then
+            PC_zone == 'f_pilgrimroad_52' or
+            PC_zone == 'd_velniasprison_51_4' then
 
         if GetLayer(self) == 0 then
 --            if result1 == "PROGRESS" or result2 == "PROGRESS" then
@@ -2966,6 +2967,78 @@ end
 function SCR_PRE_JOB_SHINOBI_HIDDEN_ITEM_5(self, argstring, argnum1, argnum2)
     return 1;
 end
+
+
+
+--HIDDEN_RUNECASTER_ITEM_1
+function SCR_PRE_HIDDEN_RUNECASTER_ITEM_1(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+        return 1;
+    end
+    return 0
+end
+
+
+
+--HIDDEN_RUNECASTER_ITEM_2
+function SCR_PRE_HIDDEN_RUNECASTER_ITEM_2(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+        return 1;
+    end
+    return 0
+end
+
+
+
+--HIDDEN_RUNECASTER_ITEM_3
+function SCR_PRE_HIDDEN_RUNECASTER_ITEM_3(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+        return 1;
+    end
+    return 0
+end
+
+
+
+--HIDDEN_RUNECASTER_ITEM_4
+function SCR_PRE_HIDDEN_RUNECASTER_ITEM_4(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+        return 1;
+    end
+    return 0
+end
+
+
+
+--HIDDEN_RUNECASTER_ITEM_5
+function SCR_PRE_HIDDEN_RUNECASTER_ITEM_5(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+        return 1;
+    end
+    return 0
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

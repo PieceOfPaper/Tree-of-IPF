@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_tail" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Dummy_effect_tail" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="35" attachNode="Dummy_effect_tail" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Dummy_effect_tail" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_head" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Dummy_effect_head" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="35" attachNode="Dummy_effect_head" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Dummy_effect_head" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="51" attachNode="Dummy_emitter2" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="51" attachNode="Dummy_emitter2" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="51" attachNode="Dummy_effect_atk" particleName="F_explosion070_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="8" attachNode="Dummy_effect_breath2" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Dummy_effect_breath2" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Dummy_effect_breath2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="7.00" soundFile="mon_grinender_skl_1"/>
+	<Sound frame="37.00" soundFile="mon_voice_onion_the_great_3"/>
+	<Sound frame="39.00" soundFile="skl_eff_atk_move_l_13"/>
+</ActionDesc>

@@ -78,7 +78,7 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 	local mintext = effectBox:GetChild("minpowerstr");
 	local timestr = effectBox:GetChild("timestr");
 
-	if obj.GroupName == "Weapon" then
+	if obj.GroupName == "Weapon" or obj.GroupName == "SubWeapon" then
 		if obj.BasicTooltipProp == "ATK" then -- 최대, 최소 공격력
 			maxtext:SetTextByKey("txt", obj.MAXATK .." > ".. nextObj.MAXATK);
 			mintext:SetTextByKey("txt", obj.MINATK .." > ".. nextObj.MINATK);

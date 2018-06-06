@@ -13,7 +13,7 @@ function REINFORCE_ABLE_131014(item)
 	return 1;
 end
 
-function GET_REINFORCE_131014_PRICE(fromItem)
+function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
 	
 	local reinforcecount = fromItem.Reinforce_2;
 	local slot = fromItem.DefaultEqpSlot;
@@ -53,6 +53,9 @@ function GET_REINFORCE_131014_PRICE(fromItem)
     end
 
     value = (price * reinforcecount * ((grade + 9) / 10)) * priceRatio;
+	if moruItem.ClassName == "Moru_Platinum_Premium" then
+		value = value / 2;
+	end
     value = math.floor(value)
 	return math.floor(value);
 

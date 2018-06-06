@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -28,7 +28,7 @@
 		<Class ClassID="24" ClassName="TooManyDataInThisPC_PleaseInquireToGameCustomerCenter" Data="이 플레이어에 데이터량이 너무 많습니다. 게임 고객센터에 문의해주세요."/>
 		<Class ClassID="25" ClassName="PCBangMessage1" Data="넥슨 PC방 정량제 잔여시간이 약 {Time}분 남았습니다."/>
 		<Class ClassID="26" ClassName="ErrorWhileLoadingCharacter_TryAgainAndWhenFailPleaseInquireToGameCustomerCenter" Data="플레이어 로딩 중 에러가 발생했습니다. 재 접속 이후에도 문제 발생시 게임 고객센터에 문의해주세요."/>
-    <Class ClassID="27" ClassName="DataErrorWithErrorCode{ErrorCode}" Data="데이터 응답을 받지 못했습니다. 잠시후 다시 시도해 주세요. 에러코드 : {ErrorCode}"/>
+		<Class ClassID="27" ClassName="DataErrorWithErrorCode{ErrorCode}" Data="데이터 응답을 받지 못했습니다. 잠시후 다시 시도해 주세요. 에러코드 : {ErrorCode}"/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="301" ClassName="CantWhisperToSelf" Data="자기자신에겐 귓속말을 할 수 없습니다."/>
@@ -113,7 +113,7 @@
 		<Class ClassID="10069" Data="친구 등록 요청 수락 제한시간이 초과되어 요청 작업을 종료합니다"/>
 		<Class ClassID="10070" Data="인원이 초과되어 입장할 수 없습니다"/>
 		<Class ClassID="10071" Data="%02d회 재접속 시도 중..."/>
-		<Class ClassID="10072" Data="고객님께서는 특정 사유로 게임접속이 제한되었습니다{nl}자세한 사항은 홈페이지 내 고객센터->서비스 장애 신고함으로 문의해 주세요"/>
+		<Class ClassID="10072" Data="서비스 점검중이거나 특정 사유로{nl}게임 접속이 제한되었습니다.{nl}자세한 사항은 홈페이지 고객센터로{nl}문의해 주세요."/>
 		<Class ClassID="10073" Data="고객님의 캐릭터는 특정 사유로 게임접속이 제한되었습니다{nl}자세한 사항은 홈페이지 내 고객센터->서비스 장애 신고함으로 문의해 주세요"/>
 		<Class ClassID="10074" ClassName="NotEnough{ItemName}Item" Data="{ItemName} 아이템이 부족합니다"/>
 		<Class ClassID="10075" Data="이 위치에는 초식을 사용할 수 없습니다{nl}다른 위치로 이동해 주세요"/>
@@ -349,9 +349,10 @@
 		<Class ClassID="10408" ClassName="CanDelChrBecauseDummyPC" Data="상점을 개설한 상태에서는 캐릭터 삭제를 할 수 없습니다."/>
 		<Class ClassID="10409" ClassName="IndunFreeTImeText" Data="3일간 인던 무제한"/>
 		<Class ClassID="10410" ClassName="IndunRestText" Data="  인스턴스 던전과 의뢰소 미션의 입장 회수 초기화"/>
-		<Class ClassID="10411" Data="홈페이지에서 게임 시작 후 보호모드를 해제 후 다시 접속하여 주시기 바랍니다."/>
+		<Class ClassID="10411" ClassName="Protected" Data="홈페이지에서 게임 시작 후 보호모드를 해제 후 다시 접속하여 주시기 바랍니다."/>
 		<Class ClassID="10422" ClassName="YouCantUseOblationInCity" Data="마을에서는 사용할 수 없습니다."/>
 		<Class ClassID="10423" ClassName="OblationNameIsNone" Data="봉헌함 이름을 입력해야 합니다."/>
+		<Class ClassID="10424" ClassName="DoingEnchanting" Data="현재 아이템 마법 부여 중에 있습니다. 잠시 후 다시 시도해 주세요."/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="210401" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -383,6 +384,8 @@
 		<Class ClassID="210427" ClassName="GemNotEquip" Data="선택하신 장비에는 해당 젬을 사용할 수 없습니다. "/>
 		<Class ClassID="210428" ClassName="ThisGemCantReinforce" Data="강화 할 수 없는 젬입니다."/>
 		<Class ClassID="210429" ClassName="YouDeadSoSomeSilverHasBeenLost" Data="사망 페널티로 실버 일부를 잃어버렸습니다."/>
+		<Class ClassID="210430" ClassName="ItemIsNotEnchantable1" Data="각성할 수 없는 아이템 입니다."/>
+		<Class ClassID="210431" ClassName="RealyDoEnchant" Data="아이템을 각성하면, 마법 부여 스크롤 아이템 및 이미 각성했던 옵션도 사라집니다. 그래도 진행하시겠습니까?"/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="10501" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -523,7 +526,7 @@
 		<Class ClassID="10791" ClassName="DecreasePotaionByExchange" Data="해당 아이템을 등록하시면{nl}거래 성사시 포텐셜이 감소합니다.{nl}그래도 등록하시겠습니까?"/>
 		<Class ClassID="10792" ClassName="DecreasePotaionByExchangeForBuyer" Data="거래하시려는 아이템 중 거래 성공 후 포텐셜이 감소하는 아이템이 존재합니다. 그래도 수락하시겠습니까?"/>
 		<Class ClassID="10793" ClassName="CantRepair" Data="수리할 수 있는 장비가 없습니다."/>
-    <Class ClassID="10794" ClassName="TooNearFromNPC" Data="NPC와 너무 가깝습니다."/>
+		<Class ClassID="10794" ClassName="TooNearFromNPC" Data="NPC와 너무 가깝습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="10801" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -653,7 +656,7 @@
 		<Class ClassID="11185" ClassName="ThisItemIsNotForCompanion" Data="컴패니언이 착용할 수 없는 장비입니다."/>
 		<Class ClassID="11186" ClassName="DonUseItemOnRIde" Data="해당 아이템은 현재 상태에서 사용하실 수 없습니다."/>
 		<Class ClassID="11187" ClassName="ChangeModeThenDontRide" Data="변신 중엔 컴패니언탑승을 하실 수 없습니다."/>
-	<Class ClassID="11188" ClassName="SkillUse_Sit" Data="스킬 사용중에는 휴식을 취할 수 없습니다."/>
+		<Class ClassID="11188" ClassName="SkillUse_Sit" Data="스킬 사용중에는 휴식을 취할 수 없습니다."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="11200" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -811,6 +814,8 @@
 		<Class ClassID="20147" ClassName="CanNotBuyDuplicateItem" Data="중복하여 구매할 수 없는 아이템입니다."/>
 		<Class ClassID="20148" ClassName="TP_Costume_M" Data="남자 코스튬"/>
 		<Class ClassID="20149" ClassName="TP_Costume_F" Data="여자 코스튬"/>
+		<Class ClassID="20150" ClassName="AutoDeleteTime" Data="삭제예정시간 [{Time}]"/>
+		<Class ClassID="20151" ClassName="InfiDeleteTime" Data="기간 제한 없음"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="20501" ClassName="Guard" Data="방어"/>
@@ -914,6 +919,7 @@
 		<Class ClassID="168" ClassName="PARTY_PLAYER_QUEST_REWARD_PROGRESS" Data="'{BEFORE_QUEST}' 퀘스트 보상을 받으셔야{nl} 파티원과 '{NEXT_QUEST}' 퀘스트를 진행하실 수 있습니다"/>
 		<Class ClassID="169" ClassName="QUEST_ABANDON_SELECT_MSG" Data="'{QUEST}' 퀘스트를 포기하시겠습니까?"/>
 		<Class ClassID="170" ClassName="PARTY_PLAYER_SHOP_PROGRESS" Data=" 열려있는 상점을 닫으셔야 {nl} 파티원과 '{NEXT_QUEST}' 퀘스트를 진행하실 수 있습니다"/>
+		<Class ClassID="171" ClassName="QUEST_KILL_MON_UI_MSG1" Data=" {MONSTER} 처치"/>
 		<Class ClassID="1000" ClassName="MASTER_ORACLE_NORMAL_2_AGREE8" Data="워프 이동 지역 순위"/>
 		<Class ClassID="1001" ClassName="MASTER_ORACLE_NORMAL_2_AGREE4" Data="몬스터 처치 지역 순위"/>
 		<Class ClassID="1002" ClassName="MASTER_ORACLE_NORMAL_2_AGREE5" Data="계시자 전투불능 지역 순위"/>
@@ -1300,7 +1306,7 @@
 		<Class ClassID="160199" ClassName="PILGRIM52_SQ_080_MSG01" Data="항아리 설치 하는 중"/>
 		<Class ClassID="160200" ClassName="PILGRIM52_SQ_081_MSG01" Data="수액 담는 중"/>
 		<Class ClassID="160201" ClassName="PILGRIM52_SECRET_MSG01" Data="알 수 없는 기둥에서 문양석 조각이 떨어져 나왔습니다!"/>
-		<Class ClassID="160202" ClassName="PILGRIM46_SQ_100_MSG04" Data="음식 찌꺼기를 5개 쳉겼습니다"/>
+		<Class ClassID="160202" ClassName="PILGRIM46_SQ_100_MSG04" Data="음식 찌꺼기를 5개 챙겼습니다"/>
 		<Class ClassID="160203" ClassName="PILGRIM46_SQ_100_MSG05" Data="몬스터가 음식 찌꺼기를 받아먹었습니다"/>
 		<Class ClassID="160204" ClassName="PILGRIM46_SQ_100_MSG06" Data="음식 찌꺼기에 별 다른 반응을 보이지 않습니다"/>
 		<Class ClassID="160205" ClassName="PILGRIM47_SQ_040_MSG01" Data="캑터스벨이 뿜은 수렁을 밟아서 저주에 걸렸습니다!"/>
@@ -1665,7 +1671,7 @@
 		<Class ClassID="150097" ClassName="QuestReasonGender1" Data="남자 캐릭터 전용"/>
 		<Class ClassID="150098" ClassName="QuestReasonGender2" Data="여자 캐릭터 전용"/>
 		<Class ClassID="150099" ClassName="QuestReasonInvItemName" Data=" 아이템 "/>
-		<Class ClassID="150100" ClassName="QuestReasonInvItemCount" Data=" 개 필요"/>
+		<Class ClassID="150100" ClassName="QuestReasonInvItemCount" Data=" 개"/>
 		<Class ClassID="150101" ClassName="QuestReasonBeforeTxt3" Data=" 필요"/>
 		<Class ClassID="150102" ClassName="QUESTINFO_QUEST" Data="하위 퀘스트 조건{nl}"/>
 		<Class ClassID="150103" ClassName="QuestReasonBeforeTxt2" Data="퀘스트 사전 조건을 만족하지 못해 파티원과 같이 진행하실 수 없습니다"/>
@@ -2296,11 +2302,21 @@
 		<Class ClassID="130200" ClassName="PILGRIM311_SQ_02_ITEM_MSG1" Data="신호탄 쏘는 중"/>
 		<Class ClassID="130201" ClassName="JOB_2_BARBARIAN4_ISBUFF_MSG1" Data="아무런 강화효과가 없는 기본 상태에서 처치해야 합니다!"/>
 		<Class ClassID="130202" ClassName="INSTANCE_DUNGEON_AUTO_SEARCH_MSG_ExpBonus{Percent}" Data="자동으로 파티 찾기"/>
-		
-
-<Class ClassID="130203" ClassName="YouAlreadyHaveParty_WillYouOutFromCurrentParty?" Data="이미 파티가 있습니다. 탈퇴하시겠습니까?"/>
+		<Class ClassID="130203" ClassName="YouAlreadyHaveParty_WillYouOutFromCurrentParty?" Data="이미 파티가 있습니다. 탈퇴하시겠습니까?"/>
 		<Class ClassID="130204" ClassName="FindingParty_IfPartyFinded_AutoMaticallyStartGame" Data="파티를 검색 중 입니다.{nl} 완료되면 자동으로 입장 합니다."/>
 		<Class ClassID="130205" ClassName="PartyFinded_GameWillBeStartedSoonAfter" Data="파티를 찾았습니다. 잠시 후 게임에 입장합니다."/>
+		<Class 
+ClassID="130234" 
+ClassName="HIDDEN_RUNECASTER_npc1_msg1" Data="필요한 물건이니 줄 수 없냐고 한다"/>
+		<Class ClassID="130235" 
+ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/>
+		<Class ClassID="130236" ClassName="RUNECASTER_ZACHARIEL_STONE_MSG1" Data="룬 스톤 수집 중"/>
+		<Class ClassID="130237" ClassName="RUNECASTER_SIAULIAI_WEST_STONE_MSG1" Data="상자 뒤지는 중"/>
+		<Class ClassID="130238" ClassName="HIDDEN_RUNECASTER_npc5_msg1" Data="뽑아본다"/>
+		<Class ClassID="130239" ClassName="HIDDEN_RUNECASTER_npc5_msg2" Data="그냥 둔다"/>
+		<Class ClassID="130240" ClassName="HIDDEN_RUNECASTER_npc5_msg3" Data="뽑아내는 중"/>
+		<Class ClassID="130241" ClassName="HIDDEN_RUNECASTER_master_msg1" Data="주겠다고 한다"/>
+		<Class ClassID="130242" ClassName="HIDDEN_RUNECASTER_master_msg2" Data="싫다고 한다"/>
 		<Class ClassID="120194" ClassName="SEARCH_DONE" Data="더 이상 나크티스와 관련된 내용은 없어보입니다"/>
 		<Class ClassID="120195" ClassName="BOOK_GET" Data="사제의 책 회수 중"/>
 		<Class ClassID="120196" ClassName="CHATHEDRAL56_MQ04_KEY_GET" Data="메이번의 열쇠 회수 중"/>
@@ -3034,7 +3050,7 @@
 		<Class ClassID="180192" ClassName="CASTLE65_2_PILLAR" Data="마력 공급 장치"/>
 		<Class ClassID="120566" ClassName="MON_KILL_CNT_ERROR1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT}회를 모두 완료하셨습니다"/>
 		<Class ClassID="120565" ClassName="ITEML_CNT_ERROR1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT}회를 모두 완료하셨습니다"/>
-		</Category>
+	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="21300" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
 		<Class ClassID="21301" ClassName="ADD_BUFF_{Auto_1}!" Data="{Auto_1}!"/>
@@ -3190,7 +3206,7 @@
 		<Class ClassID="22102" ClassName="AlchDisAgreeOpenDungeon" Data="상대방이 던전 생성에 거절 하셨습니다."/>
 		<Class ClassID="22103" ClassName="WaitDroppingItemFromParty{Name}" Data="{Name}님이 아이템선택중에 있습니다. 기다려주세요."/>
 		<Class ClassID="22104" ClassName="WrongTargetTryAgin" Data="잘못된 상대를 선택해 보냈습니다. 다시 시도해 주세요."/>
-    <Class ClassID="22105" ClassName="OverIndunMaxPC" Data="인던 최대 입장인원을 초과했습니다."/>
+		<Class ClassID="22105" ClassName="OverIndunMaxPC" Data="인던 최대 입장인원을 초과했습니다."/>
 	</Category>
 	<Category Name="Guild">
 		<Class ClassID="22301" ClassName="GuildMember{Cur}/{Max}People,OnLine{On}People" Data="길드원 ( {Cur} / {Max} 명, 온라인 {On} 명 )"/>
@@ -3340,6 +3356,7 @@
 		<Class ClassID="22829" ClassName="CommissionRegMarketItem{Price}" Data="등록수수료 {Price}실버가 소비됩니다. 등록하시겠습니까?"/>
 		<Class ClassID="22830" ClassName="SellPriceMustOverThen100Silver" Data="판매가격은 100실버 이상이여야 합니다."/>
 		<Class ClassID="22831" ClassName="AutoAdjustToMinPrice" Data="최소 가격 단위로 금액이 자동 변경됩니다."/>
+		<Class ClassID="22832" ClassName="CantRegisterEquipItemToEnchant" Data="착용 중인 아이템은 인챈트 아이템으로 각성 시킬 수 없습니다."/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="22900" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -3557,6 +3574,7 @@
 		<Class ClassID="25190" ClassName="RHP_BM" Data="HP 회복력"/>
 		<Class ClassID="25191" ClassName="RSP_BM" Data="SP 회복력"/>
 		<Class ClassID="25192" ClassName="MHR_BM" Data="마법 증폭"/>
+		<Class ClassID="25193" ClassName="EnchantOption" Data="인챈트 옵션"/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="26001" ClassName="VeryEasy" Data="매우 쉬움"/>
@@ -3772,6 +3790,8 @@
 		<Class ClassID="29947" ClassName="StartFriendlyFight!" Data="친선대결시작!"/>
 		<Class ClassID="29948" ClassName="FriendRqeustAnswerFail" Data="친구 요청 수락에 실패했습니다."/>
 		<Class ClassID="29949" ClassName="FriendDeleteAnswerFail" Data="친구 요청 거절에 실패했습니다."/>
+		<Class ClassID="29950" ClassName="GM_Order_Protected" Data="보호모드 적용"/>
+		<Class ClassID="29951" ClassName="GM_Order_Kick" Data="강제 킥"/>
 	</Category>
 	<Category Name="BlackMarket">
 		<Class ClassID="30000" ClassName="Deposit" Data="계약금"/>
@@ -3840,6 +3860,14 @@
 		<Class ClassID="33519" ClassName="YouCannotPlayGameBecauseYouRejectRecently" Data="최근 게임을 자주 거절해서 게임에 참여할 수 없습니다."/>
 		<Class ClassID="33520" ClassName="YouCantJoinInThisMapByError" Data="에러로 인해 현재 맵에서 PVP에 참여할 수 없습니다."/>
 		<Class ClassID="33521" ClassName="NotEnoughPoint_Need{Point}PointAtLeast" Data="포인트가 부족합니다. 최소 {Point}포인트가 필요합니다."/>
+		<Class ClassID="33522" ClassName="TotalHavePoint" Data="현재 보유 포인트"/>
+		<Class ClassID="33523" ClassName="TotalBuyPoint" Data="총 구매 예정 포인트"/>
+		<Class ClassID="33524" ClassName="DifferentByPCLevel" Data="레벨에 따라 차등"/>
+		<Class ClassID="33525" ClassName="OverDailyBuyCount" Data="하루에 구매 가능한 수량을 초과했습니다."/>
+		<Class ClassID="33526" ClassName="BuyableCountPerDay_{Count}" Data="하루 구매 가능 수량 : {Count}개"/>
+		<Class ClassID="33527" ClassName="TeamBattleLeagueChampion" Data="팀배틀리그 챔피언"/>
+		<Class ClassID="33528" ClassName="TeamBattleLeagueRank{Rank}" Data="팀배틀리그 {Rank}위"/>
+		<Class ClassID="33529" ClassName="OnlyAbleOver{Rank}" Data="{Rank}랭크 이상만 참여 가능합니다."/>
 	</Category>
 	<Category Name="MonInfo">
 		<Class ClassID="34001" ClassName="MonInfo_Size" Data="크기"/>
@@ -6327,7 +6355,8 @@
 		<Class ClassID="170089" ClassName="ORSHA_NPC03_SEL09" Data="대해적과 하이레번 상권"/>
 		<Class ClassID="170090" ClassName="ABBEY643_DESK_SEL01" Data="수취인 불명의 편지"/>
 		<Class ClassID="170091" ClassName="ABBEY643_DESK_SEL02" Data="인장이 찍힌 편지"/>
-		</Category>
+		<Class ClassID="170092" ClassName="ROTA_02_SEL01" Data="의뢰주에 대해"/>
+	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="7000" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
 		<Class ClassID="7001" ClassName="WithdrawToCamp" Data="님께서 꺼내가셨습니다."/>

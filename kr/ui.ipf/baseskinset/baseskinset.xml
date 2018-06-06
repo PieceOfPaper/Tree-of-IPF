@@ -2613,6 +2613,17 @@
 			<img name="bottomcore" imgrect="1462 762 50 50"/>
 			<img name="bottomright" imgrect="1513 762 50 50"/>
 		</skin>
+	<skin name="pvp_Team_skin" texture="\skin\PVP_skin.tga">
+			<img name="topleft" imgrect="895 393 30 30"/>
+			<img name="topcore" imgrect="926 393 30 30"/>
+			<img name="topright" imgrect="957 393 30 30"/>
+			<img name="bodyleft" imgrect="895 424 30 30"/>
+			<img name="bodycore" imgrect="926 424 30 30"/>
+			<img name="bodyright" imgrect="957 424 30 30"/>
+			<img name="bottomleft" imgrect="895 455 30 30"/>
+			<img name="bottomcore" imgrect="926 455 30 30"/>
+			<img name="bottomright" imgrect="957 455 30 30"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -4130,6 +4141,7 @@
 		<image name="market_sell_updown" file="\skin\paid_skin.tga" imgrect="675 439 328 115" CMM_Caption="마켓상하한가표"/>
 		<image name="M_message_open" file="\skin\barrack.tga" imgrect="1493 721 30 30"/>
 		<image name="M_message_Unopen" file="\skin\barrack.tga" imgrect="1524 721 30 30"/>
+	<image name="pvp_teamrank_bg" file="\skin\PVP_skin.tga" imgrect="668 65 38 30"/>
 	</imagelist>
 	<imagelist category="tutorial_img">
 		<image name="tutr_img_btn_left" file="\skin\mainframe_04.tga" imgrect="371 448 44 44"/>
@@ -4377,6 +4389,9 @@
 		<image name="M_down_btn" file="\skin\barrack.tga" imgrect="1352 721 46 46" CMM_Caption="받기버튼"/>
 		<image name="M_down_btn_cursoron" file="\skin\barrack.tga" imgrect="1399 721 46 46"/>
 		<image name="M_down_btn_clicked" file="\skin\barrack.tga" imgrect="1446 721 46 46"/>
+	<image name="pvp_leageue_btn" file="\skin\PVP_skin.tga" imgrect="286 162 180 60" CMM_Caption="리그참여"/>
+		<image name="pvp_leageue_btn_cursoron" file="\skin\PVP_skin.tga" imgrect="467 162 180 60"/>
+		<image name="pvp_leageue_btn_clicked" file="\skin\PVP_skin.tga" imgrect="614 0 180 60"/>
 	</imagelist>
 	<imagelist category="hair_color">
 		<image name="basic_color" file="\skin\barrack.tga" imgrect="948 491 35 35" CMM_Caption="기본컬러"/>
@@ -4697,6 +4712,7 @@
 		<image name="logo_bandicam" file="\skin\login_barrack.tga" imgrect="0 970 300 54"/>
 	</imagelist>
 	<imagelist category="etc">
+		<image name="popup_floor" file="\skin\popup_floor.png" imgrect="0 0 490 260"/>
 		<image name="chat_system_icon" file="\skin\login_barrack.tga" imgrect="331 290 60 14"/>
 		<image name="rim_stroke" file="\skin\rim_stroke.png" imgrect="0 0 1024 512"/>
 		<image name="sight_wholeguideline" file="\skin\sight_wholeguideline.tga" imgrect="0 0 640 640"/>
@@ -5631,6 +5647,9 @@
 		<image name="Dlg_port_Boruble" file="\npcimg\Boruble.png" imgrect="0 0 700 1000" CMM_Caption="프리스트마스터"/>
 		<image name="Dlg_port_Zemyna" file="\npcimg\Zemyna.png" imgrect="0 0 800 1000" CMM_Caption="제미나여신"/>
 		<image name="Dlg_port_Ceslovas" file="\npcimg\Ceslovas.png" imgrect="0 0 700 1000" CMM_Caption="채플린마스터"/>
+	<image name="Dlg_port_melanymelakhim" file="\npcimg\melanymelakhim.png" imgrect="0 0 700 1000" CMM_Caption="워록마스터"/>
+		<image name="Dlg_port_SorshaHutton" file="\npcimg\SorshaHutton.png" imgrect="0 0 800 1000" CMM_Caption="펜서마스터"/>
+		<image name="Dlg_port_ValeskaHimil" file="\npcimg\ValeskaHimil.png" imgrect="0 0 800 950" CMM_Caption="드라군마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>

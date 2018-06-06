@@ -458,8 +458,11 @@ function C_SKL_MON_SCALE(actor, obj, monName, scl, time)
 	mon:ChangeScale(scl, time);
 end
 
-function C_SKL_MON_BY_KEY(actor, obj, monName, key, x, y, z, angle, moveDestroy)
-	actor:GetClientMonster():CreateMonsterByKey(monName, x, y, z, angle, key, moveDestroy);	
+function C_SKL_MON_BY_KEY(actor, obj, monName, key, x, y, z, angle, moveDestroy, attachNode)
+	if attachNode == nil then
+		attachNode = "None"
+	end
+	actor:GetClientMonster():CreateMonsterByKey(monName, x, y, z, angle, key, moveDestroy, attachNode);	
 end
 
 function C_SKL_MON_ANIM_KEY(actor, obj, key, animID, freezeAni)

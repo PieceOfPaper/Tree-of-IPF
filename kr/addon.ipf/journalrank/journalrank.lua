@@ -73,7 +73,8 @@ function JOURNAKRANK_SHOW_PAGE(frame, page)
 		end
 
 		local key = rankInfo.ranking + 1;
-		local imgName = ui.CaptureModelHeadImage_IconInfo(rankInfo:GetIconInfo());
+		--local imgName = ui.CaptureModelHeadImage_IconInfo(rankInfo:GetIconInfo());
+		local imgName = GET_JOB_ICON(rankInfo:GetIconInfo().job);
 		local rankFont;
 		if cid == rankInfo:GetStrCID() then
 			rankFont = frame:GetUserConfig("RANK_MY_FONT_NAME");
@@ -123,20 +124,33 @@ function JOURNALRANK_PVP(parent, ctrl)
 	rank_1:ShowWindow(0);
 	rank_2:ShowWindow(1);
 	
-	JOURNAL_REQUEST_PVPRANK(frame, 1);
+	JOURNAL_REQUEST_PVPRANK(frame, 1, 1);
 
 end
 
 function GET_JOUNNAL_PVP_TYPE(frame)
-	local cls = GetClass("WorldPVPType", "Five");
-	return cls.ClassID;
+	local clsList, cnt  = GetClassList("WorldPVPType");
+	local rankCls;
+	for i = 0 , cnt - 1 do
+		local cls = GetClassByIndexFromList(clsList, i);
+		if cls.StatuePosition ~= "None" then
+			rankCls = cls;
+			break;
+		end
+	end
+
+	return rankCls.ClassID;
 end
 
-function JOURNAL_REQUEST_PVPRANK(frame, page)
+function JOURNAL_REQUEST_PVPRANK(frame, page, findMyRanking)
 	local pvpType = GET_JOUNNAL_PVP_TYPE(frame);
 	local rank_2 = frame:GetChild("rank_2");
 	local input_findname = GET_CHILD(rank_2, "input_findname");
-	worldPVP.RequestPVPRanking(pvpType, -1, page, input_findname:GetText());
+	if findMyRanking == nil then
+		findMyRanking = 0;
+	end
+
+	worldPVP.RequestPVPRanking(pvpType, 0, -1, page, findMyRanking, input_findname:GetText());
 
 end
 
@@ -145,25 +159,11 @@ function JOURNAL_WORLDPVP_RANK_SELECT(parent, ctrl)
 	local rank_2 = frame:GetChild("rank_2");
 	local control = GET_CHILD(rank_2, "control", 'ui::CPageController')
 	JOURNAL_REQUEST_PVPRANK(frame, control:GetCurPage() + 1);
+	ui.DisableForTime(control, 0.5);
 end
 
 function UPDATE_PVP_RANK_CTRLSET_JOURNAL(ctrlSet, info)
-	local iconInfo = info:GetIconInfo();
-	local key = info:GetCID();
-	--local imgName = ui.CaptureModelHeadImage_IconInfo(iconInfo);
-
-	local txt_name = ctrlSet:GetChild("txt_name");
-	local pic = GET_CHILD(ctrlSet, "pic");
-	local txt_score = ctrlSet:GetChild("txt_score");
-	ctrlSet:SetUserValue("CID", key);
-	txt_name:SetTextByKey("value", iconInfo:GetGivenName() .. " (" .. iconInfo:GetFamilyName()..")");
-	txt_score:SetTextByKey("value", info.point);
-
-	local pic = ctrlSet;GetChild("pic");
-	pic:ShowWindow(0);
-	local pic_text = ctrlSet;GetChild("pic_text");
-	pic_text:ShowWindow(0);
-
+	UPDATE_PVP_RANK_CTRLSET(ctrlSet, info);
 end
 
 function ON_JOURNAL_WORLDPVP_RANK_PAGE(frame)
@@ -188,10 +188,6 @@ function ON_JOURNAL_WORLDPVP_RANK_PAGE(frame)
 
 		UPDATE_PVP_RANK_CTRLSET_JOURNAL(ctrlSet, info);
 
-		local txt_rank = ctrlSet:GetChild("txt_rank");
-		local ranking = ((page - 1) * WORLDPVP_RANK_PER_PAGE) + i + 1;
-		txt_rank:SetTextByKey("value", ranking);
-		
 	end
 
 	GBOX_AUTO_ALIGN(bg_ctrls, 0, 0, 0, true, false);

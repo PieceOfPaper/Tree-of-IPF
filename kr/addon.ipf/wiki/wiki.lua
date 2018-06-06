@@ -177,7 +177,7 @@ function WIKI_MONSTER_(frame, cls, sameWiki)
 	end
 
 
-	local wiki = session.GetWiki(wikiType);
+	local wiki = GetWiki(wikiType);
 	if wiki == nil then
 		desc:SetText(cls.Desc);
 		return;
@@ -306,9 +306,11 @@ function GET_WIKI_SORT_LIST(wiki, nameHead, maxCnt, sortList)
 	local idx = 1;
 		for i = 1 , maxCnt do
 		local propName = nameHead .. i;
-		local prop = wiki:GetProp(propName);
-		if prop.propValue > 0 then
-			tmpList[idx] = prop;
+		local propValue, count = GetWikiProp(wiki, propName);
+		if propValue > 0 then
+			tmpList[idx] = {};
+			tmpList[idx]["Value"] = propValue;
+			tmpList[idx]["Count"] = count;
 			idx = idx + 1;
 		end
 	end
@@ -352,7 +354,7 @@ function GET_MAXPROP_FROM_LIST(tmpList)
 	local cnt = #tmpList;
 	for i = 1 , cnt do
 		local prop = tmpList[i];
-		if prop ~= nil and (maxProp == nil or prop.count > maxProp.count) then
+		if prop ~= nil and (maxProp == nil or prop["Count"] > maxProp["Count"]) then
 			maxIdx = i;
 			maxProp = prop;
 		end
@@ -363,11 +365,11 @@ function GET_MAXPROP_FROM_LIST(tmpList)
 
 end
 
-function GET_WIKI_MON_MAP_TXT(frame, prop, index)
+function GET_WIKI_MON_MAP_TXT(frame, propValue, count, index)
 
 	local ret = "";
 
-	local cls = GetClassByType("Map", prop.propValue);
+	local cls = GetClassByType("Map", propValue);
 	if cls == nil then
 		ErrorMsg(prop.propValue .. " : MAP Not Exists");
 		return "";
@@ -377,18 +379,18 @@ function GET_WIKI_MON_MAP_TXT(frame, prop, index)
 		ret = ", ";
 	end
 
-	ret = ret .. string.format("%s (%d %s)", cls.Name, prop.count, ClientMsg(20013));
+	ret = ret .. string.format("%s (%d %s)", cls.Name, count, ClientMsg(20013));
 	return ret;
 
 end
 
-function GET_WIKI_MON_DROP_TXT(frame, prop, index)
+function GET_WIKI_MON_DROP_TXT(frame, propValue, count, index)
 
 	local ret = "";
 
-	local cls = GetClassByType("Item", prop.propValue);
+	local cls = GetClassByType("Item", propValue);
 	if cls == nil then
-		ErrorMsg(prop.propValue .. " : Item Not Exists");
+		ErrorMsg(propValue .. " : Item Not Exists");
 		return "";
 	end
 
@@ -409,7 +411,7 @@ function GET_WIKI_MON_DROP_TXT(frame, prop, index)
 	local ctrlTxt = gBox:CreateOrGetControl("richtext", "_WI_ICON_TXT_" .. index, x, y + cWidth - 16, cWidth, 16);
 	ctrlTxt:ShowWindow(1);
 	ctrlTxt:SetTextAlign("right", "bottom");
-	ctrlTxt:SetText("{@st41}" .. prop.count);
+	ctrlTxt:SetText("{@st41}" .. count);
 
 	return "";
 
@@ -481,7 +483,7 @@ function UPDATE_WIKI_TOOLTIP(frame, funcName, datatype, typeInt)
 	local wikiType = math.floor(typeInt / 1000);
 	local propType = typeInt % 1000;
 
-	local wiki = session.GetWiki(wikiType);
+	local wiki = GetWiki(wikiType);
 	if wiki == nil then
 		frame:ShowWindow(0);
 		return;

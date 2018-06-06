@@ -291,6 +291,14 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 		end
 	end
 
+	for i = 1 , 3 do
+		local propName = "HatPropName_"..i;
+		local propValue = "HatPropValue_"..i;
+		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
+			cnt = cnt +1
+		end
+	end
+
 	if cnt <= 0 and (invitem.OptDesc == nil or invitem.OptDesc == "None") then -- 일단 그릴 프로퍼티가 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
 		return yPos
 	end
@@ -332,6 +340,16 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), class[propName], invitem[propName]);
 				inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 			end
+		end
+	end
+
+	for i = 1 , 3 do
+		local propName = "HatPropName_"..i;
+		local propValue = "HatPropValue_"..i;
+		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
+			local opName = string.format("[%s] %s", ClMsg("EnchantOption"), ScpArgMsg(invitem[propName]));
+			local strInfo = ABILITY_DESC_PLUS(opName, invitem[propValue], 0);
+			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end
 	end
 

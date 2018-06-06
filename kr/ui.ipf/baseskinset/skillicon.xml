@@ -754,6 +754,8 @@
 		<image name="ability_Warrior_Doppelsoeldner15" file="\icon\icon_ability_warrior05.tga" imgrect="512 0 128 128" CMM_Caption="레델: 강화"/>
 		<image name="ability_Warrior_Doppelsoeldner16" file="\icon\icon_ability_warrior05.tga" imgrect="640 0 128 128" CMM_Caption="츠켄: 강화"/>
 		<image name="ability_Warrior_Doppelsoeldner17" file="\icon\icon_ability_warrior05.tga" imgrect="768 0 128 128" CMM_Caption="사이클론: 저항"/>
+	<image name="ability_Warrior_Peltasta27" file="\icon\icon_ability_warrior05.tga" imgrect="896 0 128 128" CMM_Caption="랑고르트:강화"/>
+		<image name="ability_Warrior_Peltasta28" file="\icon\icon_ability_warrior05.tga" imgrect="0 128 128 128" CMM_Caption="랑고르트:블로킹"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -1355,6 +1357,7 @@
 		<image name="ability_cleric_chaplain3" file="\icon\icon_ability_cleric03.tga" imgrect="384 896 128 128" CMM_Caption="장엄구마: 강화"/>
 		<image name="ability_cleric_chaplain2" file="\icon\icon_ability_cleric03.tga" imgrect="512 896 128 128" CMM_Caption="카펠라 설치: 유지시간"/>
 	<image name="ability_cleric_Monk8" file="\icon\icon_ability_cleric03.tga" imgrect="640 896 128 128" CMM_Caption="카펠라 설치: 유지시간"/>
+	<image name="ability_cleric_Priest23" file="\icon\icon_ability_cleric03.tga" imgrect="768 896 128 128" CMM_Caption="엑소사이즈:지속시간"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

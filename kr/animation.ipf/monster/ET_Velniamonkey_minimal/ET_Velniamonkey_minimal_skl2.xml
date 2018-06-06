@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="71" R="60" G="70" B="90" A="100"/>
+	<BlendOn frame="73" R="70" G="80" B="100" A="100"/>
+	<BlendOn frame="75" R="80" G="90" B="110" A="100"/>
+	<BlendOn frame="77" R="90" G="100" B="120" A="100"/>
+	<BlendOn frame="79" R="100" G="110" B="130" A="100"/>
+	<BlendOn frame="81" R="80" G="90" B="100" A="100"/>
+	<BlendOn frame="83" R="50" G="60" B="80" A="200"/>
+	<BlendOn frame="85" R="30" G="40" B="60" A="200"/>
+	<BlendOn frame="87" R="25" G="30" B="40" A="200"/>
+	<BlendOn frame="89" R="15" G="20" B="30" A="200"/>
+	<BlendOn frame="91" R="5" G="10" B="20" A="200"/>
+	<BlendOff frame="92" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="56" type="2" intensity="2" frequency="60" duration="2" range="1000"/>
+	<Shockwave frame="90" type="2" intensity="5" frequency="60" duration="0.7" range="1000"/>
+	<Particle frame="72" attachNode="Dummy_emitter" particleName="F_dash011_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+</ActionDesc>

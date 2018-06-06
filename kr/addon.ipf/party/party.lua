@@ -284,7 +284,7 @@ function SAVE_PARTY_NAME_AND_MEMO(parent)
 	end
 	
 	if partyName ~= nil and nowPartyName ~= partyName then
-		party.ReqPartyNameChange(PARTY_NORMAL, PARTY_STRING_NAME, partyName);
+		party.ReqPartyNameChange(PARTY_NORMAL, PARTY_STRING_NAME, partyName, session.loginInfo.GetAID());
 	end
 
 	if partyNote ~= nil and nowPartyNote ~= partyNote then

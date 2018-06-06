@@ -145,7 +145,7 @@
 			<Sound From="walk_left" To="step_carpet"/>
 		</Anim>
 	</Material>
-	<Material ID="9" Name="iron" KorName="철재" MaterialItem="misc_scrapiron">
+	<Material ID="9" Name="iron" KorName="철재" MaterialItem="misc_oldIron">
 		<Anim Name="LAND">
 			<Particle From="F_pc_jump_smoke" To="None" Scale="1"/>
 			<Sound From="pc_war_jump_2" To="step_iron_land"/>

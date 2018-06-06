@@ -251,12 +251,51 @@ function UPDATE_QUESTINFOSET_2(frame, msg, check, updateQuestID)
 end
 
 function CHEAK_QUEST_MONSTER(questIES)
+	local pc = GetMyPCObject();
+    local quest_sObj
+    if questIES.Quest_SSN ~= 'None' then
+        quest_sObj = GetSessionObject(pc, questIES.Quest_SSN);
+    end
+    
 	for i = 1 , QUEST_MAX_MON_CHECK do
 		local monname = questIES["Succ_MonKillName" .. i];
 		if monname == "None" then
 			break;
 		end
-		ADD_QUEST_CHECK_MONSTER(questIES.ClassID, monname);
+		
+		if questIES.Succ_Check_MonKill > 0 then
+    		if quest_sObj['KillMonster'..i] < questIES["Succ_MonKillCount" .. i] then
+        		ADD_QUEST_CHECK_MONSTER(questIES.ClassID, monname);
+        	else
+        	    local cutStr = SCR_STRING_CUT(monname);
+            	if #cutStr > 1 then
+            		for y = 1 , #cutStr do
+            		    quest.RemoveCheckQuestMonsterList(questIES.ClassID, cutStr[y])
+            		end
+            	else
+            		quest.RemoveCheckQuestMonsterList(questIES.ClassID, monname)
+            	end
+        	end
+        else
+--            local invIndex = tonumber(string.gsub(questIES["Succ_MonKill_ItemGive" .. i], 'Succ_InvItemName', ''))
+            local itemClassName = questIES[questIES["Succ_MonKill_ItemGive" .. i]]
+            local needCount = questIES[questIES["Succ_MonKill_ItemGiveCount" .. i]]
+            if itemClassName ~= nil then
+                local nowCount = GetInvItemCount(pc, itemClassName)
+                if nowCount < needCount then
+                    ADD_QUEST_CHECK_MONSTER(questIES.ClassID, monname);
+                else
+                    local cutStr = SCR_STRING_CUT(monname);
+                	if #cutStr > 1 then
+                		for y = 1 , #cutStr do
+                		    quest.RemoveCheckQuestMonsterList(questIES.ClassID, cutStr[y])
+                		end
+                	else
+                		quest.RemoveCheckQuestMonsterList(questIES.ClassID, monname)
+                	end
+                end
+            end
+        end
 	end
 	for i = 1 , QUEST_MAX_INVITEM_CHECK do
 		local questItem = questIES["Succ_InvItemName" .. i];
@@ -267,6 +306,31 @@ function CHEAK_QUEST_MONSTER(questIES)
 		local needcnt = questIES["Succ_InvItemCount" .. i];
 
 		local itemcnt = SCR_QUEST_GET_INVITEM_COUNT(questItem);
+	end
+	
+	if pc ~= nil then
+	    if questIES.Quest_SSN ~= 'None' then
+    	    if quest_sObj ~= nil then
+    	        if quest_sObj.SSNMonKill ~= 'None' then
+    	            local monInfo = SCR_STRING_CUT(quest_sObj.SSNMonKill, ":")
+                    if #monInfo >= 3 and #monInfo % 3 == 0 then
+                        local ssnMonListCount = #monInfo / 3
+                        local flag = 0
+                        for i = 1, QUEST_MAX_MON_CHECK do
+                            if ssnMonListCount >= i then
+                                local needCount = tonumber(monInfo[i*3 - 1])
+                                local nowCount = quest_sObj['KillMonster'..i]
+                                if nowCount < needCount and GetZoneName(pc) == monInfo[i*3] then
+                                    ADD_QUEST_CHECK_MONSTER(questIES.ClassID, monInfo[i*3 - 2]);
+                                end
+                            else
+                                break
+                            end
+                        end
+                    end
+    	        end
+    	    end
+    	end
 	end
 
 	CHECK_QUEST_MONSTER_GROUP(questIES);
@@ -1406,66 +1470,134 @@ function MAKE_QUESTINFO_ITEM_BY_IES(ctrlset, questIES, startx, s_obj, y)
 end
 
 function MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssninfo)
-
-	if questIES.Succ_Check_MonKill == 0 then
-		return y;
+    local returnFlag1 = true
+    local returnFlag2 = true
+	local monUIIndex = 0
+    
+	if questIES.Succ_Check_MonKill > 0 then
+		returnFlag1 = false
 	end
-
-	for i = 1 , QUEST_MAX_MON_CHECK do
-		local monname = questIES["Succ_MonKillNameKOR" .. i];
-		if monname == "None" then
-			break;
-		end
-
-		local curcnt = s_obj["KillMonster" .. i];
-
-		local needcnt = questIES["Succ_MonKillCount" .. i];
-		if curcnt < needcnt then
-			local itemtxt
-			local monClassName = questIES["Succ_MonKillName" .. i]
-			local monbasicname
-			monClassName = SCR_STRING_CUT(monClassName, '/')
-			if #monClassName > 0 then
-			    for x = 1, #monClassName do
-			        local monIES = GetClass("Monster", monClassName[x]);
-            		if monIES ~= nil then
-            			if monbasicname == nil then
-    			            monbasicname = monIES.Name
-    			        else
-    			            monbasicname = monbasicname..', '..monIES.Name
-    			        end
-            		end
-			    end
-			end
-			
-			if monname ~= "None" and string.find(monname,"%%s") ~= nil then
-				itemtxt = string.format(monname.." (%d/%d)", monbasicname, curcnt, needcnt);
-			elseif monname ~= "None" then
-			    itemtxt = string.format(monname.." (%d/%d)", curcnt, needcnt);
-			else
-				itemtxt = string.format("%s (%d/%d)", monbasicname, curcnt, needcnt);
-			end
-			
-
-			if curcnt ~= 0 and curcnt ~= tonumber(ctrlset:GetParent():GetUserValue('KillCntAlarmSound')) then
-				imcSound.PlaySoundEvent('sys_alarm_mon_kill_count');
-				ctrlset:GetParent():SetUserValue('KillCntAlarmSound', curcnt);
-			end
-
-			local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. i, startx, y, ctrlset:GetWidth() - 25 , 10);
-			content:EnableHitTest(0);
-			content:SetTextFixWidth(1);
-			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
-			y = y + content:GetHeight();
-
-			local pictureCtrl = GET_CHILD(ctrlset, "statepicture", "ui::CPicture");
-			if pictureCtrl ~= nil then
-				pictureCtrl:SetPartitionImage("quest_count");
-				pictureCtrl:SetPartitionRate(curcnt / needcnt);
-				--pictureCtrl:Invalidate();
-			end
-		end
-	end
+	local pc = GetMyPCObject();
+	local quest_sObj
+	
+	if pc ~= nil then
+	    if questIES.Quest_SSN ~= 'None' then
+    	    quest_sObj = GetSessionObject(pc, questIES.Quest_SSN);
+    	    if quest_sObj ~= nil then
+    	        if quest_sObj.SSNMonKill ~= 'None' then
+    	            returnFlag2 = false
+    	        end
+    	    end
+    	end
+    end
+    
+    if returnFlag1 == true and returnFlag2 == true then
+        return y
+    end
+    
+    if returnFlag1 == false then
+    
+    	for i = 1 , QUEST_MAX_MON_CHECK do
+    		local monname = questIES["Succ_MonKillNameKOR" .. i];
+    		if monname == "None" then
+    			break;
+    		end
+    
+    		local curcnt = s_obj["KillMonster" .. i];
+    
+    		local needcnt = questIES["Succ_MonKillCount" .. i];
+    		if curcnt < needcnt then
+    			local itemtxt
+    			local monClassName = questIES["Succ_MonKillName" .. i]
+    			local monbasicname
+    			monClassName = SCR_STRING_CUT(monClassName, '/')
+    			if #monClassName > 0 then
+    			    for x = 1, #monClassName do
+    			        local monIES = GetClass("Monster", monClassName[x]);
+                		if monIES ~= nil then
+                			if monbasicname == nil then
+        			            monbasicname = monIES.Name
+        			        else
+        			            monbasicname = monbasicname..', '..monIES.Name
+        			        end
+                		end
+    			    end
+    			end
+    			
+    			if monname ~= "None" and string.find(monname,"%%s") ~= nil then
+    				itemtxt = string.format(monname.." (%d/%d)", monbasicname, curcnt, needcnt);
+    			elseif monname ~= "None" then
+    			    itemtxt = string.format(monname.." (%d/%d)", curcnt, needcnt);
+    			else
+    				itemtxt = string.format("%s (%d/%d)", monbasicname, curcnt, needcnt);
+    			end
+    			
+    
+    			if curcnt ~= 0 and curcnt ~= tonumber(ctrlset:GetParent():GetUserValue('KillCntAlarmSound')) then
+    				imcSound.PlaySoundEvent('sys_alarm_mon_kill_count');
+    				ctrlset:GetParent():SetUserValue('KillCntAlarmSound', curcnt);
+    			end
+                
+                monUIIndex = i
+    			local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. i, startx, y, ctrlset:GetWidth() - 25 , 10);
+    			content:EnableHitTest(0);
+    			content:SetTextFixWidth(1);
+    			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+    			y = y + content:GetHeight();
+    
+    			local pictureCtrl = GET_CHILD(ctrlset, "statepicture", "ui::CPicture");
+    			if pictureCtrl ~= nil then
+    				pictureCtrl:SetPartitionImage("quest_count");
+    				pictureCtrl:SetPartitionRate(curcnt / needcnt);
+    				--pictureCtrl:Invalidate();
+    			end
+    		end
+    	end
+    end
+	
+	if returnFlag2 == false then
+    	if pc ~= nil then
+    	    if questIES.Quest_SSN ~= 'None' then
+        	    if quest_sObj ~= nil then
+        	        if quest_sObj.SSNMonKill ~= 'None' then
+        	            local monInfo = SCR_STRING_CUT(quest_sObj.SSNMonKill, ":")
+                        if #monInfo >= 3 and #monInfo % 3 == 0 then
+                            local ssnMonListCount = #monInfo / 3
+                            local flag = 0
+                            for i = 1, QUEST_MAX_MON_CHECK do
+                                if ssnMonListCount >= i then
+                                    local needCount = tonumber(monInfo[i*3 - 1])
+                                    local nowCount = quest_sObj['KillMonster'..i]
+                                    if nowCount < needCount then
+                                        local monClassName = monInfo[i*3 - 2]
+                                        local monKORName = GetClassString("Monster", monClassName, "Name")
+                                        if monKORName ~= "None" then
+                            			    itemtxt = string.format(ScpArgMsg("QUEST_KILL_MON_UI_MSG1","MONSTER", monKORName).." (%d/%d)", nowCount, needCount);
+                            			    
+                            			    local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. (monUIIndex + i), startx, y, ctrlset:GetWidth() - 25 , 10);
+                                			content:EnableHitTest(0);
+                                			content:SetTextFixWidth(1);
+                                			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+                                			y = y + content:GetHeight();
+                                            
+    --                            			local pictureCtrl = GET_CHILD(ctrlset, "statepicture", "ui::CPicture");
+    --                            			if pictureCtrl ~= nil then
+    --                            				pictureCtrl:SetPartitionImage("quest_count");
+    --                            				pictureCtrl:SetPartitionRate(curcnt / needcnt);
+    --                            				--pictureCtrl:Invalidate();
+    --                            			end
+                            			end
+                                    end
+                                else
+                                    break
+                                end
+                            end
+                        end
+        	        end
+        	    end
+        	end
+    	end
+    end
 
 	return y;
 end
@@ -1929,6 +2061,24 @@ function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj)
             local maxCount = math.floor(#itemList/3)
             for i = 1, maxCount do
                 local zoneTemp = itemList[i*3]
+                local zoneName = GetClassString('Map', zoneTemp, 'Name')
+                if table.find(txtList, zoneName) == 0 then
+                    if txt == '' then
+                        txt = txt..zoneName
+                        firstInpu = true
+                    else
+                        txt = txt..'{nl}'..zoneName
+                    end
+                    txtList[#txtList + 1] = zoneName
+                end
+            end
+        end
+        
+        if sObj_quest ~= nil and sObj_quest.SSNMonKill ~= 'None' then
+            local monList = SCR_STRING_CUT(sObj_quest.SSNMonKill, ':')
+            local maxCount = math.floor(#monList/3)
+            for i = 1, maxCount do
+                local zoneTemp = monList[i*3]
                 local zoneName = GetClassString('Map', zoneTemp, 'Name')
                 if table.find(txtList, zoneName) == 0 then
                     if txt == '' then

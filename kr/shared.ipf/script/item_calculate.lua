@@ -1344,9 +1344,11 @@ function SCR_GET_MAXPROP_ENCHANT_CRTATK(item)
     
 function SCR_GET_MAXPROP_ENCHANT_ATTRIBUTEATK(item)
     
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
     local value = 280;
     
-    value = math.floor(value * 0.12);
+    value = value * 0.12;
     
     local result = IMCRandom(value * 0.5, value)
     
@@ -1359,9 +1361,11 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_STAT(item)
     
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
     local value = 280;
     
-    value = math.floor(value * 0.1 * 0.5);
+    value = value * 0.1 * 0.5;
     
     local result = IMCRandom(value * 0.5, value)
     
@@ -1374,9 +1378,11 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_MHP(item)
     
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
     local value = 280;
     
-    value = math.floor(value * 0.08 * 34);
+    value = value * 0.08 * 34;
     
     local result = IMCRandom(value * 0.5, value)
     
@@ -1389,9 +1395,11 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_MSP(item)
     
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
     local value = 280;
     
-    value = math.floor(value * 0.08 * 6.7);
+    value = value * 0.08 * 6.7;
     
     local result = IMCRandom(value * 0.5, value)
     
@@ -1404,9 +1412,11 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_RHP(item)
     
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
     local value = 280;
     
-    value = math.floor(value * 0.2);
+    value = value * 0.2;
     
     local result = IMCRandom(value * 0.5, value)
     
@@ -1419,9 +1429,11 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_RSP(item)
     
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
     local value = 280;
     
-    value = math.floor(value * 0.15);
+    value = value * 0.15;
     
     local result = IMCRandom(value * 0.5, value)
     

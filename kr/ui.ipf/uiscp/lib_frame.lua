@@ -77,14 +77,50 @@ function _FRAME_AUTOPOS(frame)
 	return 1;
 end
 
-function FRAME_AUTO_POS_TO_OBJ(frame, handle, offsetX, offsetY, offsetType, autoDestroy)
+function _FRAME_AUTOPOS_BY_FRAMEPOS(frame)
+
+	local handle = frame:GetUserIValue("_AT_OFFSET_HANDLE");
+	local offsetX = frame:GetUserIValue("_AT_OFFSET_X");
+	local offsetY = frame:GetUserIValue("_AT_OFFSET_Y");
+	local offsetType = frame:GetUserIValue("_AT_OFFSET_TYPE");
+	local pos = info.GetPositionInScreen(	handle , offsetType);
+		
+	if nil == world.GetActor(handle) then	
+		local autoDestroy = frame:GetUserIValue("_AT_AUTODESTROY");
+		if autoDestroy == 1 then
+			frame:ShowWindow(0);
+			return 0;
+		end
+
+		return 1;
+	end
+
+	local x = pos.x + offsetX;
+	local y = pos.y + offsetY;
+	AUTO_CAST(frame);
+	local pt = frame:ScreenPosToFramePos(x, y);
+	frame:MoveFrame(pt.x, pt.y);
+	return 1;
+end
+
+
+function FRAME_AUTO_POS_TO_OBJ(frame, handle, offsetX, offsetY, offsetType, autoDestroy, useFramePos)
 	frame:SetUserValue("_AT_OFFSET_HANDLE", handle);
 	frame:SetUserValue("_AT_OFFSET_X", offsetX);
 	frame:SetUserValue("_AT_OFFSET_Y", offsetY);
 	frame:SetUserValue("_AT_OFFSET_TYPE", offsetType);
 	frame:SetUserValue("_AT_AUTODESTROY", autoDestroy);
-	_FRAME_AUTOPOS(frame);
-	frame:RunUpdateScript("_FRAME_AUTOPOS");	
+	
+	AUTO_CAST(frame);
+	frame:SetFloatPosFrame(true);
+
+	if useFramePos == 1 then
+		_FRAME_AUTOPOS_BY_FRAMEPOS(frame);
+		frame:RunUpdateScript("_FRAME_AUTOPOS_BY_FRAMEPOS");	
+	else
+		_FRAME_AUTOPOS(frame);
+		frame:RunUpdateScript("_FRAME_AUTOPOS");	
+	end
 end
 
 function UIEFFECT_CHANGE_CLIENT_SIZE(frame)

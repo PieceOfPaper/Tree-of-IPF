@@ -15,16 +15,16 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 
 	local wikiList = GetClassList("Wiki");
 	local mapList = GetClassList("Map");
-	local list = session.GetWikiListByCategory("Map");
+	local list = GetWikiListByCategory("Map");
 
 	local totalScore = 0;
 	---- Make Each Map Reveal Rate
 	local cateList = {};
 
-	for i = 0 , list:Count() - 1 do
-		local type = list:Element(i):GetType();	
+	for i = 1 , #list do
+		local wiki = list[i];
+		local type = GetWikiType(wiki);
 		local wikiCls = GetClassByTypeFromList(wikiList, type);
-		local wiki = session.GetWikiByName(wikiCls.ClassName);
 		local cls = GetClassByNameFromList(mapList, wikiCls.ClassName);
 
 		local zone = queue:GetChild(cls.CategoryName);
@@ -45,15 +45,16 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 		rating = GET_CHILD(element, 'rating', 'ui::CRichText')
 		local recoverRate = 0;
 		if wiki ~= nil then
-			recoverRate = wiki:GetIntProp("RevealRate").propValue;
+			recoverRate = GetWikiIntProp(wiki, "RevealRate");
 		end
 
 		--마을 같은 경우에는 모두 탐색률 100프로로 보여주자
 		if cls.Journal == "TRUE" and cls.UseMapFog == 0 then
 			recoverRate = 100
+		else
+			totalScore = totalScore + recoverRate;
 		end
 		rating:SetText(string.format("{@st41b} %d%%", recoverRate));
-		totalScore = totalScore + recoverRate * 0.1;
 	end
 
 	--- Calculate Whole Category Map List;
@@ -75,11 +76,11 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 			local cateMapWikiCls = GetClass("Wiki", cateMapName);
 			if cateMapWikiCls ~= nil then
 				totalRate = totalRate + 100;
-				local cateMapWiki = session.GetWikiByName(cateMapName);
+				local cateMapWiki = GetWikiByName(cateMapName);
 				if cateMapWiki ~= nil then
-					local intProp = cateMapWiki:GetIntProp("RevealRate");
+					local intProp = GetWikiIntProp(cateMapWiki, "RevealRate");
 					if intProp ~= nil then
-						recoverRate = recoverRate + intProp.propValue;
+						recoverRate = recoverRate + intProp;
 					end
 				end
 			end
@@ -90,7 +91,7 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 		rating:SetText(string.format("{@st41} %d%%", resultRate));
 	end
 
-	JOURNAL_MAP_UPDATE_SCORE(frame, group, totalScore);
+	JOURNAL_MAP_UPDATE_SCORE(frame, group, totalScore * 0.1);
 
 	tolua.cast(page, 'ui::CGroupBox')
 	--page:SetCurLine(0);
@@ -103,7 +104,7 @@ function JOURNAL_MAP_UPDATE_SCORE(frame, group, totalScore)
 	local ctrlset = group:GetChild("ctrlset");
 	local rationText = ctrlset:GetChild("rationText");
 	local scoreText = ctrlset:GetChild("scoreText");
-	local list, allCount = GetCategoryWikiList("Map");
+	local allCount = GetCategoryWikiListCount("Map");
 
 	if rationText ~= nil then
 		rationText:SetTextByKey("rate", math.floor(totalScore / allCount));

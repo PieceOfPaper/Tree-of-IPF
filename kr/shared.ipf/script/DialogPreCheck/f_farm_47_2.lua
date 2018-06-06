@@ -24,3 +24,6 @@ function SCR_FARM47_MAGIC_FAKE_PRE_DIALOG(pc, dialog, handle)
     return 'NO'
 end
 
+function SCR_FARM_47_2_TO_VELNIASP511_PRE_DIALOG(pc, dialog, handle)
+    return 'YES'
+end

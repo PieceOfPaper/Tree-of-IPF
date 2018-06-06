@@ -27,6 +27,29 @@
         <Effect Name="f_castle_65_1_elt"/>
         <Effect Name="F_ground051_loop3"/>
         <Effect Name="GR_TEST_S1"/>
+        <Effect Name="d_underfortress_68_2_elt"/>
+        <Effect Name="d_underfortress_68_2_elt2"/>
+        <Effect Name="CORAL_32_1_SQ_8_MINI"/>
+        <Effect Name="setting"/>
+        <Effect Name="onlook2"/>
+        <Effect Name="I_smoke053_mint_loop"/>
+        <Effect Name="I_smoke004_3"/>
+        <Effect Name="I_smoke053_mint_loop"/>
+        <Effect Name="M_GTOWER_STAGE_15"/>
+        <Effect Name="M_GTOWER_STAGE_13"/>
+        <Effect Name="M_GTOWER_STAGE_14"/>
+        <Effect Name="M_GTOWER_STAGE_10"/>
+        <Effect Name="M_GTOWER_STAGE_11"/>
+        <Effect Name="M_GTOWER_STAGE_12"/>
+        <Effect Name="M_GTOWER_STAGE_16"/>
+        <Effect Name="M_GTOWER_STAGE_17"/>
+        <Effect Name="M_GTOWER_STAGE_18"/>
+        <Effect Name="M_GTOWER_STAGE_19"/>
+        <Effect Name="M_GTOWER_STAGE_20"/>
+        <Effect Name="M_GTOWER_STAGE_6"/>
+        <Effect Name="M_GTOWER_STAGE_7"/>
+        <Effect Name="M_GTOWER_STAGE_8"/>
+        <Effect Name="M_GTOWER_STAGE_9"/>
     </Category>
     <Category ID="75">
         <Effect Name="F_wizard_MAGNUMOPUS_COVER_LOOP_fire_loop"/>
@@ -119,6 +142,12 @@
         <Effect Name="F_smoke006_1 "/>
         <Effect Name="pilgrim_shrine_dead"/>
         <Effect Name="F_smoke006_1"/>
+        <Effect Name="TABLELAND_11_1_SQ_04_MINI"/>
+        <Effect Name="campfire_add"/>
+        <Effect Name="I_smoke_red2"/>
+        <Effect Name="voice_die_war_f"/>
+        <Effect Name="I_wizard_necromancer_force2"/>
+        <Effect Name="F_ground092_red"/>
     </Category>
     <Category ID="72">
         <Effect Name="std4_1"/>
@@ -441,6 +470,12 @@
         <Effect Name="F_sys_TPBOX_great_200"/>
         <Effect Name="F_sys_TPBOX_great_300"/>
         <Effect Name="Chaplain_BuildCappella"/>
+        <Effect Name="RuneCaster_Thurisaz"/>
+        <Effect Name="voice_wiz_f_isa_cast"/>
+        <Effect Name="voice_wiz_f_hagalaz_cast"/>
+        <Effect Name="voice_wiz_f_thurisaz_cast"/>
+        <Effect Name="voice_wiz_f_tiwaz_cast"/>
+        <Effect Name="voice_wiz_f_algiz_cast"/>
     </Category>
     <Category ID="59">
         <Effect Name="F_hit_star"/>
@@ -1553,6 +1588,13 @@
         <Effect Name="ID_REMAINS_MINI_03"/>
         <Effect Name="BOSS"/>
         <Effect Name="LASTBOSS"/>
+        <Effect Name="ID_THORN_MINI_02"/>
+        <Effect Name="TIME"/>
+        <Effect Name="STAGE4"/>
+        <Effect Name="Door2"/>
+        <Effect Name="Door3"/>
+        <Effect Name="BOSS2"/>
+        <Effect Name="I_sphere001_mash2"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -2058,9 +2100,23 @@
         <Effect Name="I_Ferret_orange02_mash#Bip002 L Finger0Nub"/>
         <Effect Name="F_explosion048_2"/>
         <Effect Name="Chaplain_MagnusExorcismus"/>
-    <Effect Name="I_orkan_antler_burstup_mash#Dummy_emitter"/>
-	<Effect Name="I_Belian_skl3_antler_mash"/>
-	<Effect Name="E_Belian_skl3_antler"/>
+        <Effect Name="I_orkan_antler_burstup_mash#Dummy_emitter"/>
+        <Effect Name="I_Belian_skl3_antler_mash"/>
+        <Effect Name="E_Belian_skl3_antler"/>
+        <Effect Name="RuneCaster_Isa"/>
+        <Effect Name="F_cleric_Zornhau_shot_ground"/>
+        <Effect Name="F_wizard_Hagalaz_explosion"/>
+        <Effect Name="I_archer_sightshoot_cast_blue"/>
+        <Effect Name="I_force073_blue"/>
+        <Effect Name="I_wizard_splash_Hagalaz_force"/>
+        <Effect Name="I_wizard_splash_Hagalaz_explosion"/>
+        <Effect Name="I_force018_trail"/>
+        <Effect Name="I_pose_nono_trail_white"/>
+        <Effect Name="I_force087_trail_violet"/>
+        <Effect Name="RuneCaster_Algiz"/>
+        <Effect Name="RuneCaster_Thurisaz"/>
+        <Effect Name="I_arrow009_1#Dummy_q_Force"/>
+        <Effect Name="skl_eff_thurisaz_landing"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -2237,6 +2293,7 @@
         <Effect Name="GR_SAMPLE_1_P5_MINI"/>
         <Effect Name="Templer_ReduceCraftTime"/>
         <Effect Name="RoundMaxTime"/>
+        <Effect Name="checkoutofarea"/>
     </Category>
     <Category ID="49">
         <Effect Name="JOB_CENTURION5_1_MINI"/>
@@ -2398,6 +2455,14 @@
         <Effect Name="I_light004_green"/>
         <Effect Name="F_light005_green"/>
         <Effect Name="GR_TEST_S1"/>
+        <Effect Name="I_smoke014_6"/>
+        <Effect Name="M_GTOWER_LOBBY_1"/>
+        <Effect Name="M_GTOWER_STAGE_1"/>
+        <Effect Name="I_bomb008_blue"/>
+        <Effect Name="F_light094_blue"/>
+        <Effect Name="I_force021"/>
+        <Effect Name="F_rize005_blue"/>
+        <Effect Name="I_force0082_1"/>
     </Category>
     <Category ID="23">
         <Effect Name="I_force004_pink#Bip01 R Finger0"/>
@@ -3035,6 +3100,15 @@
         <Effect Name="GR_CHAPEL_1_S3_MINI"/>
         <Effect Name="GR_CHAPEL_1_S2_MINI"/>
         <Effect Name="GR_CHAPEL_1_S1_MINI"/>
+        <Effect Name="M_GTOWER_LOBBY_1"/>
+        <Effect Name="M_GTOWER_STAGE_4"/>
+        <Effect Name="M_GTOWER_STAGE_3"/>
+        <Effect Name="M_GTOWER_STAGE_2"/>
+        <Effect Name="M_GTOWER_STAGE_1"/>
+        <Effect Name="M_GTOWER_STAGE_5"/>
+        <Effect Name="INIT"/>
+        <Effect Name="OPEN_STAGE_1"/>
+        <Effect Name="CNT"/>
     </Category>
     <Category ID="180">
         <Effect Name="I_ice005_mash###1"/>

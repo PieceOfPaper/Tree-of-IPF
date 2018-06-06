@@ -30,7 +30,7 @@ end
 function UPDATE_ARTICLE_Item(ctrlset)
 
 	local classID = ctrlset:GetUserIValue("WIKI_TYPE");
-	local wiki = session.GetWiki(classID);
+	local wiki = GetWiki(classID);
 	local wikiCls = GetClassByType("Wiki", classID);
 	local cls = GetClass("Item", wikiCls.ClassName);
 	local score = GET_ITEM_WIKI_PTS(cls, wiki);
@@ -52,19 +52,20 @@ function UPDATE_ARTICLE_Item(ctrlset)
 		GET_WIKI_SORT_LIST(wiki, "Mon_", MAX_WIKI_ITEM_MON, sortList);
 		for i = 1 , #sortList do
 			local prop = sortList[i];
-			local monCls = GetClassByType("Monster", prop.propValue);
+			local monCls = GetClassByType("Monster", prop["Value"]);
 			if monCls ~= nil then
 				local pic = monsters:CreateOrGetControl('picture', monCls.ClassName, 30, 30, ui.LEFT, ui.TOP, 0, 0, 0, 0)
 				tolua.cast(pic, 'ui::CPicture')
 				pic:SetImage(GET_MON_ILLUST(monCls));
 				pic:SetEnableStretch(1)
-				local tooltipText = ScpArgMsg('From{Auto_1}_Get_{Auto_2}_Count', "Auto_1", monCls.Name, "Auto_2", prop.count);
+				local tooltipText = ScpArgMsg('From{Auto_1}_Get_{Auto_2}_Count', "Auto_1", monCls.Name, "Auto_2", prop["Count"]);
+								
 				pic:SetTextTooltip(tooltipText);
 			end
 		end
 	end
 
-	local totalCount = wiki:GetIntProp("Total").propValue;
+	local totalCount = GetWikiIntProp(wiki, "Total");
 	local t_totalcount = GET_CHILD(ctrlset, "t_totalcount");
 	t_totalcount:SetTextByKey("value", totalCount);
 
@@ -79,7 +80,7 @@ function UPDATE_ARTICLE_Item(ctrlset)
 
 	local t_level = GET_CHILD(ctrlset, "t_level");
 	if cls.ItemType == "Equip" then
-		local reinforceValue = wiki:GetIntProp("MaxReinforce").propValue;
+		local reinforceValue = GetWikiIntProp(wiki, "MaxReinforce");
 		if reinforceValue > 0 then
 			local reinText = ClMsg("Reinforce") .. " : +" .. reinforceValue;
 			t_level:SetTextByKey("value", reinText);
@@ -87,7 +88,7 @@ function UPDATE_ARTICLE_Item(ctrlset)
 			t_level:SetTextByKey("value", "");
 		end
 	elseif cls.GroupName == "Gem" then
-		local maxLevel = wiki:GetIntProp("MaxLevel").propValue;
+		local maxLevel = GetWikiIntProp(wiki, "MaxLevel");
 		if maxLevel > 0 then
 			local reinText = ClMsg("Level") .. " : +" .. maxLevel;
 			t_level:SetTextByKey("value", reinText);

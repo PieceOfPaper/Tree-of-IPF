@@ -4265,10 +4265,14 @@ end
 
 function UI_MODE_CHANGE(index)
 
-
 	local quickFrame = ui.GetFrame('quickslotnexpbar')
 	local joystickQuickFrame = ui.GetFrame('joystickquickslot')
+	local monQuickslot = ui.GetFrame("monsterquickslot")
 	if joystickQuickFrame == nil then
+		return;
+	end
+
+	if monQuickslot:IsVisible() == 1 then
 		return;
 	end
 

@@ -204,9 +204,9 @@ function WIKI_RECIPE_TROPHY_VIEW(frame)
 					tolua.cast(picasaItem, 'ui::CPicasaItem');
 					picasaItem:SetValue(cls.ClassID);
 
-					local wiki = session.GetWiki(cls.ClassID);
+					local wiki = GetWiki(cls.ClassID);
 					if wiki ~= nil then
-						local teachPoint = wiki:GetIntProp('TeachPoint').propValue;
+						local teachPoint = GetWikiIntProp(wiki, "TeachPoint");
 
 						if teachPoint > 0 then
 							picasaItem:SetNoticeText(teachPoint);
@@ -843,7 +843,7 @@ function UPDATE_WIKIDETAIL_ITEM_TOOLTIP(tooltipframe, wikiCls)
 end
 
 function WIKIDETAIL_ITEM_TOOLTIP(tooltipframe, wikiCls, yPos)
-	local wiki = session.GetWiki(wikiCls.ClassID);
+	local wiki = GetWiki(wikiCls.ClassID);
 
 	if wiki == nil then
 		return yPos;
@@ -871,10 +871,10 @@ function WIKIDETAIL_ITEM_TOOLTIP(tooltipframe, wikiCls, yPos)
 	return yPos;
 end
 
-function GET_WIKI_ITEM_MON_TXT(frame, prop, index, groupboxYPos, dropItemPicSize, dropItemTitleTextHeight, wikiCls)
+function GET_WIKI_ITEM_MON_TXT(frame, propValue, count, index, groupboxYPos, dropItemPicSize, dropItemTitleTextHeight, wikiCls)
 	dropItemPicSize = 40;
 
-	local cls = GetClassByType("Monster", prop.propValue);
+	local cls = GetClassByType("Monster", propValue);
 	if cls == nil then
 		return groupboxYPos, 0, 0;
 	end
@@ -906,7 +906,7 @@ function GET_WIKI_ITEM_MON_TXT(frame, prop, index, groupboxYPos, dropItemPicSize
 	dropItemNameCtrl:SetLineMargin(-2);
 	dropItemNameCtrl:SetTextAlign("center", "top");
 
-	dropItemNameCtrl:SetText('{s18}{#050505}'.. cls.Name..'{nl}'..prop.count..ClientMsg(20014));
+	dropItemNameCtrl:SetText('{s18}{#050505}'.. cls.Name..'{nl}'..count..ClientMsg(20014));
 
 	local itemTitleXPos = (dropItemNameCtrl:GetWidth() - dropItemPicSize) / 2;
 	dropItemNameCtrl:SetOffset(dropItemXPos - itemTitleXPos, groupboxYPos + dropItemPicSize);
@@ -916,16 +916,16 @@ function GET_WIKI_ITEM_MON_TXT(frame, prop, index, groupboxYPos, dropItemPicSize
 	return groupboxYPos, dropItemTitleTextHeight, dropItemPicSize;
 end
 
-function GET_WIKI_ITEM_QUEST_TXT(frame, prop, index, groupboxYPos, dropItemPicSize, dropItemTitleTextHeight)
+function GET_WIKI_ITEM_QUEST_TXT(frame, propValue, count, index, groupboxYPos, dropItemPicSize, dropItemTitleTextHeight)
 
 	local ret = "";
 
-	local cls = GetClassByType("QuestProgressCheck", prop.propValue);
+	local cls = GetClassByType("QuestProgressCheck", propValue);
 	if cls == nil then
 		return groupboxYPos, 0, 0;
 	end
 
-	ret = string.format("{nl}%s : %d %s", cls.Name, prop.count, ClientMsg(20014));
+	ret = string.format("{nl}%s : %d %s", cls.Name, count, ClientMsg(20014));
 
 	return groupboxYPos, dropItemTitleTextHeight, dropItemPicSize;
 end
@@ -1287,7 +1287,7 @@ function UPDATE_WIKIDETAIL_MONSTER_TOOLTIP(tooltipframe, wikiCls)
 end
 
 function WIKIDETAIL_MONSTER_KILL_TOOLTIP(tooltipframe, wikiCls)
-	local wiki = session.GetWiki(wikiCls.ClassID);
+	local wiki = GetWiki(wikiCls.ClassID);
 
 	if wiki == nil then
 		return 0;
@@ -1305,9 +1305,9 @@ function WIKIDETAIL_MONSTER_KILL_TOOLTIP(tooltipframe, wikiCls)
 	return groupboxYPos;
 end
 
-function GET_WIKI_MON_DROPITEM_TXT(frame, prop, index, groupboxYPos, dropItemPicSize, dropItemTitleTextHeight)
+function GET_WIKI_MON_DROPITEM_TXT(frame, propValue, count, index, groupboxYPos, dropItemPicSize, dropItemTitleTextHeight)
 	dropItemPicSize = 40;
-	local cls = GetClassByType("Item", prop.propValue);
+	local cls = GetClassByType("Item", propValue);
 	if cls == nil then
 		return 0, 0, 0;
 	end
@@ -1341,7 +1341,7 @@ function GET_WIKI_MON_DROPITEM_TXT(frame, prop, index, groupboxYPos, dropItemPic
 	dropItemNameCtrl:SetTextAlign("center", "top");
 
 	if cls.ItemType ~= 'Money' then
-		dropItemNameCtrl:SetText('{s18}{#050505}'.. cls.Name..'{nl}'..prop.count..ClientMsg(20014));
+		dropItemNameCtrl:SetText('{s18}{#050505}'.. cls.Name..'{nl}'..count..ClientMsg(20014));
 	else
 		dropItemNameCtrl:SetText('{s18}{#050505}'.. cls.Name);
 	end
@@ -1355,7 +1355,7 @@ end
 
 function GET_WIKI_INTPROP_TXT(frame, wiki, propName, msgTxt, rankList, groupboxYPos)
 
-	local cnt = wiki:GetIntProp(propName).propValue;
+	local cnt = GetWikiIntProp(wiki, propName);
 	if cnt == 0 then
 		return groupboxYPos;
 	end
@@ -1389,8 +1389,9 @@ function GET_WIKI_SORT_PROP_TXT(frame, wiki, wikiCls, msg, nameHead, maxCnt, get
 
 	local func = _G[getFunc];
 	for i = 1, #sortList do
-		local prop = sortList[i];
-		groupboxYPos, itemTitleTextHeight, itemPicSize = func(frame, prop, i, groupboxYPos, itemPicSize, itemTitleTextHeight, wikiCls);
+		local propValue = sortList[i]["Value"];
+		local propCount = sortList[i]["Count"];
+		groupboxYPos, itemTitleTextHeight, itemPicSize = func(frame, propValue, propCount, i, groupboxYPos, itemPicSize, itemTitleTextHeight, wikiCls);
 	end
 
 	groupboxYPos = groupboxYPos + itemPicSize + itemTitleTextHeight
@@ -1398,14 +1399,14 @@ function GET_WIKI_SORT_PROP_TXT(frame, wiki, wikiCls, msg, nameHead, maxCnt, get
 	return groupboxYPos;
 end
 
-function GET_WIKI_TOPATK_TXT(frame, prop, index, groupboxYPos, dropItemPicSize, dropItemTitleTextHeight)
+function GET_WIKI_TOPATK_TXT(frame, propValue, count, index, groupboxYPos, dropItemPicSize, dropItemTitleTextHeight)
 	dropItemPicSize = 0;
-	local cls = GetClassByType("Skill", prop.propValue);
+	local cls = GetClassByType("Skill", propValue);
 	if cls == nil then
 		return groupboxYPos, dropItemTitleTextHeight, dropItemPicSize;
 	end
 
-	local ret = string.format("{nl}{img icon_%s 20 20} %s : %d", cls.Icon, cls.Name, prop.count);
+	local ret = string.format("{nl}{img icon_%s 20 20} %s : %d", cls.Icon, cls.Name, count);
 
 	local exinfoGroupBox = GET_CHILD(frame, 'exinfo', 'ui::CGroupBox');
 	local killCountCtrl = exinfoGroupBox:CreateOrGetControl('richtext', 'TOPATK_'..index, 0, groupboxYPos, 180, 20);

@@ -92,6 +92,7 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
     local quest_reason = {}
     local sObj_quest
     local ssnInvItemCheck = false
+    local ssnMonCheck = false
     
     if questIES ~= nil then
         local req_startarea = 'NO'
@@ -413,7 +414,7 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                 end
                 
                 
-                Succ_req_MonKill = SCR_QUEST_SUCC_CHECK_MODULE_MONKILL(pc, questIES)
+                Succ_req_MonKill, shortfall, ssnMonCheck = SCR_QUEST_SUCC_CHECK_MODULE_MONKILL(pc, questIES)
                 
                 
                 Succ_req_OverKill = SCR_QUEST_SUCC_CHECK_MODULE_OVERKILL(pc, questIES)
@@ -536,7 +537,7 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                 
         --        print('Succ_req_InvItem',Succ_req_InvItem,'Succ_req_EqItem',Succ_req_EqItem,'Succ_req_Buff',Succ_req_Buff,'req_end',req_end, 'Succ_req_Lv',Succ_req_Lv,'Succ_req_MonKill',Succ_req_MonKill)
                 if Succ_req_InvItem == 'YES' and Succ_req_SSNInvItem == 'YES' and Succ_req_EqItem == 'YES' and Succ_req_Buff == 'YES' and Succ_req_Lv == 'YES' and Succ_req_MonKill == 'YES' and Succ_req_OverKill == 'YES' and Succ_req_Skill == 'YES' and Succ_req_Quest == 'YES' and Succ_req_Atkup == 'YES' and Succ_req_Defup == 'YES' and Succ_req_Mhpup == 'YES' and Succ_req_HonorPoint == 'YES' and Succ_req_MapFogSearch == 'YES' and Succ_req_SessionObject == 'YES' and Succ_req_Script == 'YES' then
-                    if questIES.Succ_Check_Buff == 0 and questIES.Succ_Check_EqItem == 0 and questIES.Succ_Check_InvItem == 0 and ssnInvItemCheck == false and questIES.Succ_Lv == 0 and questIES.Succ_Check_MonKill == 0 and questIES.Succ_Check_OverKill == 0 and questIES.Succ_Check_Skill == 0 and questIES.Succ_Check_QuestCount == 0 and questIES.Succ_Atkup == 0 and questIES.Succ_Defup == 0 and questIES.Succ_Mhpup == 0 and questIES.Succ_HonorPoint == 'None' and questIES.Succ_MapFogSearch == 'None' and (questIES.Quest_SSN == 'None' or (questIES.Quest_SSN ~= 'None' and SCR_SESSIONOBJ_INFO_CHECK(questIES.Quest_SSN) == 'NO')) and questIES.Succ_Check_Script == 0 then
+                    if questIES.Succ_Check_Buff == 0 and questIES.Succ_Check_EqItem == 0 and questIES.Succ_Check_InvItem == 0 and ssnInvItemCheck == false and ssnMonCheck == false and questIES.Succ_Lv == 0 and questIES.Succ_Check_MonKill == 0 and questIES.Succ_Check_OverKill == 0 and questIES.Succ_Check_Skill == 0 and questIES.Succ_Check_QuestCount == 0 and questIES.Succ_Atkup == 0 and questIES.Succ_Defup == 0 and questIES.Succ_Mhpup == 0 and questIES.Succ_HonorPoint == 'None' and questIES.Succ_MapFogSearch == 'None' and (questIES.Quest_SSN == 'None' or (questIES.Quest_SSN ~= 'None' and SCR_SESSIONOBJ_INFO_CHECK(questIES.Quest_SSN) == 'NO')) and questIES.Succ_Check_Script == 0 then
                         quest_reason[1] = ScpArgMsg("Auto_DaLeun_wanLyo_JoKeon_eopeum_")..questIES.QuestPropertyName..ScpArgMsg("Auto__PeuLoPeoTi_Kapi_")..CON_QUESTPROPERTY_MAX..ScpArgMsg("Auto__ieoya_Ham")
                         return 'PROGRESS', quest_reason;
                     else
@@ -3224,12 +3225,39 @@ function SCR_QUEST_SUCC_CHECK_MODULE_MONKILL(pc, questIES)
     local Succ_req_monkill_check = 0;
     local Succ_req_MonKill = 'NO'
     local shortfall = {}
+    local monkill_sObj
+    local ssnMonCheck = false
     
-    if questIES.Succ_Check_MonKill == 0 then
+    if questIES.Quest_SSN ~= 'None' then
+        monkill_sObj = GetSessionObject(pc, questIES.Quest_SSN);
+    end
+    
+    if monkill_sObj ~= nil and GetPropType(monkill_sObj, 'SSNMonKill') ~= nil and monkill_sObj.SSNMonKill ~= 'None' then
+        ssnMonCheck = true
+        local monInfo = SCR_STRING_CUT(monkill_sObj.SSNMonKill, ":")
+        if #monInfo >= 3 and #monInfo % 3 == 0 then
+            local ssnMonListCount = #monInfo / 3
+            local flag = 0
+            for i = 1, QUEST_MAX_MON_CHECK do
+                if ssnMonListCount >= i then
+                    local needCount = tonumber(monInfo[i*3 - 1])
+                    local nowCount = monkill_sObj['KillMonster'..i]
+                    if nowCount >= needCount then
+                        flag = flag + 1
+                    end
+                else
+                    break
+                end
+            end
+            
+            if flag >= ssnMonListCount then
+                Succ_req_MonKill = 'YES'
+            end
+        end
+    elseif questIES.Succ_Check_MonKill == 0 then
         Succ_req_MonKill = 'YES';
     elseif questIES.Succ_MonKill_Condition == 'AND' then
         if questIES.Succ_Check_MonKill >= 1 then
-            local monkill_sObj = GetSessionObject(pc, questIES.Quest_SSN);
             if monkill_sObj ~= nil then
                 if questIES.Succ_Check_MonKill >= 6 then
                     if monkill_sObj.KillMonster6 >= questIES.Succ_MonKillCount6 and questIES.Succ_MonKill_ItemGive6 == 'None' and questIES.Succ_MonKillCount6 > 0 then
@@ -3323,7 +3351,6 @@ function SCR_QUEST_SUCC_CHECK_MODULE_MONKILL(pc, questIES)
         end
     elseif questIES.Succ_MonKill_Condition == 'OR' then
         if questIES.Succ_Check_MonKill >= 1 then
-            local monkill_sObj = GetSessionObject(pc, questIES.Quest_SSN);
             if monkill_sObj ~= nil then
                 local i
                 for i = 1, 6 do
@@ -3345,7 +3372,7 @@ function SCR_QUEST_SUCC_CHECK_MODULE_MONKILL(pc, questIES)
         end
     end
     
-    return Succ_req_MonKill, shortfall
+    return Succ_req_MonKill, shortfall, ssnMonCheck
 end
 
 function SCR_QUEST_SUCC_CHECK_MODULE_OVERKILL(pc, questIES)

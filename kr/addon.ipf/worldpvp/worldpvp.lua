@@ -10,7 +10,7 @@ function WORLDPVP_ON_INIT(addon, frame)
 			
 end
 
-g_enablePVPExp = 0;
+g_enablePVPExp = 1;
 
 function WORLDPVP_FIRST_OPEN(frame)
 	local bg = frame:GetChild("bg");
@@ -29,6 +29,11 @@ function WORLDPVP_FIRST_OPEN(frame)
 	end
 
 	droplist:SelectItemByKey(1);
+
+	if cnt <= 1 then
+		droplist:ShowWindow(0);
+		droplist_rank:ShowWindow(0);
+	end
 
 	ON_PVP_HISTORY_UPDATE(frame);
 end
@@ -73,9 +78,11 @@ end
 
 function SET_PVP_TYPE_PROP(bg, pvpObj, clsName, ctrlName, propName, defValue)
 	local ctrl = bg:GetChild(ctrlName);
-	local objPropName = clsName .. "_" .. propName;
-	local propValue = pvpObj:GetPropValue(objPropName, defValue);
-	ctrl:SetTextByKey("value", propValue);
+	if ctrl ~= nil then
+		local objPropName = clsName .. "_" .. propName;
+		local propValue = pvpObj:GetPropValue(objPropName, defValue);
+		ctrl:SetTextByKey("value", propValue);
+	end
 end
 
 function ON_PVP_PROPERTY_UPDATE(frame)
@@ -108,15 +115,17 @@ function UPDATE_WORLDPVP(frame)
 	SET_PVP_TYPE_PROP(charinfo, pvpObj, clsName, "rp", "RP", 1000);
 	local teer = charinfo:GetChild("teer")
 	local objPropName = clsName .. "_GRADE";
-	local gradeValue = pvpObj:GetPropIValue(objPropName, 0);
-	if gradeValue == 0 then
-		teer:SetTextByKey("value", "");
-	else
-		local baseGrade = math.floor(gradeValue / 10);
-		local semiGrade = gradeValue % 10;
-		local gradeCls = GetClassByType("WorldPVPGrade", baseGrade);
-		local gradeText = string.format("{img %s 32 32} %s %d", gradeCls.Image, gradeCls.Name, semiGrade + 1);
-		teer:SetTextByKey("value", gradeText);
+	if teer ~= nil then
+		local gradeValue = pvpObj:GetPropIValue(objPropName, 0);
+		if gradeValue == 0 then
+			teer:SetTextByKey("value", "");
+		else
+			local baseGrade = math.floor(gradeValue / 10);
+			local semiGrade = gradeValue % 10;
+			local gradeCls = GetClassByType("WorldPVPGrade", baseGrade);
+			local gradeText = string.format("{img %s 32 32} %s %d", gradeCls.Image, gradeCls.Name, semiGrade + 1);
+			teer:SetTextByKey("value", gradeText);
+		end
 	end
 	
 
@@ -131,22 +140,25 @@ function UPDATE_WORLDPVP(frame)
 		todayGetEXPPoint = pvpObj:GetPropValue("TodayGetEXPPoint");
 	end
 
-	local todayStr;
-	if g_enablePVPExp == 1 then
-		todayStr = string.format("EXP : %d/%d, Shop : %d/%d", todayGetEXPPoint ,PVP_DAY_MAX_SHOP_POINT, todayGetShopPoint, PVP_DAY_MAX_EXP_POINT);
-	else
-		todayStr = string.format("%s : %d/%d", ScpArgMsg("ShopPoint"),todayGetShopPoint, PVP_DAY_MAX_EXP_POINT);
+	local shopgauge = GET_CHILD(charinfo, "shopgauge");
+	shopgauge:SetPoint(todayGetShopPoint, PVP_DAY_MAX_SHOP_POINT);
+
+	local txt_curshoppoint = GET_CHILD(charinfo, "txt_curshoppoint");
+	txt_curshoppoint:SetTextByKey("value", pvpObj:GetPropValue("ShopPoint"));
+
+
+	local expgauge = GET_CHILD(charinfo, "expgauge");	
+	if expgauge ~= nil then
+		expgauge:SetPoint(todayGetEXPPoint, PVP_DAY_MAX_EXP_POINT);
+
+		local curExpPoint = pvpObj:GetPropIValue("ExpPoint", 0);
+		local totalexpgauge = GET_CHILD(charinfo, "totalexpgauge");
+		totalexpgauge:SetPoint(curExpPoint, PVP_MAX_EXP_POINT)
+
+		local expbtn = charinfo:GetChild("getexp");
+		expgauge:ShowWindow(g_enablePVPExp);
+		expbtn:ShowWindow(g_enablePVPExp);
 	end
-
-	local todaypoint = charinfo:GetChild("todaypoint");
-	todaypoint:SetTextByKey("value", todayStr);
-
-	local curExpPoint = pvpObj:GetPropIValue("ExpPoint", 0);
-	local expgauge = GET_CHILD(charinfo, "expgauge", "ui::CGauge");
-	expgauge:SetPoint(curExpPoint, PVP_MAX_EXP_POINT);
-	local expbtn = charinfo:GetChild("getexp");
-	expgauge:ShowWindow(g_enablePVPExp);
-	expbtn:ShowWindow(g_enablePVPExp);
 
 	local joinBtn = charinfo:GetChild("join");
 	local isPlaying = session.worldPVP.IsPlayingType(pvpType);
@@ -179,6 +191,12 @@ function JOIN_WORLDPVP_BY_TYPE(frame, pvpType)
 	if state == PVP_STATE_NONE then
 
 		if cls.Party == 0 then
+			if session.GetPcTotalJobGrade() < WORLDPVP_MIN_JOB_GRADE then
+				local msg = ScpArgMsg("OnlyAbleOver{Rank}", "Rank", WORLDPVP_MIN_JOB_GRADE);
+				ui.MsgBox(msg);
+				return;
+			end
+
 			worldPVP.ReqJoinPVP(pvpType, PVP_STATE_FINDING);
 			join:SetEnable(0);
 		else
@@ -252,16 +270,17 @@ end
 
 function WORLDPVP_RANK_TYPE_SELECT(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
-	WORLDPVP_REQUEST_RANK(frame, 1);
+	WORLDPVP_REQUEST_RANK(frame, 1, 1);
 end
 
 function ON_PVP_TIME_TABLE(frame)
 
 	local bg = frame:GetChild("bg");
 	local timetable = bg:GetChild("timetable");
-	local time_text = timetable:GetChild("time_text");
+	local tbg = timetable:GetChild("tbg");
+	local time_text = tbg:GetChild("time_text");
 
-	local txt = frame:GetUserConfig("TIME_TABLE_FONT");
+	local txt = ""; -- frame:GetUserConfig("TIME_TABLE_FONT");
 	local sysTime = geTime.GetServerSystemTime();
 	local cnt = session.worldPVP.GetPVPTableCount();
 	for i = 0 , cnt - 1 do
@@ -281,7 +300,7 @@ function ON_PVP_TIME_TABLE(frame)
 		
 	end
 
-	time_text:SetText(txt);
+	time_text:SetTextByKey("value", txt);
 	
 end
 
@@ -289,6 +308,7 @@ function ON_PVP_HISTORY_UPDATE(frame)
 
 	local bg = frame:GetChild("bg");
 	local recent = bg:GetChild("recent");
+	local rbg = recent:GetChild("rbg");
 
 	local mySession = session.GetMySession();
 	local cid = mySession:GetCID();
@@ -297,10 +317,10 @@ function ON_PVP_HISTORY_UPDATE(frame)
 		return;
 	end
 
-	DESTROY_CHILD_BYNAME(recent, "HISTORY_");
+	DESTROY_CHILD_BYNAME(rbg, "HISTORY_");
 	local cnt = pvpObj:GetHistoryCount();
 	for i = 0 , cnt - 1 do
-		local pvp_history = recent:CreateControlSet("pvp_history", "HISTORY_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, 0);
+		local pvp_history = rbg:CreateControlSet("pvp_history", "HISTORY_" .. i, ui.LEFT, ui.TOP, 10, 0, 0, 0);
 
 		local name = pvp_history:GetChild("name");
 		local time = pvp_history:GetChild("time");
@@ -322,11 +342,11 @@ function ON_PVP_HISTORY_UPDATE(frame)
 		score:SetTextByKey("value", pointStr);
 	end	
 
-	GBOX_AUTO_ALIGN(recent, 10, 0, 10, true, false);
+	GBOX_AUTO_ALIGN(rbg, 35, 0, 10, true, false);
 
 end
 
-function WORLDPVP_REQUEST_RANK(frame, page)
+function WORLDPVP_REQUEST_RANK(frame, page, findMyRanking)
 
 	local mySession = session.GetMySession();
 	local cid = mySession:GetCID();
@@ -343,7 +363,11 @@ function WORLDPVP_REQUEST_RANK(frame, page)
 	local bg_ranking = frame:GetChild("bg_ranking");
 	local input_findname = GET_CHILD(bg_ranking, "input_findname", "ui::CEditControl");
 
-	worldPVP.RequestPVPRanking(pvpType, -1, page, input_findname:GetText());
+	if findMyRanking == nil then
+		findMyRanking = 0;
+	end
+
+	worldPVP.RequestPVPRanking(pvpType, 0, -1, page, findMyRanking, input_findname:GetText());
 
 end
 
@@ -362,7 +386,7 @@ end
 function WORLDPVP_SHOW_RANKING(parent, ctrl)
 
 	local frame = parent:GetTopParentFrame();
-	WORLDPVP_REQUEST_RANK(frame, 1);
+	WORLDPVP_REQUEST_RANK(frame, 1, 1);
 	WORLDPVP_SET_UI_MODE(frame, "ranking");
 				
 end
@@ -392,15 +416,32 @@ end
 function UPDATE_PVP_RANK_CTRLSET(ctrlSet, info)
 	local iconInfo = info:GetIconInfo();
 	local key = info:GetCID();
-	local imgName = ui.CaptureModelHeadImage_IconInfo(iconInfo);
+	local myName = GETMYFAMILYNAME();
+	local isMyAccount = false;
+	if myName == iconInfo:GetFamilyName() then
+		isMyAccount = true;
+	end
+
+	local imgName = GET_JOB_ICON(iconInfo.job);
 
 	local txt_name = ctrlSet:GetChild("txt_name");
 	local pic = GET_CHILD(ctrlSet, "pic");
-	local txt_point = ctrlSet:GetChild("txt_point");
 	ctrlSet:SetUserValue("CID", key);
-	txt_name:SetTextByKey("value", iconInfo:GetGivenName() .. " (" .. iconInfo:GetFamilyName()..")");
-	txt_point:SetTextByKey("value", info.point);
+	if isMyAccount == true then
+		txt_name:SetTextByKey("value", "{#0000FF}" .. iconInfo:GetGivenName() .. "{nl}" .. iconInfo:GetFamilyName());
+	else
+		txt_name:SetTextByKey("value", iconInfo:GetGivenName() .. "{nl}" .. iconInfo:GetFamilyName());
+	end
+
+	local txt_point = ctrlSet:GetChild("txt_point");
+	if txt_point ~= nil then
+		txt_point:SetTextByKey("value", info.point);
+	end
+
 	pic:SetImage(imgName);
+
+	local txt_rank = ctrlSet:GetChild("txt_rank");
+	txt_rank:SetTextByKey("value", info.ranking + 1);
 
 end
 
@@ -424,10 +465,6 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 
 		UPDATE_PVP_RANK_CTRLSET(ctrlSet, info);
 
-		local txt_rank = ctrlSet:GetChild("txt_rank");
-		local ranking = ((page - 1) * WORLDPVP_RANK_PER_PAGE) + i + 1;
-		txt_rank:SetTextByKey("value", ranking);
-		
 	end
 
 	GBOX_AUTO_ALIGN(gbox_ctrls, 0, 0, 0, true, false);
@@ -436,6 +473,7 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 	local control = GET_CHILD(bg_ranking, 'control', 'ui::CPageController')
 	control:SetMaxPage(totalPage);
 	control:SetCurPage(page - 1);
+	control:SetUserValue("PAGE", page);
 
 end
 
@@ -451,6 +489,30 @@ function ON_WORLDPVP_RANK_ICON(frame, msg, cid, argNum, info)
 	
 	
 	
+
+end
+
+function WORLDPVP_RANK_SELECT_PREV(parent, ctrl)
+
+	local frame = parent:GetTopParentFrame();
+	local bg_ranking = frame:GetChild("bg_ranking");
+	local control = GET_CHILD(bg_ranking, "control", 'ui::CPageController')
+	local page = control:GetUserIValue("PAGE");
+	
+	WORLDPVP_REQUEST_RANK(frame, page - 1 );
+	ui.DisableForTime(control, 0.5);
+
+end
+
+function WORLDPVP_RANK_SELECT_NEXT(parent, ctrl)
+
+	local frame = parent:GetTopParentFrame();
+	local bg_ranking = frame:GetChild("bg_ranking");
+	local control = GET_CHILD(bg_ranking, "control", 'ui::CPageController')
+	local page = control:GetUserIValue("PAGE");
+	
+	WORLDPVP_REQUEST_RANK(frame, page + 1);
+	ui.DisableForTime(control, 0.5);
 
 end
 
@@ -479,8 +541,8 @@ function WORLDPVP_GET_EXP(parent, ctrl)
 		return;
 	end
 
-	
-
+	worldPVP.RequestGetExp(curExpPoint);
+		
 end
 
 function GET_PVP_POINT_C()
@@ -492,6 +554,15 @@ function GET_PVP_POINT_C()
 	end
 
 	return pvpObj:GetPropIValue("ShopPoint", 0);
+end
+
+function PVP_CARD_GET_ITEM_C()
+
+	local level = GETMYPCLEVEL();
+	local name, count = GetWorldPVPExpCard(level);
+	local text = ScpArgMsg("DifferentByPCLevel");
+	return name, count, text;
+
 end
 
 function WORLDPVP_READY_STATE_CHANGE(state)
@@ -594,6 +665,35 @@ function WORLDPVP_OBSERVER_GET_TEAM_STR(teamName, jobID)
 	return string.format("%s (%s)", teamName, jobCls.Name);
 end
 
+function WORLDPVP_PUBLIC_GAME_SET_PCTEAM(gbox, teamVec, teamID)
+
+	local count = teamVec:GetCount();
+	for i = 0 , count - 1 do
+
+		local pcInfo = teamVec:GetByIndex(i);
+		local pcSet = gbox:CreateOrGetControlSet("pvp_observe_ctrlset_pc_" .. teamID, "PC_" .. i, 0, 0);
+		
+		local lv = pcSet:GetChild("lv");
+		local name = pcSet:GetChild("name");
+		lv:SetTextByKey("value", pcInfo.level);
+		name:SetTextByKey("value", pcInfo:GetFamilyName());
+		local pic_job = GET_CHILD(pcSet, "pic_job");
+		pic_job:SetImage(GET_JOB_ICON(pcInfo.jobID));
+		local pic_rank = GET_CHILD(pcSet, "pic_rank");
+		if pcInfo.rank == 0 then
+			pic_rank:ShowWindow(0);
+		else
+			local txt_rank = pic_rank:GetChild("txt_rank");
+			txt_rank:SetTextByKey("value", pcInfo.rank);
+		end
+	
+	end
+
+	GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
+
+
+end
+
 function WORLDPVP_PUBLIC_GAME_LIST()
 
 	local frame = ui.GetFrame("worldpvp");
@@ -602,34 +702,34 @@ function WORLDPVP_PUBLIC_GAME_LIST()
 	gbox:RemoveAllChild();
 	
 	local cnt = session.worldPVP.GetPublicGameCount();
+	cnt = math.min(cnt, 3);
 	for i = 0 , cnt - 1 do
 
 		local info = session.worldPVP.GetPublicGameByIndex(i);
-		local ctrlSet = gbox:CreateControlSet("pvp_observe_ctrlset", "CTRLSET_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, 0);
-		
+		local ctrlSet = gbox:CreateControlSet("pvp_observe_ctrlset", "CTRLSET_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, 0);		
 		ctrlSet:SetUserValue("GAME_ID", info.guid);
-		local txt_gametype = ctrlSet:GetChild("txt_gametype");
-		local txt_gametime = ctrlSet:GetChild("txt_gametime");
-		local txt_team1 = ctrlSet:GetChild("txt_team1");
-		local txt_mmr = ctrlSet:GetChild("txt_mmr");
-		local txt_team2 = ctrlSet:GetChild("txt_team2");
 
-		local gameCls = GetClassByType("WorldPVPType", info.gameType);
-		txt_gametype:SetTextByKey("value", gameCls.Name);
-		txt_mmr:SetTextByKey("value", info.gameMMR);
+		local gbox_pc = ctrlSet:GetChild("gbox_pc");
+		local teamVec1 = info:CreateTeamInfo(1);
+		local teamVec2 = info:CreateTeamInfo(2);
+		local gbox_ctrlSet = ctrlSet:GetChild("gbox");
+		local gbox_whole = ctrlSet:GetChild("gbox_whole");
+		local gbox_1 = ctrlSet:GetChild("gbox_1");
+		local gbox_2 = ctrlSet:GetChild("gbox_2");
+		WORLDPVP_PUBLIC_GAME_SET_PCTEAM(gbox_1, teamVec1, 1);
+		WORLDPVP_PUBLIC_GAME_SET_PCTEAM(gbox_2, teamVec2, 2);
 
-		txt_gametime:SetUserValue("START_TIME", imcTime.GetAppTime());
-		txt_gametime:SetUserValue("START_SEC", info.playTime * 0.001);
-		txt_gametime:RunUpdateScript("UPDATE_GAMETIME_TXT", 0, 0, 0, 1);
-		UPDATE_GAMETIME_TXT(txt_gametime);
+		local heightAddValue = 15;
+		local height = math.max(gbox_1:GetHeight(), gbox_2:GetHeight()) + heightAddValue;
+		gbox_ctrlSet:Resize(gbox_ctrlSet:GetWidth(), height);
 
-		local team1Str = WORLDPVP_OBSERVER_GET_TEAM_STR(info:GetTeam1Name(), info.team1Job);
-		local team2Str = WORLDPVP_OBSERVER_GET_TEAM_STR(info:GetTeam2Name(), info.team2Job);
-		txt_team1:SetTextByKey("value", team1Str);
-		txt_team2:SetTextByKey("value", team2Str);
+		local btn = ctrlSet:GetChild("btn");
+		ctrlSet:Resize(ctrlSet:GetWidth(), height + btn:GetHeight() + heightAddValue);
+		gbox_whole:Resize(ctrlSet:GetWidth(), height + btn:GetHeight() + heightAddValue);
+
 	end
 
-	GBOX_AUTO_ALIGN(gbox, 10, 3, 10, true, false);
+	GBOX_AUTO_ALIGN(gbox, 10, 3, 10, true, true);
 
 end
 
@@ -669,5 +769,28 @@ function RUN_PVP_BY_PARTYEVENT()
 -- 	frame:SetUserValue("BY_PARTY_QUEST", 1);
 	JOIN_WORLDPVP_BY_TYPE(frame, cls.ClassID);
 	
+end
+
+function PVP_OPEN_POINT_SHOP(parent, ctrl)
+
+	TOGGLE_PROPERTY_SHOP("PVPShop");
+
+end
+                    
+
+function WORLDPVP_TAB_CHANGE(parent, ctrl)
+
+	local frame = parent:GetTopParentFrame();
+	local tab = GET_CHILD(frame, "tab");
+	local index = tab:GetSelectItemIndex();
+	if index == 0 then
+		SHOW_WORLDPVP_PAGE(frame);
+	elseif index == 1 then
+		WORLDPVP_SHOW_RANKING(frame);
+	elseif index == 2 then
+		WORLDPVP_OBSERVE_UI(frame);
+	end
+	
+
 end
 

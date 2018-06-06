@@ -34,11 +34,11 @@ function CREATE_JOURNAL_ARTICLE_CRAFT(frame, grid, key, text, iconImage, callbac
 
 	-- f[ ??°?.
 	while cls ~= nil do
-		if session.GetWikiByName(cls.ClassName) ~= nil then
+		if GetWikiByName(cls.ClassName) ~= nil then
 			--print(i,cls.ClassName,cls.ClassID)
 		end
 
-		if cls.NeedWiki == 0 or session.GetWikiByName(cls.ClassName) ~= nil then
+		if cls.NeedWiki == 0 or GetWikiByName(cls.ClassName) ~= nil then
 			if checkHaveMaterial == 1 then
 				if JOURNAL_HAVE_MATERIAL(cls) == 1 then
 					JOURNAL_INSERT_CRAFT(cls, tree, slotHeight);
@@ -531,9 +531,9 @@ function JOURNAL_CRAFT_SET_DETAIL(ctrlset, detailMode, ignoreUserValue)
 		DESTROY_CHILD_BY_USERVALUE(ctrlset, "DETAIL_CTRL", "YES");
 		ctrlset:MergeControlSet("journalRecipe_detail");
 		local lvgauge = GET_CHILD(ctrlset, "lvgauge", "ui::CGauge");
-		local myWiki = session.GetWikiByName(ctrlset:GetName());
+		local myWiki = GetWikiByName(ctrlset:GetName());
 		if myWiki ~= nil then
-			local cnt = myWiki:GetIntProp("MakeCount").propValue;
+			local cnt = GetWikiIntProp(myWiki, "MakeCount");
 			lvgauge:SetPoint(cnt, 10);
 		end
 

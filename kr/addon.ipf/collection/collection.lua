@@ -293,12 +293,15 @@ function OPEN_DECK_DETAIL(parent, ctrl)
 	col:DetailView(parent, "MAKE_DECK_DETAIL");
 end
 
-function ATTACH_TEXT_TO_OBJECT(ctrl, objName, text, x, y, width, height, alignX, alignY, enableFixWIdth, textAlignX, textAlignY)
+function ATTACH_TEXT_TO_OBJECT(ctrl, objName, text, x, y, width, height, alignX, alignY, enableFixWIdth, textAlignX, textAlignY, textOmitByWidth)
 
 	local title = ctrl:CreateControl('richtext', objName, x, y, width, height);
 	title = tolua.cast(title, "ui::CRichText");
 	title:SetGravity(alignX, alignY);
 	title:EnableResizeByText(1);
+	if textOmitByWidth ~= nil then
+		title:EnableTextOmitByWidth(textOmitByWidth);
+	end
 
 	if enableFixWIdth ~= nil then
 		title:SetTextFixWidth(enableFixWIdth);
@@ -383,7 +386,7 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 	local testobj
 	local curCount, maxCount = GET_COLLECTION_COUNT(type, coll);
 	local titleText = string.format("%s%s {/}%s%d/%d{/}", frame:GetUserConfig("TITLE_FONT"), cls.Name, frame:GetUserConfig("TITLE_COUNT_FONT"), curCount, maxCount);
-	nextY, titleCtrl = ATTACH_TEXT_TO_OBJECT(detailMainGbox, "title", titleText, 0, nextY, detailMainGbox:GetWidth(), 50, ui.CENTER_HORZ, ui.TOP);
+	nextY, titleCtrl = ATTACH_TEXT_TO_OBJECT(detailMainGbox, "title", titleText, 10, nextY, detailMainGbox:GetWidth(), 50, ui.CENTER_HORZ, ui.TOP);
 
 
 	--- 9칸에 걸쳐서 아이콘과 이름 생성
@@ -394,7 +397,8 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 	local picInBox = 3;
 	local picWidth = math.floor((itemBoxWidth - space - marginX * 2) / picInBox) - space;
 	local picHeight = picWidth;
-	local textWidth = math.floor((itemBoxWidth - marginX * 2) / picInBox);
+	local textWidth = math.floor((itemBoxWidth - marginX * 2) / picInBox) - space;
+	local textHeight = 40;
 	local lastRow = 0;
 	local picY = nextY + marginY;
 	local textY = picY + picHeight;
@@ -441,7 +445,7 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 		end
 
 		local text = string.format("%s%s {/}", frame:GetUserConfig("DETAIL_ITEM_FONT"), itemCls.Name);
-		local dummyY, picText = ATTACH_TEXT_TO_OBJECT(detailMainGbox, "TITLE_" .. i, text, textX, textY, textWidth, 30, ui.LEFT, ui.TOP, 1, "center", "center");
+		local dummyY, picText = ATTACH_TEXT_TO_OBJECT(detailMainGbox, "TITLE_" .. i, text, textX, textY, textWidth, textHeight, ui.LEFT, ui.TOP, 1, "center", "center");
 
 		if picText:GetHeight() > maxTextHeight then
 			maxTextHeight = picText:GetHeight();

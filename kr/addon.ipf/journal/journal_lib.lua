@@ -74,20 +74,20 @@ function JOURNAL_DETAIL_LIST_RENEW(ctrlset, idSpace, group, groupValue, cate, ca
 
 	gbox:SetUserValue("CATEGORY", idSpace);
 	local wikiList = GetClassList("Wiki");
-	local list = session.GetWikiListByCategory(idSpace);
+	local list = GetWikiListByCategory(idSpace);
 	
 	ClearSortIESList();
 	
-	for i = 0 , list:Count() - 1 do
-		local wiki = list:Element(i);
-		local type = wiki:GetType();
+	for i = 1 , #list do
+		local wiki = list[i];
+		local type = GetWikiType(wiki);
 		local cls = GetClassByTypeFromList(wikiList, type);
 		local monCls = GetClassByNameFromList(clsList, cls.ClassName);
 		if true == JOURNAL_CHECK_FILTER(monCls, group, groupValue, cate, cateValue)  then
 			local tempname = string.lower(dictionary.ReplaceDicIDInCompStr(monCls.Name));		
 			local tempinputtext = string.lower(inputText)
 			if tempinputtext == "" or true == ui.FindWithChosung(tempinputtext, tempname) then
-				AddSortIESList(monCls, cls, GetVoidPointer(wiki));
+				AddSortIESList(monCls, cls, wiki);
 			end
 		end
 	end
@@ -190,13 +190,17 @@ function SET_ITEM_CATEGORY_BY_PROP(tree)
 			for j = 1 , #subCateList do
 				local cate = subCateList[j]
 		    	if cate ~= 'None' then
-					tree:Add(htreeitem, ClMsg(cate), data.."#"..cate, "{#000000}");
+					tree:Add(htreeitem, "{ol}"..ClMsg(cate), data.."#"..cate, "{#FFCC33}{ds}");
 		    	end
 			end
 		end
 	end
 
-	GBOX_AUTO_ALIGN(tree, 0, 0, 100, true, true);
+	if clMsgHeader == nil then
+		GBOX_AUTO_ALIGN(tree, 10, 10, 0)
+	else
+		GBOX_AUTO_ALIGN(tree, 10, 10, 0, true, false);
+	end
 end
 
 function SET_CATEGORY_BY_PROP(tree, idSpace, groupName, classType, clMsgHeader, list)
@@ -242,6 +246,7 @@ function SET_CATEGORY_BY_PROP(tree, idSpace, groupName, classType, clMsgHeader, 
 			if typeList ~= nil and 0 < typeCnt and i > 0 then
 				tree:Add(ctrlSet);
 				local htreeitem = tree:FindByName(ctrlSet:GetName());
+				tree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
 				for j = 1 , typeCnt do
 					local propName = "None";
 					if "Item" == idSpace then
@@ -253,7 +258,7 @@ function SET_CATEGORY_BY_PROP(tree, idSpace, groupName, classType, clMsgHeader, 
 					end
 
 					if propName ~= 'None' then
-						tree:Add(htreeitem, ClMsg(propName), data.."#"..propName, "{#000000}");
+						tree:Add(htreeitem, "{ol}"..ClMsg(propName), data.."#"..propName, "{#FFCC33}{ds}");
 					end
 				end
 			else
@@ -362,9 +367,9 @@ end
 
 
 function APPLY_FUNC_WIKI_CATEGORY(category, func, ...)
-	local list = session.GetWikiListByCategory(category);
-	for i = 0 , list:Count() - 1 do
-		local wiki = list:Element(i);
+	local list = GetWikiListByCategory(category);
+	for i = 1 , #list do
+		local wiki = list[i];
 		func(wiki, ...);
 	end
 end
@@ -372,13 +377,14 @@ end
 function JOURNAL_UPDATE_SCORE(frame, monsterGroup, category)
 	
 	local wikiClsList = GetClassList("Wiki");
-	local myList = session.GetWikiListByCategory(category);
+	local myList = GetWikiListByCategory(category);
 	local myCount = 0;
 	if myList ~= nil then
-		myCount = myList:Count();
+		myCount = #myList;
 	end
-	local list, cnt = GetCategoryWikiList(category);
-	if list == nil then
+
+	local cnt = GetCategoryWikiListCount(category);
+	if cnt == 0 then
 		return;
 	end
 	
@@ -435,12 +441,12 @@ function JOURNAL_UPDATE_LIST_RENEW(groupBox, insertWikiType)
 
 	gbox:SetUserValue("CATEGORY", idSpace);
 	local wikiList = GetClassList("Wiki");
-	local list = session.GetWikiListByCategory(category);
+	local list = GetWikiListByCategory(category);
 	
 	ClearSortIESList();
-	for i = 0 , list:Count() - 1 do
-		local wiki = list:Element(i);
-		local type = wiki:GetType();
+	for i = 1 , #list do
+		local wiki = list[i];
+		local type = GetWikiType(wiki);
 		local cls = GetClassByTypeFromList(wikiList, type);
 		local monCls = GetClassByNameFromList(clsList, cls.ClassName);
 		if true == JOURNAL_CHECK_FILTER(monCls, filterName1, filterValue1, filterName2, filterValue2) then
@@ -449,7 +455,7 @@ function JOURNAL_UPDATE_LIST_RENEW(groupBox, insertWikiType)
 			local tempinputtext = string.lower(inputText)
 
 			if tempinputtext == "" or true == ui.FindWithChosung(tempinputtext, tempname) then
-				AddSortIESList(monCls, cls, GetVoidPointer(wiki));
+				AddSortIESList(monCls, cls, wiki);
 			end
 		end
 	end
@@ -550,7 +556,6 @@ function JOURNAL_UPDATE_CTRLSET_BY_TYPE(frame, group, wikiType)
 			local category = group:GetUserValue("CATEGORY");
 			local ctrl = gbox:GetChild(wikiCls.ClassName);
 			local func = _G["UPDATE_ARTICLE_" .. category];
-			print(category);
 			if ctrl ~= nil and func ~= nil then
 				func(ctrl);
 			end
@@ -559,7 +564,7 @@ function JOURNAL_UPDATE_CTRLSET_BY_TYPE(frame, group, wikiType)
 end
 
 function GET_WIKI_ELAPSED_DATE_STRING(wiki)
-	local wikiTime = wiki:GetGetTime();
+	local wikiTime = GetWikiGetTime(wiki);
 	local curTime = geTime.GetServerFileTime();
 	local difSec = imcTime.GetIntDifSecByTime(curTime, wikiTime);
 	if difSec <= 3600 then

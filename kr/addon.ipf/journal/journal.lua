@@ -196,8 +196,8 @@ function JOURNAL_BUILD_ALL_LIST(frame, category)
 end
 
 function JOURNAL_UPDATE_ADD(frame, wikiID)
-	local wiki = session.GetWiki(wikiID);
-	local cls = GetIES(wiki:GetWikiObject());
+	local wiki = GetWiki(wikiID);
+	local cls = GetWikiObject(wiki);
 	local clsCate = cls.Category;
 
 	local bg = GET_CHILD(frame, "bg", "ui::CGroupBox");

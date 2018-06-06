@@ -902,6 +902,31 @@ function SCR_GET_UmboThrust_Ratio(skill)
 
 end
 
+function SCR_Get_SkillFactor_Langort(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+
+	local abil = GetAbility(pc, "Peltasta27")      -- Skill Damage add
+    if abil ~= nil then
+        value = value + (value * (abil.Level * 0.01))
+    end
+
+    return math.floor(value)
+
+end
+
+function SCR_GET_Langort_Ratio(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "Peltasta27") 
+	local value = 0
+	if abil ~= nil then 
+        return value + abil.Level
+    end
+
+end
+
 function SCR_GET_SR_LV_HEX(skill)
   local value = skill.Level;
 	return value
@@ -5867,6 +5892,56 @@ function SCR_GET_Mastema_Ratio(skill)
 
 end
 
+function SCR_Get_SkillFactor_Hagalaz(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+
+	local abil = GetAbility(pc, "RuneCaster3")      -- Skill Damage add
+    if abil ~= nil then
+        value = value + (value * (abil.Level * 0.01))
+    end
+
+    return math.floor(value)
+
+end
+
+function SCR_GET_Hagalaz_Ratio(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "RuneCaster3") 
+	local value = 0
+	if abil ~= nil then 
+        return value + abil.Level
+    end
+
+end
+
+function SCR_Get_SkillFactor_Tiwaz(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+
+	local abil = GetAbility(pc, "RuneCaster5")      -- Skill Damage add
+    if abil ~= nil then
+        value = value + (value * (abil.Level * 0.01))
+    end
+
+    return math.floor(value)
+
+end
+
+function SCR_GET_Tiwaz_Ratio(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "RuneCaster5") 
+	local value = 0
+	if abil ~= nil then 
+        return value + abil.Level
+    end
+
+end
+
 
 function SCR_Get_SklAtkAdd_Heal(skill)
 
@@ -9864,6 +9939,49 @@ function SCR_Get_Physicallink_Bufftime(skill)
 
 end
 
+function SCR_GET_Isa_Bufftime(skill)
+
+    return 10 * skill.Level
+
+end
+
+function SCR_GET_Isa_Ratio(skill)
+
+    return 10 * skill.Level
+
+end
+
+
+function SCR_GET_Algiz_Bufftime(skill)
+
+    return 10 * skill.Level
+
+end
+
+function SCR_GET_Algiz_Ratio(skill)
+
+    return 10 * skill.Level
+
+end
+
+
+function SCR_GET_Thurisaz_Bufftime(skill)
+
+    return 30 * skill.Level
+
+end
+
+function SCR_GET_Thurisaz_Ratio(skill)
+
+    return 100
+
+end
+
+function SCR_GET_Thurisaz_Ratio2(skill)
+
+    return 20
+
+end
 
 function SCR_Get_Bewitch_Ratio(skill)
 

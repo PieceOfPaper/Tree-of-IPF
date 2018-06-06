@@ -91,7 +91,7 @@ function PS_FIND_ITEM_BY_NAME(parent, ctrl)
 		local imageName = itemCls.Icon;
 		local pic = INSERT_PICTURE_DETAIL_LIST(detaillist, i, 0, imageName, 40);
 		PS_SET_FINDED_ITEM(pic, itemCls);
-		local text = INSERT_TEXT_DETAIL_LIST(detaillist, i, 1, "{@st41}" .. itemCls.Name);
+		local text = INSERT_TEXT_DETAIL_LIST(detaillist, i, 1, "{@st41}" .. itemCls.Name, nil, nil, "{@st41}" .. itemCls.Name);
 		PS_SET_FINDED_ITEM(text, itemCls);
 	end	
 

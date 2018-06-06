@@ -667,7 +667,7 @@ function Q_CTRL_TITLE_SET(Quest_Ctrl, questIES, questname, result)
 			nametxt:SetText(QUEST_TITLE_FONT..questTitle)		-- ???? ??????? ?????????
 		end
 
-        local descTxt = Quest_Ctrl:CreateOrGetControl("richtext", "state", 55, y, titleWidth, 18);
+        local descTxt = Quest_Ctrl:CreateOrGetControl("richtext", "state", 55, y, titleWidth - 15, 18);
 		local desc = questIES[CONVERT_STATE(result) .. 'Desc'];
 		tolua.cast(descTxt, "ui::CRichText");
 		descTxt:SetFontName("brown_16_b");

@@ -78,7 +78,7 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 		return
 	end
 
-	local wiki = session.GetWikiByName(class.ClassName);
+	local wiki = GetWikiByName(class.ClassName);
 
 	SEQUENTIALPICKITEM_openCount = SEQUENTIALPICKITEM_openCount + 1;
 	local frameName = "SEQUENTIAL_PICKITEM_"..tostring(SEQUENTIALPICKITEM_openCount);
@@ -124,9 +124,10 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 
 	if wiki ~= nil and false == fromWareHouse then	
 
-		if wiki:GetIntProp("Total") ~= nil then
+		local total = GetWikiIntProp(wiki, "Total");
+		if total ~= nil then
 
-		local totalCount = wiki:GetIntProp("Total").propValue;
+			local totalCount = total;
 
 		if totalCount > 1 then
 			AddWiki:ShowWindow(0)

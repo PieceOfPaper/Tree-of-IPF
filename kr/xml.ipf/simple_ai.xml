@@ -2329,8 +2329,13 @@
             </ToolScp>
         </StartList>
     </AI>
-    <AI Name="Dievdirbys_Laima" ActiveMessageMapInBattle="1">
-        <DeadList>
+    <AI Name="Dievdirbys_Laima" UpdateMS="5000" ActiveMessageMapInBattle="1">
+        <List>
+        <ToolScp Scp="S_AI_CEHCK_LIFE_TIME_AND_REMOVE_PAD" Client="NO" UseSleep="NO">
+          <Str Str="Cleric_Laima"/>
+        </ToolScp>
+      </List>
+      <DeadList>
             <ToolScp Scp="SAI_DEAD_REMOVE_PAD" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
                 <Str Str="Cleric_Laima"/>
@@ -5716,6 +5721,13 @@
                 <Str Str="Attack"/>
             </ToolScp>
         </StartList>
+    </AI>
+    <AI Name="JOB_RUNECASTER_6_1_SUCC_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="JOB_RUNECASTER_6_1_SUCC_AI_RUN"/>
+            </ToolScp>
+        </List>
     </AI>
     <AI Name="JOB_SCOUT4_1" ActiveMessageMapInBattle="1">
         <StartList>
@@ -12999,6 +13011,31 @@ return IMCRandom(300, 1000) * 0.001;"/>
                         <Str Str="Cryomancer_IciclePike"/>
                         <Num Num="3"/>
                         <Num Num="1"/>
+                    </ToolScp>
+                </Exec>
+            </ScpSet>
+        </InBattleState>
+    </AI>
+    <AI Name="handler_magic_joint" ActiveMessageMapInBattle="1">
+        <InBattleState>
+            <ScpSet RelationBit="2" CheckClassName="None" CheckClassNameByFunc="0">
+                <Cond>
+                    <ToolScp Scp="SH_COND_CHECK_COUNT" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                        <Str Str="1_20_10_27_12"/>
+                    </ToolScp>
+                    <ToolScp Scp="SH_COND_BUFF_CHECK" Client="NO" UseSleep="NO">
+                        <Str Str="Link_Enemy"/>
+                    </ToolScp>
+                <ToolScp Scp="SH_COND_RAND" Client="NO" UseSleep="NO">
+                        <Num Num="20"/>
+                    </ToolScp>
+                </Cond>
+                <Exec>
+                    <ToolScp Scp="SH_EXEC_RUNAWAY_JOINT" Client="NO" UseSleep="YES">
+                        <Num Num="0"/>
+                        <Num Num="250"/>
+                        <Str Str="Link_Enemy"/>
                     </ToolScp>
                 </Exec>
             </ScpSet>

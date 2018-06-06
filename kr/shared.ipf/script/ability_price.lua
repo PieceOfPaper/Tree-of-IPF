@@ -244,6 +244,15 @@ function ABIL_MASTERY_PRICE(pc, abilName, abilLevel, maxLevel)
 	
 end
 
+function ABIL_UNIQUEMASTERY_PRICE(pc, abilName, abilLevel, maxLevel)
+
+    local price = 6000 + 750 * (abilLevel - 1);
+    local time = 60;
+
+	return price, time;
+	
+end
+
 function ABIL_BOKOR21_PRICE(pc, abilName, abilLevel, maxLevel)
 
     local price = 60000 + math.floor(1.05^(abilLevel-1) * 7800);

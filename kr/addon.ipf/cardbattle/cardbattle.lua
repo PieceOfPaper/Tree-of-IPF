@@ -204,6 +204,8 @@ function UPDATE_CARDBATTLE_FRAME(frame, info)
 	local ownerHandle = frame:GetUserIValue("OWNER_HANDLE");
 	info = tolua.cast(info, "CARD_BATTLE_TABLE_INFO");
 	local wincount_1 = frame:GetChild("wincount_1");
+	
+
 	wincount_1:SetTextByKey("value", info.targetWinCount);
 	
 	local wincount_2 = frame:GetChild("wincount_2");

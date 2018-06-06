@@ -33,6 +33,21 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID)
 		return nil;
 	end
 
+	local pic = GET_CHILD(frame, "bg", "ui::CPicture");
+	if AUTO_SELL_BUFF == sellType then
+		pic:SetImage("sign_buff");
+	elseif sellType == AUTO_TITLE_FOOD_TABLE then
+		pic:SetImage("sign_food");
+	elseif sellType == AUTO_SELL_GEM_ROASTING then
+		pic:SetImage("sign_gem");
+	elseif sellType == AUTO_SELL_SQUIRE_BUFF then
+		pic:SetImage("sign_fix");
+	elseif sellType == AUTO_SELL_OBLATION then
+		pic:SetImage("sign_bong");
+	else
+		pic:SetImage("sign_buy");
+	end
+
 	frame:SetUserValue("SELL_TYPE", sellType);
 	frame:SetUserValue("HANDLE", handle);
 	local text = frame:GetChild("text");

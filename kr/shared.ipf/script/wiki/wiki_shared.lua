@@ -33,12 +33,12 @@ function GET_ITEM_WIKI_PTS(itemCls, wiki)
 	
 	local groupName = itemCls.GroupName;
 	if itemCls.ItemType == 'Equip' then
-		local maxReinforce = wiki:GetIntProp("MaxReinforce").propValue;
+		local maxReinforce = GetWikiIntProp(wiki, "MaxReinforce")
 		return GET_EQUIP_WIKI_PTS(itemCls, maxReinforce);
 	elseif groupName == 'Book' then
 		return 10;
 	elseif groupName == "Gem" then
-		local maxLevel = wiki:GetIntProp("MaxLevel").propValue;
+		local maxLevel = GetWikiIntProp(wiki, "MaxLevel");
 		return GET_GEM_WIKI_PTS(itemCls, maxLevel);
 	else
 		return 1;
@@ -92,13 +92,12 @@ function GET_WIKI_SCORE_BY_CLS_CB(list, cbFunc)
 		return 0
 	end
 
-	local cnt = list:Count();
+	local cnt = #list;
 	local ret = 0;
-	for i = 0 , cnt - 1 do
-		local wi = list:Element(i);
-		local tobj = wi:GetTargetObject();
+	for i = 1 , cnt  do
+		local wi = list[i];
+		local tobj = GetWikiTargetObject(wi);
 		if tobj ~= nil then
-			tobj = GetIES(tobj);
 			ret = ret + cbFunc(tobj, wi);
 		end
 	end
@@ -192,9 +191,9 @@ function GET_WIKI_SCORE(pc, type)
 
 		local totalScore = 0;
 		local list = GetPCCategoryWikiList(pc, type);
-		for i = 0 , list:Count() - 1 do
-			local wiki = list:Element(i);
-			local recoverRate = wiki:GetIntProp("RevealRate").propValue;
+		for i = 1 , #list do
+			local wiki = list[i];
+			local recoverRate = GetWikiIntProp(wiki, "RevealRate");
 			totalScore = totalScore + recoverRate;
 		end
 		
@@ -203,16 +202,16 @@ function GET_WIKI_SCORE(pc, type)
 		
 	elseif type == WIKI_MGAME then
 
-		local list = GetPCCategoryWikiList(pc, type);
-		return list:Count() * 5;
+		local count = GetPCCategoryWikiCount(pc, type);
+		return count * 5;
 
 	elseif type == WIKI_ACHIEVE then
 		local point = GetAchieveWikiPoint(pc);
 		return point;
 
 	elseif type == WIKI_RECIPE then
-		local list = GetPCCategoryWikiList(pc, type);
-		return list:Count() * W_PTS_RECIPE;
+		local count = GetPCCategoryWikiCount(pc, type);
+		return count * W_PTS_RECIPE;
 
 	elseif type == WIKI_QUEST then
 		local sObj = GetSessionObject(pc, "ssn_klapeda");		
@@ -235,29 +234,30 @@ function GET_WIKI_MAX_RANKPROP(wiki, nameHead, loopCnt)
 
 	local maxCnt = -1;
 	local maxProp = nil;
+	local maxCount = 0;
 	local maxPropName = nil;
 
 	for i = 1 , loopCnt do
 		local propName = nameHead .. i;
-		local prop = wiki:GetProp(propName);
+		local prop, count = GetWikiProp(wiki, propName);
 		if prop == nil then return nil; end
-		if prop.count > maxCnt or maxCnt == -1 then
+		if count > maxCnt or maxCnt == -1 then
 			maxProp = prop;
-			maxCnt = prop.count;
+			maxCnt = count;
 			maxPropName = propName;
 		end
 	end
 
-	return maxProp, maxPropName;
+	return maxProp, maxCnt, maxPropName;
 
 end
 
 function FIND_WIKI_COUNT_PROP(wiki, nameHead, maxCount, propValue)
 	for i = 1 , maxCount do
 		local propName = nameHead .. i;
-		local prop = wiki:GetProp(propName);
-		if prop.propValue == propValue then
-			return prop;
+		local prop, count = GetWikiProp(wiki, propName);
+		if prop == propValue then
+			return prop, count;
 		end
 	end
 

@@ -31,6 +31,11 @@ function MGAME_EXEC_OPEN_UI(actor, addonName, isOpen)
 	local frame = ui.GetFrame(addonName);
 	frame:ShowWindow(isOpen);
 end
+
+function MGAME_EVT_SCRIPT_CLIENT(actor, scriptName)
+	local func = _G[scriptName];
+	func(actor);
+end
    
 function MGAME_MSG_ICON(actor, msgStr, icon,  sec)
     local msg_int = "NOTICE_Dm_"..icon

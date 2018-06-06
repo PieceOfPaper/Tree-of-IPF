@@ -1,6 +1,6 @@
 ---- lib_detaillist
 
-function INSERT_TEXT_DETAIL_LIST(itemlist, row, col, text, horAlign, Item)
+function INSERT_TEXT_DETAIL_LIST(itemlist, row, col, text, horAlign, Item, textTooltip)
 	local ctrl = itemlist:CreateControl("richtext", "DETAIL_ITEM_" .. row .. "_" .. col, 0, 0, 200, 20);
 	ctrl = tolua.cast(ctrl, "ui::CRichText");
 	ctrl:EnableResizeByText(0);
@@ -22,10 +22,13 @@ function INSERT_TEXT_DETAIL_LIST(itemlist, row, col, text, horAlign, Item)
 	ctrl:SetTextAlign(horAlign, "center");
 
 	ctrl:EnableHitTest(1);
-	ctrl:SetTextTooltip(text);
 	ctrl:SetUseOrifaceRect(true);
 
 	itemlist:SetObjectRowCol(ctrl, row, col);
+	if textTooltip ~= nil then
+		ctrl:SetTextTooltip(textTooltip);
+	end
+
 	return ctrl;
 end
 

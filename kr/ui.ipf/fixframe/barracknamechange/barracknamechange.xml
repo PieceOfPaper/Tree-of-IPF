@@ -11,8 +11,8 @@
 	<script CloseScp="BARRACK_CHANCLE_CHANGE_NAME"/>
 	<controls>
 		<groupbox name="bg2" rect="0 0 480 240" margin="-1 0 0 0" layout_gravity="left top" draw="flase" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="jour_search"/>
-		<button name="button_1" margin="50 0 0 30" rect="10 10 170 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41}확인" LBtnUpScp="BARRACK_CHANGE_NAME_USE_TP"/>
-		<button name="button_1_1" margin="245 0 0 30" rect="10 10 170 50" skin="test_gray_button" layout_gravity="left bottom" caption="{@st41}취소" LBtnUpScp="BARRACK_CHANCLE_CHANGE_NAME"/>
+		<button name="button_1" margin="50 0 0 30" rect="10 10 160 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41}확인" LBtnUpScp="BARRACK_CHANGE_NAME_USE_TP"/>
+		<button name="button_1_1" margin="245 0 0 30" rect="10 10 160 50" skin="test_gray_button" layout_gravity="left bottom" caption="{@st41}취소" LBtnUpScp="BARRACK_CHANCLE_CHANGE_NAME"/>
 		<richtext name="prop" margin="0 -80 0 0" rect="0 0 120 24" format="{@st44}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
 		<groupbox name="groupbox_1" margin="22 90 0 0" rect="0 0 430 55" hittestbox="false" skin="test_weight_skin" layout_gravity="left top"/>
 		<groupbox name="groupbox_1_1" margin="103 150 0 0" rect="0 0 270 40" hittestbox="false" skin="guild_base_skin" layout_gravity="left top"/>

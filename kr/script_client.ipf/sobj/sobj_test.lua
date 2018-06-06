@@ -388,10 +388,12 @@ function SCR_SMARTGEN_QUESTMON_CREATE_CLIENT(self, myActor, sObj)
         	                if result == 'NO' then
         	                    local ret = SCR_SMARTGEN_QUESTMON_CREATE_CLIENT_SUB1(self, questIES)
         	                    if ret == 'YES' then
-    	                            local ret = SCR_NUMTABLE_STRING(shortfall)
-    	                            ret = tostring(1)..ret
-    	                            control.CustomCommand("SMARTGEN_QUESTMON", questIES.ClassID, tonumber(ret));
-    	                            flag = 1
+        	                        if shortfall ~= nil then
+        	                            local ret = SCR_NUMTABLE_STRING(shortfall)
+        	                            ret = tostring(1)..ret
+        	                            control.CustomCommand("SMARTGEN_QUESTMON", questIES.ClassID, tonumber(ret));
+        	                            flag = 1
+        	                        end
         	                    end
         	                end
         	            end
@@ -400,10 +402,12 @@ function SCR_SMARTGEN_QUESTMON_CREATE_CLIENT(self, myActor, sObj)
         	                if result == 'NO' then
         	                    local ret = SCR_SMARTGEN_QUESTMON_CREATE_CLIENT_SUB1(self, questIES)
         	                    if ret == 'YES' then
-    	                            local ret = SCR_NUMTABLE_STRING(shortfall)
-    	                            ret = tostring(2)..ret
-    	                            control.CustomCommand("SMARTGEN_QUESTMON", questIES.ClassID, tonumber(ret));
-    	                            flag = 1
+        	                        if shortfall ~= nil then
+        	                            local ret = SCR_NUMTABLE_STRING(shortfall)
+        	                            ret = tostring(2)..ret
+        	                            control.CustomCommand("SMARTGEN_QUESTMON", questIES.ClassID, tonumber(ret));
+        	                            flag = 1
+        	                        end
         	                    end
         	                end
         	            end
@@ -412,10 +416,12 @@ function SCR_SMARTGEN_QUESTMON_CREATE_CLIENT(self, myActor, sObj)
         	                if result == 'NO' then
         	                    local ret = SCR_SMARTGEN_QUESTMON_CREATE_CLIENT_SUB1(self, questIES)
         	                    if ret == 'YES' then
-    	                            local ret = SCR_NUMTABLE_STRING(shortfall)
-    	                            ret = tostring(3)..ret
-    	                            control.CustomCommand("SMARTGEN_QUESTMON", questIES.ClassID, tonumber(ret));
-    	                            flag = 1
+        	                        if shortfall ~= nil then
+        	                            local ret = SCR_NUMTABLE_STRING(shortfall)
+        	                            ret = tostring(3)..ret
+        	                            control.CustomCommand("SMARTGEN_QUESTMON", questIES.ClassID, tonumber(ret));
+        	                            flag = 1
+        	                        end
         	                    end
         	                end
         	            end

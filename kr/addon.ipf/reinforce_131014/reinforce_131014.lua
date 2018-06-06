@@ -63,7 +63,8 @@ function REINFORCE_131014_UPDATE_MORU_COUNT(frame)
 	local hitCount = GET_REINFORCE_131014_HITCOUNT(fromItemObj, toItemObj);
 	hitCountDesc:SetTextByKey("hitcount", hitCount);
 
-	local price = GET_REINFORCE_131014_PRICE(fromItemObj);
+	local moruObj = GetIES(fromMoru:GetObject());
+	local price = GET_REINFORCE_131014_PRICE(fromItemObj, moruObj);
 	hitPriceDesc:SetTextByKey("price", price);
 
 end
@@ -84,7 +85,8 @@ function REINFORCE_131014_MSGBOX(frame)
 	local fromItemObj = GetIES(fromItem:GetObject());
 	local curReinforce = fromItemObj.Reinforce_2;
 
-	local price = GET_REINFORCE_131014_PRICE(fromItemObj)
+	local moruObj = GetIES(fromMoru:GetObject());
+	local price = GET_REINFORCE_131014_PRICE(fromItemObj, moruObj)
 	local hadmoney = GET_TOTAL_MONEY();
 
 	if hadmoney < price then

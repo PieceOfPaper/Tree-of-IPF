@@ -51,5 +51,6 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 55,55,1,100,-1,60000,1,0,0,0,1,0,0,"HiddenTrigger_CantGen200","FieldCantGen","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 56,56,1,100,-1,60000,1,0,0,0,0,0,0,"wood_carving","펜서의 검 연습대","","","","","","","JOB_FENCER_7_1_WOOD_CARVING","JOB_FENCER_7_1_WOOD_CARVING","","NO","YES","NO","Neutral","","","",""
 57,57,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_180:1","",""
-58,58,1,40,40,60000,6,0,0,0,1,0,0,"kowak","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
-59,59,1,40,40,60000,6,0,0,0,1,0,0,"Prisonfighter","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+58,58,0,40,40,60000,6,0,0,0,1,0,0,"kowak","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+59,59,0,40,40,60000,6,0,0,0,1,0,0,"Prisonfighter","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+60,60,1,40,1,60000,1,1,0,0,0,0,0,"id_gate_npc","공허의 가시숲","","","","","","","INSTANCE_DUNGEON_THORN2_11","","","NO","YES","NO","Neutral","","","",""

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="4.00" soundFile="skl_eff_rune_born_light_3"/>
+    <Particle frame="9" attachNode="Dummy_effect_Isa" particleName="I_wizard_rune_stone_Isa_light_mash_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="10.00" soundFile="skl_eff_rune_light"/>
+    <Particle frame="10" attachNode="Dummy_effect_Isa" particleName="I_wizard_rune_stone_cast_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="21" attachNode="Dummy_effect_Isa" particleName="I_wizard_rune_stone_Isa_light_mash_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+</ActionDesc>

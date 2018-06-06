@@ -52,13 +52,15 @@ end
 function WORLDPVP_START_ICON_NOTICE()
 
 	local frame = ui.GetFrame("minimizedalarm");
-	local pic = frame:GetChild("pic");
+	local gbox = frame:GetChild("gbox");
+	local pic = gbox:GetChild("pic");
 	UI_PLAYFORCE(pic, "emphasize_pvp", 0, 0);
 end
 
 
 function OPEN_PVP_FRAME(frame)
 	ui.OpenFrame("worldpvp");
+	frame = frame:GetTopParentFrame();
 	frame:ShowWindow(0);
 end
 

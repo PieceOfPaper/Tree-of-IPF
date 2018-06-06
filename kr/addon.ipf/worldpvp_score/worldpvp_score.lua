@@ -149,3 +149,19 @@ function _WORLDPVP_SCORE_UPDATE_ICON_COLOR(groupBox, teamID)
 
 end
 
+function PVP_BATTLE_START_C(actor)
+
+	local mgameInfo = session.mission.GetMGameInfo();
+	local startTime = mgameInfo:GetUserValue("Battle_START");
+	local roundMaxTime = mgameInfo:GetUserValue("RoundMaxTime");
+	local elapsedTime = GetServerAppTime() - startTime;
+	local remainTime = roundMaxTime - elapsedTime;
+	
+	local frame = ui.GetFrame("worldpvp_score");
+	local timer = GET_CHILD(frame, "timer");
+	START_TIMER_CTRLSET_BY_SEC(timer, remainTime, roundMaxTime);
+	
+
+end
+
+
