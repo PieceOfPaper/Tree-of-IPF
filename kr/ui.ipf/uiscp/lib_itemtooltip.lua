@@ -343,6 +343,11 @@ function SET_GRADE_TOOLTIP(parent, invitem, starsize)
 	if gradeChild ~= nil then
 		local gradeString = GET_ITEM_GRADE_TXT(invitem, starsize);
 		gradeChild:SetText(gradeString);
+
+		local gradeSize = gradeChild:GetY () + gradeChild:GetHeight();
+		if parent:GetHeight() < gradeSize then
+			parent:Resize(parent:GetWidth(), gradeSize);
+		end
 	end
 end
 

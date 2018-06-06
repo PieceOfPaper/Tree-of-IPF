@@ -6798,3 +6798,153 @@ function SCR_PRE_DCAPITAL103_SQ09_ITEM1(self, argstring, argnum1, argnum2)
     end
     return 0
 end
+
+--SCR_PRE_UNDER67_HIDDENQ1_ITEM1
+function SCR_PRE_UNDER67_HIDDENQ1_ITEM1(self, argstring, argnum1, argnum2)
+    local result = SCR_QUEST_CHECK(self, 'UNDERFORTRESS67_HQ1')
+    local sObj = GetSessionObject(self, "SSN_UNDERFORTRESS67_HQ1")
+    if result == "PROGRESS" then
+        if GetLayer(self) == 0 then
+            local list, cnt = SelectObject(self, 160, 'ALL', 1)
+            for i = 1, cnt do
+                if list[i].ClassName == 'Hiddennpc_move' then
+                    if list[i].Faction == "Neutral" then
+                        if GetZoneName(self) == 'd_underfortress_65' then
+                            if sObj.QuestInfoValue1 < sObj.QuestInfoMaxCount1 then
+                                return GetHandle(list[i])
+                            end
+                        elseif GetZoneName(self) == 'd_underfortress_66' then
+                            if sObj.QuestInfoValue2 < sObj.QuestInfoMaxCount2 then
+                                return GetHandle(list[i])
+                            end
+                        elseif GetZoneName(self) == 'd_underfortress_67' then
+                            if sObj.QuestInfoValue3 < sObj.QuestInfoMaxCount3 then
+                                return GetHandle(list[i])
+                            end
+                        elseif GetZoneName(self) == 'd_underfortress_68' then
+                            if sObj.QuestInfoValue4 < sObj.QuestInfoMaxCount4 then
+                                return GetHandle(list[i])
+                            end
+                        elseif GetZoneName(self) == 'd_underfortress_69' then
+                            if sObj.QuestInfoValue5 < sObj.QuestInfoMaxCount5 then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--SCR_PRE_SIAULIAI16_HIDDENQ1_ITEM2
+function SCR_PRE_SIAULIAI16_HIDDENQ1_ITEM2(self, argstring, argnum1, argnum2)
+    local result = SCR_QUEST_CHECK(self, 'SIAULIAI16_HQ2')
+    local highlander_Item1 = GetInvItemCount(self, 'SIAULIAI16_HIDDENQ1_ITEM3')
+    if result == 'PROGRESS' then
+        if highlander_Item1 >= 13 then
+            if GetLayer(self) == 0  then
+        	    return 1
+        	end
+        end
+    end
+    return 0
+end
+
+--SCR_PRE_ORSHA_HIDDENQ2_ITEM1
+function SCR_PRE_ORSHA_HIDDENQ2_ITEM1(self, argstring, argnum1, argnum2)
+    local result = SCR_QUEST_CHECK(self, 'ORSHA_HQ2')
+    local Item1 = GetInvItemCount(self, 'ORSHA_HIDDENQ2_ITEM2')
+    local Item2 = GetInvItemCount(self, 'ORSHA_HIDDENQ2_ITEM3')
+    if result == "PROGRESS" then
+        if Item1 >= 5 and Item2 >= 3 then
+            if GetLayer(self) == 0 then
+                return 1
+            end
+        end
+    end
+    return 0
+end
+
+
+--SCR_PRE_ORSHA_HIDDENQ3_ITEM1
+function SCR_PRE_ORSHA_HIDDENQ3_ITEM1(self, strArg, num1, num2, itemType)
+    local result = SCR_QUEST_CHECK(self, 'ORSHA_HQ3')
+    if result == "PROGRESS" then
+        if GetLayer(self) == 0 then
+        	if 1 == IsGuildHouseWorld(self) then
+        		return 1;
+        	end
+        
+        	local pcPetList = GetSummonedPetList(self)
+        	if #pcPetList == 0 then
+        		return 0;
+        	end
+        
+--        	local itemCls = GetClassByType("Item_Quest", itemType );
+--        	if itemCls == nil then
+--        	print("22222222222222222222")
+--        		return 0;
+--        	end
+        	
+        	local pcPet = nil;
+        	for i=1, #pcPetList do
+        		local petObj = pcPetList[i];
+        		if petObj.Lv >= 300 then
+            		local petCls = GetClassByStrProp("Companion", "ClassName", petObj.ClassName)
+            		local foodGroup = 0;
+            
+            		if petCls ~= nil and petCls.FoodGroup ~= "None" then
+            			foodGroup = tonumber(petCls.FoodGroup);
+            		end
+                    --print(petCls, foodGroup)
+            		if petCls ~= nil then
+            			pcPet = petObj;
+            		end
+        		end
+        	end	
+        	
+        	if pcPet == nil then
+        		SendSysMsg(self, "ThisCompanionDoesNotEatThisFood");
+        	    return 0;
+        	end
+        	
+        	
+        	local ret = IsNodeMonsterAttached(self, "None");
+        	if ret == 0 then
+        		return 1;
+        	end
+    	end
+    end
+	return 0;
+end
+
+function SCR_PRE_TABLE281_HIDDENQ1_ITEM5(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'TABLELAND28_1_HQ1')
+    local sObj = GetSessionObject(self, "SSN_TABLELAND28_1_HQ1")
+    if result == "PROGRESS" then
+        if GetLayer(self) == 0 then
+        	if GetZoneName(self) == "f_orchard_32_3" then
+        	    if isHideNPC(self, "ORCHARD323_HIDDEN_OBJ2") == "NO" then
+        	        if IsBuffApplied(self, "TABLE281_HIDDENQ1_BUFF1") == "YES" then
+        	            return 1
+        	        end
+        	    end
+        	elseif GetZoneName(self) == "f_pilgrimroad_51" then
+        	    if isHideNPC(self, "PILGRIM51_HIDDEN_OBJ3") == "NO" then
+        	        if IsBuffApplied(self, "TABLE281_HIDDENQ1_BUFF2") == "YES" then
+        	            return 1
+        	        end
+        	    end
+        	elseif GetZoneName(self) == "f_flash_58" then
+        	    if isHideNPC(self, "FLASH58_HIDDEN_OBJ4") == "NO" then
+        	        if IsBuffApplied(self, "TABLE281_HIDDENQ1_BUFF3") == "YES" then
+        	            return 1
+        	        end
+        	    end
+        	end
+        end
+    end
+    return 0
+end

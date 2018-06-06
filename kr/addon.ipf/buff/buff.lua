@@ -126,7 +126,6 @@ end
 
 function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)	
 	local icon 				= slot:GetIcon();
-	
 	local imageName 		= 'icon_' .. class.Icon;
 
 	icon:Set(imageName, 'BUFF', buffType, 0);

@@ -2,6 +2,13 @@
 -- tpitem_package.lua : (tp shop)
 
 function TPITEM_PACKAGE_OPEN(parent, control, ItemClassIDstr, itemid)
+		
+		local listIndex = control:GetUserValue("LISTINDEX");
+		local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex);
+		if iteminfo == nil then
+			return;
+		end
+		
 		local frame = ui.GetFrame("tpitem");
 		local screenbgTemp = frame:GetChild('screenbgTemp');	
 		screenbgTemp:ShowWindow(1);	
@@ -13,7 +20,8 @@ function TPITEM_PACKAGE_OPEN(parent, control, ItemClassIDstr, itemid)
 		local puchaseBtn = GET_CHILD(stdBox,"puchaseBtn");
 		puchaseBtn:SetEventScriptArgString(ui.LBUTTONUP, ItemClassIDstr);
 		puchaseBtn:SetEventScriptArgNumber(ui.LBUTTONUP, itemid);
-		local price = control:GetUserIValue("itemPrice");
+						
+		local price = iteminfo.price;	--local price = control:GetUserIValue("itemPrice");
 		if price ~= nil then
 			puchaseBtn:SetUserValue("itemPrice", price);
 		end		

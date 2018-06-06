@@ -98,7 +98,7 @@ end
 function TRY_CECK_BARRACK_SLOT_BY_COMPANION_EXCHANGE(select)
 	local accountInfo = session.barrack.GetMyAccount();
 	local petCnt = session.pet.GetPetTotalCount();
-	local myCharCont = accountInfo:GetPCCount() + petCnt;
+	local myCharCont = accountInfo:GetTotalSlotCount();
 	local buySlot = session.loginInfo.GetBuySlotCount();
 	local barrackCls = GetClass("BarrackMap", accountInfo:GetThemaName());
 	

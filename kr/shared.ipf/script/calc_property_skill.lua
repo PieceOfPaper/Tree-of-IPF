@@ -323,7 +323,7 @@ function SCR_GET_SKL_COOLDOWN(skill)
 	elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
 	    basicCoolDown = basicCoolDown * 1.2;
 	end
-
+	
 	if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
 	    basicCoolDown = basicCoolDown * 0.9;
 	end
@@ -333,7 +333,7 @@ function SCR_GET_SKL_COOLDOWN(skill)
 			basicCoolDown =	basicCoolDown * 0.5;
 		end
 	end
-
+	
 	return math.floor(basicCoolDown);
 
 end
@@ -4051,11 +4051,25 @@ function SCR_GET_BroomTrap_Ratio(skill)
 
 end
 
+function SCR_GET_BroomTrap_Ratio2(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = SCR_Get_SklAtkAdd_BroomTrap(skill)
+
+	local abil = GetAbility(pc, "Sapper34")      -- Skill Damage add 2
+        if abil ~= nil and abil.ActiveState == 1 then
+        return math.floor(value + value * 0.5);
+    end
+
+    return math.floor(value);
+
+end
+
 function SCR_Get_SklAtkAdd_Claymore(skill)
 
 	local pc = GetSkillOwner(skill);
 	local value = skill.SklAtkAdd + (skill.Level - 1) * skill.SklAtkAddByLevel;
-
+    
     return math.floor(value);
     
 end
@@ -4094,6 +4108,20 @@ function SCR_Get_SkillFactor_Claymore(skill)
     end
 
     return math.floor(value)
+
+end
+
+function SCR_GET_Claymore_Ratio3(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = SCR_Get_SklAtkAdd_Claymore(skill)
+    
+    local abil = GetAbility(pc, "Sapper33")      -- Skill Damage add
+    if abil ~= nil and abil.ActiveState == 1 then
+        return math.floor(value + value * 1.5);
+    end
+    
+    return math.floor(value);
 
 end
 
@@ -4232,6 +4260,20 @@ function SCR_GET_SpikeShooter_Ratio3(skill)
 	if abil ~= nil then 
         return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
     end
+
+end
+
+function SCR_GET_SpikeShooter_Ratio4(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = SCR_Get_SklAtkAdd_SpikeShooter(skill)
+
+	local abil = GetAbility(pc, "Sapper35")      -- Skill Damage add
+    if abil ~= nil and abil.ActiveState == 1 then
+        return math.floor(value + value * 1.0);
+    end
+
+    return math.floor(value);
 
 end
 
@@ -11680,7 +11722,7 @@ function SCR_GET_Aiming_Bufftime(skill)
 end
 
 function SCR_GET_FirstStrike_Bufftime(skill)
-    local value = skill.Level;
+    local value = 20 + (skill.Level - 1) * 10;
     return value;
 end
 
@@ -12662,7 +12704,7 @@ end
 function SCR_Get_SwellLeftArm_Ratio(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = 34.4 + (skill.Level -1) * 8.6
+	local value = 34.4 + (skill.Level -1) * 12.4 + pc.INT * 0.15;
 
     local Thaumaturge12_abil = GetAbility(pc, "Thaumaturge12")  -- 2rank Skill Damage multiple
     local Thaumaturge13_abil = GetAbility(pc, "Thaumaturge13")  -- 3rank Skill Damage multiple
@@ -12683,8 +12725,8 @@ end
 
 function SCR_Get_SwellRightArm_Ratio(skill)
 
-	local value = 40 + (skill.Level -1) * 9
 	local pc = GetSkillOwner(skill);
+	local value = 40 + (skill.Level -1) * 14.6 + pc.INT * 0.13;
 	
 	local Thaumaturge14_abil = GetAbility(pc, "Thaumaturge14")
     if Thaumaturge14_abil ~= nil and 1 == Thaumaturge14_abil.ActiveState then
@@ -12696,8 +12738,8 @@ function SCR_Get_SwellRightArm_Ratio(skill)
 end
 
 function SCR_Get_SwellRightArm_Ratio2(skill)
-	local value = 34.4 + (skill.Level - 1) * 8.6;
 	local pc = GetSkillOwner(skill);
+	local value = 34.4 + (skill.Level - 1) * 12.4 + pc.INT * 0.13;
 	
 	local Thaumaturge14_abil = GetAbility(pc, "Thaumaturge14")
     if Thaumaturge14_abil ~= nil then
@@ -13119,6 +13161,48 @@ end
 function SCR_GET_SPENDITEM_COUNT(skill)
 	return skill.SpendItemBaseCount;
 end
+
+
+function SCR_GET_SPENDITEM_COUNT_BroomTrap(skill)
+	local count = skill.SpendItemBaseCount;
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, 'Sapper34')
+	if abil ~= nil and 1 == abil.ActiveState then
+		count = count + 1;
+	end
+    return count;
+end
+
+function SCR_GET_SPENDITEM_COUNT_PunjiStake(skill)
+	local count = skill.SpendItemBaseCount;
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, 'Sapper32')
+	if abil ~= nil and 1 == abil.ActiveState then
+		count = count - 1;
+	end
+    return count;
+end
+
+function SCR_GET_SPENDITEM_COUNT_SpikeShooter(skill)
+	local count = skill.SpendItemBaseCount;
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, 'Sapper35')
+	if abil ~= nil and 1 == abil.ActiveState then
+		count = count + 1;
+	end
+    return count;
+end
+
+function SCR_GET_SPENDITEM_COUNT_Claymore(skill)
+	local count = skill.SpendItemBaseCount;
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, 'Sapper33')
+	if abil ~= nil and 1 == abil.ActiveState then
+		count = count + 1;
+	end
+    return count;
+end
+
 
 function SCR_GET_Dekatos_Ratio(skill)
 	return 1500

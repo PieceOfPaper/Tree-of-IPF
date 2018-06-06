@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_eff_body_atk_14"/>
-    <Sound frame="5.00" soundFile="skl_eff_body_atk_6"/>
-    <Sound frame="5.00" soundFile="mon_chupaluka_skl_shot"/>
-    <Sound frame="5.00" soundFile="mon_Kepari_knockdown"/>
+	<BlendOff frame="8" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="2" R="60" G="30" B="30" A="0"/>
+	<BlendOn frame="5" R="100" G="80" B="60" A="0"/>
+	<Particle frame="5" attachNode="Dummy001" particleName="I_dash023" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="skl_eff_body_atk_14"/>
+	<Sound frame="5.00" soundFile="skl_eff_body_atk_6"/>
+	<Sound frame="5.00" soundFile="mon_chupaluka_skl_shot"/>
+	<Sound frame="5.00" soundFile="mon_Kepari_knockdown"/>
 </ActionDesc>

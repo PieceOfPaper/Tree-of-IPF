@@ -503,7 +503,7 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 
 		if tempiconname ~= "_m" and tempiconname ~= "_f" then
 			if gender == nil then
-				gender = GetMyPCObject().Gender;
+				gender = GETMYPCGENDER();
 			end
 
     		if gender == 1 then

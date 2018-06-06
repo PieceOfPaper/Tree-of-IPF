@@ -19,6 +19,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('WEIGHT_UPDATE', 'INVENTORY_WEIGHT_UPDATE');
 	
 	addon:RegisterMsg('UPDATE_ITEM_REPAIR', 'INVENTORY_ON_MSG');
+	addon:RegisterMsg('SWITCH_GENDER_SUCCEED', 'INVENTORY_ON_MSG');
 
 	addon:RegisterOpenOnlyMsg('REFRESH_ITEM_TOOLTIP', 'ON_REFRESH_ITEM_TOOLTIP');
 	
@@ -84,61 +85,61 @@ end
 
 function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 
-							--그룹 없으면 만들기
-							local treegroupname = baseidcls.TreeGroup
+	--그룹 없으면 만들기
+	local treegroupname = baseidcls.TreeGroup
 
-							local treegroup = tree:FindByValue(treegroupname);
-							if tree:IsExist(treegroup) == 0 then
-								treegroup = tree:Add(baseidcls.TreeGroupCaption, baseidcls.TreeGroup);
-								local treeNode = tree:GetNodeByTreeItem(treegroup);
-								treeNode:SetUserValue("BASE_CAPTION", baseidcls.TreeGroupCaption);
-								GROUP_NAMELIST[#GROUP_NAMELIST + 1] = treegroupname
-							end
+	local treegroup = tree:FindByValue(treegroupname);
+	if tree:IsExist(treegroup) == 0 then
+		treegroup = tree:Add(baseidcls.TreeGroupCaption, baseidcls.TreeGroup);
+		local treeNode = tree:GetNodeByTreeItem(treegroup);
+		treeNode:SetUserValue("BASE_CAPTION", baseidcls.TreeGroupCaption);
+		GROUP_NAMELIST[#GROUP_NAMELIST + 1] = treegroupname
+	end
 
-							--슬롯셋 없으면 만들기
-							local slotsetname = GET_SLOTSET_NAME(invItem.invIndex)
-							local slotsetnode = tree:FindByValue(treegroup, slotsetname);
-							if tree:IsExist(slotsetnode) == 0 then
-								MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls);
-							end
+	--슬롯셋 없으면 만들기
+	local slotsetname = GET_SLOTSET_NAME(invItem.invIndex)
+	local slotsetnode = tree:FindByValue(treegroup, slotsetname);
+	if tree:IsExist(slotsetnode) == 0 then
+		MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls);
+	end
 					
-							slotset = GET_CHILD(tree,slotsetname,'ui::CSlotSet')	
+	slotset = GET_CHILD(tree,slotsetname,'ui::CSlotSet')	
 
-							local slotCount = slotset:GetSlotCount();
+	local slotCount = slotset:GetSlotCount();
 
-							local slotindex = invItem.invIndex - GET_BASE_SLOT_INDEX(invItem.invIndex) - 1;
+	local slotindex = invItem.invIndex - GET_BASE_SLOT_INDEX(invItem.invIndex) - 1;
 
-							-- 저장된 템의 최대 인덱스에 따라 자동으로 늘어나도록. 예를들어 해당 셋이 10000부터 시작하는데 10500 이 오면 500칸은 늘려야됨
-							while slotCount <= slotindex  do 
-								slotset:ExpandRow()
-								slotCount = slotset:GetSlotCount();
-							end
+	-- 저장된 템의 최대 인덱스에 따라 자동으로 늘어나도록. 예를들어 해당 셋이 10000부터 시작하는데 10500 이 오면 500칸은 늘려야됨
+	while slotCount <= slotindex  do 
+		slotset:ExpandRow()
+		slotCount = slotset:GetSlotCount();
+	end
 
-							--검색 기능
-							local slot = nil;
-							if cap == "" then
-								slot = slotset:GetSlotByIndex(slotindex);
-							else
-								local cnt = slotset:GetUserIValue("SLOT_ITEM_COUNT");
+	--검색 기능
+	local slot = nil;
+	if cap == "" then
+		slot = slotset:GetSlotByIndex(slotindex);
+	else
+		local cnt = slotset:GetUserIValue("SLOT_ITEM_COUNT");
 
-								while slotCount <= cnt  do 
-									slotset:ExpandRow()
-									slotCount = slotset:GetSlotCount();
-								end
+		while slotCount <= cnt  do 
+			slotset:ExpandRow()
+			slotCount = slotset:GetSlotCount();
+		end
 
 
-								slot = slotset:GetSlotByIndex(cnt);
-								cnt = cnt + 1;
-								slotset:SetUserValue("SLOT_ITEM_COUNT", cnt)
-							end
+		slot = slotset:GetSlotByIndex(cnt);
+		cnt = cnt + 1;
+		slotset:SetUserValue("SLOT_ITEM_COUNT", cnt)
+	end
 							
-							slot:ShowWindow(1)							
-							UPDATE_INVENTORY_SLOT(slot, invItem, itemCls);
+	slot:ShowWindow(1)							
+	UPDATE_INVENTORY_SLOT(slot, invItem, itemCls);
 							
-							INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, remainInvItemCount);
-							SET_SLOTSETTITLE_COUNT(tree, baseidcls, 1)
+	INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, remainInvItemCount);
+	SET_SLOTSETTITLE_COUNT(tree, baseidcls, 1)
 											
-							slotset:MakeSelectionList();
+	slotset:MakeSelectionList();
 end
 
 function MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls)
@@ -615,6 +616,9 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 		DRAW_TOTAL_VIS(frame, 'invenZeny');
 	end
 
+	if msg == 'SWITCH_GENDER_SUCCEED' then
+		SLOTSET_UPDATE_ICONS_BY_NAME(frame, "Outer");
+	end
 end
 
 function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
@@ -749,25 +753,45 @@ function INVENTORY_UPDATE_ICON_BY_INVITEM(frame, changeTargetItem)
 
 end
 
-function INVENTORY_UPDATE_ICONS(frame)
-
+function SLOTSET_UPDATE_ICONS_BY_NAME(frame, slotSetName)
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
 	local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
-	local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
+	local inventree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
 
+	local slotSet = nil;
 	for i = 1 , #SLOTSET_NAMELIST do
-		local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-		for j = 0 , slotSet:GetChildCount() - 1 do
-			local slot = slotSet:GetChildByIndex(j);
-			local invItem = GET_SLOT_ITEM(slot); 
-			if invItem ~= nil then
-				local itemCls = GetIES(invItem:GetObject());
-				UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
-				INV_SLOT_UPDATE(frame, invItem, slot); 
-			end
+		if string.find(SLOTSET_NAMELIST[i], slotSetName) ~= nil then
+			slotSet = GET_CHILD(inventree, SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+			break;
 		end
 	end
+	
+	if slotSet ~= nil then
+		SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
+	end
+end
 
+function SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
+	for j = 0 , slotSet:GetChildCount() - 1 do
+		local slot = slotSet:GetChildByIndex(j);
+		local invItem = GET_SLOT_ITEM(slot); 
+		if invItem ~= nil then
+			local itemCls = GetIES(invItem:GetObject());
+			UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
+			INV_SLOT_UPDATE(frame, invItem, slot); 
+		end
+	end
+end
+
+function INVENTORY_UPDATE_ICONS(frame)
+	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
+	local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
+	local inventree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
+
+	for i = 1 , #SLOTSET_NAMELIST do
+		local slotSet = GET_CHILD(inventree, SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+		SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
+	end
 end
 
 --특정 경우에서 모든 아이템 리스트를 돌 필요는 없기 떄문에

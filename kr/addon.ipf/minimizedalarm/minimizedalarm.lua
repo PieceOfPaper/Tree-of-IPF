@@ -99,6 +99,9 @@ function OPEN_GUILDBATTLE_FRAME(frame)
 	frame = frame:GetTopParentFrame();
 	frame:ShowWindow(0);
 	
+	local worldpvp =  ui.GetFrame("worldpvp");
+	worldpvp:ShowWindow(0);
+
 	OPEN_GUILDBATTLE_RANKING_TAB();
 	
 	ui.OpenFrame("guildbattle_league");	
@@ -111,11 +114,10 @@ function OPEN_GUILDBATTLE_FRAME(frame)
 end
 
 function OPEN_GUILDBATTLE_RANKING_TAB()
-	local worldpvp =  ui.GetFrame("worldpvp");
-	worldpvp:ShowWindow(0);
-
+	ui.OpenFrame("guildbattle_ranking");
+	
 	worldPVP.RequestPVPInfo();
-	local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");
+	local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");	
 	GUILDBATTLE_RANKING_TAB_CHANGE(guildbattle_ranking);
 end
 

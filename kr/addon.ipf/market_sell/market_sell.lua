@@ -4,6 +4,7 @@ function MARKET_SELL_ON_INIT(addon, frame)
 	addon:RegisterMsg("MARKET_SELL_LIST", "ON_MARKET_SELL_LIST");
 	
 	addon:RegisterMsg("MARKET_MINMAX_INFO", "ON_MARKET_MINMAX_INFO");
+	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");
 end
 
 function MARKET_SELL_OPEN(frame)
@@ -185,7 +186,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		end
 	end
 
-	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and TryGetProp(obj, "ClassType") ~= "Outer") then
+	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
 		ui.AlarmMsg("ItemIsNotTradable");
 		return false;
 	end
@@ -438,7 +439,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		end
 	end
 
-	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and TryGetProp(obj, "ClassType") ~= "Outer") then
+	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
 		ui.AlarmMsg("ItemIsNotTradable");
 		return false;
 	end

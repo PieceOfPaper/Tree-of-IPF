@@ -279,7 +279,13 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_INDUNFREE",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
-	prop:SetTextByKey("value", ClMsg('IndunRestText'));
+
+	if obj.ClassName == 'Premium_indunReset_1add' then
+	    prop:SetTextByKey("value", ClMsg('Indun1AddText'));
+	else
+	    prop:SetTextByKey("value", ClMsg('IndunRestText'));
+	end
+	
 	local value = ctrlSet:GetChild("value");
 	value:ShowWindow(0);
 	
@@ -338,7 +344,7 @@ function BEFORE_APPLIED_INDUNFREE_OPEN(invItem)
 
 	GBOX_AUTO_ALIGN(gBox, 0, 3, 0, true, false);
 	local itemobj = GetIES(invItem:GetObject());
-	local arg1 = 259200 -- 3��
+	local arg1 = 259200 -- 3일
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");
 	endTxt:SetTextByKey("value", endTime); 
@@ -384,21 +390,21 @@ function REQ_TOKEN_ITEM(parent, ctrl)
 		return;
 	end
 	
-	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' then
+	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' or argList == 'Premium_indunReset_1add' then
 
 		local etcObj = GetMyEtcObject();
-		-- 2�����̿��� �������� �־��
+		-- 2개뿐이여서 고정으로 넣어둠
 		local countType1 = "InDunCountType_100";
 		local countType2 = "InDunCountType_200";
 		if etcObj[countType1] == 0 and etcObj[countType2] == 0 then
 			ui.MsgBox(ScpArgMsg("IsApplied_indunReset"));
 			return;
 		end
-
+		
 		pc.ReqExecuteTx_Item("SCR_USE_ITEM_INDUN_RESET", itemIES, argList);
 		return;
 	end
-
+	
 	local find = string.find(argList, "PremiumToken");
 	if find ~= nil then
 		if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then

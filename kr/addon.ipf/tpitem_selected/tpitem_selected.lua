@@ -21,6 +21,7 @@ function TPITEM_SELECTED_OPEN(refControl)
 	local OrderPrice			= icon:GetUserValue("OrderPrice");
 
 	local stdBox = GET_CHILD(tpitem_selected, "stdBox");
+	TPSHOP_SHOWINFO_SELECTED_CASHITEM_INFO(stdBox, icon, 1);
 	
 	local cls = GetClassByType("Item", ItemClsId);
 	if cls == nil  then
@@ -104,4 +105,78 @@ function TPITEM_SELECTED_CLOSE(parent, control)
 		else
 			tpitem_selected:SetUserValue("IsClose", 1);
 		end
+end
+
+function TPSHOP_SHOWINFO_SELECTED_CASHITEM_INFO(frame, icon, visible)
+
+	local selectedCashInvenItem = frame:CreateOrGetControl('groupbox', 'selectedCashInvenItem', 0, 350, 380, 120);
+	selectedCashInvenItem = tolua.cast(selectedCashInvenItem, "ui::CGroupBox");
+	selectedCashInvenItem:DeleteAllControl();
+	selectedCashInvenItem:EnableDrawFrame(1);
+	selectedCashInvenItem:SetScrollBar(120);
+	selectedCashInvenItem:SetScrollPos(0);
+	selectedCashInvenItem:SetSkinName("test_frame_midle_light");
+	selectedCashInvenItem:SetGravity(ui.CENTER_HORZ, ui.TOP);
+		
+	if visible == 1 then
+		selectedCashInvenItem:SetVisible(1);	
+		selectedCashInvenItem:SetScrollPos(0);
+	else
+		selectedCashInvenItem:SetVisible(0);	
+		return;
+	end
+	
+	if icon == nil then
+		return;
+	end
+		
+	local ItemClsId = icon:GetUserValue("itemClassID");
+	local ProductNo = icon:GetUserValue("ProductNo");
+	local ProductName = icon:GetUserValue("ItemClassName");
+	local OrderNo = icon:GetUserValue("OrderNo");
+	local OrderPrice = icon:GetUserValue("OrderPrice");
+	local OrderDate = icon:GetUserValue("OrderDate");
+	local OrderQuantity = icon:GetUserValue("OrderQuantity");
+	local strDate = ScpArgMsg("GetPurchasedItemInfo_DATE");
+	local strQuantity = ScpArgMsg("GetPurchasedItemInfo_QUANTITY");
+	local strPrice = ScpArgMsg("GetPurchasedItemInfo_PRICE");
+	
+	local cls = GetClassByType("Item", ItemClsId);
+	if cls == nil  then
+		return;
+	end
+
+	local innerBox = selectedCashInvenItem:CreateOrGetControl('groupbox', 'innerBox', 0, 0, selectedCashInvenItem:GetWidth(), 120);
+	innerBox = tolua.cast(innerBox, "ui::CGroupBox");
+	innerBox:DeleteAllControl();
+	innerBox:EnableDrawFrame(0);
+	innerBox:EnableScrollBar(0);
+	innerBox:SetSkinName("None");
+	
+	local y = 9;
+	local selectedItemInfo = innerBox:CreateOrGetControl("richtext", "selectedItemInfo", 14, y, 340, 250);
+	selectedItemInfo = tolua.cast(selectedItemInfo, "ui::CRichText");
+	selectedItemInfo:SetTextFixWidth(1);
+	selectedItemInfo:SetFontName("black_16_b");
+
+	local reFormatOrderDate = string.gsub(OrderDate, "(%d+-%d+-%d+)T(%d+:%d+:%d+).%d*+%d+:%d+", "%1 %2");
+	if OrderQuantity == "1" then
+		local strData = string.format("{@st43d}{s18}%s %s {nl} %s %s{img Nexon_cash_mark 30 30}{/}{/}{nl}{@st43d}{s18}%s %s %s{/}", strDate, reFormatOrderDate, strPrice, OrderPrice, strQuantity, OrderQuantity, ScpArgMsg("Piece"));
+		selectedItemInfo:SetText(strData);
+	else
+		local UnitPrice = icon:GetUserValue("UnitPrice");
+		local strUNITPrice = ScpArgMsg("GetPurchasedItemInfo_UNITPRICE");
+		local strData = string.format("{@st43d}{s18}%s %s {nl} %s %s{img Nexon_cash_mark 30 30}{/}{/}(%s %s{img Nexon_cash_mark 30 30}{/}{/}){nl}{@st43d}{s18}%s %s %s{/}", strDate, reFormatOrderDate, strPrice, OrderPrice, strUNITPrice, UnitPrice, strQuantity, OrderQuantity, ScpArgMsg("Piece"));
+		selectedItemInfo:SetText(strData);
+	end
+	y = selectedItemInfo:GetY() + selectedItemInfo:GetHeight() + 5;
+
+	local selectedItemDesc = innerBox:CreateOrGetControl("richtext", "selectedItemDesc", 14, y, 340, 250);
+	selectedItemDesc = tolua.cast(selectedItemDesc, "ui::CRichText");
+	selectedItemDesc:SetTextFixWidth(1);
+	selectedItemDesc:SetFontName("black_16_b");
+	selectedItemDesc:SetText(string.format("{@st43d}{s18}%s{/}",cls.Desc)); 
+	y = selectedItemDesc:GetY()  + selectedItemDesc:GetHeight() + 10;	
+		
+	innerBox:Resize(innerBox:GetWidth(), y);
 end

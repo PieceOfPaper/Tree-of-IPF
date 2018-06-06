@@ -1220,11 +1220,21 @@ function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
 
 end
 
+function REMOVE_TAG(str)
+	local pattern = "\{[^\}]*\}";
+	local clean = str:gsub(pattern, "");
+	return clean
+end
+
 function RECIPE_TYPING_NAME(frame, ctrl)
+	local removedTag = REMOVE_TAG(ctrl:GetText());	
+	ctrl:SetText(removedTag);
 	frame:GetTopParentFrame():SetUserValue("EQP_NAME", ctrl:GetText());
 end
 
 function RECIPE_TYPING_MEMO(frame, ctrl)
+	local removedTag = REMOVE_TAG(ctrl:GetText());	
+	ctrl:SetText(removedTag);
 	frame:GetTopParentFrame():SetUserValue("EQP_MEMO", ctrl:GetText());
 end
 

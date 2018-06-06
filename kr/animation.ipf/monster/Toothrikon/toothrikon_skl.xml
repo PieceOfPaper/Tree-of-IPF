@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_simorph_atk3"/>
-    <Sound frame="0.00" soundFile="mon_sakmoli_raiseup"/>
-    <Sound frame="8.00" soundFile="skl_eff_body_atk_8"/>
-    <Sound frame="9.27" soundFile="mon_sakmoli_falldown"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="10" R="100" G="100" B="80" A="100"/>
+	<BlendOff frame="12" R="0" G="0" B="0" A="0"/>
+	<Particle frame="8" attachNode="Bip001 Head" particleName="I_spray001_leaf" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_simorph_atk3"/>
+	<Sound frame="0.00" soundFile="mon_sakmoli_raiseup"/>
+	<Sound frame="8.00" soundFile="skl_eff_body_atk_8"/>
+	<Sound frame="9.27" soundFile="mon_sakmoli_falldown"/>
 </ActionDesc>

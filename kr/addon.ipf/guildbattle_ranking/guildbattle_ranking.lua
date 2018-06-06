@@ -79,14 +79,6 @@ function UPDATE_PREV_RANKING_GUILD(frame)
 
 			first_guild_award:SetTextByKey("value", "");
 
-			local rewardClass = GetClassByType("GuildBattleReward", 1);
-			if rewardClass ~= nil then
-				local reward = TryGetProp(rewardClass, "TPCount");
-			
-				if reward ~= nil then
-					first_guild_award:SetTextByKey("value", reward.."TP");
-				end
-			end
 		end	
 		for i = 1, cnt - 1 do
 			local info = session.worldPVP.GetPrevRankInfoByIndex(i);
@@ -115,32 +107,12 @@ function UPDATE_PREV_RANKING_CTRL(ctrlSet, info)
 
 end
 
-function UPDATE_GET_REWARD_BUTTON(frame)
+function UPDATE_GET_REWARD_BUTTON(frame)	
 	
 	local btn = frame:GetChild("btn_get_reward");
 	btn:ShowWindow(0);
-	local prevSeasonMyRank = session.worldPVP.GetPrevSeasonMyGuildRank();
 
-	if prevSeasonMyRank <= 0 then
-		return;
-	end
-	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	if pcparty == nil then
-		return;
-	end
-
-		local isLeader = AM_I_LEADER(PARTY_GUILD);
-	if isLeader ~= 1 then
-		return;
-	end
-
-				local partyObj = GetIES(pcparty:GetObject());
-				local lastGuildPVPRewardSeason = partyObj.LastGuildPVPRewardSeason;
-				
-				if lastGuildPVPRewardSeason ~= prevSeason then
-					btn:ShowWindow(1);				
-				end
-			end	
+end	
 			
 function REQ_GET_GUILD_BATTLE_REWARD(frame, ctrl)
 
@@ -203,7 +175,7 @@ function OPEN_GUILDBATTLE_RANKING(frame)
 
 	local type = session.worldPVP.GetRankProp("Type");
 	worldPVP.RequestGuildBattlePrevSeasonRanking(type);
-	--UPDATE_PREV_RANKING_GUILD(frame);
+	UPDATE_PREV_RANKING_GUILD(frame);
 	UPDATE_GET_REWARD_BUTTON(frame);
 	UPDATE_GUILDBATTLE_RANK_MYRANK(frame);
 end

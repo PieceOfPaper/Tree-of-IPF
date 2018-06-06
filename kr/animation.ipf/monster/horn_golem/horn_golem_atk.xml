@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_saurman_warrior_atk2_cast"/>
-    <Sound frame="0.00" soundFile="mon_saurman_priest_atk_cast"/>
-    <Sound frame="6.00" soundFile="skl_eff_two_spin_1"/>
-    <Sound frame="6.00" soundFile="skl_eff_body_atk_2"/>
-    <Sound frame="6.00" soundFile="mon_saurman_warrior_atk2_shot"/>
+	<Particle frame="4" attachNode="Dummy002" particleName="I_dash029_mash" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_saurman_warrior_atk2_cast"/>
+	<Sound frame="0.00" soundFile="mon_saurman_priest_atk_cast"/>
+	<Sound frame="6.00" soundFile="skl_eff_two_spin_1"/>
+	<Sound frame="6.00" soundFile="skl_eff_body_atk_2"/>
+	<Sound frame="6.00" soundFile="mon_saurman_warrior_atk2_shot"/>
 </ActionDesc>

@@ -40,6 +40,7 @@ function RECYCLESHOP_POPUPMSG_MAKE_ITEMLIST(type)
 			local slot  = slotset:GetSlotByIndex(i);
 
 			local tpitemname = slot:GetUserValue("TPITEMNAME");
+			local cnt = slot:GetUserValue("COUNT");
 			local item = GetClass("Item",tpitemname)
 			local tpitem = GetClass("recycle_shop",tpitemname)
 
@@ -54,17 +55,19 @@ function RECYCLESHOP_POPUPMSG_MAKE_ITEMLIST(type)
 				local itemStaticprice_buy = GET_CHILD_RECURSIVELY(itemcset,"itemStaticprice_buy")
 				local itemStaticprice_sell = GET_CHILD_RECURSIVELY(itemcset,"itemStaticprice_sell")
 				local itemprice = GET_CHILD_RECURSIVELY(itemcset,"itemprice")
-				itemname:SetText(item.Name)
+				
 				if type == "buy" then
+					itemname:SetText(item.Name)
 					itemStaticprice_buy:ShowWindow(1)
 					itemStaticprice_sell:ShowWindow(0)
 					itemprice:SetText(tostring(tpitem.BuyPrice))
 					allprice = allprice + tpitem.BuyPrice
 				else
+					itemname:SetText(item.Name.. " X"..tostring(cnt))
 					itemStaticprice_buy:ShowWindow(0)
 					itemStaticprice_sell:ShowWindow(1)
-					itemprice:SetText(tostring(tpitem.SellPrice))
-					allprice = allprice + tpitem.SellPrice
+					itemprice:SetText(tostring(tpitem.SellPrice * cnt))
+					allprice = allprice + (tpitem.SellPrice * cnt)
 				end
 
 				drawcount = drawcount + 1

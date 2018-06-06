@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_ellogua_skl_cast"/>
-    <Sound frame="5.00" soundFile="skl_eff_body_atk_2"/>
-    <Sound frame="5.00" soundFile="mon_ellogua_atk_shot"/>
+	<Particle frame="6" attachNode="Dummy002" particleName="I_spread_out014" useAttach="ture" hiddenObj="false" changeEffect="None" scale="2.2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy001" particleName="F_leaf004" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_ellogua_skl_cast"/>
+	<Sound frame="5.00" soundFile="skl_eff_body_atk_2"/>
+	<Sound frame="5.00" soundFile="mon_ellogua_atk_shot"/>
 </ActionDesc>

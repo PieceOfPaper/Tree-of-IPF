@@ -100,8 +100,8 @@ function GUILD_AUTHO_POPUP_DO_OPEN(frame, ctrl, argStr, argNum)
 				checkbox_member:SetEventScriptArgString(ui.LBUTTONUP, strAID);		
 				checkbox_member:SetEventScriptArgNumber(ui.LBUTTONUP, i);	
 				
-				if (i == 1) then
-					local checkbox_line = bg_checkgroup:CreateOrGetControl('labelline', 'LINE_'..connectionCount, 4, subY + checkbox_member:GetHeight(), maxWndW - 25, 10);
+				if (i == numCount) then
+					local checkbox_line = bg_checkgroup:CreateOrGetControl('labelline', 'LINE_'..connectionCount, 4, subY + checkbox_member:GetHeight(), (maxWndW * numCount) - 25, 10);
 					checkbox_line:SetSkinName('labelline_def_2');
 				end
 				
@@ -112,10 +112,11 @@ function GUILD_AUTHO_POPUP_DO_OPEN(frame, ctrl, argStr, argNum)
 		
 		lastHiehgt = subY;
 		wndX = wndX + checkList_gBox:GetWidth() + 6;
+		checkList_gBox:Resize(checkList_gBox:GetWidth(),  subY - 9);
 	end	
-	local row = (math.floor(connectionCount/2) - 1);
+	local row = (math.floor(connectionCount/numCount) - 1);
 	bg_checkgroup:RemoveChild("LINE_".. row );
-	frame:SetUserValue("AUTHO_S_ROW", connectionCount);	
+	frame:SetUserValue("AUTHO_S_ROW", math.floor(connectionCount/numCount));	
 	
 	if (gbox_list:GetHeight() + 10) <= lastHiehgt then
 		maxWndH = (gbox_list:GetHeight() + 10); 

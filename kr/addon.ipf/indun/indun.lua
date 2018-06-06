@@ -34,12 +34,6 @@ function INDUN_DRAW_CATEGORY(frame)
 	end
 
 	local isPremiumState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
-	if true == isPremiumState then
-		local indunText = GET_CHILD(frame, "indunText");
-		local msg = ScpArgMsg("IndunMore{COUNT}ForTOKEN", "COUNT", 1); -- 지금은 한번으로 고정인데 달라지면 우쩌지?
-		indunText:SetTextByKey("value", msg);
-	end
-
 	local clslist, cnt = GetClassList("Indun");
 	for i = 0 , cnt - 1 do
 		local cls = GetClassByIndexFromList(clslist, i);
@@ -51,12 +45,13 @@ function INDUN_DRAW_CATEGORY(frame)
 
 			local cnt = ctrlSet:GetChild("cnt");
 			local etcType = "InDunCountType_"..tostring(cls.PlayPerResetType);
-			cnt:SetTextByKey("cnt", etcObj[etcType]);
+			cnt:SetTextByKey("cnt", TryGetProp(etcObj, etcType));
 			local maxPlayCnt = cls.PlayPerReset;
 			if true == isPremiumState then 
 				maxPlayCnt = maxPlayCnt + cls.PlayPerReset_Token;
 				if cls.PlayPerReset_Token > 0 then
 					ctrlSet:SetUserValue("SHOW_INDUN_TEXT", "YES");
+					ctrlSet:SetUserValue('TOKEN_BONUS', cls.PlayPerReset_Token);
 				end
 			end
 
@@ -89,11 +84,12 @@ function INDUN_CATE_LBTN_CILK(frame, ctrl)
 	local indunText = topFrame:GetChild('indunText');
 	local cateCtrl = ctrl:GetParent();
 	if cateCtrl:GetUserValue("SHOW_INDUN_TEXT") == "YES" then
+		local msg = ScpArgMsg("IndunMore{COUNT}ForTOKEN", "COUNT", cateCtrl:GetUserValue('TOKEN_BONUS'));
+		indunText:SetTextByKey("value", msg);
 		indunText:ShowWindow(1);
 	else
 		indunText:ShowWindow(0);
 	end
-
 	INDUN_SHOW_INDUN_LIST(topFrame, tonumber(nowType))
 end
 

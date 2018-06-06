@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_denoptic_skl_3"/>
-    <Sound frame="0.00" soundFile="m_velorchard_skl_1"/>
-    <Sound frame="17.00" soundFile="mon_denoptic_skl_1"/>
-    <Sound frame="70.00" soundFile="skl_eff_waterspell_2"/>
-    <Sound frame="84.00" soundFile="skl_eff_mud_boom"/>
-    <Sound frame="90.00" soundFile="skl_eff_mud_shot"/>
+	<Shockwave frame="98" type="2" intensity="10" frequency="50" duration="0.5" range="1000"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="I_spread_in006" useAttach="ture" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="98" attachNode="Dummy_leaf" particleName="F_spread_out042_leaf" useAttach="ture" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="75" attachNode="Bip002 Head" particleName="F_spread_out042_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="98" attachNode="Dummy_emitter" particleName="F_spread_out043" useAttach="ture" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_denoptic_skl_3"/>
+	<Sound frame="0.00" soundFile="m_velorchard_skl_1"/>
+	<Sound frame="17.00" soundFile="mon_denoptic_skl_1"/>
+	<Sound frame="70.00" soundFile="skl_eff_waterspell_2"/>
+	<Sound frame="84.00" soundFile="skl_eff_mud_boom"/>
+	<Sound frame="90.00" soundFile="skl_eff_mud_shot"/>
 </ActionDesc>

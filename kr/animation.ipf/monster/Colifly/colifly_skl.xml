@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="16" R="50" G="50" B="50" A="100"/>
+	<BlendOn frame="17" R="60" G="60" B="60" A="100"/>
+	<BlendOn frame="18" R="30" G="30" B="30" A="100"/>
+	<BlendOn frame="20" R="15" G="15" B="15" A="100"/>
+	<BlendOff frame="21" R="0" G="0" B="0" A="0"/>
+	<Particle frame="16" attachNode="Dummy_effect_skl" particleName="F_dash002_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20"/>
 	<Sound frame="0.00" soundFile="mon_lantern_mushroom_skl_cast"/>
 	<Sound frame="2.00" soundFile="m_scorpion_skl_ready"/>
-	<Sound frame="3.00" soundFile="m_scorpion_born">
-		<!--        <modelsound ½ð£=" "/> -->
-	</Sound>
+	<Sound frame="3.00" soundFile="m_scorpion_born"/>
 	<Sound frame="11.00" soundFile="hand_blow_wood"/>
 	<Sound frame="11.00" soundFile="skl_eff_hit_insect_1"/>
 	<Sound frame="11.00" soundFile="born_ground_1"/>

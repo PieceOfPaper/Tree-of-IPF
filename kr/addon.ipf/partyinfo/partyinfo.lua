@@ -729,5 +729,64 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
 	end
 	uiChild:SetTextTooltip(startext);
 	uiChild:EnableHitTest(1);
+
+	return 1;
+end
+
+function PARTY_JOB_TOOLTIP_BY_AID(aid, icon, nowJobName)
+	if (nil == session.otherPC.GetByStrAID(aid)) or (nil == icon) then 
+		return 0;
+	end		 
+	
+	local otherpcinfo = session.otherPC.GetByStrAID(aid);
+
+	local jobhistory = otherpcinfo.jobHistory;
+	local gender = otherpcinfo:GetIconInfo().gender;
+	local clslist, cnt  = GetClassList("Job");
+	
+	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
+	local nowjobcls;
+	if nil == nowjobinfo then
+		nowjobcls = nowJobName; 
+	else
+		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
+	end; 
+
+	local OTHERPCJOBS = {}
+	for i = 0, jobhistory:GetJobHistoryCount()-1 do
+		local tempjobinfo = jobhistory:GetJobHistory(i);
+
+		if OTHERPCJOBS[tempjobinfo.jobID] == nil then
+			OTHERPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
+		else
+			if tempjobinfo.grade > OTHERPCJOBS[tempjobinfo.jobID] then
+				OTHERPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
+			end
+		end
+	end
+
+	local startext = ("");
+	for jobid, grade in pairs(OTHERPCJOBS) do
+		-- 클래스 이름{@st41}
+		local cls = GetClassByTypeFromList(clslist, jobid);
+
+		if cls.Name == nowjobcls.Name then
+			startext = startext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
+		else
+			startext = startext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
+		end
+		
+		-- 클래스 레벨 (★로 표시)				
+		for i = 1 , 3 do
+			if i <= grade then
+				startext = startext ..('{img star_in_arrow 20 20}');
+			else
+				startext = startext ..('{img star_out_arrow 20 20}');
+			end
+		end
+		startext = startext ..('{nl}');
+	end
+	icon:SetTextTooltip(startext);
+	icon:EnableHitTest(1);
 	return 1;
 end

@@ -1,4 +1,4 @@
-function INDUNENTER_ON_INIT(addon, frame)
+﻿function INDUNENTER_ON_INIT(addon, frame)
 	addon:RegisterMsg('MOVE_ZONE', 'INDUNENTER_CLOSE');
 	addon:RegisterMsg('UPDATE_PC_COUNT', 'INDUNENTER_UPDATE_PC_COUNT');
 	addon:RegisterMsg('ESCAPE_PRESSED', 'INDUNENTER_ON_ESCAPE_PRESSED');
@@ -34,12 +34,13 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 		return;
 	end
 
-		local frame = ui.GetFrame('indunenter');
+	local frame = ui.GetFrame('indunenter');
 	local bigmode = frame:GetChild('bigmode');
 	local smallmode = frame:GetChild('smallmode');
 	local noPicBox = GET_CHILD_RECURSIVELY(bigmode, 'noPicBox');
 	local smallBtn = GET_CHILD_RECURSIVELY(frame, 'smallBtn');
 	local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
+	local withBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');
 	
 	-- set user value
 	frame:SetUserValue('INDUN_TYPE', indunType);
@@ -49,6 +50,7 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 	frame:SetUserValue('WITHMATCH_MODE', 'NO');
 	frame:SetUserValue('MON_TOGGLE_OPEN', 'NO');
 	frame:SetUserValue('REWARD_TOGGLE_OPEN', 'NO');
+	frame:SetUserValue('AUTOMATCH_FIND', 'NO');
 
 	-- make controls
 	INDUNENTER_MAKE_HEADER(frame);
@@ -64,7 +66,11 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 	INDUNENTER_INIT_MEMBERBOX(frame);
 	INDUNENTER_AUTOMATCH_TYPE(0);
 	INDUNENTER_AUTOMATCH_PARTY(0);
-	reEnterBtn:SetEnable(isAlreadyPlaying);
+	INDUNENTER_SET_MEMBERCNTBOX();
+	withBtn:SetTextTooltip(ClMsg("PartyMatchInfo_Req"));
+
+
+	reEnterBtn:ShowWindow(isAlreadyPlaying);
 	if enableAutoMatch == 0 then
 		INDUNENTER_SET_ENABLE(1, 0, 0, 0);
 	end
@@ -206,24 +212,20 @@ function INDUNENTER_MAKE_MULTI_BOX(frame, indunCls)
 		return;
 	end
 	local multiBox = GET_CHILD_RECURSIVELY(frame, 'multiBox');
+	local multiBtn = GET_CHILD_RECURSIVELY(frame, 'multiBtn');
 	local arrow = GET_CHILD_RECURSIVELY(frame, 'arrow');
 	local invItem = session.GetInvItemByName(g_indunMultipleItem);
-	if nil == invItem then -- 인던 배수권 아이템이 있을 때만 보여야 한당		
-		multiBox:ShowWindow(0);
-		arrow:ShowWindow(0);
-		return;
-	end
-
 	local indunType = TryGetProp(indunCls, "PlayPerResetType");
-
 	local viewBOX = false;
+	
+	-- view setting	
+	multiBtn:ShowWindow(1);
+	multiBtn:SetEnable(1);
 	if indunType == 100 or indunType == 200 then
 		viewBOX = true;
 	end
-
-	if viewBOX == false then
-		multiBox:ShowWindow(0);
-		arrow:ShowWindow(0);
+	if viewBOX == false or invItem == nil then
+		multiBtn:SetEnable(0);
 		return;
 	end
 
@@ -337,6 +339,7 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 				if jobIconData ~= nil then
 					jobIcon:SetImage(jobIconData);
 				end
+				local ret = PARTY_JOB_TOOLTIP_BY_AID(aid, jobIcon, jobCls);
 
 				-- show level
 				local lv = memberTable[i * 3];
@@ -360,6 +363,9 @@ function INDUNENTER_MULTI_UP(frame, ctrl)
 	--local maxCnt = topFrame:GetUserIValue('MAX_MULTI_CNT');
 	local maxCnt = INDUN_MULTIPLE_USE_MAX_COUNT;
 	local invItem = session.GetInvItemByName(g_indunMultipleItem);
+	if invItem == nil then
+		return;
+	end
 
 	nowCnt = nowCnt + 1;
 
@@ -452,33 +458,40 @@ function INDUNENTER_SMALL(frame, ctrl)
 end
 
 function INDUNENTER_ENTER(frame, ctrl)
-	local yesScript = "ReqMoveToIndun(1)";
+	local topFrame = frame:GetTopParentFrame();
+	local textCount = topFrame:GetUserIValue("multipleCount");
+	local yesScript = string.format("ReqMoveToIndun(%d,%d)", 1, textCount);
 	ui.MsgBox(ScpArgMsg("EnterRightNow"), yesScript, "None");
 end
 
 function INDUNENTER_AUTOMATCH(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
+	local textCount = topFrame:GetUserIValue("multipleCount");
 	if topFrame:GetUserValue('AUTOMATCH_MODE') == 'NO' then
-		ReqMoveToIndun(2);
+		ReqMoveToIndun(2, textCount);
 	else
 		INDUNENTER_AUTOMATCH_CANCEL();
 	end
 end
 
 function INDUNENTER_PARTYMATCH(frame, ctrl)
-	-- 참가중인 파티 없으면 return
 	if session.party.GetPartyInfo(PARTY_NORMAL) == nil then	
 		ui.SysMsg(ClMsg('HadNotMyParty'));
 		return;
 	end
 
 	local topFrame = frame:GetTopParentFrame();
+	local textCount = topFrame:GetUserIValue("multipleCount");
+	local partyAskText = GET_CHILD_RECURSIVELY(topFrame, "partyAskText");
+
 	if topFrame:GetUserValue('WITHMATCH_MODE') == 'NO' then
-		ReqMoveToIndun(3);
+		ReqMoveToIndun(3, textCount);
+		ctrl:SetTextTooltip(ClMsg("PartyMatchInfo_Go"));
 		INDUNENTER_SET_ENABLE(0, 0, 1, 0);
 	else
-		INDUNENTER_PARTYMATCH_CANCEL();
-		INDUNENTER_SET_ENABLE(1, 1, 1, 1);
+		ReqRegisterToIndun(topFrame:GetUserIValue('INDUN_TYPE'));
+		ctrl:SetTextTooltip(ClMsg("PartyMatchInfo_Req"));
+		INDUNENTER_SET_ENABLE(0, 1, 0, 0);
 	end
 end
 
@@ -491,7 +504,6 @@ function INDUNENTER_PARTYMATCH_CANCEL()
 	end
 	local withTime = GET_CHILD_RECURSIVELY(frame, 'withTime');
 	withTime:SetText(ClMsg('MatchWithParty'));
-	INDUNENTER_INIT_MEMBERBOX(frame);
 end
 
 function INDUNENTER_SET_WAIT_PC_COUNT(pcCount)
@@ -501,6 +513,25 @@ function INDUNENTER_SET_WAIT_PC_COUNT(pcCount)
 	end
 	local memberCntText = GET_CHILD_RECURSIVELY(frame, 'memberCntText');
 	memberCntText:SetTextByKey('cnt', pcCount);
+end
+
+function INDUNENTER_SET_MEMBERCNTBOX()
+	local frame = ui.GetFrame('indunenter');
+	local memberCntBox = GET_CHILD_RECURSIVELY(frame, 'memberCntBox');
+	local memberCntText = GET_CHILD_RECURSIVELY(frame, 'memberCntText');
+	local partyAskText = GET_CHILD_RECURSIVELY(frame, 'partyAskText');
+	
+	if frame:GetUserValue('WITHMATCH_MODE') == 'YES' then
+		memberCntText:ShowWindow(0);
+		partyAskText:ShowWindow(1);
+	elseif frame:GetUserValue('AUTOMATCH_MODE') == 'YES' then
+		memberCntText:ShowWindow(1);
+		partyAskText:ShowWindow(0);
+	else
+		memberCntBox:ShowWindow(0);
+		return;
+	end
+	memberCntBox:ShowWindow(1);
 end
 
 function INDUNENTER_AUTOMATCH_TYPE(indunType)
@@ -517,7 +548,7 @@ function INDUNENTER_AUTOMATCH_TYPE(indunType)
 		frame:SetUserValue('AUTOMATCH_MODE', 'NO');
 		autoMatchText:ShowWindow(1);
 		autoMatchTime:ShowWindow(0);
-		memberCntBox:ShowWindow(0);
+
 		INDUNENTER_SET_ENABLE(1, 1, 1, 1);
 		INDUNENTER_INIT_MEMBERBOX(frame);
 
@@ -527,14 +558,14 @@ function INDUNENTER_AUTOMATCH_TYPE(indunType)
 	else
 		frame:SetUserValue('AUTOMATCH_MODE', 'YES');
 		autoMatchText:ShowWindow(0);
-		memberCntBox:ShowWindow(1);
 		cancelAutoMatch:SetEnable(1);
 
 		INDUNENTER_AUTOMATCH_TIMER_START(frame);
 		INDUNENTER_SET_ENABLE(0, 1, 0, 0);
 		INDUNENTER_MAKE_SMALLMODE(frame, false);
-		INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 1);
 	end
+	
+	INDUNENTER_SET_MEMBERCNTBOX();
 end
 
 function INDUNENTER_AUTOMATCH_TIMER_START(frame)
@@ -557,10 +588,11 @@ function _INDUNENTER_AUTOMATCH_UPDATE_TIME(frame)
 	autoMatchTime:SetText(txt);
 	smallMatchTime:SetText(txt);
 
-	if frame:GetUserValue('AUTOMATCH_MODE') == 'NO' then
+	if frame:GetUserValue('AUTOMATCH_MODE') == 'NO' or frame:GetUserValue('AUTOMATCH_FIND') == 'YES' then
 		autoMatchTime:ShowWindow(0);
 		return 0;
 	end
+
 	return 1;
 end
 
@@ -572,47 +604,46 @@ function INDUNENTER_AUTOMATCH_PARTY(numWaiting, level, limit, indunLv, indunName
 	local frame = ui.GetFrame("indunenter");
 	local withText = GET_CHILD_RECURSIVELY(frame, 'withText');
 	local withTime = GET_CHILD_RECURSIVELY(frame, 'withTime');
-
-	if numWaiting == 0 then
+	local memberCntBox = GET_CHILD_RECURSIVELY(frame, 'memberCntBox');
+	local partyAskText = GET_CHILD_RECURSIVELY(frame, 'partyAskText');
+	
+	if numWaiting == 0 then -- party match cancel
 		frame:SetUserValue('WITHMATCH_MODE', 'NO');
 		withText:ShowWindow(1);
 		withTime:ShowWindow(0);
-		INDUNENTER_SET_ENABLE(1, 1, 1, 1);
-		INDUNENTER_INIT_MEMBERBOX(frame);
-	else
+	else					-- party match start
+		-- level info
+		local lowerBound = level - limit;
+		local upperBound = level + limit;
+		if lowerBound < indunLv then
+			lowerBound = indunLv;
+		end
+		if upperBound > PC_MAX_LEVEL then
+			uppderBound = PC_MAX_LEVEL;
+		end	
+		partyAskText:SetTextByKey("value", ScpArgMsg("MatchWithParty").."(Lv."..tostring(lowerBound)..'~'..tostring(upperBound)..")");	
+
+		-- frame info
 		frame:SetUserValue('WITHMATCH_MODE', 'YES');
-		frame:SetUserValue("ELAPSED_TIME", elapsedTime);
 		withText:ShowWindow(0);
-		INDUNENTER_AUTOMATCH_PARTY_TIMER_START(frame);
+		withTime:ShowWindow(1);
 		INDUNENTER_SET_ENABLE(0, 0, 1, 0);
-		INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 1);
 	end
+
+	INDUNENTER_SET_MEMBERCNTBOX();
 end
 
-function INDUNENTER_AUTOMATCH_PARTY_TIMER_START(frame)
-	local withTime = GET_CHILD_RECURSIVELY(frame, 'withTime');
-	withTime:ShowWindow(1);
-
-	frame:SetUserValue("START_TIME", os.time());
-	frame:SetUserValue("WAITING_TIME", frame:GetUserIValue("ELAPSED_TIME"));
-	frame:RunUpdateScript("_INDUNENTER_AUTOMATCH_PARTY_UPDATE_TIME", 0.5);
-	_INDUNENTER_AUTOMATCH_PARTY_UPDATE_TIME(frame);
-end
-
-function _INDUNENTER_AUTOMATCH_PARTY_UPDATE_TIME(frame)
-	local elapsedSec = os.time() - frame:GetUserIValue("START_TIME");
-	local remainSec = frame:GetUserIValue("WAITING_TIME") - elapsedSec;
-	local minute = math.floor(remainSec / 60);
-	local second = remainSec % 60;
-	local txt = string.format("%02d:%02d", minute, second);
-	local withTime = GET_CHILD_RECURSIVELY(frame, 'withTime');
-	withTime:SetText(txt);	
-
-	if frame:GetUserValue('WITHMATCH_MODE') == 'NO' then
-		withTime:ShowWindow(0);
-		return 0;
-	end
-	return 1;	
+function INDUNENTER_SET_ENABLE_MULTI(enable)
+	local frame = ui.GetFrame('indunenter');
+	local multiBtn = GET_CHILD_RECURSIVELY(frame, 'multiBtn');
+	local multiCancelBtn = GET_CHILD_RECURSIVELY(frame, 'multiCancelBtn');
+	local upBtn = GET_CHILD_RECURSIVELY(frame, 'upBtn');
+	local downBtn = GET_CHILD_RECURSIVELY(frame, 'downBtn');
+	
+	multiBtn:SetEnable(enable);
+	multiCancelBtn:SetEnable(enable);
+	upBtn:SetEnable(enable);
+	downBtn:SetEnable(enable);
 end
 
 function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
@@ -621,18 +652,32 @@ function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
 	local autoMatchBtn = GET_CHILD_RECURSIVELY(frame, 'autoMatchBtn');
 	local withPartyBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');
 	local multiBtn = GET_CHILD_RECURSIVELY(frame, 'multiBtn');
+	local multiCancelBtn = GET_CHILD_RECURSIVELY(frame, 'multiCancelBtn');
 	local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
-
+	
 	enterBtn:SetEnable(enter);
 	autoMatchBtn:SetEnable(autoMatch);
 	withPartyBtn:SetEnable(withParty);
 	multiBtn:SetEnable(multi);
+
+	-- multi btn
+	local invItem = session.GetInvItemByName(g_indunMultipleItem);
+	if invItem == nil then
+		INDUNENTER_SET_ENABLE_MULTI(0);
+	end
 end
 
 function INDUNENTER_UPDATE_PC_COUNT(frame, msg, argStr, argNum) -- argNum: pcCount, argStr: aid/jobID/lv
 	if frame == nil then
 		return;
 	end
+	
+	-- enable auto match, with match mode; except initialize
+	if frame:GetUserValue('AUTOMATCH_MODE') == 'NO' and frame:GetUserValue('WITHMATCH_MODE') == 'NO' and argNum > 0 then
+		return;
+	end
+
+	-- update pc count
 	if argStr == nil then
 		argStr = "None";
 	end
@@ -693,11 +738,18 @@ end
 function INDUNENTER_AUTOMATCH_FINDED()
 	local frame = ui.GetFrame('indunenter');
 	local cancelAutoMatch = GET_CHILD_RECURSIVELY(frame, 'cancelAutoMatch');
+	local autoMatchText = GET_CHILD_RECURSIVELY(frame, 'autoMatchText');
+	local autoMatchTime = GET_CHILD_RECURSIVELY(frame, 'autoMatchTime');
 	local indunName = GET_CHILD_RECURSIVELY(frame, 'indunName');
 
 	cancelAutoMatch:SetEnable(0);
 	indunName:SetText(ClMsg('AutoMatchComplete'));
+	frame:SetUserValue('AUTOMATCH_FIND', 'YES');
+	autoMatchText:SetText(ClMsg('PILGRIM41_1_SQ07_WATER'));
+	autoMatchTime:ShowWindow(0);
+	autoMatchText:ShowWindow(1);
 
+	INDUNENTER_SET_ENABLE(0, 0, 0, 0);
 	INDUNENTER_MAKE_SMALLMODE(frame, true);
 	INDUNENTER_AUTOMATCH_FIND_TIMER_START(frame);
 end
@@ -725,7 +777,9 @@ function INDUNENTER_AUTOMATCH_PARTY_SET_COUNT(memberCnt, memberInfo)
 end
 
 function INDUNENTER_REENTER(frame, ctrl)
-	ReqMoveToIndun(4);
+	local topFrame = frame:GetTopParentFrame();
+	local textCount = topFrame:GetUserIValue("multipleCount");
+	ReqMoveToIndun(4, textCount);
 end
 
 function INDUNENTER_MON_TOGGLE(frame, ctrl)
@@ -771,7 +825,7 @@ function INDUNENTER_REWARD_TOGGLE(frame, ctrl)
 end
 
 function INDUNENTER_MULTI_EXEC(frame, ctrl)
-
+	
 	local indunenterFrame = ui.GetFrame('indunenter');
 	local indunType = indunenterFrame:GetUserValue('INDUN_TYPE');
 
@@ -815,7 +869,8 @@ function INDUNENTER_MULTI_EXEC(frame, ctrl)
 		return;
 	end
 
-	packet.SetIndunMultiple(indunType, textCount);
+	local topFrame = frame:GetTopParentFrame();
+	topFrame:SetUserValue("multipleCount", textCount);
 
 	local multiCancelBtn = GET_CHILD_RECURSIVELY(frame, "multiCancelBtn");
 	multiCancelBtn:ShowWindow(1);
@@ -845,7 +900,7 @@ function INDUNENTER_MULTI_CANCEL(frame, ctrl)
 	local rateValue = GET_CHILD_RECURSIVELY(topFrame, "RateValue");
 	rateValue:SetImage("indun_x1");
 
-	packet.SetIndunMultiple(0, 0);
+	topFrame:SetUserValue("multipleCount", 0);
 
 	local multiCancelBtn = GET_CHILD_RECURSIVELY(topFrame, "multiCancelBtn");
 	multiCancelBtn:ShowWindow(0);

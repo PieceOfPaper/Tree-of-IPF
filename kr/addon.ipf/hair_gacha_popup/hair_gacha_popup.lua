@@ -258,6 +258,7 @@ function HAIR_GACHA_POP_BIG_FRAME(frameindex, type, nobonus)
 	end
 
 	bigframe:SetUserValue("GACHA_FRAME_INDEX",frameindex)
+	bigframe:SetUserValue("GACHA_FRAME_TYPE",type)
 
 	local itembgimg = GET_CHILD_RECURSIVELY(bigframe, "bigitembgimg")
 	if grade == 1 then

@@ -212,6 +212,34 @@ function GET_RECIPE_GROUP_NAME(groupname)
 		return ScpArgMsg('RecipeGroup_Artefact')
 	end
 
+	if groupname == 'Armband' then
+		return ScpArgMsg('RecipeGroup_Armband')
+	end
+	
+	if groupname == 'MagicAmulet' then
+		return ScpArgMsg('RecipeGroup_MagicAmulet')
+	end
+	
+	if groupname == 'Cannon' then
+		return ScpArgMsg('RecipeGroup_Cannon')
+	end
+	
+	if groupname == 'Dagger' then
+		return ScpArgMsg('RecipeGroup_Dagger')
+	end
+	
+	if groupname == 'Musket' then
+		return ScpArgMsg('RecipeGroup_Musket')
+	end
+	
+	if groupname == 'Premium' then
+		return ScpArgMsg('TP_Premium')
+	end
+	
+	if groupname == 'Drug' then
+		return ScpArgMsg('Drug')
+	end
+	
 	return groupname;
 
 end
@@ -613,10 +641,14 @@ function MAKE_DETAIL_REQITEMS(ctrlset)
 end
 
 function RECIPE_TYPING_NAME(frame, ctrl)
+	local removedTag = REMOVE_TAG(ctrl:GetText());
+	ctrl:SetText(removedTag);
 	frame:GetTopParentFrame():SetUserValue("EQP_NAME", ctrl:GetText());
 end
 
 function RECIPE_TYPING_MEMO(frame, ctrl)
+	local removedTag = REMOVE_TAG(ctrl:GetText());
+	ctrl:SetText(removedTag);
 	frame:GetTopParentFrame():SetUserValue("EQP_MEMO", ctrl:GetText());
 end
 

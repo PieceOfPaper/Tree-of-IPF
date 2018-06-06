@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <PadSkills>
     <PadSkill Name="ApproachPad" CheckerType="1" Dist="0.20079" Angle="1.044166" Range="15" InnerRange="15">
         <createEvent>
@@ -158,6 +157,9 @@ return obj.Level;"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
             </ToolScp>
+        <ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PAD_ENTER_SpikeShooter"/>
+            </ToolScp>
         </createEvent>
         <enterEvent>
             <ToolScp Scp="PAD_FUNC_DIRECT" Client="NO" UseSleep="NO">
@@ -175,7 +177,7 @@ return obj.Level;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Archer_VerminPot" CheckerType="0" PadHeight="10" Range="40" IsMagicType="0">
+    <PadSkill Name="Archer_VerminPot" CheckerType="0" PadHeight="10" AllowOverlap="1" Range="40" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="6000"/>
@@ -209,13 +211,27 @@ return obj.Level;"/>
             <ToolScp Scp="PAD_ACTIVATE" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
             </ToolScp>
+                 <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Archer_VerminPot_Debuff"/>
+            <Num Num="0"UseFunc="1" FuncTxt="
+                return obj.Level;"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
         </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
                 <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="Archer_VerminPot_Debuff"/>
+            <Str Str="Archer_VerminPot_Debuff"/>
+                <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_TGT_ABIL_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="Wugushi5"/>
@@ -234,17 +250,6 @@ return obj.Level;"/>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-500"/>
                 <Num Num="0"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_BUFF_ENEMY" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="Archer_VerminPot_Debuff"/>
-                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="1"/>
-                <Num Num="100"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
@@ -12951,7 +12956,7 @@ return 10000 + obj.Level * 1000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;
             </ToolScp>
         </updateEvent>
     </PadSkill>
-	<PadSkill Name="rope_pad" CheckerType="5" PadHeight="12" UpdateTerm="100" IsMagicType="0" AllowOverlap="1">
+	<PadSkill Name="rope_pad" CheckerType="5" PadHeight="12" AllowOverlap="1" UpdateTerm="100" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="15000"/>
@@ -12979,13 +12984,13 @@ return 10000 + obj.Level * 1000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
             </ToolScp>
-        </createEvent>
-        <enterEvent>
-            <ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
+        <ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PAD_ENTER_BroomTrap"/>
+                </ToolScp>
+                </createEvent>
+                <enterEvent>
+            <ToolScp Scp="PAD_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PAD_TGT_DAMAGE_BroomTrap"/>
             </ToolScp>
         </enterEvent>
         <updateEvent>
@@ -13263,7 +13268,7 @@ return 10000 + obj.Level * 1000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;
                 <Num Num="99990"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="I_force003_green" Arg="2"/>
+                <Str_Arg Str="I_smoke014_dark" Arg="0.60000002"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="10"/>
                 <Str_Arg Str="None" Arg="1"/>

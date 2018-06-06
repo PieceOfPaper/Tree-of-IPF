@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="5" attachNode="Dummy_effect_wing_R" particleName="I_force078_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="5" attachNode="Dummy_effect_wing_L" particleName="I_force078_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="60" attachNode="Dummy_effect_wing_R" particleName="I_force078_mint2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="60" attachNode="Dummy_effect_wing_L" particleName="I_force078_mint2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="5" attachNode="Dummy_effect_wing_R" particleName="I_force078_mint_feather" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="5" attachNode="Dummy_effect_wing_L" particleName="I_force078_mint_feather" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="80" attachNode="Dummy_effect_wing_R" particleName="I_force078_mint_feather2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+	<Particle frame="80" attachNode="Dummy_effect_wing_L" particleName="I_force078_mint_feather2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="58" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="100" attachNode="Dummy_emitter" particleName="F_smoke080" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Sound frame="0.00" soundFile="m_harpeia_skl_3"/>
+	<Particle frame="58" attachNode="Dummy_emitter" particleName="F_lineup020_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true"/>
+</ActionDesc>

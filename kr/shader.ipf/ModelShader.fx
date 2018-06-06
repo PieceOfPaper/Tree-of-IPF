@@ -1,18 +1,14 @@
 #ifndef __MODELSHADER_FX__
 #define __MODELSHADER_FX__
 
-float4x4 	g_WorldTM      		: 	WORLD_TM;
-float4x4 	g_WorldViewTM		: 	WORLDVIEW_TM;
-float4x4 	g_WorldViewProjTM	: 	WORLDVIEWPROJECTION_TM;
+// ShaderRenderer.h 에 있는 MAX_INSTANCE_COUNT 값과 동일하게 유지해야함
+#define MAX_INSTANCE_COUNT 10
+
 float4x4 	g_ViewTM;
 float4x4 	g_ProjTM;
 float4x4	g_InvViewTM			:	INVVIEW_TM;
 float4x4 	g_ViewProjTM		: 	VIEWPROJECTION_TM;
 
-float		g_AlphaBlending;
-
-float4		g_BlendColor = float4(0.5f, 0.5f, 0.5f, 1.0f);
-float4		g_BlendColorAdd = float4(0.0f, 0.0f, 0.0f, 0.0f);
 float4		g_outLineColor = float4(1.0f, 1.0f, 0.0f, 0.0f);
 
 #ifdef ENABLE_FREEZE
@@ -22,19 +18,49 @@ float		g_fallOffMultiplyValue = 0.2f;
 float		g_materialShaderPowValue = 1.35f;
 #endif
 
+float		g_AlphaBlending;
 float 		g_timeStamp = 0.0f;
+float       g_Gamma = 0.0f;
 
 #ifdef ENABLE_INSTANCING
 int			g_InstanceCount;
-float4x4	g_InstanceTMArray[30]				: INSTANCE_TMARRAY;
-float4		g_InstanceVecArray[40];
-#endif
+// 0 : g_WorldTM
+// 1 : g_billboardTM
+// 2 : g_charProjTM * g_charViewTM
+float4x4	g_InstanceTMArray[MAX_INSTANCE_COUNT * 3]				: INSTANCE_TMARRAY;
+// 0 : g_pivotPoint / modelTime
+// 1 : g_BlendColor
+// 2 : g_BlendColorAdd
+// 3 : g_glowColor
+// 4 : g_glowValues
+	#ifdef ENABLE_FACE
+	// 5 : g_faceXYMulAdd
+		float4		g_InstanceVecArray[MAX_INSTANCE_COUNT * 6];
+	#else
+		float4		g_InstanceVecArray[MAX_INSTANCE_COUNT * 5];
+	#endif
+#else
+float4x4 	g_WorldTM      		: 	WORLD_TM;
+float4x4 	g_WorldViewTM		: 	WORLDVIEW_TM;
+float4x4 	g_WorldViewProjTM	: 	WORLDVIEWPROJECTION_TM;
+float4		g_BlendColor = float4(0.5f, 0.5f, 0.5f, 1.0f);
+float4		g_BlendColorAdd = float4(0.0f, 0.0f, 0.0f, 0.0f);
+float4		g_glowColor = float4(0.0f, 0.0f, 0.0f, 0.0f);
+// x : factor
+float4		g_glowValues = float4(0.0f, 0.0f, 0.0f, 0.0f);
 
 // 3d캐릭터 2d로 그리는거
 float4x4 	g_billboardTM		: BILLBOARD_TM;
 float4x4 	g_charProjTM		: CHARPROJ_TM;
 float4x4	g_charViewTM		: CHARVIEW_TM;
 float3		g_pivotPoint;
+float		g_modelTime;	// g_timeStamp는 모든 모델에 동일한 시간이 적용되기 때문에, 모델마다 다른 시간을 적용하고 싶을 때는 이 변수를 사용
+
+	// 표정 관련 정보
+	#ifdef ENABLE_FACE
+	float4 g_faceXYMulAdd = 0.0f;
+	#endif
+#endif
 
 #ifdef ENABLE_CHARACTER_RENDER
 float4x4	g_TestMatrix;		// 타는 문제 때문에 추가된 매트릭스
@@ -42,7 +68,6 @@ float4x4	g_AngleMatrix;
 
 float3 		g_MidPos = float3(2000.0f, 2000.0f, 2000.0f);
 float 		g_depthDistanceValue = 8;
-float       g_Gamma = 0.0f;
 float4x4 	g_depthDistTM;
 float 		g_envValue = 1.0f;
 
@@ -53,10 +78,6 @@ float 		g_envValue = 1.0f;
 float4 		g_farValue = float4(-7.641f, 0.0f, 0.0f, -24.0f);
 float4 		g_outLineValue = float4(-12.0f, -30.0f, 0.0f, -40.0f);
 
-	// 표정 관련 정보
-	#ifdef ENABLE_FACE
-		float4 g_faceXYMulAdd = 0.0f;
-	#endif
 #endif
 
 float2 encodeToRG(float v)
@@ -68,7 +89,8 @@ float2 encodeToRG(float v)
 }
 
 #ifdef ENABLE_SKINNING
-int g_boneTexID	: BONE_TEX_ID;
+int g_boneTexID : BONE_TEX_ID;
+
 texture VTF_Tex : SKIN_VTF_TEX;
 sampler vtf_skin  = sampler_state {
 	Texture = (VTF_Tex);
@@ -262,6 +284,27 @@ struct VS_OUT {
 	float fog : FOG;
 };
 
+struct VS_OUT_GLOW {
+	float4 Pos : POSITION;
+	float4 diffuseTexCoord : TEXCOORD0;
+
+#if defined (ENABLE_STATICSHADOWTEX) 
+	float4 shadowCoord : TEXCOORD1;
+#endif
+#if defined(ENABLE_ENVTEX)
+	float4 envTexCoord : TEXCOORD2;
+#endif
+	float4 outDepth	: TEXCOORD3;
+	float3 viewVec : TEXCOORD4;
+	float4 worldNml : TEXCOORD5;
+	float worldz : TEXCOORD6;
+	float4 worldPos : TEXCOORD7;
+	float tmIndex : TEXCOORD8;
+	float fog : FOG;
+
+	float2 velocity : TEXCOORD9;
+};
+
 #ifdef ENABLE_INSTANCING
 float4 CalcWVP(float4 Pos, float4x4 worldTM, float4x4 worldViewProjTM, int tmIndex)
 {
@@ -273,7 +316,7 @@ float4 CalcWVP(float4 Pos, float4x4 worldTM, float4x4 worldViewProjTM, int tmInd
 		Pos /= Pos.w;
 		Pos.z = 0.0f;	// 빌보드로 만듦
 		Pos.y += 0.4f;  // 캐릭터 발 위치를 맞추기 위한 상수
-		Pos = mul(Pos, g_InstanceTMArray[g_InstanceCount + tmIndex]);
+		Pos = mul(Pos, g_InstanceTMArray[g_InstanceCount * 1 + tmIndex]);
 		Pos = mul(Pos, g_ViewProjTM);
 		// (Local Z - 카메라 거리 : Z값을 0 앞뒤로 맞추기 위함) * 적당히 납작하게 만들기 위한 상수 - 깊이 보정값
 
@@ -338,7 +381,7 @@ float4 CalcWVPSilhouette(float3 Pos, int tmIndex)
 		Out /= Out.w;
 		Out.z = 0.0f;	// 빌보드로 만듬
 		Out.y += 0.4f;  // 캐릭터 발 위치 맞출때 사용하는 상수입니다	
-		Out = mul(Out, g_InstanceTMArray[g_InstanceCount + tmIndex]);
+		Out = mul(Out, g_InstanceTMArray[g_InstanceCount * 1 + tmIndex]);
 		Out = mul(Out, g_ViewProjTM);
 		// (localz-카메라거리:z값을0앞뒤로맞추려고) * 적당히 납작하게 하기 위한 상수 - 뎁스바이어스;
 
@@ -459,17 +502,17 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 	float4 localPos = 0;
 	float4 localNml = 0;
 
-	float4x4 WorldTM = g_WorldTM;
-	float4x4 WorldViewTM = g_WorldViewTM;
-	float4x4 WorldViewProjTM = g_WorldViewProjTM;
-
 #ifdef ENABLE_INSTANCING
 	int tmIndex = (int)(tmID + 1e-5f);
 	o.tmIndex = tmID;
-	WorldTM = g_InstanceTMArray[tmIndex];
+	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
 	WorldTM._24 = 0.0f;
-	WorldViewTM = mul(WorldTM, g_ViewTM);
-	WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
+	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+#else
+	float4x4 WorldTM = g_WorldTM;
+	float4x4 WorldViewTM = g_WorldViewTM;
+	float4x4 WorldViewProjTM = g_WorldViewProjTM;
 #endif
 
 #ifdef ENABLE_SKINNING
@@ -493,10 +536,10 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 #endif
 
 	float3 worldPos = 0;
-	float4 worldNml = 0;
+	float3 worldNml = 0;
 
 	worldPos = mul(localPos, WorldTM);
-	worldNml = mul(localNml, WorldTM);
+	worldNml = mul(localNml, (float3x3)WorldTM);
 
 	// 캐릭터 2D로 찍기
 #ifdef ENABLE_INSTANCING
@@ -605,14 +648,15 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 	o.outDepth.w = 1.0f;
 
 	o.viewVec = g_InvViewTM[3].xyz - worldPos;
-	o.worldNml.xyz = mul(localNml, (float3x3)WorldTM).xyz;
+	o.worldNml.xyz = worldNml;
 
 	#ifdef ENABLE_DIFFUSETEX
 		// 얼굴 그리는 부분
 		#ifdef ENABLE_FACE
-			float4 faceXYMulAdd = g_faceXYMulAdd;
 			#ifdef ENABLE_INSTANCING
-				faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 3 + tmIndex];
+				float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + tmIndex];
+			#else 
+				float4 faceXYMulAdd = g_faceXYMulAdd;
 			#endif
 			o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
 			o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
@@ -627,7 +671,7 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 #ifdef ENABLE_WATER
 	o.outDepth = o.Pos;
 	o.viewVec = g_InvViewTM[1].xyz;
-	o.worldNml.xyz = mul(localNml, (float3x3)WorldTM).xyz;
+	o.worldNml.xyz = worldNml;
 #endif
 	return o;
 }
@@ -732,6 +776,177 @@ VS_OUT VS_HeadOutlineModelShader4(in float4 InPos : POSITION, in float4 InNml : 
 #endif
 }
 
+VS_OUT_GLOW VS_ModelGlowShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
+#ifdef ENABLE_SKINNING
+	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
+#endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
+#endif
+	)
+{
+	VS_OUT_GLOW o = (VS_OUT_GLOW)0;
+
+	//Position
+	float4 localPos = 0;
+	float4 localNml = 0;
+
+#ifdef ENABLE_INSTANCING
+	int tmIndex = (int)(tmID + 1e-5f);
+	o.tmIndex = tmID;
+	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
+	WorldTM._24 = 0.f;
+	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
+	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+#else
+	float4x4 WorldTM = g_WorldTM;
+	float4x4 WorldViewTM = g_WorldViewTM;
+	float4x4 WorldViewProjTM = g_WorldViewProjTM;
+#endif
+
+#ifdef ENABLE_SKINNING
+	int boneIDIndex = g_boneTexID;
+	#ifdef ENABLE_INSTANCING
+		boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
+	#endif
+	float4 indices2 = D3DCOLORtoUBYTE4(indices);
+	for (int i = 0; i < 4; ++i) {
+		float4x4 boneTM = GetSkinMatrix(indices2[i] + boneIDIndex);
+			localPos.xyz += mul(InPos, boneTM) * weights[i];
+		localNml.xyz += mul(InNml, (float3x3)boneTM) * weights[i];
+	}
+	localPos.w = 1.0f;
+	localNml.w = 0.0f;
+#else
+	localPos = InPos;
+	localNml = InNml;
+	localPos.w = 1.0f;
+	localNml.w = 0.0f;
+#endif
+
+	float3 worldPos = 0;
+	float3 worldNml = 0;
+
+	worldPos = mul(localPos, WorldTM);
+	worldNml = mul(localNml, (float3x3)WorldTM);
+
+	// 캐릭터 2D로 찍기
+#ifdef ENABLE_INSTANCING
+	o.Pos = CalcWVP(localPos, WorldTM, WorldViewProjTM, tmIndex);
+#else
+	o.Pos = CalcWVP(localPos);
+#endif
+
+	float depth = o.Pos.z;
+
+#ifdef ENABLE_CHARACTER_RENDER
+	#ifdef ENABLE_INSTANCING
+		float4x4 worldAngleTM = mul(WorldTM, g_AngleMatrix);
+			o.worldz = mul(localPos + float3(0, -25.5, 0), worldAngleTM).z * 0.1f;
+	#else
+		o.worldz = mul(localPos + float3(0, -25.5, 0), g_TestMatrix).z * 0.1f;
+	#endif
+#endif
+
+	o.worldPos.xyz = worldPos;
+	o.worldPos.w = 0.0f;
+
+#ifdef ENABLE_GRASS
+	float3 viewPos = mul(localPos, WorldViewTM);
+
+	float worldY = -(worldPos.y + mapBottom) / (mapTop - mapBottom);
+	float2 texPos = worldPos.xz;
+	texPos.x += mapOffsetX;
+	texPos.y += mapOffsetY;
+	texPos.xy /= mapSize;
+	texPos.y *= -1;
+	texPos.xy += 1.0;
+	texPos.xy *= 0.5;
+	float bgDepth = tex2Dlod(heightTex, float4(texPos, 0.0f, 1.0f)).y;
+
+	float delta = (bgDepth - worldY) / 10;
+	// 0.0005f 는 수치를 바꿔가면서 찾은 delta 최대치의 매직넘버
+	// 0.001f 이상부터 모델이 흔들리는 정도가 심해지기 시작함
+	if (delta > 0.0005f)
+	{
+		delta = 0.0005f;
+	}
+	o.worldPos.w = 0;
+
+	float attack = 0;
+	float tFactor = 0.0;
+	for (int i = 0; i < 10; ++i)
+	{
+		float attackChk = step(length(g_grassAttack[i].xz - worldPos.xz), g_grassAttack[i].w);
+		tFactor = g_grassAttackTFactor[i] * attackChk;
+		attack = attackChk + attack;
+	}
+
+	float calcGrassTime = grassTime;
+	float calcWindPower = windPower;
+
+	float stepChk = step(0.5, attack);
+
+	o.Pos.y += delta * 60000 * stepChk;
+	calcGrassTime = 7 * stepChk + calcGrassTime * (1 - stepChk);
+	calcWindPower = 600 * stepChk + calcWindPower * (1 - stepChk);
+	o.worldPos.w = stepChk;
+
+	delta = saturate(delta) * calcWindPower * 10;
+	delta = sin((g_timeStamp + tFactor) * calcGrassTime + grassTimeoffset + worldPos.x * 0.1 - worldPos.z * 0.1) * delta + windDir * delta;
+
+	o.Pos.x += delta;
+	o.Pos.y -= delta * delta * 0.05;
+#endif
+
+	//Env
+#ifdef ENABLE_ENVTEX
+	float4 worldViewPos = mul(float4(localPos.xyz, 1.0f), WorldViewTM);
+		float4 worldViewNml = mul(float4(localNml.xyz, 0.0f), WorldViewTM);
+		worldViewPos = normalize(worldViewPos);
+	worldViewNml = normalize(worldViewNml);
+	o.envTexCoord.xy = reflect(worldViewPos, worldViewNml);
+#endif
+
+#ifdef ENABLE_CHARACTER_RENDER
+	float charPosInView = mul(float4(g_MidPos, 1.0f), g_depthDistTM).z;
+	float vertexPosInView = mul(localPos, g_depthDistTM).z;
+	o.outDepth.x = charPosInView;
+	o.outDepth.y = vertexPosInView;
+	o.outDepth.w = 1.0f;
+
+	o.viewVec = g_InvViewTM[3].xyz - worldPos;
+	o.worldNml.xyz = worldNml;
+	#ifdef ENABLE_DIFFUSETEX
+		// 얼굴 그리는 부분
+		#ifdef ENABLE_FACE
+			#ifdef ENABLE_INSTANCING
+				float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + tmIndex];
+			#else
+				float4 faceXYMulAdd = g_faceXYMulAdd;
+			#endif
+			o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
+			o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
+		#endif
+	#endif
+#endif
+
+#ifdef ENABLE_INSTANCING
+			float fTime = g_InstanceVecArray[tmIndex].w;
+			float fGlowFactor = g_InstanceVecArray[g_InstanceCount * 4 + tmIndex].x;
+#else
+			float fTime = g_modelTime;
+			float fGlowFactor = g_glowValues.x;
+#endif
+			// time 에 곱해주는 숫자들은 모두 매직넘버
+			o.Pos += (o.worldNml * (cos(fTime * 1.76f) * 0.5f + 0.5f + 0.5f) * fGlowFactor);
+			o.Pos.x += sin(fTime * 2.17f) * o.worldNml.y * fGlowFactor;
+			o.Pos.y += cos(fTime * 3.05f) * o.worldNml.x * fGlowFactor;
+			o.Pos.z += sin(fTime * 1.73f) * o.worldNml.z * fGlowFactor * 0.25f;
+
+	return o;
+}
+
 VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
 #ifdef ENABLE_SKINNING
 	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
@@ -747,17 +962,17 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 	float4 localPos = 0;
 	float4 localNml = 0;
 
-	float4x4 WorldTM = g_WorldTM;
-	float4x4 WorldViewTM = g_WorldViewTM;
-	float4x4 WorldViewProjTM = g_WorldViewProjTM;
-
 #ifdef ENABLE_INSTANCING
 	int tmIndex = (int)(tmID + 1e-5f);
 	o.tmIndex = tmID;
-	WorldTM = g_InstanceTMArray[tmIndex];
+	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
 	WorldTM._24 = 0.0f;
-	WorldViewTM = mul(WorldTM, g_ViewTM);
-	WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
+	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+#else
+	float4x4 WorldTM = g_WorldTM;
+	float4x4 WorldViewTM = g_WorldViewTM;
+	float4x4 WorldViewProjTM = g_WorldViewProjTM;
 #endif
 
 #ifdef ENABLE_SKINNING
@@ -781,10 +996,10 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 #endif
 	
 	float3 worldPos = 0;
-	float4 worldNml = 0;
+	float3 worldNml = 0;
 
 	worldPos = mul(localPos, WorldTM);
-	worldNml = mul(localNml, WorldTM);
+	worldNml = mul(localNml, (float3x3)WorldTM);
 
 	// 캐릭터 2D로 찍기
 #ifdef ENABLE_INSTANCING
@@ -888,13 +1103,14 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 	o.outDepth.w = 1.0f;
 
 	o.viewVec = g_InvViewTM[3].xyz - worldPos;
-	o.worldNml.xyz = mul(localNml, (float3x3)WorldTM).xyz;
+	o.worldNml.xyz = worldNml;
 	#ifdef ENABLE_DIFFUSETEX
 		// 얼굴 그리는 부분
 		#ifdef ENABLE_FACE
-			float4 faceXYMulAdd = g_faceXYMulAdd;
 			#ifdef ENABLE_INSTANCING
-				faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 3 + tmIndex];
+				float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + tmIndex];
+			#else
+				float4 faceXYMulAdd = g_faceXYMulAdd;
 			#endif
 			o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
 			o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
@@ -909,7 +1125,7 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 #ifdef ENABLE_WATER
 	o.outDepth = o.Pos;
 	o.viewVec = g_InvViewTM[1].xyz;
-	o.worldNml.xyz = mul(localNml, (float3x3)WorldTM).xyz;
+	o.worldNml.xyz = worldNml;
 #endif
 	return o;
 }
@@ -928,18 +1144,18 @@ VS_OUT VS_OutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 	//Position
 	float4 localPos = 0;
 	float4 localNml = 0;
-	
-	float4x4 WorldTM = g_WorldTM;
-	float4x4 WorldViewTM = g_WorldViewTM;
-	float4x4 WorldViewProjTM = g_WorldViewProjTM;
 
 #ifdef ENABLE_INSTANCING
 	int tmIndex = (int)(tmID + 1e-5f);
 	o.tmIndex = tmID;
-	WorldTM = g_InstanceTMArray[tmIndex];
+	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
 	WorldTM._24 = 0.0f;
-	WorldViewTM = mul(WorldTM, g_ViewTM);
-	WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
+	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+#else
+	float4x4 WorldTM = g_WorldTM;
+	float4x4 WorldViewTM = g_WorldViewTM;
+	float4x4 WorldViewProjTM = g_WorldViewProjTM;
 #endif
 
 #ifdef ENABLE_SKINNING
@@ -965,9 +1181,9 @@ VS_OUT VS_OutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 	localPos += normalize(localNml) * 0.3;
 
 	float3 worldPos = 0;
-	float4 worldNml = 0;
+	float3 worldNml = 0;
 	worldPos = mul(localPos, WorldTM);
-	worldNml = mul(localNml, WorldTM);
+	worldNml = mul(localNml, (float3x3)WorldTM);
 
 	// 캐릭터 2D로 찍기
 #ifdef ENABLE_INSTANCING
@@ -990,7 +1206,7 @@ VS_OUT VS_OutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 	o.outDepth.w = 1.0f;
 
 	o.viewVec = g_InvViewTM[3].xyz - worldPos;
-	o.worldNml.xyz = mul(localNml, (float3x3)WorldTM).xyz;
+	o.worldNml.xyz = worldNml;
 #endif
 
 	return o;
@@ -1011,17 +1227,17 @@ VS_OUT VS_ColorOutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMA
 	float4 localPos = 0;
 	float4 localNml = 0;
 
-	float4x4 WorldTM = g_WorldTM;
-	float4x4 WorldViewTM = g_WorldViewTM;
-	float4x4 WorldViewProjTM = g_WorldViewProjTM;
-
 #ifdef ENABLE_INSTANCING
 	int tmIndex = (int)(tmID + 1e-5f);
 	o.tmIndex = tmID;
-	WorldTM = g_InstanceTMArray[tmIndex];
+	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
 	WorldTM._24 = 0.0f;
-	WorldViewTM = mul(WorldTM, g_ViewTM);
-	WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
+	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+#else
+	float4x4 WorldTM = g_WorldTM;
+	float4x4 WorldViewTM = g_WorldViewTM;
+	float4x4 WorldViewProjTM = g_WorldViewProjTM;
 #endif
 
 #ifdef ENABLE_SKINNING
@@ -1047,9 +1263,9 @@ VS_OUT VS_ColorOutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMA
 	localPos += normalize(localNml) * 1.0f;
 
 	float3 worldPos = 0;
-	float4 worldNml = 0;
+	float3 worldNml = 0;
 	worldPos = mul(localPos, WorldTM);
-	worldNml = mul(localNml, WorldTM);
+	worldNml = mul(localNml, (float3x3)WorldTM);
 
 	// 캐릭터 2D로 찍기
 #ifdef ENABLE_INSTANCING
@@ -1072,7 +1288,7 @@ VS_OUT VS_ColorOutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMA
 	o.outDepth.w = 1.0f;
 
 	o.viewVec = g_InvViewTM[3].xyz - worldPos;
-	o.worldNml.xyz = mul(localNml, (float3x3)WorldTM).xyz;
+	o.worldNml.xyz = worldNml;
 #endif
 
 	return o;
@@ -1094,17 +1310,17 @@ VS_OUT VS_Silhouette(in float4 InPos : POSITION, in float4 InNml : NORMAL, in fl
 	float4 localPos = 0;
 	float4 localNml = 0;
 
-	float4x4 WorldTM = g_WorldTM;
-	float4x4 WorldViewTM = g_WorldViewTM;
-	float4x4 WorldViewProjTM = g_WorldViewProjTM;
-
 #ifdef ENABLE_INSTANCING
 	int tmIndex = (int)(tmID + 1e-5f);
 	o.tmIndex = tmID;
-	WorldTM = g_InstanceTMArray[tmIndex];
+	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
 	WorldTM._24 = 0.0f;
-	WorldViewTM = mul(WorldTM, g_ViewTM);
-	WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
+	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+#else
+	float4x4 WorldTM = g_WorldTM;
+	float4x4 WorldViewTM = g_WorldViewTM;
+	float4x4 WorldViewProjTM = g_WorldViewProjTM;
 #endif
 
 #ifdef ENABLE_SKINNING
@@ -1128,7 +1344,7 @@ VS_OUT VS_Silhouette(in float4 InPos : POSITION, in float4 InNml : NORMAL, in fl
 #endif
 
 	float3 worldPos = mul(localPos, WorldTM);
-	float4 worldNml = mul(localNml, WorldTM);
+	float3 worldNml = mul(localNml, (float3x3)WorldTM);
 
 	// 캐릭터 2D로 찍기
 #ifdef ENABLE_INSTANCING
@@ -1151,13 +1367,14 @@ VS_OUT VS_Silhouette(in float4 InPos : POSITION, in float4 InNml : NORMAL, in fl
 	o.outDepth.w = 1.0f;
 
 	o.viewVec = g_InvViewTM[3].xyz - worldPos;
-	o.worldNml.xyz = mul(localNml, (float3x3)WorldTM).xyz;
+	o.worldNml.xyz = worldNml;
 
 	// 얼굴 그리는 부분
 	#ifdef ENABLE_FACE
-		float4 faceXYMulAdd = g_faceXYMulAdd;
 		#ifdef ENABLE_INSTANCING
-			faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 3 + tmIndex];
+			float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + tmIndex];
+		#else
+			float4 faceXYMulAdd = g_faceXYMulAdd;
 		#endif
 		o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
 		o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
@@ -1214,10 +1431,11 @@ float4 float4lineShader(VS_OUT In) : COLOR
 	OutColor.a = alpha;
 #endif
 
-	float4 blendColor = g_BlendColor;
 #ifdef ENABLE_INSTANCING
 	int tmIndex = (int)(In.tmIndex + 1e-5f);
-	blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
+	float4 blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
+#else
+	float4 blendColor = g_BlendColor;
 #endif
 	OutColor.rgb *= blendColor.rgb * 2.0f;
 	OutColor = saturate(OutColor);
@@ -1285,10 +1503,11 @@ float4 PS_OutLineColorHeadShader(VS_OUT In) : COLOR
 	OutColor.a = alpha;
 #endif
 
-	float4 blendColor = g_BlendColor;
 #ifdef ENABLE_INSTANCING
 	int tmIndex = (int)(In.tmIndex + 1e-5f);
-	blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
+	float4 blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
+#else
+	float4 blendColor = g_BlendColor;
 #endif
 	OutColor.rgb *= blendColor.rgb * 2.0f;
 	OutColor = saturate(OutColor);
@@ -1530,6 +1749,19 @@ float4 PS_SilhouetteHead(VS_OUT In) : COLOR
 	return color;
 }
 
+float4 PS_CharacterGlowShader(VS_OUT_GLOW In) : COLOR
+{
+#ifdef ENABLE_INSTANCING
+	int tmIndex = (int)(In.tmIndex + 1e-5f);
+	float fTime = g_InstanceVecArray[g_InstanceCount + tmIndex].w;
+	float4 color = g_InstanceVecArray[g_InstanceCount * 3 + tmIndex];
+#else
+	float4 color = g_glowColor;
+#endif
+	
+	return color;
+}
+
 #ifdef ENABLE_DEPTH_MRT
 OUT_COLOR PS_CharacterShader(VS_OUT In)
 #else
@@ -1555,12 +1787,13 @@ float4 PS_CharacterShader(VS_OUT In) : COLOR
 	float falloff = 0.0f;
 	float distValue = 0.0f;
 
-	float4 blendColor = g_BlendColor;
-	float4 blendColorAdd = g_BlendColorAdd;
 #ifdef ENABLE_INSTANCING
 	int tmIndex = (int)(In.tmIndex + 1e-5f);
-	blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
-	blendColorAdd = g_InstanceVecArray[g_InstanceCount * 2 + tmIndex];
+	float4 blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
+	float4 blendColorAdd = g_InstanceVecArray[g_InstanceCount * 2 + tmIndex];
+#else
+	float4 blendColor = g_BlendColor;
+	float4 blendColorAdd = g_BlendColorAdd;
 #endif
 
 #ifdef ENABLE_CHARACTER_RENDER
@@ -1620,12 +1853,13 @@ float4 PS_BillBoardHead(VS_OUT In) : COLOR
 
 	float4 Out = diffTexColor;
 #ifdef ENABLE_CHARACTER_RENDER
-	float4 blendColor = g_BlendColor;
-	float4 blendColorAdd = g_BlendColorAdd;
 	#ifdef ENABLE_INSTANCING
 		int tmIndex = (int)(In.tmIndex + 1e-5f);
-		blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
-		blendColorAdd = g_InstanceVecArray[g_InstanceCount * 2 + tmIndex];
+		float4 blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
+		float4 blendColorAdd = g_InstanceVecArray[g_InstanceCount * 2 + tmIndex];
+	#else
+		float4 blendColor = g_BlendColor;
+		float4 blendColorAdd = g_BlendColorAdd;
 	#endif
 	Out.a *= blendColor.a;
 	Out.rgb *= blendColor.rgb * 2.0f;
@@ -1645,6 +1879,9 @@ float4 PS_BillBoardHead(VS_OUT In) : COLOR
 VS_OUT HeightShaderCommon(in float4 InPos
 #ifdef ENABLE_SKINNING
 	, in float4 weights, in float4 indices
+#endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
 #endif
 	)
 {
@@ -1668,8 +1905,18 @@ VS_OUT HeightShaderCommon(in float4 InPos
 	localPos.w = 1.0f;
 
 #endif
+
+#ifdef ENABLE_INSTANCING
+	int tmIndex = (int)(tmID + 1e-5f);
+	o.tmIndex = tmID;
+	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
+		WorldTM._24 = 0.0f;
+#else
+	float4x4 WorldTM = g_WorldTM;
+#endif
+
 	float3 worldPos = 0;
-		worldPos = mul(localPos, g_WorldTM);
+	worldPos = mul(localPos, WorldTM);
 
 	float worldY = -(worldPos.y + mapBottom) / (mapTop - mapBottom);
 	o.Pos = float4(worldPos, 1);
@@ -1688,12 +1935,23 @@ VS_OUT VS_HeightShader0(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 #ifdef ENABLE_SKINNING
 	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
 #endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
+#endif
 	)
 {
 #ifdef ENABLE_SKINNING
-	VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+	#ifdef ENABLE_INSTANCING
+		VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
+	#else
+		VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+	#endif
 #else
-	VS_OUT o = HeightShaderCommon(InPos);
+	#ifdef ENABLE_INSTANCING
+		VS_OUT o = HeightShaderCommon(InPos, tmID);
+	#else
+		VS_OUT o = HeightShaderCommon(InPos);
+	#endif
 #endif
 
 	o.Pos.x -= 0.02f;
@@ -1704,12 +1962,23 @@ VS_OUT VS_HeightShader1(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 #ifdef ENABLE_SKINNING
 	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
 #endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
+#endif
 	)
 {
 #ifdef ENABLE_SKINNING
-	VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+	#ifdef ENABLE_INSTANCING
+		VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
+	#else
+		VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+	#endif
 #else
-	VS_OUT o = HeightShaderCommon(InPos);
+	#ifdef ENABLE_INSTANCING
+		VS_OUT o = HeightShaderCommon(InPos, tmID);
+	#else
+		VS_OUT o = HeightShaderCommon(InPos);
+	#endif
 #endif
 
 	o.Pos.x += 0.02f;
@@ -1720,12 +1989,23 @@ VS_OUT VS_HeightShader2(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 #ifdef ENABLE_SKINNING
 	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
 #endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
+#endif
 	)
 {
 #ifdef ENABLE_SKINNING
-	VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+	#ifdef ENABLE_INSTANCING
+		VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
+	#else
+		VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+	#endif
 #else
-	VS_OUT o = HeightShaderCommon(InPos);
+	#ifdef ENABLE_INSTANCING
+		VS_OUT o = HeightShaderCommon(InPos, tmID);
+	#else
+		VS_OUT o = HeightShaderCommon(InPos);
+	#endif
 #endif
 
 	o.Pos.y -= 0.02f;
@@ -1736,12 +2016,23 @@ VS_OUT VS_HeightShader3(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 #ifdef ENABLE_SKINNING
 	, in float4 weights : BLENDWEIGHT, in float4 indices : BLENDINDICES
 #endif
+#ifdef ENABLE_INSTANCING
+	, in float tmID : TEXCOORD2
+#endif
 	)
 {
 #ifdef ENABLE_SKINNING
-	VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+	#ifdef ENABLE_INSTANCING
+		VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
+	#else
+		VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+	#endif
 #else
-	VS_OUT o = HeightShaderCommon(InPos);
+	#ifdef ENABLE_INSTANCING
+		VS_OUT o = HeightShaderCommon(InPos, tmID);
+	#else
+		VS_OUT o = HeightShaderCommon(InPos);
+	#endif
 #endif
 
 	o.Pos.y += 0.02f;
@@ -1895,6 +2186,21 @@ float4 PS_TEST(VS_OUT In) : COLOR
 				ZWriteEnable = false;
 				VertexShader = compile vs_3_0 VS_OutlineShader();
 				PixelShader = compile ps_3_0 float4lineShader();
+			}
+		}
+
+		technique CharacterGlowShadingTq
+		{
+			pass P0 {
+				AlphaTestEnable = true;
+				AlphaRef = 0x30;
+				AlphaFunc = Greater;
+				CullMode = cw;
+				AlphaBlendEnable = true;
+				ZFunc = LessEqual;
+				ZWriteEnable = false;
+				VertexShader = compile vs_3_0 VS_ModelGlowShader();
+				PixelShader = compile ps_3_0 PS_CharacterGlowShader();
 			}
 		}
 

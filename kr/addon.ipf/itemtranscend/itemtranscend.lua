@@ -558,19 +558,13 @@ function UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 		animpic_bg:ShowWindow(1);
 		animpic_bg:ForcePlayAnimation();
 	else
-		_UPDATE_TRANSCEND_RESULT(frame, 0);	
+		_UPDATE_TRANSCEND_RESULT(frame, 0);
 	end;
 end
 
 -- 서버의 성공여부에 따른 UI이펙트와 결과 업데이트 
 function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)			
 	local slot = GET_CHILD(frame, "slot");
-
-	local invItem = GET_SLOT_ITEM(slot);
-	if invItem == nil then
-		ui.SetHoldUI(false);
-		return;
-	end
 	
 	local timesecond = 0;
 	if isSuccess == 1 then
@@ -592,8 +586,14 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 	
 	local gbox = frame:GetChild("gbox");
 	local reg = GET_CHILD(gbox, "reg");
-	reg:ShowWindow(0);
+	reg:ShowWindow(0);	
 	
+	local invItem = GET_SLOT_ITEM(slot);
+	if invItem == nil then
+		ui.SetHoldUI(false);
+		slot:ClearIcon();
+		return;
+	end
 	local obj = GetIES(invItem:GetObject());
 	local transcend = obj.Transcend;
 	local tempValue = transcend;

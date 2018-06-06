@@ -138,11 +138,17 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 	local buySlot = myaccount:GetBuySlotCount();
 	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
+	local maxpcCount = barrackCls.BaseSlot + buySlot;
+
 	local pccount = frame:GetChild("pccount");
 	pccount:ShowWindow(1);
 	pccount:SetTextByKey("curpc", tostring(myCharCont));
-	local maxpcCount = barrackCls.BaseSlot + buySlot;
 	pccount:SetTextByKey("maxpc", tostring(maxpcCount));
+
+	local layercount = frame:GetChild("layercount");
+	layercount:ShowWindow(1);
+	layercount:SetTextByKey("curcount", tostring(myCharCont));
+	layercount:SetTextByKey("maxcount", tostring(maxpcCount));
 
 	local accountObj = GetMyAccountObj();
 	local richtext = barrackName:GetChild("free");
@@ -564,7 +570,7 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 		
 	elseif msg == "BARRACK_SLOT_BUY" then
 		SELECTTEAM_NEW_CTRL(frame)
-		
+		BARRACK_GO_CREATE_RETRY(frame);
 	elseif msg == "BARRACK_SELECT_BTN" then
 		local argStr = frame:GetUserValue("BarrackMode");
 		if argStr ~= "Barrack" then
@@ -623,13 +629,11 @@ function BARRACK_GO_CREATE()
 	ui.CloseFrame("barrackthema");
 end
 
-function BARRACK_GO_CREATE_RETRY()
-	addon.BroadMsg("BARRACK_SLOT_BUY", "", 0);
-	
+function BARRACK_GO_CREATE_RETRY()	
 	local accountInfo = session.barrack.GetMyAccount();
 	if accountInfo ~= nil then
 		local myCharCont = accountInfo:GetTotalSlotCount();
-		local buySlot = myaccount:GetBuySlotCount();
+		local buySlot = accountInfo:GetBuySlotCount();
 		local barrackCls = GetClass("BarrackMap", accountInfo:GetThemaName());
 		if barrackCls ~= nil then
 			local baseSlot = barrackCls.BaseSlot;

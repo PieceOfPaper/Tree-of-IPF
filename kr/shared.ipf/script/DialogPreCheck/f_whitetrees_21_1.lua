@@ -23,6 +23,10 @@ function SCR_WTREES_21_1_OBJ_1_3_PRE_DIALOG(pc, dialog)
     return 'NO'
 end
 
+function SCR_WTREES_21_1_OBJ_2_PRE_DIALOG(pc, dialog)
+    return 'YES'
+end
+
 function SCR_WTREES_21_1_SQ_2_CORE_PRE_DIALOG(pc, dialog)
     local result = SCR_QUEST_CHECK(pc, 'WTREES_21_1_SQ_2')
     if result == 'PROGRESS' then

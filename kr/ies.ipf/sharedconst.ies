@@ -57,7 +57,7 @@ ClassID,Value,ClassName,Desc,UseInScript
 10002,3600,"FREE_RESPECT_TIME","무료로 롤백할 수 있는 제한 시간","YES"
 10003,7200,"CHARGE_FREE_TP_TIME","7200초(2시간)마다 무료TP 충전","YES"
 10004,20,"WAREHOUSE_EXTEND_PRICE","창고 확장 가격","YES"
-10005,0.500000,"AUTOSELLER_SILVER_FEE","상점 스킬들 실버 수수료","YES"
+10005,70,"AUTOSELLER_SILVER_FEE","상점 스킬들 실버 수수료 제외한 비율(%)","YES"
 10006,10,"WAREHOUSE_EXTEND_SLOT_COUNT","창고 확장 개수","YES"
 10007,150,"CHANGE_FAMILY_NAME_TP","팀 이름 변경시 소비될 TP","YES"
 10008,9,"CHANGE_CAHR_NAME_TP","캐릭터 이름 변경시 소비될 TP","YES"

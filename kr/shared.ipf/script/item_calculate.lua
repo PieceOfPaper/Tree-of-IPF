@@ -1,4 +1,4 @@
-﻿-- item_calculate.lua
+-- item_calculate.lua
 
 function INIT_WEAPON_PROP(item, class)
 
@@ -166,7 +166,7 @@ function INIT_ARMOR_PROP(item, class)
     item.RES_EARTH = class.RES_EARTH;
     item.RES_HOLY = class.RES_HOLY;
     item.RES_DARK = class.RES_DARK;
-
+    
 end
 
 function GET_REINFORCE_ADD_VALUE_ATK(item)
@@ -199,14 +199,14 @@ function GET_REINFORCE_ADD_VALUE_ATK(item)
 	    value = item.Reinforce_2 * (star + 2);
 	end
 	
-	value = value + buffValue;
+	value = (value + buffValue) * (item.ReinforceRatio / 100);
 	
-	return value;
+	return math.floor(value);
 end
 
 function GET_REINFORCE_ATK(item, damage)
 	--return item.Reinforce_2 * 0.1 + math.floor(item.Reinforce_2 / 10) * 0.5;
-	return (math.floor(damage * (0.1 * item.ReinforceRatio / 100)) * item.Reinforce_2) + (damage * math.floor(item.Reinforce_2 / 10) * 0.5);
+	return math.floor((damage * (0.1 * ReinforceRatio / 100)) * item.Reinforce_2) + (damage * (item.Reinforce_2 / 10) * 0.5);
 end
 
 function GET_REINFORCE_ADD_VALUE_DEF(item)
@@ -221,7 +221,7 @@ function GET_REINFORCE_ADD_VALUE_DEF(item)
 	    value = item.Reinforce_2 * (1 + math.floor(star / 2));
 	end
 	
-	value = value + buffValue;
+	value = (value + buffValue) * (item.ReinforceRatio / 100);
 	
 	return math.floor(value);
 end
@@ -229,20 +229,20 @@ end
 function GET_REINFORCE_ADD_VALUE_HR(item)
 	local buffValue = item.BuffValue;
 	local star = item.ItemStar;
-	return (item.Reinforce_2 * star) + buffValue;
+	return math.floor(((item.Reinforce_2 * star) + buffValue) * (item.ReinforceRatio / 100));
 end
 
 function GET_REINFORCE_ADD_VALUE_DR(item)
 	local buffValue = item.BuffValue;
 	local star = item.ItemStar;
-	return (item.Reinforce_2 * star) + buffValue;
+	return math.floor(((item.Reinforce_2 * star) + buffValue) * (item.ReinforceRatio / 100));
 end
 
 function GET_REINFORCE_ADD_VALUE(prop, item)
 	local value = 0;
     local buffValue = item.BuffValue;
     local star = item.ItemStar;
-
+	
 	if prop == 'DEF' then -- Defence
 	    if item.Reinforce_2 > 3 then
 	    value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
@@ -281,7 +281,7 @@ function GET_REINFORCE_ADD_VALUE(prop, item)
     	end
 	end
 
-	value = value + buffValue;
+	value = (value + buffValue) * (item.ReinforceRatio / 100);
 
 	return math.floor(value);
 end
@@ -421,9 +421,9 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
 	local dr =0;
 	local mhr=0;
 	local mdef=0;
-	local fireAtk = 0;
-	local iceAtk = 0;
-	local lightningAtk = 0;
+--	local fireAtk = 0;
+--	local iceAtk = 0;
+--	local lightningAtk = 0;
 	local defRatio = 0;
 	local mdefRatio = 0;
     
@@ -479,16 +479,17 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
         
     elseif basicProp == 'MHR' then
         mhr = math.floor((lv / 4) + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg
-    elseif basicProp == 'ADD_FIRE' then
-        local rainforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item);
-        fireAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg;
-    elseif basicProp == 'ADD_ICE' then
-        local rainforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item);
-        iceAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg;
-    elseif basicProp == 'ADD_LIGHTNING' then
-        local rainforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item);
-        lightningAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg;
+--    elseif basicProp == 'ADD_FIRE' then
+--        local rainforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item);
+--        fireAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg;
+--    elseif basicProp == 'ADD_ICE' then
+--        local rainforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item);
+--        iceAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg;
+--    elseif basicProp == 'ADD_LIGHTNING' then
+--        local rainforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item);
+--        lightningAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg;
     end
+
 	item.HR = hr;
 	item.DR = dr;
 	item.DEF = def;
@@ -496,13 +497,10 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
 	item.MDEF = mdef;
 	item.DefRatio = defRatio;
 	item.MDefRatio = mdefRatio;
-	item.ADD_FIRE = fireAtk;
-	item.ADD_ICE = iceAtk;
-	item.ADD_LIGHTNING = lightningAtk;
-	local MHPRatio = TryGetProp(item, 'MHPRatio')
-	if nil ~= MHPRatio then
-		item.MHPRatio = 0;
-	end
+--	item.ADD_FIRE = fireAtk;
+--	item.ADD_ICE = iceAtk;
+--	item.ADD_LIGHTNING = lightningAtk;
+
 
 	local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(item);
 	for i = 1 , #propNames do
@@ -510,14 +508,8 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
 		local propValue = propValues[i];
 
 		if propName == "MHP" then
-			local MHPRatio = TryGetProp(item, 'MHPRatio')
-			if nil ~= MHPRatio then
 				item.MHPRatio = propValue;
 			else
-				MHPRatio = 0;
-			end
-
-		else
 			local upgradeRatio = 1 + propValue / 100;
 			item[propName] = math.floor( item[propName] * upgradeRatio );
 		end		
@@ -596,7 +588,7 @@ function SCR_REFRESH_CARD(item)
 	item.Level = GET_ITEM_LEVEL(item);
 end
 
--- ?�켓 기능 ?�용
+-- 소켓 기능 적용
 function APPLY_OPTION_SOCKET(item)
 
 	local curcnt = GET_SOCKET_CNT(item);
@@ -617,14 +609,14 @@ function APPLY_OPTION_SOCKET(item)
 	end
 	]]
 	
-	-- �??�션 ?�용(종족�?추�?)
+	-- 룬 옵션 적용(종족별 추뎀)
 	for i=0, curcnt-1 do
-		local runeID = GetIESProp(item, 'Socket_Equip_' .. i);
-		if runeID > 0 then
+		local runeID = TryGetProp(item, 'Socket_Equip_' .. i);
+		if runeID ~= nil and runeID > 0 then
 			local runeItem = GetClassByType('Item', runeID);
 			if runeItem ~= nil then
 				
-				-- StringArg??룬옵?�을 ?�용???�크립트가 ?��??�으면됨
+				-- StringArg에 룬옵션을 적용할 스크립트가 적혀있으면됨
 				if runeItem.StringArg ~= 'None' and item ~= nil then
 					local func = _G[runeItem.StringArg];
 					if func ~= nil then
@@ -640,7 +632,7 @@ function APPLY_OPTION_SOCKET(item)
 	for i = 0 , curcnt - 1 do
 		local optDur = item["OpDur_".. i];
 		if optDur > 0 then
-			local Opt = GetIESProp(item, 'Option_' .. i);
+			local Opt = TryGetProp(item, 'Option_' .. i);
 			local OptType = OPT_TYPE(Opt);
 			local OptValue = OPT_VALUE(Opt);
 			local cls = GetClassByType('Option', OptType);
@@ -697,7 +689,7 @@ function SCR_ENTER_PERI(item, arg1, arg2)
 end
 
 
--- Upgrade ?�션
+-- Upgrade 옵션
 function SCR_OPT_ATK(item, optvalue)
 	item.MINATK = item.MINATK + optvalue;
 	item.MAXATK = item.MAXATK + optvalue;
@@ -716,7 +708,7 @@ function SCR_OPT_RR(item, optvalue)
 end
 
 
--- Enchant ?�션
+-- Enchant 옵션
 function SCR_OPT_Aries(item, optvalue)
 	item.Aries = item.Aries + optvalue;
 end
@@ -741,16 +733,17 @@ function SCR_OPT_StrikeDEF(item, optvalue)
 	item.StrikeDEF = item.StrikeDEF + optvalue;
 end
 
--- 치명?�
+-- 치명타
 function SCR_OPT_CRTHR(item, optvalue)
 	item.CRTHR = item.CRTHR + optvalue;
 end
 
--- ?�턴?�율
+-- 스턴확율
 function SCR_OPT_StunRate(item, optvalue)
 	item.StunRate = item.StunRate + optvalue;
 end
 
+-- KD 추가 공격력
 function SCR_OPT_KDBonus(item, optvalue)
 	item.KDBonusDamage = item.KDBonusDamage + optvalue;
 end
@@ -787,10 +780,12 @@ function SCR_OPT_HR(item, optvalue)
 	item.HR = item.HR + optvalue;
 end
 
+-- 회피율
 function SCR_OPT_DR(item, optvalue)
 	item.DR = item.DR + optvalue;
 end
 
+-- 가드포인트
 function SCR_OPT_MGP(item, optvalue)
 	item.MGP = item.MGP + optvalue;
 end
@@ -811,6 +806,7 @@ function SCR_OPT_RSP(item, optvalue)
 	item.RSP = item.RSP + optvalue;
 end
 
+--속성 추가 공격 & 방어
 function SCR_OPT_ADDFIRE(item, optvalue)
 	item.ADD_FIRE = item.ADD_FIRE + optvalue;
 end
@@ -851,6 +847,7 @@ function SCR_OPT_RESEARTH(item, optvalue)
 	item.RES_EARTH = item.RES_EARTH + optvalue;
 end
 
+
 function SCR_OPT_ADDPOISON(item, optvalue)
 	item.ADD_POISON = item.ADD_POISON + optvalue;
 end
@@ -875,6 +872,7 @@ function SCR_OPT_RESDARK(item, optvalue)
 	item.RES_DARK = item.RES_DARK + optvalue;
 end
 
+--종족 추가 공격 & 방어
 function SCR_OPT_VelniasATK(item, optvalue)
 	item.VelniasATK = item.ADD_VELNIAS + optvalue;
 end
@@ -1086,8 +1084,8 @@ function GET_GEM_SOCKET_CNT(invitem, gemtype)
 
 
 	for i = 0 , SKT_COUNT - 1 do
-		local val = GetIESProp(invitem, "Socket_" .. i)		
-		local val2 = GetIESProp(invitem, "Socket_Equip_" .. i)		
+		local val = TryGetProp(invitem, "Socket_" .. i)		
+		local val2 = TryGetPropProp(invitem, "Socket_Equip_" .. i)		
 		if val == gemtype then
 			return i;
 		end
@@ -1119,7 +1117,7 @@ function GET_SOCKET_CNT(invitem)
 	end
 
 	for i = 0 , SKT_COUNT - 1 do
-		local val = GetIESProp(invitem, "Socket_" .. i)		
+		local val = TryGetProp(invitem, "Socket_" .. i)		
 		if val == 0 then
 			return i;
 		end

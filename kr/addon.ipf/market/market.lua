@@ -102,7 +102,12 @@ function MARGET_FIND_PAGE(frame, page)
 	end
 
 	local groupName, classType = MARKET_SEARCH_GROUP_AND_CLASSTYPE(frame);
+	local findItem = tostring(find_name:GetText())
+	if findItem.len(findItem) > 60 then		
+		ui.SysMsg(ClMsg("TooLongFindItemQuery"));
+	else 
 	market.ReqMarketList(page, find_name:GetText(), groupName, classType, lv_min, lv_max, rein_min, rein_max, sortype);
+end
 end
 
 function SEARCH_ITEM_MARKET()
