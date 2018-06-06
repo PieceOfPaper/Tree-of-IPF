@@ -173,76 +173,6 @@ function CHAT_SET_OPACITY(num)
 
 end
 
-function REMOVE_CHAT_CLUSTER(groupboxname, clusteridlist)
-
-	if clusteridlist == nil then
-		return
-	end	
-
-	local chatframe = ui.GetFrame("chatframe")
-
-	if chatframe ~= nil then
-		
-		local groupbox = GET_CHILD(chatframe,groupboxname);
-
-
-		local addpos = 0;
-
-		for i = 1 , #clusteridlist do
-
-			if clusteridlist[i] ~= nil then
-
-				local clustername = "cluster_"..clusteridlist[i]
-
-				local child = GET_CHILD(groupbox,clustername)
-				if child ~= nil then
-					local beforeLineCount = groupbox:GetLineCount();	
-
-					addpos = addpos + child:GetHeight()
-			 
-					DESTROY_CHILD_BYNAME(groupbox, clustername);
-				end
-			end
-
-			
-		end
-		
-		ADDYPOS_CHILD_BYNAME(groupbox, "cluster_", -addpos);
-	end
-
-
-	local popupframename = "chatpopup_" ..string.sub(groupboxname, 10, string.len(groupboxname))
-	local popupframe = ui.GetFrame(popupframename)
-
-	if popupframe ~= nil then
-		
-		local groupbox = GET_CHILD(popupframe,groupboxname);
-
-		local addpos = 0;
-
-		for i = 1 , #clusteridlist do
-
-			if clusteridlist[i] ~= nil then
-
-				local clustername = "cluster_"..clusteridlist[i]
-
-				local child = GET_CHILD(groupbox,clustername)
-				if child ~= nil then
-					local beforeLineCount = groupbox:GetLineCount();	
-
-					addpos = addpos + child:GetHeight()
-			 
-					DESTROY_CHILD_BYNAME(groupbox, clustername);
-				end
-
-			end
-		end
-
-		ADDYPOS_CHILD_BYNAME(groupbox, "cluster_", -addpos);
-
-	end
-
-end
 
 function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 
@@ -278,10 +208,6 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 		
 	end
 
-	if startindex == 0 then
-		DESTROY_CHILD_BYNAME(groupbox, "cluster_");
-	end
-
 	local roomID = "Default"
 
 
@@ -304,7 +230,7 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				end
 			end
 			if ypos == 0 then
-				DRAW_CHAT_MSG(groupboxname, size, 0, framename);
+				DRAW_CHAT_MSG(groupboxname, size, startindex - 1, framename);
 				return;
 			end
 		end
@@ -314,9 +240,8 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 		if clusterinfo == nil then
 			return;
 		end
-		roomID = clusterinfo:GetRoomID();
-
 		local clustername = "cluster_"..clusterinfo:GetClusterID()
+		roomID = clusterinfo:GetRoomID();
 		local cluster = GET_CHILD(groupbox, clustername);
 
 		local myColor, targetColor = GET_CHAT_COLOR(clusterinfo:GetMsgType())
@@ -418,23 +343,15 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 		end
 	end
 
-
-	local scrollend = false
-	if groupbox:GetLineCount() == groupbox:GetCurLine() + groupbox:GetVisibleLineCount() then
-		scrollend = true;
-	end
-
 	local beforeLineCount = groupbox:GetLineCount();	
 	groupbox:UpdateData();
+	
 	
 	local afterLineCount = groupbox:GetLineCount();
 	local changedLineCount = afterLineCount - beforeLineCount;
 	local curLine = groupbox:GetCurLine();
-	if scrollend == false then
 	groupbox:SetScrollPos(curLine + changedLineCount);
-	else
-		groupbox:SetScrollPos(99999);
-	end
+	-- 다 그렸다고 전부 valid 처리.
 
 	if groupbox:GetName() == "chatgbox_TOTAL" and groupbox:IsVisible() == 1 then
 		chat.UpdateAllReadFlag();
