@@ -1329,7 +1329,7 @@
 			<checkbox name="save" rect="0 0 30 30" layout_gravity="left top" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" margin="20 15 0 0"/>
 			<picture name="questmark" rect="0 0 30 30" layout_gravity="left top" stretch="true" margin="50 15 0 0"/>
 			<richtext name="name" rect="0 0 335 18" layout_gravity="left top" margin="85 20 0 0" fixwidth="true" resizebytext="true" hittest="false" fontname="yellow_16_ol"/>
-			<button name="avandonquest_try" margin="0 0 40 18" rect="0 0 46 46" layout_gravity="right bottom" format="{@st42b}재시작{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY"/>
+			<button name="avandonquest_try" margin="0 0 40 15" rect="0 0 45 45" image="test_restartjjsm_btn" layout_gravity="right bottom" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY" texttooltip="{@st59}퀘스트 재시작{/}"/>
 			<button name="dialogReplay" margin="0 0 80 15" rect="0 0 46 46" image="quest_dialog_btn" layout_gravity="right bottom" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_DIALOG_REPLAY" texttooltip="{@st59}퀘스트 대사 보기{/}"/>
 			<button name="abandon" margin="0 0 40 15" rect="0 0 46 46" image="quest_giveup_btn" layout_gravity="right bottom" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_ABANDON_SELECT" texttooltip="{@st59}퀘스트 포기{/}"/>
 		</controls>
@@ -3169,7 +3169,7 @@
 			<richtext name="level_text" rect="0 0 58 10" margin="0 0 0 0" spacey="0" fontname="white_16_ol" layout_gravity="center bottom" hittest="false" textalign="center center" format="%s" param1="lv" param1_def="330"/>
 		</controls>
 	</controlset>
-<controlset name="AccountVisLog" toggle="false" hittest="true" width="620" height="30" skin="None">
+	<controlset name="AccountVisLog" toggle="false" hittest="true" width="620" height="30" skin="None">
 		<controls>
 			<picture name="input" margin="5 7 0 0" rect="0 0 14 14" hittest="false" image="chul_arrow" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<richtext name="regTime" margin="30 4 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>

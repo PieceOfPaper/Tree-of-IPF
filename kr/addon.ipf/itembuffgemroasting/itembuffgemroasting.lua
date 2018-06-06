@@ -11,6 +11,9 @@ function ITEMBUFFGEMROASTING_UI_COMMON(groupName, sellType, handle)
 	frame:SetUserValue("GroupName", groupName);
 	GEMROASTING_VIEW(frame);
 
+	local tabCtrl = frame:GetChild('statusTab');
+	ITEMBUFF_SHOW_TAB(tabCtrl, handle);
+
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
 	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;
 	frame:SetUserValue("SKILLNAME", sklName)

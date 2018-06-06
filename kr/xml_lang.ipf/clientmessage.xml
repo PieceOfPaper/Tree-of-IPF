@@ -556,7 +556,7 @@
 		<Class ClassID="10092" Data="체력이 부족합니다"/>
 		<Class ClassID="10093" Data="{Auto_1} 버프가 필요합니다"/>
 		<Class ClassID="10094" Data="비전투상태일 때만 사용할 수 있습니다"/>
-		<Class ClassID="10095" Data="현재 상태에서는 사용할 수 없습니다"/>
+		<Class ClassID="10095" ClassName="CannotInCurrentState" Data="현재 상태에서는 사용할 수 없습니다"/>
 		<Class ClassID="10096" Data="{s20}{ol}{#ffffcc}{gr gradation1}조금 더 가까이 가야 합니다{/}"/>
 		<Class ClassID="10097" Data="패스워드가 허용하는 길이를 초과합니다"/>
 		<Class ClassID="10098" ClassName="InputName" Data="이름을 입력하세요"/>
@@ -4948,6 +4948,8 @@
 		<Class ClassID="60322" ClassName="SSN_LSCAVE521_KQ_1_ZONEENTER" Data="테브린 종유동 1구역에 설치된 마력 수집구를 찾으세요{nl}마력 수집구에서 지도를 갱신한 후 마력이 모여있는 수집구를 찾아 마력을 수집하세요"/>
 		<Class ClassID="60323" ClassName="KQ_BUFFGETHER_MSG_CLEAR_1" Data="관측기 동력을 충분히 모았습니다.{nl}관측기를 활성화 시키세요"/>
 		<Class ClassID="60324" ClassName="KQ_BUFFGETHER_MSG_PRG_1" Data="관측기 동력이 모였습니다."/>
+		<Class ClassID="60325" ClassName="PUBLIC_GET_QUESTITEM" Data=" 획득"/>
+		<Class ClassID="60326" ClassName="ORCHARD_34_3_SQ_OBJ_9" Data="독지대를 해독했습니다!"/>
 		<Class ClassID="60327" ClassName="RANDBOX_GIMMICK_SEL_1_CANT" Data="상자를 잘 못 건드려서 상자가 사라집니다.{nl}다른 상자를 찾아보세요"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>

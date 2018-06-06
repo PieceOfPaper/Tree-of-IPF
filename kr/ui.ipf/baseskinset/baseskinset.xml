@@ -5218,6 +5218,12 @@
 		<image name="test_betrumlodling_btn" file="\skin\keynbet.tga" imgrect="646 274 67 67" CMM_Caption="배틀럼블 대기중 원"/>
 		<image name="test_betrumlodling_btn_cursoron" file="\skin\keynbet.tga" imgrect="646 274 67 67"/>
 		<image name="test_betrumlodling_btn_clicked" file="\skin\keynbet.tga" imgrect="646 274 67 67"/>
+		<image name="test_restartjj_btn" file="\skin\market_skin.tga" imgrect="950 97 49 49" CMM_Caption="재시작"/>
+		<image name="test_restartjj_btn_cursoron" file="\skin\market_skin.tga" imgrect="1000 97 49 49"/>
+		<image name="test_restartjj_btn_clicked" file="\skin\market_skin.tga" imgrect="1050 97 49 49"/>
+		<image name="test_restartjjsm_btn" file="\skin\market_skin.tga" imgrect="1100 97 45 45" CMM_Caption="재시작 소"/>
+		<image name="test_restartjjsm_btn_cursoron" file="\skin\market_skin.tga" imgrect="1146 97 45 45"/>
+		<image name="test_restartjjsm_btn_clicked" file="\skin\market_skin.tga" imgrect="1192 97 45 45"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -5681,7 +5687,7 @@
 		<image name="chat_party_img" file="\skin\HUD.tga" imgrect="1099 418 40 36"/>
 		<image name="chat_whisper_img" file="\skin\HUD.tga" imgrect="1140 418 40 36"/>
 		<image name="chat_guild_img" file="\skin\HUD.tga" imgrect="935 441 40 36"/>
-	<image name="chat_group_img" file="\skin\HUD.tga" imgrect="1756 792 40 36"/>
+		<image name="chat_group_img" file="\skin\HUD.tga" imgrect="1756 792 40 36"/>
 		<image name="chat_system_img" file="\skin\HUD.tga" imgrect="1756 829 40 36"/>
 	</imagelist>
 	<imagelist category="journal_icon">
@@ -6521,7 +6527,7 @@
 		<image name="questinfo_2_KEYQUEST" file="\icon\minimap_icon3.tga" imgrect="293 809 72 72"/>
 		<image name="questinfo_3_KEYQUEST" file="\icon\minimap_icon3.tga" imgrect="255 882 72 72"/>
 		<image name="minimap_Appraisers" file="\icon\minimap_icon3.tga" imgrect="432 815 80 80"/>
-	<image name="minimap_erosion" file="\icon\minimap_icon3.tga" imgrect="432 896 80 80"/>
+		<image name="minimap_erosion" file="\icon\minimap_icon3.tga" imgrect="432 896 80 80"/>
 	</imagelist>
 	<imagelist category="quest_tags">
 		<image name="quest_tag_1_MAIN" file="\icon\minimap_icon.tga" imgrect="61 31 16 16"/>
@@ -7103,6 +7109,8 @@
 		<image name="icon_Event_161215_3" file="\icon\buff_icon.tga" imgrect="0 1536 128 128" CMM_Caption="새싹3"/>
 		<image name="icon_Event_161215_4" file="\icon\buff_icon.tga" imgrect="128 1536 128 128" CMM_Caption="새싹4"/>
 		<image name="icon_Event_161215_5" file="\icon\buff_icon.tga" imgrect="256 1536 128 128" CMM_Caption="새싹5"/>
+		<image name="icon_Large_RiceSoup" file="\icon\buff_icon.tga" imgrect="512 1536 128 128" CMM_Caption="특대떡국"/>
+		<image name="icon_RiceSoup" file="\icon\buff_icon.tga" imgrect="640 1536 128 128" CMM_Caption="떡국"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

@@ -602,8 +602,13 @@ function GET_ABILITY_PRICE(price, groupClass, abilClass, abilLv)
 --	else
 --	    price = price - (price * 0.2)
 	end
+	
+  if (GetServerNation() == "KOR" and GetServerGroupID() == 9001) then --큐폴 서버
+    price = price - (price * 0.5)
+  end
+  
 	price = math.floor(price);
-
+	
 	return price;
 end
 

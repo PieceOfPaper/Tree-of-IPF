@@ -6163,6 +6163,9 @@
         <Key Name="MEILE_NPC" Value="100359"/>
         <Key Name="REMAIN37_RAYMOND" Value="100357"/>
         <Key Name="REMAIN38_HUNTER" Value="100358"/>
+        <Key Name="MG_Last_MISSION_PRISON_EVENT1" Value="100361"/>
+        <Key Name="JOB_APPRAISER5_1" Value="100364"/>
+        <Key Name="JOB_APPRAISER5_2" Value="100365"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>
@@ -7057,6 +7060,8 @@
         <Key Name="SlashDefFactor_PC_NT" Value="11480"/>
         <Key Name="StrikeAtkFactor_PC_NT" Value="11472"/>
         <Key Name="StrikeDefFactor_PC_NT" Value="11481"/>
+        <Key Name="BonusReinforce" Value="100373"/>
+        <Key Name="IgnoreReinforce" Value="100374"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="EquipCardID_Slot2" Value="13507"/>
@@ -13728,6 +13733,14 @@
         <Key Name="Reward_d_limestonecave_73_1" Value="100316"/>
         <Key Name="Reward_d_zachariel_79_1" Value="100331"/>
         <Key Name="Reward_d_zachariel_79_2" Value="100317"/>
+        <Key Name="HadVisited_515" Value="100362"/>
+        <Key Name="HiddenJob_Char3_13" Value="100366"/>
+        <Key Name="Hide_2383" Value="100367"/>
+        <Key Name="Hide_2384" Value="100368"/>
+        <Key Name="Hide_2385" Value="100369"/>
+        <Key Name="Hide_2386" Value="100370"/>
+        <Key Name="Hide_2387" Value="100371"/>
+        <Key Name="Hide_2388" Value="100372"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Account">
         <Key Name="BarrackLayer1_11" Value="32276"/>
@@ -13855,6 +13868,7 @@
         <Key Name="EV161229_DICE_PLAY_COUNT" Value="100237"/>
         <Key Name="EV161229_DICE_ADD_NUM" Value="100238"/>
         <Key Name="EV161229_DICE_ADD_REWARD" Value="100239"/>
+        <Key Name="TESTSERVER_LVUP_REWARD" Value="100363"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="BattleField_Map" Value="30"/>

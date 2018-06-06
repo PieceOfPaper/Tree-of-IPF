@@ -167,6 +167,8 @@ function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)
 	open:ShowWindow(1);
 	open:SetUserValue("GroupName", groupName);
 
+	local statusTab = open:GetChild('statusTab');
+	ITEMBUFF_SHOW_TAB(statusTab, handle);
 
 	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;
 	local armor = open:GetChild("Squire_ArmorTouchUp");
@@ -217,4 +219,12 @@ function ITEM_BUFF_UI_CLOSE(handle)
 	end
 
 	ui.CloseFrame("itembuffopen");	
+end
+
+function ITEMBUFF_SHOW_TAB(tabCtrl, handle)
+	if handle == session.GetMyHandle() then
+		tabCtrl:ShowWindow(1);
+	else
+		tabCtrl:ShowWindow(0);
+	end
 end

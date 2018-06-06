@@ -12,7 +12,8 @@ function ITEMBUFF_REPAIR_UI_COMMON(groupName, sellType, handle)
 	-- 기본 탭은 "수리"
 	local tabObj		    = frame:GetChild('statusTab');
 	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
-	itembox_tab:ChangeTab(0)
+	itembox_tab:ChangeTab(0);
+	ITEMBUFF_SHOW_TAB(itembox_tab, handle);
 
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
 	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;
