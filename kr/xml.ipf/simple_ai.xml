@@ -823,10 +823,15 @@
                 <Num Num="300"/>
 				<Str_Arg Str="None" Arg="1"/>
 			</ToolScp>
-			<ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
-				<Str Str="sland"/>
-			</ToolScp>
 		</List>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO" CustomFuncTxt="(self)
+
+r
+">
+                <Str Str="SCR_CASTLE65_3_MQ07_P_A"/>
+            </ToolScp>
+        </HitList>
 	</AI>
 	<AI Name="CASTLE65_3_WOUND" ActiveMessageMapInBattle="1">
 		<StartList>

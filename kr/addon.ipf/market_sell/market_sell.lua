@@ -102,8 +102,6 @@ end
 
 function ON_MARKET_REGISTER(frame, msg, argStr, argNum)
 	ui.SysMsg(ClMsg("MarketItemRegisterSucceeded"));
-	local str = GET_TIME_TXT(argNum);
-	ui.SysMsg(ScpArgMsg("MarketRegAfter{TIME}","TIME", str));
 	
 	local groupbox = frame:GetChild("groupbox");
 	local slot_item = GET_CHILD(groupbox, "slot_item", "ui::CSlot");

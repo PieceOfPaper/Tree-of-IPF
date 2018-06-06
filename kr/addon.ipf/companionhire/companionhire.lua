@@ -98,7 +98,7 @@ function TRY_CECK_BARRACK_SLOT_BY_COMPANION_EXCHANGE(select)
 	end
 
 		-- 슬롯 산다는거
-	if myCharCont >= barrackCls.BaseSlot then
+	if myCharCont >= barrackCls.BaseSlot + buySlot then
 		local frame = ui.GetFrame("companionhire");
 		frame:SetUserValue("EXCHANGE_TIKET", select);
 		control.ReqCharSlotTPPrice();
@@ -154,10 +154,7 @@ function TRY_CHECK_BARRACK_SLOT(handle)
 			return 1;
 		end
 		return 0;
-	end
-	
-	-- 슬롯 산다는거
-	if myCharCont >= barrackCls.BaseSlot then
+	else
 		control.ReqCharSlotTPPrice();
 		return 0;
 	end

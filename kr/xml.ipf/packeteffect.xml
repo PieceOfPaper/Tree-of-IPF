@@ -506,6 +506,8 @@
         <Effect Name="ID_CHAPLE_MINI"/>
         <Effect Name="skill_HideBox"/>
         <Effect Name="Dummy_HideBox"/>
+        <Effect Name="F_sys_TPBOX_great_300"/>
+        <Effect Name="F_sys_TPBOX_great_200"/>
     </Category>
     <Category ID="50">
         <Effect Name="F_sys_target_monster##0.2"/>
@@ -770,6 +772,7 @@
         <Effect Name="fifth_on"/>
         <Effect Name="fourth_on"/>
         <Effect Name="GR_TEST_S1"/>
+        <Effect Name="skl_eff_tinkly_hit"/>
     </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
@@ -1511,6 +1514,8 @@
         <Effect Name="F_spin015#Bone_Pony_R00#0.5"/>
         <Effect Name="I_force001_yellow#Bone_Jaw"/>
         <Effect Name="f_gele_57_1_elt"/>
+        <Effect Name="Mirtis_line_time"/>
+        <Effect Name="Mirtis_line_time"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -2010,6 +2015,8 @@
         <Effect Name="F_explosion006_orange1#Bip001 Neck"/>
         <Effect Name="F_ground140_orange_circle"/>
         <Effect Name="I_Lapene_skl2_gasi_mash"/>
+    <Effect Name="F_ground140_orange_circle##1"/>
+        <Effect Name="I_Lapene_skl2_gasi_red_mash"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>

@@ -964,15 +964,6 @@ function SCR_PRE_JOB_ROGUE4_1_ITEM(self, argstring, argnum1, argnum2)
     if result == 'PROGRESS' then
         if GetLayer(self) ~= 0  then
     	    if GetZoneName(self) == 'f_katyn_7' then
---                local fndList, fndCnt = SelectObject(self, 80, 'ENEMY')
---                local i
---                for i = 1, fndCnt do
---                    if fndList[i].Faction == 'Monster' then
---                        if fndList[i].MonRank == 'Normal' or fndList[i].MonRank == 'Material' then
---            		        return GetHandle(fndList[i])
---            		    end
---                    end
---                end
                 return 1;
             end
         end
@@ -1577,7 +1568,7 @@ function SCR_PRE_FLASH64_SQ_08_ITEM(self, argstring, argnum1, argnum2)
                 if cnt >= 1 then
 	    for i = 1, cnt do
                         if list[i].Faction == 'Monster' then
-                            if list[i].MonRank == 'Normal' or list[i].MonRank == 'Material' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
             return GetHandle(list[i])
 	    end
     end
@@ -2236,7 +2227,7 @@ function SCR_PRE_CATACOMB_38_2_SQ_02_ITEM(self, argstring, argnum1, argnum2)
                 if fndCnt >= 1 then
                     for i = 1, fndCnt do
                         if fndList[i].Faction == 'Monster' then
-                            if fndList[i].MonRank == 'Normal' or fndList[i].MonRank == 'Material' then
+                            if SCR_QUEST_MONRANK_CHECK(fndList[i], 'Normal', 'Material') == 'YES' then
                     		    return GetHandle(fndList[i])
                     		end
                         end
@@ -2307,7 +2298,7 @@ function SCR_PRE_CATACOMB_04_SQ_03_ITEM(self, argstring, argnum1, argnum2)
                 if fndCnt >= 1 then
                     for i = 1, fndCnt do
                         if fndList[i].Faction == 'Monster' then
-                            if fndList[i].MonRank == 'Normal' or fndList[i].MonRank == 'Material' then
+                            if SCR_QUEST_MONRANK_CHECK(fndList[i], 'Normal', 'Material') == 'YES' then
                 		        return GetHandle(fndList[i])
                 		    end
                         end
@@ -2481,7 +2472,7 @@ function SCR_PRE_JOB_ROGUE_6_1_ITEM(self, argstring, argnum1, argnum2)
     	        if cnt >= 1 then
         	        for i = 1, cnt do
         	            if list[i].Faction == 'Monster' then
-        	                if list[i].MonRank == 'Normal' or list[i].MonRank == 'Elite' or list[i].MonRank == 'Material' then
+        	                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                                 if IsServerSection(self) == 1 then
                                     local buff = GetBuffByName(list[i], 'JOB_ROGUE_6_1_BUFF')
                                     if buff == nil then
@@ -2513,7 +2504,7 @@ function SCR_PRE_JOB_FALCONER_6_1_ITEM(self, argstring, argnum1, argnum2)
 	        if cnt >= 1 then
     	        for i = 1, cnt do
                     if list[i].Faction == 'Monster' then
-                        if list[i].MonRank == 'Normal' or list[i].MonRank == 'Elite' or list[i].MonRank == 'Material' then
+                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
     	                    if IsServerSection(self) == 1 then
     	                        if list[i].MoveType == 'Flying' then
             	                    return GetHandle(list[i]);
@@ -2588,7 +2579,7 @@ function SCR_PRE_KATYN_10_MQ_04_ITEM(self, argstring, argnum1, argnum2)
                 if cnt >= 1 then
                     for i = 1, cnt do
                         if list[i].Faction == 'Monster' then
-                            if list[i].MonRank == 'Normal' or list[i].MonRank == 'Elite' or list[i].MonRank == 'Material' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                                 return GetHandle(list[i]);
                 	        end
             	        end
@@ -2626,7 +2617,7 @@ function SCR_PRE_KATYN_12_MQ_02_ITEM(self, argstring, argnum1, argnum2)
                 if cnt >= 1 then
                     for i = 1, cnt do
                         if list[i].Faction == 'Monster' then
-                            if list[i].MonRank == 'Normal' or list[i].MonRank == 'Material' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                                 return GetHandle(list[i]);
                 	        end
             	        end
@@ -2724,7 +2715,7 @@ function SCR_PRE_JOB_2_CRYOMANCER_3_1_ITEM(self, argstring, argnum1, argnum2)
             if cnt >= 1 then
                 for i = 1, cnt do
                     if list[i].Faction == 'Monster' then
-                        if list[i].MonRank == 'Normal' or list[i].MonRank == 'Material' or list[i].MonRank == 'Material' then
+                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                             return GetHandle(list[i]);
             	        end
         	        end
@@ -2746,7 +2737,7 @@ function SCR_PRE_JOB_2_PSYCHOKINO_3_1_ITEM(self, argstring, argnum1, argnum2)
             if cnt >= 1 then
                 for i = 1, cnt do
                     if list[i].Faction == 'Monster' then
-                        if list[i].MonRank == 'Normal' then
+                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                             if list[i].MoveType ~= 'Holding' then
                                 if IsServerSection(self) == 1 then
                                     local buff = GetBuffByName(list[i], 'JOB_2_PSYCHOKINO_3_1_BUFF')
@@ -2801,7 +2792,7 @@ function SCR_PRE_JOB_2_WUGUSHI_5_1_ITEM(self, argstring, argnum1, argnum2)
             if cnt >= 1 then
                 for i = 1, cnt do
                     if list[i].Faction == 'Monster' then
-                        if list[i].MonRank == 'Normal' or list[i].MonRank == 'Material' then
+                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                             if list[i].Attribute == 'Poison' then
                                 return GetHandle(list[i]);
                             end
@@ -2867,7 +2858,7 @@ function SCR_PRE_JOB_2_WUGUSHI_4_1_ITEM(self, argstring, argnum1, argnum2)
                 if cnt >= 1 then
                     for i = 1, cnt do
                         if list[i].Faction == 'Monster' then
-                            if list[i].MonRank == 'Normal' or list[i].MonRank == 'Elite' or list[i].MonRank == 'Material' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                                 if IsServerSection(self) == 1 then
                                     local buff = GetBuffByName(list[i], 'JOB_2_WUGUSHI_4_1_BUFF')
                                     if buff == nil then
@@ -2902,7 +2893,7 @@ function SCR_PRE_JOB_WARLOCK_7_1_ITEM(self, argstring, argnum1, argnum2)
                 if cnt >= 1 then
                     for i = 1, cnt do
                         if list[i].Faction == 'Monster' then
-                            if list[i].MonRank == 'Normal' or list[i].MonRank == 'Elite' or list[i].MonRank == 'Material' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                                 return 1;
                             end
             	        end
@@ -2925,7 +2916,7 @@ function SCR_PRE_JOB_FEATHERFOOT_7_1_ITEM(self, argstring, argnum1, argnum2)
             if cnt >= 1 then
                 for i = 1, cnt do
                     if list[i].Faction == 'Monster' then
-                        if list[i].MonRank == 'Normal' or list[i].MonRank == 'Material' then
+                        if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                             if IsServerSection(self) == 1 then
                                 local buff = GetBuffByName(list[i], 'JOB_FEATHERFOOT_7_1_BUFF')
                                 if buff == nil then
@@ -3787,7 +3778,7 @@ function SCR_PRE_PILGRIM312_SQ_04_ITEM(self, argstring, argnum1, argnum2)
                 for i = 1, cnt do
                         if list[i].ClassName ~= 'PC' then
                     if list[i].Faction == 'Monster' then
-                        if list[i].MonRank == 'Normal' or list[i].MonRank == 'Material' then
+                                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Material') == 'YES' then
                             if IsBuffApplied(list[i], 'PILGRIM312_SQ_04_BUFF') == 'NO' then
                                 if list[i].ClassName ~= "rootcrystal_01" then
                                     return GetHandle(list[i])
@@ -4282,7 +4273,7 @@ function SCR_PRE_SIAU15RE_SQ_03_ITEM(self, argObj, argstring, arg1, arg2)
                     local i
                     for i = 1, cnt do
         	            if list[i].Faction == 'Monster' then
-        	                if list[i].MonRank == 'Normal' or list[i].MonRank == 'Elite' or list[i].MonRank == 'Material' then
+        	                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                             return GetHandle(list[i])
                         end
                     end
@@ -4321,7 +4312,7 @@ function SCR_PRE_PRISON621_SQ_04_ITEM(self, argObj, argstring, arg1, arg2)
                 for i = 1, cnt do
                     if cnt > 0 then
                         if list[i].Faction == 'Monster' then
-                            if list[i].MonRank == 'Normal' or list[i].MonRank == 'Elite' or list[i].MonRank == 'Material' then
+                            if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                         return GetHandle(list[i])
                     end
                 end
@@ -4344,7 +4335,7 @@ function SCR_PRE_PRISON622_SQ_02_ITEM(self, argObj, argstring, arg1, arg2)
                 for i = 1, cnt do
                     if list[i].ClassName ~= 'PC' then
         	            if list[i].Faction == 'Monster' then
-        	                if list[i].MonRank == 'Normal' or list[i].MonRank == 'Elite' or list[i].MonRank == 'Material' then
+        	                if SCR_QUEST_MONRANK_CHECK(list[i], 'Normal', 'Elite', 'Material') == 'YES' then
                             return GetHandle(list[i])
                         end
                     end
@@ -4669,4 +4660,13 @@ function SCR_PRE_GIMMICK_TRANSFORM_JUKOPUS(self, argstring, argnum1, argnum2)
         end
     end
     return 0
+end
+--Escape_Orb
+function SCR_PRE_ITEM_Escape(self, argObj, BuffName, arg1, arg2)
+    if GetLayer(self) ~= 0 then
+        SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("EscapeDisabled"), 5)
+        return 0;
+    end
+    
+    return 1;
 end

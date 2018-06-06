@@ -1,4 +1,4 @@
-function TOKEN_ON_INIT(addon, frame)
+ï»¿function TOKEN_ON_INIT(addon, frame)
 
 end
 
@@ -63,11 +63,13 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	local itemobj = GetIES(invItem:GetObject());
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
-		arg1 = 2592000 --30ÀÏ
+		arg1 = 2592000 --30ï¿½ï¿½
 	elseif itemobj.ClassName == "PremiumToken_5d" then
-		arg1 = 432000 -- 5ÀÏ
+		arg1 = 432000 -- 5ï¿½ï¿½
 	elseif itemobj.ClassName == "PremiumToken_1d" then
-		arg1 = 604800 -- 7ÀÏ
+		arg1 = 604800 -- 7ï¿½ï¿½
+	elseif itemobj.ClassName == "PremiumToken_24h" then
+		arg1 = 86400 -- 1ï¿½ï¿½
 	end
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");
@@ -137,6 +139,8 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	local strTxt = frame:GetChild("richtext_1");
 	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
 
+	local forToken = frame:GetChild("forToken");
+	forToken:ShowWindow(0);
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
 	frame:SetUserValue("ClassName", itemobj.ClassName);
@@ -148,10 +152,11 @@ function REQ_TOKEN_ITEM(frame, ctrl)
 	local itemIES = frame:GetUserValue("itemIES");
 	local argList = string.format("%s", frame:GetUserValue("ClassName"));
 	local itemName = ClMsg(argList);
-	if argList == "PremiumToken" then
+	local find = string.find(argList, "PremiumToken");
+	if find ~= nil then
 		local accountObj = GetMyAccountObj();
 		if accountObj.TokenTime ~= "None" then
-			ui.MsgBox(ScpArgMsg("IsAppliedToken{NAME}","NAME", itemName));
+			ui.MsgBox(ClMsg("IsAppliedToken"));
 			return;
 		end
 	elseif argList == "Premium_boostToken" then

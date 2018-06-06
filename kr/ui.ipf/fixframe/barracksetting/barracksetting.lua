@@ -10,15 +10,14 @@ function BARRACK_SETTING_OPEN(frame, ctrl, argStr, argNum)
 	frame:Invalidate();
 end
 
+function BARRACK_SETTING_CANCLE(frame, ctrl, argStr, argNum)
+	frame:ShowWindow(0);
+end
+
 function BARRACK_SETTING_SAVE(frame, btnCtrl, argStr, argNum)
-	local str = ScpArgMsg('{TP}ReqChangeFamilyName', "TP", CHANGE_FAMILY_NAME_TP);
-	if nil == str then
-		return;
-	end
 	local editCtrl = GET_CHILD(frame, "barrackNameEdit", "ui::CEditControl");
 	local barrackName = editCtrl:GetText();
-	local yesScp = string.format("BARRACk_SETTING_CHECK_TP(\"%s\")", barrackName);
-	ui.MsgBox(str, yesScp, "None");
+	BARRACK_CHECK_USER_MIND_BEFOR_YES(frame, editCtrl:GetText());
 end
 
 function BARRACk_SETTING_CHECK_TP(barrackName)

@@ -5009,7 +5009,7 @@ return 20000 + obj.Level * 3000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Mirtis_line" CheckerType="1" PadHeight="12" Range="200" InnerRange="10" UpdateTerm="200" AutoPos="1" SpinRate="0.5" EnableSearch="0">
+    <PadSkill Name="Mirtis_line" CheckerType="1" PadHeight="12" Range="100" InnerRange="10" UpdateTerm="200" AutoPos="1" SpinRate="0.5" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="99999"/>
@@ -5031,14 +5031,51 @@ return 20000 + obj.Level * 3000"/>
             </ToolScp>
         </enterEvent>
     </PadSkill>
-    <PadSkill Name="Mirtis_line_small" CheckerType="1" Range="80" InnerRange="10" UpdateTerm="200" AutoPos="1" SpinRate="0.5" EnableSearch="0">
+    <PadSkill Name="Mirtis_line_small" CheckerType="1" Range="80" InnerRange="10" UpdateTerm="200" AutoPos="1" SpinRate="0.40000001" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="8000"/>
+                <Num Num="16000"/>
                 <Num Num="99990"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="I_laser003_loop" Arg="0.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-200"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Mirtis_line_time" CheckerType="1" Dist="5.2131776e+028" Angle="0.0025850763" Range="100" InnerRange="10" UpdateTerm="200" AutoPos="1" SpinRate="0.55000001" EnableSearch="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="16000"/>
+                <Num Num="99990"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="I_laser003_loop" Arg="1"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>

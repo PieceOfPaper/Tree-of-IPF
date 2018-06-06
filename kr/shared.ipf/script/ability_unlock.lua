@@ -32,7 +32,7 @@ function UNLOCK_ABIL_LEVEL(pc, pcLevel, levelFix, abilIES)
 		return "UNLOCK";
 	end
 	
-	return "LOCK_LV";
+	return "LOCK_GRADE";
 	
 end
 

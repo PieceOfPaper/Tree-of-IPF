@@ -25,16 +25,17 @@ function PUT_ITEM_TO_WAREHOUSE(parent, slot)
 
 	local frame = parent:GetTopParentFrame();
 	
-	if CHECK_EMPTYSLOT(frame) == 1 then
-		return
-	end
-
 	local liftIcon 			= ui.GetLiftIcon();
 	local iconInfo			= liftIcon:GetInfo();
 	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
 
 	if invItem == nil then
 		return;
+	end
+	local obj = GetIES(invItem:GetObject());
+	
+	if CHECK_EMPTYSLOT(frame, obj) == 1 then
+		return
 	end
 
 	if true == invItem.isLockState then
@@ -95,7 +96,6 @@ function ON_WAREHOUSE_ITEM_LIST(frame)
 		slotset:ExpandRow()
 		slotCount = slotset:GetSlotCount();
 	end
-	
 	UPDATE_ETC_ITEM_SLOTSET(slotset, IT_WAREHOUSE, "warehouse");
 	
 	if gbox_warehouse ~= nil then
@@ -110,14 +110,15 @@ end
 function WAREHOUSE_INV_RBTN(itemObj, slot)
 	
 	local frame = ui.GetFrame("warehouse");
-
-	if CHECK_EMPTYSLOT(frame) == 1 then
-		return
-	end
-
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
 	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
+	local obj = GetIES(invItem:GetObject());
+	if CHECK_EMPTYSLOT(frame, obj) == 1 then
+		return
+	end
+
+
 	local fromFrame = slot:GetTopParentFrame()
 	
 	if fromFrame:GetName() == "inventory" then
@@ -211,7 +212,7 @@ function CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE()
 	item.ExtendWareHouse();
 end
 
-function CHECK_EMPTYSLOT(frame)
+function CHECK_EMPTYSLOT(frame, obj)
 
 	local gbox = frame:GetChild("gbox");
 	local slotset = gbox:GetChild("slotset");
@@ -224,6 +225,13 @@ function CHECK_EMPTYSLOT(frame)
 	end
 
 	AUTO_CAST(slotset);
+
+	local wareItem = session.GetWarehouseItemByType(obj.ClassID);
+	if wareItem ~= nil then
+		if obj.MaxStack > 1 then
+			return 0;
+		end
+	end
 
 	local warehouseSlot = GET_EMPTY_SLOT(slotset);
 	if warehouseSlot == nil then

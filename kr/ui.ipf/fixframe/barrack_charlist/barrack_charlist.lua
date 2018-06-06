@@ -41,6 +41,22 @@ function BARRACK_CHARLIST_ON_INIT(addon, frame)
 	CUR_SELECT_GUID = 'None';
 end
 
+function INIT_BARRACK_NAME(frame)
+	local richtext = frame:GetChild("richtext");
+	richtext:SetTextByKey("value", '0');
+	richtext:SetTextByKey("value2", '4');
+	local myaccount = session.barrack.GetMyAccount();
+	if nil == myaccount then
+		return;
+	end
+
+	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
+	richtext:SetTextByKey("value",myCharCont);
+
+	richtext = frame:GetChild("myTp");
+	richtext:SetTextByKey("value", tostring(GET_CASH_TOTAL_POINT_C()));
+end
+
 function SET_CHILD_USER_VALUE(frame, childName, name, value)
 	local ctrl = frame:GetChild(childName);
 	if ctrl ~= nil then
@@ -61,15 +77,21 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 		return;
 	end
 
-	local buySlot = frame:GetChild("buySlot");
-	local buySlotCnt = session.loginInfo.GetBuySlotCount();
-	buySlot:SetTextByKey("value", tostring(buySlotCnt));
+	local barrackName = ui.GetFrame("barrack_name");
+	local richtext = barrackName:GetChild("richtext");
+	local buySlot = session.loginInfo.GetBuySlotCount();
+	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
+	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
+	richtext:SetTextByKey("value", tostring(myCharCont));
+	richtext:SetTextByKey("value2", tostring(barrackCls.BaseSlot + buySlot));
+
+	richtext = barrackName:GetChild("myTp");
+	richtext:SetTextByKey("value", tostring(GET_CASH_TOTAL_POINT_C()));
+
 	if actor ~= nil then
 		CREATE_SCROLL_CHAR_LIST(frame, actor);
 	end
 	
-	local tpText = frame:GetChild("tpText");
-	tpText:SetTextByKey("value", tostring(GET_CASH_TOTAL_POINT_C()));
 
 end
 
@@ -457,7 +479,6 @@ function SELECTCHAR_RE_ALIGN(frame)
 end
 
 function SELECTCHARINFO_DELETE_CTRL(frame, obj, argStr, argNum)
-
 	local parentFrame = frame:GetTopParentFrame();
 	local scrollBox = parentFrame:GetChild("scrollBox");
 	local deleteCtrl = scrollBox:GetChild('char_'..argStr);
@@ -467,6 +488,15 @@ function SELECTCHARINFO_DELETE_CTRL(frame, obj, argStr, argNum)
 	UPDATE_SELECT_CHAR_SCROLL(parentFrame);
 	UPDATE_PET_BTN_SELECTED();
 	frame:Invalidate();
+
+	local myaccount = session.barrack.GetMyAccount();
+	local barrackName = ui.GetFrame("barrack_name");
+	local richtext = barrackName:GetChild("richtext");
+	local buySlot = session.loginInfo.GetBuySlotCount();
+	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount() - 1;
+	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
+	richtext:SetTextByKey("value", tostring(myCharCont));
+	richtext:SetTextByKey("value2", tostring(barrackCls.BaseSlot + buySlot));
 end
 
 

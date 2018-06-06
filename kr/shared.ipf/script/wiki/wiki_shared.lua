@@ -87,6 +87,11 @@ function GET_MON_WIKI_PTS(monCls)
 end
 
 function GET_WIKI_SCORE_BY_CLS_CB(list, cbFunc)
+
+	if list == nil then
+		return 0
+	end
+
 	local cnt = list:Count();
 	local ret = 0;
 	for i = 0 , cnt - 1 do

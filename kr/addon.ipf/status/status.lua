@@ -39,6 +39,10 @@ function SHOW_TOKEN_REMAIN_TIME(ctrl)
 	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
 	local startSec = ctrl:GetUserIValue("REMAINSEC");
 	startSec = startSec - elapsedSec;
+	if 0 > startSec then
+		ctrl:SetTextByKey("value", "");
+		return 0;
+	end
 	local timeTxt = GET_TIME_TXT(startSec);
 	ctrl:SetTextByKey("value", "{@st42}" .. timeTxt);
 	return 1;
@@ -63,6 +67,9 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 		time:SetUserValue("STARTSEC", imcTime.GetAppTime());
 		SHOW_TOKEN_REMAIN_TIME(time);
 		time:RunUpdateScript("SHOW_TOKEN_REMAIN_TIME");
+	else
+		time:SetTextByKey("value", "");
+		time:StopUpdateScript("SHOW_TOKEN_REMAIN_TIME");
 	end
 	
 	if argNum ~= ITEM_TOKEN or "No" == argStr then
@@ -1200,36 +1207,8 @@ function EXEC_CHANGE_NAME(inputframe, ctrl)
 		inputframe = ctrl;
 	end
 
-	inputframe:ShowWindow(0);
 	local changedName = GET_INPUT_STRING_TXT(inputframe);
-
-	local charName = GETMYPCNAME();
-	if changedName == charName then
-		return;
-	end
-
-	local str = ScpArgMsg('{TP}ReqChangeCharName', "TP", CHANGE_CAHR_NAME_TP);
-	if nil == str then
-		return;
-	end
-	
-	local yesScp = string.format("CHANGE_NAME_SETTING_CHECK_TP(\"%s\")", changedName);
-	ui.MsgBox(str, yesScp, "None");
-
-	
-end
-
-function CHANGE_NAME_SETTING_CHECK_TP(changedName)
-	local accountObj = GetMyAccountObj();
-	if 0 > GET_CASH_TOTAL_POINT_C() - CHANGE_CAHR_NAME_TP then
-		ui.MsgBox(ClMsg("NotEnoughMedal"));
-		return;
-	end
-
-	if ui.IsValidCharacterName(changedName) == true then
-		local msg = string.format("/name %s", changedName);
-		ui.Chat(msg);
-	end
+	OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, changedName, 1);
 end
 
 function STATUS_AVG(frame)

@@ -1,4 +1,4 @@
-function SCR_JOB_2_PELTASTA_WOOD_PRE_DIALOG(pc, dialog)
+function SCR_JOB_2_PELTASTA2_WOOD_PRE_DIALOG(pc, dialog)
     local result = SCR_QUEST_CHECK(pc, 'JOB_2_PELTASTA2')
     if result == 'PROGRESS' then
         local Item_Cnt = GetInvItemCount(pc, "JOB_2_PELTASTA2_ITEM1")

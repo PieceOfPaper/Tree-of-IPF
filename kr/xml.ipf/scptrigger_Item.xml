@@ -294,6 +294,31 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="MAC03_110">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_DAMTYPE" Client="NO" UseSleep="NO">
+						<Num Num="2"/>
+					</ToolScp>
+				</CondList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_CHECK_ISNT_BOSS" Client="NO" UseSleep="NO"/>
+				</TgtCondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF2" Client="NO" UseSleep="NO">
+						<Str Str="MAC03_110_Debuff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="60000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="NECK03_106">
 		<TriggerList Act="AfterHitScript_Attacked">
 			<Trigger>
@@ -890,6 +915,133 @@ return self.MNA;"/>
 						<Num Num="55"/>
 					</ToolScp>
 				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSF03_109">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Common_StaffAttack"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="10000" UseFunc="1" FuncTxt="
+return math.floor(self.MINMATK+ self.MAXMATK);"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSP03_106">
+		<TriggerList Act="AfterHitScript_Attack">
+			<Trigger>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_CHECK_ISNT_BOSS" Client="NO" UseSleep="NO"/>
+				</TgtCondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF2" Client="NO" UseSleep="NO">
+						<Str Str="TSP03_106_Debuff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="30000"/>
+						<Num Num="1"/>
+						<Num Num="33"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="SWD03_110">
+		<TriggerList Act="AfterHitScript_Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ISNT_NORMAL_ATTACK" Client="NO" UseSleep="NO"/>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF_WITH_SELFBUFF" Client="NO" UseSleep="NO">
+						<Str Str="CriticalWound"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="30000"/>
+						<Num Num="1"/>
+						<Num Num="5"/>
+						<Num Num="-1"/>
+						<Str Str="SWD03_110_Buff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="SWD03_110_active_Buff"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_IS_NORMAL_ATTACK" Client="NO" UseSleep="NO"/>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="SWD03_110_active_Buff"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="SWD03_110_Buff"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_MULTIPLE_HIT" Client="NO" UseSleep="NO">
+						<Num Num="5"/>
+						<Num Num="0"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_DAM_RATE" Client="NO" UseSleep="NO">
+						<Num Num="-0.5"/>
+					</ToolScp>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_MON_ARMORMATERIAL_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Ghost"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="SWD03_110_Buff"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="SWD03_110_active_Buff"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="SWD01_932">
+		<TriggerList Act="AfterHitScript_Attack">
+			<Trigger>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_TGT_KB" Client="NO" UseSleep="NO">
+						<Num Num="4"/>
+						<Num Num="0"/>
+						<Num Num="100"/>
+						<Num Num="60"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="2"/>
+					</ToolScp>
+				</TgtExecList>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
@@ -1762,6 +1914,28 @@ return math.floor(self.Lv/3);"/>
 						<Num Num="15000"/>
 						<Num Num="1"/>
 						<Num Num="2"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSW03_111">
+		<TriggerList Act="AfterHitScript_Attacked">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_CLASSTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Magic"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+						<Str Str="TSW03_111_Buff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="30000"/>
+						<Num Num="1"/>
+						<Num Num="1.5"/>
 						<Num Num="-1"/>
 					</ToolScp>
 				</TgtExecList>

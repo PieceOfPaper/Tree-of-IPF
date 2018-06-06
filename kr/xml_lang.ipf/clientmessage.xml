@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -69,8 +69,8 @@
 		<Class ClassID="10026" ClassName="NotEnoughLevelToEquipItem" Data="레벨이 부족합니다{nl}아이템 설명에서 장착 가능한 레벨을 확인하세요"/>
 		<Class ClassID="10027" Data="남성은 착용할 수 없습니다{nl}아이템 설명에서 장착 가능한 성별과 레벨을 확인하세요"/>
 		<Class ClassID="10028" Data="여성은 착용할 수 없습니다{nl}아이템 설명에서 장착 가능한 성별과 레벨을 확인하세요"/>
-		<Class ClassID="10029" ClassName="PCNameMustLongerThen%sByte" Data="캐릭터 이름은 %s자 이상이어야 합니다."/>
-		<Class ClassID="10030" ClassName="PCNameMustNotLongerThen%sByte" Data="캐릭터 이름은 %s자 이하여야 합니다."/>
+		<Class ClassID="10029" ClassName="PCNameMustLongerThen%sByte" Data="캐릭터 이름은 %s바이트 이상이어야 합니다."/>
+		<Class ClassID="10030" ClassName="PCNameMustNotLongerThen%sByte" Data="캐릭터 이름은 %s바이트 이하여야 합니다."/>
 		<Class ClassID="10031" Data="비밀번호가 맞지 않습니다"/>
 		<Class ClassID="10032" Data="해당 게임에서 설정한 레벨제한에 맞지 않아 참여할 수 없습니다"/>
 		<Class ClassID="10033" ClassName="NotAuth" Data="권한이 없습니다"/>
@@ -253,7 +253,7 @@
 		<Class ClassID="10304" ClassName="CantUseSkillOnRiding" Data="스킬중엔 컴패니언 탑승을 해제 할 수 없습니다."/>
 		<Class ClassID="10305" ClassName="CantUseSkill_NeedRiding" Data="컴패니언 탑승중에만 사용 할 수 있는 스킬입니다."/>
 		<Class ClassID="10306" ClassName="PCNameMustLongerThen{LEN}" Data="{LEN}자 이상이어야 합니다."/>
-		<Class ClassID="10307" ClassName="PCNameMustNotLongerThen{LEN}" Data="{LEN}자 이하이어야 합니다."/>
+		<Class ClassID="10307" ClassName="PCNameMustNotLongerThen{LEN}" Data="{LEN}바이트 이하이어야 합니다."/>
 		<Class ClassID="10308" ClassName="HadFobbidenWord" Data="사용할 수 없는 문자가 포함되어 있습니다."/>
 		<Class ClassID="10309" ClassName="YouCanNotRideCompanionWhileSitting" Data="휴식모드 중에는 탑승할 수 없습니다."/>
 		<Class ClassID="10310" ClassName="YouCanNotRideCompanionWhileCompanionIsDead" Data="기절중인 컴패니언에는 탑승할 수 없습니다."/>
@@ -342,6 +342,7 @@
 		<Class ClassID="10403" ClassName="ThatCurrentPosition" Data="현재 위치 입니다."/>
 		<Class ClassID="10404" ClassName="CanTakeItemFromPostBox" Data="현재 습득하지 않은 아이템이 존재합니다.{nl}모든 아이템 수령 후 삭제가 가능합니다."/>
 		<Class ClassID="10405" ClassName="ReallyGivePremiumItemTo{PC}" Data="{PC}으로 아이템을 받으시겠습니까? 수령 시 청약철회가 불가능해 집니다."/>
+	<Class ClassID="10406" ClassName="EscapeDisabled" Data="지금은 귀환석을 사용할 수 없습니다."/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="210401" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -6690,25 +6691,28 @@
 		<Class ClassID="550017" ClassName="NeedPremiunState" Data="해당 기능을  사용 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550018" ClassName="{Target}DontHavePremiumState" Data="{Target}님이 거래를 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550019" ClassName="CantTradeAbility" Data="거래/매입상점 사용가능"/>
-		<Class ClassID="550020" ClassName="token_expup" Data=" 몬스터 경험치 {img green_up_arrow 16 16}30% 증가"/>
-		<Class ClassID="550021" ClassName="token_setup" Data=" 스태미나 회복 {img green_up_arrow 16 16}100% 증가"/>
+		<Class ClassID="550020" ClassName="token_expup" Data="몬스터 사망 시 획득 경험치 +30% 증가"/>
+		<Class ClassID="550021" ClassName="token_staup" Data="스태미나 회복량 2배 증가"/>
 		<Class ClassID="550022" ClassName="marketUpMax{COUNT}" Data="마켓 물품 등록 개수 {COUNT}개로 증가"/>
 		<Class ClassID="550023" ClassName="abilityMax{COUNT}" Data="특성 동시 수련 가능 개수 {COUNT} 증가"/>
 		<Class ClassID="550024" ClassName="speedUp{COUNT}" Data="이동 속도 +{COUNT} 증가"/>
-		<Class ClassID="550025" ClassName="IsAppliedToken{NAME}" Data="이미 {NAME} 아이템이 활성화 중에 있습니다."/>
+		<Class ClassID="550025" ClassName="IsAppliedToken" Data="이미 토큰 아이템이 활성화 중에 있습니다."/>
 		<Class ClassID="550026" ClassName="PremiumToken" Data="토큰"/>
 		<Class ClassID="550027" ClassName="Premium_boostToken" Data="경험의 서"/>
 		<Class ClassID="550028" ClassName="CashPurchaseGmMsg" Data="유료상품이 숙소에 도착하였습니다. 숙소에서 상품을 수령하세요."/>
 		<Class ClassID="550029" ClassName="PremiumToken_1d" Data="토큰:1일[증정용]"/>
 		<Class ClassID="550030" ClassName="PremiumToken_5d" Data="토큰:5일[증정용]"/>
-		<Class ClassID="550031" ClassName="Premium_itemEun" Data=" 아이템 은"/>
+		<Class ClassID="550031" ClassName="Premium_itemEun" Data=" 아이템은"/>
 		<Class ClassID="550032" ClassName="Premium_character" Data="캐릭터"/>
 		<Class ClassID="550033" ClassName="Premium_team" Data="서버의 팀"/>
 		<Class ClassID="550034" ClassName="CannotSoldAnyMore" Data="해당 아이템은 구입하시면 캐릭터에 귀속이 됩니다. 그래도 구입하시겠습니까?"/>
 		<Class ClassID="550035" ClassName="DoyouRegMarket" Data="해당 아이템을 정말로{nl}마켓에 등록하시겠습니까?"/>
 		<Class ClassID="550036" ClassName="CannoTradeToNPC" Data="해당 아이템은 NPC에게 판매하실 수 없습니다."/>
-		<Class ClassID="550037" ClassName="token_staup" Data=" 스태미나 회복 {img green_up_arrow 16 16}100% 증가"/>
-<Class ClassID="550038" ClassName="{TP}UseAndGo{INDUN}" Data="무료 입장 횟수를 전부 사용하셨습니다.{nl}{TP}TP를 소비해 {INDUN}에 입장하시겠습니까?"/>
+		<Class ClassID="550037" ClassName="token_setup" Data="스태미나 회복량 2배 증가"/>
+		<Class ClassID="550038" ClassName="{TP}UseAndGo{INDUN}" Data="무료 입장 횟수를 전부 사용하셨습니다.{nl}{TP}TP를 소비해 {INDUN}에 입장하시겠습니까?"/>
+		<Class ClassID="550039" ClassName="PremiumToken_24h" Data="토큰:1일[증정용]"/>
+		<Class ClassID="550040" ClassName="SameName" Data="같은 이름으로는 변경을 시도 할 수 없습니다."/>
+		<Class ClassID="550041" ClassName="IsAppliedToken{NAME}" Data="이미 {NAME} 아이템이 활성화 중에 있습니다."/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="600001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

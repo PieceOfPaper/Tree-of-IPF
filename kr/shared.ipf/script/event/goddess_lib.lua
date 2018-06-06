@@ -13,12 +13,12 @@ function SCR_GOODDESS_ZEMINA(self, pc, argNum, evt)
         if result1 ~= nil then
             local tx = TxBegin(pc);
             TxChangeNPCState(tx, evt.genType, 1);
+            local beforeValue = pc.StatByBonus
             TxAddIESProp(tx, pc, 'StatByBonus', 1)
             local ret = TxCommit(tx);
-			if ret == "SUCCESS" then
-				StatPointMongoLog(pc, "AddStatue");
-			end
-
+            local afterValue = pc.StatByBonus
+            CustomMongoLog(pc, "StatByBonusADD", "Layer", GetLayer(pc), "beforeValue", beforeValue, "afterValue", afterValue, "addValue", 1, "Way", "SCR_GOODDESS_ZEMINA")
+			
             DetachEffect(self, 'F_light024_orange')
             DestroySessionObject(pc, result1)
         end

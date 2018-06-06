@@ -262,6 +262,11 @@ end
 s_buyAbilName = 'None';
 
 function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
+	local pc = GetMyPCObject();
+	if pc == nil then
+		return;
+	end
+
 	local runCnt = 0;
 	for i = 0, RUN_ABIL_MAX_COUNT do
 		local prop = "None";
@@ -293,6 +298,28 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 
 	-- 살건지 확인창 띄우기
 	s_buyAbilName = abilName;
+
+	-- 서버에서 시스템 메세지를 보내는데 특성 확인전에서 뿌려주자.
+	local topframe = frame:GetTopParentFrame();
+	local abilGroupName = topframe:GetUserValue("ABIL_GROUP_NAME")
+	local abilClass = GetClass(abilGroupName, s_buyAbilName);
+
+	local unlockFuncName = abilClass.UnlockScr;
+	if unlockFuncName ~= 'None' then
+		local scp = _G[unlockFuncName];
+		local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
+		local ret = scp(pc, abilClass.UnlockArgStr, abilClass.UnlockArgNum, abilIES);
+		if ret ~= 'UNLOCK' then
+			if ret == 'LOCK_GRADE' then
+				ui.SysMsg(ScpArgMsg("Auto__JoKeoneul_ManJogHaJi_MosHaesseum"));
+				return;
+			elseif ret == 'LOCK_LV' then
+				ui.SysMsg(ScpArgMsg("NeedMorePcLevel"));
+				return;
+			end
+		end
+	end
+
 	local yesScp = string.format("EXEC_BUY_ABILITY()");
 	ui.MsgBox(ClMsg('ExecLearnAbility'), yesScp, "None");
 

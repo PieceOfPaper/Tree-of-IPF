@@ -110,7 +110,7 @@ function GET_USEJOB_TOOLTIP(invitem)
 			resultstr =  resultstr .. ScpArgMsg('EquipPossible')
 		end
 
-		if usegender ~= nil then
+		if usegender ~= nil and usegender ~= 'Both' then
 			resultstr = resultstr..', '
 				
 			if usegender == "Male" then
