@@ -7594,6 +7594,16 @@ function SCR_PRE_ABBEY22_5_SUBQ7_ITEM1(self, argstring, argnum1, argnum2)
     end
 end
 
+--CHAR318_MSTEP3_3ITEM2
+function SCR_PRE_CHAR318_MSTEP3_3ITEM2(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == "f_katyn_45_1" then
+        if GetLayer(self) < 1 then
+            return 1
+        end
+    end
+end
+
+
 --CORAL_44_3_SQ_90_ITEM
 function SCR_PRE_CORAL_44_3_SQ_90_ITEM(self, argstring, argnum1, argnum2)
     local result = SCR_QUEST_CHECK(self, 'CORAL_44_3_SQ_90')
@@ -7610,6 +7620,45 @@ function SCR_PRE_CORAL_44_3_SQ_90_ITEM(self, argstring, argnum1, argnum2)
                 end
             end
         end
+    end
+    return 0;
+end
+
+--JOB_MATADOR1_ITEM
+function SCR_PRE_JOB_MATADOR1_ITEM(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'JOB_MATADOR1')
+    if result == "PROGRESS" then
+        if GetLayer(self) >= 1 then
+            if GetZoneName(self) == "f_remains_37" then
+                local list, cnt = SelectObject(self, 200, "MON", 1)
+                if cnt >= 1 then
+                    for i = 1, cnt do
+                        if list[i].ClassName == "stub_tree" or list[i].ClassName == "TreeAmbulo" or list[i].ClassName == "Tama" then
+                            return GetHandle(list[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+--JOB_ZEALOT_QUEST_COSTUME_ITEM
+function SCR_PRE_JOB_ZEALOT_QUEST_COSTUME_ITEM(self, argstring, argnum1, argnum2)
+    local result = SCR_QUEST_CHECK(self, 'JOB_ZEALOT_QUEST_COSTUME')
+    if result == "PROGRESS" then
+        if GetZoneName(self) == "id_catacomb_25_4" then
+            if GetLayer(self) ~= 0 then
+                local x, y, z = GetPos(self)
+                local dist = SCR_POINT_DISTANCE(x, z, -1803, 68)
+                if dist <= 200 then
+                    return 1
+                end
+            end
+            return 0;
+        end
+        return 0;
     end
     return 0;
 end

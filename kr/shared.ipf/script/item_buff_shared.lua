@@ -385,6 +385,7 @@ function ITEMBUFF_CHECK_Alchemist_Roasting(self, item)
 
     return 0;
 end
+
 function ITEMBUFF_STONECOUNT_Appraiser_Apprise(invItemList, frame)
     if frame ~= nil then
         frame:SetUserValue("STORE_GROUP_NAME", 'Appraise');
@@ -411,4 +412,37 @@ end
 function ITEMBUFF_NEEDITEM_Appraiser_Apprise(self, item) -- 스킬 이름 바뀌면 여기 수정
     local needCount =GET_APPRAISAL_PRICE(item) / 200;
     return "misc_0507", math.floor(needCount); -- 재료 이름 바뀌면 여기 수정
+end
+
+function ITEMBUFF_STONECOUNT_Sage_PortalShop(invItemList)
+    local i = invItemList:Head();
+    local count = 0;
+    while 1 do
+        if i == invItemList:InvalidIndex() then
+            break;
+        end
+        local invItem = invItemList:Element(i);
+        i = invItemList:Next(i);
+        local obj = GetIES(invItem:GetObject());
+        
+        if obj.ClassName == "misc_portalstone" then -- 포탈 상점 재료 이름 써주세요
+            count = count + invItem.count;
+        end
+    end
+    
+    return "misc_portalstone", count; -- 포탈 상점 재료 이름 써주세요
+end
+
+function ITEMBUFF_NEEDITEM_Sage_PortalShop(target, destZoneName)
+    local warpCost = CalcWarpCost(GetZoneName(target), destZoneName);
+    local needCount = 1 --  -- 포탈 상점 재료 공식 써주세요. 지금은 워프 비용 / 10 했음.
+    needCount = math.max(1, needCount); --  최소 1 보장
+    
+    return "misc_portalstone", math.floor(needCount); -- 포탈 상점 재료 이름 써주세요
+end
+
+function GET_MAX_ENABLE_REGISTER_PORTAL_CNT(seller, portalShopSkillObj)
+    local portalCNT = 3
+
+    return portalCNT -- 포탈 상점 최대 등록 가능한 포탈 개수
 end

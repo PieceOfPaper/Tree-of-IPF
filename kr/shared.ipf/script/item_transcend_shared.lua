@@ -147,11 +147,11 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
         else
             return 0;
         end
-    elseif groupName == 'SubWeapon' or classType == 'Shield'then
+    elseif groupName == 'SubWeapon' then
             equipTypeRatio = 0.6;
-    elseif groupName == 'Armor' then
+    elseif groupName == 'Armor' or classType == 'Shield' then
         --Amor/Shield/Acc--
-            equipTypeRatio = 0.55;
+            equipTypeRatio = 0.33;
     else
         return 0;
     end

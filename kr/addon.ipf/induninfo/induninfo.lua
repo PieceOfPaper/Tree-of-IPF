@@ -1,23 +1,23 @@
 -- inuninfo.lua
 function INDUNINFO_ON_INIT(addon, frame)
-	addon:RegisterMsg('CHAT_INDUN_UI_OPEN', 'INDUNINFO_CHAT_OPEN');
+    addon:RegisterMsg('CHAT_INDUN_UI_OPEN', 'INDUNINFO_CHAT_OPEN');
 
     g_selectedIndunTable = {};
 end
 
 function UI_TOGGLE_INDUN()
     if app.IsBarrackMode() == true then
-		return;
-	end
+        return;
+    end
     ui.ToggleFrame('induninfo');
 end
 
 function INDUNINFO_CHAT_OPEN(frame, msg, argStr, argNum)
-	if nil ~= frame then
-		frame:ShowWindow(1);
-	else
-		ui.OpenFrame("induninfo");
-	end
+    if nil ~= frame then
+        frame:ShowWindow(1);
+    else
+        ui.OpenFrame("induninfo");
+    end
 end
 
 function INDUNINFO_UI_OPEN(frame)
@@ -54,14 +54,14 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                 local btn = categoryCtrl:GetChild("button");
                 local countText = categoryCtrl:GetChild('countText');
                 btn:Resize(categoryBtnWidth, categoryCtrl:GetHeight());
-			    name:SetTextByKey("value", category);
+                name:SetTextByKey("value", category);
                 countText:SetTextByKey('current', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
                 countText:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
 
-			    categoryCtrl:SetUserValue('RESET_GROUP_ID', resetGroupID);
-                if i == 0 then -- 디폴트는 첫번째가 클릭되게 함				                 
-				    firstBtn = btn;
-			    end
+                categoryCtrl:SetUserValue('RESET_GROUP_ID', resetGroupID);
+                if i == 0 then -- 디폴트는 첫번째가 클릭되게 함                              
+                    firstBtn = btn;
+                end
             elseif categoryCtrl ~= nil and category ~= 'None' then
                 resetGroupTable[resetGroupID] = resetGroupTable[resetGroupID] + 1;
             end
@@ -81,7 +81,7 @@ function INDUNINFO_CREATE_CATEGORY(frame)
 end
 
 function INDUNINFO_CATEGORY_ALIGN_DEFAULT(categoryBox)    
-	GBOX_AUTO_ALIGN(categoryBox, 0, -6, 0, true, false);
+    GBOX_AUTO_ALIGN(categoryBox, 0, -6, 0, true, false);
 end
 
 function INDUNINFO_RESET_USERVALUE(frame)
@@ -101,12 +101,12 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
     local SELECTED_BTN_SKIN = categoryCtrl:GetUserConfig('SELECTED_BTN_SKIN');
     local NOT_SELECTED_BTN_SKIN = categoryCtrl:GetUserConfig('NOT_SELECTED_BTN_SKIN');
     local preSelect = GET_CHILD_RECURSIVELY(topFrame, "CATEGORY_CTRL_" .. preSelectType);
-	if nil ~= preSelect then
-		local button = preSelect:GetChild("button");
-		button:SetSkinName(NOT_SELECTED_BTN_SKIN);
-	end
-	topFrame:SetUserValue('SELECT', selectedResetGroupID);    
-	ctrl:SetSkinName(SELECTED_BTN_SKIN);
+    if nil ~= preSelect then
+        local button = preSelect:GetChild("button");
+        button:SetSkinName(NOT_SELECTED_BTN_SKIN);
+    end
+    topFrame:SetUserValue('SELECT', selectedResetGroupID);    
+    ctrl:SetSkinName(SELECTED_BTN_SKIN);
 
     -- make indunlist
     local categoryBox = GET_CHILD_RECURSIVELY(topFrame, 'categoryBox');
@@ -183,6 +183,11 @@ function GET_MAX_ENTERANCE_COUNT(resetGroupID)
         end
     end
 
+    if indunCls.AdmissionItemName ~= "None" then
+        local a = "{img infinity_text 20 10}"
+        return a;
+    end
+    
     local bonusCount = 0;
     local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);    
     if isTokenState == true then
@@ -240,15 +245,58 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
     local TOKEN_STATE_IMAGE = frame:GetUserConfig('TOKEN_STATE_IMAGE');
     local NOT_TOKEN_STATE_IMAGE = frame:GetUserConfig('NOT_TOKEN_STATE_IMAGE');
-    if isTokenState == true then
-        tokenStatePic:SetImage(TOKEN_STATE_IMAGE);
-        tokenStatePic:SetTextTooltip(ScpArgMsg('YouCanMorePlayIndunWithToken', 'COUNT', indunCls.PlayPerReset_Token, 'TOKEN_STATE', ClMsg('Auto_HwalSeong')));
-    else
-        tokenStatePic:SetImage(NOT_TOKEN_STATE_IMAGE);
-        tokenStatePic:SetTextTooltip(ScpArgMsg('YouCanMorePlayIndunWithToken', 'COUNT', indunCls.PlayPerReset_Token, 'TOKEN_STATE', ClMsg('NotApplied')));
+    
+    local countItemData = GET_CHILD_RECURSIVELY(frame, 'countItemData');
+    local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");
+    local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
+    local admissionItemCls = GetClass('Item', admissionItemName);
+    local admissionItemIcon = TryGetProp(admissionItemCls, "Icon");
+    local indunAdmissionItemImage = admissionItemIcon
+    local etc = GetMyEtcObject();
+    local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
+
+    
+    if admissionItemCount == nil then
+        admissionItemCount = 0;
     end
-    countData:SetTextByKey('now', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
-    countData:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
+    
+    admissionItemCount = math.floor(admissionItemCount);
+    
+    if admissionItemName == "None" or admissionItemName == nil or admissionItemCount == 0 then
+    
+        if isTokenState == true then
+            tokenStatePic:SetImage(TOKEN_STATE_IMAGE);
+            tokenStatePic:SetTextTooltip(ScpArgMsg('YouCanMorePlayIndunWithToken', 'COUNT', indunCls.PlayPerReset_Token, 'TOKEN_STATE', ClMsg('Auto_HwalSeong')));
+        else
+            tokenStatePic:SetImage(NOT_TOKEN_STATE_IMAGE);
+            tokenStatePic:SetTextTooltip(ScpArgMsg('YouCanMorePlayIndunWithToken', 'COUNT', indunCls.PlayPerReset_Token, 'TOKEN_STATE', ClMsg('NotApplied')));
+        end
+        countData:SetTextByKey('now', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
+        countData:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
+        local countBox = GET_CHILD_RECURSIVELY(frame, 'countBox');
+        local countText = GET_CHILD_RECURSIVELY(countBox, 'countText');
+        countText:SetText(ScpArgMsg("IndunAdmissionItemReset"))
+        countData:ShowWindow(1)
+        countItemData:ShowWindow(0)
+    else
+        if isTokenState == true then
+            isTokenState = TryGetProp(indunCls, "PlayPerReset_Token")
+            tokenStatePic:SetImage(TOKEN_STATE_IMAGE);
+            tokenStatePic:SetTextTooltip(ScpArgMsg('YouCanLittleIndunAdmissionItemWithToken', 'COUNT', indunCls.PlayPerReset_Token, 'TOKEN_STATE', ClMsg('Auto_HwalSeong')));
+        else
+            isTokenState = 0
+            tokenStatePic:SetImage(NOT_TOKEN_STATE_IMAGE);
+            tokenStatePic:SetTextTooltip(ScpArgMsg('YouCanLittleIndunAdmissionItemWithToken', 'COUNT', indunCls.PlayPerReset_Token, 'TOKEN_STATE', ClMsg('NotApplied')));
+        end
+        local nowAdmissionItemCount = admissionItemCount + nowCount - isTokenState
+        countItemData:SetTextByKey('admissionitem', '  {img '..indunAdmissionItemImage..' 30 30}  '..nowAdmissionItemCount..'')
+        local countBox = GET_CHILD_RECURSIVELY(frame, 'countBox');
+        local countText = GET_CHILD_RECURSIVELY(countBox, 'countText');
+        countText:SetText(ScpArgMsg("IndunAdmissionItem"))
+        
+        countData:ShowWindow(0)
+        countItemData:ShowWindow(1)
+    end    
 
     -- level
     local lvData = GET_CHILD_RECURSIVELY(frame, 'lvData');
@@ -336,18 +384,18 @@ function INDUNINFO_SORT_BY_LEVEL(parent, ctrl)
     indunListBox:SetUserValue('SELECTED_DETAIL', firstSelectedID);
 end
 
-function SORT_BY_LEVEL(a, b)	
-	if TryGetProp(a, "Level") == nil or TryGetProp(b, "Level") == nil then
-		return false;
-	end
-	return tonumber(a.Level) < tonumber(b.Level)
+function SORT_BY_LEVEL(a, b)    
+    if TryGetProp(a, "Level") == nil or TryGetProp(b, "Level") == nil then
+        return false;
+    end
+    return tonumber(a.Level) < tonumber(b.Level)
 end
 
-function SORT_BY_LEVEL_REVERSE(a, b)	
-	if TryGetProp(a, "Level") == nil or TryGetProp(b, "Level") == nil then
-		return false;
-	end
-	return tonumber(a.Level) > tonumber(b.Level)
+function SORT_BY_LEVEL_REVERSE(a, b)    
+    if TryGetProp(a, "Level") == nil or TryGetProp(b, "Level") == nil then
+        return false;
+    end
+    return tonumber(a.Level) > tonumber(b.Level)
 end
 
 function INDUNINFO_OPEN_INDUN_MAP(parent, ctrl)
@@ -357,6 +405,6 @@ function INDUNINFO_OPEN_INDUN_MAP(parent, ctrl)
 end
 
 function INDUN_CANNOT_YET(msg)
-	ui.SysMsg(ScpArgMsg(msg));
-	ui.OpenFrame("induninfo");
+    ui.SysMsg(ScpArgMsg(msg));
+    ui.OpenFrame("induninfo");
 end

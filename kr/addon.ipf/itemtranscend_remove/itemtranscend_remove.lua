@@ -23,6 +23,7 @@ function ITEMTRASCEND_REMOVE_OPEN(frame)
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMTRANSCEND_REMOVE_INV_RBTN")	
 	ui.OpenFrame("inventory");
 	
+    frame:SetUserValue('TRANSCEND_REMOVE', 'YES');
 	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_REMOVE_GUIDE_FIRST"));	
 	SETTEXT_GUIDE(frame, 3, needTxt);
 
@@ -74,7 +75,7 @@ function REMOVE_TRANSCEND_REMOVE_TARGET_ITEM(frame)
 	local reg = GET_CHILD(gbox, "reg");
 	reg:ShowWindow(0);
 
-	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_BREAK_GUIDE_FIRST"));	
+	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_REMOVE_GUIDE_FIRST"));	
 	SETTEXT_GUIDE(frame, 3, needTxt);
 end
 
@@ -298,7 +299,7 @@ function _ITEMTRANSCEND_REMOVE_EXEC()
 	UPDATE_TRANSCEND_REMOVE_ITEM(frame , 0);
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_CAST"));
 	
-	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_BREAK_GUIDE_FIRST"));	
+	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_REMOVE_GUIDE_FIRST"));	
 	SETTEXT_GUIDE(frame, 3, needTxt);
 	
 	local gbox = frame:GetChild("gbox");
@@ -308,14 +309,15 @@ end
 
 function TRANSCEND_REMOVE_UPDATE()
 	local frame = ui.GetFrame("itemtranscend_remove");	
+    local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_REMOVE_GUIDE_FIRST"));	
+	SETTEXT_GUIDE(frame, 3, needTxt);
+
 	local animpic_bg = GET_CHILD_RECURSIVELY(frame, "animpic_bg");
 	animpic_bg:ShowWindow(1);
 	animpic_bg:ForcePlayAnimation();
 
 	ui.MsgBox(ScpArgMsg("TranscendRemove"));
-	
 end
-
 
 function ITEMTRANSCEND_BG_ANIM_TICK_REMOVE(ctrl, str, tick)
 

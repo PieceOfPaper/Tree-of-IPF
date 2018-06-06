@@ -670,9 +670,13 @@ function SCR_Get_MON_MINPATK(self)
         byBuff = 0;
     end
     
-    local byRateBuff = TryGetProp(self, "PATK_RATE_BM");
-    if byRateBuff == nil then
-        byRateBuff = 0;
+    local rateBuffList = {'PATK_RATE_BM', 'MINPATK_RATE_BM' };
+    local byRateBuff = 0;
+    for i = 1, #rateBuffList do
+        local rateBuff = TryGetProp(self, rateBuffList[i]);
+        if rateBuff ~= nil then
+            byRateBuff = byRateBuff + rateBuff;
+        end
     end
     
     byRateBuff = value * byRateBuff;
@@ -749,9 +753,13 @@ function SCR_Get_MON_MAXPATK(self)
         byBuff = 0;
     end
     
-    local byRateBuff = TryGetProp(self, "PATK_RATE_BM");
-    if byRateBuff == nil then
-        byRateBuff = 0;
+    local rateBuffList = {'PATK_RATE_BM', 'MAXPATK_RATE_BM' };
+    local byRateBuff = 0;
+    for i = 1, #rateBuffList do
+        local rateBuff = TryGetProp(self, rateBuffList[i]);
+        if rateBuff ~= nil then
+            byRateBuff = byRateBuff + rateBuff;
+        end
     end
     
     byRateBuff = value * byRateBuff;
@@ -828,9 +836,13 @@ function SCR_Get_MON_MINMATK(self)
         byBuff = 0;
     end
     
-    local byRateBuff = TryGetProp(self, "MATK_RATE_BM");
-    if byRateBuff == nil then
-        byRateBuff = 0;
+    local rateBuffList = {'MATK_RATE_BM', 'MINMATK_RATE_BM' };
+    local byRateBuff = 0;
+    for i = 1, #rateBuffList do
+        local rateBuff = TryGetProp(self, rateBuffList[i]);
+        if rateBuff ~= nil then
+            byRateBuff = byRateBuff + rateBuff;
+        end
     end
     
     byRateBuff = value * byRateBuff;
@@ -910,9 +922,13 @@ function SCR_Get_MON_MAXMATK(self)
         byBuff = 0;
     end
     
-    local byRateBuff = TryGetProp(self, "MATK_RATE_BM");
-    if byRateBuff == nil then
-        byRateBuff = 0;
+    local rateBuffList = {'MATK_RATE_BM', 'MAXMATK_RATE_BM' };
+    local byRateBuff = 0;
+    for i = 1, #rateBuffList do
+        local rateBuff = TryGetProp(self, rateBuffList[i]);
+        if rateBuff ~= nil then
+            byRateBuff = byRateBuff + rateBuff;
+        end
     end
     
     byRateBuff = value * byRateBuff;

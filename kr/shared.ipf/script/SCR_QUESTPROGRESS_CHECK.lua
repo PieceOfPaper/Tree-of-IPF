@@ -4685,3 +4685,36 @@ function SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
     end
     return req_joblvdown
 end
+
+function SCR_QUEST_CHECK_MODULE_STEPREWARD_FUNC(self, questName)
+    local maxRewardIndex
+    local questIES = GetClass('QuestProgressCheck', questName)
+    local quest_auto = GetClass('QuestProgressCheck_Auto', questName)
+    local duplicate = TryGetProp(quest_auto, 'StepRewardDuplicatePayments')
+    local lastReward
+    local lastRewardList
+    local sObj = GetSessionObject(self, 'ssn_klapeda');
+    if duplicate == 'NODUPLICATE' then
+        lastRewardList = TryGetProp(sObj, questIES.QuestPropertyName..'_SRL')
+        if lastRewardList ~= nil and lastRewardList ~= 'None' then
+            lastReward = SCR_STRING_CUT(lastRewardList)
+        end
+    end
+    
+    for index = 1, 10 do
+        if table.find(lastReward, index) == 0 then
+            local stepRewardFuncList = TryGetProp(quest_auto, 'StepRewardFunc'..index)
+            if stepRewardFuncList ~= nil and stepRewardFuncList ~= 'None' then
+                stepRewardFuncList = SCR_STRING_CUT(stepRewardFuncList)
+                local stepRewardFunc = _G[stepRewardFuncList[1]]
+                if stepRewardFunc ~= nil then
+                    local result = stepRewardFunc(self, stepRewardFuncList)
+                    if result == 'YES' then
+                        maxRewardIndex = index
+                    end
+                end
+            end
+        end
+    end
+    return maxRewardIndex
+end

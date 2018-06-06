@@ -6,3 +6,10 @@ function IS_RANKRESET_ITEM(itemClassName)
     end
     return 0;
 end
+
+function IS_RANKROLLBACK_ITEM(itemClassName)
+    if  itemClassName == 'Premium_RankRollback' then
+       return 1; 
+    end
+    return 0;
+end

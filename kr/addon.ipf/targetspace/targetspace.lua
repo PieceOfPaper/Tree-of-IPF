@@ -63,6 +63,17 @@ function TARGETSPACE_SET(frame, type)
 				LbtnObj:ShowWindow(0);
 				joyBbtn:ShowWindow(1);
 			else
+				local spaceMarkHeightOffset = 0;
+				local actor = world.GetActor(handle);
+				if actor ~= nil then
+					local cls = GetClassByType("Monster", actor:GetType());
+					if cls ~= nil then
+						spaceMarkHeightOffset = TryGet(cls, "SpaceMarkHeightOffset");
+					end
+				end
+				
+				spaceObj:SetMargin(0, 0, 0, spaceMarkHeightOffset);
+
 				spaceObj:PlayAnimation();
 				spaceObj:ShowWindow(1);
 				LbtnObj:ShowWindow(0);

@@ -452,28 +452,24 @@ function TPSHOP_ITEM_TO_RECYCLE_SELL_BASKET(itemguid, addcnt)
 end
 
 function TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)
+    local isWingMode = parent:GetUserValue('WING_ITEM') == 'YES';
 
-	local obj = GetClassByType("recycle_shop", tpitem_clsID)
-	if obj == nil then
-		return;
-	end
-	
-	local itemobj = GetClass("Item", obj.ClassName)
+    local itemobj = nil;
+    if isWingMode == false  then    
+	    local obj = GetClassByType("recycle_shop", tpitem_clsID)
+	    if obj == nil then
+		    return;
+	    end	
+	    itemobj = GetClass("Item", obj.ClassName);
+    else -- wing mode
+        itemobj = GetClassByType('Item', tpitem_clsID);
+    end
 	if itemobj == nil then
 		return;
 	end
-
-	local classid = itemobj.ClassID;
-	local item = GetClassByType("Item", classid)
-
-	if item == nil then
-		return;
-	end
-
-	local allowDup = TryGetProp(item,'AllowDuplicate')
-
-	local isHave = false;
-				
+    local classid = itemobj.ClassID;
+	local allowDup = TryGetProp(itemobj, 'AllowDuplicate');
+	local isHave = false;				
 	if allowDup == "NO" then
 		if session.GetInvItemByType(classid) ~= nil then
 			isHave = true;
@@ -487,9 +483,17 @@ function TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET_PREPROCESSOR(parent, control, tpitemn
 	end
 	
 	if isHave == true then
-		ui.MsgBox(ClMsg("AlearyHaveItemReallyBuy?"), string.format("TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET('%s', %d)", tpitemname, classid), "None");
+        local scpStr = 'TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET';
+        if isWingMode == true then
+            scpStr = 'TPITEM_WING_PUSH_INTO_BASKET';
+        end
+		ui.MsgBox(ClMsg("AlearyHaveItemReallyBuy?"), string.format("%s('%s', %d)", scpStr, tpitemname, classid), "None");
 	else
-		TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET(tpitemname, classid)
+        if isWingMode == true then
+            TPITEM_WING_PUSH_INTO_BASKET(parent, tpitemname, classid);
+        else
+		    TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET(tpitemname, classid);
+        end
 	end
 end
 
@@ -632,17 +636,21 @@ function UPDATE_RECYCLE_BASKET_MONEY(frame, type) -- buy? sell?
 end
 
 
-function TPSHOP_ITEM_RECYCLE_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)
-	
+function TPSHOP_ITEM_RECYCLE_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)	
 	local frame = ui.GetFrame("tpitem");
-	local slotset = nil;
+	local slotset = nil;	
+    local itemobj = nil;
+    if parent:GetUserValue('WING_ITEM') ~= 'YES' then    
+	    local obj = GetClassByType("recycle_shop", tpitem_clsID)
+	    if obj == nil then
+		    return;
+	    end
 	
-	local obj = GetClassByType("recycle_shop", tpitem_clsID)
-	if obj == nil then
-		return;
-	end
-	
-	local itemobj = GetClass("Item", obj.ClassName)
+	    itemobj = GetClass("Item", obj.ClassName);
+    else
+        itemobj = GetClassByType('Item', tpitem_clsID);
+    end
+
 	if itemobj == nil then
 		return;
 	end
@@ -652,6 +660,8 @@ function TPSHOP_ITEM_RECYCLE_PREVIEW_PREPROCESSOR(parent, control, tpitemname, t
 		TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);
 	elseif itemobj.ClassType == "Hat" then
 		TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj);
+    elseif itemobj.ClassType == "Wing" then
+		TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 2, tpitemname, itemobj);
 	end
 end
 

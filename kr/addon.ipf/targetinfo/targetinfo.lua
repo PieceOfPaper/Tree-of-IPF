@@ -86,6 +86,10 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 	if argStr == "None" then
 		return;
 	end
+
+	if GetZoneName() == 'c_Klaipe_event' then
+		return;
+	end
 	
 	local mypclevel = GETMYPCLEVEL();
 	local levelcolor = ""

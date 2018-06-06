@@ -10,7 +10,7 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 		local frame = nil;
 		if AUTO_SELL_BUFF == sellType then
 			 frame = ui.GetFrame("buffseller_target");
-		elseif  sellType == AUTO_SELL_PERSONAL_SHOP then
+		elseif sellType == AUTO_SELL_PERSONAL_SHOP then
 			frame = ui.GetFrame("personal_shop_register");
 		elseif sellType == AUTO_TITLE_FOOD_TABLE then
 		elseif sellType == AUTO_SELL_OBLATION then
@@ -19,6 +19,8 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 			frame = ui.GetFrame("switchgender")
 		elseif sellType == AUTO_SELL_ENCHANTERARMOR then
 			frame = ui.GetFrame("enchantarmor");
+        elseif sellType == AUTO_SELL_PORTAL then
+			frame = ui.GetFrame("portal_seller");
 		else
 			CLOSE_SQUIRE_STORE(handle, skillID);
 		end
@@ -51,14 +53,16 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 		pic:SetImage("sign_bong");
 	elseif sellType == AUTO_SELL_ORACLE_SWITCHGENDER then
 		pic:SetImage("sign_gender");
-  elseif sellType == AUTO_ENCHANTAROR_STORE_OPEN then
+    elseif sellType == AUTO_ENCHANTAROR_STORE_OPEN then
 		pic:SetImage("sign_gender");
 	elseif sellType == AUTO_SELL_ENCHANTERARMOR then
 		pic:SetImage("sign_enchant");
-  elseif sellType == AUTO_SELL_ORACLE_SWITCHGENDER then
+    elseif sellType == AUTO_SELL_ORACLE_SWITCHGENDER then
 		pic:SetImage("sign_gender");
 	elseif sellType == AUTO_SELL_APPRAISE then
 		pic:SetImage("sign_Appraiser");
+    elseif sellType == AUTO_SELL_PORTAL then
+		pic:SetImage("sign_potal");
 	else
 		pic:SetImage("sign_buy");
 	end
@@ -69,7 +73,12 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 	-- level을 표시해야 하는 경우 레벨과 타이틀이 함께 있는 ui를 보여주고, 아니면 이름만 보여줌
 	local lvBox = frame:GetChild("withLvBox")
 	local text = frame:GetChild("text");
-	if sellType == AUTO_SELL_BUFF or sellType == AUTO_SELL_GEM_ROASTING or sellType == AUTO_SELL_SQUIRE_BUFF or sellType == AUTO_SELL_ENCHANTERARMOR or sellType == AUTO_SELL_APPRAISE then
+	if  sellType == AUTO_SELL_BUFF 
+        or sellType == AUTO_SELL_GEM_ROASTING 
+        or sellType == AUTO_SELL_SQUIRE_BUFF 
+        or sellType == AUTO_SELL_ENCHANTERARMOR 
+        or sellType == AUTO_SELL_APPRAISE
+        or sellType == AUTO_SELL_PORTAL then
 		local lvText = lvBox:GetChild("lv_text")
 		local lvTitle = lvBox:GetChild('lv_title')
 		lvText:SetTextByKey("value", skillLv)

@@ -36,7 +36,7 @@ end
 
 function Petrification_ENTER(actor, obj, buff)
 
-	-- actor:GetEffect():EnableVibrate(1, 0.5, 0.5, 50.0); -- 얼굴 깨지는 것 때문에 임시로 주석.
+    -- actor:GetEffect():EnableVibrate(1, 0.5, 0.5, 50.0); -- 얼굴 깨지는 것 때문에 임시로 주석.
     -- imcSound.PlaySoundItem(cls.Sound);
     -- actor:PlaySound("SOUNDNAME");
 
@@ -117,12 +117,13 @@ function PouncingClientScp_LEAVE(actor, obj, buff)
 end
 
 function LimaconClientScp_ENTER(actor, obj, buff)
-    actor:GetAnimation():SetSTDAnim("ASTD");
-    actor:GetAnimation():SetTURNAnim("None");
-    actor:SetMovingShotAnimation("SKL_LIMACON");
-    
-
-    actor:SetAlwaysBattleState(true);
+--    actor:GetAnimation():SetSTDAnim("ASTD");
+--    actor:GetAnimation():SetTURNAnim("None");
+--    actor:SetMovingShotAnimation("SKL_LIMACON");
+--    
+--
+--    actor:SetAlwaysBattleState(true);
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
 
 function LimaconClientScp_LEAVE(actor, obj, buff)
@@ -130,15 +131,17 @@ function LimaconClientScp_LEAVE(actor, obj, buff)
     actor:GetAnimation():ResetTURNAnim();
     actor:SetMovingShotAnimation("");
     actor:SetAlwaysBattleState(false);
-
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
 
 function RunningShotClientScp_ENTER(actor, obj, buff)
-    actor:SetMovingShotAnimation("ATKRUN");
+--    actor:SetMovingShotAnimation("ATKRUN");
+    ScpChangeMovingShotAnimationSet(actor, obj, buff)
 end
 
 function RunningShotClientScp_LEAVE(actor, obj, buff)
     actor:SetMovingShotAnimation("");
+    ScpChangeMovingShotAnimationSet(actor, obj, buff)
 end
 
 function FlutingClientScp_ENTER(actor, obj, buff)
@@ -182,6 +185,35 @@ function Murmillo_ChangeStance_LEAVE(actor, obj, buff)
     actor:GetAnimation():ResetTURNAnim();
     actor:GetAnimation():ResetSTDAnim();
     actor:GetAnimation():ResetRUNAnim();
+
+end
+
+
+function Dragoon_ChangeStance_ENTER(actor, obj, buff)
+
+    actor:SetAlwaysBattleState(true);
+
+--    actor:GetAnimation():SetChangeJumpAnim(true);
+--    actor:GetAnimation():SetTURNAnim("SKL_MURMILLO_ATURN");
+--    actor:GetAnimation():SetSTDAnim("SKL_MURMILLO_ASTD");
+--    actor:GetAnimation():SetRUNAnim("SKL_MURMILLO_ARUN");
+--    actor:GetAnimation():SetLANDAnim("SKL_MURMILLO_LAND")
+--    actor:GetAnimation():SetRAISEAnim("SKL_MURMILLO_RAISE")
+--    actor:GetAnimation():SetOnAIRAnim("SKL_MURMILLO_ONAIR")
+--    actor:GetAnimation():SetFALLAnim("SKL_MURMILLO_FALL")
+end
+
+
+function Dragoon_ChangeStance_LEAVE(actor, obj, buff)
+    
+    actor:SetAlwaysBattleState(false);
+
+    actor:GetAnimation():PlayFixAnim('SKL_DRAGOONHELMET_OFF', 1, 0);
+--    actor:GetAnimation():SetChangeJumpAnim(false);
+--    actor:GetAnimation():InitJumpAnimation();
+--    actor:GetAnimation():ResetTURNAnim();
+--    actor:GetAnimation():ResetSTDAnim();
+--    actor:GetAnimation():ResetRUNAnim();
 
 end
 
@@ -387,14 +419,14 @@ end
 
 -- 버프이펙트 크기설정
 function CalcBuffEffScale(radius)
-	local scale = 1;		-- 기준. 스몰 m_radius = 12
+    local scale = 1;        -- 기준. 스몰 m_radius = 12
 
     if radius >= 50 then
-		scale = 2.5;		-- 엑스라지
+        scale = 2.5;        -- 엑스라지
     elseif radius >= 20 then
-		scale = 2;			-- 라지
+        scale = 2;          -- 라지
     elseif radius >= 15 then
-		scale = 1.5;		-- 미들
+        scale = 1.5;        -- 미들
     end
     return scale;
 end
@@ -415,7 +447,7 @@ function IsSkillStateByBuff(isForGuard)
 end
 
 function IsSkillStateOnCompanionByBuff()
-	-- 텔레키네시스
+    -- 텔레키네시스
   if info.GetMyPcBuff('TeleCast') ~= nil then
     return 1;
   end
@@ -501,6 +533,30 @@ function SuperDrop_Client_LEAVE(actor, obj, buff)
     end
     
 end
+
+
+
+-- Challenge Mode DKP Monster Buff
+
+function ChallengeMode_Client_ENTER(actor, obj, buff)
+    if buff.arg2 == 1 then
+        actor:GetEffect():SetColorBlink(0,0,0,0,1,0.8,0.07,1, 1.5, 1);
+    else
+        actor:GetEffect():SetColorBlink(0,0,0,0,180/255,43/255,208/255,1, 1.5, 1);
+    end
+end
+
+function ChallengeMode_Client_LEAVE(actor, obj, buff)
+    if buff.arg2 == 1 then
+        actor:GetEffect():SetColorBlink(0,0,0,0,1,3,3,3, 0, 1);
+    else
+        actor:GetEffect():SetColorBlink(0,0,0,0,1,1,1,1, 0 , 1);
+    end
+    
+end
+
+
+
 
 function EliteMonster_ENTER(actor, obj, buff)
     actor:SetAuraInfo("EliteBuff");
@@ -827,6 +883,13 @@ function Burrow_Rogue_CLIENT_LEAVE(actor, obj, buff)
     movie.ShowModel(actor:GetHandleVal(), 1);
 end
 
+function ShadowPool_Buff_CLIENT_ENTER(actor, obj, buff)
+    movie.ShowModel(actor:GetHandleVal(), 0);   
+end
+
+function ShadowPool_Buff_CLIENT_LEAVE(actor, obj, buff)
+    movie.ShowModel(actor:GetHandleVal(), 1);
+end
 
 function IMPALER_STUN_ANI_ENTER(actor, obj, buff, rps, dir)
     actor:GetAnimation():SetSTDAnim("impaler_stun");
@@ -848,7 +911,7 @@ end
 
 function IronMaiden_ENTER(actor, obj, buff)
     local actorPos = actor:GetPos();
-    actor:GetClientMonster():ClientMonsterToPos("pcskill_IronMaiden", "STD", actorPos.x, actorPos.y, actorPos.z, 0, 0);
+    actor:GetClientMonster():ClientMonsterToPos("pcskill_IronMaiden", "BORN", actorPos.x, actorPos.y, actorPos.z, 0, 0);
 end
 
 function IronMaiden_LEAVE(actor, obj, buff)
@@ -915,4 +978,85 @@ end
 function SlitheringDebuffClient_LEAVE(actor, obj, buff)
     print("leave")
     actor:GetAnimation():ResetWLKAnim();
+end
+
+function DoubleGunStance_ENTER(actor, obj, buff)
+--    actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
+--    actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
+--    actor:SetAlwaysBattleState(true);
+--    actor:SetMovingShotAnimation("DOUBLEGUN_ATKMOVE");
+--    
+--    actor:GetAnimation():SetTURNAnim("SKL_DOUBLEGUN_ATURN");
+--    actor:GetAnimation():SetSTDAnim("SKL_DOUBLEGUN_ASTD");
+--    actor:GetAnimation():SetRUNAnim("SKL_DOUBLEGUN_ARUN");
+--    actor:GetAnimation():SetLANDAnim("SKL_DOUBLEGUN_LAND")
+--    actor:GetAnimation():SetRAISEAnim("SKL_DOUBLEGUN_RAISE")
+--    actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_ONAIR")
+--    actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
+end
+
+function DoubleGunStance_LEAVE(actor, obj, buff)
+    actor:DetachCopiedModel();
+    actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_L_HAND");
+    actor:SetAlwaysBattleState(false);
+    actor:GetAnimation():SetChangeJumpAnim(false);
+    actor:SetMovingShotAnimation("");
+    actor:GetAnimation():ResetTURNAnim();
+    actor:GetAnimation():ResetSTDAnim();
+    actor:GetAnimation():ResetRUNAnim();
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
+end
+
+
+
+function ScpChangeMovingShotAnimationSet(actor, obj, buff)
+    local buffRunningShot = actor:GetBuff():GetBuff('RunningShot_Buff');
+    local buffDoubleGunStance = actor:GetBuff():GetBuff('DoubleGunStance_Buff');
+    local buffLimacon = actor:GetBuff():GetBuff('Limacon_Buff');
+    
+    -- RunningShot_Buff (and) DoubleGunStance_Buff
+    if buffRunningShot ~= nil and buffDoubleGunStance ~= nil then
+        actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
+        actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
+        actor:SetAlwaysBattleState(true);
+        actor:SetMovingShotAnimation("DOUBLEGUN_ATKRUN");
+        
+        actor:GetAnimation():SetTURNAnim("SKL_DOUBLEGUN_ATURN");
+        actor:GetAnimation():SetSTDAnim("SKL_DOUBLEGUN_ASTD");
+        actor:GetAnimation():SetRUNAnim("SKL_DOUBLEGUN_ARUN");
+        actor:GetAnimation():SetLANDAnim("SKL_DOUBLEGUN_LAND")
+        actor:GetAnimation():SetRAISEAnim("SKL_DOUBLEGUN_RAISE")
+        actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_ONAIR")
+        actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
+    else
+        -- RunningShot_Buff
+        if buffRunningShot ~= nil then
+            actor:SetMovingShotAnimation("ATKRUN");
+        end
+        
+        -- DoubleGunStance_Buff
+        if buffDoubleGunStance ~= nil then
+            actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
+            actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
+            actor:SetAlwaysBattleState(true);
+            actor:SetMovingShotAnimation("DOUBLEGUN_ATKMOVE");
+            
+            actor:GetAnimation():SetTURNAnim("SKL_DOUBLEGUN_ATURN");
+            actor:GetAnimation():SetSTDAnim("SKL_DOUBLEGUN_ASTD");
+            actor:GetAnimation():SetRUNAnim("SKL_DOUBLEGUN_ARUN");
+            actor:GetAnimation():SetLANDAnim("SKL_DOUBLEGUN_LAND")
+            actor:GetAnimation():SetRAISEAnim("SKL_DOUBLEGUN_RAISE")
+            actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_ONAIR")
+            actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
+        end
+    end
+    
+    -- Limacon_Buff
+    if buffLimacon ~= nil then
+        actor:GetAnimation():SetSTDAnim("ASTD");
+        actor:GetAnimation():SetTURNAnim("None");
+        actor:SetMovingShotAnimation("SKL_LIMACON");
+        actor:SetAlwaysBattleState(true);
+    end
 end

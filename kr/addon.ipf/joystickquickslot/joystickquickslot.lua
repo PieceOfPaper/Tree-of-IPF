@@ -402,30 +402,6 @@ end
 function CLOSE_JOYSTICK_QUICKSLOT(frame)
 end
 
---[[
-function QUICKSLOTNEXPBAR_EXECUTE(slotIndex)
---print(slotIndex)
-	-- 휴식모드 ?슬롯 처리
-	local restFrame = ui.GetFrame('restquickslot')
-	if restFrame:IsVisible() == 1 then
-		REST_SLOT_USE(restFrame, slotIndex);
-		return;
-	end	
-	local input_r = keyboard.IsKeyDown("RIGHT");
-	print("zzzz")
-	local input_r2  = joystick.IsKeyPressed("JOY_BTN_1")
-
-	print(input_r2)
-
-	local quickslotFrame = ui.GetFrame('quickslotnexpbar');
-	local slot = GET_CHILD(quickslotFrame, "slot"..slotIndex+1, "ui::CSlot");
-	QUICKSLOTNEXPBAR_SLOT_USE(quickSlotFrame, slot, 'None', 0);	
-
-end
-]]--
-
-
-
 function UPDATE_JOYSTICK_INPUT(frame)
 
 	if IsJoyStickMode() == 0 then

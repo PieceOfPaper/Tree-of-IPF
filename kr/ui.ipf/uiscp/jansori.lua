@@ -64,9 +64,10 @@ function JANSORI(frame)
 					local condScp = _G[cls.CondScp];
 					if condScp == nil then
 						ErrorLog(cls.CondScp .. ScpArgMsg("Auto__HamSuKaeopeum_JanSoLiKeulLaeSeu_:_") .. cls.ClassName);
+					else
+						curCond = condScp(frame, cls);
 					end
 
-					curCond = condScp(frame, cls);
 				end
 			end
 		end
@@ -102,14 +103,14 @@ function JANSORI(frame)
 				jsFrame:ShowWindow(0);
 				JANSORI_CNT_NOTIFIED(cls);
 			end
-			jsFrame:SetLayerLevel(0);
+			
 		else
 			if curCond == 1 then
 				local jsFrame = ui.GetFrame(frameName);
 				if jsFrame ~= nil then
 					local x, y, moveYByFrameHeight = _G[cls.PosScp](frame, cls, jsFrame);
 					JANSORI_MOVE_BALLOON_FRAME(jsFrame, x, y, moveYByFrameHeight);
-					jsFrame:SetLayerLevel(0);
+			
 				end
 			end
 		end
@@ -219,9 +220,9 @@ end
 function JS_INV_STATE_CHANGED(frame, cond)
 	--[[
 	if cond == 1 then
-		SYSMENU_ENABLE_LOST_FOCUS(frame, 0);
+		
 	else
-		SYSMENU_ENABLE_LOST_FOCUS(frame, 1);
+		
 	end
 	]]
 end
@@ -257,10 +258,10 @@ function JS_INV_FULL_POS(frame, cls)
 		end
 	end
 
-	local btn = frame:GetChild("shop");
+	local btn = frame:GetChild("inven");
 
 	if btn == nil then
-		return 0,0;
+		return -500,-500;
 	end
 
 	local x, y = GET_GLOBAL_XY(btn);
@@ -283,14 +284,10 @@ end
 function UI_TUTO_REINF(frame)
 	JANSORI_SET_NOTIFIED(frame);
 	ui.OpenFrame("inventory");
-	--frame:EnableHideProcess(1);
-	--frame:RunUpdateScript("_UI_TUTO_GOTO_REINFORCE", 0.8);
-
 end
 
 function UI_TUTO_SHOP(frame)
-	JANSORI_SET_NOTIFIED(frame);
-	SYSMENU_SHOW_FOR_SEC(3);
+	JANSORI_SET_NOTIFIED(frame);	
 	frame:EnableHideProcess(1);
 	frame:RunUpdateScript("_UI_TUTO_AUTO_GOTO_SHOP", 0.8);
 
@@ -401,7 +398,7 @@ function JS_QUEST_RETURN_POS(frame)
 		end
 	end
 
-	return -200, -200;
+	return -500,-500;
 
 end
 
@@ -419,9 +416,9 @@ end
 
 function JS_SHOP_POS(frame)
 
-	local btn = frame:GetChild("shop");
+	local btn = frame:GetChild("inven");
 	if btn == nil then
-		return 0, 0;
+		return -500,-500;
 	end
 
 	local x, y = GET_GLOBAL_XY(btn);
@@ -450,6 +447,9 @@ end
 function JS_COLLETION_POS(frame)
 
 	local btn = frame:GetChild("collection");
+	if btn == nil then
+		return -500,-500;
+	end
 	local x, y = GET_GLOBAL_XY(btn);
 	return x, y;
 
@@ -477,7 +477,7 @@ function JS_BGEVENT_POS(frame, cls)
 		return pts.x - 50, pts.y;
 	end
 
-	return 10, 10;
+	return -500,-500;
 
 end
 
@@ -499,7 +499,7 @@ function JS_MONSTER_POS(frame, cls)
 	local clsName = cls.ScpArg;
 	local mon = world.GetMonsterByClassName(clsName, 250);
 	if mon == nil then
-		return 0, 0;
+		return -500,-500;
 	end
 
 	local point = info.GetPositionInUI(mon:GetHandleVal(), 2);
@@ -511,11 +511,12 @@ end
 function JS_MONSTER_FUNC(frame, cls)
 
 	local funcName = cls.ScpArg;
+	if nil ~= funcName then
 	local mon = world.GetMonsterByScp(funcName);
 	if mon ~= nil then
 		return 1;
 	end
-
+	end
 	return 0;
 end
 
@@ -523,7 +524,7 @@ function JS_MONSTER_FUNC_POS(frame, cls)
 	local funcName = cls.ScpArg;
 	local mon = world.GetMonsterByScp(funcName);
 	if mon == nil then
-		return 1, 1;
+		return -500,-500;
 	end
 
 	local point = info.GetPositionInUI(mon:GetHandleVal(), 2);
@@ -578,7 +579,7 @@ function JS_HP_POS(frame, cls)
 	local quickSlotFrame = ui.GetFrame("quickslotnexpbar");
 	local slot = GET_QUICKSLOT_ITEM_BY_FUNC(quickSlotFrame, GET_HP_POTION_FUNC);
 	if slot == nil then
-		return -1, -1;
+		return -500,-500;
 	end
 
 	local x, y = GET_GLOBAL_XY(slot);
@@ -632,7 +633,7 @@ function JS_SP_POS(frame, cls)
 	local quickSlotFrame = ui.GetFrame("quickslotnexpbar");
 	local slot = GET_QUICKSLOT_ITEM_BY_FUNC(quickSlotFrame, GET_SP_POTION_FUNC);
 	if slot == nil then
-		return -1, -1;
+		return -500,-500;
 	end
 
 	local x, y  = GET_GLOBAL_XY(slot);
@@ -686,7 +687,7 @@ function JS_STA_POS(frame, cls)
 	local quickSlotFrame = ui.GetFrame("quickslotnexpbar");
 	local slot = GET_QUICKSLOT_ITEM_BY_FUNC(quickSlotFrame, GET_STA_POTION_FUNC);
 	if slot == nil then
-		return -1, -1;
+		return -500,-500;
 	end
 
 	local x, y  = GET_GLOBAL_XY(slot);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist>
@@ -20,6 +20,7 @@
 		<image name="c_warrior_templar" file="\icon\class_warrior.tga" imgrect="400 200 100 100" CMM_Caption="템플러"/>
 		<image name="c_warrior_lancer" file="\icon\class_warrior.tga" imgrect="0 300 100 100" CMM_Caption="랜서"/>
 		<image name="c_warrior_murmillo" file="\icon\class_warrior.tga" imgrect="100 300 100 100" CMM_Caption="무르밀로"/>
+		<image name="c_warrior_Matador" file="\icon\class_warrior.tga" imgrect="200 300 100 100" CMM_Caption="마타도르"/>
 		<image name="c_wizard_wizard" file="\icon\class_wizard.tga" imgrect="0 0 100 100" CMM_Caption="위저드"/>
 		<image name="c_wizard_pyromancer" file="\icon\class_wizard.tga" imgrect="100 0 100 100" CMM_Caption="파이로맨서"/>
 		<image name="c_wizard_cryomancer" file="\icon\class_wizard.tga" imgrect="200 0 100 100" CMM_Caption="크리오맨서"/>
@@ -36,6 +37,7 @@
 		<image name="c_wizard_runecaster" file="\icon\class_wizard.tga" imgrect="300 200 100 100" CMM_Caption="룬캐스터"/>
 		<image name="c_wizard_sage" file="\icon\class_wizard.tga" imgrect="400 200 100 100" CMM_Caption="세이지"/>
 		<image name="c_wizard_enchanter" file="\icon\class_wizard.tga" imgrect="0 300 100 100" CMM_Caption="인챈터"/>
+		<image name="c_wizard_shadowMancer" file="\icon\class_wizard.tga" imgrect="100 300 100 100" CMM_Caption="섀도우맨서"/>
 		<image name="c_archer_archer" file="\icon\class_archer.tga" imgrect="0 0 100 100" CMM_Caption="아쳐"/>
 		<image name="c_archer_ranger" file="\icon\class_archer.tga" imgrect="100 0 100 100" CMM_Caption="레인저"/>
 		<image name="c_archer_quarrelshooter" file="\icon\class_archer.tga" imgrect="200 0 100 100" CMM_Caption="쿼렐슈터"/>
@@ -52,6 +54,7 @@
 		<image name="c_archer_musketeer" file="\icon\class_archer.tga" imgrect="300 200 100 100" CMM_Caption="머스킷티어"/>
 		<image name="c_archer_mergen" file="\icon\class_archer.tga" imgrect="400 200 100 100" CMM_Caption="메르겐"/>
 		<image name="c_archer_appraiser" file="\icon\class_archer.tga" imgrect="0 300 100 100" CMM_Caption="감정사"/>
+		<image name="c_archer_bulletmarker" file="\icon\class_archer.tga" imgrect="100 300 100 100" CMM_Caption="불릿마커"/>
 		<image name="c_cleric_cleric" file="\icon\class_cleric.tga" imgrect="0 0 100 100" CMM_Caption="클레릭"/>
 		<image name="c_cleric_kriwi" file="\icon\class_cleric.tga" imgrect="100 0 100 100" CMM_Caption="크리비"/>
 		<image name="c_cleric_priest" file="\icon\class_cleric.tga" imgrect="200 0 100 100" CMM_Caption="프리스트"/>
@@ -69,5 +72,6 @@
 		<image name="c_cleric_inquisitor" file="\icon\class_cleric.tga" imgrect="400 200 100 100" CMM_Caption="인퀴지터"/>
 		<image name="c_cleric_daoshi" file="\icon\class_cleric.tga" imgrect="0 300 100 100" CMM_Caption="도사"/>
 		<image name="c_cleric_miko" file="\icon\class_cleric.tga" imgrect="100 300 100 100" CMM_Caption="무녀"/>
+		<image name="c_cleric_Zealot" file="\icon\class_cleric.tga" imgrect="200 300 100 100" CMM_Caption="질럿"/>
 	</imagelist>
 </skinset>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="None" particleName="E_GRINDCUTTE" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<BlendOn frame="14" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="16" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="18" R="100" G="100" B="100" A="50"/>
+	<Shockwave frame="0" type="2" intensity="2" frequency="70" duration="1" range="1000"/>
+	<BlendOff frame="20" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

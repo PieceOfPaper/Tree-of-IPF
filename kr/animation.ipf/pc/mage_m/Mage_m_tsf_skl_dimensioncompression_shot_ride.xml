@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="100" G="40" B="70" A="50"/>
+	<BlendOn frame="6" R="50" G="20" B="70" A="50"/>
+	<BlendOff frame="7" R="0" G="0" B="0" A="0"/>
+	<Particle frame="6" attachNode="Dummy_effect_craft" particleName="F_light128_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="atk_rod"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_2"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

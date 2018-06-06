@@ -78,7 +78,7 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 	if false == VARICON_VISIBLE_STATE_CHANTED(frame, "necronomicon", "necronomicon")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "grimoire", "grimoire")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "guild", "guild")
-	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "poisonpot", "poisonpot")
+	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "poisonpot", "poisonpot")    
 	then
 		return;
 	end
@@ -86,14 +86,14 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 	DESTROY_CHILD_BY_USERVALUE(frame, "IS_VAR_ICON", "YES");
 
     local extraBag = frame:GetChild('extraBag');
-	local status = frame:GetChild("status");
-	local offsetX = status:GetX() - extraBag:GetX();
+	local rankBtn = frame:GetChild("rankBtn");	
+	local offsetX = rankBtn:GetX() - extraBag:GetX();
 	local rightMargin = extraBag:GetMargin().right + offsetX;
 
-	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");    
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "necronomicon", "necronomicon", "sysmenu_card", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "grimoire", "grimoire", "sysmenu_neacro", rightMargin, offsetX);
-	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "poisonpot", "poisonpot", "sysmenu_wugushi", rightMargin, offsetX);	
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "poisonpot", "poisonpot", "sysmenu_wugushi", rightMargin, offsetX);	    
 end
 
 function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, rightMargin, offsetX, hotkeyName)
@@ -353,57 +353,6 @@ function SYSMENU_BTN_LOST_FOCUS(frame, btnCtrl, argStr, argNum)
 	end
 
 	ui.CloseFrame("apps");
-end
-
-function SYSMENU_LOSTFOCUS_SCP(frame, ctrl, argStr, argNum)
-
-
-	--[[
-	메뉴 계속 활성화 되어있도록 해서 주석처리
-
-	local focusFrame = ui.GetFocusFrame();
-	if focusFrame ~= nil then
-		local focusFrameName = focusFrame:GetName();
-		if focusFrameName == "apps" or focusFrameName == "sysmenu" then
-			return;
-		end
-	end
-
-	if 1 == ctrl:GetUserIValue("DISABLE_L_FOCUS") then
-		return;
-	end
-
-	
-	]]
-end
-
-function SYSMENU_SHOW_FOR_SEC(sec)
-	--[[
-	local frame = ui.GetFrame("sysmenu");
-	SYSMENU_ENABLE_LOST_FOCUS(frame, 0);
-	frame:RunUpdateScript("SYSMENU_AUTO_LOST_FOCUS", sec);
-	]]
-end
-
-function SYSMENU_AUTO_LOST_FOCUS(frame)
-	--SYSMENU_ENABLE_LOST_FOCUS(frame, 1)
-	return 0;
-end
-
-function SYSMENU_ENABLE_LOST_FOCUS(frame, isEnable)
-	--[[
-	if isEnable == 1 then
-		frame:SetUserValue("DISABLE_L_FOCUS", 0);
-		frame:SetEffect("sysmenu_LostFocus", ui.UI_LOSTFOCUS);
-		frame:SetEffect("sysmenu_LostFocus", ui.UI_TEMP0);
-		frame:StartEffect(ui.UI_TEMP0);
-	else
-		frame:SetUserValue("DISABLE_L_FOCUS", 1);
-		frame:SetEffect("None", ui.UI_LOSTFOCUS);
-		frame:SetEffect("sysmenu_MouseMove", ui.UI_TEMP0);
-		frame:StartEffect(ui.UI_TEMP0);
-	end
-	]]
 end
 
 function SYSMENU_UPDATE_QUEUE(frame, queue)

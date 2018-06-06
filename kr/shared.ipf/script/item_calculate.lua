@@ -1214,16 +1214,18 @@ function GET_APPRAISAL_PRICE(item, SellPrice)
     -- ???????캿추??¸??μ???
     local lv = TryGetProp(item,"UseLv");
     local grade = TryGetProp(item,"ItemGrade")
-    local priceRatio = 100;
+    local priceRatio = 10;
     if lv == nil then
         return 0;
     end
 
     if SellPrice == nil then
-        if grade == 2 then
+        if grade <= 2 then
             SellPrice = lv * priceRatio
+        elseif grade > 2 then 
+            SellPrice = math.floor((lv * priceRatio) * 1.5)
         else
-            SellPrice = (lv * priceRatio) * 1.5
+            return;
         end
     end
     return SellPrice;
@@ -1231,13 +1233,14 @@ end
 
 function GET_DECOMPOSE_PRICE(item)
     local lv = TryGetProp(item,"UseLv");
+    local itemGradeRatio = {75, 50, 35, 20};
     local grade = TryGetProp(item,"ItemGrade")
     local price = 0;
     if lv == nil then
         return
     end
     
-    price = SyncFloor(lv * 19.25)
+    price = math.floor(1 + (lv / itemGradeRatio[grade])) * 100
     
     return price;
 end

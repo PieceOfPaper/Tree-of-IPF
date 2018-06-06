@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<Sound frame="0.00" soundFile="skl_wiz_mackangdal_shot"/>
+	<Sound frame="0.00" soundFile="voice_archer_f_atk"/>
+	<Sound frame="10.00" soundFile="voice_atk_long_war_f"/>
+	<Sound frame="10.00" soundFile="skl_eff_forcespinner_1"/>
+	<Sound frame="10.00" soundFile="skl_fgt_absoluteprotection"/>
+	<BlendOn frame="11" R="150" G="80" B="255" A="100"/>
+	<BlendOn frame="14" R="255" G="255" B="255" A="0"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_buff_basic050_circle" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_emitter" particleName="I_buff003" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_effect_run02" particleName="F_buff_basic050" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<BlendOff frame="14" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

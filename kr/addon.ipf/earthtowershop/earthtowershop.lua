@@ -36,6 +36,12 @@ function REQ_KEY_QUEST_TRADE_HETHRAN_LV2_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function HALLOWEEN_EVENT_ITEM_SHOP_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'HALLOWEEN');
+	ui.OpenFrame('earthtowershop');
+end
+
 function EARTH_TOWER_SHOP_OPEN(frame)
 	if frame == nil then
 		frame = ui.GetFrame("earthtowershop")
@@ -90,6 +96,8 @@ function EARTH_TOWER_INIT(frame, shopType)
 	    title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle1"));
 	elseif shopType == 'KeyQuestShop2' then
 	    title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle2"));
+	elseif shopType == 'HALLOWEEN' then
+		title:SetText('{@st43}'..ScpArgMsg("EVENT_HALLOWEEN_SHOP_NAME"));
 	end
 
 	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
@@ -397,6 +405,12 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("KEYQUESTSHOP1_SHOP_TREAD", resultlist, cntText);
 	elseif shopType == 'KeyQuestShop2' then
 		item.DialogTransaction("KEYQUESTSHOP2_SHOP_TREAD", resultlist, cntText);
+	elseif shopType == 'HALLOWEEN' then
+		item.DialogTransaction("HALLOWEEN_SHOP_TREAD", resultlist, cntText);
+	elseif shopType == 'EventShop3' then
+		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD3", resultlist, cntText);	
+	elseif shopType == 'EventShop4' then
+		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD4", resultlist, cntText);
 	end
 
 	frame:ShowWindow(0)

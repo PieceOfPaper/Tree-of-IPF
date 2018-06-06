@@ -109,6 +109,8 @@ function QUESTDETAIL_INFO(questID, xPos)
     
     y = MAKE_BASIC_REWARD_RANDOM_CTRL(box, questCls, cls, y + 20);
     
+    y = MAKE_REWARD_STEP_ITEM_CTRL(box, questCls, cls, y, 'SUCCESS')
+    
 	y = MAKE_BASIC_REWARD_REPE_CTRL(box, questCls, cls, y + 20);
 
     if questCls.AbandonUI == 'YES' then

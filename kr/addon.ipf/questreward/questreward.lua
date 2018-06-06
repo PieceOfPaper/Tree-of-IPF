@@ -171,6 +171,8 @@ function QUEST_REWARD_TEST(frame, questID)
 	y = MAKE_BASIC_REWARD_ITEM_CTRL(box, cls, y);
 	
 	y = MAKE_BASIC_REWARD_RANDOM_CTRL(box, questCls, cls, y + 20)
+    y = MAKE_REWARD_STEP_ITEM_CTRL(box, questCls, cls, y, 'SUCCESS')
+    y = y + 10
 	
     if cls.Success_RepeatComplete ~= 'None' then
     	y = MAKE_BASIC_REWARD_REPE_CTRL(box, questCls, cls, y + 20);

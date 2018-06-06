@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="AGARIO_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="1684627826">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="2000006" Pos="-448.10#241.05#356.46" angle="-42" range="600" genCount="1" maxStackCount="1" genTime="360000" genReadyTime="360000" objectKey="0" UseAiOutOfPc="1" searchRange="300" tendency="1"/>
+                    <Obj Type="Monster" MonType="2000003" Pos="-112.88#149.07#1.51" range="1500" genCount="1" genTime="30000" objectKey="1" UseAiOutOfPc="1" propList="&apos;MHPRate&apos; &apos;50&apos; "/>
+                    <Obj Type="Monster" MonType="2000004" Pos="-105.84#149.07#1.89" range="1500" genCount="1" autoGen="0" objectKey="2" propList="&apos;MHPRate&apos; &apos;33&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="2000004" Pos="-73.15#149.07#15.52" range="1500" genCount="1" autoGen="0" objectKey="3" propList="&apos;MHPRate&apos; &apos;33&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="2000004" Pos="-97.97#149.07#-31.37" range="1500" genCount="1" autoGen="0" objectKey="4" propList="&apos;MHPRate&apos; &apos;33&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="2000002" Pos="-34.33#149.07#-35.60" range="1500" genCount="1" autoGen="0" objectKey="5" propList="&apos;MHPRate&apos; &apos;33&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="2000002" Pos="-160.92#149.09#-43.76" range="1500" genCount="1" autoGen="0" objectKey="6" propList="&apos;MHPRate&apos; &apos;33&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="2000005" Pos="-38.91#149.07#-80.80" range="1500" genCount="1" autoGen="0" objectKey="7" propList="&apos;MHPRate&apos; &apos;66&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="30000" eventName="몬스터 리젠">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6"/>
+                                <Num Num="40"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="30000" eventName="몬스터 리젠">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/7"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="END" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

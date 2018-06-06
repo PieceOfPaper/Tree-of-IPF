@@ -50,19 +50,23 @@ function TPSHOP_REDRAW_TPITEMLIST()
 	local tpitemtree = GET_CHILD_RECURSIVELY(frame, "tpitemtree");
 	
 	local tnode = tpitemtree:GetLastSelectedNode();
-	local obj = tnode:GetObject();
-	local parent_tnode = nil;
-	if obj == nil then
-		parent_tnode = tnode.pParentNode;
-		if parent_tnode ~= nil then			
-			obj = parent_tnode:GetObject();		
-		end
-	end
+    local obj = nil;
+    if tnode ~= nil then
+	    obj = tnode:GetObject();
+	    local parent_tnode = nil;
+	    if obj == nil then
+		    parent_tnode = tnode.pParentNode;
+		    if parent_tnode ~= nil then			
+			    obj = parent_tnode:GetObject();		
+		    end
+	    end
+    end
 	
 	if obj ~= nil then
-			local gBox = obj:GetChild("group");
-			gBox:SetSkinName("baseyellow_btn");
+		local gBox = obj:GetChild("group");
+		gBox:SetSkinName("baseyellow_btn");
 	end
+
 	tpitemtree:CloseNodeAll();
 	frame:SetUserValue("LAST_OPEN_SUB_CATEGORY", "None");	
 	frame:SetUserValue("SHOWITEM_OPTION", typeIndex);	
@@ -72,9 +76,12 @@ function TPSHOP_REDRAW_TPITEMLIST()
 end
 
 function TPSHOP_TAB_CHANGE(frame, ctrl, argStr, argNum)
-	local tabObj		    = frame:GetChild('shopTab');
-	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
-	local curtabIndex	    = itembox_tab:GetSelectItemIndex();
+	local tabObj = frame:GetChild('shopTab');
+	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
+	local curtabIndex = itembox_tab:GetSelectItemIndex();
+    if curtabIndex == 3 then -- wingStore
+        return;
+    end
 	TPSHOP_TAB_VIEW(frame, curtabIndex);
 end
 
@@ -95,7 +102,7 @@ function TPITEM_OPEN(frame)
 	end
 end
 
-function TPSHOP_TAB_VIEW(frame, curtabIndex)
+function TPSHOP_TAB_VIEW(frame, curtabIndex)	
 	local frame = ui.GetFrame("tpitem");
 	local rightFrame = frame:GetChild('rightFrame');
 	local rightgbox = rightFrame:GetChild('rightgbox');
@@ -110,72 +117,74 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	local rcycle_basketgbox = GET_CHILD_RECURSIVELY(frame,'rcycle_basketgbox');
 	
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
-	if curtabIndex == 0 then	
-		TPITEM_DRAW_NC_TP();
-		TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-		basketgbox:SetVisible(0);
-		previewgbox:SetVisible(0);
-		previewStaticTitle:SetVisible(0);	
-		cashInvGbox:SetVisible(1);
-		rcycle_basketgbox:SetVisible(0);
-		tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
-		tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
-	elseif curtabIndex == 1 then
-		basketgbox:SetVisible(1);
-		previewgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);
-		cashInvGbox:SetVisible(0);
-		rcycle_basketgbox:SetVisible(0);
-	elseif curtabIndex == 2 then -- 리사이클 샵
-		rcycle_basketgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);	
-		previewgbox:SetVisible(1);
-		basketgbox:SetVisible(0);
-		cashInvGbox:SetVisible(0);
-		RECYCLE_SHOW_TO_ITEM()
-	end
+	    if curtabIndex == 0 then	
+		    TPITEM_DRAW_NC_TP();
+		    TPSHOP_SHOW_CASHINVEN_ITEMLIST();
+		    basketgbox:SetVisible(0);
+		    previewgbox:SetVisible(0);
+		    previewStaticTitle:SetVisible(0);	
+		    cashInvGbox:SetVisible(1);
+		    rcycle_basketgbox:SetVisible(0);
+		    tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
+		    tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
+	    elseif curtabIndex == 1 then
+		    basketgbox:SetVisible(1);
+		    previewgbox:SetVisible(1);
+		    previewStaticTitle:SetVisible(1);
+		    cashInvGbox:SetVisible(0);
+		    rcycle_basketgbox:SetVisible(0);
+	    elseif curtabIndex == 2 then -- 리사이클 샵
+		    rcycle_basketgbox:SetVisible(1);
+		    previewStaticTitle:SetVisible(1);	
+		    previewgbox:SetVisible(1);
+		    basketgbox:SetVisible(0);
+		    cashInvGbox:SetVisible(0);
+		    RECYCLE_SHOW_TO_ITEM()
+	    end
 	elseif (config.GetServiceNation() == "THI") then	
-	if curtabIndex == 0 then	
-		UPDATE_NEXON_AMERICA_SELLITEMLIST();
-		TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-		basketgbox:SetVisible(0);
-		previewgbox:SetVisible(0);
-		previewStaticTitle:SetVisible(0);	
-		cashInvGbox:SetVisible(0);
-		rcycle_basketgbox:SetVisible(0);
-		ncChargebtn:SetVisible(0);
-	elseif curtabIndex == 1 then
-		basketgbox:SetVisible(1);
-		previewgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);
-		cashInvGbox:SetVisible(0);
-		rcycle_basketgbox:SetVisible(0);
-		ncChargebtn:SetVisible(0);
-	elseif curtabIndex == 2 then -- 리사이클 샵
-		rcycle_basketgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);	
-		previewgbox:SetVisible(1);
-		basketgbox:SetVisible(0);
-		cashInvGbox:SetVisible(0);
-		ncChargebtn:SetVisible(0);
-		RECYCLE_SHOW_TO_ITEM()
-	end
+	    if curtabIndex == 0 then	
+		    UPDATE_NEXON_AMERICA_SELLITEMLIST();
+		    TPSHOP_SHOW_CASHINVEN_ITEMLIST();
+		    basketgbox:SetVisible(0);
+		    previewgbox:SetVisible(0);
+		    previewStaticTitle:SetVisible(0);	
+		    cashInvGbox:SetVisible(0);
+		    rcycle_basketgbox:SetVisible(0);
+		    ncChargebtn:SetVisible(0);
+	    elseif curtabIndex == 1 then
+		    basketgbox:SetVisible(1);
+		    previewgbox:SetVisible(1);
+		    previewStaticTitle:SetVisible(1);
+		    cashInvGbox:SetVisible(0);
+		    rcycle_basketgbox:SetVisible(0);
+		    ncChargebtn:SetVisible(0);
+	    elseif curtabIndex == 2 then -- 리사이클 샵
+		    rcycle_basketgbox:SetVisible(1);
+		    previewStaticTitle:SetVisible(1);	
+		    previewgbox:SetVisible(1);
+		    basketgbox:SetVisible(0);
+		    cashInvGbox:SetVisible(0);
+		    ncChargebtn:SetVisible(0);
+		    RECYCLE_SHOW_TO_ITEM()
+	    end
 	else
-	if curtabIndex == 0 then
-		basketgbox:SetVisible(1);
-		previewgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);
-		cashInvGbox:SetVisible(0);
-		rcycle_basketgbox:SetVisible(0);
-	elseif curtabIndex == 1 then -- 리사이클 샵
-		rcycle_basketgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);	
-		previewgbox:SetVisible(1);
-		basketgbox:SetVisible(0);
-		cashInvGbox:SetVisible(0);
-		RECYCLE_SHOW_TO_ITEM()
-	end
-end
+	    if curtabIndex == 0 then
+		    basketgbox:SetVisible(1);
+		    previewgbox:SetVisible(1);
+		    previewStaticTitle:SetVisible(1);
+		    cashInvGbox:SetVisible(0);
+		    rcycle_basketgbox:SetVisible(0);
+	    elseif curtabIndex == 1 then -- 리사이클 샵
+		    rcycle_basketgbox:SetVisible(1);
+		    previewStaticTitle:SetVisible(1);	
+		    previewgbox:SetVisible(1);
+		    basketgbox:SetVisible(0);
+		    cashInvGbox:SetVisible(0);
+		    RECYCLE_SHOW_TO_ITEM()
+	    end
+    end
+        
+    TPITEM_HIDE_WING_STORE(frame, curtabIndex);
 end
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
@@ -374,8 +383,8 @@ end
 function ON_TPSHOP_RESET_PREVIEWMODEL()
 
 	local frame = ui.GetFrame("tpitem");
-	local previewslotset0 = GET_CHILD_RECURSIVELY(frame,"previewslotset0")
-	local previewslotset1 = GET_CHILD_RECURSIVELY(frame,"previewslotset1")	-- 보류
+	local previewslotset0 = GET_CHILD_RECURSIVELY(frame, "previewslotset0");
+	local previewslotset1 = GET_CHILD_RECURSIVELY(frame, "previewslotset1");
 		
 	previewslotset0:ClearIconAll();
 	previewslotset1:ClearIconAll();
@@ -1511,6 +1520,9 @@ function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_cl
             ['LENS'] = function()
                 TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
             end,
+            ['WING'] = function()
+                TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 2, tpitemname, itemobj); -- 날개
+            end,
             default = function() 
                 IMC_LOG("INFO_NORMAL", "EqpType not defined in tpitem.lua:TPSHOP_ITEM_PREVIEW_PREPROCESSOR. item.EqpType:" .. itemobj.EqpType);
 			    TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj); -- 디폴트 헤어
@@ -1625,6 +1637,9 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		end,
 		[ES_WING] = function() --ES_WING
 				invSlot = invframe:GetChild("WING");			
+		end,
+		[ES_SPECIAL_COSTUME] = function() --ES_SPECIAL_COSTUME
+				invSlot = invframe:GetChild("SPECIAL_COSTUME");			
 		end,
 		--[ES_HELMET] = function() end,		-- 6
 		--[ES_OUTERADD1] = function() end,	-- 11

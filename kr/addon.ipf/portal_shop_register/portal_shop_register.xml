@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="portal_shop_register" x="0" y="0" width="450" height="1200" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
+	<skin frameskin=" "/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="skilltreeOpen" close="skilltreeClose"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 453 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="bg_mid" rect="0 0 430 740" margin="10 200 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
+		<richtext name="selectText" rect="0 0 300 30" margin="20 170 0 0" layout_gravity="left top" format="선택한 포탈 개수 %s/%s 개" param1="current" param1_def="0" param2="max" param2_def="0" fontname="brown_18_b"/>
+		<groupbox name="portalBox" rect="0 0 430 600" parent="bg_mid" margin="0 5 0 0" layout_gravity="center top" draw="false" fixheight="true" scrollbar="true"/>
+		<groupbox name="pip4" rect="0 0 450 61" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
+		<groupbox name="bodyGbox" rect="0 0 453 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="gem_socket_bg"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}포탈 상점{/}" textalign="left top"/>
+		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}마법부여{/}" width="160" layout_gravity="left top"/>
+		<button name="close" rect="10 0 44 44" margin="0 12 22 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;portal_shop_register&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}포탈 상점 등록 UI를 닫습니다{/}"/>
+		<groupbox name="repair" rect="0 0 439 1000" margin="0 69 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="flase" skin=""/>
+		<groupbox name="moneyGbox" parent="repair" rect="0 0 405 35" margin="0 43 18 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<richtext name="moneyStr" parent="moneyGbox" rect="0 0 200 80" margin="10 8 0 0" layout_gravity="left top" caption="받는 가격{img silver 20 20}" textalign="left top" fontname="brown_16_b"/>
+		<richtext name="money" parent="moneyGbox" rect="0 0 343 48" margin="0 8 4 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_18_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
+		<edit name="moneyInput" margin="120 5 0 0" rect="0 0 405 35" fontname="brown_16_b" maxlen="16" EnterKeyScp="None" numbermode="true" OffsetForDraw="10 3" layout_gravity="left top" parent="moneyGbox" skin="" typingscp="UPDATE_MONEY_COMMAED_STRING"/>
+		<groupbox name="titleGbox" parent="repair" rect="0 0 405 35" margin="0 4 19 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<richtext name="titleStr" parent="titleGbox" rect="0 0 200 80" margin="10 8 0 0" layout_gravity="left top" caption=" 상점 이름" textalign="left top" fontname="brown_16_b"/>
+		<richtext name="title_1" parent="titleGbox" rect="0 0 343 48" margin="10 7 3 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_18_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
+		<edit name="titleInput" margin="120 5 0 0" rect="0 0 405 35" fontname="brown_16_b" maxlen="32" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="titleGbox" skin=""/>
+		<groupbox name="materialGbox" parent="repair" rect="0 0 439 300" margin="0 700 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+		<labelline name="line" parent="materialGbox" rect="0 0 400 4" margin="0 0 0 225" layout_gravity="center bottom" skin="None"/>
+		<richtext name="material" parent="materialGbox" rect="0 0 200 80" margin="30 50 0 0" layout_gravity="left top" caption="{@st41b}소비재료" textalign="left top"/>
+		<richtext name="reqitemNameStr" parent="materialGbox" rect="0 0 343 48" margin="100 90 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false"  format="{@st66e}%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="reqitemImage" parent="materialGbox" rect="0 0 343 70" margin="25 90 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" param2="guid" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="count" parent="materialGbox" rect="0 0 200 80" margin="100 120 0 0" layout_gravity="left top" caption="보유 개수" fontname="black_16" textalign="left top"/>
+		<richtext name="reqitemCount" parent="materialGbox" rect="0 0 343 48" margin="0 120 20 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="black_16" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<button name="btn_cencel" parent="repair" rect="10 10 160 50" margin="220 0 0 75" layout_gravity="left bottom" LBtnUpScp="ui.CloseFrame(&apos;portal_shop_register&apos;)" caption="{@st41b}취 소" skin="test_gray_button"/>
+		<button name="btn_excute" parent="repair" rect="10 10 160 50" margin="50 0 0 75" layout_gravity="left bottom" LBtnUpScp="PORTAL_SHOP_REGISTER_EXECUTE" caption="{@st41b}확 인" skin="test_red_button"/>
+		<groupbox name="reqitem_slot" parent="materialGbox" rect="0 0 70 70" margin="20 0 0 145" layout_gravity="left bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+	</controls>
+</uiframe>

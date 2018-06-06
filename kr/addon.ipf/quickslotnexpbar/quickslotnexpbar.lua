@@ -566,11 +566,8 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 
 	local iconInfo = icon:GetInfo();
 
-	if iconInfo.category == 'Skill' then
-	--	if 1 == 1 and argStr ~= "None" then
-	--		return;
-	--	end
-		ICON_USE(icon, 'reAction');
+	if iconInfo.category == 'Skill' then    
+		ICON_USE(icon);
 		return;
 	end
 
@@ -604,7 +601,7 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 		return;
 	end
 	
-	ICON_USE(icon, 'reAction');
+	ICON_USE(icon);
 end
 
 function QUICKSLOTNEXPBAR_ICON_COUNT(frame, icon, argStr, argNum)
@@ -647,7 +644,7 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 						local classType = TryGetProp(obj, "ClassType");
 
 						if itemType ~= nil and classType ~= nil then
-							if itemType ~= "Equip" or (itemType == "Equip" and classType == "Outer") then
+							if itemType ~= "Equip" or (itemType == "Equip" and (classType == "Outer" or classType == "SpecialCostume")) then
 								return;
 							end
 						else
@@ -821,6 +818,13 @@ function QUICKSLOTNEXPBAR_EXECUTE(slotIndex)
 	end	
 	
 	local quickslotFrame = ui.GetFrame('quickslotnexpbar');
+    if quickslotFrame ~= nil and quickslotFrame:IsVisible() == 0 then
+        local monsterquickslot = ui.GetFrame('monsterquickslot');
+        if monsterquickslot ~= nil and monsterquickslot:IsVisible() == 1 then
+            quickslotFrame = monsterquickslot;
+        end
+    end
+
 	local slot = GET_CHILD_RECURSIVELY(quickslotFrame, "slot"..slotIndex+1, "ui::CSlot");
 	QUICKSLOTNEXPBAR_SLOT_USE(quickSlotFrame, slot, 'None', 0);	
 

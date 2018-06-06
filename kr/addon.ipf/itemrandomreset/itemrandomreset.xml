@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="itemrandomreset" x="0" y="0" width="500" height="609" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="ITEMRANDOMRESET_OPEN" CloseScp="ITEMRANDOMRESET_CLOSE"/>
+	<userconfig RESET_SUCCESS_SOUND="sys_transcend_success" RESET_SUCCESS_EFFECT="UI_item_parts" EFFECT_SCALE="5" EFFECT_DURATION="3"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 500 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" DropScp="MANAGEGEM_DROP" changecursor="false" hittest="true" image="test_socket_top" stretch="true"/>
+		<groupbox name="pipwin_top" rect="0 0 500 60" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
+		<richtext name="richtext_1" rect="0 0 120 24" margin="0 63 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s" param1="value" param1_def="아이템 재감정"/>
+		<groupbox name="pic_bg" rect="0 0 470 312" margin="0 105 0 0" layout_gravity="center top" parent="bg" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+		<button name="do_randomreset" parent="gbox" rect="0 0 180 50" margin="0 0  0 70" layout_gravity="center bottom" LBtnUpScp="ITEMRANDOMRESET_EXEC" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="재감정 하기" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
+		<button name="send_ok" parent="gbox" rect="0 0 180 50" margin="0 0  0 70" layout_gravity="center bottom" LBtnUpScp="CLEAR_ITEMRANDOMRESET_UI" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="확인" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
+		<button name="close" rect="0 0 44 44" margin="0 60 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ITEMRANDOMRESET_CLOSE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
+		<picture name="pic" parent="pic_bg" rect="0 0 312 312" margin="0 0 0 0" layout_gravity="center center" changecursor="false" hittest="true" image="re_appraisal_image" stretch="false"/>
+		<slot name="slot" margin="175 175 0 0" rect="0 0 140 140" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" DropScp="ITEM_RANDOMRESET_DROP" skin="invenslot2" RBtnUpScp="REMOVE_RANDOMRESET_TARGET_ITEM" layout_gravity="left top"/>
+		<picture name="slot_bg_image" parent="slot" rect="0 0 140 140" margin="10 13 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over"/>
+		<groupbox name="gbox" rect="0 0 500 810" margin="0 67 0 0" parent="bg" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<groupbox name="bodyGbox4" rect="0 0 450 460" margin="0 350 0 0" parent="gbox" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_bgreentitle_skin"/>
+		<groupbox name="bodyGbox1" rect="0 0 430 200" margin="0 0 0 0" parent="bodyGbox4" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_lgraytitle_skin"/>
+		<groupbox name="bodyGbox1_1" rect="0 0 430 200" margin="0 10 0 0" parent="bodyGbox1" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="bodyGbox2" rect="0 0 450 200" margin="0 160 0 0" parent="bodyGbox4" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="bodyGbox2_1" rect="0 0 430 200" margin="0 0 0 0" parent="bodyGbox4" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_weight_skin"/>
+		<groupbox name="bodyGbox3" rect="0 0 430 200" margin="0 0 0 0" parent="bodyGbox4" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_bgreentitle_skin"/>
+		<groupbox name="bodyGbox3_1" rect="0 0 430 200" margin="0 10 0 0" parent="bodyGbox3" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="groupbox_1" rect="0 0 400 60" margin="0 0 0 25" parent="pic_bg" layout_gravity="center bottom" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="false" skin="monster_skill_bg"/>
+		<richtext name="text_itemname" margin="0 -3 0 0 " rect="0 0 300 50" parent="groupbox_1" hittestbox="false" textalign="center center " resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center "/>
+		<richtext name="text_putonitem" margin="0 -3 0 0 " rect="0 0 400 50" parent="groupbox_1" format="{@st43b}{s18}아이템을 올려주세요" hittestbox="false" textalign="center center " resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center "/>
+		<richtext name="text_currentoption" margin="5 5 0 0" rect="0 0 400 50" parent="bodyGbox1" format="{@st43b}{s18}현재 옵션" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="text_beforereset" margin="5 5 0 0" rect="0 0 400 50" parent="bodyGbox1" format="{@st43b}{s18}변경 전" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="text_afterreset" margin="5 5 0 0" rect="0 0 400 50" parent="bodyGbox3" format="{@st43b}{s18}변경 후" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="text_material" margin="10 230 0 0" rect="0 0 400 50" parent="bodyGbox4" format="{@st43b}{s18}재료" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<picture name="arrowbox" parent="bodyGbox4" rect="0 0 65 65" hittest="false" image="white_s_arrow" oversound="button_cursor_over_3" margin="0 0 0 0" layout_gravity="center center"/><![CDATA[]]></controls>
+</uiframe>

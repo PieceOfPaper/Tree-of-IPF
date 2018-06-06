@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
+	<AttachModel frame="0" XAC="matador_cpae" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="matador_cpae_skl_Ole.xsm"/>
+	<Sound frame="0.00" soundFile="skl_eff_cloth_atk"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="F_spin037_red2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="F_archer_FocusFire_spin_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="4.00" soundFile="skl_fgt_tackle_cast_2"/>
+	<Sound frame="5.00" soundFile="skl_eff_cloth_cast"/>
+	<Sound frame="7.00" soundFile="skl_fgt_tackle_shot"/>
+	<Particle frame="14" attachNode="bip01 L Hand" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="14" attachNode="bip01" particleName="F_drop_leaf004_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

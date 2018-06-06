@@ -380,12 +380,12 @@ function INV_GET_SLOTSET_BY_INVINDEX(index)
 		typeStr = itemCls.ItemType; 
 	end	
 
-	local invFrame     	= ui.GetFrame("inventory");
-	local invGbox		= invFrame:GetChild('inventoryGbox');
-	local treeGbox		= invGbox:GetChild("treeGbox_" .. typeStr);
-	local tree		    = treeGbox:GetChild("inventree_" .. typeStr);
-	local slotsetname	= GET_SLOTSET_NAME(index)
-	local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
+	local invFrame = ui.GetFrame("inventory");
+	local invGbox = invFrame:GetChild('inventoryGbox');
+	local treeGbox = invGbox:GetChild("treeGbox_" .. typeStr);
+	local tree = treeGbox:GetChild("inventree_" .. typeStr);
+	local slotsetname = GET_SLOTSET_NAME(index)
+	local slotSet = GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
 	return slotSet
 end
@@ -425,12 +425,7 @@ function INV_NOTIFY_FORCE_FINISH()
 		end
 
 		sysframe:SetUserValue("_NOTIFY_TIME", imcTime.GetAppTime() + 2.0);
-
-		--sysframe:SetEffect("sysmenu_MouseMove", ui.UI_TEMP0);
-		--sysframe:StartEffect(ui.UI_TEMP0);	
-
-		sysframe:RunUpdateScript("SYSMENU_PLAY_ITEM_GET", 0.0);
-		--sysframe:RunUpdateScript("SYSMENU_AUTO_LOST_FOCUS", 0.0);
+		sysframe:RunUpdateScript("SYSMENU_PLAY_ITEM_GET", 0.0);		
 	end
 end
 
@@ -445,17 +440,6 @@ function SYSMENU_PLAY_ITEM_GET(frame, elapsedTime)
 
 	return 1;
 
-end
-
-function SYSMENU_AUTO_LOST_FOCUS(frame, elapsedTime)
-	--[[
-	if elapsedTime > 1.5 then
-		frame:SetEffect("sysmenu_LostFocus", ui.UI_TEMP0);
-		frame:StartEffect(ui.UI_TEMP0);		
-		return 0;
-	end
-	]]
-	return 1;
 end
 
 function INV_FORCE_NOTIFY(itemID, x, y, delayTime)
@@ -546,21 +530,23 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 	local iconImg = itemCls.Icon;
 		
 	-- costume icon is decided by PC's gender
-    if itemCls.ItemType == 'Equip' and itemCls.ClassType == 'Outer' then
-
-		local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
-
-		if tempiconname ~= "_m" and tempiconname ~= "_f" then
-			if gender == nil then
-				gender = GETMYPCGENDER();
-			end
-
-    		if gender == 1 then
-    			iconImg = itemCls.Icon.."_m"
-    		else
-    			iconImg = itemCls.Icon.."_f"
+    if itemCls.ItemType == 'Equip' then
+        if itemCls.ClassType == 'Outer' or  itemCls.ClassType  == 'SpecialCostume' then
+    
+    		local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
+    
+    		if tempiconname ~= "_m" and tempiconname ~= "_f" then
+    			if gender == nil then
+    				gender = GETMYPCGENDER();
+    			end
+    
+        		if gender == 1 then
+        			iconImg = itemCls.Icon.."_m"
+        		else
+        			iconImg = itemCls.Icon.."_f"
+        		end
     		end
-		end
+    	end
 	else
 		local faceID = TryGetProp(itemCls, 'BriquettingIndex');
 		if nil ~= faceID and tonumber(faceID) > 0 then
@@ -576,7 +562,7 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 end
 
 function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
-		
+
 	slotset:ClearIconAll();
 
 	local itemList = session.GetEtcItemList(etcType);
@@ -608,12 +594,10 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 end
 
 function GET_DRAG_INVITEM_INFO()
-	local liftIcon 			= ui.GetLiftIcon();
-	local iconParentFrame 	= liftIcon:GetTopParentFrame();
-	local slot 			    = tolua.cast(control, 'ui::CSlot');
-	local iconInfo			= liftIcon:GetInfo();
+	local liftIcon = ui.GetLiftIcon();
+	local iconParentFrame = liftIcon:GetTopParentFrame();
+	local slot = tolua.cast(control, 'ui::CSlot');
+	local iconInfo = liftIcon:GetInfo();
 	local invenItemInfo = session.GetInvItemByGuid(iconInfo:GetIESID());
 	return invenItemInfo;
 end
-
-

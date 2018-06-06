@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uitile name="challenge_mode" x="0" y="0" width="580" height="300" bodycolor="#ffff 0" bodyalpha="0" create="open">
+	<skin frameskin="none" draw="false"/>
+	<frame title="" layout_gravity="center center" margin="-30 250 0 0" piptype="top"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="true"/>
+	<controls>
+		<picture name="challenge_pic_lv_bg" rect="0 0 251 112" margin="50 0 0 0" layout_gravity="left center" hittest="false" image="challenge_gauge_black" stretch="true"/>
+		<picture name="challenge_gauge_lv_left" rect="0 0 7 33" margin="158 7 0 0" layout_gravity="left center" hittest="false" image="challenge_gauge_left" stretch="true"/>
+		<picture name="challenge_gauge_lv_right" rect="0 0 7 33" margin="565 7 0 0" layout_gravity="left center" hittest="false" image="challenge_gauge_right" stretch="true"/>
+		<picture name="challenge_pic_lv" rect="0 0 100 113" margin="60 -27 0 0" layout_gravity="left center" hittest="false" image="challenge_gauge_no1" stretch="true"/>
+		<picture name="challenge_pic_logo" rect="0 0 160 65" margin="30 30 0 0" layout_gravity="left center" hittest="false" image="challenge_text" stretch="true"/>
+		<gauge name="challenge_gauge_lv" rect="0 0 400 50" margin="165 7 0 0" layout_gravity="left center" drawlastpoint="false" ratewidth="true" skin="challenge_gauge_lv1" textalign1="center center" textalign2="left center" textfont1="mygauge" textfont2="mygauge" textoffset1="0 4" textoffset2="4 4" hittest="false"/>
+		<picture name="challenge_pic_max" rect="0 0 70 40" margin="65 10 0 0" layout_gravity="center center" hittest="false" image="skill_max_img" stretch="true"/>
+		<picture name="challenge_time" rect="0 0 23 23" margin="0 -22 70 0" layout_gravity="right center" hittest="false" image="test_cooltime" stretch="true"/>
+		<richtext name="challenge_mode_timer" rect="0 0 100 30" margin="0 -23 10 0" layout_gravity="right center" format="{@st43}{s20}%s" param1="time" param1_def="00:00"/>
+	</controls>
+</uitile>

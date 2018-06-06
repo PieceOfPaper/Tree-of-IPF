@@ -93,263 +93,270 @@
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="보상책정">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_INDUN_CONTRIBUTION_REWARD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="stage1">
                 <ObjList>
-                    <Obj Type="Monster" MonType="57791" Pos="-1413.41#82.45#82.49" angle="-65" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-1374.06#82.45#116.01" angle="-81" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1373.77#82.46#37.13" angle="-38" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1336.03#82.45#75.31" angle="-39" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1515.31#82.45#171.97" angle="-52" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1466.06#82.45#217.39" angle="-52" genCount="1" genTime="20000" objectKey="5" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1561.15#82.45#33.05" angle="-39" genCount="1" genTime="20000" objectKey="6" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1517.96#82.45#79.49" angle="-39" genCount="1" genTime="20000" objectKey="7" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1382.37#82.45#228.00" angle="-39" genCount="1" genTime="20000" objectKey="8" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1331.51#82.45#279.53" angle="-39" genCount="1" genTime="20000" objectKey="9" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-1427.87#82.45#285.78" angle="-81" genCount="1" genTime="20000" objectKey="10" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-1399.59#82.45#325.13" angle="-81" genCount="1" genTime="20000" objectKey="11" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-1626.59#82.45#98.65" angle="-81" genCount="1" genTime="20000" objectKey="12" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-1578.78#82.45#131.86" angle="-81" genCount="1" genTime="20000" objectKey="13" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="-1557.27#82.45#227.77" angle="-65" genCount="1" genTime="20000" objectKey="14" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="-1515.53#82.45#265.93" angle="-65" genCount="1" genTime="20000" objectKey="15" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="-1603.95#82.45#274.16" angle="-65" genCount="1" genTime="20000" objectKey="16" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="-1572.27#82.45#311.08" angle="-65" genCount="1" genTime="20000" objectKey="17" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1408.28#82.45#153.58" angle="-52" genCount="1" genTime="20000" objectKey="18" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1447.61#82.45#115.74" angle="-52" genCount="1" genTime="20000" objectKey="19" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1418.66#56.98#-178.88" angle="-52" genCount="1" genTime="20000" objectKey="20" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1481.73#56.98#-231.10" angle="-52" genCount="1" genTime="20000" objectKey="21" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1532.43#56.98#-184.32" angle="-52" genCount="1" genTime="20000" objectKey="22" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1480.83#56.98#-128.57" angle="-52" genCount="1" genTime="20000" objectKey="23" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1421.72#56.98#-71.91" angle="-38" genCount="1" genTime="20000" objectKey="24" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1360.35#56.98#-132.39" angle="-38" genCount="1" genTime="20000" objectKey="25" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1603.84#56.98#-244.72" angle="-38" genCount="1" genTime="20000" objectKey="26" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1529.96#56.98#-314.05" angle="-38" genCount="1" genTime="20000" objectKey="27" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-1473.88#56.98#-186.88" angle="-81" genCount="1" genTime="20000" objectKey="28" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-1540.90#56.98#-251.19" angle="-81" genCount="1" genTime="20000" objectKey="29" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-1410.18#56.98#-109.47" angle="-81" genCount="1" genTime="20000" objectKey="30" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="-1417.75#56.98#-285.38" angle="-65" genCount="1" genTime="20000" objectKey="31" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="-1379.15#56.98#-245.90" angle="-65" genCount="1" genTime="20000" objectKey="32" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="-1596.97#56.98#-136.60" angle="-65" genCount="1" genTime="20000" objectKey="33" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="-1533.95#56.98#-72.74" angle="-65" genCount="1" genTime="20000" objectKey="34" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-1167.90#65.06#-146.97" angle="-49" genCount="1" genTime="20000" objectKey="35" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1217.93#65.06#-254.43" angle="-38" genCount="1" genTime="20000" objectKey="38" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1002.21#65.06#-99.75" angle="-38" genCount="1" genTime="20000" objectKey="39" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="-1284.38#65.06#-196.02" angle="-65" genCount="1" genTime="20000" objectKey="36" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="-1141.98#65.06#-118.55" angle="-65" genCount="1" genTime="20000" objectKey="37" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1062.85#65.06#-44.23" angle="-38" genCount="1" genTime="20000" objectKey="40" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1014.49#65.06#-194.27" angle="-38" genCount="1" genTime="20000" objectKey="41" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1114.30#65.06#-282.83" angle="-38" genCount="1" genTime="20000" objectKey="42" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1201.21#65.06#-25.91" angle="-38" genCount="1" genTime="20000" objectKey="44" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-1255.23#65.06#-86.52" angle="-38" genCount="1" genTime="20000" objectKey="45" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-647.09#107.76#-99.04" angle="8" genCount="1" genTime="20000" objectKey="46" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-654.86#107.76#-187.16" angle="7" genCount="1" genTime="20000" objectKey="47" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-753.82#107.76#-103.84" angle="-1" genCount="1" genTime="20000" objectKey="48" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-759.46#107.76#-165.86" angle="-4" genCount="1" genTime="20000" objectKey="49" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-687.20#107.76#-133.47" angle="-1" genCount="1" genTime="20000" objectKey="50" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1213.72#65.06#-137.98" angle="-52" genCount="1" genTime="20000" objectKey="51" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1155.83#65.06#-185.84" angle="-52" genCount="1" genTime="20000" objectKey="52" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1101.74#65.06#-125.68" angle="-52" genCount="1" genTime="20000" objectKey="53" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-1149.14#65.06#-79.32" angle="-52" genCount="1" genTime="20000" objectKey="54" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-813.94#107.76#-177.10" angle="2" genCount="1" genTime="20000" objectKey="43" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-811.28#107.76#-94.28" angle="-24" genCount="1" genTime="20000" objectKey="55" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-519.40#107.76#-189.48" angle="-1" genCount="1" genTime="20000" objectKey="56" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-454.35#107.76#-137.75" angle="-1" genCount="1" genTime="20000" objectKey="57" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-502.01#107.76#-63.49" angle="-1" genCount="1" genTime="20000" objectKey="58" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="345.84#67.62#134.82" angle="-148" genCount="1" genTime="20000" objectKey="59" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="356.68#67.62#198.97" angle="-148" genCount="1" genTime="20000" objectKey="60" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="406.10#67.62#150.87" angle="-148" genCount="1" genTime="20000" objectKey="61" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="408.02#67.62#199.58" angle="-126" genCount="1" genTime="20000" objectKey="62" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="378.68#67.62#176.16" angle="-139" genCount="1" genTime="20000" objectKey="63" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="648.17#15.57#526.65" angle="-136" genCount="1" genTime="20000" objectKey="64" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="645.07#15.57#443.40" angle="-149" genCount="1" genTime="20000" objectKey="65" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="726.34#15.57#450.39" angle="-135" genCount="1" genTime="20000" objectKey="66" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="726.49#15.57#533.42" angle="-131" genCount="1" genTime="20000" objectKey="67" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="584.10#15.57#586.05" angle="-126" genCount="1" genTime="20000" objectKey="68" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="566.97#15.57#516.16" angle="-126" genCount="1" genTime="20000" objectKey="69" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="655.01#15.57#594.16" angle="-126" genCount="1" genTime="20000" objectKey="70" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="721.51#15.57#361.61" angle="-126" genCount="1" genTime="20000" objectKey="71" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="780.12#15.57#373.07" angle="-126" genCount="1" genTime="20000" objectKey="72" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="799.82#15.57#447.84" angle="-126" genCount="1" genTime="20000" objectKey="73" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="533.00#15.57#419.68" angle="-109" genCount="1" genTime="20000" objectKey="74" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="602.37#15.57#396.53" angle="-146" genCount="1" genTime="20000" objectKey="75" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="624.65#15.57#327.53" angle="-157" genCount="1" genTime="20000" objectKey="76" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="723.72#15.57#601.56" angle="-125" genCount="1" genTime="20000" objectKey="77" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="792.26#15.57#608.90" angle="-130" genCount="1" genTime="20000" objectKey="78" tendency="1"/>
-                    <Obj Type="Monster" MonType="57791" Pos="794.03#15.57#529.24" angle="-137" genCount="1" genTime="20000" objectKey="79" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="986.58#4.90#554.58" angle="-135" genCount="1" genTime="20000" objectKey="80" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="970.22#4.90#385.55" angle="-135" genCount="1" genTime="20000" objectKey="81" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="1135.78#4.90#420.67" angle="-135" genCount="1" genTime="20000" objectKey="82" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="1131.62#4.90#570.36" angle="-135" genCount="1" genTime="20000" objectKey="83" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="977.33#4.90#437.52" angle="-148" genCount="1" genTime="20000" objectKey="84" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="1024.74#4.90#381.10" angle="-148" genCount="1" genTime="20000" objectKey="85" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="935.19#4.90#562.32" angle="-148" genCount="1" genTime="20000" objectKey="86" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="973.54#4.90#604.50" angle="-148" genCount="1" genTime="20000" objectKey="87" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="1129.54#4.90#617.64" angle="-148" genCount="1" genTime="20000" objectKey="88" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="1177.82#4.90#557.43" angle="-148" genCount="1" genTime="20000" objectKey="89" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="1183.54#4.90#415.26" angle="-148" genCount="1" genTime="20000" objectKey="90" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="1137.90#4.90#366.44" angle="-148" genCount="1" genTime="20000" objectKey="91" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="1004.77#4.90#487.73" angle="-132" genCount="1" genTime="20000" objectKey="92" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="1065.05#4.90#485.12" angle="-129" genCount="1" genTime="20000" objectKey="93" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="1063.16#4.90#546.76" angle="-141" genCount="1" genTime="20000" objectKey="94" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="1126.60#4.90#483.81" angle="-125" genCount="1" genTime="20000" objectKey="95" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="1068.27#4.90#423.75" angle="-146" genCount="1" genTime="20000" objectKey="96" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-213.62#84.46#-81.93" angle="138" genCount="1" genTime="20000" objectKey="97" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-238.35#84.46#-162.39" angle="136" genCount="1" genTime="20000" objectKey="98" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-134.56#84.46#-72.77" angle="136" genCount="1" genTime="20000" objectKey="99" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-73.62#84.46#95.33" angle="136" genCount="1" genTime="20000" objectKey="100" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="-60.08#84.46#18.49" angle="136" genCount="1" genTime="20000" objectKey="101" tendency="1"/>
-                    <Obj Type="Monster" MonType="57793" Pos="28.97#84.46#91.89" angle="136" genCount="1" genTime="20000" objectKey="102" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-179.92#84.46#-156.62" angle="135" genCount="1" genTime="20000" objectKey="103" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-147.84#84.46#-115.00" angle="142" genCount="1" genTime="20000" objectKey="104" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="-13.46#84.46#19.09" angle="142" genCount="1" genTime="20000" objectKey="105" tendency="1"/>
-                    <Obj Type="Monster" MonType="57792" Pos="20.55#84.46#44.04" angle="142" genCount="1" genTime="20000" objectKey="106" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="65.15#91.97#-69.67" angle="139" genCount="1" genTime="20000" objectKey="107" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-14.88#102.04#-77.58" angle="139" genCount="1" genTime="20000" objectKey="108" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-36.36#91.97#-163.11" angle="139" genCount="1" genTime="20000" objectKey="109" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="47.82#91.97#-152.11" angle="139" genCount="1" genTime="20000" objectKey="110" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="138.57#84.46#29.24" angle="139" genCount="1" genTime="20000" objectKey="111" tendency="1"/>
-                    <Obj Type="Monster" MonType="57799" Pos="-144.57#84.46#-256.34" angle="139" genCount="1" genTime="20000" objectKey="112" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="-1413.41#82.45#82.49" angle="-65" genCount="1" genTime="20000" objectKey="0" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-1374.06#82.45#116.01" angle="-81" genCount="1" genTime="20000" objectKey="1" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1373.77#82.46#37.13" angle="-38" genCount="1" genTime="20000" objectKey="2" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1336.03#82.45#75.31" angle="-39" genCount="1" genTime="20000" objectKey="3" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1515.31#82.45#171.97" angle="-52" genCount="1" genTime="20000" objectKey="4" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1466.06#82.45#217.39" angle="-52" genCount="1" genTime="20000" objectKey="5" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1561.15#82.45#33.05" angle="-39" genCount="1" genTime="20000" objectKey="6" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1517.96#82.45#79.49" angle="-39" genCount="1" genTime="20000" objectKey="7" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1382.37#82.45#228.00" angle="-39" genCount="1" genTime="20000" objectKey="8" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1331.51#82.45#279.53" angle="-39" genCount="1" genTime="20000" objectKey="9" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-1427.87#82.45#285.78" angle="-81" genCount="1" genTime="20000" objectKey="10" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-1399.59#82.45#325.13" angle="-81" genCount="1" genTime="20000" objectKey="11" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-1626.59#82.45#98.65" angle="-81" genCount="1" genTime="20000" objectKey="12" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-1578.78#82.45#131.86" angle="-81" genCount="1" genTime="20000" objectKey="13" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="-1557.27#82.45#227.77" angle="-65" genCount="1" genTime="20000" objectKey="14" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="-1515.53#82.45#265.93" angle="-65" genCount="1" genTime="20000" objectKey="15" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="-1603.95#82.45#274.16" angle="-65" genCount="1" genTime="20000" objectKey="16" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="-1572.27#82.45#311.08" angle="-65" genCount="1" genTime="20000" objectKey="17" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1408.28#82.45#153.58" angle="-52" genCount="1" genTime="20000" objectKey="18" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1447.61#82.45#115.74" angle="-52" genCount="1" genTime="20000" objectKey="19" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1418.66#56.98#-178.88" angle="-52" genCount="1" genTime="20000" objectKey="20" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1481.73#56.98#-231.10" angle="-52" genCount="1" genTime="20000" objectKey="21" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1532.43#56.98#-184.32" angle="-52" genCount="1" genTime="20000" objectKey="22" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1480.83#56.98#-128.57" angle="-52" genCount="1" genTime="20000" objectKey="23" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1421.72#56.98#-71.91" angle="-38" genCount="1" genTime="20000" objectKey="24" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1360.35#56.98#-132.39" angle="-38" genCount="1" genTime="20000" objectKey="25" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1603.84#56.98#-244.72" angle="-38" genCount="1" genTime="20000" objectKey="26" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1529.96#56.98#-314.05" angle="-38" genCount="1" genTime="20000" objectKey="27" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-1473.88#56.98#-186.88" angle="-81" genCount="1" genTime="20000" objectKey="28" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-1530.20#56.98#-249.46" angle="-81" genCount="1" genTime="20000" objectKey="29" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-1410.18#56.98#-109.47" angle="-81" genCount="1" genTime="20000" objectKey="30" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="-1417.75#56.98#-285.38" angle="-65" genCount="1" genTime="20000" objectKey="31" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="-1379.15#56.98#-245.90" angle="-65" genCount="1" genTime="20000" objectKey="32" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="-1596.97#56.98#-136.60" angle="-65" genCount="1" genTime="20000" objectKey="33" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="-1533.95#56.98#-72.74" angle="-65" genCount="1" genTime="20000" objectKey="34" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-1167.90#65.06#-146.97" angle="-49" genCount="1" genTime="20000" objectKey="35" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1217.93#65.06#-254.43" angle="-38" genCount="1" genTime="20000" objectKey="38" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1002.21#65.06#-99.75" angle="-38" genCount="1" genTime="20000" objectKey="39" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="-1284.38#65.06#-196.02" angle="-65" genCount="1" genTime="20000" objectKey="36" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="-1141.98#65.06#-118.55" angle="-65" genCount="1" genTime="20000" objectKey="37" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1062.85#65.06#-44.23" angle="-38" genCount="1" genTime="20000" objectKey="40" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1014.49#65.06#-194.27" angle="-38" genCount="1" genTime="20000" objectKey="41" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1114.30#65.06#-282.83" angle="-38" genCount="1" genTime="20000" objectKey="42" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1201.21#65.06#-25.91" angle="-38" genCount="1" genTime="20000" objectKey="44" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-1255.23#65.06#-86.52" angle="-38" genCount="1" genTime="20000" objectKey="45" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-647.09#107.76#-99.04" angle="8" genCount="1" genTime="20000" objectKey="46" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-654.86#107.76#-187.16" angle="7" genCount="1" genTime="20000" objectKey="47" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-753.82#107.76#-103.84" angle="-1" genCount="1" genTime="20000" objectKey="48" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-759.46#107.76#-165.86" angle="-4" genCount="1" genTime="20000" objectKey="49" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-687.20#107.76#-133.47" angle="-1" genCount="1" genTime="20000" objectKey="50" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1213.72#65.06#-137.98" angle="-52" genCount="1" genTime="20000" objectKey="51" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1155.83#65.06#-185.84" angle="-52" genCount="1" genTime="20000" objectKey="52" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1101.74#65.06#-125.68" angle="-52" genCount="1" genTime="20000" objectKey="53" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-1149.14#65.06#-79.32" angle="-52" genCount="1" genTime="20000" objectKey="54" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-813.94#107.76#-177.10" angle="2" genCount="1" genTime="20000" objectKey="43" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-811.28#107.76#-94.28" angle="-24" genCount="1" genTime="20000" objectKey="55" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-519.40#107.76#-189.48" angle="-1" genCount="1" genTime="20000" objectKey="56" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-454.35#107.76#-137.75" angle="-1" genCount="1" genTime="20000" objectKey="57" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-502.01#107.76#-63.49" angle="-1" genCount="1" genTime="20000" objectKey="58" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="345.84#67.62#134.82" angle="-148" genCount="1" genTime="20000" objectKey="59" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="356.68#67.62#198.97" angle="-148" genCount="1" genTime="20000" objectKey="60" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="406.10#67.62#150.87" angle="-148" genCount="1" genTime="20000" objectKey="61" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="408.02#67.62#199.58" angle="-126" genCount="1" genTime="20000" objectKey="62" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="378.68#67.62#176.16" angle="-139" genCount="1" genTime="20000" objectKey="63" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="648.17#15.57#526.65" angle="-136" genCount="1" genTime="20000" objectKey="64" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="645.07#15.57#443.40" angle="-149" genCount="1" genTime="20000" objectKey="65" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="726.34#15.57#450.39" angle="-135" genCount="1" genTime="20000" objectKey="66" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="726.49#15.57#533.42" angle="-131" genCount="1" genTime="20000" objectKey="67" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="584.10#15.57#586.05" angle="-126" genCount="1" genTime="20000" objectKey="68" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="566.97#15.57#516.16" angle="-126" genCount="1" genTime="20000" objectKey="69" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="655.01#15.57#594.16" angle="-126" genCount="1" genTime="20000" objectKey="70" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="721.51#15.57#361.61" angle="-126" genCount="1" genTime="20000" objectKey="71" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="780.12#15.57#373.07" angle="-126" genCount="1" genTime="20000" objectKey="72" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="799.82#15.57#447.84" angle="-126" genCount="1" genTime="20000" objectKey="73" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="533.00#15.57#419.68" angle="-109" genCount="1" genTime="20000" objectKey="74" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="602.37#15.57#396.53" angle="-146" genCount="1" genTime="20000" objectKey="75" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="624.65#15.57#327.53" angle="-157" genCount="1" genTime="20000" objectKey="76" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="723.72#15.57#601.56" angle="-125" genCount="1" genTime="20000" objectKey="77" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="792.26#15.57#608.90" angle="-130" genCount="1" genTime="20000" objectKey="78" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57791" Pos="794.03#15.57#529.24" angle="-137" genCount="1" genTime="20000" objectKey="79" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="986.58#4.90#554.58" angle="-135" genCount="1" genTime="20000" objectKey="80" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="970.22#4.90#385.55" angle="-135" genCount="1" genTime="20000" objectKey="81" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="1135.78#4.90#420.67" angle="-135" genCount="1" genTime="20000" objectKey="82" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="1131.62#4.90#570.36" angle="-135" genCount="1" genTime="20000" objectKey="83" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="977.33#4.90#437.52" angle="-148" genCount="1" genTime="20000" objectKey="84" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="1024.74#4.90#381.10" angle="-148" genCount="1" genTime="20000" objectKey="85" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="935.19#4.90#562.32" angle="-148" genCount="1" genTime="20000" objectKey="86" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="973.54#4.90#604.50" angle="-148" genCount="1" genTime="20000" objectKey="87" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="1129.54#4.90#617.64" angle="-148" genCount="1" genTime="20000" objectKey="88" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="1177.82#4.90#557.43" angle="-148" genCount="1" genTime="20000" objectKey="89" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="1183.54#4.90#415.26" angle="-148" genCount="1" genTime="20000" objectKey="90" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="1137.90#4.90#366.44" angle="-148" genCount="1" genTime="20000" objectKey="91" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="1004.77#4.90#487.73" angle="-132" genCount="1" genTime="20000" objectKey="92" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="1065.05#4.90#485.12" angle="-129" genCount="1" genTime="20000" objectKey="93" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="1063.16#4.90#546.76" angle="-141" genCount="1" genTime="20000" objectKey="94" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="1126.60#4.90#483.81" angle="-125" genCount="1" genTime="20000" objectKey="95" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="1068.27#4.90#423.75" angle="-146" genCount="1" genTime="20000" objectKey="96" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-213.62#84.46#-81.93" angle="138" genCount="1" genTime="20000" objectKey="97" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-238.35#84.46#-162.39" angle="136" genCount="1" genTime="20000" objectKey="98" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-134.56#84.46#-72.77" angle="136" genCount="1" genTime="20000" objectKey="99" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-73.62#84.46#95.33" angle="136" genCount="1" genTime="20000" objectKey="100" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="-60.08#84.46#18.49" angle="136" genCount="1" genTime="20000" objectKey="101" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57793" Pos="28.97#84.46#91.89" angle="136" genCount="1" genTime="20000" objectKey="102" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-179.92#84.46#-156.62" angle="135" genCount="1" genTime="20000" objectKey="103" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-147.84#84.46#-115.00" angle="142" genCount="1" genTime="20000" objectKey="104" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="-13.46#84.46#19.09" angle="142" genCount="1" genTime="20000" objectKey="105" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57792" Pos="20.55#84.46#44.04" angle="142" genCount="1" genTime="20000" objectKey="106" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="65.15#91.97#-69.67" angle="139" genCount="1" genTime="20000" objectKey="107" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-14.88#102.04#-77.58" angle="139" genCount="1" genTime="20000" objectKey="108" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-36.36#91.97#-163.11" angle="139" genCount="1" genTime="20000" objectKey="109" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="47.82#91.97#-152.11" angle="139" genCount="1" genTime="20000" objectKey="110" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="138.57#84.46#29.24" angle="139" genCount="1" genTime="20000" objectKey="111" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57799" Pos="-144.57#84.46#-256.34" angle="139" genCount="1" genTime="20000" objectKey="112" IsIncludeAchievementRate="1" tendency="1"/>
                 </ObjList>
             </Stage>
             <Stage Name="stage2">
                 <ObjList>
-                    <Obj Type="Monster" MonType="57796" Pos="-14.20#56.98#1230.27" angle="-83" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="-301.04#82.45#1340.85" angle="-49" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-290.11#82.45#1289.34" angle="-51" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-351.44#82.45#1350.34" angle="-54" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-379.12#82.45#1204.65" angle="-47" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-304.79#82.45#1395.51" angle="-54" genCount="1" genTime="20000" objectKey="5" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-245.83#82.45#1332.14" angle="-51" genCount="1" genTime="20000" objectKey="6" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-342.34#82.45#1242.96" angle="-47" genCount="1" genTime="20000" objectKey="7" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-366.83#82.45#1486.07" angle="-47" genCount="1" genTime="20000" objectKey="8" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-443.20#82.45#1411.82" angle="-47" genCount="1" genTime="20000" objectKey="9" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="-390.39#82.45#1250.38" angle="-49" genCount="1" genTime="20000" objectKey="10" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="-200.93#82.45#1437.39" angle="-49" genCount="1" genTime="20000" objectKey="11" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-187.19#82.45#1388.59" angle="-47" genCount="1" genTime="20000" objectKey="12" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-157.10#82.45#1419.28" angle="-47" genCount="1" genTime="20000" objectKey="13" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-390.61#82.45#1426.51" angle="-47" genCount="1" genTime="20000" objectKey="14" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-448.52#82.45#1329.68" angle="-47" genCount="1" genTime="20000" objectKey="15" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-202.41#82.67#1185.55" angle="-54" genCount="1" genTime="20000" objectKey="16" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-149.02#82.59#1248.77" angle="-54" genCount="1" genTime="20000" objectKey="17" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-196.22#82.45#1241.33" angle="-54" genCount="1" genTime="20000" objectKey="18" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-260.55#82.45#1497.36" angle="-47" genCount="1" genTime="20000" objectKey="19" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-23.83#65.06#872.78" angle="-69" genCount="1" genTime="20000" objectKey="20" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="50.60#65.06#865.85" angle="-96" genCount="1" genTime="20000" objectKey="21" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="13.82#65.06#898.16" angle="-95" genCount="1" genTime="20000" objectKey="22" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-44.04#65.06#1018.83" angle="-90" genCount="1" genTime="20000" objectKey="23" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="25.13#65.06#961.45" angle="-97" genCount="1" genTime="20000" objectKey="24" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="70.03#65.06#1030.04" angle="-94" genCount="1" genTime="20000" objectKey="25" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="17.59#65.06#1075.55" angle="-94" genCount="1" genTime="20000" objectKey="26" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="22.12#65.06#1015.38" angle="-93" genCount="1" genTime="20000" objectKey="27" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-112.38#65.06#970.19" angle="-75" genCount="1" genTime="20000" objectKey="28" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="186.63#65.06#1007.19" angle="-82" genCount="1" genTime="20000" objectKey="29" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="108.42#65.06#1102.34" angle="-82" genCount="1" genTime="20000" objectKey="30" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-50.63#56.98#1254.49" angle="-82" genCount="1" genTime="20000" objectKey="31" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-103.96#65.06#920.68" angle="-69" genCount="1" genTime="20000" objectKey="32" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-66.51#65.06#952.21" angle="-71" genCount="1" genTime="20000" objectKey="33" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="149.72#65.06#984.30" angle="-89" genCount="1" genTime="20000" objectKey="34" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="188.97#65.06#978.53" angle="-85" genCount="1" genTime="20000" objectKey="35" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="95.51#65.06#1156.19" angle="-85" genCount="1" genTime="20000" objectKey="36" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="153.28#65.06#1099.20" angle="-85" genCount="1" genTime="20000" objectKey="37" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="0.74#56.98#1270.08" angle="-82" genCount="1" genTime="20000" objectKey="38" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="204.05#56.98#1276.52" angle="-116" genCount="1" genTime="20000" objectKey="39" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="201.79#56.98#1304.40" angle="-82" genCount="1" genTime="20000" objectKey="40" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="237.41#56.98#1288.50" angle="-82" genCount="1" genTime="20000" objectKey="41" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-56.01#56.98#1427.13" angle="-82" genCount="1" genTime="20000" objectKey="42" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="11.59#56.98#1433.58" angle="-82" genCount="1" genTime="20000" objectKey="43" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-22.67#56.98#1408.96" angle="-83" genCount="1" genTime="20000" objectKey="44" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="169.87#56.98#1407.66" angle="-84" genCount="1" genTime="20000" objectKey="45" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="215.96#56.98#1407.07" angle="-83" genCount="1" genTime="20000" objectKey="46" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="163.00#56.98#1464.56" angle="-84" genCount="1" genTime="20000" objectKey="47" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="37.64#56.98#1318.18" angle="-78" genCount="1" genTime="20000" objectKey="48" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="120.44#56.98#1304.17" angle="-92" genCount="1" genTime="20000" objectKey="49" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="78.66#56.98#1346.86" angle="-90" genCount="1" genTime="20000" objectKey="50" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="34.69#56.98#1395.07" angle="-101" genCount="1" genTime="20000" objectKey="51" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="112.81#56.98#1382.35" angle="-98" genCount="1" genTime="20000" objectKey="52" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="69.76#56.98#1483.39" angle="-82" genCount="1" genTime="20000" objectKey="53" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="115.85#56.98#1480.34" angle="-82" genCount="1" genTime="20000" objectKey="54" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-26.71#107.76#365.13" angle="-69" genCount="1" genTime="20000" objectKey="55" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="5.50#107.76#322.95" angle="-69" genCount="1" genTime="20000" objectKey="56" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="57.54#107.76#342.41" angle="-69" genCount="1" genTime="20000" objectKey="57" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="11.98#107.76#385.51" angle="-69" genCount="1" genTime="20000" objectKey="58" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-23.56#107.76#587.39" angle="-69" genCount="1" genTime="20000" objectKey="59" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="19.84#107.76#538.36" angle="-69" genCount="1" genTime="20000" objectKey="60" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="60.25#107.76#579.44" angle="-70" genCount="1" genTime="20000" objectKey="61" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="19.28#107.76#637.72" angle="-77" genCount="1" genTime="20000" objectKey="62" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="20.41#107.76#570.84" angle="-89" genCount="1" genTime="20000" objectKey="63" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-287.93#67.62#-425.11" angle="26" genCount="1" genTime="20000" objectKey="64" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-231.95#67.62#-484.13" angle="40" genCount="1" genTime="20000" objectKey="65" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-346.60#67.62#-486.44" angle="34" genCount="1" genTime="20000" objectKey="66" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-296.32#67.62#-530.27" angle="47" genCount="1" genTime="20000" objectKey="67" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-404.69#67.62#-542.69" angle="30" genCount="1" genTime="20000" objectKey="68" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-350.98#67.62#-585.60" angle="36" genCount="1" genTime="20000" objectKey="69" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-625.07#15.57#-651.27" angle="30" genCount="1" genTime="20000" objectKey="70" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-583.13#15.57#-696.80" angle="30" genCount="1" genTime="20000" objectKey="71" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-680.77#15.57#-705.97" angle="30" genCount="1" genTime="20000" objectKey="72" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-638.89#15.57#-752.02" angle="30" genCount="1" genTime="20000" objectKey="73" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-493.79#15.57#-775.68" angle="30" genCount="1" genTime="20000" objectKey="74" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-451.44#15.57#-816.99" angle="30" genCount="1" genTime="20000" objectKey="75" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-540.88#15.57#-834.38" angle="30" genCount="1" genTime="20000" objectKey="76" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-498.88#15.57#-866.98" angle="30" genCount="1" genTime="20000" objectKey="77" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-756.63#15.57#-784.07" angle="47" genCount="1" genTime="20000" objectKey="78" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-712.05#15.57#-823.26" angle="47" genCount="1" genTime="20000" objectKey="79" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-793.96#15.57#-818.13" angle="17" genCount="1" genTime="20000" objectKey="80" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-755.85#15.57#-863.06" angle="32" genCount="1" genTime="20000" objectKey="81" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-601.69#15.57#-925.07" angle="47" genCount="1" genTime="20000" objectKey="82" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-570.43#15.57#-953.03" angle="47" genCount="1" genTime="20000" objectKey="83" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-642.52#15.57#-965.36" angle="47" genCount="1" genTime="20000" objectKey="84" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-614.42#12.26#-991.93" angle="47" genCount="1" genTime="20000" objectKey="85" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-610.98#15.57#-961.89" angle="45" genCount="1" genTime="20000" objectKey="86" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-751.51#15.57#-829.88" angle="45" genCount="1" genTime="20000" objectKey="87" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-618.73#15.57#-706.46" angle="45" genCount="1" genTime="20000" objectKey="88" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-485.09#15.57#-820.90" angle="45" genCount="1" genTime="20000" objectKey="89" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-670.63#15.57#-864.63" angle="48" genCount="1" genTime="20000" objectKey="90" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-669.39#15.57#-791.79" angle="48" genCount="1" genTime="20000" objectKey="91" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-603.09#15.57#-859.02" angle="48" genCount="1" genTime="20000" objectKey="92" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-604.92#15.57#-795.17" angle="48" genCount="1" genTime="20000" objectKey="93" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="-702.82#15.57#-911.36" angle="38" genCount="1" genTime="20000" objectKey="94" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="-723.93#15.57#-738.33" angle="38" genCount="1" genTime="20000" objectKey="95" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="-527.39#15.57#-919.52" angle="41" genCount="1" genTime="20000" objectKey="96" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="-568.88#4.90#-1139.40" angle="38" genCount="1" genTime="20000" objectKey="97" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="-671.48#4.90#-1125.21" angle="38" genCount="1" genTime="20000" objectKey="98" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="-663.19#4.90#-1231.89" angle="38" genCount="1" genTime="20000" objectKey="99" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="-566.21#4.90#-1229.62" angle="38" genCount="1" genTime="20000" objectKey="100" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-747.01#4.90#-1109.30" angle="45" genCount="1" genTime="20000" objectKey="101" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-699.31#4.90#-1044.16" angle="45" genCount="1" genTime="20000" objectKey="102" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-756.03#4.90#-1261.19" angle="47" genCount="1" genTime="20000" objectKey="103" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-672.23#4.90#-1317.09" angle="47" genCount="1" genTime="20000" objectKey="104" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-552.05#4.90#-1050.24" angle="47" genCount="1" genTime="20000" objectKey="105" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-498.52#4.90#-1115.21" angle="47" genCount="1" genTime="20000" objectKey="106" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-477.68#4.90#-1256.92" angle="45" genCount="1" genTime="20000" objectKey="107" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-531.96#4.90#-1304.30" angle="45" genCount="1" genTime="20000" objectKey="108" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-630.50#4.90#-1164.30" angle="45" genCount="1" genTime="20000" objectKey="109" tendency="1"/>
-                    <Obj Type="Monster" MonType="57795" Pos="-598.00#4.90#-1193.49" angle="45" genCount="1" genTime="20000" objectKey="110" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-688.04#4.90#-1268.73" angle="48" genCount="1" genTime="20000" objectKey="111" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-703.48#4.90#-1093.10" angle="48" genCount="1" genTime="20000" objectKey="112" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-511.04#4.90#-1074.01" angle="48" genCount="1" genTime="20000" objectKey="113" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-522.50#4.90#-1269.18" angle="48" genCount="1" genTime="20000" objectKey="114" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-602.00#4.90#-1325.59" angle="48" genCount="1" genTime="20000" objectKey="115" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-743.57#4.90#-1195.77" angle="48" genCount="1" genTime="20000" objectKey="116" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-672.23#4.90#-1171.40" angle="48" genCount="1" genTime="20000" objectKey="117" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-625.75#4.90#-1117.86" angle="48" genCount="1" genTime="20000" objectKey="118" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-619.87#4.90#-1221.43" angle="48" genCount="1" genTime="20000" objectKey="119" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="-573.65#4.90#-1166.88" angle="48" genCount="1" genTime="20000" objectKey="120" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="-10.30#84.46#-334.54" angle="138" genCount="1" genTime="20000" objectKey="121" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="22.08#84.46#-294.74" angle="135" genCount="1" genTime="20000" objectKey="122" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="192.86#84.46#-146.75" angle="128" genCount="1" genTime="20000" objectKey="123" tendency="1"/>
-                    <Obj Type="Monster" MonType="57794" Pos="225.13#84.46#-110.84" angle="124" genCount="1" genTime="20000" objectKey="124" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="155.60#84.46#-101.23" angle="130" genCount="1" genTime="20000" objectKey="125" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="183.93#84.46#-70.84" angle="123" genCount="1" genTime="20000" objectKey="126" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-57.72#84.46#-297.37" angle="130" genCount="1" genTime="20000" objectKey="127" tendency="1"/>
-                    <Obj Type="Monster" MonType="57798" Pos="-13.73#84.46#-262.47" angle="130" genCount="1" genTime="20000" objectKey="128" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="65.73#90.48#-168.46" angle="132" genCount="1" genTime="20000" objectKey="129" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="63.47#84.46#-228.75" angle="132" genCount="1" genTime="20000" objectKey="130" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="124.18#84.46#-166.39" angle="132" genCount="1" genTime="20000" objectKey="131" tendency="1"/>
-                    <Obj Type="Monster" MonType="57796" Pos="127.67#84.46#-229.62" angle="132" genCount="1" genTime="20000" objectKey="132" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="162.16#84.46#-318.17" angle="135" genCount="1" genTime="20000" objectKey="133" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="217.80#84.46#-258.71" angle="135" genCount="1" genTime="20000" objectKey="134" tendency="1"/>
-                    <Obj Type="Monster" MonType="57797" Pos="204.16#84.46#-308.08" angle="135" genCount="1" genTime="20000" objectKey="135" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-14.20#56.98#1230.27" angle="-83" genCount="1" genTime="20000" objectKey="0" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="-301.04#82.45#1340.85" angle="-49" genCount="1" genTime="20000" objectKey="1" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-290.11#82.45#1289.34" angle="-51" genCount="1" genTime="20000" objectKey="2" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-351.44#82.45#1350.34" angle="-54" genCount="1" genTime="20000" objectKey="3" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-379.12#82.45#1204.65" angle="-47" genCount="1" genTime="20000" objectKey="4" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-304.79#82.45#1395.51" angle="-54" genCount="1" genTime="20000" objectKey="5" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-245.83#82.45#1332.14" angle="-51" genCount="1" genTime="20000" objectKey="6" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-342.34#82.45#1242.96" angle="-47" genCount="1" genTime="20000" objectKey="7" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-366.83#82.45#1486.07" angle="-47" genCount="1" genTime="20000" objectKey="8" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-443.20#82.45#1411.82" angle="-47" genCount="1" genTime="20000" objectKey="9" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="-390.39#82.45#1250.38" angle="-49" genCount="1" genTime="20000" objectKey="10" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="-200.93#82.45#1437.39" angle="-49" genCount="1" genTime="20000" objectKey="11" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-187.19#82.45#1388.59" angle="-47" genCount="1" genTime="20000" objectKey="12" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-157.10#82.45#1419.28" angle="-47" genCount="1" genTime="20000" objectKey="13" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-390.61#82.45#1426.51" angle="-47" genCount="1" genTime="20000" objectKey="14" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-448.52#82.45#1329.68" angle="-47" genCount="1" genTime="20000" objectKey="15" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-202.41#82.67#1185.55" angle="-54" genCount="1" genTime="20000" objectKey="16" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-149.02#82.59#1248.77" angle="-54" genCount="1" genTime="20000" objectKey="17" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-196.22#82.45#1241.33" angle="-54" genCount="1" genTime="20000" objectKey="18" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-260.55#82.45#1497.36" angle="-47" genCount="1" genTime="20000" objectKey="19" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-23.83#65.06#872.78" angle="-69" genCount="1" genTime="20000" objectKey="20" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="50.60#65.06#865.85" angle="-96" genCount="1" genTime="20000" objectKey="21" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="13.82#65.06#898.16" angle="-95" genCount="1" genTime="20000" objectKey="22" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-44.04#65.06#1018.83" angle="-90" genCount="1" genTime="20000" objectKey="23" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="25.13#65.06#961.45" angle="-97" genCount="1" genTime="20000" objectKey="24" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="70.03#65.06#1030.04" angle="-94" genCount="1" genTime="20000" objectKey="25" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="17.59#65.06#1075.55" angle="-94" genCount="1" genTime="20000" objectKey="26" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="22.12#65.06#1015.38" angle="-93" genCount="1" genTime="20000" objectKey="27" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-112.38#65.06#970.19" angle="-75" genCount="1" genTime="20000" objectKey="28" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="186.63#65.06#1007.19" angle="-82" genCount="1" genTime="20000" objectKey="29" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="108.42#65.06#1102.34" angle="-82" genCount="1" genTime="20000" objectKey="30" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-50.63#56.98#1254.49" angle="-82" genCount="1" genTime="20000" objectKey="31" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-103.96#65.06#920.68" angle="-69" genCount="1" genTime="20000" objectKey="32" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-66.51#65.06#952.21" angle="-71" genCount="1" genTime="20000" objectKey="33" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="149.72#65.06#984.30" angle="-89" genCount="1" genTime="20000" objectKey="34" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="188.97#65.06#978.53" angle="-85" genCount="1" genTime="20000" objectKey="35" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="95.51#65.06#1156.19" angle="-85" genCount="1" genTime="20000" objectKey="36" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="153.28#65.06#1099.20" angle="-85" genCount="1" genTime="20000" objectKey="37" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="0.74#56.98#1270.08" angle="-82" genCount="1" genTime="20000" objectKey="38" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="204.05#56.98#1276.52" angle="-116" genCount="1" genTime="20000" objectKey="39" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="201.79#56.98#1304.40" angle="-82" genCount="1" genTime="20000" objectKey="40" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="237.41#56.98#1288.50" angle="-82" genCount="1" genTime="20000" objectKey="41" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-56.01#56.98#1427.13" angle="-82" genCount="1" genTime="20000" objectKey="42" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="11.59#56.98#1433.58" angle="-82" genCount="1" genTime="20000" objectKey="43" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-22.67#56.98#1408.96" angle="-83" genCount="1" genTime="20000" objectKey="44" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="169.87#56.98#1407.66" angle="-84" genCount="1" genTime="20000" objectKey="45" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="215.96#56.98#1407.07" angle="-83" genCount="1" genTime="20000" objectKey="46" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="163.00#56.98#1464.56" angle="-84" genCount="1" genTime="20000" objectKey="47" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="37.64#56.98#1318.18" angle="-78" genCount="1" genTime="20000" objectKey="48" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="120.44#56.98#1304.17" angle="-92" genCount="1" genTime="20000" objectKey="49" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="78.66#56.98#1346.86" angle="-90" genCount="1" genTime="20000" objectKey="50" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="34.69#56.98#1395.07" angle="-101" genCount="1" genTime="20000" objectKey="51" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="112.81#56.98#1382.35" angle="-98" genCount="1" genTime="20000" objectKey="52" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="69.76#56.98#1483.39" angle="-82" genCount="1" genTime="20000" objectKey="53" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="115.85#56.98#1480.34" angle="-82" genCount="1" genTime="20000" objectKey="54" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-26.71#107.76#365.13" angle="-69" genCount="1" genTime="20000" objectKey="55" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="5.50#107.76#322.95" angle="-69" genCount="1" genTime="20000" objectKey="56" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="57.54#107.76#342.41" angle="-69" genCount="1" genTime="20000" objectKey="57" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="11.98#107.76#385.51" angle="-69" genCount="1" genTime="20000" objectKey="58" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-23.56#107.76#587.39" angle="-69" genCount="1" genTime="20000" objectKey="59" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="19.84#107.76#538.36" angle="-69" genCount="1" genTime="20000" objectKey="60" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="60.25#107.76#579.44" angle="-70" genCount="1" genTime="20000" objectKey="61" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="19.28#107.76#637.72" angle="-77" genCount="1" genTime="20000" objectKey="62" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="20.41#107.76#570.84" angle="-89" genCount="1" genTime="20000" objectKey="63" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-287.93#67.62#-425.11" angle="26" genCount="1" genTime="20000" objectKey="64" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-231.95#67.62#-484.13" angle="40" genCount="1" genTime="20000" objectKey="65" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-346.60#67.62#-486.44" angle="34" genCount="1" genTime="20000" objectKey="66" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-296.32#67.62#-530.27" angle="47" genCount="1" genTime="20000" objectKey="67" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-404.69#67.62#-542.69" angle="30" genCount="1" genTime="20000" objectKey="68" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-350.98#67.62#-585.60" angle="36" genCount="1" genTime="20000" objectKey="69" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-625.07#15.57#-651.27" angle="30" genCount="1" genTime="20000" objectKey="70" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-583.13#15.57#-696.80" angle="30" genCount="1" genTime="20000" objectKey="71" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-680.77#15.57#-705.97" angle="30" genCount="1" genTime="20000" objectKey="72" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-638.89#15.57#-752.02" angle="30" genCount="1" genTime="20000" objectKey="73" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-493.79#15.57#-775.68" angle="30" genCount="1" genTime="20000" objectKey="74" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-451.44#15.57#-816.99" angle="30" genCount="1" genTime="20000" objectKey="75" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-540.88#15.57#-834.38" angle="30" genCount="1" genTime="20000" objectKey="76" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-498.88#15.57#-866.98" angle="30" genCount="1" genTime="20000" objectKey="77" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-756.63#15.57#-784.07" angle="47" genCount="1" genTime="20000" objectKey="78" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-712.05#15.57#-823.26" angle="47" genCount="1" genTime="20000" objectKey="79" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-793.96#15.57#-818.13" angle="17" genCount="1" genTime="20000" objectKey="80" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-755.85#15.57#-863.06" angle="32" genCount="1" genTime="20000" objectKey="81" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-601.69#15.57#-925.07" angle="47" genCount="1" genTime="20000" objectKey="82" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-570.43#15.57#-953.03" angle="47" genCount="1" genTime="20000" objectKey="83" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-642.52#15.57#-965.36" angle="47" genCount="1" genTime="20000" objectKey="84" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-614.42#12.26#-991.93" angle="47" genCount="1" genTime="20000" objectKey="85" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-610.98#15.57#-961.89" angle="45" genCount="1" genTime="20000" objectKey="86" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-751.51#15.57#-829.88" angle="45" genCount="1" genTime="20000" objectKey="87" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-618.73#15.57#-706.46" angle="45" genCount="1" genTime="20000" objectKey="88" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-485.09#15.57#-820.90" angle="45" genCount="1" genTime="20000" objectKey="89" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-670.63#15.57#-864.63" angle="48" genCount="1" genTime="20000" objectKey="90" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-669.39#15.57#-791.79" angle="48" genCount="1" genTime="20000" objectKey="91" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-603.09#15.57#-859.02" angle="48" genCount="1" genTime="20000" objectKey="92" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-604.92#15.57#-795.17" angle="48" genCount="1" genTime="20000" objectKey="93" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="-702.82#15.57#-911.36" angle="38" genCount="1" genTime="20000" objectKey="94" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="-723.93#15.57#-738.33" angle="38" genCount="1" genTime="20000" objectKey="95" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="-527.39#15.57#-919.52" angle="41" genCount="1" genTime="20000" objectKey="96" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="-568.88#4.90#-1139.40" angle="38" genCount="1" genTime="20000" objectKey="97" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="-671.48#4.90#-1125.21" angle="38" genCount="1" genTime="20000" objectKey="98" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="-663.19#4.90#-1231.89" angle="38" genCount="1" genTime="20000" objectKey="99" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="-566.21#4.90#-1229.62" angle="38" genCount="1" genTime="20000" objectKey="100" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-747.01#4.90#-1109.30" angle="45" genCount="1" genTime="20000" objectKey="101" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-699.31#4.90#-1044.16" angle="45" genCount="1" genTime="20000" objectKey="102" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-756.03#4.90#-1261.19" angle="47" genCount="1" genTime="20000" objectKey="103" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-672.23#4.90#-1317.09" angle="47" genCount="1" genTime="20000" objectKey="104" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-552.05#4.90#-1050.24" angle="47" genCount="1" genTime="20000" objectKey="105" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-498.52#4.90#-1115.21" angle="47" genCount="1" genTime="20000" objectKey="106" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-477.68#4.90#-1256.92" angle="45" genCount="1" genTime="20000" objectKey="107" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-531.96#4.90#-1304.30" angle="45" genCount="1" genTime="20000" objectKey="108" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-630.50#4.90#-1164.30" angle="45" genCount="1" genTime="20000" objectKey="109" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57795" Pos="-598.00#4.90#-1193.49" angle="45" genCount="1" genTime="20000" objectKey="110" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-688.04#4.90#-1268.73" angle="48" genCount="1" genTime="20000" objectKey="111" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-703.48#4.90#-1093.10" angle="48" genCount="1" genTime="20000" objectKey="112" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-511.04#4.90#-1074.01" angle="48" genCount="1" genTime="20000" objectKey="113" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-522.50#4.90#-1269.18" angle="48" genCount="1" genTime="20000" objectKey="114" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-602.00#4.90#-1325.59" angle="48" genCount="1" genTime="20000" objectKey="115" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-743.57#4.90#-1195.77" angle="48" genCount="1" genTime="20000" objectKey="116" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-672.23#4.90#-1171.40" angle="48" genCount="1" genTime="20000" objectKey="117" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-625.75#4.90#-1117.86" angle="48" genCount="1" genTime="20000" objectKey="118" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-619.87#4.90#-1221.43" angle="48" genCount="1" genTime="20000" objectKey="119" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="-573.65#4.90#-1166.88" angle="48" genCount="1" genTime="20000" objectKey="120" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="-10.30#84.46#-334.54" angle="138" genCount="1" genTime="20000" objectKey="121" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="22.08#84.46#-294.74" angle="135" genCount="1" genTime="20000" objectKey="122" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="192.86#84.46#-146.75" angle="128" genCount="1" genTime="20000" objectKey="123" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57794" Pos="225.13#84.46#-110.84" angle="124" genCount="1" genTime="20000" objectKey="124" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="155.60#84.46#-101.23" angle="130" genCount="1" genTime="20000" objectKey="125" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="183.93#84.46#-70.84" angle="123" genCount="1" genTime="20000" objectKey="126" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-57.72#84.46#-297.37" angle="130" genCount="1" genTime="20000" objectKey="127" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57798" Pos="-13.73#84.46#-262.47" angle="130" genCount="1" genTime="20000" objectKey="128" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="65.73#90.48#-168.46" angle="132" genCount="1" genTime="20000" objectKey="129" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="63.47#84.46#-228.75" angle="132" genCount="1" genTime="20000" objectKey="130" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="124.18#84.46#-166.39" angle="132" genCount="1" genTime="20000" objectKey="131" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57796" Pos="127.67#84.46#-229.62" angle="132" genCount="1" genTime="20000" objectKey="132" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="162.16#84.46#-318.17" angle="135" genCount="1" genTime="20000" objectKey="133" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="217.80#84.46#-258.71" angle="135" genCount="1" genTime="20000" objectKey="134" IsIncludeAchievementRate="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="57797" Pos="204.16#84.46#-308.08" angle="135" genCount="1" genTime="20000" objectKey="135" IsIncludeAchievementRate="1" tendency="1"/>
                 </ObjList>
             </Stage>
             <Stage Name="trap" AutoStart="0">
@@ -440,6 +447,23 @@
                         <execList>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="PercentUI">
+                <ObjList/>
+                <StageEvents>
+                    <Event>
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_MON_KILL_COUNT_CALC"/>
                             </ToolScp>
                         </execList>
                     </Event>
