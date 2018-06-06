@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -834,6 +834,8 @@
     <Class ClassID="10467" ClassName="CantEquipMonsterCard" Data="동일한 등급의 카드를 더 이상 장착할 수 없습니다."/>
 	<Class ClassID="10468" ClassName="NotExistFieldBossInSpot" Data="해당 지역에 필드보스가 없습니다."/>
 		<Class ClassID="10469" ClassName="ErrorNexonLauncher" Data="넥슨 런처를 실행해주세요."/>
+		<Class ClassID="10472" ClassName="Mission_Reward" Data="살러스 수녀원 미션 완료 보상 +1"/>
+		<Class ClassID="10473" ClassName="AntiqueExchange" Data="이전 아이템의 강화, 초월, 젬, 포텐셜, 각성 수치가 이전됩니다.{nl} {nl}교환하시겠습니까?"/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -4209,10 +4211,11 @@
 		<Class ClassID="27242" ClassName="EV161215_NEXONCASHBOX_MSG3" Data="'넥슨 캐시 추첨권' 획득"/>
 		<Class ClassID="27243" ClassName="EV161215_NEXONCASHBOX_MSG4" Data="넥슨캐시 상자"/>
 		<Class ClassID="27250" ClassName="CS_IndunReset_GTower_1_MSG1" Data="오류 보상용 대지의 탑 1회 입장권이 적용되셨습니다"/>
-		<Class ClassID="27251" ClassName="CS_IndunReset_Nunnery_1_MSG1" Data="오류 보상용 살러스 미션 1회 입장권이 적용되셨습니다"/>
+		<Class ClassID="27251" ClassName="CS_IndunReset_Nunnery_1_MSG1" Data="살러스 미션 1회 입장권이 적용되셨습니다"/>
 		<Class ClassID="27252" ClassName="CS_IndunReset_GTower_1_MSG2" Data="오늘 대지의 탑에 입장한 횟수가 1 이상일 때만 사용 가능합니다"/>
 		<Class ClassID="27253" ClassName="CS_IndunReset_Nunnery_1_MSG2" Data="오늘 살러스 수녀원 미션에 입장한 횟수가 1 이상일 때만 사용 가능합니다"/>
 		<Class ClassID="27254" ClassName="CS_IndunReset_GTower_1_MSG3" Data="인스턴스 지역에서는 사용 하실 수 없습니다!"/>
+		<Class ClassID="27255" ClassName="CS_IndunReset_GTower_1_MSG4" Data="살러스 수녀원 미션 완료 횟수 : 0{nl}1회 입장권을 사용할 수 없습니다"/>
 		<Class ClassID="27260" ClassName="EV161229_DICE_MSG1" Data="취소 한다"/>
 		<Class ClassID="27261" ClassName="EV161229_DICE_MSG2" Data="{COUNT} 주사위 획득!"/>
 		<Class ClassID="27262" ClassName="EV161229_DICE_MSG3" Data="주사위 찾기에 참여한다"/>
@@ -9559,7 +9562,7 @@
 		<Class ClassID="300078" ClassName="TokenAppliedAtExchange" Data="토큰 사용"/>
 		<Class ClassID="300079" ClassName="TokenNoneAppliedAtExchange" Data="토큰 미사용"/>
 		<Class ClassID="300080" ClassName="PremiumToken_60d" Data="토큰:60일"/>
-		<Class ClassID="300081" ClassName="NextTokenBuyableTime" Data="다음 토큰 구입 가능 시간은 {Time}입니다."/>
+		<Class ClassID="300081" ClassName="NextTokenBuyableTime" Data="다음 토큰 구입 가능 시간은 {Year}년 {Month}월 {Day}일 {Hour}시 {Minute}분 입니다."/>
 		<Class ClassID="300082" ClassName="FamilyShareCantRecv" Data="패밀리 쉐어링중인 계정으로는 수령 불가능합니다."/>
 		<Class ClassID="300083" ClassName="ChangeFamilyName" Data="팀 이름"/>
 		<Class ClassID="300084" ClassName="ChangeGuildName" Data="길드 이름"/>
@@ -9764,5 +9767,8 @@
 	</Category>
 <Category Name="FieldBossMessage">
 		<Class ClassID="510500" ClassName="FieldBoss{Name}WillAppear" Data="잠시 후 필드 보스가 등장합니다 : {Name}"/>
+	</Category>
+	<Category Name="LegendTrade">
+		<Class ClassID="510400" ClassName="GT2_RELICSHOP_NPC_SEL_4" Data="다른 장비로 교환 가능한지 물어본다."/>
 	</Category>
 </idspace>

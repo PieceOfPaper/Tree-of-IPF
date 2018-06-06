@@ -1370,34 +1370,38 @@ end
 function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 	local pc = GetMyPCObject();
 	if pc == nil or IsPVPServer(pc) == 1 then
+		local isEnableUseInPVPMap = TryGetProp(itemobj, "PVPMap");
+		if isEnableUseInPVPMap ~= "YES" then
+			ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
+			return 0;
+		end
+	end
+	
+	if IsBuffApplied(pc, 'Event_Penalty') == 'YES' and (itemobj.ClassID == 640022 or itemobj.ClassID == 640022 or itemobj.ClassID == 640079 or itemobj.ClassID == 490006 or itemobj.ClassID == 490110)then
 		ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
 		return 0;
 	end
 	
-	if IsBuffApplied(pc, 'Event_Penalty') == 'YES' and (itemobj.ClassID == 640022 or itemobj.ClassID == 640022 or itemobj.ClassID == 640079 or itemobj.ClassID == 490006 or itemobj.ClassID == 490110)then
-	  ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
-		return 0;
-	end
 	-- 워프 주문서 예외처리. 실제 워프가 이루어질때 아이템이 소비되도록.
 	local warpscrolllistcls = GetClass("warpscrolllist", itemobj.ClassName);
 	if warpscrolllistcls ~= nil then
-
 		if itemobj.LifeTime > 0 and itemobj.ItemLifeTimeOver > 0 then
 			ui.SysMsg(ScpArgMsg("LessThanItemLifeTime"));
 			return 1;
 		end
-
+		
 		if true == invitem.isLockState then
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
 			return 1;
 		end
+		
 		local pc = GetMyPCObject();
 		local warpFrame = ui.GetFrame('worldmap');
 		warpFrame:SetUserValue('SCROLL_WARP', itemobj.ClassName)
 		warpFrame:ShowWindow(1);
 		return 1;
 	end
-
+	
 	return 0;
 
 end

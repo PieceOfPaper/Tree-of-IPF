@@ -5,7 +5,14 @@
 		<Motion Name="RUN">
 			<Job Name="All">
 				<Event>
-					<Particle frame="0" attachNode="Bip01 Pelvis" particleName="I_leaf005_pink" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					<Particle frame="0" attachNode="Bip01 Pelvis" particleName="I_leaf005_pink" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+				</Event>
+			</Job>
+		</Motion>
+		<Motion Name="RUN_RIDE">
+			<Job Name="All">
+				<Event>
+					<Particle frame="0" attachNode="Bip01 Pelvis" particleName="I_leaf005_pink" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
 				</Event>
 			</Job>
 		</Motion>
@@ -13,6 +20,13 @@
 			<Job Name="All">
 				<Event>
 					<Particle frame="0" attachNode="Dummy_emitter" particleName="F_pose_jumping_light2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+				</Event>
+			</Job>
+		</Motion>
+		<Motion Name="STD_RIDE">
+			<Job Name="All">
+				<Event>
+					<Particle frame="0" attachNode="Dummy_emitter" particleName="F_pose_jumping_light2_ride" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
 				</Event>
 			</Job>
 		</Motion>
