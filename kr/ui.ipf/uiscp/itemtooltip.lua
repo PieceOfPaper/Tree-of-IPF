@@ -620,13 +620,11 @@ function ITEM_TOOLTIP_EXTRACT_OPTION(tooltipframe, invitem, mouseOverFrameName)
 	local mainframename = 'extract_option';
 	local ypos, commonCtrlSet = DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, mainframename);	
 	local line1 = commonCtrlSet:GetChild('line1');
-	if IS_EXIST_RANDOM_OPTION(invitem) == false then
-		line1:ShowWindow(0);
-		ypos = DRAW_EQUIP_PROPERTY(tooltipframe, targetItem, ypos, mainframename);
-	else
-		line1:ShowWindow(1);
+	if IS_EXIST_RANDOM_OPTION(invitem) == true then		
 		ypos = DRAW_EXTRACT_OPTION_RANDOM_OPTION(tooltipframe, invitem, mainframename, ypos);	
 	end
+
+	ypos = DRAW_EQUIP_PROPERTY(tooltipframe, targetItem, ypos, mainframename, nil, false);
 	ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos);
 	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename);

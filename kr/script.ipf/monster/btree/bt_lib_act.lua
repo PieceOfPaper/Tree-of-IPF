@@ -96,7 +96,7 @@ function BT_ACT_MOVE_TO_TARGET(self, state, btree, prop)
 	local target = GetReservedTarget(btree);
 	
 	if target == nil then
-		IMC_ERROR("ERRCODE_SCRIPT_BTREE", "target[nil]");
+		IMC_LOG("ERROR_BTREE", "target[nil]");
 		return;
 	end
 
@@ -213,7 +213,7 @@ function BT_ACT_USE_SKILL_SELF(self, state, btree, prop)
 		if errSkill == nil then
 			errSkill = "nil";
 		end
-		IMC_ERROR("ERRCODE_SCRIPT_BTREE", "NumArg[".. numArg .. "] SelectedSkill["..errSkill.."]");
+		IMC_LOG("ERROR_BTREE", "NumArg[".. numArg .. "] SelectedSkill["..errSkill.."]");
 		return BT_FAILED;
 	end
 	
@@ -236,7 +236,7 @@ function BT_ACT_USE_SKILL_SELF_NOWAIT(self, state, btree, prop)
 		if errSkill == nil then
 			errSkill = "nil";
 		end
-		IMC_ERROR("ERRCODE_SCRIPT_BTREE", "NumArg[".. numArg .. "] SelectedSkill["..errSkill.."]");
+		IMC_LOG("ERROR_BTREE", "NumArg[".. numArg .. "] SelectedSkill["..errSkill.."]");
 		return BT_FAILED;
 	end
 	
@@ -288,13 +288,13 @@ function BT_ACT_USE_SKILL(self, state, btree, prop)
 		if errSkill == nil then
 			errSkill = "nil";
 		end
-		IMC_ERROR("ERRCODE_SCRIPT_BTREE", "NumArg[".. numArg .. "] SelectedSkill["..errSkill.."]");
+		IMC_LOG("ERROR_BTREE", "NumArg[".. numArg .. "] SelectedSkill["..errSkill.."]");
 		return BT_FAILED;
 	end
 
 	local target = GetNearTopHateEnemy(self);
 	if target == nil then
-		IMC_ERROR("ERRCODE_SCRIPT_BTREE", "target[nil]");
+		IMC_LOG("ERROR_BTREE", "target[nil]");
 		return BT_FAILED;
 	end
 
@@ -318,13 +318,13 @@ function BT_ACT_USE_SKILL_NOWAIT(self, state, btree, prop)
 		if errSkill == nil then
 			errSkill = "nil";
 		end
-		IMC_ERROR("ERRCODE_SCRIPT_BTREE", "NumArg[".. numArg .. "] SelectedSkill["..errSkill.."]");
+		IMC_LOG("ERROR_BTREE", "NumArg[".. numArg .. "] SelectedSkill["..errSkill.."]");
 		return BT_FAILED;
 	end
 
 	local target = GetNearTopHateEnemy(self);
 	if target == nil then
-		IMC_ERROR("ERRCODE_SCRIPT_BTREE", "target[nil]");
+		IMC_LOG("ERROR_BTREE", "target[nil]");
 		return BT_FAILED;
 	end
 
@@ -533,7 +533,7 @@ function BT_ACT_REQ_MON_USE_SKILL_TO_MON(self, state, btree, prop)
 		if errSkill == nil then
 			errSkill = "nil";
 		end
-		IMC_ERROR("ERRCODE_SCRIPT_BTREE", "SelectedSkill["..errSkill.."]");
+		IMC_LOG("ERROR_BTREE", "SelectedSkill["..errSkill.."]");
 
 		return BT_FAILED;
 	end

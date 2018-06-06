@@ -1230,16 +1230,9 @@ end
 
 function BOSS_SEL_ITEM_DROP(self, attacker, itemCls, isPayItem, isFieldBoss, isShowBalloon)    
     --필드 보스 드랍
-    local checkFbossType = GetClass("ItemDropBoss", self.DropItemList);
-    local bossprop = TryGetProp(checkFbossType, "IsSingleBoss");
     if isFieldBoss == 1 or isFieldBoss == true then
-        if bossprop == 1 then
-            local item = FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem, isShowBalloon)
-            return item;
-        elseif bossprop == 0 then
-            local item = EVENT_FIELD_BOSS_REWARD(self, attacker, itemCls, isPayItem, isShowBalloon)
-            return item;
-        end
+        local item = FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem, isShowBalloon)
+        return item;
     else
     --일반 보스 드랍
         local item = NORMAL_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
@@ -1424,78 +1417,6 @@ function FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem, isShowBalloon)
         local ret = TxCommit(tx);
     
         if ret == "SUCCESS" then
-            item = GetInvItemByGuid(attacker, resultGUID);
-
-            SetExProp_Str(item, "POST_PICK", "BOSS_ITEM_BALLOON");
-            AddBossDropInfo(attacker, self, itemName, itemCount);
-
-            local rank = GetExProp(attacker, "BOSS_KILL_RANK");
-            if isShowBalloon == 0 then
-                ShowItemBalloon(attacker, "{@st43}", "Rank_{Number}", tostring(rank), item, 4, 2, "reward_itembox", 0);
-                return item;
-            elseif isShowBalloon == 1 then
-                ShowItemBalloon(attacker, "{@st43}", "Rank_{Number}", tostring(rank), item, 4, 2, "reward_itembox", 1);
-                return item;
-            end
-        else
-            local name = GetTeamName(attacker)
-            IMC_NORMAL_INFO("[FIELD_BOSS_ITEM_DROP ERROR] UserTeamName : "..name.." ItemName : "..itemName)
-            --혹시 모르니 남겨놓자
-            CustomMongoLog(attacker, "RewardItemOnmission", "Type", "FieldBossReward", "ItemName", itemName, "itemCount", itemCount)
-        end
-    end
-    return nil
-end
-
-function EVENT_FIELD_BOSS_REWARD(self, attacker, itemCls, isPayItem, isShowBalloon)
-    if CAN_DROP_CONSIDERING_PENALTY(attacker) == true then
-        local itemName = itemCls.ItemClassName;
-        local itemCount = 1;
-
-        local monID = geItemTable.GetItemMonsterByName(itemName);
-        --180201 필보 보상 추가 이벤트 로직 --
-        local evepropDropCheck = TryGetProp(self, "DropItemList");
-        local bossDropList, cnt = GetClassList("MonsterDropItemList_"..evepropDropCheck);
-        local evegiveItem = nil
-        local everewardItem = nil
-
-        for i = 0, cnt-1 do
-            local cls = GetClassByIndexFromList(bossDropList,i)
-            if cls == nil then
-                return;
-            end
-            everewardItem = TryGetProp(cls , "RewardGrade")
-            
-            if everewardItem == nil then
-                return;
-            end
-            
-            if everewardItem == "Add" then
-                local eveitemCheck = TryGetProp(cls, "ItemClassName")
-                if eveitemCheck == nil then
-                    return;
-                end
-                evegiveItem = eveitemCheck
-                break;
-            end
-        end
-        --180201 필보 이벤트 로직 종료 --
-
-        if GetClassByType("Monster", monID) == nil then
-            return nil;
-        end
-
-        local item = nil;
-        local cmdIdx = -1;
-        local resultGUID = 0;
-        
-        local tx = TxBegin(attacker);
-        cmdIdx = TxGiveItem(tx, itemCls.ItemClassName, 1, "FieldBossReward");
-        TxGiveItem(tx, evegiveItem, 1, "FieldBossReward");
-        resultGUID = TxGetGiveItemID(tx, cmdIdx);
-        local ret = TxCommit(tx);
-
-		if ret == "SUCCESS" then
             item = GetInvItemByGuid(attacker, resultGUID);
 
             SetExProp_Str(item, "POST_PICK", "BOSS_ITEM_BALLOON");

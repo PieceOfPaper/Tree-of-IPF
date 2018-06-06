@@ -407,9 +407,9 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
                 levelvalue = 4
             end
 
-            lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");                        
+            lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");  
             if lvDescStart == nil then -- max skill level = 1
-                local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));                   
+                local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));   
                 ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);                
                 break;
             end            
@@ -511,7 +511,6 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 end
 
  function MAKE_SKILL_CAPTION2(className, caption2, curLv)
-
     local originCaption = caption2;
 
     local clslist, cnt  = GetClassList("SkillTree");
@@ -522,16 +521,23 @@ end
     local caption = "";
     local beginLv = 1;
     local maxLevel = 2;
+	local find = false;
     for i=0, cnt-1 do
         local class = GetClassByIndexFromList(clslist, i);
         if class ~= nil then
             if class.SkillName == className then
                 maxLevel = class.MaxLevel;
+				find = true;
                 break;
             end
         end
     end
-    
+
+	if find == false then
+		maxLevel = 1;
+		curLv = 1;
+	end
+
     -- 1 ~ maxLevel caption cause to client down. use only two captions which you need
     if curLv ~= nil then
         if curLv == 0 then

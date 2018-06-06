@@ -4230,9 +4230,15 @@ function JOYSTICK_INPUT()
 		quickFrame:ShowWindow(0);
 		restquickslot:ShowWindow(0);
 
-		Set1:ShowWindow(1);
-		Set2:ShowWindow(0);	
-
+		-- 기존 set 유지.
+		if Set2:IsVisible() == 1 then 
+			Set1:ShowWindow(0);
+			Set2:ShowWindow(1);
+		else
+			Set2:ShowWindow(0);
+			Set1:ShowWindow(1);
+		end
+		
 		joystickQuickFrame:Invalidate();
 	end
 end

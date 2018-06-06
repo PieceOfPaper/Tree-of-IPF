@@ -209,7 +209,7 @@ function ITEM_OPTIONADD_REG_MAIN_ITEM(frame, itemID)
 	frame:SetUserValue('MAX_EXCHANGEITEM_CNT', exchangeItemSlot);
 
 	local materialItemName = ScpArgMsg('NotDecidedYet')
-	for i = 1 , 2 do
+	for i = 1 , materialItemSlot do
 		local materialItemIndex = "MaterialItem_" .. i
 		local materialItemCount = 0
 		local ItemGrade = itemCls.ItemGrade		
@@ -235,6 +235,11 @@ function ITEM_OPTIONADD_REG_MAIN_ITEM(frame, itemID)
 			frame:SetUserValue('MATERIAL_ITEM_COUNT', materialItemCount);
 		end
 
+		if i == materialItemSlot then
+			local labelline = GET_CHILD_RECURSIVELY(materialClsCtrl, "labelline2")
+			labelline:ShowWindow(0)
+		end
+		
 		local itemIcon = 'question_mark'
 		material_icon:ShowWindow(1)
 		material_questionmark:ShowWindow(0)
@@ -263,15 +268,15 @@ function ITEM_OPTIONADD_REG_MAIN_ITEM(frame, itemID)
 				session.AddItemID(materialCls.ClassID, materialItemCount);
 	
 			else
-				materialClsCtrl : ShowWindow(0)
+				materialClsCtrl:ShowWindow(0)
 			end
 
 		else
-			materialClsCtrl : ShowWindow(0)
+			materialClsCtrl:ShowWindow(0)
 		end
 
-		material_icon : SetImage(itemIcon)
-		material_name : SetText(materialItemName)
+		material_icon:SetImage(itemIcon)
+		material_name:SetText(materialItemName)
 	end
 	frame:SetUserValue("isAbleExchange", isAbleExchange)
 
@@ -280,13 +285,13 @@ function ITEM_OPTIONADD_REG_MAIN_ITEM(frame, itemID)
 	putOnItem:ShowWindow(0)
 
 	local slot_bg_image = GET_CHILD_RECURSIVELY(frame, "slot_bg_image")
-	slot_bg_image : ShowWindow(0)
+	slot_bg_image:ShowWindow(0)
 
 	local arrowbox = GET_CHILD_RECURSIVELY(frame, "arrowbox")
-	arrowbox : ShowWindow(1)
+	arrowbox:ShowWindow(1)
 
 	local slot_add = GET_CHILD_RECURSIVELY(frame, "slot_add")
-	slot_add : ShowWindow(1)
+	slot_add:ShowWindow(1)
 
 	local itemName = GET_CHILD_RECURSIVELY(frame, "text_itemname")
 	itemName:SetText(obj.Name)
@@ -348,7 +353,7 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 		-- atk 타입이 안맞아서 리턴
 		return
 	end
-
+	
 	local targetItem = GetClass('Item', invitem.InheritanceItemName);
 	local yPos = 0
 	local basicList = GET_EQUIP_TOOLTIP_PROP_LIST(targetItem);

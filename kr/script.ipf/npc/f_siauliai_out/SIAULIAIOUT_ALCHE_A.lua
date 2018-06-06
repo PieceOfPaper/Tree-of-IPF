@@ -22,8 +22,11 @@ end
 
 
 function SCR_SIAULIAIOUT_ALCHE_A_ENTER(self, pc)
---    local levelCheck = pc.Lv
---    if levelCheck >= 360 then
---        AddHelpByName(pc, 'TUTO_ITEM_LINK')
---    end
+    local hideCheck = isHideNPC(pc, "SIAULIAIOUT_ALCHE_A")
+    if hideCheck == "NO" then
+        local levelCheck = pc.Lv
+        if levelCheck >= 360 then
+            AddHelpByName(pc, 'TUTO_ITEM_LINK')
+        end
+    end
 end

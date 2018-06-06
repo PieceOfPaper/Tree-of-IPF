@@ -43,16 +43,16 @@ function SCR_BLACKSMITH_FEDIMIAN_NORMAL_3(self,pc)
     SendAddOnMsg(pc, "DO_OPEN_MANAGE_GEM_UI", "", 0);
 end
 
-function SCR_BLACKSMITH_FEDIMIAN_NORMAL_4(self,pc)
+function SCR_BLACKSMITH_FEDIMIAN_NORMAL_4(self, pc)
     SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend', 5, 0, self);
 end
 
-function SCR_BLACKSMITH_FEDIMIAN_NORMAL_5(self,pc)
+function SCR_BLACKSMITH_FEDIMIAN_NORMAL_5(self, pc)
     SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend_break', 5, 0, self);
 end
 
 function SCR_BLACKSMITH_FEDIMIAN_NORMAL_6(self,pc)
-    ShowCustomDlg(pc, "itemtranscend_remove", 5);
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend_remove', 5, 0, self);
 end
 
 function SCR_BLACKSMITH_FEDIMIAN_NORMAL_7(self,pc)
@@ -65,7 +65,7 @@ function SCR_MARKET_FEDIMIAN_DIALOG(self, pc)
     local select = ShowSelDlg(pc, 0, 'FEDIMIAN_MARKET_SEL', ScpArgMsg('KLAPEDA_MARKET_OPEN'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
     if select == 1 then
         ShowCustomDlg(pc, "market", 5);
-		REGISTERR_LASTUIOPEN_POS_SERVER(pc,"market")
+        REGISTERR_LASTUIOPEN_POS_SERVER(pc,"market")
     end
 end
 
@@ -195,7 +195,7 @@ function SCR_WORLDPVP_START_DIALOG(self,pc)
     else  
         ShowOkDlg(pc, 'WORLDPVP_SELECT_MSG1', 1)
     end
-    UIOpenToPC(pc, "worldpvp", 1)
+            UIOpenToPC(pc, "worldpvp", 1)
 end
 
 function WORLDPVP_COUNT_CHECK(pc, aObj)
@@ -346,7 +346,7 @@ function SCR_FEDIMIAN_APPRAISER_NORMAL_1(self,pc)
 end
 
 function SCR_FEDIMIAN_APPRAISER_NORMAL_2(self,pc)
-    -- ??감??
+    -- 재감정
     
     UIOpenToPC(pc, 'itemrandomreset', 1)
 end
@@ -431,11 +431,12 @@ function JOB_APPRAISER52_ABBADON(self)
     end
 end
 
+
 function SCR_FEDIMIAN_TERIAVELIS_ENTER(self, pc)
---    local levelCheck = pc.Lv
---    if levelCheck >= 360 then
---        AddHelpByName(pc, 'TUTO_ICOR')
---    end
+    local levelCheck = pc.Lv
+    if levelCheck >= 360 then
+        AddHelpByName(pc, 'TUTO_ICOR')
+    end
 end
 
 
@@ -471,8 +472,8 @@ end
 
 function SCR_FEDIMIAN_TERIAVELIS_NORMAL_4(self, pc)
     SHOW_ITEM_TRANCEND_UI(pc, 'itemoptionadd', 5, 1, self);
-    end
-     
+end
+
 function SCR_FEDIMIAN_TERIAVELIS_NORMAL_5(self, pc)
     SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend', 5, 1, self);
 end

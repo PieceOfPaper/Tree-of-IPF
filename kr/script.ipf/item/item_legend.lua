@@ -567,15 +567,13 @@ function SCR_REQ_LEGEND_ITEM_DIALOG(pc, dialogType)
             end
         end
     elseif dialogType == 1 then -- 축복석 추출 / 아이템 추출 관련 다이얼로그--     
-        local npcClassName = GetExProp_Str(pc, 'TRANSCEND_NPC_NAME');
-        if npcClassName == 'npc_fedimian_merchant_4' then -- 페디미안 대장장이 안나--
-            ShowOkDlg(pc, 'NPC_ANNA_LEGENDITEM_DLG1', 1); 
-        elseif npcClassName == 'npc_blacksmith' then -- 클라페다 대장장이 자라스--
-            ShowOkDlg(pc, 'NPC_JARAS_LEGENDITEM_DLG1', 1); 
-        elseif npcClassName == 'npc_illanai' then -- 오르샤 대장장이 일라나이--
-            ShowOkDlg(pc, 'NPC_ILANAI_LEGENDITEM_DLG1', 1);
-        elseif npcClassName == 'npc_Teliavelis' then -- 테리아베리스 --
-            ShowOkDlg(pc, 'NPC_ILANAI_LEGENDITEM_DLG1', 1);
-        end
+       local npcClassName = GetExProp_Str(pc, 'TRANSCEND_NPC_NAME');
+       if npcClassName == 'npc_fedimian_merchant_4' then -- 페디미안 대장장이 안나--
+           ShowOkDlg(pc, 'NPC_ANNA_LEGENDITEM_DLG2', 1); 
+       elseif npcClassName == 'npc_blacksmith' then -- 클라페다 대장장이 자라스--
+           ShowOkDlg(pc, 'NPC_JARAS_LEGENDITEM_DLG2', 1); 
+       elseif npcClassName == 'npc_illanai' then -- 오르샤 대장장이 일라나이--
+           ShowOkDlg(pc, 'NPC_ILANAI_LEGENDITEM_DLG2', 1);
+       end
     end
 end

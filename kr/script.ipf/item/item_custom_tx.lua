@@ -3015,7 +3015,13 @@ function TX_SAVE_EXP_ORB(pc, invItem, fillingExp, maxExp, changeExpOrbAfterSaved
 		return;
 	end
 
-	local curExp = TryGetProp(invItem, "ItemExp");
+	local curExp = TryGetProp(invItem, "ItemExpString");
+	if curExp == "None" then
+		curExp = 0;
+	else
+		curExp = tonumber(curExp);
+	end
+
 	if curExp == nil then
 		return;
 	end
@@ -3033,14 +3039,14 @@ function TX_SAVE_EXP_ORB(pc, invItem, fillingExp, maxExp, changeExpOrbAfterSaved
 	if obj == nil then
 		return;
 	end
-
+	
 	local tx = TxBegin(pc);
 	TxEnableInIntegrate(tx);
-	TxSetIESProp(tx, invItem, "ItemExp", fillingExp);
+	TxSetIESProp(tx, invItem, "ItemExpString", fillingExp);
 	local ret = TxCommit(tx);
 
 	if changeExpOrbAfterSaved == 1 then
-		if nextGuid ~= nil and nextGuid ~= 0 then
+		if nextGuid ~= nil and nextGuid ~= "0" then
 			SetExpOrbItem(pc, nextGuid);
 		else
 			ResetExpOrbItem(pc);

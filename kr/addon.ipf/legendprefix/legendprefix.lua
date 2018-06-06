@@ -11,6 +11,14 @@ function CLOSE_LEGENDPREFIX(frame)
 	ui.CloseFrame('inventory');
 end
 
+function LEGENDPREFIX_CLOSE_BUTTON(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+	ui.CloseFrame('legendprefix')
+	ui.CloseFrame('inventory')
+end
+
 function LEGENDPREFIX_RESET(frame)
 	LEGENDPREFIX_RESET_TARGET_ITEM(frame);
 	LEGENDPREFIX_RESET_MATERIAL_SLOT(frame);	
@@ -34,6 +42,10 @@ function LEGENDPREFIX_RESET_MATERIAL_SLOT(frame)
 end
 
 function LEGENDPREFIX_SET_TARGET(parent, ctrl)		
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
 	local liftIcon = ui.GetLiftIcon();
 	local fromFrame = liftIcon:GetTopParentFrame();
 	if fromFrame:GetName() == 'inventory' then
@@ -44,6 +56,9 @@ function LEGENDPREFIX_SET_TARGET(parent, ctrl)
 end
 
 function LEGENDPREFIX_SET_TARGET_ITEM(frame, itemGuid)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
 	local invItem = session.GetInvItemByGuid(itemGuid);
 	if invItem == nil then
 		return;
@@ -128,7 +143,8 @@ function GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT_C() -- 경험치 꽉 찬 아이�
 		end
 		local invItem = invItemList:Element(i);
 		local item = GetIES(invItem:GetObject());
-        if item.ClassName == needItemName and item.ItemExp >= item.NumberArg1 then
+		local itemExpNum = tonumber(item.ItemExpString)
+        if item.ClassName == needItemName and itemExpNum ~= nil and itemExpNum >= item.NumberArg1 then
             count = count + 1;
         end
 
@@ -163,6 +179,11 @@ function LEGENDPREFIX_EXECUTE(parent, ctrl)
     	return;
     end
 
+   ui.SetHoldUI(true);
+
+    local linkButton = GET_CHILD_RECURSIVELY(frame, 'reg')
+    linkButton:EnableHitTest(0)
+
 	-- effect
 	local pic = GET_CHILD_RECURSIVELY(frame, 'pic');
 	local matPic_dummy = GET_CHILD_RECURSIVELY(frame, 'matPic_dummy');
@@ -180,7 +201,6 @@ end
 function LEGENDPREFIX_APPLY_RESULT(argStr)
 	local frame = ui.GetFrame('legendprefix');
 	_LEGENDPREFIX_SET_TARGET(frame, argStr);
-	LEGENDPREFIX_RESET_MATERIAL_SLOT(frame);
 
 	local slot = GET_CHILD_RECURSIVELY(frame, 'slot');
 	local resultframe = ui.GetFrame('legendprefix_result');		
@@ -196,11 +216,17 @@ function LEGENDPREFIX_BG_ANIM_TICK(ctrl, str, tick)
 		
 		local itemGuid = frame:GetUserValue('TARGET_ITEM_GUID');
 		local str = string.format('LEGENDPREFIX_APPLY_RESULT("%s")', itemGuid);
+		
+		ui.SetHoldUI(false);
+
+    	local linkButton = GET_CHILD_RECURSIVELY(frame, 'reg')
+    	linkButton:EnableHitTest(1)
 		ReserveScript(str, 0.3);
 	end
 end
 
 function ON_SUCCESS_LEGEND_PREFIX(frame, msg, argStr, argNum)	
+
     local animpic_bg = GET_CHILD_RECURSIVELY(frame, "animpic_bg");
 	animpic_bg:ShowWindow(1);
 	animpic_bg:ForcePlayAnimation();
@@ -208,7 +234,7 @@ function ON_SUCCESS_LEGEND_PREFIX(frame, msg, argStr, argNum)
 	-- effect
 	local pic = GET_CHILD_RECURSIVELY(frame, 'pic');
 	local matPic_dummy = GET_CHILD_RECURSIVELY(frame, 'matPic_dummy');
-	local slot = GET_CHILD_RECURSIVELY(frame, 'slot');
+local slot = GET_CHILD_RECURSIVELY(frame, 'slot');
 	pic:PlayActiveUIEffect();
 	matPic_dummy:PlayActiveUIEffect();
 	slot:PlayActiveUIEffect();

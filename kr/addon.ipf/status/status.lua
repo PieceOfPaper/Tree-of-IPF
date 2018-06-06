@@ -1812,7 +1812,17 @@ function STATUS_ACHIEVE_INIT(frame)
     local nowcolor = imcIES.GetString(nowhaircls, 'ColorE')
     nowcolor = string.lower(nowcolor)
 
-    local haircount = 0;
+    -- 헤어 컬러가 많아질 경우 UI 벽을 뚫게 된다. row, col로 나눔.
+    local max_width = customizingGBox:GetWidth()
+    local row = 1
+    local col = 0
+    -- 아래 하드코딩 되어 있던 것들 이쪽으로 이동.
+    local row_top_margin = 20
+    local col_left_margin = 30
+    local height = 35
+    local width = 35
+    local select_margin = row_top_margin - 10
+
     for i = 0, Selectclasslist:Count() do
         local eachcls = Selectclasslist:GetByIndex(i);
         if eachcls ~= nil then
@@ -1825,8 +1835,15 @@ function STATUS_ACHIEVE_INIT(frame)
 
                 -- 업적 받으면 헤어 컬러 사라지는 현상이 있다고 해서 HairColor 프로퍼티 값으로도 확인
                 if TryGetProp(etc, "HairColor_" .. eachColorE) == 1 then
+                    -- row 변경 조건 검사
+                    local temp_offset_x = col_left_margin + width * col;
+                    local temp_max_width = temp_offset_x + width;
+                    if temp_max_width >= max_width then
+                        row = row +1
+                        col = 0
+                    end
 
-                    local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_' .. eachColorE, 30 + 35 * haircount, 55, 35, 35);
+                    local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_' .. eachColorE, col_left_margin + (width * col), row_top_margin +  (height * row), width, height);
                     tolua.cast(eachhairimg, "ui::CPicture");
 
                     local colorimgname = GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(eachColorE)
@@ -1836,21 +1853,21 @@ function STATUS_ACHIEVE_INIT(frame)
                     eachhairimg:SetEventScriptArgString(ui.LBUTTONDOWN, eachColorE);
 
                     if nowcolor == eachColorE then
-                        local selectedimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_Selected', 30 + 35 * haircount, 45, 35, 35);
+                        local selectedimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_Selected', col_left_margin + width * col, select_margin +  (height * row), width, height);
                         tolua.cast(selectedimg, "ui::CPicture");
                         selectedimg:SetImage('color_check');
                     end
-
-                    haircount = haircount + 1
+                    col = col +1
                 end
             end
         end
     end
-
+   
     DESTROY_CHILD_BYNAME(customizingGBox, "ACHIEVE_RICHTEXT_");
     local index = 0;
     local x = 40;
     local y = 145;
+    
 
 	local useableTitleList = GET_CHILD_RECURSIVELY(frame, "useableTitleList", "ui::CDropList");
 	useableTitleList:SelectItemByKey(config.GetXMLConfig("SelectAchieveKey"))

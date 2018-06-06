@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3772,6 +3772,19 @@
 			<img name="bottomleft" imgrect="1900 975 36 30"/>
 			<img name="bottomcore" imgrect="1937 975 40 30"/>
 			<img name="bottomright" imgrect="1978 975 38 30"/>
+		</skin>
+	</skinlist>
+	<skinlist category="testse_frames">
+		<skin name="indun_notice_bg" texture="\skin\indun_notice_bg.tga">
+			<img name="topleft" imgrect="1 1 1 67"/>
+			<img name="topcore" imgrect="4 1 939 67"/>
+			<img name="topright" imgrect="944 1 1 67"/>
+			<img name="bodyleft" imgrect="1 69 1 38"/>
+			<img name="bodycore" imgrect="4 69 939 38"/>
+			<img name="bodyright" imgrect="944 69 1 38"/>
+			<img name="bottomleft" imgrect="1 108 1 67"/>
+			<img name="bottomcore" imgrect="4 108 939 67"/>
+			<img name="bottomright" imgrect="944 108 1 67"/>
 		</skin>
 	</skinlist>
 	<skinlist category="buttons">
@@ -8276,6 +8289,9 @@
 		<image name="icon_Raid_Velcofer_Curse" file="\icon\buff_icon2.tga" imgrect="512 0 128 128" CMM_Caption="벨코퍼 버프"/>
 		<image name="icon_velcoffer_mergaite_enter" file="\icon\buff_icon2.tga" imgrect="640 0 128 128" CMM_Caption="메가테 버프"/>
 		<image name="icon_Weak_Attribute" file="\icon\buff_icon2.tga" imgrect="768 0 128 128" CMM_Caption="속성 공격 약점"/>
+		<image name="icon_goldfish3" file="\icon\buff_icon2.tga" imgrect="0 128 128 128" CMM_Caption="황금 물고기 루팅찬스 버프100"/>
+		<image name="icon_goldfish4" file="\icon\buff_icon2.tga" imgrect="896 0 128 128" CMM_Caption="황금 물고기 루팅찬스 버프300"/>
+		<image name="icon_goldfish5" file="\icon\buff_icon.tga" imgrect="768 1920 128 128" CMM_Caption="황금 물고기 루팅찬스 버프500"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

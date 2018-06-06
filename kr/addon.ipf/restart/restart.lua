@@ -94,6 +94,11 @@ function AUTORESIZE_RESTART(frame)
 			end
 		end
 	end
+
+	if session.colonywar.GetIsColonyWarMap() == true then
+		return;
+	end
+
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
 	local count = list:Count();
 

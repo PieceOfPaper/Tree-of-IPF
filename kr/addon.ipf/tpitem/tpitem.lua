@@ -1797,6 +1797,8 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
     local slotset = GET_CHILD_RECURSIVELY(topFrame, 'basketslotset');
     local slotCount = slotset:GetSlotCount();
     local cannotEquip = {};
+    local needWarningItemList = {};
+    local noNeedWarning = {};
 	local allPrice = 0;
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);
@@ -1808,6 +1810,12 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
             local tpitem = GetClass('TPitem', tpItemName);
 
 			allPrice = allPrice + tpitem.Price
+
+			if TryGetProp(tpitem, 'WarningMsg', 'NO') == 'YES' then
+				needWarningItemList[#needWarningItemList + 1] = item;
+			else
+				noNeedWarning[#noNeedWarning + 1] = item;
+			end
 
             if IS_EQUIP(item) == true then
 		        local lv = GETMYPCLEVEL();
@@ -1845,34 +1853,52 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
         end
     end
 
-    if #cannotEquip > 0 then
-        local clMsg = ClMsg('ExistCannotEquipItem')..'{nl}';
-        for i = 1, #cannotEquip do
-            local item = cannotEquip[i];
+    if #needWarningItemList > 0 then
+    	local clMsg = '{@st66d_y}{s18}['..ClMsg('ProbabilityItem')..']{/}{/}{nl}';
+        for i = 1, #needWarningItemList do
+            local item = needWarningItemList[i];
+            clMsg = clMsg..'{@st66d_y}{s18}'..item.Name..'{/}{/}{nl}';
+        end
+
+        clMsg = clMsg..'{nl} {nl}{@st66d}{s18}['..ClMsg('BuyList')..']{/}{/}{nl}';
+
+        for i = 1, #noNeedWarning do
+        	local item = noNeedWarning[i];
             clMsg = clMsg..'{@st66d}{s18}'..item.Name..'{/}{/}{nl}';
         end
-        clMsg = clMsg..ScpArgMsg("ReallyBuy?");
-		if config.GetServiceNation() == "GLOBAL" then
-			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
-        ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
+
+        clMsg = clMsg..'{nl} {nl}'..ScpArgMsg('TotalTPConsumeOK', 'TOTAL', allPrice)..'{nl}'..ScpArgMsg("ReallyBuy?")..'{nl} {nl}'..'{#85070a}'..ClMsg('ContainWarningItem');
+        ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
     else
-				POPUP_LIMIT_PAYMENT(clMsg, parent:GetName(), allPrice)
-			end
-		else
-			ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
-		end
-    else
-		if config.GetServiceNation() == "GLOBAL" then
-			
-			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
-        ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+    	if #cannotEquip > 0 then
+	        local clMsg = ClMsg('ExistCannotEquipItem')..'{nl}';
+	        for i = 1, #cannotEquip do
+	            local item = cannotEquip[i];
+	            clMsg = clMsg..'{@st66d}{s18}'..item.Name..'{/}{/}{nl}';
+	        end
+	        clMsg = clMsg..ScpArgMsg("ReallyBuy?");
+			if config.GetServiceNation() == "GLOBAL" then
+				if CHECK_LIMIT_PAYMENT_STATE_C() == true then
+			        ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
+			    else
+					POPUP_LIMIT_PAYMENT(clMsg, parent:GetName(), allPrice)
+				end
 			else
-				POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice)
-			end			
-		else
-			ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
-		end
+				ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
+			end
+	    else
+			if config.GetServiceNation() == "GLOBAL" then			
+				if CHECK_LIMIT_PAYMENT_STATE_C() == true then
+	        		ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+				else
+					POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice)
+				end			
+			else
+				ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+			end
+	    end
     end
+
 	control:SetEnable(0);
 end
 

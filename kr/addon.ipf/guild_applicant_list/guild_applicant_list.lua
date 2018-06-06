@@ -42,6 +42,7 @@ function ON_GUILD_APPLICANT_GET(_code, ret_json)
                 lastApplicant = row;
                 row:SetEventScript(ui.LBUTTONUP, 'SHOW_APPLICANT_MESSAGE');
                 row:SetUserValue("account_idx", y['account_idx'])
+                row:SetUserValue("account_team_name", y['account_team_name'])
                 local NOT_SELECTED_BOX_SKIN = row:GetUserConfig('NOT_SELECTED_BOX_SKIN');               
                 local bg = GET_CHILD(row, "skinBox");
                 if i % 2 == 0 then
@@ -103,7 +104,7 @@ end
 
 function ACCEPT_APPLICANT(parent, control)
     if selected_applicant ~= nil then
-        ApplicationUserGuildJoin(selected_applicant:GetUserValue('account_idx'));
+        ApplicationUserGuildJoin(selected_applicant:GetUserValue('account_idx'), selected_applicant:GetUserValue('account_team_name'));
         REMOVE_APPLICANT_RESUME();
     end
 end

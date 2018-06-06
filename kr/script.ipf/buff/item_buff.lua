@@ -2146,7 +2146,7 @@ function SCR_BUFF_GIVEDMG_item_set_039pre_buff(self, buff, sklID, damage, target
         SetBuffArg(self, buff, arg1, 0);
        PlayEffect(target, "F_explosion065_violet", 1, 1, 'BOT')
         local bombDamage = math.floor( 1000 * IMCRandomFloat(1, 3));
-        TakeDadak(self, target, "None", bombDamage, 0.1, "Melee", "None", "Melee", HIT_BASIC, HITRESULT_BLOW);
+        TakeDadak(self, target, "None", bombDamage, 0.1, "Melee", "Magic", "TrueDamage", HIT_BASIC, HITRESULT_BLOW);
     end
     return 1;
 end

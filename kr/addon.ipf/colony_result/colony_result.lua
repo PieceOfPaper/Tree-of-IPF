@@ -31,7 +31,7 @@ function COLONY_RESULT_INIT(frame, isWin, argStr)
         if config.GetServiceNation() == 'GLOBAL' then
             imcSound.PlayMusicQueueLocal('colonywar_win')
         elseif config.GetServiceNation() == 'KOR' then
-            imcSound.PlaySoundEvent('battle_win');
+            imcSound.PlayMusicQueueLocal('colonywar_win_k')
         end
         winBox:PlayUIEffect(WIN_EFFECT_NAME, EFFECT_SCALE, 'COLONY_WIN');
     else
@@ -61,7 +61,7 @@ function COLONY_RESULT_INIT(frame, isWin, argStr)
         if config.GetServiceNation() == 'GLOBAL' then
             imcSound.PlayMusicQueueLocal('colonywar_lose')
         elseif config.GetServiceNation() == 'KOR' then
-            imcSound.PlaySoundEvent('battle_lose');
+            imcSound.PlayMusicQueueLocal('colonywar_lose_k')
         end
         loseBox:PlayUIEffect(LOSE_EFFECT_NAME, EFFECT_SCALE, 'COLONY_LOSE');
     end

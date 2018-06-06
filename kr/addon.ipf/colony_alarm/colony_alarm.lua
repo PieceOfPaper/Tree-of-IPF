@@ -24,7 +24,7 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
             clmsg = ClMsg('Guild_Colony_Start_Msg_Before_1min');
             if enableEnterColonyWar == 1 then
                 if config.GetServiceNation() == 'GLOBAL' then
-                    imcSound.PlaySoundEvent('S1_batttle_start_before_1');
+                    imcSound.PlaySoundEvent('S1_battle_start_before_1');
                 elseif config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_start_before');
                 end
@@ -33,7 +33,7 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
             clmsg = ClMsg('Guild_Colony_Start_Msg');
             if enableEnterColonyWar == 1 then
                 if config.GetServiceNation() == 'GLOBAL' then
-                    imcSound.PlaySoundEvent('S1_batttle_start');
+                    imcSound.PlaySoundEvent('S1_battle_start');
                 elseif config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_start');
                 end
@@ -82,6 +82,7 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
                 if config.GetServiceNation() == 'GLOBAL' then
                     imcSound.PlaySoundEvent('S1_battle_end');
                 elseif config.GetServiceNation() == 'KOR' then
+                    imcSound.PlaySoundEvent('battle_end');
                 end
             end
         end

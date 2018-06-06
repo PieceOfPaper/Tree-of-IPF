@@ -2103,7 +2103,8 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	local itemType = invItem.type;
 	ICON_SET_ITEM_COOLDOWN(icon, itemType);	
 
-	icon:Set(imageName, 'Item', itemType, invItem.invIndex, invItem:GetIESID(), invItem.count);
+	local iconImgName  = GET_ITEM_ICON_IMAGE(itemobj);
+	icon:Set(iconImgName, 'Item', itemType, invItem.invIndex, invItem:GetIESID(), invItem.count);
 
 	ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
 	

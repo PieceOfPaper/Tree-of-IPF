@@ -168,7 +168,7 @@
             <Stage Name="START">
                 <ObjList>
                     <Obj Type="Monster" MonType="20053" Pos="-1692.89#41.10#420.41" angle="50" genCount="1" genTime="20000" objectKey="0"/>
-                    <Obj Type="Monster" MonType="103022" Pos="-1969.65#-17.07#636.25" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;curseDebuffer&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;HitProof&apos; &apos;YES&apos; &apos;Hittable&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="103022" Pos="-1969.28#-17.07#635.80" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;curseDebuffer&apos; &apos;Faction&apos; &apos;Trap&apos; &apos;HitProof&apos; &apos;YES&apos; &apos;Hittable&apos; &apos;NO&apos; &apos;TargetMark&apos; &apos;0&apos; &apos;UseTitle&apos; &apos;NO&apos; "/>
                     <Obj Type="Monster" MonType="154064" Pos="-1867.09#-17.07#596.88" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Enter&apos; &apos;VELCOFFER_MQ_START_IN&apos; &apos;Range&apos; &apos;100&apos; "/>
                 </ObjList>
                 <StageEvents>
@@ -274,7 +274,7 @@
             </Stage>
             <Stage Name="Door" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="59052" Pos="2132.14#167.18#-456.22" angle="46" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;10&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;TargetWindow&apos; &apos;1&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MonRank&apos; &apos;Normal&apos; "/>
+                    <Obj Type="Monster" MonType="59052" Pos="2132.14#167.18#-456.22" angle="46" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;10&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;TargetWindow&apos; &apos;1&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MonRank&apos; &apos;Normal&apos; &apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; "/>
                     <Obj Type="Monster" MonType="20054" Pos="2166.43#180.81#-413.38" angle="50" genCount="1" genTime="20000" objectKey="1"/>
                 </ObjList>
                 <StageEvents>
@@ -334,6 +334,11 @@
                 </StageEvents>
             </Stage>
             <Stage Name="Boss_Final" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Raid_Velcoffer_guard"/>
+                    </ToolScp>
+                </StartScpList>
                 <CompleteScpList>
                     <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
                         <Str Str="벨코퍼를 처치 하였습니다"/>
@@ -342,8 +347,8 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="58738" Pos="2306.23#188.75#-10.91" angle="2" genCount="1" genTime="20000" objectKey="0"/>
-                    <Obj Type="Monster" MonType="58738" Pos="2675.06#188.75#-303.91" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="58738" Pos="2306.23#188.75#-10.91" angle="2" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="58738" Pos="2675.06#188.75#-303.91" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
                     <Obj Type="Monster" MonType="58690" Pos="2568.71#188.75#-61.82" angle="-92" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="500" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
                 </ObjList>
                 <StageEvents>

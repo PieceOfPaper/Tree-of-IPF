@@ -2061,7 +2061,7 @@ function SCR_BUFF_ENTER_Ayin_sof_Buff(self, buff, arg1, arg2, over)
     
     local lv = arg1;
     local rate = 0.2
-    if IsPVPServer(self) == 1 then
+    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
         rate = 0.1
     end
     
@@ -4650,7 +4650,7 @@ end
 
 --Cloaking
 function SCR_BUFF_ENTER_Cloaking_Buff(self, buff, arg1, arg2, over)
-    if IsPVPServer(self) == 1 then
+    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
         SetCoolDown(self, "Cloaking", 0);
     end
 
@@ -4672,7 +4672,7 @@ function SCR_BUFF_LEAVE_Cloaking_Buff(self, buff, arg1, arg2, over)
 
     SetExProp(buffOwner, "ACT_TIME", actTime)
     
-    if IsPVPServer(self) == 1 then
+    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
         StartCoolTimeAndSpendSP(self, "Scout_Cloaking");
     end
 end
@@ -4810,8 +4810,10 @@ function SCR_BUFF_ENTER_Sleep_Debuff(self, buff, arg1, arg2, over)
         if pad ~= nil then
             lv = GetPadArgNumber(pad, 1);
             
-            if IsPVPServer(self) == 1 and lv > 5 then
-                lv = 5
+            if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
+                if lv > 5 then
+                    lv = 5
+                end
             end
             
             local abilWizard25 = GetAbility(caster, "Wizard25")
@@ -7473,7 +7475,7 @@ function SCR_BUFF_ENTER_Melstis_Buff(self, buff, arg1, arg2, over)
         if buff_cnt >= 1 then
             for i = 1, buff_cnt do
                 if TryGetProp(buff_list[i], "Premium") ~= "PC" then
-                    if TryGetProp(buff_list[i], "Group1") == 'Buff' and TryGetProp(buff_list[i], "Keyword") ~= "IgnoreImmune" then
+                    if TryGetProp(buff_list[i], "Group1") == 'Buff' and TryGetProp(buff_list[i], "Keyword") ~= "IgnoreImmune" and TryGetProp(buff_list[i], "Keyword") ~= "Invincibility" then
                         local buff = buff_list[i];
                         local buffTime = GetBuffRemainTime(buff)
                         local timeValue = buffTime * (skill.Level * 0.2)
@@ -7895,12 +7897,15 @@ function SCR_BUFF_ENTER_DivineMight_Buff(self, buff, arg1, arg2, over)
         local list, cnt = GetPCSkillList(self);
         for i = 1, cnt do
             if list[i].ClassID > 10000 and list[i].ClassName ~= "Cleric_DivineMight" then
-                list[i].Level_BM = list[i].Level_BM + 1;
-                --UpdateProperty(list[i], "Level");
-                InvalidateObjectProp(list[i], "Level");
-                InvalidateObjectProp(list[i], "SkillAtkAdd");
-                InvalidateObjectProp(list[i], "SkillFactor");
-                SendSkillProperty(self, list[i]);
+				local skillcls = GetClass("SkillTree", list[i].ClassName)
+				if skillcls ~= nil then
+					list[i].Level_BM = list[i].Level_BM + 1;
+					--UpdateProperty(list[i], "Level");
+					InvalidateObjectProp(list[i], "Level");
+					InvalidateObjectProp(list[i], "SkillAtkAdd");
+					InvalidateObjectProp(list[i], "SkillFactor");
+					SendSkillProperty(self, list[i]);
+				end
             end
         end
         --InvalidateStates(self);
