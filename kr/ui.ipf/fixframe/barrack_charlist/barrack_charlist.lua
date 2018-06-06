@@ -53,8 +53,10 @@ function INIT_BARRACK_NAME(frame)
 	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
 	richtext:SetTextByKey("value",myCharCont);
 
+	local accountObj = GetMyAccountObj();
 	richtext = frame:GetChild("myTp");
-	richtext:SetTextByKey("value", tostring(GET_CASH_TOTAL_POINT_C()));
+	local txt = string.format("%d(%d+%d)", GET_CASH_TOTAL_POINT_C(), accountObj.GiftMedal + accountObj.PremiumMedal, accountObj.Medal) 
+	richtext:SetTextByKey("value", txt);
 end
 
 function SET_CHILD_USER_VALUE(frame, childName, name, value)
@@ -86,7 +88,9 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 	richtext:SetTextByKey("value2", tostring(barrackCls.BaseSlot + buySlot));
 
 	richtext = barrackName:GetChild("myTp");
-	richtext:SetTextByKey("value", tostring(GET_CASH_TOTAL_POINT_C()));
+	local accountObj = GetMyAccountObj();
+	local txt = string.format("%d(%d+%d)", GET_CASH_TOTAL_POINT_C(), accountObj.GiftMedal + accountObj.PremiumMedal, accountObj.Medal) 
+	richtext:SetTextByKey("value", txt);
 
 	if actor ~= nil then
 		CREATE_SCROLL_CHAR_LIST(frame, actor);
@@ -507,8 +511,11 @@ function SELECTTEAM_OPEN_BARRACK_SETTING(frame, btnCtrl, argStr, argNum)
 		btnCtrl = frame:GetChild("setting");
 	end
 
+	local newframe = ui.GetFrame("inputstring");
+	newframe:SetUserValue("InputType", "Family_Name");
+	
 	local acc = session.barrack.GetMyAccount();
-	INPUT_STRING_BOX(ClMsg("Family Name"), "BARRACK_SETTING_SAVE", acc:GetFamilyName(), 0, 8);
+	INPUT_STRING_BOX(ClMsg("Family Name"), "BARRACK_SETTING_SAVE", acc:GetFamilyName(), 0, 16);
 end
 
 function BARRACK_VISIT_MSGBOX(frame)

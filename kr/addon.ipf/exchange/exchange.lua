@@ -32,7 +32,20 @@ end
 
 function EXCHANGE_ON_AGREE(frame)
  
+ 	local itemCount = exchange.GetExchangeItemCount(1);	
+	local isEquip = false;
+	for  i = 0, itemCount-1 do 		
+		local itemData = exchange.GetExchangeItemInfo(1,i);
+		local class 			= GetClassByType('Item', itemData.type);
+		if class.ItemType == 'Equip' then
+			isEquip = true;
+		end
+	end
+	if false == isEquip then
    exchange.SendAgreeExchangeMsg();
+	else
+		ui.MsgBox(ScpArgMsg("DecreasePotaionByExchangeForBuyer"),"exchange.SendAgreeExchangeMsg()" , "None");		
+	end
 end 
 
 function EXCHANGE_ON_FINALAGREE(frame)
@@ -177,8 +190,12 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 				ui.AlarmMsg("ItemOverCount"); -- 등록수가 소비개수보다 큼
 			end
 		end
-		
+	if obj.ItemType == "Equip" then
+		local yesScp = string.format("exchange.SendOfferItem(\'%s\', %d)", tostring(item:GetIESID()), 1)
+		ui.MsgBox(ScpArgMsg("DecreasePotaionByExchange"),yesScp , "None");		
+	else
 		exchange.SendOfferItem(tostring(item:GetIESID()), 1);	
+	end
 			
 end
 

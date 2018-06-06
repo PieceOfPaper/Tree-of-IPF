@@ -402,12 +402,14 @@ function BUY_MARKET_ITEM(parent, ctrl)
 	local row = parent:GetUserIValue("DETAIL_ROW");
 	local marketItem = session.market.GetItemByIndex(row);
 	local itemObj = GetIES(marketItem:GetObject());
+	local txt = ScpArgMsg("ReallyBuy?");
 	if itemObj.GroupName == "Premium" then
-		ui.MsgBox(ScpArgMsg("CannotSoldAnyMore"), string.format("_BUY_MARKET_ITEM(%d)", row+1), "None");
-	else
-	ui.MsgBox(ScpArgMsg("ReallyBuy?"), string.format("_BUY_MARKET_ITEM(%d)", row+1), "None");
+		txt = ScpArgMsg("CannotSoldAnyMore")
+	elseif itemObj.ItemType == "Equip" then
+		txt = ScpArgMsg("DecreasePotaion");
 	end
 
+	ui.MsgBox(txt, string.format("_BUY_MARKET_ITEM(%d)", row+1), "None");
 end
 
 function MARKET_SELLMODE(frame)

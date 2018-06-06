@@ -261,8 +261,20 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, chan
 
 end
 
-function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirection, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY)
+function MAPNAME_FONT_CHECK(mapLvValue)
+    local pc = GetMyPCObject();
+    local pcLv = pc.Lv
+    local mapNameFont = ''
+	if mapLvValue < pcLv - 10 then
+	    mapNameFont = '{#99cc66}'
+	elseif mapLvValue > pcLv + 10 then
+	    mapNameFont = '{#ff9955}'
+	end
+	
+	return mapNameFont
+end
 
+function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirection, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY)
 	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
 	local sizeRatio = 1 + curSize * 0.25;
 
@@ -308,25 +320,28 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
         if #getTypeIES > 0 then
 		warpGoddessIcon = '{img minimap_goddess 24 24}'
 	end
-					
+	local mapLvValue = mapLv
 	if mapLv == nil or mapLv == 'None' or mapLv == '' or mapLv == 0 then
 		mapLv = ''
 	else
-		mapLv = '{nl}LV : '..mapLv
+		mapLv = '{nl}Lv.'..mapLv
 	end
+	
+	local mapNameFont = MAPNAME_FONT_CHECK(mapLvValue)
+	
 	if mainName ~= "None" then
-		text:SetTextByKey("value", warpGoddessIcon..questPossibleIcon..mainName..mapLv..'{/}');
+		text:SetTextByKey("value", warpGoddessIcon..questPossibleIcon..mapNameFont..mainName..mapLv..'{/}{nl}'..GET_STAR_TXT(20,mapCls.MapRank));
 	else
 		if mapName ~= mapCls.ClassName and nowMapWorldPos[1] == x and nowMapWorldPos[2] == y then
 			local nowmapLv = nowMapIES.QuestLevel
 			if nowmapLv == nil or nowmapLv == 'None' or nowmapLv == '' or nowmapLv == 0 then
         		nowmapLv = ''
         	else
-        		nowmapLv = '{nl}LV : '..nowmapLv
+        		nowmapLv = '{nl}Lv.'..nowmapLv
         	end
-			text:SetTextByKey("value", warpGoddessIcon..questPossibleIcon..mapCls.Name..mapLv..'{nl}'..warpGoddessIcon_now..questPossibleIcon..'{@st57}'..nowMapIES.Name..nowmapLv..'{/}'.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank))
+			text:SetTextByKey("value", warpGoddessIcon..questPossibleIcon..mapNameFont..mapCls.Name..mapLv..'{nl}'..warpGoddessIcon_now..questPossibleIcon..'{@st57}'..nowMapIES.Name..nowmapLv..'{/}'.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank))
 		else
-    		text:SetTextByKey("value", warpGoddessIcon..questPossibleIcon..mapCls.Name..mapLv.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank));						
+    		text:SetTextByKey("value", warpGoddessIcon..questPossibleIcon..mapNameFont..mapCls.Name..mapLv.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank));						
     	end
 	end
 					

@@ -26,9 +26,10 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 	for i = 1 , #drawList do
 		local drawCls = drawList[i];
 		local ctrlSet = frame:CreateControlSet("worldmap_tooltip", "MAP_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, 0);
+		local mapNameFont = MAPNAME_FONT_CHECK(drawCls.QuestLevel)
 		
 		local mapnameCtrl = ctrlSet:GetChild("mapname");
-		mapnameCtrl:SetTextByKey("text", drawCls.Name);
+		mapnameCtrl:SetTextByKey("text", mapNameFont..drawCls.Name);
 		local drawMapName = drawCls.ClassName;
 		local pic = GET_CHILD(ctrlSet, "map", "ui::CPicture");
 		local mapimage = ui.GetImage(drawMapName .. "_fog");

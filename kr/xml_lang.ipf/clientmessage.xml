@@ -253,7 +253,7 @@
 		<Class ClassID="10304" ClassName="CantUseSkillOnRiding" Data="스킬중엔 컴패니언 탑승을 해제 할 수 없습니다."/>
 		<Class ClassID="10305" ClassName="CantUseSkill_NeedRiding" Data="컴패니언 탑승중에만 사용 할 수 있는 스킬입니다."/>
 		<Class ClassID="10306" ClassName="PCNameMustLongerThen{LEN}" Data="{LEN}자 이상이어야 합니다."/>
-		<Class ClassID="10307" ClassName="PCNameMustNotLongerThen{LEN}" Data="이름은 {LEN}자이하이어야 합니다."/>
+		<Class ClassID="10307" ClassName="PCNameMustNotLongerThen{LEN}" Data="이름은 {LEN}바이트 이하이어야 합니다."/>
 		<Class ClassID="10308" ClassName="HadFobbidenWord" Data="사용할 수 없는 문자가 포함되어 있습니다."/>
 		<Class ClassID="10309" ClassName="YouCanNotRideCompanionWhileSitting" Data="휴식모드 중에는 탑승할 수 없습니다."/>
 		<Class ClassID="10310" ClassName="YouCanNotRideCompanionWhileCompanionIsDead" Data="기절중인 컴패니언에는 탑승할 수 없습니다."/>
@@ -511,6 +511,8 @@
 		<Class ClassID="10788" ClassName="OnlyMale" Data="남성 전용"/>
 		<Class ClassID="10789" ClassName="OnlyFemale" Data="여성 전용"/>
 		<Class ClassID="10790" ClassName="CanNotEquip" Data="착용 불가능한 상품입니다."/>
+	<Class ClassID="10791" ClassName="DecreasePotaionByExchange" Data="해당 아이템을 등록하시면{nl}거래 성사시 포텐셜이 감소합니다.{nl}그래도 등록하시겠습니까?"/>
+		<Class ClassID="10792" ClassName="DecreasePotaionByExchangeForBuyer" Data="거래하시려는 아이템 중 거래 성공 후 포텐셜이 감소하는 아이템이 존재합니다. 그래도 수락하시겠습니까?"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="10801" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -2674,6 +2676,8 @@
 		<Class ClassID="190128" ClassName="MONSTER_PAIR_REWARD_HIDE" Data="짝 맞추기 보상 NPC가 사라집니다"/>
 		<Class ClassID="190129" ClassName="GIMMICK_TRANSFORM_MSG" Data="몬스터 모습으로 변신했습니다"/>
 		<Class ClassID="190130" ClassName="GIMMICK_TRANSFORM_FAIL" Data="도시에서만 사용할 수 있습니다"/>
+		<Class ClassID="190131" ClassName="ROKAS_36_1_PILLA05_REPAIR" Data="기둥을 수리하는 중"/>
+		<Class ClassID="190132" ClassName="ROKAS_36_1_PILLA05_GET_ITEM" Data="기둥을 수리 할 만한 점성 있는 액체를 구해 오세요!"/>
 		<Class ClassID="120353" ClassName="SIAULIAI46_1_HIDDEN_EVENT03" Data="주변에 몬스터들이 너무 많아서 빅 샤울렘 힘줄을 넣을 수 없습니다"/>
 		<Class ClassID="120354" ClassName="UNDER67_MQ06_AI_NAME" Data="늙은 관리인"/>
 		<Class ClassID="120355" ClassName="UNDER67_SQ01_GHOST_NAME" Data="원한 서린 병사"/>
@@ -3300,6 +3304,7 @@
 		<Class ClassID="22823" ClassName="MarketRegAfter{TIME}" Data="{TIME}후에 마켓 리스트에 등록됩니다."/>
 		<Class ClassID="22824" ClassName="MarketCabinetAfter{TIME}" Data="{TIME}후에 캐비넷으로 이동합니다."/>
 		<Class ClassID="22825" ClassName="PremiumRegMinPrice{Price}" Data="해당 아이템의 등록 최소가는 {Price}실버 부터 가능합니다."/>
+	<Class ClassID="22826" ClassName="DecreasePotaion" Data="해당 아이템을 구입하시면{nl}포텐셜이 감소합니다.{nl}그래도 구입하시겠습니까?"/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="22900" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -3751,7 +3756,7 @@
 		<Class ClassID="31007" ClassName="DurUnder0" Data="남은 내구도가 0인 아이템이 있습니다."/>
 		<Class ClassID="31008" ClassName="IsNowEquipSoCantTake" Data="장착중인 아이템은 소모할 수 없습니다."/>
 		<Class ClassID="31009" ClassName="CantUseAddPropItem" Data="강화한 아이템은 소모할 수 없습니다."/>
-		<Class ClassID="31010" ClassName="IsValueAbleItem" Data="강화된 아이템이 소모됩니다. 진행하시겠습니까?"/>
+		<Class ClassID="31010" ClassName="IsValueAbleItem" Data="강화된 장비나 고급 장비가 포함되어 있습니다. 정말 진행하시겠습니까?"/>
 		<Class ClassID="31011" ClassName="FieldBossWillAppear" Data="잠시 후 필드보스가 등장합니다"/>
 		<Class ClassID="31012" ClassName="SorryWaitPlz" Data="준비 중인 기능입니다."/>
 		<Class ClassID="31013" ClassName="DontUseDoingMove" Data="이동중에 사용할 수 없습니다."/>
@@ -6162,6 +6167,9 @@
 		<Class ClassID="151217" ClassName="FLASH60_SQ_09_02" Data="이미 풀잎 즙이 발려 있습니다"/>
 		<Class ClassID="151218" ClassName="FD_FTOWER611_TYPE_A_ITEM" Data="실트 결정을 획득했습니다"/>
 		<Class ClassID="151219" ClassName="FLASH64_SQ_07_NPC_2" Data="이미 불이 붙어있습니다!"/>
+		<Class ClassID="151220" ClassName="CHAPLE577_MQ_06_LIMIT" Data="꼬마마족이 당신을 의심합니다"/>
+		<Class ClassID="151221" ClassName="CHAPLE577_MQ_06_gone_1" Data="정말 제스티님이 부른거야?"/>
+		<Class ClassID="151222" ClassName="CHAPLE577_MQ_06_gone_2" Data="친구들이 사라지고 있어.."/>
 		<Class ClassID="120000" ClassName="Auto_ZACA2F_MQ02" Data="왕릉 석등이 수호자들에게 공격을 받고 있습니다"/>
 		<Class ClassID="155004" ClassName="JOB_WARLOCK3_1_PAPER_1_1_" Data="베껴간다"/>
 		<Class ClassID="155005" ClassName="JOB_WARLOCK3_1_PAPER_1_2_" Data="그만둔다"/>
@@ -6705,7 +6713,7 @@
 		<Class ClassID="550031" ClassName="Premium_itemEun" Data=" 아이템은"/>
 		<Class ClassID="550032" ClassName="Premium_character" Data="캐릭터"/>
 		<Class ClassID="550033" ClassName="Premium_team" Data="서버의 팀"/>
-		<Class ClassID="550034" ClassName="CannotSoldAnyMore" Data="해당 아이템은 구입하시면 캐릭터에 귀속이 됩니다. 그래도 구입하시겠습니까?"/>
+		<Class ClassID="550034" ClassName="CannotSoldAnyMore" Data="해당 아이템은 구입하시면{nl}캐릭터에 귀속이 됩니다.{nl}그래도 구입하시겠습니까?"/>
 		<Class ClassID="550035" ClassName="DoyouRegMarket" Data="해당 아이템을 정말로{nl}마켓에 등록하시겠습니까?"/>
 		<Class ClassID="550036" ClassName="CannoTradeToNPC" Data="해당 아이템은 NPC에게 판매하실 수 없습니다."/>
 		<Class ClassID="550037" ClassName="token_setup" Data="스태미나 회복량 2배 증가"/>
@@ -6713,6 +6721,7 @@
 		<Class ClassID="550039" ClassName="PremiumToken_24h" Data="토큰:1일[증정용]"/>
 		<Class ClassID="550040" ClassName="SameName" Data="같은 이름으로는 변경을 시도 할 수 없습니다."/>
 		<Class ClassID="550041" ClassName="IsAppliedToken{NAME}" Data="이미 {NAME} 아이템이 활성화 중에 있습니다."/>
+		<Class ClassID="550042" ClassName="TokenApplied" Data="토큰 혜택이 모든 캐릭터에 적용되었습니다."/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="600001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

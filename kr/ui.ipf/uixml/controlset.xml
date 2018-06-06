@@ -2271,19 +2271,19 @@
 			<richtext name="mapname" margin="19 10 0 0" rect="0 10 50 20" format="{@st41}%s" param1="text" param1_def="1sadasasdasd" layout_gravity="left top" fontname="yellow_20_ol"/>
 		</controls>
 	</controlset>
-	<controlset name="postbox_list" hittest="true" width="450" height="40" hittestset="true" draw="false" skin="none">
+	<controlset name="postbox_list" hittest="true" width="430" height="42" hittestset="true" draw="true" skin="bg_btn">
 		<controls>
-			<richtext name="title" margin="14 10 0 0" rect="0 0 361 30" format="{@st41}%s{/}" param1="value" param1_def="PostBoxTitles" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" hittest="false"/>
-			<picture name="readflag" margin="382 4 0 0" rect="0 0 42 30" hittest="false" image="color_check" stretch="true" changecursor="false" layout_gravity="left top"/>
+			<richtext name="title" margin="10 0 0 0" rect="0 0 370 24" format="{@st41b}%s{/}" param1="value" param1_def="PostBoxTitles" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" hittest="false"/>
+			<picture name="readflag" margin="0 4 10 0" rect="0 0 42 30" hittest="false" image="color_check" stretch="true" changecursor="false" layout_gravity="right top"/>
 		</controls>
 	</controlset>
-	<controlset name="postbox_contents" hittest="true" width="450" height="550" hittestset="true" draw="false" skin="none">
+	<controlset name="postbox_contents" hittest="true" width="450" height="350" hittestset="true" draw="false" skin="none">
 		<controls>
-			<richtext name="title" margin="14 10 0 0" rect="0 0 361 31" format="{@st41}%s{/}" param1="value" param1_def="PostBoxTitles" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" hittest="false"/>
-			<labelline name="labelline_1" margin="3 45 0 0" rect="0 0 448 2" skin="labelline_def" layout_gravity="left top"/>
-			<richtext name="content" margin="15 56 0 0" rect="0 0 424 379" format="{@st66b}%s{/}" param1="value" param1_def="PostBoxTitles" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" hittest="false"/>
-			<button name="btn_delete" margin="140 460 0 0" rect="0 0 163 45" skin="test_pvp_btn" layout_gravity="left top" caption="{@st41}삭제" LBtnUpScp="POSTBOX_DELETE"/>
-			<groupbox name="attachedItems" margin="13 0 0 100" rect="0 0 426 59" hittestbox="false" skin="test_weight_skin" layout_gravity="left bottom"/>
+			<richtext name="title" margin="10 8 0 0" rect="0 0 430 30" format="{@st41b}%s{/}" param1="value" param1_def="PostBoxTitles" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" hittest="false"/>
+			<labelline name="labelline_1" margin="5 43 0 0" rect="0 0 440 4" skin="none" layout_gravity="left top"/>
+			<richtext name="content" margin="10 56 0 0" rect="0 0 430 170" format="{@st66b}%s{/}" param1="value" param1_def="PostBoxTitles" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" hittest="false" scrollbar="true"/>
+			<button name="btn_delete" margin="0 0 0 5" rect="0 0 163 45" skin="test_pvp_btn" layout_gravity="center bottom" caption="{@st41}삭제" LBtnUpScp="POSTBOX_DELETE"/>
+			<groupbox name="attachedItems" margin="10 0 0 55" rect="0 0 430 59" hittestbox="false" skin="test_weight_skin" layout_gravity="left bottom"/>
 		</controls>
 	</controlset>
 	<controlset name="postbox_itemget" hittest="true" width="380" height="80" hittestset="true" draw="false" skin="none">
@@ -2489,7 +2489,7 @@
 			<richtext name="txt_tower" margin="20 395 0 0" rect="0 0 225 26" format="{@st42}%s{/}" param1="value" param1_def="타워 보유 목록" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<picture name="pic_tower" margin="22 432 0 0" rect="0 0 102 101" hittest="false" image="icon_item_guildtower" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<richtext name="txt_guildtowercount" margin="137 434 0 0" rect="0 0 120 24" format="{#000000}%s{/}" param1="value" param1_def="GuildTower" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="txt_guildtowerposition" margin="136 460 0 0" rect="0 0 175 50" format="{#000000}%s{/}" param1="value" param1_def="GuildTower" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="txt_guildtowerposition" margin="136 460 0 0" rect="0 0 175 50" format="{#000000}%s {@st42}(%s){/}" param1="value" param1_def="GuildTower" param2="remaintime" param2_def="aaa" paramtextalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
 	<controlset name="guild_memberinfo" hittest="true" width="550" height="34" hittestset="false" draw="false" skin="none">

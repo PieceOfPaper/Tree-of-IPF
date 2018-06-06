@@ -6035,34 +6035,11 @@ if self.HP == 0 then return 1; else return 0; end;">
     </AI>
     <AI Name="MINIGAME_REMAIN_DEVICE" ActiveMessageMapInBattle="1">
         <List>
-            <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
-                <Num Num="20"/>
-                <Str Str="PC"/>
-                <Str Str="None"/>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="REMAIN_MISSION_MON_CREATE"/>
             </ToolScp>
-            <ToolScp Scp="SAI_CREATE_MON_RND" Client="NO" UseSleep="NO">
-                <Num Num="20"/>
-                <Str Str="Cockatries"/>
-                <MonProp List="Lv#160"/>
-                <Str Str="0"/>
-                <Num Num="0"/>
-                <Str Str="remains_minigame_cockat"/>
-            </ToolScp>
-            <ToolScp Scp="Dead" Client="NO" UseSleep="NO"/>
-        </List>
-        <DeadList>
-            <ToolScp Scp="S_AI_DEAD_CRE_MON" Client="NO" UseSleep="NO">
-                <Str Str="Cockatries"/>
-                <Pos Angle="0" Dist="0" PosType="5"/>
-                <Angle Angle="0"/>
-                <Str Str=""/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="None"/>
-                <MonProp List="Lv#160"/>
-            </ToolScp>
-        </DeadList>
-    </AI>
+            </List>
+        </AI>
     <AI Name="MODPAT_CHAT_FLOW_AI" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>

@@ -498,7 +498,7 @@ function SORT_INVITEM_BY_WORTH(a,b)
 	local a_gemcnt = 0
 	local b_gemcnt = 0
 
-	for i = 0, 3-1 do
+	for i = 0, 5-1 do
 	    local tempvala = TryGetProp(itemobj_a,'Socket_Equip_' .. i)
    	    local tempvalb = TryGetProp(itemobj_b,'Socket_Equip_' .. i)
         
@@ -601,7 +601,7 @@ function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
 	for i = 0, resultlist:Count() - 1 do
 		local tempitem = resultlist:PtrAt(i);
 
-		if IS_VALUEABLE_ITEM(tempitem) == 1 then
+		if IS_VALUEABLE_ITEM(tempitem.ItemID) == 1 then
 			someflag = 1
 		end
 	end
@@ -711,12 +711,14 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	
 end
 
-function IS_VALUEABLE_ITEM(item)
+function IS_VALUEABLE_ITEM(itemid)
 
-	local invitem = session.GetInvItemByGuid(item.ItemID);
+	local invitem = session.GetInvItemByGuid(itemid);
+
 	if nil == invitem then
 		return;
 	end
+
 	local itemobj = GetIES(invitem:GetObject());
 
 	if itemobj.ItemType ~= "Equip" then
@@ -747,7 +749,15 @@ function IS_VALUEABLE_ITEM(item)
 		return 1
 	end
 
+	if itemobj.ItemGrade >= 2 then
+		return 1
+	end
+
 	if itemobj.Reinforce_2 > 0 then
+		return 1
+	end
+
+	if itemobj.IsAwaken ~= 0 then
 		return 1
 	end
 
@@ -1305,7 +1315,7 @@ function SORT_PURE_INVITEMLIST(a,b)
     	local a_gemcnt = 0
     	local b_gemcnt = 0
     
-    	for i = 0, 3-1 do
+    	for i = 0, 5-1 do
     		if itemobj_a['Socket_Equip_' .. i] ~= 0 then
     			a_gemcnt = a_gemcnt + 1
     		end

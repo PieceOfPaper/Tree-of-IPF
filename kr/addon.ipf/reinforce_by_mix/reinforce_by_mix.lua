@@ -538,8 +538,41 @@ end
 
 function REINFORCE_BY_MIX_EXECUTE(parent)
 
-	local tgtItem = GET_REINFORCE_MIX_ITEM();
 	local frame = parent:GetTopParentFrame();
+
+	local slots = GET_MAT_SLOT(frame);
+	local cnt = slots:GetSlotCount();
+
+	local ishavevalue = 0
+
+	for i = 0 , cnt - 1 do
+		local slot = slots:GetSlotByIndex(i);
+		local matItem, count = GET_SLOT_ITEM(slot);
+		
+		if matItem ~= nil then
+		
+			if IS_VALUEABLE_ITEM(matItem:GetIESID()) == 1 then
+				ishavevalue = 1
+				break
+			end
+		end
+	end
+
+	if ishavevalue == 1 then
+		local yesScp = string.format("_REINFORCE_BY_MIX_EXECUTE()");
+		ui.MsgBox(ScpArgMsg("IsValueAbleItem"), yesScp, "None");
+	else
+		_REINFORCE_BY_MIX_EXECUTE()
+	end
+
+	
+
+end
+
+function _REINFORCE_BY_MIX_EXECUTE()
+
+	local tgtItem = GET_REINFORCE_MIX_ITEM();
+	local frame = ui.GetFrame("reinforce_by_mix")
 
 	session.ResetItemList();
 

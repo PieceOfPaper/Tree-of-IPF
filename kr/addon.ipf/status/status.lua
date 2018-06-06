@@ -1195,7 +1195,9 @@ end
 function CHANGE_MYPC_NAME(frame)
 
 	local charName = GETMYPCNAME();
-	INPUT_STRING_BOX(ClMsg("InputNameForChange"), "EXEC_CHANGE_NAME", charName, 0, 8);
+	local newframe = ui.GetFrame("inputstring");
+	newframe:SetUserValue("InputType", "InputNameForChange");
+	INPUT_STRING_BOX(ClMsg("InputNameForChange"), "EXEC_CHANGE_NAME", charName, 0, 16);
 
 end
 

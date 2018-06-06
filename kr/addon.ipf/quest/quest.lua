@@ -214,6 +214,14 @@ function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)
 	frame:Invalidate();
 end
 
+function IS_WORLDMAPPREOPEN(zoneClassName)
+    local mapCls = GetClass('Map', zoneClassName)
+    if mapCls ~= nil and GetPropType(mapCls, 'WorldMapPreOpen') ~= nil and mapCls.WorldMapPreOpen == 'YES' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
 function QUEST_VIEWCHECK_LEVEL(pc, questIES)
 --    if pc.Lv < 10 then
 --       if questIES.Level <= pc.Lv + 10 then
@@ -275,7 +283,9 @@ function HIDE_IN_QUEST_LIST(pc, questIES, abandonResult)
 	    return 1
 	elseif startMode == "USEITEM" then
 	    return 1
-	elseif sObj ~= nil and questIES.QuestMode == 'MAIN' and pc.Lv < 100 and questIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and questIES.QStartZone ~=  sObj.QSTARTZONETYPE then
+	elseif IS_WORLDMAPPREOPEN(questIES.StartMap) == 'NO' then
+	    return 1
+	elseif sObj ~= nil and questIES.QuestMode == 'MAIN' and pc.Lv < 100 and questIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and questIES.QStartZone ~=  sObj.QSTARTZONETYPE and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'NO'  then
 	    return 1
 	elseif (questIES.QuestMode == 'MAIN' or questIES.QuestMode == 'REPEAT' or questIES.QuestMode == 'SUB') and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'NO' and QUEST_VIEWCHECK_LEVEL(pc, questIES) == 'NO' and SCR_ISFIRSTJOBCHANGEQUEST(questIES) == 'NO'  then
 		return 1

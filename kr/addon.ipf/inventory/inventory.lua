@@ -1304,30 +1304,30 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	if frame:IsVisible() == 0 then
 		return;
 	end
-		local groupName = itemobj.GroupName;
-		if groupName == 'Money' then
+	local groupName = itemobj.GroupName;
+	if groupName == 'Money' then
+		return;
+	end
+	local invFrame     	= ui.GetFrame("inventory");
+	local invGbox		= invFrame:GetChild('inventoryGbox');
+	local treeGbox		= invGbox:GetChild('treeGbox');
+	local tree		    = treeGbox:GetChild('inventree');
+	local slotsetname	= GET_SLOTSET_NAME(argNum)
+	local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
+
+	local slot		    = slotSet:GetSlotByIndex(argNum-1);
+
+	local Itemclass		= GetClassByType("Item", invitem.type);
+	local ItemType		= Itemclass.ItemType;
+	if Itemclass.ShopTrade == 'YES' then
+		if IS_SHOP_SELL(invitem, Itemclass.MaxStack) == 1 then
+			slot:SetUserValue("SLOT_ITEM_ID", invitem:GetIESID());
+			-- 상점 Sell Slot으로 다 넘긴다.
+			SHOP_SELL(invitem, invitem.count);
 			return;
 		end
-		local invFrame     	= ui.GetFrame("inventory");
-		local invGbox		= invFrame:GetChild('inventoryGbox');
-		local treeGbox		= invGbox:GetChild('treeGbox');
-		local tree		    = treeGbox:GetChild('inventree');
-		local slotsetname	= GET_SLOTSET_NAME(argNum)
-		local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
+	end
 
-		local slot		    = slotSet:GetSlotByIndex(argNum-1);
-
-		local Itemclass		= GetClassByType("Item", invitem.type);
-		local ItemType		= Itemclass.ItemType;
-		if Itemclass.ShopTrade == 'YES' then
-				if IS_SHOP_SELL(invitem, Itemclass.MaxStack) == 1 then
-			slot:SetUserValue("SLOT_ITEM_ID", invitem:GetIESID());
-					-- 상점 Sell Slot으로 다 넘긴다.
-					SHOP_SELL(invitem, invitem.count);
-					return;
-				end
-			end
-	
 	ui.SysMsg(ClMsg("CannoTradeToNPC"));
 	return;
 end
@@ -1360,10 +1360,8 @@ function DRAW_MEDAL_COUNT(frame)
 	local medalFreeTime			= GET_CHILD(medalGbox, 'medalFreeTime', 'ui::CRichText');
 	
 	local accountObj = GetMyAccountObj();
-    medalText:SetTextByKey("medal", GET_CASH_TOTAL_POINT_C());
-	if GET_CASH_TOTAL_POINT_C() < 5 then
-		control.SendCheckFreeTPTime();
-	end
+	local txt = string.format("%d(%d+%d)", GET_CASH_TOTAL_POINT_C(), accountObj.GiftMedal + accountObj.PremiumMedal, accountObj.Medal) 
+    medalText:SetTextByKey("medal", txt);
 	if "None" ~= accountObj.Medal_Get_Date then
 		local sysTime = geTime.GetServerSystemTime();
 		local endTime = imcTime.GetSysTimeByStr(accountObj.Medal_Get_Date);
@@ -1371,7 +1369,7 @@ function DRAW_MEDAL_COUNT(frame)
 		medalFreeTime:SetUserValue("REMAINSEC", difSec);
 		medalFreeTime:SetUserValue("STARTSEC", imcTime.GetAppTime());
 		SHOW_REMAIN_NEXT_TP_GET_TIME(medalFreeTime);
-		medalFreeTime:RunUpdateScript("SHOW_REMAIN_NEXT_TP_GET_TIME");
+		medalFreeTime:RunUpdateScript("SHOW_REMAIN_NEXT_TP_GET_TIME", 0.1);
 	else
 		medalFreeTime:SetUserValue("REMAINSEC", 0);
 		medalFreeTime:SetUserValue("STARTSEC", 0);
@@ -1384,12 +1382,10 @@ function SHOW_REMAIN_NEXT_TP_GET_TIME(ctrl)
 	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
 	local startSec = ctrl:GetUserIValue("REMAINSEC");
 	startSec = startSec - elapsedSec;
-	if 5 >= startSec and GET_CASH_TOTAL_POINT_C() < MAX_FREE_TP then
-		control.SendCheckFreeTPTime();
-	end
-	if 0 >= startSec then
+	
+	if 0 >= startSec then		
 		ctrl:SetTextByKey("medal", "{s16}{#ffffcc}");
-		medalFreeTime:StopUpdateScript("SHOW_REMAIN_NEXT_TP_GET_TIME");
+		ctrl:StopUpdateScript("SHOW_REMAIN_NEXT_TP_GET_TIME");
 		return;
 	end
 	local timeTxt = GET_TIME_TXT(startSec);
@@ -2206,7 +2202,7 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	if itemType == "Quest" then
 		return;
 	end
-
+	
 	--디스펠러 관련 처리
 	local obj = GetIES(selectItem:GetObject());
 	if obj.ClassName == "Dispeller_1" then

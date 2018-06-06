@@ -3541,23 +3541,12 @@ end
 --CATACOMB_33_2_SQ_02_ORB
 function SCR_PRE_CATACOMB_33_2_SQ_02_ORB(self, argObj, argstring, arg1, arg2)
             if GetZoneName(self) == "id_catacomb_33_2" then
-                if GetLayer(self) == 0 then
-                    local result2 = SCR_QUEST_CHECK(self, 'CATACOMB_33_2_SQ_02')
-                    if result2 == 'PROGRESS' then
-                local list, cnt = SelectObject(self, 120, 'ALL')
-                local i
-                if cnt > 0 then
-                    for i = 1, cnt do
-                        if list[i].ClassName == 'Altarcrystal_P1' then
-                            return 0
-                end
-            end
-        end
+        local result = SCR_QUEST_CHECK(self, 'CATACOMB_33_2_SQ_02')
+        if result == 'PROGRESS' then
                 return 1
         end
     end
-    end
-    return 0
+    return 0;
 end
 
 --CATACOMB_33_2_SQ_03_BURN

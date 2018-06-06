@@ -43,8 +43,8 @@ function ON_BARRACK_NAME_CHANGE_RESULT(frame, addon, str, result)
 		local bg = inputTeamNameFrame:GetChild("bg");
 		local btn = bg:GetChild("btn");
 		btn:SetEnable(1);
-		return;
 	end
+
 		if result == 0 then
 			ui.SysMsg(ClMsg("TeamNameChanged"));
 		return;
@@ -52,8 +52,6 @@ function ON_BARRACK_NAME_CHANGE_RESULT(frame, addon, str, result)
 
 		if result == -1 then
 			ui.SysMsg(ClMsg("TheTeamNameAlreadyExist"));
-	elseif result == -1 then
-		ui.SysMsg(ClMsg("HadFobbidenWord"));
 		else
 			ui.SysMsg(ClMsg("TeamNameChangeFailed"));
 		end			

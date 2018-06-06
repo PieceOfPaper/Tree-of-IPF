@@ -17,7 +17,7 @@ function UPDATE_POSTBOX_LETTERS_LIST(gbox_list, onlyNewMessage)
 
 	gbox_list:RemoveAllChild();
 
-	local x = 10;
+	local x = 0;
 	local cnt = session.postBox.GetMessageCount();
 	for i = 0 , cnt - 1 do
 		local msgInfo = session.postBox.GetMessageByIndex(i);

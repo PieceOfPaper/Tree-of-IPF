@@ -819,6 +819,27 @@
 			<Node1 ClassID="18" ClassName="SHOUT" FileName="monster\spector_gh_boss\monster_spector_gh_boss_shout"/>
 			<Node1 ClassID="19" ClassName="DEAD2" FileName="monster\spector_gh_boss\monster_spector_gh_boss_dead2"/>
 		</Class>
+		<Class ClassID="45141" ClassName="spector_gh_boss2">
+			<Node1 ClassID="1" ClassName="BORN" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_born"/>
+			<Node1 ClassID="2" ClassName="STD" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_std"/>
+			<Node1 ClassID="3" ClassName="ASTD" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_astd"/>
+			<Node1 ClassID="4" ClassName="RUN" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_wlk"/>
+			<Node1 ClassID="5" ClassName="WLK" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_wlk"/>
+			<Node1 ClassID="7" ClassName="RAISEUP" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_raiseup"/>
+			<Node1 ClassID="8" ClassName="FALLDOWN" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_astd"/>
+			<Node1 ClassID="9" ClassName="DOWN" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_down"/>
+			<Node1 ClassID="10" ClassName="KNOCKDOWN" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_knockdown"/>
+			<Node1 ClassID="11" ClassName="KNOCKBACK" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_knockdown"/>
+			<Node1 ClassID="12" ClassName="ATK01_SHOT" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_atk"/>
+			<Node1 ClassID="14" ClassName="DEAD" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_dead"/>
+			<Node1 ClassID="12" ClassName="ATK01_SHOT" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_atk"/>
+			<Node1 ClassID="15" ClassName="ATK_EVENT" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_atk_event"/>
+			<Node1 ClassID="16" ClassName="SKL_SHOT" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_skl"/>
+			<Node1 ClassID="17" ClassName="BORN2" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_born2"/>
+			<Node1 ClassID="18" ClassName="EVENT" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_event"/>
+			<Node1 ClassID="18" ClassName="SHOUT" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_shout"/>
+			<Node1 ClassID="19" ClassName="DEAD2" FileName="monster\spector_gh_boss2\monster_spector_gh_boss2_dead2"/>
+		</Class>
 		<Class ClassID="46301" ClassName="test_wall1">
 			<Node1 ClassID="1" ClassName="BORN" FileName="monster\stone\monster_stone_std"/>
 			<Node1 ClassID="2" ClassName="STD" FileName="monster\stone\monster_stone_std"/>

@@ -14,7 +14,7 @@
 					</ToolScp>
 				</StartScpList>
 				<ObjList>
-					<Obj Type="Monster" MonType="401461" Pos="-771.97#204.22#-784.59" genCount="4" maxStackCount="4" genTime="10000" objectKey="0" propList="&apos;Lv&apos; &apos;160&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58254" Pos="-771.97#204.22#-784.59" genCount="4" maxStackCount="4" genTime="10000" objectKey="0" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -32,7 +32,7 @@
 							</StartList>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="401461" Pos="-609.68#204.22#-923.71" genCount="4" maxStackCount="4" genTime="10000" objectKey="1" propList="&apos;Lv&apos; &apos;160&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58254" Pos="-609.68#204.22#-923.71" genCount="4" maxStackCount="4" genTime="10000" objectKey="1" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -50,7 +50,7 @@
 							</StartList>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="401461" Pos="-615.69#204.22#-633.28" genCount="4" maxStackCount="4" genTime="10000" objectKey="2" propList="&apos;Lv&apos; &apos;160&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58254" Pos="-615.69#204.22#-633.28" genCount="4" maxStackCount="4" genTime="10000" objectKey="2" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -68,7 +68,7 @@
 							</StartList>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="41196" Pos="-468.54#204.22#-794.26" genCount="4" maxStackCount="4" genTime="10000" objectKey="3" propList="&apos;Lv&apos; &apos;160&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58255" Pos="-468.54#204.22#-794.26" genCount="4" maxStackCount="4" genTime="10000" objectKey="3" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -568,11 +568,13 @@
 					</ToolScp>
 				</CompleteScpList>
 				<ObjList>
-					<Obj Type="Monster" MonType="47202" Pos="40.68#232.71#1410.56" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;코카트 둥지&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;FixedLife&apos; &apos;10&apos; &apos;FixedDefence&apos; &apos;999&apos; "/>
-					<Obj Type="Monster" MonType="47202" Pos="-241.40#232.71#1370.56" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;코카트 둥지&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;FixedLife&apos; &apos;10&apos; &apos;FixedDefence&apos; &apos;999&apos; "/>
+					<Obj Type="Monster" MonType="47202" Pos="40.68#232.71#1410.56" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;코카트 둥지&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;FixedLife&apos; &apos;10&apos; &apos;FixedDefence&apos; &apos;999&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+                    <Obj Type="Monster" MonType="47202" Pos="-241.40#232.71#1370.56" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;코카트 둥지&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;FixedLife&apos; &apos;10&apos; &apos;FixedDefence&apos; &apos;999&apos; "/>
 					<Obj Type="Monster" MonType="47202" Pos="-515.14#233.78#1331.62" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;코카트 둥지&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;FixedLife&apos; &apos;10&apos; &apos;FixedDefence&apos; &apos;999&apos; "/>
 					<Obj Type="Monster" MonType="47202" Pos="-475.21#232.71#1065.14" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;코카트 둥지&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;FixedLife&apos; &apos;10&apos; &apos;FixedDefence&apos; &apos;999&apos; "/>
-					<Obj Type="Monster" MonType="401641" Pos="38.99#232.18#1347.61" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="2000" propList="&apos;Lv&apos; &apos;165&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58256" Pos="38.99#232.18#1347.61" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="2000" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -584,7 +586,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="401261" Pos="2.04#232.71#1386.18" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="2000" propList="&apos;Lv&apos; &apos;164&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58257" Pos="2.04#232.71#1386.18" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="2000" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -596,7 +598,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="401261" Pos="-286.19#232.71#1360.19" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="2000" propList="&apos;Lv&apos; &apos;164&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58257" Pos="-286.19#232.71#1360.19" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="2000" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -608,7 +610,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="401261" Pos="-209.99#232.71#1313.27" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="2000" propList="&apos;Lv&apos; &apos;164&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58257" Pos="-209.99#232.71#1313.27" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="2000" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -620,7 +622,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="401261" Pos="-475.15#227.42#1267.45" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="2000" propList="&apos;Lv&apos; &apos;164&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58257" Pos="-475.15#227.42#1267.45" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="2000" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -632,7 +634,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="401641" Pos="-431.77#223.88#1319.66" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="9" searchRange="2000" propList="&apos;Lv&apos; &apos;165&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58256" Pos="-431.77#223.88#1319.66" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="9" searchRange="2000" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -644,7 +646,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="401641" Pos="-450.62#232.71#1136.33" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="10" searchRange="2000" propList="&apos;Lv&apos; &apos;165&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58256" Pos="-450.62#232.71#1136.33" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="10" searchRange="2000" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -656,7 +658,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="401261" Pos="-393.83#232.71#1092.88" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="11" searchRange="2000" propList="&apos;Lv&apos; &apos;164&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58257" Pos="-393.83#232.71#1092.88" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="11" searchRange="2000" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -991,7 +993,7 @@
 					</ToolScp>
 				</CompleteScpList>
 				<ObjList>
-					<Obj Type="Monster" MonType="401601" Pos="433.47#159.60#-315.40" range="50" genTime="10000" autoGen="0" objectKey="0" searchRange="2000" propList="&apos;Lv&apos; &apos;161&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58258" Pos="433.47#159.60#-315.40" range="50" genTime="10000" autoGen="0" objectKey="0" searchRange="2000" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1000,7 +1002,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="401741" Pos="646.00#159.60#-427.06" range="50" genTime="10000" autoGen="0" objectKey="1" searchRange="2000" propList="&apos;Lv&apos; &apos;162&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58259" Pos="646.00#159.60#-427.06" range="50" genTime="10000" autoGen="0" objectKey="1" searchRange="2000" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1009,9 +1011,9 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="41281" Pos="399.45#159.60#-563.63" range="50" genTime="10000" autoGen="0" objectKey="7" searchRange="2000" propList="&apos;Lv&apos; &apos;161&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="401601" Pos="296.36#159.60#-429.78" range="50" genCount="1" genTime="10000" autoGen="0" objectKey="12" searchRange="2000" propList="&apos;Lv&apos; &apos;161&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="41281" Pos="606.50#159.60#-316.61" range="50" genCount="1" genTime="10000" autoGen="0" objectKey="13" searchRange="2000" propList="&apos;Lv&apos; &apos;161&apos; " tendency="1">
+					<Obj Type="Monster" MonType="58260" Pos="399.45#159.60#-563.63" range="50" genTime="10000" autoGen="0" objectKey="7" searchRange="2000" tendency="1"/>
+					<Obj Type="Monster" MonType="58258" Pos="296.36#159.60#-429.78" range="50" genCount="1" genTime="10000" autoGen="0" objectKey="12" searchRange="2000" tendency="1"/>
+					<Obj Type="Monster" MonType="58260" Pos="606.50#159.60#-316.61" range="50" genCount="1" genTime="10000" autoGen="0" objectKey="13" searchRange="2000" tendency="1">
 						<SelfAI ActiveMessageMapInBattle="1">
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1162,18 +1164,8 @@
 					<Obj Type="Monster" MonType="47202" Pos="36.85#204.22#-271.47" genCount="1" genTime="20000" objectKey="0" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE">
 						<SelfAI ActiveMessageMapInBattle="1"/>
 					</Obj>
-					<Obj Type="Monster" MonType="47202" Pos="119.94#204.22#-335.11" genCount="1" genTime="20000" objectKey="1" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE">
+					<Obj Type="Monster" MonType="47202" Pos="118.80#204.22#-342.32" genCount="1" genTime="20000" objectKey="1" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE">
 						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="SAI_COND_POS" Client="NO" UseSleep="NO">
-									<AbsPosRange X="-853.27844" Y="204.21851" Z="-953.55811" Range="20" Height="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_SET_MGAME_V" Client="NO" UseSleep="NO">
-									<Str Str="test"/>
-									<Num Num="1"/>
-								</ToolScp>
-								<ToolScp Scp="Dead" Client="NO" UseSleep="NO"/>
-							</List>
 							<DeadList>
 								<ToolScp Scp="S_AI_DEAD_CRE_MON" Client="NO" UseSleep="NO">
 									<Str Str="Big_Cockatries"/>
@@ -1197,15 +1189,34 @@
 					<Obj Type="Monster" MonType="47202" Pos="105.13#206.11#-109.74" genCount="1" genTime="20000" objectKey="6" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE"/>
 					<Obj Type="Monster" MonType="47202" Pos="292.63#204.22#-221.09" genCount="1" genTime="20000" objectKey="7" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE"/>
 					<Obj Type="Monster" MonType="47202" Pos="341.79#204.22#-79.66" genCount="1" genTime="20000" objectKey="8" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE"/>
-					<Obj Type="Monster" MonType="47202" Pos="256.44#204.22#55.48" genCount="1" genTime="20000" objectKey="9" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE"/>
-					<Obj Type="Monster" MonType="47202" Pos="351.07#204.22#9.91" genCount="1" genTime="20000" objectKey="10" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE">
+					<Obj Type="Monster" MonType="47202" Pos="256.44#204.22#55.48" genCount="1" genTime="20000" objectKey="9" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+                    <Obj Type="Monster" MonType="47202" Pos="351.07#204.22#9.91" genCount="1" genTime="20000" objectKey="10" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE">
 						<SelfAI ActiveMessageMapInBattle="1"/>
 					</Obj>
 					<Obj Type="Monster" MonType="47202" Pos="322.52#204.22#74.89" genCount="1" genTime="20000" objectKey="11" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE"/>
 					<Obj Type="Monster" MonType="47202" Pos="419.07#205.72#55.35" genCount="1" genTime="20000" objectKey="12" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE"/>
 					<Obj Type="Monster" MonType="47202" Pos="257.37#207.57#125.07" genCount="1" genTime="20000" objectKey="13" propList="&apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE"/>
-					<Obj Type="Monster" MonType="47202" Pos="376.65#209.62#107.57" genCount="1" genTime="20000" objectKey="14" propList="&apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE"/>
-				</ObjList>
+					<Obj Type="Monster" MonType="47202" Pos="376.65#209.62#107.57" genCount="1" genTime="20000" objectKey="14" propList="&apos;Name&apos; &apos;코카트 둥지&apos; " SimpleAI="MINIGAME_REMAIN_DEVICE">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+				</Obj>
+                <Obj Type="Monster" MonType="58257" Pos="42.84#204.22#-274.44" genCount="1" genTime="20000" autoGen="0" objectKey="15" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="119.16#204.22#-346.41" angle="-108" genCount="1" genTime="20000" autoGen="0" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="108.80#204.22#-268.37" angle="-60" genCount="1" genTime="20000" autoGen="0" objectKey="17" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="68.24#204.50#-193.99" angle="-74" genCount="1" genTime="20000" autoGen="0" objectKey="18" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="194.14#204.22#-252.31" angle="157" genCount="1" genTime="20000" autoGen="0" objectKey="19" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="156.23#204.22#-200.02" genCount="1" genTime="20000" autoGen="0" objectKey="20" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="109.95#205.90#-112.44" angle="-55" genCount="1" genTime="20000" autoGen="0" objectKey="21" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="292.63#204.22#-221.57" angle="116" genCount="1" genTime="20000" autoGen="0" objectKey="22" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="342.43#204.22#-80.38" angle="-161" genCount="1" genTime="20000" autoGen="0" objectKey="23" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="257.29#204.22#52.82" angle="-42" genCount="1" genTime="20000" autoGen="0" objectKey="24" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="351.09#204.22#10.16" angle="-138" genCount="1" genTime="20000" autoGen="0" objectKey="25" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="326.11#204.22#72.52" angle="-117" genCount="1" genTime="20000" autoGen="0" objectKey="26" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="413.48#205.38#53.64" angle="143" genCount="1" genTime="20000" autoGen="0" objectKey="27" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="255.75#208.20#127.24" genCount="1" genTime="20000" autoGen="0" objectKey="28" tendency="1"/>
+                    <Obj Type="Monster" MonType="58257" Pos="376.31#209.93#109.02" genCount="1" genTime="20000" autoGen="0" objectKey="29" tendency="1"/>
+                </ObjList>
 				<StageEvents>
 					<Event eventName="before_ing_start">
 						<condList>
@@ -1242,7 +1253,232 @@
 							</ToolScp>
 						</execList>
 					</Event>
-				</StageEvents>
+				<Event execCount="1" eventName="grace_dead_event1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/15"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/16"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/17"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event4">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/18"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event5">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/19"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event6">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/20"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event7">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/6"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/21"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event8">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/22"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event9">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/8"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/23"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event10">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/9"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/24"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event11">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/10"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/25"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event12">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/11"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/26"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event13">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/12"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/27"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event14">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/13"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/28"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="grace_dead_event15">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_d_before_ing/14"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_d_before_ing/29"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
 			</Stage>
 			<Stage Name="stage_c_02">
 				<ObjList>

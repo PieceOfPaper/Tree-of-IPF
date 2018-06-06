@@ -10,6 +10,23 @@ function INPUTSTRING_ON_MSG(frame, msg, argStr, argNum)
 
 end
 
+function UPDATE_TYPING_SCRIPT(frame, ctrl)
+	local title = frame:GetUserValue("InputType");
+	
+	if title ~= "InputNameForChange" and title ~= "Family_Name" then
+		return;
+	end
+
+	local nowlen = ui.GetCharNameLength( ctrl:GetText() );
+	if nowlen > 16 then
+		ctrl:SetText(frame:GetUserValue("BeforName"))
+		return;
+	
+	end
+	frame:SetUserValue("BeforName", ctrl:GetText());
+
+end
+	
 function INPUT_STRING_EXEC(frame)
 
 	local scpName = frame:GetSValue();
@@ -23,6 +40,7 @@ function INPUT_STRING_EXEC(frame)
 		execScp(fromFrame, resultString, frame);
 	end
 
+	frame:SetUserValue("BeforName", "")
 	frame:ShowWindow(0);
 	
 
