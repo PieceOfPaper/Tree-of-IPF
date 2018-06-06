@@ -3007,6 +3007,10 @@ function SCR_IS_ENABLE_ITEM_LOCK(pc, item, isIndunPlaying)
     if (IsIndun(pc) == 1 or IsPVPServer(pc) == 1) and item ~= nil then
         return 0;
     end
+	
+	if IS_ENABLE_GTOWER_TICKET_LOCK(pc, item) == false then
+		return 0;
+	end
 
 	return 1;
 end

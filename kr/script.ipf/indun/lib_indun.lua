@@ -13,6 +13,7 @@ function TEST_RESET_CNT(pc)
 	print('acc reward ' .. TryGetProp(aobj, "GuildBattleWeeklyPlayReward"));
 	print('acc time ' .. TryGetProp(aobj, "GuildBattleWeeklyPlayReset"));
 end
+
 function TEST_GUILD_CNT(pc)
 	
 	local guildObj = GetGuildObj(pc);
@@ -20,7 +21,6 @@ function TEST_GUILD_CNT(pc)
 		print('guild cnt ' .. TryGetProp(guildObj, 'GuildBattleWeeklyJoinCnt'));
 		print('guild reward ' .. TryGetProp(guildObj, 'GuildBattleWeeklyJoinReward'));
 	end
-
 end
 
 function RESET_GUILD_PVP_WEEKLY_COUNT(pc, tx)
@@ -314,7 +314,7 @@ function IS_ENABLE_ENTER_INDUN(pc, indunName)
         end
     end
 
-    if IS_ENABLE_ENTER_TO_INDUN_WEEKLY(pc, indunCls) == false then
+    if IS_ENABLE_ENTER_TO_INDUN_WEEKLY(pc, indunCls, false) == false then
         return 0;
     end
     
@@ -627,7 +627,7 @@ function REQ_MOVE_TO_INDUN(pc, indunName, joinMethod, randomMission)
 	end
 
     if admissionItemName == "None" or admissionItemName == nil then 
-        if enableEnterIndun == 0 and alreadyJoin == 0 then        
+        if enableEnterIndun == 0 and alreadyJoin == 0 then       
 			local scp = string.format("INDUN_CANNOT_YET(\'%s\')", "CannotJoinIndunYet");            
 			ExecClientScp(pc, scp);
 			return;
@@ -989,7 +989,7 @@ function SCR_ADD_INDUN_BADPLAYER_REPORTER_BUFF(pc)
 	AddBuff(pc, pc, "System_IndunBadPlayerReporter", 1, 0, buffTime);
 end
 
-function IS_ENABLE_ENTER_TO_INDUN_WEEKLY(pc, indunCls)	
+function IS_ENABLE_ENTER_TO_INDUN_WEEKLY(pc, indunCls, isEnableJustCountCheck)
 	local limitCount = indunCls.WeeklyEnterableCount;	
 	if limitCount == 0 then -- 주간 입장 횟수 체크 안하는 인던들
 		return true;
@@ -1005,7 +1005,12 @@ function IS_ENABLE_ENTER_TO_INDUN_WEEKLY(pc, indunCls)
 	end
 
 	-- 여기서 추가로 재료 소진하여 추가 입장 가능한 부분 구현해주시면 됩니다
-
+	-- 재료 소진을 제외한 순수 입장 횟수만 체크해야하는 경우, 아래에 넣어주세요
+	if isEnableJustCountCheck == false then
+		if indunCls.ClassName == "M_GTOWER_1" then
+			return GET_AVAILABLE_GTOWER_ADMISSION_TICKET_ITEM(pc) ~= nil;
+		end
+	end
 
 	return false;
 end

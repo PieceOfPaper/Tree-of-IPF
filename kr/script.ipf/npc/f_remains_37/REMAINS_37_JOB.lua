@@ -32,19 +32,20 @@ function SCR_MASTER_CHRONO_DIALOG(self, pc)
         else
             COMMON_QUEST_HANDLER(self,pc)
         end
-    else
-        local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_19')
-        if hidden_prop == 1 then
-            ShowOkDlg(pc, 'JOB_SHADOWMANCER_INTRODUCE_CHRONO_DLG', 1)
-            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char2_19', 2)
-            UnHideNPC(pc, "JOB_SHADOWMANCER_MASTER")
-            HideNPC(pc, "DCAPITAL_105_SHADOW_DEVICE")
-            ShowBalloonText(pc, "JOB_SHADOWMANCER_UNLOCK_MONOLOGUE", 5)
-        else
-            COMMON_QUEST_HANDLER(self,pc)
-        end
+        
     end
-end  
+    
+    local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_19')
+    if hidden_prop == 1 then
+        SCR_SET_HIDDEN_JOB_PROP(pc, 'Char2_19', 2)
+        UnHideNPC(pc, "JOB_SHADOWMANCER_MASTER")
+        HideNPC(pc, "DCAPITAL_105_SHADOW_DEVICE")
+        ShowOkDlg(pc, 'JOB_SHADOWMANCER_INTRODUCE_CHRONO_DLG', 1)
+        ShowBalloonText(pc, "JOB_SHADOWMANCER_UNLOCK_MONOLOGUE", 5)
+    else
+        COMMON_QUEST_HANDLER(self,pc)
+    end
+end
 
 
 function SCR_MASTER_FALCONER_DIALOG(self, pc)
