@@ -2494,14 +2494,14 @@
 		</skin>
 		<skin name="test_partyquest_skin" texture="\skin\partyquest_skin.tga">
 			<img name="topleft" imgrect="0 0 52 54"/>
-			<img name="topcore" imgrect="53 0 341 54"/>
-			<img name="topright" imgrect="395 0 40 54"/>
+			<img name="topcore" imgrect="53 0 216 54"/>
+			<img name="topright" imgrect="270 0 165 54"/>
 			<img name="bodyleft" imgrect="0 55 52 158"/>
-			<img name="bodycore" imgrect="53 55 341 158"/>
-			<img name="bodyright" imgrect="395 55 40 158"/>
+			<img name="bodycore" imgrect="53 55 216 158"/>
+			<img name="bodyright" imgrect="270 55 165 158"/>
 			<img name="bottomleft" imgrect="0 214 52 45"/>
-			<img name="bottomcore" imgrect="53 214 341 45"/>
-			<img name="bottomright" imgrect="395 214 40 45"/>
+			<img name="bottomcore" imgrect="53 214 216 45"/>
+			<img name="bottomright" imgrect="270 214 165 45"/>
 		</skin>
 		<skin name="partylist_tooltip_skin" texture="\skin\pip_test.tga">
 			<img name="topleft" imgrect="1163 309 200 130"/>
@@ -2601,6 +2601,17 @@
 			<img name="bottomleft" imgrect="0 898 135 97"/>
 			<img name="bottomcore" imgrect="136 898 150 97"/>
 			<img name="bottomright" imgrect="287 898 131 97"/>
+		</skin>
+	<skin name="line_bg_skin" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1411 660 50 50"/>
+			<img name="topcore" imgrect="1462 660 50 50"/>
+			<img name="topright" imgrect="1513 660 50 50"/>
+			<img name="bodyleft" imgrect="1411 711 50 50"/>
+			<img name="bodycore" imgrect="1462 711 50 50"/>
+			<img name="bodyright" imgrect="1513 711 50 50"/>
+			<img name="bottomleft" imgrect="1411 762 50 50"/>
+			<img name="bottomcore" imgrect="1462 762 50 50"/>
+			<img name="bottomright" imgrect="1513 762 50 50"/>
 		</skin>
 	</skinlist>
 	<skinlist category="buttons">
@@ -3904,6 +3915,7 @@
 		<image name="weapon_cannon" file="\icon\wearing_weapon.tga" imgrect="42 21 20 20" CMM_Caption="캐논"/>
 		<image name="weapon_musket" file="\icon\wearing_weapon.tga" imgrect="63 21 20 20" CMM_Caption="장총"/>
 		<image name="weapon_All" file="\icon\wearing_weapon.tga" imgrect="84 21 28 20" CMM_Caption="전체"/>
+	<image name="weapon_companion" file="\icon\wearing_weapon.tga" imgrect="126 21 20 20" CMM_Caption="컴패니언"/>
 	</imagelist>
 	<imagelist category="jootest_image">
 		<image name="ok_button" file="\skin\pip_test.tga" imgrect="1797 0 125 50" CMM_Caption="ok버튼"/>
@@ -4078,6 +4090,12 @@
 		<image name="inven_piece_btn" file="\skin\pip_test.tga" imgrect="1365 831 46 46" CMM_Caption="인벤정리버튼"/>
 		<image name="inven_piece_btn_cursoron" file="\skin\pip_test.tga" imgrect="1415 831 46 46"/>
 		<image name="inven_piece_btn_clicked" file="\skin\pip_test.tga" imgrect="1466 831 46 46"/>
+		<image name="quest_dialog_btn" file="\skin\button.tga" imgrect="325 623 46 46" CMM_Caption="퀘스트대사보기버튼"/>
+		<image name="quest_dialog_btn_cursoron" file="\skin\button.tga" imgrect="372 623 46 46"/>
+		<image name="quest_dialog_btn_clicked" file="\skin\button.tga" imgrect="419 623 46 46"/>
+		<image name="quest_giveup_btn" file="\skin\button.tga" imgrect="325 670 46 46" CMM_Caption="포기버튼"/>
+		<image name="quest_giveup_btn_cursoron" file="\skin\button.tga" imgrect="372 670 46 46"/>
+		<image name="quest_giveup_btn_clicked" file="\skin\button.tga" imgrect="419 670 46 46"/>
 		<image name="inven_lock" file="\skin\pip_test.tga" imgrect="560 888 35 35" CMM_Caption="인벤자물쇠"/>
 		<image name="guild_online" file="\skin\pip_test.tga" imgrect="1799 610 20 20" CMM_Caption="길드_온라인"/>
 		<image name="guild_offline" file="\skin\pip_test.tga" imgrect="1799 589 20 20" CMM_Caption="길드_오프라인"/>
@@ -5596,6 +5614,10 @@
 		<image name="Dlg_port_UosisKrieg" file="\npcimg\UosisKrieg.png" imgrect="0 0 900 1000" CMM_Caption="슈바르츠라이터마스터"/>
 		<image name="Dlg_port_AgotaHanska" file="\npcimg\AgotaHanska.png" imgrect="0 0 800 900" CMM_Caption="사두마스터"/>
 		<image name="Dlg_port_MistesGoldmund" file="\npcimg\MistesGoldmund.png" imgrect="0 0 800 1000" CMM_Caption="파드너마스터"/>
+	<image name="Dlg_port_VisvaldasBlack" file="\npcimg\VisvaldasBlack.png" imgrect="0 0 800 950" CMM_Caption="플레처마스터"/>
+		<image name="Dlg_port_ReamToiler" file="\npcimg\ReamToiler.png" imgrect="0 0 800 950" CMM_Caption="쿼렐슈터마스터"/>
+	<image name="Dlg_port_JuraSwajone" file="\npcimg\JuraSwajone.png" imgrect="0 0 800 1000" CMM_Caption="시노비마스터"/>
+		<image name="Dlg_port_Boruble" file="\npcimg\Boruble.png" imgrect="0 0 700 1000" CMM_Caption="프리스트마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -5997,6 +6019,7 @@
 		<image name="129_boss_Firelord" file="\skin\bosscard\129_boss_Firelord.tga" imgrect="0 0 330 440"/>
 		<image name="130_boss_Kubas" file="\skin\bosscard\130_boss_Kubas.tga" imgrect="0 0 330 440"/>
 		<image name="131_boss_capria" file="\skin\bosscard\131_boss_capria.tga" imgrect="0 0 330 440"/>
+	<image name="132_boss_Flammidus" file="\skin\bosscard\132_boss_Flammidus.png" imgrect="0 0 330 440"/>
 	</imagelist>
 	<effectimagelist category="effectlist">
 		<image name="blue_orb" file="\icon\blue_orb.tga" imgrect="0 0 256 256"/>

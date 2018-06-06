@@ -204,12 +204,19 @@ function _GET_IMG_NAME(itemobj)
 	local imageName = itemobj.Icon
 
 	if itemobj.ItemType == 'Equip' and itemobj.ClassType == 'Outer' then
+
+		local tempiconname = string.sub(itemobj.Icon,string.len(itemobj.Icon)-1);
+
+		if tempiconname ~= "_m" and tempiconname ~= "_f" then
 		local pc = GetMyPCObject();
     	if pc.Gender == 1 then
     		imageName = itemobj.Icon.."_m"
     	else
     		imageName = itemobj.Icon.."_f"			
     	end
+	end
+
+		
 	end
 
 	return imageName

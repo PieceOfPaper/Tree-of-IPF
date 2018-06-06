@@ -115,8 +115,10 @@
         <Effect Name="F_light096_red_loop2"/>
         <Effect Name="F_light096_red_loop2"/>
         <Effect Name="event_stop"/>
-    <Effect Name="I_pilgrim_shrine_dead"/>
-    <Effect Name="F_smoke006_1 "/>
+        <Effect Name="I_pilgrim_shrine_dead"/>
+        <Effect Name="F_smoke006_1 "/>
+        <Effect Name="pilgrim_shrine_dead"/>
+        <Effect Name="F_smoke006_1"/>
     </Category>
     <Category ID="72">
         <Effect Name="std4_1"/>
@@ -279,6 +281,13 @@
         <Effect Name="look"/>
         <Effect Name="F_light073_yellow_loop"/>
         <Effect Name="F_light080_blue"/>
+        <Effect Name="F_smoke145_dark_ground_loop2"/>
+        <Effect Name="F_explosion069_blue"/>
+        <Effect Name="E_light"/>
+        <Effect Name="I_smoke035"/>
+        <Effect Name="I_smoke008_red_nloop"/>
+        <Effect Name="F_ground134_red_nloop"/>
+        <Effect Name="TimeOver"/>
     </Category>
     <Category ID="69">
         <Effect Name="voice_wiz_icebolt_cast"/>
@@ -431,6 +440,7 @@
         <Effect Name="F_sys_TPBOX_normal_100"/>
         <Effect Name="F_sys_TPBOX_great_200"/>
         <Effect Name="F_sys_TPBOX_great_300"/>
+        <Effect Name="Chaplain_BuildCappella"/>
     </Category>
     <Category ID="59">
         <Effect Name="F_hit_star"/>
@@ -783,6 +793,10 @@
         <Effect Name="fourth_on"/>
         <Effect Name="GR_TEST_S1"/>
         <Effect Name="skl_eff_tinkly_hit"/>
+        <Effect Name="F_pattern008_violet##100"/>
+        <Effect Name="event_loop3"/>
+        <Effect Name="event_loop3"/>
+        <Effect Name="I_force015_white#Bone_mouth"/>
     </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
@@ -806,6 +820,8 @@
         <Effect Name="Summoning_Buff"/>
         <Effect Name="FEED_RIDE"/>
         <Effect Name="I_sphere011_mash Bot"/>
+        <Effect Name="F_spread_in026_darkgreen_loop##8"/>
+        <Effect Name="F_spread_out034_darkgreen"/>
     </Category>
     <Category ID="35">
         <Effect Name="Ready"/>
@@ -1529,6 +1545,14 @@
         <Effect Name="F_spread_in002_green#Bip01 Spine"/>
         <Effect Name="F_spread_in002_green#Bip01 Spine#1"/>
         <Effect Name="F_spread_in020_dark##0.5"/>
+        <Effect Name="STAGE2"/>
+        <Effect Name="STAGE3"/>
+        <Effect Name="DOOR"/>
+        <Effect Name="ID_REMAIN_MINI_03"/>
+        <Effect Name="F_spread_in007_dark#Bip001 L Calf"/>
+        <Effect Name="ID_REMAINS_MINI_03"/>
+        <Effect Name="BOSS"/>
+        <Effect Name="LASTBOSS"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -1611,6 +1635,7 @@
         <Effect Name="ID_startower"/>
         <Effect Name="SKL_DRAGONTOOTH_DOWN"/>
         <Effect Name="F_sys_TPBOX_great_300"/>
+        <Effect Name="트랩조건"/>
     </Category>
     <Category ID="28">
         <Effect Name="F_explosion006_green#Dummy_skl2_shot"/>
@@ -2030,10 +2055,11 @@
         <Effect Name="I_Lapene_skl2_gasi_mash"/>
         <Effect Name="F_ground140_orange_circle##1"/>
         <Effect Name="I_Lapene_skl2_gasi_red_mash"/>
-    <Effect Name="I_Ferret_orange02_mash#Bip002 L Finger0Nub"/>
+        <Effect Name="I_Ferret_orange02_mash#Bip002 L Finger0Nub"/>
         <Effect Name="F_explosion048_2"/>
-    <Effect Name="Chaplain_MagnusExorcismus"/>
-    </Category>
+        <Effect Name="Chaplain_MagnusExorcismus"/>
+    <Effect Name="I_orkan_antler_burstup_mash#Dummy_emitter"/>
+	</Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
         <Effect Name="I_laser005_blue"/>
@@ -8411,3 +8437,5 @@
         <Effect Name="DefClass123"/>
     </Category>
 </packeteffects>
+
+<?xml version="1.0" encoding="UTF-8"?>

@@ -37,6 +37,13 @@
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
+                    <Event execMS="60000" execCount="1" eventName="startcheckdead" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="checkalldead"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="end" AutoStart="0">
@@ -56,10 +63,11 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="None"/>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="60초 후 입구로 돌아갑니다!"/>
+                                <Num Num="5"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -249,7 +257,7 @@
                     <Obj Type="Monster" MonType="57817" Pos="-351.89#348.70#-198.46" angle="72" genCount="1" genTime="20000" objectKey="13" tendency="1"/>
                     <Obj Type="Monster" MonType="57817" Pos="-323.13#351.50#-227.00" angle="72" genCount="1" genTime="20000" objectKey="14" tendency="1"/>
                     <Obj Type="Monster" MonType="57819" Pos="-202.67#301.47#-101.79" angle="34" genCount="1" genTime="20000" objectKey="15" tendency="1"/>
-                    <Obj Type="Monster" MonType="57819" Pos="-309.16#360.11#-263.31" angle="65" genCount="1" genTime="20000" objectKey="16" tendency="1"/>
+                    <Obj Type="Monster" MonType="57819" Pos="-297.20#355.61#-267.54" angle="65" genCount="1" genTime="20000" objectKey="16" tendency="1"/>
                     <Obj Type="Monster" MonType="57819" Pos="-480.82#449.86#-318.74" angle="-38" genCount="1" genTime="20000" objectKey="22" tendency="1"/>
                     <Obj Type="Monster" MonType="57819" Pos="-462.88#434.86#-282.29" angle="-30" genCount="1" genTime="20000" objectKey="23" tendency="1"/>
                     <Obj Type="Monster" MonType="57817" Pos="-425.73#454.95#48.37" angle="-51" genCount="1" genTime="20000" objectKey="28" tendency="1"/>
@@ -296,10 +304,53 @@
                     </Event>
                 </StageEvents>
             </Stage>
+            <Stage Name="Time">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="종료 5분전">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="던전 종료 5분전 입니다!!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="시간 제한">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="인던 삭제">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3660"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
         </StageList>
         <EnterList>
             <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
                 <Str Str="Indun_Remains"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_RESUR_DLG" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
             </ToolScp>
         </EnterList>
     </Game>

@@ -48,6 +48,11 @@ function PICKITEM_IN(frame, msg, itemGuid, itemCount, class)
 	local img = class.Icon;
 	
 	if class.ItemType == 'Equip' and class.ClassType == 'Outer' then
+
+		local tempiconname = string.sub(img,string.len(img)-1);
+
+		if tempiconname ~= "_m" and tempiconname ~= "_f" then
+
     	local pc = GetMyPCObject();
     	local gender = pc.Gender;
     	
@@ -56,6 +61,8 @@ function PICKITEM_IN(frame, msg, itemGuid, itemCount, class)
     	else
     	    img = img.."_f"
 	    end
+
+		end
 	end
 	
 	local controlSetName = "icon_"..tostring(PickCount);

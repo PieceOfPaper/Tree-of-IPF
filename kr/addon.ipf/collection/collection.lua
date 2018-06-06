@@ -1,5 +1,6 @@
 
 USE_COLLECTION_SHOW_ALL = 0;
+REMOVE_ITEM_SKILL = 7
 
 function COLLECTION_ON_INIT(addon, frame)
 
@@ -7,6 +8,9 @@ function COLLECTION_ON_INIT(addon, frame)
 	addon:RegisterMsg("ADD_COLLECTION", "ON_ADD_COLLECTION");
 	addon:RegisterMsg("COLLECTION_ITEM_CHANGE", "ON_COLLECTION_ITEM_CHANGE");
 	addon:RegisterMsg("INV_ITEM_ADD", "ON_COLLECTION_ITEM_CHANGE");
+	addon:RegisterMsg("INV_ITEM_IN", "ON_COLLECTION_ITEM_CHANGE");
+	addon:RegisterMsg("INV_ITEM_REMOVE", "ON_COLLECTION_ITEM_CHANGE");
+	addon:RegisterMsg("INV_ITEM_CHANGE_COUNT", "ON_COLLECTION_ITEM_CHANGE");
 	addon:RegisterMsg("UPDATE_READ_COLLECTION_COUNT", "ON_COLLECTION_ITEM_CHANGE");
 	addon:RegisterMsg('COLLECTION_UI_OPEN', 'COLLECTION_DO_OPEN');
 end
@@ -14,9 +18,11 @@ end
 function COLLECTION_DO_OPEN(frame)
     ui.ToggleFrame('collection')
 	ui.ToggleFrame('inventory')
+	RUN_CHECK_LASTUIOPEN_POS(frame)
 end
 
 function UI_TOGGLE_COLLECTION()
+
 	if app.IsBarrackMode() == true then
 		return;
 	end
@@ -54,9 +60,8 @@ function ON_ADD_COLLECTION(frame, msg)
 
 	end
 
-function ON_COLLECTION_ITEM_CHANGE(frame, msg, str, type)
-
-	UPDATE_COLLECTION_LIST(frame, str);
+function ON_COLLECTION_ITEM_CHANGE(frame, msg, str, type, removeType)
+	UPDATE_COLLECTION_LIST(frame, str, removeType);
 	UPDATE_COLLECTION_DETAIL(frame);
 end
 
@@ -70,25 +75,55 @@ function COLLECTION_TYPE_CHANGE(frame, ctrl)
 	UPDATE_COLLECTION_LIST(frame);
 end
 
-function SET_COLLECTION_PIC(frame, pic, itemCls, coll)
+function SET_COLLECTION_PIC(frame, pic, itemCls, coll, drawitemset)
 
 	local colorTone = nil;
 	local info = nil;
+	
 	if coll ~= nil then
-		info = coll:Get(itemCls.ClassID);
-		if info == nil then
-			if session.GetInvItemByType(itemCls.ClassID) ~= nil then
-				colorTone = frame:GetUserConfig("ITEM_EXIST_COLOR");
-			else
-				colorTone = frame:GetUserConfig("BLANK_ITEM_COLOR");
-			end
+
+		local collecount = coll:GetItemCountByType(itemCls.ClassID);
+		local invcount = session.GetInvItemCountByType(itemCls.ClassID);
+		local showedcount = 0
+
+		if drawitemset[itemCls.ClassID] ~= nil then
+			showedcount = drawitemset[itemCls.ClassID]
 		end
+
+		-- 1. 내가 이미 모은 것들
+		if collecount > showedcount then
+			
+			if drawitemset[itemCls.ClassID] == nil then
+				drawitemset[itemCls.ClassID] = 1
+			else
+				drawitemset[itemCls.ClassID] = drawitemset[itemCls.ClassID] + 1
+			end
+
+			return "Can Take"
+		end
+
+		-- 2. 꼽으면 되는 것들
+
+		if invcount + collecount > showedcount then
+			if drawitemset[itemCls.ClassID] == nil then
+				drawitemset[itemCls.ClassID] = 1
+			else
+				drawitemset[itemCls.ClassID] = drawitemset[itemCls.ClassID] + 1
+			end
+			colorTone = frame:GetUserConfig("ITEM_EXIST_COLOR");
+		else
+			colorTone = frame:GetUserConfig("BLANK_ITEM_COLOR");
+		end
+		
 	else
-		if session.GetInvItemByType(itemCls.ClassID) ~= nil then
+	--[[
+		local invItem = session.GetInvItemByType(itemCls.ClassID)
+		if invItem ~= nil then
 			colorTone = frame:GetUserConfig("ITEM_EXIST_COLOR");
 		else
 			colorTone = frame:GetUserConfig("NOT_HAVE_COLOR");
 		end
+		]]
 	end
 
 	if colorTone ~= nil then
@@ -113,11 +148,14 @@ end
 
 function COLLECTION_OPEN(frame)
 	UPDATE_COLLECTION_LIST(frame);
-	REGISTERR_LASTUIOPEN_POS(frame)
+	
 end
 
 function COLLECTION_CLOSE(frame)
-	ui.CloseFrame("inventory");
+
+	local inventory = ui.GetFrame("inventory")
+	inventory:ShowWindow(0)
+	
 	UNREGISTERR_LASTUIOPEN_POS(frame)
 end
 
@@ -142,6 +180,8 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll)
 	local picWidth = math.floor((itemBoxWidth - marginX * 2) / picInBox);
 	local picHeight = math.floor((itemBoxHeight - marginY * 2) / picInBox);
 
+	local drawItemSet = {}
+
 	for i = 1 , 9 do
 		local itemName = cls["ItemName_" .. i];
 		if itemName == "None" then
@@ -162,7 +202,7 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll)
 		pic:EnableHitTest(0);
 		pic = tolua.cast(pic, "ui::CPicture");
 		pic:SetEnableStretch(1);
-		SET_COLLECTION_PIC(frame, pic, itemCls, coll);
+		SET_COLLECTION_PIC(frame, pic, itemCls, coll, drawItemSet);
 		pic:SetImage(itemCls.Icon);
 	end
 
@@ -202,7 +242,7 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll)
 
 end
 
-function UPDATE_COLLECTION_LIST(frame, addType)
+function UPDATE_COLLECTION_LIST(frame, addType, removeType)
 
 	local showoption = GET_CHILD(frame, "showoption", "ui::CDropList");
 	local showAll = showoption:GetSelItemIndex();
@@ -239,7 +279,7 @@ function UPDATE_COLLECTION_LIST(frame, addType)
 		end
 	end
 	
-	if 'UNEQUIP' ~= addType then
+	if 'UNEQUIP' ~= addType and REMOVE_ITEM_SKILL ~= 7 then
 		imcSound.PlaySoundEvent("quest_ui_alarm_2");
 	end
 
@@ -360,6 +400,8 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 	local textY = picY + picHeight;
 	local maxTextHeight = 0;
 
+	local drawItemSet = {}
+
 	for i = 1 , 9 do
 		local itemName = cls["ItemName_" .. i];
 		if itemName == "None" then
@@ -384,12 +426,15 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 
 		slot:SetOverSound('button_cursor_over_2')
 		local icon = CreateIcon(slot);
-		icon:SetImage(itemCls.Icon);
-		local info = SET_COLLECTION_PIC(frame, icon, itemCls, coll);
+		icon:SetImage(itemCls.Icon);		
+		local cantake = SET_COLLECTION_PIC(frame, icon, itemCls, coll,drawItemSet);
 		slot:SetUserValue("COLLECTION_TYPE", type);
 
-		SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemData, itemCls.ClassName, 'collection', itemCls.ClassID, type);
-		if info ~= nil then
+		-- 세션 콜렉션에 오브젝트 정보가 존재하고 이를 바탕으로 하면 item오브젝트의 옵션을 살린 툴팁도 생성 가능하다. 가령 박아넣은 젬의 경험치라던가.
+		-- 허나 지금 슬롯 지정하여 꺼내는 기능이 없기 때문에 무의미. 정확한 툴팁을 넣으려면 COLLECTION_TAKE를 type이 아니라 guid 기반으로 바꿔야함
+		SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemData, itemCls.ClassName, 'collection', itemCls.ClassID, type); 
+		
+		if cantake ~= nil then
 			slot:SetEventScript(ui.RBUTTONUP, "COLLECTION_TAKE");
 		else
 			slot:SetEventScript(ui.DROP, "COLLECTION_DROP");
@@ -429,7 +474,7 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 		local posX, posY = GET_SCREEN_XY(abilTextObj);
 		movie.PlayUIEffect('SYS_quest_mark', posX, posY, 1.0);
 		imcSound.PlaySoundEvent(frame:GetUserConfig("SOUND_COLLECTION"));
-
+	
 		--local titleCtrl = detailView:GetChild("title");
 		UI_PLAYFORCE(titleCtrl, "text_eft_1", 0, 0);
 		UI_PLAYFORCE(abilTextObj, "text_eft_1", 0, 0);
@@ -452,20 +497,25 @@ end
 function COLLECTION_DROP(frame, slot, str, num)
 
 	local type = slot:GetUserIValue("COLLECTION_TYPE");
+	local liftIcon = ui.GetLiftIcon():GetInfo();
 	local colls = session.GetMySession():GetCollection();
 	local coll = colls:Get(type);
-	local liftIcon = ui.GetLiftIcon():GetInfo();
-	local collItem = coll:Get(liftIcon.type);
-	if collItem == nil then
+	local nowcnt = coll:GetItemCountByType(liftIcon.type)
 
+	local colinfo = geCollectionTable.Get(type);
+	local needcnt = colinfo:GetNeedItemCount(liftIcon.type)
+
+	if nowcnt < needcnt then
 		session.ResetItemList();
 		session.AddItemID(liftIcon:GetIESID());
 		local resultlist = session.GetItemIDList();
 		item.DialogTransaction("PUT_COLLECTION", resultlist, type);
 
 		imcSound.PlaySoundEvent("cllection_weapon_epuip");
-
 	end
+
+	
+
 end
 
 function COLLECTION_TAKE(frame, slot, str, num)

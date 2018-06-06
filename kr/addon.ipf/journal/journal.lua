@@ -84,7 +84,7 @@ function OPEN_DO_JOURNAL(frame)
 
 	frame:SetUserValue("IS_OPEN_BY_NPC","YES")
 	OPEN_JOURNAL(frame,"YES")
-	REGISTERR_LASTUIOPEN_POS(frame)
+	RUN_CHECK_LASTUIOPEN_POS(frame)
 
 end
 
@@ -125,7 +125,7 @@ end
 function JOURNAL_CLOSE(frame)
 	ui.CloseFrame("journalrank");
 	frame:SetUserValue("IS_OPEN_BY_NPC","NO")
-	REGISTERR_LASTUIOPEN_POS(frame)
+	UNREGISTERR_LASTUIOPEN_POS(frame)
 end
 
 function JOURNAL_UPDATE_CONTENTS(frame)

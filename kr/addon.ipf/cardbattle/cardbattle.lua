@@ -371,6 +371,11 @@ function DROP_CARDBATTLE_CARD(frame)
 		return;
 	end
 	
+	if true == invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+
 	local obj = GetIES(invItem:GetObject());
 	if obj.GroupName ~= "Card" then
 		ui.SysMsg(ClMsg("PutOnlyCardItem"));

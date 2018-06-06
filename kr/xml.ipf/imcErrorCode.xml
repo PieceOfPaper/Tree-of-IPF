@@ -189,5 +189,6 @@
 		<Code Code="ERRCODE_INFO_CLIENT_HASHCODE" CallStack="NO" Desc="IPF파일 변경이 감지되었을 때 클라이언트가 로드한 파일 리스트 및 크기"/>
 		<Code Code="ERRCODE_INFO_RES_LOAD" CallStack="NO" Desc="리소스 로드 정보"/>
 <Code Code="ERRCODE_INFO_CALLSTACK" CallStack="YES" Desc="콜스택 보기"/>
+		<Code Code="ERRCODE_INFO_NGS" CallStack="NO" Desc="NGS 디버깅용 로그"/>
 	</Type>
 </imcErrorCode>

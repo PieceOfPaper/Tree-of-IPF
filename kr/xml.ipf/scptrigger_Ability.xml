@@ -499,35 +499,6 @@
             </Trigger>
         </TriggerList>
     </SpcItem>
-    <SpcItem Name="Paladin4">
-        <TriggerList Act="Attack">
-            <Trigger>
-                <CondList>
-                    <ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-                        <Str Str="Paladin_Smite"/>
-                    </ToolScp>
-                    <ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-                        <Str Str="ENEMY"/>
-                    </ToolScp>
-                    <ToolScp Scp="SPCI_COND_DAM_OVER" Client="NO" UseSleep="NO">
-                        <Num Num="1"/>
-                    </ToolScp>
-                    <ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
-                        <Str Str="Paladin4"/>
-                    </ToolScp>
-                </CondList>
-                <ExecList>
-                    <ToolScp Scp="SPCI_TGT_KD_COLL_DAMAGE" Client="NO" UseSleep="NO">
-                        <Num Num="100" UseFunc="1" FuncTxt="return IMCRandom(self.MINPATK, self.MAXPATK)/2;"/>
-                        <Num Num="0"/>
-                        <Num Num="3"/>
-                        <Num Num="15"/>
-                        <Num Num="0"/>
-                    </ToolScp>
-                </ExecList>
-            </Trigger>
-        </TriggerList>
-    </SpcItem>
     <SpcItem Name="Mark">
         <TriggerList Act="Attack">
             <Trigger>

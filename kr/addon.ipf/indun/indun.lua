@@ -20,7 +20,7 @@ function INDUN_VIEW(frame, curtabIndex)
 	end
 end
 
-function ON_INDUN_COUNT_RESET(fra,e)
+function ON_INDUN_COUNT_RESET(frame)
 	DRAW_INDUN_UI(frame, 200);
 	DRAW_INDUN_UI(frame, 100);
 end

@@ -84,12 +84,19 @@ function LINK_ITEM_TEXT(invitem)
 	local imgtag =  "";
 	local imageName = itemobj.Icon;
 	if itemobj.ItemType =='Equip' and itemobj.ClassType == 'Outer' then
+
+		local tempiconname = string.sub(imageName, string.len(imageName) - 1 );
+
+		if tempiconname ~= "_m" and tempiconname ~= "_f" then
 		local pc = GetMyPCObject();
     	if pc.Gender == 1 then
 			imageName = imageName.."_m"
 		else
 			imageName = imageName.."_f"			
 		end
+	end
+
+		
 	end
 
 	local imgtag = string.format("{img %s %d %d}", imageName, imgheight, imgheight);

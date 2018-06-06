@@ -1,5 +1,6 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P_MaxDialog,AnchorCount,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 24,24,1,30,1,60000,1,2,0,0,0,0,"Warp_arrow","수정광산 2광구 1층","","","","MON_DUMMY","","","","WS_CMINE9_CMINE8","","NO","YES","NO","Neutral","","","",""
+30,30,1,1,1,14400000,1,0,0,1,0,0,"HiddenTrigger2","UnvisibleName","","","","CMINE9_BOSS_GEN","","","","","","NO","YES","NO","Neutral","","","",""
 514,514,1,0,30,5000,2,0,0,0,0,1,"rootcrystal_01","나무뿌리 수정","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
 1019,1019,1,10,1,180000,1,0,0,0,0,0,"HiddenTrigger2","함정형","","","","","","","","REPEAT_MON_GEN_TRIGGER","","NO","YES","NO","Monster","Back2/30/Attack","raffly-b;27/raffly-b;27/raffly-b;27/raffly-b;27/raffly-b;27/raffly-b;27raffly-b;27/Goblin_Archer_red;28/Goblin_Archer_red;28/Goblin_Archer_red;28","",""
 1020,1020,0,40,9999,15000,25,0,0,0,0,0,"FD_bubbe_fighter","","","","","","","","","","","NO","YES","NO","Monster","","","","Attack"
@@ -8,7 +9,6 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 1026,1026,0,40,-1,6000000,1,0,0,1,1,0,"mine2_crystal_red","레드 크리스탈","","","","","","CMINE9_RED","D_CMINE_9_RED","","","NO","YES","NO","Neutral","","","",""
 1027,1027,0,1,-1,6000000,1,0,0,1,1,0,"mine2_crystal_blue","블루 크리스탈","","","","","","CMINE9_BLUE","D_CMINE_9_BLUE","","","NO","YES","NO","Neutral","","","",""
 1028,1028,0,40,-1,6000000,1,0,0,1,1,0,"mine2_crystal_yellow","옐로 크리스탈","","","","","","CMINE9_YELLOW","D_CMINE_9_YELLOW","","","NO","YES","NO","Neutral","","","",""
-1029,1029,1,40,1,6000000,1,0,0,1,1,0,"Boss_Kubas_Head","수수께끼의 기계장치","","","","","","CMINE_9_BOSS_STD","D_CMINE_9_BOSS","","","NO","YES","NO","Neutral","","","",""
 1030,1030,1,40,40,5000,1,0,0,1,0,0,"HiddenTrigger6","","","","","","","CMINE9_DropStone","","","","NO","YES","NO","Neutral","","","",""
 1031,1031,1,40,1,6000,1,0,0,1,0,0,"HiddenTrigger6","","","","","","","CMINE9_DropStone","","","","NO","YES","NO","Neutral","","","",""
 1032,1032,1,40,1,5500,1,0,0,1,0,0,"HiddenTrigger6","","","","","","","CMINE9_DropStone","","","","NO","YES","NO","Neutral","","","",""

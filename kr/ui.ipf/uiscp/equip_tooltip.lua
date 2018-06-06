@@ -95,14 +95,21 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
                 gender = barrack.GetSelectedCharacterGender();
             end
 
+			local tempiconname = string.sub(invitem.TooltipImage,string.len(invitem.TooltipImage)-1);
+
+			if tempiconname ~= "_m" and tempiconname ~= "_f" then
     	    if gender == 1 then
         	    tooltipImg = invitem.TooltipImage.."_m"
         		itemPicture:SetImage(tooltipImg);
         	else
         	    tooltipImg = invitem.TooltipImage.."_f"
-                
         		itemPicture:SetImage(tooltipImg);
         	end
+			else
+				itemPicture:SetImage(invitem.TooltipImage);
+			end
+
+    	    
     	end
 	else
 		itemPicture:ShowWindow(0);

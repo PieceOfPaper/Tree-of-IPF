@@ -1061,14 +1061,53 @@ return obj.Level;"/>
             </ToolScp>
         </leaveEvent>
     </PadSkill>
+    <PadSkill Name="Chaplain_BuildCappella" CheckerType="0" Range="100" UpdateTerm="250" AutoPos="1" EnableSearch="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="60000" UseFunc="1" FuncTxt="
+
+return 30000"/>
+                <Num Num="99990"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_BuildCappella_ground_loop" Arg="2"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
+                <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_DESTROY_EFFECT_BLENDTIME" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="SCR_CHAPLAIN_CAPPELLA" Client="NO" UseSleep="NO">
+                <Num Num="20000" UseFunc="1" FuncTxt="
+
+return 10000"/>
+            </ToolScp>
+        </enterEvent>
+    </PadSkill>
     <PadSkill Name="Chaplain_MagnusExorcismus" CheckerType="0" Range="17.5" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="7000" UseFunc="1" FuncTxt="return obj.Level * 1000 + 7000"/>
+                <Num Num="7000" UseFunc="1" FuncTxt="return obj.Level * 1000 + 10000"/>
                 <Num Num="89990" UseFunc="1" FuncTxt="return 99999;"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_cleric_MagnusExorcismus_shot_burstup" Arg="0.69999999"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_MagnusExorcismus_shot_explosion" Arg="1.3"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
@@ -1085,20 +1124,12 @@ return obj.Level;"/>
                 <Num Num="0.5"/>
             </ToolScp>
         </destroyEvent>
-        <enterEvent>
-            <ToolScp Scp="PAD_MON_SET_AI" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-            </ToolScp>
-        </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="MagnusExorcismus_Debuff"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_MON_SET_AI" Client="NO" UseSleep="NO">
-                <Num Num="1"/>
             </ToolScp>
         </leaveEvent>
         <updateEvent>
@@ -4560,7 +4591,7 @@ return obj.Level"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="FlareShot_pad" CheckerType="0" Range="10" IsMagicType="0">
+    <PadSkill Name="FlareShot_pad" CheckerType="0" Range="20" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="E_archer_Flareshot_shot" Arg="0.5"/>
@@ -6292,6 +6323,34 @@ return GET_ABIL_LEVEL(self, &quot;Necromancer2&quot;) * 4000;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
+    <PadSkill Name="Nuodai_Poison_Remove" CheckerType="0" Dist="5.2131776e+028" Angle="0.0025850763" Range="50">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000"/>
+                <Num Num="9999"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="E_cleric_bind_ground" Arg="1"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="FRIEND"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Nuodai_Poison_Debuff"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
     <PadSkill Name="PiedPiper_Fluting" CheckerType="0" Dist="0.20079" Angle="1.044166" Range="200" UpdateTerm="200" AutoPos="1" AutoDir="1" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -7052,6 +7111,12 @@ return 10000 + obj.Level * 2000"/>
             <ToolScp Scp="C_EFFECT_REMOVE_KEY" Client="YES" UseSleep="NO">
                 <Str Str="newbless"/>
                 <Num Num="0.5"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="SadhuBind_Debuff"/>
             </ToolScp>
         </destroyEvent>
         <enterEvent>

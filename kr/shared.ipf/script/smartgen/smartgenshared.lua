@@ -33,7 +33,7 @@ end
 function SCR_SMARTGEN_GENFLAG_RESTART(sObj)
     local i
     
-    for i = 1, 500 do
+    for i = 1, CON_SMARTGEN_GENFLAG_MAX_INDEX do
         sObj['GenFlag'..i] = 'None'
     end
 end

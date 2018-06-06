@@ -327,9 +327,26 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 
 	local count = tonumber(edit_count:GetText());
 	local price = tonumber(edit_price:GetText());
-	if price <= 0 then
-		ui.SysMsg(ClMsg("SellPriceMustOverThenZeroSilver"));		
+	if price < 100 then
+		ui.SysMsg(ClMsg("SellPriceMustOverThen100Silver"));		
 		return;
+	end
+
+	local strprice = edit_price:GetText()
+
+	if string.len(strprice) < 3 then
+		return
+	end
+
+	local floorprice = strprice.sub(strprice,0,2)
+	for i = 0 , string.len(strprice) - 3 do
+		floorprice = floorprice .. "0"
+	end
+	
+	if strprice ~= floorprice then
+		edit_price:SetText(floorprice)
+		ui.SysMsg(ScpArgMsg("AutoAdjustToMinPrice"));		
+		price = tonumber(floorprice);
 	end
 
 	if count <= 0 then

@@ -487,6 +487,12 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj, no
 		totalLevel = obj.LevelByDB;
 	end
 
+	if skilltreecls ~= nil then
+		if skilltreecls.MaxLevel < totalLevel then
+			totalLevel = skilltreecls.MaxLevel
+		end
+	end
+
 	if totalLevel == 0 and lvDescStart ~= nil then
 	
 		skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));

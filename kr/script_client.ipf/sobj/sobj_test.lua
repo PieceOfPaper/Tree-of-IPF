@@ -339,7 +339,7 @@ function SSN_CLIENT_SMARTGEN(self)
                 
                 if mon_summon == 'YES' then
                     local flag
-                    for flag = 1, 500 do
+                    for flag = 1, CON_SMARTGEN_GENFLAG_MAX_INDEX do
                         if sObj['GenFlag'..flag] == 'None' then
                             sObj['GenFlag'..flag] = math.floor(x)..'/'..math.floor(z)
                             break
@@ -588,7 +588,7 @@ function SCR_SMARTGEN_MON_CREATE_CLIENT(myActor, sObj, DuplCreatePass_OPT, Accru
             
             if DuplCreate_Range > 0 then
                 
-                for flag = 1, 500 do
+                for flag = 1, CON_SMARTGEN_GENFLAG_MAX_INDEX do
                     if sObj['GenFlag'..flag] == 'None' then
                         break
                     end

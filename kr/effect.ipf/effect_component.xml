@@ -361,6 +361,8 @@
 	<Trail name="dash004" texture="dash004" height="4.00" texel_x="128" texel_y="128" texel_width="64" texel_height="64"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="1040" texel_height="640"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="orkan_antler" model="orkan_antler.xac" motion="orkan_antler_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
+	<Model name="firetower_device_01_dead" model="firetower_device_01_dead.xac" motion="firetower_device_01_dead_ani.xsm" texturepath="char_texture\npc\firetower_device_01\" overlap="false"/>
 	<Model name="Ferret_orange" model="Ferret_orange.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="coin" model="coin.xac" motion="coin_ani.xsm" texturepath="char_texture\monster\Unknocker\" overlap="false"/>
 	<Model name="Lapene_skl2_gasi" model="Lapene_skl2_gasi.xac" motion="Lapene_skl2_gasi_ani.xsm" texturepath="char_texture_low\monster\Lapene\" overlap="false"/>
@@ -401,6 +403,7 @@
 	<Model name="boxes_01_dead" model="boxes_01_dead.xac" motion="boxes_01_dead_ani.xsm" texturepath="char_texture\npc\boxes_01\" overlap="false"/>
 	<Model name="npc_rokas_7_deadparts2" model="npc_rokas_7_deadparts2.xac" motion="npc_rokas_7_deadparts2_ani.xsm" texturepath="char_texture\npc\npc_rokas_1\" overlap="false"/>
 	<Model name="fence_dead" model="fence_dead.xac" motion="fence_dead_ani.xsm" texturepath="char_texture\npc\fence\" overlap="false"/>
+	<Model name="pilgrim_shrine_dead" model="pilgrim_shrine_dead.xac" motion="pilgrim_shrine_dead_ani.xsm" texturepath="char_texture\npc\pilgrim_shrine\" overlap="false"/>
 	<Model name="soul_gathering_mchn_1_dead" model="soul_gathering_mchn_1_dead.xac" motion="soul_gathering_mchn_1_dead_ani.xsm" texturepath="char_texture\npc\soul_gathering_mchn_1\" overlap="false"/>
 	<Model name="d_under69_obj_mash_1" model="d_under69_obj_mash_1.xac" motion="d_under69_obj_mash_1_ani.xsm" texturepath="char_texture\npc\d_under69_obj\" overlap="false"/>
 	<Model name="d_under69_obj_mash" model="d_under69_obj_mash.xac" motion="d_under69_obj_mash_ani.xsm" texturepath="char_texture\npc\d_under69_obj\" overlap="false"/>

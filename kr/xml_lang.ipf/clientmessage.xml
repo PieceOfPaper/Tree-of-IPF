@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -314,7 +314,7 @@
 		<Class ClassID="10374" ClassName="AutoMaticallyReconnectedFromServerError" Data="서버의 오류가 발생하여 자동으로 복구되었습니다."/>
 		<Class ClassID="10375" ClassName="AttachedItem" Data="첨부 아이템"/>
 		<Class ClassID="10376" ClassName="ReallyGiveItemTo{PC}" Data="{PC}에게 아이템을 주시겠습니까?"/>
-		<Class ClassID="10377" ClassName="ReceievedItem" Data="아이템 수령했습니다."/>
+		<Class ClassID="10377" ClassName="ReceievedItem" Data="아이템을 수령하였습니다."/>
 		<Class ClassID="10378" ClassName="VeryCloseFromCamp" Data="베이스 캠프와 너무 가깝습니다."/>
 		<Class ClassID="10379" ClassName=" " Data="배식대와의 거리가 멉니다."/>
 		<Class ClassID="10380" ClassName="JoiningToAvailableChannel" Data="채널이 꽉차 플레이 가능한 다른 채널로 입장합니다."/>
@@ -342,10 +342,13 @@
 		<Class ClassID="10402" ClassName="WillYouSeeOpeningAgain?" Data="오프닝을 다시 보시겠습니까?"/>
 		<Class ClassID="10403" ClassName="ThatCurrentPosition" Data="현재 위치 입니다."/>
 		<Class ClassID="10404" ClassName="CanTakeItemFromPostBox" Data="현재 습득하지 않은 아이템이 존재합니다.{nl}모든 아이템 수령 후 삭제가 가능합니다."/>
-		<Class ClassID="10405" ClassName="ReallyGivePremiumItemTo{PC}" Data="{PC}으로 아이템을 받으시겠습니까? 수령 시 청약철회가 불가능해 집니다."/>
+		<Class ClassID="10405" ClassName="ReallyGivePremiumItemTo{PC}" Data="'{PC}' 캐릭터로 아이템을 받으시겠습니까? 수령 시 청약철회가 불가능해 집니다."/>
 		<Class ClassID="10406" ClassName="EscapeDisabled" Data="지금은 귀환석을 사용할 수 없습니다."/>
 		<Class ClassID="10407" ClassName="HasFobiddenWord" Data="사용할 수 없는 단어가 포함되어 있습니다."/>
 		<Class ClassID="10408" ClassName="CanDelChrBecauseDummyPC" Data="상점을 개설한 상태에서는 캐릭터 삭제를 할 수 없습니다."/>
+		<Class ClassID="10409" ClassName="IndunFreeTImeText" Data="3일간 인던 무제한"/>
+		<Class ClassID="10410" ClassName="IndunRestText" Data="  인스턴스 던전과 의뢰소 미션의 입장 회수 초기화"/>
+	<Class ClassID="10411" Data="홈페이지에서 게임 시작 후 보호모드를 해제 후 다시 접속하여 주시기 바랍니다."/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="210401" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -514,8 +517,9 @@
 		<Class ClassID="10788" ClassName="OnlyMale" Data="남성 전용"/>
 		<Class ClassID="10789" ClassName="OnlyFemale" Data="여성 전용"/>
 		<Class ClassID="10790" ClassName="CanNotEquip" Data="착용 불가능한 상품입니다."/>
-	<Class ClassID="10791" ClassName="DecreasePotaionByExchange" Data="해당 아이템을 등록하시면{nl}거래 성사시 포텐셜이 감소합니다.{nl}그래도 등록하시겠습니까?"/>
+		<Class ClassID="10791" ClassName="DecreasePotaionByExchange" Data="해당 아이템을 등록하시면{nl}거래 성사시 포텐셜이 감소합니다.{nl}그래도 등록하시겠습니까?"/>
 		<Class ClassID="10792" ClassName="DecreasePotaionByExchangeForBuyer" Data="거래하시려는 아이템 중 거래 성공 후 포텐셜이 감소하는 아이템이 존재합니다. 그래도 수락하시겠습니까?"/>
+	<Class ClassID="10793" ClassName="CantRepair" Data="수리할 수 있는 장비가 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="10801" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -643,6 +647,8 @@
 		<Class ClassID="11183" ClassName="Hit" Data="피격"/>
 		<Class ClassID="11184" ClassName="Death" Data="사망"/>
 		<Class ClassID="11185" ClassName="ThisItemIsNotForCompanion" Data="컴패니언이 착용할 수 없는 장비입니다."/>
+		<Class ClassID="11186" ClassName="DonUseItemOnRIde" Data="해당 아이템은 현재 상태에서 사용하실 수 없습니다."/>
+		<Class ClassID="11187" ClassName="ChangeModeThenDontRide" Data="변신 중엔 컴패니언탑승을 하실 수 없습니다."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="11200" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -784,7 +790,6 @@
 		<Class ClassID="20130" ClassName="{Name}Like{Who}" Data="{Name}님이 {Who}님을 좋아합니다!"/>
 		<Class ClassID="20131" ClassName="ICantLikeMe" Data="불가능한 대상입니다."/>
 		<Class ClassID="20132" ClassName="IsFree" Data="무료"/>
-		<Class ClassID="20133" ClassName="TP_Costume" Data="코스튬"/>
 		<Class ClassID="20134" ClassName="TP_Neck" Data="목걸이"/>
 		<Class ClassID="20135" ClassName="TP_EquipItem" Data="장비"/>
 		<Class ClassID="20136" ClassName="TP_Ring" Data="반지"/>
@@ -795,10 +800,12 @@
 		<Class ClassID="20141" ClassName="TP_Consume" Data="소모품"/>
 		<Class ClassID="20142" ClassName="TP_Hair_M" Data="남자 헤어"/>
 		<Class ClassID="20143" ClassName="TP_Hair_F" Data="여자 헤어"/>
-		<Class ClassID="20144" ClassName="TP_Costume1" Data="꾸미기"/>
+		<Class ClassID="20144" ClassName="TP_Costume" Data="꾸미기"/>
 		<Class ClassID="20145" ClassName="TP_Event" Data="한정상품"/>
 		<Class ClassID="20146" ClassName="ItIsMemo" Data="[메모]"/>
 		<Class ClassID="20147" ClassName="CanNotBuyDuplicateItem" Data="중복하여 구매할 수 없는 아이템입니다."/>
+		<Class ClassID="20148" ClassName="TP_Costume_M" Data="남자 코스튬"/>
+		<Class ClassID="20149" ClassName="TP_Costume_F" Data="여자 코스튬"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="20501" ClassName="Guard" Data="방어"/>
@@ -900,6 +907,7 @@
 		<Class ClassID="166" ClassName="WIKI_SCORE_REWARD_MONEY_MSG" Data="모험일지 보상으로 실버를 획득하셨습니다"/>
 		<Class ClassID="167" ClassName="WIKI_SCORE_REWARD_MONEY_TOOLTIP" Data="보상으로 실버가 지급됩니다"/>
 		<Class ClassID="168" ClassName="PARTY_PLAYER_QUEST_REWARD_PROGRESS" Data="'{BEFORE_QUEST}' 퀘스트 보상을 받으셔야{nl} 파티원과 '{NEXT_QUEST}' 퀘스트를 진행하실 수 있습니다"/>
+		<Class ClassID="169" ClassName="QUEST_ABANDON_SELECT_MSG" Data="'{QUEST}' 퀘스트를 포기하시겠습니까?"/>
 		<Class ClassID="1000" ClassName="MASTER_ORACLE_NORMAL_2_AGREE8" Data="워프 이동 지역 순위"/>
 		<Class ClassID="1001" ClassName="MASTER_ORACLE_NORMAL_2_AGREE4" Data="몬스터 처치 지역 순위"/>
 		<Class ClassID="1002" ClassName="MASTER_ORACLE_NORMAL_2_AGREE5" Data="계시자 전투불능 지역 순위"/>
@@ -2281,6 +2289,14 @@
 		<Class ClassID="130199" ClassName="DELIVERY_CHARGES_REWARD_MSG5" Data="{need}회 더 충전해야 합니다"/>
 		<Class ClassID="130200" ClassName="PILGRIM311_SQ_02_ITEM_MSG1" Data="신호탄 쏘는 중"/>
 		<Class ClassID="130201" ClassName="JOB_2_BARBARIAN4_ISBUFF_MSG1" Data="아무런 강화효과가 없는 기본 상태에서 처치해야 합니다!"/>
+    <Class ClassID="130202" ClassName="INSTANCE_DUNGEON_AUTO_SEARCH_MSG_ExpBonus{Percent}" Data="자동으로 파티 찾기"/>
+
+
+<Class ClassID="130203" ClassName="YouAlreadyHaveParty_WillYouOutFromCurrentParty?" Data="이미 파티가 있습니다. 탈퇴하시겠습니까?"/>
+
+<Class ClassID="130204" ClassName="FindingParty_IfPartyFinded_AutoMaticallyStartGame" Data="파티를 검색 중 입니다.{nl} 완료되면 자동으로 입장 합니다."/>
+
+<Class ClassID="130205" ClassName="PartyFinded_GameWillBeStartedSoonAfter" Data="파티를 찾았습니다. 잠시 후 게임에 입장합니다."/>
 		<Class ClassID="120194" ClassName="SEARCH_DONE" Data="더 이상 나크티스와 관련된 내용은 없어보입니다"/>
 		<Class ClassID="120195" ClassName="BOOK_GET" Data="사제의 책 회수 중"/>
 		<Class ClassID="120196" ClassName="CHATHEDRAL56_MQ04_KEY_GET" Data="메이번의 열쇠 회수 중"/>
@@ -2573,7 +2589,7 @@
 		<Class ClassID="190018" ClassName="ORCHARD_342_MQ_05_ONE" Data="몽롱초 향 주머니를 터뜨렸습니다{nl}앞으로 두 번 더 터뜨릴 수 있습니다"/>
 		<Class ClassID="190019" ClassName="ORCHARD_342_MQ_05_TWO" Data="몽롱초 향 주머니를 터뜨렸습니다{nl}앞으로 한 번 더 터뜨릴 수 있습니다"/>
 		<Class ClassID="190020" ClassName="ORCHARD_342_MQ_05_THREE" Data="몽롱초 향 주머니를 모두 사용했습니다"/>
-		<Class ClassID="190021" ClassName="ORCHARD323_EVIL_TRACK_DAM" Data="마족을 처치하기 전엔 토템을 파괴할 수 없습니다"/>
+		<Class ClassID="190021" ClassName="ORCHARD323_EVIL_TRACK_DAM" Data="페릿 머로더를 처치하기 전엔 토템을 파괴할 수 없습니다"/>
 		<Class ClassID="190022" ClassName="ORCHARD323_GIRL_NAME" Data="신비한 소녀"/>
 		<Class ClassID="190023" ClassName="ORCHARD323_FOOD_FIND" Data="식량 바구니 뒤지는 중"/>
 		<Class ClassID="190024" ClassName="ORCHARD323_FOOD_GET" Data="육포를 숨긴 바구니를 찾았습니다!{nl}붉은 물을 뿌려서 육포를 오염시키세요!"/>
@@ -3247,6 +3263,7 @@
 		<Class ClassID="22501" ClassName="THSword" Data="양손검"/>
 		<Class ClassID="22502" ClassName="Sword" Data="한손검"/>
 		<Class ClassID="22503" ClassName="EquipAll" Data="모든 장비"/>
+	<Class ClassID="22504" ClassName="companionRide" Data="컴패니언 탑승"/>
 	</Category>
 	<Category Name="Auction">
 		<Class ClassID="22601" ClassName="StartAuction" Data="경매 시작"/>
@@ -3310,10 +3327,12 @@
 		<Class ClassID="22823" ClassName="MarketRegAfter{TIME}" Data="{TIME}후에 마켓 리스트에 등록됩니다."/>
 		<Class ClassID="22824" ClassName="MarketCabinetAfter{TIME}" Data="{TIME}후에 캐비넷으로 이동합니다."/>
 		<Class ClassID="22825" ClassName="PremiumRegMinPrice{Price}" Data="해당 아이템의 등록 최소가는 {Price}실버 부터 가능합니다."/>
-	<Class ClassID="22826" ClassName="DecreasePotaion" Data="해당 아이템을 구입하시면{nl}포텐셜이 감소합니다.{nl}그래도 구입하시겠습니까?"/>
+		<Class ClassID="22826" ClassName="DecreasePotaion" Data="해당 아이템을 구입하시면{nl}포텐셜이 감소합니다.{nl}그래도 구입하시겠습니까?"/>
 		<Class ClassID="22827" ClassName="MinAllowPriceError" Data="해당 아이템의 하한가가 변동되었습니다. 다시 입력해주세요."/>
 		<Class ClassID="22828" ClassName="MaxAllowPriceError" Data="해당 아이템의 상한가가 변동되었습니다. 다시 입력해주세요."/>
 		<Class ClassID="22829" ClassName="CommissionRegMarketItem{Price}" Data="등록수수료 {Price}실버가 소비됩니다. 등록하시겠습니까?"/>
+		<Class ClassID="22830" ClassName="SellPriceMustOverThen100Silver" Data="판매가격은 100실버 이상이여야 합니다."/>
+		<Class ClassID="22831" ClassName="AutoAdjustToMinPrice" Data="최소 가격 단위로 금액이 자동 변경됩니다."/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="22900" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -3899,6 +3918,16 @@
 	<Category Name="Indun">
 		<Class ClassID="36500" ClassName="CannotJoinIndunYet" Data="오늘의 인던 참여 회수를 초과하였습니다."/>
 		<Class ClassID="36501" ClassName="YourLevelIsLowThenIndun" Data="인던 제한 레벨보다 낮습니다"/>
+		<Class ClassID="36502" ClassName="MaxCountExplain{COUNT}" Data="하루 {COUNT}번 입장할 수 있습니다."/>
+		<Class ClassID="36503" ClassName="NextEnterNeed" Data="인던 무제한 입장권을 사용중에 있습니다."/>
+	</Category>
+	<Category Name="AchieveReward">
+		<Class ClassID="37000" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
+		<Class ClassID="37001" ClassName="GainAchieveHairBlack" Data="하나밍 박멸! 업적 보상을 받았습니다."/>
+		<Class ClassID="37002" ClassName="GainAchieveHairWhite" Data="제작 입문 업적 보상을 받았습니다."/>
+		<Class ClassID="37003" ClassName="GainAchieveHairPink" Data="뜻밖의 시험 업적 보상을 받았습니다."/>
+		<Class ClassID="37004" ClassName="GainAchieveHairBlue" Data="파티 퀘스트 업적 보상을 받았습니다."/>
+		<Class ClassID="37005" ClassName="GainAchieveGimmick3" Data="능수능란한 모험가 업적 보상을 받았습니다."/>
 	</Category>
 	<Category Name="AutoAdded">
 		<Class ClassID="90000" ClassName="TestTestTest" Data="임시공간"/>
@@ -6709,7 +6738,7 @@
 		<Class ClassID="550017" ClassName="NeedPremiunState" Data="해당 기능을  사용 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550018" ClassName="{Target}DontHavePremiumState" Data="{Target}님이 거래를 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550019" ClassName="CantTradeAbility" Data="거래/매입상점 사용가능"/>
-		<Class ClassID="550020" ClassName="token_expup" Data="몬스터 사망 시 획득 경험치 증가"/>
+		<Class ClassID="550020" ClassName="token_expup" Data="몬스터 처치 시 획득 경험치 증가"/>
 		<Class ClassID="550021" ClassName="token_staup" Data="스태미나 회복량 증가"/>
 		<Class ClassID="550022" ClassName="marketUpMax{COUNT}" Data="마켓 물품 등록 개수 {COUNT}개로 증가"/>
 		<Class ClassID="550023" ClassName="abilityMax{COUNT}" Data="특성 동시 수련 가능 개수 {COUNT} 증가"/>
@@ -6736,6 +6765,18 @@
 		<Class ClassID="550044" ClassName="PremiumToken_6h" Data="토큰:6시간[증정용]"/>
 		<Class ClassID="550045" ClassName="PremiumToken_12h" Data="토큰:12시간[증정용]"/>
 		<Class ClassID="550046" ClassName="PremiumToken_3d" Data="토큰:3일[증정용]"/>
+		<Class ClassID="550047" ClassName="AllowPremiumPose" Data="프리미엄 제스쳐 사용 가능"/>
+		<Class ClassID="550048" ClassName="Premium_indunFreeEnter" Data="인던 무한입장권"/>
+		<Class ClassID="550049" ClassName="IsAppliedIndunFreeEnter" Data="이미 인던 무한입장권 아이템이 활성화 중에 있습니다."/>
+		<Class ClassID="550050" ClassName="Premium_indunReset" Data="인던 입장 횟수 초기화권"/>
+		<Class ClassID="550051" ClassName="IsApplied_indunReset" Data="현재 입장 횟수가 0입니다."/>
+		<Class ClassID="550052" ClassName="indunReset_tooltip" Data="사용한 인던 입장 횟수 초기화권은 인벤토리에서 사라지며 현재 캐릭터에만 적용됩니다."/>
+		<Class ClassID="550052" ClassName="Premium_SkillReset" Data="스킬 초기화"/>
+		<Class ClassID="550053" ClassName="Premium_SkillResetLng" Data="  전체 스킬 포인트 초기화"/>
+		<Class ClassID="550054" ClassName="Premium_SkillReset" Data="스킬 초기화 포션"/>
+		<Class ClassID="550052" ClassName="Premium_SkillReset" Data="스킬 초기화"/>
+		<Class ClassID="550055" ClassName="Token_ExpUp{PER}" Data="몬스터 처치 시 획득 경험치 증가 "/>
+		<Class ClassID="550056" ClassName="EquipPremiumItem" Data="현재 장착중인 헤어는 구입하실 수 없습니다."/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="600001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

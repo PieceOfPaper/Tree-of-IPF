@@ -126,6 +126,7 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
         local req_HonorPointDown = 'No';
         local req_Script = 'No';
         local req_PartyProp = 'No';
+        local req_Repeat = 'No';
         
         local req_invitem_check = 0;
         local req_eqitem_check = 0;
@@ -1041,6 +1042,21 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                 req_lvdown = 'YES';
             end
             
+            if questIES.QuestMode == 'REPEAT' then
+                if questIES.Repeat_Count == 0 then
+                    req_Repeat = 'YES'
+                else
+                    if sObj[questIES.QuestPropertyName..'_R'] == questIES.Repeat_Count then
+                        req_Repeat = 'NO'
+                    elseif sObj[questIES.QuestPropertyName..'_R'] <= questIES.Repeat_Count then
+                        req_Repeat = 'YES'
+                    else
+                        req_Repeat = 'NO'
+                    end
+                end
+            else
+                req_Repeat = 'YES'
+            end
             
             if questIES.JobStep == 0 then
                 req_jobstep = 'YES'
@@ -2247,8 +2263,13 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
             end
             
             if questIES.Check_Condition == 'AND' then
-                if req_lvup == 'YES' and req_lvdown == 'YES' and req_joblvup == 'YES' and req_joblvdown == 'YES' and req_atkup == 'YES' and req_atkdown == 'YES' and req_defup == 'YES' and req_defdown == 'YES' and req_mhpup == 'YES' and req_mhpdown == 'YES' and req_quest == 'YES' and req_PartyProp == 'YES' and req_tribe == 'YES' and req_job == 'YES' and req_Gender == 'YES' and req_InvItem == 'YES' and req_EqItem == 'YES' and req_Buff == 'YES' and req_end == 'YES' and req_Location == 'YES' and req_Period == 'YES' and req_ReenterTime =='YES'and req_Skill =='YES' and req_SkillLv =='YES' and req_AOSLine == 'YES' and req_NPCQuestCount == 'YES' and req_HonorPointUp == 'YES' and req_HonorPointDown == 'YES' and req_Script == 'YES' and req_jobstep == 'YES' then
+                if req_lvup == 'YES' and req_lvdown == 'YES' and req_joblvup == 'YES' and req_joblvdown == 'YES' and req_atkup == 'YES' and req_atkdown == 'YES' and req_defup == 'YES' and req_defdown == 'YES' and req_mhpup == 'YES' and req_mhpdown == 'YES' and req_quest == 'YES' and req_PartyProp == 'YES' and req_tribe == 'YES' and req_job == 'YES' and req_Gender == 'YES' and req_InvItem == 'YES' and req_EqItem == 'YES' and req_Buff == 'YES' and req_end == 'YES' and req_Location == 'YES' and req_Period == 'YES' and req_ReenterTime =='YES'and req_Skill =='YES' and req_SkillLv =='YES' and req_AOSLine == 'YES' and req_NPCQuestCount == 'YES' and req_HonorPointUp == 'YES' and req_HonorPointDown == 'YES' and req_Script == 'YES' and req_jobstep == 'YES' and req_Repeat == 'YES' then
                     local x = 1
+                    
+                    if questIES.QuestMode == 'REPEAT' then
+                        quest_reason[x] = 'REPEAT'
+                        x = x + 1
+                    end
                     
                     if questIES.Lvup > 0 then
                         quest_reason[x] = 'Lvup'
@@ -2370,6 +2391,11 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                         return 'COMPLETE', quest_reason;
                     else
                         local x = 1
+                        
+                        if req_Repeat ~= 'YES' then
+                            quest_reason[x] = 'REPEAT'
+                            x = x + 1
+                        end
                         
                         if req_lvup ~= 'YES' then
                             quest_reason[x] = 'Lvup'
@@ -2503,8 +2529,13 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                 elseif req_ReenterTime =='NO' then
                     quest_reason[1] = ScpArgMsg("Auto_ReenterTime_KulTaimeul_ManJogHaJi_MosHam")
                     return 'IMPOSSIBLE', quest_reason;
-                elseif (req_lvup == 'YES' and req_lvdown == 'YES' and questIES.Lvup > 0 and  questIES.Lvdown > 0) or (req_lvup == 'YES' and questIES.Lvup > 0 and questIES.Lvdown <= 0) or (req_lvdown == 'YES' and  questIES.Lvdown > 0 and questIES.Lvup <= 0) or (req_joblvup == 'YES' and req_joblvdown == 'YES' and questIES.JobLvup ~= 'None' and  questIES.JobLvdown ~= 'None') or (req_joblvup == 'YES' and questIES.JobLvup ~= 'None' and questIES.JobLvdown == 'None') or (req_joblvdown == 'YES' and  questIES.JobLvdown ~= 'None' and questIES.JobLvup == 'None') or (req_atkup == 'YES' and req_atkdown == 'YES' and questIES.Atkup > 0 and  questIES.Atkdown > 0) or (req_atkup == 'YES' and questIES.Atkup > 0 and questIES.Atkdown <= 0) or (req_atkdown == 'YES' and  questIES.Atkdown > 0 and questIES.Atkup <= 0) or (req_defup == 'YES' and req_defdown == 'YES' and questIES.Defup > 0 and  questIES.Defdown > 0) or (req_defup == 'YES' and questIES.Defup > 0 and questIES.Defdown <= 0) or (req_defdown == 'YES' and  questIES.Defdown > 0 and questIES.Defup <= 0) or (req_mhpup == 'YES' and req_mhpdown == 'YES' and questIES.Mhpup > 0 and  questIES.Mhpdown > 0) or (req_mhpup == 'YES' and questIES.Mhpup > 0 and questIES.Mhpdown <= 0) or (req_mhpdown == 'YES' and  questIES.Mhpdown > 0 and questIES.Mhpup <= 0) or (req_quest == 'YES' and questIES.Check_QuestCount > 0) or (req_PartyProp == 'YES' and questIES.Check_PartyPropCount > 0) or (req_tribe == 'YES' and questIES.Check_Tribe > 0) or (req_job == 'YES' and questIES.Check_Job > 0) or (req_Gender == 'YES' and questIES.Gender > 0) or (req_InvItem == 'YES' and questIES.Check_InvItem > 0) or (req_EqItem == 'YES' and questIES.Check_EqItem > 0) or (req_Buff == 'YES' and questIES.Check_Buff > 0) or (req_Location == 'YES' and questIES.Check_Location ~= 'NO') or (req_Period == 'YES' and questIES.Check_PeriodType ~= 'None') or (req_Skill == 'YES' and questIES.Check_Skill > 0) or (req_SkillLv == 'YES' and questIES.SkillLv ~= 'None' ) or (req_AOSLine == 'YES' and questIES.AOSLine ~= 'None') or (req_NPCQuestCount == 'YES' and questIES.NPCQuestCount ~= 'None') or (req_HonorPointUp =='YES' and questIES.HonorPointUp ~= 'None') or (req_HonorPointDown =='YES' and questIES.HonorPointDown ~= 'None') or (req_Script == 'YES' and questIES.Check_Script > 0) or (req_jobstep == 'YES' and questIES.JobStep > 0) then
+                elseif (req_lvup == 'YES' and req_lvdown == 'YES' and questIES.Lvup > 0 and  questIES.Lvdown > 0) or (req_lvup == 'YES' and questIES.Lvup > 0 and questIES.Lvdown <= 0) or (req_lvdown == 'YES' and  questIES.Lvdown > 0 and questIES.Lvup <= 0) or (req_joblvup == 'YES' and req_joblvdown == 'YES' and questIES.JobLvup ~= 'None' and  questIES.JobLvdown ~= 'None') or (req_joblvup == 'YES' and questIES.JobLvup ~= 'None' and questIES.JobLvdown == 'None') or (req_joblvdown == 'YES' and  questIES.JobLvdown ~= 'None' and questIES.JobLvup == 'None') or (req_atkup == 'YES' and req_atkdown == 'YES' and questIES.Atkup > 0 and  questIES.Atkdown > 0) or (req_atkup == 'YES' and questIES.Atkup > 0 and questIES.Atkdown <= 0) or (req_atkdown == 'YES' and  questIES.Atkdown > 0 and questIES.Atkup <= 0) or (req_defup == 'YES' and req_defdown == 'YES' and questIES.Defup > 0 and  questIES.Defdown > 0) or (req_defup == 'YES' and questIES.Defup > 0 and questIES.Defdown <= 0) or (req_defdown == 'YES' and  questIES.Defdown > 0 and questIES.Defup <= 0) or (req_mhpup == 'YES' and req_mhpdown == 'YES' and questIES.Mhpup > 0 and  questIES.Mhpdown > 0) or (req_mhpup == 'YES' and questIES.Mhpup > 0 and questIES.Mhpdown <= 0) or (req_mhpdown == 'YES' and  questIES.Mhpdown > 0 and questIES.Mhpup <= 0) or (req_quest == 'YES' and questIES.Check_QuestCount > 0) or (req_PartyProp == 'YES' and questIES.Check_PartyPropCount > 0) or (req_tribe == 'YES' and questIES.Check_Tribe > 0) or (req_job == 'YES' and questIES.Check_Job > 0) or (req_Gender == 'YES' and questIES.Gender > 0) or (req_InvItem == 'YES' and questIES.Check_InvItem > 0) or (req_EqItem == 'YES' and questIES.Check_EqItem > 0) or (req_Buff == 'YES' and questIES.Check_Buff > 0) or (req_Location == 'YES' and questIES.Check_Location ~= 'NO') or (req_Period == 'YES' and questIES.Check_PeriodType ~= 'None') or (req_Skill == 'YES' and questIES.Check_Skill > 0) or (req_SkillLv == 'YES' and questIES.SkillLv ~= 'None' ) or (req_AOSLine == 'YES' and questIES.AOSLine ~= 'None') or (req_NPCQuestCount == 'YES' and questIES.NPCQuestCount ~= 'None') or (req_HonorPointUp =='YES' and questIES.HonorPointUp ~= 'None') or (req_HonorPointDown =='YES' and questIES.HonorPointDown ~= 'None') or (req_Script == 'YES' and questIES.Check_Script > 0) or (req_jobstep == 'YES' and questIES.JobStep > 0) or (req_Repeat =='YES' and questIES.QuestMode == 'REPEAT') then
                     local x = 1
+                    
+                    if req_Repeat =='YES' and questIES.QuestMode == 'REPEAT' then
+                        quest_reason[x] = 'REPEAT'
+                        x = x + 1
+                    end
                     
                     if req_lvup == 'YES' and req_lvdown == 'YES' and questIES.Lvup > 0 and  questIES.Lvdown > 0 then
                         quest_reason[x] = 'Lvup_Lvdown'
@@ -2650,6 +2681,11 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                     return 'POSSIBLE', quest_reason;
                 else
                     local x = 1
+                    
+                    if req_Repeat ~='YES' and questIES.QuestMode == 'REPEAT' then
+                        quest_reason[x] = 'REPEAT'
+                        x = x + 1
+                    end
                     
                     if req_lvup ~= 'YES' and questIES.Lvup > 0 and  questIES.Lvdown > 0 then
                         quest_reason[x] = 'Lvup'

@@ -1,10 +1,10 @@
 ---- lib_ui.lua
 
-function REGISTERR_LASTUIOPEN_POS(frame)
+function REGISTERR_LASTUIOPEN_POS(frame) --pc_command.lua에 미리 프레임 등록해둬야 함
 
 	local text = string.format("/lastuiopenpos %s",frame:GetName());
 	ui.Chat(text);
-	frame:RunUpdateScript("LASTUIOPEN_CHECK_PC_POS", 0.1);
+	frame:RunUpdateScript("LASTUIOPEN_CHECK_PC_POS", 1);
 
 end
 
@@ -14,11 +14,24 @@ function UNREGISTERR_LASTUIOPEN_POS(frame)
 
 end
 
+function RUN_CHECK_LASTUIOPEN_POS(frame)
+
+	frame:RunUpdateScript("LASTUIOPEN_CHECK_PC_POS", 1);
+end
+
 
 function LASTUIOPEN_CHECK_PC_POS(frame, totalElapsedTime)
 
 	local etc = GetMyEtcObject();
+	
+	if etc == nil then
+		return
+	end
 	local mapname, x, y, z, uiname = GET_LAST_UI_OPEN_POS(etc)
+
+	if mapname == nil then
+		return 0;
+	end
 
 	local myActor = GetMyActor();	
 	local nowpos = myActor:GetPos();
@@ -392,6 +405,7 @@ function SET_EVENT_SCRIPT_RECURSIVELY(frame, type, funcName)
 		SET_EVENT_SCRIPT_RECURSIVELY(child, type, funcName);
 	end
 end
+
 function CLOSE_UI(frame, ctrl, numsttr, numarg)
 
 	frame:ShowWindow(0);

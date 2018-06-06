@@ -130,6 +130,8 @@ end
 
 function INVENTORY_OPEN(frame)
 
+	ui.Chat("/requpdateequip"); -- 내구도 회복 유료템 때문에 정확한 값을 지금 알아야 함.
+
 	local invGbox			= frame:GetChild('inventoryGbox');
 	
 	local savedPos = frame:GetUserValue("INVENTORY_CUR_SCROLL_POS");
@@ -1652,6 +1654,11 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 
 	-- costume icon is decided by PC's gender
 	if class.ItemType == 'Equip' and class.ClassType == 'Outer' then
+
+		local tempiconname = string.sub(class.Icon,string.len(class.Icon)-1);
+
+		if tempiconname ~= "_m" and tempiconname ~= "_f" then
+
             local pc = GetMyPCObject();
     	    if pc.Gender == 1 then
         	    invitemImg = class.Icon.."_m"
@@ -1660,6 +1667,9 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
         	    invitemImg = class.Icon.."_f"
         		imageName = invitemImg;
         	end
+
+		end
+            
     end
 	
 	local itemType = invItem.type;
@@ -1810,12 +1820,18 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 
 		-- 코스튬은 남녀공용, 남자PC는 남자 코스튬 아이콘, 여자PC는 여자 코스튬 아이콘이 보임
 		if obj.ItemType == 'Equip' and obj.ClassType == 'Outer' then
+
+			local tempiconname = string.sub(obj.Icon,string.len(obj.Icon)-1);
+
+			if tempiconname ~= "_m" and tempiconname ~= "_f" then
 				local pc = GetMyPCObject();
     			if pc.Gender == 1 then
     				imageName = obj.Icon.."_m"
     			else
     				imageName = obj.Icon.."_f"			
     			end
+		end
+		
 		end
 		
 		if IS_DUR_ZERO(obj) == true  then

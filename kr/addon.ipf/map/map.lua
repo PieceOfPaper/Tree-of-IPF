@@ -82,18 +82,20 @@ function INIT_MAPUI_INFO(frame)
 end
 
 function INIT_MAPUI_PTR(frame)
-	map_picture = frame:GetChild('map');
-	tolua.cast(map_picture, "ui::CPicture");
+	if frame:GetName() == "map" then
+		map_picture = frame:GetChild('map');
+		tolua.cast(map_picture, "ui::CPicture");
 
-	frame:UpdateData();
-	frame:Update();
+		frame:UpdateData();
+		frame:Update();
 
-	m_offsetX = map_picture:GetX();
-	m_offsetY = map_picture:GetY();
-	m_mapWidth = map_picture:GetWidth();
-	m_mapHeight = map_picture:GetHeight();
+		m_offsetX = map_picture:GetX();
+		m_offsetY = map_picture:GetY();
+		m_mapWidth = map_picture:GetWidth();
+		m_mapHeight = map_picture:GetHeight();
 
-	MAP_CHAR_UPDATE(frame, msg, argStr, session.GetMyHandle());
+		MAP_CHAR_UPDATE(frame, msg, argStr, session.GetMyHandle());
+	end
 
 end
 

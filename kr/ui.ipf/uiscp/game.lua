@@ -217,9 +217,9 @@ end
 	
 function TEST_AYASE()
 	
-	session.ReqAchieveReward(101004);
 	
-	print("TEST_AYASE")
+
+
 	
 end
 

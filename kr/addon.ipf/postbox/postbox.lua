@@ -113,6 +113,8 @@ function POSTBOX_SET_LETTER_DETAIL(msgInfo, ctrlSet)
 		y = slotHeight* math.floor(i/8)
 
 		local slot = attachedItems:CreateControl("slot", "SLOT_" .. i, slotHeight, slotHeight, ui.LEFT, ui.TOP, x, y, 0, 0);
+		slot = tolua.cast(slot, 'ui::CSlot');
+		slot:EnableDrag(0);
 		slot:ShowWindow(1);
 		AUTO_CAST(slot);
 		local itemCls = GetClassByType("Item", itemInfo.itemType);
@@ -124,6 +126,7 @@ function POSTBOX_SET_LETTER_DETAIL(msgInfo, ctrlSet)
 		else
 			slot:GetIcon():SetGrayStyle(0);
 			slot:SetEventScript(ui.RBUTTONUP, "REQ_GET_POSTBOX_ITEM");
+			slot:SetEventScript(ui.LBUTTONUP, "REQ_GET_POSTBOX_ITEM");
 			slot:SetUserValue("ITEM_INDEX", i);
 			slot:SetUserValue("ITEM_TYPE", itemInfo.itemType);
 		end

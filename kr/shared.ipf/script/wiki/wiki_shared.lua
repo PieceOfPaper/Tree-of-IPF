@@ -270,6 +270,10 @@ function IS_POSSIBLE_GET_WIKI_REWARD(pc)
 	local etc = GetETCObject(pc);
 	local mapname, x, y, z, uiname = GET_LAST_UI_OPEN_POS(etc)
 
+	if mapname == nil then
+		return;
+	end
+
 	if uiname ~= 'journal' or GET_2D_DIS(x,z,nowposx,nowposz) > 100 or GetZoneName(pc) ~= mapname then
 		print('get reward failed!')
 		return 0;

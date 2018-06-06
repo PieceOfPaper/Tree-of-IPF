@@ -12,7 +12,7 @@
     <controls>
         <groupbox name="pose_bg" rect="0 0 560 1000" margin="0 30 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
         <groupbox name="pipwin_top" rect="0 0 560 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
-		<groupbox name="poseGroupbox_bg" rect="0 0 550 360" margin="5 85 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="poseGroupbox_bg" rect="0 0 544 360" margin="8 85 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="line_bg_skin"/>
 		<groupbox name="poseGroupbox" rect="0 0 552 348" margin="0 90 0 0" layout_gravity="left top" draw="false" hittestbox="true" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
 		<groupbox name="macroGroupbox" rect="0 0 540 500" margin="0 50 0 130" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
         <richtext name="title" rect="0 0 200 30" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}매크로{/}" fontname=""/>

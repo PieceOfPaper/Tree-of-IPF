@@ -298,6 +298,10 @@
 		<image name="icon_cler_GCMH" file="\icon\skill\cleric\icon_cler_GCMH.png" imgrect="0 0 128 128" CMM_Caption="게마트리아:연타찬스"/>
 		<image name="icon_cler_merkabah" file="\icon\skill\cleric\icon_cler_merkabah.png" imgrect="0 0 128 128" CMM_Caption="메르카바"/>
 		<image name="icon_cler_notarikon" file="\icon\skill\cleric\icon_cler_notarikon.png" imgrect="0 0 128 128" CMM_Caption="노타리콘"/>
+	<image name="icon_cler_lastrites" file="\icon\skill\cleric\icon_cler_lastrites.png" imgrect="0 0 128 128" CMM_Caption="종부성사"/>
+		<image name="icon_cler_buildcappella" file="\icon\skill\cleric\icon_cler_buildcappella.png" imgrect="0 0 128 128" CMM_Caption="가펠라설치"/>
+		<image name="icon_cler_magnusexorcismus" file="\icon\skill\cleric\icon_cler_magnusexorcismus.png" imgrect="0 0 128 128" CMM_Caption="장엄구마"/>
+		<image name="icon_cler_aspergillum" file="\icon\skill\cleric\icon_cler_aspergillum.png" imgrect="0 0 128 128" CMM_Caption="아스페르길름"/>
 	</imagelist>
 	<imagelist category="warrior_skillicon">
 		<image name="icon_warri_thrust" file="\icon\skill\warrior\icon_warri_thrust.png" imgrect="0 0 128 128" CMM_Caption="쓰러스트"/>
@@ -1334,8 +1338,11 @@
 		<image name="ability_cleric_Kabbalist2" file="\icon\icon_ability_cleric03.tga" imgrect="640 768 128 128" CMM_Caption="리벤지드 세븐폴드: 저주"/>
 		<image name="ability_cleric_Kabbalist6" file="\icon\icon_ability_cleric03.tga" imgrect="768 768 128 128" CMM_Caption="아인 소프: 유지시간"/>
 		<image name="ability_cleric_Kabbalist10" file="\icon\icon_ability_cleric03.tga" imgrect="896 768 128 128" CMM_Caption="아인 소프: SP 회복 "/>
-		<image name="ability_cleric_Kabbalist8" file="\icon\icon_ability_cleric03.tga" imgrect="0 768 128 128" CMM_Caption="메르카바: 강화"/>
-		<image name="ability_cleric_Kabbalist9" file="\icon\icon_ability_cleric03.tga" imgrect="128 768 128 128" CMM_Caption="메르카바: 석화"/>
+		<image name="ability_cleric_Kabbalist8" file="\icon\icon_ability_cleric03.tga" imgrect="0 896 128 128" CMM_Caption="메르카바: 강화"/>
+		<image name="ability_cleric_Kabbalist9" file="\icon\icon_ability_cleric03.tga" imgrect="128 896 128 128" CMM_Caption="메르카바: 석화"/>
+	<image name="ability_cleric_chaplain1" file="\icon\icon_ability_cleric03.tga" imgrect="256 896 128 128" CMM_Caption="종부성사: 사기진작"/>
+		<image name="ability_cleric_chaplain3" file="\icon\icon_ability_cleric03.tga" imgrect="384 896 128 128" CMM_Caption="장엄구마: 강화"/>
+		<image name="ability_cleric_chaplain2" file="\icon\icon_ability_cleric03.tga" imgrect="512 896 128 128" CMM_Caption="카펠라 설치: 유지시간"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

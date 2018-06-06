@@ -1,4 +1,4 @@
-function SCR_GET_JOB_STR(pc)
+﻿function SCR_GET_JOB_STR(pc)
 	
 	local jobObj = GetJobObject(pc);
 	if jobObj ~= nil then
@@ -236,9 +236,7 @@ end
 
 function SCR_Get_MSP(self)
 
-	local jobObj = GetJobObject(self);
-		
-	local mna = self.MNA;	
+	local mna = self.MNA;
 	local lv = self.Lv;
 
 	local byItem = GetSumOfEquipItem(self, 'MSP');
@@ -665,7 +663,7 @@ function SCR_Get_RSP(self)
 	end
 	
 	local addRsp = 0;
-    local jobObj = GetJobObject(self);
+
 	if jobObj.CtrlType == 'Cleric' then
         addRsp = self.Lv / 4;
 	end

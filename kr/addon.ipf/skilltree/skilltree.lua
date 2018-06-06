@@ -385,7 +385,7 @@ local classCtrl = detail:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass
 
 	local levelCtrl = GET_CHILD(classCtrl, "abilLevel", "ui::CRichText");
 	levelCtrl:SetText("Lv.".. abilLv);
-
+	--classCtrl:SetSkinName("test_skin_gary_01");
 	return classCtrl:GetY() + classCtrl:GetHeight() + 30;
 end
 --[[
@@ -464,7 +464,7 @@ function GET_TREE_INFO_LIST(jobName, treelist)
 	end
 end
 
-function MAKE_STANCE_ICON(reqstancectrl, reqstance)
+function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
 	local stancelist, stancecnt = GetClassList("Stance")
 	local mainSum = 1;
 	local mainWeapon = {}
@@ -476,20 +476,43 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance)
 	local tooltipText = "";
 	local iconCount = 0;
 
+	local compainon = 0;
+
+	if EnableCompanion == "YES" then
+		local shareBtn = reqstancectrl:CreateControl("picture", "companion", 100, 37, 28, 20)
+		shareBtn:ShowWindow(1);	
+		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
+		shareBtn:SetImage("weapon_companion");
+		--shareBtn:SetTextTooltip();
+		tooltipText = ScpArgMsg("companionRide").."{nl}"
+		compainon = 20;	
+	end
+
 	if reqstance == "None" then
-		local shareBtn = reqstancectrl:CreateControl("picture", "All", 100, 37, 28, 20)
+		local shareBtn = reqstancectrl:CreateControl("picture", "All", 100 + compainon, 37, 28, 20)
 		shareBtn:ShowWindow(1);	
 		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
 		shareBtn:SetImage("weapon_All");
-		shareBtn:SetTextTooltip(ScpArgMsg("EquipAll"));	
+		--shareBtn:SetTextTooltip(ScpArgMsg("EquipAll"));
+		local tooltipSize = 28;
+		if compainon ~= 0 then
+			tooltipSize = tooltipSize + 20
+		end
+
+		local shareBtn = reqstancectrl:CreateControl("picture", "iconTooltip", 100, 37, tooltipSize, 20)
+		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
+		shareBtn:SetTextTooltip(tooltipText..ScpArgMsg("EquipAll"));				
 		return
 	end
-
 	local stanceList = StringSplit(reqstance, ";");
 	for i = 0, stancecnt -1 do
 		local stance = GetClassByIndexFromList(stancelist, i)
-
 			local index = string.find(reqstance, stance.ClassName)
+		--스탠스는 TwoHandBow인데.. 쇠뇌이름이 Bow라서 위에 스트링파인드에 걸림..
+		--쇠뇌이름을 변경하면 데이터작업자들이 고통스러우니.. 예외를 둔다.. 진짜 망한 구조임..
+		if reqstance == "TwoHandBow" and stance.ClassName == "Bow" then
+			index = nil;
+		end
 			if index ~= nil then
 			local index = string.find(stance.ClassName, "Artefact")
 			if index == nil then
@@ -497,8 +520,13 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance)
 					mainWeapon[mainSum] = stance.Icon
 					mainWeaponName[mainSum] = stance.Name
 					mainSum = mainSum + 1
+					--쇠뇌만 예외처리 하드코드
+					if mainSum == 2 and stance.ClassName == "Bow" then
+						--이미 구조가 글러먹었다. 하지만 그냥 예외처리를 하겠다.
+					else 
+						tooltipText = tooltipText..stance.Name.."{nl}"	
+					end
 
-					--tooltipText = tooltipText..stance.Name.."{nl}"
 				elseif stance.UseSubWeapon == "YES" then
 					local flag = 0
 					for i = 0, #subWeapon do
@@ -519,7 +547,7 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance)
 	
 	local index = 0	
 	for i = 1, #mainWeapon do
-		local shareBtn = reqstancectrl:CreateControl("picture", mainWeapon[i]..i, 100+((i-1)*20), 37, 20, 20)
+		local shareBtn = reqstancectrl:CreateControl("picture", mainWeapon[i]..i, (100 + compainon)+((i-1)*20), 37, 20, 20)
 		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
 		shareBtn:SetImage(mainWeapon[i]);
 		--shareBtn:SetTextTooltip(mainWeaponName[i]);	
@@ -528,7 +556,7 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance)
 	end
 
 	for i = 1, #subWeapon do
-		local shareBtn = reqstancectrl:CreateControl("picture", subWeapon[i]..index+i, 100+((index+i-1)*20), 37, 20, 20)
+		local shareBtn = reqstancectrl:CreateControl("picture", subWeapon[i]..index+i, (100 + compainon)+((index+i-1)*20), 37, 20, 20)
 		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
 		shareBtn:SetImage(subWeapon[i]);
 		--shareBtn:SetTextTooltip(subWeaponName[i]);	
@@ -536,7 +564,11 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance)
 	end
 	
 	if iconCount > 0 then 
-		local shareBtn = reqstancectrl:CreateControl("picture", "iconTooltip", 100, 37, iconCount*20, 20)
+		local compainonindex = 0		
+		if compainon ~= 0 then
+			compainonindex = 1
+		end
+		local shareBtn = reqstancectrl:CreateControl("picture", "iconTooltip", 100, 37, (compainonindex + iconCount)*20, 20)
 		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
 		shareBtn:SetTextTooltip(tooltipText);	
 	end	
@@ -621,12 +653,49 @@ local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls
 		cooltime:ShowWindow(1)
 		sp:ShowWindow(1);
 		sptxt:ShowWindow(1);
+
+		if session.GetUserConfig("SKLUP_" .. cls.SkillName) == 0 then
 		sp:SetText("{@st66b}{s18}"..obj["SpendSP"].."{/}");
+		else
+			local spendSP = obj["SpendSP"] + (math.floor(session.GetUserConfig("SKLUP_" .. cls.SkillName) * obj.LvUpSpendSp))
+			sp:SetText("{@st66b}{s18}"..spendSP.."{/}");
+		end
 		sptxt:SetText("{@st66b}".."SP.".."{/}");
 		timtext:ShowWindow(1);
+
+		if obj["CoolDown"] ~= 0 then
 		time = obj["CoolDown"] * 0.001
 		timtext:SetText("{@st66b}{s18}"..GET_TIME_TXT_TWO_FIGURES(time).."{/}");
-		MAKE_STANCE_ICON(skillCtrl, typeclass.ReqStance)
+		else
+			timtext:SetText("{@st66b}{s18}"..ScpArgMsg("{Sec}","Sec", 0).."{/}");	
+		end
+
+		MAKE_STANCE_ICON(skillCtrl, typeclass.ReqStance, typeclass.EnableCompanion)
+	else
+		icon:SetGrayStyle(1)
+		local dummyObj = GetClass("Skill", cls.SkillName)	
+		sp:ShowWindow(1);
+		sptxt:ShowWindow(1);
+		
+		local spendSP = 0;
+		if session.GetUserConfig("SKLUP_" .. cls.SkillName) >= 1 then
+			spendSP = math.floor(dummyObj["BasicSP"] + ((session.GetUserConfig("SKLUP_" .. cls.SkillName) - 1) * dummyObj.LvUpSpendSp))
+		else
+			spendSP = math.floor(dummyObj["BasicSP"] + ((session.GetUserConfig("SKLUP_" .. cls.SkillName)) * dummyObj.LvUpSpendSp))
+		end
+		sp:SetText("{@st66b}{s18}"..spendSP.."{/}");
+		sptxt:SetText("{@st66b}".."SP.".."{/}");
+
+		cooltime:ShowWindow(1)
+
+		if dummyObj.BasicCoolDown ~= 0 then
+			time = dummyObj.BasicCoolDown * 0.001
+			timtext:SetText("{@st66b}{s18}"..GET_TIME_TXT_TWO_FIGURES(time).."{/}");
+		else
+			timtext:SetText("{@st66b}{s18}"..ScpArgMsg("{Sec}","Sec", 0).."{/}");
+		end
+		timtext:ShowWindow(1);
+		MAKE_STANCE_ICON(skillCtrl, typeclass.ReqStance, typeclass.EnableCompanion)
 	end
 
 	local hotimg = GET_CHILD(skillCtrl, "hitimg", "ui::CPicture");
@@ -695,7 +764,21 @@ local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls
 		levelCtrl:ShowWindow(0);
 		leveltxt:ShowWindow(0);
 	end
+	
 	levelCtrl:SetText(levelFont..totallv);
+
+	if obj == nil then
+		levelCtrl:ShowWindow(1);
+		leveltxt:ShowWindow(1);
+		local leveltxt = "";
+		if session.GetUserConfig("SKLUP_" .. cls.SkillName) >= 1 then
+			leveltxt = "{@st66b}{s18}"..1 + session.GetUserConfig("SKLUP_" .. cls.SkillName) - 1;
+		else
+			leveltxt = "{@st66b}{s18}"..1 + session.GetUserConfig("SKLUP_" .. cls.SkillName);
+		end
+		levelCtrl:SetText(leveltxt)
+	end
+
 
 	if lv == 0 then
 		skillSlot:EnableDrag(0);

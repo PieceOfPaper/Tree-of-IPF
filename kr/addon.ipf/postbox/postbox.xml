@@ -23,6 +23,6 @@
 		<tabitem name="tab_new" parent="itembox" layout_gravity="left top" caption="{@st66b}안읽은 메세지함" skinspace="20" width="180"/>
 		<groupbox name="gbox_list" rect="0 0 450 420" margin="10 140 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="none" tabname="tab_normal"/>
 		<groupbox name="gbox_new" rect="0 0 450 420" margin="10 140 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="none" tabname="tab_new"/>
-		<controlset name="contents" rect="0 0 450 450" margin="10 0 0 65" layout_gravity="left bottom" hittest="true" type="postbox_contents"/>
+		<controlset name="contents" rect="0 0 450 450" margin="10 0 0 70" layout_gravity="left bottom" hittest="true" type="postbox_contents"/>
 	</controls>
 </uiframe>

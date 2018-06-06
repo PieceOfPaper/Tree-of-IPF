@@ -16,6 +16,11 @@
                 <Str_Arg Str="F_light081_ground_orange2" Arg="1.2"/>
                 <Str Str="BOT"/>
             </ToolScp>
+        <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern008_violet" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
         </List>
     </AI>
     <AI Name="ABBEY394_MQ02_1" ActiveMessageMapInBattle="1">
@@ -176,11 +181,20 @@
             </ToolScp>
         </StartList>
     </AI>
+    <AI Name="ABBEY642_MQ3_EFFECT_AI" UpdateMS="1600" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern008_violet" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="ABBEY642_MQ3_TRACK_AI" UpdateMS="2000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
-                <Str_Arg Str="F_smoke029_green" Arg="0.5"/>
+                <Str_Arg Str="E_pc_darksmoke" Arg="0.5"/>
                 <Str Str="BOT"/>
             </ToolScp>
         </List>
@@ -1204,10 +1218,7 @@
             <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="CATACOMB_33_2_UNHOLY_DETACH"/>
             </ToolScp>
-            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="CATACOMB_33_2_UNHOLY_DEAD"/>
-            </ToolScp>
-        </DeadList>
+            </DeadList>
         <HitList>
             <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
                 <Str Str="CATACOMB_33_2_UNHOLY_DAM"/>
@@ -1795,11 +1806,6 @@
                 <Str Str="SCR_CMINE66_2_MONSTER_GEN_EVENT"/>
             </ToolScp>
         </List>
-        <DeadList>
-            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_CMINE66_2_ENTRANCELAIR_OUT"/>
-            </ToolScp>
-        </DeadList>
         <StartList>
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
@@ -1978,6 +1984,32 @@
             <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
                 <Str_Arg Str="F_light076_spread_in_blue_loop" Arg="0.5"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="Cappella" ActiveMessageMapInBattle="1"/>
+    <AI Name="Chaplain_Cappella" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_REMOVE_PAD" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="Chaplain_BuildCappella"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_cleric_laima_loop" Arg="1"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_CRE_PAD" Client="NO" UseSleep="NO">
+                <Pos Angle="0" Dist="0"/>
+                <Angle Angle="0"/>
+                <Str Str="Chaplain_BuildCappella"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_cleric_laima_loop" Arg="1"/>
                 <Str Str="BOT"/>
             </ToolScp>
         </StartList>
@@ -6299,11 +6331,6 @@ if self.HP == 0 then return 1; else return 0; end;">
         </StartList>
     </AI>
     <AI Name="ORCHARD323_EVIL_TRACK" ActiveMessageMapInBattle="1">
-        <DeadList>
-            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="ORCHARD323_EVIL_TRACK_DEAD"/>
-            </ToolScp>
-        </DeadList>
         <HitList>
             <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
                 <Str Str="ORCHARD323_EVIL_TRACK_HIT"/>
@@ -6651,15 +6678,7 @@ if self.HP == 0 then return 1; else return 0; end;">
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="PARTY_Q10_CRYSTAL_AI_RUN"/>
             </ToolScp>
-            <ToolScp Scp="SAI_CREATE_MON_RND" Client="NO" UseSleep="NO">
-                <Num Num="100"/>
-                <Str Str="mushroom_ent_black"/>
-                <MonProp List="Lv#167"/>
-                <Str Str="0"/>
-                <Num Num="0"/>
-                <Str Str="None"/>
-            </ToolScp>
-        </List>
+            </List>
         <DeadList>
             <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
@@ -6674,6 +6693,21 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Str Str="BOT"/>
             </ToolScp>
         </StartList>
+    </AI>
+    <AI Name="PARTY_Q10_MON_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PARTY_Q10_MON_FUNC"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_CREATE_MON_RND" Client="NO" UseSleep="NO">
+                <Num Num="150"/>
+                <Str Str="mushroom_ent_black"/>
+                <MonProp List="Lv#167"/>
+                <Str Str="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+            </ToolScp>
+        </List>
     </AI>
     <AI Name="PARTY_Q5_ITEM03_AI" ActiveMessageMapInBattle="1">
         <List>
@@ -7172,6 +7206,13 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Str Str="BOT"/>
             </ToolScp>
         </StartList>
+    </AI>
+    <AI Name="PILGRIM_36_2_SHRINE_TRACK" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM_36_2_SHRINE_DEAD"/>
+            </ToolScp>
+        </DeadList>
     </AI>
     <AI Name="PILGRIM_36_2_SQ_FIRELORD_AI" ActiveMessageMapInBattle="1">
         <StartList>
@@ -12652,7 +12693,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                 </Cond>
                 <Exec>
                     <ToolScp Scp="SH_USE_PCSKILL" Client="NO" UseSleep="NO">
-                        <Str Str="Paladin_Barrier"/>
+                        <Str Str="MonPCSKill_Paladin_Barrier"/>
                         <Num Num="3"/>
                         <Num Num="1"/>
                     </ToolScp>

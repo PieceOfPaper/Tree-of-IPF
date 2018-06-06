@@ -26,7 +26,7 @@ function BUFFSELLER_REGISTER(frame, skillType)
 
 	local sklObj = GetClassByType("Skill", skillType);
 	local itemCls = GetClass("Item", sklObj.SpendItem);
-	if itemCls == nil then
+	if sklObj.ClassName ~= "Priest_Aspersion" and sklObj.ClassName ~= "Priest_Blessing" and sklObj.ClassName ~= "Priest_Sacrament" then
 		ui.SysMsg(ClMsg("OnlySkillWithSpendItemIsAble"));
 		return;
 	end

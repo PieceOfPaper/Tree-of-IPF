@@ -316,12 +316,19 @@ function MAKE_ITEM_TAG_TEXT_CTRL(y, box, ctrlNameHead, itemName, itemCount, inde
 	local icon = cls.Icon;
 	
 	if cls.ItemType == 'Equip' and cls.ClassType == 'Outer' then
+
+		local tempiconname = string.sub(icon,string.len(icon)-1);
+
+		if tempiconname ~= "_m" and tempiconname ~= "_f" then
 	    local pc = GetMyPCObject();
 	    if pc.Gender == 1 then
 	        icon = icon.."_m"
 	    else
 	        icon = icon.."_f"
 	    end
+	end
+    
+	    
 	end
     
     y = y + 5

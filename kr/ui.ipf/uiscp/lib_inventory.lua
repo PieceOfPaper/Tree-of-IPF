@@ -509,12 +509,19 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 		local iconImg = itemCls.Icon;
 		-- costume icon is decided by PC's gender
     	if itemCls.ItemType == 'Equip' and itemCls.ClassType == 'Outer' then
+
+			local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
+
+			if tempiconname ~= "_m" and tempiconname ~= "_f" then
             local pc = GetMyPCObject();
     	    if pc.Gender == 1 then
         	    iconImg = itemCls.Icon.."_m"
         	else
         	    iconImg = itemCls.Icon.."_f"
         	end
+        end
+		
+
         end
 		
 		SET_SLOT_IMG(slot, iconImg)

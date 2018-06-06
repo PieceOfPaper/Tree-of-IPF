@@ -283,13 +283,6 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 		return;
 	end
 
-	-- 구입가능한지 실버 체크하기
-	local price = tonumber( control:GetUserValue("PRICE_"..abilName) );
-	if GET_TOTAL_MONEY() < price then
-		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
-		return;
-	end
-
 	-- 살건지 확인창 띄우기
 	s_buyAbilName = abilName;
 
@@ -312,6 +305,13 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 				return;
 			end
 		end
+	end
+
+	-- 구입가능한지 실버 체크하기
+	local price = tonumber( control:GetUserValue("PRICE_"..abilName) );
+	if GET_TOTAL_MONEY() < price then
+		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
+		return;
 	end
 
 	local yesScp = string.format("EXEC_BUY_ABILITY()");

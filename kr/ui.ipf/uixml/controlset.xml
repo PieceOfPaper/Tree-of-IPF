@@ -1218,8 +1218,9 @@
 			<checkbox name="save" rect="0 0 30 30" layout_gravity="left top" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" margin="20 15 0 0"/>
 			<picture name="questmark" rect="0 0 30 30" layout_gravity="left top" stretch="true" margin="50 15 0 0"/>
 			<richtext name="name" rect="0 0 335 18" layout_gravity="left top" margin="85 20 0 0" fixwidth="true" resizebytext="true" hittest="false" fontname="yellow_16_ol"/>
-			<button name="avandonquest_try" margin="0 0 40 18" rect="0 0 80 30" layout_gravity="right bottom" format="{@st42b}재시작{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY"/>
-			<button name="dialogReplay" margin="0 0 40 18" rect="0 0 80 30" layout_gravity="right bottom" format="{@st42b}대사 확인{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_DIALOG_REPLAY"/>
+			<button name="avandonquest_try" margin="0 0 40 18" rect="0 0 46 46" layout_gravity="right bottom" format="{@st42b}재시작{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY"/>
+			<button name="dialogReplay" margin="0 0 80 15" rect="0 0 46 46" image="quest_dialog_btn" layout_gravity="right bottom" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_DIALOG_REPLAY"texttooltip="{@st59}퀘스트 대사 보기{/}"/>
+			<button name="abandon" margin="0 0 40 15" rect="0 0 46 46" image="quest_giveup_btn" layout_gravity="right bottom" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_ABANDON_SELECT" texttooltip="{@st59}퀘스트 포기{/}"/>
 		</controls>
 	</controlset>
 	<controlset name="joblist_by_rank" toggle="false" width="1400" height="200" skin="bg" updateparent="true" stateskin="false">
@@ -2006,8 +2007,8 @@
 	<controlset name="journal_category_set" toggle="false" hittest="false" width="575" height="770" skin="" resizebyresolution="true">
 		<controls>
 			<richtext name="title_score" margin="0 0 0 0" rect="0 0 400 35" format="{@st41_yellow}%s{/}" param1="value" param1_def="0" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
-			<edit name="input" margin="30 0 0 10" rect="0 0 460 38" fontname="white_18_ol" maxlen="16" usetag="true" EnterKeyScp="JOURNAL_FIND_BY_NAME" numbermode="false" drawbackground="false" OffsetForDraw="0 -1" skin="test_weight_skin" layout_gravity="left bottom" typingsound="chat_typing"/>
-			<button name="btn_find" image="inven_s" margin="0 0 4 7" rect="0 0 60 38" layout_gravity="right bottom" LBtnUpScp="JOURNAL_FIND_BY_NAME" oversound="button_over" clicksound="button_click_big"/>
+			<edit name="input" margin="20 0 0 5" rect="0 0 460 38" fontname="black_16_b" maxlen="16" usetag="true" EnterKeyScp="JOURNAL_FIND_BY_NAME" numbermode="false" drawbackground="false" OffsetForDraw="0 -1" skin="test_weight_skin" layout_gravity="left bottom" typingsound="chat_typing"/>
+			<button name="btn_find" image="inven_s" margin="0 0 5 12" rect="0 0 60 38" layout_gravity="right bottom" LBtnUpScp="JOURNAL_FIND_BY_NAME" oversound="button_over" clicksound="button_click_big"/>
 			<groupbox name="category2" margin="210 20 0 0" rect="0 0 365 40" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
 			<richtext name="richtext_1" margin="20 10 0 0" rect="0 0 120 24" caption="{@st45tw2}이름{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="category2"/>
 			<button name="category_1" margin="10 20 0 0" rect="0 0 200 40" layout_gravity="left top" caption="{@st45tw2}카테고리" skin="market_listbase" hittest="false"/>
@@ -2018,9 +2019,9 @@
 			<groupbox name="editSkin" margin="15 0 0 10" rect="0 0 560 38" hittestbox="false" skin="test_weight_skin" layout_gravity="left bottom"/>
 			<groupbox name="detailSearch" margin="15 0 0 50" rect="0 0 560 30" hittestbox="false" layout_gravity="left bottom" draw="false" resizebyresolution="false" resizebyparent="false"/>
 			<!--richtext name="richtext_2" margin="12 9 0 0" rect="0 0 120 24" caption="보기 상세옵션{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="detailSearch"/-->
-			<checkbox name="nameUp" margin="17 0 0 0" rect="0 0 120 24" caption="이름 올림차순{/}" LBtnDownScp="JOURNAL_DEATIl_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" parent="detailSearch"/>
-			<checkbox name="nameDown" margin="215 0 0 0" rect="0 0 120 24" caption="이름 내림차순{/}" LBtnDownScp="JOURNAL_DEATIl_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" parent="detailSearch"/>
-			<checkbox name="date" margin="410 0 0 0" rect="0 0 120 24" caption="최근 날짜순{/}" LBtnDownScp="JOURNAL_DEATIl_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" parent="detailSearch"/>
+			<checkbox name="nameUp" margin="5 5 0 0" rect="0 0 120 24" caption="이름 올림차순{/}" LBtnDownScp="JOURNAL_DEATIl_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" parent="detailSearch"/>
+			<checkbox name="nameDown" margin="210 5 0 0" rect="0 0 120 24" caption="이름 내림차순{/}" LBtnDownScp="JOURNAL_DEATIl_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" parent="detailSearch"/>
+			<checkbox name="date" margin="405 5 0 0" rect="0 0 120 24" caption="최근 날짜순{/}" LBtnDownScp="JOURNAL_DEATIl_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" parent="detailSearch"/>
 		</controls>
 	</controlset>
 	<controlset name="journal_recipe_set" toggle="false" hittest="false" width="581" height="1300" skin=" " draw="true">
@@ -2288,11 +2289,12 @@
 	</controlset>
 	<controlset name="postbox_contents" hittest="true" width="450" height="450" hittestset="true" draw="false" skin="none">
 		<controls>
+      
 			<richtext name="title" margin="10 8 0 0" rect="0 0 430 30" format="{@st41b}%s{/}" param1="value" param1_def="PostBoxTitles" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" hittest="false"/>
 			<labelline name="labelline_1" margin="5 43 0 0" rect="0 0 440 4" skin="none" layout_gravity="left top"/>
 			<richtext name="content" margin="10 56 0 0" rect="0 0 430 300" format="{@st66b}%s{/}" param1="value" param1_def="PostBoxTitles" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" hittest="false" scrollbar="true"/>
 			<button name="btn_delete" margin="0 0 0 5" rect="0 0 163 45" skin="test_pvp_btn" layout_gravity="center bottom" caption="{@st41}삭제" LBtnUpScp="POSTBOX_DELETE"/>
-			<groupbox name="attachedItems" margin="10 0 0 55" rect="0 0 430 50" hittestbox="false" skin="test_weight_skin" layout_gravity="left bottom" scrollbar="true"/>
+			<groupbox name="attachedItems" margin="10 0 0 55" rect="0 0 430 150" hittestbox="false" skin="test_weight_skin" layout_gravity="left bottom" scrollbar="true"/>
 		</controls>
 	</controlset>
 	<controlset name="postbox_itemget" hittest="true" width="380" height="80" hittestset="true" draw="false" skin="none">

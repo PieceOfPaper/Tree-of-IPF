@@ -174,19 +174,36 @@ function GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj)
 		local x = towerInfo[3];
 		local y = towerInfo[4];
 		local z = towerInfo[5];
+		local builtTime = towerInfo[6];
+
 		local mapCls = GetClassByType("Map", mapID);
 		
 		local countText = ScpArgMsg("GuildTower") ..  " (1)";
 		txt_guildtowercount:SetTextByKey("value", countText);
 		local positionText = MAKE_LINK_MAP_TEXT(mapCls.ClassName, x, z);
 		txt_guildtowerposition:SetTextByKey("value", positionText);
-
+	
+		txt_guildtowerposition:SetUserValue("BUILTTIME", builtTime);
+		txt_guildtowerposition:RunUpdateScript("UPDATE_TOWER_REMAIN_TIME", 1, 0, 0, 1);
+		UPDATE_TOWER_REMAIN_TIME(txt_guildtowerposition);
 	end
 	
-
-
 end
 	
+function UPDATE_TOWER_REMAIN_TIME(txt_guildtowerposition)
+
+	local builtTime = txt_guildtowerposition:GetUserValue("BUILTTIME");
+	local endTime = imcTime.GetSysTimeByStr(builtTime);
+	endTime = imcTime.AddSec(endTime, GUILD_TOWER_LIFE_MIN * 60);
+	local sysTime = geTime.GetServerSystemTime();
+	local difSec = imcTime.GetDifSec(endTime, sysTime);
+	local difSecString = GET_TIME_TXT_DHM(difSec);
+	txt_guildtowerposition:SetTextByKey("remaintime", difSecString);
+	return 1;
+
+end
+
+
 function GUILD_UPDATE_ENEMY_PARTY(frame, pcparty)
 
 	local properties = frame:GetChild("properties");

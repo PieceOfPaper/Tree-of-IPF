@@ -6530,6 +6530,61 @@ function SCR_GET_HandKnife_Ratio(skill)
 
 end
 
+function SCR_GET_Bunshin_no_jutsu_BuffTime(skill)
+
+
+	local value = skill.Level
+
+ return value
+
+end
+
+function SCR_GET_Aspergillum_Time(skill)
+
+
+	local value = skill.Level * 10
+
+ return value
+
+end
+
+function SCR_GET_LastRites_Time(skill)
+
+
+	local value = 150 + skill.Level * 30
+
+ return value
+
+end
+
+function SCR_GET_MagnusExorcismus_Time(skill)
+
+
+	local value = 10 + skill.Level * 1
+
+ return value
+
+end
+
+function SCR_GET_BuildCappella_Ratio(skill)
+
+
+	local value = 60
+
+ return value
+
+end
+
+function SCR_GET_BuildCappella_Ratio2(skill)
+
+
+	local value = 10 + skill.Level * 5
+
+ return value
+
+end
+
+
 function SCR_Get_SklAtkAdd_1InchPunch(skill)
 
     local pc = GetSkillOwner(skill);
@@ -6828,6 +6883,32 @@ function SCR_GET_Merkabah_Ratio(skill)
     end
 
 end
+
+function SCR_Get_SkillFactor_MagnusExorcismus(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+
+	local abil = GetAbility(pc, "Chaplain3")      -- Skill Damage add
+    if abil ~= nil then
+        value = value + (value * (abil.Level * 0.01))
+    end
+
+    return math.floor(value)
+
+end
+
+function SCR_GET_MagnusExorcismus_Ratio(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "Chaplain3") 
+	local value = 0
+	if abil ~= nil then 
+        return value + abil.Level
+    end
+
+end
+
 
 function SCR_GET_ShapeShifting_Bufftime(skill)
     local value = 50 + skill.Level * 10
@@ -7297,6 +7378,14 @@ function SCR_Get_Undistance_Ratio(skill)
     local value = 3
     
     return math.floor(value)
+    
+end
+
+function SCR_Get_Undistance_Ratio2(skill)
+
+    local value = 10 + skill.Level * 1
+    
+    return value
     
 end
 
@@ -8313,6 +8402,18 @@ end
 
 function SCR_Get_Oblation_Ratio(skill)
     local value = 100 * skill.Level
+    return value
+end
+
+function SCR_Get_SpellShop_Ratio(skill)
+    local value = 7 * skill.Level
+    local pc = GetSkillOwner(skill)
+    
+	local abil = GetAbility(pc, "Pardoner4")
+	if abil ~= nil and 1 == abil.ActiveState then
+	    value = value + 5 * abil.Level;
+	end
+    
     return value
 end
 
@@ -10494,6 +10595,11 @@ function SCR_SKILL_ITEM_MAXR(skill)
 end
 
 function SCR_GET_SKILLLV_WITH_BM(skill)
+	local fixedLevel = GetExProp(skill, "FixedLevel");
+	if fixedLevel > 0 then
+		return fixedLevel;
+	end
+
     local value = skill.LevelByDB + skill.Level_BM;
 	if skill.GemLevel_BM > 0 then
 		value = value + 1;	-- 몬스터젬 스킬보너스는 중첩시켜도 무조건 +1만 시킨다고함.

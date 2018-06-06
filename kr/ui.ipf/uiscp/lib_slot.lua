@@ -29,6 +29,10 @@ function SET_SLOT_ITEM_OBJ(slot, itemCls, gender, isBarrack)
 
 	if nil ~= gender and
 		itemCls.ItemType == 'Equip' and itemCls.ClassType == 'Outer' then
+
+		local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
+
+		if tempiconname ~= "_m" and tempiconname ~= "_f" then
 	    if gender == 1 then
     	    local outerImg =  itemCls.Icon.."_m";
     	    img = outerImg;
@@ -36,6 +40,8 @@ function SET_SLOT_ITEM_OBJ(slot, itemCls, gender, isBarrack)
     	    local outerImg =  itemCls.Icon.."_f";
     	    img = outerImg;
 	    end
+	end
+	
 	end
 	
 	SET_SLOT_IMG(slot, img);
@@ -241,8 +247,8 @@ function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count)
 
 	local lv = TryGetProp(obj, "Level");
 	if lv ~= nil and lv > 1 then
-		slot:SetFrontImage('enchantlevel_indi_icon');
-		slot:SetText('{s15}{ol}{#FFFFFF}{b}LV. '..lv, 'count', 'left', 'top', 8, 2);
+		--slot:SetFrontImage('enchantlevel_indi_icon');
+		slot:SetText('{s17}{ol}{#FFFFFF}{b}LV. '..lv, 'count', 'left', 'top', 3, 2);
 		return;
 	end
 end

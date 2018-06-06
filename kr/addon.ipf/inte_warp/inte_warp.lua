@@ -22,10 +22,6 @@ function INTE_WARP_OPEN(frame)
 	INTE_WARP_SIZE_UPDATE(frame);
 	frame:Invalidate();
 
-	if frame:GetUserValue('SCROLL_WARP') == 'NO' or frame:GetUserValue('SCROLL_WARP') == 'None' then
-		REGISTERR_LASTUIOPEN_POS(frame)
-	end
-
 	local pic = frame:GetChild("pic");
 	local frameHeight = frame:GetHeight();
 	local picHeight = pic:GetHeight();
@@ -51,6 +47,16 @@ function INTE_WARP_OPEN(frame)
 
 	SetKeyboardSelectMode(1)
 	
+
+end
+
+function INTE_WARP_OPEN_BY_NPC()
+
+   	local frame = ui.GetFrame('inte_warp');
+	frame:ShowWindow(1);
+	frame:Invalidate();
+
+	RUN_CHECK_LASTUIOPEN_POS(frame)
 
 end
 
@@ -140,8 +146,8 @@ function ON_INTE_WARP(frame, changeDirection)
 
 
 	local imgSize = ui.GetSkinImageSize("worldmap_" .. currentDirection .. "_bg");
-	local startX = - 40;
-	local startY = bottomY - 15;
+	local startX = - 80;
+	local startY = bottomY - 0;
 	local pictureStartY = imgSize.y - 15;
 
 	local spaceX = 65.25;

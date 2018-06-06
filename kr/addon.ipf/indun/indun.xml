@@ -12,10 +12,10 @@
 		<groupbox name="bg3" rect="0 0 600 1000" margin="-1 30 0 0" layout_gravity="center top" draw="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="pipwin_top" rect="0 0 600 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}인스턴스 던전" textalign="left top"/>
-		<groupbox name="gbox" rect="0 0 580 700" margin="12 257 0 0" layout_gravity="left top" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
+		<groupbox name="gbox" rect="0 0 578 680" margin="10 257 0 0" layout_gravity="left top" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
     <tab name="statusTab" rect="0 0 500 40" layout_gravity="left top" LBtnDownScp="INDUN_TAB_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="25 90 0 0"/>
 		<button name="btn_showlocation" rect="0 0 284 56" layout_gravity="left top" LBtnUpScp="CHECK_INDUN_POS" caption="{@st41}위치 확인" skin="textbutton_nomal_joo" margin="13 951 0 94" visible="false"/>
-		<button name="btn_close" rect="0 0 160 50" layout_gravity="center bottom" LBtnUpScp="CLOSE_UI" caption="{@st41b}닫기" skin="test_red_button" margin="0 0 0 70"/>
+		<button name="btn_close" rect="0 0 160 50" layout_gravity="center bottom" LBtnUpScp="CLOSE_UI" caption="{@st41b}닫기" skin="test_red_button" margin="0 0 0 75"/>
     <tabitem name="Itembox1" parent="statusTab" caption="{@st66b}던전{/}" width="150" layout_gravity="left top"/>
     <tabitem name="Itembox2" parent="statusTab" caption="{@st66b}의뢰소 미션{/}" width="150" layout_gravity="left top"/>
 		<richtext name="richtext_1" margin="66 150 0 0" rect="0 0 120 24" caption="{@st66b18}입장 횟수{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>

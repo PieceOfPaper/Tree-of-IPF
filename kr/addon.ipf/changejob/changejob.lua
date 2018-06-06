@@ -387,7 +387,6 @@ function UPDATE_CHANGEJOB(frame)
 		end
 	end
 	
-
 	for i = 0 , cnt - 1 do
 		local cls = GetClassByIndexFromList(clslist, i);
 
@@ -400,6 +399,24 @@ function UPDATE_CHANGEJOB(frame)
 		local flag = 1
 
 		
+
+		local jobCircle = session.GetJobGrade(cls.ClassID)
+
+		--시작점에 따라 전직 퀘스트가 달라지는 경우가 있어서 여기서 처리한다
+		local ChangeJobQuestCircleText = "ChangeJobQuestCircle"..jobCircle+1
+		local pc = GetMyPCObject();
+		local sObj = GetSessionObject(pc, 'ssn_klapeda')
+		--시작지점에 따라서 뒤에 ChangeJobQuestCircle_jobCircle+1_1 혹은 _2 컬럼에서 퀘스트 이름을 가져옴
+		if sObj.QSTARTZONETYPE == "StartLine1" then
+			ChangeJobQuestCircleText = ChangeJobQuestCircleText.."_1"	
+		elseif sObj.QSTARTZONETYPE == "StartLine2" then
+			ChangeJobQuestCircleText = ChangeJobQuestCircleText.."_2"
+		end
+		
+		local nowjobID = GetClassByType("Job", cls.ClassID);
+
+
+
 		--[[
 		if changejobquestname ~= 'None' then
 			if CHANGEJOB_CHECK_QUEST_SCP_CONDITION_IGNORE_SELECTEDJOB(changejobquestname) ~= 1 then
@@ -414,7 +431,7 @@ function UPDATE_CHANGEJOB(frame)
 			local subindex = #hadjobarray + 1
 			hadjobarray[subindex] = {}
 			hadjobarray[subindex][1] = cls.ClassID
-			
+
 			if canChangeJob == true then
 				hadjobarray[subindex][2] = CHANGE_JOB_TYPE_CAN_UPGRADE -- 이미가졌으며 업글 가능한 얘들이라고 마크;
 			else
@@ -423,15 +440,24 @@ function UPDATE_CHANGEJOB(frame)
 
 			hadjobarray[subindex][3] = cls.Name
 			hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);
+			
+			-- 예외처리 3서클로 전직했으면 더이상 전직이 불가능하고, 해당 프로퍼티가 없기 때문에 예외처리를 한다.
+			if jobCircle+1 >= 4 then
+				hadjobarray[subindex][5] = "None"
+			else
+				hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]
+			end
+
+
 			if pcjobinfo.ClassID == cls.ClassID then
 				pcjobinfotype = hadjobarray[subindex][2]
 			end
 
 		else -- 갖고 있지는 않으나 전직은 가능한 얘들
-
+		
 			if cls.CtrlType == pcCtrlType then
-
-			local totaljobcount = session.GetPcTotalJobGrade()
+				--[[
+				local totaljobcount = session.GetPcTotalJobGrade()
 				local stringtest = 'ChangeJobQuest'..totaljobcount
 				local changejobquestname = cls[stringtest]
 				local flag = 1
@@ -440,17 +466,31 @@ function UPDATE_CHANGEJOB(frame)
 						flag = 0
 					end
 				end
+				]]--
 
 				if clsRank <= session.GetPcTotalJobGrade()+1 then
 				-- 히든 직업 체크는 나중에 여기에 끼워두면 된다
-
 					if clsRank <= session.GetPcTotalJobGrade() then
-						local subindex = #hadjobarray + 1
-						hadjobarray[subindex] = {}
-						hadjobarray[subindex][1] = cls.ClassID	
-						hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE_NOT -- 새로 출현은 아니나 한번도 안찍은 얘들이라고 마크;	
-						hadjobarray[subindex][3] = cls.Name
-						hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);						
+						if cls.HiddenJob == "NO" then 						
+							local subindex = #hadjobarray + 1
+							hadjobarray[subindex] = {}
+							hadjobarray[subindex][1] = cls.ClassID	
+							hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE_NOT -- 새로 출현은 아니나 한번도 안찍은 얘들이라고 마크;	
+							hadjobarray[subindex][3] = cls.Name
+							hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);	
+							hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]			
+						elseif cls.HiddenJob == "YES" then
+							local pcEtc = GetMyEtcObject();
+							if pcEtc["HiddenJob_"..cls.ClassName] == 300 then
+								local subindex = #hadjobarray + 1
+								hadjobarray[subindex] = {}
+								hadjobarray[subindex][1] = cls.ClassID	
+								hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- 새로 출현은 아니나 한번도 안찍은 얘들이라고 마크;	
+								hadjobarray[subindex][3] = cls.Name
+								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);	
+								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
+							end
+						end
 					elseif cls.HiddenJob == "NO" then
 						if canChangeJob == true then
 							local subindex = #hadjobarray + 1
@@ -458,24 +498,24 @@ function UPDATE_CHANGEJOB(frame)
 							hadjobarray[subindex][1] = cls.ClassID
 							hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- 새로운얘들이라고 마크;	
 							hadjobarray[subindex][3] = cls.Name
-							hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);							
+							hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);			
+							hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]				
 						end
 					--히든 직업 관련 처리 && 랭크와 관계 있는 애임. 랭크와 관계없는 히든 직업이 나온다면 추가 수정해야함
 					elseif cls.HiddenJob == "YES" then
 						if canChangeJob == true then
 							local pcEtc = GetMyEtcObject();
 							if pcEtc["HiddenJob_"..cls.ClassName] == 300 then
-							local subindex = #hadjobarray + 1
-							hadjobarray[subindex] = {}
-							hadjobarray[subindex][1] = cls.ClassID
-							hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- 새로운얘들이라고 마크;	
-							hadjobarray[subindex][3] = cls.Name
-							hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);							
+								local subindex = #hadjobarray + 1
+								hadjobarray[subindex] = {}
+								hadjobarray[subindex][1] = cls.ClassID
+								hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW -- 새로운얘들이라고 마크;	
+								hadjobarray[subindex][3] = cls.Name
+								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);		
+								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]					
+							end
 						end
 					end
-					end
-
-					
 				end
 			end
 
@@ -521,7 +561,6 @@ function UPDATE_CHANGEJOB(frame)
 	local sum_margin_y = 40
 	local margin_x_per_eachpic = 20
 	local margin_y_per_eachpic = 10
-
 	
 	local  drawnewjobcnt = 0
 	for i = 1, #hadjobarray do
@@ -543,14 +582,14 @@ function UPDATE_CHANGEJOB(frame)
 	local changeJob_richtext = groupbox_sub_newjob:GetChild('changeJob_richtext');
 	--changeJob_richtext:SetText("{@st44}"..(totaljobgrade+1)..ScpArgMsg("Auto_{@st44}Daeum_LaengKeu_KeulLaeSeu_JeongBo"))
 	changeJob_richtext:SetText(ScpArgMsg("Auto_{@st44}Daeum_LaengKeu_KeulLaeSeu_JeongBo"))
-	
 	local index =1
 	for i = 1, #hadjobarray do
 
 		if hadjobarray[i][2] ~= CHANGE_JOB_TYPE_HAVE then
 			--직업 컨트롤 셋 생성
-			--이미 3써클을 찍었을 땐, 보여주지 말자.	
-			if session.GetJobGrade(hadjobarray[i][1]) <= 2 then
+			--이미 3써클을 찍었을 땐, 보여주지 말자.
+
+			if session.GetJobGrade(hadjobarray[i][1]) <= 2 and hadjobarray[i][5] ~= "None" then
 				local row = math.floor((index - 1) / jobsPerALine);
 				local col = (index - 1)  % jobsPerALine;
 				local x = margin_x + col * (jobbox_width + margin_x_per_eachpic);

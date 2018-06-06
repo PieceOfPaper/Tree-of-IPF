@@ -355,9 +355,17 @@ function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, 
 	            dialogReplay_Btn:ShowWindow(0)
 	        end
 	    end
+	    
+	    local abandon_Btn = Quest_Ctrl:GetChild('abandon');
+	    if (questIES.AbandonUI ~= 'YES') or (result ~= 'PROGRESS' and result ~= 'SUCCESS') then
+            abandon_Btn:ShowWindow(0)
+        end
 	else
 	    local dialogReplay_Btn = Quest_Ctrl:GetChild('dialogReplay');
 	    dialogReplay_Btn:ShowWindow(0)
+	    local abandon_Btn = Quest_Ctrl:GetChild('abandon');
+	    abandon_Btn:ShowWindow(0)
+	    
 		avandonquest_tryBtn:ShowWindow(1);
 		local checkBox = Quest_Ctrl:GetChild("save");
 		tolua.cast(checkBox, "ui::CCheckBox");
@@ -797,6 +805,12 @@ end
 function SCR_QUEST_DIALOG_REPLAY(ctrlSet, ctrl)
     local questClassID = ctrlSet:GetUserValue("QUEST_CLASSID");
     control.CustomCommand("QUEST_DIALOG_REPLAY_SERVER", questClassID);
+end
+
+function SCR_QUEST_ABANDON_SELECT(ctrlSet, ctrl)
+    local questClassID = ctrlSet:GetUserValue("QUEST_CLASSID");
+    local questIES = GetClassByType('QuestProgressCheck', questClassID)
+    ui.MsgBox(ScpArgMsg("QUEST_ABANDON_SELECT_MSG","QUEST",questIES.Name), string.format("EXEC_ABANDON_QUEST(%d)", tonumber(questClassID)), "None");
 end
 
 function SCR_ABANDON_QUEST_TRY(ctrlSet, ctrl)

@@ -18,13 +18,14 @@ function SEQUENTIAL_PICKITEMON_MSG(frame, msg, arg1, type, class)
 		end
 		
 		local invitem = session.GetInvItem(type);
-		local itemCls = GetClassByType("Item",	invitem.prop.type)
-
+		if class == nil then
+			class = GetClassByType("Item",	invitem.prop.type)
+		end
 		local tablekey = invitem:GetIESID().."_"..invitem.count
 
 		if SEQUENTIALPICKITEM_alreadyOpendGUIDs[tablekey] == nil then
 			SEQUENTIALPICKITEM_alreadyOpendGUIDs[tablekey] = "AlreadyOpen"
-			ADD_SEQUENTIAL_PICKITEM(frame, msg, invitem:GetIESID(), invitem.count, itemCls, tablekey, invitem.fromWareHouse)
+			ADD_SEQUENTIAL_PICKITEM(frame, msg, invitem:GetIESID(), invitem.count, class, tablekey, invitem.fromWareHouse)
 		end
 
 	elseif msg == 'INV_ITEM_IN' then
@@ -102,6 +103,10 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	local img = class.Icon;
 
 	if class.ItemType == 'Equip' and class.ClassType == 'Outer' then
+
+		local tempiconname = string.sub(img,string.len(img)-1);
+
+		if tempiconname ~= "_m" and tempiconname ~= "_f" then
     	local pc = GetMyPCObject();
     	local gender = pc.Gender;
     	
@@ -110,6 +115,9 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
     	else
     	    img = img.."_f"
 	    end
+	end
+	
+    	
 	end
 	
 	local PickItemCountObj		= PickItemGropBox:CreateControlSet('pickitemset_Type', 'pickitemset', 0, 0);

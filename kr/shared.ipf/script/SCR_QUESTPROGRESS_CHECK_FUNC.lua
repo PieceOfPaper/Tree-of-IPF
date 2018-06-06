@@ -68,7 +68,7 @@ end
 
 function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
     local pcLv = pc.Lv
-    local minRange = 5
+    local minRange = 10
     local maxRange = 7
     local zoneClassNameList = {}
     local class_count = GetClassCount('Map')

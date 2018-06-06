@@ -1111,33 +1111,7 @@
 		<image name="hairacc_hat047" file="\icon\hairacc\accessory_hat_047.png" imgrect="0 0 256 256"/>
 		<image name="hairacc_hat069" file="\icon\hairacc\accessory_hat_069.png" imgrect="0 0 256 256"/>
 		<image name="hairacc_hat070" file="\icon\hairacc\accessory_hat_070.png" imgrect="0 0 256 256"/>
-		<image name="hair_GM_female" file="\icon\hairacc\hair_GM_female.png" imgrect="0 0 256 256" CMM_Caption="가발"/>
-		<image name="hair_lancer_female" file="\icon\hairacc\hair_lancer_female.png" imgrect="0 0 256 256"/>
-		<image name="hair_lancer_male" file="\icon\hairacc\hair_lancer_male.png" imgrect="0 0 256 256"/>
-		<image name="hair_puppeteer_male" file="\icon\hairacc\hair_puppeteer_male.png" imgrect="0 0 256 256"/>
-		<image name="hair_longhair" file="\icon\hairacc\hair_longhair.png" imgrect="0 0 256 256"/>
-		<image name="hair_longwave" file="\icon\hairacc\hair_longwave.png" imgrect="0 0 256 256"/>
-		<image name="hair_ponytail" file="\icon\hairacc\hair_ponytail.png" imgrect="0 0 256 256"/>
-		<image name="hair_richhair" file="\icon\hairacc\hair_richhair.png" imgrect="0 0 256 256"/>
-		<image name="hair_rollhair" file="\icon\hairacc\hair_rollhair.png" imgrect="0 0 256 256"/>
-		<image name="hair_semilonghair" file="\icon\hairacc\hair_semilonghair.png" imgrect="0 0 256 256"/>
-		<image name="hair_shorthair" file="\icon\hairacc\hair_shorthair.png" imgrect="0 0 256 256"/>
-		<image name="hair_shortround" file="\icon\hairacc\hair_shortround.png" imgrect="0 0 256 256"/>
-		<image name="hair_shorttwin" file="\icon\hairacc\hair_shorttwin.png" imgrect="0 0 256 256"/>
-		<image name="hair_twinhair" file="\icon\hairacc\hair_twinhair.png" imgrect="0 0 256 256"/>
-		<image name="hair_babyperm" file="\icon\hairacc\hair_babyperm.png" imgrect="0 0 256 256"/>
-		<image name="hair_dandy" file="\icon\hairacc\hair_dandy.png" imgrect="0 0 256 256"/>
-		<image name="hair_draTail" file="\icon\hairacc\hair_draTail.png" imgrect="0 0 256 256"/>
-		<image name="hair_halfup" file="\icon\hairacc\hair_halfup.png" imgrect="0 0 256 256"/>
-		<image name="hair_messy" file="\icon\hairacc\hair_messy.png" imgrect="0 0 256 256"/>
-		<image name="hair_musketeer" file="\icon\hairacc\hair_musketeer.png" imgrect="0 0 256 256"/>
-		<image name="hair_pantherhair" file="\icon\hairacc\hair_pantherhair.png" imgrect="0 0 256 256"/>
-		<image name="hair_shaggy" file="\icon\hairacc\hair_shaggy.png" imgrect="0 0 256 256"/>
-		<image name="hair_shot_asymmetric" file="\icon\hairacc\hair_shot_asymmetric.png" imgrect="0 0 256 256"/>
-		<image name="hair_thaumaturge" file="\icon\hairacc\hair_thaumaturge.png" imgrect="0 0 256 256"/>
-		<image name="hair_musketeer_female" file="\icon\hairacc\hair_musketeer_female.png" imgrect="0 0 256 256"/>
-		<image name="hair_thaumaturge_female" file="\icon\hairacc\hair_thaumaturge_female.png" imgrect="0 0 256 256"/>
-	</imagelist>
+		</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
 		<image name="icon_collitem_box" file="\icon\colletion\icon_colletionitem_box.tga" imgrect="0 0 400 400" CMM_Caption="추억상자"/>
@@ -2287,6 +2261,7 @@
 		<image name="icon_item_amulet_snowflake" file="\icon\item\icon_item_amulet_snowflake.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_amulet_sun" file="\icon\item\icon_item_amulet_sun.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_amulet_talisman" file="\icon\item\icon_item_amulet_talisman.png" imgrect="0 0 128 128"/>
+	<image name="icon_item_cape" file="\icon\item\icon_item_cape.png" imgrect="0 0 128 128" CMM_Caption="망토"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -2314,6 +2289,37 @@
 		<image name="icon_item_tospoint" file="\icon\payment\icon_item_tospoint.png" imgrect="0 0 256 256" CMM_Caption="TP"/>
 		<image name="icon_item_indunFreeEnter" file="\icon\payment\icon_item_indunFreeEnter.png" imgrect="0 0 256 256" CMM_Caption="인던무제한"/>
 		<image name="icon_item_potion_resetSkill" file="\icon\payment\icon_item_potion_resetSkill.png" imgrect="0 0 256 256" CMM_Caption="스킬초기화"/>
+	<image name="accessory_hat_poporion" file="\icon\payment\accessory_hat_poporion.png" imgrect="0 0 256 256" CMM_Caption="포포리온모자"/>
+		<image name="accessory_hat_hanaming" file="\icon\payment\accessory_hat_hanaming.png" imgrect="0 0 256 256" CMM_Caption="하나밍모자"/>
+		<image name="hair_GM_female" file="\icon\payment\hair_GM_female.png" imgrect="0 0 256 256" CMM_Caption="유료헤어"/>
+		<image name="hair_lancer_female" file="\icon\payment\hair_lancer_female.png" imgrect="0 0 256 256"/>
+		<image name="hair_lancer_male" file="\icon\payment\hair_lancer_male.png" imgrect="0 0 256 256"/>
+		<image name="hair_puppeteer_male" file="\icon\payment\hair_puppeteer_male.png" imgrect="0 0 256 256"/>
+		<image name="hair_longhair" file="\icon\payment\hair_longhair.png" imgrect="0 0 256 256"/>
+		<image name="hair_longwave" file="\icon\payment\hair_longwave.png" imgrect="0 0 256 256"/>
+		<image name="hair_ponytail" file="\icon\payment\hair_ponytail.png" imgrect="0 0 256 256"/>
+		<image name="hair_richhair" file="\icon\payment\hair_richhair.png" imgrect="0 0 256 256"/>
+		<image name="hair_rollhair" file="\icon\payment\hair_rollhair.png" imgrect="0 0 256 256"/>
+		<image name="hair_semilonghair" file="\icon\payment\hair_semilonghair.png" imgrect="0 0 256 256"/>
+		<image name="hair_shorthair" file="\icon\payment\hair_shorthair.png" imgrect="0 0 256 256"/>
+		<image name="hair_shortround" file="\icon\payment\hair_shortround.png" imgrect="0 0 256 256"/>
+		<image name="hair_shorttwin" file="\icon\payment\hair_shorttwin.png" imgrect="0 0 256 256"/>
+		<image name="hair_twinhair" file="\icon\payment\hair_twinhair.png" imgrect="0 0 256 256"/>
+		<image name="hair_babyperm" file="\icon\payment\hair_babyperm.png" imgrect="0 0 256 256"/>
+		<image name="hair_dandy" file="\icon\payment\hair_dandy.png" imgrect="0 0 256 256"/>
+		<image name="hair_draTail" file="\icon\payment\hair_draTail.png" imgrect="0 0 256 256"/>
+		<image name="hair_halfup" file="\icon\payment\hair_halfup.png" imgrect="0 0 256 256"/>
+		<image name="hair_messy" file="\icon\payment\hair_messy.png" imgrect="0 0 256 256"/>
+		<image name="hair_musketeer" file="\icon\payment\hair_musketeer.png" imgrect="0 0 256 256"/>
+		<image name="hair_pantherhair" file="\icon\payment\hair_pantherhair.png" imgrect="0 0 256 256"/>
+		<image name="hair_shaggy" file="\icon\payment\hair_shaggy.png" imgrect="0 0 256 256"/>
+		<image name="hair_shot_asymmetric" file="\icon\payment\hair_shot_asymmetric.png" imgrect="0 0 256 256"/>
+		<image name="hair_thaumaturge" file="\icon\payment\hair_thaumaturge.png" imgrect="0 0 256 256"/>
+		<image name="hair_musketeer_female" file="\icon\payment\hair_musketeer_female.png" imgrect="0 0 256 256"/>
+		<image name="hair_thaumaturge_female" file="\icon\payment\hair_thaumaturge_female.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_swordmanmaster_m" file="\icon\payment\warrior_swordmanmaster_m.png" imgrect="0 0 256 256" CMM_Caption="소드맨마스터유료코스튬"/>
+	<image name="icon_item_Warrior_PeltastaMaster_f" file="\icon\payment\Warrior_PeltastaMaster_f.png" imgrect="0 0 256 256"/>
+	<image name="icon_item_repairkit" file="\icon\payment\icon_item_repairkit.png" imgrect="0 0 256 256" CMM_Caption="긴급수리키트"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

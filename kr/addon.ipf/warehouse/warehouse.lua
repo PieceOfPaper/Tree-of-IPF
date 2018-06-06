@@ -175,7 +175,7 @@ function WAREHOUSE_EXTEND(frame, slot)
 	local price = WAREHOUSE_EXTEND_PRICE;
 	if slotDiff > 0 then
 		extendCnt = slotDiff / 10;
-		if extendCnt >= WAREHOUSE_MAX_COUNT then
+		if extendCnt >= tonumber(WAREHOUSE_MAX_COUNT) then
 			ui.SysMsg(ScpArgMsg("WareHouseMax"))
 			return;
 		end
@@ -183,27 +183,14 @@ function WAREHOUSE_EXTEND(frame, slot)
 		price = price * 10;
 	end
 
-	local str = ScpArgMsg("ExtendWarehouseSlot{TP}{SLOT}", "TP", price, "SLOT", 10);
-	ui.MsgBox(str, "CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE()", "None");
+	local str = ScpArgMsg("ExtendWarehouseSlot{TP}{SLOT}", "TP", price, "SLOT", tostring(WAREHOUSE_EXTEND_SLOT_COUNT));
 
-end
+	local yesScp = string.format("CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE(%d)", price) 
+	ui.MsgBox(str, yesScp, "None");
 
-function CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE()
-	local etcObj = GetMyEtcObject();
-	if nil == etcObj then
-		return;
-	end
-
-	local baseSlot = 60;
-	local slotDiff = etcObj.MaxWarehouseCount - baseSlot;
-	local extendCnt = 0;
-	local price = WAREHOUSE_EXTEND_PRICE;
-	if slotDiff > 0 then
-		extendCnt = slotDiff / 10;
-		price = GetPow(price/10, (extendCnt + 1));
-		price = price * 10
 	end
 	
+function CHECK_USER_MEDAL_FOR_EXTEND_WAREHOUSE(price)
 	if 0 > GET_CASH_TOTAL_POINT_C() - price then
 		ui.SysMsg(ScpArgMsg("Auto_MeDali_BuJogHapNiDa."))
 		return;

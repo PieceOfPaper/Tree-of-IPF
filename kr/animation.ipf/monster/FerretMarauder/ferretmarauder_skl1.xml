@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<Shockwave frame="32" type="1" intensity="2" frequency="0.7" duration="0.5" range="1000"/>
-	<Shockwave frame="55" type="1" intensity="2" frequency="0.6" duration="0.5" range="1000"/>
 	<Particle frame="15" attachNode="Dummy_effect_ferreteye_L" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.1" pause="true" use2DEffect="false" soft2DValue="0"/>
 	<Particle frame="15" attachNode="Dummy_effect_ferreteye_R" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.1" pause="true" use2DEffect="false" soft2DValue="0"/>
 	<Particle frame="10" attachNode="Dummy_effect_ferreteye_L" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.1" pause="true" use2DEffect="false" soft2DValue="0"/>
