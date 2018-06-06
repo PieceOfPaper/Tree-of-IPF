@@ -1,7 +1,7 @@
 function JOURNAL_ON_INIT(addon, frame)
 
 	addon:RegisterOpenOnlyMsg('INV_ITEM_ADD', 'JORNAL_UPDATE_INV');
-	addon:RegisterOpenOnlyMsg('INV_ITEM_REMOVE', 'JORNAL_UPDATE_INV');
+	addon:RegisterOpenOnlyMsg('INV_ITEM_POST_REMOVE', 'JORNAL_UPDATE_INV');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_CHANGE_COUNT', 'JORNAL_UPDATE_INV');
 	addon:RegisterOpenOnlyMsg('WIKI_LIST_ADD', 'JOURNAL_WIKI_ADD');
 	addon:RegisterOpenOnlyMsg('WIKI_PROP_UPDATE', 'JORNAL_WIKI_PROP_UPDATE');

@@ -210,7 +210,11 @@ function SCR_GET_MON_EXP(self)
 		return 0;
 	end
 
-   	local level = self.Lv;
+	local level = GetExProp(self, "LEVEL_FOR_EXP");
+	if level == 0 then
+   		level = self.Lv;
+	end
+
     local multipleValue = 0;
     
 	local cls = GetClassByType("Stat_Monster", level);

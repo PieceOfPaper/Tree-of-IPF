@@ -3,7 +3,10 @@
     <Game Name="GR_VELNIAS_1_S2_MINI" minLv="0" maxLv="0" startWaitSec="0">
         <StageList>
             <Stage Name="SETTING">
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="154000" Pos="-970.35#344.02#124.33" genCount="1" genTime="20000" objectKey="0" autoDestroy="0"/>
+                    <Obj Type="Monster" MonType="154000" Pos="-623.11#222.44#-10.24" genCount="1" genTime="20000" objectKey="1" autoDestroy="0"/>
+                </ObjList>
             </Stage>
             <Stage Name="FAIL" AutoStart="0">
                 <StartScpList>
@@ -85,6 +88,13 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="SETPOS">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+                                <AbsPosRange X="-1126.1111" Y="345.8382" Z="-27.008844" Range="30"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="STAGE_1_PROG" AutoStart="0">
@@ -99,7 +109,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="151056" Pos="-1680.50#346.41#370.68" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;150&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; "/>
+                    <Obj Type="Monster" MonType="151056" Pos="-1680.50#346.41#370.68" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;150&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
                     <Obj Type="Monster" MonType="750031" Pos="-1762.60#346.41#280.38" range="150" maxStackCount="2" genTime="20000" objectKey="1" searchRange="150" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
@@ -334,7 +344,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="151056" Pos="-1646.79#346.41#-431.33" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;150&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; "/>
+                    <Obj Type="Monster" MonType="151056" Pos="-1646.79#346.41#-431.33" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;150&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Name&apos; &apos;마족 소환석&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
                     <Obj Type="Monster" MonType="750029" Pos="-2089.35#380.58#-546.69" genTime="20000" genReadyTime="30000" objectKey="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>

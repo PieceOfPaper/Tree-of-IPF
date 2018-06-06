@@ -20,7 +20,7 @@
         <controlset name="timetable" parent="bg" rect="0 0 481 722" margin="12 330 0 0" layout_gravity="left top" hittest="true" type="pvp_timetable" visible="false"/>
         <controlset name="recent" parent="bg" rect="0 0 481 722" margin="12 615 0 0" layout_gravity="left top" hittest="true" type="pvp_recent" visible="false"/>
         <controlset name="bg_ranking" rect="0 0 481 722" margin="0 125 0 0" layout_gravity="left top" hittest="true" type="pvp_ranking_page"/>
-        <controlset name="bg_observer" rect="0 0 481 722" margin="0 165 0 0" layout_gravity="left top" hittest="true" type="pvp_observe_page"/>
+        <controlset name="bg_observer" rect="0 0 481 722" margin="0 145 0 0" layout_gravity="left top" hittest="true" type="pvp_observe_page"/>
         <tab name="tab" rect="0 0 500 40" layout_gravity="left top" LBtnDownScp="WORLDPVP_TAB_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="25 100 0 0"/>
         <tabitem name="Itembox1" parent="tab" caption="{@st66b}정보{/}" width="150" layout_gravity="left top"/>
         <tabitem name="Itembox2" parent="tab" caption="{@st66b}랭킹{/}" width="150" layout_gravity="left top"/>

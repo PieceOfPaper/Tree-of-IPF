@@ -283,9 +283,8 @@ function C_SET_CAM_FIXHEIGHT(actor, obj, height)
 	view.SetCamFixHeight(height);
 end
 
-function C_FIX_CAM_POSY(actor, obj, onoff)
-
-	view.SetLockCamPosY(onoff);
+function C_FIX_CAM_POSY(actor, obj, holdTime)
+	view.SetLockCamPosY(holdTime);
 end
 
 function C_CAM_NOWAT_TIMERATIO(actor, obj, ratio)

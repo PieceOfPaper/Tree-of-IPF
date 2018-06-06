@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -527,6 +527,9 @@
 		<Class ClassID="10792" ClassName="DecreasePotaionByExchangeForBuyer" Data="거래하시려는 아이템 중 거래 성공 후 포텐셜이 감소하는 아이템이 존재합니다. 그래도 수락하시겠습니까?"/>
 		<Class ClassID="10793" ClassName="CantRepair" Data="수리할 수 있는 장비가 없습니다."/>
 		<Class ClassID="10794" ClassName="TooNearFromNPC" Data="NPC와 너무 가깝습니다."/>
+		<Class ClassID="10795" ClassName="WannaRegWiki?" Data=" 아이템을 모험일지에 등록하시겠습니까?"/>
+		<Class ClassID="10798" ClassName="EnchantOptionNone" Data="옵션없음"/>
+		<Class ClassID="10799" ClassName="WhileChangeItem_ItemPropertyChanged_TryAgain" Data="거래 진행 중, 아이템의 속성이 변경되었습니다. 다시 시도해주세요."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="10801" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -816,6 +819,8 @@
 		<Class ClassID="20149" ClassName="TP_Costume_F" Data="여자 코스튬"/>
 		<Class ClassID="20150" ClassName="AutoDeleteTime" Data="삭제예정시간 [{Time}]"/>
 		<Class ClassID="20151" ClassName="InfiDeleteTime" Data="기간 제한 없음"/>
+	<Class ClassID="20152" ClassName="HAT_ON" Data="안보이기"/>
+		<Class ClassID="20153" ClassName="HAT_OFF" Data="보이기"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="20501" ClassName="Guard" Data="방어"/>
@@ -859,7 +864,7 @@
 		<Class ClassID="108" ClassName="QUEST_ABANDON_CANCEL1" Data="진행 중이거나 완료대기 상태 퀘스트가 아니면 포기할 수 없습니다"/>
 		<Class ClassID="109" ClassName="LINE_QUEST_END_MSG" Data="]{nl}퀘스트 완료!"/>
 		<Class ClassID="110" ClassName="PartyQuestRandomCheckErrorMsg" Data="파티원 모두가 시작조건을 만족하는 퀘스트가 없습니다!"/>
-		<Class ClassID="111" ClassName="PartyQuestRandomCheckStartMsg" Data="파티 퀘스트 진행 횟수 : {count} / {max}{nl}'{quest}' 퀘스트가 선택 되었습니다!"/>
+		<Class ClassID="111" ClassName="PartyQuestRandomCheckStartMsg" Data="개인 : 퀘스트 완료 횟수 {count} / {max}{nl} 파티 : '{quest}' 퀘스트가 선택 되었습니다!"/>
 		<Class ClassID="112" ClassName="PartyQuestRandomCheckErrorMsg2" Data="선택 가능한 모든 파티 퀘스트를 진행 중 입니다"/>
 		<Class ClassID="113" ClassName="QuestSuccessTakeItem" Data="{@st41b}회수 아이템"/>
 		<Class ClassID="114" ClassName="PetCouponExchange1" Data=" 사용"/>
@@ -2720,7 +2725,8 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="190130" ClassName="GIMMICK_TRANSFORM_FAIL" Data="도시에서만 사용할 수 있습니다"/>
 		<Class ClassID="190131" ClassName="ROKAS_36_1_PILLA05_REPAIR" Data="기둥을 수리하는 중"/>
 		<Class ClassID="190132" ClassName="ROKAS_36_1_PILLA05_GET_ITEM" Data="기둥을 수리 할 만한 점성 있는 액체를 구해 오세요!"/>
-		<Class ClassID="120353" ClassName="SIAULIAI46_1_HIDDEN_EVENT03" Data="주변에 몬스터들이 너무 많아서 빅 샤울렘 힘줄을 넣을 수 없습니다"/>
+		<Class ClassID="190133" ClassName="ROKAS_30_PIPOTI_MAP_ZONE_CHECK" Data="왕의 고원에서만 사용할 수 있습니다"/>
+	<Class ClassID="120353" ClassName="SIAULIAI46_1_HIDDEN_EVENT03" Data="주변에 몬스터들이 너무 많아서 빅 샤울렘 힘줄을 넣을 수 없습니다"/>
 		<Class ClassID="120354" ClassName="UNDER67_MQ06_AI_NAME" Data="늙은 관리인"/>
 		<Class ClassID="120355" ClassName="UNDER67_SQ01_GHOST_NAME" Data="원한 서린 병사"/>
 		<Class ClassID="120356" ClassName="UNDER67_MQ4_DIALOG" Data="상황 전달 중"/>
@@ -3050,6 +3056,7 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="180192" ClassName="CASTLE65_2_PILLAR" Data="마력 공급 장치"/>
 		<Class ClassID="120566" ClassName="MON_KILL_CNT_ERROR1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT}회를 모두 완료하셨습니다"/>
 		<Class ClassID="120565" ClassName="ITEML_CNT_ERROR1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT}회를 모두 완료하셨습니다"/>
+		<Class ClassID="180193" ClassName="CASTLE65_3_MQ01_FAIL" Data="미하일이 쓰러졌습니다"/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="21300" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -3107,7 +3114,7 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="21352" ClassName="MonsterFightAlready" Data="일부 필드 몬스터는 전투중이어서 불러오지 못했습니다."/>
 		<Class ClassID="21353" ClassName="skl_looting" Data="약탈 성공!"/>
 		<Class ClassID="21354" ClassName="skl_Evasion" Data="이베이션"/>
-		<Class ClassID="21355" ClassName="NotEnoughDropItem" Data="주변에 떨어진 아이템이 없습니다."/>
+		<Class ClassID="21355" ClassName="NotEnoughDropItem" Data="주변에 자신 소유의 아이템이 없습니다."/>
 		<Class ClassID="21356" ClassName="skill_verticalslash" Data="스컬 슬래쉬!!"/>
 	</Category>
 	<Category Name="Party">
@@ -3281,6 +3288,7 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="22371" ClassName="waitBossSummon" Data="잠시후 보스몬스터가 나타납니다."/>
 		<Class ClassID="22372" ClassName="CantAllowInInstace" Data="인스턴스 던전, 미션에 있는 길드원에게 이동할 수 없습니다."/>
 		<Class ClassID="22373" ClassName="GuildExpUpSuccessByItem" Data="아이템을 통해 길드 경험치를 올렸습니다."/>
+	<Class ClassID="22374" ClassName="YouCannotDisbandGuildInWarStateForNotBoss" Data="전쟁 상태에서는 길드를 탈퇴할 수 없습니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="22501" ClassName="THSword" Data="양손검"/>
@@ -3344,7 +3352,7 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="22817" ClassName="RecentFirst" Data="최신등록순"/>
 		<Class ClassID="22818" ClassName="ItemOverCount" Data="등록하려는 개수가 소비개수보다 많거나, 입력한 값이 음수가 될 수 없습니다."/>
 		<Class ClassID="22819" ClassName="BuffDestroy{Price}" Data="등록수수료 {Price}실버가 소비됩니다. 마켓에 등록하면 해당 버프가 사라집니다. 그래도 등록하시겠습니까?"/>
-		<Class ClassID="22820" ClassName="RemoveMarketItem" Data="이미 판매된 아이템입니다."/>
+		<Class ClassID="22820" ClassName="UpdateMarketItemInfor" Data="해당 아이템 정보가 변경되었습니다."/>
 		<Class ClassID="22821" ClassName="DontBuySameFamilyName" Data="같은 계정으로 등록된 아이템으로 구매하실 수 없습니다."/>
 		<Class ClassID="22822" ClassName="MarketRegTimeOver" Data="판매 시간이 지났습니다. 수령함에서 확인해주세요."/>
 		<Class ClassID="22823" ClassName="MarketRegAfter{TIME}" Data="{TIME}후에 마켓 리스트에 등록됩니다."/>
@@ -3357,6 +3365,7 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="22830" ClassName="SellPriceMustOverThen100Silver" Data="판매가격은 100실버 이상이여야 합니다."/>
 		<Class ClassID="22831" ClassName="AutoAdjustToMinPrice" Data="최소 가격 단위로 금액이 자동 변경됩니다."/>
 		<Class ClassID="22832" ClassName="CantRegisterEquipItemToEnchant" Data="착용 중인 아이템은 인챈트 아이템으로 각성 시킬 수 없습니다."/>
+		<Class ClassID="22833" ClassName="ItemSoldAtMarket" Data="이미 판매된 아이템 입니다. 수령함을 확인해주세요."/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="22900" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -3424,7 +3433,7 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="25038" ClassName="UseJob" Data="착용 직업"/>
 		<Class ClassID="25039" ClassName="Aries" Data="찌르기류"/>
 		<Class ClassID="25040" ClassName="Slash" Data="베기류"/>
-		<Class ClassID="25041" ClassName="Strike" Data="타격류"/>
+		<Class ClassID="25041" ClassName="Strike" Data="때리기류"/>
 		<Class ClassID="25042" ClassName="Range_Up" Data="범위 증가"/>
 		<Class ClassID="25043" ClassName="ATK_Up" Data="베기류 범위 증가"/>
 		<Class ClassID="25045" ClassName="SkillRange" Data="공격 범위"/>
@@ -3533,10 +3542,10 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="25149" ClassName="MountMATK" Data="마운트시 마법 공격력"/>
 		<Class ClassID="25150" ClassName="AriesDEF" Data="찌르기류 방어력"/>
 		<Class ClassID="25151" ClassName="SlashDEF" Data="베기류 방어력"/>
-		<Class ClassID="25152" ClassName="StrikeDEF" Data="타격류 방어력"/>
+		<Class ClassID="25152" ClassName="StrikeDEF" Data="때리기류 방어력"/>
 		<Class ClassID="25153" ClassName="DefAries" Data="찌르기류 방어력"/>
 		<Class ClassID="25154" ClassName="DefSlash" Data="베기류 방어력"/>
-		<Class ClassID="25155" ClassName="DefStrike" Data="타격류 방어력"/>
+		<Class ClassID="25155" ClassName="DefStrike" Data="때리기류 방어력"/>
 		<Class ClassID="25156" ClassName="ResFire" Data="불 속성 저항력"/>
 		<Class ClassID="25157" ClassName="ResIce" Data="얼음 속성 저항력"/>
 		<Class ClassID="25158" ClassName="ResPoison" Data="독 속성 저항력"/>
@@ -3736,6 +3745,8 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="29745" ClassName="MyRanking" Data="내 랭킹"/>
 		<Class ClassID="29746" ClassName="KillRanking" Data="킬 랭킹"/>
 		<Class ClassID="29747" ClassName="DamageRanking" Data="대미지 랭킹"/>
+		<Class ClassID="29748" ClassName="AlreadyAddrecipe" Data="이미 등록되어 있는 제작서입니다."/>
+		<Class ClassID="29749" ClassName="SuccessAddrecipe" Data="제작서가 등록되었습니다."/>
 	</Category>
 	<Category Name="HelpList">
 		<Class ClassID="29801" ClassName="HelpList" Data="도움말"/>
@@ -3792,6 +3803,7 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="29949" ClassName="FriendDeleteAnswerFail" Data="친구 요청 거절에 실패했습니다."/>
 		<Class ClassID="29950" ClassName="GM_Order_Protected" Data="보호모드 적용"/>
 		<Class ClassID="29951" ClassName="GM_Order_Kick" Data="강제 킥"/>
+		<Class ClassID="29955" ClassName="GM_Order_Move" Data="이동하기"/>
 	</Category>
 	<Category Name="BlackMarket">
 		<Class ClassID="30000" ClassName="Deposit" Data="계약금"/>
@@ -3832,6 +3844,7 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="31028" ClassName="REQ_CANCEL_LEARING_ABIL" Data="특성배우기를 취소하시겠습니까? 사용한 실버는 회수되지 않습니다. "/>
 		<Class ClassID="31029" ClassName="CANCEL_LEARING_ABIL" Data="특성배우기가 취소되었습니다."/>
 		<Class ClassID="31031" ClassName="CanNotItemEquip" Data="착용 할 수 있는 아이템이 아닙니다."/>
+		<Class ClassID="31032" ClassName="CanNotLikeIte" Data="해당 캐릭터는 좋아요를 받을 수 있는 상태가 아닙니다."/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="32001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
@@ -3853,7 +3866,7 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="33512" ClassName="{Killer}Killed{Killee}" Data="{Killer}님이 {Killee}님을 처치했습니다."/>
 		<Class ClassID="33513" ClassName="{Killee}BeKilled{Killer}" Data="{Killee}님이 {Killer}님에게 당했습니다."/>
 		<Class ClassID="33514" ClassName="Observe{PC}" Data="({PC}) 관전하기"/>
-		<Class ClassID="33515" ClassName="ReallyObserveThisGame?" Data="이게임을 관전하시겠습니까?"/>
+		<Class ClassID="33515" ClassName="ReallyObserveThisGame?" Data="이 게임을 관전하시겠습니까?"/>
 		<Class ClassID="33516" ClassName="ShopPoint" Data="구매점수"/>
 		<Class ClassID="33517" ClassName="IfYouCancelGame_TicketIsLost_Continue?" Data="게임을 취소하시면 티켓이 소멸됩니다. 계속하시겠습니까?"/>
 		<Class ClassID="33518" ClassName="TeamBattleLeageHasBegun_JoinByByttonOnTheLeftMinimap" Data="팀 배틀리그가 시작되었습니다. 미니맵 좌측 아이콘을 통해 참여가 가능합니다."/>
@@ -3868,6 +3881,7 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="33527" ClassName="TeamBattleLeagueChampion" Data="팀배틀리그 챔피언"/>
 		<Class ClassID="33528" ClassName="TeamBattleLeagueRank{Rank}" Data="팀배틀리그 {Rank}위"/>
 		<Class ClassID="33529" ClassName="OnlyAbleOver{Rank}" Data="{Rank}랭크 이상만 참여 가능합니다."/>
+		<Class ClassID="33530" ClassName="CannotFightState" Data="상대가 전투 불능 상태입니다."/>
 	</Category>
 	<Category Name="MonInfo">
 		<Class ClassID="34001" ClassName="MonInfo_Size" Data="크기"/>
@@ -6772,7 +6786,7 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="550014" ClassName="marketUpMax" Data="마켓 물품 등록 개수 증가"/>
 		<Class ClassID="550015" ClassName="abilityMax" Data="특성 동시 수련 가능 개수 증가"/>
 		<Class ClassID="550016" ClassName="speedUp" Data="이동 속도 증가"/>
-		<Class ClassID="550017" ClassName="NeedPremiunState" Data="해당 기능을  사용 할 수 있는 혜택을 가지고 있지 않습니다."/>
+		<Class ClassID="550017" ClassName="NeedPremiunState" Data="토큰 혜택이 적용중이지 않아, 개인 거래가 불가능합니다."/>
 		<Class ClassID="550018" ClassName="{Target}DontHavePremiumState" Data="{Target}님이 거래를 할 수 있는 혜택을 가지고 있지 않습니다."/>
 		<Class ClassID="550019" ClassName="CantTradeAbility" Data="거래/매입상점 사용가능"/>
 		<Class ClassID="550020" ClassName="token_expup" Data="몬스터 처치 시 획득 경험치 증가"/>
@@ -6815,6 +6829,9 @@ ClassName="HIDDEN_RUNECASTER_npc1_msg2" Data="아무일도 아니라고 한다"/
 		<Class ClassID="550055" ClassName="Token_ExpUp{PER}" Data="몬스터 처치 시 획득 경험치 증가 "/>
 		<Class ClassID="550056" ClassName="EquipPremiumItem" Data="현재 장착중인 헤어는 구입하실 수 없습니다."/>
 		<Class ClassID="550057" ClassName="TPText{Premium}and{Event}" Data="TP : {Premium}  Event : {Event}"/>
+		<Class ClassID="550058" ClassName="AllowTradeByCount" Data="거래 가능 횟수"/>
+    <Class ClassID="550059" ClassName="RemainTradeCountDoesNotExist" Data="거래 가능 횟수가 남지 않았습니다."/>
+    <Class ClassID="550060" ClassName="RemainTradeCountDoesNotExistOfTarget" Data="대상의 거래 가능 횟수가 남지 않았습니다."/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="600001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

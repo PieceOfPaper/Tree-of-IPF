@@ -33,7 +33,7 @@ function MARKET_TREE_CLICK(parent, ctrl, str, num)
 			local oldObj = tree:GetNodeObject(htreeitem);
 			local gBox = oldObj:GetChild("group");
 			gBox:SetSkinName("base_btn");
-			tree:CloseTreeNode(htreeitem);
+			tree:ShowTreeNode(htreeitem, 0);
 			imcSound.PlaySoundEvent("button_click_roll_close");
 		end
 	end

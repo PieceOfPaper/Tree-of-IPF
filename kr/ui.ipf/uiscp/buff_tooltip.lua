@@ -4,24 +4,46 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	local typeStr = "None";
 	local token_expup = tooltipframe:GetChild("token_expup");
 	local token_staup = tooltipframe:GetChild("token_staup");
+	local token_tradecount = tooltipframe:GetChild("token_tradecount");
 
-	local arg = tonumber(strarg);
-	if ITEM_TOKEN == arg then
+	local buffCls = GetClassByType('Buff', numarg1);
+	local argNum = NONE_PREMIUM;
+	if buffCls.ClassName == "Premium_Nexon" then
+		argNum = NEXON_PC;
+	elseif buffCls.ClassName =="Premium_Token" then
+		argNum = ITEM_TOKEN;
+	end
+
+	if ITEM_TOKEN == argNum then
 		type:SetTextByKey("value", ClMsg("tokenItem"));
 		token_expup:SetTextByKey("value", ScpArgMsg("Token_ExpUp{PER}", "PER", "20%"));
 		token_staup:SetTextByKey("value", ClMsg("AllowPremiumPose"));
-	elseif NEXON_PC == arg then
+
+
+		local accountObj = GetMyAccountObj();
+		local tokenItemCls = GetClassByType("Item", numarg2);
+		if tokenItemCls ~= nil then
+			local tradeCountString = ScpArgMsg("AllowTradeByCount") .. " " .. string.format("(%d/%d)", accountObj.TradeCount, tokenItemCls.NumberArg2);
+			token_tradecount:SetTextByKey("value", tradeCountString);
+			token_tradecount:ShowWindow(1);
+		else
+			token_tradecount:ShowWindow(0);
+		end
+
+	elseif NEXON_PC == argNum then
 		type:SetTextByKey("value", ClMsg("nexon")); 
 		token_staup:SetTextByKey("value", ClMsg("token_setup"));
 		token_expup:SetTextByKey("value", ClMsg("token_expup"));
+		token_tradecount:ShowWindow(0);
+	else
+		token_tradecount:ShowWindow(0);
 	end
 	
 	for i = 0, 3 do 
-		local str = GetCashTypeStr(arg, i)
+		local str, value = GetCashInfo(argNum, i)
 		if nil ~= str then
 			type = tooltipframe:GetChild(str);
 			local normal = GetCashValue(0, str);
-			local value = GetCashValue(arg,str);
 			local txt = "None"
 			if str == "marketSellCom" then
 				normal = normal + 0.01;

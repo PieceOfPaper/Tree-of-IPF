@@ -34,7 +34,7 @@
 		<Code Code="ERRCODE_LOGIC_USE_ZOMBIE_OBJ" CallStack="NO" Desc="좀비 오브젝트를 사용하려고 시도하였습니다. "/>
 		<Code Code="ERRCODE_LOGIC_CALLSTACK_BY_TIME" CallStack="NO" Desc="일정 주기를 두고 기록되도록 설정된 콜스택 입니다. 같은 시간에 남은 다른 로그 정보를 참조하세요."/>
 		<Code Code="ERRCODE_LOGIC_NEXON_SSO" CallStack="NO" Desc="넥슨 SSO를 초기화 하는데 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_NGS" CallStack="NO" Desc="넥슨 NGS를 초기화 하는데 실패하였습니다."/>
+		<Code Code="ERRCODE_LOGIC_NGS" CallStack="NO" Desc="넥슨 NGS 에러"/>
 		<Code Code="ERRCODE_LOGIC_INIT_LIBRARY" CallStack="NO" Desc="라이브러리 초기화에 실패하였습니다. 다음 정보 및 파일 로드 실패 등 이전 로그를 참조하세요."/>
 		<Code Code="ERRCODE_LOGIC_MEMORY_ALLOCATE_FAIL" CallStack="NO" Desc="메모리 할당을 실패하였습니다."/>
 		<Code Code="ERRCODE_LOGIC_MISSION_ROOM" CallStack="NO" Desc="미션 룸 관련 에러가 발생하였습니다. 다음 정보를 참조하세요."/>
@@ -59,6 +59,7 @@
 		<Code Code="ERRCODE_LOGIC_STD_EXCEPTION" CallStack="NO" Desc="std::exception이 발생"/>
 		<Code Code="ERRCODE_LOGIC_FREEMEDAL_TIME" CallStack="NO" Desc="Medal충전이 필요한 상태이지만 충전시간이 셋팅되어있지 않습니다. 2시간뒤로 다시 셋팅합니다."/>
     <Code Code="ERRCODE_LOGIC_IDSPACE_INIT_ERROR" CallStack="YES" Desc="XML에서 IDSpace를 초기화 하는데 실패했습니다."/>
+    <Code Code="ERRCODE_LOGIC_INDUN_AUTOFIND" CallStack="NO" Desc="인던 입장에 실패했습니다."/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>

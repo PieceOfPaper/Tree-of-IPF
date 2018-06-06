@@ -739,7 +739,7 @@ end
 function SCR_Get_Aries_Defence(self)
 
 	local byItem = GetSumOfEquipItem(self, 'AriesDEF');
-	local value = byItem + self.Aries_Defence_BM
+	local value = byItem + self.DefAries_BM;
 	return math.floor(value);
 	
 end
@@ -755,7 +755,7 @@ end
 function SCR_Get_Slash_Defence(self)
 
 	local byItem = GetSumOfEquipItem(self, 'SlashDEF');
-	local value = byItem + self.Slash_Defence_BM
+	local value = byItem + self.DefSlash_BM
 	return math.floor(value);
 	
 end
@@ -771,7 +771,7 @@ end
 function SCR_Get_Strike_Defence(self)
 
 	local byItem = GetSumOfEquipItem(self, 'StrikeDEF');
-	local value = byItem + self.Strike_Defence_BM
+	local value = byItem + self.DefStrike_BM
 	return math.floor(value);
 	
 end

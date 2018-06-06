@@ -3,7 +3,10 @@
     <Game Name="GR_VELNIAS_1_S6_MINI" minLv="0" maxLv="0" startWaitSec="0">
         <StageList>
             <Stage Name="SETTING">
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="154000" Pos="1186.84#254.14#-174.50" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Dialog&apos; &apos;VELNIASP_512_GROUP_3_1&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="154000" Pos="1105.31#360.50#-997.74" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                </ObjList>
             </Stage>
             <Stage Name="FAIL" AutoStart="0">
                 <StartScpList>
@@ -51,7 +54,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_GUILD_RAID_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
+                                <Num Num="6"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -79,6 +82,13 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE_1_PROG"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="SetPos">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+                                <AbsPosRange X="1103.9058" Y="360.49561" Z="-1097.9275" Range="50"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -118,8 +128,9 @@
                     <Event eventName="INI"/>
                     <Event execCount="1" eventName="END">
                         <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE_1_PROG/0"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </condList>
                         <execList>

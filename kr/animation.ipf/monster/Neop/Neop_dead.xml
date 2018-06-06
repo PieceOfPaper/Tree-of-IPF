@@ -3,6 +3,7 @@
 <ActionDesc>
     <BlendOn frame="0" R="50" G="50" B="10" A="30"/>
     <Sound frame="0.00" soundFile="mon_voice_s_dead_1"/>
+    <Sound frame="0.32" soundFile="mon_voice_lecifer_dead"/>
     <Sound frame="6.65" soundFile="mon_voice_throneweaver_9"/>
     <BlendOn frame="10" R="150" G="150" B="100" A="150"/>
     <Particle frame="10" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light002_yellow" useAttach="true" hiddenObj="false" scale="30" pause="true" targetPos="false"/>

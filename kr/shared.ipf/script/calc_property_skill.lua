@@ -180,7 +180,14 @@ function SCR_Get_SpendSP_Bow(skill)
 	end
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
-	local value = basicsp + abilAddSP - decsp
+	local value = basicsp + abilAddSP
+	
+		if IsBuffApplied(pc, 'SteadyAim_Buff') == 'YES' then
+		  local aimSkill = GetSkill(pc, 'Ranger_SteadyAim')
+	    value = value * (0.9 - (0.01 * aimSkill.Level))
+    end
+	
+	  value = value - decsp;
 	
 	if value < 1 then
 		value = 1;
@@ -7181,6 +7188,13 @@ function SCR_Get_SteadyAim_Ratio2(skill)
 
 end
 
+function SCR_Get_SteadyAim_BuffTime(skill)
+
+    local value = 10 + skill.Level
+
+    return value
+
+end
 
 function SCR_Get_Retrieve_Bufftime(skill)
     return 4 + skill.Level;

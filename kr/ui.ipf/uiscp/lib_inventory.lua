@@ -477,7 +477,7 @@ function INVENTORY_SET_ICON_SCRIPT(scriptName, getArgScript)
 		return;
 	end
 
-	INVENTORY_LIST_GET(frame);
+	INVENTORY_UPDATE_ICONS(frame);
 end
 
 function INVENTORY_SET_CUSTOM_RBTNDOWN(scriptName)

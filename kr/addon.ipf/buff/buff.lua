@@ -129,6 +129,9 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 		return
 	end
 	local buff 					= info.GetBuff(tonumber(handle), buffType);
+	if nil == buff then
+		return;
+	end
 
 	if buff.over > 1 then
 		slot:SetText('{s13}{ol}{b}'..buff.over, 'count', 'right', 'bottom', -5, -3);
@@ -157,14 +160,7 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 	
 	if class.ClassName == "Premium_Nexon" or class.ClassName =="Premium_Token" then
 		icon:SetTooltipType('premium');
-		local argNum = 0;
-		if class.ClassName == "Premium_Nexon" then
-			argNum = NEXON_PC;
-		else
-			argNum = ITEM_TOKEN;
-		end
-
-		icon:SetTooltipArg(argNum, buffType, "");
+		icon:SetTooltipArg(handle, buffType, buff.arg1);
 	else
 	icon:SetTooltipType('buff');
 	icon:SetTooltipArg(handle, buffType, "");

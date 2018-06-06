@@ -4,6 +4,17 @@ function MGAME_MSG(actor, msgStr)
     addon.BroadMsg("NOTICE_Dm_!", msgStr, 3);
 end
 
+function MGAME_MSG_SIMPLE(actor, font, msgStr, msgTime)
+
+	local pvpmsg = ui.GetFrame("pvpmsg");
+	pvpmsg:ShowWindow(1);
+	local text = pvpmsg:GetChild("text");
+	text:SetTextByKey("font", font);
+	text:SetTextByKey("text", msgStr);
+	pvpmsg:SetDuration(msgTime);
+
+end
+
 function DEFENCE_FAIL_MSG(arg)
 
 	local failTeamID = tonumber(arg);

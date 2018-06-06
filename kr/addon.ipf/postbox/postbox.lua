@@ -282,7 +282,7 @@ function OPEN_BARRACK_SELECT_PC_FRAME(execScriptName, msgKey)
 		pic:SetImage(headIconName);
 		local name = ctrlSet:GetChild("name");
 		local jobCls = GetClassByType("Job", pcApc:GetJob());
-		local nameText = string.format("%s (%s)", pcApc:GetName(), jobCls.Name);
+		local nameText = string.format("%s{nl}{@st66}%s", pcApc:GetName(), jobCls.Name);
 		ctrlSet:SetUserValue("PC_NAME", pcApc:GetName());
 		name:SetTextByKey("value", nameText);
 

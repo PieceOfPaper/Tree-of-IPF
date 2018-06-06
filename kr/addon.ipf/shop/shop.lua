@@ -2,7 +2,7 @@ function SHOP_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('SHOP_ITEM_LIST_GET', 'SHOP_ON_MSG');
 	addon:RegisterMsg('DIALOG_CLOSE', 'SHOP_ON_MSG');
-	addon:RegisterMsg('INV_ITEM_REMOVE', 'SHOP_ON_MSG');
+	addon:RegisterMsg('INV_ITEM_POST_REMOVE', 'SHOP_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_CHANGE_COUNT', 'SHOP_ON_MSG');
 	addon:RegisterMsg('ESCAPE_PRESSED', 'SHOP_ON_MSG');
 	addon:RegisterMsg('SOLD_ITEM_LIST', 'ON_SOLD_ITEM_LIST');
@@ -72,6 +72,7 @@ function SHOP_UI_CLOSE(frame, obj, argStr, argNum)
 	SHOP_SELECT_ITEM_LIST = {}
 
 	local invenFrame = ui.GetFrame('inventory');
+	INVENTORY_UPDATE_ICONS(invenFrame);
 	if invenFrame:IsVisible() == 1 then
 		invenFrame:ShowWindow(0);
 	end
@@ -374,7 +375,7 @@ function SHOP_SELL(invitem, sellCount, setTotalCount)
 	SHOP_ITEM_LIST_GET(frame);
 	SHOP_UPDATE_BUY_PRICE();
 
-	INVENTORY_TOTAL_LIST_GET(ui.GetFrame('inventory'))
+	INVENTORY_UPDATE_ICON_BY_INVITEM(ui.GetFrame('inventory'), invitem);
 
 end
 
@@ -591,7 +592,7 @@ function CANCEL_SELL(frame, ctrl, argstr, argnum)
 	local invitem = session.GetInvItemByGuid(itemID);
 
 	SHOP_SELECT_ITEM_LIST[itemID] = nil
-	INVENTORY_LIST_GET(ui.GetFrame("inventory"));
+	INVENTORY_UPDATE_ICONS(ui.GetFrame("inventory"));
 
 	CLEAR_SELL_SLOT(slot);
 	SHOP_UPDATE_BUY_PRICE();
@@ -641,12 +642,14 @@ function GET_TOTAL_BUY_PRICE(frame)
 
 		if icon ~= nil then
 			local slotItem = GET_SLOT_ITEM(slot);
-			local itemcls = GetIES(slotItem:GetObject());
+			if slotItem ~= nil then
+				local itemcls = GetIES(slotItem:GetObject());
 
-			if itemcls ~= nil then
-				local cnt = slot:GetUserIValue("SELL_CNT");
-				local itemProp = geItemTable.GetPropByName(itemcls.ClassName);
-				sellprice = sellprice + (geItemTable.GetSellPrice(itemProp) * cnt);
+				if itemcls ~= nil then
+					local cnt = slot:GetUserIValue("SELL_CNT");
+					local itemProp = geItemTable.GetPropByName(itemcls.ClassName);
+					sellprice = sellprice + (geItemTable.GetSellPrice(itemProp) * cnt);
+				end
 			end
 		end
 	end
@@ -700,12 +703,16 @@ function SHOP_ON_MSG(frame, msg, argStr, argNum)
 		ui.CloseFrame('notice');
 	end
 
-	if msg == 'INV_ITEM_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT' then
+	if msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT' then
 		SHOP_ITEM_LIST_GET(frame);
 	end
 
 	if  msg == 'DIALOG_CLOSE' or msg == 'ESCAPE_PRESSED' then
 		local frame     = ui.GetFrame("shop");
+		if frame:IsVisible() == 0 then
+			return;
+		end
+
 		local groupbox  = frame:GetChild('buyitemslot');
 		local buyslotSet	= tolua.cast(groupbox, 'ui::CSlotSet');
 		local buyslotCount = buyslotSet:GetSlotCount();
@@ -733,10 +740,6 @@ function SHOP_ON_MSG(frame, msg, argStr, argNum)
 			end
 		end
 		sellslotSet:ClearIconAll();
-
-		if frame:IsVisible() == 1 then
-			INVENTORY_LIST_GET(ui.GetFrame("inventory"));
-		end
 
 		frame:ShowWindow(0);
 		
@@ -787,7 +790,7 @@ function SHOP_ITEM_SLOT_INIT(frame)
 	end
 
 	if updateInv == true then
-		INVENTORY_LIST_GET(ui.GetFrame("inventory"));
+		INVENTORY_UPDATE_ICONS(ui.GetFrame("inventory"));
 	end
 
 	SHOP_UPDATE_BUY_PRICE();

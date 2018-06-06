@@ -19,11 +19,10 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	gBox:RemoveAllChild();
 	for i = 0 , 3 do
 		local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-		local str = GetCashTypeStr(ITEM_TOKEN, i)
+		local str, value = GetCashInfo(ITEM_TOKEN, i)
 		local prop = ctrlSet:GetChild("prop");
 
 		local normal = GetCashValue(0, str) 
-		local value = GetCashValue(ITEM_TOKEN, str)
 		local txt = "None"
 		if str == "marketSellCom" then
 			normal = normal + 0.01;
@@ -49,6 +48,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		value:SetTextByKey("value", txt); 
 	end
 
+
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 5,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img 20percent_image %d %d}", 55, 45) 
@@ -64,8 +64,24 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	local value = ctrlSet:GetChild("value");
 	value:ShowWindow(0);
 
-	GBOX_AUTO_ALIGN(gBox, 0, 3, 0, true, true);
 	local itemobj = GetIES(invItem:GetObject());
+
+	if string.find(itemobj.ClassName, "PremiumToken") ~= nil then
+		local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_TOKEN_TRADECOUNT",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local prop = GET_CHILD(ctrlSet, "prop");
+		local value = GET_CHILD(ctrlSet, "value");
+		local img = string.format("{img dealok_image %d %d}", 55, 45) 
+		prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
+		value:SetTextByKey("value", itemobj.NumberArg2);
+	else
+		gbox:RemoveChild("CTRLSET_TOKEN_TRADECOUNT");	
+	end	
+
+
+	GBOX_AUTO_ALIGN(gBox, 0, 3, 0, true, true);
+
+
+	
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
 		arg1 = 2592000

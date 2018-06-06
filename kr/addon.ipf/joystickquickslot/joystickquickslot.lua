@@ -186,7 +186,7 @@ function JOYSTICK_QUICKSLOT_ON_MSG(frame, msg, argStr, argNum)
 	end
 
 	-- 아이템 슬롯 비활성에 대해서 체크 한다
-	if msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT'then
+	if msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT'then
 		-- 퀵슬롯의 Icon 정보를 확인하고 Category가 'Item'인 목록을 찾아 개수를 파악 한다.
 		local quickSlotList = session.GetQuickSlotList();		-- 퀵슬롯 리스트 정보를 가지고 온다
 		for i = 0, MAX_QUICKSLOT_CNT-1 do

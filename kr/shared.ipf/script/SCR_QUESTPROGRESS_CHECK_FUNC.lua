@@ -146,32 +146,37 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
     
     
     if #zoneClassNameList > 0 then
+        local removeMonList = {"Silvertransporter_Qm"}
         for y = 1, #zoneClassNameList do
             local targetZone = zoneClassNameList[y]
             local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(targetZone, 'Monster', 'Normal/Material/Elite')
             local accMax = 0
             if #targetMonList > 0 then
                 for i = 1, #targetMonList do
-                    local basicTime = 30
-                    local genTiem = 2
-                    local maxPop = targetMonList[i][2]
-                    local anotherPC = 7
-                    local maxMonCount =  basicTime / genTiem * maxPop
-                    local killCount =  math.floor(maxMonCount / anotherPC)
-                    
---                    if killCount >= 140 then
---                        killCount = 139
---                    elseif killCount >= 100 then
---                        killCount = math.floor(killCount * 0.7)
---                    elseif killCount >= 50 then
---                        killCount = math.floor(killCount * 0.8)
---                    end
-                    
-                    if killCount > 0 and killCount < 110 then
-                        monList[#monList + 1] = {}
-                        monList[#monList][1] = targetMonList[i][1]
-                        monList[#monList][2] = killCount
-                        monList[#monList][3] = targetZone
+                    if table.find(removeMonList, targetMonList[i][1]) == 0 then
+                        local basicTime = 30
+                        local genTiem = 2
+                        local maxPop = targetMonList[i][2]
+                        local anotherPC = 10
+                        local maxMonCount =  basicTime / genTiem * maxPop
+                        local killCount =  math.floor(maxMonCount / anotherPC)
+                        
+                        local monRank = GetClassString('Monster', targetMonList[i][1], 'MonRank')
+                        if monRank == 'Elite' then
+                            killCount = math.floor(killCount / 3)
+                            if killCount < 2 then
+                                killCount = 2
+                            elseif killCount >= 10 then
+                                killCount = 9
+                            end
+                        end
+                        
+                        if killCount > 0 and killCount < 110 then
+                            monList[#monList + 1] = {}
+                            monList[#monList][1] = targetMonList[i][1]
+                            monList[#monList][2] = killCount
+                            monList[#monList][3] = targetZone
+                        end
                     end
                 end
             end

@@ -98,10 +98,10 @@ function SHOW_PC_CONTEXT_MENU(handle)
 		local context = ui.CreateContextMenu("PC_CONTEXT_MENU", pcObj:GetPCApc():GetFamilyName(), 0, 0, 170, 100);
 		-- 여기에 캐릭터 정보보기, 로그아웃PC관련 메뉴 추가하면됨
 		local strWhisperScp = string.format("ui.WhisperTo('%s')", pcObj:GetPCApc():GetFamilyName());
-	--if "None" ~= accountObj.TokenTime then
-	--	local strScp = string.format("exchange.RequestChange(%d)", pcObj:GetHandleVal());
-	--	ui.AddContextMenuItem(context, ClMsg("Exchange"), strScp);
-	--end
+		if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+			local strScp = string.format("exchange.RequestChange(%d)", pcObj:GetHandleVal());
+			ui.AddContextMenuItem(context, ClMsg("Exchange"), strScp);
+		end
 		ui.AddContextMenuItem(context, ClMsg("WHISPER"), strWhisperScp);
 
 	--if partyinfo ~= nil then
@@ -137,8 +137,8 @@ function SHOW_PC_CONTEXT_MENU(handle)
 
 		-- 보호모드, 강제킥
 		if 1 == session.IsGM() then
-			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Protected"), string.format("REQUEST_GM_ORDER_PROTECTED(\"%d\")", pcObj:GetHandleVal()));
-			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Kick"), string.format("REQUEST_GM_ORDER_KICK(\"%d\")", pcObj:GetHandleVal()));
+			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Protected"), string.format("REQUEST_GM_ORDER_PROTECTED(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
+			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Kick"), string.format("REQUEST_GM_ORDER_KICK(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 		end
 
 
@@ -150,12 +150,12 @@ function SHOW_PC_CONTEXT_MENU(handle)
 
 end
 
-function REQUEST_GM_ORDER_PROTECTED(handle)
-	packet.RequestGmOrderMsg(handle, 'protected');
+function REQUEST_GM_ORDER_PROTECTED(teamName)
+	packet.RequestGmOrderMsg(teamName, 'protected');
 end
 
-function REQUEST_GM_ORDER_KICK(handle)
-	packet.RequestGmOrderMsg(handle, 'kick');
+function REQUEST_GM_ORDER_KICK(teamName)
+	packet.RequestGmOrderMsg(teamName, 'kick');
 end
 
 function REQUEST_FIGHT(handle)

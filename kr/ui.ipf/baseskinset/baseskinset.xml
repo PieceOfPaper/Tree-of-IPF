@@ -1575,6 +1575,39 @@
 			<img name="bottomcore" imgrect="1939 449 78 15"/>
 			<img name="bottomright" imgrect="2018 449 30 15"/>
 		</skin>
+		<skin name="tab2_btn_2" texture="\skin\pip_test.tga">
+			<img name="topleft" imgrect="1908 424 30 20"/>
+			<img name="topcore" imgrect="1939 424 78 20"/>
+			<img name="topright" imgrect="2018 424 30 20"/>
+			<img name="bodyleft" imgrect="1908 444 30 5"/>
+			<img name="bodycore" imgrect="1939 444 78 5"/>
+			<img name="bodyright" imgrect="2018 444 30 5"/>
+			<img name="bottomleft" imgrect="1908 449 30 15"/>
+			<img name="bottomcore" imgrect="1939 449 78 15"/>
+			<img name="bottomright" imgrect="2018 449 30 15"/>
+		</skin>
+		<skin name="tab2_btn_2_cursoron" texture="\skin\pip_test.tga">
+			<img name="topleft" imgrect="1908 424 30 20"/>
+			<img name="topcore" imgrect="1939 424 78 20"/>
+			<img name="topright" imgrect="2018 424 30 20"/>
+			<img name="bodyleft" imgrect="1908 444 30 5"/>
+			<img name="bodycore" imgrect="1939 444 78 5"/>
+			<img name="bodyright" imgrect="2018 444 30 5"/>
+			<img name="bottomleft" imgrect="1908 449 30 15"/>
+			<img name="bottomcore" imgrect="1939 449 78 15"/>
+			<img name="bottomright" imgrect="2018 449 30 15"/>
+		</skin>
+		<skin name="tab2_btn_2_clicked" texture="\skin\pip_test.tga">
+			<img name="topleft" imgrect="1908 424 30 20"/>
+			<img name="topcore" imgrect="1939 424 78 20"/>
+			<img name="topright" imgrect="2018 424 30 20"/>
+			<img name="bodyleft" imgrect="1908 444 30 5"/>
+			<img name="bodycore" imgrect="1939 444 78 5"/>
+			<img name="bodyright" imgrect="2018 444 30 5"/>
+			<img name="bottomleft" imgrect="1908 449 30 15"/>
+			<img name="bottomcore" imgrect="1939 449 78 15"/>
+			<img name="bottomright" imgrect="2018 449 30 15"/>
+		</skin>
 		<skin name="fullblack_bg" texture="\icon\fullblack.bmp">
 			<img name="topleft" imgrect="0 0 64 64"/>
 			<img name="topcore" imgrect="0 0 64 64"/>
@@ -2623,6 +2656,50 @@
 			<img name="bottomleft" imgrect="895 455 30 30"/>
 			<img name="bottomcore" imgrect="926 455 30 30"/>
 			<img name="bottomright" imgrect="957 455 30 30"/>
+		</skin>
+	<skin name="premium_skin" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1689 575 102 70"/>
+			<img name="topcore" imgrect="1792 575 150 70"/>
+			<img name="topright" imgrect="1943 575 105 70"/>
+			<img name="bodyleft" imgrect="1689 646 102 50"/>
+			<img name="bodycore" imgrect="1792 646 150 50"/>
+			<img name="bodyright" imgrect="1943 646 105 50"/>
+			<img name="bottomleft" imgrect="1689 698 102 50"/>
+			<img name="bottomcore" imgrect="1792 698 150 50"/>
+			<img name="bottomright" imgrect="1943 698 105 50"/>
+		</skin>
+		<skin name="premium_title_line" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1689 520 102 1"/>
+			<img name="topcore" imgrect="1792 520 150 1"/>
+			<img name="topright" imgrect="1943 520 105 1"/>
+			<img name="bodyleft" imgrect="1689 522 102 47"/>
+			<img name="bodycore" imgrect="1792 522 150 47"/>
+			<img name="bodyright" imgrect="1943 522 105 47"/>
+			<img name="bottomleft" imgrect="1689 570 102 1"/>
+			<img name="bottomcore" imgrect="1792 570 150 1"/>
+			<img name="bottomright" imgrect="1943 570 105 1"/>
+		</skin>
+		<skin name="premium_case_skin" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1505 917 35 35"/>
+			<img name="topcore" imgrect="1541 917 35 35"/>
+			<img name="topright" imgrect="1577 917 35 35"/>
+			<img name="bodyleft" imgrect="1505 953 35 35"/>
+			<img name="bodycore" imgrect="1541 953 35 35"/>
+			<img name="bodyright" imgrect="1577 953 35 35"/>
+			<img name="bottomleft" imgrect="1505 989 35 35"/>
+			<img name="bottomcore" imgrect="1541 989 35 35"/>
+			<img name="bottomright" imgrect="1577 989 35 35"/>
+		</skin>
+	<skin name="earth_T_shop_skin" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1796 317 50 50"/>
+			<img name="topcore" imgrect="1847 317 150 50"/>
+			<img name="topright" imgrect="1998 317 50 50"/>
+			<img name="bodyleft" imgrect="1796 368 50 100"/>
+			<img name="bodycore" imgrect="1847 368 150 100"/>
+			<img name="bodyright" imgrect="1998 367 50 100"/>
+			<img name="bottomleft" imgrect="1796 469 50 50"/>
+			<img name="bottomcore" imgrect="1847 469 150 50"/>
+			<img name="bottomright" imgrect="1998 469 50 50"/>
 		</skin>
 	</skinlist>
 	<skinlist category="buttons">
@@ -3971,6 +4048,7 @@
 		<image name="greengemslot_image" file="\skin\pip_test_item.tga" imgrect="962 883 70 70" CMM_Caption="그린젬슬롯"/>
 		<image name="redgemslot_image" file="\skin\pip_test_item.tga" imgrect="1033 883 70 70" CMM_Caption="레드젬슬롯"/>
 		<image name="freegemslot_image" file="\skin\pip_test_item.tga" imgrect="915 713 70 70" CMM_Caption="프리젬슬롯"/>
+		<image name="premium_item_bg" file="\skin\pip_test_item.tga" imgrect="1631 752  417 272" CMM_Caption="프리미엄아이템배경"/>
 		<image name="one_two_star_item_bg" file="\skin\pip_test_item.tga" imgrect="0 0 417 272" CMM_Caption="노말아이템배경"/>
 		<image name="three_star_item_bg" file="\skin\pip_test_item.tga" imgrect="418 0 417 272" CMM_Caption="푸른색아이템배경"/>
 		<image name="four_star_item_bg" file="\skin\pip_test_item.tga" imgrect="0 273 417 272" CMM_Caption="보라색아이템배경"/>
@@ -4142,6 +4220,13 @@
 		<image name="M_message_open" file="\skin\barrack.tga" imgrect="1493 721 30 30"/>
 		<image name="M_message_Unopen" file="\skin\barrack.tga" imgrect="1524 721 30 30"/>
 	<image name="pvp_teamrank_bg" file="\skin\PVP_skin.tga" imgrect="668 65 38 30"/>
+	<image name="inventory_hat_layer_off" file="\skin\pip_test.tga" imgrect="596 888 20 20" CMM_Caption="인벤헤어_꺼짐"/>
+		<image name="inven_hat_layer_on" file="\skin\pip_test.tga" imgrect="596 909 20 20" CMM_Caption="인벤헤어_켜짐"/>
+	<image name="guild_event_indeon" file="\icon\icon_guild_event.tga" imgrect="0 0 80 80" CMM_Caption="길드이벤트_인던디펜스"/>
+		<image name="guild_event_raid" file="\icon\icon_guild_event.tga" imgrect="81 0 80 80" CMM_Caption="길드이벤트_레이드"/>
+		<image name="guild_event_bosshunting" file="\icon\icon_guild_event.tga" imgrect="162 0 80 80" CMM_Caption="길드이벤트_보스사냥"/>
+		<image name="guild_event_oenamu" file="\icon\icon_guild_event.tga" imgrect="234 0 80 80" CMM_Caption="길드이벤트_외나무다리"/>
+		<image name="guild_event_start" file="\skin\pip_test.tga" imgrect="403 625 35 30" CMM_Caption="스타트버튼화살표"/>
 	</imagelist>
 	<imagelist category="tutorial_img">
 		<image name="tutr_img_btn_left" file="\skin\mainframe_04.tga" imgrect="371 448 44 44"/>
@@ -5651,6 +5736,9 @@
 	<image name="Dlg_port_melanymelakhim" file="\npcimg\melanymelakhim.png" imgrect="0 0 700 1000" CMM_Caption="워록마스터"/>
 		<image name="Dlg_port_SorshaHutton" file="\npcimg\SorshaHutton.png" imgrect="0 0 800 1000" CMM_Caption="펜서마스터"/>
 		<image name="Dlg_port_ValeskaHimil" file="\npcimg\ValeskaHimil.png" imgrect="0 0 800 950" CMM_Caption="드라군마스터"/>
+	<image name="Dlg_port_ShellyPennington" file="\npcimg\ShellyPennington.png" imgrect="0 0 850 900" CMM_Caption="룬캐스터마스터"/>
+		<image name="Dlg_port_KiolRuarawa" file="\npcimg\KiolRuarawa.png" imgrect="0 0 900 900" CMM_Caption="페더풋마스터"/>
+		<image name="Dlg_port_Herkus" file="\npcimg\Herkus.png" imgrect="0 0 700 1000" CMM_Caption="크리비마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>

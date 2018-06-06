@@ -19,8 +19,7 @@ function MARKET_SELL_OPEN(frame)
 	for i = 0 , cnt - 1 do
 		local time, free = GetMarketTimeAndTP(i);
 		local day = 0;
-		local listType = nil;
-		listType = ScpArgMsg("MarketTime{Time}{FREE}","Time", time, "FREE", free);
+		local listType = ScpArgMsg("MarketTime{Time}{FREE}","Time", time, "FREE", free);
 		droplist:AddItem(time, "{s16}{b}{ol}"..listType);
 	end
 	droplist:SelectItem(0);
@@ -163,7 +162,10 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		local noTradeCnt = TryGetProp(obj, "BelongingCount");
 		local tradeCount = invItem.count
 		if nil ~= noTradeCnt and 0 < tonumber(noTradeCnt) then
-			local wareItem = session.GetWarehouseItemByType(obj.ClassID);
+		local wareItem = nil 
+		if obj.MaxStack > 1 then
+			wareItem = session.GetWarehouseItemByType(obj.ClassID);
+		end
 			local wareCnt = 0;
 			if nil ~= wareItem then
 				wareCnt = wareItem.count;
@@ -406,7 +408,10 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local noTradeCnt = TryGetProp(obj, "BelongingCount");
 	local tradeCount = invitem.count
 	if nil ~= noTradeCnt and 0 < tonumber(noTradeCnt) then
-		local wareItem = session.GetWarehouseItemByType(obj.ClassID);
+		local wareItem = nil;
+		if obj.MaxStack > 1 then
+			wareItem =session.GetWarehouseItemByType(obj.ClassID);
+		end
 		local wareCnt = 0;
 		if nil ~= wareItem then
 			wareCnt = wareItem.count;
@@ -424,7 +429,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 
 
-	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, selecIndex);
+	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, needTime);
 	
 	commission = math.floor(commission);
 	if commission <= 0 then

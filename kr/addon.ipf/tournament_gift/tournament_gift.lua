@@ -1,7 +1,7 @@
 
 function TOURNAMENT_GIFT_ON_INIT(addon, frame)
 	
-	addon:RegisterOpenOnlyMsg('INV_ITEM_REMOVE', 'TOURNA_GIFT_ITEM_CNT');
+	addon:RegisterOpenOnlyMsg('INV_ITEM_POST_REMOVE', 'TOURNA_GIFT_ITEM_CNT');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_CHANGE_COUNT', 'TOURNA_GIFT_ITEM_CNT');
 	addon:RegisterOpenOnlyMsg('GIVE_ITEM_COMPLETE', 'ON_GIVE_ITEM_COMPLETE');
 	

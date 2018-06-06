@@ -826,7 +826,15 @@
             <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
                 <Num Num="50"/>
             </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+            </ToolScp>
         </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
     </AI>
     <AI Name="CASTLE65_3_MQ07_P" ActiveMessageMapInBattle="1">
         <List>
@@ -2332,6 +2340,7 @@
     <AI Name="Dievdirbys_Laima" UpdateMS="5000" ActiveMessageMapInBattle="1">
         <List>
         <ToolScp Scp="S_AI_CEHCK_LIFE_TIME_AND_REMOVE_PAD" Client="NO" UseSleep="NO">
+          <Num Num="5000"/>
           <Str Str="Cleric_Laima"/>
         </ToolScp>
       </List>
@@ -2395,6 +2404,12 @@
         </List>
     </AI>
     <AI Name="Dievdirbys_Romuva" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CEHCK_LIFE_TIME_AND_REMOVE_PAD" Client="NO" UseSleep="NO">
+                <Num Num="500"/>
+                <Str Str="Cleric_Romuva"/>
+            </ToolScp>
+        </List>
         <DeadList>
             <ToolScp Scp="SAI_DEAD_REMOVE_PAD" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
@@ -2410,6 +2425,12 @@
         </StartList>
     </AI>
     <AI Name="Dievdirbys_Romuva_abil" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CEHCK_LIFE_TIME_AND_REMOVE_PAD" Client="NO" UseSleep="NO">
+                <Num Num="500"/>
+                <Str Str="Cleric_Romuva_abil"/>
+            </ToolScp>
+        </List>
         <DeadList>
             <ToolScp Scp="SAI_DEAD_REMOVE_PAD" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
@@ -2425,6 +2446,12 @@
         </StartList>
     </AI>
     <AI Name="Dievdirbys_Zemina" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CEHCK_LIFE_TIME_AND_REMOVE_PAD" Client="NO" UseSleep="NO">
+                <Num Num="1000"/>
+                <Str Str="Cleric_Zemina"/>
+            </ToolScp>
+        </List>
         <DeadList>
             <ToolScp Scp="SAI_DEAD_REMOVE_PAD" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
@@ -12367,7 +12394,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                 <Exec>
                     <ToolScp Scp="SH_USE_PCSKILL" Client="NO" UseSleep="NO">
                         <Str Str="Ranger_SpiralArrow"/>
-                        <Num Num="5"/>
+                        <Num Num="3"/>
                         <Num Num="1"/>
                     </ToolScp>
                 </Exec>

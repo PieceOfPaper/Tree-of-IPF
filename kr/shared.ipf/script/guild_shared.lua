@@ -1,4 +1,4 @@
-
+﻿
 
 
 function GET_GELE_MODELITEM(seedCls, obj)
@@ -164,7 +164,7 @@ end
 
 function GET_GUILD_MAKE_PRICE()
 
-	return 10000000;
+	return 1000000;
 
 end
 

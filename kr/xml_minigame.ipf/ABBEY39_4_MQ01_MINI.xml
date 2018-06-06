@@ -60,21 +60,30 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="155042" Pos="1066.40#131.13#-772.12" genCount="1" genTime="20000" objectKey="5" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;Lv&apos; &apos;180&apos; &apos;Name&apos; &apos;선임 수도사 거스&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;ClassName&apos; &apos;npc_friar_01&apos; ">
+                    <Obj Type="Monster" MonType="58290" Pos="1066.40#131.13#-772.12" genCount="1" genTime="20000" objectKey="5" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;Lv&apos; &apos;180&apos; &apos;Name&apos; &apos;선임 수도사 거스&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;PATK_BM&apos; &apos;-99999&apos; &apos;MATK_BM&apos; &apos;-99999&apos; &apos;CRTATK_BM&apos; &apos;-99999&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
                                     <Num Num="50"/>
                                 </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
                             </List>
                             <DeadList>
                                 <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                                    <Str Str="SCR_ABBEY394_MQ_FAIL"/>
+                                    <Str Str="SCR_ABBEY39_4_MQ01_D_FAIL"/>
                                 </ToolScp>
                             </DeadList>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_MGAME_PC_OWNER" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_ABBEY394_MQ_01_F"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
@@ -88,21 +97,30 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="147405" Pos="1123.00#108.77#-769.00" angle="173" genCount="1" genTime="20000" objectKey="7" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;Lv&apos; &apos;180&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;28&apos; &apos;Name&apos; &apos;헌터 추적대장 민츠&apos; " SimpleAI="ABBEY394_MQ02_1">
+                    <Obj Type="Monster" MonType="58293" Pos="1123.00#108.77#-769.00" angle="173" genCount="1" genTime="20000" objectKey="7" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;Lv&apos; &apos;180&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;28&apos; &apos;Name&apos; &apos;헌터 추적대장 민츠&apos; &apos;CRTATK_BM&apos; &apos;-99999&apos; &apos;MATK_BM&apos; &apos;-99999&apos; &apos;PATK_BM&apos; &apos;-99999&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
                                     <Num Num="50"/>
                                 </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
                             </List>
                             <DeadList>
                                 <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                                    <Str Str="SCR_ABBEY394_MQ_FAIL"/>
+                                    <Str Str="SCR_ABBEY39_4_MQ01_D_FAIL"/>
                                 </ToolScp>
                             </DeadList>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_MGAME_PC_OWNER" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_ABBEY394_MQ_01_F"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
@@ -116,22 +134,26 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57037" Pos="1122.00#109.16#-747.00" angle="-168" genCount="1" genTime="20000" objectKey="8" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;Lv&apos; &apos;180&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;Name&apos; &apos;크로이처&apos; ">
+                    <Obj Type="Monster" MonType="57037" Pos="1122.00#109.16#-747.00" angle="-168" genCount="1" genTime="20000" objectKey="8" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;Lv&apos; &apos;180&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;Name&apos; &apos;크로이처&apos; &apos;PATK_BM&apos; &apos;-99999&apos; &apos;MATK_BM&apos; &apos;-99999&apos; &apos;CRTATK_BM&apos; &apos;-99999&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
                                     <Num Num="50"/>
                                 </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                                    <Str Str="SCR_ABBEY394_MQ_FAIL"/>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
                                 </ToolScp>
-                            </DeadList>
+                            </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
                                     <MGameObjPtr List="SET/7"/>
                                     <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_ABBEY394_MQ_01_F"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
                                     <Num Num="0"/>
@@ -213,8 +235,13 @@
                                 <Str Str="abbey394_01"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="abbey394_01q"/>
+                                <Num Num="0"/>
+                            </ToolScp>
                         </execList>
                     </Event>
+                    <Event/>
                 </StageEvents>
             </Stage>
             <Stage Name="Stage1" AutoStart="0">
@@ -223,19 +250,12 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_WITH" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                             </List>
-                            <DeadList>
-                                <ToolScp Scp="SAI_DEAD_SOBJ_TEAM" Client="NO" UseSleep="NO">
-                                    <Str Str="SSN_ABBEY39_4_MQ01"/>
-                                    <Str Str="QuestInfoValue1"/>
-                                    <Num Num="1"/>
-                                </ToolScp>
-                            </DeadList>
                             <StartList>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="866.48175" Y="144.85429" Z="80.153122"/>
+                                    <AbsPos X="895.49323" Y="144.85426" Z="95.573563"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -243,23 +263,16 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57665" Pos="748.50#144.85#287.92" genCount="1" genTime="20000" objectKey="1" tendency="1">
+                    <Obj Type="Monster" MonType="57665" Pos="821.04#144.85#277.88" genCount="1" genTime="20000" objectKey="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_WITH" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                             </List>
-                            <DeadList>
-                                <ToolScp Scp="SAI_DEAD_SOBJ_TEAM" Client="NO" UseSleep="NO">
-                                    <Str Str="SSN_ABBEY39_4_MQ01"/>
-                                    <Str Str="QuestInfoValue1"/>
-                                    <Num Num="1"/>
-                                </ToolScp>
-                            </DeadList>
                             <StartList>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="842.47137" Y="144.85429" Z="75.217369"/>
+                                    <AbsPos X="895.49323" Y="144.85426" Z="95.573563"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -271,43 +284,12 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_WITH" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                             </List>
-                            <DeadList>
-                                <ToolScp Scp="SAI_DEAD_SOBJ_TEAM" Client="NO" UseSleep="NO">
-                                    <Str Str="SSN_ABBEY39_4_MQ01"/>
-                                    <Str Str="QuestInfoValue1"/>
-                                    <Num Num="1"/>
-                                </ToolScp>
-                            </DeadList>
                             <StartList>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="933.56726" Y="144.85429" Z="89.690018"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57665" Pos="819.67#144.85#283.56" genCount="1" genTime="20000" objectKey="3" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_WITH" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="SAI_DEAD_SOBJ_TEAM" Client="NO" UseSleep="NO">
-                                    <Str Str="SSN_ABBEY39_4_MQ01"/>
-                                    <Str Str="QuestInfoValue1"/>
-                                    <Num Num="1"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="896.8028" Y="144.85429" Z="91.298096"/>
+                                    <AbsPos X="895.49323" Y="144.85426" Z="95.573563"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -319,19 +301,12 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_WITH" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                             </List>
-                            <DeadList>
-                                <ToolScp Scp="SAI_DEAD_SOBJ_TEAM" Client="NO" UseSleep="NO">
-                                    <Str Str="SSN_ABBEY39_4_MQ01"/>
-                                    <Str Str="QuestInfoValue1"/>
-                                    <Num Num="1"/>
-                                </ToolScp>
-                            </DeadList>
                             <StartList>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="968.64172" Y="144.85429" Z="104.75992"/>
+                                    <AbsPos X="895.49323" Y="144.85426" Z="95.573563"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -343,19 +318,12 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_WITH" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                             </List>
-                            <DeadList>
-                                <ToolScp Scp="SAI_DEAD_SOBJ_TEAM" Client="NO" UseSleep="NO">
-                                    <Str Str="SSN_ABBEY39_4_MQ01"/>
-                                    <Str Str="QuestInfoValue1"/>
-                                    <Num Num="1"/>
-                                </ToolScp>
-                            </DeadList>
                             <StartList>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="1009.6882" Y="144.85429" Z="88.331757"/>
+                                    <AbsPos X="895.49323" Y="144.85426" Z="95.573563"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -367,43 +335,12 @@
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_WITH" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                             </List>
-                            <DeadList>
-                                <ToolScp Scp="SAI_DEAD_SOBJ_TEAM" Client="NO" UseSleep="NO">
-                                    <Str Str="SSN_ABBEY39_4_MQ01"/>
-                                    <Str Str="QuestInfoValue1"/>
-                                    <Num Num="1"/>
-                                </ToolScp>
-                            </DeadList>
                             <StartList>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="1042.9301" Y="144.85429" Z="89.030945"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57665" Pos="1149.12#144.85#283.49" genCount="1" genTime="20000" objectKey="7">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_WITH" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="SAI_DEAD_SOBJ_TEAM" Client="NO" UseSleep="NO">
-                                    <Str Str="SSN_ABBEY39_4_MQ01"/>
-                                    <Str Str="QuestInfoValue1"/>
-                                    <Num Num="1"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="1030.973" Y="144.85429" Z="71.496216"/>
+                                    <AbsPos X="895.49323" Y="144.85426" Z="95.573563"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -491,9 +428,7 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_EXEC_SSN_ADD" Client="NO" UseSleep="NO">
-                                <Str Str="SSN_ABBEY39_4_MQ01"/>
-                                <Str Str="QuestInfoValue2"/>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
                             </ToolScp>
                         </execList>

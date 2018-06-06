@@ -85,7 +85,10 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 			local noTrade = TryGetProp(obj, "BelongingCount");
 			local tradeCount = invItem.count;
 			if nil ~= noTrade then
-				local wareItem = session.GetWarehouseItemByType(obj.ClassID);
+				local wareItem = nil;
+				if obj.MaxStack > 1 then
+					wareItem = session.GetWarehouseItemByType(obj.ClassID);
+				end
 				local wareCnt = 0;
 				if nil ~= wareItem then
 					wareCnt = wareItem.count;
@@ -122,7 +125,10 @@ function EXCHANGE_INV_RBTN(itemobj, slot)
 	local noTradeCnt = TryGetProp(obj, "BelongingCount");
 	local tradeCount = item.count;
 	if noTradeCnt ~= nil then
-		local wareItem = session.GetWarehouseItemByType(obj.ClassID);
+		local wareItem = nil;
+		if obj.MaxStack > 1 then
+			wareItem = session.GetWarehouseItemByType(obj.ClassID);
+		end
 	local wareCnt = 0;
 		if nil ~= wareItem then
 			wareCnt = wareItem.count;
@@ -167,7 +173,10 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 		local noTrade = TryGetProp(obj, "BelongingCount");
 		local tradeCount = item.count;
 		if nil ~= noTrade then
-			local wareItem = session.GetWarehouseItemByType(obj.ClassID);
+			local wareItem = nil 
+			if obj.MaxStack > 1 then
+				wareItem = session.GetWarehouseItemByType(obj.ClassID);
+			end
 			local wareCnt = 0;
 			if nil ~= wareItem then
 				wareCnt = wareItem.count;
@@ -224,7 +233,10 @@ function EXCHANGE_ON_DROP(frame, control, argStr, argNum)
 		local noTradeCnt = TryGetProp(obj, "BelongingCount");
 		local tradeCount = item.count;
 		if noTradeCnt ~= nil then
-			local wareItem = session.GetWarehouseItemByType(obj.ClassID);
+			local wareItem = nil
+			if obj.MaxStack > 1 then
+				wareItem = session.GetWarehouseItemByType(obj.ClassID);
+			end
 		local wareCnt = 0;
 			if nil ~= wareItem then
 				wareCnt = wareItem.count;
@@ -281,7 +293,18 @@ function EXCHANGE_INIT_SLOT(frame)
 end 
 
 function EXCHANGE_MSG_START(frame, msg, argStr, argNum)
- 
+
+	local cls = GetClass("Item", "Vis");
+	if cls.UserTrade == "NO" then
+		local mybgGbox = frame:GetChild("mybgGbox");
+		SHOW_CHILD_BYNAME(mybgGbox, "editbox", 0);
+		SHOW_CHILD_BYNAME(mybgGbox, "visEdit", 0);
+		SHOW_CHILD_BYNAME(mybgGbox, "mysilver", 0);
+		SHOW_CHILD_BYNAME(mybgGbox, "myVis", 0);
+		local opbgGbox = frame:GetChild("opbgGbox");
+		SHOW_CHILD_BYNAME(opbgGbox, "opponentVis", 0);
+	end
+
 	EXCHANGE_INIT_SLOT(frame);
 	EXCHANGE_RESET_AGREE_BUTTON(frame);
 	

@@ -3,7 +3,10 @@
     <Game Name="GR_VELNIAS_1_S8_MINI" minLv="0" maxLv="0" startWaitSec="0">
         <StageList>
             <Stage Name="SETTING">
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="154000" Pos="-858.26#587.55#569.04" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Dialog&apos; &apos;VELNIASP_514_GROUP_2_1&apos; "/>
+                    <Obj Type="Monster" MonType="154000" Pos="-685.00#334.40#570.11" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                </ObjList>
             </Stage>
             <Stage Name="FAIL" AutoStart="0">
                 <StartScpList>

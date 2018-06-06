@@ -362,6 +362,7 @@
 	<Trail name="dash004" texture="dash004" height="4.00" texel_x="128" texel_y="128" texel_width="64" texel_height="64"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="1040" texel_height="640"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="poison_pot" model="poison_pot.xac" motion="None" texturepath="char_texture_low\monster\poison_pot\" overlap="false"/>
 	<Model name="rune_stone_Tiwaz" model="rune_stone_Tiwaz.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="rune_stone_Thurisaz" model="rune_stone_Thurisaz.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="rune_stone_Algiz" model="rune_stone_Algiz.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>
@@ -1068,8 +1069,8 @@
 	<Model name="Model_2" model="wpn_mon_bonegangshi_sword.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="sample_sphere" model="sample_sphere.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="monster_lecifer_event" model="monster_lecifer_event.xac" motion="monster_lecifer_event_ani.xsm" texturepath="char_texture\monster\lecifer\" overlap="true"/>
-	<Model name="npc_zachariel_lantern_event" model="npc_zachariel_lantern_set.xac" motion="npc_zachariel_lantern_ani.xsm" texturepath="char_texture\npc\npc_zachariel_lantern" overlap="true"/>
-	<Model name="zacharial_desk_deadparts" model="zacharial_desk_deadparts.xac" motion="zacharial_desk_deadparts_ani.xsm" texturepath="char_texture\npc\npc_zacharial_desk" overlap="true"/>
+	<Model name="npc_zachariel_lantern_event" model="npc_zachariel_lantern_set.xac" motion="npc_zachariel_lantern_ani.xsm" texturepath="char_texture\npc\npc_zachariel_lantern\" overlap="true"/>
+	<Model name="zacharial_desk_deadparts" model="zacharial_desk_deadparts.xac" motion="zacharial_desk_deadparts_ani.xsm" texturepath="char_texture\npc\npc_zacharial_desk\" overlap="true"/>
 	<Model name="monster_rondo_skl" model="monster_rondo_set.xac" motion="monster_rondo_skl_ani.xsm" texturepath="char_texture\monster\rondo\" overlap="true"/>
 	<Model name="Huevillage_altar" model="Huevillage_altar.xac" motion="Huevillage_altar_ani.xsm" texturepath="char_texture\npc\Huevillage_Altar\" overlap="true"/>
 	<Model name="Moyabruka_born" model="Moyabruka_born.xac" motion="Moyabruka_born_ani.xsm" texturepath="None" overlap="true"/>

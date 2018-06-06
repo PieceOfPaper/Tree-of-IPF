@@ -6,7 +6,7 @@ function ITEMCRAFT_ON_INIT(addon, frame)
 	addon:RegisterMsg('JOURNAL_DETAIL_CRAFT_EXEC_SUCCESS', 'CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS');
 
 	addon:RegisterOpenOnlyMsg('INV_ITEM_ADD', 'ITEMCRAFT_REFRSH');
-	addon:RegisterOpenOnlyMsg('INV_ITEM_REMOVE', 'ITEMCRAFT_REFRSH');
+	addon:RegisterOpenOnlyMsg('INV_ITEM_POST_REMOVE', 'ITEMCRAFT_REFRSH');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_CHANGE_COUNT', 'ITEMCRAFT_REFRSH');
 
 	addon:RegisterMsg('RESTQUICKSLOT_CLOSE', 'CRAFT_EXIT');
@@ -51,32 +51,9 @@ end
 function ITEMCRAFT_REFRSH(frame, msg, str, time)
 
 	frame = ui.GetFrame(frame:GetUserValue("UI_NAME"));
---session.ResetItemList();
---local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
---local tree_box = GET_CHILD(group, 'recipetree_Box','ui::CGroupBox')
---local tree = GET_CHILD(tree_box, 'recipetree','ui::CTreeControl')
---
---local showonlyhavemat = GET_CHILD(frame, "showonlyhavemat", "ui::CCheckBox");	
---local checkHaveMaterial = showonlyhavemat:IsChecked();	
---
---local idSpace = frame:GetUserValue("IDSPACE");
---local cnt = tree:GetAllTreeItemCount();
---for i = 0 , cnt - 1 do
---	local item = tree:GetTreeItemByIndex(i);
---	local obj = item:GetObject();
---	if obj ~= nil then
---		if obj:GetClassName() == "page" then
---			local clsID = obj:GetUserIValue("CLASSID");
---			local cls = GetClassByType(idSpace, clsID);
---			CRAFT_UPDATE_PAGE(obj, cls, haveMaterial, nil);
---			local recipeCount = obj:GetChildCount();
---			for j = 0 , recipeCount - 1 do
---				local recipeCtrl = obj:GetChildByIndex(j);
---				CRAFT_MAKE_DETAIL_REQITEMS(recipeCtrl)
---			end
---		end
---	end
---end
+	if frame == nil then
+		frame = ui.GetFrame(g_itemCraftFrameName);
+	end
 
 	CREATE_CRAFT_ARTICLE(frame);
 end
@@ -204,7 +181,9 @@ function CREATE_CRAFT_ARTICLE(frame)
 
 	local tree_box = GET_CHILD(group, 'recipetree_Box','ui::CGroupBox')
 	local tree = GET_CHILD(tree_box, 'recipetree','ui::CTreeControl')
-
+	if nil == tree then
+		return;
+	end
 	tree:Clear();
 	tree:EnableDrawTreeLine(false)
 	tree:EnableDrawFrame(false)
@@ -867,7 +846,7 @@ function CRAFT_RECIPE_FOCUS(page, ctrlSet)
 	end
 
 	local invframe = ui.GetFrame('inventory')
-	INVENTORY_TOTAL_LIST_GET(invframe)
+	INVENTORY_UPDATE_ICONS(invframe)
 
 end
 
@@ -1006,7 +985,7 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot) -- 우클릭 추가 함수
 					
 
 					local invframe = ui.GetFrame('inventory')
-					INVENTORY_TOTAL_LIST_GET(invframe)
+					INVENTORY_UPDATE_ICONS(invframe)
 
 					local btn = GET_CHILD(eachcset, "btn", "ui::CButton");
 
@@ -1214,7 +1193,7 @@ function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
 	end
 
 	local invframe = ui.GetFrame('inventory')
-	INVENTORY_TOTAL_LIST_GET(invframe)
+	INVENTORY_UPDATE_ICONS(invframe)
 
 end
 
@@ -1482,7 +1461,7 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 		itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'selected');
 		local invframe = ui.GetFrame('inventory')
 		btn:ShowWindow(0)
-		INVENTORY_TOTAL_LIST_GET(invframe)
+		INVENTORY_UPDATE_ICONS(invframe)
 	end
 end
 
@@ -1528,7 +1507,7 @@ function ITEM_EQUIP_CRAFT()
 		SET_ITEM_TOOLTIP_BY_OBJ(icon, invItem)
 		itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'selected');
 		local invframe = ui.GetFrame('inventory')
-		INVENTORY_TOTAL_LIST_GET(invframe)
+		INVENTORY_UPDATE_ICONS(invframe)
 	end
 
 end

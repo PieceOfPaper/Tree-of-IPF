@@ -21,9 +21,8 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 
 	-- 인벤토리 관련 메시지
 	addon:RegisterMsg('INV_ITEM_ADD', 'QUICKSLOTNEXPBAR_ON_MSG');
-	addon:RegisterMsg('INV_ITEM_REMOVE', 'QUICKSLOTNEXPBAR_ON_MSG');
+	addon:RegisterMsg('INV_ITEM_POST_REMOVE', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_CHANGE_COUNT', 'QUICKSLOTNEXPBAR_ON_MSG');
-	addon:RegisterMsg('CHANGE_INVINDEX', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('BUFF_ADD', 'QUICKSLOT_BUFF_UPDATE');
 	addon:RegisterMsg('BUFF_REMOVE', 'QUICKSLOT_BUFF_UPDATE');
 
@@ -470,7 +469,7 @@ function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
 	end
 
 	-- 아이템 슬롯 비활성에 대해서 체크 한다
-	if msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT'then
+	if msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT'then
 		-- 퀵슬롯의 Icon 정보를 확인하고 Category가 'Item'인 목록을 찾아 개수를 파악 한다.
 		local quickSlotList = session.GetQuickSlotList();		-- 퀵슬롯 리스트 정보를 가지고 온다
 		for i = 0, MAX_QUICKSLOT_CNT-1 do
@@ -480,39 +479,6 @@ function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
 				tolua.cast(slot, "ui::CSlot");
 				SET_QUICK_SLOT(slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, 0);
 			end
-		end
-	end
-
-	if msg == 'CHANGE_INVINDEX' then
-		local toInvIndex = tonumber(argStr);
-		local fromInvIndex = argNum;
-		local toQuickIndex = -1;
-		local fromQuickIndex = -1;
-
-		local invenItemInfo = session.GetInvItem(toInvIndex);
-
-		for i = 0, MAX_QUICKSLOT_CNT - 1 do
-			local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
-			local icon = slot:GetIcon();
-			if icon ~= nil then
-				local iconInfo = icon:GetInfo();
-				if fromInvIndex == 0 then
-					if iconInfo.type == invenItemInfo.type then
-						iconInfo.ext = toInvIndex;
-						session.SetQuickSlotInfo(slot:GetSlotIndex(), iconInfo.category, iconInfo.type, iconInfo.ext, 0);
-					end
-				else
-					if iconInfo.ext == toInvIndex then
-						toQuickIndex = i;
-					elseif iconInfo.ext == fromInvIndex then
-						fromQuickIndex = i;
-					end
-				end
-			end
-		end
-		if toQuickIndex ~= -1 and fromQuickIndex ~= -1 then
-			QUICKSLOTNEXPBAR_CHANGE_INVINDEX(quickslot, toQuickIndex, fromInvIndex);
-			QUICKSLOTNEXPBAR_CHANGE_INVINDEX(quickslot, fromQuickIndex, toInvIndex);
 		end
 	end
 
@@ -531,14 +497,55 @@ function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
 end
 
 function QUICKSLOTNEXPBAR_CHANGE_INVINDEX(quickslot, quickIndex, changeIndex)
-	local slot = quickslot:GetChild(quickIndex);
-	tolua.cast(slot, "ui::CSlot");
+	local slot = quickslot:GetChild("slot" .. quickIndex + 1);
+	tolua.cast(slot, "ui::CSlot");	
 	local icon = slot:GetIcon();
 	if icon ~= nil then
 		local iconInfo = icon:GetInfo();
 		iconInfo.ext = changeIndex;
 		session.SetQuickSlotInfo(slot:GetSlotIndex(), iconInfo.category, iconInfo.type, changeIndex, 0);
 	end
+end
+
+function QUICKSLOT_ON_CHANGE_INVINDEX(fromIndex, toIndex)
+print("ZZZZZ");
+	local frame = ui.GetFrame("quickslotnexpbar");
+		local toInvIndex = toIndex;
+		local fromInvIndex = fromIndex;
+		local toQuickIndex = -1;
+		local fromQuickIndex = -1;
+
+		local invenItemInfo = session.GetInvItem(toInvIndex);
+
+		for i = 0, MAX_QUICKSLOT_CNT - 1 do
+			local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
+			local icon = slot:GetIcon();
+			if icon ~= nil then
+				local iconInfo = icon:GetInfo();
+				if fromInvIndex == 0 then
+					if iconInfo.type == invenItemInfo.type then
+						iconInfo.ext = toInvIndex;
+						session.SetQuickSlotInfo(slot:GetSlotIndex(), iconInfo.category, iconInfo.type, iconInfo.ext, 0);
+					end
+				else
+
+					if iconInfo.ext == toInvIndex then
+						toQuickIndex = i;
+					elseif iconInfo.ext == fromInvIndex then
+						fromQuickIndex = i;
+					end
+				end
+			end
+		end
+
+		if toQuickIndex ~= -1 then
+			QUICKSLOTNEXPBAR_CHANGE_INVINDEX(frame, toQuickIndex, fromIndex);
+		end
+
+		if fromQuickIndex ~= -1 then
+			QUICKSLOTNEXPBAR_CHANGE_INVINDEX(frame, fromQuickIndex, toIndex);
+		end
+
 end
 
 function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
@@ -564,6 +571,8 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 		local invenItemInfo = session.GetInvItem(iconInfo.ext);
 		if invenItemInfo == nil then
 			invenItemInfo = session.GetInvItemByType(iconInfo.type);
+		elseif invenItemInfo.type ~= iconInfo.type then
+			return;
 		end
 
 		if invenItemInfo == nil then

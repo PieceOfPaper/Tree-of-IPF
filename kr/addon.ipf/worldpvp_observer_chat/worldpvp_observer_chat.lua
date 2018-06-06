@@ -13,6 +13,7 @@ function CHAT_OBSERVER_ENABLE(count, aidList, teamIDList, iconList)
 		gbox:RemoveAllChild();
 	end
 	
+	local aniPCAID = nil;
 	for i = 0 , count - 1 do
 		local aid = aidList:Get(i);
 		local iconInfo = iconList:GetByIndex(i);
@@ -20,9 +21,14 @@ function CHAT_OBSERVER_ENABLE(count, aidList, teamIDList, iconList)
 
 		local ctrlSet = gbox:CreateControlSet("pvp_observer_ctrlset", "CTRL_" .. i, ui.LEFT, ui.CENTER_VERT, 0, 0, 0, 0);
 		ctrlSet:SetUserValue("AID", aid);
+		if aniPCAID == nil then
+			aniPCAID = aid;
+		end
+
 		ctrlSet:EnableHitTest(1);
 		local pic = GET_CHILD(ctrlSet, "pic");
-		local imgName = ui.CaptureModelHeadImage_IconInfo(iconInfo);
+
+		local imgName = GET_JOB_ICON(iconInfo.job);
 		pic:SetImage(imgName);
 		local btn = ctrlSet:GetChild("btn");
 		local text = ScpArgMsg("Observe{PC}", "PC", iconInfo:GetFamilyName());
@@ -36,6 +42,13 @@ function CHAT_OBSERVER_ENABLE(count, aidList, teamIDList, iconList)
 	end
 
 	frame:ShowWindow(1);
+
+
+	if aniPCAID ~= nil then
+		if camera.IsViewFocsedToSelf() == true then
+			worldPVP.ReqObservePC(aniPCAID);
+		end
+	end
 
 end
 

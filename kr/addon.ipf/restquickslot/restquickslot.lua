@@ -13,7 +13,7 @@ function RESTQUICKSLOT_ON_INIT(addon, frame)
 	addon:RegisterMsg('RESTQUICKSLOT_OPEN', 'ON_RESTQUICKSLOT_OPEN');
 	addon:RegisterMsg('RESTQUICKSLOT_CLOSE', 'ON_RESTQUICKSLOT_CLOSE');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_ADD', 'RESTQUICKSLOT_ON_ITEM_CHANGE');
-	addon:RegisterOpenOnlyMsg('INV_ITEM_REMOVE', 'RESTQUICKSLOT_ON_ITEM_CHANGE');
+	addon:RegisterOpenOnlyMsg('INV_ITEM_POST_REMOVE', 'RESTQUICKSLOT_ON_ITEM_CHANGE');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_CHANGE_COUNT', 'RESTQUICKSLOT_ON_ITEM_CHANGE');
 end
 
@@ -265,7 +265,6 @@ function OPEN_DISPELLER_CRAFT()
 	local abil = session.GetAbilityByName("Pardoner_Dispeller")
 	if abil ~= nil then
 		local obj = GetIES(abil:GetObject());
-		print(obj.ClassName)
 		local frame = ui.GetFrame("itemcraft_alchemist");
 		SET_ITEM_CRAFT_UINAME("itemcraft_alchemist");
 		SET_CRAFT_IDSPACE(frame, "Recipe_ItemCraft", obj.ClassName, obj.Level);

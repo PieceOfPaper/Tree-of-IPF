@@ -21,7 +21,7 @@ function C_GET_PAD_GRASS_POS(actor, x, y, z, padName, range)
 
 	local pad = tolua.cast(padList[1], "CClientPadSkill");
 	local padPos = pad:GetPos();
-	return padPos.z, padPos.y, padPos.x;
+	return padPos.x, padPos.y, padPos.z;
 end
 
 function PAD_SET_HOLD(actor, obj, padGuid)

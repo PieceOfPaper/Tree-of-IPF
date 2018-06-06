@@ -6,7 +6,10 @@
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-450 0 0 0" keyboardselectframe="true"/>
 	<input maxwidth="1280" moveable="false"/>
 	<layer layerlevel="80"/>
-	<opencheck scp="UI_CHECK_PROP" strarg="quest" numarg="1"/>
+  
+<opencheck scp="UI_CHECK_PROP" strarg="quest" numarg="1"/>
+
+<lockopenscript scp="UI_CHECK_NOT_PVP_MAP"/>
 	<option closebutton="false"/>
 	<sound opensound="window_open" closesound="window_close"/>
 	<effect open="questOpen" close="questClose"/>

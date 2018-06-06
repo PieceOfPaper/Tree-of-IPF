@@ -36,19 +36,39 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="155094" Pos="-849.90#166.69#1171.55" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;TrackMonster&apos; &apos;KDArmor&apos; &apos;999&apos; &apos;Lv&apos; &apos;200&apos; ">
+                    <Obj Type="Monster" MonType="58289" Pos="-849.90#166.69#1171.55" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;TrackMonster&apos; &apos;Lv&apos; &apos;80&apos; &apos;PATK_BM&apos; &apos;-99999&apos; &apos;MATK_BM&apos; &apos;-99999&apos; &apos;CRTATK_BM&apos; &apos;-99999&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                                    <Str Str="SCR_CASTLE653_MQ_02_P"/>
-                                </ToolScp>
                                 <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
-                                    <Num Num="50"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_CUSTOM_TARGET" Client="NO" UseSleep="NO">
+                                    <Str Str="PagEmitter"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_CUSTOM_TARGET" Client="NO" UseSleep="NO">
+                                    <Str Str="PagNurse"/>
                                 </ToolScp>
                             </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE653_MQ_02_D_FAIL"/>
+                                </ToolScp>
+                            </DeadList>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_MGAME_PC_OWNER" Client="NO" UseSleep="NO">
                                     <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="HPLock"/>
+                                    <Num Num="5000"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
                                 </ToolScp>
                             </StartList>
                         </SelfAI>

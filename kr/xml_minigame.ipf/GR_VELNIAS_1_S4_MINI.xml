@@ -3,7 +3,10 @@
     <Game Name="GR_VELNIAS_1_S4_MINI" minLv="0" maxLv="0" startWaitSec="0">
         <StageList>
             <Stage Name="SETTING">
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="154000" Pos="-38.07#222.53#581.02" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Dialog&apos; &apos;VELNIASP_511_GROUP_1_1&apos; "/>
+                    <Obj Type="Monster" MonType="154000" Pos="71.96#259.30#900.79" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                </ObjList>
             </Stage>
             <Stage Name="FAIL" AutoStart="0">
                 <StartScpList>
@@ -82,6 +85,13 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE_1_PROG"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="SetPos">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+                                <AbsPosRange X="33.926674" Y="259.29538" Z="1005.0278" Range="50"/>
                             </ToolScp>
                         </execList>
                     </Event>

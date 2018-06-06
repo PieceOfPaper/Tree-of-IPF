@@ -165,7 +165,7 @@ function TPITEM_SELECT_TREENODE(uiobejct, value)
 			local oldObj = tree:GetNodeObject(htreeitem);
 			local gBox = oldObj:GetChild("group");
 			gBox:SetSkinName("base_btn");
-			tree:CloseTreeNode(htreeitem);
+			tree:ShowTreeNode(htreeitem, 0);
 		end
 	end
 	if nil ~= obj then

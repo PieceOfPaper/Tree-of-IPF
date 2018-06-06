@@ -2342,6 +2342,14 @@ function ON_RULLET_LIST()
 
 end
 
+function UI_CHECK_NOT_PVP_MAP()
+	if world.IsPVPMap() then
+		return 0;
+	end
+
+	return 1;
+end
+
 function UI_CHECK_PROP(propname, propvalue)
 
 	local pc = GetMyPCObject();
@@ -3185,7 +3193,7 @@ end
 
 function SCR_ITEM_USE_TARGET_RELEASE()
 	local frame				= ui.GetFrame('inventory');	
-	INVENTORY_LIST_GET(frame);
+	INVENTORY_UPDATE_ICONS(frame);
 
 	local frame 			= ui.GetFrame('status');
 	STATUS_ON_MSG(frame, 'EQUIP_ITEM_LIST_GET', 'None', 0);

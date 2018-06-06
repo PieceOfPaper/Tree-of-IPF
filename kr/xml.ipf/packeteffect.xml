@@ -50,6 +50,7 @@
         <Effect Name="M_GTOWER_STAGE_7"/>
         <Effect Name="M_GTOWER_STAGE_8"/>
         <Effect Name="M_GTOWER_STAGE_9"/>
+        <Effect Name="f_coral_32_2_elt"/>
     </Category>
     <Category ID="75">
         <Effect Name="F_wizard_MAGNUMOPUS_COVER_LOOP_fire_loop"/>
@@ -148,6 +149,8 @@
         <Effect Name="voice_die_war_f"/>
         <Effect Name="I_wizard_necromancer_force2"/>
         <Effect Name="F_ground092_red"/>
+        <Effect Name="f_coral_32_2_elt"/>
+        <Effect Name="F_light029_violet"/>
     </Category>
     <Category ID="72">
         <Effect Name="std4_1"/>
@@ -317,6 +320,8 @@
         <Effect Name="I_smoke008_red_nloop"/>
         <Effect Name="F_ground134_red_nloop"/>
         <Effect Name="TimeOver"/>
+        <Effect Name="F_spread_in011_red_loop"/>
+        <Effect Name="F_pattern013_ground"/>
     </Category>
     <Category ID="69">
         <Effect Name="voice_wiz_icebolt_cast"/>
@@ -476,6 +481,8 @@
         <Effect Name="voice_wiz_f_thurisaz_cast"/>
         <Effect Name="voice_wiz_f_tiwaz_cast"/>
         <Effect Name="voice_wiz_f_algiz_cast"/>
+        <Effect Name="skl_eff_thurisaz_landing"/>
+        <Effect Name="skl_eff_stone_grind_2"/>
     </Category>
     <Category ID="59">
         <Effect Name="F_hit_star"/>
@@ -832,6 +839,7 @@
         <Effect Name="event_loop3"/>
         <Effect Name="event_loop3"/>
         <Effect Name="I_force015_white#Bone_mouth"/>
+        <Effect Name="TABLELAND70_SUBQ3_mini"/>
     </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
@@ -1595,6 +1603,11 @@
         <Effect Name="Door3"/>
         <Effect Name="BOSS2"/>
         <Effect Name="I_sphere001_mash2"/>
+        <Effect Name="ID_CASTLE_MINI"/>
+        <Effect Name="마법진"/>
+        <Effect Name="LastBoss"/>
+        <Effect Name="id_castle_elt"/>
+        <Effect Name="id_castle_elt2"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -1749,6 +1762,8 @@
         <Effect Name="Archer_Zhendu"/>
         <Effect Name="F_burstup001_dark##0.5"/>
         <Effect Name="Bramble_NearAttack"/>
+        <Effect Name="I_force003_green#Bip01 R Hand"/>
+        <Effect Name="I_archer_poison_pot_force#Bip01 R Hand"/>
     </Category>
     <Category ID="37">
         <Effect Name="I_light014_red#R_Antenna_00"/>
@@ -2117,6 +2132,7 @@
         <Effect Name="RuneCaster_Thurisaz"/>
         <Effect Name="I_arrow009_1#Dummy_q_Force"/>
         <Effect Name="skl_eff_thurisaz_landing"/>
+        <Effect Name="F_burstup026_green4"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -2293,7 +2309,6 @@
         <Effect Name="GR_SAMPLE_1_P5_MINI"/>
         <Effect Name="Templer_ReduceCraftTime"/>
         <Effect Name="RoundMaxTime"/>
-        <Effect Name="checkoutofarea"/>
     </Category>
     <Category ID="49">
         <Effect Name="JOB_CENTURION5_1_MINI"/>
@@ -2463,6 +2478,8 @@
         <Effect Name="I_force021"/>
         <Effect Name="F_rize005_blue"/>
         <Effect Name="I_force0082_1"/>
+        <Effect Name="skl_eff_stone_grind"/>
+        <Effect Name="skl_eff_stone_grind_2"/>
     </Category>
     <Category ID="23">
         <Effect Name="I_force004_pink#Bip01 R Finger0"/>
