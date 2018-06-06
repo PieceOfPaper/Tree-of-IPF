@@ -34,7 +34,7 @@ for /f %%a in (ipflist_data.txt) do (
 	
 	git add --all
 	git commit -m "%%a"
-	git push
+	::git push
 	
 	cd %RootPath%
 	del /s /q extract
