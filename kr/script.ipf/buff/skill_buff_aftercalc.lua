@@ -179,7 +179,11 @@ function SCR_BUFF_AFTERCALC_HIT_ReflectShield_Buff(self, from, skill, atk, ret, 
             end
             
             ret.KDPower = 0;
-            ret.HitType = HIT_SAFETY;
+            if IsBuffApplied(self, 'Raid_Velcofer_Curse_Debuff') == 'YES' then
+                ret.HitType = HIT_BASIC_NOT_CANCEL_CAST
+            else
+                ret.HitType = HIT_SAFETY;
+            end
             ret.HitDelay = 0;
             SetExProp(from, "CHECK_SKL_KD_PROP", 1);
     --        RunScript("Reflect_Sync", self, from, skill, dmg, ret)
