@@ -5536,7 +5536,7 @@ return obj.Level;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Exorcist_Entity" CheckerType="0" AllowOverlap="1" Dist="50.621861" Angle="-2.4284449" Range="20" UpdateTerm="300" ApplyFlyMon="1">
+    <PadSkill Name="Exorcist_Entity" CheckerType="0" AllowOverlap="1" Dist="50.621861" Angle="-2.4284449" Range="20" UpdateTerm="300" ApplyFlyMon="1" >
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="7000" UseFunc="1" FuncTxt="return 9000"/>
@@ -5582,7 +5582,7 @@ return obj.Level"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Exorcist_Rubric" CheckerType="1" AllowOverlap="1" Dist="172.91235" Angle="-2.8994689" Range="40" InnerRange="100" UpdateTerm="300" ApplyFlyMon="1">
+    <PadSkill Name="Exorcist_Rubric" CheckerType="1" AllowOverlap="1" Dist="172.91235" Angle="-2.8994689" Range="40" InnerRange="100" UpdateTerm="300" ApplyFlyMon="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="999999"/>
