@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="minepvpmyscoreboard" x="10" y="30" width="275" height="144" hud="true" create="open">
+	<frame layout_gravity="right top" scale_align="center top" margin="0 360 20 0" keyboardselectframe="false"/>
+	<input maxwidth="250" moveable="true" hittestframe="fatruelse" moveintitlebar="false"/>
+	<layer layerlevel="60"/>
+	<option visible="false" hideable="false" closebutton="false" alwaysVisible="false"/>
+	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+	<userconfig/>
+	<controls>
+		<groupbox name="gbBackGround" rect="0 0 275 144" margin="0 0 0 0" layout_gravity="left top" draw="false" image="mine_pvp_img_scoreboard" stretch="false"/>
+		<groupbox name="gbCrystal" parent ="gbBackGround" rect="0 0 200 30" margin="44 45 0 0" layout_gravity="left top" draw="false" stretch="false"/>
+		<picture name="crystal_digit_0" parent="gbCrystal" layout_gravity="left top" rect="0 0 18 29" margin="170 0 0 0" hittest="false" image="mine_pvp_imgfont_0"  stretch="false" />
+		<picture name="crystal_digit_1" parent="gbCrystal" layout_gravity="left top" rect="0 0 18 29" margin="152 0 0 0" hittest="false" image="mine_pvp_imgfont_1"  stretch="false" />
+		<picture name="crystal_digit_2" parent="gbCrystal" layout_gravity="left top" rect="0 0 18 29" margin="134 0 0 0" hittest="false" image="mine_pvp_imgfont_2"  stretch="false" />
+		<picture name="crystal_digit_dot_0" parent="gbCrystal" layout_gravity="left top" rect="0 0 5 29" margin="129 0 0 0" hittest="false" image="mine_pvp_imgfont_dot"  stretch="false" />
+		<picture name="crystal_digit_3" parent="gbCrystal" layout_gravity="left top" rect="0 0 18 29" margin="111 0 0 0" hittest="false" image="mine_pvp_imgfont_3"  stretch="false" />
+		<picture name="crystal_digit_4" parent="gbCrystal" layout_gravity="left top" rect="0 0 18 29" margin="93 0 0 0" hittest="false" image="mine_pvp_imgfont_4"  stretch="false" />
+		<picture name="crystal_digit_5" parent="gbCrystal" layout_gravity="left top" rect="0 0 18 29" margin="75 0 0 0" hittest="false" image="mine_pvp_imgfont_5"  stretch="false" />
+		<picture name="crystal_digit_dot_1" parent="gbCrystal" layout_gravity="left top" rect="0 0 5 29" margin="70 0 0 0" hittest="false" image="mine_pvp_imgfont_dot"  stretch="false" />
+		<picture name="crystal_digit_6" parent="gbCrystal" layout_gravity="left top" rect="0 0 18 29" margin="52 0 0 0" hittest="false" image="mine_pvp_imgfont_6"  stretch="false" />
+		<picture name="crystal_digit_7" parent="gbCrystal" layout_gravity="left top" rect="0 0 18 29" margin="34 0 0 0" hittest="false" image="mine_pvp_imgfont_7"  stretch="false" />
+		<picture name="crystal_digit_8" parent="gbCrystal" layout_gravity="left top" rect="0 0 18 29" margin="16 0 0 0" hittest="false" image="mine_pvp_imgfont_8"  stretch="false" />
+		<groupbox name="gbBattle" parent ="gbBackGround" rect="0 0 200 30" margin="44 93 0 0" layout_gravity="left top" draw="false" stretch="false"/>
+		<picture name="battle_digit_0" parent="gbBattle" layout_gravity="left top" rect="0 0 18 29" margin="170 0 0 0" hittest="false" image="mine_pvp_imgfont_0"  stretch="false" />
+		<picture name="battle_digit_1" parent="gbBattle" layout_gravity="left top" rect="0 0 18 29" margin="152 0 0 0" hittest="false" image="mine_pvp_imgfont_1"  stretch="false" />
+		<picture name="battle_digit_2" parent="gbBattle" layout_gravity="left top" rect="0 0 18 29" margin="134 0 0 0" hittest="false" image="mine_pvp_imgfont_2"  stretch="false" />
+		<picture name="battle_digit_dot_0" parent="gbBattle" layout_gravity="left top" rect="0 0 5 29" margin="129 0 0 0" hittest="false" image="mine_pvp_imgfont_dot"  stretch="false" />
+		<picture name="battle_digit_3" parent="gbBattle" layout_gravity="left top" rect="0 0 18 29" margin="111 0 0 0" hittest="false" image="mine_pvp_imgfont_3"  stretch="false" />
+		<picture name="battle_digit_4" parent="gbBattle" layout_gravity="left top" rect="0 0 18 29" margin="93 0 0 0" hittest="false" image="mine_pvp_imgfont_4"  stretch="false" />
+		<picture name="battle_digit_5" parent="gbBattle" layout_gravity="left top" rect="0 0 18 29" margin="75 0 0 0" hittest="false" image="mine_pvp_imgfont_5"  stretch="false" />
+		<picture name="battle_digit_dot_1" parent="gbBattle" layout_gravity="left top" rect="0 0 5 29" margin="70 0 0 0" hittest="false" image="mine_pvp_imgfont_dot"  stretch="false" />
+		<picture name="battle_digit_6" parent="gbBattle" layout_gravity="left top" rect="0 0 18 29" margin="52 0 0 0" hittest="false" image="mine_pvp_imgfont_6"  stretch="false" />
+		<picture name="battle_digit_7" parent="gbBattle" layout_gravity="left top" rect="0 0 18 29" margin="34 0 0 0" hittest="false" image="mine_pvp_imgfont_7"  stretch="false" />
+		<picture name="battle_digit_8" parent="gbBattle" layout_gravity="left top" rect="0 0 18 29" margin="16 0 0 0" hittest="false" image="mine_pvp_imgfont_8"  stretch="false" />
+	</controls>
+</uiframe>

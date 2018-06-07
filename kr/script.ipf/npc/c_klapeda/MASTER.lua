@@ -389,7 +389,7 @@ function SCR_JOB_SORCERER4_1_NORMAL_1(self, pc)
 end
 
 function SCR_JOB_SORCERER4_1_NORMAL_2(self, pc)
-	ShowTradeDlg(pc, 'SORCERER4_1', 5);
+    ShowTradeDlg(pc, 'SORCERER4_1', 5);
 end
 
 function SCR_JOB_LINKER2_1_NPC_NORMAL_1(self, pc)
@@ -725,14 +725,14 @@ end
 
 
 function SCR_MASTER_PRIEST_NORMAL_4_PRE(pc)
-	local sObj = GetSessionObject(pc, "SSN_NAKMUAY_UNLOCK")
-	local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char1_20');
-	if hidden_prop == 100 then
-    	if sObj.Step3 == 1 then
-    	    return "YES"
-    	end
-	end
-	return 'NO'
+    local sObj = GetSessionObject(pc, "SSN_NAKMUAY_UNLOCK")
+    local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char1_20');
+    if hidden_prop == 100 then
+        if sObj.Step3 == 1 then
+            return "YES"
+        end
+    end
+    return 'NO'
 end
 
 function SCR_MASTER_PRIEST_NORMAL_5_PRE(pc)
@@ -886,16 +886,16 @@ end
 
 --HIDDEN_NAKMUAY
 function SCR_MASTER_PRIEST_NORMAL_4(self,pc)
-	local item1 = GetInvItemCount(pc, "Drug_holywater")
-	local item2 = GetInvItemCount(pc, "Drug_Detoxifiy")
-	local item3 = GetInvItemCount(pc, "CHAR120_MSTEP5_3_ITEM1")
-	if item1 >= 1 and item2 >= 1 and item3 >= 100 then
-	    local sel = ShowSelDlg(pc, 0, 'CHAR120_MSTEP5_3_DLG1', ScpArgMsg("CHAR120_MSTEP5_3_SEL1"))
-	    if sel == 1 then
-	        local sObj = GetSessionObject(pc, "SSN_NAKMUAY_UNLOCK")
-	        ShowOkDlg(pc, 'CHAR120_MSTEP5_3_DLG2',1)
-	        UIOpenToPC(pc, 'fullblack', 1)
-	        sleep(1500)
+    local item1 = GetInvItemCount(pc, "Drug_holywater")
+    local item2 = GetInvItemCount(pc, "Drug_Detoxifiy")
+    local item3 = GetInvItemCount(pc, "CHAR120_MSTEP5_3_ITEM1")
+    if item1 >= 1 and item2 >= 1 and item3 >= 100 then
+        local sel = ShowSelDlg(pc, 0, 'CHAR120_MSTEP5_3_DLG1', ScpArgMsg("CHAR120_MSTEP5_3_SEL1"))
+        if sel == 1 then
+            local sObj = GetSessionObject(pc, "SSN_NAKMUAY_UNLOCK")
+            ShowOkDlg(pc, 'CHAR120_MSTEP5_3_DLG2',1)
+            UIOpenToPC(pc, 'fullblack', 1)
+            sleep(1500)
             UIOpenToPC(pc, 'fullblack', 0)
             ShowOkDlg(pc, 'CHAR120_MSTEP5_3_DLG3',1)
             local nakmuay_item = {
@@ -907,10 +907,10 @@ function SCR_MASTER_PRIEST_NORMAL_4(self,pc)
             for i = 1, #nakmuay_item do
                 if GetInvItemCount(pc, nakmuay_item[i]) > 0 then
                     local invItem, cnt = GetInvItemByName(pc, nakmuay_item[i])
-					if IsFixedItem(invItem) == 1 then
-						isLockState = 1
-					end
-					if nakmuay_item[i] == "CHAR120_MSTEP5_3_ITEM1" then
+                    if IsFixedItem(invItem) == 1 then
+                        isLockState = 1
+                    end
+                    if nakmuay_item[i] == "CHAR120_MSTEP5_3_ITEM1" then
                         TxTakeItem(tx1, nakmuay_item[i], GetInvItemCount(pc, nakmuay_item[i]), 'Quest_HIDDEN_NAKMUAY');
                     elseif nakmuay_item[i] == "Drug_Detoxifiy" then
                         TxTakeItem(tx1, nakmuay_item[i], 1, 'Quest_HIDDEN_NAKMUAY');
@@ -926,15 +926,15 @@ function SCR_MASTER_PRIEST_NORMAL_4(self,pc)
                 SaveSessionObject(pc, sObj)
                 print("tx Success")
             else
-				if isLockState == 1 then
-					SendSysMsg(pc, 'QuestItemIsLocked');
-				end
+                if isLockState == 1 then
+                    SendSysMsg(pc, 'QuestItemIsLocked');
+                end
                 print("tx FAIL!")
             end
-	    end
-	else
-	    ShowOkDlg(pc, 'CHAR120_MSTEP5_3_DLG1',1)
-	end
+        end
+    else
+        ShowOkDlg(pc, 'CHAR120_MSTEP5_3_DLG1',1)
+    end
 end
 
 function SCR_MASTER_PRIEST_NORMAL_5(self,pc)
@@ -967,9 +967,9 @@ function SCR_MASTER_PRIEST_NORMAL_5(self,pc)
             if ret == "SUCCESS" then
                 SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 70)
             else
-        		if isLockState == 1 then
-        			SendSysMsg(pc, 'QuestItemIsLocked');
-        		end
+                if isLockState == 1 then
+                    SendSysMsg(pc, 'QuestItemIsLocked');
+                end
                 print("tx FAIL!")
             end
         end
@@ -1085,14 +1085,14 @@ end
 
 --HIDDEN_NAKMUAY
 function SCR_JOB_DIEVDIRBYS2_NPC_NORMAL_4(self,pc)
-	local item1 = GetInvItemCount(pc, "CHAR120_MSTEP5_4_ITEM2")
-	if item1 >= 48 then
-	    local sel = ShowSelDlg(pc, 0, 'CHAR120_MSTEP5_4_DLG1', ScpArgMsg("CHAR120_MSTEP5_4_SEL1"))
-	    if sel == 1 then
-	        local sObj = GetSessionObject(pc, "SSN_NAKMUAY_UNLOCK")
-	        ShowOkDlg(pc, 'CHAR120_MSTEP5_4_DLG2',1)
-	        UIOpenToPC(pc, 'fullblack', 1)
-	        sleep(1500)
+    local item1 = GetInvItemCount(pc, "CHAR120_MSTEP5_4_ITEM2")
+    if item1 >= 48 then
+        local sel = ShowSelDlg(pc, 0, 'CHAR120_MSTEP5_4_DLG1', ScpArgMsg("CHAR120_MSTEP5_4_SEL1"))
+        if sel == 1 then
+            local sObj = GetSessionObject(pc, "SSN_NAKMUAY_UNLOCK")
+            ShowOkDlg(pc, 'CHAR120_MSTEP5_4_DLG2',1)
+            UIOpenToPC(pc, 'fullblack', 1)
+            sleep(1500)
             UIOpenToPC(pc, 'fullblack', 0)
             ShowOkDlg(pc, 'CHAR120_MSTEP5_4_DLG3',1)
             local tx1 = TxBegin(pc)
@@ -1104,15 +1104,15 @@ function SCR_JOB_DIEVDIRBYS2_NPC_NORMAL_4(self,pc)
             if ret == "SUCCESS" then
                 print("tx Success")
             else
-				if isLockState == 1 then
-					SendSysMsg(pc, 'QuestItemIsLocked');
-				end
+                if isLockState == 1 then
+                    SendSysMsg(pc, 'QuestItemIsLocked');
+                end
                 print("tx FAIL!")
             end
-	    end
-	else
-	    ShowOkDlg(pc, 'CHAR120_MSTEP5_4_DLG1',1)
-	end
+        end
+    else
+        ShowOkDlg(pc, 'CHAR120_MSTEP5_4_DLG1',1)
+    end
 end
 
 --EXORCIST
@@ -2049,5 +2049,48 @@ function SCR_MASTER_ORACLE_NORMAL_3(self, pc)
         else
             ShowOkDlg(pc, "CHAR312_PRE_MSTEP3_ORACLE_DLG4", 1)
         end
+    end
+end
+
+function SCR_MASTER_ORACLE_NORMAL_4(self,pc)
+    local select = ShowSelDlg(pc, 0, 'SOLO_DUNGEON_SELECT_DLG', ScpArgMsg('SoloDungeonSelectMsg_1'), ScpArgMsg('SoloDungeonSelectMsg_2'), ScpArgMsg('SoloDungeonSelectMsg_3'))
+    if pc.Lv >= 300 then
+        if select == 1 then
+            ShowOkDlg(pc, 'SOLO_DUNGEON_SELECT_DLG2', 1)
+            local missionID  = OpenMissionRoom(pc, 'SOLO_DUNGEON_MINI', "");
+            ReqMoveToMission(pc, missionID);
+        end
+    else
+        if select == 1 then
+            SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("SoloDungeonSelectMsg_4"), 5)
+            ShowOkDlg(pc, 'SOLO_DUNGEON_SELECT_DLG3', 1)
+        end
+    end
+    if select == 2 then
+        SendSoloDungeonCurrentRanking(pc, "All");
+        SendSoloDungeonCurrentRanking(pc, "Warrior");
+        SendSoloDungeonCurrentRanking(pc, "Wizard");
+        SendSoloDungeonCurrentRanking(pc, "Archer");
+        SendSoloDungeonCurrentRanking(pc, "Cleric");
+    
+        SendSoloDungeonPrevRanking(pc, "All")
+        SendSoloDungeonPrevRanking(pc, "Warrior")
+        SendSoloDungeonPrevRanking(pc, "Wizard")
+        SendSoloDungeonPrevRanking(pc, "Archer")
+        SendSoloDungeonPrevRanking(pc, "Cleric")
+    
+        SendSoloDungeonCurrentMyRanking(pc, "All")
+        SendSoloDungeonCurrentMyRanking(pc, "Warrior")
+        SendSoloDungeonCurrentMyRanking(pc, "Wizard")
+        SendSoloDungeonCurrentMyRanking(pc, "Archer")
+        SendSoloDungeonCurrentMyRanking(pc, "Cleric")
+    
+        SendSoloDungeonPrevMyRanking(pc, "All")
+        SendSoloDungeonPrevMyRanking(pc, "Warrior")
+        SendSoloDungeonPrevMyRanking(pc, "Wizard")
+        SendSoloDungeonPrevMyRanking(pc, "Archer")
+        SendSoloDungeonPrevMyRanking(pc, "Cleric")
+    
+        SendAddOnMsg(pc, "DO_SOLODUNGEON_RANKINGPAGE_OPEN")
     end
 end

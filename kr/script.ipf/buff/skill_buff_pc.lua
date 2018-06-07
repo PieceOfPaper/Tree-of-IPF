@@ -500,7 +500,6 @@ end
 
 
 function SCR_BUFF_ENTER_BattleOrders_Buff(self, buff, arg1, arg2, over)
-
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 
 end
@@ -1178,7 +1177,7 @@ end
 function SCR_BUFF_LEAVE_Fluting_DeBuff(self, buff, arg1, arg2, over)
     local beforeFixMSPD = GetExProp(buff, "BEFORE_FIXMSPD");
     self.FIXMSPD_BM = beforeFixMSPD;
-    	UnHoldMonScp(self);
+	UnHoldMonScp(self);
     StopMove(self);
     AttachEffect(self, "I_emo_exclamation", 3, "TOP");
     
@@ -3039,21 +3038,16 @@ function SCR_BUFF_ENTER_DiscernEvil_Buff(self, buff, arg1, arg2, over)
         caster = buff;
     end
     
-    local buff_list, buff_cnt = GetBuffList(self)
-        if buff_cnt >= 1 then
-            for i = 1, buff_cnt do
-                if TryGetProp(buff_list[i], "Keyword") == "IgnoreImmune;DiscernEvil" then
-                    return 0
-                end
-            end
-        end
-    
     local list, cnt = GetBuffList(self);
     for i = 1, cnt do
         local debuff = list[i]
         if debuff.Group1 == "Debuff" then
             if GetExProp(debuff, "DISCERNEVIL_DEBUFFTIME") == 1 then
                 return
+            end
+            
+            if TryGetProp(debuff, "Keyword") == "Poison;DiscernEvil" then
+                break
             end
             
             local remainTime = GetBuffRemainTime(debuff);
@@ -4792,12 +4786,6 @@ function SCR_BUFF_ENTER_Sleep_Debuff(self, buff, arg1, arg2, over)
         if pad ~= nil then
             lv = GetPadArgNumber(pad, 1);
             
-            if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
-                if lv > 5 then
-                    lv = 5
-                end
-            end
-            
             local abilWizard25 = GetAbility(caster, "Wizard25")
             if abilWizard25 ~= nil then
             	lv = lv * 0.2
@@ -4807,6 +4795,11 @@ function SCR_BUFF_ENTER_Sleep_Debuff(self, buff, arg1, arg2, over)
             	lv = 1
             end
         end
+    end
+    
+    local zone = GetZoneName(self);
+    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
+        lv = 0;
     end
     
     SetExProp(self, "TAKEDMG_COUNT", lv)
@@ -6410,7 +6403,12 @@ function SCR_BUFF_ENTER_Samdiveve_Buff(self, buff, arg1, arg2, over)
     
     mhpadd = math.floor(298.6 + ((caster.MHP * (0.005 * lv))))
     mspdadd = 3 + lv * 1
-
+	
+	local zone = GetZoneName(self);
+	if IsPVPServer(self) == 1 or zone == 'pvp_Mine' then
+		mspdadd = mspdadd * 0.5;
+	end
+	
     self.MHP_BM = self.MHP_BM + mhpadd;
     self.MSPD_BM = self.MSPD_BM + mspdadd;
     
@@ -10556,7 +10554,13 @@ function SCR_BUFF_ENTER_Impaler_Debuff(self, buff, arg1, arg2, over)
     SkillCancel(self);
     local caster = GetBuffCaster(buff);
     local skill = GetSkill(caster, "Cataphract_Impaler")
-    AddBuff(caster, caster, 'Impaler_Buff', arg1, arg2, 8000 + skill.Level * 1000, 1);  
+    local buffTime = 8000 + skill.Level * 1000
+    local zone = GetZoneName(self);
+    if IsPVPServer(caster) == 1 or zone == 'pvp_Mine' then
+        buffTime = 6000
+    end
+    
+    AddBuff(caster, caster, 'Impaler_Buff', arg1, arg2, buffTime, 1);  
 end
 
 function SCR_BUFF_LEAVE_Impaler_Debuff(self, buff, arg1, arg2, over)    
@@ -15656,9 +15660,9 @@ function SCR_BUFF_ENTER_HeavyGravity_Debuff(self, buff, arg1, arg2, over)
     	local abilPsychokino22 = GetAbility(caster, "Psychokino22")
     	if abilPsychokino22 ~= nil and abilPsychokino22.ActiveState == 1 then
     		if IS_PC(self) == true then 
-    			abilMoveSpeed = abilPsychokino22.Level * 10
+    			abilMoveSpeed = abilPsychokino22.Level * 2
     		elseif IS_PC(self) == false and self.Size == "S" or self.Size == "M" then
-    			abilMoveSpeed = abilPsychokino22.Level * 10
+    			abilMoveSpeed = abilPsychokino22.Level * 2
     		end
     	end
     end

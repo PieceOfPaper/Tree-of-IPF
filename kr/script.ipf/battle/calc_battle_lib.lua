@@ -1438,9 +1438,33 @@ function FINAL_DAMAGECALC(self, from, skill, atk, ret, fixHitType, isDadak)
             ret.Damage = multiHitCount;
         end
     end
-
+	
     local limitDamage = GET_LIMIT_MAX_DAMAGE(self, from, skill, ret);
     if limitDamage > 0 and ret.Damage > limitDamage then
+    	if IS_PC(self) == true and IS_PC(from) == false then
+    		local pcBuffString = '';
+    		local pcBuffList, pcBuffCount = GetBuffList(self);
+    		if pcBuffCount >= 1 then
+	    		for i = 1, pcBuffCount do
+	    			pcBuffString = pcBuffString .. ', ' .. pcBuffList[i].ClassName;
+	    		end
+	    	else
+	    		pcBuffString = 'None';
+	    	end
+	    	
+    		local monBuffString = '';
+    		local monBuffList, monBuffCount = GetBuffList(from);
+    		if monBuffCount >= 1 then
+	    		for i = 1, monBuffCount do
+	    			monBuffString = monBuffString .. ', ' .. monBuffList[i].ClassName;
+	    		end
+	    	else
+	    		monBuffString = 'None';
+	    	end
+	    	
+		    IMC_LOG('INFO_SKILL_PASS_DECREASED_TIME', 'Attacker : ' .. TryGetProp(from, 'Name', 'Name') .. '(' .. TryGetProp(from, 'ClassName', 'ClassName') .. ')' .. ' / AttackerBuff : ' .. monBuffString .. ' / Defender : ' .. TryGetProp(self, 'Name', 'Name') .. '(' .. TryGetProp(self, 'ClassName', 'ClassName') .. ')' .. ' / DefenderBuff : ' .. pcBuffString)
+--		    print('Attacker : ' .. TryGetProp(from, 'Name', 'Name') .. '(' .. TryGetProp(from, 'ClassName', 'ClassName') .. ')' .. ' / AttackerBuff : ' .. monBuffString .. ' / Defender : ' .. TryGetProp(self, 'Name', 'Name') .. '(' .. TryGetProp(self, 'ClassName', 'ClassName') .. ')' .. ' / DefenderBuff : ' .. pcBuffString)
+		end
         ret.Damage = limitDamage
     end
     

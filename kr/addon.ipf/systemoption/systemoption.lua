@@ -235,6 +235,12 @@ function APPLY_PERFMODE(frame)
 
 end
 
+function SHOW_PERFORMANCE_VALUE(frame)
+	local flag = config.GetXMLConfig("ShowPerformanceValue")
+	SHOW_FPS_FRAME(flag)
+end
+
+
 function APPLY_SCREEN(frame)
 	local scrRadioBtn = GET_CHILD_RECURSIVELY(frame, "scrtype_1" , "ui::CRadioButton");
 	local resCtrl = GET_CHILD_RECURSIVELY(frame, "resolutionList", "ui::CDropList");    
@@ -572,3 +578,4 @@ function CONFIG_RENDER_SHADOW(frame, ctrl, str, num)
     config.SetRenderShadow(isEnable);
     imcperfOnOff.EnableRenderShadow(isEnable);
 end
+

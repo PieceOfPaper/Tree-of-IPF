@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="25" type="2" intensity="2" frequency="70" duration="2" range="1000"/>
+	<Shockwave frame="50" type="2" intensity="30" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="52" type="2" intensity="10" frequency="70" duration="1" range="1000"/>
+	<BlendOn frame="65" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="67" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="69" R="100" G="100" B="100" A="50"/>
+	<BlendOff frame="71" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="m_glass_mole_turn"/>
+	<Sound frame="48.00" soundFile="m_glass_mole_born"/>
+</ActionDesc>

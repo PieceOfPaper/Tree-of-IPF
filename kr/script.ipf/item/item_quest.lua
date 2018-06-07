@@ -12408,10 +12408,10 @@ end
 
 function GM_WHITETREES_OBJ_ITEM_SET1(self)
     if self.ClassName == "GM_Large_crossbow" then
-        self.HPCount = 50
+        self.HPCount = 75
         self.Dialog = "GM_WHITETREES_ITEM_OBJ"
     elseif self.ClassName == "GM_arrow_trap" then
-        self.HPCount = 75
+        self.HPCount = 50
         self.Dialog = "GM_WHITETREES_ITEM_OBJ"
     elseif self.ClassName == "GM_stake_stockades" then
         self.HPCount = 150
@@ -12421,7 +12421,7 @@ end
 
 function SCR_GM_WHITETREES_ITEM_OBJ_DIALOG(self, pc)
     if GetInvItemCount(pc, "GM_WHITETREES_OBJ_ITEM1") >= 1 then
-        local result1 = DOTIMEACTION_R(pc, "GM_WHITETREES_ITEM1_MSG1", "BURY", 1.5)
+        local result1 = DOTIMEACTION_R(pc, ScpArgMsg("GM_WHITETREES_ITEM1_MSG1"), "BURY", 1.5)
         if result1 == 1 then
             RunScript("TAKE_ITEM_TX", pc, "GM_WHITETREES_OBJ_ITEM1",1, "GM_WHITETREES_56_1")
             AddBuff(self, self, "GM_WHITETREES_DEFFENCE_OBJ_BUFF", 1, 0, 0, 1)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3800,6 +3800,17 @@
 			<img name="bottomcore" imgrect="4 108 939 67"/>
 			<img name="bottomright" imgrect="944 108 1 67"/>
 		</skin>
+		<skin name="graybox_op_45" texture="\skin\tooltip_skin_3.tga">
+			<img name="topleft" imgrect="1458 1532 21 17"/>
+			<img name="topcore" imgrect="1480 1532 255 17"/>
+			<img name="topright" imgrect="1736 1532 21 17"/>
+			<img name="bodyleft" imgrect="1458 1550 21 25"/>
+			<img name="bodycore" imgrect="1480 1550 255 25"/>
+			<img name="bodyright" imgrect="1736 1550 21 25"/>
+			<img name="bottomleft" imgrect="1458 1576 21 17"/>
+			<img name="bottomcore" imgrect="1480 1576 255 17"/>
+			<img name="bottomright" imgrect="1736 1576 21 17"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -4238,6 +4249,30 @@
 		</skin>
 		<skin name="invenslot_legend" texture="\skin\pip_test_item.tga">
 			<img name="slot" imgrect="1276 654 58 58"/>
+			<img name="mouseon" imgrect="1335 654 58 58"/>
+			<img name="cooltime" imgrect="1335 654 58 58"/>
+			<img name="selected" imgrect="1335 654 58 58"/>
+		</skin>
+		<skin name="invenslot_pic_magic" texture="\skin\pip_test_item.tga">
+			<img name="slot" imgrect="1243 324 58 58"/>
+			<img name="mouseon" imgrect="1335 654 58 58"/>
+			<img name="cooltime" imgrect="1335 654 58 58"/>
+			<img name="selected" imgrect="1335 654 58 58"/>
+		</skin>
+		<skin name="invenslot_pic_rare" texture="\skin\pip_test_item.tga">
+			<img name="slot" imgrect="1302 324 58 58"/>
+			<img name="mouseon" imgrect="1335 654 58 58"/>
+			<img name="cooltime" imgrect="1335 654 58 58"/>
+			<img name="selected" imgrect="1335 654 58 58"/>
+		</skin>
+		<skin name="invenslot_pic_unique" texture="\skin\pip_test_item.tga">
+			<img name="slot" imgrect="1243 383 58 58"/>
+			<img name="mouseon" imgrect="1335 654 58 58"/>
+			<img name="cooltime" imgrect="1335 654 58 58"/>
+			<img name="selected" imgrect="1335 654 58 58"/>
+		</skin>
+		<skin name="invenslot_pic_legend" texture="\skin\pip_test_item.tga">
+			<img name="slot" imgrect="1302 383 58 58"/>
 			<img name="mouseon" imgrect="1335 654 58 58"/>
 			<img name="cooltime" imgrect="1335 654 58 58"/>
 			<img name="selected" imgrect="1335 654 58 58"/>
@@ -5727,6 +5762,7 @@
 		<image name="inven_remove_btn_cursoron" file="\skin\pip_test.tga" imgrect="1692 788 46 46"/>
 		<image name="inven_remove_btn_clicked" file="\skin\pip_test.tga" imgrect="1740 788 46 46"/>
 		<image name="inven_lock" file="\skin\pip_test.tga" imgrect="560 888 35 35" CMM_Caption="인벤자물쇠"/>
+		<image name="inven_lock2" file="\skin\pip_test.tga" imgrect="569 893 18 26" CMM_Caption="인벤자물쇠2"/>
 		<image name="guild_online" file="\skin\pip_test.tga" imgrect="1799 610 20 20" CMM_Caption="길드_온라인"/>
 		<image name="guild_offline" file="\skin\pip_test.tga" imgrect="1799 589 20 20" CMM_Caption="길드_오프라인"/>
 		<image name="v_mark" file="\skin\barrack.tga" imgrect="1067 330 84 84" CMM_Caption="브이마크"/>
@@ -5957,6 +5993,30 @@
 		<image name="itemslot_star_icon_10" file="\skin\pip_test_item.tga" imgrect="1276 595 58 58" CMM_Caption="초월 아이콘_별10"/>
 		<image name="itemslot_unconceded_icon" file="\skin\pip_test_item.tga" imgrect="1335 595 58 58" CMM_Caption="미감정 아이콘"/>
 		<image name="icon_button_warning" file="\skin\pip_test.tga" imgrect="919 708 36 36" CMM_Caption="버튼 경고아이콘"/>
+		<image name="mine_pvp_img_scoreboard" file="\skin\PVP_skin.tga" imgrect="1024 473 273 143" CMM_Caption="광산pvp 내 점수판"/>
+		<image name="mine_pvp_imgfont_dot" file="\skin\PVP_skin.tga" imgrect="1829 186 5 29" CMM_Caption="점수판 숫자 점"/>
+		<image name="mine_pvp_imgfont_0" file="\skin\PVP_skin.tga" imgrect="1835 186 18 29" CMM_Caption="점수판 숫자 0"/>
+		<image name="mine_pvp_imgfont_1" file="\skin\PVP_skin.tga" imgrect="1854 186 18 29" CMM_Caption="점수판 숫자 1"/>
+		<image name="mine_pvp_imgfont_2" file="\skin\PVP_skin.tga" imgrect="1873 186 18 29" CMM_Caption="점수판 숫자 2"/>
+		<image name="mine_pvp_imgfont_3" file="\skin\PVP_skin.tga" imgrect="1892 186 18 29" CMM_Caption="점수판 숫자 3"/>
+		<image name="mine_pvp_imgfont_4" file="\skin\PVP_skin.tga" imgrect="1911 186 18 29" CMM_Caption="점수판 숫자 4"/>
+		<image name="mine_pvp_imgfont_5" file="\skin\PVP_skin.tga" imgrect="1930 186 18 29" CMM_Caption="점수판 숫자 5"/>
+		<image name="mine_pvp_imgfont_6" file="\skin\PVP_skin.tga" imgrect="1949 186 18 29" CMM_Caption="점수판 숫자 6"/>
+		<image name="mine_pvp_imgfont_7" file="\skin\PVP_skin.tga" imgrect="1968 186 18 29" CMM_Caption="점수판 숫자 7"/>
+		<image name="mine_pvp_imgfont_8" file="\skin\PVP_skin.tga" imgrect="1987 186 18 29" CMM_Caption="점수판 숫자 8"/>
+		<image name="mine_pvp_imgfont_9" file="\skin\PVP_skin.tga" imgrect="2006 186 18 29" CMM_Caption="점수판 숫자 9"/>
+		<image name="mine_pvp_killmvp_emblem" file="\skin\PVP_skin.tga" imgrect="661 116 46 52" CMM_Caption="킬 mpv 엠블럼"/>
+		<image name="mine_pvp_scoremvp_emblem" file="\skin\PVP_skin.tga" imgrect="648 169 46 52" CMM_Caption="점수 mpv 엠블럼"/>
+		<image name="solodungeon_rank_img_1" file="\skin\PVP_skin.tga" imgrect="1240 409 60 61" CMM_Caption="1인던전 등수이미지1"/>
+		<image name="solodungeon_rank_img_2" file="\skin\PVP_skin.tga" imgrect="1301 409 60 61" CMM_Caption="1인던전 등수이미지2"/>
+		<image name="solodungeon_rank_img_3" file="\skin\PVP_skin.tga" imgrect="1362 409 60 61" CMM_Caption="1인던전 등수이미지3"/>
+		<image name="solodungeon_rank_img_4" file="\skin\PVP_skin.tga" imgrect="1423 409 60 61" CMM_Caption="1인던전 등수이미지4"/>
+		<image name="solodungeon_rank_img_5" file="\skin\PVP_skin.tga" imgrect="1484 409 60 61" CMM_Caption="1인던전 등수이미지5"/>
+		<image name="solodungeon_rank_img_6" file="\skin\PVP_skin.tga" imgrect="1545 409 60 61" CMM_Caption="1인던전 등수이미지6"/>
+		<image name="solodungeon_rank_img_7" file="\skin\PVP_skin.tga" imgrect="1606 409 60 61" CMM_Caption="1인던전 등수이미지7"/>
+		<image name="solodungeon_rank_img_8" file="\skin\PVP_skin.tga" imgrect="1667 409 60 61" CMM_Caption="1인던전 등수이미지8"/>
+		<image name="solodungeon_rank_img_9" file="\skin\PVP_skin.tga" imgrect="1728 409 60 61" CMM_Caption="1인던전 등수이미지9"/>
+		<image name="solodungeon_rank_img_10" file="\skin\PVP_skin.tga" imgrect="1789 409 60 61" CMM_Caption="1인던전 등수이미지10"/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_betrum_scoreboardT_skin" file="\skin\keynbet.tga" imgrect="0 528 352 88" CMM_Caption="배틀럼블 스코어 페이지"/>
@@ -8375,6 +8435,8 @@
 		<image name="icon_solidarity_medal" file="\icon\buff_icon2.tga" imgrect="896 128 128 128" CMM_Caption="결속의 증표 버프"/>
 		<image name="icon_Frostbite_DeBuff" file="\icon\buff_icon2.tga" imgrect="0 256 128 128" CMM_Caption="수속성 디버프 슬로우"/>
 		<image name="icon_weddingbird_have" file="\icon\buff_icon2.tga" imgrect="128 256 128 128" CMM_Caption="홍관조 버프"/>
+		<image name="icon_thurible02" file="\icon\buff_icon2.tga" imgrect="640 128 128 128" CMM_Caption="향로 이미지"/>
+		<image name="icon_thurible01" file="\icon\buff_icon2.tga" imgrect="768 128 128 128" CMM_Caption="켜진 향로 이미지"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

@@ -106,3 +106,7 @@ ClassID,Value,ClassName,Desc,UseInScript
 10201,6,"COLONY_REWARD_HOUR","콜로니전 보상 지급 시간. 0~23(시)","YES"
 10202,2.500000,"MAX_COLONY_REWARD_SILVER","콜로니전 보상 지급 상한선 실버(억)","YES"
 10300,5,"MAX_CARDBOOKMONSTER_COUNT_IN_ZONE","존 내에 몬스터카드북으로 소환된 보스몹의 최대 수","YES"
+10500,10,"SOLO_DUNGEON_MAX_RANK","1인던전 랭킹 최대 등수","YES"
+10501,1,"SOLO_DUNGEON_RESET_DAY_OF_WEEK","1인 던전 주간 초기화 요일(wDayOfWeek)","YES"
+10502,6,"SOLO_DUNGEON_RESET_HOUR","1인 던전 주간 초기화 시간","YES"
+10503,3,"SOLO_DUNGEON_REWARD_DELAY_HOUR","1인 던전 주간 보상 지급 지연 시간","YES"

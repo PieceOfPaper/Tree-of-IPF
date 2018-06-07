@@ -7,13 +7,21 @@
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
 	<option hideable="false" closebutton="false"/>
 	<controls>
-		<groupbox name="gBox" rect="0 0 430 980" margin="50 5 0 0" skin="barrack_group_skin" draw="true" hittest="true" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="true" resizebyresolution="true"/>
-		<groupbox name="scrollBox" rect="0 0 750 950" margin="48 45 0 0" Parent="gBox" skin="_pipwin_low" draw="true" hittest="true" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="false" resizebyresolution="true"/>
+		<groupbox name="gBox" rect="0 0 434 998" margin="50 5 0 0" skin="barrack_group_skin" draw="true" hittest="true" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="true" resizebyresolution="true"/>
+		<groupbox name="scrollBox" rect="0 0 780 853" margin="54 45 0 0" Parent="gBox" skin="_pipwin_low" draw="true" hittest="true" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="false" resizebyresolution="true"/>
 		<richtext name="pccount" margin="70 15 0" rect="0 0 267 36" layout_gravity="left top" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" format="{@st41}숙소%s (%s/%s){/}" param1="value" param1_def="1" param2="curpc" param3="maxpc"/>
 		<richtext name="layercount" margin="0 15 190 0" rect="0 0 267 36" layout_gravity="right top" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" format="{@st41}%s (%s/%s){/}" param1="value" param1_def="총 캐릭터" param2="curcount" param3="maxcount"/>
-		<labelline name="LL" margin="-200 40 0 0" rect="0 0 350 4" skin="None" layout_gravity="center top"/>
-		<button name="changeLayer1" rect="0 0 48 48" margin="9 0 0 0" layout_gravity="left top" LBtnUpArgNum="1" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_on_one_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
-		<button name="changeLayer2" rect="0 0 48 48" margin="9 50 0 0" layout_gravity="left top" LBtnUpArgNum="2" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_off_two_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
-		<button name="changeLayer3" rect="0 0 48 48" margin="9 100 0 0" layout_gravity="left top" LBtnUpArgNum="3" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_off_three_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
+		<labelline name="LL" margin="-130 40 0 0" rect="0 0 400 4" skin="None" layout_gravity="center top"/>
+		<button name="changeLayer1" rect="0 0 52 58" margin="9 0 0 0" layout_gravity="left top" LBtnUpArgNum="1" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_on_one_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
+		<button name="changeLayer2" rect="0 0 40 59" margin="9 50 0 0" layout_gravity="left top" LBtnUpArgNum="2" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_off_two_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
+		<button name="changeLayer3" rect="0 0 40 58" margin="9 100 0 0" layout_gravity="left top" LBtnUpArgNum="3" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_off_three_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
+		<groupbox name="groupbox_fixed" rect="0 0 405 92" margin="40 0 0 5" layout_gravity="left bottom" parent="gbox" draw="false"/>
+		<button name="button_char_del" rect="0 0 155 47" margin="0 0 0 0" layout_gravity="left bottom" skin="test_pvp_btn" caption="{@st66}{nl}캐릭터 삭제" parent="groupbox_fixed" LBtnUpScp="DELETE_CHAR_SCROLL"/>
+		<button name="button_barrack_change" rect="0 0 155 47" margin="155 0 0 0" layout_gravity="left bottom" parent="groupbox_fixed" LBtnUpScp="CHANGE_BARRACK_TARGET_LAYER" skin="test_pvp_btn" caption="{@st66}{nl}숙소 이동"/>
+		<button name="button_up" rect="0 0 48 47" margin="310 0 0 0" layout_gravity="left top" parent="groupbox_fixed" LBtnUpScp="UP_SWAP_CHARACTER_SLOT" skin="test_pvp_btn" caption="{@st66}{nl}▲"/>
+		<button name="button_down" rect="0 0 48 47" margin="310 0 0 0" layout_gravity="left bottom" parent="groupbox_fixed" LBtnUpScp="DOWN_SWAP_CHARACTER_SLOT" skin="test_pvp_btn" caption="{@st66}{nl}▼"/>
+		<button name="button_new_char" rect="0 0 310 47" margin="0 0 0 0" layout_gravity="left top" skin="test_pvp_btn" caption="{@st66}{nl}새 캐릭터 만들기" parent="groupbox_fixed" LBtnUpScp="BARRACK_GO_CREATE"/>
+		<picture name="button_up_alpha" rect="0 0 40 39" margin="314 4 0 0" layout_gravity="left top" draw="true" hittestbox="false" hittest="false" parent="groupbox_fixed" alpha="0" image="fullblack"/>
+		<picture name="button_down_alpha" rect="0 0 40 39" margin="314 0 0 4" layout_gravity="left bottom" draw="true" hittestbox="false" hittest="false" parent="groupbox_fixed" alpha="0" image="fullblack"/>
 	</controls>
 </uiframe>

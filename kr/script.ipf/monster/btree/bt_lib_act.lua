@@ -897,3 +897,21 @@ function BT_ACT_SELF_SETPOS(self, state, btree, prop)
     SetPos(self, numArg, numArg2, numArg3)
     return BT_SUCCESS;
 end
+
+
+--/**
+--* @Function       BT_ACT_GET_SELF_USE_SKILL
+--* @Type           Act
+--* @Description        자신의 스킬을 검사해 그중 랜덤으로 스킬사용.
+--**/
+function BT_ACT_GET_SELF_USE_SKILL(self,state, btree, prop)
+    local target = GetReservedTarget(btree);
+    local selectedSkill = SelectMonsterSkillByRatio(self);
+    if target == nil then
+        return BT_FAILED;
+    end
+     UseMonsterSkill(self, target, selectedSkill);
+    --SCR_USE_SKILL_WAIT(self, target, selectedSkill);
+        
+    return BT_SUCCESS;
+end

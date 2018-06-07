@@ -34,6 +34,35 @@ function SCR_BUFF_LEAVE_mon_pollution_zone(self, buff, arg1, arg2, over)
 
 end
 
+-- mon_PopFlower
+function SCR_BUFF_ENTER_mon_PopFlower(self, buff, arg1, arg2, over)
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+end
+
+function SCR_BUFF_LEAVE_mon_PopFlower(self, buff, arg1, arg2, over)
+
+    if IsBuffApplied(self, 'mon_PopFlower') == 'NO' and self.HP > 0 then
+        local caster = GetBuffCaster(buff);
+        if caster ~= nil then
+            local damage = (caster.MINMATK + caster.MAXMATK)/2
+            
+--            local key = GenerateSyncKey(self)
+--            StartSyncPacket(self, key);
+            
+            PlayEffect(self, 'F_explosion113_leaf', 1);
+            TakeDamage(caster, self, "None", damage, "Melee", "Strike", "TrueDamage", HIT_FIRE, HITRESULT_BLOW);
+            local angle = GetAngleFromPos(caster, x, z);
+            if GetPropType(self, 'KDArmor') ~= nil and self.KDArmor < 900 then
+                KnockDown(self, caster, 150, angle, 60, 3)
+            end
+            
+--            EndSyncPacket(self, key, 0);
+--            ExecSyncPacket(self, key);
+        end
+    end
+end
+
+
 -- UC_bound
 function SCR_BUFF_ENTER_UC_bound(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_bound', 0)
@@ -3075,4 +3104,33 @@ end
 
 function SCR_BUFF_LEAVE_UC_UnrecoverableHP(self, buff, arg1, arg2, over)
 
+end
+
+function SCR_BUFF_ENTER_Monster_Stop_Debuff(self, buff, arg1, arg2, over)
+
+    local defencedBM = 0;
+    
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        defencedBM = 1;
+    end
+    
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    
+    SetExProp(buff, 'DEFENCED_BM', defencedBM);
+    self.MaxDefenced_BM = self.MaxDefenced_BM + defencedBM;
+
+end
+
+function SCR_BUFF_UPDATE_Monster_Stop_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
+
+    return 1;
+
+end
+
+function SCR_BUFF_LEAVE_Monster_Stop_Debuff(self, buff, arg1, arg2, over)
+
+    local defencedBM = GetExProp(buff, 'DEFENCED_BM');
+    self.MaxDefenced_BM = self.MaxDefenced_BM - defencedBM;
+    
 end

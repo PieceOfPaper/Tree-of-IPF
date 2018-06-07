@@ -8,7 +8,9 @@ function FPS_ON_INIT(addon, frame)
 end
 
 function FPS_ON_MSG(frame, msg, argStr, argNum)
-
+	local showFPS = config.GetXMLConfig("ShowPerformanceValue")
+	local fpsFrame = ui.GetFrame("fps")
+	fpsFrame:ShowWindow(showFPS)
 	local perfType = config.GetAutoAdjustLowLevel()
 	local nowLowOptionValue = config.GetUseLowOption();
 
@@ -65,4 +67,13 @@ function FPS_ON_MSG(frame, msg, argStr, argNum)
 		fpsRichText:ShowWindow(1);
 
 	end
+end
+
+function SHOW_FPS_FRAME(flag)
+	local frame = ui.GetFrame("fps")
+	if frame == nil or flag == nil then
+		return
+	end
+
+	frame:ShowWindow(flag)
 end

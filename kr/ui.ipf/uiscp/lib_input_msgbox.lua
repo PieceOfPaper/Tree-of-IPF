@@ -136,3 +136,60 @@ function GET_INPUT2_STRING_TXT(frame)
 
 end
 
+
+
+function INPUT_DROPLIST_BOX(barrackFrame, strscp, charName, jobName, minNumber, maxNumber)
+	if barrackFrame == nil then
+		return
+	end
+
+	ui.OpenFrame("barrack_move_popup")
+	local frame = ui.GetFrame("barrack_move_popup")
+	if frame == nil then
+		return
+	end
+
+	frame:SetUserValue("character_cid", barrackFrame:GetUserValue("character_cid"))
+	frame:SetSValue(strscp);
+
+	local msgtext = GET_CHILD_RECURSIVELY(frame, "richtext_1")
+	msgtext:SetTextByKey("JobName", jobName)
+	msgtext:SetTextByKey("CharName", charName)
+
+	local yesBtn = GET_CHILD_RECURSIVELY(frame, "button_1")
+	yesBtn:SetEventScript(ui.LBUTTONUP, "INPUT_DROPLIST_BOX_EXEC")
+	local noBtn = GET_CHILD_RECURSIVELY(frame, "button_2")
+	noBtn:SetEventScript(ui.LBUTTONUP, "CLOSE_INPUT_DROPLIST_BOX")
+
+	local dropList = GET_CHILD_RECURSIVELY(frame, "droplist_new")
+	local dropListText = frame:GetUserConfig("DROPBOX_TEXT")
+	local dropListText_i = dropListText
+	for i = minNumber, maxNumber do
+		dropListText_i = dropListText .. ' ' .. i
+		dropList:AddItem(i, dropListText_i)
+	end
+end
+
+function CLOSE_INPUT_DROPLIST_BOX(frame)
+	local frame = ui.GetFrame("barrack_move_popup")
+	if frame ~= nil then
+		ui.CloseFrame("barrack_move_popup")
+	end
+end
+
+function INPUT_DROPLIST_BOX_EXEC(frame)
+	local frame = ui.GetFrame("barrack_move_popup")
+	if frame == nil then
+		return
+	end
+
+	local dropList = GET_CHILD_RECURSIVELY(frame, "droplist_new")
+	dropList:GetSelItemKey()
+
+	local scpName = frame:GetSValue();
+	local execScp = _G[scpName];
+	local resultString = dropList:GetSelItemKey()
+	execScp(frame, resultString, frame);
+	
+	ui.CloseFrame("barrack_move_popup")
+end

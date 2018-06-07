@@ -4304,36 +4304,40 @@ return math.floor(self.Lv/3);"/>
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="TSP02_105">
-		<TriggerList Act="Equip">
+		<TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_Impaler"/>
-						<Num Num="1"/>
+						<Num Num="-1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_EarthWave"/>
-						<Num Num="1"/>
+						<Num Num="-1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_Trot"/>
-						<Num Num="1"/>
+						<Num Num="-1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_SteedCharge"/>
-						<Num Num="1"/>
+						<Num Num="-1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_DoomSpike"/>
-						<Num Num="1"/>
+						<Num Num="-1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_Rush"/>
-						<Num Num="1"/>
+						<Num Num="-1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_DraggingDeath"/>
-						<Num Num="1"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cataphract_AcrobaticMount"/>
+						<Num Num="-1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -4366,36 +4370,40 @@ return math.floor(self.Lv/3);"/>
 				</ExecList>
 			</Trigger>
 		</TriggerList>
-		<TriggerList Act="UnEquip">
+		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_Impaler"/>
-						<Num Num="-1"/>
+						<Num Num="1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_EarthWave"/>
-						<Num Num="-1"/>
+						<Num Num="1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_Trot"/>
-						<Num Num="-1"/>
+						<Num Num="1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_SteedCharge"/>
-						<Num Num="-1"/>
+						<Num Num="1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_DoomSpike"/>
-						<Num Num="-1"/>
+						<Num Num="1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_Rush"/>
-						<Num Num="-1"/>
+						<Num Num="1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cataphract_DraggingDeath"/>
-						<Num Num="-1"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cataphract_AcrobaticMount"/>
+						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>

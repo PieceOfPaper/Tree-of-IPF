@@ -104,56 +104,56 @@ function EVENT_1805_WEDDING2_INDUN_COUNT_SET(pc)
     local ret = TxCommit(tx)
 end
 
-function SCR_EVENT_1805_WEDDING1_NPC_DIALOG(self, pc)
-    EVENT_1805_WEDDING2_INDUN_COUNT_SET(pc)
-    
-    local aObj = GetAccountObj(pc)
-    local now_time = os.date('*t')
-    local year = now_time['year']
-    local month = now_time['month']
-    local day = now_time['day']
-    local nowday = year..'/'..month..'/'..day
-    
-    local select = ShowSelDlg(pc, 0, 'EVENT_1805_WEDDING2_DLG1\\'..ScpArgMsg('EVENT_1805_WEDDING2_MSG1','COUNT',aObj.EVENT_1805_WEDDING2_ACC_COUNT), ScpArgMsg('EVENT_1804_ARBOR_MSG9'),ScpArgMsg('EVENT_1805_WEDDING2_MSG2'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
-    if select == 1 then
-        local partyObj = GetPartyObj(pc)
-        if partyObj ~= nil then
-            SendSysMsg(pc, 'CannotUseInParty')
-            return
-        end
-        
-        if aObj ~= nil then
-            if aObj.EVENT_1805_WEDDING2_REWARD_DATE ~= nowday or aObj.EVENT_1805_WEDDING2_REWARD_COUNT < 2 then
-                if pc.Lv >= 30 then
-                    local missionID = OpenMissionRoom(pc, 'MISSION_EVENT_1805_WEDDING2', "");
-                    ReqMoveToMission(pc, missionID)
-                else
-                    SendSysMsg(pc, 'NeedMorePcLevel')
-                end
-            else
-                ShowOkDlg(pc, 'EVENT_1805_WEDDING2_DLG2', 1)
-            end
-        end
-    elseif select == 2 then
-        local item
-        local saveReward = 0
-        if aObj.EVENT_1805_WEDDING2_ACC_COUNT >= 5 and aObj.EVENT_1805_WEDDING2_ACC_REWARD < 5 then
-            item = 'artefact_wedding04'
-            saveReward = 5
-        elseif aObj.EVENT_1805_WEDDING2_ACC_COUNT >= 20 and aObj.EVENT_1805_WEDDING2_ACC_REWARD < 20 then
-            item = 'EVENT_1805_WEDDING2_COSTUME_BOX'
-            saveReward = 20
-        end
-        if item ~= nil and saveReward > 0 then
-            local tx = TxBegin(pc)
-            TxGiveItem(tx, item, 1, 'EVENT_1805_WEDDING2');
-            TxSetIESProp(tx, aObj, 'EVENT_1805_WEDDING2_ACC_REWARD', saveReward)
-            local ret = TxCommit(tx)
-        else
-            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1805_WEDDING2_MSG3"), 10);
-        end
-    end
-end
+--function SCR_EVENT_1805_WEDDING1_NPC_DIALOG(self, pc)
+--    EVENT_1805_WEDDING2_INDUN_COUNT_SET(pc)
+--    
+--    local aObj = GetAccountObj(pc)
+--    local now_time = os.date('*t')
+--    local year = now_time['year']
+--    local month = now_time['month']
+--    local day = now_time['day']
+--    local nowday = year..'/'..month..'/'..day
+--    
+--    local select = ShowSelDlg(pc, 0, 'EVENT_1805_WEDDING2_DLG1\\'..ScpArgMsg('EVENT_1805_WEDDING2_MSG1','COUNT',aObj.EVENT_1805_WEDDING2_ACC_COUNT), ScpArgMsg('EVENT_1804_ARBOR_MSG9'),ScpArgMsg('EVENT_1805_WEDDING2_MSG2'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
+--    if select == 1 then
+--        local partyObj = GetPartyObj(pc)
+--        if partyObj ~= nil then
+--            SendSysMsg(pc, 'CannotUseInParty')
+--            return
+--        end
+--        
+--        if aObj ~= nil then
+--            if aObj.EVENT_1805_WEDDING2_REWARD_DATE ~= nowday or aObj.EVENT_1805_WEDDING2_REWARD_COUNT < 2 then
+--                if pc.Lv >= 30 then
+--                    local missionID = OpenMissionRoom(pc, 'MISSION_EVENT_1805_WEDDING2', "");
+--                    ReqMoveToMission(pc, missionID)
+--                else
+--                    SendSysMsg(pc, 'NeedMorePcLevel')
+--                end
+--            else
+--                ShowOkDlg(pc, 'EVENT_1805_WEDDING2_DLG2', 1)
+--            end
+--        end
+--    elseif select == 2 then
+--        local item
+--        local saveReward = 0
+--        if aObj.EVENT_1805_WEDDING2_ACC_COUNT >= 5 and aObj.EVENT_1805_WEDDING2_ACC_REWARD < 5 then
+--            item = 'artefact_wedding04'
+--            saveReward = 5
+--        elseif aObj.EVENT_1805_WEDDING2_ACC_COUNT >= 20 and aObj.EVENT_1805_WEDDING2_ACC_REWARD < 20 then
+--            item = 'EVENT_1805_WEDDING2_COSTUME_BOX'
+--            saveReward = 20
+--        end
+--        if item ~= nil and saveReward > 0 then
+--            local tx = TxBegin(pc)
+--            TxGiveItem(tx, item, 1, 'EVENT_1805_WEDDING2');
+--            TxSetIESProp(tx, aObj, 'EVENT_1805_WEDDING2_ACC_REWARD', saveReward)
+--            local ret = TxCommit(tx)
+--        else
+--            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1805_WEDDING2_MSG3"), 10);
+--        end
+--    end
+--end
 
 function GET_EVENT_1805_WEDDING2_LV_NORMAL(self, zoneObj, arg2, zone, layer)
 	local maxLv = GetExProp(zoneObj, "MaxLv");

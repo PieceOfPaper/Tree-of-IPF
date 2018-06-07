@@ -1876,9 +1876,13 @@ function SCR_Get_MSPD(self)
     end
     
     local value = 30.0;
-    
+    local zone = GetZoneName(self);
     if IsBuffApplied(self, "BattleOrders_Buff") == "YES" then
-        value =  60;
+    	if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
+        	value = 45;
+        else
+        	value = 60;
+        end
     end
     
     if self.ClassName == 'PC' then
@@ -1891,7 +1895,8 @@ function SCR_Get_MSPD(self)
         if byBuff == nil then
             byBuff = 0;
         end
-        if IsPVPServer(self) == 1 then
+        
+        if IsPVPServer(self) == 1 or zone == "pvp_Mine" then
             byBuff = byBuff * 0.5
         end
         
@@ -1948,7 +1953,7 @@ function SCR_Get_MSPD(self)
     
     if isDashRun > 0 then    -- 대시 런 --
         local dashRunAddValue = 10
-        if IsPVPServer(self) == 1 then
+        if IsPVPServer(self) == 1 or zone == "pvp_Mine" then
             dashRunAddValue = 5
         end
         

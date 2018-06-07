@@ -36,8 +36,8 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('CHANGE_CLIENT_SIZE', 'FIRST_UPDATE_MAP');
     addon:RegisterMsg('COLONY_MONSTER', 'MAP_COLONY_MONSTER');
     addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MAP');
-    addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER');
-
+	addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER');	
+	addon:RegisterOpenOnlyMsg('UPDATE_MGAME_POSITION', 'ON_UPDATE_MAP_MGAME_POSITION');
 	frame = ui.GetFrame("map");
 	INIT_MAPUI_INFO(frame);
 	local mapClassName = session.GetMapName();
@@ -379,12 +379,8 @@ function MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offset
 	if mapprop.mongens == nil then
 		return;
 	end
-
-	local npclist = {};
-	local statelist = {};
-	local questIESlist  = {};
-	local questPropList = {};
-	GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESlist, questPropList);
+	
+	local npclist, statelist, questIESlist, questPropList = GET_QUEST_NPC_NAMES(mapname);
 	MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList, mapWidth, mapHeight, offsetX, offsetY);
 	MAKE_TOP_QUEST_ICONS(frame);
 	MAKE_MY_CURSOR_TOP(frame);
@@ -599,11 +595,11 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 	local mapname = mapprop:GetClassName();
 	local cnt = #questPropList;
 	for i = 1 , cnt do
-		local questprop = questPropList[i];
+		local questprop = geQuestTable.GetPropByIndex(questPropList[i]);
 		local cls = questIESlist[i];
 		local stateidx = STATE_NUMBER(statelist[i]);
 
-		if stateidx ~= -1 then
+		if questprop ~= nil and stateidx ~= -1 then
 			local locationlist = questprop:GetLocation(stateidx);
 			if locationlist ~= nil then
 				local loccnt = locationlist:Count();
@@ -1233,7 +1229,7 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 	local myctrl = GET_CHILD_RECURSIVELY(newframe, 'my');
 	myctrl:ShowWindow(0);
 
-	world.PreloadMinimap(zoneClassName);
+	world.PreloadMinimap(zoneClassName, 1024);
 	local mappicturetemp = GET_CHILD_RECURSIVELY(newframe,'map','ui::CPicture');
 
 	local width = 0;
@@ -1322,4 +1318,37 @@ end
 function ON_REMOVE_COLONY_MONSTER(frame, msg, argStr, monID)
    frame:RemoveChild('colonyMonPic_'..monID);
    frame:RemoveChild('colonyMonEffectPic'); 
+end
+
+function ON_UPDATE_MAP_MGAME_POSITION(frame, msg, argstr, argnum)
+	UPDATE_MGAME_POSITION(frame)
+end
+
+function ON_UPDATE_MINIMAP_MGAME_POSITION(frame, msg, argstr, argnum)
+	local npclist = frame:GetChild('npclist');
+	UPDATE_MGAME_POSITION(npclist)
+end
+
+function UPDATE_MGAME_POSITION(parent)
+	local key = "MGAME_POSITION";
+	local frame = parent:GetTopParentFrame();
+	local iconName = frame:GetUserConfig("MGAME_POSITION_ICON");
+	DESTROY_CHILD_BYNAME(parent, "CUSTOM_ICON_" .. key);
+
+	local mapprop = session.GetCurrentMapProp();
+	local cnt = session.mgame.GetMGamePositionCount();
+	for i=0, cnt-1 do
+		local elem = session.mgame.GetMGamePositionByIndex(i);
+		local ismypc = elem:GetAID() == session.loginInfo.GetAID();
+		local ispartymember = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, elem:GetAID()) ~= nil;
+		if ismypc == false and ispartymember == false then
+			local ctrlName = "CUSTOM_ICON_" .. key ..  tostring(elem:GetAID());
+			local controlset = parent:CreateOrGetControlSet("map_partymember_iconset", ctrlName, 0, 0);
+			SET_MINIMAP_CTRLSET_POS(parent, controlset, elem.pos, mapprop);
+			local pm_name = GET_CHILD(controlset, "pm_name");
+			pm_name:SetText(elem.familyName);
+			local pm_icon = GET_CHILD(controlset, "pm_icon");
+			pm_icon:SetImage(iconName);
+		end
+	end
 end

@@ -8005,6 +8005,10 @@ function SCR_BUFF_ENTER_GM_WHITETREES_DEFFENCE_OBJ_BUFF(self, buff, arg1, arg2, 
     
 end
 
+function SCR_BUFF_UPDATE_GM_WHITETREES_DEFFENCE_OBJ_BUFF(self, buff, arg1, arg2, over)
+    return 1
+end
+
 function SCR_BUFF_LEAVE_GM_WHITETREES_DEFFENCE_OBJ_BUFF(self, buff, arg1, arg2, over)
     
 end

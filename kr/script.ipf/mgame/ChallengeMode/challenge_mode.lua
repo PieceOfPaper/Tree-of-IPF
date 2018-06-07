@@ -6,6 +6,7 @@ function CHECK_CHALLENGE_MODE(pc, mon)
 	if isChallengeModeMon == 0 and isEnableChallengeModeZone == 0 then
 		return;
 	end
+
 	if isChallengeModeMon == 0 then
 		local owner = GetOwner(mon);
 		if owner ~= nil then
@@ -670,13 +671,14 @@ function CHALLENGE_MODE_RUN_UPDATE(gameObject, layerObj, pcList, pcCount, playTi
 		for i = 1, cnt do
 			local owner = GetOwner(monList[i]);
 			local isFriend = 0;
+
 			if owner ~= nil then
 				if GetObjType(owner) == OT_PC then
 					isFriend = 1;
 				end
 			end
 
-			if isFriend == 0 then
+			if isFriend == 0 and GetRelation(monList[i], pc) == "ENEMY" then
 				local topHater = GetNearTopHateEnemy(monList[i]);
 				if topHater == nil then
 					InsertHate(monList[i], pc, 1);

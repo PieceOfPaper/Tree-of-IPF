@@ -51,7 +51,7 @@ function ON_SOLD_ITEM_NOTICE(frame, msg, argStr, argNum)
 		frame:ShowWindow(0);
 		return;
 	end
-	local askMsg = ScpArgMsg("SoldItemNotice", "ITEM", argList[2], "COUNT", argList[3]);
+	local askMsg = ScpArgMsg("SoldItemNotice", "SELLER", argList[1], "ITEM", argList[2], "COUNT", argList[3]);
 	text:SetText(askMsg);
 
 	local chatFrame = ui.GetFrame('chatframe');

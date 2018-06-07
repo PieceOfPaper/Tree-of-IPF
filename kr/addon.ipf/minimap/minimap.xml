@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="minimap" x="0" y="0" width="310" height="230">
-    <frame title="지도" snapclient="true" snapframe="true" layout_gravity="right top" margin="0 70 35 0"/>
-    <option visible="true" closebutton="false" useimageitem="true" piptype="right" alwaysVisible="true"/>
-    <!--mask="minimap_mask_2"-->
-    <input hittestframe="true"/>
-    <opencheck scp="UI_CHECK_PROP" strarg="minimap" numarg="1"/>
-    <layer layerlevel="20"/>
-    <draw blend="100" drawtitlebar="false" drawframe="false"/>
-    <controls>
-        <groupbox name="mbg" rect="0 0 310 230" margin="0 0 0 0" layout_gravity="left top" container="true" hittestbox="false" skin="chat_window"/>
-        <!--picture name="mbg" rect="0 0 320 240" hittest="false" layout_gravity="left top" image="chat_window" stretch="true"/-->
-        <picture name="map_bg" rect="0 0 4096 2048" hittest="false" stretch="true"/>
-        <picture name="map" rect="0 0 4096 2048" hittest="false" stretch="true"/>
-        <picture name="my" rect="0 0 84 84" layout_gravity="left top" hittest="false" image="minimap_leader" stretch="true"/>
-        <groupbox name="npclist" rect="0 0 1024 512" margin="0 0 1024 512" layout_gravity="left top" container="true" draw="false" hittestbox="false" scrollbar="false"/>
-        <groupbox name="board" rect="0 0 160 35" margin="0 0 0 7" layout_gravity="center bottom" draw="false" scrollbar="false" skin="bg2"/>
-        <button name="ZOOM_IN" rect="0 0 30 30" margin="85 0 0 5" layout_gravity="left bottom" LBtnUpScp="SET_MINIMAP_SIZE(1)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41}+{/}" clicksound="button_zoom_in" oversound="button_over" skin="textbutton" textalign="center center" texttooltip="{@st59}확대{/}"/>
-        <button name="ZOOM_OUT" rect="0 0 30 30" margin="115 0 0 5" layout_gravity="left bottom" LBtnUpScp="SET_MINIMAP_SIZE(0)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41}{b}-{/}" clicksound="button_zoom_out" oversound="button_over" skin="textbutton" textalign="center center" texttooltip="{@st59}축소{/}"/>
-        <button name="open_map" rect="0 0 30 30" margin="205 0 0 5" layout_gravity="left bottom" LBtnUpScp="UI_TOGGLE_MAP()" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41}M{/}" clicksound="button_click_big" oversound="button_over" skin="textbutton" textalign="center center" texttooltip="{@st59}지도 (M){/}"/>
-        <richtext name="ZOOM_INFO" rect="0 0 60 20" margin="155 0 0 10" layout_gravity="left bottom" caption="zoom" fontname="white_16_ol"/>
-    </controls>
+	<frame title="지도" snapclient="true" snapframe="true" layout_gravity="right top" margin="0 70 35 0"/>
+	<option visible="true" closebutton="false" useimageitem="true" piptype="right" alwaysVisible="true"/>
+	<!--mask="minimap_mask_2"-->
+	<input hittestframe="true"/>
+	<opencheck scp="UI_CHECK_PROP" strarg="minimap" numarg="1"/>
+	<layer layerlevel="20"/>
+	<draw blend="100" drawtitlebar="false" drawframe="false"/>
+	<userconfig MGAME_POSITION_ICON="minimap_1_PARTY"/>
+	<controls>
+		<groupbox name="mbg" rect="0 0 310 230" margin="0 0 0 0" layout_gravity="left top" container="true" hittestbox="false" skin="chat_window"/>
+		<!--picture name="mbg" rect="0 0 320 240" hittest="false" layout_gravity="left top" image="chat_window" stretch="true"/-->
+		<picture name="map_bg" rect="0 0 4096 2048" hittest="false" stretch="true"/>
+		<picture name="map" rect="0 0 4096 2048" hittest="false" stretch="true"/>
+		<picture name="my" rect="0 0 84 84" layout_gravity="left top" hittest="false" image="minimap_leader" stretch="true"/>
+		<groupbox name="npclist" rect="0 0 1024 512" margin="0 0 1024 512" layout_gravity="left top" container="true" draw="false" hittestbox="false" scrollbar="false"/>
+		<groupbox name="board" rect="0 0 160 35" margin="0 0 0 7" layout_gravity="center bottom" draw="false" scrollbar="false" skin="bg2"/>
+		<button name="ZOOM_IN" rect="0 0 30 30" margin="85 0 0 5" layout_gravity="left bottom" LBtnUpScp="SET_MINIMAP_SIZE(1)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41}+{/}" clicksound="button_zoom_in" oversound="button_over" skin="textbutton" textalign="center center" texttooltip="{@st59}확대{/}"/>
+		<button name="ZOOM_OUT" rect="0 0 30 30" margin="115 0 0 5" layout_gravity="left bottom" LBtnUpScp="SET_MINIMAP_SIZE(0)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41}{b}-{/}" clicksound="button_zoom_out" oversound="button_over" skin="textbutton" textalign="center center" texttooltip="{@st59}축소{/}"/>
+		<button name="open_map" rect="0 0 30 30" margin="205 0 0 5" layout_gravity="left bottom" LBtnUpScp="UI_TOGGLE_MAP()" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41}M{/}" clicksound="button_click_big" oversound="button_over" skin="textbutton" textalign="center center" texttooltip="{@st59}지도 (M){/}"/>
+		<richtext name="ZOOM_INFO" rect="0 0 60 20" margin="155 0 0 10" layout_gravity="left bottom" caption="zoom" fontname="white_16_ol"/>
+	</controls>
 </uiframe>

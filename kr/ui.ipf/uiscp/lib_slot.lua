@@ -128,7 +128,6 @@ print("SET_SLOT_ITEM")
 	SET_SLOT_COUNT(slot, count)
 	SET_SLOT_IESID(slot, invItem:GetIESID())
 	slot:SetTooltipArg('inven', type, invItem:GetIESID());
-
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
 	iconInfo.type = type;
@@ -236,7 +235,7 @@ function SET_SLOT_COUNT_TEXT(slot, cnt, font, hor, ver, stateX, stateY)
 		slot:SetText(font..cnt, 'count', hor, ver, stateX, stateY);
 end
 
-function SET_SLOT_STYLESET(slot, itemCls)
+function SET_SLOT_STYLESET(slot, itemCls, itemGrade_Flag, itemLevel_Flag, itemAppraisal_Flag, itemReinforce_Flag)
 	if slot == nil then
 		return
 	end
@@ -245,8 +244,14 @@ function SET_SLOT_STYLESET(slot, itemCls)
 		return
 	end
 
-	SET_SLOT_BG_BY_ITEMGRADE(slot, itemCls.ItemGrade)
-	SET_SLOT_TRANSCEND_LEVEL(slot, TryGetProp(itemCls, 'Transcend'))
+	if itemGrade_Flag == nil or itemGrade_Flag == 1 then
+		SET_SLOT_BG_BY_ITEMGRADE(slot, itemCls.ItemGrade)
+	end
+
+	if itemLevel_Flag == nil or itemLevel_Flag == 1 then
+		SET_SLOT_TRANSCEND_LEVEL(slot, TryGetProp(itemCls, 'Transcend'))
+	end
+
 	local needAppraisal = nil
 	local needRandomOption = nil
 	if itemCls ~= nil then
@@ -254,8 +259,13 @@ function SET_SLOT_STYLESET(slot, itemCls)
 		needRandomOption = TryGetProp(itemCls, "NeedRandomOption");
 	end
 
-	SET_SLOT_NEED_APPRAISAL(slot, needAppraisal, needRandomOption)
-	SET_SLOT_REINFORCE_LEVEL(slot, TryGetProp(itemCls, 'Reinforce_2'))
+	if itemAppraisal_Flag == nil or itemAppraisal_Flag == 1 then
+		SET_SLOT_NEED_APPRAISAL(slot, needAppraisal, needRandomOption)
+	end
+
+	if itemReinforce_Flag == nil or itemReinforce_Flag == 1 then
+		SET_SLOT_REINFORCE_LEVEL(slot, TryGetProp(itemCls, 'Reinforce_2'))
+	end
 end
 
 
@@ -276,6 +286,7 @@ function SET_SLOT_TRANSCEND_LEVEL(slot, transcendLv)
 	end
 
 	local styleSet = slot:CreateOrGetControlSet('itemslot_transcend_styleset', "styleset_transcend", 0, 0)
+	styleSet:Resize(slot:GetWidth(), slot:GetHeight())
 
 	local imgName = "itemslot_star_icon_" .. transcendLv
 	local starIcon = GET_CHILD_RECURSIVELY(styleSet, "starIcon")
@@ -329,6 +340,7 @@ function SET_SLOT_NEED_APPRAISAL(slot, needAppraisal, needRandomOption)
 
 	if needAppraisal == 1 or needRandomOption == 1 then
 		local styleSet = slot:CreateOrGetControlSet('itemslot_appraisal_styleset', "styleset_appraisal", 0, 0)
+		styleSet:Resize(slot:GetWidth(), slot:GetHeight())
 		icon:SetColorTone("FFFF0000")
 		local temp = GET_CHILD_RECURSIVELY(slot, "styleset_appraisal")
 	else
@@ -353,6 +365,7 @@ function SET_SLOT_REINFORCE_LEVEL(slot, reinforceLv)
 	end
 
 	local styleSet = slot:CreateOrGetControlSet('itemslot_reinforce_styleset', "styleset_reinforce", 0, 0)
+	styleSet:Resize(slot:GetWidth(), slot:GetHeight())
 	local levelText = GET_CHILD_RECURSIVELY(styleSet, "levelText")
 	if levelText == nil then
 		return

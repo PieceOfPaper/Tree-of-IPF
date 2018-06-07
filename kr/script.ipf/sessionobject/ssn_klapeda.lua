@@ -37,6 +37,19 @@ function SCR_REENTER_SSN_KLAPEDA(self, sObj)
     --EVENT_1705_CORSAIR
 --    SetTimeSessionObject(self, sObj, 1, 60000, 'SCR_EVENT_1705_CORSAIR_ALARM','YES')
     
+    --EVENT_1805_SLATE
+    local eventPosList = EVENT_1805_SLATE_POS_LIST()
+    if eventPosList ~= nil and #eventPosList > 0 then
+        local aObj = GetAccountObj(self);
+	    if aObj.EVENT_1805_SLATE_START_STATE == 1 then
+	        local targetList = SCR_STRING_CUT(aObj.EVENT_1805_SLATE_START_TARGET_LIST)
+	        local targetIndex = tonumber(targetList[#targetList])
+	        if eventPosList[targetIndex][1] == GetZoneName(self) then
+                SetTimeSessionObject(self, sObj, 2, 1000, 'SCR_SSN_KLAPEDA_EVENT_1805_SLATE','YES')
+            end
+	    end
+    end
+
 	RegisterHookMsg(self, sObj, "PartyMemberOut", "SCR_BASIC_PartyMemberOut", "YES");
 	RegisterHookMsg(self, sObj, "PartyJoin", "SCR_SSN_PARTY_JOIN", "YES");
 	RegisterHookMsg(self, sObj, "PartyCreate", "SCR_SSN_PARTY_CREATE", "YES");
@@ -686,8 +699,10 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         
         if IS_PC_BEAUTYSHOP_FIRST_FLOOR(self) == true then
             FixCamera(self, -7.83 , 4.81, 13.42, 240);
+            CustomWheelZoom(self, 1, 80, 240, 50)
         else -- second floor
             FixCamera(self, 34.79, 6.98, 1098.98, 240);
+            CustomWheelZoom(self, 1, 80, 240, 50)
         end
         AddBuff(self, self, "BEAUTY_HAIR_BUFF")
         
@@ -995,8 +1010,8 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
 --    MISSION_SURVIVAL_EVENT2_ZONEENTER(self)
     
     
-    -- EVENT_1805_WEDDING2
-    EVENT_1805_WEDDING2_INDUN_COUNT_SET(self)
+--    -- EVENT_1805_WEDDING2
+--    EVENT_1805_WEDDING2_INDUN_COUNT_SET(self)
     
     if argStr == 'c_firemage_event' then
         self.FIXMSPD_BM = 25

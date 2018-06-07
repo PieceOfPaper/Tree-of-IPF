@@ -62,8 +62,8 @@ function TX_ITEM_DECOMPOSE(pc)
                 
                 --시에라 획득량 -- 
                 if itemGrade >= 4 then
-                    min = math.floor(1 + math.floor(itemLv/150) * math.floor(itemLv/100))
-                    max = math.floor(1 + math.floor(itemLv/75) * math.floor(itemLv/75))
+                    min = math.floor(1 + math.floor(itemLv/75) * math.floor(itemLv/100))
+                    max = math.floor(1 + math.floor(itemLv/40) * math.floor(itemLv/75))
                     sieraCount = IMCRandom(min, max);
                     decomposeItemCountList[2] = decomposeItemCountList[2] + sieraCount
                 end

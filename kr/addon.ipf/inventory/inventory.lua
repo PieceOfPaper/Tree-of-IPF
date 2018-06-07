@@ -866,6 +866,8 @@ function INVENTORY_SLOTSET_INIT(frame, slotSet, slotCount)
 		slot:SetText('', 'count', 'right', 'bottom', -2, 1);
 		slot:SetOverSound('button_cursor_over_3');
 		slot:ClearIcon()
+		DESTROY_CHILD_BYNAME(slot, "styleset_")
+
 	end
 end
 
@@ -1896,7 +1898,6 @@ end
 
 function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 
-
 	local liftIcon 				= ui.GetLiftIcon();
 	if liftIcon == nil then
 		return;
@@ -1962,14 +1963,16 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 		local strScp = string.format("pc.ReqExecuteTx_Item(\"PARTY_ITEM_GET\", \"%s\", \"%s\")", iesID, argList);
 		RunStringScript(strScp);
 	elseif FromFrame:GetName() == "camp_ui" or FromFrame:GetName() == "warehouse" then
+
 		local iconInfo = liftIcon:GetInfo();
 		local iesID = iconInfo:GetIESID();
-
 		if iconInfo.count > 1 then	
 			toFrame:SetUserValue("HANDLE", FromFrame:GetUserIValue("HANDLE"));
 			INPUT_NUMBER_BOX(toFrame, ScpArgMsg("InputCount"), "EXEC_TAKE_ITEM_FROM_WAREHOUSE", iconInfo.count, 1, iconInfo.count, nil, iesID);
 		else
-			item.TakeItemFromWarehouse(IT_WAREHOUSE, iesID, iconInfo.count, FromFrame:GetUserIValue("HANDLE"));
+			if iconInfo ~= nil and iconInfo.count ~= nil then
+				item.TakeItemFromWarehouse(IT_WAREHOUSE, iesID, 1, FromFrame:GetUserIValue("HANDLE"));
+			end
 		end
 	end
 
@@ -2150,7 +2153,8 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	if itemobj.GroupName == 'Quest' then		
 		slot:SetFrontImage('quest_indi_icon');
 	elseif invItem.isLockState == true then
-		local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
+		local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+		controlset:SetGravity(ui.RIGHT, ui.TOP)
 	elseif true == IS_TEMP_LOCK(frame, invItem) then
 		slot:SetFrontImage('item_Lock');    
 	else
@@ -2230,6 +2234,30 @@ function _INV_EQUIP_LIST_SET_ICON(slot, icon, equipItem)
 	end
 end
 
+function SET_EQUIP_SLOT_ITEMGRADE_BG(frame, slot, obj)
+	local slotSkinName = ""
+	local slot_bg_name = slot:GetName() .. "_bg"
+	local slot_bg = GET_CHILD_RECURSIVELY(frame, slot_bg_name)
+	local itemgrade = obj.ItemGrade
+	
+	if itemgrade ~= nil and itemgrade ~= 0 and itemgrade ~= 1 and itemgrade ~= "None" then
+		if itemgrade == 2 then
+			slotSkinName = frame:GetUserConfig("EQUIPSLOT_PIC_MAGIC")
+		elseif itemgrade == 3 then
+			slotSkinName = frame:GetUserConfig("EQUIPSLOT_PIC_RARE")
+		elseif itemgrade == 4 then
+			slotSkinName = frame:GetUserConfig("EQUIPSLOT_PIC_UNIQUE")
+		elseif itemgrade == 5 then
+			slotSkinName = frame:GetUserConfig("EQUIPSLOT_PIC_LEGEND")
+		end
+		slot_bg:ShowWindow(1)
+		slot:SetSkinName(slotSkinName)
+	else
+		slot:SetSkinName(slot_bg:GetSkinName())
+		slot_bg:ShowWindow(0)
+	end
+end
+
 function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 
 	local spotName = item.GetEquipSpotName(equipItem.equipSpot);
@@ -2250,12 +2278,19 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 
 	local gender = tonumber(frame:GetTopParentFrame():GetUserIValue('COMPARE_PC_GENDER'));
 	local slot = tolua.cast(child, 'ui::CSlot');
-	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
+	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+	controlset:SetGravity(ui.RIGHT, ui.TOP)
 	controlset:ShowWindow(0);
 	
 	if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
-		local icon = CreateIcon(slot);
+		
 		local obj = GetIES(equipItem:GetObject());
+
+		SET_EQUIP_SLOT_ITEMGRADE_BG(frame, slot, obj)
+			
+		local icon = CreateIcon(slot);
+		SET_SLOT_STYLESET(slot, obj, 0)	
+		
 		local imageName = ""
 
 		if gender > 0 then
@@ -2275,12 +2310,19 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		
 		icon:Set(imageName, 'Item', equipItem.type, equipItem.equipSpot, equipItem:GetIESID());
 		iconFunc(slot, icon, equipItem, ...);
-
+		
 	else
 		slot:ClearIcon();
 		slot:SetEventScript(ui.RBUTTONDOWN, 'None');
 		slot:SetOverSound('button_cursor_over_3');
 		slot:SetText("");
+		DESTROY_CHILD_BYNAME(slot, "styleset_")
+
+		local slot_bg = GET_CHILD_RECURSIVELY(frame, slot:GetName() .. "_bg")
+		if slot_bg ~= nil then
+			slot:SetSkinName(slot_bg:GetSkinName())
+			slot_bg:ShowWindow(0)
+		end
 	end
 		
 
@@ -2303,6 +2345,8 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 					icon:SetColorTone("FFFFFFFF");
 				end
 
+				SET_EQUIP_SLOT_ITEMGRADE_BG(frame, slot, obj)
+				SET_SLOT_STYLESET(slot, obj, 0)	
 
                 local iconImage = GET_EQUIP_ITEM_IMAGE_NAME(obj, 'Icon');
 				icon:Set(iconImage, 'Item', rhItem.type, rhItem.equipSpot, rhItem:GetIESID());
@@ -2814,8 +2858,8 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 
     invframe:SetUserValue('LOCK_SLOT_PARENT_NAME', parent:GetName());
     invframe:SetUserValue('LOCK_SLOT_NAME', slot:GetName());
-
-	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
+	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+	controlset:SetGravity(ui.RIGHT, ui.TOP)
 	if true == selectItem.isLockState then
 		state = 0;
 		controlset:ShowWindow(0);
@@ -2840,7 +2884,8 @@ function INV_ITEM_LOCK_SAVE_FAIL(frame, msg, argStr, agrNum)
 				if invItem ~= nil and invItem:GetIESID() == argStr then
 					invItem.isLockState = argNum;
 					ui.SysMsg(ClMsg("ItemLockSaveFail"));
-					local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
+					local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+					controlset:SetGravity(ui.RIGHT, ui.TOP)
 					if 1 == agrNum then
 						controlset:ShowWindow(1);
 					else

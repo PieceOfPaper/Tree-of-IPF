@@ -8,6 +8,9 @@ end
 function SCR_GUILD_COLONY_ENTER_LOG(self)
     ColonyEquipmentLog(self);
     ColonySkillLog(self);
+    ColonyStatusLog(self);
+    ColonyAttendanceLog(self);
+    ColonyPlayerLog(self);
 end
 -- 콜로니전 채널 입장 체크 스크립트
 function SCR_GUILD_COLONY_ENTER_CHECK(self, pc)

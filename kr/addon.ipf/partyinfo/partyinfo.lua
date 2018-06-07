@@ -90,6 +90,19 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 	frame:Invalidate();
 end
 
+function IS_PARTY_INFO_SHOWICON(showIcon)
+	if showIcon == nil then
+		return false
+	elseif showIcon == "FALSE" then
+		return false
+	elseif showIcon == "ONLYMYPC" then
+		 -- 파티정보이므로 표시하지 않음.
+		return false
+	end
+
+	return true
+end
+
 function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 	
 	local pcparty = session.party.GetPartyInfo();
@@ -144,8 +157,8 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 					for j=0, buffCount - 1 do
 						
 						local buffID = partyMemberInfo:GetBuffIDByIndex(j);
-						local cls = GetClassByType("Buff", buffID);					
-						if cls ~= nil and cls.ShowIcon ~= "FALSE" and cls.ClassName ~= "TeamLevel" then
+						local cls = GetClassByType("Buff", buffID);	
+							if cls ~= nil and IS_PARTY_INFO_SHOWICON(cls.ShowIcon) == true and cls.ClassName ~= "TeamLevel" then
 							local buffOver = partyMemberInfo:GetBuffOverByIndex(j);
 							local buffTime = partyMemberInfo:GetBuffTimeByIndex(j);							
 							local slot = nil;

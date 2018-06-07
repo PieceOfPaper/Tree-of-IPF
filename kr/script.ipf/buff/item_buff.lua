@@ -1,6 +1,6 @@
 function SCR_BUFF_ENTER_EVENT_1805_CHILDREN(self, buff, arg1, arg2, over)
-	self.MSPD_BM = self.MSPD_BM + 4;
-	self.SR_BM = self.SR_BM + 1;
+    self.MSPD_BM = self.MSPD_BM + 4;
+    self.SR_BM = self.SR_BM + 1;
 end
 
 function SCR_BUFF_UPDATE_EVENT_1805_CHILDREN(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -11,7 +11,7 @@ function SCR_BUFF_UPDATE_EVENT_1805_CHILDREN(self, buff, arg1, arg2, RemainTime,
 end
 
 function SCR_BUFF_LEAVE_EVENT_1805_CHILDREN(self, buff, arg1, arg2, over)
-	self.MSPD_BM = self.MSPD_BM - 4;
+    self.MSPD_BM = self.MSPD_BM - 4;
     self.SR_BM = self.SR_BM - 1;
 end
 
@@ -393,7 +393,7 @@ end
 
 -- salad buff
 function SCR_BUFF_ENTER_squire_food1_buff(self, buff, arg1, arg2, over)
-	local selfMHP = TryGetProp(self, "MHP") - TryGetProp(self, "MHP_BM")
+    local selfMHP = TryGetProp(self, "MHP") - TryGetProp(self, "MHP_BM")
     local addMhp = self.MHP * (0.075 + arg1 * 0.025);
     addMhp = math.floor(addMhp);
     SetExProp(buff, "SQUIRE_FOOD_ADD_MHP", addMhp);
@@ -408,7 +408,7 @@ end
 
 -- sandwich buff
 function SCR_BUFF_ENTER_squire_food2_buff(self, buff, arg1, arg2, over)
-	local selfMSP = TryGetProp(self, "MSP") - TryGetProp(self, "MSP_BM")
+    local selfMSP = TryGetProp(self, "MSP") - TryGetProp(self, "MSP_BM")
     local addMsp = selfMSP * (0.075 + arg1 * 0.025);
     addMsp = math.floor(addMsp);
     SetExProp(buff, "SQUIRE_FOOD_ADD_MSP", addMsp);
@@ -2640,7 +2640,7 @@ end
 
 function SCR_BUFF_RATETABLE_BATTLE_BUFF_01_DRUG(self, from, skill, atk, ret, rateTable, buff)
     if IsBuffApplied(self, "BATTLE_BUFF_01_DRUG") == "YES" then
---    	rateTable.DamageRate = rateTable.DamageRate - 0.05
+--      rateTable.DamageRate = rateTable.DamageRate - 0.05
         AddDamageReductionRate(rateTable, 0.05)
     end
 end
@@ -2674,7 +2674,7 @@ function SCR_BUFF_RATETABLE_Cotume_DMG_Rate_Down_5(self, from, skill, atk, ret, 
     if IsPVPServer(self) == 1 then
         if IsBuffApplied(self, "Cotume_DMG_Rate_Down_5") == "YES" then
 --            rateTable.DamageRate = rateTable.DamageRate - 0.05
-			AddDamageReductionRate(rateTable, 0.05)
+            AddDamageReductionRate(rateTable, 0.05)
         end
     end
 end
@@ -2690,7 +2690,7 @@ end
 function SCR_BUFF_RATETABLE_CARD_DMG_Rate_Down_10(self, from, skill, atk, ret, rateTable, buff)
     if IsBuffApplied(self, "CARD_DMG_Rate_Down_10") == "YES" then
 --        rateTable.DamageRate = rateTable.DamageRate - 0.1
-		AddDamageReductionRate(rateTable, 0.1)
+        AddDamageReductionRate(rateTable, 0.1)
     end
 end
 
@@ -2751,17 +2751,17 @@ function SCR_BUFF_ENTER_GIMMICK_Drug_Elements(self, buff, arg1, arg2, over)
    local ran = list[IMCRandom(1,4)]
 if ran == 'Fire' then
        PlayEffect(self, 'F_lineup022_red', 1, 'BOT');
-   	AddBuff(self, self, "GIMMICK_Drug_Elements_Fire_Atk", arg1, 0, 120000, 1)
+    AddBuff(self, self, "GIMMICK_Drug_Elements_Fire_Atk", arg1, 0, 120000, 1)
 elseif ran == 'Ice' then
        PlayEffect(self, 'F_lineup022_dark_blue2', 1, 'BOT');
-   	AddBuff(self, self, "GIMMICK_Drug_Elements_Ice_Atk", arg1, 0, 120000, 1)
+    AddBuff(self, self, "GIMMICK_Drug_Elements_Ice_Atk", arg1, 0, 120000, 1)
 elseif ran == 'Lightning' then
        PlayEffect(self, 'F_lineup022_violet', 1, 'BOT');
-   	AddBuff(self, self, "GIMMICK_Drug_Elements_Lightning_Atk", arg1, 0, 120000, 1)
+    AddBuff(self, self, "GIMMICK_Drug_Elements_Lightning_Atk", arg1, 0, 120000, 1)
 elseif ran == 'Earth' then
        PlayEffect(self, 'F_lineup022_yellow', 1, 'BOT');
-   	AddBuff(self, self, "GIMMICK_Drug_Elements_Earth_Atk", arg1, 0, 120000, 1)
-end	   	   	   	   	
+    AddBuff(self, self, "GIMMICK_Drug_Elements_Earth_Atk", arg1, 0, 120000, 1)
+end                 
 
 end
 
@@ -3432,7 +3432,7 @@ function SCR_BUFF_LEAVE_STATUE_LOOTINGCHANCE_3(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_BEAUTY_HAIR_BUFF(self, buff, arg1, arg2, over)
-        AddLimitationSkillList(self, "Normal_Attack");
+    AddLimitationSkillList(self, "Normal_Attack");
     EnableItemUse(self, 0)
 end
 
@@ -3465,11 +3465,59 @@ function SCR_BUFF_LEAVE_BEAUTY_HAIR_BUY_BUFF(self, buff, arg1, arg2, over)
     self.LootingChance_BM = self.LootingChance_BM - 50;
 end
 
-
-function SCR_BUFF_ENTER_PET_WEDDING_BIRD_BUFF(self, buff, arg1, arg2, over)
-    self.Fire_Atk_BM = self.Fire_Atk_BM + 120;
+function SCR_BUFF_ENTER_ALONE_DUNGEON_FIRST_BUFF_PRE(self, buff, arg1, arg2, over)
+    if IsBuffApplied(self,'ALONE_DUNGEON_FIRST_BUFF') == "YES" then
+        RemoveBuff(self, 'ALONE_DUNGEON_FIRST_BUFF_PRE')
+    end
 end
 
-function SCR_BUFF_LEAVE_PET_WEDDING_BIRD_BUFF(self, buff, arg1, arg2, over)
-    self.Fire_Atk_BM = self.Fire_Atk_BM - 120;
+function SCR_BUFF_LEAVE_ALONE_DUNGEON_FIRST_BUFF_PRE(self, buff, arg1, arg2, over)
+    local caster = GetBuffCaster(buff)
+    if caster ~= nil then
+        local pad = GetPadByBuff(caster, buff);
+        if pad ~= nil then
+            local checkList,cnt = GetPadObjectList(pad)
+            for i = 1, cnt do
+                if checkList[i].Name == self.Name and GetBuffRemainTime(buff) <= 1 then
+                    AddBuff(self, self, 'ALONE_DUNGEON_FIRST_BUFF', 1, 0, 3600000, 1);
+                    break;
+                end
+            end
+
+        end
+    end
+end
+
+function SCR_BUFF_ENTER_ALONE_DUNGEON_FIRST_BUFF(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM + 100;
+    self.MHP_BM = self.MHP_BM + 5000
+    self.MSP_BM = self.MSP_BM + 1000
+    self.RHP_BM = self.RHP_BM + 500
+    self.RSP_BM = self.RSP_BM + 300
+end
+
+function SCR_BUFF_LEAVE_ALONE_DUNGEON_FIRST_BUFF(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM - 100;
+    self.MHP_BM = self.MHP_BM - 5000
+    self.MSP_BM = self.MSP_BM - 1000
+    self.RHP_BM = self.RHP_BM - 500
+    self.RSP_BM = self.RSP_BM - 300
+end
+
+function SCR_BUFF_ENTER_pet_Lesserpanda_gray_buff(self, buff, arg1, arg2, over)
+    self.PATK_BM = self.PATK_BM + 25;
+    self.MATK_BM = self.MATK_BM + 25;
+end
+
+function SCR_BUFF_LEAVE_pet_Lesserpanda_gray_buff(self, buff, arg1, arg2, over)
+    self.PATK_BM = self.PATK_BM - 25;
+    self.MATK_BM = self.MATK_BM - 25;
+end
+
+function SCR_BUFF_ENTER_PET_GORO_BUFF(self, buff, arg1, arg2, over)
+    self.Widling_Atk_BM = self.Widling_Atk_BM + 120;
+end
+
+function SCR_BUFF_LEAVE_PET_GORO_BUFF(self, buff, arg1, arg2, over)
+    self.Widling_Atk_BM = self.Widling_Atk_BM - 120;
 end

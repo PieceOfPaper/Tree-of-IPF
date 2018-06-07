@@ -10,7 +10,7 @@
 	<effect open="character_item_window_open" close="character_item_window_close"/>
 	<userconfig LIMIT_EQUIP_ICON="impossible_red" LIMIT_COUNT_ICON="impossible_yellow" ICON_SIZE="17" MAX_ITEM_BOX_HEIGHT="300"/>
 	<controls>
-		<richtext name="title" margin="0 10 0 0" rect="0 0 300 50" caption="{@st43}패키지 리스트{/}" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="title" margin="0 10 0 0" rect="0 0 300 50" caption="{@st43}패키지 리스트{/}" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" hittest="false" hittestbox="true"/>
 		<button name="closeBtn" rect="0 0 50 50" margin="0 20 40 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('packagelist')"/>
 		<groupbox name="itemFramePic" rect="0 0 120 120" margin="50 100 0 0" layout_gravity="left top" skin="test_frame_midle" stretch="true"/>
 		<picture name="itemIconPic" rect="0 0 100 100" parent="itemFramePic" margin="0 0 0 0" layout_gravity="center center" image="testclose_button" stretch="true"/>

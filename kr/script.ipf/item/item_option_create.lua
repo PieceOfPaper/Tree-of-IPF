@@ -135,27 +135,26 @@ function SCR_RUNE_LargeSize(item, runeArg1, runeArg2)
 	--item.ADD_LARGESIZE = item.ADD_LARGESIZE + runeArg1 + IMCRandom(0, runeArg2);
 end
 
-g_maxItemListCount = 0;
-
-function SCR_ITEM_TIME_OVER(pc, itemList, itemCount)
-
-	if g_maxItemListCount < itemCount then
-		g_maxItemListCount = itemCount;
-		IMC_LOG('INFO_NORMAL', 'SCR_ITEM_TIME_OVER: maxItemCount Updated['..itemCount..']');
-	end
+function SCR_ITEM_TIME_OVER(pc)
+    local itemCount = GetTimeOverItemCount(pc);
+    if itemCount < 1 then
+    	return;
+    end
 
 	local tx = TxBegin(pc);	
 	if tx == nil then
 		return;
 	end
 
-	for i = 1, itemCount do
-		local itemObj = itemList[i];
+    local needInvalidateItem = {};
+	for i = 0, itemCount - 1 do
+		local itemObj = GetTimeOverItemByIndex(pc, i);
 		if itemObj ~= nil then
 			if itemObj.ClassName == 'Premium_dungeoncount_Event' and IsFixedItem(itemObj) ~= 1 then
-				TxTakeItemByObject(tx, itemObj, 1, "ItemLifeTimeOver");
+				TxTakeItemByObject(tx, itemObj, 1, "ItemLifeTimeOver");                
 			else
 				TxSetIESProp(tx, itemObj, "ItemLifeTimeOver", 1);
+                needInvalidateItem[i] = true;
 			end
 		end
 	end
@@ -163,9 +162,9 @@ function SCR_ITEM_TIME_OVER(pc, itemList, itemCount)
 	local ret = TxCommit(tx);
 
 	if ret == "SUCCESS" then
-		for i = 1, itemCount do
-			local itemObj = itemList[i];
-			if itemObj ~= nil and itemObj.ClassName ~= 'Premium_dungeoncount_Event'then
+		for i = 0, itemCount - 1 do
+			if needInvalidateItem[i] == true then
+                local itemObj = GetTimeOverItemByIndex(pc, i);
 				InvalidateItem(itemObj);
 			end
 		end

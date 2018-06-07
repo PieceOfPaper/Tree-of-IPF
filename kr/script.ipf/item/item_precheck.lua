@@ -968,3 +968,16 @@ function SCR_PRECHECK_CONSUME_PVP_MINE(self)
    
     return 1;
 end
+
+function SCR_PRECHECK_CONSUME_ALONEDGUNGEON(self)
+
+    local curMap = GetZoneName(self);
+    local mapCls = GetClass("Map", curMap);
+    if mapCls.MapType ~= 'City'then
+        SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("AllowedInTown"), 3);
+        return 0;
+    elseif mapCls.MapType == 'City'then
+        return 1;
+    end
+
+end

@@ -4515,6 +4515,7 @@
 		<image name="icon_item_red_cardbook" file="\icon\item\icon_item_red_cardbook.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_curse_cardbook" file="\icon\item\icon_item_curse_cardbook.png" imgrect="0 0 128 128" CMM_Caption="저주받은 카드첩"/>
 		<image name="icon_item_copper" file="\icon\item\icon_item_copper.png" imgrect="0 0 80 80" CMM_Caption="콜로니동괴"/>
+		<image name="icon_item_egg_lessrpanda_gray" file="\icon\item\icon_item_egg_lessrpanda_gray.png" imgrect="0 0 256 256" CMM_Caption="회색 렛서팬더상자"/>
 		<image name="icon_item_get_wet_cardbook" file="\icon\item\icon_item_get_wet_cardbook.png" imgrect="0 0 128 128"/>
 		<image name="Gacha_H_010" file="\icon\item\Gacha_H_010.png" imgrect="0 0 128 128" CMM_Caption="작은 보답의 주머니"/>
 		<image name="Gacha_H_011" file="\icon\item\Gacha_H_011.png" imgrect="0 0 128 128" CMM_Caption="따뜻함을 담은 상자"/>
@@ -4668,6 +4669,7 @@
 		<image name="icon_item_guild_LV_up4" file="\icon\item\icon_item_guild_LV_up4.png" imgrect="0 0 128 128" CMM_Caption="길드 레벨 4 카드"/>
 		<image name="icon_item_token_guild_1" file="\icon\item\icon_item_token_guild_1.png" imgrect="0 0 128 128" CMM_Caption="길드원 증표 "/>
 		<image name="icon_item_solidarity_medal" file="\icon\item\icon_item_solidarity_medal.png" imgrect="0 0 128 128" CMM_Caption="결속의 증표"/>
+		<image name="icon_item_Dimensional_censer" file="\icon\item\icon_item_Dimensional_censer.png" imgrect="0 0 128 128" CMM_Caption="차원 향로"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -5078,6 +5080,15 @@
 		<image name="icon_item_f_bunny" file="\icon\payment\icon_item_f_bunny.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_bunny_m_package" file="\icon\payment\icon_item_bunny_m_package.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_bunny_f_package" file="\icon\payment\icon_item_bunny_f_package.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_cat_fan" file="\icon\payment\icon_item_cat_fan.png" imgrect="0 0 256 256" CMM_Caption="동물 장난감 부채"/>
+		<image name="icon_item_hanaming_fan" file="\icon\payment\icon_item_hanaming_fan.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_kepa_fan" file="\icon\payment\icon_item_kepa_fan.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_pengguin_fan" file="\icon\payment\icon_item_pengguin_fan.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_poodle_fan" file="\icon\payment\icon_item_poodle_fan.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_poporion_fan" file="\icon\payment\icon_item_poporion_fan.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_pengguin_elect_fan" file="\icon\payment\icon_item_pengguin_elect_fan.png" imgrect="0 0 256 256" CMM_Caption="동물 장난감 선풍기"/>
+		<image name="icon_item_poodle_elect_fan" file="\icon\payment\icon_item_poodle_elect_fan.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_poporion_elect_fan" file="\icon\payment\icon_item_poporion_elect_fan.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_token_box_5" file="\icon\payment\icon_item_token_box_5.png" imgrect="0 0 256 256" CMM_Caption="토큰 상자 5"/>
 		<image name="icon_item_token_box_10" file="\icon\payment\icon_item_token_box_10.png" imgrect="0 0 256 256" CMM_Caption="토큰 상자 10"/>
 		<image name="icon_item_hanbok02_m" file="\icon\payment\icon_item_hanbok02_m.png" imgrect="0 0 256 256" CMM_Caption="추석 한복"/>
@@ -5265,6 +5276,7 @@
 		<image name="icon_item_2018wedding_cube" file="\icon\payment\icon_item_2018wedding_cube.png" imgrect="0 0 256 256" CMM_Caption="2018 5월 테마 코스튬 큐브"/>
 		<image name="icon_item_2018wedding_cube2" file="\icon\payment\icon_item_2018wedding_cube2.png" imgrect="0 0 256 256" CMM_Caption="2018 5월 테마 코스튬 큐브2"/>
 		<image name="icon_item_photowall_fairy_wedding" file="\icon\payment\icon_item_photowall_fairy_wedding.png" imgrect="0 0 256 256" CMM_Caption="2018년 5월 웨딩 팝업북"/>
+		<image name="icon_item_Unlock_NakMuay" file="\icon\payment\icon_item_Unlock_NakMuay.png" imgrect="0 0 256 256" CMM_Caption="낙무아이 해금권"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

@@ -14,16 +14,16 @@ function CORSAIR_MAKE_HOOK(self, skl, eft, eftScale, eftNode, linkTexture, actor
 	end
 	
 	if TryGetProp(tgt, "MoveType") == "Holding" or tgt.MonRank == "MISC" or tgt.MonRank == "NPC" then
-	  return;
+	    return;
 	end
 	InsertHate(tgt, self, 1);
 	MakeHookEffect(self, tgt, eft, eftScale, linkTexture, actorNode, targetNode, speed, easing);
 	local time = 4000 + skl.Level * 1000
-	if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
-	    if time >= 10000 then
-	        time = 10000
-	    end
+	local zone = GetZoneName(self);
+	if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
+	    time = time * 0.5;
 	end
+	
 	local buff = AddBuff(self, self, "IronHook", skl.Level, 1, 0, 1);    
     
 	SetExArgObject(self, "IRON_HOOK_TGT_1", tgt);
@@ -52,10 +52,9 @@ function CORSAIR_MAKE_HOOK_FOR_ABIL(self, skl, eft, eftScale, eftNode, linkTextu
 	end
 
     local time = limitTime * 1000
-	if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
-	    if time >= 10000 then
-	        time = 10000
-	    end
+	local zone = GetZoneName(self);
+	if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
+	    time = time * 0.5;
 	end
 
 	local buff = AddBuff(self, self, "IronHook", skl.Level, 1, 0, 1);

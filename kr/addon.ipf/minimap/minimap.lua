@@ -75,7 +75,8 @@ function MINIMAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('MON_MINIMAP_END', 'ON_MON_MINIMAP_END');
     addon:RegisterMsg('COLONY_MONSTER', 'MINIMAP_COLONY_MONSTER');
     addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MINIMAP');
-    addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER_MINIMAP');
+	addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER_MINIMAP');
+	addon:RegisterMsg('UPDATE_MGAME_POSITION', 'ON_UPDATE_MINIMAP_MGAME_POSITION');	
 
 	mini_pos = GET_CHILD(frame, "my");
 	mini_pos:SetOffset(frame:GetWidth() / 2 - mini_pos:GetImageWidth() / 2 , frame:GetHeight() / 2 - mini_pos:GetImageHeight() / 2);
@@ -150,12 +151,8 @@ function UPDATE_MINIMAP(frame)
 	map_bg:Resize(minimapw, minimaph);
 	
 	local mapname = mapprop:GetClassName();
-	local npclist = {};
-	local statelist = {};
-	local questIESlist  = {};
-	local questPropList = {};
 
-	GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESlist, questPropList);
+	local npclist, statelist, questIESlist, questPropList = GET_QUEST_NPC_NAMES(mapname);
 
 	local npcList = frame:GetChild('npclist')
 	tolua.cast(npcList, 'ui::CGroupBox');
@@ -163,7 +160,7 @@ function UPDATE_MINIMAP(frame)
 	npcList:Resize(minimapw, minimaph);
 
     local isColonyMap = session.colonywar.GetIsColonyWarMap();
-
+	
 	local mongens = mapprop.mongens;
 	if mongens ~= nil then
 		local mapNpcState = session.GetMapNPCState(mapprop:GetClassName());
@@ -243,17 +240,16 @@ function UPDATE_MINIMAP(frame)
 				SET_MINIMAP_NPC_ICON(PictureC, WorldPos, idx, statelist, questIESlist)
 			end
 		end
-
 	end
-
+	
 	local mapname = mapprop:GetClassName();
 	local cnt = #questPropList;
 	for i = 1 , cnt do
-		local questprop = questPropList[i];
+		local questprop = geQuestTable.GetPropByIndex(questPropList[i]);
 		local cls = questIESlist[i];
 		local stateidx = STATE_NUMBER(statelist[i]);
 
-		if stateidx ~= -1 then
+		if questprop ~= nil and stateidx ~= -1 then
 			local locationlist = questprop:GetLocation(stateidx);
 			if locationlist ~= nil then
 				local loccnt = locationlist:Count();
@@ -294,7 +290,7 @@ function UPDATE_MINIMAP(frame)
 			end
 		end
 	end
-
+	
 	local cnt = #questIESlist;
 	for i = 1 , cnt do
 		local cls = questIESlist[i];
@@ -380,7 +376,7 @@ function UPDATE_MINIMAP(frame)
 			end
 		end
 	end
-
+	
 	RUN_FUNC_BY_USRVALUE(npcList, "EXTERN_PIC", "YES", _MONPIC_AUTOUPDATE);
 	MAKE_TOP_QUEST_ICONS(npcList);
 	frame:SetValue(1);
