@@ -88,6 +88,11 @@ function ON_JOYSTICK_RESTQUICKSLOT_CLOSE(frame, msg, argStr, argNum)
 
 	frame = ui.GetFrame("joystickrestquickslot");
 
+	local flutFrame = ui.GetFrame("fluting_keyboard");
+	if flutFrame:IsVisible() == 1 then
+		flutFrame:ShowWindow(0);
+	end
+	
 	frame:ShowWindow(0);
 
 	if IsJoyStickMode() == 0 then

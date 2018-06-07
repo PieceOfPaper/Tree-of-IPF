@@ -1,4 +1,4 @@
-﻿-- equipbosscard_check.lua
+-- equipbosscard_check.lua
 -- º¸½º?μ恥ø ?°??¿ v°?, ?·? 
 
 -- MON~ ½ø®® kill attack damage ≫셰?-- SCR_CARDCHECK_NORMALμμ kill attack damage ≫셰?
@@ -426,5 +426,25 @@ function SCR_CARDCHECK_MONRACE_DUAL(self, target, obj, TypeValue, arg1, arg2, ar
             end
         end
     end
+    return 0;
+end
+
+function SCR_CARDCHECK_ATTACKTYPE_ATTACK_BOSS_CHECK(self, target, obj, TypeValue, arg1, arg2, arg3, arg4)
+    if self ~= nil and target ~= nil and TypeValue ~= nil then
+        if tonumber(arg2) ~= nil then
+            arg2 = tonumber(arg2)
+        end
+
+        if arg2 == 'None' then
+            arg2 = TypeValue;
+        end
+
+        if TryGetProp(target, 'MonRank') ~= arg1 then
+            if arg2 >= IMCRandom(1, 100) then
+                return 1;
+            end
+        end
+    end
+
     return 0;
 end

@@ -35,12 +35,14 @@ end
 
 function SCR_SKILL_AFTERCALC_HIT_Ranger_HighAnchoring(self, from, skill, atk, ret)
     local abilRanger34 = GetAbility(from, "Ranger34");
-        if abilRanger34 ~= nil and TryGetProp(abilRanger34, "ActiveState") == 1 then
+	if abilRanger34 ~= nil and TryGetProp(abilRanger34, "ActiveState") == 1 then
         local skillList = {"Ranger_SpiralArrow", "Ranger_BounceShot", "Ranger_TimeBombArrow"}
     	
     	for i = 1, #skillList do
     		local skill = GetSkill(from, skillList[i])
-    		AddCoolDown(from, skill.CoolDownGroup, -1000)
+    		if skill ~= nil then
+    			AddCoolDown(from, skill.CoolDownGroup, -1000)
+    		end
     	end
     end
     
