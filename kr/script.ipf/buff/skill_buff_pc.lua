@@ -3862,14 +3862,15 @@ function SCR_BUFF_LEAVE_JincanGu_Debuff(self, buff, arg1, arg2, over)
             local skl = GetSkill(caster, "Wugushi_JincanGu");
             if skl ~= nil then
                 local x, y, z = GetPos(self)
-                local createCount = GetExProp(buff, "Wugushi_JincanGu_COUNT");
-                local loopCount = skl.Level - createCount;
-                if loopCount > 5 then
-                    loopCount = 5
-                    if loopCount >= 1 then
-                        for i = 1, loopCount do
-                            RunScript("SCR_WUGUSHI_JINCANGU", self, sklID, damage, caster, x, y, z);
-                        end
+                local createCount = GetExProp(buff, "Wugushi_JincanGu_COUNT")
+                local maxcount = skl.Level
+                if maxcount >= 5 then
+                    maxcount = 5
+                end
+                local loopCount = maxcount - createCount;
+                if loopCount >= 1 then
+                    for i = 1, loopCount do
+                        RunScript("SCR_WUGUSHI_JINCANGU", self, sklID, damage, caster, x, y, z);
                     end
                 end
             end
@@ -7409,6 +7410,21 @@ function SCR_BUFF_LEAVE_Moldy_skill_buff(self, buff, arg1, arg2, over)
 
 end
 
+function IS_CONTAIN_KEYWORD_BUFF(buff, _keyword)
+	-- 키워드가 하나 이상 있을 경우 해당 함수 사용 --
+	local keyword = TryGetProp(buff, 'Keyword', 'None');
+	if keyword ~= 'None' then
+		local keywordList = StringSplit(keyword, ';');
+		for j = 1, #keywordList do
+			if keywordList[j] == _keyword then
+				return true;
+			end
+		end
+	end
+	
+	return false;
+end
+
 -- Melstis_Buff
 function SCR_BUFF_ENTER_Melstis_Buff(self, buff, arg1, arg2, over)
     local caster = GetBuffCaster(buff);
@@ -7418,18 +7434,15 @@ function SCR_BUFF_ENTER_Melstis_Buff(self, buff, arg1, arg2, over)
         if buff_cnt >= 1 then
             for i = 1, buff_cnt do
                 if TryGetProp(buff_list[i], "Premium") ~= "PC" then
-                	local invincibilityBuff = GetBuffListByProp(self, "Keyword", "Invincibility");
-                	if invincibilityBuff == nil then
-	                    if TryGetProp(buff_list[i], "Group1") == 'Buff' and TryGetProp(buff_list[i], "Keyword") ~= "IgnoreImmune" and TryGetProp(buff_list[i], "Keyword") ~= "Invincibility" then
-	                    local buff = buff_list[i];
-		                    local buffTime = GetBuffRemainTime(buff)
-		                    local timeValue = buffTime * (skill.Level * 0.2)
-		                    if timeValue > 20000 then
-		                        timeValue = 20000
-		                    end
-		                    
-		                    SetBuffRemainTime(self, buff.ClassName, buffTime + timeValue);
-		                end
+                    if TryGetProp(buff_list[i], "Group1") == 'Buff' and IS_CONTAIN_KEYWORD_BUFF(buff_list[i], "IgnoreImmune") == false and IS_CONTAIN_KEYWORD_BUFF(buff_list[i], "Invincibility") == false then
+                    	local buff = buff_list[i];
+	                    local buffTime = GetBuffRemainTime(buff)
+	                    local timeValue = buffTime * (skill.Level * 0.2)
+	                    if timeValue > 20000 then
+	                        timeValue = 20000
+	                    end
+						
+	                    SetBuffRemainTime(self, buff.ClassName, buffTime + timeValue);
 		            end
                 end
             end

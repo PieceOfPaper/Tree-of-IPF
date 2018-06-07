@@ -441,11 +441,10 @@ function SCR_MASTER_CHRONO_NORMAL_4(self,pc)
                         local tx = TxBegin(pc)
                         if GetInvItemCount(pc, "CHAR312_MSTEP2_ITEM1") < 1 then
                             TxGiveItem(tx,"CHAR312_MSTEP2_ITEM1", 1, 'Quest_HIDDEN_PIED_PIPER');
+                            TxSetIESProp(tx, sObj, 'Step2', 1);
                         end
                         local ret = TxCommit(tx)
                         if ret == "SUCCESS" then
-                            sObj.Step2 = 1
-                            SaveSessionObject(pc, sObj)
                             ShowOkDlg(pc, "CHAR312_MSTEP2_DLG2", 1)
                             sleep(500)
                             SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHAR220_MSETP2_EFFECT_SET_MSG"), 10)
@@ -465,33 +464,19 @@ function SCR_MASTER_CHRONO_NORMAL_4(self,pc)
                         local tx = TxBegin(pc)
                         if GetInvItemCount(pc, "CHAR312_MSTEP2_ITEM3") < 1 then
                             TxGiveItem(tx,"CHAR312_MSTEP2_ITEM3", 1, 'Quest_HIDDEN_PIED_PIPER');
-                        else
-                            RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP2_ITEM2", cnt1, "CHAR312_MSTEP2");
-                            RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM2", cnt2, "CHAR312_MSTEP2");
+                            TxTakeItem(tx, "CHAR312_MSTEP2_ITEM2", cnt1, "CHAR312_MSTEP2");
+                            TxTakeItem(tx, "CHAR312_MSTEP1_ITEM2", cnt2, "CHAR312_MSTEP2");
                             local cnt3 = GetInvItemCount(pc, "CHAR312_MSTEP2_ITEM1")
                             if cnt3 > 0 then
-                                RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM1", cnt3, "CHAR312_MSTEP2");
+                                TxTakeItem(tx, "CHAR312_MSTEP1_ITEM1", cnt3, "CHAR312_MSTEP2");
                             end
-                            if sObj.Step2 ~= 10 then
-                                sObj.Step2 = 10
-                                SaveSessionObject(pc, sObj)
-                            end
+                            TxSetIESProp(tx, sObj, 'Step2', 10);
                             ShowOkDlg(pc, "CHAR312_MSTEP2_DLG4_1", 1)
                             sleep(500)
                             ShowBalloonText(pc, 'CHAR312_MSTEP2_DLG6', 7)
                         end
                         local ret = TxCommit(tx)
                         if ret == "SUCCESS" then
-                            RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP2_ITEM2", cnt1, "CHAR312_MSTEP2");
-                            RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM2", cnt2, "CHAR312_MSTEP2");
-                            local cnt3 = GetInvItemCount(pc, "CHAR312_MSTEP2_ITEM1")
-                            if cnt3 > 0 then
-                                RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM1", cnt3, "CHAR312_MSTEP2");
-                            end
-                            if sObj.Step2 ~= 10 then
-                                sObj.Step2 = 10
-                                SaveSessionObject(pc, sObj)
-                            end
                             ShowOkDlg(pc, "CHAR312_MSTEP2_DLG4_1", 1)
                             sleep(500)
                             ShowBalloonText(pc, 'CHAR312_MSTEP2_DLG6', 7)
@@ -817,8 +802,12 @@ function SCR_JOB_DIEVDIRBYS2_NPC_NORMAL_5_PRE(pc)
     local _hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20')
     if _hidden_prop <= 133 then
         local item = GetInvItemCount(pc, "EXORCIST_MSTEP33_ITEM2")
+        local itme1 = GetInvItemCount(pc, "EXORCIST_MSTEP33_ITEM3")
+        local itme2 = GetInvItemCount(pc, "EXORCIST_JOB_HIDDEN_ITEM")
         if item < 1 then
-            return 'YES'
+            if itme1 >= 1 and itme2 >= 1 then
+                return 'YES'
+            end
         end
     end
     return 'NO'
@@ -1004,20 +993,22 @@ function SCR_MASTER_PRIEST_NORMAL_6(self,pc)
                         sleep(2000)
                         local tx = TxBegin(pc)
                         if GetInvItemCount(pc, "CHAR312_MSTEP3_ITEM") < 1 then
+                            TxTakeItem(tx, "CHAR312_MSTEP2_ITEM3", 1, "CHAR312_MSTEP3");
                             TxGiveItem(tx,"CHAR312_MSTEP3_ITEM", 1, 'Quest_HIDDEN_PIED_PIPER');
+                            local etc = GetETCObject(pc);
+                            TxSetIESProp(tx, etc, "HiddenJob_Char3_12", 200);
+                            TxSetIESProp(tx, sObj, 'Step3', 10);
                         end
                         local ret = TxCommit(tx)
                         if ret == "SUCCESS" then
-                            RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP2_ITEM3", item, "CHAR312_MSTEP3");
-                            if sObj.Step3 ~= 10 then
-                                sObj.Step3 = 10
-                                SaveSessionObject(pc, sObj)
-                            end
-                            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char3_12', 200)
                             ShowOkDlg(pc, "CHAR312_MSTEP3_DLG3", 1)
                             sleep(500)
                             ShowBalloonText(pc, 'CHAR312_MSTEP3_DLG5', 7)
                         end
+                    else
+                        ShowOkDlg(pc, "CHAR312_MSTEP3_DLG4", 1)
+                        sleep(500)
+                        ShowBalloonText(pc, 'CHAR312_MSTEP3_DLG5', 7)
                     end
                 end
             else
@@ -2047,9 +2038,10 @@ function SCR_MASTER_ORACLE_NORMAL_3(self, pc)
                     if isHideNPC(pc, "PIED_PIPER_MASTER") == "YES" then
                         TxUnHideNPC(tx, 'PIED_PIPER_MASTER')
                     end
+                    local etc = GetETCObject(pc);
+                    TxSetIESProp(tx, etc, "HiddenJob_Char3_12", 40);
                     local ret = TxCommit(tx)
                     if ret == "SUCCESS" then
-                        SCR_SET_HIDDEN_JOB_PROP(pc, 'Char3_12', 40)
                         ShowOkDlg(pc, "CHAR312_PRE_MSTEP3_ORACLE_DLG3", 1)
                     end
                 end

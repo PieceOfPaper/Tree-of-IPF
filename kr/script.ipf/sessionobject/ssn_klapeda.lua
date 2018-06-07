@@ -862,6 +862,64 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         AddBuff(self, self, "Achieve_Possession_Buff", 1, 0, 0, 1)
     end
    
+    local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(self, 'Char4_20');
+    if is_unlock == "NO" then
+    local _hidden_prop = SCR_GET_HIDDEN_JOB_PROP(self, 'Char4_20')
+        if _hidden_prop >= 132 and _hidden_prop < 140 then
+            local item = GetInvItemCount(self, "EXORCIST_MSTEP33_ITEM3")
+            if item < 1 then
+                local tx1 = TxBegin(self);
+                local exorcist_item = {
+                                        'EXORCIST_MSTEP33_ITEM2',
+                                        'EXORCIST_MSTEP33_ITEM1',
+                                        'EXORCIST_MSTEP323_ITEM1',
+                                        'EXORCIST_MSTEP322_ITEM1',
+                                        'CHAR4_20_STEP2_2',
+                                        'CHAR420_MSTEP3_1_ITEM4',
+                                        'CHAR420_MSTEP3_1_ITEM3',
+                                        'CHAR420_MSTEP3_1_ITEM2',
+                                        'CHAR420_MSTEP3_1_ITEM1',
+                                        'EXORCIST_JOB_HIDDEN_ITEM',
+                                        'EXORCIST_MSTEP33_ITEM3'
+                                    }
+                local exorcist_hidenpc = {
+                                            'CHAR420_STEP321_NPC',
+                                            'CHAR420_STEP323_NPC1',
+                                            'EXORCIST_MASTER_STEP33_NPC1',
+                                            'EXORCIST_MASTER_STEP33_NPC2'
+                                        }
+                
+                for i = 1, #exorcist_item do
+                    if GetInvItemCount(self, exorcist_item[i]) >= 1 then
+                        TxTakeItem(tx1, exorcist_item[i], GetInvItemCount(self, exorcist_item[i]), 'Quest_HIDDEN_EXORCIST');
+                    end
+                end
+                
+                for j = 1, #exorcist_hidenpc do
+                    if isHideNPC(self, exorcist_hidenpc[i]) == "NO" then
+                        HideNPC(self, exorcist_hidenpc[i])
+                    end
+                end
+                
+                local ret = TxCommit(tx1);
+                if ret == "SUCCESS" then
+                    local ret2 = SCR_HIDDEN_JOB_UNLOCK(self, 'Char4_20')
+                    if ret2 == "FAIL" then
+                        print("tx FAIL!")
+                    elseif ret2 == "SUCCESS" then
+                        print("tx SUCCESS!")
+                        local sObj = GetSessionObject(self, "SSN_EXORCIST_UNLOCK")
+                        if sObj ~= nil then
+                            DestroySessionObject(self, sObj)
+                        end
+                    end
+                else
+                    print("tx FAIL!")
+                end
+            end
+        end
+    end
+    
     if IsJoinColonyWarMap(self) == 1 then
         RunScript("SCR_GUILD_COLONY_MUSIC_PLAY", self)
         RunScript("SCR_GUILD_COLONY_ENTER_LOG", self)

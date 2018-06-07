@@ -2299,7 +2299,7 @@ function SCR_BUFF_RATETABLE_Gregorate_Buff(self, from, skill, atk, ret, rateTabl
 end
 
 function SCR_BUFF_RATETABLE_TheTreeOfSepiroth_Buff(self, from, skill, atk, ret, rateTable, buff)
-    if IsBuffApplied(self, "TheTreeofSepiroth") == "YES" then
+    if IsBuffApplied(self, "TheTreeOfSepiroth_Buff") == "YES" then
         AddDamageReductionRate(rateTable, 0.5);
     end
 end
