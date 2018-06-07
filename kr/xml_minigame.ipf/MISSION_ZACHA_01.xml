@@ -805,7 +805,7 @@
                             </HitList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47261" Pos="-847.53#-53.20#-484.14" angle="2" genCount="1" genTime="20000" objectKey="6" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;1000&apos; ">
+                    <Obj Type="Monster" MonType="47261" Pos="-847.53#-53.20#-484.14" angle="2" genCount="1" genTime="20000" objectKey="6" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HPCount&apos; &apos;1000&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
@@ -822,7 +822,7 @@
                             </HitList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47261" Pos="923.37#15.94#-478.95" angle="-176" genCount="1" genTime="20000" objectKey="7" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;1000&apos; ">
+                    <Obj Type="Monster" MonType="47261" Pos="923.37#15.94#-478.95" angle="-176" genCount="1" genTime="20000" objectKey="7" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HPCount&apos; &apos;1000&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_CK_MVALUE_RUN" Client="NO" UseSleep="NO">
@@ -963,6 +963,14 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
                                 <MGameObj List="stage_start_01/5"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_start_01/6"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_start_01/7"/>
                                 <Str Str="Monster"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">

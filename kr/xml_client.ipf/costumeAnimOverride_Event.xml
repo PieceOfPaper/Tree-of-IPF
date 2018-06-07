@@ -934,6 +934,13 @@
 			</Motion>
 		</Class>
 		<Class Costume="wing_ice">
+			<Motion Name="REST">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="mid" particleName="F_light143_2" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
 			<Motion Name="Default">
 				<Job Name="All">
 					<Event>
@@ -2358,6 +2365,13 @@
 				<Job Name="All">
 					<Event>
 						<Particle frame="0" attachNode="mid" particleName="F_light143_2" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="REST">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="mid" particleName="F_light143_2" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>

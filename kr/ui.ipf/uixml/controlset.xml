@@ -1934,8 +1934,28 @@
 		</controls>
 	</controlset>
 	<controlset name="itemslotset_compare" hittest="true" hittestset="false" draw="false" width="420" height="315" skin="">
+		<userconfig EQUIPSLOT_PIC_MAGIC="invenslot_pic_magic" EQUIPSLOT_PIC_RARE="invenslot_pic_rare" EQUIPSLOT_PIC_UNIQUE="invenslot_pic_unique" EQUIPSLOT_PIC_LEGEND="invenslot_pic_legend"/>
 		<controls>
 			<picture name="shihouette" parent="equip" rect="0 0 160 283" margin="0 -10  0 0" layout_gravity="center top" image="inventory_F" hittest="true" stretch="true" oversound="button_cursor_over_3"/>
+			<slot name="HAT_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 0 0 0" movepop="false" skin="hat"/>
+			<slot name="HAT_T_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 52 0 0" movepop="false" skin="hat"/>
+			<slot name="HAT_L_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 104 0 0" movepop="false" skin="hat"/>
+			<slot name="HAIR_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 156 0 0" movepop="false" skin="wig_slot"/>
+			<slot name="OUTER_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 55 0 0" movepop="false" skin="cloths"/>
+			<slot name="RH_bg" layout_gravity="center top" rect="0 0 60 60" margin="-31 230 0 0" movepop="false" skin="rh"/>
+			<slot name="LH_bg" layout_gravity="center top" rect="0 0 60 60" margin="31 230 0 0" movepop="false" skin="lh"/>
+			<slot name="SHIRT_bg" layout_gravity="center top" rect="0 0 60 60" margin="-100 80 0 0" movepop="false" skin="shirt"/>
+			<slot name="PANTS_bg" layout_gravity="center top" rect="0 0 60 60" margin="-100 145 0 0" movepop="false" skin="pants"/>
+			<slot name="GLOVES_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 120 0 0" movepop="false" skin="gloves"/>
+			<slot name="BOOTS_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 185 0 0" movepop="false" skin="boots"/>
+			<slot name="RING1_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 208 0 0" movepop="false" skin="ring"/>
+			<slot name="RING2_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 208 0 0" movepop="false" skin="ring"/>
+			<slot name="NECK_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 104 0 0" movepop="false" skin="necklace"/>
+			<slot name="ARMBAND_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 156 0 0" movepop="false" skin="armband"/>
+			<slot name="LENS_bg" layout_gravity="center top" rect="0 0 50 50" margin="-100 25 0 0" movepop="false" skin="lens_slot"/>
+			<slot name="WING_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 52 0 0" movepop="false" skin="wing_slot"/>
+			<slot name="SPECIALCOSTUME_bg" layout_gravity="center top" rect="0 0 50 50" margin="100 0 0 0" movepop="false" skin="spcostume_slot"/>
+			<slot name="EFFECTCOSTUME_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 0 0 0" movepop="false" skin="effect_slot"/>
 			<slot name="HAT" texttooltip="{@st59}헤어 코스튬1{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="120 -10" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>

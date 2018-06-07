@@ -181,15 +181,12 @@
                             <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_STAGE_END_STOPDEBUFF_MON"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_SOLODUNGEON_PONIT_CALC"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="미니게임 종료">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
+                                <Num Num="15"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -197,6 +194,18 @@
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="스코어보드">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SOLODUNGEON_PONIT_CALC"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

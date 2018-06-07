@@ -1,4 +1,9 @@
 function SCR_GOLD_FISH_STATUE_DIALOG(self, pc)
+    local statueProp = GetExProp_Str(self, "STATUE_PROPNAME");
+    if statueProp ~= "Statue_FishRubbing" then
+        return;
+     end
+
     local userLv = TryGetProp(pc, "Lv")
     local needSilver = 10000 + (userLv * 100)    
 
