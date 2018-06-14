@@ -99,7 +99,6 @@ function SET_SLOT_ITEM_INV(slot, itemCls)
 
 end
 
--- ?�단 ?�이??�?�� ?�자가가 ?�서... ?��?지�?보이�??�기 ?�해
 function SET_SLOT_ITEM_IMAGE(slot, invItem)
 	if nil == invItem then
 		return;
@@ -110,7 +109,10 @@ function SET_SLOT_ITEM_IMAGE(slot, invItem)
 	end
 
 	local obj = GetIES(invItem:GetObject());
-	local icon = CreateIcon(slot);
+	local icon = slot:GetIcon();
+    if icon == nil then
+        icon = CreateIcon(slot);
+    end
 	local iconName = GET_ITEM_ICON_IMAGE(obj);
 	icon:Set(iconName, 'None', invItem.type, invItem.count, invItem:GetIESID(), cnt);
 	
@@ -118,30 +120,27 @@ function SET_SLOT_ITEM_IMAGE(slot, invItem)
 end
 
 function SET_SLOT_ITEM(slot, invItem, count)
-
 	local itemCls = GetClassByType("Item", invItem.type);
-print("SET_SLOT_ITEM")
 	local type = itemCls.ClassID;
 	local obj = GetIES(invItem:GetObject());
-	local img = GET_ITEM_ICON_IMAGE(obj);
-	SET_SLOT_IMG(slot, img)
-	SET_SLOT_COUNT(slot, count)
-	SET_SLOT_IESID(slot, invItem:GetIESID())
+	local img = GET_ITEM_ICON_IMAGE(obj);    
+	SET_SLOT_IMG(slot, img);
+	SET_SLOT_COUNT(slot, count);
+	SET_SLOT_IESID(slot, invItem:GetIESID());
 	slot:SetTooltipArg('inven', type, invItem:GetIESID());
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
 	iconInfo.type = type;
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, invItem, itemCls.ClassName, 'inven', type, invItem:GetIESID());
-	--SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls);
-	--icon:SetTooltipArg('inven', type, invItem:GetIESID());
-
 end
 
 function SET_SLOT_IMG(slot, img)
 	tolua.cast(slot, "ui::CSlot");
-	local icon = CreateIcon(slot);
+    local icon = slot:GetIcon();
+    if icon == nil then
+	    icon = CreateIcon(slot);
+    end
 	icon:SetImage(img);
-
 end
 
 function SET_SLOT_IESID(slot, iesid)

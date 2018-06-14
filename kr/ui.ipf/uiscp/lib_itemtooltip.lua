@@ -721,6 +721,11 @@ function SET_BUFF_TEXT(gBox, invitem, yPos, strarg)
 		local sysTime = geTime.GetServerSystemTime();
 		local endTime = imcTime.GetSysTimeByStr(invitem.BuffEndTime);
 		local difSec = imcTime.GetDifSec(endTime, sysTime);
+
+		if difSec < 0 then
+			return yPos;
+		end
+
 		content:SetUserValue("REMAINSEC", difSec);
 		content:SetUserValue("STARTSEC", imcTime.GetAppTime());
 		SHOW_REMAIN_BUFF_TIME(content);
@@ -780,6 +785,11 @@ function SET_BUFF_TEXT(gBox, invitem, yPos, strarg)
 		local sysTime = geTime.GetServerSystemTime();
 		local endTime = imcTime.GetSysTimeByStr(invitem.EnchanterBuffEndTime);
 		local difSec = imcTime.GetDifSec(endTime, sysTime);
+
+		if difSec < 0 then
+			return yPos;
+		end
+
 		content:SetUserValue("REMAINSEC", difSec);
 		content:SetUserValue("STARTSEC", imcTime.GetAppTime());
 		content:SetUserValue("ENCHANT", 1);
@@ -1260,7 +1270,10 @@ function IS_DISABLED_TRADE(invitem, type)
 			return true;
 		end
 	elseif type == TRADE_TYPE_MARKET then
-		if invitem.MaxStack <= 1 and ((invitem.ItemType == 'Equip' and invitem.ClassType ~= 'Helmet' and prCount <= 0) or 0 < blongCnt) then
+		if invitem.MaxStack <= 1 and 
+		((invitem.ItemType == 'Equip' and invitem.ClassType ~= 'Helmet' and invitem.ClassType ~= 'Armband' and prCount <= 0) 
+		or 0 < blongCnt 
+		or (TryGetProp(invitem, 'ClassType', 'None') == 'Armband' and invitem.MarketTrade == "NO")) then
 			return true;
 		end
 	else

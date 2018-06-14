@@ -165,10 +165,10 @@ function SCR_WUGUSHI_Crescendo_Bane(self, skl)
     local targetList = GetHardSkillTargetList(self)
     for j = 1, #targetList do
         local target = targetList[j]
-        local buff_list, buff_cnt = GetBuffList(target)
-        if buff_cnt >= 1 then
+        local buff_list, buff_cnt = GetBuffListByProp(target, "Keyword", "Poison")
+        if buff_list ~= nil and buff_cnt >= 1 then
             for i = 1, buff_cnt do
-                if TryGetProp(buff_list[i], "Group3") == "Detoxify" and TryGetProp(buff_list[i], "RemoveBySkill") == "YES" and TryGetProp(buff_list[i], "Premium") ~= "PC" then
+                if buff_list[i].Group1 == "Debuff" and IS_CONTAIN_KEYWORD_BUFF(buff_list[i], "Poison") == true then
                     if GetExProp(buff_list[i], "Wugushi_CrescendoBane_FLAG") == 0 then
                         local remainTime = GetBuffRemainTime(buff_list[i])
                         local updatetime = TryGetProp(buff_list[i], "UpdateTime")

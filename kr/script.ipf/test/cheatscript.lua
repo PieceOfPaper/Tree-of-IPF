@@ -33,7 +33,7 @@ function TEST_SERVPOS(pc, handle)
 		local ms = GetMoveState(mon);
 		Chat(mon, string.format("%d %d %d %s %s %s", x, y, z, as, ms, GetBodyState(mon)));
 		
-		sleep(500);
+		sleep(50);
 	end
 	
 end

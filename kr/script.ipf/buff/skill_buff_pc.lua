@@ -2972,11 +2972,11 @@ function SCR_BUFF_ENTER_Detoxify_Buff(self, buff, arg1, arg2, over)
         caster = buff;
     end
     
-    local buff_list, buff_cnt = GetBuffList(self)
-    if buff_cnt >= 1 then
+    local buff_list, buff_cnt = GetBuffListByProp(self, "Keyword", "Poison")
+    if buff_list ~= nil and buff_cnt >= 1 then
         for i = 1, buff_cnt do
-            if TryGetProp(buff_list[i], "Group3") == "Detoxify" and TryGetProp(buff_list[i], "RemoveBySkill") == "YES" and TryGetProp(buff_list[i], "Premium") ~= "PC" then
-                if buff_list[i].Lv <= arg1 then
+            if IS_CONTAIN_KEYWORD_BUFF(buff_list[i], "Poison") == true and TryGetProp(buff_list[i], "RemoveBySkill") == "YES" and TryGetProp(buff_list[i], "Premium") ~= "PC" then
+                if arg1 >= buff_list[i].Lv then
                     RemoveBuff(self, buff_list[i].ClassName)
                     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil)
                     local abilWugushi1 = GetAbility(caster, 'Wugushi1')
@@ -3046,16 +3046,14 @@ function SCR_BUFF_ENTER_DiscernEvil_Buff(self, buff, arg1, arg2, over)
                 return
             end
             
-            if TryGetProp(debuff, "Keyword") == "Poison;DiscernEvil" then
-                break
+            if IS_CONTAIN_KEYWORD_BUFF(list[i], "DiscernEvil") == false then
+                local remainTime = GetBuffRemainTime(debuff);
+                local timeValue = remainTime * (0.25 + (arg1 * 0.05));
+--                SetBuffRemainTime(self, debuff.ClassName, remainTime + timeValue);
+                AddBuffRemainTime(self, debuff.ClassName, timeValue)
+                
+                SetExProp(debuff, "DISCERNEVIL_DEBUFFTIME", 1);
             end
-            
-            local remainTime = GetBuffRemainTime(debuff);
-            local timeValue = remainTime * (0.25 + (arg1 * 0.05));
---            SetBuffRemainTime(self, debuff.ClassName, remainTime + timeValue);
-            AddBuffRemainTime(self, debuff.ClassName, timeValue)
-            
-            SetExProp(debuff, "DISCERNEVIL_DEBUFFTIME", 1);
             
             if debuff.ClassName == "Hexing_Debuff" then
                 SCR_ADD_CASTER_BUFF_REMAINTIME(self, "Hexing_Debuff", "Hexing_Buff", remainTime);
@@ -7409,7 +7407,6 @@ function SCR_BUFF_LEAVE_Moldy_skill_buff(self, buff, arg1, arg2, over)
 end
 
 function IS_CONTAIN_KEYWORD_BUFF(buff, _keyword)
-	-- 키워드가 하나 이상 있을 경우 해당 함수 사용 --
 	local keyword = TryGetProp(buff, 'Keyword', 'None');
 	if keyword ~= 'None' then
 		local keywordList = StringSplit(keyword, ';');
@@ -8502,7 +8499,7 @@ function SCR_BUFF_ENTER_Camouflage_Buff(self, buff, arg1, arg2, over)
     AddLimitationSkillList(self, "CrossBow_Attack");
     AddLimitationSkillList(self, "Pistol_Attack");
     AddLimitationSkillList(self, "Scout_Undistance");
-    
+
 end
 
 function SCR_BUFF_LEAVE_Camouflage_Buff(self, buff, arg1, arg2, over)
@@ -15728,6 +15725,11 @@ function SCR_BUFF_UPDATE_StormDust_Debuff(self, buff, arg1, arg2, over)
         
     local from = self;
     local caster = GetBuffCaster(buff);
+    local pad = GetPadByBuff(caster, buff);
+    if pad == nil then
+        return 0;
+    end
+    
     if caster ~= nil then    
         from = caster;
     end

@@ -137,7 +137,7 @@ ClassID,ConditionArg4,ClassName,UseType,ValueType,PropertyType,ConditionScp,Cond
 136,0,"Legend_card_Nuaele","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_RATE","MDEF_RATE_BM","MDEF","10","마법 방어력 +{@st66d_y}{s16}[%d]{/}{/}%% 증가","10"
 137,0,"Legend_card_Helgasercle","Kill","StarCount","","","","","","SCR_CARDEFFECT_BE_FIXED_RECOVER_SP_LEGEND","AddSP","","20","몬스터 처치 시 1마리당 SP{@st66d_y}{s16}[%d]{/}{/} 회복","20"
 138,0,"Legend_card_Lecifer","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_PLUS","MSPD_BM","MSPD","1","이동속도 +{@st66d_y}{s16}[%d]{/}{/} 증가","1"
-139,0,"Legend_card_Mirtis","Always","StarCount","","","","","","SCR_CARDEFFECT_ATTRIBUTE_PENALTY_REDUCTION","ATTRIBUTE_PENALTY","","10","속성 상성에 따른 패널티 {@st66d_y}{s16}[%d]{/}{/}%% 감소","10"
+139,0,"Legend_card_Mirtis","Always","StarCount","","","","","","SCR_CARDEFFECT_ATTRIBUTE_PENALTY_REDUCTION","ATTRIBUTE_PENALTY","","10","공격 시 속성 상성에 따른 패널티 {@st66d_y}{s16}[%d]{/}{/}%% 감소","10"
 140,0,"Legend_card_Kucarry_Balzermance","Always","StarCount","","","","","","SCR_CARDEFFECT_ADD_NO_TIME_BUFF_PC","CARD_ExpUP_","ExpUP","1","경험치 획득량 {@st66d_y}{s16}[%d]{/}{/}%% 증가","1"
 141,0,"Legend_card_PantoRex","BeforeAttack","StarCount","","SCR_CARDCHECK_MONRACE","Widling","100","","SCR_CARDEFFECT_ADD_DAMAGE_RATE_BM","","","7","야수형 몬스터에게 주는 대미지 {@st66d_y}{s16}[%d]{/}{/}%% 증가","7"
 142,0,"Legend_card_Velcoffer","Always","StarCount","","","","","","SCR_CARDEFFECT_DAMAGE_REDUCTION_RATE_FROM_MON","CARD_MON_DMG_Rate_Down_Buff","","3","몬스터에게 받는 대미지 {@st66d_y}{s16}[%d]{/}{/}%% 감소","3"

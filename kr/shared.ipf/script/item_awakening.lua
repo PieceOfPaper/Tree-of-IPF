@@ -1,9 +1,13 @@
 -- item_awakening.lua
 
 
-function GET_ITEM_AWAKENING_PRICE(obj)
-	local count = obj.ItemStar * obj.ItemGrade;
-	return "misc_catalyst_1", count;
+function GET_ITEM_AWAKENING_PRICE(obj) -- hs_comment: 안용씨 여기 각성 가루 아이템의 클래스 네임과 개수 공식을 써주십쇼    
+	local count = 1;
+--    if obj ~= nil then
+--        count = obj.ItemStar * obj.ItemGrade;
+--    end
+    
+	return "misc_wakepowder", count;
 end
 
 function IS_ITEM_AWAKENING_STONE(obj)

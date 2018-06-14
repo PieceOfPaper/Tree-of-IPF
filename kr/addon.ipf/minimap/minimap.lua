@@ -134,7 +134,7 @@ function UPDATE_MINIMAP(frame)
 	zoominfo:SetText(string.format("x{b}%1.1f", percent));
 
 	local curmapname = session.GetMapName();
-	local imgfilename = curmapname;
+	local imgfilename = curmapname .. "_fog";
 	if ui.IsImageExist(imgfilename) == false then
 		UPDATE_MAP(frame);
 	end
@@ -202,7 +202,7 @@ function UPDATE_MINIMAP(frame)
 			end
 		end
 	end
-
+	
 	local quemon = mapprop.questmonster;
 	if quemon ~= nil then
 		local quemoncnt = quemon:Count();

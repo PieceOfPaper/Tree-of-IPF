@@ -9,10 +9,10 @@ function SQIORE_SLOT_POP(parent, ctrl)
 end
 
 function SQIORE_SLOT_DROP(parent, ctrl)
-	local frame				= parent:GetTopParentFrame();
-	local liftIcon 			= ui.GetLiftIcon();
-	local slot 			    = tolua.cast(ctrl, 'ui::CSlot');
-	local iconInfo			= liftIcon:GetInfo();
+	local frame = parent:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local slot = tolua.cast(ctrl, 'ui::CSlot');
+	local iconInfo = liftIcon:GetInfo();
 	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
 	
 	if nil == invItem then

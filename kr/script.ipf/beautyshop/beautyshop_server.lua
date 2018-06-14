@@ -148,6 +148,7 @@ end
 
 -- IsEnableEquipCostume 이 있지만 뷰티샵 특화로 루아로 제작
 function BEAUTYSHOP_IS_ENABLE_EQUIP_COSTUME(pc, itemClassName)
+
 	local cls = GetClass("Beauty_Shop_Costume", itemClassName)
 	if cls == nil then
 		return false
@@ -158,35 +159,31 @@ function BEAUTYSHOP_IS_ENABLE_EQUIP_COSTUME(pc, itemClassName)
 	if jobOnly == nil then
 		return false
 	end
-	
+
 	if jobOnly ~= "None" then
 		local jobHistoryStr = GetJobHistoryString(pc);
 		if string.find(jobHistoryStr, jobOnly) == nil then
 			return false
-		else
-			return true
 		end
 	end
-
+	
 	-- 성별 체크
 	local gender = TryGetProp(cls, "Gender")
 	if gender == nil then
 		return false
 	end
-
+	
 	if gender ~= "None" then
 		local pcGenderStr = "M"
 		if pc.Gender == 2 then
 			pcGenderStr = "F"
 		end
-
-		if gender == pcGenderStr then
-			return true
-		else
+		
+		if gender ~= pcGenderStr then
 			return false
 		end
 	end
-
+	
 	return true
 end
 

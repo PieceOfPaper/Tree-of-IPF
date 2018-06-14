@@ -11982,6 +11982,18 @@ function SCR_GET_Lethargy_Ratio2(skill)
     return value
 end
 
+function SCR_GET_Lethargy_Ratio3(skill)
+    local value = 20;
+    
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "Wizard24")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value + abil.Level * 3
+    end
+    
+    return value
+end
+
 function SCR_GET_KneelingShot_Ratio(skill)
     local pc = GetSkillOwner(skill);
     local value = 15.4 + (skill.Level - 1) * 4.1
@@ -14763,16 +14775,16 @@ function SCR_Get_Transpose_Bufftime(skill)
 
 end
 
-function SCR_Get_Meteor_Casttime(skill)
+--function SCR_Get_Meteor_Casttime(skill)
 --    local pc = GetSkillOwner(skill);
-    local value = (skill.Level * 1) * 0.5
+--    local value = (skill.Level * 1) * 0.5
 --    local abil = GetAbility(pc, "Elementalist25")
 --    if abil ~= nil and abil.ActiveState == 1 then
 --        value = value * 0.5
 --    end
 
-    return value;
-end
+--    return value;
+--end
 
 function SCR_Get_Summoning_Ratio(skill)
     local value = 5 + (skill.Level * 2);

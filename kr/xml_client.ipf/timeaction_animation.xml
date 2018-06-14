@@ -75,6 +75,13 @@
 		<LoopAnim Anim="SKL_ARMOR_MAINTAIN_HAMMERING" AnimCount="6"/>
 		<LoopAnim Anim="SKL_ARMOR_MAINTAIN_FINISH" AnimCount="1"/>
 	</TimeAction>
+	<TimeAction Name="Squire_EquipmentTouchUp" RandomLoop="0" StartAnim="NONE" StartAnimCount="0" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="NONE">
+		<LoopAnim Anim="SKL_EQUIPMENTTOUCHUP_HAMMERING_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_EQUIPMENTTOUCHUP_HAMMERING" AnimCount="5"/>
+		<LoopAnim Anim="SKL_EQUIPMENTTOUCHUP_STAY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_EQUIPMENTTOUCHUP_HAMMERING" AnimCount="6"/>
+		<LoopAnim Anim="SKL_EQUIPMENTTOUCHUP_FINISH" AnimCount="1"/>
+	</TimeAction>
 	<TimeAction Name="Squire_WeaponTouchUp" RandomLoop="0" StartAnim="NONE" StartAnimCount="0" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="NONE">
 		<LoopAnim Anim="SKL_WEAPON_SHARPEN" AnimCount="3"/>
 		<LoopAnim Anim="SKL_WEAPON_CHECK" AnimCount="1"/>

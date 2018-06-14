@@ -28,7 +28,10 @@ function SCR_SOLO_DUNGEON_STAGE_MONSTER_SUMMON(self)
     local follwerListCheck = GetExProp(self, 'FollowerListCheck')
     if follwerListCheck ~= 1 then
         for i = 1, cntCtrl do
-            RunScript('SCR_SOLO_DUNGEON_DOUGHNUT_POS_SUMMON', self, x, y, z, mval)
+            --if i%math.floor(cntCtrl/5) == 0 then
+                --sleep(IMCRandom(500, 1000))
+            --end
+            SCR_SOLO_DUNGEON_DOUGHNUT_POS_SUMMON( self, x, y, z, mval)
         end
         
         if cntCtrl > 10 then
@@ -38,16 +41,16 @@ function SCR_SOLO_DUNGEON_STAGE_MONSTER_SUMMON(self)
                 eliteCnt = 10
             end
             for j = 1, eliteCnt do
-                RunScript('SCR_SOLO_DUNGEON_DOUGHNUT_POS_SUMMON', self, x, y, z, mval)
+                SCR_SOLO_DUNGEON_DOUGHNUT_POS_SUMMON(self, x, y, z, mval)
             end
         end
     end
+    --sleep(5000)
+    SetExProp(self, 'FollowerListCheck', 1)
     RunSimpleAI(self, 'SOLO_DUNGEON_SELF_KILL')
 end
 
 function SCR_SOLO_DUNGEON_DOUGHNUT_POS_SUMMON(self, x, y, z, mval)
-    local time = IMCRandom(1, 1500);
-    sleep(time)
     local monClsList, moncnt = GetClassList('d_solo_MonsterList');
     local dPos = SCR_DOUGHNUT_RANDOM_POS(x, z, 50, 300)
     local angle = GetAngleFromPos(self, dPos['x'], dPos['z'])
@@ -71,7 +74,8 @@ function SCR_SOLO_DUNGEON_DOUGHNUT_POS_SUMMON(self, x, y, z, mval)
         SCR_SOLO_DUNGEON_STAGE_MON_SPEC(summonMonster, mval)
         PlayEffectToGround(self, 'F_buff_basic001_violet', dPos['x'], y, dPos['z'], 1.5);
         DisableBornAni(summonMonster)
-        SetOwner(summonMonster,self,1)
+        --SetOwner(summonMonster,self,1)
+        AddScpObjectList(self, 'followerListSoloDnngeon', summonMonster)
         table.remove(normalList, selectMon)
     end
     
@@ -86,20 +90,21 @@ function SCR_SOLO_DUNGEON_DOUGHNUT_POS_SUMMON(self, x, y, z, mval)
             SCR_SOLO_DUNGEON_STAGE_MON_SPEC(summonMonster, mval)
             PlayEffectToGround(self, 'F_buff_basic001_violet', dPos['x'], y, dPos['z'], 3.5);
             DisableBornAni(summonMonster)
-            SetOwner(summonMonster,self,1)
+            --SetOwner(summonMonster,self,1)
+            AddScpObjectList(self, 'followerListSoloDnngeon', summonMonster)
             table.remove(bossList, selectBoss)
             SetExProp(self, 'BossSummonCheck', 1)
         end
     end
-    SetExProp(self, 'FollowerListCheck', 1)
 end
 
 function SCR_SOLO_DUNGEON_SELF_KILL_SIMPLE_AI(self)
     local mval = GetMGameValue(self, 'STAGE_COUNT')
     local follwerListCheck = GetExProp(self, 'FollowerListCheck')
-    local followerList, followercnt = GetFollowerList(self);
+    local followerListSoloDnngeon = GetScpObjectList(self, 'followerListSoloDnngeon')
+    --local followerList, followercnt = GetFollowerList(self);
     local eliteBuffAddCheck = GetExProp(self, 'EliteBuffAddCheck')
-    if followercnt ~= 0 then
+    if #followerListSoloDnngeon ~= 0 then
         if eliteBuffAddCheck ~= 1 then
             if mval > 10 and mval % 2 ~= 0 then
                 local eliteCnt = math.floor((mval-5)/5)
@@ -109,8 +114,8 @@ function SCR_SOLO_DUNGEON_SELF_KILL_SIMPLE_AI(self)
                 for i = 1, eliteCnt do
                     --local eliteRandom = IMCRandom(1, followercnt)
                     for j = 1, 5 do
-                        if IsBuffApplied(followerList[i],'EliteMonsterBuff') == "NO" then
-                            AddBuff(self, followerList[i], 'EliteMonsterBuff', 1, 0, 0, 1)
+                        if IsBuffApplied(followerListSoloDnngeon[i],'EliteMonsterBuff') == "NO" then
+                            AddBuff(self, followerListSoloDnngeon[i], 'EliteMonsterBuff', 1, 0, 0, 1)
                         end
                     end
                 end
@@ -120,7 +125,7 @@ function SCR_SOLO_DUNGEON_SELF_KILL_SIMPLE_AI(self)
     end
     
     if follwerListCheck == 1 then
-        if #followerList == 0 then
+        if #followerListSoloDnngeon == 0 then
             Dead(self);
         end
     end
@@ -187,7 +192,7 @@ function SCR_SOLODUNGEON_PONIT_CALC(cmd, curStage, eventInst, obj)
     local list, cnt = GetCmdPCList(cmd:GetThisPointer());
     local mval = 0
     local pc = 0
-    local stagePoint = 1000
+    local stagePoint = 3000
     local myStagePoint = 0
     
     if cnt ~= nil and cnt ~= 0 then
@@ -213,7 +218,7 @@ function SCR_SOLODUNGEON_PONIT_CALC(cmd, curStage, eventInst, obj)
         end
     end
     
-    local followerList, followercnt = GetFollowerList(monManager)
+    local followerListSoloDnngeon = GetScpObjectList(monManager, 'followerListSoloDnngeon')
     if mval < 5 then
         pointCnt = 5
     end
@@ -238,7 +243,7 @@ function SCR_SOLODUNGEON_PONIT_CALC(cmd, curStage, eventInst, obj)
     
     local totalPointCnt = pointCnt + addPointCnt
     local monPoint = 100
-    local nowPointCnt = totalPointCnt - followercnt
+    local nowPointCnt = totalPointCnt - #followerListSoloDnngeon
     local myPoint = nowPointCnt * monPoint
 
 --Date point calc--
@@ -274,6 +279,8 @@ function SCR_SOLODUNGEON_RANK_CALC(pc, finalMyPoint, mval, nowPointCnt)
     if ret == 1 then
         SendSoloDungeonStageScore(pc,finalMyPoint, mval, nowPointCnt)
     end
+    AddHP(pc, pc.MHP);
+    AddSP(pc, pc.MSP);
 end
 
 function START_SOLO_DUNGEON_PLAY_LOG(cmd, curStage, eventInst, obj)

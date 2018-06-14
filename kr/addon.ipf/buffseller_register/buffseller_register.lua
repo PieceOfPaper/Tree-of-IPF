@@ -1,15 +1,10 @@
-
 function BUFFSELLER_REGISTER_ON_INIT(addon, frame)
-
-
-
 end
 
 function BUFFSELLER_DROP(frame, icon, argStr, argNum)
-
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 	local iconInfo = liftIcon:GetInfo();
 
 	if iconInfo.category == "Skill" then
@@ -46,7 +41,6 @@ function BUFFSELLER_REGISTER(frame, skillType)
 	info.classID = skillType;
 	info.price = 0;
 	BUFFSELLER_UPDATE_LIST(frame);
-
 end
 
 function UPDATE_BUFFSELLER_SLOT(ctrlSet, info)
@@ -63,7 +57,9 @@ function UPDATE_BUFFSELLER_SLOT(ctrlSet, info)
 
 	local mat_item = GET_CHILD(ctrlSet, "mat_item", "ui::CSlot");
 	local itemCls = GetClass("Item", sklObj.SpendItem);
-	SET_SLOT_ITEM_INFO(mat_item, itemCls, sklObj.SpendItemCount*10);
+
+	local spendItemCount = GET_BUFFSELLER_SPEND_ITEM_COUNT(sklObj.ClassName);
+	SET_SLOT_ITEM_INFO(mat_item, itemCls, spendItemCount);
 
 	SET_ITEM_TOOLTIP_BY_TYPE(mat_item:GetIcon(), itemCls.ClassID);
 	SET_SKILL_TOOLTIP_BY_TYPE(skill_slot:GetIcon(), info.classID);
@@ -107,9 +103,10 @@ function BUFFSELLER_UPDATE_LIST(frame)
 	
 	local cnt = session.autoSeller.GetCount(groupName);
 	for i = 0 , cnt - 1 do
-		local info = session.autoSeller.GetByIndex(groupName, i);
+		local autoSellerInfo = session.autoSeller.GetByIndex(groupName, i);
 		local ctrlSet = selllist:CreateControlSet("buffseller_reg", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-		UPDATE_BUFFSELLER_SLOT(ctrlSet, info);
+		UPDATE_BUFFSELLER_SLOT(ctrlSet, autoSellerInfo);        
+		BUFFSELLER_INIT_USER_PRICE(ctrlSet, autoSellerInfo);
 	end
 
 	if customScp == "None" then
@@ -205,4 +202,9 @@ function BUFFSELLER_SET_CUSTOM_SKILL_TYPE(frame, clsName, skillType)
 	end
 end
 
+function BUFFSELLER_INIT_USER_PRICE(ctrlSet, autoSellerInfo)
+	local priceinput = GET_CHILD(ctrlSet, 'priceinput');
+	PROCESS_USER_SHOP_PRICE('Pardoner_SpellShop', priceinput, autoSellerInfo.ClassID);
 
+	autoSellerInfo.price = tonumber(priceinput:GetText());
+end

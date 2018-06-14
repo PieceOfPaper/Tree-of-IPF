@@ -66,10 +66,10 @@ function SCR_SKILL_RATETABLE_Fletcher_BarbedArrow(self, from, skill, atk, ret, r
     local hitCount = 0;
     if self.ArmorMaterial == 'Cloth' then
         hitCount = 5
-        rateTable.DamageRate = (hitCount * rateTable.MultipleHitDamageRate) + 2;        
+        rateTable.DamageRate = (hitCount * rateTable.MultipleHitDamageRate) + 4;        
     elseif self.ArmorMaterial == 'Leather' then
         hitCount = 3
-        rateTable.DamageRate = (hitCount * rateTable.MultipleHitDamageRate) + 1;        
+        rateTable.DamageRate = (hitCount * rateTable.MultipleHitDamageRate) + 2;        
     elseif self.ArmorMaterial == 'Iron' then
         hitCount = 1        
     elseif self.ArmorMaterial == 'Ghost' then

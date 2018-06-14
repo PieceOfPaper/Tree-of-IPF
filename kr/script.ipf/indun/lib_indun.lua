@@ -318,6 +318,10 @@ function IS_ENABLE_ENTER_INDUN(pc, indunName)
         end
     end
 
+    if TryGetProp(indunCls, 'EnableInfiniteEnter', 'NO') == 'YES' then    	
+    	return 1;
+    end
+
     if IS_ENABLE_ENTER_TO_INDUN_WEEKLY(pc, indunCls, false) == false then
         return 0;
     end
@@ -381,7 +385,7 @@ function AUTOMATCH_INDUN_DIALOG(pc, dialogText, indunName, randomMission)
 	INDUN_ENTER_DIALOG_AND_UI(pc, dialogText, indunName, 1, randomMission);
 end
 
-function INDUN_ENTER_DIALOG_AND_UI(pc, dlgText, indunName, enableAutoMatch, randomMission)
+function INDUN_ENTER_DIALOG_AND_UI(pc, dlgText, indunName, enableAutoMatch, randomMission, enableEnterRight, enablePartyMatch)
 	if pc == nil or indunName == nil then
 		return;
 	end
@@ -396,16 +400,28 @@ function INDUN_ENTER_DIALOG_AND_UI(pc, dlgText, indunName, enableAutoMatch, rand
 	if indunCls == nil then
 		return;
 	end
+
 	if enableAutoMatch == nil then
 		enableAutoMatch = 1; -- default
 	end
+
 	if randomMission == nil then
 		randomMission = 0; -- default
 	end
+
+    if enableEnterRight == nil then
+        enableEnterRight = 1; -- default: 바로 입장 가능
+    end
+
+    if enablePartyMatch == nil then
+        enablePartyMatch = enableAutoMatch; -- default: 자동매칭 옵션 따라감
+    end
+
 	local indunType = indunCls.ClassID;
 	if randomMission == 1 then
 		indunType = indunCls.FindType; -- random인 경우
 	end
+
 	local isAlreadyPlaying = 0;
 	if enableAutoMatch == 1 then
 		isAlreadyPlaying = IsAutoMatchIndunExist(pc, indunType); -- 자동매칭 가능한 경우 재입장 여부 검사
@@ -420,7 +436,9 @@ function INDUN_ENTER_DIALOG_AND_UI(pc, dlgText, indunName, enableAutoMatch, rand
 	SetExProp(pc, "RANDOM_MISSION", indunCls.FindType);
 	SetExProp(pc, "REGISTER_INDUN_TYPE", indunCls.ClassID); -- 아무데서나 다이얼로그 만들어서 인던 신청하면 안돼서 존에서 기억하게 함
 	SetExProp(pc, "ENABLE_AUTOMATCH", enableAutoMatch);
-	ShowIndunEnterDialog(pc, indunType, isAlreadyPlaying, enableAutoMatch);
+    SetExProp(pc, "ENABLE_ENTERRIGHT", enableEnterRight);
+    SetExProp(pc, "ENABLE_PARTYMATCH", enablePartyMatch);
+	ShowIndunEnterDialog(pc, indunType, isAlreadyPlaying, enableAutoMatch, enableEnterRight, enablePartyMatch);
 end
 
 function INDUN_REENTER_DIALOG(pc, indunCls, dialogText, cantReenterDialogText, randomMission)
@@ -513,6 +531,10 @@ function REQ_MOVE_TO_INDUN(pc, indunName, joinMethod, randomMission)
     local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
 
 	if joinMethod == 2 then -- 자동 매칭 신청한 경우
+		if GetExProp(pc, 'ENABLE_AUTOMATCH') ~= 1 then
+			return;
+		end
+
         local isPlayingDirectEnterIndun = IsPlayingDirectEnterIndun(pc, indunCls.MGame);
         if isPlayingDirectEnterIndun == 1 then
             ExecClientScp(pc, "INDUN_ALREADY_PLAYING()");
@@ -557,6 +579,10 @@ function REQ_MOVE_TO_INDUN(pc, indunName, joinMethod, randomMission)
 	end
 
 	if joinMethod == 3 then -- 파티원과 자동 매칭하기
+		if GetExProp(pc, 'ENABLE_PARTYMATCH') ~= 1 then
+			return;
+		end
+
         if admissionItemName == "None" or admissionItemName == nil then
             if enableEnterIndun == 0 then
                 local scp = string.format("INDUN_CANNOT_YET(\'%s\')", "CannotJoinIndunYet");            
@@ -591,13 +617,17 @@ function REQ_MOVE_TO_INDUN(pc, indunName, joinMethod, randomMission)
         else
 			ExecClientScp(pc, "REFRESH_REENTER_UNDERSTAFF_BUTTON(0)");
             GiveUpPrevPlayingAutoMatchedIndun(pc, indunType);
-	end
+	    end
 	end
 
     local openedMission, alreadyJoin, missionInstID, mGameType = 0, 1, 0, 0;
     
     if randomMission > 0 then
         randomMission = 1;      
+    end
+
+    if GetExProp(pc, 'ENABLE_ENTERRIGHT') ~= 1 then
+    	return;
     end
 
     openedMission, alreadyJoin, mGameType, missionInstID = OpenPartyMission(pc, pc, randomMission, indunCls.MGame, "", enableEnterIndun);

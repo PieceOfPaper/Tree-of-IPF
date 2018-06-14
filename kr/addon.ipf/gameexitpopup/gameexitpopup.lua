@@ -32,7 +32,7 @@ function ON_GAMEEXIT_TIMER_UPDATE(frame, msg, time)
 	end
 end
 
-function ON_GAMEEXIT_TIMER_END(frame, msg)
+function ON_GAMEEXIT_TIMER_END(frame)
 	local type = frame:GetUserValue("EXIT_TYPE");
 
 	if type == "Exit" then

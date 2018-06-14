@@ -1,43 +1,57 @@
 --alchemist_shared.lua
 
-function ALCHEMIST_MATERIAL_Alchemist_Briquetting(invItemList)
-	local i = invItemList:Head();
-	local count = 0;
-	while 1 do
-		if i == invItemList:InvalidIndex() then
-			break;
+function GET_BRIQUETTING_NEED_LOOK_ITEM_CNT(targetItem) -- hs_comment: 안용씨 또는 재성씨 여기 브리케팅 할 때 필요한 외형 무기 개수 공식 써주세여 --
+	local needItem = 6 - targetItem.ItemGrade
+
+	return needItem;
 		end
-		local invItem = invItemList:Element(i);		
-		i = invItemList:Next(i);
-		local obj = GetIES(invItem:GetObject());
 		
-		if obj.ClassName == "misc_catalyst_1" then
-			count = count + invItem.count;
+function GET_BRIQUETTING_NEED_MATERIAL_LIST(targetItem) -- hs_comment: 안용씨 또는 재성씨 여기 브리케팅 할 때 소멸될 재료 아이템 이름이랑 개수 리스트 반환시켜주세요 --
+	if targetItem.ItemGrade > 3 then
+		return 'misc_ore23', 1;
+	else
+		return 'misc_ore22', 1;
 		end
+	
+	return 'None', -1;
 	end
 
-	return "misc_catalyst_1", count;
+function GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMaterialItemList)
+	if IS_BRIQUETTING_DUMMY_ITEM(lookItem) == true then
+		return 0;
 end
 
-function ALCHEMIST_CHECK_Alchemist_Briquetting(self, item)
-	if nil == item then
+	for i = 1, #lookMaterialItemList do
+		if IS_BRIQUETTING_DUMMY_ITEM(lookMaterialItemList[i]) == true then
 		return 0;
 	end
+	end
 
-	--같은 무기합수입니다.
-	return ITEMBUFF_CHECK_Squire_WeaponTouchUp(self, item);
+	return targetItem.ItemGrade * 200000; -- hs_comment: 정수씨? 안용씨? 재성씨? 여기 브리케팅 실버 비용 공식 써주세요 --
 end
 
-function ALCHEMIST_VALUE_Alchemist_Briquetting(skillLevel, itemValue)
-	-- 레벨 1일 때, 기본 초기화
-	local minPercent = 0.955 - skillLevel * 0.005;
-	local maxPerCent = 1.045 + skillLevel * 0.005;
-	-- 최소, 최대
-	return math.floor(itemValue * minPercent), math.floor(itemValue * maxPerCent);
+function IS_BRIQUETTING_DUMMY_ITEM(item)
+	if item.StringArg == 'BriquettingDummy' then -- hs_comment: 재성씨 여기 목각 아이템 StringArg 정해서 써주세여. 일단 제맘대로 해둠 --
+		return true;
+	end
+	
+	return false;
 end
 
-function ALCHEMIST_NEEDITEM_Alchemist_Briquetting(self, item)
-	local needCount = (item.ItemLv / 5);
-	needCount = math.max(1, needCount);
-	return "misc_catalyst_1", math.floor(needCount);
+function IS_VALID_LOOK_MATERIAL_ITEM(lookItem, lookMatItemList)
+	for i = 1, #lookMatItemList do
+		local lookMatItem = lookMatItemList[i];
+		if lookItem.ClassName ~= lookMatItem.ClassName then
+			if IS_BRIQUETTING_DUMMY_ITEM(lookMatItem) == false then
+				return false;
+			end
+			
+			-- 목각 코어인 경우
+			if lookMatItem.ItemGrade < lookItem.ItemGrade then -- 등급이 이상이면 통과. 아니면 실패
+				return false;
+			end
+		end
+end
+
+	return true;
 end

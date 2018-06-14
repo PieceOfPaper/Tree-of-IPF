@@ -181,25 +181,25 @@ end
 
 function SCR_ZACHARIEL_35_HQ_01_BOOK_TS_BORN_ENTER(self)
     self.NumArg2 = math.floor(os.clock()/60)
-    self.NumArg1 = IMCRandom(480, 540)
+    self.NumArg1 = IMCRandom(30, 60)
 end
 
 function SCR_ZACHARIEL_35_HQ_01_BOOK_TS_BORN_UPDATE(self)
-    --print(self.NumArg2, self.NumArg1, self.ClassName, math.floor(os.clock() / 60) - self.NumArg2)
     local creMon = GetTacticsArgObject(self)
     if creMon ~= nil then
         return
     else
+        --print("obj cre gentiem : "..self.NumArg1.." / now tiem : "..math.floor(os.clock() / 60).." / past tiem : "..self.NumArg2)
         if self.NumArg1 == 0 and self.NumArg2 == 0 then
             self.NumArg2 = math.floor(os.clock()/60)
-            self.NumArg1 = IMCRandom(480, 540)
+            self.NumArg1 = IMCRandom(30, 60)
         elseif self.NumArg1 <=  math.floor(os.clock() / 60) - self.NumArg2 then
             local zoneInstID = GetZoneInstID(self);
             local x, y, z = GetPos(self)
             
             if IsValidPos(zoneInstID, x, y, z) == 'YES' then
                 local mon = CREATE_NPC(self, 'npc_zacharial_desk', x, y, z, 0, 'Neutral', 0, ScpArgMsg("ZACHARIEL_35_HQ_01_MSG01"), 'ZACHARIEL_35_HQ_01_NPC', nil, 1, 1)
-                --print("sssssssssssssssssss")
+                --print("obj cre")
                 if mon ~= nil then
                     self.NumArg1 = 0
                     self.NumArg2 = 0

@@ -6875,7 +6875,7 @@ function SCR_PRE_ORSHA_HIDDENQ2_ITEM1(self, argstring, argnum1, argnum2)
     local Item1 = GetInvItemCount(self, 'ORSHA_HIDDENQ2_ITEM2')
     local Item2 = GetInvItemCount(self, 'ORSHA_HIDDENQ2_ITEM3')
     if result == "PROGRESS" then
-        if Item1 >= 5 and Item2 >= 3 then
+        if Item1 >= 5 and Item2 >= 4 then
             if GetLayer(self) == 0 then
                 return 1
             end

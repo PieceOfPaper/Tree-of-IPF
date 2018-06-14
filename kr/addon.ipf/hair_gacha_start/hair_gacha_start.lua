@@ -18,7 +18,6 @@ function HAIR_GACHA_OK_BTN()
 		return
 	end
 
-
 	local frame = ui.GetFrame("hair_gacha_start")
 	
 	local type = frame:GetUserValue("ClassName");
@@ -30,6 +29,12 @@ function HAIR_GACHA_OK_BTN()
 end
 
 function CLIENT_GACHA_SCP(invItem)
+
+	if invItem.isLockState == true then
+		ui.SysMsg(ScpArgMsg("MaterialItemIsLock"))
+		return
+	end
+
 	local itemobj = GetIES(invItem:GetObject());
 	local gachaDetail = GetClass("GachaDetail", itemobj.ClassName);
 --    local zoneCheck = GetZoneName(pc)

@@ -599,7 +599,7 @@ function _TX_ITEM_APPRAISAL(target, seller, itemList, price, skill, totalPrice, 
 
     if sellerHandle ~= targetHandle then -- 남의 거는 기록으로 남겨줌
         local needItemType = GetClass("Item", needItemName).ClassID;
-        AddAutoSellHIstory(seller, AUTO_SELL_APPRAISE, needItemType, needCnt, totalPrice, historyStr);
+        AddAutoSellHistory(seller, AUTO_SELL_APPRAISE, needItemType, needCnt, totalPrice, historyStr);
     end
 
     SendAddOnMsg(seller, "SUCCESS_APPRALSAL_PC", "", 0);
@@ -617,6 +617,6 @@ function TEST_SEND_TOO_MANY_HISTROY(pc)
     historyStr = historyStr.."#";
 
     for i = 1, 500 do
-        AddAutoSellHIstory(pc, AUTO_SELL_APPRAISE, 1, 1, 1, historyStr);
+        AddAutoSellHistory(pc, AUTO_SELL_APPRAISE, 1, 1, 1, historyStr);
     end
 end

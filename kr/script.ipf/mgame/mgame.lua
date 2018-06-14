@@ -2419,15 +2419,15 @@ end
 
 function MGAME_MON_KILL_COUNT_CALC(cmd)
     if cmd == nil then
-    -- 미니게임 ??못받??옴 ??러 --
-    -- ??러로그 추??????--
+    -- 미니게임 ??못받????????--
+    -- ???�로�?�??????--
         return;
     end
    
     local pcList, pcCount = GetCmdPCList(cmd:GetThisPointer());
     if pcList ~= nil and pcCount > 0 then
-        -- ??스??용 ??시 구현 --
-        -- ???? ??따??로 ??이????????????--
+        -- ???????????구현 --
+        -- ???? ?????�????????????????--
         local zoneInst = GetZoneInstID(pcList[1]);
         local layer = GetLayer(pcList[1]);
 
@@ -2460,9 +2460,9 @@ function MGAME_MON_KILL_COUNT_CALC(cmd)
         local killMonCount = maxMonsterCount - aliveMonCount;
        
         local monKillpercent = math.floor(killMonCount / maxMonsterCount * 100);
-        -- ??기까?? ??시 구현 --
+        -- ??기까?? ????구현 --
         
-        -- 미니맵에 몬스터 표시(95% 이상)
+        -- 미니맵에 몬스???�시(95% ?�상)
         if monKillpercent >= 95 and cmd:GetUserValue("MonRevealMiniMap") == 0 then
             cmd:SetUserValue("MonRevealMiniMap", 1)
             for i = 1, #aliveMonList do
@@ -2558,7 +2558,7 @@ function SCR_INDUN_CONTRIBUTION_REWARD(bossMon)
         return;
     end
 
-    -- 모험일지 포인트도 보스 잡을 때 준다
+    -- 모험?��? ?�인?�도 보스 ?�을 ??준?
     cmd:GiveAdventureBookClearPointToAllPlayers(clsIndun.ClassName);
 
     cmd:SetUserValue("IsFinished", 1);
@@ -2614,14 +2614,18 @@ function SCR_INDUN_CONTRIBUTION_REWARD(bossMon)
 		local multipleRate = pcetc.IndunMultipleRate;
         local rank = math.ceil((100 - monKillPercent) / rewardContribution);
         
-        --보스 몬스터 위치 받아와서 해당 위치로 PC이동
+        --보스 몬스???�치 받아?�???�당 ?�치�?PC?�동
         if IsBuffApplied(pc, 'indunTheEndSafe') == 'NO' then
             local x, y, z = GetPos(bossMon)
             SetPos(pc, x, y, z);
         end
+		--EVENT_1806_WEEKEND
+		if IS_DAY_EVENT_1806_WEEKEND_INDUN_SILVER() == 'YES' then
+		    mySilver = mySilver * 2
+		end
 
 		RunScript("_SCR_INDUN_CONTRIBUTION_REWARD", pc, mySilver, myExp, myJobExp, rewardItemName, rewardItemCount, contribution, multipleRate, rank, clsIndun.ClassID, pcetc.IndunMultipleRate, mGameName);
-    end
+	end
 end
 
 function _SCR_INDUN_CONTRIBUTION_REWARD(pc, silver, exp, jobExp, itemName, itemCount, contribution, multipleRate, rank, indunClassID, pcIndunMultipleRate, mGameName)
@@ -2643,23 +2647,23 @@ function _SCR_INDUN_CONTRIBUTION_REWARD(pc, silver, exp, jobExp, itemName, itemC
                 local isTakeItem = false;
                 local successTakeCnt = 0;
                 if pcInvList ~= nil and #pcInvList > 0 then
-                    --기간제 아이템 카운트(논스택이기 때문에 하나씩 꺼내서 처리)
+                    --기간???�이??카운???�스?�이�??�문???�나??꺼내??처리)
 					local takeCnt = etcObj.IndunMultipleRate;
                     local dungeonCountItemList = { };
                     for i = 1 , #pcInvList do
                         local invItem = pcInvList[i];
                         if invItem ~= nil and invItem.ClassName == "Premium_dungeoncount_Event" and invItem.LifeTime > 0 and invItem.ItemLifeTimeOver < 1 then
-                            --락이면 제외 시킴.
+                            --?�이�??�외 ?�킴.
                             if IsFixedItem(invItem) ~= 1 then
                                 dungeonCountItemList[#dungeonCountItemList + 1] = invItem;
                             end
                         end
                     end
 
-                    --아이템 갯수 체크(인벤토리에 있는 것과, 락이 걸려있지 않은 기간제 배수권)
+                    --?�이??�?�� 체크(?�벤?�리???�는 것과, ?�이 걸려?��? ?��? 기간??배수�?
                     local multipleItemCount = GET_INDUN_MULTIPLE_ITEM_COUNT(pc);
                     if takeCnt <= multipleItemCount then
-                        -- 기간제 토큰을 먼저 차감      
+                        -- 기간???�큰??먼�? 차감      
                         if #dungeonCountItemList >= 1 then
                             local _temp = nil;
                             for j = 1, #dungeonCountItemList - 1 do
@@ -2685,7 +2689,7 @@ function _SCR_INDUN_CONTRIBUTION_REWARD(pc, silver, exp, jobExp, itemName, itemC
                             end
                         end
 
-                        -- 기간제를 제외한 남은 개수만큼 차감: 모험일지 전용 토큰 먼저. 아 정말 이러고 싶지 않다. 이거 어떡하냐 진짜
+                        -- 기간?��? ?�외???��? 개수만큼 차감: 모험?��? ?�용 ?�큰 먼�?. ???�말 ?�러�??��? ?�다. ?�거 ?�떡?�냐 진짜
                         if takeCnt > 0 then
                             local item, itemCnt  = GetInvItemByName(pc, "Adventure_dungeoncount_01");
                             if item ~= nil then
@@ -2704,7 +2708,7 @@ function _SCR_INDUN_CONTRIBUTION_REWARD(pc, silver, exp, jobExp, itemName, itemC
                             isTakeItem = true;
                         end
 
-                        -- 기간제를 제외한 남은 개수만큼 차감
+                        -- 기간?��? ?�외???��? 개수만큼 차감
                         if takeCnt > 0 then
                             local item, itemCnt  = GetInvItemByName(pc, "Premium_dungeoncount_01");
                             if item ~= nil then
@@ -2728,7 +2732,7 @@ function _SCR_INDUN_CONTRIBUTION_REWARD(pc, silver, exp, jobExp, itemName, itemC
                     multipleError = true;
                 end
 
-                --아이템 락걸려있는 상태로 넘어오면 다 리셋 시켜준다.
+                --?�이???�걸?�있???�태�??�어?�면 ??리셋 ?�켜준??
                 if isLockItem == true or isTakeItem == false then
 					etcObj.IndunMultipleZoneID = 0;
 					etcObj.IndunMultipleMGameName = "None"; 
@@ -2752,7 +2756,7 @@ function _SCR_INDUN_CONTRIBUTION_REWARD(pc, silver, exp, jobExp, itemName, itemC
         end
 
         if itemCount > 0 then
-            -- 보스 몬스터가 기본으로 드랍하는 큐브 개수, 1
+            -- 보스 몬스?��? 기본?�로 ?�랍?�는 ?�브 개수, 1
             local payItemCount = 1;
             if multipleError == false then
         		itemCount = itemCount * (etcObj.IndunMultipleRate + 1);

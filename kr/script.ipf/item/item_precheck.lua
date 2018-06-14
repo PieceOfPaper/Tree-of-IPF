@@ -203,6 +203,13 @@ function SCR_PRE_PopUpBook(self, argstring, argnum1, argnum2)
         Dead(popupbookNPC)
         SetExArgObject(self, 'POPUPBOOK_NPC', nil)
         SetExArgObject(popupbookNPC, 'POPUPBOOK_PC', nil)
+        
+        local popupbookNPC3 =  GetExArgObject(self, 'POPUPBOOK_NPC3')
+        if popupbookNPC3 ~= nil then
+            Dead(popupbookNPC3)
+            SetExArgObject(self, 'POPUPBOOK_NPC3', nil)
+            SetExArgObject(popupbookNPC3, 'POPUPBOOK_PC', nil)
+        end
         return 0
     end
     
@@ -532,6 +539,9 @@ function SCR_PRECHECK_IS_LAST_RANK(self)
 end
 
 function SCR_PRECHECK_TOY(self)
+	if IsJumping(self) == 1 then
+		return 0;
+	end
 
     if IsBuffApplied(self, 'Camouflage_Buff') == 'YES' or OnKnockDown(self) == 'YES' or IsBuffApplied(self, 'SitRest') == 'YES' then
         return 0;

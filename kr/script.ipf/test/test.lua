@@ -1,5 +1,32 @@
 -- test.lua
 
+function TEST_MAKE_DUR(pc, class_name, cnt)
+  local temp= 100;
+  local cnt = cnt*temp;
+
+  local tx = TxBegin(pc)
+  TxGiveItem(tx, class_name, 1)
+  local ret = TxCommit(tx)
+
+  local tx = TxBegin(pc)
+  local itemobj = GetInvItemByName(pc, class_name);
+  TxSetIESProp(tx, itemobj, "Dur", cnt);
+  local ret = TxCommit(tx)
+end
+
+
+function TEST_ADD_ACHIEVE_POINT(pc, name)
+     local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, name, 1)
+    local ret = TxCommit(tx);
+end
+
+function TEST_GET_ACHIEVE_POINT(pc, name)
+    local value  = GetAchievePoint(pc, name)
+    local pc_id = GetPcCIDStr(pc)
+    print("TEST_GET_ACHIVE_POINT("..name..") ", value, pc_id)
+end
+
 function TEST_FIXCAMERA(pc, x, y, z, dist)
 
     FixCamera(pc, x,y,z,dist)
@@ -7786,6 +7813,23 @@ function TEST_REGISTER_SOLO_DUNGEON(pc)
     local killCount = 123;
 
     RegisterSoloDungeonRanking(pc, score, stage, killCount)
+end
+
+function TEST_SAVE_REDIS(pc)
+    SaveRedisPropValue(pc, 'MGameRank', 'UpHill', GetPcCIDStr(pc), 10000, 0); -- 캐릭터별 랭킹 사용시 propName에 cid를 넣어주세요
+    SaveRedisPropValue(pc, 'Fishing', 'SuccessCount', GetPcAIDStr(pc), 10000, 0); -- 계정별 랭킹 사용시 propName에 aid를 넣어주세요
+end
+
+function TEST_LOAD_REDIS(pc)
+    local charNameList, scoreList = GetRedisRankingInfo(pc, 'MGameRank', 'UpHill', 1, 10); -- 캐릭터별 랭킹에서 가져올 때에는 isCID 인자를 1로, 계정별 랭킹 사용시 isCID 인자를 0으로 넣어주세요
+    for i = 1, #charNameList do
+        print("--", i, charNameList[i], scoreList[i]);
+    end
+end
+
+function TEST_GET_MY_REDIS_RANK_INFO(pc)
+    local rank, score, totalRankerCnt = GetRankerInfo(pc, 'MGameRank', 'UpHill', 1);
+    Chat(pc, '내 랭킹['..rank..'], 점수['..score..'], 전체 랭커들 수['..totalRankerCnt..']');
 end
 
 function TEST_VELCOFFER_SUMAZIN(pc)

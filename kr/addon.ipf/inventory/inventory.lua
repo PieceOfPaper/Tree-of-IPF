@@ -33,6 +33,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('TOGGLE_EQUIP_ITEM_TOOLTIP_DESC', 'ON_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC');
 
 	addon:RegisterOpenOnlyMsg('ABILITY_LIST_GET', 'MAKE_WEAPON_SWAP_BUTTON');
+	addon:RegisterMsg('UPDATE_LOCK_STATE', 'ON_UPDATE_LOCK_STATE');
 
 	SLOTSET_NAMELIST = {};
 	GROUP_NAMELIST = {};
@@ -841,17 +842,17 @@ function INVENTORY_LIST_GET(frame, setpos, slotSetName)
 				local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 				local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');			
 				if slotSet ~= nil then
-			if slotSetName ~= nil then
-				if string.find(slotSet:GetName(), slotSetName) then
-					local func = _G[funcStr];
-					APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+					if slotSetName ~= nil then
+						if string.find(slotSet:GetName(), slotSetName) then
+							local func = _G[funcStr];
+							APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+						end
+					else
+						local func = _G[funcStr];
+						APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+					end
 				end
-			else
-				local func = _G[funcStr];
-				APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
 			end
-		end
-	end
 		end
 	end
 
@@ -1403,8 +1404,6 @@ end
 
 function IS_TEMP_LOCK(invFrame, invitem)
 	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
-		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN")
 		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_TRANSCEND")
 		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_TRANSCEND_SCROLL") then
 			return true;
@@ -1429,7 +1428,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	local itemobj = GetIES(invitem:GetObject());
 	
     -- custom
-	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");
+	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");	
 	if customRBtnScp == "None" then
 		customRBtnScp = nil;
 	else
@@ -2830,11 +2829,6 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	end
 
 	local invframe = ui.GetFrame("inventory");
-	if selectItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or selectItem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
-			ui.SysMsg(ClMsg("selectItemUsed"));
-			return;
-	end
 	
 	--디스펠러, 오마모리 관련 처리
 	local obj = GetIES(selectItem:GetObject());
@@ -2846,6 +2840,11 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 			end
 		end
 	end
+
+    if TryGetProp(obj, 'DisableContents', 0) == 1 then
+        ui.SysMsg(ClMsg('CannotReleaseLockByDisableContents'));
+        return;
+    end
 
 	local state = 1;
 	local slot = tolua.cast(object, "ui::CSlot");
@@ -3272,17 +3271,16 @@ function ON_LOCK_FAIL(frame, msg, argStr, argNum)
 		slot = GET_CHILD(parent, slotName);
 	end
 
-    if slot ~= nil then
+    if slot ~= nil then        
         local lockPic = slot:GetChild('itemlock');
-        if lockPic ~= nil then
+        if lockPic ~= nil then            
             lockPic:ShowWindow(0);
         end
     end
 
-	invframe:SetUserValue('LOCK_SLOT_GRANDPARENT_NAME', "None");	
-    invframe:SetUserValue('LOCK_SLOT_PARENT_NAME', "None");
-    invframe:SetUserValue('LOCK_SLOT_NAME', "None");
-
+	frame:SetUserValue('LOCK_SLOT_GRANDPARENT_NAME', "None");	
+    frame:SetUserValue('LOCK_SLOT_PARENT_NAME', "None");
+    frame:SetUserValue('LOCK_SLOT_NAME', "None");
 end
 
 function INVENTORY_RBTN_LEGENDPREFIX(invItem)
@@ -3310,4 +3308,25 @@ function INVENTORY_RBTN_LEGENDDECOMPOSE(invItem)
 	end
 	_LEGENDDECOMPOSE_SET_TARGET(legenddecompose, invItem:GetIESID());
 	return true;
+end
+
+g_lockItemGuid = '0';
+function ON_UPDATE_LOCK_STATE(frame, msg, itemGuid, lockState)
+	g_lockItemGuid = itemGuid;	
+	SET_SLOT_APPLY_FUNC(frame, '_UPDATE_LOCK_STATE');
+end
+
+function _UPDATE_LOCK_STATE(slot)
+	local item = GET_SLOT_ITEM(slot);
+	if item == nil or item:GetIESID() ~= g_lockItemGuid then
+		return;
+	end
+
+	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+	controlset:SetGravity(ui.RIGHT, ui.TOP)
+	if true == item.isLockState then		
+		controlset:ShowWindow(1);
+	else
+		controlset:ShowWindow(0);
+	end
 end

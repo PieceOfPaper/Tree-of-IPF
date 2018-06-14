@@ -133,14 +133,14 @@ function GIVE_TAKE_SOBJ_ACHIEVE_TX(self, give_list, take_list, sobj_list_add, ac
         for i = 1 , #giveItem_temp / 2 do
             giveItem[#giveItem + 1] = {}
             giveItem[#giveItem][1] = giveItem_temp[i*2 - 1]
-            giveItem[#giveItem][2] = tonumber(giveItem_temp[i*2])
+            giveItem[#giveItem][2] = giveItem_temp[i*2]
         end
     end
     if takeItem_temp ~= nil and  #takeItem_temp > 1 then
         for i = 1, #takeItem_temp/2 do
             takeItem[#takeItem + 1] = {}
             takeItem[#takeItem][1] = takeItem_temp[i*2 - 1]
-            takeItem[#takeItem][2] = tonumber(takeItem_temp[i*2])
+            takeItem[#takeItem][2] = takeItem_temp[i*2]
         end
     end
     if sObjInfo_add_temp ~= nil and  #sObjInfo_add_temp > 1 then
@@ -148,14 +148,14 @@ function GIVE_TAKE_SOBJ_ACHIEVE_TX(self, give_list, take_list, sobj_list_add, ac
             sObjInfo_add[#sObjInfo_add + 1] = {}
             sObjInfo_add[#sObjInfo_add][1] = sObjInfo_add_temp[i*3 - 2]
             sObjInfo_add[#sObjInfo_add][2] = sObjInfo_add_temp[i*3 - 1]
-            sObjInfo_add[#sObjInfo_add][3] = tonumber(sObjInfo_add_temp[i*3])
+            sObjInfo_add[#sObjInfo_add][3] = sObjInfo_add_temp[i*3]
         end
     end
     if achieveInfo_temp ~= nil and  #achieveInfo_temp > 1 then
         for i = 1, #achieveInfo_temp/2 do
             achieveInfo[#achieveInfo + 1] = {}
             achieveInfo[#achieveInfo][1] = achieveInfo_temp[i*2 - 1]
-            achieveInfo[#achieveInfo][2] = tonumber(achieveInfo_temp[i*2])
+            achieveInfo[#achieveInfo][2] = achieveInfo_temp[i*2]
         end
     end
     if sObjInfo_set_temp ~= nil and  #sObjInfo_set_temp > 1 then
@@ -163,7 +163,7 @@ function GIVE_TAKE_SOBJ_ACHIEVE_TX(self, give_list, take_list, sobj_list_add, ac
             sObjInfo_set[#sObjInfo_set + 1] = {}
             sObjInfo_set[#sObjInfo_set][1] = sObjInfo_set_temp[i*3 - 2]
             sObjInfo_set[#sObjInfo_set][2] = sObjInfo_set_temp[i*3 - 1]
-            sObjInfo_set[#sObjInfo_set][3] = tonumber(sObjInfo_set_temp[i*3])
+            sObjInfo_set[#sObjInfo_set][3] = sObjInfo_set_temp[i*3]
         end
     end
     
@@ -3004,17 +3004,27 @@ function SCR_TX_TRADE_SELECT_ITEM(pc, argStr)
 end
 
 function SCR_IS_ENABLE_ITEM_LOCK(pc, item, isIndunPlaying)
+    if TryGetProp(item, 'DisableContents', 0) == 1 then
+        return 0;
+    end
+
 	if isIndunPlaying == 1 and item ~= nil then
 		if IS_INDUN_MULTIPLE_ITEM(item.ClassName) == 1 then
+            SendSysMsg(pc, 'CannotLockInIndun');
+            SendAddOnMsg(pc, 'LOCK_FAIL');
 			return 0;
 		end
 	end
 
     if (IsIndun(pc) == 1 or IsPVPServer(pc) == 1) and item ~= nil then
+        SendSysMsg(pc, 'CannotLockInIndun');
+        SendAddOnMsg(pc, 'LOCK_FAIL');
         return 0;
     end
 	
 	if IS_ENABLE_GTOWER_TICKET_LOCK(pc, item) == false then
+        SendSysMsg(pc, 'CannotLockInIndun');
+        SendAddOnMsg(pc, 'LOCK_FAIL');
 		return 0;
 	end
 

@@ -177,7 +177,7 @@ function SQUIRE_HIDE_UI(frame)
 	material:SetVisible(0);
 end
 
-function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)
+function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)	
 	if 	groupName == "None" then
 		ui.CloseFrame("itembuffopen");
 		ui.CloseFrame("inventory");	
@@ -192,20 +192,7 @@ function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)
 	local statusTab = open:GetChild('statusTab');
 	ITEMBUFF_SHOW_TAB(statusTab, handle);
 
-	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;
-	local armor = open:GetChild("Squire_ArmorTouchUp");
-	local Weapon = open:GetChild("Squire_WeaponTouchUp");
-	
-	if 'Squire_WeaponTouchUp' == sklName then 
-
-		armor:SetVisible(0);
-		Weapon:SetVisible(1);
-	else
-
-		armor:SetVisible(1);
-		Weapon:SetVisible(0);
-	end
-	
+	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;	
 	open:SetUserValue("SKILLNAME", sklName)
 	open:SetUserValue("SKILLLEVEL", groupInfo.level);
 	open:SetUserValue("HANDLE", handle);
@@ -220,8 +207,8 @@ function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)
 	
 	open:SetUserValue("PRICE", groupInfo.price)
 	
-	local tabObj		    = open:GetChild('statusTab');
-	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
+	local tabObj = open:GetChild('statusTab');
+	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
 	itembox_tab:SelectTab(0);
 	SQIORE_BUFF_VIEW(open);
 	SQUTE_UI_RESET(open);
@@ -249,4 +236,38 @@ function ITEMBUFF_SHOW_TAB(tabCtrl, handle)
 	else
 		tabCtrl:ShowWindow(0);
 	end
+end
+
+function ITEMBUFF_INIT_USER_PRICE(frame, sklClassName)
+	local MoneyInput = GET_CHILD_RECURSIVELY(frame, 'MoneyInput');
+	PROCESS_USER_SHOP_PRICE(sklClassName, MoneyInput);
+end
+
+function PROCESS_USER_SHOP_PRICE(sklClassName, editCtrl, buffSklClsID)
+	local userPriceCls = GetClass('UserShopPrice', sklClassName);	
+	if userPriceCls ~= nil then
+		local priceType = userPriceCls.PriceType;
+		local price = 0;
+		if priceType == 'UnitPrice' then
+			price = userPriceCls.DefaultPrice;
+		elseif priceType == 'ConstantPrice' then
+			local GetPriceScp = _G[TryGetProp(userPriceCls, 'Price', 'None')];
+			if GetPriceScp ~= nil then
+				local buffSklCls = GetClassByType('Skill', buffSklClsID);
+				local argStr = '';
+				if buffSklCls ~= nil then
+					argStr = buffSklCls.ClassName;
+				end
+
+				price = GetPriceScp(sklClassName, GetZoneName(), argStr, GET_PC_ABILITY_OBJECT_LIST());
+				if price < 1 then
+					IMC_LOG('ERROR_LOGIC', 'PROCESS_USER_SHOP_PRICE: price error- shop['..sklClassName..'], argStr['..argStr..']');
+				end
+			end	
+		end
+		editCtrl:SetText(price);
+			editCtrl:EnableHitTest(0);
+			return;
+		end
+	editCtrl:EnableHitTest(1);
 end

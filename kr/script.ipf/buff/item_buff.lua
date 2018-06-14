@@ -247,6 +247,10 @@ end
 function SCR_BUFF_ENTER_Drug_HealHPSP_Dot(self, buff, arg1, arg2, over)
     local healHp = arg1;
     local healSp = arg1;
+    
+    if arg2 > 0 then
+        healSp = arg2;
+    end
 
     if self.HPPotion_BM > 0 then
         healHp = math.floor(healHp * (1 + self.HPPotion_BM/100));
@@ -262,7 +266,11 @@ end
 function SCR_BUFF_UPDATE_Drug_HealHPSP_Dot(self, buff, arg1, arg2, RemainTime, ret, over)
     local healHp = arg1;
     local healSp = arg1;
-
+    
+    if arg2 > 0 then
+        healSp = arg2;
+    end
+    
     if self.HPPotion_BM > 0 then
         healHp = math.floor(healHp * (1 + self.HPPotion_BM/100));
     end
@@ -3463,6 +3471,10 @@ function SCR_BUFF_LEAVE_BEAUTY_HAIR_BUY_BUFF(self, buff, arg1, arg2, over)
     ClearLimitationSkillList(self)
     self.MSPD_BM = self.MSPD_BM - 1;
     self.LootingChance_BM = self.LootingChance_BM - 50;
+    
+    if GetBuffRemainTime(buff) < 1000 then
+        AddBuff(self, self, 'BEAUTY_HAIR_BUY_BUFF2', 1, 0, 86400000, 1)
+    end
 end
 
 function SCR_BUFF_ENTER_ALONE_DUNGEON_FIRST_BUFF_PRE(self, buff, arg1, arg2, over)
@@ -3520,4 +3532,18 @@ end
 
 function SCR_BUFF_LEAVE_PET_GORO_BUFF(self, buff, arg1, arg2, over)
     self.Widling_Atk_BM = self.Widling_Atk_BM - 120;
+end
+
+function SCR_BUFF_ENTER_BEAUTY_HAIR_BUY_BUFF2(self, buff, arg1, arg2, over)
+    if IsBuffApplied(self,'BEAUTY_HAIR_BUY_BUFF') == "YES" then
+        return 0;
+    end
+end
+
+function SCR_BUFF_UPDATE_BEAUTY_HAIR_BUY_BUFF2(self, buff, arg1, arg2, RemainTime, over)
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_BEAUTY_HAIR_BUY_BUFF2(self, buff, arg1, arg2, over)
+
 end

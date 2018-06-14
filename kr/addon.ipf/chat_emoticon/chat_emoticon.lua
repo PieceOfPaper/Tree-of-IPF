@@ -144,7 +144,7 @@ function GET_EMOTICON_CLASS_BY_ICON_TOKEN(iconToken)
 end
 
 function CHAT_CHECK_EMOTICON_WITH_ENTER(originText)
-	local text = REPLACE_EMOTICON(originText)	
+	local text = REPLACE_EMOTICON(originText)
 	SET_CHAT_TEXT(text);
 end
 
@@ -153,9 +153,11 @@ function REPLACE_EMOTICON(originText)
 		return originText;
 	end
 
+	local loopCount = 0;
+
 	local index = 1;
 	local totalLen = string.len(originText);
-	while index < totalLen do		
+	while index < totalLen do
 		local slashIndex = string.find(originText, '/', index);		
 		if slashIndex == nil then
 			break;
@@ -168,7 +170,12 @@ function REPLACE_EMOTICON(originText)
 			whiteSpaceIndex = string.len(replaceTargetText);
 		else
 			whiteSpaceIndex = whiteSpaceIndex - 1;
-		end		
+		end
+
+		if whiteSpaceIndex <= 0 then
+			break;
+		end
+
 		replaceTargetText = string.sub(replaceTargetText, 0, whiteSpaceIndex);
 		
 		-- get icon
@@ -181,6 +188,11 @@ function REPLACE_EMOTICON(originText)
 			index = index + string.len(toText);
 		else
 			index = index + string.len(replaceTargetText);
+		end
+
+		loopCount = loopCount + 1;
+		if loopCount > 1000 then
+			break;
 		end
 	end
 

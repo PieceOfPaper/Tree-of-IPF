@@ -437,8 +437,10 @@ function SCR_CARDCHECK_ATTACKTYPE_ATTACK_BOSS_CHECK(self, target, obj, TypeValue
 
         if arg2 == 'None' then
             arg2 = TypeValue;
+        elseif arg2 ~= "None" then
+            arg2 = math.floor(TypeValue/arg2)
         end
-
+        
         if TryGetProp(target, 'MonRank') ~= arg1 then
             if arg2 >= IMCRandom(1, 100) then
                 return 1;

@@ -45,6 +45,10 @@ function SCR_BLACKSMITH_NORMAL_7(self,pc)
     UIOpenToPC(pc, 'itemrandomreset', 1)
 end
 
+function SCR_BLACKSMITH_NORMAL_8(self,pc)
+    UIOpenToPC(pc, 'briquetting', 1)
+end
+
 function SCR_USE_ITEM_COMPANION_EXCHANGE(self, itemGUID, argList)
 	local invItem = GetInvItemByGuid(self, itemGUID);
 	if nil == invItem then

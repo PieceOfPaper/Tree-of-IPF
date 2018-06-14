@@ -163,9 +163,20 @@ function SCR_JOURNEY_SHOP_NORMAL_11(self, pc)
         local ret = TxCommit(tx)
     elseif select == 3 then
         if aObj.EVENT_1805_SLATE_START_SLATE_LIST ~= 'None' then
+            local flag = 0
+            if aObj.EVENT_1805_SLATE_START_STATE == 1 or aObj.EVENT_1805_SLATE_START_STATE == 200 then
+                flag = 1
+            end
             local targetSlateList = SCR_STRING_CUT(aObj.EVENT_1805_SLATE_START_SLATE_LIST)
+            if flag == 1 and #targetSlateList == 1 then
+                ShowOkDlg(pc, 'EVENT_1805_SLATE_DLG10', 1)
+                return
+            end
             local slateMsg = ''
             for i = 1, #targetSlateList do
+                if flag == 1 and i == #targetSlateList then
+                    break
+                end
                 if i == 1 then
                     slateMsg = ' : '..targetSlateList[i]
                 else

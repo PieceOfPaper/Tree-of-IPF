@@ -414,6 +414,11 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
 	local isWeapon = invItem.GroupName;
 	
 	StopRunScript(monster, "ATTACH_MORU_TO_PC");
+
+	if IsFixedItem(invItem) == 1 then
+		return;
+	end
+
 	local tx = TxBegin(pc)
 	if tx == nil then
 		return;

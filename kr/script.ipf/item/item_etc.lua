@@ -280,7 +280,7 @@ function SCR_USE_ITEM_DotBuff(self,argObj,BuffName,arg1,arg2)
 
 	ChangeActorStateToRest(self);
 
-	AddBuff(self, self, BuffName, arg1, 0, 15000, 1);
+	AddBuff(self, self, BuffName, arg1, arg2, 15000, 1);
 	AddAchievePoint(self, "Potion", 1);
 
 end
@@ -534,85 +534,6 @@ end
 function SET_MISSION_WARP_STONE(mon)
 	mon.Enter = "None";
 	mon.Dialog = "MISSION_WARP";
-end
-
-function SCR_LOBBY_WARP_DIALOG(self, tgt)
-	local stoneGUID = GetExProp_Str(self, "STONE_ITEM_GUID");
-	local stoneItem = GetPCItemByGuid(tgt, stoneGUID);
-	if nil ~= stoneItem then
-		SetExProp(stoneItem, "IsAwaken", 0);
-	end
-
-	local itemGuid = GetExProp_Str(self, "ITEM_GUID");
-	local invItem = GetPCItemByGuid(tgt, itemGuid);
-	if nil ~= invItem then
-		ExecClientScp(tgt, "SET_LOCK_ITEM_AWEKING()");
-	end
-
-	SendAddOnMsg(tgt, "DUNGON_EXIT");
-end
-
-function SCR_MISSION_WARP_DIALOG(self, tgt)
-	if 1 == IsZombie(self) then
-		return;
-	end
-
-	local ownerCID = GetExProp_Str(self, "OwnerCID");
-	local tgtCID = GetPcCIDStr(tgt);
-
-	if ownerCID ~= tgtCID then
-		local partyID = GetExProp_Str(self, "PARTY_ID");
-		local tgtPartyID = GetPartyID(tgt);
-		if "0" == partyID or "0" == tgtPartyID  then
-			SendSysMsg(tgt, "NotBelongsToParty");
-			return
-		end
-
-		if partyID ~= GetPartyID(tgt) then
-			return;
-		end
-	end
-
-	local etc = GetETCObject(tgt);
-	local abilityLevl = GetExProp(self, "ABIL_LEVEL"); 
-	if nil ~= etc and abilityLevl > 0 and abilityLevl ~= etc.Alchemist_Ability then
-		local tx = TxBegin(tgt);
-		TxSetIESProp(tx, etc, "Alchemist_Ability", abilityLevl);
-		local ret = TxCommit(tx);
-		if ret ~= "SUCCESS" then
-			SendSysMsg(tgt, "DataError");
-			return;
-		end
-	end
-
-	local missionID = GetExProp(self, "MISSION_GUID");
-	local targetCID = GetExProp_Str(self, "TargetCID");
-	if ownerCID == tgtCID or (targetCID ~= 'None' and targetCID == tgtCID) then
-		if IsRunningScript(tgt, 'MOVE_ITEM_AWAKENING') ~= 1 then
-			ReqMoveToMission(tgt, missionID);
-		end
-		return;
-	end
-
-	local maxCount = GetExProp(self, "MISSION_MAX_COUNT");
-	local currentEnterCount = GetExProp(self, "MISSION_ENTER_COUNT");
-
-	if maxCount <= 0 then
-		SetZombie(self);
-		return;
-	end
-	if currentEnterCount >= maxCount then
-		SendSysMsg(tgt, "MissionRoomFullCont");
-		SetZombie(self);
-		return;
-	end 
-	currentEnterCount = currentEnterCount + 1;
-	SetExProp(self, "MISSION_ENTER_COUNT", currentEnterCount);
-	ReqMoveToMission(tgt, missionID);
-	if currentEnterCount >= maxCount then
-		SetZombie(self);
-		return;
-	end
 end
 
 function SCR_USE_ITEM_MissionWarp(self, argObj, missionName, arg1, arg2)
@@ -2849,8 +2770,46 @@ function SCR_USE_PopUpBook(self, argObj, argStr, arg1, arg2)
         SetLifeTime(npc, 600)
         SetExArgObject(self, 'POPUPBOOK_NPC', npc)
         SetExArgObject(npc, 'POPUPBOOK_PC', self)
+        
+        if argStr == 'photowall_soccer' then
+            local npc3 = CREATE_NPC(self, 'HiddenObbBox1', centerx-5, centery, centerz+5, 315, "Peaceful", GetLayer(self), nil, nil, nil, 1, 1, nil, 'NPC_POPUPBOOK_AI3')
+            if npc3 ~= nil then
+                SetLifeTime(npc3, 600)
+                SetExArgObject(self, 'POPUPBOOK_NPC3', npc3)
+                SetExArgObject(npc3, 'POPUPBOOK_PC', self)
+            end
+        end
     end
 end
+
+function SCR_NPC_POPUPBOOK_AI3_TS_BORN_ENTER(self)
+end
+
+function SCR_NPC_POPUPBOOK_AI3_TS_BORN_UPDATE(self)
+    local pc = GetExArgObject(self, 'POPUPBOOK_PC')
+    if pc == nil then
+        Dead(self)
+    end
+end
+
+function SCR_NPC_POPUPBOOK_AI3_TS_BORN_LEAVE(self)
+end
+
+function SCR_NPC_POPUPBOOK_AI3_TS_DEAD_ENTER(self)
+    local pc = GetExArgObject(self, 'POPUPBOOK_PC')
+    if pc ~= nil then
+        SetExArgObject(pc, 'POPUPBOOK_NPC3', nil)
+    end
+    SetExArgObject(self, 'POPUPBOOK_PC', nil)
+end
+
+function SCR_NPC_POPUPBOOK_AI3_TS_DEAD_UPDATE(self)
+end
+
+function SCR_NPC_POPUPBOOK_AI3_TS_DEAD_LEAVE(self)
+end
+
+
 
 function SCR_NPC_POPUPBOOK_AI_TS_BORN_ENTER(self)
 end
@@ -3717,4 +3676,10 @@ function SCR_FIRST_GRADE_PAD_REMOVE_EFFECT(pc, skill, pad)
     RemoveEffect(pc, 'F_buff_ground_incenseburner')
     RemoveEffect(pc, 'F_buff_ground_incenseburner_loop')
     RemoveEffect(pc, 'F_buff_ground_incenseburner_cast')
+end
+function SCR_USE_2018_SOCCER_PACKAGE_GIVE_ITEM(pc, target, string1, arg1, arg2, itemID)
+    local tx = TxBegin(pc);
+        TxGiveItem(tx, 'KickOff_Cube_2018', 2, '2018_SOCCER_SPECIAL_PACKAGE');
+        TxGiveItem(tx, 'ABAND01_132', 1, '2018_SOCCER_SPECIAL_PACKAGE');
+    local ret = TxCommit(tx);
 end

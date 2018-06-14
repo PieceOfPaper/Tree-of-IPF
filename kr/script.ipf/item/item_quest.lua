@@ -12427,6 +12427,8 @@ function SCR_GM_WHITETREES_ITEM_OBJ_DIALOG(self, pc)
             AddBuff(self, self, "GM_WHITETREES_DEFFENCE_OBJ_BUFF", 1, 0, 0, 1)
             SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_ITEM1_MSG2"), 5)
         end
+    else
+        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_ITEM1_MSG3"), 5) 
     end
 end
 
