@@ -1223,12 +1223,18 @@ function SCR_MASTER_ORACLE_NORMAL_4(self,pc)
     
     
     local return1 = GetInfoMR('WeaponEnchant', 1);
-    local ret1 = GetPcNameByCID(return1);
+    local ret1 = 'None'
+    if return1 ~= '' and return1 ~= nil then
+        ret1 = GetPcNameByCID(return1);
+    end
     
     local ret2 = GetInfoMR('GainVisZone', 1);
     
     local return3 = GetInfoMR('GainVisActor', 1);
-    local ret3 = GetPcNameByCID(return3);
+    local ret3 = 'None'
+    if return3 ~= '' and return3 ~= nil then
+        ret3 = GetPcNameByCID(return3);
+    end
     
     local ret4 = GetInfoMR('KillMon', 1);
     local ret5 = GetInfoMR('DeadPc', 1);
@@ -1237,7 +1243,7 @@ function SCR_MASTER_ORACLE_NORMAL_4(self,pc)
     local ret8 = GetInfoMR('Warp', 1);
     
     local selItem = {}
-
+    
     if ret1 ~= "None" then
         selItem[1] = ScpArgMsg('MASTER_ORACLE_NORMAL_2_AGREE1')..icon..nxptakeList[1]..')'
     else
