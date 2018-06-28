@@ -6,7 +6,16 @@ function SCR_EVENT_1806_NUMBER_GAMES_BALL_TS_BORN_UPDATE(self)
     local x,y,z = GetPos(self)
     
     if self.NumArg2 >= 10 and y >= 10 then
-        SetPos(self, x, 0, z)
+        local strarg1 = TryGetProp(self, 'StrArg1')
+        if strarg1 == 'ball1' or strarg1 == 'ball2' then
+            SetCurrentFaction(self, 'Peaceful')
+            RunScript('EVENT_1806_SOCCER_BALL_HOLD',self)
+            if strarg1 == 'ball1' then
+                SetPos(self, -70, 0, 70)
+            elseif strarg1 == 'ball2' then
+                SetPos(self, 70, 0, -70)
+            end
+        end
     end
     if self.NumArg1 ~= nowSec then
         self.NumArg1 = nowSec

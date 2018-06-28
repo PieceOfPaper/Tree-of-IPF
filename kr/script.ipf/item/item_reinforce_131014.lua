@@ -429,9 +429,9 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
 	if result == 1 then
     	if moruName == "Moru_Potential" or moruName == "Moru_Potential14d" then
 			local potential = invItem.PR;
-			TxSetIESProp(tx, invItem, 'PR', potential + 1);
+		TxSetIESProp(tx, invItem, 'PR', potential + 1);
         else
-	    	TxAddIESProp(tx, invItem, "Reinforce_2", 1);
+	    	TxSetItemReinforce(tx, invItem, invItem.Reinforce_2 + 1);
 	    	if moruName == "Moru_Platinum_Premium" then
 	    		local potential = invItem.PR;
 	    		TxSetIESProp(tx, invItem, 'PR', potential - 1);
@@ -447,7 +447,7 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
     			TxSetIESProp(tx, invItem, 'PR', potential - 1);
     			
     			if moruType ~= 'DIAMOND' then
-    			    TxAddIESProp(tx, invItem, "Reinforce_2", -1);
+    			    TxSetItemReinforce(tx, invItem, invItem.Reinforce_2 - 1);
     			end
 			end
     	else
@@ -457,12 +457,12 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
     			TxSetIESProp(tx, invItem, 'PR', potential + 1);
 			elseif moruName == "Moru_Premium" or moruName == "Moru_Gold" or moruName == "Moru_Gold_14d" or moruName == "Moru_Gold_TA" or moruName == "Moru_Gold_TA_NR" or moruName == "Moru_Gold_Team_Trade"  or moruName == "Moru_Gold_EVENT_1710_NEWCHARACTER"  then
 				if  reinforce_2 > 10 then
-					TxSetIESProp(tx, invItem, 'Reinforce_2', 10);
+					TxSetItemReinforce(tx, invItem, 10);
 				else
-					TxAddIESProp(tx, invItem, "Reinforce_2", -1);
+					TxSetItemReinforce(tx, invItem, invItem.Reinforce_2 - 1);
 				end
 			elseif moruName == "Moru_Potential" or moruName == "Moru_Potential14d" then
-    			TxAddIESProp(tx, invItem, "Reinforce_2", 0);
+    			-- do nothing
 			else
 			    if invItem.ClassID == 635122 then --171114_EVENT_STEAM      
 --				    TxGiveItem(tx, 'Event_Goddess_Medal', 1, 'EV171114)_S')TEAM');
@@ -510,8 +510,9 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
     			end
 			end
 		end
---    end
-	BroadcastShape(pc); 
+--	end
+
+	BroadcastShape(pc);
 end
 
 function REINF_MORU_TAKEDAMAGE(self, from, skl, damage, ret)

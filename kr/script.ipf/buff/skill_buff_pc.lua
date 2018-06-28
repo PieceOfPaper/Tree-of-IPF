@@ -14883,7 +14883,7 @@ end
 function SCR_BUFF_ENTER_Capote_Debuff(self, buff, arg1, arg2, over)
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     ObjectColorBlend(self, 255, 160, 150, 255, 1, 1.5)
-    
+    --�������߱�� --
     local buffCaster = GetBuffCaster(buff);
     local spdAdd = 10
     if IS_PC(self) == false then
@@ -14923,7 +14923,7 @@ end
 
 function SCR_BUFF_LEAVE_Capote_Debuff(self, buff, arg1, arg2, over)
     ObjectColorBlend(self, 255, 255, 255, 255, 1, 1)
-    
+    --�������� ���� ���--
     local buffCaster = GetBuffCaster(buff)
     if IS_PC(self) == false then
         if self.MonRank ~= "BOSS" then
@@ -15722,7 +15722,7 @@ function SCR_BUFF_UPDATE_StormDust_Debuff(self, buff, arg1, arg2, over)
     if atk <= 0 then
         return 0;
     end
-        
+	
     local from = self;
     local caster = GetBuffCaster(buff);
     local pad = GetPadByBuff(caster, buff);
@@ -15730,7 +15730,7 @@ function SCR_BUFF_UPDATE_StormDust_Debuff(self, buff, arg1, arg2, over)
         return 0;
     end
     
-    if caster ~= nil then    
+    if caster ~= nil then
         from = caster;
     end
     
@@ -15743,6 +15743,51 @@ function SCR_BUFF_UPDATE_StormDust_Debuff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_LEAVE_StormDust_Debuff(self, buff, arg1, arg2, over)
+    local abilMoveSpeed = GetExProp(buff, "STORMDUST_MOVESPEED")
+    
+    self.MSPD_BM = self.MSPD_BM + abilMoveSpeed
+end
+
+
+function SCR_BUFF_ENTER_StormDust_Abil_Debuff(self, buff, arg1, arg2, over)
+	local abilMoveSpeed = 0
+	local caster = GetBuffCaster(buff)
+	if caster ~= nil then
+		local atk = GET_SKL_DAMAGE(caster, self, "Elementalist_StormDust");
+		local abilElementalist28 = GetAbility(caster, "Elementalist28")
+		if abilElementalist28 ~= nil and abilElementalist28.ActiveState == 1 then
+			abilMoveSpeed = abilElementalist28.Level * 2
+		end
+		
+		SetBuffArgs(buff, atk, 0, 0)
+	end
+	
+	self.MSPD_BM = self.MSPD_BM - abilMoveSpeed
+	
+	SetExProp(buff, "STORMDUST_MOVESPEED", abilMoveSpeed)
+end
+
+function SCR_BUFF_UPDATE_StormDust_Abil_Debuff(self, buff, arg1, arg2, over)
+    local atk = GetBuffArgs(buff);
+    if atk <= 0 then
+        return 0;
+    end
+	
+    local from = self;
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        from = caster;
+    end
+    
+    local skill = GetSkill(caster, 'Elementalist_StormDust')
+    if skill ~= nil then
+        TakeDamage(caster, self, skill.ClassName, atk, "Earth", "Magic", "Magic");
+    end
+    
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_StormDust_Abil_Debuff(self, buff, arg1, arg2, over)
     local abilMoveSpeed = GetExProp(buff, "STORMDUST_MOVESPEED")
     
     self.MSPD_BM = self.MSPD_BM + abilMoveSpeed

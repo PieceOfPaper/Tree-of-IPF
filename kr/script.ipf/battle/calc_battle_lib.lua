@@ -1711,7 +1711,8 @@ function BEGONE_DROP_VIS(pc, deathPenaltyBuffLevel, silverDropRatio)
     
     local tx = TxBegin(pc);
     TxEnableInIntegrateIndun(tx);
-    TxTakeItem(tx, MONEY_NAME, cnt, 'BEGONE');
+    TxItemLock(tx, pcMoney, 0);
+    TxTakeItemByObject(tx, pcMoney, cnt, 'BEGONE');
     local ret = TxCommit(tx);
     if ret == "SUCCESS" then
         SendSysMsg(pc, "YouDeadSoSomeSilverHasBeenLost");
@@ -1813,6 +1814,7 @@ function BEGONE_DROP_INV_ITEM(pc, deathPenaltyBuffLevel, penaltyType)
 
                 local tx = TxBegin(pc);
                 TxEnableInIntegrateIndun(tx);
+                TxItemLock(tx, someitem, 0);
                 TxTakeItemByObject(tx, someitem, cnt, "DeadPenalty");
                 local ret = TxCommit(tx);
             

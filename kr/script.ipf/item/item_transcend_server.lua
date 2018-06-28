@@ -168,7 +168,7 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
 		-- 1초월 밑으로 내려줘서는 안됨.
 		if transcend > 1 and targetPR > 0 then -- 사라질 아이템에 대해서는 초월 프로퍼티 변경할 필요 없다
 			TxAddIESProp(tx, targetItem, 'Transcend_MatCount', materialCount);
-			TxAddIESProp(tx, targetItem, 'Transcend', -1);
+			TxSetItemTranscend(tx, targetItem, targetItem.Transcend - 1);
 		end
 		if targetPR > 0 then			
 			TxAddIESProp(tx, targetItem, 'PR', -1);
@@ -182,7 +182,7 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
 	else
 		TxAddIESProp(tx, targetItem, 'Transcend_MatCount', materialCount);
 		TxAddIESProp(tx, targetItem, 'Transcend_SucessCount', materialCount);
-		TxAddIESProp(tx, targetItem, 'Transcend', 1);
+		TxSetItemTranscend(tx, targetItem, targetItem.Transcend + 1);
 	end
 	
 --	--EVENT_1804_TRANSCEND_SUCCESS_COUNT
@@ -374,7 +374,7 @@ end
 --
 --	local tx = TxBegin(pc);
 --	TxSetIESProp(tx, targetItem, 'Transcend_MatCount', 0);	
---	TxSetIESProp(tx, targetItem, 'Transcend', 0);
+--	TxSetItemTranscend(tx, targetItem, 0);
 --	TxSetIESProp(tx, targetItem, 'Transcend_SucessCount', 0)	
 --	TxTakeItemByObject(tx, materialItem, 1, "TranscendRemove");
 --	local ret = TxCommit(tx);	
@@ -516,7 +516,7 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 	if isSuccess == 0 then
 		-- can not make transcend value under 1
 		if transcend > 1 and targetPR > 0 then -- targetItem will be deleted
-			TxAddIESProp(tx, targetItem, 'Transcend', -1);
+			TxSetItemTranscend(tx, targetItem, targetItem.Transcend - 1);
 		end
 		if targetPR > 0 then			
 			TxAddIESProp(tx, targetItem, 'PR', -1);
@@ -528,7 +528,7 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 			itemTake = true;
 		end
 	else
-		TxSetIESProp(tx, targetItem, 'Transcend', expectedTranscend);
+		TxSetItemTranscend(tx, targetItem, expectedTranscend);
 	end
 	
 	local ret = TxCommit(tx);	

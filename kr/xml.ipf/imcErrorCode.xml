@@ -552,4 +552,5 @@
 	<Code Code="ERROR_SOLO_DUNGEON" Team="tos_team" Category="SYSTEM" SubCategory="SOLO_DUNGEON" Logger="root" Enabled="YES" CallStack="NO" Desc="1인 던전 에러"/>
 	<Code Code="INFO_SOLO_DUNGEON" Team="tos_team" Category="SYSTEM" SubCategory="SOLO_DUNGEON" Logger="root" Enabled="YES" CallStack="NO" Desc="1인 던전 정보"/>
 	<Code Code="ERROR_INVALID_LOOP_EFFECT" Team="ART" Category="DATA" SubCategory="EFFECT" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못 사용된 루프 이펙트입니다."/>
+      <Code Code="INFO_DISCONNECT" Team="tos_team" Category="DEBUG" SubCategory="DISCONNECT" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 유저 접속 불가현상관련 로그"/>
 </imcErrorCode>

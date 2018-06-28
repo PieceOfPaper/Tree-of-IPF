@@ -20,7 +20,7 @@ function SCR_KLAPEDA_USKA_NORMAL_11(self,pc)
         TxTakeItem(tx, 'EVENT_1805_NEWCHARACTER_WEAPON', 1, 'EVENT_1805_NEWCHARACTER')
         local cmdIdx = TxGiveItem(tx, itemList[select], 1, 'EVENT_1805_NEWCHARACTER')
         TxAppendProperty(tx, cmdIdx, 'Transcend', 5)
-        TxAppendProperty(tx, cmdIdx, 'Reinforce_2', 11)
+        TxAppendProperty(tx, cmdIdx, 'Reinforce_2', 11);
         local ret = TxCommit(tx)
         if ret == 'SUCCESS' then
         end

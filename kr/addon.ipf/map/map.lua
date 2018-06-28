@@ -28,6 +28,7 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('PARTY_INST_UPDATE', 'MAP_UPDATE_PARTY_INST');
 	addon:RegisterOpenOnlyMsg('PARTY_UPDATE', 'MAP_UPDATE_PARTY');
 	addon:RegisterOpenOnlyMsg('GUILD_INFO_UPDATE', 'MAP_UPDATE_GUILD');
+    addon:RegisterMsg('DESTROY_GUILD_MEMBER_ICON', 'DESTROY_GUILD_MEMBER_ICON')
 
 	addon:RegisterMsg('MON_MINIMAP_START', 'MAP_MON_MINIMAP_START');
 	addon:RegisterMsg('MON_MINIMAP', 'MAP_MON_MINIMAP');
@@ -1308,15 +1309,32 @@ function ON_REMOVE_COLONY_MONSTER(frame, msg, argStr, monID)
    frame:RemoveChild('colonyMonEffectPic'); 
 end
 
-function DESTROY_GUILD_MEMBER_ICON()
+function DESTROY_GUILD_MEMBER_ICON()    
     local frame = ui.GetFrame('map')
-    if frame == nil then return end    
-    local mini = ui.GetFrame('minimap')
-    if mini == nil then return end
-    local npclist = mini:GetChild('npclist')
-    if npclist == nil then return end
+    if frame == nil then return end
     local searchname = 'GM_'
     local index = 0;
+    
+    index = 0
+	while 1 do
+		if index >= frame:GetChildCount() then
+			break
+		end
+		local childObj = frame:GetChildByIndex(index);
+		local name = childObj:GetName()
+		if string.find(name, searchname) ~= nil then            
+			frame:RemoveChildByIndex(index)
+		else
+			index = index + 1;
+		end
+	end
+
+    local mini = ui.GetFrame('minimap')
+    if mini == nil then return end
+    npclist = mini:GetChild('npclist')
+    if npclist == nil then return end
+    
+    index = 0
 	while 1 do
 		if index >= npclist:GetChildCount() then
 			break
@@ -1324,7 +1342,7 @@ function DESTROY_GUILD_MEMBER_ICON()
 		local childObj = npclist:GetChildByIndex(index);
 		local name = childObj:GetName()
 		if string.find(name, searchname) ~= nil then            
-			npclist:RemoveChildByIndex(index)            
+			npclist:RemoveChildByIndex(index)
 		else
 			index = index + 1;
 		end
