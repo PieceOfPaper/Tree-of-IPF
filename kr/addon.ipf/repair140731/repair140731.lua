@@ -40,8 +40,7 @@ function REPAIR140731_CLOSE(frame)
 end
 
 function UPDATE_REPAIR140731_LIST(frame)
-	
-	--½½·Ô ¼Â ¹× ÀüÃ¼ ½½·Ô ÃÊ±âÈ­ ÇØ¾ßµÊ
+	--ìŠ¬ë¡¯ ì…‹ ë° ì „ì²´ ìŠ¬ë¡¯ ì´ˆê¸°í™” í•´ì•¼ë¨
 	local slotSet = GET_CHILD_RECURSIVELY(frame,"slotlist","ui::CSlotSet")
 	slotSet:ClearIconAll();
 	local slotcnt = 0
@@ -67,7 +66,7 @@ function UPDATE_REPAIR140731_LIST(frame)
 				end
 
 				local icon = CreateIcon(slot);
-				local iconValue = obj.Icon;				
+				local iconValue = obj.Icon;
 				if obj.BriquettingIndex > 0 then
 					local briquettingItemCls = GetClassByType('Item', obj.BriquettingIndex);
 					iconValue = briquettingItemCls.Icon;
@@ -103,18 +102,18 @@ function UPDATE_REPAIR140731_LIST(frame)
 				end
 
 				local icon = CreateIcon(slot);
-				icon:Set(obj.Icon, 'Item', invItem.type, slotcnt, invItem:GetIESID());
-				local class 			= GetClassByType('Item', invItem.type);
+                local iconValue = obj.Icon;
+				if obj.BriquettingIndex > 0 then
+					local briquettingItemCls = GetClassByType('Item', obj.BriquettingIndex);
+					iconValue = briquettingItemCls.Icon;
+				end
+				icon:Set(iconValue, 'Item', invItem.type, slotcnt, invItem:GetIESID());
+				local class = GetClassByType('Item', invItem.type);
 				ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "repair", class);
 
 				slotcnt = slotcnt + 1
 			end
-
-		else
-			print('error! tempobj == nil')
 		end
-
-
 	end
 
 	UPDATE_REPAIR140731_MONEY(frame)
@@ -139,15 +138,15 @@ function UPDATE_REPAIR140731_MONEY(frame)
 	end
 
 	local repairprice = GET_CHILD_RECURSIVELY(frame, "invenZeny", "ui::CRichText")
-	-- ½ºÄâÀÌ¾î ¼ö¸® ¹öÇÁ ½ÃÀü½Ã UPDATE_REPAIR140731_LIST¸¦ °¡Á®´Ù½á¿ä
-	-- ±×·³ ÀÌ money ÇÔ¼ö°¡ È£ÃâÀÌ µÇ´Âµ¥ ÀÌ º¯¼ö°¡ ¾ø¾î °æ°í°¡ ¶°¼­ ¿¹¿ÜÃ³¸® ÇØÁá½À´Ï´Ù.
+	-- ìŠ¤ì½°ì´ì–´ ìˆ˜ë¦¬ ë²„í”„ ì‹œì „ì‹œ UPDATE_REPAIR140731_LISTë¥¼ ê°€ì ¸ë‹¤ì¨ìš”
+	-- ê·¸ëŸ¼ ì´ money í•¨ìˆ˜ê°€ í˜¸ì¶œì´ ë˜ëŠ”ë° ì´ ë³€ìˆ˜ê°€ ì—†ì–´ ê²½ê³ ê°€ ë– ì„œ ì˜ˆì™¸ì²˜ë¦¬ í•´ì¤¬ìŠµë‹ˆë‹¤.
 	if nil ~= repairprice then
 		repairprice:SetText(totalprice)
 	end
 
 	local calcprice = GET_CHILD_RECURSIVELY(frame, "remainInvenZeny", "ui::CRichText")
-	-- ½ºÄâÀÌ¾î ¼ö¸® ¹öÇÁ ½ÃÀü½Ã UPDATE_REPAIR140731_LIST¸¦ °¡Á®´Ù½á¿ä
-	-- ±×·³ ÀÌ money ÇÔ¼ö°¡ È£ÃâÀÌ µÇ´Âµ¥ ÀÌ º¯¼ö°¡ ¾ø¾î °æ°í°¡ ¶°¼­ ¿¹¿ÜÃ³¸® ÇØÁá½À´Ï´Ù.
+	-- ìŠ¤ì½°ì´ì–´ ìˆ˜ë¦¬ ë²„í”„ ì‹œì „ì‹œ UPDATE_REPAIR140731_LISTë¥¼ ê°€ì ¸ë‹¤ì¨ìš”
+	-- ê·¸ëŸ¼ ì´ money í•¨ìˆ˜ê°€ í˜¸ì¶œì´ ë˜ëŠ”ë° ì´ ë³€ìˆ˜ê°€ ì—†ì–´ ê²½ê³ ê°€ ë– ì„œ ì˜ˆì™¸ì²˜ë¦¬ í•´ì¤¬ìŠµë‹ˆë‹¤.
 	if nil ~= calcprice then
 		calcprice:SetText(GET_TOTAL_MONEY()-totalprice)
 	end
@@ -176,7 +175,7 @@ function IS_NEED_REPAIR_ITEM(itemobj, isSquireRepair)
 	--if item.IsNoneItem(itemobj.ClassID) == 0 and itemobj.MaxDur > 0  then
 		return true
 		else
-			-- ³»±¸µµ ´Â °¡µæ Ã£Áö¸¸, ½ºÄâÀÌ¾î·Î ºÎ¸¦ ¶§ 
+			-- ë‚´êµ¬ë„ ëŠ” ê°€ë“ ì°¾ì§€ë§Œ, ìŠ¤ì½°ì´ì–´ë¡œ ë¶€ë¥¼ ë•Œ 
 			if nil ~= isSquireRepair and isSquireRepair == 1 and itemobj.MaxDur ~= -1 then
 				return true
 			end
