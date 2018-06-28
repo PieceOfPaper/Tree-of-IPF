@@ -1,4 +1,4 @@
-local json = require "json"
+local json = require "json_imc"
 function COLONY_POINT_INFO_ON_INIT(addon, frame)
     addon:RegisterMsg('UPDATE_COLONY_POINT', 'ON_UPDATE_COLONY_POINT');
     addon:RegisterMsg('OPEN_COLONY_POINT', 'OPEN_COLONY_POINT_UI');

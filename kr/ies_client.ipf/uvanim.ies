@@ -1,2 +1,6 @@
-ClassID,ParamU,ParamV,PlayTime,FrameCnt,ClassName,AnimType
-1,0,0.450000,1,1,"npc_ftower691_elt_1","Translation"
+ClassID,ParamU,ParamV,PlayTime,FrameCnt,ClassName,AnimType,Path,MaskTex,TargetMaterial
+1,0,0.450000,1,1,"npc_ftower691_elt_1","Translation","","",""
+2,0.010000,0.300000,1,1,"Mage_m_shadowmancer01_sp","Translation","char_texture\pc\body\Mage_m_shadowmancer01\","mask.dds","cape_F"
+3,0.010000,0.300000,1,1,"Mage_m_shadowmancer02_sp","Translation","char_texture\pc\body\Mage_m_shadowmancer02\pink\","mask.dds","cape_F"
+4,0.010000,0.300000,1,1,"Mage_m_shadowmancer03_sp","Translation","char_texture\pc\body\Mage_m_shadowmancer02\","mask.dds","cape_F"
+5,-0.100000,0.100000,1,1,"wing_alice_m","Translation","char_texture\npc\wing_alice_m\","Mask.dds",""

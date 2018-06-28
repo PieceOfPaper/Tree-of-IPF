@@ -1,4 +1,4 @@
-﻿local json = require "json"
+﻿local json = require "json_imc"
 
 local firstOpen = true;
 function GUILDINFO_ON_INIT(addon, frame)
@@ -50,13 +50,14 @@ function GUILDINFO_OPEN_UI(frame)
         
         --todo여기에 처음 로드할때만 요청할 바인드함수 추가
         GUILDINFO_OPTION_INIT(frame, frame);
+        local mainTab = GET_CHILD_RECURSIVELY(frame, 'mainTab');
+        mainTab:SelectTab(0);
         firstOpen = false
         
     end
     GUILDINFO_COLONY_INIT(frame, frame)
     INIT_UI_BY_CLAIM();
 
-    GUILDINFO_INIT_TAB(frame);
    GUILDINFO_INIT_PROFILE(frame); 
     GUILDINFO_OPTION_INIT_SETTING_CLAIM_TAB();
     
@@ -106,14 +107,13 @@ function GUILDINFO_INIT_PROFILE(frame)
 
     -- member
     local memberText = GET_CHILD_RECURSIVELY(guildInfoTab, 'memberNum');
-    --print(count)
     memberText:SetTextByKey('current', count);
     memberText:SetTextByKey('max',  guild:GetMaxGuildMemberCount());
 
     -- asset
    GUILDINFO_PROFILE_INIT_ASSET(guildInfoTab);
 
-    -- embelem
+    -- emblem
     GUILDINFO_PROFILE_INIT_EMBLEM(frame);
 end
 
@@ -126,11 +126,6 @@ function GUILDINFO_PROFILE_INIT_ASSET(frame)
         guildAsset = 0;
     end
     moneyText:SetText("{@st66b}" .. GET_COMMAED_STRING(guildAsset) .. "{/}");
-end
-
-function GUILDINFO_INIT_TAB(frame)
-    local mainTab = GET_CHILD_RECURSIVELY(frame, 'mainTab');
-    mainTab:SelectTab(0);
 end
 
 function GET_MY_GUILD_INFO()
@@ -160,12 +155,6 @@ function ON_UPDATE_GUILD_ASSET(frame, msg, argStr, argNum)
 end
 
 function GUILDINFO_UPDATE_INFO(frame, msg, argStr, argNum)    
-  --  print("msg:" .. msg)
-    if frame == nil then
-       -- print("frame is nil")
-    else
-       -- print("frame is not nil")
-    end
     GUILDINFO_INIT_PROFILE(frame);
     _GUILDINFO_INIT_MEMBER_TAB(frame);
 end
@@ -174,8 +163,7 @@ function GUILDINFO_FORCE_CLOSE_UI()
     local frame = ui.GetFrame("guildinfo");
     if frame ~= nil then
         if frame:IsVisible() == 1 then
-        
-        GUILDINFO_CLOSE_UI(frame)
+            GUILDINFO_CLOSE_UI(frame)
         end
     end
 end
@@ -248,9 +236,7 @@ function DRAW_GUILD_EMBLEM(frame, isPreView, isRegisteredEmblem, emblemName)
             end
             emblemBack:SetImage("")
             previewEmblem:SetImage("")
-
             if emblemName ~= 'None' and isRegisteredEmblem == true then
-
                 emblemBack:SetFileName(emblemName); 
                 previewEmblem:SetFileName(emblemName);
             else          
@@ -283,7 +269,7 @@ end
 
 function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	if nil ==pcparty then
+	if nil == pcparty then
 		return;
 	end
 	local leaderAID = pcparty.info:GetLeaderAID();

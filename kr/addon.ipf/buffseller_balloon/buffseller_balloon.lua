@@ -64,7 +64,7 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
     elseif sellType == AUTO_SELL_PORTAL then
 		pic:SetImage("sign_potal");
 	elseif sellType == AUTO_SELL_AWAKENING then
-		pic:SetImage("sign_awakening"); -- HS_COMMENT: 안용씨 여기 각성 상점 간판 배경 이미지(뒷배경 색)이요!
+		pic:SetImage("sign_awakening");
 	else
 		pic:SetImage("sign_buy");
 	end

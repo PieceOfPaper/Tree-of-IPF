@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ComponentList>
 	<Particle name="light046_violet" texture="light046_violet" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Particle name="light045_alpha" texture="light045_alpha" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
@@ -222,6 +222,7 @@
 	<Particle name="light012" texture="light012" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="bomb002" texture="bomb002" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="pattern009" texture="pattern009" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Particle name="dash008_reverse" texture="dash008_reverse" width="3.00" height="10.00" pivot_x="0.50" pivot_y="0.00" texel_x="0" texel_y="0" texel_width="64" texel_height="256"/>
 	<Particle name="dash008" texture="dash008" width="3.00" height="10.00" pivot_x="0.50" pivot_y="0.00" texel_x="0" texel_y="0" texel_width="64" texel_height="256"/>
 	<Particle name="dash007" texture="dash007" width="4.00" height="4.00" pivot_x="0.50" pivot_y="0.70" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="pattern008" texture="pattern008" width="1.00" height="8.00" pivot_x="0.50" pivot_y="1.00" texel_x="0" texel_y="0" texel_width="32" texel_height="256"/>
@@ -615,6 +616,7 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="ice_shield001" model="ice_shield001.xac" motion="ice_shield001_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="blend"/>
 	<Model name="vine_skill_debuff" model="vine_skill_debuff.xac" motion="vine_skill_debuff_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="blend"/>
 	<Model name="vine_skill001" model="vine_skill001.xac" motion="vine_skill001_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="blend"/>
 	<Model name="helix001" model="helix001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="blend"/>

@@ -18,6 +18,7 @@ ClassID,Value,ClassName,Desc,UseInScript
 17,0,"USE_MOVE_ACCEL","PC가 이동시에 가속도를 사용하는가","NO"
 18,500,"SKILL_CANCLE_COOLTIME","스킬 캔슬 재사용시간 설정, 시간 단위 : ms (테스트용)","NO"
 19,0.700000,"AIMING_BUFF_RATE","에이밍 비율","NO"
+20,10,"MAX_MESSAGE_NUM_PER_FRAME","한 프레임에 처리 가능한 최대 대미지 메세지 수. 0이면 제한 없음.","NO"
 100,60000,"PC_INIT_INVINCIBLE_TIME","PC최초 접속시 무적시간","NO"
 101,10000,"PC_WARP_INVINCIBLE_TIME","PC Warp (SetPos등) 무적시간","NO"
 102,360,"PC_MAX_LEVEL","플레이어의 최대 레벨","YES"

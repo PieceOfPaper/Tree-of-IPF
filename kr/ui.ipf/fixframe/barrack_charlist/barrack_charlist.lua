@@ -638,7 +638,7 @@ end
 function SELECTCHARINFO_DELETECHARACTER(frame, obj, argStr, argNum)
 	imcSound.PlaySoundEvent('button_click_big_2');
 	barrack.DeleteCharacter();
-	ui.GetFrame('selectcharmenu'):ShowWindow(0);
+--	ui.GetFrame('selectcharmenu'):ShowWindow(0);
 end
 
 function SELECTCHARINFO_DELETECHARACTER_CANCEL(frame, obj, argStr, argNum)

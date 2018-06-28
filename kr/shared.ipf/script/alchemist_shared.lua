@@ -1,57 +1,127 @@
---alchemist_shared.lua
-
-function GET_BRIQUETTING_NEED_LOOK_ITEM_CNT(targetItem) -- hs_comment: 안용씨 또는 재성씨 여기 브리케팅 할 때 필요한 외형 무기 개수 공식 써주세여 --
-	local needItem = 6 - targetItem.ItemGrade
-
-	return needItem;
-		end
-		
-function GET_BRIQUETTING_NEED_MATERIAL_LIST(targetItem) -- hs_comment: 안용씨 또는 재성씨 여기 브리케팅 할 때 소멸될 재료 아이템 이름이랑 개수 리스트 반환시켜주세요 --
-	if targetItem.ItemGrade > 3 then
-		return 'misc_ore23', 1;
-	else
-		return 'misc_ore22', 1;
-		end
-	
-	return 'None', -1;
+function GET_BRIQUETTING_NEED_LOOK_ITEM_CNT(targetItem)	
+	if targetItem.StringArg == 'WoodCarving' then
+		return 0;
 	end
 
-function GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMaterialItemList)
-	if IS_BRIQUETTING_DUMMY_ITEM(lookItem) == true then
-		return 0;
+	local needItem = 6 - targetItem.ItemGrade	
+	return needItem;
 end
 
-	for i = 1, #lookMaterialItemList do
-		if IS_BRIQUETTING_DUMMY_ITEM(lookMaterialItemList[i]) == true then
+function GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMaterialItemList)
+	if IS_BRIQUETTING_DUMMY_ITEM(lookItem) == true then		
 		return 0;
 	end
-	end
 
-	return targetItem.ItemGrade * 200000; -- hs_comment: 정수씨? 안용씨? 재성씨? 여기 브리케팅 실버 비용 공식 써주세요 --
+	for i = 1, #lookMaterialItemList do
+		if IS_BRIQUETTING_DUMMY_ITEM(lookMaterialItemList[i]) == true then			
+			return 0;
+		end
+	end
+	
+	local lv = TryGetProp(targetItem , 'UseLv')
+	if lv == nil then
+	    return;
+	end
+	
+	local grade = TryGetProp(targetItem, 'ItemGrade')
+	if grade == nil then
+	    return;
+	end
+	
+	local price = (lv * 100) +  SyncFloor((lv^1.6*grade) * (lv/(6-grade)))
+	
+	local cehckLookitem = TryGetProp(lookItem, 'StringArg')
+	if cehckLookitem == nil then
+	    return;
+	end
+	
+	if cehckLookitem == 'WoodCarving' then
+	    price = 0;
+	end
+	return price;
 end
 
 function IS_BRIQUETTING_DUMMY_ITEM(item)
-	if item.StringArg == 'BriquettingDummy' then -- hs_comment: 재성씨 여기 목각 아이템 StringArg 정해서 써주세여. 일단 제맘대로 해둠 --
-		return true;
+	if item.StringArg == 'WoodCarving_Core' then -- 소재 무기 대신임
+	    return true;
 	end
 	
 	return false;
 end
 
 function IS_VALID_LOOK_MATERIAL_ITEM(lookItem, lookMatItemList)
+	if lookMatItemList == nil then
+		return false;
+	end
+	local containDummyItem = false;
+	local containCoreItem = false;
+	if #lookMatItemList == 0 then
+		if lookItem.StringArg ~= 'WoodCarving' then
+			return false;
+		end
+		containDummyItem = true;
+	end
+
 	for i = 1, #lookMatItemList do
 		local lookMatItem = lookMatItemList[i];
 		if lookItem.ClassName ~= lookMatItem.ClassName then
 			if IS_BRIQUETTING_DUMMY_ITEM(lookMatItem) == false then
 				return false;
 			end
-			
-			-- 목각 코어인 경우
-			if lookMatItem.ItemGrade < lookItem.ItemGrade then -- 등급이 이상이면 통과. 아니면 실패
+
+			if IS_NEED_APPRAISED_ITEM(lookMatItem) == true or IS_NEED_RANDOM_OPTION_ITEM(lookMatItem) == true then
 				return false;
 			end
+
+			containCoreItem = true;
 		end
+	end
+	
+	return true, containDummyItem, containCoreItem;
 end
 
+function IS_VALID_BRIQUETTING_TARGET_ITEM(targetItem)	
+	if targetItem == nil then
+		return false;
+	end
+
+	if IS_NEED_APPRAISED_ITEM(targetItem) == true or IS_NEED_RANDOM_OPTION_ITEM(targetItem) == true then
+		return false;
+	end
+
+	if targetItem.LifeTime > 0 then
+		return false;
+	end
+
+	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Musket', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Shield'};
+	local targetItemClassType = TryGetProp(targetItem, 'ClassType', 'None');
+	if targetItemClassType ~= 'None' then
+		for i = 1, #enableClassType do
+			if enableClassType[i] == targetItemClassType then
+				return true;
+			end
+		end	
+	end
+	return false;
+end
+
+function IS_VALID_LOOK_ITEM(lookItem)
+	if lookItem == nil then
+		return false;
+	end
+
+	if IS_NEED_APPRAISED_ITEM(lookItem) == true or IS_NEED_RANDOM_OPTION_ITEM(lookItem) == true then
+		return false;
+	end
+
+	if lookItem.LifeTime > 0 then
+		return false;
+	end
+
+    if lookItem.BriquettingIndex ~= nil then
+    	if (lookItem.UseLv >= 360 and lookItem.ItemGrade >= 5) or lookItem.BriquettingIndex ~= 0 then
+    		return false;
+    	end
+    end
 	return true;
 end

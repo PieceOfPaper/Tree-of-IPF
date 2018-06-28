@@ -8,13 +8,14 @@
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<effect open="skilltreeOpen" close="skilltreeClose"/>
 	<script CloseScp="BRIQUETTING_UI_CLOSE" OpenScp="BRIQUETTING_UI_OPEN"/>
+	<userconfig ENOUGH_PRICE_STYLE="{@st66d_y}" NOT_ENOUGH_PRICE_STYLE="{@st66d_y}{#FF0000}"/>
 	<controls>
 		<groupbox name="bg" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
 		<groupbox name="bg_mid" rect="0 0 430 500" margin="0 410 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="test_frame_midle"/>
 		<groupbox name="bodyGbox" rect="0 0 450 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="gem_socket_bg"/>
 		<groupbox name="pip4" rect="0 0 450 70" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<picture name="titlepicture" parent="bodyGbox" rect="0 0 440 200" margin="0 40 0 0" layout_gravity="center top" image="alch_briquetting"/>
-		<slot name="targetSlot" parent="bodyGbox" rect="0 0 150 150" margin="0 60 0 0" layout_gravity="center top" DropScp="BRIQUETTING_SLOT_DROP" PopScp="BRIQUETTING_SLOT_POP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}아이템을 올려주세요{/}"/>
+		<slot name="targetSlot" parent="bodyGbox" rect="0 0 150 150" margin="0 60 0 0" layout_gravity="center top" DropScp="BRIQUETTING_SLOT_DROP" PopScp="BRIQUETTING_SLOT_POP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}아이템을 올려주세요{/}" enableselect="false"/>
 		<richtext name="slotName" parent="bodyGbox" rect="0 0 343 48" margin="0 220 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_18_ol" format="{@st41}%s" param1="txt" param2="guid" param3="itemtype" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
 		<button name="close" rect="10 0 44 44" margin="0 12 22 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame('briquetting')" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}무기 외형 변환 UI를 닫습니다{/}"/>
 		<button name="btn_cencel" parent="bodyGbox" rect="10 10 140 55" margin="80 0 0 20" layout_gravity="center bottom" LBtnUpScp="ui.CloseFrame('briquetting')" caption="{@st42}취 소" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
@@ -24,24 +25,18 @@
 		<!-- lookItem -->
 		<groupbox name="spendMaterialBox" parent="bg_mid" rect="0 0 430 400" margin="0 20 0 0" layout_gravity="center top" draw="false"/>
 		<richtext name="spendsubStr" rect="0 0 120 24" parent="spendMaterialBox" margin="20 120 0 0" layout_gravity="left top" caption="{@st42}외형 추출 소재 무기" drawbackground="false" fixwidth="false" fontname="white_18_ol" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-		<richtext name="spendMainStr" parent="spendMaterialBox" rect="0 0 120 24" margin="20 0 0 0" layout_gravity="left top" caption="{@st42}외형 추출 할 무기" drawbackground="false" fixwidth="false" fontname="white_18_ol" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-		<slot name="lookSlot" parent="spendMaterialBox" rect="0 0 70 70 " margin="20 30 0 0" layout_gravity="left top" DropScp="BRIQUETTING_SPEND_DROP" PopScp="BRIQUETTING_SPEND_POP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}아이템을 올려주세요{/}"/>
-		<richtext name="spendName" parent="spendMaterialBox" rect="0 0 120 24" margin="120 30 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18_ol" format="%s" param1="txt" param2="guid" param3="itemtype" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+		<richtext name="spendMainStr" parent="spendMaterialBox" rect="0 0 120 24" margin="20 0 0 0" layout_gravity="left top" caption="{@st42}외형 추출할 무기" drawbackground="false" fixwidth="false" fontname="white_18_ol" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+		<slot name="lookSlot" parent="spendMaterialBox" rect="0 0 70 70 " margin="20 30 0 0" layout_gravity="left top" DropScp="BRIQUETTING_SPEND_DROP" PopScp="BRIQUETTING_SPEND_POP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}아이템을 올려주세요{/}" enableselect="false"/>
+		<richtext name="spendName" parent="spendMaterialBox" rect="0 0 120 24" margin="105 55 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18_ol" format="%s" param1="txt" param2="guid" param3="itemtype" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>		
 		<!-- reqItemBox -->
-		<groupbox name="reqItemBox" parent="bg_mid" rect="0 0 430 170" margin="0 320 0 0" layout_gravity="left top" draw="false"/>
-		<richtext name="materialItemNameText" parent="reqItemBox" rect="0 0 100 30" margin="120 45 0 0" layout_gravity="left top" format="{@st66e}%s{/}" fontname="white_16_ol" param1="name"/>
-		<richtext name="reqitemname" parent="reqItemBox" rect="0 0 0 0" margin="20 0 0 0" layout_gravity="left top" caption="{@st42}소비 재료" drawbackground="false" fixwidth="false" fontname="white_18_ol" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-		<labelline name="repairLine1_1" parent="reqItemBox" rect="0 0 420 2" margin="0 25 0 0" layout_gravity="center top" skin="None"/>
-		<slot name="reqitem_slot" parent="reqItemBox" rect="0 0 78 78" margin="20 40 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" texttooltip="{@st59}아이템을 올려주세요{/}" skin="invenslot2"/>
-		<richtext name="materiaIimage" parent="reqitem_slot" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="center center" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-		<richtext name="materiaICount" parent="reqItemBox" rect="0 0 120 24" margin="0 70 20 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" param1_def="0" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-		<richtext name="metarialName" parent="reqItemBox" rect="0 0 120 24" margin="120 30 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-		<richtext name="remainStr" parent="reqItemBox" rect="0 0 120 24" margin="120 95 0 0" layout_gravity="left top" caption="소비 개수" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-		<richtext name="spendStr" parent="reqItemBox" rect="0 0 120 24" margin="120 70 0 0" layout_gravity="left top" caption="보유 개수" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-		<richtext name="spendCount" parent="reqItemBox" rect="0 0 120 24" margin="0 95 20 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" param1_def="0" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-		<richtext name="priceStaticText" parent="reqItemBox" rect="0 0 100 30" margin="20 140 0 0" layout_gravity="left top" caption="{img silver 20 20}가격" fontname="white_16_ol"/>
-		<richtext name="priceText" parent="reqItemBox" rect="0 0 200 30" margin="396 140 0 0" layout_gravity="left top" format="{@st66d_y}%s" param1="price" param1_def="0"/>
+		<groupbox name="reqItemBox" parent="bg_mid" rect="0 0 430 120" margin="0 320 0 0" layout_gravity="left top" draw="false"/>
+		<checkbox name="prCheck" parent="reqItemBox" rect="0 0 300 30" margin="20 0 0 0" layout_gravity="left top" caption="{@st42}포텐셜 소실 방지" LBtnUpScp="BRIQUETTING_CLICK_PR_CHECK"/>
+		<labelline name="repairLine1_1" parent="reqItemBox" rect="0 0 420 2" margin="0 35 0 0" layout_gravity="center top" skin="None"/>
+		<richtext name="priceStaticText" parent="reqItemBox" rect="0 0 100 30" margin="20 0 0 50" layout_gravity="left bottom" caption="{img silver 20 20}가격" fontname="white_16_ol"/>
+		<richtext name="priceText" parent="reqItemBox" rect="0 0 200 30" margin="396 0 20 50" layout_gravity="right bottom" format="%s%s" param1="style" param1_def="{@st66d_y}" param2="price" param2_def="0"/>
+		<richtext name="infoText" parent="reqItemBox" rect="0 0 200 30" margin="20 0 0 0" layout_gravity="left bottom" caption="포텐셜 소실 방지 체크 해제시 포텐셜이 감소합니다.{nl} 실버는 소모되지 않습니다." fontname="black_16"/>
 		<!-- look material item slotset -->
-		<slotset name="lookMatItemSlotset" parent="spendMaterialBox" rect="0 0 410 80" margin="0 150 0 0" layout_gravity="center top" dropsound="inven_equip" oversound="button_cursor_over_3" picksound="icon_pick_up" col="5" row="1" size="70 70" skin="invenslot2" spc="10 10" DropScp="BRIQUETTING_DROP_LOOK_MATERIAL_ITEM" PopScp="BRIQUETTING_POP_LOOK_MATERIAL_ITEM"/>
+		<slotset name="lookMatItemSlotset" parent="spendMaterialBox" rect="0 0 410 80" margin="0 150 0 0" layout_gravity="center top" dropsound="inven_equip" oversound="button_cursor_over_3" picksound="icon_pick_up" col="5" row="1" size="70 70" skin="invenslot2" spc="10 10" DropScp="BRIQUETTING_DROP_LOOK_MATERIAL_ITEM" PopScp="BRIQUETTING_POP_LOOK_MATERIAL_ITEM" enableselect="false"/>
+		<richtext name="matInfoText" parent="spendMaterialBox" rect="0 0 400 30" margin="0 240 0 0" layout_gravity="center top" caption="코어 또는 외형추출 할 무기와 동일한 아이템을 넣어주세요." fontname="black_16"/>
 	</controls>
 </uiframe>

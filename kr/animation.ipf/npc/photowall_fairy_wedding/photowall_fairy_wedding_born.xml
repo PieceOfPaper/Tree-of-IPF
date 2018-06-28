@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="3.08" soundFile="skl_eff_photowall_landing"/>
-    <Sound frame="18.00" soundFile="skl_eff_photowall_open"/>
+	<Particle frame="35" attachNode="Dummy_emitter" particleName="F_ground147_water2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect001_R" particleName="F_bg_butterfly005_blue2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect001_L" particleName="F_bg_butterfly005_blue2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect_004" particleName="F_bg_light014" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect002" particleName="F_bg_light014" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect003_L" particleName="F_bg_light014" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect003_R" particleName="F_bg_light014" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Eff_plane_BR04" particleName="F_bg_light014" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Eff_plane_BL04" particleName="F_bg_light014" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Eff_plane_FL01" particleName="F_bg_light014" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Eff_plane_FR01" particleName="F_bg_light014" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="45" attachNode="Dummy_effect001_R" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="45" attachNode="Dummy_effect001_L" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="4" attachNode="Dummy_dead_effect" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_root" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="14" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="29" attachNode="Dummy_root" particleName="F_spread_out030_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="29" attachNode="Dummy_effect002" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Eff_plane_MR04" particleName="F_bg_leaf003_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="3.08" soundFile="skl_eff_photowall_landing"/>
+	<Sound frame="18.00" soundFile="skl_eff_photowall_open"/>
 </ActionDesc>

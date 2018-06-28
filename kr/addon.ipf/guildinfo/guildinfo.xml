@@ -34,8 +34,8 @@
 							</layoutsection>
 							<layoutsection name="tabsection" size="320" parent="leftlayout">
 								<tab name="maintab" parent="tabsection" layout_gravity="center center" skin="tab4" margin="0 0 20 0" vertical="true" itemspc="1" targetcontrol="contents" fixwidth="false" autowidth="false">
-									<tabitem name="communitytab" parent="menutab" caption="{@st66b}커뮤니티{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="guildinfotab" parent="menutab" caption="{@st66b}길드 정보{/}" width="170" layout_gravity="left top"/>
+									<tabitem name="communitytab" parent="menutab" caption="{@st66b}커뮤니티{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="inventorytab" parent="menutab" caption="{@st66b}보관함{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="battletab" parent="menutab" caption="{@st66b}전투{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="optionTabItemText" parent="menutab" caption="{@st66b}설정{/}" width="170" layout_gravity="left top"/>
@@ -55,6 +55,9 @@
 										<layoutsection name="writeOnelineBoardSection" size="150">
 											<button name="writeOnelineBoardBtn" caption="{@st41b}글 작성" skin="test_red_button" LBtnUpScp="ui.OpenFrame(&quot;guildinfo_newthread&quot;)"/>
 											<!--한줄게시판 애드온 열기 -->
+										</layoutsection>
+										<layoutsection name="refreshCommunitySection" size="45">
+											<button name="updateOnelineboard" image="market_reset3_btn" fontname="white_16_b_ol" LBtnUpScp="REFRESH_BOARD" texttooltip="한줄게시판을 업데이트합니다."/>
 										</layoutsection>
 									</layout>
 								</layoutsection>
@@ -162,7 +165,7 @@
 										<layoutsection name="guildNoticeSection" size="40%">
 											<groupbox name="guildNoticeBox" draw="false" hittest="true">
 												<edit name="noticeEdit" skin="test_weight_skin" rect="0 0 543 80" margin="8 40 0 0" fontname="black_18" EnterKeyScp="SAVE_GUILD_NOTICE" fixwidth="true" maxlen="128"/>
-												<richtext name="guildNoticeText" rect="0 0 300 30" margin="10 5 0 0" layout_gravity="left top" caption="{@st43b}{s18}길드 공지{/}" fontname="white_16_b_ol"/>
+												<richtext name="guildNoticeText" rect="0 0 300 30" margin="10 5 0 0" layout_gravity="left top" caption="{@st43b}{s18}길드 소개글{/}" fontname="white_16_b_ol"/>
 												<button name="noticeRegisterBtn" rect="0 0 130 40" margin="0 0 0 0" layout_gravity="right top" skin="test_pvp_btn" caption="{@st66}{s18}등록{/}" fontname="brown_16" LBtnUpScp="SAVE_GUILD_NOTICE"/>
 											</groupbox>
 										</layoutsection>

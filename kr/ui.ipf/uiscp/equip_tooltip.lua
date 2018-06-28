@@ -1348,6 +1348,7 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 	local transcend_flag = 0
 	local extract_flag = 0
 	local socket_flag = 0
+	local briquet_flag = 0;
 	local text = ""
 
 	if REINFORCE_ABLE_131014(invitem) == 0 then
@@ -1356,6 +1357,11 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 
 	if IS_TRANSCEND_ABLE_ITEM(invitem) == 0 then
 		transcend_flag = 1
+	end
+    
+
+	if IS_VALID_LOOK_ITEM(invitem) == false then
+	    briquet_flag = 1;
 	end
 
 	local itemClass = GetClassByType("Item", invitem.ClassID);
@@ -1367,7 +1373,7 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 		socket_flag = 1
 	end
 
-	if reinforce_flag == 0 and transcend_flag == 0 and extract_flag == 0 and socket_flag == 0 then
+	if reinforce_flag == 0 and transcend_flag == 0 and extract_flag == 0 and socket_flag == 0 and briquet_flag == 0 then
 		return yPos
 	end
 
@@ -1414,7 +1420,16 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 			text = text .. text_temp
 		end
 	end
-
+    
+    if briquet_flag == 1 then
+		local text_temp = CSet:GetUserConfig("BRIQUET_TEXT")
+		if reinforce_flag == 1 or transcend_flag == 1 or extract_flag == 1 or socket_flag == 1 then
+			text = text .. ', ' .. text_temp
+		else
+			text = text .. text_temp
+		end
+	end
+	
 	socket_text:SetText(text)
 
 	local bottomMargin = CSet:GetUserConfig("BOTTOM_MARGIN");

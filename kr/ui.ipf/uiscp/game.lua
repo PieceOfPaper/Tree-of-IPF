@@ -2082,6 +2082,11 @@ function ITEM_EQUIP_MSG(item, slotName)
 	if true == BEING_TRADING_STATE() then
 		return;
 	end
+	
+	local itemCls = GetIES(item:GetObject());
+	if itemCls.EqpType == "HELMET" and slotName == "HAIR" then
+		slotName = "HELMET";
+	end
 
 	local strscp = string.format("item.Equip(%d)", item.invIndex);
 	if slotName ~= nil then
@@ -2801,7 +2806,7 @@ function ITEM_ENTER_COMMON_EFFECT(invitem, equipItem, strarg)
 end
 
 function SCR_ITEM_FIELD_TOOLTIP(itemObj, handle, itemType)
-	-- »èÁ¦
+	-- ï¿½ï¿½ï¿½ï¿½
 end
 
 function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
@@ -4129,7 +4134,7 @@ function JOYSTICK_INPUT()
 		quickFrame:ShowWindow(0);
 		restquickslot:ShowWindow(0);
 
-		-- ê¸°ì¡´ set ? ì?.
+		-- ê¸°ì¡´ set ?ï¿½ï¿½?.
 		if Set2:IsVisible() == 1 then 
 			Set1:ShowWindow(0);
 			Set2:ShowWindow(1);

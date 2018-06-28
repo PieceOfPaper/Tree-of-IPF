@@ -1228,6 +1228,177 @@
 				</Job>
 			</Motion>
 		</Class>
+		<Class Costume="piedpiper01_sp">
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="piedpiper02_sp">
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="piedpiper02_red_sp">
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="piedpiper02_yellow_sp">
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="exorcist01_sp">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="false" hiddenObj="false" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="false" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="false" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="false" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="false" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="true" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="true" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
 	</Gender>
 	<Gender Name="Female">
 		<Class Costume="weddingdress01">
@@ -2651,6 +2822,177 @@
 						<Particle frame="13" attachNode="None" particleName="F_light145_gold_dog2" useAttach="false" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="0"/>
 						<Particle frame="15" attachNode="None" particleName="F_light145_gold_dog2" useAttach="false" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="0"/>
 						<Particle frame="17" attachNode="None" particleName="F_light145_gold_dog2" useAttach="false" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="piedpiper01_sp">
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="piedpiper02_sp">
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="piedpiper02_red_sp">
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="piedpiper02_yellow_sp">
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="exorcist01_sp">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="false" hiddenObj="false" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="false" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="false" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="false" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="false" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="true" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="true" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>

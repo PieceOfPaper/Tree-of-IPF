@@ -665,9 +665,15 @@ function SCR_Get_MON_MINPATK(self)
     
     value = value * (byATKRate * raceTypeRate);
     
-    local byBuff = TryGetProp(self, "PATK_BM");
-    if byBuff == nil then
-        byBuff = 0;
+    local byBuff = 0;
+    local byBuffList = { "PATK_BM", "MINPATK_BM" };
+    for i = 1, #byBuffList do
+        local byBuffTemp = TryGetProp(self, byBuffList[i]);
+        if byBuffTemp == nil then
+            byBuffTemp = 0;
+        end
+        
+        byBuff = byBuff + byBuffTemp;
     end
     
     local rateBuffList = {'PATK_RATE_BM', 'MINPATK_RATE_BM' };
@@ -748,9 +754,15 @@ function SCR_Get_MON_MAXPATK(self)
     
     value = value * (byATKRate * raceTypeRate);
     
-    local byBuff = TryGetProp(self, "PATK_BM");
-    if byBuff == nil then
-        byBuff = 0;
+    local byBuff = 0;
+    local byBuffList = { "PATK_BM", "MAXPATK_BM" };
+    for i = 1, #byBuffList do
+        local byBuffTemp = TryGetProp(self, byBuffList[i]);
+        if byBuffTemp == nil then
+            byBuffTemp = 0;
+        end
+        
+        byBuff = byBuff + byBuffTemp;
     end
     
     local rateBuffList = {'PATK_RATE_BM', 'MAXPATK_RATE_BM' };
@@ -831,9 +843,15 @@ function SCR_Get_MON_MINMATK(self)
     
     value = value * (byATKRate * raceTypeRate);
     
-    local byBuff = TryGetProp(self, "MATK_BM");
-    if byBuff == nil then
-        byBuff = 0;
+    local byBuff = 0;
+    local byBuffList = { "MATK_BM", "MINMATK_BM" };
+    for i = 1, #byBuffList do
+        local byBuffTemp = TryGetProp(self, byBuffList[i]);
+        if byBuffTemp == nil then
+            byBuffTemp = 0;
+        end
+        
+        byBuff = byBuff + byBuffTemp;
     end
     
     local rateBuffList = {'MATK_RATE_BM', 'MINMATK_RATE_BM' };
@@ -917,9 +935,15 @@ function SCR_Get_MON_MAXMATK(self)
     
     value = value * (byATKRate * raceTypeRate);
     
-    local byBuff = TryGetProp(self, "MATK_BM");
-    if byBuff == nil then
-        byBuff = 0;
+    local byBuff = 0;
+    local byBuffList = { "MATK_BM", "MAXMATK_BM" };
+    for i = 1, #byBuffList do
+        local byBuffTemp = TryGetProp(self, byBuffList[i]);
+        if byBuffTemp == nil then
+            byBuffTemp = 0;
+        end
+        
+        byBuff = byBuff + byBuffTemp;
     end
     
     local rateBuffList = {'MATK_RATE_BM', 'MAXMATK_RATE_BM' };

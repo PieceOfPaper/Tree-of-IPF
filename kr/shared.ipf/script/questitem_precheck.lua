@@ -5445,7 +5445,7 @@ end
 
 --Escape_Orb
 function SCR_PRE_ITEM_Escape(self, argObj, BuffName, arg1, arg2)
-    if GetLayer(self) ~= 0 then
+    if GetLayer(self) ~= 0 or IsUsingSkill(self) == 1 then
         SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("EscapeDisabled"), 5)
         return 0;
     else
