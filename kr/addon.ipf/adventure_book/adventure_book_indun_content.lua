@@ -28,7 +28,7 @@ function ADVENTURE_BOOK_INDUN_CONTENT.INDUN_INFO(indunClsID)
 	local startMapClsNameList = StringSplit(startMapClsNames, "/");
 	for i = 1, #startMapClsNameList do
 		local startMapCls = GetClass("Map", startMapClsNameList[i]);
-		local startMapName = TryGetProp(startMapCls, "Name")
+		local startMapName = TryGetProp(startMapCls, "Name", 'None')
 		retTable['location'] = retTable['location'] .. startMapName;
 		if i ~= #startMapClsNameList then
 			retTable['location'] = retTable['location'] .. " / ";
@@ -56,7 +56,7 @@ function ADVENTURE_BOOK_INDUN_CONTENT.SORT_NAME_BY_CLASSID_DES(a, b)
 end
 
 function ADVENTURE_BOOK_INDUN_CONTENT.FILTER_LIST(list, sortOption, categoryOption, searchText)
-	if categoryOption == 1 then
+	if categoryOption == 1 then    
 		list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Indun", "Category", ClMsg('IndunDungeon'))
 	elseif categoryOption == 2 then
 		list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Indun", "Category", ClMsg('IndunMission'))
@@ -71,9 +71,9 @@ function ADVENTURE_BOOK_INDUN_CONTENT.FILTER_LIST(list, sortOption, categoryOpti
 	elseif categoryOption == 7 then
 		list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Indun", "Category", ClMsg('IndunRaid'))
 	end
-
-	list = ADVENTURE_BOOK_SEARCH_PROP_BY_CLASSID_FROM_LIST(list, "Indun", "Name", searchText)
-
+    
+	list = ADVENTURE_BOOK_SEARCH_PROP_BY_CLASSID_FROM_LIST(list, "Indun", "Name", searchText)    
+    
 	if sortOption == 0 then
         table.sort(list, ADVENTURE_BOOK_INDUN_CONTENT['SORT_NAME_BY_CLASSID_ASC']);
 	elseif sortOption == 1 then

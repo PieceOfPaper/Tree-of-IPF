@@ -5,6 +5,19 @@ function INDUNINFO_ON_INIT(addon, frame)
     g_selectedIndunTable = {};
 end
 
+g_indunCategoryList = nil;
+function PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(cateType)
+    if g_indunCategoryList == nil then        
+        g_indunCategoryList ={100, 10000, 400, 200, 300, 500};
+    end
+    for i = 1, #g_indunCategoryList do
+        if g_indunCategoryList[i] == cateType then
+            return;
+        end
+    end
+    g_indunCategoryList[#g_indunCategoryList + 1] = cateType;
+end
+
 function UI_TOGGLE_INDUN()
     if app.IsBarrackMode() == true then
         return;
@@ -46,6 +59,8 @@ function INDUNINFO_CREATE_CATEGORY(frame)
             local category = indunCls.Category;
             local categoryCtrl = categoryBox:GetChild('CATEGORY_CTRL_'..resetGroupID);
             if categoryCtrl == nil and category ~= 'None' then
+                PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(resetGroupID);
+
                 resetGroupTable[resetGroupID] = 1;                
                 categoryCtrl = categoryBox:CreateOrGetControlSet('indun_cate_ctrl', 'CATEGORY_CTRL_'..resetGroupID, 0, i*50);
 
@@ -81,7 +96,7 @@ function INDUNINFO_CREATE_CATEGORY(frame)
     INDUNINFO_CATEGORY_ALIGN_DEFAULT(categoryBox);
 
     -- set the number of indun
-    for resetGroupID, numIndun in pairs(resetGroupTable) do    
+    for resetGroupID, numIndun in pairs(resetGroupTable) do
         local categoryCtrl = categoryBox:GetChild('CATEGORY_CTRL_'..resetGroupID);
         local name = categoryCtrl:GetChild('name');
         name:SetTextByKey('cnt', numIndun);
@@ -91,8 +106,27 @@ function INDUNINFO_CREATE_CATEGORY(frame)
     INDUNINFO_CATEGORY_LBTN_CLICK(firstBtn:GetParent(), firstBtn);
 end
 
-function INDUNINFO_CATEGORY_ALIGN_DEFAULT(categoryBox)    
-    GBOX_AUTO_ALIGN(categoryBox, 0, -6, 0, true, false);
+function INDUNINFO_CATEGORY_ALIGN_DEFAULT(categoryBox)
+    local frame = categoryBox:GetTopParentFrame();
+    local selectedGroupID = frame:GetUserIValue('SELECT');
+    local y = 0;
+    local spacey = -6;
+    for i = 1, #g_indunCategoryList do
+        local resetGroupID = g_indunCategoryList[i];
+        local categoryCtrl = GET_CHILD_RECURSIVELY(categoryBox, 'CATEGORY_CTRL_'..resetGroupID);
+        if categoryCtrl ~= nil then
+            categoryCtrl:SetOffset(categoryCtrl:GetX(), y);            
+            y = y + categoryCtrl:GetHeight() + spacey;
+        end
+
+        if resetGroupID == selectedGroupID then
+            local indunListBox = GET_CHILD(categoryBox, 'INDUN_LIST_BOX');
+            if indunListBox ~= nil then
+                indunListBox:SetOffset(indunListBox:GetX(), y);                
+                y = y + indunListBox:GetHeight() + spacey;
+            end
+        end
+    end
 end
 
 function INDUNINFO_RESET_USERVALUE(frame)
@@ -179,17 +213,6 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
 
     -- category box align
     INDUNINFO_CATEGORY_ALIGN_DEFAULT(categoryBox);
-    indunListBox:SetOffset(categoryCtrl:GetX(), categoryCtrl:GetY() + categoryCtrl:GetHeight() - 5);
-    local listBoxSize = indunListBox:GetHeight();
-    local selectedCtrlIndex = categoryBox:GetChildIndex(categoryCtrl:GetName());
-    local childCount = categoryBox:GetChildCount();
-    for i = selectedCtrlIndex + 1, childCount - 1 do
-        local _categoryCtrl = categoryBox:GetChildByIndex(i);
-        local resetGroupID = _categoryCtrl:GetUserIValue('RESET_GROUP_ID');
-        if resetGroupID ~= 0 and resetGroupID ~= selectedResetGroupID then
-            _categoryCtrl:SetOffset(_categoryCtrl:GetX(), _categoryCtrl:GetY() + listBoxSize);
-        end 
-    end
     INDUNINFO_SORT_BY_LEVEL(topFrame);
 end 
     
