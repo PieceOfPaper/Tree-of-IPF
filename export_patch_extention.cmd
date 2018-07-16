@@ -16,21 +16,18 @@ set ExtractPath=%cd%\extract
 set ExportPath=%cd%\%2
 
 
+cd %TosPath%\patch
+dir /od /b > %RootPath%\ipflist_patch.txt
 
-echo F|xcopy /y "%TosPath%\patch\*.ipf" "%TempPath%\patch\*.ipf"
 
-cd %TempPath%\patch
-dir /s /b > %RootPath%\ipflist_patch.txt
-
-pause
-
+cd %RootPath%
 for /f %%a in (ipflist_patch.txt) do (
 	cd %RootPath%
 	echo F|xcopy /y "%TosPath%\patch\%%a" "%TempPath%\patch\%%a"
 	%RootPath%\ipf_unpack.exe %TempPath%\patch\%%a decrypt
 	%RootPath%\ipf_unpack.exe %TempPath%\patch\%%a extract %3
 	
-	xcopy /y /s "%ExtractPath%" "%ExportPath%"
+	xcopy /y /s "%ExtractPath%\*.%3" "%ExportPath%\*.%3"
 	
 	cd %RootPath%
 	del /s /q Temp
@@ -38,7 +35,7 @@ for /f %%a in (ipflist_patch.txt) do (
 	
 	cd %ExportPath%
 	git add --all
-	git commit -m "Patch %%a"
+	git commit -m "Patch %%a %3"
 	git push
 )
 

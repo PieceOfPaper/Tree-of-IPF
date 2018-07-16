@@ -22,7 +22,7 @@ for /f %%a in (ipflist_patch.txt) do (
 	cd %RootPath%
 	echo F|xcopy /y "%TosPath%\patch\%%a" "%TempPath%\patch\%%a"
 	%RootPath%\ipf_unpack.exe %TempPath%\patch\%%a decrypt
-	%RootPath%\ipf_unpack.exe %TempPath%\patch\%%a extract ies xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3
+	%RootPath%\ipf_unpack.exe %TempPath%\patch\%%a extract ies xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3 pathengine
 	
 	xcopy /y /s "%ExtractPath%" "%ExportPath%"
 	
