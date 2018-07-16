@@ -60,6 +60,9 @@
                             <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
                                 <Num Num="0"/>
                             </ToolScp>
+                        <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
@@ -150,20 +153,20 @@
             <Stage Name="Success" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="미션 성공!{nl}60초 후에 돌아갑니다"/>
+                        <Str Str="미션 성공!{nl}30초 후에 돌아갑니다"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="미션 성공!{nl}60초 후에 돌아갑니다"/>
+                        <Str Str="미션 성공!{nl}30초 후에 돌아갑니다"/>
                         <Str Str="Clear"/>
                         <Num Num="10"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
-                    <Event execCount="1" eventName="successsec60">
+                    <Event execCount="1" eventName="successsec30">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="30"/>
                             </ToolScp>
                         </condList>
                         <execList>

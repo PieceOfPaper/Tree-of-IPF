@@ -2265,8 +2265,7 @@ function CHANGE_GUILD_NAME_BY_ITEM(invItem)
     INPUT_STRING_BOX(ClMsg("ChangeGuildName"), "EXEC_CHANGE_NAME_BY_ITEM", charName, 0, 16);
 end
 
-function EXEC_CHANGE_NAME_BY_ITEM(inputframe, ctrl)
-
+function EXEC_CHANGE_NAME_BY_ITEM(inputframe, ctrl)    
     if ctrl:GetName() == "inputstr" then
         inputframe = ctrl;
     end
@@ -2277,8 +2276,7 @@ function EXEC_CHANGE_NAME_BY_ITEM(inputframe, ctrl)
 
     local changedName = GET_INPUT_STRING_TXT(newframe);
 
-    if ui.IsValidCharacterName(changedName) == false then
-        ui.SysMsg(ClMsg("HadFobbidenWord"));
+    if ui.IsValidCharacterName(changedName) == false then        
         return;
     end
 

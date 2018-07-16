@@ -3063,7 +3063,10 @@
 				<Str_Arg Str="F_explosion086_ice" Arg="1"/>
 				<Str Str="BOT"/>
 			</ToolScp>
-		</DeadList>
+		<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_CMINE8_CRYSTAL_DEAD"/>
+            </ToolScp>
+        </DeadList>
 	</AI>
 	<AI Name="CMINE8_JUKEBOX_BIRTH" UpdateMS="2000" ActiveMessageMapInBattle="1">
 		<List>
@@ -10766,2246 +10769,2281 @@ if self.HP == 0 then return 1; else return 0; end;">
 			<ToolScp Scp="SAI_DAMAGE_UI_FORCE" Client="NO" UseSleep="NO" CondFunc="
 
 if self.HP == 0 then return 1; else return 0; end;">
-				<Num Num="2"/>
-				<Num Num="1"/>
-				<Str Str="coin_force"/>
-				<Str Str="icon_item_gold"/>
-				<Num Num="0.5"/>
-				<Str Str="mcy_buyitem"/>
-				<Str Str="COIN_icon"/>
-				<Num Num="1"/>
-			</ToolScp>
-		</HitList>
-	</AI>
-	<AI Name="MFEG_2_STAGE_NPC_AGAILA_2_N" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="64.334679" Y="11.2118" Z="226.13828"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="12.480484" Y="68.051201" Z="937.90424"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-536.64984" Y="14.4972" Z="675.08771"/>
-			</ToolScp>
-			<ToolScp Scp="Kill" Client="NO" UseSleep="NO"/>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_light004_blue2" Arg="5"/>
-				<Str Str="TOP"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MFEG_2_STAGE_NPC_AGAILA_2_S" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="1423.7135" Y="-83.085503" Z="173.31007"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="1428.2731" Y="-38.151505" Z="-436.23434"/>
-			</ToolScp>
-			<ToolScp Scp="Kill" Client="NO" UseSleep="NO"/>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_light004_blue2" Arg="5"/>
-				<Str Str="TOP"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MFEG_3_STAGE_NPC_HAUBERK" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="MFEG_3_STAGE_NPC_HAUBERK"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="3000"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str Str="HPLock"/>
-				<Num Num="5000"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="100"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MINE_1_CRYSTAL_2_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="MINE_1_CRYSTAL_2_AI_RUNAWAY"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="MINE_1_CRYSTAL_2_AI_RUNAWAY_1"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-		<DeadList>
-			<ToolScp Scp="S_AI_DEAD_REMOVE_BUFF" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str Str="MINE_1_CRYSTAL_2_BUFF"/>
-			</ToolScp>
-		</DeadList>
-		<HitList>
-			<ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
-				<Str Str="MINE_1_CRYSTAL_2_AI_LASTATTACKER"/>
-			</ToolScp>
-		</HitList>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str Str="MINE_1_CRYSTAL_2_BUFF"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="100"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MINE_3_DEFENCE1_mini" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="180"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-414.50244" Y="183.84085" Z="-868.84332"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="MINIGAME_REMAIN_DEVICE" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="REMAIN_MISSION_MON_CREATE"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="MISSION_ABBEY_01_1_1_1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="983.55078" Y="144.74634" Z="-570.41992"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="641.12958" Y="144.72189" Z="-617.52228"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="987.47089" Y="144.72189" Z="-749.50159"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="654.09546" Y="144.72189" Z="-889.06519"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="978.35406" Y="144.72189" Z="-751.22876"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="651.80774" Y="144.72189" Z="-616.79816"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="970.82727" Y="144.74345" Z="-571.1886"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="655.73352" Y="144.72189" Z="-480.98752"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_smoke008_red" Arg="1"/>
-				<Str Str="MID"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MISSION_ABBEY_01_1_1_2" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="631.89899" Y="144.72189" Z="-817.96307"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="988.67383" Y="144.72189" Z="-736.3075"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="633.04126" Y="144.72189" Z="-602.26141"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="982.56915" Y="144.76524" Z="-471.14114"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="649.67749" Y="144.72189" Z="-603.52264"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="974.8905" Y="144.72189" Z="-736.98578"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="645.0274" Y="144.72189" Z="-818.40649"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="966.26715" Y="144.72189" Z="-912.98053"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-			<ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-				<Num Num="1500"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_smoke008_red" Arg="1"/>
-				<Str Str="MID"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MISSION_ABBEY_01_1_2_1" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_smoke008_red" Arg="1.5"/>
-				<Str Str="MID"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MISSION_ABBEY_01_1_2_2" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_cleric_melstis_loop_levitation" Arg="1"/>
-				<Str Str="MID"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MISSION_ABBEY_01_2_2_1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="500"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-1288.3168" Y="144.85426" Z="311.06808" Random="40"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="MISSION_ABBEY_01_3_1" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_smoke008_red" Arg="1"/>
-				<Str Str="MID"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MISSION_CATACOMB_HALLOWEEN_AI1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="300"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="8.4097319" Y="102.038" Z="-121.0056" Random="140"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="MISSION_CMINE_02_STAGE1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="200"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="136.39001" Y="208.9729" Z="1660.8881" Random="80"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_EVENT_1708_JURATE_AI" ActiveMessageMapInBattle="1"/>
-	<AI Name="MISSION_EVENT_1708_JURATE_AI1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="300"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="990.83185" Y="-96.077591" Z="-1198.601" Random="190" Height="1"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="MISSION_EVENT_1805_WEDDING2_AI1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
-				<Num Num="60"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="97.527878" Y="0.79278564" Z="46.892784" Random="30" Height="1"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="MISSION_GUILD_WHITETREE_DEFFENSE_L1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="GM_WHITETREES_MON_BUFF_CHECK_AI"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
-				<Num Num="120"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-962.8634" Y="55.401443" Z="563.52966" Random="30" Height="1"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-646.41699" Y="21.901123" Z="913.95862" Random="130" Height="1"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-317.13342" Y="23.1401" Z="712.38251" Random="10"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-56.955227" Y="24.076876" Z="484.58087" Random="120" Height="2"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-258.39825" Y="35.114265" Z="137.92668" Random="10" Height="1"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-439.89102" Y="39.635559" Z="-198.43622" Random="100" Height="3"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_GUILD_WHITETREE_DEFFENSE_L2" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="GM_WHITETREES_MON_BUFF_CHECK_AI"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
-				<Num Num="120"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="73.478409" Y="49.656643" Z="910.5733" Random="20" Height="1"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-16.030802" Y="24.063786" Z="506.84482" Random="130" Height="2"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-234.0675" Y="32.30748" Z="178.815" Random="10" Height="1"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-429.68134" Y="39.635559" Z="-161.442" Random="100" Height="3"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_GUILD_WHITETREE_DEFFENSE_L3" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="GM_WHITETREES_MON_BUFF_CHECK_AI"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
-				<Num Num="120"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="485.33582" Y="45.843872" Z="-575.35962" Random="30"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="244.63792" Y="63.968124" Z="-561.4364" Random="30" Height="1"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="43.348038" Y="64.653229" Z="-564.31219" Random="110" Height="2"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-157.26256" Y="54.233501" Z="-381.10632" Random="20" Height="1"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-383.8497" Y="39.635559" Z="-155.42284" Random="90" Height="3"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_GUILD_WHITETREE_DEFFENSE_L4" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="GM_WHITETREES_MON_BUFF_CHECK_AI"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
-				<Num Num="120"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-245.63203" Y="33.245533" Z="166.55739" Random="20" Height="2"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-435.61514" Y="39.635559" Z="-186.61893" Random="110" Height="3"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-		</StartList>
-	</AI>
-	<AI Name="MISSION_GUILD_WHITETREE_DEFFENSE_L5" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="GM_WHITETREES_MON_BUFF_CHECK_AI"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
-				<Num Num="120"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-436.91766" Y="39.635559" Z="-184.04192" Random="90" Height="3"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-		</StartList>
-	</AI>
-	<AI Name="MISSION_NUNNERY_01_AI1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="300"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-63.412392" Y="0.66627055" Z="-311.53839" Random="60" Height="1"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-616.27667" Y="-98.535416" Z="1111.3218"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-477.55215" Y="-98.535416" Z="720.90881"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-451.08707" Y="-98.535416" Z="1122.9241"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-350.21338" Y="-98.535416" Z="741.12659"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-255.87529" Y="-98.535416" Z="1092.8116"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-204.64552" Y="-98.535416" Z="800.20209"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-270.03513" Y="-98.535416" Z="1044.2397"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-356.51608" Y="-98.535416" Z="749.82526"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-569.74567" Y="-98.535416" Z="1135.7905"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-524.47839" Y="-98.535416" Z="727.99524"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-657.4762" Y="-98.535416" Z="1096.2913"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-667.07935" Y="-98.535416" Z="701.97821"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL2" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-4.2571068" Y="-68.644081" Z="1139.4963"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="127.96015" Y="-68.644081" Z="835.61084"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="181.97496" Y="-68.644081" Z="1163.1843"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="238.82935" Y="-68.644081" Z="851.38312"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="298.27673" Y="-68.644081" Z="1199.1731"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="374.71814" Y="-68.644081" Z="886.06995"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="443.39279" Y="-68.644089" Z="1160.5576"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="476.00183" Y="-68.613159" Z="911.43408"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="573.69086" Y="-68.644081" Z="1174.0162"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="640.41278" Y="-68.644081" Z="968.15588"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="552.62915" Y="-68.644081" Z="1137.8289"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="535.99463" Y="-68.644081" Z="939.4007"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="374.93777" Y="-68.644081" Z="1180.6423"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="378.56857" Y="-68.644081" Z="896.46222"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="246.67751" Y="-68.644081" Z="1186.7754"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="253.92288" Y="-68.644081" Z="861.61804"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="104.53617" Y="-68.644081" Z="1154.4629"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="73.183662" Y="-68.560638" Z="836.10638"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL3" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-238.75856" Y="-98.535416" Z="1065.3196"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-743.57141" Y="-98.535416" Z="983.76697"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL4" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-746.34277" Y="-98.535416" Z="931.88403"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-188.58548" Y="-98.535416" Z="948.24237"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL5" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-177.05698" Y="-97.910629" Z="868.14893"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-695.14807" Y="-98.535416" Z="799.36603"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL6" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="56.905598" Y="-68.616371" Z="879.88873"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="628.08337" Y="-68.644081" Z="930.29199"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL7" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="602.50909" Y="-68.644089" Z="1023.9434"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="41.370472" Y="-68.644081" Z="984.37805"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL8" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="21.889408" Y="-68.644081" Z="1106.8254"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="590.38684" Y="-68.644089" Z="1083.1141"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL9" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="564.33069" Y="-68.644081" Z="1188.3778"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="47.081299" Y="-68.644089" Z="1145.6895"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
-		</List>
-	</AI>
-	<AI Name="MISSION_UPHILL_DEFFENSE_L1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
-				<Num Num="80"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="9.7501478" Y="-52.850281" Z="-600.95593" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="57.196621" Y="-52.850281" Z="-549.33337" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-300.45721" Y="-40.501389" Z="-182.26846" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-213.19989" Y="-6.302063" Z="-104.76125" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-162.64294" Y="-3.8374557" Z="-150.5554" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-198.66316" Y="-3.8374557" Z="-190.21982" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="72.853241" Y="-3.8374557" Z="-460.23938"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="117.88454" Y="-3.8374557" Z="-420.875"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-94.590836" Y="34.821693" Z="-203.1367"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-55.380245" Y="34.821693" Z="-163.38237"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="88.048622" Y="74.637917" Z="-302.9671"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="187.37816" Y="80.12394" Z="-154.57808" Random="60"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-		<StartList>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_UPHILL_DEFFENSE_SCRIPT_SETTING"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MISSION_UPHILL_DEFFENSE_L2" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
-				<Num Num="80"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-91.256287" Y="-59.304512" Z="483.26495" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-3.5623322" Y="-55.006172" Z="411.99811" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-373.69189" Y="-47.314697" Z="30.907291" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-326.69757" Y="-47.192238" Z="-61.166855" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="73.834778" Y="8.8316422" Z="308.14258" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="123.93778" Y="12.336159" Z="253.12532" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-150.21111" Y="12.336159" Z="-54.746956" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-99.072952" Y="12.336159" Z="-100.43547" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="121.77676" Y="68.160576" Z="108.24173" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="168.24841" Y="75.635017" Z="66.110847" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="83.81871" Y="75.635017" Z="-24.622482" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="180.12663" Y="80.12394" Z="-155.55528" Random="50" Height="1"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-		<StartList>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_UPHILL_DEFFENSE_SCRIPT_SETTING"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MISSION_UPHILL_DEFFENSE_L3" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
-				<Num Num="80"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="615.44446" Y="-40.435463" Z="98.403275" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="546.32635" Y="-40.435463" Z="76.832352" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="142.24106" Y="-24.448402" Z="465.22342" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="105.89256" Y="-24.448402" Z="422.28116" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="253.92166" Y="-1.1043572" Z="263.53207" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="170.53372" Y="32.204292" Z="161.09406" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="233.02396" Y="32.204292" Z="104.43022" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="314.51389" Y="32.204292" Z="192.7847" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="528.22229" Y="32.204292" Z="-12.900013" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="479.68262" Y="32.204292" Z="-56.262642" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="341.55582" Y="74.610336" Z="75.793648" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="295.05185" Y="74.610329" Z="28.387896" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="363.62964" Y="74.610329" Z="-28.628233" Random="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="185.00041" Y="80.12394" Z="-159.09885" Random="60"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-		<StartList>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_UPHILL_DEFFENSE_SCRIPT_SETTING"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MISSION_UPHILL_GIMMICKOBJ1" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_wizard_BRIQUETTING_STEP1_fire_loop" Arg="2"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MODPAT_CHAT_FLOW_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="5"/>
-				<Num Num="5"/>
-				<Num Num="5"/>
-				<Num Num="170"/>
-				<Num Num="1"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MODPAT_DEV_AI_LASTATTACKER" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="MODPAT_DEV_AI_RUNAWAY"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="MODPAT_DEV_AI_RUNAWAY_1"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-		<HitList>
-			<ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
-				<Str Str="MODPAT_DEV_AI_LASTATTACKER"/>
-			</ToolScp>
-		</HitList>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-		</StartList>
-	</AI>
-	<AI Name="MODPAT_FOLLOW_AI1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FOLLOW_POS" Client="NO" UseSleep="YES">
-				<Num Num="25"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="MONGEN_TIMER" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="MONGEN_TIMER"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="MONSTER_GEN_GIMMIC_EVENT_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="MONSTER_GEN_GIMMIC_EVENT_AI_UPDATE"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="MONSTER_PAIR_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="MONSTER_PAIR_RUN"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="MONSTER_PAIR_JUDGE"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="MONSTER_PAIR_SUMMON"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="MON_DUMMY" UpdateMS="100000" ActiveMessageMapInBattle="1"/>
-	<AI Name="MOVE_SOLDIER" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="MOVE_SOLDIER_KILL"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="MOVING_TRAP_FALL" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_FIXED_ANI" Client="NO" UseSleep="NO">
-				<Str Str="FALLDOWN"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="M_GELE_STAGE6_BOSS_1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="M_GELE_STAGE6_BOSS_HP_CK"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="250"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-843.34265" Y="338.02151" Z="310.0033" Random="60" Height="1"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="M_GELE_STAGE6_BOSS_2" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-835.22559" Y="338.02151" Z="292.90689" Random="60"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="M_GELE_STAGE6_BOSS_BUFF"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="M_GELE_STAGE6_CREATE_MONSTER"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
-				<Str Str="stun"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="M_GELE_STAGE6_BOSS_3" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
-				<Num Num="20"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Normal"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="Mon_Worg" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_CHAT" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str Str="아우우우~~"/>
-				<Num Num="2"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="Mon_\Worg" ActiveMessageMapInBattle="1"/>
-	<AI Name="NECRO_DIRTYWALL" ActiveMessageMapInBattle="1">
-		<HitList>
-			<ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
-				<Str Str="SCR_DIRTYWALL_HIT"/>
-			</ToolScp>
-		</HitList>
-	</AI>
-	<AI Name="NONE_SIMPLE_AI" ActiveMessageMapInBattle="1"/>
-	<AI Name="NO_OWNER_DEAD_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_NO_OWNER_DEAD_AI"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="NPC_ALPHABLANDER" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="150"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="10"/>
-				<Num Num="130"/>
-				<Num Num="255"/>
-				<Num Num="150"/>
-				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="NPC_ALPHABLANDER02" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_buff_basic025_white_line" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</DeadList>
-		<StartList>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="10"/>
-				<Num Num="130"/>
-				<Num Num="255"/>
-				<Num Num="150"/>
-				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="OBJECT_HIT_MOVE_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="OBJECT_HIT_MOVE_AI_UPDATE"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Str_Arg Str="None" Arg="1"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_explosion013" Arg="1"/>
-				<Str Str="MID"/>
-			</ToolScp>
-		</DeadList>
-		<HitList>
-			<ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
-				<Str Str="OBJECT_HIT_MOVE_AI_HIT"/>
-			</ToolScp>
-		</HitList>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-		</StartList>
-	</AI>
-	<AI Name="OBJECT_HIT_MOVE_COMPLETE_NPC_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="GOAL_OBJECT_AI_UPDATE"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="OKAS25_BITERE_AI" ActiveMessageMapInBattle="1"/>
-	<AI Name="ONMYOJI_MSTEP2_GEN_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_CHAR220_MSETP2_GEN_AI"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD323_EVIL_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_levitation005_dark_blue" Arg="1.5"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD323_EVIL_TRACK" ActiveMessageMapInBattle="1">
-		<HitList>
-			<ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD323_EVIL_TRACK_HIT"/>
-			</ToolScp>
-		</HitList>
-		<StartList>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD323_EVIL_TRACK"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD323_GIRL_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD323_GIRL_REMOVE"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD323_GIRL_DISTANCE"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="ORCHARD323_HIDDENQ1_AI" ActiveMessageMapInBattle="1">
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD323_HIDDENQ1_AI_DEAD"/>
-			</ToolScp>
-		</DeadList>
-		<StartList>
-			<ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-				<Num Num="4"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD323_MQ_05_BOSS" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="500"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD323_MQ_05_BOSS"/>
-			</ToolScp>
-		</DeadList>
-	</AI>
-	<AI Name="ORCHARD323_TRACE_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_spread_out001_light" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD324_BINDIG_EFF" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_ground001_yellow_loop" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD324_DARK_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_spread_out003_darkblue" Arg="10"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD324_DRAIN_EFF_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_pattern008_violet_loop" Arg="2"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD324_EVIL_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_levitation005_dark_blue" Arg="1.5"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD324_KRUVINA_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_light096_red_loop" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD324_LADA2_EFF" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_cleric_barrier_ground" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_bg_light009_yellow" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD324_RED_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_light003_red" Arg="6"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD342_FERRET_AI" ActiveMessageMapInBattle="1">
-		<HitList>
-			<ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD342_FERRET_HIT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_DAMAGE_ADDHATE" Client="NO" UseSleep="NO">
-				<Num Num="1"/>
-			</ToolScp>
-		</HitList>
-		<StartList>
-			<ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-				<Num Num="4"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD342_HOLY_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_force036_green1" Arg="5"/>
-				<Str Str="MID"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_cleric_barrier_ground" Arg="4"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_bg_light009_yellow" Arg="4"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_ground051_loop" Arg="4"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD342_TRACE_AI_01" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_spread_out001_light" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD342_TREE_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_light054" Arg="5"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD_323_SQ_CARVE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD_323_SQ_CARVE_RUN"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="ORCHARD_324_DESPENSOR_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_magic_prison_circle" Arg="2"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_levitation032_red_loop" Arg="2"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD_324_DESPENSOR_EFF_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_levitation032_red_loop" Arg="2"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD_324_DRAIN_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_levitation032_red_loop" Arg="2"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_pattern008_violet_loop" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD_324_EFF_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_chain004_mash_loop" Arg="4"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD_324_LADA_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_cleric_barrier_ground" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_bg_light009_yellow" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD_324_MON_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
-				<Num Num="60"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD_324_SEED_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD_324_SQ_04_SEED_RUN"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD_324_SQ_04_FLOWER_SUMMON"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD324_SQ_04_SEED_DEAD"/>
-			</ToolScp>
-		</DeadList>
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_spread_out001_light" Arg="4"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD_324_ZAURA_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD_324_MQ_01_LOCK"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="250"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD_324_MQ_01_HP"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD_342_GIRL_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD342_GIRL_REMOVE"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD342_GIRL_DISTANCE"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="ORCHARD_342_MON_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="1000"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="ORCHARD_342_SQ_03_WOOD_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="ORCHARD_342_SQ_03_WOOD_AI_RUN"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="ORCHARD_WALL_EFF" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_ground12_red" Arg="20"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PARTY_010_MON_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="300"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-1480.9395" Y="72.407623" Z="42.705368" Random="90"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PARTY_Q10_CRYSTAL_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Str_Arg Str="None" Arg="21"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PARTY_Q10_CRYSTAL_AI_RUN"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_force046_green2" Arg="1"/>
-				<Num Num="0.5"/>
-			</ToolScp>
-		</DeadList>
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_force046_green2" Arg="2"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PARTY_Q10_MON_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PARTY_Q10_MON_FUNC"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_CREATE_MON_RND" Client="NO" UseSleep="NO">
-				<Num Num="150"/>
-				<Str Str="mushroom_ent_black"/>
-				<MonProp List="Lv#167"/>
-				<Str Str="0"/>
-				<Num Num="0"/>
-				<Str Str="None"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PARTY_Q5_ITEM03_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PARTY_Q5_ITEM03_AI_FUNCTION"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Str_Arg Str="None" Arg="1"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PARTY_Q5_ITEM03_AI_DEADFUNCTION"/>
-			</ToolScp>
-		</DeadList>
-	</AI>
-	<AI Name="PARTY_Q7_DEVICE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PARTY_Q7_DEVICE_AI"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_ground117_loop" Arg="0.5"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PARTY_Q7_ICE_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PARTY_Q7_ICE_RUN_AI"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PARTY_Q7_ICE_DEAD_AI"/>
-			</ToolScp>
-		</DeadList>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-		</StartList>
-	</AI>
-	<AI Name="PARTY_Q8_CRYSTAL_RUN_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PARTY_Q8_CRYSTAL_RUN"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PARTY_Q8_CRYSTAL_DEAD"/>
-			</ToolScp>
-		</DeadList>
-	</AI>
-	<AI Name="PARTY_Q9_POTAL" ActiveMessageMapInBattle="1">
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PARTY_Q9_POTAL_DEAD"/>
-			</ToolScp>
-		</DeadList>
-	</AI>
-	<AI Name="PIED_PIPER_MSTEP_GEN_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_CHAR312_MSTEP_GEN_AI"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM311_SQ_04_ITEM_MAKE" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM311_SQ_04_MON_MOVE"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="200"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM311_SQ_04_ITEM_RUN" UpdateMS="5000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM311_SQ_04_ITEM_MAKE"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM311_SQ_04_ITEM_MAKE_DEAD"/>
-			</ToolScp>
-		</DeadList>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_sys_trigger_point_pink" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM312_HAUBERK_01" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="15"/>
-				<Num Num="15"/>
-				<Num Num="15"/>
-				<Num Num="180"/>
-				<Num Num="1"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM312_HAUBERK_03" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="180"/>
-				<Num Num="180"/>
-				<Num Num="180"/>
-				<Num Num="180"/>
-				<Num Num="1"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM312_SQ_04_01_ADD_RUN" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM312_SQ_04_01_ADD_RUN_01"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="59"/>
-				<Num Num="59"/>
-				<Num Num="59"/>
-				<Num Num="170"/>
-				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM313_GALIUS_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="120"/>
-				<Num Num="120"/>
-				<Num Num="200"/>
-				<Num Num="200"/>
-				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="E_TransmitPrana_loop" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM313_SQ_02_NPC_01_RUN_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM313_SQ_02_NPC_01_RUN_AI"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="120"/>
-				<Num Num="120"/>
-				<Num Num="175"/>
-				<Num Num="200"/>
-				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
-				<Num Num="10"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="E_TransmitPrana_loop" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM313_SQ_02_NPC_02_RUN_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM313_SQ_02_NPC_02_RUN_AI"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="120"/>
-				<Num Num="120"/>
-				<Num Num="175"/>
-				<Num Num="200"/>
-				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
-				<Num Num="10"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="E_TransmitPrana_loop" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM313_SQ_04_NPC_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
-				<Str Str="TALK"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="125"/>
-				<Num Num="125"/>
-				<Num Num="175"/>
-				<Num Num="200"/>
-				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="E_TransmitPrana_loop" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM313_SQ_06_NPC_AI" UpdateMS="30000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM313_SQ_06_NPC_AI"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM41_1_SQ05_P" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
-				<Num Num="100"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM41_1_SQ07_F" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-473.92328" Y="-98.5354" Z="848.29199"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM41_2_ALTAR" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Num Num="130"/>
-				<Num Num="200"/>
-				<Num Num="255"/>
-				<Num Num="1"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM41_2_SQ05_M" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-				<Num Num="4"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_PILGRIM412_SQ_05_M"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM41_2_SQ06_MOVE" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="784.77649" Y="224.25394" Z="499.5957"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM41_2_SQ08_MOVE" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="533.25897" Y="224.25394" Z="590.9079"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="626.45947" Y="224.25394" Z="530.20239"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="858.88" Y="224.25394" Z="531.08002"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="Chat" Client="NO" UseSleep="NO">
-				<Str Str="마족들을 해치우다니, 대단하십니다!"/>
-				<Num Num="3"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM41_2_SQ09_F" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_PILGRIM412_SQ_09_COUNT"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM41_3_SQ07_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="400"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM41_3_SQ08_S" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
-				<Str Str="SCR_PILGRIM413_SQ_08_NPCMOVE"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM41_4_SQ12_P" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_PILGRIM41_4_SQ12_P_RUN"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="100"/>
-				<Str_Arg Str="None" Arg="1"/>
-			</ToolScp>
-		</List>
-		<HitList>
-			<ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
-				<Str Str="SCR_PILGRIM41_4_SQ12_P_RUN"/>
-			</ToolScp>
-		</HitList>
-		<StartList>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_PILGRIM414_SQ_12_P"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM41_5_SQ01_D" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_CASTLE651_MQ_05_AI_RUN"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_burstup025_dark" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM41_5_SQ08_P" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
-				<Num Num="50"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM46_ACHON" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM46_ACHON_FACTION"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM46_CANIVOUR" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="300"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM46_DRAPELIUN" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM46_DRAPELIUN_AI_RUN"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="500"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM46_DRAPELIUN_BORN"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM46_SQ_030_AI_01" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="300"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_CANIVOUR_DEAD_AFTER"/>
-			</ToolScp>
-		</DeadList>
-		<StartList>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM46_SQ_030_AI_02" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
-				<Str Str="KNOCKDOWN"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM47_CACTOR" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_PILGRIM47_CACTOR_CURSE"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM47_CRYST03_AI" UpdateMS="10000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM47_CRYST03_SLEEP"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM47_CRYSTAL01" UpdateMS="2000" ActiveMessageMapInBattle="1"/>
-	<AI Name="PILGRIM47_CRY_EXPLOSIO" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM47_CRYST01_EXPLOSION"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_burstup003" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_burstup007_yellow" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</DeadList>
-	</AI>
-	<AI Name="PILGRIM47_CRY_EXPLOSION" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
-				<Str Str="PILGRIM47_CRYST01_EXPLOSION"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_burstup003" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_burstup007_yellow" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</DeadList>
-	</AI>
-	<AI Name="PILGRIM47_PROTECT" ActiveMessageMapInBattle="1">
-		<DeadList>
-			<ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_explosion007_green" Arg="0.5"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</DeadList>
-	</AI>
-	<AI Name="PILGRIM47_SQ_040_TRAP" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM47_SQ_040_TRAP_AI_ACT_01"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_spread_out028_dark_fire" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-		</List>
-	</AI>
-	<AI Name="PILGRIM47_SQ_090_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM47_SQ_090_AI_ACT_01"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM47_SQ_090_AI_ACT_02"/>
-			</ToolScp>
-		</List>
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM47_SQ_090_AI_DIE_01"/>
-			</ToolScp>
-		</DeadList>
-		<StartList>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Normal"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_light015" Arg="4"/>
-				<Str Str="MID"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM47_TRAP" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_COND_EVERYTIME" Client="NO" UseSleep="NO">
-				<Num Num="10"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM47_TRAP_HIDE"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM50_ALTAR03_EFFECT_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM50_ALTAR03_EFFECT_AI_ACT_01"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM50_ALTAR03_EFFECT_AI_BORN_01"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM50_PIL_AI" UpdateMS="10000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_PILGRIM50_PIL_AI_CHAT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_cleric_telepath_loop_connect" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM51_MAGIC_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_magic_prison_circle" Arg="4"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM51_STATUE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<HitList>
-			<ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM51_STATUE_AI_ACT_01"/>
-			</ToolScp>
-		</HitList>
-	</AI>
-	<AI Name="PILGRIM51_VINE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM51_VINE_AI_ACT_01"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM52_BOSS_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-				<Num Num="300"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM52_HIDDEN_EVENT_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM52_HIDDEN_EVENT_AI_UPDATE"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-				<Num Num="1"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM52_HIDDEN_EVENT_AI_START"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM_36_2_RUIN_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_smoke013_dark3" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM_36_2_SHRINE" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_smoke008_red" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM_36_2_SHRINE_TRACK" ActiveMessageMapInBattle="1">
-		<DeadList>
-			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM_36_2_SHRINE_DEAD"/>
-			</ToolScp>
-		</DeadList>
-	</AI>
-	<AI Name="PILGRIM_36_2_SQ_FIRELORD_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM_36_2_SQ_FIRELORD_AI_BORN_01"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM_48_SQ_060_RELIC_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM_48_SQ_060_RELIC_AI_ACT_01"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_levitation022_light" Arg="2"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PILGRIM_48_SQ_090_TRAP_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM_48_SQ_090_TRAP_AI_ACT_01"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PILGRIM_48_SQ_090_TRAP_AI_ACT_02"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PILGRIM_48_SQ_090_TRAP_MON_AI" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
-				<Str Str="DOWN"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PRIEST4_1" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_COND_EVERYTIME" Client="NO" UseSleep="NO">
-				<Num Num="30"/>
-			</ToolScp>
-			<ToolScp Scp="Dead" Client="NO" UseSleep="NO"/>
-		</List>
-	</AI>
-	<AI Name="PRISON621_DARK_WALL" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_lineup021_alpha" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PRISON621_TOTEM_1" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_pattern008_violet_loop" Arg="1"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PRISON622_MQ_05_AI" UpdateMS="5000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PRISON622_MQ_05_AI_RUN_1"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_light055_yellow" Arg="5"/>
-				<Str Str="MID"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PRISON622_MQ_05_AI_NPC_RUN" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PRISON622_MQ_05_AI_NPC_RUN"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_spread_out001_light" Arg="2"/>
-				<Str Str="MID"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PRISON622_SQ_02_ITEM_RUN" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PRISON622_SQ_02_ITEM_RUN_1"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_light004_blue" Arg="3"/>
-				<Str Str="MID"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PRISON622_SQ_04_NPC_RUN" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="PRISON622_SQ_04_NPC_RUN_01"/>
-			</ToolScp>
-		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_sys_trigger_point_blue" Arg="3"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-				<Num Num="122"/>
-				<Num Num="122"/>
-				<Num Num="255"/>
-				<Num Num="190"/>
-				<Num Num="1"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PRISON_82_MQ_6_GHOST_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_ADD_HATE_AROUND" Client="NO" UseSleep="NO">
-				<Num Num="300"/>
-				<Num Num="9999"/>
-				<Num Num="10"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PUBLIC_DEMON_WARP" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_circle25_red" Arg="9.5"/>
-				<Str Str="TOP"/>
-			</ToolScp>
-		</StartList>
-	</AI>
-	<AI Name="PVP_MINE_KEEPER" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
-				<Str Str="SCR_PVP_MINE_KEEPER"/>
-				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-				<Num Num="5"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="PVP_MINE_SPECIAL" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES" CustomFuncTxt="(self)
+                <Num Num="2"/>
+                <Num Num="1"/>
+                <Str Str="coin_force"/>
+                <Str Str="icon_item_gold"/>
+                <Num Num="0.5"/>
+                <Str Str="mcy_buyitem"/>
+                <Str Str="COIN_icon"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </HitList>
+    </AI>
+    <AI Name="MFEG_2_STAGE_NPC_AGAILA_2_N" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="64.334679" Y="11.2118" Z="226.13828"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="12.480484" Y="68.051201" Z="937.90424"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-536.64984" Y="14.4972" Z="675.08771"/>
+            </ToolScp>
+            <ToolScp Scp="Kill" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_light004_blue2" Arg="5"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MFEG_2_STAGE_NPC_AGAILA_2_S" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="1423.7135" Y="-83.085503" Z="173.31007"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="1428.2731" Y="-38.151505" Z="-436.23434"/>
+            </ToolScp>
+            <ToolScp Scp="Kill" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_light004_blue2" Arg="5"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MFEG_3_STAGE_NPC_HAUBERK" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MFEG_3_STAGE_NPC_HAUBERK"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="3000"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="HPLock"/>
+                <Num Num="5000"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MINE_1_CRYSTAL_2_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MINE_1_CRYSTAL_2_AI_RUNAWAY"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MINE_1_CRYSTAL_2_AI_RUNAWAY_1"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+        <DeadList>
+            <ToolScp Scp="S_AI_DEAD_REMOVE_BUFF" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="MINE_1_CRYSTAL_2_BUFF"/>
+            </ToolScp>
+        </DeadList>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="MINE_1_CRYSTAL_2_AI_LASTATTACKER"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="MINE_1_CRYSTAL_2_BUFF"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MINE_3_DEFENCE1_mini" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="180"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-414.50244" Y="183.84085" Z="-868.84332"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MINIGAME_REMAIN_DEVICE" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="REMAIN_MISSION_MON_CREATE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MISSION_ABBEY_01_1_1_1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="983.55078" Y="144.74634" Z="-570.41992"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="641.12958" Y="144.72189" Z="-617.52228"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="987.47089" Y="144.72189" Z="-749.50159"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="654.09546" Y="144.72189" Z="-889.06519"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="978.35406" Y="144.72189" Z="-751.22876"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="651.80774" Y="144.72189" Z="-616.79816"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="970.82727" Y="144.74345" Z="-571.1886"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="655.73352" Y="144.72189" Z="-480.98752"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_smoke008_red" Arg="1"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MISSION_ABBEY_01_1_1_2" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="631.89899" Y="144.72189" Z="-817.96307"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="988.67383" Y="144.72189" Z="-736.3075"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="633.04126" Y="144.72189" Z="-602.26141"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="982.56915" Y="144.76524" Z="-471.14114"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="649.67749" Y="144.72189" Z="-603.52264"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="974.8905" Y="144.72189" Z="-736.98578"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="645.0274" Y="144.72189" Z="-818.40649"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="966.26715" Y="144.72189" Z="-912.98053"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+            <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                <Num Num="1500"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_smoke008_red" Arg="1"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MISSION_ABBEY_01_1_2_1" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_smoke008_red" Arg="1.5"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MISSION_ABBEY_01_1_2_2" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_cleric_melstis_loop_levitation" Arg="1"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MISSION_ABBEY_01_2_2_1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="500"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-1288.3168" Y="144.85426" Z="311.06808" Random="40"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MISSION_ABBEY_01_3_1" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_smoke008_red" Arg="1"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MISSION_CATACOMB_HALLOWEEN_AI1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="8.4097319" Y="102.038" Z="-121.0056" Random="140"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MISSION_CMINE_02_STAGE1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="200"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="136.39001" Y="208.9729" Z="1660.8881" Random="80"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_EVENT_1708_JURATE_AI" ActiveMessageMapInBattle="1"/>
+    <AI Name="MISSION_EVENT_1708_JURATE_AI1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="990.83185" Y="-96.077591" Z="-1198.601" Random="190" Height="1"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MISSION_EVENT_1805_WEDDING2_AI1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                <Num Num="60"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="97.527878" Y="0.79278564" Z="46.892784" Random="30" Height="1"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MISSION_EVENT_1807_STORY_2_AI1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="200"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="627.88568" Y="371.31482" Z="-165.2446" Random="30"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="EVENT_1807_STORY_2_CONTROL_NPC_KILL"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="MISSION_EVENT_1807_STORY_2_AI2" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="250"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="351.54401" Y="371.31482" Z="-1141.6228" Random="210" Height="1"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MISSION_EVENT_1807_STORY_2_AI3" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="250"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="572.00183" Y="371.31482" Z="-389.52499" Random="170" Height="1"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MISSION_GUILD_WHITETREE_DEFFENSE_L1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GM_WHITETREES_MON_BUFF_CHECK_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="120"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-962.8634" Y="55.401443" Z="563.52966" Random="30" Height="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-646.41699" Y="21.901123" Z="913.95862" Random="130" Height="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-317.13342" Y="23.1401" Z="712.38251" Random="10"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-56.955227" Y="24.076876" Z="484.58087" Random="120" Height="2"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-258.39825" Y="35.114265" Z="137.92668" Random="10" Height="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-439.89102" Y="39.635559" Z="-198.43622" Random="100" Height="3"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_GUILD_WHITETREE_DEFFENSE_L2" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GM_WHITETREES_MON_BUFF_CHECK_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="120"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="73.478409" Y="49.656643" Z="910.5733" Random="20" Height="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-16.030802" Y="24.063786" Z="506.84482" Random="130" Height="2"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-234.0675" Y="32.30748" Z="178.815" Random="10" Height="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-429.68134" Y="39.635559" Z="-161.442" Random="100" Height="3"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_GUILD_WHITETREE_DEFFENSE_L3" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GM_WHITETREES_MON_BUFF_CHECK_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="120"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="485.33582" Y="45.843872" Z="-575.35962" Random="30"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="244.63792" Y="63.968124" Z="-561.4364" Random="30" Height="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="43.348038" Y="64.653229" Z="-564.31219" Random="110" Height="2"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-157.26256" Y="54.233501" Z="-381.10632" Random="20" Height="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-383.8497" Y="39.635559" Z="-155.42284" Random="90" Height="3"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_GUILD_WHITETREE_DEFFENSE_L4" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GM_WHITETREES_MON_BUFF_CHECK_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="120"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-245.63203" Y="33.245533" Z="166.55739" Random="20" Height="2"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-435.61514" Y="39.635559" Z="-186.61893" Random="110" Height="3"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="MISSION_GUILD_WHITETREE_DEFFENSE_L5" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GM_WHITETREES_MON_BUFF_CHECK_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="120"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-436.91766" Y="39.635559" Z="-184.04192" Random="90" Height="3"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="MISSION_NUNNERY_01_AI1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-63.412392" Y="0.66627055" Z="-311.53839" Random="60" Height="1"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-616.27667" Y="-98.535416" Z="1111.3218"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-477.55215" Y="-98.535416" Z="720.90881"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-451.08707" Y="-98.535416" Z="1122.9241"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-350.21338" Y="-98.535416" Z="741.12659"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-255.87529" Y="-98.535416" Z="1092.8116"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-204.64552" Y="-98.535416" Z="800.20209"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-270.03513" Y="-98.535416" Z="1044.2397"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-356.51608" Y="-98.535416" Z="749.82526"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-569.74567" Y="-98.535416" Z="1135.7905"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-524.47839" Y="-98.535416" Z="727.99524"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-657.4762" Y="-98.535416" Z="1096.2913"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-667.07935" Y="-98.535416" Z="701.97821"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL2" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-4.2571068" Y="-68.644081" Z="1139.4963"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="127.96015" Y="-68.644081" Z="835.61084"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="181.97496" Y="-68.644081" Z="1163.1843"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="238.82935" Y="-68.644081" Z="851.38312"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="298.27673" Y="-68.644081" Z="1199.1731"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="374.71814" Y="-68.644081" Z="886.06995"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="443.39279" Y="-68.644089" Z="1160.5576"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="476.00183" Y="-68.613159" Z="911.43408"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="573.69086" Y="-68.644081" Z="1174.0162"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="640.41278" Y="-68.644081" Z="968.15588"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="552.62915" Y="-68.644081" Z="1137.8289"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="535.99463" Y="-68.644081" Z="939.4007"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="374.93777" Y="-68.644081" Z="1180.6423"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="378.56857" Y="-68.644081" Z="896.46222"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="246.67751" Y="-68.644081" Z="1186.7754"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="253.92288" Y="-68.644081" Z="861.61804"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="104.53617" Y="-68.644081" Z="1154.4629"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="73.183662" Y="-68.560638" Z="836.10638"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL3" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-238.75856" Y="-98.535416" Z="1065.3196"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-743.57141" Y="-98.535416" Z="983.76697"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL4" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-746.34277" Y="-98.535416" Z="931.88403"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-188.58548" Y="-98.535416" Z="948.24237"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL5" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-177.05698" Y="-97.910629" Z="868.14893"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-695.14807" Y="-98.535416" Z="799.36603"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL6" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="56.905598" Y="-68.616371" Z="879.88873"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="628.08337" Y="-68.644081" Z="930.29199"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL7" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="602.50909" Y="-68.644089" Z="1023.9434"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="41.370472" Y="-68.644081" Z="984.37805"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL8" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="21.889408" Y="-68.644081" Z="1106.8254"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="590.38684" Y="-68.644089" Z="1083.1141"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL9" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="564.33069" Y="-68.644081" Z="1188.3778"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="47.081299" Y="-68.644089" Z="1145.6895"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_UPHILL_DEFFENSE_L1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="80"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="9.7501478" Y="-52.850281" Z="-600.95593" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="57.196621" Y="-52.850281" Z="-549.33337" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-300.45721" Y="-40.501389" Z="-182.26846" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-213.19989" Y="-6.302063" Z="-104.76125" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-162.64294" Y="-3.8374557" Z="-150.5554" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-198.66316" Y="-3.8374557" Z="-190.21982" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="72.853241" Y="-3.8374557" Z="-460.23938"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="117.88454" Y="-3.8374557" Z="-420.875"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-94.590836" Y="34.821693" Z="-203.1367"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-55.380245" Y="34.821693" Z="-163.38237"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="88.048622" Y="74.637917" Z="-302.9671"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="187.37816" Y="80.12394" Z="-154.57808" Random="60"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UPHILL_DEFFENSE_SCRIPT_SETTING"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MISSION_UPHILL_DEFFENSE_L2" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="80"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-91.256287" Y="-59.304512" Z="483.26495" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-3.5623322" Y="-55.006172" Z="411.99811" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-373.69189" Y="-47.314697" Z="30.907291" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-326.69757" Y="-47.192238" Z="-61.166855" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="73.834778" Y="8.8316422" Z="308.14258" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="123.93778" Y="12.336159" Z="253.12532" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-150.21111" Y="12.336159" Z="-54.746956" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-99.072952" Y="12.336159" Z="-100.43547" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="121.77676" Y="68.160576" Z="108.24173" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="168.24841" Y="75.635017" Z="66.110847" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="83.81871" Y="75.635017" Z="-24.622482" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="180.12663" Y="80.12394" Z="-155.55528" Random="50" Height="1"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UPHILL_DEFFENSE_SCRIPT_SETTING"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MISSION_UPHILL_DEFFENSE_L3" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="80"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="615.44446" Y="-40.435463" Z="98.403275" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="546.32635" Y="-40.435463" Z="76.832352" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="142.24106" Y="-24.448402" Z="465.22342" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="105.89256" Y="-24.448402" Z="422.28116" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="253.92166" Y="-1.1043572" Z="263.53207" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="170.53372" Y="32.204292" Z="161.09406" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="233.02396" Y="32.204292" Z="104.43022" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="314.51389" Y="32.204292" Z="192.7847" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="528.22229" Y="32.204292" Z="-12.900013" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="479.68262" Y="32.204292" Z="-56.262642" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="341.55582" Y="74.610336" Z="75.793648" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="295.05185" Y="74.610329" Z="28.387896" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="363.62964" Y="74.610329" Z="-28.628233" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="185.00041" Y="80.12394" Z="-159.09885" Random="60"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UPHILL_DEFFENSE_SCRIPT_SETTING"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MISSION_UPHILL_GIMMICKOBJ1" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_wizard_BRIQUETTING_STEP1_fire_loop" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MODPAT_CHAT_FLOW_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="5"/>
+                <Num Num="5"/>
+                <Num Num="5"/>
+                <Num Num="170"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MODPAT_DEV_AI_LASTATTACKER" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MODPAT_DEV_AI_RUNAWAY"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MODPAT_DEV_AI_RUNAWAY_1"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="MODPAT_DEV_AI_LASTATTACKER"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="MODPAT_FOLLOW_AI1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FOLLOW_POS" Client="NO" UseSleep="YES">
+                <Num Num="25"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MONGEN_TIMER" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MONGEN_TIMER"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MONSTER_GEN_GIMMIC_EVENT_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MONSTER_GEN_GIMMIC_EVENT_AI_UPDATE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MONSTER_PAIR_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MONSTER_PAIR_RUN"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MONSTER_PAIR_JUDGE"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MONSTER_PAIR_SUMMON"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="MON_DUMMY" UpdateMS="100000" ActiveMessageMapInBattle="1"/>
+    <AI Name="MOVE_SOLDIER" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="MOVE_SOLDIER_KILL"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="MOVING_TRAP_FALL" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_FIXED_ANI" Client="NO" UseSleep="NO">
+                <Str Str="FALLDOWN"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="M_GELE_STAGE6_BOSS_1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="M_GELE_STAGE6_BOSS_HP_CK"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="250"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-843.34265" Y="338.02151" Z="310.0033" Random="60" Height="1"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="M_GELE_STAGE6_BOSS_2" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-835.22559" Y="338.02151" Z="292.90689" Random="60"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="M_GELE_STAGE6_BOSS_BUFF"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="M_GELE_STAGE6_CREATE_MONSTER"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                <Str Str="stun"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="M_GELE_STAGE6_BOSS_3" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                <Num Num="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Normal"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="Mon_Worg" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_CHAT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="아우우우~~"/>
+                <Num Num="2"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="Mon_\Worg" ActiveMessageMapInBattle="1"/>
+    <AI Name="NECRO_DIRTYWALL" ActiveMessageMapInBattle="1">
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="SCR_DIRTYWALL_HIT"/>
+            </ToolScp>
+        </HitList>
+    </AI>
+    <AI Name="NONE_SIMPLE_AI" ActiveMessageMapInBattle="1"/>
+    <AI Name="NO_OWNER_DEAD_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_NO_OWNER_DEAD_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="NPC_ALPHABLANDER" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="150"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+                <Num Num="130"/>
+                <Num Num="255"/>
+                <Num Num="150"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="NPC_ALPHABLANDER02" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_buff_basic025_white_line" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+                <Num Num="130"/>
+                <Num Num="255"/>
+                <Num Num="150"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="OBJECT_HIT_MOVE_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="OBJECT_HIT_MOVE_AI_UPDATE"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_explosion013" Arg="1"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </DeadList>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="OBJECT_HIT_MOVE_AI_HIT"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="OBJECT_HIT_MOVE_COMPLETE_NPC_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GOAL_OBJECT_AI_UPDATE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="OKAS25_BITERE_AI" ActiveMessageMapInBattle="1"/>
+    <AI Name="ONMYOJI_MSTEP2_GEN_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_CHAR220_MSETP2_GEN_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD323_EVIL_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_levitation005_dark_blue" Arg="1.5"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD323_EVIL_TRACK" ActiveMessageMapInBattle="1">
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD323_EVIL_TRACK_HIT"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD323_EVIL_TRACK"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD323_GIRL_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD323_GIRL_REMOVE"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD323_GIRL_DISTANCE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="ORCHARD323_HIDDENQ1_AI" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD323_HIDDENQ1_AI_DEAD"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                <Num Num="4"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD323_MQ_05_BOSS" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="500"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD323_MQ_05_BOSS"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="ORCHARD323_TRACE_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_spread_out001_light" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD324_BINDIG_EFF" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_ground001_yellow_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD324_DARK_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_spread_out003_darkblue" Arg="10"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD324_DRAIN_EFF_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern008_violet_loop" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD324_EVIL_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_levitation005_dark_blue" Arg="1.5"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD324_KRUVINA_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_light096_red_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD324_LADA2_EFF" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_cleric_barrier_ground" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_bg_light009_yellow" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD324_RED_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_light003_red" Arg="6"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD342_FERRET_AI" ActiveMessageMapInBattle="1">
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD342_FERRET_HIT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_DAMAGE_ADDHATE" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                <Num Num="4"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD342_HOLY_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_force036_green1" Arg="5"/>
+                <Str Str="MID"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_cleric_barrier_ground" Arg="4"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_bg_light009_yellow" Arg="4"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_ground051_loop" Arg="4"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD342_TRACE_AI_01" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_spread_out001_light" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD342_TREE_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_light054" Arg="5"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD_323_SQ_CARVE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD_323_SQ_CARVE_RUN"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="ORCHARD_324_DESPENSOR_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_magic_prison_circle" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_levitation032_red_loop" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD_324_DESPENSOR_EFF_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_levitation032_red_loop" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD_324_DRAIN_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_levitation032_red_loop" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern008_violet_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD_324_EFF_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_chain004_mash_loop" Arg="4"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD_324_LADA_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_cleric_barrier_ground" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_bg_light009_yellow" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD_324_MON_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                <Num Num="60"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD_324_SEED_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD_324_SQ_04_SEED_RUN"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD_324_SQ_04_FLOWER_SUMMON"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD324_SQ_04_SEED_DEAD"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_spread_out001_light" Arg="4"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD_324_ZAURA_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD_324_MQ_01_LOCK"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="250"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD_324_MQ_01_HP"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD_342_GIRL_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD342_GIRL_REMOVE"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD342_GIRL_DISTANCE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="ORCHARD_342_MON_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="1000"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ORCHARD_342_SQ_03_WOOD_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="ORCHARD_342_SQ_03_WOOD_AI_RUN"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="ORCHARD_WALL_EFF" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_ground12_red" Arg="20"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PARTY_010_MON_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-1480.9395" Y="72.407623" Z="42.705368" Random="90"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PARTY_Q10_CRYSTAL_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+                <Str_Arg Str="None" Arg="21"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PARTY_Q10_CRYSTAL_AI_RUN"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_force046_green2" Arg="1"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_force046_green2" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PARTY_Q10_MON_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PARTY_Q10_MON_FUNC"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_CREATE_MON_RND" Client="NO" UseSleep="NO">
+                <Num Num="150"/>
+                <Str Str="mushroom_ent_black"/>
+                <MonProp List="Lv#167"/>
+                <Str Str="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PARTY_Q5_ITEM03_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PARTY_Q5_ITEM03_AI_FUNCTION"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PARTY_Q5_ITEM03_AI_DEADFUNCTION"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="PARTY_Q7_DEVICE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PARTY_Q7_DEVICE_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_ground117_loop" Arg="0.5"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PARTY_Q7_ICE_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PARTY_Q7_ICE_RUN_AI"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PARTY_Q7_ICE_DEAD_AI"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="PARTY_Q8_CRYSTAL_RUN_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PARTY_Q8_CRYSTAL_RUN"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PARTY_Q8_CRYSTAL_DEAD"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="PARTY_Q9_POTAL" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PARTY_Q9_POTAL_DEAD"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="PIED_PIPER_MSTEP_GEN_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_CHAR312_MSTEP_GEN_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM311_SQ_04_ITEM_MAKE" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM311_SQ_04_MON_MOVE"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="200"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM311_SQ_04_ITEM_RUN" UpdateMS="5000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM311_SQ_04_ITEM_MAKE"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM311_SQ_04_ITEM_MAKE_DEAD"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_sys_trigger_point_pink" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM312_HAUBERK_01" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="15"/>
+                <Num Num="15"/>
+                <Num Num="15"/>
+                <Num Num="180"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM312_HAUBERK_03" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="180"/>
+                <Num Num="180"/>
+                <Num Num="180"/>
+                <Num Num="180"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM312_SQ_04_01_ADD_RUN" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM312_SQ_04_01_ADD_RUN_01"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="59"/>
+                <Num Num="59"/>
+                <Num Num="59"/>
+                <Num Num="170"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM313_GALIUS_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="120"/>
+                <Num Num="120"/>
+                <Num Num="200"/>
+                <Num Num="200"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="E_TransmitPrana_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM313_SQ_02_NPC_01_RUN_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM313_SQ_02_NPC_01_RUN_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="120"/>
+                <Num Num="120"/>
+                <Num Num="175"/>
+                <Num Num="200"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="E_TransmitPrana_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM313_SQ_02_NPC_02_RUN_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM313_SQ_02_NPC_02_RUN_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="120"/>
+                <Num Num="120"/>
+                <Num Num="175"/>
+                <Num Num="200"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="E_TransmitPrana_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM313_SQ_04_NPC_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                <Str Str="TALK"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="125"/>
+                <Num Num="125"/>
+                <Num Num="175"/>
+                <Num Num="200"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="E_TransmitPrana_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM313_SQ_06_NPC_AI" UpdateMS="30000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM313_SQ_06_NPC_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM41_1_SQ05_P" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                <Num Num="100"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM41_1_SQ07_F" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-473.92328" Y="-98.5354" Z="848.29199"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM41_2_ALTAR" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+                <Num Num="130"/>
+                <Num Num="200"/>
+                <Num Num="255"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_2_SQ05_M" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                <Num Num="4"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM412_SQ_05_M"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_2_SQ06_MOVE" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="784.77649" Y="224.25394" Z="499.5957"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_2_SQ08_MOVE" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="533.25897" Y="224.25394" Z="590.9079"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="626.45947" Y="224.25394" Z="530.20239"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="858.88" Y="224.25394" Z="531.08002"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="Chat" Client="NO" UseSleep="NO">
+                <Str Str="마족들을 해치우다니, 대단하십니다!"/>
+                <Num Num="3"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_2_SQ09_F" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM412_SQ_09_COUNT"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM41_3_SQ07_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="400"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_3_SQ08_S" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+                <Str Str="SCR_PILGRIM413_SQ_08_NPCMOVE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM41_4_SQ12_P" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM41_4_SQ12_P_RUN"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </List>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM41_4_SQ12_P_RUN"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM414_SQ_12_P"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_5_SQ01_D" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_CASTLE651_MQ_05_AI_RUN"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_burstup025_dark" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM41_5_SQ08_P" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                <Num Num="50"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM46_ACHON" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM46_ACHON_FACTION"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM46_CANIVOUR" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM46_DRAPELIUN" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM46_DRAPELIUN_AI_RUN"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="500"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM46_DRAPELIUN_BORN"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM46_SQ_030_AI_01" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_CANIVOUR_DEAD_AFTER"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM46_SQ_030_AI_02" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                <Str Str="KNOCKDOWN"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM47_CACTOR" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM47_CACTOR_CURSE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM47_CRYST03_AI" UpdateMS="10000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM47_CRYST03_SLEEP"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM47_CRYSTAL01" UpdateMS="2000" ActiveMessageMapInBattle="1"/>
+    <AI Name="PILGRIM47_CRY_EXPLOSIO" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM47_CRYST01_EXPLOSION"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_burstup003" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_burstup007_yellow" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="PILGRIM47_CRY_EXPLOSION" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+                <Str Str="PILGRIM47_CRYST01_EXPLOSION"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_burstup003" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_burstup007_yellow" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="PILGRIM47_PROTECT" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_explosion007_green" Arg="0.5"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="PILGRIM47_SQ_040_TRAP" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM47_SQ_040_TRAP_AI_ACT_01"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_spread_out028_dark_fire" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+    </AI>
+    <AI Name="PILGRIM47_SQ_090_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM47_SQ_090_AI_ACT_01"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM47_SQ_090_AI_ACT_02"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM47_SQ_090_AI_DIE_01"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Normal"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_light015" Arg="4"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM47_TRAP" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_COND_EVERYTIME" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM47_TRAP_HIDE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM50_ALTAR03_EFFECT_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM50_ALTAR03_EFFECT_AI_ACT_01"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM50_ALTAR03_EFFECT_AI_BORN_01"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM50_PIL_AI" UpdateMS="10000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PILGRIM50_PIL_AI_CHAT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_cleric_telepath_loop_connect" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM51_MAGIC_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_magic_prison_circle" Arg="4"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM51_STATUE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM51_STATUE_AI_ACT_01"/>
+            </ToolScp>
+        </HitList>
+    </AI>
+    <AI Name="PILGRIM51_VINE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM51_VINE_AI_ACT_01"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM52_BOSS_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM52_HIDDEN_EVENT_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM52_HIDDEN_EVENT_AI_UPDATE"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM52_HIDDEN_EVENT_AI_START"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM_36_2_RUIN_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_smoke013_dark3" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM_36_2_SHRINE" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_smoke008_red" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM_36_2_SHRINE_TRACK" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM_36_2_SHRINE_DEAD"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="PILGRIM_36_2_SQ_FIRELORD_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM_36_2_SQ_FIRELORD_AI_BORN_01"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM_48_SQ_060_RELIC_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM_48_SQ_060_RELIC_AI_ACT_01"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_levitation022_light" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM_48_SQ_090_TRAP_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM_48_SQ_090_TRAP_AI_ACT_01"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM_48_SQ_090_TRAP_AI_ACT_02"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PILGRIM_48_SQ_090_TRAP_MON_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                <Str Str="DOWN"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PRIEST4_1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_COND_EVERYTIME" Client="NO" UseSleep="NO">
+                <Num Num="30"/>
+            </ToolScp>
+            <ToolScp Scp="Dead" Client="NO" UseSleep="NO"/>
+        </List>
+    </AI>
+    <AI Name="PRISON621_DARK_WALL" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_lineup021_alpha" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PRISON621_TOTEM_1" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern008_violet_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PRISON622_MQ_05_AI" UpdateMS="5000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PRISON622_MQ_05_AI_RUN_1"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_light055_yellow" Arg="5"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PRISON622_MQ_05_AI_NPC_RUN" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PRISON622_MQ_05_AI_NPC_RUN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_spread_out001_light" Arg="2"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PRISON622_SQ_02_ITEM_RUN" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PRISON622_SQ_02_ITEM_RUN_1"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_light004_blue" Arg="3"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PRISON622_SQ_04_NPC_RUN" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PRISON622_SQ_04_NPC_RUN_01"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_sys_trigger_point_blue" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="122"/>
+                <Num Num="122"/>
+                <Num Num="255"/>
+                <Num Num="190"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PRISON_82_MQ_6_GHOST_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ADD_HATE_AROUND" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+                <Num Num="9999"/>
+                <Num Num="10"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PUBLIC_DEMON_WARP" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_circle25_red" Arg="9.5"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PVP_MINE_KEEPER" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="SCR_PVP_MINE_KEEPER"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                <Num Num="5"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="PVP_MINE_SPECIAL" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES" CustomFuncTxt="(self)
 
 
 

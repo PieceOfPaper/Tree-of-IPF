@@ -564,4 +564,5 @@
       <Code Code="INFO_DISCONNECT" Team="tos_team" Category="DEBUG" SubCategory="DISCONNECT" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 유저 접속 불가현상관련 로그"/>
 <Code Code="INFO_webservice" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="웹서버 정보 로그"/>
   <Code Code="INFO_invalid_ipf" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IPF 검증 관련"/>
+  <Code Code="INFO_BUG_TRACING" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="버그 추적을 위한..."/>
 </imcErrorCode>

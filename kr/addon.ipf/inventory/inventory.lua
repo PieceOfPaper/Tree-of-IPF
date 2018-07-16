@@ -1259,7 +1259,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 
 		ADD_GROUP_BOTTOM_MARGIN(frame,tree)
 
-		tree:OpenNodeAll();
+	tree:OpenNodeAll();
 
 		--검색결과 스크롤 세팅은 여기서 하자. 트리 업데이트 후에 위치가 고정된 다음에.
 		for i = 1 , #SLOTSET_NAMELIST do
