@@ -1693,6 +1693,14 @@ function EXEC_CANCEL_MARKET_ITEM(itemGuid)
 	market.CancelMarketItem(itemGuid);
 end
 
+function MARKET_SET_TOTAL_PRICE(ctrlset, price, count)
+
+	local totalPrice_num = GET_CHILD_RECURSIVELY(ctrlset, "totalPrice_num")
+	totalPrice_num:SetTextByKey("value", GetCommaedText(tonumber(math.mul_int_for_lua(price, count))))
+	local totalPrice_text = GET_CHILD_RECURSIVELY(ctrlset, "totalPrice_text")
+	totalPrice_text:SetTextByKey("value", GetMonetaryString(tonumber(math.mul_int_for_lua(price, count))))
+end
+
 function MARKET_CHANGE_COUNT(parent, ctrl)
 	local ctrlset = parent;
 	if parent:GetName() == "count" then
@@ -1702,10 +1710,8 @@ function MARKET_CHANGE_COUNT(parent, ctrl)
 	local priceFrame = GET_CHILD_RECURSIVELY(ctrlset, "price_num");
 	local editCount = GET_CHILD_RECURSIVELY(ctrlset, "count");
 	local price = priceFrame:GetUserValue("Price");
-	local totalPrice_num = GET_CHILD_RECURSIVELY(ctrlset, "totalPrice_num")
-	totalPrice_num:SetTextByKey("value", GetCommaedText(tonumber(price) * editCount:GetNumber()))
-	local totalPrice_text = GET_CHILD_RECURSIVELY(ctrlset, "totalPrice_text")
-	totalPrice_text:SetTextByKey("value", GetMonetaryString(tonumber(price) * editCount:GetNumber()))
+	
+	MARKET_SET_TOTAL_PRICE(ctrlset, price, editCount:GetNumber())
 end
 
 function MARKET_ITEM_COUNT_UP(frame)
@@ -1728,10 +1734,7 @@ function MARKET_ITEM_COUNT_UP(frame)
 	local price_num = GET_CHILD_RECURSIVELY(frame, "price_num")
 	local price = frame:GetUserIValue("sellPrice")
 
-	local totalPrice_num = GET_CHILD_RECURSIVELY(frame, "totalPrice_num")
-	totalPrice_num:SetTextByKey("value", GetCommaedText(tonumber(price) * nowCount))
-	local totalPrice_text = GET_CHILD_RECURSIVELY(frame, "totalPrice_text")
-	totalPrice_text:SetTextByKey("value", GetMonetaryString(tonumber(price) * nowCount))
+	MARKET_SET_TOTAL_PRICE(frame, price, nowCount)
 end
 
 function MARKET_ITEM_COUNT_DOWN(frame)
@@ -1754,10 +1757,7 @@ function MARKET_ITEM_COUNT_DOWN(frame)
 	local price_num = GET_CHILD_RECURSIVELY(frame, "price_num")
 	local price = frame:GetUserIValue("sellPrice")
 	
-	local totalPrice_num = GET_CHILD_RECURSIVELY(frame, "totalPrice_num")
-	totalPrice_num:SetTextByKey("value", GetCommaedText(tonumber(price) * nowCount))
-	local totalPrice_text = GET_CHILD_RECURSIVELY(frame, "totalPrice_text")
-	totalPrice_text:SetTextByKey("value", GetMonetaryString(tonumber(price) * nowCount))
+	MARKET_SET_TOTAL_PRICE(frame, price, nowCount)
 end
 
 function MARKET_ITEM_COUNT_MAX(frame)
@@ -1776,10 +1776,7 @@ function MARKET_ITEM_COUNT_MAX(frame)
 	local maxItemCount = math.min(maxItemCount, maxCanBuyCount)
 	editCount:SetText(tostring(maxItemCount))
 
-	local totalPrice_num = GET_CHILD_RECURSIVELY(frame, "totalPrice_num")
-	totalPrice_num:SetTextByKey("value", GetCommaedText(tonumber(price) * maxItemCount))
-	local totalPrice_text = GET_CHILD_RECURSIVELY(frame, "totalPrice_text")
-	totalPrice_text:SetTextByKey("value", GetMonetaryString(tonumber(price) * maxItemCount))
+	MARKET_SET_TOTAL_PRICE(frame, price, maxItemCount)
 end
 
 function _BUY_MARKET_ITEM(row, isRecipeSearchBox)
