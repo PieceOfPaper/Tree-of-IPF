@@ -325,7 +325,7 @@ function _ITEMDUNGEON_BUY_ITEM()
 	end
 
 	targetItemObj = GetIES(targetItemObj);
-	if materialItemGuid ~= '0' and targetItemObj.PR <= 0 then
+	if materialItemGuid == '0' and targetItemObj.PR <= 0 then
 		ui.SysMsg(ClMsg("NoMorePotential"));
 		return;
 	end

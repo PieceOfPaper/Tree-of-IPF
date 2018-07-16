@@ -62,7 +62,8 @@ function COLONY_RESULT_INIT(frame, isWin, argStr)
             local worldID = session.party.GetMyWorldIDStr();
             local emblemImgName = guild.GetEmblemImageName(guildID,worldID);
             if emblemImgName ~= 'None' then
-                winnerEmblemPic:SetImage(emblemImgName);
+                winnerEmblemPic:SetImage("");
+                winnerEmblemPic:SetFileName(emblemImgName);
             else
                 local worldID = session.party.GetMyWorldIDStr();
                 guild.ReqEmblemImage(guildID,worldID);
@@ -121,7 +122,8 @@ function ON_UPDATE_WINNER_INFO_EMBLEM(frame, msg, argStr, argNum)
     local worldID = session.party.GetMyWorldIDStr();
     local emblemImgName = guild.GetEmblemImageName(argStr,worldID);
     if emblemImgName ~= 'None' then
-        winnerEmblemPic:SetImage(emblemImgName);
+        winnerEmblemPic:SetImage("");
+        winnerEmblemPic:SetFileName(emblemImgName);
     end
 end
 

@@ -4,7 +4,11 @@ function SET_SLOT_ITEM_CLS(slot, itemCls)
 	if itemCls == nil then
 		return;
 	end
-	local img = itemCls.Icon;
+	local img =	GET_EQUIP_ITEM_IMAGE_NAME(itemCls, "TooltipImage");
+	if itemCls.GroupName == "Card" or itemCls.GroupName == "Recipe" then
+		img = itemCls.Icon
+	end
+	
 	SET_SLOT_IMG(slot, img);
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
 end

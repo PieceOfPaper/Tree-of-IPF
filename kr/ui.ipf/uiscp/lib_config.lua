@@ -30,16 +30,22 @@ function UPDATE_CONTROL_MODE()
 	local modetime = session.GetModeTime();
 	if modetime > 0 then
 		local quickSlotFrame = ui.GetFrame("quickslotnexpbar");
-		QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME(quickSlotFrame);
-		quickSlotFrame:Invalidate();
+        if quickSlotFrame ~= nil and QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME ~= nil then
+		    QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME(quickSlotFrame);
+		    quickSlotFrame:Invalidate();
+        end
 				
-		local restquickslot = ui.GetFrame('restquickslot')
-		RESTQUICKSLOT_UPDATE_HOTKEYNAME(restquickslot);
-		restquickslot:Invalidate();
+		local restquickslot = ui.GetFrame('restquickslot');
+        if restquickslot ~= nil and RESTQUICKSLOT_UPDATE_HOTKEYNAME ~= nil then
+		    RESTQUICKSLOT_UPDATE_HOTKEYNAME(restquickslot);
+		    restquickslot:Invalidate();
+        end
 
-		local fluting_keyboard = ui.GetFrame('fluting_keyboard')
-		FLUTING_KEYBOARD_UPDATE_HOTKEYNAME(fluting_keyboard);
-		fluting_keyboard:Invalidate();
+		local fluting_keyboard = ui.GetFrame('fluting_keyboard');
+        if fluting_keyboard ~= nil and FLUTING_KEYBOARD_UPDATE_HOTKEYNAME ~= nil then
+		    FLUTING_KEYBOARD_UPDATE_HOTKEYNAME(fluting_keyboard);
+		    fluting_keyboard:Invalidate();
+        end
 	end
 end
 

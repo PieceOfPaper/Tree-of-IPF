@@ -175,6 +175,8 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 200012,1,0,"IGNORE_ITEM_AVG_TABLE_FOR_TOKEN","토큰 사용자는 상/하안가에 영향을 받지 않는다.","YES"
 200013,1,0,"UNLIMIT_TRADE_TOKEN","토큰은 마켓에서 거래한 이후에도 계속 거래 가능하게 할 것인가?(1:거래가능, 0:거래불가)","NO"
 200014,100,0,"MAX_CABINET_ITEM_COUNT","존서버에서 클라로 최대 보낼 수 있는 캐비넷 아이템 개수. 너무 크면 서버 죽는대여","NO"
+200015,5,0,"MAX_REQUEST_MARKET_SEARCH","초당 최대 요청 개수","YES"
+200016,1,0,"MARKET_SEARCH_RATE_LIMIT_SECOND","요청 리셋 단위(1초)","YES"
 210000,950,0,"PARTY_SHARE_RANGE","파티 공유거리","YES"
 210001,30,0,"PARTY_AUCTION_SEC","파티 경매 제한 시간","NO"
 210002,1000,0,"PARTY_MEMBER_LOC_UPDATE","파티 멤버 위치 정보 전송","NO"

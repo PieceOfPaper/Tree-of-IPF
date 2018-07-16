@@ -1,4 +1,4 @@
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <skinset name="quickslotnexpbar">
 	<skinlist>
@@ -30,5 +30,8 @@
 		<image name="button_lock_disable_cursoron" file="\skin\button.tga" imgrect="414 65 20 28"/>
 		<image name="button_lock_disable_clicked" file="\skin\button.tga" imgrect="435 65 20 28"/>
 		<image name="slot_lock_frame" file="\skin\mainframe_A.tga" imgrect="394 547 42 42"/>
+		<image name="button_refresh" file="\skin\button.tga" imgrect="393 36 20 28" Caption="slot_refresh_btn"/>
+		<image name="button_refresh_cursoron" file="\skin\button.tga" imgrect="414 36 20 28"/>
+		<image name="button_refresh_clicked" file="\skin\button.tga" imgrect="435 36 20 28"/>
 	</imagelist>
 </skinset>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="market_cabinet_soldlist" x="0" y="0" width="530" height="650" create="open">
+	<frame fullheight="false" fasthide="true" drawtitlebar="false" layout_gravity="center center " margin="0 -80 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<skin frameskin="test_win_system"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<userconfig/>
+	<layer layerlevel="130"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 580 650" margin="0 0 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="listGbox2" rect="0 0 480 420" margin="0 150 0 0" layout_gravity="center top" skin="bg2" draw="true"/>
+		<groupbox name="listGbox" rect="0 0 480 384" margin="0 184 0 0" layout_gravity="center top" skin="bg2" draw="false"/>
+		<groupbox name="listtitle" rect="0 0 498 31" parent="listGbox2" margin="2 2 0 0" layout_gravity="left top" stretch="true" image="adventure_titlebar" draw="false"/>
+		<richtext name="richtext_1" rect="0 0 460 50" margin="0 80 0 0" layout_gravity="center top" fontname="brown_18_b" parent="bg" format="아이템을 모두 수령하겠습니까?" textalign="center center" fixwidth="true"/>
+		<richtext name="richtext_2" rect="0 0 460 50" margin="-7 0 0 0" layout_gravity="center center" fontname="brown_18_b" parent="listtitle" format="{@st41b}수령 목록" textalign="center center" fixwidth="true"/>
+		<button name="button_1" rect="0 0 145 42" margin="-73 0 0 18" layout_gravity="center bottom" skin="test_gray_button" caption="{@st41b}취소"/>
+		<button name="button_2" rect="0 0 145 42" margin="73 0 0 18" layout_gravity="center bottom" skin="test_red_button" caption="{@st41b}받기"/>
+	</controls>
+</uiframe>

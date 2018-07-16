@@ -1,6 +1,10 @@
 -- lib_itemtooltip.lua
 
 function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType, gender)
+    if TryGetProp(invitem, 'ClassType', 'None') == 'Outer' then
+        imageType = 'Icon'; -- 브리케팅 할 일이 없는 코스튬        
+    end
+    
 	if 'TooltipImage' == imageType then
 		local changeItemcls = nil;
 		local faceID = TryGetProp(invitem, 'BriquettingIndex');
@@ -16,7 +20,7 @@ function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType, gender)
 		if nil ~= imageName then
 			return tostring(imageName)
 		end
-	elseif 'Icon' == imageType then
+	elseif 'Icon' == imageType then    
 		return GET_ITEM_ICON_IMAGE(invitem, gender);
 	end
 

@@ -192,7 +192,21 @@ function ON_BANNER_CLICKED(frame, control, guild_data)
     end
 end
 
-function GUILD_RANK_INFO_CLOSE_UI(frame)
+function GUILD_RANK_INFO_CLOSE_UI()
     ui.CloseFrame("guild_resume_list")
     ui.CloseFrame("guildinfo_detail")
+end
+
+function GUILD_RANK_INFO_TOGGLE()
+    if app.IsBarrackMode() == true then
+		return;
+	end
+
+    local frame = ui.GetFrame('guild_rank_info');
+    if frame ~= nil and frame:IsVisible() == 1 then
+        ui.CloseFrame('guild_rank_info')
+        GUILD_RANK_INFO_CLOSE_UI()
+        return
+    end
+    frame:ShowWindow(1);
 end
