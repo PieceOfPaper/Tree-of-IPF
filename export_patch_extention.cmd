@@ -16,8 +16,8 @@ set ExtractPath=%cd%\extract
 set ExportPath=%cd%\%2
 
 
-cd %TosPath%\patch
-dir /od /b > %RootPath%\ipflist_patch.txt
+::cd %TosPath%\patch
+::dir /od /b > %RootPath%\ipflist_patch.txt
 
 
 cd %RootPath%
