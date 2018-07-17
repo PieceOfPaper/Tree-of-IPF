@@ -21,6 +21,11 @@ cd %TempPath%\patch
 dir /od /b > %RootPath%\ipflist_patch.txt
 
 
+::===== Save Pached list
+cd %TosPath%\patch
+dir /od /b > %RootPath%\ipflist_patched.txt
+
+
 cd %RootPath%
 for /f %%a in (ipflist_patch.txt) do (
 	cd %RootPath%
@@ -43,11 +48,6 @@ for /f %%a in (ipflist_patch.txt) do (
 	git commit -m "Patch %%a"
 	git push
 )
-
-
-::===== Save Pached list
-cd %TosPath%\patch
-dir /od /b > %RootPath%\ipflist_patched.txt
 
 
 ::====== temp data clear
