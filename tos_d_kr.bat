@@ -1,1 +1,0 @@
-export.cmd D:\TreeOfSavior kr

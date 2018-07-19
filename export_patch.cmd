@@ -12,27 +12,28 @@ set RootPath=%cd%
 set TempPath=%cd%\Temp
 set ExtractPath=%cd%\extract
 set ExportPath=%cd%\%2
+set ToolsPath=%cd%\tools
 
 
 
 ::===== ipf file Copy
-xcopy /y /s "%TosPath%\patch\*.ipf" "%TempPath%\patch\*.ipf" /EXCLUDE:%RootPath%\ipflist_patched.txt
+xcopy /y /s "%TosPath%\patch\*.ipf" "%TempPath%\patch\*.ipf" /EXCLUDE:%ExportPath%\ipflist_patched.txt
 cd %TempPath%\patch
-dir /od /b > %RootPath%\ipflist_patch.txt
+dir /od /b > %ExportPath%\ipflist_patch.txt
 
 
 ::===== Save Pached list
 cd %TosPath%\patch
-dir /od /b > %RootPath%\ipflist_patched.txt
+dir /od /b > %ExportPath%\ipflist_patched.txt
 
 
-cd %RootPath%
+cd %ExportPath%
 for /f %%a in (ipflist_patch.txt) do (
 	cd %RootPath%
 	
 	::===== Decrypt & Extract
-	%RootPath%\ipf_unpack.exe %TempPath%\patch\%%a decrypt
-	%RootPath%\ipf_unpack.exe %TempPath%\patch\%%a extract ies xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3 pathengine
+	%ToolsPath%\ipf_unpack\ipf_unpack.exe %TempPath%\patch\%%a decrypt
+	%ToolsPath%\ipf_unpack\ipf_unpack.exe %TempPath%\patch\%%a extract ies xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3 pathengine
 	
 	::===== Copy to Export Path
 	xcopy /y /s "%ExtractPath%" "%ExportPath%"

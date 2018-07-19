@@ -1,1 +1,0 @@
-export_patch.cmd D:\TreeOfSavior kr
