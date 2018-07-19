@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="9" attachNode="Dummy_effect_moneybag_hit" particleName="I_coin002_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="9" attachNode="Dummy_effect_moneybag_hit" particleName="I_light013_spark_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="9" attachNode="Dummy_effect_moneybag_trail2" particleName="I_swordtrail015_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="9" attachNode="Dummy_effect_moneybag_trail" particleName="I_swordtrail015_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<AttachModel frame="1" XAC="artefact_moneybag" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="artefact_moneybag_ani.xsm"/>
+	<Sound frame="0.00" soundFile="skl_eff_coin_rustle"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="4.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="5.00" soundFile="skl_fgt_tackle_cast_2"/>
+</ActionDesc>

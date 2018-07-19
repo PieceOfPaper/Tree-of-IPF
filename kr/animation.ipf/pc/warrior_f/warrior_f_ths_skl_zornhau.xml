@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_fgt_light_cast"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="8.00" soundFile="skl_fgt_spearlunge"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="E_warrior_zornhau_swordtrail" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="50" sound="None"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="E_warrior_zornhau_swordtrail" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" sound="None"/>
+	<Particle frame="8" attachNode="Dummy_trail" particleName="None" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" sound="None"/>
+	<Particle frame="4" attachNode="Dummy_effect_wepon_spear02" particleName="I_spread_in002_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" sound="None"/>
+	<Particle frame="7" attachNode="Bip01 L Foot" particleName="I_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" sound="None"/>
+	<Particle frame="8" attachNode="Dummy_effect_berserk" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" sound="skl_fgt_mordschlag"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="I_warrior_rush_shot_dash3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" sound="None"/>
+	<Particle frame="8" attachNode="Dummy_effect_craft" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" sound="None"/>
+	<Particle frame="8" attachNode="Dummy_effect_craft" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" sound="None"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="2" R="10" G="8" B="3" A="50"/>
+	<BlendOn frame="3" R="40" G="30" B="10" A="50"/>
+	<BlendOn frame="4" R="60" G="45" B="25" A="50"/>
+	<BlendOn frame="5" R="80" G="60" B="25" A="50"/>
+	<BlendOn frame="7" R="110" G="70" B="20" A="50"/>
+	<BlendOn frame="8" R="200" G="150" B="30" A="100"/>
+	<BlendOn frame="10" R="160" G="110" B="30" A="50"/>
+	<BlendOn frame="12" R="60" G="45" B="25" A="50"/>
+	<BlendOn frame="14" R="30" G="20" B="10" A="50"/>
+	<BlendOn frame="16" R="20" G="15" B="6" A="50"/>
+	<BlendOff frame="14" R="0" G="0" B="0" A="0"/>
+</ActionDesc>
