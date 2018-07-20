@@ -5418,6 +5418,7 @@
 		<Class ClassID="50630" ClassName="CHAR318_MSETP3_3_EFFECT_BUFF1_MSG" Data="전기가 흐르는 돌이 근처 있습니다"/>
 		<Class ClassID="50661" ClassName="CHAR120_MSTEP5_2_FEMALE_SEL1" Data="상황을 설명 해준다"/>
 		<Class ClassID="50662" ClassName="CHAR120_MSTEP5_2_FEMALE_SEL2" Data="괜찮으니 걱정하지 말라고 한다"/>
+		<Class ClassID="50663" ClassName="CHAR120_FEDIMIAN_DETECTIVE_SEL1" Data="아사나에 대해 묻는다"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>
@@ -6708,7 +6709,7 @@
 		<Class ClassID="102016" ClassName="ReturnToNature" Data="자연으로 돌려보내기"/>
 		<Class ClassID="102017" ClassName="TakeAsCompanion" Data="컴패니언으로 데려가기"/>
 		<Class ClassID="102018" ClassName="GuildGrowth" Data="길드 성장"/>
-		<Class ClassID="102019" ClassName="NextGuildTower" Data="다음 길드 타워"/>
+		<Class ClassID="102019" ClassName="NextGuildTower" Data="다음 길드 레벨"/>
 		<Class ClassID="102020" ClassName="DropItem{Name}ForGuildExpUp" Data="길드 경험치를 올리기 위해선 {Name}아이템을 올려주세요."/>
 		<Class ClassID="102021" ClassName="WareHouse" Data="개인 창고"/>
 		<Class ClassID="102022" ClassName="UsableAbilityPoint" Data="사용가능한 특성 포인트"/>
