@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <controlsetlist>
 	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="150" height="150" skin="">
 		<controls>
@@ -1904,7 +1904,7 @@
 			<slot name="LENS" texttooltip="{@st59}렌즈{/}" layout_gravity="center top" rect="0 0 50 50" margin="-100 5 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lens_slot">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="WING" texttooltip="{@st59}날개{/}" layout_gravity="center top" rect="0 0 50 50" margin="100 5 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lens_slot">
+			<slot name="WING" texttooltip="{@st59}날개{/}" layout_gravity="center top" rect="0 0 50 50" margin="100 5 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wing_slot">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
 		</controls>

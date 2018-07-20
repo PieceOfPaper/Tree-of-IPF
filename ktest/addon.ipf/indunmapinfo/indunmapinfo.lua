@@ -354,7 +354,7 @@ function UPDATE_INDUN_TOOLTIP(frame, argStr, argNum)
 		local pic = GET_CHILD(ctrlSet, "map", "ui::CPicture");
 		local mapimage = ui.GetImage(drawMapName .. "_fog");
 		if mapimage == nil then
-			world.PreloadMinimap(drawMapName);
+			world.PreloadMinimap(drawMapName, true, true);
 		end
 		pic:SetImage(drawMapName .. "_fog");
 		

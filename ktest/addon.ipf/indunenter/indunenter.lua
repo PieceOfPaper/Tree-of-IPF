@@ -1325,6 +1325,11 @@ function INDUNENTER_REENTER(frame, ctrl)
         end
     end
     
+    if textCount > 0 then
+        local yesscp = string.format('ReqMoveToIndun(4, %d)', textCount);
+        ui.MsgBox(ClMsg('ReenterMultipleNotAllowed'), yesscp, 'None');
+        return;
+    end
     ReqMoveToIndun(4, textCount);
 end
 

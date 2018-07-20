@@ -75,7 +75,7 @@ function PORTAL_SHOP_REGISTER_INIT_PORTAL(frame, skillObj)
             -- picture
             local mapimage = ui.GetImage(mapName);
 		    if mapimage == nil then
-			    world.PreloadMinimap(mapName);
+			    world.PreloadMinimap(mapName, true, true);
 		    end
 
             local pic = GET_CHILD_RECURSIVELY(ctrlSet, 'pic');

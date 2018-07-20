@@ -24,6 +24,28 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="Gem_Paladin_Sanctuary">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Paladin_Sanctuary"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Paladin_Sanctuary"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="Gem_Musketeer_GroovingMuzzle">
 		<TriggerList Act="UnEquip">
 			<Trigger>

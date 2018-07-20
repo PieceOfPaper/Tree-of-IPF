@@ -319,6 +319,15 @@ function TOGGLE_PET_ACTIVITY(parent, ctrl)
 	local pet_guid = frame:GetUserValue("PET_GUID");
 
 	ui.DisableForTime(ctrl, 3);
+	
+	local petInfo = session.pet.GetPetByGUID(pet_guid);
+	local obj = petInfo:GetObject();
+	obj = GetIES(obj);
+
+	local isActivated = TryGet(obj, "IsActivated");
+	if isActivated == 1 then
+		world.Leave(petInfo:GetHandle(), 0);
+	end
 
 	control.CustomCommand("PET_ACTIVATE", 0);	
 end

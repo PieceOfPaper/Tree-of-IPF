@@ -5413,7 +5413,13 @@ return obj.Level;"/>
     <PadSkill Name="Falconer_Aiming" CheckerType="0" Range="100" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1" Relation="5">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="10000" UseFunc="1" FuncTxt="local owner = GetOwner(self); local skl = GetSkill(owner, &apos;Falconer_Aiming&apos;); return skl.Level * 15000;"/>
+                <Num Num="10000" UseFunc="1" FuncTxt="local time = 0;
+local owner = GetOwner(self);
+local skillAiming = GetSkill(owner, &apos;Falconer_Aiming&apos;);
+if skillAiming ~= nil then
+	time = skillAiming.Level * 15000;
+end
+return time;"/>
                 <Num Num="99999"/>
             </ToolScp>
         </createEvent>
@@ -5443,10 +5449,16 @@ return obj.Level;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Falconer_Circling" CheckerType="0" Range="100" AutoPos="1" ApplyFlyMon="1">
+    <PadSkill Name="Falconer_Circling" CheckerType="0" Range="100" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="0" UseFunc="1" FuncTxt="return GetExProp(self, &quot;CirclingApplyTime&quot;)"/>
+                <Num Num="0" UseFunc="1" FuncTxt="local time = 0;
+local owner = GetOwner(self);
+local skillCircling = GetSkill(owner, &apos;Falconer_Circling&apos;);
+if skillCircling ~= nil then
+	time = (skillCircling.Level * 1000) + 10000;
+end
+return time;"/>
                 <Num Num="99990"/>
             </ToolScp>
         </createEvent>
@@ -5481,7 +5493,7 @@ return obj.Level;"/>
         </leaveEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-500"/>
+                <Num Num="-1000"/>
                 <Num Num="0"/>
             </ToolScp>
         </updateEvent>

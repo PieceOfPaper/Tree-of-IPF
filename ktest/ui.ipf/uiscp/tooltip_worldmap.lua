@@ -41,11 +41,10 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 		local pic = GET_CHILD(ctrlSet, "map", "ui::CPicture");
 		local mapimage = ui.GetImage(drawMapName .. "_fog");
 		if mapimage == nil then
-			world.PreloadMinimap(drawMapName);
+			world.PreloadMinimap(drawMapName, true, true);
 		end
 		pic:SetImage(drawMapName .. "_fog");
 		
-
 		local worldMapWidth = ui.GetFrame("worldmap"):GetWidth()
 		local worldMapHeight = ui.GetFrame("worldmap"):GetHeight()
 
