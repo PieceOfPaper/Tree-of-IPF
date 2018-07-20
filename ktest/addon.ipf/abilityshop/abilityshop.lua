@@ -45,17 +45,23 @@ function REFRESH_ABILITYSHOP(frame, msg)
 	local posY = 5;
 
 	-- abilGroupName으로 xml에서 해당되는 구입가능한 특성리스트 가져오기
-	local abilList, abilListCnt = GetClassList("Ability");
 	local abilGroupList, abilGroupListCnt = GetClassList(abilGroupName);
 
-	for i = 0, abilGroupListCnt-1 do
+    if session.IsGM() == 1 and abilGroupName == 'Ability_Warrior' then
+        IMC_NORMAL_INFO("GetClassList("..abilGroupName.."), count("..abilGroupListCnt..")");
+    end
 
+	for i = 0, abilGroupListCnt-1 do
 		local groupClass = GetClassByIndexFromList(abilGroupList, i);
 		if groupClass ~= nil then
-			local abilClass = GetClassByNameFromList(abilList, groupClass.ClassName);
+			local abilClass = GetClass('Ability', groupClass.ClassName);
 			if abilClass ~= nil then
 				posY = MAKE_ABILITYSHOP_ICON(frame, pc, gbox, abilClass, groupClass, posY);
+            else
+                IMC_NORMAL_INFO("GetClass from Ability fail:className("..groupClass.ClassName..")");
 			end
+        else
+            IMC_NORMAL_INFO("GetClass from Ability_[Group] fail: abilGroupName("..abilGroupName.."), index("..i..")");
 		end
 	end
 
