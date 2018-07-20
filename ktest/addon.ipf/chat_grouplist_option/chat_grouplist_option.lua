@@ -98,7 +98,11 @@ function CHAT_GROUPLIST_OPTION_OK(frame)
 		local newtitle = titleedit:GetText()
 		session.chat.SetRoomConfigTitle(roomid, newtitle)
 
-		CHAT_SET_TO_TITLENAME(CT_GROUP, ui.GetGroupChatTargetID() )
+        local chatframe = ui.GetFrame("chat")
+	    
+        if chatframe ~= nil and chatframe:GetUserValue("CHAT_TYPE_SELECTED_VALUE") == 6 then
+		    CHAT_SET_TO_TITLENAME(CT_GROUP, ui.GetGroupChatTargetID() )
+        end
 	
 	end
 
