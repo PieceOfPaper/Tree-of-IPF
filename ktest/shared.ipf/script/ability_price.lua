@@ -2,7 +2,8 @@
 
 function ABIL_1RANK_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 1 + (4 - maxLevel + abilLevel) * 1;
+--    local price = 1 + (4 - maxLevel + abilLevel) * 1;
+    local price = 1
     local time = 4 + (4 - maxLevel + abilLevel) * 4;
 
     return price, time;
@@ -11,7 +12,8 @@ end
 
 function ABIL_2RANK_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 2 + (4 - maxLevel + abilLevel) * 1;
+--    local price = 2 + (4 - maxLevel + abilLevel) * 1;
+    local price = 1
     local time = 8 + (4 - maxLevel + abilLevel) * 4;
 
     return price, time;
@@ -20,7 +22,8 @@ end
 
 function ABIL_3RANK_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 5 + (4 - maxLevel + abilLevel) * 1;
+--    local price = 5 + (4 - maxLevel + abilLevel) * 1;
+    local price = 1
     local time = 12 + (4 - maxLevel + abilLevel) * 4;
 
     return price, time;
@@ -29,7 +32,8 @@ end
 
 function ABIL_4RANK_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 11 + (4 - maxLevel + abilLevel) * 1;
+--    local price = 11 + (4 - maxLevel + abilLevel) * 1;
+    local price = 1
     local time = 16 + (4 - maxLevel + abilLevel) * 4;
 
     return price, time;
@@ -66,7 +70,8 @@ end
 
 function ABIL_8RANK_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 571 + (4 - maxLevel + abilLevel) * 71;
+--    local price = 571 + (4 - maxLevel + abilLevel) * 71;
+    local price = 480 + (4 - maxLevel + abilLevel) * 45
     local time = 240 + (4 - maxLevel + abilLevel) * 100;
 
     return price, time;
@@ -75,7 +80,8 @@ end
 
 function ABIL_1RANK_BUFF_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 1 + (abilLevel - 1) * 1;
+--    local price = 1 + (abilLevel - 1) * 1;
+    local price = 1
     local time = 4 + (abilLevel - 1);
 
     return price, time;
@@ -84,7 +90,8 @@ end
 
 function ABIL_2RANK_BUFF_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 2 + (abilLevel - 1) * 1;
+--    local price = 2 + (abilLevel - 1) * 1;
+    local price = 1
     local time = 8 + (abilLevel - 1);
 
     return price, time;
@@ -93,7 +100,8 @@ end
 
 function ABIL_3RANK_BUFF_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 5 + (abilLevel - 1) * 1;
+--    local price = 5 + (abilLevel - 1) * 1;
+    local price = 1
     local time = 12 + (abilLevel - 1);
 
     return price, time;
@@ -102,7 +110,8 @@ end
 
 function ABIL_4RANK_BUFF_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 11 + (abilLevel - 1) * 1;
+--    local price = 11 + (abilLevel - 1) * 1;
+    local price = 1
     local time = 16 + (abilLevel - 1);
 
     return price, time;
@@ -138,7 +147,8 @@ end
 
 function ABIL_8RANK_BUFF_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 571 + (abilLevel - 1) * 71;
+--    local price = 571 + (abilLevel - 1) * 71;
+    local price = 500 + (abilLevel - 1) * 55
     local time = 240 + (abilLevel - 1) * 20;
 
     return price, time;
@@ -210,7 +220,8 @@ end
 
 function ABIL_8RANK_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = math.floor(1.085^(abilLevel-1) * 8);
+--    local price = math.floor(1.085^(abilLevel-1) * 8);
+    local price = math.floor(1.0822^(abilLevel-1) * 8)
     local time = 0;
 
     return price, time;
@@ -479,7 +490,8 @@ end
 
 function ABIL_WARLOCK14_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 571 + math.floor(1.1^(abilLevel-1) * 80);
+--    local price = 571 + math.floor(1.1^(abilLevel-1) * 80);
+    local price = 450 + math.floor(1.1^(abilLevel-1) * 65)
     local time = 600 + (abilLevel-1) * 100;
 
     return price, time;
@@ -488,7 +500,8 @@ end
 
 function ABIL_SAGE8_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 2000
+--    local price = 2000
+    local price = 1600
     local time = 2000
 
     return price, time;
@@ -497,7 +510,8 @@ end
 
 function ABIL_SAGE9_PRICE(pc, abilName, abilLevel, maxLevel)
 
-    local price = 1600 + (abilLevel-1) * 100;
+--    local price = 1600 + (abilLevel-1) * 100;
+    local price = 1500 + (abilLevel-1) * 56
     local time = 2000 + (abilLevel-1) * 200;
 
     return price, time;
