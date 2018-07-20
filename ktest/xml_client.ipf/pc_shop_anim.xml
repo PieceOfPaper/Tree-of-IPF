@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<PcShopAnim>
+	<PcShopAnim GroupName="GemRoasting" SkillName="Alchemist_Roasting" StartAnim="SKL_ROASTING_BORN" IdleAnim="SKL_ROASTING_STD" EndAnim="SKL_ROASTING_DEAD"/>
+	<PcShopAnim GroupName="Squire" SkillName="Squire_WeaponTouchUp" StartAnim="SKL_WEAPON_BORN" IdleAnim="STD" EndAnim="SKL_WEAPON_DEAD"/>
+	<PcShopAnim GroupName="Squire" SkillName="Squire_ArmorTouchUp" StartAnim="SKL_ARMOR_MAINTAIN_BORN" IdleAnim="STD" EndAnim="SKL_ARMOR_MAINTAIN_DEAD"/>
+	<PcShopAnim GroupName="Squire" SkillName="Squire_Repair" StartAnim="SKL_SQUIRE_REPAIR_BORN" IdleAnim="SQUIRE_REPAIR_STD" EndAnim="SKL_SQUIRE_REPAIR_DEAD"/>
+	<PcShopAnim GroupName="Pardoner" SkillName="Pardoner_Oblation" StartAnim="skl_Oblation_born" IdleAnim="skl_Oblation_std" EndAnim="skl_Oblation_dead"/>
+	<PcShopAnim GroupName="Enchanter" SkillName="Enchanter_EnchantArmor" StartAnim="SKL_ENCHANTER_SHOP" IdleAnim="STD" EndAnim="SKL_ENCHANTER_SHOP_DEAD"/>
+</PcShopAnim>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!--CustomeName은 item_equip에 있는 fileName 기준임-->
+<costume_override>
+	<List CustomName="CLERIC01_3">
+		<Data>
+			<Effect Name="F_cleric_heal_active_ground" ChangeName="F_cleric_heal_active_ground_cleric01_3" ChangeNode="None" ChangeScale="1" BuffState="None" Moving="None"/>
+			<Effect Name="F_cleric_heal_loop_ground" ChangeName="F_cleric_heal_loop_ground_cleric01_3" ChangeNode="None" ChangeScale="1" BuffState="None" Moving="None"/>
+			<Sound Name="skl_cleric_heal_shot" ChangeName="skl_cleric_heal_shot_3"/>
+		</Data>
+	</List>
+	<List CustomName="RANGER01_3">
+		<Data>
+			<Effect Name="F_archer_strafe_shot_circle" ChangeName="None" ChangeNode="Dummy_Force" ChangeScale="2" BuffState="None" Moving="None"/>
+			<Effect Name="I_arrow009_yellow" ChangeName="I_arrow009_yellow_ranger01_3_light" ChangeNode="Dummy_L_HAND" ChangeScale="0.5" BuffState="None" Moving="None"/>
+		</Data>
+	</List>
+	<List CustomName="MAGE01_3">
+		<Data>
+			<Effect Name="I_force001_yellow" ChangeName="I_force001_yellow_mage01_3" ChangeNode="Dummy_effect_magicmissile" ChangeScale="1" BuffState="None" Moving="None"/>
+			<Effect Name="I_explosion004_yellow" ChangeName="I_explosion004_yellow_mage01_3" ChangeNode="Dummy_Force" ChangeScale="1" BuffState="None" Moving="None"/>
+		</Data>
+	</List>
+	<List CustomName="QUARREELSHOOTER01_3">
+		<Data>
+			<Effect Name="I_arrow009_1" ChangeName="I_arrow009_1_quarreelshooter01_3" ChangeNode="Dummy_q_Force" ChangeScale="1" BuffState="RunningShot_Buff" Moving="YES"/>
+		</Data>
+	</List>
+</costume_override>

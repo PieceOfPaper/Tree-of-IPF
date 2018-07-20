@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!--DiffusionType : Stop(Factor 만큼 확산된 상태를 유지), Normal(시간 경과에 따라 Factor 만큼 확산이 진행됨)-->
+<!--ColorBlendType : Linear(선형), None(그색깔만)-->
+<!--Attach : No(오오라가 생성된 자리에서 이동하지 않음), Yes(오오라가 엑터를 따라 이동), Self(현재 모델을 기준으로 그리는 방식, 모델의 움직임과 동일하며 한장만 생성되고(즉, TimeTerm이 먹히지 않음), Node에 Self가 여러개 있어도 제일 위의 하나만 적용 됨, 그리고 Loop)-->
+<Aura>
+	<Pattern PatternName="EliteBuff">
+		<Node Factor="1" TimeTerm="1.5" DiffusionType="Stop" ColorBlendType="Linear" Attach="Self">
+			<Color RGBA="3000;1500;50;60" Time="0"/>
+			<Color RGBA="8000;1000;50;255" Time="0.5"/>
+			<Color RGBA="3000;2000;50;100" Time="1"/>
+			<Color RGBA="3000;1500;50;60" Time="1.5"/>
+		</Node>
+	</Pattern>
+</Aura>

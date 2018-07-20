@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mondu (IMCGames Co., Ltd) -->
+<TimeActionAnim>
+	<TimeAction Name="TestTimeAction" RandomLoop="1" StartAnim="APPLY" StartAnimCount="1" NextStart="NONE" NextStartCount="1" BeforEnd="NONE" BeforEndCount="1" EndAniTime="0" EndAnim="AKICKBOX">
+		<LoopAnim Anim="MAKING" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="SITGROPESET" RandomLoop="1" StartAnim="SitGrope_ready" StartAnimCount="1" NextStart="NONE" NextStartCount="1" BeforEnd="NONE" BeforEndCount="1" EndAniTime="0" EndAnim="SitGrope_shot">
+		<LoopAnim Anim="SitGrope_loop" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="SITGROPESET2" RandomLoop="1" StartAnim="SitGrope2_ready" StartAnimCount="1" NextStart="NONE" NextStartCount="1" BeforEnd="NONE" BeforEndCount="1" EndAniTime="0" EndAnim="SitGrope2_shot">
+		<LoopAnim Anim="SitGrope2_loop" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="MagnumOpus" RandomLoop="0" StartAnim="SKL_MAGNUMOPUS_BORN" StartAnimCount="1" NextStart="NONE" NextStartCount="0" BeforEnd="SKL_MAGNUMOPUS_DEAD_READY" BeforEndCount="1" EndAniTime="4" EndAnim="SKL_MAGNUMOPUS_DEAD">
+		<LoopAnim Anim="SKL_MAGNUMOPUS_ADD_MATERIAL2" AnimCount="2"/>
+		<LoopAnim Anim="SKL_MAGNUMOPUS_SHOVEL" AnimCount="1"/>
+		<LoopAnim Anim="SKL_MAGNUMOPUS_STAY_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_MAGNUMOPUS_STAY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_MAGNUMOPUS_STAY_HOLD" AnimCount="3"/>
+		<LoopAnim Anim="SKL_MAGNUMOPUS_EXTRACT" AnimCount="1"/>
+		<LoopAnim Anim="SKL_MAGNUMOPUS_COVER_CAST_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_MAGNUMOPUS_COVER_CAST" AnimCount="1"/>
+		<LoopAnim Anim="SKL_MAGNUMOPUS_COVER_LOOP" AnimCount="2"/>
+		<LoopAnim Anim="SKL_MAGNUMOPUS_COVER_SHOT" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="CraftAnimation" RandomLoop="1" StartAnim="CRAFT_READY" StartAnimCount="1" NextStart="NONE" NextStartCount="1" BeforEnd="NONE" BeforEndCount="1" EndAniTime="0" EndAnim="CRAFT_READY">
+		<LoopAnim Anim="CRAFT" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="GuildBattle" RandomLoop="1" StartAnim="absorb" StartAnimCount="1" NextStart="NONE" NextStartCount="1" BeforEnd="NONE" BeforEndCount="1" EndAniTime="0" EndAnim="CRAFT_READY">
+		<LoopAnim Anim="absorb" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="BriqAnimation" RandomLoop="0" StartAnim="SKL_BRIQUETTING_BORN" StartAnimCount="1" NextStart="SKL_BRIQUETTING_STEP1_READY" NextStartCount="1" BeforEnd="SKL_BRIQUETTING_HARDENING" BeforEndCount="1" EndAniTime="8" EndAnim="SKL_BRIQUETTING_DEAD">
+		<LoopAnim Anim="SKL_BRIQUETTING_STEP1" AnimCount="7"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_ADD_MATERIAL_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_ADD_MATERIAL" AnimCount="3"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_ADD_MATERIAL_HOLD" AnimCount="2"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_ADD_MATERIAL" AnimCount="1"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_GRIND_LOOP_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_GRIND_LOOP" AnimCount="4"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_STUCK" AnimCount="1"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_GRIND_LOOP" AnimCount="1"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_ADD1_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_ADD1" AnimCount="5"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_ADD1_HOLD" AnimCount="1"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_ADD3_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_ADD3" AnimCount="1"/>
+		<LoopAnim Anim="SKL_BRIQUETTING_ADD3_HOLD" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="Alchemist_Tincturing" RandomLoop="0" StartAnim="SKL_TINCTURING_BORN" StartAnimCount="1" NextStart="NONE" NextStartCount="1" BeforEnd="NONE" BeforEndCount="0" EndAniTime="1" EndAnim="SKL_TINCTURING_DEAD">
+		<LoopAnim Anim="SKL_TINCTURING_GRIND1_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_TINCTURING_GRIND1" AnimCount="1"/>
+		<LoopAnim Anim="SKL_TINCTURING_FILTER1" AnimCount="1"/>
+		<LoopAnim Anim="SKL_TINCTURING_SHAKE_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_TINCTURING_SHAKE" AnimCount="4"/>
+		<LoopAnim Anim="SKL_TINCTURING_ADD2" AnimCount="1"/>
+		<LoopAnim Anim="SKL_TINCTURING_TINCTURE" AnimCount="1"/>
+		<LoopAnim Anim="SKL_TINCTURING_STD3_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_TINCTURING_STD3" AnimCount="2"/>
+	</TimeAction>
+	<TimeAction Name="Alchemist_Roasting" RandomLoop="0" StartAnim="SKL_ROASTING_FIRE" StartAnimCount="1" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="NONE">
+		<LoopAnim Anim="SKL_ROASTING_ADD1_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_ROASTING_ADD1" AnimCount="2"/>
+		<LoopAnim Anim="SKL_ROASTING_GRIND1_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_ROASTING_GRIND1" AnimCount="1"/>
+		<LoopAnim Anim="SKL_ROASTING_SHAKE1_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_ROASTING_SHAKE1" AnimCount="2"/>
+		<LoopAnim Anim="SKL_ROASTING_CLOSE" AnimCount="1"/>
+		<LoopAnim Anim="SKL_ROASTING_CLOSE1_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_ROASTING_CLOSE1" AnimCount="2"/>
+		<LoopAnim Anim="SKL_ROASTING_OPEN" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="Squire_ArmorTouchUp" RandomLoop="0" StartAnim="NONE" StartAnimCount="0" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="NONE">
+		<LoopAnim Anim="SKL_ARMOR_MAINTAIN_HAMMERING_READY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_ARMOR_MAINTAIN_HAMMERING" AnimCount="5"/>
+		<LoopAnim Anim="SKL_ARMOR_MAINTAIN_STAY" AnimCount="1"/>
+		<LoopAnim Anim="SKL_ARMOR_MAINTAIN_HAMMERING" AnimCount="6"/>
+		<LoopAnim Anim="SKL_ARMOR_MAINTAIN_FINISH" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="Squire_WeaponTouchUp" RandomLoop="0" StartAnim="NONE" StartAnimCount="0" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="NONE">
+		<LoopAnim Anim="SKL_WEAPON_SHARPEN" AnimCount="3"/>
+		<LoopAnim Anim="SKL_WEAPON_CHECK" AnimCount="1"/>
+		<LoopAnim Anim="SKL_WEAPON_SHARPEN" AnimCount="7"/>
+		<LoopAnim Anim="SKL_WEAPON_SHARPEN" AnimCount="3"/>
+		<LoopAnim Anim="SKL_WEAPON_CHECK" AnimCount="1"/>
+		<LoopAnim Anim="SKL_WEAPON_SHARPEN" AnimCount="5"/>
+		<LoopAnim Anim="SKL_WEAPON_FINISH" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="Enchanter_EnchantArmor" RandomLoop="1" StartAnim="absorb" StartAnimCount="1" NextStart="NONE" NextStartCount="1" BeforEnd="NONE" BeforEndCount="1" EndAniTime="0" EndAnim="CRAFT_READY">
+		<LoopAnim Anim="absorb" AnimCount="1"/>
+	</TimeAction>
+</TimeActionAnim>

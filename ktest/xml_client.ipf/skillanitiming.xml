@@ -1,0 +1,2659 @@
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
+<SkillAniTiming>
+	<Skill Name="Normal_Attack"/>
+	<Skill Name="Bow_Attack"/>
+	<Skill Name="Hammer_Attack"/>
+	<Skill Name="Magic_Attack"/>
+	<Skill Name="Normal_Attack_TH"/>
+	<Skill Name="Magic_Attack_TH"/>
+	<Skill Name="Bow_Hanging_Attack"/>
+	<Skill Name="War_JustFrameDagger"/>
+	<Skill Name="War_JustFrameAttack"/>
+	<Skill Name="MongWangGa"/>
+	<Skill Name="CounterAttack"/>
+	<Skill Name="Common_ShadowUmbrella">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Common_Medusa"/>
+	<Skill Name="Common_ConfusionFlag">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Common_FoldingFan">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Common_Conquest"/>
+	<Skill Name="Common_Yoryung"/>
+	<Skill Name="Common_DaggerAries">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Common_BubbleStick"/>
+	<Skill Name="HeavyVibrate_Attack"/>
+	<Skill Name="Dash_Attack"/>
+	<Skill Name="Common_Zaibas"/>
+	<Skill Name="Bow_Attack2"/>
+	<Skill Name="CrossBow_Attack"/>
+	<Skill Name="Pistol_Attack"/>
+	<Skill Name="Default"/>
+	<Skill Name="Common_vuvuzela"/>
+	<Skill Name="Common_bubblewrap"/>
+	<Skill Name="Common_shovel"/>
+	<Skill Name="Common_metaldetector"/>
+	<Skill Name="Common_dumbbell"/>
+	<Skill Name="Common_snowspray"/>
+	<Skill Name="Common_wateringcan"/>
+	<Skill Name="Common_otlflag"/>
+	<Skill Name="Common_TEST1"/>
+	<Skill Name="Common_TEST2"/>
+	<Skill Name="Common_TEST3"/>
+	<Skill Name="Common_TEST4"/>
+	<Skill Name="Common_TEST5"/>
+	<Skill Name="DragonCrash"/>
+	<Skill Name="Fly_Shot"/>
+	<Skill Name="FlyLightning"/>
+	<Skill Name="Gravity_1"/>
+	<Skill Name="Gravity_2"/>
+	<Skill Name="Gravity_3"/>
+	<Skill Name="Gravity_4"/>
+	<Skill Name="Snow_2"/>
+	<Skill Name="Snow_3"/>
+	<Skill Name="Snow_4"/>
+	<Skill Name="Cannon_1"/>
+	<Skill Name="Cannon_2"/>
+	<Skill Name="Cannon_3"/>
+	<Skill Name="Cannon_4"/>
+	<Skill Name="Quest_Cannon"/>
+	<Skill Name="Sadu_1"/>
+	<Skill Name="Catapract_1"/>
+	<Skill Name="Catapract_2"/>
+	<Skill Name="Catapract_3"/>
+	<Skill Name="Catapract_4"/>
+	<Skill Name="Warrior_Guard"/>
+	<Skill Name="Archer_HighAnchoring2"/>
+	<Skill Name="ItemSkill_boss_Golem"/>
+	<Skill Name="ItemSkill_boss_mushcaria"/>
+	<Skill Name="ItemSkill_boss_Rocktortuga"/>
+	<Skill Name="ItemSkill_boss_poata"/>
+	<Skill Name="ItemSkill_boss_tutu"/>
+	<Skill Name="ItemSkill_boss_Goblin_Warrior"/>
+	<Skill Name="ItemSkill_boss_Goblin_Warrior_red"/>
+	<Skill Name="ItemSkill_boss_chafer"/>
+	<Skill Name="ItemSkill_boss_Glass_mole"/>
+	<Skill Name="ItemSkill_boss_woodspirit"/>
+	<Skill Name="ItemSkill_boss_Strongholder"/>
+	<Skill Name="ItemSkill_boss_salamander"/>
+	<Skill Name="ItemSkill_boss_bearkaras"/>
+	<Skill Name="ItemSkill_boss_Spector_F"/>
+	<Skill Name="ItemSkill_boss_stone_whale"/>
+	<Skill Name="ItemSkill_boss_ginklas"/>
+	<Skill Name="ItemSkill_boss_Carapace"/>
+	<Skill Name="ItemSkill_boss_Spector_m"/>
+	<Skill Name="ItemSkill_boss_NetherBovine"/>
+	<Skill Name="ItemSkill_boss_mirtis"/>
+	<Skill Name="ItemSkill_boss_Sequoia_blue"/>
+	<Skill Name="ItemSkill_boss_spector_gh"/>
+	<Skill Name="ItemSkill_boss_werewolf"/>
+	<Skill Name="ItemSkill_boss_ShadowGaoler"/>
+	<Skill Name="ItemSkill_boss_Carnivore"/>
+	<Skill Name="ItemSkill_boss_Minotaurs"/>
+	<Skill Name="ItemSkill_boss_Throneweaver"/>
+	<Skill Name="ItemSkill_boss_BiteRegina"/>
+	<Skill Name="ItemSkill_boss_Chapparition"/>
+	<Skill Name="ItemSkill_boss_Mummyghast"/>
+	<Skill Name="ItemSkill_boss_Genmagnus"/>
+	<Skill Name="ItemSkill_boss_Ironbaum"/>
+	<Skill Name="ItemSkill_boss_Gorgon"/>
+	<Skill Name="ItemSkill_boss_Drapeliun"/>
+	<Skill Name="ItemSkill_boss_unicorn"/>
+	<Skill Name="ItemSkill_boss_Moldyhorn"/>
+	<Skill Name="ItemSkill_boss_RytaSwort"/>
+	<Skill Name="ItemSkill_boss_Harpeia"/>
+	<Skill Name="ItemSkill_boss_Mothstem"/>
+	<Skill Name="ItemSkill_boss_Merge"/>
+	<Skill Name="ItemSkill_boss_Clymen"/>
+	<Skill Name="ItemSkill_boss_Devilglove"/>
+	<Skill Name="ItemSkill_boss_necrovanter"/>
+	<Skill Name="ItemSkill_boss_molich"/>
+	<Skill Name="ItemSkill_boss_yonazolem"/>
+	<Skill Name="ItemSkill_boss_Abomination"/>
+	<Skill Name="ItemSkill_boss_ellaganos"/>
+	<Skill Name="ItemSkill_boss_archon"/>
+	<Skill Name="ItemSkill_boss_Gaigalas"/>
+	<Skill Name="ItemSkill_boss_bramble"/>
+	<Skill Name="ItemSkill_boss_honeypin"/>
+	<Skill Name="ItemSkill_boss_bebraspion"/>
+	<Skill Name="ItemSkill_boss_GiantWoodGoblin_red"/>
+	<Skill Name="ItemSkill_boss_GiantWoodGoblin"/>
+	<Skill Name="ItemSkill_boss_Kimeleech"/>
+	<Skill Name="ItemSkill_boss_MagBurk"/>
+	<Skill Name="ItemSkill_boss_onion_the_great"/>
+	<Skill Name="ItemSkill_boss_Achat"/>
+	<Skill Name="ItemSkill_boss_Shnayim"/>
+	<Skill Name="ItemSkill_boss_TombLord"/>
+	<Skill Name="ItemSkill_boss_Denoptic"/>
+	<Skill Name="ItemSkill_boss_Iltiswort"/>
+	<Skill Name="ItemSkill_boss_Confinedion"/>
+	<Skill Name="ItemSkill_enchanted_poison"/>
+	<Skill Name="ItemSkill_boss_Ravinepede"/>
+	<Skill Name="ItemSkill_boss_Rajatoad"/>
+	<Skill Name="ItemSkill_boss_Unknocker"/>
+	<Skill Name="ItemSkill_boss_Saltistter"/>
+	<Skill Name="ItemSkill_boss_deadbone"/>
+	<Skill Name="ItemSkill_boss_Fallen_Statue"/>
+	<Skill Name="ItemSkill_boss_Malletwyvern"/>
+	<Skill Name="ItemSkill_boss_Moyabruka"/>
+	<Skill Name="ItemSkill_boss_Colimencia"/>
+	<Skill Name="ItemSkill_boss_Rajapearl"/>
+	<Skill Name="ItemSkill_boss_mushwort"/>
+	<Skill Name="ItemSkill_boss_lepus"/>
+	<Skill Name="ItemSkill_boss_sparnas"/>
+	<Skill Name="ItemSkill_boss_cactusvel"/>
+	<Skill Name="ItemSkill_Throw"/>
+	<Skill Name="ItemSkill_boss_Velorchard"/>
+	<Skill Name="ItemSkill_boss_rootopus"/>
+	<Skill Name="ItemSkill_boss_dionia"/>
+	<Skill Name="ItemSkill_boss_GazingGolem"/>
+	<Skill Name="ItemSkill_SummonLeaves"/>
+	<Skill Name="ItemSkill_boss_hydra"/>
+	<Skill Name="ItemSkill_boss_moa"/>
+	<Skill Name="ItemSkill_boss_JackO_lantern"/>
+	<Skill Name="ItemSkill_boss_Manticen"/>
+	<Skill Name="ItemSkill_boss_mineloader"/>
+	<Skill Name="ItemSkill_boss_Grinender"/>
+	<Skill Name="ItemSkill_boss_helgasercle"/>
+	<Skill Name="ItemSkill_boss_yekub"/>
+	<Skill Name="ItemSkill_Shield_Melee"/>
+	<Skill Name="ItemSkill_boss_Sparnanman"/>
+	<Skill Name="JOB_SAPPER3_2_SKILL"/>
+	<Skill Name="MonPCSKill_PoisonArrow"/>
+	<Skill Name="MonPCSKill_ShrinkBody"/>
+	<Skill Name="MonPCSKill_Quicken"/>
+	<Skill Name="MonPCSkill_Multishot"/>
+	<Skill Name="MonPCSkill_StoneCurse"/>
+	<Skill Name="MonPCSkill_MagicMissile"/>
+	<Skill Name="MonPCSkill_JointPenalty"/>
+	<Skill Name="GM_RegenerateBuff"/>
+	<Skill Name="GM_StatBuff"/>
+	<Skill Name="GM_CooldownBuff"/>
+	<Skill Name="GM_ATKBuff"/>
+	<Skill Name="GM_DEFBuff"/>
+	<Skill Name="GM_EXPBuff"/>
+	<Skill Name="Swordman_Thrust"/>
+	<Skill Name="Swordman_Bash"/>
+	<Skill Name="Swordman_GungHo"/>
+	<Skill Name="Swordman_Concentrate">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Swordman_PainBarrier">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Swordman_Restrain">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Swordman_PommelBeat"/>
+	<Skill Name="Swordman_DoubleSlash"/>
+	<Skill Name="Peltasta_UmboBlow">
+		<Property Job="1001" Stance="10013" Gender="2">
+			<Value Name="HitAni" Value="5"/>
+			<Value Name="ReadyAniFrame" Value="4"/>
+		</Property>
+	</Skill>
+	<Skill Name="Peltasta_RimBlow"/>
+	<Skill Name="Peltasta_SwashBuckling"/>
+	<Skill Name="Peltasta_Guardian"/>
+	<Skill Name="Peltasta_ShieldLob"/>
+	<Skill Name="Peltasta_HighGuard"/>
+	<Skill Name="Peltasta_ButterFly"/>
+	<Skill Name="Highlander_WagonWheel"/>
+	<Skill Name="Highlander_CartarStroke"/>
+	<Skill Name="Highlander_Crown"/>
+	<Skill Name="Highlander_CrossGuard"/>
+	<Skill Name="Highlander_Moulinet"/>
+	<Skill Name="Highlander_ScullSwing"/>
+	<Skill Name="Hoplite_Stabbing"/>
+	<Skill Name="Hoplite_Pierce"/>
+	<Skill Name="Hoplite_Finestra"/>
+	<Skill Name="Hoplite_SynchroThrusting"/>
+	<Skill Name="Hoplite_LongStride"/>
+	<Skill Name="Hoplite_ThrouwingSpear"/>
+	<Skill Name="Rodelero_ShieldCharge"/>
+	<Skill Name="Rodelero_Montano"/>
+	<Skill Name="Rodelero_TargeSmash"/>
+	<Skill Name="Rodelero_ShieldPush"/>
+	<Skill Name="Rodelero_Slithering"/>
+	<Skill Name="Rodelero_ShootingStar"/>
+	<Skill Name="Cataphract_Impaler"/>
+	<Skill Name="Cataphract_EarthWave"/>
+	<Skill Name="Cataphract_Trot">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Cataphract_SteedCharge"/>
+	<Skill Name="Cataphract_DoomSpike"/>
+	<Skill Name="Cataphract_Rush"/>
+	<Skill Name="Cataphract_DraggingDeath"/>
+	<Skill Name="Barbarian_Embowel"/>
+	<Skill Name="Barbarian_Frenzy">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Barbarian_Aggressor">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Barbarian_Savagery">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Barbarian_Warcry"/>
+	<Skill Name="Barbarian_StompingKick"/>
+	<Skill Name="Barbarian_Pouncing"/>
+	<Skill Name="Barbarian_GiantSwing"/>
+	<Skill Name="Squire_WeaponTouchUp"/>
+	<Skill Name="Squire_ArmorTouchUp"/>
+	<Skill Name="Squire_Repair"/>
+	<Skill Name="Squire_Arrest"/>
+	<Skill Name="Squire_Camp"/>
+	<Skill Name="Squire_FoodTable"/>
+	<Skill Name="Corsair_JollyRoger"/>
+	<Skill Name="Corsair_IronHook"/>
+	<Skill Name="Corsair_Keelhauling"/>
+	<Skill Name="Corsair_UnlockChest">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Corsair_SubweaponCancel">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Corsair_Looting">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Centurion_Conscript"/>
+	<Skill Name="Centurion_PhalanxFormation"/>
+	<Skill Name="Centurion_TercioFormation"/>
+	<Skill Name="Centurion_WingedFormation"/>
+	<Skill Name="Centurion_WedgeFormation"/>
+	<Skill Name="Centurion_SchiltronFormation"/>
+	<Skill Name="Centurion_Testudo"/>
+	<Skill Name="Centurion_Skirmishers"/>
+	<Skill Name="Centurion_Rotate"/>
+	<Skill Name="Doppelsoeldner_DeedsOfValor">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Doppelsoeldner_Mordschlag"/>
+	<Skill Name="Doppelsoeldner_Double_pay_earn">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Doppelsoeldner_Punish"/>
+	<Skill Name="Doppelsoeldner_Cyclone"/>
+	<Skill Name="Ninja_Ninja1"/>
+	<Skill Name="Ninja_Ninja2"/>
+	<Skill Name="Murmillo_ChangeStance"/>
+	<Skill Name="Murmillo_skill_1"/>
+	<Skill Name="Murmillo_skill_2"/>
+	<Skill Name="Warrior_Parrying"/>
+	<Skill Name="Warrior_shouldercharge"/>
+	<Skill Name="Warrior_Amolado">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Warrior_ChainThrow"/>
+	<Skill Name="Warrior_GreatBearFormation">
+		<Property Job="1001" Stance="10013" Gender="2">
+			<Value Name="HitAni" Value="27"/>
+			<Value Name="ReadyAniFrame" Value="1"/>
+		</Property>
+	</Skill>
+	<Skill Name="Warrior_Dash">
+		<Property Job="1001" Stance="10000" Gender="2">
+			<Value Name="HitAni" Value="12"/>
+			<Value Name="ReadyAniFrame" Value="2"/>
+		</Property>
+	</Skill>
+	<Skill Name="Warrior_ScarletMacaw"/>
+	<Skill Name="Warrior_Reward">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Warrior_Clipping"/>
+	<Skill Name="Warrior_Regeneration">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Warrior_Individual">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_EnergyBolt"/>
+	<Skill Name="Wizard_Lethargy">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_Sleep">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_ReflectShield">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_EarthQuake"/>
+	<Skill Name="Wizard_Surespell">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_MagicMissile"/>
+	<Skill Name="Wizard_QuickCast">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Pyromancer_FireBall"/>
+	<Skill Name="Pyromancer_FireWall"/>
+	<Skill Name="Pyromancer_EnchantFire">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Pyromancer_Flare"/>
+	<Skill Name="Pyromancer_FirePillar">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="1000"/>
+		</Property>
+	</Skill>
+	<Skill Name="Pyromancer_HellBreath"/>
+	<Skill Name="Cryomancer_IceBolt"/>
+	<Skill Name="Cryomancer_IciclePike">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Cryomancer_IceWall"/>
+	<Skill Name="Cryomancer_IceBlast"/>
+	<Skill Name="Cryomancer_SubzeroShield"/>
+	<Skill Name="Cryomancer_Gust">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Cryomancer_FrostPillar"/>
+	<Skill Name="Cryomancer_SnowRolling"/>
+	<Skill Name="Psychokino_PsychicPressure"/>
+	<Skill Name="Psychokino_Telekinesis"/>
+	<Skill Name="Psychokino_Swap">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Psychokino_Teleportation">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Psychokino_MagneticForce"/>
+	<Skill Name="Psychokino_Raise"/>
+	<Skill Name="Psychokino_GravityPole"/>
+	<Skill Name="Linker_Unbind"/>
+	<Skill Name="Linker_Physicallink"/>
+	<Skill Name="Linker_JointPenalty"/>
+	<Skill Name="Linker_HangmansKnot"/>
+	<Skill Name="Linker_SpiritualChain"/>
+	<Skill Name="Linker_UmbilicalCord"/>
+	<Skill Name="Thaumaturge_SwellLeftArm"/>
+	<Skill Name="Thaumaturge_ShrinkBody"/>
+	<Skill Name="Thaumaturge_SwellBody"/>
+	<Skill Name="Thaumaturge_Transpose">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Thaumaturge_Reversi">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="1000"/>
+		</Property>
+	</Skill>
+	<Skill Name="Thaumaturge_SwellRightArm"/>
+	<Skill Name="Thaumaturge_SwellBrain">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Elementalist_Electrocute"/>
+	<Skill Name="Elementalist_StoneCurse"/>
+	<Skill Name="Elementalist_Hail">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="1000"/>
+		</Property>
+	</Skill>
+	<Skill Name="Elementalist_Prominence">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="1000"/>
+		</Property>
+	</Skill>
+	<Skill Name="Elementalist_Meteor"/>
+	<Skill Name="Elementalist_Rain">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="1000"/>
+		</Property>
+	</Skill>
+	<Skill Name="Sorcerer_Summoning"/>
+	<Skill Name="Sorcerer_AttackGround"/>
+	<Skill Name="Sorcerer_Obey"/>
+	<Skill Name="Sorcerer_Morph"/>
+	<Skill Name="Sorcerer_Hold"/>
+	<Skill Name="Sorcerer_SummonFamiliar"/>
+	<Skill Name="Sorcerer_SummonSalamion"/>
+	<Skill Name="Sorcerer_SummonServant"/>
+	<Skill Name="Chronomancer_Quicken"/>
+	<Skill Name="Chronomancer_Samsara"/>
+	<Skill Name="Chronomancer_Stop"/>
+	<Skill Name="Chronomancer_Slow">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Chronomancer_Haste">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="6"/>
+			<Value Name="ReadyAniFrame" Value="4"/>
+		</Property>
+	</Skill>
+	<Skill Name="Chronomancer_BackMasking"/>
+	<Skill Name="Necromancer_GatherCorpse"/>
+	<Skill Name="Necromancer_CreateShoggoth"/>
+	<Skill Name="Necromancer_FleshCannon"/>
+	<Skill Name="Necromancer_FleshHoop">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="1000"/>
+		</Property>
+	</Skill>
+	<Skill Name="Necromancer_DirtyWall"/>
+	<Skill Name="Necromancer_Disinter"/>
+	<Skill Name="Alchemist_Combustion"/>
+	<Skill Name="Alchemist_Dig"/>
+	<Skill Name="Alchemist_Roasting">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Alchemist_Briquetting">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Alchemist_Tincturing">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Alchemist_MagnumOpus">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Alchemist_ItemAwakening">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_SafetyZone"/>
+	<Skill Name="Wizard_Fog">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="1000"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_IceTremor"/>
+	<Skill Name="Wizard_Marble"/>
+	<Skill Name="Wizard_BlcakHole"/>
+	<Skill Name="Wizard_Exchange">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_Wild">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_Vaccum"/>
+	<Skill Name="Wizard_IonShell"/>
+	<Skill Name="Wizard_FatalBond"/>
+	<Skill Name="Wizard_MeteorSwarm"/>
+	<Skill Name="Wizard_Freeze">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_CountDown">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="ReadyAniTime" Value="-1"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_rulerbuff"/>
+	<Skill Name="Wizard_SummonDemon2"/>
+	<Skill Name="Wizard_DemonBomb"/>
+	<Skill Name="Wizard_DemonArmor"/>
+	<Skill Name="Wizard_Escape">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="1000"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_IncreaseSpeed"/>
+	<Skill Name="Wizard_ykTest1">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="1000"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_ykTest2">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="1000"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_ykTest3">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="1000"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_Darkness">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wizard_Darkness2"/>
+	<Skill Name="Archer_Multishot"/>
+	<Skill Name="Archer_Fulldraw"/>
+	<Skill Name="Archer_Kneelingshot"/>
+	<Skill Name="Archer_SwiftStep">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Archer_ObliqueShot"/>
+	<Skill Name="Archer_HeavyShot"/>
+	<Skill Name="Archer_TwinArrows"/>
+	<Skill Name="Ranger_Barrage"/>
+	<Skill Name="Ranger_HighAnchoring"/>
+	<Skill Name="Ranger_CriticalShot"/>
+	<Skill Name="Ranger_SteadyAim">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Ranger_TimeBombArrow">
+		<Property Job="3001" Stance="10003" Gender="2">
+			<Value Name="HitAni" Value="200"/>
+		</Property>
+	</Skill>
+	<Skill Name="Ranger_BounceShot"/>
+	<Skill Name="Ranger_ArrowSprinkle"/>
+	<Skill Name="Ranger_SpiralArrow">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="QuarrelShooter_DeployPavise"/>
+	<Skill Name="QuarrelShooter_ScatterCaltrop"/>
+	<Skill Name="QuarrelShooter_StonePicking"/>
+	<Skill Name="QuarrelShooter_StoneShot"/>
+	<Skill Name="QuarrelShooter_RapidFire"/>
+	<Skill Name="QuarrelShooter_Teardown"/>
+	<Skill Name="QuarrelShooter_RunningShot">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Sapper_BroomTrap"/>
+	<Skill Name="Sapper_Claymore"/>
+	<Skill Name="Sapper_PunjiStake"/>
+	<Skill Name="Sapper_DetonateTraps"/>
+	<Skill Name="Sapper_Cover"/>
+	<Skill Name="Sapper_DamageTrap"/>
+	<Skill Name="Sapper_SpikeShooter"/>
+	<Skill Name="Sapper_CollarBomb"/>
+	<Skill Name="Hunter_Coursing"/>
+	<Skill Name="Hunter_Retrieve"/>
+	<Skill Name="Hunter_Snatching"/>
+	<Skill Name="Hunter_Praise">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Hunter_Pointing"/>
+	<Skill Name="Hunter_Hounding"/>
+	<Skill Name="Hunter_Growling"/>
+	<Skill Name="Hunter_RushDog"/>
+	<Skill Name="Wugushi_Detoxify">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Wugushi_NeedleBlow"/>
+	<Skill Name="Wugushi_Bewitch"/>
+	<Skill Name="Wugushi_WugongGu"/>
+	<Skill Name="Wugushi_ThrowGuPot"/>
+	<Skill Name="Wugushi_JincanGu"/>
+	<Skill Name="Scout_Camouflage"/>
+	<Skill Name="Scout_FluFlu">
+		<Property Job="3001" Stance="10003" Gender="2">
+			<Value Name="HitAni" Value="200"/>
+		</Property>
+	</Skill>
+	<Skill Name="Scout_FlareShot"/>
+	<Skill Name="Scout_Cloaking">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Scout_Undistance"/>
+	<Skill Name="Scout_Scan">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Scout_Beprepared">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Rogue_SneakHit">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Rogue_Feint"/>
+	<Skill Name="Rogue_Burrow"/>
+	<Skill Name="Rogue_Spoliation"/>
+	<Skill Name="Rogue_Evasion">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Rogue_Vendetta"/>
+	<Skill Name="Rogue_Lachrymator"/>
+	<Skill Name="Rogue_Backstab"/>
+	<Skill Name="Fletcher_BroadHead">
+		<Property Job="3001" Stance="10003" Gender="2">
+			<Value Name="HitAni" Value="200"/>
+		</Property>
+	</Skill>
+	<Skill Name="Fletcher_BodkinPoint">
+		<Property Job="3001" Stance="10003" Gender="2">
+			<Value Name="HitAni" Value="200"/>
+		</Property>
+	</Skill>
+	<Skill Name="Fletcher_BarbedArrow">
+		<Property Job="3001" Stance="10003" Gender="2">
+			<Value Name="HitAni" Value="200"/>
+		</Property>
+	</Skill>
+	<Skill Name="Fletcher_CrossFire">
+		<Property Job="3001" Stance="10003" Gender="2">
+			<Value Name="HitAni" Value="200"/>
+		</Property>
+	</Skill>
+	<Skill Name="Fletcher_MagicArrow"/>
+	<Skill Name="Fletcher_Singijeon">
+		<Property Job="3001" Stance="10003" Gender="2">
+			<Value Name="HitAni" Value="200"/>
+		</Property>
+	</Skill>
+	<Skill Name="PiedPiper_Fluting"/>
+	<Skill Name="Appraiser_Skill1"/>
+	<Skill Name="Appraiser_Skill2"/>
+	<Skill Name="Schwarzereiter_ConcentratedFire"/>
+	<Skill Name="Schwarzereiter_Caracole"/>
+	<Skill Name="Schwarzereiter_Limacon"/>
+	<Skill Name="Schwarzereiter_RetreatShot"/>
+	<Skill Name="Falconer_Calling"/>
+	<Skill Name="Falconer_DungOfFalcon"/>
+	<Skill Name="Falconer_BuildRoost"/>
+	<Skill Name="Falconer_Circling"/>
+	<Skill Name="Falconer_Hovering"/>
+	<Skill Name="Falconer_Pheasant"/>
+	<Skill Name="Falconer_HangingShot"/>
+	<Skill Name="Archer_Avoid"/>
+	<Skill Name="Archer_LegShot">
+		<Property Job="3001" Stance="10003" Gender="2">
+			<Value Name="HitAni" Value="200"/>
+		</Property>
+	</Skill>
+	<Skill Name="Archer_Entangle"/>
+	<Skill Name="Archer_Turret"/>
+	<Skill Name="Archer_Scarecrow"/>
+	<Skill Name="Archer_SmokeBomb">
+		<Property Job="2001" Stance="10006" Gender="2">
+			<Value Name="HitAni" Value="0"/>
+			<Value Name="ReadyAniTime" Value="500"/>
+		</Property>
+	</Skill>
+	<Skill Name="Hackapell_StormBolt"/>
+	<Skill Name="Archer_SaberBash"/>
+	<Skill Name="Hackapell_CavalryCharge"/>
+	<Skill Name="Archer_HorseTackle"/>
+	<Skill Name="Archer_InstallSnare"/>
+	<Skill Name="Archer_BlankAmmunition"/>
+	<Skill Name="Archer_Fletching"/>
+	<Skill Name="Archer_PommelAttack"/>
+	<Skill Name="Archer_Weakening"/>
+	<Skill Name="Archer_Ballista"/>
+	<Skill Name="Rogue_BrandishBow"/>
+	<Skill Name="Cleric_Heal">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Cleric_Cure"/>
+	<Skill Name="Cleric_SafetyZone">
+		<Property Job="4001" Stance="10004" Gender="1">
+			<Value Name="ReadyAniFrame" Value="2"/>
+		</Property>
+	</Skill>
+	<Skill Name="Cleric_DeprotectedZone"/>
+	<Skill Name="Cleric_DivineMight">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Cleric_Fade"/>
+	<Skill Name="Cleric_PatronSaint">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Kriwi_Aukuras"/>
+	<Skill Name="Kriwi_Zalciai">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Kriwi_Daino"/>
+	<Skill Name="Kriwi_Zaibas"/>
+	<Skill Name="Kriwi_DivineStigma">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Kriwi_Melstis"/>
+	<Skill Name="Priest_Aspersion"/>
+	<Skill Name="Priest_Monstrance"/>
+	<Skill Name="Priest_Blessing"/>
+	<Skill Name="Priest_Resurrection"/>
+	<Skill Name="Priest_Sacrament"/>
+	<Skill Name="Priest_Revive"/>
+	<Skill Name="Priest_Dodola"/>
+	<Skill Name="Priest_Exorcise">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Bokor_Hexing"/>
+	<Skill Name="Bokor_Effigy"/>
+	<Skill Name="Bokor_Tetmamakla"/>
+	<Skill Name="Bokor_Zombify">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Bokor_Mackangdal"/>
+	<Skill Name="Bokor_BwaKayiman">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Bokor_Samdiveve"/>
+	<Skill Name="Bokor_Ogouveve"/>
+	<Skill Name="Bokor_Damballa">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Dievdirbys_CarveVakarine"/>
+	<Skill Name="Dievdirbys_CarveZemina"/>
+	<Skill Name="Dievdirbys_CarveLaima"/>
+	<Skill Name="Dievdirbys_Carve"/>
+	<Skill Name="Dievdirbys_CarveOwl"/>
+	<Skill Name="Dievdirbys_CarveAustrasKoks"/>
+	<Skill Name="Dievdirbys_CarveAusirine"/>
+	<Skill Name="Sadhu_OutofBody"/>
+	<Skill Name="Sadhu_Prakriti"/>
+	<Skill Name="Sadhu_Possession"/>
+	<Skill Name="Sadhu_VashitaSiddhi"/>
+	<Skill Name="Sadhu_AstralBodyExplosion"/>
+	<Skill Name="Sadhu_TransmitPrana"/>
+	<Skill Name="Sadhu_EctoplasmAttack"/>
+	<Skill Name="Paladin_Smite"/>
+	<Skill Name="Paladin_Restoration"/>
+	<Skill Name="Paladin_Conversion"/>
+	<Skill Name="Paladin_ResistElements"/>
+	<Skill Name="Paladin_TurnUndead"/>
+	<Skill Name="Paladin_Barrier"/>
+	<Skill Name="Monk_IronSkin"/>
+	<Skill Name="Monk_DoublePunch"/>
+	<Skill Name="Monk_PalmStrike"/>
+	<Skill Name="Monk_HandKnife"/>
+	<Skill Name="Monk_1InchPunch"/>
+	<Skill Name="Monk_EnergyBlast"/>
+	<Skill Name="Monk_God_Finger_Flicking"/>
+	<Skill Name="Monk_Golden_Bell_Shield"/>
+	<Skill Name="Pardoner_SignDispeller"/>
+	<Skill Name="Pardoner_Simony"/>
+	<Skill Name="Pardoner_CraftBooster"/>
+	<Skill Name="Pardoner_SpellShop"/>
+	<Skill Name="Pardoner_Indulgentia"/>
+	<Skill Name="Pardoner_Oblation">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Pardoner_DiscernEvil"/>
+	<Skill Name="Druid_Telepath"/>
+	<Skill Name="Druid_Carnivory"/>
+	<Skill Name="Druid_ShapeShifting"/>
+	<Skill Name="Druid_Transform"/>
+	<Skill Name="Druid_StereaTrofh"/>
+	<Skill Name="Druid_Chortasmata"/>
+	<Skill Name="Oracle_CallOfDeities">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Oracle_ArcaneEnergy"/>
+	<Skill Name="Oracle_Change"/>
+	<Skill Name="Oracle_Clairvoyance"/>
+	<Skill Name="Oracle_CounterSpell"/>
+	<Skill Name="Oracle_Forecast"/>
+	<Skill Name="Oracle_Ressetting">
+		<Property Job="4001" Stance="10004" Gender="1">
+			<Value Name="ReadyAniFrame" Value="2"/>
+		</Property>
+	</Skill>
+	<Skill Name="Oracle_DeathVerdict">
+		<Property Job="4001" Stance="10004" Gender="1">
+			<Value Name="ReadyAniFrame" Value="2"/>
+		</Property>
+	</Skill>
+	<Skill Name="Cleric_HolyAura"/>
+	<Skill Name="Cleric_Bless"/>
+	<Skill Name="Cleric_checkPad">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Cleric_EqualizerMissile"/>
+	<Skill Name="Cleric_Haste"/>
+	<Skill Name="Cleric_Holy_Baptism"/>
+	<Skill Name="Cleric_Venom"/>
+	<Skill Name="Cleric_limitation">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Cleric_FeverTime">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Cleric_MonOOBE"/>
+	<Skill Name="Cleric_jangpantest">
+		<Property Job="4001" Stance="10004" Gender="2">
+			<Value Name="HitAni" Value="533"/>
+		</Property>
+	</Skill>
+	<Skill Name="Cleric_Lada"/>
+	<Skill Name="Cleric_Ziva"/>
+	<Skill Name="Cleric_Flins"/>
+	<Skill Name="Cleric_Dodola"/>
+	<Skill Name="Cleric_ShieldCharge"/>
+	<Skill Name="Cleric_Revival"/>
+	<Skill Name="Cleric_MoneyBag"/>
+	<Skill Name="Cleric_Exoneration"/>
+	<Skill Name="Mon_Onion_Big_Attack1"/>
+	<Skill Name="Mon_rafflesia_Attack1"/>
+	<Skill Name="Mon_rafflesia_Skill"/>
+	<Skill Name="Mon_raffly_Attack1"/>
+	<Skill Name="Mon_raffly_Skill"/>
+	<Skill Name="Mon_puragi_Attack1"/>
+	<Skill Name="Mon_puragi_Attack2"/>
+	<Skill Name="Mon_puragi_Skill"/>
+	<Skill Name="Mon_zigri_Attack1"/>
+	<Skill Name="Mon_zigri_Attack2"/>
+	<Skill Name="Mon_zigri_Skill"/>
+	<Skill Name="Mon_Fisherman_Attack1"/>
+	<Skill Name="Mon_Fisherman_Skill"/>
+	<Skill Name="Mon_arburn_pokubu_Attack1"/>
+	<Skill Name="Mon_bushspider_Attack1"/>
+	<Skill Name="Mon_bushspider_Attack2"/>
+	<Skill Name="Mon_flower_blue_Attack1"/>
+	<Skill Name="Mon_flower_blue_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_flower_blue_Skill"/>
+	<Skill Name="Mon_jellyfish_Attack1"/>
+	<Skill Name="Mon_jellyfish_Attack2"/>
+	<Skill Name="Mon_lantern_mushroom_Attack1"/>
+	<Skill Name="Mon_lantern_mushroom_Attack2"/>
+	<Skill Name="Mon_lantern_mushroom_Skill"/>
+	<Skill Name="Mon_banshee_Attack1"/>
+	<Skill Name="Mon_banshee_Attack2"/>
+	<Skill Name="Mon_honey_bee_Attack1"/>
+	<Skill Name="Mon_honey_bee_Attack2"/>
+	<Skill Name="Mon_mushroom_boy_Skill"/>
+	<Skill Name="Mon_mushroom_ent_Attack1"/>
+	<Skill Name="Mon_mushroom_ent_Attack2"/>
+	<Skill Name="Mon_mushroom_ent_Skill"/>
+	<Skill Name="Mon_truffle_Attack1"/>
+	<Skill Name="Mon_truffle_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_truffle_Skill"/>
+	<Skill Name="Mon_Haming_Attack1"/>
+	<Skill Name="Mon_Haming_Attack2"/>
+	<Skill Name="Mon_Haming_Skill"/>
+	<Skill Name="Mon_Onion_Attack1"/>
+	<Skill Name="Mon_Onion_green_Attack1"/>
+	<Skill Name="Mon_slime_dark_Attack1"/>
+	<Skill Name="Mon_slime_dark_Skill"/>
+	<Skill Name="Mon_boss_dionia_Skill_1"/>
+	<Skill Name="Mon_boss_dionia_Skill_2"/>
+	<Skill Name="Mon_boss_molich_keep_Skill_2"/>
+	<Skill Name="Mon_thornball_Attack1"/>
+	<Skill Name="Mon_pappus_kepa_Attack1"/>
+	<Skill Name="Mon_matsum_Attack1"/>
+	<Skill Name="Mon_boss_bramble_Attack1"/>
+	<Skill Name="Mon_Sakmoli_Attack1"/>
+	<Skill Name="Mon_Sakmoli_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Jukopus_Attack1"/>
+	<Skill Name="Mon_Jukopus_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_bushspider_red_Attack1"/>
+	<Skill Name="Mon_bushspider_red_Attack2"/>
+	<Skill Name="Mon_dionia_mini_Attack1"/>
+	<Skill Name="Mon_mushroom_boy_color_Attack1"/>
+	<Skill Name="Mon_mushroom_boy_color_Attack2"/>
+	<Skill Name="Mon_mushroom_boy_color_Skill"/>
+	<Skill Name="Mon_mushroom_ent_color_Attack1"/>
+	<Skill Name="Mon_mushroom_ent_color_Attack2"/>
+	<Skill Name="Mon_mushroom_ent_color_Skill"/>
+	<Skill Name="Mon_pappus_kepa_color_Attack1"/>
+	<Skill Name="Mon_treemonster_Attack1"/>
+	<Skill Name="Mon_treemonster_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_treemonster_Skill"/>
+	<Skill Name="Mon_Cockatries_Attack1"/>
+	<Skill Name="Mon_Scorpion_Attack1"/>
+	<Skill Name="Mon_Scorpion_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Scorpion_Skill"/>
+	<Skill Name="Mon_Tontulia_Attack1"/>
+	<Skill Name="Mon_Tontulia_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Tontulia_Skill"/>
+	<Skill Name="Mon_Tontus_Attack1"/>
+	<Skill Name="Mon_Tontus_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Tontus_Skill"/>
+	<Skill Name="Mon_Beetle_Attack1"/>
+	<Skill Name="Mon_Beetle_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Beetle_Skill"/>
+	<Skill Name="Mon_Geppetto_Attack1"/>
+	<Skill Name="Mon_Geppetto_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Geppetto_Skill"/>
+	<Skill Name="Mon_Moving_trap_Attack1"/>
+	<Skill Name="Mon_Moving_trap_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Moving_trap_Skill"/>
+	<Skill Name="Mon_boss_bearkaras_Attack1"/>
+	<Skill Name="Mon_boss_bearkaras_Attack2"/>
+	<Skill Name="Mon_boss_bearkaras_Skill"/>
+	<Skill Name="Mon_Desmodus_Attack1"/>
+	<Skill Name="Mon_New_desmodus_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_New_desmodus_Skill"/>
+	<Skill Name="Mon_Pino_Attack1"/>
+	<Skill Name="Mon_Pino_Attack2"/>
+	<Skill Name="Mon_Pino_Skill"/>
+	<Skill Name="Mon_Siauliai_beetle_Attack1"/>
+	<Skill Name="Mon_Siauliai_beetle_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Siauliai_beetle_Skill"/>
+	<Skill Name="Mon_Whip_vine_Attack1"/>
+	<Skill Name="Mon_Whip_vine_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Whip_vine_Skill"/>
+	<Skill Name="Mon_Wolf_statue_Attack1"/>
+	<Skill Name="Mon_Wolf_statue_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Wolf_statue_Skill"/>
+	<Skill Name="Mon_Bokchoy_Big_Attack1"/>
+	<Skill Name="Mon_Zinute_Attack1"/>
+	<Skill Name="Mon_Zinute_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Zinute_Skill"/>
+	<Skill Name="Mon_Lauzinute_Attack1"/>
+	<Skill Name="Mon_Lauzinute_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Lauzinute_Skill"/>
+	<Skill Name="Mon_Dandel_Attack1"/>
+	<Skill Name="Mon_Dandel_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Dandel_Skill"/>
+	<Skill Name="Mon_schlesien_claw_Attack1"/>
+	<Skill Name="Mon_schlesien_claw_Attack2"/>
+	<Skill Name="Mon_schlesien_claw_Skill"/>
+	<Skill Name="Mon_schlesien_darkmage_Attack1"/>
+	<Skill Name="Mon_schlesien_darkmage_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_schlesien_darkmage_Skill"/>
+	<Skill Name="Mon_schlesien_guard_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_schlesien_heavycavarly_Attack1"/>
+	<Skill Name="Mon_schlesien_heavycavarly_Attack2"/>
+	<Skill Name="Mon_schlesien_heavycavarly_Skill"/>
+	<Skill Name="Mon_Sauga_s_Attack1"/>
+	<Skill Name="Mon_Sauga_s_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Sauga_s_Attack3"/>
+	<Skill Name="Mon_Basic_Attack"/>
+	<Skill Name="Mon_Pumpkin_Attack"/>
+	<Skill Name="Mon_Pumpkin_Attack2"/>
+	<Skill Name="Mon_Saurman_Priest_Attack"/>
+	<Skill Name="Mon_Saurman_Priest_Skill"/>
+	<Skill Name="Mon_Saurman_Warrior_Attack1"/>
+	<Skill Name="Mon_Saurman_Warrior_Skill"/>
+	<Skill Name="Mon_Ghost_Boy_Attack"/>
+	<Skill Name="Mon_Ghost_Boy_Skill"/>
+	<Skill Name="Mon_Ghost_Father_Attack"/>
+	<Skill Name="Mon_Ghost_Father_Skill"/>
+	<Skill Name="Mon_Goblin_Elite_Attack"/>
+	<Skill Name="Mon_Goblin_Elite_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Zombie_Bolt_Attack"/>
+	<Skill Name="Mon_Zombie_Bolt_Attack2"/>
+	<Skill Name="Mon_Zombie_Berserker_Attack"/>
+	<Skill Name="Mon_Zombie_Bomber_Attack"/>
+	<Skill Name="Mon_Zombie_Archer_Attack"/>
+	<Skill Name="Mon_PhantomKnight_Attack"/>
+	<Skill Name="Mon_Goblin_Spear_Attack"/>
+	<Skill Name="Mon_Goblin_Spear_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_HighBube_Spear_Attack"/>
+	<Skill Name="Mon_HighBube_Archer_Attack"/>
+	<Skill Name="Mon_Ghost_Girl_Attack"/>
+	<Skill Name="Mon_Ghost_Girl_Skill"/>
+	<Skill Name="Mon_Ghost_Mother_Attack"/>
+	<Skill Name="Mon_Ghost_Mother_Skill"/>
+	<Skill Name="Mon_Goblin_Archer_Attack"/>
+	<Skill Name="Mon_Mirtis_Attack"/>
+	<Skill Name="Mon_Mirtis_Attack2"/>
+	<Skill Name="Mon_elite_spector_F_Attack"/>
+	<Skill Name="Mon_elite_spector_F_Skill_1">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Popolion_Attack"/>
+	<Skill Name="Mon_Popolion_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Pokubu_Attack"/>
+	<Skill Name="Mon_Bokchoy_Attack1">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Bokchoy_Natk_Attack1"/>
+	<Skill Name="Mon_Bokchoy_Natk_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Spector_f_Attack"/>
+	<Skill Name="Mon_Chupacabra_Attack"/>
+	<Skill Name="Mon_Chupacabra_Attack2"/>
+	<Skill Name="Mon_Chupacabra_Attack3">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Chupacabra_Attack4">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_WoodSpirit_Attack"/>
+	<Skill Name="Mon_WoodSpirit_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Prison_Guard_Attack"/>
+	<Skill Name="Mon_Prison_Guard_Attack2"/>
+	<Skill Name="Mon_Trigger_Bigbang"/>
+	<Skill Name="Mon_Guard_Attack"/>
+	<Skill Name="Mon_Turret_sample_Attack"/>
+	<Skill Name="Mon_Turret_sample_Attack2"/>
+	<Skill Name="Mon_Ridimed_Attack1"/>
+	<Skill Name="Mon_Guard_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Guard_Attack3"/>
+	<Skill Name="Mon_Pokubu_NAttack_Attack1"/>
+	<Skill Name="Mon_boss_Abomination_Attack"/>
+	<Skill Name="Mon_boss_Abomination_Skill1"/>
+	<Skill Name="Mon_boss_Abomination_Skill2"/>
+	<Skill Name="Mon_boss_Abomination_Skill3"/>
+	<Skill Name="Mon_HighBube_Fighter_Attack"/>
+	<Skill Name="Mon_Barricade_thorn_Attack"/>
+	<Skill Name="Mon_Barricade_thorn_Attack2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_boss_Spector_F_Attack"/>
+	<Skill Name="Mon_boss_Spector_F_Attack3">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Silvertransporter_m_Attack"/>
+	<Skill Name="Mon_Silvertransporter_m_Skill"/>
+	<Skill Name="Mon_Zombie_Archer_Skill"/>
+	<Skill Name="Mon_Zombie_Overwatcher_Attack"/>
+	<Skill Name="Mon_Zombie_Overwatcher_Skill"/>
+	<Skill Name="Mon_Tool_Sample"/>
+	<Skill Name="Mon_Saurman_Spearman_Attack1"/>
+	<Skill Name="Mon_Saurman_Spearman_Skill"/>
+	<Skill Name="Mon_boss_bramble_Skill_1"/>
+	<Skill Name="Mon_boss_molich_keep_Skill_1"/>
+	<Skill Name="Mon_boss_Throneweaver_Skill_4"/>
+	<Skill Name="Mon_boss_ellaganos_Skill_1"/>
+	<Skill Name="Mon_Heal_Basic"/>
+	<Skill Name="Mon_Saurman_Axeman_Attack1"/>
+	<Skill Name="Mon_Saurman_Axeman_Skill"/>
+	<Skill Name="Mon_boss_molich_keep_Skill_3"/>
+	<Skill Name="Mon_boss_woodspirit_Skill_1"/>
+	<Skill Name="Mon_boss_woodspirit_Skill_2"/>
+	<Skill Name="Mon_boss_woodspirit_Skill_3"/>
+	<Skill Name="Mon_Wood_spirit_hard_Skill_1"/>
+	<Skill Name="Mon_boss_molich_Skill_4"/>
+	<Skill Name="Mon_boss_molich_Skill_5"/>
+	<Skill Name="Mon_boss_molich_keep_Skill_6"/>
+	<Skill Name="Mon_boss_molich_keep_Skill_7"/>
+	<Skill Name="Mon_boss_molich_keep_Skill_8"/>
+	<Skill Name="Mon_boss_molich_keep_Skill_9"/>
+	<Skill Name="Mon_boss_molich_keep_Skill_10"/>
+	<Skill Name="Mon_Shredded_Skill_2"/>
+	<Skill Name="Mon_Saurman_Axeman_Skill_1"/>
+	<Skill Name="Mon_Candle_Spider_Skill_1"/>
+	<Skill Name="Mon_Candle_Spider_Skill_2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Candle_Spider_Skill_3"/>
+	<Skill Name="Mon_Corpse_Flower_Skill_1"/>
+	<Skill Name="Mon_Corpse_Flower_Skill_2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Corpse_Flower_Skill_3"/>
+	<Skill Name="Mon_Flying_Flog_Skill_1"/>
+	<Skill Name="Mon_Flying_Flog_Skill_2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Flying_Flog_Skill_3"/>
+	<Skill Name="Mon_Moss1_Skill_1"/>
+	<Skill Name="Mon_Moss1_Skill_2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Moss1_Skill_3"/>
+	<Skill Name="Mon_Moss3_Skill_1"/>
+	<Skill Name="Mon_Moss3_Skill_2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Moss3_Skill_3"/>
+	<Skill Name="Mon_boss_Hepatica_King_Skill_1"/>
+	<Skill Name="Mon_boss_Hepatica_King_Skill_2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_boss_Hepatica_King_Skill_3"/>
+	<Skill Name="Mon_Salamion_Skill_1"/>
+	<Skill Name="Mon_Salamion_Skill_2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Salamion_Skill_3"/>
+	<Skill Name="Mon_Salindy_Skill_1"/>
+	<Skill Name="Mon_Salindy_Skill_2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Salindy_Skill_3"/>
+	<Skill Name="Mon_Saloon_Skill_1"/>
+	<Skill Name="Mon_Saloon_Skill_2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Saloon_Skill_3"/>
+	<Skill Name="Mon_Tombstone_golem_Skill_1"/>
+	<Skill Name="Mon_Tombstone_golem_Skill_2">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Tombstone_golem_Skill_3"/>
+	<Skill Name="Mon_Fire_Dragon_Skill_1"/>
+	<Skill Name="Mon_Fire_Dragon_Skill_2"/>
+	<Skill Name="Mon_Fire_Dragon_Skill_3"/>
+	<Skill Name="Mon_Big_Cockatries_Skill_1"/>
+	<Skill Name="Mon_Big_Cockatries_Skill_2"/>
+	<Skill Name="Mon_Big_Cockatries_Skill_3"/>
+	<Skill Name="Mon_boss_Sequoia_Skill_1"/>
+	<Skill Name="Mon_boss_Sequoia_Skill_2"/>
+	<Skill Name="Mon_boss_Sequoia_Skill_3"/>
+	<Skill Name="Mon_boss_Fallen_Statue_Skill_1"/>
+	<Skill Name="Mon_boss_Fallen_Statue_Skill_2"/>
+	<Skill Name="Mon_boss_Fallen_Statue_Skill_3"/>
+	<Skill Name="Mon_Salamion_Skill_4"/>
+	<Skill Name="Mon_hori_mage_Skill_1"/>
+	<Skill Name="Mon_bubbe_mage_normal_Skill_1"/>
+	<Skill Name="Mon_bubbe_mage_normal_Skill_2"/>
+	<Skill Name="Mon_bubbe_mage_fire_Skill_1"/>
+	<Skill Name="Mon_bubbe_mage_fire_Skill_2"/>
+	<Skill Name="Mon_bubbe_mage_ice_Skill_1"/>
+	<Skill Name="Mon_bubbe_mage_ice_Skill_2"/>
+	<Skill Name="Mon_bubbe_mage_priest_Skill_1"/>
+	<Skill Name="Mon_bubbe_mage_priest_Skill_2"/>
+	<Skill Name="Mon_boss_spector_gh_Skill_2"/>
+	<Skill Name="Mon_boss_Sparnanman_Skill_1"/>
+	<Skill Name="Mon_boss_Sparnanman_Skill_2"/>
+	<Skill Name="Mon_boss_Sparnanman_Skill_3"/>
+	<Skill Name="Mon_boss_Sparnanman_Skill_4"/>
+	<Skill Name="Mon_boss_TombMaiden_Skill_1"/>
+	<Skill Name="Mon_boss_TombMaiden_Skill_2"/>
+	<Skill Name="Mon_boss_TombMaiden_Skill_3"/>
+	<Skill Name="Mon_boss_TombMaiden_Skill_4"/>
+	<Skill Name="Mon_boss_Kubas_Skill_1"/>
+	<Skill Name="Mon_boss_Kubas_Skill_2"/>
+	<Skill Name="Mon_boss_Kubas_Skill_3"/>
+	<Skill Name="Mon_boss_Kubas_Skill_4"/>
+	<Skill Name="Mon_boss_Kubas_Skill_5"/>
+	<Skill Name="Mon_boss_Grinender_Skill_1"/>
+	<Skill Name="Mon_boss_Grinender_Skill_2"/>
+	<Skill Name="Mon_boss_Grinender_Skill_3"/>
+	<Skill Name="Mon_boss_Grinender_Skill_4"/>
+	<Skill Name="Mon_boss_Pyroego_Skill_1"/>
+	<Skill Name="Mon_boss_Pyroego_Skill_2"/>
+	<Skill Name="Mon_boss_Pyroego_Skill_3"/>
+	<Skill Name="Mon_Wood_spirit_hard_Skill_2"/>
+	<Skill Name="Mon_Wood_spirit_hard_Skill_3"/>
+	<Skill Name="Mon_GoblinWarrior_Skill_1"/>
+	<Skill Name="Mon_boss_dionia_Skill_3"/>
+	<Skill Name="Mon_boss_stone_whale_Skill_2"/>
+	<Skill Name="Mon_dionia_mini_Skill_1"/>
+	<Skill Name="Mon_boss_Lithorex_Skill_3"/>
+	<Skill Name="Mon_boss_molich_Skill_1"/>
+	<Skill Name="Mon_dionia_mini_Skill_2"/>
+	<Skill Name="Mon_bramble_mini_Skill_1"/>
+	<Skill Name="Mon_bramble_mini_Skill_2"/>
+	<Skill Name="Mon_boss_Lithorex_Skill_4"/>
+	<Skill Name="Mon_rambear_Skill_1"/>
+	<Skill Name="Mon_GoblinWarrior_Skill_2"/>
+	<Skill Name="Mon_boss_Saltistter_Skill_1"/>
+	<Skill Name="Mon_rambear_Skill_2"/>
+	<Skill Name="Mon_rambear_Skill_3"/>
+	<Skill Name="Mon_boss_molich_Skill_3"/>
+	<Skill Name="Mon_boss_molich_Skill_2"/>
+	<Skill Name="Mon_boss_RingCrawler_Skill_1"/>
+	<Skill Name="Mon_boss_RingCrawler_Skill_2"/>
+	<Skill Name="Mon_boss_stone_whale_Skill_3"/>
+	<Skill Name="Mon_boss_RingCrawler_Skill_3"/>
+	<Skill Name="Mon_boss_RingCrawler_Skill_4"/>
+	<Skill Name="Mon_panto_Gstaff_Skill_1"/>
+	<Skill Name="Mon_panto_Gstaff_Skill_2"/>
+	<Skill Name="Mon_panto_Gstaff_Skill_3"/>
+	<Skill Name="Mon_panto_Gwand_Skill_1"/>
+	<Skill Name="Mon_panto_Gwand_Skill_2"/>
+	<Skill Name="Mon_panto_Gwand_Skill_3"/>
+	<Skill Name="Mon_Moya_Skill_1"/>
+	<Skill Name="Mon_Moya_Skill_2"/>
+	<Skill Name="Mon_moyabu_Skill_1"/>
+	<Skill Name="Mon_moyabu_Skill_2"/>
+	<Skill Name="Mon_bavon_Skill_1"/>
+	<Skill Name="Mon_bavon_Skill_2"/>
+	<Skill Name="Mon_tanu_Skill_1"/>
+	<Skill Name="Mon_tanu_Skill_2"/>
+	<Skill Name="Mon_Zignuts_Skill_1"/>
+	<Skill Name="Mon_Zignuts_Skill_2"/>
+	<Skill Name="Mon_Moglan_Skill_1"/>
+	<Skill Name="Mon_Moglan_Skill_2"/>
+	<Skill Name="Mon_Moglan_Skill_3"/>
+	<Skill Name="Mon_Denden_Skill_1"/>
+	<Skill Name="Mon_Denden_Skill_2"/>
+	<Skill Name="Mon_Doyor_Skill_1"/>
+	<Skill Name="Mon_Doyor_Skill_2"/>
+	<Skill Name="Mon_Tipio_Skill_1"/>
+	<Skill Name="Mon_Tipio_Skill_2"/>
+	<Skill Name="Mon_Rondo_Skill_1"/>
+	<Skill Name="Mon_Rondo_Skill_2"/>
+	<Skill Name="Mon_Long_Arm_Skill_1"/>
+	<Skill Name="Mon_TerraNymph_Skill_1"/>
+	<Skill Name="Mon_TerraNymph_Skill_2"/>
+	<Skill Name="Mon_boss_archon_Skill_1"/>
+	<Skill Name="Mon_Long_Arm_Skill_2"/>
+	<Skill Name="Mon_dog_of_king_Skill_1"/>
+	<Skill Name="Mon_Long_Arm_Skill_4"/>
+	<Skill Name="Mon_dog_of_king_Skill_2"/>
+	<Skill Name="Mon_dog_of_king_Skill_3"/>
+	<Skill Name="Mon_katacom_cemeterygolem_Skill_1"/>
+	<Skill Name="Mon_katacom_cemeterygolem_Skill_2"/>
+	<Skill Name="Mon_katacom_cemeterygolem_Skill_3"/>
+	<Skill Name="Mon_tree_toormole_Skill_1"/>
+	<Skill Name="Mon_tree_toormole_Skill_2"/>
+	<Skill Name="Mon_dog_of_king_Skill_9"/>
+	<Skill Name="Mon_tree_toormole_Skill_3"/>
+	<Skill Name="Mon_schlesien_guard_Skill_1"/>
+	<Skill Name="Mon_schlesien_guard_Skill_2"/>
+	<Skill Name="Mon_schlesien_guard_Skill_3"/>
+	<Skill Name="Mon_boss_onion_the_great_Skill_1"/>
+	<Skill Name="Mon_tombstone_turtle_Skill_1"/>
+	<Skill Name="Mon_boss_Chapparition_Skill_1"/>
+	<Skill Name="Mon_boss_poata_Skill_1"/>
+	<Skill Name="Mon_boss_poata_Skill_2"/>
+	<Skill Name="Mon_M_boss_poata_Skill_1"/>
+	<Skill Name="Mon_boss_deadbone_Skill_1"/>
+	<Skill Name="Mon_boss_deadbone_Skill_2"/>
+	<Skill Name="Mon_boss_deadbone_Skill_3"/>
+	<Skill Name="Mon_boss_salamander_Skill_1"/>
+	<Skill Name="Mon_boss_salamander_Skill_2"/>
+	<Skill Name="Mon_boss_salamander_Skill_3"/>
+	<Skill Name="Mon_boss_salamander_Skill_4"/>
+	<Skill Name="Mon_boss_salamander_Skill_5"/>
+	<Skill Name="Mon_boss_onion_the_great_Skill_2"/>
+	<Skill Name="Mon_rafflesia_Skill_1"/>
+	<Skill Name="Mon_boss_Golem_Skill_1"/>
+	<Skill Name="Mon_boss_Golem_Skill_2"/>
+	<Skill Name="Mon_boss_Spector_F_Skill_1"/>
+	<Skill Name="Mon_boss_Spector_m_Skill_1"/>
+	<Skill Name="Mon_boss_Spector_m_Skill_2"/>
+	<Skill Name="Mon_boss_Spector_m_Skill_3"/>
+	<Skill Name="Mon_boss_mirtis_Skill_1"/>
+	<Skill Name="Mon_boss_mirtis_Skill_2"/>
+	<Skill Name="Mon_boss_mirtis_Skill_3"/>
+	<Skill Name="Mon_boss_mirtis_Skill_4"/>
+	<Skill Name="Mon_boss_mirtis_Skill_5"/>
+	<Skill Name="Mon_boss_mirtis_Skill_6"/>
+	<Skill Name="Mon_Caro_Skill_1"/>
+	<Skill Name="Mon_boss_Saltistter_Skill_2"/>
+	<Skill Name="Mon_boss_Saltistter_Skill_5"/>
+	<Skill Name="Mon_raffly-b_Skill_1"/>
+	<Skill Name="Mon_boss_Saltistter_Skill_3"/>
+	<Skill Name="Mon_boss_Saltistter_Skill_4"/>
+	<Skill Name="Mon_boss_woodspirit_Skill_4"/>
+	<Skill Name="Mon_boss_stone_whale_Skill_1"/>
+	<Skill Name="Mon_boss_ginklas_Skill_1"/>
+	<Skill Name="Mon_boss_yonazolem_Skill_1"/>
+	<Skill Name="Mon_boss_yonazolem_Skill_2"/>
+	<Skill Name="Mon_boss_yonazolem_Skill_3"/>
+	<Skill Name="Mon_boss_yonazolem_Skill_4"/>
+	<Skill Name="Mon_boss_tutu_Skill_1"/>
+	<Skill Name="Mon_boss_tutu_Skill_2"/>
+	<Skill Name="Mon_boss_tutu_Skill_3"/>
+	<Skill Name="Mon_boss_tutu_Skill_4"/>
+	<Skill Name="Mon_boss_BiteRegina_Skill_1"/>
+	<Skill Name="Mon_boss_BiteRegina_Skill_2"/>
+	<Skill Name="Mon_boss_BiteRegina_Skill_3"/>
+	<Skill Name="Mon_boss_BiteRegina_Skill_4"/>
+	<Skill Name="Mon_boss_Genmagnus_Skill_1"/>
+	<Skill Name="Mon_boss_Gaigalas_Skill_1"/>
+	<Skill Name="Mon_boss_Genmagnus_Skill_2"/>
+	<Skill Name="Mon_boss_Genmagnus_Skill_3"/>
+	<Skill Name="Mon_boss_Iltiswort_Skill_1"/>
+	<Skill Name="Mon_boss_Iltiswort_Skill_2"/>
+	<Skill Name="Mon_boss_Iltiswort_Skill_3"/>
+	<Skill Name="Mon_boss_lepus_Skill_1"/>
+	<Skill Name="Mon_boss_mushcaria_Skill_1"/>
+	<Skill Name="Mon_boss_poata_Skill_3"/>
+	<Skill Name="Mon_boss_mushcaria_Skill_3"/>
+	<Skill Name="Mon_boss_poata_Skill_4"/>
+	<Skill Name="Mon_boss_stone_whale_Skill_4"/>
+	<Skill Name="Mon_boss_ginklas_Skill_2"/>
+	<Skill Name="Mon_boss_ginklas_Skill_3"/>
+	<Skill Name="Mon_boss_ginklas_Skill_4"/>
+	<Skill Name="Mon_Onion_red_Skill_1"/>
+	<Skill Name="Mon_boss_lepus_Skill_2"/>
+	<Skill Name="Mon_boss_GiantWoodGoblin_red_Skill_1"/>
+	<Skill Name="Mon_boss_bebraspion_Skill_1"/>
+	<Skill Name="Mon_boss_bebraspion_Skill_2"/>
+	<Skill Name="Mon_boss_bebraspion_Skill_3"/>
+	<Skill Name="Mon_boss_bebraspion_Skill_4"/>
+	<Skill Name="Mon_boss_sparnas_Skill_1"/>
+	<Skill Name="Mon_boss_sparnas_Skill_2"/>
+	<Skill Name="Mon_boss_sparnas_Skill_3"/>
+	<Skill Name="Mon_boss_sparnas_Skill_4"/>
+	<Skill Name="Mon_boss_Rajatoad_Skill_1"/>
+	<Skill Name="Mon_boss_Rajatoad_Skill_2"/>
+	<Skill Name="Mon_boss_chafer_Skill_1"/>
+	<Skill Name="Mon_boss_chafer_Skill_2"/>
+	<Skill Name="Mon_boss_chafer_Skill_3"/>
+	<Skill Name="Mon_boss_chafer_Skill_4"/>
+	<Skill Name="Mon_boss_Throneweaver_Skill_1"/>
+	<Skill Name="Mon_boss_Throneweaver_Skill_2"/>
+	<Skill Name="Mon_boss_Throneweaver_Skill_3"/>
+	<Skill Name="Mon_boss_mineloader_Skill_1"/>
+	<Skill Name="Mon_boss_ShadowGaoler_Skill_1"/>
+	<Skill Name="Mon_boss_ShadowGaoler_Skill_2"/>
+	<Skill Name="Mon_boss_ShadowGaoler_Skill_3"/>
+	<Skill Name="Mon_boss_ShadowGaoler_Skill_4"/>
+	<Skill Name="Mon_boss_GiantWoodGoblin_red_Skill_2"/>
+	<Skill Name="Mon_boss_GiantWoodGoblin_red_Skill_3"/>
+	<Skill Name="Mon_boss_GiantWoodGoblin_red_Skill_4"/>
+	<Skill Name="Mon_boss_lecifer_Skill_1"/>
+	<Skill Name="Mon_boss_Rocktortuga_Skill_1"/>
+	<Skill Name="Mon_boss_Rocktortuga_Skill_2"/>
+	<Skill Name="Mon_boss_Rocktortuga_Skill_3"/>
+	<Skill Name="Mon_boss_rootopus_Skill_1"/>
+	<Skill Name="Mon_boss_necrovanter_Skill_1"/>
+	<Skill Name="Mon_boss_necrovanter_Skill_2"/>
+	<Skill Name="Mon_boss_necrovanter_Skill_3"/>
+	<Skill Name="Mon_boss_helgasercle_Skill_1"/>
+	<Skill Name="Mon_boss_helgasercle_Skill_2"/>
+	<Skill Name="Mon_boss_helgasercle_Skill_3"/>
+	<Skill Name="Mon_boss_helgasercle_Skill_4"/>
+	<Skill Name="Mon_boss_Golem_Skill_3"/>
+	<Skill Name="Mon_boss_rootopus_Skill_3"/>
+	<Skill Name="Mon_boss_rootopus_Skill_2"/>
+	<Skill Name="Mon_Tiny_Skill_1"/>
+	<Skill Name="Mon_TreeAmbulo_Skill_1"/>
+	<Skill Name="Mon_Golemlet_Skill_1"/>
+	<Skill Name="Mon_squa_Skill_1"/>
+	<Skill Name="Mon_Spion_Skill_1"/>
+	<Skill Name="Mon_mirtislampa_Skill_1"/>
+	<Skill Name="Mon_spekull_Skill_1"/>
+	<Skill Name="Mon_scab_Skill_1"/>
+	<Skill Name="Mon_Shredded_Skill_1"/>
+	<Skill Name="Mon_Yekubite_Skill_1"/>
+	<Skill Name="Mon_Shardstatue_Skill_1"/>
+	<Skill Name="Mon_Deadbornscab_Skill_1"/>
+	<Skill Name="Mon_Cire_Skill_1"/>
+	<Skill Name="Mon_Ritasfung_Skill_1"/>
+	<Skill Name="Mon_Tisfung_Skill_1"/>
+	<Skill Name="Mon_mushfung_Skill_1"/>
+	<Skill Name="Mon_TreeGool_Skill_1"/>
+	<Skill Name="Mon_Cyst_Skill_1"/>
+	<Skill Name="Mon_Ammon_Skill_1"/>
+	<Skill Name="Mon_operor_Skill_1"/>
+	<Skill Name="Mon_Chafperor_Skill_1"/>
+	<Skill Name="Mon_RavineLerva_Skill_1"/>
+	<Skill Name="Mon_NetherCalf_Skill_1"/>
+	<Skill Name="Mon_Infrogalas_Skill_1"/>
+	<Skill Name="Mon_Carnivorefung_Skill_1"/>
+	<Skill Name="Mon_Vesper_Skill_1"/>
+	<Skill Name="Mon_Karas_Skill_1"/>
+	<Skill Name="Mon_Echad_Skill_1"/>
+	<Skill Name="Mon_shtayim_Skill_1"/>
+	<Skill Name="Mon_Tombsinker_Skill_1"/>
+	<Skill Name="Mon_Graztas_Skill_1"/>
+	<Skill Name="Mon_Abogust_Skill_1"/>
+	<Skill Name="Mon_Weaver_Skill_1"/>
+	<Skill Name="Mon_Hallowventor_Skill_1"/>
+	<Skill Name="Mon_Rooto_Skill_1"/>
+	<Skill Name="Mon_InfroRocktor_Skill_1"/>
+	<Skill Name="Mon_InfroMeduol_Skill_1"/>
+	<Skill Name="Mon_Meleech_Skill_1"/>
+	<Skill Name="Mon_InfroBurk_Skill_1"/>
+	<Skill Name="Mon_infroSalamander_Skill_1"/>
+	<Skill Name="Mon_Zolem_Skill_1"/>
+	<Skill Name="Mon_raider_Skill_1"/>
+	<Skill Name="Mon_Mushcarfung_Skill_1"/>
+	<Skill Name="Mon_Mandara_soldier_Skill_1"/>
+	<Skill Name="Mon_wood_goblin_Skill_1"/>
+	<Skill Name="Mon_wood_goblin_red_Skill_1"/>
+	<Skill Name="Mon_Templeslave_Skill_1"/>
+	<Skill Name="Mon_NightMaiden_Skill_1"/>
+	<Skill Name="Mon_ringring_Skill_1"/>
+	<Skill Name="Mon_woodin_Skill_1"/>
+	<Skill Name="Mon_Worg_Skill_1"/>
+	<Skill Name="Mon_StonOrca_Skill_1"/>
+	<Skill Name="Mon_Rajapearlite_Skill_1"/>
+	<Skill Name="Mon_Drape_Skill_1"/>
+	<Skill Name="Mon_Infroholder_Skill_1"/>
+	<Skill Name="Mon_Repusbunny_Skill_1"/>
+	<Skill Name="Mon_saltisdaughter_Skill_1"/>
+	<Skill Name="Mon_Nuwort_Skill_1"/>
+	<Skill Name="Mon_Beadbird_Skill_1"/>
+	<Skill Name="Mon_Minos_Skill_1"/>
+	<Skill Name="Mon_Armory_Skill_1"/>
+	<Skill Name="Mon_Minelever_Skill_1"/>
+	<Skill Name="Mon_ShadowGaoler_summon_Skill_1"/>
+	<Skill Name="Mon_Hound_Skill_1"/>
+	<Skill Name="Mon_Stoulet_Skill_1"/>
+	<Skill Name="Mon_Prisonfighter_Skill_1"/>
+	<Skill Name="Mon_Rajatadpole_Skill_1"/>
+	<Skill Name="Mon_Cuticle_Skill_1"/>
+	<Skill Name="Mon_Greentoshell_Skill_1"/>
+	<Skill Name="Mon_boss_yekub_Skill_1"/>
+	<Skill Name="Mon_boss_yekub_Skill_2"/>
+	<Skill Name="Mon_boss_yekub_Skill_3"/>
+	<Skill Name="Mon_boss_yekub_Skill_4"/>
+	<Skill Name="Mon_Aos_Soldier_Skill_1"/>
+	<Skill Name="Mon_Aos_Soldier_Skill_2"/>
+	<Skill Name="Mon_boss_Carapace_Skill_1"/>
+	<Skill Name="Mon_boss_Carapace_Skill_2"/>
+	<Skill Name="Mon_boss_Carapace_Skill_3"/>
+	<Skill Name="Mon_boss_werewolf_Skill_1"/>
+	<Skill Name="Mon_boss_werewolf_Skill_2"/>
+	<Skill Name="Mon_boss_werewolf_Skill_3"/>
+	<Skill Name="Mon_boss_werewolf_Skill_4"/>
+	<Skill Name="Mon_boss_archon_Skill_2"/>
+	<Skill Name="Mon_boss_archon_Skill_3"/>
+	<Skill Name="Mon_boss_archon_Skill_4"/>
+	<Skill Name="Mon_boss_ellaganos_Skill_2"/>
+	<Skill Name="Mon_boss_ellaganos_Skill_3"/>
+	<Skill Name="Mon_boss_Strongholder_Skill_1"/>
+	<Skill Name="Mon_boss_Strongholder_Skill_2"/>
+	<Skill Name="Mon_boss_Strongholder_Skill_3"/>
+	<Skill Name="Mon_boss_Strongholder_Skill_4"/>
+	<Skill Name="Mon_boss_Rajapearl_Skill_1"/>
+	<Skill Name="Mon_boss_Rajapearl_Skill_2"/>
+	<Skill Name="Mon_boss_Rajapearl_Skill_3"/>
+	<Skill Name="Mon_boss_honeypin_Skill_1"/>
+	<Skill Name="Mon_boss_honeypin_Skill_2"/>
+	<Skill Name="Mon_boss_honeypin_Skill_3"/>
+	<Skill Name="Mon_boss_onion_the_great_Skill_3"/>
+	<Skill Name="Mon_boss_onion_the_great_Skill_4"/>
+	<Skill Name="Mon_boss_NetherBovine_Skill_1"/>
+	<Skill Name="Mon_boss_NetherBovine_Skill_2"/>
+	<Skill Name="Mon_boss_NetherBovine_Skill_3"/>
+	<Skill Name="Mon_boss_Achat_Skill_1"/>
+	<Skill Name="Mon_boss_RytaSwort_Skill_1"/>
+	<Skill Name="Mon_boss_RytaSwort_Skill_2"/>
+	<Skill Name="Mon_boss_RytaSwort_Skill_3"/>
+	<Skill Name="Mon_boss_RytaSwort_Skill_4"/>
+	<Skill Name="Mon_Caro_Skill_2"/>
+	<Skill Name="Mon_boss_lepus_Skill_3"/>
+	<Skill Name="Mon_boss_lecifer_Skill_2"/>
+	<Skill Name="Mon_boss_lecifer_Skill_3"/>
+	<Skill Name="Mon_boss_mushcaria_Skill_5"/>
+	<Skill Name="Mon_boss_Rocktortuga_Skill_4"/>
+	<Skill Name="Mon_boss_chafer_Skill_5"/>
+	<Skill Name="Mon_boss_Goblin_Warrior_Skill_1"/>
+	<Skill Name="Mon_boss_Goblin_Warrior_Skill_2"/>
+	<Skill Name="Mon_boss_Chapparition_Skill_2"/>
+	<Skill Name="Mon_boss_Spector_F_Skill_2"/>
+	<Skill Name="Mon_maggot_Skill_1"/>
+	<Skill Name="Mon_boss_Naktis_Skill_1"/>
+	<Skill Name="Mon_boss_Drapeliun_Skill_1"/>
+	<Skill Name="Mon_boss_Drapeliun_Skill_2"/>
+	<Skill Name="Mon_boss_Drapeliun_Skill_3"/>
+	<Skill Name="Mon_boss_Sparnashorn_Skill_1"/>
+	<Skill Name="Mon_boss_Sparnashorn_Skill_2"/>
+	<Skill Name="Mon_boss_Sparnashorn_Skill_3"/>
+	<Skill Name="Mon_boss_Sparnashorn_Skill_4"/>
+	<Skill Name="Mon_boss_lecifer_Skill_4"/>
+	<Skill Name="Mon_boss_MagBurk_Skill_1"/>
+	<Skill Name="Mon_boss_Gaigalas_Skill_2"/>
+	<Skill Name="Mon_boss_Gaigalas_Skill_3"/>
+	<Skill Name="Mon_boss_Gaigalas_Skill_4"/>
+	<Skill Name="Mon_boss_Ironbaum_Skill_1"/>
+	<Skill Name="Mon_boss_Ironbaum_Skill_2"/>
+	<Skill Name="Mon_boss_Ironbaum_Skill_3"/>
+	<Skill Name="Mon_boss_Ironbaum_Skill_4"/>
+	<Skill Name="Mon_Dubby_Skill_1"/>
+	<Skill Name="Mon_boss_Carnivore_Skill_1"/>
+	<Skill Name="Mon_boss_Carnivore_Skill_2"/>
+	<Skill Name="Mon_boss_Carnivore_Skill_3"/>
+	<Skill Name="Mon_boss_Carnivore_Skill_4"/>
+	<Skill Name="Mon_boss_mineloader_Skill_2"/>
+	<Skill Name="Mon_boss_mineloader_Skill_3"/>
+	<Skill Name="Mon_boss_mineloader_Skill_4"/>
+	<Skill Name="Mon_boss_MagBurk_Skill_2"/>
+	<Skill Name="Mon_boss_MagBurk_Skill_3"/>
+	<Skill Name="Mon_boss_cactusvel_Skill_1"/>
+	<Skill Name="Mon_boss_cactusvel_Skill_2"/>
+	<Skill Name="Mon_boss_cactusvel_Skill_3"/>
+	<Skill Name="Mon_boss_TombLord_Skill_1"/>
+	<Skill Name="Mon_boss_Ravinepede_Skill_1"/>
+	<Skill Name="Mon_boss_Ravinepede_Skill_2"/>
+	<Skill Name="Mon_boss_Ravinepede_Skill_3"/>
+	<Skill Name="Mon_boss_Kimeleech_Skill_1"/>
+	<Skill Name="Mon_boss_Kimeleech_Skill_2"/>
+	<Skill Name="Mon_boss_Kimeleech_Skill_3"/>
+	<Skill Name="Mon_boss_Kimeleech_Skill_4"/>
+	<Skill Name="Mon_bubbe_chaser_Skill_1"/>
+	<Skill Name="Mon_boss_Naktis_Skill_2"/>
+	<Skill Name="Mon_boss_Naktis_Skill_3"/>
+	<Skill Name="Mon_boss_Naktis_Skill_4"/>
+	<Skill Name="Mon_boss_Devilglove_Skill_1"/>
+	<Skill Name="Mon_boss_Devilglove_Skill_2"/>
+	<Skill Name="Mon_boss_Devilglove_Skill_3"/>
+	<Skill Name="Mon_boss_Devilglove_Skill_4"/>
+	<Skill Name="Mon_boss_Kerberos_Skill_1"/>
+	<Skill Name="Mon_boss_Kerberos_Skill_2"/>
+	<Skill Name="Mon_boss_Kerberos_Skill_3"/>
+	<Skill Name="Mon_boss_Kerberos_Skill_4"/>
+	<Skill Name="Mon_boss_Minotaurs_Skill_1"/>
+	<Skill Name="Mon_boss_Minotaurs_Skill_2"/>
+	<Skill Name="Mon_boss_Minotaurs_Skill_3"/>
+	<Skill Name="Mon_boss_Minotaurs_Skill_4"/>
+	<Skill Name="Mon_jellyfish_Skill_1"/>
+	<Skill Name="Mon_Sparnicht_Skill_1"/>
+	<Skill Name="Mon_helgasercle_phantom_Skill_1"/>
+	<Skill Name="Mon_boss_Chapparition_Skill_3"/>
+	<Skill Name="Mon_boss_Chapparition_Skill_4"/>
+	<Skill Name="Mon_boss_Confinedion_Skill_1"/>
+	<Skill Name="Mon_boss_Confinedion_Skill_2"/>
+	<Skill Name="Mon_boss_Confinedion_Skill_3"/>
+	<Skill Name="Mon_boss_moa_Skill_1"/>
+	<Skill Name="Mon_boss_moa_Skill_2"/>
+	<Skill Name="Mon_boss_moa_Skill_3"/>
+	<Skill Name="Mon_boss_moa_Skill_4"/>
+	<Skill Name="Mon_boss_Confinedion_Skill_4"/>
+	<Skill Name="Mon_boss_helgasercle_Skill_5"/>
+	<Skill Name="Mon_boss_Rajatoad_Skill_3"/>
+	<Skill Name="AI_Summon"/>
+	<Skill Name="Mon_Ultanun_Skill_3"/>
+	<Skill Name="Mon_boss_bramble_Skill_2"/>
+	<Skill Name="Mon_boss_bramble_Skill_3"/>
+	<Skill Name="Mon_Goblin_Miners_Attack_2"/>
+	<Skill Name="Mon_boss_Glass_mole_Skill_1"/>
+	<Skill Name="Mon_boss_Glass_mole_Skill_2"/>
+	<Skill Name="Mon_boss_Denoptic_Skill_1"/>
+	<Skill Name="Mon_boss_Denoptic_Skill_2"/>
+	<Skill Name="Mon_boss_Denoptic_Skill_3"/>
+	<Skill Name="Mon_TEST_Goblin_Miners_Skill_1"/>
+	<Skill Name="Mon_boss_Deathweaver_Skill_1"/>
+	<Skill Name="Mon_boss_Deathweaver_Skill_2"/>
+	<Skill Name="Mon_boss_Deathweaver_Skill_3"/>
+	<Skill Name="Mon_boss_Templeshooter_Skill_1"/>
+	<Skill Name="Mon_boss_Templeshooter_Skill_2"/>
+	<Skill Name="Mon_boss_Templeshooter_Skill_3"/>
+	<Skill Name="Mon_boss_Templeshooter_Skill_4"/>
+	<Skill Name="Mon_boss_Deathweaver_Skill_4"/>
+	<Skill Name="Mon_boss_Unknocker_Skill_1"/>
+	<Skill Name="Mon_boss_Unknocker_Skill_2"/>
+	<Skill Name="Mon_boss_Unknocker_Skill_3"/>
+	<Skill Name="Mon_boss_Lithorex_Skill_1"/>
+	<Skill Name="Mon_boss_Lithorex_Skill_2"/>
+	<Skill Name="Mon_boss_mushwort_Skill_1"/>
+	<Skill Name="Mon_boss_mushwort_Skill_2"/>
+	<Skill Name="Mon_boss_mushwort_Skill_3"/>
+	<Skill Name="Mon_boss_mushwort_Skill_4"/>
+	<Skill Name="Mon_boss_Gorgon_Skill_1"/>
+	<Skill Name="Mon_boss_Gorgon_Skill_2"/>
+	<Skill Name="Mon_boss_Gorgon_Skill_3"/>
+	<Skill Name="Mon_boss_Gorgon_Skill_4"/>
+	<Skill Name="Mon_boss_Mummyghast_Skill_1"/>
+	<Skill Name="Mon_raffly-b_Skill_2"/>
+	<Skill Name="Mon_boss_Mummyghast_Skill_2"/>
+	<Skill Name="Mon_boss_Mummyghast_Skill_3"/>
+	<Skill Name="Mon_thornr_raider_Skill_1"/>
+	<Skill Name="Mon_thornr_wood_Skill_1"/>
+	<Skill Name="Mon_ellom_Skill_1"/>
+	<Skill Name="Mon_ellom_Skill_2"/>
+	<Skill Name="Mon_hogma_warrior_Skill_1"/>
+	<Skill Name="Mon_hogma_archer_Skill_1"/>
+	<Skill Name="Mon_hogma_sorcerer_Skill_1"/>
+	<Skill Name="Mon_merog_wizzard_Skill_1"/>
+	<Skill Name="Mon_merog_wogu_Skill_1"/>
+	<Skill Name="Mon_hogma_sorcerer_Skill_2"/>
+	<Skill Name="Mon_merog_wizzard_Skill_2"/>
+	<Skill Name="Mon_hogma_warrior_Skill_2"/>
+	<Skill Name="Mon_merog_wogu_Skill_2"/>
+	<Skill Name="Mon_warleader_hogma_Skill_1"/>
+	<Skill Name="Mon_warleader_hogma_Skill_2"/>
+	<Skill Name="Mon_Lizardman_Skill_1"/>
+	<Skill Name="Mon_chupaluka_Skill_1"/>
+	<Skill Name="Mon_ellomago_Skill_1"/>
+	<Skill Name="Mon_ellomago_Skill_2"/>
+	<Skill Name="Mon_ellogua_Skill_1"/>
+	<Skill Name="Mon_ellogua_Skill_2"/>
+	<Skill Name="Mon_wendigo_Skill_1"/>
+	<Skill Name="Mon_wendigo_Skill_2"/>
+	<Skill Name="Mon_Lizardman_Skill_2"/>
+	<Skill Name="Mon_Kepari_Skill_1"/>
+	<Skill Name="Mon_Kepari_Skill_2"/>
+	<Skill Name="Mon_kodomor_Skill_1"/>
+	<Skill Name="Mon_kodomor_Skill_2"/>
+	<Skill Name="Mon_kowak_Skill_1"/>
+	<Skill Name="Mon_kowak_Skill_2"/>
+	<Skill Name="Mon_groll_Skill_1"/>
+	<Skill Name="Mon_groll_Skill_2"/>
+	<Skill Name="Mon_chupaluka_Skill_2"/>
+	<Skill Name="Mon_Tama_Skill_1"/>
+	<Skill Name="Mon_Tama_Skill_2"/>
+	<Skill Name="Mon_Scarecrow_Skill_1"/>
+	<Skill Name="Mon_schlesien_darkmage_Skill_1"/>
+	<Skill Name="Mon_schlesien_darkmage_Skill_2"/>
+	<Skill Name="Mon_Lemur_Skill_1"/>
+	<Skill Name="Mon_Lemur_Skill_2"/>
+	<Skill Name="Mon_Lemuria_Skill_1"/>
+	<Skill Name="Mon_Lemuria_Skill_2"/>
+	<Skill Name="Mon_Hogma_combat_Skill_1"/>
+	<Skill Name="Mon_Hogma_combat_Skill_2"/>
+	<Skill Name="Mon_Hogma_guard_Skill_1"/>
+	<Skill Name="Mon_Hogma_guard_Skill_2"/>
+	<Skill Name="Mon_boss_hydra_Skill_1"/>
+	<Skill Name="Mon_boss_hydra_Skill_2"/>
+	<Skill Name="Mon_boss_hydra_Skill_3"/>
+	<Skill Name="Mon_boss_hydra_Skill_4"/>
+	<Skill Name="Mon_boss_TombLord_Skill_2"/>
+	<Skill Name="Mon_TombLord_obj_Skill_1"/>
+	<Skill Name="Mon_boss_Rocktortuga_TEST_Skill_1"/>
+	<Skill Name="Mon_boss_Clymen_Skill_1"/>
+	<Skill Name="Mon_boss_yekub_Skill_5"/>
+	<Skill Name="Mon_boss_mirtis_Skill_7"/>
+	<Skill Name="Mon_Golem_NoTex_Skill_1"/>
+	<Skill Name="Mon_boss_sparnas_Skill_5"/>
+	<Skill Name="Mon_boss_Reaverpede_Skill_1"/>
+	<Skill Name="Mon_boss_Colimencia_Skill_1"/>
+	<Skill Name="Mon_stub_tree_Skill_1"/>
+	<Skill Name="Mon_stub_tree_Skill_2"/>
+	<Skill Name="Mon_stub_tree_Skill_3"/>
+	<Skill Name="Mon_boss_Clymen_Skill_2"/>
+	<Skill Name="Mon_boss_Clymen_Skill_3"/>
+	<Skill Name="Mon_boss_Clymen_Skill_4"/>
+	<Skill Name="Mon_hook_Skill_1"/>
+	<Skill Name="Mon_hook_Skill_2"/>
+	<Skill Name="Mon_hook_Skill_3"/>
+	<Skill Name="Mon_boss_Colimencia_Skill_2"/>
+	<Skill Name="Mon_boss_Colimencia_Skill_3"/>
+	<Skill Name="Mon_boss_Moldyhorn_Skill_1"/>
+	<Skill Name="Mon_boss_JackO_lantern_Skill_1"/>
+	<Skill Name="Mon_boss_JackO_lantern_Skill_2"/>
+	<Skill Name="Mon_boss_JackO_lantern_Skill_3"/>
+	<Skill Name="Mon_boss_Chapparition_Skill_5"/>
+	<Skill Name="Mon_boss_Mothstem_Skill_1"/>
+	<Skill Name="Mon_boss_Mothstem_Skill_2"/>
+	<Skill Name="Mon_boss_Mothstem_Skill_3"/>
+	<Skill Name="Mon_boss_TombLord_Skill_4"/>
+	<Skill Name="Mon_boss_GazingGolem_Skill_1"/>
+	<Skill Name="Mon_boss_Manticen_Skill_1"/>
+	<Skill Name="Mon_boss_Moyabruka_Skill_1"/>
+	<Skill Name="Mon_boss_Velorchard_Skill_1"/>
+	<Skill Name="Mon_boss_Shnayim_Skill_1"/>
+	<Skill Name="Mon_boss_Harpeia_Skill_1"/>
+	<Skill Name="Mon_boss_TombLord_Skill_3"/>
+	<Skill Name="Mon_boss_Achat_Skill_2"/>
+	<Skill Name="Mon_boss_Achat_Skill_3"/>
+	<Skill Name="Mon_boss_Shnayim_Skill_2"/>
+	<Skill Name="Mon_boss_Shnayim_Skill_3"/>
+	<Skill Name="Mon_boss_Manticen_Skill_2"/>
+	<Skill Name="Mon_boss_GazingGolem_Skill_2"/>
+	<Skill Name="Mon_boss_GazingGolem_Skill_3"/>
+	<Skill Name="Mon_boss_GazingGolem_Skill_4"/>
+	<Skill Name="Mon_boss_Reaverpede_Skill_2"/>
+	<Skill Name="Mon_boss_Reaverpede_Skill_3"/>
+	<Skill Name="Mon_boss_Reaverpede_Skill_4"/>
+	<Skill Name="Mon_boss_Manticen_Skill_3"/>
+	<Skill Name="Mon_boss_Manticen_Skill_4"/>
+	<Skill Name="Mon_boss_Velorchard_Skill_2"/>
+	<Skill Name="Mon_boss_Velorchard_Skill_3"/>
+	<Skill Name="Mon_boss_Velorchard_Skill_4"/>
+	<Skill Name="Mon_boss_Moyabruka_Skill_2"/>
+	<Skill Name="Mon_boss_Moyabruka_Skill_3"/>
+	<Skill Name="Mon_boss_Moyabruka_Skill_4"/>
+	<Skill Name="Mon_boss_Moldyhorn_Skill_2"/>
+	<Skill Name="Mon_boss_Moldyhorn_Skill_3"/>
+	<Skill Name="Mon_boss_Moldyhorn_Skill_4"/>
+	<Skill Name="Mon_boss_GiantWoodGoblin_Skill_1"/>
+	<Skill Name="Mon_boss_GiantWoodGoblin_Skill_2"/>
+	<Skill Name="Mon_boss_GiantWoodGoblin_Skill_3"/>
+	<Skill Name="Mon_boss_Glass_mole_Skill_3"/>
+	<Skill Name="Mon_boss_Moldyhorn_Skill_5"/>
+	<Skill Name="Mon_varv_Skill_1"/>
+	<Skill Name="Mon_flight_hope_Skill_1"/>
+	<Skill Name="Mon_flight_hope_Skill_2"/>
+	<Skill Name="Mon_flight_hope_Skill_3"/>
+	<Skill Name="Mon_hook_red_Skill_1"/>
+	<Skill Name="Mon_hook_red_Skill_2"/>
+	<Skill Name="Mon_hook_red_Skill_3"/>
+	<Skill Name="Mon_arma_Skill_1"/>
+	<Skill Name="Mon_arma_Skill_2"/>
+	<Skill Name="Mon_flask_Skill_1"/>
+	<Skill Name="Mon_flask_Skill_2"/>
+	<Skill Name="Mon_tower_of_firepuppet_black_Skill_1"/>
+	<Skill Name="Mon_tower_of_firepuppet_black_Skill_2"/>
+	<Skill Name="Mon_dimmer_Skill_1"/>
+	<Skill Name="Mon_dimmer_Skill_2"/>
+	<Skill Name="Mon_wizards_marmotte_Skill_1"/>
+	<Skill Name="Mon_wizards_marmotte_Skill_2"/>
+	<Skill Name="Mon_boss_Harpeia_Skill_2"/>
+	<Skill Name="Mon_boss_Harpeia_Skill_3"/>
+	<Skill Name="Mon_boss_Harpeia_Skill_4"/>
+	<Skill Name="Mon_arrow_trap_Skill_1"/>
+	<Skill Name="Mon_Sequoia_mini_Skill_1"/>
+	<Skill Name="AI_Destruct"/>
+	<Skill Name="Mon_Whip_vine_Ra_Skill_1"/>
+	<Skill Name="Mon_Whip_vine_Ra_Skill_2"/>
+	<Skill Name="Mon_Trap_Desmodus_Skill_1"/>
+	<Skill Name="Mon_Trap_ellomago_Skill_1"/>
+	<Skill Name="Mon_boss_Goblin_Warrior_Skill_3"/>
+	<Skill Name="Mon_bushspider_Skill_1"/>
+	<Skill Name="Mon_boss_stone_whale_Skill_5"/>
+	<Skill Name="Mon_Dubby_Skill_2"/>
+	<Skill Name="Mon_Leafnut_Skill_1"/>
+	<Skill Name="Mon_Leafnut_Skill_2"/>
+	<Skill Name="Mon_Panto_spear_Skill_1"/>
+	<Skill Name="Mon_Panto_spear_Skill_2"/>
+	<Skill Name="Mon_Panto_hand_Skill_1"/>
+	<Skill Name="Mon_Panto_hand_Skill_2"/>
+	<Skill Name="Mon_Panto_twinsword_Skill_1"/>
+	<Skill Name="Mon_Panto_twinsword_Skill_2"/>
+	<Skill Name="Mon_Panto_twinsword_Skill_3"/>
+	<Skill Name="Mon_boss_Spector_F_Skill_3"/>
+	<Skill Name="Mon_Panto_Rspear_Skill_1"/>
+	<Skill Name="Mon_Panto_Rspear_Skill_2"/>
+	<Skill Name="Mon_Panto_Bsword_Skill_1"/>
+	<Skill Name="Mon_Panto_Bsword_Skill_2"/>
+	<Skill Name="Mon_Ultanun_Skill_1"/>
+	<Skill Name="Mon_Ultanun_Skill_2"/>
+	<Skill Name="Mon_rubabos_Skill_1"/>
+	<Skill Name="Mon_rubabos_Skill_2"/>
+	<Skill Name="Mon_monskill_TombMaiden_obj_Skill_1"/>
+	<Skill Name="Mon_slime_elite_Skill_1"/>
+	<Skill Name="Mon_boss_GiantWoodGoblin_Skill_4"/>
+	<Skill Name="Mon_boss_Malletwyvern_Skill_1"/>
+	<Skill Name="Mon_boss_Malletwyvern_Skill_2"/>
+	<Skill Name="Mon_boss_Malletwyvern_Skill_3"/>
+	<Skill Name="Mon_boss_Malletwyvern_Skill_4"/>
+	<Skill Name="Mon_boss_Merge_Skill_1"/>
+	<Skill Name="Mon_boss_Merge_Skill_2"/>
+	<Skill Name="Mon_boss_Merge_Skill_3"/>
+	<Skill Name="Mon_boss_Merge_Skill_4"/>
+	<Skill Name="Mon_boss_unicorn_Skill_1"/>
+	<Skill Name="Mon_boss_unicorn_Skill_2"/>
+	<Skill Name="Mon_boss_unicorn_Skill_3"/>
+	<Skill Name="Mon_boss_unicorn_Skill_4"/>
+	<Skill Name="Mon_Velhider_Skill_1"/>
+	<Skill Name="Mon_boss_Denoptic_Skill_4"/>
+	<Skill Name="Mon_boss_JackO_lantern_Skill_4"/>
+	<Skill Name="Mon_bushspider_Skill_2"/>
+	<Skill Name="Mon_pcskill_icewall_Skill_1"/>
+	<Skill Name="Mon_Pokubu_Skill_1"/>
+	<Skill Name="Mon_Caro_Skill_3"/>
+	<Skill Name="Mon_summons_zombie_Skill_1"/>
+	<Skill Name="Mon_boss_Genmagnus_Skill_4"/>
+	<Skill Name="Mon_Mally_Skill_1"/>
+	<Skill Name="Mon_Mally_Skill_2"/>
+	<Skill Name="Mon_Mallardu_Skill_1"/>
+	<Skill Name="Mon_Mallardu_Skill_2"/>
+	<Skill Name="Mon_Grummer_Skill_1"/>
+	<Skill Name="Mon_Grummer_Skill_2"/>
+	<Skill Name="Mon_Humming_bud_Skill_1"/>
+	<Skill Name="Mon_Humming_bud_Skill_2"/>
+	<Skill Name="Mon_Leafly_Skill_1"/>
+	<Skill Name="Mon_Leafly_Skill_2"/>
+	<Skill Name="Mon_chupacabra_desert_Skill_1"/>
+	<Skill Name="Mon_chupacabra_desert_Skill_2"/>
+	<Skill Name="Mon_boss_Unknocker_Skill_4"/>
+	<Skill Name="Mon_StonOrca_Skill_2"/>
+	<Skill Name="Mon_Panto_hand_Skill_3"/>
+	<Skill Name="Mon_Sauga_s_Skill_1"/>
+	<Skill Name="Mon_hogma_archer_Skill_2"/>
+	<Skill Name="Mon_thornball_Attack2"/>
+	<Skill Name="Mon_Wolf_statue_mage_Attack1"/>
+	<Skill Name="Mon_Wolf_statue_mage_Attack2"/>
+	<Skill Name="Mon_Wolf_statue_mage_Skill"/>
+	<Skill Name="Mon_merog_wizzard_Skill_3"/>
+	<Skill Name="Mon_hogma_warrior_Skill_3"/>
+	<Skill Name="Mon_InfroBurk_Skill_2"/>
+	<Skill Name="Mon_Hallowventor_Skill_2"/>
+	<Skill Name="Mon_warleader_hogma_Skill_3"/>
+	<Skill Name="Mon_Karas_Skill_2"/>
+	<Skill Name="Mon_wendigo_Skill_3"/>
+	<Skill Name="Mon_Chromadog_Skill_1"/>
+	<Skill Name="Mon_Chromadog_Skill_2"/>
+	<Skill Name="Mon_boss_gesti_Skill_1"/>
+	<Skill Name="Mon_boss_gesti_Skill_2"/>
+	<Skill Name="Mon_boss_gesti_Skill_3"/>
+	<Skill Name="Mon_seedmia_Skill_1"/>
+	<Skill Name="Mon_seedmia_Skill_2"/>
+	<Skill Name="Mon_Galok_Skill_1"/>
+	<Skill Name="Mon_Galok_Skill_2"/>
+	<Skill Name="Mon_boss_capria_Skill_4"/>
+	<Skill Name="Mon_Upent_Skill_1"/>
+	<Skill Name="Mon_Upent_Skill_2"/>
+	<Skill Name="Mon_boss_Mothstem_Skill_4"/>
+	<Skill Name="Mon_Rodelin_Skill_1"/>
+	<Skill Name="Mon_Rodelin_Skill_2"/>
+	<Skill Name="Mon_Rodelin_Skill_3"/>
+	<Skill Name="Mon_Glizardon_Skill_1"/>
+	<Skill Name="Mon_Glizardon_Skill_2"/>
+	<Skill Name="Mon_Glizardon_Skill_3"/>
+	<Skill Name="Mon_Corylus_Skill_1"/>
+	<Skill Name="Mon_Corylus_Skill_2"/>
+	<Skill Name="Mon_Rudas_loxodon_Skill_1"/>
+	<Skill Name="Mon_Rudas_loxodon_Skill_2"/>
+	<Skill Name="Mon_Beeteros_Skill_1"/>
+	<Skill Name="Mon_Beeteros_Skill_2"/>
+	<Skill Name="Mon_Mentiwood_Skill_1"/>
+	<Skill Name="Mon_Mentiwood_Skill_2"/>
+	<Skill Name="Mon_Mentiwood_Skill_3"/>
+	<Skill Name="Mon_Egnome_Skill_1"/>
+	<Skill Name="Mon_Egnome_Skill_2"/>
+	<Skill Name="Mon_Beetow_Skill_1"/>
+	<Skill Name="Mon_Beetow_Skill_2"/>
+	<Skill Name="Mon_Pawndel_Skill_1"/>
+	<Skill Name="Mon_Pawndel_Skill_2"/>
+	<Skill Name="Mon_Carcashu_Skill_1"/>
+	<Skill Name="Mon_Carcashu_Skill_2"/>
+	<Skill Name="Mon_Zibu_Maize_Skill_1"/>
+	<Skill Name="Mon_colitile2_Skill_1"/>
+	<Skill Name="Mon_Firent_Skill_1"/>
+	<Skill Name="Mon_Firent_Skill_2"/>
+	<Skill Name="Mon_skill_Owl_E_Skill_1"/>
+	<Skill Name="Mon_skill_Owl_E_Skill_2"/>
+	<Skill Name="Mon_Mushcarfung_small_Skill_1"/>
+	<Skill Name="Mon_boss_tutu_Skill_5"/>
+	<Skill Name="Mon_M_boss_Golem_gray_Skill_1"/>
+	<Skill Name="Mon_boss_gesti_Skill_4"/>
+	<Skill Name="Mon_M_boss_Golem_gray_Skill_2"/>
+	<Skill Name="Mon_M_boss_Golem_gray_Skill_3"/>
+	<Skill Name="Mon_Firent_Skill_3"/>
+	<Skill Name="Mon_M_boss_poata_Skill_2"/>
+	<Skill Name="Mon_F_boss_BiteRegina_Skill_5"/>
+	<Skill Name="Mon_F_boss_Chapparition_Skill_5"/>
+	<Skill Name="Mon_F_boss_Chapparition_Skill_1"/>
+	<Skill Name="Mon_F_boss_Chapparition_Skill_2"/>
+	<Skill Name="Mon_F_boss_Chapparition_Skill_3"/>
+	<Skill Name="Mon_F_boss_Chapparition_Skill_4"/>
+	<Skill Name="Mon_F_boss_Kerberos_Skill_7"/>
+	<Skill Name="Mon_Skill_F_boss_Chapparition_Dummy_Skill_1"/>
+	<Skill Name="Mon_M_boss_Golem_gray_Skill_5"/>
+	<Skill Name="Mon_M_boss_Golem_gray_Skill_6"/>
+	<Skill Name="Mon_M_boss_clymen_Skill_1"/>
+	<Skill Name="Mon_M_boss_poata_Skill_3"/>
+	<Skill Name="Mon_M_boss_poata_Skill_4"/>
+	<Skill Name="Mon_M_boss_Glass_mole_Skill_1"/>
+	<Skill Name="Mon_M_boss_Glass_mole_Skill_2"/>
+	<Skill Name="Mon_M_boss_Glass_mole_Skill_3"/>
+	<Skill Name="Mon_M_boss_Glass_mole_Skill_4"/>
+	<Skill Name="Mon_Skill_Glassmole_Dummy_Skill_1"/>
+	<Skill Name="Mon_M_boss_woodspirit_Skill_1"/>
+	<Skill Name="Mon_M_boss_woodspirit_Skill_2"/>
+	<Skill Name="Mon_M_boss_woodspirit_Skill_3"/>
+	<Skill Name="Mon_M_boss_woodspirit_Skill_4"/>
+	<Skill Name="Mon_Velwriggler_Skill_1"/>
+	<Skill Name="Mon_Lichenclops_Skill_1"/>
+	<Skill Name="Mon_Dumaro_Skill_1"/>
+	<Skill Name="Mon_ticen _Skill_1"/>
+	<Skill Name="Mon_tucen _Skill_1"/>
+	<Skill Name="Mon_Siaulago_Skill_1"/>
+	<Skill Name="Mon_Siaulamb_Skill_1"/>
+	<Skill Name="Mon_Siaumire_Skill_1"/>
+	<Skill Name="Mon_minivern_Skill_1"/>
+	<Skill Name="Mon_Cronewt  _Skill_1"/>
+	<Skill Name="Mon_InfroHoglan _Skill_1"/>
+	<Skill Name="Mon_colistump_Skill_1"/>
+	<Skill Name="Mon_Lapasape _Skill_1"/>
+	<Skill Name="Mon_infro_Blud_Skill_1"/>
+	<Skill Name="Mon_leaf_diving_Skill_1"/>
+	<Skill Name="Mon_Hanaming_Skill_1"/>
+	<Skill Name="Mon_Quartz_Weaver_Skill_1"/>
+	<Skill Name="Mon_Jukopus_gray_Skill_1"/>
+	<Skill Name="Mon_Pokubu_Gray_Skill_1"/>
+	<Skill Name="Mon_Goblin_Archer_red_Skill_1"/>
+	<Skill Name="Mon_Fisherman_red_Skill_1"/>
+	<Skill Name="Mon_Fisherman_red_Skill_2"/>
+	<Skill Name="Mon_boss_simorph_Skill_1"/>
+	<Skill Name="Mon_duckey_Skill_1"/>
+	<Skill Name="Mon_duckey_Skill_2"/>
+	<Skill Name="Mon_Siaulav_Skill_1"/>
+	<Skill Name="Mon_Siaulav_Skill_2"/>
+	<Skill Name="Mon_honeyspider_Skill_1"/>
+	<Skill Name="Mon_boss_simorph_Skill_2"/>
+	<Skill Name="Mon_boss_simorph_Skill_3"/>
+	<Skill Name="Mon_boss_Nepenthes_Skill_1"/>
+	<Skill Name="Mon_boss_Nepenthes_Skill_2"/>
+	<Skill Name="Mon_boss_Nepenthes_Skill_3"/>
+	<Skill Name="Mon_boss_Nepenthes_Skill_4"/>
+	<Skill Name="Mon_boss_merregina_Skill_1"/>
+	<Skill Name="Mon_boss_merregina_Skill_2"/>
+	<Skill Name="Mon_boss_merregina_Skill_3"/>
+	<Skill Name="Mon_boss_capria_Skill_1"/>
+	<Skill Name="Mon_boss_capria_Skill_2"/>
+	<Skill Name="Mon_boss_capria_Skill_3"/>
+	<Skill Name="Mon_Skill_boss_Spector_m_Dummy_Skill_1"/>
+	<Skill Name="Mon_boss_Spector_m_Skill_4"/>
+	<Skill Name="Mon_boss_NetherBovine_Skill_4"/>
+	<Skill Name="Mon_Large_crossbow_Skill_1"/>
+	<Skill Name="Mon_M_boss_Golem_gray_Skill_4"/>
+	<Skill Name="Mon_boss_Strongholder_Skill_5"/>
+	<Skill Name="Mon_Skill_boss_Strongholder_Dummy_Skill_1"/>
+	<Skill Name="Mon_boss_stone_whale_Skill_6"/>
+	<Skill Name="Mon_Big Siaulamb_Skill_1"/>
+	<Skill Name="Mon_Big Siaulamb_Skill_2"/>
+	<Skill Name="Mon_Siaulogre_Skill_1"/>
+	<Skill Name="Mon_Siaulogre_Skill_2"/>
+	<Skill Name="Mon_yognome_Skill_1"/>
+	<Skill Name="Mon_yognome_Skill_2"/>
+	<Skill Name="Mon_pawnd_Skill_1"/>
+	<Skill Name="Mon_pawnd_Skill_2"/>
+	<Skill Name="Mon_Pendinmire_Skill_1"/>
+	<Skill Name="Mon_Pendinmire_Skill_2"/>
+	<Skill Name="Mon_puragi_green_Skill_1"/>
+	<Skill Name="Mon_puragi_green_Skill_2"/>
+	<Skill Name="Mon_puragi_green_Skill_3"/>
+	<Skill Name="Mon_zigri_brown_Skill_1"/>
+	<Skill Name="Mon_zigri_brown_Skill_2"/>
+	<Skill Name="Mon_zigri_brown_Skill_3"/>
+	<Skill Name="Mon_zigri_purple_Skill_1"/>
+	<Skill Name="Mon_zigri_purple_Skill_2"/>
+	<Skill Name="Mon_zigri_purple_Skill_3"/>
+	<Skill Name="Mon_woodgoblin_black_Skill_1"/>
+	<Skill Name="Mon_zinutekas_Skill_1"/>
+	<Skill Name="Mon_zinutekas_Skill_2"/>
+	<Skill Name="Mon_zinutekas_Skill_3"/>
+	<Skill Name="Mon_ROG_master_Skill_1"/>
+	<Skill Name="Mon_mushroom_boy_red_Skill_1"/>
+	<Skill Name="Mon_mushroom_boy_red_Skill_2"/>
+	<Skill Name="Mon_mushroom_boy_red_Skill_3"/>
+	<Skill Name="Mon_pappus_kepa_red_Skill_1"/>
+	<Skill Name="Mon_rafflesia_purple_Skill_1"/>
+	<Skill Name="Mon_rafflesia_purple_Skill_2"/>
+	<Skill Name="Mon_roctor_red_Skill_1"/>
+	<Skill Name="Mon_roctor_red_Skill_2"/>
+	<Skill Name="Mon_ellom_green_Skill_1"/>
+	<Skill Name="Mon_ellom_green_Skill_2"/>
+	<Skill Name="Mon_arburn_pokubu_green_Skill_1"/>
+	<Skill Name="Mon_arburn_pokubu_blue_Skill_1"/>
+	<Skill Name="Mon_hori_chaser_Skill_1"/>
+	<Skill Name="Mon_hori_chaser_Skill_2"/>
+	<Skill Name="Mon_tower_of_firepuppet_Skill_1"/>
+	<Skill Name="Mon_tower_of_firepuppet_Skill_2"/>
+	<Skill Name="Mon_Fire_Dragon_green_Skill_1"/>
+	<Skill Name="Mon_Fire_Dragon_green_Skill_2"/>
+	<Skill Name="Mon_Fire_Dragon_purple_Skill_1"/>
+	<Skill Name="Mon_Fire_Dragon_purple_Skill_2"/>
+	<Skill Name="Mon_hori_warrior_Skill_1"/>
+	<Skill Name="Mon_hori_warrior_Skill_2"/>
+	<Skill Name="Mon_puragi_blue_Skill_1"/>
+	<Skill Name="Mon_puragi_blue_Skill_2"/>
+	<Skill Name="Mon_puragi_blue_Skill_3"/>
+	<Skill Name="Mon_Goblin_Spear_red_Skill_1"/>
+	<Skill Name="Mon_Goblin_Spear_red_Skill_2"/>
+	<Skill Name="Mon_mushroom_ent_black_Skill_1"/>
+	<Skill Name="Mon_FireWall"/>
+	<Skill Name="Mon_Landmine_Boom"/>
+	<Skill Name="Mon_Poisonmine_Boom"/>
+	<Skill Name="Mon_Claymore_Boom"/>
+	<Skill Name="Boss_JumpAttack"/>
+	<Skill Name="Boss_DashAttack"/>
+	<Skill Name="Mon_LifeStream_Heal"/>
+	<Skill Name="Mon_GlacialWedges"/>
+	<Skill Name="Mon_FlameSeed_Boom"/>
+	<Skill Name="Mon_mushroom_ent_black_Skill_2"/>
+	<Skill Name="Mon_LivingFlame_Boom"/>
+	<Skill Name="Mon_mushroom_ent_black_Skill_3"/>
+	<Skill Name="Mon_Blizzard"/>
+	<Skill Name="Mon_MeteorStrike"/>
+	<Skill Name="Mon_new_desmodus_black_Skill_1"/>
+	<Skill Name="Mon_Quartz_Weaver_Skill_2"/>
+	<Skill Name="Mon_Aos_Hero_Arc_Attack"/>
+	<Skill Name="Mon_boss_yonazolem_Skill_5"/>
+	<Skill Name="Mon_boss_bebraspion_Skill_5"/>
+	<Skill Name="DummySkill"/>
+	<Skill Name="Mon_boss_Shnayim_Skill_4"/>
+	<Skill Name="Golem_RollAttack"/>
+	<Skill Name="Mirtis_MslAttack"/>
+	<Skill Name="Mirtis_RotateAttack"/>
+	<Skill Name="Mirtis_RoundMsl"/>
+	<Skill Name="Mon_boss_MagBurk_Skill_4"/>
+	<Skill Name="Mon_boss_Confinedion_Skill_5"/>
+	<Skill Name="Mon_npc_paladinmaster_Skill_1"/>
+	<Skill Name="Mon_PRS_master_Skill_1"/>
+	<Skill Name="Mon_HUT_master_Skill_1"/>
+	<Skill Name="Mon_Aos_Turret_Attack"/>
+	<Skill Name="Mon_Aos_Turret_Attack_2"/>
+	<Skill Name="Mon_KRV_master_Skill_1"/>
+	<Skill Name="Mon_BAR_master_Skill_1"/>
+	<Skill Name="Mon_LIN_master_Skill_1"/>
+	<Skill Name="Mon_WUG_master_Skill_1"/>
+	<Skill Name="Mon_SAD_master_Skill_1"/>
+	<Skill Name="Mon_ROD_master_Skill_1"/>
+	<Skill Name="Mon_SCT_master_Skill_1"/>
+	<Skill Name="Mon_MNK_master_Skill_1"/>
+	<Skill Name="Mon_Woodman_Attack"/>
+	<Skill Name="Mon_ORC_master_Skill_1"/>
+	<Skill Name="Mon_DRU_master_Skill_1"/>
+	<Skill Name="Mon_Salamander_Attack"/>
+	<Skill Name="Mon_Statue_angel_Attack"/>
+	<Skill Name="Mon_Goblin_Miners_Attack"/>
+	<Skill Name="Mon_Hall_stone_Attack"/>
+	<Skill Name="Mon_Hall_stone_Skill"/>
+	<Skill Name="Mon_Priest_Attack"/>
+	<Skill Name="Mon_Priest_Skill"/>
+	<Skill Name="Mon_Spector_Gh_Attack"/>
+	<Skill Name="Mon_Spector_Gh_Skill"/>
+	<Skill Name="Mon_F_boss_Chafer_Skill_1"/>
+	<Skill Name="Mon_F_boss_Chafer_Skill_2"/>
+	<Skill Name="Mon_F_boss_Chafer_Skill_3"/>
+	<Skill Name="Mon_F_boss_Chafer_Skill_4"/>
+	<Skill Name="Mon_F_boss_Chafer_Skill_5"/>
+	<Skill Name="Mon_F_boss_Chafer_Skill_6"/>
+	<Skill Name="Mon_F_boss_Chafer_Skill_7"/>
+	<Skill Name="Mon_F_boss_Deathweaver_Skill_1"/>
+	<Skill Name="Mon_F_boss_Deathweaver_Skill_2"/>
+	<Skill Name="Mon_F_boss_Deathweaver_Skill_3"/>
+	<Skill Name="Mon_F_boss_Deathweaver_Skill_4"/>
+	<Skill Name="Mon_F_boss_Deathweaver_Skill_5"/>
+	<Skill Name="Mon_F_boss_Deathweaver_Skill_6"/>
+	<Skill Name="Mon_F_boss_Kerberos_Skill_1"/>
+	<Skill Name="Mon_F_boss_Kerberos_Skill_2"/>
+	<Skill Name="Mon_F_boss_Kerberos_Skill_3"/>
+	<Skill Name="Mon_F_boss_Kerberos_Skill_4"/>
+	<Skill Name="Mon_F_boss_Kerberos_Skill_5"/>
+	<Skill Name="Mon_F_boss_Kerberos_Skill_6"/>
+	<Skill Name="Mon_F_boss_BiteRegina_Skill_1"/>
+	<Skill Name="Mon_F_boss_BiteRegina_Skill_2"/>
+	<Skill Name="Mon_F_boss_BiteRegina_Skill_3"/>
+	<Skill Name="Mon_F_boss_BiteRegina_Skill_4"/>
+	<Skill Name="Mon_mon_paladin_follower1_1_Skill_1"/>
+	<Skill Name="Mon_boss_Goblin_Warrior_red_Skill_1"/>
+	<Skill Name="Mon_boss_Goblin_Warrior_red_Skill_2"/>
+	<Skill Name="Mon_boss_Goblin_Warrior_red_Skill_3"/>
+	<Skill Name="Mon_M_boss_clymen_Skill_2"/>
+	<Skill Name="Mon_M_boss_clymen_Skill_3"/>
+	<Skill Name="Mon_M_boss_clymen_Skill_4"/>
+	<Skill Name="Mon_boss_Goblin_Warrior_Skill_4"/>
+	<Skill Name="Mon_boss_Goblin_Warrior_red_Skill_4"/>
+	<Skill Name="Mon_woodfung_Skill_1"/>
+	<Skill Name="Mon_belegg_Skill_1"/>
+	<Skill Name="Mon_belegg_Skill_2"/>
+	<Skill Name="Mon_panto_javelin_elite_Skill_1"/>
+	<Skill Name="Mon_panto_javelin_elite_Skill_2"/>
+	<Skill Name="Mon_panto_javelin_elite_Skill_3"/>
+	<Skill Name="Mon_panto_javelin_Skill_1"/>
+	<Skill Name="Mon_boss_Fallen_Statue_Skill_4"/>
+	<Skill Name="Mon_boss_Mummyghast_Skill_4"/>
+	<Skill Name="Mon_boss_Iltiswort_Skill_4"/>
+	<Skill Name="Mon_mon_intermediate_officer_men2_Skill_1"/>
+	<Skill Name="Mon_colimen_Skill_1"/>
+	<Skill Name="Mon_loftlem_Skill_1"/>
+	<Skill Name="Mon_blindlem_Skill_1"/>
+	<Skill Name="Mon_boss_Merge_Skill_5"/>
+	<Skill Name="Mon_boss_Carnivore_Skill_5"/>
+	<Skill Name="Mon_matsum_Skill_1"/>
+	<Skill Name="Mon_Pawndel_Skill_3"/>
+	<Skill Name="Mon_boss_woodspirit_Skill_5"/>
+	<Skill Name="Mon_boss_Colimencia_Skill_4"/>
+	<Skill Name="Mon_boss_spector_gh_Skill_3"/>
+	<Skill Name="Mon_boss_archon_Skill_5"/>
+	<Skill Name="Mon_zombiegirl2_Skill_1"/>
+	<Skill Name="Mon_zombiegirl2_Skill_2"/>
+	<Skill Name="Mon_boss_necrovanter_Skill_4"/>
+	<Skill Name="Mon_hogma_sorcerer_Skill_3"/>
+	<Skill Name="Mon_boss_Carapace_Skill_4"/>
+	<Skill Name="Mon_Bagworm_Attack"/>
+	<Skill Name="Mon_Bagworm_Skill">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_boss_spector_gh_Attack"/>
+	<Skill Name="Mon_boss_spector_gh_Skill_1"/>
+	<Skill Name="Mon_F_boss_mineloader_Skill_1"/>
+	<Skill Name="Mon_F_boss_mineloader_Skill_2"/>
+	<Skill Name="Mon_F_boss_mineloader_Skill_3"/>
+	<Skill Name="Mon_F_boss_mineloader_Skill_4"/>
+	<Skill Name="Mon_F_boss_mineloader_Skill_5"/>
+	<Skill Name="Mon_Golem_Attack4"/>
+	<Skill Name="Mon_Golem_Attack5">
+		<Property Job="1001" Stance="10001" Gender="2">
+			<Value Name="HitAni" Value="425"/>
+		</Property>
+	</Skill>
+	<Skill Name="Mon_Golem_Skill"/>
+	<Skill Name="Mon_Golem_Skill2"/>
+	<Skill Name="Mon_Golem_Skill3"/>
+	<Skill Name="Mon_G_Tower_5_Skill_1"/>
+	<Skill Name="Mon_G_Tower_5_Skill_2"/>
+	<Skill Name="Mon_G_Tower_5_Skill_3"/>
+	<Skill Name="Mon_boss_Rajatoad_Skill_4"/>
+	<Skill Name="Mon_boss_Rajatoad_Skill_5"/>
+	<Skill Name="Mon_boss_Rajapearl_Skill_4"/>
+	<Skill Name="Mon_boss_bearkaras_Skill_1"/>
+	<Skill Name="Mon_boss_bearkaras_Skill_2"/>
+	<Skill Name="Mon_boss_capria_Skill_5"/>
+	<Skill Name="Mon_boss_Ravinepede_Skill_4"/>
+	<Skill Name="Mon_boss_Ravinepede_Skill_5"/>
+	<Skill Name="Mon_boss_simorph_Skill_4"/>
+	<Skill Name="Mon_boss_simorph_Skill_5"/>
+	<Skill Name="Mon_boss_Spector_F_Skill_4"/>
+	<Skill Name="Mon_boss_tutu_Skill_6"/>
+	<Skill Name="Mon_boss_Carnivore_Skill_6"/>
+	<Skill Name="Mon_boss_mushwort_Skill_5"/>
+	<Skill Name="Mon_boss_yonazolem_Skill_6"/>
+	<Skill Name="Mon_boss_Denoptic_Skill_5"/>
+	<Skill Name="Mon_boss_Denoptic_Skill_6"/>
+	<Skill Name="Mon_boss_Shnayim_Skill_5"/>
+	<Skill Name="Mon_bubbe_mage_fire_Skill_3"/>
+	<Skill Name="Mon_boss_Achat_Skill_4"/>
+	<Skill Name="Mon_boss_MagBurk_Skill_5"/>
+	<Skill Name="Mon_boss_MagBurk_Skill_6"/>
+	<Skill Name="Mon_boss_salamander_Skill_6"/>
+	<Skill Name="Mon_boss_Grinender_Skill_5"/>
+	<Skill Name="Mon_boss_BiteRegina_Skill_5"/>
+	<Skill Name="Mon_boss_Harpeia_Skill_5"/>
+	<Skill Name="Mon_boss_honeypin_Skill_4"/>
+	<Skill Name="Mon_boss_werewolf_Skill_5"/>
+	<Skill Name="Mon_boss_mushwort_Skill_6"/>
+	<Skill Name="Mon_boss_mushwort_Skill_7"/>
+	<Skill Name="Mon_boss_Templeshooter_Skill_5"/>
+	<Skill Name="Mon_boss_cactusvel_Skill_4"/>
+	<Skill Name="Mon_boss_moa_Skill_5"/>
+	<Skill Name="Mon_boss_bearkaras_Skill_3"/>
+	<Skill Name="Mon_boss_TombLord_Skill_5"/>
+	<Skill Name="Mon_boss_Golem_Skill_4"/>
+	<Skill Name="Mon_boss_simorph_Skill_6"/>
+	<Skill Name="Mon_boss_bebraspion_Skill_6"/>
+	<Skill Name="Mon_boss_necrovanter_J1_Skill_1"/>
+	<Skill Name="Mon_boss_necrovanter_J1_Skill_2"/>
+	<Skill Name="Mon_boss_necrovanter_J1_Skill_3"/>
+	<Skill Name="Mon_boss_necrovanter_J1_Skill_4"/>
+	<Skill Name="Mon_boss_mushwort_Skill_8"/>
+	<Skill Name="Mon_F_boss_Chapparition_Skill_6"/>
+	<Skill Name="Mon_boss_merregina_Skill_4"/>
+	<Skill Name="Mon_boss_Rocktortuga_Q1_Skill_1"/>
+	<Skill Name="Mon_boss_Golem_Q1_Skill_1"/>
+	<Skill Name="Mon_boss_Golem_Q1_Skill_2"/>
+	<Skill Name="Mon_boss_Nepenthes_Skill_5"/>
+	<Skill Name="Mon_boss_Nepenthes_Skill_6"/>
+	<Skill Name="Mon_boss_poata_Q1_Skill_1"/>
+	<Skill Name="Mon_boss_poata_Q1_Skill_2"/>
+	<Skill Name="Mon_boss_poata_Q1_Skill_3"/>
+	<Skill Name="Mon_boss_poata_Q1_Skill_4"/>
+	<Skill Name="Mon_boss_Throneweaver_Q1_Skill_1"/>
+	<Skill Name="Mon_boss_Throneweaver_Q1_Skill_2"/>
+	<Skill Name="Mon_boss_Throneweaver_Q1_Skill_3"/>
+	<Skill Name="Mon_boss_Throneweaver_Q1_Skill_4"/>
+	<Skill Name="Mon_boss_Chafer_Q1_Skill_1"/>
+	<Skill Name="Mon_boss_Chafer_Q1_Skill_2"/>
+	<Skill Name="Mon_boss_Chafer_Q1_Skill_3"/>
+	<Skill Name="Mon_boss_Chafer_Q1_Skill_4"/>
+	<Skill Name="Mon_boss_Chafer_Q1_Skill_5"/>
+	<Skill Name="Mon_boss_Iltiswort_Skill_5"/>
+	<Skill Name="Mon_boss_Mushcaria_Q2_Skill_1"/>
+	<Skill Name="Mon_boss_Mushcaria_Q2_Skill_2"/>
+	<Skill Name="Mon_boss_Mushcaria_Q2_Skill_3"/>
+	<Skill Name="Mon_boss_Mushcaria_Q2_Skill_4"/>
+	<Skill Name="Mon_boss_simorph_Skill_7"/>
+	<Skill Name="Mon_boss_spector_gh_Skill_4"/>
+	<Skill Name="Mon_boss_archon_Skill_6"/>
+	<Skill Name="Mon_boss_Velorchard_Skill_5"/>
+	<Skill Name="Mon_boss_woodhoungan_Skill_1"/>
+	<Skill Name="Mon_boss_woodhoungan_Skill_2"/>
+	<Skill Name="Mon_boss_woodhoungan_Skill_3"/>
+	<Skill Name="Mon_boss_woodhoungan_Skill_4"/>
+	<Skill Name="Mon_boss_woodhoungan_Skill_5"/>
+	<Skill Name="Mon_boss_RingCrawler_Skill_5"/>
+	<Skill Name="Mon_boss_RingCrawler_Skill_6"/>
+	<Skill Name="Mon_boss_Pyroego_Skill_4"/>
+	<Skill Name="Mon_boss_Pyroego_Skill_5"/>
+	<Skill Name="Mon_boss_Pyroego_Skill_6"/>
+	<Skill Name="Mon_boss_velpede_Skill_1"/>
+	<Skill Name="Mon_boss_dionia_Skill_4"/>
+	<Skill Name="Mon_boss_dionia_Skill_5"/>
+	<Skill Name="Mon_boss_dionia_Skill_6"/>
+	<Skill Name="Mon_boss_Genmagnus_Skill_5"/>
+	<Skill Name="Mon_boss_Drapeliun_Skill_4"/>
+	<Skill Name="Mon_boss_Drapeliun_Skill_5"/>
+	<Skill Name="Mon_boss_Drapeliun_Skill_6"/>
+	<Skill Name="Mon_boss_Yeti_Skill_1"/>
+	<Skill Name="Mon_boss_Yeti_Skill_2"/>
+	<Skill Name="Mon_boss_Yeti_Skill_3"/>
+	<Skill Name="Mon_boss_Yeti_Skill_4"/>
+	<Skill Name="Mon_boss_Yeti_Skill_5"/>
+	<Skill Name="Mon_Riteris_Skill_1"/>
+	<Skill Name="Mon_Riteris_Skill_2"/>
+	<Skill Name="Mon_Riteris_Skill_3"/>
+	<Skill Name="Mon_boss_hydra_Skill_5"/>
+	<Skill Name="Mon_boss_Canceril_Skill_1"/>
+	<Skill Name="Mon_boss_Canceril_Skill_2"/>
+	<Skill Name="Mon_boss_Canceril_Skill_3"/>
+	<Skill Name="Mon_boss_Canceril_Skill_4"/>
+	<Skill Name="Mon_None_Skill_1"/>
+	<Skill Name="Mon_Kepo_seed_Skill_1"/>
+	<Skill Name="Mon_Kepo_Skill_1"/>
+	<Skill Name="Mon_boss_sparnas_Skill_6"/>
+	<Skill Name="Mon_boss_BiteRegina_Skill_6"/>
+	<Skill Name="Mon_boss_Strongholder_Q3_Skill_1"/>
+	<Skill Name="Mon_boss_Strongholder_Q3_Skill_2"/>
+	<Skill Name="Mon_boss_Strongholder_Q3_Skill_3"/>
+	<Skill Name="Mon_boss_Strongholder_Q3_Skill_4"/>
+	<Skill Name="Mon_boss_Strongholder_Q3_Skill_5"/>
+	<Skill Name="Mon_boss_Strongholder_Q3_Skill_6"/>
+	<Skill Name="Mon_boss_honeypin_Q1_Skill_1"/>
+	<Skill Name="Mon_boss_honeypin_Q1_Skill_2"/>
+	<Skill Name="Mon_boss_honeypin_Q1_Skill_3"/>
+	<Skill Name="Mon_boss_honeypin_Q1_Skill_4"/>
+	<Skill Name="Mon_JincanGu_Worm_Skill_1"/>
+	<Skill Name="Mon_Teraox_Skill_1"/>
+	<Skill Name="Mon_Teraox_Skill_2"/>
+	<Skill Name="Mon_Teraox_Skill_3"/>
+	<Skill Name="Mon_Teraox_Skill_4"/>
+	<Skill Name="Mon_boss_Gremlin_Skill_1"/>
+	<Skill Name="Mon_loftlem_blue_Skill_1"/>
+	<Skill Name="Mon_Colifly_Skill_1"/>
+	<Skill Name="Mon_boss_honeypin_Q1_Skill_5"/>
+	<Skill Name="Mon_boss_Golem_Q1_Skill_3"/>
+	<Skill Name="Mon_boss_Golem_Q1_Skill_4"/>
+	<Skill Name="Mon_boss_Golem_Q1_Skill_5"/>
+	<Skill Name="Mon_boss_Golem_Q1_Skill_6"/>
+	<Skill Name="Mon_boss_Glackuman_Skill_1"/>
+	<Skill Name="Mon_boss_Glackuman_Skill_2"/>
+	<Skill Name="Mon_boss_Glackuman_Skill_3"/>
+	<Skill Name="Mon_boss_Glackuman_Skill_4"/>
+	<Skill Name="Mon_boss_Glackuman_Skill_5"/>
+	<Skill Name="Mon_boss_Fireload_Skill_1"/>
+	<Skill Name="Mon_boss_Fireload_Skill_2"/>
+	<Skill Name="Mon_boss_Fireload_Skill_3"/>
+	<Skill Name="Mon_boss_Fireload_Skill_4"/>
+	<Skill Name="Mon_boss_succubus_Skill_1"/>
+	<Skill Name="Mon_boss_succubus_Skill_2"/>
+	<Skill Name="Mon_boss_succubus_Skill_3"/>
+	<Skill Name="Mon_Triffid_Skill_1"/>
+	<Skill Name="Mon_Triffid_Skill_2"/>
+	<Skill Name="Mon_boss_succubus_Skill_4"/>
+	<Skill Name="Mon_boss_succubus_Skill_5"/>
+	<Skill Name="Mon_boss_succubus_Skill_6"/>
+	<Skill Name="Mon_boss_glutton_Skill_1"/>
+	<Skill Name="Mon_boss_glutton_Skill_2"/>
+	<Skill Name="Mon_boss_glutton_Skill_3"/>
+	<Skill Name="Mon_boss_glutton_Skill_4"/>
+	<Skill Name="Mon_Crocoman_Skill_1"/>
+	<Skill Name="Mon_Crocoman_Skill_2"/>
+	<Skill Name="Mon_Socket_Skill_1"/>
+	<Skill Name="Mon_digo_Skill_1"/>
+	<Skill Name="Mon_eldigo_Skill_1"/>
+	<Skill Name="Mon_eldigo_Skill_2"/>
+	<Skill Name="Mon_Socket_Skill_2"/>
+	<Skill Name="Mon_Gazing_Golem_yellow_Skill_1"/>
+	<Skill Name="Mon_Gazing_Golem_yellow_Skill_2"/>
+	<Skill Name="Mon_boss_Nuaelle_Skill_1"/>
+	<Skill Name="Mon_boss_Nuaelle_Skill_2"/>
+	<Skill Name="Mon_boss_Nuaelle_Skill_3"/>
+	<Skill Name="Mon_boss_Nuaelle_Skill_4"/>
+	<Skill Name="Mon_boss_Nuaelle_Skill_5"/>
+	<Skill Name="Mon_pc_summon_NetherBovine_Skill_1"/>
+	<Skill Name="Mon_pc_summon_NetherBovine_Skill_2"/>
+	<Skill Name="Mon_pc_summon_NetherBovine_Skill_3"/>
+	<Skill Name="Mon_pc_summon_necrovanter_Skill_1"/>
+	<Skill Name="Mon_pc_summon_necrovanter_Skill_2"/>
+	<Skill Name="Mon_pc_summon_necrovanter_Skill_3"/>
+	<Skill Name="Mon_pc_summon_necrovanter_Skill_4"/>
+	<Skill Name="Mon_pc_summon_Genmagnus_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Genmagnus_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Genmagnus_Skill_3"/>
+	<Skill Name="Mon_pc_summon_Mummyghast_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Mummyghast_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Mummyghast_Skill_3"/>
+	<Skill Name="Mon_pc_summon_Strongholder_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Strongholder_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Strongholder_Skill_3"/>
+	<Skill Name="Mon_pc_summon_ShadowGaoler_Skill_1"/>
+	<Skill Name="Mon_pc_summon_ShadowGaoler_Skill_2"/>
+	<Skill Name="Mon_pc_summon_ShadowGaoler_Skill_3"/>
+	<Skill Name="Mon_pc_summon_Spector_m_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Spector_m_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Spector_m_Skill_3"/>
+	<Skill Name="Mon_pc_summon_Minotaurs_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Minotaurs_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Minotaurs_Skill_3"/>
+	<Skill Name="Mon_pc_summon_Sparnanman_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Sparnanman_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Sparnanman_Skill_3"/>
+	<Skill Name="Mon_pc_summon_Throneweaver_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Throneweaver_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Throneweaver_Skill_3"/>
+	<Skill Name="Mon_pc_summon_Unknocker_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Unknocker_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Unknocker_Skill_3"/>
+	<Skill Name="Mon_pc_summon_merregina_Skill_1"/>
+	<Skill Name="Mon_pc_summon_merregina_Skill_2"/>
+	<Skill Name="Mon_pc_summon_merregina_Skill_3"/>
+	<Skill Name="Mon_pc_summon_Chapparition_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Chapparition_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Chapparition_Skill_3"/>
+	<Skill Name="Mon_boss_durahan_Skill_1"/>
+	<Skill Name="Mon_boss_durahan_Skill_2"/>
+	<Skill Name="Mon_boss_durahan_Skill_3"/>
+	<Skill Name="Mon_boss_Blud_Skill_1"/>
+	<Skill Name="Mon_boss_Blud_Skill_2"/>
+	<Skill Name="Mon_boss_Blud_Skill_3"/>
+	<Skill Name="Mon_boss_Blud_Skill_4"/>
+	<Skill Name="Mon_pc_summon_Harpeia_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Harpeia_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Harpeia_Skill_3"/>
+	<Skill Name="Mon_boss_ellaganos_Skill_4"/>
+	<Skill Name="Mon_boss_ellaganos_Skill_5"/>
+	<Skill Name="Mon_pc_summon_ellaganos_Skill_1"/>
+	<Skill Name="Mon_pc_summon_ellaganos_Skill_2"/>
+	<Skill Name="Mon_pc_summon_ellaganos_Skill_3"/>
+	<Skill Name="Mon_pc_summon_ellaganos_Skill_4"/>
+	<Skill Name="Missile_Attack"/>
+	<Skill Name="Mon_spectra_Skill_1"/>
+	<Skill Name="Mon_spectra_Skill_2"/>
+	<Skill Name="Mon_spectra_Skill_3"/>
+	<Skill Name="Mon_boss_Taumas_Skill_1"/>
+	<Skill Name="Mon_boss_Taumas_Skill_2"/>
+	<Skill Name="Mon_boss_Taumas_Skill_3"/>
+	<Skill Name="Mon_boss_Taumas_Skill_4"/>
+	<Skill Name="Mon_Velhider_Skill_2"/>
+	<Skill Name="Mon_Npanto_hand_Skill_1"/>
+	<Skill Name="Mon_Npanto_hand_Skill_2"/>
+	<Skill Name="Mon_Npanto_hand_Skill_3"/>
+	<Skill Name="Mon_Npanto_baby_Skill_1"/>
+	<Skill Name="Mon_Npanto_baby_Skill_2"/>
+	<Skill Name="Mon_Npanto_baby_Skill_3"/>
+	<Skill Name="Mon_Npanto_archer_Skill_1"/>
+	<Skill Name="Mon_Npanto_archer_Skill_2"/>
+	<Skill Name="Mon_Npanto_staff_Skill_1"/>
+	<Skill Name="Mon_Npanto_staff_Skill_2"/>
+	<Skill Name="Mon_Npanto_staff_Skill_3"/>
+	<Skill Name="Mon_Npanto_sword_Skill_1"/>
+	<Skill Name="Mon_Npanto_sword_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Templeshooter_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Templeshooter_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Templeshooter_Skill_3"/>
+	<Skill Name="Mon_pc_summon_Templeshooter_Skill_4"/>
+	<Skill Name="Mon_npc_kupole_1_Skill_1"/>
+	<Skill Name="Mon_Riteris_Skill_4"/>
+	<Skill Name="Mon_pc_summon_Riteris_Skill_1"/>
+	<Skill Name="Mon_pc_summon_Riteris_Skill_2"/>
+	<Skill Name="Mon_pc_summon_Riteris_Skill_3"/>
+	<Skill Name="Mon_Zombie_hoplite_Skill_1"/>
+	<Skill Name="Mon_Zombie_hoplite_Skill_2"/>
+	<Skill Name="Mon_F_boss_Kerberos_Skill_8"/>
+	<Skill Name="Mon_F_boss_BiteRegina_Skill_6"/>
+	<Skill Name="Mon_boss_mineloader_Skill_5"/>
+	<Skill Name="Mon_Gargoyle_Skill_1"/>
+	<Skill Name="Mon_Gargoyle_Skill_2"/>
+	<Skill Name="Mon_Gargoyle_Skill_3"/>
+	<Skill Name="Mon_Gargoyle_Skill_4"/>
+	<Skill Name="Mon_stonefroster_Skill_1"/>
+	<Skill Name="Mon_stonefroster_Skill_2"/>
+	<Skill Name="Mon_stonefroster_Skill_3"/>
+	<Skill Name="Mon_stonefroster_Skill_4"/>
+	<Skill Name="Mon_rubblem_Skill_1"/>
+	<Skill Name="Mon_rubblem_Skill_2"/>
+</SkillAniTiming>
