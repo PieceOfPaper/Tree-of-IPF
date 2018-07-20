@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="5.52" soundFile="mon_voice5_l_cast_1"/>
+    <BlendOn frame="88" R="100" G="100" B="100" A="50"/>
+    <Sound frame="90.00" soundFile="mon_clymen_atk_move"/>
+    <BlendOn frame="90" R="0" G="0" B="0" A="0"/>
+    <Sound frame="91.09" soundFile="skl_eff_fleshstrike_whoosh"/>
+    <BlendOn frame="92" R="100" G="100" B="100" A="50"/>
+    <Particle frame="93" attachNode="effect_dum_main" particleName="I_swordtrail047_darkred" useAttach="TRUE" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOff frame="94" R="0" G="0" B="0" A="0"/>
+    <Shockwave frame="94" type="2" intensity="5" frequency="50" duration="1" range="1000"/>
+    <Shockwave frame="150" type="2" intensity="15" frequency="50" duration="0.3" range="1000"/>
+</ActionDesc>

@@ -1093,6 +1093,16 @@ function ABILITY_DESC_PLUS(desc, cur)
 
 end
 
+function ABILITY_DESC_NO_PLUS(desc, cur)
+
+    if cur < 0 then
+        return string.format(" %s "..ScpArgMsg("PropDown").."%d", desc, math.abs(cur));
+    else
+    	return string.format(" %s "..ScpArgMsg("PropUp").."%d", desc, math.abs(cur));
+	end
+
+end
+
 function ABILITY_DESC_GENERAL(desc, basic, cur, color)
 	local fontColor = color;
 	if fontColor == nil then

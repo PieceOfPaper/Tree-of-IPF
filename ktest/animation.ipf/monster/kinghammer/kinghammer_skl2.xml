@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="4.04" soundFile="mon_voice5_l_dead_11"/>
+    <Sound frame="51.39" soundFile="mon_nepenthes_atk"/>
+    <Sound frame="78.00" soundFile="skl_eff_big_spin"/>
+    <BlendOn frame="90" R="100" G="100" B="100" A="50"/>
+    <Particle frame="92" attachNode="Bip001 Spine" particleName="I_swordtrail047_darkred_side" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="92" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="94" R="100" G="100" B="100" A="50"/>
+    <BlendOff frame="96" R="0" G="0" B="0" A="0"/>
+    <Sound frame="106.82" soundFile="atk_hammerground"/>
+    <Sound frame="106.82" soundFile="skl_eff_hammer"/>
+    <Shockwave frame="108" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+</ActionDesc>

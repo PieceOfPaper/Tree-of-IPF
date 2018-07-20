@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -5736,6 +5736,12 @@
 		<image name="colonymap_unoccupation" file="\skin\colony.tga" imgrect="1795 1 74 74" CMM_Caption="콜로니전 맵 아이콘"/>
 		<image name="colonymap_in_progress" file="\skin\colony.tga" imgrect="1870 1 74 74"/>
 		<image name="colonymap_occupation" file="\skin\colony.tga" imgrect="1945 1 74 74"/>
+		<image name="tooltip_attribute1" file="\skin\pip_test.tga" imgrect="1411 229 14 14" CMM_Caption="아이템 툴팁 랜덤 옵션 속성 표시"/>
+		<image name="tooltip_attribute2" file="\skin\pip_test.tga" imgrect="1426 229 14 14"/>
+		<image name="tooltip_attribute3" file="\skin\pip_test.tga" imgrect="1441 229 14 14"/>
+		<image name="tooltip_attribute4" file="\skin\pip_test.tga" imgrect="1456 229 14 14"/>
+		<image name="BnYellow_skin" file="\skin\missionFail_skin.tga" imgrect="0 401 500 104"/>
+		<image name="Appraiser_item_bg" file="\skin\USsentiment.tga" imgrect="643 545 55 55" CMM_Caption="미감정"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -5809,6 +5815,12 @@
 		<image name="adventure_brownslot" file="\skin\adventure_diary.tga" imgrect="692 962 59 59" CMM_Caption="브라운 슬롯"/>
 		<image name="adventure_stamp" file="\skin\adventure_diary.tga" imgrect="527 727 56 56" CMM_Caption="보상완료 도장"/>
 		<image name="teambattle_emblem" file="\skin\teambattle_emblem.tga" imgrect="0 0 406 386" CMM_Caption="팀배틀리그엠블럼"/>
+		<image name="fishing_paper1" file="\skin\fishing_paper.tga" imgrect="1 1 967 565" CMM_Caption="낚시 탁본"/>
+		<image name="fish_drawing" file="\skin\fishing_paper.tga" imgrect="1 567 708 318" CMM_Caption="물고기"/>
+		<image name="fish_stamp" file="\skin\fishing_paper.tga" imgrect="712 568 93 89" CMM_Caption="물고기 도장"/>
+		<image name="fishpaper_btn" file="\skin\HUD.tga" imgrect="1432 613 65 61" CMM_Caption="탁본 버튼 "/>
+		<image name="fishpaper_btn_cursoron" file="\skin\HUD.tga" imgrect="1501 613 65 61"/>
+		<image name="fishpaper_btn_clicked" file="\skin\HUD.tga" imgrect="1570 613 65 61"/>
 	</imagelist>
 	<imagelist category="colony_image">
 		<image name="colony_vic_frame" file="\skin\colony.tga" imgrect="0 0 581 532" CMM_Caption="콜로니 승리 프레임"/>
@@ -7717,6 +7729,7 @@
 		<image name="Dlg_port_GeHong" file="\npcimg\GeHong.png" imgrect="0 0 800 900" CMM_Caption="도사마스터"/>
 		<image name="Dlg_port_ThomasIconostasis" file="\npcimg\ThomasIconostasis.png" imgrect="0 0 800 1000" CMM_Caption="인퀴지터마스터"/>
 		<image name="Dlg_port_Sandra" file="\npcimg\Sandra.png" imgrect="0 0 600 900" CMM_Caption="감정사마스터"/>
+		<image name="Dlg_port_Neringa" file="\npcimg\Neringa.png" imgrect="0 0 700 1000" CMM_Caption="환상도서관npc"/>
 		<image name="Dlg_port_Fish_Shop_Klapead" file="\npcimg\Fish_Shop_Klapead.png" imgrect="0 0 670 940" CMM_Caption="클라페다 낚시 관리인"/>
 	</imagelist>
 	<imagelist category="bufficon">

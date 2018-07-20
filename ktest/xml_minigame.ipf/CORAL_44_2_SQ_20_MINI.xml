@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="CORAL_44_2_SQ_20_MINI" minLv="0" maxLv="0" startWaitSec="0">
+		<StageList>
+			<Stage Name="DefGroup">
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="2"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="58879" Pos="866.36#-105.30#1426.18" angle="65" genCount="1" objectKey="0" searchRange="100" tendency="1"/>
+					<Obj Type="Monster" MonType="58879" Pos="892.17#-105.30#1538.60" angle="-78" genCount="1" objectKey="1" searchRange="100" tendency="1"/>
+					<Obj Type="Monster" MonType="58879" Pos="941.62#-106.07#1466.68" angle="176" genCount="1" objectKey="2" searchRange="100" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="5"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event isOr="1" eventName="2" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="60"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="DefGroup"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="2" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="58824" Pos="878.49#-110.86#1366.65" genCount="1" objectKey="0" searchRange="100" tendency="1"/>
+					<Obj Type="Monster" MonType="58824" Pos="1063.99#-110.86#1518.29" genCount="1" objectKey="1" searchRange="100" tendency="1"/>
+					<Obj Type="Monster" MonType="58824" Pos="1140.65#-110.86#1325.03" genCount="1" objectKey="2" searchRange="100" tendency="1"/>
+				</ObjList>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

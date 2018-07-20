@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="7" type="2" intensity="1.5" frequency="100" duration="0.2" range="500"/>
+	<Shockwave frame="5" type="2" intensity="0.8" frequency="50" duration="0.2" range="500"/>
+	<AfterImage frame="5" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="10" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="80" G="70" B="100" A="100"/>
+	<BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="mon_saurman_priest_bron"/>
+	<Sound frame="0.00" soundFile="mon_ridimed_atk1_shot"/>
+	<Sound frame="5.00" soundFile="skl_eff_stone_blow_m"/>
+	<Sound frame="5.00" soundFile="mon_rudas_loxodon_kdown"/>
+</ActionDesc>

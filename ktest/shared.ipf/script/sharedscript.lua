@@ -1361,7 +1361,23 @@ function IS_NEED_APPRAISED_ITEM(item)
     if isAppraised == 1 then
         return true;
     end
+    return false;
+end
 
+function IS_NEED_RANDOM_OPTION_ITEM(item)
+    if IS_EQUIP(item) == false then
+
+        return false;
+    end
+
+    local isRandomOption = TryGetProp(item,'NeedRandomOption')
+    if isRandomOption == nil then
+        return false;
+    end
+
+    if isRandomOption == 1 then
+        return true;
+    end
     return false;
 end
 

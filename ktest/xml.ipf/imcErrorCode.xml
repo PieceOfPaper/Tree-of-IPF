@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <imcErrorCode>
 	<Code Code="FATAL_ASSERT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다."/>
 	<Code Code="FATAL_ASSERT_EX" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 다음 정보를 참조하세요."/>
@@ -116,6 +116,9 @@
 	
 <Code Code="ERROR_NXA_BILLING" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 에러"/>
 	<Code Code="INFO_NXA_BILLING" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 정보"/>
+
+	<Code Code="INFO_NXA_BILLING_REQUEST" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 요청 데이터"/>
+	<Code Code="INFO_NXA_BILLING_RESPONSE" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 응답 데이터"/>
 	<Code Code="FATAL_INVALID_IES" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존재하지 않는 IES입니다. 해당하는 ipspace를 담고 있는 xml이 존재하는지, 정상적으로 불러왔는지 확인하세요."/>
 	<Code Code="FATAL_INVALID_CLASS_IN_IES" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 IES에 존재하지 않는 클래스입니다.  해당 정보를 담고 있는 xml 파일을 확인하세요."/>
 	<Code Code="FATAL_FILE_LOAD" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 파일을 불러오는데 실패하였습니다."/>
@@ -281,6 +284,7 @@
 	<Code Code="ERROR_EMBEDDED_BROWSER_ERROE" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="YES" Desc="Embedded_Browser에 문제가 발생하였습니다."/>
 	<Code Code="FATAL_NISMS_LOADFAIL" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NISMS 상품 목록을 얻어오는데에 실패했습니다. 강제종료 시킵니다. 만약 넥슨 인게임샵 기능을 사용하지 않는다면, serverconfig.xml의 UseNISMS를 NO로 설정하세요. "/>
 	<Code Code="ERROR_NISMS_INVALIED_WORLDID" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NISMS를 위한 월드의 domainType 값을 잘못 얻어왔습니다."/>
+	<Code Code="ERROR_HTTP_RESPONSE_CODE" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="HTTP 서버 응답을 확인하세요."/>
 	<Code Code="FATAL_WORLDTABLE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드 테이블 세팅에 실패하였습니다. WorldTable DB 테이블 및 ODBC 세팅을 확인하세요."/>
 	<Code Code="FATAL_NOT_EXIST_SID_IN_WORLDTABLE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드 테이블에서 지정한 SID를 찾을 수 없습니다."/>
 	<Code Code="ERROR_NOT_EXIST_MAP_IN_WORLDTABLE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드 테이블에서 지정한 이름에 해당하는 존 정보를 찾을 수 없습니다."/>
@@ -511,4 +515,7 @@ Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc
 	<Code Code="INFO_ZONE_ENTER_DEBUG" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 계정 존 입장 안되는 문제 추적용"/>
 	<Code Code="INFO_SKILL_PASS_DECREASED_TIME" Team="SYSTEMDESIGN" Category="INFO" SubCategory="SKILL" Logger="root" Enabled="YES" CallStack="NO" Desc="패스로 줄어든 쿨타임"/>
 	<Code Code="INFO_ADVENTURE_BOOK" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 정보"/>
+<Code Code="INFO_FISH_RUBBING" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 정보 로그"/>
+	<Code Code="ERROR_FISH_RUBBING_SCORE" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 점수 에러"/>
+	<Code Code="ERROR_FISH_RUBBING_STATUE" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 동상 에러 "/>
 </imcErrorCode>

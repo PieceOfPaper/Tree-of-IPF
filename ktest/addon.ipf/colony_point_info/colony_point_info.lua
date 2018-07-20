@@ -2,6 +2,7 @@ function COLONY_POINT_INFO_ON_INIT(addon, frame)
     addon:RegisterMsg('UPDATE_COLONY_POINT', 'ON_UPDATE_COLONY_POINT');
     addon:RegisterMsg('OPEN_COLONY_POINT', 'OPEN_COLONY_POINT_UI');
     addon:RegisterMsg('UPDATE_OTHER_GUILD_EMBLEM', 'COLONY_POINT_INFO_UPDATE_EMBLEM');
+    addon:RegisterMsg('COLONY_OCCUPATION_INFO_UPDATE', 'COLONY_POINT_INFO_INIT_OCCUPATION');
 
     g_COLONY_POINT_THRESHOLD = nil;
     g_COLONY_POINT_SYTLE = nil;
@@ -172,7 +173,7 @@ end
 
 function COLONY_POINT_INFO_UPDATE_TIMER(remainTimeText)
     local ruleCls = GetClass('guild_colony_rule', 'GuildColony_Rule_Default');
-    local remainTime = -1 * imcTime.GetDiffSetFromNow(ruleCls.ColonyEndHour, ruleCls.ColonyEndMin, 0);
+    local remainTime = -1 * imcTime.GetDiffSecFromNow(ruleCls.ColonyEndHour, ruleCls.ColonyEndMin, 0);
     if remainTime <= 0 then
         return 0;
     end

@@ -1074,6 +1074,11 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
 end
 
 function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+        return 0;
+    end
+
 	if control.IsRestSit() == true then
 		ui.SysMsg(ClMsg('DontQuestWarpForSit'));
 		return;

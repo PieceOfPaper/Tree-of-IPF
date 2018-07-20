@@ -64,6 +64,10 @@ function CAMP_REG_INIT(frame, skillName, sklLevel)
 end
 
 function CAMP_REGISTER_EXEC(parent, ctrl)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+        return 0;
+    end
 
 	local frame = parent:GetTopParentFrame();
 	local skillName = frame:GetUserValue("SKILL_NAME");

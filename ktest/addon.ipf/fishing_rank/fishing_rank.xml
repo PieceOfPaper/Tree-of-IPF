@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="fishing_rank" x="0" y="0" width="550" height="600" create="open">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -14,13 +14,17 @@
 		<groupbox name="headerBox" rect="0 0 550 60" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_top"/>
 		<richtext name="headerText" rect="0 0 300 40" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}낚시 랭킹{/}"/>
 		<button name="closeBtn" rect="0 0 50 50" margin="0 20 28 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;fishing_rank&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}낚시 랭킹 창을 닫습니다.{/}"/>
-		<groupbox name="fishingCountBox" rect="0 0 100 95" margin="-80 90 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="fishingCountBox" rect="0 0 100 95" margin="-150 90 0 0" layout_gravity="center top" draw="false"/>
 		<button name="fishingCountBtn" rect="0 0 120 120" parent="fishingCountBox" margin="0 0 0 0" layout_gravity="center top" image="fishingrank_catch_icon" LBtnUpScp="FISHING_RANK_COUNT"/>
 		<richtext name="fishingCountText" rect="0 0 100 30" parent="fishingCountBox" margin="0 0 0 0" layout_gravity="center bottom" caption="낚시 포인트" fontname="brown_18_b"/>
-		<groupbox name="goldenFishBox" rect="0 0 100 95" margin="80 90 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="goldenFishBox" rect="0 0 100 95" margin="0 90 0 0" layout_gravity="center top" draw="false"/>
 		<button name="goldenFishBtn" rect="0 0 120 120" parent="goldenFishBox" margin="0 0 0 0" layout_gravity="center top" image="fishingrank_goldfish_icon" LBtnUpScp="FISHING_RANK_GOLDEN_FISH"/>
 		<richtext name="goldenFishText" rect="0 0 100 30" parent="goldenFishBox" margin="0 0 0 0" layout_gravity="center bottom" caption="황금 물고기" fontname="brown_18_b"/>
+		<groupbox name="fishRubbingBox" rect="0 0 100 95" margin="150 90 0 0" layout_gravity="center top" draw="false"/>
+		<button name="fishRubbingBtn" rect="0 0 120 120" parent="fishRubbingBox" margin="0 0 0 0" layout_gravity="center top" image="fishpaper_btn" LBtnUpScp="FISHING_RANK_FISH_RUBBING"/>
+		<richtext name="fishRubbingText" rect="0 0 100 30" parent="fishRubbingBox" margin="0 0 0 0" layout_gravity="center bottom" caption="탁본" fontname="brown_18_b"/>
 		<controlset name="rankCount" type="fishing_rank_page" rect="0 0 150 4" margin="0 190 0 0" layout_gravity="center top"/>
 		<controlset name="rankGoldenFish" type="fishing_rank_page" rect="0 0 150 4" margin="0 190 0 0" layout_gravity="center top"/>
+		<controlset name="rankFishRubbing" type="fishing_rank_page" rect="0 0 150 4" margin="0 190 0 0" layout_gravity="center top"/>
 	</controls>
 </uiframe>

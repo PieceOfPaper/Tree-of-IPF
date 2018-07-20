@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice13_hit2"/>
+    <Sound frame="4.00" soundFile="skl_eff_body_atk_1"/>
+    <Sound frame="4.00" soundFile="mon_voice13_shot8"/>
+    <Sound frame="4.00" soundFile="mon_sakmoli_hit"/>
+    <Particle frame="6" attachNode="Dummy_eff_skl" particleName="I_swordtrail029_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

@@ -37,6 +37,11 @@ end
 ----- reinforce_131014
 
 function CLIENT_MORU(invItem)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('CannotUseInPVPZone'));
+        return;
+    end
+
 	if IsPVPServer() == 1 then	
 		ui.SysMsg(ScpArgMsg('CantUseThisInIntegrateServer'));
 		return;

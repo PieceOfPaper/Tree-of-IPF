@@ -30,6 +30,7 @@ function GET_MORE_EVENT_EXP(pc)
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Goddess');	-- 여신의 조각상
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_RedOrb_GM');	-- 이벤트 참여
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_WeddingCake'); -- 웨딩 케잌
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1706_FREE_EXPUP'); --이런 이벤트
 	return sumExp; 
 end
 

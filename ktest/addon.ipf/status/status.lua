@@ -942,6 +942,10 @@ function STATUS_INFO()
 		y = returnY + 3;
 	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MaxWeight", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "LootingChance", y);
 	y = returnY + 10;
 	
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Fire_Atk", y);
@@ -1384,6 +1388,8 @@ function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
     	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg2"))
 	elseif attibuteName == 'SDR' then
     	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg3"))
+	elseif attibuteName == 'LootingChance' then
+    	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsgLootingChance"))
     end
 
 	local stat = GET_CHILD(controlSet, "stat", "ui::CRichText");

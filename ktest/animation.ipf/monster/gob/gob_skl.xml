@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="30" G="80" B="90" A="100"/>
+	<BlendOff frame="8" R="0" G="0" B="0" A="0"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_sakmoli_born"/>
+	<Sound frame="3.89" soundFile="mon_bavon_shot_1"/>
+	<Sound frame="6.47" soundFile="m_tontulia_atk1_shot"/>
+</ActionDesc>

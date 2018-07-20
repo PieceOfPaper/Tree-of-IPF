@@ -419,6 +419,31 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end
 	end
+	
+	for i = 1 , 4 do
+	    local propGroupName = "RandomOptionGroup_"..i;
+		local propName = "RandomOption_"..i;
+		local propValue = "RandomOptionValue_"..i;
+		local clientMessage = 'None'
+		
+		if invitem[propGroupName] == 'ATK' then
+		    clientMessage = 'ItemRandomOptionGroupATK'
+		elseif invitem[propGroupName] == 'DEF' then
+		    clientMessage = 'ItemRandomOptionGroupDEF'
+		elseif invitem[propGroupName] == 'UTIL_WEAPON' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'UTIL_ARMOR' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'STAT' then
+		    clientMessage = 'ItemRandomOptionGroupSTAT'
+		end
+		
+		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
+			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(invitem[propName]));
+			local strInfo = ABILITY_DESC_NO_PLUS(opName, invitem[propValue], 0);
+			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
+		end
+	end
 
 	for i = 1 , #list2 do
 		local propName = list2[i];
@@ -850,13 +875,16 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 		dur_gauge:SetPoint(temparg1, temparg2);
 	end
 
-	if itemClass.NeedAppraisal == 1 then
+	if itemClass.NeedAppraisal == 1 or itemClass.NeedRandomOption == 1 then
 		local needAppraisal = TryGetProp(invitem, "NeedAppraisal");
-		if needAppraisal ~= nil and  needAppraisal == 0 then -- 감정아이템
+		local needRandomOption = TryGetProp(invitem, "NeedRandomOption");
+		if needAppraisal ~= nil and  needAppraisal == 0 and itemClass.NeedAppraisal == 1 then -- 감정아이템
 			pr_gauge:SetStatFont(0, "yellow_14_b")
-		else  --미감정아이템
-			pr_gauge:SetTextStat(0, "{@st66d_y}????{/}")
-
+		elseif  needRandomOption == 1 or needAppraisal == 1 then --미감정아이템
+		    if needAppraisal == 1 then 
+			    pr_gauge:SetTextStat(0, "{@st66d_y}????{/}")
+            end
+            
 			local picture = CSet:CreateControl('picture', 'appraisalPic', 0, dur_gauge:GetY()+dur_gauge:GetHeight() - 10, 400, 46);
 			picture:ShowWindow(1);
 			picture = tolua.cast(picture, "ui::CPicture");

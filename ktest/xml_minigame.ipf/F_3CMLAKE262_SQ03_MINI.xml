@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="F_3CMLAKE262_SQ03_MINI" minLv="0" maxLv="0" startWaitSec="1065772646">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="153059" Pos="-502.00#114.00#-1632.00" angle="45" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;보안 장치&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;20&apos; &apos;SimpleAI&apos; &apos;F_3CMLAKE262_SQ03_DEVICE_AI&apos; "/>
+                    <Obj Type="Monster" MonType="153059" Pos="-497.00#111.00#-1822.00" angle="-45" genCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;보안 장치&apos; &apos;HPCount&apos; &apos;20&apos; &apos;SimpleAI&apos; &apos;F_3CMLAKE262_SQ03_DEVICE_AI&apos; "/>
+                    <Obj Type="Monster" MonType="153059" Pos="-167.00#114.00#-1840.00" angle="45" genCount="1" genTime="20000" objectKey="2" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;20&apos; &apos;SimpleAI&apos; &apos;F_3CMLAKE262_SQ03_DEVICE_AI&apos; &apos;Name&apos; &apos;보안 장치&apos; "/>
+                    <Obj Type="Monster" MonType="151056" Pos="-323.00#114.00#-1732.00" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;안뜰의 수정석&apos; &apos;SimpleAI&apos; &apos;F_3CMLAKE261_LINK_STONE&apos; &apos;HPCount&apos; &apos;100000&apos; "/>
+                    <Obj Type="Monster" MonType="47106" Pos="-390.00#113.00#-1669.00" genCount="1" genTime="20000" objectKey="5" propList="&apos;Name&apos; &apos; &apos; "/>
+                    <Obj Type="Monster" MonType="47106" Pos="-389.00#111.00#-1800.00" genCount="1" genTime="20000" objectKey="6" propList="&apos;Name&apos; &apos; &apos; "/>
+                    <Obj Type="Monster" MonType="47106" Pos="-253.00#114.00#-1792.00" genCount="1" genTime="20000" objectKey="7" propList="&apos;Name&apos; &apos; &apos; "/>
+                    <Obj Type="Monster" MonType="47106" Pos="-258.00#111.00#-1669.00" genCount="1" genTime="20000" objectKey="9" propList="&apos;Name&apos; &apos; &apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="-224.00#114.00#-1561.00" angle="-45" genCount="1" genTime="20000" objectKey="3" propList="&apos;SimpleAI&apos; &apos;F_3CMLAKE262_SQ03_DEVICE_AI&apos; &apos;Name&apos; &apos;보안 장치&apos; &apos;HPCount&apos; &apos;20&apos; &apos;Faction&apos; &apos;Monster&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="REGEN">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/4"/>
+                                <Str Str="dead"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/4"/>
+                                <Str Str="SCR_3CMLAKE261_LINK_STONE_DEAD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_SSN_ADD" Client="NO" UseSleep="NO">
+                                <Str Str="SSN_F_3CMLAKE262_SQ03"/>
+                                <Str Str="QuestInfoValue1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="180000" execCount="1" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="모든 보안장치들을 파괴하지 못했습니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+                <ScrLockList>
+                    <Area>
+                        <Pos Value="-323.832245 116.011780 -1500.645020"/>
+                        <Pos Value="-541.025085 114.933731 -1620.261353"/>
+                        <Pos Value="-525.626709 112.922989 -1854.730469"/>
+                        <Pos Value="-318.077393 111.805473 -1930.345825"/>
+                        <Pos Value="-108.542984 114.933731 -1925.607544"/>
+                        <Pos Value="-70.752579 114.933731 -1782.593994"/>
+                        <Pos Value="-88.520233 111.368324 -1625.286011"/>
+                        <Pos Value="-197.897400 114.933731 -1470.003784"/>
+                    </Area>
+                </ScrLockList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

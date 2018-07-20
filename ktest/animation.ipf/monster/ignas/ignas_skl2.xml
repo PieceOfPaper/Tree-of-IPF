@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="10.00" soundFile="mon_voice_lecifer_atk1"/>
+    <Sound frame="30.00" soundFile="skl_archer_wideareashot_cast"/>
+    <Particle frame="54" attachNode="Bip001 Pelvis" particleName="I_rize009_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="55" attachNode="Dummy_effect_head" particleName="F_light080_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.15" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="57" attachNode="Bip001 Spine1" particleName="I_rize009_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="60" attachNode="Bip001 Neck" particleName="I_rize009_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_effect_bow_eye" particleName="I_light011_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="63" attachNode="Bip001 Prop1" particleName="I_rize009_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="66" attachNode="Dummy_effect_wepon_up" particleName="I_rize009_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="66" attachNode="Dummy_effect_wepon_down" particleName="I_rize009_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="66" attachNode="Bip001 Prop1" particleName="I_rize009_5" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Shockwave frame="81" type="2" intensity="10" frequency="70" duration="0.5" range="1000"/>
+    <BlendOn frame="81" R="130" G="100" B="150" A="200"/>
+    <AfterImage frame="81" term="60" blendTime="600" r="200" g="150" b="255" a="200"/>
+    <Particle frame="81" attachNode="Dummy_effect_skl2" particleName="I_smoke013_dark2_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="81" attachNode="Dummy_effect_skl2" particleName="I_light013_spark_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="81" attachNode="Dummy_effect_skl2" particleName="I_arrow021_ignas_light_blue_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="81" attachNode="Dummy_effect_skl6_dash" particleName="I_warrior_rush_shot_dash3" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="81" attachNode="Bip001 Xtra0103" particleName="I_smoke013_dark4_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="false" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="81" attachNode="Bip001 Xtra0604" particleName="I_smoke013_dark4_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="false" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="82" R="80" G="50" B="100" A="200"/>
+    <BlendOff frame="83" R="0" G="0" B="0" A="0"/>
+    <Shockwave frame="90" type="2" intensity="6" frequency="60" duration="1.5" range="1000"/>
+    <AfterImage frame="90" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+    <Particle frame="90" attachNode="Bip001 Xtra0602" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="95" attachNode="Bip001 Prop1" particleName="I_rize009_5" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="100" attachNode="Dummy_emitter2" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+</ActionDesc>

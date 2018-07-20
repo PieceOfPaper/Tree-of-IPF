@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_rudas_loxodon_atk"/>
+    <Particle frame="1.00" attachNode="Dummy_eff_eye2" particleName="F_light112_pink" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" targetPos="false" sound="None"/>
+    <Particle frame="1.00" attachNode="Dummy_eff_atk" particleName="I_rize009" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false" sound="skl_eff_flins_cast"/>
+    <Particle frame="1.00" attachNode="Dummy_eff_eye1" particleName="F_light112_pink" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" targetPos="false" sound="None"/>
+    <Particle frame="4.00" attachNode="Dummy_eff_atk" particleName="F_explosion019_rize" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" targetPos="false" sound="skl_archer_multishot_ranger_cast"/>
+    <Shockwave frame="6" type="2" intensity="1.5" frequency="100" duration="0.2" range="500"/>
+    <Sound frame="7.00" soundFile="skl_eff_body_atk_1"/>
+    <Sound frame="7.00" soundFile="mon_arburn_pokubu_atk_shot"/>
+    <Sound frame="7.00" soundFile="mon_sakmoli_falldown"/>
+</ActionDesc>

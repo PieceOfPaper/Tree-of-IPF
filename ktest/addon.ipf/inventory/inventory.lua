@@ -1211,8 +1211,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 					if cap ~= "" then
 						local itemname = string.lower(dictionary.ReplaceDicIDInCompStr(itemCls.Name));		
 						local tempcap = string.lower(cap);
-						
-						local a = string.find(itemname, cap);
+						local a = string.find(itemname, tempcap);
 						if a == nil then
 							makeSlot = false;
 						end
@@ -1389,6 +1388,11 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 			ui.SysMsg(ScpArgMsg("LessThanItemLifeTime"));
 			return 1;
 		end
+
+        if session.colonywar.GetIsColonyWarMap() == true then
+            ui.SysMsg(ClMsg('ThisLocalUseNot'));
+            return 0;
+        end
 		
 		if true == invitem.isLockState then
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
@@ -2004,7 +2008,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 			icon:SetColorTone("FFFF0000");		
 		end
 			
-		if IS_NEED_APPRAISED_ITEM(itemobj) then
+		if IS_NEED_APPRAISED_ITEM(itemobj) or IS_NEED_RANDOM_OPTION_ITEM(itemobj) then
 			icon:SetColorTone("FFFF0000");		
 		end
 	end	
@@ -2519,8 +2523,7 @@ end
 
 function SORT_ITEM_INVENTORY()
 	local context = ui.CreateContextMenu("CONTEXT_INV_SORT", "", 0, 0, 170, 100);
-	local scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_INVENTORY, BY_PRICE);
-	ui.AddContextMenuItem(context, ScpArgMsg("SortByPrice"), scpScp);	
+	local scpScp = "";
 	scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_INVENTORY, BY_LEVEL);
 	ui.AddContextMenuItem(context, ScpArgMsg("SortByLevel"), scpScp);	
 	scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_INVENTORY, BY_WEIGHT);

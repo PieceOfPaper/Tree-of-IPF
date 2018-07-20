@@ -290,3 +290,18 @@ function TABLELAND70_HIDDENQ1_PRECHECK(pc)
         end
     end
 end
+
+--WTREES22_1_SQ1 is not HiddenQuest. This quset is Normal sub qeust
+function WTREES22_1_SQ1_PRECHECK(pc)
+    if GetZoneName(pc) == "f_whitetrees_22_1" then
+--        local quest = SCR_QUEST_CHECK(pc, "WTREES22_1_SQ1")
+        local sObj = GetSessionObject(pc, "SSN_WTREES221_SUBQ1_PRECHECK")
+--        if quest == "IMPOSSIBLE" then
+            if sObj ~= nil then
+                if sObj.Goal1 >= 1 then
+                    return "YES"
+                end
+            end
+--        end
+    end
+end

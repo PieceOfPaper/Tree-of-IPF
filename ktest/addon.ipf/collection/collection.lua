@@ -558,9 +558,11 @@ function CHECK_COLLECTION_INFO_FILTER(collectionInfo,  searchText,  collectionCl
 
 	-- 콜렉션 이름을 가져온다
 	local collectionName = collectionInfo.name;
+	collectionName = dic.getTranslatedStr(collectionName)
 	collectionName = string.lower(collectionName); -- 소문자로 변경
 	-- 콜렉션 효과에서도 필터링한다.
 	local desc = GET_COLLECTION_MAGIC_DESC(collectionClass.ClassID);
+	desc = dic.getTranslatedStr(desc)
 	desc = string.lower(desc); -- 소문자로 변경
 
 	-- 검색문자열 검색해서 nil이면 false

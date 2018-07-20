@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice13_cast8"/>
+    <Particle frame="5" attachNode="Dummy_eff_atk" particleName="I_dash001_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" targetPos="false"/>
+    <Sound frame="5.00" soundFile="skl_eff_body_atk_8"/>
+    <Sound frame="5.00" soundFile="mon_voice13_shot9"/>
+    <Particle frame="9" attachNode="Dummy_eff_atk" particleName="I_dash001_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" targetPos="false"/>
+</ActionDesc>

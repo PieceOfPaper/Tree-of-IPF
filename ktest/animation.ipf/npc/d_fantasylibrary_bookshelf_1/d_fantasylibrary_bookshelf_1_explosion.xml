@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Shockwave frame="0" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="0" particleName="F_explosion121" attachNode="Dummy002" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="d_fantasylibrary_bookshelf_explosion_mash" attachNode="Dummy001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_unknocker_coin_boom"/>
+    <Sound frame="0.00" soundFile="skl_eff_ground_blow_m"/>
+    <Shockwave frame="2" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="4" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="6" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="10.00" soundFile="skl_eff_alchemist_tincturing_dead_boom"/>
+</ActionDesc>

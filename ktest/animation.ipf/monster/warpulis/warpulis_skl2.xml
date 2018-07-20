@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_effect_wepon_spear002_1" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="8.00" soundFile="mon_voice_lapene_skl2_cast"/>
+    <Sound frame="34.00" soundFile="mon_voice_lecifer_skl2"/>
+    <Sound frame="37.00" soundFile="mon_voice_lapene_atk"/>
+    <BlendOn frame="70" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="72" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="74" R="100" G="100" B="100" A="50"/>
+    <Sound frame="75.00" soundFile="mon_voice_lapene_skl2_shot"/>
+    <BlendOn frame="76" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="104" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="106" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="108" R="100" G="100" B="100" A="50"/>
+    <Shockwave frame="108" type="2" intensity="10" frequency="70" duration="0.2" range="1000"/>
+    <BlendOff frame="110" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

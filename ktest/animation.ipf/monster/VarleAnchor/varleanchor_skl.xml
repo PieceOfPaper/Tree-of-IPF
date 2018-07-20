@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="9" type="2" intensity="0.8" frequency="50" duration="0.3" range="500"/>
+	<AfterImage frame="1" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="4" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="80" G="120" B="90" A="100"/>
+	<BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="mon_kowak_dead"/>
+	<Sound frame="0.00" soundFile="skl_eff_body_atk_1"/>
+	<Sound frame="7.00" soundFile="mon_kowak_kdown"/>
+	<Sound frame="7.00" soundFile="skl_eff_body_atk_2"/>
+</ActionDesc>

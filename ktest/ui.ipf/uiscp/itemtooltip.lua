@@ -99,12 +99,15 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 	end
 	
 	local needAppraisal = TryGetProp(itemObj, "NeedAppraisal");
+	local needRandomOption = TryGetProp(itemObj, "NeedRandomOption");	
 	local drawCompare = true;
 	local showAppraisalPic = false;
-	if needAppraisal ~= nil and needAppraisal == 1 then
-		DRAW_APPRAISAL_PICTURE(tooltipframe);
-		drawCompare = false;
-		showAppraisalPic = true;
+	if needAppraisal ~= nil  or  needRandomOption ~= nil then
+        if needAppraisal == 1 or needRandomOption == 1 then
+    		DRAW_APPRAISAL_PICTURE(tooltipframe);
+    		drawCompare = false;
+    		showAppraisalPic = true;
+		end
 	end
 	
 	-- 비교?�팁
