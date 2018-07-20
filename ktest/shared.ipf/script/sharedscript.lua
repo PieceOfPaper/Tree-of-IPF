@@ -1121,9 +1121,12 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     local pcLv = myLevel;
     local monLv = monLevel;
     local value = 1;
-    if IsBuffApplied(monster, 'SuperExp') == 'YES' then
-        value = 500;
-    end
+
+	if monster ~= nil then
+		if IsBuffApplied(monster, 'SuperExp') == 'YES' then
+			value = 500;
+		end
+	end
     
     local levelGap = math.abs(pcLv - monLv);
     

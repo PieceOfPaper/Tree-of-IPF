@@ -326,6 +326,8 @@ function RESET_NAME_N_MEMO(frame)
 
 	local pcparty = session.party.GetPartyInfo();
 	if pcparty == nil then
+		local outPartyBtn = GET_CHILD_RECURSIVELY(frame, 'outPartyBtn');
+		outPartyBtn:ShowWindow(0);
 		return;
 	end
 	local partyObj = GetIES(pcparty:GetObject());
@@ -336,6 +338,9 @@ function RESET_NAME_N_MEMO(frame)
 	partynoteText:SetText(nowPartyNote)
 	local partyNameText_setting = GET_CHILD_RECURSIVELY(frame, 'partyname_edit')
 	partyNameText_setting:SetText(nowPartyName)
+
+	local createPartyBtn = GET_CHILD_RECURSIVELY(frame, 'createPartyBtn');
+	createPartyBtn:ShowWindow(0);
 end
 
 

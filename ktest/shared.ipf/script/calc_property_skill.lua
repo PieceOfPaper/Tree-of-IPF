@@ -256,6 +256,46 @@ function SCR_Get_SpendSP_DoublePunch(skill)
     return math.floor(value);
 end
 
+function SCR_Get_SpendSP_DragoonHelmet(skill)
+
+    local basicsp = skill.BasicSP;
+    local lv = skill.Level;
+    local lvUpSpendSp = skill.LvUpSpendSp;
+    local decsp = 0;
+    
+    if basicsp == 0 then
+        return 0;
+    end
+    
+    local pc = GetSkillOwner(skill);
+    
+    local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
+    abilAddSP = abilAddSP / 100;
+    
+    local lvUpSpendSpRound = math.floor((lvUpSpendSp * 10000) + 0.5)/10000;
+    
+--  value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
+    local value = basicsp + (lv - 1) * lvUpSpendSpRound;
+    
+    value = value + (value * abilAddSP);
+    
+    if IsBuffApplied(pc, 'DragoonHelmet_Buff') == 'YES' and skill.Job == 'Dragoon' then
+        value = value - (value * 0.5)
+    end
+    
+    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+    if zeminaLv > 0 then
+        decsp = 4 + (zeminaLv * 4);
+    end
+    value = value - decsp;
+    
+    if value < 1 then
+        value = 1;
+    end
+    
+    return math.floor(value);
+end
+
 function SCR_Get_SpendPoison(skill)
 
     local lv = skill.Level;
@@ -10133,7 +10173,7 @@ function SCR_GET_Fanaticism_Ratio(skill)
 end
 
 function SCR_GET_BlindFaith_Ratio(skill)
-    local value = skill.Level * 0.1
+    local value = skill.Level * 10
 
     return value
 end

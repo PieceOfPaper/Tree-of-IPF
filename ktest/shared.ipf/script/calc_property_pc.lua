@@ -1,4 +1,4 @@
-function SCR_GET_JOB_STR(pc)
+﻿function SCR_GET_JOB_STR(pc)
     local jobObj = GetJobObject(pc);
     if jobObj ~= nil then
         return jobObj.STR;
@@ -1161,7 +1161,7 @@ function SCR_Get_BLKABLE(self)
 --        return 1;
 --    end
     
-    local buffList = { "CrossGuard_Buff", "StoneSkin_Buff" };
+    local buffList = { "CrossGuard_Buff", "NonInvasiveArea_Buff" };
     for i = 1, #buffList do
         if IsBuffApplied(self, buffList[i]) == 'YES' then
             return 2;

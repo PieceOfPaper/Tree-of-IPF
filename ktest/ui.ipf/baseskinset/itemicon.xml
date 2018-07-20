@@ -4292,6 +4292,7 @@
 		<image name="icon_item_expcard7" file="\icon\item\icon_item_expcard7.png" imgrect="0 0 256 256" CMM_Caption="랭초권 경험치 카드"/>
 		<image name="icon_item_expcard8" file="\icon\item\icon_item_expcard8.png" imgrect="0 0 256 256" CMM_Caption="랭초권 경험치 카드"/>
 		<image name="icon_item_expcard9" file="\icon\item\icon_item_expcard9.png" imgrect="0 0 256 256" CMM_Caption="랭초권 경험치 카드"/>
+		<image name="icon_item_expcard10" file="\icon\item\icon_item_expcard10.png" imgrect="0 0 256 256" CMM_Caption="랭초권 경험치 카드"/>
 		<image name="icon_item_expcard_remain" file="\icon\item\icon_item_expcard_remain.png" imgrect="0 0 256 256" CMM_Caption="랭초권 경험치 카드"/>
 		<image name="icon_item_SakuraCube" file="\icon\item\icon_item_SakuraCube.png" imgrect="0 0 128 128" CMM_Caption="벚꽃 큐브"/>
 		<image name="icon_item_egg_penguin_green" file="\icon\item\icon_item_egg_penguin_green.png" imgrect="0 0 128 128" CMM_Caption="녹색 펭귄 알"/>
@@ -4411,6 +4412,11 @@
 		<image name="icon_item_maple_25_grassflute_Blue" file="\icon\item\icon_item_maple_25_grassflute_Blue.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_dungeon_portalstone" file="\icon\item\icon_item_dungeon_portalstone.png" imgrect="0 0 128 128" CMM_Caption="인던 입장 포탈석"/>
 		<image name="icon_item_dia2" file="\icon\item\icon_item_dia2.png" imgrect="0 0 128 128" CMM_Caption="다이아"/>
+		<image name="icon_icebullet" file="\icon\item\icon_icebullet.png" imgrect="0 0 128 128" CMM_Caption="냉기탄"/>
+		<image name="icon_firebullet" file="\icon\item\icon_firebullet.png" imgrect="0 0 128 128" CMM_Caption="화염탄"/>
+		<image name="icon_lightingbullet" file="\icon\item\icon_lightingbullet.png" imgrect="0 0 128 128" CMM_Caption="번개탄"/>
+		<image name="icon_earthbullet" file="\icon\item\icon_earthbullet.png" imgrect="0 0 128 128" CMM_Caption="대지탄"/>
+		<image name="icon_hollybullet" file="\icon\item\icon_hollybullett.png" imgrect="0 0 128 128" CMM_Caption="신성탄"/>
 		<image name="icon_item_MusicBox_Popolion" file="\icon\item\icon_item_MusicBox_Popolion.png" imgrect="0 0 256 256" CMM_Caption="네코장 포포리온 오르골"/>
 		<image name="icon_item_cloth_misc01" file="\icon\item\icon_item_cloth_misc01.png" imgrect="0 0 128 128" CMM_Caption="제작 재료"/>
 		<image name="icon_item_weapon_misc01" file="\icon\item\icon_item_weapon_misc01.png" imgrect="0 0 128 128"/>
@@ -4430,6 +4436,7 @@
 		<image name="icon_capote" file="\icon\item\icon_capote.png" imgrect="0 0 128 128" CMM_Caption="카포테"/>
 		<image name="icon_item_coin_colony_01" file="\icon\item\icon_item_coin_colony_01.png" imgrect="0 0 128 128" CMM_Caption="콜로니전 기념 주화"/>
 		<image name="icon_item_HalloweenCandy_set" file="\icon\item\icon_item_HalloweenCandy_set.png" imgrect="0 0 128 128" CMM_Caption="할로윈 사탕박스"/>
+		<image name="icon_item_crystal_High" file="\icon\item\icon_item_crystal_High.png" imgrect="0 0 128 128" CMM_Caption="프락토늄"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -4849,7 +4856,8 @@
 		<image name="icon_item_hanbok02_m_package" file="\icon\payment\icon_item_hanbok02_m_package.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_blacksuit01_m" file="\icon\payment\icon_item_blacksuit01_m.png" imgrect="0 0 256 256" CMM_Caption="블랙슈트"/>
 		<image name="icon_item_blacksuit01_f" file="\icon\payment\icon_item_blacksuit01_f.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_classsolution_box" file="\icon\payment\icon_item_classsolution_box.png" imgrect="0 0 256 256" CMM_Caption="해금권상자"/>		</imagelist>
+		<image name="icon_item_classsolution_box" file="\icon\payment\icon_item_classsolution_box.png" imgrect="0 0 256 256" CMM_Caption="해금권상자"/>
+	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>
 		<image name="icon_seal_yellow_cc_A2" file="\icon\seal\seal_yellow_cc_A2.tga" imgrect="0 0 80 80"/>

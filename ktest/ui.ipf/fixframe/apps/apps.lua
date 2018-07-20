@@ -32,7 +32,7 @@ end
 
 function APPS_TRY_MOVE_BARRACK()
     if config.GetServiceNation() == 'TAIWAN' and session.world.IsIntegrateServer() == true then
-        ui.SysMsg('ImpossibleInCurrentMap');
+        ui.SysMsg(ClMsg('ImpossibleInCurrentMap'));
         return;
     end
 

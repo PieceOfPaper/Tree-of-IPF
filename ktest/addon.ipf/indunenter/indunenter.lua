@@ -630,6 +630,20 @@ end
 
 function INDUNENTER_ENTER(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
+	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+	if useCount > 0 then
+		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+		for i = 1, #multipleItemList do
+			local itemName = multipleItemList[i];
+			local invItem = session.GetInvItemByName(itemName);
+			if invItem ~= nil and invItem.isLockState then
+				ui.SysMsg(ClMsg("MaterialItemIsLock"));
+				return;
+			end
+		end
+	end
+    
+    local topFrame = frame:GetTopParentFrame();
     if INDUNENTER_CHECK_ADMISSION_ITEM(topFrame) == false then
         return;
     end
@@ -640,6 +654,20 @@ function INDUNENTER_ENTER(frame, ctrl)
 end
 
 function INDUNENTER_AUTOMATCH(frame, ctrl)
+    local topFrame = frame:GetTopParentFrame();
+	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+	if useCount > 0 then
+		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+		for i = 1, #multipleItemList do
+			local itemName = multipleItemList[i];
+			local invItem = session.GetInvItemByName(itemName);
+			if invItem ~= nil and invItem.isLockState then
+				ui.SysMsg(ClMsg("MaterialItemIsLock"));
+				return;
+			end
+		end
+	end
+    
     local topFrame = frame:GetTopParentFrame();
     if INDUNENTER_CHECK_ADMISSION_ITEM(topFrame) == false then
         return;
@@ -654,6 +682,20 @@ function INDUNENTER_AUTOMATCH(frame, ctrl)
 end
 
 function INDUNENTER_PARTYMATCH(frame, ctrl)
+    local topFrame = frame:GetTopParentFrame();
+	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+	if useCount > 0 then
+		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+		for i = 1, #multipleItemList do
+			local itemName = multipleItemList[i];
+			local invItem = session.GetInvItemByName(itemName);
+			if invItem ~= nil and invItem.isLockState then
+				ui.SysMsg(ClMsg("MaterialItemIsLock"));
+				return;
+			end
+		end
+	end
+    
     if session.party.GetPartyInfo(PARTY_NORMAL) == nil then 
         ui.SysMsg(ClMsg('HadNotMyParty'));
         return;
@@ -1247,6 +1289,19 @@ end
 
 function INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW(parent, ctrl)
     local topFrame = parent:GetTopParentFrame();
+	local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+	if useCount > 0 then
+		local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+		for i = 1, #multipleItemList do
+			local itemName = multipleItemList[i];
+			local invItem = session.GetInvItemByName(itemName);
+			if invItem ~= nil and invItem.isLockState then
+				ui.SysMsg(ClMsg("MaterialItemIsLock"));
+				return;
+			end
+		end
+	end
+
     local withMatchMode = topFrame:GetUserValue('WITHMATCH_MODE');
     if topFrame:GetUserValue('AUTOMATCH_MODE') ~= 'YES' and withMatchMode == 'NO' then
         ui.SysMsg(ScpArgMsg('EnableWhenAutoMatching'));

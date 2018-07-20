@@ -250,8 +250,7 @@ end
 
 function INVENTORY_CLOSE()
 	local frame = ui.GetFrame("inventory");
-	frame:SetUserValue("MONCARDLIST_OPENED", 1);		-- 바로 다음에 있는 OPEN_MANAGED_CARDINVEN 함수에서 0으로 만들어준다.	
-	CHECK_BTN_OPNE_CARDINVEN(frame:GetChild('moncardGbox'));
+	frame:SetUserValue("MONCARDLIST_OPENED", 1);		-- 바로 다음에 있는 OPEN_MANAGED_CARDINVEN 함수에서 0으로 만들어준다.
 	EQUIP_CARDSLOT_BTN_CANCLE();
 
 	local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox_Equip','ui::CGroupBox')
@@ -2641,7 +2640,8 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	local state = 1;
 	local slot = tolua.cast(object, "ui::CSlot");
     local parent = slot:GetParent();
-	slot:Select(0);
+	local grandParent = parent:GetParent();
+	invframe:SetUserValue('LOCK_SLOT_GRANDPARENT_NAME', grandParent:GetName());
     invframe:SetUserValue('LOCK_SLOT_PARENT_NAME', parent:GetName());
     invframe:SetUserValue('LOCK_SLOT_NAME', slot:GetName());
 
@@ -2652,7 +2652,7 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	else
 		controlset:ShowWindow(1);
 	end
-	
+
 	session.inventory.SendLockItem(selectItem:GetIESID(), state);
 end
 
@@ -2984,14 +2984,16 @@ function DO_WEAPON_SWAP_2(frame)
 end
 
 function ON_LOCK_FAIL(frame, msg, argStr, argNum)
+	local grandParentName = frame:GetUserValue('LOCK_SLOT_GRANDPARENT_NAME');
     local slotParentName = frame:GetUserValue('LOCK_SLOT_PARENT_NAME');
     local slotName = frame:GetUserValue('LOCK_SLOT_NAME');
-    local parent = GET_CHILD_RECURSIVELY(frame, slotParentName);
+	local grandParent = GET_CHILD_RECURSIVELY(frame, grandParentName);
+    local parent = GET_CHILD(grandParent, slotParentName);
     local slot = GET_CHILD(parent, slotName);
     if slot ~= nil then
         local lockPic = slot:GetChild('itemlock');
         if lockPic ~= nil then
             lockPic:ShowWindow(0);
         end
-    end 
+    end
 end
