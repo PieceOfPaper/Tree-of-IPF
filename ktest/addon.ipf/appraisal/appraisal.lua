@@ -31,7 +31,7 @@ function APPRAISAL_UI_OPEN(frame, ctrl)
 end
 
 function APPRAISAL_UPDATE_ITEM_LIST(frame)
-	--���� �� �� ��ü ���� �ʱ�ȭ �ؾߵ�
+	--슬롯 셋 및 전체 슬롯 초기화 해야됨
 	local slotSet = GET_CHILD_RECURSIVELY(frame,"slotlist","ui::CSlotSet")
 	slotSet:ClearIconAll();
 	local slotcnt = 0
@@ -78,6 +78,10 @@ function APPRAISAL_UPDATE_MONEY(frame)
 	local slotSet = GET_CHILD_RECURSIVELY(frame,"slotlist","ui::CSlotSet")
 	local totalprice = 0;
 
+	local groupName = frame:GetUserValue("GroupName");
+	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
+	local handle = frame:GetUserIValue('HANDLE');
+
 	for i = 0, slotSet:GetSelectedSlotCount() -1 do
 		local slot = slotSet:GetSelectedSlot(i)
 		local Icon = slot:GetIcon();
@@ -86,7 +90,12 @@ function APPRAISAL_UPDATE_MONEY(frame)
 		local invitem = GET_ITEM_BY_GUID(iconInfo:GetIESID());
 		local itemobj = GetIES(invitem:GetObject());
 
+		if groupInfo == nil then -- npc 상점의 경우
 		totalprice = totalprice + GET_APPRAISAL_PRICE(itemobj);
+		elseif handle ~= session.GetMyHandle() then -- pc 상점인 경우
+			local itemName, cnt = ITEMBUFF_NEEDITEM_Appraiser_Apprise(nil, itemobj);
+			totalprice = totalprice + cnt * groupInfo.price;
+		end
 
 	end
 
@@ -102,6 +111,8 @@ function APPRAISAL_UPDATE_MONEY(frame)
 
 	local mymoney = GET_COMMAED_STRING(GET_TOTAL_MONEY()-totalprice);
 	calcprice:SetText(mymoney)
+
+	frame:SetUserValue('TOTAL_MONEY', totalprice);
 end
 
 function APPRAISAL_SELECT_ALL_ITEM(frame, ctrl)
@@ -129,7 +140,7 @@ function APPRAISAL_SELECT_ALL_ITEM(frame, ctrl)
 		ctrl:SetUserValue("SELECTED", "selected");
 	end
 
-	APPRAISAL_UPDATE_MONEY(frame)
+	APPRAISAL_PC_ITEM_LBTDOWN(frame);
 end
 
 function APPRAISAL_ITEM_LBTDOWN(frame, ctrl)

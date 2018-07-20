@@ -585,6 +585,7 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 		SET_SLOT_COUNT(slot, invItem.count)
 		SET_SLOT_COUNT_TEXT(slot, invItem.count);
 		SET_SLOT_IESID(slot, invItem:GetIESID())
+        SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemCls, nil)
 		slot:SetMaxSelectCount(invItem.count);
 		local icon = slot:GetIcon();
 		icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());

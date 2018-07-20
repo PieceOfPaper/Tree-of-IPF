@@ -58,3 +58,11 @@ function SCR_REMAIN38_SQ02_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+function SCR_HIDDEN_WATER_REMAINS_PRE_DIALOG(pc, dialog)
+    --print(IsBuffApplied(pc, "HIDDEN_APPRAISER_BUFF1"))
+    if IsBuffApplied(pc, "HIDDEN_APPRAISER_BUFF1") == "NO" then
+        return 'YES'
+    end
+    return 'NO'
+end

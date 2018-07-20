@@ -1336,12 +1336,24 @@ function GET_FULL_GRADE_NAME(itemCls, gradeSize)
 	return GET_FULL_NAME(itemCls) .. "{nl}" .. gradeTxt;
 end
 
-function GET_FULL_NAME(item, useNewLine)
-
+function GET_FULL_NAME(item, useNewLine, isEquiped)
+	if isEquiped == nil then
+		isEquiped = 0;
+	end
 	local ownName = GET_NAME_OWNED(item);
-
 	local reinforce_2 = TryGetProp(item, "Reinforce_2");
 	local isHaveLifeTime = TryGetProp(item, "LifeTime");
+	local pc = GetMyPCObject();
+	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
+	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
+	if bonusReinf ~= nil then
+		if TryGetProp(item, 'EquipGroup') == 'SubWeapon' and isEquiped > 0 then
+			reinforce_2 = reinforce_2 + bonusReinf;
+		end
+	end
+	if isEquiped > 0 and ignoreReinf == 1 then
+		reinforce_2 = 0;
+	end	
 	
 	if 0 ~= isHaveLifeTime then
 		ownName = string.format("{img test_cooltime 30 30 }%s", ownName);

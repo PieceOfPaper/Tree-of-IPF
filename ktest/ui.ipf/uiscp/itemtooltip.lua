@@ -10,11 +10,10 @@ function ON_REFRESH_ITEM_TOOLTIP()
 end
 
 function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, tooltipobj, noTradeCnt)
-
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");
 	
 	local itemObj, isReadObj = nil
-
+	
 	if tooltipobj ~= nil then
 		itemObj = tooltipobj;
 		isReadObj = 0;
@@ -26,7 +25,15 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 		tooltipframe:Resize(1, 1);
         return;
 	end
-
+	
+	-- 모조품은 가상의 아이템 정보를 만들어서 보여주기 때문에 GUID가 없어서 strarg를 통해 정보 보내줌(forgery#ModifiedPropertyString)
+	local isForgeryItem = false;	
+	if string.find(strarg, 'forgery') ~= nil and itemObj ~= nil then
+		isForgeryItem = true;
+		local strList = StringSplit(strarg, '#');
+		SetModifiedPropertiesString(itemObj, strList[2]);
+	end	
+	tooltipframe:SetUserValue('TOOLTIP_ITEM_GUID', numarg2);
 
 	local recipeitemobj = nil
 
@@ -91,7 +98,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 	-- 비교툴팁
 	-- 툴팁 비교는 무기와 장비에만 해당된다. (미감정 제외)
 
-	if drawCompare == true and ( (itemObj.ToolTipScp == 'WEAPON' or itemObj.ToolTipScp == 'ARMOR') and  (strarg == 'inven' or strarg =='sell') and (string.find(itemObj.GroupName, "Pet") == nil)) then
+	if drawCompare == true and ( (itemObj.ToolTipScp == 'WEAPON' or itemObj.ToolTipScp == 'ARMOR') and  (strarg == 'inven' or strarg =='sell' or isForgeryItem == true) and (string.find(itemObj.GroupName, "Pet") == nil)) then
 
 		local CompItemToolTipScp = _G[ 'ITEM_TOOLTIP_' .. itemObj.ToolTipScp];
 		local ChangeValueToolTipScp = _G[ 'ITEM_TOOLTIP_' .. itemObj.ToolTipScp..'_CHANGEVALUE'];
@@ -140,7 +147,6 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 			end
 			end
 		else
-
 			local equiptype = itemObj.EqpType
 
 			if equiptype == 'RING' then
@@ -174,9 +180,8 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 			
 		local class = itemObj;
 		if class ~= nil then
-
 			local ToolTipScp = _G[ 'ITEM_TOOLTIP_' .. class.ToolTipScp];
-			ToolTipScp(tooltipframe, class, strarg, "mainframe");
+			ToolTipScp(tooltipframe, class, strarg, "mainframe", isForgeryItem);
 		end
 
 		

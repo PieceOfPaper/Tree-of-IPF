@@ -169,7 +169,13 @@ function INIT_ARMOR_PROP(item, class)
     
 end
 
-function GET_REINFORCE_ADD_VALUE_ATK(item)
+function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue)
+	if ignoreReinf == 1 then
+		return 0;
+	end
+	if reinfBonusValue == nil then
+		reinfBonusValue = 0;
+	end
 	local buffValue = item.BuffValue;
 	local star = item.ItemStar;
 	local value = 0;
@@ -193,10 +199,11 @@ function GET_REINFORCE_ADD_VALUE_ATK(item)
 
 --	value = GET_REINFORCE_ATK(item, value);
 	    
-	if item.Reinforce_2 > 5 then
-	    value = (5 + (item.Reinforce_2 - 5) * 2) * (star + 2);
+	local reinfValue = item.Reinforce_2 + reinfBonusValue;
+	if reinfValue > 5 then
+	    value = (5 + (reinfValue - 5) * 2) * (star + 2);
 	else
-	    value = item.Reinforce_2 * (star + 2);
+	    value = reinfValue * (star + 2);
 	end
 	
 	value = (value + buffValue) * (item.ReinforceRatio / 100);
@@ -204,21 +211,34 @@ function GET_REINFORCE_ADD_VALUE_ATK(item)
 	return math.floor(value);
 end
 
-function GET_REINFORCE_ATK(item, damage)
+function GET_REINFORCE_ATK(item, damage, ignoreReinf, reinfBonusValue)
+	if ignoreReinf == 1 then
+		return 0;
+	end
+	if reinfBonusValue == nil then
+		reinfBonusValue = 0;
+	end
+	local reinfValue = item.Reinforce_2 + reinfBonusValue;
 	--return item.Reinforce_2 * 0.1 + math.floor(item.Reinforce_2 / 10) * 0.5;
-	return math.floor((damage * (0.1 * ReinforceRatio / 100)) * item.Reinforce_2) + (damage * (item.Reinforce_2 / 10) * 0.5);
+	return math.floor((damage * (0.1 * ReinforceRatio / 100)) * reinfValue) + (damage * (reinfValue / 10) * 0.5);
 end
 
-function GET_REINFORCE_ADD_VALUE_DEF(item)
+function GET_REINFORCE_ADD_VALUE_DEF(item, ignoreReinf, reinfBonusValue)
+	if ignoreReinf == 1 then
+		return 0;
+	end
+	if reinfBonusValue == nil then
+		reinfBonusValue = 0;
+	end
 	local buffValue = item.BuffValue;
 	local star = item.ItemStar;
 	local value = 0;
+	local reinfValue = item.Reinforce_2 + reinfBonusValue;
 	
-	
-	if item.Reinforce_2 > 3 then
-	    value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
+	if reinfValue > 3 then
+	    value = (3 + (reinfValue - 3) * 2) * (1 + math.floor(star / 2));
 	else
-	    value = item.Reinforce_2 * (1 + math.floor(star / 2));
+	    value = reinfValue * (1 + math.floor(star / 2));
 	end
 	
 	value = (value + buffValue) * (item.ReinforceRatio / 100);
@@ -226,58 +246,79 @@ function GET_REINFORCE_ADD_VALUE_DEF(item)
 	return math.floor(value);
 end
 
-function GET_REINFORCE_ADD_VALUE_HR(item)
+function GET_REINFORCE_ADD_VALUE_HR(item, ignoreReinf, reinfBonusValue)
+	if ignoreReinf == 1 then
+		return 0;
+	end
+	if reinfBonusValue == nil then
+		reinfBonusValue = 0;
+	end
 	local buffValue = item.BuffValue;
 	local star = item.ItemStar;
-	return math.floor(((item.Reinforce_2 * star) + buffValue) * (item.ReinforceRatio / 100));
+	local reinfValue = item.Reinforce_2 + reinfBonusValue;
+	return math.floor(((reinfValue * star) + buffValue) * (item.ReinforceRatio / 100));
 end
 
-function GET_REINFORCE_ADD_VALUE_DR(item)
+function GET_REINFORCE_ADD_VALUE_DR(item, ignoreReinf, reinfBonusValue)
+	if ignoreReinf == 1 then
+		return 0;
+	end
+	if reinfBonusValue == nil then
+		reinfBonusValue = 0;
+	end
 	local buffValue = item.BuffValue;
 	local star = item.ItemStar;
-	return math.floor(((item.Reinforce_2 * star) + buffValue) * (item.ReinforceRatio / 100));
+	local reinfValue = item.Reinforce_2 + reinfBonusValue;
+	return math.floor(((reinfValue * star) + buffValue) * (item.ReinforceRatio / 100));
 end
 
-function GET_REINFORCE_ADD_VALUE(prop, item)
+function GET_REINFORCE_ADD_VALUE(prop, item, ignoreReinf, reinfBonusValue)
+	if ignoreReinf == 1 then
+		return 0;
+	end
+	if reinfBonusValue == nil then
+		reinfBonusValue = 0;
+	end
 	local value = 0;
     local buffValue = item.BuffValue;
     local star = item.ItemStar;
+	local reinfValue = item.Reinforce_2 + reinfBonusValue;
 	
 	if prop == 'DEF' then -- Defence
-	    if item.Reinforce_2 > 3 then
-	    value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
+	    if reinfValue > 3 then
+	    value = (3 + (reinfValue - 3) * 2) * (1 + math.floor(star / 2));
     	else
-    	    value = item.Reinforce_2 * (1 + math.floor(star / 2));
+    	    value = reinfValue * (1 + math.floor(star / 2));
     	end
     elseif prop == 'MDEF' then -- Magic Defence
-        if item.Reinforce_2 > 3 then
-	    value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
+        if reinfValue > 3 then
+	    value = (3 + (reinfValue - 3) * 2) * (1 + math.floor(star / 2));
     	else
-    	    value = item.Reinforce_2 * (1 + math.floor(star / 2));
+    	    value = reinfValue * (1 + math.floor(star / 2));
     	end
 	elseif prop == 'HR' then -- Hit rating
-	    if item.Reinforce_2 > 3 then
-        	value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 5));
+	    if reinfValue > 3 then
+        	value = (3 + (reinfValue - 3) * 2) * (1 + math.floor(star / 5));
     	else
-    	    value = item.Reinforce_2 * (1 + math.floor(star / 5));
+    	    value = reinfValue * (1 + math.floor(star / 5));
     	end
     elseif prop == 'DR' then -- Dodge rating
-        if item.Reinforce_2 > 3 then
-            value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 5));
+        if reinfValue > 3 then
+            value = (3 + (reinfValue - 3) * 2) * (1 + math.floor(star / 5));
     	else
-    	    value = item.Reinforce_2 * (1 + math.floor(star / 5));
+    	    value = reinfValue * (1 + math.floor(star / 5));
     	end
     elseif prop == 'MHR' then -- MHR
-        if item.Reinforce_2 > 3 then
-	        value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
+        if reinfValue > 3 then
+	        value = (3 + (reinfValue - 3) * 2) * (1 + math.floor(star / 2));
     	else
-    	    value = item.Reinforce_2 * (1 + math.floor(star / 2));
+    	    value = reinfValue * (1 + math.floor(star / 2));
     	end
     elseif prop == 'ADD_FIRE' or prop == 'ADD_ICE' or prop == 'ADD_LIGHTNING' then -- ADD_Element
-        if item.Reinforce_2 > 3 then
-	        value = (3 + (item.Reinforce_2 - 3) * 2) * (1 + math.floor(star / 2));
+        if reinfValue > 3 then
+	        value = (3 + (reinfValue - 3) * 2) * (1 + math.floor(star / 2));
     	else
-    	    value = item.Reinforce_2 * (1 + math.floor(star / 2));
+    	    value = reinfValue * (1 + math.floor(star / 2));
     	end
 	end
 
@@ -338,10 +379,17 @@ function GET_BASIC_MATK(item)
 end
 
 -- refreshing weapon's information
-function SCR_REFRESH_WEAPON(item, enchantUpdate)
+function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
 	if nil == enchantUpdate then
 		enchantUpdate = 0;
 	end
+	if ignoreReinfAndTranscend == nil then
+		ignoreReinfAndTranscend = 0;
+	end
+	if reinfBonusValue == nil then
+		reinfBonusValue = 0;
+	end
+
 	local class = GetClassByType('Item', item.ClassID);
 	INIT_WEAPON_PROP(item, class);
 	item.Level = GET_ITEM_LEVEL(item);
@@ -351,7 +399,7 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate)
 	--
     
     
-    local upgradeRatio = 1 + GET_UPGRADE_ADD_ATK_RATIO(item) / 100;
+    local upgradeRatio = 1 + GET_UPGRADE_ADD_ATK_RATIO(item, ignoreReinfAndTranscend) / 100;
 	local zero = 0;
 
 	-- 인챈터 효과로 인한 무기 갱신
@@ -363,9 +411,9 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate)
 		item.MAXATK, item.MINATK = GET_BASIC_ATK(item);
     	item.MATK = 0;
 		
-		local rainforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item);
-		item.MAXATK = (item.MAXATK + rainforceAddValueAtk) * upgradeRatio + buffarg;
-		item.MINATK = (item.MINATK + rainforceAddValueAtk) * upgradeRatio + buffarg;
+		local reinforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinfAndTranscend, reinfBonusValue);
+		item.MAXATK = (item.MAXATK + reinforceAddValueAtk) * upgradeRatio + buffarg;
+		item.MINATK = (item.MINATK + reinforceAddValueAtk) * upgradeRatio + buffarg;
 
 		if zero ~= item.MAXATK_AC then
 			item.MAXATK = item.MAXATK + item.MAXATK_AC;
@@ -376,7 +424,8 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate)
     elseif basicProp == 'MATK' then
 		item.MATK = GET_BASIC_MATK(item);
 
-		item.MATK = (item.MATK + GET_REINFORCE_ADD_VALUE_ATK(item)) * upgradeRatio + buffarg;
+		local reinfAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinfAndTranscend, reinfBonusValue);
+		item.MATK = (item.MATK + reinfAddValueAtk) * upgradeRatio + buffarg;
         item.MAXATK = 0;
         item.MINATK = 0;
 
@@ -404,9 +453,15 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate)
 end
 
 -- refreshing armor's information
-function SCR_REFRESH_ARMOR(item, enchantUpdate)
+function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
 	if enchantUpdate == nil then
 		enchantUpdate = 0
+	end
+	if ignoreReinfAndTranscend == nil then
+		ignoreReinfAndTranscend = 0;
+	end
+	if reinfBonusValue == nil then
+		reinfBonusValue = 0;
 	end
 
 	local class = GetClassByType('Item', item.ClassID);
@@ -451,11 +506,11 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
         if def < 1 then
             def = 1;
         end
-        def = math.floor(def) + GET_REINFORCE_ADD_VALUE(basicProp, item) + buffarg
+        def = math.floor(def) + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
     elseif basicProp == 'MDEF' then
         mdef = math.floor(((lv + 5) * 4 / 11.0) * 0.8);
         mdef = mdef * (1 + (star - 1) * 0.033); 
-        mdef = math.floor(mdef) + GET_REINFORCE_ADD_VALUE(basicProp, item) + buffarg
+        mdef = math.floor(mdef) + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
     elseif basicProp == 'HR' then
         hr = (4 + lv) / 2;
         
@@ -464,7 +519,7 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
                 hr = hr * 0.8;
             end
         end
-        hr = math.floor(hr) + GET_REINFORCE_ADD_VALUE(basicProp, item) + buffarg
+        hr = math.floor(hr) + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
     elseif basicProp == 'DR' then
         dr = (4 + lv) / 2;
         
@@ -475,10 +530,10 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
                 dr = dr * 0.8;
             end
         end
-        dr = math.floor(dr) + GET_REINFORCE_ADD_VALUE(basicProp, item) + buffarg
+        dr = math.floor(dr) + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
         
     elseif basicProp == 'MHR' then
-        mhr = math.floor((lv / 4) + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg
+        mhr = math.floor((lv / 4) + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue)) + buffarg
 --    elseif basicProp == 'ADD_FIRE' then
 --        local rainforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item);
 --        fireAtk = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item)) + buffarg;
@@ -501,8 +556,7 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
 --	item.ADD_ICE = iceAtk;
 --	item.ADD_LIGHTNING = lightningAtk;
 
-
-	local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(item);
+	local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(item, ignoreReinfAndTranscend);
 	for i = 1 , #propNames do
 		local propName = propNames[i];
 		local propValue = propValues[i];
@@ -523,7 +577,10 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
 end
 
 -- refreshing accessory's information
-function SCR_REFRESH_ACC(item)
+function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend)
+	if ignoreReinfAndTranscend == nil then
+		ignoreReinfAndTranscend = 0;
+	end
 
 	local class = GetClassByType('Item', item.ClassID);
 	INIT_ARMOR_PROP(item, class);
@@ -539,22 +596,22 @@ function SCR_REFRESH_ACC(item)
     local basicProp = item.BasicTooltipProp;
     
     if basicProp == 'DEF' then
-        changeProp["DEF"] =  math.floor((lv + 5) * 4 / 11.0) + GET_REINFORCE_ADD_VALUE(basicProp, item)
+        changeProp["DEF"] =  math.floor((lv + 5) * 4 / 11.0) + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend)
 		changeProp["DefRatio"] = math.floor(item.Reinforce_2 * 0.1);
     elseif basicProp == 'MDEF' then
-		changeProp["MDEF"] = math.floor(((lv + 5) * 4 / 11.0) * 0.8) + GET_REINFORCE_ADD_VALUE(basicProp, item)
+		changeProp["MDEF"] = math.floor(((lv + 5) * 4 / 11.0) * 0.8) + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend)
     elseif basicProp == 'HR' then
-		changeProp["HR"] =  math.floor((4 + lv)/2 + GET_REINFORCE_ADD_VALUE(basicProp, item))
+		changeProp["HR"] =  math.floor((4 + lv)/2 + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend))
     elseif basicProp == 'DR' then
-		changeProp["DR"] =  math.floor((4 + lv)/2 + GET_REINFORCE_ADD_VALUE(basicProp, item))
+		changeProp["DR"] =  math.floor((4 + lv)/2 + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend))
     elseif basicProp == 'MHR' then
-		changeProp["MHR"] = math.floor((lv / 4) + GET_REINFORCE_ADD_VALUE(basicProp, item))
+		changeProp["MHR"] = math.floor((lv / 4) + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend))
     elseif basicProp == 'ADD_FIRE' then
-		changeProp["ADD_FIRE"] = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
+		changeProp["ADD_FIRE"] = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
     elseif basicProp == 'ADD_ICE' then
-		changeProp["ADD_ICE"] = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
+		changeProp["ADD_ICE"] = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
     elseif basicProp == 'ADD_LIGHTNING' then
-		changeProp["ADD_LIGHTNING"] = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item));
+		changeProp["ADD_LIGHTNING"] = math.floor(lv + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
     end
 
 	for i = 1, #PropName do
@@ -565,7 +622,7 @@ function SCR_REFRESH_ACC(item)
 		end
 	end
 
-	local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(item);
+	local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(item, ignoreReinfAndTranscend);
 	for i = 1 , #propNames do
 		local propName = propNames[i];
 		local propValue = propValues[i];
@@ -963,9 +1020,13 @@ function GET_REINFORCE_PR(obj)
 	
 end
 
-function GET_APPRAISAL_PRICE(item)
+function GET_APPRAISAL_PRICE(item, sellPrice)
 	-- 현재는 소켓 추출 가격 가져왔습니당.
+	if sellPrice == nil then
 	return GET_MAKE_SOCKET_PRICE(item.ItemLv, 0);
+end
+
+	return sellPrice;
 end
 
 function GET_REPAIR_PRICE(item, fillValue)

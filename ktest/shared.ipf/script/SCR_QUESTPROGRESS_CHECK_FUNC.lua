@@ -361,7 +361,7 @@ function IS_POSSIBLE_HIDDEN_JOB(pc, questname, scriptInfo)
         local selct_classlist = GetClassByNameFromList(classlist, scriptInfo[2])
         if selct_classlist ~= nil then
             if selct_classlist.HiddenJob == "YES" then
-                if etcObj["HiddenJob_"..scriptInfo[2]] == 300 then
+                if etcObj["HiddenJob_"..scriptInfo[2]] == 300 or (GetServerNation() == 'KOR' and GetServerGroupID() == 9001 and scriptInfo[2] == 'Char3_13') then
                     return "YES"
                 end
             end

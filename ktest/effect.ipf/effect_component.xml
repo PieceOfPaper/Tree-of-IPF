@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ComponentList>
+	<Particle name="circle043" texture="circle043" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="ripple009" texture="ripple009" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="ripple008" texture="ripple008" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Particle name="fire011" texture="fire011" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="glow_darkball_" texture="glow_darkball_" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="smoke019" texture="smoke019" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="smoke018" texture="smoke018" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="smoke017" texture="smoke017" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="smoke016" texture="smoke016" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="circle042" texture="circle042" width="15.00" height="15.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="minimap_icon_keyquest_progress" texture="minimap_icon_keyquest_progress" width="15.00" height="15.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="minimap_icon_keyquest_possible" texture="minimap_icon_keyquest_possible" width="15.00" height="15.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
@@ -164,6 +173,7 @@
 	<Particle name="status_icon_owloff" texture="status_icon_owloff" width="10.00" height="9.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="100" texel_height="100"/>
 	<Particle name="status_icon_owlon" texture="status_icon_owlon" width="10.00" height="9.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="100" texel_height="100"/>
 	<Particle name="status_icon_smell" texture="status_icon_smell" width="10.00" height="9.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="100" texel_height="100"/>
+	<Particle name="emo_Blindside" texture="status_icon_glasses" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="100" texel_height="100"/>
 	<Particle name="emo_sleep" texture="noticeeffect4" width="10.00" height="9.00" pivot_x="0.50" pivot_y="0.50" texel_x="301" texel_y="401" texel_width="100" texel_height="100"/>
 	<Particle name="emo_stitch" texture="noticeeffect4" width="10.00" height="9.00" pivot_x="0.50" pivot_y="0.50" texel_x="201" texel_y="401" texel_width="100" texel_height="100"/>
 	<Particle name="emo_lmpact" texture="noticeeffect4" width="10.00" height="9.00" pivot_x="0.50" pivot_y="0.50" texel_x="101" texel_y="401" texel_width="100" texel_height="100"/>
@@ -351,6 +361,9 @@
 	<Particle name="circle018" texture="circle018" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="circle017" texture="circle017" width="4.00" height="4.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="160" texel_height="160"/>
 	<Particle name="line001" texture="line001" width="10.00" height="10.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Texture name="ripple007" texture="ripple007" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Texture name="texture_fire005" texture="fire005" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Texture name="texture_dash007" texture="dash007" width="4.00" height="4.00" pivot_x="0.50" pivot_y="0.70" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Texture name="texture_txt_combo001" texture="txt_combo001" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Texture name="texture_circle011" texture="circle011" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="texture_circle040_distort" texture="circle040_distort" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
@@ -454,6 +467,12 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="slash_glowing_fire" model="slash_glowing_fire.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="d_raidboss_velcoffer_npc_03_dead" model="d_raidboss_velcoffer_npc_03_dead.xac" motion="d_raidboss_velcoffer_npc_03_ani.xsm" texturepath="char_texture\npc\d_raidboss_velcoffer_npc_03\" overlap="true" AlphaType="BLEND"/>
+	<Model name="I_circle012_pixel_mash" model="I_circle012_pixel_mash.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="firepillar01" model="firepillar01.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="firepillar02" model="firepillar02.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="wyvern_skl3" model="wyvern_skl3.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
 	<Model name="i_spiral003_mesh" model="i_spiral003_mesh.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="fire_wing" model="fire_wing.xac" motion="fire_wing_ani.xsm" texturepath="char_texture\monster\Harpeia" overlap="fales" AlphaType="BLEND"/>
 	<Model name="ignas_atk" model="ignas_atk.xac" motion="ignas_atk_ani.xsm" texturepath="char_texture\monster\ignas\" overlap="fales" AlphaType="BLEND"/>
@@ -1269,7 +1288,12 @@
 	<Model name="I_boss_Kandlogre_dead" model="boss_Kandlogre_dead.xac" motion="boss_Kandlogre_dead_ani.xsm" texturepath="char_texture\monster\Kandlogre\" overlap="false" AlphaType="TEST"/>
 	<Model name="I_boss_velschariot_dead" model="boss_velschariot_dead.xac" motion="boss_velschariot_dead_ani.xsm" texturepath="char_texture\monster\velschariot\" overlap="false" AlphaType="TEST"/>
 	<Model name="I_boss_porahound_dead" model="boss_porahound_dead.xac" motion="boss_porahound_dead_ani.xsm" texturepath="char_texture\monster\porahound\" overlap="false" AlphaType="TEST"/>
+	<Model name="I_d_raidboss_velcoffer_obj01_dead" model="d_raidboss_velcoffer_obj01_dead.xac" motion="d_raidboss_velcoffer_obj01_dead_ani.xsm" texturepath="char_texture\npc\d_raidboss_velcoffer_obj\" overlap="false" AlphaType="TEST"/>
+	<Model name="I_d_raidboss_velcoffer_obj02_dead" model="d_raidboss_velcoffer_obj02_dead.xac" motion="d_raidboss_velcoffer_obj02_dead_ani.xsm" texturepath="char_texture\npc\d_raidboss_velcoffer_obj\" overlap="false" AlphaType="TEST"/>
+	<Model name="I_boss_blackGargoyle_dead" model="boss_blackGargoyle_dead.xac" motion="boss_blackGargoyle_dead_ani.xsm" texturepath="char_texture\monster\blackGargoyle\" overlap="false" AlphaType="TEST"/>
 	<Model name="I_boss_WoodCenturion_dead" model="boss_WoodCenturion_dead.xac" motion="boss_WoodCenturion_dead_ani.xsm" texturepath="char_texture\monster\WoodCenturion\" overlap="false" AlphaType="TEST"/>
+	<Model name="i_boss_varleking_dead" model="boss_varleking_dead.xac" motion="boss_varleking_dead_ani.xsm" texturepath="char_texture\monster\varleking\" overlap="false" AlphaType="TEST"/>
+	<Model name="I_boss_gagoyle_purple_dead" model="boss_gagoyle_purple_dead.xac" motion="boss_gagoyle_purple_dead_ani.xsm" texturepath="char_texture\monster\Sparnanman\purple\" overlap="false" AlphaType="TEST"/>
 	<Text name="Text_damage_self" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_damage_decision" caption="" fontfilename="ORIGINAL" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
 	<Text name="Text_destination" caption="" fontfilename="ORIGINAL" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>

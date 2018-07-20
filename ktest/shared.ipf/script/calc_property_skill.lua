@@ -13396,6 +13396,85 @@ function SCR_GET_Dekatos_Ratio(skill)
 end
 
 
+function SCR_GET_Overestimate_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+	return skill.Level
+end
+
+function SCR_GET_Overestimate_Ratio2(skill)
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, 'Appraiser1')
+    local time = 40
+    if abil ~= nil and abil.ActiveState == 1 then
+        time = time + (abil.Level * 1)
+    end
+	return time;
+end
+
+function SCR_GET_Devaluation_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+	return 5 + skill.Level;
+end
+
+function SCR_GET_Devaluation_Ratio2(skill)
+    local pc = GetSkillOwner(skill);
+	return skill.Level * 4;
+end
+
+function SCR_GET_Devaluation_Ratio3(skill)
+    local pc = GetSkillOwner(skill);
+	return skill.Level * 4;
+end
+
+function SCR_GET_Blindside_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+	return 10 + (skill.Level * 2);
+end
+
+function SCR_GET_Forgery_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+	return skill.Level * 60;
+end
+
+function SCR_GET_Forgery_Ratio2(skill)
+    local pc = GetSkillOwner(skill);
+	return 150 + (skill.Level * 30);
+end
+
+function SCR_GET_Apprise_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+	return 20 + (skill.Level * 2);
+end
+
+function SCR_GET_Apprise_Ratio2(skill)
+    local pc = GetSkillOwner(skill);
+	return 20 + (skill.Level * 2);
+end
+
+function SCR_Get_SkillFactor_Blindside(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+	local abil = GetAbility(pc, "Appraiser4")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+
+end
+
+function SCR_GET_Blindside_Ratio2(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "Appraiser4") 
+	local value = 0
+	if abil ~= nil then 
+        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
+    end
+
+end
+
 
 
 function SCR_GET_SPENDITEM_COUNT_Aspersion(skill)

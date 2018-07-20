@@ -268,3 +268,30 @@ function ITEMBUFF_CHECK_Alchemist_Roasting(self, item)
 
 	return 0;
 end
+function ITEMBUFF_STONECOUNT_Appraiser_Apprise(invItemList, frame)
+	if frame ~= nil then
+		frame:SetUserValue("STORE_GROUP_NAME", 'Appraise');
+	end
+
+	local i = invItemList:Head();
+	local count = 0;
+	while 1 do
+		if i == invItemList:InvalidIndex() then
+			break;
+		end
+		local invItem = invItemList:Element(i);		
+		i = invItemList:Next(i);
+		local obj = GetIES(invItem:GetObject());
+		
+		if obj.ClassName == "misc_0507" then -- 감정 재료 아이템 정해지면 여기 바꿔야 함
+			count = count + invItem.count;
+		end
+	end
+
+	return "misc_0507", count;
+end
+
+function ITEMBUFF_NEEDITEM_Appraiser_Apprise(self, item) -- 스킬 이름 바뀌면 여기 수정
+	local needCount = 1 + (GET_APPRAISAL_PRICE(item) / 200);
+	return "misc_0507", math.floor(needCount); -- 재료 이름 바뀌면 여기 수정
+end

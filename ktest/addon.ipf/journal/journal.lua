@@ -377,7 +377,7 @@ function UPDATE_CATEGORY_CONTROL_SCORE(ctrl, score, destScore, cateType, realtim
 	local btnControl = ctrl:GetChild("button");
 
 	local rewardCount = session.GetAbleRewardCount(cateType, rewardInfo.currentStep);
-	if rewardCount > 0 then
+	if rewardCount > 0 and cateType ~= WIKI_COLLECTION then -- 콜렉션은 팀단위 보상이기 때문에 빼기로 함
 		if isopenbyNPC == "YES" then
 			newCountBox:ShowWindow(1);
 		end

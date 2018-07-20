@@ -244,6 +244,11 @@
 		<image name="icon_arch_ArrowSprinkle" file="\icon\skill\archer\icon_arch_ArrowSprinkle.png" imgrect="0 0 128 128" CMM_Caption="화살비"/>
 		<image name="icon_arch_JumpShot" file="\icon\skill\archer\icon_arch_JumpShot.png" imgrect="0 0 128 128" CMM_Caption="도약 사격"/>
 		<image name="icon_arch_ParthianShaft" file="\icon\skill\archer\icon_arch_ParthianShaft.png" imgrect="0 0 128 128" CMM_Caption="파르티안 샤프트"/>
+		<image name="icon_arch_overestimate" file="\icon\skill\archer\icon_arch_overestimate.png" imgrect="0 0 128 128" CMM_Caption="과대평가"/>
+		<image name="icon_arch_devaluation" file="\icon\skill\archer\icon_arch_devaluation.png" imgrect="0 0 128 128" CMM_Caption="평가절하"/>
+		<image name="icon_arch_apprise" file="\icon\skill\archer\icon_arch_apprise.png" imgrect="0 0 128 128" CMM_Caption="감정"/>
+		<image name="icon_arch_forgery" file="\icon\skill\archer\icon_arch_forgery.png" imgrect="0 0 128 128" CMM_Caption="모조품"/>
+		<image name="icon_arch_blindside" file="\icon\skill\archer\icon_arch_blindside.png" imgrect="0 0 128 128" CMM_Caption="약점공격"/>
 	</imagelist>
 	<imagelist category="cleric_skillicon">
 		<image name="icon_cler_Heal" file="\icon\skill\cleric\icon_cler_Heal.png" imgrect="0 0 128 128" CMM_Caption="힐"/>
@@ -1396,6 +1401,10 @@
 		<image name="ability_archer_Cannoneer13" file="\icon\icon_ability_archer05.tga" imgrect="384 128 128 128" CMM_Caption="시즈버스트: 집중"/>
 		<image name="ability_archer_Schwarzereiter19" file="\icon\icon_ability_archer05.tga" imgrect="512 128 128 128" CMM_Caption="돌격 사격: 강화"/>
 		<image name="ability_archer_Cannoneer14" file="\icon\icon_ability_archer05.tga" imgrect="640 128 128 128" CMM_Caption="닐링샷: 조준 포격"/>
+		<image name="ability_archer_Appraiser1" file="\icon\icon_ability_archer05.tga" imgrect="768 128 128 128" CMM_Caption="과대평가: 지속"/>
+		<image name="ability_archer_Appraiser2" file="\icon\icon_ability_archer05.tga" imgrect="896 128 128 128" CMM_Caption="평가절하: 확률 증가"/>
+		<image name="ability_archer_Appraiser3" file="\icon\icon_ability_archer05.tga" imgrect="0 256 128 128" CMM_Caption="약점공격: 치명타 공격"/>
+		<image name="ability_archer_Appraiser4" file="\icon\icon_ability_archer05.tga" imgrect="128 256 128 128" CMM_Caption="약점공격: 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>

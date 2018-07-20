@@ -174,6 +174,7 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 			SET_SLOT_COUNT(slot, invItem.count)
 			SET_SLOT_COUNT_TEXT(slot, invItem.count);
 			SET_SLOT_IESID(slot, invItem:GetIESID())
+            SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, nil)
 			slot:SetMaxSelectCount(invItem.count);
 			local icon = slot:GetIcon();
 			icon:SetTooltipArg("accountwarehouse", invItem.type, invItem:GetIESID());

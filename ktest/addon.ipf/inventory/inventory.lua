@@ -23,6 +23,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	
 	addon:RegisterMsg('UPDATE_ITEM_REPAIR', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('SWITCH_GENDER_SUCCEED', 'INVENTORY_ON_MSG');
+	addon:RegisterMsg('APPRAISER_FORGERY', 'INVENTORY_ON_APPRAISER_FORGERY');
 
 	addon:RegisterOpenOnlyMsg('REFRESH_ITEM_TOOLTIP', 'ON_REFRESH_ITEM_TOOLTIP');
 	
@@ -2188,7 +2189,9 @@ function SET_EQUIP_LIST(frame, equipItemList, iconFunc, ...)
 		
 		local spotName = item.GetEquipSpotName(equipItem.equipSpot);
 		if  spotName  ~=  nil  then
-			SET_EQUIP_SLOT(frame, i, equipItemList, _INV_EQUIP_LIST_SET_ICON)
+			if SET_EQUIP_ICON_FORGERY(frame, spotName) == false then
+				SET_EQUIP_SLOT(frame, i, equipItemList, _INV_EQUIP_LIST_SET_ICON);
+			end
 		end		
 	end
 	frame:Invalidate();
@@ -2679,4 +2682,9 @@ function IS_LIFETIME_OVER(itemobj)
 		]]
 	end;
 	return 0;
-end;
+end
+
+function INVENTORY_ON_APPRAISER_FORGERY(frame, msg, argStr, argNum)
+	frame:SetUserValue('FORGERY_BUFF_TIME', argNum);
+	STATUS_EQUIP_SLOT_SET(frame);
+end

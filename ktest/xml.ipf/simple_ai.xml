@@ -6589,6 +6589,13 @@
 		</StartList>
 	</AI>
 	<AI Name="HAUBERK_DUMMY" ActiveMessageMapInBattle="1"/>
+    <AI Name="HIDDEN_FLOWER_REMAINS_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="HIDDEN_FLOWER_REMAINS_AI_UPDATE"/>
+            </ToolScp>
+        </List>
+    </AI>
 	<AI Name="HIDENSEEK_GIMMICK_AI" ActiveMessageMapInBattle="1">
 		<DeadList>
 			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">

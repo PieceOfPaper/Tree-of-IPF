@@ -163,7 +163,10 @@ function GET_TRANSCEND_SUCCESS_RATIO(itemObj, cls, itemCount)
 
 end
 
-function GET_ITEM_TRANSCENDED_PROPERTY(itemObj)
+function GET_ITEM_TRANSCENDED_PROPERTY(itemObj, ignoreTranscend)
+	if ignoreTranscend == nil then
+		ignoreTranscend = 0;
+	end
 
 	local baseProp = itemObj.BasicTooltipProp;
 
@@ -171,29 +174,29 @@ function GET_ITEM_TRANSCENDED_PROPERTY(itemObj)
 	local retPropValue = {};
 
 	if baseProp == "ATK" or baseProp == "MATK" then
-		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_ATK_RATIO(itemObj);
+		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_ATK_RATIO(itemObj, ignoreTranscend);
 		retPropType[#retPropType + 1] = "ATK";
 	elseif baseProp == "DEF" then
-		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_DEF_RATIO(itemObj);
+		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_DEF_RATIO(itemObj, ignoreTranscend);
 		retPropType[#retPropType + 1] = "DEF";
 	elseif baseProp == "HR" then
-		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_HR_RATIO(itemObj);
+		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_HR_RATIO(itemObj, ignoreTranscend);
 		retPropType[#retPropType + 1] = "HR";
 	elseif baseProp == "DR" then
-		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_DR_RATIO(itemObj);
+		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_DR_RATIO(itemObj, ignoreTranscend);
 		retPropType[#retPropType + 1] = "DR";
 	elseif baseProp == "MHR" then
-		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_MHR_RATIO(itemObj);
+		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_MHR_RATIO(itemObj, ignoreTranscend);
 		retPropType[#retPropType + 1] = "MHR";
 	elseif baseProp == "MDEF" then
-		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_MDEF_RATIO(itemObj);
+		retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_MDEF_RATIO(itemObj, ignoreTranscend);
 		retPropType[#retPropType + 1] = "MDEF";
 	end
 
 	if itemObj.GroupName == "Armor" then
 		local clsType = itemObj.ClassType;
 		if clsType ~= "Neck" and clsType ~= "Ring" and clsType ~= "Outer" then
-			retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_MHP_RATIO(itemObj);
+			retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_MHP_RATIO(itemObj, ignoreTranscend);
 			retPropType[#retPropType + 1] = "MHP";
 		end
 	end
@@ -201,8 +204,8 @@ function GET_ITEM_TRANSCENDED_PROPERTY(itemObj)
 	return retPropType, retPropValue;
 end
 
-function GET_UPGRADE_ADD_ATK_RATIO(item)
-    if item.Transcend > 0 then
+function GET_UPGRADE_ADD_ATK_RATIO(item, ignoreTranscend)
+    if item.Transcend > 0 and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
     	local value = class.AtkRatio;
     	return value;
@@ -210,8 +213,8 @@ function GET_UPGRADE_ADD_ATK_RATIO(item)
     return 0;
 end
 
-function GET_UPGRADE_ADD_DEF_RATIO(item)
-    if item.Transcend > 0 then
+function GET_UPGRADE_ADD_DEF_RATIO(item, ignoreTranscend)
+    if item.Transcend > 0  and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
     	local value = class.DefRatio;
     	return value;
@@ -219,8 +222,8 @@ function GET_UPGRADE_ADD_DEF_RATIO(item)
     return 0;
 end
 
-function GET_UPGRADE_ADD_MDEF_RATIO(item)
-    if item.Transcend > 0 then
+function GET_UPGRADE_ADD_MDEF_RATIO(item, ignoreTranscend)
+    if item.Transcend > 0 and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
     	local value = class.MdefRatio;
     	return value;
@@ -228,8 +231,8 @@ function GET_UPGRADE_ADD_MDEF_RATIO(item)
     return 0;
 end
 
-function GET_UPGRADE_ADD_HR_RATIO(item)
-    if item.Transcend > 0 then
+function GET_UPGRADE_ADD_HR_RATIO(item, ignoreTranscend)
+    if item.Transcend > 0 and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
     	local value = class.HrRatio;
     	return value;
@@ -237,8 +240,8 @@ function GET_UPGRADE_ADD_HR_RATIO(item)
     return 0;
 end
 
-function GET_UPGRADE_ADD_DR_RATIO(item)
-    if item.Transcend > 0 then
+function GET_UPGRADE_ADD_DR_RATIO(item, ignoreTranscend)
+    if item.Transcend > 0 and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
     	local value = class.DrRatio;
     	return value;
@@ -246,8 +249,8 @@ function GET_UPGRADE_ADD_DR_RATIO(item)
     return 0;
 end
 
-function GET_UPGRADE_ADD_MHR_RATIO(item)
-    if item.Transcend > 0 then
+function GET_UPGRADE_ADD_MHR_RATIO(item, ignoreTranscend)
+    if item.Transcend > 0 and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
     	local value = class.MhrRatio;
     	return value;
@@ -255,8 +258,8 @@ function GET_UPGRADE_ADD_MHR_RATIO(item)
     return 0;
 end
 
-function GET_UPGRADE_ADD_MHP_RATIO(item)
-    if item.Transcend > 0 then
+function GET_UPGRADE_ADD_MHP_RATIO(item, ignoreTranscend)
+    if item.Transcend > 0 and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
     	local value = class.MhpRatio;
     	return value;

@@ -126,6 +126,7 @@
 		<Class ClassID="2069" ClassName="ValidDupEquipGemBy{VALID_CNT}" Data="같은 종류의 젬은 {VALID_CNT}개 까지만 장착 가능합니다."/>
 		<Class ClassID="2070" ClassName="CanNotBeUsedMaterial" Data="해당 아이템은 재료로 사용할 수 없습니다."/>
 		<Class ClassID="2071" ClassName="HethranIsMaxLv" Data="해당 아이템의 레벨이 한계치에 도달했습니다."/>
+		<Class ClassID="2072" ClassName="CannotUseInReinforceState" Data="강화 중에는 사용할 수 없습니다."/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -297,7 +298,7 @@
 		<Class ClassID="4117" ClassName="Cube" Data="큐브"/>
 		<Class ClassID="4118" ClassName="ETC" Data="기타"/>
 		<Class ClassID="4119" ClassName="Accessory" Data="장신구"/>
-		<Class ClassID="4120" ClassName="Appraisal" Data="감정하기"/>
+		<Class ClassID="4120" ClassName="Appraisal" Data="감정"/>
 		<Class ClassID="4121" ClassName="NeedAppraisd" Data="미감정된 아이템은 사용하실 수 없습니다."/>
 		<Class ClassID="4122" ClassName="AppraisalSuccess" Data="감정 성공!"/>
 		<Class ClassID="4123" ClassName="AppraisalPrice" Data="감정 비용 : {Price}{nl}감정하시겠습니까?"/>
@@ -307,6 +308,9 @@
 		<Class ClassID="4127" ClassName="CantUseRank" Data="{Rank}랭크 에서만 사용하실 수 있습니다."/>
 		<Class ClassID="4128" ClassName="CantUseRankRest1Rank" Data="1랭크에서는 사용하실 수 없습니다."/>
 		<Class ClassID="4130" ClassName="IsDoingRankReset" Data="랭크 초기화중에 있습니다."/>
+		<Class ClassID="4131" ClassName="Right" Data="오른쪽"/>
+		<Class ClassID="4132" ClassName="Left" Data="왼쪽"/>
+		<Class ClassID="4133" ClassName="CannotReinforceAndTranscendBy{BUFFNAME}" Data="{BUFFNAME} 적용 중에는 강화 또는 초월할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -556,7 +560,7 @@
 		<Class ClassID="10092" Data="체력이 부족합니다"/>
 		<Class ClassID="10093" Data="{Auto_1} 버프가 필요합니다"/>
 		<Class ClassID="10094" Data="비전투상태일 때만 사용할 수 있습니다"/>
-		<Class ClassID="10095" Data="현재 상태에서는 사용할 수 없습니다"/>
+		<Class ClassID="10095" ClassName="CannotInCurrentState" Data="현재 상태에서는 사용할 수 없습니다"/>
 		<Class ClassID="10096" Data="{s20}{ol}{#ffffcc}{gr gradation1}조금 더 가까이 가야 합니다{/}"/>
 		<Class ClassID="10097" Data="패스워드가 허용하는 길이를 초과합니다"/>
 		<Class ClassID="10098" ClassName="InputName" Data="이름을 입력하세요"/>
@@ -805,6 +809,8 @@
 		<Class ClassID="10454" ClassName="RankResetMsg" Data="랭크초기화에 성공하였습니다. 배럭으로 돌아갑니다."/>
 		<Class ClassID="10456" ClassName="YouareLearningAbil" Data="습득중인 특성이 있어 사용할 수 없습니다."/>
 		<Class ClassID="10457" ClassName="OnlyTokenUserAbilCount" Data="토큰 이용자만 특성 레벨을 한번에 올릴 수 있습니다."/>
+		<Class ClassID="10458" ClassName="ShopNameMustLongerThen{ENG_LEN}{KOR_LEN}" Data="상점 이름은 최대 한글 {KOR_LEN}자,{nl}영문 {ENG_LEN}자 이내 이어야 합니다."/>
+		<Class ClassID="10459" ClassName="ApprisePriceMustLowerThan{PRICE}" Data="감정 비용은 {PRICE} 실버 이하 이어야 합니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -4788,6 +4794,33 @@
 		<Class ClassID="50290" ClassName="THORN23_OWL4_DIALOG" Data="이 주문만 완성되면 병사들을 도울 수 있어{nl}내가 해낼 수 있을까?"/>
 		<Class ClassID="50291" ClassName="THORN23_OWL5_DIALOG" Data="내가 제대로 해내지 못하면 병사들은 아마 다 전멸할 거야{nl}힘낼 거야."/>
 		<Class ClassID="50292" ClassName="THORN23_OWL6_DIALOG" Data="할 수 있어{nl}이번엔 가이갈라스를 반드시 처치할 수 있어."/>
+		<Class ClassID="50293" ClassName="HIDDEN_APPRAISER_KLAIPE_NAME" Data="가이빌레 공주 수행원"/>
+		<Class ClassID="50295" ClassName="CHAR313_MSTEP3_1_MSG1" Data="기사단장 우스카의 소개로 왔다고 한다"/>
+		<Class ClassID="50296" ClassName="CHAR313_MSTEP3_1_MSG2" Data="그 일이 잘 되길 바란다고 한다"/>
+		<Class ClassID="50297" ClassName="CHAR313_MSTEP4_1_MSG1" Data="칙명 위임장에 서명을 받았습니다{nl}나머지 한 명에게 서명을 받으세요"/>
+		<Class ClassID="50298" ClassName="CHAR313_MSTEP5_1_MSG1" Data="서명란에 간격이 넓은것과 약품 냄새에 대해 말하기"/>
+		<Class ClassID="50299" ClassName="CHAR313_MSTEP5_1_MSG2" Data="나중에 말하겠다고 한다"/>
+		<Class ClassID="50300" ClassName="CHAR313_MSTEP5_1_MSG3" Data="오르샤 영주에게 백지 위임장 보여주는 중"/>
+		<Class ClassID="50301" ClassName="HIDDEN_FLOWER_SIAUL_NAME" Data="산들거리 꽃"/>
+		<Class ClassID="50302" ClassName="CHAR313_MSTEP8_2_MSG1" Data="산들거리 꽃 채집 중"/>
+		<Class ClassID="50303" ClassName="HIDDEN_FLOWER_REMAINS_NAME" Data="드릭폴리 꽃"/>
+		<Class ClassID="50304" ClassName="REMAINS_CHAR313_MSTEP8_3_MSG1" Data="물병에 물을 담았습니다"/>
+		<Class ClassID="50305" ClassName="REMAINS_CHAR313_MSTEP8_3_MSG2" Data="물병에 물이 가득합니다"/>
+		<Class ClassID="50306" ClassName="CHAR313_MSTEP8_3_MSG3" Data="적당량의 물을 주는 중"/>
+		<Class ClassID="50307" ClassName="CHAR313_MSTEP8_3_MSG4" Data="드릭폴리 꽃 채집 중"/>
+		<Class ClassID="50308" ClassName="CHAR313_MSTEP8_3_MSG5" Data="물병에 물을 담는 중"/>
+		<Class ClassID="50309" ClassName="REMAINS_CHAR313_MSTEP8_3_MSG6" Data="물이 부족합니다"/>
+		<Class ClassID="50310" ClassName="CHAR313_MSTEP11_1_MSG1" Data="칙명 위임장 사본을 전달하는 중"/>
+		<Class ClassID="50311" ClassName="JOB_APPRAISER5_1_MSG1" Data="펜서 마스터의 가보를 받았습니다"/>
+		<Class ClassID="50312" ClassName="JOB_APPRAISER5_1_MSG2" Data="악세서리 상인 유르스에게 가 감정할 악세서리를 받으세요"/>
+		<Class ClassID="50313" ClassName="JOB_APPRAISER5_1_MSG3" Data="악세서리가 든 가방을 받았습니다"/>
+		<Class ClassID="50314" ClassName="JOB_APPRAISER5_1_MSG4" Data="펜서 마스터에게 가 감정할 가보를 받으세요"/>
+		<Class ClassID="50315" ClassName="JOB_APPRAISER5_2_MSG1" Data="펜서 마스터에게 가보와 품질 인증서를 전달했습니다"/>
+		<Class ClassID="50316" ClassName="JOB_APPRAISER5_2_MSG2" Data="악세서리 상인 유르스에게 가{nl}악세서리가 든 가방과 품질 인증서를 전달하세요"/>
+		<Class ClassID="50317" ClassName="JOB_APPRAISER5_2_MSG3" Data="악세서리 상인에게 악세서리가 든 가방과{nl}품질 인증서를 전달했습니다"/>
+		<Class ClassID="50318" ClassName="JOB_APPRAISER5_2_MSG4" Data="펜서 마스터에게 가{nl}가보와 품질 인증서를 전달하세요"/>
+		<Class ClassID="50319" ClassName="CHAR313_MSTEP13_1_MSG1" Data="공식 위임장 전해준다"/>
+		<Class ClassID="50320" ClassName="CHAR313_MSTEP13_1_MSG2" Data="신경 쓰지 말라고 한다"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>
@@ -4948,6 +4981,8 @@
 		<Class ClassID="60322" ClassName="SSN_LSCAVE521_KQ_1_ZONEENTER" Data="테브린 종유동 1구역에 설치된 마력 수집구를 찾으세요{nl}마력 수집구에서 지도를 갱신한 후 마력이 모여있는 수집구를 찾아 마력을 수집하세요"/>
 		<Class ClassID="60323" ClassName="KQ_BUFFGETHER_MSG_CLEAR_1" Data="관측기 동력을 충분히 모았습니다.{nl}관측기를 활성화 시키세요"/>
 		<Class ClassID="60324" ClassName="KQ_BUFFGETHER_MSG_PRG_1" Data="관측기 동력이 모였습니다."/>
+		<Class ClassID="60325" ClassName="PUBLIC_GET_QUESTITEM" Data=" 획득"/>
+		<Class ClassID="60326" ClassName="ORCHARD_34_3_SQ_OBJ_9" Data="독지대를 해독했습니다!"/>
 		<Class ClassID="60327" ClassName="RANDBOX_GIMMICK_SEL_1_CANT" Data="상자를 잘 못 건드려서 상자가 사라집니다.{nl}다른 상자를 찾아보세요"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
@@ -5645,6 +5680,9 @@
 		<Class ClassID="107012" ClassName="ThisMessgeIsError" Data="이 메세지가 보이면 문의해주시기 바랍니다."/>
 		<Class ClassID="107013" ClassName="StateOpenAutoSeller" Data="상점을 개설한 상태에서는 사용할 수 없습니다."/>
 		<Class ClassID="107014" ClassName="UseAutoSeller" Data="상점 이용하기"/>
+		<Class ClassID="107015" ClassName="AppraisalCost" Data="감정 비용"/>
+		<Class ClassID="107016" ClassName="AppraisedItemFor" Data=" 님의 아이템을 감정하였습니다."/>
+		<Class ClassID="107017" ClassName="InputPriceBetween{MIN}{MAX}" Data="{MIN}~{MAX} 사이의 값을 입력해주세요"/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="108001" ClassName="GetOut!WeMustTransportStones!" Data="비켜주십시오! 빨리 돌을 운반해야 합니다."/>
@@ -8738,6 +8776,9 @@
 		<Class ClassID="200022" ClassName="AlreadyEatThatFood" Data="이미 섭취한 음식입니다. 일정 시간 후 다시 시도해주세요."/>
 		<Class ClassID="200023" ClassName="CantSaveThisPos" Data="현재 위치는 저장이 불가능합니다."/>
 		<Class ClassID="200024" ClassName="TransfromState" Data="변신 중에는 사용할 수 없습니다."/>
+		<Class ClassID="200025" ClassName="NotExistEquippedAccessory" Data="착용 중인 악세서리가 없어 사용할 수 없습니다. "/>
+		<Class ClassID="200026" ClassName="OverEstimate" Data="과대평가"/>
+		<Class ClassID="200027" ClassName="Devaluation" Data="평가절하"/>
 	</Category>
 	<Category Name="HotKey">
 		<Class ClassID="201001" ClassName="Minimap_-" Data="미니맵 -"/>

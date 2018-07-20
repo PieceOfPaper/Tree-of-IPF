@@ -147,6 +147,12 @@ function EQUIP_MENDING_SKL(skillType)
 		return 0;
 	end
 
+	if clsName == 'Appraiser_Apprise' then
+		local moneyInput = GET_CHILD_RECURSIVELY(frame, 'MoneyInput');
+		moneyInput:SetNumberMode(1);
+		moneyInput:SetTypingScp("APPRAISAL_PC_ON_TYPING");	
+	end
+
 	ITEMBUFF_SET_SKILLTYPE(frame, obj.ClassName, obj.Level, obj.Name);
 	frame:ShowWindow(1);
 	ITEMBUFF_REFRESH_LIST(frame);

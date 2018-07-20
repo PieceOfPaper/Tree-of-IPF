@@ -4,7 +4,7 @@ function GET_ITEM_FULLNAME_BY_TAG_INFO(props, clsID)
 
 	local newobj = CreateIESByID("Item", clsID);
 	if props ~= 'nullval' then
-		SetModifiedProperiesString(newobj, props);
+		SetModifiedPropertiesString(newobj, props);
 	end
 
 	local ret = GET_FULL_NAME(newobj);
@@ -38,7 +38,7 @@ function SLI(props, clsID)
 	if 910001 ~= clsID then -- 스킬 스크롤이 아니면
 		local newobj = CreateIESByID("Item", clsID);
 		if props ~= 'nullval' then
-			SetModifiedProperiesString(newobj, props);
+			SetModifiedPropertiesString(newobj, props);
 		end
 
 		itemFrame:SetTooltipType('wholeitem')
@@ -123,7 +123,7 @@ function LINK_ITEM_TEXT(invitem)
 		itemName = itemName .. "(" .. sklCls.Name ..")";
 		properties = GetSkillItemProperiesString(itemobj);
 	else
-		properties = GetModifiedProperiesString(itemobj);
+		properties = GetModifiedPropertiesString(itemobj);
 	end
 
 	if properties == "" then
