@@ -1,5 +1,5 @@
 
-local json = require "json"
+local json = require "json_imc"
 local appliedGuildList = {}
 function GUILD_RESUME_ON_INIT(addon, frame)
     appliedGuildList = {}

@@ -1,8 +1,4 @@
-
-
 function CHAT_OPTION_ON_INIT()
-
-
 end
 
 function INIT_CHATTYPE_VISIBLE_PIC()
@@ -52,10 +48,9 @@ function CHAT_OPTION_TAB_BTN_CLICK(parent, ctrl)
 		retbit = session.chat.GetTabConfigValueByIndex(index-1);
 	end
 	
-	if retbit == 63 then
+	if retbit == MAX_CHAT_CONFIG_VALUE then
 		retbit = 0
 	end
-
 
 	session.chat.SetTabConfigByIndex(index-1, retbit)
 	local value = session.chat.GetTabConfigValueByIndex(index-1);
@@ -86,11 +81,16 @@ end
 
 function CHAT_OPTION_OPEN(frame)
 	local beforeOpacity = session.chat.GetChatUIOpacity()
-	frame:SetUserValue("BEFORE_OPACITY", beforeOpacity);	
+	frame:SetUserValue("BEFORE_OPACITY", beforeOpacity);
+	local damageCheck_others = GET_CHILD_RECURSIVELY(frame, 'damageCheck_others');
+	local damageCheck_my = GET_CHILD_RECURSIVELY(frame, 'damageCheck_my');
+	if damageCheck_others:IsChecked() == 1 or damageCheck_my:IsChecked() == 1 then
+		local damageCheck = GET_CHILD_RECURSIVELY(frame, 'damageCheck');
+		damageCheck:SetCheck(1)
+	end
 end
 
-function CHAT_OPTION_APPLY(frame)
-	
+function CHAT_OPTION_APPLY(frame)	
 	local slide_opacity = GET_CHILD(frame, "slide_opacity", "ui::CSlideBar");
     session.chat.SetChatUIOpacity(slide_opacity:GetLevel())
 	CHAT_OPTION_OPEN(frame);
@@ -100,7 +100,6 @@ function CHAT_OPTION_APPLY(frame)
 end
 
 function CHAT_OPTION_CANCEL(frame)
-
 	frame:ShowWindow(0);
 end
 
@@ -173,6 +172,32 @@ function CHAT_SET_OPACITY(num)
 			CHAT_SET_CHAT_FRAME_OPACITY(chatframe, colorToneStr)
 		end
 	end
+end
 
-
+function CHAT_OPTION_UPDATE_CHECKBOX(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	local name = ctrl:GetName();
+	local damageCheck_others = GET_CHILD_RECURSIVELY(frame, 'damageCheck_others');
+	local damageCheck_my = GET_CHILD_RECURSIVELY(frame, 'damageCheck_my');
+	local damageCheck = GET_CHILD_RECURSIVELY(frame, 'damageCheck');
+	if name == 'damageCheck' then
+		if ctrl:IsChecked() == 0 then			
+			damageCheck_others:SetCheck(0);
+			damageCheck_my:SetCheck(0);
+		else
+			damageCheck_others:SetCheck(1);
+			damageCheck_my:SetCheck(1);
+		end
+	elseif name == 'resurrectCheck' then
+		local resurrectCheck_party = GET_CHILD_RECURSIVELY(frame, 'resurrectCheck_party');
+		resurrectCheck_party:SetCheck(ctrl:IsChecked());
+	elseif name == 'damageCheck_others' or name == 'damageCheck_my' then
+		local setCheck = 0
+		if damageCheck_others:IsChecked() == 1 then
+			setCheck = 1
+		elseif damageCheck_my:IsChecked() == 1 then
+			setCheck = 1
+		end
+		damageCheck:SetCheck(setCheck)
+	end
 end

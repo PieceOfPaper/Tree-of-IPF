@@ -11401,7 +11401,7 @@ return 30000 + obj.Level * 5000"/>
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="StormDust_Debuff"/>
+                <Str Str="StormDust_Abil_Debuff"/>
                 <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
                 <Num Num="0"/>
                 <Num Num="0" UseFunc="1" FuncTxt="return 1500 * GET_ABIL_LEVEL(self, &quot;Elementalist29&quot;)"/>
@@ -12407,7 +12407,7 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
-            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+            <ToolScp Scp="PAD_TGT_BUFF_HEAL" Client="NO" UseSleep="NO">
                 <Str Str="PARTY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
@@ -12639,6 +12639,18 @@ return 3 + obj.Level * 0.5"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
                 <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_ABIL_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="Warlock13"/>
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="PhantomPain_Debuff"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="20000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
             </ToolScp>
         </enterEvent>
         <updateEvent>
@@ -14476,6 +14488,69 @@ return math.min(7000, obj.Level * 1500)"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
+    <PadSkill Name="d_uniq_boss_frosterRoad_ice_age" CheckerType="0" AllowOverlap="1" Dist="145.57619" Angle="-2.9119487" Range="100" UpdateTerm="200" AutoPos="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="9000"/>
+                <Num Num="9999"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_explosion092_ice" Arg="1"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_ground143_violet_ice" Arg="3"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Pos Angle="0" Dist="4.46464e-36"/>
+                <Str_Arg Str="F_ground117_ice" Arg="1.5"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </destroyEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-50"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+                <Num Num="80"/>
+                <Str_Arg Str="I_ice_mash" Arg="0.2"/>
+                <Str_Arg Str="F_explosion080_ice" Arg="0.2"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="10"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="200"/>
+                <Num Num="2"/>
+                <Num Num="1000"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="0.30000001"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_BUFF_ENEMY_MON" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Freeze"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="5000"/>
+                <Num Num="1"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
     <PadSkill Name="deadparts_Force" CheckerType="0" AllowOverlap="1" Range="10" ApplyFlyMon="1" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -15433,9 +15508,10 @@ return 10000 + obj.Level * 1000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="PlantGround_Debuff"/>
+                <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="FRIEND"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Chortasmata_Buff"/>
@@ -15481,7 +15557,7 @@ return 10000 + obj.Level * 1000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;
                 <Num Num="1"/>
                 <Num Num="100"/>
             </ToolScp>
-            <ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENEMY" Client="NO" UseSleep="NO">
+            <ToolScp Scp="PAD_BUFF_CHECK_BUFF_HEAL" Client="NO" UseSleep="NO">
                 <Str Str="PARTY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>

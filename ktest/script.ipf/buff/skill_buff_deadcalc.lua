@@ -22,3 +22,24 @@ function SCR_BUFF_DEAD_VitalProtection_Buff(self, buff, sklID, damage, attacker)
     
     return 1;
 end
+
+function SCR_BUFF_AFTERCALC_HIT_Cleric_Revival_Buff(self, from, skill, atk, ret, buff)
+
+    if self.HP <= ret.Damage then
+        local reviveSkillLv = GetBuffArgs(buff);
+        if reviveSkillLv == 0 then
+            reviveSkillLv = 1;
+        end
+            
+        ret.Damage = self.HP - 1;
+        local buffTime = reviveSkillLv * 1000;
+        if IsPVPServer(self) == 1 then
+             buffTime = 3000;
+        end
+
+        local key = GetSkillSyncKey(self, ret);
+        StartSyncPacket(self, key);
+        AddBuff(self, self, 'Cleric_Revival_Leave_Buff', reviveSkillLv, 0, buffTime, 1);
+        EndSyncPacket(self, key);
+    end
+end

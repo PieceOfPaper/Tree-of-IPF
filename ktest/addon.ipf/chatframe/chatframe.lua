@@ -1,13 +1,14 @@
-
-
 CHAT_TAB_TYPE_NORMAL = 1
 CHAT_TAB_TYPE_SHOUT = 2
 CHAT_TAB_TYPE_PARTY = 4
 CHAT_TAB_TYPE_GUILD = 8
 CHAT_TAB_TYPE_WHISPER = 16
 CHAT_TAB_TYPE_GROUP = 32
-CHAT_TAB_TYPE_COUNT = 6 
+CHAT_TAB_TYPE_SYSTEM = 64
+CHAT_TAB_TYPE_BATTLE = 128
+CHAT_TAB_TYPE_COUNT = 8
 
+MAX_CHAT_CONFIG_VALUE = 2^CHAT_TAB_TYPE_COUNT - 1;
 
 function CHATFRAME_ON_INIT(addon, frame)
 
@@ -320,11 +321,9 @@ end
 
 
 function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
-
-	local mainchatFrame = ui.GetFrame("chatframe")
+	local mainchatFrame = ui.GetFrame("chatframe");
 	local groupbox = GET_CHILD(chatframe, groupboxname);
-	local size = session.ui.GetMsgInfoSize(groupboxname)
-	
+	local size = session.ui.GetMsgInfoSize(groupboxname);	
 	if groupbox == nil then
 		return 1;
 	end
@@ -337,13 +336,10 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 		DESTROY_CHILD_BYNAME(groupbox, "cluster_");
 	end
 
-
 	local marginLeft = 20;
 	local marginRight = 0;	
 	local ypos = 0;
-
 	for i = startindex , size - 1 do
-
 		if i ~= 0 then
 			local clusterinfo = session.ui.GetChatMsgInfo(groupboxname, i-1)
 			if clusterinfo ~= nil then
@@ -358,7 +354,7 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 			end
 		end
 		
-		local clusterinfo = session.ui.GetChatMsgInfo(groupboxname, i)
+		local clusterinfo = session.ui.GetChatMsgInfo(groupboxname, i);
 		if clusterinfo == nil then
 			return 0;
 		end
@@ -377,7 +373,6 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 		chatCtrl:EnableHitTest(1);
 		chatCtrl:EnableAutoResize(true,false);
 
-		
 		if commnderName ~= GETMYFAMILYNAME() then
 			chatCtrl:SetSkinName("")
 		end
@@ -406,6 +401,8 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 
 			fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_SYSTEM");
 			msgFront = "#86E57F";
+		elseif msgType == "Battle" then
+			fontStyle = '';			
 		elseif msgType ~= "System" then
 
         
@@ -466,8 +463,6 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 
 				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_6"), commnderNameUIText);	
 			else			
-
-				--�˾�â������ �Ӹ�, �׷� �޽���
 				chatCtrl:SetEventScript(ui.LBUTTONDOWN, 'CHAT_GBOX_LBTN_DOWN');
 				chatCtrl:SetEventScriptArgString(ui.LBUTTONDOWN, clusterinfo:GetRoomID());
 
@@ -481,8 +476,12 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 			end
 
 		elseif msgType == "System" then
-
 			fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_SYSTEM");
+			local colorOverride = clusterinfo:GetColor();
+			if colorOverride ~= '' then
+				fontStyle = string.gsub(fontStyle, '{#%x+}', '{#'..colorOverride..'}');				
+			end
+
 			msgFront = string.format("[%s]", ScpArgMsg("ChatType_7"));	
 		end	
 
@@ -530,23 +529,15 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 		groupbox:SetScrollPos(curLine + changedLineCount);
 	end
 
-
-    --1. �̷��� ó���ϸ� ���� ä�� â���� �׷�, �Ӹ� �޽��� ī��Ʈ�� ���� ����
-	--UPDATE_READ_FLAG_BY_GBOX_NAME(groupboxname)
-
-    --2. �̷��� ó���ϸ� ���� ä�� â���� �׷�, �Ӹ� �޽��� ī��Ʈ�� �������� ����
-    --1�� �� ����ϳ�, 2�� �� ������.
 	local gboxtype = string.sub(groupboxname,string.len("chatgbox_") + 1)
 	local tonumberret = tonumber(gboxtype)
 
-    if tonumberret ~= nil and tonumberret > (2^CHAT_TAB_TYPE_COUNT) - 1 then
+    if tonumberret ~= nil and tonumberret > MAX_CHAT_CONFIG_VALUE then
 		UPDATE_READ_FLAG_BY_GBOX_NAME("chatgbox_" .. gboxtype)
 	end
 
-	return 1
+	return 1;
 end
-
-
 
 function UPDATE_READ_FLAG_BY_GBOX_NAME(groupboxname)
 
@@ -703,7 +694,7 @@ end
 
 
 
---��ũ�ѹ� ���� �ϴ� �̵� ���� ���� Ȯ�� �Լ�
+--스크롤바 강제 하단 이동 관련 설정 확인 함수
 function TOGGLE_BOTTOM_CHAT()
 	local IsBottomChat = config.GetXMLConfig("ToggleBottomChat")
 
@@ -721,7 +712,7 @@ end
 
 
 
---�޼����� ��Ʈ ũ�� �����Լ� (�޼����� ��Ʈũ�⺯����ū�� �־�� �Ѵ�.)
+--메세지의 폰트 크기 변경함수 (메세지에 폰트크기변경토큰이 있어야 한다.)
 function CHAT_TEXT_CHAR_RESIZE(msg, fontSize)
 	if msg == nil then 
 		return;
@@ -757,25 +748,25 @@ function CHAT_TEXT_IS_MINE_AND_SETFONT(msgIsMine, fontName)
 end
 
 function UPDATE_CHATTYPE_VISIBLE_PIC(parent, value)
-	
-	local btn_general_pic = GET_CHILD_RECURSIVELY(parent,"btn_general_pic")
-	local btn_shout_pic = GET_CHILD_RECURSIVELY(parent,"btn_shout_pic")
-	local btn_party_pic = GET_CHILD_RECURSIVELY(parent,"btn_party_pic")
-	local btn_guild_pic = GET_CHILD_RECURSIVELY(parent,"btn_guild_pic")
-	local btn_whisper_pic = GET_CHILD_RECURSIVELY(parent,"btn_whisper_pic")
-	local btn_group_pic = GET_CHILD_RECURSIVELY(parent,"btn_group_pic")
+	local btn_general_pic = GET_CHILD_RECURSIVELY(parent, "btn_general_pic");
+	local btn_shout_pic = GET_CHILD_RECURSIVELY(parent, "btn_shout_pic");
+	local btn_party_pic = GET_CHILD_RECURSIVELY(parent, "btn_party_pic");
+	local btn_guild_pic = GET_CHILD_RECURSIVELY(parent, "btn_guild_pic");
+	local btn_whisper_pic = GET_CHILD_RECURSIVELY(parent, "btn_whisper_pic");
+	local btn_group_pic = GET_CHILD_RECURSIVELY(parent, "btn_group_pic");
+	local btn_system_pic = GET_CHILD_RECURSIVELY(parent, "btn_system_pic");
+	local btn_battle_pic = GET_CHILD_RECURSIVELY(parent, "btn_battle_pic");
 
 	if value == 0 then
-
 		btn_general_pic:ShowWindow(1)
 		btn_shout_pic:ShowWindow(1)
 		btn_party_pic:ShowWindow(1)
 		btn_guild_pic:ShowWindow(1)
 		btn_whisper_pic:ShowWindow(1)
 		btn_group_pic:ShowWindow(1)
-
+		btn_system_pic:ShowWindow(1)
+		btn_battle_pic:ShowWindow(1)
 	else
-	
 		if IMCAnd(CHAT_TAB_TYPE_NORMAL, value) ~= 0 then
 			btn_general_pic:ShowWindow(1)
 		else
@@ -811,14 +802,23 @@ function UPDATE_CHATTYPE_VISIBLE_PIC(parent, value)
 		else
 			btn_group_pic:ShowWindow(0)
 		end
+
+		if IMCAnd(CHAT_TAB_TYPE_SYSTEM, value) ~= 0 then
+			btn_system_pic:ShowWindow(1)
+		else
+			btn_system_pic:ShowWindow(0)
 	end
 	
-
+		if IMCAnd(CHAT_TAB_TYPE_BATTLE, value) ~= 0 then
+			btn_battle_pic:ShowWindow(1)
+		else
+			btn_battle_pic:ShowWindow(0)
+		end
+	end
 end
 
 
 function UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, value)
-	
 	local groupboxname = "chatgbox_TOTAL"
 	if value > 0 then
 		groupboxname = "chatgbox_" ..tostring(value)
@@ -846,35 +846,34 @@ end
 
 
 function CHAT_TABSET_SELECT(index)
-
-
 	local frame = ui.GetFrame("chatframe")
 	if frame == nil then
 		return
 	end
 
-	-- ������ ������ ��ư ��Ų ������ 
 	frame:SetUserValue("BTN_INDEX", index);
 
 	local tabbtn = GET_CHILD_RECURSIVELY(frame, "tabsetbtn")
 	tabbtn:SetText(tostring(index + 1))
-
 
 	session.chat.SetTabIndex(index)
 	ui.SaveChatConfig()
 	
 	local value = session.chat.GetTabConfigValueByIndex(index);
 	
-	UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, value)
-
+	UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, value);
 
 	local optionframe = ui.GetFrame("chat_option")
-	local tabgbox = GET_CHILD_RECURSIVELY(optionframe,"tabgbox"..(index + 1))
-
-	UPDATE_CHATTYPE_VISIBLE_PIC(tabgbox, value)
-
+	local tabgbox = GET_CHILD_RECURSIVELY(optionframe,"tabgbox"..(index + 1));
+	UPDATE_CHATTYPE_VISIBLE_PIC(tabgbox, value);
 end
 
+function UPDATE_CHAT_OPTION_VISIBLE_PIC(index)
+	local value = session.chat.GetTabConfigValueByIndex(index);
+	local optionframe = ui.GetFrame("chat_option");
+	local tabgbox = GET_CHILD_RECURSIVELY(optionframe, "tabgbox"..(index + 1));
+	UPDATE_CHATTYPE_VISIBLE_PIC(tabgbox, value);
+end
 
 function CHAT_FRAME_GET_NOW_SELECT_VALUE(frame)
 
@@ -882,47 +881,52 @@ function CHAT_FRAME_GET_NOW_SELECT_VALUE(frame)
 		return 0;
 	end
 	
-	local check_1 = GET_CHILD_RECURSIVELY(frame,"btn_general_pic")
-	local check_2 = GET_CHILD_RECURSIVELY(frame,"btn_shout_pic")
-	local check_3 = GET_CHILD_RECURSIVELY(frame,"btn_party_pic")
-	local check_4 = GET_CHILD_RECURSIVELY(frame,"btn_guild_pic")
-	local check_5 = GET_CHILD_RECURSIVELY(frame,"btn_whisper_pic")
-	local check_6 = GET_CHILD_RECURSIVELY(frame,"btn_group_pic")
+	local check_1 = GET_CHILD_RECURSIVELY(frame, "btn_general_pic");
+	local check_2 = GET_CHILD_RECURSIVELY(frame, "btn_shout_pic");
+	local check_3 = GET_CHILD_RECURSIVELY(frame, "btn_party_pic");
+	local check_4 = GET_CHILD_RECURSIVELY(frame, "btn_guild_pic");
+	local check_5 = GET_CHILD_RECURSIVELY(frame, "btn_whisper_pic");
+	local check_6 = GET_CHILD_RECURSIVELY(frame, "btn_group_pic");
+	local check_7 = GET_CHILD_RECURSIVELY(frame, "btn_system_pic");
+	local check_8 = GET_CHILD_RECURSIVELY(frame, "btn_battle_pic");
 
-	local retbit = 0
+	local retbit = 0;
 
 	if check_1:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_NORMAL
+		retbit = retbit + CHAT_TAB_TYPE_NORMAL;
 	end
 	if check_2:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_SHOUT
+		retbit = retbit + CHAT_TAB_TYPE_SHOUT;
 	end
 	if check_3:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_PARTY
+		retbit = retbit + CHAT_TAB_TYPE_PARTY;
 	end
 	if check_4:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_GUILD
+		retbit = retbit + CHAT_TAB_TYPE_GUILD;
 	end
 	if check_5:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_WHISPER
+		retbit = retbit + CHAT_TAB_TYPE_WHISPER;
 	end
 	if check_6:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_GROUP
+		retbit = retbit + CHAT_TAB_TYPE_GROUP;
+	end
+	if check_7:IsVisible() == 1 then
+		retbit = retbit + CHAT_TAB_TYPE_SYSTEM;
+	end
+	if check_8:IsVisible() == 1 then
+		retbit = retbit + CHAT_TAB_TYPE_BATTLE;
 	end
 
-	return retbit
+	return retbit;
 
 end
 
-
 function CHAT_TAB_OPTION_SAVE(frame)
-
 	if frame == nil then
 		return;
 	end
 
 	local index = tonumber(frame:GetUserValue("BTN_INDEX"))
-
 	local retbit = CHAT_FRAME_GET_NOW_SELECT_VALUE(frame)
 
 	if retbit == 0 then
@@ -934,31 +938,24 @@ function CHAT_TAB_OPTION_SAVE(frame)
 		end
 	end
 
-	if retbit == 63 then
+	if retbit == MAX_CHAT_CONFIG_VALUE then
 		retbit = 0
 	end
-
-	
 
 	if frame:GetName() == "chatframe" then
 		session.chat.SetTabConfigByIndex(index, retbit)
 		CHAT_TABSET_SELECT(index)
 	else
-
 		local key = tonumber(string.sub(frame:GetName(), 11))
 		session.chat.UpdateMainFramePopupConfig(key, frame:GetWidth(), frame:GetHeight(), frame:GetX(), frame:GetY(), retbit)
-		UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, retbit)
+		UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, retbit);
 	end
 
-	ui.SaveChatConfig()
-
+	ui.SaveChatConfig();
 end
 
-
 function CHAT_TAB_BTN_CLICK(parent, ctrl)
-
-	local name = ctrl:GetName()
-
+	local name = ctrl:GetName();
 	if string.find(name,"_pic") ~= nil then
 		ctrl:ShowWindow(0)
 	else
@@ -967,8 +964,7 @@ function CHAT_TAB_BTN_CLICK(parent, ctrl)
 	end
 
 	local frame = parent:GetTopParentFrame();
-
-	CHAT_TAB_OPTION_SAVE(frame)
+	CHAT_TAB_OPTION_SAVE(frame);
 end
 
 

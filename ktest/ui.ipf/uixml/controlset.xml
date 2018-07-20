@@ -3080,6 +3080,7 @@
 			<button name="button" hittest="true" margin="0 0 0 0" rect="0 0 340 60" layout_gravity="left top" skin="base_btn" textalign="center center" LBtnUpScp="INDUNINFO_CATEGORY_LBTN_CLICK"/>
 			<richtext name="name" hittest="false" margin="10 0 0 0" rect="0 0 200 35" layout_gravity="left center" format="{#000000}%s (%s){/}" param1="value" param1_def="던전" param2="cnt" param2_def="0"/>
 			<richtext name="countText" rect="0 0 200 35" margin="0 0 30 0" layout_gravity="right center" format="{#000000}(%s/%s){/}" param1="current" param1_def="0" param2="max" param2_def="2"/>
+			<picture name="cycleCtrlPic" margin="0 4 67 0" rect="0 0 41 30" image="indun_icon_day_s" layout_gravity="right center"/>
 		</controls>
 	</controlset>
 	<controlset name="indun_detail_ctrl" hittest="true" width="340" height="30" hittestset="true" draw="false" skin="None">
@@ -4116,13 +4117,17 @@
 		<controls>
 			<layout name="rowLayout" spacing="10" orientation="horizontal"/>
 			<layoutsection name="column1" size="free" parent="rowLayout"/>
-			<richtext name="teamName1" parent="column1" layout_gravity="center center" fontname="black_18_b"slideshow="true" resizebytext="true"/>
+			<richtext name="teamName1" parent="column1" layout_gravity="center center" fontname="black_18_b"/>
+			<layoutsection name="column2" size="free" parent="rowLayout"/>
+			<richtext name="team_lv1" parent="column2" layout_gravity="center center" fontname="black_18_b"/>
 			<layoutsection name="column3" size="free" parent="rowLayout"/>
-			<richtext name="leveltext1" parent="column3" layout_gravity="center center" fontname="black_18_b"/>
+			<richtext name="lv1" parent="column3" layout_gravity="center center" fontname="black_18_b"/>
 			<layoutsection name="column4" size="free" parent="rowLayout"/>
 			<richtext name="teamName2" parent="column4" layout_gravity="center center" fontname="black_18_b"/>
+			<layoutsection name="column5" size="free" parent="rowLayout"/>
+			<richtext name="team_lv2" parent="column5" layout_gravity="center center" fontname="black_18_b"/>
 			<layoutsection name="column6" size="free" parent="rowLayout"/>
-			<richtext name="leveltext2" parent="column6" layout_gravity="center center" fontname="black_18_b"/>
+			<richtext name="lv2" parent="column6" layout_gravity="center center" fontname="black_18_b"/>
 		</controls>
 	</controlset>
 	<controlset name="guild_join_sent" hittest="true" width="690" height="30" hittestset="true" draw="true">

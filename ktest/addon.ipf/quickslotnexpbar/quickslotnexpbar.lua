@@ -30,6 +30,8 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	addon:RegisterMsg('EXP_ORB_ITEM_ON', 'EXP_ORB_SLOT_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_OFF', 'EXP_ORB_SLOT_ON_MSG');
 	addon:RegisterMsg('QUICK_SLOT_LOCK_STATE', 'SET_QUICK_SLOT_LOCK_STATE');
+	addon:RegisterMsg('QUICKSLOT_MONSTER_RESET_COOLDOWN', 'QUICKSLOTNEXPBAR_MY_MONSTER_SKILL_RESET_COOLDOWN');
+	
 
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_QUICKSLOT_OVERHEAT");
@@ -989,7 +991,7 @@ end
 
 
 function SET_QUICKSLOT_TOOLSKILL(slot)
-
+	
 	local obj = GET_SLOT_SKILL_OBJ(slot);
 	if obj == nil then
 		return;
@@ -1032,9 +1034,11 @@ function TOGGLE_EFT_UPDATE(slot)
 
 	return 1;
 end
-
+function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL_RESET_COOLDOWN(frame, msg, monName)
+	frame:SetUserValue('MON_RESET_COOLDOWN', 1);
+end
 function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
-	local frame= ui.GetFrame("quickslotnexpbar")
+	local frame= ui.GetFrame("quickslotnexpbar")	
 	
 	if isOn == 1 then
 		local monCls = GetClass("Monster", monName);
@@ -1057,13 +1061,19 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 			local type = sklCls.ClassID;
 			local icon = CreateIcon(slot);
 			local imageName = 'icon_' .. sklCls.Icon;
+			if frame:GetUserIValue('MON_RESET_COOLDOWN') == 1 then
+				local skillInfo = session.GetSkill(type);
+				if skillInfo ~= nil then
+					skillInfo:ResetCoolDownTime()
+				end
+			end
 			icon:Set(imageName, "Skill", type, 0);
 			icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_SKILL_COOLDOWN');
 			icon:SetEnableUpdateScp('MONSTER_ICON_UPDATE_SKILL_ENABLE');
 			icon:SetColorTone("FFFFFFFF");
 			quickslot.OnSetSkillIcon(slot, type);
 			SET_QUICKSLOT_OVERHEAT(slot);
-
+			
 			slot:EnableDrag(0);
 		end
 
@@ -1084,6 +1094,8 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 		lastSlot:EnableDrag(0);
 		SET_QUICKSLOT_OVERHEAT(lastSlot);
 		frame:SetUserValue('SKL_MAX_CNT',list:Count() + 1)
+		frame:SetUserValue('MON_RESET_COOLDOWN', 0)
+
 		return;
 	end
 
@@ -1102,7 +1114,7 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 		slot:SetUserValue('ICON_TYPE', 0);
 		SET_QUICKSLOT_OVERHEAT(slot)
 
-end
+	end
 	frame:SetUserValue('SKL_MAX_CNT',0)
 end
 

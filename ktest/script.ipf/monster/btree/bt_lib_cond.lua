@@ -680,3 +680,26 @@ function BT_ACT_SELF_BUFF_LIST_CHECK(self, state, btree, prop)
         return BT_FAILED;
     end
 end
+
+--/**
+--* @Function    BT_ACT_ZONE_OBJECT_CHECK
+--* @Type   Cond
+--* @StrArg     체크할 오브젝트 ClassName
+--* @Description    같은 존에 오브젝트 이름 검사 없으면 성공
+--**/
+
+function BT_ACT_ZONE_OBJECT_CHECK(self, state, btree, prop)
+    local strArg = GetLeafStrArg(prop);
+    local list, cnt = GetWorldObjectList(self, "MON", -1)
+    
+    if cnt == 0 then
+        return BT_SUCCESS;
+    end
+    
+    for i = 1, cnt do
+        if list[i].ClassName == strArg then
+            return BT_FAILED;
+        end
+    end
+    return BT_SUCCESS;
+end

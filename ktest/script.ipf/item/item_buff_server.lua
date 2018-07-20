@@ -775,4 +775,6 @@ function SCR_TX_ENCHANT_ARMOR(seller, target, slotItem, skl, price, selectName)
     
     DestroyIES(needObj);
     StopScript();
+
+    SendAddOnMsg(seller, 'UPDATE_SPEND_ITEM');    
 end

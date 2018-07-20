@@ -1073,3 +1073,197 @@ function SCR_ITEM_GACHA_VELCOFFER(pc, Group, cubeID, btnVisible, bEnableDuplicat
 		end
     end
 end
+
+---------------------------
+
+-- 큐브 첫번째 뽑기일때의 Tx 및 소비템 처리 후 작동 
+-- Item.xml의 CT_Consumable은 TX로 설정하고 CT_Script에 이 함수를 설정해야 됌.
+function SCR_FIRST_USE_GHACHA_CUBE_ID_SAUSIS_9TH(pc, argObj, rewardGroupClsName, arg1, arg2, clsId)
+	local cubeCls = GetClassByType("Item", clsId);
+	if cubeCls == nil then
+		return;
+	end
+	local enableDuplicate = TryGetProp(cubeCls, "CubeDuplicate")
+	if enableDuplicate == "NO" then
+		enableDuplicate = 0
+	else -- YES 이거나 프로퍼티가 없는 경우 default 값은 중복 허용
+		enableDuplicate = 1
+	end	
+
+	-- 시작시 cmd 도 시작
+	local check = StartGachaCube(pc, clsId, enableDuplicate);
+
+	-- 이미 cmd가 있다면 실패
+	if check == 0 then
+		return;
+	end
+
+	-- 뽑기(첫번째)
+    SendAddOnMsg(pc, 'CLOSE_GACHA_CUBE', 'NO'); -- 이전에 있는 UI 있으면 닫아야 함
+	SCR_ITEM_GACHA_ID_SAUSIS_9TH_2(pc, rewardGroupClsName, clsId, 1, enableDuplicate)
+end
+
+-- 뽑기 기능 함수 
+-- (첫번째 뽑기에는  Group 인자가 nil이 아니다.)
+-- 참고 : function GIVE_REWARD(self, group, giveway, tx)
+function SCR_ITEM_GACHA_ID_SAUSIS_9TH_2(pc, Group, cubeID, btnVisible, bEnableDuplicate)
+
+    local rewardID = 'reward_freedungeon'
+    local rewardList = {};
+    local rewardCnt = {};
+    local ratioList = {};
+    local expProp = {};
+	local rewardGroupName = {};
+    local listIndex = 0;
+    local totalRatio = 0;										-- o=¿¡´ º???0L´?
+    local clslist, cnt = GetClassList(rewardID);
+    local totalPrice = 0;
+	local rewGroup = nil;
+	local cubeItem = GetClassByType("Item", cubeID);
+
+	
+	-- 가챠 Grade 우선 확률 계산 시작 --
+	local basicGradeList = {
+	                        { "C", 9000  },
+    	                    { "B", 500    },
+	                        { "A", 480    },
+	                        { "LegCard", 20}
+	                       };
+    
+    local gradeList = { };
+    local totalGradeRatio = 0;
+    for i = 1, #basicGradeList do
+        local gradeTemp = basicGradeList[i];
+        local gradeName = gradeTemp[1]
+        local gradeRatio = totalGradeRatio + gradeTemp[2]
+        totalGradeRatio = totalGradeRatio + gradeTemp[2];
+        gradeList[#gradeList + 1] = { gradeName, gradeRatio };
+    end
+
+    local grade = 'C';
+    local gradeRandom = IMCRandom(1, totalGradeRatio);
+
+    for i = 1, #gradeList do
+        local gradeTemp = gradeList[i];
+        if gradeTemp[2] >= gradeRandom then
+            grade = gradeTemp[1];
+            break;
+        end
+    end
+	-- 가챠 Grade 우선 확률 계산 끝 --
+	
+
+    if nil ~= Group then
+		rewGroup = Group;
+	else
+		local cubeItem = GetClassByType("Item", cubeID);
+		rewGroup = TryGetProp(cubeItem, "StringArg");
+	end
+
+	if nil ~= Group then	-- 무료 뽑기	
+		rewGroup = Group;
+	else					-- 유료 뽑기 (Group이 nil이다.)
+		rewGroup = TryGetProp(cubeItem, "StringArg");
+		totalPrice = TryGetProp(cubeItem, "NumberArg1");
+	end
+
+	if nil == rewGroup then
+		CLEAR_GACHA_COMMAND(pc, Group);
+		return;
+	end
+    
+	if IS_SEASON_SERVER(pc) == 'YES' then
+	    totalPrice = math.floor(totalPrice/2)
+	end
+    
+	if CHECK_PC_MONEY_FOR_PAY(pc, totalPrice) == 0 then 
+		CLEAR_GACHA_COMMAND(pc, Group);
+		return;
+	end
+    
+    for i = 0, cnt - 1 do	-- 보상리스트에서 확률로 보상 계산
+        local rewardcls = GetClassByIndexFromList(clslist, i);
+       
+        if TryGetProp(rewardcls, "Group") == rewGroup and TryGetProp(rewardcls, "Grade") == grade and CHECK_GACHA_DUPLICATE(pc, bEnableDuplicate, rewardcls.ItemName ) == true then
+            rewardList[listIndex] = rewardcls.ItemName;
+			local cls = GetClass("Item", rewardcls.ItemName);
+			if nil ~= cls then
+				rewardGroupName[listIndex] = cls.GroupName;
+			else
+				rewardGroupName[listIndex] = "None";
+			end
+            rewardCnt[listIndex] = rewardcls.Count;
+            ratioList[listIndex] = rewardcls.Ratio;
+            listIndex = listIndex + 1;
+            totalRatio = totalRatio + rewardcls.Ratio;	-- 전체 확률
+        end
+    end
+
+    -- get reward
+	if listIndex <= 0 then
+		CLEAR_GACHA_COMMAND(pc, Group);
+		return;
+	end
+	
+    local reward = nil;	
+    local rewardCount;
+    local rewardGroup;
+	local checkTime = imcTime.GetAppTime() + 1;
+    while reward == nil do
+		if checkTime < imcTime.GetAppTime() then
+			CLEAR_GACHA_COMMAND(pc, Group);
+			return;
+		end
+    	reward = nil;
+    	local result = IMCRandom(1, totalRatio)	-- 보상 뽑기용 랜덤수
+	    for i = 0, #ratioList do
+	        if result <= ratioList[i] then
+				reward = rewardList[i]
+				rewardCount = rewardCnt[i]
+				rewardGroup = rewardGroupName[i]
+				break;
+	        else
+	            ratioList[i+1] = ratioList[i+1] + ratioList[i];
+	        end
+	    end
+
+	    if reward ~= nil then
+			break;
+		end
+    end   
+
+    -- give reward
+    if reward ~= nil then
+    	--Tx 구간
+		local tx = TxBegin(pc);	
+		TxEnableInIntegrateIndun(tx);
+
+		if totalPrice > 0 then
+			TxTakeItem(tx, MONEY_NAME, totalPrice, "GACHA_CUBE", 0, cubeID);
+		end
+		TxGiveItem(tx, reward, rewardCount, 'GACHA_CUBE');
+		local ret = TxCommit(tx);
+		--Tx 구간 끝
+
+		if ret == "SUCCESS" then
+			if nil ~= Group then
+                if TryGetProp(cubeItem, 'AllowReopen') == 'NO' then
+                    ClearGachaCmd(pc);
+                    btnVisible = 0;
+                end
+				local sucScp = string.format("GACHA_CUBE_SUCEECD(\'%s\', \'%s\', \'%d\')", cubeID, reward, btnVisible);
+				ExecClientScp(pc, sucScp);		--성공여부를 클라이언트에 알린다.	(창 만들기)
+
+			else						
+				local sucScp = string.format("GACHA_CUBE_SUCEECD_EX(\'%s\', \'%s\', \'%d\')", cubeID, reward, btnVisible);
+				ExecClientScp(pc, sucScp);		--성공여부를 클라이언트에 알린다.	(창 요소만 바꾸기)							
+				UpdateCubeCmd(pc, reward); -- 큐브의 뽑기 횟수를 업데이트하기 위한 함수
+			end		
+
+			-- update reward list
+			if bEnableDuplicate == 0 then
+				UpdateCubeReward(pc, reward)
+			end			
+		end
+    end
+end

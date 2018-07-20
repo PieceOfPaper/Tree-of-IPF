@@ -37,7 +37,7 @@ function SCR_BLACKSMITH_NORMAL_5(self,pc)
     DelExProp(pc, "APPRAISER_HANDLE");
 end
 
-function SCR_BLACKSMITH_NORMAL_6(self,pc)
+function SCR_BLACKSMITH_NORMAL_6(self,pc)    
     UIOpenToPC(pc, 'itemdecompose', 1)
 end
 

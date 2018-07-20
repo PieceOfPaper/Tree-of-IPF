@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -2670,8 +2670,15 @@
 		<image name="item_icon_armband_golddog2018" file="\icon\acc\item_icon_armband_golddog2018.png" imgrect="0 0 256 256" CMM_Caption="황금개 암밴드"/>
 		<image name="icon_item_armband_E_speicialbrain" file="\icon\acc\icon_item_armband_E_speicialbrain.png" imgrect="0 0 256 256" CMM_Caption="S 암밴드"/>
 		<image name="icon_item_armband_guild04" file="\icon\acc\icon_item_armband_guild04.png" imgrect="0 0 256 256" CMM_Caption="길드 암밴드"/>
+		<image name="icon_item_Brc9th_01" file="\icon\acc\icon_item_Brc9th_01.png" imgrect="0 0 256 256" CMM_Caption="유니크 레이드 과거 환상도서관"/>
+		<image name="icon_item_Brc9th_02" file="\icon\acc\icon_item_Brc9th_02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Brc9th_03" file="\icon\acc\icon_item_Brc9th_03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Neck9th_01" file="\icon\acc\icon_item_Neck9th_01.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Neck9th_02" file="\icon\acc\icon_item_Neck9th_02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Neck9th_03" file="\icon\acc\icon_item_Neck9th_03.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_captain_soccer" file="\icon\acc\icon_item_armband_captain_soccer.png" imgrect="0 0 256 256" CMM_Caption="축구 암밴드"/>
 		<image name="icon_item_armband_supporter_soccer" file="\icon\acc\icon_item_armband_supporter_soccer.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_stararrow" file="\icon\acc\icon_item_armband_stararrow.png" imgrect="0 0 256 256" CMM_Caption="별의 탑 영웅 암밴드"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -4681,6 +4688,8 @@
 		<image name="icon_item_Dimensional_censer" file="\icon\item\icon_item_Dimensional_censer.png" imgrect="0 0 128 128" CMM_Caption="차원 향로"/>
 		<image name="icon_item_wakepowder" file="\icon\item\icon_item_wakepowder.png" imgrect="0 0 80 80" CMM_Caption="각성가루"/>
 		<image name="icon_item_Vernike_Potion" file="\icon\item\icon_item_Vernike_Potion.png" imgrect="0 0 128 128" CMM_Caption="베르니케 파편 포션"/>
+		<image name="icon_item_training_flute" file="\icon\item\icon_item_training_flute.png" imgrect="0 0 128 128" CMM_Caption="훈련용 피리"/>
+		<image name="icon_item_Woodcarving_Core" file="\icon\item\icon_item_Woodcarving_Core.png" imgrect="0 0 256 256" CMM_Caption="브리케팅 무기재료"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>

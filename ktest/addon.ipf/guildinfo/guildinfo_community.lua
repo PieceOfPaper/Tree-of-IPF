@@ -1,4 +1,4 @@
-local json = require "json"
+local json = require "json_imc"
 
 local refreshBoard = false
 local isUpdating = false; -- 타임라인 게시글 가져왔는지 여부 확인용

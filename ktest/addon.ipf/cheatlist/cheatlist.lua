@@ -553,3 +553,6 @@ function CHEATLIST_UI_CLOSE(frame, obj, argStr, argNum)
 	USECHEAT_ListSortType		= 'Cheat_Open';
 end
 
+function TEST_ALARM()
+	test.TestAlarm();
+end

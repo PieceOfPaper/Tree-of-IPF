@@ -2110,3 +2110,30 @@ end
 function SCR_set_055_COLONY_LEAVE(pc)
     RemoveBuff(pc, 'item_set_041_buff');
 end
+
+-- set 056
+function SCR_set_056_NEPAGRITAS_ENTER(pc)
+    AddBuff(pc, pc, 'ACC_REIN_TRANSCEND',10,5);
+end
+
+function SCR_set_056_NEPAGRITAS_LEAVE(pc)
+    RemoveBuff(pc, 'ACC_REIN_TRANSCEND');
+end
+
+-- set 057
+function SCR_set_057_NEMATOMAS_ENTER(pc)
+    AddBuff(pc, pc, 'ACC_BACKATTACK_NOBLOCK', 400);
+end
+
+function SCR_set_057_NEMATOMAS_LEAVE(pc)
+    RemoveBuff(pc, 'ACC_BACKATTACK_NOBLOCK');
+end
+
+-- set 058
+function SCR_set_058_NEMATOMAS_ENTER(pc)
+    AddBuff(pc, pc, 'SUMMON_TRANSE_ADD_STATUS');
+end
+
+function SCR_set_058_NEMATOMAS_LEAVE(pc)
+    RemoveBuff(pc, 'SUMMON_TRANSE_ADD_STATUS');
+end

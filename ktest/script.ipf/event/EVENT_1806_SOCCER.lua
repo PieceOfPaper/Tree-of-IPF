@@ -6,7 +6,16 @@ function SCR_EVENT_1806_NUMBER_GAMES_BALL_TS_BORN_UPDATE(self)
     local x,y,z = GetPos(self)
     
     if self.NumArg2 >= 10 and y >= 10 then
-        SetPos(self, x, 0, z)
+        local strarg1 = TryGetProp(self, 'StrArg1')
+        if strarg1 == 'ball1' or strarg1 == 'ball2' then
+            SetCurrentFaction(self, 'Peaceful')
+            RunScript('EVENT_1806_SOCCER_BALL_HOLD',self)
+            if strarg1 == 'ball1' then
+                SetPos(self, -70, 0, 70)
+            elseif strarg1 == 'ball2' then
+                SetPos(self, 70, 0, -70)
+            end
+        end
     end
     if self.NumArg1 ~= nowSec then
         self.NumArg1 = nowSec
@@ -292,10 +301,11 @@ function SCR_EVENT_1806_SOCCER_END_MSG(cmd, curStage, eventInst, obj)
                 if SCR_DATE_TO_YHOUR_BASIC_2000(year, month, day, hour) >= SCR_DATE_TO_YHOUR_BASIC_2000(2018, 6, 28, 6) then
                     typeName = 'SOCCER_MISSION_S2'
                 end
-                SaveRedisPropValue(pc, 'EVENT_1806_SOCCER', typeName, aid, value, 1)
+                SaveRedisPropValue(pc, 'EVENT_1806_SOCCER', typeName, aid, value, 1, 1)
                 SCR_EVENT_1806_SOCCER_GOAL_LOG('GAMEEND',cmd,aid,typeName,value)
             end
 --            RemoveBuff(pc,'EVENT_1806_SOCCER_SETTING_BUFF')
+            PlaySoundLocal(pc, 'sys_confirm')
             SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1806_SOCCER_MSG2",'PCGOAL',value,'TEAM1GOAL',goal1,'TEAM2GOAL',goal2)..addMsg, 10);
             
         end
@@ -331,6 +341,11 @@ function SCR_EVENT_1806_SOCCER_GOAL1_TS_BORN_UPDATE(self)
             local npc = objList[i]
             local strarg1 = TryGetProp(npc, 'StrArg1')
             if strarg1 == 'ball1' or strarg1 == 'ball2' then
+                local objList, objCnt = GetWorldObjectList(self, 'PC', 200)
+                if objCnt > 0 then
+                    PlaySound(objList[1], 'quest_success_3')
+                end
+                
                 SetCurrentFaction(npc, 'Peaceful')
                 RunScript('EVENT_1806_SOCCER_BALL_HOLD',npc)
                 if strarg1 == 'ball1' then
@@ -392,6 +407,11 @@ function SCR_EVENT_1806_SOCCER_GOAL2_TS_BORN_UPDATE(self)
             local npc = objList[i]
             local strarg1 = TryGetProp(npc, 'StrArg1')
             if strarg1 == 'ball1' or strarg1 == 'ball2' then
+                local objList, objCnt = GetWorldObjectList(self, 'PC', 200)
+                if objCnt > 0 then
+                    PlaySound(objList[1], 'quest_success_3')
+                end
+                
                 SetCurrentFaction(npc, 'Peaceful')
                 RunScript('EVENT_1806_SOCCER_BALL_HOLD',npc)
                 if strarg1 == 'ball1' then
@@ -468,10 +488,13 @@ function SCR_EVENT_1806_SOCCER_ATTACKMONSTER(self, sObj, monster, sklName)
                 monster.NumArg2 = 0
                 local angle = GetAngleTo(self,monster);
                 if sklName == 'Event_Kick_Weak' then
+                    PlaySound(self, 'event_soccer_kick')
                     KnockDown(monster, self, 30, angle, 25, 1)
                 elseif sklName == 'Event_Kick_Normal' then
+                    PlaySound(self, 'event_soccer_kick')
                     KnockDown(monster, self, 180, angle, 35, 1)
                 elseif sklName == 'Event_Kick_powerful' then
+                    PlaySound(self, 'event_soccer_kick_cri')
                     KnockDown(monster, self, 250, angle, 35, 1)
                 end
             end

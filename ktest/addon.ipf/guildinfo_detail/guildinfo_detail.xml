@@ -34,13 +34,8 @@
 				<overlap name="tabArea">
 					<layout name="intro" margin="10 0 20 10" tabname="page" orientation="vertical">
 						<layoutsection name="introSection">
-							<groupbox name="promoBox" skin="bg" draw="false" scrollbar="true" margin="10 0 20 0">
+							<groupbox name="promoBox" skin="bg" draw="false" scrollbar="true" margin="15 0 25 10">
 								<picture name="promoPicture" forceupdate="true" layout_gravity="left top" image="mainpc_crown" stretch="false" rect="0 0 1024 3840"/>
-							</groupbox>
-						</layoutsection>
-						<layoutsection name="introTextSection" size="10%">
-							<groupbox name="introTextBox" draw="false" margin="10 0 20 0">
-								<richtext name="introText" rect="0 0 1090 990" resizebytext="true" fixwidth="true" caption="{@st43}소개글" fontname="white_16_b_ol"/>
 							</groupbox>
 						</layoutsection>
 					</layout>
@@ -193,6 +188,10 @@
 											<layoutsection name="column3">
 												<groupbox name="memberListBg2" skin="pvp_Team_skin"/>
 											</layoutsection>
+											<layoutsection name="column4"/>
+											<layoutsection name="column5">
+												<groupbox name="memberListBg3" skin="pvp_Team_skin"/>
+											</layoutsection>
 										</layout>
 										<layout name="headerLayout" orientation="vertical">
 											<layoutsection name="headerSection" size="40">
@@ -203,14 +202,21 @@
 															<richtext name="teamName" caption="팀명" textalign="center center" fontname="black_18_b"/>
 														</layoutsection>
 														<layoutsection name="memberLvlSection">
-															<richtext name="lvl" caption="레벨" textalign="center center" fontname="black_18_b"/>
+															<richtext name="lvl" caption="팀 레벨" textalign="center center" fontname="black_18_b"/>
+														</layoutsection>
+														<layoutsection name="topCharacterLvl1Sec">
+															<richtext name="topCharacterLvl1" caption="최고 캐릭터 레벨" textalign="center center" fontname="black_18_b"/>
 														</layoutsection>
 														<layoutsection name="memberTeamName1Section">
 															<richtext name="teamName1" caption="팀명" textalign="center center" fontname="black_18_b"/>
 														</layoutsection>
 														<layoutsection name="memberLvl1Section">
-															<richtext name="lvl1" caption="레벨" textalign="center center" fontname="black_18_b"/>
+															<richtext name="lvl1" caption="팀 레벨" textalign="center center" fontname="black_18_b"/>
 														</layoutsection>
+														<layoutsection name="topCharacterLvl2Sec">
+															<richtext name="topCharacterLvl2" caption="최고 캐릭터 레벨" textalign="center center" fontname="black_18_b"/>
+														</layoutsection>
+														
 													</layout>
 												</overlap>
 											</layoutsection>

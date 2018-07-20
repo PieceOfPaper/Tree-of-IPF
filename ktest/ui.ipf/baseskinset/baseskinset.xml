@@ -6019,6 +6019,10 @@
 		<image name="solodungeon_rank_img_8" file="\skin\PVP_skin.tga" imgrect="1667 409 60 61" CMM_Caption="1인던전 등수이미지8"/>
 		<image name="solodungeon_rank_img_9" file="\skin\PVP_skin.tga" imgrect="1728 409 60 61" CMM_Caption="1인던전 등수이미지9"/>
 		<image name="solodungeon_rank_img_10" file="\skin\PVP_skin.tga" imgrect="1789 409 60 61" CMM_Caption="1인던전 등수이미지10"/>
+		<image name="indun_icon_week_l" file="\skin\indun_skin.tga" imgrect="699 573 41 20" CMM_Caption="던전 주간 표시 : 대"/>
+		<image name="indun_icon_day_l" file="\skin\indun_skin.tga" imgrect="699 552 41 20" CMM_Caption="던전 일간 표시 : 대"/>
+		<image name="indun_icon_week_s" file="\skin\indun_skin.tga" imgrect="741 573 27 20" CMM_Caption="던전 주간 표시 : 소"/>
+		<image name="indun_icon_day_s" file="\skin\indun_skin.tga" imgrect="741 552 27 20" CMM_Caption="던전 일간 표시 : 소"/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_betrum_scoreboardT_skin" file="\skin\keynbet.tga" imgrect="0 528 352 88" CMM_Caption="배틀럼블 스코어 페이지"/>
@@ -6287,6 +6291,7 @@
 		<image name="couponbook_ribbon_l" file="\skin\attendance_sheet_skin.tga" imgrect="1 620 312 166 " CMM_Caption="리본 좌"/>
 		<image name="couponbook_ribbon_r" file="\skin\attendance_sheet_skin.tga" imgrect="1 787 154 216" CMM_Caption="리본 우"/>
 		<image name="barbershop_scissors_pic" file="\skin\attendance_sheet_skin.tga" imgrect="977 539 41 36" CMM_Caption="헤어샵 가위 아이콘"/>
+		<image name="briquetting_bg_skin" file="\skin\briquetting_bg_skin.tga" imgrect="0 0 710 520" CMM_Caption="브리케팅 완성 bg"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -8436,11 +8441,14 @@
 		<image name="icon_grass_irritation" file="\icon\buff_icon2.tga" imgrect="256 128 128 128" CMM_Caption="풀독"/>
 		<image name="icon_the_scent_of_a_flower" file="\icon\buff_icon2.tga" imgrect="384 128 128 128" CMM_Caption="꽃향기"/>
 		<image name="icon_token_guild_1" file="\icon\buff_icon2.tga" imgrect="512 128 128 128" CMM_Caption="길드원 증표 버프"/>
+		<image name="icon_thurible02" file="\icon\buff_icon2.tga" imgrect="640 128 128 128" CMM_Caption="향로 이미지"/>
+		<image name="icon_thurible01" file="\icon\buff_icon2.tga" imgrect="768 128 128 128" CMM_Caption="켜진 향로 이미지"/>
 		<image name="icon_solidarity_medal" file="\icon\buff_icon2.tga" imgrect="896 128 128 128" CMM_Caption="결속의 증표 버프"/>
 		<image name="icon_Frostbite_DeBuff" file="\icon\buff_icon2.tga" imgrect="0 256 128 128" CMM_Caption="수속성 디버프 슬로우"/>
 		<image name="icon_weddingbird_have" file="\icon\buff_icon2.tga" imgrect="128 256 128 128" CMM_Caption="홍관조 버프"/>
-		<image name="icon_thurible02" file="\icon\buff_icon2.tga" imgrect="640 128 128 128" CMM_Caption="향로 이미지"/>
-		<image name="icon_thurible01" file="\icon\buff_icon2.tga" imgrect="768 128 128 128" CMM_Caption="켜진 향로 이미지"/>
+		<image name="icon_FatalBlow" file="\icon\buff_icon2.tga" imgrect="256 256 128 128" CMM_Caption="치명타"/>
+		<image name="icon_Transfer" file="\icon\buff_icon2.tga" imgrect="384 256 128 128" CMM_Caption="소환수에게 능력치 이전"/>
+		<image name="icon_KnockBack" file="\icon\buff_icon2.tga" imgrect="512 256 128 128" CMM_Caption="넉백"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

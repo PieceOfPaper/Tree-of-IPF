@@ -246,27 +246,6 @@ function SCR_BUFF_AFTERCALC_HIT_Ability_buff_attribute(self, from, skill, atk, r
 end
 
 
-function SCR_BUFF_AFTERCALC_HIT_Cleric_Revival_Buff(self, from, skill, atk, ret, buff)
-    
-    if self.HP <= ret.Damage then
-        local reviveSkillLv = GetBuffArgs(buff);
-        if reviveSkillLv == 0 then
-            reviveSkillLv = 1;
-        end
-            
-        ret.Damage = self.HP - 1;
-        local buffTime = reviveSkillLv * 1000;
-        if IsPVPServer(self) == 1 then
-             buffTime = 3000;
-        end
-
-        local key = GetSkillSyncKey(self, ret);
-        StartSyncPacket(self, key);
-        AddBuff(self, self, 'Cleric_Revival_Leave_Buff', reviveSkillLv, 0, buffTime, 1);
-        EndSyncPacket(self, key);
-    end
-end
-
 function SCR_BUFF_AFTERCALC_HIT_RevengedSevenfold_Buff(self, from, skill, atk, ret, buff)
     if IsSameActor(self, from) == "NO" and ret.Damage > 0 and GetRelation(self, from) == "ENEMY" and TryGetProp(skill, 'ClassType') ~= 'AbsoluteDamage' then
         local caster = GetBuffCaster(buff)
@@ -471,12 +450,12 @@ function SCR_BUFF_AFTERCALC_HIT_Incineration_Debuff(self, from, skill, atk, ret,
        local obj = targetList[i];
        for j = 1, listCnt do
            local buff = buffList[j];
-           local arg1, arg2 = GetBuffArg(buff)
-           local buffTime = GetBuffRemainTime(buff)
-          local buff2 = AddBuff(from, obj, buff.ClassName, arg1, arg2, buffTime, 1);
+               local arg1, arg2 = GetBuffArg(buff)
+               local buffTime = GetBuffRemainTime(buff)
+               local buff2 = AddBuff(from, obj, buff.ClassName, arg1, arg2, buffTime, 1);
+            end
        end
    end
-end
 
 function SCR_BUFF_AFTERCALC_ATK_EnchantLightning_Buff(self, from, skill, atk, ret, buff)
 
@@ -923,4 +902,13 @@ function SCR_BUFF_AFTERCALC_ATK_CriticalShot_Buff(self, from, skill, atk, ret, b
         local addDamageRate = buffOver * 0.1;
         ret.Damage = ret.Damage + math.floor(ret.Damage * addDamageRate);
     end
+end
+
+function SCR_BUFF_AFTERCALC_HIT_Mon_PainBarrier_Buff(self, from, skill, atk, ret, buff)
+    ret.KDPower = 0;
+    if ret.ResultType ~= HITRESULT_CRITICAL then
+        ret.ResultType = HITRESULT_BLOW;
+    end
+    ret.HitType = HIT_ENDURE;
+    ret.HitDelay = 0;
 end

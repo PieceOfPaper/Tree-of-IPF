@@ -163,12 +163,13 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
 	local tempItemGUID;
 	local tempItemID;
 	local tempItemName;
+    local tempItemName_NotClassName;
 
 	if isSuccess == 0 then
 		-- 1초월 밑으로 내려줘서는 안됨.
 		if transcend > 1 and targetPR > 0 then -- 사라질 아이템에 대해서는 초월 프로퍼티 변경할 필요 없다
 			TxAddIESProp(tx, targetItem, 'Transcend_MatCount', materialCount);
-			TxAddIESProp(tx, targetItem, 'Transcend', -1);
+			TxSetItemTranscend(tx, targetItem, targetItem.Transcend - 1);
 		end
 		if targetPR > 0 then			
 			TxAddIESProp(tx, targetItem, 'PR', -1);
@@ -176,13 +177,14 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
 			tempItemGUID = GetItemGuid(targetItem)
 			tempItemID = targetItem.ClassID
 			tempItemName = targetItem.ClassName
+            tempItemName_NotClassName = targetItem.Name;
 			TxTakeItemByObject(tx, targetItem, 1, "Transcend");
 			itemTake = true;
 		end
 	else
 		TxAddIESProp(tx, targetItem, 'Transcend_MatCount', materialCount);
 		TxAddIESProp(tx, targetItem, 'Transcend_SucessCount', materialCount);
-		TxAddIESProp(tx, targetItem, 'Transcend', 1);
+		TxSetItemTranscend(tx, targetItem, targetItem.Transcend + 1);
 	end
 	
 --	--EVENT_1804_TRANSCEND_SUCCESS_COUNT
@@ -193,6 +195,7 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
 --    	end
 --	end
 	
+	local itemName = targetItem.Name
 	local ret = TxCommit(tx);	
 	
 	if ret ~= "SUCCESS" then		
@@ -200,15 +203,19 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
 		ExecClientScp(pc, "ITEMTRANSCEND_FAIL_TO_TRANSCEND()");
 		return;
 	end
-	
+
     if isSuccess == 1 then
         if IsExistItemInAdventureBook(pc, targetItem.ClassID) == 'NO' then
             ALARM_ADVENTURE_BOOK_NEW(pc, targetItem.Name);
-        end
+		end
         AddAdventureBookItemPermanentInfo(pc, targetItem.ClassID, 'Transcend', transcend + 1);
+        SendHistorySysMsg(pc, 'Transcend{ISSUCCESS}{ITEM}{LEVEL}', 1, 'FFFF00', 'ISSUCCESS', ClMsg('SUCCESS'), 'ITEM', targetItem.Name, 'LEVEL', '+'..tostring(transcend + 1));
+	else        
+    	SendHistorySysMsg(pc, 'Transcend{ISSUCCESS}{ITEM}{LEVEL}', 1, 'FF00FF', 'ISSUCCESS', ClMsg('Fail'), 'ITEM', itemName, 'LEVEL', '+'..tostring(transcend + 1));
     end
 
 	if itemTake == true then
+        SendHistorySysMsg(pc, 'ItemDeleted', 1, 'FF0000', 'ITEM', tempItemName_NotClassName);
 		ItemTranscendMongoLog(pc, nil, "Stone", isSuccess, lastTranscend, lastTranscend_MatCount, materialName, materialCount, tempItemGUID, tempItemID, tempItemName);
 	else
 		ItemTranscendMongoLog(pc, targetItem, "Stone", isSuccess, lastTranscend, lastTranscend_MatCount, materialName, materialCount);
@@ -374,7 +381,7 @@ end
 --
 --	local tx = TxBegin(pc);
 --	TxSetIESProp(tx, targetItem, 'Transcend_MatCount', 0);	
---	TxSetIESProp(tx, targetItem, 'Transcend', 0);
+--	TxSetItemTranscend(tx, targetItem, 0);
 --	TxSetIESProp(tx, targetItem, 'Transcend_SucessCount', 0)	
 --	TxTakeItemByObject(tx, materialItem, 1, "TranscendRemove");
 --	local ret = TxCommit(tx);	
@@ -516,7 +523,7 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 	if isSuccess == 0 then
 		-- can not make transcend value under 1
 		if transcend > 1 and targetPR > 0 then -- targetItem will be deleted
-			TxAddIESProp(tx, targetItem, 'Transcend', -1);
+			TxSetItemTranscend(tx, targetItem, targetItem.Transcend - 1);
 		end
 		if targetPR > 0 then			
 			TxAddIESProp(tx, targetItem, 'PR', -1);
@@ -528,7 +535,7 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 			itemTake = true;
 		end
 	else
-		TxSetIESProp(tx, targetItem, 'Transcend', expectedTranscend);
+		TxSetItemTranscend(tx, targetItem, expectedTranscend);
 	end
 	
 	local ret = TxCommit(tx);	

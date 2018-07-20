@@ -826,3 +826,16 @@ function SCR_CARDEFFECT_DAMAGE_REDUCTION_RATE_FROM_MON(self, target, obj, TypeVa
         end
     end
 end
+
+function SCR_CARDEFFECT_SUMMON_ATK_RANGE(self, target, obj, TypeValue, arg1, arg2, arg3)
+    if TypeValue ~= 0 then
+        if arg3 == "None" then
+            arg3 = 0;
+        end
+        
+        local aveAtk = TypeValue * arg3
+        local aveAtkFromPC = GetExProp(self, "MON_AVERAGE_ATK_FROM_PC");
+
+        SetExProp(self, "MON_AVERAGE_ATK_FROM_PC", aveAtkFromPC + aveAtk);
+    end
+end

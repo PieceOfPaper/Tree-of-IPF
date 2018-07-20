@@ -1,4 +1,4 @@
-local json = require "json"
+local json = require "json_imc"
 local emblemPath = nil
 local bannerPath = nil
 local introImagePath = nil
@@ -292,10 +292,7 @@ function INTRO_IMAGE_UPLOADED(code, ret_json)
 		end
         return;
 	end
-
-
 	ui.MsgBox(ClMsg("ImageUploadSuccess"))
-	--os.remove(tempfilePath)
 end
 
 function SAVE_GUILD_PROMOTE(frame, control)

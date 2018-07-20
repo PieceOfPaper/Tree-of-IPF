@@ -215,13 +215,11 @@ function TRANSCEND_SCROLL_RESULT_UPDATE(frame, isSuccess)
 	
 	local timesecond = 0;
 	if isSuccess == 1 then
-		ui.SysMsg(ScpArgMsg("SuccessToTranscend"));
 		imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_SUCCESS_SOUND"));
 		slot:StopActiveUIEffect();
 		slot:PlayActiveUIEffect();
 		timesecond = 2;
 	else
-		ui.SysMsg(ScpArgMsg("FailedToTranscend"));
 		imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_FAIL_SOUND"));
 		local slot_temp = GET_CHILD(frame, "slot_temp");
 		slot_temp:ShowWindow(1);
@@ -232,10 +230,6 @@ function TRANSCEND_SCROLL_RESULT_UPDATE(frame, isSuccess)
 	
 	local invItem = GET_SLOT_ITEM(slot);
 	if invItem == nil then
-		if isSuccess == 0 then
-			ui.SysMsg(ClMsg('ItemDeleted'));
-		end
-		
 		slot:ClearIcon();
 		return;
 	end

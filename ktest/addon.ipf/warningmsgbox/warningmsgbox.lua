@@ -23,8 +23,14 @@ function WARNINGMSGBOX_FRAME_OPEN(clmsg, yesScp, noScp)
 
 	noBtn:SetEventScript(ui.LBUTTONUP, '_WARNINGMSGBOX_FRAME_OPEN_NO');
 	noBtn:SetEventScriptArgString(ui.LBUTTONUP, noScp);
---	yesBtn:SetLBtnUpScp(yesScp)
 
+	local buttonMargin = noBtn:GetMargin();
+	local warningbox = GET_CHILD_RECURSIVELY(frame, 'warningbox');
+	local totalHeight = warningbox:GetY() + warningText:GetY() + warningText:GetHeight() + noBtn:GetHeight() + 2 * buttonMargin.bottom;
+	local bg = GET_CHILD_RECURSIVELY(frame, 'bg');
+	warningbox:Resize(warningbox:GetWidth(), totalHeight);
+	bg:Resize(bg:GetWidth(), totalHeight);
+	frame:Resize(frame:GetWidth(), totalHeight);	
 end
 
 function _WARNINGMSGBOX_FRAME_OPEN_YES(parent, ctrl, argStr, argNum)
@@ -33,10 +39,8 @@ function _WARNINGMSGBOX_FRAME_OPEN_YES(parent, ctrl, argStr, argNum)
 	if scp ~= nil then
 		scp()
 	end
-	--RunScript(argStr)
 	ui.CloseFrame("warningmsgbox")
 end
-
 
 function _WARNINGMSGBOX_FRAME_OPEN_NO(parent, ctrl, argStr, argNum)
 	IMC_LOG("INFO_NORMAL", "_WARNINGMSGBOX_FRAME_OPEN_NO" .. argStr)

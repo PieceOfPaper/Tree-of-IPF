@@ -1,4 +1,4 @@
-﻿-- buff_monster_abiliy.lua
+-- buff_monster_abiliy.lua
 
 function MON_BORN_ATTRIBUTE_Avoidance(self)
     AddBuff(self, self, 'Ability_buff_Avoidance');
@@ -122,7 +122,6 @@ end
 
 function MON_BORN_UNRECOVERABLE_HP(self)
     AddBuff(self, self, "UC_UnrecoverableHP")
-    print(IsBuffApplied(self, "UC_UnrecoverableHP"))
 end
 
 -- Field Boss --
@@ -577,6 +576,12 @@ function SCR_PC_Summon_ENTER(self, buff, arg1, arg2, over)
     
     local addFactorRate = 0;
     local addCON = 0;
+    local byItem_DEF = 0;
+    local byItem_MDEF = 0;
+    local byItem_MHP = 0;
+    local addPATK = 0;
+    local addMATK = 0;
+    
     if myOwner ~= nil then
         if myOwner.ClassName == 'PC' then
             local ownerLv = TryGetProp(myOwner, "Lv");
@@ -595,19 +600,90 @@ function SCR_PC_Summon_ENTER(self, buff, arg1, arg2, over)
             end
             
             addFactorRate = addFactorRate / 100;
-            
             addCON = math.floor(addCON + (ownerMNA * 0.75));
+            
+            -- RANGOVAS SET Effect --
+            local buff, cnt = GetBuffListByProp(myOwner, "Keyword", "SummonAddStatus")
+            if cnt == 1 and buff[1] ~= nil then
+                local itemBuff = buff[1]
+                local addMhpRate, addDefRate = GetBuffArg(itemBuff);
+                local limitMHP, limitDEF, limitMDEF = GetBuffArgs(itemBuff);
+                
+                byItem_MHP = myOwner.MHP * (addMhpRate/100);
+                byItem_DEF = myOwner.DEF * (addDefRate/100);
+                byItem_MDEF = myOwner.MDEF * (addDefRate/100);
+                
+                if limitMHP ~= nil then
+                    if byItem_MHP >= limitMHP then
+                        byItem_MHP = limitMHP;
+                    end
+                end
+                
+                if limitDEF ~= nil then
+                    if byItem_DEF >= limitDEF then
+                        byItem_DEF = limitDEF;
+                    end
+                end
+                
+                if limitMDEF ~= nil then
+                    if byItem_MDEF >= limitMDEF then
+                        byItem_MDEF = limitMDEF;
+                    end
+                end
+            end
+            
+            -- Legend_card_FrosterLord Effect --
+            local cardRate = GetExProp(myOwner, "MON_AVERAGE_ATK_FROM_PC");
+            if cardRate ~= nil and cardRate ~= 0 then
+                local maxPATK = TryGetProp(self, "MAXPATK");
+                if maxPATK == nil then
+                    maxPATK = 0;
+                end
+                
+                local minPATK = TryGetProp(self, "MINPATK");
+                if minPATK == nil then
+                    minPATK = 0;
+                end
+                
+                local maxMATK = TryGetProp(self, "MAXMATK");
+                if maxMATK == nil then
+                    maxMATK = 0;
+                end
+                
+                local minMATK = TryGetProp(self, "MINMATK");
+                if minMATK == nil then
+                    minMATK = 0;
+                end
+                
+                addPATK = math.floor((maxPATK - minPATK) * (cardRate/100));
+                addMATK = math.floor((maxMATK - minMATK) * (cardRate/100));
         end
+    end
     end
     
     self.SkillFactorRate_RATE_BM = self.SkillFactorRate_RATE_BM + addFactorRate;
+    
     self.CON_BM = self.CON_BM + addCON;
+    self.DEF_BM = self.DEF_BM + byItem_DEF;
+    self.MDEF_BM = self.MDEF_BM + byItem_MDEF;
+    self.MHP_BM = self.MHP_BM + byItem_MHP;
+    self.MINPATK_BM = self.MINPATK_BM + addPATK;
+    self.MINMATK_BM = self.MINMATK_BM + addMATK;
     
     SetExProp(buff, "ADD_FACTOR_RATE", addFactorRate);
     SetExProp(buff, "ADD_CON", addCON);
+    SetExProp(buff, "DEF_BM", byItem_DEF);
+    SetExProp(buff, "MDEF_BM", byItem_MDEF);
+    SetExProp(buff, "MHP_BM", byItem_MHP);
+    SetExProp(buff, "MINPATK_BM", addPATK);
+    SetExProp(buff, "MINMATK_BM", addMATK);
     
     Invalidate(self, "SkillFactorRate");
     Invalidate(self, "CON");
+    Invalidate(self, "DEF");
+    Invalidate(self, "MDEF");
+    Invalidate(self, "MINPATK");
+    Invalidate(self, "MINMATK");
     
     Invalidate(self, "MHP");
     AddHP(self, self.MHP);
@@ -616,9 +692,19 @@ end
 function SCR_PC_Summon_LEAVE(self, buff, arg1, arg2, over)
     local addFactorRate = GetExProp(buff, "ADD_FACTOR_RATE");
     local addCON = GetExProp(buff, "ADD_CON");
+    local addDEF = GetExProp(buff, "DEF_BM");
+    local addMDEF = GetExProp(buff, "MDEF_BM");
+    local addMHP = GetExProp(buff, "MHP_BM");
+    local addPATK = GetExProp(buff, "MINPATK_BM");
+    local addMATK = GetExProp(buff, "MINMATK_BM");
     
     self.SkillFactorRate_RATE_BM = self.SkillFactorRate_RATE_BM - addFactorRate;
     self.CON_BM = self.CON_BM - addCON;
+    self.DEF_BM = self.DEF_BM - addDEF;
+    self.MDEF_BM = self.MDEF_BM - addMDEF;
+    self.MHP_BM = self.MHP_BM - addMHP;
+    self.MINPATK_BM = self.MINPATK_BM - addPATK;
+    self.MINMATK_BM = self.MINMATK_BM - addMATK;
 end
 
 function SCR_PC_Summon_RATETABLE(self, from, skill, atk, ret, rateTable, buff)
@@ -655,6 +741,24 @@ end
 function SCR_BUFF_ENTER_Ability_buff_PC_SummonBoss(self, buff, arg1, arg2, over)
 --    SCR_PC_Summon_ENTER(self, buff, arg1, arg2, over);
     RunScript("SCR_PC_Summon_ENTER", self, buff, arg1, arg2, over)
+end
+
+function SCR_BUFF_UPDATE_Ability_buff_PC_SummonBoss(self, buff, arg1, arg2, RemainTime, ret, over)
+    local myOwner = nil;
+    if GetOwner(self) ~= nil then
+        myOwner = GetOwner(self)
+    end
+    
+    -- RANGOVAS LECK EFFECT -- 
+    if myOwner ~= nil then
+        if myOwner.ClassName == 'PC' then
+            if IsBuffApplied(myOwner, "SUMMON_STANCE_NO_FALLDOWN") == "YES" then
+                AddBuff(myOwner, self, "Mon_PainBarrier_Buff");
+            end
+        end
+    end
+    
+    return 1;
 end
 
 function SCR_BUFF_LEAVE_Ability_buff_PC_SummonBoss(self, buff, arg1, arg2, over)
@@ -713,6 +817,23 @@ end
 function SCR_BUFF_ENTER_Ability_buff_PC_Summon(self, buff, arg1, arg2, over)
 --    SCR_PC_Summon_ENTER(self, buff, arg1, arg2, over);
     RunScript("SCR_PC_Summon_ENTER", self, buff, arg1, arg2, over)
+end
+
+function SCR_BUFF_UPDATE_Ability_buff_PC_Summon(self, buff, arg1, arg2, RemainTime, ret, over)
+    local myOwner = nil;
+    if GetOwner(self) ~= nil then
+        myOwner = GetOwner(self)
+    end
+    
+    if myOwner ~= nil then
+        if myOwner.ClassName == 'PC' then
+            if IsBuffApplied(myOwner, "SUMMON_STANCE_NO_FALLDOWN") == "YES" then
+                AddBuff(myOwner, self, "Mon_PainBarrier_Buff");
+            end
+        end
+    end
+
+    return 1;
 end
 
 function SCR_BUFF_LEAVE_Ability_buff_PC_Summon(self, buff, arg1, arg2, over)

@@ -7,17 +7,38 @@ function ITEMRANDOMRESET_ON_INIT(addon, frame)
 end
 
 function ON_OPEN_DLG_ITEMRANDOMRESET(frame)
+	local itemrevertrandom = ui.GetFrame('itemrevertrandom');
+	if itemrevertrandom ~= nil and itemrevertrandom:IsVisible() == 1 then
+		return;
+	end
+
+	local itemunrevertrandom = ui.GetFrame('itemunrevertrandom');
+	if itemunrevertrandom ~= nil and itemunrevertrandom:IsVisible() == 1 then
+		return;
+	end
+
 	frame:ShowWindow(1);
 end
 
-function ITEMRANDOMRESET_OPEN(frame)	
+function ITEMRANDOMRESET_OPEN(frame)
+	local itemrevertrandom = ui.GetFrame('itemrevertrandom');
+	if itemrevertrandom ~= nil and itemrevertrandom:IsVisible() == 1 then
+		frame:ShowWindow(0);
+		ui.OpenFrame("inventory");
+		return;
+	end
+
+	local itemunrevertrandom = ui.GetFrame('itemunrevertrandom');
+	if itemunrevertrandom ~= nil and itemunrevertrandom:IsVisible() == 1 then
+		frame:ShowWindow(0);
+		ui.OpenFrame("inventory");
+		return;
+	end
+
 	SET_RANDOMRESET_RESET(frame);
 	CLEAR_ITEMRANDOMRESET_UI()
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMRANDOMRESET_INV_RBTN")	
-	ui.OpenFrame("inventory");	
-
-	ui.CloseFrame('itemrevertrandom');
-	ui.CloseFrame('itemunrevertrandom');
+	ui.OpenFrame("inventory");
 end
 
 function ITEMRANDOMRESET_CLOSE(frame)

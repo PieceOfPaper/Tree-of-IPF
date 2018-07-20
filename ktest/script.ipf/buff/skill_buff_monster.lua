@@ -3106,6 +3106,22 @@ function SCR_BUFF_LEAVE_UC_UnrecoverableHP(self, buff, arg1, arg2, over)
 
 end
 
+function SCR_BUFF_ENTER_SPECTOR_PATTERN_ONE_BUFF(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_SPECTOR_PATTERN_ONE_BUFF(self, buff, arg1, arg2, RemainTime, ret, over)
+    local remainderTime = math.floor(RemainTime/1000)
+    local timer = remainderTime + 1
+    SetTitle(self, timer)
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_SPECTOR_PATTERN_ONE_BUFF(self, buff, arg1, arg2, over)
+    SetTitle(self, "")
+    RunSimpleAI(self,'SPECTOR_PATTERN_ONE')
+    PlayAnim(self, 'ON_RED')
+end
 function SCR_BUFF_ENTER_Monster_Stop_Debuff(self, buff, arg1, arg2, over)
 
     local defencedBM = 0;
@@ -3133,4 +3149,153 @@ function SCR_BUFF_LEAVE_Monster_Stop_Debuff(self, buff, arg1, arg2, over)
     local defencedBM = GetExProp(buff, 'DEFENCED_BM');
     self.MaxDefenced_BM = self.MaxDefenced_BM - defencedBM;
     
+end
+
+function SCR_BUFF_ENTER_VALDOVAS_DEBUFF(self, buff, arg1, arg2, over)
+    
+    if over >= 10 then
+       over = 10;
+    end
+end
+
+function SCR_BUFF_UPDATE_VALDOVAS_DEBUFF(self, buff, arg1, arg2, RemainTime, ret, over)
+    local damage = 20000;
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        return 0;
+    end
+    local countDown = 10 - over
+    SetTitle(self, '{#ff0000}'..countDown)
+    
+    if over == 10 then
+        TakeDamage(caster, self, "None", damage, "Poison", "Magic", "TrueDamage", HIT_BASIC, HITRESULT_BLOW, 0, 0, 0);
+        return 0;
+    end
+    return 1; 
+end
+
+function SCR_BUFF_LEAVE_VALDOVAS_DEBUFF(self, buff, arg1, arg2, over)
+    SetTitle(self, " ")
+end
+
+
+
+function SCR_BUFF_ENTER_ABUSE_AMPOULE(self, buff, arg1, arg2, over)
+    local addATK = 1500
+    SetExProp(buff, 'ADD_ATK_ABUSE_AMPOULE', addATK)
+    self.PATK_BM = self.PATK_BM + addATK
+    self.MATK_BM = self.MATK_BM + addATK
+end
+
+function SCR_BUFF_UPDATE_ABUSE_AMPOULE(self, buff, arg1, arg2, RemainTime, ret, over)
+
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        caster = self
+    end
+    
+    local mySTA = GetStamina(self)
+    local damage = 5000
+    if mySTA == self.MaxSta or IsBuffApplied(self, 'SEQUELA_AMPOULE') == 'YES' then
+        TakeDamage(self, self, "None", damage, "Poison", "Magic", "TrueDamage", HIT_BASIC, HITRESULT_BLOW, 0, 0, 0);
+    end
+    
+    if mySTA ~= 0 then
+        AddStamina(self, -1000)
+        return 1;
+    else
+        return 0
+    end
+end
+
+function SCR_BUFF_LEAVE_ABUSE_AMPOULE(self, buff, arg1, arg2, over)
+    local addATK = GetExProp(buff, 'ADD_ATK_ABUSE_AMPOULE')
+    self.PATK_BM = self.PATK_BM - addATK
+    self.MATK_BM = self.MATK_BM - addATK
+    AddStamina(self, -9999)
+    AddBuff(self, self, 'SEQUELA_AMPOULE', 1, 0, 15000, 1)
+end
+
+function SCR_BUFF_ENTER_SEQUELA_AMPOULE_DENGENERATE(self, buff, arg1, arg2, over)
+    
+end
+
+function SCR_BUFF_UPDATE_SEQUELA_AMPOULE_DENGENERATE(self, buff, arg1, arg2, RemainTime, ret, over)
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        return 0;
+    end
+    local damage = self.MHP * 0.07
+    TakeDamage(self, self, "None", damage, "Poison", "Magic", "TrueDamage", HIT_BASIC, HITRESULT_BLOW, 0, 0, 0);
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_SEQUELA_AMPOULE_DENGENERATE(self, buff, arg1, arg2, over)
+    AddBuff(self, self, 'SEQUELA_AMPOULE', 1, 0, 10000, 1)
+end
+
+
+--Freeze Effect--
+function SCR_BUFF_ENTER_FREEZE_EFFECT(self, buff, arg1, arg2, over)
+    --AttachEffect(self, 'F_ground143_violet_ice', 0.5, 'BOT');
+end
+
+function SCR_BUFF_LEAVE_FREEZE_EFFECT(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_ENTER_FORST_OVER(self, buff, arg1, arg2, over)
+    if over >= 3 then
+       over = 3;
+    end
+end
+
+function SCR_BUFF_UPDATE_FORST_OVER(self, buff, arg1, arg2, RemainTime, ret, over)
+    local caster = GetBuffCaster(buff)
+    
+    if caster == nil then
+        return 0;
+    end
+    if over == 3 then
+        AddBuff(self, self, 'RAID_FREEZING', 1, 0, 3000, 1)
+        return 0;
+    end
+    
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_FORST_OVER(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_ENTER_D_UNIQ_ATTRACK_TREE_TIMER(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_D_UNIQ_ATTRACK_TREE_TIMER(self, buff, arg1, arg2, RemainTime, ret, over)
+    local remainderTime = math.floor(RemainTime/1000)
+    local timer = remainderTime + 1
+    SetTitle(self, timer)
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_D_UNIQ_ATTRACK_TREE_TIMER(self, buff, arg1, arg2, over)
+    SetTitle(self, " ")    
+    RemoveBuff(self, 'D_UNIQ_ATTRACK_TREE_TIMER')
+end
+
+
+
+function SCR_BUFF_ENTER_RAID_FREEZING(self, buff, arg1, arg2, over)
+    local defencedBM = 0;
+    local caster = GetBuffCaster(buff);
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+end
+
+function SCR_BUFF_UPDATE_RAID_FREEZING(self, buff, arg1, arg2, RemainTime, ret, over)
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_RAID_FREEZING(self, buff, arg1, arg2, over)
+
 end

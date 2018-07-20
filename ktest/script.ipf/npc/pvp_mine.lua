@@ -203,10 +203,14 @@ function SCR_BUFF_ENTER_PVP_MINE_BUFF1(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_UPDATE_PVP_MINE_BUFF1(self, buff, arg1, arg2, RemainTime, ret, over)
+	RemoveEffect(self, 'F_sys_team_ground_green');
+	
     if GetZoneName(self) ~= 'pvp_Mine' then
         return 0;
     end
-
+    
+	AttachEffect(self, 'F_sys_team_ground_green', 3.5, 'Ground');
+	
     return 1;
 end
 
@@ -222,10 +226,14 @@ function SCR_BUFF_ENTER_PVP_MINE_BUFF2(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_UPDATE_PVP_MINE_BUFF2(self, buff, arg1, arg2, RemainTime, ret, over)
+	RemoveEffect(self, 'F_sys_team_ground_green');
+	
     if GetZoneName(self) ~= 'pvp_Mine' then
         return 0;
     end
-
+	
+	AttachEffect(self, 'F_sys_team_ground_green', 3.5, 'Ground');
+	
     return 1;
 end
 
@@ -314,6 +322,16 @@ function SCR_PVP_MINE_START_ALARAM_TS_BORN_UPDATE(self)
                 self.NumArg1 = 3
             elseif min == 59 and self.NumArg1 == 3 and sec == 58 then
                 BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_start"), "");
+                self.NumArg1 = 0
+            end
+        end
+        
+        if hour == 21 then
+            if min == 17 and self.NumArg1 == 0 then
+                BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_2nd_before_3m"), "");
+                self.NumArg1 = 1
+            elseif min == 19 and self.NumArg1 == 1 and sec == 58 then
+                BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_2nd_before_start"), "");
                 self.NumArg1 = 0
             end
         end

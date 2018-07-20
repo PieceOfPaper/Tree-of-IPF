@@ -16,12 +16,19 @@ function OPEN_REVERT_RANDOM(invItem)
         return;
     end
 
+    local itemunrevertrandom = ui.GetFrame('itemunrevertrandom');
+    if itemunrevertrandom ~= nil and itemunrevertrandom:IsVisible() == 1 then
+    	return;
+    end
+
+    local itemrandomreset = ui.GetFrame('itemrandomreset');
+    if itemrandomreset ~= nil and itemrandomreset:IsVisible() == 1 then
+    	return;
+    end
+
 	frame:SetUserValue('REVERTITEM_GUID', invItem:GetIESID());
 	frame:ShowWindow(1);	
-	isCloseable = 1
-
-	ui.CloseFrame('itemrandomreset');
-	ui.CloseFrame('itemunrevertrandom');
+	isCloseable = 1;
 	ui.OpenFrame('inventory');
 end
 
@@ -39,12 +46,12 @@ function ITEM_REVERT_RANDOM_OPEN(frame)
 	tolua.cast(tab, "ui::CTabControl");
 	tab:SelectTab(0);
 	
-	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEM_REVERT_RANDOM_INV_RBTN")	
-
-
+	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEM_REVERT_RANDOM_INV_RBTN");
 end
 
 function ITEM_REVERT_RANDOM_CLOSE(frame)
+	INVENTORY_SET_CUSTOM_RBTNDOWN('None');
+	
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
@@ -240,9 +247,8 @@ function ITEM_REVERT_RANDOM_EXEC(frame)
 	frame = frame:GetTopParentFrame();
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 	local invItem = GET_SLOT_ITEM(slot);
-
-	if invItem == nil then
-		return
+	if invItem == nil then		
+		return;
 	end
 
 	local text_havematerial = GET_CHILD_RECURSIVELY(frame, "text_havematerial")
@@ -259,7 +265,6 @@ function ITEM_REVERT_RANDOM_EXEC(frame)
 
 
 	local clmsg = ScpArgMsg("DoRevertRandomReset")
---	WARNINGMSGBOX_FRAME_OPEN(clmsg, "_ITEM_REVERT_RANDOM_EXEC", "_ITEM_REVERT_RANDOM_CANCEL")
 	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEM_REVERT_RANDOM_EXEC", "_ITEM_REVERT_RANDOM_CANCEL");
 end
 
@@ -282,7 +287,7 @@ function _ITEM_REVERT_RANDOM_EXEC()
 
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 	local invItem = GET_SLOT_ITEM(slot);
-	if invItem == nil then
+	if invItem == nil then		
 		return;
 	end
 
@@ -297,16 +302,12 @@ function _ITEM_REVERT_RANDOM_EXEC()
 	if ui.GetFrame("apps") ~= nil then
 		ui.CloseFrame("apps")
 	end
-
 	
 	session.ResetItemList();
-	session.AddItemID(frame:GetUserValue('REVERTITEM_GUID'));
+	session.AddItemID(frame:GetUserValue('REVERTITEM_GUID'));	
 	session.AddItemID(invItem:GetIESID());
 	local resultlist = session.GetItemIDList();
 	item.DialogTransaction("REVERT_ITEM_OPTION", resultlist);
---	SUCCESS_REVERT_RANDOM_OPTION(frame)
-	return
-
 end
 
 function SUCCESS_REVERT_RANDOM_OPTION(frame)
@@ -453,8 +454,6 @@ function REMOVE_REVERT_RANDOM_TARGET_ITEM(frame)
 	end
 
 	frame = frame:GetTopParentFrame();
-
---	local isCloseable = frame:GetUserValue("IS_CLOSEABLE_STATE")
 	if isCloseable == 0 then
 		ui.SysMsg(ClMsg("CannotCloseRandomReset"));
 		return
@@ -503,35 +502,25 @@ function ITEM_REVERT_RANDOM_INV_RBTN(itemObj, slot)
 end
 
 function ITEM_OPTION_SELECT_BEFORE(frame)
-
-
 	local frame = ui.GetFrame("itemrevertrandom");
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot")
 	local icon = slot:GetIcon()
 	if icon == nil then
-		print('--')
-		--아이콘이 nil 일떄 경고
 		return ""
 	end
 
 	local iconInfo = icon:GetInfo();
 	if iconInfo == nil then
-		print('--')
-			--아이콘이 nil 일떄 경고
 		return ""
 	end
 
 	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
 	if invItem == nil then
-		print('--')
-		--인벤 아이템 nil
 		return ""
 	end
 
 	local obj = GetIES(invItem:GetObject());
 	if obj == nil then
-		print('--')
-	 	--obj nil
 		return ""
 	end
 
@@ -546,35 +535,27 @@ function ITEM_OPTION_SELECT_AFTER(frame)
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot")
 	local icon = slot:GetIcon()
 	if icon == nil then
-		print('--')
-		--아이콘이 nil 일떄 경고
 		return ""
 	end
 
 	local iconInfo = icon:GetInfo();
 	if iconInfo == nil then
-		print('--')
-			--아이콘이 nil 일떄 경고
 		return ""
 	end
 
 	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
 	if invItem == nil then
-		print('--')
-		--인벤 아이템 nil
 		return ""
 	end
 
 	local obj = GetIES(invItem:GetObject());
 	if obj == nil then
-		print('--')
-	 	--obj nil
 		return ""
 	end
 
 	local clmsg = ScpArgMsg("ChangeRevertRandomOption{ItemName}", "ItemName", obj.Name)
 	local yesScp = string.format("ITEMREVERTRANDOM_SEND_ANSWER");
-	REVERTRANDOM_AGREEBOX_FRAME_OPEN(clmsg, obj, yesScp, "Yes")
+	REVERTRANDOM_AGREEBOX_FRAME_OPEN(clmsg, obj, yesScp, "Yes");
 end
 
 function ITEM_OPTION_SELECT_GETNAME()
@@ -582,36 +563,28 @@ function ITEM_OPTION_SELECT_GETNAME()
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot")
 	local icon = slot:GetIcon()
 	if icon == nil then
-		print('--')
-		--아이콘이 nil 일떄 경고
 		return ""
 	end
 
 	local iconInfo = icon:GetInfo();
 	if iconInfo == nil then
-		print('--')
-			--아이콘이 nil 일떄 경고
 		return ""
 	end
 
 	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
 	if invItem == nil then
-		print('--')
-		--인벤 아이템 nil
 		return ""
 	end
 
 	local obj = GetIES(invItem:GetObject());
 	if obj == nil then
-		print('--')
-	 	--obj nil
 		return ""
 	end
 
 	return obj.Name
 end
 
-function SHOW_REVERT_ITEM_RESULT(itemGuid, _propNameList, _propValueList)	
+function SHOW_REVERT_ITEM_RESULT(itemGuid, _propNameList, _propValueList)
 	local frame = ui.GetFrame('itemrevertrandom');
 	if frame == nil then
 		return
@@ -649,14 +622,22 @@ function _SHOW_REVERT_ITEM_RESULT(itemGuid)
 	if frame:IsVisible() == 0 then		
 		CLEAR_ITEM_REVERT_RANDOM_UI();
 		ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemGuid, 1);
+
+		local itemrandomreset = ui.GetFrame('itemrandomreset');
+		if itemrandomreset ~= nil and itemrandomreset:IsVisible() == 1 then
+			return;
+		end
+
+		local itemunrevertrandom = ui.GetFrame('itemunrevertrandom');
+		if itemunrevertrandom ~= nil and itemunrevertrandom:IsVisible() == 1 then
+			return;
+		end
+
 		frame:ShowWindow(1);
-		ui.CloseFrame('itemrandomreset');
-		ui.CloseFrame('itemunrevertrandom');
 		ui.OpenFrame('inventory');
 	end
 
-	if itemGuid == nil or itemGuid == 0 then
-		print("itemguid == nil")
+	if itemGuid == nil or itemGuid == 0 then		
 		return
 	end
 
@@ -783,27 +764,16 @@ function ITEMREVERTRANDOM_SEND_ANSWER(parent, ctrl, argStr, argNum)
 	
 
 	local icon = slot:GetIcon()
-	if icon == nil then
-		print('--')
+	if icon == nil then		
 		return
 	end
 
 	local iconInfo = icon:GetInfo();
 	if iconInfo == nil then
-		print('--')
 		return
 	end
 
 	session.inventory.SendLockItem(iconInfo:GetIESID(), 0)
-
---	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
---	controlset:SetGravity(ui.RIGHT, ui.TOP)
---	if true == selectItem.isLockState then
---		state = 0;
---		controlset:ShowWindow(0);
---	else
---		controlset:ShowWindow(1);
---	end
 
 	local resultlist = session.GetItemIDList();
 	local stringArgList = '';

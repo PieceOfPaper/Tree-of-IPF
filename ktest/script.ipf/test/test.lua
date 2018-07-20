@@ -52,8 +52,8 @@ function TEST_TXHIDE(pc)
     local tx = TxBegin(pc);
     TxHideNPC(tx,"MIKO_MASTER")
   
-	local ret = TxCommit(tx);
-	if ret ~= "SUCCESS" then
+    local ret = TxCommit(tx);
+    if ret ~= "SUCCESS" then
         print("tx fail");
         return;
     end
@@ -66,7 +66,7 @@ function TEST_TXUNHIDE(pc)
     TxUnHideNPC(tx,"MIKO_MASTER")
 
     local ret = TxCommit(tx);
-	if ret ~= "SUCCESS" then
+    if ret ~= "SUCCESS" then
        print("tx fail");
         return;
     end
@@ -74,16 +74,16 @@ end
 
 
 function TEST_GET_ITEM_COUNT_PARTY_WARE_HOUSE(pc, partyType, itemClassName)
-	if RequestLoadPartyInventory(pc, partyType) == 1 then
-		for i = 0 , 100 do
-			if IsPartyInventoryLoaded(pc, partyType) == 1 then
-				break;
-			end
+    if RequestLoadPartyInventory(pc, partyType) == 1 then
+        for i = 0 , 100 do
+            if IsPartyInventoryLoaded(pc, partyType) == 1 then
+                break;
+            end
 
-			sleep(100);
-		end
-	end
-	return GetItemCountInPartyWareHouse(pc, partyType, itemClassName);
+            sleep(100);
+        end
+    end
+    return GetItemCountInPartyWareHouse(pc, partyType, itemClassName);
 end
 
 function TEST_GIVE_GUILD_EVENT_REWARD(pc, eventID)
@@ -119,8 +119,8 @@ function TEST_GIVE_GUILD_EVENT_REWARD(pc, eventID)
     for l = 1, #itemlist do
         _TxGiveItemToPartyWareHouse(tx, PARTY_GUILD, itemlist[l], itemcount[l], "GuildEventReward", 0, nil);
     end    
-	local ret = TxCommit(tx);
-	if ret ~= "SUCCESS" then
+    local ret = TxCommit(tx);
+    if ret ~= "SUCCESS" then
         return;
     end
     for l = 1, #itemlist do
@@ -148,8 +148,8 @@ end
 
 function TEST_GIVE_GUILD_EVENT_REWARD_LOOP(pc, loopCnt)
     local clsList, cnt = GetClassList('GuildEvent');
-	for i=0, cnt-1 do
-		local cls = GetClassByIndexFromList(clsList, i);
+    for i=0, cnt-1 do
+        local cls = GetClassByIndexFromList(clsList, i);
         for j=1, loopCnt do
             TEST_GIVE_GUILD_EVENT_REWARD(pc, cls.ClassID)
         end
@@ -162,12 +162,12 @@ function SCR_GEN_EVENTNPC_CREATE(pc, column, value)
 --    local value = 'EVENT_1706_FREE_EXPUP_NPC'
 --    local value = 'KLAPEDA_FISHING_MANAGER'
     local result2 = SCR_GET_XML_IES('GenType_'..zone_name, column, value)
-
+    
     local result3
     if  result2 ~= nil and #result2 > 0 then
         result3 = SCR_GET_XML_IES('Anchor_'..zone_name, 'GenType', result2[1].GenType)
-	end
-
+    end
+    
     CREATE_NPC(pc, result2[1].ClassType, result3[1].PosX, result3[1].PosY, result3[1].PosZ, result3[1].Direction, result2[1].Faction, GetLayer(pc), result2[1].Name, result2[1].Dialog, result2[1].Enter, result2[1].Range, result2[1].Lv, result2[1].Leave, result2[1].Tactics, nil, nil, nil, result2[1].SimpleAI, result2[1].P_MaxDialog)
 end
 
@@ -182,7 +182,7 @@ end
 
 function TEST_DUMMYPC_FOR_EXPROP(self,propName)
      local x, y, z = GetPos(self);
-    local hp = self.MHP;
+     local hp = self.MHP;
     CLEAR_DUMMYPC_FOR_EXPROP(self, propName) -- 한번에 하나만 존재하도록 한다.
     local dpc = CREATE_DUMMYPC_FOR_EXPROP(self,propName, x, y , z) -- 더미를 생성한다.
     if dpc ~= nil then
@@ -208,7 +208,7 @@ function TEST_ORSHA(pc) --오르샤로 시작
     ExecClientScp(pc, scp);
 end
 
-function TEST_COLONY_SPECIAL_BOSS(pc)
+function TEST_COLONY_SPECIAL_BOSS(pc)  
     SetColonyWarBoss(pc);
 end
 
@@ -285,54 +285,54 @@ function TEST_INVALID_PARAM_TYPE(pc)
 end
 
 function TEST_PET_RESET_STAMINA(pc)
-	local pet = GetSummonedPet(pc);
-	RunScript("RESET_PET_STAMINA", pet);
+    local pet = GetSummonedPet(pc);
+    RunScript("RESET_PET_STAMINA", pet);
 end
 
 function TEST_SET_HIDDEN_QUEST(pc, jobName)
-	local cls = GetClass("Job", jobName);
-	if nil == cls then
-		return;
-	end
-	if cls.HiddenJob == "NO" then
-		return;
-	end
-	local etc = GetETCObject(pc);
-	local tx = TxBegin(pc);
-	TxSetIESProp(tx, etc, "HiddenJob_"..jobName, 300);
-	local ret = TxCommit(tx);
-	SendSysMsg(pc, "COMPLETE");
+    local cls = GetClass("Job", jobName);
+    if nil == cls then
+        return;
+    end
+    if cls.HiddenJob == "NO" then
+        return;
+    end
+    local etc = GetETCObject(pc);
+    local tx = TxBegin(pc);
+    TxSetIESProp(tx, etc, "HiddenJob_"..jobName, 300);
+    local ret = TxCommit(tx);
+    SendSysMsg(pc, "COMPLETE");
 end
 
 function TEST_SERVER_SCP(pc)
-	
-	ToAll(ScpArgMsg("GACHA_SITEM_GET_ALLMSG","PC", GetTeamName(pc),"ITEMNAME", "!!!!"))
+    
+    ToAll(ScpArgMsg("GACHA_SITEM_GET_ALLMSG","PC", GetTeamName(pc),"ITEMNAME", "!!!!"))
 
 end
 
 function TEST_ADD_BUFF_MON(pc, buffName)
-	local objList, objCount = SelectObject(pc, 200, 'ALL');
-	for i = 1, objCount do
-		local obj = objList[i];
+    local objList, objCount = SelectObject(pc, 200, 'ALL');
+    for i = 1, objCount do
+        local obj = objList[i];
 
-		AddBuff(pc, obj, buffName);		
-	end
+        AddBuff(pc, obj, buffName);     
+    end
 end
 
 function TEST_HOLD_HAWK(pc)
-	local hawk = GetSummonedPet(pc, PET_HAWK_JOBID);
-	SetHoldMonScp(hawk, 1);
+    local hawk = GetSummonedPet(pc, PET_HAWK_JOBID);
+    SetHoldMonScp(hawk, 1);
 end
 
 function TEST_UNHOLD_HAWK(pc)
-	local hawk = GetSummonedPet(pc, PET_HAWK_JOBID);
-	SetHoldMonScp(hawk, 0);
+    local hawk = GetSummonedPet(pc, PET_HAWK_JOBID);
+    SetHoldMonScp(hawk, 0);
 end
 
 function LUNCH_TEST()
 
-	local bob={}
-	bob[1] = "김천"
+    local bob={}
+    bob[1] = "김천"
 	bob[2] = "종김"
 	bob[3] = "중국집"
 	bob[4] = "소공동"
@@ -347,223 +347,223 @@ function SCR_TEST_TP_SHOP_DIALOG(self, pc)
 end
 
 function TEST_GET_ACHIEVE_HAIR(pc)
-	SCR_SET_ACHIEVE_POINT(pc, "HairColor1", 100)	-- 도제: 흰색
-	SCR_SET_ACHIEVE_POINT(pc, "HairColor2", 25)		-- 파퀘: 파란색
-	SCR_SET_ACHIEVE_POINT(pc, "HairColor3", 1)		-- 매너클: 분홍색
-	SCR_SET_ACHIEVE_POINT(pc, "HairColor4", 500)	-- 하나밍: 검은색
+    SCR_SET_ACHIEVE_POINT(pc, "HairColor1", 100)    -- 도제: 흰색
+    SCR_SET_ACHIEVE_POINT(pc, "HairColor2", 25)     -- 파퀘: 파란색
+    SCR_SET_ACHIEVE_POINT(pc, "HairColor3", 1)      -- 매너클: 분홍색
+    SCR_SET_ACHIEVE_POINT(pc, "HairColor4", 500)    -- 하나밍: 검은색
 end
 
 function TEST_MANUAL(pc)
-	local etc = GetETCObject(pc)
-	print("AllowedHairColor", etc.AllowedHairColor)
+    local etc = GetETCObject(pc)
+    print("AllowedHairColor", etc.AllowedHairColor)
 end
 
 function TEST_DIVIDE_ZERO(pc)
-	TestDivideZero(0);
+    TestDivideZero(0);
 end
 
 function TEST_GET_HAIR(pc)
 local etc = GetETCObject(pc);
-    local tx = TxBegin(pc);	
-	SET_ALLOW_HAIRCOLOR(tx, etc,'black');
-	SET_ALLOW_HAIRCOLOR(tx, etc,'blue');
-	SET_ALLOW_HAIRCOLOR(tx, etc,'white');
-	SET_ALLOW_HAIRCOLOR(tx, etc,'pink');
-	local ret = TxCommit(tx);
-	if ret == 'SUCCESS'  then
-		SendSysMsg(pc, "GainAchieveHairBlack");
-		SendSysMsg(pc, "GainAchieveHairBlue");
-		SendSysMsg(pc, "GainAchieveHairWhite");
-		SendSysMsg(pc, "GainAchieveHairPink");
-	end
+    local tx = TxBegin(pc); 
+    SET_ALLOW_HAIRCOLOR(tx, etc,'black');
+    SET_ALLOW_HAIRCOLOR(tx, etc,'blue');
+    SET_ALLOW_HAIRCOLOR(tx, etc,'white');
+    SET_ALLOW_HAIRCOLOR(tx, etc,'pink');
+    local ret = TxCommit(tx);
+    if ret == 'SUCCESS'  then
+        SendSysMsg(pc, "GainAchieveHairBlack");
+        SendSysMsg(pc, "GainAchieveHairBlue");
+        SendSysMsg(pc, "GainAchieveHairWhite");
+        SendSysMsg(pc, "GainAchieveHairPink");
+    end
 end
 
 function TEST_LOOKAT(pc)
-	RunScript('TEST_SKL_ABIL22', pc);
+    RunScript('TEST_SKL_ABIL22', pc);
 
 end
 
 function TEST_SKL_ABIL22(pc)
-	local skl = GetSkill(pc, 'Musketeer_HeadShot');
-	if nil == skl then
-		return;
-	end
+    local skl = GetSkill(pc, 'Musketeer_HeadShot');
+    if nil == skl then
+        return;
+    end
 
-	local tx = TxBegin(pc);
-	TxSetIESProp(tx, skl, "OverHeatGroup", 'HeadShot_OH');
-	TxSetIESProp(tx, skl, "SklUseOverHeat", 22000);
-	TxSetIESProp(tx, skl, "OverHeatDelay", 22000);
-	local ret = TxCommit(tx);
+    local tx = TxBegin(pc);
+    TxSetIESProp(tx, skl, "OverHeatGroup", 'HeadShot_OH');
+    TxSetIESProp(tx, skl, "SklUseOverHeat", 22000);
+    TxSetIESProp(tx, skl, "OverHeatDelay", 22000);
+    local ret = TxCommit(tx);
 end
 
 function RAID_TEST_SET_ENTER_COUNT(pc)
-	local etc = GetETCObject(pc);
-	local tx = TxBegin(pc);
-	if tx == nil then
-		return ;
-	end
+    local etc = GetETCObject(pc);
+    local tx = TxBegin(pc);
+    if tx == nil then
+        return ;
+    end
 
-	TxSetIESProp(tx, etc, 'IndunWeeklyEnteredCount_400', 0);
-	print(tx, etc)
-	local ret = TxCommit(tx);
-	Chat(pc, "set count: "..ret);
+    TxSetIESProp(tx, etc, 'IndunWeeklyEnteredCount_400', 0);
+    print(tx, etc)
+    local ret = TxCommit(tx);
+    Chat(pc, "set count: "..ret);
 end
 
 
 
 
 function TEST_RESET_INDUN_COUNT(pc)
-	RunScript("TX_TEST_RESET_INDUN_COUNT", pc);
+    RunScript("TX_TEST_RESET_INDUN_COUNT", pc);
 end
 
 function TX_TEST_RESET_INDUN_COUNT(pc)
-	local clslist, cnt  = GetClassList("Indun");
-	local tx = TxBegin(pc);
-	local etcObj = GetETCObject(pc);
-	for i = 0 , cnt do
-		local cls = GetClassByTypeFromList(clslist, i);
-		if cls ~= nil then
-			local propName = 'InDunCountType_' .. cls.PlayPerResetType;
-			if etcObj[propName] ~= 0 then
-				TxSetIESProp(tx, etcObj, propName, 0);
-			end
-		end
-	end;
-	local ret = TxCommit(tx);
+    local clslist, cnt  = GetClassList("Indun");
+    local tx = TxBegin(pc);
+    local etcObj = GetETCObject(pc);
+    for i = 0 , cnt do
+        local cls = GetClassByTypeFromList(clslist, i);
+        if cls ~= nil then
+            local propName = 'InDunCountType_' .. cls.PlayPerResetType;
+            if etcObj[propName] ~= 0 then
+                TxSetIESProp(tx, etcObj, propName, 0);
+            end
+        end
+    end;
+    local ret = TxCommit(tx);
 end
 
 
 function TEST_NEXON_PC(pc, state)
-	SetPremiumState(pc, state, NEXON_PC);
-	if 1 == tonumber(state) then
-		AddBuff(pc, pc, 'Premium_Nexon');
-	else
-		RemoveBuff(pc, 'Premium_Nexon');
-	end
+    SetPremiumState(pc, state, NEXON_PC);
+    if 1 == tonumber(state) then
+        AddBuff(pc, pc, 'Premium_Nexon');
+    else
+        RemoveBuff(pc, 'Premium_Nexon');
+    end
 end
 
 function TSET_RESET_TOKEN(pc)
-	
-	local aObj = GetAccountObj(pc);
-	
-	RunScript("TX_TSET_RESET_TOKEN", pc);
-	--RunScript("TX_TSET_RESET_BOOST_TOKEN", pc);
+    
+    local aObj = GetAccountObj(pc);
+    
+    RunScript("TX_TSET_RESET_TOKEN", pc);
+    --RunScript("TX_TSET_RESET_BOOST_TOKEN", pc);
 end
 
 function TX_TSET_RESET_TOKEN(pc)
-	REMOVE_PREMIUM_BENEFIT(pc, ITEM_TOKEN);
-	SetPremiumState(pc, 0, ITEM_TOKEN);
-	PremiumItemMongoLog(pc, "TokenTime", "ChetEnd", 0);
+    REMOVE_PREMIUM_BENEFIT(pc, ITEM_TOKEN);
+    SetPremiumState(pc, 0, ITEM_TOKEN);
+    PremiumItemMongoLog(pc, "TokenTime", "ChetEnd", 0);
 end
 
 function TEST_GET_ABILINFO(pc)
 
-	if pc == nil then
-		return
-	end
+    if pc == nil then
+        return
+    end
 
-	local fndList, fndCount = SelectObject(pc, 150, 'ALL');
-	for i = 1, fndCount do
-		local eachpc = fndList[i]
-		if eachpc.ClassName == 'PC' then
+    local fndList, fndCount = SelectObject(pc, 150, 'ALL');
+    for i = 1, fndCount do
+        local eachpc = fndList[i]
+        if eachpc.ClassName == 'PC' then
 
-			Chat(pc, "0 : "..eachpc.LearnAbilityID .." ".. eachpc.LearnAbilityTime)
-			Chat(pc, "1 : "..eachpc.LearnAbilityID_1 .." ".. eachpc.LearnAbilityTime_1)
-			Chat(pc, "2 : "..eachpc.LearnAbilityID_2 .." ".. eachpc.LearnAbilityTime_2)
-			Chat(pc, "3 : "..eachpc.LearnAbilityID_3 .." ".. eachpc.LearnAbilityTime_3)
-			Chat(pc, "4 : "..eachpc.LearnAbilityID_4 .." ".. eachpc.LearnAbilityTime_4)
-			Chat(pc, "5 : "..eachpc.LearnAbilityID_5 .." ".. eachpc.LearnAbilityTime_5)
-			
-		end
+            Chat(pc, "0 : "..eachpc.LearnAbilityID .." ".. eachpc.LearnAbilityTime)
+            Chat(pc, "1 : "..eachpc.LearnAbilityID_1 .." ".. eachpc.LearnAbilityTime_1)
+            Chat(pc, "2 : "..eachpc.LearnAbilityID_2 .." ".. eachpc.LearnAbilityTime_2)
+            Chat(pc, "3 : "..eachpc.LearnAbilityID_3 .." ".. eachpc.LearnAbilityTime_3)
+            Chat(pc, "4 : "..eachpc.LearnAbilityID_4 .." ".. eachpc.LearnAbilityTime_4)
+            Chat(pc, "5 : "..eachpc.LearnAbilityID_5 .." ".. eachpc.LearnAbilityTime_5)
+            
+        end
 
-	end
+    end
 end
 
 function TEST_LIKEIT(pc)
-	RunScript('TEST_LIKEIT2', pc, '', 1, "")
+    RunScript('TEST_LIKEIT2', pc, '', 1, "")
 end
 
 function TEST_LIKEIT2(pc)
 
-	local fndList, fndCount = SelectObject(pc, 350, 'ALL');
-	for i = 1, fndCount do
-		if fndList[i].ClassName == 'PC' then
+    local fndList, fndCount = SelectObject(pc, 350, 'ALL');
+    for i = 1, fndCount do
+        if fndList[i].ClassName == 'PC' then
 
-			PLAY_LIKE_IT_DIRECTION(pc,fndList[i])
-			break;
+            PLAY_LIKE_IT_DIRECTION(pc,fndList[i])
+            break;
 
-		end
+        end
 
-	end
+    end
 
 end
 
 function TESTLIKEIT3(pc)
-	RunScript('TESTLIKEIT2', pc, 'JOB_FLETCHER4_ITEM', 1, "Quest")
+    RunScript('TESTLIKEIT2', pc, 'JOB_FLETCHER4_ITEM', 1, "Quest")
 end
 
 function TESTLIKEIT4(pc,b,c,d)
-	print(b,c,d)
-	--PlayEffect(pc, 'I_light012')
-	PlayAnim(pc,'PUBLIC_THROW');
-	--PlayEffect(pc, "I_force067_ice", 1, 0 , "TOP")
+    print(b,c,d)
+    --PlayEffect(pc, 'I_light012')
+    PlayAnim(pc,'PUBLIC_THROW');
+    --PlayEffect(pc, "I_force067_ice", 1, 0 , "TOP")
 
-	local flyTime = 0.1;
-	local delayTime = 0.2;
+    local flyTime = 0.1;
+    local delayTime = 0.2;
 
-	local x, y, z = GetPos(pc);
-	--[[
-	CFdActor*			fromPosActor = GetThreadFdActor(context, 1);
-	CHECK_NULL(fromPosActor);
-	
-	CFdActor*			target = GetThreadFdActor_Null(context, 2);
-	CHECK_NULL(target);
+    local x, y, z = GetPos(pc);
+    --[[
+    CFdActor*           fromPosActor = GetThreadFdActor(context, 1);
+    CHECK_NULL(fromPosActor);
+    
+    CFdActor*           target = GetThreadFdActor_Null(context, 2);
+    CHECK_NULL(target);
 
-	// ??????
-	DWORD forceGuid = GenSkillForceGuid();
+    // ??????
+    DWORD forceGuid = GenSkillForceGuid();
 
-	imc::CStringID		eft = context->GetStringID(3, StrID::None);
-	float				scale = context->GetFloat(4);
-	imc::CStringID		snd = context->GetStringID(5, StrID::None);
-	imc::CStringID		finEft = context->GetStringID(6, StrID::None);
-	float				finScale = context->GetFloat(7);
-	imc::CStringID		finSnd = context->GetStringID(8, StrID::None);
-	imc::CStringID		destroy = context->GetStringID(9, StrID::None);
-	float				fSpeed = context->GetFloat(10);
-	float				easing = context->GetFloat(11);
-	float				gravity = context->GetFloat(12);
-	float				angle = context->GetFloat(13);
-	int					hitIndex = context->GetInt(14);
-	float				collRange = context->GetFloat(15);
-	float				createLength = context->GetFloat(16);
-	float				radiusSpd = context->GetFloat(17);
-	]]--
+    imc::CStringID      eft = context->GetStringID(3, StrID::None);
+    float               scale = context->GetFloat(4);
+    imc::CStringID      snd = context->GetStringID(5, StrID::None);
+    imc::CStringID      finEft = context->GetStringID(6, StrID::None);
+    float               finScale = context->GetFloat(7);
+    imc::CStringID      finSnd = context->GetStringID(8, StrID::None);
+    imc::CStringID      destroy = context->GetStringID(9, StrID::None);
+    float               fSpeed = context->GetFloat(10);
+    float               easing = context->GetFloat(11);
+    float               gravity = context->GetFloat(12);
+    float               angle = context->GetFloat(13);
+    int                 hitIndex = context->GetInt(14);
+    float               collRange = context->GetFloat(15);
+    float               createLength = context->GetFloat(16);
+    float               radiusSpd = context->GetFloat(17);
+    ]]--
 
-	local fndList, fndCount = SelectObject(pc, 1000, 'ALL');
-	for i = 1, fndCount do
-	print(fndCount, fndList[i].ClassName )
-		if fndList[i].ClassName == 'PC' then
-			print('hi')
-			PlayForceEffect(pc,fndList[i],"I_spread_out003_light",1.0,"None",
-			"None",1.0,"None","None",10.0,
-			10.0, 10.0, 10.0, 90, 1.0,
-			1.0, 1.0)
+    local fndList, fndCount = SelectObject(pc, 1000, 'ALL');
+    for i = 1, fndCount do
+    print(fndCount, fndList[i].ClassName )
+        if fndList[i].ClassName == 'PC' then
+            print('hi')
+            PlayForceEffect(pc,fndList[i],"I_spread_out003_light",1.0,"None",
+            "None",1.0,"None","None",10.0,
+            10.0, 10.0, 10.0, 90, 1.0,
+            1.0, 1.0)
 
-		end
-	end
+        end
+    end
 
-	
+    
 
-	--ShootForce(pc, x+10, y+1, z+10, "I_force067_ice", 1.0, "I_light012", 1.4, 1.0, 1.0);
+    --ShootForce(pc, x+10, y+1, z+10, "I_force067_ice", 1.0, "I_light012", 1.4, 1.0, 1.0);
 end
 
 
 
 function TEST_SURFACE(pc)
-	local surface = GetMatierlalItem(pc);
-	print(surface);
---	GetClassByStrProp(")
-	
+    local surface = GetMatierlalItem(pc);
+    print(surface);
+--  GetClassByStrProp(")
+    
 end
 
 
@@ -572,17 +572,17 @@ function ssss(pc)
 end
 
 function ZONE_USER_COUNT(operator, count)
-	local txt = "Zone user count :";
-	ChatLocal(operator, operator, string.format("%s %d", txt, count));
+    local txt = "Zone user count :";
+    ChatLocal(operator, operator, string.format("%s %d", txt, count));
 end
 
 function TESTTEST22(pc)
 
-	--SetPos(pc,-927,-79.949,120);
+    --SetPos(pc,-927,-79.949,120);
 
-	local sObj = GetSessionObject(pc, 'ssn_klapeda')    	
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')        
 
-	print(sObj.WARP_C_KLAIPE)
+    print(sObj.WARP_C_KLAIPE)
 
 end
 
@@ -603,147 +603,147 @@ function layerchange(pc)
 end
 
 function TEST_PACKET(pc)
-	--TestCZPacket(pc.Name, pc.JobName, GetJobLv(pc));
-	print(pc.Name, pc.JobName, GetJobLv(pc));
+    --TestCZPacket(pc.Name, pc.JobName, GetJobLv(pc));
+    print(pc.Name, pc.JobName, GetJobLv(pc));
 end
 
 function GGGAME(pc)
-	--ShowSelDlg(pc,0, 'SIAU_FRON_NPC_02_basic02', ScpArgMsg("Auto_wae_PpalLaeLeul_HaLeo_KassNeunJi_MuleoBonDa."), ScpArgMsg("Auto_JongLyo"))
-	print(ScpArgMsg("Auto_wae_PpalLaeLeul_HaLeo_KassNeunJi_MuleoBonDa."))
+    --ShowSelDlg(pc,0, 'SIAU_FRON_NPC_02_basic02', ScpArgMsg("Auto_wae_PpalLaeLeul_HaLeo_KassNeunJi_MuleoBonDa."), ScpArgMsg("Auto_JongLyo"))
+    print(ScpArgMsg("Auto_wae_PpalLaeLeul_HaLeo_KassNeunJi_MuleoBonDa."))
 end
 
 function TEST_FOG(pc)
 
-	--print(GetMapFogSearchRate(pc,'f_siauliai_west'))
-	--print(GetMapFogSearchRate(pc,'f_katyn_7'))
+    --print(GetMapFogSearchRate(pc,'f_siauliai_west'))
+    --print(GetMapFogSearchRate(pc,'f_katyn_7'))
 
 end
 
 function TEST_SHOWINFO(pc)
 
-	local paramList = {}
-	paramList[#paramList + 1] = "MoveType" -- ????? ????
-	paramList[#paramList + 1] = "MonRank" --?????
-	paramList[#paramList + 1] = "RaceType" -- ????????
-	paramList[#paramList + 1] = "Size" -- ?????
-	paramList[#paramList + 1] = "ArmorMaterial" -- ????????
-	paramList[#paramList + 1] = "Attribute" -- ???? ????
-	paramList[#paramList + 1] = "EffectiveAtkType" -- ????????? ????
+    local paramList = {}
+    paramList[#paramList + 1] = "MoveType" -- ????? ????
+    paramList[#paramList + 1] = "MonRank" --?????
+    paramList[#paramList + 1] = "RaceType" -- ????????
+    paramList[#paramList + 1] = "Size" -- ?????
+    paramList[#paramList + 1] = "ArmorMaterial" -- ????????
+    paramList[#paramList + 1] = "Attribute" -- ???? ????
+    paramList[#paramList + 1] = "EffectiveAtkType" -- ????????? ????
 
-	local showParamCount = 1;
-	local showTime = 6;
-	local isShuffle = 1;
+    local showParamCount = 1;
+    local showTime = 6;
+    local isShuffle = 1;
 
-	local fndList, fndCount = SelectObject(pc, 300, 'ENEMY');
-	for i = 1, fndCount do
-		if fndList[i].ClassName ~= 'PC' then
-			ShowMonInfoBySKill(fndList[i], paramList, showParamCount, showTime, isShuffle)
-			--break;
-		end
-	end
+    local fndList, fndCount = SelectObject(pc, 300, 'ENEMY');
+    for i = 1, fndCount do
+        if fndList[i].ClassName ~= 'PC' then
+            ShowMonInfoBySKill(fndList[i], paramList, showParamCount, showTime, isShuffle)
+            --break;
+        end
+    end
 
 end
 
 function TEST_SOUND2(pc)
 
-	PlaySound(pc, 'skl_archer_piedpiper_final_1',0);
+    PlaySound(pc, 'skl_archer_piedpiper_final_1',0);
 end
 
 function TEST_SOUND3(pc)
 
-	StopSound(pc, 'skl_archer_piedpiper_final_1');
+    StopSound(pc, 'skl_archer_piedpiper_final_1');
 end
 
 function PRINT_SPP(pc)
-	print(pc.SP)
+    print(pc.SP)
 end
 
 function GET_INV_BASEID(pc, classid)
 
-	local temp = GetInvenBaseID(classid)
-	print('baseid by zone : ', temp)
+    local temp = GetInvenBaseID(classid)
+    print('baseid by zone : ', temp)
 
 end
 
 function RESET_ALL_SKILL(pc)
 
-	print(pc.UsedStat)
+    print(pc.UsedStat)
 
-	local clslist, cnt  = GetClassList("Skill");
-	for i = 0 , cnt - 1 do
+    local clslist, cnt  = GetClassList("Skill");
+    for i = 0 , cnt - 1 do
 
-		local cls = GetClassByIndexFromList(clslist, i);
-		local skillname = cls.ClassName
+        local cls = GetClassByIndexFromList(clslist, i);
+        local skillname = cls.ClassName
 
-		print(skillname)
+        print(skillname)
 
-		local skillobj = GetSkill(pc, skillname);
+        local skillobj = GetSkill(pc, skillname);
 
-		if skillobj ~= nil then
+        if skillobj ~= nil then
 
-			local tx = TxBegin(pc);
-			print(skillname)
-			TxRemoveSkill(pc, skillname);
-			--TxSetIESProp(tx, pc, "UsedStat", 0);
-			local ret = TxCommit(tx);
-			
-			print(ret)
-			if ret == 'SUCCESS' then
-				InvalidateStates(pc);
-			end
+            local tx = TxBegin(pc);
+            print(skillname)
+            TxRemoveSkill(pc, skillname);
+            --TxSetIESProp(tx, pc, "UsedStat", 0);
+            local ret = TxCommit(tx);
+            
+            print(ret)
+            if ret == 'SUCCESS' then
+                InvalidateStates(pc);
+            end
 
-		end
+        end
 
-	end
-	
+    end
+    
 end
 
 function TX_ROLLBACK_BUG_TEST(pc)
-	
-	local tx = TxBegin(pc);
+    
+    local tx = TxBegin(pc);
 
-	if nil == tx then
-		return;
-	end
+    if nil == tx then
+        return;
+    end
 
-		
-	local etcObj = GetETCObject(pc);
-	if nil == etcObj then
-		return;
-	end
-
-
-	
-	TxSetIESProp(tx, etcObj, "InDunCountType_100", 88);
-	TxSetIESProp(tx, etcObj, "InDunCountType_200", 88);
-
-	local ret = TxCommit(tx);
-
-	
+        
+    local etcObj = GetETCObject(pc);
+    if nil == etcObj then
+        return;
+    end
 
 
-	local tx = TxBegin(pc);
+    
+    TxSetIESProp(tx, etcObj, "InDunCountType_100", 88);
+    TxSetIESProp(tx, etcObj, "InDunCountType_200", 88);
 
-	if nil == tx then
-		return;
-	end
+    local ret = TxCommit(tx);
 
-	Chat(pc,"롤백 test 시작")
-	Chat(pc,"테스트를 위해 InDunCountType_100, InDunCountType_200 값을 변경하여 사용합니다. 해당 계정의 인던 입장 횟수가 비정상적으로 늘어날 수 있습니다")
-	Chat(pc,"현재 값 " .. etcObj["InDunCountType_100"] .. " " .. etcObj["InDunCountType_200"])
-	Chat(pc,"88 88 을 99 99 로 바꾸려고 시도합니다.")
+    
 
 
-	TxSetIESProp(tx, etcObj, "InDunCountType_100", 99);
-	--TxSetIESProp(tx, etcObj, "InDunCountType_200", 99);
-	TxSetIESProp(tx, nil, "InDunCountType_200", 99);
+    local tx = TxBegin(pc);
 
-	local ret = TxCommit(tx);
-	Chat(pc,"트랜잭션 결과 : " .. ret)
+    if nil == tx then
+        return;
+    end
+
+    Chat(pc,"롤백 test 시작")
+    Chat(pc,"테스트를 위해 InDunCountType_100, InDunCountType_200 값을 변경하여 사용합니다. 해당 계정의 인던 입장 횟수가 비정상적으로 늘어날 수 있습니다")
+    Chat(pc,"현재 값 " .. etcObj["InDunCountType_100"] .. " " .. etcObj["InDunCountType_200"])
+    Chat(pc,"88 88 을 99 99 로 바꾸려고 시도합니다.")
 
 
-	Chat(pc,"결과 값 " .. etcObj["InDunCountType_100"] .. " " .. etcObj["InDunCountType_200"])
-	Chat(pc,"결과가 88 88  이거나 99 99 이어야 합니다. 88 99 이거나 99 88 인 경우 버그")
+    TxSetIESProp(tx, etcObj, "InDunCountType_100", 99);
+    --TxSetIESProp(tx, etcObj, "InDunCountType_200", 99);
+    TxSetIESProp(tx, nil, "InDunCountType_200", 99);
+
+    local ret = TxCommit(tx);
+    Chat(pc,"트랜잭션 결과 : " .. ret)
+
+
+    Chat(pc,"결과 값 " .. etcObj["InDunCountType_100"] .. " " .. etcObj["InDunCountType_200"])
+    Chat(pc,"결과가 88 88  이거나 99 99 이어야 합니다. 88 99 이거나 99 88 인 경우 버그")
 
 
 
@@ -751,168 +751,168 @@ end
 
 
 function TEST_ABIL(pc, abilName)
-	local runCnt = 0;
-	for i = 0, RUN_ABIL_MAX_COUNT do
-		local prop = "None";
-		if 0 == i then
-			prop = "LearnAbilityID";
-		else
-			prop = "LearnAbilityID_" ..i;
-		end
-		if pc[prop] ~= nil and pc[prop] > 0 then
-			runCnt = runCnt +1;
-		end
-	end
+    local runCnt = 0;
+    for i = 0, RUN_ABIL_MAX_COUNT do
+        local prop = "None";
+        if 0 == i then
+            prop = "LearnAbilityID";
+        else
+            prop = "LearnAbilityID_" ..i;
+        end
+        if pc[prop] ~= nil and pc[prop] > 0 then
+            runCnt = runCnt +1;
+        end
+    end
 
-	local abilLevel = 1;
-	local abilObj = GetAbilityIESObject(pc, abilName);
-	if abilObj ~= nil then
-		abilLevel = abilObj.Level + 1;
-	end
+    local abilLevel = 1;
+    local abilObj = GetAbilityIESObject(pc, abilName);
+    if abilObj ~= nil then
+        abilLevel = abilObj.Level + 1;
+    end
 
-	local tx = TxBegin(pc);
-	if abilObj == nil then
-		local idx = TxAddAbility(tx, abilName);
-		TxAppendProperty(tx, idx, "Level", 1);
-		local ablCls = GetClass("Ability", abilName)
-		if ablCls ~= nil then
-			local txScpName = TryGetProp(ablCls, 'ScriptTX')
-			if nil ~= txScpName and 'None' ~= ablCls.ScriptTX then
-				local func = _G[ablCls.ScriptTX];
-				if false == func(pc, tx, 1) then
-					TxRollBack(tx)
-					return;
-				end
-			end
-		end
-	else
-		TxSetIESProp(tx, abilObj, "Level", abilLevel);
-	end
-	local propID = "LearnAbilityID_" ..runCnt+1;
-	if pc[propID] ~= 0 then
-		TxSetIESProp(tx, pc, propID, 0);
-	end
-	local propTime = "LearnAbilityTime_" ..runCnt+1;
-	if pc[propTime] ~= "None" then
-		TxSetIESProp(tx, pc, propTime, "None");
-	end
+    local tx = TxBegin(pc);
+    if abilObj == nil then
+        local idx = TxAddAbility(tx, abilName);
+        TxAppendProperty(tx, idx, "Level", 1);
+        local ablCls = GetClass("Ability", abilName)
+        if ablCls ~= nil then
+            local txScpName = TryGetProp(ablCls, 'ScriptTX')
+            if nil ~= txScpName and 'None' ~= ablCls.ScriptTX then
+                local func = _G[ablCls.ScriptTX];
+                if false == func(pc, tx, 1) then
+                    TxRollBack(tx)
+                    return;
+                end
+            end
+        end
+    else
+        TxSetIESProp(tx, abilObj, "Level", abilLevel);
+    end
+    local propID = "LearnAbilityID_" ..runCnt+1;
+    if pc[propID] ~= 0 then
+        TxSetIESProp(tx, pc, propID, 0);
+    end
+    local propTime = "LearnAbilityTime_" ..runCnt+1;
+    if pc[propTime] ~= "None" then
+        TxSetIESProp(tx, pc, propTime, "None");
+    end
 
-	local ret = TxCommit(tx);
-		
-	if ret == 'SUCCESS' then
-		PlayEffect(pc, 'F_circle020_light', 1.0);
-		local AbilityIES = GetClass("Ability", abilName);
-		if AbilityIES ~= nil then
-			local skillProp = GetClass("Skill", AbilityIES.SkillCategory);
-			if skillProp ~= nil then
-				UpdateSkillPropertyBySkillID(pc, skillProp.ClassID)
-			end
-		end
-		
-		InvalidateStates(pc);
-		local shopName = GetExProp_Str(pc, "ABILSHOP_OPEN");
-		SendAddOnMsg(pc, "RESET_ABILITY_UP", shopName, 0);
-	end
+    local ret = TxCommit(tx);
+        
+    if ret == 'SUCCESS' then
+        PlayEffect(pc, 'F_circle020_light', 1.0);
+        local AbilityIES = GetClass("Ability", abilName);
+        if AbilityIES ~= nil then
+            local skillProp = GetClass("Skill", AbilityIES.SkillCategory);
+            if skillProp ~= nil then
+                UpdateSkillPropertyBySkillID(pc, skillProp.ClassID)
+            end
+        end
+        
+        InvalidateStates(pc);
+        local shopName = GetExProp_Str(pc, "ABILSHOP_OPEN");
+        SendAddOnMsg(pc, "RESET_ABILITY_UP", shopName, 0);
+    end
 
 end
 
 function minmax(pc)
-	--print(pc)
-	--print(pc.Atk)
+    --print(pc)
+    --print(pc.Atk)
 
-	SCR_Get_MINATK(pc)
+    SCR_Get_MINATK(pc)
 
-	--print(pc[MAXATK],pc[MINATK],pc[ATK])
-	
+    --print(pc[MAXATK],pc[MINATK],pc[ATK])
+    
 end
 
 function asdd(pc)
 
 
-	local qxwe = ScpArgMsg("Pc{Auto_1}MakeBidBy{Auto_2}Silver","Auto_1",123,"Auto_2","auto2");
+    local qxwe = ScpArgMsg("Pc{Auto_1}MakeBidBy{Auto_2}Silver","Auto_1",123,"Auto_2","auto2");
 
 
-	local qwe = ScpArgMsg("{Bidder}IsTopBidderOf{ItemName}", "Bidder", "asdd", "ItemName", "sdad");
-	--local qwe = ScpArgMsg("Todays_Tip");
-	print(qwe)
-	print(qxwe)
+    local qwe = ScpArgMsg("{Bidder}IsTopBidderOf{ItemName}", "Bidder", "asdd", "ItemName", "sdad");
+    --local qwe = ScpArgMsg("Todays_Tip");
+    print(qwe)
+    print(qxwe)
 end
 
 function ttt(pc)
-	--fff(ScpArgMsg('Auto_Han$CKeuli_KkyeoissDang_$BHiHiHi_duddjeh$A..'),1,ScpArgMsg('Auto_Heh'),3,4,5)
+    --fff(ScpArgMsg('Auto_Han$CKeuli_KkyeoissDang_$BHiHiHi_duddjeh$A..'),1,ScpArgMsg('Auto_Heh'),3,4,5)
 
-	local monCls = GetClassByType("Monster", 400001);
-	SysMsg(pc, "Item", "asd");
-	local temp2 = ScpArgMsg("Todays_Tip");
-	print(temp2)
-	
+    local monCls = GetClassByType("Monster", 400001);
+    SysMsg(pc, "Item", "asd");
+    local temp2 = ScpArgMsg("Todays_Tip");
+    print(temp2)
+    
 
-	local testtest = ClMsg("%sKilled%s");
-	
-	print (ClMsg("%sKilled%s"))
+    local testtest = ClMsg("%sKilled%s");
+    
+    print (ClMsg("%sKilled%s"))
 
-	fff(testtest)
+    fff(testtest)
 end
 
 function fff(msg, ...)
 
-	local tempstr = msg
-	local testtable = {...}
-	
-	for i = 1, #testtable do
-		local tempchar = '$'..string.char(i+64);
-		tempstr = string.gsub(tempstr, tempchar, testtable[i],1)
+    local tempstr = msg
+    local testtable = {...}
+    
+    for i = 1, #testtable do
+        local tempchar = '$'..string.char(i+64);
+        tempstr = string.gsub(tempstr, tempchar, testtable[i],1)
     end
 
-	if tempstr ~= msg then
-		print(ScpArgMsg('Auto_Sae_inJa_HyeongSigi_iss2Kun!'))
-	else
-		print(ScpArgMsg('Auto_Sae_inJa_HyeongSigi_eopKun!'))
-	end
+    if tempstr ~= msg then
+        print(ScpArgMsg('Auto_Sae_inJa_HyeongSigi_iss2Kun!'))
+    else
+        print(ScpArgMsg('Auto_Sae_inJa_HyeongSigi_eopKun!'))
+    end
 
-	print(tempstr)
+    print(tempstr)
 end
 
 function oifjwjfoiwejf(self)
-	print('asd')
-	local x,y,z = GetPos(self)
-	ShowGroundMark(self, x, y, z, 230, 40);
+    print('asd')
+    local x,y,z = GetPos(self)
+    ShowGroundMark(self, x, y, z, 230, 40);
 end
 
 
 function CHANGEJOB_OPEN()
-	print('open');
+    print('open');
 end
 
 function CHANGEJOB_CLOSE()
-	print('close');
+    print('close');
 end
 
 function HELPLIST(pc)
-	UIOpenToPC(pc, 'helplist', 1);
+    UIOpenToPC(pc, 'helplist', 1);
 end
 
 function CJOBV_TEST(pc)
-	print('hsi')
-	local etcObj = GetETCObject(pc);
-	print('hi2')
-	print(etcObj)
-	print(etcObj.JobChanging)
-	--etcObj.JobChanging='HI'
+    print('hsi')
+    local etcObj = GetETCObject(pc);
+    print('hi2')
+    print(etcObj)
+    print(etcObj.JobChanging)
+    --etcObj.JobChanging='HI'
 end
 
 function TEST_NOWLAYER(pc)
-	local test2 = GetLayer(pc);
-	print(GetLayer(pc));
-	Chat(pc, test2);
+    local test2 = GetLayer(pc);
+    print(GetLayer(pc));
+    Chat(pc, test2);
 end
 
 function TEST_LL0(pc)
-	SendAddOnMsg(pc, "NOTICE_Dm_!", "SSSSSSSSSSSSSSS", 5)
+    SendAddOnMsg(pc, "NOTICE_Dm_!", "SSSSSSSSSSSSSSS", 5)
 end
 
 function TEST_LL1(pc)
-	SetLayer(pc, 1)
+    SetLayer(pc, 1)
 end
 
 function questtracknpcmove(pc, questname)
@@ -958,34 +958,34 @@ end
 
 function TRACK_PARTY_TEST(pc, questname)
 
-	SetLayer(pc, 0);
-	
-	local myParty = GetPartyObj(pc);
-	if myParty == nil then
-		tracktest(pc, questname);
-		print('no party')
-		return;
-	end
+    SetLayer(pc, 0);
+    
+    local myParty = GetPartyObj(pc);
+    if myParty == nil then
+        tracktest(pc, questname);
+        print('no party')
+        return;
+    end
 
-	local partyPlayerList, cnt = GET_PARTY_ACTOR(pc, 0);
-	if cnt <= 1 then
-		tracktest(pc, questname);
-		print('no party member')
-		return;
-	end
+    local partyPlayerList, cnt = GET_PARTY_ACTOR(pc, 0);
+    if cnt <= 1 then
+        tracktest(pc, questname);
+        print('no party member')
+        return;
+    end
 
-	local questautoIES = GetClass('QuestProgressCheck_Auto', questname);
-	if questautoIES == nil then
-		return;
-	end
+    local questautoIES = GetClass('QuestProgressCheck_Auto', questname);
+    if questautoIES == nil then
+        return;
+    end
 
-	local list = SCR_STRING_CUT(questautoIES.Track1);	
-	if list[3] == nil then
-		return;
-	end
+    local list = SCR_STRING_CUT(questautoIES.Track1);   
+    if list[3] == nil then
+        return;
+    end
 
-	local quest_track1 = _G[list[3]];
-	local isdirection = IsDirectionExist(list[3])
+    local quest_track1 = _G[list[3]];
+    local isdirection = IsDirectionExist(list[3])
     if quest_track1 ~= nil or isdirection == 1 then
         if list[5] ~= nil and list[5] ~= 'None' then
             PlayMusicQueueLocal(pc, list[5])
@@ -993,72 +993,72 @@ function TRACK_PARTY_TEST(pc, questname)
         end
 
         local pc_layer_1 = GetLayer(pc)
-		local sObj = GetSessionObject(pc, 'ssn_klapeda')    	
-    	local questIES = GetClass('QuestProgressCheck', questname)
+        local sObj = GetSessionObject(pc, 'ssn_klapeda')        
+        local questIES = GetClass('QuestProgressCheck', questname)
 
-    	if IsPlayingDirection(pc) > 0 then
-    		return;
-    	end
-    	
-		if questautoIES.Track_PartyPlay == 'YES' then
+        if IsPlayingDirection(pc) > 0 then
+            return;
+        end
+        
+        if questautoIES.Track_PartyPlay == 'YES' then
             for i = 1, cnt do
-            	if IsSameActor(partyPlayerList[i], pc) == 'NO' then
-                	if GetLayer(partyPlayerList[i]) == 0 and IsPlayingDirection(partyPlayerList[i]) ~= 1 then
-                		local sObjPartyPC = GetSessionObject(partyPlayerList[i], 'ssn_klapeda')
-                		sObjPartyPC.TRACK_QUEST_NAME = questname                    	
-                	end
+                if IsSameActor(partyPlayerList[i], pc) == 'NO' then
+                    if GetLayer(partyPlayerList[i]) == 0 and IsPlayingDirection(partyPlayerList[i]) ~= 1 then
+                        local sObjPartyPC = GetSessionObject(partyPlayerList[i], 'ssn_klapeda')
+                        sObjPartyPC.TRACK_QUEST_NAME = questname                        
+                    end
                 else
-                	sObj.TRACK_QUEST_NAME = questname
+                    sObj.TRACK_QUEST_NAME = questname
                 end
             end
         end
         
-    	if isdirection == 1 then
+        if isdirection == 1 then
             PlayDirection(pc, list[3], 0, 1);
         elseif quest_track1 ~= nil then
             quest_track1(pc)
         end
                     
-		local trackInPartyPC = 1
-		if questautoIES.Track_PartyPlay == 'YES' then
+        local trackInPartyPC = 1
+        if questautoIES.Track_PartyPlay == 'YES' then
             for i = 1, cnt do
-            	if IsSameActor(partyPlayerList[i], pc) == 'NO' then
-                	if GetLayer(partyPlayerList[i]) == 0 and IsPlayingDirection(partyPlayerList[i]) ~= 1 then
-                		local sObjPartyPC = GetSessionObject(partyPlayerList[i], 'ssn_klapeda')
-                		if sObjPartyPC.TRACK_QUEST_NAME == questname then                			
-                    		RunZombieScript("SCR_TRACK_PARTYPLAY_CHEAT", partyPlayerList[i], pc, questname, list[1], i, isdirection);    		    			
-                	    end
-                	end
+                if IsSameActor(partyPlayerList[i], pc) == 'NO' then
+                    if GetLayer(partyPlayerList[i]) == 0 and IsPlayingDirection(partyPlayerList[i]) ~= 1 then
+                        local sObjPartyPC = GetSessionObject(partyPlayerList[i], 'ssn_klapeda')
+                        if sObjPartyPC.TRACK_QUEST_NAME == questname then                           
+                            RunZombieScript("SCR_TRACK_PARTYPLAY_CHEAT", partyPlayerList[i], pc, questname, list[1], i, isdirection);                           
+                        end
+                    end
                 end
             end
         end
-               			
-		if isdirection == 1 then			    					
-			StartDirection(pc);
-		end
-		
-		for i = 1, cnt do
-			local sObjPartyPC = GetSessionObject(partyPlayerList[i], 'ssn_klapeda')
-			if sObjPartyPC ~= nil then
-    			if sObjPartyPC.TRACK_QUEST_NAME == questname then
-    				sObjPartyPC.TRACK_QUEST_NAME = 'None'
-    			end
-    		end
-		end
-		
+                        
+        if isdirection == 1 then                                    
+            StartDirection(pc);
+        end
+        
+        for i = 1, cnt do
+            local sObjPartyPC = GetSessionObject(partyPlayerList[i], 'ssn_klapeda')
+            if sObjPartyPC ~= nil then
+                if sObjPartyPC.TRACK_QUEST_NAME == questname then
+                    sObjPartyPC.TRACK_QUEST_NAME = 'None'
+                end
+            end
+        end
+        
         SetTrackName(pc, questname);
         local pc_layer_2 = GetLayer(pc)
-        if pc_layer_1 ~= pc_layer_2 then           			    
+        if pc_layer_1 ~= pc_layer_2 then                        
             if sObj ~= nil then
-               	local tx = TxBegin(pc);
+                local tx = TxBegin(pc);
                 if sObj[questIES.QuestPropertyName] < 0 then
                     local value = 11
                     TxSetIESProp(tx, sObj, questIES.QuestPropertyName, value);
-					QuestStateMongoLog(pc, questIES.QuestPropertyName, "StateChange", "State", value);
+                    QuestStateMongoLog(pc, questIES.QuestPropertyName, "StateChange", "State", value);
                 else
                     local value = sObj[questIES.QuestPropertyName] + 10
                     TxSetIESProp(tx, sObj, questIES.QuestPropertyName, value);
-					QuestStateMongoLog(pc, questIES.QuestPropertyName, "StateChange", "State", value);
+                    QuestStateMongoLog(pc, questIES.QuestPropertyName, "StateChange", "State", value);
                 end
                             
                             
@@ -1072,12 +1072,12 @@ function TRACK_PARTY_TEST(pc, questname)
                             
                             
                 local ret = TxCommit(tx, 1);
-                    		
+                            
                 if ret == 'FAIL' then
                     print(questIES.Name,'SCR_TRACK_START Transaction FAIL')
                 else
                     if questIES.Quest_SSN ~= 'None' and questIES.Quest_SSN ~= '' then
-                    	if quest_sObj == nil then
+                        if quest_sObj == nil then
                             quest_sObj = GetSessionObject(pc, questIES.Quest_SSN)
                         end
                         if quest_sObj ~= nil then
@@ -1091,7 +1091,7 @@ function TRACK_PARTY_TEST(pc, questname)
                     end
                 end
             end
-                		
+                        
             local obj = GetLayerObject(GetZoneInstID(pc), GetLayer(pc));
             if obj ~= nil then
                 obj.EventName = questname
@@ -1105,63 +1105,63 @@ end
 
 function SCR_TRACK_PARTYPLAY_CHEAT(partyPlayer, pc, questname, trackSteate, pcIndex, isdirection)
 
-	if GetLayer(partyPlayer) == 0 and IsPlayingDirection(partyPlayer) ~= 1 then
+    if GetLayer(partyPlayer) == 0 and IsPlayingDirection(partyPlayer) ~= 1 then
         CloseDlg(partyPlayer)
-		
-
-		local pos_list = SCR_CELLGENPOS_LIST(pc, 'Basic5', 0)
-		local zoneInsID = GetZoneInstID(pc)
-                
-		local x = pos_list[pcIndex%(#pos_list) + 1][1]
-		local y = pos_list[pcIndex%(#pos_list) + 1][2] + 70
-		local z = pos_list[pcIndex%(#pos_list) + 1][3]
         
-		if IsValidPos(zoneInsID, x, y, z) == 'YES' then
-		else
-			local flag = 0
+
+        local pos_list = SCR_CELLGENPOS_LIST(pc, 'Basic5', 0)
+        local zoneInsID = GetZoneInstID(pc)
+                
+        local x = pos_list[pcIndex%(#pos_list) + 1][1]
+        local y = pos_list[pcIndex%(#pos_list) + 1][2] + 70
+        local z = pos_list[pcIndex%(#pos_list) + 1][3]
+        
+        if IsValidPos(zoneInsID, x, y, z) == 'YES' then
+        else
+            local flag = 0
             
-			for i = 1, 100 do
-				local index = IMCRandom(1,#pos_list)
-				x = pos_list[index][1]
-				y = pos_list[index][2] + 30
-				z = pos_list[index][3]
-				if IsValidPos(zoneInsID, x, y, z) == 'YES' then
-					flag = 100
-					break
-				end
-			end
+            for i = 1, 100 do
+                local index = IMCRandom(1,#pos_list)
+                x = pos_list[index][1]
+                y = pos_list[index][2] + 30
+                z = pos_list[index][3]
+                if IsValidPos(zoneInsID, x, y, z) == 'YES' then
+                    flag = 100
+                    break
+                end
+            end
             
-			if flag == 0 then
-				x, y, z = GetPos(pc)
-			end
-		end  
+            if flag == 0 then
+                x, y, z = GetPos(pc)
+            end
+        end  
 
-		if GetLayer(partyPlayer) == 0 and IsPlayingDirection(partyPlayer) ~= 1 then
+        if GetLayer(partyPlayer) == 0 and IsPlayingDirection(partyPlayer) ~= 1 then
 
-			if isdirection == 1 then
-				AddDirectionPC(pc, partyPlayer);
-			end
-		
-    		LookAt(partyPlayer, pc);
-   	
-			if isdirection ~= 1 then
-    			SetLayer(partyPlayer, GetLayer(pc))	    
-    		end
+            if isdirection == 1 then
+                AddDirectionPC(pc, partyPlayer);
+            end
+        
+            LookAt(partyPlayer, pc);
+    
+            if isdirection ~= 1 then
+                SetLayer(partyPlayer, GetLayer(pc))     
+            end
 
-    		RunZombieScript("SCR_TRACK_PARTYPLAY_SOBJ", partyPlayer, questname, trackSteate);		
+            RunZombieScript("SCR_TRACK_PARTYPLAY_SOBJ", partyPlayer, questname, trackSteate);       
 
-			if isdirection == 1 then
-				sleep(500);
-				PlayAnim(partyPlayer,'ASTD');
-				sleep(500);
-				ReadyDirectionPC(pc, partyPlayer);
-				return;
-    		end
-		end
+            if isdirection == 1 then
+                sleep(500);
+                PlayAnim(partyPlayer,'ASTD');
+                sleep(500);
+                ReadyDirectionPC(pc, partyPlayer);
+                return;
+            end
+        end
 
-		sleep(500)
-		PlayAnim(partyPlayer,'ASTD');
-	
+        sleep(500)
+        PlayAnim(partyPlayer,'ASTD');
+    
     end
 end
 
@@ -1203,7 +1203,7 @@ end
     
 function BUFF_TEST(self, buffname)
     local list, Cnt = SelectObject(self, 150, 'ALL')
-	print(list, Cnt)
+    print(list, Cnt)
     local i
     for i = 1, Cnt do
         if list[i].ClassName ~= 'PC' then
@@ -1221,32 +1221,32 @@ function help_test(pc,help_name)
     AddHelpByName(pc, 'TUTO_CAMPWARP')
 end
 
-function wmopen(pc, all)	
-	
-	local pcetc = GetETCObject(pc);
-	local accObj = GetAccountObj(pc);
+function wmopen(pc, all)    
+    
+    local pcetc = GetETCObject(pc);
+    local accObj = GetAccountObj(pc);
 
     local flag = "NO"
     local classCount = GetClassCount("Map")
-	
-	local tx = TxBegin(pc);
+    
+    local tx = TxBegin(pc);
 
     for i = 0 , classCount -1 do
         local mapIES = GetClassByIndex("Map", i)
         if accObj['HadVisited_' .. mapIES.ClassID] ~= 1 and mapIES.WorldMap ~= 'None'  then
             if all == 1 then
-				TxSetIESProp(tx, accObj, 'HadVisited_' .. mapIES.ClassID, 1);
-        		flag = "YES"
-        	else
-        	    if mapIES.WorldMapPreOpen == 'YES' then
-					TxSetIESProp(tx, accObj, 'HadVisited_' .. mapIES.ClassID, 1);
-            		flag = "YES"
-        	    end
-        	end
-    	end
+                TxSetIESProp(tx, accObj, 'HadVisited_' .. mapIES.ClassID, 1);
+                flag = "YES"
+            else
+                if mapIES.WorldMapPreOpen == 'YES' then
+                    TxSetIESProp(tx, accObj, 'HadVisited_' .. mapIES.ClassID, 1);
+                    flag = "YES"
+                end
+            end
+        end
     end
 
-	TxCommit(tx);
+    TxCommit(tx);
     
     if flag == "YES" then
         SendUpdateWorldMap(pc);
@@ -1332,7 +1332,7 @@ function lchs(pc, anim_name)
 --    print('SSSSSSS')
 --    local tx = TxBegin(pc);
 --    TxAddAchievePoint(tx, 'EVENT_1707_USERWEDDING', 1)
---	local ret = TxCommit(tx)
+--  local ret = TxCommit(tx)
 --    PlayAnim(pc, "WORSHIP", 1);
 --    REQ_MOVE_TO_INDUN(pc, "Request_Mission11", 1)
     
@@ -1374,13 +1374,13 @@ function lchs(pc, anim_name)
 end
 
 function qa_test1(pc)
-	print("123")
-	print("Normal")
-	print("test1")
-	local asd = 123456;
-	local str1 = "Hello "
-	local str2 = "world!"
-	IMCLOG_CONTENT("TagQATest", "AIDX : ", asd," " , str1, str2);
+    print("123")
+    print("Normal")
+    print("test1")
+    local asd = 123456;
+    local str1 = "Hello "
+    local str2 = "world!"
+    IMCLOG_CONTENT("TagQATest", "AIDX : ", asd," " , str1, str2);
 end
 
 function test_random (pc,range,maxcount)
@@ -1464,8 +1464,8 @@ function uistate(pc, uistate_property, value)
         local tx = TxBegin(pc);
         TxSetIESProp(tx, pc, uistate_property, tonumber(value))
         local ret = TxCommit(tx);
-    	
-	end
+        
+    end
 
     print('^^^^^^^^^')
 end
@@ -1476,8 +1476,8 @@ function GET_HIS_ABIL(pc)
     local i
     for i = 1, Cnt do
         if list[i].ClassName == 'PC' then
-			local str = tostring(list[i].LearnAbilityID)
-            Chat(pc, tostring(list[i].LearnAbilityID).." "..tostring(list[i].LearnAbilityID_1).." "..tostring(list[i].LearnAbilityID_2).." "..tostring(list[i].LearnAbilityID_3).." "..tostring(list[i].LearnAbilityID_4).." "..tostring(list[i].LearnAbilityID_5));		
+            local str = tostring(list[i].LearnAbilityID)
+            Chat(pc, tostring(list[i].LearnAbilityID).." "..tostring(list[i].LearnAbilityID_1).." "..tostring(list[i].LearnAbilityID_2).." "..tostring(list[i].LearnAbilityID_3).." "..tostring(list[i].LearnAbilityID_4).." "..tostring(list[i].LearnAbilityID_5));        
         end
     end
 end
@@ -1540,95 +1540,95 @@ end
 
 function TEST_QUICKSLOT(pc)
 
-	RegisterQuickSlot(pc, "Skill", "Swordman_Bash", -1);
+    RegisterQuickSlot(pc, "Skill", "Swordman_Bash", -1);
 
 end
 
 function TEST_MONOWNER(pc)
 
-	local x, y, z = GetPos(pc);
-	local mon = CREATE_MONSTER(pc, "Goblin_Spear", x, y, z, -15, "Monster", 0, 12, "MON_SUMMON");
-	SetOwner(mon, pc, 1);
-	BroadcastRelation(mon);
+    local x, y, z = GetPos(pc);
+    local mon = CREATE_MONSTER(pc, "Goblin_Spear", x, y, z, -15, "Monster", 0, 12, "MON_SUMMON");
+    SetOwner(mon, pc, 1);
+    BroadcastRelation(mon);
 
-	ChangeTacticsState(mon, "TS_BATTLE");
-	
+    ChangeTacticsState(mon, "TS_BATTLE");
+    
 end
 
 function TEST_MON_APC(pc, name)
 
-	if name == nil then
-		return;
-	end
+    if name == nil then
+        return;
+    end
 
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
 
-	ChangeModel(mon, name);
+    ChangeModel(mon, name);
 
 
 end
 
 function TEST_MON_BUFF(pc)
 
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
 
-	AddBuff(pc, mon, "CriticalWound");
+    AddBuff(pc, mon, "CriticalWound");
 
 end
 
 function TEST_MONSOBJ(pc)
 
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
 
-	Chat(mon, "CreateSObj");
-	CreateSessionObject(mon, "ssn_feBoss");
-	local sObj = GetSessionObject(mon, "ssn_feBoss");
-	
+    Chat(mon, "CreateSObj");
+    CreateSessionObject(mon, "ssn_feBoss");
+    local sObj = GetSessionObject(mon, "ssn_feBoss");
+    
 end
 
 function TEST_RULLET(pc)
 
-	local zoneInst = GetZoneInstID(pc);
-	RulletToPC(pc, "Basic", "Rullet");
+    local zoneInst = GetZoneInstID(pc);
+    RulletToPC(pc, "Basic", "Rullet");
 
 end
 
 function TEST_FINC(pc)
-	local x, y, z = GetPos(pc);
-	local mon = CREATE_MONSTER(pc, "Goblin_Spear", x, y, z, 0, "Monster", 0, 12, "MON_SAA");
-	ChangeTacticsState(mon, "TS_BATTLE");
+    local x, y, z = GetPos(pc);
+    local mon = CREATE_MONSTER(pc, "Goblin_Spear", x, y, z, 0, "Monster", 0, 12, "MON_SAA");
+    ChangeTacticsState(mon, "TS_BATTLE");
 
 end
 
 
 function money_hi_test(pc, mon_lv, cnt)
 
-	if cnt == nil then
-		cnt = 1;
-	end
-	for i = 1 , cnt do
+    if cnt == nil then
+        cnt = 1;
+    end
+    for i = 1 , cnt do
     local iesObj
     local x, y, z = GetPos(pc);
-	iesObj = CreateGCIES('Monster', 'Moneybag1');
-	iesObj.ItemCount = 1;
-	local item = CreateItem(pc, iesObj, x-20, y, z-20, 0, 5);
+    iesObj = CreateGCIES('Monster', 'Moneybag1');
+    iesObj.ItemCount = 1;
+    local item = CreateItem(pc, iesObj, x-20, y, z-20, 0, 5);
 
-	if item ~= nil then
-	    SetTacticsArgFloat(item, 0, 0, 100)
-		local self_layer = GetLayer(pc);
-		if self_layer ~= nil and self_layer ~= 0 then
-			SetLayer(item, self_layer);
-		end
-	end
+    if item ~= nil then
+        SetTacticsArgFloat(item, 0, 0, 100)
+        local self_layer = GetLayer(pc);
+        if self_layer ~= nil and self_layer ~= 0 then
+            SetLayer(item, self_layer);
+        end
+    end
 end
 end
 
@@ -1694,16 +1694,16 @@ function md(pc, mon_lv)
     local iesObj
     iesObj = CreateGCIES('Monster', 'Goblin_Spear');
     iesObj.Lv = tonumber(mon_lv)
-	iesObj.Tactics = 'MON_BASIC';
-	local mon = CreateMonster( pc, iesObj, x, y, z,0, 5);
-	if mon ~= nil then
-	    mon.MHP = 1
-	end
+    iesObj.Tactics = 'MON_BASIC';
+    local mon = CreateMonster( pc, iesObj, x, y, z,0, 5);
+    if mon ~= nil then
+        mon.MHP = 1
+    end
 end
 
 function DLG_TEST(pc, dlg)
 
-	ShowOkDlg(pc, dlg, 1);
+    ShowOkDlg(pc, dlg, 1);
 
 end
 
@@ -1717,222 +1717,222 @@ end
 
 function CP(pc, name, value)
 
-	RunScript("CP_", pc, name, value);
+    RunScript("CP_", pc, name, value);
 end
 
 function CP_(pc, name, value)
 
-	local tx = TxBegin(pc);
-	TxSetIESProp(tx, pc, name, value);
-	local ret = TxCommit(tx);
-	
-	print(name .. " " .. value);
+    local tx = TxBegin(pc);
+    TxSetIESProp(tx, pc, name, value);
+    local ret = TxCommit(tx);
+    
+    print(name .. " " .. value);
 
 end
 
 function G_MON(pc, groupName)
 
-	local layer = GetLayer(pc);
-	local x, y, z = GetPos(pc);
-	CRE_GROUP_MON(pc, groupName, x, y, z, "Monster", layer);
+    local layer = GetLayer(pc);
+    local x, y, z = GetPos(pc);
+    CRE_GROUP_MON(pc, groupName, x, y, z, "Monster", layer);
 
 end
 
 function GMG(pc, groupName)
 
-	if groupName == nil or groupName == 0 then
-		groupName = "Event1";
-	end
+    if groupName == nil or groupName == 0 then
+        groupName = "Event1";
+    end
 
-	G_MON(pc, groupName);
+    G_MON(pc, groupName);
 end
 
 function EVT_RESET(pc)
 
-	local clsList, cnt = GetClassList("FieldEvent");
-	for i = 0 , cnt - 1 do
-		local cls = GetClassByIndexFromList(clsList, i);
-		CP(pc, 	cls.CheckProp, 0);
+    local clsList, cnt = GetClassList("FieldEvent");
+    for i = 0 , cnt - 1 do
+        local cls = GetClassByIndexFromList(clsList, i);
+        CP(pc,  cls.CheckProp, 0);
 
-	end
+    end
 end
 
 function EVT(pc, type)
 
-	RaiseFieldEvent(pc, type);
+    RaiseFieldEvent(pc, type);
 
 end
 
 function START_EVT(pc, type)
 
-	StartFieldEvent(pc, type);
+    StartFieldEvent(pc, type);
 
 end
 
 function ss(pc)
 
-	SendAddOnMsg(pc, "NOTICE_Dm_levelup_base", ScpArgMsg("Auto_KilDeu_uiLoeLeul_wanSuHayeossSeupNiDa._DolaKaSeo_BoSangeul_BateuSeyo."), 3);
+    SendAddOnMsg(pc, "NOTICE_Dm_levelup_base", ScpArgMsg("Auto_KilDeu_uiLoeLeul_wanSuHayeossSeupNiDa._DolaKaSeo_BoSangeul_BateuSeyo."), 3);
 
 end
 
 function EXP_TEST_2(pc, cnt, time)
 
-	EXP_TEST_FUNC(pc, 1, 0.5, 10.0, 0.5);
+    EXP_TEST_FUNC(pc, 1, 0.5, 10.0, 0.5);
 end
 
 function EXP_TEST(pc, cnt, time)
 
-	EXP_TEST_FUNC(pc, cnt, time, 1.0, 1.0);
+    EXP_TEST_FUNC(pc, cnt, time, 1.0, 1.0);
 
 end
 
 function GET_NEAR_OBJECT(pc, faction)
 
-	local minDist = 999999;
-	local minObj = nil;
+    local minDist = 999999;
+    local minObj = nil;
 
-	local objList, objCount = SelectObject(pc, 600, faction);	
-	for index = 1, objCount do
-		local obj = objList[index];
-		local dist = GetDistance(pc, obj);
-		if dist < minDist then
-			minDist = dist;
-			minObj = obj;
-		end
-	end
+    local objList, objCount = SelectObject(pc, 600, faction);   
+    for index = 1, objCount do
+        local obj = objList[index];
+        local dist = GetDistance(pc, obj);
+        if dist < minDist then
+            minDist = dist;
+            minObj = obj;
+        end
+    end
 
-	return minObj;
+    return minObj;
 
 
 end
 
 function GET_NEAR_MON(pc)
 
-	return GET_NEAR_OBJECT(pc, "ENEMY");
+    return GET_NEAR_OBJECT(pc, "ENEMY");
 
 end
 
 function GET_NEAR_PC(pc)
 
-	local pc_list, Cnt = SelectObjectByClassName(pc, 300, 'PC')
-	if Cnt == 0 then
-		return nil;
-	end
+    local pc_list, Cnt = SelectObjectByClassName(pc, 300, 'PC')
+    if Cnt == 0 then
+        return nil;
+    end
 
-	return pc_list[1];
+    return pc_list[1];
 
 end
 
 function GET_NEAR_MON_TRI_TYPE(pc, trigType)
 
-	local objList, objCount = SelectObject(pc, 200, 'FRIEND', 1);
-	for index = 1, objCount do
-		local obj = objList[index];
-		local propVal = GetExProp_Str(obj, "TRIG_TYPE");
-		if propVal == trigType then
-			return obj;
-		end
-	end
+    local objList, objCount = SelectObject(pc, 200, 'FRIEND', 1);
+    for index = 1, objCount do
+        local obj = objList[index];
+        local propVal = GetExProp_Str(obj, "TRIG_TYPE");
+        if propVal == trigType then
+            return obj;
+        end
+    end
 
-	return nil;
+    return nil;
 
 end
 
 function EXP_TEST_FUNC(pc, cnt, time, scale, time)
 
-	if cnt == 0 or cnt == nil then
-		cnt = 20;
-	end
+    if cnt == 0 or cnt == nil then
+        cnt = 20;
+    end
 
-	if time == 0 or time == nil then
-		time = 2.0;
-	end
-	
-	if scale == 0 or scale == nil then
-		scale = 1.5;
-	end
+    if time == 0 or time == nil then
+        time = 2.0;
+    end
+    
+    if scale == 0 or scale == nil then
+        scale = 1.5;
+    end
 
-	local fndList, fndCount = SelectObject(pc, 200, 'ENEMY');
-	for i = 1 , fndCount do
-		local mon = fndList[i];
-		GiveExpToPC(mon, pc, 100, cnt, time, scale, 1.5, 1, 1.5);
-		return;
-	end
+    local fndList, fndCount = SelectObject(pc, 200, 'ENEMY');
+    for i = 1 , fndCount do
+        local mon = fndList[i];
+        GiveExpToPC(mon, pc, 100, cnt, time, scale, 1.5, 1, 1.5);
+        return;
+    end
 
 end
 
 function ITEM_TEST(pc, isEnable)
 
-	isEnable = tonumber(isEnable);
-	if isEnable == 1 then
-		PauseItemGetPacket(pc);
-	else
-		ResumeItemGetPacket(pc);
-	end
+    isEnable = tonumber(isEnable);
+    if isEnable == 1 then
+        PauseItemGetPacket(pc);
+    else
+        ResumeItemGetPacket(pc);
+    end
 
 end
 
 
 function HTEST(pc)
 print('testtest')
-	AddAchievePoint(pc, "Ranking1", 100);
+    AddAchievePoint(pc, "Ranking1", 100);
 
 end
 
 function SFPS(pc)
 
-	while 1 do
-		local fps = GetFPS();
-		SendAddOnMsg(pc, "SERVER_FPS", "", fps);
-		sleep(500);
-	end
+    while 1 do
+        local fps = GetFPS();
+        SendAddOnMsg(pc, "SERVER_FPS", "", fps);
+        sleep(500);
+    end
 
 end
 
 function SPCCOUNT(pc)
 
-	while 1 do
-		local pcc = GetPCCount(pc);
-		print (pcc);
-		sleep(500);
-	end
+    while 1 do
+        local pcc = GetPCCount(pc);
+        print (pcc);
+        sleep(500);
+    end
 
 end
 
 function PVPMODE(pc)
 
-	SetCurrentFaction(pc, "Pvp");
-	BroadcastRelation(pc);
+    SetCurrentFaction(pc, "Pvp");
+    BroadcastRelation(pc);
 
 end
 
 function item_take_test(pc, itemname, itemcount)
 
     local tx = TxBegin(pc);
-	TxTakeItem(tx, itemname, itemcount, 'Test');
+    TxTakeItem(tx, itemname, itemcount, 'Test');
 
-	local ret = TxCommit(tx);
-	
+    local ret = TxCommit(tx);
+    
 
 end
 
 
 function BUFF_TEST_1(pc)
 
-	AddBuff(pc, pc, 'Rejuvenation', 0, 0, 3000000, 1);
+    AddBuff(pc, pc, 'Rejuvenation', 0, 0, 3000000, 1);
 end
 
 function BUFF_TEST_2(pc)
 
-	AddBuff(pc, pc, 'Rejuvenation', 0, 0, 30000, -1);
+    AddBuff(pc, pc, 'Rejuvenation', 0, 0, 30000, -1);
 end
 
 
 
 function LAYERBOX(pc, width, height, anglex, angley)
 
-	local pc_x, pc_y, pc_z = GetPos(pc);
-	CreateLayerBox(pc, pc_x, pc_z, anglex, angley, width, height);
+    local pc_x, pc_y, pc_z = GetPos(pc);
+    CreateLayerBox(pc, pc_x, pc_z, anglex, angley, width, height);
 
 end
 
@@ -1944,10 +1944,10 @@ end
 
 function ALL_MON_DESTROY(pc)
 
-	local zoneid = GetZoneInstID(pc);
-	DestroyMonster(zoneid, "ALL");
-	DestroyDummyPC(zoneid);
-	DestroyAllGen(zoneid);
+    local zoneid = GetZoneInstID(pc);
+    DestroyMonster(zoneid, "ALL");
+    DestroyDummyPC(zoneid);
+    DestroyAllGen(zoneid);
 
 end
 
@@ -1962,15 +1962,15 @@ end
 
 function CRE_SOBJ(pc, name)
 
-	CreateSessionObject(pc, name);
+    CreateSessionObject(pc, name);
 end
 
 function DEL_SOBJ(pc, name)
 
-	local sobj = GetSessionObject(pc, name);
-	if sobj ~= nil then
-		DestroySessionObject(pc, sobj);
-	end
+    local sobj = GetSessionObject(pc, name);
+    if sobj ~= nil then
+        DestroySessionObject(pc, sobj);
+    end
 
 end
 
@@ -1978,35 +1978,35 @@ end
 
 function STAM(pc, add)
 
-	AddStamina(pc, add);
+    AddStamina(pc, add);
 
 end
 
 function SETLAYER(pc, layer)
 
-	SetLayer(pc, layer);
+    SetLayer(pc, layer);
 
 end
 
 
 function DMON(pc, monid)
 
-	local moncls = GetClassByType("Monster", monid);
-	local zoneid = GetZoneInstID(pc);
-	DestroyMonster(zoneid, moncls.ClassName);
+    local moncls = GetClassByType("Monster", monid);
+    local zoneid = GetZoneInstID(pc);
+    DestroyMonster(zoneid, moncls.ClassName);
 
 end
 
 function CHECKINST(pc)
 
-	local zoneid = GetZoneInstID(pc);
-	Chat(pc, string.format("%d", zoneid));
+    local zoneid = GetZoneInstID(pc);
+    Chat(pc, string.format("%d", zoneid));
 
 end
 
 function GETLAYER(pc)
 
-	print(GetLayer(pc));
+    print(GetLayer(pc));
 
 end
 
@@ -2015,7 +2015,7 @@ end
 function SETPOSTEST(pc)
 
 
-	SetPosMoveAnim(pc, -857, 1911);
+    SetPosMoveAnim(pc, -857, 1911);
 
 
 end
@@ -2027,60 +2027,60 @@ end
 
 function SIN(pc)
 
-	print(GetZoneName(pc));
+    print(GetZoneName(pc));
 
 end
 
 function BACKTO(pc)
 
-	EndSingleMode(pc);
+    EndSingleMode(pc);
 
 end
 
 function abilpoint(pc, value)
 
-	local tx = TxBegin(pc);
-	if tx == 0 then
-		return;
-	end
+    local tx = TxBegin(pc);
+    if tx == 0 then
+        return;
+    end
 
-	TxSetIESProp(tx, pc, "AbilityPoint", value);
+    TxSetIESProp(tx, pc, "AbilityPoint", value);
 
-	local ret = TxCommit(tx);
-	
+    local ret = TxCommit(tx);
+    
 
 end
 
 function statup(pc, value)
 
-	print(value);
+    print(value);
 
-	if value == 0 then
-		value = 1;
-	end
+    if value == 0 then
+        value = 1;
+    end
 
-	local tx = TxBegin(pc);
-	if tx == 0 then
-		return;
-	end
+    local tx = TxBegin(pc);
+    if tx == 0 then
+        return;
+    end
 
-	local CurBonusStat = pc.StatByBonus;
-	TxSetIESProp(tx, pc, "StatByBonus", CurBonusStat + value);
+    local CurBonusStat = pc.StatByBonus;
+    TxSetIESProp(tx, pc, "StatByBonus", CurBonusStat + value);
 
-	local ret = TxCommit(tx);
-	local afterValue = pc.StatByBonus
+    local ret = TxCommit(tx);
+    local afterValue = pc.StatByBonus
     CustomMongoLog(pc, "StatByBonusADD", "Layer", GetLayer(pc), "beforeValue", CurBonusStat, "afterValue", afterValue, "addValue", value, "Way", "statup", "Type", "statup")
-	
+    
 
 end
 
 
 function tt(pc)
 
-	local x, y = GetPos(pc);
-	local MonObj = CreateGCIES('Monster', "SavePlace2");
-	MonObj.Dialog = "TEST";
-	INIT_ITEM_OWNER(MonObj, pc);
+    local x, y = GetPos(pc);
+    local MonObj = CreateGCIES('Monster', "SavePlace2");
+    MonObj.Dialog = "TEST";
+    INIT_ITEM_OWNER(MonObj, pc);
     local result = CreateMonster(pc, MonObj, x + 50, y, 0, 5);
 
 
@@ -2089,20 +2089,20 @@ end
 
 function rcp(pc, rcpclassID)
 
-	local RecipeProp = GetClassByType("Recipe", rcpclassID);
-	if RecipeProp == nil then
-		RecipeProp = GetClassByType("Recipe", 1);
-		return;
-	end
+    local RecipeProp = GetClassByType("Recipe", rcpclassID);
+    if RecipeProp == nil then
+        RecipeProp = GetClassByType("Recipe", 1);
+        return;
+    end
 
 
-	local x, y = GetPos(pc);
-	local MonObj = CreateGCIES('Monster', RecipeProp.Monster);
-	INIT_ITEM_OWNER(MonObj, pc);
-	MonObj.Tactics = RecipeProp.MonsterTactics;
-	MonObj.Dialog = RecipeProp.Dialog;
-	MonObj.NumArg1 = RecipeProp.ClassID;
-	MonObj.Appearance = "MON_GAUGE";
+    local x, y = GetPos(pc);
+    local MonObj = CreateGCIES('Monster', RecipeProp.Monster);
+    INIT_ITEM_OWNER(MonObj, pc);
+    MonObj.Tactics = RecipeProp.MonsterTactics;
+    MonObj.Dialog = RecipeProp.Dialog;
+    MonObj.NumArg1 = RecipeProp.ClassID;
+    MonObj.Appearance = "MON_GAUGE";
     local result = CreateMonster(pc, MonObj, x, y, 0, 5);
 
 
@@ -2116,28 +2116,28 @@ end
 
 function equipdur(pc, val)
 
-	SET_ENDURE_BY_PART(pc, 'RH', val);
+    SET_ENDURE_BY_PART(pc, 'RH', val);
 
 end
 
 
 function SET_ENDURE_BY_PART(pc, part, val)
 
-	local rw = GetEquipItem(pc, part);
-	if rw == nil then
-		return;
-	end
+    local rw = GetEquipItem(pc, part);
+    if rw == nil then
+        return;
+    end
 
-	SET_ENDURE_TX(pc, rw, val);
+    SET_ENDURE_TX(pc, rw, val);
 
 end
 
 function SET_ENDURE_TX(pc, item, val)
 
-	local tx = TxBegin(pc);
-	TxSetIESProp(tx, item, 'Dur', val);
-	local ret = TxCommit(tx);
-	
+    local tx = TxBegin(pc);
+    TxSetIESProp(tx, item, 'Dur', val);
+    local ret = TxCommit(tx);
+    
 
 end
 
@@ -2145,11 +2145,11 @@ function test_itemgive(pc,itemname)
     local tx = TxBegin(pc);
     TxGiveItem(tx,itemname, 1, "Test")
     local ret = TxCommit(tx);
-	
-	print(ret)
-	print(type(ret))
+    
+    print(ret)
+    print(type(ret))
 
-	print('TEST START');
+    print('TEST START');
     Chat(pc,'GGGGGG')
 end
 
@@ -2157,11 +2157,11 @@ end
 function TEST_EQUIP_DEL(pc, spot)
     local tx = TxBegin(pc);
     TxTakeEquipItem(tx, spot);
-	local ret = TxCommit(tx);
-	
+    local ret = TxCommit(tx);
+    
 
-	print(ret)
-	print(type(ret))
+    print(ret)
+    print(type(ret))
 
 
 end
@@ -2170,642 +2170,642 @@ end
 
 function Q_R_TEST(pc)
 
-	local sel = ShowQuestSelDlg(pc, "HAMING_KILL_1");
-	print(sel);
+    local sel = ShowQuestSelDlg(pc, "HAMING_KILL_1");
+    print(sel);
 
 end
 
 function TEST_CD(pc)
 
 
-	SetCoolDown(pc, "FeignDeath", 10000);
+    SetCoolDown(pc, "FeignDeath", 10000);
 
 end
 
 function TEST_HATED(pc)
 
-	local cnt = GetHatedCount(pc);
-	for i = 0 , cnt - 1 do
-		local actor = GetHatedChar(pc, i);
-		Chat(actor, ScpArgMsg("Auto_Jeoyo"));
-	end
+    local cnt = GetHatedCount(pc);
+    for i = 0 , cnt - 1 do
+        local actor = GetHatedChar(pc, i);
+        Chat(actor, ScpArgMsg("Auto_Jeoyo"));
+    end
 
 end
 
 
 function SKL_UP(pc, cnt)
 
-	cnt = tonumber(cnt);
-	if cnt == 0 then
-		return;
-	end	
+    cnt = tonumber(cnt);
+    if cnt == 0 then
+        return;
+    end 
 
 
         local tx = TxBegin(pc);
         TxSetIESProp(tx, pc, "SkillPtsByLevel", cnt)
         local ret = TxCommit(tx);
-    	
+        
 
 end
 
 function TEST_MON_DSKL(pc)
 
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
 
-	local cls = GetClass("Skill", "Boss_DashAttack");
-	
-	local x, y, z = GetPos(mon);
-	local dirX, dirZ = GetDirection(mon);
-	x = x + dirX * cls.WaveLength;
-	z = z + dirZ * cls.WaveLength;
-	
-	UseMonsterSkillToGround(mon, cls.ClassName, x, y, z);
-	HOLD_MON_SCP(mon, 3000);	
-	
+    local cls = GetClass("Skill", "Boss_DashAttack");
+    
+    local x, y, z = GetPos(mon);
+    local dirX, dirZ = GetDirection(mon);
+    x = x + dirX * cls.WaveLength;
+    z = z + dirZ * cls.WaveLength;
+    
+    UseMonsterSkillToGround(mon, cls.ClassName, x, y, z);
+    HOLD_MON_SCP(mon, 3000);    
+    
 
 end
 
 function USE_MONSKL(pc, sklName)
 
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
 
-	UseMonsterSkill(mon, pc, sklName);
-	Chat(mon, sklName);
-		
+    UseMonsterSkill(mon, pc, sklName);
+    Chat(mon, sklName);
+        
 end
 
 function TEST_MONSKL(pc, sklName)
 
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
 
-	if sklName == nil or sklName == 0 then
-		sklName = "Boss_JumpAttack";
-	end
-	
-	Chat(mon, sklName);
+    if sklName == nil or sklName == 0 then
+        sklName = "Boss_JumpAttack";
+    end
+    
+    Chat(mon, sklName);
 
-	local x, y, z = GetPos(mon);
-	UseMonsterSkillToGround(mon, sklName, x, y, z);
-	HOLD_MON_SCP(mon, 3000);
+    local x, y, z = GetPos(mon);
+    UseMonsterSkillToGround(mon, sklName, x, y, z);
+    HOLD_MON_SCP(mon, 3000);
 
-		
+        
 end
 
 function TEST_RIDE(pc)
 
-	local mon = GET_NEAR_MON(pc);
-	ChangeTactics(mon, "MON_DUMMY");
-	
-	local stone = CREATE_SELFPOS_MONSTER(mon, "Obstacle_stone", "MON_DUMMY");
-	SetCurrentFaction(stone, "Neutral");
-	SetRideActor(mon, stone, 0);
-	
+    local mon = GET_NEAR_MON(pc);
+    ChangeTactics(mon, "MON_DUMMY");
+    
+    local stone = CREATE_SELFPOS_MONSTER(mon, "Obstacle_stone", "MON_DUMMY");
+    SetCurrentFaction(stone, "Neutral");
+    SetRideActor(mon, stone, 0);
+    
 end
 
 function TEST_CREC(pc, cnt)
 
-	local x, y, z = GetPos(pc);
-	local	angle = 0;
-	local faction ="Neutral";
-	local layer = GetLayer(pc);
-	local tactics = "MON_DUMMY";
+    local x, y, z = GetPos(pc);
+    local   angle = 0;
+    local faction ="Neutral";
+    local layer = GetLayer(pc);
+    local tactics = "MON_DUMMY";
 
-	CRE_CARTNPC(pc, cnt, x, y, z, angle, faction, layer, tactics)
+    CRE_CARTNPC(pc, cnt, x, y, z, angle, faction, layer, tactics)
 
 end
 
 function CRE_CARTNPC(pc, cnt, x, y, z, angle, faction, layer, tactics)
 
-	local cartDist = 30;
-	local head = CREATE_MONSTER(pc, "NPC_Blowfish1", x, y, z, angle, faction, layer, nil, tactics);
+    local cartDist = 30;
+    local head = CREATE_MONSTER(pc, "NPC_Blowfish1", x, y, z, angle, faction, layer, nil, tactics);
 
 
-	local owner = head;
-	local cartList = {};
-	for i = 1 , cnt do
-		local xDir, zDir = GetDirection(head);
-		local cx = x + cartDist * xDir;
-		local cz = z + cartDist * zDir;
-		local cart1 = CREATE_CART(pc, "NPC_Cart1", cx, y, cz, angle, faction, layer, 12, "MON_CART");
-		SetOwner(cart1, owner, 1);
-		owner = cart1;
-		cartList[i] = cart1;
-	end
+    local owner = head;
+    local cartList = {};
+    for i = 1 , cnt do
+        local xDir, zDir = GetDirection(head);
+        local cx = x + cartDist * xDir;
+        local cz = z + cartDist * zDir;
+        local cart1 = CREATE_CART(pc, "NPC_Cart1", cx, y, cz, angle, faction, layer, 12, "MON_CART");
+        SetOwner(cart1, owner, 1);
+        owner = cart1;
+        cartList[i] = cart1;
+    end
 
 end
 
 function CREATE_CARTNPC(pc, cartCnt, btreeName, fixMspd)
 
-	local flwList, cnt = GetFollowerList(pc);
-	for i = 1, cnt do
-		Kill(flwList[i]);
-	end
+    local flwList, cnt = GetFollowerList(pc);
+    for i = 1, cnt do
+        Kill(flwList[i]);
+    end
 
-	local x, y, z = GetPos(pc);
-	local myAngle = GetDirectionByAngle(pc);
-	local dirX, dirZ = GetDirection(pc);
-	local cartDist = 30;
-	
-	if btreeName == nil then
-		btreeName = "BT_Dummy";
-	end
+    local x, y, z = GetPos(pc);
+    local myAngle = GetDirectionByAngle(pc);
+    local dirX, dirZ = GetDirection(pc);
+    local cartDist = 30;
+    
+    if btreeName == nil then
+        btreeName = "BT_Dummy";
+    end
 
-	local head = CREATE_MONSTER(pc, "NPC_Blowfish1", x, y, z, myAngle, "Summon", GetLayer(pc), pc.Lv, nil, nil, nil, nil, nil, nil, nil, btreeName);
-	if fixMspd == nil then
-		fixMspd = pc.MSPD;
-	end
+    local head = CREATE_MONSTER(pc, "NPC_Blowfish1", x, y, z, myAngle, "Summon", GetLayer(pc), pc.Lv, nil, nil, nil, nil, nil, nil, nil, btreeName);
+    if fixMspd == nil then
+        fixMspd = pc.MSPD;
+    end
 
-	head.FIXMSPD_BM = fixMspd;
-	InvalidateMSPD(head);
+    head.FIXMSPD_BM = fixMspd;
+    InvalidateMSPD(head);
 
 
-	if cartCnt == 0 or cartCnt == nil then
-		cartCnt = 1;
-	end
-	
-	local owner = head;
-	local cartList = {};
-	for i = 1 , cartCnt do
-		local cart1 = CREATE_CART_TAIL(pc, owner, x, y, z, angle, dirX, dirZ, cartDist, i);
-		cart1.FIXMSPD_BM = fixMspd * 1.1;
-		owner = cart1;
-		cartList[i] = cart1;
-	end
-	
-	return head, cartList;
+    if cartCnt == 0 or cartCnt == nil then
+        cartCnt = 1;
+    end
+    
+    local owner = head;
+    local cartList = {};
+    for i = 1 , cartCnt do
+        local cart1 = CREATE_CART_TAIL(pc, owner, x, y, z, angle, dirX, dirZ, cartDist, i);
+        cart1.FIXMSPD_BM = fixMspd * 1.1;
+        owner = cart1;
+        cartList[i] = cart1;
+    end
+    
+    return head, cartList;
 end
 
 function DOG(pc)
-	local x, y, z = GetPos(pc);
-	local mon = CREATE_MONSTER_EX(pc, 'mon_dog6', x, y, z, GetDirectionByAngle(pc), 'Neutral', pc.Lv, SET_DUMMY_MON);
-	RunSimpleAI(mon, "dog");
-	SetOwner(mon, pc, 1);
+    local x, y, z = GetPos(pc);
+    local mon = CREATE_MONSTER_EX(pc, 'mon_dog6', x, y, z, GetDirectionByAngle(pc), 'Neutral', pc.Lv, SET_DUMMY_MON);
+    RunSimpleAI(mon, "dog");
+    SetOwner(mon, pc, 1);
 end
 
 function CREATE_CART_TAIL(pc, owner, x, y, z, angle, dirX, dirZ, cartDist, idx)
 
-	local monClsName = "NPC_Cart1";
-	local monName = GetClass("Monster", monClsName).Name;
-	local pcName = GetName(pc);
-	
-	local name = ScpArgMsg("Auto_{Auto_1}ui_MaCha","Auto_1", pcName,"Auto_2", monName);
-	
-	x = x - dirX * cartDist * idx;
-	z = z - dirZ * cartDist * idx;
-	
-	local mon = CREATE_CART(pc, monClsName, x, y, z, angle, "Neutral", GetLayer(pc), 12, "MON_CART", name, pcName);
-	SetOwner(mon, owner, 1);
-	return mon;
+    local monClsName = "NPC_Cart1";
+    local monName = GetClass("Monster", monClsName).Name;
+    local pcName = GetName(pc);
+    
+    local name = ScpArgMsg("Auto_{Auto_1}ui_MaCha","Auto_1", pcName,"Auto_2", monName);
+    
+    x = x - dirX * cartDist * idx;
+    z = z - dirZ * cartDist * idx;
+    
+    local mon = CREATE_CART(pc, monClsName, x, y, z, angle, "Neutral", GetLayer(pc), 12, "MON_CART", name, pcName);
+    SetOwner(mon, owner, 1);
+    return mon;
 
 end
 
 function T_DOWN(pc)
 
-	SendAddOnMsg(nil, "NOTICE_Dm_DefExplan", ScpArgMsg("Auto_DeonJeonipKuLo_HyangHaNeun_Muni_yeolLyeossSeupNiDa"), 3);
-	
+    SendAddOnMsg(nil, "NOTICE_Dm_DefExplan", ScpArgMsg("Auto_DeonJeonipKuLo_HyangHaNeun_Muni_yeolLyeossSeupNiDa"), 3);
+    
 end
 
 function TEST_CRY(pc)
 
-	local x, y, z = GetPos(pc);
-	local head = CREATE_MONSTER(pc, "RootCrystal_a", x, y, z, 0, "RootCrystal", GetLayer(pc), pc.Lv, "MON_DUMMY");
--- 	ChangeModel(pc,'RootCrystal_a')
+    local x, y, z = GetPos(pc);
+    local head = CREATE_MONSTER(pc, "RootCrystal_a", x, y, z, 0, "RootCrystal", GetLayer(pc), pc.Lv, "MON_DUMMY");
+--  ChangeModel(pc,'RootCrystal_a')
 end
 
 function TEST_CRY2(pc)
 
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
-	
-	ChangeModel(mon,'RootCrystal_b');
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
+    
+    ChangeModel(mon,'RootCrystal_b');
 end
 
 function TEST_COLSKL(pc)
 
-	local x, y, z = GetPos(pc);
-	local a = CREATE_MONSTER(pc, "Zombieboss", x, y, z, 0, "Monster", GetLayer(pc), pc.Lv, "MON_DUMMY");
-	local b = CREATE_MONSTER(pc, "Guard_fence", x, y, z + 200 , 0, "Monster", GetLayer(pc), pc.Lv, "MON_DUMMY");
-	
-	local testStr = string.format("%d %d", GetHandle(a), GetHandle(b) );
-	SendAddOnMsg(pc, "NOTICE_Dm_DefExplan", testStr, 3);
-	
-	
+    local x, y, z = GetPos(pc);
+    local a = CREATE_MONSTER(pc, "Zombieboss", x, y, z, 0, "Monster", GetLayer(pc), pc.Lv, "MON_DUMMY");
+    local b = CREATE_MONSTER(pc, "Guard_fence", x, y, z + 200 , 0, "Monster", GetLayer(pc), pc.Lv, "MON_DUMMY");
+    
+    local testStr = string.format("%d %d", GetHandle(a), GetHandle(b) );
+    SendAddOnMsg(pc, "NOTICE_Dm_DefExplan", testStr, 3);
+    
+    
 end
 
 function TEST_ANGLE(pc)
 
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
 
-	local angle = GetLookAngle(pc, mon);
-	local testStr = string.format("%d", angle);
-	Chat(mon, testStr);
+    local angle = GetLookAngle(pc, mon);
+    local testStr = string.format("%d", angle);
+    Chat(mon, testStr);
 end
 
 function AUTO_LEARN_SKILL(pc)
 
-	local jobName = pc.JobName;
-	jobName = string.sub(jobName, 1, string.len(jobName) - 1) .. "1";
-	local jobID = GetClass("Job", jobName).ClassID;
+    local jobName = pc.JobName;
+    jobName = string.sub(jobName, 1, string.len(jobName) - 1) .. "1";
+    local jobID = GetClass("Job", jobName).ClassID;
 
-	local list = GET_CLS_GROUP("SkillTree", jobName);
-	local arglist = {};	
-	arglist[1] = jobID;
+    local list = GET_CLS_GROUP("SkillTree", jobName);
+    local arglist = {}; 
+    arglist[1] = jobID;
 
-	local havepts = GetRemainSkillPts(pc, jobID);
+    local havepts = GetRemainSkillPts(pc, jobID);
 
-	local treename = jobName;
-	local treelist = {};
-	GET_PC_TREE_INFO_LIST(pc, treename, arglist, treelist);
-	
-	for i = 1 , #treelist do
-		arglist[i+1] = 0;
-	end
+    local treename = jobName;
+    local treelist = {};
+    GET_PC_TREE_INFO_LIST(pc, treename, arglist, treelist);
+    
+    for i = 1 , #treelist do
+        arglist[i+1] = 0;
+    end
 
-	while 1 do
-		
-		if havepts <= 0 then
-			break;
-		end
+    while 1 do
+        
+        if havepts <= 0 then
+            break;
+        end
 
-		local did = false;
-		for i = 1 , #treelist do	
-			local tree = treelist[i];
-			local cls = tree["class"];
-			local maxLv = cls.MaxLevel;
-			local curLv = tree["lv"];
+        local did = false;
+        for i = 1 , #treelist do    
+            local tree = treelist[i];
+            local cls = tree["class"];
+            local maxLv = cls.MaxLevel;
+            local curLv = tree["lv"];
 
-			if (curLv + arglist[i+1]) < maxLv then
-				did = true;
-				havepts = havepts - 1;
-				arglist[i+1] = arglist[i+1] + 1;
+            if (curLv + arglist[i+1]) < maxLv then
+                did = true;
+                havepts = havepts - 1;
+                arglist[i+1] = arglist[i+1] + 1;
 
-				if havepts <= 0 then
-					break;
-				end
-			end
-		end
+                if havepts <= 0 then
+                    break;
+                end
+            end
+        end
 
-		if false == did then
-			break;
-		end
-	end
+        if false == did then
+            break;
+        end
+    end
 
-	SCR_TX_SKILL_UP(pc, arglist);
+    SCR_TX_SKILL_UP(pc, arglist);
 
 end
 
 function ALLSKILL(pc)
-	
-	local jobName = pc.JobName;
-	local list = GET_CLS_GROUP("SkillTree", jobName);
-	local arglist = {};	
-	
-	for i = 1 , #list do
-		local sklTreeCls = list[i];
-		
-		if sklTreeCls.ClassID == 1001 then
-			arglist[1] = 1;
-		elseif sklTreeCls.ClassID == 2001 then
-			arglist[1] = 2;
-		elseif sklTreeCls.ClassID == 3001 then
-			arglist[1] = 3;
-		end	
-		
-		arglist[i+1] = sklTreeCls.MaxLevel;	
-	end	
-	
-		
-	local jobID = arglist[1];
-	local treename = GetClassByType("Job", jobID).ClassName;
-	local treelist = {};
-	
-	GET_PC_TREE_INFO_LIST(pc, treename, arglist, treelist);
-	
-	if arglist[1] == 1 then
-		for i = 2, #treelist do
-			arglist[i] = arglist[i] - treelist[i-1]["lv"];
-		end		
-	elseif arglist[1] == 2 then
-		for i = 2, #treelist do
-			arglist[i] = arglist[i] - treelist[i]["lv"];
-		end		
-	elseif arglist[1] == 3 then
-		for i = 2, #treelist do
-			arglist[i] = arglist[i] - treelist[i-1]["lv"];
-		end
-		
-		arglist[4] = 0;		
-	end
-		
-	SCR_TX_SKILL_UP(pc, arglist, 1);
-	
+    
+    local jobName = pc.JobName;
+    local list = GET_CLS_GROUP("SkillTree", jobName);
+    local arglist = {}; 
+    
+    for i = 1 , #list do
+        local sklTreeCls = list[i];
+        
+        if sklTreeCls.ClassID == 1001 then
+            arglist[1] = 1;
+        elseif sklTreeCls.ClassID == 2001 then
+            arglist[1] = 2;
+        elseif sklTreeCls.ClassID == 3001 then
+            arglist[1] = 3;
+        end 
+        
+        arglist[i+1] = sklTreeCls.MaxLevel; 
+    end 
+    
+        
+    local jobID = arglist[1];
+    local treename = GetClassByType("Job", jobID).ClassName;
+    local treelist = {};
+    
+    GET_PC_TREE_INFO_LIST(pc, treename, arglist, treelist);
+    
+    if arglist[1] == 1 then
+        for i = 2, #treelist do
+            arglist[i] = arglist[i] - treelist[i-1]["lv"];
+        end     
+    elseif arglist[1] == 2 then
+        for i = 2, #treelist do
+            arglist[i] = arglist[i] - treelist[i]["lv"];
+        end     
+    elseif arglist[1] == 3 then
+        for i = 2, #treelist do
+            arglist[i] = arglist[i] - treelist[i-1]["lv"];
+        end
+        
+        arglist[4] = 0;     
+    end
+        
+    SCR_TX_SKILL_UP(pc, arglist, 1);
+    
 end
 
 function TEST_RANK(pc)
 
-	
-	Chat(pc, "SS");
-	ShowRankUI(pc, "OverKill", "NO", "YES");
+    
+    Chat(pc, "SS");
+    ShowRankUI(pc, "OverKill", "NO", "YES");
 
 
 end
 
 function RANK1(pc)
 
-	
-	Chat(pc, "SS");
-	ShowRankUI(pc, "OverKill", "NO", "YES");
+    
+    Chat(pc, "SS");
+    ShowRankUI(pc, "OverKill", "NO", "YES");
 
 
 end
 
 function TEST_WANG(pc)
 
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
-	
-	-- UsePcSkill(pc, mon, 'MongWangGa', 1, 'YES');
-	SetExArgCount(mon, 30);
-	SetExArg(mon, 1, pc);
-	local list, cnt = GetExArgList(mon);
-		
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
+    
+    -- UsePcSkill(pc, mon, 'MongWangGa', 1, 'YES');
+    SetExArgCount(mon, 30);
+    SetExArg(mon, 1, pc);
+    local list, cnt = GetExArgList(mon);
+        
 
 end
 
 function TEST_SPOS(pc)
 
-	while 1 do
-	
-		local x, y, z = GetPos(pc);
-		TestDrawPos(pc, x, y + 10, z);
-		TEST_SPOS_LOOP(pc, 'ENEMY');
-		TEST_SPOS_LOOP(pc, 'NEUTRAL');
-		TEST_SPOS_LOOP(pc, 'FRIEND');
-		sleep(500);
-	end
+    while 1 do
+    
+        local x, y, z = GetPos(pc);
+        TestDrawPos(pc, x, y + 10, z);
+        TEST_SPOS_LOOP(pc, 'ENEMY');
+        TEST_SPOS_LOOP(pc, 'NEUTRAL');
+        TEST_SPOS_LOOP(pc, 'FRIEND');
+        sleep(500);
+    end
 
 end
 
 function TEST_SPOS_LOOP(pc, relation)
 
-	local objList, objCount = SelectObject(pc, 200, relation, 1);
-	for index = 1, objCount do
-		local obj = objList[index];
-		local x, y, z = GetPos(obj);
-		TestDrawPos(obj, x, y + 10, z);
-	end
+    local objList, objCount = SelectObject(pc, 200, relation, 1);
+    for index = 1, objCount do
+        local obj = objList[index];
+        local x, y, z = GetPos(obj);
+        TestDrawPos(obj, x, y + 10, z);
+    end
 
 end
 
 
 function TEST_WIKI(pc)
-	local wiki = GetWiki(pc, 3);
-	print(wiki);
+    local wiki = GetWiki(pc, 3);
+    print(wiki);
 end
 
 function TEST_CAM(pc)
 
-	local curzoneID = GetZoneInstID(pc);
-	_TRACK(curzoneID, "PLAYER",
-	{
-		{"RUNSCRIPT", pc, "DIRECT_START"},
-		{"SLEEP", 1000},
-		{"RUNSCRIPT", pc, "ChangeCameraZoom", 3, 400, -100},
-		{"SLEEP", 1000},
-		{"RUNSCRIPT", pc, "ChangeCameraZoom", 1, 40, 10},
-		{"SLEEP", 1000},
-		{"RUNSCRIPT", pc, "CAMERA_RESET"},
-		{"SLEEP", 1000},
-		{"RUNSCRIPT", pc, "DIRECT_END"},
-		{"SLEEP", 1000},
-	}
-	);
+    local curzoneID = GetZoneInstID(pc);
+    _TRACK(curzoneID, "PLAYER",
+    {
+        {"RUNSCRIPT", pc, "DIRECT_START"},
+        {"SLEEP", 1000},
+        {"RUNSCRIPT", pc, "ChangeCameraZoom", 3, 400, -100},
+        {"SLEEP", 1000},
+        {"RUNSCRIPT", pc, "ChangeCameraZoom", 1, 40, 10},
+        {"SLEEP", 1000},
+        {"RUNSCRIPT", pc, "CAMERA_RESET"},
+        {"SLEEP", 1000},
+        {"RUNSCRIPT", pc, "DIRECT_END"},
+        {"SLEEP", 1000},
+    }
+    );
 
 end
 
 function TEST_REINF(pc)
 
-	LoadReinfList(pc);
+    LoadReinfList(pc);
 
 end
 
 function TEST_STRPROP(pc, name)
 
-	local item = GetInvItemByName(pc, name);
-	if item == nil then
-		return;
-	end
-	
-	local tx = TxBegin(pc);
-	if tx == 0 then
-		return;
-	end
+    local item = GetInvItemByName(pc, name);
+    if item == nil then
+        return;
+    end
+    
+    local tx = TxBegin(pc);
+    if tx == 0 then
+        return;
+    end
 
-	TxSetIESProp(tx, item, "FirstGet", GetName(pc));
+    TxSetIESProp(tx, item, "FirstGet", GetName(pc));
 
-	local ret = TxCommit(tx);
-	
+    local ret = TxCommit(tx);
+    
 
-		
-	
+        
+    
 end
 
 function TEST_MONSTERGEN(pc)
 
-	local layer = GetLayer(pc);
-	local x, y, z = GetPos(pc);
-	local groupGenName = "NEWFE_2"
-	local genTime = 180;
-	local genDuration = 25;
-		
-	local monObj = CreateGCIES('Monster', "HiddenTrigger3");
-	if monObj == nil then
-		print("Error_S1");
-		return;
-	end
+    local layer = GetLayer(pc);
+    local x, y, z = GetPos(pc);
+    local groupGenName = "NEWFE_2"
+    local genTime = 180;
+    local genDuration = 25;
+        
+    local monObj = CreateGCIES('Monster', "HiddenTrigger3");
+    if monObj == nil then
+        print("Error_S1");
+        return;
+    end
 
-	MON_LAW_DUMMY(monObj);
-	
-	local zoneInst = GetZoneInstID(pc);
-	monObj = CreateMonster(zoneInst, monObj, x, y, z, 0, 20);
-	if monObj == nil then
-		print("Error_S2");
-		return;
-	end
-	
-	SetLayer(monObj, layer);
-	
-	REGISTER_ATTACK_GEN(monObj, genTime, genDuration, groupGenName);
+    MON_LAW_DUMMY(monObj);
+    
+    local zoneInst = GetZoneInstID(pc);
+    monObj = CreateMonster(zoneInst, monObj, x, y, z, 0, 20);
+    if monObj == nil then
+        print("Error_S2");
+        return;
+    end
+    
+    SetLayer(monObj, layer);
+    
+    REGISTER_ATTACK_GEN(monObj, genTime, genDuration, groupGenName);
 
 end
 
 function TEST_PARTYOBJ(pc)
-	
+    
 
 end
 
 
 function TEST_MON_ANIM(pc, animName)
 
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
 
-	PlayAnim(mon, animName, 1, 0, 0);
-	Chat ( mon , animName );
-		
+    PlayAnim(mon, animName, 1, 0, 0);
+    Chat ( mon , animName );
+        
 end
 
 function TEST_MSG2(pc)
-	SendSysMsg(pc, "{How}GetSilver",0,"How",3)
+    SendSysMsg(pc, "{How}GetSilver",0,"How",3)
 end
 
 function TEST_PC_ANIM(pc, animName)
 
-	PlayAnim(pc, "BOX_IN", 1, 0, 0);
-	Chat ( pc , animName );
-		
+    PlayAnim(pc, "BOX_IN", 1, 0, 0);
+    Chat ( pc , animName );
+        
 end
 
 function TEST_ZONEMOVE(pc)
-	local list, cnt = SelectObjectByClassName(pc,100,'statue_vakarine');
-	SCR_CAMP_WARP_BY_SKILL(list[1],pc);
+    local list, cnt = SelectObjectByClassName(pc,100,'statue_vakarine');
+    SCR_CAMP_WARP_BY_SKILL(list[1],pc);
 
 end
 
 function TEST_SELOBJ(pc)
 
-	local fndList, fndCount = SelectObject(pc, 20, 'ALL');
-	print(fndCount);
-	for i = 1 , fndCount do
-		 print(fndList[i]);
-		--Chat(fndList[i], i .. " TH");
-	end
+    local fndList, fndCount = SelectObject(pc, 20, 'ALL');
+    print(fndCount);
+    for i = 1 , fndCount do
+         print(fndList[i]);
+        --Chat(fndList[i], i .. " TH");
+    end
 
 end
 
 function TEST_BT(pc, btName, tcnt)
-	
-	if btName == 0 or btName == nil then
-		Chat(pc, ScpArgMsg("Auto_eopeum"));		
-		return;
-	end	
+    
+    if btName == 0 or btName == nil then
+        Chat(pc, ScpArgMsg("Auto_eopeum"));     
+        return;
+    end 
 
-	local bt = CreateBTree(btName);
-	if bt == nil then
-		Chat(pc, btName .. ScpArgMsg("Auto__:_eopNeun_BT"));		
-		return;
-	end
-		
-	local x, y, z = GetPos(pc);
-	local layer = GetLayer(pc);
-	
-	if tcnt == nil or tcnt == 0 then
-		tcnt = 1;
-	end
-	
-	for i = 1 , tcnt do
-		local leader = CREATE_MONSTER(pc, "Aos_Hero_Arc", x, y, z, 0, "Law", layer, 30, "MON_BTREE");
-		SetBTree(leader, bt);
-	end
+    local bt = CreateBTree(btName);
+    if bt == nil then
+        Chat(pc, btName .. ScpArgMsg("Auto__:_eopNeun_BT"));        
+        return;
+    end
+        
+    local x, y, z = GetPos(pc);
+    local layer = GetLayer(pc);
+    
+    if tcnt == nil or tcnt == 0 then
+        tcnt = 1;
+    end
+    
+    for i = 1 , tcnt do
+        local leader = CREATE_MONSTER(pc, "Aos_Hero_Arc", x, y, z, 0, "Law", layer, 30, "MON_BTREE");
+        SetBTree(leader, bt);
+    end
 
 end
 
 function TEST_BBT(self)
-		
-	local x, y, z = GetPos(self);
-	local layer = GetLayer(self);
-	
-	local monGroupname = "Aos_Law_Archer";
-	local bt = CreateBTree("AosBT_Law_Hero");
-	CRE_GROUP_MON(self, monGroupname, x,y,z, "Law", layer, nil, nil, nil, bt);
-	
+        
+    local x, y, z = GetPos(self);
+    local layer = GetLayer(self);
+    
+    local monGroupname = "Aos_Law_Archer";
+    local bt = CreateBTree("AosBT_Law_Hero");
+    CRE_GROUP_MON(self, monGroupname, x,y,z, "Law", layer, nil, nil, nil, bt);
+    
 
 
 end
 
 function TEST_EMO(pc, eftName)
 
-	SetEmoticon(pc, eftName);
+    SetEmoticon(pc, eftName);
 end
 
 function TEST_SHOW_EMO(pc)
 
-	HideEmoticon(pc, 'I_emo_stun')
+    HideEmoticon(pc, 'I_emo_stun')
 end
 
 function TEST_ZONEINST(pc)
 
-	Chat(pc, GetZoneInstID(pc));
-	print ( GetZoneInstID(pc));
+    Chat(pc, GetZoneInstID(pc));
+    print ( GetZoneInstID(pc));
 
 end
 
 function TEST_MANI(pc)
 
-	CreateSessionObject(pc,'ssn_shop', 1);
-	local obj = GetSessionObject(pc, 'ssn_shop');
-	
-	local tx = TxBegin(pc);
-	TxSetIESProp(tx, obj, 'Posion_2', 10);
-	local ret = TxCommit(tx);
-	
+    CreateSessionObject(pc,'ssn_shop', 1);
+    local obj = GetSessionObject(pc, 'ssn_shop');
+    
+    local tx = TxBegin(pc);
+    TxSetIESProp(tx, obj, 'Posion_2', 10);
+    local ret = TxCommit(tx);
+    
 
 end
 
 function TEST_MBLUR(pc, isOn)
 
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
-	
-	SetMotionBlur(mon, isOn);
-	Chat(mon, " " .. isOn);
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
+    
+    SetMotionBlur(mon, isOn);
+    Chat(mon, " " .. isOn);
 
 end
 
 function TEST_B_BOX(pc)
 
-	local x, y, z = GetPos(pc);
-	local width = 200;
-	local height = 150;
-	local boxMon = CREATE_BATTLE_BOX(pc, 20, "None", 1000, x - width / 2, y, z - height/ 2, x + width / 2, y, z + height / 2, "NO");
+    local x, y, z = GetPos(pc);
+    local width = 200;
+    local height = 150;
+    local boxMon = CREATE_BATTLE_BOX(pc, 20, "None", 1000, x - width / 2, y, z - height/ 2, x + width / 2, y, z + height / 2, "NO");
 
---	local mon1 = CREATE_MONSTER(pc, "Goblin_Spear", x, y, z, 0, "Monster", 0, 12, "MON_BASIC");
-	--ADD_BATTLE_BOX_MONSTER(boxMon, mon1);		
-	
+--  local mon1 = CREATE_MONSTER(pc, "Goblin_Spear", x, y, z, 0, "Monster", 0, 12, "MON_BASIC");
+    --ADD_BATTLE_BOX_MONSTER(boxMon, mon1);     
+    
 end
 
 function DOTIMEACTION_SANI(pc, target, sani, msg, second)
     CancelMouseMove(pc)
 
-	local saniRet = PlaySumAni(pc, target, sani);
-	if saniRet == 0.0 then
-		StopScript();
-		sleep(10);
-		return false;
-	end
+    local saniRet = PlaySumAni(pc, target, sani);
+    if saniRet == 0.0 then
+        StopScript();
+        sleep(10);
+        return false;
+    end
 
-	WaitSumAniEnd(pc);
-	--return DOTIMEACTION(pc, msg, "", second);
+    WaitSumAniEnd(pc);
+    --return DOTIMEACTION(pc, msg, "", second);
 
 end
 
@@ -2823,29 +2823,29 @@ end
 
 function DOTIMEACTION_GUILDBATTLE(pc, msg, anim, second, buffObj, ridingAnim)
     CancelMouseMove(pc)
-	PlayAnim(buffObj, 'EVENT_LOOP');
+    PlayAnim(buffObj, 'EVENT_LOOP');
     anim = DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
 
-	local result = DoTimeAction(pc, msg, anim, second);
-	if result == 0.0 then
-		StopAnim(buffObj)
-		StopScript();
-		sleep(10);
-		return false;
-	end
-	
-	while 1 do
-		result = GetTimeActionResult(pc, 0);
+    local result = DoTimeAction(pc, msg, anim, second);
+    if result == 0.0 then
+        StopAnim(buffObj)
+        StopScript();
+        sleep(10);
+        return false;
+    end
+    
+    while 1 do
+        result = GetTimeActionResult(pc, 0);
 
-		if result == 1 then
-			return 1;
-		else
-			StopAnim(buffObj)
-		end
-		
-		sleep(1);
-	end
-	
+        if result == 1 then
+            return 1;
+        else
+            StopAnim(buffObj)
+        end
+        
+        sleep(1);
+    end
+    
 end
 
 function DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
@@ -2864,23 +2864,23 @@ end
 function DOTIMEACTION(pc, msg, anim, second, ridingAnim)
     anim = DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
 
-	local result = DoTimeAction(pc, msg, anim, second);
-	if result == 0.0 then
-		StopScript();
-		sleep(10);
-		return false;
-	end
-	
-	while 1 do
-		result = GetTimeActionResult(pc, 0);
+    local result = DoTimeAction(pc, msg, anim, second);
+    if result == 0.0 then
+        StopScript();
+        sleep(10);
+        return false;
+    end
+    
+    while 1 do
+        result = GetTimeActionResult(pc, 0);
 
-		if result == 1 then
-			return;
-		end
-		
-		sleep(1);
-	end
-	
+        if result == 1 then
+            return;
+        end
+        
+        sleep(1);
+    end
+    
 end
 
 function DOTIMEACTION_R_FAILTIME_SET(pc, questName, msg, sec, animName, addSObj, ridingAnim)
@@ -2939,14 +2939,14 @@ function DOTIMEACTION_R(pc, msg, anim, second, sObj_name, add_time, ridingAnim)
     
     local xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
 
-	if xac_ssn == nil then
-    	CreateSessionObject(pc, 'SSN_EV_STOP', 1)
-    	xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
-		if xac_ssn == nil then
-			return -2;
-		end
+    if xac_ssn == nil then
+        CreateSessionObject(pc, 'SSN_EV_STOP', 1)
+        xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
+        if xac_ssn == nil then
+            return -2;
+        end
 
-    	xac_ssn.Step1 = (second*1000 + 500 + add_timer)
+        xac_ssn.Step1 = (second*1000 + 500 + add_timer)
     else
         SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("TryLater"), 1);
         return -2;
@@ -2960,64 +2960,64 @@ function DOTIMEACTION_R(pc, msg, anim, second, sObj_name, add_time, ridingAnim)
         end
     end
 
-	local result = DoTimeAction(pc, msg, anim, second);
-	if result == 0.0 then
-		StopScript();
-		DestroySessionObject(pc, xac_ssn)
-		return 0;
-	end
-	
-	while 1 do		
-		result = GetTimeActionResult(pc, 1);		
-		if result == 1 then
-			if IsRest(pc) == 1 then
-				PlayAnim(pc, 'REST')
-			else
-				PlayAnim(pc, 'STD')  
-			end
+    local result = DoTimeAction(pc, msg, anim, second);
+    if result == 0.0 then
+        StopScript();
+        DestroySessionObject(pc, xac_ssn)
+        return 0;
+    end
+    
+    while 1 do      
+        result = GetTimeActionResult(pc, 1);        
+        if result == 1 then
+            if IsRest(pc) == 1 then
+                PlayAnim(pc, 'REST')
+            else
+                PlayAnim(pc, 'STD')  
+            end
            
             DestroySessionObject(pc, xac_ssn)
-			return 1;
-		end
-		
-		if result == 0 then
-			if IsRest(pc) == 1 then
-				PlayAnim(pc, 'REST')
-			else 
-			    PlayAnim(pc, 'STD')
-			end
-		    DestroySessionObject(pc, xac_ssn)
-			return 0;
-		end
-		
-		sleep(1);
-	end
+            return 1;
+        end
+        
+        if result == 0 then
+            if IsRest(pc) == 1 then
+                PlayAnim(pc, 'REST')
+            else 
+                PlayAnim(pc, 'STD')
+            end
+            DestroySessionObject(pc, xac_ssn)
+            return 0;
+        end
+        
+        sleep(1);
+    end
     DestroySessionObject(pc, xac_ssn)
-	return 0;	
-		
+    return 0;   
+        
 end
 
 function DOTIMEACTION_ONLY_TARGET(seller, target, msg, anim, second, skillType)
-	
-	local result = ShowingTimeActionOnlyTarget(seller, target, msg, anim, second, skillType);
-	if result == 0.0 then
-		StopScript();
-		sleep(10);
-		return 0;
-	end
-	
-	while 1 do		
-		result = GetTimeActionResult(target, 1);
-		if result == 1 then
-			return 1;
-		end
-		
-		if result == 0 then
-			return 0;
-		end
-		
-		sleep(1);
-	end
+    
+    local result = ShowingTimeActionOnlyTarget(seller, target, msg, anim, second, skillType);
+    if result == 0.0 then
+        StopScript();
+        sleep(10);
+        return 0;
+    end
+    
+    while 1 do      
+        result = GetTimeActionResult(target, 1);
+        if result == 1 then
+            return 1;
+        end
+        
+        if result == 0 then
+            return 0;
+        end
+        
+        sleep(1);
+    end
 end
 
 function DOTIMEACTION_ONLY_ACTION(pc, msg, anim, second, ridingAnim)
@@ -3047,11 +3047,11 @@ function DOTIMEACTION_ONLY_ACTION(pc, msg, anim, second, ridingAnim)
                 PlayAnim(pc, 'REST')
             end
 
-			return 0;
-		end
-		
-		sleep(1);
-	end
+            return 0;
+        end
+        
+        sleep(1);
+    end
 end
 
 --self?? Dialog NPC
@@ -3059,10 +3059,10 @@ function DOTIMEACTION_B(pc, msg, anim, second, sObj_name, eff_name, self, riding
     CancelMouseMove(pc)
     anim = DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
     local xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
-	if xac_ssn == nil then
-    	CreateSessionObject(pc, 'SSN_EV_STOP', 1)
-    	xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
-    	xac_ssn.Step1 = (second*1000 + 500)
+    if xac_ssn == nil then
+        CreateSessionObject(pc, 'SSN_EV_STOP', 1)
+        xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
+        xac_ssn.Step1 = (second*1000 + 500)
     else
         SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("TryLater"), 1);
         return;
@@ -3076,32 +3076,32 @@ function DOTIMEACTION_B(pc, msg, anim, second, sObj_name, eff_name, self, riding
         end
     end
 
-	local result = DoTimeAction(pc, msg, anim, second);
-	if result == 0.0 then
-		StopScript();
-		sleep(10);
-		DestroySessionObject(pc, xac_ssn)
-		return 0;
-	end
-	
-	while 1 do
-		result = GetTimeActionResult(pc, 1);
+    local result = DoTimeAction(pc, msg, anim, second);
+    if result == 0.0 then
+        StopScript();
+        sleep(10);
+        DestroySessionObject(pc, xac_ssn)
+        return 0;
+    end
+    
+    while 1 do
+        result = GetTimeActionResult(pc, 1);
 
-		if result == 1 then
-		    DestroySessionObject(pc, xac_ssn)
-			return 1;
-		end
-		
-		if result == 0 then
-		    DestroySessionObject(pc, xac_ssn)
-			return 0;
-		end
-		
-		sleep(1);
-	end
+        if result == 1 then
+            DestroySessionObject(pc, xac_ssn)
+            return 1;
+        end
+        
+        if result == 0 then
+            DestroySessionObject(pc, xac_ssn)
+            return 0;
+        end
+        
+        sleep(1);
+    end
     DestroySessionObject(pc, xac_ssn)
-	return 0;	
-		
+    return 0;   
+        
 end
 
 
@@ -3116,139 +3116,139 @@ function DOTIMEACTION_R_DUMMY_ITEM(pc, msg, anim, second, sObj_name, add_time, i
         add_timer = add_time*1000
     end
 
-	local xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
+    local xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
 
-	if xac_ssn == nil then
-		CreateSessionObject(pc, 'SSN_EV_STOP', 1)
-		xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
-	
-		if xac_ssn == nil then
-			return -2;
-		end
+    if xac_ssn == nil then
+        CreateSessionObject(pc, 'SSN_EV_STOP', 1)
+        xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
+    
+        if xac_ssn == nil then
+            return -2;
+        end
 
-		xac_ssn.Step1 = (second*1000 + 500 + add_timer)
-	else
-		SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("TryLater"), 1);
-		return -2;
-	end
+        xac_ssn.Step1 = (second*1000 + 500 + add_timer)
+    else
+        SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("TryLater"), 1);
+        return -2;
+    end
 
-	if sObj_name ~= nil and sObj_name ~= 'None' then
-		CreateSessionObject(pc, sObj_name, 1)
-		local sObj = GetSessionObject(pc, sObj_name)
-		if sObj ~= nil then
-			sObj.Count = second
-		end
-	end
+    if sObj_name ~= nil and sObj_name ~= 'None' then
+        CreateSessionObject(pc, sObj_name, 1)
+        local sObj = GetSessionObject(pc, sObj_name)
+        if sObj ~= nil then
+            sObj.Count = second
+        end
+    end
 
-	EquipDummyItemSpot(pc,pc, 0, spot, 0)
-	if spot == "LH" then
-		AddBuff(pc, pc, 'Warrior_RH_VisibleObject');
-	elseif spot == "RH" then
-		AddBuff(pc, pc, 'Warrior_LH_VisibleObject');
-	end
-	
-	EquipDummyItemSpot(pc, pc, itemNumber, spot, 0)
+    EquipDummyItemSpot(pc,pc, 0, spot, 0)
+    if spot == "LH" then
+        AddBuff(pc, pc, 'Warrior_RH_VisibleObject');
+    elseif spot == "RH" then
+        AddBuff(pc, pc, 'Warrior_LH_VisibleObject');
+    end
+    
+    EquipDummyItemSpot(pc, pc, itemNumber, spot, 0)
 
-	local result = DoTimeAction(pc, msg, anim, second);
-	if result == 0.0 then
-		StopScript();
-		sleep(10);
-		DestroySessionObject(pc, xac_ssn)
-		return 0;
-	end
-	
-	while 1 do
-		result = GetTimeActionResult(pc, 1);		
-		if result == 1 then
-			if IsRest(pc) == 1 then
-				PlayAnim(pc, 'REST')
-			else
-				PlayAnim(pc, 'STD')  
-			end
-		
-			EquipDummyItemSpot(pc,pc, 0, spot, 0)
+    local result = DoTimeAction(pc, msg, anim, second);
+    if result == 0.0 then
+        StopScript();
+        sleep(10);
+        DestroySessionObject(pc, xac_ssn)
+        return 0;
+    end
+    
+    while 1 do
+        result = GetTimeActionResult(pc, 1);        
+        if result == 1 then
+            if IsRest(pc) == 1 then
+                PlayAnim(pc, 'REST')
+            else
+                PlayAnim(pc, 'STD')  
+            end
+        
+            EquipDummyItemSpot(pc,pc, 0, spot, 0)
 
-			if spot == "LH" then
-				RemoveBuff(pc, 'Warrior_RH_VisibleObject');
-			elseif spot == "RH" then
-				RemoveBuff(pc, 'Warrior_LH_VisibleObject');
-			end
+            if spot == "LH" then
+                RemoveBuff(pc, 'Warrior_RH_VisibleObject');
+            elseif spot == "RH" then
+                RemoveBuff(pc, 'Warrior_LH_VisibleObject');
+            end
 
-			DestroySessionObject(pc, xac_ssn)
-			return 1;
-		end
+            DestroySessionObject(pc, xac_ssn)
+            return 1;
+        end
 
-		if result == 0 then
-			if IsRest(pc) == 1 then
-				PlayAnim(pc, 'REST')
-			end
-			DestroySessionObject(pc, xac_ssn)
+        if result == 0 then
+            if IsRest(pc) == 1 then
+                PlayAnim(pc, 'REST')
+            end
+            DestroySessionObject(pc, xac_ssn)
 
-			EquipDummyItemSpot(pc,pc, 0, spot, 0)
+            EquipDummyItemSpot(pc,pc, 0, spot, 0)
 
-			if spot == "LH" then
-				RemoveBuff(pc, 'Warrior_LH_VisibleObject');
-			elseif spot == "RH" then
-				RemoveBuff(pc, 'Warrior_RH_VisibleObject');
-			end
+            if spot == "LH" then
+                RemoveBuff(pc, 'Warrior_LH_VisibleObject');
+            elseif spot == "RH" then
+                RemoveBuff(pc, 'Warrior_RH_VisibleObject');
+            end
 
-			return 0;
-		end
+            return 0;
+        end
 
-		sleep(1);
-	end
-	DestroySessionObject(pc, xac_ssn)
-	return 0;	
+        sleep(1);
+    end
+    DestroySessionObject(pc, xac_ssn)
+    return 0;   
 end
 
 
 function FORCE_SUMMON(self, faction)
 
-	HoldMonScp(self);
-	PlayAnim(self, "SKL_CAST", 1);
-	sleep(1000);
-	PlayAnim(self, "SKL_SHOT", 0);
-	local x, y, z = GetFrontPos(self, 70);
-	local throwTime = 0.5;
-	MslThrow(self, "archer_poisonarrow", 1.0, x, y, z, range, throwTime, 0, 600, 2.0, "F_explosion071_green", 1.0);
-	sleep(throwTime * 1000);
+    HoldMonScp(self);
+    PlayAnim(self, "SKL_CAST", 1);
+    sleep(1000);
+    PlayAnim(self, "SKL_SHOT", 0);
+    local x, y, z = GetFrontPos(self, 70);
+    local throwTime = 0.5;
+    MslThrow(self, "archer_poisonarrow", 1.0, x, y, z, range, throwTime, 0, 600, 2.0, "F_explosion071_green", 1.0);
+    sleep(throwTime * 1000);
 
-	local mon1 = CREATE_SUMMON(self, "Haming", x, y, z, GetDirectionByAngle(self), self.Lv, nil, faction);
-	UnHoldMonScp(self);
+    local mon1 = CREATE_SUMMON(self, "Haming", x, y, z, GetDirectionByAngle(self), self.Lv, nil, faction);
+    UnHoldMonScp(self);
 
 end
 
 function TEST_DIRECTION(pc, name, time)
 
-	if time ~= nil then
-		sleep(time * 1000);
-	end
+    if time ~= nil then
+        sleep(time * 1000);
+    end
 
-	PlayDirection(pc, name);
+    PlayDirection(pc, name);
 
 end
 
 function TEST_MUSIC(pc, musicName)
-	PlayMusicQueue(pc, musicName);
+    PlayMusicQueue(pc, musicName);
 end
 
 function CLEAR_TACTICS(mon)
-	mon.BTree = "None";
-	mon.Tactics = "None";
+    mon.BTree = "None";
+    mon.Tactics = "None";
 end
 
 function SCR_USE_TEST_SKILL(self ,skill)
 
-	
-	local x, y, z = GetFrontPos(self, 150);
-	sleep(1000);
-	CREATE_MONSTER(self, "Icepillar_1", x, y, z);
+    
+    local x, y, z = GetFrontPos(self, 150);
+    sleep(1000);
+    CREATE_MONSTER(self, "Icepillar_1", x, y, z);
 
-	sleep(500);
-	CREATE_MONSTER(self, "Icepillar_1", x, y, z);
+    sleep(500);
+    CREATE_MONSTER(self, "Icepillar_1", x, y, z);
 
-	sleep(500);
-	CREATE_MONSTER(self, "Icepillar_1", x, y, z);
+    sleep(500);
+    CREATE_MONSTER(self, "Icepillar_1", x, y, z);
 
 
 
@@ -3256,51 +3256,51 @@ end
 
 function TEST_MEDAL(pc, cnt)
 
-	local tx = TxBegin(pc);
-	local aobj = GetAccountObj(pc);
-	if cnt == 0 or cnt == nil then
-    	TxAddIESProp(tx, aobj, "PremiumMedal", 500, 'TEST_MEDAL');
-    	local ret = TxCommit(tx);
-	else
-    	TxAddIESProp(tx, aobj, "PremiumMedal", cnt, 'TEST_MEDAL');
-    	local ret = TxCommit(tx);
+    local tx = TxBegin(pc);
+    local aobj = GetAccountObj(pc);
+    if cnt == 0 or cnt == nil then
+        TxAddIESProp(tx, aobj, "PremiumMedal", 500, 'TEST_MEDAL');
+        local ret = TxCommit(tx);
+    else
+        TxAddIESProp(tx, aobj, "PremiumMedal", cnt, 'TEST_MEDAL');
+        local ret = TxCommit(tx);
     end
-	
-		
+    
+        
 end
 
 
 function TEST_achi(pc)
 
         AddAchievePoint(pc, "TreasureBox", 10000);
-		AddAchievePoint(pc, "MonKill", 10000);
-		AddAchievePoint(pc, "OverKill", 10000);
-		AddAchievePoint(pc, "PcRevive", 10000);
-		AddAchievePoint(pc, "ItemRecipe", 10000);
-		AddAchievePoint(pc, "PcKill", 10000);
-		AddAchievePoint(pc, "HairShop", 10000);
-		AddAchievePoint(pc, "DaegilCat", 10000);
+        AddAchievePoint(pc, "MonKill", 10000);
+        AddAchievePoint(pc, "OverKill", 10000);
+        AddAchievePoint(pc, "PcRevive", 10000);
+        AddAchievePoint(pc, "ItemRecipe", 10000);
+        AddAchievePoint(pc, "PcKill", 10000);
+        AddAchievePoint(pc, "HairShop", 10000);
+        AddAchievePoint(pc, "DaegilCat", 10000);
 end
 
 
 function SCR_USE_TEST_SKILL(self, skill)
-	
-	sleep(1000);
-	local x, y, z = GetFrontPos(self, 100);
-	CREATE_MONSTER(pc, "attract_pillar", x, y, z, 0, GetCurrentFaction(pc), 0, 15);
+    
+    sleep(1000);
+    local x, y, z = GetFrontPos(self, 100);
+    CREATE_MONSTER(pc, "attract_pillar", x, y, z, 0, GetCurrentFaction(pc), 0, 15);
 
-	sleep(500);
-	CREATE_MONSTER(pc, "attract_pillar", x, y, z, 0, GetCurrentFaction(pc), 0, 15);
+    sleep(500);
+    CREATE_MONSTER(pc, "attract_pillar", x, y, z, 0, GetCurrentFaction(pc), 0, 15);
 
-	sleep(500);
-	CREATE_MONSTER(pc, "attract_pillar", x, y, z, 0, GetCurrentFaction(pc), 0, 15);
-	
+    sleep(500);
+    CREATE_MONSTER(pc, "attract_pillar", x, y, z, 0, GetCurrentFaction(pc), 0, 15);
+    
 
 end
 
 function TEST_BUFF(self, buffName)
-	local mon = GET_NEAR_MON(self);
-	AddBuff(self, mon, buffName, 1, 0, 60000, 1);
+    local mon = GET_NEAR_MON(self);
+    AddBuff(self, mon, buffName, 1, 0, 60000, 1);
 end
 
 function m_boss_scenario(self)
@@ -3312,32 +3312,32 @@ g_testValue = 1;
 
 function TEST_MEMORY_LEAK(pc)
 
-	g_testValue = g_testValue + 1;
-	if g_testValue > 100000 then
-		print ( pc.ClassName  .. " " ..os.time() );
-		g_testValue = 0;
-	end
+    g_testValue = g_testValue + 1;
+    if g_testValue > 100000 then
+        print ( pc.ClassName  .. " " ..os.time() );
+        g_testValue = 0;
+    end
 
 end
 
-function chdnjf(pc, val)	
+function chdnjf(pc, val)  
 
-	local tx = TxBegin(pc);
-	for i = 0 , 20 do
-		local es = item.GetEquipSpotName(i);
-		local equipWeapon = GetEquipItemIgnoreDur(pc, es);		
-		if equipWeapon ~= nil and equipWeapon.Transcend ~= val then
-			TxSetIESProp(tx, equipWeapon, 'Transcend', val);
-		end
-	end
+    local tx = TxBegin(pc);
+    for i = 0 , 20 do
+        local es = item.GetEquipSpotName(i);
+        local equipWeapon = GetEquipItemIgnoreDur(pc, es);      
+        if equipWeapon ~= nil and equipWeapon.Transcend ~= val then
+            TxSetItemTranscend(tx, equipWeapon, val);
+        end
+    end
 
-	TxCommit(tx);
+    TxCommit(tx);
 
 end
 
-function TEST_FORCE(pc)	
+function TEST_FORCE(pc) 
 
-	local tx = TxBegin(pc);
+    local tx = TxBegin(pc);
     TxGiveItem(tx, "misc_talt", 1, 'GACHA_CUBE');
     TxCommit(tx);
 
@@ -3345,200 +3345,200 @@ end
 
 function TEST_F(pc)
 
-	TEST_MAKE_WORD(pc, 5);
-	sleep(3000);
-	TEST_CALCULATE_WORD(pc, "*", 5);
+    TEST_MAKE_WORD(pc, 5);
+    sleep(3000);
+    TEST_CALCULATE_WORD(pc, "*", 5);
 
 end
 
 function GTTTTT(pc)
 
-	local tx = TxBegin(pc);
+    local tx = TxBegin(pc);
     TxGiveItem(tx, 'SWD01_101', 1, 'Bag');
     TxCommit(tx);
 
 end
 
 function TEST_MEMORY(mon)
-	while 1 do
-		local list, cnt = SelectObject(mon, 100, 'ENEMY')
-		for j = 1 , cnt do
-			print(list[j].Name .. " " .. os.time());
-			local abc = list[j];
-		end
-		sleep(500);
-	end	
+    while 1 do
+        local list, cnt = SelectObject(mon, 100, 'ENEMY')
+        for j = 1 , cnt do
+            print(list[j].Name .. " " .. os.time());
+            local abc = list[j];
+        end
+        sleep(500);
+    end 
 end
 
 function TEST_MEMORY2(mon)
-	local ret;
-	local loopCnt = 0;
-	while 1 do
-		local list, cnt = SelectObject(mon, 100, 'ENEMY')
-		for j = 1 , cnt do
-			ret = list[j];
-		end
-		sleep(1);
-		loopCnt = loopCnt + 1;
-		if loopCnt >= 50 then
-			return ret;
-		end
-	end	
+    local ret;
+    local loopCnt = 0;
+    while 1 do
+        local list, cnt = SelectObject(mon, 100, 'ENEMY')
+        for j = 1 , cnt do
+            ret = list[j];
+        end
+        sleep(1);
+        loopCnt = loopCnt + 1;
+        if loopCnt >= 50 then
+            return ret;
+        end
+    end 
 
-	return ret;
+    return ret;
 end
 
 function TIMEACTION_TEST(pc)
-	local makingTime = 5;
-	local result2 = DOTIMEACTION_R(pc, ScpArgMsg("ItemCraftProcess"), '#SITGROPESET', makingTime);
+    local makingTime = 5;
+    local result2 = DOTIMEACTION_R(pc, ScpArgMsg("ItemCraftProcess"), '#SITGROPESET', makingTime);
 end
 
-function TEST_PET(pc)	
+function TEST_PET(pc)   
 
-	local monCls =	GetClass("Monster", "Velhider");
-	local tx = TxBegin(pc);
+    local monCls =  GetClass("Monster", "Velhider");
+    local tx = TxBegin(pc);
 
-    TxAdoptPet(tx, monCls.ClassID, "TEST_PET");	
-	local ret = TxCommit(tx);
+    TxAdoptPet(tx, monCls.ClassID, "TEST_PET"); 
+    local ret = TxCommit(tx);
       
 
-	local monCls =	GetClass("Monster", "Velhider");
-	SummonPet(pc, monCls.ClassID);
+    local monCls =  GetClass("Monster", "Velhider");
+    SummonPet(pc, monCls.ClassID);
 
 end
 
 function TEST_PILLAR_GUST(pc)
 
-	local mon = GET_NEAR_MON_TRI_TYPE(pc, "FIREPILLAR");
-	local x, y, z = GetPos(pc);
-	local dx, dz = GetDirection(pc);
-	if mon ~= nil then
-		ADD_FIREPILLAR_GUST_POS(mon, x, y, z, dx, dz, 2.0);
-	end
+    local mon = GET_NEAR_MON_TRI_TYPE(pc, "FIREPILLAR");
+    local x, y, z = GetPos(pc);
+    local dx, dz = GetDirection(pc);
+    if mon ~= nil then
+        ADD_FIREPILLAR_GUST_POS(mon, x, y, z, dx, dz, 2.0);
+    end
 
 end
 
 function TEST_NOTICE(pc)
 
-	SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("Auto_HyeonJae_eoleum"), 3);
-	SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("Auto_PogTan_SeolChi_SeongKong"), 3);
-	
+    SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("Auto_HyeonJae_eoleum"), 3);
+    SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("Auto_PogTan_SeolChi_SeongKong"), 3);
+    
 end
 
 function TEST_BUHA(pc)
 
-	print('hi');
+    print('hi');
 
-	local objList, objCount = SelectObject(pc, 100, 'ALL');
-	for i = 1, objCount do
-		local obj = objList[i];	
-		SetOwner(obj, pc);
-		SetTendency(obj, "Attack")
-		ResetHateAndAttack(obj);
-		--InsertHate(obj, self, 10000);
-		BroadcastRelation(obj);
-	end
-	
+    local objList, objCount = SelectObject(pc, 100, 'ALL');
+    for i = 1, objCount do
+        local obj = objList[i]; 
+        SetOwner(obj, pc);
+        SetTendency(obj, "Attack")
+        ResetHateAndAttack(obj);
+        --InsertHate(obj, self, 10000);
+        BroadcastRelation(obj);
+    end
+    
 end
 
 
 function TEST_MCY_SUM(pc)
 
-	--[[local x, y, z = GetPos(pc);
-	local gol = CREATE_MONSTER(pc, "MCy_Siege", x, y, z, 0, GetCurrentFaction(pc), MCY_DEF_LAYER, 15);
-	SetOwner(gol, pc);
-	SetTeamID(gol, GetTeamID(pc));
-	]]
-	
-	local x, y, z = GetPos(pc);
-	local gol = CREATE_MONSTER(pc, "MCy_Zombieboss", x, y, z, 0, "MCy_Treasure", MCY_DEF_LAYER, 15);
-	
-	
+    --[[local x, y, z = GetPos(pc);
+    local gol = CREATE_MONSTER(pc, "MCy_Siege", x, y, z, 0, GetCurrentFaction(pc), MCY_DEF_LAYER, 15);
+    SetOwner(gol, pc);
+    SetTeamID(gol, GetTeamID(pc));
+    ]]
+    
+    local x, y, z = GetPos(pc);
+    local gol = CREATE_MONSTER(pc, "MCy_Zombieboss", x, y, z, 0, "MCy_Treasure", MCY_DEF_LAYER, 15);
+    
+    
 
 end
 
 function TOTAL_JOB_TST(pc)
-	local jobcircle = GetTotalJobCount(pc)
-	print(jobcircle)
+    local jobcircle = GetTotalJobCount(pc)
+    print(jobcircle)
 end
 
 function idcheck(pc)
 
-	local get_item = GetInvItemList(pc);
+    local get_item = GetInvItemList(pc);
 
-	for i = 1 , #get_item do
-		
-		local equipWeapon = get_item[i];
-		
-		print(equipWeapon.ClassID)
-		print(equipWeapon.InvIndex)
-	end	            
-	
+    for i = 1 , #get_item do
+        
+        local equipWeapon = get_item[i];
+        
+        print(equipWeapon.ClassID)
+        print(equipWeapon.InvIndex)
+    end             
+    
 end
 
 function TEST_PRINT_DUR(pc)
 
-	for i = 0 , 16 do
-		local es = item.GetEquipSpotName(i);
-		local equipWeapon = GetEquipItem(pc, es);
-		if 0 == item.IsNoneItem(equipWeapon.ClassID) then
-			print(equipWeapon.Dur)
-		end
-	end
-	
-	InvalidateStates(pc);
+    for i = 0 , 16 do
+        local es = item.GetEquipSpotName(i);
+        local equipWeapon = GetEquipItem(pc, es);
+        if 0 == item.IsNoneItem(equipWeapon.ClassID) then
+            print(equipWeapon.Dur)
+        end
+    end
+    
+    InvalidateStates(pc);
 end
 
 function TEST_DUR_0(pc)
 
-	for i = 0 , 16 do
-		local es = item.GetEquipSpotName(i);
-		local equipWeapon = GetEquipItem(pc, es);
-		if 0 == item.IsNoneItem(equipWeapon.ClassID) then
-			local tx = TxBegin(pc);
-			TxSetIESProp(tx, equipWeapon, 'Dur', 0);
-			local ret = TxCommit(tx);
-			  
-		end
-	end
-	
-	InvalidateStates(pc);
+    for i = 0 , 16 do
+        local es = item.GetEquipSpotName(i);
+        local equipWeapon = GetEquipItem(pc, es);
+        if 0 == item.IsNoneItem(equipWeapon.ClassID) then
+            local tx = TxBegin(pc);
+            TxSetIESProp(tx, equipWeapon, 'Dur', 0);
+            local ret = TxCommit(tx);
+              
+        end
+    end
+    
+    InvalidateStates(pc);
 end
 
 function REPAIR_ALL_CHEAT(pc)
 
-	for i = 0 , 16 do
-		local es = item.GetEquipSpotName(i);
-		local equipWeapon = GetEquipItem(pc, es);
-		if 0 == item.IsNoneItem(equipWeapon.ClassID) then
-			local tx = TxBegin(pc);
-			TxSetIESProp(tx, equipWeapon, 'Dur', equipWeapon.MaxDur );
-			local ret = TxCommit(tx);
-			  
-		end
-	end
+    for i = 0 , 16 do
+        local es = item.GetEquipSpotName(i);
+        local equipWeapon = GetEquipItem(pc, es);
+        if 0 == item.IsNoneItem(equipWeapon.ClassID) then
+            local tx = TxBegin(pc);
+            TxSetIESProp(tx, equipWeapon, 'Dur', equipWeapon.MaxDur );
+            local ret = TxCommit(tx);
+              
+        end
+    end
 
-	local get_item = GetInvItemList(pc);
+    local get_item = GetInvItemList(pc);
 
-	for i = 1 , #get_item do
-		
-		local equipWeapon = get_item[i];
-		if 0 == item.IsNoneItem(equipWeapon.ClassID) then
-			if equipWeapon.GroupName == 'Weapon' or equipWeapon.GroupName =='Armor' then
-				
-				if equipWeapon.Dur < equipWeapon.MaxDur then
-				
-					local tx = TxBegin(pc);
-					TxSetIESProp(tx, equipWeapon, 'Dur', equipWeapon.MaxDur );
-					local ret = TxCommit(tx);
-					  
-				end
-			end
-		end
+    for i = 1 , #get_item do
+        
+        local equipWeapon = get_item[i];
+        if 0 == item.IsNoneItem(equipWeapon.ClassID) then
+            if equipWeapon.GroupName == 'Weapon' or equipWeapon.GroupName =='Armor' then
+                
+                if equipWeapon.Dur < equipWeapon.MaxDur then
+                
+                    local tx = TxBegin(pc);
+                    TxSetIESProp(tx, equipWeapon, 'Dur', equipWeapon.MaxDur );
+                    local ret = TxCommit(tx);
+                      
+                end
+            end
+        end
 
-	end	            
-	
-	InvalidateStates(pc);
+    end             
+    
+    InvalidateStates(pc);
 end
 
 function CHANGE_JOB(pc, jobName)
@@ -3574,44 +3574,44 @@ end
 
 -- trunk version
 function CHANGE_JOB_2(pc, jobName)
-	
-	local tx = TxBegin(pc);
+    
+    local tx = TxBegin(pc);
     TxChangeJob(tx, jobName);
 
-	local jobObj = GetClass("Job", jobName);
-	local abilList = StringSplit(jobObj.DefHaveAbil, '#');
-	for i = 1 , #abilList do
-		if abilList[i] ~= 'None' then
+    local jobObj = GetClass("Job", jobName);
+    local abilList = StringSplit(jobObj.DefHaveAbil, '#');
+    for i = 1 , #abilList do
+        if abilList[i] ~= 'None' then
 
-			local abilObj = GetAbilityIESObject(pc, abilList[i]);	
-			if abilObj == nil then
-				TxAddAbility(tx, abilList[i]);
-			end
-		end
-	end
+            local abilObj = GetAbilityIESObject(pc, abilList[i]);   
+            if abilObj == nil then
+                TxAddAbility(tx, abilList[i]);
+            end
+        end
+    end
 
-	local ret = TxCommit(tx);
+    local ret = TxCommit(tx);
 
-	jlvup(pc, 15)
+    jlvup(pc, 15)
 
 end
 
 function TEST_JOBLV(pc)
-	print(pc.JobName)
-	local lv, total = GetJobLevelByName(pc, pc.JobName);
-	local grade, changedJobCount = GetJobGradeByName(pc, pc.JobName);
-	
-	print(lv, total,  grade, changedJobCount);	
+    print(pc.JobName)
+    local lv, total = GetJobLevelByName(pc, pc.JobName);
+    local grade, changedJobCount = GetJobGradeByName(pc, pc.JobName);
+    
+    print(lv, total,  grade, changedJobCount);  
 end
 
 function RANDOM_VIEW(pc)
 
-	local zoneID = GetZoneInstID(pc);
-	local layer = GetLayer(pc);
-	local list, cnt = GetLayerMonList(zoneID, layer);
-	local idx = IMCRandom(1, cnt);
-	local mon = list[idx];
-	ChangeFocusView(pc, mon);
+    local zoneID = GetZoneInstID(pc);
+    local layer = GetLayer(pc);
+    local list, cnt = GetLayerMonList(zoneID, layer);
+    local idx = IMCRandom(1, cnt);
+    local mon = list[idx];
+    ChangeFocusView(pc, mon);
 end
 
 function GETJOB(pc)
@@ -3638,36 +3638,36 @@ end
 
 function GET_EQUIP_TOOLTIP_PROP_LIST_FOR_EXPORT(invitem)
 
-	local groupName = invitem.GroupName;
-	if groupName == 'Weapon' then
-		return GET_ATK_PROP_LIST();
-	
-	elseif groupName == "PetWeapon" then
-		return GET_PET_WEAPON_PROP_LIST();
-	elseif groupName == "PetArmor" then
-		return GET_PET_ARMOR_PROP_LIST();
-	else
-		return GET_DEF_PROP_LIST();
-	end
+    local groupName = invitem.GroupName;
+    if groupName == 'Weapon' then
+        return GET_ATK_PROP_LIST();
+    
+    elseif groupName == "PetWeapon" then
+        return GET_PET_WEAPON_PROP_LIST();
+    elseif groupName == "PetArmor" then
+        return GET_PET_ARMOR_PROP_LIST();
+    else
+        return GET_DEF_PROP_LIST();
+    end
 
 end
 function GET_PET_WEAPON_PROP_LIST()
-	local list = GET_ATK_PROP_LIST();
-	list[#list+1] = "MountPATK";
-	list[#list+1] = "MountMATK";
-	return list;
+    local list = GET_ATK_PROP_LIST();
+    list[#list+1] = "MountPATK";
+    list[#list+1] = "MountMATK";
+    return list;
     
 end
 function GET_PET_ARMOR_PROP_LIST()
-	local list = GET_DEF_PROP_LIST();
-	list[#list+1] = "MountPATK";
-	list[#list+1] = "MountMATK";
-	return list;    
+    local list = GET_DEF_PROP_LIST();
+    list[#list+1] = "MountPATK";
+    list[#list+1] = "MountMATK";
+    return list;    
 end
 
 function GET_DEF_PROP_LIST()
 
-	local list = {};
+    local list = {};
     list[#list+1] = "DEF";
     list[#list+1] = "ADD_DEF";
     list[#list+1] = "PATK";
@@ -3739,12 +3739,12 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
-	return list;
+    return list;
 
 end
 function GET_ATK_PROP_LIST()
-	
-	local list = {};
+    
+    local list = {};
     list[#list+1] = "SR";
     list[#list+1] = "SDR";
     list[#list+1] = "MINATK";
@@ -3817,7 +3817,7 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
-	return list;
+    return list;
 
 end
 
@@ -4208,7 +4208,7 @@ function GET_REINFORCE_ADD_VALUE_FOR_EXPORT(prop, item, ignoreReinf, reinfBonusV
     if classType == nil then
         return 0;
     end
-
+    
     local grade = TryGetProp(item,"ItemGrade");
     if grade == nil then
         return 0;
@@ -4423,8 +4423,8 @@ function GET_ITEM_DESCS(classID)
     local subOption = "";
     for i = 1 , #list do
 
-		local propName = list[i];
-		local propValue = invitem[propName];
+        local propName = list[i];
+        local propValue = invitem[propName];
         local translatedProp = GetClass("ClientMessage", propName);
         if propValue ~= 0 then
             if invitem.GroupName == "Weapon" or invitem.GroupName == "SubWeapon" then
@@ -4438,7 +4438,7 @@ function GET_ITEM_DESCS(classID)
             end
 
         end
-	end
+    end
 
 
     return subOption, mainOption;
@@ -4491,7 +4491,7 @@ function EXPORT_ALL_SKILLS(pc, fileDir)
         print("fileDir is nil")
         return;
     end
-
+    
     local clslist, cnt = GetClassList('SkillTree');
     local skillClsList, skillCnt = GetClassList('Skill');
  
@@ -4584,18 +4584,18 @@ function EXPORT_ALL_SKILLS(pc, fileDir)
             else
               ret = ret .. skillCls.CaptionRatio3 .. "/";
            end
-		   if skillCls.SpendItemCount == nil then
-		     ret = ret .. 0 .. "/";
+           if skillCls.SpendItemCount == nil then
+             ret = ret .. 0 .. "/";
             else
               ret = ret .. skillCls.SpendItemCount .. "/";
            end
            if skillCls.SpendPoison == nil then
-		     ret = ret .. 0 .. "/";
+             ret = ret .. 0 .. "/";
             else
               ret = ret .. skillCls.SpendPoison .. "/";
            end
            if skillCls.SkillAtkAdd == nil then
-		     ret = ret .. 0 .. "/";
+             ret = ret .. 0 .. "/";
             else
               ret = ret .. skillCls.SkillAtkAdd .. "/";
            end
@@ -4610,64 +4610,64 @@ function EXPORT_ALL_SKILLS(pc, fileDir)
               ret = ret .. skillCls.SpendSP .. "{nl}";
            end
         end                                                 --쿨다운에 sp소모량이 들어감..?
-        ExportSkillDescJson(pc, cls.SkillName, ret, maxLv, fileDir);
+        ExportSkillDescJson(pc, cls.SkillName, ret, maxLv, fileDir);  
     end
 end
 
 function SET_SKL_LV(pc, skillName, skilLv)
 
-	local tx = TxBegin(pc);
-	skilLv = tonumber(skilLv)
-	local sklObj = GetSkill(pc, skillName);
+    local tx = TxBegin(pc);
+    skilLv = tonumber(skilLv)
+    local sklObj = GetSkill(pc, skillName);
 
-	if sklObj == nil then
-		local idx = TxAddSkill(tx, skillName);
-		TxAppendProperty(tx, idx, 'LevelByDB', skilLv);
-	else
-		TxSetIESProp(tx, sklObj, 'LevelByDB', skilLv);
-	end
+    if sklObj == nil then
+        local idx = TxAddSkill(tx, skillName);
+        TxAppendProperty(tx, idx, 'LevelByDB', skilLv);
+    else
+        TxSetIESProp(tx, sklObj, 'LevelByDB', skilLv);
+    end
 
-	local ret = TxCommit(tx);
-	
-	InvalidateStates(pc);
+    local ret = TxCommit(tx);
+    
+    InvalidateStates(pc);
 end
 
 function TEST_KB_END(actor, from)
-	
-	Chat(actor, "KB".. os.clock());
-	Chat(from, "ATTACK".. os.clock());
+    
+    Chat(actor, "KB".. os.clock());
+    Chat(from, "ATTACK".. os.clock());
 
 end
 
 function TEST_F_1(pc, isOn)
 
-	if isOn == "1" then
-		Chat(pc, "OPN");
-		AttachEffect(pc, "bg_waterfall_down_2", 6.0);
-	else
-		Chat(pc, "OPFF");
-		AttachEffect(pc, "bg_waterfall_down_2", 0.0);
-	end
+    if isOn == "1" then
+        Chat(pc, "OPN");
+        AttachEffect(pc, "bg_waterfall_down_2", 6.0);
+    else
+        Chat(pc, "OPFF");
+        AttachEffect(pc, "bg_waterfall_down_2", 0.0);
+    end
 
 end
 
 function TEST_JJH(pc)
 
-	print(pc.MHP);
-	print(pc.MHP);
-	
-	InvalidateStates(pc);
-	
-	print(pc.MHP);
-	
-	
-	
-	
-	--local clsList, cnt = GetClassList("Skill");
-	
---	JJHTest(pc);
-	
-   	
+    print(pc.MHP);
+    print(pc.MHP);
+    
+    InvalidateStates(pc);
+    
+    print(pc.MHP);
+    
+    
+    
+    
+    --local clsList, cnt = GetClassList("Skill");
+    
+--  JJHTest(pc);
+    
+    
 end
 
 
@@ -4695,119 +4695,119 @@ function SCR_MON_LYG_TEST_TS_DEAD_LEAVE(self)
 end
 
 function TEST_Charm(self)
-	print('2hi');
-	local objList, objCount = SelectObject(self, 100, 'ALL');
-	for i = 1, objCount do
-		local obj = objList[i];	
-		AddBuff(obj, obj, 'Rest', 1, 0, 30000, 1, 10000);
-	end
-	AddBuff(self, self, 'Rest', 1, 0, 30000, 1, 10000);
+    print('2hi');
+    local objList, objCount = SelectObject(self, 100, 'ALL');
+    for i = 1, objCount do
+        local obj = objList[i]; 
+        AddBuff(obj, obj, 'Rest', 1, 0, 30000, 1, 10000);
+    end
+    AddBuff(self, self, 'Rest', 1, 0, 30000, 1, 10000);
 end
 
 function TEST_STUN(self)
-	local objList, objCount = SelectObject(self, 100, 'ALL');
-	for i = 1, objCount do
-		local obj = objList[i];	
-		AddBuff(obj, obj, 'Stun', 1, 0, 3000, 1, 100);
-	end
-	AddBuff(self, self, 'Stun', 1, 0, 3000, 1, 100);
+    local objList, objCount = SelectObject(self, 100, 'ALL');
+    for i = 1, objCount do
+        local obj = objList[i]; 
+        AddBuff(obj, obj, 'Stun', 1, 0, 3000, 1, 100);
+    end
+    AddBuff(self, self, 'Stun', 1, 0, 3000, 1, 100);
 end
 
 function NPC_DE(self)
 
-	local objList, objCount = SelectObject(self, 250, 'ALL', 1);
-	for i = 0, objCount do
-		local obj = objList[i];	
-		if obj ~= nil then
-			
-			local dialog, enter = ShowNpcDialogAndEnter(obj);
-			if GetGenTypeID(obj) ~= nil then
-    			Chat(obj, "Dialog : "..dialog.." / Enter : "..enter.." / GenID : "..GetGenTypeID(obj));
-	    		print("Dialog : ",dialog," / Enter : ",enter," / GenID : ",GetGenTypeID(obj))
-	    	else
-	    	    Chat(obj, "Dialog : "..dialog.." / Enter : "..enter);
-	    		print("Dialog : ",dialog," / Enter : ",enter)
-	    	end
-		end
-	end
+    local objList, objCount = SelectObject(self, 250, 'ALL', 1);
+    for i = 0, objCount do
+        local obj = objList[i]; 
+        if obj ~= nil then
+            
+            local dialog, enter = ShowNpcDialogAndEnter(obj);
+            if GetGenTypeID(obj) ~= nil then
+                Chat(obj, "Dialog : "..dialog.." / Enter : "..enter.." / GenID : "..GetGenTypeID(obj));
+                print("Dialog : ",dialog," / Enter : ",enter," / GenID : ",GetGenTypeID(obj))
+            else
+                Chat(obj, "Dialog : "..dialog.." / Enter : "..enter);
+                print("Dialog : ",dialog," / Enter : ",enter)
+            end
+        end
+    end
 
 end
 
 function TEST_BLEND(self)
-	local objList, objCount = SelectObject(self, 100, 'ALL');
-	
-	for i = 1, objCount do
-		local obj = objList[i];
-		ObjectColorBlend(obj, 255, 255, 255, 50, 0);
-	end
+    local objList, objCount = SelectObject(self, 100, 'ALL');
+    
+    for i = 1, objCount do
+        local obj = objList[i];
+        ObjectColorBlend(obj, 255, 255, 255, 50, 0);
+    end
 
-	ObjectColorBlend(self, 255, 255, 255, 50, 0);
+    ObjectColorBlend(self, 255, 255, 255, 50, 0);
 end
 
 function TEST_FLY(self)
-	
-	local objList, objCount = SelectObject(self, 100, 'ALL');
-	
-	for i = 1, objCount do
-		local obj = objList[i];
-		local x, y, z = GetPos(obj)
-		SetPos(obj, x, y+30, z)
-		Fly(obj, -1)
-	end
+    
+    local objList, objCount = SelectObject(self, 100, 'ALL');
+    
+    for i = 1, objCount do
+        local obj = objList[i];
+        local x, y, z = GetPos(obj)
+        SetPos(obj, x, y+30, z)
+        Fly(obj, -1)
+    end
 
 end
 
 function TEST_FLYOFF(self)
-	
-	Fly(self, 0)
+    
+    Fly(self, 0)
 end
 
 
 function TEST_OBB1(self)
-	
-	local objList, objCount = SelectObject(self, 100, 'ALL');
-	
-	for i = 1, objCount do
-		local obj = objList[i];
-		CreateMonOBB(obj, 30, 30, 50);
-		Chat(obj, "test")
-	end
+    
+    local objList, objCount = SelectObject(self, 100, 'ALL');
+    
+    for i = 1, objCount do
+        local obj = objList[i];
+        CreateMonOBB(obj, 30, 30, 50);
+        Chat(obj, "test")
+    end
 
 end
 
 function TEST_OBB2(self)
-	
-	local objList, objCount = SelectObject(self, 100, 'ALL');
-	
-	for i = 1, objCount do
-		local obj = objList[i];
-		RemoveMonOBB(obj);
-	end
+    
+    local objList, objCount = SelectObject(self, 100, 'ALL');
+    
+    for i = 1, objCount do
+        local obj = objList[i];
+        RemoveMonOBB(obj);
+    end
 
 end
 
 function TEST_P(pc)
-	
-	print(pc.SkillPtsByLevel)
+    
+    print(pc.SkillPtsByLevel)
 end
 
 function TEST_SKL_P(pc)
-	
+    
     local before_point = pc.SkillPtsByLevel
-	local tx = TxBegin(pc);
+    local tx = TxBegin(pc);
     TxSetIESProp(tx, pc, "SkillPtsByLevel", before_point + 1)
     local ret = TxCommit(tx);
     
 end
 
 function TEST_SKLEXP(self)
-	local objList, objCount = SelectObject(self, 100, 'ALL');
-	for i=0, objCount do
-		local obj = objList[i];
-		if obj ~= nil then
-			PlaySklExpEffect(self, obj, 2, 'None');
-		end
-	end
+    local objList, objCount = SelectObject(self, 100, 'ALL');
+    for i=0, objCount do
+        local obj = objList[i];
+        if obj ~= nil then
+            PlaySklExpEffect(self, obj, 2, 'None');
+        end
+    end
 end
 
 function TEST_KD(self)
@@ -4816,29 +4816,29 @@ end
 
 function TEST_KD1(self)
 
-	EquipDummyItemSpot(self, self,9999993, 'LH', 0);
-	EquipDummyItemSpot(self, self,101109, 'RH', 0);
+    EquipDummyItemSpot(self, self,9999993, 'LH', 0);
+    EquipDummyItemSpot(self, self,101109, 'RH', 0);
 end
 
 function TEST_KD2(self)
-	
-	local objList, objCount = SelectObject(self, 100, 'ALL');	
-	for i=0, objCount do
-		local obj = objList[i];
-		if obj ~= nil then			
-			PushActorEnd(obj, 'test_push');
-		end
-	end
-	
-	PushActorEnd(self, 'test_push');
+    
+    local objList, objCount = SelectObject(self, 100, 'ALL');   
+    for i=0, objCount do
+        local obj = objList[i];
+        if obj ~= nil then          
+            PushActorEnd(obj, 'test_push');
+        end
+    end
+    
+    PushActorEnd(self, 'test_push');
 end
 
 function TEST_MR(self, mrName)
-	print(mrName)
-	for i=1, 10 do
-		local name, value = GetInfoMR(mrName, i);
-		print(name, value)
-	end
+    print(mrName)
+    for i=1, 10 do
+        local name, value = GetInfoMR(mrName, i);
+        print(name, value)
+    end
 end
 
 function TEST_ANI(self, aniname)
@@ -4847,109 +4847,109 @@ end
 
 function TEST_APK(self)
 
-	local objList, objCount = SelectObject(self, 50, 'ALL');
-	
-	if objCount == 0 then
-		return;
-	end
+    local objList, objCount = SelectObject(self, 50, 'ALL');
+    
+    if objCount == 0 then
+        return;
+    end
 
-	for i=0, objCount do
-		local obj = objList[i];
-		if obj ~= nil then			
-			if obj.ClassName == 'Mon_alpaka' or obj.ClassName == "Velhider" then
-				SetCompanionInfo(self, obj, obj.ClassName);
-				RunSimpleAI(obj, "companion");
-				return;
-			end
-		end
-	end
+    for i=0, objCount do
+        local obj = objList[i];
+        if obj ~= nil then          
+            if obj.ClassName == 'Mon_alpaka' or obj.ClassName == "Velhider" then
+                SetCompanionInfo(self, obj, obj.ClassName);
+                RunSimpleAI(obj, "companion");
+                return;
+            end
+        end
+    end
 end
 
 function TEST_APK_R(self)
 
-	local objList, objCount = SelectObject(self, 50, 'ALL');
-	
-	if objCount == 0 then
-		return;
-	end
+    local objList, objCount = SelectObject(self, 50, 'ALL');
+    
+    if objCount == 0 then
+        return;
+    end
 
-	for i=0, objCount do
-		local obj = objList[i];
-		if obj ~= nil then			
-			if obj.ClassName == 'Mon_alpaka' or obj.ClassName == "Velhider" then
-				Chat(self ,"SELF");
-				Chat(obj, "OBJ");
-				RideVehicle(self, obj, 1);
-				return;
-			end
-		end
-	end
+    for i=0, objCount do
+        local obj = objList[i];
+        if obj ~= nil then          
+            if obj.ClassName == 'Mon_alpaka' or obj.ClassName == "Velhider" then
+                Chat(self ,"SELF");
+                Chat(obj, "OBJ");
+                RideVehicle(self, obj, 1);
+                return;
+            end
+        end
+    end
 end
 
 function testhide1(self)
-		
-	SendAddOnMsg(self, "NPC_HIDE_MAP", 'SIAUL_WEST_CAMP_MANAGER', 1);
+        
+    SendAddOnMsg(self, "NPC_HIDE_MAP", 'SIAUL_WEST_CAMP_MANAGER', 1);
 end
 
 function testhide2(self)
-		
-	SendAddOnMsg(self, "NPC_HIDE_MAP", 'SIAUL_WEST_CAMP_MANAGER', 0);
+        
+    SendAddOnMsg(self, "NPC_HIDE_MAP", 'SIAUL_WEST_CAMP_MANAGER', 0);
 end
 
 function SCR_RINGTEST(self)
-		
-	local objList, objCount = SelectObject(self, 100, 'ALL');	
-	for i = 1, objCount do
-		local obj = objList[i];
-		ObjectColorBlend(obj, 255, 255, 255, 20, 1);
-	end
-	print('123')
+        
+    local objList, objCount = SelectObject(self, 100, 'ALL');   
+    for i = 1, objCount do
+        local obj = objList[i];
+        ObjectColorBlend(obj, 255, 255, 255, 20, 1);
+    end
+    print('123')
 end
 
 function SCR_MADNESS(self)
-		
-	local objList, objCount = SelectObject(self, 100, 'ENEMY');	
-	
-	local index = IMCRandom(1, objCount);		
-	local obj = objList[index];
-	
-	AddBuff(self, obj, 'Confuse', 1, 0, 10000, 1);	
+        
+    local objList, objCount = SelectObject(self, 100, 'ENEMY'); 
+    
+    local index = IMCRandom(1, objCount);       
+    local obj = objList[index];
+    
+    AddBuff(self, obj, 'Confuse', 1, 0, 10000, 1);  
 end
 
 function SCR_KBTEST(self)
-		
-	local objList, objCount = SelectObject(self, 100, 'ALL');	
-	for i = 1, objCount do
-		local obj = objList[i];
-		local angle = GetAngleTo(self, obj);
-		KnockBack(self, obj, 150, angle, 15, 1);
-	end
+        
+    local objList, objCount = SelectObject(self, 100, 'ALL');   
+    for i = 1, objCount do
+        local obj = objList[i];
+        local angle = GetAngleTo(self, obj);
+        KnockBack(self, obj, 150, angle, 15, 1);
+    end
 end
 
 function SCR_TESTKILL(self)
-	local objList, objCount = SelectObject(self, 100, 'ALL');	
-	for i = 1, objCount do
-		local obj = objList[i];
-		Kill(obj);
-	end
+    local objList, objCount = SelectObject(self, 100, 'ALL');   
+    for i = 1, objCount do
+        local obj = objList[i];
+        Kill(obj);
+    end
 end
 
 function FACE_TEST(self)
-	--SetFaceState(self, 'base');
-	--SetFaceState(self, 'atk');
-	SetFaceState(self, 'astd');
+    --SetFaceState(self, 'base');
+    --SetFaceState(self, 'atk');
+    SetFaceState(self, 'astd');
 end
 
 function TEST_EF(pc)
 
-	local x, y, z = GetPos(pc)
-	local rotate = GetDirectionByAngle(pc)
-	PlayEffectToGround(pc, "F_circle25_red", x, y, z, 1, 2, 0, rotate)
+    local x, y, z = GetPos(pc)
+    local rotate = GetDirectionByAngle(pc)
+    PlayEffectToGround(pc, "F_circle25_red", x, y, z, 1, 2, 0, rotate)
 end
 
 function TEST_NS(pc)
 
-	SendAddOnMsg(pc, "NOTICE_SCREEN", ScpArgMsg("Auto_MeSiJi_TeSeuTeu"), 3);
+    SendAddOnMsg(pc, "NOTICE_SCREEN", ScpArgMsg("Auto_MeSiJi_TeSeuTeu"), 3);
 end
 
 function TEST_EFFECT(pc, str)
@@ -4968,61 +4968,61 @@ end
 
 function TEST_NT(pc)
 
-	SendAddOnMsg(pc, "KEYBOARD_TUTORIAL", "", 0);
+    SendAddOnMsg(pc, "KEYBOARD_TUTORIAL", "", 0);
 end
 
 function TEST_SHOW_ITEM_ALL_GROUPNAME(pc)
 
     local equipList, equipCnt = GetClassList("Item");
-	local namelist = {}
+    local namelist = {}
 
     for i = 1, equipCnt do
 
         local equipItem = GetClassByIndexFromList(equipList, i);
 
-		local bo = 1
+        local bo = 1
 
-		for j = 1, #namelist do
-			if namelist[j] == equipItem.GroupName then
-				bo = 0
-			end
-		end
+        for j = 1, #namelist do
+            if namelist[j] == equipItem.GroupName then
+                bo = 0
+            end
+        end
 
-		if bo == 1 then
-			print(equipItem.GroupName)
-			namelist[#namelist+1] = equipItem.GroupName
-		end
+        if bo == 1 then
+            print(equipItem.GroupName)
+            namelist[#namelist+1] = equipItem.GroupName
+        end
 
-	end
+    end
 end
 
 function TEST_SHOW_ITEM_ALL_CLASSTYPE(pc)
 
     local equipList, equipCnt = GetClassList("Item");
-	local namelist = {}
+    local namelist = {}
 
     for i = 1, equipCnt do
 
         local equipItem = GetClassByIndexFromList(equipList, i);
 
-		if GetPropType(equipItem, "ClassType") ~= nil then
+        if GetPropType(equipItem, "ClassType") ~= nil then
 
-			local bo = 1
+            local bo = 1
 
-			for j = 1, #namelist do
-				if namelist[j] == equipItem.ClassType then
-					bo = 0
-				end
-			end
+            for j = 1, #namelist do
+                if namelist[j] == equipItem.ClassType then
+                    bo = 0
+                end
+            end
 
-			if bo == 1 then
-				print(equipItem.ClassType)
-				namelist[#namelist+1] = equipItem.ClassType
-			end
+            if bo == 1 then
+                print(equipItem.ClassType)
+                namelist[#namelist+1] = equipItem.ClassType
+            end
 
-		end
+        end
 
-	end
+    end
 end
 
 
@@ -5050,407 +5050,407 @@ end
 
 
 function TEST_BUFFSCR(self)
-		
-	local objList, objCount = SelectObject(self, 100, 'ALL');	
-	for i = 1, objCount do
-		local obj = objList[i];
-		AddBuff(self, obj, 'CardCharm', 1, 0, 15000, 1);
-	end	
+        
+    local objList, objCount = SelectObject(self, 100, 'ALL');   
+    for i = 1, objCount do
+        local obj = objList[i];
+        AddBuff(self, obj, 'CardCharm', 1, 0, 15000, 1);
+    end 
 
 end
 
 
 function TEST_HEAD(pc, headNum)
 
-	ChangeHeadPC(pc, headNum)
+    ChangeHeadPC(pc, headNum)
 end
 
 function TOALLMSG(pc, msg)
 
-	print(msg)
-	ToAll(msg)
+    print(msg)
+    ToAll(msg)
 
 end
 
 function TEST_YOUNG_NEWSKILL(pc)
 
-	print('TEST_YOUNG_NEWSKILL', pc)
-	local mon = GET_NEAR_MON(pc);
-	if mon == nil then
-		return;
-	end
-	
+    print('TEST_YOUNG_NEWSKILL', pc)
+    local mon = GET_NEAR_MON(pc);
+    if mon == nil then
+        return;
+    end
+    
 
-	UsePcSkill(pc, mon, 'YoungTest', 1, 'YES');
-	--UsePcSkill(pc, mon, 'MongWangGa', 1, 'YES');
-	--SetExArgCount(mon, 30);
-	--SetExArg(mon, 1, pc);
-	--local list, cnt = GetExArgList(mon);TE
-		
+    UsePcSkill(pc, mon, 'YoungTest', 1, 'YES');
+    --UsePcSkill(pc, mon, 'MongWangGa', 1, 'YES');
+    --SetExArgCount(mon, 30);
+    --SetExArg(mon, 1, pc);
+    --local list, cnt = GetExArgList(mon);TE
+        
 
 end
 
 function IS_HERE_GLOBAL_GENABLE_PLACE_OLD(pc)
 
-	local objList, objCount = SelectObject(pc, 100, 'ALL');	
+    local objList, objCount = SelectObject(pc, 100, 'ALL'); 
 
-	local bvalue = 0;
+    local bvalue = 0;
 
-	for i = 1, objCount do
-		if GetCurrentFaction(objList[i]) ~= 'Monster' then
-			bvalue = 1;
-		end
-	end	
+    for i = 1, objCount do
+        if GetCurrentFaction(objList[i]) ~= 'Monster' then
+            bvalue = 1;
+        end
+    end 
 
-	if bvalue == 1 then
-		local string = ScpArgMsg("Auto_KeulLoBeol_Jen_BulKaNeung_:_")
-		for i = 1, objCount do
-			local obj = objList[i];
-			if GetCurrentFaction(objList[i]) ~= 'Monster' then
-				string = string..obj.ClassName.." ";
-			end
-		end	
-		Chat(pc, string);
-	else
-		Chat(pc, ScpArgMsg("Auto_KeulLoBeol_Jen_KaNeung"));
-	end
+    if bvalue == 1 then
+        local string = ScpArgMsg("Auto_KeulLoBeol_Jen_BulKaNeung_:_")
+        for i = 1, objCount do
+            local obj = objList[i];
+            if GetCurrentFaction(objList[i]) ~= 'Monster' then
+                string = string..obj.ClassName.." ";
+            end
+        end 
+        Chat(pc, string);
+    else
+        Chat(pc, ScpArgMsg("Auto_KeulLoBeol_Jen_KaNeung"));
+    end
 end
 
 
 function IS_HERE_GLOBAL_GENABLE_PLACE(pc)
-	
-	local objList, objCount = SelectObject(pc, 1100, 'ALL');	
+    
+    local objList, objCount = SelectObject(pc, 1100, 'ALL');    
 
-	local pcX, pcY, pcZ = GetPos(pc);
+    local pcX, pcY, pcZ = GetPos(pc);
 
-	local bvalue = 0;
+    local bvalue = 0;
 
-	for i = 1, objCount do
+    for i = 1, objCount do
 
-		local objX, objY, objZ = GetPos(objList[i])
-		local dand = SCR_POINT_DISTANCE(pcX, pcZ, objX, objZ)
+        local objX, objY, objZ = GetPos(objList[i])
+        local dand = SCR_POINT_DISTANCE(pcX, pcZ, objX, objZ)
 
-		if dand < objList[i].CantGenRange then
-			bvalue = 1;
-		end
-	end		
-	
-	if bvalue == 1 then
-		local string = ScpArgMsg("Auto_KeulLoBeol_Jen_BulKaNeung_:_")
-		for i = 1, objCount do
+        if dand < objList[i].CantGenRange then
+            bvalue = 1;
+        end
+    end     
+    
+    if bvalue == 1 then
+        local string = ScpArgMsg("Auto_KeulLoBeol_Jen_BulKaNeung_:_")
+        for i = 1, objCount do
 
-			local obj = objList[i];
-			local objX, objY, objZ = GetPos(obj)
-			local dand = SCR_POINT_DISTANCE(pcX, pcZ, objX, objZ)
+            local obj = objList[i];
+            local objX, objY, objZ = GetPos(obj)
+            local dand = SCR_POINT_DISTANCE(pcX, pcZ, objX, objZ)
 
-			if dand < obj.CantGenRange then
-				string = string..obj.ClassName.." ";
-			end
-		end	
-		Chat(pc, string);
-	else
-		Chat(pc, ScpArgMsg("Auto_KeulLoBeol_Jen_KaNeung"));
-	end
+            if dand < obj.CantGenRange then
+                string = string..obj.ClassName.." ";
+            end
+        end 
+        Chat(pc, string);
+    else
+        Chat(pc, ScpArgMsg("Auto_KeulLoBeol_Jen_KaNeung"));
+    end
 end
 
 
 
 function TEST_FACTION(pc)
 
-	local objList, objCount = SelectObject(pc, 50, 'ALL');
+    local objList, objCount = SelectObject(pc, 50, 'ALL');
 
-	for i = 1, objCount do
-		local obj = objList[i];
-		--Chat(pc,GetCurrentFaction(obj));
-		print(obj,GetCurrentFaction(obj));
-	end
+    for i = 1, objCount do
+        local obj = objList[i];
+        --Chat(pc,GetCurrentFaction(obj));
+        print(obj,GetCurrentFaction(obj));
+    end
 
-	
+    
 end
 
 function TEST_COOLDOWN(pc, time)
-	local CoolList, cnt = GetClassList("CoolDown");
-		for i = 0 , cnt - 1 do
-			local cal = GetClassByIndexFromList(CoolList , i)
-			AddCoolDown(pc, cal.ClassName, -time)
-		end
+    local CoolList, cnt = GetClassList("CoolDown");
+        for i = 0 , cnt - 1 do
+            local cal = GetClassByIndexFromList(CoolList , i)
+            AddCoolDown(pc, cal.ClassName, -time)
+        end
 end
 
 
 function TEST_MOVEPOS(pc)
-	local x, y, z = GetPos(pc);
-	print(x,y,z);
-	SetPos(pc, x+10, y, z+10);
-	--SetPosInServer(pc, x+10, y, z+10);
+    local x, y, z = GetPos(pc);
+    print(x,y,z);
+    SetPos(pc, x+10, y, z+10);
+    --SetPosInServer(pc, x+10, y, z+10);
 end
 
 function TEST_MOVEPOS2(pc)
 
 
 
-	local objList, objCount = SelectObject(pc, 50, 'MONSTER');
+    local objList, objCount = SelectObject(pc, 50, 'MONSTER');
 
-	for i = 1, objCount do
-		
-		SpinObject(objList[i], 0, -1, 1.1, 1.0)
-		
-	end
+    for i = 1, objCount do
+        
+        SpinObject(objList[i], 0, -1, 1.1, 1.0)
+        
+    end
 end
 
 function TEST_APK_S(pc)
 
-	local objList, objCount = SelectObject(pc, 100, 'MONSTER');
+    local objList, objCount = SelectObject(pc, 100, 'MONSTER');
 
-	for i = 1, objCount do
-		
-		AddBuff(pc, objList[i], "SwellRightArm_Buff", 1, 1, 1000, 1)		
-		--SpinObject(objList[i], 0, -1, 1.1, 1.0)
-		
-	end
+    for i = 1, objCount do
+        
+        AddBuff(pc, objList[i], "SwellRightArm_Buff", 1, 1, 1000, 1)        
+        --SpinObject(objList[i], 0, -1, 1.1, 1.0)
+        
+    end
 end
 
 function TEST_ATTACHNODE(pc)
 
-	local objList, objCount = SelectObject(pc, 50, 'ALL');
+    local objList, objCount = SelectObject(pc, 50, 'ALL');
 
-	print(objCount);
+    print(objCount);
 
-	for i = 1, objCount do
+    for i = 1, objCount do
 
-		local mon = objList[i];
+        local mon = objList[i];
 
-		--AttachToObject(obj, nil, "None", "None", 0);
-		AttachToObject(mon, pc, "None", "None", 1, 10, 0, 0, 1);
+        --AttachToObject(obj, nil, "None", "None", 0);
+        AttachToObject(mon, pc, "None", "None", 1, 10, 0, 0, 1);
 
-		--AttachToObject(pc, mon, nodeName, "None", 1, attachSec, 0, holdAI, 0, attachAnim);	
-		
-	end
+        --AttachToObject(pc, mon, nodeName, "None", 1, attachSec, 0, holdAI, 0, attachAnim);    
+        
+    end
 
-	
-	
-	--SpinObject(pc, 0, -1, 0.1, 1.1)
+    
+    
+    --SpinObject(pc, 0, -1, 0.1, 1.1)
 
 end
 
 function TEST_MOVEPOS3(pc)
 
-	SpinObject(pc, 0, -1, 0.1, 1.1)
+    SpinObject(pc, 0, -1, 0.1, 1.1)
 
 end
 
 function TEST_MOVEPOS4(pc)
 
-	SpinObject(pc, 0, -1, 1.9, 1.1)
+    SpinObject(pc, 0, -1, 1.9, 1.1)
 
 end
 
 function TEST_ITEMCOOL(pc)
 
-	local get_item = GetInvItemList(pc);
+    local get_item = GetInvItemList(pc);
 
-	for i = 1, #get_item do
-		local remainCoolTime = GetRemainItemCoolTime(pc, get_item[i]);
-		print(remainCoolTime);
-		if get_item[i].ClassID > 190000 and get_item[i].ClassID < 200000 then
-			SetItemCoolTime(pc, get_item[i], 0);
-		end
-	end
+    for i = 1, #get_item do
+        local remainCoolTime = GetRemainItemCoolTime(pc, get_item[i]);
+        print(remainCoolTime);
+        if get_item[i].ClassID > 190000 and get_item[i].ClassID < 200000 then
+            SetItemCoolTime(pc, get_item[i], 0);
+        end
+    end
 
 end
 
 function TEST_OVERHEATTEST(pc)
 --[[
-	print('hello');
+    print('hello');
 
-	local skill = GetSkill(pc, 'Swordman_Thrust');
+    local skill = GetSkill(pc, 'Swordman_Thrust');
 
-	RequestReduceOverHeat(pc, skill.OverHeatGroup, -50000 , skill.CoolDownGroup, 0.0);
+    RequestReduceOverHeat(pc, skill.OverHeatGroup, -50000 , skill.CoolDownGroup, 0.0);
 
-	print('hello2');
-	]]--
+    print('hello2');
+    ]]--
 
 
-	local list, cnt = GetPCSkillList(pc);
-	
-	for i = 1, cnt do
-		if list[i].ClassID > 10000 then
+    local list, cnt = GetPCSkillList(pc);
+    
+    for i = 1, cnt do
+        if list[i].ClassID > 10000 then
 
 			skill = list[i];
 
-			print(skill.SklUseOverHeat);
+            print(skill.SklUseOverHeat);
 
-			if skill.UseOverHeat > 0 then
-				RequestReduceOverHeat(pc, skill.OverHeatGroup, -5000 , skill.CoolDownGroup, 0.0);
-			end
-		end
-	end
+            if skill.UseOverHeat > 0 then
+                RequestReduceOverHeat(pc, skill.OverHeatGroup, -5000 , skill.CoolDownGroup, 0.0);
+            end
+        end
+    end
 end
 
 function TEST_GETMOVE(pc)
 
-	local value = GetMoveState(pc);
-	print(pc);
+    local value = GetMoveState(pc);
+    print(pc);
 
-	local objList, objCount = SelectObject(pc, 50, 'ALL');
+    local objList, objCount = SelectObject(pc, 50, 'ALL');
 
-	print(objCount);
+    print(objCount);
 
-	for i = 1, objCount do
+    for i = 1, objCount do
 
-		local obj = objList[i];
-		local value = GetMoveState(obj);
-		print(value);
-		
-	end
-	
+        local obj = objList[i];
+        local value = GetMoveState(obj);
+        print(value);
+        
+    end
+    
 end
 
 function TEST_TESTSTAMINA(pc)
 
-	local maxstamina = GetMaxStamina(pc);
-	local asd = GetStamina(pc);
-	print(maxstamina,asd);
-	
+    local maxstamina = GetMaxStamina(pc);
+    local asd = GetStamina(pc);
+    print(maxstamina,asd);
+    
 end
 
 function TEST_ARUN(pc)
 print("????????")
 --ResetStdAnim(pc)
-	SetSTDAnim(pc,'SKL_ATAQUE_RUN')
-	print("aaaaaaa")
-	SetRUNAnim(pc,'SKL_ATAQUE_RUN')	
+    SetSTDAnim(pc,'SKL_ATAQUE_RUN')
+    print("aaaaaaa")
+    SetRUNAnim(pc,'SKL_ATAQUE_RUN') 
 print("????????")
 end
 
 function TEST_ZZZ(pc)
 
-	local x, y, z = GetPos(pc);
-	RunPad(pc, 'Paladin_Barrier', nil, x, y, z, 0, 1);
+    local x, y, z = GetPos(pc);
+    RunPad(pc, 'Paladin_Barrier', nil, x, y, z, 0, 1);
 end
 
 function TEST_GG(pc)
 
-	local objList, objCount = SelectObject(pc, 200, 'ALL');
-	for i = 0, objCount do
-		local obj = objList[i];
-		if obj ~= nil and obj.ClassName == 'summons_zombie' then
-			SetOwner(obj, pc, 1);
-			AddZombieSummon(pc, obj);
-		end
-	end	
+    local objList, objCount = SelectObject(pc, 200, 'ALL');
+    for i = 0, objCount do
+        local obj = objList[i];
+        if obj ~= nil and obj.ClassName == 'summons_zombie' then
+            SetOwner(obj, pc, 1);
+            AddZombieSummon(pc, obj);
+        end
+    end 
 end
 
 function TEST_GGG(pc)
 
-	local x, y, z = GetFrontPos(pc, 50);
-	HoverZombieSummon(pc, x, y, z, 50, 2);
+    local x, y, z = GetFrontPos(pc, 50);
+    HoverZombieSummon(pc, x, y, z, 50, 2);
 end
 
 
 function TEST_GGGG(pc)
 
-	EndHoverZombieSummon(pc);
-	local list, listCnt = GetZombieSummonList(pc);
-	print(list, listCnt)
-	HoldMonScp(list[1]);
+    EndHoverZombieSummon(pc);
+    local list, listCnt = GetZombieSummonList(pc);
+    print(list, listCnt)
+    HoldMonScp(list[1]);
 end
 
 
 
 function TEST_TTT(pc)
 
-	local objList, objCount = SelectObject(pc, 1000, 'ENEMY');	
-	for i = 1, objCount do
-		local obj = objList[i];	
-		if obj ~= nil then
-			SetTendency(obj, "Attack");
-			SetTendencysearchRange(obj, 150);
-			AddSearchRangeFix(obj, 1);
-		end
-	end
-	
+    local objList, objCount = SelectObject(pc, 1000, 'ENEMY');  
+    for i = 1, objCount do
+        local obj = objList[i]; 
+        if obj ~= nil then
+            SetTendency(obj, "Attack");
+            SetTendencysearchRange(obj, 150);
+            AddSearchRangeFix(obj, 1);
+        end
+    end
+    
 end
 
 
 function WEAPON_ALLABIL(pc)
 
-	if GetJobObject(pc).CtrlType == 'Archer' then
-		local tx = TxBegin(pc);
-		TxAddAbility(tx, 'Bow')	
-		local ret = TxCommit(tx);
-		
-		print(ret)
-	else
-		local tx = TxBegin(pc);
-		local idx = TxAddAbility(tx, 'THSword');
-		TxAppendProperty(tx, idx, "Level", 1);
-		idx = TxAddAbility(tx, 'THStaff');
-		TxAppendProperty(tx, idx, "Level", 1);
-		idx = TxAddAbility(tx, 'Spear');
-		TxAppendProperty(tx, idx, "Level", 1);
-		idx = TxAddAbility(tx, 'THSpear');
-		TxAppendProperty(tx, idx, "Level", 1);
-		idx = TxAddAbility(tx, 'Wand');
-		TxAppendProperty(tx, idx, "Level", 1);
-		idx = TxAddAbility(tx, 'Helmet');
-		TxAppendProperty(tx, idx, "Level", 1);		
-		local ret = TxCommit(tx);
-		
-		print(ret)
-	end
+    if GetJobObject(pc).CtrlType == 'Archer' then
+        local tx = TxBegin(pc);
+        TxAddAbility(tx, 'Bow') 
+        local ret = TxCommit(tx);
+        
+        print(ret)
+    else
+        local tx = TxBegin(pc);
+        local idx = TxAddAbility(tx, 'THSword');
+        TxAppendProperty(tx, idx, "Level", 1);
+        idx = TxAddAbility(tx, 'THStaff');
+        TxAppendProperty(tx, idx, "Level", 1);
+        idx = TxAddAbility(tx, 'Spear');
+        TxAppendProperty(tx, idx, "Level", 1);
+        idx = TxAddAbility(tx, 'THSpear');
+        TxAppendProperty(tx, idx, "Level", 1);
+        idx = TxAddAbility(tx, 'Wand');
+        TxAppendProperty(tx, idx, "Level", 1);
+        idx = TxAddAbility(tx, 'Helmet');
+        TxAppendProperty(tx, idx, "Level", 1);      
+        local ret = TxCommit(tx);
+        
+        print(ret)
+    end
 end
 
 
 function TEST_ADD_EMOTICON(pc, emoticonID)
 
-	local tx = TxBegin(pc);
-	local etc = GetETCObject(pc);
-	TxAddIESProp(tx, etc, "HaveEmoticon_" .. emoticonID, 1);
-	local ret = TxCommit(tx);
-	
-	if ret == 'SUCCESS' then
-		SendAddOnMsg(pc, "ADD_CHAT_EMOTICON");
-	end
+    local tx = TxBegin(pc);
+    local etc = GetETCObject(pc);
+    TxAddIESProp(tx, etc, "HaveEmoticon_" .. emoticonID, 1);
+    local ret = TxCommit(tx);
+    
+    if ret == 'SUCCESS' then
+        SendAddOnMsg(pc, "ADD_CHAT_EMOTICON");
+    end
 end
 
 function TEST_STAGE_STATE(self)
-	local isPlaying = IsPlayingMGame(self, 'G_TOWER_1')
-	local isEnabled, isStarted, isComplete = GetStateMGameStage(self, 'G_TOWER_1', 'Stage1');
-	print(isPlaying, isEnabled, isStarted, isComplete)
+    local isPlaying = IsPlayingMGame(self, 'G_TOWER_1')
+    local isEnabled, isStarted, isComplete = GetStateMGameStage(self, 'G_TOWER_1', 'Stage1');
+    print(isPlaying, isEnabled, isStarted, isComplete)
 end
 
 function TEST_HEL(self)
 
-	local equipItem = GetEquipItem(self, 'HELMET');
+    local equipItem = GetEquipItem(self, 'HELMET');
 
-	local tx = TxBegin(self);
-	if 0 == item.IsNoneItem(equipItem.ClassID) then
-		TxTakeItemByObject(tx, equipItem, 1);
-	else
-		TxGiveEquipItem(tx, 'HELMET', 'murmillo_helmet', 0);
-	end
+    local tx = TxBegin(self);
+    if 0 == item.IsNoneItem(equipItem.ClassID) then
+        TxTakeItemByObject(tx, equipItem, 1);
+    else
+        TxGiveEquipItem(tx, 'HELMET', 'murmillo_helmet', 0);
+    end
 
-	local ret = TxCommit(tx);
-	
+    local ret = TxCommit(tx);
+    
 end
 
 function TEST_EFT(pc, name, count, scale, loopTime)
 
-	for i = 0 , count - 1 do
-		PlayEffect(pc, name, scale, 0, 1)
-		sleep(loopTime)
-	end
+    for i = 0 , count - 1 do
+        PlayEffect(pc, name, scale, 0, 1)
+        sleep(loopTime)
+    end
 end
 
 function TEST_EFT2(pc, name, count)
 
-	for i = 0 , count - 1 do
-		PlayEffect(pc, name, 1, 0, 1)
-	end
+    for i = 0 , count - 1 do
+        PlayEffect(pc, name, 1, 0, 1)
+    end
 end
 
 function TEST_SS(pc)
-	SetShadowRender(pc, 0)
+    SetShadowRender(pc, 0)
 end
 
 function TEST_RANDOMBOX(pc)
@@ -5497,13 +5497,13 @@ function TEST_RANDOMBOX(pc)
 end
 
 function ALLKILL(pc)
-	AllMonsterKill(pc)
+    AllMonsterKill(pc)
 end
 
 
 function EQUIP(pc)
-	local item = GetEquipItem(pc, 'RH')
-	print(item.MATK)
+    local item = GetEquipItem(pc, 'RH')
+    print(item.MATK)
 end
 
 function TEST_P_EVENT_M(pc)
@@ -5592,7 +5592,7 @@ function LV75(pc)
         TxGiveItem(tx, 'FOOT01_109', 1, "Test");
         TxGiveItem(tx, 'LEG01_109', 1, "Test");
         TxGiveItem(tx, 'TOP01_109', 1, "Test");
-	end
+    end
     
     TxGiveItem(tx, 'SHD01_106', 1, "Test");
     
@@ -5638,7 +5638,7 @@ function LV120(pc)
         TxGiveItem(tx, 'FOOT01_139', 1, "Test");
         TxGiveItem(tx, 'LEG01_139', 1, "Test");
         TxGiveItem(tx, 'TOP01_139', 1, "Test");
-	end
+    end
     
     TxGiveItem(tx, 'SHD01_114', 1, "Test");
     TxGiveItem(tx, 'DAG01_101', 1, "Test");
@@ -5686,7 +5686,7 @@ function LV170(pc)
         TxGiveItem(tx, 'FOOT01_148', 1, "Test");
         TxGiveItem(tx, 'LEG01_148', 1, "Test");
         TxGiveItem(tx, 'TOP01_148', 1, "Test");
-	end
+    end
     
     TxGiveItem(tx, 'SHD01_117', 1, "Test");
     TxGiveItem(tx, 'DAG01_104', 1, "Test");
@@ -5734,7 +5734,7 @@ function LV220(pc)
         TxGiveItem(tx, 'FOOT01_151', 1, "Test");
         TxGiveItem(tx, 'LEG01_151', 1, "Test");
         TxGiveItem(tx, 'TOP01_151', 1, "Test");
-	end
+    end
     
     TxGiveItem(tx, 'SHD01_119', 1, "Test");
     TxGiveItem(tx, 'DAG01_106', 1, "Test");
@@ -5789,7 +5789,7 @@ function LV280(pc)
         TxGiveItem(tx, 'FOOT04_107', 1, "Test");
         TxGiveItem(tx, 'LEG04_107', 1, "Test");
         TxGiveItem(tx, 'TOP04_107', 1, "Test");
-	end
+    end
     
     TxGiveItem(tx, 'SHD04_103', 1, "Test");
     TxGiveItem(tx, 'DAG04_102', 1, "Test");
@@ -5841,7 +5841,7 @@ function LV330(pc)
         TxGiveItem(tx, 'FOOT04_110', 1, "Test");
         TxGiveItem(tx, 'LEG04_110', 1, "Test");
         TxGiveItem(tx, 'TOP04_110', 1, "Test");
-	end
+    end
     
     TxGiveItem(tx, 'SHD04_104', 1, "Test");
     TxGiveItem(tx, 'DAG04_103', 1, "Test");
@@ -5855,18 +5855,18 @@ function LV330(pc)
 end
 
 function VIEW_STAT(pc)
-	local fndList, fndCount = SelectObject(pc, 20, 'ALL');
-	for i = 1, fndCount do
-		if fndList[i].ClassName ~= 'PC' then
-		    print(fndList[i].ClassName);
-		    print(fndList[i].Lv);
-		    print(fndList[i].STR);
-		    print(fndList[i].DEX);
-		    print(fndList[i].CON);
-		    print(fndList[i].INT);
-		    print(fndList[i].MNA);
-		end
-	end
+    local fndList, fndCount = SelectObject(pc, 20, 'ALL');
+    for i = 1, fndCount do
+        if fndList[i].ClassName ~= 'PC' then
+            print(fndList[i].ClassName);
+            print(fndList[i].Lv);
+            print(fndList[i].STR);
+            print(fndList[i].DEX);
+            print(fndList[i].CON);
+            print(fndList[i].INT);
+            print(fndList[i].MNA);
+        end
+    end
 end
 
 function REINFORCE_ALLWEAPON(pc, value)
@@ -5874,7 +5874,7 @@ function REINFORCE_ALLWEAPON(pc, value)
     local invItemList = GetInvItemList(pc);
     for i = 1, #invItemList do
         if invItemList[i].ItemType == "Equip" then
-            TxAddIESProp(tx, invItemList[i], "Reinforce_2", value);
+            TxSetItemReinforce(tx, invItemList[i], invItemList[i].Reinforce_2 + value);
         end
     end
     local ret = TxCommit(tx);
@@ -5885,7 +5885,7 @@ function TRANSCEND_ALLWEAPON(pc, value)
     local invItemList = GetInvItemList(pc);
     for i = 1, #invItemList do
         if invItemList[i].ItemType == "Equip" then
-            TxAddIESProp(tx, invItemList[i], "Transcend", value);
+            TxSetItemTranscend(tx, invItemList[i], invItemList[i].Transcend + value);
         end
     end
     local ret = TxCommit(tx);
@@ -5934,87 +5934,88 @@ end
 
 
 function TEST_PARTY_MISSION_CALL(pc)
-	testPartyMission(pc, "Mission")
+    testPartyMission(pc, "Mission")
 end
 
 function TEST_SCP123(party, pc)
-	print("??????")
+    print("??????")
 end
 
 function TESTsns(pc)
 --EquipDummyItemSpot(pc,pc, 0, "RH", 0)
        --DOTIMEACTION_R_DUMMY_ITEM(pc, ScpArgMsg("REMAINS37_3_SQ_091_MSG04"), 'skl_assistattack_shovel', 3, nil, nil, 630012, "RH")
 
-	DOTIMEACTION_R_DUMMY_ITEM(pc, ScpArgMsg("REMAINS37_3_SQ_091_MSG01"), 'skl_assistattack_metaldetector', 2, nil, nil, 630013, "RH")
+    DOTIMEACTION_R_DUMMY_ITEM(pc, ScpArgMsg("REMAINS37_3_SQ_091_MSG01"), 'skl_assistattack_metaldetector', 2, nil, nil, 630013, "RH")
 end
 
 function UICLOSE2(pc)
-	local pobj = GetPartyObj(pc)
-	print(pobj.CreateTime)
+    local pobj = GetPartyObj(pc)
+    print(pobj.CreateTime)
 end
 
 function UICLOSE(pc)
-	SendAddOnMsg(pc, 'HELP_MSG_CLOSE',"", 5);
+    SendAddOnMsg(pc, 'HELP_MSG_CLOSE',"", 5);
 end
 
 function PRINT_TEST(pc)
 
-	local clsList, cnt = GetClassList("QuestProgressCheck");
-	for i = 0, cnt -1 do
+    local clsList, cnt = GetClassList("QuestProgressCheck");
+    for i = 0, cnt -1 do
 
-		local questIES = GetClassByIndexFromList(clsList, i);
-		local questclsName = questIES.ClassName
+        local questIES = GetClassByIndexFromList(clsList, i);
+        local questclsName = questIES.ClassName
 
-		if questclsName ~= "None" and questclsName ~= nil then
+        if questclsName ~= "None" and questclsName ~= nil then
 
-			local sObj = GetSessionObject(pc, 'ssn_klapeda');
-			local leaderval = sObj[questclsName]
+            local sObj = GetSessionObject(pc, 'ssn_klapeda');
+            local leaderval = sObj[questclsName]
 
-			if leaderval ~= 0 then
-			print(leaderval)	
-			end
-		
-			
-		end
-	end
+            if leaderval ~= 0 then
+            print(leaderval)    
+            end
+        
+            
+        end
+    end
 end
 
 
 function TEST_SUPERDROP(pc)
-	local fndList, fndCount = SelectObject(pc, 100, 'ALL');
-	for i = 1, fndCount do
-		if fndList[i].ClassName ~= 'PC' then
-		    AddBuff(fndList[i], fndList[i], 'SuperDrop', 1000, 1);
-		end
-	end
+    local fndList, fndCount = SelectObject(pc, 100, 'ALL');
+    for i = 1, fndCount do
+        if fndList[i].ClassName ~= 'PC' then
+            AddBuff(fndList[i], fndList[i], 'SuperDrop', 1000, 1);
+        end
+    end
 end
 
 function TEST_SUPEREXP(pc)
-	local fndList, fndCount = SelectObject(pc, 100, 'ALL');
-	for i = 1, fndCount do
-		if fndList[i].ClassName ~= 'PC' then
-		    AddBuff(fndList[i], fndList[i], 'SuperExp', 1, 1);
-		end
-	end
+    local fndList, fndCount = SelectObject(pc, 100, 'ALL');
+    for i = 1, fndCount do
+        if fndList[i].ClassName ~= 'PC' then
+            AddBuff(fndList[i], fndList[i], 'SuperExp', 1, 1);
+        end
+    end
 end
 
 function TEST_SAMSARA(pc)
-	local fndList, fndCount = SelectObject(pc, 100, 'ALL');
-	for i = 1, fndCount do
-		if fndList[i].ClassName ~= 'PC' then
-		    AddBuff(fndList[i], fndList[i], 'Samsara_Buff', 1, 1);
-		end
-	end
+    local fndList, fndCount = SelectObject(pc, 100, 'ALL');
+    for i = 1, fndCount do
+        if fndList[i].ClassName ~= 'PC' then
+            AddBuff(fndList[i], fndList[i], 'Samsara_Buff', 1, 1);
+        end
+    end
 end
 
 function TEST_SAMSARA_AFTER(pc)
-	local fndList, fndCount = SelectObject(pc, 100, 'ALL');
-	for i = 1, fndCount do
-		if fndList[i].ClassName ~= 'PC' then
-		    AddBuff(fndList[i], fndList[i], 'SamsaraAfter_Buff', 1, 1);
-		end
-	end
+    local fndList, fndCount = SelectObject(pc, 100, 'ALL');
+    for i = 1, fndCount do
+        if fndList[i].ClassName ~= 'PC' then
+            AddBuff(fndList[i], fndList[i], 'SamsaraAfter_Buff', 1, 1);
+        end
+    end
 end
+
 
 function TEST_START_MISSION(pc)
     ChangePartyProp(pc, PARTY_NORMAL, 'MissionAble', 1)
@@ -6022,28 +6023,28 @@ end
 
 
 function TEST_TIIII(pc)
-	local fndList, fndCount = SelectObject(pc, 350, 'ALL');
-	for i = 1, fndCount do
-		if fndList[i].ClassName ~= 'PC' then
+    local fndList, fndCount = SelectObject(pc, 350, 'ALL');
+    for i = 1, fndCount do
+        if fndList[i].ClassName ~= 'PC' then
 
-			print(fndList[i].ClassName)
+            print(fndList[i].ClassName)
 
-			InvalidateStates(fndList[i])
-		--  local genID = GetGenTypeID(fndList[i])
-	     --   local npcState = GetMapNPCState(pc, genID)
-		--	print(npcState)
+            InvalidateStates(fndList[i])
+        --  local genID = GetGenTypeID(fndList[i])
+         --   local npcState = GetMapNPCState(pc, genID)
+        --  print(npcState)
 
 
 
-		end
+        end
 
-	end
+    end
 end
 
 function TTTBB(pc)
     local x, y, z = GetPos(pc)
-	local boss_mon = CREATE_MONSTER(pc, 'boss_Sparnashorn_Q1', x, y, z, 0, 'Monster', 0, 100, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, "BOSS_PROP_INITIALIZE")
-	print(boss_mon.DropItemList)
+    local boss_mon = CREATE_MONSTER(pc, 'boss_Sparnashorn_Q1', x, y, z, 0, 'Monster', 0, 100, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, "BOSS_PROP_INITIALIZE")
+    print(boss_mon.DropItemList)
 end
 
 function ANFDIR(pc)
@@ -6060,33 +6061,33 @@ end
 
 
 function TEST_NPCAA(pc)
-	local objList, objCount = SelectObject(pc, 50, 'ALL', 1);
-	for i = 1, objCount do
-		if objList[i].ClassName ~= "PC" then
-			print(objList[i].ClassName)
-			 local genID = GetGenTypeID(objList[i])
-			if genID ~= nil then
-				 local npcState = GetMapNPCState(pc, genID)
-					print(npcState)
-				 local tx = TxBegin(pc);
-				 if npcState ~= nil then
-					 TxChangeNPCState(tx, genID, 20)
-					end
+    local objList, objCount = SelectObject(pc, 50, 'ALL', 1);
+    for i = 1, objCount do
+        if objList[i].ClassName ~= "PC" then
+            print(objList[i].ClassName)
+             local genID = GetGenTypeID(objList[i])
+            if genID ~= nil then
+                 local npcState = GetMapNPCState(pc, genID)
+                    print(npcState)
+                 local tx = TxBegin(pc);
+                 if npcState ~= nil then
+                     TxChangeNPCState(tx, genID, 20)
+                    end
 
-					local ret = TxCommit(tx);
-			end
-			end
-		
-	end
+                    local ret = TxCommit(tx);
+            end
+            end
+        
+    end
 end
 
 function TEST_NPCSSS(pc)
-	local objList, objCount = SelectObject(pc, 500, 'ALL', 1);
-	for i = 1, objCount do
-		if objList[i].ClassName ~= "PC" then
-			AddBuff(pc, objList[i], 'TEST_ER', 0, 0, 30000, 1);
-		end
-	end
+    local objList, objCount = SelectObject(pc, 500, 'ALL', 1);
+    for i = 1, objCount do
+        if objList[i].ClassName ~= "PC" then
+            AddBuff(pc, objList[i], 'TEST_ER', 0, 0, 30000, 1);
+        end
+    end
 end
 
 function TEST_SELFBUFF(pc, buffName, arg1, arg2)
@@ -6094,200 +6095,200 @@ function TEST_SELFBUFF(pc, buffName, arg1, arg2)
 end
 
 function TEST_QUEST_CHECK_LIST(self)
-	local cnt, qList, vList = GetQuestCheckStateList(self);
-	for i = 1, cnt do
-		print(qList[i], vList[i]);
-	end
+    local cnt, qList, vList = GetQuestCheckStateList(self);
+    for i = 1, cnt do
+        print(qList[i], vList[i]);
+    end
 end
 
 
 function TESTAA(pc)
---	ChangeScale(pc, 2.0, 0)
+--  ChangeScale(pc, 2.0, 0)
 RunMGame(pc, "M_GTOWER_LOBBY_1")
 end
 
 function TEST_TAKE_GUILD_EVENT_REWARD(pc, eventID)
-	
-	local guildObj = GetGuildObj(pc);
-	--local eventID = 0;
-
-	if guildObj == nil then
-		print("guild is nil")
-	end
-	--[[
-	if guildObj.GuildInDunFlag == 1 then
-		eventID = guildObj.GuildInDunSelectInfo
-	elseif guildObj.GuildBossSummonFlag == 1 then
-		eventID = guildObj.GuildBossSummonSelectInfo
-	elseif guildObj.GuildRaidFlag == 1 then
-		eventID = guildObj.GuildRaidSelectInfo
-	else
-		IMC_LOG("INFO_NORMAL", "guild Event eventID is 0");
-		return 0;
-	end
-	]]--
-	local cls = GetClassByType("GuildEvent", eventID)
-
-	if cls == nil then
-		print("??????α??: ?????? ???? - eventID : "..eventID)
-	end
-
-	local rewardList ={};
-	local rewardCnt = {};
-	local ratioList = {};
-	local listIndex = 0;
-	local totalRatio = 0;
-	local clslist, cnt = GetClassList("reward_guildevent");
-	
-	for i = 0, cnt-1 do
-		local rewardcls = GetClassByIndexFromList(clslist, i)
-
-		if TryGetProp(rewardcls, "Group") == cls.ClassName then
-
-	        rewardList[listIndex] = rewardcls.ItemName;
-		    rewardCnt[listIndex] = rewardcls.Count;
-			ratioList[listIndex] = rewardcls.Ratio;
-			listIndex = listIndex + 1;
-			totalRatio = totalRatio + rewardcls.Ratio;
-		end
-	end
     
-	local result = IMCRandom(1, totalRatio)
-	local tx = TxBegin(pc);
-	for i = 0, #ratioList do
-	    if result <= ratioList[i] then
-			TxGiveItemToPartyWareHouse(tx, pc, PARTY_GUILD, rewardList[i], rewardCnt[i], 'Bag', 0, nil);
-			break;
-		else
-			ratioList[i+1] = ratioList[i+1] + ratioList[i];
-		end
-	end
+    local guildObj = GetGuildObj(pc);
+    --local eventID = 0;
 
-	local ret = TxCommit(tx);
-	
-	if ret == "SUCCESS" then
-		--return 1;
-	end
+    if guildObj == nil then
+        print("guild is nil")
+    end
+    --[[
+    if guildObj.GuildInDunFlag == 1 then
+        eventID = guildObj.GuildInDunSelectInfo
+    elseif guildObj.GuildBossSummonFlag == 1 then
+        eventID = guildObj.GuildBossSummonSelectInfo
+    elseif guildObj.GuildRaidFlag == 1 then
+        eventID = guildObj.GuildRaidSelectInfo
+    else
+        IMC_LOG("INFO_NORMAL", "guild Event eventID is 0");
+        return 0;
+    end
+    ]]--
+    local cls = GetClassByType("GuildEvent", eventID)
+
+    if cls == nil then
+        print("??????α??: ?????? ???? - eventID : "..eventID)
+    end
+
+    local rewardList ={};
+    local rewardCnt = {};
+    local ratioList = {};
+    local listIndex = 0;
+    local totalRatio = 0;
+    local clslist, cnt = GetClassList("reward_guildevent");
+    
+    for i = 0, cnt-1 do
+        local rewardcls = GetClassByIndexFromList(clslist, i)
+
+        if TryGetProp(rewardcls, "Group") == cls.ClassName then
+
+            rewardList[listIndex] = rewardcls.ItemName;
+            rewardCnt[listIndex] = rewardcls.Count;
+            ratioList[listIndex] = rewardcls.Ratio;
+            listIndex = listIndex + 1;
+            totalRatio = totalRatio + rewardcls.Ratio;
+        end
+    end
+    
+    local result = IMCRandom(1, totalRatio)
+    local tx = TxBegin(pc);
+    for i = 0, #ratioList do
+        if result <= ratioList[i] then
+            TxGiveItemToPartyWareHouse(tx, pc, PARTY_GUILD, rewardList[i], rewardCnt[i], 'Bag', 0, nil);
+            break;
+        else
+            ratioList[i+1] = ratioList[i+1] + ratioList[i];
+        end
+    end
+
+    local ret = TxCommit(tx);
+    
+    if ret == "SUCCESS" then
+        --return 1;
+    end
 end
 
 
 function TEST_GUILD_SET_LEVEL(pc, level)
-	local guildObj = GetGuildObj(pc);
-	ChangePartyProp(pc, PARTY_GUILD, "UsedTicketCount", 0);
-	ChangePartyProp(pc, PARTY_GUILD, "Level", level);
+    local guildObj = GetGuildObj(pc);
+    ChangePartyProp(pc, PARTY_GUILD, "UsedTicketCount", 0);
+    ChangePartyProp(pc, PARTY_GUILD, "Level", level);
 
 end
 
 function TEST_RESET_TICKET(pc)
-	ChangePartyProp(pc, PARTY_GUILD, "UsedTicketCount", 0);
+    ChangePartyProp(pc, PARTY_GUILD, "UsedTicketCount", 0);
 end
 
 
 function reinfoceSimul(pc)
     for z = 1, 10 do
-    	--?o? ???
-    	local count = 10000;
-    	--?????? ??? ???
-    	local sucessReinforce = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    	--?????? ??? ???
-    	local failReinforce = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    	--??? ??? (????? ?? * 10 ?? ????? ex. 9?? 90% ???)
-    	local reinfoceRate = {9, 8, 7, 6, 5, 5, 5, 5, 5, 4};
+        --?o? ???
+        local count = 10000;
+        --?????? ??? ???
+        local sucessReinforce = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        --?????? ??? ???
+        local failReinforce = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        --??? ??? (????? ?? * 10 ?? ????? ex. 9?? 90% ???)
+        local reinfoceRate = {9, 8, 7, 6, 5, 5, 5, 5, 5, 4};
     
-    	for i = 1, count do
-    		for j = 1, #reinfoceRate do
-    			local value = IMCRandom(1,10)
-    			if reinfoceRate[j] >= value then
-    				sucessReinforce[j] = sucessReinforce[j] + 1	
-    			else
-    				failReinforce[j] = failReinforce[j] + 1
-    				break;
-    			end
-    		end
-    	end
+        for i = 1, count do
+            for j = 1, #reinfoceRate do
+                local value = IMCRandom(1,10)
+                if reinfoceRate[j] >= value then
+                    sucessReinforce[j] = sucessReinforce[j] + 1 
+                else
+                    failReinforce[j] = failReinforce[j] + 1
+                    break;
+                end
+            end
+        end
     
-    	for i = 1, #reinfoceRate do
-    		print(i.."?? ???? ??? : "..sucessReinforce[i].."          "..i.."?? ???? ??? : "..failReinforce[i])
-    	end
+        for i = 1, #reinfoceRate do
+            print(i.."?? ???? ??? : "..sucessReinforce[i].."          "..i.."?? ???? ??? : "..failReinforce[i])
+        end
     end
 end
 
 
 function TEST_TX_POST(pc)
-	local tx = TxBegin(pc);
-	TxGiveItemToPostBox(tx, pc, 624304, 1, ClMsg("SelectPCToBringTheCompanion"), "SelectPCToBringTheCompanion", 6800)
+    local tx = TxBegin(pc);
+    TxGiveItemToPostBox(tx, pc, 624304, 1, ClMsg("SelectPCToBringTheCompanion"), "SelectPCToBringTheCompanion", 6800)
     local ret = TxCommit(tx);
 end
 
 function rkdghk(pc, val)
 
-	local tx = TxBegin(pc);
-	for i = 0 , 20 do
-		local es = item.GetEquipSpotName(i);
-		local equipWeapon = GetEquipItemIgnoreDur(pc, es);		
-		if equipWeapon ~= nil and equipWeapon.Transcend ~= val then
-			TxSetIESProp(tx, equipWeapon, 'Reinforce_2', val);
-		end
-	end
+    local tx = TxBegin(pc);
+    for i = 0 , 20 do
+        local es = item.GetEquipSpotName(i);
+        local equipWeapon = GetEquipItemIgnoreDur(pc, es);      
+        if equipWeapon ~= nil and equipWeapon.Transcend ~= val then
+            TxSetItemReinforce(tx, equipWeapon, val);
+        end
+    end
 
-	TxCommit(tx);
+    TxCommit(tx);
 end
 
-function MINIGAMEOVER_TESTOPEN1(pc)		
-		local clientScp = string.format("MINIGAME_OVER_FRAME_OPEN()");
-		ExecClientScp(pc, clientScp);	
+function MINIGAMEOVER_TESTOPEN1(pc)     
+        local clientScp = string.format("MINIGAME_OVER_FRAME_OPEN()");
+        ExecClientScp(pc, clientScp);   
 end;
 
-function MINIGAMEOVER_TESTOPEN2(pc)		
-		local clientScp = string.format("MINIGAME_OVER_FRAME_OPEN(\'%s\', \'%s\')", "파티장이 전사하였습니다.", "확인을 누르시면, 미션에서 나갑니다.");
-		ExecClientScp(pc, clientScp);	
+function MINIGAMEOVER_TESTOPEN2(pc)     
+        local clientScp = string.format("MINIGAME_OVER_FRAME_OPEN(\'%s\', \'%s\')", "파티장이 전사하였습니다.", "확인을 누르시면, 미션에서 나갑니다.");
+        ExecClientScp(pc, clientScp);   
 end;
 
 function TEST_PET_EXP(self, addPetExp)
-	TestAddPetExp(self, addPetExp * 10)
+    TestAddPetExp(self, addPetExp * 10)
 end
 
 function TEST_FORCE_TEAM(self, num)
-	local etc = GetETCObject(self);
-	if etc == nil then
-		return;
-	end	
-	local team = etc["Team_Mission"];
-	etc["Team_Mission"] = num;
+    local etc = GetETCObject(self);
+    if etc == nil then
+        return;
+    end 
+    local team = etc["Team_Mission"];
+    etc["Team_Mission"] = num;
 end
 
 function SCR_BRACKEN631_RP_1_NPC_DIALOG(self, pc)
 
-	local select = ShowSelDlg(pc, 0, nil, ScpArgMsg("WorldGuildPVP"), ScpArgMsg("TeamBattleLeagueText"), ScpArgMsg("GT_LUTHA_NPC_SEL_FOLLOW"), ScpArgMsg("Auto_ChwiSo"))
+    local select = ShowSelDlg(pc, 0, nil, ScpArgMsg("WorldGuildPVP"), ScpArgMsg("TeamBattleLeagueText"), ScpArgMsg("GT_LUTHA_NPC_SEL_FOLLOW"), ScpArgMsg("Auto_ChwiSo"))
 
-	if select == 1 or select == 2 then
-		GMReqJoinGuildPVP(pc, select)
-		SendSysMsg(pc, 'PVP_State_Finding');
-	elseif select == 3 then
-		GMReqJoinGuildPVPMember(pc);
-		SendSysMsg(pc, 'PVP_State_Finding');
-	else 
-		return;
-	end	
+    if select == 1 or select == 2 then
+        GMReqJoinGuildPVP(pc, select)
+        SendSysMsg(pc, 'PVP_State_Finding');
+    elseif select == 3 then
+        GMReqJoinGuildPVPMember(pc);
+        SendSysMsg(pc, 'PVP_State_Finding');
+    else 
+        return;
+    end 
 end
 
 function TEST_INDUNMULTIPLE(pc)
-	local etc = GetETCObject(pc);
-	if IsIndunMultiple(pc) == 1 then
-		Chat(pc, "IndunMultiple Mode On, ".."Rate : ".. etc.IndunMultipleRate + 1)
-	else
-		Chat(pc, "IndunMultiple Mode Off")
-	end
+    local etc = GetETCObject(pc);
+    if IsIndunMultiple(pc) == 1 then
+        Chat(pc, "IndunMultiple Mode On, ".."Rate : ".. etc.IndunMultipleRate + 1)
+    else
+        Chat(pc, "IndunMultiple Mode Off")
+    end
 end
 
 function TEST_GUILDA(pc)
-	--GuildAuthority_1
+    --GuildAuthority_1
 
---	local guildObj = GetGuildObj(pc);
+--  local guildObj = GetGuildObj(pc);
 
---	print(guildObj.GuildAuthority_1)
+--  print(guildObj.GuildAuthority_1)
 
---	ChangePartyProp(pc, PARTY_GUILD, 'GuildAuthority_1', "None")
+--  ChangePartyProp(pc, PARTY_GUILD, 'GuildAuthority_1', "None")
 
 
 print(SCR_BINARY(2))
@@ -6398,14 +6399,14 @@ end
 
 function setEX(pc, rate)
     SetEarningRate(pc, rate)
-	end
+    end
 
 function showEX(pc)
     ShowEarningRate(pc)
 end
 
 function TEST_MAP_REVEAL_COMPLETE(pc, zoneClassName)
-	MapRevealComplete(pc, zoneClassName);
+    MapRevealComplete(pc, zoneClassName);
 end
 
 
@@ -6466,6 +6467,7 @@ function TEST_DPK_RATE2(pc, monName, killCount)
 
             -- DPK 최소값 보정
             local limitValue = math.floor(dpkValue * 0.01)
+
             if finalValue < limitValue then
                 finalValue = limitValue;
             end
@@ -6477,7 +6479,7 @@ function TEST_DPK_RATE2(pc, monName, killCount)
 
             -- 현재 아이템을 받을 수 있는가?
             local dpkDropRate = IMCRandom(1, finalValue)
-			
+            
             -- 아이템을 못받으면 드랍 테이블 셋팅 안함
             if dpkDropRate ~= 1 then
             else
@@ -6509,39 +6511,39 @@ function GIVE_TAKE_SOBJ_ACHIEVE_TXTT(pc)
 end
 
 function TEST_MON_ITEM_DROP(pc, killCount, monName)
-	if monName == 0 then
-		monName = nil;
-	end
+    if monName == 0 then
+        monName = nil;
+    end
 
-	if monName == "scp" then
-		local monClassNameList = {};
-		monClassNameList[#monClassNameList + 1] = "Onion";
-		monClassNameList[#monClassNameList + 1] = "Onion_Big";
-		monClassNameList[#monClassNameList + 1] = "Onion_Red";
-		monClassNameList[#monClassNameList + 1] = "Onion_green";
-		monClassNameList[#monClassNameList + 1] = "Haming";
-		monClassNameList[#monClassNameList + 1] = "Bokchoy";
-		monClassNameList[#monClassNameList + 1] = "Bokchoy_Big";
-		monClassNameList[#monClassNameList + 1] = "Jukopus";
-		monClassNameList[#monClassNameList + 1] = "Jukopus_blue";
-		monClassNameList[#monClassNameList + 1] = "Jukopus_gray";
-		monClassNameList[#monClassNameList + 1] = "arburn_pokubu";
+    if monName == "scp" then
+        local monClassNameList = {};
+        monClassNameList[#monClassNameList + 1] = "Onion";
+        monClassNameList[#monClassNameList + 1] = "Onion_Big";
+        monClassNameList[#monClassNameList + 1] = "Onion_Red";
+        monClassNameList[#monClassNameList + 1] = "Onion_green";
+        monClassNameList[#monClassNameList + 1] = "Haming";
+        monClassNameList[#monClassNameList + 1] = "Bokchoy";
+        monClassNameList[#monClassNameList + 1] = "Bokchoy_Big";
+        monClassNameList[#monClassNameList + 1] = "Jukopus";
+        monClassNameList[#monClassNameList + 1] = "Jukopus_blue";
+        monClassNameList[#monClassNameList + 1] = "Jukopus_gray";
+        monClassNameList[#monClassNameList + 1] = "arburn_pokubu";
 
-		MonsterItemDropTest(pc, killCount, "scp", monClassNameList);
-	else
-		MonsterItemDropTest(pc, killCount, monName);
-	end
+        MonsterItemDropTest(pc, killCount, "scp", monClassNameList);
+    else
+        MonsterItemDropTest(pc, killCount, monName);
+    end
 end
 function TEST_MAP_REVEAL_COMPLETE(pc, zoneClassName)
 	MapRevealComplete(pc, zoneClassName);
 end
 
 function ITEM_COPY_TEST(pc)
-	local item = GetInvItemByName(pc, "SWD01_101");
-	local tx = TxBegin(pc);
-	local cmd = TxGiveItem(tx, "SWD01_101", 1, "Test")
-	TxMakeOptionToGivenItem(tx, cmd, item, "CREATE_ITEM_OPTION_COPY");
-	local ret = TxCommit(tx);
+    local item = GetInvItemByName(pc, "SWD01_101");
+    local tx = TxBegin(pc);
+    local cmd = TxGiveItem(tx, "SWD01_101", 1, "Test")
+    TxMakeOptionToGivenItem(tx, cmd, item, "CREATE_ITEM_OPTION_COPY");
+    local ret = TxCommit(tx);
 end
 
 function TEST_MOVE_TO_BOSS(pc)
@@ -6554,101 +6556,101 @@ function TEST_RESET_MOUSE_MOVE(pc)
 end
 
 function TEST_RESET_BUY_TPITEM_LIMIT(pc, itemClassID)
-	if pc == nil then
-		return
-	end
+    if pc == nil then
+        return
+    end
 
-	if itemClassID == nil or itemClassID == 0 then
-		return
-	end
+    if itemClassID == nil or itemClassID == 0 then
+        return
+    end
 
-	local tx = TxBegin(pc);
-	if tx == nil then
-		return
-	end
-	
-	local tpitem = GetClassByType("TPitem", itemClassID)
-	local limitResult = TxAddBuyLimitCount(tx, 0, itemClassID, 0, 1);
+    local tx = TxBegin(pc);
+    if tx == nil then
+        return
+    end
+    
+    local tpitem = GetClassByType("TPitem", itemClassID)
+    local limitResult = TxAddBuyLimitCount(tx, 0, itemClassID, 0, 1);
 
-	local ret = TxCommit(tx);
-	if ret == "SUCCESS" then
-	end
+    local ret = TxCommit(tx);
+    if ret == "SUCCESS" then
+    end
 end
 
 
 function RUN_BENCHMARKING(self)
-	if self == nil then
-		return
-	end
+    if self == nil then
+        return
+    end
 
-	RunScript('_RUN_BENCHMARKING', self);
+    RunScript('_RUN_BENCHMARKING', self);
 end
 
 function _RUN_BENCHMARKING(self)
 
-	sleep(1000);
-	
-	for i = 1, 50 do
-		local x, y, z = GetPos(self);
-		x, y, z = GetRandomPos(self, x, y, z, 100);
+    sleep(1000);
+    
+    for i = 1, 50 do
+        local x, y, z = GetPos(self);
+        x, y, z = GetRandomPos(self, x, y, z, 100);
 
-		local mon = CREATE_DUMMYPC_RANDOM_EQUIP(self, x, y, z, GetDirectionByAngle(self), 0, 0);
+        local mon = CREATE_DUMMYPC_RANDOM_EQUIP(self, x, y, z, GetDirectionByAngle(self), 0, 0);
 
-		local rnd = IMCRandom(0, 9);
-		if rnd == 0 then
-			RunScript('MOVE_RANDOM', mon, self, 1);
-		else
-			mon.FIXMSPD_BM = IMCRandom(50, 100);
-			InvalidateStates(mon);
-			
-			RunScript('MOVE_RANDOM', mon, self, 0);
-		end
-		sleep(500);
-	end
+        local rnd = IMCRandom(0, 9);
+        if rnd == 0 then
+            RunScript('MOVE_RANDOM', mon, self, 1);
+        else
+            mon.FIXMSPD_BM = IMCRandom(50, 100);
+            InvalidateStates(mon);
+            
+            RunScript('MOVE_RANDOM', mon, self, 0);
+        end
+        sleep(500);
+    end
 end
 
 function MOVE_RANDOM(self, owner, jump)
-	while 1 do
-		if jump == 1 then
-			Jump(self, 300);
-			
-			local rndJumpTime = IMCRandom(500, 2000);
-			sleep(rndJumpTime);
-		else
-			local dist = GetDistance(owner, self);
-			if dist > 100 then
-				local x, y, z = GetPos(owner);
-				MoveToRandom(self, x, y, z, 30);
-			else
-				RandomMove(self, 100);
-			end
+    while 1 do
+        if jump == 1 then
+            Jump(self, 300);
+            
+            local rndJumpTime = IMCRandom(500, 2000);
+            sleep(rndJumpTime);
+        else
+            local dist = GetDistance(owner, self);
+            if dist > 100 then
+                local x, y, z = GetPos(owner);
+                MoveToRandom(self, x, y, z, 30);
+            else
+                RandomMove(self, 100);
+            end
 
-			sleep(2000);
-		end
-	end
+            sleep(2000);
+        end
+    end
 end
 
 function TEST_FORCE_RESET_DB_FISHING_RESETTIME()
     TestForceFishingResetTime();
 end
 function TEST_TOO_MANY_ITEM_GIVE(pc)
-	local tx = TxBegin(pc);
-	local giveCnt = 0;
-	TxGiveItem(tx, 'gem_circle_1', 1, 'Cheat');	
+    local tx = TxBegin(pc);
+    local giveCnt = 0;
+    TxGiveItem(tx, 'gem_circle_1', 1, 'Cheat'); 
 
-	local clsList, cnt = GetClassList('Item');
-	for i = 0, cnt - 1 do
-		if giveCnt > 1000 then
-			break;
-		end
-		local cls = GetClassByIndexFromList(clsList, i);
-		if cls.Journal == 'TRUE' then
-			TxGiveItem(tx, cls.ClassName, 1, 'Cheat');			
-			giveCnt = giveCnt + 1;
-		end
-	end
-	local ret = TxCommit(tx);
-	Chat(pc, "cheat end!!: "..ret);
+    local clsList, cnt = GetClassList('Item');
+    for i = 0, cnt - 1 do
+        if giveCnt > 1000 then
+            break;
+        end
+        local cls = GetClassByIndexFromList(clsList, i);
+        if cls.Journal == 'TRUE' then
+            TxGiveItem(tx, cls.ClassName, 1, 'Cheat');          
+            giveCnt = giveCnt + 1;
+        end
+    end
+    local ret = TxCommit(tx);
+    Chat(pc, "cheat end!!: "..ret);
 end
 
 function TEST_NEW_MONSTERCARD(pc)
@@ -7230,10 +7232,10 @@ function TEST_GEM_BUY_COUNT_RESET(pc)
     TxSetIESProp(tx, aobj_pc, 'JUNK_SHOP_BUY_COUNT', 0);
     local ret = TxCommit(tx);
 end
-
+  
 function RIDING_ANIM_DOTIME_TEST(pc, msg, animName, second, sObj_name, add_time)
     CancelMouseMove(pc)
-	local ridingCompanion = GetRidingCompanion(pc)
+    local ridingCompanion = GetRidingCompanion(pc)
 
     ----ridingAnimList
     
@@ -7260,14 +7262,14 @@ print('tset', ridingAnimList[1], ridingAnimList[2], ridingAnimList[3], ridingAni
     end
     
     local xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
-	if xac_ssn == nil then
-    	CreateSessionObject(pc, 'SSN_EV_STOP', 1)
-    	xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
-		if xac_ssn == nil then
-			return -2;
-		end
+    if xac_ssn == nil then
+        CreateSessionObject(pc, 'SSN_EV_STOP', 1)
+        xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
+        if xac_ssn == nil then
+            return -2;
+        end
 
-    	xac_ssn.Step1 = (second*1000 + 500 + add_timer)
+        xac_ssn.Step1 = (second*1000 + 500 + add_timer)
     else
         SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("TryLater"), 1);
         return -2;
@@ -7282,42 +7284,42 @@ print('tset', ridingAnimList[1], ridingAnimList[2], ridingAnimList[3], ridingAni
     end
     
 
-	local result = DoTimeAction(pc, msg, animName, second);
-	if result == 0.0 then
-		StopScript();
-		DestroySessionObject(pc, xac_ssn)
-		return 0;
-	end
-	
-	while 1 do		
-		result = GetTimeActionResult(pc, 1);		
-		if result == 1 then
-			if IsRest(pc) == 1 then
-				PlayAnim(pc, 'REST')
-			else
-				PlayAnim(pc, 'STD')  
-			end
+    local result = DoTimeAction(pc, msg, animName, second);
+    if result == 0.0 then
+        StopScript();
+        DestroySessionObject(pc, xac_ssn)
+        return 0;
+    end
+    
+    while 1 do      
+        result = GetTimeActionResult(pc, 1);        
+        if result == 1 then
+            if IsRest(pc) == 1 then
+                PlayAnim(pc, 'REST')
+            else
+                PlayAnim(pc, 'STD')  
+            end
            
             DestroySessionObject(pc, xac_ssn)
-			return 1;
-		end
-		
-		if result == 0 then
-			if IsRest(pc) == 1 then
-				PlayAnim(pc, 'REST')
-			else 
-			    PlayAnim(pc, 'STD')
-			end
-		    DestroySessionObject(pc, xac_ssn)
-			return 0;
-		end
-		
-		sleep(1);
-	end
+            return 1;
+        end
+        
+        if result == 0 then
+            if IsRest(pc) == 1 then
+                PlayAnim(pc, 'REST')
+            else 
+                PlayAnim(pc, 'STD')
+            end
+            DestroySessionObject(pc, xac_ssn)
+            return 0;
+        end
+        
+        sleep(1);
+    end
     DestroySessionObject(pc, xac_ssn)
     
-	return 0;	
-		
+    return 0;   
+        
 end
 
 function SCR_RIDING_ANIM_TEST_SITGROPE(self)
@@ -7395,56 +7397,56 @@ function TEST_SAY_CURRENT_SERVER_TIME(pc)
 end
 
 function TEST_ADDON_MSG_DUMP(pc)
-	SendAddOnMsg(pc, "TEST_ADDON_MSG_DUMP_MSG", "");
+    SendAddOnMsg(pc, "TEST_ADDON_MSG_DUMP_MSG", "");
 end
 
 function TEST_SAY_CURRENT_SERVER_TIME2(pc)
 	local curTime = geTime.GetServerSystemTime();
-	Chat(pc, "CurDate: year["..curTime.wYear..'], month['..curTime.wMonth..'], day['..curTime.wDay..'], hour['..curTime.wHour..'], minute['..curTime.wMinute..']')
+    Chat(pc, "CurDate: year["..curTime.wYear..'], month['..curTime.wMonth..'], day['..curTime.wDay..'], hour['..curTime.wHour..'], minute['..curTime.wMinute..']')
 end
 
 function TEST_LEGEND_CARD_OPEN(pc, num)
-	local pcEtc = GetETCObject(pc);
-		
-	local tx = TxBegin(pc)
-	TxSetIESProp(tx, pcEtc, 'IS_LEGEND_CARD_OPEN', num)
+    local pcEtc = GetETCObject(pc);
+        
+    local tx = TxBegin(pc)
+    TxSetIESProp(tx, pcEtc, 'IS_LEGEND_CARD_OPEN', num)
     SendAddOnMsg(pc, "MSG_PLAY_LEGENDCARD_OPEN_EFFECT", "", 0)
-	local ret = TxCommit(tx)
-	
+    local ret = TxCommit(tx)
+    
 end
 
 function TEST_LEGENDCARD_EFFECT_SUCCESS(pc)
-	SendAddOnMsg(pc, "DO_TEST_LEGENDCARD_REINFORCE_EFFECT_SUCCESS", "", 0)
+    SendAddOnMsg(pc, "DO_TEST_LEGENDCARD_REINFORCE_EFFECT_SUCCESS", "", 0)
 end
 
 function TEST_LEGENDCARD_EFFECT_FAIL(pc)
-	SendAddOnMsg(pc, "DO_TEST_LEGENDCARD_REINFORCE_EFFECT_FAIL", "", 0)
+    SendAddOnMsg(pc, "DO_TEST_LEGENDCARD_REINFORCE_EFFECT_FAIL", "", 0)
 end
 
 function TEST_LEGENDCARD_EFFECT_BROKEN(pc)
-	SendAddOnMsg(pc, "DO_TEST_LEGENDCARD_REINFORCE_EFFECT_BROKEN", "", 0)
+    SendAddOnMsg(pc, "DO_TEST_LEGENDCARD_REINFORCE_EFFECT_BROKEN", "", 0)
 end
 
 function TEST_LEGENDCARD_OPEN_EFFECT(pc)
-	SendAddOnMsg(pc, "MSG_PLAY_LEGENDCARD_OPEN_EFFECT", "", 0)
+    SendAddOnMsg(pc, "MSG_PLAY_LEGENDCARD_OPEN_EFFECT", "", 0)
 end
 
 function TEST_LEGENDCARD(pc)
 --    local itemID = "item"
---	local clslist, cnt = GetClassList(itemID);
---	local itemGroup = "Legend_Card"
+--  local clslist, cnt = GetClassList(itemID);
+--  local itemGroup = "Legend_Card"
 --    local itemGroupName = {};
---	
---	for i = 0, cnt do
---	    local itemcls = GetClassByIndexFromList(clslist, i);
+--  
+--  for i = 0, cnt do
+--      local itemcls = GetClassByIndexFromList(clslist, i);
 --        if TryGetProp(itemcls, "EquipXpGroup") == itemGroup then
 --            clslist[listIndex] = clslist.ItemName;
---			local cls = GetClass("Item", clslist.ClassName);
---			if nil ~= cls then
---				itemGroupName[listIndex] = cls.ClassName;
---			else
---				itemGroupName[listIndex] = "None";
---			end
+--          local cls = GetClass("Item", clslist.ClassName);
+--          if nil ~= cls then
+--              itemGroupName[listIndex] = cls.ClassName;
+--          else
+--              itemGroupName[listIndex] = "None";
+--          end
 --            
 --            listIndex = listIndex + 1;
 --        end
@@ -7580,12 +7582,12 @@ function TEST_ONMYOJI_HIDDEN_RESETTING(pc, num1, num2)
 end
 
 function TEST_SERVER_LEG_CARD_OPEN(pc)
-	local pcEtc = GetETCObject(pc);
-		
-	local tx = TxBegin(pc)
-	TxSetIESProp(tx, pcEtc, 'IS_LEGEND_CARD_OPEN', 1)
+    local pcEtc = GetETCObject(pc);
+        
+    local tx = TxBegin(pc)
+    TxSetIESProp(tx, pcEtc, 'IS_LEGEND_CARD_OPEN', 1)
     SendAddOnMsg(pc, "MSG_PLAY_LEGENDCARD_OPEN_EFFECT", "", 0)
-	local ret = TxCommit(tx)
+    local ret = TxCommit(tx)
 end
 
 function TEST_MONSTER_HP_SET_PERCENT(self, arg1)
@@ -7594,7 +7596,7 @@ function TEST_MONSTER_HP_SET_PERCENT(self, arg1)
     local per = arg1 / 100
 
     for i = 1, objCount do
-	    local obj = objList[i];
+        local obj = objList[i];
         obj.HP = obj.HP * per
     end
 end
@@ -7643,47 +7645,47 @@ function SCR_TTTTT(self)
 end
 
 function TEST_ENABLE_EQUIP(pc)
-	local spot = "LH"
-	local flag = 0
-	print(spot)
-	print(flag)
-	
-	EnableEquipItemBySlot(pc, spot, flag)
+    local spot = "LH"
+    local flag = 0
+    print(spot)
+    print(flag)
+    
+    EnableEquipItemBySlot(pc, spot, flag)
 end
 
 function TEST_BLACKSMIT_IMAGE(pc)
 print('----')
-	SendAddOnMsg(pc, "MSG_PLAY_BLACKSMITH_SUCCESS_EFFECT", "", 0)
-				print('gaf')
+    SendAddOnMsg(pc, "MSG_PLAY_BLACKSMITH_SUCCESS_EFFECT", "", 0)
+                print('gaf')
 end
 
 
 function TEST_OPTIONEXTRACT_SUCCESS(pc)
-	SendAddOnMsg(pc, "MSG_SUCCESS_ITEM_OPTION_EXTRACT", "", 0)
+    SendAddOnMsg(pc, "MSG_SUCCESS_ITEM_OPTION_EXTRACT", "", 0)
 
 end
 
 function TEST_OPTIONEXTRACT_FAIL(pc)
-	SendAddOnMsg(pc, "MSG_FAIL_ITEM_OPTION_EXTRACT", "", 0)
+    SendAddOnMsg(pc, "MSG_FAIL_ITEM_OPTION_EXTRACT", "", 0)
 
 end
 
 function TEST_GET_ENEMY_OBJ(pc, dist)
-	local objList, objCount = SelectObject(pc, dist, 'Enemy')
-	for i = 1, objCount do
-		local mon = objList[i];
-		return mon;
-	end
-	return nil;	
+    local objList, objCount = SelectObject(pc, dist, 'Enemy')
+    for i = 1, objCount do
+        local mon = objList[i];
+        return mon;
+    end
+    return nil; 
 end
 
 function TEST_CHECK_FIND_PATH_TO_PC(pc, dist)
-	local mon = TEST_GET_ENEMY_OBJ(pc, dist)
-	if mon ~= nil then
+    local mon = TEST_GET_ENEMY_OBJ(pc, dist)
+    if mon ~= nil then
         local isFound = IsEnableMoveCloseToTarget(mon, pc);
         Chat(mon, isFound)
         print(mon.ClassName, isFound)
-	end
+    end
 end
 
 function TEST_BEAUTY_TRACK(pc, value)
@@ -7701,7 +7703,7 @@ function REINFORCE_ALLWEAPON2(pc, value)
     local invItemList = GetInvItemList(pc);
     for i = 1, #invItemList do
         if invItemList[i].ItemType == "Equip" then
-            TxSetIESProp(tx, invItemList[i], "Reinforce_2", value);
+            TxSetItemReinforce(tx, invItemList[i], value);
         end
     end
     local ret = TxCommit(tx);
@@ -7741,53 +7743,53 @@ function GET_RANDOM_ITEM(pc, columName, itemClassType , itemLv, grade, itemCnt)
 end 
 
   function testbuff(pc)
-	  AddBuff(pc, pc, 'Premium_Fortunecookie_5');
-	  AddBuff(pc, pc, 'Event_161215_5');
-	  AddBuff(pc, pc, 'Event_LargeRice_Soup');
-	  AddBuff(pc, pc, 'Event_WeddingCake');
-	  AddBuff(pc, pc, 'GIMMICK_Drug_Elements_Fire_Atk');
-	  AddBuff(pc, pc, 'Drug_AriesAtk_PC');
-	  AddBuff(pc, pc, 'squire_food1_buff');
-	  AddBuff(pc, pc, 'DRUG_LOOTINGCHANCE', 100, 0, 1800000, 1);
-	  AddBuff(pc, pc, 'Blessing_Buff', 100, 0, 1800000, 1);
-	  AddBuff(pc, pc, 'ChallengeMode_Completed', 100, 0, 1800000, 1);
-	  AddBuff(pc, pc, 'DivineMight_Buff', 100, 0, 1800000, 1);
-	  AddBuff(pc, pc, 'GM_Stat_Buff', 100, 0, 1800000, 1);
-	  AddBuff(pc, pc, 'SCR_USE_ITEM_HasteBuff', 2, 0, 3600000, 1);
-	  ExecClientScp(gm, scp);
+      AddBuff(pc, pc, 'Premium_Fortunecookie_5');
+      AddBuff(pc, pc, 'Event_161215_5');
+      AddBuff(pc, pc, 'Event_LargeRice_Soup');
+      AddBuff(pc, pc, 'Event_WeddingCake');
+      AddBuff(pc, pc, 'GIMMICK_Drug_Elements_Fire_Atk');
+      AddBuff(pc, pc, 'Drug_AriesAtk_PC');
+      AddBuff(pc, pc, 'squire_food1_buff');
+      AddBuff(pc, pc, 'DRUG_LOOTINGCHANCE', 100, 0, 1800000, 1);
+      AddBuff(pc, pc, 'Blessing_Buff', 100, 0, 1800000, 1);
+      AddBuff(pc, pc, 'ChallengeMode_Completed', 100, 0, 1800000, 1);
+      AddBuff(pc, pc, 'DivineMight_Buff', 100, 0, 1800000, 1);
+      AddBuff(pc, pc, 'GM_Stat_Buff', 100, 0, 1800000, 1);
+      AddBuff(pc, pc, 'SCR_USE_ITEM_HasteBuff', 2, 0, 3600000, 1);
+      ExecClientScp(gm, scp);
   end
 
   function TEST_VERTICAL_ON(self)
-	local mon = TEST_GET_OBJ(self, 500, "Monster");
+    local mon = TEST_GET_OBJ(self, 500, "Monster");
     if mon == nil then
         return;
     end
 
-	local isOn = 1;
-	local maxHeight = 20;
-	local speed = 1;
-	SetVerticalMotion(mon, isOn, maxHeight, speed);
+    local isOn = 1;
+    local maxHeight = 20;
+    local speed = 1;
+    SetVerticalMotion(mon, isOn, maxHeight, speed);
 end
 
 function TEST_VERTICAL_OFF(self)
-	local mon = TEST_GET_OBJ(self, 500, "Monster");
+    local mon = TEST_GET_OBJ(self, 500, "Monster");
     if mon == nil then
         return;
     end
     
-	local isOn = 0;
-	SetVerticalMotion(mon, isOn);
+    local isOn = 0;
+    SetVerticalMotion(mon, isOn);
 end
 
 function TEST_GET_OBJ(self, dist, type)
-	local objList, objCount = SelectObject(self, dist, type)
-	for i = 1, objCount do
-		local mon = objList[i];
-		return mon;
-	end
-	return nil;	
-end
-
+    local objList, objCount = SelectObject(self, dist, type)
+    for i = 1, objCount do
+        local mon = objList[i];
+        return mon;
+    end
+    return nil; 
+end 
+  
 function TEST_PLAY_FLUTING(pc)
     local octave = 1;
     local isSharp = 0;
@@ -7924,6 +7926,7 @@ function TEST_SOLO_DUNGEON_PLAY_LOG(pc)
     SoloDungeonMongoLog(pc, year, weekNumber, "Fail", stage, 0, "MonKillCnt", monKillCnt, "PlayTime", playTime, "Score", score);
     SoloDungeonMongoLog(pc, year, weekNumber, "End", stage, 1, "MonKillCnt", monKillCnt, "PlayTime", playTime, "Score", score, "Rank", rank);
 end
+
 function TEST_SOLO_DUNGEON_CLEAR_RANKING(pc, year, weekNum)
     ClearSoloDungeonRankingForTest(pc, year, weekNum);
 end
@@ -7931,4 +7934,24 @@ end
 function TEST_SEND_BARRACK_FORCE(self, seconds)
     sleep(seconds * 1000);
     SendBarrackForce(self);
+end
+
+function TEST_MSL_PAD_KNOWDOWN(self)
+    local x, y, z = GetPos(self)
+    RunPad(self, "boss_nuodai_hail", nil, x, y, z, 0, 1);
+end
+
+function test_run_colony(self)
+    RequestColonyWarStart()
+end
+
+function TEST_ITEM_PR(pc,potential)
+    local tx = TxBegin(pc);
+    local invItemList = GetInvItemList(pc);
+    for i = 1, #invItemList do
+        if invItemList[i].ItemType == "Equip" then
+            TxSetIESProp(tx, invItemList[i], "PR", potential);
+        end
+    end
+    local ret = TxCommit(tx);
 end

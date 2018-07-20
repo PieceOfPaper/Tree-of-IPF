@@ -37,9 +37,6 @@ function GUILDINFO_DETAIL_ON_INIT(guildData, emblemPath, info, guild_idx)
 
         local guildDesc = GET_CHILD_RECURSIVELY(frame, "guildText")
         guildDesc:SetText(introText);
-
-        local introTextCtrl = GET_CHILD_RECURSIVELY(frame, "introText")
-        introTextCtrl:SetText(introText)
         
         local memberNum = GET_CHILD_RECURSIVELY(frame, "memberNumText")
         memberNum:SetText(#memberListJson);
@@ -60,17 +57,28 @@ function GUILDINFO_DETAIL_ON_INIT(guildData, emblemPath, info, guild_idx)
         for i=1, rowIndex do
             local row = scrollPanel:CreateOrGetControlSet("guild_member_row", tostring(i), 0, 0);
             row:Resize(scrollPanel:GetWidth(), 50)
+            
             local teamName1 = GET_CHILD_RECURSIVELY(row, "teamName1");
             teamName1:SetText(memberListJson[memberIndex]['name']);
-            local level1 = GET_CHILD_RECURSIVELY(row, "leveltext1");
-            level1:SetText(memberListJson[memberIndex]['lv']);
+            
+            local level1 = GET_CHILD_RECURSIVELY(row, "team_lv1");
+            level1:SetText(memberListJson[memberIndex]['team_lv']);
+            
+            local lv1 = GET_CHILD_RECURSIVELY(row, "lv1");
+            lv1:SetText(memberListJson[memberIndex]['lv']);
+            
             memberIndex = memberIndex + 1;
 
             if memberIndex <= #memberListJson then
                 local teamName2 = GET_CHILD_RECURSIVELY(row, "teamName2");
                 teamName2:SetText(memberListJson[memberIndex]['name']);
-                local level2 = GET_CHILD_RECURSIVELY(row, "leveltext2");
-                level2:SetText(memberListJson[memberIndex]['lv']);
+
+                local level2 = GET_CHILD_RECURSIVELY(row, "team_lv2");
+                level2:SetText(memberListJson[memberIndex]['team_lv']);
+                            
+                local lv2 = GET_CHILD_RECURSIVELY(row, "lv2");
+                lv2:SetText(memberListJson[memberIndex]['lv']);
+            
                 memberIndex = memberIndex + 1;
 
             end

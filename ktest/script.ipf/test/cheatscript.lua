@@ -1,7 +1,3 @@
-
-
-
-
 function RESET_PARTY_MISSION(pc)
 
 	local partyObj = GetPartyObj(pc);
@@ -79,24 +75,24 @@ end
 function TEST_GET_IF_ITEM(pc)
    local itemList, cnt = GetClassList('Item')
    local getItemList = {};
-   
+
    for i = 0, cnt - 1 do
        local itemCls = GetClassByIndexFromList(itemList, i);
        local legendGroup = TryGetProp(itemCls, 'LegendGroup')
        if  legendGroup == 'Velcoffer' then
            getItemList[#getItemList +1] = itemCls.ClassName
            print(getItemList[#getItemList])
+           end
        end
-   end
-   
+
     local tx = TxBegin(pc);
        for i = 1, #getItemList do
    	TxGiveItem(tx, getItemList[i] , 1, 'd');
-   	end
+   end
    local ret = TxCommit(tx);
-   
+
 end
 
-
-
-
+function TEST_ALARM_MSG(pc)  
+  ExecClientScp(pc, 'TEST_ALARM()');
+end

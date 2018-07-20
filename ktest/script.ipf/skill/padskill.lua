@@ -742,6 +742,45 @@ function PAD_BUFF_CHECK_BUFF_ENEMY(self, skl, pad, tgtRelation, consumeLife, use
     end
 end
 
+function PAD_BUFF_CHECK_BUFF_HEAL(self, skl, pad, tgtRelation, consumeLife, useCount, checkBuffName, buffName, lv, arg2, applyTime, over, rate)
+    local objList, cnt = GetPadObjectList(pad);
+    if GetPadLife(pad) <= 0 or GetPadUseCount(pad) <= 0 then
+        return;
+    end
+    
+    local isSummon = 0;
+	local isNeutral = 0;
+	
+	if tgtRelation == "NEUTRAL" then
+	    isNeutral = 1;
+    end
+	
+    for i = 1 , cnt do
+        local target = objList[i];
+        
+        if TryGetProp(target, "Faction") == "Summon" and tgtRelation ~= "ENEMY" then
+            local targetOwner = GetOwner(target);
+            if targetOwner ~= nil then
+                local relation = GetRelation(self, targetOwner)
+                if IS_APPLY_RELATION(self, targetOwner, tgtRelation) then
+                    isSummon = 1;
+                end
+            end
+        end
+        
+        if IS_APPLY_RELATION(self, target, tgtRelation) or isNeutral == 1 or isSummon == 1 then
+            if IsBuffApplied(target, checkBuffName) == "NO" then
+                ADDPADBUFF(self, target, pad, buffName, lv, arg2, applyTime, over, rate);           
+                AddPadLife(pad, consumeLife);
+                AddPadUseCount(pad, useCount);
+                if GetPadLife(pad) <= 0 or GetPadUseCount(pad) <= 0 then
+                    return;
+                end
+            end
+        end
+    end
+end
+
 function PAD_BUFF_ENEMY(self, skl, pad, tgtRelation, consumeLife, useCount, buffName, lv, arg2, applyTime, over, rate)    
     local objList, cnt = GetPadObjectList(pad);
     if GetPadLife(pad) <= 0 or GetPadUseCount(pad) <= 0 then
@@ -1212,9 +1251,9 @@ end
     EnableCheckPlant(pad);
  end
 
-function PAD_MSL_FALL(self, skl, pad, fallRate, fallRange, eftName, eftScale, endEftName, endScale, dotEffect, dotScale, range, delayTime, flyTime, height, easing, hitTime, hitCount, hitStartFix, startEasing, dcEft, dcEftScale)
+function PAD_MSL_FALL(self, skl, pad, fallRate, fallRange, eftName, eftScale, endEftName, endScale, dotEffect, dotScale, range, delayTime, flyTime, height, easing, hitTime, hitCount, hitStartFix, startEasing, dcEft, dcEftScale, kdType)
     
-    if fallRate <= IMCRandom(0, 100) then
+if fallRate <= IMCRandom(0, 100) then
         return;
     end
     
@@ -1239,7 +1278,7 @@ function PAD_MSL_FALL(self, skl, pad, fallRate, fallRange, eftName, eftScale, en
     end
 
     --???????????값이 100 ????????보스??????맛이가???????????   --RunScript('OP_DOT_DAMAGE', self, skl.ClassName, x, y, z, delayTime, range, hitTime, hitCount, dotEffect, dotEftScale, 100);
-    RunScript('OP_DOT_DAMAGE', self, skl.ClassName, x, y, z, delayTime, range, hitTime, hitCount, dotEffect, dotEftScale, 0);   
+    RunScript('OP_DOT_DAMAGE', self, skl.ClassName, x, y, z, delayTime, range, hitTime, hitCount, dotEffect, dotEftScale, 0, kdType);   
 end
 
 

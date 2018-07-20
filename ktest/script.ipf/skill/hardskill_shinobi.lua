@@ -52,7 +52,7 @@ function SCR_BUFF_TAKEDMG_Mokuton_no_jutsu(self, buff, sklID, damage, attacker, 
 
 	SetSafe(self, 1);
 	ShowModel(self, 0, 0.01);
-	DisableControlForTime(self, disAppearTime + 1.5);
+	DisableControlForTime(self, disAppearTime + 0.4);
 	if key ~= nil then
 		EndSyncPacket(self, key);
 	end
@@ -63,27 +63,26 @@ function SCR_BUFF_TAKEDMG_Mokuton_no_jutsu(self, buff, sklID, damage, attacker, 
 end
 
 function Mokuton_Appear(self, sklID, wx, y, wy, wz, disAppearTime, jumpAnim, jumpHeight, attackEffect, attackEffectScale)
+    
+    HoldCameraHeight(self, 1);
+    sleep(disAppearTime * 1000);
 
-	HoldCameraHeight(self, 1);
-	sleep(disAppearTime * 1000);
-
-	SetPos(self, wx, wy, wz);
-	SetSpecialFallSpeedRateServ(self, 4.5);
-	ShowModel(self, 1, 0.01);
-	SetSafe(self, 0);
-	PlayAnim(self, jumpAnim, 0);
+    SetPos(self, wx, wy, wz);
+    SetSpecialFallSpeedRateServ(self, 4.5);
+    ShowModel(self, 1, 0.01);
+    SetSafe(self, 0);
+    PlayAnim(self, jumpAnim, 0);
 	ReserveLandAnimation(self, "SKL_MOKATONNOJUTS_LAND", 60);	
-	
-	local key = GenerateSyncKey(self);
-	StartSyncPacket(self, key);
-	SPLASH_DAMAGE(self, wx, wy, wz, 300, "Shinobi_Mokuton_no_jutsu");
-	PlayEffectToGround(self, attackEffect, wx, y, wz, attackEffectScale);
-	SetSpecialFallSpeedRateServ(self, 1.0);
-	
-	HoldCameraHeight(self, 0);
-	EndSyncPacket(self, key, 0);
-  SyncPacketByOnGround(self, key);
-
+    
+    local key = GenerateSyncKey(self);
+    StartSyncPacket(self, key);
+    SPLASH_DAMAGE(self, wx, wy, wz, 300, "Shinobi_Mokuton_no_jutsu");
+    PlayEffectToGround(self, attackEffect, wx, y, wz, attackEffectScale);
+    SetSpecialFallSpeedRateServ(self, 1.0);
+    
+    HoldCameraHeight(self, 0);
+    EndSyncPacket(self, key, 0);
+    SyncPacketByOnGround(self, key);
 
 end
 

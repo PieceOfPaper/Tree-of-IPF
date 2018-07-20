@@ -1593,29 +1593,29 @@ Range           : 0.000000 -> 200.000000
 Velocity        : 0
 Category        : master
 
-Name            : /SE/battle/swd_hit_good_base
-Index           : /EVENTGROUP_R1_SE/EVENTGROUP_SE_BATTLE/EVENT_R1_SE_BATTLE_SWD_HIT_GOOD_BASE
-Id              : EVENTID_R1_SE_BATTLE_SWD_HIT_GOOD_BASE = 122
-GUID            : EVENTGUID_R1_SE_BATTLE_SWD_HIT_GOOD_BASE = {a5e142db-cb04-40fc-802e-052b9fee70a5}
+Name            : /SE/battle/event_soccer_kick
+Index           : /EVENTGROUP_R1_SE/EVENTGROUP_SE_BATTLE/EVENT_R1_SE_BATTLE_EVENT_SOCCER_KICK
+Id              : EVENTID_R1_SE_BATTLE_EVENT_SOCCER_KICK = 122
+GUID            : EVENTGUID_R1_SE_BATTLE_EVENT_SOCCER_KICK = {a5e142db-cb04-40fc-802e-052b9fee70a5}
 Notes           : 
 Max. playbacks  : 10
 DSP Effects     : FMOD Distortion
 Parameter name  : (distance)
-Parameter index : EVENTPARAMETER_R1_SE_BATTLE_SWD_HIT_GOOD_BASE__DISTANCE_ = 0
-Range           : 0.000000 -> 200.000000
+Parameter index : EVENTPARAMETER_R1_SE_BATTLE_EVENT_SOCCER_KICK__DISTANCE_ = 0
+Range           : 0.000000 -> 250.000000
 Velocity        : 0
 Category        : master
 
-Name            : /SE/battle/swd_hit_cri_base
-Index           : /EVENTGROUP_R1_SE/EVENTGROUP_SE_BATTLE/EVENT_R1_SE_BATTLE_SWD_HIT_CRI_BASE
-Id              : EVENTID_R1_SE_BATTLE_SWD_HIT_CRI_BASE = 123
-GUID            : EVENTGUID_R1_SE_BATTLE_SWD_HIT_CRI_BASE = {243dbc8c-240b-471b-a710-cacad1fabcab}
+Name            : /SE/battle/event_soccer_kick_cri
+Index           : /EVENTGROUP_R1_SE/EVENTGROUP_SE_BATTLE/EVENT_R1_SE_BATTLE_EVENT_SOCCER_KICK_CRI
+Id              : EVENTID_R1_SE_BATTLE_EVENT_SOCCER_KICK_CRI = 123
+GUID            : EVENTGUID_R1_SE_BATTLE_EVENT_SOCCER_KICK_CRI = {243dbc8c-240b-471b-a710-cacad1fabcab}
 Notes           : 
 Max. playbacks  : 10
-DSP Effects     : none
+DSP Effects     : FMOD Distortion
 Parameter name  : (distance)
-Parameter index : EVENTPARAMETER_R1_SE_BATTLE_SWD_HIT_CRI_BASE__DISTANCE_ = 0
-Range           : 0.000000 -> 200.000000
+Parameter index : EVENTPARAMETER_R1_SE_BATTLE_EVENT_SOCCER_KICK_CRI__DISTANCE_ = 0
+Range           : 0.000000 -> 250.000000
 Velocity        : 0
 Category        : master
 

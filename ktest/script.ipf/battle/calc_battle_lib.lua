@@ -1711,16 +1711,15 @@ function BEGONE_DROP_VIS(pc, deathPenaltyBuffLevel, silverDropRatio)
     
     local tx = TxBegin(pc);
     TxEnableInIntegrateIndun(tx);
-    TxTakeItem(tx, MONEY_NAME, cnt, 'BEGONE');
+    TxTakeItemByObject(tx, pcMoney, cnt, 'BEGONE');
     local ret = TxCommit(tx);
     if ret == "SUCCESS" then
-        SendSysMsg(pc, "YouDeadSoSomeSilverHasBeenLost");
+        SendHistorySysMsg(pc, 'YouDeadSoSomeSilverHasBeenLost{SILVER}', 0, '', 'SILVER', cnt);
     end
 end
 
 function BEGONE_DROP_INV_ITEM(pc, deathPenaltyBuffLevel, penaltyType)
     local get_item = GetInvItemList(pc);
-    local someflag = 0
     local itemTemp = nil;
     local gemExpTemp = 0;
     local gemRoastingLv = 0;
@@ -1811,13 +1810,14 @@ function BEGONE_DROP_INV_ITEM(pc, deathPenaltyBuffLevel, penaltyType)
                     gemIESID = '0';
                 end
 
+                local itemName = someitem.Name;
                 local tx = TxBegin(pc);
                 TxEnableInIntegrateIndun(tx);
+                TxItemLock(tx, someitem, 0);
                 TxTakeItemByObject(tx, someitem, cnt, "DeadPenalty");
                 local ret = TxCommit(tx);
             
                 if ret == "SUCCESS" then
-                    someflag = 1;
                     local rate = 100;
         ----------------170914 Dev #20081---------------
                     if string.find(penaltyType, 'Gem') == nil then 
@@ -1847,15 +1847,14 @@ function BEGONE_DROP_INV_ITEM(pc, deathPenaltyBuffLevel, penaltyType)
                                 SetLayer(item, self_layer);
                             end
                         end
+                        SendHistorySysMsg(pc, 'DropGemByDeathPenalty');                        
+                    else -- 소실
+                        SendHistorySysMsg(pc, 'YouDeadSoSomeItemHasBeenBreak{ITEM}{COUNT}', 0, '', 'ITEM', itemName, 'COUNT', cnt);
                     end
                 end
             end
         end
     end          
-
-    if someflag > 0 then
-        SendSysMsg(pc, "YouDeadSoSomeItemHasBeenBreak");
-    end
 end
 
 function IS_EQUIPED_CARD(pc, cardObj)
@@ -1929,7 +1928,7 @@ function BEGONE(pc, enableDeadDurabilityConsume)
     local penaltyList = TokenizeByChar(deathPenalty, "#");
     
     for i = 1, #penaltyList do
-        local penaltyType = penaltyList[i];
+        local penaltyType = penaltyList[i];        
         if string.find(penaltyType, 'Gem') ~= nil or
 --            string.find(penaltyType, "Card") ~= nil or   
             string.find(penaltyType, "Blessstone") ~= nil then
@@ -1938,7 +1937,7 @@ function BEGONE(pc, enableDeadDurabilityConsume)
         elseif string.find(penaltyType, "Silver") ~= nil then
             local stringLen = string.len(penaltyType);
             local subString = string.sub(penaltyType, 7, stringLen);
-            local silverDropRatio = tonumber(subString);
+            local silverDropRatio = tonumber(subString);            
             BEGONE_DROP_VIS(pc, deathPenaltyBuffLevel, silverDropRatio);
         end
     end

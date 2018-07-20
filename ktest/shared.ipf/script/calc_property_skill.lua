@@ -12776,9 +12776,14 @@ function SCR_GET_Finestra_Bufftime(skill)
 end
 
 function SCR_GET_Warcry_Bufftime(skill)
-
-    return 30;
-
+	local pc = GetSkillOwner(skill)
+	local value = 30
+	local abil = GetAbility(pc, "Barbarian2")
+	if abil ~= nil and abil.ActiveState == 1 then
+		value = value + abil.Level * 2
+	end
+	
+    return value;
 end
 
 function SCR_GET_SR_LV_Pull(skill)

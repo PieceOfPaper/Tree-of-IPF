@@ -3026,9 +3026,9 @@ function SCR_BUFF_GIVEDMG_MASINIOSRAPIER_PRE(self, buff, sklID, damage, target, 
         return 1;
     end
     
-    if buffOver >= 4 and IsBuffApplied(self, 'MASINIOSRAPIER_5ATTACK') == 'NO' then
+    if buffOver >= 5 and IsBuffApplied(self, 'MASINIOSRAPIER_5ATTACK') == 'NO' then
         AddBuff(self, self, 'MASINIOSRAPIER_5ATTACK', 1, 0, 0, 1);
-        RemoveBuff(self, 'MASINIOSRAPIER_STACK_CRIATK');
+       -- RemoveBuff(self, 'MASINIOSRAPIER_STACK_CRIATK');
         return 1;
     elseif IsBuffApplied(self, 'MASINIOSRAPIER_5ATTACK') == 'YES' then
         return 1;
@@ -3546,4 +3546,53 @@ end
 
 function SCR_BUFF_LEAVE_BEAUTY_HAIR_BUY_BUFF2(self, buff, arg1, arg2, over)
 
+end
+
+function SCR_BUFF_ENTER_ACC_REIN_TRANSCEND(self, buff, arg1, arg2, over)
+    local itemNeck = GetEquipItem(self, 'NECK')
+    local itemRing1 = GetEquipItem(self, 'RING1')
+    local itemRing2 = GetEquipItem(self, 'RING2')
+    
+    local itmCrtHR = math.min(((math.max((itemNeck.Reinforce_2 - 10),0) + math.max((itemRing1.Reinforce_2 - 10),0) + math.max((itemRing2.Reinforce_2 - 10),0)) * 10 + (itemNeck.Transcend + itemRing1.Transcend + itemRing2.Transcend) * 5), 350)
+    
+    self.CRTHR_BM = self.CRTHR_BM + itmCrtHR
+    
+    SetExProp(buff, "ACC_REIN_TRANSCEND", itmCrtHR);
+end
+
+function SCR_BUFF_LEAVE_ACC_REIN_TRANSCEND(self, buff, arg1, arg2, over)
+    
+    local itmCrtHR = GetExProp(buff, "ACC_REIN_TRANSCEND");
+    
+    self.CRTHR_BM = self.CRTHR_BM - itmCrtHR
+    
+end
+
+function SCR_BUFF_ENTER_ACC_BACKATTACK_NOBLOCK(self, buff, arg1, arg2, over)
+    SetExProp(buff, "ACC_BACKATTACK_NOBLOCK", arg1);
+end
+
+function SCR_BUFF_LEAVE_ACC_BACKATTACK_NOBLOCK(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_RATETABLE_ACC_BACKATTACK_NOBLOCK(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, 'ACC_BACKATTACK_NOBLOCK') == 'YES' then
+        local angle = 120
+        
+        local selfx, selfz = GetDir(from)
+        local targetx, targetz = GetDir(self)
+        
+        local selfDir = GetAngleTo(from, self)
+        local monDir = DirToAngle(targetx, targetz)
+        
+        local relativeAngle = selfDir - monDir
+        local revAngle = angle * -1
+        relativeAngle = math.floor(relativeAngle)
+        local limitLv = GetExProp(buff, "ACC_BACKATTACK_NOBLOCK");
+        
+        if from.Lv <= limitLv and (GetExProp(from, "IS_BACKATTACK") == 1 or (angle/2 >= relativeAngle and 0 <= relativeAngle) or (revAngle/2 <= relativeAngle and 0 >= relativeAngle)) then
+		    rateTable.EnableBlock = 0;
+        end
+    end
 end

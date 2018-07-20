@@ -284,10 +284,10 @@ function SCR_GUILD_TOWER_DIALOG(tower, pc)
 				return;
 			end
 			
-			--EVENT_1805_GUILD
-			if sameGuild == true then
-			    EVENT_1805_GUILD_DAY_MIC_REWARD(pc)
-			end
+--			--EVENT_1805_GUILD
+--			if sameGuild == true then
+--			    EVENT_1805_GUILD_DAY_MIC_REWARD(pc)
+--			end
 
 			-- 길드아지트 미션타입
 			--local openedMission, alreadyJoin = OpenPartyMission(pc, pc, 0, "guildhouse", "", 1, PARTY_GUILD, guildID);
@@ -937,10 +937,10 @@ function callback_guild_obj_harvest(pc, code, ret_json, argList)
 		        sleep(1200)
 		        local tx = TxBegin(pc);
 		        TxRemoveGuildHouseObject(tx, argList[1]);
-		        --EVENT_1805_GUILD
-		        TxGiveItem(tx, argList[2], tonumber(argList[3])*2, "Harvest")
+--		        --EVENT_1805_GUILD
+--		        TxGiveItem(tx, argList[2], tonumber(argList[3])*2, "Harvest")
 		        
---		        TxGiveItem(tx, argList[2], tonumber(argList[3]), "Harvest")
+		        TxGiveItem(tx, argList[2], tonumber(argList[3]), "Harvest")
 		        
 		        local ret = TxCommit(tx)
             end
@@ -1493,8 +1493,8 @@ function GUILD_EXP_UP(pc, iesID, count)
 	local expPerItem = TryGetProp(item, "NumberArg1")
 	local curExp = partyObj.Exp;
 	local addExp = count * expPerItem;
-	--EVENT_1805_GUILD
-	addExp =  math.floor(addExp * 1.2)
+--	--EVENT_1805_GUILD
+--	addExp =  math.floor(addExp * 1.2)
 	
 	local nextExp = curExp + addExp;
 	local curLevel = partyObj.Level;
@@ -2217,19 +2217,18 @@ end
 
 -- plz nil check param(pc, guild_obj)
 function CREATE_GUILD_SUCCESS_FOR_EVENT(pc, guild_obj)
-
-    if pc ~= nil and guild_obj ~= nil then
-        -- to do     
-        local aObj = GetAccountObj(pc)
-        if aObj ~= nil then
-            if aObj.EVENT_1805_GUILD_CARD_COUNT == 0 then
-                local tx = TxBegin(pc)
-                TxSetIESProp(tx, aObj, 'EVENT_1805_GUILD_CARD_COUNT', 1)
-                TxGiveItem(tx, 'EVENT_1805_GUILD_CARD_LV4', 1, 'EVENT_1805_GUILD_CARD')
-                local ret = TxCommit(tx)
-            end
-        end
-    end
+--    if pc ~= nil and guild_obj ~= nil then
+--       -- to do
+--       local aObj = GetAccountObj(pc)
+--       if aObj ~= nil then
+--           if aObj.EVENT_1805_GUILD_CARD_COUNT == 0 then
+--               local tx = TxBegin(pc)
+--               TxSetIESProp(tx, aObj, 'EVENT_1805_GUILD_CARD_COUNT', 1)
+--               TxGiveItem(tx, 'EVENT_1805_GUILD_CARD_LV4', 1, 'EVENT_1805_GUILD_CARD')               
+--               local ret = TxCommit(tx)
+--           end
+--       end
+--    end
 end
 
 -- 길드를 생성했지만, 길드를 생성한 pc의 정보를 얻어오지 못해, CREATE_GUILD_SUCCESS_FOR_EVENT 를 실행할 수 없을 경우,

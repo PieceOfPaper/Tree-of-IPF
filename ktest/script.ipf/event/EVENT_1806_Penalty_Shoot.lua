@@ -246,10 +246,10 @@ function PENALTY_SHOOT_END_FUNC(pc)
         end
     end
     local aid = GetPcAIDStr(pc)
-    SaveRedisPropValue(pc, 'EventFootBall', ranklist, aid, Goal_Count, 0)
+    SaveRedisPropValue(pc, 'EventFootBall', ranklist, aid, Goal_Count, 0, 1)
     CustomMongoLog(pc, "EVENT_1806_PENALTY_GOAL", "GOAL_COUNT", Goal_Count)
     SendAddOnMsg(pc, 'NOTICE_Dm_Clear', ScpArgMsg('EVENT_1806_PENALTY_MSG3', "GOAL", Goal_Count), 5)
-
+    PlaySoundLocal(pc, 'sys_confirm')
     SetExProp(layerObj, "1806_PENALTY_END", 1);
 --                RemoveBuff(list[i], 'EVENT_1806_PENALTY_BUFF')
     SendSkillQuickSlot(pc, 0)
@@ -359,6 +359,7 @@ function SCR_GOAL_KICK_DIALOG(self, pc)
     
         knockdownAngle = 170 - math.floor(ball_direction_value * 3)
         
+        PlaySoundLocal(pc, 'event_soccer_kick_cri')
         KnockDown(self, pc , 350, knockdownAngle, 25, 1)
         SetExProp(self, "KICK_FLAG", 1);
         
@@ -404,6 +405,7 @@ function SCR_SSN_PENALTY_GOALPOST_SETTIME(self, sObj, remainTime)
             local pc = GetExArgObject(self, 'PENALTY_PC')
             if pc ~= nil then
                 SendAddOnMsg(pc, 'NOTICE_Dm_scroll', ScpArgMsg('EVENT_1806_PENALTY_MSG4', "GOAL", GetExProp(layerObj, "GOAL_COUNT")), 5)
+                PlaySoundLocal(pc, 'quest_success_3')
                 local keeper = GetExArgObject(pc, 'PENALTY_KEEPER')
                 if keeper ~= nil then
                     local tarSpeed = math.floor(Goal_Count*5)/100 + 0.5

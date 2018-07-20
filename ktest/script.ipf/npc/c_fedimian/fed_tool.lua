@@ -105,7 +105,9 @@ function SCR_BLACKSMITH_FEDIMIAN_NORMAL_5(self,pc)
     UIOpenToPC(pc, 'itemdecompose', 1)
 end
 
-
+function SCR_BLACKSMITH_FEDIMIAN_NORMAL_6(self,pc)
+    UIOpenToPC(pc, 'briquetting', 1)
+end
 
 function SCR_MARKET_FEDIMIAN_DIALOG(self, pc)
     local select = ShowSelDlg(pc, 0, 'FEDIMIAN_MARKET_SEL', ScpArgMsg('KLAPEDA_MARKET_OPEN'), ScpArgMsg('Auto_DaeHwa_JongLyo'))

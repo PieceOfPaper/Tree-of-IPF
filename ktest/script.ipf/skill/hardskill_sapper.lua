@@ -336,7 +336,6 @@ end
 
 
 function SCR_SKL_TGT_DMG_Claymore(self, skill)
-	
     --Power Abil
 --    local abil_33_AtkAdd = 0;
     local claymore = GetExArgObject(self, "SAPPER_TRAP_" .. skill.ClassName)
@@ -354,13 +353,17 @@ function SCR_SKL_TGT_DMG_Claymore(self, skill)
         local target = tgtList[i];
         local damage = SCR_LIB_ATKCALC_RH(self, skill);				
         
---        damage = damage + abil_33_AtkAdd;      
-        local result = TakeDamage(self, target, skill.ClassName, damage);
-        if result == 1 then
-            SetExProp(target, "NO_HIT", 1);
-        end
+--        damage = damage + abil_33_AtkAdd;
+        RunScript('PROCESS_CLAYMORE_DAMAGE', self, target, skill.ClassName, damage);
     end
     
     DelExProp(claymore, 'ABIL_SAPPER33')
     ClearExArgObject(self, "SAPPER_TRAP_" .. skill.ClassName)
+end
+
+function PROCESS_CLAYMORE_DAMAGE(self, target, skillClassName, damage)
+    local result = TakeDamageSuspend(self, target, skillClassName, damage);
+    if result == 1 then
+        SetExProp(target, "NO_HIT", 1);
+    end
 end

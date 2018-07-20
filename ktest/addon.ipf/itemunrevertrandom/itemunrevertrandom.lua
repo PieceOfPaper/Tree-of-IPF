@@ -4,12 +4,19 @@ function ITEMUNREVERTRANDOM_ON_INIT(addon, frame)
 end
 
 function OPEN_UNREVERT_RANDOM(invItem)
-	 local frame = ui.GetFrame('itemunrevertrandom');
-	 frame:SetUserValue('REVERTITEM_GUID', invItem:GetIESID());
-	 frame:ShowWindow(1);
+	local itemrandomreset = ui.GetFrame('itemrandomreset');
+	if itemrandomreset ~= nil and itemrandomreset:IsVisible() == 1 then
+		return;
+	end
 
-	 ui.CloseFrame('itemrandomreset');
-	 ui.CloseFrame('itemrevertrandom');
+	local itemrevertrandom = ui.GetFrame('itemrevertrandom');
+	if itemrevertrandom ~= nil and itemrevertrandom:IsVisible() == 1 then
+		return;
+	end
+
+	 local frame = ui.GetFrame('itemunrevertrandom');
+	 frame:SetUserValue('REVERTITEM_GUID', invItem:GetIESID());	 
+	 frame:ShowWindow(1);	 
 	 ui.OpenFrame('inventory');
 end
 

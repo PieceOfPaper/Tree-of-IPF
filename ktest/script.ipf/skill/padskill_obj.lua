@@ -325,6 +325,11 @@ function PAD_TGT_BUFF_BOSS_CHECK(self, skl, pad, target, tgtRelation, consumeLif
 end
 
 function PAD_TGT_BUFF_AFTER_CHECK_BUFF(self, skl, pad, target, tgtRelation, consumeLife, useCount, checkbuff, buffName, lv, arg2, applyTime, over, rate, saveHandle)
+
+    if GetExProp(target, "BUNSIN") == 1 then
+        return
+    end
+    
     if IsBuffApplied(target, checkbuff) == "YES" then
         return;
     elseif GetRelation(self, target) == tgtRelation then

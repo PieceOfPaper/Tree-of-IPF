@@ -7,8 +7,8 @@ function SCR_CREATE_SSN_KLAPEDA(self, sObj)
 end
 
 function SCR_REENTER_SSN_KLAPEDA(self, sObj)
-    --EVENT_1805_NEWUSER
-	RegisterHookMsg(self, sObj, "PartyMemberOut", "SCR_SSN_KLAPEDA_EVENT_1805_NEWUSER", "YES");
+--    --EVENT_1805_NEWUSER
+--	RegisterHookMsg(self, sObj, "PartyMemberOut", "SCR_SSN_KLAPEDA_EVENT_1805_NEWUSER", "YES");
 	
 	RegisterHookMsg(self, sObj, "ZoneEnter", "SCR_SSN_KLAPEDA_ZoneEner", "YES");
 	RegisterHookMsg(self, sObj, "GetItem", "SCR_SSN_KLAPEDA_GetItem", "YES");
@@ -37,18 +37,18 @@ function SCR_REENTER_SSN_KLAPEDA(self, sObj)
     --EVENT_1705_CORSAIR
 --    SetTimeSessionObject(self, sObj, 1, 60000, 'SCR_EVENT_1705_CORSAIR_ALARM','YES')
     
-    --EVENT_1805_SLATE
-    local eventPosList = EVENT_1805_SLATE_POS_LIST()
-    if eventPosList ~= nil and #eventPosList > 0 then
-        local aObj = GetAccountObj(self);
-	    if aObj.EVENT_1805_SLATE_START_STATE == 1 then
-	        local targetList = SCR_STRING_CUT(aObj.EVENT_1805_SLATE_START_TARGET_LIST)
-	        local targetIndex = tonumber(targetList[#targetList])
-	        if eventPosList[targetIndex][1] == GetZoneName(self) then
-                SetTimeSessionObject(self, sObj, 2, 1000, 'SCR_SSN_KLAPEDA_EVENT_1805_SLATE','YES')
-            end
-	    end
-    end
+--    --EVENT_1805_SLATE
+--    local eventPosList = EVENT_1805_SLATE_POS_LIST()
+--    if eventPosList ~= nil and #eventPosList > 0 then
+--        local aObj = GetAccountObj(self);
+--	    if aObj.EVENT_1805_SLATE_START_STATE == 1 then
+--	        local targetList = SCR_STRING_CUT(aObj.EVENT_1805_SLATE_START_TARGET_LIST)
+--	        local targetIndex = tonumber(targetList[#targetList])
+--	        if eventPosList[targetIndex][1] == GetZoneName(self) then
+--                SetTimeSessionObject(self, sObj, 2, 1000, 'SCR_SSN_KLAPEDA_EVENT_1805_SLATE','YES')
+--            end
+--	    end
+--    end
 
 	RegisterHookMsg(self, sObj, "PartyMemberOut", "SCR_BASIC_PartyMemberOut", "YES");
 	RegisterHookMsg(self, sObj, "PartyJoin", "SCR_SSN_PARTY_JOIN", "YES");
@@ -699,10 +699,10 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         
         if IS_PC_BEAUTYSHOP_FIRST_FLOOR(self) == true then
             FixCamera(self, -7.83 , 4.81, 13.42, 240);
-            CustomWheelZoom(self, 1, 80, 240, 50)
+            CustomWheelZoom(self, 1, 120, 240, 50)
         else -- second floor
             FixCamera(self, 34.79, 6.98, 1098.98, 240);
-            CustomWheelZoom(self, 1, 80, 240, 50)
+            CustomWheelZoom(self, 1, 120, 240, 50)
         end
         AddBuff(self, self, "BEAUTY_HAIR_BUFF")
         
@@ -1010,12 +1010,16 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         end
     end
 
-    -- EVENT_1805_WEEKEND
-    EVENT_1805_WEEKEND(self)
+--    -- EVENT_1805_WEEKEND
+--    EVENT_1805_WEEKEND(self)
     
     
     -- EVENT_1806_WEEKEND
     EVENT_1806_WEEKEND(self)
+    
+    
+    --EVENT_1806_STORY_1
+    EVENT_1806_STORY_1_NPC_HIDE_CHECK(self)
     
 --     -- MISSION_SURVIVAL_EVENT2
 --    MISSION_SURVIVAL_EVENT2_ZONEENTER(self)
@@ -1662,6 +1666,9 @@ function SCR_SSN_KLAPEDA_KillMonster_Sub(self, sObj, msg, argObj, argStr, argNum
 
         -- EVENT_1806_NUMBER_GAMES
         SCR_EVENT_1806_NUMBER_GAMES_DROP(self, sObj, msg, argObj, argStr, argNum) 
+        
+        --EVENT_1806_STORY_1
+        EVENT_1806_STORY_1_KILL(self, sObj, msg, argObj, argStr, argNum) 
     else
         print(ScpArgMsg("Auto_Jugin_MonSeuTeoui_obj_Ka_eopSeupNiDa."))
     end
@@ -2570,11 +2577,14 @@ function SCR_SSN_KLAPEDA_SETTIME_1(self, sObj, remainTime)
 --    -- 2017.12.02 ~ 2017.12.03 LootingChance + 2000 Event --
 --    SCR_EVENT_171202_171203_LOOTINGCHANCE(self)
     
-    --EVENT_1805_WEEKEND
-    EVENT_1805_WEEKEND_BUFF_REMOVE(self)
+--    --EVENT_1805_WEEKEND
+--    EVENT_1805_WEEKEND_BUFF_REMOVE(self)
     
     --EVENT_1806_WEEKEND
     EVENT_1806_WEEKEND_BUFF_REMOVE(self)
+    
+    --EVENT_1806_STORY_1
+    EVENT_1806_STORY_1_NPC_HIDE_CHECK(self)
 end
 
 --function SCR_EVENT_1710_HOLIDAY(self)

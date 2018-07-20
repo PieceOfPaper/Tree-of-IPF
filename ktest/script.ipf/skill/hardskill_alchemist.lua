@@ -50,70 +50,78 @@ function SUMMON_KILL_SELF(self, ms)
 	Kill(self);
 end
 
-function SCR_ALCHE_BRIQUET_EXCUTE(pc, itemList)
+function SCR_ALCHE_BRIQUET_EXCUTE(pc, itemList, preservePR)
 	if pc == nil then
 		return;
 	end
-	
-    if itemList == nil or #itemList < 3 then -- 적어도 3개는 있어야 함(타겟, 외형 재료, 외형 재료/목각)
-		return;
-	end
+
+    if itemList == nil or #itemList < 2 then -- 적어도 2개는 있어야 함(타겟, 외형 재료/목각 재료[, 외형 재료/목각 코어])
+        return;
+    end
 
     -- check target item
     local targetItem = GetInvItemByGuid(pc, itemList[1]);
-    if targetItem == nil or IsFixedItem(targetItem) == 1 or targetItem.ItemLifeTimeOver > 0  or targetItem.PR < 1 then
+    if targetItem == nil or IsFixedItem(targetItem) == 1 or targetItem.ItemLifeTimeOver > 0 or IS_VALID_BRIQUETTING_TARGET_ITEM(targetItem) == false then
 		return;
 	end
 
 	-- check look item
 	local lookItem = GetInvItemByGuid(pc, itemList[2]);
-	if lookItem == nil or IsFixedItem(lookItem) == 1 or lookItem.ItemLifeTimeOver > 0 or lookItem.ClassType ~= targetItem.ClassType then
-		return;
-	end
+	if lookItem == nil or IsFixedItem(lookItem) == 1 or lookItem.ItemLifeTimeOver > 0 or lookItem.ClassType ~= targetItem.ClassType or lookItem.BriquettingIndex > 0 then
+    	return;
+    end
 
     -- check look material item
-    local needLookItemCnt = GET_BRIQUETTING_NEED_LOOK_ITEM_CNT(targetItem);    
-    if #itemList ~= 2 + needLookItemCnt then
-	   return;
-	end
-
     local lookMatItemList = {};    
     for i = 3, #itemList do
-    	lookMatItemList[#lookMatItemList + 1] = GetInvItemByGuid(pc, itemList[i]);
-    	if #lookMatItemList == needLookItemCnt then
-    		break;
-    	end
-	end
-	
+    	lookMatItemList[#lookMatItemList + 1] = GetInvItemByGuid(pc, itemList[i]);    	
+    end
+
     for i = 1, #lookMatItemList do
     	local lookMatItem = lookMatItemList[i];
 		if IsFixedItem(lookMatItem) == 1 or lookMatItem.ItemLifeTimeOver > 0 then
-		return;
-	end
-	end
+	    	return;
+	    end
+    end
 
-    if IS_VALID_LOOK_MATERIAL_ITEM(lookItem, lookMatItemList) == false then
-		return;
-	end
-
-    -- check material
-    local needItemName, needItemCnt = GET_BRIQUETTING_NEED_MATERIAL_LIST(targetItem);
-    if needItemName == 'None' or needItemCnt < 0 then
-    	IMC_LOG('ERROR_LOGIC', 'SCR_ALCHE_BRIQUET_EXCUTE: need material error- targetItem['..targetItem.ClassName..']');
-		return;
-	end
-    local myNeedItem, myNeedItemCnt = GetInvItemByName(pc, needItemName);
-    if myNeedItem == nil or IsFixedItem(myNeedItem) == 1 or myNeedItemCnt < needItemCnt then
+    local result, containDummyItem, containCoreItem = IS_VALID_LOOK_MATERIAL_ITEM(lookItem, lookMatItemList);    
+    if result == false then
     	return;
-	end	
+    end
+
+    local needLookItemCnt = GET_BRIQUETTING_NEED_LOOK_ITEM_CNT(lookItem);
+    if containDummyItem == true then
+    	if #lookMatItemList ~= 0 then
+    		return;
+    	end
+    else
+    	if containCoreItem == true then
+    		if #lookMatItemList ~= 1 then
+    			return;
+    		end
+    	else
+    		if #lookMatItemList ~= needLookItemCnt then
+    			return;
+    		end
+
+			if preservePR ~= 1 and targetItem.PR < 1 then
+				return;
+			end
+    	end
+    end
 
     -- check money
-    local price = GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMatItemList);
-    local myMoneyItem, myMoney = GetInvItemByName(pc, MONEY_NAME);
-    if myMoneyItem == nil or IsFixedItem(myMoneyItem) == 1 or (price > 0 and myMoney < price) then
-		return;
+    local price = 0;
+    if containDummyItem == false and containCoreItem == false then
+	    if preservePR == 1 then
+		    price = GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMatItemList);
+		    local myMoneyItem, myMoney = GetInvItemByName(pc, MONEY_NAME);
+		    if myMoneyItem == nil or IsFixedItem(myMoneyItem) == 1 or (price > 0 and myMoney < price) then
+		    	return;
+		    end
+		end
 	end
-	
+
     -- log vars
     local briquettingIndex = lookItem.ClassID;
     local materialGuidList = {};
@@ -121,8 +129,11 @@ function SCR_ALCHE_BRIQUET_EXCUTE(pc, itemList)
     local materialIDList = {};
     local materialCntList = {};
     local visItem, visCount = GetInvItemByName(pc, MONEY_NAME);
-    local visItemGuid = GetItemGuid(visItem);
-
+    local visItemGuid = nil;
+    if visItem ~= nil then
+    	visItemGuid = GetItemGuid(visItem);
+    end
+    
 	-- Tx	
 	local tx = TxBegin(pc);
 	if nil == tx then
@@ -137,31 +148,27 @@ function SCR_ALCHE_BRIQUET_EXCUTE(pc, itemList)
 
 	for i = 1, #lookMatItemList do
 		local lookMatItem = lookMatItemList[i];
-	
+
 		materialGuidList[#materialGuidList + 1] = GetItemGuid(lookMatItem);
 		materialNameList[#materialNameList + 1] = lookMatItem.ClassName;
 		materialIDList[#materialIDList + 1] = lookMatItem.ClassID;
 		materialCntList[#materialCntList + 1] = 1;
 		TxTakeItemByObject(tx, lookMatItem, 1, 'Briquetting');
-		    end
+	end
 
-	local needItemObj = GetInvItemByName(pc, needItemName);
-	materialGuidList[#materialGuidList + 1] = GetItemGuid(needItemObj);
-	materialNameList[#materialNameList + 1] = needItemObj.ClassName;
-	materialIDList[#materialIDList + 1] = needItemObj.ClassID;
-	materialCntList[#materialCntList + 1] = needItemCnt;
-	TxTakeItemByObject(tx, needItemObj, needItemCnt, 'Briquetting');
-
-	if price > 0 then
-		TxTakeItemByObject(tx, visItem, price, 'Briquetting');
-	    end
-	TxSetIESProp(tx, targetItem, 'PR', targetItem.PR - 1);
+	if containDummyItem == false and containCoreItem == false then
+		if price > 0 then
+			TxTakeItemByObject(tx, visItem, price, 'Briquetting');
+		else
+			TxSetIESProp(tx, targetItem, 'PR', targetItem.PR - 1);
+		end
+	end
 
 	TxSetIESProp(tx, targetItem, 'BriquettingIndex', briquettingIndex);
 
 	local ret = TxCommit(tx);
-	if ret == "SUCCESS" then
-		SendAddOnMsg(pc, 'SUCCESS_BRIQUETTING', GetItemGuid(targetItem));
+	if ret == "SUCCESS" then		
+		SendAddOnMsg(pc, 'SUCCESS_BRIQUETTING', GetItemGuid(targetItem), briquettingIndex);		
 		BriquettingLog(pc, targetItem, briquettingIndex, materialGuidList, materialIDList, materialNameList, materialCntList, price, visItemGuid, visCount - price);
 	end
 end

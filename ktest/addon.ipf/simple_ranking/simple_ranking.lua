@@ -15,7 +15,7 @@ function OPEN_SIMPLE_RANKING(_titleText, nameList, startRank, totalRankCount, my
 
 	local rankingListBox = GET_CHILD_RECURSIVELY(frame, 'rankingListBox');
 	rankingListBox:RemoveAllChild();
-	for i = 1, #nameList do
+	for i = 1, #nameList-1 do
 		CREATE_SIMPLE_RANKING_CTRL(frame, rankingListBox, 'RANK_INFO_'..i, startRank + i, nameList[i], i % 2 == 1);
 	end
 	GBOX_AUTO_ALIGN(rankingListBox, 0, 0, 0, true, false);

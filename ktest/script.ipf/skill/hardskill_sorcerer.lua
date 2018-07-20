@@ -1,15 +1,19 @@
 --- hardskill_sorcerer.lua
 
 
-function SORCER_ATTACH_EFFECT(self, skl, eft, eftScale, countPerNode)
+function SORCER_ATTACH_EFFECT(self, skl, eft, eftScale, countPerNode, legendEft, legendEftScale, legendCountPerNode)
 
     local tgtList = GetHardSkillTargetList(self);
     if #tgtList == 0 then
         return;
     end
-
+    
     local tgt = tgtList[1]; 
-    EffectToBones(tgt, eft, eftScale, countPerNode);
+    if GetExProp(tgt, "LEGEND_CARD") == 1 then
+        EffectToBones(tgt, legendEft, legendEftScale, legendCountPerNode);
+    else
+        EffectToBones(tgt, eft, eftScale, countPerNode);
+    end
 end
 
 
@@ -390,6 +394,56 @@ function SORCERER_SUMMONING_MON(self, parent, skl)
     local cardGuid = etc_pc.Sorcerer_bosscardGUID1;
     local card = GetInvItemByGuid(parent, cardGuid);
     
+    if TryGetProp(card, "EquipXpGroup") == "Legend_Card" then
+        SetExProp(self, "LEGEND_CARD", 1)
+    end
+    
+    if nil == card then
+        Kill(self);
+        return;
+    end
+    
+    local caster = GetOwner(self);
+    if caster == nil then
+        Kill(self);
+        return;     
+    end
+    self.Lv = caster.Lv;
+--    self.StatType = 2001;
+    
+    SCR_SORCERER_SUMMON_STATE_CALC(self, caster, skl, card);
+    
+    local summoningInfo = GetSkill(caster, 'Sorcerer_Summoning');
+    local scale;
+    
+    if summoningInfo ~= nil then
+        scale = 0.7 + (summoningInfo.Level/15) * 0.3;
+        if GetExProp(self, "LEGEND_CARD") == 1 then
+            scale = scale * 1.15
+        end
+    else
+        scale = 0.7 + (skl.Level/15) * 0.3;
+    end
+
+    ChangeScale(self, scale, 0, 1, 1);
+    DontUseEventHandler(self, "handler_eat_heal");
+    DontUseEventHandler(self, "handler_hp_runaway");
+    SetLifeTime(self, 900)
+    SendAddOnMsg(caster, "QUICKSLOT_MONSTER_RESET_COOLDOWN", self.ClassName)
+end
+
+function SORCERER_SUMMONING_SUB_MON(self, parent, skl)
+    SetExProp(self, 'SORCERER_SUMMONING', 1);
+    local etc_pc = GetETCObject(parent);
+    local cardGuid = etc_pc.Sorcerer_bosscardGUID1;
+    local card = GetInvItemByGuid(parent, cardGuid);
+    local subCardGuid = etc_pc.Sorcerer_bosscardGUID2;
+    local subCard = GetInvItemByGuid(parent, subCardGuid);
+    
+    if TryGetProp(subCard, "EquipXpGroup") == "Legend_Card" then
+        SetExProp(self, "LEGEND_CARD", 1)
+    end
+    
     if nil == card then
         Kill(self);
         return;
@@ -410,6 +464,9 @@ function SORCERER_SUMMONING_MON(self, parent, skl)
     
     if summoningInfo ~= nil then
         scale = 0.7 + (summoningInfo.Level/15) * 0.3;
+        if GetExProp(self, "LEGEND_CARD") == 1 then
+            scale = scale * 1.15
+        end
     else
         scale = 0.7 + (skl.Level/15) * 0.3;
     end
@@ -648,7 +705,7 @@ function ATTACK_SORCERER_BAT_AI(self, target, buff, index)
             local objList, objCount = SelectObject(self, 50, 'ENEMY');
             for i = 1 , objCount do
                 if objList[i] ~= target then
-                    local result = TakeDamage(caster, objList[i], skl.ClassName, damage);
+                    local result = TakeDamageSuspend(caster, objList[i], skl.ClassName, damage);
                     if nil == result and abilResultfail == false then
                          abilResultfail = true
                     end
@@ -659,11 +716,11 @@ function ATTACK_SORCERER_BAT_AI(self, target, buff, index)
         abilResultfail = true;
     end
     
-    local result = TakeDamage(caster, target, skl.ClassName, damage);
+    local result = TakeDamageSuspend(caster, target, skl.ClassName, damage);
     
     if nil ~= result or abilResultfail == false then
-    PlayEffect(self, "I_explosion012_dark", 0.5, 0, "TOP")
-    Dead(self);
+        PlayEffect(self, "I_explosion012_dark", 0.5, 0, "TOP")
+        Dead(self);
     else
         RESET_SORCERER_BAT_AI(self, buff, index);
     end

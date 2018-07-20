@@ -175,7 +175,7 @@ function SCR_TX_ABIL_REQUEST(pc, abilName, count)
             end
         end
     end
-        
+    
     local abilPrice = 0;
     local abilTime = 0; -- 분 단위
     local tempAbilPrice = 0;
@@ -443,6 +443,7 @@ function SCR_TX_CHECK_WRONG_ABIL(pc)
 end
 
 -- 특성 렙업
+g_logCount = 0;
 function SCR_TX_PROPERTY_UP(pc, abilName, abilPrice, abilityID, count, learnnow)
     if count == nil or count < 1 then 
         return;
@@ -485,6 +486,15 @@ function SCR_TX_PROPERTY_UP(pc, abilName, abilPrice, abilityID, count, learnnow)
         oriLevel = abilObj.Level;
         abilLevel = oriLevel + count;
     end
+
+    local jobHistory = GetJobHistoryString(pc)
+    if jobHistory == nil then
+        if pc ~= nil and g_logCount < 10 then
+            g_logCount = g_logCount + 1;
+            IMC_LOG('INFO_NORMAL', '[AbilityErrorLog] SCR_TX_PROPERTY_UP: cid['..GetPcCIDStr(pc)..']');
+        end
+        return;
+    end
     
     if abilName == 'Pardoner5' then
         AddAchievePoint(pc, 'PardonerAbility', count);
@@ -494,7 +504,6 @@ function SCR_TX_PROPERTY_UP(pc, abilName, abilPrice, abilityID, count, learnnow)
         AddAchievePoint(pc, 'TaxAbility', count);
     end 
 
-    local jobHistory = GetJobHistoryString(pc)
     local maxLevel = 0;
     local sList = StringSplit(jobHistory, ";");
 

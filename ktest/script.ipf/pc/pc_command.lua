@@ -464,19 +464,19 @@ function SCR_UICALL_CHATALIAS(pc, typeStr)
 --	elseif typeStr == 'event1804transcend' then
 --	    local aObj = GetAccountObj(pc);
 --        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("EVENT_1804_TRANSCEND_MSG1","COUNT",aObj.EVENT_1804_TRANSCEND_SUCCESS_COUNT),10) 
-	elseif typeStr == 'event1805guildquest' then
-	    local aObj = GetAccountObj(pc);
-        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("EVENT_1805_GUILD_MSG6", "COUNT", aObj.EVENT_1805_GUILD_QUEST_SUCCESS_COUNT),10)  
-	elseif typeStr == 'event1805slate' then
-	    local aObj = GetAccountObj(pc);
-	    if aObj.EVENT_1805_SLATE_START_STATE == 0 and #targetList == 28 then
-	        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("EVENT_1805_SLATE_MSG8"),10)  
-	    elseif aObj.EVENT_1805_SLATE_START_STATE == 1 then
-	        local targetList = SCR_STRING_CUT(aObj.EVENT_1805_SLATE_START_TARGET_LIST)
-            SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("EVENT_1805_SLATE_HINT"..targetList[#targetList]),10)  
-        else
-            SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("EVENT_1805_SLATE_MSG7"),10)  
-        end
+--	elseif typeStr == 'event1805guildquest' then
+--	    local aObj = GetAccountObj(pc);
+--        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("EVENT_1805_GUILD_MSG6", "COUNT", aObj.EVENT_1805_GUILD_QUEST_SUCCESS_COUNT),10)  
+--	elseif typeStr == 'event1805slate' then
+--	    local aObj = GetAccountObj(pc);
+--	    if aObj.EVENT_1805_SLATE_START_STATE == 0 and #targetList == 28 then
+--	        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("EVENT_1805_SLATE_MSG8"),10)  
+--	    elseif aObj.EVENT_1805_SLATE_START_STATE == 1 then
+--	        local targetList = SCR_STRING_CUT(aObj.EVENT_1805_SLATE_START_TARGET_LIST)
+--            SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("EVENT_1805_SLATE_HINT"..targetList[#targetList]),10)  
+--        else
+--            SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("EVENT_1805_SLATE_MSG7"),10)  
+--        end
 	end
 end
 

@@ -2643,10 +2643,10 @@ function TAKE_GUILD_EVENT_REWARD(pc)
 	end
 	
 	
-    --EVENT_1805_GUILD
-    if ret == "SUCCESS" then
-        EVENT_1805_GUILD_QUEST_SUCCESS_REWARD(pc)
-    end
+--    --EVENT_1805_GUILD
+--    if ret == "SUCCESS" then
+--        EVENT_1805_GUILD_QUEST_SUCCESS_REWARD(pc)
+--    end
     
     local guildID = GetGuildID(pc)
     local GuildEventTicketCount = guildObj.GuildEventTicketCount;

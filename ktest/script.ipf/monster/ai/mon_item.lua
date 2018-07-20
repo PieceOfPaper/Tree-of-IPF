@@ -13,35 +13,33 @@ function ITEM_GET_ABLE(self, pc)
 	return 0;
 end
 
-function AUTO_CHANGE_OWNER(self, resetOwnerTime, killSelftime)
-	sleep(resetOwnerTime * 1000);
-
+function AUTO_CHANGE_OWNER(self)
 	local dropGem = GetExProp(self, "isDromGem")
+	local bossDrop = GetExProp(self, "IS_BOSS_DROP")
 	if 1 == dropGem then
+		sleep(DROP_ITEM_LIFE_SEC_GEM * 1000);
+		StopRunScript(self, "AUTO_CHANGE_OWNER");
+		SetZombie(self);
+		return;
+	elseif 1 == bossDrop then
+		sleep(DROP_ITEM_LIFE_SEC_BOSS_DROP * 1000);
 		StopRunScript(self, "AUTO_CHANGE_OWNER");
 		SetZombie(self);
 		return;
 	end
 
-	local bossDrop = GetExProp(self, "IS_BOSS_DROP")
-	if 1 == bossDrop then
-		StopRunScript(self, "AUTO_CHANGE_OWNER");
-		SetZombie(self);
-		return;
-	end
+	sleep(DROP_ITEM_RESET_OWNER_SEC * 1000);
 
 	self.UniqueName = "None";
 	UpdateItemPriority(self);
 
-	sleep(killSelftime * 1000);
+	sleep(DROP_ITEM_LIFE_SEC_MAX * 1000);
 	SetZombie(self);
 end
 
 function INIT_ITEM(self, power)	
-	
-	local lifeTime = 120;
-	SetLifeTime(self, lifeTime);
-	RunScript("AUTO_CHANGE_OWNER", self, 60, lifeTime);
+	SetLifeTime(self, DROP_ITEM_LIFE_SEC_MAX);
+	RunScript("AUTO_CHANGE_OWNER", self);
 
 	if self.ClassName == 'Small_Bag' then
 		PlaySound(self, 'item_whoosh');
@@ -82,6 +80,5 @@ function INIT_ITEM(self, power)
 		power = IMCRandom(minPower, customPower);
 	end
 
-	--KnockDown_Init(self, self, power, hAngle, vAngle, 2, speed, 1);	
 	ItemKnockDown(self, power, hAngle, vAngle, speed);	
 end

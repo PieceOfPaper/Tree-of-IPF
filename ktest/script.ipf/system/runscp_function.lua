@@ -191,7 +191,7 @@ end
 
 function REQ_TX_CHANGE_JOB(pc, jobID)
 
-    --클라에서 해당 코드를 콜하는 부분을 지웠기 때문에 이제 살려도 되지 않을까?
+    --?�라?�서 ?�당 코드�?콜하??부분을 지?�기 ?�문???�제 ?�려???��? ?�을�?
 
     if pc == nil then
         return;
@@ -567,7 +567,7 @@ function ABIL(pc, search_word,lv, gm)
             tempclassname = dictionary.ReplaceDicIDInCompStr(tempclassname);
     
             if string.find(GetClassStringByIndex('Ability', i, 'ClassName'), search_word) ~= nil or string.find(tempclassname, search_word) ~= nil then
-            --�?찾기 ?�작.
+            --�?찾기 ?�작.
                 Abil_list[x] = {}
                 Abil_list[x][1] = GetClassStringByIndex('Ability', i, 'ClassName');
                 Abil_list[x][2] = GetClassStringByIndex('Ability', i, 'Name');
@@ -580,7 +580,7 @@ function ABIL(pc, search_word,lv, gm)
     local select
 
     if #sel_list == 0 then
-        return --�??�을 ??리턴처리.
+        return --�??�을 ??리턴처리.
     elseif #sel_list == 1 then
         select = 1
     else
@@ -960,8 +960,10 @@ function npcmove(pc, search_word, zonename, pos_option, search_allmatch)
     else
         MoveZone(pc, zonename, anchor_list[select1][3], anchor_list[select1][4] + 100, anchor_list[select1][5])
     end
-
-    ExecClientScp(gm, scp);
+    
+    if gm ~= nil and scp ~= nil then
+        ExecClientScp(gm, scp);
+    end
 
 end
 

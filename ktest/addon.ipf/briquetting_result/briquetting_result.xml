@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="briquetting_result" x="0" y="0" width="1920" height="1080" create="open">
+	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true" resizebyresolution="true"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="99"/>
+	<option closebutton="false" visible="false" useimageitem="true"/>
+	<input resize="false" minwidth="128" minheight="128" hittestframe="false" hittesttitlebar="false"/>
+	<sound opensound="sys_map_open" closesound="sys_map_close"/>
+	<animation frameOpenAnim="chat_balloon_start" margin="-100 -100 0 0"/>
+	<controls>
+		<picture name="bg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="false" image="fullblack" stretch="true" alpha="80"/>
+		<picture name="itemBgPic" rect="0 0 720 520" margin="0 -100 0 0" layout_gravity="center center" image="briquetting_bg_skin"/>
+		<picture name="itemPic" parent="itemBgPic" rect="0 0 240 240" layout_gravity="center center" image="testclose_button" stretch="true"/>
+		<button name="btn_close" parent="" rect="0 0 180 60" margin="0 300 0 0" layout_gravity="center center" hittestbox="true" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st43b}{s20}확 인" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button" LBtnUpScp="ui.CloseFrame('briquetting_result')"/>
+	</controls>
+</uiframe>

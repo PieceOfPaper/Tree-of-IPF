@@ -1,6 +1,7 @@
 -- enchantarmoropen.lua
 
-function ENCHANTAROMOROPEN_ON_INIT(addon, frame)
+function ENCHANTARMOROPEN_ON_INIT(addon, frame)
+	addon:RegisterMsg('UPDATE_SPEND_ITEM', 'ENCHANTARMOROPEN_INIT_SPEND_ITEM');
 end
 
 
@@ -12,8 +13,7 @@ function ENCHANTAROMOROPEN_CENCEL_CHECK(frame)
 	frame = frame:GetTopParentFrame();
 	local handle = frame:GetUserIValue("HANDLE");
 	local skillName = frame:GetUserValue("GroupName");
-
-	-- ����
+	
 	session.autoSeller.BuyerClose(AUTO_SELL_ENCHANTERARMOR, handle);
 end
 
@@ -74,13 +74,20 @@ function ENCHANTAROMOROPEN_UPDATE_STORINFO(frame, groupName)
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
 	money:SetTextByKey("txt", groupInfo.price);
 
-	local materialGbox = frame:GetChild('materialGbox');
+	local topFrame = frame:GetTopParentFrame();
+	topFrame:SetUserValue('GroupName', groupName);
+
+	ENCHANTARMOROPEN_INIT_SPEND_ITEM(topFrame);
+end
+
+function ENCHANTARMOROPEN_INIT_SPEND_ITEM(frame)
+	local materialGbox = GET_CHILD_RECURSIVELY(frame, 'materialGbox');
 	local reqitemNameStr = materialGbox:GetChild("reqitemNameStr");
 	local reqitemCount = materialGbox:GetChild("reqitemCount");
 	local reqitemImage = materialGbox:GetChild("reqitemImage");
 
 	local invItemList = session.GetInvItemList();
-	local checkFunc = _G["ITEMBUFF_STONECOUNT_" .. groupName];
+	local checkFunc = _G["ITEMBUFF_STONECOUNT_" .. frame:GetUserValue('GroupName')];
 	local name, cnt = checkFunc(invItemList, frame);
 	local cls = GetClass("Item", name);
 	local txt = GET_ITEM_IMG_BY_CLS(cls, 60);

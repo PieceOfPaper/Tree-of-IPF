@@ -669,6 +669,14 @@ function SKL_TGT_DMG_ADD_USERPROP(self, skl, damRate, addRate, propName)
     SetExProp(skl, propName, curValue);
 end
 
+function _SKL_TGT_DMG(self, target, SklClassName, damage)
+    local result = TakeDamageSuspend(self, target, SklClassName, damage);
+        
+    if result == 1 then
+        SetExProp(target, "NO_HIT", 1);
+    end
+end
+
 function SKL_TGT_DMG(self, skl, dmgRate, attackerHitdelay, hitDelay)
     
     local tgtList = GetHardSkillTargetList(self);
@@ -676,10 +684,8 @@ function SKL_TGT_DMG(self, skl, dmgRate, attackerHitdelay, hitDelay)
         local target = tgtList[i];
         local damage = SCR_LIB_ATKCALC_RH(self, skl);               
         damage = damage * dmgRate;
-        local result = TakeDamage(self, target, skl.ClassName, damage);
-        if result == 1 then
-            SetExProp(target, "NO_HIT", 1);
-        end
+
+        RunScript("_SKL_TGT_DMG", self, target, skl.ClassName, damage)
     end
 end
 
@@ -727,7 +733,7 @@ end
 function SKL_TGT_SPLASH_DMG_WITH_SR_TAKE_DAMAGE(self, skl, target, skillSR)
     local atk = SCR_LIB_ATKCALC_RH(self, skl);
 	
-    local result = TakeDamage(self, target, skl.ClassName, atk);
+    local result = TakeDamageSuspend(self, target, skl.ClassName, atk);
     if result == 1 then
         SetExProp(target, "NO_HIT", 1);
     end

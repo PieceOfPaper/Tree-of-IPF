@@ -3595,7 +3595,7 @@ function SCR_BUFF_ENTER_Heal_Buff(self, buff, arg1, arg2, over)
     if IsSameActor(self, caster) == "NO" or Ayin_sof_arg3 == 0 then
         healRnd = healRnd + (healRnd * arg2);
     end
-    healRnd = TryGetProp(caster, "HEAL_PWR") * skill.SkillFactor/100
+    healRnd = TryGetProp(caster, "HEAL_PWR", 1) * skill.SkillFactor/100
     Heal(self, healRnd, 0, nil, buff.ClassName);
     local abilCleric22 = GetAbility(caster, "Cleric22");
     if abilCleric22 ~= nil and TryGetProp(abilCleric22, "ActiveState") == 1 then
@@ -4036,22 +4036,8 @@ function SCR_BUFF_ENTER_Mastema_Debuff(self, buff, arg1, arg2, over)
     
     local damage = GET_SKL_DAMAGE(caster, self, 'Warlock_Mastema');
     local skill = GET_MON_SKILL(caster, 'Warlock_Mastema');
-
-    local divineAtkAdd = skill.SkillAtkAdd
-    local addValue = 0
     
-    local pad = GetPadByBuff(caster, buff);
-    if pad ~= nil then
-        addValue = GetPadArgNumber(pad, 1);
-    end
-    
-    divineAtkAdd = addValue - divineAtkAdd
-    
-    if divineAtkAdd < 0 then
-        divineAtkAdd = 0;
-    end
-    
-    TakeDamage(caster, self, skill.ClassName, damage + divineAtkAdd, "Dark", "Magic", "Magic", HIT_MOTION, HITRESULT_BLOW, 0, 0);
+    TakeDamage(caster, self, skill.ClassName, damage, "Dark", "Magic", "Magic", HIT_MOTION, HITRESULT_BLOW, 0, 0);
     
     if GetObjType(self) == OT_MONSTERNPC then
         local addHate = (damage + skill.SkillAtkAdd) * 10
@@ -4063,68 +4049,61 @@ function SCR_BUFF_ENTER_Mastema_Debuff(self, buff, arg1, arg2, over)
 
         InsertHate(self, caster, addHate);
     end
+end
 
-    local Warlock13 = GetAbility(caster, "Warlock13")
-    if nil ~= Warlock13 then
-        local stradd = Warlock13.Level * 10
-        local intadd = Warlock13.Level * 10
-        local mnaadd = Warlock13.Level * 10
-        local adddex = Warlock13.Level * 10
-
-        self.STR_BM = self.STR_BM - stradd;
-        self.INT_BM = self.INT_BM - intadd;
-        self.MNA_BM = self.MNA_BM - mnaadd;
-        self.DEX_BM = self.DEX_BM - adddex;
+function SCR_BUFF_LEAVE_Mastema_Debuff(self, buff, arg1, arg2, over)
     
-        SetExProp(buff, "ADD_STR", stradd);
-        SetExProp(buff, "ADD_INT", intadd);
-        SetExProp(buff, "ADD_MNA", mnaadd);
-        SetExProp(buff, "ADD_DEX", adddex);
+end
+
+function SCR_BUFF_ENTER_PhantomPain_Debuff(self, buff, arg1, arg2, over)
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        local Warlock13 = GetAbility(caster, "Warlock13")
+        if nil ~= Warlock13 then
+            local stradd = Warlock13.Level * 10
+            local intadd = Warlock13.Level * 10
+            local mnaadd = Warlock13.Level * 10
+            local adddex = Warlock13.Level * 10
+            
+            self.STR_BM = self.STR_BM - stradd;
+            self.INT_BM = self.INT_BM - intadd;
+            self.MNA_BM = self.MNA_BM - mnaadd;
+            self.DEX_BM = self.DEX_BM - adddex;
+        
+            SetExProp(buff, "ADD_STR", stradd);
+            SetExProp(buff, "ADD_INT", intadd);
+            SetExProp(buff, "ADD_MNA", mnaadd);
+            SetExProp(buff, "ADD_DEX", adddex);
+        end
     end
 end
 
-function SCR_BUFF_UPDATE_Mastema_Debuff(self, buff, arg1, arg2, over)
+function SCR_BUFF_UPDATE_PhantomPain_Debuff(self, buff, arg1, arg2, over)
     local caster = GetBuffCaster(buff);
     if caster == nil then
-        return 1;
+        return 0;
     end
     
     local Warlock13 = GetAbility(caster, "Warlock13")
     if Warlock13 == nil then
-        return 1;
+        return 0;
     end
 
     local damage = GET_SKL_DAMAGE(caster, self, 'Warlock_Mastema');
     local skill = GET_MON_SKILL(caster, 'Warlock_Mastema');
-
-    local divineAtkAdd = skill.SkillAtkAdd
-    local addValue = 0
-    
-    local pad = GetPadByBuff(caster, buff);
-    if pad ~= nil then
-        addValue = GetPadArgNumber(pad, 1);
-    end
-    
-    divineAtkAdd = addValue - divineAtkAdd
-    
-    if divineAtkAdd < 0 then
-        divineAtkAdd = 0;
-    end
-
-    damage = (damage + divineAtkAdd) * 0.5;
 
     TakeDamage(caster, self, skill.ClassName, damage, "Dark", "Magic", "Magic", HIT_MOTION, HITRESULT_NO_HITSCP, 0, 0);
     
     return 1;
 end
 
-function SCR_BUFF_LEAVE_Mastema_Debuff(self, buff, arg1, arg2, over)
+function SCR_BUFF_LEAVE_PhantomPain_Debuff(self, buff, arg1, arg2, over)
     local stradd = GetExProp(buff, "ADD_STR")
     local intadd = GetExProp(buff, "ADD_INT")
     local mnaadd = GetExProp(buff, "ADD_MNA")
     local adddex = GetExProp(buff, "ADD_DEX")
     if 0 < stradd then
-        self.STR_BM = self.STR_BM + stradd
+        self.STR_BM = self.STR_BM + stradd;
     end
     if 0 < intadd then
         self.INT_BM = self.INT_BM + intadd;
@@ -4135,7 +4114,6 @@ function SCR_BUFF_LEAVE_Mastema_Debuff(self, buff, arg1, arg2, over)
     if 0 < adddex then
         self.DEX_BM = self.DEX_BM + adddex;
     end
-
 end
 
 function SCR_BUFF_ENTER_Agony_Debuff(self, buff, arg1, arg2, over)
@@ -4420,7 +4398,14 @@ function SCR_BUFF_ENTER_Cleric_Revival_Leave_Buff(self, buff, arg1, arg2, over)
 
     RemoveBuff(self, "Cleric_Revival_Buff"); 
     self.MaxDefenced_BM = self.MaxDefenced_BM + 1;
-    Heal(self, self.MHP*arg1*0.05, 0)
+    --Heal(self, self.MHP*arg1*0.05, 0)
+    RunScript('REVIVAL_LEAVE_BUFF_HEAL', self, self.MHP*arg1*0.05)
+
+end
+
+function REVIVAL_LEAVE_BUFF_HEAL(self, value)
+    sleep(10);
+    Heal(self, value, 0)
 end
 
 function SCR_BUFF_LEAVE_Cleric_Revival_Leave_Buff(self, buff, arg1, arg2, over)
@@ -4844,7 +4829,7 @@ function SCR_BUFF_ENTER_SoPowerful(self, buff, arg1, arg2, over)
     self.PATK_BM = self.PATK_BM + 9999999;
     self.MATK_BM = self.MATK_BM + 9999999;
     self.HR_BM = self.HR_BM + 9999999;
-
+    
 end
 
 
@@ -5530,7 +5515,7 @@ function SCR_BUFF_LEAVE_Damballa_Debuff(self, buff, arg1, arg2, over)
         if index < summonRate then
             RunScript('SCR_SUMMON_ZOMBIE', self, caster)
             if IMCRandom(1,100) < 50 then
-              RunScript('SCR_SUMMON_ZOMBIE', self, caster)
+                RunScript('SCR_SUMMON_ZOMBIE', self, caster)
             end
         end
     end
@@ -5640,7 +5625,7 @@ function SCR_BUFF_ENTER_Aukuras_Buff(self, buff, arg1, arg2, over)
     if caster ~= nil then
         local skill = GetSkill(caster, "Kriwi_Aukuras");
         if skill ~= nil then
-            addHP = TryGetProp(caster, "HEAL_PWR") * skill.SkillFactor/100
+            addHP = TryGetProp(caster, "HEAL_PWR", 1) * skill.SkillFactor/100
             
             local abilKriwi6 = GetAbility(caster, "Kriwi6");
             if abilKriwi6 ~= nil then
@@ -12642,7 +12627,7 @@ function SCR_BUFF_ENTER_MassHeal_Buff(self, buff, arg1, arg2, over)
             healvalue = healvalue + (healvalue * arg2);
         end
         
-        healvalue = TryGetProp(caster, "HEAL_PWR") * skill.SkillFactor/100
+        healvalue = TryGetProp(caster, "HEAL_PWR", 1) * skill.SkillFactor/100
         Heal(self, healvalue, 0, nil, buff.ClassName);
         local abilCleric22 = GetAbility(caster, "Cleric22");
         if abilCleric22 ~= nil and TryGetProp(abilCleric22, "ActiveState") == 1 then
@@ -15722,7 +15707,7 @@ function SCR_BUFF_UPDATE_StormDust_Debuff(self, buff, arg1, arg2, over)
     if atk <= 0 then
         return 0;
     end
-        
+	
     local from = self;
     local caster = GetBuffCaster(buff);
     local pad = GetPadByBuff(caster, buff);
@@ -15730,7 +15715,7 @@ function SCR_BUFF_UPDATE_StormDust_Debuff(self, buff, arg1, arg2, over)
         return 0;
     end
     
-    if caster ~= nil then    
+    if caster ~= nil then
         from = caster;
     end
     
@@ -15743,6 +15728,51 @@ function SCR_BUFF_UPDATE_StormDust_Debuff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_LEAVE_StormDust_Debuff(self, buff, arg1, arg2, over)
+    local abilMoveSpeed = GetExProp(buff, "STORMDUST_MOVESPEED")
+    
+    self.MSPD_BM = self.MSPD_BM + abilMoveSpeed
+end
+
+
+function SCR_BUFF_ENTER_StormDust_Abil_Debuff(self, buff, arg1, arg2, over)
+	local abilMoveSpeed = 0
+	local caster = GetBuffCaster(buff)
+	if caster ~= nil then
+		local atk = GET_SKL_DAMAGE(caster, self, "Elementalist_StormDust");
+		local abilElementalist28 = GetAbility(caster, "Elementalist28")
+		if abilElementalist28 ~= nil and abilElementalist28.ActiveState == 1 then
+			abilMoveSpeed = abilElementalist28.Level * 2
+		end
+		
+		SetBuffArgs(buff, atk, 0, 0)
+	end
+	
+	self.MSPD_BM = self.MSPD_BM - abilMoveSpeed
+	
+	SetExProp(buff, "STORMDUST_MOVESPEED", abilMoveSpeed)
+end
+
+function SCR_BUFF_UPDATE_StormDust_Abil_Debuff(self, buff, arg1, arg2, over)
+    local atk = GetBuffArgs(buff);
+    if atk <= 0 then
+        return 0;
+    end
+	
+    local from = self;
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        from = caster;
+    end
+    
+    local skill = GetSkill(caster, 'Elementalist_StormDust')
+    if skill ~= nil then
+        TakeDamage(caster, self, skill.ClassName, atk, "Earth", "Magic", "Magic");
+    end
+    
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_StormDust_Abil_Debuff(self, buff, arg1, arg2, over)
     local abilMoveSpeed = GetExProp(buff, "STORMDUST_MOVESPEED")
     
     self.MSPD_BM = self.MSPD_BM + abilMoveSpeed
@@ -16862,4 +16892,21 @@ end
 function SCR_BUFF_LEAVE_Crescendo_Bane_Buff(self, buff, arg1, arg2, over)
     local current = GetExProp(buff, "add_Poison")
     self.Poison_Atk_BM = self.Poison_Atk_BM - current
+end
+
+function SCR_BUFF_ENTER_Mon_PainBarrier_Buff(self, buff, arg1, arg2, over)
+    
+end
+
+function SCR_BUFF_UPDATE_Mon_PainBarrier_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    local buffCaster = GetBuffCaster(buff);
+    if buffCaster == nil or IsBuffApplied(buffCaster, "SUMMON_STANCE_NO_FALLDOWN") == "NO" then
+        return 0;
+    end
+    
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Mon_PainBarrier_Buff(self, buff, arg1, arg2, over)
+
 end

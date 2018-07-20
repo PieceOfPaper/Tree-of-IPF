@@ -331,7 +331,7 @@ function INVENTORY_WEIGHT_UPDATE(frame)
 	
 	local weightGbox = GET_CHILD(bottomgroup, 'weightGbox','ui::CGroupBox')
 	weightGbox:SetTextTooltip(weightscptext)
-
+	
 	local arrowPicture = GET_CHILD(bottomgroup, 'inventory_arrow','ui::CPicture')
 	arrowPicture:SetOffset(newwidth + weightPicture:GetX() - 7 ,arrowPicture:GetOriginalY() )
 
@@ -1064,8 +1064,7 @@ function INIT_INVEN_SLOT(slot)
 
 	local shopframe = ui.GetFrame("shop");
 	local exchangeframe  = ui.GetFrame("exchange");
-	local companionshop = ui.GetFrame('companionshop');
-
+	local companionshop = ui.GetFrame('companionshop');	
 	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 then
 		slot:SetSelectedImage('socket_slot_check')  -- 거래시에만 체크 셀렉 아이콘 사용	
 	end
@@ -1436,7 +1435,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	end
 
 	if customRBtnScp ~= nil then
-		customRBtnScp(itemobj, object);
+		customRBtnScp(itemobj, object, invitem:GetIESID());
 		imcSound.PlaySoundEvent("icon_get_down");
 		return;
 	end
@@ -2476,7 +2475,18 @@ function STATUS_EQUIP_SLOT_SET_ANIM(frame)
 end
 
 function GET_SLOT_BY_ITEMID(slotSet, itemID)
-	
+	if slotSet == nil then
+		slotSet = INV_GET_SLOTSET_BY_ITEMID(itemID);		
+	end
+
+	if slotSet == nil then
+		return nil;
+	end
+
+	return _GET_SLOT_BY_ITEMID(slotSet, itemID);
+end
+
+function _GET_SLOT_BY_ITEMID(slotSet, itemID)	
 	for i = 0 , slotSet:GetSlotCount() - 1 do
 		local slot = slotSet:GetSlotByIndex(i );
 		local icon = slot:GetIcon();
@@ -2491,7 +2501,6 @@ function GET_SLOT_BY_ITEMID(slotSet, itemID)
 
 	return nil;
 end
-
 
 function GET_SLOT_BY_ITEMTYPE(slotSet, itemtype)
 	for i = 0 , slotSet:GetSlotCount() - 1 do
@@ -2817,7 +2826,13 @@ function CURSOR_CHECK_IN_LOCK(slot)
 	return 0;
 end
 
-function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
+function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)    
+    local briquetting = ui.GetFrame('briquetting');
+    if briquetting:IsVisible() == 1 then
+        ui.SysMsg(ScpArgMsg('CannotLock{UI}VisibleState', 'UI', ClMsg('Briquetting')));
+        return;
+    end
+
 	local itemType = object.ItemType;
 	if nil == itemType then
 		local obj = GetIES(selectItem:GetObject());

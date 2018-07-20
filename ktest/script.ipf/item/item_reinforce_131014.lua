@@ -412,8 +412,14 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
 	local ItemStar = invItem.ItemStar;
 	local isBreakItem = 0;
 	local isWeapon = invItem.GroupName;
-	
+    local tempItemName_NotClassName = invItem.Name;
+
 	StopRunScript(monster, "ATTACH_MORU_TO_PC");
+
+	if IsFixedItem(invItem) == 1 then
+		return;
+	end
+
 	local tx = TxBegin(pc)
 	if tx == nil then
 		return;
@@ -424,9 +430,9 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
 	if result == 1 then
     	if moruName == "Moru_Potential" or moruName == "Moru_Potential14d" then
 			local potential = invItem.PR;
-			TxSetIESProp(tx, invItem, 'PR', potential + 1);
+		TxSetIESProp(tx, invItem, 'PR', potential + 1);
         else
-	    	TxAddIESProp(tx, invItem, "Reinforce_2", 1);
+	    	TxSetItemReinforce(tx, invItem, invItem.Reinforce_2 + 1);
 	    	if moruName == "Moru_Platinum_Premium" then
 	    		local potential = invItem.PR;
 	    		TxSetIESProp(tx, invItem, 'PR', potential - 1);
@@ -442,7 +448,7 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
     			TxSetIESProp(tx, invItem, 'PR', potential - 1);
     			
     			if moruType ~= 'DIAMOND' then
-    			    TxAddIESProp(tx, invItem, "Reinforce_2", -1);
+    			    TxSetItemReinforce(tx, invItem, invItem.Reinforce_2 - 1);
     			end
 			end
     	else
@@ -452,12 +458,12 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
     			TxSetIESProp(tx, invItem, 'PR', potential + 1);
 			elseif moruName == "Moru_Premium" or moruName == "Moru_Gold" or moruName == "Moru_Gold_14d" or moruName == "Moru_Gold_TA" or moruName == "Moru_Gold_TA_NR" or moruName == "Moru_Gold_Team_Trade"  or moruName == "Moru_Gold_EVENT_1710_NEWCHARACTER"  then
 				if  reinforce_2 > 10 then
-					TxSetIESProp(tx, invItem, 'Reinforce_2', 10);
+					TxSetItemReinforce(tx, invItem, 10);
 				else
-					TxAddIESProp(tx, invItem, "Reinforce_2", -1);
+					TxSetItemReinforce(tx, invItem, invItem.Reinforce_2 - 1);
 				end
 			elseif moruName == "Moru_Potential" or moruName == "Moru_Potential14d" then
-    			TxAddIESProp(tx, invItem, "Reinforce_2", 0);
+    			-- do nothing
 			else
 			    if invItem.ClassID == 635122 then --171114_EVENT_STEAM      
 --				    TxGiveItem(tx, 'Event_Goddess_Medal', 1, 'EV171114)_S')TEAM');
@@ -477,15 +483,30 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
     		InvalidateStates(pc);
     		ShowItemBalloon(pc, "{@st43}","SucessReinforce!!!", "", invItem, 5, delaySec, "enchant_itembox");
             PlayAnim(monster, "success", 1, 1, 0, 1);
+			SendHistorySysMsg(pc, 'Reinforce{ISSUCCESS}{ITEM}{LEVEL}', 1, '', 'ISSUCCESS', ClMsg('SUCCESS'), 'ITEM', invItem.Name, 'LEVEL', '+'..tostring(itemReinCount + 1));
     	else
     		ShowItemBalloon(pc, "{@st43_red}", "SucessFail!!!", "", invItem, 5, delaySec, "enchant_itembox");
             PlayAnim(monster, "fail", 1, 1, 0, 1);
+
+            local reinfStr = '';
+            if itemReinCount > 0 then
+            	reinfStr = '+'..tostring(itemReinCount);
+			end
+
+
+			local _itemName = invItem.Name;
+			if _itemName == nil then
+				local itemCls = GetClass('Item', itemName)
+				_itemName = itemCls.Name
+			end
+			SendHistorySysMsg(pc, 'Reinforce{ISSUCCESS}{ITEM}{LEVEL}', 1, 'FF00FF', 'ISSUCCESS', ClMsg('Fail'), 'ITEM', _itemName, 'LEVEL', reinfStr);
     	end
 			if result == 1 then
 				ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount+1, spentSilver, moruName);
 			else
 				if isBreakItem == 1 then
-					ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount, spentSilver, moruName);
+					SendHistorySysMsg(pc, 'ItemDeleted', 1, 'FF0000', 'ITEM', tempItemName_NotClassName);
+					ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount, spentSilver, moruName)
 				else
 					ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount, spentSilver, moruName)
 				end
@@ -505,8 +526,9 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
     			end
 			end
 		end
---    end
-	BroadcastShape(pc); 
+--	end
+
+	BroadcastShape(pc);
 end
 
 function REINF_MORU_TAKEDAMAGE(self, from, skl, damage, ret)

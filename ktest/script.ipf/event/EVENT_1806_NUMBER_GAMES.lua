@@ -93,7 +93,11 @@ function SCR_EVENT_1806_NUMBER_GAMES_NPC_DIALOG(self, pc, gimmickName)
                     end
                     if tonumber(input) ~= nil then
                         input = math.floor(tonumber(input))
-                        break
+                        if input < 1 or input > 100 then
+                            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("NUMBER_HI_LOW_ERROR2","MIN",1,"MAX",100), 10);
+                        else
+                            break
+                        end
                     else
                         ShowOkDlg(pc, dlgNPC..ScpArgMsg("NUMBER_HI_LOW_ERROR1"), 1)
                     end
