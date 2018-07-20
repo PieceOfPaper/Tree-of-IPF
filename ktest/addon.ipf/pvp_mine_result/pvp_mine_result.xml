@@ -27,7 +27,7 @@
 		<picture name="loseWingRight" rect="0 0 442 422" parent="loseUIBox" margin="400 155 0 0" layout_gravity="center top" image="colony_lose_wingR"/>
 		<picture name="losePic" rect="0 0 581 532" parent="loseUIBox" margin="0 80 0 0" layout_gravity="center top" image="colony_lose_frame"/>
 		<richtext name="loseText" rect="0 0 423 142" parent="losePic" margin="0 75 0 0" layout_gravity="center center" caption="{@st41_yellow}{s70}패배" fontname="white_24_b_ol"/>
-		<groupbox name="winnerInfoBox" rect="0 0 800 230" parent="loseBox" margin="0 30 0 0" layout_gravity="center bottom" draw="false"/>				
+		<groupbox name="winnerInfoBox" rect="0 0 800 230" parent="loseBox" margin="0 30 0 0" layout_gravity="center bottom" draw="false"/>
 		<!-- Draw-->
 		<groupbox name="drawBox" rect="0 0 1300 700" margin="0 -150 0 0" layout_gravity="center center" draw="false"/>
 		<!-- MVP-->
@@ -44,8 +44,8 @@
 		<richtext name="Point_MVP_Desc" rect="0 0 0 0" margin="0 0 0 0" parent="grayBox_2" layout_gravity="center center" format="{s22}%s" param1="PointName" param1_def="0" fontname="white_24_b_ol"/>
 		<richtext name="Point_MVP_Point" rect="-20 0 0 0" margin="0 0 0 0" parent="grayBox_2" layout_gravity="right center" format="{s22}%s 점" param1="PointCount" param1_def="0" fontname="white_24_b_ol"/>
 		<richtext name="GetPoint_Desc" rect="0 70 0 0" margin="0 2 0 0" parent="mvpBox" layout_gravity="center center" format="{s26}증표 [ %s 개] 획득" param1="point" param1_def="0" fontname="orange_32_b_ol_ds"/>
-		<richtext name="killmvp" rect="0 0 0 0" margin="42 0 0 0" parent="grayBox_1" layout_gravity="left center" format="{@st42}{b}{s20}KILL MVP" param1="point" fontname="orange_32_b_ol_ds"/>
-		<richtext name="pointmvp" rect="0 0 0 0" margin="42 0 0 0" parent="grayBox_2" layout_gravity="left center" format="{@st42}{b}{s20}SCORE MVP" param1="point" fontname="orange_32_b_ol_ds"/>
+		<richtext name="killmvp" rect="0 0 0 0" margin="42 0 0 0" parent="grayBox_1" layout_gravity="left center" format="{@st42}{b}{s20}KILL" param1="point" fontname="orange_32_b_ol_ds"/>
+		<richtext name="pointmvp" rect="0 0 0 0" margin="42 0 0 0" parent="grayBox_2" layout_gravity="left center" format="{@st42}{b}{s20}SCORE" param1="point" fontname="orange_32_b_ol_ds"/>
 		<picture name="pic_2" rect="0 0 100 100" margin="20 -2 0 0" layout_gravity="left center" hittest="false" image="mine_pvp_killmvp_emblem" stretch="false" parent="mvpBox"/>
 		<picture name="pic_3" rect="0 0 100 100" margin="20 50 0 0" layout_gravity="left center" hittest="false" image="mine_pvp_scoremvp_emblem" stretch="false" parent="mvpBox"/>
 	</controls>

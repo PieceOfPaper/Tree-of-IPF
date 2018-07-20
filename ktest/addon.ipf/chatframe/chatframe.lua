@@ -744,25 +744,25 @@ function CHAT_TEXT_IS_MINE_AND_SETFONT(msgIsMine, fontName)
 end
 
 function UPDATE_CHATTYPE_VISIBLE_PIC(parent, value)
-	
-	local btn_general_pic = GET_CHILD_RECURSIVELY(parent,"btn_general_pic")
-	local btn_shout_pic = GET_CHILD_RECURSIVELY(parent,"btn_shout_pic")
-	local btn_party_pic = GET_CHILD_RECURSIVELY(parent,"btn_party_pic")
-	local btn_guild_pic = GET_CHILD_RECURSIVELY(parent,"btn_guild_pic")
-	local btn_whisper_pic = GET_CHILD_RECURSIVELY(parent,"btn_whisper_pic")
-	local btn_group_pic = GET_CHILD_RECURSIVELY(parent,"btn_group_pic")
+	local btn_general_pic = GET_CHILD_RECURSIVELY(parent, "btn_general_pic");
+	local btn_shout_pic = GET_CHILD_RECURSIVELY(parent, "btn_shout_pic");
+	local btn_party_pic = GET_CHILD_RECURSIVELY(parent, "btn_party_pic");
+	local btn_guild_pic = GET_CHILD_RECURSIVELY(parent, "btn_guild_pic");
+	local btn_whisper_pic = GET_CHILD_RECURSIVELY(parent, "btn_whisper_pic");
+	local btn_group_pic = GET_CHILD_RECURSIVELY(parent, "btn_group_pic");
+	local btn_system_pic = GET_CHILD_RECURSIVELY(parent, "btn_system_pic");
+	local btn_battle_pic = GET_CHILD_RECURSIVELY(parent, "btn_battle_pic");
 
 	if value == 0 then
-
 		btn_general_pic:ShowWindow(1)
 		btn_shout_pic:ShowWindow(1)
 		btn_party_pic:ShowWindow(1)
 		btn_guild_pic:ShowWindow(1)
 		btn_whisper_pic:ShowWindow(1)
 		btn_group_pic:ShowWindow(1)
-
-	else
-	
+		btn_system_pic:ShowWindow(1)
+		btn_battle_pic:ShowWindow(1)
+	else	
 		if IMCAnd(CHAT_TAB_TYPE_NORMAL, value) ~= 0 then
 			btn_general_pic:ShowWindow(1)
 		else
@@ -798,9 +798,19 @@ function UPDATE_CHATTYPE_VISIBLE_PIC(parent, value)
 		else
 			btn_group_pic:ShowWindow(0)
 		end
-	end
-	
 
+		if IMCAnd(CHAT_TAB_TYPE_SYSTEM, value) ~= 0 then
+			btn_system_pic:ShowWindow(1)
+		else
+			btn_system_pic:ShowWindow(0)
+		end
+
+		if IMCAnd(CHAT_TAB_TYPE_BATTLE, value) ~= 0 then
+			btn_battle_pic:ShowWindow(1)
+		else
+			btn_battle_pic:ShowWindow(0)
+		end
+	end
 end
 
 
@@ -849,13 +859,17 @@ function CHAT_TABSET_SELECT(index)
 	
 	UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, value);
 
-
 	local optionframe = ui.GetFrame("chat_option")
-	local tabgbox = GET_CHILD_RECURSIVELY(optionframe,"tabgbox"..(index + 1))
-
+	local tabgbox = GET_CHILD_RECURSIVELY(optionframe,"tabgbox"..(index + 1));
 	UPDATE_CHATTYPE_VISIBLE_PIC(tabgbox, value);
 end
 
+function UPDATE_CHAT_OPTION_VISIBLE_PIC(index)
+	local value = session.chat.GetTabConfigValueByIndex(index);
+	local optionframe = ui.GetFrame("chat_option");
+	local tabgbox = GET_CHILD_RECURSIVELY(optionframe, "tabgbox"..(index + 1));
+	UPDATE_CHATTYPE_VISIBLE_PIC(tabgbox, value);
+end
 
 function CHAT_FRAME_GET_NOW_SELECT_VALUE(frame)
 
@@ -908,8 +922,7 @@ function CHAT_TAB_OPTION_SAVE(frame)
 		return;
 	end
 
-	local index = tonumber(frame:GetUserValue("BTN_INDEX"))
-
+	local index = tonumber(frame:GetUserValue("BTN_INDEX"))	
 	local retbit = CHAT_FRAME_GET_NOW_SELECT_VALUE(frame)
 
 	if retbit == 0 then
@@ -931,17 +944,14 @@ function CHAT_TAB_OPTION_SAVE(frame)
 	else
 		local key = tonumber(string.sub(frame:GetName(), 11))
 		session.chat.UpdateMainFramePopupConfig(key, frame:GetWidth(), frame:GetHeight(), frame:GetX(), frame:GetY(), retbit)
-		UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, retbit)
+		UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, retbit);
 	end
 
 	ui.SaveChatConfig();
 end
 
-
 function CHAT_TAB_BTN_CLICK(parent, ctrl)
-
-	local name = ctrl:GetName()
-
+	local name = ctrl:GetName();
 	if string.find(name,"_pic") ~= nil then
 		ctrl:ShowWindow(0)
 	else
@@ -950,8 +960,7 @@ function CHAT_TAB_BTN_CLICK(parent, ctrl)
 	end
 
 	local frame = parent:GetTopParentFrame();
-
-	CHAT_TAB_OPTION_SAVE(frame)
+	CHAT_TAB_OPTION_SAVE(frame);
 end
 
 

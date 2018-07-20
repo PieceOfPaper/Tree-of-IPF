@@ -55,10 +55,12 @@ local function SET_BTN_ALPHA(frame, hittest, alpha)
 
 	local upBtn = GET_CHILD_RECURSIVELY(frame, "button_up")
     local downBtn = GET_CHILD_RECURSIVELY(frame, "button_down")
+    local upBtn_alpha = GET_CHILD_RECURSIVELY(frame, "button_up_alpha")
+    local downBtn_alpha = GET_CHILD_RECURSIVELY(frame, "button_down_alpha")
     upBtn:EnableHitTest(hittest)
-    upBtn:SetAlpha(alpha)
+    upBtn_alpha:SetAlpha(alpha)
     downBtn:EnableHitTest(hittest)
-    downBtn:SetAlpha(alpha)
+    downBtn_alpha:SetAlpha(alpha)
 end
 
 function SET_SWAP_REQUEST_FLAG_FALSE(frame)    
@@ -67,7 +69,7 @@ function SET_SWAP_REQUEST_FLAG_FALSE(frame)
     	return
     end
 
-    SET_BTN_ALPHA(frame, 1, 100)
+    SET_BTN_ALPHA(frame, 1, 0)
 end
 
 function REMOVE_CHARACTER_SCROLLBOX(frame)    

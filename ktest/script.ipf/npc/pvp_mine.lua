@@ -18,7 +18,14 @@ function SCR_PVP_MINE_TEAM_NPC_DIALOG(self, pc)
         return
     end
 
-    local select1 = ShowSelDlg(pc, 0, 'PVP_MINE_DLG4', ScpArgMsg("Yes"),ScpArgMsg("No"))
+    local itemCount = GetInvItemCount(pc, "misc_pvp_mine2");
+    local select1 = 0
+    if itemCount > 25000 then
+        select1 = ShowSelDlg(pc, 0, 'PVP_MINE_DLG3', ScpArgMsg("Yes"),ScpArgMsg("No"))
+    else
+        select1 = ShowSelDlg(pc, 0, 'PVP_MINE_DLG4', ScpArgMsg("Yes"),ScpArgMsg("No"))
+    end
+    
     if select1 == 1 then
         SCR_PVP_MINE_ENTER_NPC_DIALOG_CHANNEL_INIT(pc)
     end
@@ -129,7 +136,6 @@ function SCR_PVP_MINE_GETBUFF(pc)
         end
     end
 
-    ExecClientScp(pc, "SHOW_MINEPVP_SCOREBOARD()")
     local mgame = IsPlayingMGame(pc, "PVP_MINE")
     if mgame == 0 then
         return;
@@ -179,9 +185,14 @@ function SCR_PVP_MINE_GETBUFF(pc)
     AddBuff(pc, pc, team_buff, 1, 0, 0, 1);
     sleep(1000)
     SetPos(pc, start_pos[team_pos][1], start_pos[team_pos][2], start_pos[team_pos][3])
-    --ExecClientScp(pc, "SHOW_MINEPVP_SCOREBOARD()")
+    
     DO_MINEPVP_SCORE_UPDATE(pc)
-    SET_TARGETINFO_TO_MINE_POS()
+    
+    ExecClientScp(pc, "SET_TARGETINFO_TO_MINE_POS()")
+
+    ExecClientScp(pc, "SHOW_MINEPVPMYSCOREBOARD()")
+    ExecClientScp(pc, "MINEPVPMYSCOREBOARD_SET_MY_SCORE(0, "..aObj.PVP_MINE_MAX..")")
+    ExecClientScp(pc, "MINEPVPMYSCOREBOARD_SET_MY_SCORE(1, "..aObj.PVP_MINE_Kill..")")
 end
 
 -- buff1
@@ -421,22 +432,22 @@ function SCR_PVP_MINE_REWARD(cmd, curStage, eventInst, obj)
             if IsBuffApplied(list[j], 'PVP_MINE_BUFF1') == 'YES' then
                 if aObj.PVP_MINE_Kill > TOP_KILL_COUNT_A then -- top kill
                     TOP_KILL_COUNT_A = aObj.PVP_MINE_Kill
-                    TOP_KILL_NAME_A = list[j].Name
+                    TOP_KILL_NAME_A = GetTeamName(list[j])
                 end
 
                 if aObj.PVP_MINE_MAX > TOP_POINT_COUNT_A then -- top point
                     TOP_POINT_COUNT_A = aObj.PVP_MINE_MAX
-                    TOP_POINT_NAME_A = list[j].Name
+                    TOP_POINT_NAME_A = GetTeamName(list[j])
                 end
             elseif IsBuffApplied(list[j], 'PVP_MINE_BUFF2') == 'YES' then
                 if aObj.PVP_MINE_Kill > TOP_KILL_COUNT_B then -- top kill
                     TOP_KILL_COUNT_B = aObj.PVP_MINE_Kill
-                    TOP_KILL_NAME_B = list[j].Name
+                    TOP_KILL_NAME_B = GetTeamName(list[j])
                 end
 
                 if aObj.PVP_MINE_MAX > TOP_POINT_COUNT_B then -- top point
                     TOP_POINT_COUNT_B = aObj.PVP_MINE_MAX
-                    TOP_POINT_NAME_B = list[j].Name
+                    TOP_POINT_NAME_B = GetTeamName(list[j])
                 end
             end
 
@@ -455,18 +466,20 @@ function SCR_PVP_MINE_REWARD(cmd, curStage, eventInst, obj)
         end
     end
 
-    local bouns = 0;
     for i = 1, cnt do
-        if GetPcCIDStr(list[i]) == TOP_KILL_NAME_A or GetPcCIDStr(list[i]) == TOP_KILL_NAME_B then
-            bouns = 900
+        local bouns = 0;
+        if GetTeamName(list[i]) == TOP_KILL_NAME_A or GetTeamName(list[i]) == TOP_KILL_NAME_B then
+            bouns = 450
         end
 
-        if GetPcCIDStr(list[i]) == TOP_POINT_NAME_A or GetPcCIDStr(list[i]) == TOP_POINT_NAME_B then
-            bouns = bouns + 450
+        if GetTeamName(list[i]) == TOP_POINT_NAME_A or GetTeamName(list[i]) == TOP_POINT_NAME_B then
+            bouns = bouns + 900
         end
         
         RunScript('SCR_PVP_MINE_REWARD_RUN', list[i], bouns)
     end
+
+    --CLOSE_MINEPVPMYSCOREBOARD()
 end
 
 function SCR_PVP_MINE_REWARD_RUN(pc, bouns)
@@ -475,14 +488,20 @@ function SCR_PVP_MINE_REWARD_RUN(pc, bouns)
     local TEAM_A_COUNT = GetMGameValue(pc, "TEAM_A_COUNT")
     local TEAM_B_COUNT = GetMGameValue(pc, "TEAM_B_COUNT")
     local result = 'None'
-    local reward_win = 1500 + (aObj.PVP_MINE_MAX * 3) + bouns
-    local reward_lose = 300 + (aObj.PVP_MINE_MAX * 3) + bouns
+    local mine_max = aObj.PVP_MINE_MAX
+
+    if mine_max > 500 then
+        mine_max = 500
+    end
+
+    local reward_win = 1500 + (mine_max * 3)
+    local reward_lose = 300 + (mine_max * 3)
     local itemCount = GetInvItemCount(pc, "misc_pvp_mine1"); 
 
     if IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES' then
     local myTeamPoint = TEAM_A_COUNT;
     local rewardItemCnt = reward_win;
-    local beforePoint = aObj.PVP_MINE_MAX;
+    local beforePoint = mine_max;
     local tx = TxBegin(pc)
     TxEnableInIntegrate(tx);
     TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', 0);
@@ -497,7 +516,7 @@ function SCR_PVP_MINE_REWARD_RUN(pc, bouns)
                 TxGiveItem(tx, 'misc_pvp_mine2', reward_win, "PVP_MINE_TEAM_REWARD_WIN");
             result = 'Win'
         else
-                TxGiveItem(tx, 'misc_pvp_mine2', reward_lose, "PVP_MINE_TEAM_REWARD_LOSE");
+            TxGiveItem(tx, 'misc_pvp_mine2', reward_lose, "PVP_MINE_TEAM_REWARD_LOSE");
             result = 'Lose'
             myTeamPoint = TEAM_B_COUNT;
             rewardItemCnt = reward_lose;
@@ -517,6 +536,17 @@ function SCR_PVP_MINE_REWARD_RUN(pc, bouns)
         result = 'Draw'
         rewardItemCnt = reward_lose;
     end
+
+    if bouns > 0 then
+        if bouns == 450 then
+            TxGiveItem(tx, 'misc_pvp_mine2', 450, "PVP_MINE_MVP_REWARD_TopKiller");
+        elseif bouns == 900 then
+            TxGiveItem(tx, 'misc_pvp_mine2', 900, "PVP_MINE_MVP_REWARD_TopPoint");
+        elseif bouns == 1350 then
+            TxGiveItem(tx, 'misc_pvp_mine2', 1350, "PVP_MINE_MVP_REWARD_TopAll");
+        end
+    end
+
     local ret = TxCommit(tx)
         if ret == 'SUCCESS' then
             local start_pos = {
@@ -550,6 +580,28 @@ function SCR_PVP_MINE_REWARD_RUN(pc, bouns)
 
             PVPMineResultLog(pc, GET_PVP_MINE_TEAM_NAME(pc), result, myTeamPoint, 'misc_pvp_mine2', rewardItemCnt, beforePoint);
             PVPMinePointLog(pc, GET_PVP_MINE_TEAM_NAME(pc), 'Delete', 'None', beforePoint, 0, 0, 'misc_pvp_mine2', rewardItemCnt)
+
+			--KILL MVP
+			if GetTeamName(pc) == TOP_KILL_NAME_A or GetTeamName(pc) == TOP_KILL_NAME_B then
+				local itemCount = 0;
+				if result == "Win" then
+					itemCount = reward_win;
+				else
+					itemCount = reward_lose;
+				end
+				PVPMineMVPLog(pc, teamName, "TopKiller", "misc_pvp_mine2", itemCount)
+			end
+
+			--POINT MVP
+			if GetTeamName(pc) == TOP_POINT_NAME_A or GetTeamName(pc) == TOP_POINT_NAME_B then
+				local itemCount = 0;
+				if result == "Win" then
+					itemCount = reward_win;
+				else
+					itemCount = reward_lose;
+				end
+				PVPMineMVPLog(pc, teamName, "TopPoint", "misc_pvp_mine2", itemCount)		
+			end
 
             RemoveBuff(pc, 'PVP_MINE_BUFF1')
             RemoveBuff(pc, 'PVP_MINE_BUFF2')
@@ -680,24 +732,21 @@ end
 function SCR_PVP_MINE_BOSSKILL_RUN(pc)
     local aObj = GetAccountObj(pc)
     local beforePoint = aObj.PVP_MINE_MAX;
-    local afterPoint = 500;
-    if aObj.PVP_MINE_MAX < 500 then
-        local tx = TxBegin(pc);
-        if aObj.PVP_MINE_MAX + 50 > 500 then
-            TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', 500);
-        else
-            afterPoint = aObj.PVP_MINE_MAX + 50;
-            TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', aObj.PVP_MINE_MAX + 50);
-        end
-        local ret = TxCommit(tx);
+    local afterPoint = aObj.PVP_MINE_MAX + 50;
 
-        if ret == "SUCCESS" then
-            if IS_PC(pc) == true then
-                PlayEffect(pc, "F_fireworks001", 1)
-                PVPMinePointLog(pc, GET_PVP_MINE_TEAM_NAME(pc), 'Get', 'BossKill', afterPoint - beforePoint, afterPoint);
-            end
+    local tx = TxBegin(pc);
+    TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', afterPoint);
+    local ret = TxCommit(tx);
+
+    if ret == "SUCCESS" then
+        if IS_PC(pc) == true then
+            PlayEffect(pc, "F_fireworks001", 1)
+            PVPMinePointLog(pc, GET_PVP_MINE_TEAM_NAME(pc), 'Get', 'BossKill', afterPoint - beforePoint, afterPoint);
+
+            ExecClientScp(pc, "MINEPVPMYSCOREBOARD_SET_MY_SCORE(0, "..aObj.PVP_MINE_MAX..")")
         end
     end
+
 end
 
 function SCR_PVP_MINE_DEAD(self)
@@ -808,11 +857,15 @@ function SCR_PVP_MINE_DEAD_DROP(self, killer)
 end
 
 function SCR_PVP_MINE_KILL_COUNT(self, killer)
-    local aObj = GetAccountObj(killer)
     if IS_PC(killer) == true then
+        local aObj = GetAccountObj(killer)
         local tx = TxBegin(killer);
         TxSetIESProp(tx, aObj, 'PVP_MINE_Kill', aObj.PVP_MINE_Kill + 1);
         local ret = TxCommit(tx);
+
+        if ret == 'SUCCESS' then
+            ExecClientScp(killer, "MINEPVPMYSCOREBOARD_SET_MY_SCORE(1, "..aObj.PVP_MINE_Kill..")")
+        end
     end
 end
 
@@ -980,16 +1033,9 @@ function SCR_EXCHANGE_PVP_MINE_DIALOG(self,pc)
     local TEAM_A_COUNT = GetMGameValue(pc, "TEAM_A_COUNT")
     local TEAM_B_COUNT = GetMGameValue(pc, "TEAM_B_COUNT")
     local beforePoint = aObj.PVP_MINE_MAX;
-    local afterPoint = 500;
+    local afterPoint = aObj.PVP_MINE_MAX + point;
     local tx = TxBegin(pc)
-    if aObj.PVP_MINE_MAX < 500 then
-        if aObj.PVP_MINE_MAX  + point > 500 then
-            TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', 500);
-        else
-            afterPoint = aObj.PVP_MINE_MAX + point;
-            TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', afterPoint); 
-        end
-    end
+    TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', afterPoint); 
     TxTakeItem(tx, 'misc_pvp_mine1', itemCount, 'PVP_MINE_STONE');
     local ret = TxCommit(tx)
 
@@ -1004,6 +1050,7 @@ function SCR_EXCHANGE_PVP_MINE_DIALOG(self,pc)
         PlayEffect(pc, "F_buff_basic025_white_line", 1)
 
         DO_MINEPVP_SCORE_UPDATE(pc)
+        ExecClientScp(pc, "MINEPVPMYSCOREBOARD_SET_MY_SCORE(0, "..aObj.PVP_MINE_MAX..")")
         PVPMinePointLog(pc, GET_PVP_MINE_TEAM_NAME(pc), 'Get', 'TradeCrystal', afterPoint - beforePoint, afterPoint, itemCount);
         return
     end
@@ -1312,9 +1359,9 @@ function SCR_PVP_MINE_END_UI_OPEN(pc)
         end
     elseif TEAM_A_COUNT < TEAM_B_COUNT then
         if IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES' then
-           ExecClientScp(pc, 'PVP_MINE_RESULT_OPEN(0, 2, "'..MVP_COUNT_KILL_B..'", "'..MVP_NAME_KILL_B..'", "'..MVP_COUNT_MINE_B..'", "'..MVP_NAME_MINE_B..'")')
+           ExecClientScp(pc, 'PVP_MINE_RESULT_OPEN(1, 2, "'..MVP_COUNT_KILL_B..'", "'..MVP_NAME_KILL_B..'", "'..MVP_COUNT_MINE_B..'", "'..MVP_NAME_MINE_B..'")')
         else
-            ExecClientScp(pc, 'PVP_MINE_RESULT_OPEN(1, 1, "'..MVP_COUNT_KILL_A..'", "'..MVP_NAME_KILL_A..'", "'..MVP_COUNT_MINE_A..'", "'..MVP_NAME_MINE_A..'")')
+            ExecClientScp(pc, 'PVP_MINE_RESULT_OPEN(0, 1, "'..MVP_COUNT_KILL_A..'", "'..MVP_NAME_KILL_A..'", "'..MVP_COUNT_MINE_A..'", "'..MVP_NAME_MINE_A..'")')
         end
     else
         if IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' then

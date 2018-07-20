@@ -122,6 +122,12 @@ function SOLODUNGEON_SCOREBOARD_FILL_RANK_LIST(gbox, ctrlType)
             if scoreInfo ~= nil then
                 local teamNameText = GET_CHILD_RECURSIVELY(rankGbox, "teamNameText")
                 local teamName = rank .. "team"
+                
+                local mySession = session.GetMyHandle()
+                local myTeamName = info.GetFamilyName(mySession);
+                if myTeamName == scoreInfo.familyName then
+                    teamNameText:SetFontName(rankGbox:GetUserConfig("MYRANK_FONT"))
+                end
 
                 teamNameText:SetTextByKey("teamname", scoreInfo.familyName)
                 local jobCount = scoreInfo:GetJobHistoryCount()

@@ -354,6 +354,7 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 
 	-- 구매 처리 TX
 	local success = true;
+	local costumeItemGuid = nil;
 	for k,v in pairs(productList) do
 		local tx = TxBegin(pc);
 		local preDyeName = 'None';
@@ -366,7 +367,6 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 			TxTakeItemByObject(tx, dyeCouponItem, 1, 'BeautyShop');
 		end
 
-		local costumeItemGuid = nil;
 		local medalLog = 'BeautyShop';
 		local cmdIdx = 0;
 		if v.IDSpace == "Beauty_Shop_Hair" then

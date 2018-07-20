@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -4253,6 +4253,30 @@
 			<img name="cooltime" imgrect="1335 654 58 58"/>
 			<img name="selected" imgrect="1335 654 58 58"/>
 		</skin>
+		<skin name="invenslot_pic_magic" texture="\skin\pip_test_item.tga">
+			<img name="slot" imgrect="1243 324 58 58"/>
+			<img name="mouseon" imgrect="1335 654 58 58"/>
+			<img name="cooltime" imgrect="1335 654 58 58"/>
+			<img name="selected" imgrect="1335 654 58 58"/>
+		</skin>
+		<skin name="invenslot_pic_rare" texture="\skin\pip_test_item.tga">
+			<img name="slot" imgrect="1302 324 58 58"/>
+			<img name="mouseon" imgrect="1335 654 58 58"/>
+			<img name="cooltime" imgrect="1335 654 58 58"/>
+			<img name="selected" imgrect="1335 654 58 58"/>
+		</skin>
+		<skin name="invenslot_pic_unique" texture="\skin\pip_test_item.tga">
+			<img name="slot" imgrect="1243 383 58 58"/>
+			<img name="mouseon" imgrect="1335 654 58 58"/>
+			<img name="cooltime" imgrect="1335 654 58 58"/>
+			<img name="selected" imgrect="1335 654 58 58"/>
+		</skin>
+		<skin name="invenslot_pic_legend" texture="\skin\pip_test_item.tga">
+			<img name="slot" imgrect="1302 383 58 58"/>
+			<img name="mouseon" imgrect="1335 654 58 58"/>
+			<img name="cooltime" imgrect="1335 654 58 58"/>
+			<img name="selected" imgrect="1335 654 58 58"/>
+		</skin>
 		<skin name="accountwarehouse_slot" texture="\skin\pip_test.tga">
 			<img name="slot" imgrect="403 656 40 40"/>
 			<img name="mouseon" imgrect="403 210 50 50"/>
@@ -5738,6 +5762,7 @@
 		<image name="inven_remove_btn_cursoron" file="\skin\pip_test.tga" imgrect="1692 788 46 46"/>
 		<image name="inven_remove_btn_clicked" file="\skin\pip_test.tga" imgrect="1740 788 46 46"/>
 		<image name="inven_lock" file="\skin\pip_test.tga" imgrect="560 888 35 35" CMM_Caption="인벤자물쇠"/>
+		<image name="inven_lock2" file="\skin\pip_test.tga" imgrect="569 893 18 26" CMM_Caption="인벤자물쇠2"/>
 		<image name="guild_online" file="\skin\pip_test.tga" imgrect="1799 610 20 20" CMM_Caption="길드_온라인"/>
 		<image name="guild_offline" file="\skin\pip_test.tga" imgrect="1799 589 20 20" CMM_Caption="길드_오프라인"/>
 		<image name="v_mark" file="\skin\barrack.tga" imgrect="1067 330 84 84" CMM_Caption="브이마크"/>
@@ -7087,7 +7112,6 @@
 		<image name="nomalitem_tooltip_bg" file="\skin\tooltip_skin_3.tga" imgrect="743 0 110 110"/>
 		<image name="gemston_item_bg" file="\skin\tooltip_skin_3.tga" imgrect="71 1069 256 256"/>
 		<image name="socket_slot_bg" file="\skin\tooltip_skin_3.tga" imgrect="764 1224 123 115"/>
-		<image name="socket_slot_bg2" file="\skin\tooltip_skin_3.tga" imgrect="640 1224 123 115"/>
 		<image name="socket_slot_checkbox" file="\skin\tooltip_skin_3.tga" imgrect="906 141 35 35"/>
 		<image name="socket_slot_checkbox2" file="\skin\tooltip_skin_3.tga" imgrect="488 170 130 130"/>
 		<image name="socket_slot_check" file="\skin\tooltip_skin_3.tga" imgrect="906 177 35 35"/>

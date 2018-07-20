@@ -82,5 +82,6 @@ function INIT_ITEM(self, power)
 		power = IMCRandom(minPower, customPower);
 	end
 
+	--KnockDown_Init(self, self, power, hAngle, vAngle, 2, speed, 1);	
 	ItemKnockDown(self, power, hAngle, vAngle, speed);	
 end

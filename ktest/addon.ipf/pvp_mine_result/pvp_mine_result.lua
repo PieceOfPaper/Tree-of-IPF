@@ -23,15 +23,21 @@ function PVP_MINE_RESULT_INIT(frame, isWin, Team, killCount, killName, mineCount
     local drawBox = GET_CHILD_RECURSIVELY(frame, 'drawBox');
     local MyPc = GetMyPCObject();
     local aObj = GetMyAccountObj();
-    local getpoint = aObj.PVP_MINE_MAX * 3;
+    local mine_max = aObj.PVP_MINE_MAX
+
+    if mine_max > 500 then
+        mine_max = 500
+    end
+
+    local getpoint = mine_max * 3;
     local bouns = 0
 
     if MyPc.Name == killName then
-        bouns = 900
+        bouns = 450
     end
 
     if MyPc.Name == mineName then
-        bouns = bouns + 450
+        bouns = bouns + 900
     end
 
     if isWin == 1 then -- win, lose
@@ -59,7 +65,7 @@ function PVP_MINE_RESULT_INIT(frame, isWin, Team, killCount, killName, mineCount
     Point_MVP_Desc:SetTextByKey("PointName", mineName);
 
     local Point_MVP_Point = GET_CHILD_RECURSIVELY(frame, 'Point_MVP_Point');
-    Point_MVP_Point:SetTextByKey("Point_MVP_Point", mineCount);
+    Point_MVP_Point:SetTextByKey("PointCount", mineCount);
 
     if killCount == 0 then
         Kill_MVP_Desc:ShowWindow(0);

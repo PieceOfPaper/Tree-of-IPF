@@ -48,10 +48,9 @@ function CHAT_OPTION_TAB_BTN_CLICK(parent, ctrl)
 		retbit = session.chat.GetTabConfigValueByIndex(index-1);
 	end
 	
-	if retbit == 63 then
+	if retbit == MAX_CHAT_CONFIG_VALUE then
 		retbit = 0
 	end
-
 
 	session.chat.SetTabConfigByIndex(index-1, retbit)
 	local value = session.chat.GetTabConfigValueByIndex(index-1);
@@ -85,8 +84,7 @@ function CHAT_OPTION_OPEN(frame)
 	frame:SetUserValue("BEFORE_OPACITY", beforeOpacity);	
 end
 
-function CHAT_OPTION_APPLY(frame)
-	
+function CHAT_OPTION_APPLY(frame)	
 	local slide_opacity = GET_CHILD(frame, "slide_opacity", "ui::CSlideBar");
     session.chat.SetChatUIOpacity(slide_opacity:GetLevel())
 	CHAT_OPTION_OPEN(frame);
@@ -96,7 +94,6 @@ function CHAT_OPTION_APPLY(frame)
 end
 
 function CHAT_OPTION_CANCEL(frame)
-
 	frame:ShowWindow(0);
 end
 
@@ -186,8 +183,6 @@ function CHAT_OPTION_UPDATE_CHECKBOX(parent, ctrl)
 		end
 	elseif name == 'resurrectCheck' then
 		local resurrectCheck_party = GET_CHILD_RECURSIVELY(frame, 'resurrectCheck_party');
-		if ctrl:IsChecked() == 0 then
-			resurrectCheck_party:SetCheck(0);
-		end		
+		resurrectCheck_party:SetCheck(ctrl:IsChecked());
 	end
 end

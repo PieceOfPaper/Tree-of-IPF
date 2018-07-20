@@ -6,7 +6,7 @@ end
 
 function ITEMMSG_POP_QUEUE(frame)
 	local msgInfo = session.bindFunc.PopItemMsgQueue();
-	--msgInfo.cnt Î°ú Ïã§Î≤Ñ Ï†ÑÏ≤¥Í∞í Îì§Ïñ¥Ïò§ÎäîÍ≤ΩÏö∞ÎèÑ ÏûàÎäîÎìØ
+	--msgInfo.cnt ∑Œ Ω«πˆ ¿¸√º∞™ µÈæÓø¿¥¬∞ÊøÏµµ ¿÷¥¬µÌ
 	ITEMMSG_SHOW_GET_ITEM(frame, msgInfo.itemType, msgInfo.cnt);
 
 end
@@ -162,9 +162,7 @@ end
 
 
 function SHOW_GET_EXP(frame, exp)
-
 	local frame = ui.GetFrame("itemmsgqueue");
-
 
 	if frame:IsVisible() == 1 then
 		SET_TEXT_GET_EXP(frame, exp);
@@ -211,7 +209,11 @@ function SET_TEXT_GET_EXP(frame, exp)
 	local curValue = textExp:GetCurrentTextChangeEventValue();
 		
 	frame = tolua.cast(frame, "ui::CFrame");
-	textExp:SetTextByKey("Exp", exp);
+	if exp == -1 then
+		textExp:SetTextByKey("Exp", "Level Up")
+	else
+		textExp:SetTextByKey("Exp", exp);
+	end
 	
 	frame:ShowWindow(1);
 	frame:RunUpdateScript("ITEM_MSG_CHECK_HIDE", 0.01, 0.0, 0);
@@ -220,7 +222,6 @@ end
 
 
 function SHOW_GET_JOBEXP(frame, jobExp)
-
 	local frame = ui.GetFrame("itemmsgqueue");
 	if jobExp == nil or jobExp == '' or jobExp == '0' then
 		local textJobExp = GET_CHILD_RECURSIVELY(frame, "textJobExp", "ui::CRichText");
@@ -255,8 +256,8 @@ function SHOW_GET_JOBEXP(frame, jobExp)
 			textJobExp:ShowWindow(1)
 		end
 
-		textExp:SetTextByKey("Exp", exp);
-		SET_TEXT_GET_EXP(frame, jobExp);
+		textExp:SetTextByKey("Exp", 0);
+		SET_TEXT_GET_JOBEXP(frame, jobExp);
 	end
 
 end

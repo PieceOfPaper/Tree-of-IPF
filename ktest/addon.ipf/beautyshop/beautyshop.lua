@@ -299,7 +299,11 @@ function _BEAUTYSHOP_SELECT_ITEM(parentName, ctrlName)
 	BEAUTYSHOP_SELECT_ITEM(parent, ctrl, 'NoCheckDup');
 end
 
-function BEAUTYSHOP_PRE_SELECT_ITEM(frame, ctrlSet, parentName, controlName)
+-- 판매 아이템을 클릭 했을 때 동작.
+function BEAUTYSHOP_SELECT_ITEM(parent, control, argStr, argNum)	
+	local ctrlSet = control:GetParent()
+	local name = ctrlSet:GetName()
+	local frame = control:GetTopParentFrame(); -- beautyShop frame
 
 	-- 프리뷰 슬롯의 정보 초기화.
 	local gender = ctrlSet:GetUserIValue("GENDER");
@@ -313,7 +317,7 @@ function BEAUTYSHOP_PRE_SELECT_ITEM(frame, ctrlSet, parentName, controlName)
 	if equipType ~= "package"  then
 		local buyCaseClMsg, previewCaseClMsg = GET_ALLOW_DUPLICATE_ITEM_CLIENT_MSG(itemClassName);
 		if argStr ~= 'NoCheckDup' and previewCaseClMsg ~= '' then
-		local yesscp = string.format('_BEAUTYSHOP_SELECT_ITEM("%s", "%s")', parentName, controlName);
+		local yesscp = string.format('_BEAUTYSHOP_SELECT_ITEM("%s", "%s")', parent:GetName(), control:GetName());
 			ui.MsgBox(ClMsg(previewCaseClMsg), yesscp, 'None');
 			return false;
 		end
@@ -334,20 +338,6 @@ function BEAUTYSHOP_PRE_SELECT_ITEM(frame, ctrlSet, parentName, controlName)
 
 			BEAUTYSHOP_CLEAR_SLOT(slot);
 		end
-	end
-
-	return true
-end
-
--- 판매 아이템을 클릭 했을 때 동작.
-function BEAUTYSHOP_SELECT_ITEM(parent, control, argStr, argNum)	
-	local ctrlSet = control:GetParent()
-	local name = ctrlSet:GetName()
-	local frame = control:GetTopParentFrame(); -- beautyShop frame
-
-	-- 선행 처리
-	if BEAUTYSHOP_PRE_SELECT_ITEM(frame, ctrlSet, parent:GetName(), control:GetName()) == false then
-		return
 	end
 
 	-- 선택 처리
@@ -512,27 +502,8 @@ end
 
 -- 미리보기 버튼을 누를 때
 function BEAUTYSHOP_ITEM_PREVIEW(parent, control, strArg, numArg)
-	local ctrlSet = control:GetParent()
-	local name = ctrlSet:GetName()
-	local frame = control:GetTopParentFrame(); -- beautyShop frame
-
-	-- 선행 처리
-	if BEAUTYSHOP_PRE_SELECT_ITEM(frame, ctrlSet, parent:GetName(), control:GetName()) == false then
-		return
-	end
-
-	-- 선택 처리 : 미리보기 버튼이기 때문에 UserValue만 설정하고 실제 UI에는 나타내지 않음.
-	local select = frame:GetUserValue("SELECT");
-	frame:SetUserValue('CLICKED_ITEM_CTRLSET_NAME', ctrlSet:GetName());    
-	
-	-- 새로 선택된 항목 적용.
-	frame:SetUserValue("SELECT", name);
-	frame:SetUserValue("SUB_SELECT", "None") -- subitem 선택을 초기화 해줌.
-	
-	-- 처리
-	if beautyShopInfo.functionMap["POST_SELECT_ITEM"]  ~= nil then
-		beautyShopInfo.functionMap.POST_SELECT_ITEM(frame, control)
-	end
+	-- SELECT_ITEM과 동일한 효과
+	BEAUTYSHOP_SELECT_ITEM(parent, control, strArg, numArg)
 end
 
 -- 메인아이템에서 담기 버튼 누를때

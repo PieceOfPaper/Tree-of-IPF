@@ -31,6 +31,10 @@ function LEVEL_UP(self, level)
             CreateSessionObject(self, 'SSN_TUTO_GROUNDTOWER')
         end
     end
+    if level > 299 then
+        AddHelpByName(self, 'TUTO_ONE_PERSON_DUNGEON')
+        TUTO_PIP_CLOSE_QUEST(self)
+    end
     if level > 329 then
         AddHelpByName(self, 'TUTO_UNIQUE_RAID')
         TUTO_PIP_CLOSE_QUEST(self)

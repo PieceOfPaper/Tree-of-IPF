@@ -15650,9 +15650,9 @@ function SCR_BUFF_ENTER_HeavyGravity_Debuff(self, buff, arg1, arg2, over)
     	local abilPsychokino22 = GetAbility(caster, "Psychokino22")
     	if abilPsychokino22 ~= nil and abilPsychokino22.ActiveState == 1 then
     		if IS_PC(self) == true then 
-    			abilMoveSpeed = abilPsychokino22.Level * 10
+    			abilMoveSpeed = abilPsychokino22.Level * 2
     		elseif IS_PC(self) == false and self.Size == "S" or self.Size == "M" then
-    			abilMoveSpeed = abilPsychokino22.Level * 10
+    			abilMoveSpeed = abilPsychokino22.Level * 2
     		end
     	end
     end

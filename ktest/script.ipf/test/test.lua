@@ -7880,3 +7880,6 @@ function TEST_SOLO_DUNGEON_PLAY_LOG(pc)
     SoloDungeonMongoLog(pc, year, weekNumber, "Fail", stage, 0, "MonKillCnt", monKillCnt, "PlayTime", playTime, "Score", score);
     SoloDungeonMongoLog(pc, year, weekNumber, "End", stage, 1, "MonKillCnt", monKillCnt, "PlayTime", playTime, "Score", score, "Rank", rank);
 end
+function TEST_SOLO_DUNGEON_CLEAR_RANKING(pc, year, weekNum)
+    ClearSoloDungeonRankingForTest(pc, year, weekNum);
+end

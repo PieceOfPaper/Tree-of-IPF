@@ -52,7 +52,6 @@ function ON_JOB_EXP_UPDATE(frame, msg, str, exp, tableinfo)
 end
 
 function CHARBASEINFO_ON_MSG(frame, msg, argStr, argNum)
-
 	if msg == 'EXP_UPDATE'  or  msg == 'STAT_UPDATE' or msg == 'LEVEL_UPDATE' or msg == 'CHANGE_COUNTRY' then
 		local expGauge 			= GET_CHILD(frame, "exp", "ui::CGauge");
 		expGauge:SetPoint(session.GetEXP(), session.GetMaxEXP());
@@ -74,6 +73,8 @@ function CHARBASEINFO_ON_MSG(frame, msg, argStr, argNum)
 		levelTextObject:SetText('{@sti7}{s16}'..level);
 		if argNum ~= nil and argNum ~= 0 then
 			SHOW_GET_EXP(frame, argNum)
+		elseif msg == 'LEVEL_UPDATE' then
+			SHOW_GET_EXP(frame, -1)
 		end
 
 	end

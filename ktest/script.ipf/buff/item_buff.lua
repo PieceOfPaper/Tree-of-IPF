@@ -3503,3 +3503,21 @@ function SCR_BUFF_LEAVE_ALONE_DUNGEON_FIRST_BUFF(self, buff, arg1, arg2, over)
     self.RHP_BM = self.RHP_BM - 500
     self.RSP_BM = self.RSP_BM - 300
 end
+
+function SCR_BUFF_ENTER_pet_Lesserpanda_gray_buff(self, buff, arg1, arg2, over)
+    self.PATK_BM = self.PATK_BM + 25;
+    self.MATK_BM = self.MATK_BM + 25;
+end
+
+function SCR_BUFF_LEAVE_pet_Lesserpanda_gray_buff(self, buff, arg1, arg2, over)
+    self.PATK_BM = self.PATK_BM - 25;
+    self.MATK_BM = self.MATK_BM - 25;
+end
+
+function SCR_BUFF_ENTER_PET_GORO_BUFF(self, buff, arg1, arg2, over)
+    self.Widling_Atk_BM = self.Widling_Atk_BM + 120;
+end
+
+function SCR_BUFF_LEAVE_PET_GORO_BUFF(self, buff, arg1, arg2, over)
+    self.Widling_Atk_BM = self.Widling_Atk_BM - 120;
+end

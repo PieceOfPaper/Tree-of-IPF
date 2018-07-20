@@ -678,7 +678,7 @@
 			<picture name="material_questionmark" image="question_mark" layout_gravity="left top" rect="0 0 40 40" margin="10 10 0 0" stretch="true"/>
 			<richtext name="material_name" rect="0 0 80 30" margin="90 0 0 0" layout_gravity="left center" textalign="left center" resizebytext="true" fixwidth="false" format="미정" param1="미정" param2="미정" param3="미정" caption="미정" fontname="brown_18"/>
 			<richtext name="material_count" rect="0 0 30 30" margin="0 0 30 0" layout_gravity="right center" textalign="right center" resizebytext="true" fixwidth="false" format="%s%s{/} / %s{/}" param1="color" param2="curCount" param3="needCount" fontname="brown_18"/>
-		<labelline name="labelline" skin="labelline_def_2" margin="10 0 0 0" rect="0 0 390 1" layout_gravity="left bottom"/>
+			<labelline name="labelline" skin="labelline_def_2" margin="10 0 0 0" rect="0 0 390 1" layout_gravity="left bottom"/>
 		</controls>
 	</controlset>
 	<controlset name="eachmaterial_in_itemoptionextract" hittest="true" width="430" height="70" skin="None" hittestset="true" draw="true" stateskin="false">
@@ -1365,7 +1365,7 @@
 		<controls>
 			<picture name="Picture" stretch="ture" rect="2 2 64 64"/>
 		</controls>
-		</controlset>
+	</controlset>
 	<controlset name="Roadmap_Line01" toggle="false" hittest="true" width="298" height="28" caption="로드맵에서 사용하는 라인">
 		<controls>
 			<picture name="Picture" rect="2 2 294 24"/>
@@ -3107,9 +3107,9 @@
 			<button name="txt_key" margin="215 0 0 0" rect="0 0 230 55" layout_gravity="left top" skin="base_btn" format="{@st68}%s" param1="value" param1_def="MoveToRight" textalign="center center" LBtnUpScp="KEYCONFIG_EDIT_START"/>
 		</controls>
 	</controlset>
-	<controlset name="inv_itemlock" hittest="true" width="35" height="35" hittestset="false" draw="false" skin="none">
+	<controlset name="inv_itemlock" hittest="true" width="18" height="26" hittestset="false" draw="false" skin="none">
 		<controls>
-			<picture name="image" margin="0 0 0 0" rect="0 0 35 35" hittest="false" image="inven_lock" stretch="false" changecursor="false" layout_gravity="left center"/>
+			<picture name="image" margin="0 0 0 0" rect="0 0 18 26" hittest="false" image="inven_lock2" stretch="false" changecursor="false" layout_gravity="left center"/>
 		</controls>
 	</controlset>
 	<controlset name="barrackList" hittest="true" width="500" height="125" hittestset="false" draw="true" skin="test_skin_01_btn">
@@ -3903,8 +3903,7 @@
 			</pagecontroller>
 		</controls>
 	</controlset>
-
-<!-- 팀배틀리그 랭킹 -->
+	<!-- 팀배틀리그 랭킹 -->
 	<controlset name="team_battle_rank_page" hittest="true" width="530" height="750" hittestset="false" draw="false" skin="None" resizebyresolution="false">
 		<c RANK_PAGE_FONT="{@st42}"/>
 		<controls>
@@ -3925,16 +3924,16 @@
 	<controlset name="solodungeon_page_rank" hittest="true" width="1160" height="40" draw="true" skin="None" resizebyresolution="false" hittestset="false">
 		<userconfig/>
 		<controls>
-			<groupbox name="jobTreeGbox" rect="0 0 300 25" margin="485 0 0 0 " layout_gravity="left center" hittestbox="true" scrollbar="false" skin="None" stretch="true"/>
-			<richtext name="rankText" rect="0 0 100 25" margin="30 0 0 0" layout_gravity="left center" textalign="center center" fontname="white_18_ol" format="%s" param1="rank" param1_def="..."/>
-			<richtext name="teamNameText" rect="0 0 100 25" margin="190 0 0 0" layout_gravity="left center" textalign="center center" fontname="white_18_ol" format="%s" param1="teamname" param1_def="..."/>
-			<richtext name="charLevelText" rect="0 0 100 25" margin="365 0 0 0" layout_gravity="left center" textalign="center center" fontname="white_18_ol" format="%s" param1="charlevel" param1_def="..."/>
-			<richtext name="maxStageText" rect="0 0 100 25" margin="915 0 0 0" layout_gravity="left center" textalign="center center" fontname="white_18_ol" format="%s" param1="maxstage" param1_def="..."/>
-			<richtext name="killMonsterText" rect="0 0 100 25" margin="1085 0 0 0" layout_gravity="left center" textalign="center center" fontname="white_18_ol" format="%s" param1="killmonster" param1_def="..."/>
+			<groupbox name="jobTreeGbox" rect="0 0 390 30" margin="456 0 0 0 " layout_gravity="left center" hittestbox="true" scrollbar="false" skin="None" stretch="true"/>
+			<richtext name="rankText" rect="0 0 30 25" margin="20 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="rank" param1_def="..."/>
+			<richtext name="teamNameText" rect="0 0 150 25" margin="92 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="false" fontname="white_18_ol" format="%s" param1="teamname" param1_def="..."/>
+			<richtext name="charLevelText" rect="0 0 100 25" margin="310 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="charlevel" param1_def="..."/>
+			<richtext name="maxStageText" rect="0 0 100 25" margin="880 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="maxstage" param1_def="..."/>
+			<richtext name="killMonsterText" rect="0 0 100 25" margin="1035 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="killmonster" param1_def="..."/>
 		</controls>
 	</controlset>
 	<controlset name="solodungeon_result_rank" hittest="true" width="335" height="68" hittestset="false" draw="false" skin="None" resizebyresolution="false">
-		<userconfig RANK_IMAGE_1="solodungeon_rank_img_1" RANK_IMAGE_2="solodungeon_rank_img_2" RANK_IMAGE_3="solodungeon_rank_img_3" RANK_IMAGE_4="solodungeon_rank_img_4" RANK_IMAGE_5="solodungeon_rank_img_5" RANK_IMAGE_6="solodungeon_rank_img_6" RANK_IMAGE_7="solodungeon_rank_img_7" RANK_IMAGE_8="solodungeon_rank_img_8" RANK_IMAGE_9="solodungeon_rank_img_9" RANK_IMAGE_10="solodungeon_rank_img_10"/>
+		<userconfig RANK_IMAGE_1="solodungeon_rank_img_1" RANK_IMAGE_2="solodungeon_rank_img_2" RANK_IMAGE_3="solodungeon_rank_img_3" RANK_IMAGE_4="solodungeon_rank_img_4" RANK_IMAGE_5="solodungeon_rank_img_5" RANK_IMAGE_6="solodungeon_rank_img_6" RANK_IMAGE_7="solodungeon_rank_img_7" RANK_IMAGE_8="solodungeon_rank_img_8" RANK_IMAGE_9="solodungeon_rank_img_9" RANK_IMAGE_10="solodungeon_rank_img_10" MYRANK_FONT="orange_18_b_ol_ds"/>
 		<controls>
 			<groupbox name="rankGbox" rect="0 0 320 71" margin="0 0 0 0 " layout_gravity="center center" hittestbox="false" scrollbar="false" skin="test_skin_01"/>
 			<picture name="rankImage" parent="rankGbox" rect="0 0 60 61" margin="4 4 0 0" layout_gravity="left top" image="None" stretch="true"/>
@@ -4214,7 +4213,7 @@
 			<button name="btnStaticTP" rect="0 0 100 34" margin="3 0 0 0" layout_gravity="left bottom" hittestbox="false" draw="true" hittest="false" skin="categoryselect_skin" textalign="left center" fontname="black_16_b"/>
 			<richtext name="nxp" rect="0 0 80 21" parent="btnStaticTP" margin="4 -1 0 0" layout_gravity="left center" format="{img icon_item_tospoint 20 20}{s5}{/}{@st66d}%s{/}" param1="value" param1_def="999" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
 			<button name="btnToBasket" rect="0 0 40 30" texttooltip="{ol}장바구니에 담기" margin="0 0 0 0" layout_gravity="right bottom" image="shopping_basket_btn" scrollbar="false" hittest="true" caption="{@st42b}{s18}{/}" fontname="black_16_b" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="BEAUTYSHOP_SUBITEM_TO_BASKET_PREPROCESSOR"/>
-		<picture name="isSale_mark" margin="0 0 0 0" rect="0 0 72 34" hittest="false" image="sale_mark_K" changecursor="false" layout_gravity="left top"/>
+			<picture name="isSale_mark" margin="0 0 0 0" rect="0 0 72 34" hittest="false" image="sale_mark_K" changecursor="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
 	<controlset name="beautyshop_item" hittest="true" width="286" height="350" hittestset="true" draw="true" skin="test_skin_01_btn" stateskin="false">
@@ -4230,7 +4229,7 @@
 			<richtext name="nxp" margin="0 0 20 100" rect="0 0 217 30" caption="999" textalign="right top" omitbywidth="false" fixwidth="false" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16_b" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right bottom"/>
 			<richtext name="desc" margin="20 250 0 0" rect="0 0 260 24" caption="XXXXXXXXXXXXXXXXXXXXXXXXX" textalign="left top" fixwidth="true" spacey="0" maxwidth="0" fontname="brown_16_b" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="tradeable" margin="20 0 0 55" rect="0 0 260 24" caption="거래 불가" textalign="left top" omitbywidth="false" fixwidth="false" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left bottom"/>
-			<button name="previewBtn" rect="0 0 130 42" margin="0 0 140 10" layout_gravity="right bottom" skin="test_pvp_btn" scrollbar="false" hittest="true" format="{@st42b}{s16}%s{/}" param1="name" param1_def="미리보기" fontname="black_16" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="BEAUTYSHOP_ITEM_PREVIEW"/>			
+			<button name="previewBtn" rect="0 0 130 42" margin="0 0 140 10" layout_gravity="right bottom" skin="test_pvp_btn" scrollbar="false" hittest="true" format="{@st42b}{s16}%s{/}" param1="name" param1_def="미리보기" fontname="black_16" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="BEAUTYSHOP_ITEM_PREVIEW"/>
 			<button name="buyBtn" rect="0 0 130 42" margin="0 0 10 10" layout_gravity="right bottom" skin="test_red_button" scrollbar="false" hittest="true" caption="{@st42b}{s16}담기{/}" fontname="black_16_b" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="BEAUTYSHOP_ITEM_TO_BASKET_PREPROCESSOR"/>
 			<picture name="premiumPic" rect="0 0 70 23" margin="0 60 0 0" layout_gravity="center top" image="premium_img" stretch="true"/>
 			<picture name="isNew_mark" margin="0 60 0 0" rect="0 0 72 34" hittest="false" image="new_mark_K" changecursor="false" layout_gravity="left top"/>
@@ -4259,7 +4258,8 @@
 			<richtext name="typeText" rect="0 0 100 30" margin="80 45 0 0 " layout_gravity="left top" caption="타입" fontname="brown_16"/>
 			<button name="previewBtn" rect="0 0 100 30" margin="0 0 10 10" layout_gravity="right bottom" skin="test_pvp_btn" caption="{@st42b}미리보기" LBtnUpScp="PACKAGELIST_ITEM_PREVIEW_CLICK"/>
 		</controls>
-	</controlset>	<controlset name="beauty_coupon_stamp" hittest="true" width="75" height="75" skin="test_skin_01_btn" hittestset="false" draw="false">
+	</controlset>
+	<controlset name="beauty_coupon_stamp" hittest="true" width="75" height="75" skin="test_skin_01_btn" hittestset="false" draw="false">
 		<controls>
 			<groupbox name="bg" rect="0 0 75 75" margin="0 0 0 0" layout_gravity="center center" skin="test_frame_low" draw="false" scrollbar="false"/>
 			<picture name="stampPic2" parent="bg" rect="0 0 32 32" margin="0 0 0 0" layout_gravity="center center" image="barbershop_couponbook_slot" stretch="false"/>

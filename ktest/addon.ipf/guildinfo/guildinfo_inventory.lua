@@ -129,7 +129,7 @@ function ON_GUILD_ASSET_LOG(frame, msg, argStr, argNum)
                 descText:SetText(text);
             else
                 dateText:SetTextByKey('img', WITHDRAW_IMG);
-                dateText:SetMargin(18, 0, 0, 0)
+                dateText:SetMargin(18, 3, 0, 0)
                 depositText:ShowWindow(0);
                 useText:SetTextByKey('amount', GET_COMMAED_STRING(guildLog:GetAmount()));
                 descText:SetText(ClMsg('GuildAssetLog_'..guildLog:GetDesc()));

@@ -17,7 +17,7 @@ end
 function SET_MONB_ALWAYS_VISIBLE(handle, enable)
 
     session.ui.SetAlwaysVisible(handle, enable);
-
+    
 end
 
 function DRAW_DEBUFF_UI_EFECT(handle, buffType)
@@ -95,10 +95,39 @@ function ON_MON_ENTER_SCENE(frame, msg, str, handle)
     SHOW_MONB_TARGET(handle, 0.0);
 end
 
+function IS_SHOW_MONB_FRAME(frame, handle)
+
+    -- 설정먼저 확인
+    local isPartySummonMon = frame:GetUserValue("IS_PARTY_SUMMON_MON")
+    local isShowPartySummonMon = config.GetXMLConfig("ShowSummonedMonName")
+    if isPartySummonMon == "YES" then 
+        if isShowPartySummonMon == 1 then
+            return true
+        else
+            return false
+        end
+    end
+
+    -- allwaysvisible 확인
+    if session.ui.IsAlwaysVisible(handle) == 1 then
+        return true
+    end
+   
+    return false
+end
+
 function UPDATE_MONB(handle)
+   
     local frame= ui.GetFrame("monb_"..handle);  
     if frame ~= nil then
-        UPDATE_MONB_HP(frame, handle);
+        local isShow = IS_SHOW_MONB_FRAME(frame, handle)
+        if isShow == true then
+            frame:ShowWindow(1);
+            UPDATE_MONB_HP(frame, handle);
+        else 
+            frame:ShowWindow(0);
+            return;
+        end
     end
     if #ZONENAME_LIST == 0 then
         local mapClassCount = GetClassCount('Map')
@@ -162,16 +191,21 @@ function OPEN_MONB_FRAME(frame, handle)
         return
     end
 
-	local isPartySummonMon = frame:GetUserValue("IS_PARTY_SUMMON_MON")
-	local isShowPartySummonMon = config.GetXMLConfig("ShowSummonedMonName")
-    if frame ~= nil and frame:IsVisible() == 0 and session.world.IsDirectionMode() == false and IS_IN_EVENT_MAP() == false then
-		frame:ShowWindow(1);
-        ui.UpdateCharBasePos(handle);
-	end 
+    local isPartySummonMon = frame:GetUserValue("IS_PARTY_SUMMON_MON")
+    local isShowPartySummonMon = config.GetXMLConfig("ShowSummonedMonName")
 
-	if isPartySummonMon == "YES" and isShowPartySummonMon == 0 then
-		frame:ShowWindow(0);
-	end
+    -- 파티원이 소환한 몬스터의 경우 보이기/안보이가 우선이다.
+    if isPartySummonMon == "YES" then
+        if isShowPartySummonMon == 0 then
+            frame:ShowWindow(0);
+        else
+            frame:ShowWindow(1);
+        end
+        
+    elseif frame:IsVisible() == 0 and session.world.IsDirectionMode() == false and IS_IN_EVENT_MAP() == false then
+        frame:ShowWindow(1);
+        ui.UpdateCharBasePos(handle);
+    end
 end
 
 function ON_MONB_TARGET_SET(msgFrame, msg, argStr)

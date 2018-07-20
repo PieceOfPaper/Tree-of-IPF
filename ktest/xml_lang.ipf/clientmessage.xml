@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
@@ -202,9 +202,6 @@
 		<Class ClassID="2234" ClassName="ShoppingBag" Data="구매 목록"/>
 		<Class ClassID="2235" ClassName="ReallyUseAbilityPointResetItem" Data="사용시 현재 캐릭터가 가진 모든 특성을 초기화 하며 특성 포인트가 환급됩니다.{nl}계속 진행하시겠습니까?"/>
 		<Class ClassID="2236" ClassName="CannotEquipState" Data="착용 중인 장비가 있어 사용할 수 없습니다."/>
-		<Class ClassID="2237" ClassName="AlreadyReserveProperty" Data="이미 변경 시도가 있었던 아이템입니다. 옵션을 변경할 지 선택해주세요."/>
-		<Class ClassID="2238" ClassName="CannotReleaseLockByDisableContents" Data="잠금 해제를 할 수 없는 아이템입니다."/>
-		<Class ClassID="2239" ClassName="NotExist{ITEM}" Data="[{ITEM}] 아이템이 없습니다."/>
 		<Class ClassID="2240" ClassName="NotExistRefundAbilityPoint" Data="습득한 특성이 없어 사용할 수 없습니다."/>
 	<Class ClassID="2232" ClassName="FailToSwapItemInWarehouse" Data="창고에 아이템 이동이 실패했습니다. 잠시 후 다시 시도해주세요."/>
 		</Category>
@@ -983,13 +980,9 @@
 		<Class ClassID="10497" ClassName="RegisterItemAtMarketPC" Data="마켓에 등록한 아이템이 있는 캐릭터입니다."/>
     <Class ClassID="10498" ClassName="MoveDownCharSlot" Data="캐릭터 아래로 이동"/>
     <Class ClassID="10499" ClassName="MoveUpCharSlot" Data="캐릭터 위로 이동"/>
-		<Class ClassID="10500" ClassName="ChangeRevertRandomOption{ItemName}" Data="{@st66}{b}{s18}{#8e0000}[{ItemName}]{/}{/}{/}{s18}의 옵션을 {nl}아래와 같이 변경하겠습니까?"/>
 		<Class ClassID="10501" ClassName="ReallyWarp10000{PRICE}" Data="워프하시겠습니까?{nl}{ol}{PRICE} 실버{/}"/>
 		<Class ClassID="10502" ClassName="ReallyWarp100000{PRICE}" Data="워프하시겠습니까?{nl}{ol}{#ffcc00}{PRICE} 실버{/}"/>
 		<Class ClassID="10503" ClassName="ReallyWarp1000000{PRICE}" Data="워프하시겠습니까?{nl}{ol}{#ff6000}{PRICE} 실버{/}"/>
-		<Class ClassID="10504" ClassName="DoUnrevertRandomReset" Data="신비한 돋보기는 소모되며 아이템 옵션이 변경된 후 되돌릴 수 없습니다.{nl}진행하시겠습니까?"/>
-		<Class ClassID="10505" ClassName="DoRevertRandomReset" Data="장인의 돋보기는 소모되며 옵션 변경 전 후를 선택 할 수 있습니다.{nl}진행하시겠습니까?"/>
-		<Class ClassID="10506" ClassName="CannotCloseRandomReset" Data="옵션을 아직 선택하지 않았습니다. 옵션을 선택해 주십시오."/>
     <Class ClassID="10507" ClassName="FailToCreateCharacter" Data="캐릭터 생성에 실패했습니다. 잠시 후 다시 시도해 주세요"/>
 	</Category>
 	<Category Name="FoodTable">
@@ -4700,7 +4693,7 @@
 		<Class ClassID="27970" ClassName="EVENT_1805_SLATE_HINT11" Data="테넷 화원 : 두 개의 석조 기둥 사이"/>
 		<Class ClassID="27971" ClassName="EVENT_1805_SLATE_HINT12" Data="테넷 화원 : 망가진 철조망 근처"/>
 		<Class ClassID="27972" ClassName="EVENT_1805_SLATE_HINT13" Data="테넷 성당 지하 1층 : 붉은 소파 옆"/>
-		<Class ClassID="27973" ClassName="EVENT_1805_SLATE_HINT14" Data="테넷 성당 지하 2층 : 음악을 연주할 수 있는 곳"/>
+		<Class ClassID="27973" ClassName="EVENT_1805_SLATE_HINT14" Data="테넷 성당 지하 1층 : 음악을 연주할 수 있는 곳"/>
 		<Class ClassID="27974" ClassName="EVENT_1805_SLATE_HINT15" Data="렘파라사 연못 : 폭포와 다리가 만나는 곳"/>
 		<Class ClassID="27975" ClassName="EVENT_1805_SLATE_HINT16" Data="렘파라사 연못 : 누군가의 일기를 볼 수 있는 곳"/>
 		<Class ClassID="27976" ClassName="EVENT_1805_SLATE_HINT17" Data="덧댄다리 숲 : 접근하면 다칠 위험이 있는 곳"/>
@@ -4723,6 +4716,7 @@
 		<Class ClassID="27993" ClassName="EVENT_1805_SLATE_MSG6" Data="땅속에서 석판을 찾았습니다{nl}레나에게 돌아가 석판을 전달하고 보상을 받으세요!"/>
 		<Class ClassID="27994" ClassName="EVENT_1805_SLATE_MSG7" Data="클라페다 바이보라의 날개 레나를 찾아가세요"/>
 		<Class ClassID="27995" ClassName="EVENT_1805_SLATE_MSG8" Data="석판을 모두 찾으셨습니다"/>
+		<Class ClassID="27996" ClassName="EVENT_1805_SLATE_MSG9" Data="기존 석판 확인"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5864,7 +5858,7 @@
 		<Class ClassID="50799" ClassName="EXORCIST_QUEST_ADVEN_BUFF2_GET1" Data="여신들의 권능 버프를 획득했습니다{nl}버프를 소지한 상태에서 구마에 성공하면 5점을 획득합니다"/>
 		<Class ClassID="50800" ClassName="EXORCIST_JOB_QUEST_FAIL1" Data="획득 점수가 400점 미만이여서 1단계 엑소시트의 구마 퀘스트를 실패했습니다"/>
 		<Class ClassID="50801" ClassName="EXORCIST_JOB_QUEST_FAIL2" Data="획득 점수가 450점 미만이여서 1단계 엑소시트의 구마 퀘스트를 실패했습니다"/>
-		<Class ClassID="50802" ClassName="EXORCIST_JOB_QUEST_FAIL3" Data="획득 점수가 5000점 미만이여서 1단계 엑소시트의 구마 퀘스트를 실패했습니다"/>
+		<Class ClassID="50802" ClassName="EXORCIST_JOB_QUEST_FAIL3" Data="획득 점수가 500점 미만이여서 1단계 엑소시트의 구마 퀘스트를 실패했습니다"/>
 		<Class ClassID="50803" ClassName="EXORCIST_JOBQ_CRYSTAL" Data="퇴마의 보석"/>
 		<Class ClassID="50804" ClassName="EXORCIST_JOB_HIDDEN_ITEM_MSG1" Data="크리비 마스터에게로 가 대화하세요"/>
 		<Class ClassID="50805" ClassName="EXORCIST_JOB_HIDDEN_ITEM_MSG2" Data="모치아 숲, 마나하스, 기원의 숲, 대성당 참회로, 래스보이 호숫가에 있는 여신상에 봉헌품 아이템을 사용해 봉헌 기도를 올리세요"/>
@@ -5907,7 +5901,7 @@
 		<Class ClassID="50845" ClassName="GM_WHITETREES_NPC1_MSG2" Data="자루더미 수집 중"/>
 		<Class ClassID="50846" ClassName="GM_WHITETREES_NPC1_MSG3" Data="자루더미를 획득했습니다"/>
 		<Class ClassID="50847" ClassName="GM_WHITETREES_NPC1_MSG4" Data="폭탄을 획득했습니다"/>
-		<Class ClassID="50848" ClassName="GM_WHITETREES_NPC1_SEL2" Data="자루더미를 전달하기"/>
+		<Class ClassID="50848" ClassName="GM_WHITETREES_NPC1_SEL2" Data="폭탄을 만들어달라고 한다"/>
 		<Class ClassID="50849" ClassName="GM_WHITETREES_NPC1_SEL3" Data="발리스타를 만들어달라고 한다"/>
 		<Class ClassID="50850" ClassName="GM_WHITETREES_NPC1_SEL4" Data="터렛을 만들어달라고 한다"/>
 		<Class ClassID="50851" ClassName="GM_WHITETREES_NPC1_SEL5" Data="방책을 만들어달라고 한다"/>
@@ -5936,6 +5930,7 @@
 		<Class ClassID="50874" ClassName="GM_WHITETREES_NPC1_SEL7" Data="오벨리스크가 어디있는지 묻는다"/>
 		<Class ClassID="50885" ClassName="EXORCIST_UNLOCK_DIE_MSG" Data="사악한 령에 의해 죽어 구마 의식을 하기  전으로 돌아갑니다{nl}불길한 구슬에 구마 의식을 진행하세요"/>
 		<Class ClassID="50899" ClassName="EXORCIST_JOB_HIDDEN_ITEM_MSG31" Data="프리스트 마스터에게서 성수와 기슬로티스를 구입하세요"/>
+		<Class ClassID="50931" ClassName="GM_WHITETREES_BASIC1" Data="닫기"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>

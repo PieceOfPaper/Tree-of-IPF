@@ -55,9 +55,9 @@ end
 
 function SCR_GM_WHITETREES_NPC2_DIALOG(self, pc)
     if GetInvItemCount(pc, "GM_WHITETREES_OBJ_ITEM1") >= 1 then
-        local sel = ShowSelDlg(pc, 0, "GM_WHITETREES_NPC1_DLG4", ScpArgMsg("GM_WHITETREES_NPC1_SEL2"))
+        local sel = ShowSelDlg(pc, 0, "GM_WHITETREES_NPC1_DLG4", ScpArgMsg("GM_WHITETREES_NPC1_SEL2"), ScpArgMsg("GM_WHITETREES_BASIC1"))
         if sel == 1 then
-            RunScript("GIVE_ITEM_TX", pc, "GM_WHITETREES_OBJ_ITEM2/1","GM_WHITETREES_OBJ_ITEM1/1", "GM_WHITETREES_56_1")
+            RunScript("GIVE_TAKE_ITEM_TX", pc, "GM_WHITETREES_OBJ_ITEM2/1","GM_WHITETREES_OBJ_ITEM1/1", "GM_WHITETREES_56_1")
             SendAddOnMsg(pc, "NOTICE_Dm_GetItem", ScpArgMsg("GM_WHITETREES_NPC1_MSG4"), 3)
             ShowOkDlg(pc, "GM_WHITETREES_NPC1_DLG5", 1)
         end
@@ -89,7 +89,7 @@ end
 function SCR_GM_WHITETREES_NPC7_DIALOG(self, pc)
     --네이글스--
     if GetInvItemCount(pc, "GM_WHITETREES_OBJ_ITEM1") >= 1 then
-        local sel = ShowSelDlg(pc, 0, "GM_WHITETREES_NPC7", ScpArgMsg("GM_WHITETREES_NPC1_SEL3"), ScpArgMsg("GM_WHITETREES_NPC1_SEL4"), ScpArgMsg("GM_WHITETREES_NPC1_SEL5"))
+        local sel = ShowSelDlg(pc, 0, "GM_WHITETREES_NPC7", ScpArgMsg("GM_WHITETREES_NPC1_SEL3"), ScpArgMsg("GM_WHITETREES_NPC1_SEL4"), ScpArgMsg("GM_WHITETREES_NPC1_SEL5"), ScpArgMsg("GM_WHITETREES_BASIC1"))
         if sel == 1 then
             RunScript("GIVE_TAKE_ITEM_TX", pc, "GM_WHITETREES_OBJ_ITEM3/1","GM_WHITETREES_OBJ_ITEM1/1",  "GM_WHITETREES_56_1")
             SendAddOnMsg(pc, "NOTICE_Dm_GetItem", ScpArgMsg("GM_WHITETREES_NPC1_MSG5"), 3)
@@ -549,7 +549,11 @@ function GM_WHITETREES_GIMMICK_MON2_HIT(self, from, skl, damage, ret)
         local obj, cnt = SelectObject(self, 100, "ALL")
         if cnt >= 1 then
             for i = 1, cnt do
-                TakeDamage(obj[i], obj[i], "None", 1000, "Melee", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_BLOW);
+                if obj[i] == "GM_Obelisk" then
+                    TakeDamage(obj[i], obj[i], "None", 700000, "Melee", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_BLOW);
+                else
+                    TakeDamage(obj[i], obj[i], "None", 10000, "Melee", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_BLOW);
+                end
             end
         end
         Kill(self)

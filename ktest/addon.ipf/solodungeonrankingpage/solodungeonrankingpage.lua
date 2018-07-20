@@ -1,6 +1,7 @@
 ﻿function SOLODUNGEONRANKINGPAGE_ON_INIT(addon, frame)
     addon:RegisterMsg("DO_SOLODUNGEON_RANKINGPAGE_OPEN", "SOLODUNGEON_RANKINGPAGE_OPEN");
-
+    addon:RegisterOpenOnlyMsg("SOLO_DUNGEON_RANKING_RESET", "ON_SOLO_DUNGEON_RANKING_RESET");
+    
    
 
 end
@@ -137,7 +138,7 @@ function SOLODUNGEON_RANKINGPAGE_FILL_RANK_LIST(gbox, ctrlType, week)
         if jobCls ~= nil then
             local icon = jobCls.Icon
             if icon ~= nil then
-                local rankImage = jobTreeGbox:CreateOrGetControl("picture", "rankImage_" .. i + 1, 30 * i, 0, 30, 30)
+                local rankImage = jobTreeGbox:CreateOrGetControl("picture", "rankImage_" .. i + 1, 35 * i, 0, 35, 35)
                 rankImage = tolua.cast(rankImage, "ui::CPicture")
                 rankImage:SetImage(icon)
                 rankImage:SetEnableStretch(1);
@@ -186,7 +187,7 @@ function SOLODUNGEON_RANKINGPAGE_FILL_RANK_CTRL(rankGbox, ctrlType, rank, week)
         if jobCls ~= nil then
             local icon = jobCls.Icon
             if icon ~= nil then
-                local rankImage = jobTreeGbox:CreateOrGetControl("picture", "rankImage_" .. i + 1, 30 * i, 0, 30, 30)
+                local rankImage = jobTreeGbox:CreateOrGetControl("picture", "rankImage_" .. i + 1, 35 * i, 0, 35, 35)
                 rankImage = tolua.cast(rankImage, "ui::CPicture")
                 rankImage:SetImage(icon)
                 rankImage:SetEnableStretch(1);
@@ -273,3 +274,6 @@ function SOLODUNGEON_RANKINGPAGE_GET_REWARD()
 end
 
 
+function ON_SOLO_DUNGEON_RANKING_RESET(frame)
+    soloDungeonClient.ReqSoloDungeonRankingPage()
+end

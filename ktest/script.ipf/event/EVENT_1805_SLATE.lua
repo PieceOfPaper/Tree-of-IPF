@@ -62,12 +62,17 @@ function SCR_JOURNEY_SHOP_NORMAL_11(self, pc)
     local hintList = EVENT_1805_SLATE_HINT_LIST()
     local slateList = EVENT_1805_SLATE_LIST()
     
+    if pc.Lv < 30 then
+        ShowOkDlg(pc, 'EVENT_1805_SLATE_DLG2\\'..ScpArgMsg('EVENT_1801_ORB_MSG8','LV',30), 1)
+        return
+    end
+    
     local accReward
     if (#targetList >= 15 or (#targetList >= 14 and aObj.EVENT_1805_SLATE_START_STATE == 0 )) and aObj.EVENT_1805_SLATE_ACC_REWARD == 0 then
         accReward = ScpArgMsg('EVENT_1805_SLATE_MSG4')
     end
     
-    local select = ShowSelDlg(pc, 0, 'EVENT_1805_SLATE_DLG1', ScpArgMsg('EVENT_1805_SLATE_MSG1'), accReward, ScpArgMsg('Auto_DaeHwa_JongLyo'))
+    local select = ShowSelDlg(pc, 0, 'EVENT_1805_SLATE_DLG1', ScpArgMsg('EVENT_1805_SLATE_MSG1'), accReward, ScpArgMsg('EVENT_1805_SLATE_MSG9'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
     
     if select == 1 then
         if aObj.EVENT_1805_SLATE_START_STATE == 0 and #targetList == 28 then
@@ -79,7 +84,7 @@ function SCR_JOURNEY_SHOP_NORMAL_11(self, pc)
         elseif aObj.EVENT_1805_SLATE_START_STATE == 200 then
             local tx = TxBegin(pc)
             TxSetIESProp(tx, aObj, 'EVENT_1805_SLATE_START_STATE', 0)
-            TxGiveItem(tx, 'EVENT_1805_SLATE_CUBE', 1, 'EVENT_1805_SLATE')
+            TxGiveItem(tx, 'EVENT_1805_SLATE_CUBE', 2, 'EVENT_1805_SLATE')
             local ret = TxCommit(tx)
             if ret == 'SUCCESS' then
                 if #targetList == 14 then
@@ -154,8 +159,23 @@ function SCR_JOURNEY_SHOP_NORMAL_11(self, pc)
         TxSetIESProp(tx, aObj, 'EVENT_1805_SLATE_ACC_REWARD', 300)
         TxGiveItem(tx, 'NECK99_107', 1, 'EVENT_1805_SLATE_ACC')
         TxGiveItem(tx, 'EVENT_1805_SLATE_ACHIEVE_BOX', 4, 'EVENT_1805_SLATE_ACC')
-        TxGiveItem(tx, 'EVENT_1805_SLATE_CUBE', 10, 'EVENT_1805_SLATE_ACC')
+        TxGiveItem(tx, 'EVENT_1805_SLATE_CUBE', 20, 'EVENT_1805_SLATE_ACC')
         local ret = TxCommit(tx)
+    elseif select == 3 then
+        if aObj.EVENT_1805_SLATE_START_SLATE_LIST ~= 'None' then
+            local targetSlateList = SCR_STRING_CUT(aObj.EVENT_1805_SLATE_START_SLATE_LIST)
+            local slateMsg = ''
+            for i = 1, #targetSlateList do
+                if i == 1 then
+                    slateMsg = ' : '..targetSlateList[i]
+                else
+                    slateMsg = slateMsg..' / '..targetSlateList[i]
+                end
+            end
+            ShowOkDlg(pc, 'EVENT_1805_SLATE_DLG2\\'..ScpArgMsg('EVENT_1805_SLATE_MSG9')..slateMsg, 1)
+        else
+            ShowOkDlg(pc, 'EVENT_1805_SLATE_DLG10', 1)
+        end
     end
 end
 

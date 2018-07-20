@@ -75,7 +75,8 @@ function MINIMAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('MON_MINIMAP_END', 'ON_MON_MINIMAP_END');
     addon:RegisterMsg('COLONY_MONSTER', 'MINIMAP_COLONY_MONSTER');
     addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MINIMAP');
-    addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER_MINIMAP');
+	addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER_MINIMAP');
+	addon:RegisterMsg('UPDATE_MGAME_POSITION', 'ON_UPDATE_MINIMAP_MGAME_POSITION');	
 
 	mini_pos = GET_CHILD(frame, "my");
 	mini_pos:SetOffset(frame:GetWidth() / 2 - mini_pos:GetImageWidth() / 2 , frame:GetHeight() / 2 - mini_pos:GetImageHeight() / 2);

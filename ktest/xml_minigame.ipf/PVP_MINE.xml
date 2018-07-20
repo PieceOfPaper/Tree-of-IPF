@@ -310,13 +310,14 @@
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_PVP_MINE_TEAM_CHECK"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_SEND_SAME_FACTION_PC_POSITION" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>

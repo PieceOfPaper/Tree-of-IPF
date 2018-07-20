@@ -31,13 +31,12 @@ function SCR_SOLO_DUNGEON_STAGE_MONSTER_SUMMON(self)
             RunScript('SCR_SOLO_DUNGEON_DOUGHNUT_POS_SUMMON', self, x, y, z, mval)
         end
         
-        if cntCtrl > 10 and mval % 5 == 0 then
-            local eliteCnt = math.floor(mval/10 + 0.5)
+        if cntCtrl > 10 then
+            local eliteCnt = math.floor((mval-5)/5)
             
             if eliteCnt > 10 then
                 eliteCnt = 10
             end
-            
             for j = 1, eliteCnt do
                 RunScript('SCR_SOLO_DUNGEON_DOUGHNUT_POS_SUMMON', self, x, y, z, mval)
             end
@@ -103,7 +102,7 @@ function SCR_SOLO_DUNGEON_SELF_KILL_SIMPLE_AI(self)
     if followercnt ~= 0 then
         if eliteBuffAddCheck ~= 1 then
             if mval > 10 and mval % 2 ~= 0 then
-                local eliteCnt = math.floor(mval/10 + 0.5)
+                local eliteCnt = math.floor((mval-5)/5)
                 if eliteCnt > 10 then
                     eliteCnt = 10
                 end
@@ -370,4 +369,33 @@ function PC_OUT_SOLO_DUNGEON_PLAY_LOG(cmd, curStage, eventInst, obj)
     end
     local out = 1
     SetExProp(pc, 'SOLO_DUNGEON_PC_OUT', out)
+end
+
+
+function SEND_SOLO_DUNGEON_RANKING(pc)
+    SendSoloDungeonCurrentRanking(pc, "All");
+    SendSoloDungeonCurrentRanking(pc, "Warrior");
+    SendSoloDungeonCurrentRanking(pc, "Wizard");
+    SendSoloDungeonCurrentRanking(pc, "Archer");
+    SendSoloDungeonCurrentRanking(pc, "Cleric");
+
+    SendSoloDungeonPrevRanking(pc, "All")
+    SendSoloDungeonPrevRanking(pc, "Warrior")
+    SendSoloDungeonPrevRanking(pc, "Wizard")
+    SendSoloDungeonPrevRanking(pc, "Archer")
+    SendSoloDungeonPrevRanking(pc, "Cleric")
+
+    SendSoloDungeonCurrentMyRanking(pc, "All")
+    SendSoloDungeonCurrentMyRanking(pc, "Warrior")
+    SendSoloDungeonCurrentMyRanking(pc, "Wizard")
+    SendSoloDungeonCurrentMyRanking(pc, "Archer")
+    SendSoloDungeonCurrentMyRanking(pc, "Cleric")
+
+    SendSoloDungeonPrevMyRanking(pc, "All")
+    SendSoloDungeonPrevMyRanking(pc, "Warrior")
+    SendSoloDungeonPrevMyRanking(pc, "Wizard")
+    SendSoloDungeonPrevMyRanking(pc, "Archer")
+    SendSoloDungeonPrevMyRanking(pc, "Cleric")
+
+    SendAddOnMsg(pc, "DO_SOLODUNGEON_RANKINGPAGE_OPEN")
 end

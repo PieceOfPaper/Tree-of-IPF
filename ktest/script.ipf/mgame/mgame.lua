@@ -2254,7 +2254,9 @@ function MGAME_EXEC_SOUND_ALLPC(cmd, curStage, eventInst, obj, soundName)
     end
 end
 
-
+function MGAME_SEND_SAME_FACTION_PC_POSITION(cmd, curStage, eventInst, obj)
+    SendMGamePCPosition(cmd:GetThisPointer());
+end
 
 function GAME_ST_EVT_FAIL(cmd, curStage, eventInst, obj, tip1, tip2)
 
