@@ -42,7 +42,7 @@ function SCR_SOLO_DUNGEON_STAGE_MONSTER_SUMMON(self)
             end
         end
     end
-
+    RunSimpleAI(self, 'SOLO_DUNGEON_SELF_KILL')
 end
 
 function SCR_SOLO_DUNGEON_DOUGHNUT_POS_SUMMON(self, x, y, z, mval)
@@ -107,8 +107,12 @@ function SCR_SOLO_DUNGEON_SELF_KILL_SIMPLE_AI(self)
                     eliteCnt = 10
                 end
                 for i = 1, eliteCnt do
-                    local eliteRandom = IMCRandom(1, followercnt)
-                    AddBuff(self, followerList[i], 'EliteMonsterBuff', 1, 0, 0, 1)
+                    --local eliteRandom = IMCRandom(1, followercnt)
+                    for j = 1, 5 do
+                        if IsBuffApplied(followerList[i],'EliteMonsterBuff') == "NO" then
+                            AddBuff(self, followerList[i], 'EliteMonsterBuff', 1, 0, 0, 1)
+                        end
+                    end
                 end
                 SetExProp(self, 'EliteBuffAddCheck', 1)
             end
@@ -219,8 +223,8 @@ function SCR_SOLODUNGEON_PONIT_CALC(cmd, curStage, eventInst, obj)
     end
 
     
-    if mval > 10 and mval % 5 == 0 then
-        addPointCnt = math.floor(mval/10 + 0.5)
+    if mval > 10 and mval % 2 ~= 0 then
+        addPointCnt = math.floor((mval-5)/5)
     
         if addPointCnt > 10 then
             addPointCnt = 10

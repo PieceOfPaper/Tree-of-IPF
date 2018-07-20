@@ -12408,10 +12408,10 @@ end
 
 function GM_WHITETREES_OBJ_ITEM_SET1(self)
     if self.ClassName == "GM_Large_crossbow" then
-        self.HPCount = 50
+        self.HPCount = 75
         self.Dialog = "GM_WHITETREES_ITEM_OBJ"
     elseif self.ClassName == "GM_arrow_trap" then
-        self.HPCount = 75
+        self.HPCount = 50
         self.Dialog = "GM_WHITETREES_ITEM_OBJ"
     elseif self.ClassName == "GM_stake_stockades" then
         self.HPCount = 150

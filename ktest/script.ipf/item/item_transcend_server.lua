@@ -206,9 +206,6 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
             ALARM_ADVENTURE_BOOK_NEW(pc, targetItem.Name);
         end
         AddAdventureBookItemPermanentInfo(pc, targetItem.ClassID, 'Transcend', transcend + 1);
-        SendHistorySysMsg(pc, 'Transcend{ISSUCCESS}{ITEM}{LEVEL}', 1, 'FFFF00', 'ISSUCCESS', ClMsg('SUCCESS'), 'ITEM', targetItem.Name, 'LEVEL', '+'..tostring(transcend + 1));
-    else
-    	SendHistorySysMsg(pc, 'Transcend{ISSUCCESS}{ITEM}{LEVEL}', 1, 'FFFF00', 'ISSUCCESS', ClMsg('Fail'), 'ITEM', targetItem.Name, 'LEVEL', '+'..tostring(transcend + 1));
     end
 
 	if itemTake == true then

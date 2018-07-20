@@ -8,7 +8,11 @@ function SCR_BUFF_AFTERCALC_HIT_PainBarrier_Buff(self, from, skill, atk, ret, bu
     if ret.ResultType ~= HITRESULT_CRITICAL then
         ret.ResultType = HITRESULT_BLOW;
     end
-    ret.HitType = HIT_ENDURE;
+    if IsBuffApplied(self, 'Raid_Velcofer_Curse_Debuff') == 'YES' then
+        ret.HitType = HIT_BASIC_NOT_CANCEL_CAST
+    else
+        ret.HitType = HIT_ENDURE;
+    end
     ret.HitDelay = 0;
 end
 
@@ -175,7 +179,11 @@ function SCR_BUFF_AFTERCALC_HIT_ReflectShield_Buff(self, from, skill, atk, ret, 
             end
             
             ret.KDPower = 0;
-            ret.HitType = HIT_SAFETY;
+            if IsBuffApplied(self, 'Raid_Velcofer_Curse_Debuff') == 'YES' then
+                ret.HitType = HIT_BASIC_NOT_CANCEL_CAST
+            else
+                ret.HitType = HIT_SAFETY;
+            end
             ret.HitDelay = 0;
             SetExProp(from, "CHECK_SKL_KD_PROP", 1);
     --        RunScript("Reflect_Sync", self, from, skill, dmg, ret)
@@ -298,7 +306,11 @@ function SCR_BUFF_AFTERCALC_HIT_Subzero_Buff(self, from, skill, atk, ret, buff)
         FreezeRating >= random and ret.Damage > 0 then
         ret.Damage = dmg
         ret.KDPower = 0;
-        ret.HitType = HIT_SAFETY;
+        if IsBuffApplied(caster, 'Raid_Velcofer_Curse_Debuff') == 'YES' then
+            ret.HitType = HIT_BASIC_NOT_CANCEL_CAST
+        else
+            ret.HitType = HIT_SAFETY;
+        end
         ret.HitDelay = 0;
         SetExProp(from, "CHECK_SKL_KD_PROP", 1);
     
@@ -307,18 +319,22 @@ function SCR_BUFF_AFTERCALC_HIT_Subzero_Buff(self, from, skill, atk, ret, buff)
         if Cryomancer10_abil ~= nil then
             local shield = GetEquipItem(self, 'LH')
             if shield ~= nil and shield.ClassType == "Shield" then
-            addDamage = shield.DEF * Cryomancer10_abil.Level * 0.5
+              addDamage = shield.DEF * Cryomancer10_abil.Level * 0.5
+            end
         end
-    end
     
-    RunScript("SubzeroShield_sync", self, from, skill, dmg + addDamage, ret, caster)
-else
- ret.Damage = ret.Damage
- ret.KDPower = 0;
- ret.HitType = HIT_BASIC;
- ret.HitDelay = 0;
- SetExProp(from, "CHECK_SKL_KD_PROP", 1);
-end
+        RunScript("SubzeroShield_sync", self, from, skill, dmg + addDamage, ret, caster)
+    else
+      ret.Damage = ret.Damage
+      ret.KDPower = 0;
+      if IsBuffApplied(caster, 'Raid_Velcofer_Curse_Debuff') == 'YES' then
+          ret.HitType = HIT_BASIC_NOT_CANCEL_CAST
+      else
+          ret.HitType = HIT_BASIC;
+      end
+      ret.HitDelay = 0;
+      SetExProp(from, "CHECK_SKL_KD_PROP", 1);
+      end
 end
 
 function SCR_BUFF_AFTERCALC_ATK_Invocation_Debuff(self, from, skill, atk, ret, buff)

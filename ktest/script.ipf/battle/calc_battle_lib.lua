@@ -1714,7 +1714,7 @@ function BEGONE_DROP_VIS(pc, deathPenaltyBuffLevel, silverDropRatio)
     TxTakeItem(tx, MONEY_NAME, cnt, 'BEGONE');
     local ret = TxCommit(tx);
     if ret == "SUCCESS" then
-        SendHistorySysMsg(pc, 'YouDeadSoSomeSilverHasBeenLost{SILVER}', 0, '', 'SILVER', cnt);
+        SendSysMsg(pc, "YouDeadSoSomeSilverHasBeenLost");
     end
 end
 
@@ -1811,7 +1811,6 @@ function BEGONE_DROP_INV_ITEM(pc, deathPenaltyBuffLevel, penaltyType)
                     gemIESID = '0';
                 end
 
-                local itemName = someitem.Name;
                 local tx = TxBegin(pc);
                 TxEnableInIntegrateIndun(tx);
                 TxTakeItemByObject(tx, someitem, cnt, "DeadPenalty");
@@ -1848,9 +1847,6 @@ function BEGONE_DROP_INV_ITEM(pc, deathPenaltyBuffLevel, penaltyType)
                                 SetLayer(item, self_layer);
                             end
                         end
-                        SendHistorySysMsg(pc, 'DropGemByDeathPenalty');                        
-                    else -- 소실
-                        SendHistorySysMsg(pc, 'YouDeadSoSomeItemHasBeenBreak{ITEM}{COUNT}', 0, '', 'ITEM', itemName, 'COUNT', cnt);
                     end
                 end
             end

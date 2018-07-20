@@ -467,22 +467,26 @@ function SCR_PVP_MINE_REWARD(cmd, curStage, eventInst, obj)
     end
 
     for i = 1, cnt do
+        local killMVP = "None";
+        local pointMVP = "None"
         local bouns = 0;
         if GetTeamName(list[i]) == TOP_KILL_NAME_A or GetTeamName(list[i]) == TOP_KILL_NAME_B then
             bouns = 450
+			killMVP = "Kill";
         end
 
         if GetTeamName(list[i]) == TOP_POINT_NAME_A or GetTeamName(list[i]) == TOP_POINT_NAME_B then
             bouns = bouns + 900
+			pointMVP = "Point";
         end
         
-        RunScript('SCR_PVP_MINE_REWARD_RUN', list[i], bouns)
+        RunScript('SCR_PVP_MINE_REWARD_RUN', list[i], bouns, killMVP, pointMVP)
     end
 
     --CLOSE_MINEPVPMYSCOREBOARD()
 end
 
-function SCR_PVP_MINE_REWARD_RUN(pc, bouns)
+function SCR_PVP_MINE_REWARD_RUN(pc, bouns, killMVP, pointMVP)
     local aObj = GetAccountObj(pc)
     local zoneObj = GetLayerObject(pc);
     local TEAM_A_COUNT = GetMGameValue(pc, "TEAM_A_COUNT")
@@ -537,13 +541,16 @@ function SCR_PVP_MINE_REWARD_RUN(pc, bouns)
         rewardItemCnt = reward_lose;
     end
 
+    local TOP_KILLER_BONUS_CNT = 450;
+    local TOP_POINT_BONUS_CNT = 900;
+    local ALL_BONUS_CNT = TOP_KILLER_BONUS_CNT + TOP_POINT_BONUS_CNT;
     if bouns > 0 then
-        if bouns == 450 then
-            TxGiveItem(tx, 'misc_pvp_mine2', 450, "PVP_MINE_MVP_REWARD_TopKiller");
-        elseif bouns == 900 then
-            TxGiveItem(tx, 'misc_pvp_mine2', 900, "PVP_MINE_MVP_REWARD_TopPoint");
-        elseif bouns == 1350 then
-            TxGiveItem(tx, 'misc_pvp_mine2', 1350, "PVP_MINE_MVP_REWARD_TopAll");
+        if bouns == TOP_KILLER_BONUS_CNT then
+            TxGiveItem(tx, 'misc_pvp_mine2', TOP_KILLER_BONUS_CNT, "PVP_MINE_MVP_REWARD_TopKiller");
+        elseif bouns == TOP_POINT_BONUS_CNT then
+            TxGiveItem(tx, 'misc_pvp_mine2', TOP_POINT_BONUS_CNT, "PVP_MINE_MVP_REWARD_TopPoint");
+        elseif bouns == ALL_BONUS_CNT then
+            TxGiveItem(tx, 'misc_pvp_mine2', ALL_BONUS_CNT, "PVP_MINE_MVP_REWARD_TopAll");
         end
     end
 
@@ -580,27 +587,22 @@ function SCR_PVP_MINE_REWARD_RUN(pc, bouns)
 
             PVPMineResultLog(pc, GET_PVP_MINE_TEAM_NAME(pc), result, myTeamPoint, 'misc_pvp_mine2', rewardItemCnt, beforePoint);
             PVPMinePointLog(pc, GET_PVP_MINE_TEAM_NAME(pc), 'Delete', 'None', beforePoint, 0, 0, 'misc_pvp_mine2', rewardItemCnt)
+            
+            local nowTeam = "A";
+            if teamB == 'YES' then
+                nowTeam = "B";
+            end
 
-			--KILL MVP
-			if GetTeamName(pc) == TOP_KILL_NAME_A or GetTeamName(pc) == TOP_KILL_NAME_B then
-				local itemCount = 0;
-				if result == "Win" then
-					itemCount = reward_win;
-				else
-					itemCount = reward_lose;
-				end
-				PVPMineMVPLog(pc, teamName, "TopKiller", "misc_pvp_mine2", itemCount)
+            --KILL MVP
+            if killMVP == "Kill" then
+				IMC_LOG("INFO_NORMAL", "KILL MVP BindCall");
+				PVPMineMVPLog(pc, nowTeam, "TopKiller", "misc_pvp_mine2", TOP_KILLER_BONUS_CNT)
 			end
 
 			--POINT MVP
-			if GetTeamName(pc) == TOP_POINT_NAME_A or GetTeamName(pc) == TOP_POINT_NAME_B then
-				local itemCount = 0;
-				if result == "Win" then
-					itemCount = reward_win;
-				else
-					itemCount = reward_lose;
-				end
-				PVPMineMVPLog(pc, teamName, "TopPoint", "misc_pvp_mine2", itemCount)		
+			if pointMVP == "Point" then
+				IMC_LOG("INFO_NORMAL", "POINT MVP BindCall");
+				PVPMineMVPLog(pc, nowTeam, "TopPoint", "misc_pvp_mine2", TOP_POINT_BONUS_CNT)		
 			end
 
             RemoveBuff(pc, 'PVP_MINE_BUFF1')

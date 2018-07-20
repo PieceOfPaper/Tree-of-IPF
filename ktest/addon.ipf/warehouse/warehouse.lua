@@ -28,7 +28,7 @@ function PUT_ITEM_TO_WAREHOUSE(parent, slot)
 
 	if invItem == nil then
         local fromFrame = liftIcon:GetTopParentFrame();
-        if fromFrame:GetName() == 'warehouse' then
+        if fromFrame:GetName() == 'warehouse' or fromFrame:GetName() == 'camp_ui' then
             local dest_slot = slot
             local startSlot = liftIcon:GetParent();    
             AUTO_CAST(startSlot);

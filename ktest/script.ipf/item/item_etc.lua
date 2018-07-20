@@ -728,7 +728,6 @@ function SCR_USE_ITEM_EXPCARD(self, argObj, argStr, arg1, arg2)
 		local jexp = math.floor(exp * 0.77);
 		GiveJobExp(self, jexp, "ExpCard");
 		UserExpCardMongoLog(self, exp, jexp, "ExpCard");
-        SendHistorySysMsg(self, 'GetExp{CHAR}{JOB}', 1, '', 'CHAR', exp, 'JOB', jexp);
 	end
 end
 

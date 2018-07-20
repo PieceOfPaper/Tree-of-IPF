@@ -1898,7 +1898,6 @@ end
 
 function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 
-
 	local liftIcon 				= ui.GetLiftIcon();
 	if liftIcon == nil then
 		return;
@@ -1964,14 +1963,16 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 		local strScp = string.format("pc.ReqExecuteTx_Item(\"PARTY_ITEM_GET\", \"%s\", \"%s\")", iesID, argList);
 		RunStringScript(strScp);
 	elseif FromFrame:GetName() == "camp_ui" or FromFrame:GetName() == "warehouse" then
+
 		local iconInfo = liftIcon:GetInfo();
 		local iesID = iconInfo:GetIESID();
-
 		if iconInfo.count > 1 then	
 			toFrame:SetUserValue("HANDLE", FromFrame:GetUserIValue("HANDLE"));
 			INPUT_NUMBER_BOX(toFrame, ScpArgMsg("InputCount"), "EXEC_TAKE_ITEM_FROM_WAREHOUSE", iconInfo.count, 1, iconInfo.count, nil, iesID);
 		else
-			item.TakeItemFromWarehouse(IT_WAREHOUSE, iesID, iconInfo.count, FromFrame:GetUserIValue("HANDLE"));
+			if iconInfo ~= nil and iconInfo.count ~= nil then
+				item.TakeItemFromWarehouse(IT_WAREHOUSE, iesID, 1, FromFrame:GetUserIValue("HANDLE"));
+			end
 		end
 	end
 
@@ -2238,7 +2239,7 @@ function SET_EQUIP_SLOT_ITEMGRADE_BG(frame, slot, obj)
 	local slot_bg_name = slot:GetName() .. "_bg"
 	local slot_bg = GET_CHILD_RECURSIVELY(frame, slot_bg_name)
 	local itemgrade = obj.ItemGrade
-
+	
 	if itemgrade ~= nil and itemgrade ~= 0 and itemgrade ~= 1 and itemgrade ~= "None" then
 		if itemgrade == 2 then
 			slotSkinName = frame:GetUserConfig("EQUIPSLOT_PIC_MAGIC")

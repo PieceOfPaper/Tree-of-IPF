@@ -2945,7 +2945,7 @@ function SCR_BUFF_UPDATE_Raid_Velcofer_Curse_Debuff(self, buff, arg1, arg2, Rema
         if  buffCount%5 == 0 and buffCount ~= 0 then
             local hpDmg = (2500 * ( over - 1 ))-1
             local hpCheck = self.HP - hpDmg
-            if hpCheck >= 1 then
+            if hpCheck >= 1 and IsBuffApplied(self, 'RAID_VELCOFFER_GIMMICK_BUFF') == 'NO' then
                 TakeDamage(caster, self, "None", hpDmg , "Dark", "Magic", "TrueDamage", HIT_BASIC_NOT_CANCEL_CAST, HITRESULT_BLOW)
             end
         end

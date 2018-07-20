@@ -140,8 +140,21 @@ function SCR_GM_WHITETREES_DEF_OBJ_DIALOG(self, pc)
             local result = DOTIMEACTION_R(pc, ScpArgMsg("GM_WHITETREES_NPC1_MSG1"), "SIT_HAMMERING",1)
             if result == 1 then
                 RunScript("TAKE_ITEM_TX", pc, "GM_WHITETREES_OBJ_ITEM1",1, "GM_WHITETREES_56_1")
+                if self.ClassName == "old_well" then
+                    SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_NPC_HEAL2"), 5)
+                elseif self.ClassName == "boxes_02" then
+                    SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_NPC_HEAL1"), 5)
+                end
                 AddHP(self, 1)
             end
+        else
+            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_NPC_NOTITME"), 5)
+        end
+    else
+        if self.ClassName == "old_well" then
+            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_NPC_STATE1"), 5)
+        elseif self.ClassName == "boxes_02" or  self.ClassName == "boxes_01" then
+            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_NPC_STATE2"), 5)
         end
     end
 end
@@ -516,7 +529,7 @@ function GM_WHITETREES_GIMMICK_MON2_UPDATE(self)
                 local obj, cnt = SelectObject(self, 100, "ALL")
                 if cnt >= 1 then
                     for i = 1, cnt do
-                        if obj[i] == "GM_Obelisk" then
+                        if obj[i].ClassName == "GM_Obelisk" then
                             TakeDamage(obj[i], obj[i], "None", 700000, "Melee", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_BLOW);
                         else
                             TakeDamage(obj[i], obj[i], "None", 10000, "Melee", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_BLOW);
@@ -549,7 +562,7 @@ function GM_WHITETREES_GIMMICK_MON2_HIT(self, from, skl, damage, ret)
         local obj, cnt = SelectObject(self, 100, "ALL")
         if cnt >= 1 then
             for i = 1, cnt do
-                if obj[i] == "GM_Obelisk" then
+                if obj[i].ClassName == "GM_Obelisk" then
                     TakeDamage(obj[i], obj[i], "None", 700000, "Melee", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_BLOW);
                 else
                     TakeDamage(obj[i], obj[i], "None", 10000, "Melee", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_BLOW);

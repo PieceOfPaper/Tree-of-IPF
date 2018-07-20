@@ -121,7 +121,7 @@ end
 
 -- 오라클 체인지 스킬로 변경할 몬스터리스트 랜덤 돌리는 부분
 function GET_ORACLE_CHANGE_MON_LIST(self, obj)
-
+    
     local monID = GetOracleRandomMonID(self);
     if monID == 0 then
         return 'None';
@@ -136,7 +136,12 @@ function GET_ORACLE_CHANGE_MON_LIST(self, obj)
 end
 
 function TGT_REBORN_CUSTOM(self, obj, levelRange, scrName)
-
+    local zone = GetZoneName(self)
+    if zone == "d_solo_dungeon" then
+        SendSysMsg(self, 'DontChangeMonsterThisArea');
+        return 0;
+    end
+    
     local func = _G[scrName];
     if func ~= nil then
         local monName = func(self, obj);

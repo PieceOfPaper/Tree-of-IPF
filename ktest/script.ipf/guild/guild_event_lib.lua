@@ -277,7 +277,7 @@ function SCR_GUILD_EVENT_ENTER_CHECK(self, pc)
 	        if eventType == 'FBOSS' then
                 local fbossInstStr, layer = GetGuildEventBossHuntingLayer(pc)
                 fbossInst = tonumber(fbossInstStr);
-                if SCR_GUILD_EVENT_FBOSS_VERITFY(pc) ~= 1 then
+                if SCR_GUILD_EVENT_FBOSS_VERITFY(pc, zoneInst) ~= 1 then
                     local selectCancel = ShowSelDlg(pc, 0, 'GUILD_EVENT_START_SELECT_3', ScpArgMsg("Yes"), ScpArgMsg("No"))
                     if selectCancel == 2 or selectCancel == nil then
                         return;
@@ -406,10 +406,10 @@ function SCR_GUILD_EVENT_REWARD_CHECK_MONGOLOG(guildObj, pc)
     GuildEventMongoLog(pc, eventID, "REWARD_CHECK_PC")
 end
 
-function SCR_GUILD_EVENT_FBOSS_VERITFY(pc)
+function SCR_GUILD_EVENT_FBOSS_VERITFY(pc, zoneInst)
     local fbossInstStr, layer = GetGuildEventBossHuntingLayer(pc)
     local guildObj = GetGuildObj(pc)
-    fbossInst = tonumber(fbossInstStr);
+    local fbossInst = tonumber(fbossInstStr);
     if zoneInst == fbossInst then
         local list, cnt = GetLayerPCList(fbossInst, layer)
         local guildMember  = 0;
@@ -418,7 +418,9 @@ function SCR_GUILD_EVENT_FBOSS_VERITFY(pc)
         else
             for i = 1, cnt do
                 local targetGuild = GetGuildObj(list[i])
-                if guildObj == targetGuild then
+                local targetString = tostring(targetGuild)
+                local setString = tostring(guildObj)
+                if targetString == setString then
                     guildMember = guildMember + 1
                 end
             end

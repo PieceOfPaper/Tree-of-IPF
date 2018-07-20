@@ -67,13 +67,12 @@ function CHARBASEINFO_ON_MSG(frame, msg, argStr, argNum)
 		levelPercentObject:SetText(''..string.format('{@st42b}{s14}%.1f',percent)..'{s14}%{/}');
 
 		expGauge:SetTextTooltip(string.format("{@st42b}%.1f%% / %.1f%%{/}", percent, 100.0));
-		
 		local levelTextObject		= GET_CHILD(frame, "levelexp", "ui::CRichText");
 		local level 				= info.GetLevel(session.GetMyHandle());
 		levelTextObject:SetText('{@sti7}{s16}'..level);
 		if argNum ~= nil and argNum ~= 0 then
 			SHOW_GET_EXP(frame, argNum)
-		elseif msg == 'LEVEL_UPDATE' then
+		elseif msg == 'LEVEL_UPDATE' and argNum == -1 then
 			SHOW_GET_EXP(frame, -1)
 		end
 

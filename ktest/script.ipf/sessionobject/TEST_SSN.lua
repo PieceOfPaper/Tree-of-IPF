@@ -55,15 +55,15 @@ function VIBRATE_BOOM_RUN(self, sObj)
         local i
         local angle = {}
         for i = 1, Cnt do
-    --�̰� ���� ����ó�� �߰��� �ʿ���--
+    --??? ???? ????o?? ????? ?????--
             angle[i] = GetAngleTo(list[i], self);
             KnockDown(list[i], self, 100, angle[i]*2, 45, 0, 2, 3)
             if self.ClassName == "Bomb" then
                 if GetZoneName(self) == "mission_whitetrees_56_1" then
                     if list[i].ClassName == "GM_Obelisk" then
-                        TakeDamage(self, list[i], "None", 700000, "None", "None", "TrueDamage", HIT_REFLECT, HITRESULT_BLOW)
+                        TakeDamage(list[i], list[i], "None", 700000, "None", "None", "TrueDamage", HIT_REFLECT, HITRESULT_BLOW)
                     else
-                        TakeDamage(self, list[i], "None", 10000, "None", "None", "TrueDamage", HIT_REFLECT, HITRESULT_BLOW)
+                        TakeDamage(list[i], list[i], "None", 10000, "None", "None", "TrueDamage", HIT_REFLECT, HITRESULT_BLOW)
                     end
                 end
             end
@@ -93,31 +93,31 @@ end
 
 function DRT_VIBERATION_RUN(self, sObj)
     if self.NumArg3 >= 0 and self.NumArg3 < sObj.Goal11 then
-        --1�ܰ�
+        --1�ܰ�--
         ActorVibrate(self, sObj.Step1, sObj.Step2, sObj.Step3)
         self.NumArg3 = self.NumArg3 + 1
-        --2�ܰ� ����?
+        --2�ܰ� ����?--
         if sObj.Goal1 == 1 then
             if self.NumArg3 >= sObj.Goal11 and self.NumArg3 < sObj.Goal12 then
-                --2�ܰ�
+                --2�ܰ�--
                 ActorVibrate(self, sObj.Step4, sObj.Step5, sObj.Step6)
                 self.NumArg3 = self.NumArg3 + 1
-                --3�ܰ� ����?
+                --3�ܰ� ����?--
                 if sObj.Goal2 == 1 then
                     if self.NumArg3 >= sObj.Goal12 and self.NumArg3 < sObj.Goal13 then
-                        --3�ܰ�
+                        --3�ܰ�--
                         ActorVibrate(self, sObj.Step7, sObj.Step8, sObj.Step9)
                         self.NumArg3 = self.NumArg3 + 1
-                        --4�ܰ� ����?
+                        --4�ܰ� ����?--
                         if sObj.Goal3 == 1 then
                             if self.NumArg3 >= sObj.Goal13 and self.NumArg3 < sObj.Goal14 then
-                                --4�ܰ�
+                                --4�ܰ�--
                                 ActorVibrate(self, sObj.Step10, sObj.Step11, sObj.Step12)
                                 self.NumArg3 = self.NumArg3 + 1
-                                --5�ܰ� ����?
+                                --5�ܰ� ����?--
                                 if sObj.Goal4 == 1 then
                                     if self.NumArg3 >= sObj.Goal14 and self.NumArg3 < sObj.Goal15 then
-                                        --5�ܰ�
+                                        --5�ܰ�--
                                         ActorVibrate(self, sObj.Step13, sObj.Step14, sObj.Step15)
                                         self.NumArg3 = self.NumArg3 + 1
                                     end

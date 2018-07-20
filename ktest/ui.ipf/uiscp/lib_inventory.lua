@@ -577,7 +577,6 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 end
 
 function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
-
 	local slotCnt = slotset:GetSlotCount();
 	for i = 0, slotCnt - 1 do
 		local tempSlot = slotset:GetSlotByIndex(i)
@@ -607,13 +606,24 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 			SET_SLOT_COUNT(slot, invItem.count)
 			SET_SLOT_COUNT_TEXT(slot, invItem.count);
 		end
+        local icon = slot:GetIcon();
+
+        if itemCls.ItemType == 'Equip' then
+		    local resultLifeTimeOver = IS_LIFETIME_OVER(itemCls)
+		    local result = CHECK_EQUIPABLE(invItem.type);        
+		    if (result ~= "OK") or (resultLifeTimeOver == 1) then
+			    icon:SetColorTone("FFFF0000");		
+		end	    
+		    if IS_NEED_APPRAISED_ITEM(invItem:GetIESID()) or IS_NEED_RANDOM_OPTION_ITEM(invItem:GetIESID()) then
+			    icon:SetColorTone("FFFF0000");		
+		    end
+	    end	
 
 		SET_SLOT_IESID(slot, invItem:GetIESID())
         SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemCls, nil)
 		SET_SLOT_STYLESET(slot, itemCls)
-
 		slot:SetMaxSelectCount(invItem.count);
-		local icon = slot:GetIcon();
+		
 		icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
 		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
 
@@ -631,7 +641,7 @@ function GET_DRAG_INVITEM_INFO()
 	return invenItemInfo;
 end
 
-function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)
+function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)    
     local itemCls = GetIES(invItem:GetObject());
 	local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
     SET_SLOT_IMG(slot, iconImg)
@@ -640,12 +650,24 @@ function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)
 		SET_SLOT_COUNT(slot, invItem.count)
 		SET_SLOT_COUNT_TEXT(slot, invItem.count);
 	end
+    local icon = slot:GetIcon();
+    
+    if itemCls.ItemType == 'Equip' then
+		local resultLifeTimeOver = IS_LIFETIME_OVER(itemCls)
+		local result = CHECK_EQUIPABLE(invItem.type);        
+		if (result ~= "OK") or (resultLifeTimeOver == 1) then
+			icon:SetColorTone("FFFF0000");		
+		end	    
+		if IS_NEED_APPRAISED_ITEM(invItem:GetIESID()) or IS_NEED_RANDOM_OPTION_ITEM(invItem:GetIESID()) then
+			icon:SetColorTone("FFFF0000");		
+		end
+	end	
 
 	SET_SLOT_IESID(slot, invItem:GetIESID())
     SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemCls, nil)
 	SET_SLOT_STYLESET(slot, itemCls)
 	slot:SetMaxSelectCount(invItem.count);
-	local icon = slot:GetIcon();
+	
 	icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
 	SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
 end

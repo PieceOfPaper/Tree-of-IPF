@@ -21,7 +21,7 @@ function RECV_INTRO_TXT(code, ret_json)
 		SHOW_GUILD_HTTP_ERROR(code, ret_json, "RECV_INTRO_TXT");
         return;
     end
-    ui.SysMsg("길드 소개글 변경 완료")
+    ui.SysMsg(ClMsg("GuildIntroUpdated"))
 end
 
 function SET_INTRODUCE_TXT(code, ret_json)

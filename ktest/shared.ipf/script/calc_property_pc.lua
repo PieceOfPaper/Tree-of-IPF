@@ -1876,12 +1876,15 @@ function SCR_Get_MSPD(self)
     end
     
     local value = 30.0;
-    
+    local zone = GetZoneName(self);
     if IsBuffApplied(self, "BattleOrders_Buff") == "YES" then
-        value =  60;
+    	if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
+        	value = 45;
+        else
+        	value = 60;
+        end
     end
     
-    local zone = GetZoneName(self);
     if self.ClassName == 'PC' then
         local byItem = GetSumOfEquipItem(self, 'MSPD');
         if byItem == nil then

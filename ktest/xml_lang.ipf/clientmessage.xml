@@ -53,17 +53,6 @@
 		<Class ClassID="308" ClassName="CHNCLIENTTITLE" Data="救世之树"/>
 		<Class ClassID="309" ClassName="FailToWhisper" Data="귓속말에 실패했습니다. 다시 시도해주세요."/>
 		<Class ClassID="310" ClassName="FailToInviteGroupChat" Data="그룹 채팅 초대에 실패했습니다. 다시 시도해주세요."/>
-		<Class ClassID="311" ClassName="GiveDamage{TO}{AMOUNT}" Data="{#1663c3}{ol}[전투 메시지]{img chat_icon_damage 24 24}[{TO}]에게 [{AMOUNT}]의 피해를 주었습니다."/>
-		<Class ClassID="312" ClassName="TakeDamage{FROM}{AMOUNT}" Data="{#ab1919}{ol}[전투 메시지]{img chat_icon_damage 24 24}[{FROM}]으로부터 [{AMOUNT}]의 피해를 입었습니다."/>
-		<Class ClassID="313" ClassName="GetBuff{NAME}" Data="{#1663c3}{ol}[전투 메시지]{img chat_icon_buff 24 24}[{NAME}] 버프가 [적용]되었습니다."/>
-		<Class ClassID="314" ClassName="RemoveBuff{NAME}" Data="{#ab1919}{ol}[전투 메시지]{img chat_icon_buff 24 24}[{NAME}] 버프가 [해제]되었습니다."/>
-		<Class ClassID="315" ClassName="GetDebuff{NAME}" Data="{#ab1919}{ol}[전투 메시지]{img chat_icon_debuff 24 24}[{NAME}] 디버프가 [적용]되었습니다."/>
-		<Class ClassID="316" ClassName="RemoveDebuff{NAME}" Data="{#1663c3}{ol}[전투 메시지]{img chat_icon_debuff 24 24}[{NAME}] 디버프가 [해제]되었습니다."/>
-		<Class ClassID="317" ClassName="UseSkill{NAME}" Data="{#ffffff}{ol}[전투 메시지]{img chat_icon_skill 24 24}[{NAME}]를 사용했습니다."/>
-		<Class ClassID="318" ClassName="Left{ITEM}{COUNT}" Data=" 남은 [{ITEM}] {COUNT}개."/>
-		<Class ClassID="319" ClassName="YouDie" Data="{#1663c3}{ol}[전투 메시지]{img chat_icon_death 24 24}당신은 전투불능 상태가 되었습니다."/>
-		<Class ClassID="320" ClassName="Resurrect{MEMBER}" Data="{#1663c3}{ol}[전투 메시지]{img chat_icon_resurrection 24 24}파티 멤버 [{MEMBER}]가 부활했습니다."/>
-		<Class ClassID="321" ClassName="Dead{MEMBER}" Data="{#ab1919}{ol}[전투 메시지]{img chat_icon_death 24 24}파티 멤버 [{MEMBER}]가 전투 불능 상태가 되었습니다."/>
 	</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
@@ -98,12 +87,12 @@
 		<Class ClassID="2021" ClassName="CardReinforce" Data="카드 합성"/>
 		<Class ClassID="2022" ClassName="GemReinforce" Data="젬 강화"/>
 		<Class ClassID="2023" ClassName="NOT_HAVE_MAGIC_AMULET_SOCKET_SPACE" Data="더 이상 장착할 수 없습니다."/>
-		<Class ClassID="2024" ClassName="YouDeadSoSomeItemHasBeenBreak{ITEM}{COUNT}" Data="사망 페널티로 [{ITEM}] 아이템이 [{COUNT}개] 소실되었습니다."/>
+		<Class ClassID="2024" ClassName="YouDeadSoSomeItemHasBeenBreak" Data="사망 페널티로 아이템이 소멸되었습니다."/>
 		<Class ClassID="2025" ClassName="Reinforce" Data="강화"/>
 		<Class ClassID="2026" ClassName="WeaponWarningMSG" Data="+{Auto_1} 이상의 무기 아이템 강화 실패 시 포텐셜이 소모되며 포텐셜이 0일 때는 아이템이 소멸 됩니다. 강화를 진행하시겠습니까?"/>
 		<Class ClassID="2027" ClassName="GemNotEquip" Data="선택하신 장비에는 해당 젬을 사용할 수 없습니다. "/>
 		<Class ClassID="2028" ClassName="ThisGemCantReinforce" Data="강화 할 수 없는 아이템입니다."/>
-		<Class ClassID="2029" ClassName="YouDeadSoSomeSilverHasBeenLost{SILVER}" Data="사망 페널티로 [{SILVER}] 실버가 소실되었습니다."/>
+		<Class ClassID="2029" ClassName="YouDeadSoSomeSilverHasBeenLost" Data="사망 페널티로 실버 일부를 잃어버렸습니다."/>
 		<Class ClassID="2030" ClassName="ItemIsNotEnchantable1" Data="각성할 수 없는 아이템 입니다."/>
 		<Class ClassID="2031" ClassName="RealyDoEnchant" Data="아이템을 각성하면, 마법 부여 스크롤 아이템 및 이미 각성했던 옵션도 사라집니다. 그래도 진행하시겠습니까?"/>
 		<Class ClassID="2032" ClassName="PleaseDropItem{Name}" Data="[{Name}] 아이템을 올려주세요."/>
@@ -190,14 +179,6 @@
 		<Class ClassID="2221" ClassName="ItemDeletedByOptionExtractSuccess" Data="옵션 추출 성공으로 장비가 소멸되었습니다."/>
 		<Class ClassID="2222" ClassName="ItemDeletedByOptionExtractDestroy" Data="옵션 추출 실패로 장비가 파괴되었습니다."/>
 		<Class ClassID="2223" ClassName="CannotProcessUIInputDuringPrefixing" Data="세트 옵션 부여 중에는 UI 이용이 불가능합니다.{nl}계속하시겠습니까?"/>
-		<Class ClassID="2224" ClassName="Get{ITEM}{COUNT}" Data="[{ITEM}] 아이템을 [{COUNT}개] 획득했습니다."/>
-		<Class ClassID="2225" ClassName="Delete{ITEM}{COUNT}" Data="[{ITEM}] 아이템을 [{COUNT}개] 버렸습니다."/>
-		<Class ClassID="2226" ClassName="Sell{ITEM}{COUNT}" Data="[{ITEM}] 아이템을 [{COUNT}개] 판매했습니다."/>
-		<Class ClassID="2227" ClassName="Reinforce{ISSUCCESS}{ITEM}{LEVEL}" Data="[{LEVEL} {ITEM}] 강화에 {ISSUCCESS}했습니다."/>
-		<Class ClassID="2228" ClassName="Fail" Data="실패"/>
-		<Class ClassID="2229" ClassName="Transcend{ISSUCCESS}{ITEM}{LEVEL}" Data="[{ITEM}] 아이템이 [초월 {LEVEL}단계]에 {ISSUCCESS}했습니다."/>
-		<Class ClassID="2230" ClassName="GetExp{CHAR}{JOB}" Data="캐릭터 경험치 [{CHAR}] / 클래스 경험치 [{JOB}] 획득"/>
-		<Class ClassID="2231" ClassName="DropGemByDeathPenalty" Data="사망 페널티로 젬이 떨어졌습니다."/>
 		<Class ClassID="2233" ClassName="TryItOnList" Data="입어보기 목록"/>
 		<Class ClassID="2234" ClassName="ShoppingBag" Data="구매 목록"/>
 		<Class ClassID="2235" ClassName="ReallyUseAbilityPointResetItem" Data="사용시 현재 캐릭터가 가진 모든 특성을 초기화 하며 특성 포인트가 환급됩니다.{nl}계속 진행하시겠습니까?"/>
@@ -5931,6 +5912,11 @@
 		<Class ClassID="50885" ClassName="EXORCIST_UNLOCK_DIE_MSG" Data="사악한 령에 의해 죽어 구마 의식을 하기  전으로 돌아갑니다{nl}불길한 구슬에 구마 의식을 진행하세요"/>
 		<Class ClassID="50899" ClassName="EXORCIST_JOB_HIDDEN_ITEM_MSG31" Data="프리스트 마스터에게서 성수와 기슬로티스를 구입하세요"/>
 		<Class ClassID="50931" ClassName="GM_WHITETREES_BASIC1" Data="닫기"/>
+		<Class ClassID="50942" ClassName="GM_WHITETREES_NPC_HEAL1" Data="상자더미의 내구도가 1 회복했습니다"/>
+		<Class ClassID="50943" ClassName="GM_WHITETREES_NPC_HEAL2" Data="낡은 우물의 내구도가 1 회복했습니다"/>
+		<Class ClassID="50944" ClassName="GM_WHITETREES_NPC_STATE1" Data="낡은 우물의 내구도가 충분합니다"/>
+		<Class ClassID="50945" ClassName="GM_WHITETREES_NPC_STATE2" Data="상자 더미의 내구도가 충분합니다"/>
+		<Class ClassID="50946" ClassName="GM_WHITETREES_NPC_NOTITME" Data="자루더미가 없어 수리를 할 수 없습니다{nl}미쉐칸 숲을 돌아다녀 자루더미를 얻고 수리하세요"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>
@@ -8265,6 +8251,7 @@
 		<Class ClassID="131069" ClassName="CanNotJoinPVPFromMission" Data="해당 지역에서는 참가하실 수 없습니다."/>
 		<Class ClassID="131071" ClassName="RewardSeason" Data="이전 시즌의 팀배틀리그 보상을  이미 받으셨습니다."/>
 		<Class ClassID="131072" ClassName="PVPReward" Data="보상 받기"/>
+    <Class ClassID="131074" ClassName="CantExcutePartyInvite" Data="현재 맵에서는 파티 초대기능을 사용하실 수 없습니다."/>
 		</Category>
 	<Category Name="MonInfo">
 		<Class ClassID="132001" ClassName="MonInfo_Size" Data="크기"/>
@@ -10818,6 +10805,7 @@
 		<Class ClassID="200030" ClassName="NoAttackableEnemy" Data="공격할 수 있는 적이 없습니다."/>
 		<Class ClassID="200031" ClassName="ThisSkillIsNotAvailable" Data="해당 스킬을 사용할 수 없습니다."/>
 	<Class ClassID="200032" ClassName="skill_Entity" Data="엔터티!"/>
+		<Class ClassID="200033" ClassName="DontChangeMonsterThisArea" Data="해당 지역에서는 체인지 스킬이 적용되지 않습니다."/>
 	</Category>
 	<Category Name="HotKey">
 		<Class ClassID="201001" ClassName="Minimap_-" Data="미니맵 -"/>
@@ -11846,7 +11834,13 @@
 		<Class ClassID="2000204" ClassName="WebService_904" Data="서버오류로 정상적인 처리가 되지 않았습니다"/>
 		<Class ClassID="2000205" ClassName="WebService_204" Data="승낙 또는 거절 상태의 신청서는 삭제하실 수 없습니다."/>
 		<Class ClassID="2000206" ClassName="WebService_43" Data="연속으로 실행하실 수 없는 작업입니다.{nl}잠시뒤 다시 실행해주세요."/>
-		<Class ClassID="2000207" ClassName="WebService_44" Data="[Error Code 44] 입력하신 이름으로 변경할 수 없습니다."/>    
+		<Class ClassID="2000207" ClassName="WebService_44" Data="[Error Code 44] 입력하신 이름으로 변경할 수 없습니다."/>
+		<Class ClassID="2000208" ClassName="WebService_TooManyRequests" Data="연속으로 실행하실 수 없는 작업입니다.{nl}잠시뒤 다시 실행해주세요."/>
+		<Class ClassID="2099994" ClassName="ImageUploadSuccess" Data="이미지가 성공적으로 업로드되었습니다"/>
+		<Class ClassID="2099995" ClassName="RegGuildPromoteBeforeImage" Data="이미지를 등록하기 전에 길드 홍보글을 등록해주세요"/>
+		<Class ClassID="2099996" ClassName="BannerUploadSuccess" Data="배너가 성공적으로 업로드되었습니다"/>
+		<Class ClassID="2099997" ClassName="ImageInterlaceException" Data="인터레이스 제거에 문제가 발생했습니다. 이미지 형식을 확인해주세요"/>
+		<Class ClassID="2099998" ClassName="GuildIntroUpdated" Data="길드 소개글 변경 완료"/>
 		<Class ClassID="2099999" ClassName="UpdateSuccess" Data="성공적으로 갱신되었습니다."/>
 		<Class ClassID="2100000" ClassName="NotYetExcute" Data="지금 당장 하실 수 없습니다."/>
 		<Class ClassID="2100001" ClassName="GuildJoined" Data="길드 가입신청이 완료되었습니다."/>
@@ -11858,7 +11852,8 @@
 		<Class ClassID="2100007" ClassName="AvailableAfterRegisterGuildPromote" Data="미리보기 등록 후 이용이 가능합니다."/>
 		<Class ClassID="2100008" ClassName="CannotJoinWhileGuildWar" Data="길드 전쟁중에는 길드 가입을 할 수 없습니다"/>
 		<Class ClassID="2100009" ClassName="DuplicateClaim" Data="중복되는 직급이 있습니다."/>
-	</Category>
+
+</Category>
 	<Category Name="Raid">
 		<Class ClassID="514001" ClassName="VelcofferSealStoneScrMsg" Data="봉인 해제중.."/>
 		<Class ClassID="514002" ClassName="VelcofferTeraStoneScrMsg" Data="테라 정수 수집중.."/>
@@ -11875,5 +11870,6 @@
 		<Class ClassID="513007" ClassName="SoloDungeonRewardNone" Data="받을 보상이 없습니다"/>
 		<Class ClassID="513008" ClassName="SoloDungeonRewardError" Data="잠시 후 다시 시도해 주세요"/>
 		<Class ClassID="513009" ClassName="SoloDungeonRewardAlready" Data="이미 보상을 받았습니다"/>
+		<Class ClassID="513010" ClassName="SoloDungeonRewardNotYet" Data="아직 보상을 받을 수 없습니다"/>
 	</Category>
 </idspace>

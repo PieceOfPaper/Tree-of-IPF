@@ -4237,7 +4237,7 @@ function SCR_GET_Joust_Ratio2(skill)
     local value = 10 + skill.Level * 1;
     local zone = GetZoneName(pc);
     if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
-        value = 6;
+        value = value * 0.5;
     end
     
     return value;
@@ -15363,10 +15363,14 @@ function SCR_GET_Samdiveve_Ratio(skill)
 end
 
 function SCR_GET_Samdiveve_Ratio2(skill)
-
+	local pc = GetSkillOwner(skill);
     local value = 3 + skill.Level * 1
+    local zone = GetZoneName(pc)
+	if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+    	value = value * 0.5
+    end
+    
     return value
-     
 end
 
 function SCR_GET_Samdiveve_BuffTime(skill)

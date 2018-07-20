@@ -7883,3 +7883,8 @@ end
 function TEST_SOLO_DUNGEON_CLEAR_RANKING(pc, year, weekNum)
     ClearSoloDungeonRankingForTest(pc, year, weekNum);
 end
+
+function TEST_SEND_BARRACK_FORCE(self, seconds)
+    sleep(seconds * 1000);
+    SendBarrackForce(self);
+end

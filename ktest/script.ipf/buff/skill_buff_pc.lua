@@ -500,7 +500,6 @@ end
 
 
 function SCR_BUFF_ENTER_BattleOrders_Buff(self, buff, arg1, arg2, over)
-
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 
 end
@@ -1178,7 +1177,7 @@ end
 function SCR_BUFF_LEAVE_Fluting_DeBuff(self, buff, arg1, arg2, over)
     local beforeFixMSPD = GetExProp(buff, "BEFORE_FIXMSPD");
     self.FIXMSPD_BM = beforeFixMSPD;
-    	UnHoldMonScp(self);
+	UnHoldMonScp(self);
     StopMove(self);
     AttachEffect(self, "I_emo_exclamation", 3, "TOP");
     
@@ -4800,7 +4799,7 @@ function SCR_BUFF_ENTER_Sleep_Debuff(self, buff, arg1, arg2, over)
     
     local zone = GetZoneName(self);
     if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
-        lv = 1;
+        lv = 0;
     end
     
     SetExProp(self, "TAKEDMG_COUNT", lv)
@@ -6404,7 +6403,12 @@ function SCR_BUFF_ENTER_Samdiveve_Buff(self, buff, arg1, arg2, over)
     
     mhpadd = math.floor(298.6 + ((caster.MHP * (0.005 * lv))))
     mspdadd = 3 + lv * 1
-
+	
+	local zone = GetZoneName(self);
+	if IsPVPServer(self) == 1 or zone == 'pvp_Mine' then
+		mspdadd = mspdadd * 0.5;
+	end
+	
     self.MHP_BM = self.MHP_BM + mhpadd;
     self.MSPD_BM = self.MSPD_BM + mspdadd;
     
@@ -10550,7 +10554,13 @@ function SCR_BUFF_ENTER_Impaler_Debuff(self, buff, arg1, arg2, over)
     SkillCancel(self);
     local caster = GetBuffCaster(buff);
     local skill = GetSkill(caster, "Cataphract_Impaler")
-    AddBuff(caster, caster, 'Impaler_Buff', arg1, arg2, 8000 + skill.Level * 1000, 1);  
+    local buffTime = 8000 + skill.Level * 1000
+    local zone = GetZoneName(self);
+    if IsPVPServer(caster) == 1 or zone == 'pvp_Mine' then
+        buffTime = 6000
+    end
+    
+    AddBuff(caster, caster, 'Impaler_Buff', arg1, arg2, buffTime, 1);  
 end
 
 function SCR_BUFF_LEAVE_Impaler_Debuff(self, buff, arg1, arg2, over)    

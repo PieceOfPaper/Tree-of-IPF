@@ -209,7 +209,7 @@ function CHECK_BANNER_FORMAT(frame, control)
 		local result = RemoveInterlaceFromBanner(orgPath, fileName, tempPath);
 
 		if result == false then
-			ui.MsgBox("인터레이스 제거에 문제 발생")
+			ui.MsgBox(ClMsg("ImageInterlaceException"))
 			ui.CloseFrame('loadimage')
 			return;
 		end
@@ -223,20 +223,19 @@ end
 function BANNER_UPLOADED(code, ret_json)
     if code ~= 200 then
 		if string.find(ret_json, "registering") ~= nil then
-			ui.MsgBox("배너를 등록하기 전에 길드 홍보글을 등록해주세요")
+			ui.MsgBox(ClMsg("RegisterGuildPromoteBeforeBanner"))
 		else
 			SHOW_GUILD_HTTP_ERROR(code, ret_json, "BANNER_UPLOADED")
 		end
         return;
 	end
-	ui.MsgBox("배너가 성공적으로 업로드되었습니다")
+	ui.MsgBox(ClMsg("BannerUploadSuccess"))
 
 	local frame = ui.GetFrame("guildinfo");
 
 	local banner = GET_CHILD_RECURSIVELY(frame, "previewBanner")
 	banner = tolua.cast(banner, "ui::CPicture");
 	banner:SetImage("guildbanner_slot")
-	print(tempfilePath)
 	if filefind.FileExists(tempfilePath, true) == true then
 		banner:SetImage("")
 		banner:SetFileName(tempfilePath)
@@ -266,14 +265,14 @@ function CHECK_PAGE_FORMAT(parent, control)
 		local height = session.party.GetGuildPageHeight(fullPath);
 
 		if height == 0 then
-			ui.MsgBox("비정상적인 이미지 입니다.")
+			ui.MsgBox(ClMsg("AbnormalImageData"))
 			return
 		end
 
 		local result = RemoveInterlaceFromIntroductionImage(orgPath, fileName, tempPath, height);
 
 		if result == false then
-			ui.MsgBox("인터레이스 제거에 문제 발생")
+			ui.MsgBox(ClMsg("ImageInterlaceException"))
 			ui.CloseFrame('loadimage')
 			return;
 		end
@@ -287,7 +286,7 @@ end
 function INTRO_IMAGE_UPLOADED(code, ret_json)
 	if code ~= 200 then
 		if string.find(ret_json, "registering") ~= nil then
-			ui.MsgBox("이미지를 등록하기 전에 길드 홍보글을 등록해주세요")
+			ui.MsgBox(ClMsg("RegGuildPromoteBeforeImage"))
 		else
 			SHOW_GUILD_HTTP_ERROR(code, ret_json, "INTRO_IMAGE_UPLOADED")
 		end
@@ -295,7 +294,7 @@ function INTRO_IMAGE_UPLOADED(code, ret_json)
 	end
 
 
-	ui.MsgBox("이미지가 성공적으로 업로드되었습니다")
+	ui.MsgBox(ClMsg("ImageUploadSuccess"))
 	--os.remove(tempfilePath)
 end
 
@@ -316,7 +315,7 @@ function PUT_GUILD_PROMOTE(code, ret_json)
         return;
 	end
 registeredGuildInfo = true
-	ui.MsgBox("정상적으로 등록되었습니다.")
+	ui.MsgBox(ClMsg("UpdateSuccess"))
 	
 end
 
