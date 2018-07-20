@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Psw (IMCGames Co., Ltd) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Layer">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="Particle" minOccurs="0">
+					<xs:complexType>
+						<xs:choice maxOccurs="unbounded">
+							<xs:element name="Color" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="r" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="g" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="b" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="a" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="TextureFrameAnimation">
+								<xs:complexType>
+									<xs:attribute name="width" type="xs:int" use="required"/>
+									<xs:attribute name="height" type="xs:int" use="required"/>
+									<xs:attribute name="fps" type="xs:float" use="optional" default="30.0"/>
+									<xs:attribute name="loop" type="xs:boolean" use="optional" default="true"/>
+									<xs:attribute name="numSequence" type="xs:int" use="optional" default="1"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Velocity" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="value" type="xs:float" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Scale" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="x" type="xs:float" use="required"/>
+									<xs:attribute name="y" type="xs:float" use="required"/>
+									<xs:attribute name="time" type="xs:integer" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Spin" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="value" type="xs:float" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+						<xs:attribute name="billboardType" use="optional" default="NO_ALIGN">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="NO_ALIGN"/>
+									<xs:enumeration value="ALIGN_PARTICLE_DIR"/>
+									<xs:enumeration value="ALIGN_EMITTER_AXIS"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="randomSpin" type="xs:boolean" use="optional" default="false"/>
+						<xs:attribute name="texture" type="xs:string" use="required"/>
+						<xs:attribute name="texel_start_x" type="xs:integer" use="optional"/>
+						<xs:attribute name="texel_start_y" type="xs:integer" use="optional"/>
+						<xs:attribute name="texel_width" type="xs:integer" use="optional"/>
+						<xs:attribute name="texel_height" type="xs:integer" use="optional"/>
+						<xs:attribute name="size_x" type="xs:float" use="optional" default="1"/>
+						<xs:attribute name="size_y" type="xs:float" use="optional" default="1"/>
+						<xs:attribute name="blendType" use="optional" default="ADDITIVE">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="ADDITIVE"/>
+									<xs:enumeration value="ALPHA"/>
+									<xs:enumeration value="SUBTRACTIVE"/>
+									<xs:enumeration value="ALPHA_ADDITIVE"/>
+									<xs:enumeration value="ALPHA_ADDITIVE2"/>
+									<xs:enumeration value="DARKEN_ADDITIVE"/>
+									<xs:enumeration value="DARKEN"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="matchEmitDir" type="xs:boolean" use="optional" default="false"/>
+						<xs:attribute name="gravity" type="xs:float" use="optional" default="0"/>
+						<xs:attribute name="useWorldUpDir" type="xs:boolean" default="false"/>
+						<xs:attribute name="pivot_x" type="xs:float" use="optional" default="0.5"/>
+						<xs:attribute name="pivot_y" type="xs:float" use="optional" default="0.5"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Emitter" minOccurs="0">
+					<xs:complexType>
+						<xs:choice maxOccurs="unbounded">
+							<xs:element name="ParticleLifetime" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="value" type="xs:float" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Spread" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="x" type="xs:float" use="required"/>
+									<xs:attribute name="y" type="xs:float" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Count" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="value" type="xs:integer" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BasePos" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="x" type="xs:float" use="required"/>
+									<xs:attribute name="y" type="xs:float" use="required"/>
+									<xs:attribute name="z" type="xs:float" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RangeMin" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="value" type="xs:float" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RangeMax" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="value" type="xs:float" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="EmitFrequency" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="value" type="xs:float" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+						<xs:attribute name="emitDuration" type="xs:float" use="optional" default="1"/>
+						<xs:attribute name="loop" type="xs:boolean" use="optional" default="true"/>
+						<xs:attribute name="maxEmitCount" type="xs:int" use="optional" default="1"/>
+						<xs:attribute name="startDelay" type="xs:float" use="optional" default="0.0"/>
+						<xs:attribute name="emitType" use="optional" default="SPRAY">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="SPRAY"/>
+									<xs:enumeration value="BLIZZARD"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Model" minOccurs="0">
+					<xs:complexType>
+						<xs:choice maxOccurs="unbounded">
+							<xs:element name="Velocity" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="value" type="xs:float" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Spin" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="value" type="xs:float" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RotAxis" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="x" type="xs:float" use="optional" default="1.0"/>
+									<xs:attribute name="y" type="xs:float" use="optional" default="0.0"/>
+									<xs:attribute name="z" type="xs:float" use="optional" default="0.0"/>
+									<xs:attribute name="w" type="xs:float" use="optional" default="0.0"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Color" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="time" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="r" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="g" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="b" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="a" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Scale" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="x" type="xs:float" use="required"/>
+									<xs:attribute name="y" type="xs:float" use="required"/>
+									<xs:attribute name="time" type="xs:integer" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+						<xs:attribute name="directionType" use="optional" default="NO_ALIGN">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="NO_ALIGN"/>
+									<xs:enumeration value="ALIGN_PARTICLE_DIR"/>
+									<xs:enumeration value="ALIGN_EMITTER_AXIS"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="randomSpin" type="xs:boolean" use="optional" default="false"/>
+						<xs:attribute name="fileName" type="xs:string" use="required"/>
+						<xs:attribute name="aniFileName" type="xs:string" use="optional"/>
+						<xs:attribute name="scale" type="xs:float" use="optional"/>
+						<xs:attribute name="gravity" type="xs:float" use="optional" default="0"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="useWorldTM" type="xs:boolean" use="optional" default="false"/>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+			<xs:attribute name="attr" type="xs:string" use="optional" default="2D"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ParticleList">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="ParticleSystem_Base" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element ref="Layer" maxOccurs="unbounded"/>
+						</xs:choice>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ParticleSystem_BG" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element ref="Layer" maxOccurs="unbounded"/>
+						</xs:choice>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ParticleSystem_PC" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element ref="Layer" maxOccurs="unbounded"/>
+						</xs:choice>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ParticleSystem_MON" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element ref="Layer" maxOccurs="unbounded"/>
+						</xs:choice>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ParticleSystem_NPC" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element ref="Layer" maxOccurs="unbounded"/>
+						</xs:choice>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ParticleSystem_SYS" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element ref="Layer" maxOccurs="unbounded"/>
+						</xs:choice>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ParticleSystem_Common" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element ref="Layer" maxOccurs="unbounded"/>
+						</xs:choice>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Category">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ParticleSystem" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element ref="Layer" maxOccurs="unbounded"/>
+									</xs:choice>
+									<xs:attribute name="name" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
