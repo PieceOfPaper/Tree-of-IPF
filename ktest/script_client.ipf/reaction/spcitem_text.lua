@@ -115,7 +115,21 @@ function SHOW_SKILL_ATTRIBUTE(arg, argString)
 		return "";
 	end
 
-	return string.format("%s +%s", cls.TextEffectMsg, ScpArgMsg("SKILL_ATTRIBUTE_{Auto_1}!", "Auto_1", arg));	
+	local format = "%s ";
+	if arg >= 0 then
+		format = format .. "+%s";
+	else
+		format = format .. "%s";
+	end
+
+	local value;
+	if arg - math.floor(arg) > 0 then
+		value = string.format("%.1f", arg);	
+	else
+		value = string.format("%.0f", arg);	
+	end
+
+	return string.format(format, cls.TextEffectMsg, ScpArgMsg("SKILL_ATTRIBUTE_{Auto_1}!", "Auto_1", value));	
 end
 
 -- ????? ????

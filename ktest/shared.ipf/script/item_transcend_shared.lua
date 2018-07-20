@@ -170,26 +170,19 @@ function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
         return;
     end
     
-    local cnt = 0;
     local transcend = TryGetProp(itemObj,"Transcend");
-
     if transcend == nil then
         return 0;
     end
-
-    for i = 0, transcend - 1 do
-        local subCnt = GET_TRANSCEND_MATERIAL_COUNT(itemObj , i);
-        
-        if subCnt == nil or subCnt == 0 then
-            return 0;
-        end
-        
-        cnt = cnt + subCnt;
+    
+    local useMatCount = TryGetProp(itemObj,"Transcend_MatCount");
+    if useMatCount == nil then
+        return 0;
     end
     
-    local giveCnt = cnt * 0.9;
-
-    if transcend == 1 then
+    local giveCnt = math.floor(useMatCount * 0.9);
+    
+    if transcend <= 1 then
         giveCnt = 0;
     end
     

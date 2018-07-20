@@ -175,8 +175,14 @@ function ITEMBUFF_NEEDITEM_Squire_Repair(self, item)
     return 0;
    end
    
+   local repairPriceRatio = TryGetProp(item,"RepairPriceRatio");   
+   if repairPriceRatio == nil then
+    return 0;
+   end
+   
+   repairPriceRatio = repairPriceRatio / 100;
 --   local needCount = (UseLv + UseLv * (item.ItemGrade - 1) / 2) * (1 + (((grade-1) * 0.1) + (reinforceCount * 0.05) + (transcendCount * 0.2)));
-    local needCount = (UseLv + UseLv * (grade - 1) / 2) * (1 + (((grade-1) * 0.1) + (reinforceCount * 0.05) + (transcendCount * 0.2)));
+    local needCount = (UseLv + UseLv * (grade - 1) / 2) * (1 + (((grade-1) * 0.1) + (reinforceCount * 0.05) + (transcendCount * 0.2))) * repairPriceRatio;
     needCount = math.max(1, needCount);
     return "misc_repairkit_1", math.floor(needCount);
 end

@@ -1137,20 +1137,6 @@ function IS_ENABLE_TRADE_BY_TRADE_TYPE(invitem, property)
     end
 end
 
-function IS_ENABLE_TRADE_BY_TRADE_TYPE(invitem, property)
-    if property == "ShopTrade" then
-	    return IS_ENABLED_SHOP_TRADE_ITEM(invitem)
-    elseif property == "UserTrade" then
-	    return IS_ENABLED_USER_TRADE_ITEM(invitem)
-    elseif property == "TeamTrade" then
-	    return IS_ENABLED_TEAM_TRADE_ITEM(invitem)
-    elseif property == "MarketTrade" then
-	    return IS_ENABLED_MARKET_TRADE_ITEM(invitem)
-    else
-        IMC_ERROR("NORMAL", "IS_ENABLE_TRADE_BY_TRADE_TYPE ERROR!!")
-    end
-end
-
 function ON_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
 	local frame = ui.GetFrame("inventory")
     if frame == nil then

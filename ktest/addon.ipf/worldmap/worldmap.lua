@@ -45,7 +45,7 @@ function WORLDMAP_UPDATE_PICSIZE(frame, currentDirection)
 	local pic = GET_CHILD(frame, "pic");
 	local size = ui.GetSkinImageSize(imgName);
 
-	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
+	local curSize = config.GetConfigInt("WORLDMAP_SCALE", 6);
 	local sizeRatio = 1 + curSize * 0.25;
 	local t_scale = frame:GetChild("t_scale");
 	t_scale:SetTextByKey("value", string.format("%.2f", sizeRatio));
@@ -274,7 +274,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 	local type = frame:GetUserValue('Type');
 	local pc = GetMyPCObject();
 	local nowZoneName = GetZoneName(pc);
-	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
+	local curSize = config.GetConfigInt("WORLDMAP_SCALE", 6);
 	local sizeRatio = 1 + curSize * 0.25;
 	local pic = GET_CHILD(frame, "pic" ,"ui::CPicture");
 	local etc = GetMyEtcObject();
@@ -434,7 +434,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 end
 
 function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirection, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY)
-	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
+	local curSize = config.GetConfigInt("WORLDMAP_SCALE", 6);
 	local sizeRatio = 1 + curSize * 0.25;
 
 	local picX = startX + x * spaceX * sizeRatio;
@@ -728,7 +728,7 @@ end
 
 function WORLDMAP_CHANGESIZE(frame, ctrl, str, isAmplify)
 
-	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
+	local curSize = config.GetConfigInt("WORLDMAP_SCALE", 6);
 	local sizeRatio = 1 + curSize * 0.25;
 	curSize = curSize + isAmplify;
 	curSize = CLAMP(curSize, -3, 12);
@@ -842,7 +842,7 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 	local cy = config.GetConfigInt("WORLDMAP_Y");
 	local pic = GET_CHILD(frame, "pic");
 
-	local curSize = config.GetConfigInt("WORLDMAP_SCALE");
+	local curSize = config.GetConfigInt("WORLDMAP_SCALE", 6);
 	local sizeRatio = 1 + curSize * 0.25;
 
 	local destX = - x + frame:GetWidth() / 2;

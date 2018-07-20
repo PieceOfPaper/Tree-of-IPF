@@ -1,15 +1,16 @@
 ﻿
 function GUILD_ON_INIT(addon, frame)
-	
-	addon:RegisterOpenOnlyMsg("GUILD_PROPERTY_UPDATE", "ON_GUILD_PROPERTY_UPDATE");
+	-- guild info update msg
+	addon:RegisterOpenOnlyMsg("GUILD_PROPERTY_UPDATE", "ON_GUILD_INFO_UPDATE");
 	addon:RegisterOpenOnlyMsg("GUILD_INFO_UPDATE", "ON_GUILD_INFO_UPDATE");
+	addon:RegisterMsg("GUILD_EVENT_UPDATE", "ON_GUILD_INFO_UPDATE");
+
 	addon:RegisterMsg("GUILD_NEUTRALITY_UPDATE", "ON_GUILD_NEUTRALITY_UPDATE");
 	addon:RegisterMsg("GAME_START_3SEC", "GUILD_GAME_START_3SEC");	
 	addon:RegisterMsg("MYPC_GUILD_JOIN", "ON_MYPC_GUILD_JOIN");
 	addon:RegisterMsg("GUILD_ENTER", "ON_GUILD_ENTER");
 	addon:RegisterMsg("GUILD_OUT", "ON_GUILD_OUT");
 	addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
-	addon:RegisterMsg("GUILD_EVENT_UPDATE", "ON_GUILD_INFO_UPDATE");
 	addon:RegisterMsg("UPDATE_GUILD_ONE_SAY", "ON_GUILD_ONE_SAY");
 	
 	AUTHORITY_GUILD_INVITE = 1
@@ -190,14 +191,7 @@ function GUILD_TAB_CHANGE(parent, ctrl)
 end
 
 function ON_GUILD_INFO_UPDATE(frame, msg)
-
 	ThrottleScript("UPDATE_GUILDINFO", 5.0);
-
-end
-
-function ON_GUILD_PROPERTY_UPDATE(frame, msg)
-	ThrottleScript("UPDATE_GUILDINFO", 5.0);
-
 end
 
 function GUILD_UI_CLOSE(frame)

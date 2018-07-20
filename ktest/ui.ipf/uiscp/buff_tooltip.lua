@@ -95,7 +95,7 @@ end
 
 function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
 
-	local buff 					= info.GetBuff(handle, numarg1);
+	local buff = info.GetBuff(handle, numarg1);
 	local buffOver;
 	local buffTime;
 	if buff ~= nil then
@@ -159,16 +159,21 @@ end
 function BUFF_TOOLTIP_TeamLevel(buff, cls)
 
 	local advantageText = "";
-	local xpCls = GetClassByType("XP_TeamLevel", buff.arg1);
-	if xpCls ~= nil then
-		local expBonus = xpCls.ExpBonus;
-		if expBonus > 0 then
-			advantageText = advantageText .. ScpArgMsg("ExpGetAmount") .. " + " .. expBonus .. "%";
-		end
-	end
+	local expBonus = GET_TEAM_LEVEL_EXP_BONUS(buff.arg1);
+	advantageText = advantageText .. ScpArgMsg("ExpGetAmount") .. " + " .. expBonus .. "%";
 
 	return advantageText, ScpArgMsg("TeamLevel") .. " " .. buff.arg1;
 
+end
+
+function GET_TEAM_LEVEL_EXP_BONUS(teamLevel)
+    local expBonus = 0;
+    local xpCls = GetClassByType("XP_TeamLevel", teamLevel);
+	local xpAmount = TryGetProp(xpCls, 'ExpBonus');
+    if xpAmount ~= nil and xpAmount > 0 then
+        expBonus = xpAmount;
+    end
+    return expBonus;
 end
 
 function BUFF_TOOLTIP_Event_CharExpRate(buff, cls)

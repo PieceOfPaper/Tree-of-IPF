@@ -2686,8 +2686,10 @@ end"/>
             </ToolScp>
             <ToolScp Scp="PAD_IS_PC_FULL_HP" Client="NO" UseSleep="NO"/>
             <ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
-                <Num Num="0" UseFunc="1" FuncTxt="return obj.SkillAtkAdd;"/>
-                <Num Num="0"/>
+                <Num Num="0" UseFunc="1" FuncTxt="local value = SCR_GET_Heal_Ratio(obj);
+return value;"/>
+                <Num Num="0" UseFunc="1" FuncTxt="local value = SCR_GET_Heal_Ratio2(obj);
+return value;"/>
                 <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">

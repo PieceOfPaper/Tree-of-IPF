@@ -1910,10 +1910,10 @@ function SCR_Get_MaxRFwd(self)
     return math.floor(value);
 end
 
-function SCR_Get_SR(pc)
+function SCR_Get_SR(self)
     local defaultSR = 3;
     
-    local jobObj = GetJobObject(pc);
+    local jobObj = GetJobObject(self);
     if jobObj ~= nil then
         if jobObj.CtrlType == 'Warrior' then
             defaultSR = 4;
@@ -1924,7 +1924,7 @@ function SCR_Get_SR(pc)
         end
     end
     
-    local byItem = GetSumOfEquipItem(pc, "SR");
+    local byItem = GetSumOfEquipItem(self, "SR");
     if byItem == nil then
         byItem = 0;
     end
@@ -1940,10 +1940,10 @@ function SCR_Get_SR(pc)
 end
 
 
-function SCR_Get_SDR(pc)
+function SCR_Get_SDR(self)
     local defaultSDR = 1;
     
-    local byItem = GetSumOfEquipItem(pc, "SDR");
+    local byItem = GetSumOfEquipItem(self, "SDR");
     if byItem == nil then
         byItem = 0;
     end

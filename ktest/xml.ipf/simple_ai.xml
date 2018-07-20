@@ -13317,6 +13317,15 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
+    <AI Name="TESTSEVER_NPC_GEN" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="TEST_SERVER_NPC_GEN"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="TEST_GR_SKILL_OBJ" UpdateMS="300" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -19165,9 +19174,6 @@ return IMCRandom(300, 1000) * 0.001;"/>
                     </ToolScp>
                 </Cond>
                 <Exec>
-                    <ToolScp Scp="SH_EXEC_CHAT" Client="NO" UseSleep="YES">
-                        <Str Str="겅호"/>
-                    </ToolScp>
                     <ToolScp Scp="SH_EXEC_BUFF" Client="NO" UseSleep="NO">
                         <Str Str="GungHo"/>
                         <Num Num="5"/>

@@ -560,3 +560,27 @@ function GET_TOTAL_ABILITY_PRICE(pc, scrCalcPrice, abilName, abilLevel, maxLevel
 
     return price;
 end
+
+function GET_TOTAL_ABILITY_PRICE_BY_PRICE_COLUMN(abilGroup, abilName, abilLevel)
+    local price = 0;
+    if abilGroup == nil or abilName == nil or abilLevel == nil then
+        return price;
+    end
+    
+    local abilShopInfoCls = GetClass(abilGroup, abilName);
+    if abilShopInfoCls == nil then
+        IMC_ERROR("ERRCODE_LOGIC_NULLPTR", "Not Exist Ability shop info- abilGroup["..abilGroup.."], abilName["..abilName.."]");
+        return price;
+    end
+
+    for i = 1, abilLevel do
+        local priceCol = TryGetProp(abilShopInfoCls, "Price"..i);
+        if priceCol == nil then
+            IMC_ERROR("ERRCODE_LOGIC_NULLPTR", "Not Exist Price column- abilGroup["..abilGroup.."], abilName["..abilName.."], abilLevel["..i.."]");
+        else
+            price = price + priceCol;
+        end
+    end
+
+    return price;
+end

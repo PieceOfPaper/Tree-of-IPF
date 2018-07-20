@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -101,7 +101,7 @@
 		<Class ClassID="2044" ClassName="TranscendRemove" Data="초월이 제거되었습니다."/>
 		<Class ClassID="2045" ClassName="YouCanRemoveOnlyTreancendedItem" Data="초월된 아이템만 제거가 가능합니다."/>
 		<Class ClassID="2046" ClassName="ThisItemIsNotAbleToTranscend" Data="초월이 불가능한 아이템입니다."/>
-		<Class ClassID="2047" ClassName="TranscendValueIsTooSmallSoReturnItemDoesNotExist" Data="사용된 초월의 돌이 부족하여 분해할 수 없습니다."/>
+		<Class ClassID="2047" ClassName="TranscendValueIsTooSmallSoReturnItemDoesNotExist" Data="초월 단계가 부족하여 분해할 수 없습니다."/>
 		<Class ClassID="2048" ClassName="MaxPR" Data="최대 포텐셜인 아이템에는 사용하실 수 없습니다."/>
 		<Class ClassID="2049" ClassName="ThisItemIsNotTranscended" Data="초월되지 않은 아이템입니다."/>
 		<Class ClassID="2050" ClassName="ThisItemIsNotAbleToTranscendBreak" Data="축복석 추출가 불가능한 아이템입니다."/>
@@ -9573,13 +9573,9 @@
 		<Class ClassID="302024" ClassName="Prison_Select3" Data="아샤크 지하 감옥 입장(쉬움)"/>
 		<Class ClassID="302028" ClassName="Valentine2017_Select1" Data="이벤트 보상 받기"/>
 		<Class ClassID="302029" ClassName="Valentine2017_Select2" Data="숨겨진 보상 받기"/>
-		<Class ClassID="302030" ClassName="Goddess_Statue1" Data="여신의 축복 1 단계 적용."/>
-		<Class ClassID="302031" ClassName="Goddess_Statue2" Data="여신의 축복 2 단계 적용."/>
-		<Class ClassID="302032" ClassName="Goddess_Statue3" Data="여신의 축복 3 단계 적용."/>
-		<Class ClassID="302033" ClassName="Goddess_Statue4" Data="여신의 축복 4 단계 적용."/>
-		<Class ClassID="302034" ClassName="Goddess_Statue5" Data="여신의 축복 5 단계 적용."/>
-		<Class ClassID="302035" ClassName="Goddess_Statue6" Data="5단계 이상 여신의 축복을 받을 수 없습니다."/>
-		<Class ClassID="302036" ClassName="Goddess_Statue7" Data="여신의 조각상은 5분간 유지 됩니다."/>
+		<Class ClassID="302030" ClassName="Goddess_Statue1" Data="여신의 축복 적용."/>
+		<Class ClassID="302031" ClassName="Goddess_Statue2" Data="더 이상 여신의 축복을 받을 수 없습니다."/>
+		<Class ClassID="302032" ClassName="Goddess_Statue3" Data="여신의 조각상은 5분간 유지 됩니다."/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
