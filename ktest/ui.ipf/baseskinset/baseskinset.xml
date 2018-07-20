@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -6079,7 +6079,7 @@
 	</imagelist>
 	<imagelist category="login_img">
 		<image name="login_bg" file="\skin\login\login_bg.tga" imgrect="0 0 1920 1080"/>
-		<image name="login_bg2" file="\skin\login_img.jpg" imgrect="0 0 1920 1080"/>
+		<image name="login_bg2" file="\skin\login_img.tga" imgrect="0 0 1920 1080"/>
 		<image name="login_logo" file="\skin\login\login_logo.tga" imgrect="0 0 363 212"/>
 		<image name="login_window" file="\skin\login\login_window.tga" imgrect="0 0 804 308"/>
 		<image name="login_godness" file="\skin\login\login_godness.tga" imgrect="0 0 1920 1080"/>
@@ -7116,7 +7116,8 @@
 		<image name="Dlg_port_OlfasGrimm" file="\npcimg\OlfasGrimm.png" imgrect="0 0 900 1100" CMM_Caption="몽크마스터"/>
 		<image name="Dlg_port_Toras" file="\npcimg\Toras.png" imgrect="0 0 700 1000" CMM_Caption="오르샤_컴패니언상인"/>
 		<image name="Dlg_port_ZenklasMetai" file="\npcimg\ZenklasMetai.png" imgrect="0 0 800 1000" CMM_Caption="응사마스터"/>
-		<image name="Dlg_port_UosisKrieg" file="\npcimg\UosisKrieg.png" imgrect="0 0 900 1000" CMM_Caption="슈바르츠라이터마스터"/>
+		<image name="Dlg_port_UosisKrieg" file="\npcimg\UosisKrieg.png" imgrect="0 0 1000 860" CMM_Caption="슈바르츠라이터마스터"/>
+		<image name="Dlg_port_UosisKrieg2" file="\npcimg\UosisKrieg2.png" imgrect="0 0 1000 860" CMM_Caption="슈바르츠라이터마스터"/>
 		<image name="Dlg_port_AgotaHanska" file="\npcimg\AgotaHanska.png" imgrect="0 0 800 900" CMM_Caption="사두마스터"/>
 		<image name="Dlg_port_MistesGoldmund" file="\npcimg\MistesGoldmund.png" imgrect="0 0 800 1000" CMM_Caption="파드너마스터"/>
 		<image name="Dlg_port_VisvaldasBlack" file="\npcimg\VisvaldasBlack.png" imgrect="0 0 800 950" CMM_Caption="플레처마스터"/>
@@ -7279,6 +7280,7 @@
 		<image name="icon_Weak_Melee" file="\icon\buff_icon.tga" imgrect="896 1664 128 128" CMM_Caption="근접 공격 약점"/>
 		<image name="icon_Weak_Missile" file="\icon\buff_icon.tga" imgrect="0 1792 128 128" CMM_Caption="원거리 공격 약점"/>
 		<image name="icon_Weak_Magic" file="\icon\buff_icon.tga" imgrect="128 1792 128 128" CMM_Caption="마법 공격 약점"/>
+		<image name="icon_get_Item" file="\icon\buff_icon.tga" imgrect="256 1792 128 128" CMM_Caption="아이템 획득 버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

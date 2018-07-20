@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -47,6 +47,8 @@
 		<Class ClassID="304" ClassName="GroupList" Data="대화 목록"/>
 		<Class ClassID="305" ClassName="{WHO}{TYPE}Login" Data="[{TYPE}]{WHO}님이 접속했습니다."/>
 		<Class ClassID="306" ClassName="{WHO}{TYPE}Logout" Data="[{TYPE}]{WHO}님이 접속을 종료했습니다."/>
+		<Class ClassID="307" ClassName="CHNSYSTEMTAG" Data="系?"/>
+		<Class ClassID="308" ClassName="CHNCLIENTTITLE" Data="救世之?"/>
 	</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
@@ -1092,6 +1094,11 @@
 		<Class ClassID="21255" ClassName="Show" Data="보기"/>
 		<Class ClassID="21256" ClassName="RecipeCube" Data="레시피 큐브"/>
 		<Class ClassID="21257" ClassName="ExistSaleTimeExpiredItem" Data="구매 목록중에 기간이 만료된 아이템이 있습니다."/>
+		<Class ClassID="21258" ClassName="TP_Premium_Sale" Data="할인"/>
+		<Class ClassID="21259" ClassName="TP_Sale_New" Data="[프리미엄]신규 상품 할인[20% 할인]"/>
+		<Class ClassID="21260" ClassName="TP_Sale_Best Seller" Data="[프리미엄]베스트 셀러 상품 할인[30% 할인]"/>
+		<Class ClassID="21261" ClassName="TP_Sale_Half" Data="[프리미엄]반값 할인[50% 할인]"/>
+		<Class ClassID="21262" ClassName="TP_Sale_Shocking" Data="[프리미엄]파격 할인[70% 할인]"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -9598,6 +9605,7 @@
 		<Class ClassID="301016" ClassName="IndunCount" Data="인던입장"/>
 		<Class ClassID="301017" ClassName="Change FamilyName" Data="팀명 변경"/>
 		<Class ClassID="301018" ClassName="Change GuildName" Data="길드명 변경"/>
+		<Class ClassID="301019" ClassName="ExistCannotEquipItem" Data="착용할 수 없는 아이템이 있습니다."/>
 	</Category>
 	<Category Name="Event">
 		<Class ClassID="302001" ClassName="ArborDayEvent" Data="봄볕 이벤트"/>
