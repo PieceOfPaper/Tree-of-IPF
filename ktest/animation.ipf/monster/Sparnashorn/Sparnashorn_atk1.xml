@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<AfterImage frame="63" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="71" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="5" attachNode="Bip001 R Hand" particleName="I_force078_blue_feather" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Bip001 L Hand" particleName="I_force078_blue_feather" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Bip001 R Forearm" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Bip001 L Forearm" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Bip001 R Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Bip001 L Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Bip001 R Finger0" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Bip001 L Finger0" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Bone_Teil02" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Bone_Teil04" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" Value="3500" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="24.00" Value="3378" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="27.60" Value="3500" soundFile="mon_voice_bird_1"/>
+	<Sound frame="60.00" Value="3500" soundFile="skl_eff_atk_move_l_4"/>
+</ActionDesc>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="mon_panto_sword_atk"/>
+	<Particle frame="7" attachNode="Dummy_atk_effect" particleName="I_swordtrail019_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+</ActionDesc>

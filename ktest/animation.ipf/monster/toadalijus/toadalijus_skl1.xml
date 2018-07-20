@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="3800" soundFile="mon_voice5_l_8"/>
+	<Sound frame="0.00" Value="3800" soundFile="skl_eff_rumble"/>
+	<Particle frame="41" attachActor="None" attachNode="Dummy_emitter" particleName="F_ifrit_atk1_smoke" useAttach="false" hiddenObj="false" scale="12" pause="true" targetPos="false"/>
+	<Sound frame="42.00" Value="3800" soundFile="skl_fire_cast"/>
+	<Particle frame="43" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke116" useAttach="false" hiddenObj="false" scale="11" pause="true" targetPos="false"/>
+	<Particle frame="45" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke116" useAttach="false" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="45" attachActor="None" attachNode="Dummy_head_R" particleName="F_light049_red" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="45" attachActor="None" attachNode="Dummy_head_L" particleName="F_light049_red" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Sound frame="48.00" Value="3800" soundFile="mon_voice5_l_12"/>
+	<Sound frame="63.00" Value="3800" soundFile="skl_wiz_magicblock"/>
+	<Sound frame="66.00" soundFile="skl_eff_poison_3"/>
+	<Particle frame="70" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke116" useAttach="false" hiddenObj="false" scale="11" pause="true" targetPos="false"/>
+	<Particle frame="72" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke116" useAttach="false" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="70" attachActor="None" attachNode="Bip001 Spine1" particleName="I_force025_red" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="75" attachActor="None" attachNode="Bip001 Neck" particleName="I_force025_red" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Sound frame="96.00" Value="3800" soundFile="skl_ice_cast"/>
+</ActionDesc>

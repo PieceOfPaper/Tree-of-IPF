@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="0" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="1" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="3" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" attachNode="Dummy_dead_effect" particleName="I_npc_zachariel_cube_05_deadparts_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_dead_effect01" particleName="F_smoke006" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true"/>
+</ActionDesc>

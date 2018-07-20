@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActionDesc>
+  <Particle frame="22" attachActor="None" attachNode="" particleName="mon_zealot_dead_smoke" />
+  <Particle frame="13" attachActor="None" attachNode="" particleName="mon_zealot_dead_smoke_s" />
+  <Particle frame="1" attachActor="None" attachNode="" particleName="mon_zealot_dead_blood_b" />
+  <Sound frame="2" soundFile="m_zealot_die" />
+  <Sound frame="26" soundFile="m_sark_stn2_dead02" />
+  <Sound frame="15" soundFile="m_bulgui_elite_dead3_body" />
+  <Particle frame="10" attachNode="" particleName="mon_zealot_dead_ground" useAttach="true" />
+  <Sound frame="38" soundFile="dead_effect_2" />
+  <Sound frame="28" soundFile="dead_effect_5" />
+  <Sound frame="1" soundFile="blood_critical" />
+</ActionDesc>

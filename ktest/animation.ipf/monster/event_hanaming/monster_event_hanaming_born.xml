@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="42" soundFile="mon_haming_atk1_cast"/>
+	<Sound frame="48" soundFile="mon_haming_atk1_shot"/>
+	<Sound frame="0" soundFile="mon_haming_born"/>
+	<Particle frame="4" particleName="F_spark004_leaf" attachNode="Dummy001" scale="10" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="17" particleName="F_smoke107" attachNode="Dummy002" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="20" particleName="F_smoke107" attachNode="Dummy003" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="23" particleName="F_smoke107" attachNode="Dummy004" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="57" particleName="F_mon_katynforest_zombie01_knockdown" attachNode="Dummy006" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="57" particleName="F_circle017" attachNode="Dummy006" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

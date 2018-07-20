@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="4" attachNode="Bip01 L Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip01 L Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Bip01 L Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip01 L Finger2" particleName="I_spread_out009_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="4" attachNode="Bip01 R Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip01 R Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Bip01 R Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="4" attachNode="Bip01 R Finger2" particleName="I_spread_out009_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="5" attachNode="Dummy001" particleName="F_ground043_lineup_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="87" attachNode="Dummy001" particleName="F_levitation007_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="109" attachNode="Dummy001" particleName="F_levitation007_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="68" attachNode="Dummy001" particleName="F_explosion006_orange1" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_golem_natk1_cast"/>
+	<Sound frame="0.00" soundFile="mon_clymen_atk_voice"/>
+	<Sound frame="0.00" soundFile="skl_fire_cast"/>
+	<Sound frame="0.00" soundFile="skl_eff_fireball_cast_loop"/>
+	<Sound frame="50.00" soundFile="mon_voice_netherbovine_5"/>
+	<Sound frame="57.00" soundFile="mon_clymen_skl3_voice"/>
+	<Sound frame="57.00" soundFile="mon_clymen_skl1_voice"/>
+	<Sound frame="57.00" soundFile="skl_eff_boom_l_1"/>
+</ActionDesc>

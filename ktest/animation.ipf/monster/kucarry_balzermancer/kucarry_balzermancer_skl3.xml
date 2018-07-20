@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="2" R="15" G="30" B="20" A="50"/>
+	<BlendOn frame="84" R="80" G="120" B="90" A="50"/>
+	<BlendOff frame="88" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="83" type="2" intensity="10" frequency="100" duration="0.3" range="1000"/>
+	<Particle frame="10" attachNode="None" particleName="I_spread_in001_dark" useAttach="ture" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="None" particleName="I_spread_in001_dark" useAttach="ture" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="None" particleName="I_spread_in011" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="10" attachNode="None" particleName="I_spread_in011" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="3.00" soundFile="m_ironbaum_skl1_voice"/>
+	<Sound frame="26.00" soundFile="m_ironbaum_skl4_voice"/>
+	<Sound frame="66.00" soundFile="m_kerberos_atk"/>
+	<Sound frame="75.00" soundFile="skl_archer_crossarrow_badak"/>
+</ActionDesc>

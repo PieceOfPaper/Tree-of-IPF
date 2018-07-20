@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="35" R="150" G="130" B="90" A="100"/>
+	<BlendOn frame="36" R="100" G="80" B="50" A="100"/>
+	<BlendOn frame="37" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="43" R="150" G="130" B="90" A="100"/>
+	<BlendOn frame="44" R="200" G="150" B="100" A="100"/>
+	<BlendOn frame="45" R="100" G="80" B="50" A="100"/>
+	<BlendOn frame="46" R="60" G="60" B="30" A="100"/>
+	<BlendOn frame="47" R="30" G="30" B="20" A="100"/>
+	<BlendOn frame="48" R="10" G="10" B="5" A="100"/>
+	<BlendOn frame="49" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="55" R="150" G="130" B="90" A="100"/>
+	<BlendOn frame="56" R="200" G="150" B="100" A="100"/>
+	<BlendOn frame="57" R="100" G="80" B="50" A="100"/>
+	<BlendOn frame="58" R="60" G="60" B="30" A="100"/>
+	<BlendOn frame="59" R="30" G="30" B="20" A="100"/>
+	<BlendOn frame="60" R="10" G="10" B="5" A="100"/>
+	<BlendOff frame="61" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="20" type="2" intensity="6" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="69" type="2" intensity="3" frequency="70" duration="1.5" range="1000"/>
+	<Particle frame="20" attachNode="Dummy001" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="30" attachNode="Dummy_effect_wepon2" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="18" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="40" attachNode="Dummy_effect_wepon" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="125" attachNode="Dummy_effect_wepon" particleName="I_archer_pistol_atk_smoke2" useAttach="true" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="130" attachNode="Bip001 Spine" particleName="I_archer_pistol_atk_smoke2" useAttach="true" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Sound frame="5.00" soundFile="m_ironbaum_skl4_voice"/>
+	<Sound frame="8.00" soundFile="mon_moldyhorn_skl_1"/>
+	<Sound frame="60.00" soundFile="skl_eff_big_spin"/>
+	<Sound frame="60.00" soundFile="skl_eff_forcespinner_1"/>
+	<Sound frame="92.00" soundFile="skl_eff_atk_sperad"/>
+	<Sound frame="96.00" soundFile="skl_archer_bodkinpoint_badak"/>
+</ActionDesc>

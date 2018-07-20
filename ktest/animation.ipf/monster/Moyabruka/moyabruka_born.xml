@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="11" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="13" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="15" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="17" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="19" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="11" attachActor="None" attachNode="Dummy_effect_born" particleName="F_smoke022" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="27" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke022" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="25" attachActor="None" attachNode="Bip001 L Finger0" particleName="F_smoke071_stone" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="25" attachActor="None" attachNode="Bip001 R Finger0" particleName="F_smoke071_stone" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="29" attachActor="None" attachNode="Bip001 R Toe0Nub" particleName="F_smoke071_stone" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="29" attachActor="None" attachNode="Bip001 L Toe0Nub" particleName="F_smoke071_stone" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice5_l_15"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_14"/>
+	<Sound frame="6.00" soundFile="skl_eff_jumplanding_1"/>
+	<Sound frame="40.50" soundFile="mon_voice5_l_12"/>
+</ActionDesc>

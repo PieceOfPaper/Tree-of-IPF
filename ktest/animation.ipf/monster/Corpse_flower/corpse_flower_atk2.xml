@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0" Value="0" soundFile="skl_eff_body_atk_13"/>
+	<Sound frame="8.00" Value="0" soundFile="skl_eff_body_atk_11"/>
+	<Sound frame="9.00" Value="0" soundFile="skl_eff_bodyfall_plants_1"/>
+	<Sound frame="10" Value="0" soundFile="skl_eff_hit_plants_2"/>
+	<Particle frame="8" particleName="F_explosion058_dark" attachNode="Dummy_head_effect_F" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="8" particleName="F_explosion058_dark" attachNode="Dummy_head_effect_R" scale="0.6" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="8" particleName="F_explosion058_dark" attachNode="Dummy_head_effect_L" scale="0.6" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="9" particleName="F_ground010_dark" attachNode="Dummy_Emitter" scale="2.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="8" particleName="F_smoke033" attachNode="Dummy_Emitter" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ldy (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_ellogua_atk_cast" />
+    <Sound frame="4.00" soundFile="skl_fgt_ultimatedash_shot" />
+    <Particle frame="5" attachNode="eff_atk_01" particleName="F_mon_katynforest_zombie01_knockdown1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false" />
+    <Particle frame="5" attachNode="eff_atk_02" particleName="E_monster_bushspider_atk1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" targetPos="false" />
+    <Particle frame="5" attachNode="eff_atk_02" particleName="E_monster_bushspider_atk1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" targetPos="false" />
+    <Particle frame="5" attachNode="eff_atk_02" particleName="E_monster_bushspider_atk1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" targetPos="false" />
+    <Sound frame="7.00" soundFile="mon_ellogua_atk_shot" />
+</ActionDesc>

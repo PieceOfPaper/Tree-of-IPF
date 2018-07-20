@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="5" particleName="F_smoke109" attachNode="Bip001 L Toe0Nub" scale="2" useAttach="false"/>
+	<Particle frame="5" particleName="F_stone005" attachNode="Bip001 L Toe0Nub" scale="1" useAttach="false"/>
+	<Particle frame="7" particleName="F_smoke109" attachNode="IK Chain003" scale="2" useAttach="false"/>
+	<Particle frame="7" particleName="F_stone005" attachNode="IK Chain003" scale="1" useAttach="false"/>
+	<Particle frame="8" particleName="F_smoke109" attachNode="IK Chain002" scale="2" useAttach="false"/>
+	<Particle frame="8" particleName="F_stone005" attachNode="IK Chain002" scale="1" useAttach="false"/>
+	<Particle frame="9" particleName="F_smoke109" attachNode="IK Chain001" scale="2" useAttach="false"/>
+	<Particle frame="9" particleName="F_stone005" attachNode="IK Chain001" scale="1" useAttach="false"/>
+	<Particle frame="14" particleName="F_smoke109" attachNode="IK Chain004" scale="2" useAttach="false"/>
+	<Particle frame="14" particleName="F_stone005" attachNode="IK Chain004" scale="1" useAttach="false"/>
+	<Particle frame="15" particleName="F_smoke109" attachNode="IK Chain005" scale="2" useAttach="false"/>
+	<Particle frame="15" particleName="F_stone005" attachNode="IK Chain005" scale="1" useAttach="false"/>
+	<Particle frame="16" particleName="F_smoke109" attachNode="IK Chain006" scale="2" useAttach="false"/>
+	<Particle frame="16" particleName="F_stone005" attachNode="IK Chain006" scale="1" useAttach="false"/>
+	<Particle frame="17" particleName="F_smoke109" attachNode="Bip001 R Toe0Nub" scale="2" useAttach="false"/>
+	<Particle frame="17" particleName="F_stone005" attachNode="Bip001 R Toe0Nub" scale="1" useAttach="false"/>
+	<Shockwave frame="5" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="7" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="11" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="14" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="16" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="18" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="20" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_11"/>
+	<Sound frame="0.00" soundFile="mon_big_footstep_yekub"/>
+</ActionDesc>

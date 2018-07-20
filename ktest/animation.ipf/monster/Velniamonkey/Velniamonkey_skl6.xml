@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_levitation007_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_vashitasiddhi"/>
+    <Sound frame="10.12" soundFile="mon_voice_mushwort_7"/>
+    <Particle frame="40" attachNode="Dummy_emitter" particleName="F_levitation007_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="70" attachNode="Dummy_effect_skl6" particleName="I_breath008_circle_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="70.41" soundFile="skl_eff_burrow"/>
+    <Sound frame="70.41" soundFile="skl_eff_wiz_necromancer_force_1"/>
+    <Particle frame="80" attachNode="Dummy_effect_skl6" particleName="I_breath008_circle_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

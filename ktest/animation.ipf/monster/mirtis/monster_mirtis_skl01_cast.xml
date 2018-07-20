@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_effect_skl01_02" particleName="I_force051_dark" useAttach="true" scale="1.0" />
+    <Particle frame="0" attachNode="Bip01 L Finger02" particleName="I_smoke025_spread_out" useAttach="true" scale="1.0" />
+    <Particle frame="0" attachNode="Bip01 L Finger12" particleName="I_smoke025_spread_out" useAttach="true" scale="1.0" />
+    <Particle frame="0" attachNode="Bip01 L Finger22" particleName="I_smoke025_spread_out" useAttach="true" scale="1.0" />
+    <Particle frame="0" attachNode="Bip01 L Finger32" particleName="I_smoke025_spread_out" useAttach="true" scale="1.0" />
+    <Particle frame="0" attachNode="Bip01 L Finger42" particleName="I_smoke025_spread_out" useAttach="true" scale="1.0" />
+    <Sound frame="0.00" soundFile="mon_mirtis_skl01_cast" />
+    <Particle frame="2" attachActor="None" attachNode="Dummy_effect_skl01" particleName="None" scale="1.0" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

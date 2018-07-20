@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="19" attachNode="None" particleName="F_smoke046" useAttach="true" hiddenObj="false" scale="0.7" pause="true" targetPos="false"/>
+	<Particle frame="8" attachNode="None" particleName="F_smoke046" useAttach="true" hiddenObj="false" scale="0.7" pause="true" targetPos="false"/>
+	<Particle frame="26" attachNode="Dummy_effect_atk" particleName="F_explosion92" useAttach="true" hiddenObj="false" scale="0.7" pause="true" targetPos="false"/>
+	<Particle frame="26" attachNode="Dummy_effect_atk" particleName="F_burstup032_smoke" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="26" attachNode="Dummy_effect_atk" particleName="F_explosion035_yellow1" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="3.00" soundFile="mon_flower_blue_skl_cast"/>
+	<Sound frame="12.00" soundFile="mon_reaverpede_atk"/>
+	<Sound frame="15.00" soundFile="arw_blow_metal1"/>
+	<Sound frame="19.00" soundFile="skl_eff_atk_move_s_6"/>
+</ActionDesc>

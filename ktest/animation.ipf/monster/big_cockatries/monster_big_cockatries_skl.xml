@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="2.00" soundFile="mon_voice_beadbird_1"/>
+    <Sound frame="4.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Particle frame="9" particleName="F_smoke104" attachNode="Dummy_eff_skl1" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="9" particleName="F_smoke104" attachNode="Dummy_eff_skl2" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="10" Value="0" soundFile="skl_eff_atk_move_m_6"/>
+    <Sound frame="12" Value="0" soundFile="skl_eff_atk_move_l_4"/>
+    <Sound frame="13" Value="0" soundFile="mon_voice_bird_12"/>
+    <Particle frame="13" particleName="I_dash017_mash" attachNode="Dummy_eff_skl" scale="15" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="14" particleName="F_dash007" attachNode="Dummy_eff_skl001" scale="15" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="14" particleName="F_dash007" attachNode="Dummy_eff_skl001" scale="15" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="15" particleName="F_dash007" attachNode="Dummy_eff_skl001" scale="15" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="15" particleName="F_dash007" attachNode="Dummy_eff_skl001" scale="15" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="30" particleName="F_smoke059" attachNode="Dummy_eff_skl3" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="30" particleName="F_smoke059" attachNode="Dummy_eff_skl4" scale="2" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

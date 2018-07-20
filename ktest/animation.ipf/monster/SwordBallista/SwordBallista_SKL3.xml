@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_swordballista_atk_cast"/>
+    <Sound frame="15.00" soundFile="mon_voice_swordballista_atk_shot"/>
+    <Shockwave frame="22" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="22" attachNode="None" particleName="F_smoke003" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="22" attachNode="Dummy_SKL3_Effect001" particleName="I_stone014_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="22" attachNode="Dummy_SKL3_Effect001" particleName="F_ground108_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="22" attachNode="Dummy_SKL3_Effect001" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="22" attachNode="Dummy_SKL3_Effect001" particleName="F_ground016_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="24" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="31" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="31" attachNode="Dummy_SKL3_Effect002" particleName="I_stone014_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="31" attachNode="Dummy_SKL3_Effect002" particleName="F_ground108_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="31" attachNode="Dummy_SKL3_Effect002" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="31" attachNode="Dummy_SKL3_Effect002" particleName="F_ground016_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="33" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="35.00" soundFile="mon_voice_swordballista_atk_shot"/>
+    <Shockwave frame="43" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="43" attachNode="Dummy_SKL3_Effect001" particleName="I_stone014_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="43" attachNode="Dummy_SKL3_Effect001" particleName="F_ground108_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="43" attachNode="Dummy_SKL3_Effect001" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="43" attachNode="Dummy_SKL3_Effect001" particleName="F_ground016_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="45" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="50.00" soundFile="mon_voice_swordballista_atk2_shot"/>
+    <Shockwave frame="58" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="58" attachNode="Dummy_SKL3_Effect002" particleName="I_stone014_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="58" attachNode="Dummy_SKL3_Effect002" particleName="F_ground108_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="58" attachNode="Dummy_SKL3_Effect002" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="58" attachNode="Dummy_SKL3_Effect002" particleName="F_ground016_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="60" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="10" attachNode="Bip001 R Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="10" attachNode="Bip001 L Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="40" attachNode="Bip001 R Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="40" attachNode="Bip001 L Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="70" attachNode="Bip001 R Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="70" attachNode="Bip001 L Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice5_l_cast_4"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_17"/>
+	<Sound frame="35.00" soundFile="skl_eff_atk_move_l_16"/>
+	<Sound frame="38.00" soundFile="skl_eff_atk_move_l_6"/>
+	<Sound frame="40.00" soundFile="mon_voice5_l_dead_10"/>
+	<Sound frame="41.00" soundFile="skl_eff_atk_move_l_19"/>
+</ActionDesc>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AfterImage frame="58" term="30" blendTime="200" r="255" g="200" b="160" a="200"/>
+	<AfterImage frame="75" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="18" R="50" G="40" B="20" A="100"/>
+	<BlendOn frame="20" R="70" G="60" B="35" A="100"/>
+	<BlendOn frame="22" R="90" G="70" B="40" A="100"/>
+	<BlendOn frame="24" R="110" G="85" B="45" A="100"/>
+	<BlendOn frame="26" R="140" G="110" B="40" A="100"/>
+	<BlendOn frame="28" R="90" G="70" B="40" A="100"/>
+	<BlendOn frame="30" R="50" G="40" B="20" A="30"/>
+	<BlendOn frame="32" R="90" G="70" B="40" A="100"/>
+	<BlendOn frame="34" R="30" G="20" B="10" A="30"/>
+	<BlendOn frame="36" R="50" G="40" B="20" A="30"/>
+	<BlendOn frame="38" R="30" G="20" B="10" A="30"/>
+	<BlendOn frame="40" R="90" G="70" B="40" A="100"/>
+	<BlendOn frame="42" R="30" G="20" B="10" A="100"/>
+	<BlendOn frame="44" R="50" G="30" B="20" A="100"/>
+	<BlendOn frame="46" R="30" G="20" B="10" A="100"/>
+	<BlendOn frame="48" R="20" G="10" B="5" A="100"/>
+	<BlendOn frame="50" R="30" G="20" B="10" A="100"/>
+	<BlendOn frame="52" R="20" G="10" B="5" A="100"/>
+	<BlendOn frame="54" R="30" G="20" B="10" A="100"/>
+	<BlendOn frame="56" R="40" G="25" B="15" A="100"/>
+	<BlendOn frame="58" R="50" G="30" B="20" A="100"/>
+	<BlendOn frame="60" R="90" G="65" B="30" A="100"/>
+	<BlendOn frame="61" R="160" G="120" B="60" A="100"/>
+	<BlendOn frame="63" R="130" G="90" B="45" A="100"/>
+	<BlendOn frame="64" R="100" G="70" B="35" A="100"/>
+	<BlendOn frame="65" R="80" G="55" B="30" A="100"/>
+	<BlendOn frame="67" R="60" G="45" B="25" A="100"/>
+	<BlendOn frame="68" R="50" G="40" B="20" A="100"/>
+	<BlendOn frame="69" R="40" G="25" B="15" A="100"/>
+	<BlendOn frame="70" R="30" G="20" B="10" A="100"/>
+	<BlendOn frame="71" R="15" G="10" B="5" A="100"/>
+	<BlendOn frame="75" R="160" G="120" B="60" A="100"/>
+	<BlendOn frame="76" R="130" G="90" B="45" A="100"/>
+	<BlendOn frame="77" R="100" G="70" B="35" A="100"/>
+	<BlendOn frame="78" R="80" G="55" B="30" A="100"/>
+	<BlendOn frame="79" R="60" G="45" B="25" A="100"/>
+	<BlendOn frame="80" R="50" G="40" B="20" A="100"/>
+	<BlendOn frame="81" R="40" G="25" B="15" A="100"/>
+	<BlendOn frame="82" R="30" G="20" B="10" A="100"/>
+	<BlendOn frame="83" R="15" G="10" B="5" A="100"/>
+	<BlendOff frame="84" R="0" G="0" B="0" A="0"/>
+	<Particle frame="4" attachNode="Bip01 L Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip01 L Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Bip01 L Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip01 L Finger2" particleName="I_spread_out009_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="4" attachNode="Bip01 R Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip01 R Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Bip01 R Finger2" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="4" attachNode="Bip01 R Finger2" particleName="I_spread_out009_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="61" attachNode="Dummy_effect_skl2" particleName="F_burstup027_fire1" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="5" attachNode="Dummy001" particleName="F_ground043_lineup_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="87" attachNode="Dummy001" particleName="F_levitation007_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="109" attachNode="Dummy001" particleName="F_levitation007_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_genmagnus_skl"/>
+	<Sound frame="0.00" soundFile="mon_clymen_skl2_voice"/>
+	<Sound frame="0.00" soundFile="skl_eff_fireball_cast_loop"/>
+	<Sound frame="0.00" soundFile="skl_eff_fire_cast"/>
+	<Sound frame="15.00" soundFile="mon_spector_change_1"/>
+	<Sound frame="20.00" soundFile="mon_spector_atk_cast"/>
+	<Sound frame="50.00" soundFile="mon_voice_onion_the_great_3"/>
+	<Sound frame="50.00" soundFile="mon_voice_netherbovine_2"/>
+	<Sound frame="50.00" soundFile="mon_clymen_skl1_voice"/>
+	<Sound frame="54.00" soundFile="skl_eff_boom_l_1"/>
+	<Sound frame="54.00" soundFile="skl_eff_stone_born_l_1"/>
+	<Sound frame="55.00" soundFile="skl_eff_stone_blow_m"/>
+	<Sound frame="65.00" soundFile="skl_eff_spread_1"/>
+	<Sound frame="80.00" soundFile="skl_eff_spread_1"/>
+	<Sound frame="100.00" soundFile="skl_eff_spread_1"/>
+</ActionDesc>

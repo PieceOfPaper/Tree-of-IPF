@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="1.50" soundFile="mon_clymen_atk_move"/>
+	<Sound frame="3.00" soundFile="mon_clymen_atk_voice"/>
+	<Particle frame="25" particleName="I_force012_green" attachNode="Bip001 R Hand" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="68" particleName="F_smoke107" attachNode="Dummy_emitter" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="68" particleName="F_explosion006_green" attachNode="Bip001 R Hand" scale="1.1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="68" particleName="F_spark001_green" attachNode="Bip001 R Hand" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="68.01" soundFile="skl_eff_boom_l_1"/>
+</ActionDesc>

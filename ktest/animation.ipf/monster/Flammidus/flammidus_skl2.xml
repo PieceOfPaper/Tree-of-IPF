@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="83" type="2" intensity="5" frequency="70" duration="0.5" range="1000">
+		<!---->
+	</Shockwave>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="83" R="200" G="180" B="100" A="100"/>
+	<BlendOn frame="84" R="150" G="120" B="70" A="100"/>
+	<BlendOn frame="86" R="100" G="80" B="40" A="100"/>
+	<BlendOff frame="89" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_succubus_atk_cast_2"/>
+	<Sound frame="0.00" soundFile="skl_eff_campfire_burst"/>
+	<Sound frame="5.00" soundFile="mon_voice_lapene_skl2_cast"/>
+	<Sound frame="35.00" soundFile="skl_eff_atk_move_l_2"/>
+	<Sound frame="72.00" soundFile="mon_gesti_skl2_shot"/>
+	<Sound frame="73.00" soundFile="mon_mirtis_skl01_shot"/>
+</ActionDesc>

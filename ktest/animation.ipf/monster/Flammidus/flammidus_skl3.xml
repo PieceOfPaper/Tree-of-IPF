@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="77" type="2" intensity="5" frequency="50" duration="0.5" range="1000"/>
+	<Particle frame="77" attachNode="Dummy_emitter" particleName="F_burstup028_fire" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="15" attachNode="Bip001 R Foot" particleName="I_spread_in008_fire" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Dummy_emitter" particleName="F_spread_in001_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Dummy_emitter" particleName="F_spread_in011_red_loop" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_voice_succubus_atk_cast_2"/>
+	<Sound frame="4.00" soundFile="skl_eff_darktheurge_loop"/>
+	<Sound frame="10.00" soundFile="mon_voice_lapene_skl2_cast"/>
+	<Sound frame="60.00" soundFile="mon_mirtis_atk02_cast"/>
+	<Sound frame="60.00" soundFile="mon_gesti_born"/>
+</ActionDesc>

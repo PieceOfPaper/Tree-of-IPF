@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_goblin_warrior_idle"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect_R_hand" particleName="I_spread_out005_orange" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect_L_hand" particleName="I_spread_out005_orange" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect" particleName="F_spread_in010_orange" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="12.00" soundFile="skl_wiz_burninghands"/>
+	<Sound frame="48.00" soundFile="skl_eff_dash_1"/>
+	<Sound frame="51.66" soundFile="mon_goblin_warrior_dead"/>
+	<Particle frame="56" attachActor="None" attachNode="Bip001 Spine1" particleName="F_explosion006_orange1" hiddenObj="false" useAttach="false" scale="1.5" pause="false" targetPos="false"/>
+	<Sound frame="60.00" soundFile="skl_wiz_explosion"/>
+</ActionDesc>

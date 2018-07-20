@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Particle frame="50" particleName="I_swordtrail021_white" attachNode="Dummy_atk_effect" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="50" particleName="E_warleader_hogma_atk" attachNode="Dummy_emitter" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="50" soundFile="mon_voice_hogma_skl_shot"/>
+	<Sound frame="53" soundFile="skl_eff_salti"/>
+	<Sound frame="53" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="54" soundFile="swd_attack2"/>
+</ActionDesc>

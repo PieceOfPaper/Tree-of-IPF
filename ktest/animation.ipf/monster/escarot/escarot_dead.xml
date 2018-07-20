@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mondu (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+    <Sound frame="0.00" soundFile="m_velorchard_dead"/>
+    <Sound frame="0.00" soundFile="mon_dionia_dead"/>
+    <Particle frame="10" attachActor="None" attachNode="bone_necklace1_2" particleName="F_light001_yellow1" useAttach="true" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+    <BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+    <Particle frame="25" attachActor="None" attachNode="bone_necklace1_2" particleName="F_light001_yellow1" useAttach="true" hiddenObj="false" scale="20" pause="true" targetPos="false"/>
+    <BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+    <Sound frame="60.00" soundFile="mon_denoptic_born"/>
+    <Shockwave frame="84" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="85" attachActor="None" attachNode="Dummy_emitter" particleName="I_escarot_dead_mash" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="85" attachActor="None" attachNode="Dummy_emitter" particleName="F_explosion004_yellow" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="85" attachActor="None" attachNode="Dummy_emitter" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Particle frame="85" attachActor="None" attachNode="Dummy_emitter" particleName="F_explosion082" useAttach="false" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+    <Shockwave frame="86" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="88" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="90" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <BlendOff frame="90" R="0" G="0" B="0" A="0"/>
+    <Shockwave frame="92" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="94" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="96" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="98" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="100" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="102" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

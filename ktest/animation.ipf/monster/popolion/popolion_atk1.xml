@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_mon_katynforest_zombie01_knockdown1" useAttach="false" scale="1" hiddenObj="false" changeEffect="None"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_circle017" useAttach="false" scale="0.7" hiddenObj="false" changeEffect="None"/>
+	<HitAni frame="6"/>
+	<Sound frame="6" soundFile="mon_popolion_atk"/>
+</ActionDesc>

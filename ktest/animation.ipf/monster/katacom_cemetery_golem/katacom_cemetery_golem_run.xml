@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Shockwave frame="0" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="10" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="12" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="14" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" particleName="F_smoke109" attachNode="Bip001 L Finger0" scale="1" useAttach="true"/>
+	<Particle frame="0" particleName="F_stone005" attachNode="Bip001 L Finger0" scale="0.5" useAttach="true"/>
+	<Particle frame="2" particleName="F_smoke109" attachNode="Bip001 R Toe0" scale="1" useAttach="true"/>
+	<Particle frame="2" particleName="F_stone005" attachNode="Bip001 R Toe0" scale="0.5" useAttach="true"/>
+	<Particle frame="10" particleName="F_smoke109" attachNode="Bip001 R Finger0" scale="1" useAttach="true"/>
+	<Particle frame="10" particleName="F_stone005" attachNode="Bip001 R Finger0" scale="0.5" useAttach="true"/>
+	<Particle frame="12" particleName="F_smoke109" attachNode="Bip001 L Toe0" scale="1" useAttach="true"/>
+	<Particle frame="12" particleName="F_stone005" attachNode="Bip001 L Toe0" scale="0.5" useAttach="true"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_zombieboss_wlk"/>
+</ActionDesc>

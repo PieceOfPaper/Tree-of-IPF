@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_panto_javelin_elite_skl3_cast"/>
+    <Particle frame="35" attachNode="Dummy_emitter" particleName="F_spread_out008_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="72.00" soundFile="skl_eff_cataphract_spin"/>
+    <Sound frame="73.00" soundFile="skl_eff_atk_move_l_16"/>
+    <Sound frame="75.00" soundFile="mon_panto_javelin_elite_skl3_shot"/>
+    <Particle frame="78" attachNode="Dummy_weapon_effect" particleName="F_drop_leaf004" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="78.00" soundFile="skl_eff_two_spin_3"/>
+    <Sound frame="80.00" soundFile="skl_eff_atk_move_l_13"/>
+    <Particle frame="82" attachNode="Dummy_weapon_effect" particleName="F_drop_leaf004" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="94" attachNode="Dummy_weapon_effect" particleName="F_drop_leaf004" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="100.00" soundFile="skl_eff_move_equip_3"/>
+    <Particle frame="102" attachNode="Dummy_weapon_effect" particleName="F_drop_leaf004" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

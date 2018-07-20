@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_l_7"/>
+    <Sound frame="0.00" soundFile="mon_voice5_l_cast_1"/>
+    <Sound frame="15.00" soundFile="mon_voice_helgasercle_8"/>
+    <BlendOn frame="18" R="1" G="8" B="10" A="30"/>
+    <BlendOn frame="20" R="3" G="12" B="14" A="30"/>
+    <BlendOn frame="22" R="5" G="15" B="17" A="30"/>
+    <Sound frame="25.00" soundFile="mon_voice_hogma_knockback"/>
+    <Sound frame="30.00" soundFile="atk_rod"/>
+    <Sound frame="30.00" soundFile="atk_swordswing"/>
+    <Sound frame="30.00" soundFile="skl_eff_atk_move_m_6"/>
+    <Shockwave frame="39" type="2" intensity="10" frequency="70" duration="0.4" range="1000"/>
+    <Particle frame="39" attachNode="Dummy_effect_atk" particleName="I_light018_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="39" attachNode="Dummy_effect_atk" particleName="I_light013_spark_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="39" attachNode="Dummy_effect_atk" particleName="I_light013_spark_blue_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_special_hit_1"/>
+    <BlendOn frame="39" R="60" G="130" B="140" A="200"/>
+    <Particle frame="40" attachNode="Dummy_effect_atk" particleName="I_smoke052_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="40" R="40" G="90" B="100" A="150"/>
+    <BlendOn frame="41" R="30" G="70" B="80" A="100"/>
+    <BlendOn frame="42" R="10" G="45" B="50" A="100"/>
+    <BlendOff frame="43" R="0" G="0" B="0" A="0"/>
+    <Particle frame="45" attachNode="Dummy_effect_atk" particleName="I_smoke052_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

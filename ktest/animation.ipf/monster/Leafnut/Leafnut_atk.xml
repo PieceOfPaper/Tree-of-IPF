@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_footstep_bug_wing_short_1"/>
+    <Sound frame="10.00" soundFile="mon_truffle_skl_shot"/>
+    <Sound frame="11.00" soundFile="mon_pumpkin_atk"/>
+    <Particle frame="11" attachActor="None" attachNode="Dummy_ef_atk01" particleName="F_dash002" hiddenObj="false" useAttach="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="12" attachActor="None" attachNode="Dummy_ef_atk02" particleName="F_spark001_green" hiddenObj="false" useAttach="false" scale="2" pause="true" targetPos="false"/>
+</ActionDesc>

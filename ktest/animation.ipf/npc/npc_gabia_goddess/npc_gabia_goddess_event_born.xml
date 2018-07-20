@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="5" attachNode="Dummy_effect_chest" particleName="I_force059_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_chest" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+	<Particle frame="35" attachNode="Dummy_effect_chest" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+	<Particle frame="5" attachNode="Bone_wing_L2" particleName="F_spread_out031_fether_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="15" attachNode="Bone_wing_L2" particleName="F_spread_out031_fether_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="25" attachNode="Bone_wing_L2" particleName="F_spread_out031_fether_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="35" attachNode="Bone_wing_L2" particleName="F_spread_out031_fether_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="45" attachNode="Bone_wing_L2" particleName="F_spread_out031_fether_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_Chast" particleName="I_smoke050_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+	<Particle frame="57" attachNode="Dummy_effect_chest" particleName="F_light065_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="1" R="20" G="16" B="8" A="50"/>
+	<BlendOn frame="2" R="30" G="20" B="10" A="50"/>
+	<BlendOn frame="3" R="40" G="30" B="15" A="50"/>
+	<BlendOn frame="53" R="30" G="20" B="10" A="50"/>
+	<BlendOn frame="55" R="20" G="16" B="8" A="40"/>
+	<BlendOn frame="56" R="15" G="10" B="5" A="30"/>
+	<BlendOn frame="57" R="10" G="8" B="2" A="20"/>
+	<BlendOn frame="57" R="5" G="4" B="1" A="10"/>
+	<BlendOff frame="60" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

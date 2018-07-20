@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_body_atk_1" />
+    <Sound frame="0.00" soundFile="mon_voice_ghost_1" />
+    <Shockwave frame="6" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="6" particleName="F_ground088_smoke" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="7.00" soundFile="skl_eff_body_atk_2" />
+    <Shockwave frame="8" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="10" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+</ActionDesc>

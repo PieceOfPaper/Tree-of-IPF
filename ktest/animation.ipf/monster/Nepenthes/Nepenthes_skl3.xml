@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_nepenthes_skl3"/>
+	<Sound frame="66.00" soundFile="mon_big_footstep_1"/>
+	<Sound frame="72.00" soundFile="mon_big_footstep_1"/>
+	<Sound frame="82.00" soundFile="mon_big_footstep_1"/>
+	<Sound frame="88.00" soundFile="mon_big_footstep_1"/>
+	<Sound frame="92.00" soundFile="mon_big_footstep_2"/>
+	<Shockwave frame="19" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="21" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="23" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="103" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="105" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="107" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="19" attachNode="Bip001 R Finger1" particleName="F_smoke018" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_spread_4"/>
+	<Particle frame="19" attachNode="Bip001 L Finger1" particleName="F_smoke018" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="19" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="25" attachNode="Dummy_emitter" particleName="F_spread_out005_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="14" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="27" attachNode="Dummy_emitter" particleName="F_spread_out008_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="66" attachNode="Bip001 R Finger1" particleName="F_smoke129_spreadout" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="72" attachNode="Bip001 L Finger1" particleName="F_smoke129_spreadout" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="77" attachNode="Bip001 R Finger1" particleName="F_smoke129_spreadout" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="82" attachNode="Bip001 L Finger1" particleName="F_smoke129_spreadout" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="88" attachNode="Bip001 R Finger1" particleName="F_smoke129_spreadout" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="92" attachNode="Bip001 L Finger1" particleName="F_smoke129_spreadout" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="103" attachNode="Bip001 HeadNub" particleName="F_explosion025" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_jumplanding_1"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_panto_javelin_elite_born"/>
+    <Shockwave frame="3" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="3" attachNode="Dummy_emitter" particleName="F_burstup003" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_born_1"/>
+    <Shockwave frame="5" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="7" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="17" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="17" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Shockwave frame="19" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

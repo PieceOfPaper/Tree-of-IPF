@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" particleName="F_smoke109" attachNode="IK Chain001" scale="2" useAttach="true"/>
+	<Particle frame="0" particleName="F_stone005" attachNode="IK Chain001" scale="1" useAttach="true"/>
+	<Particle frame="18" particleName="F_smoke109" attachNode="IK Chain002" scale="2" useAttach="true"/>
+	<Particle frame="18" particleName="F_stone005" attachNode="IK Chain002" scale="1" useAttach="true"/>
+	<Particle frame="10" particleName="F_smoke109" attachNode="Bip001 L Foot" scale="2" useAttach="true"/>
+	<Particle frame="10" particleName="F_stone005" attachNode="Bip001 L Foot" scale="1" useAttach="true"/>
+	<Particle frame="25" particleName="F_smoke109" attachNode="Bip001 R Foot" scale="2" useAttach="true"/>
+	<Particle frame="25" particleName="F_stone005" attachNode="Bip001 R Foot" scale="1" useAttach="true"/>
+	<Sound frame="4.00" soundFile="mon_wood_spirit_turn"/>
+</ActionDesc>

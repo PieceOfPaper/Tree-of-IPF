@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_yuche_poison"/>
+	<Particle frame="10" attachNode="Dummy_effect_body" particleName="F_spread_out036_ground_circle_rainbow" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="22.00" soundFile="skl_ice_cast"/>
+	<Sound frame="22.00" soundFile="skl_eff_spread_7"/>
+	<Particle frame="60" attachNode="Dummy_effect_body" particleName="F_spread_out036_ground_circle_rainbow" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="60.00" soundFile="skl_eff_spread_9"/>
+	<Sound frame="62.00" soundFile="skl_eff_skyline_spread"/>
+	<Sound frame="63.00" soundFile="mon_spector_change"/>
+	<Sound frame="69.51" soundFile="mon_ellomago_skl_shot"/>
+	<Particle frame="70" attachNode="Dummy_bufficon" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Bip001 HeadNub" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="105.00" soundFile="mon_groll_skl_cast"/>
+</ActionDesc>

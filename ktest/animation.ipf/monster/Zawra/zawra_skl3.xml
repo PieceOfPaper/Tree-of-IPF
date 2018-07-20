@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="30" attachNode="Dummy_effect_skl3" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="41" attachNode="Dummy_effect_skl3" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="67" attachNode="Dummy_effect_skl3_foot" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Bip001 L Forearm" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Bip001 R Forearm" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="85" attachNode="Bip001 L Hand" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="85" attachNode="Bip001 R Hand" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="101" attachNode="Bip001 L Finger31" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="101" attachNode="Bip001 R Finger31" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Dummy_emitter" particleName="I_smoke026_spread_out_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="2.00" soundFile="mon_moldyhorn_skl_2"/>
+	<Sound frame="25.00" soundFile="blunt_blow_metal"/>
+	<Sound frame="36.00" soundFile="blunt_blow_metal"/>
+	<Sound frame="55.00" soundFile="m_ironbaum_skl1_voice"/>
+	<Sound frame="60.00" soundFile="mon_voice5_l_dead_14"/>
+	<Sound frame="63.00" soundFile="mon_big_footstep_6"/>
+</ActionDesc>

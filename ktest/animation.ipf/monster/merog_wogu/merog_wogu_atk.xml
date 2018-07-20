@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_merog_wogu_atk"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_force_effect" particleName="F_explosion001_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="6.00" soundFile="skl_eff_atk_move_s_7"/>
+</ActionDesc>

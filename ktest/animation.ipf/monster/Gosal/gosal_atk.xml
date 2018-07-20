@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice5_l_cast_4"/>
+    <Sound frame="0.00" soundFile="mon_voice_rootopus_atk_1"/>
+    <Sound frame="40.00" soundFile="mon_moglan_born"/>
+    <Sound frame="45.00" soundFile="mon_golem_hit"/>
+    <Shockwave frame="56" type="2" intensity="10" frequency="70" duration="0.5" range="1000"/>
+    <Particle frame="56" attachNode="Dummy_effect_body" particleName="F_explosion063_brown2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="56" attachNode="Dummy_effect_atk2" particleName="F_explosion084" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="56" attachNode="Dummy_effect_atk2" particleName="F_explosion079_blood2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_link_line_boom_far"/>
+    <Particle frame="56" attachNode="Dummy_emitter" particleName="F_brass002_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="56" attachNode="Dummy_emitter" particleName="F_ground078_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="80" attachNode="Dummy_effect_lip_r" particleName="F_drop_water002_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="85" attachNode="Dummy_effect_lip_l" particleName="F_drop_water002_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="89" attachNode="Bip001 Xtra0202" particleName="F_drop_water002_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

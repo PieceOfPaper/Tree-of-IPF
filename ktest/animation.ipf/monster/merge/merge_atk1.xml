@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_merge_atk"/>
+	<Particle frame="0" attachNode="Dummy_effect_tail" particleName="I_force079_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="B_R_Wing_05" particleName="I_force078_blue_feather2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="B_L_Wing_05" particleName="I_force078_blue_feather2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="36" attachNode="Dummy_effect_atk" particleName="I_swordtrail031_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false">
+		<modelsound boss_Merge="skl_eff_scythe_attack"/>
+	</Particle>
+	<Shockwave frame="37" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="36" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="37" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="39" R="200" G="200" B="150" A="200"/>
+	<BlendOn frame="40" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="60" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

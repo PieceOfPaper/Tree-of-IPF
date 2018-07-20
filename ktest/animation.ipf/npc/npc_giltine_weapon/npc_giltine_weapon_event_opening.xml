@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AfterImage frame="20" term="40" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="55" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<ShadowRenderAnim frame="0" Anim="EVENT_OPENING"/>
+	<Particle frame="0" particleName="I_smoke_red2" attachNode="Bip01" scale="3" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

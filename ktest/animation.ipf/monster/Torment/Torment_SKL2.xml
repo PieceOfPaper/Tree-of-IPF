@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_molich_atk_ready"/>
+    <Sound frame="0.00" soundFile="mon_merge_born"/>
+    <Sound frame="10.00" soundFile="mon_molich_skl_shot"/>
+    <AfterImage frame="21" term="30" blendTime="400" r="160" g="160" b="160" a="160"/>
+    <Shockwave frame="22" type="2" intensity="7" frequency="70" duration="0.5" range="1000"/>
+    <Particle frame="23" attachNode="L_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="23" attachNode="L_Hook_Bone03" particleName="F_stone005" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="24" type="2" intensity="7" frequency="70" duration="0.5" range="1000"/>
+    <Particle frame="24" attachNode="L_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="24" attachNode="L_Hook_Bone03" particleName="F_stone005" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="25" attachNode="L_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="25" attachNode="L_Hook_Bone03" particleName="F_stone005" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="26" type="2" intensity="6" frequency="70" duration="0.4" range="1000"/>
+    <Particle frame="27" attachNode="L_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="27" attachNode="L_Hook_Bone06" particleName="F_stone005" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="28" type="2" intensity="6" frequency="70" duration="0.4" range="1000"/>
+    <Particle frame="29" attachNode="R_Hook_Bone06" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="29" attachNode="R_Hook_Bone06" particleName="F_stone005" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="30" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="31" attachNode="R_Hook_Bone03" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="31" attachNode="R_Hook_Bone03" particleName="F_stone005" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="32" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="34" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="36" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="38" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="40" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <AfterImage frame="42" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+    <Shockwave frame="42" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="44" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="46" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

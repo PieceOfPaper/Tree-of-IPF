@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="5" attachNode="Dummy_skl" particleName="I_swordtrail017_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="12" attachNode="Dummy_skl2" particleName="I_swordtrail017_white2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="12" attachNode="Dummy_skl2" particleName="I_swordtrail017_white2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_siaulav_atk"/>
+	<Sound frame="0.00" soundFile="mon_voice_action"/>
+	<Sound frame="2.00" soundFile="mon_voice_hogma_archer_atk"/>
+	<Sound frame="7.66" soundFile="skl_eff_body_atk_1"/>
+	<Sound frame="7.66" soundFile="mon_voice_werewolf_5"/>
+</ActionDesc>

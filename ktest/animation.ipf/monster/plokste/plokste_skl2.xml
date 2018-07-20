@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="35" attachNode="Dummy_emitter" particleName="I_spin005" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="33" attachNode="Dummy_emitter" particleName="F_spin010" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="58" attachNode="Dummy_emitter" particleName="I_spin009" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="33" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<AfterImage frame="50" term="15" blendTime="300" r="160" g="160" b="160" a="100"/>
+	<AfterImage frame="63" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="42" R="30" G="50" B="30" A="50"/>
+	<BlendOn frame="44" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="46" R="60" G="80" B="60" A="50"/>
+	<BlendOn frame="48" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="50" R="60" G="80" B="60" A="50"/>
+	<BlendOn frame="52" R="10" G="15" B="10" A="50"/>
+	<BlendOn frame="54" R="40" G="50" B="40" A="50"/>
+	<BlendOn frame="55" R="10" G="15" B="10" A="50"/>
+	<BlendOff frame="56" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

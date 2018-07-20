@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mabin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_eff_dead" particleName="F_spread_in002_green1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false" />
+    <Sound frame="15.00" soundFile="skl_eff_thunder_1" />
+    <Particle frame="20" attachNode="Dummy_eff_dead" particleName="F_spread_in002_yellow1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false" />
+    <Sound frame="55.84" soundFile="mon_voice_netherbovine_4" />
+    <Particle frame="60" attachNode="Dummy_LOCK" particleName="F_ground017" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" targetPos="false" />
+    <Sound frame="99.00" soundFile="skl_eff_gyulge_cast" />
+    <Particle frame="100" attachNode="Dummy_LOCK" particleName="F_spread_in002_yellow1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" targetPos="false" />
+    <Sound frame="105.00" soundFile="skl_eff_metalchain" />
+    <Sound frame="105.00" soundFile="skl_eff_atk_move_l_19" />
+    <Sound frame="120.00" soundFile="skl_eff_atk_move_l_20" />
+    <Sound frame="129.00" soundFile="skl_eff_metalchain" />
+    <Particle frame="138" attachNode="Dummy_LOCK" particleName="F_ground038" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.7" pause="true" targetPos="false" />
+    <Particle frame="139" attachNode="Dummy_eff_dead" particleName="F_spread_out014_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.3" pause="true" targetPos="false" />
+    <Particle frame="139" attachNode="Dummy_eff_dead" particleName="F_levitation010_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.3" pause="true" targetPos="false" />
+    <Particle frame="166" attachNode="Dummy_LOCK" particleName="F_burstup001_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.2" pause="true" targetPos="false" />
+    <Particle frame="170" attachNode="Dummy_eff_born" particleName="F_spread_in002_yellow1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.9" pause="true" targetPos="false" />
+    <Sound frame="173.01" soundFile="skl_eff_dead_boom_metal" />
+    <Particle frame="174" attachNode="Dummy_LOCK" particleName="F_explosion004_yellow2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false" />
+    <Particle frame="177" attachNode="Dummy_eff_dead" particleName="F_smoke076" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false" />
+    <Sound frame="177.59" soundFile="mon_voice_netherbovine_2" />
+    <Particle frame="178" attachNode="Dummy_LOCK" particleName="bramble_event_born_chain_R" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" targetPos="false" />
+    <Sound frame="189.49" soundFile="skl_eff_gyulge_shot" />
+    <Sound frame="192.24" soundFile="skl_eff_dead_boom_metal" />
+    <Particle frame="193" attachNode="Dummy_LOCK" particleName="bramble_event_born_chain_L" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.6" pause="true" targetPos="false" />
+    <Particle frame="215" attachNode="Dummy_eff_born" particleName="F_explosion025" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" targetPos="false" />
+    <Particle frame="215" attachNode="Dummy_LOCK" particleName="F_burstup001_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.2" pause="true" targetPos="false" />
+    <Sound frame="215.12" soundFile="mon_voice_netherbovine_5" />
+    <Sound frame="225.00" soundFile="skl_eff_spread_4" />
+    <Sound frame="240.00" soundFile="skl_eff_dead_boom_m" />
+</ActionDesc>

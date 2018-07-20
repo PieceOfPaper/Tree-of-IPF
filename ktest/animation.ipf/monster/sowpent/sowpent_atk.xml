@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="4" R="40" G="60" B="70" A="50"/>
+	<BlendOn frame="5" R="30" G="50" B="60" A="50"/>
+	<BlendOff frame="7" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="3" term="50" blendTime="200" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="6" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_ravinelerva_9"/>
+	<Sound frame="4.00" soundFile="mon_voice_screech_7"/>
+	<Sound frame="4.00" soundFile="mon_voice_screech_10"/>
+</ActionDesc>

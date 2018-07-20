@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="10.00" soundFile="mon_grinender_skl_1"/>
+    <Sound frame="40.00" soundFile="skl_eff_atk_move_l_14"/>
+    <Sound frame="45.63" soundFile="skl_eff_link_line_boom"/>
+    <AfterImage frame="46" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+    <Particle frame="49" attachNode="Dummy_effect_atk" particleName="F_explosion100_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="None"/>
+    <Particle frame="49" attachNode="Bip001 Xtra0506" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <AfterImage frame="58" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

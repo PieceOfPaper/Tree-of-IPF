@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="100" G="100" B="100" A="255"/>
+	<BlendOn frame="20" R="50" G="50" B="50" A="100"/>
+	<BlendOn frame="40" R="0" G="0" B="0" A="0"/>
+	<BlendOff frame="60" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_effect" particleName="F_light069_red_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.45" pause="true" use2DEffect="false"/>
+</ActionDesc>

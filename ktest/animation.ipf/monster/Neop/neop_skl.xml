@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_throneweaver_5"/>
+    <Particle frame="3" attachNode="Dummy_effect_skl1_lip" particleName="F_ground118_yellow_attach" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="4" attachNode="Bip001 Ponytail2" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="4" attachNode="Bip001 Ponytail1" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="15" attachNode="Dummy_effect_skl1_lip" particleName="I_smoke013_dark1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="16.39" soundFile="skl_eff_atk_move_m_10"/>
+    <Sound frame="17.06" soundFile="mon_voice_rootopus_move_4"/>
+    <Particle frame="19" attachNode="Dummy_effect_skl1_head" particleName="F_smoke147_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="19" attachNode="Dummy_effect_skl1_head" particleName="F_smoke147_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="47" attachNode="Dummy_effect_skl1_lip" particleName="F_ground118_yellow_attach" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.75" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="47" attachNode="Dummy_effect_skl1_lip" particleName="F_ground118_yellow_attach" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.75" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="53.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Sound frame="59.86" soundFile="mon_voice_throneweaver_9"/>
+    <Sound frame="63.88" soundFile="skl_eff_body_atk_1"/>
+    <Particle frame="67" attachNode="Dummy_effect_lip" particleName="F_ground118_yellow2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_ferreteye2_R" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_ferreteye2_L" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="18" attachNode="Dummy_effect_skl3_hand_L" particleName="I_Ferret_orange01_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="35" attachNode="Bone019" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="55" attachNode="Bone043" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_golem_run_voice"/>
+	<Sound frame="10.00" soundFile="mon_truffle_hit"/>
+</ActionDesc>

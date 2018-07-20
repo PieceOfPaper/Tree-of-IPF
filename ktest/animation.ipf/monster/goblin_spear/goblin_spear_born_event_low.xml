@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="m_goblin_miner_born" />
+    <Sound frame="3.33" soundFile="pc_war_jump_2" />
+    <Particle frame="4" attachNode="Bip02 R Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false" />
+    <Particle frame="4" attachNode="Bip02 R Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Particle frame="4" attachNode="Bip02 L Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false" />
+    <Particle frame="4" attachNode="Bip02 L Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Sound frame="13" soundFile="m_goblin_miner_born" />
+    <Particle frame="15" attachNode="Dummy_emitter" particleName="F_burstup016_smoke" useAttach="false" hiddenObj="false" scale="2.5" pause="true" targetPos="false" />
+    <Particle frame="15" attachNode="Dummy_emitter" particleName="F_smoke089" useAttach="false" hiddenObj="false" scale="13" pause="true" targetPos="false" />
+    <Sound frame="16.00" soundFile="skl_eff_bodyfall_s_1" />
+    <Sound frame="16.33" soundFile="pc_war_jump_2" />
+</ActionDesc>

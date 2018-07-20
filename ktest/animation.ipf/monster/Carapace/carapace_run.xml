@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Shockwave frame="0" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="0" particleName="F_smoke109" attachNode="claws_R_04" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="0" particleName="F_stone005" attachNode="claws_R_04" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="0.00" soundFile="mon_big_footstep_spider" />
+    <Shockwave frame="1" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Sound frame="1.50" soundFile="mon_big_footstep_5" />
+    <Sound frame="9.00" soundFile="mon_big_footstep_yekub" />
+    <Shockwave frame="18" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="18" particleName="F_smoke109" attachNode="F leg R_05" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="18" particleName="F_stone005" attachNode="F leg R_05" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="19" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="19" particleName="F_smoke109" attachNode="B leg L_05" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="19" particleName="F_stone005" attachNode="B leg L_05" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="20" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="25" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="25" particleName="F_smoke109" attachNode="claws_L_04" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="25" particleName="F_stone005" attachNode="claws_L_04" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="25.20" soundFile="mon_big_footstep_spider" />
+    <Shockwave frame="26" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Sound frame="26.70" soundFile="mon_big_footstep_5" />
+    <Shockwave frame="43" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="43" particleName="F_smoke109" attachNode="F leg L_05" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="43" particleName="F_stone005" attachNode="F leg L_05" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="44" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="45" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="45" particleName="F_smoke109" attachNode="B leg R_05" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="45" particleName="F_stone005" attachNode="B leg R_05" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="46" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+</ActionDesc>

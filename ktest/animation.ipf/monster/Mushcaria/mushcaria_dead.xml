@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="67" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="69" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="71" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="73" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="75" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="77" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="79" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="81" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="83" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="85" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" Value="1666" soundFile="mon_voice_mushcaria_3"/>
+	<Sound frame="0.00" soundFile="skl_eff_poison_3"/>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="90" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy002" particleName="F_explosion042_smoke" useAttach="false" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy002" particleName="I_smoke016_spread_out" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy002" particleName="F_ground039" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="10" attachActor="None" attachNode="Dummy002" particleName="I_smoke016_spread_out" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Dummy002" particleName="I_smoke016_spread_out" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="25" pause="true" targetPos="false"/>
+	<Particle frame="30" attachActor="None" attachNode="Dummy002" particleName="F_explosion042_smoke" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="67" attachActor="None" attachNode="Dummy002" particleName="I_mushcaria_dead_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="67" attachActor="None" attachNode="Dummy002" particleName="F_explosion004_yellow" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="67" attachActor="None" attachNode="Dummy002" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="67" attachActor="None" attachNode="Dummy002" particleName="F_spread_out025_yellow" useAttach="false" hiddenObj="false" scale="20" pause="true" targetPos="false"/>
+</ActionDesc>

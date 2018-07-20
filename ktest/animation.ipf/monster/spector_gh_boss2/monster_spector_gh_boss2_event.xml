@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_effect_L_hand" particleName="I_force061_violet" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_effect_R_hand" particleName="I_force061_violet" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_effect_ray" particleName="I_breath015_violet" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_effect_ray" particleName="F_spread_in002_violet" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_emiitter" particleName="F_smoke019_dark" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_emiitter" particleName="F_levitation007_violet" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_spector_change_1"/>
+    <Particle frame="40" attachActor="None" attachNode="Dummy_effect_ray" particleName="F_spread_in002_violet" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

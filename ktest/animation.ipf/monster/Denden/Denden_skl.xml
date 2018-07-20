@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice2_s_16"/>
+    <Sound frame="0.00" soundFile="m_siauliai_beetle_astd"/>
+    <Sound frame="2.00" soundFile="m_insect_move"/>
+    <Sound frame="19.00" soundFile="mon_voice2_s_10"/>
+    <Particle frame="20" attachNode="Dummy_atk" particleName="F_explosion055_leaf" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" sound="skl_eff_mud_shot"/>
+    <Particle frame="20" attachNode="leaf_F_001" particleName="F_burstup012_blue" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" sound="skl_eff_acidburn"/>
+</ActionDesc>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_voice_lecifer_atk2"/>
+    <Sound frame="0.00" soundFile="mon_voice_hog_7"/>
+    <Particle frame="15" attachNode="Dummy_effect_lip" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="19" attachNode="Dummy_effect_lip" particleName="F_drop001_alpha" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="19" attachNode="Dummy_effect_lip" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="19" attachNode="Dummy_effect_lip" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="30.00" soundFile="mon_voice_hog_11"/>
+    <Sound frame="45.00" soundFile="skl_eff_atk_sperad"/>
+    <Sound frame="50.00" soundFile="swd_blow_flesh1--"/>
+    <Sound frame="50.00" soundFile="arw_blow_flesh1"/>
+    <Particle frame="53" attachNode="Dummy_effect_atk" particleName="F_explosion035_yellow1" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="53" attachNode="Dummy_emitter" particleName="F_smoke022" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false" sound="skl_eff_shot_smoke"/>
+    <BlendOn frame="53" R="150" G="150" B="100" A="100"/>
+    <BlendOn frame="54" R="200" G="200" B="150" A="200"/>
+    <BlendOff frame="55" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

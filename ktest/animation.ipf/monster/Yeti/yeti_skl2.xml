@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Bip001 L Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="0" attachNode="Bip001 R Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="0" attachNode="Bip001 Spine" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Sound frame="0.00" soundFile="skl_eff_spread_9"/>
+    <Sound frame="0.00" soundFile="mon_voice5_l_cast_3"/>
+    <Sound frame="3.00" soundFile="skl_eff_atk_move_l_21"/>
+    <Particle frame="10" attachNode="Dummy_effect_lip" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="15" attachNode="Bip001 L Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="15" attachNode="Bip001 R Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Sound frame="22.00" soundFile="skl_eff_atk_move_l_22"/>
+    <Shockwave frame="25" type="2" intensity="1" frequency="70" duration="5" range="1000"/>
+    <Particle frame="30" attachNode="Bip001 L Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="30" attachNode="Bip001 R Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="30" attachNode="Bip001 Spine" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="45" attachNode="Bip001 L Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="45" attachNode="Bip001 R Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="50" attachNode="Dummy_effect_lip" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="55" attachNode="Dummy_effect_lip" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Sound frame="55.00" soundFile="skl_eff_body_atk_1"/>
+    <Particle frame="60" attachNode="Bip001 L Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="60" attachNode="Bip001 R Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="60" attachNode="Bip001 Spine" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="61" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="62" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="63" attachNode="Dummy_effect_lip" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Sound frame="65.00" soundFile="mon_goblinwarrior_atk1_shot"/>
+    <Sound frame="69.00" soundFile="skl_wiz_icewall_born"/>
+    <Sound frame="70.00" soundFile="skl_eff_crash_ground_l_4"/>
+    <Particle frame="75" attachNode="Dummy_emitter" particleName="F_wizard_gust_shot_burstup_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="75" attachNode="Bip001 L Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+    <Particle frame="75" attachNode="Bip001 R Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+    <Shockwave frame="76" type="2" intensity="5" frequency="60" duration="0.5" range="1000"/>
+    <Particle frame="77" attachNode="Dummy_emitter" particleName="F_smoke064_grey" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+    <Particle frame="78" attachNode="Dummy_emitter" particleName="F_ground113_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+    <Particle frame="78" attachNode="Dummy_emitter" particleName="F_explosion093_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+    <Particle frame="82" attachNode="Dummy_emitter" particleName="F_ground117_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound=""/>
+    <Particle frame="90" attachNode="Bip001 L Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="90" attachNode="Bip001 R Hand" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="90" attachNode="Bip001 Spine" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="92" attachNode="Dummy_effect_lip" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+</ActionDesc>

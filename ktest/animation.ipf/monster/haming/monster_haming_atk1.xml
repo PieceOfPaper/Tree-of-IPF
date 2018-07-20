@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_haming_atk1_cast" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+    <Sound frame="5" soundFile="mon_haming_atk1_shot" />
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_mon_katynforest_zombie01_knockdown1" useAttach="false" hiddenObj="false" changeEffect="None" />
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_circle017" useAttach="false" hiddenObj="false" changeEffect="None" />
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_ground065_smoke" useAttach="false" hiddenObj="false" changeEffect="None" />
+    <HitAni frame="5" Value="533" />
+    <ReadyAniTime frame="2" Value="133" />
+</ActionDesc>

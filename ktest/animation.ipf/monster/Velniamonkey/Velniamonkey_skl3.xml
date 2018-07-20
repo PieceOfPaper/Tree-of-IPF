@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="10.56" soundFile="mon_voice_mushwort_7"/>
+    <Sound frame="70.85" soundFile="skl_eff_spread_1"/>
+    <Particle frame="73" attachNode="Dummy_effect_skl3" particleName="F_smoke141_darkblue_spread_out" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="73" attachNode="Dummy_effect_skl3_breath" particleName="I_breath016_violet2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="83" attachNode="Dummy_effect_skl3_breath" particleName="I_breath016_violet2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="93" attachNode="Dummy_effect_skl3_breath" particleName="I_breath016_violet2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="103" attachNode="Dummy_effect_skl3_breath" particleName="I_breath016_violet2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

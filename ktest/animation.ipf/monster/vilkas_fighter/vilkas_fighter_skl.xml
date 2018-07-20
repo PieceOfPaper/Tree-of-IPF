@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="9" R="100" G="100" B="70" A="50"/>
+	<BlendOff frame="11" R="0" G="0" B="0" A="0"/>
+	<Particle frame="8" attachNode="None" particleName="F_ground083_smoke_blue" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_voice_action"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_l_14"/>
+	<Sound frame="4.00" soundFile="mon_voice5_l_6"/>
+	<Sound frame="7.00" soundFile="skl_wiz_gust"/>
+	<Sound frame="7.00" soundFile="mon_voice5_l_16"/>
+</ActionDesc>

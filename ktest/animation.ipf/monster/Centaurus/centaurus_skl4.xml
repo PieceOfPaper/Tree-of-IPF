@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="61" R="70" G="110" B="130" A="100"/>
+	<BlendOn frame="62" R="50" G="90" B="110" A="200"/>
+	<BlendOn frame="63" R="30" G="70" B="80" A="200"/>
+	<BlendOn frame="64" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="84" R="70" G="110" B="130" A="100"/>
+	<BlendOn frame="85" R="50" G="90" B="110" A="200"/>
+	<BlendOn frame="86" R="30" G="70" B="80" A="200"/>
+	<BlendOff frame="87" R="0" G="0" B="0" A="0"/>
+	<Particle frame="61" attachNode="Dummy_effect_skl4_swordtrail1" particleName="I_swordtrail015_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="84" attachNode="Dummy_effect_skl4_swordtrail2" particleName="I_swordtrail015_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_minotaurs_atk"/>
+	<Sound frame="50.00" soundFile="skl_eff_atk_move_l_6"/>
+	<Sound frame="57.00" soundFile="mon_voice_saltistter_8"/>
+	<Sound frame="70.00" soundFile="skl_eff_atk_move_l_14"/>
+	<Sound frame="73.00" soundFile="mon_voice_saltistter_4"/>
+	<Sound frame="75.00" soundFile="swd_blow_flesh1--"/>
+</ActionDesc>

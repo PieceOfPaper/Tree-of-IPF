@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="9.00" soundFile="mon_voice_meduoliai_2"/>
+	<Sound frame="39.00" soundFile="skl_eff_atk_move_l_6"/>
+	<Sound frame="39.00" soundFile="mon_voice_bird_7"/>
+	<Sound frame="41.10" soundFile="skl_eff_bite_m"/>
+	<Sound frame="42.00" soundFile="skl_eff_bite_s_2"/>
+	<Shockwave frame="49" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="49" attachActor="None" attachNode="Dummy_head_effect_L" particleName="F_mon_dead_dark" useAttach="false" hiddenObj="false" scale="1.7" pause="true" targetPos="false"/>
+	<Particle frame="49" attachActor="None" attachNode="Dummy_head_effect_R" particleName="F_mon_dead_dark" useAttach="false" hiddenObj="false" scale="1.7" pause="true" targetPos="false"/>
+	<Particle frame="49" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="49" attachActor="None" attachNode="Dummy_emitter" particleName="F_ground065_smoke" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="49" attachActor="None" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="50" attachActor="None" attachNode="Dummy_atk_effect" particleName="I_dash013_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Shockwave frame="51" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="53" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="55" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

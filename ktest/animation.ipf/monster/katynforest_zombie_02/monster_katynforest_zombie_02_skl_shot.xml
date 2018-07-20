@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="1" soundFile="mon_katynforest_zombie_02_skl_shot"/>
+	<Sound frame="2" soundFile="mon_katynforest_zombie_02_skl_shot_eff"/>
+	<Particle frame="4" attachNode="eff_dummy_zombie03_skl_R001" particleName="F_ground079_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="4" attachNode="eff_dummy_zombie03_skl_L001" particleName="F_ground079_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<HitAni frame="5.37"/>
+	<Particle frame="6" attachNode="eff_dummy_zombie03_skl_R002" particleName="F_ground079_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="6" attachNode="eff_dummy_zombie03_skl_L002" particleName="F_ground079_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="8" attachNode="eff_dummy_zombie03_skl_R003" particleName="F_ground079_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="8" attachNode="eff_dummy_zombie03_skl_L003" particleName="F_ground079_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<PostFix frame="10" ID="_height"/>
+	<Particle frame="10" attachNode="eff_dummy_zombie03_skl_R004" particleName="F_ground079_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="10" attachNode="eff_dummy_zombie03_skl_L004" particleName="F_ground079_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

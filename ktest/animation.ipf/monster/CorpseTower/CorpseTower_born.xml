@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_born_underground_1"/>
+    <Sound frame="0.00" soundFile="skl_eff_born_1"/>
+    <Sound frame="3.00" soundFile="m_Kimeleech_born"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke001" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="10" attachNode="Dummy_emitter" particleName="F_smoke001" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="13" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="14" R="20" G="40" B="60" A="50"/>
+    <BlendOn frame="17" R="10" G="30" B="40" A="50"/>
+    <BlendOff frame="18" R="0" G="0" B="0" A="0"/>
+    <Sound frame="23.00" soundFile="mon_dionia_atk_cast"/>
+</ActionDesc>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="9.00" soundFile="mon_voice_mushwort_5"/>
+	<Sound frame="21.00" soundFile="skl_eff_atk_move_l_21"/>
+	<Particle frame="25" attachActor="None" attachNode="Dummy_effect_L_head" particleName="F_drop_mushroom001" hiddenObj="false" useAttach="true" scale="0.4" pause="true" targetPos="false"/>
+	<Particle frame="25" attachActor="None" attachNode="Dummy_effect_R_head" particleName="F_drop_mushroom001" hiddenObj="false" useAttach="true" scale="0.4" pause="true" targetPos="false"/>
+	<Particle frame="81" attachActor="None" attachNode="Dummy001" particleName="F_smoke024_blue" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+</ActionDesc>

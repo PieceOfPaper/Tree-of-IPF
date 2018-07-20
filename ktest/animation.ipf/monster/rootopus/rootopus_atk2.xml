@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="25" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="25" R="100" G="90" B="50" A="50"/>
+	<BlendOn frame="26" R="80" G="80" B="30" A="50"/>
+	<BlendOff frame="27" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="22" term="30" blendTime="100" r="200" g="200" b="200" a="200"/>
+	<AfterImage frame="28" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Sound frame="0.00" Value="2000" soundFile="mon_voice_rootopus_move_2"/>
+	<Sound frame="0.00" Value="2000" soundFile="mon_voice_rootopus_atk_2"/>
+	<Sound frame="18.00" Value="2000" soundFile="skl_eff_atk_move_l_8"/>
+</ActionDesc>

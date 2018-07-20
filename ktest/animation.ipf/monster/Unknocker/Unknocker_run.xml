@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="2" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="21" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="23" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="2" particleName="F_smoke109" attachNode="Bip001 L Toe0" scale="1" useAttach="true"/>
+	<Particle frame="2" particleName="F_stone005" attachNode="Bip001 L Toe0" scale="0.5" useAttach="true"/>
+	<Particle frame="21" particleName="F_smoke109" attachNode="Bip001 R Toe0" scale="1" useAttach="true"/>
+	<Particle frame="21" particleName="F_stone005" attachNode="Bip001 R Toe0" scale="0.5" useAttach="true"/>
+	<Sound frame="0" soundFile="None"/>
+</ActionDesc>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_voice_hogma_atk"/>
+    <Sound frame="45.87" soundFile="skl_eff_atk_move_m_7"/>
+    <Sound frame="51.42" soundFile="skl_eff_atk_move_m_8"/>
+    <AfterImage frame="53" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+    <BlendOn frame="56" R="50" G="80" B="60" A="100"/>
+    <Particle frame="56" attachNode="Dummy_effect_atk" particleName="F_spread_out026_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="56" attachNode="Dummy_effect_atk" particleName="F_spread_out030_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="57" R="30" G="60" B="40" A="70"/>
+    <BlendOn frame="58" R="15" G="30" B="20" A="30"/>
+    <BlendOff frame="59" R="0" G="0" B="0" A="0"/>
+    <AfterImage frame="61" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

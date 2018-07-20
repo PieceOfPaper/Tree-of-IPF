@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_chapparition_skl_1"/>
+    <Sound frame="0.00" soundFile="skl_eff_cast_smoke"/>
+    <Sound frame="0.00" soundFile="mon_move_lecifer_atk1"/>
+    <Particle frame="40" attachNode="Bip001 Spine1" particleName="F_levitation007_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="50.00" soundFile="skl_eff_scythe_attack"/>
+    <Particle frame="53" attachNode="Dummy_effect_wepon3" particleName="I_force017_trail5" useAttach="true" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="54" attachNode="Dummy_emitter" particleName="F_spread_out026_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <AfterImage frame="55" term="50" blendTime="200" r="200" g="200" b="200" a="200"/>
+    <Particle frame="56" attachNode="Dummy_emitter" particleName="F_spread_out026_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="58" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <AfterImage frame="68" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

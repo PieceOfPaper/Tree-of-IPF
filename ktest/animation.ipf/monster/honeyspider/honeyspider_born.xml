@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_stone_underground_1"/>
+    <Sound frame="0.00" soundFile="skl_eff_underground_obj_1"/>
+    <Particle frame="3" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_ground_blow_s"/>
+    <Particle frame="3" attachNode="Rleg_Bone_09" particleName="F_leaf001_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="4" attachNode="Lleg_Bone_05" particleName="F_leaf001_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="5" attachNode="Rsub_Bone_08" particleName="F_leaf001_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="6" attachNode="Rsub_Bone_02" particleName="F_leaf001_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="6.29" soundFile="mon_flower_blue_atk2_shot"/>
+</ActionDesc>

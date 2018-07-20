@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="5.00" soundFile="mon_voice_swordballista_dead"/>
+    <Shockwave frame="16" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="16" attachNode="Dummy_dead_effect" particleName="F_smoke089" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="17" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="18" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="33" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="33" attachNode="Dummy_dead_effect" particleName="F_burstup007_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="33" attachNode="Dummy_dead_effect" particleName="F_smoke037" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="35" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="37" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="38" attachNode="Bip001 R Finger1" particleName="F_smoke037" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="39" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="40" attachNode="Bip001 L Finger1" particleName="F_smoke037" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="41" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="43" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="45" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="47" type="2" intensity="7" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="49" attachNode="Bip001 L Toe2" particleName="F_smoke037" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="49" attachNode="Bip001 R Toe2" particleName="F_smoke037" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

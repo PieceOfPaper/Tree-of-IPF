@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_hydra_skl_3"/>
+    <Sound frame="0.00" soundFile="mon_molich_astd"/>
+    <Particle frame="15" particleName="I_force058_blue" attachNode="Eff_skl_lazer_006" scale="4" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="30.00" soundFile="skl_eff_atk_move_l_4"/>
+    <Particle frame="35" particleName="F_smoke082" attachNode="Bip01 R Finger0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOn frame="37" R="15" G="30" B="25" A="25"/>
+    <Particle frame="38" particleName="F_explosion001_blue1" attachNode="Eff_skl_lazer_006" scale="12" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="38" particleName="F_ground068_smoke" attachNode="eff_atk_badak" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOff frame="43" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

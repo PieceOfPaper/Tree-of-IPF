@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="9.33" soundFile="skl_eff_born_landing_s_3"/>
+    <Sound frame="11.31" soundFile="skl_eff_hit_base_4"/>
+    <Sound frame="11.31" soundFile="skl_eff_hit_base_2"/>
+    <Particle frame="13" attachNode="Dummy_emitter" particleName="F_smoke018" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.7" pause="true" use2DEffect="false" targetPos="false" sound="mon_move_ferret_born"/>
+    <Sound frame="24.00" soundFile="skl_eff_wood_move"/>
+    <Particle frame="37" attachNode="Dummy003" particleName="I_light013_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="40.00" soundFile="skl_eff_bone_move"/>
+    <Sound frame="57.00" soundFile="skl_eff_egg_born"/>
+</ActionDesc>

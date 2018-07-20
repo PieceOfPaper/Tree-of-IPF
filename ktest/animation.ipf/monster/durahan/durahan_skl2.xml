@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_netherbovine_2"/>
+	<Sound frame="0.00" soundFile="skl_eff_cast_smoke"/>
+	<Sound frame="40.00" soundFile="mon_voice_netherbovine_5"/>
+	<Sound frame="42.00" soundFile="mon_voice_durahan_skl2"/>
+	<Particle frame="16" attachNode="Bone_Wp" particleName="I_warrior_chargingattack_cast_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="50" attachNode="Bone_Wp" particleName="I_warrior_chargingattack_cast_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="50" attachNode="Bip001 L Finger0" particleName="I_warrior_chargingattack_cast_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="30" attachNode="Dummy_effect_center" particleName="I_warrior_chargingattack_cast_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+</ActionDesc>

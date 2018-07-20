@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="64" R="130" G="90" B="75" A="50"/>
+	<BlendOn frame="65" R="100" G="50" B="35" A="30"/>
+	<BlendOn frame="66" R="60" G="30" B="10" A="50"/>
+	<BlendOn frame="67" R="15" G="5" B="2" A="30"/>
+	<BlendOff frame="68" R="0" G="0" B="0" A="0"/>
+	<Particle frame="11" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_emitter" particleName="I_smoke011_red_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_effect_L_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_effect_R_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="3" attachNode="Bip001 Spine2" particleName="F_spread_out025_fether_brown" useAttach="true" hiddenObj="true" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_effect_back_foot" particleName="I_smoke011_red_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_effect_L_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_effect_R_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="64" attachNode="Dummy_effect_front_foot" particleName="F_ground068_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="65" attachNode="Dummy_atk" particleName="F_explosion026_rize_red1" useAttach="false" hiddenObj="true" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="65" attachNode="Dummy_effect_front_foot2" particleName="F_ground068_smoke" useAttach="false" hiddenObj="true" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice_unicorn_skl2"/>
+	<Sound frame="0.00" soundFile="skl_eff_meteostrikes_whoosh"/>
+	<Sound frame="63.00" soundFile="skl_eff_lightning"/>
+	<Sound frame="63.00" soundFile="skl_eff_lightning_2"/>
+	<Sound frame="63.00" soundFile="skl_eff_boom_l_1"/>
+</ActionDesc>

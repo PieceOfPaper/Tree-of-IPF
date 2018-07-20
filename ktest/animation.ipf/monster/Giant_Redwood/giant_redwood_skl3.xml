@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="2333" soundFile="skl_eff_atk_move_l_7"/>
+	<Sound frame="18.00" Value="2333" soundFile="skl_eff_atk_move_m_4"/>
+	<Sound frame="21.00" Value="2333" soundFile="mon_voice5_l_3"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="50" G="25" B="5" A="30"/>
+	<BlendOn frame="10" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="13" R="80" G="40" B="10" A="50"/>
+	<BlendOn frame="16" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="18" R="80" G="40" B="10" A="50"/>
+	<BlendOn frame="20" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="22" R="50" G="25" B="5" A="30"/>
+	<BlendOn frame="24" R="150" G="120" B="30" A="100"/>
+	<BlendOn frame="27" R="200" G="160" B="50" A="200"/>
+	<BlendOn frame="60" R="150" G="120" B="30" A="100"/>
+	<BlendOn frame="65" R="80" G="40" B="10" A="50"/>
+	<BlendOn frame="67" R="50" G="25" B="5" A="30"/>
+	<BlendOff frame="69" R="0" G="0" B="0" A="0"/>
+	<Particle frame="28" attachNode="Dummy_mouse" particleName="I_spread_out001_light_fire2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="28" attachNode="Dummy_mouse" particleName="I_breath024_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true"/>
+	<Particle frame="28" attachNode="Dummy_emitter" particleName="F_spread_out024_circle" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_R_hand" particleName="I_smoke040_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_L_hand" particleName="I_smoke040_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true"/>
+	<Particle frame="75" attachNode="Dummy_mouse" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+</ActionDesc>

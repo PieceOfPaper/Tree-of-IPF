@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="9.00" soundFile="skl_eff_mine_elevator"/>
+    <Particle frame="164" attachNode="Dummy002" particleName="F_smoke061" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Shockwave frame="168" type="2" intensity="8" frequency="70" duration="0.3" range="2000"/>
+    <Particle frame="168" attachNode="Dummy002" particleName="F_smoke008" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Shockwave frame="169" type="2" intensity="7" frequency="70" duration="0.3" range="2000"/>
+    <Shockwave frame="170" type="2" intensity="6" frequency="70" duration="0.3" range="2000"/>
+    <Shockwave frame="171" type="2" intensity="5" frequency="70" duration="0.3" range="2000"/>
+</ActionDesc>

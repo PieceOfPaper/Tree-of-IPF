@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_big_footstep_spider"/>
+	<Sound frame="1.01" soundFile="mon_big_footstep_5"/>
+	<Sound frame="9.38" soundFile="mon_big_footstep_yekub"/>
+	<Sound frame="18.51" soundFile="mon_big_footstep_spider"/>
+	<Sound frame="19.52" soundFile="mon_big_footstep_5"/>
+	<Sound frame="27.00" soundFile="mon_big_footstep_yekub"/>
+	<Particle frame="35" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="18" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="18" attachNode="Dummy_emitter" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="35" attachNode="Dummy_emitter" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0"/>
+</ActionDesc>

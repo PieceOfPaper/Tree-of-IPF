@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="0" type="2" intensity="1" frequency="50" duration="0.1" range="200"/>
+	<Shockwave frame="27" type="2" intensity="2" frequency="70" duration="0.5" range="400"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="26" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="27" R="100" G="80" B="30" A="80"/>
+	<BlendOff frame="29" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Bone002" particleName="F_light120_circle_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Bone001" particleName="F_light120_circle_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Bone002" particleName="F_light119_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Bone001" particleName="F_light119_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="3" attachNode="Dummy_effect_wepon_R" particleName="F_light121_star_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="3" attachNode="Dummy_effect_wepon_L" particleName="F_light121_star_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_effect_skl" particleName="F_spin039_sword_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="26" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="15" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="20" attachNode="Dummy_emitter" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="26" attachNode="Dummy_emitter" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="15" attachNode="Dummy_emitter" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="20" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="26" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="27" attachNode="Dummy_emitter" particleName="F_ground068_smoke2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="33" attachNode="Dummy_effect_skl" particleName="F_smoke160_white_levitation" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Bip001 L Finger01" particleName="F_smoke160_white_levitation" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Bip001 R Finger01" particleName="F_smoke160_white_levitation" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_spector_atk_cast"/>
+	<Sound frame="5.00" soundFile="skl_eff_two_spin_1"/>
+	<Sound frame="5.00" soundFile="mon_spector_m_skl1_cast"/>
+	<Sound frame="7.00" soundFile="m_hori1_shot"/>
+	<Sound frame="8.00" soundFile="mon_spector_atk02_shot"/>
+	<Sound frame="9.00" soundFile="skl_eff_two_spin_1"/>
+</ActionDesc>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="8.00" soundFile="mon_golem_resurrection"/>
+    <Sound frame="10.00" soundFile="mon_bramble_hit"/>
+    <Sound frame="13.00" soundFile="skl_eff_stone_blow_m"/>
+    <Sound frame="13.00" soundFile="mon_golem_skl_stone"/>
+    <Sound frame="18.00" soundFile="mon_nepenthes_born"/>
+    <Particle frame="20" particleName="F_smoke126" attachNode="Dummy_E01" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="21" particleName="F_smoke126" attachNode="Dummy_E02" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="26.00" soundFile="mon_golem_atk3"/>
+    <Particle frame="63" particleName="F_smoke126" attachNode="Dummy_E03" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="69" particleName="F_smoke126" attachNode="Dummy_E04" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="70.00" soundFile="mon_voice_hogma_skl_shot"/>
+    <Sound frame="70.00" soundFile="skl_archer_crossarrow_badak"/>
+    <Sound frame="70.00" soundFile="skl_eff_atk_sperad"/>
+    <Sound frame="73.00" soundFile="mon_voice_m_dead_2"/>
+    <Sound frame="73.00" soundFile="mon_rudas_loxodon_skl"/>
+</ActionDesc>

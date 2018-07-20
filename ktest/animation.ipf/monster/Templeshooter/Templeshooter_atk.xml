@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="None"/>
+    <Sound frame="4.00" soundFile="mon_saurman_axeman_atk_cast"/>
+    <Sound frame="20.00" soundFile="skl_eff_large_crossbow_cast"/>
+    <Sound frame="34.00" soundFile="mon_saurman_axeman_atk_shot"/>
+    <Sound frame="35.00" soundFile="skl_eff_dock"/>
+    <Sound frame="35.00" soundFile="skl_eff_large_crossbow_shot"/>
+    <Sound frame="35.00" soundFile="skl_archer_crossarrow_shot"/>
+    <Particle frame="37" particleName="F_smoke031" attachNode="Dummy_emitter" scale="13" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

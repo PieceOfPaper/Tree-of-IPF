@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_l_7"/>
+    <Sound frame="0.00" soundFile="mon_voice_mushwort_4"/>
+    <Particle frame="10" attachNode="Bip001 R Finger1" particleName="I_spread_in003_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="22.00" soundFile="skl_eff_atk_move_l_4"/>
+    <Sound frame="23.00" soundFile="skl_eff_atk_move_m_7"/>
+    <Sound frame="29.15" soundFile="mon_voice_mushcaria_7"/>
+    <AfterImage frame="30" term="50" blendTime="100" r="200" g="255" b="200" a="255"/>
+    <Shockwave frame="33" type="2" intensity="3" frequency="70" duration="0.5" range="1000"/>
+    <BlendOn frame="33" R="130" G="150" B="130" A="100"/>
+    <Particle frame="33" attachNode="Dummy_effect_atk" particleName="F_blood006_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false" sound="skl_eff_dead_boom_1"/>
+    <Particle frame="33" attachNode="Dummy_effect_atk" particleName="I_spell_crystal_gem_red_parts_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <BlendOn frame="34" R="150" G="200" B="150" A="200"/>
+    <BlendOff frame="35" R="0" G="0" B="0" A="0"/>
+    <AfterImage frame="37" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+    <Particle frame="45" attachNode="Bip001 R Finger0" particleName="F_drop_water002_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="59" attachNode="Bip001 R Finger2" particleName="F_drop_water002_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+</ActionDesc>

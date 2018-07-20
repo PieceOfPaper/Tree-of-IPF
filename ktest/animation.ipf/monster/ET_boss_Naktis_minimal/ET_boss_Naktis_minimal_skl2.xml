@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="9.00" soundFile="skl_archer_aimingshot_cast_2"/>
+    <Sound frame="12.00" soundFile="mon_voice_naktis_atk_shot_2"/>
+    <Sound frame="24.00" soundFile="skl_fgt_horizontalcrasher_cast"/>
+    <Particle frame="40" attachNode="Dummy_skl2_cast" particleName="I_rize005" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="40" attachNode="Dummy_weapon_effect" particleName="I_rize006" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="40" attachNode="Bip001 R Finger2" particleName="I_rize006" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="55" attachNode="Dummy_weapon_effect" particleName="I_rize001_violet" useAttach="true" hiddenObj="false" scale="1.8" pause="true" targetPos="false"/>
+    <Particle frame="65" attachNode="Dummy_weapon_effect" particleName="I_rize001_violet" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+    <Sound frame="75.00" soundFile="mon_voice_naktis_atk_shot_1"/>
+    <Sound frame="76.50" soundFile="skl_fgt_ultimatedash_shot"/>
+    <Sound frame="78.00" soundFile="skl_eff_rlareshot_boom_far"/>
+</ActionDesc>

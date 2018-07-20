@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_body" particleName="I_smoke058_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_debuff_7"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="5" R="10" G="10" B="10" A="20"/>
+    <BlendOn frame="10" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="15" R="10" G="10" B="10" A="20"/>
+    <Particle frame="17.00" attachNode="Dummy_body" particleName="I_smoke058_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound=""/>
+    <BlendOn frame="20" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="25" R="10" G="10" B="10" A="20"/>
+    <BlendOn frame="30" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="35" R="10" G="10" B="10" A="20"/>
+    <BlendOn frame="40" R="0" G="0" B="0" A="50"/>
+    <BlendOff frame="41" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

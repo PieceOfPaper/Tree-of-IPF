@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="73" type="2" intensity="10" frequency="70" duration="1" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="73" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="74" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="75" R="0" G="0" B="0" A="0"/>
+	<Particle frame="58" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="58" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="58" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Bip001 Spine" particleName="I_smoke026_spread_out_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Dummy_emitter" particleName="I_smoke013_dark3_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Bip001 Pelvis" particleName="I_smoke013_dark3_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="45" attachNode="Bip001 Spine1" particleName="I_smoke013_dark3_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="50" attachNode="Bip001 Spine" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Dummy001" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect_wepon2" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="45" attachNode="Dummy_effect_wepon" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="12" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="101" attachNode="Bip001 L Finger31" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="101" attachNode="Bip001 R Finger31" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_moldyhorn_skl_3"/>
+	<Sound frame="10.00" soundFile="m_ironbaum_skl3_voice"/>
+	<Sound frame="35.00" soundFile="m_ironbaum_skl1_voice"/>
+	<Sound frame="48.00" soundFile="skl_eff_atk_sperad"/>
+	<Sound frame="62.00" soundFile="skl_eff_crash_ground_l_1"/>
+	<Sound frame="66.00" soundFile="skl_archer_crossarrow_badak"/>
+</ActionDesc>

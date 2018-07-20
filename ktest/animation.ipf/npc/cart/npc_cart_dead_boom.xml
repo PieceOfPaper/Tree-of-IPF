@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<ShowModel frame="0" show="true"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="I_npc_cart_dead" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="0.00" Value="3000" soundFile="boom_shot"/>
+	<Sound frame="1.00" Value="3000" soundFile="skl_wiz_firebreath"/>
+	<Sound frame="2.00" Value="3000" soundFile="hitme_box_hit"/>
+</ActionDesc>

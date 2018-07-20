@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="7.00" soundFile="mon_voice_swordballista_atk_cast"/>
+    <Sound frame="30.00" soundFile="mon_voice_swordballista_atk2_shot"/>
+    <Sound frame="32.00" soundFile="mon_voice_swordballista_atk2_cast"/>
+    <Particle frame="38" attachNode="Dummy_Eye_Effect001" particleName="F_light003_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.08" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="38" attachNode="Dummy_Eye_Effect002" particleName="F_light003_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.08" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="50" attachNode="Dummy_Eye_Effect001" particleName="F_light003_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.08" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="50" attachNode="Dummy_Eye_Effect002" particleName="F_light003_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.08" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+</ActionDesc>

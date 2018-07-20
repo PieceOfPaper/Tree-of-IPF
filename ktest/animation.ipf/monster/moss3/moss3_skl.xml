@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ActionDesc>
+    <Sound frame="0.00" Value="0" soundFile="m_insect_move"/>
+    <Sound frame="6.00" Value="0" soundFile="mon_bushspider_atk1_ready"/>
+    <Particle frame="14.00" particleName="I_leaf_diving_atk001_mash" attachNode="None" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="15.00" Value="0" soundFile="m_insect_hit"/>
+    <Sound frame="20.00" soundFile="skl_eff_atk_move_s_7"/>
+    <Particle frame="25.00" particleName="None" attachNode="Dummy_skl" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+    <HitAni frame="25.00" damratio="100"/>
+    <Particle frame="28.00" particleName="F_smoke107" attachNode="Dummy_skl_2" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="32.00" particleName="F_smoke107" attachNode="Dummy_emitter" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

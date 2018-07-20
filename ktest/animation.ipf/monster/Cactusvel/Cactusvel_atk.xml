@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_ravinelerva_10"/>
+    <Sound frame="9.00" soundFile="mon_voice5_l_9"/>
+    <Particle frame="10" particleName="ShadowGaoler_skl1_hand" attachNode="Dummy_atk_effect" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="10" particleName="ShadowGaoler_skl1_hand_true" attachNode="Dummy_atk_effect" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="30.00" soundFile="mon_voice_ravinelerva_1"/>
+    <Particle frame="38" particleName="F_spread_out014_smoke" attachNode="Dummy_emitter" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="40" particleName="F_spread_out009" attachNode="Dummy_atk_effect" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="40" particleName="Cactusvel_atk_sylinder" attachNode="Dummy_atk_effect" scale="0.9" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="40" particleName="I_breath019_green" attachNode="Dummy_atk_effect" scale="2" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="40" particleName="F_explosion006_orange" attachNode="Dummy_atk_effect" scale="0.8" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="41" particleName="F_explosion044" attachNode="Dummy_atk_effect" scale="0.6" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_slider_event"/>
+    <Particle frame="10" attachNode="Dummy_effect_front" particleName="I_ground007_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="10" attachNode="Dummy_effect_front" particleName="I_ground009_water_short" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="Dummy_effect_back" particleName="I_ground008_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_effect_front" particleName="I_ground009_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_back" particleName="I_ground009_water_short" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_back" particleName="I_ground006_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_effect_back" particleName="I_ground006_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_effect_back" particleName="I_ground009_water_short" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_effect_front" particleName="I_ground009_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="100" attachNode="Dummy_effect_back" particleName="I_ground008_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="100" attachNode="Dummy_effect_front" particleName="I_ground007_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="100" attachNode="Dummy_effect_front" particleName="I_ground008_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="126" attachNode="Dummy_effect_front" particleName="I_ground009_water_short" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.7" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="129" attachNode="Dummy_effect_front2" particleName="F_wizard_BRIQUETTING_BORN_water2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="130" attachNode="Dummy_effect_front2" particleName="F_pc_jump_water" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

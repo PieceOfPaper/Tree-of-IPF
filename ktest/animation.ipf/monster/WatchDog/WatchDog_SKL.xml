@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Tail_Bone004w" particleName="F_fire035" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Sound frame="5.00" soundFile="mon_voice_werewolf_3"/>
+    <Sound frame="10.00" soundFile="skl_eff_atk_move_m_2"/>
+    <Sound frame="10.00" soundFile="skl_eff_fire"/>
+    <Particle frame="11" attachNode="None" particleName="F_smoke008" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="11" attachNode="Bip001 HeadNub" particleName="F_explosion001_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+</ActionDesc>

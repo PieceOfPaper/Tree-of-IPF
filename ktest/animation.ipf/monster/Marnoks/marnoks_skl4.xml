@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="30" attachNode="Dummy_emitter" particleName="F_levitation007_blue2" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="105" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="70" attachNode="Bip001 R Toe0" particleName="I_smoke014" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="70" attachNode="Bip001 L Toe0" particleName="I_smoke014" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Bip001 R Toe0" particleName="I_smoke014" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Bip001 L Toe0" particleName="I_smoke014" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Dummy_effect_dash" particleName="I_warrior_rush_shot_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="100" attachNode="Dummy_effect_dash" particleName="I_warrior_rush_shot_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Dummy_effect_dash2" particleName="F_dash002_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="6.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="100" attachNode="Dummy_effect_dash2" particleName="F_dash002_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="6.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_saltistter_6"/>
+	<Sound frame="38.00" soundFile="mon_voice_netherbovine_4"/>
+	<Sound frame="76.00" soundFile="mon_big_footstep_2"/>
+	<Sound frame="82.00" soundFile="mon_big_footstep_2"/>
+	<Sound frame="84.00" soundFile="mon_voice_onion_the_great_2"/>
+	<Sound frame="84.00" soundFile="skl_eff_special_hit_2"/>
+	<Sound frame="86.00" soundFile="skl_eff_archer_skl_shot3"/>
+	<Sound frame="86.00" soundFile="skl_eff_scythe_attack"/>
+	<Sound frame="86.00" soundFile="swd_blow_flesh1--"/>
+</ActionDesc>

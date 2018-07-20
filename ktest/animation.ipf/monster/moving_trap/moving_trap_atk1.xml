@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="5" particleName="F_smoke117" attachNode="Dummy_atk_up_003" scale="0.2" useAttach="false"/>
+	<Particle frame="5" particleName="F_smoke117" attachNode="Dummy_atk_up_004" scale="0.2" useAttach="false"/>
+	<Particle frame="5" particleName="F_smoke117" attachNode="Dummy_atk_center001" scale="0.3" useAttach="false"/>
+	<Particle frame="5" particleName="F_smoke117" attachNode="Dummy_atk_down_003" scale="0.2" useAttach="false"/>
+	<Particle frame="5" particleName="F_smoke117" attachNode="Dummy_atk_down_004" scale="0.2" useAttach="false"/>
+	<Particle frame="6" particleName="F_smoke063" attachNode="None" scale="0.4" useAttach="false"/>
+	<Sound frame="6" Value="0" soundFile="arrow_blow_normal"/>
+	<Sound frame="6" Value="0" soundFile="arrow_blow"/>
+	<Sound frame="6" Value="0" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="0.00" Value="0" soundFile="m_insect_move"/>
+</ActionDesc>

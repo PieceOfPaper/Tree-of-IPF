@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_stone_underground_1"/>
+    <Sound frame="0.00" soundFile="skl_eff_stone_grind"/>
+    <Shockwave frame="3" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="3" attachNode="Dummy_emitter" particleName="F_smoke074" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Dummy_emitter" particleName="F_smoke004" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="4" type="2" intensity="4" frequency="60" duration="1.5" range="1000"/>
+    <Sound frame="15.00" soundFile="skl_eff_stonearrow_hit"/>
+    <Sound frame="16.00" soundFile="skl_eff_stone_born_l_1"/>
+    <Shockwave frame="17" type="2" intensity="7" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="17" attachNode="Dummy_effect_body" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_effect_body" particleName="F_smoke065_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_emitter" particleName="F_smoke065_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="18" type="2" intensity="4" frequency="60" duration="2" range="1000"/>
+</ActionDesc>

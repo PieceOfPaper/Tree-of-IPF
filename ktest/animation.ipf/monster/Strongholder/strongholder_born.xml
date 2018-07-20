@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="8" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="10" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="55" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="56" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="57" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="8" particleName="monster_born" attachNode="None" scale="3" useAttach="true"/>
+	<Particle frame="13" particleName="F_smoke097" attachNode="None" scale="3" useAttach="true"/>
+	<Particle frame="55" particleName="monster_born" attachNode="None" scale="3" useAttach="true"/>
+	<Sound frame="0.00" soundFile="npc_rootcrystal_born"/>
+	<Sound frame="15.00" soundFile="mon_voice5_l_2"/>
+	<Sound frame="45.00" soundFile="skl_eff_stone_underground_1"/>
+</ActionDesc>

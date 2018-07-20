@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="15" R="130" G="100" B="100" A="100"/>
+	<BlendOff frame="18" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="12" term="10" blendTime="200" r="160" g="50" b="50" a="250"/>
+	<AfterImage frame="17" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Sound frame="0.00" soundFile="mon_katyn_bug_atk_cast"/>
+	<Sound frame="0.00" soundFile="m_siauliai_beetle_raiseup"/>
+	<Sound frame="15.00" soundFile="mon_katyn_bug_atk2_shot"/>
+	<Sound frame="15.00" soundFile="mon_voice_bug_10"/>
+</ActionDesc>

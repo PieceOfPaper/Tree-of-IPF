@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="6" attachActor="None" attachNode="Dummy_emitter" particleName="F_yonazolem_skl2_ready_badak" useAttach="false" hiddenObj="false" changeEffect="None" scale="3"/>
+	<Particle frame="0" attachActor="None" attachNode="Bip01 Spine2" particleName="F_yonazolem_skl2_ready" useAttach="false" hiddenObj="false" changeEffect="None" scale="8"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_emitter" particleName="F_burstup001_smoke2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7"/>
+	<Particle frame="58" attachActor="None" attachNode="Dummy_effect_down" particleName="I_golem_atk001_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6"/>
+	<Particle frame="56" attachActor="None" attachNode="Dummy_effect_atk1_foot" particleName="F_smoke098" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="56" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="56" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke076" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="56" attachActor="None" attachNode="Dummy_emitter" particleName="F_circle017" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7"/>
+	<Sound frame="1" soundFile="mon_golem_atk01_cast"/>
+	<Sound frame="56" soundFile="mon_golem_atk01_shot"/>
+</ActionDesc>

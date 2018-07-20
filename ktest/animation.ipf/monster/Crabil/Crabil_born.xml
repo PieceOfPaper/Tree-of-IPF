@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_stone_underground_1"/>
+	<Particle frame="6" particleName="F_burstup007_smoke" attachNode="Dummy_effect_born" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="18" particleName="F_smoke004" attachNode="Dummy001" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="36" particleName="F_smoke004" attachNode="Dummy001" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="51" particleName="F_smoke004" attachNode="Dummy001" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="47" particleName="F_smoke006" attachNode="Bone003" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="48" particleName="F_smoke006" attachNode="Bone002" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="55" particleName="F_smoke006" attachNode="Bip001 L Toe0" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="6.00" soundFile="skl_eff_hit_ground_poison_bubble"/>
+	<Shockwave frame="10" type="2" intensity="3" frequency="80" duration="2" range="1000"/>
+	<AfterImage frame="38" term="20" blendTime="400" r="160" g="160" b="160" a="160"/>
+	<Sound frame="39.00" soundFile="mon_voice_throneweaver_5"/>
+	<Sound frame="45.00" soundFile="mon_footstep_bug_wing_short_2"/>
+	<Sound frame="50.00" soundFile="mon_footstep_bug_wing_short_2"/>
+	<Sound frame="50.00" soundFile="skl_eff_atk_move_m_10"/>
+	<AfterImage frame="55" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Sound frame="60.00" soundFile="mon_footstep_bug_wing_short_2"/>
+</ActionDesc>

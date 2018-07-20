@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="3233" soundFile="mon_voice5_l_9"/>
+	<Sound frame="10" soundFile="skl_eff_firealterego"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_skl_ready1" particleName="F_fire017" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_skl_ready2" particleName="F_fire017" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_skl_ready3" particleName="F_fire017" scale="0.4" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_skl_shot" particleName="F_fire017" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

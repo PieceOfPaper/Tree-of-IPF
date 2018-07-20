@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="mon_jellyfish_dead" />
+    <Particle frame="4" attachNode="Bip001 Xtra06" particleName="F_monster_jellyfish_dead" useAttach="true" hiddenObj="false" scale="1.0" />
+    <Particle frame="5" attachNode="Bip001 Xtra07Opp" particleName="F_monster_jellyfish_dead" useAttach="true" hiddenObj="false" scale="1.0" />
+    <Particle frame="6" attachNode="Bip001 Ponytail1" particleName="F_monster_jellyfish_dead" useAttach="true" hiddenObj="false" scale="1.0" />
+    <Particle frame="7" attachNode="Bip001 Xtra01Opp09" particleName="F_monster_jellyfish_dead" useAttach="true" hiddenObj="false" scale="1.0" />
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_mon_katynforest_zombie01_knockdown1" useAttach="true" hiddenObj="false" scale="1.0" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

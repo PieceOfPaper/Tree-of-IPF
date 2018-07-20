@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_goblinwarrior_born"/>
+    <Sound frame="0.10" soundFile="mon_goblinwarrior_atk2_cast"/>
+    <Particle frame="2" attachActor="None" attachNode="Dummy_effect04" particleName="F_ground078_smoke" scale="6" pause="true" targetPos="false" sound="skl_eff_landing_m"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

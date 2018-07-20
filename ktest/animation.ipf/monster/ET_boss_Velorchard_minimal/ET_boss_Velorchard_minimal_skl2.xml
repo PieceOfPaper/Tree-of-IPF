@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_emitter" particleName="E_velorchard_skl2" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="64" attachActor="None" attachNode="Dummy_skl2_eye_effect" particleName="F_light004_red" useAttach="true" hiddenObj="false" scale="9" pause="true" targetPos="false"/>
+	<Particle frame="65" attachActor="None" attachNode="Dummy_skl2_eye_effect" particleName="I_laser001_pink" useAttach="true" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
+	<Particle frame="65" attachActor="None" attachNode="Dummy_emitter" particleName="F_spread_out014_smoke" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Sound frame="0.00" Value="0" soundFile="m_velorchard_skl_3"/>
+</ActionDesc>

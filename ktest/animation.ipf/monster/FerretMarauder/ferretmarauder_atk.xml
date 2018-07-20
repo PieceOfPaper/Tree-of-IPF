@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<AfterImage frame="59" term="100" blendTime="400" r="160" g="160" b="160" a="200"/>
+	<AfterImage frame="66" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<BlendOn frame="62" R="100" G="100" B="100" A="100"/>
+	<BlendOn frame="64" R="90" G="90" B="90" A="100"/>
+	<BlendOn frame="65" R="80" G="80" B="80" A="100"/>
+	<BlendOn frame="66" R="40" G="40" B="40" A="100"/>
+	<BlendOff frame="67" R="0" G="0" B="0" A="0"/>
+	<Particle frame="9" attachNode="None" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="73" attachNode="None" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="None" particleName="F_burstup019_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="None" particleName="F_ground065_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="9" attachNode="Bone019" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="73" attachNode="Bone019" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_golem_run_voice"/>
+	<Sound frame="50.00" soundFile="mon_golem_atk01_shot"/>
+</ActionDesc>

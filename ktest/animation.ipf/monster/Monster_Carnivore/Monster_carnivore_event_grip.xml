@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<CreateMonster frame="0" MonName="npc_alchemist_f" Key="alchemist" Angle="0" Dist="0" MonAngle="0" AttachNode="Dummy_pc"/>
+	<CreateMonsterAnim frame="0" Key="alchemist" Anim="event_grip" Freeze="0"/>
+	<CreateMonsterAlphaBlend frame="94" Key="alchemist" Alpha="0" BlendTime="0.2"/>
+	<DeleteMonster frame="96" Key="alchemist"/>
+</ActionDesc>

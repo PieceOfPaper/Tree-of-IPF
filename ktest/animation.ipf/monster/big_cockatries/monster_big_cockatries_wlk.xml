@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" particleName="F_smoke109" attachNode="Bip01 R Toe2" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_stone005" attachNode="Bip01 R Toe2" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_ride_step"/>
+    <Sound frame="8.00" soundFile="mon_ride_step"/>
+    <Particle frame="8" particleName="F_smoke109" attachNode="Bip01 L Toe2" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="8" particleName="F_stone005" attachNode="Bip01 L Toe2" scale="1" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

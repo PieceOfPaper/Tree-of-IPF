@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AfterImage frame="5" term="50" blendTime="400" r="130" g="130" b="150" a="120"/>
+	<AfterImage frame="7" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<BlendOn frame="6" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="7" R="80" G="50" B="40" A="50"/>
+	<BlendOn frame="8" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="18" R="80" G="50" B="40" A="50"/>
+	<BlendOn frame="20" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="23" R="80" G="50" B="40" A="50"/>
+	<BlendOff frame="27" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_s_11"/>
+	<Sound frame="4.00" soundFile="mobgen_underground"/>
+	<Sound frame="4.00" soundFile="blow_ground"/>
+	<Sound frame="4.00" soundFile="skl_eff_body_atk_2"/>
+	<Sound frame="15.00" soundFile="skl_eff_two_spin_2"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="2666" soundFile="skl_eff_atk_move_l_7"/>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_R_hand_effect" particleName="I_force038_ice" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_L_hand_effect" particleName="I_force038_ice" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+    <Sound frame="15.00" Value="2666" soundFile="mon_voice_saltistter_1"/>
+    <Sound frame="18.00" soundFile="skl_eff_dash_1"/>
+    <Particle frame="21" attachActor="None" attachNode="Dummy_effect_body_atk" particleName="I_dash008_mash" hiddenObj="false" useAttach="true" scale="1.8" pause="true" targetPos="false"/>
+    <Particle frame="21" attachActor="None" attachNode="Dummy_effect" particleName="F_ground101_ice" hiddenObj="false" useAttach="false" scale="0.7" pause="true" targetPos="false"/>
+    <Particle frame="30" attachActor="None" attachNode="Dummy_effect" particleName="F_ground101_ice" hiddenObj="false" useAttach="false" scale="0.45" pause="true" targetPos="false"/>
+</ActionDesc>

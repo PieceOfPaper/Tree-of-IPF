@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="3.00" soundFile="mon_wood_spirit_skl_cast"/>
+    <Sound frame="13.00" soundFile="arw_blow_wood1"/>
+    <Particle frame="19" attachNode="Dummy_effect_skl4_1" particleName="F_smoke006_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="26.00" soundFile="mon_wood_spirit_astd"/>
+    <Sound frame="47.00" soundFile="mon_wood_spirit_atk2_cast"/>
+    <Sound frame="48.00" soundFile="arw_blow_wood1"/>
+    <Sound frame="48.00" soundFile="mon_wood_spirit_born"/>
+    <Particle frame="54" attachNode="Dummy_effect_skl4_2" particleName="F_smoke006_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="76.00" soundFile="mon_minivern_dead"/>
+    <Sound frame="80.00" soundFile="skl_wiz_firewall"/>
+    <Particle frame="83" attachNode="Dummy_effect_breath" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="83" attachNode="Dummy_effect_breath" particleName="I_breath026_brown" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="120" attachNode="Dummy_effect_breath" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="120" attachNode="Dummy_effect_breath" particleName="I_breath026_brown" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="140.00" soundFile="skl_wiz_firebreath"/>
+    <Particle frame="140" attachNode="Dummy_effect_breath" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="160" attachNode="Dummy_effect_breath" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="160" attachNode="Dummy_effect_breath" particleName="I_breath026_brown" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="170.00" soundFile="skl_eff_spread_3"/>
+    <Particle frame="180" attachNode="Dummy_effect_breath" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="200" attachNode="Dummy_effect_breath" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="200" attachNode="Dummy_effect_breath" particleName="I_breath026_brown" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="220" attachNode="Dummy_effect_breath" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="240" attachNode="Dummy_effect_breath" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="240" attachNode="Dummy_effect_breath" particleName="I_breath026_brown" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="260" attachNode="Dummy_effect_breath" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="280" attachNode="Dummy_effect_breath" particleName="I_breath014_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="315" attachNode="Dummy_effect_breath" particleName="I_breath014_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

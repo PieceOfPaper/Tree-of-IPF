@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by d (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="m_slime_dark_run"/>
+    <Sound frame="7.00" soundFile="mon_lantern_mushroom_skl_shot"/>
+    <Sound frame="7.00" soundFile="skl_eff_body_atk_14"/>
+    <Sound frame="8.00" soundFile="skl_eff_hit_base_4"/>
+    <Particle frame="8" attachNode="Dummy_effect_atk" particleName="F_explosion058_dark" useAttach="false" hiddenObj="false" scale="0.7" pause="true" targetPos="false"/>
+</ActionDesc>

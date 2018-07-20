@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" particleName="vine_01_event_dead" attachNode="Dummy_emitter" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke040_green" attachNode="Dummy_emitter" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="0" particleName="F_ground055_green" attachNode="Dummy_emitter" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke063" attachNode="Dummy_emitter" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_wood_spirit_atk2_cast"/>
+    <Sound frame="3.52" soundFile="mon_wood_spirit_turn"/>
+    <Sound frame="13.00" soundFile="skl_eff_dead_boom_wood_s"/>
+</ActionDesc>

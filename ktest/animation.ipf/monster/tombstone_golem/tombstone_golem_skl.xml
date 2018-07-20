@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="skl_eff_rockhalo_1"/>
+    <Sound frame="0.00" Value="0" soundFile="mon_voice5_l_16"/>
+    <Particle frame="0.00" particleName="Tombstone_Golem_skl_mash" attachNode="Dummy_emiitter" scale="1.2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke098" attachNode="Dummy_eff_skl_smoke001" scale="15" useAttach="true" pause="true" targetPos="false" sound="skl_eff_born_landing_s_3"/>
+    <Particle frame="0" particleName="F_smoke098" attachNode="Dummy_eff_skl_smoke004" scale="15" useAttach="true" pause="true" targetPos="false" sound="skl_eff_born_underground_1"/>
+    <Particle frame="0" particleName="F_smoke098" attachNode="Dummy_eff_skl_smoke007" scale="15" useAttach="true" pause="true" targetPos="false" sound="skl_eff_born_acidburn"/>
+    <Particle frame="0.00" particleName="F_smoke098" attachNode="Dummy_eff_skl_smoke010" scale="15" useAttach="true" pause="true" targetPos="false" sound="skl_eff_bone_move"/>
+    <Particle frame="0.00" particleName="F_smoke098" attachNode="Dummy_eff_skl_smoke003" scale="15" useAttach="true" pause="true" targetPos="false" sound="skl_eff_bone_move"/>
+    <Particle frame="1" particleName="F_smoke098" attachNode="Dummy_eff_skl_smoke002" scale="15" useAttach="true" pause="true" targetPos="false" sound="skl_eff_born_1"/>
+    <Particle frame="1" particleName="F_smoke098" attachNode="Dummy_eff_skl_smoke005" scale="15" useAttach="true" pause="true" targetPos="false" sound="skl_eff_stone_rolling_3"/>
+    <Particle frame="1" particleName="F_smoke098" attachNode="Dummy_eff_skl_smoke008" scale="15" useAttach="true" pause="true" targetPos="false" sound="skl_eff_atk_move_l_16"/>
+    <Particle frame="1.5" particleName="E_Tombstone_skl_smoke" attachNode="Dummy_emiitter" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="2" particleName="E_Tombstone_skl_smoke" attachNode="Dummy_emiitter" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="2" particleName="F_smoke098" attachNode="Dummy_eff_skl_smoke006" scale="15" useAttach="true" pause="true" targetPos="false" sound="skl_eff_bone_move"/>
+    <Particle frame="2" particleName="F_smoke098" attachNode="Dummy_eff_skl_smoke009" scale="15" useAttach="true" pause="true" targetPos="false" sound="skl_eff_bone_move"/>
+    <Particle frame="30" particleName="F_smoke014" attachNode="Dummy_skl_effect" scale="3" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="30" particleName="I_stone011_mash" attachNode="Dummy_skl_effect" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+    <Shockwave frame="30" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="31" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="32" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

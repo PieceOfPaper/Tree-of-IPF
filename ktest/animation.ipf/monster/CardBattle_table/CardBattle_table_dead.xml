@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_chir1_dead" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_chir2_dead" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false"/>
+	<Particle frame="10" attachNode="Dummy_effect_chir2_dead" particleName="F_smoke137_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
+	<Particle frame="10" attachNode="Dummy_effect_chir1_dead" particleName="F_smoke137_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
+	<Particle frame="3" attachNode="chir" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_battle_flag_01" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false"/>
+	<Particle frame="10" attachNode="Dummy_effect_flag_dead" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="3" attachNode="flag" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_table_born" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false"/>
+	<Particle frame="10" attachNode="Dummy_effect_table_dead" particleName="F_smoke137_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="3" attachNode="table" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+</ActionDesc>

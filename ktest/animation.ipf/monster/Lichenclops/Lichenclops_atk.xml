@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="65" G="60" B="80" A="60"/>
+	<BlendOn frame="6" R="45" G="40" B="60" A="30"/>
+	<BlendOff frame="7" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_s_3"/>
+	<Sound frame="5.00" soundFile="skl_eff_atk_move_s_8"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_body_effect_R" particleName="F_leaf001_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_body_effect_L" particleName="F_leaf001_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Sound frame="6.00" soundFile="mon_voice_merog_wogu_hit"/>
+	<Sound frame="7.00" soundFile="skl_eff_atk_move_s_7"/>
+	<Sound frame="7.00" soundFile="mon_voice9_s_random"/>
+</ActionDesc>

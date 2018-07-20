@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Bip001 Spine" particleName="I_spread_in011" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 Spine" particleName="F_spread_in005_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_throneweaver_5"/>
+    <Particle frame="15" attachNode="Bip001 Spine" particleName="I_spread_in011" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="15" attachNode="Bip001 Spine" particleName="F_spread_in005_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="25.00" soundFile="mon_voice_throneweaver_6"/>
+    <Sound frame="56.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Sound frame="57.26" soundFile="mon_voice_throneweaver_10"/>
+    <Particle frame="60" attachNode="Bip001 Spine" particleName="F_spread_out004_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_emitter" particleName="F_spread_out026_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_emitter" particleName="F_ground040" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="62.21" soundFile="skl_eff_spread_4"/>
+    <Sound frame="62.62" soundFile="mon_voice_throneweaver_4"/>
+    <Particle frame="63" attachNode="Dummy_emitter" particleName="F_ground045_smoke_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+</ActionDesc>

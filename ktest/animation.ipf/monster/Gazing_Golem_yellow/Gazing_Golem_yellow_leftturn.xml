@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Shockwave frame="13" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="13" particleName="F_smoke109" attachNode="Dummy_wlk_L_effect" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="13" particleName="F_stone005" attachNode="Dummy_wlk_L_effect" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="15" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="27" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="27" particleName="F_smoke109" attachNode="Dummy_wlk_R_effect" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="27" particleName="F_stone005" attachNode="Dummy_wlk_R_effect" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="29" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

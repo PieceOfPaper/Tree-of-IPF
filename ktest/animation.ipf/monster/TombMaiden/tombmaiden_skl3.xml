@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="8.00" soundFile="mon_voice_lapene_skl2_cast"/>
+    <Particle frame="10" attachNode="Bip001 L Finger2" particleName="I_smoke004_4_grey2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="10" attachNode="Bip001 L finger_2" particleName="I_smoke004_4_grey2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="10" attachNode="Bip001 R Finger2" particleName="I_smoke004_4_grey2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" sound="None"/>
+    <Particle frame="10" attachNode="Bip001 R finger_2" particleName="I_smoke004_4_grey2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="zin03" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="zin02" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="zin01" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="25" attachNode="Bip001 L Finger2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="25" attachNode="Bip001 L finger_2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="25" attachNode="Bip001 R Finger2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" sound="None"/>
+    <Particle frame="25" attachNode="Bip001 R finger_2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="25.00" soundFile="mon_tomblord_skl_2"/>
+    <Particle frame="35" attachNode="zin03" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="35" attachNode="zin02" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="35" attachNode="zin01" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="40" attachNode="Bip001 L Finger2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="40" attachNode="Bip001 L finger_2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="40" attachNode="Bip001 R Finger2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" sound="None"/>
+    <Particle frame="40" attachNode="Bip001 R finger_2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="40.00" soundFile="mon_voice_lapene_skl1_shot"/>
+    <Sound frame="42.00" soundFile="mon_voice_screech_7"/>
+    <Particle frame="55" attachNode="zin03" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="55" attachNode="zin02" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="55" attachNode="zin01" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="57" attachNode="Bip001 L Finger2" particleName="I_smoke004_4_grey2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="57" attachNode="Bip001 L finger_2" particleName="I_smoke004_4_grey2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="57" attachNode="Bip001 R Finger2" particleName="I_smoke004_4_grey2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" sound="None"/>
+    <Particle frame="57" attachNode="Bip001 R finger_2" particleName="I_smoke004_4_grey2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="57" attachNode="Bip001 L Finger2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="57" attachNode="Bip001 L finger_2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="57" attachNode="Bip001 R Finger2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" sound="None"/>
+    <Particle frame="57" attachNode="Bip001 R finger_2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="70" attachNode="Bip001 L Finger2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="70" attachNode="Bip001 L finger_2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="70" attachNode="Bip001 R Finger2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" sound="None"/>
+    <Particle frame="70" attachNode="Bip001 R finger_2" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="75" attachNode="zin03" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="75" attachNode="zin02" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="75" attachNode="zin01" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

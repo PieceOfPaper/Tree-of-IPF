@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice5_l_cast_2"/>
+    <Sound frame="18.00" Value="2000" soundFile="mon_molich_atk_shot"/>
+    <Sound frame="18.00" Value="2000" soundFile="mon_voice5_l_2"/>
+    <Particle frame="21" attachActor="None" attachNode="Dummy_emitter" particleName="I_poata_atk002_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="21" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke107" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Particle frame="26" attachActor="None" attachNode="Dummy_hand_right" particleName="F_burstup014_circle" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+    <HitAni frame="27" damratio="100"/>
+    <Sound frame="36.00" Value="2000" soundFile="mon_wood_spirit_atk_shot_move"/>
+    <Particle frame="39" attachActor="None" attachNode="Dummy_emitter" particleName="I_poata_atk001_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="39" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke107" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Particle frame="43" attachActor="None" attachNode="Dummy_hand_left" particleName="F_burstup014_circle" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+    <HitAni frame="44" damratio="100"/>
+</ActionDesc>

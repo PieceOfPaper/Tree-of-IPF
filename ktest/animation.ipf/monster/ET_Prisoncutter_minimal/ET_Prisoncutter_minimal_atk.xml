@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="10" attachNode="Dummy_effect_hand_L" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="10" attachNode="Dummy_effect_hand_R" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="10" attachNode="Bip001" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_move_prisoncutter_atk"/>
+	<Sound frame="10.00" soundFile="mon_tomblord_turn"/>
+	<Sound frame="40.00" soundFile="skl_eff_atk_move_l_14"/>
+	<Sound frame="50.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="62.00" soundFile="swd_blow_flesh1--"/>
+</ActionDesc>

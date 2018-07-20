@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="38" R="70" G="110" B="130" A="100"/>
+	<BlendOn frame="39" R="50" G="90" B="110" A="200"/>
+	<BlendOn frame="40" R="30" G="70" B="80" A="200"/>
+	<BlendOff frame="41" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="36" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="46" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="37" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="37" attachNode="Dummy_emitter_front" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="37" attachNode="Dummy_effect_atk" particleName="I_swordtrail015_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.9" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="37" attachNode="Dummy_effect_atk" particleName="I_swordtrail015_blue_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.9" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_action"/>
+	<Sound frame="10.00" soundFile="mon_voice_roar"/>
+	<Sound frame="12.00" soundFile="mon_voice_hog_11"/>
+	<Sound frame="25.00" soundFile="skl_eff_atk_sperad"/>
+</ActionDesc>

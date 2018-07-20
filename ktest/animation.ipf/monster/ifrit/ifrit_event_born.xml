@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect_01_R" particleName="F_fire028" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect_02_R" particleName="F_fire028" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect_03_R" particleName="F_fire028" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect_01_L" particleName="F_fire028" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect_02_L" particleName="F_fire028" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect_03_L" particleName="F_fire028" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="47" attachActor="None" attachNode="Dummy_emitter01" particleName="F_spread_out022_fire" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_fire_cast"/>
+	<Sound frame="0" Value="2933" soundFile="skl_eff_dash_1"/>
+</ActionDesc>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="20" attachNode="Dummy_effect_wepon" particleName="I_smoke041_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="55" attachNode="Dummy_emitter" particleName="E_Flammidus_atk1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="55" attachNode="Dummy_emitter" particleName="E_Flammidus_atk1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="55" attachNode="Dummy_emitter" particleName="E_Flammidus_atk1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<AfterImage frame="45" term="50" blendTime="300" r="100" g="100" b="100" a="250"/>
+	<AfterImage frame="60" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="53" R="231" G="111" B="0" A="100"/>
+	<BlendOn frame="55" R="218" G="88" B="0" A="200"/>
+	<BlendOff frame="65" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="58" type="2" intensity="5" frequency="50" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="mon_mirtis_atk02_cast"/>
+	<Sound frame="10.00" soundFile="mon_mirtis_atk01_cast"/>
+	<Sound frame="40.00" soundFile="mon_mirtis_atk02_shot"/>
+	<Sound frame="50.00" soundFile="skl_eff_atk_sperad"/>
+</ActionDesc>

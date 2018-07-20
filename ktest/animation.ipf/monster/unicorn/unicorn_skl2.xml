@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_unicorn_skl3"/>
+    <Sound frame="0.00" soundFile="skl_eff_summon_smoke"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_levitation027_dark_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="15.00" soundFile="skl_eff_wiz_necromancer_force_1"/>
+    <Particle frame="15" attachNode="bone_tail04" particleName="I_force034_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="15" R="30" G="20" B="10" A="30"/>
+    <Shockwave frame="26" type="2" intensity="5" frequency="30" duration="2" range="1000"/>
+    <BlendOn frame="30" R="60" G="40" B="10" A="30"/>
+    <Sound frame="50.00" soundFile="skl_eff_campfire_burst"/>
+    <Particle frame="50" attachNode="bone_tail04" particleName="I_force059_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="54.00" soundFile="skl_eff_dark"/>
+    <Particle frame="55" attachNode="Bip001 Spine2" particleName="F_spread_out025_fether_brown" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="58" attachNode="Dummy_emitter" particleName="I_smoke011_red_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="60.00" soundFile="skl_eff_stone_blow_m"/>
+    <BlendOn frame="63" R="200" G="170" B="130" A="200"/>
+    <Sound frame="64.28" soundFile="skl_eff_scythe_attack"/>
+    <Particle frame="65" attachNode="Dummy_emitter" particleName="F_ground016_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="67" attachNode="Dummy_emitter" particleName="F_ground116_circle_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="68" type="2" intensity="20" frequency="40" duration="0.8" range="1000"/>
+    <Particle frame="68" attachNode="Dummy_effect_trail1" particleName="I_swordtrail029_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="69" R="130" G="80" B="30" A="100"/>
+    <Particle frame="70" attachNode="Dummy_effect_trail1" particleName="I_swordtrail029_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="72" attachNode="Dummy_effect_trail1" particleName="I_swordtrail029_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="72" R="60" G="40" B="10" A="30"/>
+    <BlendOn frame="75" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="83" R="200" G="170" B="130" A="200"/>
+    <Sound frame="85.00" soundFile="skl_eff_dark_hit"/>
+    <Shockwave frame="90" type="2" intensity="30" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="90" type="2" intensity="30" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="90.00" soundFile="skl_eff_dead_boom_stone"/>
+    <Particle frame="90" attachNode="Dummy_emitter" particleName="F_ground103_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="93" attachNode="Dummy_emitter" particleName="F_lineup018_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="94" R="130" G="80" B="30" A="100"/>
+    <Shockwave frame="95" type="2" intensity="10" frequency="20" duration="1" range="1000"/>
+    <Particle frame="95" attachNode="Dummy_effect_trail2" particleName="I_swordtrail029_dark" useAttach="true" hiddenObj="true" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="97" attachNode="Dummy_effect_trail2_2" particleName="None" useAttach="true" hiddenObj="true" changeEffect="None" scale="6.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="100" R="60" G="40" B="10" A="30"/>
+    <BlendOn frame="105" R="30" G="20" B="10" A="30"/>
+    <BlendOn frame="107" R="0" G="0" B="0" A="50"/>
+    <BlendOff frame="109" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

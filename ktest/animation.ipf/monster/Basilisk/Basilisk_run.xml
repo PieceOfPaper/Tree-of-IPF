@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Shockwave frame="2" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="2" particleName="F_smoke109" attachNode="Bip001 R Finger1" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="2" particleName="F_stone005" attachNode="Bip001 R Finger1" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="2" particleName="F_smoke109" attachNode="Bip001 L Toe2" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="2" particleName="F_stone005" attachNode="Bip001 L Toe2" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="2.25" soundFile="mon_big_footstep_3"/>
+    <Shockwave frame="4" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="6" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="6.90" soundFile="mon_big_footstep_5"/>
+    <Shockwave frame="24" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="24" particleName="F_smoke109" attachNode="Bip001 L Finger1" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="24" particleName="F_stone005" attachNode="Bip001 L Finger1" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="24" particleName="F_smoke109" attachNode="Bip001 R Toe2" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="24" particleName="F_stone005" attachNode="Bip001 R Toe2" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="24.08" soundFile="mon_big_footstep_3"/>
+    <Shockwave frame="26" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="28" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="28.87" soundFile="mon_big_footstep_5"/>
+</ActionDesc>

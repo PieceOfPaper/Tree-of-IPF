@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="3000" soundFile="mon_molich_atk_ready"/>
+    <Sound frame="58.00" soundFile="skl_eff_gust_spread_1"/>
+    <Particle frame="59" particleName="I_Moss4_skl2_mash" attachNode="Dummy_emiitter" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="63" particleName="I_spin009" attachNode="Dummy_eff_skl" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Sound frame="67" soundFile="skl_eff_poison_3"/>
+    <Sound frame="92" Value="3000" soundFile="m_siauliai_beetle_raiseup"/>
+    <Sound frame="98" Value="3000" soundFile="m_whip_vine_raiseup"/>
+</ActionDesc>

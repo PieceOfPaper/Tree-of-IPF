@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_fireball_cast_loop"/>
+    <Sound frame="0.00" soundFile="mon_voice5_l_cast_2"/>
+    <Sound frame="0.00" soundFile="mon_voice_helgasercle_9"/>
+    <Particle frame="5" attachNode="Bip01 R Hand" particleName="I_force080_green_blue3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="S_sword_06_bone_01" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="S_sword_06_bone_02" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="S_sword_06_bone_03" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="S_sword_06_bone_04" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="S_sword_06_bone_05" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="S_sword_06_bone_06" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="S_sword_06_bone_01" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="S_sword_06_bone_02" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="S_sword_06_bone_03" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="S_sword_06_bone_04" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="S_sword_06_bone_05" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="S_sword_06_bone_06" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="50.00" soundFile="mon_voice_screech_9"/>
+    <Particle frame="53" attachNode="S_sword_06_bone_01" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="53" attachNode="S_sword_06_bone_02" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="53" attachNode="S_sword_06_bone_03" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="53" attachNode="S_sword_06_bone_04" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="53" attachNode="S_sword_06_bone_05" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="53" attachNode="S_sword_06_bone_06" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="55.00" soundFile="mon_riteris_born_swordscrape"/>
+    <Sound frame="57.04" soundFile="skl_eff_whoosh_1"/>
+    <Sound frame="61.00" soundFile="skl_eff_atk_move_s_8"/>
+    <Particle frame="62" attachNode="Bip01 R Hand" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="63" attachNode="S_sword_06_bone_01" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="63" attachNode="S_sword_06_bone_02" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="63" attachNode="S_sword_06_bone_03" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="63" attachNode="S_sword_06_bone_04" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="63" attachNode="S_sword_06_bone_05" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="63" attachNode="S_sword_06_bone_06" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="63.00" soundFile="skl_eff_atk_move_s_9"/>
+    <Sound frame="65.00" soundFile="skl_eff_atk_move_s_8"/>
+    <Sound frame="68.00" soundFile="skl_eff_atk_move_s_9"/>
+    <Sound frame="70.00" soundFile="skl_eff_atk_move_s_8"/>
+    <Sound frame="72.00" soundFile="skl_eff_atk_move_s_9"/>
+    <Shockwave frame="74" type="2" intensity="15" frequency="70" duration="0.6" range="1000"/>
+    <Particle frame="74" attachNode="S_sword_06_bone_06n" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="76" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="76" attachNode="S_sword_06_bone_01n" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="78" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="78" attachNode="S_sword_06_bone_05n" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="79" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="79" attachNode="S_sword_06_bone_02n" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="81" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="81" attachNode="S_sword_06_bone_04n" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="83" type="2" intensity="13" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="83" attachNode="S_sword_06_bone_03n" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="85" attachNode="S_sword_06_bone_01" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="85" attachNode="S_sword_06_bone_02" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="85" attachNode="S_sword_06_bone_03" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="85" attachNode="S_sword_06_bone_04" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="85" attachNode="S_sword_06_bone_05" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="85" attachNode="S_sword_06_bone_06" particleName="I_force089_trail_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="100.00" soundFile="skl_eff_atk_swordscrape"/>
+</ActionDesc>

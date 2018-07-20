@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect" particleName="F_burstup006_pink" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Bone014" particleName="I_force065" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_waterspell_2"/>
+	<Sound frame="15.00" soundFile="skl_eff_atk_move_l_13"/>
+	<Sound frame="22.50" soundFile="mon_voice_meduoliai_3"/>
+	<Sound frame="56.40" soundFile="skl_eff_atk_move_l_15"/>
+	<Sound frame="57.00" soundFile="skl_eff_thunder_1"/>
+	<Particle frame="69" attachActor="None" attachNode="Dummy_effect_atk3" particleName="F_explosion020_water" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="10.00" soundFile="mon_voice_succubus_atk_1"/>
+	<Sound frame="22.00" soundFile="skl_eff_whip_1"/>
+	<Sound frame="32.00" soundFile="arw_blow_flesh1"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="32" R="250" G="120" B="100" A="100"/>
+	<BlendOn frame="35" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="36" R="0" G="0" B="0" A="0"/>
+	<Particle frame="33" attachNode="Dummy_effect_atk_mash" particleName="I_succubus_atk1_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="32" attachNode="Bip001 Spine1" particleName="F_spread_out031_fether_black" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_mushcaria_3"/>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_l_15"/>
+    <Shockwave frame="2" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="2" attachNode="Dummy_emitter" particleName="F_smoke089" useAttach="true" hiddenObj="false" changeEffect="None" scale="30" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_stone_underground_1"/>
+    <Particle frame="2" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_born_1"/>
+    <Shockwave frame="3" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="4" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="5" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

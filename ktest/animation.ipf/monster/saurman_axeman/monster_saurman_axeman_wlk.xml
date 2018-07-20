@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" particleName="F_smoke109" attachNode="Bip01 L Foot" scale="1.0" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="1" particleName="F_smoke109" attachNode="Bip01 L Foot" scale="1.0" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="7" particleName="F_smoke109" attachNode="Bip01 R Foot" scale="1.0" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="8" particleName="F_smoke109" attachNode="Bip01 R Foot" scale="1.0" useAttach="true" pause="true" targetPos="false" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

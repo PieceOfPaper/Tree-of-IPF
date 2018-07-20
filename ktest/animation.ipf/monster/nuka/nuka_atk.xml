@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="5" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="200" G="130" B="120" A="80"/>
+	<BlendOn frame="7" R="180" G="130" B="120" A="50"/>
+	<BlendOff frame="8" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="5" term="100" blendTime="200" r="130" g="130" b="150" a="120"/>
+	<AfterImage frame="7" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="7" attachNode="Dummy_effect_atk3" particleName="F_dash008_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Sound frame="0.00" soundFile="mon_ghost_girl_battlestart"/>
+	<Sound frame="0.00" soundFile="mon_ellomago_atk_cast"/>
+	<Sound frame="0.00" soundFile="mon_banshee_atk2_cast"/>
+	<Sound frame="7.00" soundFile="atk_swordswing"/>
+	<Sound frame="7.00" soundFile="skl_eff_atk_move_s_6"/>
+	<Sound frame="7.00" soundFile="skl_eff_atk_move_s_11"/>
+</ActionDesc>

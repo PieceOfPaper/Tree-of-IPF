@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_katyn_bug_skl_cast"/>
+    <Particle frame="3" attachNode="Dummy_effect_smoke00" particleName="F_burstup029_smoke" useAttach="false" hiddenObj="false" scale="0.6" pause="true" targetPos="false" sound="barricade_thorn_dead"/>
+    <Particle frame="3" attachNode="Dummy_effect_imc" particleName="I_rondo_skl_mash" useAttach="false" hiddenObj="false" scale="1.2" pause="true" targetPos="false"/>
+    <Sound frame="4.00" soundFile="mon_bushspider_atk2_ready"/>
+    <Particle frame="4" attachNode="Dummy_effect_smoke01" particleName="F_burstup029_smoke" useAttach="false" hiddenObj="false" scale="0.7" pause="true" targetPos="false" sound="skl_eff_born_1"/>
+    <Particle frame="5" attachNode="Dummy_effect_smoke02" particleName="F_burstup029_smoke" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false" sound="skl_eff_born_1"/>
+    <Particle frame="6" attachNode="Dummy_effect_smoke03" particleName="F_burstup029_smoke" useAttach="false" hiddenObj="false" scale="0.9" pause="true" targetPos="false" sound="skl_eff_born_1"/>
+    <Particle frame="7" attachNode="Dummy_effect_smoke04" particleName="F_burstup029_smoke" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" sound="skl_eff_born_1"/>
+</ActionDesc>

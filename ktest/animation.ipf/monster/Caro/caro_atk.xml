@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice9_s_random"/>
+    <Sound frame="6.00" soundFile="mon_voice4_s_random"/>
+    <Particle frame="6" attachActor="None" attachNode="Dummy_ef_atk01" particleName="F_dash007" hiddenObj="false" useAttach="false" scale="0.7" pause="true" targetPos="false" sound="skl_eff_body_atk_16"/>
+    <Sound frame="10.00" soundFile="skl_eff_body_atk_12"/>
+    <Particle frame="10" attachActor="None" attachNode="Dummy_ef_atk02" particleName="F_dash007" hiddenObj="false" useAttach="false" scale="0.7" pause="true" targetPos="false" sound="skl_eff_body_atk_18"/>
+    <Particle frame="10" attachActor="None" attachNode="Dummy_ef_atk03" particleName="F_dash007" hiddenObj="false" useAttach="false" scale="0.7" pause="true" targetPos="false" sound="skl_eff_body_atk_24"/>
+</ActionDesc>

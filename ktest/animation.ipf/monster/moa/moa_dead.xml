@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="50" G="50" B="50" A="50"/>
+	<BlendOn frame="15" R="170" G="120" B="100" A="50"/>
+	<BlendOn frame="40" R="200" G="150" B="130" A="50"/>
+	<BlendOff frame="80" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_bird_9"/>
+	<Sound frame="9.82" soundFile="skl_eff_mud_shot"/>
+	<Sound frame="12.00" soundFile="skl_eff_atk_move_l_10"/>
+	<Sound frame="24.08" soundFile="skl_eff_mud_shot"/>
+	<Sound frame="36.00" soundFile="skl_eff_bodyfall_l_1"/>
+	<Sound frame="38.98" soundFile="skl_eff_mud_shot"/>
+	<Sound frame="53.87" soundFile="skl_eff_dead_boom_l_1"/>
+	<Particle frame="4" attachNode="Bip001 R UpperArm" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_atk" particleName="F_ground015_red" useAttach="true" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+	<Particle frame="6" attachNode="Bip001 L Forearm" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+	<Particle frame="8" attachNode="Bip001 R Thigh" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Bip001 L Thigh" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+	<Particle frame="12" attachNode="Bip001 Head" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+	<Particle frame="24" attachNode="Bip001 R UpperArm" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+	<Particle frame="25" attachNode="Dummy_effect_skl1_cast_L" particleName="F_ground015_red" useAttach="true" hiddenObj="false" scale="0.2" pause="true" targetPos="false"/>
+	<Particle frame="26" attachNode="Bip001 L Forearm" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+	<Particle frame="28" attachNode="Bip001 R Thigh" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="30" attachNode="Bip001 L Thigh" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_dead_1" particleName="F_ground015_red" useAttach="true" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+	<Particle frame="32" attachNode="Bip001 Head" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+	<Particle frame="40" attachNode="Dummy_effect_atk" particleName="F_ground015_red" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="40" attachNode="Bip001 R UpperArm" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="40" attachNode="Dummy_effect_skl1_cast_R" particleName="F_ground015_red" useAttach="true" hiddenObj="false" scale="0.4" pause="true" targetPos="false"/>
+	<Particle frame="40" attachNode="Bip001 L Forearm" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="40" attachNode="Bip001 R Thigh" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="40" attachNode="Bip001 L Thigh" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="40" attachNode="Dummy_dead_1" particleName="F_ground015_red" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="40" attachNode="Bip001 R UpperArm" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="40" attachNode="Bip001 R UpperArm" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="54" attachNode="Dummy_emitter" particleName="I_moa_dead_mash" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="54" attachNode="Bip001 Spine" particleName="F_explosion004_violet" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="54" attachNode="Bip001 Spine" particleName="F_explosion016_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Shockwave frame="55" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="57" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="59" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="61" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="63" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="65" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="67" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="69" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="71" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

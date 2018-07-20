@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActionDesc>
+  <HitTime frame="33" />
+  <HitTime frame="43" />
+  <HitTime frame="49" />
+  <HitTime frame="53" />
+  <Prop right="true" left="false" />
+  <PostFix frame="1" ID="_thrust" />
+  <Sound frame="32" soundFile="m_zealot_atk2" />
+  <Sound frame="33" soundFile="m_zealot_atk1_1" />
+  <Sound frame="43" soundFile="m_zealot_atk1_2" />
+  <Sound frame="49" soundFile="m_zealot_atk1_1" />
+  <Sound frame="53" soundFile="m_zealot_atk1_2" />
+  <Emitter frame="17" attachNode="None" emitterName="mon_zealot_atk2" useAttach="true" />
+</ActionDesc>

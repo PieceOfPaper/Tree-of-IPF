@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_unicorn_skl1"/>
+    <Sound frame="0.00" soundFile="skl_eff_whirlwind_smoke"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="7" attachNode="Dummy_effect_R_foot" particleName="F_smoke044" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="7" R="20" G="10" B="3" A="30"/>
+    <Particle frame="10" attachNode="Dummy_emitter" particleName="I_smoke011_red_white1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="15" R="30" G="15" B="5" A="30"/>
+    <BlendOn frame="26" R="80" G="40" B="15" A="80"/>
+    <Particle frame="30" attachNode="Dummy_effect_L_eye" particleName="F_light054_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_R_eye" particleName="F_light054_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="36" R="150" G="80" B="30" A="80"/>
+    <Particle frame="37" attachNode="Dummy_emitter" particleName="I_smoke011_red_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="45.00" soundFile="skl_eff_light_shot"/>
+    <Sound frame="45.00" soundFile="skl_eff_lightning"/>
+    <Sound frame="45.00" soundFile="skl_wiz_fireball_finish_full"/>
+    <Sound frame="45.00" soundFile="skl_eff_resizing_boom"/>
+    <BlendOn frame="47" R="255" G="150" B="100" A="150"/>
+    <Particle frame="48" attachNode="Dummy_atk" particleName="F_explosion026_rize_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOff frame="65" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

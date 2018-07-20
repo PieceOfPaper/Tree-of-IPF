@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="90" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="37" type="2" intensity="2.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="38" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="39" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="62" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="64" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="66" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="68" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="74" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="76" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="78" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="80" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="mon_goblinwarrior_dead"/>
+	<Particle frame="10" attachActor="None" attachNode="Bip01 Spine2" particleName="F_light002_yellow" useAttach="true" hiddenObj="false" scale="40" pause="true" targetPos="false"/>
+	<Particle frame="30" attachActor="None" attachNode="Bip01 Spine2" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="60" pause="true" targetPos="false"/>
+	<Particle frame="62" attachActor="None" attachNode="Dummy_deadbody" particleName="I_goblin_warrior_dead_mash" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="62" attachActor="None" attachNode="Dummy_deadbody" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="64" attachActor="None" attachNode="Dummy_deadbody" particleName="F_explosion001" useAttach="true" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="62" attachActor="None" attachNode="Dummy_deadbody" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="6" attachActor="None" attachNode="Dummy_chim" particleName="F_smoke048_green" scale="7"/>
+	<Particle frame="13" attachActor="None" attachNode="Dummy_deadbadak" particleName="F_ground054" scale="5"/>
+	<Particle frame="24" attachActor="None" attachNode="Dummy_bighand" particleName="F_smoke049" scale="5"/>
+	<Particle frame="30" attachActor="None" attachNode="Dummy_deadbody" particleName="F_ground055_green" scale="3"/>
+	<Particle frame="37" attachActor="None" attachNode="Dummy_deadbody" particleName="F_smoke050" scale="3"/>
+	<Particle frame="37" attachActor="None" attachNode="Dummy_deadbody" particleName="F_ifrit_atk1_smoke" scale="15"/>
+	<Particle frame="39" attachActor="None" attachNode="Dummy_deadbody" particleName="F_ifrit_atk1_smoke" scale="12"/>
+</ActionDesc>

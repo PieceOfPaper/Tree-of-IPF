@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="3.00" soundFile="mon_deathweaver_skl_1" />
+    <Particle frame="25" attachNode="Bip001 R Finger2" particleName="F_circle004_rize" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false" />
+    <Particle frame="25" attachNode="Bip001 R Finger2" particleName="F_light015_violet" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Particle frame="35" attachNode="Bip001 R Finger2" particleName="F_circle004_rize" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false" />
+    <Particle frame="35" attachNode="Bip001 R Finger2" particleName="F_light015_violet" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Particle frame="45" attachNode="Bip001 R Finger2" particleName="F_circle004_rize" useAttach="true" hiddenObj="false" scale="2.7" pause="true" targetPos="false" />
+    <Particle frame="45" attachNode="Bip001 R Finger2" particleName="F_light015_violet" useAttach="true" hiddenObj="false" scale="1.2" pause="true" targetPos="false" />
+    <Particle frame="55" attachNode="Bip001 R Finger2" particleName="F_circle004_rize" useAttach="true" hiddenObj="false" scale="2.9" pause="true" targetPos="false" />
+    <Particle frame="55" attachNode="Bip001 R Finger2" particleName="F_light015_violet" useAttach="true" hiddenObj="false" scale="1.4" pause="true" targetPos="false" />
+    <Particle frame="64" attachNode="Dummy_emitter" particleName="I_deathweaver_atk002_mash" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Particle frame="64" attachNode="Dummy_emitter" particleName="F_spread_out002" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false" />
+    <Particle frame="65" attachNode="Bip001 R Finger2" particleName="F_circle004_rize" useAttach="true" hiddenObj="false" scale="2.9" pause="true" targetPos="false" />
+    <Particle frame="65" attachNode="Bip001 R Finger2" particleName="F_light015_violet" useAttach="true" hiddenObj="false" scale="1.4" pause="true" targetPos="false" />
+    <Particle frame="65" attachNode="Dummy_skl1_effect" particleName="I_laser010_violet" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false" />
+    <Particle frame="65" attachNode="Dummy_skl1_effect" particleName="I_rize001_violet" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" />
+    <Particle frame="65" attachNode="Dummy_emitter" particleName="F_ground092_dark" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false" />
+    <Particle frame="65" attachNode="Dummy_emitter" particleName="F_smoke012_violet" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" />
+    <Particle frame="74" attachNode="Dummy_emitter" particleName="F_ground092_dark" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false" />
+    <Particle frame="74" attachNode="Dummy_emitter" particleName="F_smoke012_violet" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" />
+    <Particle frame="75" attachNode="Bip001 R Finger2" particleName="F_circle004_rize" useAttach="true" hiddenObj="false" scale="2.9" pause="true" targetPos="false" />
+    <Particle frame="75" attachNode="Bip001 R Finger2" particleName="F_light015_violet" useAttach="true" hiddenObj="false" scale="1.4" pause="true" targetPos="false" />
+    <Particle frame="80" attachNode="Bip001 R Finger2" particleName="F_circle004_rize" useAttach="true" hiddenObj="false" scale="2.9" pause="true" targetPos="false" />
+    <Particle frame="80" attachNode="Bip001 R Finger2" particleName="F_light015_violet" useAttach="true" hiddenObj="false" scale="1.4" pause="true" targetPos="false" />
+    <Particle frame="90" attachNode="Bip001 R Finger2" particleName="F_circle004_rize" useAttach="true" hiddenObj="false" scale="2.9" pause="true" targetPos="false" />
+    <Particle frame="90" attachNode="Bip001 R Finger2" particleName="F_light015_violet" useAttach="true" hiddenObj="false" scale="1.4" pause="true" targetPos="false" />
+</ActionDesc>

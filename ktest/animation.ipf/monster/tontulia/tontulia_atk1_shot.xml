@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0.00" particleName="I_tontulia_atk001_mash" attachNode="Dummy_emitter" scale="1.0" useAttach="false" pause="true" targetPos="false" />
+    <Sound frame="0.00" Value="0" soundFile="m_tontulia_atk1_shot" />
+    <Particle frame="1" particleName="F_smoke107" attachNode="Dummy_emitter" scale="2" useAttach="false" pause="true" targetPos="false" />
+    <HitAni frame="2.45" damratio="100" />
+</ActionDesc>

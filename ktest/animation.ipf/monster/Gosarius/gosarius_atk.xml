@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="3.00" soundFile="mon_voice5_l_cast_4"/>
+    <Sound frame="45.00" soundFile="mon_voice_onion_the_great_2"/>
+    <Sound frame="45.00" soundFile="mon_golem_hit"/>
+    <Sound frame="47.66" soundFile="npc_potap_boom"/>
+    <AfterImage frame="53" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+    <Particle frame="56" attachNode="Dummy_effect_atk" particleName="F_explosion90_fire" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <AfterImage frame="63" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

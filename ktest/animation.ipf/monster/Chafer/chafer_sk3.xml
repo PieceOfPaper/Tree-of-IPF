@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="3666" soundFile="skl_eff_atk_move_l_1"/>
+	<Sound frame="6.00" Value="3666" soundFile="mon_voice_throneweaver_6"/>
+	<Sound frame="9.00" Value="3666" soundFile="skl_archer_prudence_shot"/>
+	<Sound frame="27.00" Value="3666" soundFile="skl_eff_atk_move_l_5"/>
+	<Sound frame="30.00" Value="3666" soundFile="mon_voice_throneweaver_5"/>
+	<Sound frame="45.00" Value="3666" soundFile="skl_archer_concentrate_shot"/>
+	<Sound frame="51.00" Value="3666" soundFile="mon_voice_throneweaver_1"/>
+	<Sound frame="69.00" Value="0" soundFile="skl_wiz_manasplash"/>
+	<Sound frame="75.00" Value="3666" soundFile="skl_eff_atk_move_l_8"/>
+	<Sound frame="84.00" Value="0" soundFile="skl_wiz_telekinesis_circle"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect_L_hand" particleName="I_force069" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect_R_hand" particleName="I_force069" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="39" attachActor="None" attachNode="Dummy_effect_2" particleName="F_spin010" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="45" attachActor="None" attachNode="Bip001 Head" particleName="I_force069" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="81" attachActor="None" attachNode="Dummy_effect" particleName="F_spin011" useAttach="true" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
+	<Particle frame="105" attachActor="None" attachNode="Dummy_effect" particleName="F_explosion040_yellow" useAttach="true" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+</ActionDesc>

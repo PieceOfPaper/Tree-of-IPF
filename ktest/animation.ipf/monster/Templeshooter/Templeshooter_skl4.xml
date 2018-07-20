@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="None"/>
+    <Sound frame="0.00" soundFile="mon_voice5_l_6"/>
+    <Sound frame="8.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Sound frame="8.00" soundFile="skl_eff_atk_move_l_14"/>
+    <Particle frame="22" particleName="F_smoke031" attachNode="Dummy_emitter" scale="8" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="22" particleName="F_smoke033" attachNode="Dummy_emitter" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="30" particleName="I_smoke013_dark1" attachNode="Dummy_effect_R" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="30" particleName="I_smoke013_dark1" attachNode="Dummy_effect_L" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="43.00" soundFile="mon_voice5_l_dead_10"/>
+    <Sound frame="45.00" soundFile="mon_voice_hog_12"/>
+    <Particle frame="72" particleName="F_explosion001_dark" attachNode="Dummy_skl1_R" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="72" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_R" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="76" particleName="F_explosion001_dark" attachNode="Dummy_skl1_L" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="76" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_L" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="83" particleName="F_explosion001_dark" attachNode="Dummy_skl1_R" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="83" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_R" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="87" particleName="F_explosion001_dark" attachNode="Dummy_skl1_L" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="87" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_L" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="94" particleName="F_explosion001_dark" attachNode="Dummy_skl1_R" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="94" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_R" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="98" particleName="F_explosion001_dark" attachNode="Dummy_skl1_L" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="98" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_L" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="105" particleName="F_explosion001_dark" attachNode="Dummy_skl1_R" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="105" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_R" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="109" particleName="F_explosion001_dark" attachNode="Dummy_skl1_L" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="109" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_L" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="116" particleName="F_explosion001_dark" attachNode="Dummy_skl1_R" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="116" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_R" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="120" particleName="F_explosion001_dark" attachNode="Dummy_skl1_L" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="120" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_L" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="127" particleName="F_explosion001_dark" attachNode="Dummy_skl1_R" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="127" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_R" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="131" particleName="F_explosion001_dark" attachNode="Dummy_skl1_L" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="131" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_L" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="138" particleName="F_explosion001_dark" attachNode="Dummy_skl1_R" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="138" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_R" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="142" particleName="F_explosion001_dark" attachNode="Dummy_skl1_L" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="142" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_L" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="149" particleName="F_explosion001_dark" attachNode="Dummy_skl1_R" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="149" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_R" scale="1" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="153" particleName="F_explosion001_dark" attachNode="Dummy_skl1_L" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="153" attachNode="Dummy_emitter" particleName="E_templeshooter_skl5_L" scale="1" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

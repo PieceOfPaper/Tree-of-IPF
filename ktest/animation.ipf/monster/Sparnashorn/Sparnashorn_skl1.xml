@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_effect_lip" particleName="F_spread_in002_green2" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="0.00" Value="4000" soundFile="skl_eff_atk_move_l_1"/>
+    <Sound frame="6.00" Value="4000" soundFile="skl_fire_cast"/>
+    <Particle frame="30" attachActor="None" attachNode="Bip001 R Finger0" particleName="I_force078_blue_feather" useAttach="true" hiddenObj="false" scale="0.4" pause="true" targetPos="false"/>
+    <Particle frame="30" attachActor="None" attachNode="Bip001 L Finger0" particleName="I_force078_blue_feather" useAttach="true" hiddenObj="false" scale="0.4" pause="true" targetPos="false"/>
+    <Sound frame="30.00" Value="4000" soundFile="mon_voice_bird_3"/>
+    <Sound frame="33.00" Value="3917" soundFile="skl_eff_atk_move_l_2"/>
+    <Particle frame="55" attachActor="None" attachNode="Dummy_effect_eye_R" particleName="F_light028_mint2" useAttach="true" hiddenObj="false" scale="0.7" pause="true" targetPos="false" sound="skl_eff_rune_born_light_3"/>
+    <Particle frame="55" attachActor="None" attachNode="Dummy_effect_eye_L" particleName="F_light028_mint2" useAttach="true" hiddenObj="false" scale="0.7" pause="true" targetPos="false" sound="skl_fgt_light_cast"/>
+    <Sound frame="76.00" Value="4000" soundFile="skl_eff_atk_move_l_4"/>
+    <Particle frame="78" attachActor="None" attachNode="Dummy_effect_lip" particleName="I_light013_spark_blue_2" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false" sound="skl_eff_lightning_3"/>
+    <Particle frame="78" attachActor="None" attachNode="Dummy_effect_lip" particleName="I_light013_spark_blue_2" useAttach="true" hiddenObj="false" scale="8" pause="true" targetPos="false"/>
+    <Sound frame="81.00" Value="2786" soundFile="skl_wiz_aircurtain"/>
+</ActionDesc>

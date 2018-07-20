@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_katyn_bug_skl_cast"/>
+    <Sound frame="6.00" soundFile="mon_truffle_atk2_cast"/>
+    <Sound frame="18.00" soundFile="mon_katyn_bug_atk1_shot"/>
+    <Sound frame="18.00" soundFile="mon_truffle_atk2_shot"/>
+    <Particle frame="19" attachActor="None" attachNode="Dummy_ef_skl01" particleName="F_dash007" hiddenObj="false" useAttach="false" scale="0.6" pause="true" targetPos="false"/>
+    <Particle frame="19" attachActor="None" attachNode="Dummy_ef_skl02" particleName="F_dash007" hiddenObj="false" useAttach="false" scale="0.6" pause="true" targetPos="false"/>
+    <Particle frame="19" attachActor="None" attachNode="Dummy_ef_skl03" particleName="F_dash007" hiddenObj="false" useAttach="false" scale="0.6" pause="true" targetPos="false"/>
+    <Particle frame="20" attachActor="None" attachNode="Dummy_ef_skl04" particleName="F_dash007" hiddenObj="false" useAttach="false" scale="0.6" pause="true" targetPos="false"/>
+    <Particle frame="21" attachActor="None" attachNode="Dummy_ef_skl05" particleName="F_explosion001_dark1" hiddenObj="false" useAttach="false" scale="2.3" pause="true" targetPos="false" sound="skl_eff_hit_plants_4"/>
+</ActionDesc>

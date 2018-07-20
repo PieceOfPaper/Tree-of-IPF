@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActionDesc>
+  <Emitter frame="40" attachNode="None" emitterName="mon_bioman_atk1" useAttach="true" />
+  <Particle frame="0" attachNode="effect_Dummy01" particleName="mon_bioman_atk_steam" useAttach="true" />
+  <Particle frame="0" attachNode="Dummy05" particleName="mon_bioman_atk_gun" useAttach="true" />
+  <RimLight frame="40" power="2" duration="0.3" color="255;146;64;255" />
+  <Sound frame="10" soundFile="m_bioman_skl2" />
+  <Sound frame="12" soundFile="m_bioman_skl2_1" />
+  <Sound frame="37" soundFile="m_bioman_skl2_2" />
+</ActionDesc>

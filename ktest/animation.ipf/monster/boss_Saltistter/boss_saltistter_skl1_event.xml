@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="15.00" Value="2433" soundFile="mon_voice_saltistter_2" />
+    <Shockwave frame="25" type="2" intensity="10" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="25" attachActor="None" attachNode="Dummy001" particleName="E_saltistter_skl1" useAttach="false" hiddenObj="false" scale="1" pause="false" targetPos="false" />
+    <Shockwave frame="27" type="2" intensity="10" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="29" type="2" intensity="10" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="31" type="2" intensity="10" frequency="70" duration="0.3" range="1000" />
+</ActionDesc>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_voice_unicorn_skl4"/>
+    <Sound frame="0.00" soundFile="skl_eff_fireball_cast_loop"/>
+    <Sound frame="0.00" soundFile="skl_eff_summon_smoke"/>
+    <Sound frame="0.00" soundFile="skl_eff_stone_rolling_2"/>
+    <BlendOn frame="7" R="20" G="10" B="3" A="30"/>
+    <Particle frame="11" attachNode="Dummy_emitter" particleName="I_smoke011_rainbow1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="11" attachNode="Dummy_effect_L_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="11" attachNode="Dummy_effect_R_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="12" type="2" intensity="5" frequency="60" duration="0.4" range="1000"/>
+    <BlendOn frame="15" R="80" G="40" B="15" A="80"/>
+    <Shockwave frame="15" type="2" intensity="8" frequency="50" duration="3" range="1000"/>
+    <Particle frame="20" attachNode="Bip001 Spine2" particleName="F_spread_out025_fether_brown" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="20.00" soundFile="skl_eff_lightning_2"/>
+    <Sound frame="20.00" soundFile="skl_eff_blessing_cast"/>
+    <Sound frame="20.00" soundFile="skl_eff_gyulge_cast"/>
+    <Sound frame="20.00" soundFile="skl_eff_fire_cast"/>
+    <BlendOn frame="25" R="200" G="100" B="70" A="100"/>
+    <Particle frame="25" attachNode="Bone_hair02" particleName="spread_in011_rainbow" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="25.00" soundFile="skl_eff_wiz_skl_cast_4"/>
+    <Particle frame="30" attachNode="Dummy_effect_back_foot" particleName="I_smoke011_rainbow1" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="31" R="200" G="130" B="100" A="130"/>
+    <BlendOn frame="34" R="220" G="180" B="150" A="160"/>
+    <BlendOn frame="37" R="250" G="100" B="70" A="100"/>
+    <BlendOn frame="40" R="255" G="190" B="150" A="150"/>
+    <BlendOn frame="43" R="200" G="100" B="70" A="100"/>
+    <BlendOn frame="46" R="150" G="200" B="255" A="150"/>
+    <BlendOn frame="49" R="200" G="100" B="70" A="100"/>
+    <Particle frame="50" attachNode="Dummy_effect_L_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="50" attachNode="Dummy_effect_R_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="52" R="180" G="220" B="150" A="150"/>
+    <BlendOn frame="55" R="200" G="100" B="70" A="100"/>
+    <BlendOn frame="58" R="180" G="230" B="150" A="150"/>
+    <Particle frame="60" attachNode="Dummy_emitter" particleName="I_smoke011_rainbow1" useAttach="false" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="61" R="100" G="200" B="70" A="100"/>
+    <BlendOn frame="64" R="255" G="180" B="150" A="150"/>
+    <BlendOn frame="67" R="100" G="200" B="70" A="100"/>
+    <BlendOn frame="70" R="255" G="180" B="150" A="150"/>
+    <Sound frame="80.00" soundFile="skl_eff_crash_ground_l_4"/>
+    <Sound frame="86.88" soundFile="skl_eff_jumplanding_1"/>
+    <BlendOn frame="87" R="100" G="40" B="20" A="80"/>
+    <BlendOn frame="90" R="80" G="40" B="15" A="80"/>
+    <Particle frame="90" attachNode="Dummy_effect_front_foot2" particleName="F_ground068_smoke" useAttach="false" hiddenObj="true" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="91" type="2" intensity="40" frequency="50" duration="0.5" range="1000"/>
+    <Shockwave frame="95" type="2" intensity="20" frequency="55" duration="0.6" range="1000"/>
+    <Shockwave frame="100" type="2" intensity="8" frequency="55" duration="1" range="1000"/>
+    <BlendOn frame="105" R="20" G="5" B="2" A="30"/>
+    <BlendOff frame="107" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="1.00" Value="0" soundFile="mon_voice2_s_6"/>
+    <Sound frame="8.00" soundFile="skl_eff_atk_move_m_8"/>
+    <Particle frame="8" attachActor="None" attachNode="None" particleName="I_hook_atk003_mash" useAttach="false" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+    <Sound frame="8.00" soundFile="skl_eff_atk_move_s_8"/>
+    <Particle frame="9" attachActor="None" attachNode="None" particleName="F_explosion89" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+    <HitAni frame="9" damratio="100"/>
+    <Particle frame="10" attachActor="None" attachNode="Dummy_hook_atk1" particleName="None" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

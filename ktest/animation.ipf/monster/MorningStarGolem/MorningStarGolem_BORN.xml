@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="m_schlesien_darkmage_born"/>
+    <Sound frame="0.00" soundFile="npc_rootcrystal_born"/>
+    <Particle frame="2" particleName="F_smoke006_2" attachNode="Body" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="3" particleName="F_smoke034" attachNode="None" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="4" particleName="F_smoke006_2" attachNode="R_B_Leg" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="4" particleName="F_smoke006_2" attachNode="R_F_Leg" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="4" particleName="F_smoke006_2" attachNode="L_B_Leg" scale="2" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="4" particleName="F_smoke006_2" attachNode="L_F_Leg" scale="2" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

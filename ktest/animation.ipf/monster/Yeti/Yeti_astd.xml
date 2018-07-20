@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="10" attachNode="Dummy_effect_lip" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="20" attachNode="Dummy_effect_R_ground" particleName="I_smoke052_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="20" attachNode="Dummy_effect_L_ground" particleName="I_smoke052_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="30" attachNode="Bip001 Spine" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="37" attachNode="Dummy_effect_R_ground2" particleName="F_smoke064_grey" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="40" attachNode="Dummy_effect_R_ground" particleName="I_smoke052_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="40" attachNode="Dummy_effect_L_ground" particleName="I_smoke052_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+</ActionDesc>

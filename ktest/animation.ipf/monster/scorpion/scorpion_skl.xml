@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="7" particleName="F_scorpion_skl" attachNode="Dummy_effect_born" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="I_scorpion_atk001_mash" attachNode="Dummy_effect_born" scale="0.8" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="9" particleName="F_smoke063" attachNode="None" scale="0.6" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_ground078_smoke" attachNode="None" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="7" soundFile="m_scorpion_skl_shot"/>
+	<Sound frame="0.00" soundFile="m_scorpion_skl_ready"/>
+</ActionDesc>

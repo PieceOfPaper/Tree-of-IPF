@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<HitTime frame="31"/>
+	<HitTime frame="44"/>
+	<Sound frame="30" eventType="Normal" soundFile="m_zealot_atk1_2"/>
+	<AttackSound frame="31" handPos="Right"/>
+	<AttackSound frame="44" handPos="Right"/>
+	<PostFix frame="1" ID="_thrust"/>
+	<Prop right="true" left="false"/>
+	<Emitter frame="31" attachNode="None" emitterName="mon_zealot_atk1_1"/>
+	<Emitter frame="44" attachNode="None" emitterName="mon_zealot_atk1_2"/>
+	<Sound frame="30" soundFile="m_zealot_atk2"/>
+	<Sound frame="31" soundFile="atk_stab1"/>
+	<Sound frame="44" soundFile="atk_stab2"/>
+	<Sound frame="44" soundFile="hand_attack1"/>
+	<Sound frame="31" soundFile="hand_attack1"/>
+	<Sound frame="31" soundFile="m_zealot_atk1_1"/>
+</ActionDesc>

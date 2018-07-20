@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="9.00" soundFile="m_MagBurk_skl3"/>
+	<Particle frame="10" attachNode="Dummy001" particleName="F_fire010" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_ground022_fire" useAttach="true" hiddenObj="false" scale="4.5" pause="true" targetPos="false"/>
+	<BlendOn frame="35" R="0" G="0" B="0" A="255"/>
+	<BlendOn frame="40" R="150" G="0" B="0" A="255"/>
+	<BlendOn frame="45" R="255" G="0" B="0" A="255"/>
+	<Particle frame="65" attachNode="Dummy_emitter" particleName="F_ground102_fire" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<BlendOn frame="70" R="255" G="0" B="0" A="255"/>
+	<Particle frame="74" attachNode="Bip001 R UpperArm" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="74" attachNode="Bip001 L UpperArm" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="74" attachNode="Bip001 L Thigh" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="74" attachNode="Bip001 R Thigh" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<BlendOn frame="80" R="150" G="0" B="0" A="255"/>
+	<BlendOn frame="110" R="0" G="0" B="0" A="255"/>
+	<Sound frame="90.00" soundFile="skl_eff_crash_ground_l_2"/>
+	<Particle frame="98" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="98" attachNode="Dummy_emitter" particleName="F_ground102_fire" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+</ActionDesc>

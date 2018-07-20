@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="30" R="100" G="100" B="60" A="50"/>
+	<BlendOff frame="90" R="0" G="0" B="0" A="0"/>
+	<Particle frame="10" attachActor="None" attachNode="Dummy_spine" particleName="F_light002_yellow" useAttach="true" hiddenObj="false" scale="25" pause="true" targetPos="false"/>
+	<Particle frame="30" attachActor="None" attachNode="Dummy_spine" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="15" pause="true" targetPos="false"/>
+	<Particle frame="86" attachActor="None" attachNode="Dummy_emitter" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="86" attachActor="None" attachNode="Dummy_emitter" particleName="F_explosion001" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="86" attachActor="None" attachNode="Dummy_emitter" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="86" attachActor="None" attachNode="Dummy_emitter" particleName="I_merregina_dead_mash" useAttach="true" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_gesti_dead"/>
+	<Sound frame="0.00" soundFile="skl_eff_born_acidburn"/>
+	<Shockwave frame="70" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="74" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="76" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="78" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="80" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

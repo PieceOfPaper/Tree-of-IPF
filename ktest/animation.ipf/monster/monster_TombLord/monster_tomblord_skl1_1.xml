@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_13"/>
+	<Sound frame="3.00" soundFile="mon_tomblord_skl_2"/>
+	<Particle frame="0" attachNode="Bip001 Spine1" particleName="I_smoke045_spread_in" useAttach="true" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="60" attachNode="Dummy_emitter" particleName="F_explosion052_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_hand_R" particleName="I_force024_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_hand_L" particleName="I_force024_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

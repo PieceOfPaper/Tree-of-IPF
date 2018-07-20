@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="67" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="68" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="69" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="67" type="2" intensity="7" frequency="70" duration="1" range="1000"/>
+	<Particle frame="20" attachNode="Dummy001" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="30" attachNode="Dummy_effect_wepon2" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="18" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="40" attachNode="Dummy_effect_wepon" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="50" attachNode="Dummy_effect_wepon" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="60" attachNode="Dummy_effect_wepon" particleName="I_light019_orange_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="65" attachNode="Dummy_effect_skl3_foot" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="65" attachNode="Dummy_effect_skl3_foot" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Sound frame="4.00" soundFile="m_ironbaum_skl1_voice"/>
+	<Sound frame="10.00" soundFile="mon_moldyhorn_skl_1"/>
+	<Sound frame="58.00" soundFile="skl_eff_atk_sperad"/>
+	<Sound frame="58.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="65.00" soundFile="atk_hammerground"/>
+</ActionDesc>

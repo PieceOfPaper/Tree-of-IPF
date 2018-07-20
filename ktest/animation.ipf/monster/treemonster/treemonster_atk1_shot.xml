@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Shockwave frame="0" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="0" particleName="I_stone011_mash" attachNode="Dummy_atk1_badak" scale="0.7" useAttach="true" />
+    <Particle frame="0" particleName="F_smoke106" attachNode="Dummy_atk1_badak" scale="2" useAttach="true" />
+    <Particle frame="0" particleName="F_smoke090" attachNode="Dummy_atk1_badak" scale="3" useAttach="true" />
+    <Particle frame="0" particleName="F_spark008_leaf" attachNode="Bip001 Ponytail1" scale="1.2" useAttach="true" />
+    <Particle frame="0" particleName="F_ground108_smoke" attachNode="Dummy_atk1_badak" scale="3.5" useAttach="true" />
+    <Sound frame="0" soundFile="None" />
+    <HitAni frame="0.21" />
+    <Shockwave frame="1" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="2" type="2" intensity="1.2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="3" type="2" intensity="1.2" frequency="70" duration="0.3" range="1000" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

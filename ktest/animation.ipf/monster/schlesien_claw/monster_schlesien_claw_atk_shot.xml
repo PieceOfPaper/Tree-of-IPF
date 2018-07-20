@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="Bip01 L Foot" scale="0.3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="I_line002_yellow" attachNode="Dummy_atk1_weapon1" scale="0.5" useAttach="true" pause="true" targetPos="false" sound="skl_eff_atk_move_s_11"/>
+    <Particle frame="0" particleName="I_line002_yellow" attachNode="Dummy_atk1_weapon2" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="I_line002_yellow" attachNode="Dummy_atk1_weapon3" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="m_tontulia_atk2_shot"/>
+    <HitAni frame="1.00" damratio="100"/>
+    <Sound frame="2.00" soundFile="mon_chupaluka_atk_shot Copy"/>
+    <Particle frame="3" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="Bip01 R Foot" scale="0.3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="3" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="Bip01 L Foot" scale="0.3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="3" particleName="I_line002_yellow" attachNode="Dummy_atk1_weapon4" scale="0.5" useAttach="true" pause="true" targetPos="false" sound="hit_rip_1"/>
+    <Particle frame="3" particleName="I_line002_yellow" attachNode="Dummy_atk1_weapon5" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="3" particleName="I_line002_yellow" attachNode="Dummy_atk1_weapon6" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+    <HitAni frame="5.00" damratio="100"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

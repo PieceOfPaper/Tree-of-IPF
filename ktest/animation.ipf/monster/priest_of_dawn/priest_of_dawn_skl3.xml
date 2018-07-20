@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="68" R="200" G="200" B="200" A="100"/>
+	<BlendOn frame="69" R="180" G="130" B="150" A="100"/>
+	<BlendOn frame="70" R="150" G="150" B="200" A="100"/>
+	<BlendOn frame="71" R="200" G="100" B="150" A="100"/>
+	<BlendOff frame="72" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter2" particleName="I_smoke046_levitation" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="20" attachNode="Dummy_emitter" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="20" attachNode="Dummy_emitter2" particleName="I_smoke046_levitation" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="40" attachNode="Dummy_emitter" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="40" attachNode="Dummy_emitter2" particleName="I_smoke046_levitation" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="20" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="40" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="50" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="100" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="110" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="120" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="130" attachNode="Dummy_effect_wepon" particleName="I_light020_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

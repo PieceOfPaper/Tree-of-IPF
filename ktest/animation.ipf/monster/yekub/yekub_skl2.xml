@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_m_12"/>
+    <Particle frame="0" attachActor="None" attachNode="B_tooth L1 02" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="B_tooth L2 02" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="B_tooth L3 02" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="B_tooth R3 02" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="B_tooth R2 02" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="B_tooth R1 02" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="B_feelers L2 03" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="B_feelers L2 03" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="B_feelers F1 03" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="B_feelers R1 03" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="0" attachActor="None" attachNode="B_feelers R2 03" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="15.00" soundFile="mon_voice_s_dead_2"/>
+    <Sound frame="43.50" soundFile="m_whip_vine_atk1_shot"/>
+    <Sound frame="45.00" soundFile="skl_eff_drapelium_skl3_fire_spread"/>
+    <Sound frame="48.00" soundFile="mon_voice_s_dead_1"/>
+    <Particle frame="50" attachActor="None" attachNode="Bip001 Head" particleName="I_force022" hiddenObj="false" useAttach="true" scale="2" pause="true" targetPos="false"/>
+    <Particle frame="50" attachActor="None" attachNode="Dummy_lip_cylinder" particleName="I_force022" hiddenObj="false" useAttach="true" scale="2" pause="true" targetPos="false"/>
+    <Particle frame="54" attachActor="None" attachNode="Dummy_lip_cylinder" particleName="I_dash004_mash" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="54" attachActor="None" attachNode="Dummy_effect_boom" particleName="F_explosion029_violet" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="55" attachActor="None" attachNode="Dummy_effect_badak" particleName="F_smoke037" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="68" attachActor="None" attachNode="Dummy_effect_boom2" particleName="F_explosion029_violet" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

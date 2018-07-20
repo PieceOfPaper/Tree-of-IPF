@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="10" attachActor="None" attachNode="Bip01 R Finger3" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="10" attachActor="None" attachNode="Bip01 R Finger3" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="15" attachActor="None" attachNode="Bip01 L Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="15" attachActor="None" attachNode="Bip01 L Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip01 L Finger3" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip01 L Finger3" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="23" attachActor="None" attachNode="Bip01 R Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="23" attachActor="None" attachNode="Bip01 R Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Shockwave frame="10" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="12" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="15" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="17" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="20" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="22" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="23" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="25" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="mon_zombieboss_skl1_cast"/>
+</ActionDesc>

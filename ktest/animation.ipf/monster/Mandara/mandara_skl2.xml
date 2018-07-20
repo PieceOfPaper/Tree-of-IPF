@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_wood_spirit_skl_cast"/>
+    <Sound frame="0.00" soundFile="mon_voice5_l_9"/>
+    <Sound frame="45.00" soundFile="mon_wood_spirit_atk_shot"/>
+    <Sound frame="50.00" soundFile="mon_wood_spirit_skl_shot"/>
+    <Sound frame="50.00" soundFile="skl_eff_mushwort"/>
+    <Sound frame="50.30" soundFile="skl_eff_gust_spread_1"/>
+    <Particle frame="55" attachNode="Dummy_effect_skl2" particleName="F_explosion025" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="55" attachNode="Dummy_emitter" particleName="F_spread_out013_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="55.00" soundFile="skl_eff_atk_move_l_18"/>
+</ActionDesc>

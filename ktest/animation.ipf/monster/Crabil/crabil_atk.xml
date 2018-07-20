@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="5" attachNode="Dummy_effect_lip" particleName="F_bubble003_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="23" attachNode="Dummy_effect_atk" particleName="I_light013_spark_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="35" attachNode="Dummy_effect_atk" particleName="I_light013_spark_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="35" attachNode="Dummy_effect_atk" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="62" attachNode="Dummy_effect_atk2" particleName="F_ground076_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="62" attachNode="Dummy_effect_atk2" particleName="F_explosion020_water_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice_throneweaver_4"/>
+	<Sound frame="20.00" soundFile="swd_hit_good_2"/>
+	<Sound frame="20.00" soundFile="swd_hit_critical_1"/>
+	<Sound frame="32.00" soundFile="swd_hit_good_2"/>
+	<Sound frame="32.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="45.00" soundFile="mon_voice_throneweaver_2"/>
+	<Sound frame="53.00" soundFile="skl_eff_body_atk_1"/>
+	<Sound frame="60.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="60.00" soundFile="skl_eff_stone_blow_m"/>
+	<Sound frame="60.00" soundFile="skl_eff_hit_ground_poison_bubble"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="3" attachNode="Dummy_effect_finger_R002" particleName="F_pose_cheers_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="4" attachNode="Dummy_effect_atk" particleName="I_line008_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="4" attachNode="Dummy_effect_atk2" particleName="I_line008_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_goblin_warrior_hit"/>
+	<Sound frame="0.00" soundFile="atk_swordswing_1"/>
+	<Sound frame="5.00" soundFile="swd_blow_cloth2"/>
+	<Sound frame="5.00" soundFile="swd_attack2"/>
+	<Sound frame="6.00" soundFile="mon_goblin_warrior_atk_shot"/>
+</ActionDesc>

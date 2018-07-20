@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="10" attachNode="Dummy_effect_lip" particleName="F_bubble003_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="105" attachNode="Dummy_effect_lip" particleName="F_bubble003_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="22" attachNode="Bip001 R Hand" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="22" attachNode="Bip001 L Hand" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="36" attachNode="Bip001 R Hand" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="36" attachNode="Bip001 L Hand" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 R Hand" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 L Hand" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="22" attachNode="Bip001 R Hand" particleName="I_ground009_water_short2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="22" attachNode="Bip001 L Hand" particleName="I_ground009_water_short2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="36" attachNode="Bip001 R Hand" particleName="I_ground009_water_short2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="36" attachNode="Bip001 L Hand" particleName="I_ground009_water_short2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 R Hand" particleName="I_ground009_water_short2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 L Hand" particleName="I_ground009_water_short2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="10" attachNode="Bip001 R Hand" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="10" attachNode="Bip001 L Hand" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="35" attachNode="Bip001 R Hand" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="35" attachNode="Bip001 L Hand" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="64" attachNode="Bip001 R Hand" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="64" attachNode="Bip001 L Hand" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="64" attachNode="Bip001 Pelvis" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="103" attachNode="Bip001 R Hand" particleName="I_ground009_water_short2" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="103" attachNode="Bip001 L Hand" particleName="I_ground009_water_short2" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="4.00" soundFile="mon_voice_throneweaver_6"/>
+	<Sound frame="18.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="18.00" soundFile="skl_eff_hit_insect_3"/>
+	<Sound frame="26.00" soundFile="mon_voice_throneweaver_6"/>
+	<Sound frame="30.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="30.00" soundFile="skl_eff_hit_insect_3"/>
+	<Sound frame="40.00" soundFile="mon_voice_throneweaver_6"/>
+	<Sound frame="45.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="45.00" soundFile="skl_eff_hit_insect_3"/>
+	<Sound frame="53.00" soundFile="mon_voice_throneweaver_6"/>
+	<Sound frame="65.00" soundFile="mon_voice_throneweaver_2"/>
+	<Sound frame="70.00" soundFile="mon_voice_throneweaver_1"/>
+	<Sound frame="94.00" soundFile="skl_eff_atk_move_s_6"/>
+	<Sound frame="94.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="94.00" soundFile="skl_archer_bodkinpoint_badak"/>
+	<Sound frame="95.00" soundFile="mon_voice_bug_10"/>
+</ActionDesc>

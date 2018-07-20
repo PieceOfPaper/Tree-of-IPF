@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_rootopus_born_1"/>
+    <Particle frame="5" attachNode="None" particleName="F_smoke074" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="5" attachNode="None" particleName="F_burstup007_smoke2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="5" attachNode="None" particleName="E_spread_out01_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="6" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+    <Shockwave frame="8" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+    <Shockwave frame="10" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+</ActionDesc>

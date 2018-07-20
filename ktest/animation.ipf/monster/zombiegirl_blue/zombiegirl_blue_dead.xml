@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Shockwave frame="64" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="66" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="68" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="74" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="76" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="78" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="80" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="82" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="25" attachActor="None" attachNode="Bip001 Spine" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="20" pause="true" targetPos="false"/>
+	<Particle frame="64" attachActor="None" attachNode="Dummy_dead" particleName="I_zombiegirl_blue_dead_mash" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="64" attachActor="None" attachNode="Bip001 Spine" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="64" attachActor="None" attachNode="Bip001 Spine" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="64" attachActor="None" attachNode="Bip001 Spine" particleName="F_explosion082" useAttach="true" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="24" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="25" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" Value="1666" soundFile="mon_voice_helgasercle_9"/>
+	<Sound frame="0.00" Value="1666" soundFile="skl_eff_atk_move_l_18"/>
+	<Sound frame="18.00" Value="1666" soundFile="skl_eff_bodyfall_l_1"/>
+	<Sound frame="19.50" Value="1666" soundFile="skl_eff_born_1"/>
+</ActionDesc>

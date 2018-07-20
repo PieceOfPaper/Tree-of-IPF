@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="mon_zignuts_born"/>
+    <Sound frame="0.00" soundFile="skl_eff_pc_move"/>
+    <Particle frame="2" attachNode="none" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="0.3" pause="true" targetPos="false"/>
+    <Particle frame="3" attachNode="Dummy_effect_born1" particleName="F_burstup019_smoke" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_effect_born2" particleName="F_burstup019_smoke" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_effect_born3" particleName="F_burstup019_smoke" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

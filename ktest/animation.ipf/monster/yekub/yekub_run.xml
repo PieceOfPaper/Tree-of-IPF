@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="6" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="8" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="11" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="13" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="15" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="17" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="19" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="21" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="28" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="30" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="33" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="35" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="6" particleName="F_smoke109" attachNode="Bip001 L Toe0" scale="1" useAttach="true"/>
+	<Particle frame="6" particleName="F_stone005" attachNode="Bip001 L Toe0" scale="0.5" useAttach="true"/>
+	<Particle frame="11" particleName="F_smoke109" attachNode="IK Chain002" scale="1" useAttach="true"/>
+	<Particle frame="11" particleName="F_stone005" attachNode="IK Chain002" scale="0.5" useAttach="true"/>
+	<Particle frame="15" particleName="F_smoke109" attachNode="IK Chain006" scale="1" useAttach="true"/>
+	<Particle frame="15" particleName="F_stone005" attachNode="IK Chain006" scale="0.5" useAttach="true"/>
+	<Particle frame="18" particleName="F_smoke109" attachNode="IK Chain004" scale="1" useAttach="true"/>
+	<Particle frame="18" particleName="F_stone005" attachNode="IK Chain004" scale="0.5" useAttach="true"/>
+	<Particle frame="19" particleName="F_smoke109" attachNode="Bip001 R Toe0" scale="1" useAttach="true"/>
+	<Particle frame="19" particleName="F_stone005" attachNode="Bip001 R Toe0" scale="0.5" useAttach="true"/>
+	<Particle frame="22" particleName="F_smoke109" attachNode="IK Chain005" scale="1" useAttach="true"/>
+	<Particle frame="22" particleName="F_stone005" attachNode="IK Chain005" scale="0.5" useAttach="true"/>
+	<Particle frame="28" particleName="F_smoke109" attachNode="IK Chain007" scale="1" useAttach="true"/>
+	<Particle frame="28" particleName="F_stone005" attachNode="IK Chain007" scale="0.5" useAttach="true"/>
+	<Particle frame="33" particleName="F_smoke109" attachNode="IK Chain001" scale="1" useAttach="true"/>
+	<Particle frame="33" particleName="F_stone005" attachNode="IK Chain001" scale="0.5" useAttach="true"/>
+	<Sound frame="3.00" soundFile="mon_big_footstep_yekub"/>
+</ActionDesc>

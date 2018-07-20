@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="2.00" soundFile="mon_wood_spirit_skl_cast"/>
+    <Sound frame="30.00" soundFile="mon_wood_spirit_atk_shot"/>
+    <Sound frame="38.00" soundFile="mon_voice5_l_15"/>
+    <AfterImage frame="39" term="50" blendTime="200" r="160" g="160" b="160" a="160"/>
+    <Particle frame="46" attachNode="None" particleName="F_ground071_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="46" attachNode="Dummy_effect_atk" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="46" R="100" G="80" B="60" A="50"/>
+    <BlendOn frame="47" R="80" G="70" B="40" A="40"/>
+    <BlendOn frame="48" R="40" G="30" B="20" A="30"/>
+    <BlendOff frame="49" R="0" G="0" B="0" A="0"/>
+    <AfterImage frame="51" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

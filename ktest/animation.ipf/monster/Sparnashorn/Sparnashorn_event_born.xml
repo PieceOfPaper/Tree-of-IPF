@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by kim (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="6.00" Value="4187" soundFile="skl_eff_atk_move_l_5"/>
+    <Sound frame="9.00" Value="5200" soundFile="mon_voice_bird_13"/>
+    <Particle frame="25" attachActor="None" attachNode="Dummy_effect" particleName="F_spin012_blue" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+    <Particle frame="30" attachActor="None" attachNode="Dummy_effect" particleName="I_force078_blue_feather2" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="36.00" Value="5200" soundFile="skl_eff_atk_move_l_6"/>
+    <Particle frame="60" attachActor="None" attachNode="Dummy_effect" particleName="F_spin012_blue" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Sound frame="66.00" Value="4872" soundFile="skl_eff_atk_move_l_6"/>
+    <Sound frame="90.00" Value="5200" soundFile="skl_eff_atk_move_l_7"/>
+    <Particle frame="90" attachActor="None" attachNode="Dummy_effect" particleName="F_spin012_blue" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Particle frame="130" attachActor="None" attachNode="Dummy_effect" particleName="F_burstup001_blue" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Sound frame="135.00" soundFile="skl_eff_atk_move_l_8"/>
+    <Sound frame="135.00" soundFile="skl_eff_forcespinner_1"/>
+    <Sound frame="140" Value="5200" soundFile="mon_voice_bird_5"/>
+    <Particle frame="140" attachActor="None" attachNode="Dummy_effect" particleName="F_burstup001_yellow" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+    <Sound frame="140.00" soundFile="skl_eff_atk_move_l_20"/>
+</ActionDesc>

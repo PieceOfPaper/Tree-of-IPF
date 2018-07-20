@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="15" attachNode="Dummy_effect_ferreteye_L" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Dummy_effect_ferreteye_R" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="10" attachNode="Dummy_effect_ferreteye_L" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="10" attachNode="Dummy_effect_ferreteye_R" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="42" attachNode="Dummy_effect_skl1" particleName="I_breath008_circle_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Dummy_effect_skl1" particleName="I_breath008_circle_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Dummy_effect_skl1" particleName="I_breath008_circle_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="70" attachNode="Dummy_effect_skl1" particleName="I_breath008_circle_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Dummy_effect_skl1" particleName="I_breath008_circle_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Dummy_effect_skl1_music" particleName="F_levitation041_music" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_golem_run_voice"/>
+	<Sound frame="15.00" soundFile="mon_mallardu_atk"/>
+	<Sound frame="38.00" soundFile="skl_eff_horn_short"/>
+	<Sound frame="38.00" soundFile="skl_eff_atk_move_l_7"/>
+	<Sound frame="48.00" soundFile="skl_eff_horn_short"/>
+	<Sound frame="58.00" soundFile="skl_eff_horn_long"/>
+	<Sound frame="58.00" soundFile="skl_eff_atk_move_l_15"/>
+</ActionDesc>

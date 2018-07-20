@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_bramble_atk_ready"/>
+    <Sound frame="26.00" soundFile="skl_eff_hit_base_1"/>
+    <Sound frame="28.00" soundFile="skl_eff_stone_born_l_1"/>
+    <Particle frame="33" attachNode="Bip001 L Finger1" particleName="I_smoke013_dark4_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="33" attachNode="Bip001 L Finger1" particleName="F_archer_caltrop_shot_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="33.00" soundFile="skl_eff_hit_base_1"/>
+    <Sound frame="35.00" soundFile="skl_eff_stone_born_l_1"/>
+    <Particle frame="39" attachNode="Bip001 R Finger1" particleName="F_archer_caltrop_shot_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="42.00" soundFile="mon_voice_netherbovine_5"/>
+    <Sound frame="45.00" soundFile="mon_voice_onion_the_great_1"/>
+    <Sound frame="82.00" soundFile="mon_golem_natk1_shot"/>
+    <Sound frame="90.00" soundFile="skl_eff_stoneunderground_2"/>
+</ActionDesc>

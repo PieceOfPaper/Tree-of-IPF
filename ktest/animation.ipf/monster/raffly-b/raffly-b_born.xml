@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_raffly_run"/>
+	<Particle frame="1" attachActor="None" attachNode="Dummy_effect_01" particleName="F_spark_purple" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="8.00" soundFile="skl_eff_body_atk_10"/>
+	<Sound frame="10.00" soundFile="mon_raffly_atk"/>
+	<Particle frame="11" attachActor="None" attachNode="Dummy_effect_01" particleName="F_ground078_smoke" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Dummy_effect_01" particleName="F_smoke107" useAttach="false" hiddenObj="false" scale="1.3" pause="true" targetPos="false"/>
+</ActionDesc>

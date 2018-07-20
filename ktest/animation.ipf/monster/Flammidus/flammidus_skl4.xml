@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="10" attachNode="none" particleName="none" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Dummy_emitter" particleName="E_Flammidus_skl4" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="20" R="77" G="59" B="5" A="1"/>
+	<BlendOn frame="30" R="57" G="59" B="1" A="2"/>
+	<BlendOn frame="40" R="77" G="59" B="5" A="1"/>
+	<BlendOn frame="50" R="57" G="59" B="1" A="2"/>
+	<BlendOn frame="60" R="77" G="59" B="5" A="1"/>
+	<BlendOff frame="75" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="80" type="2" intensity="3" frequency="30" duration="1" range="1000"/>
+	<Sound frame="0.00" soundFile="mon_voice_succubus_atk_cast_2"/>
+	<Sound frame="0.00" soundFile="skl_eff_campfire_burst"/>
+	<Sound frame="5.00" soundFile="mon_voice_lapene_skl2_cast"/>
+	<Sound frame="75.00" soundFile="skl_eff_drapelium_skl3_fire_spread"/>
+	<Sound frame="75.00" soundFile="skl_eff_spread_13"/>
+	<Sound frame="80.00" soundFile="mon_voice_succubus_atk_3"/>
+</ActionDesc>

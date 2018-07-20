@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="90" type="2" intensity="10" frequency="70" duration="0.6" range="1000"/>
+	<Particle frame="7" attachNode="Dummy_effect_skl2_R" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="17" attachNode="Dummy_effect_skl2_L" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Bip001 HeadNub" particleName="F_spread_out025_fether_brown" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="72" attachNode="None" particleName="F_smoke062_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="None" particleName="F_smoke061" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="None" particleName="F_smoke076" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="None" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="None" particleName="F_spread_out028_dark_fire" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="5.00" soundFile="mon_bramble_atk_ready"/>
+	<Sound frame="25.00" soundFile="mon_chapparition_skl_2"/>
+	<Sound frame="65.00" soundFile="mon_voice_hog_10"/>
+	<Sound frame="65.00" soundFile="mon_voice_hog_11"/>
+	<Sound frame="65.00" soundFile="skl_eff_jumplanding_1"/>
+	<Sound frame="80.00" soundFile="skl_eff_skyline_spread"/>
+</ActionDesc>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_goblin_warrior_idle"/>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_effect_event" particleName="F_ground035_violet" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_poison_3"/>
+    <Particle frame="30" attachActor="None" attachNode="Dummy_effect_event_body" particleName="I_bat011_smoke" useAttach="true" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
+    <Sound frame="30.00" soundFile="mon_goblinwarrior_atk2_cast"/>
+    <Sound frame="40.00" soundFile="mon_goblin_warrior_idle"/>
+    <Particle frame="50" attachActor="None" attachNode="Dummy_effect_event" particleName="F_ground035_violet" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Sound frame="60.00" soundFile="mon_goblin_warrior_dead"/>
+    <Sound frame="84.00" soundFile="skl_eff_dead_boom_s"/>
+    <Sound frame="84.60" soundFile="skl_eff_dead_boom_m"/>
+    <Particle frame="85" attachActor="None" attachNode="Dummy_emitter" particleName="monster_goblinwarrior_dead_event" useAttach="true" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+</ActionDesc>

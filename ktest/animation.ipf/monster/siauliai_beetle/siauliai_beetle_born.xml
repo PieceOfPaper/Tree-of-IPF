@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke062" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false" sound="m_siauliai_beetle_astd"/>
+    <Particle frame="0.00" attachNode="Dummy_emitter" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_reaverpede_run"/>
+    <Sound frame="0.00" soundFile="skl_eff_born_1"/>
+    <Particle frame="1" attachNode="Dummy_emitter" particleName="F_ground093_leaf" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="2.33" soundFile="m_scorpion_born"/>
+    <Sound frame="2.81" soundFile="m_siauliai_beetle_born"/>
+    <Particle frame="4" attachNode="Dummy_born_stone1" particleName="F_smoke062" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false" sound="mon_spector_run"/>
+    <Particle frame="4" attachNode="Dummy_born_stone1" particleName="F_stone005" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_born_stone2" particleName="F_smoke062" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false" sound="mon_spector_run"/>
+    <Particle frame="6" attachNode="Dummy_born_stone2" particleName="F_stone005" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_born_stone4" particleName="F_smoke062" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false" sound="mon_spector_run"/>
+    <Particle frame="8" attachNode="Dummy_born_stone4" particleName="F_stone005" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="9" attachNode="Dummy_born_stone3" particleName="F_smoke062" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false" sound="mon_spector_run"/>
+    <Particle frame="9" attachNode="Dummy_born_stone3" particleName="F_stone005" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

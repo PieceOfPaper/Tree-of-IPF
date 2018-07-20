@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by aura (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="5" attachNode="EDummy_w01" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="5" attachNode="EDummy_w02" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="6" attachNode="EDummy_w03" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="6" attachNode="EDummy_w04" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="7" attachNode="EDummy_w05" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="7" attachNode="EDummy_w06" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="8" attachNode="EDummy_w07" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="8" attachNode="EDummy_w09" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="9" attachNode="EDummy_w10" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="9" attachNode="EDummy_w11" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="10" attachNode="EDummy_w12" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="10" attachNode="EDummy_w13" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="11" attachNode="EDummy_w14" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="11" attachNode="EDummy_w15" particleName="mon_kingdomougu_skl2_light" useAttach="true"/>
+	<Particle frame="45" attachNode="EDummy_w01" particleName="mon_kingdomougu_skl1_trail" useAttach="true"/>
+	<Particle frame="45" attachNode="EDummy_w03" particleName="mon_kingdomougu_skl1_trail" useAttach="true"/>
+	<Particle frame="45" attachNode="EDummy_w05" particleName="mon_kingdomougu_skl1_trail" useAttach="true"/>
+	<Particle frame="45" attachNode="EDummy_w07" particleName="mon_kingdomougu_skl1_trail" useAttach="true"/>
+	<Particle frame="45" attachNode="EDummy_w10" particleName="mon_kingdomougu_skl1_trail" useAttach="true"/>
+	<Particle frame="45" attachNode="EDummy_w12" particleName="mon_kingdomougu_skl1_trail" useAttach="true"/>
+	<Particle frame="45" attachNode="EDummy_w14" particleName="mon_kingdomougu_skl1_trail" useAttach="true"/>
+	<Emitter frame="100" attachNode="None" emitterName="mon_kingdomougu_skl1_explosion" useAttach="true"/>
+	<Sound frame="1" soundFile="m_kingdomougu_skl1"/>
+	<RimLight frame="56" power="4" duration="0.1" color="255;210;128;255"/>
+	<RimLight frame="74" power="4" duration="0.1" color="255;210;128;255"/>
+	<RimLight frame="87" power="4" duration="0.1" color="255;210;128;255"/>
+	<RimLight frame="103" power="2" duration="0.2" color="255;210;128;255"/>
+</ActionDesc>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="5" attachNode="Bip01 Pelvis" particleName="I_smoke041" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Bip01 Pelvis" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Bip01 Pelvis" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="100" attachNode="Bip01 Pelvis" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="140" attachNode="Bip01 Pelvis" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Bip01 Pelvis" particleName="F_spread_out025_fether_brown" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="120" attachNode="Bip01 Pelvis" particleName="F_spread_out025_fether_brown" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="170" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Bip01 Pelvis" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Bip01 Pelvis" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Bip01 Pelvis" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_reaverpede_turn"/>
+	<Sound frame="6.00" soundFile="mon_reaverpede_atk"/>
+	<Sound frame="8.00" soundFile="mon_mothtem_skl_1"/>
+	<Sound frame="68.00" soundFile="mon_mothtem_born"/>
+	<Sound frame="75.00" soundFile="skl_eff_gust_spread_1"/>
+	<Sound frame="80.00" soundFile="skl_eff_spread_9"/>
+</ActionDesc>

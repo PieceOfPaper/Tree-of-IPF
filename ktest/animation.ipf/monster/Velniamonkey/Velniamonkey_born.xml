@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_onion_the_great_5"/>
+    <Particle frame="1" attachNode="Dummy_effect" particleName="F_burstup029_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="2" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+    <Shockwave frame="4" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+    <Shockwave frame="6" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+    <Shockwave frame="20" type="2" intensity="10" frequency="30" duration="0.2" range="1000"/>
+    <Particle frame="20" attachNode="None" particleName="F_smoke074" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="20" attachNode="None" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="22" type="2" intensity="10" frequency="30" duration="0.2" range="1000"/>
+    <Shockwave frame="24" type="2" intensity="10" frequency="30" duration="0.2" range="1000"/>
+    <Shockwave frame="26" type="2" intensity="10" frequency="30" duration="0.2" range="1000"/>
+</ActionDesc>

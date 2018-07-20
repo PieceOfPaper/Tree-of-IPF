@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_lapene_skl1_cast"/>
+    <Sound frame="0.00" soundFile="mon_tomblord_skl_2"/>
+    <Sound frame="5.35" soundFile="mon_voice_helgasercle_3"/>
+    <Particle frame="15" attachNode="zin03" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="zin02" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="15" attachNode="zin01" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_body" particleName="I_smoke053_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="35" attachNode="zin03" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="35" attachNode="zin02" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="35" attachNode="zin01" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="45.00" soundFile="skl_eff_atk_move_l_4"/>
+    <Particle frame="50" attachNode="Dummy_effect_body" particleName="I_smoke053_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="55" attachNode="zin03" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="55" attachNode="zin02" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="55" attachNode="zin01" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_effect_skl2" particleName="I_circle009_mint_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_effect_body2" particleName="I_smoke053_mint" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_emitter" particleName="F_spin030_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="65" type="2" intensity="13" frequency="70" duration="0.6" range="1000"/>
+    <Particle frame="65" attachNode="Dummy_effect_skl2_hit" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="65" attachNode="Dummy_effect_skl2_hit" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="65" attachNode="Dummy_effect_skl2_hit" particleName="I_wizard_rune_stone_cast_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="65" attachNode="Dummy_effect_skl2_hit" particleName="F_hit001_light_dark_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="65" attachNode="Dummy_effect_skl2_hit" particleName="F_explosion001_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

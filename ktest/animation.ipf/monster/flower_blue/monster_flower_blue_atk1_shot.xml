@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="mon_flower_blue_atk1_shot" />
+    <Particle frame="0" attachNode="Dummy_atk1_R" particleName="F_explosion066_blue" useAttach="true" hiddenObj="false" scale="1.0" />
+    <Particle frame="0" attachNode="Dummy_atk1_L" particleName="F_explosion066_blue" useAttach="true" hiddenObj="false" scale="1.0" />
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke076" useAttach="true" hiddenObj="false" scale="1.0" />
+    <HitAni frame="0.00" />
+    <Particle frame="4" attachNode="Dummy_atk1_L" particleName="F_drop_water002" useAttach="true" hiddenObj="false" scale="1.0" />
+    <Particle frame="4" attachNode="Dummy_atk1_R" particleName="F_drop_water002" useAttach="true" hiddenObj="false" scale="1.0" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

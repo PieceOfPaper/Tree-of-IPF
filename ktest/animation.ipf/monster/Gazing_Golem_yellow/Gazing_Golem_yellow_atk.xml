@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachActor="None" attachNode="Dummy_emitter" particleName="E_gazing_golem_atk1" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_m_12"/>
+    <Sound frame="6.00" soundFile="mon_goblinwarrior_atk1_cast"/>
+    <Sound frame="33.00" soundFile="skl_eff_body_atk_1"/>
+    <Sound frame="38.00" soundFile="skl_eff_atk_move_m_8"/>
+    <Shockwave frame="43" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="45" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="47" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="49" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

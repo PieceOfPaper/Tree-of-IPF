@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="5" attachNode="Dummy_body" particleName="F_smoke125" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_atk" particleName="F_explosion029_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="100" G="80" B="100" A="50"/>
+	<BlendOn frame="6" R="80" G="60" B="80" A="50"/>
+	<BlendOff frame="7" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="4" term="30" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="8" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Sound frame="0.00" soundFile="mon_voice3_s_10"/>
+	<Sound frame="0.00" soundFile="skl_eff_move_s_cast"/>
+	<Sound frame="4.00" soundFile="mon_voice3_s_action"/>
+	<Sound frame="5.00" soundFile="mon_voice3_s_12"/>
+	<Sound frame="5.00" soundFile="skl_eff_hit_plants_2"/>
+</ActionDesc>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="0" soundFile="mon_saurman_priest_atk_cast"/>
+	<Sound frame="6.00" Value="0" soundFile="mon_wood_spirit_atk_shot_move"/>
+	<Sound frame="6.00" Value="0" soundFile="mon_katyn_bug_skl_shot"/>
+	<Particle frame="9" particleName="I_sauga_atk001_mash" attachNode="Dummy_emiiter" scale="10" useAttach="false" pause="true" targetPos="true"/>
+	<Particle frame="9" particleName="F_ground062_smoke" attachNode="Dummy_emiitter" scale="7" useAttach="false" pause="true" targetPos="true"/>
+</ActionDesc>

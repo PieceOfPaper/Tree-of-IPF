@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="16" particleName="F_smoke104" attachNode="Bip001 R Toe1" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="16" particleName="F_smoke107" attachNode="Bip001 R Toe1" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_smoke104" attachNode="Bip001 L Toe1" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_smoke107" attachNode="Bip001 L Toe1" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+	<Shockwave frame="12" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="14" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="16" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="18" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0" soundFile="None"/>
+</ActionDesc>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by aura (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="41" attachNode="" particleName="mon_zealot_dead_smoke" useAttach="true"/>
+	<Particle frame="0" attachNode="" particleName="I_spin005" useAttach="true"/>
+	<PostFix frame="1" ID="_thrust"/>
+	<PostFix frame="2" ID="_thrust"/>
+	<PostFix frame="3" ID="_thrust"/>
+	<PostFix frame="4" ID="_thrust"/>
+	<PostFix frame="5" ID="_thrust"/>
+	<PostFix frame="6" ID="_thrust"/>
+	<Sound frame="1" soundFile="m_zealot_skl_whirlwind_shot"/>
+	<RimLight frame="6" power="2" duration="0.1" color="255;223;223;255"/>
+	<RimLight frame="11" power="2" duration="0.1" color="255;223;223;255"/>
+	<RimLight frame="16" power="2" duration="0.1" color="255;223;223;255"/>
+	<RimLight frame="21" power="2" duration="0.1" color="255;223;223;255"/>
+	<RimLight frame="26" power="2" duration="0.1" color="255;223;223;255"/>
+	<RimLight frame="31" power="2" duration="0.1" color="255;223;223;255"/>
+</ActionDesc>

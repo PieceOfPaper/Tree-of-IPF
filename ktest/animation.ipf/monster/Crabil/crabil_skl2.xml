@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<AfterImage frame="68" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="75" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<AfterImage frame="78" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="82" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="68" R="100" G="150" B="170" A="100"/>
+	<BlendOn frame="70" R="80" G="130" B="150" A="200"/>
+	<BlendOn frame="71" R="20" G="60" B="80" A="200"/>
+	<BlendOn frame="73" R="10" G="30" B="40" A="200"/>
+	<BlendOn frame="75" R="5" G="15" B="20" A="200"/>
+	<BlendOn frame="76" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="78" R="100" G="150" B="170" A="100"/>
+	<BlendOn frame="79" R="80" G="130" B="150" A="200"/>
+	<BlendOn frame="80" R="20" G="60" B="80" A="200"/>
+	<BlendOn frame="81" R="10" G="30" B="40" A="200"/>
+	<BlendOn frame="82" R="5" G="15" B="20" A="200"/>
+	<BlendOff frame="83" R="0" G="0" B="0" A="0"/>
+	<Particle frame="104" attachNode="Dummy_effect_lip" particleName="F_bubble003_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Dummy_effect_skl2_hit" particleName="F_explosion001_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2." pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="72" attachNode="Dummy_effect_skl2_hit" particleName="F_explosion001_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="5" attachNode="Dummy_effect_lip" particleName="F_bubble003_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Dummy_effect_lip" particleName="F_bubble003_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Dummy_effect_lip" particleName="F_bubble003_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="16" attachNode="Bip001 R Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="24" attachNode="Bip001 R Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="32" attachNode="Bip001 R Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.6" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bip001 R Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="48" attachNode="Bip001 R Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="19" attachNode="Bip001 L Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="26" attachNode="Bip001 L Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="33" attachNode="Bip001 L Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.6" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="42" attachNode="Bip001 L Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="49" attachNode="Bip001 L Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="70" attachNode="Dummy_effect_skl2_L" particleName="F_dash002" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Dummy_effect_skl2_R" particleName="F_dash002" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_throneweaver_6"/>
+	<Sound frame="10.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="10.00" soundFile="skl_eff_bite_s_1"/>
+	<Sound frame="14.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="14.00" soundFile="skl_eff_bite_s_1"/>
+	<Sound frame="18.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="18.00" soundFile="skl_eff_bite_s_1"/>
+	<Sound frame="20.00" soundFile="mon_voice_throneweaver_6"/>
+	<Sound frame="22.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="22.00" soundFile="skl_eff_bite_s_1"/>
+	<Sound frame="26.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="26.00" soundFile="skl_eff_bite_s_1"/>
+	<Sound frame="30.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="30.00" soundFile="skl_eff_bite_s_1"/>
+	<Sound frame="34.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="34.00" soundFile="skl_eff_bite_s_1"/>
+	<Sound frame="38.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="38.00" soundFile="skl_eff_bite_s_1"/>
+	<Sound frame="42.00" soundFile="skl_eff_bite_s_1"/>
+	<Sound frame="42.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="46.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="46.00" soundFile="skl_eff_bite_s_1"/>
+	<Sound frame="50.00" soundFile="mon_voice_throneweaver_1"/>
+	<Sound frame="60.00" soundFile="skl_eff_atk_move_m_4"/>
+	<Sound frame="66.00" soundFile="swd_blow_flesh1"/>
+	<Sound frame="72.00" soundFile="skl_eff_atk_move_m_3"/>
+	<Sound frame="74.00" soundFile="swd_blow_flesh1--"/>
+</ActionDesc>

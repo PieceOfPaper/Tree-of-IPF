@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_golem_resurrection"/>
+    <Particle frame="22" particleName="F_smoke098" attachNode="Dummy_effect_born_hand_L" scale="12" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="25" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="25.00" soundFile="hand_blow_stone"/>
+    <Shockwave frame="27" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="29" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="36" particleName="F_drop_stone001_1" attachNode="Dummy002" scale="0.6" useAttach="false" pause="true" targetPos="false"/>
+    <Sound frame="40.00" soundFile="skl_eff_stone_rolling_2"/>
+    <Particle frame="43" particleName="F_smoke098" attachNode="Dummy_effect_born_hand_R" scale="12" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="44" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="44.00" soundFile="blunt_blow_stone"/>
+    <Shockwave frame="46" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="48" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="68" particleName="F_drop_stone001_1" attachNode="Dummy023" scale="0.6" useAttach="false" pause="true" targetPos="false" sound="hand_blow_stone"/>
+    <Particle frame="69" particleName="F_drop_stone001_1" attachNode="Dummy022" scale="0.6" useAttach="false" pause="true" targetPos="false" sound="swd_blow_stone1"/>
+    <Particle frame="85" particleName="F_drop_stone001_1" attachNode="Dummy018" scale="0.6" useAttach="false" pause="true" targetPos="false" sound="npc_stone_dead"/>
+    <Particle frame="101" particleName="F_drop_stone001_1" attachNode="Dummy019" scale="0.6" useAttach="false" pause="true" targetPos="false" sound="arw_blow_stone1"/>
+    <Particle frame="108" particleName="F_drop_stone001_1" attachNode="Dummy017" scale="0.6" useAttach="false" pause="true" targetPos="false" sound="skl_eff_stone_born_l_1"/>
+    <Particle frame="111" particleName="F_drop_stone001_1" attachNode="Dummy021" scale="0.4" useAttach="false" pause="true" targetPos="false" sound="skl_eff_stone_blow_m"/>
+    <Particle frame="130" particleName="F_cleric_palmstrike_light" attachNode="Dummy_eye_R" scale="1" useAttach="true" pause="true" targetPos="false" sound="mon_golem_atk01_shot"/>
+    <Particle frame="130" particleName="F_cleric_palmstrike_light" attachNode="Dummy_eye_L" scale="1" useAttach="true" pause="true" targetPos="false" sound="mon_golem_natk1_shot"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by leedoyoung (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Shockwave frame="0" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="0" attachNode="dummy_eff_ent_skl" particleName="F_mushroom_ent_skl2" useAttach="" hiddenObj="" scale="1.0" />
+    <Sound frame="0.00" soundFile="mon_lesser_treant_dead" />
+    <HitAni frame="9" Value="300" />
+    <Sound frame="1.00" soundFile="mon_mushroom_boy_skl_shot" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

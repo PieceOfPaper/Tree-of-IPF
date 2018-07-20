@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by d (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_effect_skl1" particleName="F_spread_in011_yellow" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="m_insect_move"/>
+    <Sound frame="0.00" soundFile="mon_moyabu_cast"/>
+    <Particle frame="7" attachNode="Dummy_effect_skl2" particleName="I_breath022_green" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" sound="skl_eff_gas_2"/>
+    <Sound frame="8.00" soundFile="skl_eff_body_atk_3"/>
+    <Sound frame="8.00" soundFile="mon_moyabu_shot"/>
+</ActionDesc>

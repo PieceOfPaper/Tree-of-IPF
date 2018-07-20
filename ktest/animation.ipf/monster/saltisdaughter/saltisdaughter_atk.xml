@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="7" R="120" G="100" B="150" A="30"/>
+	<BlendOff frame="8" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="5" term="50" blendTime="200" r="70" g="50" b="100" a="50"/>
+	<AfterImage frame="9" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="5" particleName="F_smoke033" attachNode="None" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_voice_action"/>
+	<Sound frame="2.00" Value="0" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_m_5"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_s_3"/>
+</ActionDesc>

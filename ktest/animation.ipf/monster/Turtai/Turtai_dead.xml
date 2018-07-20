@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+    <Sound frame="0.00" soundFile="mon_voice_onion_the_great_3"/>
+    <BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+    <Particle frame="10" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light002_yellow" useAttach="true" hiddenObj="false" scale="40" pause="true" targetPos="false"/>
+    <Sound frame="10.00" soundFile="mon_voice_onion_the_great_2"/>
+    <Sound frame="15.00" soundFile="mon_voice_dying"/>
+    <Sound frame="20.00" soundFile="mon_voice_onion_the_great_5"/>
+    <BlendOn frame="30" R="200" G="200" B="200" A="200"/>
+    <Particle frame="30" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="30" pause="true" targetPos="false"/>
+    <Sound frame="40.00" soundFile="mon_voice_onion_the_great_1"/>
+    <Shockwave frame="82" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="84" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="85" attachActor="None" attachNode="Dummy_emitter" particleName="I_turtai_dead_mash" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+    <Particle frame="85" attachActor="None" attachNode="Dummy_emitter" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="85" attachActor="None" attachNode="Dummy_emitter" particleName="F_explosion001" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="85" attachActor="None" attachNode="Dummy_emitter" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Shockwave frame="86" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="88" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="90" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="92" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="94" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="96" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="98" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="100" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <BlendOff frame="100" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

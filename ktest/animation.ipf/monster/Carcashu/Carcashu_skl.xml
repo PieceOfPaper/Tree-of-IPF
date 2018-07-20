@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_ground123_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_meduoliai_3"/>
+    <Sound frame="3.00" soundFile="mon_voice_rooto_5"/>
+    <BlendOn frame="5" R="10" G="50" B="30" A="30"/>
+    <BlendOn frame="7" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="10" R="10" G="50" B="30" A="30"/>
+    <BlendOn frame="12" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="15" R="10" G="50" B="30" A="30"/>
+    <BlendOn frame="17" R="0" G="0" B="0" A="0"/>
+    <Sound frame="19.00" soundFile="mon_slime_elite_atk"/>
+    <Sound frame="19.00" soundFile="mon_zignuts_atk"/>
+    <Sound frame="22.00" soundFile="skl_eff_body_atk_12"/>
+    <BlendOn frame="24" R="30" G="70" B="50" A="50"/>
+    <Shockwave frame="25" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="25" attachNode="Dummy_emitter" particleName="F_smoke131_dark_green2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_summon_smoke"/>
+    <BlendOn frame="26" R="0" G="0" B="0" A="0"/>
+    <BlendOff frame="30" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

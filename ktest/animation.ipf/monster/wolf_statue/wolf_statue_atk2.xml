@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="150" G="130" B="100" A="100"/>
+	<BlendOff frame="6" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="6" term="30" blendTime="200" r="160" g="160" b="160" a="200"/>
+	<AfterImage frame="9" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Sound frame="0" Value="0" soundFile="mon_voice5_l_12"/>
+	<Particle frame="7" particleName="I_swordtrail006_red" attachNode="Dummy_effect_atk2" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="10" Value="0" soundFile="skl_eff_body_atk_2"/>
+	<Sound frame="11.00" soundFile="mon_voice_hogma_skl_shot"/>
+</ActionDesc>

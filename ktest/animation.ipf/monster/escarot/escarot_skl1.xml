@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="75" type="2" intensity="3" frequency="100" duration="0.5" range="1000"/>
+	<Particle frame="75" attachNode="Bip002 Head" particleName="F_spread_out042_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="72" attachNode="Dummy_leaf" particleName="I_spray001_leaf" useAttach="ture" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="m_velorchard_skl_2"/>
+	<Sound frame="17.00" soundFile="mon_voice_rootopus_move_2"/>
+	<Sound frame="67.00" soundFile="mon_flower_blue_atk2_shot"/>
+	<Sound frame="70.00" soundFile="skl_eff_atk_move_m_2"/>
+</ActionDesc>

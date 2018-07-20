@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="7.00" soundFile="mon_reaverpede_atk"/>
+    <Sound frame="47.00" soundFile="mon_mothtem_born"/>
+    <Sound frame="49.00" soundFile="skl_eff_skyline_spread"/>
+    <Sound frame="49.00" soundFile="swd_blow_flesh1--"/>
+    <Particle frame="57" attachNode="Dummy_effect_atk" particleName="F_blood004_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_acid_blood_hit"/>
+</ActionDesc>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="9" particleName="F_smoke109" attachNode="Bip001 L Toe0" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="9" particleName="F_stone005" attachNode="Bip001 L Toe0" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="9" particleName="F_smoke109" attachNode="Bip001 R Toe0" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="9" particleName="F_stone005" attachNode="Bip001 R Toe0" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="15.00" soundFile="mon_clymen_skl1_voice"/>
+	<Sound frame="66.00" soundFile="mon_clymen_skl1_shot"/>
+	<Particle frame="67" particleName="F_explosion006_green" attachNode="Bip001 R Hand" scale="0.6" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="67" particleName="F_spark001_green" attachNode="Bip001 R Hand" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="87.00" soundFile="mon_clymen_skl1_shot"/>
+	<Particle frame="88" particleName="F_explosion006_green" attachNode="Bip001 L Hand" scale="0.6" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="88" particleName="F_spark001_green" attachNode="Bip001 L Hand" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

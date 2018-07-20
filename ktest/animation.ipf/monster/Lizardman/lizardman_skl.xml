@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="14" particleName="F_smoke109" attachNode="Bip001 L Foot" scale="2" useAttach="false"/>
+	<Particle frame="14" particleName="F_stone005" attachNode="Bip001 L Foot" scale="1" useAttach="false"/>
+	<Particle frame="17" particleName="F_smoke109" attachNode="Bip001 R Foot" scale="2" useAttach="false"/>
+	<Particle frame="17" particleName="F_stone005" attachNode="Bip001 R Foot" scale="1" useAttach="false"/>
+	<Particle frame="25" particleName="F_smoke063" attachNode="Dummy_emitter" scale="0.3" useAttach="false"/>
+	<Sound frame="0.00" soundFile="mon_chupaluka_skl_cast"/>
+	<Sound frame="14.00" soundFile="footstep_carpet"/>
+	<Sound frame="14.00" soundFile="move_block_1"/>
+	<Sound frame="15.00" soundFile="skl_eff_body_atk_12"/>
+	<Sound frame="15.00" soundFile="footstep_carpet"/>
+	<Sound frame="15.00" soundFile="mon_voice2_s_random"/>
+	<Sound frame="16.00" soundFile="skl_eff_body_atk_1"/>
+</ActionDesc>

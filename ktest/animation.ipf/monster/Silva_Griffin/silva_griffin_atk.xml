@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="36" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="37" R="200" G="200" B="150" A="100"/>
+	<BlendOn frame="38" R="200" G="150" B="150" A="100"/>
+	<BlendOn frame="39" R="150" G="100" B="70" A="100"/>
+	<BlendOn frame="40" R="100" G="80" B="50" A="100"/>
+	<BlendOff frame="42" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="32" term="10" blendTime="300" r="200" g="160" b="160" a="150"/>
+	<AfterImage frame="42" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="37" attachNode="Dummy_effect_atk" particleName="I_line007_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="37" attachNode="Dummy_emitter" particleName="F_spread_out026_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Shockwave frame="37" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="mon_hydra_turn"/>
+	<Sound frame="8.00" soundFile="mon_voice_lapene_atk"/>
+	<Sound frame="27.00" soundFile="skl_eff_atk_move_l_2"/>
+	<Sound frame="28.00" soundFile="mon_voice_bird_7"/>
+</ActionDesc>

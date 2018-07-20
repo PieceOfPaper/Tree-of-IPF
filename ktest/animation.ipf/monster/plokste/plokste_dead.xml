@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="84" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="86" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="88" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="90" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="92" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="94" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="96" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="98" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="100" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="102" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="3" attachActor="None" attachNode="com" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="8" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="com" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="15" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="81" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_smoke089" useAttach="true" hiddenObj="false" scale="20" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="84" attachActor="None" attachNode="Dummy_dead_effect" particleName="I_plokste_dead_mash" useAttach="false" hiddenObj="false" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="84" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="84" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_explosion082" useAttach="true" hiddenObj="false" scale="7" pause="true" use2DEffect="false" targetPos="false"/>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="102" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

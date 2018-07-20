@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="5733" soundFile="skl_eff_atk_move_l_2"/>
+	<Sound frame="9.00" Value="5733" soundFile="skl_ice_cast"/>
+	<Sound frame="42.00" Value="5733" soundFile="skl_eff_buff_1"/>
+	<Particle frame="45" attachActor="None" attachNode="Dummy_eye_R" particleName="F_light051_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="45" attachActor="None" attachNode="Dummy_eye_L" particleName="F_light051_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="47" attachActor="None" attachNode="Dummy_body_L01" particleName="F_light051_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="47" attachActor="None" attachNode="Dummy_body_R01" particleName="F_light051_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="49" attachActor="None" attachNode="Dummy_body_L02" particleName="F_light051_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="49" attachActor="None" attachNode="Dummy_body_R02" particleName="F_light051_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="51" attachActor="None" attachNode="Dummy_body_L03" particleName="F_light051_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="51" attachActor="None" attachNode="Dummy_body_R03" particleName="F_light051_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="53" attachActor="None" attachNode="Dummy_body_L04" particleName="F_light051_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="53" attachActor="None" attachNode="Dummy_body_R04" particleName="F_light051_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="78.00" Value="5733" soundFile="mon_voice_screech_6"/>
+	<Sound frame="90.00" soundFile="skl_eff_thunder_1"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_eye_R" particleName="F_light052_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_eye_L" particleName="F_light052_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_eye_R" particleName="F_levitation026_red" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_eye_L" particleName="F_levitation026_red" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_body_L01" particleName="F_light052_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_body_R01" particleName="F_light052_red" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_body_L02" particleName="F_light052_red" useAttach="true" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_body_R02" particleName="F_light052_red" useAttach="true" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_body_L03" particleName="F_light052_red" useAttach="true" hiddenObj="false" scale="0.6" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_body_R03" particleName="F_light052_red" useAttach="true" hiddenObj="false" scale="0.6" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_body_L04" particleName="F_light052_red" useAttach="true" hiddenObj="false" scale="0.4" pause="true" targetPos="false"/>
+	<Particle frame="90" attachActor="None" attachNode="Dummy_body_R04" particleName="F_light052_red" useAttach="true" hiddenObj="false" scale="0.4" pause="true" targetPos="false"/>
+	<Shockwave frame="100" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="102" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="104" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="106" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="108" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="110" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="112" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="114" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="116" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="118" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="120" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="122" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="124" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="126" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="128" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="130" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="132" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="134" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="136" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="138" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="140" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="142" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="144" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="146" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="148" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="150" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="152" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="154" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="156" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="158" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="160" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="162" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="164" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="166" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="168" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="170" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="172" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="174" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

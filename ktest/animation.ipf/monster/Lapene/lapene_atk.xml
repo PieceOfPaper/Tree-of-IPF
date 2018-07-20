@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="33" R="200" G="150" B="150" A="200"/>
+	<BlendOn frame="34" R="180" G="100" B="100" A="200"/>
+	<BlendOn frame="35" R="130" G="75" B="75" A="200"/>
+	<BlendOn frame="36" R="80" G="35" B="35" A="200"/>
+	<BlendOn frame="37" R="50" G="20" B="20" A="200"/>
+	<BlendOn frame="38" R="30" G="10" B="10" A="200"/>
+	<BlendOff frame="39" R="0" G="0" B="0" A="0"/>
+	<Particle frame="30" attachNode="Bip001 Head" particleName="F_spark008_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Dummy_emitter" particleName="F_archer_lachrymator_smoke_remove" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Dummy_emitter" particleName="F_archer_lachrymator_smoke_remove" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="10" attachNode="Bip001 R Finger21" particleName="I_smoke_red3" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="10" attachNode="Bip001 R Finger21" particleName="I_smoke_red3" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Bip001 R Finger21" particleName="I_smoke_red3" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Dummy_effect_mouse" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="62" attachNode="Dummy_effect_mouse" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_eye_R" particleName="F_light049_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_eye_L" particleName="F_light049_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="33" attachNode="Dummy_effect_atk004" particleName="I_line001_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="33" attachNode="Dummy_effect_atk003" particleName="I_line001_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="33" attachNode="Dummy_effect_atk002" particleName="I_line001_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="33" attachNode="Dummy_effect_atk001" particleName="I_line001_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_lapene_atk"/>
+	<Sound frame="20.00" soundFile="skl_eff_atk_move_l_6"/>
+	<Sound frame="25.00" soundFile="swd_blow_flesh1--"/>
+</ActionDesc>

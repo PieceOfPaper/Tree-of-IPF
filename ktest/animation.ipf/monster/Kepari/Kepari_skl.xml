@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_Kepari_skl_cast"/>
+	<Sound frame="4.00" soundFile="skl_eff_stone_blow_m"/>
+	<Sound frame="4.00" soundFile="mon_Kepari_skl_shot"/>
+	<BlendOn frame="4" R="50" G="40" B="15" A="20"/>
+	<BlendOff frame="6" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="4" term="50" blendTime="300" r="255" g="200" b="160" a="160"/>
+	<AfterImage frame="6" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="5" particleName="I_dash014_orange" attachNode="eff_skl_skl_01" scale="7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="I_dash014_orange" attachNode="eff_skl_skl_03" scale="7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="I_dash014_orange" attachNode="eff_skl_skl_04" scale="7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="I_dash014_orange" attachNode="eff_skl_skl_02" scale="7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="F_golem_atk2_hand" attachNode="Dummy_emiitter" scale="3" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

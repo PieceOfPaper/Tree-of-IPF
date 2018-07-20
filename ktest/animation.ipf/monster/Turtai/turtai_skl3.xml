@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="63" attachNode="Dummy_effect_lip" particleName="I_breath008_circle_3" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="19" attachNode="Dummy_effect_R" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="26" attachNode="Dummy_effect_R" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="21" attachNode="Dummy_effect_skl_01" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="28" attachNode="Dummy_effect_skl_01" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="7" attachNode="Chain_14" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="7" attachNode="Chain_18" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="7" attachNode="Chain_7" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="7" attachNode="Chain_01" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Chain_14" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Chain_18" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Chain_7" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Chain_01" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Chain_14" particleName="I_drop001_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Chain_18" particleName="I_drop001_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Chain_7" particleName="I_drop001_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Chain_01" particleName="I_drop001_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip001 Pelvis" particleName="I_drop001_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Tail04" particleName="I_drop001_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip001 Spine1" particleName="I_drop001_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Tail06" particleName="I_drop001_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip001 R Finger1" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Top001" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_grinender_run_vo"/>
+	<Sound frame="5.00" soundFile="mon_grinender_turn"/>
+	<Sound frame="14.00" soundFile="mon_ratman_L_ATK_wood"/>
+	<Sound frame="20.00" soundFile="skl_eff_born_wood_s"/>
+	<Sound frame="38.00" soundFile="mon_voice_onion_the_great_5"/>
+	<Sound frame="60.00" soundFile="mon_voice5_l_dead_14"/>
+</ActionDesc>

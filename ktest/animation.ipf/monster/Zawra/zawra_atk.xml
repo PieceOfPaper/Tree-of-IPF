@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="35" type="2" intensity="10" frequency="70" duration="0.5" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="35" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="36" R="200" G="200" B="150" A="200"/>
+	<BlendOn frame="37" R="100" G="100" B="70" A="100"/>
+	<BlendOn frame="39" R="60" G="60" B="30" A="100"/>
+	<BlendOn frame="41" R="30" G="30" B="20" A="100"/>
+	<BlendOn frame="42" R="10" G="10" B="5" A="100"/>
+	<BlendOff frame="43" R="0" G="0" B="0" A="0"/>
+	<Particle frame="35" attachNode="Dummy_effect_atk" particleName="I_swordtrail042_yellow_reverse" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="35" attachNode="Dummy_effect_atk" particleName="I_swordtrail036_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="I_smoke026_spread_out_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="0" attachNode="Bip001 Pelvis" particleName="I_smoke026_spread_out_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="0" attachNode="Bip001 R Hand" particleName="I_smoke026_spread_out_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="6" attachNode="Dummy_effect_wepon" particleName="I_smoke026_spread_out_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Particle frame="35" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<Sound frame="0.00" soundFile="mon_moldyhorn_skl_2"/>
+	<Sound frame="30.00" soundFile="skl_eff_atk_sperad"/>
+	<Sound frame="30.00" soundFile="swd_blow_flesh1--"/>
+</ActionDesc>

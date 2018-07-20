@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="zin03" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_lapene_skl2_cast"/>
+    <Particle frame="2" attachNode="zin02" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_spread_8"/>
+    <Particle frame="4" attachNode="zin01" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_effect_head" particleName="I_wizard_rune_stone_cast_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="10.01" soundFile="mon_voice_helgasercle_7"/>
+    <Particle frame="15" attachNode="Dummy_effect_hand_l" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="23" attachNode="Dummy_effect_hand_l" particleName="I_wizard_rune_stone_cast_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_effect_hand_l" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_hand_l" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="30.00" soundFile="mon_tomblord_skl_1"/>
+    <Particle frame="40" attachNode="Dummy_effect_hand_l" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="50" attachNode="Dummy_effect_hand_l" particleName="F_light028_mint4" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="60.00" soundFile="mon_voice_helgasercle_8"/>
+    <Particle frame="64" attachNode="Dummy_effect_hand_l" particleName="F_light028_mint4" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_special_hit_2"/>
+    <Particle frame="64" attachNode="Dummy_effect_hand_l" particleName="F_light028_mint4" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

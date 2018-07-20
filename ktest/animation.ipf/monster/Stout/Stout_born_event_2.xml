@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by kim (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="5.00" soundFile="mon_big_footstep_6"/>
+    <Sound frame="8.00" soundFile="mon_goblin_warrior_idle"/>
+    <Sound frame="17.00" soundFile="mon_big_footstep_6"/>
+    <Sound frame="32.00" soundFile="mon_big_footstep_6"/>
+    <Sound frame="48.00" soundFile="mon_big_footstep_6"/>
+    <Sound frame="50.00" soundFile="mon_goblin_warrior_idle"/>
+    <Sound frame="55.00" soundFile="mon_goblinwarrior_atk2_cast"/>
+    <Sound frame="60.00" soundFile="mon_big_footstep_6"/>
+    <Sound frame="66.00" soundFile="mon_big_footstep_6"/>
+    <Sound frame="70.00" soundFile="mon_goblinwarrior_atk1_shot"/>
+    <Particle frame="77" attachActor="None" attachNode="Bip001 Spine1" particleName="F_archer_pavise_shot_smoke" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false" sound="skl_eff_stoneunderground_2"/>
+    <Particle frame="80" attachActor="None" attachNode="Bip001 Spine1" particleName="F_smoke034" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+</ActionDesc>

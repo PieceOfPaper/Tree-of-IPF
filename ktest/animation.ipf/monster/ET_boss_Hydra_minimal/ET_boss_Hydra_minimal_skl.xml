@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_hydra_skl_2"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="3.00" soundFile="skl_eff_poison_3"/>
+    <Particle frame="20" particleName="I_force058_blue" attachNode="Eff_skl_lazer_006" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="20" particleName="I_force058_blue" attachNode="Eff_skl_lazer_007" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="20" particleName="I_force058_blue" attachNode="Eff_skl_lazer_008" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="20" particleName="I_force058_blue" attachNode="Eff_skl_lazer_009" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="20" particleName="I_force058_blue" attachNode="Eff_skl_lazer_010" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="20" particleName="F_smoke061" attachNode="eff_skl2_smoke" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="29" particleName="F_smoke082" attachNode="Bip01 L Finger0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOn frame="30" R="7" G="15" B="13" A="10"/>
+    <BlendOn frame="40" R="15" G="30" B="25" A="25"/>
+    <BlendOn frame="50" R="30" G="60" B="50" A="50"/>
+    <Particle frame="60" particleName="I_force058_blue" attachNode="Eff_skl_lazer_006" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="60" particleName="I_force058_blue" attachNode="Eff_skl_lazer_007" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="60" particleName="I_force058_blue" attachNode="Eff_skl_lazer_008" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="60" particleName="I_force058_blue" attachNode="Eff_skl_lazer_009" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="60" particleName="I_force058_blue" attachNode="Eff_skl_lazer_010" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="60.00" soundFile="skl_eff_lightning_2"/>
+    <Sound frame="60.00" soundFile="skl_eff_specialforceformation_shot"/>
+    <Particle frame="64" particleName="I_laser008_blue" attachNode="Eff_skl_lazer_1" scale="5" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="64" particleName="I_laser008_blue" attachNode="Eff_skl_lazer_2" scale="5" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="64" particleName="I_laser008_blue" attachNode="Eff_skl_lazer_3" scale="5" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="64" particleName="I_laser008_blue" attachNode="Eff_skl_lazer_4" scale="5" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="64" particleName="I_laser008_blue" attachNode="Eff_skl_lazer_5" scale="5" useAttach="false" pause="true" targetPos="false"/>
+    <BlendOn frame="65" R="60" G="130" B="110" A="70"/>
+    <BlendOn frame="70" R="100" G="150" B="145" A="100"/>
+    <Particle frame="70" particleName="F_explosion001_blue1" attachNode="Eff_skl_lazer_1" scale="10" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="70" particleName="F_explosion001_blue1" attachNode="Eff_skl_lazer_2" scale="10" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="70" particleName="F_explosion001_blue1" attachNode="Eff_skl_lazer_3" scale="10" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="70" particleName="F_explosion001_blue1" attachNode="Eff_skl_lazer_4" scale="10" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="70" particleName="F_explosion001_blue1" attachNode="Eff_skl_lazer_5" scale="10" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="75.00" soundFile="skl_eff_lightning"/>
+    <Particle frame="75" particleName="F_explosion001_blue1" attachNode="Eff_skl_lazer_1" scale="7" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="75" particleName="F_explosion001_blue1" attachNode="Eff_skl_lazer_2" scale="7" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="75" particleName="F_explosion001_blue1" attachNode="Eff_skl_lazer_3" scale="7" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="75" particleName="F_explosion001_blue1" attachNode="Eff_skl_lazer_4" scale="7" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="75" particleName="F_explosion001_blue1" attachNode="Eff_skl_lazer_5" scale="7" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOn frame="100" R="60" G="130" B="110" A="70"/>
+    <BlendOn frame="105" R="30" G="60" B="50" A="50"/>
+    <BlendOn frame="110" R="15" G="30" B="25" A="25"/>
+    <BlendOff frame="115" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

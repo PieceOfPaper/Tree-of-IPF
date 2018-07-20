@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="0" particleName="F_light066_yellow_loop2" attachNode="Dummy001" scale="3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="20" particleName="F_light066_yellow_loop2" attachNode="Dummy002" scale="4" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="35" particleName="F_light001_yellow" attachNode="Dummy002" scale="40" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="40" particleName="F_light066_yellow_loop2" attachNode="Dummy003" scale="5" useAttach="true" pause="true" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="25" R="30" G="30" B="10" A="30"/>
+	<BlendOn frame="30" R="60" G="60" B="25" A="60"/>
+	<BlendOn frame="35" R="90" G="90" B="45" A="90"/>
+	<BlendOn frame="40" R="120" G="120" B="60" A="120"/>
+	<BlendOn frame="45" R="150" G="150" B="75" A="150"/>
+	<BlendOn frame="50" R="180" G="180" B="90" A="180"/>
+	<BlendOn frame="55" R="210" G="210" B="105" A="210"/>
+	<BlendOn frame="60" R="240" G="240" B="120" A="240"/>
+	<BlendOn frame="70" R="250" G="250" B="145" A="250"/>
+	<Sound frame="0" soundFile="None"/>
+</ActionDesc>

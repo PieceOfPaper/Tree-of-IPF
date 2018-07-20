@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="15" attachNode="Bip001 R Finger2" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Bip001 L Finger2" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip001 R Finger2" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip001 L Finger2" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_chest" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip001 Spine" particleName="F_light055_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="10.00" soundFile="mon_bramble_atk_ready"/>
+	<Sound frame="39.00" soundFile="mon_minivern_skl"/>
+	<Sound frame="45.00" soundFile="mon_bramble_skl_ready"/>
+</ActionDesc>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachActor="None" attachNode="Dummy002" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy002" particleName="F_explosion042_smoke" useAttach="false" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_gubook_badak" particleName="F_explosion042_smoke" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_gubook_badak" particleName="I_smoke016_spread_out" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_gubook_badak" particleName="F_ground039" useAttach="true" hiddenObj="false" scale="3.5" pause="true" targetPos="false"/>
+	<Particle frame="30" attachActor="None" attachNode="Dummy_gubook_badak" particleName="F_smoke097" useAttach="true" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+	<Particle frame="50" attachActor="None" attachNode="Dummy_gubook_badak" particleName="F_smoke097" useAttach="true" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_6"/>
+	<Sound frame="0.00" soundFile="mon_voice_mushcaria_4"/>
+	<Particle frame="15" attachActor="None" attachNode="Dummy_R_hand_effect" particleName="I_smoke041" useAttach="true" hiddenObj="false" scale="3.5" pause="true" targetPos="false"/>
+	<Particle frame="15" attachActor="None" attachNode="Dummy_L_hand_effect" particleName="I_smoke041" useAttach="true" hiddenObj="false" scale="3.5" pause="true" targetPos="false"/>
+	<Sound frame="21.00" soundFile="skl_eff_atk_move_l_5"/>
+	<Sound frame="36.00" soundFile="mon_voice_mushcaria_7"/>
+	<Sound frame="51.00" soundFile="skl_eff_atk_move_l_5"/>
+	<Sound frame="52.50" soundFile="mon_voice_mushcaria_6"/>
+	<Sound frame="66.00" soundFile="mon_voice_mushcaria_9"/>
+</ActionDesc>

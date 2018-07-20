@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="59" R="3" G="1" B="5" A="100"/>
+	<BlendOn frame="60" R="5" G="5" B="10" A="100"/>
+	<BlendOn frame="61" R="20" G="10" B="30" A="100"/>
+	<BlendOn frame="62" R="50" G="20" B="60" A="100"/>
+	<BlendOn frame="63" R="80" G="40" B="100" A="100"/>
+	<BlendOn frame="64" R="130" G="80" B="150" A="100"/>
+	<BlendOn frame="65" R="100" G="60" B="130" A="100"/>
+	<BlendOn frame="66" R="80" G="40" B="100" A="100"/>
+	<BlendOn frame="67" R="50" G="20" B="60" A="100"/>
+	<BlendOn frame="68" R="20" G="10" B="30" A="100"/>
+	<BlendOn frame="69" R="5" G="5" B="10" A="100"/>
+	<BlendOn frame="70" R="3" G="1" B="5" A="100"/>
+	<BlendOff frame="71" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="60" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="66" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="13" attachNode="Dummy_effect_skl_01" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+	<Particle frame="27" attachNode="Dummy_effect_skl_03" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false"/>
+	<Particle frame="65" attachNode="Dummy_effect_skl_02" particleName="F_ground070" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="64" attachNode="Dummy_effect_skl_02" particleName="F_ground045_smoke_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" soundFile="mon_voice_roar"/>
+	<Sound frame="9.00" soundFile="mon_ratman_L_ATK_wood"/>
+	<Sound frame="10.00" soundFile="mon_voice_onion_the_great_4"/>
+	<Sound frame="27.00" soundFile="mon_voice_action"/>
+	<Sound frame="54.00" soundFile="skl_eff_atk_move_l_6"/>
+	<Sound frame="59.00" soundFile="skl_eff_stone_blow_m"/>
+</ActionDesc>

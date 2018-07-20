@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_finger_R002" particleName="F_pose_cheers_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_effect_finger_L002" particleName="F_pose_cheers_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_effect_finger_L002" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_effect_finger_L001" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_effect_finger_R002" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_effect_finger_R001" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_effect_finger_L002" particleName="I_archer_FocusFire_arrow_trail" useAttach="true" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_effect_finger_L001" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_effect_finger_R002" particleName="I_archer_FocusFire_arrow_trail" useAttach="true" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_effect_finger_R001" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="9" attachNode="Dummy_effect_skl_L001" particleName="I_line008_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="9" attachNode="Dummy_effect_skl_L002" particleName="I_line008_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="9" attachNode="Dummy_effect_skl_R001" particleName="I_line008_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="9" attachNode="Dummy_effect_skl_R002" particleName="I_line008_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_voice_action"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_s_11"/>
+	<Sound frame="7.63" soundFile="mon_voice_hogma_knockback"/>
+	<Sound frame="8.46" soundFile="swd_blow_cloth2"/>
+	<Sound frame="8.46" soundFile="swd_attack2"/>
+	<Sound frame="8.46" soundFile="atk_swordthrust"/>
+</ActionDesc>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<AfterImage frame="75" term="30" blendTime="300" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="80" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="10" attachNode="Dummy_effect_skl3_smoke1" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Dummy_effect_skl3_smoke2" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Dummy_effect_skl3_smoke3" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="42" attachNode="Dummy_effect_skl3_dash" particleName="F_dash011" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Dummy_effect_skl3_dash" particleName="F_dash013_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="38" attachNode="Dummy_effect_skl3_smoke2" particleName="F_burstup001_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="72" attachNode="None" particleName="F_burstup001_smoke1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="76" attachNode="None" particleName="F_ground042" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="76" attachNode="None" particleName="F_blood004_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="77" attachNode="Dummy_effect_eye_R" particleName="F_light049_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="77" attachNode="Dummy_effect_eye_L" particleName="F_light049_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_reaverpede_born"/>
+	<Sound frame="31.00" soundFile="skl_eff_atk_sperad"/>
+	<Sound frame="65.00" soundFile="mon_drapeliun_born"/>
+	<Sound frame="65.00" soundFile="skl_eff_drapeliun_atk_hit_ground"/>
+	<Sound frame="68.00" soundFile="skl_eff_crash_ground_l_4"/>
+</ActionDesc>
