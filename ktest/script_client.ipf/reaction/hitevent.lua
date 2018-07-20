@@ -22,6 +22,16 @@ function C_SR_EFT2(self, target, sklLevel, hitInfo, hitIndex, effectName,  scale
 
 end
 
+function C_SR_EFT_DEFAULT(self, target, sklLevel, hitInfo, hitIndex, selfEeffectName, selfScale, selfOffset, targetEeffectName, targetScale, targetOffset)
+	if selfEeffectName ~= nil and selfEeffectName ~= 'None' and selfEeffectName ~= '' then
+		self:GetEffect():PlayEffect(selfEeffectName, selfScale, GetOffsetEnum(selfOffset));
+	end
+	
+	if targetEeffectName ~= nil and targetEeffectName ~= 'None' and targetEeffectName ~= '' then
+		target:GetEffect():PlayEffect(targetEeffectName, targetScale, GetOffsetEnum(targetOffset));
+	end
+end
+
 function C_SR_SHOCKWAVE(self, target, sklLevel, hitInfo, hitIndex, intensity, time, freq, range)
 
 	if hitIndex ~= 0 then
@@ -71,7 +81,7 @@ struct HIT_INFO
 
 function HIT_EVENT_FIREBALL(hitInfo, actor, hitIndex)
 
- -- ¿©·¯¸í ¸Â¾ÒÀ» ¶§ ÇÑ¸í¸¸ ÀÌº¥Æ®
+ -- Â¿â“’Â·?Â¸ë ¸Â¾?â‰« Â¶Â§ ?Â¸? LÂºï¿¥?
 	if hitIndex ~= 0 then
 		return;
 	end
@@ -127,7 +137,7 @@ end
 
 function HIT_EVENT_Bramble_Normal_Attack(hitInfo, actor, hitIndex)
 
- -- ¿©·¯¸í ¸Â¾ÒÀ» ¶§ ÇÑ¸í¸¸ ÀÌº¥Æ®
+ -- Â¿â“’Â·?Â¸ë ¸Â¾?â‰« Â¶Â§ ?Â¸? LÂºï¿¥?
 	if hitIndex ~= 0 then
 		return;
 	end
@@ -139,7 +149,7 @@ end
 
 function HIT_EVENT_Dionia_Normal_Attack(hitInfo, actor, hitIndex)
 
- -- ¿©·¯¸í ¸Â¾ÒÀ» ¶§ ÇÑ¸í¸¸ ÀÌº¥Æ®
+ -- Â¿â“’Â·?Â¸ë ¸Â¾?â‰« Â¶Â§ ?Â¸? LÂºï¿¥?
 	if hitIndex ~= 0 then
 		return;
 	end
@@ -151,7 +161,7 @@ end
 
 function HIT_EVENT_Molich_Normal_Attack(hitInfo, actor, hitIndex)
 
- -- ¿©·¯¸í ¸Â¾ÒÀ» ¶§ ÇÑ¸í¸¸ ÀÌº¥Æ®
+ -- Â¿â“’Â·?Â¸ë ¸Â¾?â‰« Â¶Â§ ?Â¸? LÂºï¿¥?
 	if hitIndex ~= 0 then
 		return;
 	end

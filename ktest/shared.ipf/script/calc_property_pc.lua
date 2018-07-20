@@ -3098,41 +3098,44 @@ function SCR_GET_ADDOVERHEAT(pc, skill)
 end
 
 function SCR_GET_PC_LIMIT_BUFF_COUNT(self)
-    local jobObj = GetJobObject(self)
-    if jobObj == nil then
-        return 0;
-    end
-    
-    local count = 5;
-    
-    if 'Warrior' == jobObj.CtrlType or 'Cleric' == jobObj.CtrlType then
-        count = 7;
-    end
-    
-    if 1 == IsDummyPC(self) then
-        return count;
-    end
-    
-    local byAbil = 0;
-    local abil = GetAbility(self, "AddBuffCount")
-    if abil ~= nil then
-        byAbil = 1;
-    end
-    
-    local byBuff = TryGetProp(self, "LimitBuffCount_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
-    
-    local byToken = 0;
-    local isToken = IsPremiumState(self, ITEM_TOKEN);
-    if isToken == 1 then
-        byToken = 1;
-    end
-    
-    count = count + byAbil + byBuff + byToken;
-    
-    return count;
+--    local jobObj = GetJobObject(self)
+--    if jobObj == nil then
+--        return 0;
+--    end
+--    
+--    local count = 5;
+--    
+--    if 'Warrior' == jobObj.CtrlType or 'Cleric' == jobObj.CtrlType then
+--        count = 7;
+--    end
+--    
+--    if 1 == IsDummyPC(self) then
+--        return count;
+--    end
+--    
+--    local byAbil = 0;
+--    local abil = GetAbility(self, "AddBuffCount")
+--    if abil ~= nil then
+--        byAbil = 1;
+--    end
+--    
+--    local byBuff = TryGetProp(self, "LimitBuffCount_BM");
+--    if byBuff == nil then
+--        byBuff = 0;
+--    end
+--    
+--    local byToken = 0;
+--    local isToken = IsPremiumState(self, ITEM_TOKEN);
+--    if isToken == 1 then
+--        byToken = 1;
+--    end
+--    
+--    count = count + byAbil + byBuff + byToken;
+--    
+--    return count;
+	
+	-- 2017/9/13 --
+	return 999;
 end
 
 function GET_MAXHATE_COUNT(self)
@@ -3159,7 +3162,7 @@ function GET_MAXHATE_COUNT(self)
         end
         
         local value = defaultMaxHateCount + byBuff;
-        
+        value = 100
         return math.floor(value);
     end
     

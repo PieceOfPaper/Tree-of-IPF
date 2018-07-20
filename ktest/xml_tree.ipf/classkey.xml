@@ -7257,6 +7257,54 @@
         <Key Name="SIAULIAI16_SEARCH1_TRACK" Value="8211"/>
         <Key Name="SIAULIAI_SPIRIT_TRACK" Value="7817"/>
         <Key Name="Kill_boss_kepa_event" Value="101667"/>
+        <Key Name="AchieveReward_ID_WHITETREES1_GIMMICK" Value="101732"/>
+        <Key Name="HadVisited_4940" Value="101735"/>
+        <Key Name="HadVisited_523" Value="101685"/>
+        <Key Name="HadVisited_524" Value="101682"/>
+        <Key Name="HiddenJob_Char1_19" Value="101737"/>
+        <Key Name="HiddenJob_Char2_19" Value="101712"/>
+        <Key Name="HiddenJob_Char3_18" Value="101738"/>
+        <Key Name="HiddenJob_Char4_19" Value="101710"/>
+        <Key Name="Hide_2615" Value="101701"/>
+        <Key Name="Hide_2616" Value="101713"/>
+        <Key Name="Hide_2617" Value="101714"/>
+        <Key Name="Hide_2618" Value="101702"/>
+        <Key Name="Hide_2619" Value="101715"/>
+        <Key Name="Hide_2620" Value="101716"/>
+        <Key Name="Hide_2621" Value="101703"/>
+        <Key Name="Hide_2622" Value="101717"/>
+        <Key Name="Hide_2623" Value="101718"/>
+        <Key Name="Hide_2624" Value="101704"/>
+        <Key Name="Hide_2625" Value="101719"/>
+        <Key Name="Hide_2626" Value="101720"/>
+        <Key Name="Hide_2627" Value="101705"/>
+        <Key Name="Hide_2628" Value="101721"/>
+        <Key Name="Hide_2629" Value="101722"/>
+        <Key Name="Hide_2630" Value="101706"/>
+        <Key Name="Hide_2631" Value="101723"/>
+        <Key Name="Hide_2632" Value="101724"/>
+        <Key Name="Hide_2633" Value="101707"/>
+        <Key Name="Hide_2634" Value="101725"/>
+        <Key Name="Hide_2635" Value="101726"/>
+        <Key Name="Hide_2636" Value="101699"/>
+        <Key Name="Hide_2641" Value="101708"/>
+        <Key Name="Hide_2642" Value="101727"/>
+        <Key Name="Hide_2643" Value="101728"/>
+        <Key Name="Hide_2644" Value="101709"/>
+        <Key Name="Hide_2645" Value="101729"/>
+        <Key Name="InDunCountType_10000" Value="101734"/>
+        <Key Name="InDunRewardCountType_100" Value="101736"/>
+        <Key Name="JOB_BULLETMARKER1_TRACK" Value="101730"/>
+        <Key Name="JOB_MATADOR1_TRACK" Value="101731"/>
+        <Key Name="JOB_SHADOWMANCER_Q1_TRACK" Value="101733"/>
+        <Key Name="JOB_ZEALOT_QUEST_COSTUME_TRACK" Value="101700"/>
+        <Key Name="Kill_ID_boss_kucarry_balzermancer" Value="101711"/>
+        <Key Name="Hide_2638" Value="101775"/>
+        <Key Name="Hide_2639" Value="101776"/>
+        <Key Name="Hide_2646" Value="101777"/>
+        <Key Name="Kill_event_Spector_Halloween" Value="101778"/>
+        <Key Name="HadVisited_4950" Value="101792"/>
+        <Key Name="HadVisited_4960" Value="101793"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="Check4" Value="124"/>
@@ -7338,6 +7386,7 @@
         <Key Name="THANKSGIVING_COIN_RANKING_POINT_1" Value="101672"/>
         <Key Name="THANKSGIVING_COIN_RANKING_POINT_2" Value="101675"/>
         <Key Name="THANKSGIVING_COIN_RANKING_POINT_3" Value="101676"/>
+        <Key Name="JOB_SHADOWMANCER_CREATE_TIME" Value="101780"/>
     </KeyIDSpc>
     <KeyIDSpc Name="SessionObject">
         <Key Name="HT_PATRIFICATION_2" Value="34166"/>
@@ -13751,6 +13800,42 @@
         <Key Name="test_zone_evcopy001" Value="7502"/>
         <Key Name="test_zone_evhilowgame1" Value="7503"/>
         <Key Name="EV170927_JP_NRU_ALWAYS_2" Value="101670"/>
+        <Key Name="EVENT_1710_HOLIDAY_DATE" Value="101745"/>
+        <Key Name="EVENT_1710_NEWCHARACTER_CHECK" Value="101749"/>
+        <Key Name="EVENT_1710_NEWCHARACTER_TPBOX_DATE" Value="101744"/>
+        <Key Name="EV_OBSERVER1" Value="101677"/>
+        <Key Name="EV_OBSERVER2" Value="101680"/>
+        <Key Name="EV_OBSERVER3" Value="101679"/>
+        <Key Name="EV_OBSERVER4" Value="101678"/>
+        <Key Name="EV_OBSERVER5" Value="101681"/>
+        <Key Name="JOB_BULLETMARKER1" Value="101759"/>
+        <Key Name="JOB_BULLETMARKER1_FC" Value="101750"/>
+        <Key Name="JOB_BULLETMARKER1_PI" Value="101754"/>
+        <Key Name="JOB_BULLETMARKER1_R" Value="101761"/>
+        <Key Name="JOB_BULLETMARKER1_SRL" Value="101756"/>
+        <Key Name="JOB_MATADOR1" Value="101763"/>
+        <Key Name="JOB_MATADOR1_FC" Value="101767"/>
+        <Key Name="JOB_MATADOR1_PI" Value="101743"/>
+        <Key Name="JOB_MATADOR1_R" Value="101765"/>
+        <Key Name="JOB_MATADOR1_SRL" Value="101747"/>
+        <Key Name="JOB_SHADOWMANCER_Q1" Value="101746"/>
+        <Key Name="JOB_SHADOWMANCER_Q1_FC" Value="101753"/>
+        <Key Name="JOB_SHADOWMANCER_Q1_PI" Value="101752"/>
+        <Key Name="JOB_SHADOWMANCER_Q1_R" Value="101751"/>
+        <Key Name="JOB_SHADOWMANCER_Q1_SRL" Value="101755"/>
+        <Key Name="JOB_ZEALOT_QUEST_COSTUME" Value="101758"/>
+        <Key Name="JOB_ZEALOT_QUEST_COSTUME_FC" Value="101760"/>
+        <Key Name="JOB_ZEALOT_QUEST_COSTUME_PI" Value="101757"/>
+        <Key Name="JOB_ZEALOT_QUEST_COSTUME_R" Value="101764"/>
+        <Key Name="JOB_ZEALOT_QUEST_COSTUME_SRL" Value="101748"/>
+        <Key Name="JOB_ZEALOT_TIMER" Value="101766"/>
+        <Key Name="MG_Last_EVENT_FEDIMIAN_RAID" Value="101683"/>
+        <Key Name="MG_Last_ID_WHITETREES_MINI_01" Value="101742"/>
+        <Key Name="MG_Last_JOB_MATADOR_QUSET_MINIGAME" Value="101762"/>
+        <Key Name="MG_Last_JOB_SHADOWMANCER_Q1" Value="101741"/>
+        <Key Name="MG_Last_MISSION_EVENT_BLUEORB" Value="101695"/>
+        <Key Name="EV171017_STEAM_NRU_SOBJ" Value="101774"/>
+        <Key Name="MG_Last_AGARIO_MINI" Value="101781"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Skill">
         <Key Name="OnNeutral" Value="6715"/>
@@ -13938,6 +14023,7 @@
         <Key Name="SR" Value="6858"/>
         <Key Name="SkillASPD" Value="6860"/>
         <Key Name="UseOverHeat" Value="6859"/>
+        <Key Name="MoveSpeed" Value="101740"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>
@@ -14362,6 +14448,7 @@
         <Key Name="TR" Value="6607"/>
         <Key Name="TR_BM" Value="6601"/>
         <Key Name="Velnias_Defence" Value="6644"/>
+        <Key Name="SpaceMarkHeightOffset" Value="101739"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PC">
         <Key Name="BLKABLE" Value="7131"/>
@@ -14851,6 +14938,7 @@
         <Key Name="SlashDefFactor_PC_NT" Value="11480"/>
         <Key Name="StrikeAtkFactor_PC_NT" Value="11472"/>
         <Key Name="StrikeDefFactor_PC_NT" Value="11481"/>
+        <Key Name="LastRankRollbackIndex" Value="101779"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -16059,5 +16147,36 @@
         <Key Name="NPC_EVENT_JP_DAY_CHECK_1" Value="101666"/>
         <Key Name="NPC_EVENT_JP_DAY_CHECK_2" Value="101665"/>
         <Key Name="EV170927_JP_NRU_ALWAYS_1" Value="101669"/>
+        <Key Name="BLUEORB_MISSION_COUNT" Value="101690"/>
+        <Key Name="EVENT_1710_NEWCHARACTER_REWARD_COUNT" Value="101696"/>
+        <Key Name="EVENT_1710_RESET_LASTDATE" Value="101698"/>
+        <Key Name="EVENT_MYMON01" Value="101691"/>
+        <Key Name="EVENT_MYMON01_LV" Value="101687"/>
+        <Key Name="EVENT_MYMON02" Value="101692"/>
+        <Key Name="EVENT_MYMON02_LV" Value="101686"/>
+        <Key Name="EVENT_MYMON03" Value="101693"/>
+        <Key Name="EVENT_MYMON03_LV" Value="101688"/>
+        <Key Name="EVENT_VSMON_STAGE" Value="101689"/>
+        <Key Name="HadVisited_4940" Value="101697"/>
+        <Key Name="HadVisited_523" Value="101694"/>
+        <Key Name="HadVisited_524" Value="101684"/>
+        <Key Name="EV171017_STEAM_CB_CHECK" Value="101769"/>
+        <Key Name="EV171017_STEAM_CB_COUNT" Value="101772"/>
+        <Key Name="EV171017_STEAM_CB_DAY" Value="101770"/>
+        <Key Name="EV171017_STEAM_NRU_AOBJ" Value="101771"/>
+        <Key Name="EV171017_STEAM_REWARD_COUNT" Value="101768"/>
+        <Key Name="EV171017_STEAM_REWARD_DAY" Value="101773"/>
+        <Key Name="AGARIO_CHANGE_COUNT" Value="101784"/>
+        <Key Name="AGARIO_COUNT" Value="101782"/>
+        <Key Name="AGARIO_DAY_CHECK" Value="101783"/>
+        <Key Name="AGARIO_EVENT_SHOP_01" Value="101788"/>
+        <Key Name="AGARIO_EVENT_SHOP_02" Value="101785"/>
+        <Key Name="AGARIO_EVENT_SHOP_03" Value="101789"/>
+        <Key Name="AGARIO_EVENT_SHOP_04" Value="101786"/>
+        <Key Name="AGARIO_HOUR_CHECK" Value="101787"/>
+        <Key Name="HadVisited_4950" Value="101790"/>
+        <Key Name="HadVisited_4960" Value="101791"/>
+        <Key Name="AGARIO_NAME_CHECK" Value="101794"/>
+        <Key Name="EVENT_1710_HALLOWEEN_TOT_DATE" Value="101795"/>
     </KeyIDSpc>
 </ClassKey>

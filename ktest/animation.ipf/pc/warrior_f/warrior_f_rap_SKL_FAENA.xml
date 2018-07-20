@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_matador_faena"/>
+	<Particle frame="1" attachNode="dummy_emitter" particleName="E_pc_full_charge_orage_ride" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="3" R="70" G="70" B="50" A="100"/>
+	<BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="3" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

@@ -12,8 +12,8 @@ end
 
 function UPDATE_TYPING_SCRIPT(frame, ctrl)
 	local title = frame:GetUserValue("InputType");
-	
-	if title ~= "InputNameForChange" and title ~= "Family_Name" then
+
+	if title ~= "InputNameForChange" and title ~= "Family_Name" and title ~= "PetName" then
 		return;
 	end
 

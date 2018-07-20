@@ -96,6 +96,11 @@ function ADVENTURE_BOOK_TEAM_BATTLE_RANK_UPDATE(frame, msg, argStr, argNum)
 end
 
 function ADVENTURE_BOOK_JOIN_WORLDPVP(parent, ctrl)
+    if IS_IN_EVENT_MAP() == true then
+        ui.SysMsg(ClMSg('ImpossibleInCurrentMap'));
+        return;
+    end 
+
 	local accObj = GetMyAccountObj();
 	if IsBuffApplied(GetMyPCObject(), "TeamBattleLeague_Penalty_Lv1") == "YES" or IsBuffApplied(GetMyPCObject(), "TeamBattleLeague_Penalty_Lv2") == "YES" then
 		ui.SysMsg(ClMsg("HasTeamBattleLeaguePenalty"));

@@ -45,6 +45,11 @@ function CANT_JUMP_ALARM(frame, msg, argStr, argNum)
 end
 
 function MOVETOCAMP(aid)
+    if IS_IN_EVENT_MAP() == true then
+        ui.SysMsg(ClMsg('ImpossibleInCurrentMap'));
+        return;
+    end
+
 	session.party.RequestMoveToCamp(aid);
 end
 
@@ -164,8 +169,9 @@ function HUD_SET_EMBLEM(frame, jobClassID)
     local classLv = pcJobInfo:GetJobGrade(jobClassID);
     local startext = "";
 	local maxIndex = 3;
-	if jobCls.HiddenJob == 'YES' then
-		maxIndex = 1;
+	local maxCircle = TryGetProp(jobCls,'MaxCircle')
+	if maxCircle ~= nil then
+	    maxIndex = maxCircle
 	end
 	for i = 1, maxIndex do
 		if i <= classLv then
@@ -307,7 +313,7 @@ function HEADSUPDISPLAY_SET_CAMP_BTN(frame)
         end
     end
         
-    local mapID = session.loginInfo.GetSquireMapID();    
+    local mapID = session.loginInfo.GetSquireMapID();
 	local map = GetClassByType("Map", mapID);
 	if nil == map then
         campBtn:ShowWindow(0);

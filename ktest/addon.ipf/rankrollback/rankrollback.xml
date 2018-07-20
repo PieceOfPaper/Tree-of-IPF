@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="rankrollback" x="0" y="0" width="480" height="750">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" open=""/>
+	<skin frameskin="none"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false" closebuttonpos="0 20"/>
+	<sound opensound="button_click_stats_OK" closesound="button_click_big_2"/>
+	<effect open="character_item_window_open" close="character_item_window_close"/>
+	<script CloseScp="SKILLSTAT_SELEC_CANCLE"/>
+	<controls>
+		<groupbox name="bg2" rect="0 0 480 750" margin="0 1 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="token_skin2"/>
+		<picture name="token_middle" rect="0 0 316 165" margin="90 1 0 0" layout_gravity="left top" hittest="true" image="rankreset_middle"/>
+		<richtext name="str" margin="0 140 0 0" rect="0 0 120 24" format="마지막 전직을 취소하고 되돌리시겠습니까?{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_20_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="endTime2" margin="0 173 0 0" rect="0 0 200 24" format="현재 클래스의 전직을 취소하고 전직 이전으로 되돌아가며{nl}클래스 경험치는 사라집니다.{/}" param1="value" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<button name="button_1" margin="53 0 0 40" rect="10 10 170 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41b}사용" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="RANKROLLBACK_ITEM_USE_BUTTON_CLICK"/>
+		<button name="button_1_1" margin="240 0 0 40" rect="10 10 170 50" skin="test_gray_button" layout_gravity="left bottom" caption="{@st41b}취소" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="RANKRESET_CANCEL_BUTTON_CLICK"/>
+		<richtext name="richtext_1" margin="0 240 0 0" rect="0 0 120 24" caption="{@st66d_y}조건 및 주의 사항{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<groupbox name="gCondiBox" margin="0 -40 0 0" rect="0 0 458 110" hittestbox="false" skin="rank_reset_midlebg" layout_gravity="center center"/>
+		<picture name="armor" margin="16 10 0 0" rect="0 0 59 59" hittest="true" image="rank_reset_armor" stretch="true" changecursor="false" layout_gravity="left top" parent="gCondiBox" texttooltip="{@st59}장비 장착 상태{/}"/>
+		<checkbox name="armor_check" margin="29 355 0 0" rect="0 0 57 28" caption="{@st45tw2}" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" skin="rankreset_checkbox" hittest="false"/>
+		<picture name="ability" margin="78 10 0 0" rect="0 0 59 59" hittest="true" image="rank_reset_ability" stretch="true" changecursor="false" layout_gravity="left top" parent="gCondiBox" texttooltip="{@st59}특성 습득 대기 상태{/}"/>
+		<checkbox name="ability_check" margin="90 355 0 0" rect="0 0 57 28" caption="{@st45tw2}" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" skin="rankreset_checkbox" hittest="false"/>
+		<picture name="com" margin="140 10 0 0" rect="0 0 59 59" hittest="true" image="rank_reset_com" stretch="true" changecursor="false" layout_gravity="left top" parent="gCondiBox" texttooltip="{@st59}컴패니언 동행{/}"/>
+		<checkbox name="com_check" margin="152 355 0 0" rect="0 0 57 28" caption="{@st45tw2}" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" skin="rankreset_checkbox" hittest="false"/>
+		<picture name="home" margin="201 10 0 0" rect="0 0 59 59" hittest="true" image="rank_reset_home" stretch="true" changecursor="false" layout_gravity="left top" parent="gCondiBox" texttooltip="{@st59}마을{/}"/>
+		<checkbox name="home_check" margin="213 355 0 0" rect="0 0 57 28" caption="{@st45tw2}" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" skin="rankreset_checkbox" hittest="false"/>
+		<picture name="shop" margin="263 10 0 0" rect="0 0 59 59" hittest="true" image="rank_reset_shop" stretch="true" changecursor="false" layout_gravity="left top" parent="gCondiBox" texttooltip="{@st59}상점 스킬 운영{/}"/>
+		<checkbox name="shop_check" margin="275 355 0 0" rect="0 0 57 28" caption="{@st45tw2}" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" skin="rankreset_checkbox" hittest="false"/>
+		<picture name="timeaction" margin="324 10 0 0" rect="0 0 59 59" hittest="true" image="rank_reset_moru" stretch="true" changecursor="false" layout_gravity="left top" parent="gCondiBox" texttooltip="{@st59}제작 중{/}"/>
+		<checkbox name="timeaction_check" margin="335 355 0 0" rect="0 0 57 28" caption="{@st45tw2}" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" skin="rankreset_checkbox" hittest="false"/>
+		<picture name="master" margin="385 10 0 0" rect="0 0 59 59" hittest="true" image="rank_reset_master" stretch="true" changecursor="false" layout_gravity="left top" parent="gCondiBox" texttooltip="{@st59}팀내 유일한 템플러 직업을 가진 길드 마스터 캐릭터{/}"/>
+		<checkbox name="master_check" margin="396 355 0 0" rect="0 0 57 28" caption="{@st45tw2}" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" skin="rankreset_checkbox" hittest="false"/>
+		<richtext name="strRankLimit1" margin="0 50 0 0" rect="0 0 120 24" caption="* 랭크 다운은 동일한 랭크에서 한 번만 사용할 수 있으며{nl}연속해서 사용할 수 없습니다." textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+		<richtext name="strRankLimit2" margin="0 100 0 0" rect="0 0 120 24" caption="* 마지막으로 랭크 다운을 사용한 랭크보다 낮은 랭크에서는{nl}이용이 불가능 합니다." textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+		<richtext name="strAbilVis" margin="0 150 0 0" rect="0 0 120 24" caption="* 초기화로 인해 삭제 또는 서클이 내려가는 클래스는{nl}스킬과 특성을 초기화 후 포인트로 반환됩니다." textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+		<richtext name="strcos" margin="0 200 0 0" rect="0 0 120 24" caption="* 초기화로 인해 클래스가 완전히 삭제되는 경우에는{nl}전직 시 지급된 직업별 코스튬이 제거됩니다." textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+		<richtext name="strbarrack" margin="0 240 0 0" rect="0 0 120 24" caption="* 초기화 후에는 캐릭터 선택창으로 돌아갑니다." textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+	</controls>
+</uiframe>

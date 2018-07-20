@@ -2,6 +2,7 @@ function PET_INFO_ON_INIT(addon, frame)
 
 	addon:RegisterOpenOnlyMsg("PET_PROP_UPDATE", "ON_PET_PROP_UPDATE");
 	addon:RegisterOpenOnlyMsg("PET_EXP_UPDATE", "ON_PET_EXP_UPDATE");
+	addon:RegisterOpenOnlyMsg("PET_NAME_CHANGED", "ON_PET_NAME_CHANGED");
 	addon:RegisterMsg("COMPANION_UI_OPEN", "COMPANION_UI_OPEN_DO");
 	addon:RegisterMsg("COMPANION_AUTO_ATK", "COMPANION_UI_AUTO_ATK");
 	
@@ -32,6 +33,10 @@ function COMPANION_UI_OPEN_DO(frame)
 
 	PET_INFO_SHOW(summonedPet:GetStrGuid());
 
+end
+
+function ON_PET_NAME_CHANGED(frame, msg, strArg, numArg)
+	PET_INFO_SHOW(frame:GetUserValue('PET_GUID'));
 end
 
 function ON_PET_PROP_UPDATE(frame, msg, propName)

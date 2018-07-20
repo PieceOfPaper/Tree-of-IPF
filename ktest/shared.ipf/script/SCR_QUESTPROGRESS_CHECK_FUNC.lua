@@ -1,5 +1,49 @@
 s_warpDestYPos	 = 20.0;
 
+function SCR_STEPREWARD_QUEST_REMAINING_CHECK(pc, questName)
+    local questIES = GetClass('QuestProgressCheck',questName)
+    local quest_auto = GetClass('QuestProgressCheck_Auto',questName)
+    local ret2 = {}
+    if questIES == nil or quest_auto == nil then
+        return 'NO', ret2
+    end
+    if TryGetProp(quest_auto , 'StepRewardList1') ~= nil and TryGetProp(quest_auto , 'StepRewardList1') ~= 'None' then
+        local duplicate = TryGetProp(quest_auto, 'StepRewardDuplicatePayments')
+        local lastReward
+        local lastRewardList
+        local ret1 = 'YES'
+        if duplicate == 'NODUPLICATE' then
+            local sObj = GetSessionObject(pc, 'ssn_klapeda')
+            lastRewardList = TryGetProp(sObj, questIES.QuestPropertyName..'_SRL')
+            if lastRewardList ~= nil and lastRewardList ~= 'None' then
+                lastReward = SCR_STRING_CUT(lastRewardList)
+                
+                for index = 1, 10 do
+                    if TryGetProp(quest_auto , 'StepRewardList'..index) ~= nil and TryGetProp(quest_auto , 'StepRewardList'..index) ~= 'None' then
+                        if table.find(lastReward, index) == 0 then
+                            ret2[#ret2 + 1] = index
+                        end
+                    end
+                end
+                
+                return ret1, ret2
+            end
+        else
+            ret1 = 'DUPLICATE'
+        end
+        
+        for index = 1, 10 do
+            local stepRewardList = TryGetProp(quest_auto, 'StepRewardList'..index)
+            if stepRewardList ~= nil and stepRewardList ~= 'None' then
+                ret2[#ret2 + 1] = index
+            end
+        end
+        return ret1, ret2
+    else
+        return 'NO', ret2
+    end
+end
+
 function SCR_PRE_SIAUL1_STATPOINT1(pc)
     if pc.Lv >= 6 and pc.StatByLevel + pc.StatByBonus - pc.UsedStat >= 1 then
         return 'YES'
@@ -497,4 +541,98 @@ function SCR_TUTO_TP_SHOP_PRECHECK_FUNC(pc, questname, scriptInfo)
         return 'YES'
     end
     return 'NO'
+end
+
+--function CCC(pc, argList)
+--    print('CCC',pc.Name, argList)
+--    return 'NO'
+--end
+--
+--function BBB(pc, argList)
+--    print('BBB',pc.Name, argList)
+--    return 'NO'
+--end
+--
+--function AAAAA(pc, argList)
+--    print('AAAAA',pc.Name, argList)
+--    return 'NO'
+--end
+
+function SCR_JOB_BULLETMARKER1_PRE_FUNC(pc, questname, scriptInfo)
+    local result1, result2 = SCR_STEPREWARD_QUEST_REMAINING_CHECK(pc, questname)
+    if result1 == 'YES' and #result2 == 0 then
+        return 'NO'
+    end
+    
+    return 'YES'
+end
+
+function SCR_JOB_BULLETMARKER1_STEPREWARD_CHECK1(pc, stepRewardFuncList)
+    local sObj = GetSessionObject(pc, 'SSN_JOB_BULLETMARKER1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 300 then
+            return 'YES'
+        end
+    end
+end
+
+function SCR_JOB_BULLETMARKER1_STEPREWARD_CHECK2(pc, stepRewardFuncList)
+    local sObj = GetSessionObject(pc, 'SSN_JOB_BULLETMARKER1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 380 then
+            return 'YES'
+        end
+    end
+end
+
+function SCR_JOB_BULLETMARKER1_STEPREWARD_CHECK3(pc, stepRewardFuncList)
+    local sObj = GetSessionObject(pc, 'SSN_JOB_BULLETMARKER1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 460 then
+            return 'YES'
+        end
+    end
+end
+
+
+function SCR_ZEALOT_QUEST_COSTUME_REWARD1(self)
+    local sObj = GetSessionObject(self, 'SSN_JOB_ZEALOT_QUEST_COSTUME')
+    if sObj ~= nil then
+        if 1 == sObj.Step5 then
+            return 'YES'
+        end
+    end
+    
+    return 'NO'
+end
+
+function SCR_ZEALOT_QUEST_COSTUME_REWARD2(self)
+    local sObj = GetSessionObject(self, 'SSN_JOB_ZEALOT_QUEST_COSTUME')
+    if sObj ~= nil then
+        if 2 == sObj.Step5 then
+            return 'YES'
+        end
+    end
+    
+    return 'NO'
+end
+
+function SCR_ZEALOT_QUEST_COSTUME_REWARD3(self)
+    local sObj = GetSessionObject(self, 'SSN_JOB_ZEALOT_QUEST_COSTUME')
+    if sObj ~= nil then
+        if 3 == sObj.Step5 then
+            return 'YES'
+        end
+    end
+    
+    return 'NO'
+end
+
+function SCR_ZEALOT_QUEST_COSTUME_START_CHECK(pc, questname)
+    local result1, result2 = SCR_STEPREWARD_QUEST_REMAINING_CHECK(pc, questname)
+    if result1 == 'YES' and #result2 == 0 then
+        return 'NO'
+    end
+    
+    return 'YES'
 end

@@ -28,6 +28,10 @@ function UPDATE_GUILD_EVENT_POPUP()
 end
 
 function ON_UPDATE_GUILDEVENT_POPUP()
+    if IS_IN_EVENT_MAP() == true then
+        return;
+    end
+
 	local frame = ui.GetFrame("guildeventpopup");
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcparty == nil then

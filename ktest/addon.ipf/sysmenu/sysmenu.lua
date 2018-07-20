@@ -78,7 +78,7 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 	if false == VARICON_VISIBLE_STATE_CHANTED(frame, "necronomicon", "necronomicon")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "grimoire", "grimoire")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "guild", "guild")
-	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "poisonpot", "poisonpot")
+	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "poisonpot", "poisonpot")    
 	then
 		return;
 	end
@@ -86,14 +86,14 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 	DESTROY_CHILD_BY_USERVALUE(frame, "IS_VAR_ICON", "YES");
 
     local extraBag = frame:GetChild('extraBag');
-	local status = frame:GetChild("status");
-	local offsetX = status:GetX() - extraBag:GetX();
+	local rankBtn = frame:GetChild("rankBtn");	
+	local offsetX = rankBtn:GetX() - extraBag:GetX();
 	local rightMargin = extraBag:GetMargin().right + offsetX;
 
-	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");    
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "necronomicon", "necronomicon", "sysmenu_card", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "grimoire", "grimoire", "sysmenu_neacro", rightMargin, offsetX);
-	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "poisonpot", "poisonpot", "sysmenu_wugushi", rightMargin, offsetX);	
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "poisonpot", "poisonpot", "sysmenu_wugushi", rightMargin, offsetX);	    
 end
 
 function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, rightMargin, offsetX, hotkeyName)

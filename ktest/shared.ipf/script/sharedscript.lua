@@ -1014,18 +1014,20 @@ function IS_WARPNPC(zoneClassName, npcFunc)
 end
 
 function table.find(t, ele)
-    local count = #t
-    if count > 0 then
-        for i = 1, count do
-            if type(t[i]) ~= type(ele) then
-                if type(t[i]) == 'number' then
-                    ele = tonumber(ele)
-                elseif type(t[i]) == 'string' then
-                    ele = tostring(ele)
+    if t ~= nil then
+        local count = #t
+        if count > 0 then
+            for i = 1, count do
+                if type(t[i]) ~= type(ele) then
+                    if type(t[i]) == 'number' then
+                        ele = tonumber(ele)
+                    elseif type(t[i]) == 'string' then
+                        ele = tostring(ele)
+                    end
                 end
-            end
-            if t[i] == ele then
-                return i
+                if t[i] == ele then
+                    return i
+                end
             end
         end
     end
@@ -1850,3 +1852,38 @@ end
 --    
 --    return 'NO'
 --end
+
+
+
+function SCR_TABLE_TYPE_SEPARATE(inputTable, typeTable)
+    local index = 1
+    local tempTable = {}
+    local inputType
+    while 1 do
+        if index > #inputTable then
+            break
+        end
+        if table.find(typeTable, inputTable[index]) > 0 then
+            tempTable[inputTable[index]] = {}
+            inputType = inputTable[index]
+        elseif inputType ~= nil then
+            tempTable[inputType][#tempTable[inputType] + 1] = inputTable[index]
+        end
+        
+        index = index + 1
+    end
+    local retTable = {}
+    for i = 1, #typeTable do
+        retTable[typeTable[i]] = tempTable[typeTable[i]]
+    end
+    
+    return retTable
+end
+
+function IS_IN_EVENT_MAP(pc)
+    if GetZoneName(pc) == 'c_Klaipe_event' then
+        return true;
+    end
+
+    return false;
+end

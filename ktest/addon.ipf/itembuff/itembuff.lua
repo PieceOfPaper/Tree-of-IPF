@@ -115,6 +115,9 @@ function OPEN_MY_ITEMBUFF_UI(groupName, sellType, handle)
 	elseif sklName == 'Appraiser_Apprise' then
 		APPRAISAL_PC_UI_COMMON(groupName, sellType, handle);
 		return;
+    elseif groupName == 'Portal' then
+		PORTAL_SELLER_OPEN_UI(groupName, sellType, handle);
+		return;
 	end
 
 	OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle);
@@ -143,6 +146,9 @@ function OPEN_ITEMBUFF_UI(groupName, sellType, handle)
 		return
 	elseif sklName == 'Appraiser_Apprise' then
 		APPRAISAL_PC_UI_COMMON(groupName, sellType, handle);
+		return;
+    elseif groupName == 'Portal' then
+		PORTAL_SELLER_OPEN_UI(groupName, sellType, handle);
 		return;
 	end
 

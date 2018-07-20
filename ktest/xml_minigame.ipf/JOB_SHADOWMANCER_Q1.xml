@@ -1,0 +1,1442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="JOB_SHADOWMANCER_Q1" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="-2147483523">
+        <StageList>
+            <Stage Name="MAIN">
+                <ObjList>
+                    <Obj Type="Monster" MonType="155162" Pos="-85.77#136.64#-353.10" angle="75" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-25.45#136.64#-359.88" angle="75" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="357.89#136.64#-188.57" angle="-30" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="360.32#136.64#-130.85" angle="-30" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="327.20#136.64#204.93" angle="30" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="262.92#136.64#237.65" angle="30" genCount="1" genTime="20000" objectKey="5" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-95.74#136.64#292.45" angle="90" genCount="1" genTime="20000" objectKey="6" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-153.47#136.64#286.85" angle="120" genCount="1" genTime="20000" objectKey="7" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-27.16#136.64#296.65" angle="90" genCount="1" genTime="20000" objectKey="9" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="99.72#136.64#189.17" genCount="1" genTime="20000" objectKey="10" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="342.32#136.64#-75.60" angle="20" genCount="1" genTime="20000" objectKey="13" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="337.84#136.64#-10.93" genCount="1" genTime="20000" objectKey="14" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="340.76#136.64#134.62" angle="180" genCount="1" genTime="20000" objectKey="15" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="29.63#136.64#-355.10" angle="-80" genCount="1" genTime="20000" objectKey="16" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="190.76#136.64#-300.13" angle="100" genCount="1" genTime="20000" objectKey="17" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="326.27#136.64#-242.06" angle="120" genCount="1" genTime="20000" objectKey="19" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-281.71#136.64#-25.12" angle="-30" genCount="1" genTime="20000" objectKey="20" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-263.54#136.64#141.65" genCount="1" genTime="20000" objectKey="12" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-284.67#136.64#-87.39" genCount="1" genTime="20000" objectKey="18" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-266.04#136.64#-196.20" angle="45" genCount="1" genTime="20000" objectKey="21" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-61.25#136.64#103.92" angle="140" genCount="1" genTime="20000" objectKey="22" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="127.70#136.64#-69.73" angle="210" genCount="1" genTime="20000" objectKey="23" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="126.17#136.64#127.23" angle="130" genCount="1" genTime="20000" objectKey="24" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="1.21#136.64#-78.83" genCount="1" genTime="20000" objectKey="25" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-82.11#136.64#-238.20" genCount="1" genTime="20000" objectKey="26" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-28.41#136.64#173.57" genCount="1" genTime="20000" objectKey="27" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-224.93#136.64#-4.75" angle="90" genCount="1" genTime="20000" objectKey="28" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="35.71#136.64#-238.45" angle="20" genCount="1" genTime="20000" objectKey="30" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-94.71#136.64#-178.69" angle="50" genCount="1" genTime="20000" objectKey="31" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-143.22#136.64#-156.79" angle="90" genCount="1" genTime="20000" objectKey="32" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="195.83#136.64#107.70" angle="90" genCount="1" genTime="20000" objectKey="33" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-132.70#136.64#104.05" angle="45" genCount="1" genTime="20000" objectKey="34" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="146.65#136.64#-123.06" genCount="1" genTime="20000" objectKey="35" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="-63.18#136.64#-48.91" angle="50" genCount="1" genTime="20000" objectKey="36" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="223.52#136.64#-4.13" angle="15" genCount="1" genTime="20000" objectKey="37" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="215.77#136.64#-123.76" angle="80" genCount="1" genTime="20000" objectKey="38" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155162" Pos="134.05#136.64#-190.62" angle="-150" genCount="1" genTime="20000" objectKey="8" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="100"/>
+                                    <Num Num="255"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="NEXT_ST">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="1ST"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="시작!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="BUFF">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_JOB_SHADOWMANCER_Q1_PC_BUFF"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="1ST" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20024" Pos="-98.36#136.64#161.75" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="-136.67#136.64#-218.28" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="349.63#136.64#59.85" genCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="110.99#136.64#-339.41" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="194.16#136.64#-178.61" genCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="-265.59#136.64#61.35" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="79.31#136.64#305.73" genCount="1" genTime="20000" autoGen="0" objectKey="6" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="171.90#136.64#165.32" genCount="1" genTime="20000" autoGen="0" objectKey="7" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="280.45#136.64#-178.19" genCount="1" genTime="20000" autoGen="0" objectKey="8" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="-16.60#136.64#-167.51" genCount="1" genTime="20000" autoGen="0" objectKey="9" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="32.48#136.64#186.03" genCount="1" genTime="20000" autoGen="0" objectKey="10" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="3"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="-136.96#136.64#8.79" genCount="1" genTime="20000" autoGen="0" objectKey="11" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="REGEN">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1ST/0/1ST/1/1ST/2/1ST/3/1ST/4/1ST/5/1ST/6/1ST/7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="1ST/0/1ST/1/1ST/2/1ST/3/1ST/4/1ST/5/1ST/6/1ST/7"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="CHASER">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="1ST/8/1ST/9/1ST/10/1ST/11"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="1ST/8/1ST/9/1ST/10/1ST/11"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="추격자가 나타났습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="100"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="1ST"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="1ST"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="1ST"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2ND"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="1스테이지 종료{nl} 2스테이지가 시작됩니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="50S">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="50"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="50초 남았습니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="30S">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="70"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="30초 남았습니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="10000" execCount="1" eventName="10S">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 남았습니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="REGEN2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1ST/0/1ST/1/1ST/2/1ST/3/1ST/4/1ST/5/1ST/6/1ST/7"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="1ST/0/1ST/1/1ST/2/1ST/3/1ST/4/1ST/5/1ST/6/1ST/7"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2ND" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20024" Pos="-98.36#136.64#161.75" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="-136.67#136.64#-218.28" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="349.63#136.64#59.85" genCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="110.99#136.64#-339.41" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="194.16#136.64#-178.61" genCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="-265.59#136.64#61.35" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="79.31#136.64#305.73" genCount="1" genTime="20000" autoGen="0" objectKey="6" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="171.90#136.64#165.32" genCount="1" genTime="20000" autoGen="0" objectKey="7" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="280.45#136.64#-178.19" genCount="1" genTime="20000" autoGen="0" objectKey="8" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="-16.60#136.64#-167.51" genCount="1" genTime="20000" autoGen="0" objectKey="9" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="32.48#136.64#186.03" genCount="1" genTime="20000" autoGen="0" objectKey="10" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="-136.96#136.64#8.79" genCount="1" genTime="20000" autoGen="0" objectKey="11" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="REGEN1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO" CondFunc="">
+                                <MGameObj List="2ND/0/2ND/1/2ND/2/2ND/3/2ND/4/2ND/5/2ND/6/2ND/7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="2ND/0/2ND/1/2ND/2/2ND/3/2ND/4/2ND/5/2ND/6/2ND/7"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="REGEN2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO" CondFunc="">
+                                <MGameObj List="2ND/0/2ND/1/2ND/2/2ND/3/2ND/4/2ND/5/2ND/6/2ND/7"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="2ND/0/2ND/1/2ND/2/2ND/3/2ND/4/2ND/5/2ND/6/2ND/7"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="CHASER">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="2ND/8/2ND/9/2ND/10/2ND/11"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="2ND/8/2ND/9/2ND/10/2ND/11"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="추격자가 나타났습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="SPEED">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="2ND_SPEED"/>
+                                <Num Num="50"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="100"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="2ND"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="2ND"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="2ND"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3RD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="2스테이지 종료{nl}3스테이지가 시작됩니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="50S">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="50"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="50초 남았습니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="30S">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="70"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="30초 남았습니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="10000" execCount="1" eventName="10S">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 남았습니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="REGEN3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO" CondFunc="">
+                                <MGameObj List="2ND/0/2ND/1/2ND/2/2ND/3/2ND/4/2ND/5/2ND/6/2ND/7"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="2ND/0/2ND/1/2ND/2/2ND/3/2ND/4/2ND/5/2ND/6/2ND/7"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="START">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="1ST"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="1ST"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="1ST"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="3RD" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20024" Pos="-98.36#136.64#161.75" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="-136.67#136.64#-218.28" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="349.63#136.64#59.85" genCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="110.99#136.64#-339.41" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="194.16#136.64#-178.61" genCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="-265.59#136.64#61.35" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="79.31#136.64#305.73" genCount="1" genTime="20000" autoGen="0" objectKey="6" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="171.90#136.64#165.32" genCount="1" genTime="20000" autoGen="0" objectKey="7" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;FIXMSPD_BM&apos; &apos;80&apos; &apos;MSPD_BM&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Enter&apos; &apos;JOB_SHA_Q1_SHADOW&apos; &apos;Range&apos; &apos;5&apos; ">
+                        <SelfAI UpdateMS="100" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_SHADOW_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="280.45#136.64#-178.19" genCount="1" genTime="20000" autoGen="0" objectKey="8" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="-16.60#136.64#-167.51" genCount="1" genTime="20000" autoGen="0" objectKey="9" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="32.48#136.64#186.03" genCount="1" genTime="20000" autoGen="0" objectKey="10" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155161" Pos="-136.96#136.64#8.79" genCount="1" genTime="20000" autoGen="0" objectKey="11" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_JOB_SHADOWMANCER_Q1_CHASER_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_force071_mintdark" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="REGEN1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO" CondFunc="">
+                                <MGameObj List="3RD/0/3RD/1/3RD/2/3RD/3/3RD/4/3RD/5/3RD/6/3RD/7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="3RD/0/3RD/1/3RD/2/3RD/3/3RD/4/3RD/5/3RD/6/3RD/7"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="REGEN2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO" CondFunc="">
+                                <MGameObj List="3RD/0/3RD/1/3RD/2/3RD/3/3RD/4/3RD/5/3RD/6/3RD/7"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="3RD/0/3RD/1/3RD/2/3RD/3/3RD/4/3RD/5/3RD/6/3RD/7"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="REGEN3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO" CondFunc="">
+                                <MGameObj List="3RD/0/3RD/1/3RD/2/3RD/3/3RD/4/3RD/5/3RD/6/3RD/7"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="3RD/0/3RD/1/3RD/2/3RD/3/3RD/4/3RD/5/3RD/6/3RD/7"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="CHASER1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="3RD/8/3RD/9/3RD/10/3RD/11"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="추격자가 나타났습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="CHASER2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="3RD/8/3RD/9/3RD/10/3RD/11"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="추격자가 나타났습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="SPEED">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="3RD_SPEED"/>
+                                <Num Num="50"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="100"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="3RD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="3RD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="3RD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_JOB_SHADOWMANCER_Q1_SAVE_POINT"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="3스테이지 종료.{nl}잠시 후 훈련이 종료됩니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="50S">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="50"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="50초 남았습니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="30S">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="70"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="30초 남았습니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="10000" execCount="1" eventName="10S">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 남았습니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="REGEN4">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO" CondFunc="">
+                                <MGameObj List="3RD/0/3RD/1/3RD/2/3RD/3/3RD/4/3RD/5/3RD/6/3RD/7"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="3RD/0/3RD/1/3RD/2/3RD/3/3RD/4/3RD/5/3RD/6/3RD/7"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="START">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="2ND"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="2ND"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="2ND"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

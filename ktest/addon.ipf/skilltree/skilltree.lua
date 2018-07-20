@@ -173,8 +173,9 @@ function MAKE_CLASS_INFO_LIST(frame)
 
 		local startext = ""
 		local maxIndex = 3
-		if cls.HiddenJob == 'YES' then
-		    maxIndex = 1
+		local maxCircle = TryGetProp(cls,'MaxCircle')
+		if maxCircle ~= nil then
+		    maxIndex = maxCircle
 		end
 		for i = 1 , maxIndex do
 			if i <= classLv then

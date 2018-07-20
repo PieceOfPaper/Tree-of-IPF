@@ -143,9 +143,5 @@ end
 
 
 function SCR_3CMLAKE_CART_PRE_DIALOG(pc, dialog)
-    local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE261_SQ11')
-    if result == 'PROGRESS' then
-        return 'YES'
-    end
     return 'NO'
 end

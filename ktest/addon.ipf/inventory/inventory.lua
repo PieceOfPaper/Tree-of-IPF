@@ -25,6 +25,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('SWITCH_GENDER_SUCCEED', 'INVENTORY_ON_MSG');
     addon:RegisterMsg('RESET_ABILITY_UP', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('APPRAISER_FORGERY', 'INVENTORY_ON_APPRAISER_FORGERY');
+    addon:RegisterMsg('LOCK_FAIL', 'ON_LOCK_FAIL');
 
 	addon:RegisterOpenOnlyMsg('REFRESH_ITEM_TOOLTIP', 'ON_REFRESH_ITEM_TOOLTIP');
 	addon:RegisterMsg('TOGGLE_EQUIP_ITEM_TOOLTIP_DESC', 'ON_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC');
@@ -2639,7 +2640,11 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 
 	local state = 1;
 	local slot = tolua.cast(object, "ui::CSlot");
-	slot:Select(0)
+    local parent = slot:GetParent();
+	slot:Select(0);
+    invframe:SetUserValue('LOCK_SLOT_PARENT_NAME', parent:GetName());
+    invframe:SetUserValue('LOCK_SLOT_NAME', slot:GetName());
+
 	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
 	if true == selectItem.isLockState then
 		state = 0;
@@ -2976,4 +2981,17 @@ function DO_WEAPON_SWAP_2(frame)
 	end
 
 	DO_WEAPON_SWAP(frame, 2)
+end
+
+function ON_LOCK_FAIL(frame, msg, argStr, argNum)
+    local slotParentName = frame:GetUserValue('LOCK_SLOT_PARENT_NAME');
+    local slotName = frame:GetUserValue('LOCK_SLOT_NAME');
+    local parent = GET_CHILD_RECURSIVELY(frame, slotParentName);
+    local slot = GET_CHILD(parent, slotName);
+    if slot ~= nil then
+        local lockPic = slot:GetChild('itemlock');
+        if lockPic ~= nil then
+            lockPic:ShowWindow(0);
+        end
+    end 
 end

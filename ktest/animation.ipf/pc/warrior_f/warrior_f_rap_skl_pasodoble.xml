@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AfterImage frame="5" term="10" blendTime="300" r="255" g="120" b="70" a="110"/>
+	<AfterImage frame="12" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Shockwave frame="8" type="2" intensity="1" frequency="130" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="skl_eff_matador_pasodoble"/>
+	<Particle frame="5" attachNode="Dummy_trail" particleName="WeaponTrail_Redel_abil" useAttach="anim" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Bip01" particleName="F_spin005_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="false" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
+</ActionDesc>

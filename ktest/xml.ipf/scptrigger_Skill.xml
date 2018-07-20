@@ -130,6 +130,21 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="Matador_Faena">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_CRITICAL" Client="NO" UseSleep="NO"/>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="SeeRed_Debuff"/>
+						<Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="Fletcher_BodkinPoint">
 		<TriggerList Act="BeforeAttack">
 			<Trigger>

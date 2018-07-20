@@ -546,21 +546,23 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 	local iconImg = itemCls.Icon;
 		
 	-- costume icon is decided by PC's gender
-    if itemCls.ItemType == 'Equip' and itemCls.ClassType == 'Outer' then
-
-		local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
-
-		if tempiconname ~= "_m" and tempiconname ~= "_f" then
-			if gender == nil then
-				gender = GETMYPCGENDER();
-			end
-
-    		if gender == 1 then
-    			iconImg = itemCls.Icon.."_m"
-    		else
-    			iconImg = itemCls.Icon.."_f"
+    if itemCls.ItemType == 'Equip' then
+        if itemCls.ClassType == 'Outer' or  itemCls.ClassType  == 'SpecialCostume' then
+    
+    		local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
+    
+    		if tempiconname ~= "_m" and tempiconname ~= "_f" then
+    			if gender == nil then
+    				gender = GETMYPCGENDER();
+    			end
+    
+        		if gender == 1 then
+        			iconImg = itemCls.Icon.."_m"
+        		else
+        			iconImg = itemCls.Icon.."_f"
+        		end
     		end
-		end
+    	end
 	else
 		local faceID = TryGetProp(itemCls, 'BriquettingIndex');
 		if nil ~= faceID and tonumber(faceID) > 0 then
@@ -576,7 +578,7 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 end
 
 function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
-		
+
 	slotset:ClearIconAll();
 
 	local itemList = session.GetEtcItemList(etcType);

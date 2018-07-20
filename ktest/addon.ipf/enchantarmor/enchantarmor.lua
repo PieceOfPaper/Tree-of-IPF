@@ -3,10 +3,14 @@
 function ENCHANTAMOR_ON_INIT(addon, frame)
 end
 
-function ENCHANTARMOR_OPEN_UI_SET(frame, obj)
+function AUTOSELLER_REGISTER_FRAME_INIT(frame, obj)
 	frame:SetUserValue("SKILLNAME", obj.ClassName)
 	frame:SetUserValue("SKILLLEVEL", obj.Level)
+end
 
+function ENCHANTARMOR_OPEN_UI_SET(frame, obj)
+	AUTOSELLER_REGISTER_FRAME_INIT(frame, obj);
+	
 	local repair = frame:GetChild('repair');
 	local materialGbox = repair:GetChild('materialGbox');
 	local reqitemNameStr = materialGbox:GetChild("reqitemNameStr");

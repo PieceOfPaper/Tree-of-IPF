@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <imcErrorCode>
 	<Code Code="FATAL_ASSERT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다."/>
 	<Code Code="FATAL_ASSERT_EX" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 다음 정보를 참조하세요."/>
@@ -518,4 +518,5 @@ Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc
 	<Code Code="ERROR_FISH_RUBBING_SCORE" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 점수 에러"/>
 	<Code Code="ERROR_FISH_RUBBING_STATUE" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 동상 에러 "/>
 	<Code Code="INFO_DB_INIT" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 초기화 관련 정보"/>
+	<Code Code="ERROR_PADSKILL_OVERRIDE_CLONE_FAIL" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="패드 스킬 프로퍼티 오버라이드 중 클론 생성 실패"/>
 </imcErrorCode>

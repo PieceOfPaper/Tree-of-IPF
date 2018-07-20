@@ -122,7 +122,7 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForge
 
 	if invitem.TooltipImage ~= nil and invitem.TooltipImage ~= 'None' then
 	
-    	if invitem.ClassType ~= 'Outer' then
+    	if invitem.ClassType ~= 'Outer' and invitem.ClassType ~= 'SpecialCostume' then
 			imageName = GET_EQUIP_ITEM_IMAGE_NAME(invitem, "TooltipImage")
     		itemPicture:SetImage(imageName);
     		itemPicture:ShowWindow(1);

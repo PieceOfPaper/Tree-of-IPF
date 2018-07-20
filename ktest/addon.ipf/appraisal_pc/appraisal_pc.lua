@@ -6,10 +6,9 @@ function APPRAISAL_PC_UI_COMMON(groupName, sellType, handle)
 	-- set user value
 	local frame = ui.GetFrame("appraisal_pc");
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
-	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;
-	frame:SetUserValue("GroupName", groupName);
-	frame:SetUserValue("SELL_TYPE", sellType);
-	frame:SetUserValue("HANDLE", handle);
+    AUTOSELLER_SET_SELLER_VALUE(frame, groupName, sellType, handle);
+
+	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;	
 	frame:SetUserValue("SKILLNAME", sklName)
 
 	-- default tab: appraisalBox
@@ -22,6 +21,12 @@ function APPRAISAL_PC_UI_COMMON(groupName, sellType, handle)
 	APPRAISAL_PC_REFRESH(frame);
 	
 	frame:ShowWindow(1);
+end
+
+function AUTOSELLER_SET_SELLER_VALUE(frame, groupName, sellType, handle)
+    frame:SetUserValue("GroupName", groupName);
+	frame:SetUserValue("SELL_TYPE", sellType);
+	frame:SetUserValue("HANDLE", handle);
 end
 
 function APPRAISAL_PC_CALC_NEEDCOUNT(frame)

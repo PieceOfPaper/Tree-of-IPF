@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="JOB_MATADOR_QUSET_MINIGAME" minLv="0" maxLv="0" startWaitSec="1632352">
+        <StageList>
+            <Stage Name="Stage2">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41448" Pos="1392.46#1094.28#762.09" angle="-15" range="100" genCount="1" genTime="20000" objectKey="0" propList="&apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="41448" Pos="1459.62#1094.28#257.74" range="100" genCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; "/>
+                    <Obj Type="Monster" MonType="41448" Pos="1598.24#1094.28#345.07" range="100" genCount="1" genTime="20000" objectKey="2" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; "/>
+                    <Obj Type="Monster" MonType="41448" Pos="1664.92#1094.28#815.43" range="100" genCount="1" genTime="20000" objectKey="3" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; "/>
+                </ObjList>
+            </Stage>
+            <Stage Name="Stage3">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41249" Pos="1351.88#1094.28#613.57" range="100" genCount="1" genTime="20000" objectKey="0" propList="&apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="41249" Pos="1667.63#1094.28#658.73" range="100" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="41249" Pos="1622.35#1094.28#527.95" range="100" genCount="1" genTime="20000" objectKey="2" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; "/>
+                    <Obj Type="Monster" MonType="41249" Pos="1306.66#1094.28#247.63" range="100" genCount="1" genTime="20000" objectKey="3" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; "/>
+                </ObjList>
+            </Stage>
+            <Stage Name="Stage4">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401761" Pos="1521.99#1094.28#856.76" range="100" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; "/>
+                    <Obj Type="Monster" MonType="401761" Pos="1513.62#1094.28#598.54" range="100" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="401761" Pos="1513.62#1094.28#417.59" range="100" genCount="1" genTime="20000" objectKey="2" propList="&apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="401761" Pos="1274.10#1094.28#432.35" range="100" genCount="1" genTime="20000" objectKey="3" propList="&apos;SimpleAI&apos; &apos;JOB_MATADOR1_MON_AI&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                </ObjList>
+            </Stage>
+            <Stage Name="Trap1">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20024" Pos="620.36#1178.06#410.87" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP1_1_AI">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="561.25#1178.06#696.58" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP1_2_AI">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="596.82#1178.06#541.59" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP1_3_AI">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="732.60#1178.06#519.19" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP1_4_AI">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="715.77#1178.06#659.94" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP1_5_AI">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="463.87#1178.05#537.89" genCount="1" genTime="20000" objectKey="5" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP1_6_AI">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="Trap2">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20024" Pos="798.82#1178.06#645.41" range="20" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP2_1_AI">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="525.50#1177.94#476.08" range="20" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP2_2_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="637.62#1178.06#688.92" range="20" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP2_3_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="792.53#1178.06#516.85" range="20" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP2_4_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="693.25#1178.53#391.52" range="20" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP2_5_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="463.51#1178.06#789.19" range="20" genCount="1" genTime="20000" objectKey="5" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP2_6_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="486.71#1178.06#637.66" range="20" genCount="1" genTime="20000" objectKey="6" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP2_7_AI"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="Advantage1">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20024" Pos="629.16#1178.06#758.89" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;어드밴티지&apos; " SimpleAI="MATADOR_MON_ADVANTAGE1_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="596.77#1178.06#472.36" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;어드밴티지&apos; " SimpleAI="MATADOR_MON_ADVANTAGE2_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="780.57#1178.06#443.83" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;어드밴티지&apos; " SimpleAI="MATADOR_MON_ADVANTAGE3_AI">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="Trap3">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20024" Pos="860.05#1178.06#553.14" range="50" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP3_1_AI">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20024" Pos="781.38#1178.06#585.73" range="50" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP3_2_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="663.11#1178.06#589.28" range="50" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP3_3_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="545.78#1178.02#403.03" range="50" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP3_4_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="527.50#1178.06#580.48" range="50" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP3_5_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="561.59#1178.06#801.28" range="50" genCount="1" genTime="20000" objectKey="5" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP3_6_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="677.30#1178.06#463.48" range="50" genCount="1" genTime="20000" objectKey="6" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP3_7_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="460.07#1177.90#456.47" range="50" genCount="1" genTime="20000" objectKey="7" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP3_8_AI"/>
+                    <Obj Type="Monster" MonType="20024" Pos="484.53#1178.06#721.01" range="50" genCount="1" genTime="20000" objectKey="8" propList="&apos;Name&apos; &apos;UnvisibleName&apos; " SimpleAI="MATADOR_MON_TRAP3_9_AI">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="Trap_Setting">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20026" Pos="1076.81#1094.28#510.38" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Enter&apos; &apos;TRAP_SETTING&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Range&apos; &apos;90&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Trap1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Trap2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Trap3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Trap1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Trap2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Trap3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="3" R="50" G="70" B="100" A="100"/>
+	<BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="1" term="50" blendTime="300" r="30" g="30" b="160" a="110"/>
+	<AfterImage frame="5" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Sound frame="0.00" soundFile="skl_eff_matador_backslide"/>
+	<Particle frame="1" attachNode="dummy_emitter" particleName="F_warrior_backslide_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="1" attachNode="Dummy_effect_making" particleName="F_dash011_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

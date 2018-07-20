@@ -150,6 +150,9 @@ function EQUIP_MENDING_SKL(skillType)
 		ENCHANTARMOR_OPEN_UI_SET(frame, obj)
 		frame:ShowWindow(1);
 		return;
+    elseif "Sage_PortalShop" == clsName then
+        PORTAL_SHOP_REGISTER_OPEN(obj);
+        return;
 	end
 
 	local frame = ui.GetFrame("itembuff");

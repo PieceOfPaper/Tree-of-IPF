@@ -86,6 +86,10 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 	if argStr == "None" then
 		return;
 	end
+
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
 	
 	local mypclevel = GETMYPCLEVEL();
 	local levelcolor = ""

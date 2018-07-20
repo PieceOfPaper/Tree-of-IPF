@@ -131,6 +131,10 @@ function MY_AUTOSELL_HISTORY(groupName, sellType)
 		local appraisal_pc = ui.GetFrame('appraisal_pc');
 		APPRAISAL_PC_UPDATE_HISTORY(appraisal_pc);
 		return;
+    elseif sellType == AUTO_SELL_PORTAL then
+        local portal_seller = ui.GetFrame('portal_seller');
+        PORTAL_SELLER_UPDATE_HISTORY(portal_seller);
+        return;
 	end
 
 	local frame = ui.GetFrame("buffseller_my");

@@ -145,9 +145,14 @@ function C_VOICE_SOUND(actor, obj, maleVoice, femaleVoice)
     
 end
 
-function MONSKL_C_PLAY_ANIM(actor, skill, animName, spd, freezeAnim)
+function MONSKL_C_PLAY_ANIM(actor, skill, animName, spd, freezeAnim, cancelByHit)
+    local _cancelByHit = false;
+    if cancelByHit == 1 then    
+        _cancelByHit = true;
+    end
+
     actor:GetAnimation():ResetAnim();
-    actor:GetAnimation():PlayFixAnim(animName, spd, freezeAnim, 0);
+    actor:GetAnimation():PlayFixAnim(animName, spd, freezeAnim, 0, 0, 0, true, 0, _cancelByHit);
 end
 
 function MONSKL_C_PLAY_ANIM_OOBE(actor, skill, animName, spd, freezeAnim)

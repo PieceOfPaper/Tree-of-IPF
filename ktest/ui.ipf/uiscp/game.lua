@@ -216,7 +216,7 @@ function MAKE_ALL_DEFAULT_HAIR()
 end
 
 	
-function TEST_AYASE()    
+function TEST_AYASE()
     print("friend ui test");    
     session.friends.TestAddManyFriend(FRIEND_LIST_COMPLETE, 200);
     session.friends.TestAddManyFriend(FRIEND_LIST_BLOCKED, 100);
@@ -2014,6 +2014,21 @@ function GETMYPCNAME()
 	local MySession		= session.GetMyHandle()
 	local CharName		= info.GetName(MySession);
 	return CharName;
+end
+
+function GETMYPETNAME()
+	local summonedPet = GET_SUMMONED_PET();
+	if summonedPet == nil then
+		return;
+	end
+
+	local petInfo = session.pet.GetPetByGUID(summonedPet:GetStrGuid());
+	if petInfo == nil then
+		return;
+	end
+
+	local petName = petInfo:GetName();
+    return petName;
 end
 
 function CHECK_EQUIPABLE(type)
@@ -4212,3 +4227,9 @@ function BLOCK_MSG(blockName, sysTime)
 	
 end
 
+function UI_CHECK_NOT_EVENT_MAP()
+    if IS_IN_EVENT_MAP() == true then
+        return 0;
+    end
+    return 1;
+end

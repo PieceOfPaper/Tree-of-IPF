@@ -480,10 +480,12 @@ function UPDATE_COLLECTION_LIST(frame, addType, removeType)
 		local collectionInfo = GET_COLLECTION_INFO(collectionClass, collection,etcObject, collectionCompleteMagicList);
 		if CHECK_COLLECTION_INFO_FILTER(collectionInfo, searchText, collectionClass, collection) == true then
 		    -- data input
-			collectionInfoList[collectionInfoIndex] = {cls = collectionClass, 
-													   coll = collection, 
-													   info = collectionInfo };
-			collectionInfoIndex = collectionInfoIndex +1;
+		    if collectionClass.Journal == 'TRUE' then
+    			collectionInfoList[collectionInfoIndex] = {cls = collectionClass, 
+    													   coll = collection, 
+    													   info = collectionInfo };
+    			collectionInfoIndex = collectionInfoIndex +1;
+    		end
 		end
 	end
 	

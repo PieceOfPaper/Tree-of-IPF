@@ -69,45 +69,45 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		gBox:RemoveChild("CTRLSET_TOKEN_TRADECOUNT");	
 	end	
 
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
-    prop:SetTextByKey("value", imag..ClMsg("CanGetMoreBuff")); 
-    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-    value:ShowWindow(0);
-
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 5,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img paid_pose_image %d %d}", 55, 45) 
     prop:SetTextByKey("value", imag..ClMsg("AllowPremiumPose")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img paid_pose_image %d %d}", 55, 45)
     prop:SetTextByKey("value", imag..ClMsg("CanGetMoneyByMarketImmediately")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img MarketLimitedRM_image %d %d}", 55, 45)
     prop:SetTextByKey("value", imag..ClMsg("CanRegisterMarketRegradlessOfLimit")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
-local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img teamcabinet_image %d %d}", 55, 45)
     prop:SetTextByKey("value", imag..ClMsg("TeamWarehouseEnable")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
-    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 11,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img 1plus_image %d %d}", 55, 45)
     prop:SetTextByKey("value", imag..ClMsg("Mission_Reward")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
+    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img 2minus_image %d %d}", 55, 45)
+    prop:SetTextByKey("value", imag..ClMsg("RaidStance")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 

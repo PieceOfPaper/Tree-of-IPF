@@ -334,10 +334,17 @@ function ADVENTURE_BOOK_SEARCH_PROP_BY_CLASSID_FUNC(clsID, idSpace, propName, se
 
 	local cls = GetClassByType(idSpace, clsID)
 	local prop = TryGetProp(cls, propName);
+
 	if prop == nil then
 		return false;
 	end
-    
+
+	if propName == "Name" then
+		if config.GetServiceNation() ~= "KOR" then
+			prop = dic.getTranslatedStr(prop);				
+		end
+	end
+
 	prop = string.lower(prop);
 	searchText = string.lower(searchText);
 	

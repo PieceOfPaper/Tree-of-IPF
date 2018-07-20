@@ -13,6 +13,118 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="BOW04_117">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_DeployPavise"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StoneShot"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StonePicking"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_Teardown"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RapidFire"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RunningShot"/>
+						<Num Num="3"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_ScatterCaltrop"/>
+						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RunningShot"/>
+						<Num Num="-3"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RapidFire"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_Teardown"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StonePicking"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StoneShot"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_ScatterCaltrop"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_DeployPavise"/>
+						<Num Num="-2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="DAG04_113">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Rogue_Backstab"/>
+						<Num Num="1.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="CAN04_108">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SweepingCannon"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_Bazooka"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SweepingCannon"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_Bazooka"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="costume_Com_41">
 		<TriggerList Act="UnEquip">
 			<Trigger>
@@ -408,6 +520,80 @@
 						<Num Num="1"/>
 						<Num Num="100"/>
 						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="MAC04_119">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOS_MACE"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOS_MACE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="MUS04_108">
+		<TriggerList Act="AfterHitScript_Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_DAMTYPE" Client="NO" UseSleep="NO">
+						<Num Num="4"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF2" Client="NO" UseSleep="NO">
+						<Str Str="Item_BLOCK_Debuff"/>
+						<Num Num="1"/>
+						<Num Num="400"/>
+						<Num Num="10000"/>
+						<Num Num="1"/>
+						<Num Num="10"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="HAND04_112">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="ATK_ICE_SLOW_PRE"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ATK_ICE_SLOW_PRE"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -995,6 +1181,99 @@
 				<ExecList>
 					<ToolScp Scp="SPCI_DAGGER_MULTIPLE_HIT" Client="BOTH" UseSleep="NO">
 						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="PST04_110">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Bulletmarker_DoubleGunStance"/>
+						<Num Num="-2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Bulletmarker_DoubleGunStance"/>
+						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="SPR04_118">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="5"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="1" UseFunc="1" FuncTxt="if IS_PC(self) == true then
+
+return self.Lightning_Atk*10
+else
+
+return 0;
+
+end"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="RAP04_112">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOSRAPIER_5ATTACK"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_IS_NORMAL_ATTACK" Client="NO" UseSleep="NO"/>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOSRAPIER_5ATTACK"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOSRAPIER_PRE"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOSRAPIER_PRE"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOSRAPIER_STACK_CRIATK"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOSRAPIER_5ATTACK"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -2825,6 +3104,80 @@ return self.MNA;"/>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="STF04_118">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOS_ROD_PRE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOS_ROD_PRE"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSP04_119">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOSTHSPEAR_PRE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOSTHSPEAR_PRE"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TBW04_117">
+		<TriggerList Act="AfterHitScript_Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_BACK_OF_THE_HEAD" Client="NO" UseSleep="NO">
+						<Num Num="70"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+						<Str Str="CRIDR_Debuff"/>
+						<Num Num="1"/>
+						<Num Num="10"/>
+						<Num Num="5000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="TMAC05_102">
 		<TriggerList Act="AfterHitScript_Attack">
 			<Trigger>
@@ -4129,6 +4482,32 @@ return self.RSP;"/>
 					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Elementalist_Prominence"/>
 						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSW04_117">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOS_THSWORD_PRE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="MASINIOS_THSWORD_PRE"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>

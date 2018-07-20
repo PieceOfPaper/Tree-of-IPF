@@ -137,12 +137,12 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 		value:SetTextByKey("value", img);
 	end
 	
-	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
-    prop:SetTextByKey("value", imag..ClMsg("CanGetMoreBuff")); 
-    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-    value:ShowWindow(0);
+--	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+--    local prop = ctrlSet:GetChild("prop");
+--    local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
+--    prop:SetTextByKey("value", imag..ClMsg("CanGetMoreBuff")); 
+--    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+--    value:ShowWindow(0);
 
 	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
@@ -178,7 +178,14 @@ local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 11,  ui.
     prop:SetTextByKey("value", imag..ClMsg("Mission_Reward")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
-
+    
+    local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 13,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img 2minus_image %d %d}", 55, 45)
+    prop:SetTextByKey("value", imag..ClMsg("RaidStance")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+    
 	STATUS_OVERRIDE_NEWCONTROLSET1(tokenList)
 	
 	GBOX_AUTO_ALIGN(tokenList, 0, 0, 0, false, true);
@@ -1570,6 +1577,17 @@ function CHANGE_MYPC_NAME(frame)
 
 end
 
+function CHANGE_MYPET_NAME()
+        local petName = GETMYPETNAME();
+        if petName == nil then
+        	ui.SysMsg(ClMsg("SummonedPetDoesNotExist"));
+            return;
+        end
+	local newframe = ui.GetFrame("inputstring");
+	newframe:SetUserValue("InputType", "PetName");
+	INPUT_STRING_BOX(ClMsg("PetName"), "EXEC_CHANGE_NAME_PET", petName, 0, 16);
+end
+
 CHAR_NAME_LEN = 20;
 
 function EXEC_CHANGE_NAME(inputframe, ctrl)
@@ -1579,7 +1597,17 @@ function EXEC_CHANGE_NAME(inputframe, ctrl)
 	end
 
 	local changedName = GET_INPUT_STRING_TXT(inputframe);
-	OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, changedName);
+	OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, "pcName", changedName, GETMYPCNAME());
+end
+
+function EXEC_CHANGE_NAME_PET(inputframe, ctrl)
+
+	if ctrl:GetName() == "inputstr" then
+		inputframe = ctrl;
+	end
+
+	local changedName = GET_INPUT_STRING_TXT(inputframe);
+	OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, "petName", changedName, GETMYPETNAME());
 end
 
 function STATUS_AVG(frame)
