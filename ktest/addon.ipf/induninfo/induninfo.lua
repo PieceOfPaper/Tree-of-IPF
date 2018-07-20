@@ -175,10 +175,8 @@ function GET_CURRENT_ENTERANCE_COUNT(resetGroupID)
         end
     end
     
-    if indunCls.WeeklyEnterableCount ~= 0 then
-        if indunCls.WeeklyEnterableCount ~= "None" or indunCls.WeeklyEnterableCount ~= nil then
-            return(etc['IndunWeeklyEnteredCount_'..resetGroupID])
-        end
+    if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
+        return(etc['IndunWeeklyEnteredCount_'..resetGroupID])
     else
         return etc['InDunCountType_'..resetGroupID];
     end
@@ -209,10 +207,8 @@ function GET_MAX_ENTERANCE_COUNT(resetGroupID)
     if isTokenState == true then
         bonusCount = indunCls.PlayPerReset_Token
     end
-    if indunCls.WeeklyEnterableCount ~= 0 then
-        if indunCls.WeeklyEnterableCount ~= "None" or indunCls.WeeklyEnterableCount ~= nil then
-            return indunCls.WeeklyEnterableCount + bonusCount;
-        end
+    if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
+        return indunCls.WeeklyEnterableCount + bonusCount;
     else
         return indunCls.PlayPerReset + bonusCount;
     end

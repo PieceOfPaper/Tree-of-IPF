@@ -3902,6 +3902,21 @@ function SCR_GET_SKL_COOLDOWN_MortalSlash(skill)
         end
     end
 	
+	if IsBuffApplied(pc, "Bunshin_Debuff") == "YES" then
+		local bunshinBuff = nil
+		local bunsinCount = nil
+	    if IsServerObj(pc) == 1 then
+	    	bunshinBuff = GetBuffByName(pc, "Bunshin_Debuff")
+	    	bunsinCount = GetBuffArg(bunshinBuff)
+	    else 
+			local handle = session.GetMyHandle();
+			bunshinBuff = info.GetBuff(handle, 3049)
+			bunsinCount = bunshinBuff.arg1
+	    end
+		
+    	basicCoolDown = basicCoolDown + (bunsinCount * 2000 + (basicCoolDown * (bunsinCount * 0.1)))
+    end
+    
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;   
     return math.floor(ret);
