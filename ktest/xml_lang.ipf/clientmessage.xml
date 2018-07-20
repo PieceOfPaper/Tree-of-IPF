@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -10809,13 +10809,13 @@
 		<Class ClassID="1000006" ClassName="AlreadyEndedChallengeMode" Data="포탈이 닫혀버려 참여하지 못했습니다."/>
 		<Class ClassID="1000007" ClassName="AlreadyOpendChallengeModePortal" Data="다른 곳에 이미 포탈이 열려있습니다."/>
 		<Class ClassID="1000008" ClassName="ChallengeModePortalMark" Data="챌린지 모드 포탈"/>
-		<Class ClassID="1000009" ClassName="CantJoinHighLevel_ChallengeMode" Data="이곳에 도전하기에는 내가 너무 강합니다."/>
+		<Class ClassID="1000009" ClassName="CantJoinHighLevel_ChallengeMode" Data="캐릭터의 레벨이 너무 높아 입장하실 수 없습니다."/>
 		<Class ClassID="1000010" ClassName="CantReceiveReward_NotAppropriateLevel" Data="해당 지역과 레벨 차이가 너무 많이 나기 때문에 보상이 지급되지 않습니다."/>
 		<Class ClassID="1000011" ClassName="TimeOver_ChallengeMode" Data="제한 시간을 초과하여 실패하였습니다."/>
 		<Class ClassID="1000012" ClassName="Create_ChallengeMode_WarpPortal" Data="현재 지역에 챌린지 모드 포탈이 생성되었습니다."/>
 		<Class ClassID="1000013" ClassName="AllDead_ChallengeMode" Data="모든 도전자가 사망하여 실패하였습니다."/>
 		<Class ClassID="1000014" ClassName="AlreadyFailOrDestroy_ChallengeMode" Data="먼저 도전 중인 파티원이 도전 실패 또는 완료하여 참여할 수 없습니다.{nl}잠시 후 다시 시도해주십시오."/>
 		<Class ClassID="1000015" ClassName="CantResurrect_ChallengeMode" Data="도전에 실패하여 부활할 수 없습니다. 잠시 후 원래 장소로 돌아갑니다."/>
-		<Class ClassID="1000016" ClassName="CantJoinLowLevel_ChallengeMode" Data="이곳에 도전하기에는 내가 너무 약합니다."/>
+		<Class ClassID="1000016" ClassName="CantJoinLowLevel_ChallengeMode" Data="캐릭터의 레벨이 너무 낮아 입장하실 수 없습니다."/>
 	</Category>
 </idspace>

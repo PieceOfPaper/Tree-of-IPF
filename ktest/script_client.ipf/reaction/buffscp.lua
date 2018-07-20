@@ -1008,8 +1008,6 @@ function DoubleGunStance_LEAVE(actor, obj, buff)
     ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
 
-
-
 function ScpChangeMovingShotAnimationSet(actor, obj, buff)
     local buffRunningShot = actor:GetBuff():GetBuff('RunningShot_Buff');
     local buffDoubleGunStance = actor:GetBuff():GetBuff('DoubleGunStance_Buff');
@@ -1027,7 +1025,7 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
         actor:GetAnimation():SetRUNAnim("SKL_DOUBLEGUN_ARUN");
         actor:GetAnimation():SetLANDAnim("SKL_DOUBLEGUN_LAND")
         actor:GetAnimation():SetRAISEAnim("SKL_DOUBLEGUN_RAISE")
-        actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_ONAIR")
+--        actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_AONAIR")
         actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
     else
         -- RunningShot_Buff
@@ -1047,7 +1045,7 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
             actor:GetAnimation():SetRUNAnim("SKL_DOUBLEGUN_ARUN");
             actor:GetAnimation():SetLANDAnim("SKL_DOUBLEGUN_LAND")
             actor:GetAnimation():SetRAISEAnim("SKL_DOUBLEGUN_RAISE")
-            actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_ONAIR")
+--            actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_ONAIR")
             actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
         end
     end
@@ -1058,5 +1056,19 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
         actor:GetAnimation():SetTURNAnim("None");
         actor:SetMovingShotAnimation("SKL_LIMACON");
         actor:SetAlwaysBattleState(true);
+    end
+end
+
+function SCR_ANIM_archer_f_bow_aonair(handle)
+    local actor = world.GetActor(handle);
+    if actor ~= nil then
+        local buffDoubleGunStance = actor:GetBuff():GetBuff('DoubleGunStance_Buff');
+        if buffDoubleGunStance ~= nil then
+            actor:DetachCopiedModel();
+            actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_L_HAND");
+            
+            actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
+            actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
+        end
     end
 end

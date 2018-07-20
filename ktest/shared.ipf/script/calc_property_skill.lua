@@ -14819,7 +14819,7 @@ function SCR_Get_SkillFactor_SmashBullet(skill)
     local pc = GetSkillOwner(skill);
     local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
-    local abil = GetAbility(pc, "Fencer5")
+    local abil = GetAbility(pc, "Bulletmarker6")
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
@@ -14859,7 +14859,7 @@ function SCR_Get_SkillFactor_JumpShot(skill)
     local pc = GetSkillOwner(skill);
     local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
-    local abil = GetAbility(pc, "Fencer5")
+    local abil = GetAbility(pc, "Mergen7")
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
@@ -14870,6 +14870,18 @@ end
 function SCR_GET_JumpShot_Ratio(skill)
     local value = 6 * skill.Level;
     return value;
+end
+
+function SCR_Get_SkillFactor_AssaultFire(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Schwarzereiter19")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
 end
 
 function SCR_Get_SkillFactor_DownFall(skill)
