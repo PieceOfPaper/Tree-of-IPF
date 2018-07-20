@@ -679,7 +679,7 @@ function SCR_ABIL_INQUISITOR9_ACTIVE(self, ability)
     local rItem  = GetEquipItem(self, 'RH');
     
     local addresdark = 0
-    if rItem.ClassType == "Mace" then
+    if rItem.ClassType == "Mace" or rItem.ClassType == "THMace" then
         addresdark = addresdark + ability.Level * 10
     end
     

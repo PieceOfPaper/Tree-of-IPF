@@ -6091,6 +6091,7 @@
 		<Class ClassID="107015" ClassName="AppraisalCost" Data="감정 비용"/>
 		<Class ClassID="107016" ClassName="AppraisedItemFor" Data=" 님의 아이템을 감정하였습니다."/>
 		<Class ClassID="107017" ClassName="InputPriceBetween{MIN}{MAX}" Data="{MIN}~{MAX} 사이의 값을 입력해주세요"/>
+    <Class ClassID="107018" ClassName="QuestItemIsLocked" Data="전직 퀘스트 아이템이 잠금 상태에 있습니다."/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="108001" ClassName="GetOut!WeMustTransportStones!" Data="비켜주십시오! 빨리 돌을 운반해야 합니다."/>

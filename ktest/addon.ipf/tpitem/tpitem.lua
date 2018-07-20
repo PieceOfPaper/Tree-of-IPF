@@ -253,8 +253,8 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	local screenbgTemp = GET_CHILD_RECURSIVELY(frame, 'screenbgTemp');
 	screenbgTemp:ShowWindow(0);
 	
-	buyBtn = GET_CHILD_RECURSIVELY(frame,"specialBuyBtn");	
-	buyBtn:ShowWindow(0);
+	--buyBtn = GET_CHILD_RECURSIVELY(frame,"specialBuyBtn");	
+	--buyBtn:ShowWindow(0);
 	
 	local ratio = option.GetClientHeight()/option.GetClientWidth();	
 	local limitMaxWidth = ui.GetSceneWidth() / ui.GetRatioWidth();
@@ -2631,15 +2631,15 @@ function TPSHOP_SELECTED_SPECIALGOODS_BANNER(tpSubgbox, control, strArg, numArg)
 	specialGoods:SetUrlInfo(GETBANNERURL(imgAddress));
 	specialGoods:Invalidate();
 	
-	local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
-	buyBtn:ShowWindow(1);									
-	buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, numArg);
-	buyBtn:SetEventScriptArgString(ui.LBUTTONUP, strArg);
-	buyBtn:SetUserValue("LISTINDEX", listIndex);
+	--local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
+	--buyBtn:ShowWindow(1);									
+	--buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, numArg);
+	--buyBtn:SetEventScriptArgString(ui.LBUTTONUP, strArg);
+	--buyBtn:SetUserValue("LISTINDEX", listIndex);
 	
-	buyBtn:SetEventScript(ui.MOUSEMOVE, '_TPSHOP_STOPROLLING_SPECIALGOODS');
+	--buyBtn:SetEventScript(ui.MOUSEMOVE, '_TPSHOP_STOPROLLING_SPECIALGOODS');
 	
-	TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, 0);	
+	--TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, 0);	
 end
 
 function TPSHOP_SELECTED_SPECIALPACKAGES_BANNER(tpSubgbox, control, strArg, numArg)
@@ -2678,19 +2678,19 @@ function TPSHOP_SELECTED_SPECIALPACKAGES_BANNER(tpSubgbox, control, strArg, numA
 	specialGoods = tolua.cast(specialGoods, "ui::CWebPicture");	
 	specialGoods:SetUrlInfo(GETBANNERURL(imgAddress));
 	
-	local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
-	if GETPACKAGE_JOBNUM_BYJOBNGENDER() == retNum then
-		buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
-		buyBtn:SetEventScriptArgString(ui.LBUTTONUP, itemClsID);
-		buyBtn:SetUserValue("LISTINDEX", listIndex);
-		buyBtn:ShowWindow(1);
-	else
-		buyBtn:ShowWindow(0);
-	end
-	buyBtn:SetEventScript(ui.MOUSEMOVE, '_TPSHOP_STOPROLLING_SPECIALGOODS');
+	--local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
+	--if GETPACKAGE_JOBNUM_BYJOBNGENDER() == retNum then
+	--	buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
+	--	buyBtn:SetEventScriptArgString(ui.LBUTTONUP, itemClsID);
+	--	buyBtn:SetUserValue("LISTINDEX", listIndex);
+	--	buyBtn:ShowWindow(1);
+	--else
+	--	buyBtn:ShowWindow(0);
+	--end
+	--buyBtn:SetEventScript(ui.MOUSEMOVE, '_TPSHOP_STOPROLLING_SPECIALGOODS');
 			
-	local jobCountMax = control:GetUserValue("jobCountMax");	
-	TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, 1, jobCountMax, packageID, control:GetName(), itemClsID, retNum);			
+	--local jobCountMax = control:GetUserValue("jobCountMax");	
+	--TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, 1, jobCountMax, packageID, control:GetName(), itemClsID, retNum);			
 end
 
 function TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, isVisible, cnt, packageID, ctrlName, itemClsID, retNum)	
