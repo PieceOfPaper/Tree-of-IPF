@@ -56,7 +56,7 @@ function QUESTINFOSET_2_MAKE_CUSTOM(frame, updateSize)
 		local customQuest = geQuest.GetCustomQuestByIndex(i);
 		local key = customQuest:GetKey();
 		local ctrlName = "_Q_CUSTOM_" .. key;
-		-- ¿©±â¼­ °°Àº ÀÌ¸§À¸·Î Ã£°í »ý¼ºÇÏ´Ï µ¤¾î¾º¾îÁü
+		-- ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½î¾ºï¿½ï¿½ï¿½ï¿½
 		--local ctrlset = GroupCtrl:CreateOrGetControlSet('emptyset2', ctrlName, 0, 0);
 		local ctrlset = GroupCtrl:CreateOrGetControlSet('emptyset2', ctrlName.."_"..i, 0, 0);
 		ctrlset:Resize(GroupCtrl:GetWidth() - 20, ctrlset:GetHeight());
@@ -69,8 +69,7 @@ function QUESTINFOSET_2_MAKE_CUSTOM(frame, updateSize)
 end
 
 function ATTACH_QUEST_CTRLSET_TEXT(ctrlset, key, text, startx, y)
-
-	local content = ctrlset:CreateOrGetControl('richtext', key, startx, y, ctrlset:GetWidth(), 10);
+	local content = ctrlset:CreateOrGetControl('richtext', key, startx, y, ctrlset:GetWidth() - 60, 10);
 	tolua.cast(content, "ui::CRichText");
 	content:EnableSplitBySpace(0);
 	content:EnableHitTest(0);
@@ -111,9 +110,9 @@ function MGAME_QUEST_UPDATE(ctrlset)
 	DESTROY_CHILD_BYNAME(ctrlset, 'ITEM_');
 			
 	local nameTxt = "{@st42}";
-	local startx = 20;
+	local startx = 25;
 	local y = 20;
-
+    
 	local stageList = session.mgame.GetStageQuestList();
 	local stageCnt = stageList:size();
 	if stageCnt == 0 then
@@ -140,7 +139,7 @@ function MGAME_QUEST_UPDATE(ctrlset)
 
 				local titleName = stageInfo:GetTitleName();
 				if titleName ~= "" then
-					y = ATTACH_QUEST_CTRLSET_TEXT(ctrlset, "ITEM_TITLE_" .. j, "{@st41_yellow} ".. titleName, 50, y);
+					y = ATTACH_QUEST_CTRLSET_TEXT(ctrlset, "ITEM_TITLE_" .. j, "{@st41_yellow} ".. titleName, startx, y);
 				end
 
 				if timeOut > 0 and stageInstInfo ~= nil then
@@ -177,7 +176,23 @@ function MGAME_QUEST_UPDATE(ctrlset)
 		end
 	end
 	
-	ctrlset:Resize(ctrlset:GetWidth(), y + 10);
+	local avandonquest_try = ctrlset:GetChild("avandonquest_try")
+	if avandonquest_try ~= nil then
+	    avandonquest_try:ShowWindow(0)
+	end
+	local dialogReplay = ctrlset:GetChild("dialogReplay")
+	if dialogReplay ~= nil then
+	    dialogReplay:ShowWindow(0)
+	end
+	local abandon = ctrlset:GetChild("abandon")
+	if abandon ~= nil then
+	    abandon:ShowWindow(0)
+	end
+	local save = ctrlset:GetChild("save")
+	if save ~= nil then
+	    save:ShowWindow(0)
+	end
+	ctrlset:Resize(ctrlset:GetWidth(), y + 20);
 	return y;
 
 end

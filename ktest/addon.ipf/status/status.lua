@@ -191,7 +191,6 @@ end
 
 
 function STATUS_ON_PC_COMMENT_CHANGE(frame)
-
 	local socialInfo = session.social.GetMySocialInfo();
 	local logoutGBox = frame:GetChild("logoutGBox");
 	local logoutInternal = logoutGBox:GetChild("logoutInternal");
@@ -1690,7 +1689,12 @@ function STATUS_ACHIEVE_INIT(frame)
 			eachAchiveGauge:Resize(eachAchiveGBox:GetWidth() - eachAchiveStaticDesc:GetWidth() - 50, eachAchiveGauge:GetHeight() )
 			eachAchiveGauge:SetTextTooltip("(" .. nowpoint .. "/" .. cls.NeedCount ..")")
 
-			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 then
+			local isHasAchieve = 0;
+			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 and nowpoint >= cls.NeedCount then
+				isHasAchieve = 1;
+			end
+
+			if isHasAchieve == 1 then
 				if equipAchieveName ~= 'None' and equipAchieveName == cls.Name then
 					eachAchiveDescTitle:SetText('{@stx2}'..cls.DescTitle..ScpArgMsg('Auto__(SayongJung)'));
 				else
@@ -1707,7 +1711,7 @@ function STATUS_ACHIEVE_INIT(frame)
 			eachAchiveName:SetTextByKey('name', cls.Name);
         		eachAchiveReward:SetTextByKey('reward', cls.Reward);
 
-			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 then
+			if isHasAchieve == 1 then
 				eachAchiveGauge:ShowWindow(0)
 				--eachAchiveCSet:SetEventScript(ui.LBUTTONDOWN, "ACHIEVE_EQUIP");
 				--eachAchiveCSet:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
@@ -1820,7 +1824,14 @@ function STATUS_ACHIEVE_INIT(frame)
 			break;
 		end
 
-		if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 and cls.Name ~= "None" then
+		local nowpoint = GetAchievePoint(GetMyPCObject(), cls.NeedPoint)
+		
+		local isHasAchieve = 0;
+		if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 and nowpoint >= cls.NeedCount then
+			isHasAchieve = 1;
+		end
+
+		if isHasAchieve == 1 and cls.Name ~= "None" then
 
 			local achiveRichCtrl = customizingGBox:CreateOrGetControl('richtext', 'ACHIEVE_RICHTEXT_'..i, x, y, frame:GetWidth() - 5, 20);
 			

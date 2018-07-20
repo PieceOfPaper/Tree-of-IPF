@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -7295,7 +7295,8 @@
 		<image name="Dlg_port_WinonaEnde" file="\npcimg\WinonaEnde.png" imgrect="0 0 700 900" CMM_Caption="링커마스터"/>
 		<image name="Dlg_port_LoretaNimbus" file="\npcimg\LoretaNimbus.png" imgrect="0 0 800 1000" CMM_Caption="네크로멘서마스터"/>
 		<image name="Dlg_port_Gema" file="\npcimg\Gema.png" imgrect="0 0 700 900" CMM_Caption="로그마스터"/>
-		<image name="Dlg_port_Guerra" file="\npcimg\Guerra.png" imgrect="0 0 800 1000" CMM_Caption="도펠쥘트너마스터"/>
+		<image name="Dlg_port_Guerra" file="\npcimg\Guerra.png" imgrect="0 0 1000 1000" CMM_Caption="도펠쥘트너마스터"/>
+		<image name="Dlg_port_Guerra2" file="\npcimg\Guerra2.png" imgrect="0 0 1000 1000"/>
 		<image name="Dlg_port_OlfasGrimm" file="\npcimg\OlfasGrimm.png" imgrect="0 0 1000 1000" CMM_Caption="몽크마스터"/>
 		<image name="Dlg_port_OlfasGrimm2" file="\npcimg\OlfasGrimm2.png" imgrect="0 0 1000 1000" CMM_Caption="몽크마스터"/>
 		<image name="Dlg_port_Toras" file="\npcimg\Toras.png" imgrect="0 0 700 1000" CMM_Caption="오르샤_컴패니언상인"/>
@@ -7468,6 +7469,9 @@
 		<image name="icon_Weak_Magic" file="\icon\buff_icon.tga" imgrect="128 1792 128 128" CMM_Caption="마법 공격 약점"/>
 		<image name="icon_get_Item" file="\icon\buff_icon.tga" imgrect="256 1792 128 128" CMM_Caption="아이템 획득 버프"/>
 		<image name="icon_dead_skull" file="\icon\buff_icon.tga" imgrect="384 1792 128 128" CMM_Caption="부활 후유증"/>
+		<image name="icon_goldfish" file="\icon\buff_icon.tga" imgrect="512 1792 128 128" CMM_Caption="황금어장"/>
+		<image name="icon_Spread_Bait" file="\icon\buff_icon.tga" imgrect="640 1792 128 128" CMM_Caption="어획량증가"/>
+		<image name="icon_grillfish" file="\icon\buff_icon.tga" imgrect="768 1792 128 128" CMM_Caption="구워먹는물고기"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

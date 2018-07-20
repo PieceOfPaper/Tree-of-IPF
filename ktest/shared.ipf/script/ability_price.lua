@@ -583,14 +583,14 @@ function GET_TOTAL_ABILITY_PRICE_BY_PRICE_COLUMN(abilGroup, abilName, abilLevel)
     
     local abilShopInfoCls = GetClass(abilGroup, abilName);
     if abilShopInfoCls == nil then
-        IMC_ERROR("ERRCODE_LOGIC_NULLPTR", "Not Exist Ability shop info- abilGroup["..abilGroup.."], abilName["..abilName.."]");
+        IMC_LOG("ERROR_NULLPTR", "Not Exist Ability shop info- abilGroup["..abilGroup.."], abilName["..abilName.."]");
         return price;
     end
 
     for i = 1, abilLevel do
         local priceCol = TryGetProp(abilShopInfoCls, "Price"..i);
         if priceCol == nil then
-            IMC_ERROR("ERRCODE_LOGIC_NULLPTR", "Not Exist Price column- abilGroup["..abilGroup.."], abilName["..abilName.."], abilLevel["..i.."]");
+            IMC_LOG("ERROR_NULLPTR", "Not Exist Price column- abilGroup["..abilGroup.."], abilName["..abilName.."], abilLevel["..i.."]");
         else
             price = price + priceCol;
         end

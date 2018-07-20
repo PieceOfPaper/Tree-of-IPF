@@ -1516,6 +1516,12 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		[ES_BOOTS] = function() 
 				invSlot = invframe:GetChild("BOOTS");	
 		end,
+		[ES_HELMET] = function()
+			local helmet = apc:GetEquipItem(i);
+			if helmet ~= nil then
+				invSlot = invframe:GetChild("HAIR");	
+			end
+		end,
 		[ES_ARMBAND] = function() 
 				invSlot = invframe:GetChild("ARMBAND");	
 		end,
@@ -1724,6 +1730,7 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
     local slotset = GET_CHILD_RECURSIVELY(topFrame, 'basketslotset');
     local slotCount = slotset:GetSlotCount();
     local cannotEquip = {};
+	local allPrice = 0;
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);
 		if slotIcon ~= nil then
@@ -1732,6 +1739,8 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
             local itemClassName = slot:GetUserValue('CLASSNAME');
 			local item = GetClass("Item", itemClassName);  
             local tpitem = GetClass('TPitem', tpItemName);
+
+			allPrice = allPrice + tpitem.Price
 
             if IS_EQUIP(item) == true then
 		        local lv = GETMYPCLEVEL();
@@ -1776,11 +1785,85 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
             clMsg = clMsg..'{@st66d}{s18}'..item.Name..'{/}{/}{nl}';
         end
         clMsg = clMsg..ScpArgMsg("ReallyBuy?");
+		if config.GetServiceNation() == "GLOBAL" then
+			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
         ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
     else
+				POPUP_LIMIT_PAYMENT(clMsg, parent:GetName(), allPrice)
+			end
+		else
+			ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
+		end
+    else
+		if config.GetServiceNation() == "GLOBAL" then
+			
+			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
         ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+			else
+				POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice)
+			end			
+		else
+			ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+		end
     end
 	control:SetEnable(0);
+end
+
+function CHECK_LIMIT_PAYMENT_STATE_C()
+	local aObj = GetMyAccountObj();
+	if aObj ~= nil then
+		local limitPaymentStateBySteam = TryGetProp(aObj, "LimitPaymentStateBySteam");
+		local limitPaymentStateByGM = TryGetProp(aObj, "LimitPaymentStateByGM")
+
+		if limitPaymentStateBySteam ~= nil and limitPaymentStateByGM ~= nil then
+			if limitPaymentStateBySteam == "Trusted" or limitPaymentStateByGM == "Trusted" then
+				return true;
+			else
+				return false;
+			end
+		end
+	end
+	return false;
+end
+
+function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)
+	local frame = ui.GetFrame("tpitem");
+	frame:SetUserValue("LIMIT_PAYMENT_MSG", clientMsg);
+	frame:SetUserValue("PARENT_NAME", parentName);
+
+
+	local accountObj = GetMyAccountObj();
+	local spentPaymentValue = 0;
+
+	if accountObj ~= nil then
+		spentPaymentValue = TryGetProp(accountObj, "SpentPaymentValue")
+		local nowUsePaymentValue = tonumber(VALVE_PURCHASESTATUS_ACTIVE_MONTHLY_PREMIUM_TP_SPENDLIMIT) - spentPaymentValue;
+		local paymentValue = tonumber(VALVE_PURCHASESTATUS_ACTIVE_MONTHLY_PREMIUM_TP_SPENDLIMIT) - (spentPaymentValue + allPrice);
+		if paymentValue >= 0 then
+			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentGuidMsg","Value", nowUsePaymentValue), "POPUP_POPUP_LIMIT_PAYMENT_CLICK")
+		else
+			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentExcessMsg","Value", paymentValue), "POPUP_POPUP_LIMIT_PAYMENT_CANCEL")
+		end
+	end
+end
+
+function POPUP_POPUP_LIMIT_PAYMENT_CLICK()
+	local frame = ui.GetFrame("tpitem");
+	local msg = frame:GetUserValue("LIMIT_PAYMENT_MSG");
+	local parentName = frame:GetUserValue("PARENT_NAME");
+	
+	ui.MsgBox_NonNested_Ex(msg, 0x00000004, parentName, "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+
+
+	local frame = ui.GetFrame("tpitem")
+	local btn = GET_CHILD_RECURSIVELY(frame,"basketBuyBtn");
+	btn:SetEnable(1);
+end
+
+function POPUP_POPUP_LIMIT_PAYMENT_CANCEL()
+	local frame = ui.GetFrame("tpitem")
+	local btn = GET_CHILD_RECURSIVELY(frame,"basketBuyBtn");
+	btn:SetEnable(1);	
 end
 
 function TPSHOP_ITEM_BASKET_BUY_CANCEL()

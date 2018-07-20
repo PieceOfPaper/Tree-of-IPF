@@ -1,347 +1,494 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <imcErrorCode>
-	<Type Type="LOGIC">
-		<Code Code="ERRCODE_LOGIC_ASSERT" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다."/>
-		<Code Code="ERRCODE_LOGIC_ASSERT_EX" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 다음 정보를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_ASSERT_CRASH" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 프로그램을 종료시킵니다."/>
-		<Code Code="ERRCODE_LOGIC_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다.  다음 정보 및 파일 로드 실패 등 이전 로그를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_SERVER_INIT" CallStack="NO" Desc="서버 초기화에 실패하였습니다. 프로그램을 종료합니다."/>
-		<Code Code="ERRCODE_LOGIC_AUTH_CHECK_FAIL" CallStack="NO" Desc="넥슨 AuthCheck에 실패하였습니다. 해당 오류코드와 authCheck.h의 오류코드표를 확인하세요."/>
-		<Code Code="ERRCODE_LOGIC_SEND_ERROR_TO_CLIENT" CallStack="NO" Desc="클라이언트에 다음과 같은 에러 또는 로그를 전송하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_BINARY_ALLOCATE_FAIL" CallStack="NO" Desc="바이너리에 메모리 Allocate를 실패했습니다. 바이너리 size 지정을 확인하세요."/>
-		<Code Code="ERRCODE_LOGIC_CIRCLE_QUEUE_OVERFLOW" CallStack="NO" Desc="패킷 버퍼 오버 플로가 발생되었습니다."/>
-		<Code Code="ERRCODE_LOGIC_OVERWRITE_IES_OBJECT" CallStack="NO" Desc="GUID가 중복되었기 때문에 기존의 오브젝트가 삭제되었습니다."/>
-		<Code Code="ERRCODE_LOGIC_INVALID_INVEN_ITEM" CallStack="NO" Desc="인벤토리에서 해당 아이템을 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_LOGIC_INVALID_ITEM_GUID" CallStack="NO" Desc="인벤팬텀에서 해당 GUID의 아이템을 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_LOGIC_ALREADY_EXIST_CLIENT" CallStack="NO" Desc="이미 존재하는 클라이언트 클래스 입니다."/>
-		<Code Code="ERRCODE_LOGIC_NOT_EXIST_CLIENT" CallStack="NO" Desc="존재하지 않는 클라이언트 클래스 입니다."/>
-		<Code Code="ERRCODE_LOGIC_INVALID_SLOT_ID" CallStack="NO" Desc="잘못된 슬롯 ID입니다."/>
-		<Code Code="ERRCODE_LOGIC_INVALID_EQUIP_SLOT" CallStack="NO" Desc="올바르지 않은 Equip Slot입니다."/>
-		<Code Code="ERRCODE_LOGIC_TO_MUCH_AUCTION_ITEM" CallStack="NO" Desc="너무 많은 경매장 아이템을 전송하려 시도했습니다."/>
-		<Code Code="ERRCODE_LOGIC_TO_AUCTION_ERROR" CallStack="NO" Desc="경매장 로직이 잘못되었습니다."/>
-		<Code Code="ERRCODE_LOGIC_CREATE_IES_OBJ" CallStack="NO" Desc="IES 오브젝트 생성을 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_IES_DUPLICATE_GUID" CallStack="NO" Desc="IES오브젝트의 GUID가 중복되었습니다."/>
-		<Code Code="ERRCODE_LOGIC_LOAD_BARRACK_PC" CallStack="NO" Desc="숙소 PC를 불러올 수 없습니다. 해당 정보를 확인하세요."/>
-		<Code Code="ERRCODE_LOGIC_SET_IES_PROPERTY" CallStack="NO" Desc="IES 오브젝트에서 해당 프로퍼티를 저장하는데 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_IES_NOT_STRING_PROP" CallStack="NO" Desc="숫자 형태의 프로퍼티를 문자열 형태로 접근하려고 시도하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_IES_NOT_NUMBER_PROP" CallStack="NO" Desc="문자열 형태의 프로퍼티를 숫자 형태로 접근하려고 시도하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_CREATE_PATH_AGENT_FAIL" CallStack="NO" Desc="잘못된 좌표값 입니다. 패스 에이전트를 생성하는데 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_INVALID_HANDLE" CallStack="NO" Desc="잘못된 핸들입니다."/>
-		<Code Code="ERRCODE_LOGIC_NOT_EXIST_CHAT_GROUP" CallStack="NO" Desc="존재하지 않는 채팅 그룹입니다."/>
-		<Code Code="ERRCODE_LOGIC_PACKET_DECOMPRESS" CallStack="NO" Desc="해당 패킷 데이터를 Decompress하는데 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_GET_IES_PROPERTY" CallStack="NO" Desc="IES 오브젝트에서 해당 프로퍼티를 가져오는데 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_USE_ZOMBIE_OBJ" CallStack="NO" Desc="좀비 오브젝트를 사용하려고 시도하였습니다. "/>
-		<Code Code="ERRCODE_LOGIC_CALLSTACK_BY_TIME" CallStack="NO" Desc="일정 주기를 두고 기록되도록 설정된 콜스택 입니다. 같은 시간에 남은 다른 로그 정보를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_NEXON_SSO" CallStack="NO" Desc="넥슨 SSO를 초기화 하는데 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_NGS" CallStack="NO" Desc="넥슨 NGS 에러"/>
-		<Code Code="ERRCODE_LOGIC_INIT_LIBRARY" CallStack="NO" Desc="라이브러리 초기화에 실패하였습니다. 다음 정보 및 파일 로드 실패 등 이전 로그를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_MEMORY_ALLOCATE_FAIL" CallStack="NO" Desc="메모리 할당을 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_MISSION_ROOM" CallStack="NO" Desc="미션 룸 관련 에러가 발생하였습니다. 다음 정보를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_FMOD_INIT_FAIL" CallStack="NO" Desc="사운드 관련 FMOD 세팅을 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_RECV_UNKNOWN_PACKET" CallStack="NO" Desc="알 수 없는 패킷을 전송받았습니다. 혹시 숙소에서 존 패킷을 전송받거나 노멀모드에서 숙소 패킷을 전송받지는 않았습니까?"/>
-		<Code Code="ERRCODE_LOGIC_ZONE_START_FAIL" CallStack="NO" Desc="존서버 프레임워크가 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_TRANSACTION_FAIL" CallStack="NO" Desc="트랜잭션 수행을 실패하였습니다. 다음 정보를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_GET_BACK_BUFFER" CallStack="NO" Desc="백 버퍼 로드를 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_GET_STENCIL_SURCAFE" CallStack="NO" Desc="Stencil 로드를 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_STEAM_AUTHDATA_NULL" CallStack="NO" Desc="스팀 ID에 해당하는 authdata를 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_LOGIC_LOOP_STACKOVERFLOW" CallStack="NO" Desc="루프 스택 오버플로우."/>
-		<Code Code="ERRCODE_LOGIC_PATH_ENGIN" CallStack="NO" Desc="페스엔진으로 인한 지형 위치 생성 오류"/>
-		<Code Code="ERRCODE_LOGIC_CLIENT_MGR_INSERT_FAIL" CallStack="NO" Desc="클라이언트 매니저를 생성하는데 실패하였습니다. 해당 ip와의 연결을 종료합니다."/>
-		<Code Code="ERRCODE_LOGIC_INVALID_CONNECTION_TYPE" CallStack="NO" Desc="잘못된 타입의 커넥션 연결이 시도되었습니다."/>
-		<Code Code="ERRCODE_LOGIC_GEMSCOOL_LOGIN_FAIL" CallStack="NO" Desc="젬스쿨 로그인 서버와의 통신이 실패하였습니다. 다음 에러 정보를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_GEMSCOOL_PREMIUM_FAIL" CallStack="NO" Desc="젬스쿨 프리미엄 PC 인증이 실패하였습니다. 다음 에러 정보를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_NEXON_NOT_IMPLEMENTED_SYNC_TYPE" CallStack="NO" Desc="세션 정보와 넥슨 세션 서버와의 동기화가 실패하였습니다. 알 수 없는 싱크 타입입니다."/>
-		<Code Code="ERRCODE_LOGIC_GETPOS_NEAR_FROM_TARGET" CallStack="NO" Desc="MaxLoopCount내에 유효좌표를 얻지 못했습니다."/>
-		<Code Code="ERRCODE_LOGIN_TOO_MANY_DB_RESULT" CallStack="NO" Desc="DB의 결과값이 너무 많습니다."/>
-		<Code Code="ERRCODE_LOGIC_PARTY_NAME_ALREDY_EXIST" CallStack="NO" Desc="이미 존재하는 파티 이름입니다."/>
-		<Code Code="ERRCODE_LOGIC_BAD_LEXICAL_CAST" CallStack="NO" Desc="형변환 실패"/>
-		<Code Code="ERRCODE_LOGIC_TX_FAIL" CallStack="NO" Desc="트랜잭션 수행을 실패"/>
-		<Code Code="ERRCODE_LOGIC_STD_EXCEPTION" CallStack="NO" Desc="std::exception이 발생"/>
-		<Code Code="ERRCODE_LOGIC_FREEMEDAL_TIME" CallStack="NO" Desc="Medal충전이 필요한 상태이지만 충전시간이 셋팅되어있지 않습니다. 2시간뒤로 다시 셋팅합니다."/>
-		<Code Code="ERRCODE_LOGIC_IDSPACE_INIT_ERROR" CallStack="NO" Desc="XML에서 IDSpace를 초기화 하는데 실패했습니다."/>
-		<Code Code="ERRCODE_LOGIC_INDUN_AUTOFIND" CallStack="NO" Desc="인던 입장에 실패했습니다."/>
-		<Code Code="ERRCODE_LOGIC_NULLPTR" CallStack="NO" Desc="해당 구문은 nullptr입니다."/>
-		<Code Code="ERRCODE_LOGIC_FAILED_CREATE_VIRTUAL_COMMANDER" CallStack="NO" Desc="가상 커맨더 생성 실패"/>
-		<Code Code="ERRCODE_LOGIC_CANNOT_FIND_PROPERTY" CallStack="NO" Desc="PROPERTY를 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_LOGIC_SERVER_NOT_EXIST" CallStack="NO" Desc="서버가 존재하지 않습니다."/>
-		<Code Code="ERRCODE_LOGIC_WRONG_FAMILY_NAME" CallStack="NO" Desc="Family Name String이 잘못되었습니다."/>
-		<Code Code="ERRCODE_LOGIC_WRONG_INDEX" CallStack="NO" Desc="Index가 범위를 벗어났습니다."/>
-		<Code Code="ERRCODE_LOGIC_WRONG_IP" CallStack="NO" Desc="IP가 잘못되었습니다."/>
-		<Code Code="ERRCODE_LOGIC_CRITICAL" CallStack="NO" Desc="Critical Error"/>
-		<Code Code="ERRCODE_LOGIC_PACKET_ERROR" CallStack="NO" Desc="잘못된 패킷입니다."/>
-		<Code Code="ERRCODE_LOGIC_NO_SET_CALLBACK_SPRITEEVENT" CallStack="NO" Desc="스프라이트 이벤트에서 콜백이 지정되지 않았습니다."/>
-		<Code Code="ERRCODE_LOGIC_ADD_FAIL_KEYFRAME" CallStack="NO" Desc="키 프레임 생성에 실패했습니다."/>
-		<Code Code="ERRCODE_LOGIC_LOW_TIME_ADDKEYFRAME" CallStack="NO" Desc="추가할 키 프레임 생성 시간이 너무 이릅니다."/>
-		<Code Code="ERRCODE_LOGIC_DUPLICATE_NAME_TEXTURE" CallStack="NO" Desc="텍스쳐를 두번 정의했습니다."/>
-		<Code Code="ERRCODE_LOGIC_ABOUT_PARTY" CallStack="NO" Desc="파티 관련 에러입니다."/>
-		<Code Code="ERRCODE_LOGIC_ALREADY_EXIST_VALUE" CallStack="NO" Desc="이미 존재하는 값입니다."/>
-		<Code Code="ERRCODE_LOGIC_BROKEN_WORDWRAP" CallStack="NO" Desc="텍스트의 줄바꿈 기능에 에러가 발생했습니다."/>
-		<Code Code="ERRCODE_LOGIC_WRONG_COL_ADVLISTBOX" CallStack="NO" Desc="advlistbox의 maxrowcol 속성 중에 col 값이 잘못되었습니다."/>
-		<Code Code="ERRCODE_LOGIC_SET_ITEM_WITHOUT_KEY" CallStack="NO" Desc="AddItem을 하지 않고 SetItem을 사용하려면, SetItem(pKey, column,...)을 이용하여 해당 열의 Key를 지정하세요."/>
-		<Code Code="ERRCODE_LOGIC_WRONG_LUA_TYPE" CallStack="NO" Desc="Lua Type이 일치하지 않습니다."/>
-		<Code Code="ERRCODE_LOGIC_NOT_EXIST_VALUE" CallStack="NO" Desc="값이 존재하지 않습니다."/>
-		<Code Code="ERRCODE_LOGIC_BUFFER_OVER_SIZE" CallStack="NO" Desc="버퍼 사이즈를 초과하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_CREATE_FAIL" CallStack="NO" Desc="생성에 실패했습니다."/>
-		<Code Code="ERRCODE_LOGIC_INIT_FAIL_MONGEN" CallStack="NO" Desc="몬스터 생성 초기화에 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_STILL_DO_TX" CallStack="NO" Desc="해당 TX 처리가 완료되지 않았습니다."/>
-		<Code Code="ERRCODE_LOGIC_ADD_FAIL" CallStack="NO" Desc="해당 항목을 추가 할 수 없습니다."/>
-		<Code Code="ERRCODE_LOGIC_GET_FAIL_CLASS" CallStack="NO" Desc="해당 클래스를 가지고 오는데에 실패하였습니다."/>
-		<Code Code="ERRCODE_LOGIC_ALREADY_DESTROYED" CallStack="NO" Desc="이미 소멸된 자원입니다."/>
-		<Code Code="ERRCODE_LOGIC_INCORRECT_CALL_SEQUENCE" CallStack="NO" Desc="호출 순서가 잘못됐습니다. 다음 정보를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_OBJ_POOL" CallStack="NO" Desc="오브젝트 풀에서 에러가 발생했습니다. 다음 정보를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_UPDATE_AUTHCODE" CallStack="NO" Desc="인증코드에러로 강제 로그아웃됩니다."/>
-		<Code Code="ERRCODE_LOGIC_MONSTER_CREATE_FAILED" CallStack="NO" Desc="랜덤 좌표를 받지 못하고 몬스터 생성에 실패했습니다."/>
-		<Code Code="ERRCODE_LOGIC_TOO_MANY_CHAT_ROOM" CallStack="NO" Desc="채팅 방 개수가 비정상 적으로 많습니다."/>
-		<Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
-		<Code Code="ERRCODE_LOGIC" CallStack="NO" Desc="로직 오류"/>
-		<Code Code="ERRCODE_PRINT_CALL_STACK" CallStack="YES" Desc=" : "/>
-		<Code Code="ERRCODE_LOGIC_STEAM_INVEN" CallStack="NO" Desc="스팀 인벤토리 로직 오류. 프로그래머에게 문의하세요."/>
-		<Code Code="ERRCODE_LOGIC_INVALID_CHAR_SLOT_COUNT" CallStack="NO" Desc="슬롯갯수보다 캐릭터 갯수가 많음에도 클라이언트에서 게임시작 요청이 들어왔거나 갯수를 가져오는데 실패했습니다"/>
-		<Code Code="ERRCODE_LOGIC_INVALID_ACCOUNT_ID" CallStack="NO" Desc="Account ID의 값이 비정상입니다."/>
-		<Code Code="ERRCODE_LOGIC_AUTOMATCH" CallStack="NO" Desc="매칭 관련 에러 발생"/>
-		<Code Code="ERRCODE_LOGIC_MISSION_ROOM_EXIT" CallStack="NO" Desc="미션룸 삭제"/>
-		<Code Code="ERRCODE_LOGIC_UNKNOWN_ACTOR_MESSAGE" CallStack="NO" Desc="정의되지 않은 메세지 입니다."/>
-		<Code Code="ERRCODE_LOGIC_DUPLICATE_LOGIN" CallStack="NO" Desc="중복 로그인 관련 에러"/>
-		<Code Code="ERROR_NXA_LOGIN_FAILED" CallStack="NO" Desc="NXA 로그인 실패"/>
-		<Code Code="INFO_NXA_LOGIN" CallStack="NO" Desc="NXA 로그인 정보"/>
-	</Type>
-	<Type Type="DATA">
-		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
-		<Code Code="ERRCODE_DATA_INVALID_IES" CallStack="NO" Desc="존재하지 않는 IES입니다. 해당하는 ipspace를 담고 있는 xml이 존재하는지, 정상적으로 불러왔는지 확인하세요."/>
-		<Code Code="ERRCODE_DATA_INVALID_CLASS_IN_IES" CallStack="NO" Desc="해당 IES에 존재하지 않는 클래스입니다.  해당 정보를 담고 있는 xml 파일을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_FILE_LOAD" CallStack="NO" Desc="해당 파일을 불러오는데 실패하였습니다."/>
-		<Code Code="ERRCODE_DATA_FILE_SAVE" CallStack="NO" Desc="해당 파일을 저장하는데 실패하였습니다."/>
-		<Code Code="ERRCODE_DATA_BROKEN_FILE" CallStack="NO" Desc="해당 파일이 비정상적입니다."/>
-		<Code Code="ERRCODE_DATA_SERVICE_NATION" CallStack="NO" Desc="서버의 국가 설정이 비정상 적입니다. server_config.xml을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_IES_DUPLICATE_CLASSID" CallStack="NO" Desc="IES오브젝트의 ClassID가 중복되었습니다. 해당 정보를 담고 있는 xml 파일을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_IES_DUPLICATE_CLASSNAME" CallStack="NO" Desc="IES오브젝트의 ClassName이 중복되었습니다. 해당 정보를 담고 있는 xml 파일을 확인하세요."/>
-		<Code Code="DUPLICATE_CLASSKEY" CallStack="NO" Desc="!!클래스키 중복!!"/>
-		<Code Code="ERRCODE_DATA_IES_COULDNT_FIND_CLASS" CallStack="NO" Desc="해당 idspace에서 지정한 클래스를 가져오는데 실패하였습니다. 해당 idspace에 해당하는 xml 파일을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_IES_COULDNT_FIND_IDSPACE" CallStack="NO" Desc="지정한 idspace를 찾을 수 없습니다. 해당 idspace에 해당하는 xml 파일이 존재하는지 확인하세요."/>
-		<Code Code="ERRCODE_DATA_INVALID_STANCE" CallStack="NO" Desc="잘못된 스탠스 타입입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_TYPE_IN_TABLE" CallStack="NO" Desc="해당 테이블에 존재하지 않는 Class 입니다. 해당 정보를 담고 있는 xml 파일을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_SOBJ_INVALID_PROPNAME" CallStack="NO" Desc="해당되는 정보를 세션 오브젝트의 클라이언트 프로퍼티에서 찾을 수 없습니다. 프로퍼티명을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_INVALID_IES_PROPERTY_NAME" CallStack="NO" Desc="해당 프로퍼티를 가져올 수 없습니다. 해당 IES 클래스가 선언되어있는 xml을 서버가 로드 하였는지, xml 내부에 해당 프로퍼티가 존재하는지 확인하세요."/>
-		<Code Code="ERRCODE_DATA_INIT_ADJACENCY_LIST" CallStack="NO" Desc="맵간 연결 정보를 초기화 하는데 실패하였습니다. map.xml의 PhysicalLinkZone 컬럼을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_XML_FILE_PARSING" CallStack="NO" Desc="해당 xml 파일을 읽는데 실패하였습니다. xml 파일이 정상적인지 확인하세요."/>
-		<Code Code="ERRCODE_DATA_XML_COULDNG_FIND_IDSPACE" CallStack="NO" Desc="해당 xml 파일을 읽는데 실패하였습니다. idSpace는 반드시 존재하여야 합니다. xml 파일이 정상적인지 확인하세요."/>
-		<Code Code="ERRCODE_DATA_READ_DATA_RIVISION" CallStack="NO" Desc="클라이언트의 데이터 버전을 확인하는데 실패하였습니다. 게임 실행 경로, ipf 파일 경로 및 파일 이름을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_READ_RELEASE_RIVISION" CallStack="NO" Desc="클라이언트의 소스 버전을 확인하는데 실패하였습니다. release.revision.txt파일을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_READ_CONFIG" CallStack="NO" Desc="클라이언트 옵션을 불러오는데 실패하였습니다. client.xml, user.xml, patch\\updater.config.xml 및 staticConfig의 경로, 내용이가 정상적인지 확인하세요 "/>
-		<Code Code="ERRCODE_DATA_READ_PATCH_URL" CallStack="NO" Desc="패치 url을 확인하는데 실패하였습니다. client.xml을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_LOAD_SCENE_MODEL" CallStack="NO" Desc="해당 클래스의 모델을 가져올 수 없습니다."/>
-		<Code Code="ERRCODE_DATA_FONT_LOAD_FAIL" CallStack="NO" Desc="해당 폰트를 가져올 수 없습니다. fonts.xml에 등록된 폰트인지 확인하세요."/>
-		<Code Code="ERRCODE_DATA_DIF_COLMESH_VERSION" CallStack="NO" Desc="읽어온 파일과 현재 사용중인 colMesh의 버전이 다릅니다."/>
-		<Code Code="ERRCODE_DATA_MONSTER_OPTION_FILE_NOT_EXIST" CallStack="NO" Desc="해당 몬스터의 Option.xml 파일이 없습니다. 데드이펙트를 재생할 수 없습니다."/>
-		<Code Code="ERRCODE_DATA_MONSTER_DEAD_EFFECT_NOT_EXIST" CallStack="NO" Desc="해당 몬스터의 데드이펙트가 없습니다."/>
-		<Code Code="ERRCODE_DATA_COULDNT_FIND_BITMAP" CallStack="NO" Desc="해당 비트맵을 찾을 수 없습니다. baseskinset.xml에 등록되어 있는 이름의 이미지입니까?"/>
-		<Code Code="ERRCODE_DATA_NOT_EXIST_ANIMATION" CallStack="NO" Desc="해당 애니메이션 데이터를 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_DATA_NOT_EXIST_SPRITE" CallStack="NO" Desc="해당 스프라이트 데이터를 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_DATA_ANI_ACTOR_PART_SET_FAIL" CallStack="NO" Desc="액터 파트를 세팅하는데 실패하였습니다. 정의되지 않은 액션 카운트입니다."/>
-		<Code Code="ERRCODE_DATA_WORLDTABLE_INIT_FAIL" CallStack="NO" Desc="월드테이블 초기화를 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_ITEMTABLE_INIT_FAIL" CallStack="NO" Desc="아이템 데이터가 DB 데이터와 다릅니다."/>
-		<Code Code="ERRCODE_DATA_WORLD_INITOBJECT_FAIL" CallStack="NO" Desc="월드 오브젝트 초기화를 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_MAINSECTOR_INIT_FAIL" CallStack="NO" Desc="메인 섹터매니저 초기화를 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_INVALIDPOS" CallStack="NO" Desc="유효한 좌표가 아닙니다."/>
-		<Code Code="ERRCODE_DATA_SOUND_DATA_NOT_EXIST" CallStack="NO" Desc="사운드 파일이 없습니다. 사운드팀에 문의."/>
-		<Code Code="ERRCODE_DATA_EFFECT_WRONG_COMPONENT" CallStack="NO" Desc="잘못된 이펙트 컴퍼넌트 이름입니다. effectlist.xml에 등록된 내용을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_CREATE_IES_OBJECT_FAIL" CallStack="NO" Desc="IES오브젝트를 생성하는데 실패하였습니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_GEM_PROPERTY" CallStack="NO" Desc="젬 프로퍼티를 추가하지 못했습니다. socket_property.xml 의 해당 아이템 내용을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_MISSING_TRANS_DATA" CallStack="NO" Desc="반드시 번역 되어야 하는 데이터가 번역 되지 않았습니다. 해당 데이터의 DicID를 확인하세요."/>
-		<Code Code="ERRCODE_DATA_GET_CLIENT_REVISION_FAIL" CallStack="NO" Desc="CDN에서 클라이언트 리비전 정보를 받는데 실패하였습니다. 해당 주소의 파일 내용을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_SET_RANDOM_FIELDBOSS_INFO" CallStack="NO" Desc="필드보스 정보를 초기화 하는데 실패하였습니다. fieldbossrandom.xml 파일이 잘못되었는지 확인하세요."/>
-		<Code Code="ERRCODE_DATA_DC_OPTION" CallStack="NO" Desc="운영툴에서 잘못된 옵션 데이터를 넘기고 있습니다. 데이터를 확인해주세요."/>
-		<Code Code="ERRCODE_DATA_MODEL_INV_NODE" CallStack="NO" Desc="존재하지 않는 노드입니다."/>
-		<Code Code="ERRCODE_DATA_KB_OVER_VANGLE" CallStack="NO" Desc="넉백타입인데 높이값이 너무 높습니다. 10으로 보정합니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_MOTION" CallStack="NO" Desc="해당 모션을 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_DATA_PLAY_MOVIE_FAIL" CallStack="NO" Desc="해당 동영상을 재생할 수 없습니다."/>
-		<Code Code="ERRCODE_DATA_SET_SAVE_VALUE" CallStack="NO" Desc="같은 값으로 저장을 시도하고 있습니다."/>
-		<Code Code="ERRCODE_DATA_NOT_EXIST_CONFIG_NAME" CallStack="NO" Desc="존재하지 않는 옵션 이름입니다. config.xml이 손상되지 않았는지, config.xml파일이 서버와 클라이언트가 같은 파일을 사용하는지 확인하세요."/>
-		<Code Code="ERRCODE_DATA_PACKET_SIZE_OVER" CallStack="NO" Desc="패킷 사이즈 오버"/>
-		<Code Code="ERRCODE_DATA_INVALID_HOTKEYSCP" CallStack="NO" Desc="잘못된 단축키 스크립트입니다. hotkeyscp.xml에 등록되어 있는 스크립트인지 확인하세요."/>
-		<Code Code="ERRCODE_DATA_NONEWAY" CallStack="NO" Desc="GiveWay 또는 TakeWay 의 값이 None입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_SECTORPOS" CallStack="NO" Desc="World::Enter() 실패하였습니다. 해당좌표에 맞는 섹터가 없습니다."/>
-		<Code Code="ERRCODE_DATA_FAIL_WORLD_ENTER" CallStack="NO" Desc="World::Enter() 실패하였습니다. 해당좌표가 유효한지 확인하세요."/>
-		<Code Code="ERRCODE_DATA_FAIL_WORLD_ENTER" CallStack="NO" Desc="World::Enter() 실패하였습니다. 해당좌표가 유효한지 확인하세요."/>
-		<Code Code="ERRCODE_DATA_TOOLONG_APPERANCE_TOSTRING_PVP" CallStack="NO" Desc="속성값의 변환된 문자열이 너무 깁니다. (최소 1024보다 작아야 합니다.) 값을 None으로 대체합니다."/>
-		<Code Code="ERRCODE_DATA_GET_FAIL_WORLDPVP_STATE" CallStack="NO" Desc="PVP 월드의 State를 가지고 오는데에 실패했습니다. 매칭에 실패한 것으로 처리합니다."/>
-		<Code Code="ERRCODE_DATA_DESTROY_FAIL_PVP_GAMEROOM" CallStack="NO" Desc="PVP Game Room 의 소멸 요청에 소멸 실패하였습니다. 해당 Room의 정보를 확인하세요."/>
-		<Code Code="ERRCODE_DATA_INVALID_PVP_MAPID" CallStack="NO" Desc="유효한 PVP MapID가 아닙니다.  "/>
-		<Code Code="ERRCODE_DATA_GET_FAIL_FRIENDAIDLIST" CallStack="NO" Desc="친구 account ID 목록을 가져오는데에 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_PARTY_TYPE" CallStack="NO" Desc="무효한 Party Type이 있습니다."/>
-		<Code Code="ERRCODE_DATA_READ_FAIL_WHOLDDICID" CallStack="NO" Desc="wholdDicID.xml을 읽어올때에 에러가 발생했습니다."/>
-		<Code Code="ERRCODE_DATA_LOAD_FAIL_TRANSLATED_DATA" CallStack="NO" Desc="번역 Data를 읽어오는데에 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_INIT_FAIL_IMCDIC" CallStack="NO" Desc="ImcDic 초기화에 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_POSITION_SHADOW" CallStack="NO" Desc="그림자(마크) 재생성에 있어서 잘못된 위치에 있습니다."/>
-		<Code Code="ERRCODE_DATA_NOT_EXIST_IMAGE_TEXTURE" CallStack="NO" Desc="해당 텍스쳐 이미지를 찾을 수 없습니다. "/>
-		<Code Code="ERRCODE_DATA_OUT_OF_MEMORY_CREATE_QUEUE" CallStack="NO" Desc="메모리 범위를 벗어나, 메세지 큐에서 NODE 생성에 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_GET_FAIL_SECTOR_COLLISION" CallStack="NO" Desc="충돌 Ray의 계산에서 섹터를 가지고 오는데에 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_GET_FAIL_SECTOR_DYNAMICOBB" CallStack="NO" Desc="Dynamic OBB를 추가할때에 섹터를 가지고 오는데에 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_GET_FAIL_PALYMOTION" CallStack="NO" Desc="모델 생성 도중에 모션을 가지고 오는데에 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_NOT_EXIST_EFFECTSOUND" CallStack="NO" Desc="추가할 사운드 이펙트가 현재의 사운드 리스트에 없습니다."/>
-		<Code Code="ERRCODE_DATA_NOT_EXIST_LAYER" CallStack="NO" Desc="추가할 레이어가 현재의 레이어 리스트에 없습니다."/>
-		<Code Code="ERRCODE_DATA_LOAD_FAIL_COMPONENT_LIST" CallStack="NO" Desc="컴포넌트 리스트를 읽어오지 못했습니다."/>
-		<Code Code="ERRCODE_DATA_OVERLAP_COMPONENT" CallStack="NO" Desc="동일한 컴포넌트가 있습니다."/>
-		<Code Code="ERRCODE_DATA_INVLID_TYPE" CallStack="NO" Desc="잘못된 타입입니다."/>
-		<Code Code="ERRCODE_DATA_NOT_EXIST_PLAYEVENT" CallStack="NO" Desc="재생 할려는 이벤트를 찾지 못했습니다. xml_client/ui_event.xml을 확인하세요."/>
-		<Code Code="ERRCODE_DATA_LOAD_ERROR_DEFAULT" CallStack="NO" Desc="데이터 로드 실패"/>
-		<Code Code="ERRCODE_DATA_NOT_EXIST_FILE" CallStack="NO" Desc="파일을 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_DATA_REGIST_FAIL" CallStack="NO" Desc="해당 데이터의 등록을 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_INSERT_FAIL" CallStack="NO" Desc="해당 데이터의 삽입을 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_REMOVE_FAIL" CallStack="NO" Desc="해당 데이터의 삭제를 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_COMPRESS_FAIL" CallStack="NO" Desc="해당 데이터의 압축에 실패했습니다."/>
-		<Code Code="ERRCODE_DATA_DOSENT_MATCH_SIZE" CallStack="NO" Desc="해당 데이터가 지정된 사이즈와 맞지 않습니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_TRANSLATED_DATA" CallStack="NO" Desc="잘못된 번역 데이터입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_TRANSLATED_ENCODING" CallStack="NO" Desc=".tsv 파일의 인코딩은 반드시 UTF-8 whitout BOM 이어야 합니다."/>
-		<Code Code="ERRCODE_DATA_STEAM_INVALID_REGION" CallStack="NO" Desc="해당 지역에서 수행 불가능한 요청입니다."/>
-		<Code Code="ERRCODE_DATA_ABILITY_MAX_LEVEL_GREATER_ZERO" CallStack="NO" Desc="어빌리티의 최대 레벨은 0보다 커야합니다."/>
-		<Code Code="ERRCODE_EQUIP_CARD_SYSTEM_DATA" CallStack="NO" Desc="카드 데이터에 문제가 있습니다. 확인해주세요."/>
-		<Code Code="ERRCODE_FIND_NOT_MONSTER" CallStack="NO" Desc="해당 몬스터를 찾지 못하였습니다. 확인해주세요."/>
-		<Code Code="ERRCODE_DATA_INVLID_INDEX" CallStack="NO" Desc="잘못된 인덱스 입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_NISMS_GOODS_MAP" CallStack="NO" Desc="잘못된 상품 목록 DataMap 입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_NISMS_GOODS_ITEM" CallStack="NO" Desc="잘못된 상품 정보 Data 입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_CLASS_IN_PRODUCTS" CallStack="NO" Desc="NISMS에 등록된 상품의 클래스 또는 이름이 무효합니다. 해당 계정의 캐시 인벤에 표시가 안되고 있으며, NISMS에 잘못 등록된 아이템을 구입한 계정 입니다."/>
-		<Code Code="ERRCODE_NEED_RELEASE_OBJECT_BY_REFCOUNT" CallStack="NO" Desc="Release 하였지만, 다른 곳에서 여전히 참조중인 객체입니다. 메모리릭이 발생할 수 있습니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_ORDERNO" CallStack="NO" Desc="NISMS 존재하지 않는 상품 번호 입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_NISMS_ITEM_COUNT" CallStack="NO" Desc="NISMS 캐시 인벤토리 정보를 가져오는데 실패하였습니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_ITEM_COUNT" CallStack="NO" Desc="NISMS 아이템 개수가 0개 입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_NISMS_ITEM_ID" CallStack="NO" Desc="NISMS 찾을 수 없는 아이템 입니다."/>
-	</Type>
-	<Type Type="SCRIPT">
-		<Code Code="ERRCODE_SCRIPT_IES_CANT_SUSPEND_MAIN_THREAD" CallStack="NO" Desc="메인 쓰레드는 sleep, tx등으로 중단시킬 수 없습니다. 해당 함수 내용을 확인하세요."/>
-		<Code Code="ERRCODE_SCRIPT_LUA_SCRIPT" CallStack="NO" Desc="루아 스크립트에서 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
-		<Code Code="ERRCODE_SCRIPT_COULDNT_FIND_FUNCTION" CallStack="NO" Desc="지정한 루아 스크립트 함수를 찾을 수 없습니다. 함수명을 확인하세요."/>
-		<Code Code="ERRCODE_SCRIPT_FUNCTION_EXCUTE" CallStack="NO" Desc="지정한 루아 스크립트 함수를 실행하는데 실패하였습니다. 함수 내용을 확인하세요."/>
-		<Code Code="ERRCODE_SCRIPT_INVALID_MGAME_SCP_TYPE" CallStack="NO" Desc="잘못된 미션 스크립트 타입입니다. "/>
-		<Code Code="ERRCODE_SCRIPT_IES_INVALIDATE_CP" CallStack="NO" Desc="CP형태의 IES 프로퍼티값을 가져오는데 실패하였습니다. 해당 함수의 정상 작동 유무를 확인하세요."/>
-		<Code Code="ERRCODE_SCRIPT_INVALIDATE_LOG_TYPE" CallStack="NO" Desc="스크립트에서 잘못된 형태로 로그를 남기려고 시도하였습니다. 콜스택의 해당 라인을 확인하세요."/>
-		<Code Code="ERRCODE_SCRIPT_INVALIDATE_FIELDOBJECT" CallStack="NO" Desc="오브젝트 가져오는데 실패하였습니다. 콜스택의 해당 라인을 확인하세요."/>
-		<Code Code="ERRCODE_SCRIPT_NONE_UPDATE_SCRIPT" CallStack="NO" Desc="업데이트 스크립트가 None입니다."/>
-		<Code Code="ERRCODE_SCRIPT_CANT_USE_TX_IN_MAIN_THREAD" CallStack="NO" Desc="Main thread 에서는 tx를 사용할 수 없습니다. 커스텀 tx를 사용하세요."/>
-		<Code Code="ERRCODE_SCRIPT_CANT_FIND_LUA_SCRIPT" CallStack="NO" Desc="루아 스크립트 파일을 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_SCRIPT_INVALID_ARG_NUMBER" CallStack="NO" Desc="인자 갯수가 잘못되었습니다. 해당 함수를 올바르게 호출 하였는지 확인하세요."/>
-	</Type>
-	<Type Type="NETWORK">
-		<Code Code="ERRCODE_NETWORK_ERROR_MONGODB" CallStack="NO" Desc="몽고 DB에 연결하는데 실패하였습니다."/>
-		<Code Code="ERRCODE_NETWORK_CREATE_NET_STREAM" CallStack="NO" Desc="NetStream을 생성하는데 실패하였습니다. 올바른 ip입니까?"/>
-		<Code Code="ERRCODE_NETWORK_INVALID_PACKET" CallStack="NO" Desc="잘못된 형태의 패킷을 전송받았습니다. 패킷 해킹의 가능성이 있습니다."/>
-		<Code Code="ERRCODE_NETWORK_PACKET_TIMEOUT" CallStack="NO" Desc="패킷을 전부 전송받기 전에 타임아웃 되었습니다."/>
-		<Code Code="ERRCODE_NETWORK_CONNECT_TIMEOUT" CallStack="NO" Desc="타임아웃 되어 연결이 끊어졌습니다."/>
-		<Code Code="ERRCODE_NETWORK_CONNECT_ZONE_FAIL" CallStack="NO" Desc="해당 존에 접속할 수 없습니다. 해당 맵과 채널이 정확한지, 서버가 닫혀있지 않은지 확인하세요."/>
-		<Code Code="ERRCODE_NETWORK_ADD_ACCEPT_HANDLER" CallStack="NO" Desc="Accept Handler를 추가하는데 실패하였습니다."/>
-		<Code Code="ERRCODE_NETWORK_INIT_NETWORK" CallStack="NO" Desc="네트워크 설정에 실패하였습니다. 다음 정보를 참조하세요."/>
-		<Code Code="ERRCODE_NETWORK_CONNECT_BARRACK_SERVER" CallStack="NO" Desc="숙소 서버에 접속하는데 실패하였습니다. 서버가 열려 있는지, 해당 정보가 정확한지 확인하세요."/>
-		<Code Code="ERRCODE_NETWORK_DISCONNECT_NET_STREAM" CallStack="NO" Desc="NetStream이 끊어졌습니다."/>
-		<Code Code="ERRCODE_NETWORK_SOCKET_ERROR" CallStack="NO" Desc="소켓에러로 접속에 실패하였습니다."/>
-		<Code Code="ERRCODE_NETWORK_STEAM_TOKEN_DECRYPT_FAIL" CallStack="NO" Desc="스팀 서버에서 전달받은 토큰을 Decrypt하는데 실패하였습니다."/>
-		<Code Code="ERRCODE_NETWORK_STEAM_INVALID_TICKET" CallStack="NO" Desc="스팀 서버에서 전달받은 유저 티켓 정보가 잘못되었습니다."/>
-		<Code Code="ERRCODE_NETWORK_STEAM_INVALID_SECRET" CallStack="NO" Desc="스팀 서버에서 전달받은 유저 시크릿 정보가 잘못되었습니다."/>
-		<Code Code="ERRCODE_NETWORK_STEAM_INIT_FAIL" CallStack="NO" Desc="스팀 서버에서 초기화에 실패하였습니다. 포트 정보를 확인하세요."/>
-		<Code Code="ERRCODE_NETWORK_HTTP_FAIL" CallStack="NO" Desc="http통신이 실패하였습니다. 출력된 정보를 참조하세요."/>
-		<Code Code="ERRCODE_NETWORK_NEXON_SESSION_INIT_FAIL" CallStack="NO" Desc="넥슨 세션 서버 초기화에 실패하였습니다. 출력된 정보를 참조하세요."/>
-		<Code Code="ERRCODE_NETWORK_RECV_NEXON_SESSION_INIT_FAIL" CallStack="NO" Desc="넥슨 세션 서버 초기화에 실패하였습니다. 에러 타입을 확인하세요. (1: 중복, 2:등록되지 않은 번호, 99:알수 없는 오류)"/>
-		<Code Code="ERRCODE_NETWORK_SEND_FAIL_PVP_JOINCHECKMSG_TO_ZONE" CallStack="NO" Desc="PVP게임에 참여하기 위한 연결 검사용 패킷 전송에 실패헀습니다."/>
-		<Code Code="ERRCODE_NETWORK_INVAILD_IP_ADDRESS" CallStack="NO" Desc="전송할 패킷에 잘못된 ip가 있습니다. 서버 연결을 끊습니다."/>
-		<Code Code="ERRCODE_NETWORK_STREAM_INSERT_FAIL" CallStack="NO" Desc="전송할 패킷에 스트림을 삽입하기 실패했습니다. 서버 연결을 끊습니다."/>
-		<Code Code="ERRCODE_NETWORK_INVAILD_GROUPID" CallStack="NO" Desc="서버를 가져오는데에 실패했습니다. 전송할 패킷에 잘못된 그룹ID가 있습니다. 서버 연결을 끊습니다."/>
-		<Code Code="ERRCODE_NETWORK_INVAILD_SERVERID" CallStack="NO" Desc="서버를 가져오는데에 실패했습니다. 전송할 패킷에 잘못된 서버ID가 있습니다. 서버 연결을 끊습니다."/>
-		<Code Code="ERRCODE_NETWORK_INVAILD_SERVERTYPE" CallStack="NO" Desc="전송할 패킷에 잘못된 서버타입이 있습니다. 서버 연결을 끊습니다."/>
-		<Code Code="ERRCODE_NETWORK_PARSER_FAIL_RECV_PACKET" CallStack="NO" Desc="수신한 패킷의 파서 검증에 실패했습니다."/>
-		<Code Code="ERRCODE_NETWORK_INSERT_FAIL_SERVER" CallStack="NO" Desc="서버 삽입에 실패했습니다."/>
-		<Code Code="ERRCODE_NETWORK_INVALID_RECV_PACKET" CallStack="NO" Desc="수신한 패킷이 무효합니다."/>
-		<Code Code="ERRCODE_NETWORK_INIT_CREATE_FAIL_HUGE_NETSTREAM" CallStack="NO" Desc="초기화단계에서 HugeNetStream의 생성에 실패했습니다. "/>
-		<Code Code="ERRCODE_NETWORK_SEARCH_FAIL_SERVERS" CallStack="NO" Desc="서버 검색에 실패했습니다. 서버들을 찾을 수 없습니다. "/>
-		<Code Code="ERRCODE_NETWORK_READ_FAIL_SERVERLIST" CallStack="NO" Desc="월드 테이블에서 서버리스트를 읽어 올 수 없습니다. 또는 서버리스트가 비어있을 수 있습니다. daemon.xml을 확인하세요."/>
-		<Code Code="ERRCODE_NETWORK_RECEIVE_FAIL_FOR_REQUEST" CallStack="NO" Desc="요청에 대한 응답을 실패했습니다."/>
-		<Code Code="ERRCODE_NETWORK_IP_CONNECT_ERROR" CallStack="NO" Desc="해당 IP로의 연결에 실패했습니다."/>
-		<Code Code="ERRCODE_NETWORK_STEAM_VAC_BANNED" CallStack="NO" Desc="스팀 VAC에서 밴 되어있는 유저입니다."/>
-		<Code Code="ERRCODE_NETWORK_FAIL_ONPACKET_FALSE" CallStack="NO" Desc="해당 패킷을 처리하는 로직이 없습니다."/>
-		<Code Code="ERRCODE_NETWORK_CANT_GET_EXTERN_IP" CallStack="NO" Desc="외부 IP를 얻는데 실패하였습니다."/>
-		<Code Code="ERRCODE_NETWORK_HTTP_JSON_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
-		<Code Code="ERRCODE_NETWORK_HTTP_SOAP_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
-		<Code Code="ERRCODE_NETWORK_EMBEDDED_BROWSER_ERROE" CallStack="YES" Desc="Embedded_Browser에 문제가 발생하였습니다."/>
-		<Code Code="ERRCODE_NISMS_LOADFAIL" CallStack="NO" Desc="NISMS 상품 목록을 얻어오는데에 실패했습니다. 강제종료 시킵니다. 만약 넥슨 인게임샵 기능을 사용하지 않는다면, serverconfig.xml의 UseNISMS를 NO로 설정하세요. "/>
-		<Code Code="ERRCODE_NISMS_INVALIED_WORLDID" CallStack="NO" Desc="NISMS를 위한 월드의 domainType 값을 잘못 얻어왔습니다."/>
-	</Type>
-	<Type Type="DB">
-		<Code Code="ERRCODE_DB_WORLDTABLE" CallStack="NO" Desc="월드 테이블 세팅에 실패하였습니다. WorldTable DB 테이블 및 ODBC 세팅을 확인하세요."/>
-		<Code Code="ERRCODE_DB_NOT_EXIST_SID_IN_WORLDTABLE" CallStack="NO" Desc="월드 테이블에서 지정한 SID를 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_DB_NOT_EXIST_MAP_IN_WORLDTABLE" CallStack="NO" Desc="월드 테이블에서 지정한 이름에 해당하는 존 정보를 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_DB_ERROR" CallStack="NO" Desc="DB 에러가 발생하였습니다. 다음 정보를 확인하세요."/>
-		<Code Code="ERRCODE_DB_REDIS_INIT" CallStack="NO" Desc="Redis DB 초기화에 실패하였습니다. 월드 테이블에 관련 정보가 정상적으로 들어가 있는지 확인하세요."/>
-		<Code Code="ERRCODE_DB_MONGO_INIT" CallStack="NO" Desc="Mongo DB 초기화에 실패하였습니다. 월드 테이블에 관련 정보가 정상적으로 들어가 있는지 확인하세요."/>
-		<Code Code="ERRCODE_DB_GM_INIT" CallStack="NO" Desc="GM 서버 초기화에 실패하였습니다. 월드 테이블에 관련 정보가 정상적으로 들어가 있는지 확인하세요."/>
-		<Code Code="ERRCODE_DB_INVALID_CLASSKEY" CallStack="NO" Desc="DB에서 읽어온 classkey값에 매칭되는 프로퍼티를 ies오브젝트에서 찾을 수 없습니다. classkey가 변경되었거나 삭제된 값입니까?"/>
-		<Code Code="ERRCODE_DB_INVALID_DSN_FILE" CallStack="NO" Desc="DSN 파일 정보가 잘못되었습니다. serverDN.int 파일이 존재하는지, 내용이 잘못되지 않았는지 확인하세요."/>
-		<Code Code="ERRCODE_DB_INVALID_IDPW_FILE" CallStack="NO" Desc="db에 연결하기 위한 ID,PW 정보가 잘못되었습니다. server.int 파일이 존재하는지, 내용이 잘못되지 않았는지 확인하세요."/>
-		<Code Code="ERRCODE_DB_CREATE_FIELD_BOSS_FAIL" CallStack="NO" Desc="필드 보스 생성에 실패하였습니다. mapID에 해당하는 서버 또는 존을 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_DB_REDIS" CallStack="NO" Desc="Redis 서버 관련 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
-		<Code Code="ERRCODE_DB_SP_EXCUTE_ERROR" CallStack="NO" Desc="SP실행에 실패하였습니다. sp 내용과 에러코드를 확인하세요."/>
-		<Code Code="ERRCODE_DB_MASTER_IES_SAVE_TIME" CallStack="NO" Desc="sp_ies_master_set 수행에 오랜시간이 걸려 취소되었습니다."/>
-		<Code Code="ERRCODE_DB_NEED_ADD_LOG_COLLECTINO" CallStack="NO" Desc="sp_server_logging_list 에 해당 콜렉션이 등록되어있지 않습니다. DB팀이나 운영팀에 문의하세요."/>
-		<Code Code="ERRCODE_DB_COULDNT_LOAD_CLIENT_HASH" CallStack="NO" Desc="DB에서 클라이언트 파일 해시코드 값을 로드하지 못했습니다. 개발서버가 아니라면 반드시 로드되어야 합니다."/>
-		<Code Code="ERRCODE_DB_CMD_DISPATHCING" CallStack="NO" Desc="해당 커멘더가 이미 처리중에 있는데 새로운 생성을 시도하려합니다."/>
-		<Code Code="ERRCODE_DB_NEXON_SN_NOT_MATCH" CallStack="NO" Desc="넥슨 세션 서버 초기화에 실패하였습니다. 넥슨에서 전달받은 SN과 월드테이블의 SN값이 서로 다릅니다."/>
-		<Code Code="ERRCODE_DB_MONGO_FAILOVER_FILE" CallStack="NO" Desc="MongoLog Failover파일에 로그기록을 실패했습니다."/>
-		<Code Code="ERRCODE_DB_DISCONNECTED_MONGO" CallStack="NO" Desc="Mongo DB의 연결이 끊어져 있습니다. 해당 쿼리문을 가져올 수 없습니다."/>
-		<Code Code="ERRCODE_DB_CONNECT" CallStack="NO" Desc="DB 연결 실패"/>
-		<Code Code="ERRCODE_DB_CONNECT_CRASH" CallStack="NO" Desc="DB 연결에 실패하였습니다. 서버를 강제로 종료합니다. ODBC설정 또는 연결 상태를 확인하세요."/>
-	</Type>
-	<Type Type="SYSTEM">
-		<Code Code="ERRCODE_SYSTEM_INVALIED_CMDLINE_PARAM" CallStack="NO" Desc="커맨드 라인 패러미터가 잘못되었습니다. 프로그램 실행 배치 파일 내용을 확인하세요."/>
-		<Code Code="ERRCODE_SYSTEM_DISPLAY_DRIVER_ERROR" CallStack="NO" Desc="디스플레이 드라이버의 오류로 클라이언트를 종료합니다. 디스플레이 제조사에 문의하시기 바랍니다."/>
-		<Code Code="ERRCODE_SYSTEM_INIT_NVIDIA_PERF_SDK" CallStack="NO" Desc="Nvidia Perf SDK 초기화에 실패하였습니다."/>
-		<Code Code="ERRCODE_SYSTEM_XIGNCODE" CallStack="NO" Desc="사인코드 모듈에서 에러가 발생하였습니다. 출력된 에러코드를 참조하세요."/>
-		<Code Code="ERRCODE_SYSTEM_PACKET_HACK" CallStack="NO" Desc="정의되지않은 패킷입니다. 해킹패킷으로 간주합니다."/>
-		<Code Code="ERRCODE_SYSTEM_DUPLICATED_EXEC" CallStack="NO" Desc="프로그램이 중복 실행되었습니다."/>
-		<Code Code="ERRCODE_SYSTEM_LOCKRECT_FAIL" CallStack="NO" Desc="이미지 텍스쳐의 D3D Rect의 Lock에 실패하였습니다. "/>
-		<Code Code="ERRCODE_SYSTEM_CREATE_FAIL_FRK_PARTICLE_EMITTER" CallStack="NO" Desc="파티클 방사체 생성에 실패하였습니다."/>
-		<Code Code="ERRCODE_SYSTEM_GET_FAIL_FORK_P_TEXTURE" CallStack="NO" Desc="[CL1000] Fork Particle Texture를 가져오는데에 실패했습니다."/>
-		<Code Code="ERRCODE_SYSTEM_CREATE_FAIL_FORK_P" CallStack="NO" Desc="Fork Particle에서 생성에 실패했습니다."/>
-		<Code Code="ERRCODE_SYSTEM_CREATE_FAIL_EFFECTBASE" CallStack="NO" Desc="이펙트 베이스의 생성에 실패했습니다."/>
-		<Code Code="ERRCODE_SYSTEM_CREATE_FAIL_SOUND_INST" CallStack="NO" Desc="사운드 인스턴스 생성에 실패했습니다."/>
-		<Code Code="ERRCODE_SYSTEM_NOT_EXIST_SOUND" CallStack="NO" Desc="사운드를 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_SYSTEM_FMOD_EVENT" CallStack="NO" Desc="FMOD에서 에러가 발생했습니다. 다음 정보를 확인하세요."/>
-		<Code Code="ERRCODE_SYSTEM_LOAD_FAIL_ADDONOPTION" CallStack="NO" Desc="UI 애드온 불러오기에 실패하였습니다."/>
-		<Code Code="ERRCODE_SYSTEM_D3D_ERROR" CallStack="NO" Desc="3DDriver 내부에서 오류가 발생했습니다."/>
-		<Code Code="ERRCODE_SYSTEM_REMAIN_THREAD" CallStack="NO" Desc="해제되지 않고 남아있는 스레드가 있습니다. "/>
-		<Code Code="ERRCODE_SYSTEM_LOCK_FAIL" CallStack="NO" Desc="해당 데이터는 Lock을 실패했습니다."/>
-		<Code Code="ERRCODE_SYSTEM_INIT_FAIL" CallStack="NO" Desc="해당 항목의 초기화에 실패했습니다."/>
-		<Code Code="ERRCODE_SYSTEM_CANT_FIND" CallStack="NO" Desc="해당 항목을 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_SYSTEM_CANT_RUN_THREAD" CallStack="NO" Desc="쓰레드를 시작할 수 없습니다. 다음 정보를 확인하세요."/>
-		<Code Code="ERRCODE_SYSTEM_DEBUG" CallStack="NO" Desc=" : "/>
-	</Type>
-	<Type Type="INFO">
-		<Code Code="ERRCODE_NOT_YET" CallStack="NO" Desc="아직 에러코드가 정의되지 않은 로그입니다."/>
-		<Code Code="ERRCODE_INFO_FRAME_DROP" CallStack="NO" Desc="프레임 드랍"/>
-		<Code Code="ERRCODE_INFO_LUA_RUN_STRING" CallStack="NO" Desc="run string"/>
-		<Code Code="ERRCODE_INFO_FILE_RELOAD" CallStack="NO" Desc="파일 다시 불러옴"/>
-		<Code Code="ERRCODE_INFO_SEND_PACKET_LOG" CallStack="NO" Desc="전송한 패킷 로그"/>
-		<Code Code="ERRCODE_INFO_RECEIVE_PACKET_LOG" CallStack="NO" Desc="받은 패킷 로그"/>
-		<Code Code="ERRCODE_INFO_INVALID_VALUE" CallStack="NO" Desc="잘못된 값입니다. 다음 정보를 참조하세요."/>
-		<Code Code="ERRCODE_INFO_NORMAL" CallStack="NO" Desc="개발용 정보"/>
-		<Code Code="ERRCODE_INFO_TRY_CONNECT" CallStack="NO" Desc="개발용 정보"/>
-		<Code Code="ERRCODE_INFO_MEMORY" CallStack="NO" Desc="메모리 디버그 정보"/>
-		<Code Code="ERRCODE_INFO_CLIENT_HASHCODE" CallStack="NO" Desc="IPF파일 변경이 감지되었을 때 클라이언트가 로드한 파일 리스트 및 크기"/>
-		<Code Code="ERRCODE_INFO_RES_LOAD" CallStack="NO" Desc="리소스 로드 정보"/>
-		<Code Code="ERRCODE_INFO_CALLSTACK" CallStack="NO" Desc="콜스택 보기"/>
-		<Code Code="ERRCODE_INFO_NGS" CallStack="NO" Desc="NGS 디버깅용 로그"/>
-		<Code Code="ERRCODE_INFO_SSO_LOG" CallStack="NO" Desc="SSO 디버깅용 로그"/>
-		<Code Code="ERRCODE_INFO_IDLE_TIMEOUT" CallStack="NO" Desc="대기 시간 초과"/>
-		<Code Code="ERRCODE_INFO_USER_SESSIONS" CallStack="NO" Desc="유저 세션 정보"/>
-		<Code Code="ERRCODE_INFO_DESTROY_REQUEST" CallStack="NO" Desc="연결 종료 요청으로 연결이 종료되었습니다."/>
-		<Code Code="ERRCODE_INFO_ADDON_MEMORY_CONTROL" CallStack="NO" Desc="UI 애드온의 사용하고 있는 메모리 용량과 제어하는 전체 메모리 용량."/>
-		<Code Code="ERRCODE_INFO_MEMORY_USAGE_IMAGE" CallStack="NO" Desc="이미지로 사용하고 있는 메모리에 대한 정보"/>
-		<Code Code="ERRCODE_INFO_MEMORY_USAGE_UICLASS" CallStack="NO" Desc="UI클래스로 사용하고 있는 메모리에 대한 정보"/>
-		<Code Code="ERRCODE_INFO_DBG_TEST" CallStack="NO" Desc="디버깅 TEST용 로그"/>
-		<Code Code="ERRCODE_INFO_UI_LOG" CallStack="NO" Desc="UI로그"/>
-		<Code Code="ERRCODE_INFO_OBB_TIMETEST" CallStack="NO" Desc="OBB TEST용 클릭 후 반응 시간"/>
-		<Code Code="ERRCODE_INFO_TIMEOUT" CallStack="NO" Desc="처리 시간 초과 로그"/>
-		<Code Code="ERRCODE_INFO_OLDMSG" CallStack="NO" Desc="다국어화 어순 이슈로 clientmessage.xml에서 %s 를 이용한 포맷은 쓰지 않기로 했습니다. "/>
-		<Code Code="ERRCODE_INFO_FAIL_GUILD_AGIT_ENTER" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
-		<Code Code="ERRCODE_INFO_DB_CONNECT" CallStack="NO" Desc=" : "/>
-		<Code Code="ERRCODE_INFO_FAIL_GUILD_AGIT_ENTER" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
-		<Code Code="ERRCODE_INFO_LOGIN_PROCESS" CallStack="NO" Desc="로그인 에러 정보"/>
-	<Code Code="ERRCODE_COMMANDER_SAVE_NAN_POS" CallStack="NO" Desc="커맨더 세이버에서 y 포지션에 nan 들어와서 자꾸 DB에러 나는거 잡기 위한 용도"/>	</Type>
+	<Code Code="FATAL_ASSERT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다."/>
+	<Code Code="FATAL_ASSERT_EX" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 다음 정보를 참조하세요."/>
+	<Code Code="FATAL_ASSERT_CRASH" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 프로그램을 종료시킵니다."/>
+	<Code Code="FATAL_INIT_TABLE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="테이블 초기화에 실패하였습니다.  다음 정보 및 파일 로드 실패 등 이전 로그를 참조하세요."/>
+	<Code Code="FATAL_SERVER_INIT" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="서버 초기화에 실패하였습니다. 프로그램을 종료합니다."/>
+	<Code Code="ERROR_AUTH_CHECK_FAIL" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="넥슨 AuthCheck에 실패하였습니다. 해당 오류코드와 authCheck.h의 오류코드표를 확인하세요."/>
+	<Code Code="WARNING_SEND_ERROR_TO_CLIENT" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="클라이언트에 다음과 같은 에러 또는 로그를 전송하였습니다."/>
+	<Code Code="ERROR_BINARY_ALLOCATE_FAIL" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="바이너리에 메모리 Allocate를 실패했습니다. 바이너리 size 지정을 확인하세요."/>
+	<Code Code="FATAL_CIRCLE_QUEUE_OVERFLOW" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 버퍼 오버 플로가 발생되었습니다."/>
+	<Code Code="WARNING_OVERWRITE_IES_OBJECT" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="GUID가 중복되었기 때문에 기존의 오브젝트가 삭제되었습니다."/>
+	<Code Code="ERROR_INVALID_INVEN_ITEM" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인벤토리에서 해당 아이템을 찾을 수 없습니다."/>
+	<Code Code="ERROR_INVALID_ITEM_GUID" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인벤팬텀에서 해당 GUID의 아이템을 찾을 수 없습니다."/>
+	<Code Code="ERROR_ALREADY_EXIST_CLIENT" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이미 존재하는 클라이언트 클래스 입니다."/>
+	<Code Code="ERROR_NOT_EXIST_CLIENT" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존재하지 않는 클라이언트 클래스 입니다."/>
+	<Code Code="ERROR_INVALID_SLOT_ID" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 슬롯 ID입니다."/>
+	<Code Code="ERROR_INVALID_EQUIP_SLOT" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="올바르지 않은 Equip Slot입니다."/>
+	<Code Code="ERROR_TO_MUCH_AUCTION_ITEM" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="너무 많은 경매장 아이템을 전송하려 시도했습니다."/>
+	<Code Code="ERROR_TO_AUCTION_ERROR" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="경매장 로직이 잘못되었습니다."/>
+	<Code Code="ERROR_CREATE_IES_OBJ" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IES 오브젝트 생성을 실패하였습니다."/>
+	<Code Code="FATAL_IES_DUPLICATE_GUID" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IES오브젝트의 GUID가 중복되었습니다."/>
+	<Code Code="ERROR_LOAD_BARRACK_PC" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="숙소 PC를 불러올 수 없습니다. 해당 정보를 확인하세요."/>
+	<Code Code="ERROR_SET_IES_PROPERTY" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IES 오브젝트에서 해당 프로퍼티를 저장하는데 실패하였습니다."/>
+	<Code Code="ERROR_IES_NOT_STRING_PROP" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="숫자 형태의 프로퍼티를 문자열 형태로 접근하려고 시도하였습니다."/>
+	<Code Code="ERROR_IES_NOT_NUMBER_PROP" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="문자열 형태의 프로퍼티를 숫자 형태로 접근하려고 시도하였습니다."/>
+	<Code Code="ERROR_CREATE_PATH_AGENT_FAIL" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 좌표값 입니다. 패스 에이전트를 생성하는데 실패하였습니다."/>
+	<Code Code="ERROR_INVALID_HANDLE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 핸들입니다."/>
+	<Code Code="ERROR_NOT_EXIST_CHAT_GROUP" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존재하지 않는 채팅 그룹입니다."/>
+	<Code Code="ERROR_PACKET_DECOMPRESS" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 패킷 데이터를 Decompress하는데 실패하였습니다."/>
+	<Code Code="ERROR_GET_IES_PROPERTY" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IES 오브젝트에서 해당 프로퍼티를 가져오는데 실패하였습니다."/>
+	<Code Code="ERROR_USE_ZOMBIE_OBJ" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="좀비 오브젝트를 사용하려고 시도하였습니다. "/>
+	<Code Code="WARNING_CALLSTACK_BY_TIME" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="일정 주기를 두고 기록되도록 설정된 콜스택 입니다. 같은 시간에 남은 다른 로그 정보를 참조하세요."/>
+	<Code Code="FATAL_NEXON_SSO" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="넥슨 SSO를 초기화 하는데 실패하였습니다."/>
+	<Code Code="FATAL_NGS" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="넥슨 NGS 에러"/>
+	<Code Code="FATAL_INIT_LIBRARY" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="라이브러리 초기화에 실패하였습니다. 다음 정보 및 파일 로드 실패 등 이전 로그를 참조하세요."/>
+	<Code Code="ERROR_MEMORY_ALLOCATE_FAIL" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="메모리 할당을 실패하였습니다."/>
+	<Code Code="WARNING_MISSION_ROOM" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="미션 룸 관련 에러가 발생하였습니다. 다음 정보를 참조하세요."/>
+	<Code Code="WARNING_FMOD_INIT_FAIL" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="사운드 관련 FMOD 세팅을 실패하였습니다."/>
+	<Code Code="ERROR_RECV_UNKNOWN_PACKET" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="알 수 없는 패킷을 전송받았습니다. 혹시 숙소에서 존 패킷을 전송받거나 노멀모드에서 숙소 패킷을 전송받지는 않았습니까?"/>
+	<Code Code="ERROR_ZONE_START_FAIL" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존서버 프레임워크가 실패하였습니다."/>
+	<Code Code="ERROR_TRANSACTION_FAIL" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="트랜잭션 수행을 실패하였습니다. 다음 정보를 참조하세요."/>
+	<Code Code="ERROR_TRANSACTION" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="트랜잭션 관련 오류"/>
+	<Code Code="ERROR_GET_BACK_BUFFER" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="백 버퍼 로드를 실패하였습니다."/>
+	<Code Code="ERROR_GET_STENCIL_SURCAFE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Stencil 로드를 실패하였습니다."/>
+	<Code Code="ERROR_STEAM_AUTHDATA_NULL" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 ID에 해당하는 authdata를 찾을 수 없습니다."/>
+	<Code Code="FATAL_LOOP_STACKOVERFLOW" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="루프 스택 오버플로우."/>
+	<Code Code="ERROR_PATH_ENGIN" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="페스엔진으로 인한 지형 위치 생성 오류"/>
+	<Code Code="ERROR_CLIENT_MGR_INSERT_FAIL" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="클라이언트 매니저를 생성하는데 실패하였습니다. 해당 ip와의 연결을 종료합니다."/>
+	<Code Code="FATAL_INVALID_CONNECTION_TYPE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 타입의 커넥션 연결이 시도되었습니다."/>
+	<Code Code="ERROR_GEMSCOOL_LOGIN_FAIL" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="젬스쿨 로그인 서버와의 통신이 실패하였습니다. 다음 에러 정보를 참조하세요."/>
+	<Code Code="ERROR_GEMSCOOL_PREMIUM_FAIL" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="젬스쿨 프리미엄 PC 인증이 실패하였습니다. 다음 에러 정보를 참조하세요."/>
+	<Code Code="ERROR_NEXON_NOT_IMPLEMENTED_SYNC_TYPE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="세션 정보와 넥슨 세션 서버와의 동기화가 실패하였습니다. 알 수 없는 싱크 타입입니다."/>
+	<Code Code="ERROR_GETPOS_NEAR_FROM_TARGET" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="MaxLoopCount내에 유효좌표를 얻지 못했습니다."/>
+	<Code Code="ERROR_LOGIN_TOO_MANY_DB_RESULT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DB의 결과값이 너무 많습니다."/>
+	<Code Code="WARNING_PARTY_NAME_ALREDY_EXIST" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이미 존재하는 파티 이름입니다."/>
+	<Code Code="ERROR_BAD_LEXICAL_CAST" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="형변환 실패"/>
+	<Code Code="ERROR_TX_FAIL" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="트랜잭션 수행을 실패"/>
+	<Code Code="ERROR_STD_EXCEPTION" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="std::exception이 발생"/>
+	<Code Code="WARNING_FREEMEDAL_TIME" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Medal충전이 필요한 상태이지만 충전시간이 셋팅되어있지 않습니다. 2시간뒤로 다시 셋팅합니다."/>
+	<Code Code="FATAL_IDSPACE_INIT_ERROR" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="XML에서 IDSpace를 초기화 하는데 실패했습니다."/>
+	<Code Code="ERROR_INDUN_AUTOFIND" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인던 입장에 실패했습니다."/>
+	<Code Code="ERROR_NULLPTR" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 구문은 nullptr입니다."/>
+	<Code Code="ERROR_FAILED_CREATE_VIRTUAL_COMMANDER" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="가상 커맨더 생성 실패"/>
+	<Code Code="FATAL_CANNOT_FIND_PROPERTY" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="PROPERTY를 찾을 수 없습니다."/>
+	<Code Code="ERROR_SERVER_NOT_EXIST" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="서버가 존재하지 않습니다."/>
+	<Code Code="ERROR_WRONG_FAMILY_NAME" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Family Name String이 잘못되었습니다."/>
+	<Code Code="ERROR_WRONG_INDEX" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Index가 범위를 벗어났습니다."/>
+	<Code Code="ERROR_WRONG_IP" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IP가 잘못되었습니다."/>
+	<Code Code="ERROR_CRITICAL" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Critical Error"/>
+	<Code Code="ERROR_PACKET_ERROR" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 패킷입니다."/>
+	<Code Code="WARNING_NO_SET_CALLBACK_SPRITEEVENT" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스프라이트 이벤트에서 콜백이 지정되지 않았습니다."/>
+	<Code Code="ERROR_ADD_FAIL_KEYFRAME" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="키 프레임 생성에 실패했습니다."/>
+	<Code Code="ERROR_LOW_TIME_ADDKEYFRAME" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="추가할 키 프레임 생성 시간이 너무 이릅니다."/>
+	<Code Code="WARNING_DUPLICATE_NAME_TEXTURE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="텍스쳐를 두번 정의했습니다."/>
+	<Code Code="ERROR_ABOUT_PARTY" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="파티 관련 에러입니다."/>
+	<Code Code="ERROR_ALREADY_EXIST_VALUE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이미 존재하는 값입니다."/>
+	<Code Code="ERROR_BROKEN_WORDWRAP" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="텍스트의 줄바꿈 기능에 에러가 발생했습니다."/>
+	<Code Code="ERROR_WRONG_COL_ADVLISTBOX" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="advlistbox의 maxrowcol 속성 중에 col 값이 잘못되었습니다."/>
+	<Code Code="ERROR_SET_ITEM_WITHOUT_KEY" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="AddItem을 하지 않고 SetItem을 사용하려면, SetItem(pKey, column,...)을 이용하여 해당 열의 Key를 지정하세요."/>
+	<Code Code="ERROR_WRONG_LUA_TYPE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Lua Type이 일치하지 않습니다."/>
+	<Code Code="ERROR_NOT_EXIST_VALUE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="값이 존재하지 않습니다."/>
+	<Code Code="ERROR_BUFFER_OVER_SIZE" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="버퍼 사이즈를 초과하였습니다."/>
+	<Code Code="ERROR_CREATE_FAIL" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="생성에 실패했습니다."/>
+	<Code Code="ERROR_INIT_FAIL_MONGEN" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="몬스터 생성 초기화에 실패하였습니다."/>
+	<Code Code="ERROR_STILL_DO_TX" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 TX 처리가 완료되지 않았습니다."/>
+	<Code Code="ERROR_ADD_FAIL" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 항목을 추가 할 수 없습니다."/>
+	<Code Code="ERROR_GET_FAIL_CLASS" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 클래스를 가지고 오는데에 실패하였습니다."/>
+	<Code Code="ERROR_ALREADY_DESTROYED" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이미 소멸된 자원입니다."/>
+	<Code Code="ERROR_INCORRECT_CALL_SEQUENCE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="호출 순서가 잘못됐습니다. 다음 정보를 참조하세요."/>
+	<Code Code="FATAL_OBJ_POOL" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="오브젝트 풀에서 에러가 발생했습니다. 다음 정보를 참조하세요."/>
+	<Code Code="ERROR_UPDATE_AUTHCODE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인증코드에러로 강제 로그아웃됩니다."/>
+	<Code Code="ERROR_MONSTER_CREATE_FAILED" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랜덤 좌표를 받지 못하고 몬스터 생성에 실패했습니다."/>
+	<Code Code="ERROR_TOO_MANY_CHAT_ROOM" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅 방 개수가 비정상 적으로 많습니다."/>
+	<Code Code="ERROR_CHAT_ROOM" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅 방 오류"/>
+	<Code Code="ERROR_LOGIC" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="로직 오류"/>
+	<Code Code="INFO_PRINT_CALL_STACK" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="YES" Desc=" : "/>
+	<Code Code="ERROR_STEAM_INVEN" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 인벤토리 로직 오류. 프로그래머에게 문의하세요."/>
+	<Code Code="ERROR_INVALID_CHAR_SLOT_COUNT" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="슬롯갯수보다 캐릭터 갯수가 많음에도 클라이언트에서 게임시작 요청이 들어왔거나 갯수를 가져오는데 실패했습니다"/>
+	<Code Code="ERROR_INVALID_ACCOUNT_ID" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Account ID의 값이 비정상입니다."/>
+	<Code Code="ERROR_AUTOMATCH" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="매칭 관련 에러 발생"/>
+	<Code Code="ERROR_RANDOM_MISSION" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="살러스 수녀원 관련 에러"/>
+	<Code Code="ERROR_MISSION_ROOM_EXIT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="미션룸 삭제"/>
+	<Code Code="ERROR_UNKNOWN_ACTOR_MESSAGE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="정의되지 않은 메세지 입니다."/>
+	<Code Code="ERROR_DUPLICATE_LOGIN" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="중복 로그인 관련 에러"/>
+	<Code Code="WARNING_ERROR_LOGOUT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존 입장 실패"/>
+	<Code Code="ERROR_DPK" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DPK 에러"/>
+	<Code Code="ERROR_PATHENGINE_INVALID_POS" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패스엔진 잘못된 위치"/>
+	<Code Code="ERROR_OMG_LOGIN_FAIL" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="ERROR_DIDNT_DESTROYED" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="ERROR_OVERFLOW_FIXED_LIST" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="FATAL_INIT_TABLE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
+	<Code Code="FATAL_INVALID_IES" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존재하지 않는 IES입니다. 해당하는 ipspace를 담고 있는 xml이 존재하는지, 정상적으로 불러왔는지 확인하세요."/>
+	<Code Code="FATAL_INVALID_CLASS_IN_IES" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 IES에 존재하지 않는 클래스입니다.  해당 정보를 담고 있는 xml 파일을 확인하세요."/>
+	<Code Code="FATAL_FILE_LOAD" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 파일을 불러오는데 실패하였습니다."/>
+	<Code Code="FATAL_FILE_LOAD_CONTENTDESIGN" Team="CONTENTDESIGN" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 파일을 불러오는데 실패하였습니다."/>
+	<Code Code="FATAL_FILE_LOAD_SYSTEMDESIGN" Team="SYSTEMDESIGN" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 파일을 불러오는데 실패하였습니다."/>
+	<Code Code="PATHENGINE_INVALID_POS" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 파일을 저장하는데 실패하였습니다."/>
+	<Code Code="FATAL_BROKEN_FILE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 파일이 비정상적입니다."/>
+	<Code Code="ERROR_SERVICE_NATION" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="서버의 국가 설정이 비정상 적입니다. server_config.xml을 확인하세요."/>
+	<Code Code="FATAL_IES_DUPLICATE_CLASSID" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IES오브젝트의 ClassID가 중복되었습니다. 해당 정보를 담고 있는 xml 파일을 확인하세요."/>
+	<Code Code="FATAL_IES_DUPLICATE_CLASSNAME" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IES오브젝트의 ClassName이 중복되었습니다. 해당 정보를 담고 있는 xml 파일을 확인하세요."/>
+	<Code Code="FATAL_DUPLICATE_CLASSKEY" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="!!클래스키 중복!!"/>
+	<Code Code="ERROR_IES_COULDNT_FIND_CLASS" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 idspace에서 지정한 클래스를 가져오는데 실패하였습니다. 해당 idspace에 해당하는 xml 파일을 확인하세요."/>
+	<Code Code="ERROR_IES_COULDNT_FIND_IDSPACE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정한 idspace를 찾을 수 없습니다. 해당 idspace에 해당하는 xml 파일이 존재하는지 확인하세요."/>
+	<Code Code="ERROR_INVALID_STANCE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 스탠스 타입입니다."/>
+	<Code Code="ERROR_INVALID_TYPE_IN_TABLE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 테이블에 존재하지 않는 Class 입니다. 해당 정보를 담고 있는 xml 파일을 확인하세요."/>
+	<Code Code="FATAL_SOBJ_INVALID_PROPNAME" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당되는 정보를 세션 오브젝트의 클라이언트 프로퍼티에서 찾을 수 없습니다. 프로퍼티명을 확인하세요."/>
+	<Code Code="ERROR_INVALID_IES_PROPERTY_NAME" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 프로퍼티를 가져올 수 없습니다. 해당 IES 클래스가 선언되어있는 xml을 서버가 로드 하였는지, xml 내부에 해당 프로퍼티가 존재하는지 확인하세요."/>
+	<Code Code="FATAL_INIT_ADJACENCY_LIST" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="맵간 연결 정보를 초기화 하는데 실패하였습니다. map.xml의 PhysicalLinkZone 컬럼을 확인하세요."/>
+	<Code Code="FATAL_XML_FILE_PARSING" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 xml 파일을 읽는데 실패하였습니다. xml 파일이 정상적인지 확인하세요."/>
+	<Code Code="ERROR_XML_COULDNG_FIND_IDSPACE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 xml 파일을 읽는데 실패하였습니다. idSpace는 반드시 존재하여야 합니다. xml 파일이 정상적인지 확인하세요."/>
+	<Code Code="FATAL_READ_DATA_RIVISION" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="클라이언트의 데이터 버전을 확인하는데 실패하였습니다. 게임 실행 경로, ipf 파일 경로 및 파일 이름을 확인하세요."/>
+	<Code Code="FATAL_READ_RELEASE_RIVISION" Team="QA" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="클라이언트의 소스 버전을 확인하는데 실패하였습니다. release.revision.txt파일을 확인하세요."/>
+	<Code Code="FATAL_READ_CONFIG" Team="QA" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="클라이언트 옵션을 불러오는데 실패하였습니다. client.xml, user.xml, patch\\updater.config.xml 및 staticConfig의 경로, 내용이가 정상적인지 확인하세요 "/>
+	<Code Code="FATAL_READ_PATCH_URL" Team="QA" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패치 url을 확인하는데 실패하였습니다. client.xml을 확인하세요."/>
+	<Code Code="ERROR_LOAD_SCENE_MODEL" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 클래스의 모델을 가져올 수 없습니다."/>
+	<Code Code="ERROR_FONT_LOAD_FAIL" Team="UI" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 폰트를 가져올 수 없습니다. fonts.xml에 등록된 폰트인지 확인하세요."/>
+	<Code Code="ERROR_DIF_COLMESH_VERSION" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="읽어온 파일과 현재 사용중인 colMesh의 버전이 다릅니다."/>
+	<Code Code="WARNING_MONSTER_OPTION_FILE_NOT_EXIST" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 몬스터의 Option.xml 파일이 없습니다. 데드이펙트를 재생할 수 없습니다."/>
+	<Code Code="WARNING_MONSTER_DEAD_EFFECT_NOT_EXIST" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 몬스터의 데드이펙트가 없습니다."/>
+	<Code Code="ERROR_COULDNT_FIND_BITMAP" Team="UI" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 비트맵을 찾을 수 없습니다. baseskinset.xml에 등록되어 있는 이름의 이미지입니까?"/>
+	<Code Code="ERROR_NOT_EXIST_ANIMATION" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 애니메이션 데이터를 찾을 수 없습니다."/>
+	<Code Code="ERROR_NOT_EXIST_SPRITE" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 스프라이트 데이터를 찾을 수 없습니다."/>
+	<Code Code="ERROR_ANI_ACTOR_PART_SET_FAIL" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="액터 파트를 세팅하는데 실패하였습니다. 정의되지 않은 액션 카운트입니다."/>
+	<Code Code="FATAL_WORLDTABLE_INIT_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드테이블 초기화를 실패했습니다."/>
+	<Code Code="FATAL_ITEMTABLE_INIT_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="아이템 데이터가 DB 데이터와 다릅니다."/>
+	<Code Code="ERROR_WORLD_INITOBJECT_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드 오브젝트 초기화를 실패했습니다."/>
+	<Code Code="ERROR_MAINSECTOR_INIT_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="메인 섹터매니저 초기화를 실패했습니다."/>
+	<Code Code="ERROR_INVALIDPOS" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="유효한 좌표가 아닙니다."/>
+	<Code Code="ERROR_SOUND_DATA_NOT_EXIST" Team="SOUND" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="사운드 파일이 없습니다. 사운드팀에 문의."/>
+	<Code Code="ERROR_EFFECT_WRONG_COMPONENT" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 이펙트 컴퍼넌트 이름입니다. effectlist.xml에 등록된 내용을 확인하세요."/>
+	<Code Code="ERROR_CREATE_IES_OBJECT_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IES오브젝트를 생성하는데 실패하였습니다."/>
+	<Code Code="ERROR_INVALID_GEM_PROPERTY" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="젬 프로퍼티를 추가하지 못했습니다. socket_property.xml 의 해당 아이템 내용을 확인하세요."/>
+	<Code Code="FATAL_MISSING_TRANS_DATA" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="반드시 번역 되어야 하는 데이터가 번역 되지 않았습니다. 해당 데이터의 DicID를 확인하세요."/>
+	<Code Code="ERROR_GET_CLIENT_REVISION_FAIL" Team="QA" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="CDN에서 클라이언트 리비전 정보를 받는데 실패하였습니다. 해당 주소의 파일 내용을 확인하세요."/>
+	<Code Code="ERROR_SET_RANDOM_FIELDBOSS_INFO" Team="SYSTEMDESIGN" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="필드보스 정보를 초기화 하는데 실패하였습니다. fieldbossrandom.xml 파일이 잘못되었는지 확인하세요."/>
+	<Code Code="ERROR_DC_OPTION" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="운영툴에서 잘못된 옵션 데이터를 넘기고 있습니다. 데이터를 확인해주세요."/>
+	<Code Code="ERROR_MODEL_INV_NODE" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존재하지 않는 노드입니다."/>
+	<Code Code="WARNING_KB_OVER_VANGLE" Team="SYSTEMDESIGN" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="넉백타입인데 높이값이 너무 높습니다. 10으로 보정합니다."/>
+	<Code Code="ERROR_INVALID_MOTION" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 모션을 찾을 수 없습니다."/>
+	<Code Code="ERROR_PLAY_MOVIE_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 동영상을 재생할 수 없습니다."/>
+	<Code Code="ERROR_SET_SAVE_VALUE" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="같은 값으로 저장을 시도하고 있습니다."/>
+	<Code Code="ERROR_NOT_EXIST_CONFIG_NAME" Team="QA" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존재하지 않는 옵션 이름입니다. config.xml이 손상되지 않았는지, config.xml파일이 서버와 클라이언트가 같은 파일을 사용하는지 확인하세요."/>
+	<Code Code="ERROR_PACKET_SIZE_OVER" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 사이즈 오버"/>
+	<Code Code="ERROR_INVALID_HOTKEYSCP" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 단축키 스크립트입니다. hotkeyscp.xml에 등록되어 있는 스크립트인지 확인하세요."/>
+	<Code Code="ERROR_NONEWAY" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="GiveWay 또는 TakeWay 의 값이 None입니다."/>
+	<Code Code="ERROR_INVALID_SECTORPOS" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="World::Enter() 실패하였습니다. 해당좌표에 맞는 섹터가 없습니다."/>
+	<Code Code="ERROR_FAIL_WORLD_ENTER" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="World::Enter() 실패하였습니다. 해당좌표가 유효한지 확인하세요."/>
+	<Code Code="ERROR_FAIL_WORLD_ENTER" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="World::Enter() 실패하였습니다. 해당좌표가 유효한지 확인하세요."/>
+	<Code Code="WARNING_TOOLONG_APPERANCE_TOSTRING_PVP" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="속성값의 변환된 문자열이 너무 깁니다. (최소 1024보다 작아야 합니다.) 값을 None으로 대체합니다."/>
+	<Code Code="ERROR_GET_FAIL_WORLDPVP_STATE" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="PVP 월드의 State를 가지고 오는데에 실패했습니다. 매칭에 실패한 것으로 처리합니다."/>
+	<Code Code="ERROR_DESTROY_FAIL_PVP_GAMEROOM" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="PVP Game Room 의 소멸 요청에 소멸 실패하였습니다. 해당 Room의 정보를 확인하세요."/>
+	<Code Code="ERROR_INVALID_PVP_MAPID" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="유효한 PVP MapID가 아닙니다.  "/>
+	<Code Code="FATAL_GET_FAIL_FRIENDAIDLIST" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="친구 account ID 목록을 가져오는데에 실패했습니다."/>
+	<Code Code="ERROR_INVALID_PARTY_TYPE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="무효한 Party Type이 있습니다."/>
+	<Code Code="ERROR_READ_FAIL_WHOLDDICID" Team="GLOBAL" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="wholdDicID.xml을 읽어올때에 에러가 발생했습니다."/>
+	<Code Code="ERROR_LOAD_FAIL_TRANSLATED_DATA" Team="GLOBAL" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="번역 Data를 읽어오는데에 실패했습니다."/>
+	<Code Code="ERROR_INIT_FAIL_IMCDIC" Team="GLOBAL" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="ImcDic 초기화에 실패했습니다."/>
+	<Code Code="ERROR_INVALID_POSITION_SHADOW" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="그림자(마크) 재생성에 있어서 잘못된 위치에 있습니다."/>
+	<Code Code="ERROR_NOT_EXIST_IMAGE_TEXTURE" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 텍스쳐 이미지를 찾을 수 없습니다. "/>
+	<Code Code="ERROR_OUT_OF_MEMORY_CREATE_QUEUE" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="메모리 범위를 벗어나, 메세지 큐에서 NODE 생성에 실패했습니다."/>
+	<Code Code="ERROR_GET_FAIL_SECTOR_COLLISION" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="충돌 Ray의 계산에서 섹터를 가지고 오는데에 실패했습니다."/>
+	<Code Code="ERROR_GET_FAIL_SECTOR_DYNAMICOBB" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Dynamic OBB를 추가할때에 섹터를 가지고 오는데에 실패했습니다."/>
+	<Code Code="ERROR_GET_FAIL_PALYMOTION" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모델 생성 도중에 모션을 가지고 오는데에 실패했습니다."/>
+	<Code Code="ERROR_NOT_EXIST_EFFECTSOUND" Team="SOUND" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="추가할 사운드 이펙트가 현재의 사운드 리스트에 없습니다."/>
+	<Code Code="ERROR_NOT_EXIST_LAYER" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="추가할 레이어가 현재의 레이어 리스트에 없습니다."/>
+	<Code Code="ERROR_LOAD_FAIL_COMPONENT_LIST" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="컴포넌트 리스트를 읽어오지 못했습니다."/>
+	<Code Code="WARNING_OVERLAP_COMPONENT" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="동일한 컴포넌트가 있습니다."/>
+	<Code Code="ERROR_INVLID_TYPE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 타입입니다."/>
+	<Code Code="ERROR_NOT_EXIST_PLAYEVENT" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="재생 할려는 이벤트를 찾지 못했습니다. xml_client/ui_event.xml을 확인하세요."/>
+	<Code Code="ERROR_LOAD_ERROR_DEFAULT" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="데이터 로드 실패"/>
+	<Code Code="ERROR_NOT_EXIST_FILE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="파일을 찾을 수 없습니다."/>
+	<Code Code="ERROR_REGIST_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 데이터의 등록을 실패했습니다."/>
+	<Code Code="ERROR_INSERT_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 데이터의 삽입을 실패했습니다."/>
+	<Code Code="ERROR_REMOVE_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 데이터의 삭제를 실패했습니다."/>
+	<Code Code="ERROR_COMPRESS_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 데이터의 압축에 실패했습니다."/>
+	<Code Code="ERROR_DOSENT_MATCH_SIZE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 데이터가 지정된 사이즈와 맞지 않습니다."/>
+	<Code Code="WARNING_INVALID_TRANSLATED_DATA" Team="GLOBAL" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 번역 데이터입니다."/>
+	<Code Code="WARNING_INVALID_TRANSLATED_ENCODING" Team="GLOBAL" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc=".tsv 파일의 인코딩은 반드시 UTF-8 whitout BOM 이어야 합니다."/>
+	<Code Code="ERROR_STEAM_INVALID_REGION" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 지역에서 수행 불가능한 요청입니다."/>
+	<Code Code="ERROR_ABILITY_MAX_LEVEL_GREATER_ZERO" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="어빌리티의 최대 레벨은 0보다 커야합니다."/>
+	<Code Code="ERROR_EQUIP_CARD_SYSTEM_DATA" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="카드 데이터에 문제가 있습니다. 확인해주세요."/>
+	<Code Code="ERROR_FIND_NOT_MONSTER" Team="SYSTEMDESIGN" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 몬스터를 찾지 못하였습니다. 확인해주세요."/>
+	<Code Code="WARNING_INVLID_INDEX" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 인덱스 입니다."/>
+	<Code Code="ERROR_INVALID_NISMS_GOODS_MAP" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 상품 목록 DataMap 입니다."/>
+	<Code Code="ERROR_INVALID_NISMS_GOODS_ITEM" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 상품 정보 Data 입니다."/>
+	<Code Code="ERROR_INVALID_CLASS_IN_PRODUCTS" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NISMS에 등록된 상품의 클래스 또는 이름이 무효합니다. 해당 계정의 캐시 인벤에 표시가 안되고 있으며, NISMS에 잘못 등록된 아이템을 구입한 계정 입니다."/>
+	<Code Code="FATAL_NEED_RELEASE_OBJECT_BY_REFCOUNT" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Release 하였지만, 다른 곳에서 여전히 참조중인 객체입니다. 메모리릭이 발생할 수 있습니다."/>
+	<Code Code="ERROR_NAVI_MESH_CAN_NOT_FIND" Team="ART" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="findShortestPath 실패하였습니다. 배경팀에 문의해주세요."/>
+	<Code Code="ERROR_INVALID_ORDERNO" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NISMS 존재하지 않는 상품 번호 입니다."/>
+	<Code Code="ERROR_INVALID_NISMS_ITEM_COUNT" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NISMS 캐시 인벤토리 정보를 가져오는데 실패하였습니다."/>
+	<Code Code="ERROR_INVALID_ITEM_COUNT" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NISMS 아이템 개수가 0개 입니다."/>
+	<Code Code="ERROR_INVALID_NISMS_ITEM_ID" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NISMS 찾을 수 없는 아이템 입니다."/>
+	<Code Code="ERROR_INVALID_NISMS_MSG_MAP" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="FATAL_NISMS_MSG_INIT_FAIL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="ERROR_ABNORMAL_MESH_COUNT" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="ERROR_NOT_EXIST_CLIENT_MSG" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="ERROR_DATA_NULL" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="ERROR_IES_CANT_SUSPEND_MAIN_THREAD" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="메인 쓰레드는 sleep, tx등으로 중단시킬 수 없습니다. 해당 함수 내용을 확인하세요."/>
+	<Code Code="ERROR_LUA_SCRIPT" Team="PROGRAM" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="루아 스크립트에서 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
+	<Code Code="ERROR_LUA_SCRIPT_CONTENTDESIGN" Team="CONTENTDESIGN" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="컨텐츠기획 스크립트에서 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
+	<Code Code="ERROR_LUA_SCRIPT_SYSTEMDESIGN" Team="SYSTEMDESIGN" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="시스템기획 스크립트에서 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
+	<Code Code="ERROR_COULDNT_FIND_FUNCTION" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정한 루아 스크립트 함수를 찾을 수 없습니다. 함수명을 확인하세요."/>
+	<Code Code="ERROR_FUNCTION_EXCUTE" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정한 루아 스크립트 함수를 실행하는데 실패하였습니다. 함수 내용을 확인하세요."/>
+	<Code Code="ERROR_INVALID_MGAME_SCP_TYPE" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 미션 스크립트 타입입니다. "/>
+	<Code Code="ERROR_IES_INVALIDATE_CP" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="CP형태의 IES 프로퍼티값을 가져오는데 실패하였습니다. 해당 함수의 정상 작동 유무를 확인하세요."/>
+	<Code Code="ERROR_INVALIDATE_LOG_TYPE" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스크립트에서 잘못된 형태로 로그를 남기려고 시도하였습니다. 콜스택의 해당 라인을 확인하세요."/>
+	<Code Code="ERROR_INVALIDATE_FIELDOBJECT" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="오브젝트 가져오는데 실패하였습니다. 콜스택의 해당 라인을 확인하세요."/>
+	<Code Code="ERROR_NONE_UPDATE_SCRIPT" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="업데이트 스크립트가 None입니다."/>
+	<Code Code="ERROR_CANT_USE_TX_IN_MAIN_THREAD" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Main thread 에서는 tx를 사용할 수 없습니다. 커스텀 tx를 사용하세요."/>
+	<Code Code="ERROR_CANT_FIND_LUA_SCRIPT" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="루아 스크립트 파일을 찾을 수 없습니다."/>
+	<Code Code="ERROR_INVALID_ARG_NUMBER" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인자 갯수가 잘못되었습니다. 해당 함수를 올바르게 호출 하였는지 확인하세요."/>
+	<Code Code="ERROR_TAKEDAMAGE_MAX_COUNT_OVER" Team="SYSTEMDESIGN" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="TakeDamage에서 한 프레임에 줄 수 있는 허용 카운트(20)를 오버하였습니다."/>
+	<Code Code="ERROR_BTREE" Team="PROGRAM" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="BTree 스크립트에서 문제가 발생했습니다."/>
+	<Code Code="INFO_DUMPCALLSTACK" Team="tos_team" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="LuaCallStack"/>
+	<Code Code="FATAL_PRECHECK_FAILED" Team="SYSTEMDESIGN" Category="SCRIPT" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="PreCheckFailed"/>
+	<Code Code="FATAL_ERROR_MONGODB" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="몽고 DB에 연결하는데 실패하였습니다."/>
+	<Code Code="ERROR_CREATE_NET_STREAM" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NetStream을 생성하는데 실패하였습니다. 올바른 ip입니까?"/>
+	<Code Code="ERROR_INVALID_PACKET" Team="PROGRAM" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 형태의 패킷을 전송받았습니다. 패킷 해킹의 가능성이 있습니다."/>
+	<Code Code="WARNING_PACKET_TIMEOUT" Team="PROGRAM" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷을 전부 전송받기 전에 타임아웃 되었습니다."/>
+	<Code Code="WARNING_CONNECT_TIMEOUT" Team="PROGRAM" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="타임아웃 되어 연결이 끊어졌습니다."/>
+	<Code Code="ERROR_CONNECT_ZONE_FAIL" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 존에 접속할 수 없습니다. 해당 맵과 채널이 정확한지, 서버가 닫혀있지 않은지 확인하세요."/>
+	<Code Code="FATAL_ADD_ACCEPT_HANDLER" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Accept Handler를 추가하는데 실패하였습니다."/>
+	<Code Code="FATAL_INIT_NETWORK" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="네트워크 설정에 실패하였습니다. 다음 정보를 참조하세요."/>
+	<Code Code="ERROR_CONNECT_BARRACK_SERVER" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="숙소 서버에 접속하는데 실패하였습니다. 서버가 열려 있는지, 해당 정보가 정확한지 확인하세요."/>
+	<Code Code="WARNING_DISCONNECT_NET_STREAM" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NetStream이 끊어졌습니다."/>
+	<Code Code="ERROR_SOCKET_ERROR" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="소켓에러로 접속에 실패하였습니다."/>
+	<Code Code="ERROR_STEAM_TOKEN_DECRYPT_FAIL" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 서버에서 전달받은 토큰을 Decrypt하는데 실패하였습니다."/>
+	<Code Code="ERROR_STEAM_INVALID_TICKET" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 서버에서 전달받은 유저 티켓 정보가 잘못되었습니다."/>
+	<Code Code="ERROR_STEAM_INVALID_SECRET" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 서버에서 전달받은 유저 시크릿 정보가 잘못되었습니다."/>
+	<Code Code="FATAL_STEAM_INIT_FAIL" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 서버에서 초기화에 실패하였습니다. 포트 정보를 확인하세요."/>
+	<Code Code="ERROR_HTTP_FAIL" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="http통신이 실패하였습니다. 출력된 정보를 참조하세요."/>
+	<Code Code="ERROR_NEXON_SESSION_INIT_FAIL" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="넥슨 세션 서버 초기화에 실패하였습니다. 출력된 정보를 참조하세요."/>
+	<Code Code="ERROR_RECV_NEXON_SESSION_INIT_FAIL" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="넥슨 세션 서버 초기화에 실패하였습니다. 에러 타입을 확인하세요. (1: 중복, 2:등록되지 않은 번호, 99:알수 없는 오류)"/>
+	<Code Code="ERROR_SEND_FAIL_PVP_JOINCHECKMSG_TO_ZONE" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="PVP게임에 참여하기 위한 연결 검사용 패킷 전송에 실패헀습니다."/>
+	<Code Code="ERROR_INVAILD_IP_ADDRESS" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="전송할 패킷에 잘못된 ip가 있습니다. 서버 연결을 끊습니다."/>
+	<Code Code="ERROR_STREAM_INSERT_FAIL" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="전송할 패킷에 스트림을 삽입하기 실패했습니다. 서버 연결을 끊습니다."/>
+	<Code Code="ERROR_INVAILD_GROUPID" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="서버를 가져오는데에 실패했습니다. 전송할 패킷에 잘못된 그룹ID가 있습니다. 서버 연결을 끊습니다."/>
+	<Code Code="ERROR_INVAILD_SERVERID" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="서버를 가져오는데에 실패했습니다. 전송할 패킷에 잘못된 서버ID가 있습니다. 서버 연결을 끊습니다."/>
+	<Code Code="ERROR_INVAILD_SERVERTYPE" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="전송할 패킷에 잘못된 서버타입이 있습니다. 서버 연결을 끊습니다."/>
+	<Code Code="ERROR_PARSER_FAIL_RECV_PACKET" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="수신한 패킷의 파서 검증에 실패했습니다."/>
+	<Code Code="ERROR_INSERT_FAIL_SERVER" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="서버 삽입에 실패했습니다."/>
+	<Code Code="WARNING_INVALID_RECV_PACKET" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="수신한 패킷이 무효합니다."/>
+	<Code Code="FATAL_INIT_CREATE_FAIL_HUGE_NETSTREAM" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="초기화단계에서 HugeNetStream의 생성에 실패했습니다. "/>
+	<Code Code="FATAL_SEARCH_FAIL_SERVERS" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="서버 검색에 실패했습니다. 서버들을 찾을 수 없습니다. "/>
+	<Code Code="ERROR_READ_FAIL_SERVERLIST" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드 테이블에서 서버리스트를 읽어 올 수 없습니다. 또는 서버리스트가 비어있을 수 있습니다. daemon.xml을 확인하세요."/>
+	<Code Code="ERROR_RECEIVE_FAIL_FOR_REQUEST" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="요청에 대한 응답을 실패했습니다."/>
+	<Code Code="ERROR_IP_CONNECT_ERROR" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 IP로의 연결에 실패했습니다."/>
+	<Code Code="INFO_STEAM_VAC_BANNED" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 VAC에서 밴 되어있는 유저입니다."/>
+	<Code Code="ERROR_FAIL_ONPACKET_FALSE" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 패킷을 처리하는 로직이 없습니다."/>
+	<Code Code="ERROR_CANT_GET_EXTERN_IP" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="외부 IP를 얻는데 실패하였습니다."/>
+	<Code Code="ERROR_HTTP_JSON_PARSE_FALSE" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
+	<Code Code="ERROR_HTTP_SOAP_PARSE_FALSE" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
+	<Code Code="ERROR_EMBEDDED_BROWSER_ERROE" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="YES" Desc="Embedded_Browser에 문제가 발생하였습니다."/>
+	<Code Code="FATAL_NISMS_LOADFAIL" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NISMS 상품 목록을 얻어오는데에 실패했습니다. 강제종료 시킵니다. 만약 넥슨 인게임샵 기능을 사용하지 않는다면, serverconfig.xml의 UseNISMS를 NO로 설정하세요. "/>
+	<Code Code="ERROR_NISMS_INVALIED_WORLDID" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NISMS를 위한 월드의 domainType 값을 잘못 얻어왔습니다."/>
+	<Code Code="FATAL_WORLDTABLE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드 테이블 세팅에 실패하였습니다. WorldTable DB 테이블 및 ODBC 세팅을 확인하세요."/>
+	<Code Code="FATAL_NOT_EXIST_SID_IN_WORLDTABLE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드 테이블에서 지정한 SID를 찾을 수 없습니다."/>
+	<Code Code="ERROR_NOT_EXIST_MAP_IN_WORLDTABLE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드 테이블에서 지정한 이름에 해당하는 존 정보를 찾을 수 없습니다."/>
+	<Code Code="FATAL_ERROR" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 에러가 발생하였습니다. 다음 정보를 확인하세요."/>
+	<Code Code="ERROR_REDIS_INIT" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Redis DB 초기화에 실패하였습니다. 월드 테이블에 관련 정보가 정상적으로 들어가 있는지 확인하세요."/>
+	<Code Code="ERROR_MONGO_INIT" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Mongo DB 초기화에 실패하였습니다. 월드 테이블에 관련 정보가 정상적으로 들어가 있는지 확인하세요."/>
+	<Code Code="ERROR_GM_INIT" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="GM 서버 초기화에 실패하였습니다. 월드 테이블에 관련 정보가 정상적으로 들어가 있는지 확인하세요."/>
+	<Code Code="WARNING_INVALID_CLASSKEY" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DB에서 읽어온 classkey값에 매칭되는 프로퍼티를 ies오브젝트에서 찾을 수 없습니다. classkey가 변경되었거나 삭제된 값입니까?"/>
+	<Code Code="ERROR_INVALID_DSN_FILE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DSN 파일 정보가 잘못되었습니다. serverDN.int 파일이 존재하는지, 내용이 잘못되지 않았는지 확인하세요."/>
+	<Code Code="ERROR_INVALID_IDPW_FILE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="db에 연결하기 위한 ID,PW 정보가 잘못되었습니다. server.int 파일이 존재하는지, 내용이 잘못되지 않았는지 확인하세요."/>
+	<Code Code="ERROR_CREATE_FIELD_BOSS_FAIL" Team="SYSTEMDESIGN" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="필드 보스 생성에 실패하였습니다. mapID에 해당하는 서버 또는 존을 찾을 수 없습니다."/>
+	<Code Code="ERROR_REDIS" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Redis 서버 관련 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
+	<Code Code="ERROR_SP_EXCUTE_ERROR" Team="PROGRAM" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="SP실행에 실패하였습니다. sp 내용과 에러코드를 확인하세요."/>
+	<Code Code="ERROR_MASTER_IES_SAVE_TIME" Team="PROGRAM" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="sp_ies_master_set 수행에 오랜시간이 걸려 취소되었습니다."/>
+	<Code Code="ERROR_NEED_ADD_LOG_COLLECTINO" Team="DB" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="sp_server_logging_list 에 해당 콜렉션이 등록되어있지 않습니다. DB팀이나 운영팀에 문의하세요."/>
+	<Code Code="WARNING_COULDNT_LOAD_CLIENT_HASH" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DB에서 클라이언트 파일 해시코드 값을 로드하지 못했습니다. 개발서버가 아니라면 반드시 로드되어야 합니다."/>
+	<Code Code="ERROR_CMD_DISPATHCING" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 커멘더가 이미 처리중에 있는데 새로운 생성을 시도하려합니다."/>
+	<Code Code="ERROR_NEXON_SN_NOT_MATCH" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="넥슨 세션 서버 초기화에 실패하였습니다. 넥슨에서 전달받은 SN과 월드테이블의 SN값이 서로 다릅니다."/>
+	<Code Code="FATAL_MONGO_FAILOVER_FILE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="MongoLog Failover파일에 로그기록을 실패했습니다."/>
+	<Code Code="ERROR_DISCONNECTED_MONGO" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Mongo DB의 연결이 끊어져 있습니다. 해당 쿼리문을 가져올 수 없습니다."/>
+	<Code Code="FATAL_CONNECT" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 연결 실패"/>
+	<Code Code="FATAL_CONNECT_CRASH" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 연결에 실패하였습니다. 서버를 강제로 종료합니다. ODBC설정 또는 연결 상태를 확인하세요."/>
+	<Code Code="FATAL_INVALIED_CMDLINE_PARAM" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="커맨드 라인 패러미터가 잘못되었습니다. 프로그램 실행 배치 파일 내용을 확인하세요."/>
+	<Code Code="FATAL_DISPLAY_DRIVER_ERROR" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="디스플레이 드라이버의 오류로 클라이언트를 종료합니다. 디스플레이 제조사에 문의하시기 바랍니다."/>
+	<Code Code="ERROR_INIT_NVIDIA_PERF_SDK" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Nvidia Perf SDK 초기화에 실패하였습니다."/>
+	<Code Code="FATAL_XIGNCODE" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="사인코드 모듈에서 에러가 발생하였습니다. 출력된 에러코드를 참조하세요."/>
+	<Code Code="ERROR_PACKET_HACK" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="정의되지않은 패킷입니다. 해킹패킷으로 간주합니다."/>
+	<Code Code="FATAL_DUPLICATED_EXEC" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="프로그램이 중복 실행되었습니다."/>
+	<Code Code="ERROR_LOCKRECT_FAIL" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이미지 텍스쳐의 D3D Rect의 Lock에 실패하였습니다. "/>
+	<Code Code="ERROR_LOCKRECT" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이미지 텍스쳐의 D3D Rect의 Lock 오류"/>
+	<Code Code="ERROR_CREATE_FAIL_FRK_PARTICLE_EMITTER" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="파티클 방사체 생성에 실패하였습니다."/>
+	<Code Code="WARNING_GET_FAIL_FORK_P_TEXTURE" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="[CL1000] Fork Particle Texture를 가져오는데에 실패했습니다."/>
+	<Code Code="ERROR_CREATE_FAIL_FORK_P" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Fork Particle에서 생성에 실패했습니다."/>
+	<Code Code="ERROR_CREATE_FAIL_EFFECTBASE" Team="ART" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이펙트 베이스의 생성에 실패했습니다."/>
+	<Code Code="ERROR_CREATE_FAIL_SOUND_INST" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="사운드 인스턴스 생성에 실패했습니다."/>
+	<Code Code="ERROR_NOT_EXIST_SOUND" Team="SOUND" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="사운드를 찾을 수 없습니다."/>
+	<Code Code="ERROR_FMOD_EVENT" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="FMOD에서 에러가 발생했습니다. 다음 정보를 확인하세요."/>
+	<Code Code="ERROR_LOAD_FAIL_ADDONOPTION" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="UI 애드온 불러오기에 실패하였습니다."/>
+	<Code Code="ERROR_D3D_ERROR" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="3DDriver 내부에서 오류가 발생했습니다."/>
+	<Code Code="ERROR_REMAIN_THREAD" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해제되지 않고 남아있는 스레드가 있습니다. "/>
+	<Code Code="ERROR_LOCK_FAIL" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 데이터는 Lock을 실패했습니다."/>
+	<Code Code="ERROR_INIT_FAIL" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 항목의 초기화에 실패했습니다."/>
+	<Code Code="ERROR_CANT_FIND" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 항목을 찾을 수 없습니다."/>
+	<Code Code="ERROR_CANT_RUN_THREAD" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="쓰레드를 시작할 수 없습니다. 다음 정보를 확인하세요."/>
+	<Code Code="WARNING_DEBUG" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc=" : "/>
+	<Code Code="ERROR_NOT_YET" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="아직 에러코드가 정의되지 않은 로그입니다."/>
+	<Code Code="INFO_FRAME_DROP" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="프레임 드랍"/>
+	<Code Code="INFO_LUA_RUN_STRING" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="run string"/>
+	<Code Code="INFO_FILE_RELOAD" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="파일 다시 불러옴"/>
+	<Code Code="INFO_SEND_PACKET_LOG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="전송한 패킷 로그"/>
+	<Code Code="INFO_RECEIVE_PACKET_LOG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="받은 패킷 로그"/>
+	<Code Code="ERROR_INVALID_VALUE" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 값입니다. 다음 정보를 참조하세요."/>
+	<Code Code="INFO_NORMAL" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="개발용 정보"/>
+	<Code Code="ERROR_TRY_CONNECT" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="개발용 정보"/>
+	<Code Code="WARNING_MEMORY" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="메모리 디버그 정보"/>
+	<Code Code="INFO_CLIENT_HASHCODE" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IPF파일 변경이 감지되었을 때 클라이언트가 로드한 파일 리스트 및 크기"/>
+	<Code Code="INFO_RES_LOAD" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="리소스 로드 정보"/>
+	<Code Code="INFO_CALLSTACK" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="콜스택 보기"/>
+	<Code Code="WARNING_NGS" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NGS 디버깅용 로그"/>
+	<Code Code="WARNING_SSO_LOG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="SSO 디버깅용 로그"/>
+	<Code Code="WARNING_IDLE_TIMEOUT" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="대기 시간 초과"/>
+	<Code Code="WARNING_USER_SESSIONS" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="유저 세션 정보"/>
+	<Code Code="WARNING_DESTROY_REQUEST" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="연결 종료 요청으로 연결이 종료되었습니다."/>
+	<Code Code="WARNING_ADDON_MEMORY_CONTROL" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="UI 애드온의 사용하고 있는 메모리 용량과 제어하는 전체 메모리 용량."/>
+	<Code Code="WARNING_MEMORY_USAGE_IMAGE" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이미지로 사용하고 있는 메모리에 대한 정보"/>
+	<Code Code="WARNING_MEMORY_USAGE_UICLASS" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="UI클래스로 사용하고 있는 메모리에 대한 정보"/>
+	<Code Code="WARNING_DBG_TEST" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="디버깅 TEST용 로그"/>
+	<Code Code="WARNING_UI_LOG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="UI로그"/>
+	<Code Code="ERROR_OBB_TIMETEST" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="OBB TEST용 클릭 후 반응 시간"/>
+	<Code Code="WARNING_TIMEOUT" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="처리 시간 초과 로그"/>
+	<Code Code="WARNING_OLDMSG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="다국어화 어순 이슈로 clientmessage.xml에서 %s 를 이용한 포맷은 쓰지 않기로 했습니다. "/>
+	<Code Code="INFO_FAIL_GUILD_AGIT_ENTER" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
+	<Code Code="FATAL_DB_CONNECT" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc=" : "/>
+	<Code Code="INFO_FAIL_GUILD_AGIT_ENTER" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
+	<Code Code="INFO_TEST_REPLAY" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="리플레이 테스트"/>
+	<Code Code="INFO_LOGIN_PROCESS" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="INFO_SERVER_RELOAD" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="INFO_PATCHMAKER_LOG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
+	<Code Code="WARNING_INVALID_LOG_PROPERTY" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="로그 프로퍼티 형식 오류 입니다."/>
+	<Code Code="NOTICE_PACKET_INFO" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 정보 입니다"/>
+	<Code Code="ALERT_Machine_CPU" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 머신의 CPU 사용율"/>
+	<Code Code="ALERT_Machine_FreeDisk" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="드라이브의 남은 용량(MB)"/>
+	<Code Code="ALERT_Machine_DiskTime" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="초당 디스크 엑세스 비율(100% = 1초)"/>
+	<Code Code="ALERT_Machine_Network" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="초당 네트워크 사용량(Bytes)"/>
+	<Code Code="ALERT_Machine_Memory" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="남은 총 메모리 용량(KBytes)"/>
+	<Code Code="ALERT_Daemon_FPS" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 서버의 초당 프레임"/>
+	<Code Code="ALERT_Daemon_RDB" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 서버의 리소스 디비 사용량"/>
+	<Code Code="ALERT_Daemon_GDB" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 서버의 게임 디비 사용량"/>
+	<Code Code="ALERT_Daemon_Memory" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 서버가 사용하는 메모리량"/>
+	<Code Code="ALERT_Daemon_Tx" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 서버가 사용하는 TX량"/>
+	<Code Code="ALERT_Daemon_FatalCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 서버의 Fatal 오류 횟수"/>
+	<Code Code="ALERT_Daemon_DBConnectionCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 서버의 디비 연결 실패 횟수"/>
+	<Code Code="ALERT_Daemon_TotalSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 서버가 보낸 총 패킷 갯수"/>
+	<Code Code="ALERT_Daemon_TotalSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 서버가 보낸 총 패킷 크기"/>
+	<Code Code="ALERT_Daemon_TotalRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 서버가 받은 총 패킷 갯수"/>
+	<Code Code="ALERT_Daemon_TotalRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 서버가 받은 총 패킷 크기"/>
+	<Code Code="ALERT_Barrack_User" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="배럭서버에 있는 유저 수"/>
+	<Code Code="ALERT_Barrack_ClientSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="배럭서버에서 클라이언트로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Barrack_ClientSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="배력서버에서 클라이언트로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Barrack_ClientRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="배럭서버가 클라이언트로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Barrack_ClientRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="배럭서버가 클라이언트로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Barrack_GlobalSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="배럭서버에서 글로벌로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Barrack_GlobalSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="배럭서버에서 글로벌로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Barrack_GlobalRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="배럭서버가 글로벌로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Barrack_GlobalRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="배럭서버가 글로벌 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Global_User" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 서버에 있는 유저 수"/>
+	<Code Code="ALERT_Global_InstanceMission_TotalCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="미션 인스턴스 총 개수"/>
+	<Code Code="ALERT_Global_InstanceMission_Empty" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="미션 인스턴스 비활성 개수"/>
+	<Code Code="ALERT_Global_InstanceMission_Play" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="미션 인스턴스 활성 개수"/>
+	<Code Code="ALERT_Global_InstanceMission_Wait" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="미션 인스턴스 비활성대기 개수"/>
+	<Code Code="ALERT_Global_InstanceMission_Close" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="미션 인스턴스 종료 개수"/>
+	<Code Code="ALERT_Global_BarrackSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버에서 배럭서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Global_BarrackSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버에서 배럭서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Global_BarrackRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버가 배럭서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Global_BarrackRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버가 배럭서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Global_ZoneSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버에서 존서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Global_ZoneSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버에서 존서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Global_ZoneRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버가 존서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Global_ZoneRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버가 존서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Global_ChatSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버에서 채팅서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Global_ChatSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버에서 채팅서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Global_ChatRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버가 채팅서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Global_ChatRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버가 채팅서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Global_RelationSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버에서 릴레이션서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Global_RelationSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버에서 릴레이션서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Global_RelationRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버가 릴레이션서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Global_RelationRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버가 릴레이션서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Global_IntegrateSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버에서 인티그서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Global_IntegrateSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버에서 인티그서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Global_IntegrateRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버가 인티그서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Global_IntegrateRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌서버가 인티그서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Zone_Client" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존서버에 입장 중인 유저 수"/>
+	<Code Code="ALERT_Zone_Commander" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존서버에 입장한 유저 수"/>
+	<Code Code="ALERT_Zone_GlobalConnected" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 서버와 연결 유무"/>
+	<Code Code="ALERT_Zone_ObjectCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존서버에 배치된 오브젝트 수"/>
+	<Code Code="ALERT_Zone_ThreadCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="쓰레드 수"/>
+	<Code Code="ALERT_Zone_StringIDCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="StringID 사용량"/>
+	<Code Code="ALERT_Zone_NetStream" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="연결된 소켓 개수"/>
+	<Code Code="ALERT_Zone_Zombie" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="제거될 유저 수"/>
+	<Code Code="ALERT_Zone_BTree" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="BTree 사용개수"/>
+	<Code Code="ALERT_Zone_BroadPool" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="현재 브로드 캐스팅 개수"/>
+	<Code Code="ALERT_Zone_User" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 데몬에 있는 유저 수"/>
+	<Code Code="ALERT_Zone_MongoDB" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="몽고로그 사용량"/>
+	<Code Code="ALERT_Zone_IndunMatchRegister" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="통합 인던 매칭 요청 횟수"/>
+	<Code Code="ALERT_Zone_IndunMatchReEnter" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="통합 인던 매칭 재입장 횟수"/>
+	<Code Code="ALERT_Zone_IndunMatchSuccess" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="통합 인던 매칭 성공 횟수"/>
+	<Code Code="ALERT_Zone_IndunMatchCancel" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="통합 인던 매칭 취소 횟수"/>
+	<Code Code="ALERT_Zone_GlobalSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존서버에서 글로벌서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Zone_GlobalSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존서버에서 글로벌서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Zone_GlobalRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존서버가 글로벌서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Zone_GlobalRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존서버가 글로벌서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Zone_ChatSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버에서 채팅서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Zone_ChatSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버에서 채팅서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Zone_ChatRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버가 채팅서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Zone_ChatRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버가 채팅서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Zone_RelationSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버에서 릴레이션서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Zone_RelationSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버에서 릴레이션서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Zone_RelationRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버가 릴레이션서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Zone_RelationRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버가 릴레이션서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Zone_ClientSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버에서 클라이언트로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Zone_ClientSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버에서 클라이언트로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Zone_ClientRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버가 클라이언트로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Zone_ClientRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="글로벌 존서버가 클라이언트로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Chat_User" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버에 입장 중인 유저 수"/>
+	<Code Code="ALERT_Chat_MongoDB" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버몽고로그 입력수"/>
+	<Code Code="ALERT_Chat_GlobalSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버에서 글로벌서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Chat_GlobalSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버에서 글로벌서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Chat_GlobalRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버가 글로벌서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Chat_GlobalRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버가 글로벌서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Chat_ZoneSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버에서 존서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Chat_ZoneSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버에서 존서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Chat_ZoneRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버가 존서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Chat_ZoneRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버가 존서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Chat_IntegrateSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버에서 인티그서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Chat_IntegrateSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버에서 인티그서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Chat_IntegrateRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버가 인티그서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Chat_IntegrateRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버가 인티그서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Chat_ClientSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버에서 클라이언트로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Chat_ClientSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버에서 클라이언트로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Chat_ClientRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버가 클라이언트로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Chat_ClientRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="채팅서버가 클라이언트로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Relation_User" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버에 연결 중인 유저 수"/>
+	<Code Code="ALERT_Relation_GlobalSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버에서 글로벌서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Relation_GlobalSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버에서 글로벌서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Relation_GlobalRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버가 글로벌서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Relation_GlobalRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버가 글로벌서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Relation_ZoneSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버에서 존서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Relation_ZoneSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버에서 존서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Relation_ZoneRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버가 존서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Relation_ZoneRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버가 존서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Relation_ClientSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버에서 클라이언트로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Relation_ClientSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버에서 클라이언트로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Relation_ClientRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버가 클라이언트로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Relation_ClientRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="릴레이션서버가 클라이언트로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Integrate_User" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인티그 서버와 연결된 유저수"/>
+	<Code Code="ALERT_Integrate_ChatSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인티그서버에서 채팅서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Integrate_ChatSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인티그서버에서 채팅서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Integrate_ChatRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인티그서버가 채팅서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Integrate_ChatRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인티그서버가 채팅서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_Integrate_GlobalSendPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인티그서버에서 글로벌서버로 보낸 패킷 개수"/>
+	<Code Code="ALERT_Integrate_GlobalSendPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인티그서버에서 글로벌서버로 보낸 패킷 크기"/>
+	<Code Code="ALERT_Integrate_GlobalRecvPacketCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인티그서버가 글로벌서버로 부터 받은 패킷 개수"/>
+	<Code Code="ALERT_Integrate_GlobalRecvPacketSize" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="인티그서버가 글로벌서버로 부터 받은 패킷 크기"/>
+	<Code Code="ALERT_ZoneInstance_Updating" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Update 작동 유무"/>
+	<Code Code="ALERT_ZoneInstance_ObjectCount" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존 인스턴스에 있는 오브젝트 개수"/>
+	<Code Code="ALERT_ZoneInstance_Layer" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존 인스턴스 레이어 개수"/>
+	<Code Code="ALERT_ZoneInstance_PC" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존 인스턴스에 있는 PC수"/>
+	<Code Code="ALERT_ZoneInstance_Zombie" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존 인스턴스에 있는 좀비수"/>
+	<Code Code="ALERT_ZoneInstance_UpdateMs" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Update에 걸리는 시간"/>
+	<Code Code="ALERT_Report_DBConnectionLost" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="데이터베이스 연결이 끊김 "/>
+	<Code Code="ALERT_Report_NodeConnectionLost" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Node와의 연결이 끊김"/>
+	<Code Code="ALERT_Report_DaemonCrash" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Daemon Crash"/>
+	<Code Code="ALERT_Report_AutoChannelCommandAddRecv" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 추가 결과 수신"/>
+	<Code Code="ALERT_Report_AutoChannelCommandAddSend" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 추가 명령 전송 "/>
+	<Code Code="ALERT_Report_AutoChannelCommandDeleteRecv" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 삭제 결과 수신"/>
+	<Code Code="ALERT_Report_AutoChannelCommandDeleteSend" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 삭제 명령 전송 "/>
 </imcErrorCode>

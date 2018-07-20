@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="charbaseinfo1_my" x="0" y="0" width="700" height="140">
 	<frame title="character" layout_gravity="center center" outside="true" useothercountryframe="false" fasthide="true"/>
 	<option visible="false" closebutton="false" hideable="false" useimageitem="true"/>
@@ -7,17 +7,17 @@
 	<draw drawtitlebar="false" drawframe="false"/>
 	<input hittest="true" hittestframe="false"/>
 	<controls>
-		<gauge name="pcHpGauge" rect="0 0 104 15" margin="0 15 0 0" layout_gravity="center top" hittest="false" skin="pcinfo_gauge_hp3" point="100"/>
-		<gauge name="pcSpGauge" rect="0 0 104 15" margin="0 29 0 0" layout_gravity="center top" hittest="false" skin="pcinfo_gauge_sp3" point="100"/>
+		<gauge name="pcHpGauge" rect="0 0 104 15" margin="0 20 0 0" layout_gravity="center top" hittest="false" skin="pcinfo_gauge_hp3" point="100"/>
+		<gauge name="pcSpGauge" rect="0 0 104 15" margin="0 34 0 0" layout_gravity="center top" hittest="false" skin="pcinfo_gauge_sp3" point="100"/>
 		<picture name="pcinfo_bg_L" rect="0 0 25 50" margin="-64 -26 0 0" layout_gravity="center center" image="pcinfo_bg_L"/>
 		<picture name="pcinfo_bg_R" rect="0 0 25 50" margin="64 -26 0 0" layout_gravity="center center" image="pcinfo_bg_R"/>
 		<picture name="achieveImg" rect="0 0 144 27" margin="0 62 0 0" stretch="true" layout_gravity="center top" image="Collar_TBL1st"/>
-		<richtext name="name" rect="0 0 700 24" margin="0 43 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="true"/>
-		<richtext name="givenName" rect="0 0 400 24" margin="0 43 0 0" layout_gravity="left top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="true"/>
-		<richtext name="familyName" rect="0 0 400 24" margin="0 43 0 0" layout_gravity="left top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="true"/>
-		<richtext name="achieveName" rect="0 0 400 24" margin="0 62 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="false"/>
-		<richtext name="guildName" rect="0 0 400 24" margin="0 62 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="false"/>
-		<richtext name="partyName" rect="0 0 400 24" margin="0 62 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="false"/>
+		<richtext name="name" rect="0 0 700 24" margin="0 45 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="true"/>
+		<richtext name="givenName" rect="0 0 400 24" margin="0 45 0 0" layout_gravity="left top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="true"/>
+		<richtext name="familyName" rect="0 0 400 24" margin="0 45 0 0" layout_gravity="left top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="true"/>
+		<richtext name="achieveName" rect="0 0 400 24" margin="0 64 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="false"/>
+		<richtext name="guildName" rect="0 0 400 24" margin="0 64 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="false"/>
+		<richtext name="partyName" rect="0 0 400 24" margin="0 64 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="false"/>
 		<gauge name="pcShieldGauge" rect="0 0 104 15" margin="0 4 0 0" layout_gravity="center top" hittest="false" skin="guard_gauge" point="100" text1="AAA" textoffset1="0 -1" textfont1="white_14_ol" textalign1="center center"/>
 		<picture name="desenchant" margin="-4 0 0 0" rect="5 5 64 64" hittest="false" image="None" stretch="true" changecursor="false" layout_gravity="center top"/>
 	</controls>

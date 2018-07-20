@@ -1,4 +1,4 @@
-function IS_KOR_TEST_SERVER()
+﻿function IS_KOR_TEST_SERVER()
     if GetServerNation() == 'KOR' and GetServerGroupID() == 9001 then
         return true
     end
@@ -99,26 +99,36 @@ function IS_SEASON_SERVER(pc)
     return 'NO'
 end
 
-function IMC_FATAL(code, stringinfo)
-    imclog("Fatal",code,stringinfo)
+function IMC_LOG(code, stringinfo)
+    imclog(code, stringinfo);
 end
 
-function IMC_ERROR(code, stringinfo)
-    imclog("Error",code,stringinfo)
-end
 
-function IMC_WARNING(code, stringinfo)
-    imclog("Warning",code,stringinfo)
+-- new logger
+function IMCLOG_FATAL(logger, code, stringinfo)
+	ImcScriptLog(logger, "FATAL",code,stringinfo)
 end
-
-function IMC_INFO(code, stringinfo)
-    imclog("Info",code,stringinfo)
+function IMCLOG_ALERT(logger, code, stringinfo)
+	ImcScriptLog(logger, "ALERT",code,stringinfo)
 end
-
-function IMC_NORMAL_INFO(stringinfo)
-    imclog("Info","ERRCODE_INFO_NORMAL", stringinfo)
+function IMCLOG_CRITICAL(logger, code, stringinfo)
+	ImcScriptLog(logger, "CRITICAL",code,stringinfo)
 end
-
+function IMCLOG_ERROR(logger,code, stringinfo)
+	ImcScriptLog(logger, "ERROR",code,stringinfo)
+end
+function IMCLOG_WARN(logger,code, stringinfo)
+	ImcScriptLog(logger, "WARN",code,stringinfo)
+end
+function IMCLOG_NOTICE(logger,code, stringinfo)
+	ImcScriptLog(logger, "NOTICE",code,stringinfo)
+end
+function IMCLOG_INFO(logger,code, stringinfo)
+	ImcScriptLog(logger, "INFO",code,stringinfo)
+end
+function IMCLOG_DEBUG(logger,code, stringinfo)
+	ImcScriptLog(logger, "DEBUG",code,stringinfo)
+end
 
 function IS_REINFORCEABLE_ITEM(item)
 
