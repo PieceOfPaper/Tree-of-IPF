@@ -2847,36 +2847,54 @@ end
 
 function SCR_BUFF_ENTER_Zhendu_Buff(self, buff, arg1, arg2, over)
     local PoisonATK = 0
-    local lv = arg1
     local caster = GetBuffCaster(buff)
-    if caster ~= nil then
+    local skl = GetSkill(caster, "Wugushi_Zhendu")
+    if caster ~= nil and skl ~= nil then
         local STR = TryGetProp(caster, "STR")
         local minPATK = TryGetProp(caster, "MINPATK")
         local maxPATK = TryGetProp(caster, "MAXPATK")
-        local PATK = ((minPATK + maxPATK) / 2)
-        PoisonATK = math.floor(40 + (lv * 5) * (STR * 0.6) ^ 0.9)
-        SetExProp(buff, "PoisonDadak", PoisonATK)
-        
-        self.Poison_Atk_BM = self.Poison_Atk_BM + (PATK * 0.1)
-        SetExProp(self, "add_Zhendu_PATK", PATK)
+        local PATK = (((minPATK + maxPATK) / 2) * 0.1)
+        PoisonATK = math.floor(40 + (skl.Level * 5) * ((STR * 0.6) ^ 0.9))
+        SetExProp(buff, "PoisonDadak", PATK)
+
+        self.Poison_Atk_BM = self.Poison_Atk_BM + PoisonATK
+        SetExProp(self, "add_Zhendu", PoisonATK)
     end
 end
 
 function SCR_BUFF_LEAVE_Zhendu_Buff(self, buff, arg1, arg2, over)
-    local PATK = GetExProp(self, "add_Zhendu_PATK")
-    self.Poison_Atk_BM = self.Poison_Atk_BM - (PATK * 0.1)
+    local PoisonATK = GetExProp(self, "add_Zhendu")
+    self.Poison_Atk_BM = self.Poison_Atk_BM - PoisonATK
 end
 
 function SCR_BUFF_ENTER_Zhendu_Debuff(self, buff, arg1, arg2, over)
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 
-end
-
-function SCR_BUFF_UPDATE_Zhendu_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
-
+    local caster = GetBuffCaster(buff)
+    local resposadd = 0;
+    
+    local abil = GetAbility(caster, "Wugushi7")
+    if abil ~= nil then
+        resposadd = resposadd + abil.Level * 7;
+    end
+    
+    if IS_PC(self) == true then
+        self.ResPoison_BM = self.ResPoison_BM - resposadd;
+    else
+        self.Poison_Def_BM = self.Poison_Def_BM - resposadd
+    end
+    
+    SetExProp(buff, "ADD_POS", resposadd);
 end
 
 function SCR_BUFF_LEAVE_Zhendu_Debuff(self, buff, arg1, arg2, over)
+    local resposadd = GetExProp(buff, "ADD_POS");
 
+    if IS_PC(self) == true then
+        self.ResPoison_BM = self.ResPoison_BM + resposadd;
+    else
+        self.Poison_Def_BM = self.Poison_Def_BM + resposadd
+    end
 end
 
 function SCR_BUFF_ENTER_Bewitch_Debuff(self, buff, arg1, arg2, over)
@@ -3833,7 +3851,7 @@ function SCR_BUFF_LEAVE_JincanGu_Debuff(self, buff, arg1, arg2, over)
   SetExProp(self, "Lv", arg1)
   SetExProp_Pos(self, "JINCANGU", GetPos(self))
   ObjectColorBlend(self, 255, 255, 255, 255, 1, 2)
-
+  
     local caster = GetBuffCaster(buff);
     
     if IsDead(self) == 1 then
@@ -4749,6 +4767,10 @@ end
 
 -- Rest
 function SCR_BUFF_ENTER_SitRest(self, buff, arg1, arg2, over)
+    local jobCheck = GetJobGradeByName(self, 'Char3_12')
+    if jobCheck >= 1 then
+        AddHelpByName(self, 'TUTO_FLUTING')
+    end
 
 end
 
@@ -5626,13 +5648,6 @@ function SCR_BUFF_ENTER_Aukuras_Buff(self, buff, arg1, arg2, over)
         local skill = GetSkill(caster, "Kriwi_Aukuras");
         if skill ~= nil then
             addHP = TryGetProp(caster, "HEAL_PWR") * skill.SkillFactor/100
-            lv = skill.Level;
-            addHP = 39 + (19 * (lv - 1));
-            
-            local abilKriwi14 = GetAbility(caster, 'Kriwi14');
-            if abilKriwi14 ~= nil and lv >= 3 then
-                addHP = addHP * (1 + abilKriwi14.Level * 0.01);
-            end
             
             local abilKriwi6 = GetAbility(caster, "Kriwi6");
             if abilKriwi6 ~= nil then
@@ -5641,9 +5656,7 @@ function SCR_BUFF_ENTER_Aukuras_Buff(self, buff, arg1, arg2, over)
         end
     end
     
-    addHP = math.floor(addHP);
     addResfire = math.floor(addResfire);
-    
     SetExProp(buff, "ADD_HP_VALUE", addHP);
     
     if IS_PC(self) == false then
@@ -5663,7 +5676,7 @@ function SCR_BUFF_UPDATE_Aukuras_Buff(self, buff, arg1, arg2, RemainTime, ret, o
             return 1;
         end
     end
-
+    
     local addHP = GetExProp(buff, "ADD_HP_VALUE");
     if addHP ~= nil and addHP ~= 0 then
         Heal(self, addHP, 0, ret, 'Kriwi_Aukuras');
@@ -7404,16 +7417,19 @@ function SCR_BUFF_ENTER_Melstis_Buff(self, buff, arg1, arg2, over)
         if buff_cnt >= 1 then
             for i = 1, buff_cnt do
                 if TryGetProp(buff_list[i], "Premium") ~= "PC" then
-                    if TryGetProp(buff_list[i], "Group1") == 'Buff' and TryGetProp(buff_list[i], "Keyword") ~= "IgnoreImmune" and TryGetProp(buff_list[i], "Keyword") ~= "Invincibility" then
-                    local buff = buff_list[i];
-	                    local buffTime = GetBuffRemainTime(buff)
-	                    local timeValue = buffTime * (skill.Level * 0.2)
-	                    if timeValue > 20000 then
-	                        timeValue = 20000
-	                    end
-	                    
-	                    SetBuffRemainTime(self, buff.ClassName, buffTime + timeValue);
-	                end
+                	local invincibilityBuff = GetBuffListByProp(self, "Keyword", "Invincibility");
+                	if invincibilityBuff == nil then
+	                    if TryGetProp(buff_list[i], "Group1") == 'Buff' and TryGetProp(buff_list[i], "Keyword") ~= "IgnoreImmune" and TryGetProp(buff_list[i], "Keyword") ~= "Invincibility" then
+	                    local buff = buff_list[i];
+		                    local buffTime = GetBuffRemainTime(buff)
+		                    local timeValue = buffTime * (skill.Level * 0.2)
+		                    if timeValue > 20000 then
+		                        timeValue = 20000
+		                    end
+		                    
+		                    SetBuffRemainTime(self, buff.ClassName, buffTime + timeValue);
+		                end
+		            end
                 end
             end
         end
@@ -9154,11 +9170,10 @@ function SCR_BUFF_LEAVE_SwellBody_Debuff(self, buff, arg1, arg2, over)
     self.MSPD_BM = self.MSPD_BM + GetExProp(buff, "ADD_MSPD")
     self.PATK_RATE_BM = self.PATK_RATE_BM - GetExProp(buff, "ADD_PATK")
     self.MATK_RATE_BM = self.MATK_RATE_BM - GetExProp(buff, "ADD_MATK") 
-    
+
     if GetBuffRemainTime(buff) > 0 then
         return 1
-    end
-    if GetBuffRemainTime(buff) < 0 then
+    else
         local default = GetExProp_Str(self, "DefaultSize")
         if default == 'S' then
             if self.Size == 'M' then
@@ -15635,7 +15650,7 @@ function SCR_BUFF_ENTER_HeavyGravity_Debuff(self, buff, arg1, arg2, over)
     end
     
     self.MSPD_BM = self.MSPD_BM - abilMoveSpeed
-	
+
     SetExProp(buff, "HEAVYGRAVITY_MOVESPEED", abilMoveSpeed)
 end
 
@@ -16298,10 +16313,14 @@ function SCR_BUFF_LEAVE_Seedbomb_Buff(self, buff, arg1, arg2, over)
 		
         local list, cnt = SelectObjectNear(caster, self, 60, "ENEMY", 0, 0);
         if cnt >= 1 then
+        	if cnt >= 5 then
+        		cnt = 5
+        	end
+        	
             for i = 1, cnt do
                 local obj = list[i];
                 if IsSameObject(obj, self) == 0 then
---                	PlayEffect(obj, 'F_cleric_explosion_seedboom', 1);
+					PlayEffect(obj, 'F_cleric_ground_seedboom', 1);
                 	
                     TakeDamage(caster, obj, "Druid_Seedbomb", damage, "Poison", "Magic", "Magic", HIT_POISON);
                 end
@@ -16447,7 +16466,7 @@ function SCR_BUFF_ENTER_Friedenslied_Debuff(self, buff, arg1, arg2, over)
 					if TryGetProp(buffRemoveList, "Premium") ~= "PC" then
 						if TryGetProp(buffRemoveList, "Group1") == "Buff" and TryGetProp(buffRemoveList, "Keyword") ~= "IgnoreImmune"  then
 							local buffLevel = TryGetProp(buffRemoveList, "Lv")
-							if buffLevel >= 1 and buffLevel <= 3 then
+							if buffLevel >= 1 and buffLevel <= 3 and IMCRandom(1, 100) < abilPiedPiper9.Level * 10 then
 								removeBuffList[#removeBuffList + 1] = buffRemoveList
 							end
 						end
@@ -16457,7 +16476,7 @@ function SCR_BUFF_ENTER_Friedenslied_Debuff(self, buff, arg1, arg2, over)
 			
 			local random = IMCRandom(1, #removeBuffList)
 			if removeBuffList[random] ~= nil then
-			RemoveBuff(self, removeBuffList[random].ClassName)
+				RemoveBuff(self, removeBuffList[random].ClassName)
 			end
 		end
 	end
@@ -16488,7 +16507,7 @@ end
 
 
 function SCR_BUFF_ENTER_Engkrateia_Buff(self, buff, arg1, arg2, over)
-
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 end
 
 function SCR_BUFF_LEAVE_Engkrateia_Buff(self, buff, arg1, arg2, over)
@@ -16496,6 +16515,8 @@ function SCR_BUFF_LEAVE_Engkrateia_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_Gregorate_Buff(self, buff, arg1, arg2, over)
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    
     local caster = GetBuffCaster(buff);
     if caster ~= nil then
         local buffList, listCnt = GetBuffListByStringProp(self, "Group1", "Debuff");
@@ -16523,9 +16544,9 @@ function SCR_BUFF_ENTER_Gregorate_Buff(self, buff, arg1, arg2, over)
         
         SetExProp(buff, "REMOVE_BUFF_COUNT_BY_GREGORATE", removeBuffCount);
         
-        local targetList = SelectObject(self, 40, "ENEMY");
+        local targetList = SelectObject(self, 60, "ENEMY");
         local skill = GetSkill(caster, 'Exorcist_Gregorate');
-        local targetMaxCount = 5;
+        local targetMaxCount = 8;
         if targetMaxCount >= #targetList then
             targetMaxCount = #targetList
         end
@@ -16534,6 +16555,10 @@ function SCR_BUFF_ENTER_Gregorate_Buff(self, buff, arg1, arg2, over)
             local target = targetList[j]
             local damage = GET_SKL_DAMAGE(caster, target, 'Exorcist_Gregorate');
             TakeDamage(caster, target, skill.ClassName, damage, skill.Attribute, skill.AttackType, skill.ClassType);
+            local isZombie = GetExProp(self, "ZOMBIE_TARGET_MONID")
+            if isZombie ~= 0 and isZombie ~= nil then
+                Kill(self);
+            end
         end
     end
 end
@@ -16561,7 +16586,11 @@ function SCR_BUFF_UPDATE_LatentVenom_Debuff(self, buff, arg1, arg2, RemainTime, 
 end
 
 function SCR_BUFF_LEAVE_LatentVenom_Debuff(self, buff, arg1, arg2, over)
-   HideEmoticon(self, 'I_emo_poison')
+    HideEmoticon(self, 'I_emo_poison')
+    local cnt = GetExProp(buff, "LatentVenom_Debuff_OVER")
+        cnt = 0
+    SetExProp(buff, "LatentVenom_Debuff_OVER", cnt)
+    SetBuffUpdateTime(buff, 1000)
 end
 
 
@@ -16673,11 +16702,14 @@ end
 
 function SCR_BUFF_ENTER_Rubric_DeBuff(self, buff, arg1, arg2, over)
     local moveSpeed = 0;
-    if TryGetProp(self, "MonRank") ~= "Boss" then
-        if TryGetProp(self, "RaceType") == "Velnias" then
-            moveSpeed = 10;
-        else
-            moveSpeed = 15;
+    
+    if TryGetProp(self, "MoveType") ~= "Holding" then
+        if TryGetProp(self, "MonRank") ~= "Boss" then
+            if TryGetProp(self, "RaceType") == "Velnias" then
+                moveSpeed = 10;
+            else
+                moveSpeed = 15;
+            end
         end
     end
 
@@ -16700,16 +16732,30 @@ end
 
 
 function SCR_BUFF_LEAVE_Rubric_DeBuff(self, buff, arg1, arg2, over)
-    self.FIXMSPD_BM = 0;
+    if TryGetProp(self, "MoveType") ~= "Holding" then
+        self.FIXMSPD_BM = 0;
+    end
 end
 
 
 function SCR_BUFF_ENTER_Frostbite_DeBuff(self, buff, arg1, arg2, over)
-    self.FIXMSPD_BM = 10;
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil)
+    if TryGetProp(self, "MoveType") ~= "Holding" then
+        if TryGetProp(self, "MonRank") ~= "Boss" then
+            local moveSpeed = self.MSPD * 0.5
+            self.MSPD_BM = self.MSPD_BM - moveSpeed;
+            SetExProp(buff, "FROSTBITE_SPEED", moveSpeed);
+        end
+    end
 end
 
 function SCR_BUFF_LEAVE_Frostbite_DeBuff(self, buff, arg1, arg2, over)
-    self.FIXMSPD_BM = 0;
+    if TryGetProp(self, "MoveType") ~= "Holding" then
+        if TryGetProp(self, "MonRank") ~= "Boss" then
+            local moveSpeed = GetExProp(buff, "FROSTBITE_SPEED");
+            self.MSPD_BM = self.MSPD_BM + moveSpeed;
+        end
+    end
 end
 
 function SCR_BUFF_ENTER_TheTreeOfSepiroth_Buff(self, buff, arg1, arg2, over)
@@ -16718,6 +16764,16 @@ end
 
 function SCR_BUFF_UPDATE_TheTreeOfSepiroth_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
     local caster = GetBuffCaster(buff);
+    if caster == nil then
+        return 0;
+    end
+    
+    local pad = GetPadByBuff(caster, buff);
+    local padOwner = GetPadOwner(pad)
+    if IsSameActor(caster, padOwner) == "NO" then
+        return 0;
+    end
+    
     local abilKabbalist25 = GetAbility(caster, "Kabbalist25");
     local addRate = 0.01 * arg1
     if abilKabbalist25 ~= nil and TryGetProp(abilKabbalist25, "ActiveState") == 1 then
@@ -16766,4 +16822,24 @@ end
 
 function SCR_BUFF_LEAVE_AquaBenedicta_DeBuff(self, buff, arg1, arg2, over)
 
+end
+
+function SCR_BUFF_ENTER_Dissonanz_Stun_Debuff(self, buff, arg1, arg2, over)
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+end
+
+function SCR_BUFF_LEAVE_Dissonanz_Stun_Debuff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_ENTER_Crescendo_Bane_Buff(self, buff, arg1, arg2, over)
+    local value = 0
+    local current = self.Poison_Atk_BM
+    self.Poison_Atk_BM = self.Poison_Atk_BM + current
+    SetExProp(buff, "add_Poison", current)
+end
+
+function SCR_BUFF_LEAVE_Crescendo_Bane_Buff(self, buff, arg1, arg2, over)
+    local current = GetExProp(buff, "add_Poison")
+    self.Poison_Atk_BM = self.Poison_Atk_BM - current
 end

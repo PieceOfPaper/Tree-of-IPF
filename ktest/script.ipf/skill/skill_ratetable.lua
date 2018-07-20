@@ -1977,3 +1977,11 @@ function SCR_SKILL_RATETABLE_Fletcher_MagicArrow(self, from, skill, atk, ret, ra
         AddDamageReductionRate(rateTable, reductionRate);
     end
 end
+
+function SCR_SKILL_RATETABLE_Wugushi_JincanGu(self, from, skill, atk, ret, rateTable)
+    if skill.ClassName == "Wugushi_JincanGu" then
+        rateTable.EnableCritical = 0
+        rateTable.EnableDodge = 0
+        rateTable.EnableBlock = 0
+    end
+end

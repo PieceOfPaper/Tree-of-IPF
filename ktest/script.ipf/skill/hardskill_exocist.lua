@@ -1,26 +1,20 @@
-function SCR_EXOSICT_ENTITY(self, skl, isDamage, applyTime)
-    if isDamage == nil then
-        isDamage = 1;
-    end
-    
-    if applyTime == nil then
-        applyTime = 3000;
-    end
+function SCR_EXOSICT_ENTITY(self, skl)
     
     local targetlist = GetHardSkillTargetList(self)
     local damageTarget = {};
     local abilExorcist5 = GetAbility(self, "Exorcist5");
     for i = 1 , #targetlist do
         local target = targetlist[i]
-        if applyTime ~= 0 then
-            if IsBuffApplied(target, "UC_Detected_Debuff") ~= 'YES' then
-                AddBuff(self, target, 'UC_Detected_Debuff',1,1,10000)
-            end
+        if IsBuffApplied(target, "UC_Detected_Debuff") ~= 'YES' then
+            AddBuff(self, target, 'UC_Detected_Debuff', 1, 1, 3000)
         end
         
-        if IsBuffApplied(target, "Cloaking_Buff") == "YES" or IsBuffApplied(target, "Burrow_Rogue") == 'YES' then
-            RemoveBuff(target, "Cloaking_Buff")
-            RemoveBuff(target, "Burrow_Rogue")
+        local cloakingBuffList = GetBuffListByProp(target, "Keyword", "Cloaking");
+        if cloakingBuffList ~= nil and #cloakingBuffList >= 1 then
+            for j = 1, #cloakingBuffList do
+                RemoveBuff(target, cloakingBuffList[j].ClassName);
+            end
+            
             damageTarget[#damageTarget + 1] = target;
         elseif abilExorcist5 ~= nil and TryGetProp(abilExorcist5, "ActiveState") == 1 then
             local abilExorcist5Lv = TryGetProp(abilExorcist5, "Level");
@@ -29,10 +23,11 @@ function SCR_EXOSICT_ENTITY(self, skl, isDamage, applyTime)
         end
     end
     
-    for j = 1, #damageTarget do
-        local target = damageTarget[j]
+    for k = 1, #damageTarget do
+        local target = damageTarget[k]
         local damage = GET_SKL_DAMAGE(self, target, skl.ClassName)
         TakeDamage(self, target, skl.ClassName, damage);
+        SkillTextEffect(nil, target, self, 'SHOW_SKILL_EFFECT', 0, nil, 'skill_Entity');
     end
 end
 
@@ -70,7 +65,7 @@ end
 
 -- inequalitySign : 0[미만], 1[이하], 2[같음], 3[이상], 4[초과]
 function SCR_EXOSICT_KOINONIA_IS_ENABLE(self, skl, range, job, targetCount, inequalitySign, isIncludeNeutral)
-	
+--	
 --	local myJob = GetJobObject(self);
 --	if myJob == nil or myJob.CtrlType ~= "Cleric" then
 --		SendSysMsg(self, 'ThisSkillIsNotAvailable');
@@ -82,15 +77,16 @@ function SCR_EXOSICT_KOINONIA_IS_ENABLE(self, skl, range, job, targetCount, ineq
 
 	local objList, objCount = SelectObjectNear(self, self, range, "FRIEND");
 	for i = 1, objCount do
-		if IsZombie(objList[i]) ~= 1 then
---			local targetJob = GetJobObject(objList[i]);
---			if targetJob ~= nil and targetJob.CtrlType == job then
-				targetObjCount = targetObjCount + 1;
---			end
-		end
+	    if IS_PC(objList[i]) == true then
+    		if IsZombie(objList[i]) ~= 1 then
+    --			local targetJob = GetJobObject(objList[i]);
+    				targetObjCount = targetObjCount + 1;
+    --			end
+    		end
+	    end
 	end
-	
-	if isIncludeNeutral == 1 then
+    
+    if isIncludeNeutral == '1' then
 		objList, objCount = SelectObjectNear(self, self, range, "NEUTRAL");
 		for i = 1, objCount do
 			if IsZombie(objList[i]) ~= 1 then
@@ -147,7 +143,7 @@ function SCR_EXOSICT_KOINONIA_MAKE_LINK(self, skl, buffName, duration, linkEffec
 		AddLinkObject(cmd, obj, #linkHandleList + 1);
 	end
 	
-	StartLink(cmd, 0.25, "Koinonia", linkEffectScale, linkSoundName);
+	StartLink(cmd, 0.25, linkEffectName, linkEffectScale, linkSoundName);
 end
 
 function SCR_EXOSICT_KOINONIA_RUN(self, skl, duration, updateTime, linkTargetCount, limitRange, attackTargetCount, linkEffectName, linkEffectScale, linkSoundName)
@@ -166,11 +162,12 @@ function SCR_EXOSICT_KOINONIA_RUN(self, skl, duration, updateTime, linkTargetCou
     
 	local objList, objCount = SelectObjectNear(self, self, limitRange, "FRIEND");
 	for i = 1, objCount do
-		if IsZombie(objList[i]) ~= 1 then
-			linkHandleList[#linkHandleList + 1] = GetHandle(objList[i]);
-			targetList[#targetList + 1] = objList[i];
-		end
-
+	    if IS_PC(objList[i]) == true then
+    		if IsZombie(objList[i]) ~= 1 then
+    			linkHandleList[#linkHandleList + 1] = GetHandle(objList[i]);
+    			targetList[#targetList + 1] = objList[i];
+    		end
+        end
 		if #linkHandleList >= linkTargetCount then
 			break;
 		end
@@ -181,6 +178,7 @@ function SCR_EXOSICT_KOINONIA_RUN(self, skl, duration, updateTime, linkTargetCou
 		for i = 1, objCount do
 			if IsZombie(objList[i]) ~= 1 then
 				local targetJob = GetJobObject(objList[i]);
+				
 				if targetJob ~= nil and targetJob.CtrlType == "Cleric" then
 					linkHandleList[#linkHandleList + 1] = GetHandle(objList[i]);
 					targetList[#targetList + 1] = objList[i];
@@ -198,13 +196,23 @@ function SCR_EXOSICT_KOINONIA_RUN(self, skl, duration, updateTime, linkTargetCou
 	end
 	
 	SetExProp(self, "Exocist_Koinonia_LinkHandleCount", #linkHandleList);
+	
     local clericCount = 0;
+	local abilExorcist13 = GetAbility(self, "Exorcist13");
 	for j = 1, #linkHandleList do
 	    local target = GetJobObject(targetList[j]);
-	    local targetJob = target.CtrlType;	    
+	    local targetJob = target.CtrlType;
 	    if targetJob == "Cleric" then
 	        clericCount = clericCount + 1;
 	    end
+	    
+	    if abilExorcist13 ~= nil and TryGetProp(abilExorcist13, "ActiveState") == 1 then
+	        local isTempler = GetJobGradeByName(targetList[j], "Char1_16")
+	        if isTempler ~= nil and isTempler >= 1 then
+	            clericCount = clericCount + 1;
+	        end
+	    end
+	    
 		SetExProp(self, "Exocist_Koinonia_LinkHandle" .. tostring(j), linkHandleList[j]);
 	end
 	
@@ -337,6 +345,7 @@ function SCR_EXOSICT_KOINONIA_DO_DAMAGE(self, skl, updateTime, limitRange, limit
 		end	
 	end
 	
+	StopSound(self, "skl_eff_koinonia_shot")
 	DelExProp(self, "Koinonia_Condition_Satisfied")
 	RemoveLinkByBuffName(self, "Koinonia_Buff");
 end

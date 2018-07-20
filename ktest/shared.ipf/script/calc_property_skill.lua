@@ -5454,9 +5454,22 @@ function SCR_Get_SkillFactor_ThrowGuPot(skill)
 
 end
 
+function SCR_Get_SkillFactor_JincanGu(skill)
+
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
+
+    local abil = GetAbility(pc, "Wugushi28")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+
+end
 
 function SCR_GET_ThrowGuPot_Time(skill)
-    local value = 7
+    local value = 15
     return value;
 end
 
@@ -12531,7 +12544,8 @@ function SCR_GET_Chortasmata_Bufftime(skill)
 end
 
 function SCR_GET_Chortasmata_Ratio(skill)
-    local value = 600 + (30 * skill.Level);
+    local value = 600 + (30 * (skill.Level - 1));
+    
     return value
 end
 
@@ -13038,19 +13052,19 @@ function SCR_Get_Zhendu_Ratio(skill)
     
     local pc = GetSkillOwner(skill)
     if pc ~= nil then
-        local STR = TryGetProp(pc, "STR")
         local minPATK = TryGetProp(pc, "MINPATK")
         local maxPATK = TryGetProp(pc, "MAXPATK")
-        local PATK = ((minPATK + maxPATK) / 2)
-        return math.floor(40 + (skill.Level * 5) * ((STR * 0.6) ^ 0.9) + (PATK * 0.5))
+        return math.floor(((minPATK + maxPATK) / 2) * 0.1)
     end
-    
 end
 
 function SCR_Get_Zhendu_Ratio2(skill)
 
-    return  10
-
+    local pc = GetSkillOwner(skill)
+    if pc ~= nil then
+        local STR = TryGetProp(pc, "STR")
+        return math.floor(40 + (skill.Level * 5) * ((STR * 0.6) ^ 0.9))
+    end
 end
 
 function SCR_GET_JollyRoger_Bufftime(skill)
@@ -15619,7 +15633,7 @@ function SCR_Get_SkillFactor_GrindCutter(skill)
 end
 
 function SCR_GET_DownFall_Ratio(skill)
-    local value = 5 + skill.Level;
+    local value = 3 + skill.Level * 0.5;
     return value;    
 end
 
@@ -16110,8 +16124,14 @@ end
 
 
 function SCR_Get_SkillFactor_WideMiasma(skill)
-    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
-    
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1);
+	
+    local abil = GetAbility(pc, "Wugushi27")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+	
     return math.floor(value)
 end
 
@@ -16124,12 +16144,26 @@ end
 
 function SCR_Get_SkillFactor_HamelnNagetier(skill)
 	local pc = GetSkillOwner(skill);
-    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1);
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1);
 	
     local abil = GetAbility(pc, "PiedPiper11")      -- Skill Damage add
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
+	
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_HamelnNagetier_Mouse(skill)
+	local value = 0
+    local piedPiper = GetSkillOwner(skill);
+	local owner = GetOwner(piedPiper)
+	if owner ~= nil then
+		local skillHameln = GetSkill(owner, "Onmyoji_FireFoxShikigami")
+		if skillHameln ~= nil then   
+			value = skillHameln.SkillFactor
+		end
+	end
 	
     return math.floor(value)
 end
@@ -16158,7 +16192,15 @@ function SCR_GET_Rubric_Ratio(skill)
 end
 
 function SCR_GET_Rubric_Ratio2(skill)
-    return 30 + skill.Level * 2
+    local value = 5;
+    local pc = GetSkillOwner(skill);
+    local abilExorcist3 = GetAbility(pc, "Exorcist3");
+    if abilExorcist3 ~= nil and TryGetProp(abilExorcist3, "ActiveState") == 1 then
+        value = 25;
+    end
+    
+    return value;
+    
 end
 
 function SCR_Get_SkillFactor_Entity(skill)
@@ -16217,7 +16259,7 @@ function SCR_Get_SkillFactor_Koinonia(skill)
     local pc = GetSkillOwner(skill);
     local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 	
-    local abil = GetAbility(pc, "Exorcist10")
+    local abil = GetAbility(pc, "Exorcist16")
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
@@ -16258,4 +16300,20 @@ function SCR_Get_SkillFactor_MassHeal(skill)
     end
 	
     return math.floor(value)
+end
+
+function SCR_GET_Koinonia_Ratio(skill)
+    local value = 5 + 3 * skill.Level;
+    return value;
+end
+
+function SCR_GET_Gregorate_Ratio(skill)
+    local value = 3;
+    local pc = GetSkillOwner(skill);
+    local abilExorcist11 = GetAbility(pc, "Exorcist11");
+    if abilExorcist11 ~= nil and TryGetProp(abilExorcist11, "ActiveState") == 1 then
+        value = value + abilExorcist11.Level;
+    end
+    
+    return value;
 end

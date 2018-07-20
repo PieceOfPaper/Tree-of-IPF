@@ -142,16 +142,25 @@ function SCR_BUFF_GIVEDMG_Zhendu_Buff(self, buff, sklID, damage, target, ret)
     if damage <= 0 then
         return 1;
     end
-
-    if sklID < DEFAULT_SKILL_CLASSID then
-        local PoisonATK = GetExProp(buff, "PoisonDadak")
+    
+    if sklID < DEFAULT_SKILL_CLASSID and target.RaceType ~= 'Item' then
+        local PATK = GetExProp(buff, "PoisonDadak")
         local key = GetSkillSyncKey(self, ret)
         StartSyncPacket(self, key)
-        TakeDadak(self, target, "None", PoisonATK, 0.01 , "Poison", "Melee", "TrueDamage", HIT_POISON, HITRESULT_BLOW)
+        TakeDadak(self, target, "None", PATK, 0.01 , "Poison", "Melee", "TrueDamage", HIT_POISON, HITRESULT_BLOW)
         EndSyncPacket(self, key, 0)
     end
     
-   return 1
+    if GetExProp(buff, "Zhendu_Debuff_FLAG") == 0 then
+        local abil = GetAbility(self, "Wugushi7")
+        if abil ~= nil then
+            AddBuff(self, target, "Zhendu_Debuff", 1, 0, 10000, 1)
+            SetExProp(buff, "Zhendu_Debuff_FLAG", 1)
+        end
+    end
+    
+    return 1
+    
 end
 
 
@@ -768,4 +777,14 @@ function SCR_BUFF_GIVEDMG_GM_WHITETREES_MON_BUFF1(self, buff, sklID, damage, tar
         end
     end
     return 1;
+end
+
+function SCR_BUFF_GIVEDMG_WideMiasma_Buff(self, buff, sklID, damage, target, ret)
+    if sklID == 30509 then
+        return 1
+    elseif sklID ~= 30509 then
+        return 0
+    else
+        return 0
+    end
 end

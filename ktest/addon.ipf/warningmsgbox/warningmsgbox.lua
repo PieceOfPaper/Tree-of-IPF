@@ -28,13 +28,23 @@ function WARNINGMSGBOX_FRAME_OPEN(clmsg, yesScp, noScp)
 end
 
 function _WARNINGMSGBOX_FRAME_OPEN_YES(parent, ctrl, argStr, argNum)
-	RunScript(argStr)
+	IMC_LOG("INFO_NORMAL", "_WARNINGMSGBOX_FRAME_OPEN_YES" .. argStr)
+	local scp = _G[argStr]
+	if scp ~= nil then
+		scp()
+	end
+	--RunScript(argStr)
 	ui.CloseFrame("warningmsgbox")
 end
 
 
 function _WARNINGMSGBOX_FRAME_OPEN_NO(parent, ctrl, argStr, argNum)
-	RunScript(argStr)
+	IMC_LOG("INFO_NORMAL", "_WARNINGMSGBOX_FRAME_OPEN_NO" .. argStr)
+	local scp = _G[argStr]
+	if scp ~= nil then
+		scp()
+	end
+	--RunScript(argStr)
 	ui.CloseFrame("warningmsgbox")
 end
 

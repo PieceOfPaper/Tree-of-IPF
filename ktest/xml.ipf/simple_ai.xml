@@ -8495,7 +8495,17 @@
 			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 		</StartList>
 	</AI>
-	<AI Name="GUILD_COLONY_SUMMON_MONSTER" UpdateMS="1000" ActiveMessageMapInBattle="1">
+	<AI Name="GUILD_COLONY_SUMMON_ENHANCER_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_GUILD_COLONY_ENHANCER_SUMMON_RUN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="GUILD_COLONY_SUMMON_MONSTER" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_GUILD_COLONY_SUMMON_MONSTER_RUN"/>
@@ -8508,7 +8518,7 @@
 	<AI Name="GUILD_COLONY_SUMMON_MONSTER_AI" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
-				<Num Num="400"/>
+				<Num Num="300"/>
 			</ToolScp>
 			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
 				<Num Num="200"/>
@@ -8529,13 +8539,20 @@
 			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 		</StartList>
 	</AI>
-	<AI Name="GUILD_COLONY_TOWER" UpdateMS="1000" ActiveMessageMapInBattle="1">
+	<AI Name="GUILD_COLONY_SUMMON_ROOTCRYSTAL" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_GUILD_COLONY_TOWER_RUN"/>
+				<Str Str="SCR_GUILD_COLONY_SUMMON_ROOTCRYSTAL_RUN"/>
 			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_GUILD_COLONY_ENHANCER_SPEED_UP_BUFF_RUN"/>
+			</List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="GUILD_COLONY_TOWER" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_GUILD_COLONY_TOWER_RUN"/>
 			</ToolScp>
 		</List>
 		<StartList>

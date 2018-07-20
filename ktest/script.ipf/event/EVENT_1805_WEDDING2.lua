@@ -116,6 +116,12 @@ function SCR_EVENT_1805_WEDDING1_NPC_DIALOG(self, pc)
     
     local select = ShowSelDlg(pc, 0, 'EVENT_1805_WEDDING2_DLG1\\'..ScpArgMsg('EVENT_1805_WEDDING2_MSG1','COUNT',aObj.EVENT_1805_WEDDING2_ACC_COUNT), ScpArgMsg('EVENT_1804_ARBOR_MSG9'),ScpArgMsg('EVENT_1805_WEDDING2_MSG2'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
     if select == 1 then
+        local partyObj = GetPartyObj(pc)
+        if partyObj ~= nil then
+            SendSysMsg(pc, 'CannotUseInParty')
+            return
+        end
+        
         if aObj ~= nil then
             if aObj.EVENT_1805_WEDDING2_REWARD_DATE ~= nowday or aObj.EVENT_1805_WEDDING2_REWARD_COUNT < 2 then
                 if pc.Lv >= 30 then
@@ -177,9 +183,9 @@ function SCR_USE_EVENT_1805_WEDDING2_COSTUME_BOX(pc)
     local select = ShowSelDlg(pc, 0, 'EVENT_1709_NEWFIELD_SEL', ScpArgMsg("OnlyMale"), ScpArgMsg("OnlyFemale"), ScpArgMsg("Cancel"))
     local itemSel
     if select == 1 then
-        itemSel = 'costume_Com_101'
-    elseif select == 2 then
         itemSel = 'costume_Com_102'
+    elseif select == 2 then
+        itemSel = 'costume_Com_103'
     end
     if itemSel ~= nil then
         local tx = TxBegin(pc);

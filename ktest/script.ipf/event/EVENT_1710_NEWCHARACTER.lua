@@ -31,7 +31,7 @@ function SCR_PRE_NPC_EVENT_1805_NEWCHARACTER(pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
     local aObj = GetAccountObj(pc)
     if sObj ~= nil and aObj ~= nil then
-        if sObj.EVENT_1805_NEWCHARACTER_CHECK == 1 and aObj.EVENT_1805_NEWCHARACTER_REWARD_COUNT < 2 then
+        if sObj.EVENT_1805_NEWCHARACTER_CHECK == 1 and aObj.EVENT_1805_NEWCHARACTER_REWARD_COUNT < 1 then
             return 'YES'
         end
     end

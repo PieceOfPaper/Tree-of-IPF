@@ -415,10 +415,7 @@ function SCR_BUFF_TAKEDMG_JincanGu_Debuff(self, buff, sklID, damage, target, ret
         if skl ~= nil then
             if IMCRandom(1, 100) <= 10 then
                 local count = GetExProp(buff, "Wugushi_JincanGu_COUNT");
-                if count > 4 then
-                    return 0
-                end
-                if count < skl.Level then
+                if count < skl.Level and count < 5 then
                     SetExProp(buff, "Wugushi_JincanGu_COUNT", count + 1)
                     RunScript("SCR_WUGUSHI_JINCANGU", self, sklID, damage, caster, nil, nil, nil);
                 end
@@ -633,4 +630,14 @@ function SCR_BUFF_TAKEDMG_LatentVenom_Debuff(self, buff, sklID, damage, attacker
     end
     
     return 1;    
+end
+
+function SCR_BUFF_TAKEDMG_WideMiasma_Buff(self, buff, sklID, damage, attacker)
+    if sklID == 30509 then
+        return 1
+    elseif sklID ~= 30509 then
+        return 0
+    else
+        return 0
+    end
 end

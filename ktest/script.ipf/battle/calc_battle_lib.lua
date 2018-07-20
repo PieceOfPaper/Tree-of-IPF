@@ -1601,6 +1601,10 @@ function SCR_USEJUMP(pc)
     
     if IsBuffApplied(pc, 'ShinobiCloaking_Buff') == 'YES' then
         RemoveBuff(pc, 'ShinobiCloaking_Buff')
+    end
+    
+    if IsBuffApplied(pc, 'WideMiasma_Buff') == 'YES' then
+        RemoveBuff(pc, 'WideMiasma_Buff')
     end 
 
     if IsBuffApplied(pc, 'Archer_Kneelingshot') == 'YES' then

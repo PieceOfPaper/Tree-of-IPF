@@ -531,7 +531,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 				tolua.cast(PictureC, "ui::CPicture");
 				local idx, Icon = SET_MAP_MONGEN_NPC_INFO(PictureC, mapprop, WorldPos, MonProp, mapNpcState, npclist, statelist, questIESlist);
                 if isColonyMap == true then
-                    if MonProp:GetClassName() == 'Warp_arrow' then
+                    if MonProp:GetClassName() == 'Warp_arrow' or MonProp:GetClassName() == 'dialog_warp_npc_1' then
                         PictureC:ShowWindow(1);
                     else
                         PictureC:ShowWindow(0);

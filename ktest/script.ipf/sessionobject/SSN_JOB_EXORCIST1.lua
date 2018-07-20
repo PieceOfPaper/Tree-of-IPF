@@ -35,7 +35,6 @@ end
 
 function SCR_TIMEOUT_SSN_JOB_EXORCIST1(self, sObj)
     local maxRewardIndex = SCR_QUEST_CHECK_MODULE_STEPREWARD_FUNC(self, sObj.QuestName)
-    print(sObj.QuestInfoValue1)
     if maxRewardIndex ~= nil and maxRewardIndex > 0 then
         SCR_SSN_TIMEOUT_PARTY_SUCCESS(self, sObj.QuestName, nil, nil)
 	else
@@ -51,23 +50,16 @@ function SCR_TIMEOUT_SSN_JOB_EXORCIST1(self, sObj)
 end
 
 function SCR_SSN_JOB_EXORCIST1_COUNTTIME(self, sObj, remainTime)
+    SCR_PARTY_SOBJ_TIME_SHARE(self, sObj, remainTime)
 end
 
 function SCR_EXORCIST_JOB_QUEST_OBJ_START_DIALOG(self, pc)
     COMMON_QUEST_HANDLER(self, pc)
 end
 
-function SCR_TIMEOUT_SSN_JOB_EXORCIST1(self, sObj)
-	SCR_SSN_TIMEOUT_PARTY_SUCCESS(self, sObj.QuestName, nil, nil)
-end
-
-function SCR_SSN_JOB_EXORCIST1_COUNTTIME(self, sObj, remainTime)
-	SCR_PARTY_SOBJ_TIME_SHARE(self, sObj, remainTime)
-end
-
 function EXORCIST_JOB_QUEST_OBJ_SETTING(pc)
     local obj_arr1 = {
-                        "Velwriggler_blue", "Spector_gh_red", "Sec_Spector_Gh", "Hallowventor", 
+                        "npc_Velwriggler_blue", "npc_Spector_gh_red", "npc_Sec_Spector_Gh", "npc_Hallowventor"
                      }
     
     local sObj = GetSessionObject(pc, "SSN_JOB_EXORCIST1")
@@ -80,7 +72,7 @@ function EXORCIST_JOB_QUEST_OBJ_SETTING(pc)
                 local ran = IMCRandom(1, 4)
                 local pos_x = -20 * i
                 local pos_z = -4 * i
-                local mon = CREATE_MONSTER_EX(pc, obj_arr1[ran], -91+pos_x, 935, -2376+pos_z, 0, 'Neutral', 0, EXORCIST_JOB_QUEST_OBJ_SET1)
+                local mon = CREATE_NPC_EX(pc, obj_arr1[ran], -91+pos_x, 935, -2376+pos_z, 0, 'Neutral', nil, nil, EXORCIST_JOB_QUEST_OBJ_SET1)
                 AddScpObjectList(pc, "EXORCIST_JOB_QUEST_OBJ", mon);
                 StopAnim(mon)
             end
@@ -133,7 +125,7 @@ end
 
 function EXORCIST_JOB_QUEST_OBJ_CRE(pc, sObj)
     local obj_arr1 = {
-                        "Velwriggler_blue", "Spector_gh_red", "Sec_Spector_Gh", "Hallowventor"
+                        "npc_Velwriggler_blue", "npc_Spector_gh_red", "npc_Sec_Spector_Gh", "npc_Hallowventor"
                      }
                      
     local mon_list = GetScpObjectList(pc, "EXORCIST_JOB_QUEST_OBJ")
@@ -145,7 +137,7 @@ function EXORCIST_JOB_QUEST_OBJ_CRE(pc, sObj)
             obj_arr1[ran] = "Altarcrystal_N1"
             sObj.Goal1 = 0
         end
-        local mon = CREATE_MONSTER_EX(pc, obj_arr1[ran], -91+pos_x, 935, -2376+pos_z, 0, 'Neutral', 0, EXORCIST_JOB_QUEST_OBJ_SET1)
+        local mon = CREATE_NPC_EX(pc, obj_arr1[ran], -91+pos_x, 935, -2376+pos_z, 0, 'Neutral', nil, nil, EXORCIST_JOB_QUEST_OBJ_SET1)
         AddScpObjectList(pc, "EXORCIST_JOB_QUEST_OBJ", mon);
     end
 end
@@ -154,6 +146,7 @@ function EXORCIST_JOB_QUEST_OBJ_SET1(mon)
     if mon.ClassName == "Altarcrystal_N1" then
         mon.Name = ScpArgMsg("EXORCIST_JOBQ_CRYSTAL")
     end
+    mon.AlwaysTitle = "YES"
     mon.BTree = "BT_DUMMY"
 end
 
@@ -189,14 +182,14 @@ end
 
 function EXORCIST_JOB_QUEST_BOBM_OBJ_CRE(pc, sObj, num)
     local obj_arr1 = {
-                        "Velwriggler_blue", "Spector_gh_red", "Sec_Spector_Gh", "Hallowventor", 
+                        "npc_Velwriggler_blue", "npc_Spector_gh_red", "npc_Sec_Spector_Gh", "npc_Hallowventor"
                      }
     local mon_list = GetScpObjectList(pc, "EXORCIST_JOB_QUEST_OBJ")
     if #mon_list < 8 then
         local ran = IMCRandom(1, 4)
         local pos_x = -20 * 8
         local pos_z = -4 * 8
-        local mon = CREATE_MONSTER_EX(pc, obj_arr1[ran], -91+pos_x, 935, -2376+pos_z, 0, 'Neutral', 0, EXORCIST_JOB_QUEST_OBJ_SET1)
+        local mon = CREATE_NPC_EX(pc, obj_arr1[ran], -91+pos_x, 935, -2376+pos_z, 0, 'Neutral', nil, nil, EXORCIST_JOB_QUEST_OBJ_SET1)
         AddScpObjectList(pc, "EXORCIST_JOB_QUEST_OBJ", mon);
     end
 end
@@ -246,4 +239,7 @@ end
 
 function SCR_EXORCIST_PLACE_OUT_LEAVE(self, pc)
     DetachEffect(self, "F_cast001")
+end
+
+function SCR_EXORCIST_PLACE_HIDE_ENTER(self, pc)
 end

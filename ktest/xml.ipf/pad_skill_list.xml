@@ -275,7 +275,7 @@ return obj.Level;"/>
     <PadSkill Name="Archer_VerminPot" CheckerType="0" PadHeight="10" AllowOverlap="1" Range="50" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="0" UseFunc="1" FuncTxt="return 15000"/>
+                <Num Num="15000" FuncTxt="return 15000"/>
                 <Num Num="9999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -292,7 +292,7 @@ return obj.Level;"/>
                 <Pos Angle="0" Dist="0"/>
                 <Angle Angle="0"/>
                 <Num Num="0"/>
-                <Num Num="6" UseFunc="1" FuncTxt="return 6.4"/>
+                <Num Num="15" FuncTxt="return 6.4"/>
                 <MonProp/>
                 <Str_Arg Str="None" Arg="1"/>
                 <Num Num="1"/>
@@ -2880,15 +2880,6 @@ return addHeal;"/>
                 <Num Num="1000"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_ACTIVATE" Client="NO" UseSleep="NO">
-                <Str Str="FRIEND" UseFunc="1" FuncTxt="local self = GetSkillOwner(obj);
-local abil = GET_ABIL_LEVEL(self, &quot;Cleric10&quot;);
-if abil &gt; 0 then
-return &quot;FRIEND&quot;
-else
-return &quot;ALL&quot;
-end"/>
             </ToolScp>
         </enterEvent>
         <updateEvent>
@@ -5485,7 +5476,7 @@ return obj.Level;"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Exorcist_AquaBenedicta" CheckerType="0" AllowOverlap="1" Dist="83.887184" Angle="-1.8468292" Range="50" UpdateTerm="300">
+	<PadSkill Name="Exorcist_AquaBenedicta" CheckerType="0" AllowOverlap="1" Dist="83.887184" Angle="-1.8468292" Range="50" UpdateTerm="400">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000" UseFunc="1" FuncTxt="return 6000"/>
@@ -5515,7 +5506,7 @@ return obj.Level;"/>
             </ToolScp>
         </destroyEvent>
         <leaveEvent>
-            <ToolScp Scp="LEAVE_PAD_TGT_ABIL_BUFF" Client="NO" UseSleep="NO">
+            <ToolScp Scp="LEAVE_PAD_ABIL_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="Exorcist7"/>
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
@@ -5531,7 +5522,7 @@ return obj.Level;"/>
         </leaveEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-300"/>
+                <Num Num="-400"/>
                 <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
@@ -5632,7 +5623,7 @@ return count;"/>
             <ToolScp Scp="PAD_TGT_SET_BUFFUPDATETIME_BY_ABIL" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
                 <Str Str="Rubric_DeBuff"/>
-                <Num Num="200"/>
+                <Num Num="250"/>
                 <Str Str="Exorcist3"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
@@ -9286,7 +9277,7 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Nachash_Pad" CheckerType="0" AllowOverlap="1" Range="60" UpdateTerm="300"ApplyFlyMon="1">
+	<PadSkill Name="Nachash_Pad" CheckerType="0" AllowOverlap="1" Range="60" UpdateTerm="300" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="E_buff_snake" Arg="2"/>
@@ -9763,33 +9754,19 @@ return lv;"/>
 			</ToolScp>
 		</leaveEvent>
 	</PadSkill>
-	<PadSkill Name="PiedPiper_Fluting" CheckerType="0" Dist="0.20079" Angle="1.044166" Range="120" UpdateTerm="300" AutoPos="1" AutoDir="1" ObjType="3" EnableSearch="0">
+	<PadSkill Name="PiedPiper_Fluting" CheckerType="0" Dist="0.20079" Angle="1.044166" Range="120" UpdateTerm="300" AutoPos="1" AutoDir="1" ApplyFlyMon="1" ObjType="3" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="1000000"/>
 				<Num Num="9999"/>
 			</ToolScp>
-		<ToolScp Scp="PAD_USEABLE_MONSTER" Client="NO" UseSleep="NO"/>
-            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+		<ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
                 <Num Num="0" UseFunc="1" FuncTxt="return obj.Level + 3"/>
             </ToolScp>
             <ToolScp Scp="PAD_USEABLE_FUNCNAME" Client="NO" UseSleep="NO">
                 <Str Str="SCR_HYPNOTISCHEFLOTE_MON_LIMITATION"/>
             </ToolScp>
         </createEvent>
-		<enterEvent>
-			<ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
-				<Str Str="ENEMY"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str Str="Fluting_DeBuff"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="100"/>
-			</ToolScp>
-		</enterEvent>
 		<leaveEvent>
 			<ToolScp Scp="PAD_TGT_BUFF_REMOVE_MON" Client="NO" UseSleep="NO">
 				<Str Str="ENEMY"/>
@@ -13297,10 +13274,10 @@ return obj.Level"/>
     <PadSkill Name="Wugushi_WideMiasma_Pad" CheckerType="0" AllowOverlap="1" Range="120" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_archer_WideMiasma_ground_loop" Arg="2"/>
+                <Str_Arg Str="F_archer_WideMiasma_ground_loop#Dummy_emitter" Arg="2"/>
                 <Pos Angle="0" Dist="0" PosType="5"/>
                 <Num Num="0"/>
-                <Str_Arg Str="" Arg="1.2"/>
+                <Str_Arg Str="None" Arg="1.2"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000"/>
@@ -13308,20 +13285,20 @@ return obj.Level"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
-            <ToolScp Scp="PAD_TGT_ABIL_BUFF" Client="NO" UseSleep="NO">
+            <ToolScp Scp="PAD_TGT_ABIL_BUFF_ALONE_OR_WITH" Client="NO" UseSleep="NO">
                 <Str Str="Wugushi26"/>
-                <Str Str="FRIEND"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="Cloaking_Buff"/>
-                <Num Num="1"/>
+                <Str Str="WideMiasma_Buff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                 <Num Num="0"/>
-                <Num Num="10000" UseFunc="1" FuncTxt="local abil = GetAbility(self, &apos;Wugushi26&apos;)
+                <Num Num="0" UseFunc="1" FuncTxt="local abil = GetAbility(self, &apos;Wugushi26&apos;)
 if abil ~= nil then
     return abil.Level * 2000
 end"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
+                <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
@@ -13330,7 +13307,7 @@ end"/>
                 <Str Str="WideMiasma_Debuff"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                 <Num Num="0"/>
-                <Num Num="10000"/>
+                <Num Num="10500"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
             </ToolScp>
@@ -15447,7 +15424,7 @@ end"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="plant_pad" CheckerType="0" Range="75">
+    <PadSkill Name="plant_pad" CheckerType="0" Range="75" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000" UseFunc="1" FuncTxt="local self = GetSkillOwner(obj);
@@ -15524,7 +15501,7 @@ return 10000 + obj.Level * 1000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;
                 <Num Num="100"/>
             </ToolScp>
             <ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENEMY" Client="NO" UseSleep="NO">
-                <Str Str="FRIEND"/>
+                <Str Str="PARTY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Chortasmata_Buff"/>
@@ -15537,7 +15514,7 @@ return 10000 + obj.Level * 1000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;
             </ToolScp>
         </updateEvent>
 	</PadSkill>
-	<PadSkill Name="plant_pad_born" CheckerType="0" UpdateTerm="100">
+	<PadSkill Name="plant_pad_born" CheckerType="0" UpdateTerm="100" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="E_cleric_chortasmata_born" Arg="0.69999999"/>

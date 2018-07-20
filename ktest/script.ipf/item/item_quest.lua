@@ -12091,7 +12091,7 @@ function SCR_USE_EXORCIST_MSTEP321_ITEM1(self, argObj, argstring, arg1, arg2)
     end
     
     if index > 0 then
-        local result = DOTIMEACTION_R(self, ScpArgMsg("EXORCIST_MSTEP321_ITEM1_MSG1"),'WORSHIP', 3)
+        local result = DOTIMEACTION_R(self, ScpArgMsg("EXORCIST_MSTEP321_ITEM1_MSG1"),'WORSHIP', 3, nil, nil, "WORSHIP")
         if result == 1 then
             if sObj['Goal'..index] <= 0 then
                 sObj['Goal'..index] = 1
@@ -12135,7 +12135,7 @@ function SCR_USE_EXORCIST_MSTEP33_ITEM2(self, argObj, argstring, arg1, arg2)
                 sObj.Goal5 = 0
                 sObj.Goal6 = 0
             elseif sObj.Goal6 >= 3 then --exorcism fail
-                AddBuff(self, self, "EXORCIST_MSTEP33_PENALTY_BUFF", 1, 0, 30000, 1)
+                AddBuff(self, self, "EXORCIST_MSTEP33_PENALTY_BUFF", 1, 0, 60000, 1)
                 ShowBalloonText(self, "EXORCIST_MSTEP33_TXT2", 5)
                 sObj.Goal5 = 0
                 sObj.Goal6 = 0
@@ -12188,7 +12188,7 @@ function SCR_USE_EXORCIST_JOB_QUEST_ITEM1(self, argObj, argstring, arg1, arg2)
         LookAt(self, argObj)
         PlayAnim(self, "ABSORB",1)
         --print("Velwriggler_blue", argObj.ClassName)
-        EXORCIST_JOB_QUEST_ITEM_KILL_FUNC(self, argObj, "Velwriggler_blue", "Altarcrystal_N1", sObj)
+        EXORCIST_JOB_QUEST_ITEM_KILL_FUNC(self, argObj, "npc_Velwriggler_blue", "Altarcrystal_N1", sObj)
         PlayAnim(self, "STD",1)
     else
         SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EXORCIST_JOB_QUEST_WARNING1"), 5)
@@ -12203,7 +12203,7 @@ function SCR_USE_EXORCIST_JOB_QUEST_ITEM2(self, argObj, argstring, arg1, arg2)
         LookAt(self, argObj)
         PlayAnim(self, "ABSORB",1)
         --print("Spector_gh_red", argObj.ClassName)
-        EXORCIST_JOB_QUEST_ITEM_KILL_FUNC(self, argObj, "Spector_gh_red", "Altarcrystal_N1", sObj)
+        EXORCIST_JOB_QUEST_ITEM_KILL_FUNC(self, argObj, "npc_Spector_gh_red", "Altarcrystal_N1", sObj)
         PlayAnim(self, "STD",1)
     else
         SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EXORCIST_JOB_QUEST_WARNING1"), 5)
@@ -12218,7 +12218,7 @@ function SCR_USE_EXORCIST_JOB_QUEST_ITEM3(self, argObj, argstring, arg1, arg2)
         LookAt(self, argObj)
         PlayAnim(self, "ABSORB",1)
         --print("Sec_Spector_Gh", argObj.ClassName)
-        EXORCIST_JOB_QUEST_ITEM_KILL_FUNC(self, argObj, "Sec_Spector_Gh", "Altarcrystal_N1", sObj)
+        EXORCIST_JOB_QUEST_ITEM_KILL_FUNC(self, argObj, "npc_Sec_Spector_Gh", "Altarcrystal_N1", sObj)
         PlayAnim(self, "STD",1)
     else
         SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EXORCIST_JOB_QUEST_WARNING1"), 5)
@@ -12233,7 +12233,7 @@ function SCR_USE_EXORCIST_JOB_QUEST_ITEM4(self, argObj, argstring, arg1, arg2)
         LookAt(self, argObj)
         PlayAnim(self, "ABSORB",1)
         --print("Hallowventor", argObj.ClassName)
-        EXORCIST_JOB_QUEST_ITEM_KILL_FUNC(self, argObj, "Hallowventor", "Altarcrystal_N1", sObj)
+        EXORCIST_JOB_QUEST_ITEM_KILL_FUNC(self, argObj, "npc_Hallowventor", "Altarcrystal_N1", sObj)
         PlayAnim(self, "STD",1)
     else
         SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EXORCIST_JOB_QUEST_WARNING1"), 5)
@@ -12348,6 +12348,8 @@ function SCR_USE_EXORCIST_JOB_HIDDEN_ITEM(self, argObj, argstring, arg1, arg2)
         SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EXORCIST_JOB_HIDDEN_ITEM_MSG26"), 5)
     elseif hidden_prop < 133 then
         SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EXORCIST_JOB_HIDDEN_ITEM_MSG27"), 5)
+    elseif hidden_prop == 133 and (GetInvItemCount(self, "Drug_holywater") < 1 or GetInvItemCount(self, "food_007") < 1) then
+        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EXORCIST_JOB_HIDDEN_ITEM_MSG31"), 5)
     elseif hidden_prop == 133 and GetInvItemCount(self, "Drug_holywater") >= 1 and GetInvItemCount(self, "food_007") >= 1 then
         SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EXORCIST_JOB_HIDDEN_ITEM_MSG28"), 5)
     elseif hidden_prop == 134 then

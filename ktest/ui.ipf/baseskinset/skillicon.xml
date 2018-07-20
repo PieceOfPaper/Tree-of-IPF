@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="wizard_skillicon">
@@ -1722,6 +1722,8 @@
 		<image name="ability_archer_PiedPiper11" file="\icon\icon_ability_archer06.tga" imgrect="256 0 128 128" CMM_Caption="하멜른 나게티어: 강화"/>
 		<image name="ability_archer_PiedPiper12" file="\icon\icon_ability_archer06.tga" imgrect="384 0 128 128" CMM_Caption="하멜른 나게티어: 더러운 이빨"/>
 		<image name="ability_archer_PiedPiper13" file="\icon\icon_ability_archer06.tga" imgrect="512 0 128 128" CMM_Caption="하멜른 나게티어: 희귀종"/>
+		<image name="ability_archer_Wugushi28" file="\icon\icon_ability_archer06.tga" imgrect="0 256 128 128" CMM_Caption="해독 : 3레벨"/>
+		<image name="ability_archer_Wugushi29" file="\icon\icon_ability_archer06.tga" imgrect="128 256 128 128" CMM_Caption="금잠고: 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>
@@ -2020,6 +2022,7 @@
 		<image name="ability_cleric_Kabbalist24" file="\icon\icon_ability_cleric05.tga" imgrect="896 256 128 128" CMM_Caption="나하시: 강화"/>
 		<image name="ability_cleric_Priest27" file="\icon\icon_ability_cleric05.tga" imgrect="896 512 128 128" CMM_Caption="매스 힐: 강화"/>
 		<image name="ability_cleric_Kabbalist25" file="\icon\icon_ability_cleric05.tga" imgrect="0 640 128 128" CMM_Caption="세피로트의 나무: 강화"/>
+		<image name="ability_cleric_Exorcist16" file="\icon\icon_ability_cleric05.tga" imgrect="128 640 128 128" CMM_Caption="코이노니아: 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

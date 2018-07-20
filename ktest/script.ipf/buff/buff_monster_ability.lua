@@ -788,9 +788,10 @@ function SCR_BUFF_UPDATE_Ability_Detecting_Buff(self, buff, arg1, arg2, over)
             if IsBuffApplied(fndList[i], "UC_Detected_Debuff") ~= 'YES' then
                 AddBuff(fndList[i], fndList[i], 'UC_Detected_Debuff',1,1,10000)
             end
-            if IsBuffApplied(fndList[i], "Cloaking_Buff") == 'YES' or IsBuffApplied(fndList[i], "Burrow_Rogue") == 'YES' then
+            if IsBuffApplied(fndList[i], "Cloaking_Buff") == 'YES' or IsBuffApplied(fndList[i], "Burrow_Rogue") == 'YES' or IsBuffApplied(fndList[i], "WideMiasma_Buff") == 'YES' then
                 RemoveBuff(fndList[i], "Cloaking_Buff")
                 RemoveBuff(fndList[i], "Burrow_Rogue")
+                RemoveBuff(fndList[i], "WideMiasma_Buff")
             end
         end
     end

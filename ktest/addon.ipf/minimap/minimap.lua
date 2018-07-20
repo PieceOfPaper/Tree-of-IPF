@@ -195,7 +195,7 @@ function UPDATE_MINIMAP(frame)
 					end
 
                     if isColonyMap == true then
-                        if MonProp:GetClassName() == 'Warp_arrow' then
+                        if MonProp:GetClassName() == 'Warp_arrow' or MonProp:GetClassName() == 'dialog_warp_npc_1' then
                         PictureC:ShowWindow(1);
                         else
                             PictureC:ShowWindow(0);

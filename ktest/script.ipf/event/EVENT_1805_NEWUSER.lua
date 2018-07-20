@@ -78,8 +78,9 @@ end
 
 function SCR_PRE_EVENT_1805_NEWUSER_MEDAL(self,argstr,arg1,arg2)
     local achive = GetEquipAchieveName(self);
+    local partyObj = GetPartyObj(self)
     
-    if achive == "EVENT_1805_NEWUSER_ACHIEVE" then
+    if achive == "EVENT_1805_NEWUSER_ACHIEVE" and partyObj ~= nil then
         return 1
     else
         SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1805_NEWUSER_MSG1"), 10);

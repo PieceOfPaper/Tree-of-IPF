@@ -65,49 +65,39 @@ function MOVE_TO_CAMP_WHEN_DED(frame, control, aid)
 end
 
 function AUTORESIZE_RESTART(frame)
-
 	local maxy = 0;
 	local cnt = frame:GetChildCount();
-
 	local ctrly = 100;
 	local ctrlHight = 0;
 	local ctrloffsetY = 0;
-
-	local campGroup = frame:GetChild("campGroup");
-
 	for i = 0 , cnt - 2 do
-
 		local ctrl = frame:GetChildByIndex(i);
 		local ctrlname = ctrl:GetName();
 		if ctrl:IsVisible() == 1 and string.find(ctrlname, "btn") ~= nil then
-			ctrl:SetOffset(ctrl:GetOffsetX(), ctrly);
+			ctrl:SetOffset(ctrl:GetOffsetX(), ctrly);			
 			ctrly = ctrly + ctrl:GetHeight() + 5;
 
 			if 0 == ctrlHight then
 				ctrlHight = ctrl:GetHeight();
 				ctrloffsetY = ctrl:GetOffsetY();
 			end
-			local y = ctrl:GetOffsetY() + ctrl:GetHeight();
 
+			local y = ctrl:GetOffsetY() + ctrl:GetHeight();
 			if y > maxy then
 				maxy = y;
 			end
 		end
 	end
 
-	if session.colonywar.GetIsColonyWarMap() == true then	
-		frame:Resize(frame:GetWidth(), maxy + 40);
-		return;
-	end
-
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
 	local count = list:Count();
-
 	local campGroup = frame:GetChild("campGroup");
 	if nil == campGroup then
 		return;
 	end
-	campGroup:RemoveAllChild();
+	campGroup:RemoveAllChild();	
+	campGroup:SetOffset(campGroup:GetX(), ctrly);	
+
 	-- 파티원이 존재 할 때
 	if 0 < count then
 		local y = 0;
@@ -147,7 +137,7 @@ function AUTORESIZE_RESTART(frame)
 	shareBtn:SetEventScriptArgString(ui.LBUTTONUP, session.loginInfo.GetAID());
 	shareBtn:SetSkinName("test_pvp_btn");
 
-	maxy =maxy + ctrlHight;
+	maxy = maxy + ctrlHight;
 	frame:Resize(frame:GetWidth(), maxy + 40);
 end
 
@@ -198,6 +188,17 @@ function RESTART_ON_MSG(frame, msg, argStr, argNum)
 			frame:SetUserValue("COUNT", 30);
 		end
 
+		-- 길드 타워
+		local resButtonObj	= GET_CHILD(frame, "restart7btn", 'ui::CButton');
+		resButtonObj:ShowWindow(0);
+		if 1 == BitGet(argNum, 13) then
+			local btnName = 'restart7btn';
+			local resButtonObj	= GET_CHILD(frame, btnName, 'ui::CButton');
+			if IS_EXIST_GUILD_TOWER() == true then
+				resButtonObj:ShowWindow(1);			
+			end
+		end
+
 		AUTORESIZE_RESTART(frame);
 		frame:ShowWindow(1);
 
@@ -241,4 +242,11 @@ function COLONY_WAR_RESTART_UPDATE(frame)
 	local text = "{@st66b}"..ScpArgMsg("ReturnCity{SEC}", "SEC", sec).."{/}"
 	resButtonObj:SetText(text);
 	return 1;
+end
+
+function RESTART_ON_GUILD_TOWER(frame)
+	if IS_EXIST_GUILD_TOWER() == false then
+		return;
+	end
+	restart.SendRestartGuildTower();
 end

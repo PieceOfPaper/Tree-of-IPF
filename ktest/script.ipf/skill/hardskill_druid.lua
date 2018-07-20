@@ -50,7 +50,7 @@ end
 
 function TRANSFORM_TO_LYCANTHROPY(self, skill)
 	local buffName = 'Lycanthropy_Buff';
-	local buffTime = 100000;
+	local buffTime = 30000;
 	
     local ret = 0;
     
@@ -69,6 +69,7 @@ function TRANSFORM_TO_LYCANTHROPY(self, skill)
 	    end
     	ret = TransformToMonster(self, monName, buffName)
     	AddBuff(self, self, "Lycanthropy_hpup_Buff", 1, 0, buffTime)
+    	AddBuff(self, self, "Lycanthropy_Safety_Buff", 1, 0, 3000)
     	local list, cnt = SelectObject(self, 100, "ENEMY")
     	for i = 1, cnt do
     		AddBuff(self, list[i], "Lycanthropy_Debuff", 1, 0, 5000)
@@ -291,28 +292,34 @@ end
 function SCR_BUFF_ENTER_Lycanthropy_Buff(self, buff, arg1, arg2, over)
     local addCrt = 0
     local addRateMhp = 1
-    local addMspd = 3
+    local addMspd = 10
     local addRateDef = 0.5
+    local addBlkBreak = 400
 	local lycanSkill = GetSkill(self, "Druid_Lycanthropy")
 	if lycanSkill ~= nil then
 		addCrt = TryGetProp(lycanSkill, "Level") * 40
 	end
-
+	
     self.CRTHR_BM = self.CRTHR_BM + addCrt;
     self.MHP_RATE_BM = self.MHP_RATE_BM + addRateMhp;
     self.MSPD_BM = self.MSPD_BM + addMspd
     self.DEF_RATE_BM = self.DEF_RATE_BM + addRateDef
     self.MDEF_RATE_BM = self.MDEF_RATE_BM + addRateDef
+	self.BLK_BREAK_BM = self.BLK_BREAK_BM + addBlkBreak
     
     SetExProp(buff, "ADD_CRTHR", addCrt);
     SetExProp(buff, "ADD_MHP", addRateMhp);
     SetExProp(buff, "ADD_MSPD", addMspd)
     SetExProp(buff, "ADD_RATE_DEF", addRateDef)
+    SetExProp(buff, "ADD_BLOCK_BREAK", addBlkBreak)
     
     AddLimitationSkillList(self, "Mon_pcskill_boss_werewolf_Skill_1")
     AddLimitationSkillList(self, "Mon_pcskill_boss_werewolf_Skill_3")
 	AddLimitationSkillList(self, "Mon_pcskill_boss_werewolf_Skill_4")
 	AddLimitationSkillList(self, "Mon_pcskill_boss_werewolf_Skill_5")
+	
+--	local selfMHP = TryGetProp(self, "MHP")
+--	AddHP(self, selfMHP)
 end
 
 function SCR_BUFF_UPDATE_Lycanthropy_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -341,14 +348,18 @@ function SCR_BUFF_LEAVE_Lycanthropy_Buff(self, buff, arg1, arg2, over, isLastEnd
     local addRateMhp = GetExProp(buff, "ADD_MHP");
     local addMspd = GetExProp(buff, "ADD_MSPD")
     local addRateDef = GetExProp(buff, "ADD_RATE_DEF")
+    local addBlkBreak = GetExProp(buff, "ADD_BLOCK_BREAK")
     
     self.CRTHR_BM = self.CRTHR_BM - addCrt;
     self.MHP_RATE_BM = self.MHP_RATE_BM - addRateMhp;
     self.MSPD_BM = self.MSPD_BM - addMspd
     self.DEF_RATE_BM = self.DEF_RATE_BM - addRateDef
     self.MDEF_RATE_BM = self.MDEF_RATE_BM - addRateDef
+    self.BLK_BREAK_BM = self.BLK_BREAK_BM - addBlkBreak
     
     ClearLimitationSkillList(self);
+    
+    AddBuff(self, self, "Lycanthropy_Safety_Buff", 1, 0, 3000)
 end
 
 
@@ -450,6 +461,13 @@ function SCR_BUFF_LEAVE_Lycanthropy_hpup_Buff(self, buff, arg1, arg2, over, isLa
 	
 end
 
+function SCR_BUFF_AFTERCALC_HIT_Lycanthropy_Safety_Buff(self, from, skill, atk, ret, buff)
+	ret.Damage = 0;
+    ret.KDPower = 0;
+    ret.ResultType = HITRESULT_BLOW;
+    ret.HitType = HIT_ENDURE;
+    ret.HitDelay = 0;
+end
 
 function SCR_BUFF_AFTERCALC_HIT_Lycanthropy_Buff(self, from, skill, atk, ret, buff)
     ret.KDPower = 0;

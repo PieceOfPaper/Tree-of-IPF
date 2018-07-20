@@ -1,4 +1,5 @@
 function SCR_EXORCIST_MASTER_DIALOG(self, pc)
+    PlayMusicQueueLocal(pc, "master_Exorcist")
     if GetServerNation() == 'KOR' and GetServerGroupID() == 9001 then
         COMMON_QUEST_HANDLER(self, pc)
         return
@@ -63,9 +64,7 @@ function SCR_EXORCIST_MASTER_DIALOG(self, pc)
                                         "EXORCIST_MASTER_Q1",
                                         "EXORCIST_MASTER_Q2",
                                         "EXORCIST_MASTER_Q3",
-                                        "EXORCIST_MASTER_Q4",
-                                        "EXORCIST_MSTEP33_ITEM3",
-                                        "EXORCIST_JOB_HIDDEN_ITEM"
+                                        "EXORCIST_MASTER_Q4"
                                       }
             local sel_arr1 = { 
                                 {ScpArgMsg('EXORCIST_MASTER_Q1_A1'), ScpArgMsg('EXORCIST_MASTER_Q1_A2'), ScpArgMsg('EXORCIST_MASTER_Q1_A3')},
@@ -84,7 +83,7 @@ function SCR_EXORCIST_MASTER_DIALOG(self, pc)
                 end
             end
             
-            for i = 1, 4 do
+            for i = 1, #exorcist_Master_Q do
                 local ran = IMCRandom(1, #exorcist_Master_Q)
                 if exorcist_Master_Q[ran] == "EXORCIST_MASTER_Q1" then
                     local sel = ShowSelDlg(pc, 0, exorcist_Master_Q[ran], sel_arr1[ran][1], sel_arr1[ran][2], sel_arr1[ran][3], ScpArgMsg('EXORCIST_MASTER_Q_ABANDON'))
@@ -224,6 +223,7 @@ function SCR_EXORCIST_MASTER_DIALOG(self, pc)
                 ShowOkDlg(pc, "EXORCIST_MASTER_STEP3_DLG5")
                 SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 90)
             else
+                sObj.Step1 = 0
                 ShowOkDlg(pc, "EXORCIST_MASTER_STEP3_DLG6")
             end
         elseif hidden_prop == 90 then

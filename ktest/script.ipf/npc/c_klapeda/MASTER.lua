@@ -774,7 +774,7 @@ function SCR_MASTER_KRIWI_NORMAL_1_PRE(pc)
     return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char4_3')
 end
 
-function SCR_MASTER_KRIWI_NORMAL_2_PRE(pc)
+function SCR_MASTER_KRIWI_NORMAL_3_PRE(pc)
     local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20');
     if hidden_prop >= 10 and hidden_prop < 60 then
         return 'YES'
@@ -1031,12 +1031,12 @@ function SCR_MASTER_KRIWI_NORMAL_1(self, pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Kriwi");
 end
 
-function SCR_MASTER_KRIWI_NORMAL_3(self,pc)
+function SCR_MASTER_KRIWI_NORMAL_2(self,pc)
     ShowTradeDlg(pc, 'Master_Kriwi', 5);
 end
 
 --EXORCIST
-function SCR_MASTER_KRIWI_NORMAL_2(self,pc)
+function SCR_MASTER_KRIWI_NORMAL_3(self,pc)
     local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20');
     local sObj = GetSessionObject(pc, "SSN_EXORCIST_UNLOCK")
     if hidden_prop == 10 then
@@ -1498,6 +1498,9 @@ function SCR_EXORCIST_MASTER_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Exorcist");
 end
 
+function SCR_EXORCIST_MASTER_NORMAL_2(self,pc)
+    ShowTradeDlg(pc, 'Master_Exorcist', 5);
+end
 
 function SCR_OPEN_ABILSHOP(pc, shopName)
 

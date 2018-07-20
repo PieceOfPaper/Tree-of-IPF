@@ -17,37 +17,44 @@ function UPDATE_PIEDPIPER_MOUSE(pc, mon)
 
 end
 
-function MOVE_TO_ATTACK_NEAR_ENEMY(mon, monSkillName, x, y, z, enemy)
+function MOVE_TO_ATTACK_NEAR_ENEMY(mon, monSkillName, x, y, z, findRange)
+    local enemyList, enemyCnt = SelectObjectPos(mon, x, y, z, findRange, "ENEMY");
+    
     local nearDist = 10;
     ClearSimpleAI(mon, "ALL");
     local dist = Get2DDistFromPos(mon, x, z);
     if dist > nearDist then
         local moveRet = MoveEx(mon, x, y, z, nearDist, "RUN");
         if moveRet ~= "YES" then
+            PlayEffect(mon, "F_smoke063", 0.5)
+            Dead(mon, 1);
             return;
         end
     end
-
+    
     while dist > nearDist do
         dist = GetDistFromMoveDest(mon);
         sleep(500);
     end
-
-    local skillRet = UseMonsterSkill(mon, enemy, monSkillName);
-
-    sleep(500);
-
-    if skillRet == nil then
-        return;
-    end
-
-    while 1 do
-        if IsSkillUsing(mon) == 0 then
-            break;
-        end
-        sleep(500);
-    end
     
+    for i=1, #enemyList do
+        local enemy = enemyList[i];
+        if TryGetProp(enemy, "MoveType") ~= "Flying" then
+	        local skillRet = UseMonsterSkill(mon, enemy, monSkillName);
+	
+	        sleep(500);
+	
+	        if skillRet ~= nil then
+	            while 1 do
+	                if IsSkillUsing(mon) == 0 then
+	                    break;
+	                end
+	                sleep(500);
+	            end
+	        end
+	    end
+    end
+
     PlayEffect(mon, "F_smoke063", 0.5)
     Dead(mon, 1);
 end
@@ -146,11 +153,10 @@ function FOLLOWERS_MOVE_TO_ATTACK_NEAR_ENEMY(pc, skl, monName, monSkillName, x, 
     for i=1, #list do
         local mon = list[i];
         local mx, my, mz = RAMDOM_POS_IN_RANGE(x, y, z, moveRange);
-        local enemyList, enemyCnt = SelectObjectPos(pc, mx, my, mz, findRange, "ENEMY");
+        local enemyList, enemyCnt = SelectObjectPos(mon, mx, my, mz, findRange, "ENEMY");
         if enemyCnt > 0 then
-            local enemy = enemyList[1];
             foundEnemyCnt = foundEnemyCnt + 1;
-            RunScript("MOVE_TO_ATTACK_NEAR_ENEMY", mon, monSkillName, mx, my, mz, enemy);
+            RunScript("MOVE_TO_ATTACK_NEAR_ENEMY", mon, monSkillName, mx, my, mz, findRange);
         end
     end
     
@@ -188,7 +194,11 @@ end
 
 function SCR_HYPNOTISCHEFLOTE_MON_LIMITATION(self, pad, target)
     if IS_PC(target) == false then
-		if TryGetProp(target, "MoveType") == "Holding" or TryGetProp(target, "MonRank") == "Boss" then
+    	if TryGetProp(target, "MonRank") == "Special" or TryGetProp(target, "MonRank") == "Normal" then
+    		return 1;
+    	end
+    	
+		if TryGetProp(target, "MoveType") == "Holding" or TryGetProp(target, "MonRank") == "Material" or TryGetProp(target, "MonRank") == "Boss" or TryGetProp(target, "MonRank") == "Elite" then
 			return 0;
 		end
     end
@@ -197,7 +207,11 @@ function SCR_HYPNOTISCHEFLOTE_MON_LIMITATION(self, pad, target)
 end
 
 function SCR_SNOWROLLING_LIMITATION(self, pad, target)
-	if IsBuffApplied(target, 'SnowRolling_Buff') == 'YES' or TryGetProp(target, "MonRank") == "Boss" then
+	if TryGetProp(target, "MonRank") == "Special" or TryGetProp(target, "MonRank") == "Normal" then
+		return 1;
+	end
+	
+	if IsBuffApplied(target, 'SnowRolling_Buff') == 'YES' or TryGetProp(target, "MonRank") == "Material" or TryGetProp(target, "MonRank") == "Boss" or TryGetProp(target, "MonRank") == "Elite" then
 		return 0;
     end
     
@@ -211,11 +225,13 @@ function SCR_DISSONANZ_DETECTING(self, skl, isDamage, applyTime)
         if IsBuffApplied(target, "UC_Detected_Debuff") == 'NO' then
             AddBuff(self, target, 'UC_Detected_Debuff', 1, 1, 1000)
         end
-        
-        if IsBuffApplied(target, "Cloaking_Buff") == "YES" or IsBuffApplied(target, "Burrow_Rogue") == 'YES' then
-            RemoveBuff(target, "Cloaking_Buff")
-            RemoveBuff(target, "Burrow_Rogue")
-        end
+		
+		local cloakingBuffList = GetBuffListByProp(target, "Keyword", "Cloaking");
+		if cloakingBuffList ~= nil and #cloakingBuffList >= 1 then
+			for j = 1, #cloakingBuffList do
+				RemoveBuff(target, cloakingBuffList[j].ClassName);
+			end
+		end
     end
 end
 

@@ -10,10 +10,11 @@ function COLONY_WAR_RETURN_CITY_ZONE(pc)
     local zoneName = GetZoneName(pc);
     local cls = GetClassByStrProp("guild_colony", "ZoneClassName", zoneName);
     if cls ~= nil then
-        local warpCls = GetClassByStrProp("Warp", "TargetZone", cls.ReturnCityZoneClassName);
-        if warpCls ~= nil then
-            Warp(pc, warpCls.ClassName);
-        end
+        local warpCls = cls.ReturnCityZoneClassName
+        local city_x = cls.City_Pos_X
+        local city_y = cls.City_Pos_Y
+        local city_z = cls.City_Pos_Z
+        MoveZone(pc, warpCls, city_x, city_y, city_z);
     end
 end
 
@@ -103,20 +104,22 @@ function NOTIFY_RETURN_CITY_ZONE(pc, count)
 end
 
 function IS_ENABLE_ENTER_COLONY_WAR(pc)
-    local guildObj = GetGuildObj(pc);
-    if guildObj == nil then
-        return 0;
-    end
-
-    if IsIndun(pc) == 1 or IsPVPServer(pc) == 1 or IsMissionInst(pc) == 1 then
-        if IsJoinColonyWarMap(pc) ~= 1 then
+    if IsGM(pc) == 0 then --GM은 예외처리
+        local guildObj = GetGuildObj(pc);
+        if guildObj == nil then
             return 0;
         end
-    end
-
-    local enableEnterColonyWar = TryGetProp(guildObj, 'EnableEnterColonyWar');
-    if enableEnterColonyWar ~= 1 then
-        return 0;
+    
+        if IsIndun(pc) == 1 or IsPVPServer(pc) == 1 or IsMissionInst(pc) == 1 then
+            if IsJoinColonyWarMap(pc) ~= 1 then
+                return 0;
+            end
+        end
+    
+        local enableEnterColonyWar = TryGetProp(guildObj, 'EnableEnterColonyWar');
+        if enableEnterColonyWar ~= 1 then
+            return 0;
+        end
     end
 
     return 1;
@@ -143,13 +146,15 @@ function SEND_KILL_DEAD_MESSAGE(Deader, killer)
 end
 
 function IS_ENTRY_GUILD(pc)
-    local guildObj = GetGuildObj(pc);
-    if guildObj == nil then
-        return 0;
-    end
-    if IsIndun(pc) == 1 or IsPVPServer(pc) == 1 or IsMissionInst(pc) == 1 then
-        if IsJoinColonyWarMap(pc) ~= 1 then
+    if IsGM(pc) == 0 then --GM은 예외처리
+        local guildObj = GetGuildObj(pc);
+        if guildObj == nil then
             return 0;
+        end
+        if IsIndun(pc) == 1 or IsPVPServer(pc) == 1 or IsMissionInst(pc) == 1 then
+            if IsJoinColonyWarMap(pc) ~= 1 then
+                return 0;
+            end
         end
     end
 
@@ -157,45 +162,49 @@ function IS_ENTRY_GUILD(pc)
 end
 
 function IS_ENABLE_ENTER_COLONY_WAR_MAP(pc)
-    local guildObj = GetGuildObj(pc);
-    if guildObj == nil then
-        return 0;
-    end
-
-    if IsIndun(pc) == 1 or IsPVPServer(pc) == 1 or IsMissionInst(pc) == 1 then
-        if IsJoinColonyWarMap(pc) ~= 1 then
+    if IsGM(pc) == 0 then --GM은 예외처리
+        local guildObj = GetGuildObj(pc);
+        if guildObj == nil then
             return 0;
         end
-    end
-
-    local enableEnterColonyWar = TryGetProp(guildObj, 'EnableEnterColonyWar');
-    if enableEnterColonyWar ~= 1 then
-        return 0;
-    end
-
-    local enableEnterColonyWarMap = IsJoinColonyWarMap(pc)
-    if enableEnterColonyWarMap ~= 1 then
-        return 0;
+    
+        if IsIndun(pc) == 1 or IsPVPServer(pc) == 1 or IsMissionInst(pc) == 1 then
+            if IsJoinColonyWarMap(pc) ~= 1 then
+                return 0;
+            end
+        end
+    
+        local enableEnterColonyWar = TryGetProp(guildObj, 'EnableEnterColonyWar');
+        if enableEnterColonyWar ~= 1 then
+            return 0;
+        end
+    
+        local enableEnterColonyWarMap = IsJoinColonyWarMap(pc)
+        if enableEnterColonyWarMap ~= 1 then
+            return 0;
+        end
     end
 
     return 1;
 end
 
 function IS_ENABLE_ENTER_COLONY_WAR_MAP_RESULT(pc)
-    local guildObj = GetGuildObj(pc);
-    if guildObj == nil then
-        return 0;
-    end
-
-    if IsIndun(pc) == 1 or IsPVPServer(pc) == 1 or IsMissionInst(pc) == 1 then
-        if IsJoinColonyWarMap(pc) ~= 1 then
+    if IsGM(pc) == 0 then --GM은 예외처리
+        local guildObj = GetGuildObj(pc);
+        if guildObj == nil then
             return 0;
         end
-    end
-
-    local enableEnterColonyWarMap = IsJoinColonyWarMap(pc)
-    if enableEnterColonyWarMap == 1 then
-        return 0;
+    
+        if IsIndun(pc) == 1 or IsPVPServer(pc) == 1 or IsMissionInst(pc) == 1 then
+            if IsJoinColonyWarMap(pc) ~= 1 then
+                return 0;
+            end
+        end
+    
+        local enableEnterColonyWarMap = IsJoinColonyWarMap(pc)
+        if enableEnterColonyWarMap == 1 then
+            return 0;
+        end
     end
 
     return 1;

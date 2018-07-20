@@ -79,7 +79,7 @@ function SCR_SSN_PIED_PIPER_MSTEP_TIME_TABLE(self, sObj)
     end
 
     --later
-    if sObj.Step11 ~= 0 and sObj.Goal11 ~= 0 then
+    if sObj.Step11 ~= 0 then
         local lastday = sObj.Step11
         local lasttime = sObj.Goal11
         if today == lastday then
@@ -114,7 +114,7 @@ function SCR_SSN_PIED_PIPER_MSTEP_TIME_TABLE(self, sObj)
             end
         end
     end
-    if sObj.Step12 ~= 0 and sObj.Goal12 ~= 0 then
+    if sObj.Step12 ~= 0 then
         local lastday = sObj.Step12
         local lasttime = sObj.Goal12
         if today == lastday then

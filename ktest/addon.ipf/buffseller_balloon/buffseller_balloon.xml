@@ -7,7 +7,7 @@
 	<skin frameskin="none"/>
 	<input moveable="false" hittestframe="false"/>
 	<draw drawtitlebar="false" drawnotitlebar="false"/>
-	<option hideable="false"/>
+	<option hideable="false" autoopen="false"/>
 	<controls>
 		<picture name="bg" rect="0 0 300 60" margin="0 0 0 0" layout_gravity="center top" LBtnUpScp="BUFFSELLER_OPEN" changecursor="true" hittest="true" image="sign_buy" stretch="true"/>
 		<groupbox name="withLvBox" rect="0 0 300 60" margin="0 0 0 0" layout_gravity="center top" draw="false" LBtnUpScp="BUFFSELLER_OPEN" changecursor="true" hittest="true"/>

@@ -261,9 +261,15 @@ function PAD_TGT_BUFF_HEAL(self, skl, pad, target, tgtRelation, consumeLife, use
 	
 	local abilCleric20 = GetAbility(self, "Cleric20");
 	local abilCleric21 = GetAbility(self, "Cleric21");
+	local isSummon = 1;
+	local topOwner = GetTopOwner(target)
+	if IsSameActor(topOwner, self) == "YES" then
+	    isSummon = 0
+    end
+    
 	if abilCleric21 ~= nil and TryGetProp(abilCleric21, "ActiveState") == 1 then
 	    if IS_PC(target) == false and GetRelation(self, target) ~= "ENEMY" then
-	        return;
+	        isSummon = 1;
 	    end
 	end
 	
@@ -271,11 +277,11 @@ function PAD_TGT_BUFF_HEAL(self, skl, pad, target, tgtRelation, consumeLife, use
 	    tgtRelation = "FRIEND"
 	end
 	
-    if IS_APPLY_RELATION(self, target, tgtRelation) then
+    if IS_APPLY_RELATION(self, target, tgtRelation) or isSummon == 0 then
 		if over == 0 and GetBuffByName(target, buffName) ~= nil then
 			return;
 		end
-
+        
 		if 1 == saveHandle then
 			SetExArgObject(self, "SaveOwner", GetOwner(self));
 		end
@@ -377,6 +383,36 @@ function LEAVE_PAD_TGT_ABIL_BUFF(self, skl, pad, target, abilname, tgtRelation, 
     end
 end
 
+function LEAVE_PAD_ABIL_BUFF(self, skl, pad, target, abilname, tgtRelation, consumeLife, useCount, buffName, lv, arg2, applyTime, over, rate, saveHandle)
+	local abil = GetAbility(self, abilname);
+	if abil == nil then
+		return;
+	end
+	
+	local objList, cnt = GetPadObjectList(pad);
+	local padLifeTime = GetPadLife(pad);
+	if padLifeTime == 0 then
+	    for i = 1, cnt do
+	        target = objList[i]
+        	if IS_APPLY_RELATION(self, target, tgtRelation) then
+        		if over == 0 and GetBuffByName(target, buffName) ~= nil then
+        			return;
+        		end
+        	
+        		if 1 == saveHandle then
+        			SetExArgObject(self, "SaveOwner", GetOwner(self));
+        		end
+        		ADDPADBUFF(self, target, pad, buffName, lv, arg2, applyTime, over, rate);
+        		if tgtRelation == "PARTY" and IS_PC(self) == true and IS_PC(target) == true then
+        			PartyBuffAdd(target, buffName)
+        		end
+        		
+        		AddPadLife(pad, consumeLife);
+        		AddPadUseCount(pad, useCount);
+        	end
+    	end
+    end
+end
 
 function PAD_TGT_BUFF_MON(self, skl, pad, target, tgtRelation, consumeLife, useCount, buffName, lv, arg2, applyTime, over, rate)
 
@@ -1078,5 +1114,61 @@ function PAD_TGT_INVINCIBILITY_BREAK(self, skl, pad, target)
             local buffClassName = TryGetProp(buff, "ClassName");
             RemoveBuff(target, buffClassName);
         end
+    end
+end
+
+function PAD_TGT_ABIL_BUFF_ALONE_OR_WITH(self, skl, pad, target, abilName, consumeLife, useCount, buffName, lv, arg2, applyTime, over, rate, withPartyMember)
+	if GetPadLife(pad) <= 0 or GetPadUseCount(pad) <= 0 then
+		return;
+	end
+	
+	local abil = GetAbility(self, abilName);
+    if abil ~= nil then
+        if withPartyMember == 1 and GetObjType(self) == OT_PC then
+            local list, cnt = GET_PARTY_ACTOR_BY_SKILL(self, 0);
+            
+            if cnt > 0 then
+                for i=0, cnt do
+                    local partyActor = list[i];
+                    if partyActor ~= nil then
+
+                        -- 파티원버프는 거리 200. 모이기 귀찮으니 걍 멀리서 받으셈
+                        local dist = GetDistance(self, partyActor);
+                        if dist <= 200 then
+                            ADDBUFF(self, partyActor, buffName, lv, arg2, applyTime, over, rate);
+                        end
+                    end
+                end
+                return;
+            end
+        end
+
+        -- 내자신 버프.... 이걸 다른사람들에게는?
+        local buff = ADDBUFF(self, self, buffName, lv, arg2, applyTime, over, rate, skl.ClassID);
+
+        -- 버프공유 링크 걸려있으면 전달
+        if buff ~= nil and withPartyMember ~= 1 and buff.LinkBuff == 'YES' then
+            local linkBuff = GetBuffByName(self, 'Link_Party');
+            if linkBuff ~= nil then
+                local linkCaster =  GetBuffCaster(linkBuff);
+                if linkCaster ~= nil then
+                    local objList = GetLinkObjects(linkCaster, self, 'Link_Party');      
+                    if objList ~= nil then
+                        for i = 1, #objList do
+                            local partyMember = objList[i];
+                            ADDBUFF(self, partyMember, buffName, lv, arg2, applyTime, over, rate);
+                        end
+                    end
+                end
+            end
+        end
+        
+        -- Concurrent Use Count 사용하는 경우에 대한 처리
+		if CHECK_CONCURRENT_USE_COUNT(pad, buffName) == false then
+			return;
+		end
+
+		AddPadLife(pad, consumeLife);
+		AddPadUseCount(pad, useCount);
     end
 end

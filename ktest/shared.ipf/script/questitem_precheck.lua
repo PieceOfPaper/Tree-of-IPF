@@ -7910,7 +7910,7 @@ function SCR_PRE_EXORCIST_JOB_QUEST_ITEM(self, argObj, argstring, arg1, arg2)
         if GetLayer(self) >= 1 then
             local mon_list = GetScpObjectList(self, "EXORCIST_JOB_QUEST_OBJ")
         	if #mon_list > 0 then
-    	        if mon_list[1].ClassName == 'Velwriggler_blue' or mon_list[1].ClassName == 'Spector_gh_red' or mon_list[1].ClassName == 'Sec_Spector_Gh' or mon_list[1].ClassName == 'Hallowventor' or mon_list[1].ClassName == 'Altarcrystal_N1' then
+    	        if mon_list[1].ClassName == 'npc_Velwriggler_blue' or mon_list[1].ClassName == 'npc_Spector_gh_red' or mon_list[1].ClassName == 'npc_Sec_Spector_Gh' or mon_list[1].ClassName == 'npc_Hallowventor' or mon_list[1].ClassName == 'Altarcrystal_N1' then
     	            return GetHandle(mon_list[1])
     	        end
         	else

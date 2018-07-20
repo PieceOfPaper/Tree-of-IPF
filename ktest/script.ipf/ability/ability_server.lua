@@ -695,6 +695,11 @@ function SCR_ABILITY_POINT_RESET(pc, itemGuid, argList)
         return;
     end
 
+    if GetTotalAbilityPoint(pc) < 1 then
+        SendSysMsg(pc, 'NotExistRefundAbilityPoint');
+        return;
+    end
+
     if IsRunningScript(pc, 'TX_RESET_ABILITY_POINT') ~= 1 then
         TX_RESET_ABILITY_POINT(pc, item);
     end

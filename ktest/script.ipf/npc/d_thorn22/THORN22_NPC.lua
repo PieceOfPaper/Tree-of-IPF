@@ -84,7 +84,9 @@ end
 function SCR_THORN22_JULIAN_NORMAL_1_PRE(pc)
     local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20');
     if hidden_prop == 60 then
-        return 'YES'
+        if GetInvItemCount(pc, "CHAR4_20_STEP2_2") >= 1 then
+            return 'YES'
+        end
     end
     return 'NO'
 end

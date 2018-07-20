@@ -4218,6 +4218,9 @@
 			<picture name="isHot_mark" margin="0 94 0 0" rect="0 0 72 34" hittest="false" image="hot_mark_K" changecursor="false" layout_gravity="left top"/>
 			<picture name="isRec_mark" margin="0 128 0 0" rect="0 0 72 34" hittest="false" image="barbershop_couponbook_stamp" changecursor="false" layout_gravity="left top"/>
 			<picture name="isSale_mark" margin="0 162 0 0" rect="0 0 72 34" hittest="false" image="sale_mark_K" changecursor="false" layout_gravity="left top"/>
+			<picture name="isLimit_mark" margin="0 60 0 0" rect="0 0 72 34" hittest="false" image="limit_mark_K" changecursor="false" layout_gravity="left top"/>
+			<picture name="time_limited_bg" margin="0 60 2 0" rect="0 0 150 25 " layout_gravity="right top" hittest="false" image="LimitedPeriod_timebg"/>
+			<richtext name="time_limited_text" format="{img test_cooltime 20 20}%s{/}" param1="remainTime" param1_def="일시분" margin="0 62 6 0 " rect="0 0 140 25 " layout_gravity="right top" hittest="false" fontname="limitedsale"/>
 		</controls>
 	</controlset>
 	<controlset name="beautyshop_list_item" hittest="true" width="400" height="88">

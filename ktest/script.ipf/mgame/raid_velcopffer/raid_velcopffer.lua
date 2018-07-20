@@ -390,7 +390,7 @@ function SCR_VELCOFFR_RAID_PC_DEBUFF_REMOVE(self)
     RemoveBuff(self, 'Raid_Velcofer_Curse_Debuff')
 end
 
-function SCR_VELLCOFFER_SOUND_ENTER(self, pc)
+function SCR_VELCOFFER_SOUND_ENTER(self, pc)
     PlayMusicQueueLocal(pc, "boss_velcoffer")
 end
 

@@ -461,16 +461,16 @@ function SCR_BUFF_RATETABLE_SteadyAim_Buff(self, from, skill, atk, ret, rateTabl
         
         if skill.ClassType == 'Missile' then
             local abilRanger32 = GetAbility(from, "Ranger32");
-            if GetEquipItem(from, "LH") == "THBow" and abilRanger32 ~= nil and TryGetProp(from, "ActiveState") == 1 then
+            local RHEquipItem = GetEquipItem(from, "RH")
+            if TryGetProp(RHEquipItem, "ClassType") == "THBow" and abilRanger32 ~= nil and TryGetProp(abilRanger32, "ActiveState") == 1 then
                 addrate = addrate * 1.5
             end
-            
             rateTable.DamageRate = rateTable.DamageRate + addrate
             rateTable.AddTrueDamage = rateTable.AddTrueDamage + (addDamage + addDamageByLevel);
         end
         
         local abilRanger33 = GetAbility(from, "Ranger33");
-        if TryGetProp(skill, "Job") == "Ranger" and abilRanger32 ~= nil and TryGetProp(from, "ActiveState") == 1 then
+        if TryGetProp(skill, "Job") == "Ranger" and abilRanger33 ~= nil and TryGetProp(abilRanger33, "ActiveState") == 1 then
             rateTable.DamageRate = rateTable.DamageRate + 0.5
         end
     end
@@ -2295,41 +2295,6 @@ function SCR_BUFF_RATETABLE_Gregorate_Buff(self, from, skill, atk, ret, rateTabl
     if IsBuffApplied(from, "Gregorate_Buff") == "YES" then
         local addDamageRate = GetExProp(buff, "REMOVE_BUFF_COUNT_BY_GREGORATE");
         rateTable.DamageRate = rateTable.DamageRate + (addDamageRate * 0.5);
-    end
-end
-
-function SCR_BUFF_RATETABLE_Engkrateia_Buff(self, from, skill, atk, ret, rateTable, buff)
-    if IsBuffApplied(self, "Engkrateia_Buff") == "YES" then
-        local buffCaster = GetBuffCaster(buff);
-        local reductionRate = 0;
-        if buffCaster ~= nil then
-            local engkrateia = GetSkill(buffCaster, "Exorcist_Engkrateia");
-            if engkrateia ~= nil then
-                reductionRate = engkrateia.Level * 0.05;
-            end
-            if TryGetProp(from, "RaceType") == "Velnias" or TryGetProp(from, "Attribute") == "Dark" then
-                reductionRate = reductionRate + 0.5;
-            end
-        end
-        
-        AddDamageReductionRate(rateTable, reductionRate);
-    end
-end
-
-function SCR_BUFF_RATETABLE_Engkrateia_Buff(self, from, skill, atk, ret, rateTable, buff)
-    if IsBuffApplied(self, "Engkrateia_Buff") == "YES" then
-        local buffCaster = GetBuffCaster(buff);
-        if buffCaster ~= nil then
-            local skillEngkrateia = GetSkill(buffCaster, "Exorcist_Engkrateia");
-            if skillEngkrateia ~= nil then
-                local reductionRate = skillEngkrateia.Level * 0.05;
-                if TryGetProp(from, "RaceType") == "Velnias" then
-                    reductionRate = reductionRate * 1.5
-                end
-                
-                AddDamageReductionRate(rateTable, reductionRate);
-            end
-        end
     end
 end
 

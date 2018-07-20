@@ -61,7 +61,14 @@
 		<Effect Name="Templer_ShareBuff_Abil"/>
 		<Effect Name="boss_lucy_summoner_zone"/>
 		<Effect Name="F_warrior_ReduceCraftTime_ground"/>
-	</Category>
+	<Effect Name="Wugushi_WideMiasma_Pad"/>
+        <Effect Name="I_cleric_jincangu_force#Dummy_skl_shot"/>
+        <Effect Name="F_cleric_ground_seedboom"/>
+        <Effect Name="Koinonia"/>
+        <Effect Name="Druid_Lycanthropy_Half_dash_run"/>
+        <Effect Name="F_buff_cleric_Entity"/>
+        <Effect Name="skl_eff_koinonia_shot"/>
+    </Category>
 	<Category ID="214">
 		<Effect Name="warrior_f_rap_skl_Muleta_loop"/>
 		<Effect Name="skl_Muleta_loop"/>
@@ -484,7 +491,9 @@
 		<Effect Name="skl_archer_piedpiper_final_2"/>
 		<Effect Name="hidden_piri_2"/>
 		<Effect Name="hidden_piri_1"/>
-	</Category>
+	<Effect Name="GUILD_COLONY_F_SIAULIAI_47_4"/>
+        <Effect Name="GUILD_COLONY_F_FARM_47_2"/>
+    </Category>
 	<Category ID="201">
 		<Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
 		<Effect Name="I_bat009_smoke_re##0.4"/>
@@ -1049,6 +1058,9 @@
         <Effect Name="Templer_ShareBuff_Abil"/>
         <Effect Name="boss_lucy_summoner_zone"/>
         <Effect Name="F_warrior_ReduceCraftTime_ground"/>
+        <Effect Name="Druid_Lycanthropy_Half_dash_run"/>
+        <Effect Name="F_buff_cleric_Entity"/>
+        <Effect Name="skl_eff_koinonia_shot"/>
     </Category>
     <Category ID="214">
         <Effect Name="warrior_f_rap_skl_Muleta_loop"/>
@@ -1451,6 +1463,8 @@
         <Effect Name="crystal_prop_on_loop_left"/>
         <Effect Name="on_loop_left"/>
         <Effect Name="ON_LOOP_LEFT"/>
+        <Effect Name="master_Piedpiper"/>
+        <Effect Name="master_Exorcist"/>
     </Category>
     <Category ID="201">
         <Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>

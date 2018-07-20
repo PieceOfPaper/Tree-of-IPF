@@ -751,6 +751,8 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         FARM49_3_SQ06_REENTER_RUN(self, sObj, msg, argObj, argStr, argNum)
     elseif argStr == 'd_startower_76_2' then
         SCR_D_STARTOWER_GIMMICK_REENTER(self) 
+    elseif argStr == 'f_coral_32_2' then
+        SCR_CHAR312_MSTEP2_ZONE_ENTER(self)
     end
 
     
@@ -862,6 +864,8 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
    
     if IsJoinColonyWarMap(self) == 1 then
         RunScript("SCR_GUILD_COLONY_MUSIC_PLAY", self)
+        RunScript("SCR_GUILD_COLONY_ENTER_LOG", self)
+        AddBuff(self, self, 'GuildColony_InvincibleBuff', 1, 0, 0, 1); --입장시 무적
         local state = GetColonyWarState()
         if state == 3 then
             SCR_GUILD_COLONY_ALREADY_END_MSG(self)

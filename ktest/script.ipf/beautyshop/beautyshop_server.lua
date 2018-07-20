@@ -306,6 +306,8 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 	end
 
 	-- for log T_T	
+	local hairCouponName = TryGetProp(hairCouponItem, 'ClassName', 'None');
+	local dyeCouponName = TryGetProp(dyeCouponItem, 'ClassName', 'None');
 	local appliedHairDiscount = false;
 	local appliedDyeDiscount = false;
 	local preHairName = etc.StartHairName;
@@ -419,7 +421,7 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 		
 		local ret = TxCommit(tx);
 		if ret == "SUCCESS" then		
-			WRITE_BEAUTY_SHOP_LOG(pc, _productList, _stampCnt, preHairName, preDyeName, hairCouponItem, dyeCouponItem);
+			WRITE_BEAUTY_SHOP_LOG(pc, _productList, _stampCnt, preHairName, preDyeName, hairCouponName, dyeCouponName);
 		else
 			success = false;
 		end
@@ -513,6 +515,11 @@ function SCR_GO_BEAUTYSHOP(pc, itemGuid, argList)
 	local curZone = GetZoneName(pc);
 	local mapCls = GetClass('Map', curZone);
 	if IS_BEAUTYSHOP_MAP(mapCls) == false then
+		return;
+	end
+
+	if IsAutoSellerState(pc) == 1 then
+		SendSysMsg(pc, 'Orgel_MSG4');
 		return;
 	end
 	MoveZone(pc, 'c_Klaipe', -1061, 240, 616);
@@ -773,22 +780,23 @@ function TX_EXCHANGE_BEAUTYSHOP_COUPON(pc, info)
 	BeautyShopExchangeLog(pc, rewardItemCls.ClassID, rewardItemCls.ClassName, info.stampCount, totalStampCnt);
 end
 
-function WRITE_BEAUTY_SHOP_LOG(pc, productList, stampCnt, preHairName, preDyeName, hairCouponItem, dyeCouponItem)	
+function WRITE_BEAUTY_SHOP_LOG(pc, productList, stampCnt, preHairName, preDyeName, hairCouponName, dyeCouponName)	
 	for i = 1, #productList do
 		local info = productList[i];
 		local beautyShopCls = GetClass(info.IDSpace, info.ClassName);
 		local colorCls = nil;
-		local basicPrice = beautyShopCls.Price;		
-		if info.ColorClassName ~= 'None' then
-			colorCls = GetClass('Hair_Dye_List', info.ColorClassName);
-			basicPrice = basicPrice + colorCls.Price;
-		end
-
-		if info.IDSpace == 'Beauty_Shop_Hair' then
-			local hairCouponName = TryGetProp(hairCouponItem, 'ClassName', 'None');
-			local dyeCouponName = TryGetProp(dyeCouponItem, 'ClassName', 'None');
+		local basicPrice = beautyShopCls.Price;
+		if info.IDSpace == 'Beauty_Shop_Hair' then			
 			local hairCls = GetClass('Item', info.ClassName);
-			BeautyShopHairLog(pc, preHairName, hairCls.StringArg, preDyeName, TryGetProp(colorCls, 'DyeName', 'None'), stampCnt, GetBeautyShopStampCount(pc), info.Price, basicPrice, beautyShopCls.PriceRatio, TryGetProp(colorCls, 'PriceRatio', 0), hairCouponName, dyeCouponName, info.HairDiscountValue, info.DyeDiscountValue);				
+			local curHairName = hairCls.StringArg;
+			if preHairName == curHairName then
+				basicPrice = 0; -- 머리 똑같은 경우
+			end
+			if info.ColorClassName ~= 'None' then
+				colorCls = GetClass('Hair_Dye_List', info.ColorClassName);
+				basicPrice = basicPrice + colorCls.Price;
+			end
+			BeautyShopHairLog(pc, preHairName, curHairName, preDyeName, TryGetProp(colorCls, 'DyeName', 'None'), stampCnt, GetBeautyShopStampCount(pc), info.Price, basicPrice, beautyShopCls.PriceRatio, TryGetProp(colorCls, 'PriceRatio', 0), hairCouponName, dyeCouponName, info.HairDiscountValue, info.DyeDiscountValue);				
 		else
 			local itemCls = GetClass('Item', info.ClassName);
 			BeautyShopItemLog(pc, itemCls.ClassName, itemCls.ClassID, info.Price, basicPrice, beautyShopCls.PriceRatio);

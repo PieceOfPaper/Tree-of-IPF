@@ -152,9 +152,9 @@ function SCR_WUGUSHI_JINCANGU_DESTRUCT(self, sklPower, range, kdPower)
 	    local damage = GET_SKL_DAMAGE(owner, target, 'Wugushi_JincanGu');
 	    local skill = GET_MON_SKILL(owner, 'Wugushi_JincanGu');
 	    local bug_dmg_ratio = 2;
-	    
-	    damage = math.floor(damage + skill.SkillAtkAdd)
-        TakeDamage(owner, target, "Wugushi_JincanGu", damage, "Poison", "None", "TrueDamage", HIT_REFLECT, HITRESULT_BLOW)
+
+--	    damage = math.floor(damage + skill.SkillAtkAdd)
+        TakeDamage(owner, target, "Wugushi_JincanGu", damage, "Poison", "None", "Melee", HIT_REFLECT, HITRESULT_BLOW)
 	end
 
 	Dead(self);
@@ -181,7 +181,7 @@ function SCR_WUGUSHI_Crescendo_Bane(self, skl)
             end
         end
         local abil = GetAbility(self, 'Wugushi25')
-        if abil ~= nil and abil.ActiveState == 1 and target.Attribute == "Poison" then
+        if IS_PC(target) == false and abil ~= nil and abil.ActiveState == 1 and target.Attribute == "Poison" then
         local damage = GET_SKL_DAMAGE(self, target, skl.ClassName)
             TakeDamage(self, target, skl.ClassName, damage, "Poison", "None", "Melee", HIT_POISON, HITRESULT_BLOW, 0, 0)
         end

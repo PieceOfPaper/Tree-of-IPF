@@ -31,11 +31,11 @@ end
 -- EVENT_1805_WEEKEND_BUFF_REMOVE
 function EVENT_1805_WEEKEND_BUFF_REMOVE(self)
     if IsBuffApplied(self, 'EVENT_1805_WEEKEND_BUFF') == 'YES' then
-        if IS_BASIC_FIELD_DUNGEON(self) ~= 'YES' or IS_DAY_EVENT_1805_WEEKEND(self) ~= 'YES' then
+        if IS_DAY_EVENT_1805_WEEKEND(self) ~= 'YES' then
             RemoveBuff(self, 'EVENT_1805_WEEKEND_BUFF')
         end
     else
-        if IS_BASIC_FIELD_DUNGEON(self) == 'YES' and IS_DAY_EVENT_1805_WEEKEND(self) == 'YES' then
+        if IS_DAY_EVENT_1805_WEEKEND(self) == 'YES' then
             AddBuff(self, self, 'EVENT_1805_WEEKEND_BUFF')
         end
     end

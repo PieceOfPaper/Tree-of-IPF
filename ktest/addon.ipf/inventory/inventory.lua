@@ -2536,6 +2536,7 @@ function CHECK_EXEC_DELETE_ITEMDROP(count)
 end
 
 function EXEC_DELETE_ITEMDROP()
+	IMC_LOG("INFO_NORMAL", "EXEC_DELETE_ITEMDROP")
 	item.DropDelete(s_dropDeleteItemIESID, s_dropDeleteItemCount);
 	s_dropDeleteItemIESID = '';
 	s_dropDeleteItemCount = 0;

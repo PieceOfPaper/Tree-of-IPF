@@ -323,7 +323,7 @@ function SCR_PLAGUEDOCTOR_MASTER_NORMAL_3_PRE(pc)
     --EXORCIST_HIDDEN
     local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20', 114)
     if prop == 115 then
-        if GetInvItemCount(pc, "EXORCIST_MSTEP322_ITEM1") < 1 then
+        if GetInvItemCount(pc, "EXORCIST_MSTEP322_ITEM1") < 1 and GetInvItemCount(pc, "R_EXORCIST_MSTEP322_ITEM") < 1 then
             return 'YES'
         end
     end
@@ -1335,6 +1335,7 @@ end
 
 --JOB_PIED_PIPER
 function SCR_PIED_PIPER_MASTER_DIALOG(self,pc)
+    PlayMusicQueueLocal(pc, "master_Piedpiper")
     if IS_KOR_TEST_SERVER() then
         COMMON_QUEST_HANDLER(self,pc)
     else
@@ -7356,7 +7357,7 @@ function SCR_CHAR420_STEP322_NPC2_DIALOG(self, pc)
                 SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 114)
             end
         else
-            ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG6", 1)
+            ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_basic_DLG2", 1)
         end
     elseif SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 115 then
         if GetInvItemCount(pc, "EXORCIST_MSTEP322_ITEM1") >= 1 then
@@ -7552,7 +7553,7 @@ function SCR_EXORCIST_MASTER_STEP33_NPC1_DIALOG(self, pc)
                 sObj.Goal5 = 0
                 sObj.Goal6 = 0
             elseif sObj.Goal6 >= 3 then --exorcism fail
-                AddBuff(self, pc, "EXORCIST_MSTEP33_PENALTY_BUFF", 1, 0, 30000, 1)
+                AddBuff(self, pc, "EXORCIST_MSTEP33_PENALTY_BUFF", 1, 0, 60000, 1)
                 ShowBalloonText(pc, "EXORCIST_MSTEP33_TXT2", 5)
                 sObj.Goal5 = 0
                 sObj.Goal6 = 0
@@ -7566,7 +7567,7 @@ end
 
 function SCR_EXORCIST_MASTER_STEP33_NPC1_IN_ENTER(self, pc)
     local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20')
-    if hidden_prop >= 130 then
+    if hidden_prop >= 130 and hidden_prop < 140 then
         ShowBalloonText(pc, "CHAR420_MSTEP33_BALLOON_TEXT2", 5)
     end
 end
@@ -7931,6 +7932,23 @@ function SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, num)
                                 return
                             end
                         end
+                    end
+                end
+            end
+        end
+    end
+end
+
+function SCR_CHAR312_MSTEP2_ZONE_ENTER(self)
+    local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(self, 'Char3_12')
+    if is_unlock == "NO" then
+        local prop = SCR_GET_HIDDEN_JOB_PROP(self, 'Char3_12')
+        if prop == 100 then
+            local sObj = GetSessionObject(self, "SSN_JOB_PIED_PIPER_UNLOCK")
+            if sObj ~= nil then
+                if sObj.Step2 == 1 then
+                    if sObj.Goal2 < 1000 then
+                        SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR312_MSTEP2_MSG5"),7)
                     end
                 end
             end
