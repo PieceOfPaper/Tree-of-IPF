@@ -133,6 +133,11 @@
 	<SpcItem Name="Matador_Faena">
 		<TriggerList Act="Attack">
 			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Matador_Faena"/>
+					</ToolScp>
+				</CondList>
 				<ExecList>
 					<ToolScp Scp="SPCI_CRITICAL" Client="NO" UseSleep="NO"/>
 				</ExecList>

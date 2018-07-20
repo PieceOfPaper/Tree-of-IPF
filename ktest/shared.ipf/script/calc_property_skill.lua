@@ -9860,6 +9860,11 @@ end
 
 function SCR_Get_Muleta_Ratio(skill)
     local value = 914 + (skill.Level - 1) * 50.3
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "Matador1")
+    if abil ~= nil then
+        value = value * (1 + (abil.Level * 0.005))
+    end
     
     return math.floor(value)
 end
@@ -9869,7 +9874,7 @@ function SCR_Get_SkillFactor_DoubleGun(skill)
     local DoubleGunSkill = GetSkill(pc, "Bulletmarker_DoubleGunStance")
     local value = 0
     if DoubleGunSkill ~= nil then
-        value = DoubleGunSkill.SklFactor + (DoubleGunSkill.Level - 1) * DoubleGunSkill.SklFactorByLevel
+        value = DoubleGunSkill.SklFactor + DoubleGunSkill.Level * DoubleGunSkill.SklFactorByLevel
     end
     
     return math.floor(value)
@@ -9975,7 +9980,7 @@ function SCR_Get_SkillFactor_ShadowCondensation(skill)
     local pc = GetSkillOwner(skill);
     local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
     
-    local abil = GetAbility(pc, "Shadowmancer2")      -- Skill Damage add
+    local abil = GetAbility(pc, "Shadowmancer3")      -- Skill Damage add
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end

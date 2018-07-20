@@ -868,7 +868,7 @@ function CHANGEJOB_SHOW_RANKROLLBACK()
 	local frame = ui.GetFrame('changejob');    
     local lastJobBox = GET_CHILD_RECURSIVELY(frame, 'groupbox_sub_oldjob'..lastJobGrade);
     local rankRollBackBtn = GET_CHILD(lastJobBox, 'rankRollBackBtn');
-    rankRollBackBtn:ShowWindow(1);
+    rankRollBackBtn:ShowWindow(0);
 
 	if pc.LastRankRollbackIndex >= lastJobGrade then
 		rankRollBackBtn:SetColorTone('FF444444');
