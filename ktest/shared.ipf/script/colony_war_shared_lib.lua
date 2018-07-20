@@ -13,7 +13,9 @@ function GET_COLONY_WAR_DAY_OF_WEEK()
     local guild_colony_rule = GetClass('guild_colony_rule', 'GuildColony_Rule_Default');
     local dayOfWeek = TryGetProp(guild_colony_rule, 'ColonyStartDayOfWeek');    
     if dayOfWeek ~= nil then
-        dayOfWeek = dayOfWeek - 1
+        if dayOfWeek ~= -1 then
+            dayOfWeek = dayOfWeek - 1
+        end
     end
     return dayOfWeek;
 end
@@ -33,7 +35,14 @@ function IS_COLONY_SPOT(mapClassName)
         local colonyCls = GetClassByIndexFromList(colonyClsList, i);
         local mapClsName = TryGetProp(colonyCls, 'ZoneClassName');
         if mapClsName ~= nil and mapClsName == mapClassName then
-            return true;
+--            --스팀 콜로니전 일부 지역만 개최시, 그외 지역 이미지 표시 안뜨도록 처리
+--            if GetServerNation() ~= 'KOR' then
+--                if GetServerNation() == 'GLOBAL' then
+--                    if TryGetProp(colonyCls, "ID") ~= 0 then
+                        return true;
+--                    end
+--                end
+--            end
         end
     end
     return false;

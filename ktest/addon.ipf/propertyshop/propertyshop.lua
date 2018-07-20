@@ -50,7 +50,6 @@ end
 
 function OPEN_PROPERTY_SHOP(shopName)
 	local ret = worldPVP.RequestPVPInfo();
-
 	local frame = ui.GetFrame("propertyshop");
 	frame:ShowWindow(1);
 
@@ -76,7 +75,6 @@ function OPEN_PROPERTY_SHOP(shopName)
 	itemlist:RemoveAllChild();
 
 	local itemBoxFont = frame:GetUserConfig("ItemBoxFont");
-
 	local cnt = shopInfo:GetItemCount();
 	for i = 0 , cnt - 1 do
 		local itemInfo = shopInfo:GetItemByIndex(i);
@@ -133,17 +131,14 @@ function OPEN_PROPERTY_SHOP(shopName)
 		numUpDown:SetNumChangeScp("PROPERTYSHOP_CHANGE_COUNT");
 
 	end
-
 	itemlist:RealignItems();
 	PROPERTYSHOP_CHANGE_COUNT(frame);
-	
 	local t_mymoney = bg:GetChild("t_mymoney");
 	t_mymoney:SetTextByKey("value", GET_PROPERTY_SHOP_MY_POINT(frame));
 
 end
 
 function PROPERTY_SHOP_BUY(parent, ctrl)
-
 	local frame = parent:GetTopParentFrame();
 	local shopName = frame:GetUserValue("SHOPNAME");
 	local shopInfo = gePropertyShop.Get(shopName);
@@ -172,7 +167,6 @@ function PROPERTY_SHOP_BUY(parent, ctrl)
 	end
 
 	propertyShop.ReqBuyPropertyShopItem(shopName);
-
 	-- 연타 방지용 시간 제한 걸기
 --	ReserveScript("REFRESH_PROPERTY_SHOP_BUY_BTN_SET_ENABLE()", 1);
 	-- ctrl:SetEnable(0)
@@ -217,16 +211,22 @@ function PROPERTYSHOP_CHANGE_COUNT(parent)
 end
 
 function GET_PROPERTY_SHOP_MY_POINT(frame)
+
 	local shopName = frame:GetUserValue("SHOPNAME");
 	local shopInfo = gePropertyShop.Get(shopName);
     if shopInfo == nil then
         return 0;
     end
+
 	local clientScp = _G[shopInfo:GetPointScript() .. "_C"];
 	return clientScp();
 end
 
 function ON_PVP_POINT_UPDATE(frame, msg, argStr, argNum)	
+	if frame == nil then
+		frame = ui.GetFrame(argStr)
+	end
+
 	local t_mymoney = GET_CHILD_RECURSIVELY(frame, "t_mymoney");
 	t_mymoney:SetTextByKey("value", GET_PROPERTY_SHOP_MY_POINT(frame));
 end

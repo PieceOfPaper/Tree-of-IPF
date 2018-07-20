@@ -3653,3 +3653,9 @@ function SCR_USE_GACHA_E_026(pc)
     TxGiveItem(tx, 'misc_BlessedStone', 2, 'Gacha_E_026');
     local ret = TxCommit(tx);
 end
+
+function ACHIEVE_Event_Steam_Colony_Tester(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_Steam_Colony_Tester', 1)
+    local ret = TxCommit(tx);
+end

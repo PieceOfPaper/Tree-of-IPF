@@ -259,9 +259,6 @@ function SCR_GUILD_TOWER_DIALOG(tower, pc)
 
 	if sameGuild ~= true then
 		if pcGuildID ~= "0" then
-			local pcGuildObj = GetPartyObjByIESID(PARTY_GUILD, pcGuildID);
-			local isLeader = IsPartyLeaderPc(pcGuildObj, pc);
-			if isLeader == 1 then
 				if isEnemyParty == 0 then
 					menuList[#menuList + 1] = "DeclareWar";
 				else
@@ -269,7 +266,6 @@ function SCR_GUILD_TOWER_DIALOG(tower, pc)
 				end
 			end
 		end
-	end
 
 	menuList[#menuList + 1] = "Close";
 

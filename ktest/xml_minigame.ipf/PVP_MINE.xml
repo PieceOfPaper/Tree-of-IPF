@@ -15,8 +15,8 @@
                     <Obj Type="Monster" MonType="2000107" Pos="1006.92#0.10#-854.91" range="200" genCount="1" maxStackCount="5" genTime="20000" objectKey="14"/>
                     <Obj Type="Monster" MonType="2000107" Pos="-452.79#0.10#468.54" range="200" genCount="1" maxStackCount="5" genTime="20000" objectKey="15"/>
                     <Obj Type="Monster" MonType="2000108" Pos="60.70#5.00#30.73" range="240" genCount="1" maxStackCount="2" genTime="20000" objectKey="5"/>
-                    <Obj Type="Monster" MonType="2000109" Pos="-928.29#0.10#-936.36" genCount="1" maxStackCount="1" genTime="30000" objectKey="6"/>
-                    <Obj Type="Monster" MonType="2000110" Pos="1053.87#0.10#1025.78" genCount="1" maxStackCount="1" genTime="30000" objectKey="9"/>
+                    <Obj Type="Monster" MonType="20040" Pos="-928.68#0.10#-962.28" range="1" genCount="1" maxStackCount="1" genTime="20000" objectKey="10" propList="&apos;Tactics&apos; &apos;PVP_MINE_EXCHANGE_A&apos; "/>
+                    <Obj Type="Monster" MonType="20040" Pos="1060.60#0.10#1012.80" range="1" genCount="1" maxStackCount="1" genTime="20000" objectKey="6" propList="&apos;Tactics&apos; &apos;PVP_MINE_EXCHANGE_B&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="MonGen_0">
@@ -270,52 +270,6 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="team_A">
-                        <condList>
-                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
-                                <Str Str="TEAM_A_DEAD"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/6"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="DefGroup/6"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="team_B">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="TEAM_B_DEAD"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/9"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="DefGroup/9"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
                     <Event execCount="1" eventName="msg_boss">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
@@ -370,6 +324,9 @@
                 <StageEvents>
                     <Event execCount="1" eventName="StageEnd">
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_PVP_MINE_SOUND_BOSS"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Boss"/>
                             </ToolScp>
@@ -416,6 +373,15 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event eventName="Timer_End">
+                        <execList>
+                            <ToolScp Scp="MGAME_SET_TIMER" Client="NO" UseSleep="NO">
+                                <Str Str="ToEndBattle_Mine"/>
+                                <Num Num="60"/>
+                                <Str Str="None"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="Ready">
@@ -446,6 +412,9 @@
                             <ToolScp Scp="MGAME_COUNTDOWN" Client="NO" UseSleep="YES">
                                 <Num Num="10"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_PVP_MINE_SOUND_10S"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Start">
@@ -455,6 +424,9 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_PVP_MINE_SOUND_START"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
                                 <Str Str="Ready"/>
                             </ToolScp>
@@ -496,8 +468,22 @@
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="Timer_Ready">
+                        <execList>
+                            <ToolScp Scp="MGAME_SET_TIMER" Client="NO" UseSleep="NO">
+                                <Str Str="ToEndBattle_Mine"/>
+                                <Num Num="60"/>
+                                <Str Str="None"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
         </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_C_CLIENT_SCRIPT" Client="YES" UseSleep="NO">
+                <Str Str="SET_TARGETINFO_TO_MINE_POS"/>
+            </ToolScp>
+        </EnterList>
     </Game>
 </GameList>

@@ -29,9 +29,12 @@ function MARKET_SELL_OPEN(frame)
 	table.sort(timeVec);
 	for i = 1, #timeVec do
 		local time = timeVec[i];
-		local listType = ScpArgMsg("MarketTime{Time}{FREE}","Time", time, "FREE", timeTable[time]);
+		local free = timeTable[time];
+		local listType = ScpArgMsg("MarketTime{Time}{FREE}","Time", time, "FREE", free);
 		droplist:AddItem(time, "{s16}{b}{ol}"..listType);
 		defaultTime = time; -- 7일을 기본으로 해달래여
+		frame:SetUserValue('TIME_'..tostring(i - 1), time);
+		frame:SetUserValue('FREE_'..tostring(i - 1), free);
 	end
 
 	droplist:SelectItem(cnt - 1);
@@ -91,13 +94,13 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		local itemCount = ctrlSet:GetChild("count");
 		itemCount:SetTextByKey("value", marketItem.count);
 
-		local priceStr = string.format("{img icon_item_silver %d %d}%d", 20, 20, marketItem.sellPrice * marketItem.count) 
+		local priceStr = string.format("{img icon_item_silver %d %d}%s", 20, 20, GetMonetaryString(marketItem.sellPrice * marketItem.count));
 		local totalPrice = ctrlSet:GetChild("totalPrice");
 		totalPrice:SetTextByKey("value", priceStr);
 
 		local cashValue = GetCashValue(marketItem.premuimState, "marketSellCom") * 0.01;
 		local stralue = GetCashValue(marketItem.premuimState, "marketSellCom");
-		priceStr = string.format("{img icon_item_silver %d %d}%d[%d%%]", 20, 20, marketItem.sellPrice * marketItem.count * cashValue, stralue) 
+		priceStr = string.format("{img icon_item_silver %d %d}%s[%d%%]", 20, 20, GetMonetaryString( math.floor(marketItem.sellPrice * marketItem.count * cashValue)), stralue);
 		local silverFee = ctrlSet:GetChild("silverFee");
 		silverFee:SetTextByKey("value", priceStr);
 
@@ -302,10 +305,10 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 		local maxAllow = tokenList[4];
 		local avg = tokenList[5];
 
-		upValue:SetTextByKey("value", maxAllow);
-		downValue:SetTextByKey("value", minAllow);
-		min:SetTextByKey("value", minStr);
-		max:SetTextByKey("value", maxStr);
+		upValue:SetTextByKey("value", GET_COMMAED_STRING(maxAllow));        
+		downValue:SetTextByKey("value", GET_COMMAED_STRING(minAllow));
+		min:SetTextByKey("value", GET_COMMAED_STRING(minStr));
+		max:SetTextByKey("value", GET_COMMAED_STRING(maxStr));
 		edit_price:SetText(GET_COMMAED_STRING(avg));
 		if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
 			if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
@@ -387,8 +390,8 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 
 	local droplist = GET_CHILD(groupbox, "sellTimeList", "ui::CDropList");	
 	local selecIndex = droplist:GetSelItemIndex();
-
-	local needTime, free = GetMarketTimeAndTP(selecIndex);
+	local needTime = frame:GetUserIValue('TIME_'..selecIndex);
+	local free = tonumber(frame:GetUserValue('FREE_'..selecIndex));
 	local commission = (price * count * free * 0.01);
 	local vis = session.GetInvItemByName("Vis");
 	if vis == nil or 0 > vis.count - commission then
@@ -400,7 +403,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 
 	local down = silverRate:GetChild("downValue");
 	local downValue = down:GetTextByKey("value");
-	local idownValue = tonumber(downValue);
+	local idownValue = GET_NOT_COMMAED_NUMBER(downValue);
 	local iPrice = tonumber(price);
 	if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
 		if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
@@ -474,10 +477,10 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 			-- 장비그룹만 buffValue가 있다.
 			ui.MsgBox(ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
 		else
-			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GET_COMMAED_STRING(commission)), yesScp, "None");			
+			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GetMonetaryString(commission)), yesScp, "None");			
 		end
 	else
-		ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GET_COMMAED_STRING(commission)), yesScp, "None");
+		ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GetMonetaryString(commission)), yesScp, "None");
 	end
 
 end

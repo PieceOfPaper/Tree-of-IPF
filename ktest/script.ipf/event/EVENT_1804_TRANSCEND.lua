@@ -18,6 +18,16 @@ function SCR_EVENT_1804_TRANSCEND_SHOP_DIALOG(self, pc)
     end
 end
 
+function SCR_PRE_EVENT_1804_TRANSCEND_SHOP_SILVER_BOX_14D(self, argStr, arg1, arg2)
+    local count = GetInvItemCount(self, 'Vis')
+    
+    if count >= 900000000 then
+        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1804_TRANSCEND_MSG3"), 10);
+        return 0
+    end
+    
+    return 1
+end
 
 function SCR_USE_EVENT_1804_TRANSCEND_SHOP_SILVER_BOX_14D(self, argObj, argStr, arg1, arg2)
     PlayEffect(self, 'F_sys_expcard_normal', 2.5, 1, "BOT", 1);

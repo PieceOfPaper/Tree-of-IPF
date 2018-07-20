@@ -116,21 +116,23 @@ function OPEN_WORLDPVP(frame)
 	local join = charinfo:GetChild("join");
 	join:SetEnable(0);
 	
-	local cnt = session.worldPVP.GetPlayTypeCount();
-	if cnt > 0 then
-		local isGuildBattle = 0;
-		for i = 1, cnt do
-			local type = session.worldPVP.GetPlayTypeByIndex(i);
-			if type == 210 then
-				isGuildBattle = 1;
-				break;
+    if session.colonywar.GetIsColonyWarMap() == false then
+		local cnt = session.worldPVP.GetPlayTypeCount();
+		if cnt > 0 then
+			local isGuildBattle = 0;
+			for i = 1, cnt do
+				local type = session.worldPVP.GetPlayTypeByIndex(i);
+				if type == 210 then
+					isGuildBattle = 1;
+					break;
+				end
+			end
+
+			if isGuildBattle == 0 then
+				join:SetEnable(1);
 			end
 		end
-
-		if isGuildBattle == 0 then
-			join:SetEnable(1);
-		end
-	end
+    end
 
 	UPDATE_WORLDPVP(frame);
 	ON_PVP_STATE_CHANGE(frame);

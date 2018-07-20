@@ -166,6 +166,7 @@ function ON_COMMENT_GET(code, ret_json)
         local replyArea = GET_CHILD_RECURSIVELY(selectedCard, "replyArea", "ui::CGroupBox");
         local editReply = GET_CHILD_RECURSIVELY(selectedCard, "editReply", "ui::CEdit");
         local bottomBox = GET_CHILD_RECURSIVELY(selectedCard, "bottomBox", "ui::CGroupBox");
+        local bg = GET_CHILD_RECURSIVELY(selectedCard, "mainBg")
         local replyTxt = ""
         local replySetHeight=0;
         for i=1, #list do
@@ -203,7 +204,7 @@ function ON_COMMENT_GET(code, ret_json)
             local replyCount = GET_CHILD_RECURSIVELY(selectedCard, "replyCount", "ui::CRichText");
             replyCount:SetText(#list)
         end
-
+        bg:Resize(selectedCard:GetWidth(), selectedCard:GetHeight())
         GBOX_AUTO_ALIGN(replyList, 0, 0, 0, true, false);
         local frame = ui.GetFrame("guildinfo");
         local communityPanel = GET_CHILD_RECURSIVELY(frame, "communitypanel", "ui::CGroupBox");
@@ -237,13 +238,12 @@ function OPEN_COMMUNITY_CARD(parent, control)
     local editReply =  GET_CHILD_RECURSIVELY(controlset, "editReply");
     local sendReply = GET_CHILD_RECURSIVELY(controlset, "sendReply");
     local mainText = GET_CHILD_RECURSIVELY(controlset, "mainText", "ui::CRichText");
-    
-    if height == 220 then  -- closed. opening
-
-        local additionalTextHeight = mainText:GetHeight() - 300
+    local bg = GET_CHILD_RECURSIVELY(controlset, "mainBg")
+    if height == 140 then  -- closed. opening
+        local additionalTextHeight = mainText:GetHeight() - 100
         if additionalTextHeight > 0 then
             main_box:Resize(main_box:GetWidth(), mainText:GetHeight())
-            controlset:Resize(controlset:GetWidth(), 600 + additionalTextHeight)
+            controlset:Resize(controlset:GetWidth(), 450 + additionalTextHeight)
         else
             main_box:Resize(main_box:GetWidth(), 100)
             controlset:Resize(controlset:GetWidth(), 400)
@@ -258,11 +258,11 @@ function OPEN_COMMUNITY_CARD(parent, control)
         local boardIdx = sendReply:GetUserValue("boardIdx");
 
         GetComment("ON_COMMENT_GET", boardIdx);
-    
+        bg:Resize(controlset:GetWidth(), controlset:GetHeight())
     else --opened. closing
-        controlset:Resize(controlset:GetWidth(), 220)
-        main_box:Resize(main_box:GetWidth(), 100)
-        main_box:Invalidate()
+        controlset:Resize(controlset:GetWidth(), 140)
+        main_box:Resize(main_box:GetWidth(), 20)
+        bg:Resize(controlset:GetWidth(), 140)
         bottomBox:Resize(bottomBox:GetWidth(), 50)
         replyArea:SetVisible(0)
         

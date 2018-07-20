@@ -1236,7 +1236,12 @@ function IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
 	return tonumber(value)
 end
 
-function IS_DISABLED_TRADE(invitem)
+TRADE_TYPE_MARKET = 0;
+TRADE_TYPE_SHOP = 1;
+TRADE_TYPE_USER = 2;
+TRADE_TYPE_TEAM = 3;
+
+function IS_DISABLED_TRADE(invitem, type)
 	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
 	local blongProp = TryGetProp(invitem, "BelongingCount");
 	local blongCnt = 0;
@@ -1244,9 +1249,26 @@ function IS_DISABLED_TRADE(invitem)
 		blongCnt = tonumber(blongProp);
 	end
 
-    if invitem.MaxStack <= 1 and (GetTradeLockByProperty(invitem) ~= "None" or 0 <  blongCnt) then
-        return true;
-    end
+	local prProp = TryGetProp(invitem, "PR");
+	local prCount = 0;
+	if prProp ~= nil then
+		prCount = tonumber(prProp);
+	end
+
+	if type == TRADE_TYPE_USER then
+		if invitem.MaxStack <= 1 and (GetTradeLockByProperty(invitem) ~= "None" or 0 <  blongCnt) then
+			return true;
+		end
+	elseif type == TRADE_TYPE_MARKET then
+		if invitem.MaxStack <= 1 and (prCount <= 0 or 0 < blongCnt) then
+			return true;
+		end
+	else
+		if invitem.MaxStack <= 1 and (0 <  blongCnt) then
+			return true;
+		end
+	end
+
     return false;
 end
 
@@ -1258,12 +1280,13 @@ function IS_ENABLED_SHOP_TRADE_ITEM(invitem)
         return true;
     end
 end
+
 function IS_ENABLED_USER_TRADE_ITEM(invitem)
 	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
 
 	if false == itemProp:IsEnableUserTrade()then
         return false;
-	elseif true == IS_DISABLED_TRADE(invitem) then
+	elseif true == IS_DISABLED_TRADE(invitem, TRADE_TYPE_USER) then
         return false;
     else
         return true;
@@ -1275,7 +1298,7 @@ function IS_ENABLED_MARKET_TRADE_ITEM(invitem)
 
     if false == itemProp:IsEnableMarketTrade() then
         return false;
-    elseif true == IS_DISABLED_TRADE(invitem) then
+    elseif true == IS_DISABLED_TRADE(invitem, TRADE_TYPE_MARKET) then
         return false;
     else
         return true;
@@ -1287,7 +1310,7 @@ function IS_ENABLED_TEAM_TRADE_ITEM(invitem)
 
     if false == itemProp:IsEnableTeamTrade() then
         return false;
-    elseif true == IS_DISABLED_TRADE(invitem) then
+    elseif true == IS_DISABLED_TRADE(invitem, TRADE_TYPE_TEAM) then
         return false;
     else
         return true;

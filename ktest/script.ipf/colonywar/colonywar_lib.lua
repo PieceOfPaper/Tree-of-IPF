@@ -19,9 +19,11 @@ end
 
 function SCR_COLONY_START_ALARM(timeEventCls, diffSec)
     local colonyDayOfWeek = GET_COLONY_WAR_DAY_OF_WEEK();
-    local curTime = GetDBTime();    
-    if curTime.wDayOfWeek ~= colonyDayOfWeek then    
-        return;
+    local curTime = GetDBTime();
+    if colonyDayOfWeek ~= -1 then --매일 오픈이 아니라면,
+        if curTime.wDayOfWeek ~= colonyDayOfWeek then
+            return;
+        end
     end
 
     local checkScp = 'IS_ENTRY_GUILD';
@@ -39,8 +41,10 @@ end
 function SCR_COLONY_END_ALARM(timeEventCls, diffSec)
     local colonyDayOfWeek = GET_COLONY_WAR_DAY_OF_WEEK();
     local curTime = GetDBTime();
-    if curTime.wDayOfWeek ~= colonyDayOfWeek then
-        return;
+    if colonyDayOfWeek ~= -1 then --매일 오픈이 아니라면,
+        if curTime.wDayOfWeek ~= colonyDayOfWeek then
+            return;
+        end
     end
 
     local checkScp = 'IS_ENABLE_ENTER_COLONY_WAR_MAP';
@@ -54,27 +58,9 @@ function SCR_COLONY_END_ALARM(timeEventCls, diffSec)
     end
 end
 
-function callback_change_colony_config(pc, code, ret_json ,argList)
-    if code ~= 200 then        
-        SendSysMsg(pc, 'WebService_1') -- 권한 없음
-        return
-    end
-
-    if ret_json == 'True' then
-        if pc ~= nil then            
-            EXEC_CHANGE_COLONY_CONFIG(pc, tonumber(argList[1]));  			
-        end
-    else
-        SendSysMsg(pc, 'WebService_1') -- 권한 없음
-    end
-end
-
 function SCR_CHANGE_COLONY_CONFIG(pc, changeValue)
     if IsRunningScript(pc, 'EXEC_CHANGE_COLONY_CONFIG') ~= 1 then
-        local argList = {}
-        argList[1] = tostring(changeValue)
-        CheckClaim(pc, 'callback_change_colony_config', 304, argList)  -- code:304 (콜로니전 참가 설정)
-        --EXEC_CHANGE_COLONY_CONFIG(pc, changeValue);
+        EXEC_CHANGE_COLONY_CONFIG(pc, changeValue);
     end
 end
 
@@ -108,7 +94,7 @@ function EXEC_CHANGE_COLONY_CONFIG(pc, changeValue)
     ChangePartyProp(pc, PARTY_GUILD, "EnableEnterColonyWar", changeValue);
 	
 	--변경되는 시점을 정확히 알기 힘들기 때문에 여기서 로깅
-	EnterColonyWarMongoLog(pc, guild, beforeValue, changeValue);
+	EnableEnterColonyWarMongoLog(pc, guild, beforeValue, changeValue);
 
 end
 

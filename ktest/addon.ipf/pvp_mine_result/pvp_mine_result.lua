@@ -4,7 +4,7 @@ function SCR_PVP_MINE_END_UI_OPEN(pc)
     local zoneObj = GetLayerObject(pc);
     local TEAM_A_COUNT = GetMGameValue(pc, "TEAM_A_COUNT")
     local TEAM_B_COUNT = GetMGameValue(pc, "TEAM_B_COUNT")
-    
+
     if TEAM_A_COUNT > TEAM_B_COUNT then
         if IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' then
             ExecClientScp(pc, 'PVP_MINE_RESULT_OPEN(1)') -- win
@@ -37,6 +37,18 @@ function PVP_MINE_RESULT_INIT(frame, isWin)
     local loseBox = GET_CHILD_RECURSIVELY(frame, 'loseBox');
     local drawBox = GET_CHILD_RECURSIVELY(frame, 'drawBox');
 
+    local aObj = GetMyAccountObj();
+    local getpoint = aObj.PVP_MINE_MAX;
+
+    if isWin == 1 then
+        getpoint = getpoint + 500
+    else
+        getpoint = getpoint + 100
+    end
+
+    local GetPoint_Desc = GET_CHILD_RECURSIVELY(frame, 'GetPoint_Desc');
+    GetPoint_Desc:SetTextByKey("point", getpoint);
+print(getpoint)
     if isWin == 1 then
         winBox:ShowWindow(1);
         loseBox:ShowWindow(0);
@@ -59,9 +71,5 @@ function PVP_MINE_RESULT_INIT(frame, isWin)
             imcSound.PlayMusicQueueLocal('colonywar_lose_k')
         end
         loseBox:PlayUIEffect(LOSE_EFFECT_NAME, EFFECT_SCALE, 'COLONY_LOSE');
-    -- elseif isWin == 3 then
-    --     winBox:ShowWindow(0);
-    --     loseBox:ShowWindow(0);
-    --     drawBox:ShowWindow(1);
     end
 end

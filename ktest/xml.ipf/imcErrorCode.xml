@@ -536,15 +536,16 @@
 <Code Code="DEADLOCK_FIND_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="DB_DEAD_LOCK" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 데드락 찾기 위한 로그"/>
 	<Code Code="ERROR_SMTP" Team="PROGRAM" Category="LOGIC" Logger="root" Enabled="YES" CallStack="NO" Desc="SMTP 관련 에러"/>
 	<Code Code="ERROR_VERTEX_NAN_VALUE" Team="ART" Category="DATA" SubCategory="MODEL" Logger="root" Enabled="YES" CallStack="NO" Desc="모델의 정점중에 NAN 값이 발견됨."/>
-		<Code Code="ALERT_REPORT_MESSAGE" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 메세지를 알럿으로 처리."/>
-  <Code Code="FATAL_REDIS_INSERT_FAIL" Team="PROGRAM" Category="REDIS" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Redis Insert 작업이 실패하였습니다."/>
+	<Code Code="ALERT_REPORT_MESSAGE" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 메세지를 알럿으로 처리."/>
+	<Code Code="FATAL_REDIS_INSERT_FAIL" Team="PROGRAM" Category="REDIS" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Redis Insert 작업이 실패하였습니다."/>
   <Code Code="FATAL_REDIS_PENDING_QUEUE_FULL" Team="PROGRAM" Category="REDIS" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Redis Pending Queue가 가득 찼습니다."/>
-		<Code Code="ERROR_RANDOM_OPTION" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랜덤 옵션 관련 에러"/>
-  <Code Code="FATAL_GET_WEBSERVICE_URL" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Web Server URL 획득에 실패하였습니다. server_info 확인 필요."/>
+	<Code Code="ERROR_RANDOM_OPTION" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랜덤 옵션 관련 에러"/>
+	<Code Code="FATAL_GET_WEBSERVICE_URL" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Web Server URL 획득에 실패하였습니다. server_info 확인 필요."/>
 	<Code Code="ERROR_QUICKSLOT" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="퀵슬롯 관련 에러"/>
-
-<Code Code="ERROR_CREATE_ACTORINSTANCE" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="엑터 인스턴스를 생성하지 못했습니다."/>
+	<Code Code="ERROR_CREATE_ACTORINSTANCE" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="엑터 인스턴스를 생성하지 못했습니다."/>
 <Code Code="ERROR_WEBSERVICE" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="CURL 요청 실패."/>
+	<Code Code="ERROR_WEBSERVICE_SCRIPT" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="웹서버 요청 실패."/>
   <Code Code="ERROR_WEBSERVICE_SCRIPT" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="웹서버 요청 실패."/>
-  <Code Code="ERROR_WEBSERVICE_SCRIPT" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="웹서버 요청 실패."/>
+
+<Code Code="FATAL_SQL_NULL_DATA" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="null 데이타가 Bind되었습니다. 해당 select 루프에서 초기화가 필수입니다. 또는 DB의 null 데이타를 없애주세요."/>
 </imcErrorCode>

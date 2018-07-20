@@ -96,6 +96,12 @@ function GUILDINFO_WAR_INIT_LIST(warBox)
     local warListBox = GET_CHILD_RECURSIVELY(warBox, 'warListBox');    
     DESTROY_CHILD_BYNAME(warListBox, 'WAR_GUILD_');
 
+    if HAS_GUILD_WAR_LIST_CLIAM() == false and AM_I_LEADER(PARTY_GUILD) ~= 1 then
+        return
+    end
+
+
+
     local cnt = guild.info:GetEnemyPartyCount();
 	for i = 0 , cnt - 1 do
 		local enemyInfo = guild.info:GetEnemyPartyByIndex(i);

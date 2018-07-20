@@ -10942,6 +10942,183 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-616.27667" Y="-98.535416" Z="1111.3218"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-477.55215" Y="-98.535416" Z="720.90881"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-451.08707" Y="-98.535416" Z="1122.9241"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-350.21338" Y="-98.535416" Z="741.12659"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-255.87529" Y="-98.535416" Z="1092.8116"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-204.64552" Y="-98.535416" Z="800.20209"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-270.03513" Y="-98.535416" Z="1044.2397"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-356.51608" Y="-98.535416" Z="749.82526"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-569.74567" Y="-98.535416" Z="1135.7905"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-524.47839" Y="-98.535416" Z="727.99524"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-657.4762" Y="-98.535416" Z="1096.2913"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-667.07935" Y="-98.535416" Z="701.97821"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL2" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-4.2571068" Y="-68.644081" Z="1139.4963"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="127.96015" Y="-68.644081" Z="835.61084"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="181.97496" Y="-68.644081" Z="1163.1843"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="238.82935" Y="-68.644081" Z="851.38312"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="298.27673" Y="-68.644081" Z="1199.1731"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="374.71814" Y="-68.644081" Z="886.06995"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="443.39279" Y="-68.644089" Z="1160.5576"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="476.00183" Y="-68.613159" Z="911.43408"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="573.69086" Y="-68.644081" Z="1174.0162"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="640.41278" Y="-68.644081" Z="968.15588"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="552.62915" Y="-68.644081" Z="1137.8289"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="535.99463" Y="-68.644081" Z="939.4007"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="374.93777" Y="-68.644081" Z="1180.6423"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="378.56857" Y="-68.644081" Z="896.46222"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="246.67751" Y="-68.644081" Z="1186.7754"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="253.92288" Y="-68.644081" Z="861.61804"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="104.53617" Y="-68.644081" Z="1154.4629"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="73.183662" Y="-68.560638" Z="836.10638"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL3" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-238.75856" Y="-98.535416" Z="1065.3196"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-743.57141" Y="-98.535416" Z="983.76697"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL4" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-746.34277" Y="-98.535416" Z="931.88403"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-188.58548" Y="-98.535416" Z="948.24237"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL5" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-177.05698" Y="-97.910629" Z="868.14893"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-695.14807" Y="-98.535416" Z="799.36603"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL6" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="56.905598" Y="-68.616371" Z="879.88873"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="628.08337" Y="-68.644081" Z="930.29199"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL7" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="602.50909" Y="-68.644089" Z="1023.9434"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="41.370472" Y="-68.644081" Z="984.37805"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL8" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="21.889408" Y="-68.644081" Z="1106.8254"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="590.38684" Y="-68.644089" Z="1083.1141"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
+    <AI Name="MISSION_SURVIVAL_EVENT2_CRYSTAL9" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="564.33069" Y="-68.644081" Z="1188.3778"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="47.081299" Y="-68.644089" Z="1145.6895"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+    </AI>
     <AI Name="MISSION_UPHILL_DEFFENSE_L1" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
@@ -19179,6 +19356,13 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</List>
 	</AI>
+    <AI Name="companion_Pet_mrdodo" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+                <Str Str="PET_LOOP_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
 	<AI Name="companion_Piggy" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
@@ -19248,13 +19432,6 @@ if self.HP == 0 then return 1; else return 0; end;">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
 				<Str Str="PET_HOUNDING"/>
-			</ToolScp>
-		</List>
-	</AI>
-	<AI Name="companion_mrdodo" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
-				<Str Str="PET_LOOP_AI"/>
 			</ToolScp>
 		</List>
 	</AI>

@@ -186,10 +186,6 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 	local contextMenuCtrlName = string.format("{@st41}%s{/}", name);
 	local context = ui.CreateContextMenu("PC_CONTEXT_MENU", name, 0, 0, 170, 100);
 	
-	if isLeader == 1 and aid ~= myAid then
-		ui.AddContextMenuItem(context, ScpArgMsg("ChangeDuty"), string.format("GUILD_CHANGE_DUTY('%s')", name));
-	end
-
 
     if isLeader == 1 or HAS_KICK_CLAIM() then
         ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", aid));        
@@ -397,29 +393,6 @@ end
 function OUT_GUILD_BY_WEB()
     ui.Chat("/outguildbyweb");
     ui.CloseFrame('guildinfo');
-end
-
-function GUILD_CHANGE_DUTY(name)
-	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);
-	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	local grade = memberInfo.grade;
-	local dutyName = pcparty:GetDutyName(grade);
-
-	local inputFrame = INPUT_STRING_BOX("", "EXEC_GUILD_CHANGE_DUTY", dutyName, nil, 64);
-	inputFrame:SetUserValue("InputType", "InputNameForChange");
-	inputFrame:SetUserValue("NAME", name);	
-end
-
-function EXEC_GUILD_CHANGE_DUTY(frame, ctrl)
-	if ctrl:GetName() == "inputstr" then
-		frame = ctrl;
-	end
-
-	local duty = GET_INPUT_STRING_TXT(frame);
-	local name = frame:GetUserValue("NAME");
-	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);		
-	party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID());
-	frame:ShowWindow(0);
 end
 
 function GUILD_BAN(name)

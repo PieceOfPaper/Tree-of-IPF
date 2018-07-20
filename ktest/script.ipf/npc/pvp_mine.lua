@@ -4,7 +4,18 @@ function SCR_PVP_MINE_TEAM_NPC_DIALOG(self, pc)
 
     if result == false then
         ShowOkDlg(pc, 'PVP_MINE_DLG1', 1)
-        ExecClientScp(pc, "MINE_OPEN_POINT_SHOP()");
+        --ExecClientScp(pc, "MINE_OPEN_POINT_SHOP()");
+        local now_time = os.date('*t')
+        local yday = now_time['yday']
+        local aObj = GetAccountObj(pc)
+
+        if aObj.PVP_MINE_TradeCount_Reset ~= yday then -- reset
+            local tx = TxBegin(pc)
+            TxSetIESProp(tx, aObj, 'PVP_MINE_TradeCount_Reset', yday);
+            TxSetIESProp(tx, aObj, 'PVP_MINE_TradeCount1', 1);
+            local ret = TxCommit(tx)
+        end
+        ExecClientScp(pc, "REQ_PVP_MINE_SHOP_OPEN()")
         return
     end
 
@@ -116,7 +127,6 @@ function SCR_PVP_MINE_GETBUFF(pc)
         return;
     end
 
-   
     local cmd = GetMGameCmd(pc)
     local list, cnt = GetCmdPCList(cmd:GetThisPointer());
     local teamA, teamB = 0, 0;
@@ -127,7 +137,23 @@ function SCR_PVP_MINE_GETBUFF(pc)
         { 1485.3, 149.2,  1461.3} -- team B
     }
 
-    ExecClientScp(pc, "MINEPVP_TIMER_START(" .. cmd:GetUserValue('ToEndBattle_START') .. ")")
+    if cmd:GetUserValue('ToEndBattle_START_Mine') ~= nil and cmd:GetUserValue('ToEndBattle_START_Mine') ~= 0 then
+        ExecClientScp(pc, "MINEPVP_TIMER_START(" .. cmd:GetUserValue('ToEndBattle_START_Mine') .. ")")
+    end
+
+    if IsBuffApplied(pc, "PVP_MINE_BUFF1") == 'YES' then
+        RemoveBuff(pc, 'PVP_MINE_BUFF1')
+    elseif IsBuffApplied(pc, "PVP_MINE_BUFF2") == 'YES' then
+        RemoveBuff(pc, 'PVP_MINE_BUFF2')
+    end
+
+    local currentStage = GetMGameValue(pc, 'currentStage')
+
+    if currentStage == 1 then
+        if imcTime.GetAppTime() - cmd:GetUserValue('ToEndBattle_START_Mine') >= 600 then
+            return;
+        end
+    end
 
     for i = 2, cnt do
         if IsBuffApplied(list[i], 'PVP_MINE_BUFF1') == 'YES' then
@@ -221,6 +247,7 @@ end
 
 -- mgame start
 function SCR_PVP_MINE_CREATEOBJECT_TS_BORN_ENTER(self)
+    self.NumArg1 = 0;
 end
 
 function SCR_PVP_MINE_CREATEOBJECT_TS_BORN_UPDATE(self)
@@ -258,7 +285,7 @@ function SCR_PVP_MINE_CREATEOBJECT_TS_BORN_UPDATE(self)
         }
 
         for i = 1, #dunTime do -- mgame start
-            if dunTime[i] == hour and (min >= 0 and min <= 20 ) then
+            if dunTime[i] == hour and (min >= 0 and min <= 10 ) then
                 RunMGame(self, 'PVP_MINE')
                 break;
             end
@@ -289,6 +316,7 @@ function SCR_PVP_MINE_TIMEOUT(cmd, curStage, eventInst, obj)
     local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 
     for i = 1, cnt do
+        print(list[i].Name, cnt)
         RunScript('SCR_PVP_MINE_TIMEOUT_RUN', list[i])
     end
 end
@@ -332,22 +360,22 @@ function SCR_PVP_MINE_REWARD_RUN(pc)
 
     if TEAM_A_COUNT > TEAM_B_COUNT then
         if IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' then
-            TxAddIESProp(tx, aObj, "PVP_MINE_POINT", reward_win, "PVP_MINE_POINT");
+            TxGiveItem(tx, 'misc_pvp_mine2', reward_win, "PVP_MINE_POINT");
             result = 'Win'
         else
-            TxAddIESProp(tx, aObj, "PVP_MINE_POINT", reward_lose, "PVP_MINE_POINT");
+            TxGiveItem(tx, 'misc_pvp_mine2', reward_lose, "PVP_MINE_POINT");
             result = 'Lose'
         end
     elseif TEAM_A_COUNT < TEAM_B_COUNT then
         if IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES' then
-            TxAddIESProp(tx, aObj, "PVP_MINE_POINT", reward_win, "PVP_MINE_POINT");
+            TxGiveItem(tx, 'misc_pvp_mine2', reward_win, "PVP_MINE_POINT");
             result = 'Win'
         else
-            TxAddIESProp(tx, aObj, "PVP_MINE_POINT", reward_lose, "PVP_MINE_POINT");
+            TxGiveItem(tx, 'misc_pvp_mine2', reward_lose, "PVP_MINE_POINT");
             result = 'Lose'
         end
     else
-        TxAddIESProp(tx, aObj, "PVP_MINE_POINT", reward_lose, "PVP_MINE_POINT");
+        TxGiveItem(tx, 'misc_pvp_mine2', reward_lose, "PVP_MINE_POINT");
         result = 'Draw'
     end
     local ret = TxCommit(tx)
@@ -480,21 +508,23 @@ function SCR_PVP_MINE_BOSSKILL(mon, killer)
         end
     end
 
+    DO_MINEPVP_SCORE_UPDATE(pc)
     ShowBalloonText(pc, boss_kill_msg, 10)
 end
 
 function SCR_PVP_MINE_BOSSKILL_RUN(pc)
+
     local aObj = GetAccountObj(pc)
 
-    if aObj.PVP_MINE_MAX >= 500 then
+    if aObj.PVP_MINE_MAX < 500 then
         local tx = TxBegin(pc);
         if aObj.PVP_MINE_MAX + 50 > 500 then
             TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', 500);
         else
-            TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', 50);
+            TxSetIESProp(tx, aObj, 'PVP_MINE_MAX', aObj.PVP_MINE_MAX + 50);
         end
-        
         local ret = TxCommit(tx);
+
         if ret == "SUCCESS" then
             if IS_PC(pc) == true then
                 PlayEffect(pc, "F_fireworks001", 1)
@@ -506,9 +536,9 @@ end
 function SCR_PVP_MINE_DEAD(self)
     local killer = GetKiller(self);
 
-    if killer == nil then
-        return;
-    end
+    -- if killer == nil then
+    --     return;
+    -- end
 
     RunScript("SCR_PVP_MINE_DEAD_DROP", self, killer)
     RunScript("SCR_PVP_MINE_DEAD_TIMER", self, timer)
@@ -561,19 +591,30 @@ function SCR_PVP_MINE_DEAD_DROP(self, killer)
     end
     
     local itemCount = GetInvItemCount(self, "misc_pvp_mine1"); 
-    if itemCount >= 2 then
+    if itemCount > 2 then
         itemCount = math.floor(itemCount / 2)
 
         local tx = TxBegin(self);
     	TxTakeItem(tx, 'misc_pvp_mine1', itemCount, 'PVP_MINE_DEAD');
     	local ret = TxCommit(tx);
         if ret == "SUCCESS" then
-            if IS_PC(killer) == true then
-                local tx = TxBegin(killer);
-                TxGiveItem(tx, 'misc_pvp_mine1', itemCount, "PVP_MINE_DEAD");
-                local ret = TxCommit(tx);
-                PlayEffect(killer, "F_fireworks001", 1)
-                SendSysMsg(self, 'QuestItemIsLocked');
+            if killer ~= nil then
+                if IS_PC(killer) == true then
+                    local killer_item = GetInvItemCount(killer, "misc_pvp_mine1");
+
+                    if killer_item + itemCount > 100 then
+                        itemCount = 100 - killer_item
+                    end
+
+                    if itemCount <= 0 then
+                        local tx = TxBegin(killer);
+                        TxGiveItem(tx, 'misc_pvp_mine1', itemCount, "PVP_MINE_DEAD");
+                        local ret = TxCommit(tx);
+                        PlayEffect(killer, "F_fireworks001", 1)
+
+                        Chat(killer, ScpArgMsg("pvp_mine_get_crystal", "COUNT", itemCount))
+                    end
+                end
             end
         end
     end
@@ -673,11 +714,17 @@ function SCR_PVP_MINE_PLUNDER_RUN(pc, give_crystal_count)
 end
 
 function SCR_PVP_MINE_PLUNDER_ALARAM_RUN(pc, take_crystal_count, team)
+    if take_crystal_count == 0 then
+        return;
+    end
+
     if team == 1 then
         AddoOnMsgToZone(pc, "NOTICE_Dm_!", ScpArgMsg("pvp_mine_plunder_1", "POINT", take_crystal_count), 5)
     elseif team == 2 then
         AddoOnMsgToZone(pc, "NOTICE_Dm_!", ScpArgMsg("pvp_mine_plunder_2", "POINT", take_crystal_count), 5)
     end
+
+    DO_MINEPVP_SCORE_UPDATE(pc)
 end
 
 -- exchange npc
@@ -865,6 +912,84 @@ end
 function SCR_PVP_MINE_SAFEZONE_B_TS_DEAD_LEAVE(self)
 end
 
+-- PVP_MINE_EXCHANGE_A
+function SCR_PVP_MINE_EXCHANGE_A_TS_BORN_ENTER(self)
+    self.NumArg1 = 70
+end
+
+function SCR_PVP_MINE_EXCHANGE_A_TS_BORN_UPDATE(self)
+    local _normal_A = GetScpObjectList(self, 'PVP_MINE_EXCHANGE_A')
+
+    if #_normal_A <= 0 and self.NumArg1 >= 70 then
+        local iesObj = CreateGCIES('Monster', 'PVP_mine_Schwarzereiter');
+        iesObj.Lv = 360;
+        local x, y, z = GetPos(self)
+        local mon = CreateMonster( self, iesObj, x, y, z, 0, 0);
+
+        if mon ~= nil then
+            self.NumArg1 = 0
+            AddScpObjectList(self, 'PVP_MINE_EXCHANGE_A', mon)
+        end
+    elseif #_normal_A <= 0 then
+        self.NumArg1 = self.NumArg1 + 1
+    elseif #_normal_A >= 2 then
+        for i = 2, #_normal_A do
+            Kill(_normal_A[i])
+        end
+    end
+end
+
+function SCR_PVP_MINE_EXCHANGE_A_TS_BORN_LEAVE(self)
+end
+
+function SCR_PVP_MINE_EXCHANGE_A_TS_DEAD_ENTER(self)
+end
+
+function SCR_PVP_MINE_EXCHANGE_A_TS_DEAD_UPDATE(self)
+end
+
+function SCR_PVP_MINE_EXCHANGE_A_TS_DEAD_LEAVE(self)
+end
+
+-- PVP_MINE_EXCHANGE_B
+function SCR_PVP_MINE_EXCHANGE_B_TS_BORN_ENTER(self)
+    self.NumArg1 = 70
+end
+
+function SCR_PVP_MINE_EXCHANGE_B_TS_BORN_UPDATE(self)
+    local _normal_B = GetScpObjectList(self, 'PVP_MINE_EXCHANGE_B')
+
+    if #_normal_B <= 0 and self.NumArg1 >= 70 then
+        local iesObj = CreateGCIES('Monster', 'PVP_mine_Doppelsoldner');
+        iesObj.Lv = 360;
+        local x, y, z = GetPos(self)
+        local mon = CreateMonster( self, iesObj, x, y, z, 0, 0);
+
+        if mon ~= nil then
+            self.NumArg1 = 0
+            AddScpObjectList(self, 'PVP_MINE_EXCHANGE_B', mon)
+        end
+    elseif #_normal_B <= 0 then
+        self.NumArg1 = self.NumArg1 + 1
+    elseif #_normal_B >= 2 then
+        for i = 2, #_normal_B do
+            Kill(_normal_B[i])
+        end
+    end
+end
+
+function SCR_PVP_MINE_EXCHANGE_B_TS_BORN_LEAVE(self)
+end
+
+function SCR_PVP_MINE_EXCHANGE_B_TS_DEAD_ENTER(self)
+end
+
+function SCR_PVP_MINE_EXCHANGE_B_TS_DEAD_UPDATE(self)
+end
+
+function SCR_PVP_MINE_EXCHANGE_B_TS_DEAD_LEAVE(self)
+end
+
 -- alaram
 function SCR_PVP_MINE_TIMER(cmd, curStage, eventInst, obj)
     -- score
@@ -877,16 +1002,76 @@ function SCR_PVP_MINE_TIMER(cmd, curStage, eventInst, obj)
     local TEAM_B_COUNT = GetMGameValue(list[1], "TEAM_B_COUNT")
 
   --  cmd:SetUserValue(key, sec);
-    cmd:SetUserValue("ToEndBattle_START", imcTime.GetAppTime());
+    cmd:SetUserValue("ToEndBattle_START_Mine", imcTime.GetAppTime());
+    cmd:SetUserValue("currentStage", 1);
 
     local list, cnt = GetCmdPCList(cmd:GetThisPointer());
     for i = 1 , cnt do
         local pc = list[i];
         ExecClientScp(pc, "MINEPVP_TIMER_START(" .. imcTime.GetAppTime() .. ")")
     end
-
 end
 
+-- team check
+function SCR_PVP_MINE_TEAM_CHECK(cmd, curStage, eventInst, obj)
+    local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+
+    if cnt > 0 then
+        for i = 1, cnt do
+            if IsBuffApplied(list[i], 'PVP_MINE_BUFF1') == 'NO' and IsBuffApplied(list[i], 'PVP_MINE_BUFF2') == 'NO' then
+                SCR_PVP_MINE_TIMEOUT_RUN(list[i])
+            end
+        end
+    end
+end
+
+-- sound
+function SCR_PVP_MINE_SOUND_10S(cmd, curStage, eventInst, obj)
+    local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+
+    for i = 1, cnt do
+        RunScript('SCR_PVP_MINE_SOUND_10S_RUN', list[i], cnt)
+    end
+end
+
+function SCR_PVP_MINE_SOUND_10S_RUN(pc, cnt)
+    for countdownSec = 10, 1, -1 do
+        for i = 1, cnt do
+            if GetServerNation() == 'KOR' then
+                PlaySoundLocal(pc, 'countdown_'..countdownSec)
+            else
+                PlaySoundLocal(pc, 'S1_countdown_'..countdownSec)
+            end
+        end
+        sleep(1000)
+    end
+end
+
+function SCR_PVP_MINE_SOUND_START(cmd, curStage, eventInst, obj)
+    local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+
+    for i = 1, cnt do
+        if GetServerNation()  == 'KOR' then
+            PlaySoundLocal(list[i], 'battle_start')
+        else
+            PlaySoundLocal(list[i], 'S1_battle_start')
+        end
+
+        PlayBGM(list[i], 'm_teambattle')
+    end
+end
+
+function SCR_PVP_MINE_SOUND_BOSS(cmd, curStage, eventInst, obj)
+    local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+
+    for i = 1, cnt do
+        if GetServerNation() == 'KOR' then --보스몬스터 등장 사운드 출력
+            PlaySoundLocal(list[i], "battle_bossmonster_appear")
+        else
+            PlaySoundLocal(list[i], "S1_battle_bossmonster_appear")
+        end
+    end
+end
 
 -- result UI
 function SCR_PVP_MINE_END_UI_OPEN(pc)
@@ -927,6 +1112,18 @@ function PVP_MINE_RESULT_INIT(frame, isWin)
     local loseBox = GET_CHILD_RECURSIVELY(frame, 'loseBox');
     local drawBox = GET_CHILD_RECURSIVELY(frame, 'drawBox');
 
+    local aObj = GetMyAccountObj();
+    local getpoint = aObj.PVP_MINE_MAX;
+
+    if isWin == 1 then
+        getpoint = getpoint + 500
+    else
+        getpoint = getpoint + 100
+    end
+
+    local GetPoint_Desc = GET_CHILD_RECURSIVELY(frame, 'GetPoint_Desc');
+    GetPoint_Desc:SetTextByKey("point", getpoint);
+
     if isWin == 1 then
         winBox:ShowWindow(1);
         loseBox:ShowWindow(0);
@@ -952,15 +1149,24 @@ function PVP_MINE_RESULT_INIT(frame, isWin)
     end
 end
 
--- team check
-function SCR_PVP_MINE_TEAM_CHECK(cmd, curStage, eventInst, obj)
-    local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+-- target UI
+function SET_TARGETINFO_TO_MINE_POS()
 
-    if cnt > 0 then
-        for i = 1, cnt do
-            if IsBuffApplied(list[i], 'PVP_MINE_BUFF1') == 'NO' and IsBuffApplied(list[i], 'PVP_MINE_BUFF2') == 'NO' then
-                SCR_PVP_MINE_TIMEOUT_RUN(list[i])
-            end
-        end
-    end
+	TARGET_INFO_OFFSET_Y = 20;
+	TARGET_INFO_OFFSET_X = 1050;
+
+	local targetBuff = ui.GetFrame("targetbuff");
+	targetBuff:MoveFrame(1350, targetBuff:GetY());
+    
+	local channel = ui.GetFrame("channel");
+	channel:ShowWindow(0);
+
+	local mapAreaText = ui.GetFrame("mapareatext");
+	mapAreaText:ShowWindow(0);
+
+	local bugreport = ui.GetFrame("bugreport");
+	bugreport:ShowWindow(0);
+
+	local mapAreaText = ui.GetFrame("minimizedalarm");
+	mapAreaText:ShowWindow(0);
 end

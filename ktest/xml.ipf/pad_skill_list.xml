@@ -1427,7 +1427,7 @@ return obj.Level"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Chronomancer_Pass" CheckerType="0" Dist="0.584337" Angle="2.079396" Range="100" UpdateTerm="400">
+	<PadSkill Name="Chronomancer_Pass" CheckerType="0" Dist="0.584337" Angle="2.079396" Range="100" UpdateTerm="400"EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_wizard_Pass_ground" Arg="2.2"/>
@@ -9041,7 +9041,7 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Necromancer_CreateShoggoth_abil" CheckerType="0" Range="50" AutoPos="1" AutoDir="1" ApplyFlyMon="1">
+	<PadSkill Name="Necromancer_CreateShoggoth_abil" CheckerType="0" Range="70" AutoPos="1" AutoDir="1" ApplyFlyMon="1">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="60000" UseFunc="1" FuncTxt="local owner = GetOwner(self);

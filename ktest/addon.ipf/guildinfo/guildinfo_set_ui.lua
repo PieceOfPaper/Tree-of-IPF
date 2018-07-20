@@ -1,8 +1,12 @@
 local json = require "json"
 local has_kick_claim = false
-
+local has_guild_war_list_claim = false;
 function HAS_KICK_CLAIM()
     return has_kick_claim
+end
+
+function HAS_GUILD_WAR_LIST_CLIAM()
+    return has_guild_war_list_claim;
 end
 function INIT_UI_BY_CLAIM()
     GetPlayerClaims("SET_UI_BY_CLAIM", session.loginInfo.GetAID());
@@ -10,6 +14,7 @@ end
 
 function SET_UI_BY_CLAIM(code, ret_json)
     has_kick_claim = false;
+    has_guild_war_list_claim = false;
     local guild = GET_MY_GUILD_INFO();
     if guild == nil then 
         return
@@ -122,12 +127,13 @@ function SET_UI_BY_CLAIM(code, ret_json)
             depositBtn:SetEnable(1)
         elseif claim == 203 then -- 소개글 쓰기
             regPromoteText:SetEnable(1)
-            promoteSetBtn:SetEnable(isLeader)
+            promoteSetBtn:SetEnable(1)
         elseif claim == 205 then -- 길드 한줄 게시판 등록
             postNewTxt:SetEnable(1)
         elseif claim == 302 then -- 길드 전쟁 중립 설정
             neutralCheck:SetEnable(1)
         elseif claim == 303 then -- 전쟁중인 길드 목록 보기
+            has_guild_war_list_claim = true;
         elseif claim == 402 then
             outsiderCheck:SetEnable(1)
         end

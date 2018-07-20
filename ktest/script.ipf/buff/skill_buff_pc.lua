@@ -2288,7 +2288,7 @@ function SCR_BUFF_ENTER_EnchantFire_Buff(self, buff, arg1, arg2, over)
         
         local statINT = TryGetProp(caster, "INT")
         local statMNA = TryGetProp(caster, "MNA")
-		
+
         fireAtk = 30 + ((lv - 1) * 5) + ((lv / 5) * (((statINT + statMNA) * 0.6) ^ 0.9))
         
 --        local Pyromancer23_abil = GetAbility(caster, "Pyromancer23")    -- 2rank Skill Damage multiple
@@ -2303,7 +2303,7 @@ function SCR_BUFF_ENTER_EnchantFire_Buff(self, buff, arg1, arg2, over)
         if Pyromancer16_abil ~= nil then
             fireAtk = fireAtk + Pyromancer16_abil.Level
         end
-		
+
         local casterMINMATK = TryGetProp(caster, "MINMATK");
         if casterMINMATK == nil then
             casterMINMATK = 0;
@@ -2319,14 +2319,14 @@ function SCR_BUFF_ENTER_EnchantFire_Buff(self, buff, arg1, arg2, over)
     
     fireAtk = math.floor(fireAtk)
     self.Fire_Atk_BM = self.Fire_Atk_BM + fireAtk
-	
+
     SetExProp(buff, "ADD_FIRE", fireAtk);
-	
+
     local Name = GetName(caster)
     if self.Name ~= Name then
         SkillTextEffect(nil, self, caster, "SHOW_FIRE_DETONATION", buff.ClassID, nil, Name);
     end
-	
+
     SetBuffArgs(buff, lv, casterMATK, 0);
 end
 
@@ -2447,8 +2447,9 @@ function SCR_BUFF_ENTER_Sacrament_Buff(self, buff, arg1, arg2, over)
         
         local stat = TryGetProp(caster, 'MNA')
         if BuffFromWho(buff) == BUFF_FROM_AUTO_SELLER then
-            local stat_BM = TryGetProp(caster, 'MNA_BM')
-            stat = stat - stat_BM
+            local stat_BM = TryGetProp(caster, 'MNA_BM');
+            local stat_ITEM_BM = TryGetProp(caster, 'MNA_ITEM_BM');
+            stat = stat - (stat_BM + stat_ITEM_BM);
         end
         
         holyAddAttack = math.floor(180 + ((lv - 1) * 60) + ((lv / 3) * (stat ^ 0.9)));
@@ -2987,7 +2988,7 @@ function SCR_BUFF_ENTER_Detoxify_Buff(self, buff, arg1, arg2, over)
 
     if debuff ~= nil and debuff.Group1 == "Debuff" then
         --ObjectColorBlend(self, 50,80,60,255,0.5)
-        
+       
         if debuff.Lv <= arg1 then
             RemoveBuff(self, debuff.ClassName)
             
@@ -4843,7 +4844,7 @@ function SCR_BUFF_ENTER_SoPowerful(self, buff, arg1, arg2, over)
     self.PATK_BM = self.PATK_BM + 9999999;
     self.MATK_BM = self.MATK_BM + 9999999;
     self.HR_BM = self.HR_BM + 9999999;
-    
+
 end
 
 
@@ -7913,8 +7914,9 @@ function SCR_BUFF_ENTER_Aspersion_Buff(self, buff, arg1, arg2, over)
     local stat = TryGetProp(caster, "MNA")
     if caster ~= nil then
         if BuffFromWho(buff) == BUFF_FROM_AUTO_SELLER then
-            local stat_BM = TryGetProp(caster, 'MNA_BM')
-            stat = stat - stat_BM
+            local stat_BM = TryGetProp(caster, 'MNA_BM');
+            local stat_ITEM_BM = TryGetProp(caster, 'MNA_ITEM_BM');
+            stat = stat - (stat_BM + stat_ITEM_BM);
         end
         
         SetBuffArgs(buff, stat);
@@ -7975,8 +7977,9 @@ function SCR_BUFF_ENTER_Blessing_Buff(self, buff, arg1, arg2, over)
         end
         
         if BuffFromWho(buff) == BUFF_FROM_AUTO_SELLER then
-            local stat_BM = TryGetProp(caster, 'MNA_BM')
-            stat = stat - stat_BM
+            local stat_BM = TryGetProp(caster, 'MNA_BM');
+            local stat_ITEM_BM = TryGetProp(caster, 'MNA_ITEM_BM');
+            stat = stat - (stat_BM + stat_ITEM_BM);
         end
         
         local Priest13_abil = GetAbility(caster, "Priest13")
@@ -12655,8 +12658,9 @@ function SCR_BUFF_ENTER_IncreaseMagicDEF_Buff(self, buff, arg1, arg2, over)
         local stat = TryGetProp(caster, "MNA")
         
         if BuffFromWho(buff) == BUFF_FROM_AUTO_SELLER then
-            local stat_BM = TryGetProp(caster, 'MNA_BM')
-            stat = stat - stat_BM
+            local stat_BM = TryGetProp(caster, 'MNA_BM');
+            local stat_ITEM_BM = TryGetProp(caster, 'MNA_ITEM_BM');
+            stat = stat - (stat_BM + stat_ITEM_BM);
         end
         
         mdefadd = math.floor(240 + ((arg1 - 1) * 80) + ((arg1 / 3) * (stat ^ 0.9)));
@@ -14098,7 +14102,7 @@ function SCR_BUFF_UPDATE_ScudInstinct_Buff(self, buff, arg1, arg2, RemainTime, r
 		        else
 		        	healTimeCount = healTimeCount + 1;
 		        end
-		        
+	            
 		        SetExProp(buff, "HEAL_TIME_COUNT", healTimeCount);
 	        end
         else
@@ -16113,6 +16117,7 @@ function SCR_BUFF_LEAVE_Tiksline_Debuff(self, buff, arg1, arg2, over)
             TakeDamage(buffCaster, self, "Velcoffer_Tiksline", damage, "Melee", "Magic", "AbsoluteDamage")
         end
     end
+    SetExProp(buff, "Tiksline_accumulatedDamage", 0);
 end
 
 function SCR_BUFF_ENTER_Mergaite_Buff(self, buff, arg1, arg2, over)

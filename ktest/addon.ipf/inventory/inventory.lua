@@ -1365,12 +1365,8 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 		end
 	end
 	
-	if IsBuffApplied(pc, 'Event_Penalty') == 'YES' and (itemobj.ClassID == 640022 or itemobj.ClassID == 640022 or itemobj.ClassID == 640079 or itemobj.ClassID == 490006 or itemobj.ClassID == 490110)then
-		ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
-		return 0;
-	end
-
-	if IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES' then
+	if (IsBuffApplied(pc, 'Event_Penalty') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES') 
+	and (itemobj.ClassID == 640022 or itemobj.ClassID == 640079 or itemobj.ClassID == 490006 or itemobj.ClassID == 490110) then
 		ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
 		return 0;
 	end
@@ -2522,7 +2518,8 @@ function INVENTORY_DELETE(itemIESID, itemType)
 		s_dropDeleteItemCount = 1;
 		s_dropDeleteItemName = cls.Name;
 		local yesScp = string.format("EXEC_DELETE_ITEMDROP");
-		ui.MsgBox(ScpArgMsg("Auto_JeongMal_[")..s_dropDeleteItemName..ScpArgMsg("Auto_]_eul_BeoLiSiKessSeupNiKka?"), yesScp, "None");
+        local clmsg = ScpArgMsg('ReallyDestroy{ITEM}', 'ITEM', s_dropDeleteItemName);
+		ui.MsgBox(clmsg, yesScp, "None");
 	end
 	--end
 end
@@ -2530,7 +2527,8 @@ end
 function CHECK_EXEC_DELETE_ITEMDROP(count)
 	s_dropDeleteItemCount = tonumber(count);
 	local yesScp = string.format("EXEC_DELETE_ITEMDROP");
-		ui.MsgBox(ScpArgMsg("Auto_JeongMal_[")..s_dropDeleteItemName..ScpArgMsg("]_eul_BeoLiSiKessSeupNiKka?_{count}", "count", s_dropDeleteItemCount), yesScp, "None");
+    local clmsg = ScpArgMsg('ReallyDestroy{ITEM}{COUNT}', 'ITEM', s_dropDeleteItemName, 'COUNT', s_dropDeleteItemCount);
+	ui.MsgBox(clmsg, yesScp, "None");
 end
 
 function EXEC_DELETE_ITEMDROP()

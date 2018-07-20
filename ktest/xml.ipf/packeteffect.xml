@@ -233,6 +233,12 @@
         <Effect Name="F_spread_out038_orange_dark"/>
         <Effect Name="I_sphere009_violet#None"/>
         <Effect Name="INVINCIBILITY_BREAK"/>
+        <Effect Name="SOLO_DUNGEON_MINI"/>
+        <Effect Name="shout"/>
+        <Effect Name="atk3"/>
+        <Effect Name="THURISAZ_CAST"/>
+        <Effect Name="THURISAZ_SHOT"/>
+        <Effect Name="ATK01"/>
     </Category>
     <Category ID="195">
         <Effect Name="THORN39_2_SQ07_TRACK_MINI"/>
@@ -714,6 +720,8 @@
         <Effect Name="BOT"/>
         <Effect Name="GreenwoodShikigami_Pad_Effect"/>
         <Effect Name="E_wizard_GreenwoodShikigami_ground_vine"/>
+        <Effect Name="PVP_MINE"/>
+        <Effect Name="F_cleric_explosion_seedboom"/>
     </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -972,6 +980,8 @@
         <Effect Name="AGARIO_MINI"/>
         <Effect Name="MISSION_EVENT_CURSEDOOR"/>
         <Effect Name="I_warrior_FishingNets_Throwing_3"/>
+        <Effect Name="STARTOWER_91_MQ_10_MINIGAME"/>
+        <Effect Name="GM_WHITETREES_56_1"/>
     </Category>
     <Category ID="171">
         <Effect Name="MISSION_UPHILL_DEFFENSE_EVENT2"/>
@@ -2379,6 +2389,37 @@
         <Effect Name="master_Onmyoji"/>
         <Effect Name="I_smoke048_true"/>
         <Effect Name="I_smoke059_green"/>
+        <Effect Name="STARTOWER_91_MQ_10_MINIGAME"/>
+        <Effect Name="GM_WHITETREES_56_1"/>
+        <Effect Name="PVP_MINE"/>
+        <Effect Name="I_archer_ArrowRain2_hit_mash"/>
+        <Effect Name="F_light029_mint3"/>
+        <Effect Name="1ST_WAVE"/>
+        <Effect Name="2ND_WAVE"/>
+        <Effect Name="LAST_WAVE"/>
+        <Effect Name="F_wizard_UmbilicalCord_shot_lineup"/>
+        <Effect Name="F_buff_basic032_blue_line"/>
+        <Effect Name="F_warrior_moulinet_shot_smoke"/>
+        <Effect Name="F_wizard_dirtywall_shot_new"/>
+        <Effect Name="F_light028_mint3"/>
+        <Effect Name="F_pc_shield_square"/>
+        <Effect Name="F_light078_holy_yellow_loop2"/>
+        <Effect Name="I_d_chapel_57_7_ground_mash"/>
+        <Effect Name="F_light060"/>
+        <Effect Name="F_warrior_SpecialForceFormation_pose_light"/>
+        <Effect Name="raid_velcoffer"/>
+        <Effect Name="GM_MONSTER_CRE_TEST"/>
+        <Effect Name="MON_STAGE1"/>
+        <Effect Name="MON_STAGE7"/>
+        <Effect Name="MON_STAGE6"/>
+        <Effect Name="FAILL"/>
+        <Effect Name="DEFFECN_STAGE"/>
+        <Effect Name="MON_STAGE"/>
+        <Effect Name="MON_STAGE3"/>
+        <Effect Name="MON_STAGE2"/>
+        <Effect Name="I_force014_ice#Bone007"/>
+        <Effect Name="Cryomancer_FrostPillar"/>
+        <Effect Name="F_rize015_1_yellow_drop"/>
     </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
@@ -2546,6 +2587,7 @@
         <Effect Name="STARTOWER_91_MQ_10_MINIGAME"/>
         <Effect Name="PVP_MINE"/>
         <Effect Name="I_warrior_buff_warcry_loop"/>
+        <Effect Name="MISSION_SURVIVAL_EVENT2"/>
     </Category>
     <Category ID="61">
         <Effect Name="F_ground083_smoke"/>
@@ -4388,6 +4430,11 @@
         <Effect Name="F_pc_CardBook_ground_blue"/>
         <Effect Name="F_pc_CardBook_ground_green"/>
         <Effect Name="F_pc_CardBook_ground_violet"/>
+        <Effect Name="STARTOWER_91_MQ_10_MINIGAME"/>
+        <Effect Name="GM_WHITETREES_56_1"/>
+        <Effect Name="PVP_MINE"/>
+        <Effect Name="Nachash_Pad"/>
+        <Effect Name="TheTreeOfSepiroth_Pad"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -5125,7 +5172,7 @@
         <Effect Name="170628_Rain_Mission"/>
         <Effect Name="Portal"/>
         <Effect Name="Sage_PortalShop"/>
-   <Effect Name="CantDelCharBecauseHaveEquipCard"/>
+        <Effect Name="CantDelCharBecauseHaveEquipCard"/>
     </Category>
     <Category ID="57">
         <Effect Name="SKL_TELEKINESIS_THROW"/>

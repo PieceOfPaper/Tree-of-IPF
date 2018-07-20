@@ -36,6 +36,7 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('CHANGE_CLIENT_SIZE', 'FIRST_UPDATE_MAP');
     addon:RegisterMsg('COLONY_MONSTER', 'MAP_COLONY_MONSTER');
     addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MAP');
+    addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER');
 
 	frame = ui.GetFrame("map");
 	INIT_MAPUI_INFO(frame);
@@ -378,11 +379,8 @@ function MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offset
 		return;
 	end
 
-	local npclist = {};
-	local statelist = {};
-	local questIESlist  = {};
-	local questPropList = {};
-	GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESlist, questPropList);
+	local npclist, statelist, questIESlist, questPropList = GetQuestNpcNames();
+
 	MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList, mapWidth, mapHeight, offsetX, offsetY);
 	MAKE_TOP_QUEST_ICONS(frame);
 	MAKE_MY_CURSOR_TOP(frame);
@@ -528,8 +526,12 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 				local PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);                
 				tolua.cast(PictureC, "ui::CPicture");
 				local idx, Icon = SET_MAP_MONGEN_NPC_INFO(PictureC, mapprop, WorldPos, MonProp, mapNpcState, npclist, statelist, questIESlist);
-                if isColonyMap == true and MonProp:GetClassName() == 'Warp_arrow' then
-                    PictureC:ShowWindow(1);
+                if isColonyMap == true then
+                    if MonProp:GetClassName() == 'Warp_arrow' then
+                        PictureC:ShowWindow(1);
+                    else
+                        PictureC:ShowWindow(0);
+                    end
                 end
 			end
 		end
@@ -579,21 +581,16 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 					if questIES ~= nil then
 						SET_MAP_CTRLSET_TXT(qstctrl, CurState, Icon, iconW, iconH, mylevel, questIES)
 					end
-
 				end
-
-
 			end
 		end
 	end
 
-	-- Location을 통한 퀘스트 정보 출력
-	local allmaptxt = "";
-
 	local mapname = mapprop:GetClassName();
 	local cnt = #questPropList;
 	for i = 1 , cnt do
-		local questprop = questPropList[i];
+		--local questprop = questPropList[i];
+		local questprop = geQuestTable.GetPropByIndex(questPropList[i]);
 		local cls = questIESlist[i];
 		local stateidx = STATE_NUMBER(statelist[i]);
 
@@ -616,6 +613,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 										WorldPos = GenList:Element(j);
 										local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, m_mapWidth, m_mapHeight);
 										local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_MAPPOS(MapPos, locinfo, mapprop, minimapw, minimaph);
+
 										MAKE_LOC_CLICK_ICON(frame, i, stateidx, k, XC, YC, RangeX, RangeY, 30);
 										XC = m_offsetX + MapPos.x - iconW / 2;
 										YC = m_offsetY + MapPos.y - iconH / 2;
@@ -623,17 +621,15 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 										MAKE_LOC_ICON(frame, cls, i, stateidx, k, XC, YC, iconW, iconH, WorldPos, statelist, questIESlist, MapPos);
 									end
 								end
-							else
-								allmaptxt = string.format("%s%s{nl}", allmaptxt, cls.Name);
 							end
 						else
 							local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, m_mapWidth, m_mapHeight);
 							local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_MAPPOS(MapPos, locinfo, mapprop, minimapw, minimaph);
 
 							MAKE_LOC_CLICK_ICON(frame, i, stateidx, k, XC, YC, RangeX, RangeY, 30);
-
 							XC = m_offsetX + MapPos.x - iconW / 2;
 							YC = m_offsetY + MapPos.y - iconH / 2;
+							
 							MAKE_LOC_ICON(frame, cls, i, stateidx, k, XC, YC, iconW, iconH, WorldPos, statelist, questIESlist);
 
 						end
@@ -1265,7 +1261,7 @@ function GET_COLONY_MONSTER_IMG(frame, monID)
     return frame:GetUserConfig('COLONY_TOWER_IMG');
 end
 
-function MAP_COLONY_MONSTER(frame, msg, posStr, monID)        
+function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
     frame:RemoveChild('colonyMonPic_'..monID);
 
     local mapFrame = ui.GetFrame('map');
@@ -1298,4 +1294,9 @@ function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
         colonyMonEffectPic:SetOffset(_x, _y);
         SET_PICTURE_QUESTMAP(colonyMonEffectPic);
     end
+end
+
+function ON_REMOVE_COLONY_MONSTER(frame, msg, argStr, monID)
+   frame:RemoveChild('colonyMonPic_'..monID);
+   frame:RemoveChild('colonyMonEffectPic'); 
 end

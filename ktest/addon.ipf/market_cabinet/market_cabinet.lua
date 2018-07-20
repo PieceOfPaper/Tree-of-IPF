@@ -148,7 +148,7 @@ function ON_CABINET_ITEM_LIST(frame)
 				ClientRemoteLog("CABINET_ITEM_PRICE_ERROR - ".. cabinetItem.count);
 			end
 
-		    totalPrice:SetTextByKey("value", GetCommaedText(cabinetItem.count));
+		    totalPrice:SetTextByKey("value", GetMonetaryString(cabinetItem.count));
         else
             totalPrice:ShowWindow(0);
         end

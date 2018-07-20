@@ -63,5 +63,8 @@ end
 function GET_PVP_MINE_POINT(pc, tx, price)
     local aObj = GetAccountObj(pc);
 	TxAddIESProp(tx, aObj, "PVP_MINE_POINT", -price, "PVP_MINE_POINT");
+
+	MinePVPTxCallBack(tx)
+
 	return 1;
 end

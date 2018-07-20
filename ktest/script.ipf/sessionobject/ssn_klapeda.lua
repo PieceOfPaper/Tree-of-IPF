@@ -845,6 +845,15 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         local state = GetColonyWarState()
         if state == 3 then
             SCR_GUILD_COLONY_ALREADY_END_MSG(self)
+--        --스팀 콜로니전 매일 기본 보상 지급 스크립트
+--        elseif state == 1 or state == 2 then
+--            if GetServerNation() ~= 'KOR' then
+--                if GetServerNation() == 'GLOBAL' then
+--                    SCR_STEAM_COLONY_WAR_ONEDAY_REWARD(self)
+--                    SCR_STEAM_COLONY_WAR_FIVE_TIME_REWARD(self)
+--                    SCR_STEAM_COLONY_WAR_FIRST_ENTRY_REWARD(self)
+--                end
+--            end
         end
     end
     
@@ -898,6 +907,10 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
 
     -- EVENT_1804_WEEKEND
     EVENT_1804_WEEKEND(self)
+    
+    
+     -- MISSION_SURVIVAL_EVENT2
+    MISSION_SURVIVAL_EVENT2_ZONEENTER(self)
     
     if argStr == 'c_firemage_event' then
         self.FIXMSPD_BM = 25

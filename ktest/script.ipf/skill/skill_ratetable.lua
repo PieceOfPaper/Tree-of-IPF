@@ -56,7 +56,7 @@ end
 function SCR_SKILL_RATETABLE_Fletcher_BarbedArrow(self, from, skill, atk, ret, rateTable)
     local hitCount = 0;
     if self.ArmorMaterial == 'Cloth' then
-        hitCount = 3       
+        hitCount = 3
         rateTable.DamageRate = (hitCount * rateTable.MultipleHitDamageRate) + 2;        
     elseif self.ArmorMaterial == 'Leather' then
         hitCount = 2
@@ -1804,7 +1804,7 @@ function SCR_SKILL_RATETABLE_Corsair_PistolShot(self, from, skill, atk, ret, rat
     end
 end
 
-function SCR_SKILL_RATETABLE_Retiari_DaggerFinish(self, from, skill, atk, ret, rateTable)
+function SCR_SKILL_RATETABLE_Retiarii_DaggerFinish(self, from, skill, atk, ret, rateTable)
     local targetMHP = self.MHP
     local targetHP = self.HP
     local targetHPRate = (targetHP/targetMHP) * 100

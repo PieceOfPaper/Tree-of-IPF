@@ -7,6 +7,28 @@ end
 
 -- 콜로니전 채널 입장 체크 스크립트
 function SCR_GUILD_COLONY_ENTER_CHECK(self, pc)
+--    --스팀 콜로니전 일부 지역만 개최시, 그외 지역 입장 스크립트 안돌도록 처리
+--    if GetServerNation() ~= 'KOR' then
+--        if GetServerNation() == 'GLOBAL' then
+--            local warp_clsList = GetClassList("Warp");
+--            local enterCls = self.Enter
+--            if self.Enter == "None" then
+--                enterCls = self.Dialog
+--            end
+--            local warpCls = GetClassByNameFromList(warp_clsList, enterCls); --warp.xml에 저장된 워프화살표의 class obj
+--            local next_ZoneClsName = nil
+--            if warpCls ~= nil then
+--                next_ZoneClsName = warpCls.TargetZone;
+--            end
+--            local clsList = GetClassList("guild_colony")
+--            local colonyCls = GetClassByNameFromList(clsList, "GuildColony_"..next_ZoneClsName);
+--            if colonyCls ~= nil then
+--                if TryGetProp(colonyCls, "ID") == 0 then
+--                    return "NORMAL"
+--                end
+--            end
+--        end
+--    end
     local select = ShowSelDlg(pc,0, 'GUILD_COLONY_DLG', ScpArgMsg('GUILD_COLONY_MSG_ENTER_COLONY'), ScpArgMsg('GUILD_COLONY_MSG_ENTER_NORMAL'))
     if select == 2 then --일반 채널 입장을 선택했다면,
         return "NORMAL"
@@ -282,7 +304,12 @@ end
 --guildObjList_zone : 존 내 모든 pc들이 들고있는 길드오브젝트 리스트
 --guildObjList_area : 존 내 모든 pc들 중, 타워 범위 안에 있는 pc들이 들고있는 길드오브젝트 리스트
 function SCR_GUILD_COLONY_OCCUPATION_POINT_UP_RUN(self, zoneClsName, guildObjList_zone, guildObjList_area, range, num, maxPoint, onePoint, twoPoint, threePoint, fourPoint, removePoint, addPoint)
-
+    local common_addPoint = addPoint
+    local common_onePoint = onePoint
+    local common_twoPoint = twoPoint
+    local common_threePoint = threePoint
+    local common_fourPoint = fourPoint
+    
     local guildObjList_type = {} --guildObjList_area 길드 종류로 분리한 리스트
     for i = 1, #guildObjList_area do
         local check = 0
@@ -333,6 +360,12 @@ function SCR_GUILD_COLONY_OCCUPATION_POINT_UP_RUN(self, zoneClsName, guildObjLis
             twoPoint = twoPoint + addPoint
             threePoint = threePoint + addPoint
             fourPoint = fourPoint + addPoint
+        else
+            addPoint = common_addPoint
+            onePoint = common_onePoint
+            twoPoint = common_twoPoint
+            threePoint = common_threePoint
+            fourPoint = common_fourPoint
         end
 
         local nowPoint = GetGuildColonyOccupationPoint(guildObjList_type[back_i], zoneClsName) --해당 길드의 점령 포인트를 받아옴

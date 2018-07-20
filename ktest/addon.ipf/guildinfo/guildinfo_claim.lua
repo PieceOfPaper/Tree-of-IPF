@@ -9,6 +9,13 @@ local show_claim_dispatching = false;
 local authlist = {}
 local checkboxList = {}
 local aidx_claimIDTable = {}
+
+function GET_SELECTED_CONTROL()
+    --print(selectedTitle)
+    return 0, selectedTitle;
+end
+
+
 function GUILDINFO_OPTION_INIT_SETTING_CLAIM_TAB()
   
 end
@@ -192,6 +199,9 @@ function GUILDMEMBER_LIST_GET()
 end
 
 function ON_PLAYER_MEMBER_TITLE_GET(code, ret_json)
+    if ret_json == "\"null\"" or ret_json == "" then
+        return
+    end
     if code ~= 200 then
         SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_PLAYER_MEMBER_TITLE_GET")
         return;

@@ -3,7 +3,7 @@ local emblemPath = nil
 local bannerPath = nil
 local introImagePath = nil
 local tempfilePath = nil
-
+local registeredGuildInfo = false
 function callback_change_agit_enter_option(code, ret_json, argList)
     if code ~= 200 then        
         SHOW_GUILD_HTTP_ERROR(code, "1", "callback_change_agit_enter_option") -- 권한 없음
@@ -19,10 +19,11 @@ end
 
 function GUILDINFO_OPTION_INIT(parent, optionBox)
 	emblemPath = nil
+	registeredGuildInfo = false
 	bannerPath = nil
 	introImagePath = nil
  	tempfilePath = nil
-	local guild = GET_MY_GUILD_INFO();
+ 	local guild = GET_MY_GUILD_INFO();
     if guild == nil then
         return;
     end
@@ -91,12 +92,12 @@ function REGISTER_GUILD_EMBLEM(frame)
  end
 
 function GUILDINFO_OPTION_INIT_BANNER(code, ret_json)
-    if code ~= 200 then
+	if code ~= 200 then
 		if code ~= 400 then -- 400 = no banner
-        SHOW_GUILD_HTTP_ERROR(code, ret_json, "GUILDINFO_OPTION_INIT_BANNER")
+			SHOW_GUILD_HTTP_ERROR(code, ret_json, "GUILDINFO_OPTION_INIT_BANNER")
 		end
         return;
-    end
+	end
 	local frame_guildInfo = ui.GetFrame("guildinfo");
 	local guild = GET_MY_GUILD_INFO();
     if guild == nil then
@@ -124,7 +125,7 @@ function GUILDINFO_OPTION_INIT_EMBLEM(optionBox)
 		possible_color = frame:GetUserConfig("POSSIBLE_REGIST_EMBLEM_COLOR")
     end
 	
-registerBtn:SetColorTone(possible_color)
+	registerBtn:SetColorTone(possible_color)
 
 	if isRegisteredEmblem == true then
     	registerBtn:SetTextByKey('register', ClMsg("GuildEmblemChange"));
@@ -238,8 +239,8 @@ function BANNER_UPLOADED(code, ret_json)
 	print(tempfilePath)
 	if filefind.FileExists(tempfilePath, true) == true then
 		banner:SetImage("")
-	banner:SetFileName(tempfilePath)
-end
+		banner:SetFileName(tempfilePath)
+	end
 end
 
 function REGISTER_GUILD_PAGE(frame, control)
@@ -314,7 +315,8 @@ function PUT_GUILD_PROMOTE(code, ret_json)
         SHOW_GUILD_HTTP_ERROR(code, ret_json, "PUT_GUILD_PROMOTE")
         return;
 	end
-	ui.SysMsg(ClMsg("UpdateSuccess"))
+registeredGuildInfo = true
+	ui.MsgBox("정상적으로 등록되었습니다.")
 	
 end
 
@@ -326,16 +328,23 @@ function GUILDINFO_GET(code, ret_json)
 	local parentFrame = ui.GetFrame("guildinfo");
 	local list = json.decode(ret_json)
 	if list == '' then
+ registeredGuildInfo = false
 		local promoteCheck = GET_CHILD_RECURSIVELY(parentFrame, "guildPromoteCheck")
 		promoteCheck:SetCheck(0)
 		return
 	end
+ registeredGuildInfo = true
 	GetGuildPRState("GUILD_PR_GET")
 	local introText = GET_CHILD_RECURSIVELY(parentFrame, "regPromoteText")
 	introText:SetText(list['shortDesc']);
 end
 
 function SET_GUILD_PROMOTE(frame, control)
+	if registeredGuildInfo == false then
+		ui.MsgBox(ClMsg("WebService_101"))
+		control:SetCheck(0)
+		return
+	end
 	if control:IsChecked() == 1 then
 		SetGuildPRVisible("ON_PR_CHECK");
 	else

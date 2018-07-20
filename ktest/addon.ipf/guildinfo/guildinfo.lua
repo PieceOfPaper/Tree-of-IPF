@@ -52,6 +52,7 @@ function GUILDINFO_OPEN_UI(frame)
         firstOpen = false
         
     end
+    GUILDINFO_COLONY_INIT(frame, frame)
     INIT_UI_BY_CLAIM();
 
     GUILDINFO_INIT_TAB(frame);

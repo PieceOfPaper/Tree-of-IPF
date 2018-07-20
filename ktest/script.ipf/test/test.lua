@@ -1211,8 +1211,47 @@ function lchs_test2(pc, str)
     AttachEffect(pc, 'I_cleric_zemina_mash_loop_blue_1', 0.5, 'BOT')
 end
 function lchs(pc, anim_name)
-    print('SSSSSSS')
-    REQ_MOVE_TO_INDUN(pc, "Request_Mission10", 1)
+    local result = DOTIMEACTION_R(pc, ScpArgMsg("KATYN14_SUB_08_MSG03"), 'WORSHIP', 5)
+--    print(GetAccountPCCount(pc))
+--    local list, Cnt = SelectObject(pc, 50, 'ALL')
+--    local i
+--    for i = 1, Cnt do
+--        Chat(list[i], 'AAA'..GetCurrentFaction(list[i]), 5)
+--    end
+--    REQ_MOVE_TO_INDUN(pc, "MISSION_EVENT_1708_JURATE", 1)
+
+--    ShowOkDlg(pc, 'EVENT_1707_COMPASS_DLG29', 1)
+    
+--    local couponValueList = {
+--                            {'AAA',9,3},
+--                            {'BBBB',2,4},
+--                            {'CCC',10,5},
+--                            {'DDD',100,6},
+--                            {'EEE',3,7},
+--                            {'FFF',6,8},
+--                            {'GGG',73,9},
+--                            }
+--    for i = 1, #couponValueList - 1 do
+--        for x = i + 1, #couponValueList do
+--            if couponValueList[i][2] < couponValueList[x][2] then
+--                local temp = {couponValueList[i][1],couponValueList[i][2],couponValueList[i][3]}
+--                couponValueList[i] = {couponValueList[x][1],couponValueList[x][2],couponValueList[x][3]}
+--                couponValueList[x] = temp
+--            end
+--        end
+--    end
+--    for i = 1, #couponValueList do
+--        print(table.concat(couponValueList[i],"/"))
+--    end
+    
+    
+    
+--    print('SSSSSSS')
+--    local tx = TxBegin(pc);
+--    TxAddAchievePoint(tx, 'EVENT_1707_USERWEDDING', 1)
+--	local ret = TxCommit(tx)
+--    PlayAnim(pc, "WORSHIP", 1);
+--    REQ_MOVE_TO_INDUN(pc, "Request_Mission11", 1)
     
     
 --    UIOpenToPC(pc,'fullblack',1)
@@ -2673,6 +2712,7 @@ function TEST_B_BOX(pc)
 end
 
 function DOTIMEACTION_SANI(pc, target, sani, msg, second)
+    CancelMouseMove(pc)
 
 	local saniRet = PlaySumAni(pc, target, sani);
 	if saniRet == 0.0 then
@@ -2699,6 +2739,7 @@ function DOTIMEACTION_SANI_R(pc, target, sani, msg, second, sobjName)
 end
 
 function DOTIMEACTION_GUILDBATTLE(pc, msg, anim, second, buffObj)
+    CancelMouseMove(pc)
 	PlayAnim(buffObj, 'EVENT_LOOP');
 
 	local result = DoTimeAction(pc, msg, anim, second);
@@ -2788,6 +2829,7 @@ function DOTIMEACTION_R_AFTER(pc, result, animTime, before_time, questname)
 end
 
 function DOTIMEACTION_R(pc, msg, anim, second, sObj_name, add_time)
+    CancelMouseMove(pc)
     local add_timer
     if add_time == nil then
         add_timer = 0
@@ -2913,6 +2955,7 @@ end
 
 --self?? Dialog NPC
 function DOTIMEACTION_B(pc, msg, anim, second, sObj_name, eff_name, self)
+    CancelMouseMove(pc)
     local xac_ssn = GetSessionObject(pc, 'SSN_EV_STOP')
 	if xac_ssn == nil then
     	CreateSessionObject(pc, 'SSN_EV_STOP', 1)
@@ -2961,6 +3004,7 @@ end
 
 
 function DOTIMEACTION_R_DUMMY_ITEM(pc, msg, anim, second, sObj_name, add_time, itemNumber, spot)
+    CancelMouseMove(pc)
 	local add_timer
 	if add_time == nil then
 		add_timer = 0
@@ -6401,6 +6445,10 @@ function TEST_MOVE_TO_BOSS(pc)
 end
 
 
+function TEST_RESET_MOUSE_MOVE(pc)
+    CancelMouseMove(pc);
+end
+
 function TEST_RESET_BUY_TPITEM_LIMIT(pc, itemClassID)
 	if pc == nil then
 		return
@@ -7578,3 +7626,20 @@ function GET_RANDOM_ITEM(pc, columName, itemClassType , itemLv, grade, itemCnt)
     local ret = TxCommit(tx);
     
 end 
+
+  function testbuff(pc)
+	  AddBuff(pc, pc, 'Premium_Fortunecookie_5');
+	  AddBuff(pc, pc, 'Event_161215_5');
+	  AddBuff(pc, pc, 'Event_LargeRice_Soup');
+	  AddBuff(pc, pc, 'Event_WeddingCake');
+	  AddBuff(pc, pc, 'GIMMICK_Drug_Elements_Fire_Atk');
+	  AddBuff(pc, pc, 'Drug_AriesAtk_PC');
+	  AddBuff(pc, pc, 'squire_food1_buff');
+	  AddBuff(pc, pc, 'DRUG_LOOTINGCHANCE', 100, 0, 1800000, 1);
+	  AddBuff(pc, pc, 'Blessing_Buff', 100, 0, 1800000, 1);
+	  AddBuff(pc, pc, 'ChallengeMode_Completed', 100, 0, 1800000, 1);
+	  AddBuff(pc, pc, 'DivineMight_Buff', 100, 0, 1800000, 1);
+	  AddBuff(pc, pc, 'GM_Stat_Buff', 100, 0, 1800000, 1);
+	  AddBuff(pc, pc, 'SCR_USE_ITEM_HasteBuff', 2, 0, 3600000, 1);
+	  ExecClientScp(gm, scp);
+  end

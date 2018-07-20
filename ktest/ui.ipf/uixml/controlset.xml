@@ -70,7 +70,7 @@
 			<slot name="ARMBAND" margin="-96 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="armband" DropScp="None" texttooltip="{@st59}암밴드{/}" layout_gravity="center top"/>
 			<slot name="OUTER" margin="-48 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="outer" DropScp="None" texttooltip="{@st59}코스튬{/}" layout_gravity="center top"/>
 			<slot name="SPECIALCOSTUME" margin="0 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="spcostume_slot" DropScp="None" texttooltip="{@st59}스페셜 코스튬{/}" layout_gravity="center top"/>
-			<slot name="WING" margin="48 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wing_slot" DropScp="None" texttooltip="{@st59}날개{/}" layout_gravity="center top"/>
+			<slot name="WING" margin="48 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wing_slot" DropScp="None" texttooltip="{@st59}등 코스튬{/}" layout_gravity="center top"/>
 			<slot name="EFFECTCOSTUME" margin="96 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="effect_slot" DropScp="None" texttooltip="{@st59}이펙트 코스튬{/}" layout_gravity="center top"/>
 			<labelline name="labelline" margin="0 40 0 0" rect="0 0 300 4" skin="None" layout_gravity="center top" parent="detailBox"/>
 			<richtext name="mapName" margin="0 15 0 0" rect="0 0 120 30" caption="{@st42}텍스트{/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" parent="detailBox"/>
@@ -4106,12 +4106,12 @@
 		<controls>
 		<layout name="layoutBg"/>
 		<layoutsection name="layoutbgSection" parent="layoutBg"/>
-		<groupbox name="mainBg" parent="layoutbgSection" skin="test_skin_01" hittest="false" />
+			<groupbox name="mainBg" parent="layoutbgSection" skin="test_skin_01" LBtnUpScp="OPEN_COMMUNITY_CARD"  scrollbar="false"/>
 		<picture name="separator" stretch="true" image="guild_line_h2" margin="0 45 0 0" rect="0 0 1355 2"/>
 		<richtext name="writerName" textalign="left center" margin="20 15 0 0" caption="{@st66d}유저이름{/}"/>		
 		<groupbox name="main_box" rect="0 0 1355 400" margin="0 50 0 0"  LBtnUpScp="OPEN_COMMUNITY_CARD" draw="false" scrollbar="false"/>
-			<richtext name="mainText" rect="0 0 1200 90" hittest="false" parent="main_box" format="{@st66b}%s{/}" param1="text" param1_def="텍스트" fixheight="true" fixwidth="true" margin="100 0 0 0" resizebytext="false"/>
-		<groupbox name="bottomBox" rect="0 0 1355 50"  draw="false" skin="premium_title_line" layout_gravity="center bottom" scrollbar="false"/>
+			<richtext name="mainText" rect="0 0 1200 90" hittest="false" parent="main_box" format="{@st66b}%s{/}" param1="text" param1_def="텍스트" fixheight="false" fixwidth="true" margin="100 0 0 0" resizebytext="true"/>
+			<groupbox name="bottomBox" LBtnUpScp="OPEN_COMMUNITY_CARD" rect="0 0 1355 50" draw="false" skin="premium_title_line" layout_gravity="center bottom" scrollbar="false"/>
 		
 		<picture name="replyPic" rect="0 0 50 50" margin="10 0 0 -10" parent="bottomBox" image="guild_comment_on" hittest="true" layout_gravity="left top" LBtnUpScp="OPEN_COMMUNITY_CARD"/>
 		<richtext name="replyCount"  parent="bottomBox" caption="0" rect="0 0 100 50" fontname="black_18" layout_gravity="left top" margin="50 0 0 15"  LBtnUpScp="OPEN_COMMUNITY_CARD"/>
@@ -4167,12 +4167,12 @@
 			<richtext name="groupText" rect="0 0 100 30" margin="10 260 0 0" layout_gravity="left top" caption="group" fontname="brown_18_b"/>
 			<richtext name="weightText" rect="0 0 100 30" margin="0 260 10 0" layout_gravity="right top" format="무게: %s" param1="weight" param1_def="0" fontname="brown_18"/>
 			<richtext name="classTypeText" rect="0 0 100 30" margin="10 290 0 0" layout_gravity="left top" caption="classtype" fontname="brown_18"/>
-			<labelline name="line1" rect="0 0 400 4" margin="0 0 0 10" layout_gravity="center bottom" skin="labelline_def2"/>
+			<labelline name="line1" rect="0 0 400 4" margin="0 0 0 10" layout_gravity="center bottom" skin="labelline_def_2"/>
 		</controls>
 	</controlset>
 	<controlset name="tooltip_extract_option_equip_limit" hittest="true" width="410" height="30">
 		<controls>
-			<labelline name="line1" rect="0 0 400 4" margin="0 0 0 0" layout_gravity="center top" skin="labelline_def2"/>
+			<labelline name="line1" rect="0 0 400 4" margin="0 0 0 0" layout_gravity="center top" skin="labelline_def_2"/>
 			<richtext name="descText" rect="0 0 380 10" margin="0 10 0 0" layout_gravity="center top" fixwidth="true" caption="desc" fontname="brown_16"/>
 		</controls>
 	</controlset>
