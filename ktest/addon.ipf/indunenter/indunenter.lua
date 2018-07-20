@@ -29,6 +29,7 @@ function INDUNENTER_AUTOMATCH_CANCEL()
 end
 
 function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
+	IMC_LOG("INFO_NORMAL", "Test1111111111");
     -- get data and check
     local indunCls = GetClassByType('Indun', indunType);
     local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");
