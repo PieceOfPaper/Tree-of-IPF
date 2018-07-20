@@ -4,7 +4,12 @@ local jobHistory = GetJobHistorySting(pc)
 end
 
 function CHECK_ABILITY_LOCK(pc, ability)
-
+    --IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-START");
+    if 1 == 1 then
+        --IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-RETURN");
+		return "UNLOCK";
+	end
+    --IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-NOT-RETURN");
 
     if ability.Job == "None" then
         return "UNLOCK";
