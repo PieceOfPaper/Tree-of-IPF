@@ -241,6 +241,7 @@ end
 
 
 function INDUN_REWARD_MULTI_UP(frame, ctrl)
+print('MULTI_UP 0')
     if frame == nil or ctrl == nil then
         return;
     end
