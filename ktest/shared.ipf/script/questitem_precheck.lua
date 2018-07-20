@@ -7848,3 +7848,50 @@ function SCR_PRE_JOB_ONMYOJI_Q1_ITEM(self, argObj, argstring, arg1, arg2)
     end
     return 0;   
 end
+
+--GM_WHITETREES_OBJ_ITEM2
+function SCR_PRE_GM_WHITETREES_OBJ_ITEM2(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "mission_whitetrees_56_1" then
+        return 1
+    end
+    return 0
+end
+
+--GM_WHITETREES_OBJ_ITEM3
+function SCR_PRE_GM_WHITETREES_OBJ_ITEM3(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "mission_whitetrees_56_1" then
+        local x, y, z = GetPos(self)
+        if SCR_POINT_DISTANCE(x,z, -374,-159) <= 300 then
+            return 1
+        else
+            SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_ITEM_MSG2_1"), 3)
+        end
+    end
+    return 0
+end
+
+--GM_WHITETREES_OBJ_ITEM4
+function SCR_PRE_GM_WHITETREES_OBJ_ITEM4(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "mission_whitetrees_56_1" then
+        local x, y, z = GetPos(self)
+        if SCR_POINT_DISTANCE(x,z, -374,-159) <= 300 then
+            return 1
+        else
+            SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_ITEM_MSG2_2"), 3)
+        end
+    end
+    return 0
+end
+
+--GM_WHITETREES_OBJ_ITEM5
+function SCR_PRE_GM_WHITETREES_OBJ_ITEM5(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "mission_whitetrees_56_1" then
+        local x, y, z = GetPos(self)
+        if SCR_POINT_DISTANCE(x,z, -374,-159) <= 300 then
+            return 1
+        else
+            SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_ITEM_MSG2_3"), 3)
+        end
+    end
+    return 0
+end

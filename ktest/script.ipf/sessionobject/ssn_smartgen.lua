@@ -14,11 +14,11 @@ function SCR_CREATE_SSN_SMARTGEN(self, sObj)
         RegisterHookMsg(self, sObj, 'KillMonster', 'SCR_SMARTGEN_TIMER_STRIGGER_MONKILL', 'NO')
         SetTimeSessionObject(self, sObj, 2, 10000, "SCR_SMARTGEN_TIMER_STRIGGER_BATTLE_TYPE")
         
-        --EVENT_1804_ROOT
-        local eventZone = SMARTGEN_EVENT_ZONE_TABLE()
-        if table.find(eventZone, GetZoneName(self)) > 0 then
-            SetTimeSessionObject(self, sObj, 3, 3000, "SCR_SMARTGEN_TIMER_STRIGGER_EVENT")
-        end
+--        --EVENT_1804_ROOT
+--        local eventZone = SMARTGEN_EVENT_ZONE_TABLE()
+--        if table.find(eventZone, GetZoneName(self)) > 0 then
+--            SetTimeSessionObject(self, sObj, 3, 3000, "SCR_SMARTGEN_TIMER_STRIGGER_EVENT")
+--        end
     end
 	-- Time Limit
 	--SetTimeSessionObject(self, sObj, 1, 500, "SCR_SMARTGEN_TIMER")
@@ -42,11 +42,11 @@ function SCR_REENTER_SSN_SMARTGEN(self, sObj)
         RegisterHookMsg(self, sObj, 'KillMonster', 'SCR_SMARTGEN_TIMER_STRIGGER_MONKILL', 'NO')
         SetTimeSessionObject(self, sObj, 2, 10000, "SCR_SMARTGEN_TIMER_STRIGGER_BATTLE_TYPE")
         
-        --EVENT_1804_ROOT
-        local eventZone = SMARTGEN_EVENT_ZONE_TABLE()
-        if table.find(eventZone, GetZoneName(self)) > 0 then
-            SetTimeSessionObject(self, sObj, 3, 3000, "SCR_SMARTGEN_TIMER_STRIGGER_EVENT")
-        end
+--        --EVENT_1804_ROOT
+--        local eventZone = SMARTGEN_EVENT_ZONE_TABLE()
+--        if table.find(eventZone, GetZoneName(self)) > 0 then
+--            SetTimeSessionObject(self, sObj, 3, 3000, "SCR_SMARTGEN_TIMER_STRIGGER_EVENT")
+--        end
     end
 	--SetTimeSessionObject(self, sObj, 1, 500, "SCR_SMARTGEN_TIMER")         
 --	SetTimeSessionObject(self, sObj, 2, 500, "SCR_SCROLLLOCKGEN_TIMER") 
@@ -76,11 +76,11 @@ function SCR_SMARTGEN_TIMER_STRIGGER_MONKILL(self, sObj, msg, argObj, argStr, ar
         sObj.SMTG_STrigger_KillCount = sObj.SMTG_STrigger_KillCount + 1
     end
     
-    --EVENT_1804_ROOT
-    local sTriggerTimeBasic_Event = GetClassNumber('SessionObject', sObj.ClassName, 'EVENT_STrigger_Time')
-    if sObj.EVENT_STrigger_Time > sTriggerTimeBasic_Event and sObj.EVENT_STrigger_Time > 0 then
-        sObj.EVENT_STrigger_Time = sObj.EVENT_STrigger_Time - 0.1
-    end
+--    --EVENT_1804_ROOT
+--    local sTriggerTimeBasic_Event = GetClassNumber('SessionObject', sObj.ClassName, 'EVENT_STrigger_Time')
+--    if sObj.EVENT_STrigger_Time > sTriggerTimeBasic_Event and sObj.EVENT_STrigger_Time > 0 then
+--        sObj.EVENT_STrigger_Time = sObj.EVENT_STrigger_Time - 0.1
+--    end
 end
 
 function SCR_SMARTGEN_TIMER_STRIGGER_BATTLE_TYPE(self, sObj, remainTime)

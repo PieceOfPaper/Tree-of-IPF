@@ -70,7 +70,7 @@ function PORTAL_SELLER_INIT_PORTAL_LIST(frame)
         -- picture
         local isValid = ui.IsValidImage(mapName);
 		if isValid == false then
-			world.PreloadMinimap(mapName, true, true);
+			world.PreloadMinimap(mapName);
 		end
 
         local pic = GET_CHILD_RECURSIVELY(ctrlSet, 'pic');

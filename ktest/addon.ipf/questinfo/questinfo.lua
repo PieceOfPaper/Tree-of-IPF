@@ -9,10 +9,7 @@ function QUESTINFO_ON_INIT(addon, frame)
 end 
 
 function UPDATE_QUESTMARK(frame, msg, argStr, argNum)
-	-- 아래의 로직 cpp로 옮기고, 비동기적으로 처리되도록 수정하였습니다.
-	ui.UpdateQuestMark();
-
-	--[[local pc = GetMyPCObject();d
+	local pc = GetMyPCObject();
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
     local subQuestZoneList = {}
     if sObj == nil then
@@ -120,7 +117,7 @@ function UPDATE_QUESTMARK(frame, msg, argStr, argNum)
     		end
     end		
         
-    quest.UpdateQuestMark();]]--
+    quest.UpdateQuestMark();
 end
 
 

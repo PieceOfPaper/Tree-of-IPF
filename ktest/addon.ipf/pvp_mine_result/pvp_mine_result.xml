@@ -11,8 +11,9 @@
 	<controls>
 		<picture name="bg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="false" image="fullblack" stretch="true" alpha="80"/>
 		<button name="closeBtn" rect="0 0 70 70" margin="0 10 10 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('pvp_mine_result')" texttooltip="닫기"/>
-		<richtext name="GetPoint_Desc" rect="0 250 500 30" margin="0 0 0 0" layout_gravity="center center" format="[ %s 개] 증표 획득" param1="point" param1_def="0" fontname="area_name"/>
-		<richtext name="infoText" rect="0 0 500 30" margin="0 0 280 105" layout_gravity="center bottom" format="{@st66d}{s20}%s초 후에 도시로 귀환됩니다.{/}" param1="time" param1_def="60" fontname="white_18_b_ol"/>
+		<richtext name="GetPoint_Desc" rect="0 250 500 30" margin="0 0 0 0" layout_gravity="center center" format="증표 [ %s 개] 획득" param1="point" param1_def="0" fontname="area_name"/>
+		<richtext name="infoText" rect="0 0 500 30" margin="0 0 280 105" layout_gravity="center bottom" format="{@st66d}{s20}%s초 후에 귀환됩니다.{/}" param1="time" param1_def="60" fontname="white_18_b_ol"/>
+		<button name="returnBtn" rect="0 0 220 60" margin="0 0 20 30" layout_gravity="center bottom" skin="test_red_button" caption="{@st66d}귀환{/}" fontname="white_18_b_ol" LBtnUpScp="PVP_MINE_RESULT_REQ_RETURN_CITY"/>
 		<!-- Win -->
 		<groupbox name="winBox" rect="0 0 1300 700" margin="0 -100 0 0" layout_gravity="center center" draw="false"/>
 		<!-- Lose -->

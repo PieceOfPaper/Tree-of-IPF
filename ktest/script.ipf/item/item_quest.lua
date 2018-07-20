@@ -12003,3 +12003,72 @@ function SCR_USE_CHAR118_MSTEP2_2_ITEM2(self, argObj, argstring, arg1, arg2)
         end
     end
 end
+
+--GM_WHITETREES_OBJ_ITEM2
+function SCR_USE_GM_WHITETREES_OBJ_ITEM2(self, argObj, argstring, arg1, arg2)
+    local result1 = DOTIMEACTION_R(self, ScpArgMsg("GM_WHITETREES_NPC1_MSG8"), "BURY", 1.5)
+    if result1 == 1 then
+        local x,y,z = GetPos(self)
+        RunScript("TAKE_ITEM_TX", self, "GM_WHITETREES_OBJ_ITEM2", 1, "GM_WHITETREES")
+        local mon = CREATE_MONSTER_EX(self, "Bomb", x, y, z, 1, "Our_Forces", 1, GM_WHITETREES_OBJ_ITEM2_SET)
+        local boom_ssn = GetSessionObject(mon, 'SSN_QUESTITEM_BOOM')
+        if boom_ssn == nil then
+            CreateSessionObject(mon, 'SSN_QUESTITEM_BOOM', 1)
+        end
+        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_ITEM_MSG1"), 3)
+    end
+end
+
+function GM_WHITETREES_OBJ_ITEM2_SET(self)
+    self.Name = ScpArgMsg("GM_WHITETREES_ITEM_MSG1_NAME")
+    self.Tactics = "None"
+end
+
+--GM_WHITETREES_OBJ_ITEM3
+function SCR_USE_GM_WHITETREES_OBJ_ITEM3(self, argObj, argstring, arg1, arg2)
+    GM_WHITETREES_OBJ_ITEM_FUNC(self, ScpArgMsg("GM_WHITETREES_NPC1_MSG9"), "GM_WHITETREES_OBJ_ITEM3", "GM_Large_crossbow", ScpArgMsg("GM_WHITETREES_NPC1_MSG12"))
+end
+
+--GM_WHITETREES_OBJ_ITEM4
+function SCR_USE_GM_WHITETREES_OBJ_ITEM4(self, argObj, argstring, arg1, arg2)
+    GM_WHITETREES_OBJ_ITEM_FUNC(self, ScpArgMsg("GM_WHITETREES_NPC1_MSG10"), "GM_WHITETREES_OBJ_ITEM4", "GM_arrow_trap", ScpArgMsg("GM_WHITETREES_NPC1_MSG13"))
+end
+
+--GM_WHITETREES_OBJ_ITEM5
+function SCR_USE_GM_WHITETREES_OBJ_ITEM5(self, argObj, argstring, arg1, arg2)
+    GM_WHITETREES_OBJ_ITEM_FUNC(self, ScpArgMsg("GM_WHITETREES_NPC1_MSG11"), "GM_WHITETREES_OBJ_ITEM5", "GM_stake_stockades",ScpArgMsg("GM_WHITETREES_NPC1_MSG14"))
+end
+
+function GM_WHITETREES_OBJ_ITEM_FUNC(self, animmsg, item, obj, msg)
+    local result1 = DOTIMEACTION_R(self, animmsg, "BURY", 1.5)
+    if result1 == 1 then
+        local x,y,z = GetPos(self)
+        RunScript("TAKE_ITEM_TX", self, item, 1, "GM_WHITETREES")
+        local mon = CREATE_MONSTER_EX(self, obj, x, y, z, 1, "Our_Forces", 1, GM_WHITETREES_OBJ_ITEM_SET1)
+        SendAddOnMsg(self, "NOTICE_Dm_scroll", msg, 3)
+    end
+end
+
+function GM_WHITETREES_OBJ_ITEM_SET1(self)
+    if self.ClassName == "GM_Large_crossbow" then
+        self.HPCount = 50
+        self.Dialog = "GM_WHITETREES_ITEM_OBJ"
+    elseif self.ClassName == "GM_arrow_trap" then
+        self.HPCount = 75
+        self.Dialog = "GM_WHITETREES_ITEM_OBJ"
+    elseif self.ClassName == "GM_stake_stockades" then
+        self.HPCount = 150
+    end
+    self.Tactics = "None"
+end
+
+function SCR_GM_WHITETREES_ITEM_OBJ_DIALOG(self, pc)
+    if GetInvItemCount(pc, "GM_WHITETREES_OBJ_ITEM1") >= 1 then
+        local result1 = DOTIMEACTION_R(pc, "GM_WHITETREES_ITEM1_MSG1", "BURY", 1.5)
+        if result1 == 1 then
+            RunScript("TAKE_ITEM_TX", pc, "GM_WHITETREES_OBJ_ITEM1",1, "GM_WHITETREES_56_1")
+            AddBuff(self, self, "GM_WHITETREES_DEFFENCE_OBJ_BUFF", 1, 0, 0, 1)
+            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_ITEM1_MSG2"), 5)
+        end
+    end
+end

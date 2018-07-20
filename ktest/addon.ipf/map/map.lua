@@ -379,8 +379,11 @@ function MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offset
 		return;
 	end
 
-	local npclist, statelist, questIESlist, questPropList = GetQuestNpcNames();
-
+	local npclist = {};
+	local statelist = {};
+	local questIESlist  = {};
+	local questPropList = {};
+	GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESlist, questPropList);
 	MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList, mapWidth, mapHeight, offsetX, offsetY);
 	MAKE_TOP_QUEST_ICONS(frame);
 	MAKE_MY_CURSOR_TOP(frame);
@@ -581,16 +584,21 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 					if questIES ~= nil then
 						SET_MAP_CTRLSET_TXT(qstctrl, CurState, Icon, iconW, iconH, mylevel, questIES)
 					end
+
 				end
+
+
 			end
 		end
 	end
 
+	-- Location을 통한 퀘스트 정보 출력
+	local allmaptxt = "";
+
 	local mapname = mapprop:GetClassName();
 	local cnt = #questPropList;
 	for i = 1 , cnt do
-		--local questprop = questPropList[i];
-		local questprop = geQuestTable.GetPropByIndex(questPropList[i]);
+		local questprop = questPropList[i];
 		local cls = questIESlist[i];
 		local stateidx = STATE_NUMBER(statelist[i]);
 
@@ -613,7 +621,6 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 										WorldPos = GenList:Element(j);
 										local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, m_mapWidth, m_mapHeight);
 										local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_MAPPOS(MapPos, locinfo, mapprop, minimapw, minimaph);
-
 										MAKE_LOC_CLICK_ICON(frame, i, stateidx, k, XC, YC, RangeX, RangeY, 30);
 										XC = m_offsetX + MapPos.x - iconW / 2;
 										YC = m_offsetY + MapPos.y - iconH / 2;
@@ -621,15 +628,17 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 										MAKE_LOC_ICON(frame, cls, i, stateidx, k, XC, YC, iconW, iconH, WorldPos, statelist, questIESlist, MapPos);
 									end
 								end
+							else
+								allmaptxt = string.format("%s%s{nl}", allmaptxt, cls.Name);
 							end
 						else
 							local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, m_mapWidth, m_mapHeight);
 							local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_MAPPOS(MapPos, locinfo, mapprop, minimapw, minimaph);
 
 							MAKE_LOC_CLICK_ICON(frame, i, stateidx, k, XC, YC, RangeX, RangeY, 30);
+
 							XC = m_offsetX + MapPos.x - iconW / 2;
 							YC = m_offsetY + MapPos.y - iconH / 2;
-							
 							MAKE_LOC_ICON(frame, cls, i, stateidx, k, XC, YC, iconW, iconH, WorldPos, statelist, questIESlist);
 
 						end
@@ -1223,7 +1232,7 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 	local myctrl = GET_CHILD_RECURSIVELY(newframe, 'my');
 	myctrl:ShowWindow(0);
 
-	world.PreloadMinimap(zoneClassName, false, false);
+	world.PreloadMinimap(zoneClassName);
 	local mappicturetemp = GET_CHILD_RECURSIVELY(newframe,'map','ui::CPicture')	
 	if useMapFog == true then
 		mappicturetemp:SetImage(zoneClassName .. "_fog");

@@ -35,7 +35,7 @@ function INTE_WARP_DETAIL_INFO(cost, infoString, xPos)
 		nameRechText2:SetTextByKey("medal",cost..ScpArgMsg('Auto__SilBeo_SoMo'));
 		--nameRechText2:SetTextByKey("medal",'');
 
-		world.PreloadMinimap(camp_warp_class.Zone, true, true);
+		world.PreloadMinimap(camp_warp_class.Zone);
 		local pic = GET_CHILD(frame, "picture_minimap", "ui::CPicture");
 		pic:SetImage(camp_warp_class.Zone);
 
@@ -71,7 +71,7 @@ function INTE_WARP_DETAIL_INFO(cost, infoString, xPos)
 		nameRechText2:SetTextByKey("medal",cost..ScpArgMsg('Auto__SilBeo_SoMo'));
 		--nameRechText2:SetTextByKey("medal",'');
 
-		world.PreloadMinimap(mapClass.ClassName, true, true);
+		world.PreloadMinimap(mapClass.ClassName);
 		local pic = GET_CHILD(frame, "picture_minimap", "ui::CPicture");
 		pic:SetImage(mapClass.ClassName);
 

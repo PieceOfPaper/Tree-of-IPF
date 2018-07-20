@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -53,7 +53,7 @@
 		<Class ClassID="308" ClassName="CHNCLIENTTITLE" Data="救世之树"/>
 		<Class ClassID="309" ClassName="FailToWhisper" Data="귓속말에 실패했습니다. 다시 시도해주세요."/>
 		<Class ClassID="310" ClassName="FailToInviteGroupChat" Data="그룹 채팅 초대에 실패했습니다. 다시 시도해주세요."/>
-	</Category>
+		</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
 		<Class ClassID="1101" ClassName="Caster" Data="시전자"/>
@@ -148,8 +148,10 @@
 		<Class ClassID="2083" ClassName="LegendReinforceCard_Not_Equip" Data="레전드 강화용 카드는 착용할 수 없습니다."/>
 		<Class ClassID="2084" ClassName="IS_MechanicalItem" Data="강화, 초월, 소켓 추가, 젬 장착 등{nl}{@st66d_y}{s19}가공된 장비{/}{/}는 합성 재료로 사용할 수 없습니다."/>
 		<Class ClassID="2085" ClassName="IS_MechanicalItem_Decompose" Data="{@st47}{s18}강화, 초월, 젬 장착, 소켓 추가, 각성{/}{/}된 장비 아이템이 분해될 수 있습니다."/>
-		<Class ClassID="2086" ClassName="LegendItemCannotBreakOrRemove" Data="현재 장비는 초월 후 개인거래가 불가능합니다.{nl}초월 실패시 포텐셜이 소모됩니다.{nl}초월을 진행하시겠습니까?"/>
+		<Class ClassID="2086" ClassName="LegendItemCannotBreakOrRemove" Data="현재 장비는 초월 후 개인 거래가 불가능합니다.{nl}초월 실패시 포텐셜이 소모됩니다.{nl}초월을 진행하시겠습니까?"/>
 		<Class ClassID="2087" ClassName="CannotGivePrefixAnymore" Data="이미 링크되어 있습니다."/>
+    <Class ClassID="2088" ClassName="ArriveInMaxLevel" Data="강화 한계에 도달하였습니다."/>
+    <Class ClassID="2089" ClassName="ExceedExpOverMaxLevel{EXCEED_EXP}" Data="현재 재료로 {#62100c}[ {EXCEED_EXP} ]{/}{/}의 잉여 경험치가 발생합니다. 계속 진행하시겠습니까?"/>
 	</Category>
 	<Category Name="ItemContents">
 		<Class ClassID="2200" ClassName="ClickSocketTargetItem" Data="소켓을 추가 할 아이템을 선택해주세요"/>
@@ -176,7 +178,7 @@
 		<Class ClassID="2221" ClassName="ItemDeletedByOptionExtractSuccess" Data="옵션 추출 성공으로 장비가 소멸되었습니다."/>
 		<Class ClassID="2222" ClassName="ItemDeletedByOptionExtractDestroy" Data="옵션 추출 실패로 장비가 파괴되었습니다."/>
 		<Class ClassID="2223" ClassName="CannotProcessUIInputDuringPrefixing" Data="세트 옵션 부여 중에는 UI 이용이 불가능합니다.{nl}계속하시겠습니까?"/>
-	</Category>
+		</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
 		<Class ClassID="3002" ClassName="RecipeResult" Data="{@st42)제작 시"/>
@@ -413,7 +415,7 @@
 		<Class ClassID="4175" ClassName="DrugLootingChance" Data="루팅 찬스"/>
 		<Class ClassID="4176" ClassName="DoYouAgreeExchangeFinally?" Data="거래를 최종적으로 승인하시겠습니까?"/>
 		<Class ClassID="4177" ClassName="SelectRecipe{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}레시피를 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 레시피로{nl}교환할 수 없습니다."/>
-	</Category>
+		</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
 		<Class ClassID="5002" ClassName="WhenEquipToWeapon" Data="무기 장착 시 효과"/>
@@ -1261,7 +1263,7 @@
 		<Class ClassID="22521" ClassName="SteamAIDIsReplaced" Data="스팀 인벤토리 조회를 위한 AID가 {AID}으로 대체되었습니다."/>
 		<Class ClassID="22522" ClassName="StillProcessingTryLater" Data="이전 지급 요청이 진행중입니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="22523" ClassName="TPItemProcessFail" Data="TP 지급 작업이 실패하였습니다.{nl}잠시 후 다시 시도해주세요.{nl}문제가 지속되는 경우 에러코드를 문의 사서함에 접수해주시기 바랍니다.{nl}에러코드 : {Code}"/>
-	</Category>
+		</Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
 		<Class ClassID="23002" ClassName="CardNotRegistered" Data="카드를 등록하지 않았습니다."/>
@@ -2290,7 +2292,7 @@
 		<Class ClassID="25002" ClassName="UNDERF592_TYPEB_HEAD_SEL_HOW_5" Data="라이마 만세!"/>
 		<Class ClassID="25003" ClassName="UNDERF592_TYPEB_HEAD_SEL_HOW_6" Data="가비야 만세!"/>
 		<Class ClassID="25004" ClassName="UNDERF592_TYPEB_HEAD_SEL_GET" Data="가비야 만세!"/>
-		<Class ClassID="25005" ClassName="UNDERF592_TYPEB_HEAD_SEL_PASS" Data="숫자를 떠올렸다!{nl}"/>
+		<Class ClassID="25005" ClassName="UNDERF592_TYPEB_HEAD_SEL_PASS" Data="숫자를 떠올렸습니다{nl}{PASS}"/>
 		<Class ClassID="25006" ClassName="UNDERF592_TYPEB_GATE_DEAD_RUN" Data="부정한 벌레 알"/>
 		<Class ClassID="25007" ClassName="UNDERF593_TYPED_NOTICE" Data="아콘의 봉인이 약해졌습니다"/>
 		<Class ClassID="25008" ClassName="UNDERF593_TYPED_EXIT" Data="아콘이 봉인에서 풀려났습니다!"/>
@@ -4594,6 +4596,11 @@
 		<Class ClassID="27900" ClassName="MISSION_SURVIVAL_EVENT2_MSG1" Data="상자를 열어본다"/>
 		<Class ClassID="27901" ClassName="MISSION_SURVIVAL_EVENT2_MSG2" Data="미션을 나간다"/>
 		<Class ClassID="27902" ClassName="MISSION_SURVIVAL_EVENT2_MSG3" Data="컴패니언과 같이 입장하실 수 없습니다"/>
+		<Class ClassID="27910" ClassName="EVENT_1805_WEDDING1_MSG1" Data="결혼식이 얼마 남지 않았는데 몬스터에게 청첩장을 빼앗겼어요.{nl}마을 사람들에게 건네 줄 청첩장을 찾아줄 수 있나요?{nl}[{DAYCOUNT}일 차 보상 : {ITEM} {COUNT}개]"/>
+		<Class ClassID="27911" ClassName="EVENT_1805_WEDDING1_MSG2" Data="'잃어버린 청첩장 조각' 아이템을 건넨다"/>
+		<Class ClassID="27912" ClassName="EVENT_1805_WEDDING1_MSG3" Data="오늘은 조각을 모두 건네주셨습니다{nl}내일 다시 건네주세요!"/>
+		<Class ClassID="27913" ClassName="EVENT_1805_WEDDING1_MSG4" Data="'잃어버린 청첩장 조각' 아이템 50개가 필요합니다"/>
+		<Class ClassID="27914" ClassName="EVENT_1805_WEDDING1_MSG5" Data="{#003399}[팀창고 이동 불가]{/}"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5664,6 +5671,39 @@
 		<Class ClassID="50792" ClassName="RETIARII_TRAINING_5_MONKILL_SUCC_CNT" Data="{nl}극적인 상황 연출 훈련({simulation}/20)"/>
 		<Class ClassID="50793" ClassName="CHAR121_MSTEP2_ITEM2_MSG2" Data="근력 훈련({muscular}/25){nl}지구력 훈련({endurande}/3){nl}민첩성 훈련({agility}/20){nl}극적인 상황 연출 훈련({simulation}/20){nl}모든 훈련을 완료했습니다. 레티아리이 마스터와 대화하세요"/>
 		<Class ClassID="50841" ClassName="RETIARII_TRAINING_COMPANION_NOT" Data="컴패니언을 탑승한 상태에서는{nl}지구력 훈련을 진행할 수 없습니다"/>
+		<Class ClassID="50842" ClassName="GM_WHITETREES_NPC1_CHAT1" Data="저를 따라와주세요"/>
+		<Class ClassID="50843" ClassName="GM_WHITETREES_NPC1_SEL1" Data="도움을 준다"/>
+		<Class ClassID="50844" ClassName="GM_WHITETREES_NPC1_MSG1" Data="시설을 보수하는 중"/>
+		<Class ClassID="50845" ClassName="GM_WHITETREES_NPC1_MSG2" Data="자루더미 수집 중"/>
+		<Class ClassID="50846" ClassName="GM_WHITETREES_NPC1_MSG3" Data="자루더미를 획득했습니다"/>
+		<Class ClassID="50847" ClassName="GM_WHITETREES_NPC1_MSG4" Data="폭탄을 획득했습니다"/>
+		<Class ClassID="50848" ClassName="GM_WHITETREES_NPC1_SEL2" Data="자루더미를 전달하기"/>
+		<Class ClassID="50849" ClassName="GM_WHITETREES_NPC1_SEL3" Data="발리스타를 만들어달라고 한다"/>
+		<Class ClassID="50850" ClassName="GM_WHITETREES_NPC1_SEL4" Data="터렛을 만들어달라고 한다"/>
+		<Class ClassID="50851" ClassName="GM_WHITETREES_NPC1_SEL5" Data="방책을 만들어달라고 한다"/>
+		<Class ClassID="50852" ClassName="GM_WHITETREES_NPC1_MSG5" Data="발리스타를 획득했습니다"/>
+		<Class ClassID="50853" ClassName="GM_WHITETREES_NPC1_MSG6" Data="터렛을 획득했습니다"/>
+		<Class ClassID="50854" ClassName="GM_WHITETREES_NPC1_MSG7" Data="방책을 획득했습니다"/>
+		<Class ClassID="50855" ClassName="GM_WHITETREES_NPC1_MSG8" Data="폭탄 설치 중"/>
+		<Class ClassID="50856" ClassName="GM_WHITETREES_ITEM_MSG1" Data="곧 폭탄이 터집니다{nl}폭발 범위를 벗어나세요"/>
+		<Class ClassID="50857" ClassName="GM_WHITETREES_ITEM_MSG1_NAME" Data="폭탄"/>
+		<Class ClassID="50858" ClassName="GM_WHITETREES_ITEM_MSG2_1" Data="발리스타를 짓기에는 적절하지 않는 장소입니다"/>
+		<Class ClassID="50859" ClassName="GM_WHITETREES_ITEM_MSG2_2" Data="터렛을 설치하기엔 적절하지 않는 장소입니다"/>
+		<Class ClassID="50860" ClassName="GM_WHITETREES_ITEM_MSG2_3" Data="방책을 설치하기엔 적절하지 않는 장소입니다"/>
+		<Class ClassID="50861" ClassName="GM_WHITETREES_NPC1_MSG9" Data="발리스타를 설치하는 중"/>
+		<Class ClassID="50862" ClassName="GM_WHITETREES_NPC1_MSG10" Data="터렛을 설치하는 중"/>
+		<Class ClassID="50863" ClassName="GM_WHITETREES_NPC1_MSG11" Data="방책을 설치하는 중"/>
+		<Class ClassID="50864" ClassName="GM_WHITETREES_NPC1_MSG12" Data="발리스타를 설치했습니다"/>
+		<Class ClassID="50865" ClassName="GM_WHITETREES_NPC1_MSG13" Data="터렛을 설치했습니다"/>
+		<Class ClassID="50866" ClassName="GM_WHITETREES_NPC1_MSG14" Data="방책을 설치했습니다"/>
+		<Class ClassID="50867" ClassName="GM_WHITETREES_ITEM1_MSG1" Data="회심의 일발을 장전 중"/>
+		<Class ClassID="50868" ClassName="GM_WHITETREES_ITEM1_MSG2" Data="회심의 일발을 장전했습니다"/>
+		<Class ClassID="50869" ClassName="GM_WHITETREES_NPC4_DLG1" Data="이렇게 몬스터에게 삶의 터전을 빼앗기면 우린 어디로 가라고"/>
+		<Class ClassID="50870" ClassName="GM_WHITETREES_NPC5_DLG1" Data="미쉐칸 숲에 포탈이 생기더니이곳에 서식하지 않는 몬스터가 나타나기 시작했어"/>
+		<Class ClassID="50871" ClassName="GM_WHITETREES_NPC6_DLG1" Data="우리들의 삶터에 몬스터들이 침입하지 않도록 막아주세요"/>
+		<Class ClassID="50872" ClassName="GM_WHITETREES_NPC7_DLG1" Data="저희들의 힘만으로는 난폭한 몬스터를 막는데 무리에요 "/>
+		<Class ClassID="50873" ClassName="GM_WHITETREES_NPC1_SEL6" Data="포탈이 어디있는지 묻는다"/>
+		<Class ClassID="50874" ClassName="GM_WHITETREES_NPC1_SEL7" Data="오벨리스크가 어디있는지 묻는다"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>
@@ -6818,6 +6858,7 @@
 		<Class ClassID="90182" ClassName="AGARIO_ENTER_MSG1" Data="현재 입장 횟수는 {COUNT} / 3 회입니다."/>
 		<Class ClassID="90183" ClassName="AGARIO_SEL2_MSG1" Data="나가기"/>
 		<Class ClassID="90184" ClassName="AGARIO_ACHIEVE" Data="이미 획득한 칭호입니다"/>
+		<Class ClassID="90186" ClassName="UPHILL_DEFFENSE_SELF_DESTRUCTION_ACTIVE" Data="몬스터가 옮긴 폭탄들이 횃불에 닿아 터졌습니다!{nl}횃불이 큰 피해를 입었습니다!"/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -7948,7 +7989,7 @@
 		<Class ClassID="131069" ClassName="CanNotJoinPVPFromMission" Data="해당 지역에서는 참가하실 수 없습니다."/>
 		<Class ClassID="131071" ClassName="RewardSeason" Data="이전 시즌의 팀배틀리그 보상을  이미 받으셨습니다."/>
 		<Class ClassID="131072" ClassName="PVPReward" Data="보상 받기"/>
-	</Category>
+		</Category>
 	<Category Name="MonInfo">
 		<Class ClassID="132001" ClassName="MonInfo_Size" Data="크기"/>
 		<Class ClassID="132002" ClassName="MonInfo_RaceType" Data="종족"/>
@@ -9461,7 +9502,7 @@
 		<Class ClassID="137389" ClassName="Auto_}anNyeongHaSeyo" Data="}안녕하세요"/>
 		<Class ClassID="137390" ClassName="Auto_{@st41b}JeopKi_" Data="{@st41b}접기 {img red_up_arrow 16 16}"/>
 		<Class ClassID="137391" ClassName="Auto_{@st41b}SangSe_BoKi_" Data="{@st41b}상세 보기 {img red_down_arrow 16 16}"/>
-		<Class ClassID="137392" ClassName="Auto_{s22}JeongMalLo_BeoLiSiKessSeupNiKka?" Data="{s22}정말로 버리시겠습니까?"/>		
+		<Class ClassID="137392" ClassName="Auto_{s22}JeongMalLo_BeoLiSiKessSeupNiKka?" Data="{s22}정말로 버리시겠습니까?"/>
 		<Class ClassID="137395" ClassName="Auto_{#FFFF00}{s20}{ol}{b}aiTemHoegDeug_:_" Data="{#FFFF00}{s20}{ol}{b}아이템획득 : "/>
 		<Class ClassID="137396" ClassName="Auto_{Auto_1}Bun_{Auto_2}Cho" Data="{Auto_1}분 {Auto_2}초"/>
 		<Class ClassID="137397" ClassName="Auto_Kil" Data="?"/>
@@ -10465,8 +10506,8 @@
 		<Class ClassID="138395" ClassName="Auto_TMace" Data="양손 둔기류"/>
 		<Class ClassID="138400" ClassName="ChallengeModeReset_MSG1" Data="오늘 챌린지 모드 1회 완료 후에만 사용 가능합니다"/>
 		<Class ClassID="138401" ClassName="ChallengeModeReset_MSG2" Data="챌린지 모드 1회 추가 횟수를 받으셨습니다"/>
-    	<Class ClassID="138404" ClassName="ReallyDestroy{ITEM}{COUNT}" Data="정말 {#85070a}[{ITEM}]{/}을 {#85070a}[{COUNT}]{/}개 버리시겠습니까?"/>
-    	<Class ClassID="138405" ClassName="ReallyDestroy{ITEM}" Data="정말 {#85070a}[{ITEM}]{/}을 버리시겠습니까?"/>
+		<Class ClassID="138404" ClassName="ReallyDestroy{ITEM}{COUNT}" Data="정말 {#85070a}[{ITEM}]{/}을 {#85070a}[{COUNT}]{/}개 버리시겠습니까?"/>
+		<Class ClassID="138405" ClassName="ReallyDestroy{ITEM}" Data="정말 {#85070a}[{ITEM}]{/}을 버리시겠습니까?"/>
 	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
@@ -10567,7 +10608,7 @@
 		<Class ClassID="201065" ClassName="ChatFrameType" Data="채팅 탭 전환"/>
 		<Class ClassID="201066" ClassName="FishingBag" Data="살림통"/>
 		<Class ClassID="201067" ClassName="guildinfo" Data="길드 정보"/>
-	</Category>
+		</Category>
 	<Category Name="QuestAutoTool">
 		<Class ClassID="202001" Data="퀘스트 툴 파일 복사"/>
 		<Class ClassID="202002" Data="사냥 시 퀘스트 시작 아이템"/>
@@ -11046,7 +11087,7 @@
 		<Class ClassID="300171" ClassName="attendance" Data="출석 보상 확인"/>
 		<Class ClassID="300172" ClassName="PremiumToken_15d_vk" Data="토큰:15일[바카리네]"/>
 		<Class ClassID="300173" ClassName="SelectPurchaseRestrictedItemByMonth" Data="해당 아이템은 한 달에 {Value}개만 구매할 수 있습니다.{nl}구매하시겠습니까?"/>
-	</Category>
+		</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
 		<Class ClassID="301002" ClassName="hirePC" Data="용병 고용"/>
@@ -11146,8 +11187,8 @@
 		<Class ClassID="501015" ClassName="Steam_VerUP_Select03" Data="목표레벨 확인"/>
 		<Class ClassID="501016" ClassName="ManWoo_1" Data="컴패니언 탑승 상태에서 사용할 수 없습니다."/>
 		<Class ClassID="501017" ClassName="ManWoo_2" Data="만우절 아이템 받기"/>
-	</Category>
-	<Category Name="Npc_Equip_Shop_270_315">
+		</Category>
+		<Category Name="Npc_Equip_Shop_270_315">
 		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>
 		<Class ClassID="510201" ClassName="NPC_SHOP_ARMOR_NORMAL_270_315" Data="방어구"/>
 		<Class ClassID="501065" ClassName="Event_GOLDEN_WHALE_1" Data="황금 석화 고래 이벤트"/>
@@ -11168,7 +11209,7 @@
 		<Class ClassID="501096" ClassName="EVENT_SELECT_BOSSLV_SEL5" Data="특별한 푸른 구슬 이벤트"/>
 		<Class ClassID="501097" ClassName="EVENT_SELECT_BOSSLV_SEL6" Data=" {nl}몬스터 정보{nl}Lv {LV1} {NAME1}{nl}Lv {LV2} {NAME2}{nl}Lv {LV3} {NAME3}"/>
 		<Class ClassID="501098" ClassName="EVENT_SELECT_BOSSLV_SEL7" Data=" {nl}이벤트 미션 정보{nl}최대 클리어 단계 : {MAX}"/>
-	<Class ClassID="501154" ClassName="EVENT_STEAM_COLONY_FIRST_VICTORY_MSG" Data="길드 콜로니전 첫 승리 보상 받기"/>
+		<Class ClassID="501154" ClassName="EVENT_STEAM_COLONY_FIRST_VICTORY_MSG" Data="길드 콜로니전 첫 승리 보상 받기"/>
 	</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
@@ -11257,6 +11298,10 @@
 		<Class ClassID="510716" ClassName="pvp_mine_plunder_1" Data="A 팀의 포인트가 {POINT} 만큼 감소하였습니다."/>
 		<Class ClassID="510717" ClassName="pvp_mine_plunder_2" Data="B 팀의 포인트가 {POINT} 만큼 감소하였습니다."/>
 		<Class ClassID="510718" ClassName="pvp_mine_get_crystal" Data="{COUNT} 획득!"/>
+	<Class ClassID="510719" ClassName="pvp_mine_before_30m" Data="자원 쟁탈전 시작 30분 전입니다."/>
+	<Class ClassID="510720" ClassName="pvp_mine_before_10m" Data="자원 쟁탈전 시작 10분 전입니다."/>
+		<Class ClassID="510721" ClassName="pvp_mine_before_5m" Data="자원 쟁탈전 시작 5분 전입니다.{nl}샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
+		<Class ClassID="510722" ClassName="pvp_mine_before_start" Data="자원 쟁탈전 시작되었습니다!{nl}샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
 	</Category>
 	<Category Name="Cyou">
 		<Class ClassID="600000" ClassName="CyouDelibarationMsg1" Data="?累?在???已?1小?"/>
@@ -11289,7 +11334,7 @@
 		<Class ClassID="700015" ClassName="TopRanking" Data="상위 랭킹"/>
 		<Class ClassID="700016" ClassName="{CtrlType}Type{RankNum}Rank" Data="{CtrlType} {RankNum}랭크"/>
 		<Class ClassID="700017" ClassName="Score" Data="점수"/>
-	</Category>
+		</Category>
 	<Category Name="LegendTrade">
 		<Class ClassID="510400" ClassName="GT2_RELICSHOP_NPC_SEL_4" Data="다른 장비로 교환 가능한지 물어본다."/>
 	</Category>
@@ -11351,7 +11396,7 @@
 		<Class ClassID="801047" ClassName="STEAM_COLONY_WAR_ONEDAY_REWARD_MSG{itemName}{itemCount}{nowCount}{limitCount}" Data="길드 콜로니전 참여 보상으로  [{itemName}] x {itemCount} 개 지급{nl}(일일 지급 횟수 : {nowCount}/{limitCount} 회)"/>
 		<Class ClassID="801048" ClassName="Colony_GuildMember{Name}HasKilledBy{From}OfGuild{FromGuild}" Data="{FromGuild}의 {From}에게 길드원 {Name}님이 당했습니다."/>
 		<Class ClassID="801049" ClassName="Colony_GuildMember{Name}Killed{Target}OfGuild{TargetGuild}" Data="길드원 {Name}님이 {TargetGuild}의 {Target}을 처치했습니다."/>
-	<Class ClassID="801050" ClassName="STEAM_COLONY_WAR_FIVE_TIME_REWARD_MSG{number}{itemName1}{itemCount1}{itemName2}{itemCount2}" Data="길드 콜로니전 {number}회 참여 보상으로 특별한 아이템이 지급됩니다. {nl}[{itemName1}] x {itemCount1} 개{nl}[{itemName2}] x {itemCount2} 개"/>
+		<Class ClassID="801050" ClassName="STEAM_COLONY_WAR_FIVE_TIME_REWARD_MSG{number}{itemName1}{itemCount1}{itemName2}{itemCount2}" Data="길드 콜로니전 {number}회 참여 보상으로 특별한 아이템이 지급됩니다. {nl}[{itemName1}] x {itemCount1} 개{nl}[{itemName2}] x {itemCount2} 개"/>
 		<Class ClassID="801051" ClassName="STEAM_COLONY_WAR_FIRST_ENTRY_REWARD_MSG" Data="길드 콜로니전 첫 참여 보상으로 다양한 아이템이 지급됩니다.{nl}[F2]키를 눌러 현재 캐릭터의 인벤토리를 확인해 주세요.{nl}(길드 단위로 지급되는 아이템은 [길드 보관함]을 확인해 주세요.)"/>
 		<Class ClassID="801052" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG{itemName}{itemCount}" Data="길드 콜로니전 첫 승리 보상으로  [{itemName}] x {itemCount} 개 지급{nl}(지급된 아이템은 길드 단위로 지급됩니다. [길드 보관함]을 확인해 주세요.)"/>
 		<Class ClassID="801053" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG1" Data="콜로니전에서 첫 승리한 길드의 길드마스터만 이용할 수 있습니다."/>
@@ -11395,7 +11440,7 @@
 		<Class ClassID="1000017" ClassName="CantReJoin_DifferentLevel_ChallengeMode" Data="도전을 중지한 단계와 현재 파티원이 도전중인 단계가 달라 재입장할 수 없습니다."/>
 		<Class ClassID="1000018" ClassName="AcceptChallengeMode_ReJoin" Data="도전중인 챌린지 단계가 있습니다. 재입장 하시겠습니까?"/>
 		<Class ClassID="1000019" ClassName="ChallengeModeReJoinPossibleTimeOut" Data="도전 중인 챌린지 모드의 재입장 가능한 시간을 초과하여 재입장 하실 수 없습니다."/>
-	</Category>
+		</Category>
 	<Category Name="RankReset">
 		<Class ClassID="1001000" ClassName="CannotChangeJobBecauseJobLevel" Data="클래스 레벨이 최대 레벨일 때에만 가능합니다."/>
 		<Class ClassID="1001001" ClassName="CannotBecauseMoru" Data="모루가 설치되어 있는 상태에서는 사용할 수 없습니다."/>
@@ -11469,7 +11514,7 @@
 		<Class ClassID="2000204" ClassName="WebService_904" Data="서버오류로 정상적인 처리가 되지 않았습니다"/>
 		<Class ClassID="2000205" ClassName="WebService_204" Data="승낙 또는 거절 상태의 신청서는 삭제하실 수 없습니다."/>
 		<Class ClassID="2000206" ClassName="WebService_43" Data="연속으로 실행하실 수 없는 작업입니다.{nl}잠시뒤 다시 실행해주세요."/>
-    <Class ClassID="2000207" ClassName="WebService_44" Data="[Error Code 44] 입력하신 이름으로 변경할 수 없습니다."/>
+		<Class ClassID="2000207" ClassName="WebService_44" Data="[Error Code 44] 입력하신 이름으로 변경할 수 없습니다."/>
 		<Class ClassID="2099999" ClassName="UpdateSuccess" Data="성공적으로 갱신되었습니다."/>
 		<Class ClassID="2100000" ClassName="NotYetExcute" Data="지금 당장 하실 수 없습니다."/>
 		<Class ClassID="2100001" ClassName="GuildJoined" Data="길드 가입신청이 완료되었습니다."/>
@@ -11477,7 +11522,7 @@
 		<Class ClassID="2100003" ClassName="GuildMemberBanSuccess" Data="해당 길드원을 추방하였습니다."/>
 		<Class ClassID="2100004" ClassName="RegisterGuildPromoteBeforeBanner" Data="배너를 등록하기 전에 길드 홍보글을 등록해주세요"/>
 		<Class ClassID="2100005" ClassName="GuildMaintenance" Data="길드 권한 기능에 문제가 있어, 해당 기능을 임시 제한하였습니다.{nl} 이용에 불편을 드려 죄송합니다.{nl}{nl}※ 정상화 예정일 : 2018.04.19(목)"/>
-	<Class ClassID="2100006" ClassName="UploadSuccess" Data="성공적으로 업로드했습니다."/>
+		<Class ClassID="2100006" ClassName="UploadSuccess" Data="성공적으로 업로드했습니다."/>
 		<Class ClassID="2100007" ClassName="AvailableAfterRegisterGuildPromote" Data="미리보기 등록 후 이용이 가능합니다."/>
 		<Class ClassID="2100008" ClassName="CannotJoinWhileGuildWar" Data="길드 전쟁중에는 길드 가입을 할 수 없습니다"/>
 		<Class ClassID="2100009" ClassName="DuplicateClaim" Data="중복되는 직급이 있습니다."/>

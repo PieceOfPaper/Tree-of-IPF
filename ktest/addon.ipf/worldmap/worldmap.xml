@@ -27,5 +27,6 @@
 		<groupbox name="editSkin" margin="0 430 10 0" rect="0 0 350 38" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
 		<edit name="input_search" margin="0 436 70 0" rect="0 0 280 26" fontname="white_18_ol" maxlen="16" EnterKeyScp="WORLDMAP_SEARCH_BY_NAME" numbermode="false" drawbackground="false" OffsetForDraw="0 -1" skin="None" layout_gravity="right top" typingsound="chat_typing"/>
 		<button name="btn_search" image="inven_s" margin="0 430 10 0" rect="0 0 60 38" layout_gravity="right top" LBtnUpScp="WORLDMAP_SEARCH_BY_NAME" oversound="button_over" clicksound="button_click_big"/>
+		<checkbox name="showAllWorldMap" rect="0 0 120 30" margin="0 480 120 0" layout_gravity="right top" ConfigName="ShowAllWorldMap" LBtnUpScp="UPDATE_SHOW_ALL_WORLDMAP" caption="{@st66w}모든 맵 표시{/}" clicksound="button_click_big" oversound="button_over"/>
 	</controls>
 </uiframe>

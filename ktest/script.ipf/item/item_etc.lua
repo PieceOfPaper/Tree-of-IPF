@@ -3659,3 +3659,15 @@ function ACHIEVE_Event_Steam_Colony_Tester(pc)
     TxAddAchievePoint(tx, 'Achieve_Event_Steam_Colony_Tester', 1)
     local ret = TxCommit(tx);
 end
+
+
+function SCR_FARMER_PLANT_STEP_01_AFTER_SUMMON(mon, pc, skill)
+    SetDirectionByAngle(mon, -45);
+end
+
+
+function SCR_USE_GIVE_UPHILL_STORE_POINT(self, argObj, StringArg, Numarg1, Numarg2)
+    local tx = TxBegin(self);
+    TxAddWorldPVPProp(tx, "ShopPoint", Numarg1);
+    local ret = TxCommit(tx);
+end

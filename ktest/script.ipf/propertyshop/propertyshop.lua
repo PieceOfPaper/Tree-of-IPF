@@ -3,6 +3,7 @@ function GET_PVP_POINT(pc, tx, price)
 
 
 	TxAddWorldPVPProp(tx, "ShopPoint", -price);
+	AddAchievePoint(pc, "UPHILL_DEFFENSE_STORE", price);
 	return 1;
 
 end

@@ -1483,7 +1483,7 @@ function SCR_SKILL_RATETABLE_Hackapell_GrindCutter(self, from, skill, atk, ret, 
 end
 
 function SCR_SKILL_RATETABLE_DoubleGun_Attack(self, from, skill, atk, ret, rateTable)
-    SetMultipleHitCount(ret, 2)
+    AddMultipleHitCount(ret, 2)
 end
 
 function SCR_SKILL_RATETABLE_Templer_MortalSlash(self, from, skill, atk, ret, rateTable)

@@ -1,25 +1,6 @@
--- result UI
-function SCR_PVP_MINE_END_UI_OPEN(pc)
-    local aObj = GetAccountObj(pc)
-    local zoneObj = GetLayerObject(pc);
-    local TEAM_A_COUNT = GetMGameValue(pc, "TEAM_A_COUNT")
-    local TEAM_B_COUNT = GetMGameValue(pc, "TEAM_B_COUNT")
-
-    if TEAM_A_COUNT > TEAM_B_COUNT then
-        if IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' then
-            ExecClientScp(pc, 'PVP_MINE_RESULT_OPEN(1)') -- win
-        else
-            ExecClientScp(pc, 'PVP_MINE_RESULT_OPEN(0)') -- lose
-        end
-    elseif TEAM_A_COUNT < TEAM_B_COUNT then
-        if IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES' then
-            ExecClientScp(pc, 'PVP_MINE_RESULT_OPEN(1)')
-        else
-            ExecClientScp(pc, 'PVP_MINE_RESULT_OPEN(0)')
-        end
-    else
-        ExecClientScp(pc, 'PVP_MINE_RESULT_OPEN(0)')
-    end
+function PVP_MINE_RESULT_REQ_RETURN_CITY(frame)
+    packet.ReqReturnOriginServer();
+    ui.CloseFrame('pvp_mine_result');
 end
 
 function PVP_MINE_RESULT_OPEN(isWin)
@@ -48,7 +29,7 @@ function PVP_MINE_RESULT_INIT(frame, isWin)
 
     local GetPoint_Desc = GET_CHILD_RECURSIVELY(frame, 'GetPoint_Desc');
     GetPoint_Desc:SetTextByKey("point", getpoint);
-print(getpoint)
+
     if isWin == 1 then
         winBox:ShowWindow(1);
         loseBox:ShowWindow(0);
@@ -72,4 +53,26 @@ print(getpoint)
         end
         loseBox:PlayUIEffect(LOSE_EFFECT_NAME, EFFECT_SCALE, 'COLONY_LOSE');
     end
+end
+
+-- target UI
+function SET_TARGETINFO_TO_MINE_POS()
+
+	TARGET_INFO_OFFSET_Y = 20;
+	TARGET_INFO_OFFSET_X = 1050;
+
+	local targetBuff = ui.GetFrame("targetbuff");
+	targetBuff:MoveFrame(1350, targetBuff:GetY());
+
+	local channel = ui.GetFrame("channel");
+	channel:ShowWindow(0);
+
+	local mapAreaText = ui.GetFrame("mapareatext");
+	mapAreaText:ShowWindow(0);
+
+	local bugreport = ui.GetFrame("bugreport");
+	bugreport:ShowWindow(0);
+
+	local mapAreaText = ui.GetFrame("minimizedalarm");
+	mapAreaText:ShowWindow(0);
 end

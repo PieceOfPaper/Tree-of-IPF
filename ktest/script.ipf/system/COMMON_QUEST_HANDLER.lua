@@ -560,6 +560,10 @@ function SCR_QUEST_POSSIBLE_AGREE_PROP_CHANGE(pc, questname, self)
 	    before_data = 'RANKRESET'
     end
     
+    if sObj[questIES.QuestPropertyName] == CON_QUESTPROPERTY_END and IsGM(pc) ~= 1 then
+        IMC_LOG("ERROR_IS_NOT_GM_QUEST_RESET : ","Team:"..GetTeamName(pc)..", AID:"..GetPcAIDStr(pc)..", QuestName:"..questname)
+        return before_data
+    end
     
     if isHideNPC(pc, questIES.ProgNPC) == 'YES' then
         if questname == 'VPRISON511_MQ_PRE_01' then

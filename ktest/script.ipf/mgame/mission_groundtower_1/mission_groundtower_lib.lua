@@ -576,7 +576,7 @@ function SCR_EARTH_TOWER_NEXT_FLOOR(pc, mgameValue)
 end
 
 function SCR_TX_EARTH_TOWER_STOP(pc, mgameValue)
-	local mGameName = GetExProp_Str(pc, "NEXT_GT_MGAME_NAME");	
+	local mGameName = GetExProp_Str(pc, "NEXT_GT_MGAME_NAME");
 	SetMGameValueByMGameName(pc, mGameName, mgameValue, 100)
 end
 
@@ -610,8 +610,7 @@ function REWARD_EARTH_TOWER(cmd, curStage, eventInst, obj, MgameName)
 			for i = 1, cnt do
 				pc = list[i]
 
-				if IsPartyLeaderPc(GetPartyObj(pc), pc) == 1 then
-				else
+				if IsPartyLeaderPc(GetPartyObj(pc), pc) ~= 1 then
 					RunScript('TX_REWARD_EARTH_TOWER', pc, MgameName)
 					sendRewardPacket = true;
 					break;
@@ -640,6 +639,9 @@ function TX_REWARD_EARTH_TOWER(pc, mGameName)
 	if cls == nil then
 		return;
 	end
+
+	local indunClassList, indunCount = GetClassList("Indun");
+
 	local cmd = GetMGameCmd(pc)
 	local list, cnt = GetPartyMemberList(pc, PARTY_NORMAL);
 	local obj = nil;
@@ -648,26 +650,65 @@ function TX_REWARD_EARTH_TOWER(pc, mGameName)
 		local aid = GetPcAIDStr(obj);
 		local cid = GetPcCIDStr(obj);
 		local etcObj = GetETCObject(obj);
-		--if true == cmd:IsValidSavePC(aid, cid) then
-			local tx = TxBegin(obj);
-			TxGiveItem(tx, cls.ItemName, cls.Count, "Earth_Tower_Reward");
-		    if cls.ItemName2 ~= nil and cls.ItemName2 ~= 'None' and cls.Count2 > 0 then
-			    TxGiveItem(tx, cls.ItemName2, cls.Count2, "Earth_Tower_Reward");
-			end
-		    local ishavetoll = GetInvItemCount(pc, 'misc_earthTower20_toll')
-			if cls.ItemName3 ~= nil and cls.ItemName3 ~= 'None' and cls.Count3 > 0 and ishavetoll == 0 then
-    			TxGiveItem(tx, cls.ItemName3, cls.Count3, "Earth_Tower_Reward");
-    		end
-  
-                TxAddIESProp(tx, etcObj, "IndunWeeklyEnteredCount_400", 1);
 
-			local ret = TxCommit(tx);
-		--else
-		--	SendSysMsg(obj, "NotClearChar");
-		--end
+		local zoneName = GetZoneName(obj);
+		
+		local indunClass = nil;
+		for i = 1, indunCount do
+			local cls = GetClassByIndexFromList(indunClassList, i);
+			local mapName = TryGetProp(cls, "MapName", "None");
+			if mapName == zoneName then
+				indunClass = cls;
+				break;
+			end
+		end
+
+		if indunClass ~= nil then
+			local isEnableReceiveReward = false;
+			local ticketItem = nil;
+			if IS_ENABLE_ENTER_TO_INDUN_WEEKLY(obj, indunClass, true) == true then
+				isEnableReceiveReward = true;
+			else
+				ticketItem = GET_AVAILABLE_GTOWER_ADMISSION_TICKET_ITEM(obj);
+				if ticketItem ~= nil then
+					isEnableReceiveReward = true;
+				end
+			end
+
+			if isEnableReceiveReward == true then
+				--if true == cmd:IsValidSavePC(aid, cid) then
+					local tx = TxBegin(obj);
+					TxGiveItem(tx, cls.ItemName, cls.Count, "Earth_Tower_Reward");
+					if cls.ItemName2 ~= nil and cls.ItemName2 ~= 'None' and cls.Count2 > 0 then
+						TxGiveItem(tx, cls.ItemName2, cls.Count2, "Earth_Tower_Reward");
+					end
+					local ishavetoll = GetInvItemCount(pc, 'misc_earthTower20_toll')
+
+					if cls.ItemName3 == 'misc_earthTower20_toll' then
+            			if cls.ItemName3 ~= nil and cls.ItemName3 ~= 'None' and cls.Count3 > 0 and ishavetoll == 0 then
+            			    TxGiveItem(tx, cls.ItemName3, cls.Count3, "Earth_Tower_Reward");
+            			end
+        			elseif cls.ItemName3 ~= 'misc_earthTower20_toll' then
+            			if cls.ItemName3 ~= nil and cls.ItemName3 ~= 'None' and cls.Count3 > 0  then
+                			TxGiveItem(tx, cls.ItemName3, cls.Count3, "Earth_Tower_Reward");
+                		end
+            		end
+					if ticketItem ~= nil then
+						TxTakeItemByObject(tx, ticketItem, 1, "UseGTowerTicket");
+					else
+						TxAddIESProp(tx, etcObj, "IndunWeeklyEnteredCount_400", 1);
+					end
+
+					local ret = TxCommit(tx);
+				--else
+				--	SendSysMsg(obj, "NotClearChar");
+				--end
+			else
+				CustomMongoLog(pc, "GTowerReward", "MGameName", mGameName);
+			end
+		end
 	end
 end
-
 
 function GT1_LUTHA_FLOOR_KEEP(pc, floor_keep)
     if floor_keep == 6 then
@@ -677,5 +718,33 @@ function GT1_LUTHA_FLOOR_KEEP(pc, floor_keep)
     elseif floor_keep == 16 then
         SCR_GT_SETPOS_FADEOUT(pc, 'mission_groundtower_1', -4913, 147, -4887, 0, floor_keep, 5)
     end
-    
+end
+
+function GET_AVAILABLE_GTOWER_ADMISSION_TICKET_ITEM(pc)
+	local invItemList, slotCountList = GetInvItemList(pc);
+	for i = 1, #invItemList do
+		local invItem = invItemList[i];
+
+		if invItem.StringArg == "EarthTowerTicket" then
+			if IsFixedItem(invItem) == 0 then
+				return invItem;
+			end
+		end
+	end
+
+	return nil;
+end
+
+function IS_ENABLE_GTOWER_TICKET_LOCK(pc, item)
+	if item.StringArg == "EarthTowerTicket" then
+		local zoneName = GetZoneName(pc);
+	
+		if zoneName == "mission_groundtower_1" or 
+			zoneName == "mission_groundtower_2" or 
+			zoneName == "d_raidboss_velcoffer" then
+			return false;
+		end
+	end
+
+	return true;
 end

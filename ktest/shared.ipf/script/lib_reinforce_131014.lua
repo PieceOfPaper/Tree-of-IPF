@@ -124,10 +124,10 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
         value = 0;
     end
     
-    --EVENT_1804_TRANSCEND_REINFORCE
-    if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
-        value = value/2
-    end
+--    --EVENT_1804_TRANSCEND_REINFORCE
+--    if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
+--        value = value/2
+--    end
     
     return SyncFloor(value);
 

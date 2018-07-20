@@ -187,7 +187,7 @@ function ADVENTURE_BOOK_MAP.DRAW_MINIMAP(selectedMapID)
 	local MINIMAP_HEIGHT = adventure_book:GetUserConfig('MINIMAP_HEIGHT');
     mappic_gb:RemoveAllChild();
 	mappic_gb:SetSkinName(INDUN_DETAIL_MINIMAP_SKIN)
-
+	
     local ctrlSet = mappic_gb:CreateControlSet("worldmap_tooltip", "MAP_" .. selectedMapID, ui.CENTER_HORZ, ui.CENTER_VERT, 0, 0, 0, 0);
     ctrlSet = AUTO_CAST(ctrlSet);
     ctrlSet:EnableHitTest(0);
@@ -212,7 +212,7 @@ function ADVENTURE_BOOK_MAP.DRAW_MINIMAP(selectedMapID)
     pic:Resize(ctrlSet:GetWidth(), ctrlSet:GetHeight());
 	local isValid = ui.IsValidImage(drawMapName .. "_fog");
 	if isValid == false then
-		world.PreloadMinimap(drawMapName, true, true);
+		world.PreloadMinimap(drawMapName);
 	end
 
 	if ui.IsValidImage(drawMapName .. "_fog") == false then

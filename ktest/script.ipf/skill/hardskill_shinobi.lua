@@ -1,4 +1,4 @@
-﻿--- hardskill_shinobi.lua
+--- hardskill_shinobi.lua
 
 
 function SCR_BUFF_ENTER_Mokuton_no_jutsu(self, buff, arg1, arg2, over)
@@ -171,7 +171,8 @@ function SCR_BUFF_UPDATE_Bunshin_Debuff(self, buff, arg1, arg2, RemainTime, ret,
 
 	---- per 1 second
 	------ modify here ------
-	local bunsinCount = GET_BUNSIN_COUNT(self);
+--	local bunsinCount = GET_BUNSIN_COUNT(self);
+    local bunsinCount = GetBuffArg(buff);
     AddStamina(self, -250 * bunsinCount)
 	 -- AddSP(self, -bunsinCount);
 	-------------------------

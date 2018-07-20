@@ -55,3 +55,20 @@ function SCR_BUFF_RATETABLE_Ability_Weakness_Magic(self, from, skill, atk, ret, 
         rateTable.addDamageRate = rateTable.addDamageRate - 0.75
     end
 end
+
+--GM_WHITETREES_MON_BUFF3
+function SCR_BUFF_RATETABLE_GM_WHITETREES_MON_BUFF3(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, 'GM_WHITETREES_MON_BUFF3') == 'YES' then
+        AddDamageReductionRate(rateTable, 0.5)
+    end
+end
+
+--GM_Tower_Setting_Buff
+function SCR_BUFF_RATETABLE_GM_Tower_Setting_Buff(self, from, skill, atk, ret, rateTable, buff)
+	if IsBuffApplied(from, 'GM_Tower_Setting_Buff') == 'YES' then
+	    if GetRelation(self, from) == "ENEMY" then
+	    	local addTrueDamage = IMCRandom(400000, 500000)
+	    	rateTable.AddTrueDamage = rateTable.AddTrueDamage + math.floor(addTrueDamage);
+	    end
+    end
+end

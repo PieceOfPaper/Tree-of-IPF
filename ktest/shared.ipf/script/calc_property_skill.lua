@@ -3335,7 +3335,7 @@ function SCR_GET_Mijin_no_jutsu_Ratio2(skill)
 end
 
 function SCR_GET_Bunshin_no_jutsu_Ratio(skill)
-    local value = 15 + skill.Level
+    local value = 20
 	
 	return value
 end

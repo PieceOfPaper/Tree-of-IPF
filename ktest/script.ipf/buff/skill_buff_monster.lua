@@ -3067,3 +3067,12 @@ end
 function SCR_BUFF_LEAVE_Raid_Cloaking_Buff(self, buff, arg1, arg2, over)
 
 end
+
+--UC_UnrecoverableHP
+function SCR_BUFF_ENTER_UC_UnrecoverableHP(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_LEAVE_UC_UnrecoverableHP(self, buff, arg1, arg2, over)
+
+end

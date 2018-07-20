@@ -1,5 +1,5 @@
 function MINEPVP_SCOREBOARD_ON_INIT(addon, frame)
-
+	--addon:RegisterMsg('DO_DISAPPEAR_MINEPVP_TIMER', 'DISAPPEAR_MINEPVP_TIMER');
 end
 
 function SHOW_MINEPVP_SCOREBOARD()
@@ -98,3 +98,13 @@ function MINEPVP_TIMER_START(time)
 
 end
 
+
+function DISAPPEAR_MINEPVP_TIMER()
+	local frame = ui.GetFrame("minepvpscoreboard")
+	if frame == nil then
+		return
+	end
+
+	local timer = GET_CHILD_RECURSIVELY(frame, "timer");
+	timer:ShowWindow(0)
+end

@@ -196,6 +196,8 @@ function SCR_BUFF_ENTER_MISSION_SURVIVAL_EVENT2(self, buff, arg1, arg2, over)
     SetExProp(buff, "ADD_DR", self.DR_BM)
     SetExProp(buff, "ADD_BLK", self.BLK_BM)
     
+    SetExProp(buff, "ADD_MHP_BM", -(self.MHP - 1))
+    
     self.FIXMSPD_BM = 40
     self.MHP_BM = -(self.MHP - 1)
     self.DR_BM = -(self.DR)
@@ -211,6 +213,15 @@ end
 function SCR_BUFF_UPDATE_MISSION_SURVIVAL_EVENT2(self, buff, arg1, arg2, RemainTime, ret, over)
     if GetZoneName(self) ~= 'f_pilgrimroad_41_1_event' then
         return 0;
+    end
+    
+    if self.MHP > 1 then
+        local mhp = GetExProp(buff, "ADD_MHP_BM")
+        local add = mhp -( self.MHP - 1)
+        self.MHP_BM = add
+        SetExProp(buff, "ADD_MHP_BM", add)
+        Invalidate(self, "MHP_BM")
+        Invalidate(self, "MHP")
     end
     
     return 1

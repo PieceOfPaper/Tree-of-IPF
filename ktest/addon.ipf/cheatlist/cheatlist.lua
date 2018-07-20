@@ -291,7 +291,7 @@ function PREVIEW_CHEATLIST_MAP(frame, classID)
 		return;
 	end
 
-	world.PreloadMinimap(cls.ClassName, true, true);
+	world.PreloadMinimap(cls.ClassName);
 	local mapFrame = ui.GetFrame('showminimap');
 	local pic = GET_CHILD(mapFrame, "pic", "ui::CPicture");
 	pic:SetImage(cls.ClassName);

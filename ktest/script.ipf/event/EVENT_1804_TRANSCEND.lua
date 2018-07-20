@@ -11,12 +11,12 @@ function SCR_USE_EVENT_1804_TRANSCEND_REINFORCE_CUBE(self,argObj,str1,arg1,arg2)
 end
 
 
-function SCR_EVENT_1804_TRANSCEND_SHOP_DIALOG(self, pc)
-    local select = ShowSelDlg(pc, 0, 'EVENT_1804_TRANSCEND_SHOP_DLG1', ScpArgMsg('EVENT_1712_MORUKING_MSG2'), selmsg1_2, ScpArgMsg('Auto_DaeHwa_JongLyo'))
-    if select == 1 then
-        ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP_OPEN()")
-    end
-end
+--function SCR_EVENT_1804_TRANSCEND_SHOP_DIALOG(self, pc)
+--    local select = ShowSelDlg(pc, 0, 'EVENT_1804_TRANSCEND_SHOP_DLG1', ScpArgMsg('EVENT_1712_MORUKING_MSG2'), selmsg1_2, ScpArgMsg('Auto_DaeHwa_JongLyo'))
+--    if select == 1 then
+--        ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP_OPEN()")
+--    end
+--end
 
 function SCR_PRE_EVENT_1804_TRANSCEND_SHOP_SILVER_BOX_14D(self, argStr, arg1, arg2)
     local count = GetInvItemCount(self, 'Vis')
@@ -32,37 +32,34 @@ end
 function SCR_USE_EVENT_1804_TRANSCEND_SHOP_SILVER_BOX_14D(self, argObj, argStr, arg1, arg2)
     PlayEffect(self, 'F_sys_expcard_normal', 2.5, 1, "BOT", 1);
     
-    local itemList = {{'Vis', 10000, 10},
-                        {'Vis', 50000, 50},
-                        {'Vis', 100000, 279},
-                        {'Vis', 150000, 600},
-                        {'Vis', 200000, 600},
-                        {'Vis', 250000, 600},
-                        {'Vis', 300000, 600},
-                        {'Vis', 350000, 600},
-                        {'Vis', 400000, 600},
-                        {'Vis', 450000, 600},
-                        {'Vis', 500000, 600},
-                        {'Vis', 550000, 1000},
-                        {'Vis', 600000, 1000},
-                        {'Vis', 650000, 500},
-                        {'Vis', 700000, 500},
-                        {'Vis', 750000, 300},
-                        {'Vis', 800000, 300},
-                        {'Vis', 850000, 300},
-                        {'Vis', 900000, 300},
-                        {'Vis', 950000, 300},
-                        {'Vis', 1000000, 200},
-                        {'Vis', 5000000, 100},
-                        {'Vis', 10000000, 50},
-                        {'Vis', 50000000, 10},
-                        {'Vis', 100000000, 1}
+    local itemList = {{'Vis',100000, 94},
+                        {'Vis',150000, 100},
+                        {'Vis',200000, 300},
+                        {'Vis',250000, 400},
+                        {'Vis',300000, 500},
+                        {'Vis',350000, 500},
+                        {'Vis',400000, 500},
+                        {'Vis',450000, 500},
+                        {'Vis',500000, 500},
+                        {'Vis',550000, 500},
+                        {'Vis',600000, 500},
+                        {'Vis',650000, 500},
+                        {'Vis',700000, 500},
+                        {'Vis',750000, 500},
+                        {'Vis',800000, 1000},
+                        {'Vis',850000, 1000},
+                        {'Vis',900000, 1000},
+                        {'Vis',950000, 1000},
+                        {'Vis',1000000, 100},
+                        {'Vis',10000000, 3},
+                        {'Vis',50000000, 2},
+                        {'Vis',100000000, 1}
                         }
     local result = SCR_EVENT_RANDOM_BOX_REWARD_FUNC(self, 'EVENT_1804_TRANSCEND_SHOP_SILVER_BOX_14D', itemList, 'EVENT_1804_TRANSCEND_SHOP_SILVER_BOX_14D')
     
     if result ~= nil then
-        if result[3] >= 5000000 then
-	        ToAll(ScpArgMsg("EVENT_1804_TRANSCEND_MSG2","PC",GetTeamName(self),"COUNT", GET_COMMA_SEPARATED_STRING(result[3])))
+        if result[2] >= 5000000 then
+	        ToAll(ScpArgMsg("EVENT_1804_TRANSCEND_MSG2","PC",GetTeamName(self),"COUNT", GET_COMMA_SEPARATED_STRING(result[2])))
 	    end
     end
 end

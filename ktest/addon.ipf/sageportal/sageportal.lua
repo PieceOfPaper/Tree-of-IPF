@@ -87,7 +87,7 @@ function SAGEPORTAL_UPDATE_LIST(frame, skillName)
 					local mapName = sList[1]
 					local isValid = ui.IsValidImage(mapName);
 					if isValid == false then
-						world.PreloadMinimap(mapName, true, true);
+						world.PreloadMinimap(mapName);
 					end
 
 					pic:SetImage(mapName);

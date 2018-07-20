@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -4607,6 +4607,9 @@
 		<image name="icon_item_1804_arbor_3" file="\icon\item\icon_item_1804_arbor_3.png" imgrect="0 0 128 128" CMM_Caption="풍성한 성목 성장의 수정"/>
 		<image name="icon_item_pvpmine_1" file="\icon\item\icon_item_pvpmine_1.png" imgrect="0 0 128 128" CMM_Caption="수정원석"/>
 		<image name="icon_item_pvpmine_2" file="\icon\item\icon_item_pvpmine_2.png" imgrect="0 0 128 128" CMM_Caption="용병단토큰"/>
+		<image name="icon_item_stake_stockades" file="\icon\item\icon_item_stake_stockades.png" imgrect="0 0 128 128" CMM_Caption="방책"/>
+		<image name="icon_item_arrow_trap" file="\icon\item\icon_item_arrow_trap.png" imgrect="0 0 128 128" CMM_Caption="터렛"/>
+		<image name="icon_item_large_crossbow" file="\icon\item\icon_item_large_crossbow.png" imgrect="0 0 128 128" CMM_Caption="발리스타"/>
 		<image name="icon_item_challenge_cube_02" file="\icon\item\icon_item_challenge_cube_02.png" imgrect="0 0 128 128" CMM_Caption="챌린지 큐브 2"/>
 		<image name="icon_item_low_ability_up_potion1" file="\icon\item\icon_item_low_ability_up_potion1.png" imgrect="0 0 128 128" CMM_Caption="능력치 업포션_하위_1"/>
 		<image name="icon_item_low_ability_down_potion1" file="\icon\item\icon_item_low_ability_down_potion1.png" imgrect="0 0 128 128" CMM_Caption="능력치 다운포션_하위_1"/>
@@ -4618,7 +4621,9 @@
 		<image name="icon_item_low_ability_down_potion4" file="\icon\item\icon_item_low_ability_down_potion4.png" imgrect="0 0 128 128" CMM_Caption="능력치 다운포션_하위_4"/>
 		<image name="icon_item_low_ability_up_potion5" file="\icon\item\icon_item_low_ability_up_potion5.png" imgrect="0 0 128 128" CMM_Caption="능력치 업포션_하위_5"/>
 		<image name="icon_item_low_ability_down_potion5" file="\icon\item\icon_item_low_ability_down_potion5.png" imgrect="0 0 128 128" CMM_Caption="능력치 다운포션_하위_5"/>
+		<image name="icon_item_key_earthtower" file="\icon\item\icon_item_key_earthtower.png" imgrect="0 0 128 128" CMM_Caption="대지의 탑 입장권"/>
 		<image name="icon_item_egg_mrdodo" file="\icon\item\icon_item_egg_mrdodo.png" imgrect="0 0 128 128" CMM_Caption="도도새 알"/>
+		<image name="icon_item_event_invitationpiece1" file="\icon\item\icon_item_event_invitationpiece1.png" imgrect="0 0 128 128" CMM_Caption="찢어진 청첩장"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>

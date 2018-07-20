@@ -455,9 +455,9 @@ function SCR_UICALL_CHATALIAS(pc, typeStr)
 --                SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg('EV170119_NEWYEAR_MSG1'), 7)
 --            end
 --        end
-	elseif typeStr == 'event1804transcend' then
-	    local aObj = GetAccountObj(pc);
-        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("EVENT_1804_TRANSCEND_MSG1","COUNT",aObj.EVENT_1804_TRANSCEND_SUCCESS_COUNT),10) 
+--	elseif typeStr == 'event1804transcend' then
+--	    local aObj = GetAccountObj(pc);
+--        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("EVENT_1804_TRANSCEND_MSG1","COUNT",aObj.EVENT_1804_TRANSCEND_SUCCESS_COUNT),10) 
 	end
 end
 

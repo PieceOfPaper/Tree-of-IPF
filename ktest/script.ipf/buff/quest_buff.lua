@@ -1797,7 +1797,7 @@ function SCR_BUFF_ENTER_FTOWER_69_2_G4_BUFF_2(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_LEAVE_FTOWER_69_2_G4_BUFF_2(self, buff, arg1, arg2, over)
-    -- 버프 보상 ??�?--
+    -- 버프 보상 ??�?--
     HideNPC(self, 'FTOWER_69_2_G4_3_GAP')
     DetachEffect(self, 'I_light017_yellow')
     self.PATK_BM = self.PATK_BM - 60;
@@ -7865,4 +7865,133 @@ end
 
 function SCR_BUFF_LEAVE_CHAR118_AGILITY_TRAINING_BUFF(self, buff, arg1, arg2, over)
     SetEmoticon(self, 'None')
+end
+
+--GM_WHITETREES_MON_BUFF1
+function SCR_BUFF_ENTER_GM_WHITETREES_MON_BUFF1(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_GM_WHITETREES_MON_BUFF1(self, buff, arg1, arg2, over)
+    return 1
+end
+
+function SCR_BUFF_LEAVE_GM_WHITETREES_MON_BUFF1(self, buff, arg1, arg2, over)
+
+end
+
+--GM_WHITETREES_MON_BUFF2
+function SCR_BUFF_ENTER_GM_WHITETREES_MON_BUFF2(self, buff, arg1, arg2, over)
+    local add = 1
+    
+    self.PATK_RATE_BM = self.PATK_RATE_BM + add;
+    self.MATK_RATE_BM = self.MATK_RATE_BM + add;
+    
+    SetExProp(buff, "ADD_ATK", add);
+end
+
+
+function SCR_BUFF_LEAVE_GM_WHITETREES_MON_BUFF2(self, buff, arg1, arg2, over)
+    local add = GetExProp(buff, "ADD_ATK");
+    
+    self.PATK_RATE_BM = self.PATK_RATE_BM - add;
+    self.MATK_RATE_BM = self.MATK_RATE_BM - add;
+end
+
+--GM_WHITETREES_MON_BUFF3
+function SCR_BUFF_ENTER_GM_WHITETREES_MON_BUFF3(self, buff, arg1, arg2, over)
+
+end
+
+
+function SCR_BUFF_LEAVE_GM_WHITETREES_MON_BUFF3(self, buff, arg1, arg2, over)
+
+end
+
+--GM_WHITETREES_GIMMICK_MON1_BUFF1
+function SCR_BUFF_ENTER_GM_WHITETREES_GIMMICK_MON1_BUFF1(self, buff, arg1, arg2, over)
+    
+end
+
+function SCR_BUFF_UPDATE_GM_WHITETREES_GIMMICK_MON1_BUFF1(self, buff, arg1, arg2, RemainTime, ret, over)
+    local caster = GetBuffCaster(buff); 
+    if caster == nil then
+        local casterHandler = GetMGameValue(self, 'casterHandle')
+        local zoneInst = GetZoneInstID(self)
+        caster = GetByHandle(zoneInst, casterHandler)
+    end
+    if GetZoneName(self) == "mission_whitetrees_56_1" then
+        if IsDead(self) == 0 then
+            PlayEffect(self, "F_rize015_1_yellow_drop", 1, "BOT")
+            local buff_stack = GetOver(buff)
+            if self.ClassName == "GM_Obelisk" then
+                if buff_stack < 3 then
+                    TakeDamage(caster, self, "None", 200000*buff_stack, "Melee", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_BLOW);
+                else
+                    TakeDamage(caster, self, "None", 700000, "Melee", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_BLOW);
+                end
+            else
+                if buff_stack < 3 then
+                    TakeDamage(caster, self, "None", 10000*buff_stack, "Melee", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_BLOW);
+                else
+                    TakeDamage(caster, self, "None", 150000, "Melee", "Melee", "TrueDamage", HIT_HOLY, HITRESULT_BLOW);
+                end
+            end
+        elseif IsDead(self) == 1 then
+            local obj, obj_Cnt = SelectObjectByClassName(self, 25, 'Link_stone_small')
+            if obj_Cnt < 1 then
+                return 0
+            end
+        end
+        return 1
+    end
+end
+
+function SCR_BUFF_LEAVE_GM_WHITETREES_GIMMICK_MON1_BUFF1(self, buff, arg1, arg2, over)
+    
+end
+
+--GM_WHITETREES_DEFFENCE_OBJ_BUFF
+function SCR_BUFF_ENTER_GM_WHITETREES_DEFFENCE_OBJ_BUFF(self, buff, arg1, arg2, over)
+    
+end
+
+function SCR_BUFF_LEAVE_GM_WHITETREES_DEFFENCE_OBJ_BUFF(self, buff, arg1, arg2, over)
+    
+end
+
+--GM_WHITETREES_MON_BUFF1_1
+function SCR_BUFF_ENTER_GM_WHITETREES_MON_BUFF1_1(self, buff, arg1, arg2, over)
+    self.ATK_BM = self.ATK_BM - arg1 * 2;
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        SetBuffArgs(buff, caster.MINMATK, caster.MAXMATK, 0);
+    end
+end
+
+function SCR_BUFF_UPDATE_GM_WHITETREES_MON_BUFF1_1(self, buff, arg1, arg2, over)
+    if GetZoneName(self) == "mission_whitetrees_56_1" then
+        local casterMINMATK, casterMAXMATK = GetBuffArgs(buff);
+        local caster = GetBuffCaster(buff);
+        if caster == nil then
+            local casterHandler = GetMGameValue(self, 'casterHandle')
+            local zoneInst = GetZoneInstID(self)
+            caster = GetByHandle(zoneInst, casterHandler)
+        end
+        
+        TakeDamage(caster, self, "None", (casterMINMATK + casterMAXMATK) / IMCRandom(7, 10), "Poison", "None", "TrueDamage", HIT_POISON, HITRESULT_BLOW, 0, 0, 1);
+        
+        return 1;
+    end
+end
+
+function SCR_BUFF_LEAVE_GM_WHITETREES_MON_BUFF1_1(self, buff, arg1, arg2, over)
+    self.ATK_BM = self.ATK_BM + arg1 * 2;
+end
+
+--GM_WHITETREES_BUFF1_1
+function SCR_BUFF_ENTER_GM_WHITETREES_BUFF1_1(self, buff, arg1, arg2, over)
+end
+
+function SCR_BUFF_LEAVE_GM_WHITETREES_BUFF1_1(self, buff, arg1, arg2, over)
 end

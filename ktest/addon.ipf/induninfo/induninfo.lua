@@ -23,7 +23,6 @@ end
 function INDUNINFO_UI_OPEN(frame)
     INDUNINFO_RESET_USERVALUE(frame);
     INDUNINFO_CREATE_CATEGORY(frame);
-    INDUNINFO_RESET_TIME_TEXT(frame);
 end
 
 function INDUNINFO_UI_CLOSE(frame)
@@ -140,6 +139,27 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
             end
             showCnt = showCnt + 1;
             g_selectedIndunTable[showCnt] = indunCls;
+            -- 주간 입장 텍스트 설정
+            local resetInfoText = GET_CHILD_RECURSIVELY(topFrame, 'resetInfoText');
+            local resetInfoText_Week = GET_CHILD_RECURSIVELY(topFrame, 'resetInfoText_Week');
+            local resetTime = INDUN_RESET_TIME % 12;
+            local ampm = ClMsg('AM');
+            if  INDUN_RESET_TIME > 12 then
+                ampm = ClMsg('PM');
+            end
+            if indunCls.WeeklyEnterableCount ~= nil then
+                if indunCls.WeeklyEnterableCount ~= 0 and indunCls.WeeklyEnterableCount > 0 then
+                    local resetText_wkeely = string.format('%s %s', ampm, resetTime);
+                    resetInfoText_Week:SetTextByKey('resetTime', resetText_wkeely);
+                    resetInfoText:ShowWindow(0);
+                    resetInfoText_Week:ShowWindow(1);
+                else
+                    local resetText = string.format('%s %s', ampm, resetTime);
+                    resetInfoText:SetTextByKey('resetTime', resetText);
+                    resetInfoText_Week:ShowWindow(0);
+                    resetInfoText:ShowWindow(1);
+                end
+            end
         end
     end
     GBOX_AUTO_ALIGN(indunListBox, 0, 0, 0, true, true);
@@ -158,8 +178,8 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
         end 
     end
     INDUNINFO_SORT_BY_LEVEL(topFrame);
-end
-
+end 
+    
 function GET_CURRENT_ENTERANCE_COUNT(resetGroupID)
     local etc = GetMyEtcObject();
     if etc == nil then
@@ -608,17 +628,6 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     end
 
     INDUNENTER_MAKE_MONLIST(frame, indunCls);
-end
-
-function INDUNINFO_RESET_TIME_TEXT(frame)
-    local resetInfoText = GET_CHILD_RECURSIVELY(frame, 'resetInfoText');
-    local resetTime = INDUN_RESET_TIME % 12;
-    local ampm = ClMsg('AM');
-    if INDUN_RESET_TIME > 12 then
-        ampm = ClMsg('PM');
-    end
-    local resetText = string.format('%s %s', ampm, resetTime);
-    resetInfoText:SetTextByKey('resetTime', resetText);
 end
 
 function INDUNINFO_SORT_BY_LEVEL(parent, ctrl)

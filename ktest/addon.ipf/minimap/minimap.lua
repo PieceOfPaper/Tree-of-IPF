@@ -29,8 +29,11 @@ function SET_MINIMAP_SIZE(amplify)
 		end
 	end
 
+	SET_MINIMAPSIZE(cursize);
+
 	local frame = ui.GetFrame('minimap');
-	UPDATE_MINIMAP(frame, cursize);
+	UPDATE_MINIMAP(frame);
+	MINIMAP_CHAR_UDT(frame);
 end
 
 function MINIMAP_MOUSEWHEEL(frame, ctrl, argStr, argNum)
@@ -115,43 +118,26 @@ function UPDATE_MINIMAP_NPC_STATE(frame)
 	UPDATE_NPC_STATE_COMMON(npcList);
 end
 
-function UPDATE_MINIMAP(frame, cursize)
+function UPDATE_MINIMAP(frame)
+
 	if session.DontUseMinimap() == true then
 		frame:ShowWindow(0);
 		return;
 	end
 
-	local curmapname = session.GetMapName();
-	if ui.IsImageExist(curmapname) == 0 then
-		frame:ShowWindow(0);
-		return;
-	end
-
-	if cursize == nil then
-		cursize = GET_MINIMAPSIZE();
-	end
-
-	RequestUpdateMinimap(curmapname, cursize);
-end
-
-function RENDER_MINIMAP(mapName, cursize, npclist, statelist, questIESlist, questPropList)
-
-	local frame = ui.GetFrame('minimap');
-
-	SET_MINIMAPSIZE(cursize);
-	MINIMAP_CHAR_UDT(frame);
-
-	local curmapname = session.GetMapName();
-	if mapName ~= curmapname then
-		return;
-	end
-	
 	local mylevel = info.GetLevel(session.GetMyHandle());
 
 	local cursize = GET_MINIMAPSIZE();
 	local zoominfo = frame:GetChild("ZOOM_INFO");
 	local percent = (100 + cursize) / 100;
 	zoominfo:SetText(string.format("x{b}%1.1f", percent));
+
+	local curmapname = session.GetMapName();
+	local imgfilename = curmapname;
+	if ui.IsImageExist(imgfilename) == 0 then
+		frame:ShowWindow(0);
+		return;
+	end
 
 	local mapprop = geMapTable.GetMapProp(curmapname);
 
@@ -165,6 +151,12 @@ function RENDER_MINIMAP(mapName, cursize, npclist, statelist, questIESlist, ques
 	map_bg:Resize(minimapw, minimaph);
 	
 	local mapname = mapprop:GetClassName();
+	local npclist = {};
+	local statelist = {};
+	local questIESlist  = {};
+	local questPropList = {};
+
+	GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESlist, questPropList);
 
 	local npcList = frame:GetChild('npclist')
 	tolua.cast(npcList, 'ui::CGroupBox');
@@ -258,7 +250,7 @@ function RENDER_MINIMAP(mapName, cursize, npclist, statelist, questIESlist, ques
 	local mapname = mapprop:GetClassName();
 	local cnt = #questPropList;
 	for i = 1 , cnt do
-		local questprop = geQuestTable.GetPropByIndex(questPropList[i]);
+		local questprop = questPropList[i];
 		local cls = questIESlist[i];
 		local stateidx = STATE_NUMBER(statelist[i]);
 
@@ -399,6 +391,7 @@ function RENDER_MINIMAP(mapName, cursize, npclist, statelist, questIESlist, ques
 	MAKE_MY_CURSOR_TOP(frame);
 
 	frame:Invalidate();
+	
 end
 
 function GET_MINI_ICON_POS_BY_MAPPOS(x, y, iconW, iconH)
