@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by aasdasd (IMCGames Co., Ltd) -->
+<uiframe name="selectcompanioninfo" x="0" y="0" width="350" height="200" layout_gravity="center center">
+	<frame title="캐릭터정보" layout_gravity="center center" margin="0 -150 0 0"/>
+	<skin stretchimage=""/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<input moveable="false" hittestframe="false"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<animation frameOpenAnim="launch_open" frameCloseAnim="launch_close"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+		<picture name="pic" margin="0 0 0 0" rect="0 0 80 80" hittest="false" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="center top"/>
+		<richtext name="name" margin="0 85 0 0" rect="0 0 200 30" format="{@st43}{s22}%s{/}" param1="value" param1_def="z" layout_gravity="center top" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
+		<richtext name="pettype" margin="0 120 0 0" rect="0 0 200 24" format="{@stx1}%s{/}" param1="value" param1_def="z" layout_gravity="center top" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
+		<button name="gotopc" skin="test_pvp_btn" margin="-80 0 0 0" rect="0 0 160 50" layout_gravity="center bottom" format="{@st66b}%s" param1="value" param1_def="gotogether" texttooltip="{@st59}클릭후 캐릭터를 선택하면 컴패니언이 따라다닙니다{/}" LBtnUpScp="SEL_COMPANION_WITH_PC" oversound="button_over" clicksound="button_click_2" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
+		<button name="movelayer" skin="test_pvp_btn" margin="80 0 0 0" rect="0 0 160 50" layout_gravity="center bottom" format="{@st66b}숙소 이동" texttooltip="{@st59}숙소를 이동시킵니다.{/}" LBtnUpScp="SEL_COMPANION_MOVE_BARRACK_LAYER" oversound="button_over" clicksound="button_click_2" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
+	</controls>
+</uiframe>

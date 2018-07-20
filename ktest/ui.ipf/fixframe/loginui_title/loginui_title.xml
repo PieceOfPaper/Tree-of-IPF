@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="loginui_title" x="0" y="0" width="6000" height="3000">
+	<frame title="로그인타이틀" margin="0 0 0 0" layout_gravity="center center"/>
+	<layer layerlevel="10"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<script fadeinScp="None" fadeoutScp="None"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+		<picture name="bgbg" rect="0 0 0 0" margin="0 0 0 0" layout_gravity="center center" image="bg_w" stretch="true"/>
+		<picture name="login_bg" rect="0 0 0 0" margin="0 0 0 0 " layout_gravity="center center" image="login_bg" stretch="false"/>
+		<picture name="r1_logo1" rect="0 0 900 480" margin="0 -220 0 0" layout_gravity="center center" image="login2" stretch="true"/>
+		<picture name="r1_logo_title_kor" rect="0 0 380 75" margin="0 0 0 0" layout_gravity="center center" image="login1" serviceNation="KOR" stretch="true"/>
+		<picture name="r1_logo_title_tw" rect="0 0 300 45" margin="0 -55 0 0" layout_gravity="center center" image="login3" serviceNation="TAIWAN" stretch="true"/>
+	</controls>
+</uiframe>

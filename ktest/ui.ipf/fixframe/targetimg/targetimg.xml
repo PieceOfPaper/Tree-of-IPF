@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="targetimg" x="0" y="0" width="64" height="64">
+	<frame title="Chat" layout_gravity="left top" fasthide="true"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<input hittestframe="false" moveable="false" minwidth="64" minheight="64" maxwidth="128" resize="true" reduce="true"/>
+	<option closebutton="false" hideable="false"/>
+	<controls>
+		<picture name="pic" rect="0 0 64 64" layout_gravity="left top" image="target_sleep" hittest="false"/>
+	</controls>
+</uiframe>

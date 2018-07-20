@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<skinset name="Tool">
+	<fontlist category="Default Font">
+		<font name="normal" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="default" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="button" filename="imcm.ttf" size="12" color="#dddddd" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="button_activated" filename="imcm.ttf" size="12" color="#7c6959" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="button_disable" filename="imcm.ttf" size="12" color="#666666" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="checkbox" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="checkbox_12" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="column" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="droplist" filename="imcm.ttf" size="12" color="#cccccc" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="droplist_normal" filename="imcm.ttf" size="12" color="#cccccc" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="droplist_onmouse" filename="imcm.ttf" size="12" color="#eeee00" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="droplist_selected" filename="imcm.ttf" size="12" color="#333333" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="droplistitem" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="input" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="input2" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="inputnumber" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="inputstring" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="listbox" filename="imcm.ttf" size="14" color="#000000" space="0" bold="no" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="selectedlistbox" filename="imcm.ttf" size="14" color="#cc3300" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="tree" filename="imcm.ttf" size="14" color="#000000" space="0" bold="no" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="selectedtree" filename="imcm.ttf" size="16" color="#cc3300" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="tab" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="tab2" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="title" filename="imcm.ttf" size="14" color="#ffffff" space="0" bold="yes" underline="no" dropshadow="yes" italic="no" outline="yes"/>
+		<font name="gaugefont" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="gaugefont2" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="gaugefont3" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="ch_log" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="ch_system" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="ch_dataerror" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="ch_normal" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="ch_warning" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="ch_useitem" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="disable" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="enemyname" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="friendname" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="neutralname" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="quest" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="white_12" filename="IMCM.ttf" size="12" color="#ffffff" space="0" bold="no" underline="no" dropshadow="no" italic="no" outline="yes"/>
+		<font name="chat" filename="imcm.ttf" size="12" color="#000000" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+		<font name="chat_party" filename="imcm.ttf" size="12" color="#00eeee" space="0" bold="yes" underline="no" dropshadow="no" italic="no" outline="no"/>
+	</fontlist>
+	<skinlist category="Default Skin">
+		<skin name="titlebar" texture="\skin\mainframe_A.tga">
+			<img name="left" imgrect="0 0 40 40"/>
+			<img name="middle" imgrect="41 0 100 40"/>
+			<img name="right" imgrect="142 0 40 40"/>
+		</skin>
+		<skin name="activetitlebar" texture="\skin\mainframe_A.tga">
+			<img name="left" imgrect="0 0 40 40"/>
+			<img name="middle" imgrect="41 0 100 40"/>
+			<img name="right" imgrect="142 0 40 40"/>
+		</skin>
+		<skin name="mainwindow" texture="\skin\HUD.tga">
+			<img name="topleft" imgrect="0 823 100 1"/>
+			<img name="topcore" imgrect="101 823 210 1"/>
+			<img name="topright" imgrect="312 823 100 1"/>
+			<img name="bodyleft" imgrect="0 823 100 100"/>
+			<img name="bodycore" imgrect="101 823 210 100"/>
+			<img name="bodyright" imgrect="312 823 100 100"/>
+			<img name="bottomleft" imgrect="0 924 100 100"/>
+			<img name="bottomcore" imgrect="101 924 210 100"/>
+			<img name="bottomright" imgrect="312 924 100 100"/>
+		</skin>
+		<skin name="textview" texture="\skin\mainframe_A.tga">
+			<img name="topleft" imgrect="671 907 11 9"/>
+			<img name="topcore" imgrect="683 907 9 9"/>
+			<img name="topright" imgrect="693 907 11 9"/>
+			<img name="bodyleft" imgrect="671 917 11 2"/>
+			<img name="bodycore" imgrect="683 917 9 2"/>
+			<img name="bodyright" imgrect="693 917 11 2"/>
+			<img name="bottomleft" imgrect="671 920 11 13"/>
+			<img name="bottomcore" imgrect="683 920 9 13"/>
+			<img name="bottomright" imgrect="693 920 11 13"/>
+		</skin>
+		<skin name="verticalscrollbar" texture="\skin\login_barrack.tga">
+			<img name="background" imgrect="172 210 20 20"/>
+			<img name="btnup" imgrect="171 376 20 18"/>
+			<img name="btnup_click" imgrect="209 376 20 18"/>
+			<img name="btnup_cursoron" imgrect="190 376 20 18"/>
+			<img name="btndown" imgrect="171 395 20 18"/>
+			<img name="btndown_click" imgrect="209 395 20 18"/>
+			<img name="btndown_cursoron" imgrect="190 395 20 18"/>
+			<img name="bartop" imgrect="193 269 18 12"/>
+			<img name="bartop_click" imgrect="231 269 18 12"/>
+			<img name="bartop_cursoron" imgrect="212 269 18 12"/>
+			<img name="barmiddle" imgrect="193 283 18 12"/>
+			<img name="barmiddle_click" imgrect="231 283 18 12"/>
+			<img name="barmiddle_cursoron" imgrect="212 283 18 12"/>
+			<img name="barbottom" imgrect="193 358 18 12"/>
+			<img name="barbottom_click" imgrect="231 358 18 12"/>
+			<img name="barbottom_cursoron" imgrect="212 358 18 12"/>
+		</skin>
+		<skin name="slidebar" texture="\skin\mainframe_A.tga">
+			<img name="left" imgrect="18 194 4 16"/>
+			<img name="middle" imgrect="22 194 6 16"/>
+			<img name="right" imgrect="30 194 4 16"/>
+			<img name="cursor" imgrect="0 194 16 16"/>
+			<img name="cursor_click" imgrect="0 212 16 16"/>
+			<img name="cursor_onmouse" imgrect="18 212 16 16"/>
+		</skin>
+		<skin name="checkbox" texture="\skin\button.tga">
+			<img name="on" imgrect="479 0 16 16"/>
+			<img name="off" imgrect="496 0 16 16"/>
+		</skin>
+		<skin name="droplist" texture="\skin\mainframe_A.tga">
+			<img name="left" imgrect="603 870 4 20"/>
+			<img name="middle" imgrect="608 870 91 20"/>
+			<img name="right" imgrect="700 870 4 20"/>
+			<img name="dropbutton" imgrect="603 921 12 12"/>
+			<img name="dropbutton_click" imgrect="616 921 12 12"/>
+			<img name="dropbutton_cursoron" imgrect="629 921 12 12"/>
+		</skin>
+		<skin name="columnheader" texture="\skin\mainframe_A.tga">
+			<img name="left" imgrect="0 258 20 20"/>
+			<img name="middle" imgrect="22 258 20 20"/>
+			<img name="right" imgrect="44 258 20 20"/>
+		</skin>
+		<skin name="listbox" texture="\skin\login_barrack.tga">
+			<img name="topleft" imgrect="0 0 20 20"/>
+			<img name="topcore" imgrect="21 0 154 20 "/>
+			<img name="topright" imgrect="176 0 20 20"/>
+			<img name="bodyleft" imgrect="0 21 20 165"/>
+			<img name="bodycore" imgrect="21 21 154 165"/>
+			<img name="bodyright" imgrect="176 21 20 165"/>
+			<img name="bottomleft" imgrect="0 187 20 19"/>
+			<img name="bottomcore" imgrect="21 187 154 19"/>
+			<img name="bottomright" imgrect="176 187 20 19"/>
+		</skin>
+		<skin name="editbox" texture="\skin\login_barrack.tga">
+			<img name="topleft" imgrect="0 229 20 18"/>
+			<img name="topcore" imgrect="22 229 20 18"/>
+			<img name="topright" imgrect="132 229 20 18"/>
+			<img name="bodyleft" imgrect="0 247 20 2"/>
+			<img name="bodycore" imgrect="22 247 20 2"/>
+			<img name="bodyright" imgrect="132 247 20 2"/>
+			<img name="bottomleft" imgrect="0 249 20 18"/>
+			<img name="bottomcore" imgrect="22 249 20 18"/>
+			<img name="bottomright" imgrect="132 249 20 18"/>
+		</skin>
+		<skin name="detailinfobar" texture="\skin\login_barrack.tga">
+			<img name="left" imgrect="160 24 10 20"/>
+			<img name="middle" imgrect="170 24 14 20"/>
+			<img name="right" imgrect="186 2410 20"/>
+			<img name="divide" imgrect="192 24 3 20"/>
+		</skin>
+		<skin name="textbutton" texture="\skin\button.tga">
+			<img name="topleft" imgrect="147 85 15 9"/>
+			<img name="topcore" imgrect="162 85 15 9"/>
+			<img name="topright" imgrect="210 85 15 9"/>
+			<img name="bodyleft" imgrect="147 94 15 3"/>
+			<img name="bodycore" imgrect="162 94 15 3"/>
+			<img name="bodyright" imgrect="210 94 15 3"/>
+			<img name="bottomleft" imgrect="147 97 15 9"/>
+			<img name="bottomcore" imgrect="162 97 15 9"/>
+			<img name="bottomright" imgrect="210 97 15 9"/>
+		</skin>
+		<skin name="textbutton_cursoron" texture="\skin\button.tga">
+			<img name="topleft" imgrect="228 85 15 9"/>
+			<img name="topcore" imgrect="243 85 15 9"/>
+			<img name="topright" imgrect="291 85 15 9"/>
+			<img name="bodyleft" imgrect="228 94 15 3"/>
+			<img name="bodycore" imgrect="243 94 15 3"/>
+			<img name="bodyright" imgrect="291 94 15 3"/>
+			<img name="bottomleft" imgrect="228 97 15 9"/>
+			<img name="bottomcore" imgrect="243 97 15 9"/>
+			<img name="bottomright" imgrect="291 97 15 9"/>
+		</skin>
+		<skin name="textbutton_clicked" texture="\skin\button.tga">
+			<img name="topleft" imgrect="309 85 15 9"/>
+			<img name="topcore" imgrect="324 85 15 9"/>
+			<img name="topright" imgrect="372 85 15 9"/>
+			<img name="bodyleft" imgrect="309 94 15 3"/>
+			<img name="bodycore" imgrect="324 94 15 3"/>
+			<img name="bodyright" imgrect="372 94 15 3"/>
+			<img name="bottomleft" imgrect="309 97 15 9"/>
+			<img name="bottomcore" imgrect="324 97 15 9"/>
+			<img name="bottomright" imgrect="372 97 15 9"/>
+		</skin>
+		<skin name="tab" texture="\skin\mainframe_04.tga">
+			<img name="leftopen" imgrect="0 478 12 23"/>
+			<img name="bodyopen" imgrect="12 478 12 23"/>
+			<img name="rightopen" imgrect="38 478 12 23"/>
+			<img name="leftclose" imgrect="51 478 12 23"/>
+			<img name="bodyclose" imgrect="63 478 12 23"/>
+			<img name="rightclose" imgrect="89 478 12 23"/>
+			<img name="topopen" imgrect="102 478 12 23"/>
+			<img name="centeropen" imgrect="114 478 12 23"/>
+			<img name="bottomopen" imgrect="140 478 12 23"/>
+			<img name="topclose" imgrect="51 478 12 23"/>
+			<img name="centerclose" imgrect="63 478 12 23"/>
+			<img name="bottomclose" imgrect="89 478 12 23"/>
+		</skin>
+		<skin name="groupbox" texture="\skin\login_barrack.tga">
+			<img name="topleft" imgrect="0 0 20 20"/>
+			<img name="topcore" imgrect="21 0 154 20 "/>
+			<img name="topright" imgrect="176 0 20 20"/>
+			<img name="bodyleft" imgrect="0 21 20 165"/>
+			<img name="bodycore" imgrect="21 21 154 165"/>
+			<img name="bodyright" imgrect="176 21 20 165"/>
+			<img name="bottomleft" imgrect="0 187 20 19"/>
+			<img name="bottomcore" imgrect="21 187 154 19"/>
+			<img name="bottomright" imgrect="176 187 20 19"/>
+		</skin>
+		<skin name="labelbox" texture="\skin\mainframe_A.tga">
+			<img name="topleft" imgrect="256 140 16 16"/>
+			<img name="topcore" imgrect="276 140 16 16"/>
+			<img name="topright" imgrect="296 140 16 16"/>
+			<img name="bodyleft" imgrect="256 160 16 16"/>
+			<img name="bodycore" imgrect="276 160 16 16"/>
+			<img name="bodyright" imgrect="296 160 16 16"/>
+			<img name="bottomleft" imgrect="256 180 16 16"/>
+			<img name="bottomcore" imgrect="276 180 16 16"/>
+			<img name="bottomright" imgrect="296 180 16 16"/>
+		</skin>
+		<skin name="labelline" texture="\skin\mainframe_A.tga">
+			<img name="left" imgrect="140 138 8 8"/>
+			<img name="middle" imgrect="148 138 8 8"/>
+			<img name="right" imgrect="156 138 8 8"/>
+			<img name="top" imgrect="140 146 8 8"/>
+			<img name="center" imgrect="148 146 8 8"/>
+			<img name="bottom" imgrect="156 146 8 8"/>
+		</skin>
+		<skin name="tree" texture="\skin\mainframe_A.tga">
+			<img name="topleft" imgrect="671 907 11 9"/>
+			<img name="topcore" imgrect="683 907 9 9"/>
+			<img name="topright" imgrect="693 907 11 9"/>
+			<img name="bodyleft" imgrect="671 917 11 2"/>
+			<img name="bodycore" imgrect="683 917 9 2"/>
+			<img name="bodyright" imgrect="693 917 11 2"/>
+			<img name="bottomleft" imgrect="671 920 11 13"/>
+			<img name="bottomcore" imgrect="683 920 9 13"/>
+			<img name="bottomright" imgrect="693 920 11 13"/>
+			<img name="open" imgrect="648 791 18 18"/>
+			<img name="close" imgrect="648 811 18 18"/>
+		</skin>
+		<skin name="gauge" texture="\skin\mainframe_A.tga">
+			<img name="bgleft" imgrect="19 19 18 18"/>
+			<img name="bgmiddle" imgrect="37 19 478 18"/>
+			<img name="bgright" imgrect="515 19 18 18"/>
+			<img name="barleft" imgrect="19 0 18 18"/>
+			<img name="barmiddle" imgrect="37 0 478 18"/>
+			<img name="barright" imgrect="515 0 18 18"/>
+		</skin>
+		<skin name="gauge2" texture="\skin\mainframe_A.tga">
+			<img name="bgleft" imgrect="19 19 18 18"/>
+			<img name="bgmiddle" imgrect="37 19 478 18"/>
+			<img name="bgright" imgrect="515 19 18 18"/>
+			<img name="barleft" imgrect="19 0 18 18"/>
+			<img name="barmiddle" imgrect="37 0 478 18"/>
+			<img name="barright" imgrect="515 0 18 18"/>
+		</skin>
+		<skin name="tooltip" texture="\skin\login_barrack.tga">
+			<img name="topleft" imgrect="0 0 20 20"/>
+			<img name="topcore" imgrect="21 0 154 20 "/>
+			<img name="topright" imgrect="176 0 20 20"/>
+			<img name="bodyleft" imgrect="0 21 20 165"/>
+			<img name="bodycore" imgrect="21 21 154 165"/>
+			<img name="bodyright" imgrect="176 21 20 165"/>
+			<img name="bottomleft" imgrect="0 187 20 19"/>
+			<img name="bottomcore" imgrect="21 187 154 19"/>
+			<img name="bottomright" imgrect="176 187 20 19"/>
+		</skin>
+		<skin name="tooltip1" texture="\skin\login_barrack.tga">
+			<img name="topleft" imgrect="0 0 20 20"/>
+			<img name="topcore" imgrect="21 0 154 20 "/>
+			<img name="topright" imgrect="176 0 20 20"/>
+			<img name="bodyleft" imgrect="0 21 20 165"/>
+			<img name="bodycore" imgrect="21 21 154 165"/>
+			<img name="bodyright" imgrect="176 21 20 165"/>
+			<img name="bottomleft" imgrect="0 187 20 19"/>
+			<img name="bottomcore" imgrect="21 187 154 19"/>
+			<img name="bottomright" imgrect="176 187 20 19"/>
+		</skin>
+		<skin name="tooltip2" texture="\skin\login_barrack.tga">
+			<img name="topleft" imgrect="0 0 20 20"/>
+			<img name="topcore" imgrect="21 0 154 20 "/>
+			<img name="topright" imgrect="176 0 20 20"/>
+			<img name="bodyleft" imgrect="0 21 20 165"/>
+			<img name="bodycore" imgrect="21 21 154 165"/>
+			<img name="bodyright" imgrect="176 21 20 165"/>
+			<img name="bottomleft" imgrect="0 187 20 19"/>
+			<img name="bottomcore" imgrect="21 187 154 19"/>
+			<img name="bottomright" imgrect="176 187 20 19"/>
+		</skin>
+	</skinlist>
+	<imagelist Category="윈도우">
+		<image name="minimize" file="\skin\skin_set.tga" imgrect="0 41 15 15"/>
+		<image name="maximize" file="\skin\skin_set.tga" imgrect="16 41 15 15"/>
+		<image name="minimize_click" file="\skin\skin_set.tga" imgrect="32 41 15 15"/>
+		<image name="maximize_click" file="\skin\skin_set.tga" imgrect="48 41 15 15"/>
+		<image name="minimize_mouseon" file="\skin\skin_set.tga" imgrect="64 41 15 15"/>
+		<image name="maximize_mouseon" file="\skin\skin_set.tga" imgrect="80 41 15 15"/>
+		<image name="button_normal" file="\skin\skin_set.tga" imgrect="0 0 15 15" CMM_Caption="버튼_기본"/>
+		<image name="button_normal_cursoron" file="\skin\skin_set.tga" imgrect="16 0 15 15" CMM_Caption="버튼_오버"/>
+		<image name="button_normal_clicked" file="\skin\skin_set.tga" imgrect="32 0 15 15" CMM_Caption="버튼_클릭"/>
+	</imagelist>
+	<imagelist Category="스테이더스">
+		<image name="icon_it_noitem" file="\icon\itemicon.bmp" imgrect="0 0 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_wpn_swd_sword1" file="\icon\itemicon.bmp" imgrect="0 64 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_wpn_sab_sabre1" file="\icon\itemicon.bmp" imgrect="64 64 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_wpn_spr_spear1" file="\icon\itemicon.bmp" imgrect="128 64 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_wpn_bul_buljin1" file="\icon\itemicon.bmp" imgrect="192 64 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_wpn_bon_bong1" file="\icon\itemicon.bmp" imgrect="256 64 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_part_fgt_part1" file="\icon\itemicon.bmp" imgrect="0 320 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_part_mag_part1" file="\icon\itemicon.bmp" imgrect="64 320 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_part_phm_part1" file="\icon\itemicon.bmp" imgrect="128 320 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_body_fgt_cloth1" file="\icon\itemicon.bmp" imgrect="0 128 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_body_mag_cloth1" file="\icon\itemicon.bmp" imgrect="64 128 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_body_phm_cloth1" file="\icon\itemicon.bmp" imgrect="128 128 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_glv_fgt_gloves1" file="\icon\itemicon.bmp" imgrect="0 192 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_glv_mag_gloves1" file="\icon\itemicon.bmp" imgrect="64 192 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_glv_phm_gloves1" file="\icon\itemicon.bmp" imgrect="128 192 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_bts_fgt_boots1" file="\icon\itemicon.bmp" imgrect="0 256 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_bts_mag_boots1" file="\icon\itemicon.bmp" imgrect="64 256 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_bts_phm_boots1" file="\icon\itemicon.bmp" imgrect="128 256 64 64" CMM_Caption="스테이더스 아이콘"/>
+		<image name="icon_bod_musa_cloth1" file="\icon\itemicon.bmp" imgrect="192 0 64 64"/>
+		<image name="icon_etc_commonmisc1" file="\icon\itemicon.bmp" imgrect="256 0 64 64"/>
+		<image name="icon_etc_commonmisc2" file="\icon\itemicon.bmp" imgrect="320 0 64 64"/>
+		<image name="icon_etc_commonmisc3" file="\icon\itemicon.bmp" imgrect="0 384 64 64"/>
+		<image name="icon_it_e_silverpiece" file="\icon\itemicon.bmp" imgrect="384 0 64 64"/>
+		<image name="icon_it_e_goldpiece" file="\icon\itemicon.bmp" imgrect="320 64 64 64"/>
+		<image name="icon_qst_infinitewinebottle" file="\icon\itemicon.bmp" imgrect="448 0 64 64"/>
+		<image name="icon_musa_escape" file="\icon\skillicon.bmp" imgrect="80 0 80 80"/>
+		<image name="icon_fgt_fgtsab_1st_melee" file="\icon\skillicon.bmp" imgrect="160 0 80 80"/>
+		<image name="icon_fgt_fgtsab_2nd_meleespl" file="\icon\skillicon.bmp" imgrect="400 0 80 80"/>
+		<image name="icon_musa_speardance1" file="\icon\skillicon.bmp" imgrect="80 80 80 80"/>
+		<image name="icon_fgt_fgtsab_6th_counter" file="\icon\skillicon.bmp" imgrect="320 0 80 80"/>
+		<image name="icon_fgt_fgtsab_3rd_defense" file="\icon\skillicon.bmp" imgrect="240 0 80 80"/>
+		<image name="icon_fgt_fgtsab_4th_range" file="\icon\skillicon.bmp" imgrect="160 80 80 80"/>
+		<image name="icon_fgt_fgtsab_5th_rangespl" file="\icon\skillicon.bmp" imgrect="160 80 80 80"/>
+		<image name="icon_com_drinkpotion2" file="\icon\skillicon.bmp" imgrect="0 0 80 80"/>
+		<image name="icon_com_gatherplant" file="\icon\skillicon.bmp" imgrect="0 0 80 80"/>
+		<image name="icon_com_leverwork" file="\icon\skillicon.bmp" imgrect="0 0 80 80"/>
+		<image name="icon_com_openchest01" file="\icon\skillicon.bmp" imgrect="0 0 80 80"/>
+		<image name="icon_buff_blessedweapon" file="\icon\skillicon.bmp" imgrect="320 0 80 80"/>
+		<image name="icon_buff_blessedarmor" file="\icon\skillicon.bmp" imgrect="240 0 80 80"/>
+		<image name="icon_buff_noicon" file="\icon\skillicon.bmp" imgrect="0 0 80 80"/>
+		<image name="icon_item_none" file="\icon\etc_icon.bmp" imgrect="64 0 64 64"/>
+		<image name="icon_skill_none" file="\icon\etc_icon.bmp" imgrect="64 64 64 64"/>
+	</imagelist>
+	<imagelist Category="탭">
+		<image name="etc_img01" file="\skin\etc_img.tga" imgrect="0 0 160 280"/>
+		<image name="tab_n" file="\skin\skin_set.tga" imgrect="200 88 48 32" CMM_Caption="탭UI_기본"/>
+		<image name="tab_over" file="\skin\skin_set.tga" imgrect="200 120 48 32" CMM_Caption="탭UI_오버"/>
+		<image name="tab_click" file="\skin\skin_set.tga" imgrect="200 152 48 32" CMM_Caption="탭UI_클릭"/>
+		<image name="up_idle" file="\skin\skin_set.tga" imgrect="144 128 12 12"/>
+		<image name="up_on" file="\skin\skin_set.tga" imgrect="157 128 12 12"/>
+		<image name="up_click" file="\skin\skin_set.tga" imgrect="170 128 12 12"/>
+		<image name="down_idle" file="\skin\skin_set.tga" imgrect="144 141 12 12"/>
+		<image name="down_on" file="\skin\skin_set.tga" imgrect="157 141 12 12"/>
+		<image name="down_click" file="\skin\skin_set.tga" imgrect="170 141 12 12"/>
+		<image name="prior" file="\skin\skin_set.tga" imgrect="104 168 16 16"/>
+		<image name="prior_on" file="\skin\skin_set.tga" imgrect="120 168 16 16"/>
+		<image name="prior_click" file="\skin\skin_set.tga" imgrect="136 168 16 16"/>
+		<image name="next" file="\skin\skin_set.tga" imgrect="104 184 16 16"/>
+		<image name="next_on" file="\skin\skin_set.tga" imgrect="120 184 16 16"/>
+		<image name="next_click" file="\skin\skin_set.tga" imgrect="136 184 16 16"/>
+		<image name="icon_act_normalattack" file="\skin\icon_set.tga" imgrect="0 0 80 80"/>
+		<image name="icon_act_moveforward" file="\skin\icon_set.tga" imgrect="81 0 80 80"/>
+	</imagelist>
+	<imagelist Category="이미지아이템">
+		<image name="map_arrow" file="\skin\minimap\minimap_icon.tga" imgrect="0 0 14 14" CMM_Caption="테스트용UI"/>
+		<image name="map_item1" file="\skin\minimap\minimap_icon.tga" imgrect="14 0 12 14" CMM_Caption="테스트용UI"/>
+		<image name="map_item2" file="\skin\minimap\minimap_icon.tga" imgrect="26 0 12 14" CMM_Caption="테스트용UI"/>
+		<image name="map_item3" file="\skin\minimap\minimap_icon.tga" imgrect="38 0 12 14" CMM_Caption="테스트용UI"/>
+	</imagelist>
+	<imagelist Category="이펙트">
+		<image name="effect_circle1" file="\skin\ui_effect.tga" imgrect="512 256 64 64"/>
+		<image name="effect_star1" file="\skin\ui_effect.tga" imgrect="640 256 64 64"/>
+	</imagelist>
+	<imagelist Category="컨트롤셋">
+		<image name="itemset_normal" file="\skin\skin_controlset.tga" imgrect="0 0 256 80"/>
+		<image name="itemset_cursoron" file="\skin\skin_controlset.tga" imgrect="0 81 256 80"/>
+		<image name="itemset_selected" file="\skin\skin_controlset.tga" imgrect="0 162 256 80"/>
+	</imagelist>
+</skinset>

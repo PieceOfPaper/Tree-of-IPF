@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="barrack_charlist" x="0" y="0" width="800" height="1080">
+	<frame title="캐릭터선택" margin="0 60 0 0" layout_gravity="left top" fullheight="true" scale_align="left center" tooltipoverlap="true"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<input moveable="false" hittestframe="false"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+		<groupbox name="gBox" rect="0 0 430 980" margin="50 5 0 0" skin="barrack_group_skin" draw="true" hittest="true" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="true" resizebyresolution="true"/>
+		<groupbox name="scrollBox" rect="0 0 750 950" margin="48 45 0 0" Parent="gBox" skin="_pipwin_low" draw="true" hittest="true" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="false" resizebyresolution="true"/>
+		<richtext name="pccount" margin="70 15 0" rect="0 0 267 36" layout_gravity="left top" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" format="{@st41}숙소%s (%s/%s){/}" param1="value" param1_def="1" param2="curpc" param3="maxpc"/>
+		<richtext name="layercount" margin="0 15 190 0" rect="0 0 267 36" layout_gravity="right top" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" format="{@st41}%s (%s/%s){/}" param1="value" param1_def="총 캐릭터" param2="curcount" param3="maxcount"/>
+		<labelline name="LL" margin="-200 40 0 0" rect="0 0 350 4" skin="None" layout_gravity="center top"/>
+		<button name="changeLayer1" rect="0 0 48 48" margin="9 0 0 0" layout_gravity="left top" LBtnUpArgNum="1" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_on_one_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
+		<button name="changeLayer2" rect="0 0 48 48" margin="9 50 0 0" layout_gravity="left top" LBtnUpArgNum="2" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_off_two_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
+	</controls>
+</uiframe>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="barrack_gamestart" x="0" y="0" width="600" height="180">
+	<frame title="캐릭터선택" layout_gravity="center bottom" margin="0 0 0 30" scale_align="center bottom"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<input moveable="false" hittestframe="false"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end3"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+		<richtext name="create_info" margin="0 0 0 0" rect="0 0 400 24" layout_gravity="center top" textalign="center center" resizebytext="true" fontname="white_16_ol" format="{@st41b}게임을 시작할 채널을 선택하세요{/}"/>
+		<button name="start_game" format="{@st43}%s{/}" param1="value" param1_def="GAME START" texttooltip="{@st59}선택한 캐릭터로 게임을 시작합니다{/}" rect="0 0 280 100" layout_gravity="center bottom" margin="0 0 0 0" textoffset="0 0" textalign="center center" skin="barrack_gamestart" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover_3" MouseOffAnim="btn_mouseoff_3" LBtnUpScp="BARRACK_TO_GAME">
+			<uieffect effect="I_sys_item_slot2" scale="10" overlab="No" sound="None" offset="0 -2" playtime="1" duration="0.4" conditon="active" event="LBUTTONDOWN"/>
+		</button>
+		<richtext name="zone" margin="0 -1000 0 0" rect="0 0 300 24" format="{@st45ty}%s{/}" param1="value" param1_def="SIAUL_WEST_SIAUL_WEST_" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<droplist name="channels" margin="0 35 0 0" rect="0 0 220 30" layout_gravity="center top" skin="droplist_normal" visibleline="5" frametextalign="left" font="white_20_ol" textalign="left center" textoffset="20 0" SelectScp="SELECT_GAMESTART_CHANNEL" />
+	</controls>
+</uiframe>

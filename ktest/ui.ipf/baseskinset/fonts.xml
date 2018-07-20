@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<skinset name="Base">
+	<fontlist category="Default Font">
+		<font name="normal" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="default" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="button" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="button_activated" filename="ORIGINAL" size="16" color="#ffcc33" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="button_disable" filename="ORIGINAL" size="16" color="#808080" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="checkbox" filename="ORIGINAL" size="16" color="#cccccc" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="checkbox_12" filename="ORIGINAL" size="16" color="#cccccc" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="column" filename="ORIGINAL" size="16" color="#74746E" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="dialog" filename="ORIGINAL" size="16" color="#555555" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="droplist" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="droplist_normal" filename="ORIGINAL" size="16" color="#EEEEEE" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="droplist_cursoron" filename="ORIGINAL" size="16" color="#FFEFAF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="droplist_selected" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="droplistitem" filename="ORIGINAL" size="16" color="#464646" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="input" filename="ORIGINAL" size="16" color="#cccccc" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="input2" filename="ORIGINAL" size="16" color="#a0a0a0" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="inputnumber" filename="ORIGINAL" size="16" color="#cccccc" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="inputstring" filename="ORIGINAL" size="16" color="#050505" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="listbox" filename="ORIGINAL" size="16" color="#5ea5d1" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="listbox_ol" filename="ORIGINAL" size="16" color="#5ea5d1" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="picasacategory" filename="ORIGINAL" size="20" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="picasaitemtitle" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="picasaitemdetail" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="picasaitemdesc" filename="ORIGINAL" size="18" color="#c8b496" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="tab" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="tab2" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="title" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="gaugefont" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="gaugefont2" filename="ORIGINAL" size="16" color="#ffffaa" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="gaugefont3" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="selectedlistbox" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="chat" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="chat_ol" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="ch_log" filename="ORIGINAL" size="16" color="#f0f0f0" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="ch_system" filename="ORIGINAL" size="16" color="#E2E9A4" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="ch_system_ol" filename="ORIGINAL" size="16" color="#E2E9A4" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="ch_dataerror" filename="ORIGINAL" size="16" color="#FFFF00" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="ch_normal" filename="ORIGINAL" size="16" color="#F6F6F6" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="ch_warning" filename="ORIGINAL" size="16" color="#FF0000" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="ch_useitem" filename="ORIGINAL" size="16" color="#DEEB6A" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="disable" filename="ORIGINAL" size="16" color="#cccccc" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="enemyname" filename="ORIGINAL" size="16" color="#EA3D3D" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="friendname" filename="ORIGINAL" size="16" color="#91e316" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="neutralname" filename="ORIGINAL" size="16" color="#66B4E6" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="quest" filename="ORIGINAL" size="16" color="#7EA4C8" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="editbox20" filename="ORIGINAL" size="20" color="#DEEB6A" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_login_text" filename="ORIGINAL" size="22" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="yes" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="yellow_login_text" filename="ORIGINAL" size="22" color="#ffcc33" space="0" underline="no" bold="no" dropshadow="yes" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="gold_login_text" filename="ORIGINAL" size="22" color="#FFCC66" space="0" underline="no" bold="yes" dropshadow="yes" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="textballoon" filename="ORIGINAL" size="18" color="#050505" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="quickiconfont" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="bookfont" filename="BOOK" size="20" color="#100505" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="monskl" filename="BOOK" size="20" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="GD_digit_font" filename="ORIGINAL" size="20" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="yes" italic="no" outline="yes" outlinecolor="#333333"/>
+	</fontlist>
+	<fontlist category="Area Font">
+		<font name="area_name" filename="ORIGINAL" size="40" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="yes" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="gray_16_ol" filename="ORIGINAL" size="16" color="#696969" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>>
+	</fontlist>
+	<fontlist category="Dialog Font">
+		<font name="white_12" filename="ORIGINAL" size="12" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_12_ol" filename="ORIGINAL" size="12" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_14" filename="ORIGINAL" size="14" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_14_ol" filename="ORIGINAL" size="14" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_14_b" filename="ORIGINAL" size="14" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_14_b_ds" filename="ORIGINAL" size="14" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="yes" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_14_b_ol" filename="ORIGINAL" size="14" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_16" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_16_ol" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_16_b" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_16_b_ol" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_16_ol_bk" filename="ORIGINAL" size="16" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#111111"/>
+		<font name="white_18" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_18_b" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_18_ol" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_18_b_ol" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_18_grayol" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_18_b_ds" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="yes" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_20" filename="ORIGINAL" size="20" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_20_ol" filename="ORIGINAL" size="20" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_20_b" filename="ORIGINAL" size="20" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_20_b_ds" filename="ORIGINAL" size="20" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="yes" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_20_ol_ds" filename="ORIGINAL" size="20" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="yes" italic="no" outline="yes" outlinecolor="#333333" gradation="gradation2"/>
+		<font name="white_22" filename="ORIGINAL" size="22" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_22_ol" filename="ORIGINAL" size="22" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_24" filename="ORIGINAL" size="24" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="white_24_ol" filename="ORIGINAL" size="24" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_24_b_ol" filename="ORIGINAL" size="24" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="white_24_b_gr2" filename="ORIGINAL" size="24" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333" gradation="gradation2"/>
+		<font name="white_49" filename="ORIGINAL" size="49" color="#FFFFFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="Dialog_NpcName" filename="ORIGINAL" size="20" color="#E9AD1B" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_10" filename="ORIGINAL" size="10" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_11" filename="ORIGINAL" size="11" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_12" filename="ORIGINAL" size="12" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_12_ol" filename="ORIGINAL" size="12" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="yellow_12_b" filename="ORIGINAL" size="12" color="#FFCC66" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_13" filename="ORIGINAL" size="13" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_14" filename="ORIGINAL" size="14" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_14_ol" filename="ORIGINAL" size="14" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="yellow_14_b" filename="ORIGINAL" size="14" color="#FFCC66" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_14_b_ds" filename="ORIGINAL" size="14" color="#FFCC66" space="0" underline="no" bold="yes" dropshadow="yes" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_14_b_ol" filename="ORIGINAL" size="14" color="#FFCC66" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="yellow_16" filename="ORIGINAL" size="16" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_16_ds" filename="ORIGINAL" size="16" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="yes" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_16_ol" filename="ORIGINAL" size="16" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="yellow_16_b" filename="ORIGINAL" size="16" color="#FFCC66" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_16_b_ol" filename="ORIGINAL" size="16" color="#FFCC66" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="yellow_18" filename="ORIGINAL" size="18" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_18_ol" filename="ORIGINAL" size="18" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="yellow_18_b" filename="ORIGINAL" size="18" color="#FFCC66" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="yellow_20_ol" filename="ORIGINAL" size="20" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="yellow_20_ol_ds" filename="ORIGINAL" size="20" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="yes" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="yellow_24_ol" filename="ORIGINAL" size="24" color="#FFCC66" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="yellow_24_b_ol" filename="ORIGINAL" size="24" color="#FFCC66" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="yellow_30_b_ol" filename="ORIGINAL" size="30" color="#FFCC66" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333" gradation="gradation2"/>
+		<font name="black_11" filename="ORIGINAL" size="11" color="#050505" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="black_14" filename="ORIGINAL" size="14" color="#050505" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="black_14_b" filename="ORIGINAL" size="14" color="#050505" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="black_16" filename="ORIGINAL" size="16" color="#050505" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="black_16_b" filename="ORIGINAL" size="16" color="#050505" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="black_18" filename="ORIGINAL" size="18" color="#050505" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="black_18_b" filename="ORIGINAL" size="18" color="#050505" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="black_20" filename="ORIGINAL" size="20" color="#050505" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="black_20_b" filename="ORIGINAL" size="20" color="#050505" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="black_22" filename="ORIGINAL" size="22" color="#050505" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="black_24" filename="ORIGINAL" size="24" color="#050505" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="red_18" filename="ORIGINAL" size="18" color="#FF0000" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="red_18_ol" filename="ORIGINAL" size="18" color="#FF0000" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="red_18_b" filename="ORIGINAL" size="18" color="#FF0000" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="green_16_ol" filename="ORIGINAL" size="16" color="#00FF00" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="green_18" filename="ORIGINAL" size="18" color="#00FF00" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="green_18_b" filename="ORIGINAL" size="18" color="#00FF00" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="green_20_ol" filename="ORIGINAL" size="20" color="#00FF00" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="cooltime" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="yes" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="selectcount" filename="ORIGINAL" size="22" color="#FFFF00" space="0" underline="no" bold="yes" dropshadow="yes" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="gray_16" filename="ORIGINAL" size="16" color="a6a6a6" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="gray_18" filename="ORIGINAL" size="18" color="a6a6a6" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="chatnametemp" filename="ORIGINAL" size="20" color="#764c1d" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="brown_14" filename="ORIGINAL" size="14" color="#1f100b" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="brown_16" filename="ORIGINAL" size="16" color="#1f100b" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="brown_16_b" filename="ORIGINAL" size="16" color="#1f100b" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="brown_18" filename="ORIGINAL" size="18" color="#1f100b" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="brown_18_b" filename="ORIGINAL" size="18" color="#1f100b" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="brown_20_b" filename="ORIGINAL" size="20" color="#1f100b" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="brown_22" filename="ORIGINAL" size="22" color="#1f100b" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="brown_24" filename="ORIGINAL" size="24" color="#1f100b" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="idiotbrown_16" filename="ORIGINAL" size="16" color="#9d8671" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="idiotbrown_16_ol" filename="ORIGINAL" size="16" color="#9d8671" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="idiotbrown_16_b" filename="ORIGINAL" size="16" color="#9d8671" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="idiotbrown_18" filename="ORIGINAL" size="18" color="#9d8671" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="idiotbrown_18_ol" filename="ORIGINAL" size="18" color="#9d8671" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+		<font name="idiotbrown_18_b" filename="ORIGINAL" size="18" color="#9d8671" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="idiotbrown_20" filename="ORIGINAL" size="20" color="#9d8671" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="idiotbrown_14" filename="ORIGINAL" size="14" color="#9d8671" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+    <font name="guild_18_ol" filename="ORIGINAL" size="18" color="#66CCFF" space="0" underline="no" bold="no" dropshadow="no" italic="no" outline="yes" outlinecolor="#333333"/>
+	</fontlist>
+	<fontlist category="ToolTip Font">
+		<font name="tooltip_font_white_18" filename="ORIGINAL" size="18" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="tooltip_font_yellow_18" filename="ORIGINAL" size="18" color="#ffcc33" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+	</fontlist>
+	<fontlist category="Tools Font">
+		<font name="tools_font_white_12" filename="ORIGINAL" size="12" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="tools_font_white_13" filename="ORIGINAL" size="13" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="tools_font_white_14" filename="ORIGINAL" size="14" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="tools_font_white_15" filename="ORIGINAL" size="15" color="#FFFFFF" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="tools_font_black_12" filename="ORIGINAL" size="12" color="#050505" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="tools_font_black_13" filename="ORIGINAL" size="13" color="#050505" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="tools_font_black_14" filename="ORIGINAL" size="14" color="#050505" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+		<font name="tools_font_black_15" filename="ORIGINAL" size="15" color="#050505" space="0" underline="no" bold="yes" dropshadow="no" italic="no" outline="no" outlinecolor="#333333"/>
+	</fontlist>
+</skinset>

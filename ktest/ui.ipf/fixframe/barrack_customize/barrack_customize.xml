@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="barrack_customize" x="0" y="0" width="740" height="500">
+	<frame title="{@st44}새 캐릭터{/}" layout_gravity="right top" margin="0 150 150 0" scale_align="right center"/>
+	<input hittestframe="false"/>
+	<option hideable="false" closebutton="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="10"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<controls>
+		<richtext name="Gender" layout_gravity="left top" rect="0 0 200 30" margin="40 0 0 0" caption="{@st43b}성별 선택{/}" textalign="left center"/>
+		<radiobutton name="Gender02" texttooltip="{@st59}여성{/}" group="2" clicksound="button_click" oversound="button_over" skin="GenderF" layout_gravity="left top" rect="0 0 44 44" margin="220 0 0 0" LBtnDownScp="CREATECHAR_SELECT_GENDER" LBtnDownArgNum="2"/>
+		<radiobutton name="Gender01" texttooltip="{@st59}남성{/}" group="2" clicksound="button_click" oversound="button_over" skin="GenderM" layout_gravity="left top" rect="0 0 44 44" margin="270 0 0 0" LBtnDownScp="CREATECHAR_SELECT_GENDER" LBtnDownArgNum="1"/>
+		<richtext name="Hair" layout_gravity="left top" rect="0 0 200 30" margin="40 100 0 0" caption="{@st43b}헤어 선택{/}" textalign="left center"/>
+		<radiobutton name="Hair01" texttooltip="{@st59}헤어1{/}" group="3" clicksound="button_click" oversound="button_over" skin="hair_radiobtn" layout_gravity="left top" rect="0 0 44 44" margin="220 100 0 0" LBtnDownScp="CREATECHAR_SELECT_HAIR" LBtnDownArgNum="1"/>
+		<radiobutton name="Hair02" texttooltip="{@st59}헤어2{/}" group="3" clicksound="button_click" oversound="button_over" skin="hair_radiobtn" layout_gravity="left top" rect="0 0 44 44" margin="270 100 0 0" LBtnDownScp="CREATECHAR_SELECT_HAIR" LBtnDownArgNum="2"/>
+		<radiobutton name="Hair03" texttooltip="{@st59}헤어3{/}" group="3" clicksound="button_click" oversound="button_over" skin="hair_radiobtn" layout_gravity="left top" rect="0 0 44 44" margin="320 100 0 0" LBtnDownScp="CREATECHAR_SELECT_HAIR" LBtnDownArgNum="3"/>
+		<radiobutton name="Hair04" texttooltip="{@st59}헤어4{/}" group="3" clicksound="button_click" oversound="button_over" skin="hair_radiobtn" layout_gravity="left top" rect="0 0 44 44" margin="370 100 0 0" LBtnDownScp="CREATECHAR_SELECT_HAIR" LBtnDownArgNum="4"/>
+		<radiobutton name="Hair05" texttooltip="{@st59}헤어5{/}" group="3" clicksound="button_click" oversound="button_over" skin="hair_radiobtn" layout_gravity="left top" rect="0 0 44 44" margin="420 100 0 0" LBtnDownScp="CREATECHAR_SELECT_HAIR" LBtnDownArgNum="5"/>
+		<radiobutton name="Hair06" texttooltip="{@st59}헤어6{/}" group="3" clicksound="button_click" oversound="button_over" skin="hair_radiobtn" layout_gravity="left top" rect="0 0 44 44" margin="470 100 0 0" LBtnDownScp="CREATECHAR_SELECT_HAIR" LBtnDownArgNum="6"/>
+		<radiobutton name="Hair07" texttooltip="{@st59}헤어7{/}" group="3" clicksound="button_click" oversound="button_over" skin="hair_radiobtn" layout_gravity="left top" rect="0 0 44 44" margin="520 100 0 0" LBtnDownScp="CREATECHAR_SELECT_HAIR" LBtnDownArgNum="7"/>
+		<radiobutton name="Hair08" texttooltip="{@st59}헤어8{/}" group="3" clicksound="button_click" oversound="button_over" skin="hair_radiobtn" layout_gravity="left top" rect="0 0 44 44" margin="570 100 0 0" LBtnDownScp="CREATECHAR_SELECT_HAIR" LBtnDownArgNum="8"/>
+		<radiobutton name="Hair09" texttooltip="{@st59}헤어9{/}" group="3" clicksound="button_click" oversound="button_over" skin="hair_radiobtn" layout_gravity="left top" rect="0 0 44 44" margin="620 100 0 0" LBtnDownScp="CREATECHAR_SELECT_HAIR" LBtnDownArgNum="9"/>
+		<radiobutton name="Hair10" texttooltip="{@st59}헤어10{/}" group="3" clicksound="button_click" oversound="button_over" skin="hair_radiobtn" layout_gravity="left top" rect="0 0 44 44" margin="670 100 0 0" LBtnDownScp="CREATECHAR_SELECT_HAIR" LBtnDownArgNum="10"/>
+		<richtext name="ClassLIST" layout_gravity="left top" rect="0 0 200 30" margin="40 200 0 0" caption="{@st43b}클래스 선택{/}" textalign="left center"/>
+		<radiobutton name="radioJobSel01" enableselect="true" texttooltip="{@st59}소드맨{/}" group="1" clicksound="button_click" oversound="button_over" skin="Char1_M" layout_gravity="left top" rect="0 0 100 200" margin="220 200 0 0" LBtnDownScp="CREATECHAR_SELECT_JOB" LBtnDownArgNum="1"/>
+		<radiobutton name="radioJobSel02" enableselect="true" texttooltip="{@st59}위저드{/}" group="1" clicksound="button_click" oversound="button_over" skin="Char2_M" layout_gravity="left top" rect="0 0 100 200" margin="320 200 0 0" LBtnDownScp="CREATECHAR_SELECT_JOB" LBtnDownArgNum="2"/>
+		<radiobutton name="radioJobSel03" enableselect="true" texttooltip="{@st59}아처{/}" group="1" clicksound="button_click" oversound="button_over" skin="Char3_M" layout_gravity="left top" rect="0 0 100 200" margin="420 200 0 0" LBtnDownScp="CREATECHAR_SELECT_JOB" LBtnDownArgNum="3"/>
+		<radiobutton name="radioJobSel04" enableselect="true" texttooltip="{@st59}클레릭{/}" group="1" clicksound="button_click" oversound="button_over" skin="Char4_M" layout_gravity="left top" rect="0 0 100 200" margin="520 200 0 0" LBtnDownScp="CREATECHAR_SELECT_JOB" LBtnDownArgNum="4"/>
+		<!--radiobutton name="radioJobSel05" enableselect="false" texttooltip="{@st59}Ҽ{/}" group="1" clicksound="button_click" oversound="button_over" skin="Char5_M" layout_gravity="center center" rect="560 0 100 200" LBtnDownScp="CREATECHAR_SELECT_JOB" LBtnDownArgNum="0"/-->
+		<!--radiobutton name="Direction1" texttooltip="{@st59}/}" group="4" clicksound="button_click" oversound="button_over" skin="Hair1" layout_gravity="left top" rect="0 0 44 44" margin="50 370 0 0" LBtnDownScp="CREATECHAR_SELECT_DIRECTION" LBtnDownArgNum="1"/-->
+		<!--radiobutton name="Direction2" texttooltip="{@st59}/}" group="4" clicksound="button_click" oversound="button_over" skin="Hair1" layout_gravity="left top" rect="0 0 44 44" margin="50 320 0 0" LBtnDownScp="CREATECHAR_SELECT_DIRECTION" LBtnDownArgNum="2"/-->
+	</controls>
+</uiframe>

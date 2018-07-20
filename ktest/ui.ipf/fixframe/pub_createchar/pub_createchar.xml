@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="pub_createchar" x="0" y="0" width="1920" height="1080">
+	<draw drawtitlebar="false"/>
+	<skin frameskin="22"/>
+	<frame fullheight="true" layout_gravity="left center" margin="0 0 0 0"/>
+	<input maxwidth="1280" moveable="false" hittestframe="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+	<sound opensound="character_item_window_open" closesound="character_item_window_close"/>
+	<script OpenScp="OPEN_PUB_CREATECHAR" CloseScp="CLOSE_PUB_CREATECHAR"/>
+	<controls>
+		<groupbox name="bg" margin="5 30 0 0" rect="0 0 524 1050" hittestbox="false" draw="true" skin="test_frame_low" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="true"/>
+		<groupbox name="bg_mid" margin="17 396 0 0" rect="0 0 500 300" hittestbox="false" draw="true" skin="test_frame_midle" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="true"/>
+		<groupbox name="bg_bot" margin="17 711 0 0" rect="0 0 500 161" hittestbox="false" draw="true" skin="test_frame_midle" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="true"/>
+		<groupbox name="maingroup" margin="5 105 0 0" rect="0 0 524 575" hittestbox="false" draw="false" skin="test_frame_low" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="true"/>
+		<groupbox name="start_map_group" margin="0 0 0 0" rect="0 0 524 182" hittestbox="false" draw="true" skin="none" layout_gravity="left bottom" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="false"/>
+		<groupbox name="customgroup" margin="5 714 0 0" rect="0 0 524 149" hittestbox="false" draw="false" skin="test_frame_low" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="true"/>
+		<groupbox name="topgroup" margin="5 0 0 0" rect="0 0 524 130" hittestbox="false" draw="true" skin="test_frame_top" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="true"/>
+		<picture name="topbg" margin="0 0 0 0" rect="0 0 524 104" hittest="false" image="" stretch="false" changecursor="false" layout_gravity="center center" parent="topgroup"/>
+		<picture name="classBg_wing" margin="33 22 0 0" rect="0 0 470 140" hittest="false" image="barrack_class_symbol" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_1" layout_gravity="left top"/>
+		<picture name="L2" margin="35 29 0 0" rect="0 0 170 55" hittest="false" image="barrack_chainL_2" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_1" layout_gravity="left top"/>
+		<picture name="L1" margin="35 32 0 0" rect="0 0 170 55" hittest="false" image="barrack_chainL_1" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_2" layout_gravity="left top"/>
+		<picture name="R2" margin="330 34 0 0" rect="0 0 170 55" hittest="false" image="barrack_chainR_2" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_2" layout_gravity="left top"/>
+		<picture name="R1" margin="330 32 0 0" rect="0 0 170 55" hittest="false" image="barrack_chainR_1" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_1" layout_gravity="left top"/>
+		<picture name="classImage" margin="216 46" rect="0 0 100 100" hittest="false" image="barrack_class_Warrior" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_2" layout_gravity="left top"/>
+		<picture name="star2" margin="469 22 0 0" rect="0 0 30 30" hittest="false" image="star_in_arrow" stretch="true" changecursor="false" layout_gravity="left top"/>
+		<picture name="star1" margin="35 22 0 0" rect="0 0 30 30" hittest="false" image="star_in_arrow" stretch="true" changecursor="false" layout_gravity="left top"/>
+		<richtext name="job_title" margin="4 100 0 0" rect="0 0 120 22" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" format="{@sti1c}%s{/}" param1="value" param1_def="AAAAAAAAAAAAA" parent="maingroup"/>
+		<richtext name="job_desc" margin="0 150 0 0" rect="0 0 460 128" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" format="{@st66b}%s{/}" param1="value" param1_def="AAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBB" fixheight="true" parent="maingroup"/>
+		<labelline name="labelline_1" margin="0 264 0 0" rect="0 0 514 0" skin="None" layout_gravity="center top" parent="maingroup"/>
+		<picture name="pic_atk" margin="50 299 0 0" rect="0 0 58 68" hittest="false" image="barrack_attack_icon" stretch="false" changecursor="false" layout_gravity="left top" parent="maingroup"/>
+		<picture name="pic_def" margin="50 379 0 0" rect="0 0 59 58" hittest="false" image="barrack_defence_icon" stretch="false" changecursor="false" layout_gravity="left top" parent="maingroup"/>
+		<picture name="pic_assist" margin="50 449 0 0" rect="0 0 57 58" hittest="false" image="barrack_Assis_icon" stretch="false" changecursor="false" layout_gravity="left top" parent="maingroup"/>
+		<picture name="pic_difficulty" margin="51 519 0 0" rect="0 0 57 58" hittest="false" image="barrack_difficult_icon" stretch="false" changecursor="false" layout_gravity="left top" parent="maingroup"/>
+		<richtext name="title_atk" margin="120 309 0 0" rect="0 0 120 22" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="maingroup" caption="{@st41}공격력{/}"/>
+		<richtext name="title_def" margin="120 379 0 0" rect="0 0 120 22" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="maingroup" caption="{@st41}방어력{/}"/>
+		<richtext name="title_assist" margin="120 449 0 0" rect="0 0 120 22" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="maingroup" caption="{@st41}보조{/}"/>
+		<richtext name="title_difficulty" margin="120 519 0 0" rect="0 0 120 22" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="maingroup" caption="{@st41}난이도{/}"/>
+		<richtext name="title_hair" margin="120 34 0 0" rect="0 0 120 22" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="customgroup" caption="{@st41}헤 어"/>
+		<richtext name="title_direction" margin="120 105 0 0" rect="0 0 120 22" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="customgroup" caption="{@st41}회 전"/>
+		<richtext name="title_hairtype" margin="243 21 0 0" rect="0 0 213 47" hittest="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="customgroup" format="{@st41}%s" param1="value" param1_def="Sheep shaped hair" fixheight="true"/>
+		<gauge name="gauge_rating_1" margin="116 339 0 0" rect="0 0 350 24" skin="gauge_barrack_attack" inverse="false" point="50" layout_gravity="left top" parent="maingroup"/>
+		<gauge name="gauge_rating_2" margin="116 409 0 0" rect="0 0 350 24" skin="gauge_barrack_defence" inverse="false" point="50" layout_gravity="left top" parent="maingroup"/>
+		<gauge name="gauge_rating_3" margin="116 549 0 0" rect="0 0 350 24" skin="gauge_barrack_difficult" inverse="false" point="50" layout_gravity="left top" parent="maingroup"/>
+		<gauge name="gauge_rating_4" margin="116 479 0 0" rect="0 0 350 24" skin="gauge_barrack_assits" inverse="false" point="50" layout_gravity="left top" parent="maingroup"/>
+		<picture name="pic_hair" margin="46 16 0 0" rect="0 0 57 58" hittest="false" image="barrack_hair_icon" stretch="false" changecursor="false" layout_gravity="left top" parent="customgroup"/>
+		<picture name="pic_spin" margin="46 88 0 0" rect="0 0 57 58" hittest="false" image="barrack_spin_icon" stretch="false" changecursor="false" layout_gravity="left top" parent="customgroup"/>
+		<button name="btn_hair_prev" margin="200 20 0 0" rect="0 0 40 50" clickrgn="-40 -40 100 100" layout_gravity="left top" parent="customgroup" image="button_left_select2" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="PUB_PREV_HEAD"/>
+		<button name="btn_hair_next" margin="460 20 0 0" rect="0 0 40 50" clickrgn="-40 -40 100 100" layout_gravity="left top" parent="customgroup" image="button_right_select2" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="PUB_NEXT_HEAD"/>
+		<button name="btn_dir_prev" margin="200 90 0 0" rect="0 0 40 50" clickrgn="-40 -40 100 100" layout_gravity="left top" parent="customgroup" image="button_left_select2" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="PUB_PREV_DIRECTION"/>
+		<button name="btn_dir_next" margin="460 90 0 0" rect="0 0 40 50" clickrgn="-40 -40 100 100" layout_gravity="left top" parent="customgroup" image="button_right_select2" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="PUB_NEXT_DIRECTION"/>
+		<richtext name="start_map" margin="0 0 0 140" rect="0 0 200 200" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" format="{@st65b}%s{/}" param1="value" param1_def="시작 도시 선택" parent="start_map_group"/>
+		<button name="KlaipeBtn" parent="start_map_group" margin="10 0 0 16" image="townselect_K_btn" rect="0 0 250 107" layout_gravity="left bottom" caption="{@st44}클라페다" texttooltip="{@st59s}수정광산을 중심으로 발전한 광업도시,{nl}신수의 날에 가장 경미한 피해를 입었다.{/}" clicksound="button_click_big" oversound="button_over" LBtnUpScp="SELECT_START_MAP_KLAIPE">
+			<uieffect effect="I_sys_item_slot3" scale="9.6" overlab="No" sound="None" offset="0 -2" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
+		</button>
+		<button name="OrshaBtn" parent="start_map_group" margin="263 0 0 17" image="townselect_O_btn" rect="0 0 250 107" layout_gravity="left bottom" caption="{@st44}오르샤" texttooltip="{@st59s}신수의 날에 거대한 성곽에 의지해 재앙을 막아보려 했지만,{nl}재앙은 그 성곽마저도 삼켜버렸다.{/}" clicksound="button_click_big" oversound="button_over" LBtnUpScp="SELECT_START_MAP_ORSHA">
+			<uieffect effect="I_sys_item_slot3" scale="9.6" overlab="No" sound="None" offset="0 -2" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
+		</button>
+		<picture name="KlaipeBtn_mark" parent="start_map_group" margin="100 65 0 30" rect="0 0 84 84" hittest="false" image="v_mark" stretch="false" changecursor="false" layout_gravity="left bottom"/>
+		<picture name="OrshaBtn_mark" parent="start_map_group" margin="353 65 0 30" rect="0 0 84 84" hittest="false" image="v_mark" stretch="false" changecursor="false" layout_gravity="left bottom"/>
+		<richtext name="job_title_1" margin="1 47 0 200" rect="0 0 120 24" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" format="{@st41b}%s{/}" param1="value" param1_def="캐릭터 이름"/>
+		<groupbox name="input_name_skin" margin="0 0 0 145" rect="0 0 300 50" skin="barrack_creat_win" draw="true" hittestbox="true" layout_gravity="center bottom" scrollbar="false" resizebyparent="false"/>
+		<edit name="input_name" margin="0 0 0 155" rect="0 0 290 36" textalign="center center" fontname="white_22_ol" usetag="true" EnterKeyScp="None" numbermode="false" OffsetForDraw="0 0" layout_gravity="center bottom" skin="None" maxlen="16" drawbackground="false" clicksound="button_click_big" oversound="button_over"/>
+		<button name="button_1_1" margin="0 0 0 20" skin="barrack_gamestart" rect="0 0 280 100" layout_gravity="center bottom" caption="{@st43}캐릭터 생성" texttooltip="{@st59}설정대로 캐릭터를 생성합니다{/}" clicksound="button_click_big" oversound="button_over" frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end3" MouseOnAnim="btn_mouseover_3" MouseOffAnim="btn_mouseoff_3" LBtnUpScp="PUB_EXEC_CREATECHAR">
+			<uieffect effect="I_sys_item_slot2" scale="9.6" overlab="No" sound="None" offset="0 -2" playtime="1" duration="0.4" conditon="active" event="LBUTTONDOWN" layout_gravity="left top"/>
+		</button>
+		<button name="button_1_1_1" margin="1530 0 0 25" skin="test_gray_button" rect="0 0 160 55" layout_gravity="left bottom" caption="{@st41b}선택 취소" texttooltip="{@st59}캐릭터 선택을 취소합니다{/}" clicksound="button_click_big" oversound="button_over" frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end3" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="PUB_CANCEL_CREATECHAR"/>
+	</controls>
+</uiframe>

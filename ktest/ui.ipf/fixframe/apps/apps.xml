@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="apps" x="0" y="10" width="44" height="240">
+	<frame fasthide="true" layout_gravity="right bottom" margin="0 0 0 55" scale_align="center bottom"/>
+	<draw drawframe="false" drawtitlebar="false"/>
+	<skin frameskin="systemmenu_vertical"/>
+	<input moveable="false" hittestframe="true"/>
+	<layer layerlevel="99"/>
+	<option closebutton="false"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+	<controls>
+		<button name="GO_BARRACKMODE" layout_gravity="center bottom" texttooltip="{@st59}캐릭터선택{/}" clicksound="button_click_big" oversound="button_over" image="barrack_button_normal" rect="0 0 44 44" margin="0 0 0 5" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="APPS_TRY_MOVE_BARRACK"/>
+		<button name="LOG_OUT" layout_gravity="center bottom" texttooltip="{@st59}로그아웃{/}" clicksound="button_click_big" oversound="button_over" image="logout_button_normal" rect="0 0 44 44" margin="0 0 0 50" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="APPS_TRY_LOGOUT"/>
+		<button name="Config" layout_gravity="center bottom" texttooltip="{@st59}게임설정{/}" clicksound="button_click_big" oversound="button_over" image="config_button_normal" rect="0 0 44 44" margin="0 0 0 95" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="OPEN_CONFIG_FRAME"/>
+		<button name="EXITAPP" layout_gravity="center bottom" texttooltip="{@st59}게임종료{/}" clicksound="button_click_big" oversound="button_over" image="exit_button_normal" rect="0 0 44 44" margin="0 0 0 140" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="APPS_TRY_EXIT"/>
+		<!--richtext name="barrack_text" layout_gravity="left top" rect="0 0 18 20" margin="00 45 0 0" caption="{@st60}ĳ{/}" spacey="0" hittest="false"/>
+		<richtext name="logout_text" layout_gravity="left top" rect="0 0 18 20" margin="85 45 0 0" caption="{@st60}α׾ƿ/}" spacey="0" hittest="false"/>
+		<richtext name="config_text" layout_gravity="left top" rect="0 0 18 20" margin="150 45 0 0" caption="{@st60}Ӽ{/}" spacey="0" hittest="false"/>
+		<richtext name="exit_text" layout_gravity="right top" rect="0 0 18 20" margin="0 45 0 0" caption="{@st60}/}" spacey="0" hittest="false"/-->
+	</controls>
+</uiframe>

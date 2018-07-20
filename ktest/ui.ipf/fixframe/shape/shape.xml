@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by WonSup (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="shape" x="0" y="316" width="480" height="404">
+	<frame title="커스터마이즈 아이템 프레임" layout_gravity="right top" snapclient="true" snapframe="true"/>
+	<input resize="false" hittestframe="false"/>
+	<option hideable="true"/>
+	<draw drawtitlebar="false"/>
+	<script OpenScp="SHAPE_CONTROLSET"/>
+	<layer layerlevel="20"/>
+	<sound opensound="sys_ui_open.wav" closesound="sys_ui_close.wav"/>
+	<controls>
+		<groupbox name="ItemGroup" layout_gravity="left top" rect="108 88 340 164" LBtnDownScp="SHAPE_CLOSE_BUTTON"/>
+		<slidebar name="Color_Red" caption="붉은색" layout_gravity="left top" rect="224 260 120 16" minlevel="-512" defaultlevel="0" maxlevel="512" SlideScp="SHAPE_COLOR_R"/>
+		<slidebar name="Color_Green" caption="녹색" layout_gravity="left top" rect="224 286 120 16" minlevel="-512" defaultlevel="0" maxlevel="512" SlideScp="SHAPE_COLOR_G"/>
+		<slidebar name="Color_Blue" caption="푸른색" layout_gravity="left top" rect="224 312 120 16" minlevel="-512" defaultlevel="0" maxlevel="512" SlideScp="SHAPE_COLOR_B"/>
+		<slidebar name="Color_Density" caption="밀도" layout_gravity="left top" rect="224 338 120 16" minlevel="0" defaultlevel="0" maxlevel="100" SlideScp="SHAPE_COLOR_D"/>
+		<richtext name="Color_Red_Text" caption="R" textalign="right center" layout_gravity="left top" rect="160 260 60 16"/>
+		<richtext name="Color_Green_Text" caption="G" textalign="right center" layout_gravity="left top" rect="160 286 60 16"/>
+		<richtext name="Color_Blue_Text" caption="B" textalign="right center" layout_gravity="left top" rect="160 312 60 16"/>
+		<richtext name="Color_Density_Text" caption="D" textalign="right center" layout_gravity="left top" rect="160 338 60 16"/>
+		<edit name="Color_Red_Value" caption="0000" textalign="left center" layout_gravity="left top" rect="372 258 44 20" EnterKeyScp="SHAPE_COLOR_R_EDITBOX"/>
+		<edit name="Color_Green_Value" caption="0000" textalign="left center" layout_gravity="left top" rect="372 284 44 20" EnterKeyScp="SHAPE_COLOR_G_EDITBOX"/>
+		<edit name="Color_Blue_Value" caption="0000" textalign="left center" layout_gravity="left top" rect="372 310 44 20" EnterKeyScp="SHAPE_COLOR_B_EDITBOX"/>
+		<edit name="Color_Density_Value" caption="0000" textalign="left center" layout_gravity="left top" rect="372 336 44 20" EnterKeyScp="SHAPE_COLOR_D_EDITBOX"/>
+	</controls>
+</uiframe>

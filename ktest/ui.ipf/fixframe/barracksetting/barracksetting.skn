@@ -1,0 +1,89 @@
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<skinset name="barracksetting">
+	<skinlist>
+		<skin name="bg" texture="\skin\mainframe_03.tga">
+			<img name="topleft" imgrect="401 822 60 60"/>
+			<img name="topcore" imgrect="462 822 80 60"/>
+			<img name="topright" imgrect="543 822 60 60"/>
+			<img name="bodyleft" imgrect="401 883 60 80"/>
+			<img name="bodycore" imgrect="462 883 80 80"/>
+			<img name="bodyright" imgrect="543 883 60 80"/>
+			<img name="bottomleft" imgrect="401 964 60 60"/>
+			<img name="bottomcore" imgrect="462 964 80 60"/>
+			<img name="bottomright" imgrect="543 964 60 60"/>
+		</skin>
+		<skin name="invenslot" texture="\skin\mainframe_A.tga">
+			<img name="slot" imgrect="447 547 42 42"/>
+			<img name="mouseon" imgrect="490 547 42 42"/>
+			<img name="cooltime" imgrect="533 547 42 42"/>
+			<img name="selected" imgrect="576 547 42 42"/>
+		</skin>
+		<skin name="hat" texture="\skin\mainframe_02.tga">
+			<img name="slot" imgrect="694 101 80 80"/>
+			<img name="mouseon" imgrect="694 263 100 100"/>
+			<img name="cooltime" imgrect="795 263 100 100"/>
+			<img name="selected" imgrect="795 263 100 100"/>
+		</skin>
+		<skin name="shirt" texture="\skin\mainframe_02.tga">
+			<img name="slot" imgrect="775 101 80 80"/>
+			<img name="mouseon" imgrect="694 263 100 100"/>
+			<img name="cooltime" imgrect="795 263 100 100"/>
+			<img name="selected" imgrect="795 263 100 100"/>
+		</skin>
+		<skin name="gloves" texture="\skin\mainframe_02.tga">
+			<img name="slot" imgrect="856 101 80 80"/>
+			<img name="mouseon" imgrect="694 263 100 100"/>
+			<img name="cooltime" imgrect="795 263 100 100"/>
+			<img name="selected" imgrect="795 263 100 100"/>
+		</skin>
+		<skin name="cloths" texture="\skin\mainframe_02.tga">
+			<img name="slot" imgrect="924 383 100 100"/>
+			<img name="mouseon" imgrect="694 263 100 100"/>
+			<img name="cooltime" imgrect="795 263 100 100"/>
+			<img name="selected" imgrect="795 263 100 100"/>
+		</skin>
+		<skin name="outer" texture="\skin\mainframe_02.tga">
+			<img name="slot" imgrect="694 0 100 100"/>
+			<img name="mouseon" imgrect="694 263 100 100"/>
+			<img name="cooltime" imgrect="795 263 100 100"/>
+			<img name="selected" imgrect="795 263 100 100"/>
+		</skin>
+		<skin name="pants" texture="\skin\mainframe_02.tga">
+			<img name="slot" imgrect="795 0 100 100"/>
+			<img name="mouseon" imgrect="694 263 100 100"/>
+			<img name="cooltime" imgrect="795 263 100 100"/>
+			<img name="selected" imgrect="795 263 100 100"/>
+		</skin>
+		<skin name="boots" texture="\skin\mainframe_02.tga">
+			<img name="slot" imgrect="937 101 80 80"/>
+			<img name="mouseon" imgrect="694 263 100 100"/>
+			<img name="cooltime" imgrect="795 263 100 100"/>
+			<img name="selected" imgrect="795 263 100 100"/>
+		</skin>
+		<skin name="rh" texture="\skin\mainframe_02.tga">
+			<img name="slot" imgrect="694 182 80 80"/>
+			<img name="mouseon" imgrect="694 263 100 100"/>
+			<img name="cooltime" imgrect="795 263 100 100"/>
+			<img name="selected" imgrect="795 263 100 100"/>
+		</skin>
+		<skin name="lh" texture="\skin\mainframe_02.tga">
+			<img name="slot" imgrect="775 182 80 80"/>
+			<img name="mouseon" imgrect="694 263 100 100"/>
+			<img name="cooltime" imgrect="795 263 100 100"/>
+			<img name="selected" imgrect="795 263 100 100"/>
+		</skin>
+		<skin name="ring" texture="\skin\mainframe_02.tga">
+			<img name="slot" imgrect="960 0 64 64"/>
+			<img name="mouseon" imgrect="694 263 100 100"/>
+			<img name="cooltime" imgrect="795 263 100 100"/>
+			<img name="selected" imgrect="795 263 100 100"/>
+		</skin>
+	</skinlist>
+	<imagelist>
+		<image name="icon_setting" file="\skin\button.tga" imgrect="334 437 44 44" Caption="setting"/>
+		<image name="button_inven" file="\skin\button.tga" imgrect="190 302 44 44" Caption="inven"/>
+		<image name="button_inven_cursoron" file="\skin\button.tga" imgrect="235 302 44 44"/>
+		<image name="button_inven_clicked" file="\skin\button.tga" imgrect="280 302 44 44"/>
+	</imagelist>
+</skinset>

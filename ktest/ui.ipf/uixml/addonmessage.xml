@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
+<MessageList>
+	<EXCHANGE Name="EXCHANGE_AGREE" CMM_Caption="거래 동의(?)" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0:자신 1:타인"/>
+	<EXCHANGE Name="EXCHANGE_START" CMM_Caption="거래 시작" CMM_CaptionArgStr="상대방이름" CMM_CaptionArgNum="0"/>
+	<EXCHANGE Name="EXCHANGE_CANCEL" CMM_Caption="거래 취소" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<EXCHANGE Name="EXCHANGE_SUCCESS" CMM_Caption="거래 성공" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<EXCHANGE Name="EXCHANGE_UPDATE" CMM_Caption="거래되는 아이템 변경" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Inventory Name="INV_ITEM_LIST_GET" CMM_Caption="아이템 리스트 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Inventory Name="INV_ITEM_ADD" CMM_Caption="아이템 추가" CMM_CaptionArgStr="None" CMM_CaptionArgNum="인벤토리 인덱스"/>
+	<Inventory Name="INV_ITEM_REMOVE" CMM_Caption="아이템 제거" CMM_CaptionArgStr="None" CMM_CaptionArgNum="인벤토리 인덱스"/>
+	<Inventory Name="INV_ITEM_CHANGE_COUNT" CMM_Caption="아이템 개수 변경" CMM_CaptionArgStr="None" CMM_CaptionArgNum="인벤토리 인덱스"/>
+	<Quest Name="QUEST_LIST_GET" CMM_Caption="퀘스트 리스트 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Quest Name="QUEST_START" CMM_Caption="퀘스트 시작" CMM_CaptionArgStr="None" CMM_CaptionArgNum="퀘스트 ID"/>
+	<Quest Name="QUEST_UPDATE" CMM_Caption="퀘스트 아이템 획득 및 퀘스트내용 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="퀘스트 ID"/>
+	<Quest Name="QUEST_END" CMM_Caption="퀘스트 보고 및 완료" CMM_CaptionArgStr="None" CMM_CaptionArgNum="퀘스트 ID"/>
+	<Quest Name="QUEST_CANCEL" CMM_Caption="퀘스트 취소" CMM_CaptionArgStr="None" CMM_CaptionArgNum="퀘스트 ID"/>
+	<Quest Name="QUEST_FINISHED" CMM_Caption="퀘스트 목표달성" CMM_CaptionArgStr="None" CMM_CaptionArgNum="퀘스트 ID"/>
+	<Quest Name="QUEST_UNFINISHED" CMM_Caption="퀘스트 목표미달" CMM_CaptionArgStr="None" CMM_CaptionArgNum="퀘스트 ID"/>
+	<Status Name="PC_PROPERTY_UPDATE" CMM_Caption="PC 프로퍼티 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Status Name="STAT_UPDATE" CMM_Caption="내 캐릭터의 스탯(HP/SP/FP 관련) 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Status Name="NAME_UPDATE" CMM_Caption="내 캐릭터의 네임 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Status Name="LEVEL_UPDATE" CMM_Caption="내 캐릭터의 레벨 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Status Name="EXP_UPDATE" CMM_Caption="내 캐릭터의 경험치 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Status Name="STANCE_CHANGE" CMM_Caption="내 캐릭터의 스탠스 변경" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Equip Name="EQUIP_ITEM_LIST_GET" CMM_Caption="장착된 아이템갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="퀘스트 ID"/>
+	<QuickSlot Name="QUICKSLOT_LIST_GET" CMM_Caption="퀵슬롯 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Music Name="MUSIC_CHANGE" CMM_Caption="BGM 변경" CMM_CaptionArgStr="그룹이름" CMM_CaptionArgNum="그룹내의 인덱스"/>
+	<Music Name="MUSIC_END" CMM_Caption="BGM 종료(미사용중)" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Barrack Name="BARRACK_GOSELECT" CMM_Caption="캐릭터 생성창에서 ESC키 누름" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Barrack Name="BARRACK_SELECTCHARACTER" CMM_Caption="캐릭터를 선택함" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Target Name="TARGET_SET" CMM_Caption="타겟이 설정됨" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Target Name="TARGET_CLEAR" CMM_Caption="타겟이 해제됨" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Target Name="TARGET_UPDATE" CMM_Caption="타겟의 스탯 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Target Name="TARGET_BUFF_ADD" CMM_Caption="타겟의 버프 추가" CMM_CaptionArgStr="None" CMM_CaptionArgNum="버프타입"/>
+	<Target Name="TARGET_BUFF_REMOVE" CMM_Caption="타겟의 버프 삭제" CMM_CaptionArgStr="None" CMM_CaptionArgNum="버프타입"/>
+	<CusorOn Name="PICK_ON" CMM_Caption="오브젝트에 커서가 올라감" CMM_CaptionArgStr="오브젝트의 이름" CMM_CaptionArgNum="오브젝트의 핸들"/>
+	<CusorOn Name="PICK_ON_ENEMY" CMM_Caption="적대적 개체에 커서가 올라감" CMM_CaptionArgStr="오브젝트의 이름" CMM_CaptionArgNum="오브젝트의 핸들"/>
+	<CusorOn Name="PICK_ON_FRIEND" CMM_Caption="우호적 개채에 커서가 올라감" CMM_CaptionArgStr="오브젝트의 이름" CMM_CaptionArgNum="오브젝트의 핸들"/>
+	<CusorOn Name="PICK_ON_WATCHOBJECT" CMM_Caption="WatchObject에 커서가 올라감" CMM_CaptionArgStr="워치오브젝트의 설명(desc)" CMM_CaptionArgNum="0"/>
+	<CusorOn Name="PICK_OFF" CMM_Caption="커서가 가르키는 것이 없음" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Area Name="WIDEAREA_ENTER" CMM_Caption="Wide 영역 입장" CMM_CaptionArgStr="영역 이름" CMM_CaptionArgNum="0"/>
+	<Area Name="WIDEAREA_LEAVE" CMM_Caption="Wide 영역 퇴장" CMM_CaptionArgStr="영역 이름" CMM_CaptionArgNum="0"/>
+	<Area Name="LOCALAREA_ENTER" CMM_Caption="Local 영역 입장" CMM_CaptionArgStr="영역 이름" CMM_CaptionArgNum="0"/>
+	<Area Name="LOCALAREA_LEAVE" CMM_Caption="Local 영역 퇴장" CMM_CaptionArgStr="영역 이름" CMM_CaptionArgNum="0"/>
+	<NPC Name="NPC_TALK" CMM_Caption="대화 상대 설정" CMM_CaptionArgStr="대상의 이름" CMM_CaptionArgNum="대상의 레벨"/>
+	<NPC Name="DIALOG_CHANGE_OK" CMM_Caption="확인버튼 형식 대화 설정" CMM_CaptionArgStr="대화텍스트 ID" CMM_CaptionArgNum="0"/>
+	<NPC Name="DIALOG_CHANGE_NEXT" CMM_Caption="다음버튼 형식 대화 설정" CMM_CaptionArgStr="대화텍스트 ID" CMM_CaptionArgNum="0"/>
+	<NPC Name="DIALOG_CHANGE_SELECT" CMM_Caption="선택 형식 대화 설정" CMM_CaptionArgStr="대화텍스트 ID" CMM_CaptionArgNum="0"/>
+	<NPC Name="DIALOG_ADD_SELECT" CMM_Caption="선택 형식 대화의 선택지 추가" CMM_CaptionArgStr="선택지 텍스트" CMM_CaptionArgNum="0"/>
+	<NPC Name="DIALOG_CLOSE" CMM_Caption="대화 종료" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<NPC Name="DIALOG_QUEST_SELECT" CMM_Caption="퀘스트 선택 형식 대화 설정" CMM_CaptionArgStr="대화텍스트 ID" CMM_CaptionArgNum="0"/>
+	<NPC Name="DIALOG_QUEST_START" CMM_Caption="퀘스트 시작 형식 대화 설정" CMM_CaptionArgStr="None" CMM_CaptionArgNum="퀘스트 ID"/>
+	<NPC Name="DIALOG_QUEST_END" CMM_Caption="퀘스트 완료 형식 대화 설정" CMM_CaptionArgStr="None" CMM_CaptionArgNum="퀘스트 ID"/>
+	<NPC Name="DIALOG_QUEST_PROGRESS" CMM_Caption="퀘스트 진행중 형식 대화 설정" CMM_CaptionArgStr="None" CMM_CaptionArgNum="퀘스트 ID"/>
+	<NPC Name="SHOP_ITEM_LIST_GET" CMM_Caption="NPC와 거래 형식 대화 설정" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Battle Name="BATTLE_MODE_UPDATE" CMM_Caption="내 캐릭터의 전투모드 변경" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Battle Name="TAKE_DAMAGE" CMM_Caption="내 캐릭터가 데미지 받음" CMM_CaptionArgStr="None" CMM_CaptionArgNum="데미지 수치"/>
+	<Battle Name="TAKE_HEAL" CMM_Caption="내 캐릭터가 치유 받음" CMM_CaptionArgStr="None" CMM_CaptionArgNum="치유량 수치"/>
+	<Skill Name="SKILL_LIST_GET" CMM_Caption="스킬 리스트 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Skill Name="CAST_BEGIN" CMM_Caption="스킬 캐스팅 시작" CMM_CaptionArgStr="스킬 이름" CMM_CaptionArgNum="전체 캐스팅 시간"/>
+	<Skill Name="CAST_END" CMM_Caption="스킬 캐스팅 종료" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Skill Name="SHOT_START" CMM_Caption="스킬 시전 시작" CMM_CaptionArgStr="스킬 이름" CMM_CaptionArgNum="0"/>
+	<Skill Name="SHOT_END" CMM_Caption="스킬 시전 종료" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Buff Name="BUFF_ADD" CMM_Caption="내 캐릭터의 버프 추가" CMM_CaptionArgStr="None" CMM_CaptionArgNum="버프타입"/>
+	<Buff Name="BUFF_REMOVE" CMM_Caption="내 캐릭터의 버프 삭제" CMM_CaptionArgStr="None" CMM_CaptionArgNum="버프타입"/>
+	<System Name="RESTART_HERE_OK" CMM_Caption="부활 모드(제자리 부활 허용)" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<System Name="RESTART_HERE_NO" CMM_Caption="부활 모드(제자리 부활 안됨)" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<System Name="FPS_UPDATE" CMM_Caption="FPS 갱신" CMM_CaptionArgStr="FPS 텍스트" CMM_CaptionArgNum="정수형 수치"/>
+	<System Name="ESCAPE_PRESSED" CMM_Caption="스킬 타겟팅 및 취소 상황이 아닌 ESC키 사용시" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<System Name="LOAD_PROGRESS" CMM_Caption="존이동 로딩중" CMM_CaptionArgStr="None" CMM_CaptionArgNum="로딩 진행율(0~100)"/>
+	<System Name="MAP_CHARACTER_UPDATE" CMM_Caption="미니맵 갱신" CMM_CaptionArgStr="내 캐릭터의 네임" CMM_CaptionArgNum="내캐릭터의 핸들"/>
+	<Market Name="MARKET_LIST_UPDATE" CMM_Caption="경매장 목록 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="해당 페이지 번호"/>
+	<Market Name="MARKET_SELL_LIST_UPDATE" CMM_Caption="경매장 판매목록 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="None"/>
+	<Market Name="MARKET_BUY_RESULT" CMM_Caption="경매장 구매 결과" CMM_CaptionArgStr="None" CMM_CaptionArgNum="성공여부"/>
+	<Market Name="MARKET_SELL_RESULT" CMM_Caption="경매장 등록 결과" CMM_CaptionArgStr="None" CMM_CaptionArgNum="성공여부"/>
+	<Mail Name="MAIL_LIST_UPDATE" CMM_Caption="메일 목록 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+	<Mail Name="MAIL_DATA_UPDATE" CMM_Caption="메일 내용 갱신" CMM_CaptionArgStr="None" CMM_CaptionArgNum="0"/>
+</MessageList>

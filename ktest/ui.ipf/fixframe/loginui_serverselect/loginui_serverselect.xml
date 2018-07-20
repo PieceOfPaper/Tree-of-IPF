@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<uiframe name="loginui_serverselect" x="0" y="0" width="300" height="130">
+	<frame title="로그인" margin="0 0 0 210" layout_gravity="center bottom" scale_align="center bottom"/>
+	<layer layerlevel="12"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<script fadeinScp="None" fadeoutScp="None"/>
+	<animation frameOpenAnim="dialog_select_start" frameCloseAnim="dialog_select_end"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+		<!--text name="SERVERLIST" rect="0 0 200 30" layout_gravity="right top" margin="0 240 25 0" textalign="center center" caption="서버 리스트" fontname="white_login_text"/-->
+		<listbox name="select server" rect="0 0 230 129" margin="0 0 0 0" layout_gravity="center center" clicksound="button_click" columnsort="true" cursoronimage="bar_cursoron" horzgrid="false" oversound="button_cursor_over_3" selectionimage="bar_selection" showtitle="false" skin="bg2" tooltipcaption="{@st59}접속을 원하는 서버를 선택하여 주세요.{nl}바카리네, 라이마, 제미나, 가비야 서버가 바이보라 서버로 통합되었습니다.{/}" tooltipwidth="512"/>
+	</controls>
+</uiframe>

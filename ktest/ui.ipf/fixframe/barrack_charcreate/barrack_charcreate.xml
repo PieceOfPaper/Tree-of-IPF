@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="barrack_charcreate" x="0" y="0" width="1920" height="1080">
+	<frame title="{@st44}새 캐릭터{/}" fullheight="true" layout_gravity="right center" margin="0 0 0 0" scale_align="center center"/>
+	<input hittestframe="false"/>
+	<option hideable="false" closebutton="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="10"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end3"/>
+	<controls>
+		<richtext name="create_info" margin="0 50 50 0" rect="0 0 400 24" layout_gravity="right top" textalign="center center" resizebytext="true" fontname="white_16_ol" format="{@st41b}{s22}생성을 원하는 클래스를 선택하세요{/}"/>
+		<button name="createUIcloseBtn" rect="0 0 160 55" margin="0 0 50 25" layout_gravity="right bottom" textalign="center center" caption="{@st41b}생성 취소{/}" texttooltip="{@st59}캐릭터 생성을 취소합니다{/}" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="barrack.GoSelect()"/>
+	</controls>
+</uiframe>

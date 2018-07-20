@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="barrackthema" x="0" y="0" width="520" height="609" create="open">
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="right top" open="pip" piptype="right"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<input maxwidth="1280" moveable="false" hittestframe="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false" hideable="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<controls>
+        <groupbox name="bg_1" rect="0 0 520 970" margin="0 30 0 0" hittestbox="false" layout_gravity="center top" skin="test_frame_low" draw="true" scrollbar="false" resizebyresolution="true"/>
+        <groupbox name="bg_mid" rect="0 0 500 600" margin="10 325 0 0" hittestbox="false" layout_gravity="left top" skin="test_frame_midle" draw="true" scrollbar="false" resizebyresolution="true"/>
+		<groupbox name="nxp_bg" rect="0 0 240 40" margin="0 0 263 100" hittestbox="true" layout_gravity="right bottom" skin="test_weight_skin" draw="true" scrollbar="false" resizebyresolution="false" texttooltip="qwe"/>
+        <advlistbox name="AdvBox" rect="0 0 490 600" parent="bg_mid" skin="None" drawCurItem="false" maxrowcol="5000 4" heightperrow="40" widthpercol="100" margin="3 -3 0 0" resizebyresolution="false" layout_gravity="left top"/>
+        <groupbox name="pipwin_top" rect="0 0 520 130" margin="0 0 0 0" skin="test_frame_top" draw="true" hittestbox="false" layout_gravity="center top" scrollbar="false" resizebyparent="false"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" format="{@st43}%s" param1="value" param1_def="숙소 변경"/>
+		<button name="close" layout_gravity="left top" image="testclose_button" rect="0 0 44 44" margin="28 20 0 0" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" texttooltip="{@st59}숙소 변경창을 닫습니다." LBtnUpScp="BARRACKTHEMA_CANCEL_PREVIEW" LBtnUpArgNum=""/>
+		<picture name="question" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" texttooltip="{@st59}미리보기로 살펴보고 숙소의 테마를 변경할 수 있습니다. " image="testquesten_button"/>
+        <richtext name="mynxp_str" margin="-79 0 0 1" rect="0 0 50 30" format="{@st41b}TP" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="nxp_bg"/>
+        <richtext name="mynxp" margin="62 0 0 1" rect="0 0 100 30" format="{@st41b}%s" param1="value" param1_def="13131" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="nxp_bg"/>
+        <richtext name="richtext_1" margin="25 90 0 0" rect="0 0 120 24" caption="{@st66b18}팀명 변경{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+        <richtext name="richtext_1_1" margin="25 290 0 0" rect="0 0 120 24" caption="{@st66b18}숙소 변경{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+        <labelline name="labelline" margin="10 270 0 0" rect="0 0 500 2" skin="labelline2" layout_gravity="left top"/>
+        <button name="save" caption="{@st41b}저장{/}" texttooltip="{@st59}팀명을 변경합니다{/}" layout_gravity="center top" margin="-84 197 0 1006" rect="0 0 160 50" textalign="center center" skin="test_red_button" clicksound="button_click_big" oversound="button_over" textoffset="0 0" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="BARRACK_SETTING_SAVE"/>
+        <button name="cancle" caption="{@st41b}취소{/}" texttooltip="{@st59}팀명 변경을 취소합니다{/}" layout_gravity="center top" margin="91 197 0 33" rect="0 0 160 50" textalign="center center" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" textoffset="0 0" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="BARRACK_CHANCLE_CHANGE_NAME"/>
+        <richtext name="richtext_2" margin="140 168 0 0" rect="0 0 120 24" caption="{@st66}※팀명 변경시 150TP가 소모됩니다.{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+        <groupbox name="input_name_skin" rect="0 0 470 40" margin="2 115 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+        <edit name="input" rect="0 0 460 40" margin="1 113 0 0" layout_gravity="center top" OffsetForDraw="0 0" clicksound="button_click" drawbackground="false" fontname="brown_18_b" maxlen="16" oversound="button_over" skin="None" textalign="center center" texttooltip="{@st59}원하시는 이름을 입력하세요{/}" typingsound="chat_typing" typingscp="UPDATE_TYPING_SCRIPT" usetag="true"/>
+        <groupbox name="nxp_bg_1" rect="0 0 240 40" margin="0 0 16 100" skin="test_weight_skin" draw="true" hittestbox="false" layout_gravity="right bottom" scrollbar="false" resizebyparent="false"/>
+        <richtext name="mynxp_1" margin="56 0 0 0" rect="0 0 100 30" format="{@st41b}%s" param1="value" param1_def="13131" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="nxp_bg_1"/>
+        <richtext name="richtext_3" margin="19 10 0 0" rect="0 0 120 24" caption="{@st41b}무료 TP{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="nxp_bg_1"/>
+	</controls>
+</uiframe>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="selectteam" x="0" y="0" width="1024" height="600">
+	<frame title="캐릭터선택" layout_gravity="center center" snapclient="true" fullwidth="true" fullheight="true"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<input moveable="false" hittestframe="false"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+		<button name="start_game" caption="{@st43}{s40}{gr gradation4}게임 시작{/}" texttooltip="{@st59}선택한 캐릭터로 게임을 시작합니다{/}" rect="0 0 280 100" layout_gravity="center bottom" margin="0 0 0 40" textoffset="0 -4" textalign="center center" skin="btn_lv3" clicksound="button_click_big" oversound="button_over" LBtnUpScp="BARRACK_TO_GAME"/>
+		<button name="end_preview" caption="{@st43}{s40}{gr gradation4}미리보기 종료{/}" texttooltip="{@st59}선택한 캐릭터로 게임을 시작합니다{/}" rect="0 0 350 100" layout_gravity="center bottom" margin="0 0 0 40" textoffset="0 -4" textalign="center center" skin="btn_lv3" clicksound="button_click_big" oversound="button_over" LBtnUpScp="barrack.ToMyBarrack()"/>
+		<button name="goto_normalgame" caption="{@st43}{s40}{gr gradation4}존으로돌아가기{/}" texttooltip="{@st59}다시 존으로 들어갑니다.{/}" rect="0 0 350 100" layout_gravity="center bottom" margin="0 0 0 40" textoffset="0 -4" textalign="center center" skin="btn_lv3" clicksound="button_click_big" oversound="button_over" LBtnUpScp="BARRACK_TO_GAME"/>
+		<button name="barrackVisit" caption="{@st41b}숙소방문{/}" texttooltip="{@st59}다른 사람의 숙소를 방문합니다.{/}" layout_gravity="right bottom" rect="-315 -30 120 30" textalign="center center" skin="textbutton" clicksound="button_click_big" oversound="button_over" LBtnUpScp="BARRACK_VISIT_MSGBOX"/>
+		<button name="returnHome" caption="{@st41b}돌아가기{/}" texttooltip="{@st59}나의 숙소로 돌아갑니다.{/}" rect="0 0 120 30" layout_gravity="right bottom" margin="0 0 315 30" textalign="center center" skin="textbutton" clicksound="button_click_big" oversound="button_over" LBtnUpScp="EXEC_GO_HOME_BARRACK"/>
+		<button name="logout" caption="{@st41b}로그아웃{/}" texttooltip="{@st59}로그인 화면으로 이동합니다{/}" rect="0 0 120 30" layout_gravity="right bottom" margin="0 0 190 30" textalign="center center" skin="textbutton" clicksound="button_click_big" oversound="button_over" LBtnUpScp="app.BarrackToLogin()"/>
+		<button name="exit" caption="{@st41b}게임종료{/}" texttooltip="{@st59}게임을 종료합니다{/}" rect="0 0 120 30" layout_gravity="right bottom" margin="0 0 65 30" textalign="center center" skin="textbutton" clicksound="button_click_big" oversound="button_over" LBtnUpScp="app.Quit()"/>
+		<richtext name="barrackname" caption="{@st43}{s24}숙소 이름{/}" texttooltip="{@st59}숙소 이름{/}" layout_gravity="center top" rect="0 20 110 40" textalign="left center"/>
+		<button name="upgrade" caption="{@st41b}꾸미기{/}" texttooltip="{@st59}숙소 꾸미기{/}" rect="0 0 120 30" layout_gravity="center top" margin="160 20 0 0" textalign="center center" skin="textbutton" clicksound="button_click_big" oversound="button_over" LBtnUpScp="ui.ToggleFrame('barrackupgrade')"/>
+		<button name="setting" caption="{@st41b}설  정{/}" texttooltip="{@st59}숙소 설정{/}" rect="0 0 120 30" layout_gravity="center top" margin="-160 20 0 0" textalign="center center" skin="textbutton" clicksound="button_click_big" oversound="button_over" LBtnUpScp="SELECTTEAM_OPEN_BARRACK_SETTING"/>
+	</controls>
+</uiframe>

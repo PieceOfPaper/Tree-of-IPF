@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="selectcharmenu" x="0" y="0" width="250" height="-320">
+	<frame title="캐릭터정보" layout_gravity="center bottom" margin="120 0 0 120"/>
+	<skin stretchimage="info_back"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<input moveable="false" hittestframe="false"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<option hideable="false" closebutton="false" visible="false"/>
+	<controls>
+		<!--		<button name="changePose" rect="0 0 80 30" layout_gravity="center top" margin="0 100 0 0" caption="{@st41}포즈{/}" texttooltip="{@st59}선택한 캐릭터의 포즈를 변경합니다.{/}" textalign="center center" skin="textbutton" clicksound="button_click_big" oversound="button_over" LBtnUpScp="TOGGLE_BARRACK_POSE_UI"/> -->
+	</controls>
+</uiframe>

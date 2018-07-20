@@ -1,0 +1,449 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<StyleSheet>
+	<style name="sti1">
+		<!--item_equip_normal-->
+		<font name="normal" size="20" space="0" color="452505" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="sti1b">
+		<!--item_equip_normal-->
+		<font name="normal" size="20" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="sti1c">
+		<!--item_equip_normal-->
+		<font name="normal" size="24" space="0" color="FFFFFF" bold="yes" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="sti2">
+		<!--item_equip_possessive-->
+		<font name="normal" size="20" space="0" color="204000" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="sti3">
+		<!--item_equip_rare-->
+		<font name="normal" size="20" space="0" color="0047b2" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="sti4">
+		<!--item_equip_unique-->
+		<font name="normal" size="20" space="0" color="6661b6" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="sti5">
+		<!--item_consumable-->
+		<font name="normal" size="20" space="0" color="e1e1e1 " bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="sti6">
+		<!--item_ingredients-->
+		<font name="normal" size="20" space="0" color="e1e1e1 " bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="sti7">
+		<!--item_quest-->
+		<font name="normal" size="20" space="0" color="FFCC66" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="sti8">
+		<!--item_reward-->
+		<font name="normal" size="20" space="0" color="99CC66" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="sti9">
+		<!--item_reward 2-->
+		<font name="normal" size="20" space="0" color="FFFF00" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stz1">
+		<!--zone_region_region-->
+		<font name="normal" size="20" space="0" color="99ccff" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stz2">
+		<!--zone_district_district-->
+		<font name="normal" size="20" space="0" color="99ccff" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stn1">
+		<!--npc_functional_merchant-->
+		<font name="normal" size="20" space="0" color="f0dcaa" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stn2">
+		<!--npc_functional_etc-->
+		<font name="normal" size="20" space="0" color="f0dcaa" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stn3">
+		<!--npc_functional_quest-->
+		<font name="normal" size="20" space="0" color="f0dcaa" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stn4">
+		<!--npc_normal_normal-->
+		<font name="normal" size="20" space="0" color="f0dcaa" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stm1">
+		<!--monster_normal_normal-->
+		<font name="normal" size="20" space="0" color="FF1CAE" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stm2">
+		<!--monster_quest_quest-->
+		<font name="normal" size="20" space="0" color="FF1CAE" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stm3">
+		<!--monster_boss_boss-->
+		<font name="normal" size="20" space="0" color="FF1CAE" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stc1">
+		<!--pc_skill_skill-->
+		<font name="normal" size="18" space="0" color="e1e1e1" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stc2">
+		<!--pc_skill_status-->
+		<font name="normal" size="18" space="0" color="e1e1e1" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stc3">
+		<!--pc_skill_ability-->
+		<font name="normal" size="18" space="0" color="e1e1e1" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stc4">
+		<!--pc_action_emoticon-->
+		<font name="normal" size="18" space="0" color="e1e1e1" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stc5">
+		<!--pc_action_action-->
+		<font name="normal" size="18" space="0" color="e1e1e1" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stx1">
+		<!--mix_mix_anvil-->
+		<font name="normal" size="18" space="0" color="FFCC66" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="stx2">
+		<!--mix_mix_grill-->
+		<font name="normal" size="18" space="0" color="FFCC66" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st41_gray">
+		<!--UI_button_small-->
+		<font name="normal" size="18" space="0" color="696969" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st41">
+		<!--UI_button_big-->
+		<font name="normal" size="18" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="yes" outline="yes" outlinecolor="222222" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st41monskl">
+		<!--mon_pcskill-->
+		<font name="book" size="20" space="0" color="FF3300" bold="no" italic="no" dropshadow="no" outline="yes" outlinecolor="222222" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st41_yellow">
+		<!--UI_button_big-->
+		<font name="normal" size="18" space="0" color="FFCC66" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st41_red">
+		<!--UI_button_big-->
+		<font name="normal" size="18" space="0" color="FF2222" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st41_green">
+		<!--UI_button_big-->
+		<font name="normal" size="18" space="0" color="99CC66" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st41b">
+		<!--UI_button_big-->
+		<font name="normal" size="18" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="no" outline="yes" outlinecolor="333333" underline="no" centerline="no"/>
+	</style>
+	<style name="st41c">
+		<!--UI_button_big-->
+		<font name="normal" size="18" space="0" color="110000" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st41d">
+		<!--UI_button_big-->
+		<font name="normal" size="16" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st41_green">
+		<!--UI_button_small-->
+		<font name="normal" size="18" space="0" color="99CC66" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st42">
+		<!--UI_button_small-->
+		<font name="normal" size="16" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="yes" outline="yes" outlinecolor="222222" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st42_green">
+		<!--UI_button_small-->
+		<font name="normal" size="16" space="0" color="99CC66" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st42_yellow">
+		<!--UI_button_small-->
+		<font name="normal" size="16" space="0" color="FFCC66" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st42_yellow2">
+		<!--UI_button_small-->
+		<font name="normal" size="16" space="0" color="FFCC66" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st42_red">
+		<!--UI_button_small-->
+		<font name="normal" size="16" space="0" color="FF2222" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st42_gray">
+		<!--UI_button_small-->
+		<font name="normal" size="16" space="0" color="696969" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st42b">
+		<!--UI_button_small-->
+		<font name="normal" size="16" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="no" outline="yes" outlinecolor="333333" underline="no" centerline="no"/>
+	</style>
+	<style name="st42_red_small">
+		<!--UI_button_small-->
+		<font name="normal" size="12" space="0" color="FF2222" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st43">
+		<!--UI_dialog_name-->
+		<font name="normal" size="24" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="yes" outline="yes" outlinecolor="111111" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st43b">
+		<!--UI_dialog_name-->
+		<font name="normal" size="24" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="yes" outline="yes" outlinecolor="222222" underline="no" centerline="no"/>
+	</style>
+	<style name="st43_red">
+		<!--UI_dialog_name-->
+		<font name="normal" size="24" space="0" color="FF0000" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st43_green">
+		<!--UI_dialog_name-->
+		<font name="normal" size="24" space="0" color="00FF00" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st44">
+		<!--UI_window_title-->
+		<font name="normal" size="24" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st45">
+		<!--UI_questinfo_title-->
+		<font name="normal" size="24" space="0" color="050505" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st45tw">
+		<!--UI_questinfo_txt_white-->
+		<font name="normal" size="18" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st45tw2">
+		<!--UI_questinfo_txt_black-->
+		<font name="normal" size="18" space="0" color="050505" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st45tw3">
+		<!--UI_questinfo_txt_white-->
+		<font name="normal" size="18" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st45tw4">
+		<!--UI_help_text-->
+		<font name="normal" size="18" space="0" color="050505" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st45tw5">
+		<!--UI_help_text-->
+		<font name="normal" size="16" space="0" color="050505" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st45ty">
+		<!--UI_questinfo_txt_yellow-->
+		<font name="normal" size="18" space="0" color="FFCC66" bold="yes" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st45tb">
+		<!--UI_questinfo_txt_brown-->
+		<font name="normal" size="18" space="0" color="201000" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st45tb2">
+		<!--UI_questinfo_txt_brown-->
+		<font name="normal" size="20" space="0" color="201000" bold="yes" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st45r14">
+		<!--UI_shop_limitcount-->
+		<font name="normal" size="14" space="0" color="FF6600" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st46">
+		<!--UI_notice_white-->
+		<font name="normal" size="24" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st47">
+		<!--UI_notice_red-->
+		<font name="normal" size="24" space="0" color="FF2222" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st47_blue">
+		<!--UI_notice_red-->
+		<font name="normal" size="24" space="0" color="2222CC" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st48">
+		<!--UI_quest_dec-->
+		<font name="normal" size="16" space="0" color="FFFFFF" bold="yes" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st49">
+		<!--UI_shopslot_item-->
+		<font name="normal" size="16" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st49_gray">
+		<!--UI_button_small-->
+		<font name="normal" size="16" space="0" color="696969" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st50">
+		<!--UI_shopslot_money-->
+		<font name="normal" size="16" space="0" color="ffff00" bold="yes" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st50_big">
+		<!--UI_shopslot_money-->
+		<font name="normal" size="20" space="0" color="ffff00" bold="yes" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st51">
+		<!--UI_shopslot_item_dis-->
+		<font name="normal" size="16" space="0" color="555050" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st52">
+		<!--UI_shopslot_money_dis-->
+		<font name="normal" size="16" space="0" color="555050" bold="yes" italic="no" dropshadow="yes" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st53">
+		<!--UI_notice_yellow-->
+		<font name="normal" size="24" space="0" color="FFCC66" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st53b">
+		<!--UI_status_yellow-->
+		<font name="normal" size="22" space="0" color="FFCC66" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st54">
+		<!--UI_dialog_normal_item-->
+		<font name="normal" size="20" space="0" color="C38866" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st55">
+		<!--Map_name-->
+		<font name="normal" size="28" space="0" color="ffcc33" bold="no" italic="yes" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st55_a">
+		<!--barrack_level-->
+		<font name="normal" size="40" space="0" color="ffcc33" bold="yes" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation1"/>
+	</style>
+	<style name="st55_b">
+		<!--barrack_name-->
+		<font name="normal" size="20" space="0" color="302020" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st55_c">
+		<!--wiki_desc-->
+		<font name="normal" size="18" space="0" color="150505" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st56">
+		<!--HallofFame_sort-->
+		<font name="normal" size="16" space="0" color="FFCC66" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="gradation2"/>
+	</style>
+	<style name="st57">
+		<!--UI_shopbuy_en-->
+		<font name="normal" size="16" space="0" color="ffff00" bold="yes" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation1"/>
+	</style>
+	<style name="st58">
+		<!--UI_shopbuy_dis-->
+		<font name="normal" size="16" space="0" color="555050" bold="yes" italic="no" dropshadow="yes" outline="no" underline="no" centerline="no" gradation="gradation1"/>
+	</style>
+	<style name="st59">
+		<!--text_tooltip_style-->
+		<font name="normal" size="18" space="0" color="cccccc" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st59b">
+		<!--tooltip_title_style-->
+		<font name="normal" size="22" space="0" color="FFFFFF" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st59s">
+		<!--tooltip_desc_style-->
+		<font name="normal" size="16" space="0" color="cccccc" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st60">
+		<!--quit_menu-->
+		<font name="normal" size="18" space="0" color="BBBBBB" bold="yes" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st60b">
+		<!--quit_menu-->
+		<font name="normal" size="18" space="0" color="FFFFFF" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st61">
+		<!--chat_info_txt-->
+		<font name="normal" size="16" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st62">
+		<!--chat_info_txt-->
+		<font name="normal" size="12" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st63">
+		<!--pc_npc_name_ingame-->
+		<font name="normal" size="20" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st63_blue">
+		<!--pc_npc_name_ingame-->
+		<font name="normal" size="20" space="0" color="0000FF" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st63_green">
+		<!--pc_npc_name_ingame-->
+		<font name="normal" size="20" space="0" color="00FF00" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st63_red">
+		<!--pc_npc_name_ingame-->
+		<font name="normal" size="20" space="0" color="FF0000" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st63_yellow">
+		<!--pc_npc_name_ingame-->
+		<font name="normal" size="20" space="0" color="FFFF99" bold="no" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no"/>
+	</style>
+	<style name="st64">
+		<!--notice_screen-->
+		<font name="normal" size="26" space="0" color="FFFFCC" bold="no" italic="no" dropshadow="yes" outline="yes" underline="no" centerline="no" gradation="gradation1"/>
+	</style>
+	<style name="st65">
+		<!--notice_screen-->
+		<font name="normal" size="15" space="0" color="1f100b" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st66">
+		<!--notice_screen-->
+		<font name="normal" size="16" space="0" color="1f100b" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st66b">
+		<!--notice_screen-->
+		<font name="normal" size="16" space="0" color="1f100b" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st66b18">
+		<!--notice_screen-->
+		<font name="normal" size="18" space="0" color="1f100b" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st66b14">
+		<!--notice_screen-->
+		<font name="normal" size="14" space="0" color="1f100b" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st66b26">
+		<!--notice_screen-->
+		<font name="normal" size="26" space="0" color="1f100b" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st66c">
+		<!--notice_screen-->
+		<font name="normal" size="16" space="0" color="222222" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st66d">
+		<!--UI_button_big-->
+		<font name="normal" size="18" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="yes" outline="yes" outlinecolor="563300" underline="no" centerline="no"/>
+	</style>
+	<style name="st66d_y">
+		<!--UI_button_big-->
+		<font name="normal" size="18" space="0" color="ffba00" bold="no" italic="no" dropshadow="yes" outline="yes" outlinecolor="563300" underline="no" centerline="no"/>
+	</style>
+	<style name="st66e">
+		<!--UI_button_big-->
+		<font name="normal" size="16" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="yes" outline="yes" outlinecolor="563300" underline="no" centerline="no"/>
+	</style>
+	<style name="st67">
+		<!--notice_screen-->
+		<font name="normal" size="16" space="0" color="770000" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st67b">
+		<!--notice_screen-->
+		<font name="normal" size="16" space="0" color="770000" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+	<style name="st68">
+		<!--notice_screen-->
+		<font name="normal" size="16" space="0" color="000000" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
+	</style>
+  <style name="st69b_36">
+    <!--mon_pcskill-->
+    <font name="book" size="36" space="0" color="3C270D" bold="yes" italic="no" dropshadow="no" outline="no" outlinecolor="222222" underline="no" centerline="no" gradation="gradation2"/>
+  </style>
+  <style name="st70_d">
+		<!--quest_day_text-->
+		<font name="normal" size="14" space="0" color="00a800" bold="yes" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="no"/>
+	</style>
+	<style name="st70_s">
+		<!--quest_sub_text-->
+		<font name="normal" size="14" space="0" color="004bb2" bold="yes" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="no"/>
+	</style>
+	<style name="st70_m">
+		<!--quest_main_text-->
+		<font name="normal" size="14" space="0" color="f46200" bold="yes" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="no"/>
+	</style>
+	<style name="st69_100">
+    <!--mon_pcskill-->
+    <font name="book" size="100" space="0" color="3C270D" bold="yes" italic="no" dropshadow="no" outline="no" outlinecolor="222222" underline="no" centerline="no" gradation="gradation2"/>
+  </style>
+
+</StyleSheet>

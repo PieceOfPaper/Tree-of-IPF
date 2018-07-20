@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="barrack_exit" x="0" y="0" width="600" height="100">
+    <frame title="캐릭터선택" layout_gravity="right bottom" margin="0 0 0 25" scale_align="center bottom"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <input moveable="false" hittestframe="false"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end3"/>
+    <option hideable="false" closebutton="false"/>
+    <controls>
+        <button name="barrackVisit" caption="{@st41b}숙소방문{/}" texttooltip="{@st59}다른 사람의 숙소를 방문합니다.{/}" rect="0 0 160 50" layout_gravity="right center" margin="0 -100 0 0" textalign="center center" skin="textbutton_nomal_joo" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="BARRACK_VISIT_MSGBOX"/>
+        <!--button name="returnHome" caption="{@st41b}돌아가기{/}" texttooltip="{@st59}나의 숙소로 돌아갑니다.{/}" rect="0 0 160 50" layout_gravity="right center" margin="0 0 390 0" textalign="center center" skin="textbutton_nomal_joo" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="EXEC_GO_HOME_BARRACK"/-->
+        <button name="logout" caption="{@st41b}로그아웃{/}" texttooltip="{@st59}로그인 화면으로 이동합니다{/}" rect="0 0 160 55" layout_gravity="right center" margin="0 18 220 0" textalign="center center" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="app.BarrackToLogin()"/>
+        <button name="exit" caption="{@st41b}게임종료{/}" texttooltip="{@st59}게임을 종료합니다{/}" rect="0 0 160 55" layout_gravity="right center" margin="0 18 50 0" textalign="center center" skin="test_graytored_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="app.BarrackToGameOut()"/>
+    </controls>
+</uiframe>

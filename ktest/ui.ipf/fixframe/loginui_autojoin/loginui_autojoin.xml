@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="loginui_autojoin" x="0" y="0" width="1920" height="1080">
+	<frame title="로그인" margin="0 0 0 0" fullheight="true" layout_gravity="center bottom" scale_align="center bottom"/>
+	<layer layerlevel="11"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<script fadeinScp="None" fadeoutScp="None"/>
+	<animation frameOpenAnim="dialog_select_start" frameCloseAnim="dialog_select_end"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+		<picture name="logo_bandicam" rect="0 0 150 27" margin="160 0 0 34" layout_gravity="left bottom" hittest="false" stretch="true" image="logo_bandicam"/>
+		<picture name="logo_pathengine" rect="0 0 120 48" margin="20 0 0 23 " layout_gravity="left bottom" hittest="false" stretch="true" image="logo_pathengine"/>
+		<picture name="logo_imc_kr" rect="0 0 140 35" margin="80 0 0 35" layout_gravity="center bottom" hittest="false" stretch="true" image="logo_imc" serviceNation="KOR"/>
+		<picture name="logo_nexon_kr" rect="0 0 120 36" margin="-80 0 0 35" layout_gravity="center bottom" hittest="false" stretch="true" image="logo_nexon" serviceNation="KOR"/>
+		<picture name="img_copyright_kr" rect="0 0 360 11" margin="0 0 0 15" layout_gravity="center bottom" hittest="false" stretch="true" image="copyright_w_nexon" serviceNation="KOR"/>
+		<picture name="game_violent" rect="0 0 100 116" margin="0 20 130 0" layout_gravity="right top" hittest="false" stretch="true" image="game_violent_mark" serviceNation="KOR"/>
+		<picture name="game_rating" rect="0 0 100 116" margin="0 20 20 0" layout_gravity="right top" hittest="false" stretch="true" image="game_rating_mark" serviceNation="KOR"/>
+		<picture name="logo_imc_jp" rect="0 0 140 35" margin="80 0 0 35" layout_gravity="center bottom" hittest="false" stretch="true" image="logo_imc" serviceNation="JP"/>
+		<picture name="logo_nexon_jp" rect="0 0 120 36" margin="-80 0 0 35" layout_gravity="center bottom" hittest="false" stretch="true" image="logo_nexon" serviceNation="JP"/>
+		<picture name="img_copyright_jp" rect="0 0 360 34" margin="0 0 0 0" layout_gravity="center bottom" hittest="false" stretch="true" image="copyright_4_japan" serviceNation="JP"/>
+		<picture name="logo_imc_gb" rect="0 0 140 35" margin="0 0 0 35" layout_gravity="center bottom" hittest="false" stretch="true" image="logo_imc" serviceNation="GLOBAL"/>
+		<picture name="img_copyright_gb" rect="0 0 360 17" margin="0 0 0 15" layout_gravity="center bottom" hittest="false" stretch="true" image="copyright_4_global" serviceNation="GLOBAL"/>
+		<picture name="ESRB_T" rect="0 0 120 168" margin="0 20 20 0" layout_gravity="right top" hittest="false" stretch="true" image="ESRB_T_mark" serviceNation="GLOBAL"/>
+		<picture name="copyright_2016_global" rect="0 0 360 11" margin="0 0 0 15" layout_gravity="center bottom" hittest="false" stretch="true" image="copyright_2016_global" serviceNation="TAIWAN"/>
+		<picture name="logo_x2game" rect="0 0 120 36" margin="-80 0 0 35" layout_gravity="center bottom" hittest="false" stretch="true" image="logo_x2game" serviceNation="TAIWAN"/>
+		<picture name="logo_imc_tw" rect="0 0 140 35" margin="80 0 0 35" layout_gravity="center bottom" hittest="false" stretch="true" image="logo_imc" serviceNation="TAIWAN"/>
+		<picture name="img_copyright_tw" rect="0 0 360 17" margin="0 0 0 15" layout_gravity="center bottom" hittest="false" stretch="true" image="copyright_4_global" serviceNation="TAIWAN"/>
+		<picture name="game_rating_mark12" rect="0 0 100 100" margin="0 20 20 0" layout_gravity="right top" hittest="false" stretch="true" image="game_rating_mark12" serviceNation="TAIWAN"/>
+		<text name="STATICID" rect="0 0 100 26" margin="0 0 0 -2485" layout_gravity="center bottom" textalign="center center" caption="계정" fontname="white_20_ol"/>
+		<edit name="id" rect="0 0 230 40" margin="0 0 0 -2440" layout_gravity="center bottom" textalign="center top" OffsetForDraw="0 6" fontname="gold_login_text" maxlen="16" oversound="button_over" clicksound="button_click" usetag="true" tooltipcaption="{@st59}계정을 입력 하십시오{/}" tooltipwidth="256"/>
+		<text name="STATICPASS" rect="0 0 100 26" margin="0 0 0 -2405" layout_gravity="center bottom" textalign="center center" caption="비밀번호" fontname="white_20_ol"/>
+		<edit name="password" rect="0 0 230 40" margin="0 0 0 -2360" layout_gravity="center bottom" textalign="center top" OffsetForDraw="0 6" fontname="gold_login_text" maxlen="16" oversound="button_over" clicksound="button_click" usetag="true" tooltipcaption="{@st59}비밀 번호를 입력하십시오{/}" tooltipwidth="256"/>
+		<button name="OK" caption="{@st43}게임 접속{/}" rect="0 0 280 100" layout_gravity="center bottom" margin="0 0 0 90" textoffset="0 0" textalign="center center" skin="barrack_gamestart" clicksound="game_start" oversound="button_over" MouseOnAnim="btn_mouseover_3" MouseOffAnim="btn_mouseoff_3" tooltipcaption="{@st59}선택한 서버에 접속합니다{/}" tooltipwidth="256">
+			<uieffect effect="I_sys_item_slot2" scale="9.6" overlab="No" sound="None" offset="0 -2" playtime="1" duration="0.4" conditon="active" event="LBUTTONDOWN"/>
+		</button>
+		<button name="replay" caption="{@st41b}리플레이{/}" rect="0 0 160 50" layout_gravity="right bottom" margin="0 0 390 -2025" textoffset="0 0" textalign="center center" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TOGGLE_REPLAY"/>
+		<button name="singleMode" caption="{@st41b}싱글 모드{/}" rect="0 0 160 50" layout_gravity="right bottom" margin="0 0 220 -2025" textoffset="0 0" textalign="center center" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="app.ClientSingleBarrack()"/>
+		<button name="SYS.EXITAPP" caption="{@st41b}게임 종료{/}" rect="0 0 160 50" layout_gravity="right bottom" margin="0 0 50 25" textoffset="0 0" textalign="center center" skin="test_graytored_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" tooltipcaption="{@st59}게임을 종료합니다{/}" tooltipwidth="256" LBtnUpScp="app.Quit()"/>
+		<button name="creditbtn" caption="{@st41b}크레디트{/}" rect="0 0 160 50" layout_gravity="right bottom" margin="0 0 50 85" textoffset="0 0" textalign="center center" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" tooltipcaption="{@st59}크레디트{/}" tooltipwidth="256" LBtnUpScp='ui.ToggleFrame("newcredit")'/>
+		<checkbox name="save" caption="저장" fontname="white_20_ol" rect="0 0 100 30" layout_gravity="center bottom" margin="180 0 0 -2445" oversound="button_over" clicksound="button_click" tooltipcaption="{@st59}체크하면 계정을 저장합니다{/}" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" tooltipwidth="256"/>
+	</controls>
+</uiframe>

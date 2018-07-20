@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<skinset name="Base">
+	<imagelist>
+		<image name="c_warrior_swordsman" file="\icon\class_warrior.tga" imgrect="0 0 100 100" CMM_Caption="소드맨"/>
+		<image name="c_warrior_peltasta" file="\icon\class_warrior.tga" imgrect="100 0 100 100" CMM_Caption="펠타스타"/>
+		<image name="c_warrior_highlander" file="\icon\class_warrior.tga" imgrect="200 0 100 100" CMM_Caption="하이랜더"/>
+		<image name="c_warrior_hoplite" file="\icon\class_warrior.tga" imgrect="300 0 100 100" CMM_Caption="하플라이트"/>
+		<image name="c_warrior_barbarian" file="\icon\class_warrior.tga" imgrect="400 0 100 100" CMM_Caption="바바리안"/>
+		<image name="c_warrior_rodelero" file="\icon\class_warrior.tga" imgrect="0 100 100 100" CMM_Caption="로델레로"/>
+		<image name="c_warrior_cataphract" file="\icon\class_warrior.tga" imgrect="100 100 100 100" CMM_Caption="캐터프락트"/>
+		<image name="c_warrior_squire" file="\icon\class_warrior.tga" imgrect="200 100 100 100" CMM_Caption="스콰이어"/>
+		<image name="c_warrior_corsair" file="\icon\class_warrior.tga" imgrect="300 100 100 100" CMM_Caption="커세어"/>
+		<image name="c_warrior_centurion" file="\icon\class_warrior.tga" imgrect="400 100 100 100" CMM_Caption="센추리온"/>
+		<image name="c_warrior_doppelsoeldner" file="\icon\class_warrior.tga" imgrect="0 200 100 100" CMM_Caption="도펠죌트너"/>
+		<image name="c_warrior_fencer" file="\icon\class_warrior.tga" imgrect="100 200 100 100" CMM_Caption="펜서"/>
+		<image name="c_warrior_shinobi" file="\icon\class_warrior.tga" imgrect="200 200 100 100" CMM_Caption="시노비"/>
+		<image name="c_warrior_dragoon" file="\icon\class_warrior.tga" imgrect="300 200 100 100" CMM_Caption="드라군"/>
+		<image name="c_warrior_templar" file="\icon\class_warrior.tga" imgrect="400 200 100 100" CMM_Caption="템플러"/>
+		<image name="c_warrior_lancer" file="\icon\class_warrior.tga" imgrect="0 300 100 100" CMM_Caption="랜서"/>
+		<image name="c_warrior_murmillo" file="\icon\class_warrior.tga" imgrect="100 300 100 100" CMM_Caption="무르밀로"/>
+		<image name="c_wizard_wizard" file="\icon\class_wizard.tga" imgrect="0 0 100 100" CMM_Caption="위저드"/>
+		<image name="c_wizard_pyromancer" file="\icon\class_wizard.tga" imgrect="100 0 100 100" CMM_Caption="파이로맨서"/>
+		<image name="c_wizard_cryomancer" file="\icon\class_wizard.tga" imgrect="200 0 100 100" CMM_Caption="크리오맨서"/>
+		<image name="c_wizard_psychokino" file="\icon\class_wizard.tga" imgrect="300 0 100 100" CMM_Caption="사이코키노"/>
+		<image name="c_wizard_linker" file="\icon\class_wizard.tga" imgrect="400 0 100 100" CMM_Caption="링커"/>
+		<image name="c_wizard_thaumaturge" file="\icon\class_wizard.tga" imgrect="0 100 100 100" CMM_Caption="쏘마터지"/>
+		<image name="c_wizard_elementalist" file="\icon\class_wizard.tga" imgrect="100 100 100 100" CMM_Caption="엘리멘탈리스트"/>
+		<image name="c_wizard_sorcerer" file="\icon\class_wizard.tga" imgrect="200 100 100 100" CMM_Caption="소서러"/>
+		<image name="c_wizard_chronomancer" file="\icon\class_wizard.tga" imgrect="300 100 100 100" CMM_Caption="크로노맨서"/>
+		<image name="c_wizard_necromancer" file="\icon\class_wizard.tga" imgrect="400 100 100 100" CMM_Caption="네크로맨서"/>
+		<image name="c_wizard_alchemist" file="\icon\class_wizard.tga" imgrect="0 200 100 100" CMM_Caption="알케미스트"/>
+		<image name="c_wizard_warlock" file="\icon\class_wizard.tga" imgrect="100 200 100 100" CMM_Caption="워록"/>
+		<image name="c_wizard_featherfoot" file="\icon\class_wizard.tga" imgrect="200 200 100 100" CMM_Caption="페더풋"/>
+		<image name="c_wizard_runecaster" file="\icon\class_wizard.tga" imgrect="300 200 100 100" CMM_Caption="룬캐스터"/>
+		<image name="c_wizard_sage" file="\icon\class_wizard.tga" imgrect="400 200 100 100" CMM_Caption="세이지"/>
+		<image name="c_wizard_enchanter" file="\icon\class_wizard.tga" imgrect="0 300 100 100" CMM_Caption="인챈터"/>
+		<image name="c_archer_archer" file="\icon\class_archer.tga" imgrect="0 0 100 100" CMM_Caption="아쳐"/>
+		<image name="c_archer_ranger" file="\icon\class_archer.tga" imgrect="100 0 100 100" CMM_Caption="레인저"/>
+		<image name="c_archer_quarrelshooter" file="\icon\class_archer.tga" imgrect="200 0 100 100" CMM_Caption="쿼렐슈터"/>
+		<image name="c_archer_sapper" file="\icon\class_archer.tga" imgrect="300 0 100 100" CMM_Caption="새퍼"/>
+		<image name="c_archer_hunter" file="\icon\class_archer.tga" imgrect="400 0 100 100" CMM_Caption="헌터"/>
+		<image name="c_archer_wugushi" file="\icon\class_archer.tga" imgrect="0 100 100 100" CMM_Caption="우구시"/>
+		<image name="c_archer_scout" file="\icon\class_archer.tga" imgrect="100 100 100 100" CMM_Caption="스카우트"/>
+		<image name="c_archer_fletcher" file="\icon\class_archer.tga" imgrect="200 100 100 100" CMM_Caption="플레쳐"/>
+		<image name="c_archer_rogue" file="\icon\class_archer.tga" imgrect="300 100 100 100" CMM_Caption="로그"/>
+		<image name="c_archer_schwarzereiter" file="\icon\class_archer.tga" imgrect="400 100 100 100" CMM_Caption="슈바르츠라이터"/>
+		<image name="c_archer_hackapell" file="\icon\class_archer.tga" imgrect="0 200 100 100" CMM_Caption="하카펠"/>
+		<image name="c_archer_falconer" file="\icon\class_archer.tga" imgrect="100 200 100 100" CMM_Caption="응사"/>
+		<image name="c_archer_cannoneer" file="\icon\class_archer.tga" imgrect="200 200 100 100" CMM_Caption="캐노니어"/>
+		<image name="c_archer_musketeer" file="\icon\class_archer.tga" imgrect="300 200 100 100" CMM_Caption="머스킷티어"/>
+		<image name="c_archer_mergen" file="\icon\class_archer.tga" imgrect="400 200 100 100" CMM_Caption="메르겐"/>
+		<image name="c_cleric_cleric" file="\icon\class_cleric.tga" imgrect="0 0 100 100" CMM_Caption="클레릭"/>
+		<image name="c_cleric_kriwi" file="\icon\class_cleric.tga" imgrect="100 0 100 100" CMM_Caption="크리비"/>
+		<image name="c_cleric_priest" file="\icon\class_cleric.tga" imgrect="200 0 100 100" CMM_Caption="프리스트"/>
+		<image name="c_cleric_bokor" file="\icon\class_cleric.tga" imgrect="300 0 100 100" CMM_Caption="보코르"/>
+		<image name="c_cleric_dievdirbys" file="\icon\class_cleric.tga" imgrect="400 0 100 100" CMM_Caption="딥디르비"/>
+		<image name="c_cleric_sadhu" file="\icon\class_cleric.tga" imgrect="0 100 100 100" CMM_Caption="사두"/>
+		<image name="c_cleric_paladin" file="\icon\class_cleric.tga" imgrect="100 100 100 100" CMM_Caption="팔라딘"/>
+		<image name="c_cleric_monk" file="\icon\class_cleric.tga" imgrect="200 100 100 100" CMM_Caption="몽크"/>
+		<image name="c_cleric_pardoner" file="\icon\class_cleric.tga" imgrect="300 100 100 100" CMM_Caption="파드너"/>
+		<image name="c_cleric_druid" file="\icon\class_cleric.tga" imgrect="400 100 100 100" CMM_Caption="드루이드"/>
+		<image name="c_cleric_oracle" file="\icon\class_cleric.tga" imgrect="0 200 100 100" CMM_Caption="오라클"/>
+		<image name="c_cleric_plaguedoctor" file="\icon\class_cleric.tga" imgrect="100 200 100 100" CMM_Caption="플레이그닥터"/>
+		<image name="c_cleric_kabbalist" file="\icon\class_cleric.tga" imgrect="200 200 100 100" CMM_Caption="카발리스트"/>
+		<image name="c_cleric_chaplain" file="\icon\class_cleric.tga" imgrect="300 200 100 100" CMM_Caption="채플린"/>
+		<image name="c_cleric_inquisitor" file="\icon\class_cleric.tga" imgrect="400 200 100 100" CMM_Caption="인퀴지터"/>
+		<image name="c_cleric_daoshi" file="\icon\class_cleric.tga" imgrect="0 300 100 100" CMM_Caption="도사"/>
+	<image name="c_cleric_miko" file="\icon\class_cleric.tga" imgrect="100 300 100 100" CMM_Caption="무녀"/>
+	</imagelist>
+</skinset>
