@@ -95,6 +95,11 @@ end
 function MON_BORN_ATTRIBUTE_Weakness_Magic(self)
     AddBuff(self, self, 'Ability_Weakness_Magic');
 end
+
+function MON_BORN_ATTRIBUTE_Weakness_Attribute(self)
+    AddBuff(self, self, 'Ability_Weakness_Attribute');
+end
+
 function MON_BORN_DETECTING(self)
     AddBuff(self, self, "Ability_Detecting_Buff")
 end
@@ -607,60 +612,56 @@ end
 
 --boss Weakness buff
 function SCR_BUFF_ENTER_Ability_Weakness_Melee(self, buff, arg1, arg2, over)
-   
+    local ADDMDEF = self.MDEF * 2;
+    SetExProp(buff, "ABILITY_WEAKNESS_MELEE_MDEF", ADDMDEF)
+    self.MDEF_BM = self.MDEF_BM + ADDMDEF;
 end
 
 function SCR_BUFF_LEAVE_Ability_Weakness_Melee(self, buff, arg1, arg2, over)
-   
+    local ADDMDEF = GetExProp(buff, "ABILITY_WEAKNESS_MELEE_MDEF"); 
+    self.MDEF_BM = self.MDEF_BM - ADDMDEF;
 end
-
-function SCR_BUFF_RATETABLE_Ability_Weakness_Melee(self, from, skill, atk, ret, rateTable, buff)
-    if IsBuffApplied(self, 'Ability_Weakness_Melee') == 'YES' then
-        local classType = TryGetProp(skill, 'ClassType');
-        if classType == 'Melee' then
-            rateTable.DamageRate = rateTable.DamageRate + 0.15;
-        end
-    end
-end
-
-
 
 function SCR_BUFF_ENTER_Ability_Weakness_Missile(self, buff, arg1, arg2, over)
-   
+    local ADDMDEF = self.MDEF * 2;
+    SetExProp(buff, "ABILITY_WEAKNESS_MELEE_MDEF", ADDMDEF)
+    self.MDEF_BM = self.MDEF_BM + ADDMDEF;
 end
 
 function SCR_BUFF_LEAVE_Ability_Weakness_Missile(self, buff, arg1, arg2, over)
-   
+    local ADDMDEF = GetExProp(buff, "ABILITY_WEAKNESS_MELEE_MDEF");    
+    self.MDEF_BM = self.MDEF_BM - ADDMDEF;
 end
-
-function SCR_BUFF_RATETABLE_Ability_Weakness_Missile(self, from, skill, atk, ret, rateTable, buff)
-    if IsBuffApplied(self, 'Ability_Weakness_Missile') == 'YES' then
-        local classType = TryGetProp(skill, 'ClassType');
-        if classType == 'Missile' then
-            rateTable.DamageRate = rateTable.DamageRate + 0.15;
-        end
-    end
-end
-
 
 function SCR_BUFF_ENTER_Ability_Weakness_Magic(self, buff, arg1, arg2, over)
-   
+    local ADDDEF = self.DEF * 2;
+    SetExProp(buff, "ABILITY_WEAKNESS_MELEE_DEF", ADDDEF);
+    self.DEF_BM = self.DEF_BM + ADDDEF;
 end
 
 function SCR_BUFF_LEAVE_Ability_Weakness_Magic(self, buff, arg1, arg2, over)
-   
+    local ADDDEF = GetExProp(buff, "ABILITY_WEAKNESS_MELEE_DEF");
+    self.DEF_BM = self.DEF_BM - ADDDEF;     
 end
 
-function SCR_BUFF_RATETABLE_Ability_Weakness_Magic(self, from, skill, atk, ret, rateTable, buff)
-    if IsBuffApplied(self, 'Ability_Weakness_Magic') == 'YES' then
-        local classType = TryGetProp(skill, 'ClassType');
-        if classType == 'Magic' then
-            rateTable.DamageRate = rateTable.DamageRate + 0.15;
-        end
-    end
+function SCR_BUFF_ENTER_Ability_Weakness_Attribute(self, buff, arg1, arg2, over)
+    local ADDDEF = self.DEF * 2;
+    local ADDMDEF = self.MDEF * 2;
+    SetExProp(buff, "ABILITY_WEAKNESS_MELEE_DEF", ADDDEF);
+    SetExProp(buff, "ABILITY_WEAKNESS_MELEE_MDEF", ADDMDEF)
+    self.DEF_BM = self.DEF_BM + ADDDEF;
+    self.MDEF_BM = self.MDEF_BM + ADDMDEF;
+end
+
+function SCR_BUFF_LEAVE_Ability_Weakness_Attribute(self, buff, arg1, arg2, over)
+    local ADDDEF = GetExProp(buff, "ABILITY_WEAKNESS_MELEE_DEF");
+    local ADDMDEF = GetExProp(buff, "ABILITY_WEAKNESS_MELEE_MDEF");
+    self.DEF_BM = self.DEF_BM - ADDDEF;     
+    self.MDEF_BM = self.MDEF_BM - ADDMDEF;   
 end
 
 
+--Detecting_Buff
 function SCR_BUFF_ENTER_Ability_Detecting_Buff(self, buff, arg1, arg2, over)
     
 end

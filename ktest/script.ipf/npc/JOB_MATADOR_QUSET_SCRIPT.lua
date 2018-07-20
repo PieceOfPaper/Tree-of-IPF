@@ -78,11 +78,11 @@ function JOB_MATADOR_MON_BORN_FUNC(self)
         self.WlkMSPD = 80
         AttachEffect(self, "F_haste_buff_green", 0.4, "BOT", 1)
     elseif self.ClassName == "TreeAmbulo" then
-        self.RunMSPD = 50
-        self.WlkMSPD = 50
+        self.RunMSPD = 65
+        self.WlkMSPD = 65
     elseif self.ClassName == "Tama" then
-        self.RunMSPD = 50
-        self.WlkMSPD = 50
+        self.RunMSPD = 60
+        self.WlkMSPD = 60
     end
     SetNoDamage(self)
 end
@@ -168,7 +168,7 @@ end
 --MATADOR_MON_TRAP1_1_AI
 function MATADOR_MON_TRAP1_1_AI_UPDATE(self)
     local arr1 = {619, 1178, 422}
-    local arr2 = {775, 1178, 514}
+    local arr2 = {780, 1178, 379}
     local arr3 = {701, 1179, 371}
     MATADOR_MON_TRAP1_5_AI_SET(self, "TRAP1_1_MAIN_MON", "TRAP1_SUB_MON", arr1, arr2, arr3)
 end
@@ -176,7 +176,7 @@ end
 --MATADOR_MON_TRAP1_2_AI
 function MATADOR_MON_TRAP1_2_AI_UPDATE(self)
     local arr1 = {569, 1178, 674}
-    local arr2 = {464, 1178, 645}
+    local arr2 = {395, 1178, 643}
     local arr3 = {675, 1178, 666}
     MATADOR_MON_TRAP1_5_AI_SET(self, "TRAP1_2_MAIN_MON", "TRAP1_SUB_MON", arr1, arr2, arr3)
 end
@@ -209,7 +209,7 @@ end
 function MATADOR_MON_TRAP1_6_AI_UPDATE(self)
     local arr1 = {501, 1178, 573}
     local arr2 = {626, 1178, 705}
-    local arr3 = {559, 1178, 551}
+    local arr3 = {426, 1178, 608}
     MATADOR_MON_TRAP1_5_AI_SET(self, "TRAP1_6_MAIN_MON", "TRAP1_SUB_MON", arr1, arr2, arr3)
 end
 
@@ -276,7 +276,7 @@ end
 --MATADOR_MON_TRAP2_3_AI
 function MATADOR_MON_TRAP2_3_AI_UPDATE(self)
     local arr1 = {620, 1178, 658}
-    local arr2 = {549, 1178, 522}
+    local arr2 = {616, 1178, 557}
     local arr3 = {845, 1178, 551}
     MATADOR_MON_TRAP2_AI_SET(self, "TRAP2_2_MON","TRAP2_MON_SUB", arr1, arr2, arr3)
 end
@@ -285,7 +285,7 @@ end
 function MATADOR_MON_TRAP2_4_AI_UPDATE(self)
     local arr1 = {797, 1178, 522}
     local arr2 = {833, 1178, 576}
-    local arr3 = {852, 1178, 591}
+    local arr3 = {788, 1178, 401}
     MATADOR_MON_TRAP2_AI_SET(self, "TRAP2_4_MON","TRAP2_MON_SUB", arr1, arr2, arr3)
 end
 
@@ -299,7 +299,7 @@ end
 
 --MATADOR_MON_TRAP2_6_AI
 function MATADOR_MON_TRAP2_6_AI_UPDATE(self)
-    local arr1 = {486, 1178, 637}
+    local arr1 = {410, 1178, 626}
     local arr2 = {462, 1178, 791}
     local arr3 = {458, 1178, 791}
     MATADOR_MON_TRAP2_AI_SET(self, "TRAP2_6_MON","TRAP2_MON_SUB", arr1, arr2, arr3)
@@ -407,7 +407,7 @@ end
 
 --MATADOR_MON_TRAP3_4_AI
 function MATADOR_MON_TRAP3_4_AI_UPDATE(self)
-    local arr1 = {582, 1178, 376}
+    local arr1 = {763, 1178, 389}
     local arr2 = {581, 1178, 393}
     local arr3 = {639, 1178, 428}
     MATADOR_MON_TRAP3_AI_SET(self, "TRAP3_4_MON", "TRAP3_SUB_MON", arr1, arr2, arr3)
@@ -415,7 +415,7 @@ end
 
 --MATADOR_MON_TRAP3_5_AI
 function MATADOR_MON_TRAP3_5_AI_UPDATE(self)
-    local arr1 = {527, 1178, 577}
+    local arr1 = {341, 1178, 645}
     local arr2 = {566, 1178, 599}
     local arr3 = {460, 1178, 591}
     MATADOR_MON_TRAP3_AI_SET(self, "TRAP3_5_MON", "TRAP3_SUB_MON", arr1, arr2, arr3)
@@ -439,7 +439,7 @@ end
 
 --MATADOR_MON_TRAP3_8_AI
 function MATADOR_MON_TRAP3_8_AI_UPDATE(self)
-    local arr1 = {454, 1177, 476}
+    local arr1 = {749, 1177, 389}
     local arr2 = {663, 1178, 631}
     local arr3 = {521, 1177, 457}
     MATADOR_MON_TRAP3_AI_SET(self, "TRAP3_8_MON", "TRAP3_SUB_MON",arr1, arr2, arr3)

@@ -32,6 +32,79 @@ end
 function GUILDINFO_OPEN_UI(frame)
     GUILDINFO_INIT_TAB(frame);
    GUILDINFO_INIT_PROFILE(frame); 
+    GetGuildNotice("GET_GUILD_NOTICE");
+    GetGuildProfile("GET_GUILD_PROFILE");
+
+    local guild = GET_MY_GUILD_INFO();
+	local leaderAID = guild.info:GetLeaderAID();
+    local myAID = session.loginInfo.GetAID()
+    if leaderAID ~= myAID then
+        local mainTab = GET_CHILD_RECURSIVELY(frame, "mainTab");
+        mainTab:SetTabVisible(6, false)
+        local tabText = GET_CHILD_RECURSIVELY(frame, "optionTabItemText")
+        tabText:SetVisible(0)
+    else
+        GUILD_APPLICANT_INIT()
+    end
+end
+
+
+function GET_GUILD_APPLICATION_LIST(code, ret_json)
+
+    if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "GET_GUILD_APPLICATION_LIST")
+    end
+    
+    local frame = ui.GetFrame("guild_prototype");
+    local applicantList = GET_CHILD_RECURSIVELY(frame, "applicantPanel", "ui::CScrollPanel");
+    local comment = GET_CHILD_RECURSIVELY(frame, "comment", "ui::CEdit");
+    local list = json.decode(ret_json)
+    for k, v in pairs(list) do
+        for x, y in pairs(v) do
+            local label = applicantList:CreateControl("richtext", '{@st42}' ..y["account_team_name"], 0, 0, 50, 50);
+            label:SetText(y["account_team_name"]);
+            label:SetEventScript(ui.LBUTTONUP, "ON_APPLICANT_CLICK")
+            label:SetUserValue("msg", y["msg_text"]) 
+            label:SetUserValue("idx", y["account_idx"])
+          
+        end
+    end
+end
+
+function GET_GUILD_PROFILE(code, ret_json)
+    local frame = ui.GetFrame("guildinfo")
+    local introduceText = GET_CHILD_RECURSIVELY(frame, 'introduceText');
+    local introduceEdit = GET_CHILD_RECURSIVELY(frame, 'introduceEdit');
+    if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "GET_GUILD_NOTICE")
+        local guild = GET_MY_GUILD_INFO();
+        if guild ~= nil then
+            introduceText:SetText(guild.info:GetProfile());
+            introduceEdit:SetText(guild.info:GetProfile());
+        end
+        
+        return
+    end
+    introduceText:SetText(ret_json);
+    introduceEdit:SetText(ret_json);
+end
+
+function GET_GUILD_NOTICE(code, ret_json)
+    local frame = ui.GetFrame("guildinfo");
+    local notifyText = GET_CHILD_RECURSIVELY(frame, 'notifyText');
+    local noticeEdit = GET_CHILD_RECURSIVELY(frame, 'noticeEdit');
+    if code ~= 200 then        
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "GET_GUILD_NOTICE")
+        local guild = GET_MY_GUILD_INFO();
+        if guild ~= nil then
+            notifyText:SetText(guild.info:GetNotice());
+            noticeEdit:SetText(guild.info:GetNotice());
+        end
+
+        return
+    end
+    notifyText:SetText(ret_json);
+    noticeEdit:SetText(ret_json);
 end
 
 function GUILDINFO_INIT_PROFILE(frame)
@@ -77,16 +150,8 @@ function GUILDINFO_INIT_PROFILE(frame)
     -- asset
    GUILDINFO_PROFILE_INIT_ASSET(frame);
 
-    -- notice
-    local notifyText = GET_CHILD_RECURSIVELY(profileBox, 'notifyText');
-    notifyText:SetText(guild.info:GetNotice());
 
-    -- introduce
-    local introduceText = GET_CHILD_RECURSIVELY(profileBox, 'introduceText');
-    introduceText:SetText(guild.info:GetProfile());
-
-    -- embelem
-    GUILDINFO_PROFILE_INIT_EMBLEM(frame);
+   GUILDINFO_PROFILE_INIT_EMBLEM(frame);
 end
 
 function GUILDINFO_PROFILE_INIT_ASSET(frame)
@@ -158,7 +223,8 @@ function GUILDINFO_CLOSE_UI(frame)
     ui.CloseFrame('guildinven_send');
     ui.CloseFrame('guild_authority_popup');
     ui.CloseFrame('guildemblem_change');
-
+    ui.CloseFrame("loadimage")
+    ui.CloseFrame("guild_applicant_list")
     frame:ShowWindow(0);
 end
 
@@ -195,8 +261,13 @@ function DRAW_GUILD_EMBLEM(frame, isPreView, isRegisteredEmblem, emblemName)
             isOpenGuildInfoUI = true;
         end
     end
-
+    
     if isOpenGuildInfoUI == true then
+        --길드 엠블렘 변경중. 창을 닫으면 자동으로 기존엠블렘으로 업데이트됨.
+        local frame_emblemChange = ui.GetFrame("guildemblem_change");
+        if frame_emblemChange ~= nil and frame_emblemChange:IsVisible() == 1 and isPreView == false then
+            return
+        end
         local emblemFront = GET_CHILD_RECURSIVELY(frame_guildInfo, 'emblemPic_upload');
         local emblemBack = GET_CHILD_RECURSIVELY(frame_guildInfo, 'emblemPic');
         emblemFront:ShowWindow(0)
@@ -208,7 +279,8 @@ function DRAW_GUILD_EMBLEM(frame, isPreView, isRegisteredEmblem, emblemName)
             emblemFront:ShowWindow(1); 
         else
             if isRegisteredEmblem == true and emblemName ~= 'None' then
-                emblemBack:SetImage(emblemName); 
+                emblemBack:SetImage("")
+                emblemBack:SetFileName(emblemName); 
             else
                 local default_emblem = frame_guildInfo:GetUserConfig("DEFAULT_EMBLEM_IMAGE");
                 emblemBack:SetImage(default_emblem);
@@ -224,9 +296,7 @@ function ON_UPDATE_GUILD_EMBLEM(frame,  msg, argStr, argNum)
 end
 
 function REGISTER_GUILD_EMBLEM(frame)
-   IMC_LOG("INFO_NORMAL", "REGISTER_GUILD_EMBLEM ST");
    GUILDEMBLEM_CHANGE_INIT(frame);
-   IMC_LOG("INFO_NORMAL", "REGISTER_GUILD_EMBLEM ST");
 end
 
 function UI_TOGGLE_GUILD()
@@ -234,10 +304,10 @@ function UI_TOGGLE_GUILD()
 		return;
 	end
 
-	local guildinfo = session.GetGuildInfo();
-	if guildinfo == nil then
-		return;
-	end
+    local myActor = GetMyActor();
+    if myActor == nil or myActor:IsGuildExist() == false then
+        return;
+    end
     g_ENABLE_GUILD_MEMBER_SHOW = true;
 	ui.ToggleFrame('guildinfo');
 end
@@ -258,7 +328,7 @@ function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
 		end
 	end
 
-	local yesScp = string.format("ui.Chat('/agreeGuildMaster')");
+	local yesScp = string.format("ui.Chat('/agreeGuildMasterByWeb')");
 	local noScp = string.format("ui.Chat('/disagreeGuildMaster')");
 	ui.MsgBox(ScpArgMsg("DoYouWantGuildLeadr{N1}{N2}",'N1',leaderName,'N2', pcparty.info.name), yesScp, noScp);
 end

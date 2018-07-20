@@ -31,6 +31,9 @@
 		<checkbox name="ShowDropItemName" rect="0 0 120 30" parent="gameBox" margin="20 260 0 0" layout_gravity="left top" ConfigName="ShowDropItemName" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}드롭 아이템 이름 표시{/}" clicksound="button_click_big" oversound="button_over"/>
 		<richtext name="sklCtrlSpd_text" rect="0 0 120 24" parent="gameBox" margin="20 290 0 0" layout_gravity="left top" format="{@st66b}스킬조작 속도 (%s){/}" param1="opValue"/>
 		<slidebar name="sklCtrlSpd" rect="0 0 200 20" parent="gameBox" margin="20 310 0 0" layout_gravity="left top" SlideScp="CONFIG_SKL_CTRL_SPD" clicksound="button_click_big_2" maxlevel="1000" minlevel="10" oversound="button_over" skin="slidebar"/>
+       <checkbox name="autoCellSelect" rect="0 0 120 30" parent="gameBox" margin="20 330 0 0" layout_gravity="left top" ConfigName="EnableAutoCellSelect" LBtnUpScp="" caption="{@st66b}자동 셀 선택{/}" clicksound="button_click_big" oversound="button_over"/>
+        <richtext name="autoCellSelectSpd_text" rect="0 0 120 24" parent="gameBox" margin="20 360 0 0" layout_gravity="left top" format="{@st66b}셀 이동 속도 (%s){/}" param1="ctrlValue"/>
+        <slidebar name="autoCellSelectSpd" rect="0 0 200 20" parent="gameBox" margin="20 380 0 0" layout_gravity="left top" SlideScp="CONFIG_AUTO_CELL_SELECT_SPD" clicksound="button_click_big_2" maxlevel="500" minlevel="50" oversound="button_over" skin="slidebar"/>
         <groupbox name="uiModeBox" rect="0 0 280 250" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="right top" scrollbar="false" draw="false"/>
         <richtext name="rtext_uimode" rect="0 0 120 24" parent="uiModeBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}UI 모드{/}"/>
         <radiobutton name="controltype_0" parent="uiModeBox" rect="0 0 200 24" margin="20 50 0 0" layout_gravity="left top" ConfigName="ControlMode" LBtnDownScp="APPLY_CONTROLMODE" caption="{@st66b}자동{/}" clicksound="button_click_big" group="controlType" oversound="button_over"/>

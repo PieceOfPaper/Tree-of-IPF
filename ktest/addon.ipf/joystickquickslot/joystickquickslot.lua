@@ -15,6 +15,8 @@ function JOYSTICKQUICKSLOT_ON_INIT(addon, frame)
 	addon:RegisterMsg('JOYSTICK_INPUT', 'JOYSTICK_INPUT');
 
 	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JOYSTICK_JUNGTAN_SLOT_ON_MSG');
+	addon:RegisterMsg('EXP_ORB_ITEM_ON', 'JOYSTICK_EXP_ORB_SLOT_ON_MSG');
+	addon:RegisterMsg('EXP_ORB_ITEM_OFF', 'JOYSTICK_EXP_ORB_SLOT_ON_MSG');
 
 	addon:RegisterMsg('JOYSTICK_RESTQUICKSLOT_OPEN', 'JOYSTICK_ON_RESTQUICKSLOT_OPEN');
 	addon:RegisterMsg('JOYSTICK_RESTQUICKSLOT_CLOSE', 'ON_JOYSTICK_RESTQUICKSLOT_CLOSE');
@@ -542,6 +544,20 @@ function QUICKSLOT_INIT(frame, msg, argStr, argNum)
 	end
 end
 
+function JOYSTICK_EXP_ORB_SLOT_ON_MSG(frame, msg, str, num)
+	local timer = GET_CHILD(frame, "exporbtimer", "ui::CAddOnTimer");
+	if msg == "EXP_ORB_ITEM_OFF" then
+		frame:SetUserValue("EXP_ORB_EFFECT", 0);
+		timer:Stop();
+		imcSound.PlaySoundEvent('sys_booster_off');
+	elseif msg == "EXP_ORB_ITEM_ON" then
+		frame:SetUserValue("EXP_ORB_EFFECT", str);
+		timer:SetUpdateScript("UPDATE_JOYSTICKQUICKSLOT_EXP_ORB");
+		timer:Start(1);
+		imcSound.PlaySoundEvent('sys_atk_booster_on');
+	end
+end
+
 function JOYSTICK_JUNGTAN_SLOT_ON_MSG(frame, msg, str, itemType)
 
 	-- atk jungtan
@@ -596,7 +612,16 @@ function JOYSTICK_JUNGTAN_SLOT_ON_MSG(frame, msg, str, itemType)
 	
 end
 
+function UPDATE_JOYSTICKQUICKSLOT_EXP_ORB(frame, ctrl, num, str, time)
+	if frame:IsVisible() == 0 then
+		return;
+	end
 
+	local expOrb = frame:GetUserValue("EXP_ORB_EFFECT");
+	if expOrb ~= nil and expOrb ~= "None" then
+		PLAY_JOYSTICKQUICKSLOT_UIEFFECT_BY_GUID(frame, expOrb);
+	end
+end
 
 function UPDATE_JOYSTICKQUICKSLOT_JUNGTAN(frame, ctrl, num, str, time)
 	if frame:IsVisible() == 0 then
@@ -632,6 +657,29 @@ function UPDATE_JOYSTICKQUICKSLOT_DISPEL_DEBUFF(frame, ctrl, num, str, time)
 		PLAY_JOYSTICKQUICKSLOT_UIEFFECT(frame, dispelmagicID);
 	end
 
+end
+
+function PLAY_JOYSTICKQUICKSLOT_UIEFFECT_BY_GUID(frame, guid)
+	local slotlist = {};
+	local quickSlotList = session.GetQuickSlotList();
+	for i = 0, MAX_QUICKSLOT_CNT-1 do
+		local quickSlotInfo = quickSlotList:Element(i);
+		if quickSlotInfo ~= nil then
+			if quickSlotInfo:GetIESID() == guid then
+				slotlist[#slotlist + 1] = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
+			end
+		end
+	end
+
+	for i=1, #slotlist do
+		local slot = slotlist[i];
+		if slot ~= nil then
+			local posX, posY = GET_SCREEN_XY(slot);
+			if CHECK_SLOT_ON_ACTIVEJOYSTICKSLOTSET(frame, i) == true then
+				movie.PlayUIEffect('I_sys_item_slot', posX, posY, 0.7); 
+			end
+		end
+	end
 end
 
 function PLAY_JOYSTICKQUICKSLOT_UIEFFECT(frame, itemID)

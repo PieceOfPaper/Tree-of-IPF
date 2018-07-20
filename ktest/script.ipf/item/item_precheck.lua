@@ -551,7 +551,7 @@ function SCR_PRECHECK_EXPCARD(self)
     if self.Lv < tonumber(PC_MAX_LEVEL) then 
         return 1;
     else
-        if rank == 7 and jobLv == 15 then -- ?�래??경험�?만렙???�도 ?�용 못하게함
+        if rank == 7 and jobLv == 15 then -- ?�래??경험�?만렙???�도 ?�용 못하게함
             SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("CantUseInMaxLv"), 3);
             return 0;
         elseif jobLv == 15 then 
@@ -567,6 +567,12 @@ function SCR_PRECHECK_EXPCARD(self)
 end
 
 function SCR_PRECHECK_CONSUME_ENCHANTBOMB(self)
+    local curMap = GetZoneName(self);
+    
+    if curMap == 'c_firemage_event' then
+        return 0;
+    end
+    
     local objList, objCount = SelectObject(self, 100, 'ENEMY');
     
     if objList[1] ~= nil then
@@ -713,7 +719,7 @@ function SCR_CHECK_RANKRESET(self, rankResetItem)
     if rankResetItemClassName == nil then
         return 0;
     end
-    if rankResetItemClassName == '1706Event_RankReset' then -- 6??�� ?�하�??�용 가?�한 ??���
+    if rankResetItemClassName == '1706Event_RankReset' then -- 6??�� ?�하�??�용 가?�한 ??���
         if curRank > 6 then
             SendSysMsg(self, 'CantUseRankRest6Rank');
             return 0;
@@ -894,4 +900,43 @@ function SCR_PRECHECK_ISRANK_9(self)
     end
     
     return 0;
+end
+
+
+function SCR_PRE_RequestEnterCount_1add(self)
+    if IS_BASIC_FIELD_DUNGEON(self) == 'YES' or GetClassString('Map', GetZoneName(self), 'MapType') == 'City' then
+        local pcetc = GetETCObject(self)
+        if pcetc ~= nil then
+            if pcetc.InDunCountType_200 > 0 then
+                return 1
+            else
+                SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("CS_RequestEnterCount_1add_MSG1"), 10);
+            end
+        end
+    else
+        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("CS_IndunReset_GTower_1_MSG3"), 10);
+    end
+    
+    return 0
+end
+
+function SCR_PRE_GuildQuestEnterCount_1add(self)
+    if IsIndun(self) == 1 or IsPVPServer(self) == 1 or IsMissionInst(self) == 1 then
+        SysMsg(self, 'Instant', ScpArgMsg('PopUpBook_MSG3'))
+        return 0
+    end
+
+    local guildObj = GetGuildObj(self)
+    if guildObj == nil then
+        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("CS_Guild_Ticket_add1_MSG1"), 10);
+        return 0
+    end
+    local usedTicket = guildObj.UsedTicketCount
+    if usedTicket == 0 then
+        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("CS_Guild_Ticket_add1_MSG2"), 10);
+        return 0
+    end
+    if usedTicket >= 1 then
+        return 1
+    end 
 end

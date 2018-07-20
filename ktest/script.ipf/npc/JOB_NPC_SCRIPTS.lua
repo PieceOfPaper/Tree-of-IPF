@@ -4633,21 +4633,33 @@ function SCR_CHAR120_MSTEP5_TRACK_NPC2_ENTER(self, pc)
 end
 
 function CHAR120_MSTEP5_TRACK_ITEM_RETURN(pc, sObj)
+    local arr = {}
 	    if GetInvItemCount(pc, "CHAR120_MSTEP5_1_ITEM2") < 1 then
         if sObj.Step1 >= 2 and sObj.Step6 < 1 then
-	            RunScript("GIVE_ITEM_TX", pc, "CHAR120_MSTEP5_1_ITEM2", 1, "Quest_HIDDEN_NAKMUAY")
+            table.insert(arr, "CHAR120_MSTEP5_1_ITEM2")
+        end
 	        end
-	    elseif  GetInvItemCount(pc, "CHAR120_MSTEP5_3_ITEM2") < 1 then
+    if GetInvItemCount(pc, "CHAR120_MSTEP5_3_ITEM2") < 1 then
         if sObj.Step3 >= 2 and sObj.Step8 < 1 then
-	            RunScript("GIVE_ITEM_TX", pc, "CHAR120_MSTEP5_3_ITEM2", 1, "Quest_HIDDEN_NAKMUAY")
+            table.insert(arr, "CHAR120_MSTEP5_3_ITEM2")
+        end
 	        end
-	    elseif  GetInvItemCount(pc, "CHAR120_MSTEP5_4_ITEM1") < 1 then
+    if GetInvItemCount(pc, "CHAR120_MSTEP5_4_ITEM1") < 1 then
         if sObj.Step4 >= 2 and sObj.Step9 < 1 then
-	            RunScript("GIVE_ITEM_TX", pc, "CHAR120_MSTEP5_4_ITEM1", 1, "Quest_HIDDEN_NAKMUAY")
+            table.insert(arr, "CHAR120_MSTEP5_4_ITEM1")
+        end
 	        end
-	    elseif  GetInvItemCount(pc, "CHAR120_MSTEP5_5_ITEM5") < 1 then
+    if GetInvItemCount(pc, "CHAR120_MSTEP5_5_ITEM5") < 1 then
         if sObj.Step5 >= 3 and sObj.Step10 < 1 then
-	            RunScript("GIVE_ITEM_TX", pc, "CHAR120_MSTEP5_5_ITEM5", 1, "Quest_HIDDEN_NAKMUAY")
+            table.insert(arr, "CHAR120_MSTEP5_5_ITEM5")
+        end
+    end
+    
+    if #arr >= 1 then
+        for i = 1, #arr do
+            local tx = TxBegin(pc)
+            TxGiveItem(tx, arr[i], 1, "Quest_HIDDEN_NAKMUAY")
+            local ret = TxCommit(tx);
 	        end
 	    end
 end

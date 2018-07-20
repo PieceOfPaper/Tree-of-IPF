@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<uiframe name="legenddecompose" x="0" y="0" width="520" height="609" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="LEGENDDECOMPOSE_OPEN" CloseScp="LEGENDDECOMPOSE_CLOSE"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 520 1030" draw="true" hittestbox="false" margin="0 0 0 0" layout_gravity="center top" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="gbox" rect="0 0 520 1014" margin="0 60 0 0" layout_gravity="center top" resizebyparent="false" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<groupbox name="gbox2" parent="gbox" rect="0 0 520 400" draw="false" hittestbox="false" margin="0 0 0 -110" layout_gravity="center bottom" resizebyparent="false" resizebyresolution="false"/>
+		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" changecursor="false" hittest="true" image="test_socket_top" stretch="true"/>
+		<groupbox name="pipwin_top" rect="0 0 500 60" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
+		<richtext name="richtext_1" rect="0 0 120 24" margin="0 63 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s" param1="value" param1_def="레전드 아이템 분해"/>
+		<button name="reg" parent="gbox2" rect="0 0 180 50" margin="0 110 0 0" layout_gravity="center top" LBtnUpScp="LEGENDDECOMPOSE_EXECUTE" skin="test_red_button" format="{@st41b}{s20}%s" oversound="button_cursor_over_3" param1="value" param1_def="분해" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big">
+			<uieffect effect="I_screen_button" scale="45" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
+		</button>
+		<button name="close" rect="0 0 44 44" margin="0 60 40 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame('legenddecompose')" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<picture name="pic" parent="gbox" rect="0 0 507 707" margin="0 50  0 0" layout_gravity="center top" changecursor="false" image="itemlink_skin" stretch="true">
+			<uieffect effect="I_screen_ItemLink_orange" scale="28.1" overlab="No" sound="None" offset="0 -9" playtime="2" duration="1" conditon="active" event="None"/>
+		</picture>
+		<slot name="slot" margin="0 375 0 0" rect="0 0 140 140" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="none" DropScp="LEGENDDECOMPOSE_SET_TARGET" RBtnUpScp="LEGENDPREFIX_RESET" layout_gravity="center top">
+			<uieffect effect="I_screen_ItemLink_circle" scale="13" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="None"/>
+			<uieffect effect="I_ItemLink_end" scale="10" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="None"/>
+		</slot>
+		<richtext name="targetText" parent="pic" rect="0 0 300 30" margin="0 195 0 0" layout_gravity="center top" format="{@st42}{s18}%s{/}" param1="name" param1_def=""/>
+		<picture name="question" rect="0 0 44 44" margin="40 60 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="재성씨 여기좀 채워줘요"/>
+		<animpicture name="animpic_bg" parent="pic" blend="50" texelx="0" texely="0" texelwidth="507" texelheight="707" spacex="0" spacey="0" loop="false" ticktime="0.1" animcount="14" layout_gravity="center top" rect="0 0 507 707" margin="0 0 0 0" image="itemlink_ani" hittest="false" playanim="true" stretch="false" hideAnimEnd="true" visible="false" tickscript="LEGENDPREFIX_BG_ANIM_TICK"/>
+		<animpicture name="animpic_slot" blend="50" texelx="0" texely="0" texelwidth="400" texelheight="400" spacex="1" spacey="0" loop="false" ticktime="0.06" animcount="9" layout_gravity="left top" rect="0 0 400 400" margin="50 255 0 0" image="cube_ani" hittest="false" playanim="true" stretch="true" hideAnimEnd="true" visible="false"/>
+		<picture name="matPic" rect="0 0 80 80" parent="pic" margin="0 0 0 90" layout_gravity="center bottom" image="ok_button" stretch="true"/>
+		<richtext name="matText" rect="0 0 100 30" parent="pic" margin="30 0 0 90" layout_gravity="center bottom" format="%s%s" param1="style" param1_def="{@st42}" param2="cur" param2_def="0"/>
+		<groupbox name="matPic_dummy" rect="0 0 80 80" parent="pic" margin="0 0 0 90" layout_gravity="center bottom" draw="false">
+			<uieffect effect="None" scale="10" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="None"/>
+		</groupbox>
+	</controls>
+</uiframe>

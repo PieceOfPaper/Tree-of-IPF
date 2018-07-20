@@ -137,7 +137,7 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	
 	local AddWiki = GET_CHILD(PickItemCountCtrl,'AddWiki')
 	if addMsg == nil then
-		if IsExistItemInAdventureBook(pc, class.ClassID) == 'YES' and false == fromWareHouse then
+		if class.Journal == 'TRUE' and IsExistItemInAdventureBook(pc, class.ClassID) == 'YES' and false == fromWareHouse then
 
 			local total = GetItemObtainCount(pc, class.ClassID);
 			if total ~= nil then

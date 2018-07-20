@@ -3696,17 +3696,15 @@ function SCR_GET_Sturzhau_Ratio3(skill)
 end
 
 function SCR_Get_SkillFactor_Fleche(skill)
-
-    local pc = GetSkillOwner(skill);
+	local pc = GetSkillOwner(skill);
     local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
-
---  local abil = GetAbility(pc, "Fencer8")      -- Skill Damage add
---    if abil ~= nil then
---        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
---    end
-
+	
+	local abil = GetAbility(pc, "Fencer10")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+	
     return math.floor(value)
-
 end
 
 function SCR_Get_SkillFactor_BalestraFente(skill)
@@ -6827,7 +6825,7 @@ function SCR_Get_SkillFactor_ParthianShaft(skill)
     local pc = GetSkillOwner(skill);
     local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
-    local abil = GetAbility(pc, "Mergen7")      -- Skill Damage add
+    local abil = GetAbility(pc, "Mergen10")      -- Skill Damage add
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
@@ -15962,5 +15960,27 @@ end
 
 function SCR_GET_Retiarii_EquipDesrption_Ratio2(skill)
     local value = 4 + skill.Level;
+    return value;
+end
+
+function SCR_GET_Mergaite_Ratio(skill)
+    local velcofferSetValue = TryGetProp(skill, "NumberArg");
+    local value = 0;
+    if velcofferSetValue == 4 then
+        value = 40
+    elseif velcofferSetValue == 5 then
+        value = 100
+    end
+    
+    return value;
+end
+
+function SCR_GET_Kraujas_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = pc.RHP;
+    if pc ~= nil then
+        value = pc.RHP * 10;
+    end
+    
     return value;
 end

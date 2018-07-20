@@ -7394,8 +7394,6 @@ function SCR_PRE_WTREES22_1_SUBQ2_ITEM1(self, argstring, argnum1, argnum2)
                 if list[i].ClassName ~= "PC" then
                     if list[i].ClassName == "npc_thorn_flower_yellow" then
                         return GetHandle(list[i])
-                    else
-                        return 0;
                     end
                 end
             end

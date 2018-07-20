@@ -153,7 +153,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
     end
 
     --later
-    if sObj.Step12 ~= 0 and sObj.Goal12 ~= 0 then
+    if sObj.Step12 ~= 0 then
         local lastday = sObj.Step12
         local lasttime = sObj.Goal12
         if today == lastday then
@@ -188,7 +188,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
             end
         end
     end
-    if sObj.Step13 ~= 0 and sObj.Goal13 ~= 0 then
+    if sObj.Step13 ~= 0 then
         local lastday = sObj.Step13
         local lasttime = sObj.Goal13
         if today == lastday then
@@ -225,7 +225,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
             end
         end
     end
-    if sObj.Step14 ~= 0 and sObj.Goal14 ~= 0 then
+    if sObj.Step14 ~= 0 then
         local lastday = sObj.Step14
         local lasttime = sObj.Goal14
         if today == lastday then
@@ -260,7 +260,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
             end
         end
     end
-    if sObj.Step17 ~= 0 and sObj.Goal17 ~= 0 then
+    if sObj.Step17 ~= 0 then
         local lastday = sObj.Step17
         local lasttime = sObj.Goal17
         if today == lastday then
@@ -311,7 +311,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
             end
         end
     end
-    if sObj.Step18 ~= 0 and sObj.Goal18 ~= 0 then
+    if sObj.Step18 ~= 0 then
         local lastday = sObj.Step18
         local lasttime = sObj.Goal18
         if today == lastday then
@@ -346,7 +346,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
             end
         end
     end
-    if sObj.Step19 ~= 0 and sObj.Goal19 ~= 0 then
+    if sObj.Step19 ~= 0 then
         local lastday = sObj.Step19
         local lasttime = sObj.Goal19
         if today == lastday then

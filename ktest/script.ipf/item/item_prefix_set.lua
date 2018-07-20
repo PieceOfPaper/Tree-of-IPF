@@ -1,0 +1,159 @@
+function SCR_EXECUTE_PREFIX_SET(pc)
+    local itemList, itemCntList = GetDlgItemList(pc);
+    if itemList == nil or #itemList ~= 1 then
+        return;
+    end
+
+    local targetItem = itemList[1];
+    if IS_VALID_ITEM_FOR_GIVING_PREFIX(targetItem) == false then
+        return;
+    end
+
+    if IsFixedItem(targetItem) == 1 then
+        return;
+    end
+    
+    local needCount = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(targetItem);
+    local validCount = GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT(pc);
+    if validCount < needCount then
+        return;
+    end
+
+    if IsRunningScript(pc, 'EXECUTE_GIVE_PREFIX') ~= 1 then
+        EXECUTE_GIVE_PREFIX(pc, targetItem);
+    end
+end
+
+function GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT(pc) -- 경험치 꽉 찬 아이템만 개수 세주는 함수
+    local count = 0;
+    local needItemName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME();
+    local itemList = GetInvItemList(pc);
+    for i = 1, #itemList do
+        local item = itemList[i];
+        if item.ClassName == needItemName and item.ItemExp >= item.NumberArg1 then
+            count = count + 1;
+        end
+    end
+
+    return count;
+end
+
+function EXECUTE_GIVE_PREFIX(pc, targetItem)
+
+    local npcHandle = GetExProp(pc, 'LEGEND_NPC_HANDLE');    
+    if npcHandle == 0 then
+        SendSysMsg(pc, 'CantUseEnchantBomb');
+        return;
+    end
+    local npc = GetByHandle(pc, npcHandle);
+    if npc == nil then
+        SendSysMsg(pc, 'CantUseEnchantBomb');
+        return;
+    end
+
+    local prefixList = GET_TARGET_PREFIX_SET(targetItem.LegendGroup);
+
+    -- 이미 접두사 있는 아이템이면 그 접두사 빼고 다시 돌려달라고 하셨음
+    local candidateList = prefixList;
+    local legendPrefix = targetItem.LegendPrefix;
+    if legendPrefix ~= 'None' then
+        candidateList = {};
+        for i = 1, #prefixList do
+            if prefixList[i] ~= legendPrefix then
+                candidateList[#candidateList + 1] = prefixList[i];
+            end
+        end
+    end
+
+    if #candidateList < 1 then
+        SendSysMsg(pc, 'CannotGivePrefixAnymore');
+        return;
+    end
+
+    local aniTime = 7;
+    CreateClientMonster(npc, pc, 'alchemist_roasting', aniTime, 'SKL_ROASTING_BORN', 'SKL_ROASTING_DEAD');
+    AttachGaugeToTarget(npc, pc, aniTime, 1, "gauge");
+    local result = DOTIMEACTION_ONLY_TARGET(npc, pc, ScpArgMsg("GivingBuffToWeapon"), '#LegendPrefix', aniTime, 0);    
+    if result ~= 1 then
+        return;
+    end
+
+    local index = IMCRandom(1, #candidateList);
+    local targetPrefix = candidateList[index];
+
+    local tx = TxBegin(pc);
+    if tx == nil then
+        return;
+    end
+
+    local matCount = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(targetItem);
+    TxTakeItem(tx, GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME(), matCount, 'LegendPrefix');
+    TxSetIESProp(tx, targetItem, 'LegendPrefix', targetPrefix);
+    local ret = TxCommit(tx);
+    if ret ~= 'SUCCESS' then
+        return;
+    end
+
+    local targetItemGuid = GetItemGuid(targetItem);
+    LegendPrefixLog(pc, targetItemGuid, legendPrefix, targetPrefix, matCount);    
+    SendAddOnMsg(pc, 'SUCCESS_LEGEND_PREFIX');
+end
+
+g_legendGroupMap = {};
+function GET_TARGET_PREFIX_SET(legendGroup)
+    local prefixList = g_legendGroupMap[legend];
+    if prefixList == nil then
+        prefixList = CREATE_PREFIX_GROUP(legendGroup);
+    end
+    return prefixList;
+end
+
+function CREATE_PREFIX_GROUP(legendGroup)
+    local prefixList = {};
+    local clsList, cnt = GetClassList('LegendSetItem');
+    for i = 0, cnt - 1 do
+        local cls = GetClassByIndexFromList(clsList, i);        
+        if cls.LegendGroup == legendGroup then
+            prefixList[#prefixList + 1] = cls.ClassName;            
+        end
+    end
+    
+    g_legendGroupMap[legendGroup] = prefixList;
+    return prefixList;
+end
+
+-- 여기부터 테스트 함수
+function TEST_SET_PREFIX_MATERIAL_EXP(pc) -- 인벤토리에 있는 모든 접두사 부여 재료 아이템 경험치를 풀로 세팅하는 치트
+    local matName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME();
+    local invItem = GetInvItemByName(pc, matName);
+    if invItem == nil then
+        Chat(pc, '재료 아이템이 인벤에 없어요! 재료 아이템: '..matName);
+        return;
+    end
+
+    local matCls = GetClass('Item', matName);
+
+    local tx = TxBegin(pc);
+    if tx == nil then
+        return;
+    end
+    
+    local itemList = GetInvItemList(pc);
+    local cheatItemList = {};
+    for i = 1, #itemList do
+        local item = itemList[i];
+        if item.ClassName == matName then
+            TxSetIESProp(tx, item, 'ItemExp', matCls.NumberArg1);        
+            cheatItemList[#cheatItemList + 1] = item;
+        end
+    end
+
+    local ret = TxCommit(tx);
+    Chat(pc, '치트 끝!: '..ret..', exp['..matCls.NumberArg1..']');    
+
+    if ret == 'SUCCESS' then
+        for i = 1, #cheatItemList do
+            SendPropertyByName(pc, cheatItemList[i], 'ItemExp');
+        end
+    end
+end

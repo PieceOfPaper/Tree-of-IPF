@@ -1608,7 +1608,7 @@ return buffTime"/>
 		</leaveEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-200"UseFunc="1" FuncTxt="local lifeTime = -200
+				<Num Num="-200" UseFunc="1" FuncTxt="local lifeTime = -200
 
 if IsPVPServer(self) == 1 then
 
@@ -9053,7 +9053,7 @@ end"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Necromancer_CreateShoggoth_abil" CheckerType="0" Range="50" AutoPos="1" AutoDir="1">
+    <PadSkill Name="Necromancer_CreateShoggoth_abil" CheckerType="0" Range="50" AutoPos="1" AutoDir="1" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="60000" UseFunc="1" FuncTxt="local owner = GetOwner(self);
@@ -11018,7 +11018,7 @@ return 30000 + obj.Level * 5000"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Shootpad_Fireball" CheckerType="0" Range="10" EnableSearch="0">
+	<PadSkill Name="Shootpad_Fireball" CheckerType="0" Range="10" ApplyFlyMon="1" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="1000"/>
@@ -11109,7 +11109,7 @@ return 30000 + obj.Level * 5000"/>
 			</ToolScp>
 		</enterEvent>
 	</PadSkill>
-	<PadSkill Name="StormDust_Pad" CheckerType="0" AllowOverlap="1" Range="75"UpdateTerm="300" ApplyFlyMon="1">
+	<PadSkill Name="StormDust_Pad" CheckerType="0" AllowOverlap="1" Range="75" UpdateTerm="300" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_ground071_smoke" Arg="0.80000001"/>

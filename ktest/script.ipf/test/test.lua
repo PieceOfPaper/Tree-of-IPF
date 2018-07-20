@@ -7470,44 +7470,28 @@ function SCR_TTTTT(self)
         
 end
 
---function SCR_VELLCOFFER_ENTER_01_DIALOG(self, pc)
---
-----    if IS_GT_PARTYLEADER(pc) ~= 1 then
-----    print("11111")
-----        REQ_MOVE_TO_INDUN(pc, "Raid_Velcoffer_guard", 1);
-----        local select = ShowSelDlg(pc, 0, 'RAID_VELLCOFFER_ENTER', ScpArgMsg('RAIDBOSS_VELLCOFFER_MSG01'), ScpArgMsg('INSTANCE_DUNGEON_MSG02'))
-----        if select == 1 then
-----            SCR_SETPOS_FADEOUT(pc, 'd_raidboss_velcoffer', -1945, -17, 631)
-----        end
-----    end
-----end
---
---    local select = ShowSelDlg(pc, 1, 'RAID_VELLCOFFER_ENTER', ScpArgMsg('StartGame'), ScpArgMsg('Close'))
---        if select == 1 then
-----        SendAddOnMsg(pc, "OPEN_DLG_REPAIR", "", 0);
---        print("111111111")
-----            MoveZone(pc, "d_raidboss_velcoffer", -1809, -9, 556);
---            AUTOMATCH_INDUN_DIALOG(pc, "INSTANCE_DUNGEON_select05", "Raid_Velcoffer_guard")
---            print("실행하나")
---    end
---end
-function SCR_VELLCOFFER_ENTER_01_DIALOG(self, pc)
+function TEST_ENABLE_EQUIP(pc)
+	local spot = "LH"
+	local flag = 0
+	print(spot)
+	print(flag)
+	
+	EnableEquipItemBySlot(pc, spot, flag)
+end
 
-    local dialog_list ={}
-    local dialog_ck = {}
-
-    dialog_list[#dialog_list+1] = ScpArgMsg("StartGame")
-    dialog_ck[#dialog_ck+1] = 'StartGame'
+function TEST_BLACKSMIT_IMAGE(pc)
+print('----')
+	SendAddOnMsg(pc, "MSG_PLAY_BLACKSMITH_SUCCESS_EFFECT", "", 0)
+				print('gaf')
+end
 
 
-    local select = SCR_SEL_LIST(pc, dialog_list, 'INSTANCE_GT_GROUNDTOWER_1')
-    print(SCR_SEL_LIST, pc, dialog_list)
-    local sel_dialog = dialog_ck[select]
-    print(sel_dialog)
-    
-    if sel_dialog == 'StartGame' then
-		INDUN_ENTER_DIALOG_AND_UI(pc, 'INSTANCE_GT_GROUNDTOWER_1', 'Raid_Velcoffer_guard', 0, 0);
-		print(pc, "INSTANCE_GT_GROUNDTOWER_1", "Raid_Velcoffer_guard", 0)
-		return;
-    end
+function TEST_OPTIONEXTRACT_SUCCESS(pc)
+	SendAddOnMsg(pc, "MSG_SUCCESS_ITEM_OPTION_EXTRACT", "", 0)
+
+end
+
+function TEST_OPTIONEXTRACT_FAIL(pc)
+	SendAddOnMsg(pc, "MSG_FAIL_ITEM_OPTION_EXTRACT", "", 0)
+
 end

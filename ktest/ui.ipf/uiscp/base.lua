@@ -224,14 +224,15 @@ function ICON_USE(object, reAction)
 				ITEM_EQUIP_BY_ID(icon:GetTooltipIESID());
 				return;
 			else
-				local groupName = itemObj.ItemType;
-				if groupName == 'Consume' or groupName == "Quest" or TryGetProp(itemObj, "GroupName") == "Cube" then
+				local itemType = itemObj.ItemType;
+				local groupName = TryGetProp(itemObj, "GroupName");
+				if itemType == 'Consume' or itemType == "Quest" or groupName == "Cube" or groupName == "ExpOrb" then
 					local usable = itemObj.Usable;
 					if usable ~= 'ITEMTARGET' then						
 						local invenItemInfo = GET_ICON_ITEM(iconInfo);
 						if invenItemInfo ~= nil then
-							local itemtype = iconInfo.type;
-							local curTime = item.GetCoolDown(itemtype);
+							local iconInfoType = iconInfo.type;
+							local curTime = item.GetCoolDown(iconInfoType);
 							local stat = info.GetStat(session.GetMyHandle());
 							if curTime ~= 0 or stat.HP <= 0 then
 								imcSound.PlaySoundEvent("skill_cooltime");

@@ -2,6 +2,11 @@ function TRADESELECTITEM_ON_INIT(addon, frame)
 end
 
 function OPEN_TRADE_SELECT_ITEM(invItem)
+    local itemobj = GetIES(invItem:GetObject());
+    if itemobj.ItemLifeTimeOver == 1 then
+		ui.SysMsg(ScpArgMsg('LessThanItemLifeTime'));
+		return
+	end
 	local frame = ui.GetFrame("tradeselectitem")
 	local itemobj = GetIES(invItem:GetObject());
 	local itemGuid = invItem:GetIESID();

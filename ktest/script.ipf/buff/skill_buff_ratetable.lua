@@ -1,4 +1,4 @@
-﻿--skill_buff_ratetable.lua
+--skill_buff_ratetable.lua
 -- FINAL_DAMAGECALC() -> SCR_BUFF_RATETABLE_UPDATE(self, from, skill, atk, ret, rateTable);
 -- must check IsBuffApplied(self or from, buffname) == 'YES' / 'NO'
 
@@ -109,8 +109,7 @@ end
 function SCR_BUFF_RATETABLE_EsquiveToucher_Buff(self, from, skill, atk, ret, rateTable, buff)
 
     if IsBuffApplied(self, 'EsquiveToucher_Buff') == 'YES' then
-
-        local EsquiveSklLv = GetBuffArgs(buff);
+        local EsquiveSklLv = GetBuffArg(buff);
         if EsquiveSklLv > 0 then
             local EsquiveRatio = 1000 * EsquiveSklLv;
             rateTable.dodgeDefRatio = rateTable.dodgeDefRatio + EsquiveRatio;
@@ -2159,3 +2158,36 @@ function SCR_BUFF_RATETABLE_Potion_Wild_DMG_UP_Buff(self, from, skill, atk, ret,
     end
 end
 --여기까지 180222 포션 버프 추가 (아이템 RateTable이 없음) 끝--
+--180308 카드 효과 추가 (카드는 RateTable을 받아올 수 없음)--
+function SCR_BUFF_RATETABLE_CARD_MON_DMG_Rate_Down_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "CARD_MON_DMG_Rate_Down_Buff") == "YES" then
+        if IS_PC(from) == false then
+            local buffarg1 = GetBuffArg(buff)
+            tonumber(buffarg1)
+            local reductionRate = (math.floor(buffarg1 * 3)) / 100
+            AddDamageReductionRate(rateTable, reductionRate);
+        end
+    end
+end
+--180308 카드 효과 끝--
+function SCR_BUFF_RATETABLE_Tiksline_Debuff(self, from, skill, atk, ret, rateTable, buff)
+    local buffCaster = GetBuffCaster(buff)
+    local topOwner = GetTopOwner(from);
+    if IsSameActor(buffCaster, topOwner) == "YES" then
+        if IsBuffApplied(self, "Tiksline_Debuff") == "YES" then
+            rateTable.DamageRate = rateTable.DamageRate + 0.5;
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Kraujas_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, buff.ClassName) == "YES" then
+        local buffOver = GetBuffOver(from, buff.ClassName);
+        local increaseRate = buffOver * 0.1
+        rateTable.DamageRate = rateTable.DamageRate + increaseRate;
+    elseif IsBuffApplied(self, buff.ClassName) == "YES" then
+        local buffOver = GetBuffOver(self, buff.ClassName)
+        local increaseRate = buffOver * 0.2
+        rateTable.DamageRate = rateTable.DamageRate + increaseRate;
+    end
+end

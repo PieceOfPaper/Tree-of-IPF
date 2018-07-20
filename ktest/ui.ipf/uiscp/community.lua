@@ -153,7 +153,7 @@ function SHOW_PC_CONTEXT_MENU(handle)
 
         -- report guild emblem
         if  pcObj:IsGuildExist() == true then
-            ui.AddContextMenuItem(context, ScpArgMsg("Report_GuildEmblem"), string.format("REPORT_GUILDEMBLEM_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
+            ui.AddContextMenuItem(context, ScpArgMsg("Report_GuildEmblem"), string.format("REPORT_GUILDEMBLEM_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));        
         end
 
 		-- 보호모드, 강제킥
@@ -232,7 +232,11 @@ function PARTY_INVITE(name)
 end
 
 function GUILD_INVITE(name)
-	party.ReqDirectInvite(PARTY_GUILD, name);
+	party.GuildMemberInviteByWeb(name)
+end
+
+function GUILD_INVITE_BY_WEB(name)    
+    party.GuildMemberInviteByWeb(name)
 end
 
 function PROPERTY_COMPARE(handle)

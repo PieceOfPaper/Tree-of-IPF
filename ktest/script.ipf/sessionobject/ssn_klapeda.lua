@@ -21,6 +21,9 @@ function SCR_REENTER_SSN_KLAPEDA(self, sObj)
         SetTimeSessionObject(self, sObj, 1, 30000, 'SCR_SSN_KLAPEDA_SETTIME_1')
     end
     
+    -- EVENT_1804_ARBOR
+    RegisterHookMsg(self, sObj, "EnterTrigger", "EVENT_1804_ARBOR_NPCEnter", "YES");
+
     --EVENT_1712_SECOND
 --    SetTimeSessionObject(self, sObj, 2, 60000, 'SCR_SSN_KLAPEDA_EVENT_1712_SECOND','YES')
 
@@ -824,13 +827,15 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         end
         
     end
-    
+     if GetAchieveCount(self) > 0 then
+        AddBuff(self, self, "Achieve_Possession_Buff", 1, 0, 0, 1)
+    end
+   
     if IsJoinColonyWarMap(self) == 1 then
+        RunScript("SCR_GUILD_COLONY_MUSIC_PLAY", self)
         local state = GetColonyWarState()
         if state == 3 then
-            if argStr == 'f_pilgrimroad_49' or argStr == 'f_rokas_36_1' or argStr == 'f_castle_20_3' then
-                SCR_GUILD_COLONY_ALREADY_END_MSG(self)
-            end
+            SCR_GUILD_COLONY_ALREADY_END_MSG(self)
         end
     end
     
@@ -857,11 +862,39 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
     WORLDPVP_TIME_CHECK(self)
 --    SCR_QUEST_BUG_TEMP(self,sObj)
 
+    --reward_property achieve reward check
+    local list, listCnt = GetClassList("reward_property");
+    for i = 0, listCnt -1 do
+        local cls = GetClassByIndexFromList(list, i);
+        if cls ~= nil and TryGetProp(cls, "Property") == "AchievePoint" then
+            local quest_auto = GetClass('QuestProgressCheck_Auto', cls.ClassName);
+            if quest_auto ~= nil then
+                if quest_auto.Success_HonorPoint ~= 'None' then
+                    local honor_name, point_value = string.match(quest_auto.Success_HonorPoint,'(.+)[/](.+)')
+                    if honor_name ~= nil then
+                        if GetAchievePoint(self, honor_name) < 1 then
+                            local result = SCR_QUEST_CHECK(self, cls.ClassName)
+                            if result == 'COMPLETE' then
+                                local tx = TxBegin(self);
+                                TxEnableInIntegrate(tx)
+                                TxAddAchievePoint(tx, honor_name, tonumber(point_value))
+                                local ret = TxCommit(tx);
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    -- EVENT_1802_WEEKEND
+    EVENT_1802_WEEKEND(self)
+    
     if argStr == 'c_firemage_event' then
         self.FIXMSPD_BM = 25
         Invalidate(self, 'MSPD');
     end
-
+    
 end
 
 --function SCR_QUEST_BUG_TEMP(self,sObj)
@@ -1480,8 +1513,15 @@ function SCR_SSN_KLAPEDA_KillMonster_Sub(self, sObj, msg, argObj, argStr, argNum
             end
         end
         
-        -- EVENT
-        SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
+--        -- EVENT_1804_ARBOR
+        SCR_EVENT_1804_ARBOR_DROP(self, sObj, msg, argObj, argStr, argNum) 
+
+--        -- EVENT
+--        SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
+        
+        
+--        -- EVENT_1802_NEWYEAR
+--        RunScript('SCR_EVENT_1802_NEWYEAR_MONKILL',self, sObj, msg, argObj, argStr, argNum)
     else
         print(ScpArgMsg("Auto_Jugin_MonSeuTeoui_obj_Ka_eopSeupNiDa."))
     end
@@ -2795,6 +2835,9 @@ function SCR_PERIOD_INITIALIZATION_PROPERTY(tx, pc, sObj, questname, questIES)
     end
     if GetPropType(sObj, questIES.QuestPropertyName..'_TRL') ~= nil then
         TxSetIESProp(tx, sObj, questIES.QuestPropertyName..'_TRL', 'None')
+    end
+    if (sObj[questIES.QuestPropertyName] <= 0 or sObj[questIES.QuestPropertyName] >= 300) and GetPropType(sObj, questIES.QuestPropertyName..'_RR') ~= nil and GetPropType(sObj, questIES.QuestPropertyName..'_RR') ~= 'None' then
+        TxSetIESProp(tx, sObj, questIES.QuestPropertyName..'_RR', 'None')
     end
 end
 

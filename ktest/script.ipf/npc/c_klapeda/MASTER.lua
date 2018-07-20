@@ -585,8 +585,7 @@ function SCR_MASTER_FLETCHER_NORMAL_2(self, pc)
 end
 
 function SCR_FEDIMIAN_APPRAISER_NPC_NORMAL_2(self,pc)
-    -- 재감정
-    UIOpenToPC(pc, 'itemrandomreset', 1)
+    -- ?�감??    UIOpenToPC(pc, 'itemrandomreset', 1)
 end
 
 function SCR_FEDIMIAN_APPRAISER_NPC_NORMAL_3(self,pc)
@@ -1685,4 +1684,13 @@ end
 
 function SCR_ONMYOJI_MASTER_NORMAL_2(self, pc)
     ShowTradeDlg(pc, 'ONMYOJI_MASTER', 5);
+end
+
+function SCR_SIAULIAIOUT_ALCHE_A_NORMAL_5(self,pc)
+    SetExProp(pc, 'LEGEND_NPC_HANDLE', GetHandle(self));
+    UIOpenToPC(pc, 'legendprefix',1)
+end
+
+function SCR_SIAULIAIOUT_ALCHE_A_NORMAL_6(self,pc)
+    UIOpenToPC(pc, 'legenddecompose',1)
 end

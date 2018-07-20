@@ -2568,6 +2568,17 @@
 			<img name="bottomcore" imgrect="888 102 100 50"/>
 			<img name="bottomright" imgrect="989 102 50 50"/>
 		</skin>
+		<skin name="test_Item_tooltip_equip2" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1040 337 50 61"/>
+			<img name="topcore" imgrect="1091 337 100 61"/>
+			<img name="topright" imgrect="1192 337 50 61"/>
+			<img name="bodyleft" imgrect="1040 399 50 50"/>
+			<img name="bodycore" imgrect="1091 399 100 50"/>
+			<img name="bodyright" imgrect="1192 399 50 50"/>
+			<img name="bottomleft" imgrect="1040 450 50 50"/>
+			<img name="bottomcore" imgrect="1091 450 100 50"/>
+			<img name="bottomright" imgrect="1192 450 50 50"/>
+		</skin>
 		<skin name="testbosscard_tooltip" texture="\skin\PVP_skin.tga">
 			<img name="topleft" imgrect="1027 368 1 596"/>
 			<img name="topcore" imgrect="1028 368 370 596"/>
@@ -5412,6 +5423,16 @@
 		<image name="four_star_item_bg2" file="\skin\USsentiment.tga" imgrect="0 273 417 272" CMM_Caption="보라색아이템_미감정"/>
 		<image name="five_item_bg2" file="\skin\USsentiment.tga" imgrect="418 273 412 272" CMM_Caption="붉은색아이템_미감정"/>
 		<image name="six_item_bg2" file="\skin\tooltip_skin_3.tga" imgrect="0 778 417 272" CMM_Caption="노란색아이템_미감정"/>
+		<image name="one_two_star_item_bg3" file="\skin\pip_test_item2.tga" imgrect="0 388 96 96" CMM_Caption="노말아이템배경"/>
+		<image name="three_star_item_bg3" file="\skin\pip_test_item2.tga" imgrect="0 194 96 96" CMM_Caption="푸른색아이템배경"/>
+		<image name="four_star_item_bg3" file="\skin\pip_test_item2.tga" imgrect="0 291 96 96" CMM_Caption="보라색아이템배경"/>
+		<image name="five_item_bg3" file="\skin\pip_test_item2.tga" imgrect="0 0 96 96" CMM_Caption="붉은색아이템배경"/>
+		<image name="six_item_bg3" file="\skin\pip_test_item2.tga" imgrect="0 97 96 96" CMM_Caption="노란색아이템배경"/>
+		<image name="one_two_star_item_bg4" file="\skin\pip_test_item2.tga" imgrect="97 388 96 96" CMM_Caption="노말아이템_미감정"/>
+		<image name="three_star_item_bg4" file="\skin\pip_test_item2.tga" imgrect="97 194 96 96" CMM_Caption="푸른색아이템_미감정"/>
+		<image name="four_star_item_bg4" file="\skin\pip_test_item2.tga" imgrect="97 291 96 96" CMM_Caption="보라색아이템_미감정"/>
+		<image name="five_item_bg4" file="\skin\pip_test_item2.tga" imgrect="97 0 96 96" CMM_Caption="붉은색아이템_미감정"/>
+		<image name="six_item_bg4" file="\skin\pip_test_item2.tga" imgrect="97 97 96 96" CMM_Caption="노란색아이템_미감정"/>
 		<image name="cube_item_bg" file="\skin\tooltip_skin_3.tga" imgrect="550 877 474 345" CMM_Caption="레티샤큐브아이템배경"/>
 		<image name="USsentiment_message" file="\skin\USsentiment.tga" imgrect="0 546 481 46" CMM_Caption="미감정입니다"/>
 		<image name="USsentiment_top" file="\skin\USsentiment.tga" imgrect="482 546 160 54" CMM_Caption="미감정_탑"/>
@@ -5829,6 +5850,12 @@
 		<image name="test_restartjjsm_btn" file="\skin\market_skin.tga" imgrect="1100 97 45 45" CMM_Caption="재시작 소"/>
 		<image name="test_restartjjsm_btn_cursoron" file="\skin\market_skin.tga" imgrect="1146 97 45 45"/>
 		<image name="test_restartjjsm_btn_clicked" file="\skin\market_skin.tga" imgrect="1192 97 45 45"/>
+		<image name="test_tooltltip_blue" file="\skin\pip_test_item.tga" imgrect="921 684 25 25" CMM_Caption="툴팁 블루"/>
+		<image name="test_tooltltip_yellow" file="\skin\pip_test_item.tga" imgrect="843 684 25 25" CMM_Caption="툴팁 옐로"/>
+		<image name="test_tooltltip_green" file="\skin\pip_test_item.tga" imgrect="869 684 25 25" CMM_Caption="툴팁 그린"/>
+		<image name="test_tooltltip_red" file="\skin\pip_test_item.tga" imgrect="895 684 25 25" CMM_Caption="툴팁 레드"/>
+		<image name="test_tooltltip_white" file="\skin\pip_test_item.tga" imgrect="791 684 25 25" CMM_Caption="툴팁 화이트"/>
+		<image name="test_tooltltip_empty" file="\skin\pip_test_item.tga" imgrect="817 684 25 25" CMM_Caption="툴팁 빈소켓"/>
 		<image name="tradecondition_on" file="\skin\keynbet.tga" imgrect="0 995 130 20"/>
 		<image name="tradecondition_off" file="\skin\keynbet.tga" imgrect="130 995 130 20"/>
 		<image name="Collar_FinestMoment" file="\skin\keynbet.tga" imgrect="779 90 30 30" CMM_Caption="칭호 사진"/>
@@ -6011,6 +6038,13 @@
 		<image name="itemlink_skin" file="\skin\itemlink_skin.tga" imgrect="0 0 507 707" CMM_Caption="아이템 링크 bg"/>
 		<image name="itemlink_skin2" file="\skin\itemlink_skin2.tga" imgrect="0 0 507 707" CMM_Caption="레전드 아이템 분해 bg"/>
 		<image name="transcendence_scroll_skin" file="\skin\transcendence_scroll_skin.tga" imgrect="0 0 506 715" CMM_Caption="초월 스크롤 bg"/>
+		<image name="guild_banner_btn" file="\skin\guild_skin.tga" imgrect="510 0 512 202" CMM_Caption="길드 배너 버튼"/>
+		<image name="guild_banner_btn_cursoron" file="\skin\guild_skin.tga" imgrect="510 203 512 202"/>
+		<image name="guild_banner_btn_clicked" file="\skin\guild_skin.tga" imgrect="510 203 512 202"/>
+		<image name="name_box_beige" file="\skin\guild_skin.tga" imgrect="307 250 140 29"/>
+		<image name="guild_banner_menu_btn" file="\skin\guild_skin.tga" imgrect="690 406 48 50" CMM_Caption="길드 배너 매뉴 버튼"/>
+		<image name="guild_banner_menu_btn_cursoron" file="\skin\guild_skin.tga" imgrect="739 406 48 50"/>
+		<image name="guild_banner_menu_btn_clicked" file="\skin\guild_skin.tga" imgrect="739 406 48 50"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -6259,6 +6293,8 @@
 		<image name="cube_ani" file="\skin\cube_ani.tga" imgrect="0 0 3608 400"/>
 		<image name="transcendence_ani" file="\skin\transcendence_ani.tga" imgrect="0 0 5725 706"/>
 		<image name="transcendence_scroll_ani" file="\skin\transcendence_scroll_ani.tga" imgrect="0 0 3099 308"/>
+		<image name="itemlink_ani" file="\skin\itemlink_ani.tga" imgrect="0 0 7098 707"/>
+		<image name="decompose_ani" file="\skin\decompose_ani.tga" imgrect="0 0 7098 707"/>
 		<image name="glimoire_ani" file="\skin\glimoire_ani.tga" imgrect="0 0 2887 360"/>
 		<image name="poisonpo_ani" file="\skin\poisonpot_ani.tga" imgrect="0 0 2813 150"/>
 		<image name="notice_pos" file="\skin\notice_pos.tga" imgrect="0 0 2800 200"/>
@@ -6412,6 +6448,9 @@
 		<image name="sysmenu_jobinfo" file="\skin\HUD.tga" imgrect="1150 546 38 44" CMM_Caption="전직정보"/>
 		<image name="sysmenu_jobinfo_cursoron" file="\skin\HUD.tga" imgrect="1150 591 38 44"/>
 		<image name="sysmenu_jobinfo_clicked" file="\skin\HUD.tga" imgrect="1150 636 38 44"/>
+		<image name="sysmenu_guild_rank" file="\skin\guild_skin.tga" imgrect="510 466 38 44" CMM_Caption="길드 랭킹"/>
+		<image name="sysmenu_guild_rank_cursoron" file="\skin\guild_skin.tga" imgrect="549 466 38 44"/>
+		<image name="sysmenu_guild_rank_clicked" file="\skin\guild_skin.tga" imgrect="588 466 38 44"/>
 		<image name="buff_sale_right" file="\skin\HUD.tga" imgrect="1408 60 25 25" CMM_Caption="판매개수 오른쪽"/>
 		<image name="buff_sale_right_cursoron" file="\skin\HUD.tga" imgrect="1408 86 25 25"/>
 		<image name="buff_sale_right_clicked" file="\skin\HUD.tga" imgrect="1408 112 25 25"/>
@@ -6621,6 +6660,21 @@
 		<image name="menu_guild_set" file="\skin\guild_skin.tga" imgrect="441 298 45 45"/>
 		<image name="menu_guild_set_cursoron" file="\skin\guild_skin.tga" imgrect="441 344 45 45"/>
 		<image name="menu_guild_set_clicked" file="\skin\guild_skin.tga" imgrect="441 390 45 45"/>
+		<image name="guildinfo_glevel" file="\skin\guild_skin.tga" imgrect="249 130 59 59" CMM_Caption="길드 랭크 정보"/>
+		<image name="guildinfo_glevel_cursoron" file="\skin\guild_skin.tga" imgrect="309 190 59 59"/>
+		<image name="guildinfo_glevel_clicked" file="\skin\guild_skin.tga" imgrect="379 10 59 59"/>
+		<image name="guildinfo_activation" file="\skin\guild_skin.tga" imgrect="309 130 59 59"/>
+		<image name="guildinfo_activation_cursoron" file="\skin\guild_skin.tga" imgrect="369 190 59 59"/>
+		<image name="guildinfo_activation_clicked" file="\skin\guild_skin.tga" imgrect="439 10 59 59"/>
+		<image name="guildinfo_tlevel" file="\skin\guild_skin.tga" imgrect="369 130 59 59"/>
+		<image name="guildinfo_tlevel_cursoron" file="\skin\guild_skin.tga" imgrect="429 190 59 59"/>
+		<image name="guildinfo_tlevel_clicked" file="\skin\guild_skin.tga" imgrect="510 406 59 59"/>
+		<image name="guildinfo_join" file="\skin\guild_skin.tga" imgrect="429 130 59 59"/>
+		<image name="guildinfo_join_cursoron" file="\skin\guild_skin.tga" imgrect="379 70 59 59"/>
+		<image name="guildinfo_join_clicked" file="\skin\guild_skin.tga" imgrect="570 406 59 59"/>
+		<image name="guildinfo_colony" file="\skin\guild_skin.tga" imgrect="249 190 59 59"/>
+		<image name="guildinfo_colony_cursoron" file="\skin\guild_skin.tga" imgrect="439 70 59 59"/>
+		<image name="guildinfo_colony_clicked" file="\skin\guild_skin.tga" imgrect="630 406 59 59"/>
 	</imagelist>
 	<imagelist category="min_button">
 		<image name="adventure_main" file="\skin\adventure_diary.tga" imgrect="579 115 100 74" CMM_Caption="메인"/>
@@ -8068,6 +8122,7 @@
 		<image name="Dlg_port_Khanom_Caolaw" file="\npcimg\Khanom_Caolaw.png" imgrect="0 0 1000 1000" CMM_Caption="낙무아이 마스터"/>
 		<image name="Dlg_port_Caecilia" file="\npcimg\Caecilia.png" imgrect="0 0 830 1000" CMM_Caption="레티아리이 마스터"/>
 		<image name="Dlg_port_Ahiro_Seimei" file="\npcimg\Ahiro_Seimei.png" imgrect="0 0 800 1000" CMM_Caption="음양사 마스터"/>
+		<image name="Dlg_port_Teliavelis" file="\npcimg\Teliavelis.png" imgrect="0 0 850 1050" CMM_Caption="대장장이 "/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -8210,6 +8265,8 @@
 		<image name="icon_gold_dog" file="\icon\buff_icon2.tga" imgrect="256 0 128 128" CMM_Caption="황금 고로 버프"/>
 		<image name="icon_Gold_Clover" file="\icon\buff_icon2.tga" imgrect="384 0 128 128" CMM_Caption="황금 클로버"/>
 		<image name="icon_Raid_Velcofer_Curse" file="\icon\buff_icon2.tga" imgrect="512 0 128 128" CMM_Caption="벨코퍼 버프"/>
+		<image name="icon_velcoffer_mergaite_enter" file="\icon\buff_icon2.tga" imgrect="640 0 128 128" CMM_Caption="메가테 버프"/>
+		<image name="icon_Weak_Attribute" file="\icon\buff_icon2.tga" imgrect="768 0 128 128" CMM_Caption="속성 공격 약점"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

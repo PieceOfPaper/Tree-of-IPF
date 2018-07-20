@@ -21,6 +21,6 @@
 		<gauge name="pcShieldGauge" rect="0 0 104 15" margin="0 4 0 0" layout_gravity="center top" hittest="false" skin="guard_gauge" point="100" text1="AAA" textoffset1="0 -1" textfont1="white_14_ol" textalign1="center center"/>
 		<picture name="desenchant"  rect="5 5 64 64" margin="0 0 0 0"   layout_gravity="center top" image="None" stretch="true"  changecursor="false" hittest="false"/>
 		<picture name="guildEmblem_edge" rect="0 0 32 32" margin="0 0 0 0" hittest="false" layout_gravity="left top" image="charinfo_markslot" stretch="true"/>
-		<picture name="guildEmblem" rect="0 0 30 30" margin="0 0 0 0" hittest="false" layout_gravity="left top" image="guildmark_slot" stretch="true"/>
+		<picture name="guildEmblem" rect="0 0 30 30" margin="0 0 0 0" hittest="false" layout_gravity="left top" image="guildmark_slot" stretch="true" forceupdate="true"/>
 	</controls>
 </uiframe>

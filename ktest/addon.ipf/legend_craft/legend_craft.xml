@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="legend_craft" x="0" y="0" width="580" height="1920">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame layout_gravity="left top" margin="-650 0 0 0" fullheight="true" fasthide="true" open="pip"/>
+	<input moveable="false" maxwidth="1280"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_mohum_open" closesound="window_mohum_close"/>	
+	<script OpenScp="LEGEND_CRAFT_OPEN" CloseScp="LEGEND_CRAFT_CLOSE"/>
+	<controls>
+		<groupbox name="bg2" rect="0 0 580 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyresolution="true" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 580 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<groupbox name="bg" rect="0 0 580 930" margin="0 60 0 0" layout_gravity="center top" draw="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
+		<groupbox name="recipeBox" rect="0 0 545 840" margin="25 100 0 0" layout_gravity="left top" draw="false" hittestbox="true" scrollbar="true" fixheight="true"/>		
+		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}블랙 스미스{/}"/>
+		<tree name="recipetree" parent="recipetree_Box" rect="0 0 570 100" margin="0 0 0 0" layout_gravity="center top" drawline="true" selectioncolor="000000"/>
+		<grid name="category" parent="recipeBox" rect="0 0 0 200" margin="0 0 0 0" layout_gravity="none top" slotsize="100 70" slotspc="10 0"/>		
+		<button name="colse" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;legend_craft&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}레전드 아이템 제작 UI를 닫습니다{/}"/>
+		<!-- dropbox -->
+		<droplist name="groupDroplist" rect="0 0 200 30" margin="30 70 0 0" layout_gravity="left top" SelectScp="LEGEND_CRAFT_MAKE_LIST" skin="droplist_normal" frametextalign="left" listclicksound="button_click" listoversound="butt0on_cursor_over_2" textalign="left center" textoffset="10 0" visibleline="4"/>
+		<droplist name="itemGroupNameDroplist" rect="0 0 200 30" margin="250 70 0 0" layout_gravity="left top" SelectScp="LEGEND_CRAFT_MAKE_LIST" skin="droplist_normal" frametextalign="left" listclicksound="button_click" listoversound="butt0on_cursor_over_2" textalign="left center" textoffset="10 0" visibleline="4"/>
+		<!-- checkbox -->
+		<checkbox name="showonlyhavemat" rect="0 0 150 30" margin="30 0 0 70" layout_gravity="left bottom" ConfigName="CraftMaterial" LBtnUpScp="LEGEND_CRAFT_MAKE_LIST" caption="{@st42b}재료가 있는 것만 보기{/}" clicksound="button_click_big" oversound="button_over"/>
+		<checkbox name="showOnlyEnableEquipCheck" rect="0 0 150 30" margin="30 0 0 100" layout_gravity="left bottom" LBtnUpScp="LEGEND_CRAFT_MAKE_LIST" caption="{@st42b}착용 가능한 목록만 보기" clicksound="button_click_big" oversound="button_over"/>
+	</controls>
+</uiframe>

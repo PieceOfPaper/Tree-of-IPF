@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="guild_resume_list" x="0" y="0" width="700" height="300" create="open" version="2">
+    <frame title="{@st43}{s22}새 UI{/}" titlepos="0 0" margin="0 0 0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
+    <draw drawframe="true" drawtitlebar="false"/>
+    <layer layerlevel="101"/>
+    <input moveable="true"/>
+    <option closebutton="false" hideable="true" useimageitem="true"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <script OpenScp="GUILD_RESUME_ON_INIT"/>
+    <skin frameskin="test_skin_01"/>
+    <controls>
+        <layout name="frameLayout" orientation="vertical">
+            <layoutsection name="titleLayoutSection" size="20%">
+                <groupbox name="headerBox" layout_gravity="center top" skin="test_frame_top">
+                    <richtext name="headerText" rect="0 0 300 30" margin="0 2 0 0" layout_gravity="center center" caption="{@st43}길드 가입 신청" fontname="white_16_b_ol"/>
+                    <button name="closeBtn" rect="0 0 60 60" margin="0 20 26 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame(&apos;guild_resume_list&apos;)"/>
+                </groupbox>
+            </layoutsection>
+            <layoutsection name="contentSection">
+                <overlap name="gridHeaderSection" margin="10 0 20 10">
+                    <groupbox name="line" hittestbox="false" skin="test_frame_midle"/>
+                    <layout name="bgLayout">
+                        <layoutsection name="stub1"/>
+                        <layoutsection name="stub2">
+                            <groupbox name="line2" hittestbox="false" skin="pvp_Team_skin"/>
+                        </layoutsection>
+                        <layoutsection name="stub3"/>
+                    </layout>
+                    <layout name="header_contentLayout" orientation="vertical">
+                        <layoutsection name="panelHeader" size="20%">
+                            <overlap name="panelHeaderOverlap">
+                                <groupbox name="gridHeader" hittest="false" skin="market_listbase"/>
+                                <layout name="headerLayout" orientation="horizontal">
+                                    <layoutsection name="nameSection">
+                                        <richtext name="guildName" rect="0 0 100 30" layout_gravity="center center" caption="길드 이름" fontname="black_18"/>
+                                    </layoutsection>
+                                    <layoutsection name="dateSection">
+                                        <richtext name="sendDate" rect="0 0 100 30" layout_gravity="center center" caption="요청일" fontname="black_18"/>
+                                    </layoutsection>
+                                    <layoutsection name="readSection">
+                                        <richtext name="hasRead" rect="0 0 100 30" margin="10 0 30 0" layout_gravity="center center" caption="읽음 상태" fontname="black_18"/>
+                                    </layoutsection>
+                                </layout>
+                            </overlap>
+                        </layoutsection>
+                        <layoutsection name="scrollSection">
+                            <scrollpanel name="resumeList" orientation="vertical" draw="false"/>
+                        </layoutsection>
+                    </layout>
+                </overlap>
+            </layoutsection>
+        </layout>
+    </controls>
+</uiframe>

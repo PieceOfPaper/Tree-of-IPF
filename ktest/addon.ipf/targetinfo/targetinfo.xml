@@ -18,21 +18,21 @@
 		<picture name="nomalImg" rect="0 0 65 68" parent="normalGaugeBox" margin="0 1 0 0" layout_gravity="left center" image="normal_FrameLeft"/>
 		<picture name="nomalImg2" rect="0 0 15 39" parent="normalGaugeBox" margin="0 0 50 0" layout_gravity="right center" image="normal_FrameRight"/>
 		<controlset name="normalRace" type="monsterRaceSet" rect="0 0 55 55 " parent="normalGaugeBox" margin="3 3 0 0" layout_gravity="left center"/>
-		<picture name="normal_attribute_img" rect="0 0 35 35" parent="normalGaugeBox" margin="48 -20 0 0" layout_gravity="left center" image="normal_attribute_img"/>
+		<picture name="normal_attribute_img" rect="0 0 35 35" parent="normalGaugeBox" margin="48 -20 0 0" layout_gravity="left center" image="attribute_fire"/>
 		<!-- Special Monster Gauge-->
 		<groupbox name="specialGaugeBox" rect="0 0 435 120" margin="0 0 0 0" layout_gravity="center center" draw="false"/>
 		<gauge name="special" rect="0 0 303 120" parent="specialGaugeBox" margin="0 0 0 0" layout_gravity="center center" drawlastpoint="true" hittest="false" skin="specialtarget_info_gauge" text1="{s18}%v{s20}/{s18}%m" textalign1="center center" textfont1="GD_digit_font" textoffset1="0 -39000"/>
 		<picture name="specialImg" rect="0 0 64 69" parent="specialGaugeBox" margin="3 0 0 0" layout_gravity="left center" image="special_FrameLeft"/>
 		<picture name="specialImg2" rect="0 0 18 69" parent="specialGaugeBox" margin="0 0 49 0" layout_gravity="right center" image="special_FrameRight"/>
 		<controlset name="specialRace" type="monsterRaceSet" rect="0 0 55 55" parent="specialGaugeBox" margin="6 3 0 0" layout_gravity="left center"/>
-		<picture name="special_attribute_img" rect="0 0 35 35" parent="specialGaugeBox" margin="50 -20 0 0" layout_gravity="left center" image="special_attribute_img"/>
+		<picture name="special_attribute_img" rect="0 0 35 35" parent="specialGaugeBox" margin="50 -20 0 0" layout_gravity="left center" image="attribute_fire"/>
 		<!-- Elite Monster Gauge -->
 		<groupbox name="eliteGaugeBox" rect="0 0 565 120" margin="0 -4 0 0" layout_gravity="center top" draw="false"/>
 		<gauge name="elite" rect="0 0 409 120" parent="eliteGaugeBox" margin="0 0 0 0" layout_gravity="center center" drawlastpoint="true" hittest="false" skin="elitetarget_info_gauge" text1="{s18}%v{s20}/{s18}%m" textalign1="center center" textfont1="GD_digit_font" textoffset1="0 -39000"/>
 		<picture name="eliteImg" rect="0 0 78 84" parent="eliteGaugeBox" margin="1 0 0 0" layout_gravity="left center" image="elite_FrameLeft"/>
 		<picture name="eliteImg2" rect="0 0 32 83" parent="eliteGaugeBox" margin="0 0 47 0" layout_gravity="right center" image="elite_FrameRight"/>
 		<controlset name="eliteRace" type="monsterRaceSet" rect="0 0 60 70" parent="eliteGaugeBox" margin="13 2 0 0" layout_gravity="left center"/>
-		<picture name="elite_attribute_img" rect="0 0 35 35" parent="eliteGaugeBox" margin="57 -20 0 0" layout_gravity="left center" image="elite_attribute_img"/>
+		<picture name="elite_attribute_img" rect="0 0 35 35" parent="eliteGaugeBox" margin="57 -20 0 0" layout_gravity="left center" image="attribute_fire"/>
 		<!-- Common -->
 		<richtext name="name" rect="0 0 300 30" parent="nameimage" margin="-7 30 0 0" layout_gravity="center center" format="{@st41}%sLv.%s %s{/}{/}" param1="color" param1_def="{#FFFFFF}" param2="lv" param2_def="1" param3="name" param3_def="몬스터"/>
 		<richtext name="hpText" rect="0 0 200 40" margin="0 1 0 0" layout_gravity="center center" caption="" fontname="white_16_ol"/>

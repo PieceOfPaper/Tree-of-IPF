@@ -12,7 +12,7 @@
 	<userconfig TRANS_SUCCESS_SOUND="sys_transcend_success" TRANS_FAIL_SOUND="sys_transcend_success" TRANS_BTN_OVER_SOUND="button_over" TRANS_BTN_OK_SOUND="button_click_stats_OK" TRANS_EVENT_EXEC="button_click_skill_up" TRANS_CAST="sys_transcend_cast"/>
 	<controls>
 		<groupbox name="bg" rect="0 0 500 1030" draw="true" hittestbox="false" margin="0 0 0 0" layout_gravity="center top" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
-		<groupbox name="gbox" rect="0 0 507 1014" margin="9 60 0 0" layout_gravity="center top" resizebyparent="false" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<groupbox name="gbox" rect="0 0 500 1014" margin="0 60 0 0" layout_gravity="center top" resizebyparent="false" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
 		<groupbox name="gbox2" parent="gbox" rect="0 0 500 400" draw="false" hittestbox="false" margin="0 0 0 -110" layout_gravity="center bottom" resizebyparent="false" resizebyresolution="false"/>
 		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" DropScp="MANAGEGEM_DROP" changecursor="false" hittest="true" image="test_socket_top" stretch="true"/>
 		<groupbox name="pipwin_top" rect="0 0 500 60" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
@@ -21,7 +21,7 @@
 			<uieffect effect="I_screen_button" scale="45" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
 		</button>
 		<button name="close" rect="0 0 44 44" margin="0 35 30 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ITEMTRANSCEND_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
-		<picture name="pic" parent="gbox" rect="0 0 408 707" margin="-15 40  0 0" layout_gravity="center top" changecursor="false" hittest="false" image="transcendence_bg" stretch="false"/>
+		<picture name="pic" parent="gbox" rect="0 0 408 707" margin="0 40  0 0" layout_gravity="center top" changecursor="false" hittest="false" image="transcendence_bg" stretch="false"/>
 		<animpicture name="animpic_bg" blend="50" texelx="0" texely="0" texelwidth="408" texelheight="707" spacex="1" spacey="0" loop="false" ticktime="0.1" animcount="14" layout_gravity="center top" rect="0 0 408 707" margin="-9 100  0 0" image="transcendence_ani" hittest="false" playanim="true" stretch="false" hideAnimEnd="true" visible="false" tickscript="ITEMTRANSCEND_BG_ANIM_TICK"/>
 		<animpicture name="animpic_slot" blend="50" texelx="0" texely="0" texelwidth="400" texelheight="400" spacex="1" spacey="0" loop="false" ticktime="0.06" animcount="9" layout_gravity="left top" rect="0 0 400 400" margin="50 160 0 0" image="cube_ani" hittest="false" playanim="true" stretch="true" hideAnimEnd="true" visible="false"/>
 		<slot name="slotTemp" margin="175 305 0 0" rect="0 0 140 140" movepop="false" skin="none" layout_gravity="left top">

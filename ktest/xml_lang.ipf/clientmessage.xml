@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -145,6 +145,8 @@
 		<Class ClassID="2083" ClassName="LegendReinforceCard_Not_Equip" Data="레전드 강화용 카드는 착용할 수 없습니다."/>
 		<Class ClassID="2084" ClassName="IS_MechanicalItem" Data="강화, 초월, 소켓 추가, 젬 장착 등{nl}{@st66d_y}{s19}가공된 장비{/}{/}는 합성 재료로 사용할 수 없습니다."/>
 		<Class ClassID="2085" ClassName="IS_MechanicalItem_Decompose" Data="{@st47}{s18}강화, 초월, 젬 장착, 소켓 추가, 각성{/}{/}된 장비 아이템이 분해될 수 있습니다."/>
+		<Class ClassID="2086" ClassName="LegendItemCannotBreakOrRemove" Data="현재 장비는 초월 후 다음 기능을 이용 할 수 없습니다. {nl} {nl}- 거래 및 팀 창고 이동 {nl}- 축복받은 조각 추출 {nl}- 아이템 추출{nl} {nl}초월 실패시 포텐셜이 소모됩니다.{nl}초월을 진행하시겠습니까?"/>
+		<Class ClassID="2087" ClassName="CannotGivePrefixAnymore" Data="이미 링크되어 있습니다."/>
 	</Category>
 	<Category Name="ItemContents">
 		<Class ClassID="2200" ClassName="ClickSocketTargetItem" Data="소켓을 추가 할 아이템을 선택해주세요"/>
@@ -153,10 +155,21 @@
 		<Class ClassID="2203" ClassName="Hair_Color_Change{COLOR}" Data="염색약이 정상적으로 적용 되었습니다.{nl}현재 {@st66d_y}{s19}{COLOR}{/}{/}를 적용하시겠습니까?{nl} {nl} {@st43b}{s16}* 캐릭터 설정에서 헤어 염색을 바꿀 수 있습니다.{/}{/}"/>
 		<Class ClassID="2204" ClassName="FailToItemSell" Data="아이템 판매에 실패했습니다. 다시 시도해 주세요."/>
 		<Class ClassID="2205" ClassName="FailToPutItemIntoWarehouse" Data="창고에 아이템 보관을 실패했습니다. 다시 시도해주세요."/>
+		<Class ClassID="2206" ClassName="InvalidRandomOption" Data="해당 아이템이 유효한 랜덤옵션을 가지고 있지 않습니다."/>
+		<Class ClassID="2207" ClassName="ItemDeletedByOptionExtract" Data="옵션 추출로 인해 장비가 소멸되었습니다."/>
+		<Class ClassID="2208" ClassName="{LEVEL}LimitEquip" Data="{LEVEL} 레벨 이상 레전드 아이템에 장착 가능"/>
+		<Class ClassID="2209" ClassName="NotExistRewardInfo" Data="보상 정보가 없습니다."/>
+		<Class ClassID="2210" ClassName="ReallyDecomposeLEgendItemFor{ITEM}?" Data="해당 아이템을 분해할 경우{nl}레전드 아이템은 사라지며 '{ITEM}' 아이템이 지급됩니다.{nl}분해하시겠습니까?"/>
 		<Class ClassID="2211" ClassName="ClickItemToTranscendByScroll" Data="초월할 아이템을 클릭해주세요."/>
 		<Class ClassID="2212" ClassName="TranscendScrollSetDisabledItem" Data="초월할 수 없는 아이템입니다."/>
 		<Class ClassID="2213" ClassName="TranscendScrollAddDisabledItem" Data="초월할 수 없는 아이템입니다."/>
 		<Class ClassID="2214" ClassName="TranscendScrollWarning{Before}To{After}" Data="아이템 변경사항 안내{nl} {nl} - 아이템이 {Before}초월에서{#62100c}{After}초월{/}로 변경 {nl} - 초월 성공시{#62100c}모든 거래가 불가능{/} 합니다.{nl} - 초월{#62100c}실패시{/} 포텐셜이{#62100c}1감소{/} 합니다."/>
+	<Class ClassID="2215" ClassName="NotAllowedItemOptionExtract" Data="아이템 옵션을 추출할 수 없는 아이템입니다"/>
+		<Class ClassID="2216" ClassName="IsNotOptionExtractKit" Data="적절한 아이템 추출 키트가 아닙니다"/>
+		<Class ClassID="2217" ClassName="NotHaveExtractKitItem" Data="아이템 추출 키트가 없습니다"/>
+		<Class ClassID="2218" ClassName="ExpOrb" Data="특수 시약"/>
+		<Class ClassID="2219" ClassName="NotAllowedItemOptionAdd" Data="해당 장비에는 아이커를 장착할 수 없습니다."/>
+		<Class ClassID="2220" ClassName="{LEVEL}CanEquipIcor" Data="{LEVEL} 이상의 레전드 장비에 장착 가능한 아이커입니다."/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -204,7 +217,12 @@
 		<Class ClassID="3043" ClassName="RecipeGroup_Musket" Data="머스킷"/>
 		<Class ClassID="3044" ClassName="CannotUseLifeTimeOverItem" Data="사용기간이 만료된 아이템은 재료로 사용할 수 없습니다."/>
 		<Class ClassID="3045" ClassName="RecipeGroup_THMace" Data="양손둔기"/>
-	</Category>
+		<Class ClassID="3046" ClassName="LegendRecipe" Data="레전드 장비 제작"/>
+		<Class ClassID="3047" ClassName="itemoptionextract" Data="아이커 추출"/>
+		<Class ClassID="3048" ClassName="itemoptionadd" Data="아이커 장착"/>
+		<Class ClassID="3049" ClassName="legenddecompose" Data="레전드 장비 분해"/>
+		<Class ClassID="3050" ClassName="legenditemtranscend" Data="레전드 아이템 초월"/>
+		<Class ClassID="3052" ClassName="Icor" Data="아이커"/>	</Category>
 	<Category Name="ItemPuzzle">
 		<Class ClassID="3501" ClassName="WouldYouSelectThisCombinationAsAlchemystryTarget?" Data="이 조합을 연금 대상으로 선택합니까?"/>
 		<Class ClassID="3502" ClassName="TargetItem" Data="대상 아이템"/>
@@ -385,7 +403,7 @@
 		<Class ClassID="4173" ClassName="OverMaxTradeCount" Data="판매 가능한 최대 개수를 초과하였습니다."/>
 		<Class ClassID="4174" ClassName="MonsterCardOptionGroupLEG" Data="{img yellow_type 19 20}"/>
 		<Class ClassID="4175" ClassName="DrugLootingChance" Data="루팅 찬스"/>
-		<Class ClassID="4176" ClassName="DoYouAgreeExchangeFinally?" Data="거래를 최종적으로 승인하시겠습니까?"/>
+	<Class ClassID="4176" ClassName="DoYouAgreeExchangeFinally?" Data="거래를 최종적으로 승인하시겠습니까?"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -909,6 +927,13 @@
 		<Class ClassID="10487" ClassName="CannotChangeChannel" Data="채널 이동을 할 수 없습니다.{nl}캐릭터가 채널 이동을 할 수 없는 상태이거나, 채널 이동을 할 수 없는 맵입니다."/>
 		<Class ClassID="10488" ClassName="ReallyGiveItemTo{PC}NoTeamTradeItem" Data="수령 아이템 중 팀 창고로 이동할 수 없는 아이템이{#aa0000}{ol}{ItemCount}개{/}{/} 포함되어 있습니다.{nl}해당 아이템은 {#aa0000}{ol}다른 캐릭터로 이동 불가{/}{/}합니다.{nl} {nl}정말{#ffffff}{ol}{PC}{/}{/} 캐릭터로 아이템을 받으시겠습니까?"/>
 		<Class ClassID="10489" ClassName="SoulCristalLimitCountOver" Data="소울 크리스탈 제한 개수를 모두 소진하여 더는 사용할 수 없습니다."/>
+		<Class ClassID="10490" ClassName="CantDelCharBecauseHaveEquipCard" Data="장착 중인 카드가 있어 캐릭터 삭제가 불가능합니다."/>
+	<Class ClassID="10491" ClassName="ItemOptionExtractMessage_1" Data="추출 성공시 아이템은 사라지고 아이커만 남게됩니다. 실패시 포텐셜이 1감소합니다."/>
+		<Class ClassID="10492" ClassName="ItemOptionExtractMessage_2" Data="추출 성공시 아이템은 사라지고 아이커만 남게됩니다. 실패시 아이템이 {#aa0000}파괴{/}됩니다."/>
+		<Class ClassID="10493" ClassName="ItemOptionExtractMessage_3" Data="추출 성공시 아이템은 사라지고 아이커만 남게됩니다. 실패시 아이템이 파괴되지 않습니다."/>
+		<Class ClassID="10494" ClassName="DoItemOptionAdd" Data="아이템 옵션을 장착하시겠습니까?"/>
+		<Class ClassID="10495" ClassName="MustEquipIcor" Data="아이커를 장착해야 합니다"/>
+		<Class ClassID="10496" ClassName="NotMatchItemClassType" Data="아이템 타입이 맞지 않습니다"/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -1188,6 +1213,7 @@
 		<Class ClassID="21273" ClassName="AdmissionItemLockMsg" Data="던전 입장 아이템이 잠금되어 있을 시 던전 입장이 불가능 합니다."/>
 		<Class ClassID="21274" ClassName="IndunAdmissionItemReset" Data="입장 횟수"/>
 		<Class ClassID="21275" ClassName="IndunEnterNeedPCRank" Data="{NEED_RANK} 랭크 부터 입장이 가능합니다."/>
+		<Class ClassID="21276" ClassName="Common" Data="공용"/>
 		<Class ClassID="21277" ClassName="IndunRewardItem_Empty" Data="없음"/>
 	</Category>
 	<Category Name="ChatText">
@@ -4274,6 +4300,18 @@
 		<Class ClassID="27132" ClassName="CATACOMB_HALLOWEEN_MSG3" Data="3회 참여 보상을 받는다"/>
 		<Class ClassID="27133" ClassName="CATACOMB_HALLOWEEN_MSG4" Data="30회 참여 보상을 받는다"/>
 		<Class ClassID="27182" ClassName="GACHA_SITEM_GET_ALLMSG" Data="{s24}축하드립니다!{nl}{PC} 님이 레티샤의 시크릿 큐브에서{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
+		<Class ClassID="27200" ClassName="MOLE_BINGO_MSG1" Data="{SEC}초 안에 파티원과 함께 빙고를 맞춰 {POINT}점을 달성하세요!"/>
+		<Class ClassID="27201" ClassName="MOLE_BINGO_MSG2" Data="{POINT}점 달성!{nl}보상{ITEM}"/>
+		<Class ClassID="27202" ClassName="MOLE_BINGO_MSG3" Data="두더지 잡기 빙고가 종료됩니다{nl}점수 : {POINT} 달성{nl}팀 최고점수 : {MAXPOINT}"/>
+		<Class ClassID="27203" ClassName="MOLE_BINGO_MSG4" Data="{PCNAME}의 몬스터"/>
+		<Class ClassID="27204" ClassName="MOLE_BINGO_MSG5" Data="두더지 잡기 빙고에 성공하셨습니다{nl}남은 시간 안에 최고 점수를 갱신해보세요!{nl}랭킹 등록 전 최고점수 : {MAXPOINT}"/>
+		<Class ClassID="27205" ClassName="MOLE_BINGO_MSG6" Data="{nl}축하드립니다! 팀 최고점수을 달성하셨습니다!"/>
+		<Class ClassID="27206" ClassName="MOLE_BINGO_MSG7" Data="{PCNAME}의 몬스터"/>
+		<Class ClassID="27207" ClassName="MOLE_BINGO_MSG8" Data="현재 점수 : {POINT}"/>
+		<Class ClassID="27208" ClassName="MOLE_BINGO_MSG9" Data="두더지 잡기 빙고 랭킹"/>
+		<Class ClassID="27209" ClassName="MOLE_BINGO_MSG10" Data="{MONTH} 월 {DAY} 일 현재 두더지 잡기 빙고 랭킹"/>
+		<Class ClassID="27210" ClassName="MOLE_BINGO_MSG11" Data="{nl}{RANK}위 : {NAME} ({POINT} 점)"/>
+		<Class ClassID="27211" ClassName="MOLE_BINGO_MSG12" Data="등록된 랭킹 정보가 없습니다{nl}두더지 잡기 빙고 진행 후 다시 확인해주세요!"/>
 		<Class ClassID="27212" ClassName="EV170119_NEWYEAR_MSG1" Data="이벤트에 참여하지 않으셨습니다"/>
 		<Class ClassID="27213" ClassName="EV170119_NEWYEAR_MSG2" Data="이벤트 참여 횟수 : {COUNT}회"/>
 		<Class ClassID="27220" ClassName="EV161124_DAYCHECK_MSG1" Data="이전에 선택하신 번호는 {nl}{NUMLIST}{nl}입니다."/>
@@ -4518,6 +4556,21 @@
 		<Class ClassID="27836" ClassName="EVENT_1803_NEWCHARACTER_MSG2" Data="오늘은 이미 특성 포인트를 받으셨습니다"/>
 		<Class ClassID="27840" ClassName="QUEST_KILL_MON_UI_MSG2" Data=" {ZONE}지역 몬스터 소탕"/>
 		<Class ClassID="27850" ClassName="EVENT_1803_NEWCLASS_MSG1" Data="{CLASS}클래스로 전직 후에 사용 가능합니다"/>
+		<Class ClassID="27860" ClassName="EVENT_1804_ARBOR_MSG1" Data="사용할 {ITEM} 아이템이 부족합니다"/>
+		<Class ClassID="27861" ClassName="EVENT_1804_ARBOR_MSG2" Data="이번 주는 성장이 완료되었습니다{nl}다른 채널의 나무를 성장시켜주세요"/>
+		<Class ClassID="27862" ClassName="EVENT_1804_ARBOR_MSG3" Data="'성장의 수정'을 사용한다"/>
+		<Class ClassID="27863" ClassName="EVENT_1804_ARBOR_MSG4" Data="{BUFF} 버프를 받는다 (1일 {COUNT}회/{MAX}회)"/>
+		<Class ClassID="27864" ClassName="EVENT_1804_ARBOR_MSG5" Data="오늘은 이미 '성장의 수정'을 사용하셨습니다"/>
+		<Class ClassID="27865" ClassName="EVENT_1804_ARBOR_MSG6" Data="{BUFF}버프가 1시간 동안 유지됩니다"/>
+		<Class ClassID="27866" ClassName="EVENT_1804_ARBOR_MSG7" Data="주간 특별 보상을 받는다"/>
+		<Class ClassID="27867" ClassName="EVENT_1804_ARBOR_MSG8" Data="{WEEK}주 보상을 받는다"/>
+		<Class ClassID="27868" ClassName="EVENT_1804_ARBOR_MSG9" Data="참여한다"/>
+		<Class ClassID="27869" ClassName="EVENT_1804_ARBOR_MSG10" Data="흰색 발판위에서 게임 점수 {POINT}점을 획득하세요!"/>
+		<Class ClassID="27870" ClassName="EVENT_1804_ARBOR_MSG11" Data="순발력 테스트가 종료됩니다{nl}점수 : {POINT} 달성{nl}팀 최고점수 : {MAXPOINT}"/>
+		<Class ClassID="27871" ClassName="EVENT_1804_ARBOR_MSG12" Data="게임 점수 : {POINT}"/>
+		<Class ClassID="27872" ClassName="EVENT_1804_ARBOR_MSG13" Data="'성장의 수정'을 사용하시면 나무의 성장이 촉진됩니다.{nl}우리의 나무를 보살펴주세요.{nl}현재 성장단계: {STEP} "/>
+		<Class ClassID="27873" ClassName="EVENT_1804_ARBOR_MSG14" Data="이번주 성장 전"/>
+		<Class ClassID="27874" ClassName="EVENT_1804_ARBOR_MSG15" Data="이번주 성장 완료"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5583,7 +5636,7 @@
 		<Class ClassID="50787" ClassName="CHAR121_MSTEP2_ITEM2_MSG1" Data="근력 훈련({muscular}/25){nl}지구력 훈련({endurande}/3){nl}민첩성 훈련({agility}/20){nl}극적인 상황 연출 훈련({simulation}/20){nl}훈련 체력 : {stamina}"/>
 		<Class ClassID="50788" ClassName="RETIARII_STAMINA_NOT_ENOUGH2" Data="훈련에 필요한 체력이 부족합니다{nl}음식을 먹고 휴식을 취해 훈련 체력을 충전하세요"/>
 		<Class ClassID="50789" ClassName="RETIARII_UNLOCK_ATTACK_MON_1" Data="3회 실패하여 타격 회수가 1 차감됩니다"/>
-		<Class ClassID="50790" ClassName="RETIARII_UNLOCK_ATTACK_MON_2" Data="{count}회 잘못 공격했습니다!{nl}빛이 반짝이는 때에 맞춰 공격하세요"/>
+		<Class ClassID="50790" ClassName="RETIARII_UNLOCK_ATTACK_MON_2" Data="{count}회 잘못 공격했습니다!{nl}느낌표가 뜨는 때에 맞춰 공격하세요"/>
 		<Class ClassID="50791" ClassName="RETIARII_UNLOCK_ATTACK_MON_3" Data="3회 실패했습니다"/>
 		<Class ClassID="50792" ClassName="RETIARII_TRAINING_5_MONKILL_SUCC_CNT" Data="{nl}극적인 상황 연출 훈련({simulation}/20)"/>
 		<Class ClassID="50793" ClassName="CHAR121_MSTEP2_ITEM2_MSG2" Data="근력 훈련({muscular}/25){nl}지구력 훈련({endurande}/3){nl}민첩성 훈련({agility}/20){nl}극적인 상황 연출 훈련({simulation}/20){nl}모든 훈련을 완료했습니다. 레티아리이 마스터와 대화하세요"/>
@@ -7138,11 +7191,17 @@
 		<Class ClassID="102185" ClassName="ItemOnlyForGuildExpUpPlz" Data="길드 경험치를 올리기 위해선 길드 성장용 아이템을 올려주세요."/>
 		<Class ClassID="102188" ClassName="GuildEventNotStarted" Data="인원 모집이 완료되고 길드 퀘스트가 시작된 후에 입장 가능합니다."/>
 		<Class ClassID="102189" ClassName="GuildEventStarted" Data="길드 퀘스트가 이미 진행 중입니다."/>
+    <Class ClassID="102190" ClassName="CreateGuildSuccess" Data="길드가 성공적으로 생성되었습니다."/>
+    <Class ClassID="102191" ClassName="CreateGuildFailed" Data="길드 생성에 실패하였습니다."/>
 		<Class ClassID="102192" ClassName="GuildEventZonemoveError" Data="이전 길드 퀘스트가 정상적으로 종료되지 않았습니다. {nl}길드 퀘스트 진행 상태가 초기화 됩니다."/>
 		<Class ClassID="102193" ClassName="GuildMember{Name}TakeItem{ItemName}" Data="길드원 {Name}님이 {ItemName}를 획득하셨습니다."/>
 		<Class ClassID="102297" ClassName="CS_Guild_Ticket_add1_MSG1" Data="가입된 길드가 없으면 사용할 수 없습니다."/>
 		<Class ClassID="102298" ClassName="CS_Guild_Ticket_add1_MSG2" Data="금주 길드 퀘스트에 입장한 횟수가 1 이상일 때만 사용 가능합니다"/>
 		<Class ClassID="102299" ClassName="CS_Guild_Ticket_add1_MSG3" Data="길드 퀘스트 1회 입장권이 적용되었습니다"/>
+    <Class ClassID="102300" ClassName="FailToDeleteGuildEmblem" Data="길드 엠블럼 삭제에 실패했습니다. 다시 시도해주세요."/>
+    <Class ClassID="102301" ClassName="SuccessDeleteGuildEmblem" Data="길드 엠블럼이 삭제되었습니다."/>
+    <Class ClassID="102302" ClassName="NotExistGuildEmblem" Data="길드 엠블럼이 존재하지 않습니다."/>
+    <Class ClassID="102303" ClassName="CantExecInThisArea" Data="현재 지역에서는 사용하실 수 없습니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -9282,7 +9341,7 @@
 		<Class ClassID="137293" ClassName="Auto__SoBi" Data=" 소비"/>
 		<Class ClassID="137294" ClassName="Auto_Mulyag" Data="물약"/>
 		<Class ClassID="137295" ClassName="Auto_DoenDa" Data="된다"/>
-		<Class ClassID="137296" ClassName="Auto_{s16}{Auto_1}{Auto_2}_SeTeu_HyoKwa_:_" Data="{s16}{Auto_1}{Auto_2} 세트 효과 : "/>
+		<Class ClassID="137296" ClassName="Auto_{s16}{Auto_1}{Auto_2}_SeTeu_HyoKwa__{nl}" Data="{s16}{Auto_1}{Auto_2} 세트 효과  {nl}"/>
 		<Class ClassID="137297" ClassName="Auto_(JangChag)" Data="(장착)"/>
 		<Class ClassID="137298" ClassName="Auto_(MiJangChag)" Data="(미장착)"/>
 		<Class ClassID="137299" ClassName="Auto__MuKi" Data=" 무기"/>
@@ -11060,7 +11119,7 @@
 		<Class ClassID="501016" ClassName="ManWoo_1" Data="컴패니언 탑승 상태에서 사용할 수 없습니다."/>
 		<Class ClassID="501017" ClassName="ManWoo_2" Data="만우절 아이템 받기"/>
 	</Category>
-	<Category Name="Npc_Equip_Shop_270_315">
+		<Category Name="Npc_Equip_Shop_270_315">
 		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>
 		<Class ClassID="510201" ClassName="NPC_SHOP_ARMOR_NORMAL_270_315" Data="방어구"/>
 		<Class ClassID="501065" ClassName="Event_GOLDEN_WHALE_1" Data="황금 석화 고래 이벤트"/>
@@ -11081,7 +11140,7 @@
 		<Class ClassID="501096" ClassName="EVENT_SELECT_BOSSLV_SEL5" Data="특별한 푸른 구슬 이벤트"/>
 		<Class ClassID="501097" ClassName="EVENT_SELECT_BOSSLV_SEL6" Data=" {nl}몬스터 정보{nl}Lv {LV1} {NAME1}{nl}Lv {LV2} {NAME2}{nl}Lv {LV3} {NAME3}"/>
 		<Class ClassID="501098" ClassName="EVENT_SELECT_BOSSLV_SEL7" Data=" {nl}이벤트 미션 정보{nl}최대 클리어 단계 : {MAX}"/>
-	</Category>
+		</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
 		<Class ClassID="510002" ClassName="GEM_GACHA_SEL2" Data="뽑기를 하지 않는다."/>
@@ -11273,6 +11332,87 @@
 	<Category Name="RankReset">
 		<Class ClassID="1001000" ClassName="CannotChangeJobBecauseJobLevel" Data="클래스 레벨이 최대 레벨일 때에만 가능합니다."/>
 		<Class ClassID="1001001" ClassName="CannotBecauseMoru" Data="모루가 설치되어 있는 상태에서는 사용할 수 없습니다."/>
+	</Category>
+	<Category Name="Raid">
+		<Class ClassID="514001" ClassName="VelcofferSealStoneScrMsg" Data="봉인 해제중.."/>
+		<Class ClassID="514002" ClassName="VelcofferTeraStoneScrMsg" Data="테라 정수 수집중.."/>
+		<Class ClassID="514003" ClassName="VelcofferBlessScrMsg" Data="제단에 테라 정수를 바치는 중.."/>
+		<Class ClassID="514004" ClassName="VelcofferWarpMsg" Data="이동 마법진 사용중"/>
+  </Category>
+	<Category Name="WebService">
+		<Class ClassID="1999998" ClassName="WebService_" Data="[Error Code nil] 서버에 접속이 원활하지 않습니다."/>
+		<Class ClassID="1999999" ClassName="WebService_0" Data="[Error Code 0] 서버에 접속이 원활하지 않습니다."/>
+		<Class ClassID="2000000" ClassName="RequestFail" Data="[요청 실패] 다시 시도해주세요."/>
+		<Class ClassID="2000001" ClassName="RequestSuccess" Data="[요청 성공]"/>
+		<Class ClassID="2000002" ClassName="WebService_-3" Data="[Error Code -3] 서버 인증 실패"/>
+		<Class ClassID="2000003" ClassName="WebService_-2" Data="[Error Code -2] 유저 인증에 실패하였습니다."/>
+		<Class ClassID="2000004" ClassName="WebService_-1" Data="[Error Code -1] 알 수 없는 에러"/>
+		<Class ClassID="2000005" ClassName="WebService_1" Data="[Error Code 1] 해당 팀에 권한이 없습니다."/>
+		<Class ClassID="2000006" ClassName="WebService_2" Data="[Error Code 2] 전쟁 중에는 사용하실 수 없습니다."/>
+		<Class ClassID="2000007" ClassName="WebService_3" Data="[Error Code 3] 휴전 중에는 사용하실 수 없습니다."/>
+		<Class ClassID="2000008" ClassName="WebService_4" Data="[Error Code 4] 길드원이 남아 있어 사용하실 수 없습니다."/>
+		<Class ClassID="2000009" ClassName="WebService_5" Data="[Error Code 5] 대상 팀이 없습니다."/>
+		<Class ClassID="2000010" ClassName="WebService_6" Data="[Error Code 6] 사용가능 한도를 초과했습니다."/>
+		<Class ClassID="2000011" ClassName="WebService_7" Data="[Error Code 7] 현재 변경할 수 없는 기간입니다."/>
+		<Class ClassID="2000012" ClassName="WebService_8" Data="[Error Code 8] 현재 권한에서는 설정하실 수 없습니다."/>
+		<Class ClassID="2000013" ClassName="WebService_9" Data="[Error Code 9] 대상 캐릭터가 없습니다."/>
+		<Class ClassID="2000014" ClassName="WebService_10" Data="[Error Code 10] 대상 직급이 없습니다.."/>
+		<Class ClassID="2000015" ClassName="WebService_11" Data="[Error Code 11] 사용하실 수 없는 단어가 있습니다."/>
+		<Class ClassID="2000016" ClassName="WebService_12" Data="[Error Code 12] 생성하실 수 있는 수를 초과했습니다."/>
+		<Class ClassID="2000017" ClassName="WebService_13" Data="[Error Code 13] 중복되는 이름이 있습니다."/>
+		<Class ClassID="2000018" ClassName="WebService_14" Data="[Error Code 14] 길드 마스터에게는 사용하실 수 없습니다."/>
+		<Class ClassID="2000019" ClassName="WebService_15" Data="[Error Code 15] 기간 제한으로 사용하실 수 없습니다."/>
+		<Class ClassID="2000020" ClassName="WebService_16" Data="[Error Code 16] 아이템이 없거나 부족합니다."/>
+		<Class ClassID="2000021" ClassName="WebService_17" Data="[Error Code 17] 최고치를 달성해 사용하실 수 없습니다."/>
+		<Class ClassID="2000022" ClassName="WebService_18" Data="[Error Code 18] 포인트가 부족합니다."/>
+		<Class ClassID="2000023" ClassName="WebService_19" Data="[Error Code 19] 대상이 없습니다."/>
+		<Class ClassID="2000024" ClassName="WebService_20" Data="[Error Code 20] 길드 자금이 부족합니다."/>
+		<Class ClassID="2000025" ClassName="WebService_21" Data="[Error Code 21] 변경하려는 파일이 규칙과 맞지 않습니다."/>
+		<Class ClassID="2000026" ClassName="WebService_22" Data="[Error Code 22] 운영상 제재 기간 중에는 사용하실 수 없습니다."/>
+		<Class ClassID="2000027" ClassName="WebService_23" Data="[Error Code 23] 인벤토리 무게가 초과되었습니다."/>
+		<Class ClassID="2000028" ClassName="WebService_24" Data="[Error Code 24] 실버가 부족합니다."/>
+		<Class ClassID="2000029" ClassName="WebService_25" Data="[Error Code 25] 입력 내용이 없습니다."/>
+		<Class ClassID="2000030" ClassName="WebService_26" Data="[Error Code 26] 입력할 수 있는 글자수를 초과 했습니다."/>
+		<Class ClassID="2000031" ClassName="WebService_27" Data="[Error Code 27] 해당 길드가 중립 상태입니다."/>
+		<Class ClassID="2000032" ClassName="WebService_28" Data="[Error Code 28] 콜로니전 참가로 설정되어 있습니다."/>
+		<Class ClassID="2000033" ClassName="WebService_29" Data="[Error Code 29] 콜리니전 시작 준비, 진행, 종료 후 정리 기간에는 사용할 수 없습니다."/>
+		<Class ClassID="2000034" ClassName="WebService_30" Data="[Error Code 30] 접속 중인 길드원 수가 부족합니다."/>
+		<Class ClassID="2000035" ClassName="WebService_31" Data="[Error Code 31] 길드창고에 아이템이 존재합니다."/>
+		<Class ClassID="2000036" ClassName="WebService_32" Data="[Error Code 32] 대상 권한 코드가 존재하지 않습니다."/>
+		<Class ClassID="2000037" ClassName="WebService_33" Data="[Error Code 33] 해당 유저는 이미 길드에 가입된 상태입니다."/>
+		<Class ClassID="2000038" ClassName="WebService_34" Data="[Error Code 34] 현재 맵에서는 불가능합니다."/>
+		<Class ClassID="2000039" ClassName="WebService_35" Data="[Error Code 35] 직업이 템플러가 아니면 불가능합니다."/>
+		<Class ClassID="2000040" ClassName="WebService_36" Data="[Error Code 36] 대상이 길드원이 아닙니다."/>
+		<Class ClassID="2000041" ClassName="WebService_37" Data="[Error Code 37] 자신에게 사용할 수 없습니다."/>
+		<Class ClassID="2000042" ClassName="WebService_38" Data="[Error Code 38] 사용할 수 없는 대상입니다."/>
+		<Class ClassID="2000043" ClassName="WebService_39" Data="[Error Code 39] 대상 길드가 존재하지 않습니다."/>
+		<Class ClassID="2000044" ClassName="WebService_40" Data="[Error Code 40] 대상 한 줄 글이 존재하지 않습니다."/>
+		<Class ClassID="2000045" ClassName="WebService_41" Data="[Error Code 41] 길드가 일치하지 않습니다."/>
+		<Class ClassID="2000046" ClassName="WebService_42" Data="[Error Code 42] 입력된 문자가 너무 짧습니다."/>
+		<Class ClassID="2000047" ClassName="WebService_100" Data="[Error Code 100] 등록된 이미지가 없습니다."/>
+		<Class ClassID="2000048" ClassName="WebService_101" Data="[Error Code 101] 먼저 홍보글을 등록하셔야 합니다."/>
+		<Class ClassID="2000049" ClassName="WebService_102" Data="[Error Code 102] 유저 또는 길드가 잘못되었습니다."/>
+		<Class ClassID="2000050" ClassName="WebService_103" Data="[Error Code 103] 요청에 포함된 이미지가 없습니다."/>
+		<Class ClassID="2000051" ClassName="WebService_104" Data="[Error Code 104] 길드 배너 등록에 실패하였습니다."/>
+		<Class ClassID="2000052" ClassName="WebService_201" Data="이미 신청한 길드입니다."/>
+		<Class ClassID="2000053" ClassName="WebService_202" Data="[Error Code 202] 신청한 이력이 없습니다."/>
+		<Class ClassID="2000054" ClassName="WebService_203" Data="[Error Code 203] 이미 요청을 수락한 상태입니다."/>
+		<Class ClassID="2000055" ClassName="WebService_300" Data="[Error Code 300] 잘못된 정렬 기준입니다."/>
+		<Class ClassID="2000056" ClassName="WebService_301" Data="[Error Code 301] 잘못된 페이지 요청입니다."/>
+		<Class ClassID="2000057" ClassName="WebService_302" Data="[Error Code 302] 잘못된 정렬 타입입니다."/>
+		<Class ClassID="2000058" ClassName="WebService_400" Data="[Error Code 400] 길드 소개 이미지 등록에 실패하였습니다."/>
+		<Class ClassID="2000200" ClassName="WebService_900" Data="[Error Code 900] DB 조회 또는 기록 중 에러 발생"/>
+		<Class ClassID="2000201" ClassName="WebService_901" Data="[Error Code 901] guild_disband 실행 에러"/>
+		<Class ClassID="2000202" ClassName="WebService_902" Data="[Error Code 902]서버로 잘못된 Parameter 정보가 전달되었습니다"/>
+		<Class ClassID="2000203" ClassName="WebService_903" Data="[Error Code 903] 서버로 잘못된 URL이 전달되었습니다"/>
+		<Class ClassID="2000204" ClassName="WebService_904" Data="[Error Code 904] 서버오류로 정상적인 처리가 되지 않았습니다"/>
+    <Class ClassID="2000205" ClassName="WebService_204" Data="[Error Code 204] 승낙 또는 거절 상태의 신청서는 삭제하실 수 없습니다."/>
+    <Class ClassID="2099999" ClassName="UpdateSuccess" Data="성공적으로 갱신되었습니다."/>
+    <Class ClassID="2100000" ClassName="NotYetExcute" Data="지금 당장 하실 수 없습니다."/>
+		<Class ClassID="2100001" ClassName="GuildJoined" Data="길드 가입신청이 완료되었습니다."/>
+		<Class ClassID="2100002" ClassName="GuildDeclined" Data="가입이 거절되어 현재는 가입 신청이 불가능합니다. 1주일 이후에 다시 신청해주세요."/>
+    <Class ClassID="2100003" ClassName="GuildMemberBanSuccess" Data="해당 길드원을 추방하였습니다."/>
+		<Class ClassID="2100004" ClassName="RegisterGuildPromoteBeforeBanner" Data="배너를 등록하기 전에 길드 홍보글을 등록해주세요"/>
 	</Category>
 	<Category Name="Raid">
 		<Class ClassID="514001" ClassName="VelcofferSealStoneScrMsg" Data="봉인 해제중.."/>

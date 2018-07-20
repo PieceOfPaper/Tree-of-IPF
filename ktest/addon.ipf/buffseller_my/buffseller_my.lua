@@ -27,6 +27,11 @@ function UPDATE_BUFFSELLER_SLOT_MY(ctrlSet, info)
 
 	local priceStr = GET_COMMA_SEPARATED_STRING(info.price);
 	ctrlSet:GetChild("price"):SetTextByKey("value", priceStr);
+	
+	-- 가격 부분만 정렬이 이상해서 강제로 정렬하고 마진값 조정 시작 --
+	ctrlSet:GetChild("price"):SetGravity(ui.LEFT, ui.TOP);
+	ctrlSet:GetChild("price"):SetMargin(96, 55, 0, 0)
+	-- 가격 부분만 정렬이 이상해서 강제로 정렬하고 마진값 조정 끝 --
 end
 
 function MY_AUTOSELL_LIST(groupName, sellType)

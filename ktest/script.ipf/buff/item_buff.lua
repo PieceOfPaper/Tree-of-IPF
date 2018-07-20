@@ -3372,3 +3372,12 @@ end
 
 function SCR_BUFF_LEAVE_Potion_Wild_DMG_UP_Buff(self, buff, target, arg1, arg2, over)
 end
+
+function SCR_BUFF_ENTER_GOOD_STAMP_EFFECT(self, buff, arg1, arg2, over)
+    OverrideSurfaceType(self, 'good_stamp')
+    PlayEffect(self, "F_pc_welldone_ground", 1.5, 1.5, 'BOT')
+end
+
+function SCR_BUFF_LEAVE_GOOD_STAMP_EFFECT(self, buff, arg1, arg2, over)
+    OverrideSurfaceType(self, 'None')
+end

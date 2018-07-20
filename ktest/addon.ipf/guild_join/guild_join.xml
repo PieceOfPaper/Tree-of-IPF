@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="guild_join" x="0" y="0" width="400" height="450" create="open" version="2">
+    <frame title="{@st43}{s22}새 UI{/}" titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
+    <draw drawframe="true" drawtitlebar="false"/>
+    <layer layerlevel="102"/>
+    <input moveable="true"/>
+    <option closebutton="false" hideable="true" useimageitem="true"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <skin frameskin="test_frame_low"/>
+    <controls>
+                <layout name="mainLayout" spacing="10" orientation="vertical" margin="10 10 20 10">
+            <layoutSection name="guildNameSection" size="10%">
+                <richtext name="guildText" layout_gravity="center center" caption="{@st42}길드 이름{/}" textalign="left top" resizebytext="true" fontname="white_16_ol" />
+            </layoutSection>
+            <layoutSection name="inputTextLabelSection" size="5%">
+                <richtext name="inputLabel" layout_gravity="left center" caption="{@st42}전하는 말{/}" textalign="left top" resizebytext="true" fontname="white_16_ol" />
+            </layoutSection>
+            <layoutSection name="textInputSection" size="20%">
+                <edit name="input" fontname="white_20_ol" fixwidth="true" skin="test_frame_midle" multiline="true" resizeheightbytext="true" OffsetForDraw="0 3" textalign="left top" maxlen="63" />
+            </layoutSection>
+            <layoutSection name="infoText">
+                <richtext name="applicationInfoText" format="ⓘ '전하는 말'이 없어도 가입 신청이 가능합니다{nl}ⓘ 길드 가입 신청 시 아래 정보가 자동으로 길드에 제공 됩니다{nl} - 팀 이름{nl} - 팀 레벨{nl} - 캐릭터 수{nl} - 신청한 캐릭터 레벨{nl} - 모험일지 랭킹{nl} - 캐릭터 외양 정보" fixwidth="true" fontname="black_16"/>
+            </layoutSection>
+            <layoutSection name="btnSection" size="15%">
+                <button name="sendBtn" margin="0 10 0 0" skin="test_red_button" layout_gravity="left bottom" caption="{@st41}길드 가입 보내기" />
+            </layoutSection>
+        </layout>
+        <button name="closeBtn" rect="0 0 60 60" margin="0 15 20 0" hittest="true" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame(&apos;guild_join&apos;)"/>
+    </controls>
+</uiframe>

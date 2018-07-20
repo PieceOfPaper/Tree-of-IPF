@@ -22,8 +22,8 @@
 		<picture name="line_p" rect="0 0 5 750" margin="347 20 0 0" layout_gravity="left center" image="guild_line_p" draw="true" stretch="true"/>
 		<picture name="emblemPic_slot" rect="0 0 129 129" parent="profileBox" margin="-3 95 0 0" layout_gravity="center top" stretch="true"/>
 		<picture name="decoPic" rect="0 0 248 255" parent="profileBox" margin="-3 20 0 0" layout_gravity="center top" image="guildmark_frame" stretch="true"/>
-		<picture name="emblemPic" rect="0 0 129 129" parent="emblemPic_slot" margin="0 0 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true"/>
-		<picture name="emblemPic_upload" rect="0 0 129 129" parent="emblemPic_slot" margin="0 0 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true"/>
+		<picture name="emblemPic" rect="0 0 129 129" parent="emblemPic_slot" margin="0 0 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true" forceupdate="true"/>
+		<picture name="emblemPic_upload" rect="0 0 129 129" parent="emblemPic_slot" margin="0 0 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true" forceupdate="true"/>
 		<groupbox name="nameBox" rect="0 0 360 42" parent="profileBox" margin="8 300 0 0" layout_gravity="center top" draw="false"/>
 		<groupbox name="nameBox2" rect="0 0 350 42" parent="nameBox" margin="0 0 0 0" layout_gravity="center center" draw="false" image="guildname_frame" stretch="true"/>
 		<richtext name="nameText" rect="0 0 180 30" parent="nameBox" margin="-4 0 0 0" layout_gravity="center center" format="{@st43}{#ffcc33}{s18}Lv.%s %s{/}" param1="level" param1_def="3" param2="name" param2_def="길드 이름" fontname="white_20_ol_ds" resizebytext="true"/>
@@ -145,11 +145,28 @@
 		<groupbox name="optionBox" rect="0 0 1140 650" margin="0 0 8 0" layout_gravity="right bottom" tabname="optionTabItem" draw="false" tabchangescp="GUILDINFO_OPTION_INIT"/>
 		<richtext name="emblemText" rect="0 0 100 30" parent="optionBox" margin="5 8 0 0" layout_gravity="left top" caption="{@st43b}{s18}길드 엠블럼{/}" fontname="white_16_b_ol"/>
 		<button name="registerBtn" rect="0 0 200 40" parent="optionBox" margin="300 0 0 0" layout_gravity="left top" skin="test_red_button" format="{@st41b}{nl}이미지 %s{/}" param1="register" param1_def="등록" fontname="white_16_b_ol" LBtnUpScp="REGISTER_GUILD_EMBLEM"/>
-		<picture name="optionLabelline" rect="0 0 500 2" parent="optionBox" margin="10 40 0 0" layout_gravity="left top" image="guild_line_h"/>
+		<picture name="optionLabelline5" rect="0 0 500 2" parent="optionBox" margin="10 40 0 0" layout_gravity="left top" image="guild_line_h"/>	
 		<richtext name="emblemInfoText" rect="0 0 500 210" parent="optionBox" margin="10 70 0 0" layout_gravity="left top" format="ⓘ 길드 엠블럼의 최초 등록은 무료입니다.{nl}ⓘ 길드 엠블럼 변경시 %s만 실버가 사용됩니다.{nl}ⓘ 길드 엠블럼은 %s 크기의 %s 파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다." fixwidth="true" fontname="black_16" param1="tp" param1_def="1200" param2="size" param2_def="64*64" param3="ext" param3_def="PNG(32bit)"/>
-		<richtext name="agitText" rect="0 0 100 30" parent="optionBox" margin="5 246 0 0" layout_gravity="left top" fixwidth="{@st43b}{s18}아지트 입장 설정{/}" caption="{@st43b}{s18}아지트 입장 설정{/}" fontname="white_16_b_ol"/>
-		<checkbox name="outsiderCheck" rect="0 0 100 30" parent="optionBox" margin="340 246 0 0" layout_gravity="left top" caption="외부인 입장 가능" fontname="black_16" LBtnUpScp="CHANGE_AGIT_ENTER_OPTION"/>
-		<picture name="optionLabelline2" rect="0 0 500 2" parent="optionBox" margin="10 276 0 0" layout_gravity="left top" image="guild_line_h"/>
+	
+		<richtext name="bannerText" rect="0 0 100 30" parent="optionBox" margin="5 198 0 0" layout_gravity="left top" caption="{@st43b}{s18}길드 배너{/}" fontname="white_16_b_ol"/>
+		<button name="registerBannerBtn" rect="0 0 200 40" parent="optionBox" margin="300 190 0 0" layout_gravity="left top" skin="test_red_button" format="{@st41b}{nl}이미지 %s{/}" param1="register" param1_def="등록" fontname="white_16_b_ol" LBtnUpScp="REGISTER_GUILD_BANNER"/>
+		<picture name="optionLabelline6" rect="0 0 500 2" parent="optionBox" margin="10 230 0 0" layout_gravity="left top" image="guild_line_h"/>	
+		<richtext name="bannerInfoText" rect="0 0 500 210" parent="optionBox" margin="10 260 0 0" layout_gravity="left top" format="ⓘ 길드 배너는 %s 크기의 PNG(24bit/32bit)파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다." fixwidth="true" fontname="black_16" param1="size" param1_def="510*200" param2="" param2_def="" param3="" param3_def=""/>
+	
+		<richtext name="promoteImageText" rect="0 0 100 30" parent="optionBox" margin="5 378 0 0" layout_gravity="left top" caption="{@st43b}{s18}길드 홍보 페이지{/}" fontname="white_16_b_ol"/>
+		<button name="registerPromoteImageBtn" rect="0 0 200 40" parent="optionBox" margin="300 380 0 0" layout_gravity="left top" skin="test_red_button" format="{@st41b}{nl}이미지 %s{/}" param1="register" param1_def="등록" fontname="white_16_b_ol" LBtnUpScp="REGISTER_GUILD_PAGE"/>
+		<picture name="optionLabelline7" rect="0 0 500 2" parent="optionBox" margin="10 420 0 0" layout_gravity="left top" image="guild_line_h"/>	
+		<richtext name="promoteInfoText" rect="0 0 500 210" parent="optionBox" margin="10 450 0 0" layout_gravity="left top" format="ⓘ 길드 홍보 페이지는 %s 크기의 PNG(24bit/32bit)파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다." fixwidth="true" fontname="black_16" param1="size" param1_def="가로 1024, 세로 768~3840" param2="" param2_def="" param3="" param3_def=""/>
+	
+
+
+
+		<richtext name="guildPromoteText" rect="0 0 100 30" parent="optionBox" margin="5 0 0 80" layout_gravity="left bottom" caption="{@st43b}{s18}길드 홍보 설정{/}" fontname="white_16_b_ol"/>
+		<checkbox name="guildPromoteCheck" rect="0 0 100 30" parent="optionBox" margin="340 0 0 75" layout_gravity="left bottom" caption="길드 홍보 공개" fontname="black_16" LBtnUpScp="SET_GUILD_PROMOTE"/>
+		
+		<richtext name="agitText" rect="0 0 100 30" parent="optionBox" margin="5 0 0 30" layout_gravity="left bottom" caption="{@st43b}{s18}아지트 입장 설정{/}" fontname="white_16_b_ol"/>
+		<checkbox name="outsiderCheck" rect="0 0 100 30" parent="optionBox" margin="340 0 0 25" layout_gravity="left bottom" caption="외부인 입장 가능" fontname="black_16" LBtnUpScp="CHANGE_AGIT_ENTER_OPTION"/>
+		
 		<richtext name="noticeText" rect="0 0 100 30" parent="optionBox" margin="520 8 0 0" layout_gravity="left top" caption="{@st43b}{s18}길드 공지{/}" fontname="white_16_b_ol"/>
 		<groupbox name="noticeEditBox" rect="0 0 620 95" parent="optionBox" margin="0 45 0 0" layout_gravity="right top" skin="test_weight_skin"/>
 		<edit name="noticeEdit" rect="0 0 610 85" parent="noticeEditBox" margin="0 0 0 0" layout_gravity="center center" maxlen="254" skin="None" fontname="black_18" fixwidth="true"/>
@@ -160,6 +177,13 @@
 		<edit name="introduceEdit" rect="0 0 610 85" parent="introduceEditBox" margin="0 0 0 0" layout_gravity="center center" maxlen="254" skin="None" fontname="black_18" fixwidth="true"/>
 		<button name="introduceBtn" rect="0 0 130 40" parent="optionBox" margin="0 140 0 0" layout_gravity="right top" skin="test_pvp_btn" caption="{@st66}{s18}등록{/}" fontname="brown_16" LBtnUpScp="SAVE_GUILD_INTRODUCE"/>
 		<picture name="optionLabelline4" rect="0 0 610 2" parent="optionBox" margin="0 181 10 0" layout_gravity="right top" image="guild_line_h" stretch="true"/>
+	
+		<richtext name="promoteText" rect="0 0 100 30" parent="optionBox" margin="520 285 0 0" layout_gravity="left top" caption="{@st43b}{s18}홍보 소개글{/}" fontname="white_16_b_ol"/>
+		<groupbox name="promoteEditBox" rect="0 0 620 95" parent="optionBox" margin="520 325 0 0" layout_gravity="right top" skin="test_weight_skin"/>
+		<edit name="promoteEdit" rect="0 0 610 85" parent="promoteEditBox" margin="0 0 0 0" layout_gravity="center center" maxlen="254" skin="None" fontname="black_18" fixwidth="true"/>
+		<button name="promoteBtn" rect="0 0 130 40" parent="optionBox" margin="0 280 0 0" layout_gravity="right top" skin="test_pvp_btn" caption="{@st66}{s18}등록{/}" fontname="brown_16" LBtnUpScp="SAVE_GUILD_PROMOTE"/>
+		<picture name="optionLabelline8" rect="0 0 610 2" parent="optionBox" margin="0 319 10 0" layout_gravity="right top" image="guild_line_h" stretch="true"/>
+
 		<!-- Community -->
 		<groupbox name="communityBox" rect="0 0 1140 650" margin="0 0 8 0" layout_gravity="right bottom" tabname="communityTabItem" draw="false" tabchangescp="GUILDINFO_COMMUNITY_INIT"/>
 		<groupbox name="guildboardBox" rect="0 0 1140 650" parent="communityBox" margin="0 0 0 0" layout_gravity="right bottom" draw="false"/>

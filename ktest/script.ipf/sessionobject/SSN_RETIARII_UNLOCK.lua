@@ -127,7 +127,6 @@ function SCR_RETIARII_UNLOCK_ATTACK_MON(self, sObj, msg, argObj, argStr, argNum)
                             end
                         else
                             if buff ~= nil then
-                                SetExProp(pc, "CHAR118_AGILITY_ATTACK_POINT", 1);
                                 local attack_Point = GetExProp(self, "CHAR118_AGILITY_ATTACK_POINT");
                                 attack_Point = attack_Point + 1
                                 SetExProp(self, "CHAR118_AGILITY_ATTACK_POINT", attack_Point);
@@ -140,7 +139,6 @@ function SCR_RETIARII_UNLOCK_ATTACK_MON(self, sObj, msg, argObj, argStr, argNum)
                                     SetTitle(argObj,"")
                                 end
                             else
-                                SetExProp(pc, "CHAR118_AGILITY_ATTACK_FAIL", 1)
                                 local fail_Point = GetExProp(self, "CHAR118_AGILITY_ATTACK_FAIL");
                                 fail_Point = fail_Point + 1
                                 SetExProp(self, "CHAR118_AGILITY_ATTACK_FAIL", fail_Point)

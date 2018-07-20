@@ -61,16 +61,17 @@ function ADVENTURE_BOOK_RANKING_PAGE_SELECT(parent, ctrl, argStr, pageNum)
     local categoryName = 'Initialization_point';
     if argStr == '' then
         local rankingPageFrame = parent:GetParent();
-        if rankingPageFrame == 'upHillRankingSet' then
+        local rankingPageFrameName = rankingPageFrame:GetName();        
+        if rankingPageFrameName == 'upHillRankingSet' then
             categoryName = 'UpHill';
-        elseif rankingPageFrame == 'teamBattleRankSet' then
-            local pvpCls = GET_TEAM_BATTLE_CLASS();
-            worldPVP.RequestPVPRanking(pvpCls.ClassID, 0, -1, pageNum, 0, '');
+        elseif rankingPageFrameName == 'teamBattleRankSet' then
+            local pvpCls = GET_TEAM_BATTLE_CLASS();            
+            worldPVP.RequestPVPRanking(pvpCls.ClassID, 0, -1, pageNum + 1, 0, '');
             return;
         end
     elseif argStr == 'page_upHillRanking' then
         categoryName = 'UpHill';
-    elseif argStr == 'TeamBattle' then
+    elseif argStr == 'TeamBattle' then    
         local pvpCls = GET_TEAM_BATTLE_CLASS();
         worldPVP.RequestPVPRanking(pvpCls.ClassID, 0, -1, pageNum, 0, '');
         return;

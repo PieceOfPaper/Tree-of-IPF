@@ -14,6 +14,12 @@ function SKILLTREE_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('RESET_ABILITY_UP', 'UPDATE_ABILITYLIST');
 	addon:RegisterMsg('RESET_ABILITY_ACTIVE', 'REFRESH_SKILL_TREE');
+
+	addon:RegisterMsg('UPDATE_COMMON_SKILL_LIST', 'ON_UPDATE_COMMON_SKILL_LIST');
+	addon:RegisterMsg('POPULAR_SKILL_INFO', 'ON_POPULAR_SKILL_INFO');
+
+	g_skilltree_xBetweenMargin = 5
+	g_skilltree_yBetweenMargin = 10
 end
 
 function UI_TOGGLE_SKILLTREE()
@@ -41,8 +47,6 @@ function SKILLTREE_ON_JOB_CHANGE(frame)
 end
 
 function SKILLTREE_OPEN(frame)
-	
-	frame:Invalidate();
 	local questInfoSetFrame = ui.GetFrame('questinfoset_2');
 	if questInfoSetFrame:IsVisible() == 1 then
 		questInfoSetFrame:ShowWindow(0);
@@ -54,6 +58,7 @@ function SKILLTREE_OPEN(frame)
 	local skilltreegbox = GET_CHILD_RECURSIVELY(frame,'skilltree_pip')
 	skilltreegbox:SetScrollPos(0);
 
+	session.skill.ReqCommonSkillList();
 end
 
 function SKILLTREE_CLOSE(frame)
@@ -82,11 +87,8 @@ end
 function MAKE_CLASS_INFO_LIST(frame)
 
 	local clslist, cnt  = GetClassList("Job");
-
-	local canChangeJob = session.CanChangeJob();
 	local haveJobNameList = {};
 	local haveJobGradeList = {};
-
 
 	local nowjob = info.GetJob(session.GetMyHandle());
 	local nowjCls = GetClassByType('Job', nowjob);
@@ -133,10 +135,7 @@ function MAKE_CLASS_INFO_LIST(frame)
 		end
 
 		local classSlot = GET_CHILD(classCtrl, "slot", "ui::CSlot");
-		classSlot:EnableHitTest(0)
-		--classSlot:SetEventScript(ui.LBUTTONUP, "OPEN_SKILL_INFO");
-		--classSlot:SetEventScriptArgString(ui.LBUTTONUP, cls.ClassName);
-		--classSlot:SetEventScriptArgNumber(ui.LBUTTONUP, cls.ClassID);
+		classSlot:EnableHitTest(0);
 		local selectedarrowPic = GET_CHILD(classCtrl, "selectedarrow", "ui::CPicture");
 		selectedarrowPic:ShowWindow(0)
 
@@ -144,25 +143,6 @@ function MAKE_CLASS_INFO_LIST(frame)
 		local iconname = cls.Icon;
 		icon:SetImage(iconname);
 		
-		local upCtrl = GET_CHILD(classCtrl, "upbtn", "ui::CButton");
-		--upCtrl:SetImage('skill_up_btn');
-		upCtrl:SetEventScript(ui.LBUTTONUP, "CLASS_PTS_UP");
-		upCtrl:SetEventScriptArgString(ui.LBUTTONUP, cls.ClassID);
-		upCtrl:SetOverSound('button_over');
-		local classLv = pcJobInfo:GetJobGrade(jobID);
-		upCtrl:SetEventScriptArgNumber(ui.LBUTTONUP, classLv);
-		upCtrl:SetClickSound("button_click_skill_up");
-		--upCtrl:ShowWindow(0);
-
-		-- 클래스 렙업이 가능하면 upCtrl보여주기. 테스트용
-		local curLv = session.GetUserConfig("CLASSUP_" .. cls.ClassName, 0);
-		if canChangeJob == false or curLv >= cls.MaxLevel * classLv then
-			upCtrl:ShowWindow(0);
-		else
-			upCtrl:ShowWindow(1);
-		end
-		upCtrl:ShowWindow(0);
-
 		-- 클래스 이름
 		local nameCtrl = GET_CHILD(classCtrl, "name", "ui::CRichText");
 		nameCtrl:SetText("{@st41}".. GET_JOB_NAME(cls, gender));
@@ -170,6 +150,7 @@ function MAKE_CLASS_INFO_LIST(frame)
 		-- 클래스 레벨 (★로 표시)
 		local levelCtrl = GET_CHILD(classCtrl, "level", "ui::CRichText");
 		local levelFont = frame:GetUserConfig("Font_Normal");
+		local classLv = pcJobInfo:GetJobGrade(jobID);
 		session.SetUserConfig("CLASSUP_" .. cls.ClassName, classLv);
 
 		local startext = ""
@@ -201,87 +182,55 @@ function MAKE_CLASS_INFO_LIST(frame)
 	detail:SetOffset(detail:GetOriginalX(),grid:GetY() + detailypos)
 end
 
--- 서버에 전직 요청
-function SCR_CHANGE_JOB(jobID)
-	packet.ReqChangeJob(jobID);
-end
+function SKILLTREE_CHANGE_SELECTED_JOB(frame, curSelectedJob)
+	local grid = GET_CHILD_RECURSIVELY(frame, 'skill');
 
--- 클래스렙 업글 or 배우기
-function CLASS_PTS_UP(frame, control, clsID, level)
-	-- gender 밖에서 받아와야함.
-	local clslist, cnt  = GetClassList("Job");
-	local cls = GetClassByTypeFromList(clslist, clsID);
-	if cls == nil then
-		return;
+	-- prev arrow hide
+	local prevSelectedJob = session.GetUserConfig('SELECT_SKLTREE', 0);	
+	if prevSelectedJob == 0 then
+		local commonTypeCtrlSet = GET_CHILD(grid, 'classCtrl_CommonType');
+		if commonTypeCtrlSet ~= nil then
+			local arrowPic = GET_CHILD(commonTypeCtrlSet, 'selectedarrow');
+			arrowPic:ShowWindow(0);
 	end
-
-	if level == nil then
-		level = 0;
-	end
-
-	local yesScp = string.format("SCR_CHANGE_JOB(%d)", clsID);
-	local txt = "";
-	if level > 0 then
-		txt = GET_JOB_NAME(cls) .. ScpArgMsg("Auto__KeulLaeSeuLeul_LeBeleopHaSiKessSeupNiKka?");
 	else
-		txt = GET_JOB_NAME(cls) .. ScpArgMsg("Auto__KeulLaeSeuLeul_BaeuSiKessSeupNiKka?");
+		local prevJobCls = GetClassByType('Job', prevSelectedJob);
+		local ctrlset = GET_CHILD(grid, 'classCtrl_'..prevJobCls.ClassName);
+		local arrowPic = GET_CHILD(ctrlset, 'selectedarrow');
+		if arrowPic ~= nil then
+			arrowPic:ShowWindow(0);
+		end
 	end
-	ui.MsgBox(txt, yesScp, "None");
 
+	-- show current select arrow
+	local curSelectedCtrlset = nil;
+	if curSelectedJob == 0 then
+		curSelectedCtrlset = GET_CHILD(grid, 'classCtrl_CommonType');
+	else
+		local curJobCls = GetClassByType('Job', curSelectedJob);
+		curSelectedCtrlset = GET_CHILD(grid, 'classCtrl_'..curJobCls.ClassName);		
+	end
+	if curSelectedCtrlset ~= nil then
+		local arrowPic = curSelectedCtrlset:GetChild('selectedarrow');
+		arrowPic:ShowWindow(1);
+	end
 end
 
 function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack, skillResetPotion)            
 	frame = frame:GetTopParentFrame();	
-	local cid = frame:GetUserValue("TARGET_CID");
-	local pc = GetPCObjectByCID(cid);
-	if pc == nil then
-		return;
-	end
-
-	-- 애니메이션 기능 넣어줘야하는데 그건 UI기능 정리된후 나중에...
+	SKILLTREE_CHANGE_SELECTED_JOB(frame, jobID);
 	session.SetUserConfig("SELECT_SKLTREE", jobID);
+
 	if isSkillInfoRollBack ~= 0 then
 		ROLLBACK_SKILL(frame);
 	end
-	local parentFrame = frame:GetTopParentFrame();
-
 	local treelist = {};
 	GET_TREE_INFO_LIST(frame, jobName, treelist);
 
-	local grid = GET_CHILD_RECURSIVELY(parentFrame, "skill", "ui::CGrid");
-	
-	-- 선택한 직업 아래 화살표 그려주기
-	local pcSession = session.GetSessionByCID(cid);
-	local pcJobInfo = pcSession.pcJobInfo;
-	local clslist, cnt  = GetClassList("Job");
-	local jobCnt = pcJobInfo:GetJobCount();
-	for i = 0 , jobCnt - 1 do
-		local jobID = pcJobInfo:GetJobByIndex(i);
-		if jobID == -1 then
-			break;
-		end
-
-		local cls = GetClassByTypeFromList(clslist, jobID);
-		if cls == nil then
-			break;
-		end
-
-		local classctrl = GET_CHILD(grid, 'classCtrl_'..cls.ClassName, "ui::CControlSet");
-
-		if classctrl ~= nil then
-			local arrowPic = GET_CHILD(classctrl, 'selectedarrow', 'ui::CPicture')
-			if cls.ClassName == jobName then
-				
-				arrowPic:ShowWindow(1)
-			else
-				arrowPic:ShowWindow(0)
-			end
-		end
-		
-	end
+	local grid = GET_CHILD_RECURSIVELY(frame, "skill", "ui::CGrid");
 	
 	local detailName = 'classCtrl_'..jobName
-	local detail = GET_CHILD_RECURSIVELY(parentFrame,'detailGBox','ui::CGroupBox')
+	local detail = GET_CHILD_RECURSIVELY(frame,'detailGBox','ui::CGroupBox')
 	detail:RemoveAllChild();
 
 	local skillsRtext = detail:CreateOrGetControl('richtext', 'skills', 10, 25, 100, 30);
@@ -306,6 +255,7 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack, sk
 
 	-- Ability
 	-- 특성 있으면 여기다가 구분선 하나 추가할 것
+	local pcSession = session.GetMySession();
 	local abilList = pcSession.abilityList;
 	local abilListCnt = 0;
 	if abilList ~= nil then
@@ -315,8 +265,8 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack, sk
 	local flag = 0
 	local lastypos = posY
 	if abilListCnt > 0 then
-
 		local abilindex = 0
+		local pc = GetMyPCObject();
 		for i=0, abilListCnt - 1 do			
 			local abil = abilList:Element(i);
 			if abil ~= nil then
@@ -355,18 +305,18 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack, sk
 		abilitysLline:ShowWindow(1)
 	end
 
-	REFRESH_STAT_TEXT(parentFrame, treelist);	
-	
-	local skilltreegbox = GET_CHILD_RECURSIVELY(parentFrame,'skilltree_pip','ui::CGroupBox')
-	if lastypos + detail:GetY() < skilltreegbox:GetHeight() then
-		detail:Resize(detail:GetOriginalWidth(), lastypos)
-	else
-		detail:Resize(detail:GetOriginalWidth()-20, lastypos)
-	end
-	
-	parentFrame:Invalidate();
+	REFRESH_STAT_TEXT(frame, treelist);	
+	SKILLTREE_AMEND_DETAIL_BOX(frame, detail, lastypos);
 end
-
+	
+function SKILLTREE_AMEND_DETAIL_BOX(frame, detail, posY)
+	local skilltreegbox = GET_CHILD_RECURSIVELY(frame, 'skilltree_pip', 'ui::CGroupBox');
+	if posY + detail:GetY() < skilltreegbox:GetHeight() then
+		detail:Resize(detail:GetOriginalWidth(), posY)
+	else
+		detail:Resize(detail:GetOriginalWidth()-20, posY)
+	end
+end
 
 function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 	local row = (listindex-1) % 1; -- 예전에는 한줄에 두개씩 보여줬다. /1을 2로 바꾸면 다시 복구됨
@@ -375,10 +325,8 @@ function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 	local skilltreeframe = ui.GetFrame('skilltree')
 	local CTL_WIDTH = skilltreeframe:GetUserConfig("ControlWidth")
 	local CTL_HEIGHT = skilltreeframe:GetUserConfig("ControlHeight")
-	local xBetweenMargin = 10
-	local yBetweenMargin = 10
 
-	local classCtrl = detail:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass.ClassName, 10 + (CTL_WIDTH + xBetweenMargin) * row, posY + 20 + (CTL_HEIGHT + yBetweenMargin) * col);
+	local classCtrl = detail:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass.ClassName, 10 + (CTL_WIDTH + g_skilltree_xBetweenMargin) * row, posY + 20 + (CTL_HEIGHT + g_skilltree_yBetweenMargin) * col);
 	classCtrl:ShowWindow(1);
 	
     -- 항상 활성화 된 특성은 특성 활성화 버튼을 안보여준다.
@@ -633,7 +581,6 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
 end
 
 function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1, topSkillName2)
-
 	local sklObj;
 	local sklDBLevel = 0;
 	local info = treelist[listindex];
@@ -664,33 +611,15 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 	local row = (listindex-1) % 1; -- 예전에는 한줄에 두개씩 보여줬다. /1을 2로 바꾸면 다시 복구됨
 	local col = math.floor((listindex-1) / 1);
 
-	local skilltreeframe = ui.GetFrame('skilltree')
-	local CTL_WIDTH = skilltreeframe:GetUserConfig("ControlWidth")
-	local CTL_HEIGHT = skilltreeframe:GetUserConfig("ControlHeight")
-	local xBetweenMargin = 5
-	local yBetweenMargin = 10
+	local skilltreeframe = ui.GetFrame('skilltree');
+	local CTL_WIDTH = skilltreeframe:GetUserConfig("ControlWidth");
+	local CTL_HEIGHT = skilltreeframe:GetUserConfig("ControlHeight");	
 
-	local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls.ClassName, 10 + (CTL_WIDTH + xBetweenMargin) * row, 50 + (CTL_HEIGHT + yBetweenMargin) * col);
-	skillCtrl:ShowWindow(1);
+	local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'skillCtrl_'..cls.SkillName, 10 + (CTL_WIDTH + g_skilltree_xBetweenMargin) * row, 50 + (CTL_HEIGHT + g_skilltree_yBetweenMargin) * col);	
 	skillCtrl:SetUserValue("JOBNAME", jobName);
-	--skillCtrl:EnableScrollBar(0)
-	local skillSlot = GET_CHILD(skillCtrl, "slot", "ui::CSlot");
-	local icon = CreateIcon(skillSlot);
 
 	local typeclass = GetClass(cls.Type, cls.SkillName);
-	local iconname = "icon_" .. typeclass.Icon;
-	icon:SetImage(iconname);
-	
-	--스크롤이 이 위에서 안움직여서 해줬습니다.
-	local bggroupbox = GET_CHILD(skillCtrl, "slot_bg", "ui::CGroupBox");
-	
-	bggroupbox:EnableScrollBar(0);
-	bggroupbox = GET_CHILD(skillCtrl, "slot_bg2", "ui::CGroupBox");
-	bggroupbox:EnableScrollBar(0);
-	bggroupbox = GET_CHILD(skillCtrl, "slot_bg3", "ui::CGroupBox");
-	bggroupbox:EnableScrollBar(0);
-	bggroupbox = GET_CHILD(skillCtrl, "slot_bg4", "ui::CGroupBox");
-	bggroupbox:EnableScrollBar(0);
+	local skillSlot, icon = MAKE_SKILLTREE_CTRLSET_ICON(skillCtrl, typeclass, obj);
 
 	local sptxt = GET_CHILD(skillCtrl, "sp_txt", "ui::CRichText");
 	local sp = GET_CHILD(skillCtrl, "sp", "ui::CRichText");
@@ -700,9 +629,6 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 	local timtext =GET_CHILD(skillCtrl, "time", "ui::CRichText");
 	timtext:ShowWindow(0);
 
-	local reqstance = GET_CHILD(skillCtrl, "reqstance", "ui::CRichText");
-	reqstance:ShowWindow(0);
-	
 	local cooltime = GET_CHILD(skillCtrl, "cooltimeimg", "ui::CPicture")
 	cooltime:ShowWindow(0)
 	
@@ -778,15 +704,8 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 		hotimg:SetImage("None_Mark");
 	end
 
-	icon:SetTooltipType('skill');
-	icon:SetTooltipStrArg(cls.SkillName);
-	icon:SetTooltipNumArg(typeclass.ClassID);
-	icon:SetTooltipIESID(GetIESGuid(obj));
-	icon:Set(iconname, "Skill", typeclass.ClassID, 1);
-	skillSlot:SetSkinName('slot');
+	local nameCtrl = MAKE_SKILLTREE_CTRLSET_NAME(skillCtrl, typeclass.Name);
 
-	local nameCtrl = GET_CHILD(skillCtrl, "name", "ui::CRichText");
-	nameCtrl:SetText("{@st41}"..typeclass.Name);
 	local upCtrl = GET_CHILD(skillCtrl, "upbtn", "ui::CButton");
 	upCtrl:SetImage('plus_button');
 	upCtrl:SetEventScript(ui.LBUTTONUP, "SKL_PTS_UP");
@@ -815,7 +734,6 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 
 	local levelCtrl = GET_CHILD(skillCtrl, "level", "ui::CRichText");
 	local leveltxt = GET_CHILD(skillCtrl, "level_txt", "ui::CRichText");
-	local levelFont = "{@st66b}{s18}"
 	if totallv > 0  then
 		icon:SetGrayStyle(0);
 		nameCtrl:SetGrayStyle(0);
@@ -823,7 +741,6 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 		leveltxt:ShowWindow(1);
 		if totallv >= maxlv then
 			if totallv - sklBM == maxlv then
-				levelFont = "{@st66b}{s18}";
 				skillCtrl:SetSkinName("skill_max");
 			end
 		else
@@ -831,14 +748,11 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 		end
 	else
 		skillCtrl:SetSkinName("test_skin_gary_01");
-		--icon:SetGrayStyle(1);
-		--nameCtrl:SetGrayStyle(1);
-		levelFont = "{@st66b}{s18}"
 		levelCtrl:ShowWindow(0);
 		leveltxt:ShowWindow(0);
 	end
 	
-	levelCtrl:SetText(levelFont..totallv);
+	levelCtrl:SetText('{@st66b}{s18}'..totallv);
 
 	if obj == nil then
 		levelCtrl:ShowWindow(1);
@@ -881,9 +795,7 @@ function SKILLLIST_GAMESTART(frame)
 	
 	local grid = GET_CHILD(frame, 'skill', 'ui::CGrid')
 
-	OPEN_SKILL_INFO(frame, nil, cls.ClassName, selectJobID, 1)
-	frame:Invalidate()
-
+	OPEN_SKILL_INFO(frame, nil, cls.ClassName, selectJobID, 1);
 end
 
 function UPDATE_SKILLTREE(frame)
@@ -1206,4 +1118,157 @@ end
 
 function EXC_ROLL_BACK_LEARING_ABIL(propIndex)
 	control.CustomCommand("REQUEST_CANCEL_LEARNING_ABIL", propIndex);
+end
+function ON_UPDATE_COMMON_SKILL_LIST(frame, msg, argStr, argNum)
+	local commonSkillCount = session.skill.GetCommonSkillCount();
+	if commonSkillCount < 1 then		
+		return;
+	end
+
+	SKILLTREE_MAKE_COMMON_TYPE_SKILL_EMBLEM(frame);
+end
+
+function SKILLTREE_MAKE_COMMON_TYPE_SKILL_EMBLEM(frame)
+	local grid = GET_CHILD_RECURSIVELY(frame, 'skill', 'ui::CGrid');
+	local emblemCtrlSet = grid:CreateOrGetControlSet('classtreeIcon', 'classCtrl_CommonType', 0, 0);
+	emblemCtrlSet:SetEventScript(ui.LBUTTONUP, "OPEN_COMMON_TYPE_SKILL");
+	emblemCtrlSet:SetOverSound("button_over");
+	emblemCtrlSet:SetClickSound("button_click_3");
+
+	-- swap child order
+	local lastChildIndex = grid:GetChildCount() - 1;
+	grid:SwapChildIndex(0, lastChildIndex);
+
+	local classSlot = GET_CHILD(emblemCtrlSet, "slot", "ui::CSlot");
+	classSlot:EnableHitTest(0);
+	local selectedarrowPic = GET_CHILD(emblemCtrlSet, "selectedarrow", "ui::CPicture");
+	selectedarrowPic:ShowWindow(0);
+
+	local icon = CreateIcon(classSlot);
+	local iconname = frame:GetUserConfig('CommonTypeIconImage');	
+	icon:SetImage(iconname);
+
+	local nameCtrl = GET_CHILD(emblemCtrlSet, "name", "ui::CRichText");
+	nameCtrl:SetText("{@st41}"..ClMsg('Common'));
+
+	local levelCtrl = GET_CHILD(emblemCtrlSet, "level", "ui::CRichText");
+	levelCtrl:ShowWindow(0);
+end
+
+function OPEN_COMMON_TYPE_SKILL(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	SKILLTREE_CHANGE_SELECTED_JOB(frame, 0);
+	REFRESH_STAT_TEXT(frame, nil);
+	session.SetUserConfig("SELECT_SKLTREE", 0);
+
+	local detail = GET_CHILD_RECURSIVELY(frame, 'detailGBox');
+	detail:RemoveAllChild();
+
+	local skillsRtext = detail:CreateOrGetControl('richtext', 'skills', 10, 25, 100, 30);
+	skillsRtext:SetFontName("white_20_ol");
+	skillsRtext:SetText(ScpArgMsg('JustSkill'));
+
+	local posY = 0;
+	local commonSkillCount = session.skill.GetCommonSkillCount();
+	for i = 0, commonSkillCount - 1 do
+		local commonSkillID = session.skill.GetCommonSkillIDByIndex(i);
+		local skillCls = GetClassByType('Skill', commonSkillID);
+		posY = MAKE_SKILLTREE_COMMON(detail, skillCls, i);		
+	end
+
+	SKILLTREE_AMEND_DETAIL_BOX(frame, detail, posY + 30);
+end
+
+function MAKE_SKILLTREE_COMMON(detail, skillCls, row)
+	local skilltree = detail:GetTopParentFrame();
+	local CTL_WIDTH = skilltree:GetUserConfig("ControlWidth");
+	local CTL_HEIGHT = skilltree:GetUserConfig("ControlHeight");
+	local skillCtrl = detail:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..skillCls.ClassName, 10 , 50 + (CTL_HEIGHT + g_skilltree_yBetweenMargin) * row);
+
+	-- skill object
+	local pcSession = session.GetMySession();
+	local skillList = pcSession.skillList;	
+	local skl = skillList:GetSkillByName(skillCls.ClassName)
+	local sklObj = nil;
+	if skl ~= nil then
+		sklObj = GetIES(skl:GetObject());
+	end
+
+	MAKE_SKILLTREE_CTRLSET_ICON(skillCtrl, skillCls, sklObj);
+	MAKE_SKILLTREE_CTRLSET_NAME(skillCtrl, skillCls.Name);
+	MAKE_STANCE_ICON(skillCtrl, skillCls.ReqStance, skillCls.EnableCompanion);
+
+	-- level
+	local level = GET_CHILD(skillCtrl, 'level');
+	level:SetText('{@st66b}{s18}'..sklObj.Level);
+
+	-- sp
+	local lvUpSpendSpRound = math.floor((sklObj.LvUpSpendSp * 10000) + 0.5)/10000; 	
+	local spendSP = sklObj["BasicSP"] + (sklObj.Level-1);
+	local sp = GET_CHILD(skillCtrl, 'sp');
+	spendSP = math.floor(spendSP);
+	sp:SetText("{@st66b}{s18}"..spendSP.."{/}");
+
+	-- cooltime
+	local timetext = GET_CHILD(skillCtrl, 'time');
+	if sklObj["CoolDown"] ~= 0 then
+		time = sklObj["CoolDown"] * 0.001
+		timetext:SetText("{@st66b}{s18}"..GET_TIME_TXT_TWO_FIGURES(time).."{/}");
+	else
+		timetext:SetText("{@st66b}{s18}"..ScpArgMsg("{Sec}","Sec", 0).."{/}");	
+	end
+
+	-- hide ctrl
+	local upbtn = GET_CHILD(skillCtrl, 'upbtn');
+	local lockbtn = GET_CHILD(skillCtrl, 'lockbtn');
+	upbtn:ShowWindow(0);
+	lockbtn:ShowWindow(0);
+
+	return skillCtrl:GetY() + skillCtrl:GetHeight();
+end
+
+function MAKE_SKILLTREE_CTRLSET_ICON(ctrlset, skillCls, sklObj)
+	local skillSlot = GET_CHILD(ctrlset, "slot", "ui::CSlot");
+	local icon = CreateIcon(skillSlot);
+	local iconname = "icon_"..skillCls.Icon;
+	icon:SetImage(iconname);
+	icon:SetTooltipType('skill');
+	icon:SetTooltipStrArg(skillCls.ClassName);
+	icon:SetTooltipNumArg(skillCls.ClassID);
+	icon:SetTooltipIESID(GetIESGuid(sklObj));
+	icon:Set(iconname, "Skill", skillCls.ClassID, 1);	
+
+	return skillSlot, icon;
+end
+
+function MAKE_SKILLTREE_CTRLSET_NAME(ctrlset, name)
+	local nameCtrl = GET_CHILD(ctrlset, "name", "ui::CRichText");
+	nameCtrl:SetText("{@st41}"..name);
+
+	return nameCtrl;
+end
+function ON_POPULAR_SKILL_INFO(frame, msg, argStr, argNum)
+	local detailGBox = GET_CHILD_RECURSIVELY(frame, 'detailGBox');
+	local childCount = detailGBox:GetChildCount();
+	local topSkillName1, topSkillName2;
+	for i = 0, childCount - 1 do
+		local child = detailGBox:GetChildByIndex(i);
+		if child ~= nil and string.find(child:GetName(), 'skillCtrl_') ~= nil then
+			local skillName = string.sub(child:GetName(), string.find(child:GetName(), '_') + 1, string.len(child:GetName()));
+			if topSkillName1 == nil or topSkillName2 then
+				local jobName = child:GetUserValue('JOBNAME');
+				topSkillName1 = ui.GetRedisHotSkillByRanking(jobName, 1);
+				topSkillName2 = ui.GetRedisHotSkillByRanking(jobName, 2);
+			end
+
+			local hotimg = GET_CHILD(child, "hitimg");
+			if topSkillName1 == skillName then
+				hotimg:SetImage("Hit_indi_icon");
+			elseif topSkillName2 == skillName then
+				hotimg:SetImage("Hit_indi_icon");
+			else
+				hotimg:SetImage("None_Mark");
+			end
+		end
+	end
 end

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="guildinfo_detail" x="0" y="0" width="1090" height="900" create="open" version="2">
+	<frame title="{@st43}{s22}길드 상세정보{/}" titlepos="0 0" layout_gravity="center center" scale_align="center top"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<layer layerlevel="101"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<skin frameskin="mainwindow3"/>
+	<option closebutton="false" hideable="true" useimageitem="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+	<script OpenScp="GUILDINFO_DETAIL_OPEN" CloseScp="GUILDINFO_DETAIL_CLOSE"/>
+	<controls>
+		<layout name="layout0" spacing="0" orientation="vertical">
+			<layoutsection name="titleLayoutSection" size="8%">
+				<groupbox name="headerBox" hittest="false" layout_gravity="center top" skin="None">
+					<richtext name="headerText" rect="0 0 300 30" parent="headerBox" margin="0 15 0 0" layout_gravity="center center" caption="{@st43}길드 정보" fontname="white_16_b_ol"/>
+				</groupbox>
+			</layoutsection>
+			<layoutsection name="upperSection" size="6%">
+				<layout name="promoteLayout" orientation="horizontal">
+					<layoutsection name="stub0" size="20"/>
+					<layoutsection name="tabSection">
+						<tab name="itembox" itemspc="0" skin="tab2" margin="0 15 0 0" vertical="false" targetcontrol="tabArea">
+							<!-- targetcontrol="" -->
+							<tabitem name="info" caption=" {@st66}정보" width="100" skinspace="0"/>
+							<tabitem name="page" caption=" {@st66}홍보 페이지" skinspace="0" width="100"/>
+						</tab>
+					</layoutsection>
+					<layoutsection name="stub1"/>
+				</layout>
+			</layoutsection>
+			<layoutsection name="horizLayoutSec">
+				<overlap name="tabArea">
+					<layout name="intro" margin="10 0 20 10" tabname="page" orientation="vertical">
+						<layoutsection name="introSection">
+							<groupbox name="promoBox" skin="bg" draw="false" scrollbar="true" margin="10 0 20 0">
+								<picture name="promoPicture" forceupdate="true" layout_gravity="left top" image="mainpc_crown" stretch="false" rect="0 0 1024 3840"/>
+							</groupbox>
+						</layoutsection>
+						<layoutsection name="introTextSection" size="10%">
+							<groupbox name="introTextBox" draw="false" margin="10 0 20 0">
+								<richtext name="introText" rect="0 0 1090 990" resizebytext="true" fixwidth="true" caption="{@st43}소개글" fontname="white_16_b_ol"/>
+							</groupbox>
+						</layoutsection>
+					</layout>
+					<layout name="layout" orientation="vertical" margin="20 10 40 30" tabname="info">
+						<layoutsection name="mainLayoutSec">
+							<layout name="mainLayout" orientation="vertical" spacing="10">
+								<layoutsection name="infoSec" size="20%">
+									<layout name="guildinfoLayout" spacing="10" orientation="horizontal">
+										<layoutsection name="emblemsec" size="15%">
+											<picture name="emblem" rect="5 5 64 64" layout_gravity="left center" hittest="false" image="mainpc_crown" stretch="true" changecursor="false"/>
+										</layoutsection>
+										<layoutsection name="detailSec">
+											<layout name="detailCol" spacing="10" orientation="horizontal">
+												<layoutsection name="detailSec1">
+													<layout name="detailRow" spacing="5" orientation="vertical">
+														<layoutsection name="nameSec">
+															<layout name="nameLayout" spacing="10">
+																<layoutsection name="nameLabelSection" size="30%">
+																	<overlap name="nameOverlap">
+																		<picture name="nameBg" image="name_box_beige" stretch="true"/>
+																		<richtext name="nameText" caption="{s18}이름{/}" textalign="center center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																	</overlap>
+																</layoutsection>
+																<layoutsection name="nameSection">
+																	<richtext name="name" caption="{s18}길드" textalign="left center" fontname="brown_16"/>
+																</layoutsection>
+															</layout>
+														</layoutsection>
+														<layoutsection name="leaderNameSec">
+															<layout name="leaderLayout" spacing="10">
+																<layoutsection name="leaderLabel" size="30%">
+																	<overlap name="leaderOverlap">
+																		<picture name="leaderBg" image="name_box_beige" stretch="true"/>
+																		<richtext name="leaderNameText" textalign="center center" caption="{@s18}마스터{/}" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																	</overlap>
+																</layoutsection>
+																<layoutsection name="leaderSection">
+																	<richtext name="leader" caption="{s18}" textalign="left center" fontname="brown_16"/>
+																</layoutsection>
+															</layout>
+														</layoutsection>
+														<layoutsection name="dateSec">
+															<layout name="dateLayout" spacing="10">
+																<layoutsection name="dateLabel" size="30%">
+																	<overlap name="dateOverlap">
+																		<picture name="dateBg" image="name_box_beige" stretch="true"/>
+																		<richtext name="dateNameText" caption="{@s18}개설일{/}" textalign="center center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																	</overlap>
+																</layoutsection>
+																<layoutsection name="dateSection">
+																	<richtext name="date" caption="{s18}" textalign="left center" fontname="brown_16"/>
+																</layoutsection>
+															</layout>
+														</layoutsection>
+														<layoutsection name="lvlSec">
+															<layout name="lvlLayout" spacing="10">
+																<layoutsection name="lvlLabelSection" size="30%">
+																	<overlap name="lvlOverlap">
+																		<picture name="lvlBg" image="name_box_beige" stretch="true"/>
+																		<richtext name="lvlText" caption="{@s18}레벨{/}" textalign="center center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																	</overlap>
+																</layoutsection>
+																<layoutsection name="lvlSection">
+																	<richtext name="level" caption="{s18}" textalign="left center" fontname="brown_16"/>
+																</layoutsection>
+															</layout>
+														</layoutsection>
+													</layout>
+												</layoutsection>
+												<layoutsection name="detailSec2">
+													<layout name="detailCol1" orientation="vertical" spacing="2">
+														<layoutsection name="recruitStatus">
+															<layout name="recrutLayout" orientation="horizontal" spacing="10">
+																<layoutsection name="recruitLabelSec" size="30%">
+																	<overlap name="recruitOverlap">
+																		<picture name="recruitBg" image="name_box_beige" stretch="true"/>
+																		<richtext name="recruitNameText" caption="{@s18}모집 상태{/}" textalign="center center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																	</overlap>
+																</layoutsection>
+																<layoutsection name="recruitingTextSection">
+																	<richtext name="recruitingText" caption="{@s18}모집중{/}" textalign="left center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																</layoutsection>
+																<layoutsection name="recruitBtn">
+																	<button name="joinBtn" skin="test_red_button" margin="0 0 0 -4" caption="{@st41}가입 신청" LBtnUpScp="OPEN_REQUEST_GUILDJOIN" textalign="center center"/>
+																</layoutsection>
+															</layout>
+														</layoutsection>
+														<layoutsection name="memberNumSec">
+															<layout name="memberNumLayout" spacing="10">
+																<layoutsection name="memberNumLabel" size="30%">
+																	<overlap name="memberNumOverlap">
+																		<picture name="memberNumBg" image="name_box_beige" stretch="true"/>
+																		<richtext name="memberNumNameText" caption="{@s18}인원{/}" textalign="center center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																	</overlap>
+																</layoutsection>
+																<layoutsection name="memberNumTextSection">
+																	<richtext name="memberNumText" caption="{@s18}40/62{/}" textalign="left center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																</layoutsection>
+															</layout>
+														</layoutsection>
+														<layoutsection name="avgTeamLvlSec">
+															<layout name="avgTeamLvlLayout" spacing="10">
+																<layoutsection name="avgTeamLvlLabel" size="30%">
+																	<overlap name="avgTeamLvlOverlap">
+																		<picture name="avgTeamLvlBg" image="name_box_beige" stretch="true"/>
+																		<richtext name="avgTeamLvlNameText" caption="{@s18}평균 팀레벨{/}" textalign="center center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																	</overlap>
+																</layoutsection>
+																<layoutsection name="avgTeamLvlTextSection">
+																	<richtext name="avgTeamLvlText" caption="{@s18}999{/}" textalign="left center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																</layoutsection>
+															</layout>
+														</layoutsection>
+														<layoutsection name="stub123"/>
+													</layout>
+												</layoutsection>
+											</layout>
+										</layoutsection>
+									</layout>
+								</layoutsection>
+								<layoutsection name="line" size="40">
+									<groupbox name="line_h" layout_gravity="center top" skin="cutting_line_h"/>
+								</layoutsection>
+								<layoutsection name="guildIntroLabel" size="40">
+									<overlap name="guildIntroOverlap">
+										<picture name="guildLabelBg" image="test_com_namebg"/>
+										<richtext margin="15 0 0 0" name="guildLabel" caption="{@s18}홍보글{/}" textalign="left center" resizebytext="false" fontname="white_18_ol" fixwidth="false" drawbackground="false" slideshow="false"/>
+									</overlap>
+								</layoutsection>
+								<layoutsection name="introSec" size="15%">
+									<groupbox name="guildTextBox" draw="false">
+										<richtext margin="15 0 30 0" rect="0 0 1090 900" name="guildText" caption="{@s18}이곳에 길드 소개글이 들어갑니다{/}" textalign="left top" resizebytext="true" fontname="brown_16" fixwidth="true" drawbackground="false" slideshow="false"/>
+									</groupbox>
+								</layoutsection>
+								<layoutsection name="guildMemberLabel" size="40">
+									<overlap name="guildMemberOverlap">
+										<picture name="guildMemberLabelBg" image="test_com_namebg"/>
+										<richtext margin="15 0 0 0" name="guildMemberLabeltext" caption="{@s18}길드원{/}" textalign="left center" resizebytext="false" fontname="white_18_ol" fixwidth="false" drawbackground="false" slideshow="false"/>
+									</overlap>
+								</layoutsection>
+								<layoutsection name="memberListSec" size="free">
+									<overlap name="memberListoverlap">
+										<groupbox name="memberListBg" skin="test_frame_midle"/>
+										<layout name="memberListColumnBg">
+											<layoutsection name="column0"/>
+											<layoutsection name="column1">
+												<groupbox name="memberListBg1" skin="pvp_Team_skin"/>
+											</layoutsection>
+											<layoutsection name="column2"/>
+											<layoutsection name="column3">
+												<groupbox name="memberListBg2" skin="pvp_Team_skin"/>
+											</layoutsection>
+										</layout>
+										<layout name="headerLayout" orientation="vertical">
+											<layoutsection name="headerSection" size="40">
+												<overlap name="headerOverlap">
+													<groupbox name="memberHeader" skin="market_listbase"/>
+													<layout name="gridHeaderLayout" size="50" orientation="horizontal" spacing="10">
+														<layoutsection name="memberTeamNameSection">
+															<richtext name="teamName" caption="팀명" textalign="center center" fontname="black_18_b"/>
+														</layoutsection>
+														<layoutsection name="memberLvlSection">
+															<richtext name="lvl" caption="레벨" textalign="center center" fontname="black_18_b"/>
+														</layoutsection>
+														<layoutsection name="memberTeamName1Section">
+															<richtext name="teamName1" caption="팀명" textalign="center center" fontname="black_18_b"/>
+														</layoutsection>
+														<layoutsection name="memberLvl1Section">
+															<richtext name="lvl1" caption="레벨" textalign="center center" fontname="black_18_b"/>
+														</layoutsection>
+													</layout>
+												</overlap>
+											</layoutsection>
+											<layoutsection name="memberListSection" size="free">
+												<scrollpanel name="memberList" orientation="vertical" draw="false"/>
+											</layoutsection>
+										</layout>
+									</overlap>
+								</layoutsection>
+							</layout>
+						</layoutsection>
+					</layout>
+				</overlap>
+			</layoutsection>
+		</layout>
+		<button name="closeBtn" rect="0 0 60 60" margin="0 35 35 0" hittest="true" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame(&apos;guildinfo_detail&apos;)"/>
+	</controls>
+</uiframe>

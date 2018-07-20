@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="guild_rank_info" x="0" y="0" width="1090" height="800" create="open">
+	<frame title="{@st43}{s22}길드 홍보{/}" titlepos="0 0" margin="0 100 0 0" layout_gravity="center top" snapclient="true" snapframe="true" scale_align="center top"/>
+	<skin frameskin="test_frame_low"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<layer layerlevel="100"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option closebutton="false" hideable="true" useimageitem="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+	<script OpenScp="GUILD_RANK_INFO_INIT" CloseScp="GUILD_RANK_INFO_CLOSE_UI" />
+	<controls>
+		<layout name="frameLayout" spacing="0" orientation="vertical"/>
+		<layoutsection name="titleLayoutSection" size="8%" parent="frameLayout"/>
+		<groupbox name="headerBox" hittest="false" parent="titleLayoutSection" layout_gravity="center top" skin="test_frame_top"/>
+		<richtext name="headerText" rect="0 0 300 30" parent="headerBox" margin="0 2 0 0" layout_gravity="center center" caption="{@st43}길드" fontname="white_16_b_ol"/>
+		<button name="closeBtn" rect="0 0 60 60" margin="0 20 26 0" hittest="true" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame(&apos;guild_rank_info&apos;)"/>
+		<layoutsection name="tabLayoutSection" size="10%" parent="frameLayout"/>
+		<layout name="tabLayout" spacing="35" orientation="horizontal" parent="tabLayoutSection"/>
+		<layoutsection name="tabStub" typevalue="20" size="20%" parent="tabLayout"/>
+		<layoutsection name="guildLvSection" size="free" parent="tabLayout"/>
+		<button name="guildLvBtn" layout_gravity="left top" parent="guildLvSection" MouseOnAnim="btn_mouseover" image="guildinfo_glevel" LBtnUpScp="RESET_GUILD_BY" LBtnUpArgStr="level" texttooltip="{@st59}길드 레벨{/}"/>
+		<layoutsection name="pointLvSection" typevalue="320" size="free" parent="tabLayout"/>
+		<button name="pointBtn" layout_gravity="left top" MouseOnAnim="btn_mouseover" parent="pointLvSection" image="guildinfo_activation" LBtnUpScp="RESET_GUILD_BY" LBtnUpArgStr="activityPoint" texttooltip="{@st59}활성화 점수{/}"/>
+		<layoutsection name="teamLvSection" typevalue="320" size="free" parent="tabLayout"/>
+		<button name="teamLvBtn" MouseOnAnim="btn_mouseover" layout_gravity="left top" parent="teamLvSection" image="guildinfo_tlevel" LBtnUpScp="RESET_GUILD_BY" LBtnUpArgStr="avgTeamLevel" texttooltip="{@st59}평균 팀레벨{/}"/>
+		<layoutsection name="guildJoinSection" typevalue="320" size="free" parent="tabLayout"/>
+		<button name="guilJoinBtn" MouseOnAnim="btn_mouseover" layout_gravity="left top" image="guildinfo_join" parent="guildJoinSection" LBtnUpScp="RESET_GUILD_BY" LBtnUpArgStr="applicationCount" texttooltip="{@st59}가입 신청자수{/}"/>
+		<layoutsection name="colonyRankSection" typevalue="320" size="free" parent="tabLayout" visible="false"/>
+		<button name="colonyRankingBtn" MouseOnAnim="btn_mouseover" layout_gravity="left top" parent="colonyRankSection" image="guildinfo_colony" LBtnUpScp="RESET_GUILD_BY" LBtnUpArgStr="" texttooltip="{@st59}콜로니전{/}" hittest="false"/>
+		<layoutsection name="tabStub2" size="20%" parent="tabLayout"/>
+		<layoutsection name="lineSection" size="50" parent="frameLayout"/>
+		<groupbox name="line_h" layout_gravity="center top" skin="cutting_line_h" parent="lineSection" scroll="true"/>
+		<layoutsection name="emblemSetSection" typevalue="320" size="free" parent="frameLayout"/>
+		<layout name="mainsectionLayout" spacing="0" orientation="vertical" parent="emblemSetSection"/>
+		<layoutsection name="mainSection" size="95%" parent="mainsectionLayout"/>
+		<layout name="guildEmblemLayout" spacing="10" orientation="horizontal" parent="mainSection"/>
+		<layoutsection name="colStub" size="10" parent="guildEmblemLayout"/>
+		<layoutsection name="columnMain" typevalue="320" size="free" parent="guildEmblemLayout"/>
+		<scrollpanel name="vertGuildEmblemLayout" elementsize="240" spacing="10" parent="columnMain" orientation="vertical" hittest="true" hittestbox="true" skin="None" scrollbar="true"/>
+		<layoutsection name="colStub1" size="10" parent="guildEmblemLayout"/>
+		<button name="tempBtn" margin="0 90 20 0" rect="0 0 100 50" image="guild_banner_menu_btn" layout_gravity="right top" LBtnUpScp="ui.OpenFrame(&quot;guild_resume_list&quot;)"/>
+	</controls>
+</uiframe>

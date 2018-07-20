@@ -54,6 +54,7 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF4'); --발렌타인 초콜릿
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF5'); --발렌타인 초콜릿
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_1802_weekend'); --3월 주말 이벤트
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1804_ARBOR_BUFF_7'); --2018년 식목일 이벤트
 	return sumExp; 
 end
 

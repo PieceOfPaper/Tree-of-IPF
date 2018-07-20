@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="guild_applicant_list" width="700" height="400" create="open" version="2">
+    <frame layout_gravity="center center"/>
+    <draw drawframe="true" drawtitlebar="false"/>
+    <input moveable="true" hittestframe="true" moveintitlebar="true"/>
+    <option margin="0 0 0 0" closebutton="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <skin frameskin="test_frame_low"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+    <layer layerlevel="102"/>
+    <userconfig DEFAULT_EMBLEM_IMAGE="guildmark_slot"/>
+    <script OpenScp="GUILD_APPLICANT_INIT"/>
+    <controls>
+        <layout name="frameLayout" orientation="vertical">
+            <layoutsection name="titleLayoutSection" size="60">
+                <groupbox name="headerBox" layout_gravity="center top" skin="test_frame_top">
+                    <richtext name="headerText" rect="0 0 300 30" margin="0 2 0 0" layout_gravity="center center" caption="{@st43}길드 가입 신청자" fontname="white_16_b_ol"/>
+                    <button name="closeBtn" rect="0 0 60 60" margin="0 20 26 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame(&apos;guild_applicant_list&apos;)"/>
+                </groupbox>
+            </layoutsection>
+            <layoutsection name="scrollSection" size="free">
+                <layout name="mainLayout" orientation="horizontal" layout_gravity="left top" margin="10 0 0 0">
+                    <layoutsection name="resumeSection" size="200">
+                        <groupbox name="resumeList" skin="test_frame_midle"/>
+                    </layoutsection>
+                    <layoutsection name="applicantDetail" size="free">
+                        <layout name="applicantDetailLayout" orientation="vertical" margin="10 10 20 10">
+                            <layoutsection name="textSection">
+                                <richtext 
+                                resizeheightbytext="false" 
+                                name="textBox" 
+                                hittest="false"
+                                fontname="brown_18_b"
+                                margin="10 0 20 0" 
+                                textalign="left top" 
+                                format="팀 레벨 : %s {nl}캐릭터 수 %s {nl}모험일지 랭킹 : %s {nl}신청한 캐릭터 레벨 : %s {nl} {nl}전하는 말"  
+                                param1="teamlevel" 
+                                param2="charnum"
+                                 param3="adventureRank"
+                                  param4="team_lv"  backgroundskin="bg"/>
+                            </layoutsection>
+                            <layoutsection name="commentSection">
+                                <overlap name="comment" margin="0 0 0 10">
+                                    <groupbox name="commentBg" skin="test_weight_skin"/>
+                                    <richtext name="commentText" fontname="brown_18_b" textalign="left top" fixwidth="true" />
+                                </overlap>
+                            </layoutsection>
+                            <layoutsection name="btnSection" size="50">
+                                <layout name="btnLayout" orientation="horizontal" spacing="10" margin="10 0 0 0">
+                                    <layoutsection name="stub"/>
+                                    <layoutsection name="acceptBtnSection" size="200">
+                                        <button name="acceptBtn" caption="{@st41b}수락" skin="test_red_button" fontname="black_18_b" LBtnUpScp="ACCEPT_APPLICANT"/>
+                                    </layoutsection>
+                                    <layoutsection name="declineBtnSection" size="200">
+                                        <button name="declineBtn" caption="{@st41b}거절" skin="test_gray_button" fontname="black_18_b" LBtnUpScp="DECLINE_APPLICANT"/>
+                                    </layoutsection>
+                                    <layoutsection name="stub3" size="free"/>
+                                </layout>
+                            </layoutsection>
+                        </layout>
+                    </layoutsection>
+                    <layoutsection name="stub2" size="20"/>
+                </layout>
+            </layoutsection>
+            <layoutsection name="stub" size="10" />
+        </layout>
+    </controls>
+</uiframe>

@@ -89,9 +89,9 @@ end
 
  function ITEM_TRANSEND_BREAK_DROP(frame, icon, argStr, argNum)
 
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 
 	local iconInfo = liftIcon:GetInfo();
 	ITEM_TRANSCEND_BREAK_REG_TARGETITEM(frame, iconInfo:GetIESID());
@@ -99,7 +99,6 @@ end
 end
   
 function ITEM_TRANSCEND_BREAK_REG_TARGETITEM(frame, itemID)
-
 	local invItem = GET_PC_ITEM_BY_GUID(itemID);
 	if invItem == nil then
 		return;
@@ -124,6 +123,13 @@ function ITEM_TRANSCEND_BREAK_REG_TARGETITEM(frame, itemID)
 	local transcend = TryGetProp(obj, "Transcend")
 	if transcend == nil or transcend == 0 then
 		ui.MsgBox(ScpArgMsg("YouCanBreakOnlyTreancendedItem"));
+		return;
+	end
+
+	if TryGetProp(obj, 'LegendGroup', 'None') ~= 'None' then
+		control.CustomCommand("REQ_LEGEND_ITEM_DIALOG", 1);
+		ui.CloseFrame('itemtranscend_break');
+		ui.CloseFrame('inventory');
 		return;
 	end
 

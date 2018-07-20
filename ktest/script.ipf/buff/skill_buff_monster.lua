@@ -2705,15 +2705,10 @@ end
 
 function SCR_BUFF_ENTER_FIELD_BOSS_AWAKE_UP(self, buff, arg1, arg2, over)
     local addATKRate = 1.5
-    local addDEFRate = 2
-    local addMDEFRate = 2
     
     self.PATK_RATE_BM = self.PATK_RATE_BM + addATKRate
-    self.DEF_RATE_BM = self.DEF_RATE_BM + addDEFRate
-    self.MDEF_RATE_BM = self.MDEF_RATE_BM + addMDEFRate
+    
     SetExProp(buff,'addATKRate', addATKRate)
-    SetExProp(buff,'addDEFRate', addDEFRate)
-    SetExProp(buff, 'addMDEFRate', addMDEFRate)
 end
 
 function SCR_BUFF_UPDATE_FIELD_BOSS_AWAKE_UP(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -2734,12 +2729,8 @@ end
 
 function SCR_BUFF_LEAVE_FIELD_BOSS_AWAKE_UP(self, buff, arg1, arg2, over)
     addATKRate = GetExProp(buff, 'addATKRate')
-    addDEFRate = GetExProp(buff,'addDEFRate')
-    addMDEFRate = GetExProp(buff, 'addMDEFRate')
     
     self.PATK_RATE_BM = self.PATK_RATE_BM - addATKRate
-    self.DEF_RATE_BM = self.DEF_RATE_BM - addDEFRate
-    self.MDEF_RATE_BM = self.MDEF_RATE_BM - addMDEFRate
 end
 
 function SCR_FIELD_BOSS_AWAKE_SIMPLE(self)

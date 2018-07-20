@@ -502,3 +502,24 @@ function SET_CONFIG_HUD_OFFSET(frame)
 
     config.SetHUDConfigRatio(name, x / width, y / height);
 end
+
+function SHOW_GUILD_HTTP_ERROR(code, msg, funcName)
+	print(code, msg, funcName)
+	local errName = "WebService_"
+	if code == nil then
+		print(msg)
+		local splitmsg = StringSplit(msg, " ");
+		code = splitmsg[1];
+		print(code, msg)
+		errName = errName .. code
+		print(errName)
+		ui.MsgBox(ClMsg(errName))
+		return
+	end
+
+
+	local splitStr = StringSplit(msg, " ");
+	print(msg);
+	errName = errName .. splitStr[1];
+	ui.MsgBox(ClMsg(errName));
+end

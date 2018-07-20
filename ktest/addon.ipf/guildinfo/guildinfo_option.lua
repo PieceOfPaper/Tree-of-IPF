@@ -1,9 +1,63 @@
+local json = require "json"
+
+
 function GUILDINFO_OPTION_INIT(parent, optionBox)
     GUILDINFO_OPTION_INIT_AGIT_CHECKBOX(optionBox);
     GUILDINFO_OPTION_INIT_NOTIFY(optionBox);
     GUILDINFO_OPTION_INIT_INTRODUCE(optionBox);
 	GUILDINFO_OPTION_INIT_EMBLEM(optionBox);
-    ui.CloseFrame('guild_authority_popup');
+	ui.CloseFrame('guild_authority_popup');
+	GetGuildInfo("GUILDINFO_GET");
+
+	local guild = GET_MY_GUILD_INFO();
+	local leaderAID = guild.info:GetLeaderAID();
+	local myAID = session.loginInfo.GetAID()
+	if myAID ~= leaderAID then
+		--GetPlayerClaims("GUILD_CLAIM_GET", myAID)
+		local frame = ui.GetFrame("guildinfo");
+		local introText = GET_CHILD_RECURSIVELY(frame, "guildPromoteCheck")
+		introText:SetCheck(0)
+		introText:SetEnable(0)
+		
+		local registerBanner = GET_CHILD_RECURSIVELY(frame, "registerBannerBtn");
+		registerBanner:SetVisible(0)
+
+		local registerPromoteImageBtn = GET_CHILD_RECURSIVELY(frame "registerPromoteImageBtn");
+		registerPromoteImageBtn:SetVisible(0)
+	end
+end
+
+function GUILD_CLAIM_GET(code, ret_json)
+	if code ~= 200 then
+		SHOW_GUILD_HTTP_ERROR(code, ret_json, "GUILD_CLAIM_GET");
+        return;
+	end
+
+	local parsedJson = json.decode(ret_json)
+	print(ret_json)
+end
+
+function GUILD_PR_GET(code, ret_json)
+	local frame = ui.GetFrame("guildinfo");
+	local introText = GET_CHILD_RECURSIVELY(frame, "guildPromoteCheck")
+	if code ~= 200 then
+		local splitmsg = StringSplit(ret_json, " ");
+		local errorCode = splitmsg[1];
+		if tonumber(errorCode) == 1 then
+			introText:SetCheck(0)
+			introText:SetEnable(0)
+			return;
+		end
+
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "GUILD_PR_GET")
+        return;
+	end
+
+	if ret_json == "true" then
+		introText:SetCheck(1)
+	else
+		introText:SetCheck(0);
+	end
 end
 
 function GUILDINFO_OPTION_INIT_AGIT_CHECKBOX(optionBox)    
@@ -42,10 +96,16 @@ function GUILDINFO_OPTION_INIT_NOTIFY(optionBox)
     else
         noticeRegisterBtn:ShowWindow(1);
     end
+end
 
-    local guild = GET_MY_GUILD_INFO();
-    local noticeEdit = GET_CHILD_RECURSIVELY(optionBox, 'noticeEdit');
-    noticeEdit:SetText(guild.info:GetNotice());
+function save_guild_notice_call_back(code, ret_json)
+    if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "save_guild_notice_call_back")
+        return
+    end
+
+    ui.SysMsg(ClMsg("UpdateSuccess"))
+    -- 여기에서 해당 ui에 글자 채워주기
 end
 
 function SAVE_GUILD_NOTICE(parent, ctrl)
@@ -59,8 +119,8 @@ function SAVE_GUILD_NOTICE(parent, ctrl)
 		ui.MsgBox(ScpArgMsg('{Word}_FobiddenWord','Word',badword, "None", "None"));
 		return;
 	end
-	if nowNotice ~= noticeText then
-		party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_NOTICE, noticeText);
+	if nowNotice ~= noticeText then		
+        SetGuildNotice('save_guild_notice_call_back', noticeText)
 	end
 	noticeEdit:ReleaseFocus();
 end
@@ -72,10 +132,6 @@ function GUILDINFO_OPTION_INIT_INTRODUCE(optionBox)
     else
         introduceBtn:ShowWindow(1);
     end
-
-    local guild = GET_MY_GUILD_INFO();
-    local introduceEdit = GET_CHILD_RECURSIVELY(optionBox, 'introduceEdit');
-    introduceEdit:SetText(guild.info:GetProfile());
 end
 
 function GUILDINFO_OPTION_INIT_EMBLEM(optionBox)
@@ -131,6 +187,17 @@ function GUILDINFO_OPTION_UPDATE_EMBLEM(frame)
     end
 end
 
+function save_guild_introduce_call_back(code, ret_json)
+    print(code, ret_json)
+    if code ~= 200 then        
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "save_guild_introduce_call_back")
+        return
+    end
+
+    ui.SysMsg(ClMsg("UpdateSuccess"))
+    -- 여기에서 해당 ui에 글자 채워주기
+end
+
 function SAVE_GUILD_INTRODUCE(parent, ctrl)
     local frame = parent:GetTopParentFrame();
 	local introduceEdit = GET_CHILD_RECURSIVELY(frame, 'introduceEdit')
@@ -142,8 +209,161 @@ function SAVE_GUILD_INTRODUCE(parent, ctrl)
 		ui.MsgBox(ScpArgMsg('{Word}_FobiddenWord','Word',badword, "None", "None"));
 		return;
 	end
-	if now ~= text then
-		party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_PROFILE, text);
+	if now ~= text then        
+		SetGuildProfile('save_guild_introduce_call_back', text);
 	end
 	introduceEdit:ReleaseFocus();
+end
+
+function REGISTER_GUILD_BANNER(frame, control)
+
+	local selectorFrame = ui.GetFrame("loadimage");
+	local acceptBtn = GET_CHILD_RECURSIVELY(selectorFrame, "acceptBtn");
+
+	acceptBtn:SetEventScript(ui.LBUTTONUP, "CHECK_BANNER_FORMAT")
+
+    LOAD_IMAGE_INIT("UploadBanner", "png")
+end
+
+local tempfilePath = nil
+function CHECK_BANNER_FORMAT(frame, control)
+	local fullPath = control:GetUserValue("fullPath")
+	local result = session.party.RegisterGuildBanner(fullPath,false)
+	if result == EMBLEM_RESULT_ABNORMAL_IMAGE then
+		ui.SysMsg(ClMsg("AbnormalImageData"))
+	elseif result == EMBLEM_RESULT_SUCCESS then
+		local orgPath = control:GetUserValue("orgPath");
+		local fileName = control:GetUserValue("fileName");
+		local tempPath = filefind.GetBinPath("tempfiles"):c_str();
+		local result = RemoveInterlaceFromBanner(orgPath, fileName, tempPath);
+
+		if result == false then
+			ui.MsgBox(ClMsg("AbnormalImageData"))
+			ui.CloseFrame('loadimage')
+			return;
+		end
+		tempfilePath = tempPath .. "\\" .. fileName;
+
+		PostGuildBannerImage("BANNER_UPLOADED", tempfilePath);
+	end
+	ui.CloseFrame('loadimage')
+end
+
+function BANNER_UPLOADED(code, ret_json)
+    if code ~= 200 then
+		if string.find(ret_json, "registering") ~= nil then
+			ui.MsgBox(ClMsg("RegisterGuildPromoteBeforeBanner"))
+		else
+			SHOW_GUILD_HTTP_ERROR(code, ret_json, "BANNER_UPLOADED")
+		end
+        return;
+	end
+	ui.MsgBox(ClMsg("UpdateSuccess"))
+	os.remove(tempfilePath)
+end
+
+function REGISTER_GUILD_PAGE(frame, control)
+	
+	local selectorFrame = ui.GetFrame("loadimage");
+	local acceptBtn = GET_CHILD_RECURSIVELY(selectorFrame, "acceptBtn");
+
+	acceptBtn:SetEventScript(ui.LBUTTONUP, "CHECK_PAGE_FORMAT")
+
+	LOAD_IMAGE_INIT("UploadPromo", "png")
+	
+end
+
+function CHECK_PAGE_FORMAT(parent, control)
+	local fullPath = control:GetUserValue("fullPath")
+	local result = session.party.RegisterGuildPage(fullPath, false)
+	if result == EMBLEM_RESULT_ABNORMAL_IMAGE then
+		ui.SysMsg(ClMsg("AbnormalImageData"))
+	elseif result == EMBLEM_RESULT_SUCCESS then
+		local orgPath = control:GetUserValue("orgPath");
+		local fileName = control:GetUserValue("fileName");
+		local tempPath = filefind.GetBinPath("tempfiles"):c_str();
+		local height = session.party.GetGuildPageHeight(fullPath);
+
+		if height == 0 then
+			ui.MsgBox(ClMsg("AbnormalImageData"))
+			return
+		end
+
+		local result = RemoveInterlaceFromIntroductionImage(orgPath, fileName, tempPath, height);
+
+		if result == false then
+			ui.MsgBox(ClMsg("AbnormalImageData"))
+			ui.CloseFrame('loadimage')
+			return;
+		end
+		tempfilePath = tempPath .. "\\" .. fileName;
+
+		SetIntroductionImage("INTRO_IMAGE_UPLOADED", tempfilePath);
+	end
+	ui.CloseFrame('loadimage')
+end
+
+function INTRO_IMAGE_UPLOADED(code, ret_json)
+	if code ~= 200 then
+		if string.find(ret_json, "registering") ~= nil then
+			ui.MsgBox(ClMsg("RegisterGuildPromoteBeforeBanner"))
+		else
+			SHOW_GUILD_HTTP_ERROR(code, ret_json, "INTRO_IMAGE_UPLOADED")
+		end
+        return;
+	end
+
+
+	ui.MsgBox(ClMsg("UpdateSuccess"))
+	--os.remove(tempfilePath)
+end
+
+function SAVE_GUILD_PROMOTE(frame, control)
+	local parentFrame = frame:GetTopParentFrame();
+	local introText = GET_CHILD_RECURSIVELY(parentFrame, "promoteEdit")
+	PutGuildInfo("PUT_GUILD_PROMOTE", introText:GetText(), "");
+end
+
+function PUT_GUILD_PROMOTE(code, ret_json)
+	if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "PUT_GUILD_PROMOTE")
+        return;
+	end
+	ui.SysMsg(ClMsg("UpdateSuccess"))
+	
+end
+
+function GUILDINFO_GET(code, ret_json)
+	if code ~= 200 then
+		SHOW_GUILD_HTTP_ERROR(code, ret_json, "GUILDINFO_GET")
+        return;
+	end
+	local parentFrame = ui.GetFrame("guildinfo");
+	local list = json.decode(ret_json)
+	if list == '' then
+		local promoteCheck = GET_CHILD_RECURSIVELY(parentFrame, "guildPromoteCheck")
+		promoteCheck:SetCheck(0)
+		return
+	end
+	GetGuildPRState("GUILD_PR_GET")
+
+	local introText = GET_CHILD_RECURSIVELY(parentFrame, "promoteEdit")
+	introText:SetText(list['shortDesc']);
+end
+
+function SET_GUILD_PROMOTE(frame, control)
+	print(control:GetName());
+	if control:IsChecked() == 1 then
+		SetGuildPRVisible("ON_PR_CHECK");
+	else
+		SetGuildPRInvisible("ON_PR_CHECK");
+	end
+end
+
+function ON_PR_CHECK(code, ret_json)
+	if code ~= 200 then
+		SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_PR_CHECK");
+        return;
+	end
+	print(ret_json)	
 end

@@ -2144,8 +2144,12 @@ function MGAME_EXEC_RUNMGAME(cmd, curStage, eventInst, obj, classname)
 end
 
 function MGAME_GUILD_REWARD(cmd, curStage, eventInst, obj)
+    local partyID = cmd:GetPartyIDStr()
+    local guildObj = GetPartyObjByIESID(PARTY_GUILD, partyID)
 	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 	local pc = CHOOSE_ACTOR_TO_CHANGE_PARTY_PROPERTY(list, cnt)
+    RunScript('SCR_GUILD_EVENT_REWARD_CHECK_MONGOLOG',guildObj, pc);
+
 	if pc ~= nil then
 		RunScript('TAKE_GUILD_EVENT_REWARD', pc);
 		return 1;
