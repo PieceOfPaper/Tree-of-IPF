@@ -2044,12 +2044,25 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	
 	if invItem.isNew == true  then
 		slot:SetHeaderImage('new_inventory_icon');
+	elseif IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem) then
+		slot:SetHeaderImage('equip_inven');
 	else
 		slot:SetHeaderImage('None');
 	end
+end
 	
+function IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem)
+	if invItem == nil then		
+		return;
 end
 
+	local slot1 = session.GetWeaponQuicSlot(0)
+	local slot2 = session.GetWeaponQuicSlot(1)	
+	local slot3 = session.GetWeaponQuicSlot(2)
+	local slot4 = session.GetWeaponQuicSlot(3)
+
+	return invItem : GetIESID() == slot1 or invItem : GetIESID() == slot2 or invItem : GetIESID() == slot3 or invItem : GetIESID() == slot4
+end
 
 function UPDATE_SLOT_RECIPE_BLINK(frame, slot, invItem)
 

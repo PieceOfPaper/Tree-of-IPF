@@ -1,3 +1,12 @@
+function SCR_HUEVILLAGE_58_3_SQ01_NPC01_PRE_DIALOG(pc, dialog)
+    local result1 = SCR_QUEST_CHECK(pc,'HUEVILLAGE_58_3_SQ01')
+    local result2 = SCR_QUEST_CHECK(pc, "HUEVILLAGE_58_1_MQ11")
+    if result1 == 'COMPLETE' or result2 == 'COMPLETE'  then
+        return 'YES'
+    end
+    return 'NO'
+end
+
 function SCR_HUEVILLAGE_58_3_MQ01_GRASS_PRE_DIALOG(pc, dialog)
     local result = SCR_QUEST_CHECK(pc, 'HUEVILLAGE_58_3_MQ01')
     if result == 'PROGRESS' then

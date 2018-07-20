@@ -5153,6 +5153,9 @@
 		<image name="test_companion_12" file="\icon\companion.tga" imgrect="202 492 100 122" CMM_Caption="녹색펭귄_탭버튼"/>
 		<image name="test_companion_12_cursoron" file="\icon\companion.tga" imgrect="303 492 100 122"/>
 		<image name="test_companion_12_clicked" file="\icon\companion.tga" imgrect="202 492 100 122"/>
+		<image name="test_companion_13" file="\icon\companion.tga" imgrect="404 492 100 122" CMM_Caption="파란펭귄_탭버튼"/>
+		<image name="test_companion_13_cursoron" file="\icon\companion.tga" imgrect="505 0 100 122"/>
+		<image name="test_companion_13_clicked" file="\icon\companion.tga" imgrect="404 492 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -5593,6 +5596,7 @@
 		<image name="2curveframe_up" file="\skin\Appraiser_skin.tga" imgrect="85 173 165 25" CMM_Caption="살림통 업그레이드 프레임"/>
 		<image name="2curveframe_down" file="\skin\Appraiser_skin.tga" imgrect="85 199 165 25"/>
 		<image name="white_arrow" file="\skin\Appraiser_skin.tga" imgrect="1 173 83 67" CMM_Caption="화살표"/>
+		<image name="equip_inven" file="\skin\pip_test.tga" imgrect="868 708 50 50" CMM_Caption="인벤 장착중 표시"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -5718,6 +5722,7 @@
 		<image name="companion_Rocksodon" file="\icon\companion_Velhider.tga" imgrect="240 0 80 80"/>
 		<image name="companion_parrotbil" file="\icon\companion_Velhider.tga" imgrect="240 160 80 80"/>
 		<image name="companion_penguin_green" file="\icon\companion_Velhider.tga" imgrect="0 240 80 80"/>
+		<image name="companion_penguin_blue" file="\icon\companion_Velhider.tga" imgrect="80 240 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>

@@ -2186,10 +2186,10 @@ return 10000 + obj.Level * 1000"/>
                 <Str Str="Monstrance_Debuff"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                 <Num Num="0"/>
-                <Num Num="30000" UseFunc="1" FuncTxt="return 30000 + GET_ABIL_LEVEL(self, &quot;Priest22&quot;) * 1000"/>
+                <Num Num="30000" UseFunc="1" FuncTxt="return 30000"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
-            </ToolScp>
+                </ToolScp>
             <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="FRIEND"/>
                 <Num Num="0"/>
@@ -3837,38 +3837,27 @@ return 60000 + obj.Level * 10000"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
             </ToolScp>
-            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
-                <Num Num="1"/>
-            </ToolScp>
+            <ToolScp Scp="PAD_USEABLE_RELATION_ENEMY" Client="NO" UseSleep="NO"/>
         </createEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-300"/>
                 <Num Num="0"/>
             </ToolScp>
-            <ToolScp Scp="PAD_SPLASH_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
-                <Num Num="1"/>
-                <Num Num="25"/>
-                <Num Num="1" UseFunc="1" FuncTxt="local self = GetSkillOwner(obj);
-
-local abil = GET_ABIL_LEVEL(self, &quot;Kriwi4&quot;);
-
-if abil &gt; 0 then
-
-return 4;
-
-else
-
-return 1;
-
+            <ToolScp Scp="PAD_DAMAGE_ENEMY_ONETIME_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="1" UseFunc="1" FuncTxt="local self = GetSkillOwner(obj);
+local abil = GET_ABIL_LEVEL(self, &quot;Kriwi4&quot;);
+if abil &gt; 0 then
+return 7;
+else
+return 1;
 end"/>
+                <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="-1"/>
-                <Str_Arg Str="F_cleric_zaibas_shot_rize" Arg="1"/>
+                <Str_Arg Str="F_cleric_zaibas_shot_rize" Arg="0.80000001"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str_Arg Str="F_cleric_Hurling_shot_ground" Arg="0.34999999"/>
-                <Str Str="ENEMY"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
@@ -4507,7 +4496,11 @@ end"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return 1 + obj.Level * 0.1;"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="50000" UseFunc="1" FuncTxt="return obj.Level * 60000;"/>
+                <Num Num="50000" UseFunc="1" FuncTxt="local value = obj.Level * 60000;
+if IsPVPServer(self) == 1 then
+value =30000;
+end
+return value;"/>
                 <Num Num="9999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">

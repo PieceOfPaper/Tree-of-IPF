@@ -4324,6 +4324,15 @@
 		<Class ClassID="27534" ClassName="EVENT_1707_COMPASS_MSG15" Data="확인해본다"/>
 		<Class ClassID="27535" ClassName="EVENT_1707_COMPASS_MSG16" Data="클라페다 조사원에게 돌아가 조사내용을 전하고 보상을 받으세요"/>
 		<Class ClassID="27540" ClassName="EVENT_1707_USERWEDDING_MSG1" Data="받는다"/>
+		<Class ClassID="27550" ClassName="EVENT_1708_JURATE_MSG1" Data="도와준다"/>
+		<Class ClassID="27551" ClassName="EVENT_1708_JURATE_MSG2" Data="{COUNT}회 누적보상 : "/>
+		<Class ClassID="27552" ClassName="EVENT_1708_JURATE_MSG3" Data="버프(30분동안 경험치 +50%)"/>
+		<Class ClassID="27553" ClassName="EVENT_1708_JURATE_MSG4" Data="주말 참여 횟수 +1"/>
+		<Class ClassID="27554" ClassName="EVENT_1708_JURATE_MSG5" Data="1회 참여 후에 참여 횟수를 추가할 수 있습니다"/>
+		<Class ClassID="27555" ClassName="EVENT_1708_JURATE_MSG6" Data="주말 참여 횟수 +1이 적용되었습니다"/>
+		<Class ClassID="27556" ClassName="EVENT_1708_JURATE_MSG7" Data="주말에만 사용하실 수 있습니다."/>
+		<Class ClassID="27557" ClassName="EVENT_1708_JURATE_MSG8" Data="큐폴의 선물{nl}{TEXT}"/>
+		<Class ClassID="27558" ClassName="EVENT_1708_JURATE_MSG9" Data="누적 미션 완료횟수 : {COUNT}회"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -9126,6 +9135,7 @@
 		<Class ClassID="200025" ClassName="NotExistEquippedAccessory" Data="착용 중인 악세서리가 없어 사용할 수 없습니다. "/>
 		<Class ClassID="200026" ClassName="OverEstimate" Data="과대평가"/>
 		<Class ClassID="200027" ClassName="Devaluation" Data="평가절하"/>
+		<Class ClassID="200028" ClassName="NotYetAvailable" Data="아직 사용할 수 없습니다."/>
 	</Category>
 	<Category Name="HotKey">
 		<Class ClassID="201001" ClassName="Minimap_-" Data="미니맵 -"/>

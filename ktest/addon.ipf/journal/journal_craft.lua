@@ -147,6 +147,10 @@ function GET_RECIPE_GROUP_NAME(groupname)
 		return ScpArgMsg('RecipeGroup_Mace')
 	end
 
+	if groupname == 'THMace' then
+		return ScpArgMsg('RecipeGroup_THMace')
+	end
+
 	if groupname == 'None' then
 		return ScpArgMsg('RecipeGroup_None')
 	end

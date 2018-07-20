@@ -210,7 +210,7 @@ function CARD_SLOT_SET(ctrlSet, slot_label_set, slotIndex, itemClsId, itemLv, it
 
 	slot:SetEventScript(ui.MOUSEMOVE, "EQUIP_CARDSLOT_INFO_TOOLTIP_OPEN");
 	slot:SetEventScriptArgNumber(ui.MOUSEMOVE, slotIndex);
-	slot:SetEventScript(ui.LOST_FOCUS, "EQUIP_CARDSLOT_INFO_TOOLTIP_CLOSE");
+slot:SetEventScript(ui.LOST_FOCUS, "EQUIP_CARDSLOT_INFO_TOOLTIP_CLOSE");
 end;
 
 -- 인벤토리의 카드 슬롯 오른쪽 클릭시 정보창오픈 과정시작 스크립트
@@ -442,7 +442,7 @@ function EQUIP_CARDSLOT_BTN_REMOVE(frame, ctrl)
 	local inven = ui.GetFrame("monstercardslot");
 	local argStr = string.format("%d", frame:GetUserIValue("REMOVE_CARD_SLOTINDEX"));
 
-	argStr = argStr .. " 1" -- 0: 카드 레벨 떨어지면서 제거
+	argStr = argStr .. " 0" -- 0: 카드 레벨 떨어지면서 제거
 	pc.ReqExecuteTx_NumArgs("SCR_TX_UNEQUIP_CARD_SLOT", argStr);
 end;
 

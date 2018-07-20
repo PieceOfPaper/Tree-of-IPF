@@ -215,6 +215,47 @@ function SCR_Get_SpendSP_Bow(skill)
     return math.floor(value)
 end
 
+function SCR_Get_SpendSP_DoublePunch(skill)
+
+    local basicsp = skill.BasicSP;
+    local lv = skill.Level;
+    local lvUpSpendSp = skill.LvUpSpendSp;
+    local decsp = 0;
+    
+    if basicsp == 0 then
+        return 0;
+    end
+    
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, 'Monk10')
+    local ActiveState = TryGetProp(abil, "ActiveState")
+    
+    local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
+    abilAddSP = abilAddSP / 100;
+    
+    local lvUpSpendSpRound = math.floor((lvUpSpendSp * 10000) + 0.5)/10000;
+    
+--  value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
+    local value = basicsp + (lv - 1) * lvUpSpendSpRound;
+    
+    value = value + (value * abilAddSP);
+    
+    if abil ~= nil and ActiveState == 1 then
+        value = value - (value * 0.3)
+    end
+    
+    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+    if zeminaLv > 0 then
+        decsp = 4 + (zeminaLv * 4);
+    end
+    value = value - decsp;
+    
+    if value < 1 then
+        value = 1;
+    end
+    
+    return math.floor(value);
+end
 
 function SCR_Get_SpendPoison(skill)
 
@@ -366,6 +407,13 @@ function SCR_GET_SKL_COOLDOWN(skill)
     local basicCoolDown = skill.BasicCoolDown;
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    local owner =GetSkillOwner(skill)
+    if skill.ClassName == "Cleric_Heal" then
+        if IsPVPServer(owner) == 1 then
+            basicCoolDown = basicCoolDown + 28000
+        end
+    end
     
     if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
         basicCoolDown = basicCoolDown * 0.8;
@@ -7029,6 +7077,10 @@ end
 
 function SCR_GET_RevengedSevenfold_Time(skill)
     local value = 60
+    local pc = GetSkillOwner(skill)
+    if IsPVPServer(pc) == 1 then
+        value = 7
+    end
     local pc = GetSkillOwner(skill);
     local abil = GetAbility(pc, "Kabbalist1")
     if abil ~= nil and 1 == abil.ActiveState then
@@ -9396,8 +9448,14 @@ function SCR_GET_BegoneDemon_Ratio(skill)
 end
 
 function SCR_GET_DarkSight_Time(skill)
-    local value = skill.Level
-    return value
+    local value = skill.Level * 60
+    
+    local pc = GetSkillOwner(skill);
+    if IsPVPServer(pc) == 1 then
+        value = 30;
+    end
+    
+    return value;
 end
 
 function SCR_GET_DarkSight_Ratio(skill)
