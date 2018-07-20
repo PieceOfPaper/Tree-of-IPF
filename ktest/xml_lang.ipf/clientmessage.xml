@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -153,6 +153,10 @@
 		<Class ClassID="2203" ClassName="Hair_Color_Change{COLOR}" Data="염색약이 정상적으로 적용 되었습니다.{nl}현재 {@st66d_y}{s19}{COLOR}{/}{/}를 적용하시겠습니까?{nl} {nl} {@st43b}{s16}* 캐릭터 설정에서 헤어 염색을 바꿀 수 있습니다.{/}{/}"/>
 		<Class ClassID="2204" ClassName="FailToItemSell" Data="아이템 판매에 실패했습니다. 다시 시도해 주세요."/>
 		<Class ClassID="2205" ClassName="FailToPutItemIntoWarehouse" Data="창고에 아이템 보관을 실패했습니다. 다시 시도해주세요."/>
+		<Class ClassID="2211" ClassName="ClickItemToTranscendByScroll" Data="초월할 아이템을 클릭해주세요."/>
+		<Class ClassID="2212" ClassName="TranscendScrollSetDisabledItem" Data="초월할 수 없는 아이템입니다."/>
+		<Class ClassID="2213" ClassName="TranscendScrollAddDisabledItem" Data="초월할 수 없는 아이템입니다."/>
+		<Class ClassID="2214" ClassName="TranscendScrollWarning{Before}To{After}" Data="현재 아이템은 {Before}초월에서 {After}초월로 초월됩니다. 초월된 아이템은 팀창고 이동 및 거래가 불가능하며 초월에 실패하면 포텐셜 1이 소모됩니다. 포텐셜이 0일 경우 아이템이 파괴됩니다. 초월을 진행하시겠습니까?"/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -365,6 +369,10 @@
 		<Class ClassID="4157" ClassName="CannotUseNotAppliedOption" Data="미감정된 랜덤 옵션 아이템입니다."/>
 		<Class ClassID="4158" ClassName="DON_T_HAVE_ITEM_TO_DECOMPOSE" Data="분해할 아이템을 선택해 주세요."/>
 		<Class ClassID="4159" ClassName="ItemDecomposePrice" Data="정말 분해를 진행하시겠습니까?{nl}분해 비용 : {Price}"/>
+		<Class ClassID="4160" ClassName="MonsterCardOptionGroupDEF" Data="{img blue_type}"/>
+		<Class ClassID="4161" ClassName="MonsterCardOptionGroupSTAT" Data="{img green_type}"/>
+		<Class ClassID="4162" ClassName="MonsterCardOptionGroupUTIL" Data="{img purple_type}"/>
+		<Class ClassID="4163" ClassName="MonsterCardOptionGroupATK" Data="{img red_type}"/>
 		<Class ClassID="4164" ClassName="CannotUseInParty" Data="파티에 가입된 상태에서는 사용할 수 없습니다."/>
 		<Class ClassID="4165" ClassName="Event_Solmiki_Box_Title" Data="솔미키 선택 상자"/>
 		<Class ClassID="4166" ClassName="CannotBecause{LAST_INDEX}" Data="{LAST_INDEX}랭크에서 랭크 다운했기 때문에 현재 랭크에서는 사용할 수 없습니다."/>
@@ -374,14 +382,10 @@
 		<Class ClassID="4170" ClassName="ItemDecomposeWarningProp_Awaken" Data="각성"/>
 		<Class ClassID="4171" ClassName="ItemDecomposeWarningProp_Socket_Equip" Data="젬 장착"/>
 		<Class ClassID="4172" ClassName="ItemDecomposeWarningProp_Socket_Add" Data="소켓 추가"/>
-		<Class ClassID="4160" ClassName="MonsterCardOptionGroupDEF" Data="{img blue_type}"/>
-		<Class ClassID="4161" ClassName="MonsterCardOptionGroupSTAT" Data="{img green_type}"/>
-		<Class ClassID="4162" ClassName="MonsterCardOptionGroupUTIL" Data="{img purple_type}"/>
-		<Class ClassID="4163" ClassName="MonsterCardOptionGroupATK" Data="{img red_type}"/>
 		<Class ClassID="4173" ClassName="OverMaxTradeCount" Data="판매 가능한 최대 개수를 초과하였습니다."/>
 		<Class ClassID="4174" ClassName="MonsterCardOptionGroupLEG" Data="{img yellow_type 19 20}"/>
 		<Class ClassID="4175" ClassName="DrugLootingChance" Data="루팅 찬스"/>
-	<Class ClassID="4176" ClassName="DoYouAgreeExchangeFinally?" Data="거래를 최종적으로 승인하시겠습니까?"/>
+		<Class ClassID="4176" ClassName="DoYouAgreeExchangeFinally?" Data="거래를 최종적으로 승인하시겠습니까?"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -904,6 +908,7 @@
 		<Class ClassID="10486" ClassName="AlreadyProcessing" Data="이미 시도 중입니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="10487" ClassName="CannotChangeChannel" Data="채널 이동을 할 수 없습니다.{nl}캐릭터가 채널 이동을 할 수 없는 상태이거나, 채널 이동을 할 수 없는 맵입니다."/>
 		<Class ClassID="10488" ClassName="ReallyGiveItemTo{PC}NoTeamTradeItem" Data="수령 아이템 중 팀 창고로 이동할 수 없는 아이템이{#aa0000}{ol}{ItemCount}개{/}{/} 포함되어 있습니다.{nl}해당 아이템은 {#aa0000}{ol}다른 캐릭터로 이동 불가{/}{/}합니다.{nl} {nl}정말{#ffffff}{ol}{PC}{/}{/} 캐릭터로 아이템을 받으시겠습니까?"/>
+		<Class ClassID="10489" ClassName="SoulCristalLimitCountOver" Data="소울 크리스탈 제한 개수를 모두 소진하여 더는 사용할 수 없습니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -1179,9 +1184,9 @@
 		<Class ClassID="21268" ClassName="IndunAdmissionItemPossession" Data="던전 입장 아이템 보유량"/>
 		<Class ClassID="21269" ClassName="IndunAdmissionItem" Data="던전 입장 아이템 소모량"/>
 		<Class ClassID="21270" ClassName="ClassSolution" Data="해금권 선택 상자"/>
+		<Class ClassID="21272" ClassName="JunkSilverGachaResultInRaidRewardSmall" Data=""/>
 		<Class ClassID="21273" ClassName="AdmissionItemLockMsg" Data="던전 입장 아이템이 잠금되어 있을 시 던전 입장이 불가능 합니다."/>
 		<Class ClassID="21274" ClassName="IndunAdmissionItemReset" Data="입장 횟수"/>
-		<Class ClassID="21272" ClassName="JunkSilverGachaResultInRaidRewardSmall" Data=""/>
 		<Class ClassID="21275" ClassName="IndunEnterNeedPCRank" Data="{NEED_RANK} 랭크 부터 입장이 가능합니다."/>
 		<Class ClassID="21277" ClassName="IndunRewardItem_Empty" Data="없음"/>
 	</Category>
@@ -4509,6 +4514,9 @@
 		<Class ClassID="27826" ClassName="EVENT_1802_MASTER_MSG7" Data="최상급"/>
 		<Class ClassID="27827" ClassName="EVENT_1802_MASTER_MSG8" Data="조각을 큐브로 교환한다"/>
 		<Class ClassID="27828" ClassName="EVENT_1802_MASTER_MSG9" Data="상위 시험권을 하위 시험권으로 교환한다"/>
+		<Class ClassID="27835" ClassName="EVENT_1803_NEWCHARACTER_MSG1" Data="4월 5일까지만 사용 가능합니다{nl}사용 기간이 지났습니다"/>
+		<Class ClassID="27836" ClassName="EVENT_1803_NEWCHARACTER_MSG2" Data="오늘은 이미 특성 포인트를 받으셨습니다"/>
+		<Class ClassID="27840" ClassName="QUEST_KILL_MON_UI_MSG2" Data=" {ZONE}지역 몬스터 소탕"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5471,7 +5479,7 @@
 		<Class ClassID="50620" ClassName="CHAR118_MSTEP2_SEL3" Data="민첩성 훈련에 대해서 묻는다"/>
 		<Class ClassID="50621" ClassName="CHAR118_MSTEP2_SEL4" Data="맷집 훈련에 대해서 묻는다"/>
 		<Class ClassID="50622" ClassName="CHAR118_MSTEP2_SEL5" Data="극적인 상황 연출 훈련에 대해서 묻는다"/>
-		<Class ClassID="50623" ClassName="CHAR118_MSTEP2_SEL6" Data="체력 충전은 어떻게 충전해야 하는지 묻는다"/>
+		<Class ClassID="50623" ClassName="CHAR118_MSTEP2_SEL6" Data="체력충전은 어떻게 하는지 묻는다"/>
 		<Class ClassID="50624" ClassName="CHAR118_MSTEP2_SEL7" Data="휴식이 필요하다고 한다"/>
 		<Class ClassID="50625" ClassName="CHAR118_MSTEP_STAMINA" Data="남은 체력 : {NUM}"/>
 		<Class ClassID="50626" ClassName="RETIARII_STAMINA_NOT_ENOUGH" Data="훈련에 필요한 체력이 부족합니다"/>
@@ -5479,7 +5487,7 @@
 		<Class ClassID="50628" ClassName="HIDDEN_CHAR120_MSTEP5_3_COMP" Data="깨끗이 다 나은 거 같아"/>
 		<Class ClassID="50629" ClassName="HIDDEN_CHAR120_MSTEP5_4_COMP" Data="집에 돌아왔어"/>
 		<Class ClassID="50630" ClassName="CHAR318_MSETP3_3_EFFECT_BUFF1_MSG" Data="전기가 흐르는 돌이 근처 있습니다"/>
-		<Class ClassID="50631" ClassName="CHAR118_MSTEP2_1_ITEM1_TRAINING" Data="덤벨을 이용해 근력 훈련 중"/>
+		<Class ClassID="50631" ClassName="CHAR118_MSTEP2_1_ITEM1_TRAINING" Data="덤벨을 이용한 근력 훈련 중"/>
 		<Class ClassID="50632" ClassName="RETIARII_TRAINING_SUCC1" Data="근력 훈련을 모두 완료했습니다"/>
 		<Class ClassID="50633" ClassName="RETIARII_TRAINING_SUCC2" Data="지구력 훈련을 모두 완료했습니다"/>
 		<Class ClassID="50634" ClassName="RETIARII_TRAINING_SUCC3" Data="민첩성 훈련을 모두 완료했습니다"/>
@@ -5495,12 +5503,12 @@
 		<Class ClassID="50644" ClassName="RETIARII_STAMINA_CHARGE" Data="음식을 섭취했습니다{nl}3분 뒤 체력이 모두 충전됩니다"/>
 		<Class ClassID="50645" ClassName="CHAR118_MSTEP2_2_ITEM1_USE" Data="훈련용 모래 주머니를 차는 중"/>
 		<Class ClassID="50646" ClassName="CHAR118_MSTEP2_2_ITEM1_FAR_MSG" Data="레티아리이 마스터 근처에서 착용하세요"/>
-		<Class ClassID="50647" ClassName="CHAR118_MSTEP2_2_STARTLINE1" Data="농장 집회소에 있는 깃발이 있는 곳까지 뛰세요"/>
-		<Class ClassID="50648" ClassName="CHAR118_MSTEP2_2_STARTLINE2" Data="리아움 둔덕에 있는 깃발이 있는 곳까지 뛰세요"/>
-		<Class ClassID="50649" ClassName="CHAR118_MSTEP2_2_GOALPOINT1_2" Data="기난 농장로에 있는 깃발이 있는 곳까지 뛰세요"/>
-		<Class ClassID="50650" ClassName="CHAR118_MSTEP2_2_GOALPOINT2_2" Data="농장물 창고에 있는 깃발이 있는 곳까지 뛰세요"/>
-		<Class ClassID="50651" ClassName="CHAR118_MSTEP2_2_GOALPOINT1_3" Data="농장 집회소에 있는 깃발이 있는 곳까지 뛰세요"/>
-		<Class ClassID="50652" ClassName="CHAR118_MSTEP2_2_GOALPOINT2_3" Data="건조 작업장에 있는 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50647" ClassName="CHAR118_MSTEP2_2_STARTLINE1" Data="농장 집회소의 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50648" ClassName="CHAR118_MSTEP2_2_STARTLINE2" Data="리아움 둔덕의 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50649" ClassName="CHAR118_MSTEP2_2_GOALPOINT1_2" Data="기난 농장로의 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50650" ClassName="CHAR118_MSTEP2_2_GOALPOINT2_2" Data="농장물 창고의 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50651" ClassName="CHAR118_MSTEP2_2_GOALPOINT1_3" Data="농장 집회소의 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50652" ClassName="CHAR118_MSTEP2_2_GOALPOINT2_3" Data="건조 작업장의 깃발이 있는 곳까지 뛰세요"/>
 		<Class ClassID="50653" ClassName="CHAR118_MSTEP2_2_ITEM1_RETURNTOMASTER" Data="레티아리이 마스터가 있는 곳까지 뛰세요"/>
 		<Class ClassID="50654" ClassName="CHAR118_MSTEP2_2_MAPMSG1" Data="지구력 훈련 중이 아닙니다{nl}지구력 훈련을 시작하시려면 레티아리이 마스터 근처에서{nl}훈련용 모래 주머니를 사용하세요"/>
 		<Class ClassID="50655" ClassName="RETIARII_AGILITY_TRAINING1" Data="민첩성 훈련을 진행한다"/>
@@ -11250,5 +11258,11 @@
 	<Category Name="RankReset">
 		<Class ClassID="1001000" ClassName="CannotChangeJobBecauseJobLevel" Data="클래스 레벨이 최대 레벨일 때에만 가능합니다."/>
 		<Class ClassID="1001001" ClassName="CannotBecauseMoru" Data="모루가 설치되어 있는 상태에서는 사용할 수 없습니다."/>
+	</Category>
+	<Category Name="Raid">
+		<Class ClassID="514001" ClassName="VelcofferSealStoneScrMsg" Data="봉인 해제중.."/>
+		<Class ClassID="514002" ClassName="VelcofferTeraStoneScrMsg" Data="테라 정수 수집중.."/>
+		<Class ClassID="514003" ClassName="VelcofferBlessScrMsg" Data="제단에 테라 정수를 바치는 중.."/>
+		<Class ClassID="514004" ClassName="VelcofferWarpMsg" Data="이동 마법진 사용중"/>
 	</Category>
 </idspace>

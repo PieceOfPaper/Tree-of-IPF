@@ -339,6 +339,26 @@
 					</Event>
 				</Job>
 			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
 		</Class>
 		<Class Costume="bulletmarker02_sp">
 			<Motion Name="STUN_RIDE">
@@ -421,6 +441,26 @@
 					</Event>
 				</Job>
 			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
 		</Class>
 		<Class Costume="bulletmarker03_sp">
 			<Motion Name="STUN_RIDE">
@@ -494,6 +534,26 @@
 				</Job>
 			</Motion>
 			<Motion Name="RUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD_RIDE">
 				<Job Name="All">
 					<Event>
 						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
@@ -1450,6 +1510,26 @@
 					</Event>
 				</Job>
 			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
 		</Class>
 		<Class Costume="bulletmarker02_sp">
 			<Motion Name="STUN_RIDE">
@@ -1532,6 +1612,26 @@
 					</Event>
 				</Job>
 			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
 		</Class>
 		<Class Costume="bulletmarker03_sp">
 			<Motion Name="STUN_RIDE">
@@ -1605,6 +1705,26 @@
 				</Job>
 			</Motion>
 			<Motion Name="RUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="5" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="10" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+						<Particle frame="15" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="SKL_DOUBLEGUN_ASTD_RIDE">
 				<Job Name="All">
 					<Event>
 						<Particle frame="0" attachNode="Bip01 R Forearm" particleName="F_fire045_bulletmarker" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>

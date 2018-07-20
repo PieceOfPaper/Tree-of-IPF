@@ -3239,3 +3239,136 @@ end
 function SCR_BUFF_LEAVE_PET_GOLD_DOG_BUFF(self, buff, arg1, arg2, over)
     self.Holy_Atk_BM = self.Holy_Atk_BM - 120;
 end
+
+function SCR_BUFF_ENETER_Potion_Demon_DMG_DOWN_Buff(self, buff, target, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_Potion_Demon_DMG_DOWN_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 30000 then
+        SetBuffRemainTime(self, buff.ClassName, 30000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Potion_Demon_DMG_DOWN_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_ENETER_Potion_MIX_DMG_DOWN_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_UPDATE_Potion_MIX_DMG_DOWN_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 30000 then
+        SetBuffRemainTime(self, buff.ClassName, 30000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Potion_MIX_DMG_DOWN_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_ENETER_Potion_Bug_DMG_DOWN_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_UPDATE_Potion_Bug_DMG_DOWN_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 30000 then
+        SetBuffRemainTime(self, buff.ClassName, 30000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Potion_Bug_DMG_DOWN_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_ENETER_Potion_Plant_DMG_DOWN_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_UPDATE_Potion_Plant_DMG_DOWN_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 30000 then
+        SetBuffRemainTime(self, buff.ClassName, 30000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Potion_Plant_DMG_DOWN_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_ENETER_Potion_Wild_DMG_DOWN_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_UPDATE_Potion_Wild_DMG_DOWN_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 30000 then
+        SetBuffRemainTime(self, buff.ClassName, 30000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Potion_Wild_DMG_DOWN_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_ENETER_Potion_Demon_DMG_UP_Buff(self, buff, target, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_Potion_Demon_DMG_UP_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 10000 then
+        SetBuffRemainTime(self, buff.ClassName, 10000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Potion_Demon_DMG_UP_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_ENETER_Potion_MIX_DMG_UP_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_UPDATE_Potion_MIX_DMG_UP_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 10000 then
+        SetBuffRemainTime(self, buff.ClassName, 10000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Potion_MIX_DMG_UP_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_ENETER_Potion_Bug_DMG_UP_Buff(self, buff, target, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_Potion_Bug_DMG_UP_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 10000 then
+        SetBuffRemainTime(self, buff.ClassName, 10000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Potion_Bug_DMG_UP_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_ENETER_Potion_Plant_DMG_UP_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_UPDATE_Potion_Plant_DMG_UP_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 10000 then
+        SetBuffRemainTime(self, buff.ClassName, 10000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Potion_Plant_DMG_UP_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_ENETER_Potion_Wild_DMG_UP_Buff(self, buff, target, arg1, arg2, over)
+end
+
+function SCR_BUFF_UPDATE_Potion_Wild_DMG_UP_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 10000 then
+        SetBuffRemainTime(self, buff.ClassName, 10000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Potion_Wild_DMG_UP_Buff(self, buff, target, arg1, arg2, over)
+end

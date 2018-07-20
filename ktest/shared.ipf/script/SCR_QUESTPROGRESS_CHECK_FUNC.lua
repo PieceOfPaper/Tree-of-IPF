@@ -103,8 +103,8 @@ function GET_QUEST_RET_POS(pc, questIES, inputNpcState)
 end
 
 function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC(pc)
-    local itemList, monList = DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
-    if #itemList > 2 or #monList > 2 then
+    local itemList, monList, zoneClassNameList = DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
+    if #itemList > 2 or #monList > 2 or #zoneClassNameList > 2 then
         return 'YES'
     end
     return 'NO'
@@ -193,61 +193,52 @@ function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
     
     
     
-    if #zoneClassNameList > 0 then
-        local removeMonList = {"Silvertransporter_Qm", "Treasure_Goblin"}
-        local basicTime = 15
-        local genTiem = 0.5
-        local anotherPC = 5
-        for y = 1, #zoneClassNameList do
-            local targetZone = zoneClassNameList[y]
-            local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(targetZone, 'Monster', 'Normal/Material/Elite', 120000)
-            local accMax = 0
-            if #targetMonList > 0 then
-                local zoneMonMaxPop = 0
-                for i = 1, #targetMonList do
-                    zoneMonMaxPop = zoneMonMaxPop + targetMonList[i][2]
-                end
-                for i = 1, #targetMonList do
-                    if table.find(removeMonList, targetMonList[i][1]) == 0 then
-                        local maxPop = targetMonList[i][2]
-                        if maxPop/zoneMonMaxPop*100 >= 10 then
-                            local maxMonCount =  basicTime / genTiem * maxPop
-                            local killCount =  math.floor(maxMonCount / anotherPC)
-                            
-    --                        local monRank = GetClassString('Monster', targetMonList[i][1], 'MonRank')
-    --                        if monRank == 'Elite' or monRank == 'Special' then
-    --                            killCount = math.floor(killCount / 3)
-    --                            if killCount < 2 then
-    --                                killCount = 2
-    --                            elseif killCount >= 10 then
-    --                                killCount = 9
-    --                            end
-    --                        end
-                            
-                            if killCount > 80 and killCount < 400 then
-                                if killCount >= 200 then
-                                    killCount = math.floor(killCount * 0.6)
-                                elseif killCount >= 100 then
-                                    killCount = math.floor(killCount * 0.8)
-                                elseif killCount >= 50 then
-                                    killCount = math.floor(killCount * 0.9)
-                                end
-                                if killCount > 170 then
-                                    killCount = 170
-                                end
-                                monList[#monList + 1] = {}
-                                monList[#monList][1] = targetMonList[i][1]
-                                monList[#monList][2] = killCount
-                                monList[#monList][3] = targetZone
-                            end
-                        end
-                    end
-                end
-            end
-        end
-    end
+--    if #zoneClassNameList > 0 then
+--        local removeMonList = {"Silvertransporter_Qm", "Treasure_Goblin"}
+--        local basicTime = 15
+--        local genTiem = 0.5
+--        local anotherPC = 5
+--        for y = 1, #zoneClassNameList do
+--            local targetZone = zoneClassNameList[y]
+--            local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(targetZone, 'Monster', 'Normal/Material/Elite', 120000)
+--            local accMax = 0
+--            if #targetMonList > 0 then
+--                local zoneMonMaxPop = 0
+--                for i = 1, #targetMonList do
+--                    zoneMonMaxPop = zoneMonMaxPop + targetMonList[i][2]
+--                end
+--                for i = 1, #targetMonList do
+--                    if table.find(removeMonList, targetMonList[i][1]) == 0 then
+--                        local maxPop = targetMonList[i][2]
+--                        if maxPop/zoneMonMaxPop*100 >= 10 then
+--                            local maxMonCount =  basicTime / genTiem * maxPop
+--                            local killCount =  math.floor(maxMonCount / anotherPC)
+--                            
+--                            
+--                            if killCount > 80 and killCount < 400 then
+--                                if killCount >= 200 then
+--                                    killCount = math.floor(killCount * 0.6)
+--                                elseif killCount >= 100 then
+--                                    killCount = math.floor(killCount * 0.8)
+--                                elseif killCount >= 50 then
+--                                    killCount = math.floor(killCount * 0.9)
+--                                end
+--                                if killCount > 170 then
+--                                    killCount = 170
+--                                end
+--                                monList[#monList + 1] = {}
+--                                monList[#monList][1] = targetMonList[i][1]
+--                                monList[#monList][2] = killCount
+--                                monList[#monList][3] = targetZone
+--                            end
+--                        end
+--                    end
+--                end
+--            end
+--        end
+--    end
     
-    return itemList, monList
+    return itemList, monList, zoneClassNameList
 end
 
 function IS_FREE_DUNGEON(zoneClassName)
@@ -612,7 +603,7 @@ end
 function SCR_JOB_RETIARII1_STEPREWARD_CHECK1(pc, stepRewardFuncList)
     local sObj = GetSessionObject(pc, 'SSN_JOB_RETIARII1')
     if sObj ~= nil then
-        if sObj.QuestInfoValue1 >= 360 then
+        if sObj.QuestInfoValue1 >= 300 then
             return 'YES'
         end
     end
@@ -621,7 +612,7 @@ end
 function SCR_JOB_RETIARII1_STEPREWARD_CHECK2(pc, stepRewardFuncList)
     local sObj = GetSessionObject(pc, 'SSN_JOB_RETIARII1')
     if sObj ~= nil then
-        if sObj.QuestInfoValue1 >= 510 then
+        if sObj.QuestInfoValue1 >= 450 then
             return 'YES'
         end
     end
@@ -630,7 +621,7 @@ end
 function SCR_JOB_RETIARII1_STEPREWARD_CHECK3(pc, stepRewardFuncList)
     local sObj = GetSessionObject(pc, 'SSN_JOB_RETIARII1')
     if sObj ~= nil then
-        if sObj.QuestInfoValue1 >= 700 then
+        if sObj.QuestInfoValue1 >= 550 then
             return 'YES'
         end
     end

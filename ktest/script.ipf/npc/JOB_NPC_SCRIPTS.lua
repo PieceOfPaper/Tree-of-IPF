@@ -265,6 +265,27 @@ function SCR_KLAPEDA_USKA_NORMAL_4_PRE(pc)
     end
 end
 
+function SCR_KLAPEDA_USKA_NORMAL_5_PRE(pc)
+    --ONMYOJI_HIDDEN
+    if IS_KOR_TEST_SERVER() then
+        return 'NO'
+    else
+        local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+        if prop < 10 then
+            return 'YES'
+        end
+    end
+end
+
+function SCR_KLAPEDA_USKA_NORMAL_6_PRE(pc)
+    --ONMYOJI_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+    if prop >= 10 and prop < 300 then
+        return 'YES'
+    end
+end
+
+
 function SCR_WARLOCK_MASTER_NORMAL_1_PRE(pc)
     return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char2_15')
 end
@@ -283,6 +304,19 @@ end
 
 function SCR_PLAGUEDOCTOR_MASTER_NORMAL_1_PRE(pc)
     return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char4_14')
+end
+
+function SCR_PLAGUEDOCTOR_MASTER_NORMAL_2_PRE(pc)
+    --ONMYOJI_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+    if prop == 10 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+        if sObj ~= nil then
+            if sObj.Step7 == 1 then
+                return 'YES'
+            end
+        end
+    end
 end
 
 function SCR_KABBALIST_MASTER_NORMAL_1_PRE(pc)
@@ -367,6 +401,167 @@ function SCR_KLAPEDA_USKA_NORMAL_4(self, pc)
     end
 end
 
+function SCR_KLAPEDA_USKA_NORMAL_5(self, pc)
+
+    if IS_KOR_TEST_SERVER() then
+        return
+    else
+        local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char2_20')
+        if is_unlock == "NO" then
+            local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+            if prop < 10 then
+                local sObj1 = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+                if sObj1 == nil then
+                    CreateSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+                end
+                local sel1 = ShowSelDlg(pc, 1, "CHAR220_MSETP1_PRE1_DLG1", ScpArgMsg("CHAR220_MSETP1_PRE1_TXT1"), ScpArgMsg("CHAR220_MSETP1_PRE1_TXT2"))
+                if sel1 == 1 then
+                    local sel2 = ShowSelDlg(pc, 1, "CHAR220_MSETP1_PRE1_DLG2", ScpArgMsg("CHAR220_MSETP1_PRE2_TXT1"), ScpArgMsg("CHAR220_MSETP1_PRE2_TXT2"))
+                    if sel2 == 1 then
+                        local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+                        if sObj ~= nil then
+                            local below_list = { 1, 2, 3, 4 }
+                            local High_list = { 1, 2, 3 }
+                            for i = 1, 2 do
+                                if i == 2 then
+                                    local ran = IMCRandom(1, #High_list)
+                                    if High_list[ran] == 1 then
+                                        table.remove(High_list, "1")
+                                        sObj.Step7 = 1
+                                    elseif High_list[ran] == 2 then
+                                        table.remove(High_list, "2")
+                                        sObj.Step8 = 1
+                                    elseif High_list[ran] == 3 then
+                                        table.remove(High_list, "3")
+                                        sObj.Step9 = 1
+                                    end
+                                else
+                                    local ran = IMCRandom(1, #below_list)
+                                    if below_list[ran] == 1 then
+                                        table.remove(below_list, "1")
+                                        sObj['Step'..IMCRandom(1, 2)] = 1
+                                    elseif below_list[ran] == 2 then
+                                        table.remove(below_list, "2")
+                                        sObj['Step'..IMCRandom(3, 4)] = 1
+                                    elseif below_list[ran] == 3 then
+                                        table.remove(below_list, "3")
+                                        sObj.Step5 = 1
+                                    elseif below_list[ran] == 4 then
+                                        table.remove(below_list, "4")
+                                        sObj.Step6 = 1
+                                    end
+                                end
+                            end
+                            local tx = TxBegin(pc)
+                            if GetInvItemCount(pc, "CHAR220_MSTEP1_ITEM1") < 1 then
+                                TxGiveItem(tx,"CHAR220_MSTEP1_ITEM1", 1, 'Quest_HIDDEN_ONMYOJI');
+                            end
+                            local ret = TxCommit(tx)
+                            if ret == "SUCCESS" then
+                                SCR_SET_HIDDEN_JOB_PROP(pc, 'Char2_20', 10)
+                                ShowOkDlg(pc, "CHAR220_MSETP1_DLG1", 1)
+                                SaveSessionObject(pc, sObj)
+                            end
+                        else
+                            return
+                        end
+        	        else
+        	            ShowOkDlg(pc, "CHAR220_MSETP1_PRE1_DLG1_CANCLE", 1)
+        	        end
+                else
+                    ShowOkDlg(pc, "CHAR220_MSETP1_PRE1_DLG1_CANCLE", 1)
+                end
+            end
+        else
+            return
+        end
+    end
+
+end
+
+function SCR_KLAPEDA_USKA_NORMAL_6(self, pc)
+    --ONMYOJI_HIDDEN
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        local complete_check = 0
+        for i = 1, 9 do
+            if sObj['Step'..i] == 1 then
+                if i == 6 then
+                    if sObj['Goal'..i] == 1000 then
+                        complete_check = complete_check + 1
+                    end
+                elseif i == 9 then
+                    if sObj['Goal'..i] == 100 then
+                        complete_check = complete_check + 1
+                    end
+                else
+                    if sObj['Goal'..i] == 10 then
+                        complete_check = complete_check + 1
+                    end
+                end
+            end
+        end
+
+        if complete_check >= 2 then
+            local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20');
+            if prop < 100 then
+                SCR_SET_HIDDEN_JOB_PROP(pc, "Char2_20", 100)
+            end
+        end
+    end
+    
+    local text1 = ScpArgMsg('CHAR220_MSETP3_PRE1_MSG1')
+    local text2 = ScpArgMsg('CHAR220_MSETP3_PRE2_MSG1')
+    local text3 = ScpArgMsg('CHAR220_MSETP3_MSG1')
+    local dlg1 = 'CHAR220_MSETP3_PRE1_DLG2'
+    local dlg2 = 'CHAR220_MSETP3_PRE2_DLG1'
+    local dlg3 = 'CHAR220_MSETP3_DLG1'
+    local sel_textList = {}
+    local sel_dlgList = {}
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20');
+    if prop >= 10 and prop < 100 then
+        sel_textList[#sel_textList+1] = text1
+        sel_dlgList[#sel_dlgList+1] = dlg1
+    elseif prop >= 100 and prop < 200 then
+        sel_textList[#sel_textList+1] = text2
+        sel_dlgList[#sel_dlgList+1] = dlg2
+    elseif prop >= 200 and prop < 300 then
+        sel_textList[#sel_textList+1] = text3
+        sel_dlgList[#sel_dlgList+1] = dlg3
+    end
+    local select = ShowSelDlg(pc, 0,'CHAR220_MSETP3_PRE1_DLG1', sel_textList[1], ScpArgMsg('CHAR220_MSETP3_PRE1_MSG2'))
+    if select == 1 then
+        if prop >= 10 and prop < 100 then
+            ShowOkDlg(pc, sel_dlgList[select], 1)
+        elseif prop >= 100 and prop < 200 then
+            local tx = TxBegin(pc);
+            if isHideNPC(pc, "ONMYOJI_MASTER") == "YES" then
+                TxUnHideNPC(tx, 'ONMYOJI_MASTER')
+            end
+            local ret = TxCommit(tx);
+            if ret == "SUCCESS" then
+                local take_cnt = GetInvItemCount(pc, "CHAR220_MSTEP1_ITEM1")
+                if take_cnt >= 1 then
+                    RunScript('TAKE_ITEM_TX', pc, 'CHAR220_MSTEP1_ITEM1', take_cnt, "Quest_HIDDEN_ONMYOJI");
+                end
+                SCR_SET_HIDDEN_JOB_PROP(pc, "Char2_20", 200)
+                if sObj ~= nil then
+                    DestroySessionObject(pc, sObj)
+                end
+                ShowOkDlg(pc, sel_dlgList[select], 1)
+            end
+        elseif prop >= 200 and prop < 300 then
+            local tx = TxBegin(pc);
+            if isHideNPC(pc, "ONMYOJI_MASTER") == "YES" then
+                TxUnHideNPC(tx, 'ONMYOJI_MASTER')
+            end
+            local ret = TxCommit(tx);
+            ShowOkDlg(pc, sel_dlgList[select], 1)
+        end
+    end
+end
+
+
 function SCR_WARLOCK_MASTER_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Warlock")
 end
@@ -385,6 +580,76 @@ end
 
 function SCR_PLAGUEDOCTOR_MASTER_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_PlagueDoctor")
+end
+
+function SCR_PLAGUEDOCTOR_MASTER_NORMAL_2(self,pc)
+    --ONMYOJI_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+    if prop >= 10 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+        if sObj ~= nil then
+            local npc_name = ScpArgMsg("CHAR220_MSETP1_ITEM_TXT5")
+            if sObj.Step7 == 1 then
+                if sObj.Goal7 == 0 then
+                    local sel = ShowSelDlg(pc, 1, "CHAR220_MSETP2_5_DLG1", ScpArgMsg("CHAR220_MSETP2_QUEST_OK_MSG"), ScpArgMsg("CHAR220_MSETP2_QUEST_NO_MSG"))
+                    if sel == 1 then
+                        sObj.Goal7 = 1
+                        SaveSessionObject(pc, sObj)
+                        ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG1_1", 1)
+                        return
+                    end
+                elseif sObj.Goal7 == 1 then
+                    local max_cnt = 15
+                    local cnt = GetInvItemCount(pc, "CHAR220_MSTEP2_5_ITEM1")
+                    if cnt >= max_cnt then
+                        sObj.Goal7 = 5
+                        SaveSessionObject(pc, sObj)
+                        RunScript('TAKE_ITEM_TX', pc, "CHAR220_MSTEP2_5_ITEM1", cnt, "CHAR220_MSTEP2_5");
+                        ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG3", 1)
+                    else
+                        ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG2", 1)
+                    end
+                elseif sObj.Goal7 == 5 then
+                    ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG4", 1)
+                elseif sObj.Goal7 == 6 then
+                    local select = ShowSelDlg(pc, 0,'CHAR220_MSETP2_5_DLG5', ScpArgMsg('CHAR220_MSETP2_5_MSG5'), ScpArgMsg('CHAR220_MSETP2_5_MSG6'))
+                    if select == 1 then
+                        local answer_list = {3610, 3020, 4730, 4820}
+                        local dlg_list = {'CHAR220_MSETP2_5_DLG6', 'CHAR220_MSETP2_5_DLG7',
+                                            'CHAR220_MSETP2_5_DLG8', 'CHAR220_MSETP2_5_DLG9'}
+                        for i = 1, 4 do
+                            local question = {}
+                            question[#question+1] = answer_list[i]
+                            local num_list = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100}
+                            for j = 1, 2 do
+                                local ran = IMCRandom(1, #num_list)
+                                question[#question+1] = answer_list[i] + num_list[ran]
+                                question[#question+1] = answer_list[i] - num_list[ran]
+                                table.remove(num_list, ran)
+                            end
+                            SCR_RANDOM_ARRANGE(question)
+                            local select = ShowSelDlg(pc, 0,dlg_list[i], question[1], question[2], question[3], question[4], question[5])
+                            if select == nil or answer_list[i] ~= question[select] then
+                                sObj.Goal7 = 5
+                                SaveSessionObject(pc, sObj)
+                                ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG10", 1)
+                                return
+                            end
+                        end
+                        sObj.Goal7 = 10
+                        SaveSessionObject(pc, sObj)
+                        ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG11", 1)
+                        SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)
+                    else
+                        ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG4", 1)
+                    end
+                else
+                    SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)
+                    ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG12", 1)
+                end
+            end
+        end
+    end
 end
 
 function SCR_KABBALIST_MASTER_NORMAL_1(self,pc)
@@ -608,6 +873,7 @@ end
 function SCR_JOB_DRAGOON_8_1_KEY_DIALOG(self, pc)
 end
 
+
 function SCR_JOB_DRAGOON_8_1_RUN(self, x, y, z)
     local mon = CREATE_MONSTER_EX(self, 'Hiddennpc', x, y, z, 0, 'Neutral', 0, SCR_JOB_DRAGOON_8_1_MON)
     AddVisiblePC(mon, self, 1)
@@ -616,6 +882,7 @@ function SCR_JOB_DRAGOON_8_1_RUN(self, x, y, z)
     ShowBalloonText(self, 'JOB_DRAGOON_8_1_DLG', 5)
 end
 
+
 function SCR_JOB_DRAGOON_8_1_MON(mon)
 	mon.BTree = "None"
     mon.Tactics = "None"
@@ -623,21 +890,35 @@ function SCR_JOB_DRAGOON_8_1_MON(mon)
 	mon.Dialog = "JOB_DRAGOON_8_1"
 end
 
+
 function SCR_JOB_DRAGOON_8_1_DIALOG(self, pc)
-    local result = SCR_QUEST_CHECK(pc, 'JOB_DRAGOON_8_1')
-    if result == 'PROGRESS' then
+    local questCheck1 = SCR_QUEST_CHECK(pc, 'JOB_DRAGOON_8_1')
+    local questCheck2 = SCR_QUEST_CHECK(pc, 'MASTER_DRAGOON1')
+    if questCheck1 == 'PROGRESS' then
         local sObj = GetSessionObject(pc, 'SSN_JOB_DRAGOON_8_1')
         local animTime, before_time = DOTIMEACTION_R_BEFORE_CHECK(pc, 1, 'JOB_DRAGOON_8_1')
-        local result1 = DOTIMEACTION_R(pc, ScpArgMsg("JOB_DRAGOON_8_1_TRAP"), 'SITGROPE_LOOP', animTime, 'SSN_HATE_AROUND')
+        local result = DOTIMEACTION_R(pc, ScpArgMsg("JOB_DRAGOON_8_1_TRAP"), 'SITGROPE_LOOP', animTime, 'SSN_HATE_AROUND')
         DOTIMEACTION_R_AFTER(pc, result1, animTime, before_time, 'JOB_DRAGOON_8_1')
-        if result1  == 1 then
+        if result == 1 then
             if sObj ~= nil then
                 RunScript('GIVE_ITEM_TX',pc, 'JOB_DRAGOON_8_1_ITEM2', 1, 'Quest_JOB_DRAGOON_8_1')
                 Kill(self)
             end
         end
+    elseif questCheck2 == 'PROGRESS' then
+        local sObj = GetSessionObject(pc, 'SSN_MASTER_DRAGOON1')
+        local animTime, before_time = DOTIMEACTION_R_BEFORE_CHECK(pc, 1, 'MASTER_DRAGOON1')
+        local result = DOTIMEACTION_R(pc, ScpArgMsg("JOB_DRAGOON_8_1_TRAP"), 'SITGROPE_LOOP', animTime, 'SSN_HATE_AROUND')
+        DOTIMEACTION_R_AFTER(pc, result1, animTime, before_time, 'MASTER_DRAGOON1')
+        if result == 1 then
+            if sObj ~= nil then
+                RunScript('GIVE_ITEM_TX',pc, 'JOB_DRAGOON_8_1_ITEM2', 1, 'MASTER_DRAGOON1')
+                Kill(self)
+            end
+        end
     end
 end
+
 
 --JOB_LANCER_8_1
 function SCR_JOB_LANCER_8_1_DIALOG(self,pc)
@@ -904,6 +1185,42 @@ function SCR_ZEALOT_MASTER_DIALOG(self,pc)
     end
 end
 
+
+
+--JOB_ONMYOJI
+function SCR_ONMYOJI_MASTER_DIALOG(self,pc)
+    if IS_KOR_TEST_SERVER() then
+        COMMON_QUEST_HANDLER(self,pc)
+    else
+        local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char2_20')
+        local wiz_rank = GetJobGradeByName(pc, 'Char2_20')
+        if is_unlock == "YES" then
+            COMMON_QUEST_HANDLER(self, pc)
+        elseif wiz_rank >= 1 then
+            COMMON_QUEST_HANDLER(self, pc)
+        elseif is_unlock == "NO" then
+            local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+            if prop >= 200 then
+                ShowOkDlg(pc, 'CHAR220_MSETP3_DLG2', 1)
+                local wiz_rank2 = GetJobGradeByName(pc, 'Char2_1')
+                if wiz_rank2 >= 1 then
+                    ShowOkDlg(pc, 'CHAR220_MSETP3_DLG3', 1)
+                end
+                local job_unlock = SCR_HIDDEN_JOB_UNLOCK(pc, 'Char2_20')
+                if job_unlock == "FAIL" then
+                    print("tx FAIL_JOB_UNLOCK FAIL!")
+                elseif job_unlock == "SUCCESS" then
+                    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+                    if sObj ~= nil then
+                        DestroySessionObject(pc, sObj)
+                    end
+                end
+            else
+                COMMON_QUEST_HANDLER(self,pc)
+            end
+        end
+    end
+end
 
 
 
@@ -4880,24 +5197,24 @@ function CHAR120_GHOST_AI_UPDATE(self)
     local mon_count = self.NumArg1
     local owner_obj = GetOwner(self)
     if owner_obj.ClassName == "npc_zachariel_head_02" then
-        if self.NumArg2 < 1 then
-            if owner_obj.StrArg1 ~= "SUCCESS" then
-                if self.ClassName == "npc_village_uncle_7" then
-                    Chat(self, ScpArgMsg("HIDDEN_CHAR120_MSTEP5_FAIL1"), 5)
-                elseif self.ClassName == "npc_matron6" then
-                    Chat(self, ScpArgMsg("HIDDEN_CHAR120_MSTEP5_FAIL2"), 5)
-                elseif self.ClassName == "orsha_m_4" then
-                    Chat(self, ScpArgMsg("HIDDEN_CHAR120_MSTEP5_FAIL3"), 5)
-                elseif self.ClassName == "npc_Agatas" then
-                    Chat(self, ScpArgMsg("HIDDEN_CHAR120_MSTEP5_FAIL4"), 5)
-                elseif self.ClassName == "npc_young_rich" then
-                    Chat(self, ScpArgMsg("HIDDEN_CHAR120_MSTEP5_FAIL5"), 5)
+            if self.NumArg2 < 1 then
+                if owner_obj.StrArg1 ~= "SUCCESS" then
+                    if self.ClassName == "npc_village_uncle_7" then
+                        Chat(self, ScpArgMsg("HIDDEN_CHAR120_MSTEP5_FAIL1"), 5)
+                    elseif self.ClassName == "npc_matron6" then
+                        Chat(self, ScpArgMsg("HIDDEN_CHAR120_MSTEP5_FAIL2"), 5)
+                    elseif self.ClassName == "orsha_m_4" then
+                        Chat(self, ScpArgMsg("HIDDEN_CHAR120_MSTEP5_FAIL3"), 5)
+                    elseif self.ClassName == "npc_Agatas" then
+                        Chat(self, ScpArgMsg("HIDDEN_CHAR120_MSTEP5_FAIL4"), 5)
+                    elseif self.ClassName == "npc_young_rich" then
+                        Chat(self, ScpArgMsg("HIDDEN_CHAR120_MSTEP5_FAIL5"), 5)
+                    end
+                    PlayAnim(self, "soul_scare", 1)
                 end
-                PlayAnim(self, "soul_scare", 1)
+                self.NumArg2 = 1 
             end
-            self.NumArg2 = 1 
         end
-    end
     if mon_count >= 9 then
         if owner_obj.StrArg1 == "SUCCESS" then
             PlayEffect(self, "F_buff_basic025_white_line_2", 1)
@@ -5432,6 +5749,7 @@ function SCR_CHAR120_MSTEP5_2_HINT_DLG_CHECK(pc, num, txt1, txt2)
                 UnHideNPC(pc, "CHAR120_MSTEP5_2_NPC2")
             end
             sObj.Step2 = 2
+            SaveSessionObject(pc, sObj)
         else
             ShowOkDlg(pc, txt2, 1)
         end
@@ -5443,7 +5761,7 @@ function SCR_CHAR120_MSTEP5_2_NPC1_DIALOG(self, pc)
     local hidden_Prop = SCR_GET_HIDDEN_JOB_PROP(pc, "Char1_20")
     if sObj ~= nil then
         if hidden_Prop == 100 then
-            if sObj.Step2 == 3 then
+            if sObj.Step2 < 4 then
                 sObj.Step2 = 4
                 SaveSessionObject(pc, sObj)
             end
@@ -5468,9 +5786,9 @@ function SCR_CHAR120_MSTEP5_2_NPC2_NORMAL_1(self, pc)
                     ShowOkDlg(pc, "CHAR120_MSTEP5_2_NPC2_DLG2", 1)
                     if sObj.Step2 < 3 then
                         sObj.Step2 = 3
+                        SaveSessionObject(pc, sObj)
                     end
                 end
-                SaveSessionObject(pc, sObj)
             else
                 ShowOkDlg(pc, "CHAR120_MSTEP5_2_NPC2_DLG3", 1)
             end
@@ -5644,8 +5962,969 @@ function SCR_CHAR120_MSTEP6_1_NPC3_DIALOG(self, pc)
     ShowOkDlg(pc, "CHAR120_MSTEP6_1_NPC1_DLG3", 1)
 end
 
+-- RETIARII_UNLOCK --
+function RETIARII_TRAINING_FUNC(pc, training_Stamina, training_Count, Goal_count, target_count)
+    local sObj = GetSessionObject(pc, "SSN_RETIARII_UNLOCK")
+    if sObj ~= nil then
+        local discount
+        if sObj[training_Count] == 1 then
+            discount = 5
+        elseif sObj[training_Count] == 2 then
+            discount = 4
+        elseif sObj[training_Count] == 3 then
+            discount = 3
+        elseif sObj[training_Count] == 4 then
+            discount = 2
+        elseif sObj[training_Count] >= 5 then
+            discount = 1
+        end
+        if sObj[Goal_count] < target_count then
+            --print('training_Stamina ',sObj[training_Stamina])
+            if (sObj[training_Stamina] ~= 0) and (sObj[training_Stamina] >= discount) then
+                sObj[training_Stamina] = sObj[training_Stamina] - discount
+                sObj[Goal_count] = sObj[Goal_count] + 1
+                sObj.Step24 = 1
+                --print("Goal_count "..sObj[Goal_count], "training_Stamina "..sObj[training_Stamina])
+                if sObj[Goal_count] >= target_count then
+                    if Goal_count == "Goal1" then
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_SUCC1'),  5)
+                    elseif Goal_count == "Goal2" then
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_SUCC2'), 5)
+                    elseif Goal_count == "Goal3" then
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_SUCC3'), 5)
+                    elseif Goal_count == "Goal4" then
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_SUCC4'), 5)
+                    elseif Goal_count == "Goal5" then
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_SUCC5'), 5)
+                    end
+                else
+                    if Goal_count == "Goal1" then
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING1', 'COUNT', sObj[Goal_count])..ScpArgMsg('RETIARII_TRAINING_REMAIN_COUNT1', 'COUNT', target_count-sObj[Goal_count]), 8)
+                    elseif Goal_count == "Goal2" then
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING2', 'COUNT', sObj[Goal_count])..ScpArgMsg('RETIARII_TRAINING_REMAIN_COUNT1', 'COUNT', target_count-sObj[Goal_count]), 8)
+                    elseif Goal_count == "Goal3" then
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING3', 'COUNT', sObj[Goal_count])..ScpArgMsg('RETIARII_TRAINING_REMAIN_COUNT1', 'COUNT', target_count-sObj[Goal_count]), 8)
+                    elseif Goal_count == "Goal4" then
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING4', 'COUNT', sObj[Goal_count])..ScpArgMsg('RETIARII_TRAINING_REMAIN_COUNT1', 'COUNT', target_count-sObj[Goal_count]), 8)
+                    elseif Goal_count == "Goal5" then
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING5', 'COUNT', sObj[Goal_count])..ScpArgMsg('RETIARII_TRAINING_REMAIN_COUNT1', 'COUNT', target_count-sObj[Goal_count]), 8)
+                    end
+                end
+            else
+                sObj.Step20 = 1
+            end
+        else
+            if Goal_count == "Goal1" then
+                SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_SUCC1'), 5)
+            elseif Goal_count == "Goal2" then
+                SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_SUCC2'), 5)
+            elseif Goal_count == "Goal3" then
+                SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_SUCC3'), 5)
+            elseif Goal_count == "Goal4" then
+                SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_SUCC4'), 5)
+            elseif Goal_count == "Goal5" then
+                SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_SUCC5'), 5)
+            end
+        end
+        SaveSessionObject(pc, sObj)
+    end
+end
+
+function SCR_RETIARII_ENDURANDE_TRAINING_GOAL1_1_ENTER(self, pc)
+    RETIARII_ENDURANDE_TRAINING_GOAL_CHKC(pc, self, 1, 1)
+end
+
+function SCR_RETIARII_ENDURANDE_TRAINING_GOAL1_2_ENTER(self, pc)
+    RETIARII_ENDURANDE_TRAINING_GOAL_CHKC(pc, self, 2, 1)
+end
+
+function SCR_RETIARII_ENDURANDE_TRAINING_GOAL1_3_ENTER(self, pc)
+    RETIARII_ENDURANDE_TRAINING_GOAL_CHKC(pc, self, 3, 1)
+end
+
+function SCR_RETIARII_ENDURANDE_TRAINING_GOAL2_1_ENTER(self, pc)
+    RETIARII_ENDURANDE_TRAINING_GOAL_CHKC(pc, self, 1, 2)
+end
+
+function SCR_RETIARII_ENDURANDE_TRAINING_GOAL2_2_ENTER(self, pc)
+    RETIARII_ENDURANDE_TRAINING_GOAL_CHKC(pc, self, 2, 2)
+end
+
+function SCR_RETIARII_ENDURANDE_TRAINING_GOAL2_3_ENTER(self, pc)
+    RETIARII_ENDURANDE_TRAINING_GOAL_CHKC(pc, self, 3, 2)
+end
+
+function SCR_RETIARII_ENDURANDE_TRAINING_GOAL3_1_ENTER(self, pc)
+    RETIARII_ENDURANDE_TRAINING_GOAL_CHKC(pc, self, 1, 3)
+end
+
+function SCR_RETIARII_ENDURANDE_TRAINING_GOAL3_2_ENTER(self, pc)
+    RETIARII_ENDURANDE_TRAINING_GOAL_CHKC(pc, self, 2, 3)
+end
+
+function SCR_RETIARII_ENDURANDE_TRAINING_GOAL3_3_ENTER(self, pc)
+    RETIARII_ENDURANDE_TRAINING_GOAL_CHKC(pc, self, 3, 3)
+end
+
+function RETIARII_ENDURANDE_TRAINING_GOAL_CHKC(pc, self, Step_num, goal_group)
+    local hidden_Prop = SCR_GET_HIDDEN_JOB_PROP(pc, "Char1_18")
+    if hidden_Prop == 100 then
+        local sObj = GetSessionObject(pc, "SSN_RETIARII_UNLOCK")
+        --print("sObj.Step6 : "..sObj.Step6, "goal_group : "..goal_group, "sObj.Step7 : "..sObj.Step7, "Step_num : "..Step_num)
+        if sObj ~= nil then
+            if IsBuffApplied(pc, "CHAR118_MSTEP2_2_ITEM1_BUFF1") == "YES" then
+                if sObj.Step7 == goal_group then
+                    if (Step_num == 1) and (sObj.Step6 == Step_num) then
+                        sObj.Step6 = 2
+                        if self.Enter == "RETIARII_ENDURANDE_TRAINING_GOAL1_1" then
+                            SendAddOnMsg(pc, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR118_MSTEP2_2_GOALPOINT2_2"), 6)
+                            TreasureMarkByMap(pc, 'f_farm_47_1', 98, -41, -386)
+                        elseif self.Enter == "RETIARII_ENDURANDE_TRAINING_GOAL2_1" then
+                            SendAddOnMsg(pc, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR118_MSTEP2_2_GOALPOINT2_2"), 6)
+                            TreasureMarkByMap(pc, 'f_farm_47_1', 98, -41, -386)
+                        elseif self.Enter == "RETIARII_ENDURANDE_TRAINING_GOAL3_1" then
+                            SendAddOnMsg(pc, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR118_MSTEP2_2_GOALPOINT1_2"), 6)
+                            TreasureMarkByMap(pc, 'f_farm_47_1', 367, 57, -1124)
+                        end
+                    elseif (Step_num == 2) and (sObj.Step6 == Step_num) then
+                        sObj.Step6 = 3
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR118_MSTEP2_2_ITEM1_RETURNTOMASTER"), 6)
+                        TreasureMarkByMap(pc, 'f_farm_47_1', -1273, -41, -325)
+                    elseif (Step_num == 3) and (sObj.Step6 == Step_num) then
+                        RETIARII_TRAINING_FUNC(pc, "Step1", "Step2", "Goal2", 15)
+                        if IsBuffApplied(pc, 'CHAR118_MSTEP2_2_ITEM1_BUFF1') == 'YES' then
+                            RemoveBuff(pc, "CHAR118_MSTEP2_2_ITEM1_BUFF1")
+                        end
+                        sObj.Step6 = 0
+                    end
+                    SaveSessionObject(pc, sObj)
+                end
+            end
+        end
+    end
+end
+
+function SCR_RETIARII_AGILITY_TRAINING_DIALOG(self, pc)
+    local hidden_Prop = SCR_GET_HIDDEN_JOB_PROP(pc, "Char1_18")
+    if hidden_Prop == 100 then
+        local sObj = GetSessionObject(pc, "SSN_RETIARII_UNLOCK")
+        if sObj ~= nil then
+            local selDlg = ShowSelDlg(pc, 0,"CHAR118_AGILITY_TRAIN_SEL", ScpArgMsg("RETIARII_AGILITY_TRAINING1"), ScpArgMsg("RETIARII_AGILITY_TRAINING2"))
+            local goal_Point = sObj.Goal3
+            if selDlg == 1 then
+                if goal_Point < 40 then
+                    ShowOkDlg(pc, "CHAR118_AGILITY_TRAIN_INFOR\\"..ScpArgMsg('AGILITY_TRAINING_REMAIN1_CNT','point',40 - goal_Point), 1)
+                    PlayDirection(pc, "RETIARII_AGILITY_TRAINING_TRACK")
+                elseif goal_Point >= 40 then
+                    ShowOkDlg(pc, "CHAR118_AGILITY_TRAIN_INFOR\\"..ScpArgMsg('AGILITY_TRAINING_REMAIN1_CNT2','point', goal_Point), 1)
+                end
+            end
+        end
+    end
+end
+
+function SCR_RETIARII_AGILITY_TRAINING_TRACK_DIALOG(self, pc)
+    local hidden_Prop = SCR_GET_HIDDEN_JOB_PROP(pc, "Char1_18")
+    if hidden_Prop == 100 then
+        local sObj = GetSessionObject(pc, "SSN_RETIARII_UNLOCK")
+        if sObj ~= nil then
+            local goal_Point = sObj.Goal3
+            local selDlg = ShowSelDlg(pc, 0,"CHAR118_AGILITY_TRAIN_SEL2", ScpArgMsg("RETIARII_AGILITY_TRAINING3"), ScpArgMsg("RETIARII_AGILITY_TRAINING4"))
+            if selDlg == 2 then
+                if goal_Point < 40 then
+                    ShowOkDlg(pc, "CHAR118_AGILITY_TRAIN_INFOR\\"..ScpArgMsg('AGILITY_TRAINING_REMAIN1_CNT','point',40 - goal_Point), 1)
+                elseif goal_Point >= 40 then
+                    ShowOkDlg(pc, "CHAR118_AGILITY_TRAIN_INFOR2", 1)
+                end
+                SetLayer(pc, 0)
+            end
+        end
+    end
+end
+
+function SCR_RETIARII_AGILITY_TRAINING_SETTING(pc)
+    local wood_Obj = CREATE_NPC(pc, 'wood_carving', -1111, -41, -44, -96, 'Monster', GetLayer(pc), nil, nil, nil, nil, 1, nil, nil, nil, nil, nil, nil, nil)
+    AddScpObjectList(wood_Obj, 'RETIARII_AGILITY_PC', pc)
+    AddBuff(pc, wood_Obj, "HPLock", 100, 0, 0, 1)
+end
+
+function SCR_RETIARII_WOOD_CARVING_AI_RUN(self)
+    local pc_Obj = GetScpObjectList(self, "RETIARII_AGILITY_PC")
+    local attack_point
+    local fail_point
+    if #pc_Obj >= 1 then
+        
+    end
+    if self.NumArg1 <= 0 then
+        local buff = GetBuffByName(self, 'CHAR118_AGILITY_TRAINING_BUFF')
+        if buff == nil then
+            PlayEffect(self, 'F_light019', 0.6, nil, 'MID')
+            AddBuff(self, self, 'CHAR118_AGILITY_TRAINING_BUFF', 1, 0, 1200, 1)
+            self.NumArg1 = IMCRandom(2, 6);
+        end
+    else
+        self.NumArg1 = self.NumArg1 - 1;
+    end
+end
+
 --TEST FUNCTION
 function BULLETMARKER_EFFECT_TEST(self)
      AttachEffect(self, "I_circle001", 11, 1, "BOT",1)
      PlayEffectLocal(self, self, "I_rize010_orange", 2, 1, "TOP", 1)
+end
+
+
+--ONMYOJI_HIDDEN
+
+function SCR_CHAR220_MSETP2_1_2_GEN_INIT_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_2_1_GEN_INIT_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_2_2_GEN_INIT_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_5_GEN_INIT_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_GEN_INIT_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_7_GEN_INIT_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_GEN_AI(self) --1000msec
+    local zone = GetZoneName(self)
+    if self.Enter == "CHAR220_MSETP2_1_2_GEN_INIT" then
+        local obj_list = GetScpObjectList(self, "CHAR220_MSETP2_1_2_OBJ")
+        local pos = { {1420, 185, 981}, {1749, 185, 1149}, {1872, 185, -393}, {1637, 130, 82}, 
+        {835, 130, -990}, {139, 130, -218}, {-219, 130, -734}, {813, 130, 312} }
+        if #obj_list == 0 then
+            for i = 1, #pos do
+                local mon = CREATE_MONSTER_EX(self, 'wood_piece_01', pos[i][1], pos[i][2], pos[i][3], 0, 'Neutral', 1, CHAR220_MSETP2_1_2_OBJ_SET, i)
+                AddScpObjectList(self, "CHAR220_MSETP2_1_2_OBJ", mon)
+            end
+        elseif #obj_list ~= #pos then
+            for i = 1, #obj_list do
+                Kill(obj_list[i])
+                RemoveScpObjectList(self, "CHAR220_MSETP2_1_2_OBJ", obj_list[i])
+            end
+        end
+    elseif self.Enter == "CHAR220_MSETP2_2_1_GEN_INIT" then
+        local obj_list = GetScpObjectList(self, "CHAR220_MSETP2_2_1_OBJ")
+        local pos = { {1025, 238, -466}, {1287, 238, -351}, {1211, 239, -706}, 
+                        {637, 242, -768}, {771, 238, -1087}, {1121, 238, -850}, 
+                        {627, 288, -599}, {846, 288, -283}, 
+                        {900, 238, 1222}, {1190, 238, 1480}, {807, 238, 922}, {1295, 238, 1184},
+                        {1965, 239, -135}, {1943, 239, -407}, {2178, 239, -523} }
+        if #obj_list == 0 then
+            for i = 1, #pos do
+                local mon = CREATE_MONSTER_EX(self, 'noshadow_npc', pos[i][1], pos[i][2], pos[i][3], 0, 'Neutral', 1, CHAR220_MSETP2_2_1_OBJ_SET, i)
+                AddScpObjectList(self, "CHAR220_MSETP2_2_1_OBJ", mon)
+            end
+        elseif #obj_list ~= #pos then
+            for i = 1, #obj_list do
+                Kill(obj_list[i])
+                RemoveScpObjectList(self, "CHAR220_MSETP2_2_1_OBJ", obj_list[i])
+            end
+        end
+    elseif self.Enter == "CHAR220_MSETP2_2_2_GEN_INIT" then
+        local obj_list = GetScpObjectList(self, "CHAR220_MSETP2_2_2_OBJ")
+        local pos = { {-2152, 82, 523}, {-1886, 0, 438}, {-2064, 0, 159}, {-1826, 0, -112}, {-1736, 0, 148},
+                        {-1007, 0, 631}, {-1248, 0, 153}, {-1575, 0, 348}, 
+                        {-888, 0, -371}, {-862, 0, -627},
+                        {-1173, 82, -1341}, {-1008, 0, -1594}, {-684, 0, -1589}, {-641, 0, -1239}, {-821, 0, -1027} }
+        if #obj_list == 0 then
+            for i = 1, #pos do
+                local mon = CREATE_MONSTER_EX(self, 'dirt_heal_2', pos[i][1], pos[i][2], pos[i][3], 0, 'Neutral', 1, CHAR220_MSETP2_2_2_OBJ_SET, i)
+                AddScpObjectList(self, "CHAR220_MSETP2_2_2_OBJ", mon)
+            end
+        elseif #obj_list ~= #pos then
+            for i = 1, #obj_list do
+                Kill(obj_list[i])
+                RemoveScpObjectList(self, "CHAR220_MSETP2_2_2_OBJ", obj_list[i])
+            end
+        end
+    elseif self.Enter == "CHAR220_MSETP2_5_GEN_INIT" then
+        local obj_list = GetScpObjectList(self, "CHAR220_MSETP2_5_OBJ")
+        local pos = {}
+        if #obj_list == 0 then
+            if zone == "f_orchard_34_1" then
+                pos = { {185, -1, -1163}, {341, 0, -362}, {-160, 0, -1002}, 
+                        {-463, -2, -1275}, {654, -1, 417} }
+                for i = 1, #pos do
+                    local mon = CREATE_MONSTER_EX(self, 'noshadow_npc', pos[i][1], pos[i][2], pos[i][3], 0, 'Neutral', 1, CHAR220_MSETP2_5_OBJ1_SET, i)
+                    AddScpObjectList(self, "CHAR220_MSETP2_5_OBJ", mon)
+                end
+            elseif zone == "f_orchard_34_3" then
+                pos = { {-625, 370, 476}, {-91, 370, 698}, {373, 370, 398}, 
+                        {202, 107, -799}, {992, 107, -312} }
+                for i = 1, #pos do
+                    local j = i + 5
+                    local mon = CREATE_MONSTER_EX(self, 'noshadow_npc', pos[i][1], pos[i][2], pos[i][3], 0, 'Neutral', 1, CHAR220_MSETP2_5_OBJ1_SET, j)
+                    AddScpObjectList(self, "CHAR220_MSETP2_5_OBJ", mon)
+                end
+            elseif zone == "f_siauliai_35_1" then
+                pos = { {-201, -90, 1555}, {-265, -157, 857}, {-647, -101, 437}, 
+                        {665, -90, 1181}, {282, -90, 1346} }
+                for i = 1, #pos do
+                    local j = i + 10
+                    local mon = CREATE_MONSTER_EX(self, 'noshadow_npc', pos[i][1], pos[i][2], pos[i][3], 0, 'Neutral', 1, CHAR220_MSETP2_5_OBJ1_SET, j)
+                    AddScpObjectList(self, "CHAR220_MSETP2_5_OBJ", mon)
+                end
+            end
+        elseif #obj_list ~= 5 then
+            for i = 1, #obj_list do
+                Kill(obj_list[i])
+                RemoveScpObjectList(self, "CHAR220_MSETP2_5_OBJ", obj_list[i])
+            end
+        end
+    elseif self.Enter == "CHAR220_MSETP2_6_GEN_INIT" then
+        local obj_list = GetScpObjectList(self, "CHAR220_MSETP2_6_OBJ")
+        local pos = { {-890, 439, -1046}, {-805, 438, -640},
+                        {-901, 425, -153}, {-504, 370, 41},
+                        {-347, 310, -406}, {21, 318, -613},
+                        {-1638, 413, -12}, {-1242, 415, 124},
+                        {112, 534, 860}, {391, 534, 248},
+                        {401, 442, -368}, {749, 443, -115},
+                        {1156, 597, 371}, {1294, 595, 810},
+                        {1290, 650, 146}, {1299, 652, -186},
+                        }
+        if #obj_list == 0 then
+            for i = 1, #pos do
+                local mon = CREATE_MONSTER_EX(self, 'noshadow_npc', pos[i][1], pos[i][2], pos[i][3], 0, 'Neutral', 1, CHAR220_MSETP2_6_OBJ1_SET, i)
+                AddScpObjectList(self, "CHAR220_MSETP2_6_OBJ", mon)
+            end
+        elseif #obj_list ~= #pos then
+            for i = 1, #obj_list do
+                Kill(obj_list[i])
+                RemoveScpObjectList(self, "CHAR220_MSETP2_6_OBJ", obj_list[i])
+            end
+        end
+    elseif self.Enter == "CHAR220_MSETP2_7_GEN_INIT" then
+        local obj_list = GetScpObjectList(self, "CHAR220_MSETP2_7_OBJ")
+        local pos1 = { {-373, 188, 908}, {-681, 187, 454}, {-262, 188, 575} }
+        local pos2 = { {203, 188, 533}, {645, 188, 983}, {781, 188, 618} }
+        local pos3 = { {887, 64, -206}, {589, 64, -613}, {945, 64, -650} }
+        if #obj_list == 0 then
+            for i = 1, #pos1 do
+                local mon = CREATE_MONSTER_EX(self, 'farm47_sack_01', pos1[i][1], pos1[i][2], pos1[i][3], 0, 'Neutral', 1, CHAR220_MSETP2_7_OBJ_SET, i)
+                AddScpObjectList(self, "CHAR220_MSETP2_7_OBJ", mon)
+            end
+            for i = 1, #pos2 do
+                local j = i + 3
+                local mon = CREATE_MONSTER_EX(self, 'farm47_sack_01', pos2[i][1], pos2[i][2], pos2[i][3], 0, 'Neutral', 1, CHAR220_MSETP2_7_OBJ_SET, j)
+                AddScpObjectList(self, "CHAR220_MSETP2_7_OBJ", mon)
+            end
+            for i = 1, #pos3 do
+                local j = i + 6
+                local mon = CREATE_MONSTER_EX(self, 'farm47_sack_01', pos3[i][1], pos3[i][2], pos3[i][3], 0, 'Neutral', 1, CHAR220_MSETP2_7_OBJ_SET, j)
+                AddScpObjectList(self, "CHAR220_MSETP2_7_OBJ", mon)
+            end
+        elseif #obj_list ~= (#pos1 + #pos2 + #pos3) then
+            for i = 1, #obj_list do
+                Kill(obj_list[i])
+                RemoveScpObjectList(self, "CHAR220_MSETP2_7_OBJ", obj_list[i])
+            end
+        end
+    end
+end
+
+function CHAR220_MSETP2_1_2_OBJ_SET(mon, i)
+    mon.Dialog = "CHAR220_MSETP2_1_2_OBJ"..i
+    mon.Name = ScpArgMsg("CHAR220_MSETP2_1_2_OBJ_NAME")
+end
+
+function SCR_CHAR220_MSETP2_1_2_OBJ1_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_1_2_OBJ_RUN(self, pc, 1)
+end
+function SCR_CHAR220_MSETP2_1_2_OBJ2_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_1_2_OBJ_RUN(self, pc, 2)
+end
+function SCR_CHAR220_MSETP2_1_2_OBJ3_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_1_2_OBJ_RUN(self, pc, 3)
+end
+function SCR_CHAR220_MSETP2_1_2_OBJ4_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_1_2_OBJ_RUN(self, pc, 4)
+end
+function SCR_CHAR220_MSETP2_1_2_OBJ5_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_1_2_OBJ_RUN(self, pc, 5)
+end
+function SCR_CHAR220_MSETP2_1_2_OBJ6_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_1_2_OBJ_RUN(self, pc, 6)
+end
+function SCR_CHAR220_MSETP2_1_2_OBJ7_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_1_2_OBJ_RUN(self, pc, 7)
+end
+function SCR_CHAR220_MSETP2_1_2_OBJ8_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_1_2_OBJ_RUN(self, pc, 8)
+end
+
+function SCR_CHAR220_MSETP2_1_2_OBJ_RUN(self, pc, num)
+    local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char2_20')
+    if is_unlock == "NO" then
+        local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+        if prop == 10 then
+            local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+            if sObj ~= nil then
+                if sObj.Goal2 == 1 then
+                    local max_cnt = 150
+                    if GetInvItemCount(pc, "CHAR220_MSTEP2_1_2_ITEM1") < max_cnt then
+                        local result = DOTIMEACTION_R(pc, ScpArgMsg("CHAR220_MSETP2_1_2_MSG1"), "SITGROPE_LOOP", 2.0)
+                        if result == 1 then
+                            if sObj.String1 ~= "None" then
+                                local string_cut_list = SCR_STRING_CUT(sObj.String1);
+                                if table.find(string_cut_list, num) <= 0 then
+                                    local cnt = IMCRandom(3, 5)
+                                    local item = 'CHAR220_MSTEP2_1_2_ITEM1'
+                                    RunScript('GIVE_ITEM_TX', pc, item, cnt, "CHAR220_MSTEP2_1_2");
+                                    sObj.String1 = sObj.String1.."/"..tostring(num)
+                                    SaveSessionObject(pc, sObj)
+                                    SendAddOnMsg(pc, 'NOTICE_Dm_GetItem', ScpArgMsg("CHAR220_MSETP2_1_2_MSG2"),3)
+                                    PlayEffectLocal(self, pc, "F_pc_making_finish_white", 1.5, "TOP")
+                                else
+                                    SendAddOnMsg(pc, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR220_MSETP2_1_2_MSG3"),3)
+                                end
+                            end
+                        end
+                    else
+                        SendAddOnMsg(pc, 'NOTICE_Dm_Clear', ScpArgMsg("CHAR220_MSETP2_1_2_MSG4"),3)
+                    end
+                end
+            end
+        end
+    end
+end
+
+function CHAR220_MSETP2_2_1_OBJ_SET(mon, i)
+    mon.Dialog = "CHAR220_MSETP2_2_1_OBJ"..i
+    mon.Name = "UnvisibleName"
+    mon.Enter = "CHAR220_MSETP2_2_1_OBJ"
+    mon.Range = 200
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ1_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 1)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ2_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 2)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ3_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 3)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ4_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 4)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ5_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 5)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ6_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 6)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ7_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 7)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ8_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 8)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ9_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 9)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ10_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 10)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ11_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 11)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ12_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 12)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ13_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 13)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ14_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 14)
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ15_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, 15)
+end
+
+
+function SCR_CHAR220_MSETP2_2_1_OBJ_ENTER(self, pc)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        if sObj.Goal3 == 1 then
+            if sObj.String2 ~= "None" then
+                for i = 1, 15 do
+                    local num = 0
+                    if "CHAR220_MSETP2_2_1_OBJ"..i == TryGetProp(self, "Dialog") then
+                        num = i
+                    end
+                    if num ~= 0 then
+                        local string_cut_list = SCR_STRING_CUT(sObj.String2);
+                        if table.find(string_cut_list, num) <= 0 then
+                            RemoveEffectLocal(self, pc, "F_light094_blue_loop2")
+                            AddEffectLocal(self, pc, "F_light094_blue_loop2", 4, 0, "MID")
+                            return
+                        else
+                            RemoveEffectLocal(self, pc, "F_light094_blue_loop2")
+                            return
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+function SCR_CHAR220_MSETP2_2_1_OBJ_RUN(self, pc, num)
+    local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char2_20')
+    if is_unlock == "NO" then
+        local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+        if prop == 10 then
+            local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+            if sObj ~= nil then
+                if sObj.Goal3 == 1 then
+                    local max_cnt = 15
+                    if GetInvItemCount(pc, "CHAR220_MSTEP2_2_1_ITEM1") < max_cnt then
+                        local result = DOTIMEACTION_R(pc, ScpArgMsg("CHAR220_MSETP2_2_1_MSG1"), "LOOK_SIT", 2.0)
+                        if result == 1 then
+                            RemoveEffectLocal(self, pc, "F_light094_blue_loop2")
+                            if sObj.String2 ~= "None" then
+                                local string_cut_list = SCR_STRING_CUT(sObj.String2);
+                                if table.find(string_cut_list, num) <= 0 then
+                                    local cnt = 1
+                                    local item = 'CHAR220_MSTEP2_2_1_ITEM1'
+                                    RunScript('GIVE_ITEM_TX', pc, item, cnt, "CHAR220_MSTEP2_2_1");
+                                    sObj.String2 = sObj.String2.."/"..tostring(num)
+                                    SaveSessionObject(pc, sObj)
+                                    SendAddOnMsg(pc, 'NOTICE_Dm_GetItem', ScpArgMsg("CHAR220_MSETP2_2_1_MSG2"),3)
+                                    PlayEffectLocal(self, pc, "F_pc_making_finish_white", 1.5, "TOP")
+                                else
+                                    SendAddOnMsg(pc, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR220_MSETP2_2_1_MSG3"),3)
+                                end
+                            end
+                        end
+                    else
+                        SendAddOnMsg(pc, 'NOTICE_Dm_Clear', ScpArgMsg("CHAR220_MSETP2_2_1_MSG4"),3)
+                    end
+                end
+            end
+        end
+    end
+end
+
+function CHAR220_MSETP2_2_2_OBJ_SET(mon, i)
+    mon.Dialog = "CHAR220_MSETP2_2_2_OBJ"..i
+    mon.Name = "UnvisibleName"
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ1_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 1)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ2_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 2)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ3_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 3)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ4_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 4)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ5_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 5)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ6_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 6)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ7_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 7)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ8_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 8)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ9_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 9)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ10_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 10)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ11_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 11)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ12_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 12)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ13_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 13)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ14_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 14)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ15_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, 15)
+end
+
+function SCR_CHAR220_MSETP2_2_2_OBJ_RUN(self, pc, num)
+    local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char2_20')
+    if is_unlock == "NO" then
+        local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+        if prop == 10 then
+            local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+            if sObj ~= nil then
+                if sObj.Goal4 == 1 then
+                    local max_cnt = 15
+                    if GetInvItemCount(pc, "CHAR220_MSTEP2_2_2_ITEM1") < max_cnt then
+                        local result = DOTIMEACTION_R(pc, ScpArgMsg("CHAR220_MSETP2_2_1_MSG1"), "LOOK_SIT", 2.0)
+                        if result == 1 then
+                            if sObj.String2 ~= "None" then
+                                local string_cut_list = SCR_STRING_CUT(sObj.String2);
+                                if table.find(string_cut_list, num) <= 0 then
+                                    local cnt = 1
+                                    local item = 'CHAR220_MSTEP2_2_2_ITEM1'
+                                    RunScript('GIVE_ITEM_TX', pc, item, cnt, "CHAR220_MSTEP2_2_2");
+                                    sObj.String2 = sObj.String2.."/"..tostring(num)
+                                    SaveSessionObject(pc, sObj)
+                                    SendAddOnMsg(pc, 'NOTICE_Dm_GetItem', ScpArgMsg("CHAR220_MSETP2_2_2_MSG1"),3)
+                                    PlayEffectLocal(self, pc, "F_pc_making_finish_white", 1.5, "TOP")
+                                else
+                                    SendAddOnMsg(pc, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR220_MSETP2_2_2_MSG2"),3)
+                                end
+                            end
+                        end
+                    else
+                        SendAddOnMsg(pc, 'NOTICE_Dm_Clear', ScpArgMsg("CHAR220_MSETP2_2_2_MSG3"),3)
+                    end
+                end
+            end
+        end
+    end
+end
+
+
+function SCR_CHAR220_MSETP2_4_NPC_DIALOG(self,pc)
+    --ONMYOJI_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+    if prop >= 10 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+        if sObj ~= nil then
+            if sObj.Step6 == 1 then
+                if sObj.Goal6 == 1 then
+                    local select = ShowSelDlg(pc, 1, "CHAR220_MSETP2_4_DLG3", ScpArgMsg("CHAR220_MSETP2_4_MSG2"), ScpArgMsg("CHAR220_MSETP2_4_MSG3"))
+                    if select == 1 then
+                        local result = DOTIMEACTION_R(pc, ScpArgMsg("CHAR220_MSETP2_4_MSG1"), "TALK", 2.0)
+                        if result == 1 then
+                            local sel = ShowSelDlg(pc, 1, "CHAR220_MSETP2_4_DLG4", ScpArgMsg("CHAR220_MSETP2_QUEST_OK_MSG"), ScpArgMsg("CHAR220_MSETP2_QUEST_NO_MSG"))
+                            if sel == 1 then
+                                sObj.Goal6 = 2
+                                SaveSessionObject(pc, sObj)
+                                ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG4_1", 1)
+                                return
+                            end
+                        end
+                    end
+                elseif sObj.Goal6 >= 2 and sObj.Goal6 < 500 then
+                    local cnt = GetInvItemCount(pc, "CHAR220_MSTEP2_4_ITEM1")
+                    if cnt >= 1 then
+                        sObj.Goal6 = 500
+                        SaveSessionObject(pc, sObj)
+                        RunScript('TAKE_ITEM_TX', pc, "CHAR220_MSTEP2_4_ITEM1", cnt, "CHAR220_MSTEP2_4");
+                        ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG6", 1)
+                    else
+                        ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG5", 1)
+                    end
+                else
+                    ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG7", 1)
+                end
+            end
+        end
+    end
+end
+
+function CHAR220_MSETP2_5_OBJ1_SET(mon, i)
+    mon.Dialog = "CHAR220_MSETP2_5_OBJ1_"..i
+    mon.Name = "UnvisibleName"
+    mon.Enter = "CHAR220_MSETP2_5_OBJ1"
+    mon.Range = 200
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_1_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 1)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_2_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 2)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_3_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 3)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_4_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 4)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_5_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 5)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_6_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 6)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_7_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 7)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_8_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 8)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_9_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 9)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_10_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 10)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_11_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 11)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_12_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 12)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_13_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 13)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_14_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 14)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_15_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, 15)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_ENTER(self, pc)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        if sObj.Goal7 == 1 then
+            if sObj.String3 ~= "None" then
+                for i = 1, 15 do
+                    local num = 0
+                    if "CHAR220_MSETP2_5_OBJ1_"..i == TryGetProp(self, "Dialog") then
+                        num = i
+                    end
+                    if num ~= 0 then
+                        local string_cut_list = SCR_STRING_CUT(sObj.String3);
+                        if table.find(string_cut_list, num) <= 0 then
+                            RemoveEffectLocal(self, pc, "F_cleric_AustrasKoks_loop")
+                            AddEffectLocal(self, pc, "F_cleric_AustrasKoks_loop", 3, 0, "BOT")
+                            return
+                        else
+                            RemoveEffectLocal(self, pc, "F_cleric_AustrasKoks_loop")
+                            return
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_RUN(self, pc, num)
+    local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char2_20')
+    if is_unlock == "NO" then
+        local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+        if prop == 10 then
+            local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+            if sObj ~= nil then
+                if sObj.Goal7 == 1 then
+                    local max_cnt = 15
+                    if GetInvItemCount(pc, "CHAR220_MSTEP2_5_ITEM1") < max_cnt then
+                        local result = DOTIMEACTION_R(pc, ScpArgMsg("CHAR220_MSETP2_5_MSG1"), "SITGROPE_LOOP", 2.0)
+                        if result == 1 then
+                            RemoveEffectLocal(self, pc, "F_cleric_AustrasKoks_loop")
+                            if sObj.String3 ~= "None" then
+                                local string_cut_list = SCR_STRING_CUT(sObj.String3);
+                                if table.find(string_cut_list, num) <= 0 then
+                                    local cnt = 1
+                                    local item = 'CHAR220_MSTEP2_5_ITEM1'
+                                    RunScript('GIVE_ITEM_TX', pc, item, cnt, "CHAR220_MSTEP2_5");
+                                    sObj.String3 = sObj.String3.."/"..tostring(num)
+                                    SaveSessionObject(pc, sObj)
+                                    SendAddOnMsg(pc, 'NOTICE_Dm_GetItem', ScpArgMsg("CHAR220_MSETP2_5_MSG2"),3)
+                                    PlayEffectLocal(self, pc, "F_pc_making_finish_white", 1.5, "TOP")
+                                else
+                                    SendAddOnMsg(pc, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR220_MSETP2_5_MSG3"),3)
+                                end
+                            end
+                        end
+                    else
+                        SendAddOnMsg(pc, 'NOTICE_Dm_Clear', ScpArgMsg("CHAR220_MSETP2_5_MSG4"),3)
+                    end
+                end
+            end
+        end
+    end
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ2_1_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ2_RUN(self, pc, 1)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ2_2_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ2_RUN(self, pc, 2)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ2_3_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ2_RUN(self, pc, 3)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ2_4_DIALOG(self, pc)
+    SCR_CHAR220_MSETP2_5_OBJ2_RUN(self, pc, 4)
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ2_RUN(self, pc, num)
+    local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char2_20')
+    if is_unlock == "NO" then
+        local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+        if prop == 10 then
+            local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+            if sObj ~= nil then
+                if sObj.Goal7 >= 5 then
+                    if sObj.Goal7 == 5 then
+                        sObj.Goal7 = 6
+                        SaveSessionObject(pc, sObj)
+                    end
+                    if num == 1 then
+                        ShowOkDlg(pc, "CHAR220_MSETP2_5_OBJ1_DLG", 1)
+                    elseif num == 2 then
+                        ShowOkDlg(pc, "CHAR220_MSETP2_5_OBJ2_DLG", 1)
+                    elseif num == 3 then
+                        ShowOkDlg(pc, "CHAR220_MSETP2_5_OBJ3_DLG", 1)
+                    elseif num == 4 then
+                        ShowOkDlg(pc, "CHAR220_MSETP2_5_OBJ4_DLG", 1)
+                    end
+                end
+            end
+        end
+    end
+end
+
+function CHAR220_MSETP2_6_OBJ1_SET(mon, i)
+    mon.Enter = "CHAR220_MSETP2_6_OBJ1_"..i
+    mon.Name = "UnvisibleName"
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_1_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_2_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_3_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_4_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_5_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_6_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_7_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_8_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_9_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_10_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_11_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_12_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_13_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_14_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_15_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_16_ENTER(self, pc)
+end
+
+function CHAR220_MSETP2_7_OBJ_SET(mon, i)
+    mon.Enter = "CHAR220_MSETP2_7_OBJ_"..i
+    mon.Name = ScpArgMsg("CHAR220_MSETP2_7_OBJ_NAME")
+end
+
+function SCR_CHAR220_MSETP2_7_OBJ_1_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_7_OBJ_2_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_7_OBJ_3_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_7_OBJ_4_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_7_OBJ_5_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_7_OBJ_6_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_7_OBJ_7_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_7_OBJ_8_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_7_OBJ_9_ENTER(self, pc)
 end

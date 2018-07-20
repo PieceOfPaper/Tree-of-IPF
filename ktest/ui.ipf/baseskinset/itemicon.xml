@@ -742,12 +742,16 @@
 		<image name="icon_item_wizard_onmyoji03_m" file="\icon\equip\icon_item_wizard_onmyoji03_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_onmyoji_f" file="\icon\equip\icon_item_SpecialCostume_onmyoji_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_onmyoji_m" file="\icon\equip\icon_item_SpecialCostume_onmyoji_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wizard_onmyoji04_f" file="\icon\equip\icon_item_wizard_onmyoji04_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wizard_onmyoji04_m" file="\icon\equip\icon_item_wizard_onmyoji04_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_retiarii01_f" file="\icon\equip\icon_item_warrior_retiarii01_f.png" imgrect="0 0 256 256" CMM_Caption="레티아리이 코스튬"/>
 		<image name="icon_item_warrior_retiarii01_m" file="\icon\equip\icon_item_warrior_retiarii01_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_retiarii02_f" file="\icon\equip\icon_item_warrior_retiarii02_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_retiarii02_m" file="\icon\equip\icon_item_warrior_retiarii02_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_retiarii03_f" file="\icon\equip\icon_item_warrior_retiarii03_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_retiarii03_m" file="\icon\equip\icon_item_warrior_retiarii03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_retiarii04_f" file="\icon\equip\icon_item_warrior_retiarii04_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_retiarii04_m" file="\icon\equip\icon_item_warrior_retiarii04_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_retiarii_f" file="\icon\equip\icon_item_SpecialCostume_retiarii_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_retiarii_m" file="\icon\equip\icon_item_SpecialCostume_retiarii_m.png" imgrect="0 0 256 256"/>
 	</imagelist>
@@ -2834,8 +2838,6 @@
 		<image name="christmas1" file="\icon\hairacc\christmas1.png" imgrect="0 0 256 256"/>
 		<image name="christmas2" file="\icon\hairacc\christmas2.png" imgrect="0 0 256 256"/>
 		<image name="Hat_628290" file="\icon\hairacc\Hat_628290.png" imgrect="0 0 256 256" CMM_Caption="붉은닭헤어머리띠"/>
-		<image name="icon_item_dragonwing" file="\icon\hairacc\icon_item_dragonwing.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_dragonhorn" file="\icon\hairacc\icon_item_dragonhorn.png" imgrect="0 0 256 256"/>
 		<image name="Hat_628293" file="\icon\hairacc\Hat_628293.png" imgrect="0 0 256 256" CMM_Caption="수탉"/>
 		<image name="Hat_628294" file="\icon\hairacc\Hat_628294.png" imgrect="0 0 256 256" CMM_Caption="암닭"/>
 		<image name="icon_item_blackRabbitEar_gray" file="\icon\hairacc\icon_item_blackRabbitEar_gray.png" imgrect="0 0 256 256" CMM_Caption="강아지귀_색베리"/>
@@ -4522,7 +4524,7 @@
 		<image name="icon_item_timespace" file="\icon\item\icon_item_timespace.png" imgrect="0 0 128 128" CMM_Caption="시간의 결정"/>
 		<image name="icon_item_egg_winterpeng" file="\icon\item\icon_item_egg_winterpeng.png" imgrect="0 0 128 128" CMM_Caption="윈터펭 알"/>
 		<image name="icon_item_golddog_popupbook" file="\icon\item\icon_item_golddog_popupbook.png" imgrect="0 0 256 256" CMM_Caption="황금개 팝업북"/>
-				<image name="icon_item_ability_potion_box" file="\icon\item\icon_item_ability_potion_box.png" imgrect="0 0 128 128" CMM_Caption="포션 상자"/>
+		<image name="icon_item_ability_potion_box" file="\icon\item\icon_item_ability_potion_box.png" imgrect="0 0 128 128" CMM_Caption="포션 상자"/>
 		<image name="icon_item_Retiarii_Net" file="\icon\item\icon_item_Retiarii_Net.png" imgrect="0 0 128 128" CMM_Caption="레티아리이 재료 그물"/>
 		<image name="icon_item_paperdoll" file="\icon\item\icon_item_paperdoll.png" imgrect="0 0 128 128" CMM_Caption="종이 인형"/>
 		<image name="icon_item_ability_up_potion1" file="\icon\item\icon_item_ability_up_potion1.png" imgrect="0 0 128 128" CMM_Caption="능력치 증가 포션 1"/>
@@ -4539,6 +4541,7 @@
 		<image name="icon_item_mastertraining_2" file="\icon\item\icon_item_mastertraining_2.png" imgrect="0 0 128 128" CMM_Caption="마스터 중급 훈련권"/>
 		<image name="icon_item_mastertraining_3" file="\icon\item\icon_item_mastertraining_3.png" imgrect="0 0 128 128" CMM_Caption="마스터 상급 훈련권"/>
 		<image name="icon_item_mastertraining_4" file="\icon\item\icon_item_mastertraining_4.png" imgrect="0 0 128 128" CMM_Caption="마스터 최상급 훈련권"/>
+		<image name="icon_item_transcendence_coupon" file="\icon\item\icon_item_transcendence_coupon.png" imgrect="0 0 128 128" CMM_Caption="초월 스크롤"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_roar"/>
+    <Sound frame="0.00" soundFile="mon_voice_netherbovine_2"/>
+    <Particle frame="10" attachNode="Bip001 R Finger3" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="33" attachNode="Dummy_effect_lip" particleName="F_drop_water001_alpha" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="40" attachNode="Bip001 R Finger3" particleName="I_light019_orange_spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false" sound="skl_eff_chargingattack_cast1"/>
+    <Particle frame="45" attachNode="Bip001 R Finger3" particleName="I_force034_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false" sound="skl_eff_sinobi_kunai_cast_2"/>
+    <Sound frame="45.00" soundFile="mon_voice_netherbovine_5"/>
+    <Particle frame="50" attachNode="Bip001 R Finger3" particleName="I_light019_orange_spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false" sound="skl_eff_special_shot_1"/>
+    <Sound frame="50.00" soundFile="mon_voice_onion_the_great_3"/>
+    <Sound frame="55.00" soundFile="swd_blow_flesh1--"/>
+    <Sound frame="55.00" soundFile="skl_eff_hit_base_1"/>
+    <Sound frame="55.00" soundFile="atk_rod"/>
+    <Shockwave frame="61" type="2" intensity="20" frequency="70" duration="0.5" range="1000"/>
+    <Particle frame="63.00" attachNode="Dummy_effect_atk" particleName="F_hit002_light_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="None"/>
+    <Particle frame="87" attachNode="Bip001 R Finger3" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+</ActionDesc>

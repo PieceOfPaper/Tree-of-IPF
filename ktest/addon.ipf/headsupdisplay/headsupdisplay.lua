@@ -25,9 +25,13 @@ function HEADSUPDISPLAY_ON_INIT(addon, frame)
     addon:RegisterMsg('CHANGE_RESOLUTION', 'HUD_SET_SAVED_OFFSET');
     addon:RegisterMsg("CAMP_UPDATE", "HEADSUPDISPLAY_SET_CAMP_BTN");
     addon:RegisterMsg("PARTY_UPDATE", "HEADSUPDISPLAY_SET_CAMP_BTN");
-
+	addon:RegisterMsg("SHOW_SOUL_CRISTAL", "HEADSUPDISPLAY_SHOW_SOUL_CRISTAL");
+	addon:RegisterMsg("UPDATE_SOUL_CRISTAL", "HEADSUPDISPLAY_UPDATE_SOUL_CRISTAL");
+	
 	local leaderMark = GET_CHILD(frame, "Isleader", "ui::CPicture");
 	leaderMark:SetImage('None_Mark');
+
+	SHOW_SOULCRYSTAL_COUNT(frame, 0)
 end
 
 function CANT_RUN_ALARM(frame, msg, argStr, argNum)
@@ -185,7 +189,6 @@ function HUD_SET_EMBLEM(frame, jobClassID)
 end
 
 function STAMINA_UPDATE(frame, msg, argStr, argNum)
-
 	session.UpdateMaxStamina();
 
 	local stGauge 	= GET_CHILD(frame, "sta1", "ui::CGauge");
@@ -330,4 +333,38 @@ function HEADSUPDISPLAY_SET_CAMP_BTN(frame)
 		return;
 	end
     campBtn:ShowWindow(1);
+end
+
+function HEADSUPDISPLAY_SHOW_SOUL_CRISTAL(frame, msg, argStr, argNum)
+	SHOW_SOULCRYSTAL_COUNT(frame, 1)
+	UPDATE_SOULCRYSTAL_COUNT(frame, 0, argNum)
+end
+
+function HEADSUPDISPLAY_UPDATE_SOUL_CRISTAL(frame, msg, argStr, argNum)
+	UPDATE_SOULCRYSTAL_COUNT(frame, argNum, tonumber(argStr))
+end
+
+function SHOW_SOULCRYSTAL_COUNT(frame, isShow)
+	local frame = ui.GetFrame('headsupdisplay');
+	local soulCrystalGbox = GET_CHILD_RECURSIVELY(frame, "soulCrystalGbox")
+	-- isShow = 0 or 1
+	soulCrystalGbox:ShowWindow(isShow)
+end
+
+function UPDATE_SOULCRYSTAL_COUNT(frame, curCount, maxCount)
+	local frame = ui.GetFrame('headsupdisplay');
+	local soulCrystalCount = GET_CHILD_RECURSIVELY(frame, "soulCrystalCount")
+
+	local count = frame:GetUserIValue('MAX_COUNT');
+	if count == 0 and maxCount ~= 0 then
+		frame:SetUserValue('SOULCRYSTAL_MAX_COUNT', maxCount);
+	else
+		maxCount = frame:GetUserIValue('SOULCRYSTAL_MAX_COUNT');
+	end
+
+	curCount = maxCount - curCount;
+	soulCrystalCount:SetTextByKey("curCount", curCount);
+	soulCrystalCount:SetTextByKey("maxCount", maxCount);
+
+	SHOW_SOULCRYSTAL_COUNT(frame, 1);
 end

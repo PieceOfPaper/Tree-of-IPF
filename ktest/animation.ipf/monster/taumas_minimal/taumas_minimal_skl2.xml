@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="50" type="2" intensity="5" frequency="70" duration="1.5" range="1000"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_light065_orange2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="10" attachNode="Bone_Cla_L" particleName="I_light019_orange_spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_stone_whale_lighting"/>
+	<Particle frame="10" attachNode="Bip001 Spine" particleName="F_light065_orange2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="15" attachNode="Bip001 R Thigh" particleName="I_light019_orange_spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_rize"/>
+	<Particle frame="30" attachNode="Bip001 R UpperArm" particleName="I_light019_orange_spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_rize"/>
+	<Particle frame="32" attachNode="Bip001 Spine" particleName="I_light019_orange_spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_rize"/>
+	<Particle frame="35" attachNode="Bip001 L UpperArm" particleName="I_light019_orange_spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_rize"/>
+	<Particle frame="50" attachNode="Bip001 Spine" particleName="I_light019_orange_spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_rize"/>
+	<Particle frame="50" attachNode="Dummy_effect_lip" particleName="F_drop_water001_alpha" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="70" attachNode="Dummy_effect_lip" particleName="F_drop_water001_alpha" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="96" attachNode="Dummy_emitter" particleName="F_smoke064_grey2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice5_l_9"/>
+	<Sound frame="25.00" soundFile="mon_voice_onion_the_great_5"/>
+	<Sound frame="40.00" soundFile="mon_voice_onion_the_great_1"/>
+	<Sound frame="43.10" soundFile="skl_eff_spread_4"/>
+</ActionDesc>

@@ -2,6 +2,22 @@ function LOGINUI_TITLE_ON_INIT(addon, frame)
 	login.LoadServerList();
 
 	TOGGLE_SINGLE_MODE_UI(frame);
+	
+	local view1 = GET_CHILD(frame, "login_img", "ui::CPicture")
+	if view1 ~= nil then
+        view1:ShowWindow(0)
+    end
+    local view2 = GET_CHILD(frame, "login_img2", "ui::CPicture")
+    if view2 ~= nil then
+        view2:ShowWindow(0)
+    end
+    
+    local rand = IMCRandom(1,2)
+    if rand == 1 then
+        view1:ShowWindow(1)
+    elseif rand == 2 then
+        view2:ShowWindow(1)
+    end
 end
 
 function TOGGLE_SINGLE_MODE_UI(frame)

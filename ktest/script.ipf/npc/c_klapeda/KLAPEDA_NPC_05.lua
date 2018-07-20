@@ -618,7 +618,7 @@ end
 function SCR_JOURNEY_SHOP_NORMAL_1(self, pc)
     local tiem = GetDBTime()
     local db_Day =string.format("%02d", tiem.wDay);
-    if tonumber(db_Day) >= 1 and tonumber(db_Day) <= 27 then
+    if tonumber(db_Day) >= 1 and tonumber(db_Day) <= 10 then
         local now_time = os.date('*t')
         local Rank_Count_Time = now_time['min']
         if db_Day == "01" and Rank_Count_Time < 15 then

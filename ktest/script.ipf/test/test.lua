@@ -1,8 +1,118 @@
 -- test.lua
 
-function SCR_GEN_EVENTNPC_CREATE(pc, value)
+-- 은둔자의 통로가서 무녀 마스터 앞에서 테스트.
+-- TxHide 테스트
+function TEST_TXHIDE(pc)
+    local tx = TxBegin(pc);
+    TxHideNPC(tx,"MIKO_MASTER")
+  
+	local ret = TxCommit(tx);
+	if ret ~= "SUCCESS" then
+        print("tx fail");
+        return;
+    end
+end
+
+-- TxUnHide 테스트
+function TEST_TXUNHIDE(pc)
+    local tx = TxBegin(pc);
+
+    TxUnHideNPC(tx,"MIKO_MASTER")
+
+    local ret = TxCommit(tx);
+	if ret ~= "SUCCESS" then
+       print("tx fail");
+        return;
+    end
+end
+
+
+function TEST_GET_ITEM_COUNT_PARTY_WARE_HOUSE(pc, partyType, itemClassName)
+	if RequestLoadPartyInventory(pc, partyType) == 1 then
+		for i = 0 , 100 do
+			if IsPartyInventoryLoaded(pc, partyType) == 1 then
+				break;
+			end
+
+			sleep(100);
+		end
+	end
+	return GetItemCountInPartyWareHouse(pc, partyType, itemClassName);
+end
+
+function TEST_GIVE_GUILD_EVENT_REWARD(pc, eventID)
+    if eventID == nil then
+        return;
+    end
+    local guild = GetGuildObj(pc);
+    if guild == nil then
+        return;
+    end
+    local guildID = GetGuildID(pc);
+    local eventCls = GetClassByType("GuildEvent", eventID);
+    if eventCls == nil then
+        return;
+    end
+
+    local itemlist, itemcount = SCR_GUILD_EVENT_GIVE_ITEM_LIST(pc, eventCls)
+    if #itemlist <= 0 then
+        return;
+    end
+    
+    local printable = true;
+    local beforeCountList = {};
+    local afterCountList = {};
+    for l = 1, #itemlist do
+        local count = TEST_GET_ITEM_COUNT_PARTY_WARE_HOUSE(pc, PARTY_GUILD, itemlist[l])
+        if count == nil then
+            printable = false;
+        end
+        beforeCountList[#beforeCountList + 1] = count;
+    end
+    local tx = TxBegin(pc);
+    for l = 1, #itemlist do
+        _TxGiveItemToPartyWareHouse(tx, PARTY_GUILD, itemlist[l], itemcount[l], "GuildEventReward", 0, nil);
+    end    
+	local ret = TxCommit(tx);
+	if ret ~= "SUCCESS" then
+        return;
+    end
+    for l = 1, #itemlist do
+        local count = TEST_GET_ITEM_COUNT_PARTY_WARE_HOUSE(pc, PARTY_GUILD, itemlist[l])
+        if count == nil then
+            printable = false;
+        end
+        afterCountList[#afterCountList + 1] = count;
+    end
+    if printable == true then
+        for l = 1, #itemlist do
+            if beforeCountList[l] + itemcount[l] ~= afterCountList[l] then
+                local str = "check item count ";
+                str = str .. "[guildID:" .. guildID .. "] ";
+                str = str .. "[itemName:" .. itemlist[l] .. "] ";
+                str = str .. "[itemcount:" .. itemcount[l] .. "] ";
+                str = str .. "[before:" .. beforeCountList[l] .. "] ";
+                str = str .. "[after:" .. afterCountList[l] .. "] ";
+
+                IMC_LOG("WARNING_GUILD_EVENT", str);
+            end
+        end
+    end
+end
+
+function TEST_GIVE_GUILD_EVENT_REWARD_LOOP(pc, loopCnt)
+    local clsList, cnt = GetClassList('GuildEvent');
+	for i=0, cnt-1 do
+		local cls = GetClassByIndexFromList(clsList, i);
+        for j=1, loopCnt do
+            TEST_GIVE_GUILD_EVENT_REWARD(pc, cls.ClassID)
+        end
+    end
+end
+
+function SCR_GEN_EVENTNPC_CREATE(pc, column, value)
     local zone_name = GetZoneName(pc)
-    local column = 'Dialog'
+--    local column = 'ClassID'
 --    local value = 'EVENT_1706_FREE_EXPUP_NPC'
 --    local value = 'KLAPEDA_FISHING_MANAGER'
     local result2 = SCR_GET_XML_IES('GenType_'..zone_name, column, value)
@@ -5725,6 +5835,24 @@ function TEST_SUPEREXP(pc)
 	end
 end
 
+function TEST_SAMSARA(pc)
+	local fndList, fndCount = SelectObject(pc, 100, 'ALL');
+	for i = 1, fndCount do
+		if fndList[i].ClassName ~= 'PC' then
+		    AddBuff(fndList[i], fndList[i], 'Samsara_Buff', 1, 1);
+		end
+	end
+end
+
+function TEST_SAMSARA_AFTER(pc)
+	local fndList, fndCount = SelectObject(pc, 100, 'ALL');
+	for i = 1, fndCount do
+		if fndList[i].ClassName ~= 'PC' then
+		    AddBuff(fndList[i], fndList[i], 'SamsaraAfter_Buff', 1, 1);
+		end
+	end
+end
+
 function TEST_START_MISSION(pc)
     ChangePartyProp(pc, PARTY_NORMAL, 'MissionAble', 1)
 end
@@ -7044,6 +7172,15 @@ function SCR_RIDING_ANIM_TEST_TALK(self)
     end
 end
 
+function TEST_GUILD_RECRUITING(self) -- 길드 이벤트 모집상태 강제 종료
+    FinishGuildEventRecruiting(self);
+end
+
+function TEST_GUILD_EVENT_TICKET_RESET(pc) --길드 이벤트 입장권 리셋
+    local guildObj = GetGuildObj(pc)
+    ChangePartyProp(pc, PARTY_GUILD, "UsedTicketCount", 0)
+end
+
 function SCR_RIDING_ANIM_TEST_LOOK(self)
     local anim
     if GetRidingCompanion(self) ~= nil then
@@ -7087,4 +7224,290 @@ end
 
 function TEST_ADDON_MSG_DUMP(pc)
 	SendAddOnMsg(pc, "TEST_ADDON_MSG_DUMP_MSG", "");
+end
+
+function TEST_SAY_CURRENT_SERVER_TIME2(pc)
+	local curTime = geTime.GetServerSystemTime();
+	Chat(pc, "CurDate: year["..curTime.wYear..'], month['..curTime.wMonth..'], day['..curTime.wDay..'], hour['..curTime.wHour..'], minute['..curTime.wMinute..']')
+end
+
+function TEST_LEGEND_CARD_OPEN(pc, num)
+	local pcEtc = GetETCObject(pc);
+		
+	local tx = TxBegin(pc)
+	TxSetIESProp(tx, pcEtc, 'IS_LEGEND_CARD_OPEN', num)
+    SendAddOnMsg(pc, "MSG_PLAY_LEGENDCARD_OPEN_EFFECT", "", 0)
+	local ret = TxCommit(tx)
+	
+end
+
+function TEST_LEGENDCARD_EFFECT_SUCCESS(pc)
+	SendAddOnMsg(pc, "DO_TEST_LEGENDCARD_REINFORCE_EFFECT_SUCCESS", "", 0)
+end
+
+function TEST_LEGENDCARD_EFFECT_FAIL(pc)
+	SendAddOnMsg(pc, "DO_TEST_LEGENDCARD_REINFORCE_EFFECT_FAIL", "", 0)
+end
+
+function TEST_LEGENDCARD_EFFECT_BROKEN(pc)
+	SendAddOnMsg(pc, "DO_TEST_LEGENDCARD_REINFORCE_EFFECT_BROKEN", "", 0)
+end
+
+function TEST_LEGENDCARD_OPEN_EFFECT(pc)
+	SendAddOnMsg(pc, "MSG_PLAY_LEGENDCARD_OPEN_EFFECT", "", 0)
+end
+
+function TEST_LEGENDCARD(pc)
+--    local itemID = "item"
+--	local clslist, cnt = GetClassList(itemID);
+--	local itemGroup = "Legend_Card"
+--    local itemGroupName = {};
+--	
+--	for i = 0, cnt do
+--	    local itemcls = GetClassByIndexFromList(clslist, i);
+--        if TryGetProp(itemcls, "EquipXpGroup") == itemGroup then
+--            clslist[listIndex] = clslist.ItemName;
+--			local cls = GetClass("Item", clslist.ClassName);
+--			if nil ~= cls then
+--				itemGroupName[listIndex] = cls.ClassName;
+--			else
+--				itemGroupName[listIndex] = "None";
+--			end
+--            
+--            listIndex = listIndex + 1;
+--        end
+--    end
+    
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Legend_card_Marnoks', 1, 'TEST_CARD');
+    TxGiveItem(tx, 'Legend_card_Blud', 1, 'TEST_CARD');
+    TxGiveItem(tx, 'Legend_card_Zawra', 1, 'TEST_CARD');
+    TxGiveItem(tx, 'Legend_card_Nuaele', 1, 'TEST_CARD');
+    TxGiveItem(tx, 'Legend_card_Helgasercle', 1, 'TEST_CARD');
+    TxGiveItem(tx, 'Legend_card_Lecifer', 1, 'TEST_CARD');
+    TxGiveItem(tx, 'Legend_card_Kucarry_Balzermance', 1, 'TEST_CARD');
+    TxGiveItem(tx, 'Legend_card_PantoRex', 1, 'TEST_CARD');
+    TxGiveItem(tx, 'Legend_card_Mirtis', 1, 'TEST_CARD');
+    local ret = TxCommit(tx);
+end
+
+function TEST_REINFORCE_LEGENDCARD(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'legend_reinforce_card_lv1', 1, 'TEST_CARD');
+    TxGiveItem(tx, 'legend_reinforce_card_lv2', 1, 'TEST_CARD');
+    TxGiveItem(tx, 'legend_reinforce_card_lv3', 1, 'TEST_CARD');
+    TxGiveItem(tx, 'legend_reinforce_card_lv4', 1, 'TEST_CARD');
+    local ret = TxCommit(tx);
+end
+
+function TEST_RNF_CARD_LVUP(pc, value)
+    value = tonumber(value);
+    if value >= 10 then
+        value = 10
+    end
+    
+    if value == 2 then
+        value = 6000
+    elseif value == 3 then
+        value = 13200
+    elseif value == 4 then
+        value = 29100
+    elseif value == 5 then
+        value = 64100
+    elseif value == 6 then
+        value = 141100
+    elseif value == 7 then
+        value = 310500
+    elseif value == 8 then
+        value = 683100
+    elseif value == 9 then
+        value = 1502900
+    elseif value == 10 then
+        value = 3306400
+    elseif value == 1 then
+        value = 0
+    end
+
+    local vv = 0
+    local tx = TxBegin(pc);
+    local invItemList = GetInvItemList(pc);
+    for i = 1, #invItemList do
+        if invItemList[i].GroupName == "Card" then
+            TxSetIESProp(tx, invItemList[i], "ItemExp", value);
+        end
+    end
+    local ret = TxCommit(tx);
+end
+
+
+function TEST_ONMYOJI_HIDDEN_CLEAR(pc)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        for i = 1, 9 do
+            if sObj['Step'..i] == 1 then
+                if i == 6 then
+                    if sObj['Goal'..i] ~= 1000 then
+                        sObj['Goal'..i] = 1000
+                    end
+                elseif i == 9 then
+                    if sObj['Goal'..i] ~= 100 then
+                        sObj['Goal'..i] = 100
+                    end
+                else
+                    if sObj['Goal'..i] ~= 10 then
+                        sObj['Goal'..i] = 10
+                    end
+                end
+            end
+        end
+    end
+end
+
+function TEST_ONMYOJI_HIDDEN_RESETTING(pc, num1, num2)
+    if num1 == nil or num1 == 0 or num1 == "" and num2 == nil or num2 == 0 or num1 == "" then
+        return
+    end
+    local prop = SCR_SET_HIDDEN_JOB_PROP(pc, 'Char2_20', 0)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        DestroySessionObject(pc, sObj)
+    end
+    local cnt = GetInvItemCount(pc, "CHAR220_MSTEP1_ITEM1")
+    if cnt >= 1 then
+        RunScript('TAKE_ITEM_TX', pc, "CHAR220_MSTEP1_ITEM1", cnt, "Quest_HIDDEN_ONMYOJI");
+    end
+    sleep(500)
+    local sObj1 = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj1 == nil then
+        CreateSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    end
+    sleep(500)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        local tx = TxBegin(pc)
+        if GetInvItemCount(pc, "CHAR220_MSTEP1_ITEM1") < 1 then
+            TxGiveItem(tx,"CHAR220_MSTEP1_ITEM1", 1, 'Quest_HIDDEN_ONMYOJI');
+        end
+        local ret = TxCommit(tx)
+        if sObj['Step'..num1] ~= 1 then
+            sObj['Step'..num1] = 1
+        end
+        if sObj['Step'..num2] ~= 1 then
+            sObj['Step'..num2] = 1
+        end
+        SCR_SET_HIDDEN_JOB_PROP(pc, 'Char2_20', 10)
+        ShowOkDlg(pc, "CHAR220_MSETP1_DLG1", 1)
+        SaveSessionObject(pc, sObj)
+    end
+    if isHideNPC(pc, "ONMYOJI_MASTER") == "NO" then
+        HideNPC(pc, "ONMYOJI_MASTER")
+    end
+    if isHideNPC(pc, "CHAR220_MSETP2_4_NPC") == "NO" then
+        HideNPC(pc, "CHAR220_MSETP2_4_NPC")
+    end
+end
+
+function TEST_SERVER_LEG_CARD_OPEN(pc)
+	local pcEtc = GetETCObject(pc);
+		
+	local tx = TxBegin(pc)
+	TxSetIESProp(tx, pcEtc, 'IS_LEGEND_CARD_OPEN', 1)
+    SendAddOnMsg(pc, "MSG_PLAY_LEGENDCARD_OPEN_EFFECT", "", 0)
+	local ret = TxCommit(tx)
+end
+
+function TEST_MONSTER_HP_SET_PERCENT(self, arg1)
+    local x,y,z = GetPos(self)
+    local objList, objCount = SelectObjectPos(self, x, y, z, 100, 'ENEMY', 0, 0 ,0)
+    local per = arg1 / 100
+
+    for i = 1, objCount do
+	    local obj = objList[i];
+        obj.HP = obj.HP * per
+    end
+end
+
+function TEST_MON_DEBUFF_ALL(self)
+    local list, cnt = SelectObject(self, 50, "ALL", 1)
+
+    if cnt >= 1 then
+        for i = 1, cnt do
+            local target = list[i]
+            print(target.Name, target.DEF)
+            local bufflist = GetBuffList(target);
+            if target.Faction == 'Monster' then
+                AddBuff(self, target, 'UC_armorbreak', 1, 0, 60000, 1);
+                AddBuff(self, target, 'SpearLunge_Debuff', 5, 0, 60000, 1);
+                AddBuff(self, target, 'AttaqueCoquille_Debuff', 5, 0, 60000, 1);
+                AddBuff(self, target, 'Kagura_Debuff', 5, 0, 60000, 1);
+                AddBuff(self, target, 'Cleave_Debuff', 5, 0, 60000, 1);
+                AddBuff(self, target, 'ResistElements_Debuff', 15, 0, 60000, 1);
+                AddBuff(self, target, 'Hagalaz_Debuff', 1, 0, 60000, 1);
+                AddBuff(self, target, 'Conviction_Debuff', 5, 0, 60000, 1);
+                AddBuff(self, target, 'Hexing_Debuff', 15, 0, 60000, 1);
+                AddBuff(self, self, 'KaguraDance_Buff', 5, 0, 60000, 1);
+            end
+            for b = 1, #bufflist do
+                local buff = bufflist[b]
+                print(target.Name.." : "..buff.ClassName);
+            end
+        end
+    end
+end
+function SCR_TTTTT(self)
+    local maxHP = self.MHP
+    local nowHP = self.HP
+    local healHP = maxHP * 0.15
+    local prop = GetExProp(buff, 'useHeal')
+
+    for i = 1, maxHP do
+        if nowHP < maxHP then
+            Heal(self, math.floor(healHP) , 0);
+            break;
+        end
+        SetExProp(buff, 'useHeal', 1)
+    end
+        
+end
+
+--function SCR_VELLCOFFER_ENTER_01_DIALOG(self, pc)
+--
+----    if IS_GT_PARTYLEADER(pc) ~= 1 then
+----    print("11111")
+----        REQ_MOVE_TO_INDUN(pc, "Raid_Velcoffer_guard", 1);
+----        local select = ShowSelDlg(pc, 0, 'RAID_VELLCOFFER_ENTER', ScpArgMsg('RAIDBOSS_VELLCOFFER_MSG01'), ScpArgMsg('INSTANCE_DUNGEON_MSG02'))
+----        if select == 1 then
+----            SCR_SETPOS_FADEOUT(pc, 'd_raidboss_velcoffer', -1945, -17, 631)
+----        end
+----    end
+----end
+--
+--    local select = ShowSelDlg(pc, 1, 'RAID_VELLCOFFER_ENTER', ScpArgMsg('StartGame'), ScpArgMsg('Close'))
+--        if select == 1 then
+----        SendAddOnMsg(pc, "OPEN_DLG_REPAIR", "", 0);
+--        print("111111111")
+----            MoveZone(pc, "d_raidboss_velcoffer", -1809, -9, 556);
+--            AUTOMATCH_INDUN_DIALOG(pc, "INSTANCE_DUNGEON_select05", "Raid_Velcoffer_guard")
+--            print("실행하나")
+--    end
+--end
+function SCR_VELLCOFFER_ENTER_01_DIALOG(self, pc)
+
+    local dialog_list ={}
+    local dialog_ck = {}
+
+    dialog_list[#dialog_list+1] = ScpArgMsg("StartGame")
+    dialog_ck[#dialog_ck+1] = 'StartGame'
+
+
+    local select = SCR_SEL_LIST(pc, dialog_list, 'INSTANCE_GT_GROUNDTOWER_1')
+    print(SCR_SEL_LIST, pc, dialog_list)
+    local sel_dialog = dialog_ck[select]
+    print(sel_dialog)
+    
+    if sel_dialog == 'StartGame' then
+		INDUN_ENTER_DIALOG_AND_UI(pc, 'INSTANCE_GT_GROUNDTOWER_1', 'Raid_Velcoffer_guard', 0, 0);
+		print(pc, "INSTANCE_GT_GROUNDTOWER_1", "Raid_Velcoffer_guard", 0)
+		return;
+    end
 end

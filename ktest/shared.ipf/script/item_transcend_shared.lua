@@ -281,3 +281,70 @@ function GET_TRANSCEND_REMOVE_ITEM()
     return "Premium_deleteTranscendStone";
 end
 
+function GET_TRANSCEND_SCROLL_TYPE(scrollObj)
+    if IS_TRANSCEND_SCROLL_ITEM(scrollObj) ~= 1 then
+        return;
+    end
+
+    local scrollType = scrollObj.StringArg;
+    return scrollType;
+end
+
+function IS_TRANSCEND_SCROLL_ITEM(scrollObj)
+	local scrollType = TryGetProp(scrollObj, "StringArg");
+    local transcend = TryGetProp(scrollObj, "NumberArg1");
+    local percent = TryGetProp(scrollObj, "NumberArg2");
+    if scrollType == nil or transcend == nil or percent == nil then
+        return 0;
+    end
+
+	if scrollType == "transcend_Set" then
+		return 1;
+	elseif scrollType == "transcend_Add" then
+		return 1;
+	end
+	return 0;
+end
+
+function IS_TRANSCEND_SCROLL_ABLE_ITEM(itemObj, scrollType)
+    if scrollType == "transcend_Set" then
+        if IS_TRANSCEND_ITEM(itemObj) == 0 and IS_TRANSCEND_ABLE_ITEM(itemObj) == 1 then
+            return 1;
+        else
+            return 0;
+        end
+    elseif scrollType == "transcend_Add" then
+        if IS_TRANSCEND_ABLE_ITEM(itemObj) == 1 then
+            return 1;
+        else
+            return 0;
+        end
+    end
+    return 0;
+end
+
+function GET_ANTICIPATED_TRANSCEND_SCROLL_SUCCESS(itemObj, scrollObj)
+    if IS_TRANSCEND_SCROLL_ITEM(scrollObj) ~= 1 then
+        return;
+    end
+    local scrollType = scrollObj.StringArg;
+    if IS_TRANSCEND_SCROLL_ABLE_ITEM(itemObj, scrollType) ~= 1 then
+        return;
+    end
+    
+    local transcend = scrollObj.NumberArg1;
+    local percent = scrollObj.NumberArg2;
+    if scrollType == nil or transcend == nil or percent == nil then
+        return;
+    end
+    
+    if scrollType == "transcend_Set" then
+        return transcend, percent;
+    elseif scrollType == "transcend_Add" then
+        local curTranscend = 0;
+        if IS_TRANSCEND_ITEM(itemObj) == 1 then
+            curTranscend = itemObj.Transcend;
+        end
+        return curTranscend + transcend, percent;
+    end
+end

@@ -1,4 +1,4 @@
---skill_buff_pc.lua
+﻿--skill_buff_pc.lua
 
 function SCR_SKILL_BUFF(self, from, skill, splash, ret)    
     NO_HIT_RESULT(ret);
@@ -5502,8 +5502,8 @@ function SCR_FEINT_ABIL(self, caster)
     sleep(300);
 
     if IS_PC(self) == false then
-        HoldMonScp(self)
-    end
+            HoldMonScp(self)
+        end
     
     SetDirectionByAngle(self, casterDir)
     
@@ -11412,7 +11412,7 @@ function SCR_BUFF_ENTER_1InchPunch_Debuff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_UPDATE_1InchPunch_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
-
+    
     if IS_PC(self) == true then
         AddSP(self, -(self.MSP * 0.1 * arg1))
     end
@@ -15524,24 +15524,65 @@ function SCR_BUFF_LEAVE_MusketAttack_CoolDown_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_EquipDesrption_Debeff(self, buff, arg1, arg2, over)
-    local equipAddDef = 500 + arg1 * 100
-    if IS_PC(self) == false then
-        self.DEF_BM = self.DEF_BM - equipAddDef
-        SetExProp(buff, "EQUIPDESRPTION_DEF", equipAddDef)
-    else
-       UnEquipItemSpot(self, "SHIRT")
---       local DesrptionItem = GetEquipItem(self, "LH");
---       if DesrptionItem.ClassType == "Shield" then 
---          UnEquipItemSpot(self, "LH")
---       end
+    local equipAddDefRate = 0.25
+    SetExProp(buff, "EQUIPDESRPTION_ADDDEF_RATE", equipAddDefRate);
+    self.DEF_RATE_BM = self.DEF_RATE_BM - equipAddDefRate;
+    
+    if IS_PC(self) == true then
+    	local caster = GetBuffCaster(buff)
+    	if caster ~= nil then
+    		local abilRetiarii7 = GetAbility(caster, "Retiarii7")
+    		if abilRetiarii7 ~= nil and abilRetiarii7.ActiveState == 1 then
+		        local buffList = GetBuffList(self);
+		        for i = 1, #buffList do
+		            local buffKeyword = TryGetProp(buffList[i], "Keyword");
+		            if buffKeyword == "Helmet" then
+		                RemoveBuff(self, buffList[i].ClassName);
+		            end
+		        end
+		    end
+	        
+	        local DesrptionItem = GetEquipItem(self, "LH");
+	        if DesrptionItem.ClassType == "Shield" then 
+	            UnEquipItemSpot(self, "LH")
+	            EnableEquipItemBySlot(self, "LH", 0);
+	        end
+	    end
     end
 end
 
-function SCR_BUFF_LEAVE_EquipDesrption_Debeff(self, buff, arg1, arg2, over)
-    if IS_PC(self) == false then
-        self.DEF_BM = self.DEF_BM + GetExProp(buff, "EQUIPDESRPTION_DEF")
+function SCR_BUFF_UPDATE_EquipDesrption_Debeff(self, buff, arg1, arg2, over)
+    local DesrptionItem = GetEquipItem(self, "LH");
+    if DesrptionItem.ClassType == "Shield" then
+        UnEquipItemSpot(self, "LH")
+        EnableEquipItemBySlot(self, "LH", 0);
     end
+    
+    return 1;
 end
+
+function SCR_BUFF_LEAVE_EquipDesrption_Debeff(self, buff, arg1, arg2, over)
+    self.DEF_RATE_BM = self.DEF_RATE_BM + GetExProp(buff, "EQUIPDESRPTION_ADDDEF_RATE");
+    EnableEquipItemBySlot(self, "LH", 1);
+end
+
+function SCR_BUFF_ENTER_DaggerGuard_Buff(self, buff, arg1, arg2, over)
+    SetExProp(self, "DAGGERGUARD_COUNT", 15)
+end
+
+function SCR_BUFF_UPDATE_DaggerGuard_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    local equipLH = GetEquipItem(self, "LH");
+    if TryGetProp(equipLH, "GroupName") ~= "SubWeapon" then
+        return 0;
+    end
+    
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_DaggerGuard_Buff(self, buff, arg1, arg2, over)
+    
+end
+
 
 function SCR_BUFF_ENTER_FlameGround_Debuff(self, buff, arg1, arg2, over)
     local caster = GetBuffCaster(buff)
@@ -15718,6 +15759,116 @@ function SCR_BUFF_LEAVE_SpiritShock_Debuff(self, buff, arg1, arg2, over)
 	self.MDEF_RATE_BM = self.MDEF_RATE_BM + abilMdef
 end
 
+function SCR_BUFF_ENTER_Achieve_Possession_Buff(self, buff, arg1, arg2, over)
+    local achieve_grade, cnt = GetClassList("AchieveStatReward")
+    local AchieveStatReward_Grade_Value = 0
+    
+    --application grade check
+    local grade_cnt = 0
+    for i = 1, cnt -1 do
+        local cls = GetClassByIndexFromList(achieve_grade, i);
+        if cls.AchieveCount <= GetAchieveCount(self) then 
+            grade_cnt = grade_cnt + 1
+        else
+            break;
+        end
+    end
+    
+    --application grade buff
+    --print(grade_cnt)
+    if grade_cnt >= 1 then
+        local cls = GetClassByIndexFromList(achieve_grade, grade_cnt);
+        AchieveStatReward_Grade_Value = grade_cnt
+        local stradd = cls.STR_BM
+        local conadd = cls.CON_BM
+        local intadd = cls.INT_BM
+        local mnaadd = cls.MNA_BM
+        local dexadd = cls.DEX_BM
+        
+        local patkadd = cls.PATK_BM
+        local matkadd = cls.MATK_BM
+        local defadd = cls.DEF_BM
+        local mdefkadd = cls.MDEF_BM
+        local mspadd = cls.MSP_BM
+            
+        self.STR_BM = self.STR_BM + stradd
+        self.CON_BM = self.CON_BM + conadd
+        self.INT_BM = self.INT_BM + intadd
+        self.MNA_BM = self.MNA_BM + mnaadd
+        self.DEX_BM = self.DEX_BM + dexadd
+        
+        self.PATK_BM = self.PATK_BM + patkadd
+        self.MATK_BM = self.MATK_BM + matkadd
+        self.DEF_BM = self.DEF_BM + defadd
+        self.MDEF_BM = self.MDEF_BM + mdefkadd
+        self.MSP_BM = self.MSP_BM + mspadd
+        
+        SetExProp(buff, "ACHIEVE_ADD_STR", stradd);
+        SetExProp(buff, "ACHIEVE_ADD_CON", conadd);
+        SetExProp(buff, "ACHIEVE_ADD_INT", intadd);
+        SetExProp(buff, "ACHIEVE_ADD_MNA", mnaadd);
+        SetExProp(buff, "ACHIEVE_ADD_DEX", dexadd);
+        
+        SetExProp(buff, "ACHIEVE_ADD_PATK", patkadd);
+        SetExProp(buff, "ACHIEVE_ADD_MATK", matkadd);
+        SetExProp(buff, "ACHIEVE_ADD_DEF", defadd);
+        SetExProp(buff, "ACHIEVE_ADD_MDEF", mdefkadd);
+        SetExProp(buff, "ACHIEVE_ADD_MSP", mspadd);
+        
+            -- prop confirmation --
+        print("SUM VALUE : "..stradd, conadd, intadd, mnaadd, dexadd, patkadd, matkadd, defadd, mdefkadd, mspadd)
+--        print("BM VALUE : "..self.STR_BM, self.CON_BM, self.INT_BM, self.MNA_BM,self.DEX_BM, self.PATK_BM, self.MATK_BM , self.DEF_BM, self.MDEF_BM, self.MSP_BM)
+        RunScript("ACHIEVE_POSSESSION_REWARD_FUNC", self, buff, AchieveStatReward_Grade_Value)
+    end
+end
+
+function SCR_BUFF_LEAVE_Achieve_Possession_Buff(self, buff, arg1, arg2, over)
+    local stradd = GetExProp(buff, "ACHIEVE_ADD_STR");
+    local conadd = GetExProp(buff, "ACHIEVE_ADD_CON");
+    local intadd = GetExProp(buff, "ACHIEVE_ADD_INT");
+    local mnaadd = GetExProp(buff, "ACHIEVE_ADD_MNA");
+    local dexadd = GetExProp(buff, "ACHIEVE_ADD_DEX");
+    
+    local patkadd = GetExProp(buff, "ACHIEVE_ADD_PATK");
+    local matkadd = GetExProp(buff, "ACHIEVE_ADD_MATK");
+    local defadd = GetExProp(buff, "ACHIEVE_ADD_DEF");
+    local mdefkadd = GetExProp(buff, "ACHIEVE_ADD_MDEF");
+    local mspadd = GetExProp(buff, "ACHIEVE_ADD_MSP");
+    
+--    print("buff over discount stat "..stradd, conadd, intadd, mnaadd, dexadd, patkadd, matkadd, defadd, mdefkadd, mspadd)
+    self.STR_BM = self.STR_BM - stradd;
+    self.CON_BM = self.CON_BM - conadd;
+    self.INT_BM = self.INT_BM - intadd;
+    self.MNA_BM = self.MNA_BM - mnaadd;
+    self.DEX_BM = self.DEX_BM - dexadd;
+    
+    self.PATK_BM = self.PATK_BM - patkadd
+    self.MATK_BM = self.MATK_BM - matkadd
+    self.DEF_BM = self.DEF_BM - defadd
+    self.MDEF_BM = self.MDEF_BM - mdefkadd
+    self.MSP_BM = self.MSP_BM - mspadd
+    
+--    print("buff over "..self.STR_BM, self.CON_BM, self.INT_BM, self.MNA_BM, self.DEX_BM, self.PATK_BM, self.MATK_BM, self.DEF_BM, self.MDEF_BM, self.MSP_BM)
+end
+
+function ACHIEVE_POSSESSION_REWARD_FUNC(self, buff, AchieveStatReward_Grade_Value)
+    local etc = GetETCObject(self);
+    if etc ~= nil then
+        if AchieveStatReward_Grade_Value > etc["AchieveStatReward_Grade"] then
+            local tx = TxBegin(self);
+            TxSetIESProp(tx, etc, "AchieveStatReward_Grade", AchieveStatReward_Grade_Value);
+            local ret = TxCommit(tx);
+            if ret == "SUCCESS" then
+                --print("ACHIEVE_POSSESSION_REWARD_Count :"..AchieveStatReward_Grade_Value)
+                SetExProp(self, "Achieve_Grade", AchieveStatReward_Grade_Value);
+            else
+                print("tx FAIL!")
+            end
+            --print(etc["AchieveStatReward_Grade"])
+        end
+        SetBuffArg(self, buff, AchieveStatReward_Grade_Value, 0, 0) --for BUFF_TOOLTIP
+    end
+end
 
 function SCR_BUFF_ENTER_ProvocationImmunity_Debuff(self, buff, arg1, arg2, over)
     
@@ -15787,10 +15938,168 @@ function SCR_BUFF_LEAVE_sabath_buff(self, buff, arg1, arg2, over)
 	
 end
 
+
 function SCR_BUFF_ENTER_ElevateMagicSquare_Buff(self, buff, arg1, arg2, over)
 	
 end
 
 function SCR_BUFF_LEAVE_ElevateMagicSquare_Buff(self, buff, arg1, arg2, over)
 	
+end
+
+
+function SCR_BUFF_ENTER_GreenwoodShikigami_Debuff(self, buff, arg1, arg2, over)
+	local moveSpeed = 0
+	local caster = GetBuffCaster(buff)
+	if caster ~= nil then
+		moveSpeed = 10
+		
+		local abilOnmyoji5 = GetAbility(caster, "Onmyoji5")
+		if abilOnmyoji5 ~= nil and abilOnmyoji5.ActiveState == 1 then
+			local abilBuffUpdateTime = 1000 - (abilOnmyoji5.Level * 100)
+			SetBuffUpdateTime(buff, abilBuffUpdateTime)
+		end
+	end
+	
+	self.MSPD_BM = self.MSPD_BM - moveSpeed
+	
+	SetExProp(buff, "GREENWOOD_MOVESPEED", moveSpeed)
+end
+
+function SCR_BUFF_UPDATE_GreenwoodShikigami_Debuff(self, buff, arg1, arg2, over)
+	local caster = GetBuffCaster(buff)
+	if caster ~= nil then
+		local abilOnmyoji5 = GetAbility(caster, "Onmyoji5")
+		if abilOnmyoji5 ~= nil and abilOnmyoji5.ActiveState == 1 then
+			local damage = GET_SKL_DAMAGE(caster, self, "Onmyoji_GreenwoodShikigami")
+			local skill = GetSkill(caster, "Onmyoji_GreenwoodShikigami")
+			if skill ~= nil then
+				TakeDamage(caster, self, skill.ClassName, damage, "Earth", "Magic", "Magic")
+			end
+		end
+	end
+	
+	return 1;
+end
+
+function SCR_BUFF_LEAVE_GreenwoodShikigami_Debuff(self, buff, arg1, arg2, over)
+	local moveSpeed = GetExProp(buff, "GREENWOOD_MOVESPEED")
+	
+	self.MSPD_BM = self.MSPD_BM + moveSpeed
+end
+
+
+function SCR_BUFF_ENTER_GenbuArmor_Buff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_UPDATE_GenbuArmor_Buff(self, buff, arg1, arg2, over)
+	local selfSP = TryGetProp(self, "SP")
+	if selfSP <= 0 then
+		return 0;
+	end
+	
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_GenbuArmor_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_ENTER_WhiteTigerHowling_Buff(self, buff, arg1, arg2, over)
+	local moveSpeed = 0
+	local caster = GetBuffCaster(buff)
+	if caster ~= nil then
+		local abilOnmyoji8 = GetAbility(caster, "Onmyoji8")
+		if abilOnmyoji8 ~= nil and abilOnmyoji8.ActiveState == 1 then
+			 moveSpeed = 10
+		end
+	end
+	
+	self.MSPD_BM = self.MSPD_BM + moveSpeed
+	
+	SetExProp(buff, "WHITETIGER_MOVESPEED", moveSpeed)
+end
+
+function SCR_BUFF_LEAVE_WhiteTigerHowling_Buff(self, buff, arg1, arg2, over)
+	local moveSpeed = GetExProp(buff, "WHITETIGER_MOVESPEED")
+	
+	self.MSPD_BM = self.MSPD_BM - moveSpeed
+end
+
+
+function SCR_BUFF_ENTER_Toyou_Debuff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_LEAVE_Toyou_Debuff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_ENTER_VitalProtection_Buff(self, buff, arg1, arg2, over)
+    local addCrtDr = 0;
+    local skill = GetSkill(self, "Retiarii_VitalPointProtection");
+    if skill ~= nil then
+        addCrtDr = 50 + TryGetProp(skill, "Level") * 20;
+        self.CRTDR_BM = self.CRTDR_BM + addCrtDr;
+        SetExProp(buff, "VitalProtection_addCrtDr", addCrtDr);
+    end
+end
+
+function SCR_BUFF_LEAVE_VitalProtection_Buff(self, buff, arg1, arg2, over)
+	local addCrtDr = GetExProp(buff, "VitalProtection_addCrtDr");
+	self.CRTDR_BM = self.CRTDR_BM - addCrtDr;
+end
+
+function SCR_BUFF_ENTER_FishingNetsDraw_Debuff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_LEAVE_FishingNetsDraw_Debuff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_ENTER_ThrowingFishingNet_Debuff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_LEAVE_ThrowingFishingNet_Debuff(self, buff, arg1, arg2, over)
+
+end
+
+
+function SCR_BUFF_ENTER_FireFoxShikigami_Buff(self, buff, arg1, arg2, over)
+	local skillPsychicPressure = GetSkill(self, "Psychokino_PsychicPressure")
+	if skillPsychicPressure ~= nil then
+		skillPsychicPressure.Attribute = "Fire"
+	end
+end
+
+function SCR_BUFF_UPDATE_FireFoxShikigami_Buff(self, buff, arg1, arg2, over)
+	local fireFoxList, fireFoxCnt = GetFollowerList(self)
+	for i = 1, fireFoxCnt do
+		if fireFoxList[i].ClassName == "pcskill_FireFoxShikigami" then
+			if fireFoxList[i] == nil then
+				return 0;
+			end
+		end
+	end
+	
+	return 1;
+end
+
+function SCR_BUFF_LEAVE_FireFoxShikigami_Buff(self, buff, arg1, arg2, over)
+	local skillPsychicPressure = GetSkill(self, "Psychokino_PsychicPressure")
+	if skillPsychicPressure ~= nil then
+		skillPsychicPressure.Attribute = "Soul"
+	end
+end
+
+function SCR_BUFF_ENTER_VitalProtection_Leave_Buff(self, buff, arg1, arg2, over)
+    RemoveBuff(self, "VitalProtection_Buff");
+    self.MaxDefenced_BM = self.MaxDefenced_BM + 1;
+end
+
+function SCR_BUFF_LEAVE_VitalProtection_Leave_Buff(self, buff, arg1, arg2, over)
+    self.MaxDefenced_BM = self.MaxDefenced_BM - 1;
 end

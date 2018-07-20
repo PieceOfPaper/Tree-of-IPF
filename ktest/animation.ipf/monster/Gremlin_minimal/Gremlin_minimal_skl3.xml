@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="25" attachNode="Bip001 Spine1" particleName="I_spread_in011_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="35" attachNode="Bip001 Spine1" particleName="I_spread_in011_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="25" attachNode="Dummy_effect_lip" particleName="F_drop001_alpha" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="75" attachNode="Dummy_effect_lip" particleName="F_drop001_alpha" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="75" attachNode="Dummy_effect_lip" particleName="F_drop_water001_alpha" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="75" attachNode="Dummy_effect_body" particleName="I_circle010" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="75" attachNode="Dummy_emitter" particleName="F_spread_out032_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="53" attachNode="Bip001 R Hand" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="53" attachNode="Bip001 L Hand" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_voice5_l_dead_3"/>
+	<Sound frame="12.00" soundFile="mon_bramble_atk_ready"/>
+	<Sound frame="45.00" soundFile="mon_bramble_skl_ready"/>
+	<Sound frame="65.00" soundFile="mon_voice_hog_8"/>
+	<Sound frame="68.00" soundFile="mon_chapparition_dead"/>
+</ActionDesc>

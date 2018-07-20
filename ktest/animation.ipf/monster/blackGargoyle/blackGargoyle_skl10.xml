@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="13.00" soundFile="mon_molich_skl_ready"/>
+    <Sound frame="15.00" soundFile="mon_voice_screech_2"/>
+    <Sound frame="20.00" soundFile="skl_eff_gotsmash_boom"/>
+    <Sound frame="21.51" soundFile="skl_eff_spread_2"/>
+    <Particle frame="23" attachNode="Dummy_effect_mouth" particleName="F_drop001_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="25" type="2" intensity="20" frequency="70" duration="1" range="1000"/>
+    <BlendOn frame="25" R="150" G="150" B="100" A="100"/>
+    <Particle frame="25" attachNode="Dummy_emitter" particleName="F_explosion098_dark_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_emitter" particleName="F_lineup017_red2" useAttach="false" hiddenObj="false" changeEffect="None" scale="30" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_effect_angry_mouth" particleName="F_blood002_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_effect_mouth2" particleName="F_burstup012_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_eye_L" particleName="F_light052_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_eye_R" particleName="F_light052_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="26" R="100" G="100" B="100" A="50"/>
+    <BlendOff frame="29" R="0" G="0" B="0" A="0"/>
+    <Particle frame="30" attachNode="Dummy_emitter" particleName="F_lineup017_red2" useAttach="false" hiddenObj="false" changeEffect="None" scale="40" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_mouth2" particleName="F_burstup012_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="35" type="2" intensity="3" frequency="60" duration="1.5" range="1000"/>
+    <Particle frame="35" attachNode="Dummy_emitter" particleName="F_lineup017_red2" useAttach="false" hiddenObj="false" changeEffect="None" scale="50" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="35" attachNode="Dummy_effect_mouth2" particleName="F_burstup012_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="35.00" soundFile="mon_molich_astd"/>
+    <Sound frame="40.00" soundFile="skl_eff_atk_move_l_2"/>
+    <Particle frame="50" attachNode="Bip001 L Hand" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 L Hand" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 R Hand" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Dummy_emitter" particleName="F_levitation007_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 Spine1" particleName="F_levitation007_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

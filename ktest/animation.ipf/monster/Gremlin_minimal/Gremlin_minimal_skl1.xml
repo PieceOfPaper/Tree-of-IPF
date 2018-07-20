@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="6.00" soundFile="mon_voice_rootopus_skl_1"/>
+    <Sound frame="10.00" soundFile="mon_chapparition_skl_2"/>
+    <Particle frame="15" attachNode="Bip001 L Hand" particleName="I_cleric_1inchpunch_cast_smoke_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="15" attachNode="Bip001 R Hand" particleName="I_cleric_1inchpunch_cast_smoke_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_emitter" particleName="F_spread_in027_orange_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_effect_lip" particleName="F_drop001_alpha" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_effect_lip" particleName="F_drop_water001_alpha" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_effect_lip" particleName="F_drop_water001_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_effect_lip" particleName="F_drop001_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="40" attachNode="Dummy_emitter" particleName="F_spread_in027_orange_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="45.00" soundFile="mon_goblinwarrior_wlk_voice"/>
+    <Particle frame="50" attachNode="Bip001 L Hand" particleName="I_cleric_1inchpunch_cast_smoke_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 R Hand" particleName="I_cleric_1inchpunch_cast_smoke_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="60.00" soundFile="mon_voice_hog_8"/>
+    <Sound frame="60.00" soundFile="mon_voice_hog_12"/>
+    <Sound frame="65.00" soundFile="skl_eff_atk_sperad"/>
+    <Sound frame="70.00" soundFile="swd_blow_flesh1--"/>
+    <Shockwave frame="76" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <BlendOn frame="76" R="150" G="150" B="100" A="100"/>
+    <Particle frame="76" attachNode="Dummy_emitter" particleName="F_spread_out038_orange_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="76" attachNode="Dummy_emitter" particleName="F_smoke022" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false" sound="skl_eff_shot_smoke"/>
+    <Particle frame="76" attachNode="Dummy_effect_skl" particleName="F_explosion035_yellow1" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <BlendOn frame="77" R="200" G="200" B="150" A="200"/>
+    <BlendOn frame="78" R="0" G="0" B="0" A="50"/>
+    <Sound frame="80.00" soundFile="skl_eff_skyline_spread"/>
+    <Sound frame="80.00" soundFile="swd_blow_flesh1--"/>
+    <Particle frame="85" attachNode="Bip001 L Hand" particleName="I_smoke051_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="85" attachNode="Bip001 R Hand" particleName="I_smoke051_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Shockwave frame="89" type="2" intensity="10" frequency="70" duration="0.5" range="1000"/>
+    <BlendOn frame="89" R="150" G="150" B="100" A="100"/>
+    <Particle frame="89" attachNode="Dummy_emitter" particleName="F_smoke022" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false" sound="skl_eff_shot_smoke"/>
+    <Particle frame="89" attachNode="Dummy_effect_skl" particleName="F_explosion035_yellow1" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <BlendOn frame="90" R="200" G="200" B="150" A="200"/>
+    <BlendOff frame="91" R="0" G="0" B="0" A="0"/>
+    <Particle frame="100" attachNode="Dummy_effect_lip" particleName="F_drop_water001_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="110" attachNode="Bip001 L Hand" particleName="I_smoke051_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="110" attachNode="Bip001 R Hand" particleName="I_smoke051_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+</ActionDesc>

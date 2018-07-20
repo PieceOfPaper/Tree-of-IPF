@@ -15850,38 +15850,31 @@ function SCR_Get_SkillFactor_FireFoxShikigami(skill)
     return math.floor(value)
 end
 
+
 function SCR_Get_SkillFactor_FireFoxShikigami_Summon(skill)
-    local pc = GetSkillOwner(skill);
-	local owner = GetOwner(pc)
-	local skillFireFoxShikigami = GetSkill(owner, "Onmyoji_FireFoxShikigami")
-	if skillFireFoxShikigami == nil then
-		skillFireFoxShikigami = 1
+	local value = 0
+    local fireFox = GetSkillOwner(skill);
+	local owner = GetOwner(fireFox)
+	if owner ~= nil then
+		local skillFireFoxShikigami = GetSkill(owner, "Onmyoji_FireFoxShikigami")
+		if skillFireFoxShikigami ~= nil then
+			value = skillFireFoxShikigami.SkillFactor
+		end
 	end
-	
-    local value = skill.SklFactor + (skillFireFoxShikigami.Level - 1) * skill.SklFactorByLevel;
-	
-    local abil = GetAbility(owner, "Onmyoji1")
-    if abil ~= nil then
-        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
-    end
 	
     return math.floor(value)
 end
 
 function SCR_Get_SkillFactor_FireFoxShikigami2_Summon(skill)
-    local pc = GetSkillOwner(skill);
-	local owner = GetOwner(pc)
-	local skillFireFoxShikigami = GetSkill(owner, "Onmyoji_FireFoxShikigami")
-	if skillFireFoxShikigami == nil then
-		skillFireFoxShikigami = 1
+	local value = skill.SklFactor
+    local fireFox = GetSkillOwner(skill);
+	local owner = GetOwner(fireFox)
+	if owner ~= nil then
+		local skillFireFoxShikigami = GetSkill(owner, "Onmyoji_FireFoxShikigami")
+		if skillFireFoxShikigami ~= nil then
+			value = skillFireFoxShikigami.SkillFactor
+		end
 	end
-	
-    local value = skill.SklFactor + (skillFireFoxShikigami.Level - 1) * skill.SklFactorByLevel;
-	
-    local abil = GetAbility(owner, "Onmyoji1")
-    if abil ~= nil then
-        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
-    end
 	
     return math.floor(value)
 end

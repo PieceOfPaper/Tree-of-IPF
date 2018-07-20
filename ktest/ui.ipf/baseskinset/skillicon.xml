@@ -606,6 +606,13 @@
 		<image name="icon_summon_Common_ForcedAttackCancel" file="\icon\skill\summon\icon_summon_Common_ForcedAttackCancel.png" imgrect="0 0 128 128" CMM_Caption="소환수 강제 공격 취소"/>
 		<image name="icon_summon_Common_SummonRemove" file="\icon\skill\summon\icon_summon_Common_SummonRemove.png" imgrect="0 0 128 128" CMM_Caption="소환 전체 해제"/>
 	</imagelist>
+	<imagelist category="common_skillicon">
+		<image name="Icon_common_velcoffer_gyvenimas" file="\icon\skill\common\Icon_common_velcoffer_gyvenimas.png" imgrect="0 0 128 128" CMM_Caption="가베니"/>
+		<image name="Icon_common_velcoffer_Kraujas" file="\icon\skill\common\Icon_common_velcoffer_Kraujas.png" imgrect="0 0 128 128" CMM_Caption="카루자"/>
+		<image name="Icon_common_velcoffer_Mergaite" file="\icon\skill\common\Icon_common_velcoffer_Mergaite.png" imgrect="0 0 128 128" CMM_Caption="메가테"/>
+		<image name="Icon_common_velcoffer_sumazinti" file="\icon\skill\common\Icon_common_velcoffer_sumazinti.png" imgrect="0 0 128 128" CMM_Caption="슈마진"/>
+		<image name="Icon_common_velcoffer_tiksline" file="\icon\skill\common\Icon_common_velcoffer_tiksline.png" imgrect="0 0 128 128" CMM_Caption="티크라스"/>
+	</imagelist>
 	<imagelist category="restquickslot_icon">
 		<image name="icon_rest_arrow" file="\icon\rest_mode_icon.tga" imgrect="0 0 128 128" CMM_Caption="화살제작"/>
 		<image name="icon_rest_fire" file="\icon\rest_mode_icon.tga" imgrect="128 0 128 128" CMM_Caption="모닥불설치"/>
