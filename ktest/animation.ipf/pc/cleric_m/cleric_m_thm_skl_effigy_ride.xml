@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by d (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_effigy_doll" particleName="I_cleric_effigy_shot_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.25" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_effigy1" particleName="F_cleric_effigy_shot_blooding" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_effigy2" particleName="F_cleric_effigy_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<AttachModel frame="0" XAC="artefact_kozuza_set" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="0" anim="none"/>
+	<Sound frame="4.00" soundFile="skl_fgt_tackle_shot"/>
+</ActionDesc>

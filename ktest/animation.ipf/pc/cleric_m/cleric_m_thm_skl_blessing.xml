@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="3.00" soundFile="skl_archer_stealth"/>
+	<Sound frame="8.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="13.00" soundFile="skl_cleric_buff_end"/>
+	<Particle frame="0" attachNode="Dummy_effect_l_hand" particleName="F_cleric_blessing_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_r_hand" particleName="F_cleric_blessing_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true"/>
+</ActionDesc>

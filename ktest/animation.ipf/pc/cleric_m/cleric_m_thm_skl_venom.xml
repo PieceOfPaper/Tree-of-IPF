@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="0.00" soundFile="skl_eff_energyblast_cast"/>
+	<Sound frame="1.00" soundFile="atk_cloth_s_l1"/>
+	<Sound frame="10.00" soundFile="skl_fgt_tackle_shot"/>
+	<Particle frame="0" attachNode="Dummy_effect_effigy_doll" particleName="I_cleric_venom_cast_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_cleric_venom_cast_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+</ActionDesc>

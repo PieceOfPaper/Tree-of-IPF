@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="fishing" x="0" y="0" width="450" height="330" create="open">
+<uiframe name="fishing" x="0" y="0" width="520" height="325" create="open">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin="test_win_system"/>
 	<frame title="" fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
@@ -12,7 +12,10 @@
 	<controls>
 		<button name="startBtn" rect="0 0 150 50" margin="-80 0 0 20" layout_gravity="center bottom" caption="{@st42b}시작{/}" skin="test_red_button" LBtnUpScp="FISHING_START_LBTN_CLICK"/>
 		<button name="cancelBtn" rect="0 0 150 50" margin="80 0 0 20" layout_gravity="center bottom" caption="{@st42b}취소{/}" skin="test_gray_button" LBtnUpScp="FISHING_CANCEL_LBTN_CLICK"/>
-		<richtext name="infoText" rect="0 0 600 30" margin="0 80 0 0" layout_gravity="center top" caption="낚시를 시작합니다. 사용할 미끼를 올려주세요." fontname="brown_18_b"/>
-		<slot name="pasteBaitSlot" rect="0 0 100 100" margin="0 10 0 0" layout_gravity="center center" skin="invenslot2" DropScp="FISHING_DROP_PASTE_BAIT" PopScp="FISHING_POP_PASTE_BAIT" dropsound="icon_get_down" oversound="button_cursor_over_3" picksound="icon_pick_up" texttooltip="미끼를 올려주세요"/>
+		<richtext name="infoText" rect="0 0 600 30" margin="0 80 0 0" layout_gravity="center top" caption="낚시를 시작합니다. 사용할 미끼를 선택해주세요." fontname="brown_18_b"/>
+		<groupbox name="slotBox" rect="0 0 385 80" margin="0 15 0 0" layout_gravity="center center" draw="false"/>
+		<slotset name="pasteBaitSlotset" rect="0 0 800 80" parent="slotBox" margin="0 0 0 0" layout_gravity="left center" row="1" col="10" size="75 75" skin="invenslot2" spc="2 2" cursoronresize="false" dropsound="icon_get_down" hideindrag="true" maxselect="1" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" visible="true" enableselect="true" enablepop="false" selectmode="msgbox" selectedimage="socket_slot_check"/>
+		<button name="leftBtn" rect="0 0 40 80" margin="20 10 0 0" layout_gravity="left center" image="button_left_select2" LBtnUpScp="FISHING_LEFT_BTN_CLICK"/>
+		<button name="rightBtn" rect="0 0 40 80" margin="0 10 20 0" layout_gravity="right center" image="button_right_select2" LBtnUpScp="FISHING_RIGHT_BTN_CLICK"/>
 	</controls>
 </uiframe>

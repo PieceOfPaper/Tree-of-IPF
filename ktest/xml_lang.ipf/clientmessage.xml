@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -175,6 +175,7 @@
 		<Class ClassID="3042" ClassName="RecipeGroup_Dagger" Data="단검"/>
 		<Class ClassID="3043" ClassName="RecipeGroup_Musket" Data="머스킷"/>
 		<Class ClassID="3044" ClassName="CannotUseLifeTimeOverItem" Data="사용기간이 만료된 아이템은 재료로 사용할 수 없습니다."/>
+		<Class ClassID="3045" ClassName="RecipeGroup_THMace" Data="양손둔기"/>
 	</Category>
 	<Category Name="ItemPuzzle">
 		<Class ClassID="3501" ClassName="WouldYouSelectThisCombinationAsAlchemystryTarget?" Data="이 조합을 연금 대상으로 선택합니까?"/>
@@ -322,7 +323,9 @@
 		<Class ClassID="4139" ClassName="{Item}UnlockSuccess" Data="{Item} 아이템의 잠금이 해제되었습니다."/>
 		<Class ClassID="4140" ClassName="YouDontHaveEquipAbility" Data="착용할 수 있는 특성이 없습니다."/>
     <Class ClassID="4141" ClassName="ThisIsEndedEvent" Data="종료 기한이 지난 이벤트입니다."/>
-	</Category>
+	<Class ClassID="4142" ClassName="THMace" Data="양손둔기"/>
+		<Class ClassID="4143" ClassName="Event_Select_Acc_Box_Title" Data="슈페리어 브레이슬릿(15일) 상자"/>
+		</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
 		<Class ClassID="5002" ClassName="WhenEquipToWeapon" Data="무기 장착 시 효과"/>
@@ -716,7 +719,7 @@
 		<Class ClassID="10330" ClassName="{Price}NXPConsumedToHire{Minute}Continue?" Data="{Minute}분 고용하는데 {Price}TP가 소모됩니다. 계속하시겠습니까?"/>
 		<Class ClassID="10331" ClassName="FireSoldier" Data="헬퍼 해고"/>
 		<Class ClassID="10332" ClassName="YouCannotGetBackHireMoney_ReallyFire?" Data="고용비용을 돌려받을 수 없습니다. 정말 해고하시겠습니까?"/>
-		<Class ClassID="10333" ClassName="WrongDropItem" Data="기간이 만료된 아이템이거나 등록할 수 없는 아이템입니다.."/>
+		<Class ClassID="10333" ClassName="WrongDropItem" Data="기간이 만료된 아이템이거나 등록할 수 없는 아이템입니다."/>
 		<Class ClassID="10334" ClassName="shoptutorial_Rclick" Data="{gr gradation2}{s19}{ol}{b}{#ffcc00}우측 클릭 : 판매/구매 버튼{/}{/}{nl}한 아이템을 여러 개 판매하고 싶다면 Shift+우클릭을 하세요.{nl}더블 우클릭시 전체 판매를 할 수 있습니다."/>
 		<Class ClassID="10335" ClassName="LowWeaponStar" Data="소비재료는 합성무기보다 사용 레벨이 높거나 같아야 합니다."/>
 		<Class ClassID="10336" ClassName="ThisItemIsNotAbleToWakenUp" Data="이 아이템은 각성이 불가능합니다."/>
@@ -831,11 +834,15 @@
 		<Class ClassID="10464" ClassName="CantMoveZoneWhileMatching" Data="매칭 요청 중에는 맵 이동을 할 수 없습니다."/>
 		<Class ClassID="10465" ClassName="OwnerInventoryFull" Data="봉헌함 주인의 인벤토리가 가득 찼습니다."/>
 		<Class ClassID="10466" ClassName="ConfirmExchange" Data="교환하시겠습니까?"/>
-    <Class ClassID="10467" ClassName="CantEquipMonsterCard" Data="동일한 등급의 카드를 더 이상 장착할 수 없습니다."/>
-	<Class ClassID="10468" ClassName="NotExistFieldBossInSpot" Data="해당 지역에 필드보스가 없습니다."/>
+		<Class ClassID="10467" ClassName="CantEquipMonsterCard" Data="동일한 그룹의 카드를 더 이상 장착할 수 없습니다."/>
+		<Class ClassID="10468" ClassName="NotExistFieldBossInSpot" Data="해당 지역에 필드보스가 없습니다."/>
 		<Class ClassID="10469" ClassName="ErrorNexonLauncher" Data="넥슨 런처를 실행해주세요."/>
 		<Class ClassID="10472" ClassName="Mission_Reward" Data="살러스 수녀원 미션 완료 보상 +1"/>
 		<Class ClassID="10473" ClassName="AntiqueExchange" Data="이전 아이템의 강화, 초월, 젬, 포텐셜, 각성 수치가 이전됩니다.{nl} {nl}교환하시겠습니까?"/>
+		<Class ClassID="10474" ClassName="ToEquipSameCardGroup" Data="동일한 카드 그룹에 카드를 장착해야 합니다."/>
+		<Class ClassID="10475" ClassName="AlreadyEquippedThatCardSlot" Data="해당 슬롯에 이미 카드가 장착되어 있습니다."/>
+
+<Class ClassID="10476" ClassName="NGSKick" Data="불법 프로그램이 감지되었습니다.{nl}접속이 차단됩니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -4149,7 +4156,7 @@
 		<Class ClassID="26983" ClassName="MISSION_ABBEY_01_START_2_1" Data="똑 같이 생긴 몬스터 속에 숨어있는 키 몬스터를 처치하세요!"/>
 		<Class ClassID="26984" ClassName="MISSION_ABBEY_01_START_2_2" Data="30초 동안 제단에 몬스터가 접근하지 못하게 하세요!{nl}제단이 몬스터 힘을 흡수하는 걸 방해해야합니다"/>
 		<Class ClassID="26985" ClassName="MISSION_ABBEY_01_START_3" Data="보스 XXX를 처치하세요!"/>
-		<Class ClassID="26986" ClassName="MISSION_UPHILL_PVPPOINT" Data="{STEP}단계 통과{nl} PVP포인트 : {POINT} 획득!"/>
+		<Class ClassID="26986" ClassName="MISSION_UPHILL_PVPPOINT" Data="{STEP}단계 통과{nl} 업힐 포인트 : {POINT} 획득!"/>
 		<Class ClassID="26987" ClassName="MISSION_UPHILL_STEP_REWARD_NAME" Data="{STEP}단계 보물상자"/>
 		<Class ClassID="26988" ClassName="MISSION_UPHILL_STEP_REWARD_ITEMLIST" Data="{STEP}단계 보물상자 보상{nl}{TEXT}"/>
 		<Class ClassID="26989" ClassName="MISSION_UPHILL_MSG11" Data="{COUNT}개"/>
@@ -4296,6 +4303,22 @@
 		<Class ClassID="27504" ClassName="HIDDEN_JOB_UNLOCK_VIEW_MSG5" Data="'{RANK}랭크' 달성 시 '{JOBNAME}' 클래스 선택가능!"/>
 		<Class ClassID="27505" ClassName="HIDDEN_JOB_UNLOCK_VIEW_MSG6" Data="해금권을 사용해 {JOBNAME} 클래스를 해금하시겠습니까?"/>
 		<Class ClassID="27510" ClassName="EVENT_REINFORCE_DISCOUNT_MSG1" Data="[할인 50%]"/>
+		<Class ClassID="27520" ClassName="EVENT_1707_COMPASS_MSG1" Data="칼날서약 용병단 조사원에게 조사 내용을 보고하시고 보상을 받으세요!"/>
+		<Class ClassID="27521" ClassName="EVENT_1707_COMPASS_MSG2" Data="보상을 받는다"/>
+		<Class ClassID="27522" ClassName="EVENT_1707_COMPASS_MSG3" Data="보상을 받지 않는다"/>
+		<Class ClassID="27523" ClassName="EVENT_1707_COMPASS_MSG4" Data="보상 : {ITEM}{nl}팀 창고 이동이 불가능한 아이템이 있습니다."/>
+		<Class ClassID="27524" ClassName="EVENT_1707_COMPASS_MSG5" Data="보상 : {ITEM}{nl}팀 창고 이동이 가능한 아이템 입니다."/>
+		<Class ClassID="27525" ClassName="EVENT_1707_COMPASS_MSG6" Data="보상 : 칭호 {ITEM}"/>
+		<Class ClassID="27526" ClassName="EVENT_1707_COMPASS_MSG7" Data="보상 : 용병 수련복 코스튬{nl} 남성용/여성용을 선택하세요."/>
+		<Class ClassID="27527" ClassName="EVENT_1707_COMPASS_MSG8" Data="칼날서약 용병단 문양과 알 수 없는 표식을 발견했습니다"/>
+		<Class ClassID="27528" ClassName="EVENT_1707_COMPASS_MSG9" Data="흔적 옮겨 적기"/>
+		<Class ClassID="27529" ClassName="EVENT_1707_COMPASS_MSG10" Data="쓰러진 나무들 사이에서 전투 흔적과 특이한 화살촉을 찾았습니다"/>
+		<Class ClassID="27530" ClassName="EVENT_1707_COMPASS_MSG11" Data="이벤트를 모두 완료하셨습니다"/>
+		<Class ClassID="27531" ClassName="EVENT_1707_COMPASS_MSG12" Data="보상 : {COUNT}회{nl}일일 이벤트를 완료하셨습니다."/>
+		<Class ClassID="27532" ClassName="EVENT_1707_COMPASS_MSG13" Data="보상 : {COUNT}회{nl}마지막 참여일 : {MM}월 {DD}일{nl}클라페다 '칼날서약 용병단 조사원'에게 보상을 받으세요"/>
+		<Class ClassID="27533" ClassName="EVENT_1707_COMPASS_MSG14" Data="보상 : {COUNT}회{nl}{NOW}회차 목표 : {ZONE} 존으로 이동하세요"/>
+		<Class ClassID="27534" ClassName="EVENT_1707_COMPASS_MSG15" Data="확인해본다"/>
+		<Class ClassID="27535" ClassName="EVENT_1707_COMPASS_MSG16" Data="클라페다 조사원에게 돌아가 조사내용을 전하고 보상을 받으세요"/>
 		<Class ClassID="27540" ClassName="EVENT_1707_USERWEDDING_MSG1" Data="받는다"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
@@ -5510,6 +5533,8 @@
 		<Class ClassID="90074" ClassName="CATACOMB_80_3_MSG1" Data="미크마쉬 사원으로 마족들이 몰려듭니다"/>
 		<Class ClassID="90075" ClassName="CATACOMB_80_3_MSG2" Data="미크마쉬 사원 곳곳에 마족들이 나타납니다"/>
 		<Class ClassID="90102" ClassName="CATACOMB_80_1_CRYSTAL_CONSUME" Data="이 곳에서는 사용할 수 없습니다"/>
+		<Class ClassID="90107" ClassName="MISSION_UPHILL_JOIN" Data="업힐 디펜스 미션 입장"/>
+		<Class ClassID="90108" ClassName="UPHILL_STORE" Data="업힐 디펜스 상점 열기"/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -6259,6 +6284,7 @@
 		<Class ClassID="113036" ClassName="RapierAndArtefact" Data="레이피어 보조 장착"/>
 		<Class ClassID="113037" ClassName="BowAndPistol" Data="쇠뇌 권총 장착"/>
 		<Class ClassID="113038" ClassName="BowAndCannon" Data="쇠뇌 캐논 장착"/>
+		<Class ClassID="113039" ClassName="TwoHandMace" Data="양손 둔기 장착"/>
 	</Category>
 	<Category Name="MonsterReceName">
 		<Class ClassID="114001" ClassName="None" Data="없음"/>
@@ -6505,7 +6531,7 @@
 		<Class ClassID="131004" ClassName="PVP_State_Ready" Data="입장대기"/>
 		<Class ClassID="131005" ClassName="PVP_State_Moving" Data="이동 중"/>
 		<Class ClassID="131006" ClassName="PVP_State_Playing" Data="게임 중"/>
-		<Class ClassID="131007" ClassName="PVPShop" Data="팀 배틀 리그 상점"/>
+		<Class ClassID="131007" ClassName="PVPShop" Data="업힐 디펜스 상점"/>
 		<Class ClassID="131008" ClassName="OtherPlayerRejectedGame" Data="다른 플레이어가 참여를 거절했습니다."/>
 		<Class ClassID="131009" ClassName="NotEnoughPartyMember(%d/%d)" Data="멤버가 부족합니다. (%d/%d)"/>
 		<Class ClassID="131010" ClassName="{Name}InvitedYouTo{PVPName}_JoinIt?" Data="{Name}님께서 당신을 {PVPName}에 초대했습니다. 참여하시겠습니까?"/>
@@ -6568,6 +6594,7 @@
 		<Class ClassID="131068" ClassName="AskPVPEnterCancel" Data="참가 신청을 취소하시겠습니까?"/>
 		<Class ClassID="131069" ClassName="CanNotJoinPVPFromMission" Data="해당 지역에서는 참가하실 수 없습니다."/>
 			<Class ClassID="131071" ClassName="RewardSeason" Data="이전 시즌의 팀배틀리그 보상을  이미 받으셨습니다."/>
+		<Class ClassID="131072" ClassName="PVPReward" Data="보상 받기"/>
 	</Category>
 	<Category Name="MonInfo">
 		<Class ClassID="132001" ClassName="MonInfo_Size" Data="크기"/>
@@ -9065,6 +9092,7 @@
 		<Class ClassID="138392" ClassName="Need_Item" Data="가 필요합니다."/>
 		<Class ClassID="138393" ClassName="Klapeda_book_list_20" Data="카듀멜 국왕의 기념비 - 수정본"/>
 		<Class ClassID="138394" ClassName="Auto_{#050505}{s22}{b}JangBi_KangWhaSi" Data="{#050505}{s22}{b}장비 강화시"/>
+		<Class ClassID="138395" ClassName="Auto_TMace" Data="양손 둔기류"/>
 	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
@@ -9161,6 +9189,7 @@
 		<Class ClassID="201063" ClassName="CrossLeft" Data="십자키 왼쪽"/>
 		<Class ClassID="201064" ClassName="CrossRight" Data="십자키 오른쪽"/>
 		<Class ClassID="201065" ClassName="ChatFrameType" Data="채팅 탭 전환"/>
+		<Class ClassID="201066" ClassName="FishingBag" Data="살림통"/>
 	</Category>
 	<Category Name="QuestAutoTool">
 		<Class ClassID="202001" Data="퀘스트 툴 파일 복사"/>
@@ -9632,7 +9661,7 @@
 		<Class ClassID="300160" ClassName="Premium_StatReset_Trade" Data="빛나는 스탯 초기화 포션"/>
 		<Class ClassID="300161" ClassName="Premium_SkillReset_Trade" Data="빛나는 스킬 초기화 포션"/>
 		<Class ClassID="300162" ClassName="Costume_Box" Data="코스튬 상자"/>
-	<Class ClassID="300163" ClassName="LimitPaymentGuidMsg" Data="이번 달 {Value} 만큼의 TP를 더 소모할 수 있습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
+		<Class ClassID="300163" ClassName="LimitPaymentGuidMsg" Data="이번 달 {Value} 만큼의 TP를 더 소모할 수 있습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
 		<Class ClassID="300164" ClassName="LimitPaymentExcessMsg" Data="이번 달 {Value} 만큼 초과 하였습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
 	</Category>
 	<Category Name="TPHistory">
@@ -9743,13 +9772,13 @@
 	<Category Name="Fishing">
 		<Class ClassID="510300" ClassName="FishingItemBagIsFull" Data="살림통이 꽉 찼습니다."/>
 		<Class ClassID="510301" ClassName="ItsNotPasteBaitItem" Data="미끼 아이템이 아닙니다."/>
-		<Class ClassID="510302" ClassName="YouNeedPasteBait" Data="미끼를 올려놔주세요."/>
+		<Class ClassID="510302" ClassName="YouNeedPasteBait" Data="미끼를 선택해주세요."/>
 		<Class ClassID="510303" ClassName="YouDontHaveAnyItemToTake" Data="수령할 아이템이 없습니다."/>
 		<Class ClassID="510304" ClassName="ReallyExitFishing?" Data="낚시를 종료하시겠습니까?"/>
 		<Class ClassID="510305" ClassName="YouHaveFishingItem" Data="회수하지 않은 아이템이 있습니다."/>
 		<Class ClassID="510306" ClassName="PleaseComeALittleCloserAndTry" Data="물가에 가까이 다가가 시도해주세요"/>
 		<Class ClassID="510307" ClassName="ThisIsNotAFishingSpotPleaseUseItAtTheFishingSpot" Data="이곳은 낚시터가 아닙니다{nl}낚시터에서 사용해주세요"/>
-		<Class ClassID="510308" ClassName="ExceedMaxFishingItemBagSlotCount" Data="살림통의 슬롯 개수가 최대입니다."/>
+		<Class ClassID="510308" ClassName="ExceedMaxFishingItemBagSlotCount" Data="더 이상 살림통을 업그레이드 할 수 없습니다."/>
 		<Class ClassID="510309" ClassName="FishingRod" Data="낚싯대"/>
 		<Class ClassID="510310" ClassName="PasteBait" Data="미끼"/>
 		<Class ClassID="510311" ClassName="TheSpreadBaitIsAlreadyInTheFishingPlace" Data="낚시터에 이미 떡밥이 적용 중입니다"/>
@@ -9765,6 +9794,10 @@
 		<Class ClassID="510321" ClassName="TooCloseToSomeoneElseWhoIsFishing" Data="가까이에 다른 낚시꾼이 있어 사용할 수 없습니다."/>
 		<Class ClassID="510322" ClassName="CaughtAFish" Data="물고기를 낚았습니다!"/>
 		<Class ClassID="510323" ClassName="CaughtA{ItemName}" Data="물고기가 무언가를 뱉어내고 도망갔습니다!{nl}{ItemName}"/>
+		<Class ClassID="510324" ClassName="KLAPEDA_FISHING_CAT_Yes" Data="은빛 물고기를 준다"/>
+		<Class ClassID="510325" ClassName="KLAPEDA_FISHING_CAT_No" Data="아무것도 하지 않는다"/>
+		<Class ClassID="510326" ClassName="KLAPEDA_FISHING_CAT_Chat1" Data="야옹"/>
+		<Class ClassID="510327" ClassName="KLAPEDA_FISHING_CAT_Chat2" Data="냥~"/>
 	</Category>
 <Category Name="FieldBossMessage">
 		<Class ClassID="510500" ClassName="FieldBoss{Name}WillAppear" Data="잠시 후 필드 보스가 등장합니다 : {Name}"/>

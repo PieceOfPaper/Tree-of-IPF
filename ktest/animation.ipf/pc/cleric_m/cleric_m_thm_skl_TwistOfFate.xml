@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="0.00" soundFile="skl_eff_agility_cast_eff"/>
+    <Particle frame="2" attachNode="Dummy_effect_L_hand" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Particle frame="2" attachNode="Dummy_emitter" particleName="F_cleric_Bloodletting_shot_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="7.00" soundFile="skl_fgt_tackle_cast_2"/>
+    <Sound frame="9.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="9.00" soundFile="skl_eff_spread_11"/>
+    <Particle frame="16" attachNode="Dummy_emitter" particleName="F_cleric_Aspergillum_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="16" attachNode="Dummy_emitter" particleName="F_archer_BombardmentOrdeads_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="16" attachNode="Dummy_emitter" particleName="F_cleric_Hurling_shot_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+</ActionDesc>

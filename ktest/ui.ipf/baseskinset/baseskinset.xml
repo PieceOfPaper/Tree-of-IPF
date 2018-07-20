@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3526,6 +3526,19 @@
 			<img name="bottomright" imgrect="1367 156 43 1"/>
 		</skin>
 	</skinlist>
+	<skinlist category="testmin_frames">
+		<skin name="monstercard" texture="\skin\monstercard.tga">
+			<img name="topleft" imgrect="31 550 1 47"/>
+			<img name="topcore" imgrect="32 550 337 47"/>
+			<img name="topright" imgrect="369 550 1 47"/>
+			<img name="bodyleft" imgrect="31 598 1 93"/>
+			<img name="bodycore" imgrect="32 598 337 93"/>
+			<img name="bodyright" imgrect="369 598 1 93"/>
+			<img name="bottomleft" imgrect="31 692 1 48"/>
+			<img name="bottomcore" imgrect="32 692 337 48"/>
+			<img name="bottomright" imgrect="369 692 1 48"/>
+		</skin>
+	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
 			<img name="topleft" imgrect="726 0 1 1"/>
@@ -4096,6 +4109,54 @@
 			<img name="mouseon" imgrect="1411 253 200 165"/>
 			<img name="cooltime" imgrect="1411 253 200 165"/>
 			<img name="selected" imgrect="1411 253 200 165"/>
+		</skin>
+		<skin name="red_cardslot" texture="\skin\monstercard.tga">
+			<img name="slot" imgrect="422 563 67 103"/>
+			<img name="mouseon" imgrect="422 563 67 103"/>
+			<img name="cooltime" imgrect="422 563 67 103"/>
+			<img name="selected" imgrect="422 563 67 103"/>
+		</skin>
+		<skin name="purple_cardslot" texture="\skin\monstercard.tga">
+			<img name="slot" imgrect="491 563 67 103"/>
+			<img name="mouseon" imgrect="491 563 67 103"/>
+			<img name="cooltime" imgrect="491 563 67 103"/>
+			<img name="selected" imgrect="491 563 67 103"/>
+		</skin>
+		<skin name="green_cardslot" texture="\skin\monstercard.tga">
+			<img name="slot" imgrect="561 563 67 103"/>
+			<img name="mouseon" imgrect="561 563 67 103"/>
+			<img name="cooltime" imgrect="561 563 67 103"/>
+			<img name="selected" imgrect="561 563 67 103"/>
+		</skin>
+		<skin name="blue_cardslot" texture="\skin\monstercard.tga">
+			<img name="slot" imgrect="630 563 67 103"/>
+			<img name="mouseon" imgrect="630 563 67 103"/>
+			<img name="cooltime" imgrect="630 563 67 103"/>
+			<img name="selected" imgrect="630 563 67 103"/>
+		</skin>
+		<skin name="attack_cardslot" texture="\skin\monstercard.tga">
+			<img name="slot" imgrect="426 681 59 84"/>
+			<img name="mouseon" imgrect="954 681 59 84"/>
+			<img name="cooltime" imgrect="954 681 59 84"/>
+			<img name="selected" imgrect="954 681 59 84"/>
+		</skin>
+		<skin name="defense_cardslot" texture="\skin\monstercard.tga">
+			<img name="slot" imgrect="495 681 59 84"/>
+			<img name="mouseon" imgrect="954 681 59 84"/>
+			<img name="cooltime" imgrect="954 681 59 84"/>
+			<img name="selected" imgrect="954 681 59 84"/>
+		</skin>
+		<skin name="function_cardslot" texture="\skin\monstercard.tga">
+			<img name="slot" imgrect="565 681 59 84"/>
+			<img name="mouseon" imgrect="954 681 59 84"/>
+			<img name="cooltime" imgrect="954 681 59 84"/>
+			<img name="selected" imgrect="954 681 59 84"/>
+		</skin>
+		<skin name="ability_cardslot" texture="\skin\monstercard.tga">
+			<img name="slot" imgrect="634 681 59 86"/>
+			<img name="mouseon" imgrect="954 681 59 84"/>
+			<img name="cooltime" imgrect="954 681 59 84"/>
+			<img name="selected" imgrect="954 681 59 84"/>
 		</skin>
 	</skinlist>
 	<skinlist category="None">
@@ -5522,6 +5583,9 @@
 		<image name="notice_purple_btn" file="\skin\tooltip_skin_3.tga" imgrect="1 275 26 26" CMM_Caption="이벤트 노티스"/>
 		<image name="notice_purple_btn_cursoron" file="\skin\tooltip_skin_3.tga" imgrect="28 275 26 26"/>
 		<image name="notice_purple_btn_clicked" file="\skin\tooltip_skin_3.tga" imgrect="28 275 26 26"/>
+		<image name="2curveframe_up" file="\skin\Appraiser_skin.tga" imgrect="85 173 165 25" CMM_Caption="살림통 업그레이드 프레임"/>
+		<image name="2curveframe_down" file="\skin\Appraiser_skin.tga" imgrect="85 199 165 25"/>
+		<image name="white_arrow" file="\skin\Appraiser_skin.tga" imgrect="1 173 83 67" CMM_Caption="화살표"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -5543,9 +5607,46 @@
 		<image name="questbg" file="\skin\HUD.tga" imgrect="1302 364 328 44" CMM_Caption="퀘스트타이틀뒷배경"/>
 		<image name="skillgaugeleft" file="\skin\HUD.tga" imgrect="553 73 4 21" CMM_Caption="스킬자원게이지왼"/>
 		<image name="skillgaugeright" file="\skin\HUD.tga" imgrect="746 73 4 21" CMM_Caption="스킬자원게이지오"/>
+		<image name="moncard_red" file="\skin\monstercard.tga" imgrect="108 0 384 546"/>
+		<image name="moncard_blue" file="\skin\monstercard.tga" imgrect="497 0 384 546"/>
+		<image name="moncard_purple" file="\skin\monstercard.tga" imgrect="884 0 384 546"/>
+		<image name="moncard_green" file="\skin\monstercard.tga" imgrect="1271 0 384 546"/>
+		<image name="moncard_yellow" file="\skin\monstercard.tga" imgrect="1657 0 384 546"/>
+		<image name="first_blow" file="\skin\mainframe_03.tga" imgrect="750 355 274 135" CMM_Caption="첫타 텍스트"/>
+		<image name="last_blow" file="\skin\mainframe_03.tga" imgrect="750 216 274 135" CMM_Caption="막타 텍스트"/>
+		<image name="legend_cardslot" file="\skin\monstercard.tga" imgrect="712 559 106 156" CMM_Caption="레젼드 카드 슬롯"/>
+		<image name="legend_cardslot1" file="\skin\monstercard.tga" imgrect="830 559 106 156" CMM_Caption="사슬"/>
 		<image name="btn_foothold" file="\skin\HUD.tga" imgrect="1922 651 36 37" CMM_Caption="거점이동버튼"/>
 		<image name="btn_foothold_cursoron" file="\skin\HUD.tga" imgrect="1781 709 36 37" CMM_Caption="거점이동버튼"/>
 		<image name="btn_foothold_clicked" file="\skin\HUD.tga" imgrect="1781 749 36 37" CMM_Caption="거점이동버튼"/>
+		<image name="moncard_normal" file="\skin\monstercard.tga" imgrect="9 12 353 523" CMM_Caption="몬스터카드"/>
+		<image name="moncard_magic" file="\skin\monstercard.tga" imgrect="364 12 353 523"/>
+		<image name="moncard_rare" file="\skin\monstercard.tga" imgrect="719 12 353 523"/>
+		<image name="moncard_unique" file="\skin\monstercard.tga" imgrect="1073 12 353 523"/>
+		<image name="moncard_legend" file="\skin\monstercard.tga" imgrect="1427 12 353 523"/>
+		<image name="legend_cardslot" file="\skin\HUD.tga" imgrect="1588 923 53 82" CMM_Caption="레전드 카드 슬롯"/>
+		<image name="unique_cardslot" file="\skin\HUD.tga" imgrect="1642 923 53 82" CMM_Caption="유니크 카드 슬롯"/>
+		<image name="rare_cardslot" file="\skin\HUD.tga" imgrect="1696 923 53 82" CMM_Caption="레어 카드 슬롯"/>
+		<image name="magic_cardslot" file="\skin\HUD.tga" imgrect="1750 923 53 82" CMM_Caption="매직 카드 슬롯"/>
+		<image name="slot_item_legend" file="\skin\pip_test.tga" imgrect="1729 711 50 50" CMM_Caption="레젼드등급슬롯"/>
+		<image name="slot_item_unique" file="\skin\pip_test.tga" imgrect="1678 711 50 50" CMM_Caption="유니크등급슬롯"/>
+		<image name="slot_item_rare" file="\skin\pip_test.tga" imgrect="1627 711 50 50" CMM_Caption="레어등급슬롯"/>
+		<image name="slot_item_magic" file="\skin\pip_test.tga" imgrect="1576 711 50 50" CMM_Caption="매직등급슬롯"/>
+		<image name="red_cardslot" file="\skin\monstercard.tga" imgrect="422 563 67 103"/>
+		<image name="purple_cardslot" file="\skin\monstercard.tga" imgrect="491 563 67 103"/>
+		<image name="green_cardslot" file="\skin\monstercard.tga" imgrect="561 563 67 103"/>
+		<image name="blue_cardslot" file="\skin\monstercard.tga" imgrect="630 563 67 103"/>
+		<image name="red_cardslot1" file="\skin\monstercard.tga" imgrect="422 671 67 103" CMM_Caption="비장착프레임"/>
+		<image name="purple_cardslot1" file="\skin\monstercard.tga" imgrect="491 671 67 103"/>
+		<image name="green_cardslot1" file="\skin\monstercard.tga" imgrect="561 671 67 103"/>
+		<image name="blue_cardslot1" file="\skin\monstercard.tga" imgrect="630 671 67 103"/>
+		<image name="monsterbtn_image" file="\skin\monstercard.tga" imgrect="63 751 29 28"/>
+	</imagelist>
+	<imagelist category="living_image">
+		<image name="fishingbox_0" file="\skin\living\fishingbox_0.png" imgrect="0 0 256 256" CMM_Caption="살림통 1"/>
+		<image name="fishingbox_1" file="\skin\living\fishingbox_1.png" imgrect="0 0 256 256" CMM_Caption="살림통 2"/>
+		<image name="fishingbox_2" file="\skin\living\fishingbox_2.png" imgrect="0 0 256 256" CMM_Caption="살림통 3"/>
+		<image name="fishingbox_3" file="\skin\living\fishingbox_3.png" imgrect="0 0 256 256" CMM_Caption="살림통 4"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -7490,6 +7591,7 @@
 		<image name="icon_goldfish" file="\icon\buff_icon.tga" imgrect="512 1792 128 128" CMM_Caption="황금어장"/>
 		<image name="icon_Spread_Bait" file="\icon\buff_icon.tga" imgrect="640 1792 128 128" CMM_Caption="어획량증가"/>
 		<image name="icon_grillfish" file="\icon\buff_icon.tga" imgrect="768 1792 128 128" CMM_Caption="구워먹는물고기"/>
+		<image name="icon_cat_mom" file="\icon\buff_icon.tga" imgrect="0 1920 128 128" CMM_Caption="낚시냥 버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

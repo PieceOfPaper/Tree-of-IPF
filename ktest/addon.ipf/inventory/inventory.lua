@@ -1546,27 +1546,41 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	end
 	
 	-- 오른쪽 클릭으로 몬스터 카드를 인벤토리의 카드 장착 슬롯에 장착하게 함.
-	local invFrame    = ui.GetFrame("inventory");	
-	local moncardGbox = invFrame:GetChild('moncardGbox');
-	if moncardGbox:IsVisible() == 1 then
+	local moncardFrame = ui.GetFrame("monstercardslot");
+	
+	if moncardFrame:IsVisible() == 1 then
+		local groupNameStr = itemobj.CardGroupName
+		local moncardGbox = GET_CHILD_RECURSIVELY(moncardFrame, groupNameStr .. 'cardGbox');
 		if itemobj.GroupName ~= "Card" then		
 			return;
-		end;		
-		local card_slotset = GET_CHILD(moncardGbox, "card_slotset");
+		end;
+		
+		local card_slotset = GET_CHILD_RECURSIVELY(moncardGbox, groupNameStr .. "card_slotset");
+
 		if card_slotset ~= nil then
-			local gradeRank = session.GetPcTotalJobGrade();
-			for i = 0, gradeRank - 1 do							
+			local slotIndex = 0;
+			if groupNameStr == 'ATK' then
+				slotIndex = 0
+			elseif groupNameStr == 'DEF' then
+				slotIndex = 3
+			elseif groupNameStr == 'UTIL' then
+				slotIndex = 6
+			elseif groupNameStr == 'STAT' then
+				slotIndex = 9
+			end
+
+			for i = 0, 2 do							
 				local slot = card_slotset:GetSlotByIndex(i);
 				if slot == nil then
 					return;
 				end	
-			
 				local icon = slot:GetIcon();		
 				if icon == nil then		
-					CARD_SLOT_EQUIP(slot, invitem);
+					CARD_SLOT_EQUIP(slot, invitem, groupNameStr);
 					return;
-				end;
+				end;				
 			end;
+			ui.SysMsg(ClMsg("CantEquipMonsterCard"));
 		end;
 	end
 end

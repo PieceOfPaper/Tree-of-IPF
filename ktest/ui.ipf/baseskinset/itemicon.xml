@@ -480,14 +480,6 @@
 		<image name="icon_item_pants_kryzius" file="\icon\equip\icon_item_pants_kryzius.png" imgrect="0 0 256 256" CMM_Caption=""/>
 		<image name="icon_item_gloves_kryzius" file="\icon\equip\icon_item_gloves_kryzius.png" imgrect="0 0 256 256" CMM_Caption=""/>
 		<image name="icon_item_boots_kryzius" file="\icon\equip\icon_item_boots_kryzius.png" imgrect="0 0 256 256" CMM_Caption=""/>
-		<image name="icon_item_simple_festival_m" file="\icon\equip\icon_item_simple_festival_m.png" imgrect="0 0 256 256" CMM_Caption="축제용 코스튬"/>
-		<image name="icon_item_simple_festival_f" file="\icon\equip\icon_item_simple_festival_f.png" imgrect="0 0 256 256" CMM_Caption=""/>
-		<image name="icon_item_maiduniform_black_f" file="\icon\equip\icon_item_maiduniform_black_f.png" imgrect="0 0 256 256" CMM_Caption="메이드복"/>
-		<image name="icon_item_maiduniform_blue_f" file="\icon\equip\icon_item_maiduniform_blue_f.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_maiduniform_red_f" file="\icon\equip\icon_item_maiduniform_red_f.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_maiduniform_black_m" file="\icon\equip\icon_item_maiduniform_black_m.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_maiduniform_blue_m" file="\icon\equip\icon_item_maiduniform_blue_m.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_maiduniform_red_m" file="\icon\equip\icon_item_maiduniform_red_m.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
@@ -654,6 +646,20 @@
 		<image name="icon_item_Mage_pyromance_f" file="\icon\equip\icon_item_Mage_pyromance_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Mage_psychokinesist02_4_f" file="\icon\equip\icon_item_Mage_psychokinesist02_4_f.png" imgrect="0 0 256 256" CMM_Caption="3랭크 싸이코키노"/>
 		<image name="icon_item_Mage_psychokinesist02_4_m" file="\icon\equip\icon_item_Mage_psychokinesist02_4_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_simple_festival_m" file="\icon\equip\icon_item_simple_festival_m.png" imgrect="0 0 256 256" CMM_Caption="축제용 코스튬"/>
+		<image name="icon_item_simple_festival_f" file="\icon\equip\icon_item_simple_festival_f.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="icon_item_maiduniform_black_f" file="\icon\equip\icon_item_maiduniform_black_f.png" imgrect="0 0 256 256" CMM_Caption="메이드복"/>
+		<image name="icon_item_maiduniform_blue_f" file="\icon\equip\icon_item_maiduniform_blue_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_maiduniform_red_f" file="\icon\equip\icon_item_maiduniform_red_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_maiduniform_black_m" file="\icon\equip\icon_item_maiduniform_black_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_maiduniform_blue_m" file="\icon\equip\icon_item_maiduniform_blue_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_maiduniform_red_m" file="\icon\equip\icon_item_maiduniform_red_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_vincentaas01_m" file="\icon\equip\icon_item_vincentaas01_m.png" imgrect="0 0 256 256" CMM_Caption="근위 기사단장 코스튬"/>
+		<image name="icon_item_vincentaas01_f" file="\icon\equip\icon_item_vincentaas01_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_vincentaas02_m" file="\icon\equip\icon_item_vincentaas02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_vincentaas02_f" file="\icon\equip\icon_item_vincentaas02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_lowtactic02_m" file="\icon\equip\icon_item_lowtactic02_m.png" imgrect="0 0 256 256" CMM_Caption="하급용병2"/>
+		<image name="icon_item_lowtactic02_f" file="\icon\equip\icon_item_lowtactic02_f.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_weapone_icons">
 		<image name="icon_item_artefact_210011" file="\icon\weapon\icon_item_artefact_210011.png" imgrect="0 0 256 256" CMM_Caption="요령"/>
@@ -4227,6 +4233,9 @@
 		<image name="icon_item_HPSP_Alche" file="\icon\item\icon_item_HPSP_Alche.png" imgrect="0 0 128 128" CMM_Caption="알케미스트hsp포션"/>
 		<image name="icon_item_Fishing_Rod_1" file="\icon\item\icon_item_Fishing_Rod_1.png" imgrect="0 0 256 256" CMM_Caption="낡은 낚싯대"/>
 		<image name="icon_item_Fishing_Rod_2" file="\icon\item\icon_item_Fishing_Rod_2.png" imgrect="0 0 256 256" CMM_Caption="클라페다 낚싯대"/>
+		<image name="icon_item_Fishing_Rod_3" file="\icon\item\icon_item_Fishing_Rod_3.png" imgrect="0 0 256 256" CMM_Caption="당근 낚싯대"/>
+		<image name="icon_item_Fishing_Rod_4" file="\icon\item\icon_item_Fishing_Rod_4.png" imgrect="0 0 256 256" CMM_Caption="플라밍고 낚싯대"/>
+		<image name="icon_item_Fishing_Rod_5" file="\icon\item\icon_item_Fishing_Rod_5.png" imgrect="0 0 256 256" CMM_Caption="죽창 낚싯대"/>
 		<image name="icon_item_Spread_Bait_basic" file="\icon\item\icon_item_Spread_Bait_basic.png" imgrect="0 0 128 128" CMM_Caption="보급형 떡밥"/>
 		<image name="icon_item_Fishing_Fire_basic" file="\icon\item\icon_item_Fishing_Fire_basic.png" imgrect="0 0 80 80" CMM_Caption="낚시 모닥불"/>
 		<image name="icon_item_fish1" file="\icon\item\icon_item_fish1.png" imgrect="0 0 128 128" CMM_Caption="빨간 물고기"/>
@@ -4243,6 +4252,20 @@
 		<image name="icon_item_Summer02_popupbook" file="\icon\item\icon_item_Summer02_popupbook.png" imgrect="0 0 256 256" CMM_Caption="팝업북 상어"/>
 		<image name="icon_item_summer_box" file="\icon\item\icon_item_summer_box.png" imgrect="0 0 256 256" CMM_Caption="17 썸머 장난감 상자"/>
 		<image name="icon_item_event_invitation3" file="\icon\item\icon_item_event_invitation3.png" imgrect="0 0 128 128" CMM_Caption="이벤트 초청장: 결혼식"/>
+		<image name="icon_item_booster_3" file="\icon\item\icon_item_booster_3.png" imgrect="0 0 128 128" CMM_Caption="부스터3"/>
+		<image name="icon_item_battle_cube_1" file="\icon\item\icon_item_battle_cube_1.png" imgrect="0 0 128 128" CMM_Caption="팀배틀리그 상자1"/>
+		<image name="icon_item_battle_cube_2" file="\icon\item\icon_item_battle_cube_2.png" imgrect="0 0 128 128" CMM_Caption="팀배틀리그 상자2"/>
+		<image name="icon_item_battle_cube_3" file="\icon\item\icon_item_battle_cube_3.png" imgrect="0 0 128 128" CMM_Caption="팀배틀리그 상자3"/>
+		<image name="icon_item_battle_potion_1" file="\icon\item\icon_item_battle_potion_1.png" imgrect="0 0 128 128" CMM_Caption="팀배틀리그 포션1"/>
+		<image name="icon_item_battle_potion_2" file="\icon\item\icon_item_battle_potion_2.png" imgrect="0 0 128 128" CMM_Caption="팀배틀리그 농축1"/>
+		<image name="icon_item_potion_crt_1" file="\icon\item\icon_item_potion_crt_1.png" imgrect="0 0 80 80" CMM_Caption="치명타 발생 증가 포션"/>
+		<image name="icon_item_potion_crtatk_1" file="\icon\item\icon_item_potion_crtatk_1.png" imgrect="0 0 80 80" CMM_Caption="치명타 공격 증가 포션"/>
+		<image name="icon_item_card_atk" file="\icon\item\icon_item_card_atk.png" imgrect="0 0 256 256" CMM_Caption="몬스터카드 공격"/>
+		<image name="icon_item_card_def" file="\icon\item\icon_item_card_def.png" imgrect="0 0 256 256" CMM_Caption="몬스터카드 방어"/>
+		<image name="icon_item_card_util" file="\icon\item\icon_item_card_util.png" imgrect="0 0 256 256" CMM_Caption="몬스터카드 유틸"/>
+		<image name="icon_item_card_stat" file="\icon\item\icon_item_card_stat.png" imgrect="0 0 256 256" CMM_Caption="몬스터카드 고정"/>
+		<image name="icon_item_wedding02_popupbook" file="\icon\item\icon_item_wedding02_popupbook.png" imgrect="0 0 256 256" CMM_Caption="팝업북 웨딩 팝업북"/>
+		<image name="icon_item_abilitypoint3" file="\icon\item\icon_item_abilitypoint3.png" imgrect="0 0 256 256" CMM_Caption="특성포인트 100"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>

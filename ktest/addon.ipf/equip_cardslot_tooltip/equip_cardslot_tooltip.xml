@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
-<uiframe name="equip_cardslot_tooltip" x="0" y="0" width="370" height="100">
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="equip_cardslot_tooltip" x="0" y="0" width="380" height="0">
 	<frame fasthide="true" layout_gravity="right center" margin="0 0 0 0" scale_align="right center"/>
 	<skin frameskin="none"/>
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
@@ -8,7 +8,7 @@
 	<input moveable="false"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
 	<controls>
-		<groupbox name="bg" rect="0 0 370 100" margin="0 0 0 0" layout_gravity="center center" scale_align="right bottom" draw="true" skin="testbosscard_tooltip"/>
-		<controlset name="cardinfo" parent="bg" type="tooltip_bosscard_common" rect="0 0 370 50" margin="0 0 0 0" layout_gravity="center center" hittestbox="false" scrollbar="false"/>
+		<groupbox name="bg" rect="0 0 380 0" margin="0 0 0 0" layout_gravity="center top" scale_align="right bottom" draw="false" scrollbar="false" skin="monstercard"/>
+		<controlset name="cardinfo" parent="bg" type="tooltip_bosscard_common" rect="0 0 380 0" margin="0 0 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false"/>
 	</controls>
 </uiframe>

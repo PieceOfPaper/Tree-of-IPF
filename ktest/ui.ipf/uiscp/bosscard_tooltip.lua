@@ -11,19 +11,26 @@ function ITEM_TOOLTIP_BOSSCARD(tooltipframe, invitem, strarg)
 	ypos = DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_BOSSCARD_EXP_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 경험치 바
     ypos = DRAW_BOSSCARD_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 
-	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
+	ypos = DRAW_BOSSCARD_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
 end
 
 
 function DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
-	
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveAllChild()
 	
-	local CSet = gBox:CreateControlSet('tooltip_bosscard_common', 'boss_common_cset', 0, 0);
+	local CSetBg = gBox : CreateControlSet('tooltip_bosscard_bg', 'boss_bg_cset', 0, 200);
+
+	local CSet = gBox:CreateControlSet('tooltip_bosscard_common', 'boss_common_cset', 0, 50);
 	tolua.cast(CSet, "ui::CControlSet");
 
 	local GRADE_FONT_SIZE = CSet:GetUserConfig("GRADE_FONT_SIZE"); -- 등급 나타내는 별 크기
+
+	
+	
+
+	-- 카드 테두리 세팅
+	SET_CARD_EDGE_TOOLTIP(CSet, invitem);
 
 	-- 아이템 이미지
 	local itemPicture = GET_CHILD(CSet, "itempic");
@@ -44,8 +51,8 @@ function DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
     
 	local BOTTOM_MARGIN = CSet:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
 	CSet:Resize(CSet:GetWidth(),typeRichtext:GetY() + typeRichtext:GetHeight() + BOTTOM_MARGIN);
-	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight())
-	return CSet:GetHeight();
+	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight() + 50)
+	return CSet:GetHeight()+50;
 end
 
 --포텐 및 내구도
@@ -94,8 +101,8 @@ function DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, yPos, mainframenam
 	CSet:Resize(CSet:GetWidth(), desc_text:GetHeight() + desc_text:GetOffsetY());
 	end
 	
-	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight() + 10)
-	return CSet:GetHeight() + CSet:GetY() + 10;
+	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight())
+	return CSet:GetHeight() + CSet:GetY();
 end
 
 function DRAW_BOSSCARD_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename)
@@ -111,4 +118,26 @@ function DRAW_BOSSCARD_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainfram
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight())
     return ypos + CSet:GetHeight();
+end
+function DRAW_BOSSCARD_SELL_PRICE(tooltipframe, invitem, yPos, mainframename)
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+	if itemProp:IsEnableShopTrade() == false then
+		return yPos
+	end
+
+	local gBox = GET_CHILD(tooltipframe, mainframename, 'ui::CGroupBox')
+	gBox : RemoveChild('tooltip_sellinfo_bosscard');
+	
+	local tooltip_sellinfo_CSet = gBox:CreateControlSet('tooltip_sellinfo_bosscard', 'tooltip_sellinfo_bosscard', 0, yPos);
+	tolua.cast(tooltip_sellinfo_CSet, "ui::CControlSet");
+
+	local sellprice_text = GET_CHILD(tooltip_sellinfo_CSet, 'sellprice', 'ui::CRichText')
+	sellprice_text:SetTextByKey("silver", GET_COMMAED_STRING(geItemTable.GetSellPrice(itemProp)));
+
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); --맨 아랫쪽 여백
+	tooltip_sellinfo_CSet : Resize(tooltip_sellinfo_CSet : GetWidth(), tooltip_sellinfo_CSet : GetHeight() + BOTTOM_MARGIN);
+
+	local height = gBox:GetHeight() + tooltip_sellinfo_CSet : GetHeight();
+	gBox:Resize(gBox : GetWidth(), height);
+	return yPos + tooltip_sellinfo_CSet:GetHeight();
 end

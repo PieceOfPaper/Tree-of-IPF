@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="monstercardslot" x="0" y="0" width="600" height="400" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 0 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<layer layerlevel="100"/>
+	<opencheck scp="" numarg="1"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="MONSTERCARDSLOT_FRAME_OPEN" CloseScp="MONSTERCARDSLOT_FRAME_CLOSE"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 550 350" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_frame_low"/>
+		<groupbox name="pip4" rect="0 0 550 80" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_frame_top"/>
+		<groupbox name="mainGbox" rect="0 0 600 300" margin="0 50 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="true" resizebyresolution="false" scrollbar="false" skin="pipwin_low"/>
+		<groupbox name="ATKcardGbox" parent="mainGbox" rect="0 0 200 120" margin="-155 -70 0 0" layout_gravity="center center" draw="false" hittestbox="false" resizebyparent="true" resizebyresolution="false"/>
+		<groupbox name="DEFcardGbox" parent="mainGbox" rect="0 0 200 120" margin="155 -70 0 0" layout_gravity="center center" draw="false" hittestbox="false" resizebyparent="true" resizebyresolution="false"/>
+		<groupbox name="UTILcardGbox" parent="mainGbox" rect="0 0 200 120" margin="-155 70 0 0" layout_gravity="center center" draw="false" hittestbox="false" resizebyparent="true" resizebyresolution="false"/>
+		<groupbox name="STATcardGbox" parent="mainGbox" rect="0 0 200 120" margin="155 70 0 0" layout_gravity="center center" draw="false" hittestbox="false" resizebyparent="true" resizebyresolution="false"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}몬스터 카드 장착{/}" fontname="default" spacey="0" hittest="false"/>
+		<slotset name="ATKcard_slotset" parent="ATKcardGbox" rect="0 0 67 103" margin="0 0 0 0" layout_gravity="center center" col="3" dropsound="icon_get_down" enableselect="false" maxselect="3" movepop="false" scrollbar="false" picksound="icon_pick_up" row="1" size="59 84" skin="invenslot2" spc="5 3" RBtnUpScp="CARD_SLOT_RBTNUP_ITEM_INFO" DropScp="CARD_SLOT_DROP"/>
+		<slotset name="ATKcard_labelset" parent="ATKcardGbox" rect="0 0 67 103" margin="0 0 0 0" layout_gravity="center center" col="3" enableselect="false" maxselect="3" movepop="false" scrollbar="false" row="1" size="62 100" spc="2 3" hittest="false"/>
+		<slotset name="DEFcard_slotset" parent="DEFcardGbox" rect="0 0 67 103" margin="0 0 0 0" layout_gravity="center center" col="3" dropsound="icon_get_down" enableselect="false" maxselect="3" movepop="false" scrollbar="false" picksound="icon_pick_up" row="1" size="59 84" skin="invenslot2" spc="5 3" RBtnUpScp="CARD_SLOT_RBTNUP_ITEM_INFO" DropScp="CARD_SLOT_DROP"/>
+		<slotset name="DEFcard_labelset" parent="DEFcardGbox" rect="0 0 67 103" margin="0 0 0 0" layout_gravity="center center" col="3" enableselect="false" maxselect="3" movepop="false" scrollbar="false" row="1" size="62 100" spc="2 3" hittest="false"/>
+		<slotset name="UTILcard_slotset" parent="UTILcardGbox" rect="0 0 67 103" margin="0 0 0 0" layout_gravity="center center" col="3" dropsound="icon_get_down" enableselect="false" maxselect="3" movepop="false" scrollbar="false" picksound="icon_pick_up" row="1" size="59 84" skin="invenslot2" spc="5 3" RBtnUpScp="CARD_SLOT_RBTNUP_ITEM_INFO" DropScp="CARD_SLOT_DROP"/>
+		<slotset name="UTILcard_labelset" parent="UTILcardGbox" rect="0 0 67 103" margin="0 0 0 0" layout_gravity="center center" col="3" enableselect="false" maxselect="3" movepop="false" scrollbar="false" row="1" size="62 100" spc="2 3" hittest="false"/>
+		<slotset name="STATcard_slotset" parent="STATcardGbox" rect="0 0 67 103" margin="0 0 0 0" layout_gravity="center center" col="3" dropsound="icon_get_down" enableselect="false" maxselect="3" movepop="false" scrollbar="false" picksound="icon_pick_up" row="1" size="59 84" skin="invenslot2" spc="5 3" RBtnUpScp="CARD_SLOT_RBTNUP_ITEM_INFO" DropScp="CARD_SLOT_DROP"/>
+		<slotset name="STATcard_labelset" parent="STATcardGbox" rect="0 0 67 103" margin="0 0 0 0" layout_gravity="center center" col="3" enableselect="false" maxselect="3" movepop="false" scrollbar="false" row="1" size="62 100" spc="2 3" hittest="false"/>
+		<slot name="LEGcard_slot" parent="mainGbox" rect="0 0 100 150" margin="0 0 0 0" layout_gravity="center center" dropsound="icon_get_down" enableselect="false" movepop="false" scrollbar="false" picksound="icon_pick_up" size="100 150" image="legend_cardslot"/>
+		<picture name="LEGcard_slot_anim" parent="mainGbox" rect="0 0 106 156" margin="0 0 0 0" layout_gravity="center center" dropsound="icon_get_down" enableselect="false" movepop="false" scrollbar="false" picksound="icon_pick_up" size="100 150" image="legend_cardslot1" hittest="false"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 52 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;monstercardslot&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}몬스터 카드 장착 UI를 닫습니다{/}"/>
+	</controls>
+</uiframe>
