@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- CC(Crowd Control) 점감관련 상수들, 점감 관련 상수를 세팅할 시에, Name에 RefleshTime, ApplyingCount, Ratio 을 사용하여야 한다. -->
+<!-- 상수 관련 Name은 RefleshTime, ApplyingCount, Ratio 을 반드시 사용하여야 한다. -->
+<!-- 그룹 구분은 반드시 [Group_숫자] 형식을 따라야 한다.-->
+<Category Name="DiminishingReturns">
+	<Category Name="Group_1">
+		<Category Name="Constant">
+			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
+			<Class Name="ApplyingCount" Value="5" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="Ratio" Value="0.5" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
+		</Category>
+		<Category Name="Buff">
+			<Class Name="Cryomancer_Freeze" BuffID="238" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Subzero_Buff" BuffID="277" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Cryomancer_FrostPillar" BuffID="301" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Freeze" BuffID="8" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+		</Category>
+		<Category Name="Skill">      
+    </Category>
+	</Category>
+	<Category Name="Group_2">
+		<Category Name="Constant">
+			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
+			<Class Name="ApplyingCount" Value="5" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="Ratio" Value="0.5" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
+		</Category>
+		<Category Name="Buff">
+			<Class Name="Restrain_Debuff" BuffID="236" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Stun" BuffID="61" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+		</Category>
+	</Category>
+	<Category Name="Group_3">
+		<Category Name="Constant">
+			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
+			<Class Name="ApplyingCount" Value="5" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="Ratio" Value="0.5" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
+		</Category>
+		<Category Name="Buff">
+			<Class Name="MagneticForce_Debuff_Hold" BuffID="282" Desc="마그네틱포스 스킬에서 유저를 이동불가를 시키는 디버프"/>
+			<Class Name="스노우롤링어태치" BuffID="90001" Desc="스노우로링에 붙어 있는 동안 걸리는 더미 버프"/>
+			<Class Name="SadhuBind_Debuff" BuffID="216" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Dethrone_Debuff" BuffID="2026" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Raise_Debuff" BuffID="2996" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Arrest" BuffID="199" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="IronHook" BuffID="6009" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Stop_Debuff" BuffID="123" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="TeleHold" BuffID="66" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Retrieve_Debuff" BuffID="227" Desc="리트리브 스킬 버프"/>
+			<Class Name="Coursing_Debuff" BuffID="197" Desc="코싱 스킬 버프"/>
+			<Class Name="Impaler_Debuff" BuffID="134" Desc="창꽂았을떄"/>
+			<Class Name="telepath" BuffID="6013" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+		</Category>
+		<Category Name="Skill">
+			<Class Name="Psychokino_MagneticForce" SkillID="20305" Desc="넉다운은 스킬이 아니기 때문에, 900000번으로 할당하기로 정한다."/>
+		</Category>
+	</Category>
+	<Category Name="Group_4">
+		<Category Name="Constant">
+			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
+			<Class Name="ApplyingCount" Value="5" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="Ratio" Value="0.5" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
+		</Category>
+		<Category Name="Buff">
+			<Class Name="JoustSilence_Debuff" BuffID="1046" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+		</Category>
+		<Category Name="Skill">
+			<Class Name="HeadShot" SkillID="31202" Desc="머스킷티어 헤드샷 스핀"/>
+		</Category>
+	</Category>
+	<Category Name="Group_5">
+		<Category Name="Constant">
+			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
+			<Class Name="ApplyingCount" Value="5" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="Ratio" Value="0.5" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
+		</Category>
+		<Category Name="Buff">      
+    </Category>
+		<Category Name="Skill">
+			<Class Name="KnockDown" SkillID="900000" Desc="넉다운은 스킬이 아니기 때문에, 900000번으로 할당하기로 정한다."/>
+			<Class Name="KnockBack" SkillID="900001" Desc="넉백은 스킬이 아니기 때문에, 900001번으로 할당하기로 정한다."/>
+		</Category>
+	</Category>
+	<!-- ############################################################################################################################################################### -->
+	<!-- 아래에 그룹이 아닌 별도의 값을 관리할 내용을 넣으세요 -->
+	<!-- 아래에 그룹이 아닌 별도의 값을 관리할 내용을 넣으세요 -->
+	<Category Name="IgnoreDuplication">
+		<!-- 프로스트 필라 같이 연속 적용시에 점감을 적용하지 않을 버프나 스킬을 등록 -->
+		<Category Name="Buff">
+			<Class Name="Cryomancer_FrostPillar" BuffID="301" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+		</Category>
+		<Category Name="Skill"/>
+	</Category>
+	<Category Name="IgnoreMinimumDurationList">
+		<!-- 최소 버프 지속 유지시간을 적용시키지 않을 버프 및 스킬 목록 -->
+		<Category Name="Buff">
+			<Class Name="MagneticForce_Debuff_Hold" BuffID="282" Desc=""/>
+		</Category>
+		<Category Name="Skill">
+			<Class Name="Dummy" SkillID="-1" Desc=""/>
+		</Category>
+	</Category>
+	<Category Name="CustomizingSkillIDAllocation">
+		<!-- KnockDown 이나 KnockBack은 스킬이 아니기 때문에, 임의의 스킬 아이디를 할당하여 스킬처럼 등록한다.-->
+		<Class Name="KnockDown" SkillID="900000" Desc="넉다운은 스킬이 아니기 때문에, 900000번으로 할당하기로 정한다."/>
+		<Class Name="KnockBack" SkillID="900001" Desc="넉백은 스킬이 아니기 때문에, 900001번으로 할당하기로 정한다."/>
+	</Category>
+	<Category Name="MinimumDuration">
+		<!-- 버프의 최소 지속 시간을 의미 -->
+		<Class Name="MinimumDuration" Value="1.0" Desc="(float)최소 유지할 지속 시간을 의미(단위 sec)"/>
+	</Category>
+	<!-- 마그네틱 포스 관련 comment 
+  현재 설정 되어 있는 마그네틱 포스는 LifeTime이 3초이다. monskl_custom.lua의 SCR_MON_ATTRACT_MAGNETIC_TS_BORN_UPDATE()는 6번돈다. 즉 0.5초당 1번
+  이를 바탕으로 버프시간을 계산했음. 
+  마그네틱 포스의 지속시간이나 update 틱이 변경된다면, SCR_MON_ATTRACT_MAGNETIC_TS_BORN_UPDATE() 내의 코드의 수정이 필요함
+  -->
+	<!-- 스노우롤링 관련 comment
+  스노우롤링의 지속시간은 base tiem 3 + skill lv 로 되는 듯 하다. 이는 monskl_custom.lua 내의 SKL_TGT_ATTACHMON() 에 박혀있다. 혹 스킬의 수정이 이루어진다면
+  해당 함수내의 코드 수정이 필요한다.
+  스노우롤링 점감을 위해 2개의 버프가 추가 되었다.
+  SnowRollingAttach - 스노우볼에 attach되어 있는 동안 걸리는 버프이다.
+  SnowRollingTemporaryImmune - 스노우볼링에 걸리고 점감으로 인해 끝나기 전에 detach되었을 경우, 다시 붙지 않기 위해 걸어주는 버프
+  * SnowRollingTemporaryImmune 버프는 스노우롤링이 끝나면 넉백을 시전하기 때문에, SKL_TGT_KNOCKDOWN()에서 삭제해 준다.(넉백의 시전은 곧 스노우롤링의 끝을 의미)
+  -->
+</Category>

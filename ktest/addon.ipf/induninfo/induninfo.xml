@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="induninfo" x="0" y="0" width="1095" height="620" create="open">
+	<frame fasthide="true" layout_gravity="center center" margin="0 -50 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="101"/>
+	<option closebutton="false"/>
+	<script OpenScp="INDUNINFO_UI_OPEN" CloseScp="INDUNINFO_UI_CLOSE"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+	<userconfig STAR_IMAGE="star_mark" TOKEN_STATE_IMAGE="token_on" NOT_TOKEN_STATE_IMAGE="token_off"/>
+	<controls>
+		<groupbox name="bgBox" rect="0 0 1095 620" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" hittest="false"/>
+		<groupbox name="headerBox" rect="0 0 1095 60" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_top" hittest="false"/>
+		<picture name="helpPic" rect="0 0 50 50" margin="28 20 0 0" layout_gravity="left top" image="testquesten_button" texttooltip="{nl}각 던전은 카테고리별로 입장 횟수가 카운트 됩니다. "/>
+		<button name="closeBtn" rect="0 0 50 50" margin="0 20 28 0" layout_gravity="right top" LBtnUpScp="INDUNINFO_UI_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}인스턴스 던전 창을 닫습니다{/}"/>
+		<richtext name="headerText" rect="0 0 600 50" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}인스턴스 던전{/}" hittest="false"/>
+		<groupbox name="contentBox" rect="0 0 1095 500" margin="0 60 0 0" layout_gravity="left top" draw="false"/>
+		<groupbox name="categoryBox" rect="0 0 340 500" parent="contentBox" margin="10 0 0 0" layout_gravity="left top" skin="test_frame_midle" fixheight="true" scrollbar="true"/>
+		<!-- Info -->
+		<groupbox name="infoBox" rect="0 0 720 500" parent="contentBox" margin="0 0 20 0" layout_gravity="right top" draw="false"/>
+		<groupbox name="nameBox" rect="0 0 720 45" parent="infoBox" margin="0 0 0 0" layout_gravity="left top" draw="false" image="test_com_namebg"/>
+		<richtext name="nameText" rect="0 0 500 30" parent="nameBox" margin="10 0 0 0" layout_gravity="left center" format="{@st66d}%s{/}" param1="name" param1_def="던전 이름"/>
+		<picture name="indunPic" rect="0 0 295 450" parent="infoBox" margin="0 0 0 0" layout_gravity="left bottom" image="027_boss_Gaigalas" stretch="true"/>
+		<!-- Count -->
+		<groupbox name="countBox" parent="infoBox" rect="0 0 412 50" margin="0 45 0 0" layout_gravity="right top" draw="false" hittestbox="false"/>
+		<picture name="countPic" parent="countBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left center" image="indun_entrance"/>
+		<richtext name="countText" parent="countBox" rect="0 0 190 30" margin="30 0 0 0" layout_gravity="left center" fontname="brown_18_b" caption="입장 횟수"/>
+		<richtext name="countData" parent="countBox" rect="0 0 190 30" margin="0 0 30 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s/%s회" param1="now" param1_def="0" param2="max" param2_def="3"/>
+		<picture name="tokenStatePic" parent="countBox" rect="0 0 30 30" margin="0 0 0 0" layout_gravity="right center" image="token_on" stretch="true" texttooltip="토큰 혜택으로 1회 추가 입장 가능합니다."/>
+		<!-- Level -->
+		<groupbox name="lvBox" parent="infoBox" rect="0 0 412 50" margin="0 85 0 0" layout_gravity="right top" draw="false" hittestbox="false"/>
+		<picture name="lvPic" parent="lvBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left center" image="indun_entrance_level"/>
+		<richtext name="lvText" parent="lvBox" rect="0 0 190 30" margin="30 0 0 0" layout_gravity="left center" fontname="brown_18_b" caption="입장 레벨"/>
+		<richtext name="lvData" parent="lvBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" fontname="brown_18_b" caption="50"/>
+		<!-- Star -->
+		<groupbox name="starBox" parent="infoBox" rect="0 0 412 50" margin="0 130 0 0" layout_gravity="right top" draw="false" hittestbox="false"/>
+		<picture name="starPic" parent="starBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left center" image="indun_entrance_LOD"/>
+		<richtext name="starText" parent="starBox" rect="0 0 190 30" margin="30 0 0 0" layout_gravity="left center" fontname="brown_18_b" caption="난이도"/>
+		<richtext name="starData" parent="starBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" fontname="brown_18_b" caption="별"/>
+		<!-- Position -->
+		<groupbox name="posBox" parent="infoBox" rect="0 0 412 110" margin="0 178 0 0" layout_gravity="right top" draw="false" hittestbox="false"/>
+		<picture name="posPic" parent="posBox" rect="0 0 27 27" margin="0 10 0 0" layout_gravity="left top" image="indun_entrance_location"/>
+		<richtext name="posText" parent="posBox" rect="0 0 190 30" margin="30 10 0 0" layout_gravity="left top" fontname="brown_18_b" caption="위치"/>
+		<!-- Mon Box -->
+		<groupbox name="monBox" parent="infoBox" rect="0 0 412 90" margin="0 0 0 120" layout_gravity="right bottom" draw="false" hittestbox="false"/>
+		<button name="monRightBtn" parent="monBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="right top" image="button_right_select2" LBtnUpScp="INDUNENTER_MON_CLICK_RIGHT"/>
+		<button name="monLeftBtn" parent="monBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="left top" image="button_left_select2" LBtnUpScp="INDUNENTER_MON_CLICK_LEFT"/>
+		<picture name="monPic" parent="monBox" rect="0 0 27 27" margin="5 0 0 0" layout_gravity="left top" image="indun_bossmonster"/>
+		<richtext name="monText" parent="monBox" rect="0 0 190 30" margin="35 0 0 0" layout_gravity="left top" fontname="brown_18_b" caption="대표 등장 몬스터"/>
+		<groupbox name="monBox_dummy" parent="monBox" rect="0 0 340 65" margin="35 0 0 0" layout_gravity="left bottom" draw="false"/>
+		<slotset name="monSlotSet" parent="monBox_dummy" rect="0 0 370 60" margin="5 0 0 0" layout_gravity="left top" row="1" col="10" size="65 65" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
+		<!-- Reward Box -->
+		<groupbox name="rewardBox" parent="infoBox" rect="0 0 412 90" margin="0 0 0 0" layout_gravity="right bottom" draw="false" hittestbox="false"/>
+		<button name="rewardRightBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="right top" image="button_right_select2" xLBtnUpScp="INDUNENTER_REWARD_CLICK_RIGHT"/>
+		<button name="rewardLeftBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="left top" image="button_left_select2" LBtnUpScp="INDUNENTER_REWARD_CLICK_LEFT"/>
+		<picture name="rewardPic" parent="rewardBox" rect="0 0 27 27" margin="5 0 0 0" layout_gravity="left top" image="indun_item"/>
+		<richtext name="rewardText" parent="rewardBox" rect="0 0 190 30" margin="35 0 0 0" layout_gravity="left top" caption="대표 획득 아이템" fontname="brown_18_b"/>
+		<groupbox name="rewardBox_dummy" parent="rewardBox" rect="0 0 340 65" margin="35 0 0 0" layout_gravity="left bottom" draw="false"/>
+		<slotset name="rewardSlotSet" parent="rewardBox_dummy" rect="0 0 370 60" margin="5 0 0 0" layout_gravity="left bottom" row="1" col="10" size="65 65" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
+		<!-- Bottom controls -->
+		<radiobutton name="lvAscendRadio" rect="0 0 200 30" margin="20 0 0 17" layout_gravity="left bottom" group="sortOption" LBtnDownScp="INDUNINFO_SORT_BY_LEVEL" caption="{@st66b}레벨 오름차순{/}" clicksound="button_click_big" oversound="button_over"/>
+		<radiobutton name="lvDescendRadio" rect="0 0 200 30" margin="200 0 0 17" layout_gravity="left bottom" group="sortOption" LBtnDownScp="INDUNINFO_SORT_BY_LEVEL" caption="{@st66b}레벨 내림차순{/}" clicksound="button_click_big" oversound="button_over"/>
+		<richtext name="resetInfoText" rect="0 0 600 30" parent="bgBox" margin="0 0 20 22" layout_gravity="right bottom" format="{@st66b}입장 횟수는 매일 %s시에 초기화 됩니다.{/}" param1="resetTime" param1_def="6"/>
+	</controls>
+</uiframe>

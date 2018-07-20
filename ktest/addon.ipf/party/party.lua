@@ -152,10 +152,10 @@ function ON_PARTY_UPDATE(frame, msg, str, num)
 		local iconinfo = partyMemberInfo:GetIconInfo();		
 		-- 접속중 파티원
 		if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
-			ret = SET_PARTYINFO_ITEM(memberlist, msg, partyMemberInfo, memberIndex, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, true, partyID);
+			ret = SET_PARTYINFO_ITEM(memberlist, msg, partyMemberInfo, memberIndex, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, partyID);
 		-- 접속안한 파티원
 		else
-			ret = SET_LOGOUT_PARTYINFO_ITEM(memberlist, msg, partyMemberInfo, memberIndex, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, true, partyID);
+			ret = SET_LOGOUT_PARTYINFO_ITEM(memberlist, msg, partyMemberInfo, memberIndex, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, partyID);
 		end
 		if ret ~= nil then
 			memberIndex = memberIndex + 1;

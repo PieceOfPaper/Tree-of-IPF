@@ -13,8 +13,7 @@
         <groupbox name="pipwin_top" rect="0 0 450 88" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top"/>
         <richtext name="title" rect="0 0 200 30" margin="0 27 0 0" layout_gravity="center top" caption="{@st43}컴패니언{/}" fontname=""/>
         <picture name="question" rect="0 0 44 44" margin="38 7 0 0" layout_gravity="left top" hittest="true" image="question_simbol" texttooltip="{@st59b}컴패니언{nl}{@st59s} - 목록에서 원하는 항목을 클릭해서 상세 정보 보기{/}"/>
-        <button name="close" rect="0 0 44 44" margin="7 7 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;pet_list&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}컴패니언을 닫습니다{/}"/>
-        <picture name="titlepicture" rect="0 0 44 44" margin="0 -500 0 0" layout_gravity="right top" image="button_pet"/>
+        <button name="close" rect="0 0 44 44" margin="7 7 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;pet_list&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}컴패니언을 닫습니다{/}"/>        
         <groupbox name="gbox" rect="0 0 430 860" margin="0 140 0 0" layout_gravity="center top" draw="flase" hittestbox="false" scrollbar="true" skin="bg2"/>
     </controls>
 </uiframe>

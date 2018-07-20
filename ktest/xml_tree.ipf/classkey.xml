@@ -7325,6 +7325,9 @@
         <Key Name="Kill_F_boss_succubus" Value="100968"/>
         <Key Name="Kill_pc_summon_boss_Marnoks" Value="100965"/>
         <Key Name="Kill_pc_summon_boss_succubus" Value="100966"/>
+        <Key Name="AdditionalExpRate" Value="100984"/>
+        <Key Name="TeamBattleRewardSeason" Value="100994"/>
+        <Key Name="InDunCountType_1000" Value="100995"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Ability">
         <Key Name="AddSpend" Value="134"/>
@@ -7969,6 +7972,12 @@
         <Key Name="MAXPATK_SUB_RATE_BM" Value="100876"/>
         <Key Name="MINPATK_SUB_BM" Value="100877"/>
         <Key Name="MaxWeight_RATE_BM" Value="100878"/>
+        <Key Name="CON_ITEM_BM" Value="100988"/>
+        <Key Name="DEX_ITEM_BM" Value="100989"/>
+        <Key Name="INT_ITEM_BM" Value="100987"/>
+        <Key Name="LUCK_ITEM_BM" Value="100985"/>
+        <Key Name="MNA_ITEM_BM" Value="100986"/>
+        <Key Name="STR_ITEM_BM" Value="100990"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Guild">
         <Key Name="GuildAuthorityBitFlag_31" Value="34320"/>
@@ -8725,6 +8734,14 @@
         <Key Name="EVENT_1706_MONK_DATE" Value="100977"/>
         <Key Name="EVENT_1706_MONK_DIR" Value="100978"/>
         <Key Name="EVENT_1706_MONK_KILLCOUNT" Value="100976"/>
+        <Key Name="BasicFishingSlotCount" Value="100982"/>
+        <Key Name="FishingItemBagExpandCount" Value="100980"/>
+        <Key Name="FishingResetTime" Value="100979"/>
+        <Key Name="FishingSuccessCount" Value="100981"/>
+        <Key Name="FishingTime" Value="100983"/>
+        <Key Name="IngameEventBanner_ResetTime" Value="100992"/>
+        <Key Name="TUTO_TP_SHOP_REWARD" Value="100993"/>
+        <Key Name="KLAPEDA_FISHING_MANAGER_EXCHANGE1" Value="100996"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>
@@ -15361,5 +15378,6 @@
         <Key Name="EVENT_1706_FISHING_ARTEFACT_COSTUME" Value="100961"/>
         <Key Name="EVENT_1706_FISHING_ARTEFACT_DATE" Value="100963"/>
         <Key Name="EVENT_1706_FISHING_BALLOON_COUNT" Value="100962"/>
+        <Key Name="TUTO_TP_SHOP" Value="100991"/>
     </KeyIDSpc>
 </ClassKey>

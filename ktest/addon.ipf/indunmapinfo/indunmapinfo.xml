@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="indunmapinfo" x="0" y="0" width="710" height="470" create="open">
+	<frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 -50 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option margin="-100 -100 0 0" closebutton="false" hideable="true"/>
+	<sound opensound="win_open" closesound="win_close" margin="-100 -100 0 0"/>
+	<skin frameskin="mainwindow3"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<script CloseScp="INDUNMAPINFO_UI_CLOSE"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+	<layer layerlevel="102" margin="-100 -100 0 0"/>
+	<controls>
+		<richtext name="title" rect="0 0 100 30" margin="0 37 0 0" layout_gravity="center top" caption="{@st43}{s22}던전 위치 보기{/}" fontname="default" spacey="0"/>
+		<button name="closeBtn" rect="0 0 50 50" margin="0 35 28 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;indunmapinfo&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}던전 위치 보기 창을 닫습니다{/}"/>
+		<groupbox name="mapBox" rect="0 0 670 370" margin="0 0 0 16" layout_gravity="center bottom" draw="false" fixheight="true" scrollbar="false"/>
+		<picture name="worldMapPic" rect="0 0 1000 1000" parent="mapBox" margin="0 0 0 0" layout_gravity="left top" image="worldmap_s_current" stretch="true" LBtnDownScp="INDUNMAPINFO_WORLDMAP_LBTN_DOWN" LBtnUpScp="INDUNMAPINFO_WORLDMAP_LBTN_UP"/>
+	</controls>
+</uiframe>

@@ -100,9 +100,11 @@
 		<Code Code="ERRCODE_LOGIC_INVALID_CHAR_SLOT_COUNT" CallStack="NO" Desc="슬롯갯수보다 캐릭터 갯수가 많음에도 클라이언트에서 게임시작 요청이 들어왔거나 갯수를 가져오는데 실패했습니다"/>
 		<Code Code="ERRCODE_LOGIC_INVALID_ACCOUNT_ID" CallStack="NO" Desc="Account ID의 값이 비정상입니다."/>
 		<Code Code="ERRCODE_LOGIC_AUTOMATCH" CallStack="NO" Desc="매칭 관련 에러 발생"/>
-		<Code Code="ERRCODE_LOGIC_RANDOM_MISSION" CallStack="NO" Desc="살러스 수녀원 관련 에러"/>
 		<Code Code="ERRCODE_LOGIC_MISSION_ROOM_EXIT" CallStack="NO" Desc="미션룸 삭제"/>
-		<Code Code="ERRCODE_LOGIC_UNKNOWN_ACTOR_MESSAGE" CallStack="NO" Desc="정의되지 않은 메세지 입니다."/>		<Code Code="ERRCODE_LOGIC_DUPLICATE_LOGIN" CallStack="NO" Desc="중복 로그인 관련 에러"/>
+		<Code Code="ERRCODE_LOGIC_UNKNOWN_ACTOR_MESSAGE" CallStack="NO" Desc="정의되지 않은 메세지 입니다."/>
+		<Code Code="ERRCODE_LOGIC_DUPLICATE_LOGIN" CallStack="NO" Desc="중복 로그인 관련 에러"/>
+		<Code Code="ERROR_NXA_LOGIN_FAILED" CallStack="NO" Desc="NXA 로그인 실패"/>
+		<Code Code="INFO_NXA_LOGIN" CallStack="NO" Desc="NXA 로그인 정보"/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
@@ -219,7 +221,7 @@
 		<Code Code="ERRCODE_SCRIPT_CANT_USE_TX_IN_MAIN_THREAD" CallStack="NO" Desc="Main thread 에서는 tx를 사용할 수 없습니다. 커스텀 tx를 사용하세요."/>
 		<Code Code="ERRCODE_SCRIPT_CANT_FIND_LUA_SCRIPT" CallStack="NO" Desc="루아 스크립트 파일을 찾을 수 없습니다."/>
 		<Code Code="ERRCODE_SCRIPT_INVALID_ARG_NUMBER" CallStack="NO" Desc="인자 갯수가 잘못되었습니다. 해당 함수를 올바르게 호출 하였는지 확인하세요."/>
-		</Type>
+	</Type>
 	<Type Type="NETWORK">
 		<Code Code="ERRCODE_NETWORK_ERROR_MONGODB" CallStack="NO" Desc="몽고 DB에 연결하는데 실패하였습니다."/>
 		<Code Code="ERRCODE_NETWORK_CREATE_NET_STREAM" CallStack="NO" Desc="NetStream을 생성하는데 실패하였습니다. 올바른 ip입니까?"/>
@@ -340,5 +342,6 @@
 		<Code Code="ERRCODE_INFO_FAIL_GUILD_AGIT_ENTER" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
 		<Code Code="ERRCODE_INFO_DB_CONNECT" CallStack="NO" Desc=" : "/>
 		<Code Code="ERRCODE_INFO_FAIL_GUILD_AGIT_ENTER" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
+		<Code Code="ERRCODE_INFO_LOGIN_PROCESS" CallStack="NO" Desc="로그인 에러 정보"/>
 	</Type>
 </imcErrorCode>

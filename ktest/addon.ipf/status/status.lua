@@ -15,6 +15,7 @@ function STATUS_ON_INIT(addon, frame)
 	addon:RegisterMsg("JOB_CHANGE", "STATUS_JOB_CHANGE");
 	addon:RegisterMsg("LIKEIT_WHO_LIKE_ME", "STATUS_INFO");
 	addon:RegisterMsg("TOKEN_STATE", "TOKEN_ON_MSG");
+    addon:RegisterMsg('UPDATE_EXP_UP', 'STATUS_UPDATE_EXP_UP_BOX');
 	
 	STATUS_INFO_VIEW(frame);
 end
@@ -240,9 +241,7 @@ function STATUS_ONLOAD(frame, obj, argStr, argNum)
 
 	STATUS_TAB_CHANGE(frame);
 	STATUS_INFO();
-
-	--local invenFrame = ui.GetFrame('inventory');
-	--invenFrame:ShowWindow(1);
+    STATUS_UPDATE_EXP_UP_BOX(frame);
 end
 
 function STATUS_CLOSE(frame, obj, argStr, argNum)
@@ -668,7 +667,7 @@ function SETEXP_SLOT_PARTY(expupBuffBox, addValue, index, entireSum)
 end
 
 --F1 경험치 계산부분
-function SETEXP_SLOT(gbox)
+function SETEXP_SLOT(gbox, addBuffClsName, isAdd)
 	local expupBuffBox = gbox:GetChild('expupBuffBox');
     expupBuffBox:RemoveAllChild();
         
@@ -728,13 +727,24 @@ function SETEXP_SLOT(gbox)
         totalExpUpValue = totalExpUpValue + expupValue; 
     end
 
+    -- worldevent
+    if addBuffClsName == 'GoldenFishEvent' and isAdd == 1 then
+        local expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, 'GoldenFishEvent', GOLDEN_FISH_EXP_RATE);
+        totalExpUpValue = totalExpUpValue + expupValue;
+    end
+
     -- exp buffs
     local buffCount = info.GetBuffCount(handle);
 	for i = 0, buffCount - 1 do
 		local buff = info.GetBuffIndexed(handle, i);
         local buffCls = GetClassByType('Buff', buff.buffID);
         if buffCls ~= nil then
-            local expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName);
+            local expupValue = 0;
+            if buffCls.ClassName == 'GoldenFishEvent' then
+                expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName, GOLDEN_FISH_EXP_RATE);
+            else
+                expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName);
+            end
             totalExpUpValue = totalExpUpValue + expupValue;
         end
 	end
@@ -1286,6 +1296,9 @@ function STATUS_ATTRIBUTE_VALUE_RANGE_NEW(pc, opc, frame, gboxctrl, attibuteName
 		
 	local title = GET_CHILD(controlSet, "title", "ui::CRichText");
 	title:SetText(ScpArgMsg(attibuteName));
+	if attibuteName == 'PATK_SUB' then
+    	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg1"))
+    end
 
 	local stat = GET_CHILD(controlSet, "stat", "ui::CRichText");
 
@@ -1330,6 +1343,11 @@ function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
 	tolua.cast(controlSet, "ui::CControlSet");
 	local title = GET_CHILD(controlSet, "title", "ui::CRichText");
 	title:SetText(ScpArgMsg(attibuteName));
+	if attibuteName == 'SR' then
+    	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg2"))
+	elseif attibuteName == 'SDR' then
+    	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg3"))
+    end
 
 	local stat = GET_CHILD(controlSet, "stat", "ui::CRichText");
 	title:SetUseOrifaceRect(true)
@@ -1974,4 +1992,9 @@ function EXEC_CHANGE_NAME_BY_ITEM(inputframe, ctrl)
 	end
 
 	OPEN_CHECK_USER_MIND_BEFOR_YES_BY_ITEM(inputframe, changedName, itemIES, itemType);
+end
+
+function STATUS_UPDATE_EXP_UP_BOX(frame, msg, argStr, argNum)
+    local expupGBox = GET_CHILD_RECURSIVELY(frame, 'expupGBox');
+    SETEXP_SLOT(expupGBox, argStr, argNum);
 end

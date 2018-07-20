@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="weaponswap_tempimage" x="200" y="0" width="180" height="120" create="open" moveable="false">
+	<frame title="weaponswap_tempimage" layout_gravity="center center" margin="170 0 0 0"/>
+	<option visible="true" alwaysVisible="false" hideable="false" closebutton="false"/>
+	<input hittestframe="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="70"/>
+	<controls>
+		<groupbox name="bodyGbox" rect="0 0 120 60" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false"/>
+		<slot name="slot0" parent="bodyGbox" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="left top" index="0" hittest="false" skin="swap_slot1"/>
+		<slot name="slot1" parent="bodyGbox" rect="0 0 60 60" margin="60 0 0 0" layout_gravity="left top" index="1" hittest="false" skin="swap_slot2"/>
+	</controls>
+</uiframe>

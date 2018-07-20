@@ -1,16 +1,5 @@
 -- inun.lua
-
 function INDUN_ON_INIT(addon, frame)
-	addon:RegisterMsg('CHAT_INDUN_UI_OPEN', 'ON_CHAT_INDUN_UI_OPEN');
-	--addon:RegisterMsg('INDUN_COUNT_RESET', 'ON_INDUN_COUNT_RESET');
-end
-
-function ON_CHAT_INDUN_UI_OPEN(frame, msg, argStr, argNum)
-	if nil ~= frame then
-		frame:ShowWindow(1);
-	else
-		ui.OpenFrame("indun");
-	end
 end
 
 function INDUN_UI_OPEN(frame)
@@ -18,12 +7,10 @@ function INDUN_UI_OPEN(frame)
 
 	-- resize frame for using system menu and quickslot
 	local bg3 = frame:GetChild('bg3');
-	frame:Resize(frame:GetWidth(), bg3:GetY() + bg3:GetHeight());
+	--frame:Resize(frame:GetWidth(), bg3:GetY() + bg3:GetHeight());
 end
 
 function INDUN_DRAW_CATEGORY(frame)
-	frame:SetUserValue('SELECT', 'None');
-
 	local categBox = GET_CHILD_RECURSIVELY(frame, "categBox", "ui::CGroupBox");
 	local cateList = GET_CHILD_RECURSIVELY(categBox, "cateList", "ui::CGroupBox");
 	cateList:RemoveAllChild();
@@ -181,11 +168,6 @@ function INDUN_SHOW_INDUN_LIST(frame, indunType)
 	GBOX_AUTO_ALIGN(indunList, 0, -6, 0, false, false);
 end
 
-function INDUN_CANNOT_YET(msg)
-	ui.SysMsg(ScpArgMsg(msg));
-	ui.OpenFrame("indun");
-end
-
 function GID_CANTFIND_MGAME(msg)
 	ui.SysMsg(ScpArgMsg(msg));
 end
@@ -206,162 +188,4 @@ function INDUN_SORT_OPTIN_CHECK(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
 	local nowSelect = topFrame:GetUserValue('SELECT');
 	INDUN_SHOW_INDUN_LIST(topFrame, tonumber(nowSelect));
-end
-
-function SORT_BY_LEVEL(a, b)	
-	if TryGetProp(a, "Level") == nil or TryGetProp(b, "Level") == nil then
-		return false
-	end
-	return tonumber(a.Level) < tonumber(b.Level)
-end
-
-function SORT_BY_LEVEL_REVERSE(a, b)	
-	if TryGetProp(a, "Level") == nil or TryGetProp(b, "Level") == nil then
-		return false
-	end
-	return tonumber(a.Level) > tonumber(b.Level)
-end
-
-function DRAW_NPC_ICON(frame, MonProp, mapprop, mapWidth, mapHeight, offsetX, offsetY)
-	local GenList = MonProp.GenList;
-	local GenCnt = GenList:Count();
-	for j = 0 , GenCnt - 1 do
-		local WorldPos = GenList:Element(j);
-		local MapPos = mapprop:WorldPosToMinimapPos(WorldPos.x, WorldPos.z, mapWidth, mapHeight);
-		local XC = offsetX + MapPos.x - 12;
-		local YC = offsetY + MapPos.y - 12;
-
-		local ctrlname = GET_GENNPC_NAME(frame, MonProp);
-		local PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);
-		tolua.cast(PictureC, "ui::CPicture");
-
-		local iconName = MonProp:GetMinimapIcon()
-		if iconName == nil or iconName == 'None' then
-			iconName = 'minimap_0' -- default icon
-		end
-		PictureC:SetImage(iconName)
-		PictureC:SetEnableStretch(1)
-		PictureC:ShowWindow(1)
-	end
-end
-
-function MAKE_INDUN_ICON(frame, mapName, indunCls, mapWidth, mapHeight, offsetX, offsetY)
-	-- param check
-	if frame == nil or mapName == nil or indunCls == nil then
-		return
-	end	
-	DESTORY_MAP_PIC(frame)
-
-	-- get indun gate map property
-	local mapprop = geMapTable.GetMapProp(mapName)
-	if mapprop == nil then
-		return
-	end
-
-	-- get generated npc
-	local mongens = mapprop.mongens
-	local monGenCnt = mongens:Count()
-	local iconW = 24
-	local iconH = 24
-
-	for i = 0 , monGenCnt - 1 do
-		local MonProp = mongens:Element(i);		
-		if MonProp ~= nil then
-			local startNPCDialog = TryGetProp(indunCls, 'StartNPCDialog')
-			if startNPCDialog ~= nil and startNPCDialog ~= 'None' and startNPCDialog == MonProp:GetDialog() then
-				DRAW_NPC_ICON(frame, MonProp, mapprop, mapWidth, mapHeight, offsetX, offsetY)
-			end
-		end
-	end
-
-
-end
-
-function UPDATE_INDUN_TOOLTIP(frame, argStr, argNum)
-	------------- param check ----------------
-	if frame == nil or argStr == nil or argNum == nil then
-		return
-	end
-
-	local argList = StringSplit(argStr, '/')
-	if #argList < 1 then -- argStr must be "startmap1/startmap2/.../startmapN' (N >= 1)
-		return
-	end
-
-	local drawList = {};
-	for i = 1, #argList do
-		local mapCls = GetClass('Map', argList[i])
-		if mapCls == nil then -- not exist map
-			return
-		end
-
-		local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
-		drawList[#drawList + 1] = mapCls;
-	end
-
-	local indunCls = GetClassByType('Indun', argNum)
-	if #drawList < 1 or indunCls == nil then -- some param error
-		return
-	end
-
-	------------- draw tooltip ----------------
-	frame:RemoveAllChild();
-	frame:Resize(ui.GetClientInitialWidth(), 512);
-	for i = 1 , #drawList do
-		local drawCls = drawList[i];
-		local ctrlSet = frame:CreateControlSet("worldmap_tooltip", "MAP_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, 0);
-		local mapNameFont = MAPNAME_FONT_CHECK(drawCls.QuestLevel)
-
-		local ratestr = ""
-		if 0 ~= MAP_USE_FOG(drawCls.ClassName) and session.GetMapFogRevealRate(drawCls.ClassName) >= 100 then
-			ratestr = " {img minimap_complete 24 24}"
-		end
-
-		local mapnameCtrl = ctrlSet:GetChild("mapname");
-		mapnameCtrl:SetTextByKey("text", mapNameFont..drawCls.Name..ratestr);
-		
-		local drawMapName = drawCls.ClassName;
-		local pic = GET_CHILD(ctrlSet, "map", "ui::CPicture");
-		local mapimage = ui.GetImage(drawMapName .. "_fog");
-		if mapimage == nil then
-			world.PreloadMinimap(drawMapName);
-		end
-		pic:SetImage(drawMapName .. "_fog");
-		
-		local worldMapWidth = ui.GetFrame("worldmap"):GetWidth()
-		local worldMapHeight = ui.GetFrame("worldmap"):GetHeight()
-
-		local iconGroup = ctrlSet:CreateControl("groupbox", "MapIconGroup", 0, 0, frame:GetWidth(), frame:GetHeight());
-		iconGroup:SetSkinName("None");
-		
-		local nameGroup = ctrlSet:CreateControl("groupbox", "RegionNameGroup", 0, 0, frame:GetWidth(), frame:GetHeight());
-		nameGroup:SetSkinName("None");
-
-		local mapWidth = pic:GetWidth();
-		local mapHeight = pic:GetHeight();
-
-		local offsetX = 450;
-		local offsetY = 210;
-
-		-- 여기서 npc 세팅해줌
-		MAKE_INDUN_ICON(iconGroup, drawMapName, indunCls, mapWidth, mapHeight, offsetX, offsetY)
-		pic:EnableCopyOtherImage(nil);
-		
-		for i = 0, iconGroup:GetChildCount()-1 do
-			local child = iconGroup:GetChildByIndex(i);
-			
-			child:Move( -1*worldMapWidth*(23/100), 0);
-			child:Move( 0, -1*mapHeight*(40/100));
-		end
-		
-		for i = 0, nameGroup:GetChildCount()-1 do
-			local child = nameGroup:GetChildByIndex(i);	
-			
-			child:Move( -1*worldMapWidth*(23/100), 0);
-			child:Move( 0, -1*mapHeight*(40/100));
-		end
-
-		ctrlSet:GetChild("monlv"):SetVisible(0)
-	end
-	GBOX_AUTO_ALIGN_HORZ(frame, 10, 5, 0, true, true, 512, true);	
 end

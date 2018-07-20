@@ -10,8 +10,7 @@
     <sound opensound="win_open" closesound="win_close"/>
     <effect open="shopOpen" close="shopClose"/>
     <script OpenScp="SHOPCOMMON_UI_OPEN" CloseScp="SHOPCOMMON_UI_CLOSE"/>
-    <controls>
-        <picture name="titlepicture" rect="-100 6 44 44" layout_gravity="left top" image="button_inven"/>
+    <controls>        
         <groupbox name="shop" rect="30 100 480 712" draw="true" rateheight="true" ratewidth="true" scrollbar="false" skin="bg"/>
         <button name="close" rect="-15 7 44 44" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;shopcommon&apos;)" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}상점을 닫습니다{/}"/>
         <button name="pagestart" rect="-100 -230 40 30" layout_gravity="center bottom" LBtnUpArgNum="1" LBtnUpScp="SHOP_PAGE_LEFT" caption="{img white_left_arrow 18 18}{img white_left_arrow 18 18}" clicksound="button_click_close" oversound="button_cursor_over_2" skin="textbutton" textalign="center center" texttooltip="{@st59}처음 페이지{/}"/>

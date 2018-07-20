@@ -8788,11 +8788,15 @@ return GET_ABIL_LEVEL(self, &quot;Necromancer2&quot;) * 4000;"/>
                 <Str Str="Bloodletting_Buff"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                 <Num Num="0"/>
-                <Num Num="120000" UseFunc="1" FuncTxt="if IsPVPServer(self) == 1 then
-return 15000 + obj.Level * 2000;
-else
-return 30000 + obj.Level * 5000;
-end"/>
+                <Num Num="120000" UseFunc="1" FuncTxt="value = 30000 + obj.Level * 5000
+
+if IsPVPServer(self) == 1 then
+
+value = math.floor(value / 3
+
+)end
+
+return value;"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
                 <Num Num="0"/>
@@ -12723,7 +12727,14 @@ return obj.Level"/>
     <PadSkill Name="counterspell_pad" CheckerType="0" Range="70" UpdateTerm="100" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="30000"/>
+                <Num Num="30000" UseFunc="1" FuncTxt="local value = 30000
+
+if IsPVPServer(self) == 1 then
+
+value = math.floor(value / 3)end
+
+
+return value;"/>
                 <Num Num="5" UseFunc="1" FuncTxt="return 3 + obj.Level * 2"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -13352,7 +13363,7 @@ end"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="indunTheEnd" CheckerType="0" AllowOverlap="1" Range="30">
+    <PadSkill Name="indunTheEnd" CheckerType="0" AllowOverlap="1" Range="30" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000"/>

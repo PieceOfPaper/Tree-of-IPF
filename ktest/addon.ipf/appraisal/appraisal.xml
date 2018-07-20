@@ -15,7 +15,6 @@
 		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" changecursor="false" hittest="true" image="test_socket_top" stretch="true"/>
 		<groupbox name="pip4" rect="0 0 450 61" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
 		<richtext name="title" rect="0 0 200 80" margin="0 63 0 0" layout_gravity="center top" caption="{@st43}감정{/}" textalign="center center"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="0 -100 8 0" layout_gravity="right top" image="button_property"/>
 		<button name="close" rect="0 0 44 44" margin="30 40 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;appraisal&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}감정 UI를 닫습니다{/}"/>
 		<button name="selectAllBtn" parent="bodyGbox" rect="0 0 160 40" margin="0 55 25 0" layout_gravity="right top" LBtnUpScp="APPRAISAL_SELECT_ALL_ITEM" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66}전체 선택" clicksound="button_click_stats" oversound="button_over" skin="test_normal_button" texttooltip="한번 더 클릭시 전체 해제"/>
 		<richtext name="needlisttxt" parent="bodyGbox" rect="0 0 200 80" margin="20 65 0 0" layout_gravity="left top" caption="{@st66}감정 필요 아이템 목록" textalign="left top"/>

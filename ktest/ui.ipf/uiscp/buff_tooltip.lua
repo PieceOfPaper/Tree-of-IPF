@@ -94,8 +94,7 @@ end
 
 
 function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
-
-	local buff = info.GetBuff(handle, numarg1);
+	local buff = info.GetBuff(handle, numarg1, numarg2);
 	local buffOver;
 	local buffTime;
 	if buff ~= nil then

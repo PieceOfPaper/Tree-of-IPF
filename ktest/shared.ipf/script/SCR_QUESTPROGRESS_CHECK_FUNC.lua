@@ -483,3 +483,18 @@ function SCR_HIDDEN_MIKO_GENDER_CHECK(pc, questname, scriptInfo)
     end
     return 'NO'
 end
+
+
+function SCR_TUTO_TP_SHOP_PRECHECK_FUNC(pc, questname, scriptInfo)
+    local aObj
+    
+    if IsServerSection(pc) == 1 then
+        aObj = GetAccountObj(pc);
+    else
+        aObj = GetMyAccountObj();
+    end
+    if aObj.TUTO_TP_SHOP_REWARD == 0 then
+        return 'YES'
+    end
+    return 'NO'
+end

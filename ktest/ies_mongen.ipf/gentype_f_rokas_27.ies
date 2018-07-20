@@ -1,6 +1,6 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,30,1,60000,1,2,0,0,0,0,0,"Warp_arrow","긴다리 계곡","","","","MON_DUMMY","","","","ROKAS27_ROKAS26","","NO","YES","NO","Neutral","","","",""
-2,2,1,30,1,60000,1,3,0,0,0,0,0,"Warp_arrow","틸타스 협곡","","","","MON_DUMMY","","","","ROKAS27_ROKAS28","","NO","YES","NO","Neutral","","","",""
+2,2,1,30,1,60000,1,2,0,0,0,0,0,"Warp_arrow","틸타스 협곡","","","","MON_DUMMY","","","","ROKAS27_ROKAS28","","NO","YES","NO","Neutral","","","",""
 4,4,1,30,1,60000,1,1,0,0,0,100,0,"npc_low_lev_officer3_m","용병 글렌","","","","","","","ROKAS27_GLEN","","","NO","YES","NO","Neutral","","","",""
 5,5,1,30,1,60000,1,1,0,0,0,100,0,"npc_combat_transport_section_1","기술자 하이넨","","","","","","","ROKAS27_HEINEN","","","NO","YES","NO","Neutral","","","",""
 6,6,1,30,-1,60000,1,1,0,1,0,100,0,"npc_wife_1","조수 아이리네","","","","","","","ROKAS27_AIRINE","","","NO","YES","NO","Neutral","AttachAnimLocal/0:ASTD/5:SIT","NPCStateLocal/5:ROKAS27_QB_5:IMPOSSIBLE:POSSIBLE/0:ROKAS27_QB_5:COMPLETE","ChangeDialogRotate/0",""

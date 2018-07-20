@@ -1,5 +1,5 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
-1,1,1,40,1,60000,1,1,0,0,0,0,0,"Warp_arrow","파마르 숲","","","","","","","","BRACKEN43_1_BRACKEN43_2","","NO","YES","NO","Neutral","","","",""
+1,1,1,40,1,60000,1,2,0,0,0,0,0,"Warp_arrow","파마르 숲","","","","","","","","BRACKEN43_1_BRACKEN43_2","","NO","YES","NO","Neutral","","","",""
 5,5,1,40,1,60000,1,1,0,0,0,0,0,"npc_friar_04","사제 개러티","","","","","","","BRACKEN431_SUBQ_NPC1","","","NO","YES","NO","Neutral","","","",""
 7,7,1,70,1,60000,1,0,0,0,0,0,0,"pedlar_lose_1","UnvisibleName","","","","","","","BRACKEN431_SUBQ_START_NPC","BRACKEN431_SUBQ_START_NPC_MSG","","NO","YES","NO","Neutral","","","",""
 8,8,1,40,1,60000,1,1,0,0,0,0,0,"npc_friar_04","사제 개러티","","","","","","","BRACKEN431_SUBQ_NPC2","","","NO","YES","NO","Neutral","","","",""
@@ -19,7 +19,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 28,28,1,40,40,60000,15,0,0,0,1,0,0,"rootcrystal_01","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
 29,29,0,40,40,0,30,0,0,0,0,0,0,"Toothrikon","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 30,30,1,40,1,60000,1,0,0,0,0,0,0,"HiddenTrigger4","","","","","MON_DUMMY","","","BRACKEN431_SUBQ6_SEED","","","NO","YES","NO","Neutral","EffectLocal2/BRACKEN43_1_SQ7/F_ground051_blue:0.3:2:BOT:SUCCESS","EffectLocal2/BRACKEN43_1_SQ8/F_ground051_blue:0.3:2:BOT:POSSIBLE:PROGRESS:SUCCESS","",""
-31,31,1,40,1,60000,1,1,0,0,0,0,0,"Warp_arrow","펠케 신전터","","","","","","","","BRACKEN43_1_3CMLAKE83","","NO","YES","NO","Neutral","","","",""
+31,31,1,40,1,60000,1,2,0,0,0,0,0,"Warp_arrow","펠케 신전터","","","","","","","","BRACKEN43_1_3CMLAKE83","","NO","YES","NO","Neutral","","","",""
 32,32,1,40,1,60000,1,0,0,0,0,0,0,"npc_rytaswort","UnvisibleName","","","","MON_DUMMY","","","BRACKEN431_SUBQ7_NPC","","","NO","YES","NO","Neutral","EffectLocal2/BRACKEN43_1_SQ7/F_ground051_blue:0.5:2:BOT:POSSIBLE:PROGRESS","AttachAnimLocal/0:event_loop","NPCStateLocal/0:BRACKEN43_1_SQ7:IMPOSSIBLE:POSSIBLE:PROGRESS",""
 33,33,0,40,100,0,10,0,0,0,0,0,0,"horn_golem","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 34,34,0,40,9999,0,30,0,0,0,0,0,0,"Rakon","","","","","","","","","","","NO","YES","NO","Monster","","","",""

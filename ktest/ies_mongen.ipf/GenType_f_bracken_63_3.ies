@@ -1,7 +1,7 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,40,1,60000,1,2,0,0,0,0,0,"Warp_arrow","크니도스 숲","","","","","","","","BRACKEN_63_3_BRACKEN_63_2","","NO","YES","NO","Neutral","","","",""
-2,2,1,40,1,60000,1,3,0,0,0,0,0,"Warp_arrow","노바하 공회소","","","","","","","","BRACKEN_63_3_ABBAY_64_1","","NO","YES","NO","Neutral","","","",""
-3,3,1,40,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","카롤리스 샘터","","","","","","","","BRACKEN_63_3_KATYN_10","","NO","YES","NO","Neutral","","","",""
+2,2,1,40,1,60000,1,2,0,0,0,0,0,"Warp_arrow","노바하 공회소","","","","","","","","BRACKEN_63_3_ABBAY_64_1","","NO","YES","NO","Neutral","","","",""
+3,3,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","카롤리스 샘터","","","","","","","","BRACKEN_63_3_KATYN_10","","NO","YES","NO","Neutral","","","",""
 16,16,0,40,30,60000,40,0,0,0,0,0,0,"Gosaru","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 308,308,0,150,30,60000,40,0,0,0,0,0,0,"raffly","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 17,17,0,40,9999,60000,11,0,0,0,0,0,0,"ellogua","","","","","","","","","","","NO","YES","NO","Monster","","","",""
@@ -19,7 +19,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 18,18,1,40,1,60000,3,0,0,0,1,0,1,"workdesk_01","UnvisibleName","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 19,19,1,40,1,60000,1,0,0,0,1,0,1,"BOOK_02","UnvisibleName","","","","","","","BRACKEN633_LOSTPAPER_FAKE","","","NO","YES","NO","Neutral","","","",""
 20,20,1,40,1,60000,3,0,0,0,1,0,1,"LOST_PAPER","UnvisibleName","","","","","","","BRACKEN633_LOSTPAPER_FAKE","","","NO","YES","NO","Neutral","","","",""
-21,21,1,40,1,60000,1,3,0,0,1,0,0,"Warp_arrow","네밸랫 광산 1층","","","","","","","","BRACKEN633_TO_CMINE661","","NO","YES","NO","Neutral","","","",""
+21,21,1,40,1,60000,1,2,0,0,1,0,0,"Warp_arrow","네밸랫 광산 1층","","","","","","","","BRACKEN633_TO_CMINE661","","NO","YES","NO","Neutral","","","",""
 300,300,1,40,50,20000,4,0,0,0,1,0,1,"npc_thorn_flower","달맞이 꽃","","","","","","","JOB_2_PRIEST3_HERB3","","","NO","YES","NO","Neutral","","","",""
 14,14,1,40,1,60000,1,0,0,0,1,0,1,"npc_cauldron","마족의 솥","","","","MON_DUMMY","","","BRACKEN633_SQ03_BOX01","","","NO","YES","NO","Neutral","EffectLocal/F_spread_in025_red/0.5/1.5/BRACKEN_63_3_SQ020/IMPOSSIBLE:POSSIBLE:PROGRESS","","",""
 302,302,1,40,1,60000,1,0,0,0,0,0,1,"npc_cauldron","마족의 솥","","","","MON_DUMMY","","","BRACKEN633_SQ03_BOX02","","","NO","YES","NO","Neutral","EffectLocal/F_spread_in025_red/0.5/1.5/BRACKEN_63_3_SQ020/IMPOSSIBLE:POSSIBLE:PROGRESS","","",""

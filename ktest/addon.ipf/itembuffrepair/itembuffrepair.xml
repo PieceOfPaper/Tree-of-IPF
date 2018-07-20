@@ -17,8 +17,7 @@
 		<tab name="statusTab" rect="70 70 500 40" layout_gravity="left top" LBtnDownScp="SQIORE_TAP_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="1" oversound="button_cursor_over_2" skin="tab2"/>
 		<labelline name="repairLine1" rect="0 0 420 2" margin="0 0 0 245" layout_gravity="center bottom" skin="None"/>
 		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}수리{/}" width="160"/>
-		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}기록{/}" width="160"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="0 -100 8 0" layout_gravity="right top" image="button_property"/>
+		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}기록{/}" width="160"/>		
 		<button name="selectAllBtn" parent="repair" rect="0 0 190 40" margin="35 135 0 0" layout_gravity="left top" LBtnUpScp="SQUIRE_REAPIR_SELECT_ALL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66}전체 선택" clicksound="button_click_big" oversound="button_over" skin="test_normal_button" texttooltip="한번 더 클릭시 전체 해제"/>
 		<button name="selectEquipedBtn" parent="repair" rect="0 0 190 40" margin="0 135 35 0" layout_gravity="right top" LBtnUpScp="SQUIRE_REAPIR_SELECT_EQUIPED_ITEMS" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66}장착중 선택" clicksound="button_click_stats" oversound="button_over" skin="test_normal_button" texttooltip="한번 더 클릭시 전체 해제"/>
 		<groupbox name="repairlistGbox" parent="repair" rect="0 0 430 580" margin="5 150 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>

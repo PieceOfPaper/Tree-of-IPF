@@ -466,3 +466,34 @@ function GET_REMAIN_LIFE_TIME(lifeTime)
 
     return difSec;
 end
+
+function GET_OFFSET_IN_SCREEN(x, y, width, height)
+    return x, y;
+end
+
+function GET_CONFIG_HUD_OFFSET(frame, defaultX, defaultY)
+    local name = frame:GetName();
+    if config.IsExistHUDConfig(name) ~= 1 then
+        return defaultX, defaultY;
+    end
+    local width = option.GetClientWidth();
+    local height = option.GetClientHeight();
+    local x = math.floor(config.GetHUDConfigXRatio(name) * ui.GetClientInitialWidth());
+    local y = math.floor(config.GetHUDConfigYRatio(name) * ui.GetClientInitialHeight());
+
+    return x, y;
+end
+
+function SET_CONFIG_HUD_OFFSET(frame)
+    local x = frame:GetX();
+    local y = frame:GetY();
+    local pos = frame:FramePosToScreenPos(x, y);
+    x = pos.x;
+    y = pos.y;
+    
+    local name = frame:GetName();
+    local width = option.GetClientWidth();
+    local height = option.GetClientHeight(); 
+
+    config.SetHUDConfigRatio(name, x / width, y / height);
+end

@@ -18,8 +18,7 @@
 		<groupbox name="pip4" rect="0 0 470 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<groupbox name="scalebg" rect="0 0 140 30" margin="0 347 110 0" layout_gravity="right top" hittest="false" draw="true" scrollbar="false" skin="bg"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}워프{/}"/>
-		<button name="close" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;inte_warp&apos;)" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}워프 창을 닫습니다{/}"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="0 -500 8 0" layout_gravity="right top" image="button_portal"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;inte_warp&apos;)" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}워프 창을 닫습니다{/}"/>		
 		<picture name="question" rect="0 0 44 44" margin="0 20 50 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}워프{nl}{@st59s} - 자신이 방문한 지역으로 워프할 수 있는 시스템{nl} - 워프가 2개이상일때 워프 기능 활성화{nl}{/}"/>
 		<richtext name="nowLocation" margin="0 80 0 0" rect="0 0 100 30" format="{@st41}현재 위치 : %s{/}" param1="mapname" param1_def="Where" layout_gravity="center top"/>
 		<richtext name="t_scale" margin="0 347 110 0" rect="0 0 140 30" format="{@st42}x %s{/}" param1="value" param1_def="scale" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="minimizedeventbanner" x="0" y="0" width="70" height="70">
+	<frame title="이벤트 배너를 엽니다" snapclient="true" snapframe="true" layout_gravity="right top" margin="0 270 350 0"/>
+	<option visible="true" closebutton="false" useimageitem="true" piptype="right" autoopen="true" hideable="false"/>
+	<input hittestframe="true"/>
+	<layer layerlevel="31"/>
+	<script OpenScp="" CloseScp=""/>
+	<draw blend="100" drawtitlebar="false" drawframe="false"/>
+	<controls>
+		<groupbox name="gbox" margin="0 0 0 0" rect="0 0 70 65" hittestbox="false" skin="none" layout_gravity="left top"/>
+		<groupbox name="gbox_mission" margin="0 65 0 0" rect="0 0 70 65" hittestbox="false" skin="event_btn" layout_gravity="left top"/>
+		<picture name="pic" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center center" changecursor="false" stretch="true" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" LBtnDownScp="OPEN_INGAME_EVENTBANNER_FRAME" image="event_btn" parent="gbox"/>
+	</controls>
+</uiframe>

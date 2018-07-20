@@ -80,6 +80,12 @@ end
 
 function OPEN_NEWCREDIT(frame)
 	
+	local loginFrame = ui.GetFrame("loginui_idpw");
+	if loginFrame ~= nil then
+	  local loginButton = GET_CHILD_RECURSIVELY(loginFrame, "OK");
+	  loginButton:StopActiveUIEffect();
+	end
+	
 	g_credintimageNum = 1
 
 	local fadein = GET_CHILD_RECURSIVELY(frame,"fadein");

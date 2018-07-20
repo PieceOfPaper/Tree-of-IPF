@@ -147,7 +147,6 @@ function MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls)
 	local newSlots = MAKE_INVEN_SLOTSET(tree, slotsetname)
 	tree:Add(treegroup, newSlotsname, slotsettitle);
 	local slotHandle = tree:Add(treegroup, newSlots, slotsetname);
-
 	local slotNode = tree:GetNodeByTreeItem(slotHandle);
 	slotNode:SetUserValue("IS_ITEM_SLOTSET", 1);
 end
@@ -233,7 +232,7 @@ function INVENTORY_OPEN(frame)
 
 	session.CheckOpenInvCnt();
 	ui.CloseFrame('layerscore');
-	
+	MAKE_WEAPON_SWAP_BUTTON()
 	local questInfoSetFrame = ui.GetFrame('questinfoset_2');
 	if questInfoSetFrame:IsVisible() == 1 then
 		questInfoSetFrame:ShowWindow(0);
@@ -2133,6 +2132,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 			icon:SetColorTone("FFFFFFFF");
 		end
 		
+		
 		icon:Set(imageName, 'Item', equipItem.type, equipItem.equipSpot, equipItem:GetIESID());
 		iconFunc(slot, icon, equipItem, ...);
 
@@ -2142,6 +2142,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		slot:SetOverSound('button_cursor_over_3');
 		slot:SetText("");
 	end
+		
 
 	-- LH아이콘은 RH에 양손무기가 장착중인지 확인후 아이콘 셋팅
 	if spotName == 'LH' then		
@@ -2162,6 +2163,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 					icon:SetColorTone("FFFFFFFF");
 				end
 
+
                 local iconImage = GET_EQUIP_ITEM_IMAGE_NAME(obj, 'Icon');
 				icon:Set(iconImage, 'Item', rhItem.type, rhItem.equipSpot, rhItem:GetIESID());
 				iconFunc(slot, icon, rhItem, ...);
@@ -2172,6 +2174,56 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 			end
 		end
 	end
+		
+	local temp = 1
+	if session.GetWeaponCurrentSlotLine() == 0 then
+		temp = 1
+	else
+		temp = -1
+	end
+
+	if spotName == 'RH' then
+		
+		
+		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
+			session.SetWeaponQuicSlot(1 + temp, equipItem : GetIESID());
+			
+			if equipItem ~= nil then
+				frame:SetUserValue('CURRENT_WEAPON_RH', equipItem.type)
+			else
+				frame:SetUserValue('CURRENT_WEAPON_RH', 0)
+			end
+		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
+			session.SetWeaponQuicSlot(1 + temp, equipItem : GetIESID());
+					
+			if equipItem ~= nil then
+				frame:SetUserValue('CURRENT_WEAPON_RH', equipItem.type)
+			else
+				frame:SetUserValue('CURRENT_WEAPON_RH', 0)
+			end
+		end
+	end
+
+	if spotName == 'LH' then
+		
+		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
+			session.SetWeaponQuicSlot(2 + temp, equipItem : GetIESID());
+			
+			if equipItem ~= nil then
+				frame:SetUserValue('CURRENT_WEAPON_LH', equipItem.type)
+			else
+				frame:SetUserValue('CURRENT_WEAPON_LH', 0)
+			end
+		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
+			session.SetWeaponQuicSlot(2 + temp, equipItem : GetIESID());
+			if equipItem ~= nil then
+				frame:SetUserValue('CURRENT_WEAPON_LH', equipItem.type)
+			else
+				frame:SetUserValue('CURRENT_WEAPON_LH', 0)
+			end
+		end
+	end
+	
 
 	if equipItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_MORU') then
 		slot:SetFrontImage('item_Lock');
@@ -2718,3 +2770,178 @@ function INVENTORY_ON_APPRAISER_FORGERY(frame, msg, argStr, argNum)
 	frame:SetUserValue('FORGERY_BUFF_TIME', argNum);
 	STATUS_EQUIP_SLOT_SET(frame);
 end
+
+function MAKE_WEAPON_SWAP_BUTTON()
+	
+	local frame = ui.GetFrame("inventory");
+	
+
+	local pc = GetMyPCObject();
+	if pc == nil then
+		return;
+	end
+
+	local weaponSwap1 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_1")
+	local weaponSwap2 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_2")
+	
+	local abil = GetAbility(pc, "SwapWeapon");
+	
+	if abil ~= nil then
+		weaponSwap1 : ShowWindow(1)
+		weaponSwap2 : ShowWindow(1)
+	else
+		weaponSwap1 : ShowWindow(0)
+		weaponSwap2 : ShowWindow(0)
+
+		return;
+	end
+
+
+	local curIndex = 0
+	for i = 0, 3 do
+		local guid = session.GetWeaponQuicSlot(i);
+		if nil ~= guid then
+			local item = session.GetEquipItemByGuid(guid);
+			if nil ~= item then
+				curIndex = i
+			end
+		end
+	end
+
+	if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 0 then
+		if curIndex == 0 or curIndex == 1 then
+			frame : SetUserValue('CURRENT_WEAPON_INDEX', 1)
+			weaponSwap1 : SetImage('weapon_swap_pageup');
+			weaponSwap2:SetImage('weapon_swap_pagedown');
+		elseif curIndex == 2 or curIndex == 3 then
+			frame : SetUserValue('CURRENT_WEAPON_INDEX', 2)
+			weaponSwap2 : SetImage('weapon_swap_pageup');
+			weaponSwap1:SetImage('weapon_swap_pagedown');
+		end
+	elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
+		DO_WEAPON_SWAP_1(frame)
+	elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
+		DO_WEAPON_SWAP_2(frame)
+	end
+end
+
+function WEAPONSWAP_HOTKEY_ENTERED()
+		--제작시에는 무기스왑 안되게 끔..
+	if GetCraftState() == 1 then
+		ui.SysMsg(ClMsg("prosessItemCraft"));
+		return;
+	end
+	local frame = ui.GetFrame("inventory");
+	
+
+	local pc = GetMyPCObject();
+	if pc == nil then
+		return;
+	end
+
+	local abil = GetAbility(pc, "SwapWeapon");
+	
+	if abil == nil then
+		return;
+	end
+
+	local curIndex = 0
+	for i = 0, 3 do
+		local guid = session.GetWeaponQuicSlot(i);
+		if nil ~= guid then
+			local item = session.GetEquipItemByGuid(guid);
+			if nil ~= item then
+				curIndex = i
+			end
+		end
+	end
+
+	if frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
+		DO_WEAPON_SWAP_2(frame)
+	elseif frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
+		DO_WEAPON_SWAP_1(frame)
+	elseif frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 0 then
+		if curIndex == 0 or curIndex == 1 then
+			DO_WEAPON_SWAP_2(frame)
+		elseif curIndex == 2 or curIndex == 3 then
+			DO_WEAPON_SWAP_1(frame)
+		end
+	end
+end
+
+function DO_WEAPON_SWAP_1(frame)
+	if frame == nil then
+		frame = ui.GetFrame("inventory");
+	end
+
+	local pc = GetMyPCObject();
+	if pc == nil then
+		return;
+	end
+		
+	if frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
+		return;
+	end
+		frame : SetUserValue('CURRENT_WEAPON_INDEX', 1)
+		
+		session.SetWeaponSwap(1);
+	local weaponSwap1 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_1")
+	local weaponSwap2 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_2")
+
+
+	weaponSwap1:SetImage('weapon_swap_pageup');
+	weaponSwap2:SetImage('weapon_swap_pagedown');
+	
+	local abil = GetAbility(pc, "SwapWeapon");
+
+	if abil ~= nil then
+		weaponSwap1 : ShowWindow(1)
+		weaponSwap2 : ShowWindow(1)
+	else
+		weaponSwap1 : ShowWindow(0)
+		weaponSwap2 : ShowWindow(0)
+	end
+
+		SHOW_WEAPON_SWAP_TEMP_IMAGE(frame:GetUserIValue('CURRENT_WEAPON_RH'), frame : GetUserIValue('CURRENT_WEAPON_LH'), 0)
+end
+
+function DO_WEAPON_SWAP_2(frame)
+
+	if frame == nil then
+		
+		frame = ui.GetFrame("inventory");
+	end
+
+
+	local pc = GetMyPCObject();
+	if pc == nil then
+		return;
+	end
+
+	if frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
+		return;
+	end
+		frame : SetUserValue('CURRENT_WEAPON_INDEX', 2)
+		session.SetWeaponSwap(1);
+
+	local weaponSwap1 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_1")
+	local weaponSwap2 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_2")
+
+
+	weaponSwap1 : SetImage('weapon_swap_pagedown');
+	weaponSwap2:SetImage('weapon_swap_pageup');
+
+
+	local abil = GetAbility(pc, "SwapWeapon");
+
+	if abil ~= nil then
+		weaponSwap1 : ShowWindow(1)
+		weaponSwap2 : ShowWindow(1)
+	else
+		weaponSwap1 : ShowWindow(0)
+		weaponSwap2 : ShowWindow(0)
+	end
+
+		SHOW_WEAPON_SWAP_TEMP_IMAGE(frame : GetUserIValue('CURRENT_WEAPON_RH'), frame : GetUserIValue('CURRENT_WEAPON_LH'), 2)
+end
+

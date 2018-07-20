@@ -244,7 +244,17 @@ function GET_UPGRADE_ADD_ATK_RATIO(item, ignoreTranscend)
     if item.Transcend > 0 and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
         local value = class.AtkRatio;
-        return value;
+        local itemOwner = GetItemOwner(item)
+        local checkPvp = IsPVPServer(itemOwner)
+        if checkPvp == nil then
+            checkPvp = 0;
+        end
+        
+        if checkPvp == 1 then
+            return value * 0.5
+        else
+            return value;
+        end
     end
     return 0;
 end

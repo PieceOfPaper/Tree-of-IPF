@@ -13,8 +13,7 @@
 		<groupbox name="bodyGbox_bg" rect="0 0 450 1200" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" scrollbar="false" skin="test_frame_low"/>
 		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" changecursor="false" hittest="true" image="test_socket_top" stretch="true"/>
 		<groupbox name="pip4" rect="0 0 450 61" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
-		<richtext name="title" rect="0 0 200 80" margin="0 63 0 0" layout_gravity="center top" caption="{@st43}감정{/}" textalign="center center"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="0 -100 8 0" layout_gravity="right top" image="button_property"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 63 0 0" layout_gravity="center top" caption="{@st43}감정{/}" textalign="center center"/>		
 		<button name="close" rect="0 0 44 44" margin="30 40 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;appraisal_pc&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}감정 UI를 닫습니다{/}"/>
 		<!-- Tab -->
 		<tab name="tab" rect="0 0 400 40" margin="0 110 0 0" layout_gravity="center top" LBtnDownScp="APPRAISAL_PC_TAB_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>

@@ -49,6 +49,8 @@ function DURNOTIFY_UPDATE(frame, notOpenFrame)
 	local nowvalue = frame:GetValue()
 	local someflag = 1
 
+	local reverseIndex = 8
+
 	for i = 0, equiplist:Count() - 1 do
 		local equipItem = equiplist:Element(i);
 		local tempobj = equipItem:GetObject()
@@ -57,10 +59,10 @@ function DURNOTIFY_UPDATE(frame, notOpenFrame)
 		
 			if IS_DUR_ZERO(obj) == true  then
 				
-				local slot = slotSet:GetSlotByIndex(slotcnt)
+				local slot = slotSet:GetSlotByIndex(reverseIndex - slotcnt)
 
 				local icon = CreateIcon(slot);
-				icon:Set(obj.Icon, 'Item', equipItem.type, slotcnt, equipItem:GetIESID());
+				icon:Set(obj.Icon, 'Item', equipItem.type, reverseIndex - slotcnt, equipItem:GetIESID());
 				icon:SetColorTone("FF990000");
 				
 				slotcnt = slotcnt + 1
@@ -72,11 +74,10 @@ function DURNOTIFY_UPDATE(frame, notOpenFrame)
 
 				slot:ShowWindow(1);
 			elseif IS_DUR_UNDER_10PER(obj) == true  then
-				
-				local slot = slotSet:GetSlotByIndex(slotcnt)
+				local slot = slotSet:GetSlotByIndex(reverseIndex - slotcnt)
 
 				local icon = CreateIcon(slot);
-				icon:Set(obj.Icon, 'Item', equipItem.type, slotcnt, equipItem:GetIESID());
+				icon:Set(obj.Icon, 'Item', equipItem.type, reverseIndex - slotcnt, equipItem:GetIESID());
 				icon:SetColorTone("FF999900");
 				
 				slotcnt = slotcnt + 1

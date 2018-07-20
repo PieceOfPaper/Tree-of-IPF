@@ -87,9 +87,6 @@ function UPDATE_MAP_FOG_RATE(frame, mapName)
 		rate:SetTextByKey("rate", outStr);
 	end
 
-	--local questInfoFrame = ui.GetFrame('questinfoset_2');
-	--UPDATE_QUESTINFOSET_2(questInfoFrame);
-	-- �� �ϴ°��� �ּ� ������
 	if recoverRate >= 100.0 then
 		CHECK_ACHIEVE_MAP(frame, mapName);
 	end

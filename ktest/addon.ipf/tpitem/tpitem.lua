@@ -1,8 +1,6 @@
-
 -- tpitem.lua : (tp shop)
-
 function TPITEM_ON_INIT(addon, frame)
-
+   
 	addon:RegisterMsg('TP_SHOP_UI_OPEN', 'TP_SHOP_DO_OPEN');
 	addon:RegisterMsg("TPSHOP_BUY_SUCCESS", "ON_TPSHOP_BUY_SUCCESS");
 	addon:RegisterMsg("SHOP_BUY_LIMIT_INFO", "ON_SHOP_BUY_LIMIT_INFO");
@@ -335,6 +333,43 @@ function ON_TPSHOP_RESET_PREVIEWMODEL()
 
 end
 
+function TPITEM_ADD_CONTROL(obj, tpitemtree)
+    local category  = obj.Category;
+    local subcategory  = obj.SubCategory;
+	local categoryCset = nil;
+	categoryCset = GET_CHILD(tpitemtree, "TPSHOP_CT_" .. category )
+	if categoryCset == nil then -- is equal tpitemtree:FindByName(ctrlSet:GetName()) == nil
+	    categoryCset = tpitemtree:CreateControlSet("tpshop_tree", "TPSHOP_CT_" .. category, ui.LEFT, 0, 0, 0, 0, 0);
+        local part = GET_CHILD(categoryCset, "part");
+		part:SetTextByKey("value", ScpArgMsg(category));
+		local foldimg = GET_CHILD(categoryCset,"foldimg");
+		foldimg:ShowWindow(0);
+    end
+
+	local htreeitem = tpitemtree:FindByValue(category);
+	local tempFirstValue = nil
+
+	if tpitemtree:IsExist(htreeitem) == 0 then
+	    htreeitem = tpitemtree:Add(categoryCset, category);
+		tempFirstValue = tpitemtree:GetItemValue(htreeitem)	
+    end
+		
+	local hsubtreeitem = tpitemtree:FindByCaption("{@st42b}"..ScpArgMsg(subcategory));
+		
+	if tpitemtree:IsExist(hsubtreeitem) == 0 and subcategory ~= "None" then
+
+	    local added = tpitemtree:Add(htreeitem, "{@st66}"..ScpArgMsg(subcategory), category.."#"..subcategory, "{#000000}");
+			
+	    tpitemtree:SetFitToChild(true,10);
+	    tpitemtree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
+	    local foldimg = GET_CHILD(categoryCset,"foldimg");
+	    foldimg:ShowWindow(1);
+
+	    tempFirstValue = tpitemtree:GetItemValue(added)
+			
+	end
+end
+
 function MAKE_CATEGORY_TREE()
 
 	local frame = ui.GetFrame("tpitem")
@@ -351,62 +386,67 @@ function MAKE_CATEGORY_TREE()
 	end
 
 	local firstTreeItem = nil;
+    local itemOnSale= {};
 	for i = 0, cnt - 1 do
-	
 		local obj = GetClassByIndexFromList(clsList, i);
 
-		local category  = obj.Category;
-		local subcategory  = obj.SubCategory;
-		local categoryCset = nil;
-		categoryCset = GET_CHILD(tpitemtree, "TPSHOP_CT_" .. category )
-		
-		if categoryCset == nil then -- is equal tpitemtree:FindByName(ctrlSet:GetName()) == nil
-
-			categoryCset = tpitemtree:CreateControlSet("tpshop_tree", "TPSHOP_CT_" .. category, ui.LEFT, 0, 0, 0, 0, 0);
-			local part = GET_CHILD(categoryCset, "part");
-			part:SetTextByKey("value", ScpArgMsg(category));
-			local foldimg = GET_CHILD(categoryCset,"foldimg");
-			foldimg:ShowWindow(0);
-		end
-	
-	
-		local htreeitem = tpitemtree:FindByValue(category);
-				
-	
-		local tempFirstValue = nil
-
-		if tpitemtree:IsExist(htreeitem) == 0 then
-			htreeitem = tpitemtree:Add(categoryCset, category);
-			tempFirstValue = tpitemtree:GetItemValue(htreeitem)	
-		end
-		
-		local hsubtreeitem = tpitemtree:FindByCaption("{@st42b}"..ScpArgMsg(subcategory));
-		
-		if tpitemtree:IsExist(hsubtreeitem) == 0 and subcategory ~= "None" then
-
-			local added = tpitemtree:Add(htreeitem, "{@st66}"..ScpArgMsg(subcategory), category.."#"..subcategory, "{#000000}");
-			
-			tpitemtree:SetFitToChild(true,10);
-			tpitemtree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
-			local foldimg = GET_CHILD(categoryCset,"foldimg");
-			foldimg:ShowWindow(1);
-
-			tempFirstValue = tpitemtree:GetItemValue(added)
-			
-		end
-		
-		if i == 0 then
-			firstTreeItem = htreeitem;
-		end
-
-			
-		end
-
+		if obj.Category == 'TP_Premium_Sale' then
+            itemOnSale[#itemOnSale + 1] = obj;
+	    else
+            
+            firstTreeItem = CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem);
+        end
+	end
+    --할인카테고리 추가
+    for i = 1, #itemOnSale do
+        firstTreeItem = CREATE_TPITEM_TREE(itemOnSale[i], tpitemtree, i, firstTreeItem);
+    end
 	tpitemtree:Select(firstTreeItem);
 	local tnode = tpitemtree:GetLastSelectedNode();
 	TPITEM_SELECT_TREENODE(tnode);	
 end
 
+function CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem)
+    local category  = obj.Category;
+	local subcategory  = obj.SubCategory;
+	local categoryCset = nil;
+	categoryCset = GET_CHILD(tpitemtree, "TPSHOP_CT_" .. category )
+	if categoryCset == nil then -- is equal tpitemtree:FindByName(ctrlSet:GetName()) == nil
+	    categoryCset = tpitemtree:CreateControlSet("tpshop_tree", "TPSHOP_CT_" .. category, ui.LEFT, 0, 0, 0, 0, 0);
+        local part = GET_CHILD(categoryCset, "part");
+		part:SetTextByKey("value", ScpArgMsg(category));
+		local foldimg = GET_CHILD(categoryCset,"foldimg");
+		foldimg:ShowWindow(0);
+    end
+
+	local htreeitem = tpitemtree:FindByValue(category);
+	local tempFirstValue = nil
+
+	if tpitemtree:IsExist(htreeitem) == 0 then
+	    htreeitem = tpitemtree:Add(categoryCset, category);
+		tempFirstValue = tpitemtree:GetItemValue(htreeitem)	
+    end
+	
+	local hsubtreeitem = tpitemtree:FindByCaption("{@st42b}"..ScpArgMsg(subcategory));
+		
+	if tpitemtree:IsExist(hsubtreeitem) == 0 and subcategory ~= "None" then
+
+		local added = tpitemtree:Add(htreeitem, "{@st66}"..ScpArgMsg(subcategory), category.."#"..subcategory, "{#000000}");
+			
+		tpitemtree:SetFitToChild(true,10);
+		tpitemtree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
+		local foldimg = GET_CHILD(categoryCset,"foldimg");
+		foldimg:ShowWindow(1);
+
+		tempFirstValue = tpitemtree:GetItemValue(added)
+			
+    end
+		
+	if i == 0 then
+        return htreeitem;
+    end
+    return firstTreeItem;
+end
 
 function TPITEM_CLOSE(frame)
 	
@@ -564,7 +604,6 @@ end
 
 --tp상점의 아이템들을 그리는 함수  
 function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, isSub, filter, allFlag)
-	
 	local mainText = GET_CHILD_RECURSIVELY(frame,"mainText");
 	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"mainSubGbox");
 	local leftgFrame = frame:GetChild("leftgFrame");	
@@ -616,52 +655,53 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 
 	local x, y;
 	local alignmentgbox = GET_CHILD(leftgbox,"alignmentgbox");	
-	local saleList = {};
 	-- 해당 카테고리의 노드들의 프레임을 만들기.
 	for i = 0, cnt - 1 do
 		local obj = GetClassByIndexFromList(clsList, i);
-
 		local itemobj = GetClass("Item", obj.ItemClassName)
 		local isFounded = false;
-		
-		if filter ~= nil then
-			local targetItemName = itemobj.Name;			
-			if config.GetServiceNation() ~= "KOR" then
-				targetItemName = dic.getTranslatedStr(targetItemName);				
-			end
-			local startNum, endNum = string.find(targetItemName, filter);
-			if (startNum ~= nil) or (endNum ~= nil) then
-				isFounded = true;					
-			end
-		end
-
-		if (allFlag == nil) then	
-			if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
-				if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
-					if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
-						index = index + 1
-						x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-						y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-						local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-						TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
-					end
-				end
-			end
-		
-		else
-			if (obj.Category == category) then
-				if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
-					if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
-						index = index + 1
-						x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-						y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-						local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-						TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
-					end
-				end
-			end
-		end
+    if itemobj == nil then
+      IMC_NORMAL_INFO("ItemClassName not found in item.xml:TPITEM_DRAW_ITEM_WITH_CATEGORY. obj.ItemClassName:" ..obj.ItemClassName);
+    else
+		  if filter ~= nil then
+			  local targetItemName = itemobj.Name;			
+			  if config.GetServiceNation() ~= "KOR" then
+				  targetItemName = dic.getTranslatedStr(targetItemName);				
+			  end
+			  local startNum, endNum = string.find(targetItemName, filter);
+			  if (startNum ~= nil) or (endNum ~= nil) then
+			  	isFounded = true;					
+			  end
+		  end
+      local itemcset = nil;
+		  if (allFlag == nil) then	
+			  if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+				  if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
+					  if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then
+					    index = index + 1
+					    x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
+						  y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+              itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+						  TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					  end
+				  end
+			  end
+		  else
+			  if (obj.Category == category) then
+				  if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+					  if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
+						  index = index + 1
+						  x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
+						  y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+						  itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+						  TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					  end
+				  end
+			  end
+		  end
+    end
 	end
+
 	--mainSubGbox:Resize(mainSubGbox:GetOriginalWidth(), y + ui.GetControlSetAttribute("tpshop_item", 'height'))
 	
 	--모든 아이템을 출력할때에 컨트롤셋 인덱스를 기억해냄.
@@ -1149,7 +1189,7 @@ function TPSHOP_SORT_LIST(a, b)
 end
 
 --정렬
-function TPSHOP_TPITEM_ALIGN_LIST(cnt)	
+function TPSHOP_TPITEM_ALIGN_LIST(cnt)
 	local srcTable = {};
 	for i = 1, cnt do
 		srcTable[#srcTable + 1] = i;
@@ -1333,7 +1373,7 @@ function TPSHOP_ITEMSEARCH_CLICK(parent, control, strArg, intArg)
 	control:ClearText();
 end
 
-function TPSHOP_ITEMSEARCH_ENTER(parent, control, strArg, intArg)	
+function TPSHOP_ITEMSEARCH_ENTER(parent, control, strArg, intArg)
 	local frame = ui.GetFrame("tpitem");
 	local input = GET_CHILD_RECURSIVELY(frame, "input");
 
@@ -1376,80 +1416,30 @@ function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_cl
 	if subCategory == nil then
 		return;
 	end
-	SWITCH (category)
-	{
-        ['TP_Premium_Sale'] = function()
-            if category.EqpType == nil then -- EqpType이 nil인 경우는 염색약 말곤 없었다. 더 있다면 추가 필요.
-                SWITCH (subCategory)
-			{
-				['TP_Costume_Color'] = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 1, tpitemname, itemobj); -- 염색약	(보류시 주석처리할 곳)
-				end,
-		
-				['TP_Costume_Hairacc'] = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj); -- 헤어악세	(보류시 주석처리할 곳)
-				end,
 
-				['TP_Costume_Lens'] = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
-				end,
-
-				default = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj); -- 헤어
-				end,
-			}
-            else
-            SWITCH (category.EqpType)
-            {
-                SWITCH (itemobj.EqpType)
-			    {
-				    ['OUTER'] = function()
-					    TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);	-- 옷
-				    end,
-                    ['HAIR'] = function()
-                        TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj);	-- 헤어
-                    end,
-                    ['HAT'] = function()
-                        TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj);	-- 헤어악세
-                    end,
-			    }
-            }
-            end
-        end,
-		['TP_Character'] = function() 
-			SWITCH (subCategory)
-			{
-				['TP_Costume_Color'] = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 1, tpitemname, itemobj); -- 염색약	(보류시 주석처리할 곳)
-				end,
-		
-				['TP_Costume_Hairacc'] = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj); -- 헤어악세	(보류시 주석처리할 곳)
-				end,
-
-				['TP_Costume_Lens'] = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
-				end,
-
-				default = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj); -- 헤어
-				end,
-			}
-		end,
-	
-		['TP_Premium'] = function() 
-			SWITCH (itemobj.EqpType)
-			{
-				['OUTER'] = function()
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);	-- 옷
-				end,
-			}
-			--TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 2, tpitemname, itemobj);	-- 컴페니언	(보류시 주석처리할 곳)
-		end,
-		default = function() 
-			TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);	-- 옷
-		end,
-	}	
+    if subCategory == 'TP_Costume_Color' then -- EqpType이 nil인 경우는 염색약 말곤 없었다. 
+        TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 1, tpitemname, itemobj); -- 염색약	(보류시 주석처리할 곳)
+    else
+        SWITCH (itemobj.EqpType)
+        {
+            ['OUTER'] = function()
+			    TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);	-- 옷
+			end,
+            ['HAIR'] = function()
+                TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj);	-- 헤어
+            end,
+            ['HAT'] = function()
+                TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj);	-- 헤어악세
+            end,
+            ['LENS'] = function()
+                TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
+            end,
+            default = function() 
+                IMC_NORMAL_INFO("EqpType not defined in tpitem.lua:TPSHOP_ITEM_PREVIEW_PREPROCESSOR. item.EqpType:" .. itemobj.EqpType);
+			    TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj); -- 디폴트 헤어
+            end,
+	    }
+    end	
 end
 
 -- 미리보기에서 해당 슬롯에 장착

@@ -18,8 +18,7 @@
 		<tab name="statusTab" rect="70 70 500 40" layout_gravity="left top" LBtnDownScp="GEMROASTING_TAP_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="1" oversound="button_cursor_over_2" skin="tab2"/>
 		<labelline name="repairLine1" rect="0 0 420 2" margin="0 103 0 0 " layout_gravity="center top" skin="None"/>
 		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}로스팅{/}" width="160"/>
-		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}기록{/}" width="160"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="0 -100 8 0" layout_gravity="right top" image="button_property"/>
+		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}기록{/}" width="160"/>		
 		<picture name="slot_bg_img" parent="roasting" rect="0 0 240 260" margin="0 50 0 0" layout_gravity="center top" image="squaier_gem" stretch="true"/>
 		<slot name="slot" parent="roasting" rect="0 0 130 130" margin="0 110 0 0" layout_gravity="center top" DropScp="GEMROASTING_SLOT_DROP" PopScp="GEMROASTING_SLOT_POP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}젬을 올려주세요{/}"/>
 		<richtext name="slotName" parent="roasting" rect="0 0 200 48" margin="0 250 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="brown_18_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>

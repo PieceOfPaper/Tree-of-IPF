@@ -13,8 +13,7 @@
 	<script OpenScp="" CloseScp=""/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
 	<controls>
-		<picture name="map" image="mouse_tuto" rect="0 0 1460 830" layout_gravity="center center" stretch="true" hittest="false"/>
-		<!--		<picture name="login_bg" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="button_property" stretch="false"/>-->
+		<picture name="map" image="mouse_tuto" rect="0 0 1460 830" layout_gravity="center center" stretch="true" hittest="false"/>		
 		<button name="close_map" image="testclose_button" margin="0 44 55 0" rect="0 0 44 44" layout_gravity="right top" caption="" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" texttooltip="{@st59}마우스 설명을 닫습니다.{/}" LBtnUpScp="ui.CloseFrame('mousetutorial')" LBtnUpArgNum="" LBtnDownScp=""/>
 	</controls>
 </uiframe>

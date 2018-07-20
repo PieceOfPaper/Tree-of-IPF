@@ -13,8 +13,7 @@
 	<controls>
 		<groupbox name="bg" rect="0 0 550 1000" margin="0 30 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="pipwin_body" rect="0 0 550 930" margin="0 90 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
-		<groupbox name="pipwin_top" rect="0 0 550 126" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="10-500 0 0" layout_gravity="left top" image="button_collection"/>
+		<groupbox name="pipwin_top" rect="0 0 550 126" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>		
 		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
 		<richtext name="richtext_1" rect="0 0 120 24" margin="-3 17 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s{/}" param1="value" param1_def="길드원 소환"/>
 		<richtext name="txt_currentcount" rect="0 0 362 43" margin="28 66 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_b" format="{s16}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="Current Connection Count : 4 / 30" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="ingameeventbanner" x="0" y="0" width="530" height="700" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="200 150 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<opencheck scp="" numarg="1"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="EVENTBANNER_FRAME_OPEN" CloseScp="EVENTBANNER_FRAME_CLOSE"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 523 700" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_frame_low"/>
+		<groupbox name="pip4" rect="0 0 523 80" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_frame_top"/>
+		<groupbox name="mainGbox" rect="0 0 506 580" margin="0 50 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="true" resizebyresolution="false" scrollbar="false" skin="pipwin_low"/>
+		<groupbox name="bannerGbox" parent="mainGbox" rect="0 0 506 560" margin="1 15 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_frame_midle"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}이벤트 안내{/}" fontname="default" spacey="0"/>
+		<richtext name="bottom_message" rect="0 0 100 30" margin="0 0 0 30" parent="bg" layout_gravity="center bottom" caption="{@st66b}배너를 클릭하면 해당 이벤트 페이지로 이동합니다{/}" fontname="default" spacey="0"/>
+		<button name="close" rect="-10 0 44 44" margin="0 20 17 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;ingameeventbanner&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}이벤트 안내 UI를 닫습니다{/}"/>
+	</controls>
+</uiframe>
