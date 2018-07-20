@@ -1807,6 +1807,48 @@ end"/>
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="MUS04_102">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_CoveringFire"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_HeadShot"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_Snipe"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_PenetrationShot"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_ButtStroke"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_BayonetThrust"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_Volleyfire"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_Birdfall"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_SnipersSerenity"/>
+						<Num Num="-2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
 		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
@@ -1842,43 +1884,9 @@ end"/>
 						<Str Str="Musketeer_Birdfall"/>
 						<Num Num="2"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_CoveringFire"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_HeadShot"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_Snipe"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_PenetrationShot"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_ButtStroke"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_BayonetThrust"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_Volleyfire"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_Birdfall"/>
-						<Num Num="-2"/>
+						<Str Str="Musketeer_SnipersSerenity"/>
+						<Num Num="2"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>

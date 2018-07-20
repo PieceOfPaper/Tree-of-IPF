@@ -1,4 +1,4 @@
-﻿--- calc_property_skill.lua
+--- calc_property_skill.lua
 function GET_SKL_VALUE(skill, startValue, maxValue)
     local maxLv = 100;
     local curLv = skill.Level;
@@ -548,6 +548,39 @@ function SCR_GET_SKL_COOLDOWN(skill)
         if IsPVPServer(owner) == 1 then
             basicCoolDown = basicCoolDown + 28000
         end
+    end
+    
+    if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.8;
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.9;
+    end
+    
+    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+            basicCoolDown = basicCoolDown * 0.5;
+        end
+    end
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;   
+    return math.floor(ret);
+
+end
+
+function SCR_GET_SKL_COOLDOWN_PrimeAndLoad(skill)
+    
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    local abilMusketeer29 = GetAbility(pc, "Musketeer29")
+    if abilMusketeer29 ~= nil and abilMusketeer29.ActiveState == 1 then
+		basicCoolDown = basicCoolDown - (abilMusketeer29.Level * 1000);
     end
     
     if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
@@ -4081,13 +4114,7 @@ function SCR_GET_Faena_Ratio2(skill)
     return value
 end
 
-function SCR_GET_Ole_Ratio(skill)
-    local value = 10 + skill.Level * 2
-    
-    return value
-end
-
-function SCR_GET_Ole_Ratio2(skill)
+function SCR_GET_Ole_BuffTime(skill)
     local pc = GetSkillOwner(skill)
     local value = 20
     local abil = GetAbility(pc, "Matador4")
@@ -4096,6 +4123,18 @@ function SCR_GET_Ole_Ratio2(skill)
     end
     
     return value
+end
+
+function SCR_GET_Ole_Ratio(skill)
+    local value = 5 + skill.Level * 1;
+    
+    return math.floor(value);
+end
+
+function SCR_GET_Ole_Ratio2(skill)
+    local value = 10 + skill.Level * 2;
+    
+    return math.floor(value);
 end
 
 function SCR_GET_BackSlide_Bufftime(skill)
@@ -10141,6 +10180,18 @@ function SCR_Get_SkillFactor_Muleta(skill)
     return math.floor(value)
 end
 
+function SCR_Get_Muleta_CastTime(skill)
+    local value = 1;
+    
+    local pc = GetSkillOwner(skill);
+    local abilMatador7 = GetAbility(pc, "Matador7");
+    if abilMatador7 ~= nil and TryGetProp(abilMatador7, 'ActiveState') == 1 then
+    	value = value + (abilMatador7.Level * 0.5);
+    end
+	
+    return value;
+end
+
 function SCR_Get_Muleta_Ratio(skill)
     local value = 914 + (skill.Level - 1) * 50.3
     local pc = GetSkillOwner(skill);
@@ -10148,6 +10199,12 @@ function SCR_Get_Muleta_Ratio(skill)
     if abil ~= nil then
         value = value * (1 + (abil.Level * 0.005))
     end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_Muleta_Ratio2(skill)
+    local value = skill.Level * 10;
     
     return math.floor(value)
 end
@@ -10179,9 +10236,8 @@ function SCR_Get_SkillFactor_Faena(skill)
     end
     
     local abil_Matador3 = GetAbility(pc, "Matador3")      -- Skill Damage add
-    local subWeapon = GetEquipItem(pc, 'RH')
-    if abil_Matador3 ~= nil and subWeapon == nil then
-        value = value + (value * 0.5)
+    if abil_Matador3 ~= nil and abil_Matador3.ActiveState == 1 then
+        value = value + 50;
     end
     
     return math.floor(value)
@@ -10695,7 +10751,13 @@ function SCR_GET_Samsara_Bufftime(skill)
 end
 
 function SCR_GET_Stop_Time(skill)
-    return 5 + skill.Level * 1
+    local pc = GetSkillOwner(skill)
+    local value = 5 + skill.Level * 1
+    if IsPVPServer(pc) == 1 then
+        value = value * 0.5
+    end
+    
+    return math.floor(value)
 end
 
 function SCR_Get_Bodkin_Ratio(skill)
@@ -11189,8 +11251,13 @@ function SCR_GET_Telekinesis_ThrowCount(skill)
 end
 
 function SCR_GET_Telekinesis_Holdtime(skill)
-
-    return 3 + skill.Level * 1;
+    local pc = GetSkillOwner(skill)
+    local value = 3 + skill.Level * 1;
+    if IsPVPServer(pc) == 1 then
+        value = value * 0.5
+    end
+    
+    return math.floor(value);
 
 end
 
@@ -13418,7 +13485,12 @@ end
 function SCR_GET_Mackangdal_Bufftime(skill)
 
     local value = 10 + skill.Level
-    return value;
+    local pc = GetSkillOwner(skill);
+    if IsPVPServer(pc) == 1 then
+        value = value * 0.3
+    end
+    
+    return math.floor(value);
 
 end
 
@@ -14994,7 +15066,13 @@ function SCR_GET_CarveLaima_Ratio3(skill)
 end
 
 function SCR_GET_CarveAusirine_Ratio(skill)
-    return 8 + (skill.Level * 2)
+    local value = 8 + (skill.Level * 2)
+    local pc = GetSkillOwner(skill);
+    if IsPVPServer(pc) == 1 then
+        value = value * 0.3
+    end
+    
+    return math.floor(value)
 end
 function SCR_GET_DELAY_TIME(skill)
     local actor = GetSkillOwner(skill);

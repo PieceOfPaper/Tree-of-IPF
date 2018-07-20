@@ -276,6 +276,8 @@
 		<image name="icon_arch_GrindCutter" file="\icon\skill\archer\icon_arch_GrindCutter.png" imgrect="0 0 128 128" CMM_Caption="그라인드 커터"/>
 		<image name="icon_arch_SnipersSerenity" file="\icon\skill\archer\icon_arch_SnipersSerenity.png" imgrect="0 0 128 128" CMM_Caption="스나이퍼즈 세레니티"/>
 		<image name="icon_arch_SweepingCannon" file="\icon\skill\archer\icon_arch_SweepingCannon.png" imgrect="0 0 128 128" CMM_Caption="스위핑 캐논"/>
+		<image name="icon_arch_GroovingMuzzle" file="\icon\skill\archer\icon_arch_GroovingMuzzle.png" imgrect="0 0 128 128" CMM_Caption="그루빙 머즐"/>
+		<image name="icon_arch_PrimeAndLoad" file="\icon\skill\archer\icon_arch_PrimeAndLoad.png" imgrect="0 0 128 128" CMM_Caption="프라임 앤드 로드"/>
 	</imagelist>
 	<imagelist category="cleric_skillicon">
 		<image name="icon_cler_Heal" file="\icon\skill\cleric\icon_cler_Heal.png" imgrect="0 0 128 128" CMM_Caption="힐"/>
@@ -986,6 +988,9 @@
 		<image name="ability_Warrior_Hoplite28" file="\icon\icon_ability_warrior06.tga" imgrect="512 128 128 128" CMM_Caption="스태빙 확인사살"/>
 		<image name="ability_Warrior_Hoplite29" file="\icon\icon_ability_warrior06.tga" imgrect="640 128 128 128" CMM_Caption="피어스 반복충격"/>
 		<image name="ability_Warrior_Hoplite30" file="\icon\icon_ability_warrior06.tga" imgrect="768 128 128 128" CMM_Caption="롱스트라이드 스턴"/>
+		<image name="ability_Warrior_Matador10" file="\icon\icon_ability_warrior06.tga" imgrect="896 128 128 128" CMM_Caption="피카도르"/>
+		<image name="ability_Warrior_Matador11" file="\icon\icon_ability_warrior06.tga" imgrect="0 256 128 128" CMM_Caption="반데리예로"/>
+		<image name="ability_Warrior_Matador12" file="\icon\icon_ability_warrior06.tga" imgrect="128 256 128 128" CMM_Caption="파소 도블레 넉다운 제거"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -1552,6 +1557,9 @@
 		<image name="ability_archer_Falconer18" file="\icon\icon_ability_archer05.tga" imgrect="128 768 128 128" CMM_Caption="멍텅구 충격반동"/>
 		<image name="ability_archer_Falconer19" file="\icon\icon_ability_archer05.tga" imgrect="256 768 128 128" CMM_Caption="선제 공격 선수필승"/>
 		<image name="ability_archer_Falconer20" file="\icon\icon_ability_archer05.tga" imgrect="384 768 128 128" CMM_Caption="매사냥"/>
+		<image name="ability_archer_Musketeer27" file="\icon\icon_ability_archer05.tga" imgrect="512 512 128 128" CMM_Caption="머스킷티어 안전거리 확보"/>
+		<image name="ability_archer_Musketeer28" file="\icon\icon_ability_archer05.tga" imgrect="512 768 128 128" CMM_Caption="페네트레이션 샷 총상"/>
+		<image name="ability_archer_Musketeer29" file="\icon\icon_ability_archer05.tga" imgrect="640 768 128 128" CMM_Caption="프라임 앤드 로드 고속 장전"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>

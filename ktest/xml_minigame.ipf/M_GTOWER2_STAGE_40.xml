@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="M_GTOWER2_STAGE_40" minLv="0" maxLv="0" startWaitSec="15">
+    <Game Name="M_GTOWER2_STAGE_40" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="15">
         <StageList>
             <Stage Name="SETTING">
                 <StartScpList>
@@ -71,6 +71,9 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="CNT"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="STAGE_1_PROG/0/STAGE_1_PROG/1/STAGE_1_PROG/2/STAGE_1_PROG/3/STAGE_1_PROG/4/STAGE_1_PROG/5/STAGE_1_PROG/6/STAGE_1_PROG/7/STAGE_1_PROG/8/STAGE_1_PROG/9/STAGE_1_PROG/10/STAGE_1_PROG/11/STAGE_1_PROG/12/STAGE_1_PROG/13/STAGE_1_PROG/14/STAGE_1_PROG/15/STAGE_1_PROG/16/STAGE_1_PROG/17/STAGE_2_PROG/0/STAGE_2_PROG/1/STAGE_2_PROG/2/STAGE_2_PROG/3/STAGE_2_PROG/5/STAGE_2_PROG/6/STAGE_2_PROG/7/STAGE_2_PROG/8/STAGE_2_PROG/9/STAGE_2_PROG/10/STAGE_2_PROG/11/STAGE_2_PROG/12/STAGE_3_PROG/0/STAGE_3_PROG/1/STAGE_3_PROG/2/STAGE_3_PROG/3/STAGE_3_PROG/4/STAGE_3_PROG/5/STAGE_3_PROG/6/STAGE_3_PROG/7/STAGE_3_PROG/8/STAGE_3_PROG/9/STAGE_3_PROG/10/STAGE_3_PROG/11/STAGE_3_PROG/12/STAGE_3_PROG/13/STAGE_3_PROG/14/STAGE_3_PROG/15/STAGE_3_PROG/16/STAGE_3_PROG/17/STAGE_3_PROG/18/STAGE_3_PROG/19"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -967,6 +970,10 @@
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="270"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE_1_PROG/0"/>
+                                <Num Num="1"/>
                             </ToolScp>
                         </condList>
                         <execList>

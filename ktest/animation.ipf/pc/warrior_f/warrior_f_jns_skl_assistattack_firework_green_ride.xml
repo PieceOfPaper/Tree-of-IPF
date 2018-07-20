@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<AttachModel frame="0" XAC="artefact_firework_green_set" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="none"/>
+	<Sound frame="5.00" soundFile="skl_eff_move_clap"/>
+	<Sound frame="9.00" soundFile="skl_eff_firework_shot"/>
+	<BlendOn frame="11" R="50" G="50" B="50" A="100"/>
+	<Particle frame="11" attachNode="Dummy_R_HAND" particleName="F_pc_item_firework_2years" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<BlendOff frame="12" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

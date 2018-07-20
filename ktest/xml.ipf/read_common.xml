@@ -1,4 +1,4 @@
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
 <Category>
 	<ReadXml Name="bonescale"/>
@@ -190,9 +190,14 @@
 	<ReadXml Name="statue_position"/>
 	<ReadXml Name="guild_colony"/>
 	<ReadXml Name="guild_colony_rule"/>
+	<ReadXml Name="time_event"/>
 	<ReadXml Name="item_random_reset_material"/>
 	<ReadXml Name="monster_event"/>	<ReadXml Name="specialcostume"/>
 
 <ReadXml Name="tp_event_attendance"/>
 	<ReadXml Name="reward_attendance"/>
+  <ReadXml Name="equipbosscard"/>
+	<ReadXml Name="Indun_reward_item"/>
+	<ReadXml Name="equipbosscard"/>
+	<ReadXml Name="reward_indun"/>
 </Category>

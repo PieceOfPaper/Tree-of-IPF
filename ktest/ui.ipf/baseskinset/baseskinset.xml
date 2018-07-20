@@ -5372,6 +5372,9 @@
 		<image name="test_companion_13" file="\icon\companion.tga" imgrect="404 492 100 122" CMM_Caption="파란펭귄_탭버튼"/>
 		<image name="test_companion_13_cursoron" file="\icon\companion.tga" imgrect="505 0 100 122"/>
 		<image name="test_companion_13_clicked" file="\icon\companion.tga" imgrect="404 492 100 122"/>
+		<image name="test_companion_15" file="\icon\companion.tga" imgrect="606 0 100 122 " CMM_Caption="크리스마스 썰매_탭버튼"/>
+		<image name="test_companion_15_cursoron" file="\icon\companion.tga" imgrect="707 0 100 122"/>
+		<image name="test_companion_15_clicked" file="\icon\companion.tga" imgrect="707 0 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -5758,6 +5761,7 @@
 		<image name="tooltip_speedofatk" file="\skin\tooltip_skin_3.tga" imgrect="743 111 18 18" CMM_Caption="공격속도 아이콘"/>
 		<image name="token_on" file="\skin\indun_skin.tga" imgrect="0 976 40 40" CMM_Caption="토큰 활성"/>
 		<image name="token_off" file="\skin\indun_skin.tga" imgrect="41 976 40 40" CMM_Caption="토큰 비활성"/>
+		<image name="indunexmode_token_on" file="\skin\indun_skin.tga" imgrect="175 976 40 40" CMM_Caption="배수토큰 활성"/>
 		<image name="testfishing_image" file="\skin\glimoire_skin.tga" imgrect="0 201 453 70" CMM_Caption="낚시 타이틀"/>
 		<image name="fishingrank_time_icon" file="\skin\HUD.tga" imgrect="1305 337 66 66" CMM_Caption="낚시 랭킹_시간 "/>
 		<image name="fishingrank_time_icon_cursoron" file="\skin\HUD.tga" imgrect="1373 337 66 66"/>
@@ -5979,6 +5983,16 @@
 		<image name="green_type" file="\skin\monstercard.tga" imgrect="391 634 20 20" CMM_Caption=""/>
 		<image name="mon_magicsquare" file="\skin\monstercard.tga" imgrect="1658 553 382 382" CMM_Caption="몬스터강화창마법진"/>
 		<image name="mon_legendlock" file="\skin\monstercard.tga" imgrect="386 690 32 34" CMM_Caption="레젼드카드 자물쇠"/>
+		<image name="indun_weapon" file="\skin\indun_skin.tga" imgrect="205 651 65 65" CMM_Caption="인던획득아이템종류"/>
+		<image name="indun_weapon_clicked" file="\skin\indun_skin.tga" imgrect="205 717 65 65"/>
+		<image name="indun_shield" file="\skin\indun_skin.tga" imgrect="271 651 65 65"/>
+		<image name="indun_shield_clicked" file="\skin\indun_skin.tga" imgrect="271 717 65 65"/>
+		<image name="indun_armour" file="\skin\indun_skin.tga" imgrect="337 651 65 65"/>
+		<image name="indun_armour_clicked" file="\skin\indun_skin.tga" imgrect="337 717 65 65"/>
+		<image name="indun_acc" file="\skin\indun_skin.tga" imgrect="403 651 65 65"/>
+		<image name="indun_acc_clicked" file="\skin\indun_skin.tga" imgrect="403 717 65 65"/>
+		<image name="indun_material" file="\skin\indun_skin.tga" imgrect="469 651 65 65"/>
+		<image name="indun_material_clicked" file="\skin\indun_skin.tga" imgrect="469 717 65 65"/>
 	</imagelist>
 	<imagelist category="colony_image">
 		<image name="colony_vic_frame" file="\skin\colony.tga" imgrect="0 0 581 532" CMM_Caption="콜로니 승리 프레임"/>
@@ -6080,6 +6094,7 @@
 		<image name="companion_parrotbil" file="\icon\companion_Velhider.tga" imgrect="240 160 80 80"/>
 		<image name="companion_penguin_green" file="\icon\companion_Velhider.tga" imgrect="0 240 80 80"/>
 		<image name="companion_penguin_blue" file="\icon\companion_Velhider.tga" imgrect="80 240 80 80"/>
+		<image name="companion_sled" file="\icon\companion_Velhider.tga" imgrect="240 240 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -8036,6 +8051,7 @@
 		<image name="icon_forest2" file="\icon\buff_icon.tga" imgrect="256 1920 128 128"/>
 		<image name="icon_forest3" file="\icon\buff_icon.tga" imgrect="384 1920 128 128"/>
 		<image name="icon_forest4" file="\icon\buff_icon.tga" imgrect="512 1920 128 128"/>
+		<image name="icon_evasion_back" file="\icon\buff_icon.tga" imgrect="640 1920 128 128"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

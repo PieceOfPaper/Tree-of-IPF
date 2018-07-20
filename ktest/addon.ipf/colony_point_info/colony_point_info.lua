@@ -117,13 +117,16 @@ function COLONY_POINT_INFO_UPDATE_EMBLEM(frame, msg, argStr, argNum)
         emblemCtrl = GET_CHILD(rankingBox, 'emblemPic');
     end
 
+     IMC_LOG("INFO_NORMAL", "COLONY_POINT_INFO_UPDATE_EMBLEM ST");
     if emblemCtrl ~= nil then
         local worldID = session.party.GetMyWorldIDStr();
         local emblemImgName = guild.GetEmblemImageName(argStr,worldID);
+         IMC_LOG("INFO_NORMAL", "COLONY_POINT_INFO_UPDATE_EMBLEM info" .. "imageName:" .. emblemImgName);
         if emblemImgName ~= 'None' then
             emblemCtrl:SetImage(emblemImgName);
         end     
     end
+     IMC_LOG("INFO_NORMAL", "COLONY_POINT_INFO_UPDATE_EMBLEM ED");
 end
 
 function COLONY_POINT_INFO_INIT_MY_GUILD(frame, maxPoint)

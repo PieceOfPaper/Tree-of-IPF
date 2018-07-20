@@ -265,8 +265,23 @@ function PET_INFO_SHOW(petGuid)
 
 	-- 자동 공격 관련 컨트롤을 트리 밑에 넣어야 한다
 	local autoAtkBox = GET_CHILD_RECURSIVELY(frame, 'autoAtkBox');
-	autoAtkBox:SetOffset(autoAtkBox:GetX(), tree:GetY() + tree:GetAllHeight() + slotsize);
-		
+    autoAtkBox:SetOffset(autoAtkBox:GetX(), tree:GetY() + tree:GetAllHeight() + slotsize);
+    
+    local companionList , cnt = GetClassList('Companion')
+	local checkRidingOnly = 'None'
+	for i = 0, cnt - 1 do
+	    local companion = GetClassByIndexFromList(companionList, i)
+	    if companion.ClassName == obj.ClassName then
+	        checkRidingOnly = companion.RidingOnly
+	    end
+	end
+    
+    if checkRidingOnly == 'YES' then
+        autoAtkBox:ShowWindow(0);
+    elseif checkRidingOnly == 'NO' then
+        autoAtkBox:ShowWindow(1);
+    end
+    
 	frame:ShowWindow(1);
 	
 	PET_INFO_UPDATE_ACTIVATED(frame, true);

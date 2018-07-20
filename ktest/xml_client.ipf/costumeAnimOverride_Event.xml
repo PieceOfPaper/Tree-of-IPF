@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <Category>
 	<Gender Name="Male">
 		<Class Costume="shadowmancer01_sp">
@@ -615,6 +615,60 @@
 						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="20" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="helmet_Rudolf01">
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="eff_dummy_he" particleName="F_light123_red_2" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="eff_dummy_he" particleName="F_light123_red_2" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="eff_dummy_he" particleName="F_light123_red_2" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="eff_dummy_he" particleName="F_light123_red_2" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="5" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="wing_ice">
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="mid" particleName="F_light143_2" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="mid" particleName="F_light143_1" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -1400,6 +1454,60 @@
 						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="helmet_Rudolf01">
+			<Motion Name="ASTD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="eff_dummy_he" particleName="F_light123_red_2" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="eff_dummy_he" particleName="F_light123_red_2" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ASTD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="eff_dummy_he" particleName="F_light123_red_2" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="eff_dummy_he" particleName="F_light123_red_2" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="eff_dummy_he" particleName="F_spark018_4" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+						<Particle frame="5" attachNode="eff_dummy_he" particleName="F_light123_red_1" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="wing_ice">
+			<Motion Name="Default">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="mid" particleName="F_light143_2" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="5" attachNode="mid" particleName="F_light143_1" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>

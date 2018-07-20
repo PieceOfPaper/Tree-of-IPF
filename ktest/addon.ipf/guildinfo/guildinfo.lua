@@ -32,7 +32,7 @@ end
 
 function GUILDINFO_OPEN_UI(frame)
     GUILDINFO_INIT_TAB(frame);
-    GUILDINFO_INIT_PROFILE(frame); 
+   GUILDINFO_INIT_PROFILE(frame); 
 end
 
 function GUILDINFO_INIT_PROFILE(frame)

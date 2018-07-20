@@ -3831,18 +3831,45 @@ function CHEAT_LIST_OPEN()
 end
 
 function ON_RIDING_VEHICLE(onoff)
-    
+    local commanderPC = GetCommanderPC()
+    if IsBuffApplied(commanderPC, 'pet_PetHanaming_buff') == 'YES' then -- no ride
+        return;
+    end
+	
+	
+	
+    local summonedCompanion = session.pet.GetSummonedPet(0);	-- Riding Companion Only / Not Hawk --
+    if summonedCompanion ~= nil then
+		local companionObj = summonedCompanion:GetObject();
+		local companionIES = GetIES(companionObj);
+		local companionClassName = TryGetProp(companionIES, 'ClassName');
+		if companionClassName ~= nil then
+--			local fsmActor = GetMyActor();
+--			local subAction = fsmActor:GetSubActionState();
+			
+			local companionClass = GetClass('Companion', companionClassName);
+			local isRidingOnly = TryGetProp(companionClass, 'RidingOnly');
+			if isRidingOnly == 'YES' then
+--				pc.ReqExecuteTx_NumArgs("SCR_TX_RIDING_ONLY_VEHICLE", onoff);
+				control.CustomCommand("RIDING_ONLY_VEHICLE", onoff);
+				return;
+			end
+		end
+	end
+	
+	
+	
 	if control.HaveNearCompanionToRide() == true then
 		local fsmActor = GetMyActor();
 
 		local subAction = fsmActor:GetSubActionState();
-	
+		
 		-- 42 == CSS_SKILL_USE
 		if onoff == 0 and subAction == 42 then
 			ui.SysMsg(ClMsg('SkillUse_Vehicle'));
 			return;
 		end
-
+		
 		if 1 == onoff then
 			local abil = GetAbility(GetMyPCObject(), "CompanionRide");
 			if nil == abil and control.IsPremiumCompanion() == false then

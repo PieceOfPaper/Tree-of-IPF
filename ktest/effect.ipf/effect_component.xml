@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <ComponentList>
 	<Particle name="Ghost001" texture="Ghost001" width="5.00" height="5.00" pivot_x="0.50" pivot_y="1" texel_x="0" texel_y="0" texel_width="128" texel_height="256"/>
 	<Particle name="emo_event_dungeon_Halloween1" texture="icon_event_dungeon_Halloween1" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="95" texel_height="90"/>
@@ -1396,6 +1396,7 @@
 	<Model name="pet_egg_dead" model="pet_egg_dead.xac" motion="pet_egg_dead_ani.xsm" texturepath="char_texture\monster\Egg\" overlap="false" AlphaType="TEST"/>
 	<Model name="pet_box_dead" model="pet_box_dead.xac" motion="pet_box_dead_ani.xsm" texturepath="char_texture\monster\pet_box\" overlap="false" AlphaType="TEST"/>
 	<Model name="pet_box_rocksodon_dead" model="pet_box_rocksodon_dead.xac" motion="pet_box_dead_ani.xsm" texturepath="char_texture\monster\pet_box_rocksodon\" overlap="false" AlphaType="TEST"/>
+	<Model name="pet_box_sled_dead" model="pet_box_sled_dead.xac" motion="pet_box_dead_ani.xsm" texturepath="char_texture\monster\pet_box_sled\" overlap="false" AlphaType="TEST"/>
 	<Model name="I_fantasylibrary_brickfloor_dead" model="fantasylibrary_brickfloor_dead.xac" motion="fantasylibrary_brickfloor_dead_ani.xsm" texturepath="char_texture\npc\fantasylibrary_brickfloor\" overlap="false" AlphaType="TEST"/>
 	<Model name="I_fantasylibrary_arch_dead" model="fantasylibrary_arch_dead.xac" motion="fantasylibrary_arch_dead_ani.xsm" texturepath="char_texture\npc\fantasylibrary_arch\" overlap="false" AlphaType="TEST"/>
 	<Model name="boss_torelodeer_dead" model="boss_torelodeer_dead.xac" motion="boss_torelodeer_dead_ani.xsm" texturepath="char_texture\monster\torelodeer\" overlap="false" AlphaType="TEST"/>

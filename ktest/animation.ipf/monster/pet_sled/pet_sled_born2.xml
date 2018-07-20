@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<CreateMonster frame="0" MonName="Pet_box_sled" Key="Pet_box_sled" Angle="0" Dist="0" MonAngle="0"/>
+	<CreateMonsterAnim frame="0" Key="Pet_box_sled" Anim="born" Freeze="0"/>
+	<Sound frame="0.00" soundFile="skl_eff_pet_sled_born2"/>
+	<Particle frame="50" attachNode="None" particleName="I_pet_box_sled_dead" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="51" attachNode="None" particleName="F_smoke150_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

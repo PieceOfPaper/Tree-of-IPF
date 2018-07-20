@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -130,7 +130,11 @@
 		<Class ClassID="2071" ClassName="HethranIsMaxLv" Data="해당 아이템의 레벨이 한계치에 도달했습니다."/>
 		<Class ClassID="2072" ClassName="CannotUseInReinforceState" Data="강화 중에는 사용할 수 없습니다."/>
 	</Category>
-	<Category Name="ItemContents"><Class ClassID="2203" ClassName="Hair_Color_Change{COLOR}" Data="염색약이 정상적으로 적용 되었습니다.{nl}현재 {@st66d_y}{s19}{COLOR}{/}{/}를 적용하시겠습니까?{nl} {nl} {@st43b}{s16}* 캐릭터 설정에서 헤어 염색을 바꿀 수 있습니다.{/}{/}"/>
+	<Category Name="ItemContents">
+		<Class ClassID="2200" ClassName="ClickSocketTargetItem" Data="소켓을 추가 할 아이템을 선택해주세요"/>
+		<Class ClassID="2201" ClassName="ThisItemCannotPlusSocket" Data="이 아이템은 소켓을 추가할 수 없습니다."/>
+		<Class ClassID="2202" ClassName="AddSocketByTicketInfoMsg{ITEM_NAME}" Data="{ITEM_NAME}에 소켓을 추가합니다. 소켓 추가시 실버가 소모되며, 포텐셜이 감소되지 않습니다."/>
+<Class ClassID="2203" ClassName="Hair_Color_Change{COLOR}" Data="염색약이 정상적으로 적용 되었습니다.{nl}현재 {@st66d_y}{s19}{COLOR}{/}{/}를 적용하시겠습니까?{nl} {nl} {@st43b}{s16}* 캐릭터 설정에서 헤어 염색을 바꿀 수 있습니다.{/}{/}"/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -507,6 +511,7 @@
 		<Class ClassID="8096" ClassName="AutoAtk" Data="자동 공격"/>
 		<Class ClassID="8097" ClassName="CompanionIsNotActive" Data="컴패니언이 휴면 상태입니다."/>
 		<Class ClassID="8098" ClassName="CompanionNameIsInvalid" Data="컴패니언 이름이 너무 길거나 짧습니다."/>
+		<Class ClassID="8099" ClassName="ThisCompanionIs NotPossible" Data="스킬을 사용할 수 있는 컴패니언이 없습니다."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="9001" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -1162,6 +1167,7 @@
 		<Class ClassID="21274" ClassName="IndunAdmissionItemReset" Data="입장 횟수"/>
 		<Class ClassID="21272" ClassName="JunkSilverGachaResultInRaidRewardSmall" Data=""/>
 		<Class ClassID="21275" ClassName="IndunEnterNeedPCRank" Data="{NEED_RANK} 랭크 부터 입장이 가능합니다."/>
+		<Class ClassID="21277" ClassName="IndunRewardItem_Empty" Data="없음"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -4449,6 +4455,10 @@
 		<Class ClassID="27742" ClassName="EVENT_1710_HALLOWEEN_MSG7" Data="이번주 이벤트 상점 사탕 교환량 확인"/>
 		<Class ClassID="27743" ClassName="EVENT_1710_HALLOWEEN_MSG8" Data="이번주 이벤트 상점 사탕 교환량 : {COUNT}개"/>
 		<Class ClassID="27750" ClassName="CHANGEJOB_SERVER_MSG1" Data="해금을 완료하셔야 전직할 수 있는 클래스입니다"/>
+		<Class ClassID="27760" ClassName="EVENT_1712_SECOND_MSG1" Data="2주년 이벤트{nl}{ITEM} {COUNT}개 획득!"/>
+		<Class ClassID="27761" ClassName="EVENT_1712_SECOND_MSG2" Data="2주년 기념수의 축복 버프를 받는다"/>
+		<Class ClassID="27762" ClassName="EVENT_1712_SECOND_MSG3" Data="2주년 축제 교환 상점"/>
+		<Class ClassID="27770" ClassName="EVENT_1712_XMAS_MSG1" Data="크리스마스 이벤트{nl}{ITEM} {COUNT}개 획득!"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -7599,7 +7609,12 @@
 		<Class ClassID="134039" ClassName="MultipleErrorCannotReward" Data="설정한 만큼의 배수권이 인벤토리에 없어서 배수 토큰 적용에 실패했습니다."/>
 		<Class ClassID="134040" ClassName="IndunAfterSelectDialog" Data="{ID_NAME}(권장레벨:{ID_LV} 제한랭크:{ID_NEEDRANK})에 입장하시겠습니까?{nl}당신과 파티를 맺은 플레이어만이 함께 입장할 수 있습니다."/>
 		<Class ClassID="134041" ClassName="IndunSelectDialog" Data="{ID_NAME}(권장레벨:{ID_LV} 제한랭크:{PC_RANK})"/>
-	<Class ClassID="134042" ClassName="CantIndunEnter" Data="현재 재입장을 이용할 수 없습니다. 이용에 불편을 드려 죄송합니다."/>
+	<Class ClassID="134042" ClassName="IndunBadPlayerReport" Data="불량 사용자 신고"/>
+		<Class ClassID="134043" ClassName="IndunBadPlayerReport_Reason_Trolling" Data="비성실 및 방해 플레이"/>
+		<Class ClassID="134044" ClassName="IndunBadPlayerReport_Reason_Abusive" Data="욕설 및 비매너"/>
+		<Class ClassID="134045" ClassName="IndunBadPlayerReport_Reason_Etc" Data="기타"/>
+		<Class ClassID="134046" ClassName="AlreadyReported_IndunBadPlayer" Data="하루에 한 번만 신고하실 수 있습니다. 감사합니다."/>
+		<Class ClassID="134047" ClassName="Success_IndunBadPlayer_Report" Data="신고 접수 되었습니다. 감사합니다."/>
 	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>

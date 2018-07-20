@@ -239,7 +239,7 @@ function OPEN_PARTY_MEMBER_INFO(name)
 	
 end
 
-function CONTEXT_PARTY(frame, ctrl, aid)
+function CONTEXT_PARTY(frame, ctrl, aid)	
 	local myAid = session.loginInfo.GetAID();
 	
 	local pcparty = session.party.GetPartyInfo();
@@ -252,13 +252,11 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 	local myInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, myAid);	
 	local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, aid);	
 	local context = ui.CreateContextMenu("CONTEXT_PARTY", "", 0, 0, 170, 100);
-	if session.world.IsIntegrateServer() == true then
-		if  session.world.IsIntegrateIndunServer() == false then
-			local actor = GetMyActor();
-			local execScp = string.format("ui.Chat(\"/changePVPObserveTarget %d 0\")", memberInfo:GetHandle());
-			ui.AddContextMenuItem(context, ScpArgMsg("Observe{PC}", 'PC',memberInfo:GetName() ), execScp);
-			ui.OpenContextMenu(context);
-		end
+	if session.world.IsIntegrateServer() == true and session.world.IsIntegrateIndunServer() == false then
+		local actor = GetMyActor();
+		local execScp = string.format("ui.Chat(\"/changePVPObserveTarget %d 0\")", memberInfo:GetHandle());
+		ui.AddContextMenuItem(context, ScpArgMsg("Observe{PC}", 'PC',memberInfo:GetName() ), execScp);
+		ui.OpenContextMenu(context);
 
 		return;
 	end
@@ -277,6 +275,14 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		if myInfo:GetMapID() == memberInfo:GetMapID() and memberInfo.isAlchmist == 1 then
 			ui.AddContextMenuItem(context, ScpArgMsg("RequestItemDungeon"), string.format("Alchemist.RequestItemDungeon('%s')", memberInfo:GetName()));	
 		end
+		
+		if session.world.IsDungeon() or session.world.IsIntegrateIndunServer() == true then
+			local aid = memberInfo:GetAID();
+			local serverName = GetServerNameByGroupID(GetServerGroupID());
+			local playerName = memberInfo:GetName();
+			local scp = string.format("SHOW_INDUN_BADPLAYER_REPORT(\"%s\", \"%s\", \"%s\")", aid, serverName, playerName);
+			ui.AddContextMenuItem(context, ScpArgMsg("IndunBadPlayerReport"), scp);
+		end
 	else
 		-- 3. 파티원이 파티원 우클릭
 		-- 대화하기. 세부 정보 보기.
@@ -286,6 +292,14 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		ui.AddContextMenuItem(context, ScpArgMsg("ShowInfomation"), string.format("OPEN_PARTY_MEMBER_INFO(\"%s\")", memberInfo:GetName()));	
 		if myInfo:GetMapID() == memberInfo:GetMapID() and memberInfo.isAlchmist == 1 then
 			ui.AddContextMenuItem(context, ScpArgMsg("RequestItemDungeon"), string.format("Alchemist.RequestItemDungeon('%s')",memberInfo:GetName()));	
+		end
+
+		if session.world.IsDungeon() or session.world.IsIntegrateIndunServer() == true then
+			local aid = memberInfo:GetAID();
+			local serverName = GetServerNameByGroupID(GetServerGroupID());
+			local playerName = memberInfo:GetName();
+			local scp = string.format("SHOW_INDUN_BADPLAYER_REPORT(\"%s\", \"%s\", \"%s\")", aid, serverName, playerName);
+			ui.AddContextMenuItem(context, ScpArgMsg("IndunBadPlayerReport"), scp);
 		end
 	end
 	

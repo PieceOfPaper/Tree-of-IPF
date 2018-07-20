@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="socket_ticket" x="0" y="0" width="390" height="360" create="open">
+	<frame title="{@st43}{s22}소켓 추가{/}" titlepos="0 -5" layout_gravity="left center" snapclient="true" snapframe="true" margin="350 -50 0 0"/>
+	<option closebutton="false" hideable="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+	<draw drawtitlebar="true"/>
+	<layer layerlevel="100"/>
+	<userconfig Font_PropName="{@st45tw4}" Font_From="{@st42}"/>	
+	<controls>
+		<button name="close" rect="0 0 44 44" margin="0 -70 7 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;socket_ticket&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}사용을 취소합니다{/}"/>
+		<richtext name="t_fromItem" rect="0 0 200 20" margin="0 130 0 0" layout_gravity="center top" caption="{@st41b}대상 아이템"/>		
+		<slot name="fromItemSlot" rect="0 0 128 128" margin="0 -5 0 0" layout_gravity="center top" dropsound="icon_get_down" DropScp="DROP_UPGRADE2_SLOT" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" draw="true" image="skilltooltip_skill_image_slot"/>
+		<labelline name="boardLine 1" rect="0 0 340 4" margin="0 165 0 0" layout_gravity="center top" skin="None" visible="true"/>
+		<labelline name="boardLine 2" rect="0 0 340 4" margin="0 250 0 0" layout_gravity="center top" skin="None" visible="true"/>
+		<richtext name="hitCountDesc" rect="0 0 200 20" margin="0 180 0 0" layout_gravity="center top" format="{@st41}{s20}현재 소켓 현황 :{@st43} %s / {@st43}%s" param1="cur" param2="max" param1_def="3" param2_def="3"/>
+		<richtext name="hitPriceDesc" rect="0 0 200 20" margin="0 210 0 0" layout_gravity="center top" fontname="white_18" format="{@st41}{s20}소켓 추가 가격 : %s" param1="price" param1_def="0"/>
+		<button name="exec" rect="0 0 160 50" margin="0 0 0 35" layout_gravity="center bottom" LBtnUpScp="SOCKET_TICKET_CLICK_EXEC_BTN" caption="{@st41b}소켓 추가{/}" clicksound="button_click_big" oversound="button_over" skin="test_red_button" texttooltip="{@st59}소켓을 추가 합니다.{/}"/>
+	</controls>
+</uiframe>
