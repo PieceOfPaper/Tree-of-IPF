@@ -3,7 +3,7 @@
 function SCR_LEGENDCARD_UPGRADE_TX(pc, argList)	
 	local itemList = GetDlgItemList(pc);
 
-	if #itemList < 1 then
+	if #itemList < 2 then
 		return;
 	end
 	--넘겨온 아이템 검증 해야함
@@ -17,15 +17,17 @@ function SCR_LEGENDCARD_UPGRADE_TX(pc, argList)
 		if IsFixedItem(invCardItem) == 1 then
 			return
 		end
-
-		if i+1 <= #itemList then
+	end
+			
+	for i = 1, #itemList do
+		if i + 1 <= #itemList then
 			for j = i + 1, #itemList do
 				local otherSlotItem = GetInvItemByGuid(pc, GetItemGuid(itemList[j]))
 				if GetItemGuid(itemList[i]) == GetItemGuid(itemList[j]) then
 					return
 				end
 			end
-		end		
+		end
 	end
 
 	local legendCard = itemList[1];
@@ -38,6 +40,10 @@ function SCR_LEGENDCARD_UPGRADE_TX(pc, argList)
 
 	if legendCard == nil then
 		return;
+	end
+
+	if #materialCardList == 0 then
+		return
 	end
 
 	local successRatio, failRatio, brokenRatio, needPoint, totalGivePoint = CALC_LEGENDCARD_UPGRADE_RATIO(legendCard, materialCardList)
@@ -86,7 +92,7 @@ function SCR_LEGENDCARD_UPGRADE_TX(pc, argList)
 	local needReinforceItemCount = 0;
 	local destroyReward = ""
 	local destroyRewardExp = ""
-	local materialItemID = 646069
+	local materialItemID = 0
 
 	for i = 0, cnt - 1 do
 		local cls = GetClassByIndexFromList(legendCardReinforceList,i);

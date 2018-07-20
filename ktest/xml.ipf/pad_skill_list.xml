@@ -5224,7 +5224,7 @@ return value;"/>
     <PadSkill Name="Elementalist_Hail" CheckerType="0" Range="10" UpdateTerm="100">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="5000" UseFunc="1" FuncTxt="return 5000 + obj.Level * 1000"/>
+                <Num Num="5000" UseFunc="1" FuncTxt="return 10000"/>
                 <Num Num="1"/>
             </ToolScp>
         </createEvent>

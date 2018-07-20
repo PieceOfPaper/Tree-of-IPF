@@ -49,7 +49,7 @@ function ADVENTURE_BOOK_ITEM_CONTENT.ITEM_LIST_EXCEPT_HISTORY()
 		local clsID = TryGetProp(cls, "ClassID");
 		if ADVENTURE_BOOK_ITEM_CONTENT.EXIST_IN_HISTORY(clsID) == 0 then
 			if ADVENTURE_BOOK_ITEM_CONTENT.IS_PREVIEW_ITEM(cls) == 1 then
-				retTable[#retTable+1] = clsID;
+			    retTable[#retTable+1] = clsID;
 			end
 		end
 	end
@@ -63,14 +63,19 @@ function ADVENTURE_BOOK_ITEM_CONTENT.HISTORY_ITEM_LIST()
 
 	local retTable = {};
 	local hash_table = {};
-
 	for i = 1, #itemlist_c do
-		retTable[#retTable + 1] = itemlist_c[i]
+	    local cls = GetClassByNumProp("Item", "ClassID", itemlist_c[i]);
+	    if cls.Journal == "TRUE" or cls.Journal == "true" then
+		    retTable[#retTable + 1] = itemlist_c[i]
+		end
 	end
 	for i = 1, #itemlist_p do
-		local exist_c = GetAdventureBookInstByClassID(ABT_ITEM_COUNTABLE, itemlist_p[i])
-		if exist_c == nil or exist_c == 0 then
-			retTable[#retTable + 1] = itemlist_p[i]
+	    local cls = GetClassByNumProp("Item", "ClassID", itemlist_p[i]);
+	    if cls.Journal == "TRUE" or cls.Journal == "true" then
+    		local exist_c = GetAdventureBookInstByClassID(ABT_ITEM_COUNTABLE, itemlist_p[i])
+    		if exist_c == nil or exist_c == 0 then
+    			retTable[#retTable + 1] = itemlist_p[i]
+    		end
 		end
 	end
 

@@ -10894,10 +10894,9 @@ function SCR_Get_SummonServant_Ratio(skill)
 end
 
 function SCR_Get_Hail_Bufftime(skill)
-
-    local value = 5 + 1 * skill.Level
-    return value
+    local value = 10
     
+    return value
 end
 
 function SCR_Get_Rain_Bufftime(skill)

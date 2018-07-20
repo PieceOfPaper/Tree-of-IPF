@@ -93,19 +93,6 @@ function SCR_DYNCAST_SKILL_Paladin_Demolition(self, skill)
     return 0;
 end
 
-function SCR_DYNCAST_SKILL_Algiz(self, skill)
-    if IS_PC(self) == false then
-        return 1;
-    end
-    
-    local algizAbil = GetAbility(self, "RuneCaster6")
-    if algizAbil ~= nil and TryGetProp(algizAbil, "ActiveState") == 1 then
-        return 0;
-    end
-    
-    return 1;
-end
-
 function SCR_DYNCAST_SKILL_Pyromancer_HellBreath(self, skill)
     return 0;
 end
@@ -131,3 +118,18 @@ function SCR_DYNCAST_BUFF_Methadone(self, skill, buff)
     
     return 0;
 end
+
+function SCR_DYNCAST_BUFF_Algiz(self, skill, buff)
+    if IS_PC(self) == false then
+        return 1;
+    end
+    
+    local algizAbil = GetAbility(self, "RuneCaster6")
+    if algizAbil ~= nil and TryGetProp(algizAbil, "ActiveState") == 1 then
+        return 0;
+    end
+    
+    return 1;
+end
+
+
