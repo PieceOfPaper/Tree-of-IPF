@@ -5251,6 +5251,12 @@ function SCR_GET_Limacon_BuffTime(skill)
     return value
 end
 
+function SCR_GET_EvasiveAction_BuffTime(skill)
+    local value = 300
+    return value
+end
+
+
 function SCR_Get_SklAtkAdd_RetreatShot(skill)
 
     local pc = GetSkillOwner(skill);
@@ -7754,7 +7760,7 @@ end
 
 function SCR_GET_Agility_Bufftime(skill)
 
-    local value = 27 + skill.Level * 3;
+    local value = 300;
     return value
     
 end
@@ -7768,7 +7774,7 @@ end
 
 function SCR_GET_EnchantLightning_Bufftime(skill)
 
-    local value = skill.Level * 10 + 60
+    local value = 300
     return value
     
 end
@@ -7907,7 +7913,7 @@ function SCR_GET_Blink_Bufftime(skill)
 end
 
 function SCR_GET_MissileHole_Bufftime(skill)
-    local value = 50 + skill.Level * 10;
+    local value = 60;
     
     local pc = GetSkillOwner(skill)
     if IsPVPServer(pc) == 1 then
@@ -7915,7 +7921,6 @@ function SCR_GET_MissileHole_Bufftime(skill)
     end
     
     return math.floor(value)
-
 end
 
 function SCR_GET_MissileHole_Ratio(skill)
@@ -8317,7 +8322,9 @@ function SCR_Get_SkillFactor_CarveOwl2(skill)
     local pc = GetOwner(owl);
     if pc ~= nil then
         local carveOwlSkl = GetSkill(pc, "Dievdirbys_CarveOwl")
-        value = carveOwlSkl.SkillFactor
+        if carveOwlSkl ~= nil then
+            value = carveOwlSkl.SkillFactor
+        end
     end
 
     return math.floor(value)
@@ -10173,7 +10180,7 @@ end
 
 function SCR_Get_Surespell_Bufftime(skill)
     
-    return 15 + skill.Level * 6;
+    return 45 + skill.Level * 18;
 
 end
 
@@ -10403,7 +10410,7 @@ end
 
 function SCR_GET_EnchantFire_Bufftime(skill)
 
-  return 60 + skill.Level * 10;
+  return 300;
   
 end
 
@@ -11159,8 +11166,7 @@ end
 
 function SCR_GET_Restoration_Ratio(skill)
     local pc = GetSkillOwner(skill);
---    local value = 100.7 + (skill.Level - 1) * 16.9;
-    local value = 100 + ((skill.Level - 1) * 10);
+    local value = 300 + ((skill.Level - 1) * 20);
     
     local Paladin11_abil = GetAbility(pc, "Paladin11")  -- 1rank Skill Damage add
     if Paladin11_abil ~= nil then
@@ -11531,8 +11537,7 @@ end
 
 function SCR_GET_Gungho_Bufftime(skill)
 
-    return 60 + skill.Level * 5;
-
+    return 300;
 end
 
 
@@ -12854,10 +12859,7 @@ end
 
 function SCR_Get_Aspersion_Bufftime(skill)
 
-    local pc = GetSkillOwner(skill);
-
-    return 120;
-
+    return 300;
 end
 
 function SCR_Get_OutofBody_Ratio(skill)
@@ -13404,21 +13406,21 @@ end
 
 function SCR_Get_SwellLeftArm_Bufftime(skill)
 
-    local value = skill.Level * 5 + 25
+    local value = 300
     return value
 
 end
 
 function SCR_Get_SwellRightArm_Bufftime(skill)
 
-    local value = skill.Level * 5 + 25
+    local value = 300
     return value
 
 end
 
 function SCR_Get_SwellBrain_Bufftime(skill)
 
-    local value = skill.Level * 5 + 25
+    local value = 300
     return value
 
 end

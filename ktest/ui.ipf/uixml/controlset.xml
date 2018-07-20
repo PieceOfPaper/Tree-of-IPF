@@ -565,6 +565,29 @@
 			<labelline name="labelline" skin="labelline_def_2" margin="10 0 0 0" rect="0 0 390 1" layout_gravity="left bottom"/>
 		</controls>
 	</controlset>
+	<controlset name="eachitem_in_exchangeantique" hittest="true" width="430" height="85" skin="None" hittestset="true" draw="true" stateskin="false">
+		<controls>
+			<picture name="item_icon" layout_gravity="left top" rect="0 0 65 65" margin="10 10 0 0" stretch="true"/>
+			<picture name="item_questionmark" image="question_mark" layout_gravity="left top" rect="0 0 50 60" margin="10 10 0 0" stretch="true"/>
+			<richtext name="item_name" rect="0 0 80 30" margin="90 0 0 0" layout_gravity="left center" textalign="left center" resizebytext="true" fixwidth="false" caption="다이야" fontname="white_18_ol"/>
+			<radiobutton name="radioBtn" rect="0 0 27 27" margin="0 0 30 0" layout_gravity="right center" LBtnDownScp="CLICK_EXCHANGEANTIQUE_RADIOBTN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" skin="radiobutton_2"/>
+			<labelline name="labelline" skin="labelline_def_2" margin="10 0 0 0" rect="0 0 390 1" layout_gravity="left bottom"/>
+		</controls>
+	</controlset>
+	<controlset name="eachmaterial_in_exchangeantique" hittest="true" width="430" height="50" skin="None" hittestset="true" draw="true" stateskin="false">
+		<controls>
+			<picture name="material_icon" layout_gravity="left top" rect="0 0 40 40" margin="10 10 0 0" stretch="true"/>
+			<picture name="material_questionmark" image="question_mark" layout_gravity="left top" rect="0 0 40 40" margin="10 10 0 0" stretch="true"/>
+			<richtext name="material_name" rect="0 0 80 30" margin="90 0 0 0" layout_gravity="left center" textalign="left center" resizebytext="true" fixwidth="false" format="미정" param1="미정" param2="미정" param3="미정" caption="미정" fontname="brown_18"/>
+			<richtext name="material_count" rect="0 0 30 30" margin="0 0 30 0" layout_gravity="right center" textalign="right center" resizebytext="true" fixwidth="false" format="%s%s{/} / %s{/}" param1="color" param2="curCount" param3="needCount" fontname="brown_18"/>
+			<labelline name="labelline" skin="labelline_def_2" margin="10 0 0 0" rect="0 0 390 1" layout_gravity="left bottom"/>
+		</controls>
+	</controlset>
+	<controlset name="draw_division_arrow" hittest="true" width="430" height="30" skin="None" hittestset="true" draw="true" stateskin="false">
+		<controls>
+			<groupbox name="division_arrow" skin="test_arow" layout_gravity="center top" rect="0 0 400 40" margin="0 0 0 0" stretch="true"/>
+		</controls>
+	</controlset>
 	<controlset name="socket_in_makesocket" hittest="true" width="90" height="100" skin="None" hittestset="true" draw="true" stateskin="false">
 		<controls>
 			<picture name="socket_icon" layout_gravity="center top" rect="0 0 55 55" margin="0 0 0 0" stretch="true"/>

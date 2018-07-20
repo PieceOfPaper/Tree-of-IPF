@@ -208,6 +208,14 @@ function SCR_Get_MON_MHP(self)
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "MHP");
     local sizeTypeRate = SCR_SIZE_TYPE_RATE(self, "MHP");
     
+--    if TryGetProp(self, "Faction") == "Summon" then
+--        local ratio = 0.2;
+--        if TryGetProp(self, "MonRank") == "Boss" then
+--            ratio = 1.0;
+--        end
+--        value = math.floor(value * ratio);
+--    end
+    
     value = value * (byMHPRate * statTypeRate * raceTypeRate * sizeTypeRate);
     
     value = value * JAEDDURY_MON_MHP_RATE;      -- JAEDDURY
@@ -218,6 +226,10 @@ function SCR_Get_MON_MHP(self)
     end
     
     value = value + byBuff;
+    
+    if "Summon" == TryGetProp(self, "Faction") then
+        value = value + 5000;   -- PC Summon Monster MHP Add
+    end
     
     if value < 1 then
         value = 1;
@@ -314,7 +326,7 @@ function SCR_Get_MON_DEF(self)
     
     local byLevel = lv * 1.0;
     
-    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_ARMOR_CALC(self, lv);
     local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
     
     local byReinforce = 0;
@@ -325,7 +337,7 @@ function SCR_Get_MON_DEF(self)
         local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
         if cls ~= nil then
             local reinforceValue = cls.ReinforceArmor;
-            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            byReinforce = SCR_MON_ITEM_REINFORCE_ARMOR_CALC(self, lv, reinforceValue, reinforceGradeRatio);
             
             local transcendValue = cls.TranscendArmor;
             byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
@@ -386,7 +398,7 @@ function SCR_Get_MON_MDEF(self)
     
     local byLevel = lv * 1.0;
     
-    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_ARMOR_CALC(self, lv);
     local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
     
     local byReinforce = 0;
@@ -397,7 +409,7 @@ function SCR_Get_MON_MDEF(self)
         local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
         if cls ~= nil then
             local reinforceValue = cls.ReinforceArmor;
-            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            byReinforce = SCR_MON_ITEM_REINFORCE_ARMOR_CALC(self, lv, reinforceValue, reinforceGradeRatio);
             
             local transcendValue = cls.TranscendArmor;
             byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
@@ -609,7 +621,7 @@ function SCR_Get_MON_MINPATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
     
-    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
     local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
     
     local byReinforce = 0;
@@ -620,7 +632,7 @@ function SCR_Get_MON_MINPATK(self)
         local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
         if cls ~= nil then
             local reinforceValue = cls.ReinforceWeapon;
-            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            byReinforce = SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio);
             
             local transcendValue = cls.TranscendWeapon;
             byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
@@ -689,7 +701,7 @@ function SCR_Get_MON_MAXPATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
     
-    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
     local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
     
     local byReinforce = 0;
@@ -700,7 +712,7 @@ function SCR_Get_MON_MAXPATK(self)
         local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
         if cls ~= nil then
             local reinforceValue = cls.ReinforceWeapon;
-            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            byReinforce = SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio);
             
             local transcendValue = cls.TranscendWeapon;
             byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
@@ -768,7 +780,7 @@ function SCR_Get_MON_MINMATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
     
-    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
     local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
     
     local byReinforce = 0;
@@ -779,7 +791,7 @@ function SCR_Get_MON_MINMATK(self)
         local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
         if cls ~= nil then
             local reinforceValue = cls.ReinforceWeapon;
-            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            byReinforce = SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio);
             
             local transcendValue = cls.TranscendWeapon;
             byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
@@ -850,7 +862,7 @@ function SCR_Get_MON_MAXMATK(self)
     local byReinforce = 0;
     local byTranscend = 1;
     
-    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
     local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
     
     local byReinforce = 0;
@@ -861,7 +873,7 @@ function SCR_Get_MON_MAXMATK(self)
         local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
         if cls ~= nil then
             local reinforceValue = cls.ReinforceWeapon;
-            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            byReinforce = SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio);
             
             local transcendValue = cls.TranscendWeapon;
             byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
@@ -1603,8 +1615,15 @@ end
 
 
 
-function SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv)
+function SCR_MON_ITEM_WEAPON_CALC(self, lv)
     local value = 20 + (math.max(1, lv - 50) * 3);
+    local value = value * 1.0;
+    return math.floor(value);
+end
+
+function SCR_MON_ITEM_ARMOR_CALC(self, lv)
+    local value = 20 + (math.max(1, lv - 50) * 3);
+    value = value * 1.0;
     return math.floor(value);
 end
 
@@ -1634,9 +1653,17 @@ function SCR_MON_ITEM_GRADE_RATE(self, lv)
     return basicGradeRatio, reinforceGradeRatio;
 end
 
-function SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio)
+function SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio)
     local value = 0;
     value = math.floor((reinforceValue + (math.max(1, lv - 50) * (reinforceValue * (0.08 + (math.floor((math.min(21, reinforceValue) - 1) / 5) * 0.015 ))))));
+    value = math.floor(value * reinforceGradeRatio);
+    
+    return value;
+end
+
+function SCR_MON_ITEM_REINFORCE_ARMOR_CALC(self, lv, reinforceValue, reinforceGradeRatio)
+    local value = 0;
+    value = math.floor((reinforceValue + (math.max(1, lv - 50) * (reinforceValue * (0.12 + (math.floor((math.min(21, reinforceValue) - 1) / 5) * 0.0225 ))))));
     value = math.floor(value * reinforceGradeRatio);
     
     return value;

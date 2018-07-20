@@ -172,6 +172,13 @@ local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 11,  ui.
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
+    local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 12,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img 1plus_image %d %d}", 55, 45)
+    prop:SetTextByKey("value", imag..ClMsg("Mission_Reward")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
 	STATUS_OVERRIDE_NEWCONTROLSET1(tokenList)
 	
 	GBOX_AUTO_ALIGN(tokenList, 0, 0, 0, false, true);
