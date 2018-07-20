@@ -32,7 +32,7 @@ for /f %%a in (ipflist_data.txt) do (
 	
 	cd %ExportPath%
 	git add --all
-	git commit -m "%%a"
+	git commit -m "%2 Data %%a"
 )
 
 

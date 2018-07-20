@@ -46,7 +46,7 @@ for /f %%a in (ipflist_patch.txt) do (
 	::===== Commit & Push
 	cd %ExportPath%
 	git add --all
-	git commit -m "Patch %%a"
+	git commit -m "%2 Patch %%a"
 	git push
 )
 
