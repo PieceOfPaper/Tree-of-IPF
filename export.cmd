@@ -14,6 +14,7 @@ set RootPath=%cd%
 set TempPath=%cd%\Temp
 set ExtractPath=%cd%\extract
 set ExportPath=%cd%\%2
+set ToolsPath=%cd%\tools
 
 
 
@@ -21,8 +22,8 @@ set ExportPath=%cd%\%2
 for /f %%a in (ipflist_data.txt) do (
 	cd %RootPath%
 	echo F|xcopy /y "%TosPath%\data\%%a" "%TempPath%\data\%%a"
-	%RootPath%\ipf_unpack.exe %TempPath%\data\%%a decrypt
-	%RootPath%\ipf_unpack.exe %TempPath%\data\%%a extract ies xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3
+	%ToolsPath%\ipf_unpack\ipf_unpack.exe %TempPath%\data\%%a decrypt
+	%ToolsPath%\ipf_unpack\ipf_unpack.exe %TempPath%\data\%%a extract ies xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3
 	
 	xcopy /y /s "%ExtractPath%" "%ExportPath%"
 	
