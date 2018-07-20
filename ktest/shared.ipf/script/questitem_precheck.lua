@@ -7630,7 +7630,7 @@ function SCR_PRE_JOB_MATADOR1_ITEM(self, argObj, argstring, arg1, arg2)
     if result == "PROGRESS" then
         if GetLayer(self) >= 1 then
             if GetZoneName(self) == "f_remains_37" then
-                local list, cnt = SelectObject(self, 200, "MON", 1)
+                local list, cnt = SelectObject(self, 65, "ALL")
                 if cnt >= 1 then
                     for i = 1, cnt do
                         if list[i].ClassName == "stub_tree" or list[i].ClassName == "TreeAmbulo" or list[i].ClassName == "Tama" then
@@ -7638,8 +7638,11 @@ function SCR_PRE_JOB_MATADOR1_ITEM(self, argObj, argstring, arg1, arg2)
                         end
                     end
                 end
+                return 0;
             end
+            return 0;
         end
+        return 0;
     end
     return 0;
 end

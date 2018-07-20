@@ -3152,6 +3152,7 @@ function GET_MAXHATE_COUNT(self)
     local cls = GetClassByType('Map', mapID);
     if cls ~= nil then
         local defaultMaxHateCount = cls.MaxHateCount;
+		
         if defaultMaxHateCount == nil then
             defaultMaxHateCount = 100;
         end
@@ -3162,7 +3163,7 @@ function GET_MAXHATE_COUNT(self)
         end
         
         local value = defaultMaxHateCount + byBuff;
-        value = 100
+		
         return math.floor(value);
     end
     

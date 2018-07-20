@@ -62,8 +62,11 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 		local img = string.format("{img dealok_image %d %d}", 55, 45) 
 		prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
-
-		img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
+        if itemobj.NumberArg2 >= 30 then
+		    img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
+		elseif itemobj.NumberArg2 >= 15 then
+		    img = string.format("{img dealok15_image2 %d %d}", 100, 45) 
+		end
 		value:SetTextByKey("value", img);
 	else
 		gBox:RemoveChild("CTRLSET_TOKEN_TRADECOUNT");	
@@ -133,7 +136,7 @@ local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER
 		arg1 = 21600 -- 6시간
 	elseif itemobj.ClassName == "PremiumToken_3h" or itemobj.ClassName == "PremiumToken_3h_event" then
 		arg1 = 10800 -- 3시간
-	elseif itemobj.ClassName == "PremiumToken_15d" or itemobj.ClassName == "PremiumToken_15d_Steam" then
+	elseif itemobj.ClassName == "PremiumToken_15d" or itemobj.ClassName == "PremiumToken_15d_Steam" or itemobj.ClassName == "PremiumToken_15d_vk" then
 		arg1 = 1296000 -- 15일
 	end
 	local endTime = GET_TIME_TXT(arg1, 1)

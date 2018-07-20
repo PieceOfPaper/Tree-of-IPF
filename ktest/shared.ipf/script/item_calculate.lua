@@ -737,23 +737,31 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
 
 end
 
-function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend)
+function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
+    if enchantUpdate == nil then
+        enchantUpdate = 0
+    end
+    
     if ignoreReinfAndTranscend == nil then
         ignoreReinfAndTranscend = 0;
     end
-
+    
+    if reinfBonusValue == nil then
+        reinfBonusValue = 0;
+    end
+    
     local class = GetClassByType('Item', item.ClassID);
     INIT_ARMOR_PROP(item, class);
     item.Level = GET_ITEM_LEVEL(item);
-
-    local lv = TryGetProp(item, "UseLv");
+    
+    local lv = TryGetProp(item , "UseLv");
     if lv == nil then
         return 0;
     end
     
-    local hiddenLv = TryGetProp(item,"ItemLv");
+    local hiddenLv = TryGetProp(item, "ItemLv");
     if hiddenLv == nil then
-        return 0 ;
+        return 0;
     end
     
     if hiddenLv > 0 then
@@ -769,78 +777,205 @@ function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend)
         end
     end
     
-    local classType = TryGetProp(item,"ClassType");
-    if classType == nil then
-        return 0;
-    end
-    
-    local accRatio;
-    
-    if classType == 'Neck' then
-        accRatio = 5.5;
-    elseif classType == 'Ring' then
-        accRatio = 11;
-    elseif classType == 'Hat' then
-        accRatio = 0;
-    else
-        return 0;
-    end
-
-    local grade = TryGetProp(item,"ItemGrade");
-    if grade == nil then
-            return 0;
-    end
-    
-    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "BasicRatio");
-
-    local PropName = {"DEF", "MDEF", "HR", "DR",  "MHR", "ADD_FIRE", "ADD_ICE", "ADD_LIGHTNING", "DefRatio", "MDefRatio"};
-    local changeProp = {};
+    local def=0;
+    local hr =0;
+    local dr =0;
+    local mhr=0;
+    local mdef=0;
+    local fireAtk = 0;
+    local iceAtk = 0;
+    local lightningAtk = 0;
+    local defRatio = 0;
+    local mdefRatio = 0;
     
     local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
     for i = 1, #basicTooltipPropList do
         local basicProp = basicTooltipPropList[i];
-    
+        
+        local buffarg = 0;
+        
+        local grade = TryGetProp(item,"ItemGrade");
+        if grade == nil then
+            return 0;
+        end
+          
+        local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "BasicRatio");
+          
+        if enchantUpdate == 1 then
+            buffarg = GetExProp(item, "Rewards_BuffValue");
+        end
+        
+        local equipMaterial = TryGetProp(item, "Material");
+        if equipMaterial == nil then
+            return 0;
+        end
+        
+        local classType = TryGetProp(item,"ClassType");
+        if classType == nil then
+            return 0;
+        end
+        local accRatio;
+        
+        if classType == 'Neck' then
+            accRatio = 5.5;
+        elseif classType == 'Ring' then
+            accRatio = 11;
+        elseif classType == 'Hat' then
+            accRatio = 0;
+        else
+            return 0;
+        end
+        
+        local upgradeRatio = 1;        
         if basicProp == 'DEF' then
-            changeProp["DEF"] = ((20 + lv*3)/accRatio) * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend)
-            changeProp["DEF"] = SyncFloor(changeProp["DEF"]);
-            changeProp["DefRatio"] = math.floor(item.Reinforce_2 * 0.1);
-        elseif basicProp == 'MDEF' then
-            changeProp["MDEF"] = ((20 + lv*3)/accRatio) * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend)
-            changeProp["MDEF"] = SyncFloor(changeProp["MDEF"]);
-        elseif basicProp == 'ADD_FIRE' then
-            changeProp["ADD_FIRE"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
-            changeProp["ADD_FIRE"] = SyncFloor(changeProp["ADD_FIRE"]);
-        elseif basicProp == 'ADD_ICE' then
-            changeProp["ADD_ICE"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
-            changeProp["ADD_ICE"] = SyncFloor(changeProp["ADD_ICE"]);
-        elseif basicProp == 'ADD_LIGHTNING' then
-            changeProp["ADD_LIGHTNING"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
-            changeProp["ADD_LIGHTNING"] = SyncFloor(changeProp["ADD_LIGHTNING"]);
-        end
-    end
+            def = ((20 + lv*3)/accRatio) * gradeRatio;
+            upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;            
 
-    for i = 1, #PropName do
-        if changeProp[PropName[i]] ~= nil then
-            if changeProp[PropName[i]] ~= 0 then
-                item[PropName[i]] = changeProp[PropName[i]];
+            if def < 1 then
+                def = 1;
             end
+            
+            def = math.floor(def) * upgradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
+            def = SyncFloor(def);
+            
+        elseif basicProp == 'MDEF' then
+            mdef = ((20 + lv*3)/accRatio) * gradeRatio;
+            upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_MDEF_RATIO(item, ignoreReinfAndTranscend) / 100;
+            
+            if mdef < 1 then
+                mdef = 1;
+            end
+    
+           mdef = math.floor(mdef) * upgradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
+           mdef = SyncFloor(mdef);
         end
     end
 
-    local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(item, ignoreReinfAndTranscend);
-    for i = 1 , #propNames do
-        local propName = propNames[i];
-        local propValue = propValues[i];
-        local upgradeRatio = 1 + propValue / 100;
-        item[propName] = math.floor( item[propName] * upgradeRatio );
-    end
-    
+    item.HR = hr;
+    item.DR = dr;
+    item.DEF = def;
+    item.MHR = mhr;
+    item.MDEF = mdef;
+    item.DefRatio = defRatio;
+    item.MDefRatio = mdefRatio;
+
+
+
+
     APPLY_AWAKEN(item);
     APPLY_ENCHANTCHOP(item);
-    APPLY_OPTION_SOCKET(item);
     MakeItemOptionByOptionSocket(item);
-
+    
 end
+    --기존 --
+--    if ignoreReinfAndTranscend == nil then
+--        ignoreReinfAndTranscend = 0;
+--    end
+--
+--    if reinfBonusValue == nil then
+--        reinfBonusValue = 0;
+--    end
+--
+--    local class = GetClassByType('Item', item.ClassID);
+--    INIT_ARMOR_PROP(item, class);
+--    item.Level = GET_ITEM_LEVEL(item);
+--
+--    local lv = TryGetProp(item, "UseLv");
+--    if lv == nil then
+--        return 0;
+--    end
+--    
+--    local hiddenLv = TryGetProp(item,"ItemLv");
+--    if hiddenLv == nil then
+--        return 0 ;
+--    end
+--    
+--    if hiddenLv > 0 then
+--        lv = hiddenLv;
+--    end
+--    
+--    if (GetServerNation() == "KOR" and (GetServerGroupID() == 9001 or GetServerGroupID() == 9501)) then
+--        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item, 1);
+--        if kupoleItemLv ==  nil then
+--            lv = lv;
+--        elseif kupoleItemLv > 0 then
+--            lv = kupoleItemLv;
+--        end
+--    end
+--    
+--    local classType = TryGetProp(item,"ClassType");
+--    if classType == nil then
+--        return 0;
+--    end
+--    
+--    local accRatio;
+--    
+--    if classType == 'Neck' then
+--        accRatio = 5.5;
+--    elseif classType == 'Ring' then
+--        accRatio = 11;
+--    elseif classType == 'Hat' then
+--        accRatio = 0;
+--    else
+--        return 0;
+--    end
+--
+--    local grade = TryGetProp(item,"ItemGrade");
+--    if grade == nil then
+--            return 0;
+--    end
+--    
+--    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "BasicRatio");
+--
+--    local PropName = {"DEF", "MDEF", "HR", "DR",  "MHR", "ADD_FIRE", "ADD_ICE", "ADD_LIGHTNING", "DefRatio", "MDefRatio"};
+--    local changeProp = {};
+--    
+--    local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
+--    for i = 1, #basicTooltipPropList do
+--        local basicProp = basicTooltipPropList[i];
+--    
+--        if basicProp == 'DEF' then
+--            changeProp["DEF"] = ((20 + lv*3)/accRatio) * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend)
+--            changeProp["DEF"] = SyncFloor(changeProp["DEF"]);
+--            changeProp["DefRatio"] = math.floor(item.Reinforce_2 * 0.1);
+--        elseif basicProp == 'MDEF' then
+--            changeProp["MDEF"] = ((20 + lv*3)/accRatio) * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend)
+--            changeProp["MDEF"] = SyncFloor(changeProp["MDEF"]);
+--        elseif basicProp == 'ADD_FIRE' then
+--            changeProp["ADD_FIRE"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
+--            changeProp["ADD_FIRE"] = SyncFloor(changeProp["ADD_FIRE"]);
+--        elseif basicProp == 'ADD_ICE' then
+--            changeProp["ADD_ICE"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
+--            changeProp["ADD_ICE"] = SyncFloor(changeProp["ADD_ICE"]);
+--        elseif basicProp == 'ADD_LIGHTNING' then
+--            changeProp["ADD_LIGHTNING"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
+--            changeProp["ADD_LIGHTNING"] = SyncFloor(changeProp["ADD_LIGHTNING"]);
+--        end
+--    end
+--
+--    for i = 1, #PropName do
+--        if changeProp[PropName[i]] ~= nil then
+--            if changeProp[PropName[i]] ~= 0 then
+--                item[PropName[i]] = changeProp[PropName[i]];
+--            end
+--        end
+--    end
+--
+--    local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(item, ignoreReinfAndTranscend);
+--    for i = 1 , #propNames do
+--        local propName = propNames[i];
+--        local propValue = propValues[i];
+--        print(propValue)
+--        local upgradeRatio = 1 + propValue / 100;
+--        item[propName] = math.floor( item[propName] * upgradeRatio );
+--    end
+--    
+--    APPLY_AWAKEN(item);
+--    APPLY_ENCHANTCHOP(item);
+--    APPLY_OPTION_SOCKET(item);
+--    MakeItemOptionByOptionSocket(item);
+--
+--end
 
 function SCR_REFRESH_GEM(item)
     item.Level = GET_ITEM_LEVEL(item);
@@ -1861,7 +1996,7 @@ function SCR_GET_MAX_SOKET(item)
 end
 
 function SRC_KUPOLE_GROWTH_ITEM(item, Reinforce)
-    -- ??폴 ??버 ??이??을 ??장??으????작??기 ??한 ??크립트 --
+    -- ??????�?????????????????????�????????�립??--
     local itemName = TryGetProp(item,"ClassName");
     if itemName == nil then
         return 0;

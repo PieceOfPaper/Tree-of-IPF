@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3558,6 +3558,39 @@
 			<img name="bottomcore" imgrect="299 356 128 62"/>
 			<img name="bottomright" imgrect="428 356 55 62"/>
 		</skin>
+		<skin name="test_h_scroll_skin" texture="\skin\attendance_sheet_skin.tga">
+			<img name="topleft" imgrect="1 1 348 217 "/>
+			<img name="topcore" imgrect="350 1 191 217"/>
+			<img name="topright" imgrect="542 1 348 217"/>
+			<img name="bodyleft" imgrect="1 219 348 101"/>
+			<img name="bodycore" imgrect="350 219 191 101"/>
+			<img name="bodyright" imgrect="542 219 348 101"/>
+			<img name="bottomleft" imgrect="1 321 348 217"/>
+			<img name="bottomcore" imgrect="350 321 191 217"/>
+			<img name="bottomright" imgrect="542 321 348 217"/>
+		</skin>
+		<skin name="test_h_redribbon_skin" texture="\skin\attendance_sheet_skin.tga">
+			<img name="topleft" imgrect="1 539 220 1"/>
+			<img name="topcore" imgrect="222 539 61 1"/>
+			<img name="topright" imgrect="284 539 220 1"/>
+			<img name="bodyleft" imgrect="1 541 220 76"/>
+			<img name="bodycore" imgrect="222 541 61 76"/>
+			<img name="bodyright" imgrect="284 541 220 76"/>
+			<img name="bottomleft" imgrect="1 618 220 1"/>
+			<img name="bottomcore" imgrect="222 618 61 1"/>
+			<img name="bottomright" imgrect="284 618 220 1"/>
+		</skin>
+		<skin name="test_browntitle_skin" texture="\skin\attendance_sheet_skin.tga">
+			<img name="topleft" imgrect="891 390 41 41"/>
+			<img name="topcore" imgrect="933 390 40 41"/>
+			<img name="topright" imgrect="974 390 41 41"/>
+			<img name="bodyleft" imgrect="891 432 41 19"/>
+			<img name="bodycore" imgrect="933 432 40 19"/>
+			<img name="bodyright" imgrect="974 432 41 19"/>
+			<img name="bottomleft" imgrect="891 452 41 41"/>
+			<img name="bottomcore" imgrect="933 452 40 41"/>
+			<img name="bottomright" imgrect="974 452 41 41"/>
+		</skin>
 	</skinlist>
 	<skinlist category="testmin_frames">
 		<skin name="monstercard" texture="\skin\monstercard.tga">
@@ -5489,6 +5522,7 @@
 		<image name="30percent_image2" file="\skin\paid_skin.tga" imgrect="803 212 100 45"/>
 		<image name="20percent_image2" file="\skin\paid_skin.tga" imgrect="922 46 100 45"/>
 		<image name="dealok30_image2" file="\skin\paid_skin.tga" imgrect="904 166 100 45"/>
+		<image name="dealok15_image2" file="\skin\paid_skin.tga" imgrect="837 710 100 45"/>
 		<image name="9plus_image2" file="\skin\paid_skin.tga" imgrect="904 212 100 45"/>
 		<image name="9multiply_image2" file="\skin\paid_skin.tga" imgrect="736 664 100 45"/>
 		<image name="50percent_image3" file="\skin\paid_skin.tga" imgrect="837 756 100 45"/>
@@ -5563,7 +5597,6 @@
 		<image name="market_costume" file="\skin\market_skin.tga" imgrect="1866 383 60 60" CMM_Caption="마켓_코스튬"/>
 		<image name="market_hair" file="\skin\market_skin.tga" imgrect="1927 383 60 60" CMM_Caption="마켓_가발"/>
 		<image name="market_lens" file="\skin\market_skin.tga" imgrect="1988 383 60 60" CMM_Caption="마켓_렌즈"/>
-		<image name="market_wing" file="\skin\market_skin.tga" imgrect="1659 399 60 60" CMM_Caption="마켓_날개"/>
 		<image name="market_F_gender" file="\skin\market_skin.tga" imgrect="1746 0 50 50" CMM_Caption="마켓_여자성별"/>
 		<image name="market_M_gender" file="\skin\market_skin.tga" imgrect="1797 0 50 50" CMM_Caption="마켓_남자성별"/>
 		<image name="market_re_M" file="\skin\market_skin.tga" imgrect="1719 246 65 65" CMM_Caption="메달로바꾸기"/>
@@ -5713,6 +5746,9 @@
 		<image name="help_button_normal" file="\skin\button.tga" imgrect="325 263 46 46"/>
 		<image name="help_button_normal_cursoron" file="\skin\button.tga" imgrect="372 263 46 46"/>
 		<image name="help_button_normal_clicked" file="\skin\button.tga" imgrect="419 263 46 46"/>
+		<image name="calendar_button_normal" file="\skin\button.tga" imgrect="325 404 46 46"/>
+		<image name="calendar_button_normal_cursoron" file="\skin\button.tga" imgrect="372 404 46 46"/>
+		<image name="calendar_button_normal_clicked" file="\skin\button.tga" imgrect="419 404 46 46"/>
 		<image name="tooltip_speedofatk" file="\skin\tooltip_skin_3.tga" imgrect="743 111 18 18" CMM_Caption="공격속도 아이콘"/>
 		<image name="token_on" file="\skin\indun_skin.tga" imgrect="0 976 40 40" CMM_Caption="토큰 활성"/>
 		<image name="token_off" file="\skin\indun_skin.tga" imgrect="41 976 40 40" CMM_Caption="토큰 비활성"/>
@@ -5819,6 +5855,23 @@
 		<image name="induncount_gauge_L" file="\skin\indun_skin.tga" imgrect="686 514 6 18" CMM_Caption="인던 카운트 게이지 왼쪽"/>
 		<image name="induncount_gauge_R" file="\skin\indun_skin.tga" imgrect="964 514 6 18" CMM_Caption="인던 카운트 게이지 오른쪽"/>
 		<image name="induncount_gauge_bg" file="\skin\indun_skin.tga" imgrect="233 545 380 87" CMM_Caption="인던 카운트 게이지 배경"/>
+		<image name="attendance_nomal_bg" file="\skin\attendance_sheet_skin.tga" imgrect="891 118 116 116" CMM_Caption="출석체크 일반 배경"/>
+		<image name="attendance_special_bg" file="\skin\attendance_sheet_skin.tga" imgrect="891 1 116 116" CMM_Caption="출석체크 스페셜 배경"/>
+		<image name="attendance_onion_stamp" file="\skin\attendance_sheet_skin.tga" imgrect="891 273 116 116" CMM_Caption="케파 도장"/>
+		<image name="gold_close_button" file="\skin\attendance_sheet_skin.tga" imgrect="891 235 37 37" CMM_Caption="금색 x 버튼"/>
+		<image name="gold_close_button_cursoron" file="\skin\attendance_sheet_skin.tga" imgrect="929 235 37 37"/>
+		<image name="gold_close_button_clicked" file="\skin\attendance_sheet_skin.tga" imgrect="929 235 37 37"/>
+		<image name="goldf_reset_button" file="\skin\button.tga" imgrect="0 212 46 46" CMM_Caption="금색 프레임 x 버튼"/>
+		<image name="goldf_reset_button_cursoron" file="\skin\button.tga" imgrect="47 212 46 46"/>
+		<image name="goldf_reset_button_clicked" file="\skin\button.tga" imgrect="94 212 46 46"/>
+		<image name="test_indun_exp" file="\skin\indun_skin.tga" imgrect="971 510 34 18"/>
+		<image name="test_indun_S" file="\skin\indun_skin2.tga" imgrect="0 0 141 141" CMM_Caption="인던 포포리온 스탬프"/>
+		<image name="test_indun_A" file="\skin\indun_skin2.tga" imgrect="142 0 141 141"/>
+		<image name="test_indun_B" file="\skin\indun_skin2.tga" imgrect="284 0 141 141"/>
+		<image name="test_indun_C" file="\skin\indun_skin2.tga" imgrect="0 142 141 141"/>
+		<image name="test_indun_D" file="\skin\indun_skin2.tga" imgrect="142 142 141 141"/>
+		<image name="test_indun_E" file="\skin\indun_skin2.tga" imgrect="284 142 141 141"/>
+		<image name="test_indun_ribbon" file="\skin\indun_skin2.tga" imgrect="0 284 112 164"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -8292,9 +8345,6 @@
 		<image name="141_boss_FerretMarauder" file="\skin\bosscard\141_boss_FerretMarauder.tga" imgrect="0 0 330 440"/>
 		<image name="142_boss_Velniamonkey" file="\skin\bosscard\142_boss_Velniamonkey.tga" imgrect="0 0 330 440"/>
 		<image name="143_boss_Prisoncutter" file="\skin\bosscard\143_boss_Prisoncutter.tga" imgrect="0 0 330 440"/>
-	</imagelist>
-	<imagelist category="wing_mk">
-		<image name="market_wing_skin" file="\skin\market_wing_skin.tga" imgrect="0 0 348 840"/>
 	</imagelist>
 	<effectimagelist category="effectlist">
 		<image name="blue_orb" file="\icon\blue_orb.tga" imgrect="0 0 256 256"/>

@@ -519,4 +519,5 @@ Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc
 	<Code Code="ERROR_FISH_RUBBING_STATUE" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 동상 에러 "/>
 	<Code Code="INFO_DB_INIT" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 초기화 관련 정보"/>
 	<Code Code="ERROR_PADSKILL_OVERRIDE_CLONE_FAIL" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="패드 스킬 프로퍼티 오버라이드 중 클론 생성 실패"/>
+	<Code Code="ERROR_ATTENDANCE" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="출석 시스템 관련 에러"/>
 </imcErrorCode>

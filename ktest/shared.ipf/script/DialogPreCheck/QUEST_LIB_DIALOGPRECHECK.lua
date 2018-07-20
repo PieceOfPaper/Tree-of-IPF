@@ -4,7 +4,7 @@ function QUEST_LIB_DIALOGPRECHECK(pc, dialogName, handle)
         if npcselectIES.IdleDialog ~= 'None' then
             return 1
         else
-            for i = 1, 10 do
+            for i = 1, MAX_NORMALDIALOG_COUNT do
                 if npcselectIES['NormalDialog'..i] ~= 'None' then
                     return 1
                 end
@@ -68,5 +68,4 @@ end
 function QUEST_SUB_NPC_DIALOGPRECHECK(pc, dialog)
 	return QuestSubNpcDialogPreCheck(pc, dialog);
     
-	-- ���� ������ ��ƿ��� ������ ��û ������ ������ ���ε� �Լ��� ��
 end

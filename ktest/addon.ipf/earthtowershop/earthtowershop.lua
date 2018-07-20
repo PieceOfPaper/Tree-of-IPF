@@ -127,7 +127,7 @@ function EARTH_TOWER_INIT(frame, shopType)
 
 	local showonlyhavemat = GET_CHILD(frame, "showonlyhavemat", "ui::CCheckBox");	
 	local checkHaveMaterial = showonlyhavemat:IsChecked();	
-
+	
 	while cls ~= nil do
 
 		if cls.ShopType == shopType then
@@ -305,10 +305,32 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 		
 	local lableLine = GET_CHILD(ctrlset, "labelline_1");
 	local exchangeCountText = GET_CHILD(ctrlset, "exchangeCount");	
+	
+	local exchangeCountTextFlag = 0
 	if recipecls.NeedProperty ~= 'None' then
 		local sObj = GetSessionObject(GetMyPCObject(), "ssn_shop");
 		local sCount = TryGetProp(sObj, recipecls.NeedProperty); 
 		local cntText = string.format("%d", sCount).. ScpArgMsg("Excnaged_Count_Remind");
+		local tradeBtn = GET_CHILD(ctrlset, "tradeBtn");
+		if sCount <= 0 then
+			cntText = ScpArgMsg("Excnaged_No_Enough");
+			tradeBtn:SetColorTone("FF444444");
+		end;
+		exchangeCountText:SetTextByKey("value", cntText);
+
+		lableLine:SetPos(0, height);
+		height = height + 10 + lableLine:GetHeight();
+		exchangeCountText:SetPos(0, height);
+		height = height + 10 + exchangeCountText:GetHeight() + 15;
+		lableLine:SetVisible(1);
+		exchangeCountText:SetVisible(1);
+		exchangeCountTextFlag = 1
+	end;
+	
+	if recipecls.AccountNeedProperty ~= 'None' then
+	    local aObj = GetMyAccountObj()
+		local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty); 
+		local cntText = ScpArgMsg("Excnaged_AccountCount_Remind","COUNT",string.format("%d", sCount))
 		local tradeBtn = GET_CHILD(ctrlset, "tradeBtn");
 		if sCount <= 0 then
 			cntText = ScpArgMsg("Excnaged_No_Enough");
@@ -323,7 +345,10 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 		height = height + 10 + exchangeCountText:GetHeight() + 15;
 		lableLine:SetVisible(1);
 		exchangeCountText:SetVisible(1);
-	else
+		exchangeCountTextFlag = 1
+	end
+	
+	if exchangeCountTextFlag == 0 then
 		height = height+ 20;
 		lableLine:SetVisible(0);
 		exchangeCountText:SetVisible(0);
@@ -334,8 +359,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 
 	groupbox:SetUserValue("HEIGHT_SIZE", groupbox:GetUserIValue("HEIGHT_SIZE") + ctrlset:GetHeight())
 	groupbox:Resize(groupbox:GetWidth(), groupbox:GetUserIValue("HEIGHT_SIZE"));
-	
-	page:SetSlotSize(ctrlset:GetWidth(), ctrlset:GetHeight())
+	page:SetSlotSize(ctrlset:GetWidth(), ctrlset:GetHeight() + 40)
 end
 
 function EARTH_TOWER_SHOP_EXEC(parent, ctrl)

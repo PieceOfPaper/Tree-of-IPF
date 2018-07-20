@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -869,6 +869,7 @@
 		<Class ClassID="10482" ClassName="RaidStance" Data="레이드 던전 입장 아이템 소모 개수 -2"/>
 		<Class ClassID="10483" ClassName="InvalidStringOrUnderMinLen" Data="허용되지 않는 문자를 포함 했거나 최소 글자 수 이하입니다."/>
 		<Class ClassID="10484" ClassName="NotAllowedRandomReset" Data="재감정이 가능하지 않은 아이템입니다."/>
+		<Class ClassID="10485" ClassName="CannotLockUnlockWhenExchanging" Data="거래중엔 아이템을 잠금/해제 할 수 없습니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -4416,8 +4417,10 @@
 		<Class ClassID="27700" ClassName="EVENT_1710_NEXONCASHBOX_MSG1" Data="축하드립니다.{nl}'{TEAM}'님이 '{ITEM1}'에서 '{ITEM2}'을 획득하셨습니다."/>
 		<Class ClassID="27710" ClassName="EVENT_1710_NEWCHARACTER_MSG1" Data="{DAY}일 {HOUR}시간 {MIN}분 뒤에 아이템을 사용하실 수 있습니다"/>
 		<Class ClassID="27711" ClassName="EVENT_1710_NEWCHARACTER_MSG2" Data="'{ITEM}' 아이템에서 '{TP}TP'를 획득하셨습니다"/>
+		<Class ClassID="27720" ClassName="Excnaged_AccountCount_Remind" Data="팀당 {COUNT}번 교환 가능 합니다."/>
 		<Class ClassID="27730" ClassName="EVENT_1710_RESET_MSG1" Data="현재 이벤트 참여 제한 대상자셔서 이벤트에 참여하실 수 없습니다"/>
 		<Class ClassID="27735" ClassName="EVENT_HALLOWEEN_SHOP_NAME" Data="할로윈 상점"/>
+		<Class ClassID="27736" ClassName="EVENT_1710_HALLOWEEN_MSG1" Data="모든 채널에 유저가 가득 차서 현재 입장하실 수 없습니다."/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5271,7 +5274,7 @@
 		<Class ClassID="50510" ClassName="JOB_MATADOR1_ITEM_MSG1" Data="카포테로 몬스터의 화를 돋우는 중"/>
 		<Class ClassID="50511" ClassName="JOB_MATADOR1_ITEM_MSG2" Data="카포테로 몬스터의 화를 돋았습니다{nl}몬스터에게 공격을 받으면 카포테 효과가 사라집니다"/>
 		<Class ClassID="50512" ClassName="JOB_MATADOR1_ITEM_MSG3" Data="몬스터를 우리 안으로 데려왔습니다{nl}현재 점수 :"/>
-		<Class ClassID="50513" ClassName="JOB_MATADOR1_ITEM_MSG4" Data="획득 점수가 15점 미만이여서 마타도르의 소양 퀘스트를 실패했습니다"/>
+		<Class ClassID="50513" ClassName="JOB_MATADOR1_ITEM_MSG4" Data="획득 점수가 15점 미만이여서 1단계 마타도르의 소양 퀘스트를 실패했습니다"/>
 		<Class ClassID="50514" ClassName="JOB_MATADOR1_ADVANTAGE2_NAME" Data="지원 가방"/>
 		<Class ClassID="50515" ClassName="JOB_MATADOR1_ITEM_MSG6" Data="지원 가방을 줍는 중"/>
 		<Class ClassID="50516" ClassName="JOB_MATADOR1_ITEM_MSG7" Data="마이티니마스의 달콤한 향에 몬스터가 온순해졌습니다"/>
@@ -5295,6 +5298,8 @@
 		<Class ClassID="50534" ClassName="CHAR119_MSTEP3_4_MSG1" Data="상태 좋은 고치를 구하는 중"/>
 		<Class ClassID="50535" ClassName="HIDDEN_MINERAL_CMINE661_MSG1" Data="채광 중"/>
 		<Class ClassID="50536" ClassName="HIDDEN_BULLET_MSTEP3_MSGM1" Data="마기가 서린 몬스터의 살점을 충분합니다"/>
+		<Class ClassID="50537" ClassName="JOB_MATADOR1_ITEM_MSG5" Data="획득 점수가 20점 미만이여서 2단계 마타도르의 소양 퀘스트를 실패했습니다"/>
+		<Class ClassID="50538" ClassName="JOB_MATADOR1_ITEM_MSG14" Data="획득 점수가 25점 미만이여서 3단계 마타도르의 소양 퀘스트를 실패했습니다"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>
@@ -7552,6 +7557,7 @@
 		<Class ClassID="134034" ClassName="PersonCountUnit" Data="명"/>
 		<Class ClassID="134035" ClassName="CannotUseForAutoMatching" Data="자동매칭 중에는 사용할 수 없습니다."/>
 		<Class ClassID="134036" ClassName="CannotLockInIndun" Data="입장 아이템을 해당 인던 안에서 잠글 수 없습니다."/>
+		<Class ClassID="134037" ClassName="Wait{Sec}ReturnOringinServer" Data="{Sec}초 후 입구로 돌아갑니다..."/>
 	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
@@ -10536,6 +10542,8 @@
 		<Class ClassID="300165" ClassName="GachaMsg" Data="{Name} 열기"/>
 		<Class ClassID="300166" ClassName="PurchaseItemExceeded" Data="구매 개수를 {Value}개를 초과했습니다."/>
 		<Class ClassID="300167" ClassName="SelectPurchaseRestrictedItem" Data="해당 아이템은 팀당 {Value}개만 구매할 수 있습니다.{nl}구매하시겠습니까?"/>
+		<Class ClassID="300171" ClassName="attendance" Data="출석 보상 확인"/>
+		<Class ClassID="300172" ClassName="PremiumToken_15d_vk" Data="토큰:15일[바카리네]"/>
     <Class ClassID="300173" ClassName="SelectPurchaseRestrictedItemByMonth" Data="해당 아이템은 한 달에 {Value}개만 구매할 수 있습니다.{nl}구매하시겠습니까?"/>
 	</Category>
 	<Category Name="TPHistory">

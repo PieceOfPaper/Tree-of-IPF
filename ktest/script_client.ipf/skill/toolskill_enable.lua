@@ -65,7 +65,7 @@ function SKL_CHECK_BRING_COMPANION_C(self, skl, jobID)
 end
 
 function SKL_CHECK_MOVEING_C(actor, skl)
-    return control.IsMoving();
+    return control.IsMoving(false); -- checkSkillState = false
 end
 
 function SKL_CHECK_RIDING_COMPANION_C(actor, skl)

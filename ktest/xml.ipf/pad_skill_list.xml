@@ -3915,7 +3915,7 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Cleric_Zalciai" CheckerType="0" Range="37.5"ApplyFlyMon="1">
+	<PadSkill Name="Cleric_Zalciai" CheckerType="0" Range="37.5" ApplyFlyMon="1">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="5000"/>
@@ -4682,7 +4682,10 @@ return value;"/>
 				<Str Str="None"/>
 				<Num Num="0"/>
 			</ToolScp>
-		</createEvent>
+		<ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_STORMCALLING_KRIWI_ZAIBAS"/>
+            </ToolScp>
+        </createEvent>
 		<destroyEvent>
 			<ToolScp Scp="PAD_DESTROY_EFFECT_BLENDTIME" Client="NO" UseSleep="NO">
 				<Num Num="1"/>
@@ -5515,7 +5518,7 @@ return obj.Level;"/>
 	<PadSkill Name="FanaticIllusion_pad" CheckerType="0" AllowOverlap="1" Dist="1.1135938" Angle="-1.3444525" Range="60" AutoPos="1" ApplyFlyMon="1">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="15000"/>
+				<Num Num="999999"/>
 				<Num Num="999999"/>
 			</ToolScp>
 		</createEvent>
@@ -5551,13 +5554,13 @@ return &quot;self&quot;"/>
 				<Num Num="1"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
-				<Str_Arg Str="F_wizard_EnchantLightning_buff" Arg="2"/>
+				<Str_Arg Str="F_hit_rize3" Arg="2"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="None"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-500"/>
+				<Num Num="0"/>
 				<Num Num="1"/>
 			</ToolScp>
 		</updateEvent>
@@ -6686,7 +6689,7 @@ end"/>
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="15000" UseFunc="1" FuncTxt="return 15000 + GET_ABIL_LEVEL(self, &quot;Kabbalist6&quot;) * 1000"/>
-				<Num Num="1"/>
+				<Num Num="2"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_cleric_Ayin_sof_loop_ground" Arg="0.5"/>
@@ -6702,26 +6705,38 @@ end"/>
 			</ToolScp>
 		</destroyEvent>
 		<enterEvent>
-			<ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+			<ToolScp Scp="PAD_TGT_BUFF_AFTER_CHECK_BUFF" Client="NO" UseSleep="NO">
 				<Str Str="FRIEND"/>
 				<Num Num="0"/>
-				<Num Num="-1"/>
+				<Num Num="-1"UseFunc="1" FuncTxt="local value = -2;
+
+local pc = GetSkillOwner(obj);
+local abil = GetAbility(pc, &apos;Kabbalist23&apos;);
+
+if abil ~= nil and abil.ActiveState == 1 then
+value = -1;
+end
+
+return value;"/>
+                <Str Str="None" UseFunc="1" FuncTxt="local buffName = &apos;None&apos;;
+
+local pc = GetSkillOwner(obj);
+local abil = GetAbility(pc, &apos;Kabbalist23&apos;);
+
+if abil ~= nil and abil.ActiveState == 1 then
+buffName = &apos;Ayin_sof_Buff&apos;;
+end
+
+return buffName;"/>
 				<Str Str="Ayin_sof_Buff"/>
-				<Num Num="1" UseFunc="1" FuncTxt="
-
-return obj.Level"/>
+				<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
 				<Num Num="0"/>
-				<Num Num="90000" UseFunc="1" FuncTxt="
-
-return 20000 + obj.Level * 3000"/>
+				<Num Num="0" UseFunc="1" FuncTxt="return 20000 + obj.Level * 3000"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
 				<Num Num="0"/>
 			</ToolScp>
-			<ToolScp Scp="PAD_ACTIVATE" Client="NO" UseSleep="NO">
-				<Str Str="FRIEND"/>
-			</ToolScp>
-		</enterEvent>
+			</enterEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="-500"/>

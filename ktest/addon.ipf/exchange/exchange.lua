@@ -21,12 +21,12 @@ function BEING_TRADING_STATE()
 		return false;
 	end
 
-	local targetName = nameRichText:GetTextByKey("oppName");
+	local targetName = nameRichText:GetTextByKey("value");
 	if targetName == "" or targetName == "None" then
 		return false;
 	end
 
-	ui.MsgBox(ScpArgMsg("CannotDoAction"));
+	ui.MsgBox(ScpArgMsg("CannotLockUnlockWhenExchanging"));
 	return true;
 end
 

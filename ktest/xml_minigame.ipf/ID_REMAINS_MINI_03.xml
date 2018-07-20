@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="ID_REMAINS_MINI_03" minLv="0" maxLv="0" mapName="id_remains3" startWaitSec="765157384">
+    <Game Name="ID_REMAINS_MINI_03" minLv="0" maxLv="0" mapName="id_remains3" playerCountCheckDestroy="1" startWaitSec="765157384">
         <StageList>
             <Stage Name="START">
                 <ObjList>
@@ -350,9 +350,9 @@
                     <Obj Type="Monster" MonType="58268" Pos="421.17#1405.67#1725.38" angle="-55" genCount="1" genTime="20000" objectKey="97" IsIncludeAchievementRate="1" tendency="1"/>
                 </ObjList>
             </Stage>
-            <Stage Name="BOSS" AutoStart="0">
+            <Stage Name="BOSS">
                 <ObjList>
-                    <Obj Type="Monster" MonType="58273" Pos="1483.90#1094.28#562.71" angle="-172" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="58273" Pos="1483.46#1094.28#558.66" angle="-172" genCount="1" genTime="20000" objectKey="0" tendency="1"/>
                     <Obj Type="Monster" MonType="58272" Pos="1476.21#1094.28#445.42" angle="174" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
                     <Obj Type="Monster" MonType="58272" Pos="1495.48#1094.28#668.96" angle="174" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
                     <Obj Type="Monster" MonType="58272" Pos="1401.14#1094.28#628.38" angle="174" genCount="1" genTime="20000" objectKey="5" tendency="1"/>
@@ -451,35 +451,14 @@
             </Stage>
             <Stage Name="DOOR">
                 <ObjList>
-                    <Obj Type="Monster" MonType="151054" Pos="511.02#1124.33#-181.07" angle="-124" genCount="1" genTime="20000" objectKey="0" propList="&apos;OBBSize&apos; &apos;150;30;200&apos; &apos;Name&apos; &apos;두꺼운 벽&apos; "/>
                     <Obj Type="Monster" MonType="47092" Pos="358.21#1186.64#952.82" angle="-94" genCount="1" genTime="20000" objectKey="1" propList="&apos;OBB&apos; &apos;YES&apos; &apos;OBBSize&apos; &apos;100;100;200&apos; &apos;Name&apos; &apos;관문&apos; "/>
                     <Obj Type="Monster" MonType="20044" Pos="361.83#1186.34#952.72" genCount="1" genTime="20000" objectKey="2"/>
                 </ObjList>
                 <StageEvents>
-                    <Event execCount="1" eventName="두꺼운 벽">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="STAGE1/127/STAGE2/12/STAGE2/13/STAGE2/16/STAGE2/17/STAGE2/18/STAGE2/19/STAGE2/20/STAGE2/23/STAGE2/26/STAGE2/27/STAGE2/28/STAGE2/29/STAGE2/30/STAGE2/31/STAGE2/32/STAGE2/33/STAGE2/34/STAGE2/35/STAGE2/36/STAGE2/37/STAGE2/39/STAGE2/40/STAGE2/41/STAGE2/43/STAGE2/44/STAGE2/45/STAGE2/46/STAGE2/47/STAGE2/48/STAGE2/0/STAGE2/1/STAGE2/2/STAGE2/3/STAGE2/4/STAGE2/5/STAGE2/6/STAGE2/7/STAGE2/8/STAGE2/9/STAGE2/10/STAGE2/11/STAGE2/21/STAGE2/22/STAGE2/24/STAGE2/25/STAGE2/14/STAGE2/15/STAGE2/42/STAGE2/38/STAGE2/49/STAGE2/50/STAGE2/51/STAGE2/55/STAGE1/117/STAGE1/118/STAGE1/119/STAGE1/120/STAGE1/121/STAGE1/122/STAGE1/123/STAGE1/124/STAGE1/125/STAGE1/126/STAGE1/128/STAGE1/129/STAGE1/130/STAGE1/69/STAGE1/70/STAGE1/73/STAGE1/74/STAGE1/75/STAGE1/76/STAGE1/77/STAGE1/78/STAGE1/79/STAGE1/80/STAGE1/81/STAGE1/82/STAGE1/83/STAGE1/84/STAGE1/85/STAGE1/86/STAGE1/87/STAGE1/88/STAGE1/89/STAGE1/90/STAGE1/91/STAGE1/92/STAGE1/93/STAGE1/94/STAGE1/95/STAGE1/96/STAGE1/97/STAGE1/98/STAGE1/99/STAGE1/100/STAGE1/101/STAGE1/102/STAGE1/103/STAGE1/104/STAGE1/105/STAGE1/106/STAGE1/107/STAGE1/108/STAGE1/115/STAGE1/116"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="벽이 열렸습니다"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="DOOR/0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="BOSS"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
                     <Event execCount="1" eventName="관문">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="STAGE2/68/STAGE2/67/STAGE2/69/STAGE2/70/STAGE3/0/STAGE3/1/STAGE3/2/STAGE3/3/STAGE3/4/STAGE3/5/STAGE3/6/STAGE3/7/STAGE3/8/STAGE3/9/STAGE3/10/STAGE3/11/STAGE3/12/STAGE3/13/STAGE3/14/STAGE3/15/STAGE3/16/STAGE3/17/STAGE3/18/STAGE3/19/STAGE3/20/STAGE3/21/STAGE3/22/STAGE3/23/STAGE3/24/STAGE3/25/STAGE3/26/STAGE3/27/STAGE3/28/STAGE3/29/STAGE3/30/STAGE3/31/STAGE3/33/STAGE3/36/STAGE3/37/STAGE3/38/STAGE3/39/STAGE3/40/STAGE3/41/STAGE3/42/STAGE3/43/STAGE3/44/STAGE3/45/STAGE3/46/STAGE3/47/STAGE3/51/STAGE3/52/STAGE3/54/STAGE3/55/STAGE3/56/STAGE3/57/STAGE3/58/STAGE3/53/STAGE3/59/BOSS/0/BOSS/1/BOSS/4/BOSS/5/BOSS/6/BOSS/7/BOSS/2/BOSS/3/BOSS/8/BOSS/9/BOSS/10/BOSS/11/BOSS/12/BOSS/13/BOSS/14/BOSS/15"/>
+                                <MGameObj List="BOSS/0"/>
                                 <Num Num="0"/>
                             </ToolScp>
                         </condList>

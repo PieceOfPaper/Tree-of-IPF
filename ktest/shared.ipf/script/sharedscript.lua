@@ -1890,3 +1890,26 @@ function IS_IN_EVENT_MAP(pc)
 
     return false;
 end
+
+--일반 파티 경험치 계산
+function NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount, pc)
+	--1인 100. 2인 190(95), 3인 270(90), 4인 340(85), 5인 400(80)
+	--대문자로 선언되어있는 변수는 다 sharedconst_system.xml에 있는 값임.
+	local expUpRatio = 1;
+	
+	--파티인원수에 대한 계산
+	if partyMemberCount > 1 then
+		expUpRatio = expUpRatio + ((1 - (partyMemberCount * PARTY_EXP_BONUS)) * (partyMemberCount - 1));
+	end
+	
+	return expUpRatio;
+end
+
+--인던 자동매칭 경험치 계산
+function INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(partyMemberCount)
+	--한명당 120프로씩 더 준다. 단! 1명일 땐, 경험치 보너스 없다.
+	local expUpRatio = NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount);
+	expUpRatio = expUpRatio + (partyMemberCount * INDUN_AUTO_FIND_EXP_BONUS);
+	
+	return expUpRatio;
+end
