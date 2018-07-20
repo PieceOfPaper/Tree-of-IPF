@@ -1,0 +1,350 @@
+namespace query
+{
+	void ZoneInfo();
+	void PlayerInfo();
+	void PlayerInfoWithName(const char *pFieldName);
+	void PlayerInfoLike(const char *pFieldName);
+	void IESInfo(int IESID);
+	void QuestInfo(const char *questname);
+
+};
+
+
+namespace resource
+{
+
+void ResetMotionEvent();
+
+void DestroyResAll();
+void DestroyTexRes();
+
+};
+
+namespace test
+{
+
+void TestFunction();
+
+};
+
+namespace ai
+{
+
+void ChangeTactics(const char* tsName);
+
+};
+
+namespace control
+{
+
+void Skill(int skillID);
+void Pose(const char* name, float offsetX = 0.0f, float offsetY = 0.0f);
+void SelectNearTarget();
+
+void DialogOk();
+void DialogCancel();
+void DialogSelect(int index);
+
+int IsSkillUsable(int skillID);
+void ComboMacro(int index);
+
+};
+
+namespace config
+{
+void ToggleDebuggingMode();
+};
+
+namespace graphic
+{
+
+void EnableEffect(BOOL isHighQuality);
+void EnableDof(int enable);
+void DofPro(int enable);
+void DofEasy(int enable);
+void EnableWater(int enable);
+void EnableFastLoading(int enable);
+void EnableStencil(int enable);
+void ToggleStencil();
+
+void SetResizeLevelOfTextures(int level);
+void CaptureFormat(int format);
+void SetDevGamma(float value);
+void ApplyGammaRamp();
+
+void EnableCharEdge(int enable);
+void SetDrawActor(float value);
+void SetDrawMonster(float value);
+
+};
+
+namespace mouse
+{
+
+void SetMouseSensitivity(float value);
+
+};
+
+namespace camera
+{
+
+void EnableCamCol(int enable);
+void ChangeCamera(int type);
+void EnableInverseCameraHor(int isEnable);
+void EnableInverseCameraVert(int isEnable);
+void EnableInverseCameraZoom(int isEnable);
+void ChangeFixNorth();
+void CamRotate(float latitude, float longitude);
+void CamWheel(float value);
+
+};
+
+namespace item
+{
+
+void Equip(int invIndex);
+void Equip(const char* spotName, int invIndex);
+void EquipByType(int itemType);
+void UnEquip(int spot);
+const char*  GetEquipSpotName(int spot);
+int	 GetEquipSpotNum(const char* spotName);
+int	 GetNoneItem(int spot);
+void MoveItem(int destIndex, int srcIndex);
+void Use(int invIndex);
+void AddToBuyList(int itemIndex, int itemCount = 1);
+void BuyList();
+void Buy(int shopItemIndex);
+void Sell(int invIndex);
+void Drop(int invIndex);
+
+int GetCoolDown(int itemType);
+int GetTotalCoolDown(int itemType);
+
+};
+
+namespace login
+{
+
+void NewAccount();
+void PaymentAccount();
+void OpenURL(const char* url);
+void LoadServerList();
+
+};
+
+namespace app
+{
+
+void Quit();
+void BarrackToLogin();
+void BarrackToGame();
+void GameToBarrack();
+void GameToLogin();
+int ClientVersion();
+
+};
+
+
+namespace ui
+{
+
+void ToggleUi();
+void ProcessReturnKey();
+void ProcessTabKey();
+void Chat(const char* txt);
+
+};
+
+namespace session
+{
+
+void SetQuickSlotInfo(int slotIndex, const char* category, int type, int ext);
+void ClearQuickSlotInfo(int slotIndex);
+int  GetTargetHandle();
+
+}
+
+namespace market
+{
+
+void SendMarketListMsg(int count, int page);
+void SendMarketSellListMsg();
+
+void SendRequestMarketItemSell(int invIndex, int count, int price, int auctionLevel);
+void SendRequestMarketItemBuy(INT64_ID marketID, int count);
+void SendRequestMarketItemCancel(INT64_ID marketID);
+
+};
+
+namespace mail
+{
+
+void MailClear();
+
+void SendMailListMsg();	
+void SendMailDataMsg(INT64_ID mailID);
+
+void SendRequestMailItemGet(INT64_ID mailID);
+void SendRequestMailVisGet(INT64_ID mailID);
+void SendRequestMailDelete(INT64_ID mailID);
+
+};
+
+namespace quest
+{
+
+void SelectEnable(int questID);
+void SelectProgress(int questID);
+void SelectFinish(int questID);
+void Cancel(int questID);
+
+};
+
+namespace restart
+{
+	void SendRestartSavePointMsg();
+	void SendRestartHereMsg();
+	void TryRestart();
+};
+
+typedef struct 
+{
+	int					type;
+	int					count;
+	imcIES::IObject*	object;
+} EXCHANGE_ITEM_INFO;
+
+
+namespace exchange
+{
+	void SendRequestExchangeMsg();
+	void SendAcceptExchangeMsg();
+	void SendDeclineExchangeMsg();
+	void SendAgreeExchangeMsg();
+	void SendCancelExchangeMsg();
+	
+	void SendOfferItem(int invIndex, int itemCount);
+	void SendRemoveOfferItem(int slotIndex);
+	
+	int  GetExchangeItemCount(int who);
+	EXCHANGE_ITEM_INFO GetExchangeItemInfo(int who, int index);
+};
+
+int			GetINT(int parent, int classid, const char* propertyName);
+float		GetFloat(int parent, int classid, const char* propertyName);
+const char* GetString(int parent, int classid, const char* propertyName);
+
+namespace barrack
+{
+	void RequestCreateCharacter(const char* name);
+	void GoCreate();
+	void GoSelect();
+	
+	int	 IsFaceMode();	
+	void SetFaceMode(int isFaceMode);	
+
+	int GetValue(int classid);
+	
+	void SelectJob(int jobIndex);
+	void SelectGender(int genderIndex);
+	void SelectParts(int classid, int value);
+	void SelectDir(int classid, int value);
+	void SelectScale(int classid, float value);
+	void SelectColor(int classid, int value);
+	
+	void PlayCreateAnim();
+	
+	void DeleteCharacter();
+	void DeselectCharacter();
+	
+	const char* GetSelectedCharacterName();
+	const char* GetSelectedCharacterJob();
+	int			GetSelectedCharacterLevel();
+	const char* GetSelectedCharacterMapName();
+	
+	void AttachBarrarkItem(int bAttach);
+};
+
+struct _vector3
+{
+	float x;
+	float y;
+	float z;
+};
+
+struct _rotationInfo
+{
+	_vector3 axis;
+	float angle;
+};
+
+namespace customize
+{
+	int			SetNodeScale(int handle, const char* pNodeName, float x, float y, float z, int isOneNode);
+	void		NodeScaleEnd(int handle);
+	_vector3	GetNodeScale(int handle, const char* pNodeName);
+	
+	int			SetNodePos(int handle, const char* pNodeName, float x, float y, float z);
+	_vector3	GetNodePos(int handle, const char* pNodeName);
+	
+	int			SetNodeRot(int handle, const char* pNodeName, float x, float y, float z, float angle);
+	_rotationInfo GetNodeRot(int handle, const char* pNodeName);
+
+	const char*	GetParentNodeName(int handle, const char* pNodeName);
+	int			GetChildNodeCount(int handle, const char* pNodeName);
+	const char*	GetChildNodeName(int handle, const char* pNodeName, int index);
+	
+	void		SetColor(int handle, int parttype, float r, float g, float b, float a);
+	
+	void		SetColorR(int handle, int parttype, float r);
+	void		SetColorG(int handle, int parttype, float g);
+	void		SetColorB(int handle, int parttype, float b);
+	void		SetColorA(int handle, int parttype, float a);
+	
+	int			GetValue(int handle, int classid);
+	int			GetGender(int handle);
+	
+	void		SelectParts(int handle, int classid, int value);
+	void		SelectScale(int handle, int classid, float value);
+	void		SelectColor(int handle, int classid, int value);
+};
+
+namespace logger
+{
+	void SysMsg(const char* msg);
+	void ToggleInfo();
+};
+
+
+namespace debug 
+{
+	void EnableTerrain(int flag);
+	void EnableNavigationMesh(int flag);	
+	void ToggleNavigationMesh();
+	void EnableOpcodeMesh(int flag);
+	void ToggleOpcodeMesh();
+	void EnableHeightField(int flag);
+	void EnableStaticMesh(int flag);
+	void EnableDynamicMesh(int flag);
+	void CheatSetPos(int x,int y);	
+	void ShowTestAgent(int flag);
+	void PrintResAll();
+	void PrintAllObj();
+	void ShowState(int showState);
+	void PrintPickObject();
+};
+
+class AREA 
+{
+public:
+	std::string	 name;
+};
+
+namespace world
+{
+AREA* GetCurrentArea();
+};
+
+
+
+void NoneScp();

@@ -21,11 +21,11 @@ set ToolsPath=%cd%\tools
 
 for /f %%a in (ipflist_data.txt) do (
 	cd %RootPath%
-	echo F|xcopy /y "%TosPath%\data\%%a" "%TempPath%\data\%%a"
+	echo F|xcopy /y %TosPath%\data\%%a %TempPath%\data\%%a
 	%ToolsPath%\ipf_unpack\ipf_unpack.exe %TempPath%\data\%%a decrypt
 	%ToolsPath%\ipf_unpack\ipf_unpack.exe %TempPath%\data\%%a extract ies xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3
 	
-	xcopy /y /s "%ExtractPath%" "%ExportPath%"
+	xcopy /y /s %ExtractPath% %ExportPath%
 	
 	cd %RootPath%
 	del /s /q Temp
@@ -34,6 +34,7 @@ for /f %%a in (ipflist_data.txt) do (
 	cd %ExportPath%
 	git add --all
 	git commit -m "%2 Data %%a"
+	git push
 )
 
 

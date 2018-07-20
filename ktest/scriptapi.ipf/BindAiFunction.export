@@ -1,0 +1,24 @@
+class CAiActor
+{
+public:
+	const char*		GetPrevTS();
+	void			ChangeTactics(const char * name);
+	
+	int				IsSkillCasting();
+	int				IsSkillUsing();
+	int				IsSkillTargeting();
+	
+	int				GetDestCount() const;
+	int				IsArrived(float arrivalRange);
+	void			MoveToDest();
+	void			ReleaseDest();
+	std::string		GetDestAction();
+	int				IsDestTargetExist();
+
+	CFSMActor*		GetEnemy(float maxSearchDist, int isAtkable, int isHold);
+		
+	void			AttackTarget();
+	void			PickTarget();
+	void			TriggerTarget();	
+	void			ActivateWatchTarget();
+};
